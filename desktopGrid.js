@@ -172,12 +172,9 @@ var DesktopGrid = class {
     resizeWindow() {
         this.updateWindowGeometry();
         this._desktopName = `@!${this._x},${this._y};BDHF`;
-        if (this._using_X11){
-            this._window.move(this._x / this._size_divisor, this._y / this._size_divisor);
-        }
         this._window.set_title(this._desktopName);
+        this._window.set_default_size(this._windowWidth, this._windowHeight);
         this._window.set_size_request(this._windowWidth, this._windowHeight);
-        this._window.resize(this._windowWidth, this._windowHeight);
         this.scale = this._window.get_scale_factor();
     }
 

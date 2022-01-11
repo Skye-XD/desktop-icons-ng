@@ -42,6 +42,7 @@ class ManageWindow {
     */
 
     constructor(window, wayland_client, changedStatusCB) {
+        this._isX11 = ! Meta.is_wayland_compositor();
         this._wayland_client = wayland_client;
         this._window = window;
         this._signalIDs = [];
@@ -54,6 +55,9 @@ class ManageWindow {
         this._signalIDs.push(window.connect('position-changed', () => {
             if (this._fixed && (this._x !== null) && (this._y !== null)) {
                 this._window.move_frame(true, this._x, this._y);
+                if (this._window.fullscreen) {
+                    this._window.unmake_fullscreen();
+                }
             }
         }));
         this._signalIDs.push(window.connect("notify::title", () => {
@@ -145,7 +149,10 @@ class ManageWindow {
                     global.log(`Exception ${e.message}.\n${e.stack}`);
                 }
             }
-            if (this._wayland_client) {
+            if (this._fixed && (this._x !== null) && (this._y !== null)) {
+                this._window.move_frame(true, this._x, this._y);
+            }
+            if (! this._isX11 && this._wayland_client) {
                 if (this._hideFromWindowList) {
                     this._wayland_client.hide_from_window_list(this._window);
                 } else {
@@ -162,9 +169,6 @@ class ManageWindow {
             if (this._keepAtBottom) {
                 this._window.lower();
             }
-            if (this._fixed && (this._x !== null) && (this._y !== null)) {
-                this._window.move_frame(true, this._x, this._y);
-            }
             this._changedStatusCB(this);
         }
     }
@@ -175,6 +179,9 @@ class ManageWindow {
             if (!this._window.located_on_workspace(currentWorkspace)) {
                 this._window.change_workspace(currentWorkspace);
             }
+        }
+        if (this._window.fullscreen) {
+            this._window.unmake_fullscreen();
         }
         if (this._keepAtBottom) {
             this._window.lower();
@@ -214,13 +221,18 @@ var EmulateX11WindowType = class {
     }
 
     enable() {
-        if (this._isX11) {
-            return;
-        }
         this._idMap = global.window_manager.connect_after('map', (obj, windowActor) => {
             let window = windowActor.get_meta_window();
             if (this._wayland_client && this._wayland_client.query_window_belongs_to(window)) {
                 this.addWindow(window);
+            }
+            if (this._isX11) {
+                let appid = window.get_gtk_application_id();
+                let windowpid = window.get_pid();
+                let mypid = this._wayland_client.query_pid_of_program();
+                if ((appid == 'com.rastersoft.ding') && (windowpid == mypid)) {
+                    this.addWindow(window);
+                }
             }
             this._refreshWindows(false);
         });
@@ -253,9 +265,6 @@ var EmulateX11WindowType = class {
     }
 
     disable() {
-        if (this._isX11) {
-            return;
-        }
         if (this._activate_window_ID) {
             GLib.source_remove(this._activate_window_ID);
             this._activate_window_ID = null;
@@ -289,9 +298,6 @@ var EmulateX11WindowType = class {
     }
 
     addWindow(window) {
-        if (this._isX11) {
-            return;
-        }
         if (window.get_meta_window) { // it is a MetaWindowActor
             window = window.get_meta_window();
         }

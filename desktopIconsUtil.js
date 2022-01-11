@@ -16,22 +16,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+imports.gi.versions.GdkX11 = '3.0';
+
 const Gtk = imports.gi.Gtk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gdk = imports.gi.Gdk;
+const GdkX11 = imports.gi.GdkX11;
 const Prefs = imports.preferences;
 const Enums = imports.enums;
 const Gettext = imports.gettext.domain('ding');
 
+var applicationid = null;
+var usingX11 = null;
+
 const _ = Gettext.gettext;
 
-function getModifiersInDnD(context, modifiersToCheck) {
-    let device = context.get_device();
-    let display = device.get_display();
-    let keymap = Gdk.Keymap.get_for_display(display);
-    let modifiers = keymap.get_modifier_state();
-    return ((modifiers & modifiersToCheck) != 0);
+function setApplicationId(appid) {
+    applicationid = appid;
+}
+
+function getApplicationID() {
+    return applicationid;
 }
 
 function getDesktopDir() {
@@ -229,30 +235,31 @@ function writeTextFileToDesktop(text, filename, dropCoordinates) {
     }
 }
 
+function hideX11windowTaskbar(window) {
+    window.connect('realize', (window) => {
+        let gdkWindow = window.get_window();
+        gdkWindow.set_skip_pager_hint(true);
+        gdkWindow.set_skip_taskbar_hint(true);
+    });
+}
+
 function windowHidePagerTaskbarModal(window, modal) {
-    let using_X11 = Gdk.Display.get_default().constructor.$gtype.name === 'GdkX11Display';
-    if (using_X11) {
-        window.set_type_hint(Gdk.WindowTypeHint.NORMAL);
-        window.set_skip_taskbar_hint(true);
-        window.set_skip_pager_hint(true);
-    } else {
-        let title = window.get_title();
-        if (title == null) {
-            title = "";
-        }
-        if (modal) {
-            title = title + '  ';
-        } else {
-            title = title + ' ';
-        }
-        window.set_title(title);
+    window.set_application(applicationid);
+    let title = window.get_title();
+    if (title == null) {
+        title = "";
     }
     if (modal) {
-        window.connect('focus-out-event', () => {
-            window.set_keep_above(true);
-            window.stick();
-            window.grab_focus();
-        });
+        title = title + '  ';
+    } else {
+        title = title + ' ';
+    }
+    window.set_title(title);
+    if (usingX11) {
+        hideX11windowTaskbar(window);
+    }
+    if (modal) {
+        window.set_modal(true);
         window.grab_focus();
     }
 }

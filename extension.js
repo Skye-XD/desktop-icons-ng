@@ -104,10 +104,8 @@ function innerEnable(removeId) {
 
     data.GnomeShellOverride.enable();
 
-    // under X11 we don't need to cheat, so only do all this under wayland
-    if (Meta.is_wayland_compositor()) {
-        data.x11Manager.enable();
-    }
+    // under X11 we now need to cheat, so only do all this under wayland as well as X
+    data.x11Manager.enable();
 
     /*
      * If the desktop geometry changes (because a new monitor has been added, for example),
@@ -531,6 +529,13 @@ var LaunchSubprocess = class {
         } catch(e) {
             return false;
         }
+    }
+
+    query_pid_of_program() {
+        if (!this.process_running) {
+            return false;
+        }
+        return this.subprocess.get_identifier();
     }
 
     show_in_window_list(window) {
