@@ -309,7 +309,7 @@ var desktopIconItem = class desktopIconItem {
         let shiftPressed = !!(state & Gdk.ModifierType.SHIFT_MASK);
         let controlPressed = !!(state & Gdk.ModifierType.CONTROL_MASK);
         if (button == 3) {
-            this._doButtonThreePressed(event, shiftPressed, controlPressed);
+            this._doButtonThreePressed(actor, event, shiftPressed, controlPressed);
         } else if (button == 1) {
             this._doButtonOnePressed(event, shiftPressed, controlPressed);
         }
@@ -324,11 +324,11 @@ var desktopIconItem = class desktopIconItem {
         return false;
     }
 
-    _doButtonThreePressed(event) {
+    _doButtonThreePressed(actor, event) {
         if (!this._isSelected) {
             this._desktopManager.selected(this, Enums.Selection.RIGHT_BUTTON);
         }
-        this._desktopManager.fileItemMenu.showMenu(this, event);
+        this._desktopManager.fileItemMenu.showMenu(this, event, actor);
     }
 
     _doButtonOnePressed(event, shiftPressed, controlPressed) {

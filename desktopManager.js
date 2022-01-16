@@ -65,12 +65,6 @@ var DesktopManager = class {
         this.dbusManager = dbusManager;
         this.autoAr = new AutoAr.AutoAr(this);
 
-        this.templatesMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
-            DesktopIconsUtil.getTemplatesDir(),
-            TemplatesScriptsManager.TemplatesScriptsManagerFlags.HIDE_EXTENSIONS,
-            this._newDocument.bind(this)
-        );
-
         this._primaryIndex = primaryIndex;
         if (primaryIndex < desktopList.length) {
             this._primaryScreen = desktopList[primaryIndex];
@@ -96,6 +90,14 @@ var DesktopManager = class {
         this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) => this._updateDesktopIfChanged(file, otherFile, eventType));
 
         this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
+        this.templatesMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
+            DesktopIconsUtil.getTemplatesDir(),
+            this._newDocument.bind(this),
+            this._templatesDirSelectionFilter.bind(this),
+            this.mainApp,
+            "templateapp"
+        );
+
 
         this._showHidden = Prefs.gtkSettings.get_boolean('show-hidden');
         this.showDropPlace = Prefs.desktopSettings.get_boolean('show-drop-place');
@@ -131,7 +133,6 @@ var DesktopManager = class {
                 return;
             }
             if (key == Enums.SortOrder.ORDER) {
-                this.doArrangeRadioButtons();
                 if (this.keepStacked) {
                     this.doStacks(true);
                 } else {
@@ -172,6 +173,7 @@ var DesktopManager = class {
                 this._updateDesktop().catch((e) => {
                     print(`Exception while updating Desktop after Hidden Settings Changed: ${e.message}\n${e.stack}`);
                 });
+                this.templatesMonitor.updateEntries();
             }
         });
         Prefs.nautilusSettings.connect('changed', (obj, key) => {
@@ -204,7 +206,7 @@ var DesktopManager = class {
         Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         this._configureSelectionColor();
-        this._createDesktopBackgroundMenu();
+        this._createMenuActionGroup();
         this._createGridWindows();
 
         DBusUtils.NautilusFileOperations2.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
@@ -269,6 +271,23 @@ var DesktopManager = class {
                     break;
                 }
             }
+        }
+    }
+
+    _templatesDirSelectionFilter(fileinfo) {
+        let name = fileinfo.get_name();
+        let offset = DesktopIconsUtil.getFileExtensionOffset(name, false);
+        name = name.substring(0, offset);
+        let hidden;
+        if (this._showHidden) {
+            hidden = false;
+        } else {
+            hidden = (name.substring(0, 1) == '.');
+        }
+        if (!hidden) {
+            return name;
+        } else {
+            return null;
         }
     }
 
@@ -630,23 +649,17 @@ var DesktopManager = class {
         }
         if (button == 3) {
             this._prepareMenu();
-            this._menu.popup_at_pointer(event);
+            this._createDesktopBackgroundGioMenu();
+            let popupmenu = Gtk.Popover.new_from_model(grid._eventBox, this.desktopBackgroundGioMenu)
+            popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
+            this.popupmenuopen = true;
+            popupmenu.popup();
+            popupmenu.connect('closed', () => {this.popupmenuopen = false});
         }
     }
 
     _prepareMenu() {
-        let templates = this.templatesMonitor.createMenu();
-        if (templates === null) {
-            this._newDocumentItem.hide();
-        } else {
-            this._newDocumentItem.set_submenu(templates);
-            this._newDocumentItem.show_all();
-        }
-        this._pasteMenuItem.set_sensitive(false);
-        this._updateClipBoard();
-    }
-
-     _updateClipBoard() {
+        this._syncUndoRedo();
         let atom = Gdk.Atom.intern('CLIPBOARD', false);
         let atom2 = Gdk.Atom.intern('x-special/gnome-copied-files', false);
         let clipboard = Gtk.Clipboard.get(atom);
@@ -689,22 +702,22 @@ var DesktopManager = class {
             this._isCut = is_cut;
             this._clipboardFiles = files;
         }
-        this._pasteMenuItem.set_sensitive(valid);
+        this.doPasteSimpleAction.set_enabled(valid);
     }
 
     _syncUndoRedo() {
         switch (DBusUtils.RemoteFileOperations.UndoStatus()) {
             case Enums.UndoStatus.UNDO:
-                this._undoMenuItem.show();
-                this._redoMenuItem.hide();
+                this.doUndoSimpleAction.set_enabled(true);
+                this.doRedoSimpleAction.set_enabled(false);
                 break;
             case Enums.UndoStatus.REDO:
-                this._undoMenuItem.hide();
-                this._redoMenuItem.show();
+                this.doUndoSimpleAction.set_enabled(false);
+                this.doRedoSimpleAction.set_enabled(true);
                 break;
             default:
-                this._undoMenuItem.hide();
-                this._redoMenuItem.hide();
+                this.doUndoSimpleAction.set_enabled(false);
+                this.doRedoSimpleAction.set_enabled(false);
                 break;
         }
     }
@@ -768,6 +781,9 @@ var DesktopManager = class {
                 return true;
             }
         } else if ((selection) && symbol == Gdk.KEY_space) {
+                if (this.popupmenuopen) {
+                    return true;
+                }
                 // Support previewing other grids file items.
                 DBusUtils.RemoteFileOperations.ShowFileRemote(selection[0].uri, 0, true);
                 return true;
@@ -864,6 +880,9 @@ var DesktopManager = class {
             newItem.setSelected();
             return false;
         } else {
+            if (this.popupmenuopen) {
+                return true;
+            }
             if (this.ignoreKeys.includes(symbol)) {
                 return false;
             }
@@ -980,75 +999,136 @@ var DesktopManager = class {
         }
     }
 
-    _createDesktopBackgroundMenu() {
-        this._menu = new Gtk.Menu();
-        this._menu.get_style_context().add_class("desktopmenu");
-        let newFolder = new Gtk.MenuItem({label: _("New Folder")});
-        newFolder.connect("activate", () => this.doNewFolder());
-        this._menu.add(newFolder);
+    _createMenuActionGroup() {
 
-        this._newDocumentItem = new Gtk.MenuItem({label: _("New Document")});
-        this._menu.add(this._newDocumentItem);
+        let newFolder = Gio.SimpleAction.new('doNewFolder', null);
+        newFolder.connect('activate', this.doNewFolder.bind(this, null));
+        this.mainApp.add_action(newFolder);
 
-        this._menu.add(new Gtk.SeparatorMenuItem());
+        this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
+        this.doPasteSimpleAction.connect('activate', this._doPaste.bind(this));
+        this.mainApp.add_action(this.doPasteSimpleAction);
 
-        this._pasteMenuItem = new Gtk.MenuItem({label: _("Paste")});
-        this._pasteMenuItem.connect("activate", () => this._doPaste());
-        this._menu.add(this._pasteMenuItem);
+        this.doUndoSimpleAction = Gio.SimpleAction.new('doUndo', null);
+        this.doUndoSimpleAction.connect('activate', this._doUndo.bind(this));
+        this.mainApp.add_action(this.doUndoSimpleAction);
 
-        this._undoMenuItem = new Gtk.MenuItem({label: _("Undo")});
-        this._undoMenuItem.connect("activate", () => this._doUndo());
-        this._menu.add(this._undoMenuItem);
+        this.doRedoSimpleAction = Gio.SimpleAction.new('doRedo', null);
+        this.doRedoSimpleAction.connect('activate', this._doRedo.bind(this));
+        this.mainApp.add_action(this.doRedoSimpleAction);
 
-        this._redoMenuItem = new Gtk.MenuItem({label: _("Redo")});
-        this._redoMenuItem.connect("activate", () => this._doRedo());
-        this._menu.add(this._redoMenuItem);
+        let selectAll = Gio.SimpleAction.new('selectAll', null);
+        selectAll.connect('activate', this._selectAll.bind(this));
+        this.mainApp.add_action(selectAll);
 
-        this._menu.add(new Gtk.SeparatorMenuItem());
+        let showDesktopInFiles = Gio.SimpleAction.new('showDesktopInFiles', null);
+        showDesktopInFiles.connect('activate', this._onOpenDesktopInFilesClicked.bind(this));
+        this.mainApp.add_action(showDesktopInFiles);
 
-        let selectAll = new Gtk.MenuItem({label: _("Select All")});
-        selectAll.connect("activate", () => this._selectAll());
-        this._menu.add(selectAll);
+        let openInTerminal = Gio.SimpleAction.new('openInTerminal', null);
+        openInTerminal.connect('activate', this._onOpenTerminalClicked.bind(this));
+        this.mainApp.add_action(openInTerminal);
 
-        this._addSortingMenu();
-
-        this._menu.add(new Gtk.SeparatorMenuItem());
-
-        this._showDesktopInFilesMenuItem = new Gtk.MenuItem({label: _("Show Desktop in Files")});
-        this._showDesktopInFilesMenuItem.connect("activate", () => this._onOpenDesktopInFilesClicked());
-        this._menu.add(this._showDesktopInFilesMenuItem);
-
-        this._openTerminalMenuItem = new Gtk.MenuItem({label: _("Open in Terminal")});
-        this._openTerminalMenuItem.connect("activate", () => this._onOpenTerminalClicked());
-        this._menu.add(this._openTerminalMenuItem);
-
-        this._menu.add(new Gtk.SeparatorMenuItem());
-
-        this._changeBackgroundMenuItem = new Gtk.MenuItem({label: _("Change Background…")});
-        this._changeBackgroundMenuItem.connect("activate", () => {
+        let changeBackGround = Gio.SimpleAction.new('changeBackGround', null);
+        changeBackGround.connect('activate', (action, parameter) => {
             let desktopFile = Gio.DesktopAppInfo.new('gnome-background-panel.desktop');
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gtk.get_current_event_time());
             desktopFile.launch([], context);
         });
-        this._menu.add(this._changeBackgroundMenuItem);
+        this.mainApp.add_action(changeBackGround);
 
-        this._menu.add(new Gtk.SeparatorMenuItem());
-
-        this._settingsMenuItem = new Gtk.MenuItem({ label: _("Desktop Icons Settings") });
-        this._settingsMenuItem.connect("activate", () => Prefs.showPreferences());
-        this._menu.add(this._settingsMenuItem);
-
-        this._displaySettingsMenuItem = new Gtk.MenuItem({label: _("Display Settings")});
-        this._displaySettingsMenuItem.connect("activate", () => {
+        let changeDisplaySettings = Gio.SimpleAction.new('changeDisplaySettings', null);
+        changeDisplaySettings.connect('activate', (action, parameter) => {
             let desktopFile = Gio.DesktopAppInfo.new('gnome-display-panel.desktop');
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gtk.get_current_event_time());
             desktopFile.launch([], context);
         });
-        this._menu.add(this._displaySettingsMenuItem);
+        this.mainApp.add_action(changeDisplaySettings);
 
-        this._menu.show_all();
+        let changeDesktopIconSettings = Gio.SimpleAction.new('changeDesktopIconSettings', null);
+        changeDesktopIconSettings.connect('activate', Prefs.showPreferences.bind(this));
+        this.mainApp.add_action(changeDesktopIconSettings);
+
+        let cleanUpIconsAction = Gio.SimpleAction.new("cleanUpIcons", null)
+        cleanUpIconsAction.connect("activate", () => this._sortAllFilesFromGridsByPosition());
+        this.mainApp.add_action(cleanUpIconsAction);
+
+        let keepArrangedAction = Prefs.desktopSettings.create_action("keep-arranged")
+        this.mainApp.add_action(keepArrangedAction);
+        Prefs.desktopSettings.bind("keep-arranged", cleanUpIconsAction, "enabled", 16);
+        this.mainApp.add_action(Prefs.desktopSettings.create_action("keep-stacked"));
+        this.mainApp.add_action(Prefs.desktopSettings.create_action("sort-special-folders"));
+        this.mainApp.add_action(Prefs.desktopSettings.create_action("arrangeorder"));
+    }
+
+
+    _createDesktopBackgroundGioMenu() {
+
+        this.sortingRadioMenu = Gio.Menu.new();
+        this.sortingRadioMenu.append(_("Sort by Name"), "app.arrangeorder::NAME");
+        this.sortingRadioMenu.append(_("Sort by Name Descending"), "app.arrangeorder::DESCENDINGNAME");
+        this.sortingRadioMenu.append(_("Sort by Modified Time"), "app.arrangeorder::MODIFIEDTIME");
+        this.sortingRadioMenu.append(_("Sort by Type"), "app.arrangeorder::KIND");
+        this.sortingRadioMenu.append(_("Sort by Size"), "app.arrangeorder::SIZE");
+
+        this.sortingSubMenu = Gio.Menu.new();
+        this.keepArrangedMenuItem = Gio.MenuItem.new(_("Keep Arranged…"), "app.keep-arranged");
+        if (! this.keepStacked) {
+            this.sortingSubMenu.append_item(this.keepArrangedMenuItem);
+        }
+        this.sortingSubMenu.append(_("Keep Stacked by Type…"), "app.keep-stacked");
+        this.sortingSubMenu.append(_("Sort Home/Drives/Trash…"), "app.sort-special-folders");
+        this.sortingSubMenu.append_section(null, this.sortingRadioMenu);
+
+        this.desktopBackgroundGioMenu = Gio.Menu.new();
+
+        this.desktopBackgroundGioMenu.append(_("New Folder"), "app.doNewFolder");
+
+        let templates = this.templatesMonitor.getGioMenu();
+        if ( ! (templates === null)) {
+            this.desktopBackgroundGioMenu.append_submenu(_("New Document"), templates);
+        }
+
+        this.pasteUndoRedoMenu = Gio.Menu.new();
+        this.pasteUndoRedoMenu.append(_("Paste"), "app.doPaste");
+        this.pasteUndoRedoMenu.append(_("Undo"), "app.doUndo");
+        this.pasteUndoRedoMenu.append(_("Redo"), "app.doRedo");
+
+        this.desktopBackgroundGioMenu.append_section(null, this.pasteUndoRedoMenu);
+
+        this.selectAllMenu = Gio.Menu.new();
+        this.selectAllMenu.append(_("Select All"), "app.selectAll");
+
+        this.desktopBackgroundGioMenu.append_section(null, this.selectAllMenu);
+
+        this.sortingMenu = Gio.Menu.new();
+        this.cleanUpMenuItem = Gio.MenuItem.new( _("Arrange Icons"), "app.cleanUpIcons");
+        if (! this.keepStacked) {
+            this.sortingMenu.append_item(this.cleanUpMenuItem);
+        }
+        this.arrangeSubMenuItem = Gio.MenuItem.new_submenu(_("Arrange By…"), this.sortingSubMenu)
+        this.sortingMenu.append_item(this.arrangeSubMenuItem);
+        this.desktopBackgroundGioMenu.append_section(null, this.sortingMenu);
+
+        this.desktopTerminalMenu = Gio.Menu.new()
+        this.desktopTerminalMenu.append(_("Show Desktop In Files"), "app.showDesktopInFiles");
+        this.desktopTerminalMenu.append(_("Open In Terminal"), "app.openInTerminal");
+
+        this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
+
+        this.backgroundMenu = Gio.Menu.new();
+        this.backgroundMenu.append(_("Change Background…"), "app.changeBackGround");
+
+        this.desktopBackgroundGioMenu.append_section(null, this.backgroundMenu);
+
+        this.settingsMenu = Gio.Menu.new();
+        this.settingsMenu.append(_("Desktop Icon Settings"), "app.changeDesktopIconSettings");
+        this.settingsMenu.append(_("Display Settings"), "app.changeDisplaySettings");
+
+        this.desktopBackgroundGioMenu.append_section(null, this.settingsMenu);
+
     }
 
     _selectAll() {
@@ -1684,61 +1764,6 @@ var DesktopManager = class {
         }
     }
 
-    _addSortingMenu() {
-        this._menu.add(new Gtk.SeparatorMenuItem());
-
-        this._cleanUpMenuItem = new Gtk.MenuItem({label: _("Arrange Icons")});
-        this._cleanUpMenuItem.connect("activate", () => this._sortAllFilesFromGridsByPosition());
-        this._menu.add(this._cleanUpMenuItem);
-
-        this._ArrangeByMenuItem = new Gtk.MenuItem({label: _("Arrange By...")});
-        this._menu.add(this._ArrangeByMenuItem);
-        this._addSortingSubMenu();
-    }
-
-    _addSortingSubMenu() {
-        this._arrangeSubMenu = new Gtk.Menu();
-        this._ArrangeByMenuItem.set_submenu(this._arrangeSubMenu);
-
-        this._keepArrangedMenuItem = new Gtk.CheckMenuItem({label: _("Keep Arranged...")});
-        Prefs.desktopSettings.bind('keep-arranged', this._keepArrangedMenuItem, 'active', 3);
-        this._arrangeSubMenu.add(this._keepArrangedMenuItem);
-
-        this._keepStackedMenuItem = new Gtk.CheckMenuItem({label: _("Keep Stacked by type...")});
-        Prefs.desktopSettings.bind('keep-stacked', this._keepStackedMenuItem, 'active', 3);
-        this._arrangeSubMenu.add(this._keepStackedMenuItem);
-        this._keepArrangedMenuItem.bind_property('active', this._cleanUpMenuItem, 'sensitive', 6);
-
-        this._sortSpecialFilesMenuItem = new Gtk.CheckMenuItem({label: _("Sort Home/Drives/Trash...")});
-        Prefs.desktopSettings.bind('sort-special-folders', this._sortSpecialFilesMenuItem, 'active', 3);
-        this._arrangeSubMenu.add(this._sortSpecialFilesMenuItem);
-
-        this._arrangeSubMenu.add(new Gtk.SeparatorMenuItem());
-
-        this._radioName = new Gtk.RadioMenuItem({label: _("Sort by Name")});
-        this._arrangeSubMenu.add(this._radioName);
-        this._radioDescName = new Gtk.RadioMenuItem({label: _("Sort by Name Descending")});
-        this._radioDescName.join_group(this._radioName);
-        this._arrangeSubMenu.add (this._radioDescName);
-        this._radioTimeName = new Gtk.RadioMenuItem({label: _("Sort by Modified Time")});
-        this._radioTimeName.join_group(this._radioName);
-        this._arrangeSubMenu.add (this._radioTimeName);
-        this._radioKindName = new Gtk.RadioMenuItem({label: _("Sort by Type")});
-        this._radioKindName.join_group(this._radioName);
-        this._arrangeSubMenu.add (this._radioKindName);
-        this._radioSizeName = new Gtk.RadioMenuItem({label: _("Sort by Size")});
-        this._radioSizeName.join_group(this._radioName);
-        this._arrangeSubMenu.add (this._radioSizeName);
-        this.doArrangeRadioButtons();
-        this._radioName.connect("activate", () => {this.setIfActive(this._radioName, Enums.SortOrder.NAME)});
-        this._radioDescName.connect("activate", () => {this.setIfActive(this._radioDescName, Enums.SortOrder.DESCENDINGNAME)});
-        this._radioTimeName.connect("activate", () => {this.setIfActive(this._radioTimeName, Enums.SortOrder.MODIFIEDTIME)});
-        this._radioKindName.connect("activate", () => {this.setIfActive(this._radioKindName, Enums.SortOrder.KIND)});
-        this._radioSizeName.connect("activate", () => {this.setIfActive(this._radioSizeName, Enums.SortOrder.SIZE)});
-
-        this._arrangeSubMenu.show_all();
-    }
-
     onToggleStackUnstackThisTypeClicked(type, typeInList, unstackList) {
         if (!unstackList) {
             unstackList = Prefs.getUnstackList();
@@ -1762,8 +1787,10 @@ var DesktopManager = class {
         if (! this.stackInitialCoordinates && ! this._allFileList) {
             this._allFileList = [];
             this._saveStackInitialCoordinates();
-            this._keepArrangedMenuItem.hide();
-            this._cleanUpMenuItem.hide();
+            if (this.sortingSubMenu && this.sortingMenu) {
+                this.sortingSubMenu.remove(0);
+                this.sortingMenu.remove(0);
+            }
             restack = false;
         }
         this._sortAllFilesFromGridsByKindStacked(restack);
@@ -1776,8 +1803,10 @@ var DesktopManager = class {
             this._restoreStackInitialCoordinates();
             this._fileList = this._allFileList;
             this._allFileList = null;
-            this._keepArrangedMenuItem.show();
-            this._cleanUpMenuItem.show();
+            if (this.sortingSubMenu && this.sortingMenu) {
+                this.sortingSubMenu.prepend_item(this.keepArrangedMenuItem);
+                this.sortingMenu.prepend_item(this.cleanUpMenuItem)
+            }
             if (this.keepArranged) {
                 this.doSorts();
             } else {
@@ -1953,12 +1982,6 @@ var DesktopManager = class {
         this._fileList = newFileList;
     }
 
-    setIfActive(buttonname, choice) {
-        if(buttonname.get_active()) {
-            Prefs.setSortOrder(choice);
-        }
-    }
-
     _sortByName(fileList) {
         function byName(a, b) {
             //sort by label name instead of the the fileName or displayName so that the "Home" folder is sorted in the correct order
@@ -2113,30 +2136,6 @@ var DesktopManager = class {
             this._fileList = newFileList ;
         }
         this._addFilesToDesktop(this._fileList, Enums.StoredCoordinates.PRESERVE);
-    }
-
-    doArrangeRadioButtons() {
-        switch(Prefs.getSortOrder()) {
-                case Enums.SortOrder.NAME:
-                    this._radioName.set_active(true);
-                    break;
-                case Enums.SortOrder.DESCENDINGNAME:
-                    this._radioDescName.set_active(true);
-                    break;
-                case Enums.SortOrder.MODIFIEDTIME:
-                    this._radioTimeName.set_active(true);
-                    break;
-                case Enums.SortOrder.KIND:
-                    this._radioKindName.set_active(true);
-                    break;
-                case Enums.SortOrder.SIZE:
-                    this._radioSizeName.set_active(true);
-                    break;
-                default:
-                    this._radioName.set_active(true);
-                    Prefs.setSortOrder(Enums.SortOrder.NAME);
-                    break;
-        }
     }
 
     doSorts(cleargrids) {

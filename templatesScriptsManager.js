@@ -17,27 +17,25 @@
 
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
-const Gtk = imports.gi.Gtk;
 const Enums = imports.enums;
-const DesktopIconsUtil = imports.desktopIconsUtil;
-
-var TemplatesScriptsManagerFlags = {
-    'NONE': 0,
-    'ONLY_EXECUTABLE': 1,
-    'HIDE_EXTENSIONS': 2
-};
 
 var TemplatesScriptsManager = class {
 
-    constructor(baseFolder, flags, activatedCB) {
-        this._activatedCB = activatedCB;
+    constructor(baseFolder, callback, selectionfilter, mainApp, appname) {
+        this._callback = callback;
+        this._selectionFilter = selectionfilter;
+        this._mainApp = mainApp;
         this._entries = [];
         this._entriesEnumerateCancellable = null;
         this._readingEntries = false;
         this._entriesDir = baseFolder;
         this._entriesDirMonitors = [];
         this._entriesFolderChanged = false;
-        this._flags = flags;
+        this.gioMenu = null;
+        this.scriptManagerActionName = appname;
+        this.menuSimpleAction = Gio.SimpleAction.new(`${this.scriptManagerActionName}`, GLib.VariantType.new("s"));
+        this.menuSimpleAction.connect("activate", (action,parameter) => this._callback(parameter.recursiveUnpack()));
+        this._mainApp.add_action(this.menuSimpleAction);
 
         if (this._entriesDir == GLib.get_home_dir()) {
             this._entriesDir = null;
@@ -46,17 +44,17 @@ var TemplatesScriptsManager = class {
             this._monitorDir = baseFolder.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
             this._monitorDir.set_rate_limit(1000);
             this._monitorDir.connect('changed', (obj, file, otherFile, eventType) => {
-                this._updateEntries().catch((e) => {
+                this.updateEntries().catch((e) => {
                     print(`Exception while updating entries in monitor: ${e.message}\n${e.stack}`);
                 });
             });
-            this._updateEntries().catch((e) => {
+            this.updateEntries().catch((e) => {
                 print(`Exception while updating entries: ${e.message}\n${e.stack}`);
             });
         }
     }
 
-    async _updateEntries() {
+    async updateEntries() {
         if (this._readingEntries) {
             this._entriesFolderChanged = true;
             if (this._entriesEnumerateCancellable) {
@@ -83,43 +81,60 @@ var TemplatesScriptsManager = class {
             entriesList = await this._processDirectory(this._entriesDir);
         } while ((entriesList === null) || this._entriesFolderChanged);
 
-        this._entries = entriesList;
+        [this._entries, this.gioMenu] = (entriesList !== null) ? entriesList : [null, null];
         this._readingEntries = false;
     }
 
     async _processDirectory(directory) {
-        if (directory !== this._entriesDir) {
-            let monitorDir = directory.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
-            monitorDir.set_rate_limit(1000);
-            let monitorId = monitorDir.connect('changed', (obj, file, otherFile, eventType) => { this._updateEntries(); });
-            this._entriesDirMonitors.push([monitorDir, monitorId]);
-        }
-
         try {
             var files = await this._readDirectory(directory);
         } catch(e) {
             return null;
         }
-
         if (files === null) {
             return null;
         }
         let output = [];
+        let menu = new Gio.Menu;
+        let menuhasentries = false;
         for (let file of files) {
+            let menuItemName = file[0].get_name();
+            let menuItemPath = file[1].get_path();
             if (file[2] === null) {
                 output.push(file);
+                menuItemName = this._selectionFilter(file[0]);
+                if (menuItemName) {
+                    let menuItem = Gio.MenuItem.new(`${menuItemName}`, null);
+                    menuItem.set_action_and_target_value(`app.${this.scriptManagerActionName}`, GLib.Variant.new('s', `${menuItemPath}`));
+                    menu.append_item(menuItem);
+                    menuhasentries = true;
+                }
                 continue;
             }
-            file[2] = await this._processDirectory(file[1]);
-            if (file[2] === null) {
+            let monitorDir = file[1].monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
+            monitorDir.set_rate_limit(1000);
+            let monitorId = monitorDir.connect('changed', (obj, file, otherFile, eventType) => { this.updateEntries(); });
+            this._entriesDirMonitors.push([monitorDir, monitorId]);
+            let submenu;
+            let subentriesList;
+            subentriesList = await this._processDirectory(file[1]);
+            if (subentriesList === null) {
                 return null;
             }
+            [file[2], submenu] = subentriesList;
             if (file[2].length != 0) {
                 output.push(file);
             }
+            if (submenu) {
+                let menuItem = Gio.MenuItem.new_submenu(`${menuItemName}`, submenu);
+                menu.append_item(menuItem);
+                menuhasentries = true;
+            }
         }
-        return output;
-
+        if (! menuhasentries) {
+            menu = null;
+        }
+        return [output, menu];
     }
 
     _readDirectory(directory) {
@@ -145,13 +160,7 @@ var TemplatesScriptsManager = class {
                         let info;
                         while ((info = fileEnum.next_file(null))) {
                             let isDir = (info.get_file_type() == Gio.FileType.DIRECTORY);
-                            if ((this._flags & TemplatesScriptsManagerFlags.ONLY_EXECUTABLE) &&
-                                !isDir &&
-                                !info.get_attribute_boolean('access::can-execute')) {
-                                    continue;
-                            }
-                            let child = fileEnum.get_child(info);
-                            fileList.push([info.get_name(), isDir ? child : child.get_path(), isDir ? [] : null]);
+                            fileList.push([info, fileEnum.get_child(info), isDir ? [] : null]);
                         }
                     } catch(e) {
                         if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
@@ -162,49 +171,18 @@ var TemplatesScriptsManager = class {
                         return;
                     }
                     fileList.sort((a,b) => {
-                        return a[0].localeCompare(b[0], {
+                        return a[0].get_name().localeCompare(b[0].get_name(), {
                             sensitivity: 'accent' ,
                             numeric: 'true',
                             localeMatcher: 'lookup' });
                     });
                     resolve(fileList);
-                    return;
                 }
             );
         });
     }
 
-    createMenu() {
-        return this._createTemplatesScriptsSubMenu(this._entries);
-    }
-
-    _createTemplatesScriptsSubMenu(scriptsList) {
-        if ((scriptsList == null) || (scriptsList.length == 0)) {
-            return null;
-        }
-        let scriptSubMenu = new Gtk.Menu();
-        for (let fileItem of scriptsList) {
-            let menuItemName = fileItem[0];
-            if (this._flags & TemplatesScriptsManagerFlags.HIDE_EXTENSIONS) {
-                let offset = DesktopIconsUtil.getFileExtensionOffset(menuItemName, false);
-                menuItemName = menuItemName.substring(0, offset);
-            }
-            let menuItemPath = fileItem[1];
-            let subDirs = fileItem[2];
-            if (subDirs === null) {
-                let menuItem = new Gtk.MenuItem({label: menuItemName});
-                menuItem.connect("activate", () => {this._activatedCB(menuItemPath);});
-                scriptSubMenu.add(menuItem);
-            } else {
-                let subMenu = this._createTemplatesScriptsSubMenu(subDirs);
-                if (subMenu !== null) {
-                    let menuItem = new Gtk.MenuItem({label: menuItemName});
-                    menuItem.set_submenu(subMenu);
-                    scriptSubMenu.add(menuItem);
-                }
-            }
-        }
-        scriptSubMenu.show_all();
-        return scriptSubMenu;
+    getGioMenu() {
+        return this.gioMenu;
     }
 }
