@@ -160,7 +160,6 @@ var desktopIconItem = class desktopIconItem {
         this._eventBox.connect('drag-leave', () => {
             this.unHighLightDropTarget();
         });
-        this._eventBox.connect('size-allocate', () => this._calculateIconRectangle());
         this._labelEventBox.connect('button-press-event', (actor, event) => this._onPressButton(actor, event));
         this._labelEventBox.connect('enter-notify-event', (actor, event) => this._onEnter(this._labelEventBox));
         this._labelEventBox.connect('leave-notify-event', (actor, event) => this._onLeave(this._labelEventBox));
@@ -171,9 +170,6 @@ var desktopIconItem = class desktopIconItem {
         });
         this._labelEventBox.connect('drag-leave', () => {
             this.unHighLightDropTarget();
-        });
-        this._labelEventBox.connect('size-allocate', () => {
-            this._doLabelSizeAllocated();
         });
         this.container.connect('drag-motion', (widget, context, x, y, time) => {
             this.highLightDropTarget(x, y);
@@ -192,10 +188,6 @@ var desktopIconItem = class desktopIconItem {
         this._setDragSource(this._eventBox);
         this._setDragSource(this._labelEventBox);
         this.container.show_all();
-    }
-
-    _doLabelSizeAllocated() {
-        this._calculateLabelRectangle();
     }
 
     _calculateIconRectangle() {
@@ -234,8 +226,8 @@ var desktopIconItem = class desktopIconItem {
         this._label.margin_end = margin;
         this._label.margin_bottom = margin;
         this._iconContainer.margin_top = margin;
-        this._calculateIconRectangle();
-        this._calculateLabelRectangle();
+        this._newPosition = true;
+        this._checkForRename();
     }
 
     getCoordinates() {
@@ -276,6 +268,22 @@ var desktopIconItem = class desktopIconItem {
             }
         }
         this._label.label = newText;
+    }
+
+    _checkForRename() {
+        if (this._desktopManager.newFolderDoRename) {
+            if (this._desktopManager.newFolderDoRename == this.fileName) {
+                this._desktopManager.doRename(this, true);
+            }
+        }
+    }
+
+    updatePositionRectangles() {
+        if (this._newPosition) {
+            this._calculateIconRectangle();
+            this._calculateLabelRectangle();
+            this._newPosition = false;
+        }
     }
 
     /***********************
@@ -500,6 +508,8 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _calculateOffset(widget) {
+        this._calculateIconRectangle();
+        this._calculateLabelRectangle();
         if (widget == this._eventBox) {
             return [((this.width - this.iconwidth)/2) + this._buttonPressInitialX, this._buttonPressInitialY];
         } else {

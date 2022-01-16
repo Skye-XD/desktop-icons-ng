@@ -1236,6 +1236,7 @@ var DesktopManager = class {
         this.rubberBandInitY = y;
         this.rubberBand = true;
         for(let item of this._fileList) {
+            item.updatePositionRectangles();
             item.touchedByRubberband = false;
         }
     }
