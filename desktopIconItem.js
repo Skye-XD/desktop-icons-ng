@@ -149,9 +149,11 @@ var desktopIconItem = class desktopIconItem {
          */
         this._sheildEventBox.connect('button-press-event', (actor, event) => {return true;});
         this._sheildLabelEventBox.connect('button-press-event', (actor, event) => {return true;});
+        this._iconEventController = Gtk.EventControllerMotion.new(this._eventBox);
+        this._iconEventController.set_propagation_phase(Gtk.PropagationPhase.TARGET);
+        this._iconEventController.connect('enter', (actor, event) => this._onEnter(this._eventBox));
+        this._iconEventController.connect('leave', (actor, event) => this._onLeave(this._eventBox));
         this._eventBox.connect('button-press-event', (actor, event) => this._onPressButton(actor, event));
-        this._eventBox.connect('enter-notify-event', (actor, event) => this._onEnter(this._eventBox));
-        this._eventBox.connect('leave-notify-event', (actor, event) => this._onLeave(this._eventBox));
         this._eventBox.connect('button-release-event', (actor, event) => this._onReleaseButton(actor, event));
         this._eventBox.connect('drag-motion', (widget, context, x, y, time) => {
             this.highLightDropTarget(x, y);
@@ -160,9 +162,11 @@ var desktopIconItem = class desktopIconItem {
         this._eventBox.connect('drag-leave', () => {
             this.unHighLightDropTarget();
         });
+        this._labelEventController = Gtk.EventControllerMotion.new(this._labelEventBox);
+        this._labelEventController.set_propagation_phase(Gtk.PropagationPhase.TARGET);
+        this._labelEventController.connect('enter', (actor, event) => this._onEnter(this._labelEventBox));
+        this._labelEventController.connect('leave', (actor, event) => this._onLeave(this._labelEventBox));
         this._labelEventBox.connect('button-press-event', (actor, event) => this._onPressButton(actor, event));
-        this._labelEventBox.connect('enter-notify-event', (actor, event) => this._onEnter(this._labelEventBox));
-        this._labelEventBox.connect('leave-notify-event', (actor, event) => this._onLeave(this._labelEventBox));
         this._labelEventBox.connect('button-release-event', (actor, event) => this._onReleaseButton(actor, event));
         this._labelEventBox.connect('drag-motion', (widget, context, x, y, time) => {
             this.highLightDropTarget(x, y);
