@@ -650,7 +650,7 @@ var DesktopManager = class {
         if (button == 3) {
             this._prepareMenu();
             this._createDesktopBackgroundGioMenu();
-            let popupmenu = Gtk.Popover.new_from_model(grid._eventBox, this.desktopBackgroundGioMenu)
+            let popupmenu = Gtk.Popover.new_from_model(grid._container, this.desktopBackgroundGioMenu)
             popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
             this.popupmenuopen = true;
             popupmenu.popup();
@@ -736,11 +736,10 @@ var DesktopManager = class {
         DBusUtils.RemoteFileOperations.RedoRemote();
     }
 
-    onKeyPress(event, grid) {
-        let symbol = event.get_keyval()[1];
-        let isCtrl = (event.get_state()[1] & Gdk.ModifierType.CONTROL_MASK) != 0;
-        let isShift = (event.get_state()[1] & Gdk.ModifierType.SHIFT_MASK) != 0;
-        let isAlt = (event.get_state()[1] & Gdk.ModifierType.MOD1_MASK) != 0;
+    onKeyPress(symbol, state, grid) {
+        let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) != 0;
+        let isShift = (state & Gdk.ModifierType.SHIFT_MASK) != 0;
+        let isAlt = (state & Gdk.ModifierType.MOD1_MASK) != 0;
         let selection = this.getCurrentSelection(false);
         if (isCtrl && isShift && ((symbol == Gdk.KEY_Z) || (symbol == Gdk.KEY_z))) {
             this._doRedo();

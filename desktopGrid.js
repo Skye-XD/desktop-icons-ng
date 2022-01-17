@@ -96,13 +96,11 @@ var DesktopGrid = class {
             'height':(this._height*this.scale) - this._marginTop - this._marginBottom
         });
 
-        this._eventBox = new Gtk.EventBox({ visible: true });
-        this.sizeEventBox();
-        this._window.add(this._eventBox);
         this._container = new Gtk.Fixed();
-        this._eventBox.add(this._container);
+        this.sizeContainer();
+        this._window.add(this._container);
 
-        this.setDropDestination(this._eventBox);
+        this.setDropDestination(this._container);
 
         this._selectedList = null;
         this._container.connect('draw', (widget, cr) => {
@@ -116,29 +114,36 @@ var DesktopGrid = class {
         this._window.set_size_request(this._windowWidth, this._windowHeight);
         this._window.resize(this._windowWidth, this._windowHeight);
 
-        this._eventBox.add_events(Gdk.EventMask.BUTTON_MOTION_MASK |
+        this._eventKey = Gtk.EventControllerKey.new(this._window);
+        this._eventMotion = Gtk.EventControllerMotion.new(this._window);
+        this._window.add_events(Gdk.EventMask.BUTTON_MOTION_MASK |
                                   Gdk.EventMask.BUTTON_PRESS_MASK |
                                   Gdk.EventMask.BUTTON_RELEASE_MASK |
                                   Gdk.EventMask.KEY_RELEASE_MASK);
-        this._eventBox.connect('button-press-event', (actor, event) => {
+        this._eventKey.connect('key-pressed', (keyval, keycode, state) => {
+            this._desktopManager.onKeyPress(keycode, state, this);
+        });
+        this._eventMotion.connect('motion', (actor, x, y) => {
+                x = x - this._marginLeft;
+                y = y - this._marginTop;
+                [x, y] = this._coordinatesLocalToGlobal(x, y);
+                this._desktopManager.onMotion(x, y);
+        });
+        this._window.connect('event', (actor, event) => {
+            let type = event.get_event_type();
             let [a, x, y] = event.get_coords();
-            [x, y] = this._coordinatesLocalToGlobal(x, y);
-            this._desktopManager.onPressButton(x, y, event, this);
-            return false;
+            x = x - this._marginLeft;
+            y = y - this._marginTop;
+            switch(type) {
+            case Gdk.EventType.BUTTON_PRESS:
+                [x, y] = this._coordinatesLocalToGlobal(x, y);
+                this._desktopManager.onPressButton(x, y, event, this);
+                break;
+            case Gdk.EventType.BUTTON_RELEASE:
+                this._desktopManager.onReleaseButton(this);
+                break;
+            }
         });
-        this._eventBox.connect('motion-notify-event', (actor, event) => {
-            let [a, x, y] = event.get_coords();
-            [x, y] = this._coordinatesLocalToGlobal(x, y);
-            this._desktopManager.onMotion(x, y);
-        });
-        this._eventBox.connect('button-release-event', (actor, event) => {
-            this._desktopManager.onReleaseButton(this);
-        });
-
-        this._window.connect('key-press-event', (actor, event) => {
-            this._desktopManager.onKeyPress(event, this);
-        });
-
     }
 
     updateGridDescription(desktopDescription) {
@@ -206,11 +211,11 @@ var DesktopGrid = class {
         this.gridGlobalRectangle.height = (this._height*this.scale) - this._marginTop - this._marginBottom;
     }
 
-    sizeEventBox() {
-        this._eventBox.margin_top = this._marginTop;
-        this._eventBox.margin_bottom = this._marginBottom;
-        this._eventBox.margin_start = this._marginLeft;
-        this._eventBox.margin_end = this._marginRight;
+    sizeContainer() {
+        this._container.margin_top = this._marginTop;
+        this._container.margin_bottom = this._marginBottom;
+        this._container.margin_start = this._marginLeft;
+        this._container.margin_end = this._marginRight;
     }
 
     setGridStatus() {
@@ -227,7 +232,7 @@ var DesktopGrid = class {
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
         this.updateGridRectangle();
-        this.sizeEventBox();
+        this.sizeContainer();
         this.setGridStatus();
     }
 
@@ -256,7 +261,7 @@ var DesktopGrid = class {
             else
                 Gdk.drag_status(context, Gdk.DragAction.MOVE, time);
         });
-        this._eventBox.connect('drag-leave', (widget, context, time) => {
+        this._container.connect('drag-leave', (widget, context, time) => {
             this.receiveLeave();
         });
         dropDestination.connect('drag-data-received', (widget, context, x, y, selection, info, time) => {
