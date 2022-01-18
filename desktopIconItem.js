@@ -101,17 +101,11 @@ var desktopIconItem = class desktopIconItem {
     _createIconActor() {
         this.container = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER});
         this._containerId = this.container.connect('destroy', () => this._onDestroy());
-        this._eventBox = new Gtk.EventBox({visible: true, halign: Gtk.Align.CENTER});
-        this._sheildEventBox = new Gtk.EventBox({visible: true, halign: Gtk.Align.CENTER});
-        this._labelEventBox = new Gtk.EventBox({visible: true, halign: Gtk.Align.CENTER});
-        this._sheildLabelEventBox = new Gtk.EventBox({visible: true, halign: Gtk.Align.CENTER});
 
-        this._icon = new Gtk.Image();
+        this._icon = new Gtk.Picture();
         this._iconContainer = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL});
-        this._iconContainer.pack_start(this._icon, true, true, 0);
+        this._iconContainer.append(this._icon);
         this._iconContainer.set_baseline_position(Gtk.BaselinePosition.CENTER);
-        this._eventBox.add(this._iconContainer);
-        this._sheildEventBox.add(this._eventBox);
 
         this._label = new Gtk.Label();
         this._labelContainer = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER});
@@ -122,17 +116,16 @@ var desktopIconItem = class desktopIconItem {
             labelStyleContext.add_class('file-label');
         }
         this._label.set_ellipsize(Pango.EllipsizeMode.END);
-        this._label.set_line_wrap(true);
-        this._label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
+        this._label.set_wrap(true);
+        this._label.set_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this._label.set_yalign(0.0);
         this._label.set_justify(Gtk.Justification.CENTER);
         this._label.set_lines(2);
-        this._labelContainer.pack_start(this._label, false, true, 0);
-        this._labelEventBox.add(this._labelContainer);
-        this._sheildLabelEventBox.add(this._labelEventBox);
+        this._labelContainer.append(this._label);
 
-        this.container.pack_start(this._sheildEventBox, false, false, 0);
-        this.container.pack_start(this._sheildLabelEventBox, false, false, 0);
+        this.container.set_spacing(2);
+        this.container.append(this._iconContainer);
+        this.container.append(this._labelContainer);
 
         this._styleContext = this._iconContainer.get_style_context();
         this._labelStyleContext = this._labelContainer.get_style_context();
@@ -147,51 +140,51 @@ var desktopIconItem = class desktopIconItem {
          * The solution is to allow them to pass in a EventBox, used both for detecting the events and the DnD, and block them
          * in a second EventBox, located outside.
          */
-        this._sheildEventBox.connect('button-press-event', (actor, event) => {return true;});
-        this._sheildLabelEventBox.connect('button-press-event', (actor, event) => {return true;});
-        this._iconEventController = Gtk.EventControllerMotion.new(this._eventBox);
+        this._iconEventController = Gtk.EventControllerMotion.new();
         this._iconEventController.set_propagation_phase(Gtk.PropagationPhase.TARGET);
-        this._iconEventController.connect('enter', (actor, event) => this._onEnter(this._eventBox));
-        this._iconEventController.connect('leave', (actor, event) => this._onLeave(this._eventBox));
-        this._eventBox.connect('button-press-event', (actor, event) => this._onPressButton(actor, event));
-        this._eventBox.connect('button-release-event', (actor, event) => this._onReleaseButton(actor, event));
-        this._eventBox.connect('drag-motion', (widget, context, x, y, time) => {
-            this.highLightDropTarget(x, y);
-            this._updateDragStatus(context, time);
-        });
-        this._eventBox.connect('drag-leave', () => {
-            this.unHighLightDropTarget();
-        });
-        this._labelEventController = Gtk.EventControllerMotion.new(this._labelEventBox);
+        this._iconEventController.connect('enter', (actor, x, y) => this._onEnter(actor, x, y));
+        this._iconEventController.connect('leave', (actor) => this._onLeave(actor));
+        this._iconContainer.add_controller(this._iconEventController);
+
+        this._labelEventController = Gtk.EventControllerMotion.new();
         this._labelEventController.set_propagation_phase(Gtk.PropagationPhase.TARGET);
-        this._labelEventController.connect('enter', (actor, event) => this._onEnter(this._labelEventBox));
-        this._labelEventController.connect('leave', (actor, event) => this._onLeave(this._labelEventBox));
-        this._labelEventBox.connect('button-press-event', (actor, event) => this._onPressButton(actor, event));
-        this._labelEventBox.connect('button-release-event', (actor, event) => this._onReleaseButton(actor, event));
-        this._labelEventBox.connect('drag-motion', (widget, context, x, y, time) => {
-            this.highLightDropTarget(x, y);
-            this._updateDragStatus(context, time);
-        });
-        this._labelEventBox.connect('drag-leave', () => {
-            this.unHighLightDropTarget();
-        });
-        this.container.connect('drag-motion', (widget, context, x, y, time) => {
-            this.highLightDropTarget(x, y);
-            this._updateDragStatus(context, time);
-        });
-        this.container.connect('drag-leave', () => {
-            this.unHighLightDropTarget();
+        this._labelEventController.connect('enter', (actor, x, y) => this._onEnter(actor, x, y));
+        this._labelEventController.connect('leave', (actor) => this._onLeave(actor));
+        this._labelContainer.add_controller(this._labelEventController);
+
+        this.gridDropControllerMotion = new Gtk.DropControllerMotion();
+        this.gridDropControllerMotion.connect('enter', (actor, x, y) => this.highLightDropTarget(x, y));
+        this.gridDropControllerMotion.connect('leave', (actor) => this.unHighLightDropTarget());
+        this.container.add_controller(this.gridDropControllerMotion);
+
+        this.dragIcon = Gtk.WidgetPaintable.new(this.container);
+        this.dragIcon.connect('invalidate-size', () => {
+            this._calculateIconRectangle();
+            this._calculateLabelRectangle();
         });
 
-        if (this._desktopManager.showDropPlace) {
-            this._setDropDestination(this.container);
-        } else {
-            this._setDropDestination(this._eventBox);
-            this._setDropDestination(this._labelEventBox);
-        }
-        this._setDragSource(this._eventBox);
-        this._setDragSource(this._labelEventBox);
-        this.container.show_all();
+        //this._labelEventBox.connect('drag-motion', (widget, context, x, y, time) => {
+        //    this.highLightDropTarget(x, y);
+        //});
+        //this._labelEventBox.connect('drag-leave', () => {
+        //    this.unHighLightDropTarget();
+        //});
+       // this.container.connect('drag-motion', (widget, context, x, y, time) => {
+        //    this.highLightDropTarget(x, y);
+        //});
+        //this.container.connect('drag-leave', () => {
+        //    this.unHighLightDropTarget();
+       // });
+
+        //if (this._desktopManager.showDropPlace) {
+            //this._setDropDestination(this.container);
+        //} else {
+            //this._setDropDestination(this._iconContainer);
+            //this._setDropDestination(this._labelContainer);
+        //}
+        this._setDragSource(this._iconContainer);
+        this._setDragSource(this._labelContainer);
+        this.container.show();
     }
 
     _calculateIconRectangle() {
@@ -230,7 +223,6 @@ var desktopIconItem = class desktopIconItem {
         this._label.margin_end = margin;
         this._label.margin_bottom = margin;
         this._iconContainer.margin_top = margin;
-        this._newPosition = true;
         this._checkForRename();
     }
 
@@ -240,7 +232,7 @@ var desktopIconItem = class desktopIconItem {
 
     _setLabelName(text) {
         this._currentFileName = text;
-        this._eventBox.set_tooltip_text(text);
+        this._iconContainer.set_tooltip_text(text);
         let lastCutPos = -1;
         let newText = '';
         for (let pos=0; pos < text.length; pos++) {
@@ -282,68 +274,56 @@ var desktopIconItem = class desktopIconItem {
         }
     }
 
-    updatePositionRectangles() {
-        if (this._newPosition) {
-            this._calculateIconRectangle();
-            this._calculateLabelRectangle();
-            this._newPosition = false;
-        }
-    }
 
     /***********************
      * Button Clicks *
      ***********************/
 
-    _updateClickState(event) {
+    _updateClickState(button, eventtime) {
         let settings = Gtk.Settings.get_default();
 
-        if ((event.get_button()[1] == this._lastClickButton) &&
-            ((event.get_time() - this._lastClickTime) < settings.gtk_double_click_time))
+        if ((button == this._lastClickButton) &&
+            ((eventtime - this._lastClickTime) < settings.gtk_double_click_time))
             this._clickCount++;
         else
             this._clickCount = 1;
 
-        this._lastClickTime = event.get_time();
-        this._lastClickButton = event.get_button()[1];
+        this._lastClickTime = eventtime;
+        this._lastClickButton = button;
     }
 
     getClickCount() {
         return this._clickCount;
     }
 
-    _onPressButton(actor, event) {
-        this._updateClickState(event);
-        let button = event.get_button()[1];
-        let [a, x, y] = event.get_coords();
-        let state = event.get_state()[1];
-        this._buttonPressInitialX = x;
-        this._buttonPressInitialY = y;
-        let shiftPressed = !!(state & Gdk.ModifierType.SHIFT_MASK);
-        let controlPressed = !!(state & Gdk.ModifierType.CONTROL_MASK);
+    _onPressButton(actor, X, Y, x, y, shiftPressed, controlPressed) {
+        let button = actor.get_current_button();
+        let eventtime = actor.get_current_event_time();
+        this._updateClickState(button, eventtime);
+        this._buttonPressInitialX = x - this._x1;
+        this._buttonPressInitialY = y - this._y1;
         if (button == 3) {
-            this._doButtonThreePressed(actor, event, shiftPressed, controlPressed);
+            this._doButtonThreePressed(button, X, Y, x, y, shiftPressed, controlPressed);
         } else if (button == 1) {
-            this._doButtonOnePressed(event, shiftPressed, controlPressed);
+            this._doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed);
         }
-        return false;
     }
 
-    _onReleaseButton(actor, event) {
-        let button = event.get_button()[1];
+    _onReleaseButton(actor, X, Y, x, y, shiftPressed, controlPressed) {
+        let button = actor.get_current_button();
         if (button == 1) {
-            this._doButtonOneReleased(event);
+            this._doButtonOneReleased(button, X, Y, x, y, shiftPressed, controlPressed);
         }
-        return false;
     }
 
-    _doButtonThreePressed(actor, event) {
+    _doButtonThreePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         if (!this._isSelected) {
             this._desktopManager.selected(this, Enums.Selection.RIGHT_BUTTON);
         }
-        this._desktopManager.fileItemMenu.showMenu(this, event, actor);
+        this._desktopManager.fileItemMenu.showMenu(this, button, X, Y, x, y, shiftPressed, controlPressed);
     }
 
-    _doButtonOnePressed(event, shiftPressed, controlPressed) {
+    _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         if (this.getClickCount() == 1) {
             this._primaryButtonPressed = true;
             if (shiftPressed || controlPressed) {
@@ -354,14 +334,14 @@ var desktopIconItem = class desktopIconItem {
         }
     }
 
-    _doButtonOneReleased(event) {
+    _doButtonOneReleased(button, X, Y, x, y, shiftPressed, controlPressed) {
     }
 
     /***********************
      * Drag and Drop *
      ***********************/
 
-    _onEnter(element) {
+    _onEnter(actor, x, y) {
         if (!this._styleContext.has_class('file-item-hover')) {
             this._styleContext.add_class('file-item-hover');
             this._labelStyleContext.add_class('file-item-hover');
@@ -375,7 +355,7 @@ var desktopIconItem = class desktopIconItem {
         return false;
     }
 
-    _onLeave(element) {
+    _onLeave(actor) {
         this._primaryButtonPressed = false;
         if (this._styleContext.has_class('file-item-hover')) {
             this._styleContext.remove_class('file-item-hover');
@@ -454,74 +434,61 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _setDragSource(widget) {
-        widget.drag_source_set(Gdk.ModifierType.BUTTON1_MASK, null, Gdk.DragAction.MOVE | Gdk.DragAction.COPY);
-        let targets = new Gtk.TargetList(null);
-        targets.add(Gdk.atom_intern('x-special/ding-icon-list', false),
-            Gtk.TargetFlags.SAME_APP, Enums.DndTargetInfo.DING_ICON_LIST);
+        let widgetDragController = Gtk.DragSource.new();
+        widgetDragController.set_actions(Gdk.DragAction.COPY|Gdk.DragAction.MOVE);
+        widgetDragController.connect('prepare', (actor, x, y) => {
+            let [a, b] = this._calculateOffset(widget);
+            widgetDragController.set_icon(this.dragIcon, a, b);
+            this._loadDragData(actor);
+            if (this.contentProvider) {
+                    return this.contentProvider;
+            }
+        });
+        widgetDragController.connect('drag-begin', (actor, drag) => {
+            this._desktopManager.onDragBegin(this);
+        });
+        widgetDragController.connect('drag-end', (actor, drag, delete_data) => {
+            this._desktopManager.onDragEnd();
+        });
+        widget.add_controller(widgetDragController);
+    }
+
+    _loadDragData(widgetDragController) {
+        let dingdrop = 'x-special/ding-icon-list';
+        let gnomedrop = 'x-special/gnome-icon-list';
+        let textlistdrop = 'text/plain';
+        let dingdragData = this._desktopManager.fillDragDataGet(dingdrop);
+        let dingcontentProvider;
+        if (dingdragData != null) {
+            dingcontentProvider = Gdk.ContentProvider.new_for_bytes(dingdrop, ByteArray.toGBytes(ByteArray.fromString(dingdragData)));
+        } else {
+            this.contentProvider = null;
+            return;
+        }
+        let textlistdragData = this._desktopManager.fillDragDataGet(textlistdrop);
+        let textlistcontentProvider = Gdk.ContentProvider.new_for_bytes(textlistdrop, ByteArray.toGBytes(ByteArray.fromString(textlistdragData)));
         if ((this._fileExtra != Enums.FileType.USER_DIRECTORY_TRASH) &&
             (this._fileExtra != Enums.FileType.USER_DIRECTORY_HOME) &&
             (this._fileExtra != Enums.FileType.EXTERNAL_DRIVE)) {
-                targets.add(Gdk.atom_intern('x-special/gnome-icon-list', false), 0,
-                    Enums.DndTargetInfo.GNOME_ICON_LIST);
-                targets.add(Gdk.atom_intern('text/uri-list', false), 0,
-                    Enums.DndTargetInfo.URI_LIST);
+                let gnomedragData = this._desktopManager.fillDragDataGet(gnomedrop);
+                let gnomecontentProvider = Gdk.ContentProvider.new_for_bytes(gnomedrop, ByteArray.toGBytes(ByteArray.fromString(gnomedragData)));
+                this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, gnomecontentProvider, textlistcontentProvider]);
+        } else {
+            this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, textlistcontentProvider]);
         }
-        widget.drag_source_set_target_list(targets);
-        widget.connect('drag-begin', (widget, context) => {
-            const scale = this._icon.get_scale_factor();
-            let surf = new Cairo.ImageSurface(Cairo.SurfaceType.IMAGE, this.container.get_allocated_width() * scale, this.container.get_allocated_height() * scale);
-            // setDeviceScale was introduced to GJS in version 1.69.2
-            if (scale != 1.0 && surf.setDeviceScale !== undefined)
-                surf.setDeviceScale(scale, scale);
-            let cr = new Cairo.Context(surf);
-            this.container.draw(cr);
-            let itemnumber = this._desktopManager.getNumberOfSelectedItems();
-            if (itemnumber > 1) {
-                Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({red: this._desktopManager.selectColor.red,
-                                                            green: this._desktopManager.selectColor.green,
-                                                            blue: this._desktopManager.selectColor.blue,
-                                                            alpha: 0.6})
-                );
-                itemnumber -= 1;
-                switch (itemnumber.toString().length) {
-                    case 1: cr.rectangle(1, 1, 30, 20); break;
-                    case 2: cr.rectangle(1, 1, 40, 20); break;
-                    default: cr.rectangle(1, 1, 50, 20); break;
-                }
-                cr.fill();
-                cr.setFontSize(18);
-                Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({red: 1.0, green: 1.0 , blue: 1.0, alpha: 1}));
-                cr.moveTo(1,17);
-                cr.showText(`+${itemnumber}`)
-            }
-            Gtk.drag_set_icon_surface(context, surf);
-            let [x, y] = this._calculateOffset(widget);
-            context.set_hotspot(x,y);
-            this._desktopManager.onDragBegin(this);
-        });
-        widget.connect('drag-data-get', (widget, context, data, info, time) => {
-            let dragData = this._desktopManager.fillDragDataGet(info);
-            if (dragData != null) {
-                let list = ByteArray.fromString(dragData[1]);
-                data.set(dragData[0], 8, list);
-            }
-        });
-        widget.connect('drag-end', (widget, context) => {
-            this._desktopManager.onDragEnd();
-        })
     }
 
     _calculateOffset(widget) {
         this._calculateIconRectangle();
         this._calculateLabelRectangle();
-        if (widget == this._eventBox) {
+        if (widget == this._iconContainer) {
             return [((this.width - this.iconwidth)/2) + this._buttonPressInitialX, this._buttonPressInitialY];
         } else {
             return [((this.width - this.labelwidth)/2) + this._buttonPressInitialX, (this.iconheight + 2) + this._buttonPressInitialY];
         }
     }
 
-    _setDropDestination(dropDestination) {
+    receiveDrop(x, y, selection, info) {
         return;
     }
 
@@ -538,7 +505,7 @@ var desktopIconItem = class desktopIconItem {
             return;
         }
 
-        this._icon.set_padding(0,0);
+        this._icon.set_halign(Gtk.Align.CENTER);
         try {
             let customIcon = this._fileInfo.get_attribute_as_string('metadata::custom-icon');
             if (customIcon && (customIcon != '')) {
@@ -555,24 +522,22 @@ var desktopIconItem = class desktopIconItem {
         }
 
         if (this._fileExtra == Enums.FileType.USER_DIRECTORY_TRASH) {
-            let pixbuf = this._createEmblemedIcon(this._fileInfo.get_icon(), null);
-            const scale = this._icon.get_scale_factor();
-            let surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, null);
-            this._icon.set_from_surface(surface);
+            let pixbuf = this._createEmblemedIcon(this._fileInfo.get_icon(), null);;
+            this._icon.set_paintable(pixbuf);
             return;
         }
         let icon_set = false;
-        if ((Prefs.nautilusSettings.get_string('show-image-thumbnails') != 'never') &&
-            (this._desktopManager.thumbnailLoader.canThumbnail(this))) {
-                let thumbnail = this._desktopManager.thumbnailLoader.getThumbnail(this, this._updateIcon.bind(this));
-                if (thumbnail != null) {
-                    let thumbnailFile = Gio.File.new_for_path(thumbnail);
-                    icon_set = await this._loadImageAsIcon(thumbnailFile);
-                    if (this._destroyed) {
-                        return;
-                    }
-                }
-        }
+        //if ((Prefs.nautilusSettings.get_string('show-image-thumbnails') != 'never') &&
+            //(this._desktopManager.thumbnailLoader.canThumbnail(this))) {
+                //let thumbnail = this._desktopManager.thumbnailLoader.getThumbnail(this, this._updateIcon.bind(this));
+                //if (thumbnail != null) {
+                    //let thumbnailFile = Gio.File.new_for_path(thumbnail);
+                    //icon_set = await this._loadImageAsIcon(thumbnailFile);
+                    //if (this._destroyed) {
+                        //return;
+                    //}
+                //}
+        //}
 
         if (!icon_set) {
             let pixbuf;
@@ -586,8 +551,9 @@ var desktopIconItem = class desktopIconItem {
                 }
             }
             const scale = this._icon.get_scale_factor();
-            let surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, null);
-            this._icon.set_from_surface(surface);
+            //let surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, null);
+            //this._icon.set_from_surface(surface); /// FIX CANNOT FIND GTK/GDK4 equivalent
+            this._icon.set_paintable(pixbuf);
         }
     }
 
@@ -625,9 +591,12 @@ var desktopIconItem = class desktopIconItem {
                         height *= scale;
                         let pixbuf = thumbnailPixbuf.scale_simple(Math.floor(width), Math.floor(height), GdkPixbuf.InterpType.BILINEAR);
                         pixbuf = this._addEmblemsToPixbufIfNeeded(pixbuf);
-                        let surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, null);
-                        this._icon.set_from_surface(surface);
-                        this._icon.set_padding(4,4)
+                        //let surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, null);
+                        this._icon.set_paintable(pixbuf);
+                        this._icon.margin_top(4);
+                        this._icon.margin_bottom(4);
+                        this._icon.margin_start(4);
+                        this._icon.margin_end(4);
                         resolve(true);
                     }
                     resolve(false);
@@ -662,7 +631,7 @@ var desktopIconItem = class desktopIconItem {
             pixbuf.composite(newpixbuf, x, y, pixbuf.width, pixbuf.height, x, y, 1, 1,  GdkPixbuf.InterpType.NEAREST, 255);
             return newpixbuf;
         } else {
-            return pixbuf.copy();
+            return pixbuf;
         }
     }
 
@@ -688,17 +657,17 @@ var desktopIconItem = class desktopIconItem {
             else
                 emblem = Gio.ThemedIcon.new('emblem-symbolic-link');
             pixbuf = this._copyAndResizeIfNeeded(pixbuf);
-            let theme = Gtk.IconTheme.get_default();
-            let emblemIcon = theme.lookup_by_gicon_for_scale(emblem, finalSize / scale, scale, Gtk.IconLookupFlags.FORCE_SIZE).load_icon();
-            emblemIcon.composite(pixbuf, pixbuf.width - finalSize, pixbuf.height - finalSize, finalSize, finalSize, pixbuf.width - finalSize, pixbuf.height - finalSize, 1, 1, GdkPixbuf.InterpType.BILINEAR, 255);
+            let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+            let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            //emblemIcon.composite(pixbuf, pixbuf.width - finalSize, pixbuf.height - finalSize, finalSize, finalSize, pixbuf.width - finalSize, pixbuf.height - finalSize, 1, 1, GdkPixbuf.InterpType.BILINEAR, 255);
         }
 
         if (this.isStackTop && ! this.stackUnique) {
             pixbuf = this._copyAndResizeIfNeeded(pixbuf);
-            let theme = Gtk.IconTheme.get_default();
+            let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
             emblem = Gio.ThemedIcon.new('emblem-downloads');
-            let emblemIcon = theme.lookup_by_gicon_for_scale(emblem, finalSize / scale, scale, Gtk.IconLookupFlags.FORCE_SIZE).load_icon();
-            emblemIcon.composite(pixbuf, 0, 0, finalSize, finalSize, 0, 0, 1, 1, GdkPixbuf.InterpType.BILINEAR, 255);
+            let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            //emblemIcon.composite(pixbuf, 0, 0, finalSize, finalSize, 0, 0, 1, 1, GdkPixbuf.InterpType.BILINEAR, 255);
         }
         return pixbuf;
     }
@@ -716,14 +685,13 @@ var desktopIconItem = class desktopIconItem {
                 icon = Gio.ThemedIcon.new_with_default_fallbacks(iconName);
             }
         }
-        let theme = Gtk.IconTheme.get_default();
-
+        let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         const scale = this._icon.get_scale_factor();
         let itemIcon = null;
         try {
-            itemIcon = theme.lookup_by_gicon_for_scale(icon, Prefs.get_icon_size(), scale, Gtk.IconLookupFlags.FORCE_SIZE).load_icon();
+            itemIcon = theme.lookup_by_gicon(icon, Prefs.get_icon_size(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
         } catch (e) {
-            itemIcon = theme.load_icon_for_scale("text-x-generic", Prefs.get_icon_size(), scale, Gtk.IconLookupFlags.FORCE_SIZE);
+            itemIcon = theme.lookup_icon("text-x-generic", [], Prefs.get_icon_size(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
         }
 
         itemIcon = this._addEmblemsToPixbufIfNeeded(itemIcon);

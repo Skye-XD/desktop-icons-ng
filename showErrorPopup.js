@@ -27,8 +27,7 @@ var ShowErrorPopup = class {
 
     constructor(text, secondaryText, modal) {
 
-        this._window = new Gtk.MessageDialog({window_position: Gtk.WindowPosition.CENTER_ON_PARENT,
-                                              transient_for: null,
+        this._window = new Gtk.MessageDialog({transient_for: null,
                                               message_type: Gtk.MessageType.ERROR,
                                               buttons: Gtk.ButtonsType.NONE});
         let labels = this._window.get_message_area().get_children();
@@ -37,13 +36,16 @@ var ShowErrorPopup = class {
         this._window.text = text;
         this._window.secondary_text = secondaryText;
         DesktopIconsUtil.windowHidePagerTaskbarModal(this._window, true);
+        if (window) {
+            this._window.set_transient_for(window);
+        }
         this.deleteButton = this._window.add_button(_("Close"), Gtk.ResponseType.OK);
         this.deleteButton.connect('clicked', () => {
                 this._window.hide();
                 this._window.destroy();
                 this._window = null; 
         });
-        this._window.connect('delete-event', () => {
+        this._window.connect('close-request', () => {
                 this._window.destroy();
                 this._window = null;
             });

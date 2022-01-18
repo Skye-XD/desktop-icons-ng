@@ -65,8 +65,7 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
             folder = 'folder-open';
         }
         pixbuf = this._createEmblemedIcon(null, `${folder}`);
-        let surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, null);
-        this._icon.set_from_surface(surface);
+        this._icon.set_paintable(pixbuf);
     }
 
     _doButtonOnePressed(event, shiftPressed, controlPressed) {

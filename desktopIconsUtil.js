@@ -16,7 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-imports.gi.versions.GdkX11 = '3.0';
+imports.gi.versions.GdkX11 = '4.0';
+imports.gi.versions.Gdk = '4.0';
 
 const Gtk = imports.gi.Gtk;
 const Gio = imports.gi.Gio;
@@ -196,29 +197,6 @@ function getFileExtensionOffset(filename, isDirectory) {
     return offset;
 }
 
-function getFilesFromNautilusDnD(selection, type) {
-    let data = String.fromCharCode.apply(null, selection.get_data());
-    let retval = [];
-    let elements = data.split('\r\n');
-    for(let item of elements) {
-        if (item.length == 0) {
-            continue;
-        }
-        if (type == 1) {
-            // x-special/gnome-icon-list
-            let entry = item.split('\r');
-            retval.push(entry[0]);
-        } else {
-            // text/uri-list
-            if (item[0] == '#') {
-                continue;
-            }
-            retval.push(item);
-        }
-    }
-    return retval;
-}
-
 function writeTextFileToDesktop(text, filename, dropCoordinates) {
     let path = GLib.build_filenamev([GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP),  filename]);
     let file = Gio.File.new_for_path(path);
@@ -237,7 +215,7 @@ function writeTextFileToDesktop(text, filename, dropCoordinates) {
 
 function hideX11windowTaskbar(window) {
     window.connect('realize', (window) => {
-        let gdkWindow = window.get_window();
+        let gdkWindow = window.get_surface();
         gdkWindow.set_skip_pager_hint(true);
         gdkWindow.set_skip_taskbar_hint(true);
     });

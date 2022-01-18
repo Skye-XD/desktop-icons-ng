@@ -20,6 +20,7 @@ const GLib = imports.gi.GLib;
 const Gdk = imports.gi.Gdk;
 const Gtk = imports.gi.Gtk;
 const Gio = imports.gi.Gio;
+const Gdk = imports.gi.Gdk;
 
 const TemplatesScriptsManager = imports.templatesScriptsManager;
 const DesktopIconsUtil = imports.desktopIconsUtil;
@@ -187,7 +188,7 @@ var FileItemMenu = class {
         this._mainApp.add_action(openinterminal);
     }
 
-    showMenu(fileItem, event, actor) {
+    showMenu(fileItem, button, X, Y, x, y, shiftSelected, controlSelected) {
 
         this.activeFileItem = fileItem;
         let selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
@@ -339,11 +340,12 @@ var FileItemMenu = class {
             openInTerminalMenu.append(_('Open in Terminal'), "app.openinterminal");
             this._menu.append_section(null, openInTerminalMenu);
         }
-
-        let popupmenu = Gtk.Popover.new_from_model(actor, this._menu);
-        this._desktopManager.popupmenuopen = true;
-        popupmenu.popup();
-        popupmenu.connect('closed', () => {this._desktopManager.popupmenuopen = false});
+        this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
+        this.popupmenu.set_parent(fileItem._grid._container);
+        this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
+        fileItem._desktopManager.popupmenuopen = true;
+        this.popupmenu.popup();
+        this.popupmenu.connect('closed', () => {this.popupmenuopen = false})
     }
 
     _onPropertiesClicked() {
@@ -384,7 +386,8 @@ var FileItemMenu = class {
             let chooser = Gtk.AppChooserDialog.new_for_content_type(null,
                                                                     Gtk.DialogFlags.MODAL + Gtk.DialogFlags.USE_HEADER_BAR,
                                                                     mimetype);
-            chooser.show_all();
+            chooser.set_transient_for(this.activeFileItem._grid._window);
+            chooser.show();
             chooser.connect('close', () => {
                 chooser.response(Gtk.ResponseType.CANCEL);
             });
@@ -418,11 +421,12 @@ var FileItemMenu = class {
             let dialog = new Gtk.FileChooserDialog({title: _('Select Extract Destination')});
             dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
             dialog.set_create_folders(true);
-            dialog.set_current_folder_uri(DesktopIconsUtil.getDesktopDir().get_uri());
+            dialog.set_current_folder(DesktopIconsUtil.getDesktopDir());
             dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
             dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
             DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
-            dialog.show_all();
+            dialog.set_transient_for(this.activeFileItem._grid._window);
+            dialog.show();
             dialog.connect('close', () => {
                 dialog.response(Gtk.ResponseType.CANCEL);
             });

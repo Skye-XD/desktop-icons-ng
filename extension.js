@@ -32,9 +32,6 @@ const EmulateX11 = Me.imports.emulateX11WindowType;
 const VisibleArea = Me.imports.visibleArea;
 const GnomeShellOverride = Me.imports.gnomeShellOverride;
 
-const Clipboard = St.Clipboard.get_default();
-const CLIPBOARD_TYPE = St.ClipboardType.CLIPBOARD;
-
 // This object will contain all the global variables
 let data = {};
 
@@ -135,92 +132,6 @@ function innerEnable(removeId) {
         GLib.source_remove(data.launchDesktopId);
     }
 
-    /*
-     * Due to a problem in the Clipboard API in Gtk3, it is not possible to do the CUT/COPY operation from
-     * dynamic languages like Javascript, because one of the methods needed is marked as NOT INTROSPECTABLE
-     *
-     * https://discourse.gnome.org/t/missing-gtk-clipboard-set-with-data-in-gtk-3/6920
-     *
-     * The right solution is to migrate DING to Gtk4, where the whole API is available, but that is a very
-     * big task, so in the meantime, we take advantage of the fact that the St API, in Gnome Shell, can put
-     * binary contents in the clipboard, so we use DBus to notify that we want to do a CUT or a COPY operation,
-     * passing the URIs as parameters, and delegate that to the DING Gnome Shell extension. This is easily done
-     * with a GLib.SimpleAction.
-     */
-    data.dbusConnectionId = Gio.bus_own_name(Gio.BusType.SESSION, "com.rastersoft.dingextension", Gio.BusNameOwnerFlags.NONE, null, (connection, name) => {
-        data.dbusConnection = connection;
-
-        let doCopy = new Gio.SimpleAction({
-            name: 'doCopy',
-            parameter_type: new GLib.VariantType('as')
-        });
-        let doCut = new Gio.SimpleAction({
-            name: 'doCut',
-            parameter_type: new GLib.VariantType('as')
-        });
-        let desktopGeometry = Gio.SimpleAction.new_stateful('desktopGeometry', new GLib.VariantType('av'), getDesktopGeometry());
-        desktopGeometry.set_enabled(true);
-        doCopy.connect('activate', manageCutCopy);
-        doCut.connect('activate', manageCutCopy);
-        data.actionGroup = new Gio.SimpleActionGroup();
-        data.actionGroup.add_action(doCopy);
-        data.actionGroup.add_action(doCut);
-        data.actionGroup.add_action(desktopGeometry);
-
-        this._dbusConnectionGroupId = data.dbusConnection.export_action_group(
-            '/com/rastersoft/dingextension/control',
-            data.actionGroup
-        );
-        launchDesktop();
-    }, null);
-}
-
-/*
- * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
- * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
- * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
- *
- *     x-special/nautilus-clipboard
- *     OPERATION
- *     FILE_URI
- *     [FILE_URI]
- *     [...]
- *
- * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
- * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
- * shared.
- *
- * To maintain compatibility, we check the current Gnome Shell version and, based on that, we use the
- * binary or the text clipboards.
- */
-function manageCutCopy(action, parameters) {
-
-    let content = "";
-    if (data.GnomeShellVersion < 40) {
-        content = 'x-special/nautilus-clipboard\n';
-    }
-    if (action.name == 'doCut') {
-        content += 'cut\n';
-    } else {
-        content += 'copy\n';
-    }
-
-    let first = true;
-    for (let file of parameters.recursiveUnpack()) {
-        if (!first) {
-            content += '\n';
-        }
-        first = false;
-        content += file;
-    }
-
-    if (data.GnomeShellVersion < 40) {
-        Clipboard.set_text(CLIPBOARD_TYPE, content + "\n");
-    } else {
-        Clipboard.set_content(CLIPBOARD_TYPE, 'x-special/gnome-copied-files', ByteArray.toGBytes(ByteArray.fromString(content)));
-    }
-}
-
 /**
  * Kills the current desktop program
  */
@@ -252,15 +163,7 @@ function disable() {
     data.visibleArea.disable();
 
     // disconnect signals only if connected
-    if (this._dbusConnectionGroupId) {
-        data.dbusConnection.unexport_action_group(this._dbusConnectionGroupId);
-        this._dbusConnectionGroupId = 0;
-    }
 
-    if (data.dbusConnectionId) {
-        Gio.bus_unown_name(data.dbusConnectionId);
-        data.dbusConnectionId = 0;
-    }
     if (data.visibleAreaId) {
         data.visibleArea.disconnect(data.visibleAreaId);
         data.visibleAreaId = 0;

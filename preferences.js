@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-imports.gi.versions.Gtk = '3.0';
+imports.gi.versions.Gtk = '4.0';
 
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
@@ -68,9 +68,8 @@ function showPreferences() {
     if (this.window) {
         return;
     }
-    this.window = new Gtk.Window({ resizable: false,
-                                  window_position: Gtk.WindowPosition.CENTER });
-    this.window.connect('destroy', () => {this.window = null});
+    this.window = new Gtk.Window({ resizable: false});
+    this.window.connect('close-request', () => {this.window = null});
     this.window.set_title(_("Settings"));
     DesktopIconsUtil.windowHidePagerTaskbarModal(this.window, true);
     let frame = PrefsWindow.preferencesFrame(Gtk, desktopSettings, nautilusSettings, gtkSettings);

@@ -33,12 +33,16 @@ var AskRenamePopup = class {
         this._allowReturnOnSameName = allowReturnOnSameName;
         this._desktopPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
         this._fileItem = fileItem;
-        this._popover = new Gtk.Popover({relative_to: fileItem.container,
-                                         modal: true});
+        this._popover = new Gtk.Popover;
+        this._popover.set_autohide(true);
         let contentBox = new Gtk.Grid({row_spacing: 6,
                                        column_spacing: 6,
-                                       margin: 10});
-        this._popover.add(contentBox);
+                                       });
+        contentBox.set_margin_top(10);
+        contentBox.set_margin_bottom(10);
+        contentBox.set_margin_start(10);
+        contentBox.set_margin_end(10);
+        this._popover.set_child(contentBox);
         let label = new Gtk.Label({label: fileItem.isDirectory ? _("Folder name") : _("File name"),
                                    justify: Gtk.Justification.LEFT,
                                    halign: Gtk.Align.START});
@@ -62,12 +66,12 @@ var AskRenamePopup = class {
         this._popover.connect('closed', () => {
             closeCB();
         });
-        this._textArea.set_can_default(true);
+        this._textArea.set_activates_default(true);
         this._popover.set_default_widget(this._textArea);
         this._button.get_style_context().add_class("suggested-action");
-        contentBox.show_all();
+        contentBox.show();
+        this._popover.set_parent(fileItem.container);
         this._popover.popup();
-        this._popover.set_relative_to(this._fileItem._iconContainer);
         this._validate();
         this._textArea.grab_focus_without_selecting();
         this._textArea.select_region(0, DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, fileItem.isDirectory));

@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-imports.gi.versions.Gtk = '3.0';
+imports.gi.versions.Gtk = '4.0';
 const Gtk = imports.gi.Gtk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
@@ -162,7 +162,7 @@ const dingApp = new Gtk.Application({application_id: asDesktop ? 'com.rastersoft
 
 dingApp.connect('startup', () => {
     Prefs.init(codePath);
-    dbusManager = DBusUtils.init();
+    dbusManager = DBusUtils.init(dingApp);
 });
 
 dingApp.connect('activate', () => {

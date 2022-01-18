@@ -355,20 +355,18 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
      * Button Clicks *
      ***********************/
 
-    _doButtonOnePressed(event, shiftPressed, controlPressed) {
-        super._doButtonOnePressed(event, shiftPressed, controlPressed);
+    _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
+        super._doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed);
         if (this.getClickCount() == 2 && !Prefs.CLICK_POLICY_SINGLE) {
             this.doOpen();
         }
     }
 
-    _doButtonOneReleased(event) {
+    _doButtonOneReleased(button, X, Y, x, y, shiftPressed, controlPressed) {
         // primaryButtonPressed is TRUE only if the user has pressed the button
         // over an icon, and if (s)he has not started a drag&drop operation
         if (this._primaryButtonPressed) {
             this._primaryButtonPressed = false;
-            let shiftPressed = !!(event.get_state()[1] & Gdk.ModifierType.SHIFT_MASK);
-            let controlPressed = !!(event.get_state()[1] & Gdk.ModifierType.CONTROL_MASK);
             if (!shiftPressed && !controlPressed) {
                 this._desktopManager.selected(this, Enums.Selection.RELEASE);
                 if (Prefs.CLICK_POLICY_SINGLE) {
@@ -382,42 +380,34 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
      * Drag and Drop *
      ***********************/
 
-    _setDropDestination(dropDestination) {
-        dropDestination.drag_dest_set(Gtk.DestDefaults.MOTION | Gtk.DestDefaults.DROP, null,
-            Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.DEFAULT);
+    recieveDrop(x, y, selection, info) {
         if ((this._fileExtra == Enums.FileType.USER_DIRECTORY_TRASH) ||
             (this._fileExtra == Enums.FileType.USER_DIRECTORY_HOME) ||
             (this._fileExtra != Enums.FileType.EXTERNAL_DRIVE) ||
             (this._isDirectory)) {
-                let targets = new Gtk.TargetList(null);
-                targets.add(Gdk.atom_intern('x-special/gnome-icon-list', false), 0, 1);
-                targets.add(Gdk.atom_intern('text/uri-list', false), 0, 2);
-                dropDestination.drag_dest_set_target_list(targets);
-                dropDestination.connect('drag-data-received', (widget, context, x, y, selection, info, time) => {
-                    const forceCopy = context.get_selected_action() === Gdk.DragAction.COPY;
-                    if (info === Enums.DndTargetInfo.GNOME_ICON_LIST ||
-                        info === Enums.DndTargetInfo.URI_LIST) {
-                        let fileList = DesktopIconsUtil.getFilesFromNautilusDnD(selection, info);
-                        if (fileList.length != 0) {
-                            if (this._hasToRouteDragToGrid()) {
-                                this._grid.receiveDrop(context, this._x1 + x, this._y1 + y, selection, info, true, forceCopy);
-                                return;
-                            }
-                            if (this._desktopManager.dragItem && ((this._desktopManager.dragItem.uri == this._file.get_uri()) || !(this._isValidDesktopFile || this.isDirectory))) {
-                                // Dragging a file/folder over itself or over another file will do nothing, allow drag to directory or validdesktop file
-                                Gtk.drag_finish(context, false, false, time);
-                                return;
-                            }
-                            if ( this._isValidDesktopFile ) {
-                                // open the desktopfile with these dropped files as the arguments
-                                this.doOpen(fileList);
-                                Gtk.drag_finish(context, true, false, time);
-                                return;
-                            }
-                            if (this._fileExtra != Enums.FileType.USER_DIRECTORY_TRASH) {
-                                let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
-                                let id_fs = data.get_attribute_string('id::filesystem');
-                                if ((this._desktopManager.desktopFsId == id_fs) && (!forceCopy)) {
+                if ((info == 'gnomeicondrop') || (info == 'dingdrop')) {
+                    let fileList = selection.split('\r\n')
+                    if (fileList.length >= 2) {
+                        fileList.splice(-1, 1);
+                    }
+                    if (fileList.length != 0) {
+                        if (this._hasToRouteDragToGrid()) {
+                            this._grid.receiveDrop(x, y, selection, info);
+                            return;
+                        }
+                        if (this._desktopManager.dragItem && ((this._desktopManager.dragItem.uri == this._file.get_uri()) || !(this._isValidDesktopFile || this.isDirectory))) {
+                            // Dragging a file/folder over itself or over another file will do nothing, allow drag to directory or validdesktop file
+                            return;
+                        }
+                        if ( this._isValidDesktopFile ) {
+                            // open the desktopfile with these dropped files as the arguments
+                            this.doOpen(fileList);
+                            return;
+                        }
+                        if (this._fileExtra != Enums.FileType.USER_DIRECTORY_TRASH) {
+                            let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
+                            let id_fs = data.get_attribute_string('id::filesystem');
+                            if (this._desktopManager.desktopFsId == id_fs) {
                                     DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, this._file.get_uri());
                                     Gtk.drag_finish(context, true, true, time);
                                 } else {
@@ -426,14 +416,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                                 }
                             } else {
                                 DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
-                                Gtk.drag_finish(context, true, true, time);
-                            }
                         }
-                    } else {
-                        Gtk.drag_finish(context, false, false, time);
                     }
-                });
+                }
         }
+    return true;
     }
 
     _hasToRouteDragToGrid() {

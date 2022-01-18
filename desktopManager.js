@@ -33,7 +33,7 @@ const DBusUtils = imports.dbusUtils;
 const AskRenamePopup = imports.askRenamePopup;
 const ShowErrorPopup = imports.showErrorPopup;
 const TemplatesScriptsManager = imports.templatesScriptsManager;
-const Thumbnails = imports.thumbnails;
+//const Thumbnails = imports.thumbnails;
 const FileItemMenu = imports.fileItemMenu;
 const AutoAr = imports.autoAr;
 
@@ -51,6 +51,7 @@ var DesktopManager = class {
         }
         this._selectedFiles = null;
         DesktopIconsUtil.setApplicationId(mainApp);
+        DBusUtils.setApplicationId(mainApp);
 
         this._premultiplied = false;
         try {
@@ -66,6 +67,7 @@ var DesktopManager = class {
         this.dbusManager = dbusManager;
         this.autoAr = new AutoAr.AutoAr(this);
 
+        this.GnomeShellVersion = 40;
         this._primaryIndex = primaryIndex;
         if (primaryIndex < desktopList.length) {
             this._primaryScreen = desktopList[primaryIndex];
@@ -76,7 +78,7 @@ var DesktopManager = class {
         this._clickY = 0;
         this._dragList = null;
         this.dragItem = null;
-        this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath);
+        //this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath);
         this._codePath = codePath;
         this._asDesktop = asDesktop;
         this._desktopList = desktopList;
@@ -184,7 +186,7 @@ var DesktopManager = class {
                 });
             }
         });
-        this._gtkIconTheme = Gtk.IconTheme.get_default()
+        this._gtkIconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         this._gtkIconTheme.connect('changed', () => {
             this._updateDesktop().catch((e) => {
                     print(`Exception while updating Desktop after Gtk Icon Theme Change: ${e.message}\n${e.stack}`);
@@ -204,7 +206,7 @@ var DesktopManager = class {
 
         let cssProvider = new Gtk.CssProvider();
         cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([codePath, "stylesheet.css"])));
-        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         this._configureSelectionColor();
         this._createMenuActionGroup();
@@ -386,27 +388,29 @@ var DesktopManager = class {
     }
 
     _configureSelectionColor() {
-        this._contextWidget = new Gtk.WidgetPath();
-        this._contextWidget.append_type(Gtk.Widget);
-
-        this._styleContext = new Gtk.StyleContext();
-        this._styleContext.set_path(this._contextWidget);
+        let box = new Gtk.Box;
+        this._styleContext = box.get_style_context();
         this._styleContext.add_class('view');
         this._cssProviderSelection = new Gtk.CssProvider();
-        this._styleContext.connect('changed', () => {
-            Gtk.StyleContext.remove_provider_for_screen(Gdk.Screen.get_default(), this._cssProviderSelection);
+        this._styleContext.connect('notify::vfunc_changed', () => {
+            Gtk.StyleContext.remove_provider_for_display(Gdk.Screen.get_default(), this._cssProviderSelection);
             this._setSelectionColor();
         });
         this._setSelectionColor();
     }
 
     _setSelectionColor() {
-        this.selectColor = this._styleContext.get_background_color(Gtk.StateFlags.SELECTED);
+        let [exists, color] = this._styleContext.lookup_color('theme_selected_bg_color');
+        if (exists) {
+            this.selectColor = color;
+        } else {
+            this.selectColor = this._styleContext.get_color(); // just set to foreground color
+        }
         let style = `.desktop-icons-selected {
             background-color: rgba(${this.selectColor.red * 255},${this.selectColor.green * 255}, ${this.selectColor.blue * 255}, 0.6);
         }`;
         this._cssProviderSelection.load_from_data(style);
-        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), this._cssProviderSelection, 600);
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), this._cssProviderSelection, 600);
     }
 
     clearFileCoordinates(fileList, dropCoordinates) {
@@ -515,24 +519,29 @@ var DesktopManager = class {
         this.dragItem = null;
     }
 
-    onDragDataReceived(context, xDestination, yDestination, selection, info, forceLocal, forceCopy) {
+    onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, selection, info) {
+
         this.onDragLeave();
-        let fileList = DesktopIconsUtil.getFilesFromNautilusDnD(selection, info);
-        if (forceLocal) {
-            info = Enums.DndTargetInfo.DING_ICON_LIST;
-        }
+        let fileList;
+
         switch(info) {
-        case Enums.DndTargetInfo.DING_ICON_LIST:
+        case 'dingdrop':
+            fileList = selection.split('\r\n')
+            if (fileList.length >= 2) {
+                fileList.splice(-1, 1);
+            }
             if (fileList.length != 0) {
                 let [xOrigin, yOrigin, a, b, c] = this.dragItem.getCoordinates();
-                this.doMoveWithDragAndDrop(xOrigin, yOrigin, xDestination, yDestination);
-                Gtk.drag_finish(context, true, true, Gtk.get_current_event_time());
+                this.doMoveWithDragAndDrop(xOrigin, yOrigin, xlocalDestination, ylocalDestination);
             }
             break;
-        case Enums.DndTargetInfo.GNOME_ICON_LIST:
-        case Enums.DndTargetInfo.URI_LIST:
+        case 'gnomeicondrop':
+            fileList = selection.split('\r\n')
+            if (fileList.length >= 2) {
+                fileList.splice(-1, 1);
+            }
             if (fileList.length != 0) {
-                this.clearFileCoordinates(fileList, [xDestination, yDestination]);
+                this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination]);
                 let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
                 let id_fs = data.get_attribute_string('id::filesystem');
                 if ((this.desktopFsId == id_fs) && (!forceCopy)) {
@@ -546,13 +555,10 @@ var DesktopManager = class {
                 Gtk.drag_finish(context, false, false, Gtk.get_current_event_time());
             }
             break;
-        case Enums.DndTargetInfo.TEXT_PLAIN:
-            if (fileList.length != 0 ) {
-                let dropCoordinates = [ xDestination, yDestination ];
-                this.detectURLorText(fileList, dropCoordinates);
-                Gtk.drag_finish(context, true, false, Gtk.get_current_event_time());
-            } else {
-                Gtk.drag_finish(context, false, false, Gtk.get_current_event_time());
+        case 'textdrop':
+            if (selection.length != 0 ) {
+                let dropCoordinates = [ xGlobalDestination, yGlobalDestination ];
+                this.detectURLorText(selection, dropCoordinates);
             }
             break;
 
@@ -605,24 +611,24 @@ var DesktopManager = class {
         if (fileList == null) {
             return null;
         }
-        let atom;
-        switch(info) {
-            case Enums.DndTargetInfo.DING_ICON_LIST:
-                atom = Gdk.atom_intern('x-special/ding-icon-list', false);
-                break;
-            case Enums.DndTargetInfo.GNOME_ICON_LIST:
-                atom = Gdk.atom_intern('x-special/gnome-icon-list', false);
-                break;
-            case Enums.DndTargetInfo.URI_LIST:
-                atom = Gdk.atom_intern('text/uri-list', false);
-                break;
-            default:
-                return null;
-        }
+        //let atom;
+        //switch(info) {
+            //case 0:
+                //atom = Gdk.atom_intern('x-special/ding-icon-list', false);
+                //break;
+            //case 1:
+                //atom = Gdk.atom_intern('x-special/gnome-icon-list', false);
+                //break;
+            //case 2:
+                //atom = Gdk.atom_intern('text/uri-list', false);
+                //break;
+            //default:
+                //return null;
+        //}
         let data = "";
         for (let fileItem of fileList) {
             data += fileItem.uri;
-            if (info === Enums.DndTargetInfo.GNOME_ICON_LIST) {
+            if (info == 'x-special/gnome-icon-list') {
                 let coordinates = fileItem.getCoordinates();
                 if (coordinates != null) {
                     data += `\r${coordinates[0]}:${coordinates[1]}:${coordinates[2] - coordinates[0] + 1}:${coordinates[3] - coordinates[1] + 1}`
@@ -630,69 +636,73 @@ var DesktopManager = class {
             }
             data += '\r\n';
         }
-        return [atom, data];
+        return data;
     }
 
-    onPressButton(x, y, event, grid) {
-
+    onPressButton(X, Y, x, y, button, shiftPressed, controlPressed, grid) {
         this._clickX = Math.floor(x);
         this._clickY = Math.floor(y);
-        let button = event.get_button()[1];
-        let state = event.get_state()[1];
+
         if (button == 1) {
-            let shiftPressed = !!(state & Gdk.ModifierType.SHIFT_MASK);
-            let controlPressed = !!(state & Gdk.ModifierType.CONTROL_MASK);
             if (!shiftPressed && !controlPressed) {
                 // clear selection
                 this.unselectAll();
             }
             this._startRubberband(x, y);
         }
-        if (button == 3) {
-            this._prepareMenu();
-            this._createDesktopBackgroundGioMenu();
-            let popupmenu = Gtk.Popover.new_from_model(grid._container, this.desktopBackgroundGioMenu)
-            popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
-            this.popupmenuopen = true;
-            popupmenu.popup();
-            popupmenu.connect('closed', () => {this.popupmenuopen = false});
-        }
-    }
 
-    _prepareMenu() {
-        this._syncUndoRedo();
-        let atom = Gdk.Atom.intern('CLIPBOARD', false);
-        let atom2 = Gdk.Atom.intern('x-special/gnome-copied-files', false);
-        let clipboard = Gtk.Clipboard.get(atom);
-        this._isCut = false;
-        this._clipboardFiles = null;
-        let text = null;
-        /*
-            * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
-            * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
-            * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
-            *
-            *     x-special/nautilus-clipboard
-            *     OPERATION
-            *     FILE_URI
-            *     [FILE_URI]
-            *     [...]
-            *
-            * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
-            * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
-            * shared.
-            *
-            * To maintain compatibility, we first check if there's binary data in that atom, and if not, we check if
-            * there is text data in the old format.
-            */
-        if (clipboard.wait_is_target_available(atom2)) {
-                let data = clipboard.wait_for_contents(atom2);
-                text = 'x-special/nautilus-clipboard\n' + ByteArray.toString(data.get_data()) + '\n';
-        } else {
-                text = clipboard.wait_for_text();
-                if (text && !text.endsWith('\n')) {
-                    text += '\n';
+        if (button == 3) {
+            this._syncUndoRedo();
+            let clipboard = Gdk.Display.get_default().get_clipboard();
+            this._isCut = false;
+            this._clipboardFiles = null;
+            /*
+             * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
+             * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
+             * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
+             *
+             *     x-special/nautilus-clipboard
+             *     OPERATION
+             *     FILE_URI
+             *     [FILE_URI]
+             *     [...]
+             *
+             * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
+             * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
+             * shared.
+             *
+             * To maintain compatibility, we first check if there's binary data in that atom, and if not, we check if
+             * there is text data in the old format.
+             */
+            let text;
+            if (clipboard.get_formats()) {
+                let mimetypes = clipboard.get_formats().to_string();
+                if (mimetypes.includes('x-special/gnome-copied-files')) {
+                    clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
+                            let success = actor.read_finish(result);
+                            let bytes = success[0].read_bytes(8192, null);
+                            text = ByteArray.toString(bytes.get_data());
+                            text = 'x-special/nautilus-clipboard\n' + text + '\n'
+                            this._setClipboardContent(text);
+                    });
+                } else if (mimetypes.includes('text/plain')) {
+                    clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
+                            let success = actor.read_finish(result);
+                            let bytes = success[0].read_bytes(8192, null);
+                            text = ByteArray.toString(bytes.get_data());
+                            this._setClipboardContent(text);
+                    });
                 }
+            }
+            this._createDesktopBackgroundGioMenu();
+            this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
+            this.popupmenu.set_parent(grid._container);
+            this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
+            this.popupmenuopen = true;
+            this.popupmenu.popup();
+            this.popupmenu.connect('closed', () => {
+                this.popupmenuopen = false;
+            });
         }
         this._setClipboardContent(text);
     }
@@ -917,7 +927,7 @@ var DesktopManager = class {
                             return false;
                         });
                     }
-                    this.findFiles(this.searchString)
+                    this.findFiles(this.searchString, grid)
                 }
             }
             return true;
@@ -929,19 +939,25 @@ var DesktopManager = class {
         this._fileList.map(f => f.unsetSelected());
     }
 
-    findFiles(text) {
+    findFiles(text, grid) {
         this._findFileWindow = new Gtk.Dialog({use_header_bar: true,
-                                       window_position: Gtk.WindowPosition.CENTER_ON_PARENT,
                                        resizable: false});
         this._findFileButton = this._findFileWindow.add_button(_("OK"), Gtk.ResponseType.OK);
         this._findFileButton.sensitive = false;
         this._findFileWindow.add_button(_("Cancel"), Gtk.ResponseType.CANCEL);
         this._findFileWindow.set_modal(true);
+        this._findFileWindow.set_transient_for(grid._window);
         this._findFileWindow.set_title(_('Find Files on Desktop'));
         DesktopIconsUtil.windowHidePagerTaskbarModal(this._findFileWindow, true);
         let contentArea = this._findFileWindow.get_content_area();
         this._findFileTextArea = new Gtk.Entry();
-        contentArea.pack_start(this._findFileTextArea, true, true, 5);
+        this._findFileTextArea.set_margin_top(5);
+        this._findFileTextArea.set_margin_bottom(5);
+        this._findFileTextArea.set_margin_start(5);
+        this._findFileTextArea.set_margin_end(5);
+        contentArea.append(this._findFileTextArea);
+        contentArea.set_homogeneous(true);
+        contentArea.set_baseline_position(Gtk.BaselinePosition.CENTER);
         this._findFileTextArea.connect('activate', () => {
             if (this._findFileButton.sensitive) {
                 this._findFileWindow.response(Gtk.ResponseType.OK);
@@ -970,7 +986,7 @@ var DesktopManager = class {
         } else {
             this.scanForFiles(null);
         }
-        this._findFileWindow.show_all();
+        this._findFileWindow.show();
         this._findFileWindow.connect('close', () => {
             this._findFileWindow.response(Gtk.ResponseType.CANCEL);
         })
@@ -1236,7 +1252,6 @@ var DesktopManager = class {
         this.rubberBandInitY = y;
         this.rubberBand = true;
         for(let item of this._fileList) {
-            item.updatePositionRectangles();
             item.touchedByRubberband = false;
         }
     }
@@ -1586,33 +1601,61 @@ var DesktopManager = class {
         });
     }
 
-    _getClipboardText() {
-        let selection = this.getCurrentSelection(true);
-        if (selection) {
-            return new GLib.Variant('as', selection);
-        } else {
-            return new GLib.Variant('as', []);
+     /*
+     * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
+     * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
+     * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
+     *
+     *     x-special/nautilus-clipboard
+     *     OPERATION
+     *     FILE_URI
+     *     [FILE_URI]
+     *     [...]
+     *
+     * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
+     * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
+     * shared.
+     *
+     * To maintain compatibility, we check the current Gnome Shell version and, based on that, we use the
+     * binary or the text clipboards.
+     */
+
+    _manageCutCopy(action) {
+        let clipboard = Gdk.Display.get_default().get_clipboard();
+        let content = "";
+        if (this.GnomeShellVersion < 40) {
+            content = 'x-special/nautilus-clipboard\n';
         }
+        if (action == 'doCut') {
+            content += 'cut\n';
+        } else {
+            content += 'copy\n';
+        }
+
+        let first = true;
+        for (let file of this.getCurrentSelection(true)) {
+            if (!first) {
+                content += '\n';
+            }
+            first = false;
+            content += file;
+        }
+
+        let contentProvider;
+        if (this.GnomeShellVersion < 40) {
+            contentProvider = Gdk.ContentProvider.new_for_bytes('text/plain', ByteArray.toGBytes(ByteArray.fromString(content)));
+        } else {
+            contentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files', ByteArray.toGBytes(ByteArray.fromString(content)));
+        }
+        clipboard.set_content(contentProvider);
     }
 
-    /*
-     * Due to a problem in the Clipboard API in Gtk3, it is not possible to do the CUT/COPY operation from
-     * dynamic languages like Javascript, because one of the methods needed is marked as NOT INTROSPECTABLE
-     *
-     * https://discourse.gnome.org/t/missing-gtk-clipboard-set-with-data-in-gtk-3/6920
-     *
-     * The right solution is to migrate DING to Gtk4, where the whole API is available, but that is a very
-     * big task, so in the meantime, we take advantage of the fact that the St API, in Gnome Shell, can put
-     * binary contents in the clipboard, so we use DBus to notify that we want to do a CUT or a COPY operation,
-     * passing the URIs as parameters, and delegate that to the DING Gnome Shell extension. This is easily done
-     * with a GLib.SimpleAction.
-     */
     doCopy() {
-        DBusUtils.extensionControl.activate_action('doCopy', this._getClipboardText());
+        this._manageCutCopy('doCopy');
     }
 
     doCut() {
-        DBusUtils.extensionControl.activate_action('doCut', this._getClipboardText());
+        this._manageCutCopy('doCut');
     }
 
     doTrash() {

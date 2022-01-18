@@ -16,7 +16,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { Gio, GLib, Gdk, Gtk } = imports.gi;
+imports.gi.versions.GdkX11 = '4.0';
+imports.gi.versions.Gdk = '4.0';
+imports.gi.versions.GdkWayland = '4.0';
+
+const { Gio, GLib, Gdk, Gtk, GdkX11, GdkWayland } = imports.gi;
 const ByteArray = imports.byteArray;
 const Signals = imports.signals;
 const DBusInterfaces = imports.dbusInterfaces;
@@ -27,11 +31,10 @@ var GnomeNautilusPreview = null;
 var SwitcherooControl = null;
 var GnomeArchiveManager = null;
 var GtkVfsMetadata = null;
-var extensionControl = null;
-
 var discreteGpuAvailable = false;
 var dbusManagerObject;
 var RemoteFileOperations;
+var applicationid;
 
 const Gettext = imports.gettext.domain('ding');
 
@@ -542,34 +545,60 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
     }
 
     _createPlatformData() {
-        this.platformData = this.fileOperationsManager.platformData = () => {
-            let parentWindow = Gtk.get_current_event()?.get_window();
-
+        
+        this.freePlatformData = this.fileOperationsManager.freePlatformData = () => {
+            let parentWindow = applicationid.get_active_window();
+            const topLevel = parentWindow.get_surface();
+            if (topLevel.constructor.$gtype === GdkWayland.WaylandToplevel.$gtype) {
+                topLevel.unexport_handle();
+            }
+        }
+    
+        this.platformData = this.fileOperationsManager.platformData = async () => {
+            let parentWindow = applicationid.get_active_window();
             let parentHandle = '';
+            let windowPosition = 'center';
+            const topLevel = parentWindow.get_surface();
+            let timestamp = Gdk.CURRENT_TIME;
+    
+            const getWaylandParentHandle = new Promise( (resolve, reject) => {
+                try {
+                    topLevel.export_handle((actor, handle) => {
+                        if (handle) {
+                            resolve(handle);
+                        } else {
+                            resolve(false);
+                        }
+                    });
+                } catch(e) {
+                    print(`Failed with "${e.message}" while getting parent handle, WaylandHandle`);
+                    resolve(false);
+                }
+            });
+    
             if (parentWindow) {
                 try {
-                    imports.gi.versions.GdkX11 = '3.0';
-                    const { GdkX11 } = imports.gi;
-                    const topLevel = parentWindow.get_effective_toplevel();
-
-                    if (topLevel.constructor.$gtype === GdkX11.X11Window.$gtype) {
-                        const xid = GdkX11.X11Window.prototype.get_xid.call(topLevel);
-                        parentHandle = `x11:${xid}`;
-                    } /* else if (topLevel instanceof GdkWayland.Toplevel) {
-                        FIXME: Need Gtk4 to use GdkWayland
-                        const handle = GdkWayland.Toplevel.prototype.export_handle.call(topLevel);
-                        parentHandle = `wayland:${handle}`;
-                    } */
-                    } catch (e) {
-                        logError(e, 'Impossible to determine the parent window');
+                    if (topLevel.constructor.$gtype === GdkWayland.WaylandToplevel.$gtype) {
+                        let handle = await getWaylandParentHandle;
+                        if (handle) {
+                            parentHandle = `wayland:${handle}`;
+                        }
+                        return parentHandle;
+                    }
+                    if (topLevel.constructor.$gtype === GdkX11.X11Surface.$gtype) {
+                      const xid = GdkX11.X11Window.prototype.get_xid.call(topLevel);
+                      return parentHandle = `x11:${xid}`;
+                    }
+                } catch (e) {
+                    logError(e, 'Impossible to determine the parent window');
                 }
-            }
 
-            return {
-                'parent-handle': new GLib.Variant('s', parentHandle),
-                'timestamp': new GLib.Variant('u', Gtk.get_current_event_time()),
-                'window-position': new GLib.Variant('s', 'center'),
-            };
+                return {
+                  'parent-handle': new GLib.Variant('s', parentHandle),
+                  'timestamp': new GLib.Variant('u', timestamp),
+                  'window-position': new GLib.Variant('s', windowPosition),
+                };
+            }
         }
     }
 
@@ -583,6 +612,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
             uri,
             this.platformData(),
             (result, error) => {
+                this.freePlatformData();
                 if (callback) {
                     callback(result, error);
                 }
@@ -603,6 +633,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
             uri,
             this.platformData(),
             (result, error) => {
+                this.freePlatformData();
                 if (callback) {
                     callback(result, error);
                 }
@@ -642,6 +673,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
             fileList,
             this.platformData(),
             (result, error) => {
+                this.freePlatformData();
                 if (callback) {
                     callback(result, error);
                 }
@@ -661,6 +693,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
             fileList,
             this.platformData(),
             (source, error) => {
+                this.freePlatformData();
                 if (callback) {
                     callback(source, error);
                 }
@@ -680,6 +713,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
             askConfirmation,
             this.platformData(),
             (source, error) => {
+                this.freePlatformData();
                 if (callback) {
                     callback(source, error);
                 }
@@ -698,6 +732,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         this.fileOperationsManager.proxy.UndoRemote(
             this.platformData(),
             (result, error) => {
+                this.freePlatformData();
                 if (callback) {
                     callback(result, error);
                 }
@@ -716,6 +751,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         this.fileOperationsManager.proxy.RedoRemote(
             this.platformData(),
             (result, error) => {
+                this.freePlatformData();
                 if (callback) {
                     callback(result, error);
                 }
@@ -889,8 +925,9 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
 }
 
 
-function init() {
+function init(mainapp) {
 
+    applicationid = mainapp;
     dbusManagerObject = new DBusManager();
 
     let data = dbusManagerObject.getIntrospectionData(
