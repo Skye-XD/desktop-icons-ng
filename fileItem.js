@@ -420,7 +420,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _hasToRouteDragToGrid() {
-        return this._isSelected && (this._desktopManager.dragItem !== null) && (this._desktopManager.dragItem.uri !== this._file.get_uri());
+        return this._isSelected && (this._desktopManager.dragItem) && (this._desktopManager.dragItem.uri !== this._file.get_uri());
     }
 
     dropCapable() {

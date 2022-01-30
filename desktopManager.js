@@ -1256,9 +1256,9 @@ var DesktopManager = class {
         }
     }
 
-	unHighLightDropTarget() {
-		this._fileList.forEach(item => item.unHighLightDropTarget());
-	}
+    unHighLightDropTarget() {
+        this._fileList.forEach(item => item.unHighLightDropTarget());
+    }
 
     selected(fileItem, action) {
         switch(action) {
@@ -1637,6 +1637,9 @@ var DesktopManager = class {
         }
 
         let first = true;
+        if ( ! this.getCurrentSelection(true)) {
+            return;
+        }
         for (let file of this.getCurrentSelection(true)) {
             if (!first) {
                 content += '\n';

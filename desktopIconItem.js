@@ -153,8 +153,6 @@ var desktopIconItem = class desktopIconItem {
             this._calculateLabelRectangle();
         });
 
-        this._setDragSource(this._iconContainer);
-        this._setDragSource(this._labelContainer);
         this.container.show();
     }
 
@@ -404,59 +402,8 @@ var desktopIconItem = class desktopIconItem {
         }
     }
 
-    _setDragSource(widget) {
-        let widgetDragController = Gtk.DragSource.new();
-        widgetDragController.set_actions(Gdk.DragAction.COPY|Gdk.DragAction.MOVE);
-        widgetDragController.connect('prepare', (actor, x, y) => {
-            let [a, b] = this._calculateOffset(widget);
-            widgetDragController.set_icon(this.dragIcon, a, b);
-            this._loadDragData(actor);
-            if (this.contentProvider) {
-                    return this.contentProvider;
-            }
-        });
-        widgetDragController.connect('drag-begin', (actor, drag) => {
-            this._desktopManager.onDragBegin(this);
-        });
-        widgetDragController.connect('drag-end', (actor, drag, delete_data) => {
-            this._desktopManager.onDragEnd();
-        });
-        widget.add_controller(widgetDragController);
-    }
-
-    _loadDragData(widgetDragController) {
-        let dingdrop = 'x-special/ding-icon-list';
-        let gnomedrop = 'x-special/gnome-icon-list';
-        let textlistdrop = 'text/plain';
-        let dingdragData = this._desktopManager.fillDragDataGet(dingdrop);
-        let dingcontentProvider;
-        if (dingdragData != null) {
-            dingcontentProvider = Gdk.ContentProvider.new_for_bytes(dingdrop, ByteArray.toGBytes(ByteArray.fromString(dingdragData)));
-        } else {
-            this.contentProvider = null;
-            return;
-        }
-        let textlistdragData = this._desktopManager.fillDragDataGet(textlistdrop);
-        let textlistcontentProvider = Gdk.ContentProvider.new_for_bytes(textlistdrop, ByteArray.toGBytes(ByteArray.fromString(textlistdragData)));
-        if ((this._fileExtra != Enums.FileType.USER_DIRECTORY_TRASH) &&
-            (this._fileExtra != Enums.FileType.USER_DIRECTORY_HOME) &&
-            (this._fileExtra != Enums.FileType.EXTERNAL_DRIVE)) {
-                let gnomedragData = this._desktopManager.fillDragDataGet(gnomedrop);
-                let gnomecontentProvider = Gdk.ContentProvider.new_for_bytes(gnomedrop, ByteArray.toGBytes(ByteArray.fromString(gnomedragData)));
-                this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, gnomecontentProvider, textlistcontentProvider]);
-        } else {
-            this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, textlistcontentProvider]);
-        }
-    }
-
-    _calculateOffset(widget) {
-        this._calculateIconRectangle();
-        this._calculateLabelRectangle();
-        if (widget == this._iconContainer) {
-            return [((this.width - this.iconwidth)/2) + this._buttonPressInitialX, this._buttonPressInitialY];
-        } else {
-            return [((this.width - this.labelwidth)/2) + this._buttonPressInitialX, (this.iconheight + 2) + this._buttonPressInitialY];
-        }
+    _calculateOffset(x, y) {
+        return [ x - this._x1, y - this._y1];
     }
 
     receiveDrop(x, y, selection, info) {
@@ -526,8 +473,6 @@ var desktopIconItem = class desktopIconItem {
                 }
             }
             const scale = this._icon.get_scale_factor();
-            //let surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, null);
-            //this._icon.set_from_surface(surface); /// FIX CANNOT FIND GTK/GDK4 equivalent
             this._icon.set_paintable(pixbuf);
         }
     }
@@ -566,7 +511,6 @@ var desktopIconItem = class desktopIconItem {
                         height *= scale;
                         let pixbuf = thumbnailPixbuf.scale_simple(Math.floor(width), Math.floor(height), GdkPixbuf.InterpType.BILINEAR);
                         pixbuf = this._addEmblemsToPixbufIfNeeded(pixbuf);
-                        //let surface = Gdk.cairo_surface_create_from_pixbuf(pixbuf, scale, null);
                         this._icon.set_paintable(pixbuf);
                         this._icon.margin_top(4);
                         this._icon.margin_bottom(4);
