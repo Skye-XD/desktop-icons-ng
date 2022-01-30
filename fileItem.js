@@ -391,10 +391,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                         fileList.splice(-1, 1);
                     }
                     if (fileList.length != 0) {
-                        if (this._hasToRouteDragToGrid()) {
-                            this._grid.receiveDrop(x, y, selection, info);
-                            return;
-                        }
                         if (this._desktopManager.dragItem && ((this._desktopManager.dragItem.uri == this._file.get_uri()) || !(this._isValidDesktopFile || this.isDirectory))) {
                             // Dragging a file/folder over itself or over another file will do nothing, allow drag to directory or validdesktop file
                             return;

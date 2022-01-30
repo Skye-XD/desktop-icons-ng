@@ -135,11 +135,6 @@ var desktopIconItem = class desktopIconItem {
         this.iconRectangle = new Gdk.Rectangle();
         this.labelRectangle = new Gdk.Rectangle();
 
-        /* We need to allow the "button-press" event to pass through the callbacks, to allow the DnD to work
-         * But we must avoid them to reach the main window.
-         * The solution is to allow them to pass in a EventBox, used both for detecting the events and the DnD, and block them
-         * in a second EventBox, located outside.
-         */
         this._iconEventController = Gtk.EventControllerMotion.new();
         this._iconEventController.set_propagation_phase(Gtk.PropagationPhase.TARGET);
         this._iconEventController.connect('enter', (actor, x, y) => this._onEnter(actor, x, y));
@@ -163,25 +158,6 @@ var desktopIconItem = class desktopIconItem {
             this._calculateLabelRectangle();
         });
 
-        //this._labelEventBox.connect('drag-motion', (widget, context, x, y, time) => {
-        //    this.highLightDropTarget(x, y);
-        //});
-        //this._labelEventBox.connect('drag-leave', () => {
-        //    this.unHighLightDropTarget();
-        //});
-       // this.container.connect('drag-motion', (widget, context, x, y, time) => {
-        //    this.highLightDropTarget(x, y);
-        //});
-        //this.container.connect('drag-leave', () => {
-        //    this.unHighLightDropTarget();
-       // });
-
-        //if (this._desktopManager.showDropPlace) {
-            //this._setDropDestination(this.container);
-        //} else {
-            //this._setDropDestination(this._iconContainer);
-            //this._setDropDestination(this._labelContainer);
-        //}
         this._setDragSource(this._iconContainer);
         this._setDragSource(this._labelContainer);
         this.container.show();

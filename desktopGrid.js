@@ -306,7 +306,7 @@ var DesktopGrid = class {
                 if (selection && info) {
                     let clickItem = this._fileAt(x, y);
                     let clickRectangle = new Gdk.Rectangle({x:x,y:y,width:1,height:1});
-                    if (clickItem) {
+                    if (clickItem && ! clickItem._hasToRouteDragToGrid()) {
                         if (this._desktopManager.showDropPlace) {
                             clickItem.recieveDrop(x, y, selection, info);
                         } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
