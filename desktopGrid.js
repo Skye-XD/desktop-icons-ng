@@ -293,6 +293,10 @@ var DesktopGrid = class {
             return Gdk.DragAction.COPY;
         });
         this.gridDropController.connect('drag-motion', (actor, drop, x, y) => {
+            let clickItem = this._fileAt(x, y);
+            if (clickItem && ! clickItem.dropCapable()) {
+                return false;
+            }
             this.receiveMotion(x, y, false);
             return Gdk.DragAction.COPY;
         });
@@ -319,6 +323,19 @@ var DesktopGrid = class {
             });
         });
         this._container.add_controller(this.gridDropController);
+
+        this.gridDropControllerMotion = new Gtk.DropControllerMotion();
+        this.gridDropControllerMotion.connect('motion', (actor, x, y) => {
+            if ( ! this.gridDropControllerMotion.is_pointer) {
+                let clickItem = this._fileAt(x, y);
+                if (clickItem.dropCapable()) {
+                    clickItem.highLightDropTarget(x, y);
+                }
+            } else {
+                this._desktopManager.unHighLightDropTarget();
+            }
+        });
+        this._container.add_controller(this.gridDropControllerMotion);
     }
 
     receiveLeave() {

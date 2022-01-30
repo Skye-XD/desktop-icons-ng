@@ -423,6 +423,18 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return this._isSelected && (this._desktopManager.dragItem !== null) && (this._desktopManager.dragItem.uri !== this._file.get_uri());
     }
 
+    dropCapable() {
+        if ((this._fileExtra == Enums.FileType.USER_DIRECTORY_TRASH) ||
+            (this._fileExtra == Enums.FileType.USER_DIRECTORY_HOME) ||
+            (this._isDirectory) ||
+            (this._isValidDesktopFile) ||
+            (this._hasToRouteDragToGrid())) {
+                return true;
+            } else {
+                return false;
+            }
+    }
+
      /***********************
      * Icon Rendering *
      ***********************/

@@ -147,11 +147,6 @@ var desktopIconItem = class desktopIconItem {
         this._labelEventController.connect('leave', (actor) => this._onLeave(actor));
         this._labelContainer.add_controller(this._labelEventController);
 
-        this.gridDropControllerMotion = new Gtk.DropControllerMotion();
-        this.gridDropControllerMotion.connect('enter', (actor, x, y) => this.highLightDropTarget(x, y));
-        this.gridDropControllerMotion.connect('leave', (actor) => this.unHighLightDropTarget());
-        this.container.add_controller(this.gridDropControllerMotion);
-
         this.dragIcon = Gtk.WidgetPaintable.new(this.container);
         this.dragIcon.connect('invalidate-size', () => {
             this._calculateIconRectangle();
@@ -466,6 +461,10 @@ var desktopIconItem = class desktopIconItem {
 
     receiveDrop(x, y, selection, info) {
         return;
+    }
+
+    dropCapable() {
+        return false;
     }
 
     /***********************

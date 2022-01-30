@@ -1256,6 +1256,10 @@ var DesktopManager = class {
         }
     }
 
+	unHighLightDropTarget() {
+		this._fileList.forEach(item => item.unHighLightDropTarget());
+	}
+
     selected(fileItem, action) {
         switch(action) {
         case Enums.Selection.ALONE:
