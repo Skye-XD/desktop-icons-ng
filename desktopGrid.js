@@ -359,6 +359,7 @@ var DesktopGrid = class {
             }
         });
         widgetDragController.connect('drag-begin', (actor, drag) => {
+            this._desktopManager.onReleaseButton(this);
             this._desktopManager.onDragBegin(clickItem);
         });
         widgetDragController.connect('drag-end', (actor, drag, delete_data) => {
@@ -557,21 +558,13 @@ var DesktopGrid = class {
     }
 
     _coordinatesGlobalToLocal(x, y) {
-        if (! this._asDesktop && ! this._using_X11) {
-            let offset = this._window.get_allocated_height() - this._container.get_allocated_height();
-            y = y - offset;
-        }
         x = DesktopIconsUtil.clamp(Math.floor((x - this._x) / this._zoom), 0, this._width - 1);
         y = DesktopIconsUtil.clamp(Math.floor((y - this._y) / this._zoom), 0, this._height - 1);
-        x = x + this._marginLeft;
-        y = y + this._marginRight;
         return [x, y];
     }
 
     _coordinatesLocalToGlobal(x, y) {
-        let a = x - this._marginLeft;
-        let b = y - this._marginTop;
-        let [X, Y] = [a * this._zoom + this._x, b * this._zoom + this._y];
+        let [X, Y] = [x * this._zoom + this._x, y * this._zoom + this._y];
         if (! this._asDesktop && ! this._using_X11) {
             let offset = this._window.get_allocated_height() - this._container.get_allocated_height();
             Y = Y + offset;
