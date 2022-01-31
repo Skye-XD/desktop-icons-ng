@@ -131,7 +131,13 @@ function innerEnable(removeId) {
     if (data.launchDesktopId) {
         GLib.source_remove(data.launchDesktopId);
     }
-
+    launchDesktop();
+    data.remoteDingActions = Gio.DBusActionGroup.get(
+        Gio.DBus.session,
+        'com.rastersoft.ding',
+        '/com/rastersoft/ding/actions'
+    );
+}
 /**
  * Kills the current desktop program
  */
