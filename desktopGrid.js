@@ -296,9 +296,16 @@ var DesktopGrid = class {
         });
         this.gridDropController.connect('drag-motion', (actor, drop, x, y) => {
             let clickItem = this._fileAt(x, y);
+            let [X, Y] = this._coordinatesLocalToGlobal(x, y);
+            let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
             if (clickItem && ! clickItem.dropCapable()) {
-                this.receiveMotion(x, y, false);
-                return false;
+                if (this._desktopManager.showDropPlace) {
+                    this.receiveMotion(x, y, false);
+                    return false;
+                } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
+                    this.receiveMotion(x, y, false);
+                    return false;
+                }
             }
             this.receiveMotion(x, y, false);
             return Gdk.DragAction.COPY;
@@ -316,10 +323,11 @@ var DesktopGrid = class {
                     if (clickItem && ! clickItem._hasToRouteDragToGrid()) {
                         if (this._desktopManager.showDropPlace) {
                             clickItem.recieveDrop(x, y, selection, info);
+                            drop.finish(Gdk.DragAction.COPY);
                         } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
                             clickItem.recieveDrop(x, y, selection, info);
+                            drop.finish(Gdk.DragAction.COPY);
                         }
-                        drop.finish(Gdk.DragAction.COPY);
                     return;
                     }
                     this.receiveDrop(x, y, selection, info);
@@ -335,9 +343,15 @@ var DesktopGrid = class {
         this.gridDropControllerMotion.connect('motion', (actor, x, y) => {
             if ( ! this.gridDropControllerMotion.is_pointer) {
                 let clickItem = this._fileAt(x, y);
+                let [X, Y] = this._coordinatesLocalToGlobal(x, y);
+                let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
                 if (clickItem.dropCapable()) {
                     this._desktopManager.unHighLightDropTarget();
-                    clickItem.highLightDropTarget(x, y);
+                    if (this._desktopManager.showDropPlace) {
+                        clickItem.highLightDropTarget(x, y);
+                    } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
+                        clickItem.highLightDropTarget(x, y);
+                    }
                 }
             } else {
                 this._desktopManager.unHighLightDropTarget();
