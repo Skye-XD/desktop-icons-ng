@@ -148,7 +148,7 @@ var DesktopGrid = class {
             let [X, Y] = this._coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem) {
-                let clickRectangle = new Gdk.Rectangle({x:x,y:y,width:1,height:1});
+                let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
                 if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
                     clickItem._onPressButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
@@ -164,7 +164,7 @@ var DesktopGrid = class {
             let [X, Y] = this._coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem && ! this._desktopManager.rubberBand) {
-                let clickRectangle = new Gdk.Rectangle({x:x,y:y,width:1,height:1});
+                let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
                 if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
                     clickItem._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
@@ -311,7 +311,8 @@ var DesktopGrid = class {
                 selection = dropactor.read_value_finish(task);
                 if (selection && info) {
                     let clickItem = this._fileAt(x, y);
-                    let clickRectangle = new Gdk.Rectangle({x:x,y:y,width:1,height:1});
+                    let [X, Y] = this._coordinatesLocalToGlobal(x, y);
+                    let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
                     if (clickItem && ! clickItem._hasToRouteDragToGrid()) {
                         if (this._desktopManager.showDropPlace) {
                             clickItem.recieveDrop(x, y, selection, info);
@@ -353,7 +354,8 @@ var DesktopGrid = class {
             let draggedItem = this._fileAt(x, y);
             if (draggedItem) {
                 clickItem = draggedItem;
-                let [a, b] = clickItem._calculateOffset(x, y);
+                let [X, Y] = this._coordinatesLocalToGlobal(x, y);
+                let [a, b] = clickItem._calculateOffset(X, Y);
                 widgetDragController.set_icon(clickItem.dragIcon, a, b);
                 this._loadDragData(actor);
                 if (this.contentProvider) {

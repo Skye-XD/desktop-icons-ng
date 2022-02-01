@@ -402,8 +402,8 @@ var desktopIconItem = class desktopIconItem {
         }
     }
 
-    _calculateOffset(x, y) {
-        return [ x - this._x1, y - this._y1];
+    _calculateOffset(X, Y) {
+        return [ X - this._x1, Y - this._y1];
     }
 
     receiveDrop(x, y, selection, info) {
