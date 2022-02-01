@@ -532,7 +532,7 @@ var DesktopManager = class {
             }
             if (fileList.length != 0) {
                 let [xOrigin, yOrigin, a, b, c] = this.dragItem.getCoordinates();
-                this.doMoveWithDragAndDrop(xOrigin, yOrigin, xlocalDestination, ylocalDestination);
+                this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
             }
             break;
         case 'gnomeicondrop':
@@ -640,15 +640,15 @@ var DesktopManager = class {
     }
 
     onPressButton(X, Y, x, y, button, shiftPressed, controlPressed, grid) {
-        this._clickX = Math.floor(x);
-        this._clickY = Math.floor(y);
+        this._clickX = Math.floor(X);
+        this._clickY = Math.floor(Y);
 
         if (button == 1) {
             if (!shiftPressed && !controlPressed) {
                 // clear selection
                 this.unselectAll();
             }
-            this._startRubberband(x, y);
+            this._startRubberband(X, Y);
         }
 
         if (button == 3) {
@@ -1210,12 +1210,12 @@ var DesktopManager = class {
         return [true, isCut, files];
     }
 
-    onMotion(x, y) {
+    onMotion(X, Y) {
         if (this.rubberBand) {
-            this.x1 = Math.min(x, this.rubberBandInitX);
-            this.x2 = Math.max(x, this.rubberBandInitX);
-            this.y1 = Math.min(y, this.rubberBandInitY);
-            this.y2 = Math.max(y, this.rubberBandInitY);
+            this.x1 = Math.min(X, this.rubberBandInitX);
+            this.x2 = Math.max(X, this.rubberBandInitX);
+            this.y1 = Math.min(Y, this.rubberBandInitY);
+            this.y2 = Math.max(Y, this.rubberBandInitY);
             this.selectionRectangle = new Gdk.Rectangle({'x':this.x1, 'y':this.y1, 'width':(this.x2-this.x1), 'height':(this.y2-this.y1)});
             for(let grid of this._desktops) {
                 grid.queue_draw();
@@ -1247,9 +1247,9 @@ var DesktopManager = class {
         return false;
     }
 
-    _startRubberband(x, y) {
-        this.rubberBandInitX = x;
-        this.rubberBandInitY = y;
+    _startRubberband(X, Y) {
+        this.rubberBandInitX = X;
+        this.rubberBandInitY = Y;
         this.rubberBand = true;
         for(let item of this._fileList) {
             item.touchedByRubberband = false;

@@ -398,12 +398,14 @@ var DesktopGrid = class {
     }
 
     receiveMotion(x, y, global) {
+        let X;
+        let Y;
         if (! global) {
             x = this._elementWidth * Math.floor(x / this._elementWidth);
             y = this._elementHeight * Math.floor(y / this._elementHeight);
-            [x, y] = this._coordinatesLocalToGlobal(x, y);
+            [X, Y] = this._coordinatesLocalToGlobal(x, y);
         }
-        this._desktopManager.onDragMotion(x, y);
+        this._desktopManager.onDragMotion(X, Y);
     }
 
     receiveDrop(x, y, selection, info) {
@@ -565,10 +567,6 @@ var DesktopGrid = class {
 
     _coordinatesLocalToGlobal(x, y) {
         let [X, Y] = [x * this._zoom + this._x, y * this._zoom + this._y];
-        if (! this._asDesktop && ! this._using_X11) {
-            let offset = this._window.get_allocated_height() - this._container.get_allocated_height();
-            Y = Y + offset;
-        }
         return [X, Y];
     }
 
