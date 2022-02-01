@@ -317,9 +317,9 @@ var desktopIconItem = class desktopIconItem {
         }
         if (Prefs.CLICK_POLICY_SINGLE) {
             //let window = this._eventBox.get_window();
-            if (window) {
-                window.set_cursor(Gdk.Cursor.new_from_name(Gdk.Display.get_default(), "hand"));
-            }
+            //if (window) {
+                //window.set_cursor(Gdk.Cursor.new_from_name(Gdk.Display.get_default(), "hand"));
+            //}
         }
         return false;
     }
@@ -331,10 +331,10 @@ var desktopIconItem = class desktopIconItem {
             this._labelStyleContext.remove_class('file-item-hover');
         }
         if (Prefs.CLICK_POLICY_SINGLE) {
-            let window = element.get_window();
-            if (window) {
-                window.set_cursor(Gdk.Cursor.new_from_name(Gdk.Display.get_default(), "default"));
-            }
+            //let window = this._eventBox.get_window();
+            //if (window) {
+                //window.set_cursor(Gdk.Cursor.new_from_name(Gdk.Display.get_default(), "default"));
+            //}
         }
         return false;
     }

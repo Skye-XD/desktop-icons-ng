@@ -309,7 +309,6 @@ var DesktopGrid = class {
         this.gridDropController.connect('drop', (actor, drop, x, y) => {
             drop.read_value_async(String.$gtype, GLib.PRIORITY_DEFAULT, null, (dropactor, task) => {
                 selection = dropactor.read_value_finish(task);
-                drop.finish(Gdk.DragAction.COPY);
                 if (selection && info) {
                     let clickItem = this._fileAt(x, y);
                     let clickRectangle = new Gdk.Rectangle({x:x,y:y,width:1,height:1});
@@ -319,9 +318,13 @@ var DesktopGrid = class {
                         } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
                             clickItem.recieveDrop(x, y, selection, info);
                         }
+                        drop.finish(Gdk.DragAction.COPY);
                     return;
                     }
                     this.receiveDrop(x, y, selection, info);
+                    drop.finish(Gdk.DragAction.COPY);
+                } else {
+                    drop.finish(Gdk.DragAction.COPY);
                 }
             });
         });
