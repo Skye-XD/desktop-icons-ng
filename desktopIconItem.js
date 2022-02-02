@@ -403,7 +403,7 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _calculateOffset(X, Y) {
-        return [ X - this._x1, Y - this._y1];
+        return [ Math.round(X - this._x1), Math.round(Y - this._y1)];
     }
 
     receiveDrop(x, y, selection, info) {
