@@ -87,6 +87,10 @@ var desktopIconItem = class desktopIconItem {
             this.container.disconnect(this._containerId);
             this._containerId = 0;
         }
+        /* DragItem */
+        if (this.dragIconSignal) {
+            this.dragItem.disconnect(this.dragIconSignal);
+        }
     }
 
     _onDestroy() {
@@ -148,7 +152,7 @@ var desktopIconItem = class desktopIconItem {
         this._labelContainer.add_controller(this._labelEventController);
 
         this.dragIcon = Gtk.WidgetPaintable.new(this.container);
-        this.dragIcon.connect('invalidate-size', () => {
+        this.dragIconSignal = this.dragIcon.connect('invalidate-size', () => {
             this._calculateIconRectangle();
             this._calculateLabelRectangle();
         });
