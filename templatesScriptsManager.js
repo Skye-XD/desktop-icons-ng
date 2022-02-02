@@ -1,5 +1,6 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
+ * Gtk4 Port Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2020 Sergio Costas (rastersoft@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify

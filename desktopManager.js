@@ -1,5 +1,6 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
+ * Gtk4 Port Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
  * Based on code original (C) Carlos Soriano
  *
@@ -611,20 +612,6 @@ var DesktopManager = class {
         if (fileList == null) {
             return null;
         }
-        //let atom;
-        //switch(info) {
-            //case 0:
-                //atom = Gdk.atom_intern('x-special/ding-icon-list', false);
-                //break;
-            //case 1:
-                //atom = Gdk.atom_intern('x-special/gnome-icon-list', false);
-                //break;
-            //case 2:
-                //atom = Gdk.atom_intern('text/uri-list', false);
-                //break;
-            //default:
-                //return null;
-        //}
         let data = "";
         for (let fileItem of fileList) {
             data += fileItem.uri;

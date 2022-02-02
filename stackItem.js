@@ -1,7 +1,7 @@
 
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
- * Copyright (C) 2021 Sundeep Mediratta (smedius@gmail.com)
+ * Copyright (C) 2021, Gtk4 port 2022 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
  * Based on code original (C) Carlos Soriano
  * SwitcherooControl code based on code original from Marsch84
