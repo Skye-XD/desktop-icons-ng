@@ -333,8 +333,10 @@ var DesktopGrid = class {
                     }
                     this.receiveDrop(x, y, selection, info);
                     drop.finish(Gdk.DragAction.COPY);
+                    this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
                     return true;
                 } else {
+                    this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
                     return false;
                 }
             });

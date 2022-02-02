@@ -89,7 +89,7 @@ var desktopIconItem = class desktopIconItem {
         }
         /* DragItem */
         if (this.dragIconSignal) {
-            this.dragItem.disconnect(this.dragIconSignal);
+            this.dragIcon.disconnect(this.dragIconSignal);
         }
     }
 
@@ -107,6 +107,8 @@ var desktopIconItem = class desktopIconItem {
         this._containerId = this.container.connect('destroy', () => this._onDestroy());
 
         this._icon = new Gtk.Picture();
+        this._icon.set_can_shrink(true);
+        this._icon.set_keep_aspect_ratio(true);
         this._iconContainer = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL});
         this._iconContainer.append(this._icon);
         this._iconContainer.set_baseline_position(Gtk.BaselinePosition.CENTER);
