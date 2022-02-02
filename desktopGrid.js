@@ -324,16 +324,18 @@ var DesktopGrid = class {
                         if (this._desktopManager.showDropPlace) {
                             clickItem.recieveDrop(x, y, selection, info);
                             drop.finish(Gdk.DragAction.COPY);
+                            return true;
                         } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
                             clickItem.recieveDrop(x, y, selection, info);
                             drop.finish(Gdk.DragAction.COPY);
+                            return true;
                         }
-                    return;
                     }
                     this.receiveDrop(x, y, selection, info);
                     drop.finish(Gdk.DragAction.COPY);
+                    return true;
                 } else {
-                    drop.finish(Gdk.DragAction.COPY);
+                    return false;
                 }
             });
         });
