@@ -456,6 +456,9 @@ var desktopIconItem = class desktopIconItem {
             return;
         }
         let icon_set = false;
+
+        //** This requres Gtk3 as thumbnailLoader uses Gtk3, needs to be rewritten
+        //**
         //if ((Prefs.nautilusSettings.get_string('show-image-thumbnails') != 'never') &&
             //(this._desktopManager.thumbnailLoader.canThumbnail(this))) {
                 //let thumbnail = this._desktopManager.thumbnailLoader.getThumbnail(this, this._updateIcon.bind(this));
@@ -469,18 +472,18 @@ var desktopIconItem = class desktopIconItem {
         //}
 
         if (!icon_set) {
-            let pixbuf;
+            let iconPaintable;
             if (this._isBrokenSymlink) {
-                pixbuf = this._createEmblemedIcon(null, 'text-x-generic');
+                iconPaintable = this._createEmblemedIcon(null, 'text-x-generic');
             } else {
                 if (this._desktopFile && this._desktopFile.has_key('Icon')) {
-                    pixbuf = this._createEmblemedIcon(null, this._desktopFile.get_string('Icon'));
+                    iconPaintable = this._createEmblemedIcon(null, this._desktopFile.get_string('Icon'));
                 } else {
-                    pixbuf = this._createEmblemedIcon(this._getDefaultIcon(), null);
+                    iconPaintable = this._createEmblemedIcon(this._getDefaultIcon(), null);
                 }
             }
             const scale = this._icon.get_scale_factor();
-            this._icon.set_paintable(pixbuf);
+            this._icon.set_paintable(iconPaintable);
         }
     }
 
@@ -517,7 +520,7 @@ var desktopIconItem = class desktopIconItem {
                         width *= scale;
                         height *= scale;
                         let pixbuf = thumbnailPixbuf.scale_simple(Math.floor(width), Math.floor(height), GdkPixbuf.InterpType.BILINEAR);
-                        pixbuf = this._addEmblemsToPixbufIfNeeded(pixbuf);
+                        pixbuf = this._addEmblemsToIconIfNeeded(pixbuf);
                         this._icon.set_paintable(pixbuf);
                         this._icon.margin_top(4);
                         this._icon.margin_bottom(4);
@@ -533,69 +536,36 @@ var desktopIconItem = class desktopIconItem {
         });
     }
 
-    _copyAndResizeIfNeeded(pixbuf) {
-        /**
-         * If the pixbuf is the original from the theme, copies it into a new one, to be able
-         * to paint the emblems without altering the cached pixbuf in the theme object.
-         * Also, ensures that the copied pixbuf is, at least, as big as the desired icon size,
-         * to ensure that the emblems fit.
-         */
-
-        if (this._copiedPixbuf) {
-            return pixbuf;
-        }
-
-        this._copiedPixbuf = true;
-        let minsize = Prefs.get_icon_size();
-        if ((pixbuf.width < minsize) || (pixbuf.height < minsize)) {
-            let width = (pixbuf.width < minsize) ? minsize : pixbuf.width;
-            let height = (pixbuf.height < minsize) ? minsize : pixbuf.height;
-            let newpixbuf = GdkPixbuf.Pixbuf.new(pixbuf.colorspace, true, pixbuf.bits_per_sample, width, height);
-            newpixbuf.fill(0);
-            let x = Math.floor((width - pixbuf.width) / 2);
-            let y = Math.floor((height - pixbuf.height) / 2);
-            pixbuf.composite(newpixbuf, x, y, pixbuf.width, pixbuf.height, x, y, 1, 1,  GdkPixbuf.InterpType.NEAREST, 255);
-            return newpixbuf;
-        } else {
-            return pixbuf;
-        }
-    }
-
-    _addEmblemsToPixbufIfNeeded(pixbuf) {
-        const scale = this._icon.get_scale_factor();
-        this._copiedPixbuf = false;
+    _addEmblemsToIconIfNeeded(iconPaintable) {
         let emblem = null;
-        let finalSize = Math.floor(Prefs.get_icon_size() / 3) * scale;
-
-        if (this._isDesktopFile && ((! this._isValidDesktopFile) || (! this.trustedDesktopFile))) {
-            pixbuf = this._copyAndResizeIfNeeded(pixbuf);
-            pixbuf.saturate_and_pixelate(pixbuf, 0.5, true);
+        if (this._isDesktopFile && ! this._isValidDesktopFile) {
             emblem = Gio.ThemedIcon.new('emblem-unreadable');
-            pixbuf = this._copyAndResizeIfNeeded(pixbuf);
-            let theme = Gtk.IconTheme.get_default();
-            let emblemIcon = theme.lookup_by_gicon_for_scale(emblem, finalSize / scale, scale, Gtk.IconLookupFlags.FORCE_SIZE).load_icon();
-            emblemIcon.composite(pixbuf, pixbuf.width - finalSize, pixbuf.height - finalSize, finalSize, finalSize, pixbuf.width - finalSize, pixbuf.height - finalSize, 1, 1, GdkPixbuf.InterpType.BILINEAR, 255);
         }
-
-        if (this._isSymlink && (this._desktopManager.showLinkEmblem || this._isBrokenSymlink)) {
-            if (this._isBrokenSymlink)
+        if (this._isSymlink && (this._desktopManager.showLinkEmblem || this._isBrokenSymlink) {
+            if (this._isBrokenSymlink) {
                 emblem = Gio.ThemedIcon.new('emblem-unreadable');
-            else
+            } else {
                 emblem = Gio.ThemedIcon.new('emblem-symbolic-link');
-            pixbuf = this._copyAndResizeIfNeeded(pixbuf);
-            let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-            let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
-            //emblemIcon.composite(pixbuf, pixbuf.width - finalSize, pixbuf.height - finalSize, finalSize, finalSize, pixbuf.width - finalSize, pixbuf.height - finalSize, 1, 1, GdkPixbuf.InterpType.BILINEAR, 255);
+            }
         }
 
         if (this.isStackTop && ! this.stackUnique) {
-            pixbuf = this._copyAndResizeIfNeeded(pixbuf);
-            let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-            emblem = Gio.ThemedIcon.new('emblem-downloads');
-            let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
-            //emblemIcon.composite(pixbuf, 0, 0, finalSize, finalSize, 0, 0, 1, 1, GdkPixbuf.InterpType.BILINEAR, 255);
+            emblem = Gio.ThemedIcon.new('list-add');
         }
-        return pixbuf;
+        if (emblem) {
+            const scale = this._icon.get_scale_factor();
+            let finalSize = Math.floor(Prefs.get_icon_size() / 3) * scale;
+            let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+            let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            let emblemSnapshot = Gtk.Snapshot.new();
+            let iconPaintableSnapshot = Gtk.Snapshot.new();
+            emblemIcon.snapshot(emblemSnapshot, emblemIcon.get_intrinsic_width(), emblemIcon.get_intrinsic_height());
+            iconPaintable.snapshot(iconPaintableSnapshot, iconPaintable.get_intrinsic_width(), iconPaintable.get_intrinsic_height());
+            iconPaintableSnapshot.append_node(emblemSnapshot.to_node());
+            return iconPaintableSnapshot.to_paintable(null);
+        } else {
+            return iconPaintable;
+        }
     }
 
     _createEmblemedIcon(icon, iconName) {
@@ -613,16 +583,13 @@ var desktopIconItem = class desktopIconItem {
         }
         let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         const scale = this._icon.get_scale_factor();
-        let itemIcon = null;
+        let iconPaintable = null;
         try {
-            itemIcon = theme.lookup_by_gicon(icon, Prefs.get_icon_size(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            iconPaintable = theme.lookup_by_gicon(icon, Prefs.get_icon_size(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
         } catch (e) {
-            itemIcon = theme.lookup_icon("text-x-generic", [], Prefs.get_icon_size(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            iconPaintable = theme.lookup_icon("text-x-generic", [], Prefs.get_icon_size(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
         }
-
-        itemIcon = this._addEmblemsToPixbufIfNeeded(itemIcon);
-
-        return itemIcon;
+        return this._addEmblemsToIconIfNeeded(iconPaintable);
     }
 
     /***********************

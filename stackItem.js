@@ -59,13 +59,13 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
 
     _createStackTopIcon() {
         const scale = this._icon.get_scale_factor();
-        let pixbuf;
+        let iconPaintable;
         let folder = 'folder';
         if (Prefs.getUnstackList().includes(this._attributeContentType)) {
             folder = 'folder-open';
         }
-        pixbuf = this._createEmblemedIcon(null, `${folder}`);
-        this._icon.set_paintable(pixbuf);
+        iconPaintable = this._createEmblemedIcon(null, `${folder}`);
+        this._icon.set_paintable(iconPaintable);
     }
 
     _doButtonOnePressed(event, shiftPressed, controlPressed) {

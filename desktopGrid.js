@@ -334,10 +334,16 @@ var DesktopGrid = class {
                     }
                     this.receiveDrop(x, y, selection, info);
                     drop.finish(Gdk.DragAction.COPY);
-                    this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+                    if (this._using_X11) {
+                        this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+                        this.receiveLeave();
+                    }
                     return true;
                 } else {
-                    this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+                    if (this._using_X11) {
+                        this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+                        this.receiveLeave();
+                    }
                     return false;
                 }
             });
