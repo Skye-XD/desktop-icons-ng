@@ -156,11 +156,16 @@ var desktopIconItem = class desktopIconItem {
 
         this.dragIcon = Gtk.WidgetPaintable.new(this.container);
         this.dragIconSignal = this.dragIcon.connect('invalidate-size', () => {
-            this._calculateIconRectangle();
-            this._calculateLabelRectangle();
+            this._doIconSizeAllocated();
         });
 
         this.container.show();
+    }
+
+
+    _doIconSizeAllocated() {
+        this._calculateIconRectangle();
+        this._calculateLabelRectangle();
     }
 
     _calculateIconRectangle() {
@@ -199,7 +204,8 @@ var desktopIconItem = class desktopIconItem {
         this._label.margin_end = margin;
         this._label.margin_bottom = margin;
         this._iconContainer.margin_top = margin;
-        this._checkForRename();
+        this._calculateIconRectangle();
+        this._calculateLabelRectangle();
     }
 
     getCoordinates() {
@@ -241,15 +247,6 @@ var desktopIconItem = class desktopIconItem {
         }
         this._label.label = newText;
     }
-
-    _checkForRename() {
-        if (this._desktopManager.newFolderDoRename) {
-            if (this._desktopManager.newFolderDoRename == this.fileName) {
-                this._desktopManager.doRename(this, true);
-            }
-        }
-    }
-
 
     /***********************
      * Button Clicks *

@@ -172,6 +172,19 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return null;
     }
 
+    _doIconSizeAllocated() {
+        super._doIconSizeAllocated();
+        this._checkForRename();
+    }
+
+    _checkForRename() {
+        if (this._desktopManager.newFolderDoRename) {
+            if (this._desktopManager.newFolderDoRename == this.fileName) {
+                this._desktopManager.doRename(this, true);
+            }
+        }
+    }
+
     _refreshMetadataAsync(rebuild) {
         if (this._destroyed) {
             return;
