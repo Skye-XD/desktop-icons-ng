@@ -661,7 +661,7 @@ var DesktopManager = class {
              * To maintain compatibility, we first check if there's binary data in that atom, and if not, we check if
              * there is text data in the old format.
              */
-            let text;
+            let text = null;
             if (clipboard.get_formats()) {
                 let mimetypes = clipboard.get_formats().to_string();
                 if (mimetypes.includes('x-special/gnome-copied-files')) {
@@ -679,6 +679,8 @@ var DesktopManager = class {
                             text = ByteArray.toString(bytes.get_data());
                             this._setClipboardContent(text);
                     });
+                } else {
+                    this._setClipboardContent(text);
                 }
             }
             this._createDesktopBackgroundGioMenu();
@@ -739,143 +741,25 @@ var DesktopManager = class {
         let isShift = (state & Gdk.ModifierType.SHIFT_MASK) != 0;
         let isAlt = (state & Gdk.ModifierType.MOD1_MASK) != 0;
         let selection = this.getCurrentSelection(false);
-        if (isCtrl && isShift && ((symbol == Gdk.KEY_Z) || (symbol == Gdk.KEY_z))) {
-            this._doRedo();
-            return true;
-        } else if (isCtrl && ((symbol == Gdk.KEY_Z) || (symbol == Gdk.KEY_z))) {
-            this._doUndo();
-            return true;
-        } else if (isCtrl && ((symbol == Gdk.KEY_C) || (symbol == Gdk.KEY_c))) {
-            this.doCopy();
-            return true;
-        } else if (isCtrl && ((symbol == Gdk.KEY_X) || (symbol == Gdk.KEY_x))) {
-            this.doCut();
-            return true;
-        } else if (isCtrl && ((symbol == Gdk.KEY_V) || (symbol == Gdk.KEY_v))) {
-            this._updateClipBoard();
-            this._doPaste();
-            return true;
-        } else if (isAlt && (symbol == Gdk.KEY_Return)) {
-            let selection = this.getCurrentSelection(true);
-            DBusUtils.RemoteFileOperations.ShowItemPropertiesRemote(selection, event.get_time());
-            return true;
+        this.keyEventGrid = grid;
+        if ((selection) && symbol == Gdk.KEY_space) {
+                if (this.popupmenuopen) {
+                    return true;
+                }
+                // Support previewing other grids file items.
+                DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
+                return true;
         } else if (symbol == Gdk.KEY_Return) {
             if (selection && (selection.length == 1)) {
                 selection[0].doOpen();
                 return true;
             }
-        } else if (symbol == Gdk.KEY_Delete) {
-            if (isShift) {
-                this.doDeletePermanently();
-            } else {
-                this.doTrash();
-            }
-            return true;
-        } else if (symbol == Gdk.KEY_F2) {
-            if (selection && (selection.length == 1)) {
-                // Support renaming other grids file items.
-                this.doRename(selection[0], false);
-                return true;
-            }
-        } else if ((selection) && symbol == Gdk.KEY_space) {
-                if (this.popupmenuopen) {
-                    return true;
-                }
-                // Support previewing other grids file items.
-                DBusUtils.RemoteFileOperations.ShowFileRemote(selection[0].uri, 0, true);
-                return true;
-        } else if (isCtrl && ((symbol == Gdk.KEY_A) || (symbol == Gdk.KEY_a))) {
-            this._selectAll();
-            return true;
-        } else if (symbol == Gdk.KEY_F5) {
-            this._updateDesktop().catch((e) => {
-                print(`Exception while updating Desktop after pressing F5: ${e.message}\n${e.stack}`);
-            });
-            return true;
-        } else if (isCtrl && ((symbol == Gdk.KEY_H) || (symbol == Gdk.KEY_h))) {
-            Prefs.gtkSettings.set_boolean('show-hidden', !this._showHidden);
-            return true;
-        } else if (isCtrl && ((symbol == Gdk.KEY_F) || (symbol == Gdk.KEY_f))) {
-            this.findFiles();
-            return true;
         } else if (symbol == Gdk.KEY_Escape) {
             this.unselectAll();
             if (this.searchString) {
                 this.searchString = null;
             }
             return true;
-        } else if (isCtrl && isShift && ((symbol == Gdk.KEY_N) || (symbol == Gdk.KEY_n))) {
-            this.doNewFolder();
-            return true;
-        } else if (symbol == Gdk.KEY_Menu) {
-            if (selection) {
-                this.fileItemMenu.showMenu(selection[0], event, true);
-            } else {
-                this._prepareMenu();
-                this._menu.popup_at_pointer(event);
-            }
-            return true;
-        } else if ((symbol == Gdk.KEY_Left) || (symbol == Gdk.KEY_Right) ||
-                   (symbol == Gdk.KEY_Up) || (symbol == Gdk.KEY_Down)) {
-            if (!selection) {
-                selection = this._fileList;
-            }
-            if (!selection) {
-                return false;
-            }
-            let selected = selection[0];
-            let selectedCoordinates = selected.getCoordinates();
-            this.unselectAll();
-            if (selection.length > 1) {
-                for (let item of selection) {
-                    let itemCoordinates = item.getCoordinates();
-                    if (itemCoordinates[0] > selectedCoordinates[0]) {
-                        continue;
-                    }
-                    if ((itemCoordinates[0] < selectedCoordinates[0]) ||
-                        (itemCoordinates[1] < selectedCoordinates[1])) {
-                            selected = item;
-                            selectedCoordinates = itemCoordinates;
-                            continue;
-                    }
-                }
-            }
-            switch (symbol) {
-            case Gdk.KEY_Left:
-                var index = 0;
-                var multiplier = -1;
-                break;
-            case Gdk.KEY_Right:
-                var index = 0;
-                var multiplier = 1;
-                break;
-            case Gdk.KEY_Up:
-                var index = 1;
-                var multiplier = -1;
-                break;
-            case Gdk.KEY_Down:
-                var index = 1;
-                var multiplier = 1;
-                break;
-            }
-            let newDistance = null;
-            let newItem = null;
-            for (let item of this._fileList) {
-                let itemCoordinates = item.getCoordinates();
-                if ((selectedCoordinates[index] * multiplier) >= (itemCoordinates[index] * multiplier)) {
-                    continue;
-                }
-                let distance = Math.pow(selectedCoordinates[0] - itemCoordinates[0], 2) + Math.pow(selectedCoordinates[1] - itemCoordinates[1], 2)
-                if ((newDistance === null) || (newDistance > distance)) {
-                    newDistance = distance;
-                    newItem = item;
-                }
-            }
-            if (newItem === null) {
-                newItem = selected;
-            }
-            newItem.setSelected();
-            return false;
         } else {
             if (this.popupmenuopen) {
                 return true;
@@ -914,7 +798,7 @@ var DesktopManager = class {
                             return false;
                         });
                     }
-                    this.findFiles(this.searchString, grid)
+                    this.findFiles(this.searchString, this.keyEventGrid._window)
                 }
             }
             return true;
@@ -926,14 +810,17 @@ var DesktopManager = class {
         this._fileList.map(f => f.unsetSelected());
     }
 
-    findFiles(text, grid) {
+    findFiles(text, window) {
         this._findFileWindow = new Gtk.Dialog({use_header_bar: true,
                                        resizable: false});
         this._findFileButton = this._findFileWindow.add_button(_("OK"), Gtk.ResponseType.OK);
         this._findFileButton.sensitive = false;
         this._findFileWindow.add_button(_("Cancel"), Gtk.ResponseType.CANCEL);
         this._findFileWindow.set_modal(true);
-        this._findFileWindow.set_transient_for(grid._window);
+        if (! window) {
+            window = this.mainApp.get_active_window();
+        }
+        this._findFileWindow.set_transient_for(window);
         this._findFileWindow.set_title(_('Find Files on Desktop'));
         DesktopIconsUtil.windowHidePagerTaskbarModal(this._findFileWindow, true);
         let contentArea = this._findFileWindow.get_content_area();
@@ -1005,24 +892,39 @@ var DesktopManager = class {
     _createMenuActionGroup() {
 
         let newFolder = Gio.SimpleAction.new('doNewFolder', null);
-        newFolder.connect('activate', this.doNewFolder.bind(this, null));
+        newFolder.connect('activate', () => {
+            this.doNewFolder();
+        });
         this.mainApp.add_action(newFolder);
+        this.mainApp.set_accels_for_action('app.doNewFolder', ['<Control><Shift>N'])
 
         this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
-        this.doPasteSimpleAction.connect('activate', this._doPaste.bind(this));
+        this.doPasteSimpleAction.connect('activate', () => {
+            this._doPaste();
+        });
         this.mainApp.add_action(this.doPasteSimpleAction);
+        this.mainApp.set_accels_for_action('app.doPaste', ['<Control>V'])
 
         this.doUndoSimpleAction = Gio.SimpleAction.new('doUndo', null);
-        this.doUndoSimpleAction.connect('activate', this._doUndo.bind(this));
+        this.doUndoSimpleAction.connect('activate', () => {
+            this._doUndo();
+        });
         this.mainApp.add_action(this.doUndoSimpleAction);
+        this.mainApp.set_accels_for_action('app.doUndo', ['<Control>Z'])
 
         this.doRedoSimpleAction = Gio.SimpleAction.new('doRedo', null);
-        this.doRedoSimpleAction.connect('activate', this._doRedo.bind(this));
+        this.doRedoSimpleAction.connect('activate', () => {
+            this._doRedo();
+        });
         this.mainApp.add_action(this.doRedoSimpleAction);
+        this.mainApp.set_accels_for_action('app.doRedo', ['<Control><Shift>Z'])
 
         let selectAll = Gio.SimpleAction.new('selectAll', null);
-        selectAll.connect('activate', this._selectAll.bind(this));
+        selectAll.connect('activate', () => {
+            this._selectAll();
+        });
         this.mainApp.add_action(selectAll);
+        this.mainApp.set_accels_for_action('app.selectAll', ['<Control>A'])
 
         let showDesktopInFiles = Gio.SimpleAction.new('showDesktopInFiles', null);
         showDesktopInFiles.connect('activate', this._onOpenDesktopInFilesClicked.bind(this));
@@ -1054,8 +956,8 @@ var DesktopManager = class {
         changeDesktopIconSettings.connect('activate', Prefs.showPreferences.bind(this));
         this.mainApp.add_action(changeDesktopIconSettings);
 
-        let cleanUpIconsAction = Gio.SimpleAction.new("cleanUpIcons", null)
-        cleanUpIconsAction.connect("activate", () => this._sortAllFilesFromGridsByPosition());
+        let cleanUpIconsAction = Gio.SimpleAction.new('cleanUpIcons', null)
+        cleanUpIconsAction.connect('activate', () => this._sortAllFilesFromGridsByPosition());
         this.mainApp.add_action(cleanUpIconsAction);
 
         let keepArrangedAction = Prefs.desktopSettings.create_action("keep-arranged")
@@ -1064,6 +966,29 @@ var DesktopManager = class {
         this.mainApp.add_action(Prefs.desktopSettings.create_action("keep-stacked"));
         this.mainApp.add_action(Prefs.desktopSettings.create_action("sort-special-folders"));
         this.mainApp.add_action(Prefs.desktopSettings.create_action("arrangeorder"));
+
+        let findFilesAction = Gio.SimpleAction.new("findFiles", null);
+        findFilesAction.connect("activate", () => {
+            this.findFiles(null, null);
+        });
+        this.mainApp.add_action(findFilesAction);
+        this.mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
+
+        let updateDesktop = Gio.SimpleAction.new("updateDesktop", null);
+        updateDesktop.connect('activate', () => {
+            this._updateDesktop().catch((e) => {
+                print(`Exception while updating Desktop after pressing F5: ${e.message}\n${e.stack}`);
+            });
+        });
+        this.mainApp.add_action(updateDesktop);
+        this.mainApp.set_accels_for_action('app.updateDesktop', ['F5']);
+
+        let showHideHiddenFiles = Gio.SimpleAction.new('showHideHiddenFiles', null)
+        showHideHiddenFiles.connect('activate', () => {
+            Prefs.gtkSettings.set_boolean('show-hidden', !this._showHidden);
+        });
+        this.mainApp.add_action(showHideHiddenFiles);
+        this.mainApp.set_accels_for_action('app.showHideHiddenFiles', ['<Control>H']);
     }
 
 
@@ -1724,13 +1649,22 @@ var DesktopManager = class {
         return count;
     }
 
-    doRename(fileItem, allowReturnOnSameName) {
+    doRename(fileItem, allowReturnOnSameName = false) {
+        let selection = this.getCurrentSelection(false);
+        if (! (selection && (selection.length == 1))) {
+            return;
+        }
+        if (fileItem == null) {
+                fileItem = selection[0];
+                allowReturnOnSameName = false;
+        }
         if (!fileItem.canRename) {
             return;
         }
         this.unselectAll();
         if (!this._renameWindow) {
             this._renameWindow = new AskRenamePopup.AskRenamePopup(fileItem, allowReturnOnSameName, () => {
+                this.mainApp.get_active_window().grab_focus();
                 this._renameWindow = null;
                 this.newFolderDoRename = null;
             });

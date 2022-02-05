@@ -92,7 +92,9 @@ var FileItemMenu = class {
     _createFileItemMenuActions() {
 
         let openItem = Gio.SimpleAction.new('openitem', null);
-        openItem.connect('activate', this._doMultiOpen.bind(this, null));
+        openItem.connect('activate', () => {
+            this._doMultiOpen();
+        });
         this._mainApp.add_action(openItem);
 
         let stackunstack = Gio.SimpleAction.new('stackunstack', GLib.VariantType.new("s"));
@@ -116,24 +118,39 @@ var FileItemMenu = class {
         this._mainApp.add_action(runasaprogram);
 
         this._docut = Gio.SimpleAction.new('docut', null);
-        this._docut.connect('activate', () => {this._desktopManager.doCut()});
+        this._docut.connect('activate', () => {
+            this._desktopManager.doCut();
+        });
         this._mainApp.add_action(this._docut);
+        this._mainApp.set_accels_for_action('app.docut', ['<Control>X'])
 
         this._docopy = Gio.SimpleAction.new('docopy', null);
-        this._docopy.connect('activate',  () => {this._desktopManager.doCopy();});
+        this._docopy.connect('activate',  () => {
+            this._desktopManager.doCopy();
+        });
         this._mainApp.add_action(this._docopy);
+        this._mainApp.set_accels_for_action('app.docopy', ['<Control>C'])
 
         let dorename = Gio.SimpleAction.new('dorename', null);
-        dorename.connect('activate', () => {this._desktopManager.doRename(this.activeFileItem, false);});
+        dorename.connect('activate', () => {
+            this._desktopManager.doRename(this.activeFileItem, false);
+        });
         this._mainApp.add_action(dorename);
+        this._mainApp.set_accels_for_action('app.dorename', ['F2'])
 
         this.moveToTrash = Gio.SimpleAction.new('movetotrash', null);
-        this.moveToTrash.connect('activate', () => {this._desktopManager.doTrash();});
+        this.moveToTrash.connect('activate', () => {
+            this._desktopManager.doTrash();
+        });
         this._mainApp.add_action(this.moveToTrash);
+        this._mainApp.set_accels_for_action('app.movetotrash', ['Delete'])
 
         this.deletePermanantly = Gio.SimpleAction.new('deletepermanantly', null);
-        this.deletePermanantly.connect('activate', () => {this._desktopManager.doDeletePermanently();});
+        this.deletePermanantly.connect('activate', () => {
+            this._desktopManager.doDeletePermanently();
+        });
         this._mainApp.add_action(this.deletePermanantly);
+        this._mainApp.set_accels_for_action('app.deletepermanantly', ['<Shift>Delete'])
 
         let emptytrash = Gio.SimpleAction.new('emptytrash', null);
         emptytrash.connect('activate', () => {this._desktopManager.doEmptyTrash();});
@@ -177,8 +194,11 @@ var FileItemMenu = class {
         this._mainApp.add_action(newfolderfromselection);
 
         let properties = Gio.SimpleAction.new('properties', null);
-        properties.connect('activate', this._onPropertiesClicked.bind(this, null));
+        properties.connect('activate', () => {
+            this._onPropertiesClicked();
+        });
         this._mainApp.add_action(properties);
+        this._mainApp.set_accels_for_action('app.properties', ['<Control>I','<Alt>Return'])
 
         let showinfiles = Gio.SimpleAction.new('showinfiles', null);
         showinfiles.connect('activate', this._onShowInFilesClicked.bind(this, null));
@@ -191,7 +211,7 @@ var FileItemMenu = class {
 
     showMenu(fileItem, button, X, Y, x, y, shiftSelected, controlSelected) {
 
-        this.activeFileItem = fileItem;
+        this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
         let selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
         let scriptsSubmenu = this.scriptsMonitor.getGioMenu();
 
@@ -346,7 +366,9 @@ var FileItemMenu = class {
         this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
         fileItem._desktopManager.popupmenuopen = true;
         this.popupmenu.popup();
-        this.popupmenu.connect('closed', () => {this.popupmenuopen = false})
+        this.popupmenu.connect('closed', () => {
+            this._desktopManager.popupmenuopen = false;
+        });
     }
 
     _onPropertiesClicked() {

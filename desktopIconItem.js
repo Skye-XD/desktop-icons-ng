@@ -275,6 +275,7 @@ var desktopIconItem = class desktopIconItem {
         this._updateClickState(button, eventtime);
         this._buttonPressInitialX = x - this._x1;
         this._buttonPressInitialY = y - this._y1;
+        this._desktopManager.activeFileItem = this._desktopManager.fileItemMenu.activeFileItem = this;
         if (button == 3) {
             this._doButtonThreePressed(button, X, Y, x, y, shiftPressed, controlPressed);
         } else if (button == 1) {

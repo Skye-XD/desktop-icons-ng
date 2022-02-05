@@ -34,7 +34,7 @@ var AskRenamePopup = class {
         this._desktopPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
         this._fileItem = fileItem;
         this._popover = new Gtk.Popover;
-        this._popover.set_autohide(true);
+        this._popover.set_autohide(false);
         let contentBox = new Gtk.Grid({row_spacing: 6,
                                        column_spacing: 6,
                                        });

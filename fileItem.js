@@ -180,6 +180,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     _checkForRename() {
         if (this._desktopManager.newFolderDoRename) {
             if (this._desktopManager.newFolderDoRename == this.fileName) {
+                this.setSelected();
                 this._desktopManager.doRename(this, true);
             }
         }
