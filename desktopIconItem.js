@@ -520,16 +520,17 @@ var desktopIconItem = class desktopIconItem {
                         width *= scale;
                         height *= scale;
                         let pixbuf = thumbnailPixbuf.scale_simple(Math.floor(width), Math.floor(height), GdkPixbuf.InterpType.BILINEAR);
-                        pixbuf = this._addEmblemsToIconIfNeeded(pixbuf);
-                        this._icon.set_paintable(pixbuf);
-                        this._icon.margin_top(4);
-                        this._icon.margin_bottom(4);
-                        this._icon.margin_start(4);
-                        this._icon.margin_end(4);
+                        let iconTexture = Gdk.Texture.new_for_pixbuf(pixbuf);
+                        let iconPaintableSnapshot = Gtk.Snapshot.new();
+                        iconTexture.snapshot(iconPaintableSnapshot, Math.floor(width), Math.floor(height));
+                        let icon = iconPaintableSnapshot.to_paintable(null);
+                        icon = this._addEmblemsToIconIfNeeded(icon);
+                        this._icon.set_paintable(icon);
                         resolve(true);
                     }
                     resolve(false);
                 } catch(e) {
+                    print(`Failed with "${e.message}" while setting custom icon, loading image as icon from iconfile`)
                     resolve(false);
                 }
             });
