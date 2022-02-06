@@ -310,8 +310,14 @@ var DesktopManager = class {
                 this.updateGridWindows(data.recursiveUnpack());
             }
         });
-        // This is required to trigger the 'action-added' signal
-        DBusUtils.extensionControl.list_actions();
+        let actionGroup = new Gio.SimpleActionGroup();
+        actionGroup.add_action(updateGridWindows);
+        let busname = this.mainApp.get_dbus_object_path();
+        this._connection = Gio.DBus.session;
+        this._dbusConnectionGroupId = this._connection.export_action_group(
+            `${busname}/actions`,
+            actionGroup
+        );
     }
 
     updateGridWindows(newdesktoplist) {
