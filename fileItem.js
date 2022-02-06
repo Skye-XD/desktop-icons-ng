@@ -107,6 +107,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             });
         } else {
             this._monitorTrashId = 0;
+            this._getRemoteIconThumbNail();
         }
         this._updateName();
         if (this._dropCoordinates) {
@@ -481,6 +482,10 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return false;
     }
 
+    _getRemoteIconThumbNail() {
+        let thumbnailInfoVariant = new GLib.Variant('as', [this._file.get_uri(), this._file.get_path(), this.attributeContentType, `${this.modifiedTime}`]);
+        this._desktopManager.remoteThumbnailUpdate.activate_action('updateThumbnail', thumbnailInfoVariant);
+    }
 
     /***********************
      * Class Methods *

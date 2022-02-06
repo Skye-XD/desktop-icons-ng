@@ -34,7 +34,6 @@ const DBusUtils = imports.dbusUtils;
 const AskRenamePopup = imports.askRenamePopup;
 const ShowErrorPopup = imports.showErrorPopup;
 const TemplatesScriptsManager = imports.templatesScriptsManager;
-//const Thumbnails = imports.thumbnails;
 const FileItemMenu = imports.fileItemMenu;
 const AutoAr = imports.autoAr;
 
@@ -83,7 +82,6 @@ var DesktopManager = class {
         this._clickY = 0;
         this._dragList = null;
         this.dragItem = null;
-        //this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath);
         this._codePath = codePath;
         this._asDesktop = asDesktop;
         this._desktopList = desktopList;
@@ -216,6 +214,8 @@ var DesktopManager = class {
         this._configureSelectionColor();
         this._createMenuActionGroup();
         this._createGridWindows();
+        this._dbusAdvertiseUpdate();
+        this._startThumbnailer();
 
         DBusUtils.NautilusFileOperations2.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
         this._syncUndoRedo();
@@ -254,6 +254,7 @@ var DesktopManager = class {
                 if (this._desktopEnumerateCancellable) {
                     this._desktopEnumerateCancellable.cancel();
                 }
+                this.thumbnailLoader.force_exit();
                 if (this._hold_active) {
                     this.mainApp.release();
                     this._hold_active = false;
@@ -261,8 +262,29 @@ var DesktopManager = class {
                 return false;
             });
         }
+    }
+
+    _startThumbnailer() {
+        let args = [];
+        args.push(GLib.build_filenamev([this._codePath, 'thumbnails.js']));
+        args.push(this._codePath);
         if (this._asDesktop) {
-            this._dbusAdvertiseUpdate();
+            args.push('asdesktop');
+        }
+        this.thumbnailLoader = new Gio.Subprocess({argv: args});
+        this.thumbnailLoader.init(null);
+        if (this._asDesktop) {
+            this.remoteThumbnailUpdate =  Gio.DBusActionGroup.get(
+                Gio.DBus.session,
+                'com.rastersoft.dingThumbnailer',
+                '/com/rastersoft/dingThumbnailer/updateThumbnail'
+            );
+        } else {
+                this.remoteThumbnailUpdate =  Gio.DBusActionGroup.get(
+                Gio.DBus.session,
+                'com.rastersoft.dingTestThumbnailer',
+                '/com/rastersoft/dingTestThumbnailer/updateThumbnail'
+            );
         }
     }
 
@@ -314,14 +336,33 @@ var DesktopManager = class {
                 this.updateGridWindows(data.recursiveUnpack());
             }
         });
+        let updateThumbnail = new Gio.SimpleAction({
+            name: 'updateThumbnail',
+            parameter_type: new GLib.VariantType('as')
+        });
+        updateThumbnail.connect('activate', (action, parameter) => {
+            this.updateFileItemThumbnail(parameter.recursiveUnpack());
+        });
         let actionGroup = new Gio.SimpleActionGroup();
         actionGroup.add_action(updateGridWindows);
+        actionGroup.add_action(updateThumbnail);
         let busname = this.mainApp.get_dbus_object_path();
         this._connection = Gio.DBus.session;
         this._dbusConnectionGroupId = this._connection.export_action_group(
             `${busname}/actions`,
             actionGroup
         );
+    }
+
+    updateFileItemThumbnail(thumbnailinfo) {
+        let fileuri = thumbnailinfo[0];
+        let thumbnailFile = thumbnailinfo[1];
+        this._fileList.forEach(f => {
+            if (f.uri == fileuri) {
+                f.thumbnailFile = thumbnailFile;
+                f.updateIcon();
+            }
+        });
     }
 
     updateGridWindows(newdesktoplist) {

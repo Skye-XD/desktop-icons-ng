@@ -52,6 +52,7 @@ var desktopIconItem = class desktopIconItem {
         this._savedCoordinates = null;
         this._dropCoordinates = null;
         this._destroyed = false;
+        this.thumbnailFile = null;
     }
 
     /***********************
@@ -430,7 +431,16 @@ var desktopIconItem = class desktopIconItem {
             if (customIcon && (customIcon != '')) {
                 let customIconFile = Gio.File.new_for_uri(customIcon);
                 if (customIconFile.query_exists(null)) {
-                    let loadedImage = await this._loadImageAsIcon(customIconFile);
+                    let loadedImage = await this.loadImageAsIcon(customIconFile);
+                    if (loadedImage | this._destroyed) {
+                        return;
+                    }
+                }
+            }
+            if (this.thumbnailFile && (this.thumbnailFile != '')) {
+                let customIconFile = Gio.File.new_for_path(this.thumbnailFile);
+                if (customIconFile.query_exists(null)) {
+                    let loadedImage = await this.loadImageAsIcon(customIconFile);
                     if (loadedImage | this._destroyed) {
                         return;
                     }
@@ -446,20 +456,6 @@ var desktopIconItem = class desktopIconItem {
             return;
         }
         let icon_set = false;
-
-        //** This requres Gtk3 as thumbnailLoader uses Gtk3, needs to be rewritten
-        //**
-        //if ((Prefs.nautilusSettings.get_string('show-image-thumbnails') != 'never') &&
-            //(this._desktopManager.thumbnailLoader.canThumbnail(this))) {
-                //let thumbnail = this._desktopManager.thumbnailLoader.getThumbnail(this, this._updateIcon.bind(this));
-                //if (thumbnail != null) {
-                    //let thumbnailFile = Gio.File.new_for_path(thumbnail);
-                    //icon_set = await this._loadImageAsIcon(thumbnailFile);
-                    //if (this._destroyed) {
-                        //return;
-                    //}
-                //}
-        //}
 
         if (!icon_set) {
             let iconPaintable;
@@ -484,7 +480,7 @@ var desktopIconItem = class desktopIconItem {
         return this._fileInfo.get_icon();
     }
 
-    _loadImageAsIcon(imageFile) {
+    loadImageAsIcon(imageFile) {
         return new Promise( (resolve, reject) => {
             try {
                 let iconTexture = Gdk.Texture.new_from_file(imageFile);
