@@ -234,7 +234,9 @@ var DesktopManager = class {
         } catch(e) {
             this._errorWindow = new ShowErrorPopup.ShowErrorPopup(_("Nautilus File Manager not found"),
                                                                   _("The Nautilus File Manager is mandatory to work with Desktop Icons NG."),
-                                                                  true);
+                                                                  true,
+                                                                  this.textEntryAccelsTurnOff.bind(this),
+                                                                  this.textEntryAccelsTurnOn.bind(this));
         }
         this._pendingDropFiles = {};
         if (this._asDesktop) {
@@ -742,68 +744,52 @@ var DesktopManager = class {
         let isAlt = (state & Gdk.ModifierType.MOD1_MASK) != 0;
         let selection = this.getCurrentSelection(false);
         this.keyEventGrid = grid;
-        if ((selection) && symbol == Gdk.KEY_space) {
-                if (this.popupmenuopen) {
+        if (this.popupmenuopen) {
+            return true;
+        }
+        if (this.ignoreKeys.includes(symbol)) {
+            return true;
+        }
+        let key = String.fromCharCode(Gdk.keyval_to_unicode(symbol));
+        if (this.keypressTimeoutID && this.searchString) {
+            this.searchString = this.searchString.concat(key);
+        } else {
+            this.searchString = key;
+        }
+        if (this.searchString != '') {
+            let found = this.scanForFiles(this.searchString, false);
+            if (found) {
+                if ((this.getNumberOfSelectedItems() >= 1) && (! this.keypressTimeoutID)) {
+                    let windowError = new ShowErrorPopup.ShowErrorPopup(
+                        _("Clear Current Selection before New Search"),
+                        null,
+                        true,
+                        this.keyEventGrid._window,
+                        this.textEntryAccelsTurnOff.bind(this),
+                        this.textEntryAccelsTurnOn.bind(this));
+                    windowError.timeoutClose(2000);
                     return true;
                 }
-                // Support previewing other grids file items.
-                DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
-                return true;
-        } else if (symbol == Gdk.KEY_Return) {
-            if (selection && (selection.length == 1)) {
-                selection[0].doOpen();
-                return true;
-            }
-        } else if (symbol == Gdk.KEY_Escape) {
-            this.unselectAll();
-            if (this.searchString) {
-                this.searchString = null;
+                this.searchEventTime = GLib.get_monotonic_time();
+                if (! this.keypressTimeoutID) {
+                    this.keypressTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
+                        if (GLib.get_monotonic_time() - this.searchEventTime < 1500000) {
+                            return true;
+                        }
+                        this.searchString = null;
+                        this.keypressTimeoutID = null;
+                        if (this._findFileWindow) {
+                            this._findFileWindow.response(Gtk.ResponseType.OK);
+                        }
+                        return false;
+                    });
+                }
+                this.findFiles(this.searchString, this.keyEventGrid._window)
             }
             return true;
         } else {
-            if (this.popupmenuopen) {
-                return true;
-            }
-            if (this.ignoreKeys.includes(symbol)) {
-                return false;
-            }
-            let key = String.fromCharCode(Gdk.keyval_to_unicode(symbol));
-            if (this.keypressTimeoutID && this.searchString) {
-                this.searchString = this.searchString.concat(key);
-            } else {
-                this.searchString = key;
-            }
-            if (this.searchString != '') {
-                let found = this.scanForFiles(this.searchString, false);
-                if (found) {
-                    if ((this.getNumberOfSelectedItems() >= 1) && (! this.keypressTimeoutID)) {
-                        let windowError = new ShowErrorPopup.ShowErrorPopup(
-                            _("Clear Current Selection before New Search"),
-                            null,
-                            true);
-                        windowError.timeoutClose(2000);
-                        return true;
-                    }
-                    this.searchEventTime = GLib.get_monotonic_time();
-                    if (! this.keypressTimeoutID) {
-                        this.keypressTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
-                            if (GLib.get_monotonic_time() - this.searchEventTime < 1500000) {
-                                return true;
-                            }
-                            this.searchString = null;
-                            this.keypressTimeoutID = null;
-                            if (this._findFileWindow) {
-                                this._findFileWindow.response(Gtk.ResponseType.OK);
-                            }
-                            return false;
-                        });
-                    }
-                    this.findFiles(this.searchString, this.keyEventGrid._window)
-                }
-            }
-            return true;
+            return false;
         }
-        return false;
     }
 
     unselectAll() {
@@ -861,6 +847,7 @@ var DesktopManager = class {
             this.scanForFiles(null);
         }
         this._findFileWindow.show();
+        this.textEntryAccelsTurnOff();
         this._findFileWindow.connect('close', () => {
             this._findFileWindow.response(Gtk.ResponseType.CANCEL);
         })
@@ -868,6 +855,7 @@ var DesktopManager = class {
             if (retval == Gtk.ResponseType.CANCEL) {
                 this.unselectAll();
             }
+            this.textEntryAccelsTurnOn();
             this._findFileWindow.destroy();
             this._findFileWindow = null;
         });
@@ -989,8 +977,41 @@ var DesktopManager = class {
         });
         this.mainApp.add_action(showHideHiddenFiles);
         this.mainApp.set_accels_for_action('app.showHideHiddenFiles', ['<Control>H']);
+
+        let unselectAll = Gio.SimpleAction.new('unselectAll', null);
+        unselectAll.connect('activate', () => {
+            this.unselectAll();
+            if (this.searchString) {
+                this.searchString = null;
+            }
+        });
+        this.mainApp.add_action(unselectAll);
+        this.mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
+
+        let previewAction = Gio.SimpleAction.new('previewAction', null);
+        previewAction.connect('activate', () => {
+            if (this.popupmenuopen || ! this.activeFileItem) {
+                return;
+            }
+            DBusUtils.GnomeNautilusPreviewProxy.ShowFileRemote(this.activeFileItem.uri, 0, true);
+        });
+        this.mainApp.add_action(previewAction);
+        this.mainApp.set_accels_for_action('app.previewAction', ['space']);
     }
 
+    textEntryAccelsTurnOn() {
+        this.mainApp.set_accels_for_action('app.previewAction', ['space']);
+        this.mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
+        this.mainApp.set_accels_for_action('app.openOneFileAction', ['Return'])
+        this.mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
+    }
+
+    textEntryAccelsTurnOff() {
+        this.mainApp.set_accels_for_action('app.previewAction', ['']);
+        this.mainApp.set_accels_for_action('app.unselectAll', ['']);
+        this.mainApp.set_accels_for_action('app.openOneFileAction', [''])
+        this.mainApp.set_accels_for_action('app.movetotrash', ['']);
+    }
 
     _createDesktopBackgroundGioMenu() {
 
@@ -1663,8 +1684,10 @@ var DesktopManager = class {
         }
         this.unselectAll();
         if (!this._renameWindow) {
+            this.textEntryAccelsTurnOff();
             this._renameWindow = new AskRenamePopup.AskRenamePopup(fileItem, allowReturnOnSameName, () => {
                 this.mainApp.get_active_window().grab_focus();
+                this.textEntryAccelsTurnOn();
                 this._renameWindow = null;
                 this.newFolderDoRename = null;
             });

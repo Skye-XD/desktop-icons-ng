@@ -25,7 +25,7 @@ const _ = Gettext.gettext;
 
 var ShowErrorPopup = class {
 
-    constructor(text, secondaryText, modal) {
+    constructor(text, secondaryText, modal, textEntryAccelsTurnOff, textEntryAccelsTurnOn) {
 
         this._window = new Gtk.MessageDialog({transient_for: null,
                                               message_type: Gtk.MessageType.ERROR,
@@ -36,6 +36,7 @@ var ShowErrorPopup = class {
         this._window.text = text;
         this._window.secondary_text = secondaryText;
         DesktopIconsUtil.windowHidePagerTaskbarModal(this._window, true);
+        textEntryAccelsTurnOff();
         if (window) {
             this._window.set_transient_for(window);
         }
@@ -46,6 +47,7 @@ var ShowErrorPopup = class {
                 this._window = null; 
         });
         this._window.connect('close-request', () => {
+                textEntryAccelsTurnOn();
                 this._window.destroy();
                 this._window = null;
             });

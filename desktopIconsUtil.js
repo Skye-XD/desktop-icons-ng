@@ -25,6 +25,7 @@ const GLib = imports.gi.GLib;
 const Gdk = imports.gi.Gdk;
 const GdkX11 = imports.gi.GdkX11;
 const Prefs = imports.preferences;
+const DesktopManager = imports.desktopManager;
 const Enums = imports.enums;
 const Gettext = imports.gettext.domain('ding');
 

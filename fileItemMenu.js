@@ -91,11 +91,20 @@ var FileItemMenu = class {
 
     _createFileItemMenuActions() {
 
-        let openItem = Gio.SimpleAction.new('openitem', null);
-        openItem.connect('activate', () => {
+        let openMultipleFileAction = Gio.SimpleAction.new('openMultipleFileAction', null);
+        openMultipleFileAction.connect('activate', () => {
             this._doMultiOpen();
         });
-        this._mainApp.add_action(openItem);
+        this._mainApp.add_action(openMultipleFileAction);
+
+        let openOneFileAction = Gio.SimpleAction.new('openOneFileAction', null);
+        openOneFileAction.connect('activate', () => {
+            if (this.activeFileItem) {
+                this.activeFileItem.doOpen();
+            }
+        });
+        this._mainApp.add_action(openOneFileAction);
+        this._mainApp.set_accels_for_action('app.openOneFileAction', ['Return'])
 
         let stackunstack = Gio.SimpleAction.new('stackunstack', GLib.VariantType.new("s"));
         stackunstack.connect('activate', (action, paramenter) => {
@@ -143,7 +152,7 @@ var FileItemMenu = class {
             this._desktopManager.doTrash();
         });
         this._mainApp.add_action(this.moveToTrash);
-        this._mainApp.set_accels_for_action('app.movetotrash', ['Delete'])
+        this._mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
 
         this.deletePermanantly = Gio.SimpleAction.new('deletepermanantly', null);
         this.deletePermanantly.connect('activate', () => {
@@ -218,7 +227,11 @@ var FileItemMenu = class {
         this._menu = Gio.Menu.new();
 
         if (! this.activeFileItem.isStackMarker) {
-            this._menu.append(selectedItemsNum > 1 ? _("Open All...") : _("Open"), "app.openitem");
+            if (selectedItemsNum > 1) {
+                this._menu.append( _("Open All..."), "app.openMultipleFileAction");
+            } else {
+                this._menu.append(_("Open"), "app.openOneFileAction");
+            }
         }
 
         let keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
@@ -410,6 +423,7 @@ var FileItemMenu = class {
                                                                     Gtk.DialogFlags.MODAL + Gtk.DialogFlags.USE_HEADER_BAR,
                                                                     mimetype);
             chooser.set_transient_for(this.activeFileItem._grid._window);
+            this._desktopManager.textEntryAccelsTurnOff();
             chooser.show();
             chooser.connect('close', () => {
                 chooser.response(Gtk.ResponseType.CANCEL);
@@ -425,7 +439,9 @@ var FileItemMenu = class {
                         appInfo.launch(fileList, context);
                     }
                 }
+                this._desktopManager.textEntryAccelsTurnOn();
                 chooser.hide();
+                chooser.destroy();
             });
         }
     }
@@ -449,6 +465,7 @@ var FileItemMenu = class {
             dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
             DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
             dialog.set_transient_for(this.activeFileItem._grid._window);
+            this._desktopManager.textEntryAccelsTurnOff();
             dialog.show();
             dialog.connect('close', () => {
                 dialog.response(Gtk.ResponseType.CANCEL);
@@ -460,6 +477,7 @@ var FileItemMenu = class {
                         DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItem, folder, true);
                     }
                 }
+                this._desktopManager.textEntryAccelsTurnOn();
                 dialog.destroy();
             });
         }
@@ -488,7 +506,9 @@ var FileItemMenu = class {
         if (this._desktopManager.checkIfDirectoryIsSelected()) {
             let WindowError = new ShowErrorPopup.ShowErrorPopup(_("Can not email a Directory"),
                                                                 _("Selection includes a Directory, compress the directory to a file first."),
-                                                                false);
+                                                                null,
+                                                                this._textEntryAccelsTurnOff.bind(this),
+                                                                this._textEntryAccelsTurnOn.bind(this));
             WindowError.run();
             return;
         }
@@ -544,5 +564,13 @@ var FileItemMenu = class {
         environ.push(uriList);
         environ.push(currentUri);
         DesktopIconsUtil.trySpawn(null, params, environ);
+    }
+
+    _textEntryAccelsTurnOff() {
+        this._desktopManager.textEntryAccelsTurnOff();
+    }
+
+    _textEntryAccelsTurnOn() {
+        this._desktopManager.textEntryAccelsTurnOn();
     }
 }
