@@ -110,9 +110,11 @@ var desktopIconItem = class desktopIconItem {
         this._icon = new Gtk.Picture();
         this._icon.set_can_shrink(true);
         this._icon.set_keep_aspect_ratio(true);
-        this._iconContainer = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL});
-        this._iconContainer.append(this._icon);
+        this._iconContainer = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL});
+        this._iconContainer.set_hexpand(false);
+        this._iconContainer.set_halign(Gtk.Align.CENTER);
         this._iconContainer.set_baseline_position(Gtk.BaselinePosition.CENTER);
+        this._iconContainer.append(this._icon);
 
         this._label = new Gtk.Label();
         this._labelContainer = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER});
