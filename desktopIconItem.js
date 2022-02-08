@@ -108,7 +108,7 @@ var desktopIconItem = class desktopIconItem {
         this._containerId = this.container.connect('destroy', () => this._onDestroy());
 
         this._icon = new Gtk.Picture();
-        this._icon.set_can_shrink(true);
+        this._icon.set_can_shrink(false);
         this._icon.set_keep_aspect_ratio(true);
         this._iconContainer = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL});
         this._iconContainer.set_hexpand(false);
