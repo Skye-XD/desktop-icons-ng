@@ -377,7 +377,7 @@ var DesktopGrid = class {
         widgetDragController.set_actions(Gdk.DragAction.COPY|Gdk.DragAction.MOVE);
         widgetDragController.connect('prepare', (actor, x, y) => {
             let draggedItem = this._fileAt(x, y);
-            if (draggedItem) {
+            if (draggedItem && ! this._desktopManager.rubberBand) {
                 clickItem = draggedItem;
                 let [X, Y] = this._coordinatesLocalToGlobal(x, y);
                 let [a, b] = clickItem._calculateOffset(X, Y);

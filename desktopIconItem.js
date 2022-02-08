@@ -509,18 +509,14 @@ var desktopIconItem = class desktopIconItem {
                     let thumbnailPixbuf = GdkPixbuf.Pixbuf.new_from_stream(thumbnailStream, null);
 
                     if (thumbnailPixbuf != null) {
-                        let width = Prefs.get_desired_width() - 8;
-                        let height = Prefs.get_icon_size() - 8;
+                        let width = Prefs.get_desired_width();
+                        let height = Prefs.get_icon_size();
                         let aspectRatio = thumbnailPixbuf.width / thumbnailPixbuf.height;
                         if ((width / height) > aspectRatio)
                             width = height * aspectRatio;
                         else
-                            height = width / aspectRatio;
-                        const scale = this._icon.get_scale_factor();
-                        width *= scale;
-                        height *= scale;
-                        let pixbuf = thumbnailPixbuf.scale_simple(Math.floor(width), Math.floor(height), GdkPixbuf.InterpType.BILINEAR);
-                        let iconTexture = Gdk.Texture.new_for_pixbuf(pixbuf);
+                            height = width / aspectRatio; 
+                        let iconTexture = Gdk.Texture.new_for_pixbuf(thumbnailPixbuf);
                         let iconPaintableSnapshot = Gtk.Snapshot.new();
                         iconTexture.snapshot(iconPaintableSnapshot, Math.floor(width), Math.floor(height));
                         let icon = iconPaintableSnapshot.to_paintable(null);
