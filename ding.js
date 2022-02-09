@@ -26,6 +26,7 @@ const GLib = imports.gi.GLib;
 let desktops = [];
 let lastCommand = null;
 let codePath = '.';
+let version = null;
 let errorFound = false;
 let asDesktop = false;
 let primaryIndex = 0;
@@ -67,6 +68,7 @@ function parseCommandLine(argv) {
             case '-P': // Code path
             case '-D': // Desktop definition: X:Y:WIDTH:HEIGHT:ZOOM:MARGINTOP:MARGINBOTTOM:MARGINLEFT:MARGINRIGHT:MONITORINDEX
             case '-M': // Primary monitor
+            case '-V': // Pass the Gnome Shell Version
                 lastCommand = arg;
                 break;
             default:
@@ -109,6 +111,9 @@ function parseCommandLine(argv) {
                 marginRight:parseInt(data[8]),
                 monitorIndex:parseInt(data[9])
             });
+            break;
+        case '-V':
+            version = arg;
             break;
         case '-M':
             primaryIndex = parseInt(arg);
@@ -172,7 +177,8 @@ dingApp.connect('activate', () => {
                                                            desktops,
                                                            codePath,
                                                            asDesktop,
-                                                           primaryIndex);
+                                                           primaryIndex,
+                                                           version);
     }
 });
 

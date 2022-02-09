@@ -43,7 +43,7 @@ const Gettext = imports.gettext.domain('ding');
 const _ = Gettext.gettext;
 
 var DesktopManager = class {
-    constructor(mainApp, dbusManager, desktopList, codePath, asDesktop, primaryIndex) {
+    constructor(mainApp, dbusManager, desktopList, codePath, asDesktop, primaryIndex, version) {
 
         this.mainApp = mainApp;
         if (asDesktop) {
@@ -68,7 +68,11 @@ var DesktopManager = class {
         this.dbusManager = dbusManager;
         this.autoAr = new AutoAr.AutoAr(this);
 
-        this.GnomeShellVersion = 40;
+        if (version) {
+            this.GnomeShellVersion = version;
+        } else {
+            this.GnomeShellVersion = 40;
+        }
         this._primaryIndex = primaryIndex;
         if (primaryIndex < desktopList.length) {
             this._primaryScreen = desktopList[primaryIndex];

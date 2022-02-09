@@ -303,6 +303,9 @@ function launchDesktop() {
     // The path. Allows the program to find translations, settings and modules.
     argv.push('-P');
     argv.push(ExtensionUtils.getCurrentExtension().path);
+    // The current Gnome Shell Version for correct operation of clipboard with Gtk4.
+    argv.push('-V');
+    argv.push(`${data.GnomeShellVersion}`);
 
     data.currentProcess = new LaunchSubprocess(0, "DING");
     data.currentProcess.set_cwd(GLib.get_home_dir());
