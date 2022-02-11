@@ -532,7 +532,7 @@ var DesktopManager = class {
         this.dragItem = null;
     }
 
-    onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, selection, info) {
+    onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, selection, info, gdkDropAction) {
 
         this.onDragLeave();
         let fileList;
@@ -557,7 +557,7 @@ var DesktopManager = class {
                 this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination]);
                 let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
                 let id_fs = data.get_attribute_string('id::filesystem');
-                if ((this.desktopFsId == id_fs) && (!forceCopy)) {
+                if ((this.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
                     DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP));
                     Gtk.drag_finish(context, true, true, Gtk.get_current_event_time());
                 } else {

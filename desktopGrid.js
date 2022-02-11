@@ -293,23 +293,27 @@ var DesktopGrid = class {
             }
         });
         this.gridDropController.connect('drag-enter', (actor, drop, x, y) => {
-            return Gdk.DragAction.COPY;
+            return Gdk.DragAction.MOVE;
         });
         this.gridDropController.connect('drag-motion', (actor, drop, x, y) => {
             let clickItem = this._fileAt(x, y);
             let [X, Y] = this._coordinatesLocalToGlobal(x, y);
             let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
+            this.receiveMotion(x, y, false);
             if (clickItem && ! clickItem.dropCapable()) {
                 if (this._desktopManager.showDropPlace) {
-                    this.receiveMotion(x, y, false);
                     return false;
                 } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
-                    this.receiveMotion(x, y, false);
                     return false;
                 }
             }
-            this.receiveMotion(x, y, false);
-            return Gdk.DragAction.COPY;
+            if (clickItem && clickItem.dropCapable && (clickItem._fileExtra !== Enums.FileType.EXTERNAL_DRIVE)) {
+                return Gdk.DragAction.MOVE;
+            }
+            if (clickItem && (clickItem._fileExtra == Enums.FileType.EXTERNAL_DRIVE)) {
+                return Gdk.DragAction.COPY;
+            }
+            return Gdk.DragAction.MOVE;
         });
         this.gridDropController.connect('drag-leave', (actor, drop, x, y) => {
             this.receiveLeave();
@@ -318,22 +322,23 @@ var DesktopGrid = class {
             drop.read_value_async(String.$gtype, GLib.PRIORITY_DEFAULT, null, (dropactor, task) => {
                 selection = dropactor.read_value_finish(task);
                 if (selection && info) {
+                    let gdkDropAction = drop.get_actions();
                     let clickItem = this._fileAt(x, y);
                     let [X, Y] = this._coordinatesLocalToGlobal(x, y);
                     let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
                     if (clickItem && ! clickItem._hasToRouteDragToGrid()) {
                         if (this._desktopManager.showDropPlace) {
-                            clickItem.recieveDrop(x, y, selection, info);
-                            drop.finish(Gdk.DragAction.COPY);
+                            clickItem.recieveDrop(x, y, selection, info, gdkDropAction);
+                            drop.finish(gdkDropAction);
                             return true;
                         } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
-                            clickItem.recieveDrop(x, y, selection, info);
-                            drop.finish(Gdk.DragAction.COPY);
+                            clickItem.recieveDrop(x, y, selection, info, gdkDropAction);
+                            drop.finish(gdkDropAction);
                             return true;
                         }
                     }
-                    this.receiveDrop(x, y, selection, info);
-                    drop.finish(Gdk.DragAction.COPY);
+                    this.receiveDrop(x, y, selection, info, gdkDropAction);
+                    drop.finish(gdkDropAction);
                     if (this._using_X11) {
                         this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
                         this.receiveLeave();
@@ -438,11 +443,11 @@ var DesktopGrid = class {
         this._desktopManager.onDragMotion(X, Y);
     }
 
-    receiveDrop(x, y, selection, info) {
+    receiveDrop(x, y, selection, info, gdkDropAction) {
         x = this._elementWidth * Math.floor(x / this._elementWidth);
         y = this._elementHeight * Math.floor(y / this._elementHeight);
         let [X, Y] = this._coordinatesLocalToGlobal(x, y);
-        this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info);
+        this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction);
         this._window.queue_draw();
     }
 
