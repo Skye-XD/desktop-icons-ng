@@ -20,21 +20,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Pango = imports.gi.Pango;
-const GdkPixbuf = imports.gi.GdkPixbuf;
-const Cairo = imports.gi.cairo;
 const DesktopIconsUtil = imports.desktopIconsUtil;
 
 const Prefs = imports.preferences;
 const Enums = imports.enums;
 const DBusUtils = imports.dbusUtils;
 
-const ByteArray = imports.byteArray;
 const Signals = imports.signals;
 const Gettext = imports.gettext.domain('ding');
 
@@ -45,7 +41,6 @@ var desktopIconItem = class desktopIconItem {
     constructor(desktopManager, fileExtra) {
         this._desktopManager = desktopManager;
         this._fileExtra = fileExtra;
-        this._loadThumbnailDataCancellable = null;
         this._queryFileInfoCancellable = null;
         this._grid = null;
         this._lastClickTime = 0;
@@ -77,11 +72,6 @@ var desktopIconItem = class desktopIconItem {
         /* Regular file data */
         if (this._queryFileInfoCancellable) {
             this._queryFileInfoCancellable.cancel();
-        }
-
-        /* Thumbnailing */
-        if (this._loadThumbnailDataCancellable) {
-            this._loadThumbnailDataCancellable.cancel();
         }
         /* Container */
         if (this._containerId) {
@@ -495,41 +485,30 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _loadImageAsIcon(imageFile) {
-
-        if (this._loadThumbnailDataCancellable)
-            this._loadThumbnailDataCancellable.cancel();
-        this._loadThumbnailDataCancellable = new Gio.Cancellable();
-
         return new Promise( (resolve, reject) => {
-            imageFile.load_bytes_async(this._loadThumbnailDataCancellable, (source, result) => {
-                this._loadThumbnailDataCancellable = null;
-                try {
-                    let [thumbnailData, etag_out] = source.load_bytes_finish(result);
-                    let thumbnailStream = Gio.MemoryInputStream.new_from_bytes(thumbnailData);
-                    let thumbnailPixbuf = GdkPixbuf.Pixbuf.new_from_stream(thumbnailStream, null);
-
-                    if (thumbnailPixbuf != null) {
-                        let width = Prefs.get_desired_width();
-                        let height = Prefs.get_icon_size();
-                        let aspectRatio = thumbnailPixbuf.width / thumbnailPixbuf.height;
-                        if ((width / height) > aspectRatio)
-                            width = height * aspectRatio;
-                        else
-                            height = width / aspectRatio; 
-                        let iconTexture = Gdk.Texture.new_for_pixbuf(thumbnailPixbuf);
-                        let iconPaintableSnapshot = Gtk.Snapshot.new();
-                        iconTexture.snapshot(iconPaintableSnapshot, Math.floor(width), Math.floor(height));
-                        let icon = iconPaintableSnapshot.to_paintable(null);
-                        icon = this._addEmblemsToIconIfNeeded(icon);
-                        this._icon.set_paintable(icon);
-                        resolve(true);
+            try {
+                let iconTexture = Gdk.Texture.new_from_file(imageFile);
+                if (iconTexture != null) {
+                    let width = Prefs.get_desired_width();
+                    let height = Prefs.get_icon_size();
+                    let aspectRatio = iconTexture.get_width() / iconTexture.get_height();
+                    if ((width / height) > aspectRatio) {
+                        width = height * aspectRatio;
+                    } else {
+                        height = width / aspectRatio;
                     }
-                    resolve(false);
-                } catch(e) {
-                    print(`Failed with "${e.message}" while setting custom icon, loading image as icon from iconfile`)
-                    resolve(false);
+                    let iconPaintableSnapshot = Gtk.Snapshot.new();
+                    iconTexture.snapshot(iconPaintableSnapshot, Math.floor(width), Math.floor(height));
+                    let icon = iconPaintableSnapshot.to_paintable(null);
+                    icon = this._addEmblemsToIconIfNeeded(icon);
+                    this._icon.set_paintable(icon);
+                    resolve(true);
                 }
-            });
+                resolve(false);
+            } catch(e) {
+                print(`Failed with "${e.message}" while setting custom icon, loading image as icon from iconfile`)
+                resolve(false);
+            }
         });
     }
 
