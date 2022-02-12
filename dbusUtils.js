@@ -545,7 +545,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
     }
 
     _createPlatformData() {
-        
+
         this.freePlatformData = this.fileOperationsManager.freePlatformData = () => {
             let parentWindow = applicationid.get_active_window();
             const topLevel = parentWindow.get_surface();
