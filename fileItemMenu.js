@@ -54,7 +54,7 @@ var FileItemMenu = class {
         this.activeFileItem = null;
         this._createFileItemMenuActions();
             TemplatesScriptsManager.TemplatesScriptsManagerFlags.ONLY_EXECUTABLE,
-            this._onScriptClicked.bind(this));
+            this._onScriptClicked.bind(this);
 
     }
 
