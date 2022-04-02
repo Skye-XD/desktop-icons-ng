@@ -143,6 +143,7 @@ function innerEnable(removeId) {
         }
     });
     data.remoteDingActions.list_actions();
+}
 
 /**
  * Kills the current desktop program
