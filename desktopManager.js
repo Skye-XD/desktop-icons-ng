@@ -51,7 +51,6 @@ var DesktopManager = class {
         }
         this._selectedFiles = null;
         DesktopIconsUtil.setApplicationId(mainApp);
-        DBusUtils.setApplicationId(mainApp);
 
         this._premultiplied = false;
         try {
