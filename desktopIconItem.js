@@ -513,7 +513,7 @@ var desktopIconItem = class desktopIconItem {
         if (this._isDesktopFile && ! this._isValidDesktopFile) {
             emblem = Gio.ThemedIcon.new('emblem-unreadable');
         }
-        if (this._isSymlink && (this._desktopManager.showLinkEmblem || this._isBrokenSymlink) {
+        if (this._isSymlink && (this._desktopManager.showLinkEmblem || this._isBrokenSymlink)) {
             if (this._isBrokenSymlink) {
                 emblem = Gio.ThemedIcon.new('emblem-unreadable');
             } else {
