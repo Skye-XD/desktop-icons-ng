@@ -1012,11 +1012,6 @@ function init(mainapp) {
     } else {
         RemoteFileOperations = new LegacyRemoteFileOperationsManager(NautilusFileOperations2, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager);
     }
-    extensionControl = Gio.DBusActionGroup.get(
-        Gio.DBus.session,
-        'com.rastersoft.dingextension',
-        '/com/rastersoft/dingextension/control'
-    );
 
     return dbusManagerObject;
 }
