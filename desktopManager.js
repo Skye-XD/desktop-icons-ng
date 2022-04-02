@@ -324,17 +324,12 @@ var DesktopManager = class {
     }
 
     _dbusAdvertiseUpdate() {
-        DBusUtils.extensionControl.connect('action-state-changed', (actionGroup, actionName, data) => {
-            if (actionName == 'desktopGeometry') {
-                this.updateGridWindows(data.recursiveUnpack());
-            }
+        let updateGridWindows = new Gio.SimpleAction({
+            name: 'updateGridWindows',
+            parameter_type: new GLib.VariantType('av')
         });
-        DBusUtils.extensionControl.connect('action-added', (actionGroup, actionName) => {
-            // this signal allows us to know when the action is available and we can read the initial value
-            if (actionName == 'desktopGeometry') {
-                let data = DBusUtils.extensionControl.get_action_state('desktopGeometry');
-                this.updateGridWindows(data.recursiveUnpack());
-            }
+        updateGridWindows.connect('activate', (action, parameter) => {
+            this.updateGridWindows(parameter.recursiveUnpack());
         });
         let updateThumbnail = new Gio.SimpleAction({
             name: 'updateThumbnail',
@@ -344,7 +339,6 @@ var DesktopManager = class {
             this.updateFileItemThumbnail(parameter.recursiveUnpack());
         });
         let actionGroup = new Gio.SimpleActionGroup();
-        actionGroup.add_action(updateGridWindows);
         actionGroup.add_action(updateThumbnail);
         let busname = this.mainApp.get_dbus_object_path();
         this._connection = Gio.DBus.session;
@@ -352,6 +346,7 @@ var DesktopManager = class {
             `${busname}/actions`,
             actionGroup
         );
+        actionGroup.add_action(updateGridWindows);
     }
 
     updateFileItemThumbnail(thumbnailinfo) {

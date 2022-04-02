@@ -41,7 +41,6 @@ function init() {
     data.isEnabled = false;
     data.launchDesktopId = 0;
     data.currentProcess = null;
-    data.dbusTimeoutId = 0;
 
     data.GnomeShellOverride = null;
     data.GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split(".")[0]);
@@ -132,12 +131,19 @@ function innerEnable(removeId) {
         GLib.source_remove(data.launchDesktopId);
     }
     launchDesktop();
+
     data.remoteDingActions = Gio.DBusActionGroup.get(
         Gio.DBus.session,
         'com.rastersoft.ding',
         '/com/rastersoft/ding/actions'
     );
-}
+    data.remoteDingActionsEnabledId = data.remoteDingActions.connect('action-added', (group, action_name) => {
+        if (action_name == 'updateGridWindows') {
+            updateDesktopGeometry();
+        }
+    });
+    data.remoteDingActions.list_actions();
+
 /**
  * Kills the current desktop program
  */
@@ -169,7 +175,10 @@ function disable() {
     data.visibleArea.disable();
 
     // disconnect signals only if connected
-
+    if (data.remoteDingActionsEnabledId) {
+        data.remoteDingActions.disconnect(data.remoteDingActionsEnabledId);
+        data.remoteDingActionsEnabledId = 0;
+    }
     if (data.visibleAreaId) {
         data.visibleArea.disconnect(data.visibleAreaId);
         data.visibleAreaId = 0;
@@ -186,19 +195,11 @@ function disable() {
         global.display.disconnect(data.workareasChangedId);
         data.workareasChangedId = 0;
     }
-    if (data.sizeChangedId) {
-        global.window_manager.disconnect(data.sizeChangedId);
-        data.sizeChangedId = 0;
-    }
-    if (data.dbusTimeoutId) {
-        GLib.source_remove(data.dbusTimeoutId);
-        data.dbusTimeoutId = 0;
-    }
 }
 
 function updateDesktopGeometry() {
-    if (data.actionGroup && (Main.layoutManager.monitors.length != 0)) {
-        data.actionGroup.change_action_state('desktopGeometry', getDesktopGeometry());
+    if (data.remoteDingActions && (Main.layoutManager.monitors.length != 0)) {
+        data.remoteDingActions.activate_action('updateGridWindows', getDesktopGeometry());
     }
 }
 
