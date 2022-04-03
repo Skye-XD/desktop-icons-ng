@@ -1,6 +1,7 @@
-#!/usr/bin/env gjs
-
 /* DING: Desktop Icons New Generation for GNOME Shell
+ *
+ * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) port to Gtk.app-
+ * to communicate over dbus.
  *
  * Copyright (C) 2021 Sergio Costas (rastersoft@gmail.com)
  *
@@ -17,18 +18,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-imports.gi.versions.GnomeDesktop = '3.0';
+var gnomedesktop;
+var Gtk;
+var GnomeDesktop;
 
-const GnomeDesktop = imports.gi.GnomeDesktop;
+try {
+    imports.gi.versions.GnomeDesktop = '4.0';
+    imports.gi.versions.Gtk = '4.0';
+    gnomedesktop = 4;
+    Gtk = imports.gi.Gtk;
+    GnomeDesktop = imports.gi.GnomeDesktop;
+} catch(e) {
+    gnomedesktop = 3;
+    imports.gi.versions.GnomeDesktop = '3.0';
+    imports.gi.versions.Gtk = '3.0';
+    Gtk = imports.gi.Gtk;
+    GnomeDesktop = imports.gi.GnomeDesktop;
+}
+
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
-const Gtk = imports.gi.Gtk;
 
-var ThumbnailLoader = class {
+var ThumbnailLoader = class  {
 
-    constructor(codePath, asDesktop, thumbnailapp) {
-        this.mainApp = thumbnailapp;
-        this.asDesktop = asDesktop;
+    constructor(codePath) {
         this._timeoutValue = 5000;
         this._codePath = codePath;
         this._thumbList = [];
@@ -42,59 +55,13 @@ var ThumbnailLoader = class {
             this._useAsyncAPI = false;
             print("Failed to detected async api for thumbnails");
         }
-        this._dbusAdvertiseUpdate();
-        this.mainApp.hold();
-        this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
-                GLib.source_remove(this._sigtermID);
-                this._forcedExit = true;
-                mainapp.release();
-                return false;
-       });
-    }
-
-    _dbusAdvertiseUpdate() {
-        let updateThumbnail = new Gio.SimpleAction({
-            name: 'updateThumbnail',
-            parameter_type: new GLib.VariantType('as')
-        });
-        updateThumbnail.connect('activate', (action, parameter) => {
-            let [fileUri, filePath, fileAttributeContentType, fileModifiedTime] = parameter.recursiveUnpack();
-            var file = {
-                "uri": fileUri,
-                "path": filePath,
-                "attributeContentType": fileAttributeContentType,
-                "modifiedTime": fileModifiedTime
-            }
-            this._updateThumbnail(file);
-        });
-        let actionGroup = new Gio.SimpleActionGroup();
-        actionGroup.add_action(updateThumbnail);
-        let busname = this.mainApp.get_dbus_object_path();
-        this._connection = Gio.DBus.session;
-        this._dbusConnectionGroupId = this._connection.export_action_group(
-            `${busname}/updateThumbnail`,
-            actionGroup
-        );
-        if (this.asDesktop) {
-            this.remoteDingUpdate = Gio.DBusActionGroup.get(
-                Gio.DBus.session,
-                'com.rastersoft.ding',
-                '/com/rastersoft/ding/updateGridWindows'
-            );
-        } else {
-            this.remoteDingUpdate = Gio.DBusActionGroup.get(
-                Gio.DBus.session,
-                'com.rastersoft.dingtest',
-                '/com/rastersoft/dingtest/updateGridWindows'
-            );
-        }
     }
     
     _updateDesktopIcon(file, thumbnail) {
-        let thumbnailUpdateVariant = new GLib.Variant('as', [file.uri, thumbnail]);
-        this.remoteDingUpdate.activate_action('updateThumbnail', thumbnailUpdateVariant);
+        file.thumbnailFile = thumbnail;
+        file._updateIcon();
     }
-    
+
     _updateThumbnail(file) {
         if (this.canThumbnail(file)) {
             let thumbnail = this.getThumbnail(file);
@@ -243,53 +210,4 @@ var ThumbnailLoader = class {
         }
         return null;
     }
-}
-
-var asDesktop = false;
-
-function parseCommandLine(ARGV) {
-    if (ARGV.includes('asdesktop')) {
-        asDesktop = true;
-    }
-}
-
-parseCommandLine(ARGV);
-
-const dingThumbnailApp = new Gtk.Application({application_id: asDesktop ? 'com.rastersoft.dingThumbnailer' : 'com.rastersoft.dingTestThumbnailer',
-                                     flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE});
-
-var codePath;
-var ThumbnailLoaderLoaded = null;
-var errorFound;
-
-dingThumbnailApp.connect('startup', () => {
-});
-
-dingThumbnailApp.connect('activate', () => {
-    if (!ThumbnailLoaderLoaded) {
-        ThumbnailLoaderLoaded = new ThumbnailLoader(codePath, asDesktop, dingThumbnailApp);
-    } else {
-        errorFound = true;
-        commandLine.set_exit_status(1);
-    }
-});
-
-dingThumbnailApp.connect('command-line', (app, commandLine) => {
-    let argv =[];
-    argv = commandLine.get_arguments();
-    if (argv.length == 0) {
-        codePath = '.';
-        asDesktop = false;
-    } else {
-        codePath = argv[0];
-    }
-    dingThumbnailApp.activate();
-});
-
-dingThumbnailApp.run(ARGV);
-
-if (!errorFound) {
-    0;
-} else {
-    1;
 }

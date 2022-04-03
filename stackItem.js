@@ -68,7 +68,7 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
         this._icon.set_paintable(iconPaintable);
     }
 
-    _doButtonOnePressed(event, shiftPressed, controlPressed) {
+    _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         this._desktopManager.onToggleStackUnstackThisTypeClicked(this.attributeContentType);
     }
 

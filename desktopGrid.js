@@ -89,6 +89,7 @@ var DesktopGrid = class {
                 return true;
             } else {
                 // Exit if this instance is working as an stand-alone window
+                this._desktopManager.terminateProgram();
                 return false;
             }
         });
@@ -106,9 +107,6 @@ var DesktopGrid = class {
         this._overlay = new Gtk.Overlay();
         this._overlay.set_child(this._container);
         this._window.set_child(this._overlay);
-
-        this.setDropDestination(this._container);
-        this.setDragSource(this._container);
 
         this._selectedList = null;
 
@@ -157,7 +155,7 @@ var DesktopGrid = class {
             }
             this._desktopManager.onPressButton(X, Y, x, y, button, isShift, isCtrl, this);
        });
-       
+
        this._buttonClick.connect('released', (actor, n_press, x, y) => {
             let state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) != 0;
@@ -173,6 +171,10 @@ var DesktopGrid = class {
             }
             this._desktopManager.onReleaseButton(this);
        });
+
+        this.setDropDestination(this._container);
+        this.setDragSource(this._container);
+
     }
 
     updateGridDescription(desktopDescription) {
@@ -270,7 +272,7 @@ var DesktopGrid = class {
         this._window.destroy();
     }
 
-    setDropDestination(dropDestination) {
+    setDropDestination(widget) {
         this.gridDropController = new Gtk.DropTargetAsync();
         this.gridDropController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY);
         this.dropMimeTypes = ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain'];
@@ -353,7 +355,7 @@ var DesktopGrid = class {
                 }
             });
         });
-        this._container.add_controller(this.gridDropController);
+        widget.add_controller(this.gridDropController);
 
         this.gridDropControllerMotion = new Gtk.DropControllerMotion();
         this.gridDropControllerMotion.connect('motion', (actor, x, y) => {
@@ -361,7 +363,7 @@ var DesktopGrid = class {
                 let clickItem = this._fileAt(x, y);
                 let [X, Y] = this._coordinatesLocalToGlobal(x, y);
                 let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
-                if (clickItem.dropCapable()) {
+                if (clickItem && clickItem.dropCapable()) {
                     this._desktopManager.unHighLightDropTarget();
                     if (this._desktopManager.showDropPlace) {
                         clickItem.highLightDropTarget(x, y);
@@ -373,13 +375,13 @@ var DesktopGrid = class {
                 this._desktopManager.unHighLightDropTarget();
             }
         });
-        this._container.add_controller(this.gridDropControllerMotion);
+        widget.add_controller(this.gridDropControllerMotion);
     }
 
     setDragSource(widget) {
         let widgetDragController = Gtk.DragSource.new();
         let clickItem
-        widgetDragController.set_actions(Gdk.DragAction.COPY|Gdk.DragAction.MOVE);
+        widgetDragController.set_actions(Gdk.DragAction.MOVE|Gdk.DragAction.COPY);
         widgetDragController.connect('prepare', (actor, x, y) => {
             let draggedItem = this._fileAt(x, y);
             if (draggedItem && ! this._desktopManager.rubberBand) {
@@ -387,7 +389,7 @@ var DesktopGrid = class {
                 let [X, Y] = this._coordinatesLocalToGlobal(x, y);
                 let [a, b] = clickItem._calculateOffset(X, Y);
                 widgetDragController.set_icon(clickItem.dragIcon, a, b);
-                this._loadDragData(actor);
+                this._loadDragData(clickItem);
                 if (this.contentProvider) {
                     return this.contentProvider;
                 }
@@ -403,7 +405,7 @@ var DesktopGrid = class {
         widget.add_controller(widgetDragController);
     }
 
-    _loadDragData(widgetDragController) {
+    _loadDragData(clickItem) {
         let dingdrop = 'x-special/ding-icon-list';
         let gnomedrop = 'x-special/gnome-icon-list';
         let textlistdrop = 'text/plain';
@@ -417,9 +419,9 @@ var DesktopGrid = class {
         }
         let textlistdragData = this._desktopManager.fillDragDataGet(textlistdrop);
         let textlistcontentProvider = Gdk.ContentProvider.new_for_bytes(textlistdrop, ByteArray.toGBytes(ByteArray.fromString(textlistdragData)));
-        if ((this._fileExtra != Enums.FileType.USER_DIRECTORY_TRASH) &&
-            (this._fileExtra != Enums.FileType.USER_DIRECTORY_HOME) &&
-            (this._fileExtra != Enums.FileType.EXTERNAL_DRIVE)) {
+        if ((clickItem._fileExtra != Enums.FileType.USER_DIRECTORY_TRASH) &&
+            (clickItem._fileExtra != Enums.FileType.USER_DIRECTORY_HOME) &&
+            (clickItem._fileExtra != Enums.FileType.EXTERNAL_DRIVE)) {
                 let gnomedragData = this._desktopManager.fillDragDataGet(gnomedrop);
                 let gnomecontentProvider = Gdk.ContentProvider.new_for_bytes(gnomedrop, ByteArray.toGBytes(ByteArray.fromString(gnomedragData)));
                 this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, gnomecontentProvider, textlistcontentProvider]);

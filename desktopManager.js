@@ -17,6 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+imports.gi.versions.Gtk = '4.0';
+imports.gi.versions.Gdk = '4.0';
+
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
@@ -37,6 +40,12 @@ const TemplatesScriptsManager = imports.templatesScriptsManager;
 const FileItemMenu = imports.fileItemMenu;
 const AutoAr = imports.autoAr;
 
+var Thumbnails = null;
+try {
+     imports.gi.versions.GnomeDesktop = '4.0';
+     Thumbnails = imports.thumbnails;
+ } catch (e) {}
+
 const Gettext = imports.gettext.domain('ding');
 
 const _ = Gettext.gettext;
@@ -51,6 +60,16 @@ var DesktopManager = class {
         }
         this._selectedFiles = null;
         DesktopIconsUtil.setApplicationId(mainApp);
+        this._codePath = codePath;
+        this._asDesktop = asDesktop;
+
+        if (! Thumbnails) {
+            this._startThumbnailer();
+            this.thumbnailLoader = {};
+            this.thumbnailLoader._updateThumbnail = this._getRemoteIconThumbNail.bind(this);
+        } else {
+            this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath);
+        }
 
         this._premultiplied = false;
         try {
@@ -81,8 +100,6 @@ var DesktopManager = class {
         this._clickY = 0;
         this._dragList = null;
         this.dragItem = null;
-        this._codePath = codePath;
-        this._asDesktop = asDesktop;
         this._desktopList = desktopList;
         this._desktops = [];
         this._desktopFilesChanged = false;
@@ -213,8 +230,6 @@ var DesktopManager = class {
         this._configureSelectionColor();
         this._createMenuActionGroup();
         this._createGridWindows();
-        this._dbusAdvertiseUpdate();
-        this._startThumbnailer();
 
         DBusUtils.NautilusFileOperations2.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
         this._syncUndoRedo();
@@ -253,7 +268,9 @@ var DesktopManager = class {
                 if (this._desktopEnumerateCancellable) {
                     this._desktopEnumerateCancellable.cancel();
                 }
-                this.thumbnailLoader.force_exit();
+                if (this.thumbnailApp) {
+                    this.thumbnailApp.send_signal(15);
+                }
                 if (this._hold_active) {
                     this.mainApp.release();
                     this._hold_active = false;
@@ -261,30 +278,50 @@ var DesktopManager = class {
                 return false;
             });
         }
+        this._dbusAdvertiseUpdate();
+    }
+
+    terminateProgram() {
+        for(let desktop of this._desktops) {
+            desktop.destroy();
+        }
+        this._desktops = [];
+        this._forcedExit = true;
+        if (this._desktopEnumerateCancellable) {
+            this._desktopEnumerateCancellable.cancel();
+        }
+        if (this.thumbnailApp) {
+            this.thumbnailApp.send_signal(15);
+        }
     }
 
     _startThumbnailer() {
         let args = [];
-        args.push(GLib.build_filenamev([this._codePath, 'thumbnails.js']));
+        args.push(GLib.build_filenamev([this._codePath, 'thumbnailapp.js']));
         args.push(this._codePath);
         if (this._asDesktop) {
             args.push('asdesktop');
         }
-        this.thumbnailLoader = new Gio.Subprocess({argv: args});
-        this.thumbnailLoader.init(null);
+        this.thumbnailApp = new Gio.Subprocess({argv: args});
+        this.thumbnailApp.init(null);
         if (this._asDesktop) {
             this.remoteThumbnailUpdate =  Gio.DBusActionGroup.get(
                 Gio.DBus.session,
                 'com.rastersoft.dingThumbnailer',
-                '/com/rastersoft/dingThumbnailer/updateThumbnail'
+                '/com/rastersoft/dingThumbnailer/actions'
             );
         } else {
                 this.remoteThumbnailUpdate =  Gio.DBusActionGroup.get(
                 Gio.DBus.session,
                 'com.rastersoft.dingTestThumbnailer',
-                '/com/rastersoft/dingTestThumbnailer/updateThumbnail'
+                '/com/rastersoft/dingTestThumbnailer/actions'
             );
         }
+    }
+
+    _getRemoteIconThumbNail(fileItem) {
+        let thumbnailInfoVariant = new GLib.Variant('as', [fileItem._file.get_uri(), fileItem._file.get_path(), fileItem.attributeContentType, `${fileItem.modifiedTime}`]);
+        this.remoteThumbnailUpdate.activate_action('updateThumbnail', thumbnailInfoVariant);
     }
 
     _metadataChanged(proxy, nameOwner, args) {
@@ -573,46 +610,38 @@ var DesktopManager = class {
         let fileList;
 
         switch(info) {
-        case 'dingdrop':
-            fileList = selection.split('\r\n')
-            if (fileList.length >= 2) {
-                fileList.splice(-1, 1);
-            }
-            if (fileList.length != 0) {
-                let [xOrigin, yOrigin, a, b, c] = this.dragItem.getCoordinates();
-                this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
-            }
-            break;
-        case 'gnomeicondrop':
-            fileList = selection.split('\r\n')
-            if (fileList.length >= 2) {
-                fileList.splice(-1, 1);
-            }
-            if (fileList.length != 0) {
-                this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination]);
-                let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
-                let id_fs = data.get_attribute_string('id::filesystem');
-                if ((this.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
-                    DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP));
-                    Gtk.drag_finish(context, true, true, Gtk.get_current_event_time());
-                } else {
-                    DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP));
-                    Gtk.drag_finish(context, true, false, Gtk.get_current_event_time());
+            case 'dingdrop':
+                fileList = selection.split('\r\n')
+                if (fileList.length >= 2) {
+                    fileList.splice(-1, 1);
                 }
-            } else {
-                Gtk.drag_finish(context, false, false, Gtk.get_current_event_time());
-            }
-            break;
-        case 'textdrop':
-            if (selection.length != 0 ) {
-                let dropCoordinates = [ xGlobalDestination, yGlobalDestination ];
-                this.detectURLorText(selection, dropCoordinates);
-            }
-            break;
-
-        default:
-            Gtk.drag_finish(context, false, false, Gtk.get_current_event_time());
-            break;
+                if (fileList.length != 0) {
+                    let [xOrigin, yOrigin, a, b, c] = this.dragItem.getCoordinates();
+                    this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
+                }
+                break;
+            case 'gnomeicondrop':
+                fileList = selection.split('\r\n')
+                if (fileList.length >= 2) {
+                    fileList.splice(-1, 1);
+                }
+                if (fileList.length != 0) {
+                    this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination]);
+                    let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
+                    let id_fs = data.get_attribute_string('id::filesystem');
+                    if ((this.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
+                        DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP));
+                    } else {
+                        DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP));
+                    }
+                }
+                break;
+            case 'textdrop':
+                if (selection.length != 0 ) {
+                    let dropCoordinates = [ xGlobalDestination, yGlobalDestination ];
+                    this.detectURLorText(selection, dropCoordinates);
+                }
+                break;
         }
     }
 
@@ -721,12 +750,17 @@ var DesktopManager = class {
                     });
                 } else if (mimetypes.includes('text/plain')) {
                     clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
+                        try {
                             let success = actor.read_finish(result);
                             let bytes = success[0].read_bytes(8192, null);
                             text = ByteArray.toString(bytes.get_data());
                             this._setClipboardContent(text);
+                        } catch(e) {}
                     });
                 } else {
+                    if (text && !text.endsWith('\n')) {
+                        text += '\n';
+                    }
                     this._setClipboardContent(text);
                 }
             }
@@ -734,6 +768,7 @@ var DesktopManager = class {
             this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
             this.popupmenu.set_parent(grid._container);
             this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
+            this.popupmenu.set_has_arrow(false);
             this.popupmenuopen = true;
             this.popupmenu.popup();
             this.popupmenu.connect('closed', () => {
@@ -971,8 +1006,9 @@ var DesktopManager = class {
         changeBackGround.connect('activate', (action, parameter) => {
             let desktopFile = Gio.DesktopAppInfo.new('gnome-background-panel.desktop');
             const context = Gdk.Display.get_default().get_app_launch_context();
-            context.set_timestamp(Gtk.get_current_event_time());
-            desktopFile.launch([], context);
+            context.set_timestamp(Gdk.CURRENT_TIME);
+            // Fix me, context in the following causes a crash;
+            desktopFile.launch([], null);
         });
         this.mainApp.add_action(changeBackGround);
 
@@ -980,13 +1016,14 @@ var DesktopManager = class {
         changeDisplaySettings.connect('activate', (action, parameter) => {
             let desktopFile = Gio.DesktopAppInfo.new('gnome-display-panel.desktop');
             const context = Gdk.Display.get_default().get_app_launch_context();
-            context.set_timestamp(Gtk.get_current_event_time());
-            desktopFile.launch([], context);
+            context.set_timestamp(Gdk.CURRENT_TIME);
+            // Fix me, context in the following causes a crash;
+            desktopFile.launch([], null);
         });
         this.mainApp.add_action(changeDisplaySettings);
 
         let changeDesktopIconSettings = Gio.SimpleAction.new('changeDesktopIconSettings', null);
-        changeDesktopIconSettings.connect('activate', Prefs.showPreferences.bind(this));
+        changeDesktopIconSettings.connect('activate', this._showPreferences.bind(this));
         this.mainApp.add_action(changeDesktopIconSettings);
 
         let cleanUpIconsAction = Gio.SimpleAction.new('cleanUpIcons', null)
@@ -1038,7 +1075,7 @@ var DesktopManager = class {
             if (this.popupmenuopen || ! this.activeFileItem) {
                 return;
             }
-            DBusUtils.GnomeNautilusPreviewProxy.ShowFileRemote(this.activeFileItem.uri, 0, true);
+            DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
         });
         this.mainApp.add_action(previewAction);
         this.mainApp.set_accels_for_action('app.previewAction', ['space']);
@@ -1122,7 +1159,6 @@ var DesktopManager = class {
         this.settingsMenu.append(_("Display Settings"), "app.changeDisplaySettings");
 
         this.desktopBackgroundGioMenu.append_section(null, this.settingsMenu);
-
     }
 
     _selectAll() {
@@ -1135,9 +1171,10 @@ var DesktopManager = class {
 
     _onOpenDesktopInFilesClicked() {
         const context = Gdk.Display.get_default().get_app_launch_context();
-        context.set_timestamp(Gtk.get_current_event_time());
+        context.set_timestamp(Gdk.CURRENT_TIME);
+        // Fix me, context in the following causes a crash;
         Gio.AppInfo.launch_default_for_uri_async(this._desktopDir.get_uri(),
-            context, null,
+            null, null,
             (source, result) => {
                 try {
                     Gio.AppInfo.launch_default_for_uri_finish(result);
@@ -1147,6 +1184,19 @@ var DesktopManager = class {
             }
         );
     }
+
+    _showPreferences() {
+    if (this.preferencesWindow) {
+        return;
+    }
+    this.preferencesWindow = new Gtk.Window({ resizable: false});
+    this.preferencesWindow.connect('close-request', () => {this.preferencesWindow = null});
+    this.preferencesWindow.set_title(_("Settings"));
+    DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
+    let frame = Prefs.get_preferencesFrame();
+    this.preferencesWindow.set_child(frame);
+    this.preferencesWindow.show();
+}
 
     _onOpenTerminalClicked() {
         let desktopPath = this._desktopDir.get_path();

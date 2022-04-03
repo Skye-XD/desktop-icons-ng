@@ -101,6 +101,7 @@ var desktopIconItem = class desktopIconItem {
         this._icon = new Gtk.Picture();
         this._icon.set_can_shrink(false);
         this._icon.set_keep_aspect_ratio(true);
+        this._icon.set_halign(Gtk.Align.CENTER);
         this._iconContainer = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL});
         this._iconContainer.set_hexpand(false);
         this._iconContainer.set_halign(Gtk.Align.CENTER);
@@ -123,7 +124,6 @@ var desktopIconItem = class desktopIconItem {
         this._label.set_lines(2);
         this._labelContainer.append(this._label);
 
-        this.container.set_spacing(2);
         this.container.append(this._iconContainer);
         this.container.append(this._labelContainer);
 
@@ -154,7 +154,6 @@ var desktopIconItem = class desktopIconItem {
 
         this.container.show();
     }
-
 
     _doIconSizeAllocated() {
         this._calculateIconRectangle();
@@ -425,13 +424,12 @@ var desktopIconItem = class desktopIconItem {
             return;
         }
 
-        this._icon.set_halign(Gtk.Align.CENTER);
         try {
             let customIcon = this._fileInfo.get_attribute_as_string('metadata::custom-icon');
             if (customIcon && (customIcon != '')) {
                 let customIconFile = Gio.File.new_for_uri(customIcon);
                 if (customIconFile.query_exists(null)) {
-                    let loadedImage = await this.loadImageAsIcon(customIconFile);
+                    let loadedImage = await this._loadImageAsIcon(customIconFile);
                     if (loadedImage | this._destroyed) {
                         return;
                     }
@@ -440,7 +438,7 @@ var desktopIconItem = class desktopIconItem {
             if (this.thumbnailFile && (this.thumbnailFile != '')) {
                 let customIconFile = Gio.File.new_for_path(this.thumbnailFile);
                 if (customIconFile.query_exists(null)) {
-                    let loadedImage = await this.loadImageAsIcon(customIconFile);
+                    let loadedImage = await this._loadImageAsIcon(customIconFile);
                     if (loadedImage | this._destroyed) {
                         return;
                     }
@@ -455,6 +453,7 @@ var desktopIconItem = class desktopIconItem {
             this._icon.set_paintable(pixbuf);
             return;
         }
+
         let icon_set = false;
 
         if (!icon_set) {
@@ -480,7 +479,7 @@ var desktopIconItem = class desktopIconItem {
         return this._fileInfo.get_icon();
     }
 
-    loadImageAsIcon(imageFile) {
+    _loadImageAsIcon(imageFile) {
         return new Promise( (resolve, reject) => {
             try {
                 let iconTexture = Gdk.Texture.new_from_file(imageFile);
@@ -510,7 +509,7 @@ var desktopIconItem = class desktopIconItem {
 
     _addEmblemsToIconIfNeeded(iconPaintable) {
         let emblem = null;
-        if (this._isDesktopFile && ! this._isValidDesktopFile) {
+        if (this._isDesktopFile && (! this._isValidDesktopFile || ! this.trustedDesktopFile)) {
             emblem = Gio.ThemedIcon.new('emblem-unreadable');
         }
         if (this._isSymlink && (this._desktopManager.showLinkEmblem || this._isBrokenSymlink)) {

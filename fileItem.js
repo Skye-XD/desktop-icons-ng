@@ -23,9 +23,6 @@ const Gtk = imports.gi.Gtk;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
-const Pango = imports.gi.Pango;
-const GdkPixbuf = imports.gi.GdkPixbuf;
-const Cairo = imports.gi.cairo;
 const DesktopIconsUtil = imports.desktopIconsUtil;
 const desktopIconItem = imports.desktopIconItem;
 const ShowErrorPopup = imports.showErrorPopup;
@@ -34,7 +31,6 @@ const Prefs = imports.preferences;
 const Enums = imports.enums;
 const DBusUtils = imports.dbusUtils;
 
-const ByteArray = imports.byteArray;
 const Signals = imports.signals;
 const Gettext = imports.gettext.domain('ding');
 
@@ -107,7 +103,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             });
         } else {
             this._monitorTrashId = 0;
-            this._getRemoteIconThumbNail();
+            this._getIconThumbNail();
         }
         this._updateName();
         if (this._dropCoordinates) {
@@ -313,11 +309,21 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         );
     }
 
+    _textEntryAccelsTurnOff() {
+        this._desktopManager.textEntryAccelsTurnOff();
+    }
+
+    _textEntryAccelsTurnOn() {
+        this._desktopManager.textEntryAccelsTurnOn();
+    }
+
     _showerrorpopup(title, error) {
         new ShowErrorPopup.ShowErrorPopup(
             title,
             error,
-            true
+            true,
+            this._textEntryAccelsTurnOff.bind(this),
+            this._textEntryAccelsTurnOn.bind(this)
         );
     }
 
@@ -420,10 +426,10 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                             let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
                             let id_fs = data.get_attribute_string('id::filesystem');
                             if ((this._desktopManager.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
-                                DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, this._file.get_uri());
-                            } else {
-                                DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, this._file.get_uri());
-                            }
+                                    DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, this._file.get_uri());
+                                } else {
+                                    DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, this._file.get_uri());
+                                }
                         } else {
                                 DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
                         }
@@ -444,9 +450,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             (this._isValidDesktopFile) ||
             (this._hasToRouteDragToGrid())) {
                 return true;
-            } else {
-                return false;
-            }
+        } else {
+            return false;
+        }
     }
 
      /***********************
@@ -482,9 +488,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return false;
     }
 
-    _getRemoteIconThumbNail() {
-        let thumbnailInfoVariant = new GLib.Variant('as', [this._file.get_uri(), this._file.get_path(), this.attributeContentType, `${this.modifiedTime}`]);
-        this._desktopManager.remoteThumbnailUpdate.activate_action('updateThumbnail', thumbnailInfoVariant);
+    _getIconThumbNail() {
+        this._desktopManager.thumbnailLoader._updateThumbnail(this);
     }
 
     /***********************

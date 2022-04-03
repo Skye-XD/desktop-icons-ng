@@ -279,8 +279,10 @@ var FileItemMenu = class {
             let trashMenu = Gio.Menu.new();
             trashMenu.append(_('Move to Trash'), "app.movetotrash");
             this.moveToTrash.set_enabled(!allowCutCopyTrash);
-            trashMenu.append(_('Delete permanently'), "app.deletepermanantly");
-            this.deletePermanantly.set_enabled(!allowCutCopyTrash);
+            if (Prefs.nautilusSettings.get_boolean('show-delete-permanently')) {
+                trashMenu.append(_('Delete permanently'), "app.deletepermanantly");
+                this.deletePermanantly.set_enabled(!allowCutCopyTrash);
+            }
             this._menu.append_section(null, trashMenu);
 
             if (fileItem.isValidDesktopFile && !this._desktopManager.writableByOthers && !fileItem.writableByOthers && (selectedItemsNum == 1 )) {
@@ -382,7 +384,7 @@ var FileItemMenu = class {
 
     _onPropertiesClicked() {
         let propertiesFileList = this._desktopManager.getCurrentSelection(true);
-        const timestamp = Gtk.get_current_event_time();
+        const timestamp = Gdk.CURRENT_TIME;
         DBusUtils.RemoteFileOperations.ShowItemPropertiesRemote(propertiesFileList, timestamp);
     }
 
@@ -398,7 +400,7 @@ var FileItemMenu = class {
                 log(`Error trying to launch Nemo: ${err.message}\n${err}`);
             }
         }
-        const timestamp = Gtk.get_current_event_time();
+        const timestamp = Gdk.CURRENT_TIME;
         DBusUtils.RemoteFileOperations.ShowItemsRemote(showInFilesList, timestamp);
     }
 
@@ -413,7 +415,7 @@ var FileItemMenu = class {
         let fileItems = this._desktopManager.getCurrentSelection(false);
         if (fileItems) {
             const context = Gdk.Display.get_default().get_app_launch_context();
-            context.set_timestamp(Gtk.get_current_event_time());
+            context.set_timestamp(Gdk.CURRENT_TIME);
             let mimetype = Gio.content_type_guess(fileItems[0].fileName, null)[0];
             let chooser = Gtk.AppChooserDialog.new_for_content_type(null,
                                                                     Gtk.DialogFlags.MODAL + Gtk.DialogFlags.USE_HEADER_BAR,

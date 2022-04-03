@@ -33,12 +33,12 @@ install_data([
     'metadata.json',
     'prefs.js',
     'preferences.js',
-    'prefswindow.js',
     'promiseUtils.js',
     'stackItem.js',
     'showErrorPopup.js',
     'stylesheet.css',
     'templatesScriptsManager.js',
+    'thumbnailapp.js',
     'thumbnails.js',
     'visibleArea.js'
   ],

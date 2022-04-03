@@ -17,32 +17,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Gtk = imports.gi.Gtk;
-const Gio = imports.gi.Gio;
-const GioSSS = Gio.SettingsSchemaSource;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Gettext = imports.gettext;
 const Me = ExtensionUtils.getCurrentExtension();
+const extensionPath = Me.dir.get_path();
 const Enums = Me.imports.enums;
-const PrefsWindow = Me.imports.prefswindow;
+const Preferences = Me.imports.preferences;
 
 var _ = Gettext.domain('ding').gettext;
 
-var nautilusSettings;
-var gtkSettings;
-var desktopSettings;
-
 function init() {
-    let schemaSource = GioSSS.get_default();
-    let schemaGtk = schemaSource.lookup(Enums.SCHEMA_GTK, true);
-    gtkSettings = new Gio.Settings({ settings_schema: schemaGtk });
-    let schemaObj = schemaSource.lookup(Enums.SCHEMA_NAUTILUS, true);
-    if (!schemaObj) {
-        nautilusSettings = null;
-    } else {
-        nautilusSettings = new Gio.Settings({ settings_schema: schemaObj });;
-    }
-    desktopSettings = PrefsWindow.get_schema(Me.dir.get_path(), Enums.SCHEMA);
+    Preferences.init(extensionPath, Enums);
 }
 
 function buildPrefsWidget() {
@@ -51,11 +36,8 @@ function buildPrefsWidget() {
     if (localedir.query_exists(null))
         Gettext.bindtextdomain('ding', localedir.get_path());
 
-    let frame = PrefsWindow.preferencesFrame(Gtk, desktopSettings, nautilusSettings, gtkSettings);
-    if (frame.show_all) {
-        frame.show_all();
-    } else {
-        frame.show();
-    }
+    let frame = Preferences.get_preferencesFrame();
+    frame.show();
+
     return frame;
 }

@@ -20,7 +20,7 @@ imports.gi.versions.GdkX11 = '4.0';
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.GdkWayland = '4.0';
 
-const { Gio, GLib, Gdk, Gtk, GdkX11, GdkWayland } = imports.gi;
+const { Gdk, Gio, GLib, Gtk, GdkX11, GdkWayland} = imports.gi;
 const ByteArray = imports.byteArray;
 const Signals = imports.signals;
 const DBusInterfaces = imports.dbusInterfaces;
@@ -525,7 +525,7 @@ class DbusOperationsManager {
         if (!timestamp)
             return '';
 
-        const context = Gdk.Display.get_default().get_app_launch_context();
+        const context = Gdk.Screen.get_default().get_app_launch_context();
         context.set_timestamp(timestamp);
 
         if (!this._fileManager)
@@ -553,15 +553,9 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 topLevel.unexport_handle();
             }
         }
-    
-        this.platformData = this.fileOperationsManager.platformData = async () => {
-            let parentWindow = applicationid.get_active_window();
-            let parentHandle = '';
-            let windowPosition = 'center';
-            const topLevel = parentWindow.get_surface();
-            let timestamp = Gdk.CURRENT_TIME;
-    
-            const getWaylandParentHandle = new Promise( (resolve, reject) => {
+
+        this.getWaylandParentHandle = this.fileOperationsManager.getWaylandParentHandle = (topLevel) => {
+            return new Promise( (resolve, reject) => {
                 try {
                     topLevel.export_handle((actor, handle) => {
                         if (handle) {
@@ -571,46 +565,54 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         }
                     });
                 } catch(e) {
-                    print(`Failed with "${e.message}" while getting parent handle, WaylandHandle`);
+                    print(`Failed with "${e.message}" while getting wayland parent handle, WaylandHandle`);
                     resolve(false);
                 }
             });
-    
+        }
+
+        this.platformData = this.fileOperationsManager.platformData = async () => {
+            let parentWindow = applicationid.get_active_window();
+            let parentHandle = '';
+            let windowPosition = 'center';
+            const topLevel = parentWindow.get_surface();
+            let timestamp = Gdk.CURRENT_TIME;
+
             if (parentWindow) {
                 try {
                     if (topLevel.constructor.$gtype === GdkWayland.WaylandToplevel.$gtype) {
-                        let handle = await getWaylandParentHandle;
+                        let handle = await this.getWaylandParentHandle(topLevel);
                         if (handle) {
                             parentHandle = `wayland:${handle}`;
                         }
-                        return parentHandle;
                     }
                     if (topLevel.constructor.$gtype === GdkX11.X11Surface.$gtype) {
-                      const xid = GdkX11.X11Window.prototype.get_xid.call(topLevel);
-                      return parentHandle = `x11:${xid}`;
+                        const xid = GdkX11.X11Window.prototype.get_xid.call(topLevel);
+                        parentHandle = `x11:${xid}`;
                     }
                 } catch (e) {
-                    logError(e, 'Impossible to determine the parent window');
+                    print(`Failed with "${e.message}" while getting parent window handle`);
                 }
 
                 return {
                   'parent-handle': new GLib.Variant('s', parentHandle),
                   'timestamp': new GLib.Variant('u', timestamp),
                   'window-position': new GLib.Variant('s', windowPosition),
-                };
+                }
             }
         }
     }
 
-    MoveURIsRemote(fileList, uri, callback) {
+    async MoveURIsRemote(fileList, uri, callback) {
         if (! this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
             return;
         }
+        let platformData = await this.platformData();
         this.fileOperationsManager.proxy.MoveURIsRemote(
             fileList,
             uri,
-            this.platformData(),
+            platformData,
             (result, error) => {
                 this.freePlatformData();
                 if (callback) {
@@ -623,15 +625,16 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    CopyURIsRemote(fileList, uri, callback=null) {
+    async CopyURIsRemote(fileList, uri, callback=null) {
         if (! this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
             return;
         }
+        let platformData = await this.platformData();
         this.fileOperationsManager.proxy.CopyURIsRemote(
             fileList,
             uri,
-            this.platformData(),
+            platformData,
             (result, error) => {
                 this.freePlatformData();
                 if (callback) {
@@ -644,16 +647,18 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    RenameURIRemote(fileList, uri, callback=null) {
+    async RenameURIRemote(fileList, uri, callback=null) {
         if (! this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
             return;
         }
+        let platformData = await this.platformData();
         this.fileOperationsManager.proxy.RenameURIRemote(
             fileList,
             uri,
-            this.platformData(),
+            platformData,
             (result, error) => {
+                this.freePlatformData();
                 if (callback) {
                     callback(result, error);
                 }
@@ -664,34 +669,36 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    TrashURIsRemote(fileList, callback=null) {
+    async TrashURIsRemote(fileList, callback=null) {
         if (! this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
             return;
         }
+        let platformData = await this.platformData();
         this.fileOperationsManager.proxy.TrashURIsRemote(
             fileList,
-            this.platformData(),
+            platformData,
             (result, error) => {
                 this.freePlatformData();
                 if (callback) {
                     callback(result, error);
                 }
                 if (error) {
-                    log('Error moving files: ' + error.message);
+                    log('Error Trashing files: ' + error.message);
                 }
             }
         );
     }
 
-    DeleteURIsRemote(fileList, callback=null) {
+    async DeleteURIsRemote(fileList, callback=null) {
         if (! this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
             return;
         }
+        let platformData = await this.platformData();
         this.fileOperationsManager.proxy.DeleteURIsRemote(
             fileList,
-            this.platformData(),
+            platformData,
             (source, error) => {
                 this.freePlatformData();
                 if (callback) {
@@ -704,14 +711,15 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    EmptyTrashRemote(askConfirmation, callback=null) {
+    async EmptyTrashRemote(askConfirmation, callback=null) {
         if (! this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
             return;
         }
+        let platformData = await this.platformData();
         this.fileOperationsManager.proxy.EmptyTrashRemote(
             askConfirmation,
-            this.platformData(),
+            platformData,
             (source, error) => {
                 this.freePlatformData();
                 if (callback) {
@@ -724,13 +732,14 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    UndoRemote(callback=null) {
+    async UndoRemote(callback=null) {
         if (! this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
             return;
         }
+        let platformData = await this.platformData();
         this.fileOperationsManager.proxy.UndoRemote(
-            this.platformData(),
+            platformData,
             (result, error) => {
                 this.freePlatformData();
                 if (callback) {
@@ -743,13 +752,14 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         );
     }
 
-    RedoRemote(callback=null) {
+    async RedoRemote(callback=null) {
         if (! this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
             return;
         }
+        let platformData = await this.platformData();
         this.fileOperationsManager.proxy.RedoRemote(
-            this.platformData(),
+            platformData,
             (result, error) => {
                 this.freePlatformData();
                 if (callback) {

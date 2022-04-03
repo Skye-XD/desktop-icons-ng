@@ -30,8 +30,8 @@ var ShowErrorPopup = class {
         this._window = new Gtk.MessageDialog({transient_for: null,
                                               message_type: Gtk.MessageType.ERROR,
                                               buttons: Gtk.ButtonsType.NONE});
-        let labels = this._window.get_message_area().get_children();
-        labels[1].set_justify(Gtk.Justification.CENTER);
+        let label = this._window.get_message_area().get_first_child().get_next_sibling();
+        label.set_justify(Gtk.Justification.CENTER);
         this._window.secondary_use_markup = true;
         this._window.text = text;
         this._window.secondary_text = secondaryText;

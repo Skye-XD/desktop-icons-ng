@@ -157,6 +157,7 @@ imports.searchPath.unshift(codePath);
 const DBusUtils = imports.dbusUtils;
 const Prefs = imports.preferences;
 const Gettext = imports.gettext;
+const Enums = imports.enums;
 const PromiseUtils = imports.promiseUtils;
 
 PromiseUtils._promisify({ keepOriginal: true }, Gio.FileEnumerator.prototype, 'close_async');
@@ -196,7 +197,7 @@ const dingApp = new Gtk.Application({application_id: asDesktop ? 'com.rastersoft
                                      flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE | Gio.ApplicationFlags.REPLACE});
 
 dingApp.connect('startup', () => {
-    Prefs.init(codePath);
+    Prefs.init(codePath, Enums);
     dbusManager = DBusUtils.init(dingApp);
 });
 
