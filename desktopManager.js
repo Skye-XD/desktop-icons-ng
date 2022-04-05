@@ -70,6 +70,7 @@ var DesktopManager = class {
         } else {
             this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath);
         }
+        this._dbusAdvertiseUpdate();
 
         this._premultiplied = false;
         try {
@@ -119,8 +120,6 @@ var DesktopManager = class {
             this.mainApp,
             "templateapp"
         );
-
-
         this._showHidden = Prefs.gtkSettings.get_boolean('show-hidden');
         this.showDropPlace = Prefs.desktopSettings.get_boolean('show-drop-place');
         this.useNemo = Prefs.desktopSettings.get_boolean('use-nemo');
@@ -237,9 +236,6 @@ var DesktopManager = class {
         this._allFileList = null;
         this._fileList = [];
         this._forcedExit = false;
-        this._updateDesktop().catch((e) => {
-            print(`Exception while Initiating Desktop: ${e.message}\n${e.stack}`);
-        });
 
         this._scriptsList = [];
 
@@ -278,7 +274,10 @@ var DesktopManager = class {
                 return false;
             });
         }
-        this._dbusAdvertiseUpdate();
+        this._updateDesktop().catch((e) => {
+            print(`Exception while Initiating Desktop: ${e.message}\n${e.stack}`);
+        });
+
     }
 
     terminateProgram() {
