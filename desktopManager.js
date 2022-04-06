@@ -63,15 +63,6 @@ var DesktopManager = class {
         this._codePath = codePath;
         this._asDesktop = asDesktop;
 
-        if (! Thumbnails) {
-            this._startThumbnailer();
-            this.thumbnailLoader = {};
-            this.thumbnailLoader._updateThumbnail = this._getRemoteIconThumbNail.bind(this);
-        } else {
-            this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath);
-        }
-        this._dbusAdvertiseUpdate();
-
         this._premultiplied = false;
         try {
             for (let f of Prefs.mutterSettings.get_strv('experimental-features')) {
@@ -241,7 +232,6 @@ var DesktopManager = class {
 
         this.ignoreKeys = [Gdk.KEY_space,Gdk.KEY_Shift_L,Gdk.KEY_Shift_R,Gdk.KEY_Control_L,Gdk.KEY_Control_R,Gdk.KEY_Caps_Lock,Gdk.KEY_Shift_Lock,Gdk.KEY_Meta_L,Gdk.KEY_Meta_R,Gdk.KEY_Alt_L,Gdk.KEY_Alt_R,Gdk.KEY_Super_L,Gdk.KEY_Super_R,Gdk.KEY_ISO_Level3_Shift,Gdk.KEY_ISO_Level5_Shift];
 
-
         // Check if Nautilus is available
         try {
             DesktopIconsUtil.trySpawn(null, ["nautilus", "--version"]);
@@ -274,10 +264,17 @@ var DesktopManager = class {
                 return false;
             });
         }
-        this._updateDesktop().catch((e) => {
-            print(`Exception while Initiating Desktop: ${e.message}\n${e.stack}`);
-        });
-
+        this._dbusAdvertiseUpdate();
+        if (! Thumbnails) {
+            this._startThumbnailer();
+            this.thumbnailLoader = {};
+            this.thumbnailLoader._updateThumbnail = this._getRemoteIconThumbNail.bind(this);
+        } else {
+            this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath);
+            this._updateDesktop().catch((e) => {
+                print(`Exception while Initiating Desktop: ${e.message}\n${e.stack}`);
+            });
+        }
     }
 
     terminateProgram() {
@@ -294,7 +291,7 @@ var DesktopManager = class {
         }
     }
 
-    _startThumbnailer() {
+    async _startThumbnailer() {
         let args = [];
         args.push(GLib.build_filenamev([this._codePath, 'thumbnailapp.js']));
         args.push(this._codePath);
@@ -316,6 +313,25 @@ var DesktopManager = class {
                 '/com/rastersoft/dingTestThumbnailer/actions'
             );
         }
+        await this._detectThumbnailerConnection(this.remoteThumbnailUpdate);
+        this._updateDesktop().catch((e) => {
+            print(`Exception while Initiating Desktop: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    _detectThumbnailerConnection(remotegroup) {
+        return new Promise((resolve, reject) => {
+            try {
+                remotegroup.connect('action-added', (group, action_name) => {
+                    if (action_name == 'updateThumbnail') {
+                        resolve(true);
+                    }
+                });
+                remotegroup.list_actions();
+            } catch (e) {
+                reject(e);
+            }
+        });
     }
 
     _getRemoteIconThumbNail(fileItem) {
