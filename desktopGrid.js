@@ -174,6 +174,13 @@ var DesktopGrid = class {
 
         this.setDropDestination(this._container);
         this.setDragSource(this._container);
+        let stateChangeSignalID = GObject.signal_lookup('state-flags-changed', this._container.constructor.$gtype);
+        GObject.signal_override_class_closure(stateChangeSignalID, this._container, () => {
+            this._container.unset_state_flags(Gtk.StateFlags.DROP_ACTIVE);
+            GObject.signal_stop_emission_by_name(this._container, 'state-flags-changed')
+            return false;
+        });
+
 
     }
 
