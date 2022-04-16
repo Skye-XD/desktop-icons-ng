@@ -104,17 +104,11 @@ var AskRenamePopup = class {
 
     close() {
         this._popover.popdown();
-        this.closeCB();
-    }
-
-    hide() {
-        this._currentCursorPosition = this._textArea.get_position();
+        this._closeCB();
     }
 
     popupat(fileItem) {
         this._fileItem = fileItem;
-        this._validate();
-        this._textArea.set_position(this._currentCursorPosition);
         this._popover.set_pointing_to(this._fileItem.iconRectangle);
     }
 };

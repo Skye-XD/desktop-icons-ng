@@ -1499,8 +1499,6 @@ var DesktopManager = class {
                 } else {
                     this.newItemDoRename = null;
                 }
-            } else if (this._renameWindow) {
-                this._renameWindow.hide();
             }
         }
         if (this.fileItemMenu._menu) {
