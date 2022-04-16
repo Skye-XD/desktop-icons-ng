@@ -1482,7 +1482,7 @@ var DesktopManager = class {
 
     _drawDesktop(fileList) {
         this._selectedFiles = this.getCurrentSelection(true);
-        if (this.newItemDoRename || this.fileItemMenu._menu) {
+        if (this.newItemDoRename || this.popupmenuopen) {
             this._refreshMenus(fileList);
         }
         this._removeAllFilesFromGrids();
@@ -1501,12 +1501,12 @@ var DesktopManager = class {
                 }
             }
         }
-        if (this.fileItemMenu._menu) {
+        if (this.popupmenuopen) {
             let activeItem = fileList.filter(f => f.fileName == this.activeFileItem.fileName)[0];
             if (activeItem) {
                 this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem;
-            } else if (this.popupmenuopen){
-                this.fileItemMenu._menu.popdown();
+            } else {
+                this.fileItemMenu.popupmenu.popdown();
             }
         }
     }

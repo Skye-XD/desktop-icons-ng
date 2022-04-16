@@ -186,6 +186,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 this.setSelected();
             }
         }
+        if (this._desktopManager.popupmenuopen && (this._desktopManager.activeFileItem.uri == this.uri)) {
+            this._desktopManager.fileItemMenu.popupmenu.set_pointing_to(this.iconRectangle);
+        }
     }
 
     _refreshMetadataAsync(rebuild) {
