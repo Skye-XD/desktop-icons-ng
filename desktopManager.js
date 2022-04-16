@@ -1481,9 +1481,36 @@ var DesktopManager = class {
     }
 
     _drawDesktop(fileList) {
+        this._selectedFiles = this.getCurrentSelection(true);
+        if (this.newItemDoRename || this.fileItemMenu._menu) {
+            this._refreshMenus(fileList);
+        }
         this._removeAllFilesFromGrids();
         this._fileList = fileList;
         this._placeAllFilesOnGrids();
+    }
+
+    _refreshMenus(fileList) {
+        if (this.newItemDoRename) {
+            this._newFileListNames = fileList.map(f => f.fileName);
+            if (! this._newFileListNames.includes(this.newItemDoRename)) {
+                if (this._renameWindow) {
+                    this._renameWindow.close();
+                } else {
+                    this.newItemDoRename = null;
+                }
+            } else if (this._renameWindow) {
+                this._renameWindow.hide();
+            }
+        }
+        if (this.fileItemMenu._menu) {
+            let activeItem = fileList.filter(f => f.fileName == this.activeFileItem.fileName)[0];
+            if (activeItem) {
+                this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem;
+            } else if (this.popupmenuopen){
+                this.fileItemMenu._menu.popdown();
+            }
+        }
     }
 
     _placeAllFilesOnGrids(redisplay=false) {
@@ -1792,15 +1819,19 @@ var DesktopManager = class {
         if (!fileItem.canRename) {
             return;
         }
-        this.unselectAll();
-        if (!this._renameWindow) {
+        if (! this._renameWindow) {
             this.textEntryAccelsTurnOff();
+            if (! this.newItemDoRename) {
+                this.newItemDoRename = fileItem.fileName;
+            }
             this._renameWindow = new AskRenamePopup.AskRenamePopup(fileItem, allowReturnOnSameName, () => {
                 this.mainApp.get_active_window().grab_focus();
                 this.textEntryAccelsTurnOn();
                 this._renameWindow = null;
-                this.newFolderDoRename = null;
+                this.newItemDoRename = null;
             });
+        } else {
+            this._renameWindow.popupat(fileItem);
         }
     }
 
@@ -1828,7 +1859,7 @@ var DesktopManager = class {
                 info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
                 info.set_attribute_string('metadata::nautilus-icon-position', '');
                 dir.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
-                this.newFolderDoRename = newName;
+                this.newItemDoRename = newName;
                 if (position) {
                     return dir.get_uri();
                 }

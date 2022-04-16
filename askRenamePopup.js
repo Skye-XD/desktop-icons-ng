@@ -70,7 +70,8 @@ var AskRenamePopup = class {
         this._popover.set_default_widget(this._textArea);
         this._button.get_style_context().add_class("suggested-action");
         contentBox.show();
-        this._popover.set_parent(fileItem.container);
+        this._popover.set_parent(fileItem._grid._container);
+        this._popover.set_pointing_to(fileItem.iconRectangle);
         this._popover.popup();
         this._validate();
         this._textArea.grab_focus_without_selecting();
@@ -99,5 +100,21 @@ var AskRenamePopup = class {
         DBusUtils.RemoteFileOperations.RenameURIRemote(
             this._fileItem.file.get_uri(), this._textArea.text,
         );
+    }
+
+    close() {
+        this._popover.popdown();
+        this.closeCB();
+    }
+
+    hide() {
+        this._currentCursorPosition = this._textArea.get_position();
+    }
+
+    popupat(fileItem) {
+        this._fileItem = fileItem;
+        this._validate();
+        this._textArea.set_position(this._currentCursorPosition);
+        this._popover.set_pointing_to(this._fileItem.iconRectangle);
     }
 };

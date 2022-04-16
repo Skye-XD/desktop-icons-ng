@@ -175,10 +175,14 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _checkForRename() {
-        if (this._desktopManager.newFolderDoRename) {
-            if (this._desktopManager.newFolderDoRename == this.fileName) {
-                this.setSelected();
+        if (this._desktopManager.newItemDoRename) {
+            if (this._desktopManager.newItemDoRename == this.fileName) {
                 this._desktopManager.doRename(this, true);
+            }
+        }
+        if (this._desktopManager._selectedFiles) {
+            if (this._desktopManager._selectedFiles.includes(this.uri)) {
+                this.setSelected();
             }
         }
     }
