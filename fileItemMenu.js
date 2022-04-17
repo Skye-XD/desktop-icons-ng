@@ -375,10 +375,10 @@ var FileItemMenu = class {
         this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
         this.popupmenu.set_parent(fileItem._grid._container);
         this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
-        fileItem._desktopManager.popupmenuopen = true;
+        fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
         this.popupmenu.connect('closed', () => {
-            this._desktopManager.popupmenuopen = false;
+            this._desktopManager.popupmenuopen = this.popupmenuopen = false;
         });
     }
 
