@@ -410,7 +410,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
      * Drag and Drop *
      ***********************/
 
-    recieveDrop(x, y, selection, info, gdkDropAction) {
+    recieveDrop(X, Y, x, y, selection, info, gdkDropAction) {
         if ((this._fileExtra == Enums.FileType.USER_DIRECTORY_TRASH) ||
             (this._fileExtra == Enums.FileType.USER_DIRECTORY_HOME) ||
             (this._fileExtra != Enums.FileType.EXTERNAL_DRIVE) ||
@@ -435,7 +435,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                             let id_fs = data.get_attribute_string('id::filesystem');
                             if ((this._desktopManager.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
                                     DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, this._file.get_uri());
-                                } else {
+                                } else if (gdkDropAction == (Gdk.DragAction.MOVE | Gdk.DragAction.COPY)){
+                                    this._desktopManager.askWhatToDoWithFiles(fileList, this._file.get_uri(), X, Y, x, y);
+                                }else {
                                     DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, this._file.get_uri());
                                 }
                         } else {

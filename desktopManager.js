@@ -640,14 +640,17 @@ var DesktopManager = class {
                 if (fileList.length >= 2) {
                     fileList.splice(-1, 1);
                 }
+                let destination = "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
                 if (fileList.length != 0) {
                     this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination]);
                     let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
                     let id_fs = data.get_attribute_string('id::filesystem');
                     if ((this.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
-                        DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP));
+                        DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destination);
+                    } else if ((this.desktopFsId == id_fs) && (gdkDropAction == (Gdk.DragAction.MOVE | Gdk.DragAction.COPY))) {
+                        this.askWhatToDoWithFiles(fileList, destination, xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination);
                     } else {
-                        DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP));
+                        DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destination);
                     }
                 }
                 break;
@@ -657,6 +660,67 @@ var DesktopManager = class {
                     this.detectURLorText(selection, dropCoordinates);
                 }
                 break;
+        }
+    }
+
+    askWhatToDoWithFiles(fileList, destination, X, Y, x, y) {
+        let grid = this._desktops.filter(f => f._coordinatesBelongToThisGrid(X, Y));
+        this._askWhatToDoWindow = new Gtk.Dialog({use_header_bar: false,
+                                       resizable: false});
+        let headerbar = Gtk.HeaderBar.new();
+        headerbar.set_show_title_buttons(false);
+        this._askWhatToDoWindow.set_titlebar(headerbar);
+        this._askWhatToDoWindow.add_button(_("Move"), 1)
+        this._askWhatToDoWindow.add_button(_("Copy"), 2)
+        this._askWhatToDoWindow.add_button(_("Link"), 3);
+        this._askWhatToDoWindow.add_button(_("Cancel"), Gtk.ResponseType.CLOSE);
+        this._askWhatToDoWindow.set_modal(true);
+        this._askWhatToDoWindow.set_transient_for(grid[0]._window);
+        this._askWhatToDoWindow.set_title(_('Choose Action for Files'));
+        DesktopIconsUtil.windowHidePagerTaskbarModal(this._askWhatToDoWindow, true);
+        this._askWhatToDoWindow.show();
+        this.textEntryAccelsTurnOff();
+        this._askWhatToDoWindow.connect('close', () => {
+            this._askWhatToDoWindow.response(Gtk.ResponseType.CANCEL);
+        })
+        this._askWhatToDoWindow.connect('response', (actor, retval) => {
+            switch(retval) {
+                case 1:
+                    DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destination);
+                    break;
+                case 2:
+                    DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destination);
+                    break;
+                case 3:
+                    this.makeLinks(fileList, destination, X, Y, x, y);
+                    break;
+            }
+            this.textEntryAccelsTurnOn();
+            this._askWhatToDoWindow.destroy();
+            this._askWhatToDoWindow = null;
+        });
+    }
+
+    makeLinks(fileList, destination, X, Y, x, y) {
+        let gioDestination = Gio.File.new_for_uri(destination);
+        for (let file of fileList) {
+            let fileGio = Gio.File.new_for_uri(file);
+            let i = 0;
+            let baseName = fileGio.get_basename();
+            let newSymlinkName = baseName;
+            while (  0 < this._fileList.filter(f => f.fileName == newSymlinkName).length) {
+                i += 1;
+                newSymlinkName = baseName + "(" + i + ")";
+            }
+            let symlinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path() , newSymlinkName]));
+            try {
+                if (symlinkGio.make_symbolic_link(GLib.build_filenamev([fileGio.get_path()]), null)) {
+                    let info = new Gio.FileInfo();
+                    info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
+                    info.set_attribute_string('metadata::nautilus-icon-position', '');
+                    symlinkGio.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
+                }
+            } catch(e) {}
         }
     }
 

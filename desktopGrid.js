@@ -281,7 +281,7 @@ var DesktopGrid = class {
 
     setDropDestination(widget) {
         this.gridDropController = new Gtk.DropTargetAsync();
-        this.gridDropController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY);
+        this.gridDropController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
         this.dropMimeTypes = ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain'];
         let formats = Gdk.ContentFormats.new(this.dropMimeTypes);
         this.gridDropController.set_formats(formats);
@@ -332,22 +332,28 @@ var DesktopGrid = class {
                 selection = dropactor.read_value_finish(task);
                 if (selection && info) {
                     let gdkDropAction = drop.get_actions();
+                    let gdkDropReturnAction;
+                    if (gdkDropAction == (Gdk.DragAction.MOVE | Gdk.DragAction.COPY)) {
+                        gdkDropReturnAction = Gdk.DragAction.MOVE;
+                    } else {
+                        gdkDropReturnAction = gdkDropAction;
+                    }
                     let clickItem = this._fileAt(x, y);
                     let [X, Y] = this._coordinatesLocalToGlobal(x, y);
                     let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
                     if (clickItem && ! clickItem._hasToRouteDragToGrid()) {
                         if (this._desktopManager.showDropPlace) {
-                            clickItem.recieveDrop(x, y, selection, info, gdkDropAction);
-                            drop.finish(gdkDropAction);
+                            clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction);
+                            drop.finish(gdkDropReturnAction);
                             return true;
                         } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
-                            clickItem.recieveDrop(x, y, selection, info, gdkDropAction);
-                            drop.finish(gdkDropAction);
+                            clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction);
+                            drop.finish(gdkDropReturnAction);
                             return true;
                         }
                     }
                     this.receiveDrop(x, y, selection, info, gdkDropAction);
-                    drop.finish(gdkDropAction);
+                    drop.finish(gdkDropReturnAction);
                     if (this._using_X11) {
                         this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
                         this.receiveLeave();
