@@ -403,7 +403,13 @@ var DesktopManager = class {
     updateFileItemThumbnail(thumbnailinfo) {
         let fileuri = thumbnailinfo[0];
         let thumbnailFile = thumbnailinfo[1];
-        this._fileList.forEach(f => {
+        let updateFileList;
+        if (this._allFileList && (this._allFileList.length > 0)) {
+            updateFileList = this._allFileList;
+        } else {
+            updateFileList = this._fileList;
+        }
+        updateFileList.forEach(f => {
             if (f.uri == fileuri) {
                 f.thumbnailFile = thumbnailFile;
                 f.updateIcon();
