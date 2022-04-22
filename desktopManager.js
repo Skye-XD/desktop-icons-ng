@@ -246,6 +246,13 @@ var DesktopManager = class {
         if (this._asDesktop) {
             this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
                 GLib.source_remove(this._sigtermID);
+                let updateFileList;
+                if (this._allFileList && (this._allFileList.length > 0)) {
+                    updateFileList = this._allFileList;
+                } else {
+                    updateFileList = this._fileList;
+                }
+                updateFileList.forEach(f => f.onDestroy());
                 for(let desktop of this._desktops) {
                     desktop.destroy();
                 }
@@ -278,6 +285,13 @@ var DesktopManager = class {
     }
 
     terminateProgram() {
+        let updateFileList;
+        if (this._allFileList && (this._allFileList.length > 0)) {
+            updateFileList = this._allFileList;
+        } else {
+            updateFileList = this._fileList;
+        }
+        updateFileList.forEach(f => f.onDestroy());
         for(let desktop of this._desktops) {
             desktop.destroy();
         }
@@ -2009,7 +2023,12 @@ var DesktopManager = class {
 
     _unstack() {
         if (this.stackInitialCoordinates && this._allFileList) {
-            this._fileList.forEach(f => f.removeFromGrid());
+            this._fileList.forEach(f => {
+                f.removeFromGrid();
+                if (f.isStackMarker) {
+                    f.onDestroy();
+                }
+            });
             this._restoreStackInitialCoordinates();
             this._fileList = this._allFileList;
             this._allFileList = null;
@@ -2081,6 +2100,11 @@ var DesktopManager = class {
         let stackTopMarkerFolderList = [];
         let unstackList = Prefs.getUnstackList();
         if (this._allFileList && restack) {
+            this._fileList.forEach(f => {
+                if (f.isStackMarker) {
+                    f.onDestroy();
+                }
+            });
             this._fileList = this._allFileList;
         }
         this._sortByName(this._fileList);

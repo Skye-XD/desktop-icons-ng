@@ -65,7 +65,7 @@ var desktopIconItem = class desktopIconItem {
             this._grid = null;
         }
         if (callOnDestroy) {
-            this._onDestroy();
+            this.onDestroy();
         }
     }
 
@@ -85,7 +85,7 @@ var desktopIconItem = class desktopIconItem {
         }
     }
 
-    _onDestroy() {
+    onDestroy() {
         this._destroy();
         this._destroyed = true;
     }
@@ -96,7 +96,7 @@ var desktopIconItem = class desktopIconItem {
 
     _createIconActor() {
         this.container = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER});
-        this._containerId = this.container.connect('destroy', () => this._onDestroy());
+        this._containerId = this.container.connect('destroy', () => this.onDestroy());
 
         this._icon = new Gtk.Picture();
         this._icon.set_can_shrink(false);
