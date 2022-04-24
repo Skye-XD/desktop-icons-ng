@@ -192,34 +192,39 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _refreshMetadataAsync(rebuild) {
-        if (this._destroyed) {
-            return;
-        }
-
-        if (this._queryFileInfoCancellable)
-            this._queryFileInfoCancellable.cancel();
-        this._queryFileInfoCancellable = new Gio.Cancellable();
-        this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
-                                    Gio.FileQueryInfoFlags.NONE,
-                                    GLib.PRIORITY_DEFAULT,
-                                    this._queryFileInfoCancellable,
-            (source, result) => {
-                try {
-                    this._queryFileInfoCancellable = null;
-                    let newFileInfo = source.query_info_finish(result);
-                    this._updateMetadataFromFileInfo(newFileInfo);
-                    if (rebuild) {
-                        this._updateIcon().catch((e) => {
-                            print(`Exception while updating the icon after a metadata update: ${e.message}\n${e.stack}`);
-                        });
-                    }
-                    this._updateName();
-                } catch(error) {
-                    if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                        print("Error getting the file info: " + error);
-                }
+        return new Promise((resolve, reject) => {
+            if (this._destroyed) {
+                reject(false);
             }
-        );
+
+            if (this._queryFileInfoCancellable)
+                this._queryFileInfoCancellable.cancel();
+            this._queryFileInfoCancellable = new Gio.Cancellable();
+            this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
+                                        Gio.FileQueryInfoFlags.NONE,
+                                        GLib.PRIORITY_DEFAULT,
+                                        this._queryFileInfoCancellable,
+                (source, result) => {
+                    try {
+                        this._queryFileInfoCancellable = null;
+                        let newFileInfo = source.query_info_finish(result);
+                        this._updateMetadataFromFileInfo(newFileInfo);
+                        if (rebuild) {
+                            this._updateIcon().catch((e) => {
+                                print(`Exception while updating the icon after a metadata update: ${e.message}\n${e.stack}`);
+                            });
+                        }
+                        this._updateName();
+                        resolve(true);
+                    } catch(error) {
+                        if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                            print("Error getting the file info: " + error);
+                        }
+                        reject(false);
+                    }
+                }
+            );
+        });
     }
 
     _updateMetadataFromFileInfo(fileInfo) {
@@ -273,9 +278,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._isBrokenSymlink = this._isSymlink && this._fileType == Gio.FileType.SYMBOLIC_LINK
     }
 
-    _doOpenContext(context, fileList) {
+    async _doOpenContext(context, fileList) {
         if (! fileList ) {
             fileList = [] ;
+        }
+        if (this._isSymlink) {
+            await this._refreshMetadataAsync(true);
         }
         if (this._isBrokenSymlink) {
             log(`Error: Can’t open ${this.file.get_uri()} because it is a broken symlink.`);
