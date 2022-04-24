@@ -1566,7 +1566,7 @@ var DesktopManager = class {
 
     _drawDesktop(fileList) {
         this._selectedFiles = this.getCurrentSelection(true);
-        if (this.newItemDoRename || this.fileItemMenu.popupmenuopen) {
+        if (this.newItemDoRename || this.fileItemMenu.popupmenuopen || this.activeFileItem) {
             this._refreshMenus(fileList);
         }
         this._removeAllFilesFromGrids();
@@ -1575,9 +1575,18 @@ var DesktopManager = class {
     }
 
     _refreshMenus(fileList) {
+        let activeItem = null;
+        let newItemDoRename = false;
+        fileList.forEach(f => {
+            if (this.activeFileItem && (f.fileName == this.activeFileItem.fileName)) {
+                this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem = f;
+            }
+            if (this.newItemDoRename && (f.fileName == this.newItemDoRename)) {
+                newItemDoRename = f.fileName;
+            }
+        });
         if (this.newItemDoRename) {
-            this._newFileListNames = fileList.map(f => f.fileName);
-            if (! this._newFileListNames.includes(this.newItemDoRename)) {
+            if (! newItemDoRename) {
                 if (this._renameWindow) {
                     this._renameWindow.close();
                 } else {
@@ -1586,12 +1595,11 @@ var DesktopManager = class {
             }
         }
         if (this.fileItemMenu.popupmenuopen) {
-            let activeItem = fileList.filter(f => f.fileName == this.activeFileItem.fileName)[0];
-            this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
             if (activeItem) {
-                this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem;
                 return;
-            } else if (this.keepStacked){
+            }
+            this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
+            if (this.keepStacked){
                 let attributeExists = fileList.filter(f => f.attributeContentType == this.activeFileItem.attributeContentType);
                 if (attributeExists.length > 1) {
                     return;
