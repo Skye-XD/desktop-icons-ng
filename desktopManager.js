@@ -1598,11 +1598,13 @@ var DesktopManager = class {
             if (activeItem) {
                 return;
             }
-            this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
-            if (this.keepStacked){
-                let attributeExists = fileList.filter(f => f.attributeContentType == this.activeFileItem.attributeContentType);
-                if (attributeExists.length > 1) {
-                    return;
+            if (this.activeFileItem.isStackMarker) {
+                this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
+                if (this.keepStacked){
+                    let attributeExists = fileList.filter(f => f.attributeContentType == this.activeFileItem.attributeContentType);
+                    if (attributeExists.length > 1) {
+                        return;
+                    }
                 }
             }
             this.fileItemMenu.popupmenu.popdown();
