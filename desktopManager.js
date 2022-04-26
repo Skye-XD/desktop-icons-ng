@@ -870,8 +870,10 @@ var DesktopManager = class {
             this.popupmenu.set_has_arrow(false);
             this.popupmenuopen = true;
             this.popupmenu.popup();
-            this.popupmenu.connect('closed', () => {
+            this.popupmenu.connect('closed', async () => {
                 this.popupmenuopen = false;
+                await DesktopIconsUtil.waitDelayMs(500);
+                this.popupmenu.unparent();
             });
         }
         this._setClipboardContent(text);

@@ -377,8 +377,10 @@ var FileItemMenu = class {
         this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
         fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
-        this.popupmenu.connect('closed', () => {
+        this.popupmenu.connect('closed', async () => {
             this._desktopManager.popupmenuopen = this.popupmenuopen = false;
+            await DesktopIconsUtil.waitDelayMs(500);
+            this.popupmenu.unparent();
         });
     }
 
