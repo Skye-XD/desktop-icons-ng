@@ -533,12 +533,16 @@ var DesktopManager = class {
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), this._cssProviderSelection, 600);
     }
 
-    clearFileCoordinates(fileList, dropCoordinates) {
+    clearFileCoordinates(fileList, dropCoordinates, destination=null, doCopy=false) {
+        let gioDestination = Gio.File.new_for_uri(destination);
         for(let element of fileList) {
             let file = Gio.File.new_for_uri(element);
-            if (!file.is_native() || !file.query_exists(null)) {
+            if (!file.is_native() || !file.query_exists(null) || doCopy) {
                 if (dropCoordinates != null) {
-                    this._pendingDropFiles[file.get_basename()] = dropCoordinates;
+                    let copylinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path(), file.get_basename()]));
+                    if (! copylinkGio.query_exists(null)) {
+                        this._pendingDropFiles[file.get_basename()] = dropCoordinates;
+                    }
                 }
                 continue;
             }
@@ -662,14 +666,15 @@ var DesktopManager = class {
                 }
                 let destination = "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
                 if (fileList.length != 0) {
-                    this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination]);
                     let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
                     let id_fs = data.get_attribute_string('id::filesystem');
                     if ((this.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
+                        this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], destination);
                         DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destination);
                     } else if ((this.desktopFsId == id_fs) && (gdkDropAction == (Gdk.DragAction.MOVE | Gdk.DragAction.COPY))) {
                         this.askWhatToDoWithFiles(fileList, destination, xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination);
                     } else {
+                        this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], destination, true);
                         DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destination);
                     }
                 }
@@ -706,9 +711,11 @@ var DesktopManager = class {
         this._askWhatToDoWindow.connect('response', (actor, retval) => {
             switch(retval) {
                 case 1:
+                    this.clearFileCoordinates(fileList, [X, Y], destination);
                     DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destination);
                     break;
                 case 2:
+                    this.clearFileCoordinates(fileList, [X, Y], destination, true);
                     DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destination);
                     break;
                 case 3:
