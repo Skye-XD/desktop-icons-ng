@@ -378,9 +378,9 @@ var FileItemMenu = class {
         fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
         this.popupmenu.connect('closed', async () => {
-            this._desktopManager.popupmenuopen = this.popupmenuopen = false;
-            await DesktopIconsUtil.waitDelayMs(500);
+            await DesktopIconsUtil.waitDelayMs(50);
             this.popupmenu.unparent();
+            this._desktopManager.popupmenuopen = this.popupmenuopen = false;
         });
     }
 
