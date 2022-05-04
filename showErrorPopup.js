@@ -37,9 +37,6 @@ var ShowErrorPopup = class {
         this._window.secondary_text = secondaryText;
         DesktopIconsUtil.windowHidePagerTaskbarModal(this._window, true);
         textEntryAccelsTurnOff();
-        if (window) {
-            this._window.set_transient_for(window);
-        }
         this.deleteButton = this._window.add_button(_("Close"), Gtk.ResponseType.OK);
         this.deleteButton.connect('clicked', () => {
                 textEntryAccelsTurnOn();
