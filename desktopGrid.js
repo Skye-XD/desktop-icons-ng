@@ -58,20 +58,10 @@ var DesktopGrid = class {
         if (this._asDesktop) {
             this._window.set_decorated(false);
             this._window.set_deletable(false);
-            // For Wayland Transparent background, but only if this instance is working as desktop
+            // Transparent Background only if this instance is working as a desktop
             this._windowContext.add_class("desktopwindow");
-            // If we are under X11, Transparent background and everything else from here as well
             if (this._using_X11) {
-                let screen = this._window.get_screen();
-                let visual = screen.get_rgba_visual();
-                if (visual && screen.is_composited()) {
-                    this._window.set_visual(visual);
-                } else {
-                    print('Unable to set Transperancy under X11!');
-                }
-                this._window.set_type_hint(Gdk.WindowTypeHint.DESKTOP);
-                this._window.stick();
-                this._window.move(this._x / this._size_divisor, this._y / this._size_divisor);
+                DesktopIconsUtil.hideX11windowTaskbar(this._window);
             } else { // Wayland
                 this._window.maximize();
             }
