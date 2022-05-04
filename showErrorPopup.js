@@ -42,6 +42,7 @@ var ShowErrorPopup = class {
         }
         this.deleteButton = this._window.add_button(_("Close"), Gtk.ResponseType.OK);
         this.deleteButton.connect('clicked', () => {
+                textEntryAccelsTurnOn();
                 this._window.hide();
                 this._window.destroy();
                 this._window = null; 
