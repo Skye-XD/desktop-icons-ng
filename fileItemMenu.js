@@ -506,7 +506,7 @@ var FileItemMenu = class {
         if (this._desktopManager.checkIfDirectoryIsSelected()) {
             let WindowError = new ShowErrorPopup.ShowErrorPopup(_("Can not email a Directory"),
                                                                 _("Selection includes a Directory, compress the directory to a file first."),
-                                                                null,
+                                                                false,
                                                                 this._textEntryAccelsTurnOff.bind(this),
                                                                 this._textEntryAccelsTurnOn.bind(this));
             WindowError.run();

@@ -952,7 +952,6 @@ var DesktopManager = class {
                         _("Clear Current Selection before New Search"),
                         null,
                         true,
-                        this.keyEventGrid._window,
                         this.textEntryAccelsTurnOff.bind(this),
                         this.textEntryAccelsTurnOn.bind(this));
                     windowError.timeoutClose(2000);
