@@ -48,7 +48,7 @@ var DesktopGrid = class {
         this._premultiplied = premultiplied;
         this._asDesktop = asDesktop;
         this._desktopDescription = desktopDescription;
-        this._using_X11 = Gdk.Display.get_default().constructor.$gtype.name === 'GdkX11Display';
+        this._using_X11 = DesktopIconsUtil.usingX11 = Gdk.Display.get_default().constructor.$gtype.name === 'GdkX11Display';
         this.updateWindowGeometry();
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
