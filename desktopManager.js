@@ -971,7 +971,7 @@ var DesktopManager = class {
                         return false;
                     });
                 }
-                this.findFiles(this.searchString, this.keyEventGrid._window)
+                this.findFiles(this.searchString)
             }
             return true;
         } else {
@@ -983,17 +983,13 @@ var DesktopManager = class {
         this._fileList.map(f => f.unsetSelected());
     }
 
-    findFiles(text, window) {
+    findFiles(text) {
         this._findFileWindow = new Gtk.Dialog({use_header_bar: true,
                                        resizable: false});
         this._findFileButton = this._findFileWindow.add_button(_("OK"), Gtk.ResponseType.OK);
         this._findFileButton.sensitive = false;
         this._findFileWindow.add_button(_("Cancel"), Gtk.ResponseType.CANCEL);
         this._findFileWindow.set_modal(true);
-        if (! window) {
-            window = this.mainApp.get_active_window();
-        }
-        this._findFileWindow.set_transient_for(window);
         this._findFileWindow.set_title(_('Find Files on Desktop'));
         DesktopIconsUtil.windowHidePagerTaskbarModal(this._findFileWindow, true);
         let contentArea = this._findFileWindow.get_content_area();
@@ -1146,7 +1142,7 @@ var DesktopManager = class {
 
         let findFilesAction = Gio.SimpleAction.new("findFiles", null);
         findFilesAction.connect("activate", () => {
-            this.findFiles(null, null);
+            this.findFiles(null);
         });
         this.mainApp.add_action(findFilesAction);
         this.mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
