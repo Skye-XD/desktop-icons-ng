@@ -533,13 +533,12 @@ var DesktopManager = class {
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), this._cssProviderSelection, 600);
     }
 
-    clearFileCoordinates(fileList, dropCoordinates, destination=null, doCopy=false) {
-        let gioDestination = Gio.File.new_for_uri(destination);
+    clearFileCoordinates(fileList, dropCoordinates, desktoppath=null, doCopy=false) {
         for(let element of fileList) {
             let file = Gio.File.new_for_uri(element);
             if (!file.is_native() || !file.query_exists(null) || doCopy) {
                 if (dropCoordinates != null) {
-                    let copylinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path(), file.get_basename()]));
+                    let copylinkGio = Gio.File.new_for_path(GLib.build_filenamev([desktoppath, file.get_basename()]));
                     if (! copylinkGio.query_exists(null)) {
                         this._pendingDropFiles[file.get_basename()] = dropCoordinates;
                     }
@@ -664,18 +663,19 @@ var DesktopManager = class {
                 if (fileList.length >= 2) {
                     fileList.splice(-1, 1);
                 }
-                let destination = "file://" + GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
+                let desktoppath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
+                let destinationuri = "file://" + desktoppath;
                 if (fileList.length != 0) {
                     let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
                     let id_fs = data.get_attribute_string('id::filesystem');
                     if ((this.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
-                        this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], destination);
-                        DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destination);
+                        this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], desktoppath);
+                        DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destinationuri);
                     } else if ((this.desktopFsId == id_fs) && (gdkDropAction == (Gdk.DragAction.MOVE | Gdk.DragAction.COPY))) {
-                        this.askWhatToDoWithFiles(fileList, destination, xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination);
+                        this.askWhatToDoWithFiles(fileList, destinationuri, desktoppath, xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination);
                     } else {
-                        this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], destination, true);
-                        DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destination);
+                        this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], desktoppath, true);
+                        DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destinationuri);
                     }
                 }
                 break;
@@ -688,8 +688,7 @@ var DesktopManager = class {
         }
     }
 
-    askWhatToDoWithFiles(fileList, destination, X, Y, x, y) {
-        let grid = this._desktops.filter(f => f._coordinatesBelongToThisGrid(X, Y));
+    askWhatToDoWithFiles(fileList, destinationuri, desktoppath, X, Y, x, y) {
         this._askWhatToDoWindow = new Gtk.Dialog({use_header_bar: false,
                                        resizable: false});
         let headerbar = Gtk.HeaderBar.new();
@@ -700,7 +699,6 @@ var DesktopManager = class {
         this._askWhatToDoWindow.add_button(_("Link"), 3);
         this._askWhatToDoWindow.add_button(_("Cancel"), Gtk.ResponseType.CLOSE);
         this._askWhatToDoWindow.set_modal(true);
-        this._askWhatToDoWindow.set_transient_for(grid[0]._window);
         this._askWhatToDoWindow.set_title(_('Choose Action for Files'));
         DesktopIconsUtil.windowHidePagerTaskbarModal(this._askWhatToDoWindow, true);
         this._askWhatToDoWindow.show();
@@ -711,15 +709,15 @@ var DesktopManager = class {
         this._askWhatToDoWindow.connect('response', (actor, retval) => {
             switch(retval) {
                 case 1:
-                    this.clearFileCoordinates(fileList, [X, Y], destination);
-                    DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destination);
+                    this.clearFileCoordinates(fileList, [X, Y], desktoppath);
+                    DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destinationuri);
                     break;
                 case 2:
-                    this.clearFileCoordinates(fileList, [X, Y], destination, true);
-                    DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destination);
+                    this.clearFileCoordinates(fileList, [X, Y], desktoppath, true);
+                    DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destinationuri);
                     break;
                 case 3:
-                    this.makeLinks(fileList, destination, X, Y, x, y);
+                    this.makeLinks(fileList, destinationuri, X, Y, x, y);
                     break;
             }
             this.textEntryAccelsTurnOn();
