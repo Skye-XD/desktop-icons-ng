@@ -323,7 +323,7 @@ var DesktopGrid = class {
                 if (selection && info) {
                     let gdkDropAction = drop.get_actions();
                     let gdkDropReturnAction;
-                    if (gdkDropAction == (Gdk.DragAction.MOVE | Gdk.DragAction.COPY)) {
+                    if ((gdkDropAction != Gdk.DragAction.MOVE) || (gdkDropAction != Gdk.DragAction.COPY)) {
                         gdkDropReturnAction = Gdk.DragAction.MOVE;
                     } else {
                         gdkDropReturnAction = gdkDropAction;
@@ -335,10 +335,12 @@ var DesktopGrid = class {
                         if (this._desktopManager.showDropPlace) {
                             clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction);
                             drop.finish(gdkDropReturnAction);
+                            this.receiveLeave();
                             return true;
                         } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
                             clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction);
                             drop.finish(gdkDropReturnAction);
+                            this.receiveLeave();
                             return true;
                         }
                     }
