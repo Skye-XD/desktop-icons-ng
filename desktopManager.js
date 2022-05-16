@@ -90,6 +90,8 @@ var DesktopManager = class {
         }
         this._clickX = 0;
         this._clickY = 0;
+        this.pointerX = 0;
+        this.pointerY = 0;
         this._dragList = null;
         this.dragItem = null;
         this._desktopList = desktopList;
@@ -1180,6 +1182,41 @@ var DesktopManager = class {
         });
         this.mainApp.add_action(previewAction);
         this.mainApp.set_accels_for_action('app.previewAction', ['space']);
+
+        let chooseIconLeft = Gio.SimpleAction.new('chooseIconLeft', null);
+        chooseIconLeft.connect('activate', () => {
+            this._selectFileItemInDirection(Gdk.KEY_Left);
+        });
+        this.mainApp.add_action(chooseIconLeft);
+        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
+
+        let chooseIconRight = Gio.SimpleAction.new('chooseIconRight', null);
+        chooseIconRight.connect('activate', () => {
+            this._selectFileItemInDirection(Gdk.KEY_Right);
+        });
+        this.mainApp.add_action(chooseIconRight);
+        this.mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
+
+        let chooseIconUp = Gio.SimpleAction.new('chooseIconUp', null);
+        chooseIconUp.connect('activate', () => {
+            this._selectFileItemInDirection(Gdk.KEY_Up);
+        });
+        this.mainApp.add_action(chooseIconUp);
+        this.mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
+
+        let chooseIconDown = Gio.SimpleAction.new('chooseIconDown', null);
+        chooseIconDown.connect('activate', () => {
+            this._selectFileItemInDirection(Gdk.KEY_Down);
+        });
+        this.mainApp.add_action(chooseIconDown);
+        this.mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
+
+        let menuKeyPressed = Gio.SimpleAction.new('menuKeyPressed', null);
+        menuKeyPressed.connect('activate', () => {
+            this._menuKeyPressed();
+        });
+        this.mainApp.add_action(menuKeyPressed);
+        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
     }
 
     textEntryAccelsTurnOn() {
@@ -1187,6 +1224,11 @@ var DesktopManager = class {
         this.mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
         this.mainApp.set_accels_for_action('app.openOneFileAction', ['Return'])
         this.mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
+        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
+        this.mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
+        this.mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
+        this.mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
+        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
     }
 
     textEntryAccelsTurnOff() {
@@ -1194,6 +1236,11 @@ var DesktopManager = class {
         this.mainApp.set_accels_for_action('app.unselectAll', ['']);
         this.mainApp.set_accels_for_action('app.openOneFileAction', [''])
         this.mainApp.set_accels_for_action('app.movetotrash', ['']);
+        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['']);
+        this.mainApp.set_accels_for_action('app.chooseIconRight', ['']);
+        this.mainApp.set_accels_for_action('app.chooseIconUp', ['']);
+        this.mainApp.set_accels_for_action('app.chooseIconDown', ['']);
+        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
     }
 
     _createDesktopBackgroundGioMenu() {
@@ -1304,6 +1351,81 @@ var DesktopManager = class {
         DesktopIconsUtil.launchTerminal(desktopPath, null);
     }
 
+    _selectFileItemInDirection(symbol) {
+        let selection = this.getCurrentSelection(false);
+        if (!selection) {
+            selection = this._fileList;
+        }
+        if (!selection) {
+            return false;
+        }
+        let selected = selection[0];
+        let selectedCoordinates = selected.getCoordinates();
+        this.unselectAll();
+        if (selection.length > 1) {
+            for (let item of selection) {
+                let itemCoordinates = item.getCoordinates();
+                if (itemCoordinates[0] > selectedCoordinates[0]) {
+                    continue;
+                }
+                if ((itemCoordinates[0] < selectedCoordinates[0]) ||
+                    (itemCoordinates[1] < selectedCoordinates[1])) {
+                        selected = item;
+                        selectedCoordinates = itemCoordinates;
+                        continue;
+                }
+            }
+        }
+        switch (symbol) {
+        case Gdk.KEY_Left:
+            var index = 0;
+            var multiplier = -1;
+            break;
+        case Gdk.KEY_Right:
+            var index = 0;
+            var multiplier = 1;
+            break;
+        case Gdk.KEY_Up:
+            var index = 1;
+            var multiplier = -1;
+            break;
+        case Gdk.KEY_Down:
+            var index = 1;
+            var multiplier = 1;
+            break;
+        }
+        let newDistance = null;
+        let newItem = null;
+        for (let item of this._fileList) {
+            let itemCoordinates = item.getCoordinates();
+            if ((selectedCoordinates[index] * multiplier) >= (itemCoordinates[index] * multiplier)) {
+                continue;
+            }
+            let distance = Math.pow(selectedCoordinates[0] - itemCoordinates[0], 2) + Math.pow(selectedCoordinates[1] - itemCoordinates[1], 2)
+            if ((newDistance === null) || (newDistance > distance)) {
+                newDistance = distance;
+                newItem = item;
+            }
+        }
+        if (newItem === null) {
+            newItem = selected;
+        }
+        newItem.setSelected();
+    }
+
+    _menuKeyPressed() {
+        let selection = this.getCurrentSelection(false);
+        if (selection) {
+            let fileItem = selection[0];
+            let X = fileItem.iconRectangle.x + fileItem.iconRectangle.width/2;
+            let Y = fileItem.iconRectangle.y + fileItem.iconRectangle.height/2;
+            this.fileItemMenu.showMenu(fileItem, 3, 0, 0, X, Y, false, false);
+        } else {
+            let grid = this._desktops.filter(f => f._coordinatesBelongToThisGrid(this.pointerX, this.pointerY));
+            this.onPressButton(null, null, this.pointerX, this.pointerY, 3, false, false, grid[0])
+        }
+    }
+
     _doPaste() {
         if (this._clipboardFiles === null) {
             return;
@@ -1340,6 +1462,8 @@ var DesktopManager = class {
     }
 
     onMotion(X, Y) {
+        this.pointerX = X;
+        this.pointerY = Y;
         if (this.rubberBand) {
             this.x1 = Math.min(X, this.rubberBandInitX);
             this.x2 = Math.max(X, this.rubberBandInitX);
