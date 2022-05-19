@@ -96,7 +96,11 @@ var FileItemMenu = class {
         let openOneFileAction = Gio.SimpleAction.new('openOneFileAction', null);
         openOneFileAction.connect('activate', () => {
             if (this.activeFileItem) {
-                this.activeFileItem.doOpen();
+                if (this.activeFileItem.isStackMarker) {
+                    this._desktopManager.onToggleStackUnstackThisTypeClicked(this.activeFileItem.attributeContentType);
+                } else {
+                    this.activeFileItem.doOpen();
+                }
             }
         });
         this._mainApp.add_action(openOneFileAction);

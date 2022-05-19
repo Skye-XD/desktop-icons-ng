@@ -1354,7 +1354,11 @@ var DesktopManager = class {
     _selectFileItemInDirection(symbol) {
         let selection = this.getCurrentSelection(false);
         if (!selection) {
-            selection = this._fileList;
+            if (this.activeFileItem && this.activeFileItem.isStackMarker) {
+                selection = [this.activeFileItem];
+            } else {
+                selection = this._fileList;
+            }
         }
         if (!selection) {
             return false;
@@ -1411,6 +1415,7 @@ var DesktopManager = class {
             newItem = selected;
         }
         newItem.setSelected();
+        this.activeFileItem = this.fileItemMenu.activeFileItem = newItem;
     }
 
     _menuKeyPressed() {
@@ -2124,7 +2129,7 @@ var DesktopManager = class {
         }
     }
 
-    onToggleStackUnstackThisTypeClicked(type, typeInList, unstackList) {
+    onToggleStackUnstackThisTypeClicked(type, typeInList=null, unstackList=null) {
         if (!unstackList) {
             unstackList = Prefs.getUnstackList();
             typeInList = unstackList.includes(type);
