@@ -981,6 +981,7 @@ var DesktopManager = class {
 
     unselectAll() {
         this._fileList.map(f => f.unsetSelected());
+        this.activeFileItem = this.fileItemMenu.activeFileItem = null;
     }
 
     findFiles(text) {
@@ -1415,6 +1416,9 @@ var DesktopManager = class {
             newItem = selected;
         }
         newItem.setSelected();
+        if (newItem.isStackMarker) {
+            newItem.keyboardSelected();
+        }
         this.activeFileItem = this.fileItemMenu.activeFileItem = newItem;
     }
 

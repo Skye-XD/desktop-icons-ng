@@ -88,8 +88,26 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
         return;
     }
 
+    unsetSelected() {
+        this._keyboardUnSelected();
+    }
+
     updateIcon() {
         this._createStackTopIcon();
+    }
+
+    keyboardSelected() {
+        if (!this._styleContext.has_class('file-item-hover')) {
+            this._styleContext.add_class('file-item-hover');
+            this._labelStyleContext.add_class('file-item-hover');
+        }
+    }
+
+    _keyboardUnSelected() {
+        if (this._styleContext.has_class('file-item-hover')) {
+            this._styleContext.remove_class('file-item-hover');
+            this._labelStyleContext.remove_class('file-item-hover');
+        }
     }
 
     /***********************
