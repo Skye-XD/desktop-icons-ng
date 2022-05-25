@@ -386,7 +386,7 @@ var DesktopGrid = class {
     setDragSource(widget) {
         let widgetDragController = Gtk.DragSource.new();
         let clickItem
-        widgetDragController.set_actions(Gdk.DragAction.MOVE|Gdk.DragAction.COPY);
+        widgetDragController.set_actions(Gdk.DragAction.MOVE|Gdk.DragAction.COPY|Gdk.DragAction.ASK);
         widgetDragController.connect('prepare', (actor, x, y) => {
             let draggedItem = this._fileAt(x, y);
             if (draggedItem && ! this._desktopManager.rubberBand) {
