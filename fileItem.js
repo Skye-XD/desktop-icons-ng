@@ -286,15 +286,19 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             await this._refreshMetadataAsync(true);
         }
         if (this._isBrokenSymlink) {
-            log(`Error: Can’t open ${this.file.get_uri()} because it is a broken symlink.`);
-            let title = _('Broken Link');
-            let error = _('Can not open this File because it is a Broken Symlink');
-            this._showerrorpopup(title, error);
+            try {
+                log(`Error: Can’t open ${this.file.get_uri()} because it is a broken symlink.`);
+                let title = _('Broken Link');
+                let error = _('Can not open this File because it is a Broken Symlink');
+                this._showerrorpopup(title, error);
+            } catch(e) {}
             return;
         }
 
         if (this._isDesktopFile) {
-            this._launchDesktopFile(context, fileList);
+            try {
+                this._launchDesktopFile(context, fileList);
+            } catch(e) {}
             return;
         }
 
