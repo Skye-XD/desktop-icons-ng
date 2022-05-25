@@ -426,9 +426,9 @@ var FileItemMenu = class {
             let chooser = Gtk.AppChooserDialog.new_for_content_type(null,
                                                                     Gtk.DialogFlags.MODAL + Gtk.DialogFlags.USE_HEADER_BAR,
                                                                     mimetype);
-            chooser.set_transient_for(this.activeFileItem._grid._window);
             this._desktopManager.textEntryAccelsTurnOff();
             chooser.show();
+            chooser.present_with_time(Gdk.CURRENT_TIME);
             chooser.connect('close', () => {
                 chooser.response(Gtk.ResponseType.CANCEL);
             });
@@ -468,9 +468,9 @@ var FileItemMenu = class {
             dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
             dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
             DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
-            dialog.set_transient_for(this.activeFileItem._grid._window);
             this._desktopManager.textEntryAccelsTurnOff();
             dialog.show();
+            dialog.present_with_time(Gdk.CURRENT_TIME);
             dialog.connect('close', () => {
                 dialog.response(Gtk.ResponseType.CANCEL);
             });

@@ -17,6 +17,7 @@
  */
 
 const Gtk = imports.gi.Gtk;
+const Gdk = imports.gi.Gdk;
 const Pango = imports.gi.Pango;
 const DesktopIconsUtil = imports.desktopIconsUtil;
 const Gettext = imports.gettext.domain('ding');
@@ -51,11 +52,13 @@ var ShowErrorPopup = class {
             });
         if (modal) {
             this._window.show();
+            this._window.present_with_time(Gdk.CURRENT_TIME);
         }
     }
 
     run() {
         this._window.show();
+        this._window.present_with_time(Gdk.CURRENT_TIME);
         this.timeoutClose(3000);
      }
 
