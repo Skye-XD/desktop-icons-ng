@@ -227,6 +227,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 } catch (e) {
                     logError(e, `Exception while updating the icon after a metadata update: ${e.message}`);
                 };
+
+                if (cancellable.is_cancelled()) {
+                    throw new GLib.Error(Gio.IOErrorEnum,
+                        Gio.IOErrorEnum.CANCELLED,
+                        'Operation was cancelled')
+                }
             }
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
@@ -510,6 +516,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 await this._updateIcon();
             } catch (e) {
                 logError(e, `Exception while updating the trash icon: ${e.message}`);
+            }
+
+            if (cancellable.is_cancelled()) {
+                throw new GLib.Error(Gio.IOErrorEnum,
+                    Gio.IOErrorEnum.CANCELLED,
+                    'Operation was cancelled')
             }
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
