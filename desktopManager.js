@@ -1766,8 +1766,6 @@ var DesktopManager = class {
                 }
             });
 
-            await Promise.all(extraFoldersItems);
-
             childrenInfo.forEach(info => {
                 const fileItem = new FileItem.FileItem(this,
                     this._desktopDir.get_child(info.get_name()),
@@ -1817,7 +1815,7 @@ var DesktopManager = class {
                 }
             });
 
-            await Promise.all(mountsItems);
+            await Promise.all([...extraFoldersItems, ...mountsItems]);
 
             return fileList;
         } catch (e) {
