@@ -476,7 +476,7 @@ var FileItemMenu = class {
             });
             dialog.connect('response', (actor, response) => {
                 if (response === Gtk.ResponseType.ACCEPT) {
-                    folder = dialog.get_uri();
+                    folder = dialog.get_file().get_uri();
                     if (folder) {
                         DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItem, folder, true);
                     }

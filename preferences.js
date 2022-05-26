@@ -133,7 +133,7 @@ function get_preferencesFrame() {
     nautilusBox.append(buildSwitcher(nautilusSettings, 'show-delete-permanently', _("Show a context menu item to delete permanently")));
     // Gnome Shell 40 removed this option
     try {
-        nautilusBox.add(buildSelector(nautilusSettings,
+        nautilusBox.append(buildSelector(nautilusSettings,
                                       'executable-text-activation',
                                       _("Action to do when launching a program from the desktop"), {
                                           'display': _("Display the content of the file"),
