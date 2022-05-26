@@ -162,6 +162,7 @@ const PromiseUtils = imports.promiseUtils;
 
 PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'close_async');
 PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'next_files_async');
+PromiseUtils._promisify({}, Gio.Subprocess.prototype, 'wait_check_async');
 
 const fileProto = imports.system.version >= 17200 ?
     Gio.File.prototype : Gio._LocalFilePrototype;

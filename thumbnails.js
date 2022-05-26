@@ -115,7 +115,7 @@ var ThumbnailLoader = class {
         if (useAsyncAPI) {
             this._createThumbnailAsync(file, callback).catch(e => logError(e));
         } else {
-            this._createThumbnailSubprocess(file, callback);
+            this._createThumbnailSubprocess(file, callback).catch(e => logError(e));
         }
     }
 
@@ -170,44 +170,33 @@ var ThumbnailLoader = class {
         }
     }
 
-    _createThumbnailSubprocess(file, callback) {
-        let args = [];
+    async _createThumbnailSubprocess(file, callback) {
+        const args = [];
         args.push(GLib.build_filenamev([this._codePath, 'createThumbnail.js']));
         args.push(file.path);
-        this._proc = new Gio.Subprocess({argv: args});
-        this._proc.init(null);
-        this._proc.wait_check_async(null, (source, result) => {
-            this._removeTimeout();
-            try {
-                let result2 = source.wait_check_finish(result);
-                if (result2) {
-                    let status = source.get_status();
-                    if (status == 0) {
-                        if (callback) {
-                            callback();
-                        }
-                    }
-                } else {
-                    print(`Failed to generate thumbnail for ${file.displayName}`);
-                }
-            } catch(error) {
-                print(`Exception when generating thumbnail for ${file.displayName}: ${error}`);
-            }
-            this._launchNewBuild();
-        });
-        this._timeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this._timeoutValue, () => {
-            print(`Timeout while generating thumbnail for ${file.displayName}`);
-            this._timeoutID = 0;
-            this._proc.force_exit();
-            this._thumbnailFactory.create_failed_thumbnail(file.uri, file.modifiedTime);
-            return false;
-        });
-    }
+        const proc = new Gio.Subprocess({ argv: args });
 
-    _removeTimeout() {
-        if (this._timeoutID != 0) {
-            GLib.source_remove(this._timeoutID);
-            this._timeoutID = 0;
+        let timeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this._timeoutValue, () => {
+            print(`Timeout while generating thumbnail for ${file.displayName}`);
+            timeoutID = 0;
+            proc.force_exit();
+            this._thumbnailFactory.create_failed_thumbnail(file.uri, file.modifiedTime);
+            return GLib.SOURCE_REMOVE;
+        });
+
+        proc.init(null);
+
+        try {
+            await proc.wait_check_async(null);
+            if (proc.get_status() == 0 && callback)
+                callback();
+        } catch (e) {
+            logError(e, `Failed to generate thumbnail for ${file.displayName}: ${e.message}`);
+        } finally {
+            if (timeoutID)
+                GLib.source_remove(timeoutID);
+
+            this._launchNewBuild();
         }
     }
 
