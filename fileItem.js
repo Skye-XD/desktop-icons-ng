@@ -123,6 +123,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             this._monitorTrashDir.cancel();
             this._monitorTrashId = 0;
         }
+        if (this._queryFileInfoCancellable) {
+            this._queryFileInfoCancellable.cancel();
+        }
         if (this._queryTrashInfoCancellable) {
             this._queryTrashInfoCancellable.cancel();
         }
