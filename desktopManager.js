@@ -1737,12 +1737,6 @@ var DesktopManager = class {
         this._desktopEnumerateCancellable = cancellable;
 
         try {
-            const childrenInfo = await FileUtils.enumerateDir(this._desktopDir,
-                cancellable, GLib.PRIORITY_DEFAULT, Enums.DEFAULT_ATTRIBUTES);
-
-            if (this._desktopFilesChanged && !this._forceDraw)
-                return null;
-
             const fileList = [];
 
             const extraFoldersItems = DesktopIconsUtil.getExtraFolders().map(async ([newFolder, extras]) => {
@@ -1766,33 +1760,38 @@ var DesktopManager = class {
                 }
             });
 
-            childrenInfo.forEach(info => {
-                const fileItem = new FileItem.FileItem(this,
-                    this._desktopDir.get_child(info.get_name()),
-                    info,
-                    Enums.FileType.NONE,
-                    null);
-                if (fileItem.isHidden && !this._showHidden) {
-                    /* if there are hidden files in the desktop and the user doesn't want to
-                        show them, remove the coordinates. This ensures that if the user enables
-                        showing them, they won't fight with other icons for the same place
-                    */
-                    if (fileItem.savedCoordinates) {
-                        // only overwrite them if needed
-                        fileItem.savedCoordinates = null;
-                    }
-                    return;
-                }
+            const getLocalFilesInfos = async () => {
+                const childrenInfo = await FileUtils.enumerateDir(this._desktopDir,
+                    cancellable, GLib.PRIORITY_DEFAULT, Enums.DEFAULT_ATTRIBUTES);
 
-                fileList.push(fileItem);
-                if (fileItem.dropCoordinates == null) {
-                    const basename = fileItem.file.get_basename();
-                    if (basename in this._pendingDropFiles) {
-                        fileItem.dropCoordinates = this._pendingDropFiles[basename];
-                        delete this._pendingDropFiles[basename];
+                childrenInfo.forEach(info => {
+                    const fileItem = new FileItem.FileItem(this,
+                        this._desktopDir.get_child(info.get_name()),
+                        info,
+                        Enums.FileType.NONE,
+                        null);
+                    if (fileItem.isHidden && !this._showHidden) {
+                        /* if there are hidden files in the desktop and the user doesn't want to
+                            show them, remove the coordinates. This ensures that if the user enables
+                            showing them, they won't fight with other icons for the same place
+                        */
+                        if (fileItem.savedCoordinates) {
+                            // only overwrite them if needed
+                            fileItem.savedCoordinates = null;
+                        }
+                        return;
                     }
-                }
-            });
+
+                    fileList.push(fileItem);
+                    if (fileItem.dropCoordinates == null) {
+                        const basename = fileItem.file.get_basename();
+                        if (basename in this._pendingDropFiles) {
+                            fileItem.dropCoordinates = this._pendingDropFiles[basename];
+                            delete this._pendingDropFiles[basename];
+                        }
+                    }
+                });
+            }
 
             const mountsItems = DesktopIconsUtil.getMounts(this._volumeMonitor).map(async ([newFolder, extras, volume]) => {
                 try {
@@ -1815,7 +1814,10 @@ var DesktopManager = class {
                 }
             });
 
-            await Promise.all([...extraFoldersItems, ...mountsItems]);
+            await Promise.all([getLocalFilesInfos(), ...extraFoldersItems, ...mountsItems]);
+
+            if (this._desktopFilesChanged && !this._forceDraw)
+                return null;
 
             return fileList;
         } catch (e) {
