@@ -160,13 +160,17 @@ const Gettext = imports.gettext;
 const Enums = imports.enums;
 const PromiseUtils = imports.promiseUtils;
 
-PromiseUtils._promisify({ keepOriginal: true }, Gio.FileEnumerator.prototype, 'close_async');
-PromiseUtils._promisify({ keepOriginal: true }, Gio.FileEnumerator.prototype, 'next_files_async');
-PromiseUtils._promisify({ keepOriginal: true }, Gio._LocalFilePrototype, 'delete_async');
-PromiseUtils._promisify({ keepOriginal: true }, Gio._LocalFilePrototype, 'enumerate_children_async');
-PromiseUtils._promisify({ keepOriginal: true }, Gio._LocalFilePrototype, 'make_directory_async');
-PromiseUtils._promisify({ keepOriginal: true }, Gio._LocalFilePrototype, 'query_info_async');
-PromiseUtils._promisify({ keepOriginal: true }, Gio._LocalFilePrototype, 'set_attributes_async');
+PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'close_async');
+PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'next_files_async');
+
+const fileProto = imports.system.version >= 17200 ?
+    Gio.File.prototype : Gio._LocalFilePrototype;
+
+PromiseUtils._promisify({}, fileProto, 'delete_async');
+PromiseUtils._promisify({ keepOriginal: true }, fileProto, 'enumerate_children_async');
+PromiseUtils._promisify({}, fileProto, 'make_directory_async');
+PromiseUtils._promisify({ keepOriginal: true }, fileProto, 'query_info_async');
+PromiseUtils._promisify({ keepOriginal: true }, fileProto, 'set_attributes_async');
 
 let localePath = GLib.build_filenamev([codePath, "locale"]);
 if (Gio.File.new_for_path(localePath).query_exists(null)) {
