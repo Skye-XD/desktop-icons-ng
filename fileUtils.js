@@ -80,3 +80,18 @@ async function deleteFile(file, info = null, cancellable = null,
             `${file.get_path()} of type ${type} cannot be removed`);
     }
 }
+
+async function queryExists(file, cancellable = null,
+    priority = GLib.PRIORITY_DEFAULT) {
+        try {
+            await file.query_info_async_promise(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
+                Gio.FileQueryInfoFlags.NONE, priority, cancellable);
+            return true;
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                throw e;
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                logError(e);
+            return false;
+        }
+}
