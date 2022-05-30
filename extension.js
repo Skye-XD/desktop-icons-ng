@@ -32,11 +32,22 @@ const EmulateX11 = Me.imports.emulateX11WindowType;
 const VisibleArea = Me.imports.visibleArea;
 const GnomeShellOverride = Me.imports.gnomeShellOverride;
 const PromiseUtils = Me.imports.promiseUtils;
+const FileUtils = Me.imports.fileUtils;
 
 PromiseUtils._promisify({ keepOriginal: true },
     Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish_utf8');
 PromiseUtils._promisify({ keepOriginal: true },
-    Gio.Subprocess.prototype, 'wait_async', 'wait_finish');
+    Gio.Subprocess.prototype, 'wait_async');
+
+const fileProto = imports.system.version >= 17200 ?
+    Gio.File.prototype : Gio._LocalFilePrototype;
+
+PromiseUtils._promisify({ keepOriginal: true },
+    fileProto, 'enumerate_children_async');
+PromiseUtils._promisify({ keepOriginal: true },
+    Gio.FileEnumerator.prototype, 'close_async');
+PromiseUtils._promisify({ keepOriginal: true },
+    Gio.FileEnumerator.prototype, 'next_files_async');
 
 // This object will contain all the global variables
 let data = {};
@@ -67,7 +78,8 @@ function init() {
      * and not in enable() or disable() (disable already guarantees that
      * the current instance is killed).
      */
-    doKillAllOldDesktopProcesses();
+    data.killingProcess = true;
+    doKillAllOldDesktopProcesses().catch(e => logError(e)).finally(() => (data.killingProcess = false));
 }
 
 
@@ -98,6 +110,17 @@ function enable() {
  * The true code that configures everything and launches the desktop program
  */
 function innerEnable(removeId) {
+    if (data.killingProcess) {
+        data.startupProcessKillWaitId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+            if (data.killingProcess)
+                return GLib.SOURCE_CONTINUE;
+
+            data.startupProcessKillWaitId = 0;
+            innerEnable();
+            return GLib.SOURCE_REMOVE;
+        });
+        return
+    }
 
     if (removeId) {
         Main.layoutManager.disconnect(data.startupPreparedId);
@@ -180,6 +203,11 @@ function disable() {
     data.x11Manager.disable();
     data.visibleArea.disable();
 
+    if (data.startupProcessKillWaitId) {
+        GLib.source_remove(data.startupProcessKillWaitId);
+        data.startupProcessKillWaitId = 0;
+    }
+
     // disconnect signals only if connected
     if (data.remoteGeometryUpdateRequestedId) {
         Gio.DBus.session.signal_unsubscribe(data.remoteGeometryUpdateRequestedId);
@@ -242,42 +270,44 @@ function getDesktopGeometry() {
  * doesn't fail if it doesn't exist.
  */
 
-function doKillAllOldDesktopProcesses() {
+async function doKillAllOldDesktopProcesses() {
+    const procFolder = Gio.File.new_for_path('/proc');
+    const processes = await FileUtils.enumerateDir(procFolder);
+    const thisPath = 'gjs ' + GLib.build_filenamev([
+        ExtensionUtils.getCurrentExtension().path,
+        'ding.js'
+    ]);
 
-    let procFolder = Gio.File.new_for_path('/proc');
-    if (!procFolder.query_exists(null)) {
-        return;
-    }
+    const killPromises = processes.map(async info => {
+        const filename = info.get_name();
+        const processPath = GLib.build_filenamev(['/proc', filename, 'cmdline']);
+        const processUser = Gio.File.new_for_path(processPath);
 
-    let fileEnum = procFolder.enumerate_children('standard::*', Gio.FileQueryInfoFlags.NONE, null);
-    let info;
-    while ((info = fileEnum.next_file(null))) {
-        let filename = info.get_name();
-        if (!filename) {
-            break;
-        }
-        let processPath = GLib.build_filenamev(['/proc', filename, 'cmdline']);
-        let processUser = Gio.File.new_for_path(processPath);
-        if (!processUser.query_exists(null)) {
-            continue;
-        }
-        let [binaryData, etag] = processUser.load_bytes(null);
-        let contents = '';
-        let readData = binaryData.get_data();
-        for (let i = 0; i < readData.length; i++) {
-            if (readData[i] < 32) {
-                contents += ' ';
-            } else {
-                contents += String.fromCharCode(readData[i]);
+        try {
+            const [binaryData] = await processUser.load_bytes_async_promise(null);
+            const readData = binaryData.get_data();
+            let contents = '';
+
+            for (let i = 0; i < readData.length; i++) {
+                if (readData[i] < 32) {
+                    contents += ' ';
+                } else {
+                    contents += String.fromCharCode(readData[i]);
+                }
             }
+
+            if (contents.startsWith(thisPath)) {
+                let proc = new Gio.Subprocess({ argv: ['/bin/kill', filename] });
+                proc.init(null);
+                print(`Killing old DING process ${filename}`);
+                await proc.wait_async_promise(null);
+            }
+        } catch (e) {
+            return;
         }
-        let path = 'gjs ' + GLib.build_filenamev([ExtensionUtils.getCurrentExtension().path, 'ding.js']);
-        if (contents.startsWith(path)) {
-            let proc = new Gio.Subprocess({argv: ['/bin/kill', filename]});
-            proc.init(null);
-            proc.wait(null);
-        }
-    }
+    });
+
+    await Promise.all(killPromises);
 }
 
 function doRelaunch(reloadTime) {
