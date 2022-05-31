@@ -102,10 +102,11 @@ var DesktopManager = class {
         this._readingDesktopFiles = false;
         this._desktopDir = DesktopIconsUtil.getDesktopDir();
         this.desktopFsId = this._desktopDir.query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null).get_attribute_string('id::filesystem');
-        this._updateWritableByOthers();
+        this._updateWritableByOthers().catch(e => logError(e));
         this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
         this._monitorDesktopDir.set_rate_limit(1000);
-        this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) => this._updateDesktopIfChanged(file, otherFile, eventType));
+        this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
+            this._updateDesktopIfChanged(file, otherFile, eventType).catch(e => logError(e)));
 
         this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
         this.templatesMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
@@ -2011,10 +2012,9 @@ var DesktopManager = class {
         }
     }
 
-    _updateWritableByOthers() {
-        let info = this._desktopDir.query_info(Gio.FILE_ATTRIBUTE_UNIX_MODE,
-                                               Gio.FileQueryInfoFlags.NONE,
-                                               null);
+    async _updateWritableByOthers() {
+        const info = await this._desktopDir.query_info_async(Gio.FILE_ATTRIBUTE_UNIX_MODE,
+            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
         this.unixMode = info.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
         let writableByOthers = (this.unixMode & Enums.S_IWOTH) != 0;
         if (writableByOthers != this.writableByOthers) {
@@ -2028,7 +2028,7 @@ var DesktopManager = class {
         }
     }
 
-    _updateDesktopIfChanged(file, otherFile, eventType) {
+    async _updateDesktopIfChanged(file, otherFile, eventType) {
         if (eventType == Gio.FileMonitorEvent.CHANGED) {
             // use only CHANGES_DONE_HINT
             return;
@@ -2049,24 +2049,29 @@ var DesktopManager = class {
                 try {
                     let info = new Gio.FileInfo();
                     info.set_attribute_string('metadata::nautilus-icon-position', '');
-                    file.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
+                    file.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
                 } catch (e) {} // can happen if a file is created and deleted very fast
                 break;
             case Gio.FileMonitorEvent.ATTRIBUTE_CHANGED:
                 /* The desktop is what changed, and not a file inside it */
                 if (file.get_uri() == this._desktopDir.get_uri()) {
-                    if (this._updateWritableByOthers()) {
-                        this._updateDesktop().catch((e) => {
-                            print(`Exception while updating Desktop from Directory Monitor Attribute Change: ${e.message}\n${e.stack}`);
-                        });
+                    if (await this._updateWritableByOthers()) {
+                        try {
+                            await this._updateDesktop();
+                        } catch (e) {
+                            logError(e, `Exception while updating Desktop from Directory Monitor Attribute Change: ${e.message}`);
+                        }
                     }
                     return;
                 }
                 break;
         }
-        this._updateDesktop().catch((e) => {
-                print(`Exception while updating Desktop from Directory Monitor: ${e.message}\n${e.stack}`);
-        });
+
+        try {
+            await this._updateDesktop();
+        } catch (e) {
+            logError(e, `Exception while updating Desktop from Directory Monitor: ${e.message}`);
+        }
     }
 
      /*
