@@ -199,6 +199,7 @@ function getFileExtensionOffset(filename, isDirectory) {
 }
 
 function writeTextFileToDesktop(text, filename, dropCoordinates) {
+    // Async!
     let path = GLib.build_filenamev([GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP),  filename]);
     let file = Gio.File.new_for_path(path);
     const PERMISSIONS_MODE = 0o744;
@@ -250,4 +251,14 @@ function waitDelayMs(ms) {
             return false;
         });
     });
+}
+
+function coordinatesEqual(coordA, coordB) {
+    if (coordA === coordB)
+        return true;
+
+    if (coordA && coordB)
+        return (coordA[0] === coordB[0]) && (coordA[1] == coordB[1]);
+
+    return false;
 }

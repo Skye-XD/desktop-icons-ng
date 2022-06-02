@@ -730,6 +730,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     set dropCoordinates(pos) {
+        if (DesktopIconsUtil.coordinatesEqual(this._dropCoordinates, pos))
+            return;
+
         try {
             let info = new Gio.FileInfo();
             if (pos != null) {
@@ -817,6 +820,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     set savedCoordinates(pos) {
+        if (DesktopIconsUtil.coordinatesEqual(this._savedCoordinates, pos))
+            return;
+
         try {
             let info = new Gio.FileInfo();
             if (pos != null) {
