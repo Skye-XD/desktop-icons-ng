@@ -2357,6 +2357,7 @@ var DesktopManager = class {
             let info = new Gio.FileInfo();
             info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
             info.set_attribute_string('metadata::nautilus-icon-position', '');
+            info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
             destination.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
         } catch(e) {
             print(`Failed to create template ${e.message}`);
