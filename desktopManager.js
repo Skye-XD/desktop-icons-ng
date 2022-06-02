@@ -2310,6 +2310,7 @@ var DesktopManager = class {
                 const info = new Gio.FileInfo();
                 info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
                 info.set_attribute_string('metadata::nautilus-icon-position', '');
+                info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
 
                 try {
                     await dir.set_attributes_async(info,
