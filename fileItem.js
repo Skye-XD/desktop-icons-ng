@@ -148,6 +148,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (this._ejectCancellable) {
             this._ejectCancellable.cancel();
         }
+        if (this._savedCoordinatesCancellable) {
+            this._savedCoordinatesCancellable.cancel();
+        }
+        if (this._dropCoordinatesCancellable) {
+            this._dropCoordinatesCancellable.cancel();
+        }
         if (this._scheduleTrashRefreshId) {
             GLib.source_remove(this._scheduleTrashRefreshId);
             this._scheduleTrashRefreshId = 0;
@@ -686,6 +692,14 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             await this._refreshMetadataAsync(true, cancellable);
     }
 
+    async _storeCoordinates(name, coords, cancellable = null) {
+        const info = new Gio.FileInfo();
+        info.set_attribute_string(`metadata::${name}`,
+            `${coords ? coords.join(',') : ''}`);
+
+        await this._setFileAttributes(info, cancellable, { refresh: false });
+    }
+
     /***********************
      * Getters and setters *
      ***********************/
@@ -733,19 +747,23 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (DesktopIconsUtil.coordinatesEqual(this._dropCoordinates, pos))
             return;
 
-        try {
-            let info = new Gio.FileInfo();
-            if (pos != null) {
-                this._dropCoordinates = [pos[0], pos[1]];
-                info.set_attribute_string('metadata::nautilus-drop-position', `${pos[0]},${pos[1]}`);
-            } else {
-                this._dropCoordinates = null;
-                info.set_attribute_string('metadata::nautilus-drop-position', '');
-            }
-            this.file.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
-        } catch(e) {
-            print(`Failed to store the desktop coordinates for ${this.uri}: ${e}`);
-        }
+        const oldPos = this._dropCoordinates;
+        this._dropCoordinates = pos;
+
+        if (this._dropCoordinatesCancellable)
+            this._dropCoordinatesCancellable.cancel();
+
+        const cancellable = new Gio.Cancellable();
+        this._dropCoordinatesCancellable = cancellable;
+
+        this._storeCoordinates('nautilus-drop-position', pos, cancellable).catch(e => {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
+            this._dropCoordinates = oldPos;
+        }).finally(() => {
+            if (this._dropCoordinatesCancellable === cancellable)
+                this._dropCoordinatesCancellable = null;
+        });
     }
 
     get execLine() {
@@ -823,19 +841,23 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (DesktopIconsUtil.coordinatesEqual(this._savedCoordinates, pos))
             return;
 
-        try {
-            let info = new Gio.FileInfo();
-            if (pos != null) {
-                this._savedCoordinates = [pos[0], pos[1]];
-                info.set_attribute_string('metadata::nautilus-icon-position', `${pos[0]},${pos[1]}`);
-            } else {
-                this._savedCoordinates = null;
-                info.set_attribute_string('metadata::nautilus-icon-position', '');
-            }
-            this.file.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
-        } catch(e) {
-            print(`Failed to store the desktop coordinates for ${this.uri}: ${e}`);
-        }
+        const oldPos = this._savedCoordinates;
+        this._savedCoordinates = pos;
+
+        if (this._savedCoordinatesCancellable)
+            this._savedCoordinatesCancellable.cancel();
+
+        const cancellable = new Gio.Cancellable();
+        this._savedCoordinatesCancellable = cancellable;
+
+        this._storeCoordinates('nautilus-icon-position', pos, cancellable).catch(e => {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
+            this._savedCoordinates = oldPos;
+        }).finally(() => {
+            if (this._savedCoordinatesCancellable === cancellable)
+                this._savedCoordinatesCancellable = null;
+        });
     }
 
     get trustedDesktopFile() {
