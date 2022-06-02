@@ -2332,11 +2332,11 @@ var DesktopManager = class {
         }
     }
 
-    _newDocument(template) {
-        let file = Gio.File.new_for_path(template);
-        if ((file == null) || (!file.query_exists(null))) {
+    async _newDocument(template) {
+        if (!template)
             return;
-        }
+
+        const file = Gio.File.new_for_path(template);
         let counter = 0;
         let fullName = file.get_basename();
         let offset = DesktopIconsUtil.getFileExtensionOffset(fullName, false);
@@ -2346,21 +2346,26 @@ var DesktopManager = class {
         let finalName = `${name}${extension}`;
         let destination;
         do {
-            if (counter != 0) {
-                finalName = `${name} ${counter}${extension}`
-            }
-            destination = Gio.File.new_for_path(GLib.build_filenamev([GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP), finalName]));
+            destination = this._desktopDir.get_child(finalName);
             counter++;
-        } while(destination.query_exists(null));
+            finalName = `${name} (${counter})${extension}`
+        } while (await FileUtils.queryExists(destination));
+
         try {
-            file.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+            await file.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+        } catch(e) {
+            logError(e, `Failed to create template ${e.message}`);
+        }
+
+        try {
             let info = new Gio.FileInfo();
             info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
             info.set_attribute_string('metadata::nautilus-icon-position', '');
             info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
-            destination.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
-        } catch(e) {
-            print(`Failed to create template ${e.message}`);
+            await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
+                GLib.PRIORITY_DEFAULT, null);
+        } catch (e) {
+            logError(e, `Failed to set template attributes: ${e.message}`);
         }
     }
 
