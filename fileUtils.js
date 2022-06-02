@@ -95,3 +95,37 @@ async function queryExists(file, cancellable = null,
             return false;
         }
 }
+
+async function recursivelyMakeDir(dir, cancellable = null,
+    priority = GLib.PRIORITY_DEFAULT) {
+    try {
+        await dir.make_directory_async(priority, cancellable);
+    } catch (e) {
+        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+            throw e;
+    }
+
+    const missingDirs = [dir];
+    for (let parent = dir.get_parent(); parent; parent = parent.get_parent()) {
+        try {
+            await parent.make_directory_async(priority, cancellable);
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+                break;
+            else if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                missingDirs.unshift(parent);
+            else
+                throw e;
+        }
+    }
+
+    // Sadly we must be sequential here, so we can't use Promise.all
+    missingDirs.forEach(async dir => {
+        try {
+            await dir.make_directory_async(priority, cancellable);
+        } catch (e) {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+                throw e;
+        }
+    });
+}
