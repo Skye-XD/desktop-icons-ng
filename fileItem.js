@@ -448,7 +448,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                             if ((this._desktopManager.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
                                     DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, this._file.get_uri());
                                 } else if ((gdkDropAction != Gdk.DragAction.MOVE) || (gdkDropAction != Gdk.DragAction.COPY)){
-                                    this._desktopManager.askWhatToDoWithFiles(fileList, this._file.get_uri(), X, Y, x, y);
+                                    this._desktopManager.askWhatToDoWithFiles(fileList, this._file.get_uri(), this._file.get_path(), X, Y, x, y, false);
                                 }else {
                                     DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, this._file.get_uri());
                                 }

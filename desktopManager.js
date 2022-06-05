@@ -666,7 +666,7 @@ var DesktopManager = class {
                     fileList.splice(-1, 1);
                 }
                 let desktoppath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
-                let destinationuri = "file://" + desktoppath;
+                let destinationuri = `file://${desktoppath}`;
                 if (fileList.length != 0) {
                     let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
                     let id_fs = data.get_attribute_string('id::filesystem');
@@ -690,15 +690,20 @@ var DesktopManager = class {
         }
     }
 
-    askWhatToDoWithFiles(fileList, destinationuri, desktoppath, X, Y, x, y) {
+    askWhatToDoWithFiles(fileList, destinationuri, destinationpath, X, Y, x, y, desktopactions=true) {
         this._askWhatToDoWindow = new Gtk.Dialog({use_header_bar: false,
                                        resizable: false});
         let headerbar = Gtk.HeaderBar.new();
         headerbar.set_show_title_buttons(false);
         this._askWhatToDoWindow.set_titlebar(headerbar);
-        this._askWhatToDoWindow.add_button(_("Move"), 1)
-        this._askWhatToDoWindow.add_button(_("Copy"), 2)
-        this._askWhatToDoWindow.add_button(_("Link"), 3);
+        const Action = {
+            MOVE: 1,
+            COPY: 2,
+            LINK: 3
+        };
+        this._askWhatToDoWindow.add_button(_("Move"), Action.MOVE)
+        this._askWhatToDoWindow.add_button(_("Copy"), Action.COPY)
+        this._askWhatToDoWindow.add_button(_("Link"), Action.LINK);
         this._askWhatToDoWindow.add_button(_("Cancel"), Gtk.ResponseType.CLOSE);
         this._askWhatToDoWindow.set_modal(true);
         this._askWhatToDoWindow.set_title(_('Choose Action for Files'));
@@ -710,22 +715,53 @@ var DesktopManager = class {
         })
         this._askWhatToDoWindow.connect('response', (actor, retval) => {
             switch(retval) {
-                case 1:
-                    this.clearFileCoordinates(fileList, [X, Y], desktoppath);
+                case Action.MOVE:
+                    if (desktopactions) {
+                        this.clearFileCoordinates(fileList, [X, Y], destinationpath);
+                    }
                     DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destinationuri);
                     break;
-                case 2:
-                    this.clearFileCoordinates(fileList, [X, Y], desktoppath, true);
+                case Action.COPY:
+                    if (desktopactions) {
+                        this.clearFileCoordinates(fileList, [X, Y], destinationpath, true);
+                    }
                     DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destinationuri);
                     break;
-                case 3:
-                    this.makeLinks(fileList, destinationuri, X, Y, x, y);
+                case Action.LINK:
+                    if (desktopactions) {
+                        this.makeLinks(fileList, destinationuri, X, Y, x, y);
+                    } else {
+                        this.makeFileSystemLinks(fileList, destinationuri, X, Y, x, y);
+                    }
                     break;
             }
             this.textEntryAccelsTurnOn();
             this._askWhatToDoWindow.destroy();
             this._askWhatToDoWindow = null;
         });
+    }
+
+    makeFileSystemLinks(fileList, destination, X, Y, x, y) {
+        let gioDestination = Gio.File.new_for_uri(destination);
+        for (let file of fileList) {
+            let fileGio = Gio.File.new_for_uri(file);
+            let i = 0;
+            let baseName = fileGio.get_basename();
+            let newSymlinkName = baseName;
+            let checkSymlinkGio;
+            do {
+                checkSymlinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path() , newSymlinkName]));
+                if (checkSymlinkGio.query_exists(null)) {
+                    i += 1;
+                    newSymlinkName = `${baseName} (${i})`;
+                } else {
+                    try {
+                        checkSymlinkGio.make_symbolic_link(GLib.build_filenamev([fileGio.get_path()]), null);
+                    } catch(e) {}
+                    break;
+                }
+            } while (true)
+        }
     }
 
     makeLinks(fileList, destination, X, Y, x, y) {
@@ -735,9 +771,9 @@ var DesktopManager = class {
             let i = 0;
             let baseName = fileGio.get_basename();
             let newSymlinkName = baseName;
-            while (  0 < this._fileList.filter(f => f.fileName == newSymlinkName).length) {
+            while (this._fileList.map(f => f.fileName).includes(newSymlinkName)) {
                 i += 1;
-                newSymlinkName = baseName + "(" + i + ")";
+                newSymlinkName = `${baseName} (${i})`;
             }
             let symlinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path() , newSymlinkName]));
             try {
