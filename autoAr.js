@@ -43,9 +43,8 @@ var AutoAr = class {
             deletable: false,
             modal: false,
             default_height: 100,
-            //window_position: Gtk.WindowPosition.CENTER_ALWAYS,
         });
-        this._progressWindow.connect('delete-event', () => {
+        this._progressWindow.connect('close-request', () => {
             return true;
         });
         this._progressContainer = new Gtk.Box({ spacing: 12,
@@ -254,7 +253,7 @@ var AutoAr = class {
     }
 
     addProgress(progressElement, message) {
-        this._progressContainer.append(progressElement); //, false, true, 0);
+        this._progressContainer.append(progressElement);
         if (! this._progressElements.length) {
             this._inhibitCookie = this._desktopManager.mainApp.inhibit(null,
                                                                        Gtk.ApplicationInhibitFlags.LOGOUT | Gtk.ApplicationInhibitFlags.SUSPEND,
@@ -321,22 +320,22 @@ const progressDialog = class {
                                           secondary_icon_name: 'view-conceal',
                                           secondary_icon_activatable: true,
                                           secondary_icon_sensitive: true });
-        container3.append(this._processLabel); //, false, true, 0);
-        container3.append(this._processBar); //, false, true, 0);
-        container3.append(this._passEntry); //, false, true, 0);
-        container2.append(container3); //, false, true, 0);
-        container2.append(this._passOkButton); //, false, false, 0);
+        container3.append(this._processLabel);
+        container3.append(this._processBar);
+        container3.append(this._passEntry);
+        container2.append(container3);
+        container2.append(this._passOkButton);
         this._passOkButton.set_halign(Gtk.Align.END);
-        container2.append(this._cancelButton); //, false, false, 0);
+        container2.append(this._cancelButton);;
         this._cancelButton.set_halign(Gtk.Align.END);
-        this._container.append(container2); //, false, false, 0);
+        this._container.append(container2);
         this._passEntry.connect('icon-release', () => {
             this._passEntry.visibility = !this._passEntry.visibility;
         });
         this._passEntry.connect('activate', passOKfunc);
 
         const separator = new Gtk.Separator({ orientation: Gtk.Orientation.HORIZONTAL });
-        this._container.append(separator); //, false, true, 4);
+        this._container.append(separator);
         const updateSeparatorVisibility = () => {
             const progressElements = this._autoAr.getProgressElements();
             separator.visible = progressElements.length &&
@@ -606,12 +605,8 @@ const CompressDialog = class {
         this._passLabel = new Gtk.Label({ label: _('Password'),
                                           margin_top: 6,
                                           xalign: 0 });
-        this._passEntry = new Gtk.Entry({ placeholder_text: _('Enter a password here'),
-                                          input_purpose: Gtk.InputPurpose.PASSWORD,
-                                          visibility: false,
-                                          secondary_icon_name: 'view-conceal',
-                                          secondary_icon_activatable: true,
-                                          secondary_icon_sensitive: true });
+        this._passEntry = new Gtk.PasswordEntry({ placeholder_text: _('Enter a password here')});
+        this._passEntry.set_show_peek_icon(true);
 
         container.append(box1);
         box1.append(this._nameEntry);
@@ -639,9 +634,6 @@ const CompressDialog = class {
         this._passEntry.connect('changed', () => this._updateStatus());
         this._nameEntry.connect('activate', () => this._entryActivated());
         this._passEntry.connect('activate', () => this._entryActivated());
-        this._passEntry.connect('icon-release', () => {
-            this._passEntry.visibility = !this._passEntry.visibility;
-        });
         this._dialog.connect('response', (dialog, id) => {
             if (id === Gtk.ResponseType.ACCEPT) {
                 const data = this._desktopManager.autoAr.getFormatAndFilterForExtension(this._compressOptions[this._selectedType].extension);
@@ -685,7 +677,7 @@ const CompressDialog = class {
                     context.remove_class('not-found');
                 }
             }
-        if (password && (this._passEntry.get_text_length() == 0)) {
+        if (password && (this._passEntry.get_text().length === 0)) {
             this._okButton.sensitive = false;
         }
         if (this._nameEntry.get_text_length() == 0) {
