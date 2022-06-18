@@ -406,14 +406,28 @@ var DesktopManager = class {
             this.updateFileItemThumbnail(parameter.recursiveUnpack());
         });
         let actionGroup = new Gio.SimpleActionGroup();
+        actionGroup.add_action(updateGridWindows);
         actionGroup.add_action(updateThumbnail);
-        let busname = this.mainApp.get_dbus_object_path();
+        this._busname = this.mainApp.get_dbus_object_path();
         this._connection = Gio.DBus.session;
         this._dbusConnectionGroupId = this._connection.export_action_group(
-            `${busname}/actions`,
+            `${this._busname}/actions`,
             actionGroup
         );
-        actionGroup.add_action(updateGridWindows);
+        if (this._asDesktop) {
+            const signalXml = `
+                <node>
+                  <interface name="com.rastersoft.ding.geometrycontrol">
+                    <signal name="updategeometry">
+                      <arg name="type" type="s"/>
+                      <arg name="value" type="b"/>
+                    </signal>
+                  </interface>
+                </node>`;
+            let geometryIface = Gio.DBusExportedObject.wrapJSObject(signalXml, this);
+            geometryIface.export(this._connection, `${this._busname}/geometrycontrol`);
+            this._requestGeometryUpdate();
+        }
     }
 
     updateFileItemThumbnail(thumbnailinfo) {
@@ -431,6 +445,11 @@ var DesktopManager = class {
                 f.updateIcon();
             }
         });
+    }
+
+    _requestGeometryUpdate() {
+        let variant = new GLib.Variant('(sb)', ['updategeometry', true]);
+        let requestUpdate = this._connection.emit_signal(null, `${this._busname}/geometrycontrol`, 'com.rastersoft.ding.geometrycontrol', 'updategeometry', variant);
     }
 
     updateGridWindows(newdesktoplist) {

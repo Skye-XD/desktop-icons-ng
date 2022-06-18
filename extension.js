@@ -137,12 +137,11 @@ function innerEnable(removeId) {
         'com.rastersoft.ding',
         '/com/rastersoft/ding/actions'
     );
-    data.remoteDingActionsEnabledId = data.remoteDingActions.connect('action-added', (group, action_name) => {
-        if (action_name == 'updateGridWindows') {
-            updateDesktopGeometry();
-        }
+
+    data.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe('com.rastersoft.ding', 'com.rastersoft.ding.geometrycontrol', 'updategeometry', '/com/rastersoft/ding/geometrycontrol', null, Gio.DBusSignalFlags.NONE, () => {
+        updateDesktopGeometry();
     });
-    data.remoteDingActions.list_actions();
+
 }
 
 /**
@@ -176,10 +175,11 @@ function disable() {
     data.visibleArea.disable();
 
     // disconnect signals only if connected
-    if (data.remoteDingActionsEnabledId) {
-        data.remoteDingActions.disconnect(data.remoteDingActionsEnabledId);
-        data.remoteDingActionsEnabledId = 0;
+    if (data.remoteGeometryUpdateRequestedId) {
+        Gio.DBus.session.signal_unsubscribe(data.remoteGeometryUpdateRequestedId);
+        data.remoteGeometryUpdateRequestedId = 0;
     }
+
     if (data.visibleAreaId) {
         data.visibleArea.disconnect(data.visibleAreaId);
         data.visibleAreaId = 0;
