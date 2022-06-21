@@ -272,8 +272,7 @@ var DesktopGrid = class {
     setDropDestination(widget) {
         this.gridDropController = new Gtk.DropTargetAsync();
         this.gridDropController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
-        this.dropMimeTypes = ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain'];
-        let formats = Gdk.ContentFormats.new(this.dropMimeTypes);
+        let formats = Gdk.ContentFormats.new(Enums.DndTargetInfo.MIME_TYPES);
         this.gridDropController.set_formats(formats);
         let dropformats;
         let info;
@@ -281,12 +280,12 @@ var DesktopGrid = class {
         this.gridDropController.connect('accept', (actor, drop) => {
             if (drop.get_formats().match(formats)) {
                 dropformats = drop.get_formats().to_string();
-                if (dropformats.includes('x-special/ding-icon-list')) {
-                    info = 'dingdrop';
-                } else if (dropformats.includes('x-special/gnome-icon-list')) {
-                    info = 'gnomeicondrop';
-                } else if (dropformats.includes('text/plain')) {
-                    info = 'textdrop';
+                if (dropformats.includes(Enums.DndTargetInfo.DING_ICON_LIST)) {
+                    info = Enums.DndTargetInfo.DING_ICON_LIST;
+                } else if (dropformats.includes(Enums.DndTargetInfo.GNOME_ICON_LIST)) {
+                    info = Enums.DndTargetInfo.GNOME_ICON_LIST;
+                } else if (dropformats.includes(Enums.DndTargetInfo.TEXT_PLAIN)) {
+                    info = Enums.DndTargetInfo.TEXT_PLAIN;
                 }
                 return true;
             }
@@ -411,24 +410,21 @@ var DesktopGrid = class {
     }
 
     _loadDragData(clickItem) {
-        let dingdrop = 'x-special/ding-icon-list';
-        let gnomedrop = 'x-special/gnome-icon-list';
-        let textlistdrop = 'text/plain';
-        let dingdragData = this._desktopManager.fillDragDataGet(dingdrop);
+        let dingdragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.DING_ICON_LIST);
         let dingcontentProvider;
         if (dingdragData != null) {
-            dingcontentProvider = Gdk.ContentProvider.new_for_bytes(dingdrop, ByteArray.toGBytes(ByteArray.fromString(dingdragData)));
+            dingcontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.DING_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(dingdragData)));
         } else {
             this.contentProvider = null;
             return;
         }
-        let textlistdragData = this._desktopManager.fillDragDataGet(textlistdrop);
-        let textlistcontentProvider = Gdk.ContentProvider.new_for_bytes(textlistdrop, ByteArray.toGBytes(ByteArray.fromString(textlistdragData)));
+        let textlistdragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.TEXT_PLAIN);
+        let textlistcontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, ByteArray.toGBytes(ByteArray.fromString(textlistdragData)));
         if ((clickItem._fileExtra != Enums.FileType.USER_DIRECTORY_TRASH) &&
             (clickItem._fileExtra != Enums.FileType.USER_DIRECTORY_HOME) &&
             (clickItem._fileExtra != Enums.FileType.EXTERNAL_DRIVE)) {
-                let gnomedragData = this._desktopManager.fillDragDataGet(gnomedrop);
-                let gnomecontentProvider = Gdk.ContentProvider.new_for_bytes(gnomedrop, ByteArray.toGBytes(ByteArray.fromString(gnomedragData)));
+                let gnomedragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.GNOME_ICON_LIST);
+                let gnomecontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(gnomedragData)));
                 this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, gnomecontentProvider, textlistcontentProvider]);
         } else {
             this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, textlistcontentProvider]);

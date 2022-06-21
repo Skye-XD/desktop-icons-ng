@@ -669,7 +669,7 @@ var DesktopManager = class {
         let fileList;
 
         switch(info) {
-            case 'dingdrop':
+            case Enums.DndTargetInfo.DING_ICON_LIST:
                 fileList = selection.split('\r\n')
                 if (fileList.length >= 2) {
                     fileList.splice(-1, 1);
@@ -679,7 +679,8 @@ var DesktopManager = class {
                     this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
                 }
                 break;
-            case 'gnomeicondrop':
+            case Enums.DndTargetInfo.URI_LIST:
+            case Enums.DndTargetInfo.GNOME_ICON_LIST:
                 fileList = selection.split('\r\n')
                 if (fileList.length >= 2) {
                     fileList.splice(-1, 1);
@@ -700,7 +701,7 @@ var DesktopManager = class {
                     }
                 }
                 break;
-            case 'textdrop':
+            case Enums.DndTargetInfo.TEXT_PLAIN:
                 if (selection.length != 0 ) {
                     let dropCoordinates = [ xGlobalDestination, yGlobalDestination ];
                     this.detectURLorText(selection, dropCoordinates);
@@ -852,7 +853,7 @@ var DesktopManager = class {
         let data = "";
         for (let fileItem of fileList) {
             data += fileItem.uri;
-            if (info == 'x-special/gnome-icon-list') {
+            if (info === Enums.DndTargetInfo.GNOME_ICON_LIST) {
                 let coordinates = fileItem.getCoordinates();
                 if (coordinates != null) {
                     data += `\r${coordinates[0]}:${coordinates[1]}:${coordinates[2] - coordinates[0] + 1}:${coordinates[3] - coordinates[1] + 1}`

@@ -427,7 +427,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             (this._fileExtra == Enums.FileType.USER_DIRECTORY_HOME) ||
             (this._fileExtra != Enums.FileType.EXTERNAL_DRIVE) ||
             (this._isDirectory)) {
-                if ((info == 'gnomeicondrop') || (info == 'dingdrop')) {
+                if ((info === Enums.DndTargetInfo.GNOME_ICON_LIST) || (info === Enums.DndTargetInfo.DING_ICON_LIST)) {
                     let fileList = selection.split('\r\n')
                     if (fileList.length >= 2) {
                         fileList.splice(-1, 1);

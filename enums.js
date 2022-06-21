@@ -86,10 +86,11 @@ var CompressionType = {
 };
 
 var DndTargetInfo = {
-    DING_ICON_LIST: 0,
-    GNOME_ICON_LIST: 1,
-    URI_LIST: 2,
-    TEXT_PLAIN: 3,
+    DING_ICON_LIST: 'x-special/ding-icon-list',
+    GNOME_ICON_LIST: 'x-special/gnome-icon-list',
+    URI_LIST: 'text/uri-list',
+    TEXT_PLAIN: 'text/plain',
+    MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain']
 };
 
 var DEFAULT_ATTRIBUTES = 'metadata::*,standard::*,access::*,time::modified,unix::mode';
