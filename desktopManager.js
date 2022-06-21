@@ -864,7 +864,7 @@ var DesktopManager = class {
         return data;
     }
 
-    onPressButton(X, Y, x, y, button, shiftPressed, controlPressed, grid) {
+    async onPressButton(X, Y, x, y, button, shiftPressed, controlPressed, grid) {
         this._clickX = Math.floor(X);
         this._clickY = Math.floor(Y);
 
@@ -878,6 +878,24 @@ var DesktopManager = class {
 
         if (button == 3) {
             this._syncUndoRedo();
+            await this._updateClipboard();
+            this._createDesktopBackgroundGioMenu();
+            this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
+            this.popupmenu.set_parent(grid._container);
+            this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
+            this.popupmenu.set_has_arrow(true);
+            this.popupmenuopen = true;
+            this.popupmenu.popup();
+            this.popupmenu.connect('closed', async () => {
+                await DesktopIconsUtil.waitDelayMs(50);
+                this.popupmenu.unparent();
+                this.popupmenuopen = false;
+            });
+        }
+    }
+
+    _updateClipboard() {
+        return new Promise ((resolve, rejct) => {
             let clipboard = Gdk.Display.get_default().get_clipboard();
             this._isCut = false;
             this._clipboardFiles = null;
@@ -904,42 +922,44 @@ var DesktopManager = class {
                 let mimetypes = clipboard.get_formats().to_string();
                 if (mimetypes.includes('x-special/gnome-copied-files')) {
                     clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
+                        if(error) {
+                            resolve(false);
+                        }
+                        try {
                             let success = actor.read_finish(result);
                             let bytes = success[0].read_bytes(8192, null);
                             text = ByteArray.toString(bytes.get_data());
                             text = 'x-special/nautilus-clipboard\n' + text + '\n'
                             this._setClipboardContent(text);
+                            resolve(true);
+                        } catch(e) {
+                            resolve(false);
+                        }
                     });
                 } else if (mimetypes.includes('text/plain')) {
                     clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
+                        if (error) {
+                            resolve(false);
+                        }
                         try {
                             let success = actor.read_finish(result);
                             let bytes = success[0].read_bytes(8192, null);
                             text = ByteArray.toString(bytes.get_data());
                             this._setClipboardContent(text);
-                        } catch(e) {}
+                            resolve(true);
+                        } catch(e) {
+                            resolve(false);
+                        }
                     });
                 } else {
                     if (text && !text.endsWith('\n')) {
                         text += '\n';
                     }
                     this._setClipboardContent(text);
+                    resolve(true);
                 }
             }
-            this._createDesktopBackgroundGioMenu();
-            this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
-            this.popupmenu.set_parent(grid._container);
-            this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
-            this.popupmenu.set_has_arrow(true);
-            this.popupmenuopen = true;
-            this.popupmenu.popup();
-            this.popupmenu.connect('closed', async () => {
-                await DesktopIconsUtil.waitDelayMs(50);
-                this.popupmenu.unparent();
-                this.popupmenuopen = false;
-            });
-        }
-        this._setClipboardContent(text);
+        });
     }
 
     _setClipboardContent(text) {
@@ -1127,7 +1147,10 @@ var DesktopManager = class {
         this.mainApp.set_accels_for_action('app.doNewFolder', ['<Control><Shift>N'])
 
         this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
-        this.doPasteSimpleAction.connect('activate', () => {
+        this.doPasteSimpleAction.connect('activate', async () => {
+            if (! this.popupmenuopen) {
+                await this._updateClipboard();
+            }
             this._doPaste();
         });
         this.mainApp.add_action(this.doPasteSimpleAction);
