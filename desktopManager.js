@@ -555,6 +555,9 @@ var DesktopManager = class {
     }
 
     clearFileCoordinates(fileList, dropCoordinates, desktoppath=null, doCopy=false) {
+        if (this.keepArranged || this.keepStacked) {
+            return;
+        }
         for(let element of fileList) {
             let file = Gio.File.new_for_uri(element);
             if (!file.is_native() || !file.query_exists(null) || doCopy) {
