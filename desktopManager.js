@@ -559,9 +559,12 @@ var DesktopManager = class {
             let file = Gio.File.new_for_uri(element);
             if (!file.is_native() || !file.query_exists(null) || doCopy) {
                 if (dropCoordinates != null) {
-                    let copylinkGio = Gio.File.new_for_path(GLib.build_filenamev([desktoppath, file.get_basename()]));
-                    if (! copylinkGio.query_exists(null)) {
-                        this._pendingDropFiles[file.get_basename()] = dropCoordinates;
+                    let basename = file.get_basename();
+                    let copytargetGio = Gio.File.new_for_path(GLib.build_filenamev([desktoppath, basename]));
+                    if (! copytargetGio.query_exists(null)) {
+                        this._pendingDropFiles[basename] = dropCoordinates;
+                    } else {
+                        this._pendingDropFiles[`${basename}COPYEXPECTED`] = dropCoordinates;
                     }
                 }
                 continue;
@@ -1518,11 +1521,17 @@ var DesktopManager = class {
         if (this._clipboardFiles === null) {
             return;
         }
-
         let desktopDir = this._desktopDir.get_uri();
+        let desktoppath = this._desktopDir.get_path();
         if (this._isCut) {
+            if (this._clickX != 0) {
+                this.clearFileCoordinates(this._clipboardFiles, [this._clickX, this._clickY], desktoppath);
+            }
             DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
+            if (this._clickX != 0) {
+                this.clearFileCoordinates(this._clipboardFiles, [this._clickX, this._clickY], desktoppath, true)
+            }
             DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
         }
     }
@@ -1750,12 +1759,10 @@ var DesktopManager = class {
                             fileList.push(fileItem);
                             if (fileItem.dropCoordinates == null) {
                                 let basename = fileItem.file.get_basename();
-                                if (basename in this._pendingDropFiles) {
-                                    fileItem.dropCoordinates = this._pendingDropFiles[basename];
-                                    delete this._pendingDropFiles[basename];
-                                }
+                                this._checkBasenameInPending(fileItem, basename);
                             }
                         }
+                        this._clearPendingDropFiles();
                         for (let [newFolder, extras, volume] of DesktopIconsUtil.getMounts(this._volumeMonitor)) {
                             try {
                                 fileList.push(new FileItem.FileItem(this,
@@ -1776,6 +1783,35 @@ var DesktopManager = class {
                 }
             );
         });
+    }
+
+    _checkBasenameInPending(fileItem, basename) {
+        if (basename in this._pendingDropFiles) {
+            fileItem.dropCoordinates = this._pendingDropFiles[basename];
+            delete this._pendingDropFiles[basename];
+            return;
+        }
+        const regex = /\(.*\)[^()]*$/;
+        let basenameStart;
+        let lastParenthesisPosition = basename.search(regex);
+        if (lastParenthesisPosition > 1) {
+            basenameStart = basename.slice(0, lastParenthesisPosition - 1);
+            if (basenameStart) {
+                for (let fileName of Object.keys(this._pendingDropFiles)) {
+                    if (fileName.startsWith(basenameStart)) {
+                        fileItem.dropCoordinates = this._pendingDropFiles[fileName];
+                    }
+                }
+            }
+        }
+    }
+
+    _clearPendingDropFiles() {
+        for (let fileName of Object.keys(this._pendingDropFiles)) {
+            if (fileName.endsWith('COPYEXPECTED')) {
+                delete this._pendingDropFiles[fileName];
+            }
+        }
     }
 
     _drawDesktop(fileList) {
