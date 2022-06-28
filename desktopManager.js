@@ -926,8 +926,8 @@ var DesktopManager = class {
             if (clipboard.get_formats()) {
                 let mimetypes = clipboard.get_formats().to_string();
                 if (mimetypes.includes('x-special/gnome-copied-files')) {
-                    clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
-                        if(! error) {
+                    try {
+                        clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
                             try {
                                 let success = actor.read_finish(result);
                                 let bytes = success[0].read_bytes(8192, null);
@@ -940,15 +940,15 @@ var DesktopManager = class {
                                 this._setClipboardContent(text);
                                 resolve(false);
                             }
-                        } else {
-                            print(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${error.message}\n${e.stack}`);
+                        });
+                    } catch(e) {
+                            print(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${e.message}\n${e.stack}`);
                             this._setClipboardContent(text);
                             resolve(false);
-                        }
-                    });
+                    }
                 } else if (mimetypes.includes('text/plain')) {
-                    clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
-                        if (! error) {
+                    try {
+                        clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
                             try {
                                 let success = actor.read_finish(result);
                                 let bytes = success[0].read_bytes(8192, null);
@@ -963,12 +963,12 @@ var DesktopManager = class {
                                 this._setClipboardContent(text);
                                 resolve(false);
                             }
-                        } else {
-                            print(`Exception while reading clipboard mimetype text/plain: ${error.message}\n${e.stack}`);
-                            this._setClipboardContent(text);
-                            resolve(false);
-                        }
-                    });
+                        });
+                    } catch(e) {
+                        print(`Exception while reading clipboard mimetype text/plain: ${e.message}\n${e.stack}`);
+                        this._setClipboardContent(text);
+                        resolve(false);
+                    }
                 } else {
                     this._setClipboardContent(text);
                     resolve(false);
