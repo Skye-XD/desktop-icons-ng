@@ -883,7 +883,6 @@ var DesktopManager = class {
         }
 
         if (button == 3) {
-            this._syncUndoRedo();
             await this._updateClipboard();
             this._createDesktopBackgroundGioMenu();
             this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
@@ -928,42 +927,55 @@ var DesktopManager = class {
                 let mimetypes = clipboard.get_formats().to_string();
                 if (mimetypes.includes('x-special/gnome-copied-files')) {
                     clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
-                        if(error) {
-                            resolve(false);
-                        }
-                        try {
-                            let success = actor.read_finish(result);
-                            let bytes = success[0].read_bytes(8192, null);
-                            text = ByteArray.toString(bytes.get_data());
-                            text = 'x-special/nautilus-clipboard\n' + text + '\n'
+                        if(! error) {
+                            try {
+                                let success = actor.read_finish(result);
+                                let bytes = success[0].read_bytes(8192, null);
+                                text = ByteArray.toString(bytes.get_data());
+                                text = 'x-special/nautilus-clipboard\n' + text + '\n'
+                                this._setClipboardContent(text);
+                                resolve(true);
+                            } catch(e) {
+                                print(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
+                                this._setClipboardContent(text);
+                                resolve(false);
+                            }
+                        } else {
+                            print(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${error.message}\n${e.stack}`);
                             this._setClipboardContent(text);
-                            resolve(true);
-                        } catch(e) {
                             resolve(false);
                         }
                     });
                 } else if (mimetypes.includes('text/plain')) {
                     clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result, error) => {
-                        if (error) {
-                            resolve(false);
-                        }
-                        try {
-                            let success = actor.read_finish(result);
-                            let bytes = success[0].read_bytes(8192, null);
-                            text = ByteArray.toString(bytes.get_data());
+                        if (! error) {
+                            try {
+                                let success = actor.read_finish(result);
+                                let bytes = success[0].read_bytes(8192, null);
+                                text = ByteArray.toString(bytes.get_data());
+                                if (text && !text.endsWith('\n')) {
+                                    text += '\n';
+                                }
+                                this._setClipboardContent(text);
+                                resolve(true);
+                            } catch(e) {
+                                print(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
+                                this._setClipboardContent(text);
+                                resolve(false);
+                            }
+                        } else {
+                            print(`Exception while reading clipboard mimetype text/plain: ${error.message}\n${e.stack}`);
                             this._setClipboardContent(text);
-                            resolve(true);
-                        } catch(e) {
                             resolve(false);
                         }
                     });
                 } else {
-                    if (text && !text.endsWith('\n')) {
-                        text += '\n';
-                    }
                     this._setClipboardContent(text);
-                    resolve(true);
+                    resolve(false);
                 }
+            } else {
+                this._setClipboardContent(text);
+                resolve(false);
             }
         });
     }
