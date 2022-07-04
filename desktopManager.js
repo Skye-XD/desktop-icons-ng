@@ -223,8 +223,17 @@ var DesktopManager = class {
         this._createMenuActionGroup();
         this._createGridWindows();
 
-        DBusUtils.NautilusFileOperations2.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
-        this._syncUndoRedo();
+        DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
+        DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
+            if (available) {
+                this._syncUndoRedo();
+            } else {
+                this._syncUndoRedo(true);
+            }
+        });
+        if (DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable) {
+            this._syncUndoRedo();
+        }
         DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
         this._allFileList = null;
         this._fileList = [];
@@ -883,7 +892,7 @@ var DesktopManager = class {
         }
 
         if (button == 3) {
-            await this._updateClipboard();
+            await this._updateClipboard().catch((error) => {});
             this._createDesktopBackgroundGioMenu();
             this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
             this.popupmenu.set_parent(grid._container);
@@ -989,7 +998,12 @@ var DesktopManager = class {
         this.doPasteSimpleAction.set_enabled(valid);
     }
 
-    _syncUndoRedo() {
+    _syncUndoRedo(hide=false) {
+        if (hide) {
+            this._undoMenuItem.hide();
+            this._redoMenuItem.hide();
+            return;
+        }
         switch (DBusUtils.RemoteFileOperations.UndoStatus()) {
             case Enums.UndoStatus.UNDO:
                 this.doUndoSimpleAction.set_enabled(true);

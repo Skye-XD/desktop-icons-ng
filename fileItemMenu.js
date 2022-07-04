@@ -35,14 +35,23 @@ var FileItemMenu = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
         this._mainApp = this._desktopManager.mainApp;
-        DBusUtils.GnomeArchiveManager.connect('changed-status', () => {
-            // wait a second to ensure that everything has settled
-            GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
-                this._getExtractionSupportedTypes();
-                return false;
-            });
+        this._decompressibleTypes = [];
+        DBusUtils.RemoteFileOperations.gnomeArchiveManager.connect('changed-status', (actor, available) => {
+            if (available) {
+                // wait a second to ensure that everything has settled
+                GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
+                    try {
+                        this._getExtractionSupportedTypes();
+                        return false;
+                    } catch(e) {}
+                });
+            } else {
+                this._decompressibleTypes = [];
+            }
         });
-        this._getExtractionSupportedTypes();
+        if (DBusUtils.RemoteFileOperations.gnomeArchiveManager.isAvailable) {
+            this._getExtractionSupportedTypes();
+        }
 
         this.scriptsMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
             DesktopIconsUtil.getScriptsDir(),
@@ -57,8 +66,9 @@ var FileItemMenu = class {
 
     _getExtractionSupportedTypes() {
         this._decompressibleTypes = [];
-        if (DBusUtils.GnomeArchiveManager.isAvailable) {
-            DBusUtils.GnomeArchiveManager.proxy.GetSupportedTypesRemote('extract',
+        const archiveProxy = DBusUtils.GnomeArchiveManager.proxy;
+        try {
+            archiveProxy?.GetSupportedTypesRemote('extract',
                 (result, error) => {
                     if (error) {
                         print(`Can't get the extractable types: ${error.message}. Ensure that File-Roller is installed.\n${error}.`);
@@ -71,7 +81,7 @@ var FileItemMenu = class {
                     }
                 }
             );
-        }
+        } catch(e) {}
     }
 
     _scriptsDirSelectionFilter(fileinfo) {

@@ -53,7 +53,7 @@ class ProxyManager {
     * Whether the object is or not available can be checked with the 'isAvailable' property.
     * Also, every time the availability changes, the signal 'changed-status' is emitted.
     */
-    constructor(dbusManager, serviceName, objectName, interfaceName, inSystemBus, programNeeded) {
+    constructor(dbusManager, serviceName, objectName, interfaceName, inSystemBus, programNeeded, makeAsync=true) {
         this._dbusManager = dbusManager;
         this._serviceName = serviceName;
         this._objectName = objectName;
@@ -74,22 +74,25 @@ class ProxyManager {
             this._programNeeded = programNeeded;
         }
         this._timeout = 0;
-        this._available = this._dbusManager.checkIsAvailable(this._serviceName, this._inSystemBus);
-        if (this._available) {
-            this.makeNewProxy();
-        } else {
-            this._proxy = null;
-        }
+        this._available = false;
+        this._proxy = null;
         dbusManager.connect(inSystemBus ? 'changed-availability-system' : 'changed-availability-local', () => {
-            let newAvailability = this._dbusManager.checkIsAvailable(this._serviceName, this._inSystemBus);
-            if (newAvailability != this._available) {
-                this._available = newAvailability;
-                this.emit('changed-status', newAvailability);
-                if (this._available) {
-                    this.makeNewProxy();
-                }
-            }
+            this._makeProxy(makeAsync);
         });
+        this._makeProxy(makeAsync);
+    }
+
+    async _makeProxy(makeAsync) {
+        const newAvailability = this._dbusManager.checkIsAvailable(this._serviceName, this._inSystemBus);
+        if (newAvailability != this._available) {
+            if (newAvailability) {
+                makeAsync ? await this.makeNewProxyAsync() : this.makeNewProxySync();
+            } else {
+                this._available = false;
+                this._proxy = null;
+            }
+            this.emit('changed-status', this._available);
+        }
     }
 
     connectSignalToProxy(signal, cb) {
@@ -124,11 +127,12 @@ class ProxyManager {
         }
     }
 
-    makeNewProxy() {
-        this._interfaceXML = this._dbusManager.getInterface(this._serviceName, this._objectName, this._interfaceName, this._inSystemBus, false);
-        if (this._interfaceXML) {
+    makeNewProxySync() {
+        const interfaceXML = this._dbusManager.getInterface(this._serviceName, this._objectName, this._interfaceName, this._inSystemBus, false);
+        if (interfaceXML) {
+            const targetproxy = new Gio.DBusProxy.makeProxyWrapper(interfaceXML);
             try {
-                this._proxy = new Gio.DBusProxy.makeProxyWrapper(this._interfaceXML)(
+                this._proxy = new targetproxy(
                     this._inSystemBus ? Gio.DBus.system : Gio.DBus.session,
                     this._serviceName,
                     this._objectName,
@@ -140,19 +144,67 @@ class ProxyManager {
                 for (let signal in this._connectSignals) {
                     this._connectSignalsIDs[signal] = this._proxy.connectSignal(signal, this._connectSignals[signal]);
                 }
+                this._available = true;
+                return true;
             } catch(e) {
                 this._available = false;
                 this._proxy = null;
                 print(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
+                return false;
             }
         } else {
             this._available = false;
             this._proxy = null;
+            return false;
         }
     }
 
+    makeNewProxyAsync(cancellable = null, flags = Gio.DBusProxyFlags.NONE) {
+        return new Promise((resolve, reject) => {
+            const interfaceXML = this._dbusManager.getInterface(this._serviceName, this._objectName, this._interfaceName, this._inSystemBus, false);
+            if (interfaceXML) {
+                const targetproxy = new Gio.DBusProxy.makeProxyWrapper(interfaceXML);
+                    try {
+                        new targetproxy(
+                            this._inSystemBus ? Gio.DBus.system : Gio.DBus.session,
+                            this._serviceName,
+                            this._objectName,
+                            (proxy, error) => {
+                                if (error === null) {
+                                    for (let signal in this._signals) {
+                                        this._signalsIDs[signal] = proxy.connect(signal, this._signals[signal]);
+                                    }
+                                    for (let signal in this._connectSignals) {
+                                        this._connectSignalsIDs[signal] = proxy.connectSignal(signal, this._connectSignals[signal]);
+                                    }
+                                    this._available = true;
+                                    this._proxy = proxy;
+                                    resolve(true);
+                                } else {
+                                    this._available = false;
+                                    this._proxy = null
+                                    resolve(false);
+                                }
+                            },
+                            cancellable,
+                            flags
+                        );
+                    } catch(e) {
+                        this._available = false;
+                        this._proxy = null;
+                        print(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
+                        resolve(false);
+                    }
+            } else {
+                this._available = false;
+                this._proxy = null;
+                resolve(false);
+            }
+        });
+}
+
     get isAvailable() {
-        return this._available;
+        return this._proxy ? true : false ;
     }
 
     get proxyNoCheck() {
@@ -160,7 +212,7 @@ class ProxyManager {
     }
 
     get proxy() {
-        if (!this._available) {
+        if (! this._available || ! this._proxy) {
             if (this._programNeeded && (this._timeout == 0)) {
                 print(this._programNeeded[0]);
                 print(this._programNeeded[1]);
