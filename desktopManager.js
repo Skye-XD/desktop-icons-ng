@@ -374,7 +374,7 @@ var DesktopManager = class {
                 updateFileList = this._fileList;
             }
             for (let fileItem of updateFileList) {
-                if (fileItem.path == filepath) {
+                if (fileItem.path === filepath) {
                     fileItem.updatedMetadata();
                     break;
                 }
@@ -968,7 +968,6 @@ var DesktopManager = class {
                                 this._setClipboardContent(text);
                                 resolve(true);
                             } catch(e) {
-                                print(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
                                 this._setClipboardContent(text);
                                 resolve(false);
                             }
