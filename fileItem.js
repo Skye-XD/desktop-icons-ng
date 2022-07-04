@@ -283,7 +283,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             fileList = [] ;
         }
         if (this._isSymlink) {
-            await this._refreshMetadataAsync(true);
+            await this._refreshMetadataAsync(true).catch((error) => {});
         }
         if (this._isBrokenSymlink) {
             try {
@@ -523,17 +523,17 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             return;
         }
         if (this._isDesktopFile) {
-            this._refreshMetadataAsync(true);
+            this._refreshMetadataAsync(true).catch(e => logError(e));
         }
     }
 
     updatedMetadata() {
-        this._refreshMetadataAsync(true);
+        this._refreshMetadataAsync(true).catch((error) => {});
     }
 
     onFileRenamed(file) {
         this._file = file;
-        this._refreshMetadataAsync(false);
+        this._refreshMetadataAsync(false).catch((error) => {});
     }
 
     eject() {
@@ -737,7 +737,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 try {
                     this._setMetadataTrustedCancellable = null;
                     source.set_attributes_finish(result);
-                    this._refreshMetadataAsync(true);
+                    this._refreshMetadataAsync(true).catch((error) => {});
                 } catch(error) {
                     if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                         log(`Failed to set metadata::trusted: ${error.message}`);

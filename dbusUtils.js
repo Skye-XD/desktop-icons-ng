@@ -86,7 +86,7 @@ class ProxyManager {
         const newAvailability = this._dbusManager.checkIsAvailable(this._serviceName, this._inSystemBus);
         if (newAvailability != this._available) {
             if (newAvailability) {
-                makeAsync ? await this.makeNewProxyAsync() : this.makeNewProxySync();
+                makeAsync ? await this.makeNewProxyAsync().catch(e => logError(e)) : this.makeNewProxySync();
             } else {
                 this._available = false;
                 this._proxy = null;
