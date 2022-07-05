@@ -257,24 +257,7 @@ var DesktopManager = class {
         if (this._asDesktop) {
             this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
                 GLib.source_remove(this._sigtermID);
-                let updateFileList;
-                if (this._allFileList && (this._allFileList.length > 0)) {
-                    updateFileList = this._allFileList;
-                } else {
-                    updateFileList = this._fileList;
-                }
-                updateFileList.forEach(f => f.onDestroy());
-                for(let desktop of this._desktops) {
-                    desktop.destroy();
-                }
-                this._desktops = [];
-                this._forcedExit = true;
-                if (this._desktopEnumerateCancellable) {
-                    this._desktopEnumerateCancellable.cancel();
-                }
-                if (this.thumbnailApp) {
-                    this.thumbnailApp.send_signal(15);
-                }
+                this.terminateProgram();
                 if (this._hold_active) {
                     this.mainApp.release();
                     this._hold_active = false;
@@ -296,13 +279,16 @@ var DesktopManager = class {
     }
 
     terminateProgram() {
-        let updateFileList;
         if (this._allFileList && (this._allFileList.length > 0)) {
-            updateFileList = this._allFileList;
+            this._fileList.forEach(f => {
+                if (f.isStackMarker) {
+                    f.onDestroy();
+                }
+            });
+            this._allFileList.forEach(f => f.onDestroy());
         } else {
-            updateFileList = this._fileList;
+            this._fileList.forEach(f => f.onDestroy());
         }
-        updateFileList.forEach(f => f.onDestroy());
         for(let desktop of this._desktops) {
             desktop.destroy();
         }
