@@ -70,7 +70,7 @@ var AskRenamePopup = class {
         this._popover.set_default_widget(this._textArea);
         this._button.get_style_context().add_class("suggested-action");
         contentBox.show();
-        this._popover.set_parent(fileItem._grid._container);
+        this._popover.set_parent(fileItem._grid._window);
         this._popover.set_pointing_to(fileItem.iconRectangle);
         this._popover.popup();
         this._validate();
