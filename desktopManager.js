@@ -694,7 +694,7 @@ var DesktopManager = class {
                     if ((this.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
                         this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], desktoppath);
                         DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destinationuri);
-                    } else if ((this.desktopFsId == id_fs) && ((gdkDropAction != Gdk.DragAction.MOVE) || (gdkDropAction != Gdk.DragAction.COPY))) {
+                    } else if ((this.desktopFsId == id_fs) && ((gdkDropAction != Gdk.DragAction.MOVE) && (gdkDropAction != Gdk.DragAction.COPY))) {
                         this.askWhatToDoWithFiles(fileList, destinationuri, desktoppath, xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination);
                     } else {
                         this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], desktoppath, true);
