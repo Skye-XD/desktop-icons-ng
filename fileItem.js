@@ -26,6 +26,7 @@ const GLib = imports.gi.GLib;
 const DesktopIconsUtil = imports.desktopIconsUtil;
 const desktopIconItem = imports.desktopIconItem;
 const ShowErrorPopup = imports.showErrorPopup;
+const PromiseUtils = imports.promiseUtils;
 
 const Prefs = imports.preferences;
 const Enums = imports.enums;
@@ -46,6 +47,13 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._file = file;
         this.isStackTop = false;
         this.stackUnique = false;
+
+        if (imports.system.version < 17200 &&
+            this._file.constructor.prototype !== Gio._LocalFilePrototype) {
+            /* Older gjs may need specific implementations for special files */
+            PromiseUtils._promisify({},
+                this._file.constructor.prototype, 'query_info_async');
+        }
 
         this._savedCoordinates = this._readCoordinatesFromAttribute(fileInfo, 'metadata::nautilus-icon-position');
         this._dropCoordinates = this._readCoordinatesFromAttribute(fileInfo, 'metadata::nautilus-drop-position');
@@ -86,12 +94,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                                 this._queryTrashInfoCancellable = null;
                             }
                             this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                                this._refreshTrashIcon();
+                                this._refreshTrashIcon().catch(e => logError(e));
                                 this._scheduleTrashRefreshId = 0;
                                 return GLib.SOURCE_REMOVE;
                             });
                         } else {
-                            this._refreshTrashIcon();
+                            this._refreshTrashIcon().catch(e => logError(e));
                             // after a refresh, don't allow more refreshes until 200ms after, to coalesce extra events
                             this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
                                 this._scheduleTrashRefreshId = 0;
@@ -194,40 +202,39 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         }
     }
 
-    _refreshMetadataAsync(rebuild) {
-        return new Promise((resolve, reject) => {
-            if (this._destroyed) {
-                reject(false);
-            }
+    async _refreshMetadataAsync(rebuild) {
+        if (this._destroyed) {
+            return;
+        }
 
-            if (this._queryFileInfoCancellable)
-                this._queryFileInfoCancellable.cancel();
-            this._queryFileInfoCancellable = new Gio.Cancellable();
-            this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
-                                        Gio.FileQueryInfoFlags.NONE,
-                                        GLib.PRIORITY_DEFAULT,
-                                        this._queryFileInfoCancellable,
-                (source, result) => {
-                    try {
-                        this._queryFileInfoCancellable = null;
-                        let newFileInfo = source.query_info_finish(result);
-                        this._updateMetadataFromFileInfo(newFileInfo);
-                        if (rebuild) {
-                            this._updateIcon().catch((e) => {
-                                print(`Exception while updating the icon after a metadata update: ${e.message}\n${e.stack}`);
-                            });
-                        }
-                        this._updateName();
-                        resolve(true);
-                    } catch(error) {
-                        if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                            print("Error getting the file info: " + error);
-                        }
-                        reject(false);
-                    }
-                }
-            );
-        });
+        if (this._queryFileInfoCancellable)
+            this._queryFileInfoCancellable.cancel();
+
+        const cancellable = new Gio.Cancellable();
+        this._queryFileInfoCancellable = cancellable;
+
+        try {
+            const newFileInfo =
+                await this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
+                                                  Gio.FileQueryInfoFlags.NONE,
+                                                  GLib.PRIORITY_DEFAULT,
+                                                  cancellable);
+            this._updateMetadataFromFileInfo(newFileInfo);
+            this._updateName();
+            if (rebuild) {
+                try {
+                    await this._updateIcon();
+                } catch (e) {
+                    logError(e, `Exception while updating the icon after a metadata update: ${e.message}`);
+                };
+            }
+        } catch (e) {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Error getting file info: ${e.message}`);
+        } finally {
+            if (this._queryFileInfoCancellable === cancellable)
+                this._queryFileInfoCancellable = null;
+        }
     }
 
     _updateMetadataFromFileInfo(fileInfo) {
@@ -484,32 +491,37 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
      * Icon Rendering *
      ***********************/
 
-    _refreshTrashIcon() {
+    async _refreshTrashIcon() {
         if (this._queryTrashInfoCancellable) {
             this._queryTrashInfoCancellable.cancel();
             this._queryTrashInfoCancellable = null;
         }
-        if (! this._file.query_exists(null)) {
-            return false;
-        }
-        this._queryTrashInfoCancellable = new Gio.Cancellable();
 
-        this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
-                                    Gio.FileQueryInfoFlags.NONE,
-                                    GLib.PRIORITY_DEFAULT,
-                                    this._queryTrashInfoCancellable,
-            (source, result) => {
-                try {
-                    this._queryTrashInfoCancellable = null;
-                    this._fileInfo = source.query_info_finish(result);
-                    this._updateIcon().catch((e) => {
-                        print(`Exception while updating the trash icon: ${e.message}\n${e.stack}`);
-                    });
-                } catch(error) {
-                    if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                        print(`Error getting the number of files in the trash: ${error.message}\n${error.stack}`);
-                }
-            });
+        const cancellable = new Gio.Cancellable();
+        this._queryTrashInfoCancellable = cancellable;
+
+        try {
+            this._fileInfo =
+                await this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
+                                                  Gio.FileQueryInfoFlags.NONE,
+                                                  GLib.PRIORITY_DEFAULT,
+                                                  cancellable);
+            try {
+                await this._updateIcon();
+            } catch (e) {
+                logError(e, `Exception while updating the trash icon: ${e.message}`);
+            }
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                return false;
+
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Error getting the number of files in the trash: ${error.message}`);
+        } finally {
+            if (cancellable === this._queryTrashInfoCancellable)
+                this._queryTrashInfoCancellable = null;
+        }
+
         return false;
     }
 
@@ -531,12 +543,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     updatedMetadata() {
-        this._refreshMetadataAsync(true).catch((error) => {});
+        this._refreshMetadataAsync(true).catch(e => logError(e));
     }
 
     onFileRenamed(file) {
         this._file = file;
-        this._refreshMetadataAsync(false).catch((error) => {});
+        this._refreshMetadataAsync(false).catch(e => logError(e));
     }
 
     eject() {
@@ -740,7 +752,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 try {
                     this._setMetadataTrustedCancellable = null;
                     source.set_attributes_finish(result);
-                    this._refreshMetadataAsync(true).catch((error) => {});
+                    this._refreshMetadataAsync(true).catch(e => logError(e));
                 } catch(error) {
                     if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                         log(`Failed to set metadata::trusted: ${error.message}`);
