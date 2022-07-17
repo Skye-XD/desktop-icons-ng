@@ -26,6 +26,7 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Pango = imports.gi.Pango;
 const DesktopIconsUtil = imports.desktopIconsUtil;
+const PromiseUtils = imports.promiseUtils;
 
 const Prefs = imports.preferences;
 const Enums = imports.enums;
@@ -425,12 +426,9 @@ var desktopIconItem = class desktopIconItem {
             let customIcon = this._fileInfo.get_attribute_as_string('metadata::custom-icon');
             if (customIcon && (customIcon != '')) {
                 let customIconFile = Gio.File.new_for_uri(customIcon);
-                if (customIconFile.query_exists(null)) {
-                    let loadedImage = await this._loadImageAsIcon(customIconFile);
-                    if (loadedImage | this._destroyed) {
-                        return;
-                    }
-                }
+                const loadedImage = await this._loadImageAsIcon(customIconFile);
+                if (loadedImage || this._destroyed)
+                    return;
             }
             if (this.thumbnailFile && (this.thumbnailFile != '')) {
                 let customIconFile = Gio.File.new_for_path(this.thumbnailFile);
@@ -476,32 +474,40 @@ var desktopIconItem = class desktopIconItem {
         return this._fileInfo.get_icon();
     }
 
-    _loadImageAsIcon(imageFile) {
-        return new Promise( (resolve, reject) => {
-            try {
-                let iconTexture = Gdk.Texture.new_from_file(imageFile);
-                if (iconTexture != null) {
-                    let width = Prefs.get_desired_width();
-                    let height = Prefs.get_icon_size();
-                    let aspectRatio = iconTexture.get_width() / iconTexture.get_height();
-                    if ((width / height) > aspectRatio) {
-                        width = height * aspectRatio;
-                    } else {
-                        height = width / aspectRatio;
-                    }
-                    let iconPaintableSnapshot = Gtk.Snapshot.new();
-                    iconTexture.snapshot(iconPaintableSnapshot, Math.floor(width), Math.floor(height));
-                    let icon = iconPaintableSnapshot.to_paintable(null);
-                    icon = this._addEmblemsToIconIfNeeded(icon);
-                    this._icon.set_paintable(icon);
-                    resolve(true);
-                }
-                resolve(false);
-            } catch(e) {
-                print(`Failed with "${e.message}" while setting custom icon, loading image as icon from iconfile`)
-                resolve(false);
-            }
-        });
+    async _loadImageAsIcon(imageFile) {
+
+        if (this._loadThumbnailDataCancellable)
+            this._loadThumbnailDataCancellable.cancel();
+
+        const cancellable = new Gio.Cancellable();
+        this._loadThumbnailDataCancellable = cancellable;
+
+        try {
+            const [thumbnailData] = await imageFile.load_bytes_async(cancellable);
+            const iconTexture = Gdk.Texture.new_from_bytes(thumbnailData)
+            let width = Prefs.get_desired_width() - 8;
+            let height = Prefs.get_icon_size() - 8;
+            const aspectRatio = iconTexture.width / iconTexture.height;
+            if ((width / height) > aspectRatio)
+                width = height * aspectRatio;
+            else
+                height = width / aspectRatio;
+            let iconPaintableSnapshot = Gtk.Snapshot.new();
+            iconTexture.snapshot(iconPaintableSnapshot, Math.floor(width), Math.floor(height));
+            let icon = iconPaintableSnapshot.to_paintable(null);
+            icon = this._addEmblemsToIconIfNeeded(icon);
+            this._icon.set_paintable(icon);
+
+            return true;
+        } catch (e) {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Error while loading ${imageFile.get_uri()}`);
+
+            return false;
+        } finally {
+            if (cancellable === this._loadThumbnailDataCancellable)
+                this._loadThumbnailDataCancellable = null;
+        }
     }
 
     _addEmblemsToIconIfNeeded(iconPaintable) {
