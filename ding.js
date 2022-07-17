@@ -167,7 +167,7 @@ const fileProto = imports.system.version >= 17200 ?
     Gio.File.prototype : Gio._LocalFilePrototype;
 
 PromiseUtils._promisify({}, fileProto, 'delete_async');
-PromiseUtils._promisify({ keepOriginal: true }, fileProto, 'enumerate_children_async');
+PromiseUtils._promisify({}, fileProto, 'enumerate_children_async');
 PromiseUtils._promisify({}, fileProto, 'make_directory_async');
 PromiseUtils._promisify({}, fileProto, 'query_info_async');
 PromiseUtils._promisify({ keepOriginal: true }, fileProto, 'set_attributes_async');

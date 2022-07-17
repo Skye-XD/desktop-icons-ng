@@ -28,6 +28,7 @@ const Gio = imports.gi.Gio;
 const ByteArray = imports.byteArray;
 
 const FileItem = imports.fileItem;
+const FileUtils = imports.fileUtils;
 const stackItem = imports.stackItem;
 const DesktopGrid = imports.desktopGrid;
 const DesktopIconsUtil = imports.desktopIconsUtil;
@@ -39,6 +40,7 @@ const ShowErrorPopup = imports.showErrorPopup;
 const TemplatesScriptsManager = imports.templatesScriptsManager;
 const FileItemMenu = imports.fileItemMenu;
 const AutoAr = imports.autoAr;
+const PromiseUtils = imports.promiseUtils;
 
 var Thumbnails = null;
 try {
@@ -1692,11 +1694,16 @@ var DesktopManager = class {
         let fileList;
         while(true) {
             this._desktopFilesChanged = false;
-            if (! this._desktopDir.query_exists(null)) {
-                fileList = [];
-                break;
+            try {
+                fileList = await this._doReadAsync();
+            } catch (e) {
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
+                    fileList = [];
+                    break;
+                }
+
+                throw e;
             }
-            fileList = await this._doReadAsync();
             if (this._forcedExit) {
                 return;
             }
@@ -1721,82 +1728,106 @@ var DesktopManager = class {
         this._drawDesktop(fileList);
     }
 
-    _doReadAsync() {
+    async _doReadAsync() {
         if (this._desktopEnumerateCancellable) {
             this._desktopEnumerateCancellable.cancel();
         }
-        this._desktopEnumerateCancellable = new Gio.Cancellable();
-        return new Promise ((resolve, reject) => {
-            this._desktopDir.enumerate_children_async(
-                Enums.DEFAULT_ATTRIBUTES,
-                Gio.FileQueryInfoFlags.NONE,
-                GLib.PRIORITY_DEFAULT,
-                this._desktopEnumerateCancellable,
-                (source, result) => {
-                    this._desktopEnumerateCancellable = null;
-                    try {
-                        let fileEnum = source.enumerate_children_finish(result);
-                        if (this._desktopFilesChanged && ! this._forceDraw) {
-                            resolve(null);
-                            return;
-                        }
-                        let fileList = [];
-                        for (let [newFolder, extras] of DesktopIconsUtil.getExtraFolders()) {
-                            try {
-                                fileList.push(new FileItem.FileItem(this,
-                                                                    newFolder,
-                                                                    newFolder.query_info(Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE, null),
-                                                                    extras,
-                                                                    null));
-                            } catch (e) {
-                                print(`Failed with ${e.message} while adding extra folder ${newFolder.get_uri()}\n${e.stack}`);
-                            }
-                        }
-                        let info;
-                        while ((info = fileEnum.next_file(null))) {
-                            let fileItem = new FileItem.FileItem(this,
-                                                                 fileEnum.get_child(info),
-                                                                 info,
-                                                                 Enums.FileType.NONE,
-                                                                 null);
-                            if (fileItem.isHidden && !this._showHidden) {
-                                /* if there are hidden files in the desktop and the user doesn't want to
-                                    show them, remove the coordinates. This ensures that if the user enables
-                                    showing them, they won't fight with other icons for the same place
-                                */
-                                if (fileItem.savedCoordinates) {
-                                    // only overwrite them if needed
-                                    fileItem.savedCoordinates = null;
-                                }
-                                continue;
-                            }
-                            fileList.push(fileItem);
-                            if (fileItem.dropCoordinates == null) {
-                                let basename = fileItem.file.get_basename();
-                                this._checkBasenameInPending(fileItem, basename);
-                            }
-                        }
-                        this._clearPendingDropFiles();
-                        for (let [newFolder, extras, volume] of DesktopIconsUtil.getMounts(this._volumeMonitor)) {
-                            try {
-                                fileList.push(new FileItem.FileItem(this,
-                                                                    newFolder,
-                                                                    newFolder.query_info(Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE, null),
-                                                                    extras,
-                                                                    volume));
-                            } catch (e) {
-                                print(`Failed with ${e} while adding volume ${newFolder}`);
-                            }
-                        }
-                        resolve(fileList);
-                        return;
-                    } catch(e) {
-                        resolve(null);
-                        return;
+
+        const cancellable = new Gio.Cancellable();
+        this._desktopEnumerateCancellable = cancellable;
+
+        try {
+            const childrenInfo = await FileUtils.enumerateDir(this._desktopDir,
+                cancellable, GLib.PRIORITY_DEFAULT, Enums.DEFAULT_ATTRIBUTES);
+
+            if (this._desktopFilesChanged && !this._forceDraw)
+                return null;
+
+            const fileList = [];
+
+            const extraFoldersItems = DesktopIconsUtil.getExtraFolders().map(async ([newFolder, extras]) => {
+                try {
+                    if (imports.system.version < 17200) {
+                        PromiseUtils._promisify({},
+                            newFolder.constructor.prototype, 'query_info_async');
+                    }
+                    const newFolderInfo = await newFolder.query_info_async(
+                        Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE,
+                        GLib.PRIORITY_DEFAULT, cancellable);
+                    fileList.push(new FileItem.FileItem(this,
+                        newFolder,
+                        newFolderInfo,
+                        extras,
+                        null));
+                } catch (e) {
+                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        throw e;
+                    logError(e, `Failed with ${e.message} while adding extra folder ${newFolder.get_uri()}`);
+                }
+            });
+
+            await Promise.all(extraFoldersItems);
+
+            childrenInfo.forEach(info => {
+                const fileItem = new FileItem.FileItem(this,
+                    this._desktopDir.get_child(info.get_name()),
+                    info,
+                    Enums.FileType.NONE,
+                    null);
+                if (fileItem.isHidden && !this._showHidden) {
+                    /* if there are hidden files in the desktop and the user doesn't want to
+                        show them, remove the coordinates. This ensures that if the user enables
+                        showing them, they won't fight with other icons for the same place
+                    */
+                    if (fileItem.savedCoordinates) {
+                        // only overwrite them if needed
+                        fileItem.savedCoordinates = null;
+                    }
+                    return;
+                }
+
+                fileList.push(fileItem);
+                if (fileItem.dropCoordinates == null) {
+                    const basename = fileItem.file.get_basename();
+                    if (basename in this._pendingDropFiles) {
+                        fileItem.dropCoordinates = this._pendingDropFiles[basename];
+                        delete this._pendingDropFiles[basename];
                     }
                 }
-            );
-        });
+            });
+
+            const mountsItems = DesktopIconsUtil.getMounts(this._volumeMonitor).map(async ([newFolder, extras, volume]) => {
+                try {
+                    if (imports.system.version < 17200) {
+                        PromiseUtils._promisify({},
+                            newFolder.constructor.prototype, 'query_info_async');
+                    }
+                    const newFolderInfo = await newFolder.query_info_async(
+                        Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE,
+                        GLib.PRIORITY_DEFAULT, cancellable);
+                    fileList.push(new FileItem.FileItem(this,
+                        newFolder,
+                        newFolderInfo,
+                        extras,
+                        volume));
+                } catch (e) {
+                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        throw e;
+                    logError(e, `Failed with ${e.message} while adding volume ${newFolder}`);
+                }
+            });
+
+            await Promise.all(mountsItems);
+
+            return fileList;
+        } catch (e) {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Failed to read contents of ${this._desktopDir.get_path()}`);
+            return null;
+        } finally {
+            if (cancellable === this._desktopEnumerateCancellable)
+                this._desktopEnumerateCancellable = null;
+        }
     }
 
     _checkBasenameInPending(fileItem, basename) {
