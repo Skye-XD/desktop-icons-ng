@@ -160,6 +160,7 @@ const Gettext = imports.gettext;
 const Enums = imports.enums;
 const PromiseUtils = imports.promiseUtils;
 
+PromiseUtils._promisify({}, Gio.AppInfo, 'launch_default_for_uri_async');
 PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'close_async');
 PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'next_files_async');
 PromiseUtils._promisify({}, Gio.Subprocess.prototype, 'wait_check_async');

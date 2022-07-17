@@ -1416,20 +1416,15 @@ var DesktopManager = class {
         }
     }
 
-    _onOpenDesktopInFilesClicked() {
+    async _onOpenDesktopInFilesClicked() {
         const context = Gdk.Display.get_default().get_app_launch_context();
         context.set_timestamp(Gdk.CURRENT_TIME);
-        // Fix me, context in the following causes a crash;
-        Gio.AppInfo.launch_default_for_uri_async(this._desktopDir.get_uri(),
-            null, null,
-            (source, result) => {
-                try {
-                    Gio.AppInfo.launch_default_for_uri_finish(result);
-                } catch (e) {
-                   log('Error opening Desktop in Files: ' + e.message);
-                }
-            }
-        );
+        try {
+            await Gio.AppInfo.launch_default_for_uri_async(
+                this._desktopDir.get_uri(), context, null);
+        } catch (e) {
+            logError(e, `Error opening Desktop in Files: ${e.message}`);
+        }
     }
 
     _showPreferences() {

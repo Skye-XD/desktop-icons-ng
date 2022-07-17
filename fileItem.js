@@ -333,16 +333,13 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             this._desktopManager.autoAr.extractFile(this.fileName);
             return;
         }
-        Gio.AppInfo.launch_default_for_uri_async(this.file.get_uri(),
-            null, null,
-            (source, result) => {
-                try {
-                    Gio.AppInfo.launch_default_for_uri_finish(result);
-                } catch (e) {
-                    log('Error opening file ' + this.file.get_uri() + ': ' + e.message);
-                }
-            }
-        );
+
+        try {
+            await Gio.AppInfo.launch_default_for_uri_async(this.file.get_uri(),
+                null, null);
+        } catch (e) {
+            logError(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
+        }
     }
 
     _textEntryAccelsTurnOff() {
@@ -583,7 +580,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (! fileList ) {
             fileList = [] ;
         }
-        this._doOpenContext(null, fileList);
+        this._doOpenContext(null, fileList).catch(e => logError(e));
     }
 
     onAllowDisallowLaunchingClicked() {
@@ -641,7 +638,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             for (let i = 0; i < env_s.length; i=i+2) {
                 context.setenv(env_s[i], env_s[i+1]);
             }
-            this._doOpenContext(context, null);
+            this._doOpenContext(context, null).catch(e => logError(e));
             return;
         }
         log('Could not find discrete GPU data in switcheroo-control');
