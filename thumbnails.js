@@ -39,7 +39,22 @@ try {
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
 
-var ThumbnailLoader = class  {
+const useAsyncAPI =
+    !!GnomeDesktop.DesktopThumbnailFactory.prototype.generate_thumbnail_async;
+
+if (useAsyncAPI) {
+    Gio._promisify(GnomeDesktop.DesktopThumbnailFactory.prototype,
+        'generate_thumbnail_async',
+        'generate_thumbnail_finish');
+    Gio._promisify(GnomeDesktop.DesktopThumbnailFactory.prototype,
+        'create_failed_thumbnail_async',
+        'create_failed_thumbnail_finish');
+    Gio._promisify(GnomeDesktop.DesktopThumbnailFactory.prototype,
+        'save_thumbnail_async',
+        'save_thumbnail_finish');
+}
+
+var ThumbnailLoader = class {
 
     constructor(codePath) {
         this._timeoutValue = 5000;
@@ -48,11 +63,9 @@ var ThumbnailLoader = class  {
         this._thumbnailScriptWatch = null;
         this._running = false;
         this._thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
-        if (this._thumbnailFactory.generate_thumbnail_async) {
-            this._useAsyncAPI = true;
+        if (useAsyncAPI) {
             print("Detected async api for thumbnails");
         } else {
-            this._useAsyncAPI = false;
             print("Failed to detected async api for thumbnails");
         }
     }
@@ -99,54 +112,62 @@ var ThumbnailLoader = class  {
             }
         } while(true);
         this._running = true;
-        if (this._useAsyncAPI) {
-            this._createThumbnailAsync(file, callback);
+        if (useAsyncAPI) {
+            this._createThumbnailAsync(file, callback).catch(e => logError(e));
         } else {
             this._createThumbnailSubprocess(file, callback);
         }
     }
 
-    _createThumbnailAsync(file, callback) {
-        this._doCancel = new Gio.Cancellable();
-        let modifiedTime = file.modifiedTime;
-        this._thumbnailFactory.generate_thumbnail_async(file.uri, file.attributeContentType, this._doCancel, (obj, res) => {
-            this._removeTimeout();
-            try {
-                let thumbnailPixbuf = obj.generate_thumbnail_finish(res);
-                this._thumbnailFactory.save_thumbnail_async(thumbnailPixbuf, file.uri, modifiedTime, this._doCancel, (obj, res) => {
-                    obj.save_thumbnail_finish(res);
-                    if (callback) {
-                        callback();
-                    }
-                    this._launchNewBuild();
-                });
-            } catch(e) {
-                print(`Error while creating thumbnail: ${e.message}\n${e.stack}`);
-                this._createFailedThumbnailAsync(file, modifiedTime, callback);
-            }
-        });
-        this._timeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this._timeoutValue, () => {
+    async _createThumbnailAsync(file, callback) {
+        const cancellable = new Gio.Cancellable();
+        let timeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this._timeoutValue, () => {
             print(`Timeout while generating thumbnail for ${file.displayName}`);
-            this._timeoutID = 0;
-            this._doCancel.cancel();
-            this._createFailedThumbnailAsync(file, modifiedTime, callback);
-            return false;
+            timeoutId = 0;
+            cancellable.cancel();
+            return GLib.SOURCE_REMOVE;
         });
+
+        let modifiedTime;
+        let fileInfo;
+        try {
+            fileInfo = await file.file.query_info_async('standard::content-type,time::modified',
+                Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, cancellable);
+            modifiedTime = fileInfo.get_attribute_uint64('time::modified');
+        } catch (e) {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Error while creating thumbnail: ${e.message}`);
+            return false;
+        }
+
+        try {
+            const thumbnailPixbuf = await this._thumbnailFactory.generate_thumbnail_async(
+                file.uri, fileInfo.get_content_type(), cancellable);
+            await this._thumbnailFactory.save_thumbnail_async(thumbnailPixbuf,
+                file.uri, modifiedTime, cancellable);
+        } catch (e) {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Error while creating thumbnail: ${e.message}`);
+            await this._createFailedThumbnailAsync(file, modifiedTime,
+                cancellable.is_cancelled() ? null : cancellable, callback);
+        } finally {
+            if (timeoutId)
+                GLib.source_remove(timeoutId);
+
+            if (callback)
+                callback();
+
+            this._launchNewBuild();
+        }
     }
 
-    _createFailedThumbnailAsync(file, modifiedTime, callback) {
-        this._doCancel = new Gio.Cancellable();
-        this._thumbnailFactory.create_failed_thumbnail_async(file.uri, modifiedTime, this._doCancel, (obj,res) => {
-            try {
-                obj.create_failed_thumbnail_finish(res);
-            } catch(e) {
-                print(`Error while creating failed thumbnail: ${e.message}\n${e.stack}`);
-            }
-            if (callback) {
-                callback();
-            }
-            this._launchNewBuild();
-        });
+    async _createFailedThumbnailAsync(file, modifiedTime, cancellable, callback) {
+        try {
+            await this._thumbnailFactory.create_failed_thumbnail_async(file.uri,
+                modifiedTime, cancellable);
+        } catch (e) {
+            logError(e, `Error while creating failed thumbnail: ${e.message}`);
+        }
     }
 
     _createThumbnailSubprocess(file, callback) {
