@@ -55,6 +55,14 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 this._file.constructor.prototype, 'query_info_async');
         }
 
+        if (this._custom) {
+            /* Older gjs doesn't handle well virtual implementations */
+            PromiseUtils._promisify({}, this._custom.constructor.prototype,
+                'eject_with_operation');
+            PromiseUtils._promisify({}, this._custom.constructor.prototype,
+                'unmount_with_operation');
+        }
+
         this._savedCoordinates = this._readCoordinatesFromAttribute(fileInfo, 'metadata::nautilus-icon-position');
         this._dropCoordinates = this._readCoordinatesFromAttribute(fileInfo, 'metadata::nautilus-drop-position');
 
@@ -136,6 +144,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         }
         if (this._queryTrashInfoCancellable) {
             this._queryTrashInfoCancellable.cancel();
+        }
+        if (this._umountCancellable) {
+            this._umountCancellable.cancel();
+        }
+        if (this._ejectCancellable) {
+            this._ejectCancellable.cancel();
         }
         if (this._scheduleTrashRefreshId) {
             GLib.source_remove(this._scheduleTrashRefreshId);
@@ -560,19 +574,29 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._refreshMetadataAsync(false).catch(e => logError(e));
     }
 
-    eject() {
-        if (this._custom) {
-            this._custom.eject_with_operation(Gio.MountUnmountFlags.NONE, null, null, (obj, res) => {
-                obj.eject_with_operation_finish(res);
-            });
+    async eject() {
+        if (!this._custom || this._ejectCancellable)
+            return;
+
+        this._ejectCancellable = new Gio.Cancellable();
+        try {
+            await this._custom.eject_with_operation(Gio.MountUnmountFlags.NONE,
+                null, this._ejectCancellable);
+        } finally {
+            this._ejectCancellable = null;
         }
     }
 
-    unmount() {
-        if (this._custom) {
-            this._custom.unmount_with_operation(Gio.MountUnmountFlags.NONE, null, null, (obj, res) => {
-                obj.unmount_with_operation_finish(res);
-            });
+    async unmount() {
+        if (!this._custom || this._umountCancellable)
+            return;
+
+        this._umountCancellable = new Gio.Cancellable();
+        try {
+            await this._custom.unmount_with_operation(Gio.MountUnmountFlags.NONE,
+                null, this._umountCancellable);
+        } finally {
+            this._umountCancellable = null;
         }
     }
 

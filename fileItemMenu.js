@@ -180,11 +180,15 @@ var FileItemMenu = class {
         this._mainApp.add_action(allowdisallowlaunching);
 
         let eject = Gio.SimpleAction.new('eject', null);
-        eject.connect('activate', () => {this.activeFileItem.eject();});
+        eject.connect('activate', () => {
+            this.activeFileItem.eject().catch(e => logError(e))
+        ;});
         this._mainApp.add_action(eject);
 
         let unmount = Gio.SimpleAction.new('unmount', null);
-        eject.connect('activate', () => {this.activeFileItem.unmount();});
+        eject.connect('activate', () => {
+            this.activeFileItem.unmount().catch(e => logError(e));
+        });
         this._mainApp.add_action(unmount);
 
         let extractautoar = Gio.SimpleAction.new('extractautoar', null);
