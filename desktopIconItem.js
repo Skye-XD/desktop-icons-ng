@@ -25,6 +25,7 @@ const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Pango = imports.gi.Pango;
+const GdkPixbuf = imports.gi.GdkPixbuf;
 const DesktopIconsUtil = imports.desktopIconsUtil;
 const PromiseUtils = imports.promiseUtils;
 
@@ -36,6 +37,9 @@ const Signals = imports.signals;
 const Gettext = imports.gettext.domain('ding');
 
 const _ = Gettext.gettext;
+
+const PIXBUF_CONTENT_TYPES = new Set();
+GdkPixbuf.Pixbuf.get_formats().forEach(f => PIXBUF_CONTENT_TYPES.add(...f.get_mime_types()));
 
 var desktopIconItem = class desktopIconItem {
 
@@ -451,6 +455,16 @@ var desktopIconItem = class desktopIconItem {
 
         let icon_set = false;
 
+        if (!icon_set &&
+            Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never' &&
+            this.fileSize < 5242880 &&
+            PIXBUF_CONTENT_TYPES.has(this._fileInfo.get_content_type())) {
+            icon_set = await this._loadImageAsIcon(Gio.File.new_for_uri(this.uri));
+            if (this._destroyed) {
+                return;
+            }
+        }
+
         if (!icon_set) {
             let iconPaintable;
             if (this._isBrokenSymlink) {
@@ -462,7 +476,6 @@ var desktopIconItem = class desktopIconItem {
                     iconPaintable = this._createEmblemedIcon(this._getDefaultIcon(), null);
                 }
             }
-            const scale = this._icon.get_scale_factor();
             this._icon.set_paintable(iconPaintable);
         }
     }
