@@ -216,7 +216,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         }
     }
 
-    async _refreshMetadataAsync(rebuild) {
+    async _refreshMetadataAsync(rebuild, cancellable) {
         if (this._destroyed) {
             return;
         }
@@ -224,7 +224,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
 
-        const cancellable = new Gio.Cancellable();
+        if (!cancellable)
+            cancellable = new Gio.Cancellable();
         this._queryFileInfoCancellable = cancellable;
 
         try {
@@ -611,7 +612,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._doOpenContext(null, fileList).catch(e => logError(e));
     }
 
-    onAllowDisallowLaunchingClicked() {
+    async onAllowDisallowLaunchingClicked() {
         this.metadataTrusted = !this.trustedDesktopFile;
 
         /*
@@ -623,17 +624,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             let info = new Gio.FileInfo();
             let newUnixMode = this._unixmode | Enums.S_IXUSR;
             info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, newUnixMode);
-            this._file.set_attributes_async(info,
-                Gio.FileQueryInfoFlags.NONE,
-                GLib.PRIORITY_LOW,
-                null,
-                (source, result) => {
-                    try {
-                        source.set_attributes_finish(result);
-                    } catch(error) {
-                        log(`Failed to set execution flag: ${error.message}`);
-                    }
-            });
+            await this._setFileAttributes(info);
         }
         this._updateName();
     }
@@ -674,6 +665,22 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
     _onOpenTerminalClicked () {
         DesktopIconsUtil.launchTerminal(this.file.get_path(), null);
+    }
+
+    async _setFileAttributes(fileInfo, cancellable = null, opts = { refresh: true }) {
+        await this._file.set_attributes_async(fileInfo,
+            Gio.FileQueryInfoFlags.NONE,
+            GLib.PRIORITY_LOW,
+            cancellable);
+
+        if (cancellable.is_cancelled()) {
+            throw new GLib.Error(Gio.IOErrorEnum,
+                Gio.IOErrorEnum.CANCELLED,
+                'Operation was cancelled');
+        }
+
+        if (opts.refresh)
+            await this._refreshMetadataAsync(true, cancellable);
     }
 
     /***********************
@@ -777,24 +784,20 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (this._setMetadataTrustedCancellable) {
             this._setMetadataTrustedCancellable.cancel();
         }
-        this._setMetadataTrustedCancellable = new Gio.Cancellable()
+
+        const cancellable = new Gio.Cancellable();
+        this._setMetadataTrustedCancellable = cancellable;
+
         let info = new Gio.FileInfo();
         info.set_attribute_string('metadata::trusted',
                                   value ? 'true' : 'false');
-        this._file.set_attributes_async(info,
-                                        Gio.FileQueryInfoFlags.NONE,
-                                        GLib.PRIORITY_LOW,
-                                        this._setMetadataTrustedCancellable,
-            (source, result) => {
-                try {
-                    this._setMetadataTrustedCancellable = null;
-                    source.set_attributes_finish(result);
-                    this._refreshMetadataAsync(true).catch(e => logError(e));
-                } catch(error) {
-                    if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                        log(`Failed to set metadata::trusted: ${error.message}`);
-                    }
-                }
+
+        this._setFileAttributes(info, cancellable).catch(e => {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Failed to set metadata::trusted: ${e.message}`);
+        }).finally(() => {
+            if (cancellable === this._setMetadataTrustedCancellable)
+                this._setMetadataTrustedCancellable = null;
         });
     }
 

@@ -173,7 +173,7 @@ PromiseUtils._promisify({}, fileProto, 'enumerate_children_async');
 PromiseUtils._promisify({}, fileProto, 'load_bytes_async');
 PromiseUtils._promisify({}, fileProto, 'make_directory_async');
 PromiseUtils._promisify({}, fileProto, 'query_info_async');
-PromiseUtils._promisify({ keepOriginal: true }, fileProto, 'set_attributes_async');
+PromiseUtils._promisify({}, fileProto, 'set_attributes_async');
 
 let localePath = GLib.build_filenamev([codePath, "locale"]);
 if (Gio.File.new_for_path(localePath).query_exists(null)) {

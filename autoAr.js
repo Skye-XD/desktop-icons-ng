@@ -385,7 +385,7 @@ const progressDialog = class {
             info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
 
             try {
-                await folder.set_attributes_async_promise(info,
+                await folder.set_attributes_async(info,
                     Gio.FileQueryInfoFlags.NONE,
                     GLib.PRIORITY_DEFAULT,
                     this._cancellable);

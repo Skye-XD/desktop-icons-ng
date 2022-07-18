@@ -176,7 +176,9 @@ var FileItemMenu = class {
         this._mainApp.add_action(emptytrash);
 
         let allowdisallowlaunching = Gio.SimpleAction.new('allowdisallowlaunching', null);
-        allowdisallowlaunching.connect('activate', () => {this.activeFileItem.onAllowDisallowLaunchingClicked();});
+        allowdisallowlaunching.connect('activate', () => {
+            this.activeFileItem.onAllowDisallowLaunchingClicked().catch(e => logError(e));
+        });
         this._mainApp.add_action(allowdisallowlaunching);
 
         let eject = Gio.SimpleAction.new('eject', null);
