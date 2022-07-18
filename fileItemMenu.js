@@ -183,7 +183,7 @@ var FileItemMenu = class {
 
         let eject = Gio.SimpleAction.new('eject', null);
         eject.connect('activate', () => {
-            this.activeFileItem.eject(atWidget ? fileItem.container : null).catch(e => logError(e))
+            this.activeFileItem.eject(atWidget ? fileItem.container : null).catch(e => logError(e));
         ;});
         this._mainApp.add_action(eject);
 

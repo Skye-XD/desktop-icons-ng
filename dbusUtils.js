@@ -598,14 +598,6 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
 
     _createPlatformData() {
 
-        this.freePlatformData = this.fileOperationsManager.freePlatformData = () => {
-            let parentWindow = applicationid.get_active_window();
-            const topLevel = parentWindow.get_surface();
-            if (topLevel.constructor.$gtype === GdkWayland.WaylandToplevel.$gtype) {
-                topLevel.unexport_handle();
-            }
-        }
-
         this.getWaylandParentHandle = this.fileOperationsManager.getWaylandParentHandle = (topLevel) => {
             return new Promise( (resolve, reject) => {
                 try {
@@ -624,11 +616,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
 
         this.platformData = this.fileOperationsManager.platformData = async () => {
-            let parentWindow = applicationid.get_active_window();
-            let parentHandle = '';
-            let windowPosition = 'center';
+            const parentWindow = applicationid.get_active_window();
             const topLevel = parentWindow.get_surface();
-            let timestamp = Gdk.CURRENT_TIME;
+            const windowPosition = 'center';
+            const timestamp = Gdk.CURRENT_TIME;
+            let parentHandle = '';
+            let freePlatformData = () => {};
 
             if (parentWindow) {
                 try {
@@ -637,191 +630,234 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         if (handle) {
                             parentHandle = `wayland:${handle}`;
                         }
+
+                        freePlatformData = () => {
+                            if (topLevel.constructor.$gtype === GdkWayland.WaylandToplevel.$gtype) {
+                                topLevel.unexport_handle();
+                            }
+                        }
                     }
+
                     if (topLevel.constructor.$gtype === GdkX11.X11Surface.$gtype) {
                         const xid = GdkX11.X11Window.prototype.get_xid.call(topLevel);
                         parentHandle = `x11:${xid}`;
                     }
+
                 } catch (e) {
                     print(`Failed with "${e.message}" while getting parent window handle`);
                 }
 
                 return {
-                  'parent-handle': new GLib.Variant('s', parentHandle),
-                  'timestamp': new GLib.Variant('u', timestamp),
-                  'window-position': new GLib.Variant('s', windowPosition),
+                    'data': {
+                        'parent-handle': new GLib.Variant('s', parentHandle),
+                        'timestamp': new GLib.Variant('u', timestamp),
+                        'window-position': new GLib.Variant('s', windowPosition)
+                        },
+                    "freePlatformData": freePlatformData
                 }
             }
         }
     }
 
     async MoveURIsRemote(fileList, uri, callback) {
-        if (! this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-            return;
-        }
-        let platformData = await this.platformData();
-        this.fileOperationsManager.proxy.MoveURIsRemote(
-            fileList,
-            uri,
-            platformData,
-            (result, error) => {
-                this.freePlatformData();
-                if (callback) {
-                    callback(result, error);
-                }
-                if (error) {
-                    log('Error moving files: ' + error.message);
-                }
+        try {
+            if (! this.fileOperationsManager.proxy) {
+                this._sendNoProxyError(callback);
+                return;
             }
-        );
+            let platformData = await this.platformData();
+            this.fileOperationsManager.proxy.MoveURIsRemote(
+                fileList,
+                uri,
+                platformData.data,
+                (result, error) => {
+                    platformData.freePlatformData();
+                    if (callback) {
+                        callback(result, error);
+                    }
+                    if (error) {
+                        log('Error moving files: ' + error.message);
+                    }
+                }
+            );
+        } catch(e) {
+            logError(e);
+        }
     }
 
     async CopyURIsRemote(fileList, uri, callback=null) {
-        if (! this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-            return;
-        }
-        let platformData = await this.platformData();
-        this.fileOperationsManager.proxy.CopyURIsRemote(
-            fileList,
-            uri,
-            platformData,
-            (result, error) => {
-                this.freePlatformData();
-                if (callback) {
-                    callback(result, error);
-                }
-                if (error) {
-                    log('Error copying files: ' + error.message);
-                }
+        try {
+            if (! this.fileOperationsManager.proxy) {
+                this._sendNoProxyError(callback);
+                return;
             }
-        );
+            let platformData = await this.platformData();
+            this.fileOperationsManager.proxy.CopyURIsRemote(
+                fileList,
+                uri,
+                platformData.data,
+                (result, error) => {
+                    platformData.freePlatformData();
+                    if (callback) {
+                        callback(result, error);
+                    }
+                    if (error) {
+                        log('Error copying files: ' + error.message);
+                    }
+                }
+            );
+        } catch(e) {
+            logError(e);
+        }
     }
 
     async RenameURIRemote(fileList, uri, callback=null) {
-        if (! this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-            return;
-        }
-        let platformData = await this.platformData();
-        this.fileOperationsManager.proxy.RenameURIRemote(
-            fileList,
-            uri,
-            platformData,
-            (result, error) => {
-                this.freePlatformData();
-                if (callback) {
-                    callback(result, error);
-                }
-                if (error) {
-                    log('Error copying files: ' + error.message);
-                }
+        try {
+            if (! this.fileOperationsManager.proxy) {
+                this._sendNoProxyError(callback);
+                return;
             }
-        );
+            let platformData = await this.platformData();
+            this.fileOperationsManager.proxy.RenameURIRemote(
+                fileList,
+                uri,
+                platformData.data,
+                (result, error) => {
+                    platformData.freePlatformData();
+                    if (callback) {
+                        callback(result, error);
+                    }
+                    if (error) {
+                        log('Error copying files: ' + error.message);
+                    }
+                }
+            );
+        } catch(e) {
+            logError(e);
+        }
     }
 
     async TrashURIsRemote(fileList, callback=null) {
-        if (! this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-            return;
-        }
-        let platformData = await this.platformData();
-        this.fileOperationsManager.proxy.TrashURIsRemote(
-            fileList,
-            platformData,
-            (result, error) => {
-                this.freePlatformData();
-                if (callback) {
-                    callback(result, error);
-                }
-                if (error) {
-                    log('Error Trashing files: ' + error.message);
-                }
+        try {
+            if (! this.fileOperationsManager.proxy) {
+                this._sendNoProxyError(callback);
+                return;
             }
-        );
+            let platformData = await this.platformData();
+            this.fileOperationsManager.proxy.TrashURIsRemote(
+                fileList,
+                platformData.data,
+                (result, error) => {
+                    platformData.freePlatformData();
+                    if (callback) {
+                        callback(result, error);
+                    }
+                    if (error) {
+                        log('Error Trashing files: ' + error.message);
+                    }
+                }
+            );
+        } catch(e) {
+            logError(e);
+        }
     }
 
     async DeleteURIsRemote(fileList, callback=null) {
-        if (! this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-            return;
-        }
-        let platformData = await this.platformData();
-        this.fileOperationsManager.proxy.DeleteURIsRemote(
-            fileList,
-            platformData,
-            (source, error) => {
-                this.freePlatformData();
-                if (callback) {
-                    callback(source, error);
-                }
-                if (error) {
-                    log('Error deleting files on the desktop: ' + error.message);
-                }
+        try {
+            if (! this.fileOperationsManager.proxy) {
+                this._sendNoProxyError(callback);
+                return;
             }
-        );
+            let platformData = await this.platformData();
+            this.fileOperationsManager.proxy.DeleteURIsRemote(
+                fileList,
+                platformData.data,
+                (source, error) => {
+                    platformData.freePlatformData();
+                    if (callback) {
+                        callback(source, error);
+                    }
+                    if (error) {
+                        log('Error deleting files on the desktop: ' + error.message);
+                    }
+                }
+            );
+        } catch(e) {
+            logError(e);
+        }
     }
 
     async EmptyTrashRemote(askConfirmation, callback=null) {
-        if (! this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-            return;
-        }
-        let platformData = await this.platformData();
-        this.fileOperationsManager.proxy.EmptyTrashRemote(
-            askConfirmation,
-            platformData,
-            (source, error) => {
-                this.freePlatformData();
-                if (callback) {
-                    callback(source, error);
-                }
-                if (error) {
-                    log('Error trashing files on the desktop: ' + error.message);
-                }
+        try {
+            if (! this.fileOperationsManager.proxy) {
+                this._sendNoProxyError(callback);
+                return;
             }
-        );
+            let platformData = await this.platformData();
+            this.fileOperationsManager.proxy.EmptyTrashRemote(
+                askConfirmation,
+                platformData.data,
+                (source, error) => {
+                    platformData.freePlatformData();
+                    if (callback) {
+                        callback(source, error);
+                    }
+                    if (error) {
+                        log('Error trashing files on the desktop: ' + error.message);
+                    }
+                }
+            );
+        } catch(e) {
+            logError(e);
+        }
     }
 
     async UndoRemote(callback=null) {
-        if (! this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-            return;
-        }
-        let platformData = await this.platformData();
-        this.fileOperationsManager.proxy.UndoRemote(
-            platformData,
-            (result, error) => {
-                this.freePlatformData();
-                if (callback) {
-                    callback(result, error);
-                }
-                if (error) {
-                    log('Error performing undo: ' + error.message);
-                }
+        try {
+            if (! this.fileOperationsManager.proxy) {
+                this._sendNoProxyError(callback);
+                return;
             }
-        );
+            let platformData = await this.platformData();
+            this.fileOperationsManager.proxy.UndoRemote(
+                platformData.data,
+                (result, error) => {
+                    platformData.freePlatformData();
+                    if (callback) {
+                        callback(result, error);
+                    }
+                    if (error) {
+                        log('Error performing undo: ' + error.message);
+                    }
+                }
+            );
+        } catch(e) {
+            logError(e);
+        }
     }
 
     async RedoRemote(callback=null) {
-        if (! this.fileOperationsManager.proxy) {
-            this._sendNoProxyError(callback);
-            return;
-        }
-        let platformData = await this.platformData();
-        this.fileOperationsManager.proxy.RedoRemote(
-            platformData,
-            (result, error) => {
-                this.freePlatformData();
-                if (callback) {
-                    callback(result, error);
-                }
-                if (error) {
-                    log('Error performing redo: ' + error.message);
-                }
+        try {
+            if (! this.fileOperationsManager.proxy) {
+                this._sendNoProxyError(callback);
+                return;
             }
-        );
+            let platformData = await this.platformData();
+            this.fileOperationsManager.proxy.RedoRemote(
+                platformData.data,
+                (result, error) => {
+                    platformData.freePlatformData();
+                    if (callback) {
+                        callback(result, error);
+                    }
+                    if (error) {
+                        log('Error performing redo: ' + error.message);
+                    }
+                }
+            );
+        } catch(e) {
+            logError(e);
+        }
     }
 
     UndoStatus() {
