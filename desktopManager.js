@@ -210,10 +210,12 @@ var DesktopManager = class {
                 print(`Exception while updating Desktop after mount added: ${e.message}\n${e.stack}`);
             });
         });
-        this._volumeMonitor.connect('mount-removed', () => { this._updateDesktop().catch((e) => {
+        this._volumeMonitor.connect('mount-removed', () => GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+            this._updateDesktop().catch((e) => {
                 print(`Exception while updating Desktop after mount removed: ${e.message}\n${e.stack}`);
             });
-        });
+            return GLib.SOURCE_REMOVE;
+        }));
 
         this.rubberBand = false;
 
