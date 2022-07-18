@@ -38,6 +38,7 @@ try {
 
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
+const FileUtils = imports.fileUtils;
 
 const useAsyncAPI =
     !!GnomeDesktop.DesktopThumbnailFactory.prototype.generate_thumbnail_async;
@@ -87,11 +88,11 @@ var ThumbnailLoader = class {
     _generateThumbnail(file, callback) {
         this._thumbList.push([file, callback]);
         if (!this._running) {
-            this._launchNewBuild();
+            this._launchNewBuild().catch(e => logError(e));
         }
     }
 
-    _launchNewBuild() {
+    async _launchNewBuild() {
         let file, callback;
         do {
             if (this._thumbList.length == 0) {
@@ -100,7 +101,7 @@ var ThumbnailLoader = class {
             }
             // if the file disappeared while waiting in the queue, don't refresh the thumbnail
             [file, callback] = this._thumbList.shift();
-            if (Gio.File.new_for_uri(file.uri).query_exists(null)) {
+            if (await FileUtils.queryExists(Gio.File.new_for_uri(file.uri))) {
                 if (this._thumbnailFactory.has_valid_failed_thumbnail(file.uri, file.modifiedTime)) {
                     if (callback) {
                         callback();
@@ -113,9 +114,9 @@ var ThumbnailLoader = class {
         } while(true);
         this._running = true;
         if (useAsyncAPI) {
-            this._createThumbnailAsync(file, callback).catch(e => logError(e));
+            await this._createThumbnailAsync(file, callback)
         } else {
-            this._createThumbnailSubprocess(file, callback).catch(e => logError(e));
+            await this._createThumbnailSubprocess(file, callback);
         }
     }
 
@@ -157,7 +158,7 @@ var ThumbnailLoader = class {
             if (callback)
                 callback();
 
-            this._launchNewBuild();
+            await this._launchNewBuild();
         }
     }
 
@@ -196,7 +197,7 @@ var ThumbnailLoader = class {
             if (timeoutID)
                 GLib.source_remove(timeoutID);
 
-            this._launchNewBuild();
+            await this._launchNewBuild();
         }
     }
 
