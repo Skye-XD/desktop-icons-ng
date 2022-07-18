@@ -594,6 +594,16 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         super(FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager);
         this.fileOperationsManager = fileOperationsManager;
         this._createPlatformData();
+        this._eventsStack = [];
+    }
+
+    pushEvent(window=null, timestamp=null) {
+        const parentWindow = window ? window : applicationid.get_active_window();
+        const currentEventTime = timestamp ? timestamp : Gdk.CURRENT_TIME;
+        this._eventsStack.unshift({
+            "parentWindow": parentWindow,
+            "timestamp": currentEventTime
+        });
     }
 
     _createPlatformData() {
@@ -616,10 +626,14 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         }
 
         this.platformData = this.fileOperationsManager.platformData = async () => {
-            const parentWindow = applicationid.get_active_window();
+            const eventParameters = this._eventsStack.pop() || {
+                "parentWindow": applicationid.get_active_window(),
+                "timestamp": Gdk.CURRENT_TIME
+            };
+            const parentWindow = eventParameters.parentWindow;
             const topLevel = parentWindow.get_surface();
             const windowPosition = 'center';
-            const timestamp = Gdk.CURRENT_TIME;
+            const timestamp = eventParameters.timestamp;
             let parentHandle = '';
             let freePlatformData = () => {};
 
@@ -644,19 +658,20 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                     }
 
                 } catch (e) {
-                    print(`Failed with "${e.message}" while getting parent window handle`);
-                }
-
-                return {
-                    'data': {
-                        'parent-handle': new GLib.Variant('s', parentHandle),
-                        'timestamp': new GLib.Variant('u', timestamp),
-                        'window-position': new GLib.Variant('s', windowPosition)
-                        },
-                    "freePlatformData": freePlatformData
+                    logError(e, 'Impossible to determine the parent window');
                 }
             }
+
+            return {
+                'data': {
+                    'parent-handle': new GLib.Variant('s', parentHandle),
+                    'timestamp': new GLib.Variant('u', timestamp),
+                    'window-position': new GLib.Variant('s', windowPosition)
+                    },
+                "freePlatformData": freePlatformData
+            }
         }
+
     }
 
     async MoveURIsRemote(fileList, uri, callback) {
