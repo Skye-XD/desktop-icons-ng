@@ -201,7 +201,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
     _checkForRename() {
         if (this._desktopManager.newItemDoRename) {
-            if (this._desktopManager.newItemDoRename == this.fileName) {
+            if (this._desktopManager.newItemDoRename === this.fileName) {
                 this.setSelected();
                 this._desktopManager.doRename(this, true);
             }

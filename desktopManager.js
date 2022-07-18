@@ -1162,7 +1162,7 @@ var DesktopManager = class {
 
         let newFolder = Gio.SimpleAction.new('doNewFolder', null);
         newFolder.connect('activate', () => {
-            this.doNewFolder();
+            this.doNewFolder().catch(e => logError(e));
         });
         this.mainApp.add_action(newFolder);
         this.mainApp.set_accels_for_action('app.doNewFolder', ['<Control><Shift>N'])
@@ -2211,9 +2211,7 @@ var DesktopManager = class {
         }
         if (! this._renameWindow) {
             this.textEntryAccelsTurnOff();
-            if (! this.newItemDoRename) {
-                this.newItemDoRename = fileItem.fileName;
-            }
+            this.newItemDoRename = fileItem.fileName;
             this._renameWindow = new AskRenamePopup.AskRenamePopup(fileItem, allowReturnOnSameName, () => {
                 this.mainApp.get_active_window().grab_focus();
                 this.textEntryAccelsTurnOn();
@@ -2225,7 +2223,7 @@ var DesktopManager = class {
         }
     }
 
-    doNewFolder(position) {
+    async doNewFolder(position) {
         let X;
         let Y;
         if (position) {
@@ -2242,19 +2240,30 @@ var DesktopManager = class {
             newName = baseName + " " + i;
         }
         if (newName) {
-            let dir = DesktopIconsUtil.getDesktopDir().get_child(newName);
+            const dir = DesktopIconsUtil.getDesktopDir().get_child(newName);
             try {
-                dir.make_directory(null);
-                let info = new Gio.FileInfo();
+                await dir.make_directory_async(GLib.PRIORITY_DEFAULT, null);
+
+                const info = new Gio.FileInfo();
                 info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
                 info.set_attribute_string('metadata::nautilus-icon-position', '');
-                dir.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
+
+                try {
+                    await dir.set_attributes_async(info,
+                        Gio.FileQueryInfoFlags.NONE,
+                        GLib.PRIORITY_LOW,
+                        null);
+                } catch (e) {
+                    logError(e, `Failed to set attributes to ${dir.get_path()}`)
+                }
+
                 this.newItemDoRename = newName;
+
                 if (position) {
                     return dir.get_uri();
                 }
-            } catch(e) {
-                print(`Failed to create folder ${e.message}`);
+            } catch (e) {
+                logError(e, `Failed to create folder ${e.message}`);
             }
         }
     }

@@ -215,7 +215,13 @@ var FileItemMenu = class {
         this._mainApp.add_action(compressfiles);
 
         let newfolderfromselection = Gio.SimpleAction.new('newfolderfromselection', null);
-        newfolderfromselection.connect('activate', () => {this._doNewFolderFromSelection(this.activeFileItem.savedCoordinates, this.activeFileItem);});
+        newfolderfromselection.connect('activate', () => {
+            const event = {
+                "parentWindow": this.activeFileItem._grid._window,
+                "timestamp" : Gdk.CURRENT_TIME
+            };
+            this._doNewFolderFromSelection(this.activeFileItem.savedCoordinates, this.activeFileItem, event).catch(e => logError(e));
+        });
         this._mainApp.add_action(newfolderfromselection);
 
         let properties = Gio.SimpleAction.new('properties', null);
@@ -556,12 +562,17 @@ var FileItemMenu = class {
         this._desktopManager.unselectAll();
     }
 
-    _doNewFolderFromSelection(position, clickedItem) {
+    async _doNewFolderFromSelection(assignedposition=null, clickedItem, event) {
+        if (!clickedItem) {
+            return;
+        }
+        let position = assignedposition ? assignedposition  : clickedItem.savedCoordinates;
         let newFolderFileItems = this._desktopManager.getCurrentSelection(true);
         this._desktopManager.unselectAll();
         clickedItem.removeFromGrid(true);
-        let newFolder = this._desktopManager.doNewFolder(position);
+        const newFolder = await this._desktopManager.doNewFolder(position);
         if (newFolder) {
+            DBusUtils.RemoteFileOperations.pushEvent(event.parentWindow, event.timestamp);
             DBusUtils.RemoteFileOperations.MoveURIsRemote(newFolderFileItems, newFolder);
         }
     }
