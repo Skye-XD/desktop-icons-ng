@@ -31,6 +31,12 @@ const Me = ExtensionUtils.getCurrentExtension();
 const EmulateX11 = Me.imports.emulateX11WindowType;
 const VisibleArea = Me.imports.visibleArea;
 const GnomeShellOverride = Me.imports.gnomeShellOverride;
+const PromiseUtils = Me.imports.promiseUtils;
+
+PromiseUtils._promisify({ keepOriginal: true },
+    Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish_utf8');
+PromiseUtils._promisify({ keepOriginal: true },
+    Gio.Subprocess.prototype, 'wait_async', 'wait_finish');
 
 // This object will contain all the global variables
 let data = {};
@@ -130,7 +136,7 @@ function innerEnable(removeId) {
     if (data.launchDesktopId) {
         GLib.source_remove(data.launchDesktopId);
     }
-    launchDesktop();
+    launchDesktop().catch(e => logError(e));
 
     data.remoteDingActions = Gio.DBusActionGroup.get(
         Gio.DBus.session,
@@ -283,7 +289,7 @@ function doRelaunch(reloadTime) {
         }
         data.launchDesktopId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, reloadTime, () => {
             data.launchDesktopId = 0;
-            launchDesktop();
+            launchDesktop().catch(e => logError(e));
             return false;
         });
     }
@@ -295,7 +301,7 @@ function doRelaunch(reloadTime) {
  * killed. Finally, it reads STDOUT and STDERR and redirects them to the journal, to help to
  * debug it.
  */
-function launchDesktop() {
+async function launchDesktop() {
 
     global.log("Launching DING process");
     let argv = [];
@@ -311,36 +317,44 @@ function launchDesktop() {
 
     data.currentProcess = new LaunchSubprocess(0, "DING");
     data.currentProcess.set_cwd(GLib.get_home_dir());
-    if (null === data.currentProcess.spawnv(argv)) {
-        doRelaunch(1000);
+    data.x11Manager.set_wayland_client(data.currentProcess);
+
+    const launchTime = GLib.get_monotonic_time();
+    let subprocess;
+
+    try {
+        subprocess = await data.currentProcess.spawnv(argv);
+    } catch (e) {
+        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+            logError(e, `Error while trying to launch DING process: ${e.message}`);
+            doRelaunch(1000);
+        }
         return;
     }
-    data.x11Manager.set_wayland_client(data.currentProcess);
-    data.launchTime = GLib.get_monotonic_time();
 
     /*
      * If the desktop process dies, wait 100ms and relaunch it, unless the exit status is different than
      * zero, in which case it will wait one second. This is done this way to avoid relaunching the desktop
      * too fast if it has a bug that makes it fail continuously, avoiding filling the journal too fast.
      */
-    data.currentProcess.subprocess.wait_async(null, (obj, res) => {
-        let delta = GLib.get_monotonic_time() - data.launchTime;
-        if (delta < 1000000) {
-            // If the process is dying over and over again, ensure that it isn't respawn faster than once per second
-            var reloadTime = 1000;
-        } else {
-            // but if the process just died after having run for at least one second, reload it ASAP
-            var reloadTime = 1;
-        }
-        obj.wait_finish(res);
-        if (!data.currentProcess || obj !== data.currentProcess.subprocess) {
-            return;
-        }
-        if (obj.get_if_exited()) {
-            obj.get_exit_status();
-        }
-        doRelaunch(reloadTime);
-    });
+    const delta = GLib.get_monotonic_time() - launchTime;
+    let reloadTime;
+    if (delta < 1000000) {
+        // If the process is dying over and over again, ensure that it isn't respawn faster than once per second
+        reloadTime = 1000;
+    } else {
+        // but if the process just died after having run for at least one second, reload it ASAP
+        reloadTime = 1;
+    }
+
+    if (!data.currentProcess || subprocess !== data.currentProcess.subprocess) {
+        return;
+    }
+
+    if (subprocess.get_if_exited())
+        subprocess.get_exit_status();
+
+    doRelaunch(reloadTime);
 }
 
 /**
@@ -356,7 +370,6 @@ var LaunchSubprocess = class {
 
     constructor(flags, process_id) {
         this._process_id = process_id;
-        this.cancellable = new Gio.Cancellable();
         this._launcher = new Gio.SubprocessLauncher({flags: flags | Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE});
         if (Meta.is_wayland_compositor()) {
             this._waylandClient = Meta.WaylandClient.new(this._launcher);
@@ -369,7 +382,7 @@ var LaunchSubprocess = class {
         this.process_running = false;
     }
 
-    spawnv(argv) {
+    async spawnv(argv) {
         try {
             if (Meta.is_wayland_compositor()) {
                 this.subprocess = this._waylandClient.spawnv(global.display, argv);
@@ -378,27 +391,38 @@ var LaunchSubprocess = class {
             }
         } catch (e) {
             this.subprocess = null;
-            global.log(`Error while trying to launch DING process: ${e.message}\n${e.stack}`);
+            throw e;
         }
+
+        if (this.cancellable)
+            this.cancellable.cancel();
+
+        const cancellable = new Gio.Cancellable();
+        this.cancellable = cancellable;
+
         // This is for GLib 2.68 or greater
         if (this._launcher.close) {
             this._launcher.close();
         }
         this._launcher = null;
-        if (this.subprocess) {
-                /*
-                 * It reads STDOUT and STDERR and sends it to the journal using global.log(). This allows to
-                 * have any error from the desktop app in the same journal than other extensions. Every line from
-                 * the desktop program is prepended with the "process_id" parameter sent in the constructor.
-                 */
-            this._dataInputStream = Gio.DataInputStream.new(this.subprocess.get_stdout_pipe());
-            this.read_output();
-            this.subprocess.wait_async(this.cancellable, () => {
-                this.process_running = false;
-                this._dataInputStream = null;
-                this.cancellable = null;
-            });
+
+        /*
+         * It reads STDOUT and STDERR and sends it to the journal using global.log(). This allows to
+         * have any error from the desktop app in the same journal than other extensions. Every line from
+         * the desktop program is prepended with the "process_id" parameter sent in the constructor.
+         */
+        const dataInputStream = Gio.DataInputStream.new(this.subprocess.get_stdout_pipe());
+        this.readOutput(dataInputStream, cancellable).catch(e => logError(e));
+
+        try {
             this.process_running = true;
+            await this.subprocess.wait_async_promise(cancellable);
+        } finally {
+            cancellable.cancel();
+            this.process_running = false;
+
+            if (this.cancellable === cancellable)
+                this.cancellable = null;
         }
         return this.subprocess;
     }
@@ -407,24 +431,20 @@ var LaunchSubprocess = class {
         this._launcher.set_cwd (cwd);
     }
 
-    read_output() {
-        if (!this._dataInputStream) {
-            return;
+    async readOutput(dataInputStream, cancellable) {
+        try {
+            const [output, length] = await dataInputStream.read_line_async_promise(
+                GLib.PRIORITY_DEFAULT, cancellable);
+            if (length)
+                print(`${this._process_id}: ${ByteArray.toString(output)}`);
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                return;
+
+            logError(e, `${this._process_id}_Error`);
         }
-        this._dataInputStream.read_line_async(GLib.PRIORITY_DEFAULT, this.cancellable, (object, res) => {
-            try {
-                const [output, length] = object.read_line_finish_utf8(res);
-                if (length)
-                    print(`${this._process_id}: ${output}`);
-            } catch (e) {
-                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                    return;
 
-                logError(e, `${this._process_id}_Error`);
-            }
-
-            this.read_output();
-        });
+        await this.readOutput(dataInputStream, cancellable);
     }
 
     /**
