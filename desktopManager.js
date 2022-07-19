@@ -357,19 +357,23 @@ var DesktopManager = class {
     _metadataChanged(proxy, nameOwner, args) {
         let filepath = GLib.build_filenamev([GLib.get_home_dir(), args[1]]);
         if (this._desktopDir.get_path() === GLib.path_get_dirname(filepath)) {
-            let updateFileList;
-            if (this._allFileList && (this._allFileList.length > 0)) {
-                updateFileList = this._allFileList;
-            } else {
-                updateFileList = this._fileList;
-            }
-            for (let fileItem of updateFileList) {
+            for (let fileItem of this.updateFileList()) {
                 if (fileItem.path === filepath) {
                     fileItem.updatedMetadata();
                     break;
                 }
             }
         }
+    }
+
+    updateFileList() {
+        let updateFileList;
+        if (this._allFileList && (this._allFileList.length > 0)) {
+            updateFileList = this._allFileList;
+        } else {
+            updateFileList = this._fileList;
+        }
+        return updateFileList;
     }
 
     _templatesDirSelectionFilter(fileinfo) {
@@ -432,13 +436,7 @@ var DesktopManager = class {
     updateFileItemThumbnail(thumbnailinfo) {
         let fileuri = thumbnailinfo[0];
         let thumbnailFile = thumbnailinfo[1];
-        let updateFileList;
-        if (this._allFileList && (this._allFileList.length > 0)) {
-            updateFileList = this._allFileList;
-        } else {
-            updateFileList = this._fileList;
-        }
-        updateFileList.forEach(f => {
+        this.updateFileList().forEach(f => {
             if (f.uri == fileuri) {
                 f.thumbnailFile = thumbnailFile;
                 f.updateIcon();
@@ -805,7 +803,7 @@ var DesktopManager = class {
             let i = 0;
             let baseName = fileGio.get_basename();
             let newSymlinkName = baseName;
-            while (this._fileList.map(f => f.fileName).includes(newSymlinkName)) {
+            while (this.updateFileList().map(f => f.fileName).includes(newSymlinkName)) {
                 i += 1;
                 newSymlinkName = `${baseName} (${i})`;
             }
@@ -2241,7 +2239,7 @@ var DesktopManager = class {
         let i = 0;
         let baseName = _("New Folder");
         let newName = baseName;
-        while ( 0 != this._fileList.filter(file => file.fileName == newName).length) {
+        while (this.updateFileList().map(f => f.fileName).includes(newName)) {
             i += 1;
             newName = baseName + " " + i;
         }
