@@ -271,6 +271,7 @@ var DesktopGrid = class {
         let dropformats;
         let info;
         let selection;
+
         this.gridDropController.connect('accept', (actor, drop) => {
             if (drop.get_formats().match(formats)) {
                 dropformats = drop.get_formats().to_string();
@@ -284,9 +285,11 @@ var DesktopGrid = class {
                 return true;
             }
         });
+
         this.gridDropController.connect('drag-enter', (actor, drop, x, y) => {
             return Gdk.DragAction.MOVE;
         });
+
         this.gridDropController.connect('drag-motion', (actor, drop, x, y) => {
             let clickItem = this._fileAt(x, y);
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
@@ -307,10 +310,17 @@ var DesktopGrid = class {
             }
             return Gdk.DragAction.MOVE;
         });
+
         this.gridDropController.connect('drag-leave', (actor, drop, x, y) => {
             this.receiveLeave();
         });
+
         this.gridDropController.connect('drop', (actor, drop, x, y) => {
+            const event = {
+                "parentWindow" : this._window,
+                "timestamp" : Gdk.CURRENT_TIME
+            }
+
             drop.read_value_async(String.$gtype, GLib.PRIORITY_DEFAULT, null, (dropactor, task) => {
                 selection = dropactor.read_value_finish(task);
                 if (selection && info) {
@@ -326,18 +336,18 @@ var DesktopGrid = class {
                     let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
                     if (clickItem && ! clickItem._hasToRouteDragToGrid()) {
                         if (this._desktopManager.showDropPlace) {
-                            clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction);
+                            clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
                             drop.finish(gdkDropReturnAction);
                             this.receiveLeave();
                             return true;
                         } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
-                            clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction);
+                            clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
                             drop.finish(gdkDropReturnAction);
                             this.receiveLeave();
                             return true;
                         }
                     }
-                    this.receiveDrop(x, y, selection, info, gdkDropAction);
+                    this.receiveDrop(x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
                     drop.finish(gdkDropReturnAction);
                     if (this._using_X11) {
                         this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
@@ -440,11 +450,11 @@ var DesktopGrid = class {
         this._desktopManager.onDragMotion(X, Y);
     }
 
-    receiveDrop(x, y, selection, info, gdkDropAction) {
+    async receiveDrop(x, y, selection, info, gdkDropAction, event, dragItem) {
         x = this._elementWidth * Math.floor(x / this._elementWidth);
         y = this._elementHeight * Math.floor(y / this._elementHeight);
         let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-        this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction);
+        await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, event, dragItem).catch(e => logError(e));
         this._window.queue_draw();
     }
 

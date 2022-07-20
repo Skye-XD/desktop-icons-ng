@@ -597,9 +597,9 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         this._eventsStack = [];
     }
 
-    pushEvent(window=null, timestamp=null) {
-        const parentWindow = window ? window : applicationid.get_active_window();
-        const currentEventTime = timestamp ? timestamp : Gdk.CURRENT_TIME;
+    pushEvent(params={}) {
+        const parentWindow = params.parentWindow ? params.parentWindow : applicationid.get_active_window();
+        const currentEventTime = params.timestamp ? params.timestamp : Gdk.CURRENT_TIME;
         this._eventsStack.unshift({
             "parentWindow": parentWindow,
             "timestamp": currentEventTime

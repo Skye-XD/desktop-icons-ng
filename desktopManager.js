@@ -101,7 +101,6 @@ var DesktopManager = class {
         this._desktopFilesChanged = false;
         this._readingDesktopFiles = false;
         this._desktopDir = DesktopIconsUtil.getDesktopDir();
-        this.desktopFsId = this._desktopDir.query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null).get_attribute_string('id::filesystem');
         this._updateWritableByOthers().catch(e => logError(e));
         this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
         this._monitorDesktopDir.set_rate_limit(1000);
@@ -555,7 +554,7 @@ var DesktopManager = class {
     _setPendingDropCoordinates(file, dropCoordinates) {
         if (dropCoordinates) {
             const basename = file.get_basename();
-            if (this._fileList.map(f => f.fileName).includes(basename)) {
+            if (this.updateFileList().map(f => f.fileName).includes(basename)) {
                 this._pendingDropFiles[`${basename}COPYEXPECTED`] = dropCoordinates;
             } else {
                 this._pendingDropFiles[basename] = dropCoordinates;
@@ -567,15 +566,16 @@ var DesktopManager = class {
         if (this.keepArranged || this.keepStacked) {
             return;
         }
+
         await Promise.all(fileList.map(async element => {
             let file = Gio.File.new_for_uri(element);
-            if (!file.is_native() || doCopy) {
+            if (!file.is_native()) {
                 this._setPendingDropCoordinates(file, dropCoordinates);
                 return;
             }
             let info = new Gio.FileInfo();
             info.set_attribute_string('metadata::nautilus-icon-position', '');
-            if (dropCoordinates != null) {
+            if (dropCoordinates != null && ! doCopy) {
                 info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
             }
             try {
@@ -587,6 +587,7 @@ var DesktopManager = class {
                 if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
                     this._setPendingDropCoordinates(file, dropCoordinates);
             }
+            this._setPendingDropCoordinates(file, dropCoordinates);
         }));
     }
 
@@ -676,54 +677,48 @@ var DesktopManager = class {
         this.dragItem = null;
     }
 
-    onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, selection, info, gdkDropAction) {
+    async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, selection, info, gdkDropAction, event, dragItem) {
 
         this.onDragLeave();
-        let fileList;
+        
+        const fileList = selection.split('\r\n');
+        if (fileList.length >= 2) {
+            fileList.splice(-1, 1);
+        }
+        const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
+
+        if (! fileList.length) {
+            return;
+        }
 
         switch(info) {
-            case Enums.DndTargetInfo.DING_ICON_LIST:
-                fileList = selection.split('\r\n')
-                if (fileList.length >= 2) {
-                    fileList.splice(-1, 1);
+        case Enums.DndTargetInfo.DING_ICON_LIST:
+            let [xOrigin, yOrigin, a, b, c] = dragItem.getCoordinates();
+            this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
+            break;
+        case Enums.DndTargetInfo.URI_LIST:
+        case Enums.DndTargetInfo.GNOME_ICON_LIST:
+            if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
+                try {
+                    await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], forceCopy);
+                    const doneAction = await this.copyOrMoveUris(fileList,
+                        this._desktopDir.get_uri(), event, { forceCopy });
+                } catch (e) {
+                    logError(e);
                 }
-                if (fileList.length != 0) {
-                    let [xOrigin, yOrigin, a, b, c] = this.dragItem.getCoordinates();
-                    this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
-                }
-                break;
-            case Enums.DndTargetInfo.URI_LIST:
-            case Enums.DndTargetInfo.GNOME_ICON_LIST:
-                fileList = selection.split('\r\n')
-                if (fileList.length >= 2) {
-                    fileList.splice(-1, 1);
-                }
-                let desktoppath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
-                let destinationuri = `file://${desktoppath}`;
-                if (fileList.length != 0) {
-                    let data = Gio.File.new_for_uri(fileList[0]).query_info('id::filesystem', Gio.FileQueryInfoFlags.NONE, null);
-                    let id_fs = data.get_attribute_string('id::filesystem');
-                    if ((this.desktopFsId == id_fs) && (gdkDropAction == Gdk.DragAction.MOVE)) {
-                        this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination]);
-                        DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destinationuri);
-                    } else if ((this.desktopFsId == id_fs) && ((gdkDropAction != Gdk.DragAction.MOVE) && (gdkDropAction != Gdk.DragAction.COPY))) {
-                        this.askWhatToDoWithFiles(fileList, destinationuri, desktoppath, xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination);
-                    } else {
-                        this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], true);
-                        DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destinationuri);
-                    }
-                }
-                break;
-            case Enums.DndTargetInfo.TEXT_PLAIN:
-                if (selection.length != 0 ) {
-                    let dropCoordinates = [ xGlobalDestination, yGlobalDestination ];
-                    this.detectURLorText(selection, dropCoordinates);
-                }
-                break;
+            } else {
+                this.askWhatToDoWithFiles(fileList, this._desktopDir.get_uri(),
+                    xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, event);
+            }
+            break;
+        case Enums.DndTargetInfo.TEXT_PLAIN:
+            let dropCoordinates = [ xGlobalDestination, yGlobalDestination ];
+            this.detectURLorText(selection, dropCoordinates);
+            break;
         }
     }
 
-    askWhatToDoWithFiles(fileList, destinationuri, destinationpath, X, Y, x, y, desktopactions=true) {
+    askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, desktopactions=true) {
         this._askWhatToDoWindow = new Gtk.Dialog({use_header_bar: false,
                                        resizable: false});
         let headerbar = Gtk.HeaderBar.new();
@@ -746,27 +741,37 @@ var DesktopManager = class {
         this._askWhatToDoWindow.connect('close', () => {
             this._askWhatToDoWindow.response(Gtk.ResponseType.CANCEL);
         })
-        this._askWhatToDoWindow.connect('response', (actor, retval) => {
+        this._askWhatToDoWindow.connect('response', async (actor, retval) => {
             switch(retval) {
-                case Action.MOVE:
+            case Action.MOVE:
+                try {
                     if (desktopactions) {
-                        this.clearFileCoordinates(fileList, [X, Y]);
+                        await this.clearFileCoordinates(fileList, [X, Y]);
                     }
-                    DBusUtils.RemoteFileOperations.MoveURIsRemote(fileList, destinationuri);
-                    break;
-                case Action.COPY:
+                    let forceCopy = false;
+                    let doneAction = await this.copyOrMoveUris(fileList,
+                            destinationuri, event, { forceCopy });
+                    } catch {logError("Error Moing Files")}
+                break;
+            case Action.COPY:
+                try {
                     if (desktopactions) {
-                        this.clearFileCoordinates(fileList, [X, Y], true);
+                        await this.clearFileCoordinates(fileList, [X, Y], true);
                     }
-                    DBusUtils.RemoteFileOperations.CopyURIsRemote(fileList, destinationuri);
-                    break;
-                case Action.LINK:
+                    let forceCopy = true;
+                    let doneAction = await this.copyOrMoveUris(fileList,
+                            destinationuri, event, { forceCopy });
+                    } catch {logError("Error Copying Files")}
+                break;
+            case Action.LINK:
+                try {
                     if (desktopactions) {
-                        this.makeLinks(fileList, destinationuri, X, Y, x, y);
+                        await this.makeLinks(fileList, destinationuri, X, Y, x, y);
                     } else {
-                        this.makeFileSystemLinks(fileList, destinationuri, X, Y, x, y);
+                        await this.makeFileSystemLinks(fileList, destinationuri, X, Y, x, y);
                     }
-                    break;
+                   } catch {logError("Error making Links")}
+                break;
             }
             this.textEntryAccelsTurnOn();
             this._askWhatToDoWindow.destroy();
@@ -774,9 +779,9 @@ var DesktopManager = class {
         });
     }
 
-    makeFileSystemLinks(fileList, destination, X, Y, x, y) {
+    async makeFileSystemLinks(fileList, destination, X, Y, x, y) {
         let gioDestination = Gio.File.new_for_uri(destination);
-        for (let file of fileList) {
+        await Promise.all(fileList.map(async file => {
             let fileGio = Gio.File.new_for_uri(file);
             let i = 0;
             let baseName = fileGio.get_basename();
@@ -784,7 +789,7 @@ var DesktopManager = class {
             let checkSymlinkGio;
             do {
                 checkSymlinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path() , newSymlinkName]));
-                if (checkSymlinkGio.query_exists(null)) {
+                if (await FileUtils.queryExists(checkSymlinkGio)) {
                     i += 1;
                     newSymlinkName = `${baseName} (${i})`;
                 } else {
@@ -794,12 +799,12 @@ var DesktopManager = class {
                     break;
                 }
             } while (true)
-        }
+       }));
     }
 
-    makeLinks(fileList, destination, X, Y, x, y) {
+    async makeLinks(fileList, destination, X, Y, x, y) {
         let gioDestination = Gio.File.new_for_uri(destination);
-        for (let file of fileList) {
+        await Promise.all(fileList.map(async file => {
             let fileGio = Gio.File.new_for_uri(file);
             let i = 0;
             let baseName = fileGio.get_basename();
@@ -814,10 +819,58 @@ var DesktopManager = class {
                     let info = new Gio.FileInfo();
                     info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
                     info.set_attribute_string('metadata::nautilus-icon-position', '');
-                    symlinkGio.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
+                    try {
+                        await symlinkGio.set_attributes_async(info,
+                        Gio.FileQueryInfoFlags.NONE,
+                        GLib.PRIORITY_LOW,
+                        null);
+                    } catch(e) {logError(e)}
                 }
             } catch {logError("Error making Filesystem Links")}
+        }));
+    }
+
+    async _getFsId(file) {
+        const info = await file.query_info_async('id::filesystem',
+            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, null);
+        return info.get_attribute_string('id::filesystem');
+    }
+
+    async desktopFsId() {
+        if (this._desktopFsId === undefined)
+            this._desktopFsId = await this._getFsId(this._desktopDir);
+
+        return this._desktopFsId;
+    }
+
+    async copyOrMoveUris(uriList, destinationUri, event, params={}) {
+        if (params.forceCopy) {
+            DBusUtils.RemoteFileOperations.pushEvent(event);
+            DBusUtils.RemoteFileOperations.CopyURIsRemote(uriList, destinationUri);
+            return Gdk.DragAction.COPY;
         }
+
+        const moveFiles = [];
+        const copyFiles = [];
+        await Promise.all(uriList.map(async uri => {
+            const f = Gio.File.new_for_uri(uri);
+            if (await this.desktopFsId() === await this._getFsId(f))
+                moveFiles.push(uri);
+            else
+                copyFiles.push(uri);
+        }));
+
+        if (moveFiles.length) {
+            DBusUtils.RemoteFileOperations.pushEvent(event);
+            DBusUtils.RemoteFileOperations.MoveURIsRemote(moveFiles, destinationUri);
+        }
+
+        if (copyFiles.length) {
+            DBusUtils.RemoteFileOperations.pushEvent(event);
+            DBusUtils.RemoteFileOperations.CopyURIsRemote(copyFiles, destinationUri);
+        }
+
+        return moveFiles.length ? Gdk.DragAction.MOVE : Gdk.DragAction.COPY;
     }
 
     detectURLorText(fileList, dropCoordinates) {

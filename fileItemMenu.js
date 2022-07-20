@@ -572,7 +572,7 @@ var FileItemMenu = class {
         clickedItem.removeFromGrid(true);
         const newFolder = await this._desktopManager.doNewFolder(position);
         if (newFolder) {
-            DBusUtils.RemoteFileOperations.pushEvent(event.parentWindow, event.timestamp);
+            DBusUtils.RemoteFileOperations.pushEvent(event);
             DBusUtils.RemoteFileOperations.MoveURIsRemote(newFolderFileItems, newFolder);
         }
     }
