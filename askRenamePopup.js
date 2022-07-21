@@ -21,6 +21,7 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const DBusUtils = imports.dbusUtils;
 const DesktopIconsUtil = imports.desktopIconsUtil;
+const FileUtils = imports.fileUtils;
 const Gettext = imports.gettext.domain('ding');
 
 const _ = Gettext.gettext;
@@ -29,9 +30,11 @@ var AskRenamePopup = class {
 
     constructor(fileItem, allowReturnOnSameName, closeCB) {
 
+        this._validateCancellable = new Gio.Cancellable();
         this._closeCB = closeCB;
         this._allowReturnOnSameName = allowReturnOnSameName;
-        this._desktopPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
+        this._desktopFile = Gio.File.new_for_path(
+            GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP));
         this._fileItem = fileItem;
         this._popover = new Gtk.Popover;
         this._popover.set_autohide(true);
@@ -56,7 +59,7 @@ var AskRenamePopup = class {
             this._do_rename();
         });
         this._textArea.connect('changed', () => {
-            this._validate();
+            this._validate().catch(e => logError(e));
         });
         this._textArea.connect('activate', () => {
             if (this._button.sensitive) {
@@ -64,6 +67,7 @@ var AskRenamePopup = class {
             }
         });
         this._popover.connect('closed', () => {
+            this._validateCancellable.cancel();
             closeCB();
         });
         this._textArea.set_activates_default(true);
@@ -73,22 +77,37 @@ var AskRenamePopup = class {
         this._popover.set_parent(fileItem._grid._window);
         this._popover.set_pointing_to(fileItem.iconRectangle);
         this._popover.popup();
-        this._validate();
+        this._validate().catch(e => logError(e));
         this._textArea.grab_focus_without_selecting();
         this._textArea.select_region(0, DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, fileItem.isDirectory));
     }
 
-    _validate() {
+    async _validate() {
+        this._validateCancellable.cancel();
+        this._validateCancellable = new Gio.Cancellable();
+
         let text = this._textArea.text;
-        let final_path = this._desktopPath + '/' + text;
-        let final_file = Gio.File.new_for_commandline_arg(final_path);
-        if ((text == '') || (-1 != text.indexOf('/')) ||
-           ((text == this._fileItem.fileName) && (!this._allowReturnOnSameName)) ||
-           (final_file.query_exists(null) && (text != this._fileItem.fileName))) {
+        if (!text.length || text.indexOf('/') !== -1) {
             this._button.sensitive = false;
-        } else {
-            this._button.sensitive = true;
+            return;
         }
+
+        if (text === this._fileItem.fileName) {
+            this._button.sensitive = !!this._allowReturnOnSameName;
+            return;
+        }
+
+        let sensitive = true;
+        try {
+            const finalFile = this._desktopFile.get_child(text);
+            if (await FileUtils.queryExists(finalFile, this._validateCancellable))
+                sensitive = false;
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                return;
+        }
+
+        this._button.sensitive = sensitive;
     }
 
     _do_rename() {
