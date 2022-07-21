@@ -874,7 +874,7 @@ var DesktopManager = class {
         return moveFiles.length ? Gdk.DragAction.MOVE : Gdk.DragAction.COPY;
     }
 
-    detectURLorText(fileList, dropCoordinates) {
+    async detectURLorText(fileList, dropCoordinates) {
         function isValidURL(str) {
             var pattern = new RegExp('^(https|http|ftp|rtsp|mms)?:\\/\\/?'+ 
             '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
@@ -886,30 +886,32 @@ var DesktopManager = class {
         }
         let text = fileList.toString();
         if (isValidURL(text)) {
-            this.writeURLlinktoDesktop(text, dropCoordinates);
+            await this.writeURLlinktoDesktop(text, dropCoordinates);
         } else {
             let filename = "Dragged Text";
             let now = Date().valueOf().split(" ").join("").replace( /:/g , '-');
             filename = filename + "-" + now;
-            DesktopIconsUtil.writeTextFileToDesktop(text, filename, dropCoordinates);
+            await DesktopIconsUtil.writeTextFileToPath(text, this._desktopDir,
+                filename, dropCoordinates);
         }
     }
 
-    writeURLlinktoDesktop(link, dropCoordinates) {
+    async writeURLlinktoDesktop(link, dropCoordinates) {
         let filename = link.split("?")[0];
         filename = filename.split("//")[1];
         filename = filename.split("/")[0] ;
         let now = Date().valueOf().split(" ").join("").replace( /:/g , '-' );
         filename = filename + "-" + now ;
-        this.writeHTMLTypeLink(filename, link, dropCoordinates);
+        await this.writeHTMLTypeLink(filename, link, dropCoordinates);
     }
 
 
-    writeHTMLTypeLink(filename, link, dropCoordinates) {
+    async writeHTMLTypeLink(filename, link, dropCoordinates) {
         filename = filename + ".html";
         let body = [ '<html>', '<head>', '<meta http-equiv="refresh" content="0; url=' + link + '" />', '</head>', '<body>', '</body>', '</html>' ];
         body = body.join('\n');
-        DesktopIconsUtil.writeTextFileToDesktop(body, filename, dropCoordinates);
+        await DesktopIconsUtil.writeTextFileToPath(body, this._desktopDir,
+            filename, dropCoordinates);
     }
 
     fillDragDataGet(info) {
@@ -1144,8 +1146,10 @@ var DesktopManager = class {
     }
 
     findFiles(text) {
-        this._findFileWindow = new Gtk.Dialog({use_header_bar: true,
-                                       resizable: false});
+        this._findFileWindow = new Gtk.Dialog({
+            use_header_bar: true,
+            resizable: false,
+        });
         this._findFileButton = this._findFileWindow.add_button(_("OK"), Gtk.ResponseType.OK);
         this._findFileButton.sensitive = false;
         this._findFileWindow.add_button(_("Cancel"), Gtk.ResponseType.CANCEL);

@@ -19,6 +19,7 @@
 imports.gi.versions.GdkX11 = '4.0';
 imports.gi.versions.Gdk = '4.0';
 
+const ByteArray = imports.byteArray;
 const Gtk = imports.gi.Gtk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
@@ -27,6 +28,7 @@ const GdkX11 = imports.gi.GdkX11;
 const Prefs = imports.preferences;
 const DesktopManager = imports.desktopManager;
 const Enums = imports.enums;
+const FileUtils = imports.fileUtils;
 const Gettext = imports.gettext.domain('ding');
 
 var applicationid = null;
@@ -198,20 +200,51 @@ function getFileExtensionOffset(filename, isDirectory) {
     return offset;
 }
 
-function writeTextFileToDesktop(text, filename, dropCoordinates) {
-    // Async!
-    let path = GLib.build_filenamev([GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP),  filename]);
-    let file = Gio.File.new_for_path(path);
-    const PERMISSIONS_MODE = 0o744;
-    if (GLib.mkdir_with_parents(file.get_parent().get_path(), PERMISSIONS_MODE) === 0) {
-                let [success, tag] = file.replace_contents(text, null, false, Gio.FileCreateFlags.REPLACE_DESTINATION, null);
+function replaceFileContentsAsync(file, contents, cancellable) {
+    /* Promisify doesn't work with this */
+    const byteArray = ByteArray.fromString(contents);
+
+    return new Promise((resolve, reject) => {
+        file.replace_contents_bytes_async(ByteArray.toGBytes(byteArray), null,
+            true, Gio.FileCreateFlags.REPLACE_DESTINATION, cancellable, (_, res) => {
+                try {
+                    resolve(file.replace_contents_finish(res));
+                } catch (e) {
+                    reject(e);
+                }
+            });
+    });
+}
+
+async function writeTextFileToPath(text, destinationDir, filename,
+    dropCoordinates, cancellable = null) {
+    const file = destinationDir.get_child(filename);
+
+    try {
+        await FileUtils.recursivelyMakeDir(destinationDir, cancellable);
+
+        const info = new Gio.FileInfo();
+        info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
+        await destinationDir.set_attributes_async(info,
+                Gio.FileQueryInfoFlags.NONE,
+                GLib.PRIORITY_NORMAL,
+            cancellable);
+    } catch (e) {
+        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+            throw e;
     }
+
+    await replaceFileContentsAsync(file, text, cancellable);
+
     if (dropCoordinates != null) {
-        let info = new Gio.FileInfo();
-        info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
-        try {
-            file.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
-        } catch(e) {}
+        const info = new Gio.FileInfo();
+        info.set_attribute_string(`metadata::nautilus-drop-position`,
+            `${dropCoordinates.join(',')}`);
+
+        await file.set_attributes_async(info,
+            Gio.FileQueryInfoFlags.NONE,
+            GLib.PRIORITY_LOW,
+            cancellable);
     }
 }
 
