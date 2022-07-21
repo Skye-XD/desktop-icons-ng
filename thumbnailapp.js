@@ -70,15 +70,23 @@ var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
             name: 'updateThumbnail',
             parameter_type: new GLib.VariantType('as')
         });
-        updateThumbnail.connect('activate', (action, parameter) => {
+        updateThumbnail.connect('activate', async (action, parameter) => {
             let [fileUri, filePath, fileAttributeContentType, fileModifiedTime] = parameter.recursiveUnpack();
-            var file = {
+            const gioFile = Gio.File.new_for_uri(fileUri);
+            const file = {
                 "uri": fileUri,
                 "path": filePath,
+                "file": gioFile,
                 "attributeContentType": fileAttributeContentType,
                 "modifiedTime": fileModifiedTime
             }
-            this._updateThumbnail(file);
+            if (this.canThumbnail(file)) {
+                const cancellable = new Gio.Cancellable();
+                const thumbnail = await this.getThumbnail(file, cancellable);
+                if (thumbnail != null) {
+                    this._updateDesktopIcon(file, thumbnail);
+                }
+            }
         });
         let actionGroup = new Gio.SimpleActionGroup();
         let busname = this.mainApp.get_dbus_object_path();

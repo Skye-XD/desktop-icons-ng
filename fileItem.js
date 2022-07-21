@@ -72,9 +72,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         /* Set the metadata and update relevant UI */
         this._updateMetadataFromFileInfo(fileInfo);
 
-        this._updateIcon().catch((e) => {
-            print(`Exception while updating an icon: ${e.message}\n${e.stack}`);
-        });
+        this.updateIcon();
 
         if (this._attributeCanExecute && !this._isValidDesktopFile) {
             this._execLine = this.file.get_path();
@@ -119,7 +117,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             });
         } else {
             this._monitorTrashId = 0;
-            this._getIconThumbNail();
         }
         this._updateName();
         if (this._dropCoordinates) {
@@ -238,16 +235,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             this._updateName();
             if (rebuild) {
                 try {
-                    await this._updateIcon();
+                    await this._updateIcon(cancellable);
                 } catch (e) {
+                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        throw e;
                     logError(e, `Exception while updating the icon after a metadata update: ${e.message}`);
                 };
-
-                if (cancellable.is_cancelled()) {
-                    throw new GLib.Error(Gio.IOErrorEnum,
-                        Gio.IOErrorEnum.CANCELLED,
-                        'Operation was cancelled')
-                }
             }
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
@@ -543,15 +536,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                                                   GLib.PRIORITY_DEFAULT,
                                                   cancellable);
             try {
-                await this._updateIcon();
+                await this._updateIcon(cancellable);
             } catch (e) {
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                    throw e;
                 logError(e, `Exception while updating the trash icon: ${e.message}`);
-            }
-
-            if (cancellable.is_cancelled()) {
-                throw new GLib.Error(Gio.IOErrorEnum,
-                    Gio.IOErrorEnum.CANCELLED,
-                    'Operation was cancelled')
             }
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
@@ -565,10 +554,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         }
 
         return false;
-    }
-
-    _getIconThumbNail() {
-        this._desktopManager.thumbnailLoader._updateThumbnail(this);
     }
 
     /***********************

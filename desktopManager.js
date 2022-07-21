@@ -273,7 +273,7 @@ var DesktopManager = class {
         if (! Thumbnails) {
             this._startThumbnailer();
             this.thumbnailLoader = {};
-            this.thumbnailLoader._updateThumbnail = this._getRemoteIconThumbNail.bind(this);
+            this.thumbnailLoader.canThumbnail = this._getRemoteIconThumbNail.bind(this);
         } else {
             this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath);
             this._updateDesktop().catch((e) => {
@@ -352,6 +352,7 @@ var DesktopManager = class {
     _getRemoteIconThumbNail(fileItem) {
         let thumbnailInfoVariant = new GLib.Variant('as', [fileItem._file.get_uri(), fileItem._file.get_path(), fileItem.attributeContentType, `${fileItem.modifiedTime}`]);
         this.remoteThumbnailUpdate.activate_action('updateThumbnail', thumbnailInfoVariant);
+        return false;
     }
 
     _metadataChanged(proxy, nameOwner, args) {

@@ -1,7 +1,9 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
- * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) port to Gtk.app-
- * to communicate over dbus.
+ * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) port to work with
+ * gnome desktop 3 or 4 so as to communicate over dbus.
+ *
+ * Code cherry picked from Marco Trevisan for async methods to generate icons.
  *
  * Copyright (C) 2021 Sergio Costas (rastersoft@gmail.com)
  *
@@ -60,9 +62,6 @@ var ThumbnailLoader = class {
     constructor(codePath) {
         this._timeoutValue = 5000;
         this._codePath = codePath;
-        this._thumbList = [];
-        this._thumbnailScriptWatch = null;
-        this._running = false;
         this._thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
         if (useAsyncAPI) {
             print("Detected async api for thumbnails");
@@ -70,61 +69,34 @@ var ThumbnailLoader = class {
             print("Failed to detected async api for thumbnails");
         }
     }
-    
-    _updateDesktopIcon(file, thumbnail) {
-        file.thumbnailFile = thumbnail;
-        file._updateIcon();
-    }
 
-    _updateThumbnail(file) {
-        if (this.canThumbnail(file)) {
-            let thumbnail = this.getThumbnail(file);
-            if (thumbnail != null) {
-                this._updateDesktopIcon(file, thumbnail);
-            }
-        }
-    }
+    async _generateThumbnail(file, cancellable) {
+        if (!await FileUtils.queryExists(file.file))
+            return null;
 
-    _generateThumbnail(file, callback) {
-        this._thumbList.push([file, callback]);
-        if (!this._running) {
-            this._launchNewBuild().catch(e => logError(e));
-        }
-    }
+        if (this._thumbnailFactory.has_valid_failed_thumbnail(file.uri, file.modifiedTime))
+            return null;
 
-    async _launchNewBuild() {
-        let file, callback;
-        do {
-            if (this._thumbList.length == 0) {
-                this._running = false;
-                return;
-            }
-            // if the file disappeared while waiting in the queue, don't refresh the thumbnail
-            [file, callback] = this._thumbList.shift();
-            if (await FileUtils.queryExists(Gio.File.new_for_uri(file.uri))) {
-                if (this._thumbnailFactory.has_valid_failed_thumbnail(file.uri, file.modifiedTime)) {
-                    if (callback) {
-                        callback();
-                    }
-                    continue;
-                } else {
-                    break;
-                }
-            }
-        } while(true);
-        this._running = true;
         if (useAsyncAPI) {
-            await this._createThumbnailAsync(file, callback)
+            if (!await this._createThumbnailAsync(file, cancellable))
+                return null;
         } else {
-            await this._createThumbnailSubprocess(file, callback);
+            if (!await this._createThumbnailSubprocess(file, cancellable))
+                return null;
         }
+
+        if (cancellable.is_cancelled())
+            return null;
+
+        return this._thumbnailFactory.lookup(file.uri, file.modifiedTime);
     }
 
-    async _createThumbnailAsync(file, callback) {
-        const cancellable = new Gio.Cancellable();
+    async _createThumbnailAsync(file, cancellable) {
+        let gotTimeout = false;
         let timeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this._timeoutValue, () => {
             print(`Timeout while generating thumbnail for ${file.displayName}`);
             timeoutId = 0;
+            gotTimeout = true;
             cancellable.cancel();
             return GLib.SOURCE_REMOVE;
         });
@@ -146,23 +118,21 @@ var ThumbnailLoader = class {
                 file.uri, fileInfo.get_content_type(), cancellable);
             await this._thumbnailFactory.save_thumbnail_async(thumbnailPixbuf,
                 file.uri, modifiedTime, cancellable);
+            return true;
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 logError(e, `Error while creating thumbnail: ${e.message}`);
             await this._createFailedThumbnailAsync(file, modifiedTime,
-                cancellable.is_cancelled() ? null : cancellable, callback);
+                gotTimeout && cancellable.is_cancelled() ? null : cancellable);
         } finally {
             if (timeoutId)
                 GLib.source_remove(timeoutId);
-
-            if (callback)
-                callback();
-
-            await this._launchNewBuild();
         }
+
+        return false;
     }
 
-    async _createFailedThumbnailAsync(file, modifiedTime, cancellable, callback) {
+    async _createFailedThumbnailAsync(file, modifiedTime, cancellable) {
         try {
             await this._thumbnailFactory.create_failed_thumbnail_async(file.uri,
                 modifiedTime, cancellable);
@@ -171,7 +141,7 @@ var ThumbnailLoader = class {
         }
     }
 
-    async _createThumbnailSubprocess(file, callback) {
+    async _createThumbnailSubprocess(file, cancellable) {
         const args = [];
         args.push(GLib.build_filenamev([this._codePath, 'createThumbnail.js']));
         args.push(file.path);
@@ -188,17 +158,17 @@ var ThumbnailLoader = class {
         proc.init(null);
 
         try {
-            await proc.wait_check_async(null);
-            if (proc.get_status() == 0 && callback)
-                callback();
+            await proc.wait_check_async(cancellable);
+            return (proc.get_status() == 0);
         } catch (e) {
-            logError(e, `Failed to generate thumbnail for ${file.displayName}: ${e.message}`);
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                logError(e, `Failed to generate thumbnail for ${file.displayName}: ${e.message}`);
         } finally {
             if (timeoutID)
                 GLib.source_remove(timeoutID);
-
-            await this._launchNewBuild();
         }
+
+        return false;
     }
 
     canThumbnail(file) {
@@ -207,13 +177,11 @@ var ThumbnailLoader = class {
                                                     file.modifiedTime);
     }
 
-    getThumbnail(file) {
+    async getThumbnail(file, cancellable) {
         try {
             let thumbnail = this._thumbnailFactory.lookup(file.uri, file.modifiedTime);
             if (thumbnail == null) {
-                if (!this._thumbnailFactory.has_valid_failed_thumbnail(file.uri, file.modifiedTime)) {
-                    this._generateThumbnail(file, this._updateThumbnail.bind(this, file));
-                }
+                thumbnail = await this._generateThumbnail(file, cancellable);
             }
             return thumbnail;
         } catch(error) {

@@ -28,6 +28,7 @@ const Pango = imports.gi.Pango;
 const GdkPixbuf = imports.gi.GdkPixbuf;
 const DesktopIconsUtil = imports.desktopIconsUtil;
 const PromiseUtils = imports.promiseUtils;
+const FileUtils = imports.fileUtils;
 
 const Prefs = imports.preferences;
 const Enums = imports.enums;
@@ -78,6 +79,11 @@ var desktopIconItem = class desktopIconItem {
         /* Regular file data */
         if (this._queryFileInfoCancellable) {
             this._queryFileInfoCancellable.cancel();
+        }
+
+        /* Icons update */
+        if (this._updateIconCancellable) {
+            this._updateIconCancellable.cancel();
         }
         /* Container */
         if (this._containerId) {
@@ -418,50 +424,91 @@ var desktopIconItem = class desktopIconItem {
      ***********************/
 
     updateIcon() {
-        this._updateIcon();
+        this._updateIcon().catch(e => {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                logError(e, `Exception while updating ${this._getVisibleName ?
+                    this._getVisibleName() : 'an icon'}: ${e.message}`);
+            }
+        });
     }
 
-    async _updateIcon() {
-        if (this._destroyed) {
-            return;
+    async _updateIcon(cancellable) {
+        if ((cancellable && cancellable.is_cancelled()) || this._destroyed) {
+            throw new GLib.Error(Gio.IOErrorEnum,
+                Gio.IOErrorEnum.CANCELLED,
+                'Operation was cancelled');
         }
+
+        else if (!cancellable)
+            cancellable = new Gio.Cancellable();
+
+        if (this._updateIconCancellable)
+            this._updateIconCancellable.cancel();
+
+        this._updateIconCancellable = cancellable;
 
         try {
             let customIcon = this._fileInfo.get_attribute_as_string('metadata::custom-icon');
             if (customIcon && (customIcon != '')) {
                 let customIconFile = Gio.File.new_for_uri(customIcon);
-                const loadedImage = await this._loadImageAsIcon(customIconFile);
-                if (loadedImage || this._destroyed)
+                if (await this._loadImageAsIcon(customIconFile, cancellable))
                     return;
             }
             if (this.thumbnailFile && (this.thumbnailFile != '')) {
                 let customIconFile = Gio.File.new_for_path(this.thumbnailFile);
-                if (customIconFile.query_exists(null)) {
-                    let loadedImage = await this._loadImageAsIcon(customIconFile);
+                if (await FileUtils.queryExists(customIconFile)) {
+                    let loadedImage = await this._loadImageAsIcon(customIconFile, cancellable);
                     if (loadedImage | this._destroyed) {
                         return;
                     }
                 }
             }
         } catch (error) {
-            print(`Error while updating icon: ${error.message}.\n${error.stack}`);
+            if (error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                throw error;
+
+            logError(error, `Error while updating icon: ${error.message}`);
         }
 
         if (this._fileExtra == Enums.FileType.USER_DIRECTORY_TRASH) {
             let pixbuf = this._createEmblemedIcon(this._fileInfo.get_icon(), null);;
+            if (cancellable.is_cancelled())
+                return;
             this._icon.set_paintable(pixbuf);
             return;
         }
 
         let icon_set = false;
 
+        if ((Prefs.nautilusSettings.get_string('show-image-thumbnails') != 'never') &&
+            (this._desktopManager.thumbnailLoader.canThumbnail(this))) {
+                try {
+                    const thumbnail = await this._desktopManager.thumbnailLoader.getThumbnail(
+                        this, cancellable);
+                    if (thumbnail != null) {
+                        let thumbnailFile = Gio.File.new_for_path(thumbnail);
+                        icon_set = await this._loadImageAsIcon(thumbnailFile, cancellable);
+                    }
+                } catch (e) {
+                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        throw e;
+
+                    logError(e, `Error while generating thumbnail: ${error.message}`);
+                }
+        }
+
         if (!icon_set &&
             Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never' &&
             this.fileSize < 5242880 &&
             PIXBUF_CONTENT_TYPES.has(this._fileInfo.get_content_type())) {
-            icon_set = await this._loadImageAsIcon(Gio.File.new_for_uri(this.uri));
-            if (this._destroyed) {
-                return;
+            try {
+                icon_set = await this._loadImageAsIcon(
+                    Gio.File.new_for_uri(this.uri), cancellable);
+            } catch (e) {
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                    throw e;
+
+                logError(e, `Error while generating icon image: ${error.message}`);
             }
         }
 
@@ -476,8 +523,13 @@ var desktopIconItem = class desktopIconItem {
                     iconPaintable = this._createEmblemedIcon(this._getDefaultIcon(), null);
                 }
             }
+            if (cancellable.is_cancelled())
+                return;
             this._icon.set_paintable(iconPaintable);
         }
+
+        if (cancellable === this._updateIconCancellable)
+            this._updateIconCancellable = null;
     }
 
     _getDefaultIcon() {
@@ -487,14 +539,7 @@ var desktopIconItem = class desktopIconItem {
         return this._fileInfo.get_icon();
     }
 
-    async _loadImageAsIcon(imageFile) {
-
-        if (this._loadThumbnailDataCancellable)
-            this._loadThumbnailDataCancellable.cancel();
-
-        const cancellable = new Gio.Cancellable();
-        this._loadThumbnailDataCancellable = cancellable;
-
+    async _loadImageAsIcon(imageFile, cancellable) {
         try {
             const [thumbnailData] = await imageFile.load_bytes_async(cancellable);
             const iconTexture = Gdk.Texture.new_from_bytes(thumbnailData)
@@ -513,13 +558,11 @@ var desktopIconItem = class desktopIconItem {
 
             return true;
         } catch (e) {
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Error while loading ${imageFile.get_uri()}`);
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                throw e;
 
+            logError(e, `Error while loading ${imageFile.get_uri()}`);
             return false;
-        } finally {
-            if (cancellable === this._loadThumbnailDataCancellable)
-                this._loadThumbnailDataCancellable = null;
         }
     }
 
