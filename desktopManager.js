@@ -1527,18 +1527,28 @@ var DesktopManager = class {
         }
         let selected = selection[0];
         let selectedCoordinates = selected.getCoordinates();
-        this.unselectAll();
+        if (!this.isShift)
+            this.unselectAll();
         if (selection.length > 1) {
             for (let item of selection) {
                 let itemCoordinates = item.getCoordinates();
                 if (itemCoordinates[0] > selectedCoordinates[0]) {
                     continue;
                 }
-                if ((itemCoordinates[0] < selectedCoordinates[0]) ||
-                    (itemCoordinates[1] < selectedCoordinates[1])) {
+                if (symbol == Gdk.KEY_Down || symbol == Gdk.KEY_Right) {
+                    if ((itemCoordinates[0] > selectedCoordinates[0]) ||
+                        (itemCoordinates[1] > selectedCoordinates[1])) {
                         selected = item;
                         selectedCoordinates = itemCoordinates;
                         continue;
+                    }
+                } else {
+                    if ((itemCoordinates[0] < selectedCoordinates[0]) ||
+                        (itemCoordinates[1] < selectedCoordinates[1])) {
+                            selected = item;
+                            selectedCoordinates = itemCoordinates;
+                            continue;
+                    }
                 }
             }
         }
