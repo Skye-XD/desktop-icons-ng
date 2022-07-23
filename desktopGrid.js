@@ -308,6 +308,10 @@ var DesktopGrid = class {
             if (clickItem && (clickItem._fileExtra == Enums.FileType.EXTERNAL_DRIVE)) {
                 return Gdk.DragAction.COPY;
             }
+            if ((this._desktopManager.keepArranged || this._desktopManager.keepStacked) && info == Enums.DndTargetInfo.DING_ICON_LIST) {
+                if (!this._desktopManager.getCurrentSelection().filter(f => f.isSpecial).length)
+                return false;
+            }
             return Gdk.DragAction.MOVE;
         });
 
