@@ -474,14 +474,39 @@ var FileItemMenu = class {
 
     _extractFileFromSelection(extractHere) {
         let extractFileItem = '';
-        let folder = ''
+        let extractFolderName;
+        let X;
+        let Y;
         for (let fileItem of this._desktopManager.getCurrentSelection(false)) {
             extractFileItem = fileItem.file.get_uri();
+            extractFolderName = fileItem.fileName;
+            [X, Y] = fileItem.getCoordinates().slice(0, 2);
             fileItem.unsetSelected();
         }
         if (extractHere) {
-            folder = DesktopIconsUtil.getDesktopDir().get_uri();
-            DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItem, folder, true);
+            const regex = /\.[^.]*$/;
+            let extensionposition = extractFolderName.search(regex);
+            if (extensionposition > 1) {
+                extractFolderName = extractFolderName.slice(0, extensionposition);
+            }
+            let i = 0;
+            let newFolderName = extractFolderName;
+            while (this._desktopManager._fileList.map(f => f.fileName).includes(newFolderName)) {
+                i += 1;
+                newFolderName = `${extractFolderName} (${i})`;
+            }
+            let dir = DesktopIconsUtil.getDesktopDir().get_child(newFolderName);
+            try {
+                dir.make_directory(null);
+                let info = new Gio.FileInfo();
+                info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
+                info.set_attribute_string('metadata::nautilus-icon-position', '');
+                dir.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
+            } catch(e) {
+                print(`Failed to create folder ${e.message}`);
+                return;
+            }
+            DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItem, dir.get_uri(), true);
         } else {
             let dialog = new Gtk.FileChooserDialog({title: _('Select Extract Destination')});
             dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
@@ -498,7 +523,7 @@ var FileItemMenu = class {
             });
             dialog.connect('response', (actor, response) => {
                 if (response === Gtk.ResponseType.ACCEPT) {
-                    folder = dialog.get_file().get_uri();
+                    let folder = dialog.get_file().get_uri();
                     if (folder) {
                         DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItem, folder, true);
                     }
