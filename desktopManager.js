@@ -1942,12 +1942,16 @@ var DesktopManager = class {
     _refreshMenus(fileList) {
         let activeItem = null;
         let newItemDoRename = false;
+        let attributeExists = 0;
         fileList.forEach(f => {
             if (this.activeFileItem && (f.fileName == this.activeFileItem.fileName)) {
                 this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem = f;
             }
             if (this.newItemDoRename && (f.fileName == this.newItemDoRename)) {
                 newItemDoRename = f.fileName;
+            }
+            if (f.attributeContentType == this.activeFileItem.attributeContentType) {
+                attributeExists += 1;
             }
         });
         if (this.newItemDoRename) {
@@ -1966,12 +1970,12 @@ var DesktopManager = class {
             if (this.activeFileItem.isStackMarker) {
                 this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
                 if (this.keepStacked){
-                    let attributeExists = fileList.filter(f => f.attributeContentType == this.activeFileItem.attributeContentType);
-                    if (attributeExists.length > 1) {
+                    if (attributeExists > 1) {
                         return;
                     }
                 }
             }
+            this.fileItemMenu.activeFileItem = this.activeFileItem = false;
             this.fileItemMenu.popupmenu.popdown();
         }
     }

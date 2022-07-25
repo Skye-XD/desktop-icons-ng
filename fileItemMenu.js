@@ -399,8 +399,8 @@ var FileItemMenu = class {
             this._menu.append_section(null, openInTerminalMenu);
         }
         this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
-        this.popupmenu.set_parent(fileItem._grid._container);
-        this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
+        this.popupmenu.set_parent(fileItem._grid._window);
+        this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:X,y:Y,width:1,height:1}));
         fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
         this.popupmenu.connect('closed', async () => {
