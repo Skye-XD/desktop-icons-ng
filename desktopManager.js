@@ -1785,7 +1785,7 @@ var DesktopManager = class {
                      break;
                 }
                 if (this._forceDraw) {
-                    this._drawDesktop(fileList);
+                    this._drawDesktop(fileList).catch(e => logError(e));
                     this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
                 }
             }
@@ -1798,7 +1798,7 @@ var DesktopManager = class {
         }
         this._readingDesktopFiles = false;
         this._forceDraw = false;
-        this._drawDesktop(fileList);
+        this._drawDesktop(fileList).catch(e => logError(e));
     }
 
     async _doReadAsync() {
@@ -1929,14 +1929,26 @@ var DesktopManager = class {
         }
     }
 
-    _drawDesktop(fileList) {
+    async _drawDesktop(fileList) {
+
         this._selectedFiles = this.getCurrentSelection(true);
+
+        //* Update the Icon before placing on Desktop to prevent flickering Icons *//
+        const updateUI = fileList.map(async fileItem => {
+            await fileItem.updateIcon().catch(e => logError(e));
+        });
+        await Promise.all([...updateUI]);
+
+        //* Refresh all the menus, activeFileItem and newItemdo Rename before putting items on Desktop *//
         if (this.newItemDoRename || this.fileItemMenu.popupmenuopen || this.activeFileItem) {
             this._refreshMenus(fileList);
         }
+
         this._removeAllFilesFromGrids();
         this._fileList = fileList;
+
         this._placeAllFilesOnGrids();
+
     }
 
     _refreshMenus(fileList) {
@@ -2407,6 +2419,7 @@ var DesktopManager = class {
                 fileItem.removeFromGrid();
             }
         }
+
         if (! this.stackInitialCoordinates && ! this._allFileList) {
             this._allFileList = [];
             this._saveStackInitialCoordinates();
@@ -2416,7 +2429,9 @@ var DesktopManager = class {
             }
             restack = false;
         }
+
         this._sortAllFilesFromGridsByKindStacked(restack);
+
         this._reassignFilesToDesktop();
     }
 
@@ -2569,6 +2584,7 @@ var DesktopManager = class {
         otherFiles.push(...validDesktopFiles);
         otherFiles.push(...directoryFiles);
         otherFiles.push(...stackTopMarkerFolderList);
+
         switch (Prefs.getSortOrder()) {
             case Enums.SortOrder.NAME:
                 this._sortByName(otherFiles);

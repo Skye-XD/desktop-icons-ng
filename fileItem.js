@@ -67,57 +67,23 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._dropCoordinates = this._readCoordinatesFromAttribute(fileInfo, 'metadata::nautilus-drop-position');
 
         this._createIconActor();
-        this._setFileName(this._getVisibleName());
 
-        /* Set the metadata and update relevant UI */
+        /* Set the metadata */
         this._updateMetadataFromFileInfo(fileInfo);
-
-        this.updateIcon();
 
         if (this._attributeCanExecute && !this._isValidDesktopFile) {
             this._execLine = this.file.get_path();
         } else {
             this._execLine = null;
         }
-        if (fileExtra == Enums.FileType.USER_DIRECTORY_TRASH) {
+
+        if (this.isTrash) {
             // if this icon is the trash, monitor the state of the directory to update the icon
-            this._trashChanged = false;
-            this._queryTrashInfoCancellable = null;
-            this._scheduleTrashRefreshId = 0;
-            this._monitorTrashDir = this._file.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
-            this._monitorTrashId = this._monitorTrashDir.connect('changed', (obj, file, otherFile, eventType) => {
-                switch(eventType) {
-                    case Gio.FileMonitorEvent.DELETED:
-                    case Gio.FileMonitorEvent.MOVED_OUT:
-                    case Gio.FileMonitorEvent.CREATED:
-                    case Gio.FileMonitorEvent.MOVED_IN:
-                        if (this._queryTrashInfoCancellable || this._scheduleTrashRefreshId) {
-                            if (this._scheduleTrashRefreshId) {
-                                GLib.source_remove(this._scheduleTrashRefreshId);
-                            }
-                            if (this._queryTrashInfoCancellable) {
-                                this._queryTrashInfoCancellable.cancel();
-                                this._queryTrashInfoCancellable = null;
-                            }
-                            this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                                this._refreshTrashIcon().catch(e => logError(e));
-                                this._scheduleTrashRefreshId = 0;
-                                return GLib.SOURCE_REMOVE;
-                            });
-                        } else {
-                            this._refreshTrashIcon().catch(e => logError(e));
-                            // after a refresh, don't allow more refreshes until 200ms after, to coalesce extra events
-                            this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                                this._scheduleTrashRefreshId = 0;
-                                return GLib.SOURCE_REMOVE;
-                            });
-                        }
-                    break;
-                }
-            });
+            this._monitorTrash();
         } else {
             this._monitorTrashId = 0;
         }
+
         this._updateName();
         if (this._dropCoordinates) {
             this.setSelected();
@@ -209,12 +175,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 this._desktopManager.doRename(this, true);
             }
         }
-        if (this._desktopManager._selectedFiles) {
-            if (this._desktopManager._selectedFiles.includes(this.uri)) {
-                this.setSelected();
-            }
-        }
-        if (this._desktopManager.fileItemMenu.popupmenuopen && (this._desktopManager.activeFileItem.uri == this.uri)) {
+        if (this._desktopManager.fileItemMenu.popupmenuopen &&
+                this._desktopManager.activeFileItem && (this._desktopManager.activeFileItem.uri == this.uri)) {
             this._desktopManager.fileItemMenu.popupmenu.set_pointing_to(this.iconRectangle);
         }
     }
@@ -237,7 +199,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                                                   Gio.FileQueryInfoFlags.NONE,
                                                   GLib.PRIORITY_DEFAULT,
                                                   cancellable);
+            let oldLabelText = this._currentFileName;
             this._updateMetadataFromFileInfo(newFileInfo);
+            if (this.displayName != oldLabelText) {
+                this._setFileName(this.displayName);
+            }
             this._updateName();
             if (rebuild) {
                 try {
@@ -259,8 +225,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
     _updateMetadataFromFileInfo(fileInfo) {
         this._fileInfo = fileInfo;
-
-        let oldLabelText = this._currentFileName;
 
         this._displayName = this._getVisibleName();
         this._attributeCanExecute = fileInfo.get_attribute_boolean('access::can-execute');
@@ -289,10 +253,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             this._isValidDesktopFile = false;
         }
 
-        if (this.displayName != oldLabelText) {
-            this._setFileName(this.displayName);
-        }
-
         this._fileType = fileInfo.get_file_type();
         this._isDirectory = this._fileType == Gio.FileType.DIRECTORY;
         this._isSpecial = this._fileExtra != Enums.FileType.NONE;
@@ -313,7 +273,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             fileList = [] ;
         }
         if (this._isSymlink) {
-            await this._refreshMetadataAsync(true).catch((error) => {});
+            await this._refreshMetadataAsync(true).catch(e => logError(e));
         }
         if (this._isBrokenSymlink) {
             try {
@@ -418,6 +378,43 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         } else {
             this._setFileName(this._getVisibleName());
         }
+    }
+
+    _monitorTrash() {
+        this._trashChanged = false;
+        this._queryTrashInfoCancellable = null;
+        this._scheduleTrashRefreshId = 0;
+        this._monitorTrashDir = this._file.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._monitorTrashId = this._monitorTrashDir.connect('changed', (obj, file, otherFile, eventType) => {
+            switch(eventType) {
+                case Gio.FileMonitorEvent.DELETED:
+                case Gio.FileMonitorEvent.MOVED_OUT:
+                case Gio.FileMonitorEvent.CREATED:
+                case Gio.FileMonitorEvent.MOVED_IN:
+                    if (this._queryTrashInfoCancellable || this._scheduleTrashRefreshId) {
+                        if (this._scheduleTrashRefreshId) {
+                            GLib.source_remove(this._scheduleTrashRefreshId);
+                        }
+                        if (this._queryTrashInfoCancellable) {
+                            this._queryTrashInfoCancellable.cancel();
+                            this._queryTrashInfoCancellable = null;
+                        }
+                        this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
+                            this._refreshTrashIcon().catch(e => logError(e));
+                            this._scheduleTrashRefreshId = 0;
+                            return GLib.SOURCE_REMOVE;
+                        });
+                    } else {
+                        this._refreshTrashIcon().catch(e => logError(e));
+                        // after a refresh, don't allow more refreshes until 200ms after, to coalesce extra events
+                        this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
+                            this._scheduleTrashRefreshId = 0;
+                            return GLib.SOURCE_REMOVE;
+                        });
+                    }
+                break;
+            }
+        });
     }
 
     /***********************

@@ -167,6 +167,10 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _doIconSizeAllocated() {
+        // If icons are hidden during stacking, they are not assigned a grid //
+        if (! this._grid) {
+            return;
+        }
         this._calculateIconRectangle();
         this._calculateLabelRectangle();
     }
@@ -423,8 +427,8 @@ var desktopIconItem = class desktopIconItem {
      * Icon Rendering *
      ***********************/
 
-    updateIcon() {
-        this._updateIcon().catch(e => {
+    async updateIcon() {
+        await this._updateIcon().catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 logError(e, `Exception while updating ${this._getVisibleName ?
                     this._getVisibleName() : 'an icon'}: ${e.message}`);
@@ -433,6 +437,7 @@ var desktopIconItem = class desktopIconItem {
     }
 
     async _updateIcon(cancellable) {
+
         if ((cancellable && cancellable.is_cancelled()) || this._destroyed) {
             throw new GLib.Error(Gio.IOErrorEnum,
                 Gio.IOErrorEnum.CANCELLED,
