@@ -705,6 +705,11 @@ var DesktopGrid = class {
         return this._window.translate_coordinates(this._window, X, Y)[0];
     }
 
+    getGlobaltoLocalRectangle(gdkRectangle) {
+        const [X, Y] = this.coordinatesGlobalToLocal(gdkRectangle.x, gdkRectangle.y);
+        return new Gdk.Rectangle({x:X, y:Y, width:gdkRectangle.width, height:gdkRectangle.height})
+    }
+
     _getEmptyPlaceClosestTo(x, y, coordinatesAction, reverseHorizontal) {
 
         [x, y] = this.coordinatesGlobalToLocal(x, y);

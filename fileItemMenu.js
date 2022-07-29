@@ -245,7 +245,7 @@ var FileItemMenu = class {
         this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
         const selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
         const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
-        const menulocation = X ? new Gdk.Rectangle({x:X,y:Y,width:1,height:1}) : fileItem.iconRectangle ;
+        const menulocation = X ? new Gdk.Rectangle({x:x,y:y,width:1,height:1}) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
 
         this._menu = Gio.Menu.new();
 
@@ -400,7 +400,7 @@ var FileItemMenu = class {
             this._menu.append_section(null, openInTerminalMenu);
         }
         this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
-        this.popupmenu.set_parent(fileItem._grid._window);
+        this.popupmenu.set_parent(fileItem._grid._container);
         this.popupmenu.set_pointing_to(menulocation);
         fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
