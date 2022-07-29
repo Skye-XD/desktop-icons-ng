@@ -1931,42 +1931,50 @@ var DesktopManager = class {
 
     async _drawDesktop(fileList) {
 
-        this._selectedFiles = this.getCurrentSelection(true);
+        const selectedFiles = this.getCurrentSelection(true);
 
         //* Update the Icon before placing on Desktop to prevent flickering Icons *//
         const updateUI = fileList.map(async fileItem => {
-            await fileItem.updateIcon().catch(e => logError(e));
+            await fileItem.updateIcon();
+            if (selectedFiles) {
+                if (selectedFiles.includes(fileItem.uri)) {
+                    fileItem.setSelected();
+                }
+            }
         });
         await Promise.all([...updateUI]);
-
-        //* Refresh all the menus, activeFileItem and newItemdo Rename before putting items on Desktop *//
-        if (this.newItemDoRename || this.fileItemMenu.popupmenuopen || this.activeFileItem) {
-            this._refreshMenus(fileList);
-        }
 
         this._removeAllFilesFromGrids();
         this._fileList = fileList;
 
         this._placeAllFilesOnGrids();
 
+        //* Detect all Icon sizes are allocated and Icons are now shown and placed on Grid *//
+        //* Desktop draw/paint is now complete *//
+        const drawComplete = this._fileList.map(async fileItem => {
+            await fileItem.iconPlaced;
+        });
+        await Promise.all([...drawComplete]);
+
+        //* Reposition open Menus, renameFileItem pop up's **//
+        //* Any task after complete desktop draw can now be done *//
+        this._refreshMenus();
     }
 
-    _refreshMenus(fileList) {
-        let activeItem = null;
-        let newItemDoRename = false;
-        let attributeExists = 0;
-        fileList.forEach(f => {
-            if (this.activeFileItem && (f.fileName == this.activeFileItem.fileName)) {
-                this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem = f;
-            }
-            if (this.newItemDoRename && (f.fileName == this.newItemDoRename)) {
-                newItemDoRename = f.fileName;
-            }
-            if (f.attributeContentType == this.activeFileItem.attributeContentType) {
-                attributeExists += 1;
-            }
-        });
-        if (this.newItemDoRename) {
+    _refreshMenus() {
+        if (this.newItemDoRename || this.fileItemMenu.popupmenuopen || this.activeFileItem) {
+            let activeItem = false;
+            let newItemDoRename = false;
+            this._fileList.forEach(f => {
+                if (this.activeFileItem && (f.fileName == this.activeFileItem.fileName)) {
+                    this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem = f;
+                }
+                if (this.newItemDoRename && (f.fileName == this.newItemDoRename)) {
+                    newItemDoRename = f.fileName;
+                    f.setSelected();
+                    this.doRename(f, true);
+                }
+            });
             if (! newItemDoRename) {
                 if (this._renameWindow) {
                     this._renameWindow.close();
@@ -1974,21 +1982,13 @@ var DesktopManager = class {
                     this.newItemDoRename = null;
                 }
             }
-        }
-        if (this.fileItemMenu.popupmenuopen) {
-            if (activeItem) {
+            if (activeItem && this.fileItemMenu.popupmenuopen) {
+                this.fileItemMenu.popupmenu.set_pointing_to(this.activeFileItem.iconRectangle);
                 return;
             }
-            if (this.activeFileItem.isStackMarker) {
-                this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
-                if (this.keepStacked){
-                    if (attributeExists > 1) {
-                        return;
-                    }
-                }
+            if (this.fileItemMenu.popupmenuopen) {
+                this.fileItemMenu.popupmenu.popdown();
             }
-            this.fileItemMenu.activeFileItem = this.activeFileItem = false;
-            this.fileItemMenu.popupmenu.popdown();
         }
     }
 

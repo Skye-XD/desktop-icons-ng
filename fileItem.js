@@ -163,24 +163,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return null;
     }
 
-    _doIconSizeAllocated() {
-        super._doIconSizeAllocated();
-        this._checkForRename();
-    }
-
-    _checkForRename() {
-        if (this._desktopManager.newItemDoRename) {
-            if (this._desktopManager.newItemDoRename === this.fileName) {
-                this.setSelected();
-                this._desktopManager.doRename(this, true);
-            }
-        }
-        if (this._desktopManager.fileItemMenu.popupmenuopen &&
-                this._desktopManager.activeFileItem && (this._desktopManager.activeFileItem.uri == this.uri)) {
-            this._desktopManager.fileItemMenu.popupmenu.set_pointing_to(this.iconRectangle);
-        }
-    }
-
     async _refreshMetadataAsync(rebuild, cancellable) {
         if (this._destroyed) {
             return;

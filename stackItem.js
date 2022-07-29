@@ -57,18 +57,6 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
         this._setLabelName(this._file);
     }
 
-    _doIconSizeAllocated() {
-        super._doIconSizeAllocated();
-        this._checkForRename();
-    }
-
-    _checkForRename() {
-        if (this._desktopManager.fileItemMenu.popupmenuopen && (this._desktopManager.activeFileItem.uri == this.uri)) {
-            this._desktopManager.fileItemMenu.popupmenu.set_pointing_to(this.iconRectangle);
-            this._desktopManager.fileItemMenu.activeFileItem = this._desktopManager.activeFileItem = this;
-        }
-    }
-
     _createStackTopIcon() {
         const scale = this._icon.get_scale_factor();
         let iconPaintable;

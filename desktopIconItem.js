@@ -173,7 +173,12 @@ var desktopIconItem = class desktopIconItem {
         }
         this._calculateIconRectangle();
         this._calculateLabelRectangle();
+        this.iconPlacedPromiseResolve(true);
     }
+
+    iconPlaced = new Promise((resolve, reject) => {
+        this.iconPlacedPromiseResolve = resolve;
+    });
 
     _calculateIconRectangle() {
         this.iconwidth = this._iconContainer.get_allocated_width();
