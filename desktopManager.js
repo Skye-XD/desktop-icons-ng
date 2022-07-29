@@ -681,7 +681,7 @@ var DesktopManager = class {
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, selection, info, gdkDropAction, event, dragItem) {
 
         this.onDragLeave();
-        
+
         const fileList = selection.split('\r\n');
         if (fileList.length >= 2) {
             fileList.splice(-1, 1);
@@ -876,12 +876,12 @@ var DesktopManager = class {
 
     async detectURLorText(fileList, dropCoordinates) {
         function isValidURL(str) {
-            var pattern = new RegExp('^(https|http|ftp|rtsp|mms)?:\\/\\/?'+ 
+            var pattern = new RegExp('^(https|http|ftp|rtsp|mms)?:\\/\\/?'+
             '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
-            '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
-            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
-            '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
-            '(\\#[-a-z\\d_]*)?$','i'); 
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+
+            '(\\#[-a-z\\d_]*)?$','i');
             return !!pattern.test(str);
         }
         let text = fileList.toString();
@@ -1983,7 +1983,11 @@ var DesktopManager = class {
                 }
             }
             if (activeItem && this.fileItemMenu.popupmenuopen) {
-                this.fileItemMenu.popupmenu.set_pointing_to(this.activeFileItem.iconRectangle);
+                this.fileItemMenu.popupmenu.popdown();
+                if (this.fileItemMenu.popupmenu) {
+                    this.fileItemMenu.popupmenu.unparent();
+                }
+                this.fileItemMenu.showMenu(this.activeFileItem);
                 return;
             }
             if (this.fileItemMenu.popupmenuopen) {

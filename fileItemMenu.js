@@ -240,11 +240,12 @@ var FileItemMenu = class {
         this._mainApp.add_action(openinterminal);
     }
 
-    showMenu(fileItem, button, X, Y, x, y, shiftSelected, controlSelected) {
+    showMenu(fileItem, button=null, X=null, Y=null, x=null, y=null, shiftSelected=false, controlSelected=false) {
 
         this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
-        let selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
-        let scriptsSubmenu = this.scriptsMonitor.getGioMenu();
+        const selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
+        const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
+        const menulocation = X ? new Gdk.Rectangle({x:X,y:Y,width:1,height:1}) : fileItem.iconRectangle ;
 
         this._menu = Gio.Menu.new();
 
@@ -400,12 +401,10 @@ var FileItemMenu = class {
         }
         this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
         this.popupmenu.set_parent(fileItem._grid._window);
-        this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:X,y:Y,width:1,height:1}));
+        this.popupmenu.set_pointing_to(menulocation);
         fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
-        this.popupmenu.connect('closed', async () => {
-            await DesktopIconsUtil.waitDelayMs(50);
-            this.popupmenu.unparent();
+        this.popupmenu.connect('closed', () => {
             this._desktopManager.popupmenuopen = this.popupmenuopen = false;
         });
     }
