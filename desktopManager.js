@@ -1966,15 +1966,15 @@ var DesktopManager = class {
     }
 
     _refreshMenus() {
-        if (this.newItemDoRename || this.fileItemMenu.popupmenuopen || this.activeFileItem) {
+        if ((this.newItemDoRename && this.newItemDoRename.size) || this.fileItemMenu.popupmenuopen || this.activeFileItem) {
             let activeItem = false;
             let newItemDoRename = false;
             this._fileList.forEach(f => {
                 if (this.activeFileItem && (f.fileName == this.activeFileItem.fileName)) {
                     this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem = f;
                 }
-                if (this.newItemDoRename && (f.fileName == this.newItemDoRename)) {
-                    newItemDoRename = f.fileName;
+                if (this.newItemDoRename && this.newItemDoRename.has(f.fileName)) {
+                    newItemDoRename = true;
                     f.setSelected();
                     this.doRename(f, true);
                 }
@@ -1982,8 +1982,6 @@ var DesktopManager = class {
             if (! newItemDoRename) {
                 if (this._renameWindow) {
                     this._renameWindow.close();
-                } else {
-                    this.newItemDoRename = null;
                 }
             }
             if (activeItem && this.fileItemMenu.popupmenuopen) {
@@ -2312,12 +2310,17 @@ var DesktopManager = class {
         }
         if (! this._renameWindow) {
             this.textEntryAccelsTurnOff();
-            this.newItemDoRename = fileItem.fileName;
+            if (! this.newItemDoRename) {
+                this.newItemDoRename = new Set();
+            }
+            this.newItemDoRename.add(fileItem.fileName);
             this._renameWindow = new AskRenamePopup.AskRenamePopup(fileItem, allowReturnOnSameName, () => {
                 this.mainApp.get_active_window().grab_focus();
                 this.textEntryAccelsTurnOn();
+                if (this.newItemDoRename) {
+                    this.newItemDoRename.delete(fileItem.fileName);
+                }
                 this._renameWindow = null;
-                this.newItemDoRename = null;
             });
         } else {
             this._renameWindow.popupat(fileItem);
@@ -2359,7 +2362,10 @@ var DesktopManager = class {
                     logError(e, `Failed to set attributes to ${dir.get_path()}`)
                 }
 
-                this.newItemDoRename = newName;
+                if (!this.newItemDoRename) {
+                    this.newItemDoRename = new Set();
+                }
+                this.newItemDoRename.add(newName);
 
                 if (position) {
                     return dir.get_uri();
