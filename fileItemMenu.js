@@ -402,10 +402,17 @@ var FileItemMenu = class {
         this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
         this.popupmenu.set_parent(fileItem._grid._container);
         this.popupmenu.set_pointing_to(menulocation);
+        const menuGtkPosition = fileItem._grid.getIntelligentPosition(menulocation);
+        if (menuGtkPosition) {
+            this.popupmenu.set_position(menuGtkPosition);
+        }
         fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
-        this.popupmenu.connect('closed', () => {
+        this.popupmenu.connect('closed', async () => {
             this._desktopManager.popupmenuopen = this.popupmenuopen = false;
+            fileItem._grid.enableIntellihide();
+            await DesktopIconsUtil.waitDelayMs(50);
+            this.popupmenu.unparent();
         });
     }
 

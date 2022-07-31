@@ -936,7 +936,6 @@ var DesktopManager = class {
     async onPressButton(X, Y, x, y, button, shiftPressed, controlPressed, grid) {
         this._clickX = Math.floor(X);
         this._clickY = Math.floor(Y);
-
         if (button == 1) {
             if (!shiftPressed && !controlPressed) {
                 // clear selection
@@ -950,14 +949,19 @@ var DesktopManager = class {
             this._createDesktopBackgroundGioMenu();
             this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
             this.popupmenu.set_parent(grid._container);
-            this.popupmenu.set_pointing_to(new Gdk.Rectangle({x:x,y:y,width:1,height:1}));
+            const menuLocation = new Gdk.Rectangle({x:x,y:y,width:1,height:1});
+            this.popupmenu.set_pointing_to(menuLocation);
+            const menuGtkPosition = grid.getIntelligentPosition(menuLocation);
+            if (menuGtkPosition) {
+                this.popupmenu.set_position(menuGtkPosition);
+            }
             this.popupmenu.set_has_arrow(true);
             this.popupmenuopen = true;
             this.popupmenu.popup();
             this.popupmenu.connect('closed', async () => {
+                this.popupmenuopen = false;
                 await DesktopIconsUtil.waitDelayMs(50);
                 this.popupmenu.unparent();
-                this.popupmenuopen = false;
             });
         }
     }

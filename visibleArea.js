@@ -122,10 +122,27 @@ var VisibleArea = class {
             // If the margins for this monitor are bigger than the margins calculated previously,
             // use the higher number. This is because the margin set from the extensions are be from the monitor border,
             // an can supersede the ones that actually form the work area border.
-            marginTop = Math.max(marginTop, this._usableAreas[monitorIndex]['top']);
-            marginBottom = Math.max(marginBottom, this._usableAreas[monitorIndex]['bottom']);
-            marginLeft = Math.max(marginLeft, this._usableAreas[monitorIndex]['left']);
-            marginRight = Math.max(marginRight, this._usableAreas[monitorIndex]['right']);
+
+            // Indirectly flag hidden margins if usableAreas margin is set //
+
+            const hiddenMargin = 1000;
+
+            if (this._usableAreas[monitorIndex]['top'] > marginTop) {
+                marginTop = this._usableAreas[monitorIndex]['top'] + hiddenMargin;
+            }
+
+            if (this._usableAreas[monitorIndex]['bottom'] > marginBottom) {
+                marginBottom = this._usableAreas[monitorIndex]['bottom'] + hiddenMargin;
+            }
+
+            if (this._usableAreas[monitorIndex]['left'] > marginLeft) {
+                marginLeft = this._usableAreas[monitorIndex]['left'] + hiddenMargin;
+            }
+
+            if (this._usableAreas[monitorIndex]['right'] > marginRight) {
+                marginRight = this._usableAreas[monitorIndex]['right'] + hiddenMargin;
+            }
+
         }
 
         return {

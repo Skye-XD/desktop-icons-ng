@@ -203,10 +203,32 @@ var DesktopGrid = class {
     }
 
     updateUnscaledHeightWidthMargins() {
+        this._marginLeftHiddenObject = false;
+        this._marginRightHiddenObject = false;
+        this._marginTopHiddenObject = false;
+        this._marginBottomHiddenObject = false;
+
         this._marginTop = this._desktopDescription.marginTop;
+        if (this._marginTop > 1000) {
+            this._marginTopHiddenObject = true;
+            this._marginTop -= 1000;
+        }
         this._marginBottom = this._desktopDescription.marginBottom;
+        if (this._marginBottom > 1000) {
+            this._marginBottomHiddenObject = true;
+            this._marginBottom -= 1000;
+        }
         this._marginLeft = this._desktopDescription.marginLeft;
+        if (this._marginLeft > 1000) {
+            this._marginLeftHiddenObject = true;
+            this._marginLeft -= 1000;
+        }
         this._marginRight = this._desktopDescription.marginRight;
+        if (this._marginRight > 1000) {
+            this._marginRightHiddenObject = true;
+            this._marginRight -= 1000;
+        }
+
         this._width = this._desktopDescription.width - this._marginLeft - this._marginRight;
         this._height = this._desktopDescription.height - this._marginTop - this._marginBottom;
     }
@@ -262,6 +284,152 @@ var DesktopGrid = class {
         this._destroying = true;
         this._window.destroy();
     }
+
+
+    getIntelligentPosition(gdkRectangle) {
+        var clickLocation = 'center';
+
+        if ((this._marginLeft > 0 ) && (gdkRectangle.x < (this._x + this._marginLeft*2))) {
+            clickLocation = 'left';
+        }
+        if ((this._marginRight > 0) && (gdkRectangle.x + gdkRectangle.width > (this._x + this._windowWidth - this._marginRight*2.5))) {
+            clickLocation = 'right';
+        }
+        if ((this._marginBottom > 0) && (gdkRectangle.y + gdkRectangle.height > (this._y + this._windowHeight - this._marginBottom*2))) {
+            switch(clickLocation) {
+            case 'left':
+                clickLocation = 'bottomleft';
+                break;
+            case 'right':
+                clickLocation = 'bottomright'
+                break;
+            default:
+                clickLocation = 'bottom'
+            }
+        }
+        if ((this._marginTop > 0) && (gdkRectangle.y < (this._y + this._marginTop*2))) {
+            switch(clickLocation) {
+            case 'left':
+                clickLocation = 'topLeft';
+                break;
+            case 'right':
+                clickLocation = 'topRight'
+                break;
+            default:
+                clickLocation = 'top'
+            }
+        }
+
+        var returnvalue
+
+       //* Fix - Currently Gtk4 returns incorrect Gtk.PositionType Enums           *//
+       //* Returning Integers instead of Enums                                     *//
+       //* Enums Gtk.PositionType.LEFT does not seem to work even when returning 0 *//
+
+        switch (clickLocation) {
+        case 'left':
+            if (this._marginLeftHiddenObject) {
+                returnvalue = 1; //Gtk.PositionType.RIGHT;
+            } else {
+                returnvalue = null;
+            }
+            break;
+        case 'right':
+            if (this._marginRightHiddenObject) {
+                returnvalue = 1; //Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
+            } else {
+                returnvalue = null;
+            }
+            break;
+        case 'top':
+            if (this._marginTopHiddenObject) {
+                returnvalue = 3; //Gtk.PositionType.BOTTOM;
+            } else {
+                returnvalue = null;
+            }
+            break;
+        case 'bottom':
+            if (this._marginBottomHiddenObject) {
+                returnvalue = 2; //Gtk.PositionType.TOP;
+            } else {
+                returnvalue = null;
+            }
+            break;
+        case 'center':
+            returnvalue = null;
+            break;
+        case 'bottomRight':
+            if (this._marginBottomHiddenObject && this._marginRightHiddenObject) {
+                returnvalue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
+                break;
+            }
+            if (this._marginBottomHiddenObject) {
+                returnvalue = 2; // Gtk.PositionType.TOP
+                break;
+            }
+            if (this._marginRightHiddenObject) {
+                returnvalaue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
+                break;
+            }
+        case 'bottomLeft':
+            if (this._marginBottomHiddenObject && this._marginLeftHiddenObject) {
+                returnvalue = 1; // Gtk.PositionType.RIGHT
+                break;
+            }
+            if (this._marginBottomHiddenObject) {
+                returnvalue = 2; //Gtk.PositionType.TOP
+                break;
+            } if (this._marginLeftHiddenObject) {
+                returnvalue = 1; // Gtk.PositionType.RIGHT
+                break;
+            }
+        case 'topRight':
+            if (this._marginTopHiddenObject && this._marginRightHiddenObject) {
+                returnvalue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
+                break;
+            }
+            if (this._marginTopHiddenObject){
+                returnvalue = 3; // Gtk.PositionType.BOTTOM
+                break;
+            }
+            if (this._marginRightHiddenObject) {
+                returnvalue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
+                break;
+            }
+        case 'topLeft':
+            if (this._marginTopHiddenObject && this._marginLeftHiddenObject) {
+                returnvalue = 1; // Gtk.PositionType.RIGHT
+                break;
+            }
+            if (this._marginTopHiddenObject) {
+                returnvalue = 3; // Gtk.PositionType.BOTTOM
+                break;
+            }
+            if (this._marginLeftHiddenObject) {
+                returnvalue = 1; //Gtk.PositionType.RIGHT
+                break;
+            }
+        default:
+            this.disableIntellihide();
+            returnvalue = null;
+        }
+        return returnvalue;
+    }
+
+    disableIntellihide() {
+        //* Needs Fixing and testing with X11 *//
+        const enableShowInWindowList = `@!${this._x},${this._y};BDF`;
+        this._window.set_title(enableShowInWindowList);
+        this.showInWindowList = true;
+    }
+
+    enableIntellihide() {
+        if (this.showInWindowList) {
+            this._window.set_title(this._desktopName);
+            this.showInWindowList = false;
+        }
+    }
+
 
     setDropDestination(widget) {
         this.gridDropController = new Gtk.DropTargetAsync();
