@@ -600,7 +600,7 @@ var FileItemMenu = class {
         let position = assignedposition ? assignedposition  : clickedItem.savedCoordinates;
         let newFolderFileItems = this._desktopManager.getCurrentSelection(true);
         this._desktopManager.unselectAll();
-        clickedItem.removeFromGrid(false);
+        clickedItem.removeFromGrid({callOnDestroy: false});
         const newFolder = await this._desktopManager.doNewFolder(position);
         if (newFolder) {
             DBusUtils.RemoteFileOperations.pushEvent(event);

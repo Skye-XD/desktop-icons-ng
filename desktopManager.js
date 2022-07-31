@@ -145,20 +145,20 @@ var DesktopManager = class {
                     desktop.resizeGrid();
                 }
                 this._fileList.forEach(x => x.updateIcon());
-                this._placeAllFilesOnGrids(true);
+                this._placeAllFilesOnGrids({redisplay:true});
                 return;
             }
             if (key == Enums.SortOrder.ORDER) {
                 if (this.keepStacked) {
-                    this.doStacks(true);
+                    this.doStacks({redisplay:true});
                 } else {
-                    this.doSorts(true);
+                    this.doSorts({redisplay:true});
                 }
                 return;
             }
             if (key == 'unstackedtypes') {
                 if (this.keepStacked) {
-                    this.doStacks(true);
+                    this.doStacks({redisplay:true});
                 }
                 return;
             }
@@ -167,14 +167,14 @@ var DesktopManager = class {
                 if ( ! this.keepStacked) {
                     this._unstack();
                 } else {
-                    this.doStacks(true);
+                    this.doStacks({redisplay:true});
                 }
                 return;
             }
             if (key == 'keep-arranged') {
                 this.keepArranged = Prefs.desktopSettings.get_boolean('keep-arranged');
                 if (this.keepArranged) {
-                    this.doSorts(true);
+                    this.doSorts({redisplay:true});
                 }
                 return;
             }
@@ -463,7 +463,7 @@ var DesktopManager = class {
                 this._primaryScreen = null;
             }
             this._createGridWindows();
-            this._placeAllFilesOnGrids(true);
+            this._placeAllFilesOnGrids({redisplay:true});
             return;
         }
         let monitorschanged= [];
@@ -501,7 +501,7 @@ var DesktopManager = class {
                 desktop.resizeGrid();
             }
             this._desktopList = newdesktoplist;
-            this._placeAllFilesOnGrids(true);
+            this._placeAllFilesOnGrids({redisplay:true});
         }
         if (this._primaryIndex < this._desktopList.length) {
             this._primaryScreen = this._desktopList[this._primaryIndex];
@@ -614,7 +614,7 @@ var DesktopManager = class {
                 if (keepArranged) {
                     if (item.isSpecial) {
                         fileItems.push(item);
-                        item.removeFromGrid(false);
+                        item.removeFromGrid({callOnDestroy: false});
                         let [x, y, a, b, c] = item.getCoordinates();
                         item._savedCoordinates = [x + deltaX, y + deltaY];
                     } else {
@@ -622,7 +622,7 @@ var DesktopManager = class {
                     }
                 } else {
                     fileItems.push(item);
-                    item.removeFromGrid(false);
+                    item.removeFromGrid({callOnDestroy: false});
                     let [x, y, a, b, c] = item.getCoordinates();
                     item._savedCoordinates = [x + deltaX, y + deltaY];
                 }
@@ -1749,7 +1749,7 @@ var DesktopManager = class {
 
     _removeAllFilesFromGrids() {
         for(let fileItem of this._fileList) {
-            fileItem.removeFromGrid(true);
+            fileItem.removeFromGrid({callOnDestroy: true});
         }
         this._fileList = [];
     }
@@ -1998,14 +1998,14 @@ var DesktopManager = class {
         }
     }
 
-    _placeAllFilesOnGrids(redisplay=false) {
+    _placeAllFilesOnGrids(opts={redisplay:false}) {
         this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
         this.keepArranged = Prefs.desktopSettings.get_boolean('keep-arranged');
         this.sortSpecialFolders = Prefs.desktopSettings.get_boolean('sort-special-folders');
         if (this.keepStacked) {
-            this.doStacks(redisplay);
+            this.doStacks(opts);
         } else if (this.keepArranged) {
-            this.doSorts();
+            this.doSorts(opts);
         } else {
             this._addFilesToDesktop(this._fileList, Enums.StoredCoordinates.PRESERVE);
         }
@@ -2427,8 +2427,8 @@ var DesktopManager = class {
         Prefs.setUnstackList(unstackList);
     }
 
-    doStacks(restack) {
-        if (restack) {
+    doStacks(opts = {redisplay: false}) {
+        if (opts.redisplay) {
             for (let fileItem of this._fileList) {
                 fileItem.removeFromGrid();
             }
@@ -2441,10 +2441,10 @@ var DesktopManager = class {
                 this.sortingSubMenu.remove(0);
                 this.sortingMenu.remove(0);
             }
-            restack = false;
+            opts.redisplay = false;
         }
 
-        this._sortAllFilesFromGridsByKindStacked(restack);
+        this._sortAllFilesFromGridsByKindStacked(opts);
 
         this._reassignFilesToDesktop();
     }
@@ -2503,7 +2503,7 @@ var DesktopManager = class {
         list.push(fileItem);
     }
 
-    _sortAllFilesFromGridsByKindStacked(restack) {
+    _sortAllFilesFromGridsByKindStacked(opts = {redisplay: false}) {
 
         function determineStackTopSizeOrTime() {
             for (let item of otherFiles) {
@@ -2527,7 +2527,7 @@ var DesktopManager = class {
         let newFileList = [];
         let stackTopMarkerFolderList = [];
         let unstackList = Prefs.getUnstackList();
-        if (this._allFileList && restack) {
+        if (this._allFileList && opts.redisplay) {
             this._fileList.forEach(f => {
                 if (f.isStackMarker) {
                     f.onDestroy();
@@ -2675,7 +2675,7 @@ var DesktopManager = class {
         if (this.keepArranged) {
             return;
         }
-        this._fileList.map(f => f.removeFromGrid(false));
+        this._fileList.map(f => f.removeFromGrid({callOnDestroy: false}));
         let cornerInversion = Prefs.get_start_corner();
         if (!cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {   if (a._x1 < b._x1) return -1;
@@ -2801,8 +2801,8 @@ var DesktopManager = class {
         this._addFilesToDesktop(this._fileList, Enums.StoredCoordinates.PRESERVE);
     }
 
-    doSorts(cleargrids) {
-        if (cleargrids) {
+    doSorts(opts = {redisplay: false}) {
+        if (opts.redisplay) {
             this._fileList.map(f => f.removeFromGrid());
         }
         switch (Prefs.getSortOrder()) {

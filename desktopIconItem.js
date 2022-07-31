@@ -65,12 +65,12 @@ var desktopIconItem = class desktopIconItem {
      * Destroyers *
      ***********************/
 
-    removeFromGrid(callOnDestroy) {
+    removeFromGrid(opts = {callOnDestroy:false}) {
         if (this._grid) {
             this._grid.removeItem(this);
             this._grid = null;
         }
-        if (callOnDestroy) {
+        if (opts.callOnDestroy) {
             this.onDestroy();
         }
     }
