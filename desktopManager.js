@@ -616,7 +616,7 @@ var DesktopManager = class {
                         fileItems.push(item);
                         item.removeFromGrid(false);
                         let [x, y, a, b, c] = item.getCoordinates();
-                        item.savedCoordinates = [x + deltaX, y + deltaY];
+                        item._savedCoordinates = [x + deltaX, y + deltaY];
                     } else {
                         continue;
                     }
@@ -624,7 +624,7 @@ var DesktopManager = class {
                     fileItems.push(item);
                     item.removeFromGrid(false);
                     let [x, y, a, b, c] = item.getCoordinates();
-                    item.savedCoordinates = [x + deltaX, y + deltaY];
+                    item._savedCoordinates = [x + deltaX, y + deltaY];
                 }
             }
         }
