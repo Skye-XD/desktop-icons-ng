@@ -83,7 +83,7 @@ var AskRenamePopup = class {
         this._popover.popup();
         this._validate().catch(e => logError(e));
         this._textArea.grab_focus_without_selecting();
-        this._textArea.select_region(0, DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, fileItem.isDirectory));
+        this._textArea.select_region(0, DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, {'isDirectory':fileItem.isDirectory}).offset);
     }
 
     async _validate() {

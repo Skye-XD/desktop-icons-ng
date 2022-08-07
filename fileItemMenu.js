@@ -478,66 +478,57 @@ var FileItemMenu = class {
         }
     }
 
-    _extractFileFromSelection(extractHere) {
-        let extractFileItem = '';
+    async _extractFileFromSelection(extractHere) {
+
+        let extractFileItemURI;
         let extractFolderName;
-        let X;
-        let Y;
+        let position;
+        const header = _("No Extraction Folder");
+        const text = _("Unable to extract File, extraction Folder Does not Exist")
+
         for (let fileItem of this._desktopManager.getCurrentSelection(false)) {
-            extractFileItem = fileItem.file.get_uri();
+            extractFileItemURI = fileItem.file.get_uri();
             extractFolderName = fileItem.fileName;
-            [X, Y] = fileItem.getCoordinates().slice(0, 2);
+            position = fileItem.getCoordinates().slice(0, 2);
             fileItem.unsetSelected();
         }
+
         if (extractHere) {
-            const regex = /\.[^.]*$/;
-            let extensionposition = extractFolderName.search(regex);
-            if (extensionposition > 1) {
-                extractFolderName = extractFolderName.slice(0, extensionposition);
+            extractFolderName = DesktopIconsUtil.getFileExtensionOffset(extractFolderName).basename;
+            const targetURI = await this._desktopManager.doNewFolder(position, extractFolderName, {rename: false});
+            if (targetURI) {
+                DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, targetURI, true);
+            } else {
+                this._desktopManager.DBusManager.doNotify(header, text);
             }
-            let i = 0;
-            let newFolderName = extractFolderName;
-            while (this._desktopManager._fileList.map(f => f.fileName).includes(newFolderName)) {
-                i += 1;
-                newFolderName = `${extractFolderName} (${i})`;
-            }
-            let dir = DesktopIconsUtil.getDesktopDir().get_child(newFolderName);
-            try {
-                dir.make_directory(null);
-                let info = new Gio.FileInfo();
-                info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
-                info.set_attribute_string('metadata::nautilus-icon-position', '');
-                dir.set_attributes_from_info(info, Gio.FileQueryInfoFlags.NONE, null);
-            } catch(e) {
-                print(`Failed to create folder ${e.message}`);
-                return;
-            }
-            DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItem, dir.get_uri(), true);
-        } else {
-            let dialog = new Gtk.FileChooserDialog({title: _('Select Extract Destination')});
-            dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
-            dialog.set_create_folders(true);
-            dialog.set_current_folder(DesktopIconsUtil.getDesktopDir());
-            dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
-            dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
-            DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
-            this._desktopManager.textEntryAccelsTurnOff();
-            dialog.show();
-            dialog.present_with_time(Gdk.CURRENT_TIME);
-            dialog.connect('close', () => {
-                dialog.response(Gtk.ResponseType.CANCEL);
-            });
-            dialog.connect('response', (actor, response) => {
-                if (response === Gtk.ResponseType.ACCEPT) {
-                    let folder = dialog.get_file().get_uri();
-                    if (folder) {
-                        DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItem, folder, true);
-                    }
-                }
-                this._desktopManager.textEntryAccelsTurnOn();
-                dialog.destroy();
-            });
+            return;
         }
+
+        const dialog = new Gtk.FileChooserDialog({title: _('Select Extract Destination')});
+        dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
+        dialog.set_create_folders(true);
+        dialog.set_current_folder(DesktopIconsUtil.getDesktopDir());
+        dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
+        dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
+        DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
+        this._desktopManager.textEntryAccelsTurnOff();
+        dialog.show();
+        dialog.present_with_time(Gdk.CURRENT_TIME);
+        dialog.connect('close', () => {
+            dialog.response(Gtk.ResponseType.CANCEL);
+        });
+        dialog.connect('response', (actor, response) => {
+            if (response === Gtk.ResponseType.ACCEPT) {
+                const folder = dialog.get_file().get_uri();
+                if (folder) {
+                    DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, folder, true);
+                } else {
+                    this._desktopManager.DBusManager.doNotify(header, text);
+                }
+            }
+            this._desktopManager.textEntryAccelsTurnOn();
+            dialog.destroy();
+        });
     }
 
     _getExtractableAutoAr() {

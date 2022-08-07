@@ -378,20 +378,13 @@ var DesktopManager = class {
     }
 
     _templatesDirSelectionFilter(fileinfo) {
-        let name = fileinfo.get_name();
-        let offset = DesktopIconsUtil.getFileExtensionOffset(name, false);
-        name = name.substring(0, offset);
-        let hidden;
-        if (this._showHidden) {
-            hidden = false;
-        } else {
-            hidden = (name.substring(0, 1) == '.');
-        }
-        if (!hidden) {
-            return name;
-        } else {
+        const name = DesktopIconsUtil.getFileExtensionOffset(fileinfo.get_name()).basename;
+        const hiddenfile = (name.substring(0, 1) == '.') ? true : false ;
+
+        if ((! this._showHidden) && hiddenfile) {
             return null;
         }
+        return name;
     }
 
     _dbusAdvertiseUpdate() {
@@ -783,21 +776,27 @@ var DesktopManager = class {
     async makeFileSystemLinks(fileList, destination, X, Y, x, y) {
         let gioDestination = Gio.File.new_for_uri(destination);
         await Promise.all(fileList.map(async file => {
-            let fileGio = Gio.File.new_for_uri(file);
+            const fileGio = Gio.File.new_for_uri(file);
+            const baseNameParts = DesktopIconsUtil.getFileExtensionOffset(fileGio.get_basename());
             let i = 0;
-            let baseName = fileGio.get_basename();
-            let newSymlinkName = baseName;
+            let newSymlinkName = fileGio.get_basename();
             let checkSymlinkGio;
             do {
                 checkSymlinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path() , newSymlinkName]));
-                if (await FileUtils.queryExists(checkSymlinkGio)) {
-                    i += 1;
-                    newSymlinkName = `${baseName} (${i})`;
-                } else {
-                    try {
-                        checkSymlinkGio.make_symbolic_link(GLib.build_filenamev([fileGio.get_path()]), null);
-                    } catch {logError("Error making Desktop Symbolic Links")}
+                try {
+                    checkSymlinkGio.make_symbolic_link(GLib.build_filenamev([fileGio.get_path()]), null);
                     break;
+                } catch(e) {
+                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS)) {
+                        i += 1;
+                        newSymlinkName = `${baseNameParts.basename} ${i}${baseNameParts.extension}`;
+                    } else {
+                        logError(e, "Error making File System Links");
+                        const header = _("Making SymLink Failed");
+                        const text = _("Error while trying to create a symbolic Link");
+                        this.dbusManager.doNotify(header, text);
+                        break;
+                    }
                 }
             } while (true)
        }));
@@ -806,15 +805,9 @@ var DesktopManager = class {
     async makeLinks(fileList, destination, X, Y, x, y) {
         let gioDestination = Gio.File.new_for_uri(destination);
         await Promise.all(fileList.map(async file => {
-            let fileGio = Gio.File.new_for_uri(file);
-            let i = 0;
-            let baseName = fileGio.get_basename();
-            let newSymlinkName = baseName;
-            while (this.updateFileList().map(f => f.fileName).includes(newSymlinkName)) {
-                i += 1;
-                newSymlinkName = `${baseName} (${i})`;
-            }
-            let symlinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path() , newSymlinkName]));
+            const fileGio = Gio.File.new_for_uri(file);
+            const newSymlinkName = this.getDesktopUniqueFileName(fileGio.get_basename());
+            const symlinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path() , newSymlinkName]));
             try {
                 if (symlinkGio.make_symbolic_link(GLib.build_filenamev([fileGio.get_path()]), null)) {
                     let info = new Gio.FileInfo();
@@ -825,9 +818,16 @@ var DesktopManager = class {
                         Gio.FileQueryInfoFlags.NONE,
                         GLib.PRIORITY_LOW,
                         null);
-                    } catch(e) {logError(e)}
+                    } catch(e) {
+                        logError(e, "Error setting Link FileInfo")
+                    }
                 }
-            } catch {logError("Error making Filesystem Links")}
+            } catch {
+                logError("Error making Desktop Links")
+                const header = _("Making SymLink Failed");
+                const text = _("Error while trying to create a symbolic Link");
+                this.dbusManager.doNotify(header, text);
+            }
         }));
     }
 
@@ -2327,29 +2327,44 @@ var DesktopManager = class {
         }
     }
 
-    async doNewFolder(position) {
-        let X;
-        let Y;
-        if (position) {
-            [X, Y] = position;
+    fileExistsOnDesktop(searchName) {
+        const listOfFileNamesOnDesktop = this.updateFileList().map(f => f.fileName);
+        if (listOfFileNamesOnDesktop.includes(searchName)) {
+            return true;
         } else {
-            [X, Y] = [this._clickX, this._clickY];
+            return false;
         }
-        this.unselectAll();
+    }
+
+    getDesktopUniqueFileName(fileName) {
+        let fileParts = DesktopIconsUtil.getFileExtensionOffset(fileName);
         let i = 0;
-        let baseName = _("New Folder");
-        let newName = baseName;
-        while (this.updateFileList().map(f => f.fileName).includes(newName)) {
+        let newName = fileName;
+
+        while(this.fileExistsOnDesktop(newName)) {
             i += 1;
-            newName = baseName + " " + i;
+            newName = `${fileParts.basename} ${i}${fileParts.extension}`;
         }
+        return newName;
+    }
+
+    async doNewFolder(position=null, suggestedName=null, opts={rename: true}) {
+        this.unselectAll();
+
+        if (! position) {
+            position = [this._clickX, this._clickY];
+        }
+
+        const baseName = suggestedName ? suggestedName :  _("New Folder");
+        let newName = this.getDesktopUniqueFileName(baseName);
+
         if (newName) {
             const dir = DesktopIconsUtil.getDesktopDir().get_child(newName);
             try {
                 await dir.make_directory_async(GLib.PRIORITY_DEFAULT, null);
 
                 const info = new Gio.FileInfo();
-                info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
+                info.set_attribute_string('metadata::nautilus-drop-position', `${position.join(',')}`);
                 info.set_attribute_string('metadata::nautilus-icon-position', '');
                 info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
 
@@ -2362,16 +2377,25 @@ var DesktopManager = class {
                     logError(e, `Failed to set attributes to ${dir.get_path()}`)
                 }
 
+            } catch (e) {
+                logError(e, `Failed to create folder ${e.message}`);
+                const header = _("Folder Creation Failed");
+                const text = _("Error while trying to create a Folder");
+                this.dbusManager.doNotify(header, text);
+                if (position || suggestedName) {
+                    return null;
+                }
+                return;
+            }
+
+            if (opts.rename) {
                 if (!this.newItemDoRename) {
                     this.newItemDoRename = new Set();
                 }
                 this.newItemDoRename.add(newName);
-
-                if (position) {
-                    return dir.get_uri();
-                }
-            } catch (e) {
-                logError(e, `Failed to create folder ${e.message}`);
+            }
+            if (position || suggestedName) {
+                return dir.get_uri();
             }
         }
     }
@@ -2381,35 +2405,28 @@ var DesktopManager = class {
             return;
 
         const file = Gio.File.new_for_path(template);
-        let counter = 0;
-        let fullName = file.get_basename();
-        let offset = DesktopIconsUtil.getFileExtensionOffset(fullName, false);
-        let name = fullName.substring(0, offset);
-        let extension = fullName.substring(offset);
-
-        let finalName = `${name}${extension}`;
-        let destination;
-        do {
-            destination = this._desktopDir.get_child(finalName);
-            counter++;
-            finalName = `${name} (${counter})${extension}`
-        } while (await FileUtils.queryExists(destination));
+        const finalName = this.getDesktopUniqueFileName(file.get_basename());
+        const destination = DesktopIconsUtil.getDesktopDir().get_child(finalName);
 
         try {
             await file.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+            try {
+                const info = new Gio.FileInfo();
+                info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
+                info.set_attribute_string('metadata::nautilus-icon-position', '');
+                info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
+                await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
+                    GLib.PRIORITY_DEFAULT, null);
+            } catch (e) {
+                logError(e, `Filed to set template metadata ${e.message}`)
+            }
+
         } catch(e) {
             logError(e, `Failed to create template ${e.message}`);
-        }
-
-        try {
-            let info = new Gio.FileInfo();
-            info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
-            info.set_attribute_string('metadata::nautilus-icon-position', '');
-            info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
-            await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
-                GLib.PRIORITY_DEFAULT, null);
-        } catch (e) {
-            logError(e, `Failed to set template attributes: ${e.message}`);
+            const header = _("Template Creation Error");
+            const text = _("Error while trying to create a Document");
+            this.dbusManager.doNotify(header, text);
         }
     }
 
