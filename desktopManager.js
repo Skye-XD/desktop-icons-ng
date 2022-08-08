@@ -1091,19 +1091,19 @@ var DesktopManager = class {
         DBusUtils.RemoteFileOperations.RedoRemote();
     }
 
-    onKeyPress(symbol, state, grid) {
+    onKeyPress(keyval, keycode, state, grid) {
         let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) != 0;
         let isShift = (state & Gdk.ModifierType.SHIFT_MASK) != 0;
-        let isAlt = (state & Gdk.ModifierType.MOD1_MASK) != 0;
+        let isAlt = (state & Gdk.ModifierType.ALT_MASK) != 0;
         let selection = this.getCurrentSelection(false);
         this.keyEventGrid = grid;
         if (this.popupmenuopen) {
             return true;
         }
-        if (this.ignoreKeys.includes(symbol)) {
+        if (this.ignoreKeys.includes(keyval)) {
             return true;
         }
-        let key = String.fromCharCode(Gdk.keyval_to_unicode(symbol));
+        let key = String.fromCharCode(Gdk.keyval_to_unicode(keyval));
         if (this.keypressTimeoutID && this.searchString) {
             this.searchString = this.searchString.concat(key);
         } else {

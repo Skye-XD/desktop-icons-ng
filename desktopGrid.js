@@ -111,8 +111,8 @@ var DesktopGrid = class {
         this._eventMotion = Gtk.EventControllerMotion.new();
         this._eventMotion.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
         this._container.add_controller(this._eventMotion);
-        this._eventKey.connect('key-pressed', (keyval, keycode, state) => {
-            this._desktopManager.onKeyPress(keycode, state, this);
+        this._eventKey.connect('key-pressed', (actor, keyval, keycode, state) => {
+            this._desktopManager.onKeyPress(keyval, keycode, state, this);
         });
         this._eventMotion.connect('motion', (actor, x, y) => {
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
