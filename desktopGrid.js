@@ -22,13 +22,11 @@ imports.gi.versions.Gtk = '4.0';
 
 const Gtk = imports.gi.Gtk;
 const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Prefs = imports.preferences;
 const Enums = imports.enums;
 const DesktopIconsUtil = imports.desktopIconsUtil;
-const Signals = imports.signals;
 const ByteArray = imports.byteArray;
 
 const Gettext = imports.gettext.domain('ding');
@@ -39,7 +37,6 @@ const _ = Gettext.gettext;
 var elementSpacing = 2;
 
 var DesktopGrid = class {
-
     constructor(desktopManager, desktopName, desktopDescription, asDesktop, premultiplied) {
         this._destroying = false;
         this._desktopManager = desktopManager;
@@ -53,13 +50,13 @@ var DesktopGrid = class {
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
 
-        this._window = new Gtk.ApplicationWindow({application: desktopManager.mainApp, "title": desktopName});
+        this._window = new Gtk.ApplicationWindow({ application: desktopManager.mainApp, 'title': desktopName });
         this._windowContext = this._window.get_style_context();
         if (this._asDesktop) {
             this._window.set_decorated(false);
             this._window.set_deletable(false);
             // Transparent Background only if this instance is working as a desktop
-            this._windowContext.add_class("desktopwindow");
+            this._windowContext.add_class('desktopwindow');
             if (this._using_X11) {
                 DesktopIconsUtil.hideX11windowTaskbar(this._window);
             } else { // Wayland
@@ -67,13 +64,13 @@ var DesktopGrid = class {
             }
         } else {
             // Opaque black test window
-            this._windowContext.add_class("testwindow");
+            this._windowContext.add_class('testwindow');
         }
         this._window.set_resizable(false);
         this._window.connect('close-request', () => {
-            if (this._destroying) {
+            if (this._destroying)
                 return false;
-            }
+
             if (this._asDesktop) {
                 // Do not destroy window when closing if the instance is working as desktop
                 return true;
@@ -122,50 +119,49 @@ var DesktopGrid = class {
         this._buttonClick.set_button(0);
         this._buttonClick.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
         this._container.add_controller(this._buttonClick);
-        this._buttonClick.connect('pressed', (actor, n_press, x, y) => {
+        this._buttonClick.connect('pressed', (actor, nPress, x, y) => {
             let button = actor.get_current_button();
             let state = this._buttonClick.get_current_event_state();
-            let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) != 0;
-            let isShift = (state & Gdk.ModifierType.SHIFT_MASK) != 0;
+            let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+            let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem) {
-                let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
-                if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
+                let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+                if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
                     clickItem._onPressButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
                 }
             }
             this._desktopManager.onPressButton(X, Y, x, y, button, isShift, isCtrl, this);
-       });
+        });
 
-       this._buttonClick.connect('released', (actor, n_press, x, y) => {
+        this._buttonClick.connect('released', (actor, nPress, x, y) => {
             let state = this._buttonClick.get_current_event_state();
-            let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) != 0;
-            let isShift = (state & Gdk.ModifierType.SHIFT_MASK) != 0;
+            let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+            let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
-            if (clickItem && ! this._desktopManager.rubberBand) {
-                let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
-                if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
+            if (clickItem && !this._desktopManager.rubberBand) {
+                let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+                if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
                     clickItem._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
                 }
             }
             this._desktopManager.onReleaseButton(this);
-       });
+        });
 
         this.setDropDestination(this._container);
         this.setDragSource(this._container);
         let stateChangeSignalID = GObject.signal_lookup('state-flags-changed', this._container.constructor.$gtype);
         GObject.signal_override_class_closure(stateChangeSignalID, this._container, () => {
             this._container.unset_state_flags(Gtk.StateFlags.DROP_ACTIVE);
-            GObject.signal_stop_emission_by_name(this._container, 'state-flags-changed')
+            GObject.signal_stop_emission_by_name(this._container, 'state-flags-changed');
             return false;
         });
 
         this.updateGridRectangle();
-
     }
 
     updateGridDescription(desktopDescription) {
@@ -179,13 +175,10 @@ var DesktopGrid = class {
         this._monitor = this._desktopDescription.monitorIndex;
         this._size_divisor = this._zoom;
         if (this._asDesktop) {
-            if (this._using_X11) {
+            if (this._using_X11)
                 this._size_divisor = Math.ceil(this._zoom);
-            } else {
-                if (this._premultiplied) {
-                    this._size_divisor = 1;
-                }
-            }
+            else if (this._premultiplied)
+                this._size_divisor = 1;
         }
         this._windowWidth = Math.floor(this._desktopDescription.width / this._size_divisor);
         this._windowHeight = Math.floor(this._desktopDescription.height / this._size_divisor);
@@ -234,7 +227,7 @@ var DesktopGrid = class {
     }
 
     createGrids() {
-        this._width = Math.floor( this._width / this._size_divisor);
+        this._width = Math.floor(this._width / this._size_divisor);
         this._height = Math.floor(this._height / this._size_divisor);
         this._marginTop = Math.floor(this._marginTop / this._size_divisor);
         this._marginBottom = Math.floor(this._marginBottom / this._size_divisor);
@@ -264,10 +257,9 @@ var DesktopGrid = class {
     setGridStatus() {
         this._fileItems = {};
         this._gridStatus = {};
-        for (let y=0; y<this._maxRows; y++) {
-            for (let x=0; x<this._maxColumns; x++) {
+        for (let y = 0; y < this._maxRows; y++) {
+            for (let x = 0; x < this._maxColumns; x++)
                 this._setGridUse(x, y, false);
-            }
         }
     }
 
@@ -289,71 +281,71 @@ var DesktopGrid = class {
     getIntelligentPosition(gdkRectangle) {
         var clickLocation = 'center';
 
-        if ((this._marginLeft > 0 ) && (gdkRectangle.x < (this._x + this._marginLeft*2))) {
+        if ((this._marginLeft > 0) && (gdkRectangle.x < (this._x + this._marginLeft * 2)))
             clickLocation = 'left';
-        }
-        if ((this._marginRight > 0) && (gdkRectangle.x + gdkRectangle.width > (this._x + this._windowWidth - this._marginRight*2.5))) {
+
+        if ((this._marginRight > 0) && (gdkRectangle.x + gdkRectangle.width > (this._x + this._windowWidth - this._marginRight * 2.5)))
             clickLocation = 'right';
-        }
-        if ((this._marginBottom > 0) && (gdkRectangle.y + gdkRectangle.height > (this._y + this._windowHeight - this._marginBottom*2))) {
-            switch(clickLocation) {
+
+        if ((this._marginBottom > 0) && (gdkRectangle.y + gdkRectangle.height > (this._y + this._windowHeight - this._marginBottom * 2))) {
+            switch (clickLocation) {
             case 'left':
                 clickLocation = 'bottomleft';
                 break;
             case 'right':
-                clickLocation = 'bottomright'
+                clickLocation = 'bottomright';
                 break;
             default:
-                clickLocation = 'bottom'
+                clickLocation = 'bottom';
             }
         }
-        if ((this._marginTop > 0) && (gdkRectangle.y < (this._y + this._marginTop*2))) {
-            switch(clickLocation) {
+        if ((this._marginTop > 0) && (gdkRectangle.y < (this._y + this._marginTop * 2))) {
+            switch (clickLocation) {
             case 'left':
                 clickLocation = 'topLeft';
                 break;
             case 'right':
-                clickLocation = 'topRight'
+                clickLocation = 'topRight';
                 break;
             default:
-                clickLocation = 'top'
+                clickLocation = 'top';
             }
         }
 
-        var returnvalue
+        var returnvalue;
 
-       //* Fix - Currently Gtk4 returns incorrect Gtk.PositionType Enums           *//
-       //* Returning Integers instead of Enums                                     *//
-       //* Enums Gtk.PositionType.LEFT does not seem to work even when returning 0 *//
+        //* Fix - Currently Gtk4 returns incorrect Gtk.PositionType Enums           *//
+        //* Returning Integers instead of Enums                                     *//
+        //* Enums Gtk.PositionType.LEFT does not seem to work even when returning 0 *//
 
         switch (clickLocation) {
         case 'left':
-            if (this._marginLeftHiddenObject) {
-                returnvalue = 1; //Gtk.PositionType.RIGHT;
-            } else {
+            if (this._marginLeftHiddenObject)
+                returnvalue = 1; // Gtk.PositionType.RIGHT;
+            else
                 returnvalue = null;
-            }
+
             break;
         case 'right':
-            if (this._marginRightHiddenObject) {
-                returnvalue = 1; //Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
-            } else {
+            if (this._marginRightHiddenObject)
+                returnvalue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
+            else
                 returnvalue = null;
-            }
+
             break;
         case 'top':
-            if (this._marginTopHiddenObject) {
-                returnvalue = 3; //Gtk.PositionType.BOTTOM;
-            } else {
+            if (this._marginTopHiddenObject)
+                returnvalue = 3; // Gtk.PositionType.BOTTOM;
+            else
                 returnvalue = null;
-            }
+
             break;
         case 'bottom':
-            if (this._marginBottomHiddenObject) {
-                returnvalue = 2; //Gtk.PositionType.TOP;
-            } else {
+            if (this._marginBottomHiddenObject)
+                returnvalue = 2; // Gtk.PositionType.TOP;
+            else
                 returnvalue = null;
-            }
+
             break;
         case 'center':
             returnvalue = null;
@@ -368,27 +360,30 @@ var DesktopGrid = class {
                 break;
             }
             if (this._marginRightHiddenObject) {
-                returnvalaue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
+                returnvalue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
                 break;
             }
+            break;
         case 'bottomLeft':
             if (this._marginBottomHiddenObject && this._marginLeftHiddenObject) {
                 returnvalue = 1; // Gtk.PositionType.RIGHT
                 break;
             }
             if (this._marginBottomHiddenObject) {
-                returnvalue = 2; //Gtk.PositionType.TOP
+                returnvalue = 2; // Gtk.PositionType.TOP
                 break;
-            } if (this._marginLeftHiddenObject) {
+            }
+            if (this._marginLeftHiddenObject) {
                 returnvalue = 1; // Gtk.PositionType.RIGHT
                 break;
             }
+            break;
         case 'topRight':
             if (this._marginTopHiddenObject && this._marginRightHiddenObject) {
                 returnvalue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
                 break;
             }
-            if (this._marginTopHiddenObject){
+            if (this._marginTopHiddenObject) {
                 returnvalue = 3; // Gtk.PositionType.BOTTOM
                 break;
             }
@@ -396,6 +391,7 @@ var DesktopGrid = class {
                 returnvalue = 1; // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
                 break;
             }
+            break;
         case 'topLeft':
             if (this._marginTopHiddenObject && this._marginLeftHiddenObject) {
                 returnvalue = 1; // Gtk.PositionType.RIGHT
@@ -406,9 +402,10 @@ var DesktopGrid = class {
                 break;
             }
             if (this._marginLeftHiddenObject) {
-                returnvalue = 1; //Gtk.PositionType.RIGHT
+                returnvalue = 1; // Gtk.PositionType.RIGHT
                 break;
             }
+            break;
         default:
             this.disableIntellihide();
             returnvalue = null;
@@ -443,76 +440,75 @@ var DesktopGrid = class {
         this.gridDropController.connect('accept', (actor, drop) => {
             if (drop.get_formats().match(formats)) {
                 dropformats = drop.get_formats().to_string();
-                if (dropformats.includes(Enums.DndTargetInfo.DING_ICON_LIST)) {
+                if (dropformats.includes(Enums.DndTargetInfo.DING_ICON_LIST))
                     info = Enums.DndTargetInfo.DING_ICON_LIST;
-                } else if (dropformats.includes(Enums.DndTargetInfo.GNOME_ICON_LIST)) {
+                else if (dropformats.includes(Enums.DndTargetInfo.GNOME_ICON_LIST))
                     info = Enums.DndTargetInfo.GNOME_ICON_LIST;
-                } else if (dropformats.includes(Enums.DndTargetInfo.TEXT_PLAIN)) {
+                else if (dropformats.includes(Enums.DndTargetInfo.TEXT_PLAIN))
                     info = Enums.DndTargetInfo.TEXT_PLAIN;
-                }
+
                 return true;
             }
         });
 
-        this.gridDropController.connect('drag-enter', (actor, drop, x, y) => {
+        this.gridDropController.connect('drag-enter', () => {
             return Gdk.DragAction.MOVE;
         });
 
         this.gridDropController.connect('drag-motion', (actor, drop, x, y) => {
             let clickItem = this._fileAt(x, y);
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
+            let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
             this.receiveMotion(x, y, false);
-            if (clickItem && ! clickItem.dropCapable()) {
-                if (this._desktopManager.showDropPlace) {
+            if (clickItem && !clickItem.dropCapable()) {
+                if (this._desktopManager.showDropPlace)
                     return false;
-                } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
+                else if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0])
                     return false;
-                }
             }
-            if (clickItem && clickItem.dropCapable && (clickItem._fileExtra !== Enums.FileType.EXTERNAL_DRIVE)) {
+            if (clickItem && clickItem.dropCapable && (clickItem._fileExtra !== Enums.FileType.EXTERNAL_DRIVE))
                 return Gdk.DragAction.MOVE;
-            }
-            if (clickItem && (clickItem._fileExtra == Enums.FileType.EXTERNAL_DRIVE)) {
+
+            if (clickItem && (clickItem._fileExtra === Enums.FileType.EXTERNAL_DRIVE))
                 return Gdk.DragAction.COPY;
-            }
-            if ((this._desktopManager.keepArranged || this._desktopManager.keepStacked) && info == Enums.DndTargetInfo.DING_ICON_LIST) {
+
+            if ((this._desktopManager.keepArranged || this._desktopManager.keepStacked) && info === Enums.DndTargetInfo.DING_ICON_LIST) {
                 if (!this._desktopManager.getCurrentSelection().filter(f => f.isSpecial).length)
-                return false;
+                    return false;
             }
             return Gdk.DragAction.MOVE;
         });
 
-        this.gridDropController.connect('drag-leave', (actor, drop, x, y) => {
+        this.gridDropController.connect('drag-leave', () => {
             this.receiveLeave();
         });
 
         this.gridDropController.connect('drop', (actor, drop, x, y) => {
             const event = {
-                "parentWindow" : this._window,
-                "timestamp" : Gdk.CURRENT_TIME
-            }
+                'parentWindow': this._window,
+                'timestamp': Gdk.CURRENT_TIME,
+            };
 
             drop.read_value_async(String.$gtype, GLib.PRIORITY_DEFAULT, null, (dropactor, task) => {
                 selection = dropactor.read_value_finish(task);
                 if (selection && info) {
                     let gdkDropAction = drop.get_actions();
                     let gdkDropReturnAction;
-                    if ((gdkDropAction != Gdk.DragAction.MOVE) || (gdkDropAction != Gdk.DragAction.COPY)) {
+                    if ((gdkDropAction !== Gdk.DragAction.MOVE) || (gdkDropAction !== Gdk.DragAction.COPY))
                         gdkDropReturnAction = Gdk.DragAction.MOVE;
-                    } else {
+                    else
                         gdkDropReturnAction = gdkDropAction;
-                    }
+
                     let clickItem = this._fileAt(x, y);
                     let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                    let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
-                    if (clickItem && ! clickItem._hasToRouteDragToGrid()) {
+                    let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+                    if (clickItem && !clickItem._hasToRouteDragToGrid()) {
                         if (this._desktopManager.showDropPlace) {
                             clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
                             drop.finish(gdkDropReturnAction);
                             this.receiveLeave();
                             return true;
-                        } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
+                        } else if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
                             clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
                             drop.finish(gdkDropReturnAction);
                             this.receiveLeave();
@@ -539,17 +535,16 @@ var DesktopGrid = class {
 
         this.gridDropControllerMotion = new Gtk.DropControllerMotion();
         this.gridDropControllerMotion.connect('motion', (actor, x, y) => {
-            if ( ! this.gridDropControllerMotion.is_pointer) {
+            if (!this.gridDropControllerMotion.is_pointer) {
                 let clickItem = this._fileAt(x, y);
                 let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                let clickRectangle = new Gdk.Rectangle({x:X,y:Y,width:1,height:1});
+                let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
                 if (clickItem && clickItem.dropCapable()) {
                     this._desktopManager.unHighLightDropTarget();
-                    if (this._desktopManager.showDropPlace) {
+                    if (this._desktopManager.showDropPlace)
                         clickItem.highLightDropTarget(x, y);
-                    } else if ((clickRectangle.intersect(clickItem.iconRectangle)[0]) || (clickRectangle.intersect(clickItem.labelRectangle)[0])) {
+                    else if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0])
                         clickItem.highLightDropTarget(x, y);
-                    }
                 }
             } else {
                 this._desktopManager.unHighLightDropTarget();
@@ -560,26 +555,25 @@ var DesktopGrid = class {
 
     setDragSource(widget) {
         let widgetDragController = Gtk.DragSource.new();
-        let clickItem
-        widgetDragController.set_actions(Gdk.DragAction.MOVE|Gdk.DragAction.COPY|Gdk.DragAction.ASK);
+        let clickItem;
+        widgetDragController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
         widgetDragController.connect('prepare', (actor, x, y) => {
             let draggedItem = this._fileAt(x, y);
-            if (draggedItem && ! this._desktopManager.rubberBand) {
+            if (draggedItem && !this._desktopManager.rubberBand) {
                 clickItem = draggedItem;
                 let [X, Y] = this.coordinatesLocalToGlobal(x, y);
                 let [a, b] = clickItem._calculateOffset(X, Y);
                 widgetDragController.set_icon(clickItem.dragIcon, a, b);
                 this._loadDragData(clickItem);
-                if (this.contentProvider) {
+                if (this.contentProvider)
                     return this.contentProvider;
-                }
             }
         });
-        widgetDragController.connect('drag-begin', (actor, drag) => {
+        widgetDragController.connect('drag-begin', () => {
             this._desktopManager.onReleaseButton(this);
             this._desktopManager.onDragBegin(clickItem);
         });
-        widgetDragController.connect('drag-end', (actor, drag, delete_data) => {
+        widgetDragController.connect('drag-end', () => {
             this._desktopManager.onDragEnd();
         });
         widget.add_controller(widgetDragController);
@@ -588,7 +582,7 @@ var DesktopGrid = class {
     _loadDragData(clickItem) {
         let dingdragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.DING_ICON_LIST);
         let dingcontentProvider;
-        if (dingdragData != null) {
+        if (dingdragData !== null) {
             dingcontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.DING_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(dingdragData)));
         } else {
             this.contentProvider = null;
@@ -596,12 +590,12 @@ var DesktopGrid = class {
         }
         let textlistdragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.TEXT_PLAIN);
         let textlistcontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, ByteArray.toGBytes(ByteArray.fromString(textlistdragData)));
-        if ((clickItem._fileExtra != Enums.FileType.USER_DIRECTORY_TRASH) &&
-            (clickItem._fileExtra != Enums.FileType.USER_DIRECTORY_HOME) &&
-            (clickItem._fileExtra != Enums.FileType.EXTERNAL_DRIVE)) {
-                let gnomedragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.GNOME_ICON_LIST);
-                let gnomecontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(gnomedragData)));
-                this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, gnomecontentProvider, textlistcontentProvider]);
+        if ((clickItem._fileExtra !== Enums.FileType.USER_DIRECTORY_TRASH) &&
+            (clickItem._fileExtra !== Enums.FileType.USER_DIRECTORY_HOME) &&
+            (clickItem._fileExtra !== Enums.FileType.EXTERNAL_DRIVE)) {
+            let gnomedragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.GNOME_ICON_LIST);
+            let gnomecontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(gnomedragData)));
+            this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, gnomecontentProvider, textlistcontentProvider]);
         } else {
             this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, textlistcontentProvider]);
         }
@@ -614,7 +608,7 @@ var DesktopGrid = class {
     receiveMotion(x, y, global) {
         let X;
         let Y;
-        if (! global) {
+        if (!global) {
             x = this._elementWidth * Math.floor(x / this._elementWidth);
             y = this._elementHeight * Math.floor(y / this._elementHeight);
             [X, Y] = this.coordinatesLocalToGlobal(x, y);
@@ -630,7 +624,7 @@ var DesktopGrid = class {
         this._window.queue_draw();
     }
 
-    highLightGridAt(x,y) {
+    highLightGridAt(x, y) {
         let selected = this.getGridAt(x, y, false);
         this._selectedList = [selected];
         this._window.queue_draw();
@@ -641,7 +635,7 @@ var DesktopGrid = class {
         this._window.queue_draw();
     }
 
-    _getGridCoordinates(x, y, clamp) {
+    _getGridCoordinates(x, y) {
         let placeX = Math.floor(x / this._elementWidth);
         let placeY = Math.floor(y / this._elementHeight);
         placeX = DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
@@ -661,7 +655,7 @@ var DesktopGrid = class {
         return [localX, localY];
     }
 
-    _fileAt(x,y) {
+    _fileAt(x, y) {
         let [placeX, placeY] = this._getGridCoordinates(x, y);
         return this._gridStatus[placeY * this._maxColumns + placeX];
     }
@@ -674,16 +668,15 @@ var DesktopGrid = class {
         }
         let newSelectedList = [];
         for (let [x, y] of selectedList) {
-            x = x + this._elementWidth/2;
-            y = y + this._elementHeight/2;
+            x += this._elementWidth / 2;
+            y += this._elementHeight / 2;
             x += ox;
             y += oy;
             let r = this.getGridAt(x, y);
-            if ((r !== null) && ((!this.gridInUse(r[0],r[1])) || this._fileAt(r[0],r[1]).isSelected)) {
+            if ((r !== null) && (!this.gridInUse(r[0], r[1]) || this._fileAt(r[0], r[1]).isSelected))
                 newSelectedList.push(r);
-            }
         }
-        if (newSelectedList.length == 0) {
+        if (newSelectedList.length === 0) {
             if (this._selectedList !== null) {
                 this._selectedList = null;
                 this._drawArea.queue_draw();
@@ -691,9 +684,8 @@ var DesktopGrid = class {
             return;
         }
         if (this._selectedList !== null) {
-            if ((newSelectedList[0][0] == this._selectedList[0][0]) && (newSelectedList[0][1] == this._selectedList[0][1])) {
+            if ((newSelectedList[0][0] === this._selectedList[0][0]) && (newSelectedList[0][1] === this._selectedList[0][1]))
                 return;
-            }
         }
         this._selectedList = newSelectedList;
         this._drawArea.queue_draw();
@@ -703,45 +695,53 @@ var DesktopGrid = class {
         this._drawArea.queue_draw();
     }
 
-    _doDrawRubberBand(actor, cr, width, height) {
+    _doDrawRubberBand(actor, cr) {
         if (this._desktopManager.rubberBand && this._desktopManager.selectionRectangle) {
-            if (! this.gridGlobalRectangle.intersect(this._desktopManager.selectionRectangle)[0]) {
+            if (!this.gridGlobalRectangle.intersect(this._desktopManager.selectionRectangle)[0])
                 return;
-            }
+
             let [xInit, yInit] = this.coordinatesGlobalToLocal(this._desktopManager.x1, this._desktopManager.y1);
             let [xFin, yFin] = this.coordinatesGlobalToLocal(this._desktopManager.x2, this._desktopManager.y2);
 
             cr.rectangle(xInit + 0.5, yInit + 0.5, xFin - xInit, yFin - yInit);
-            Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({red: this._desktopManager.selectColor.red,
-                                                        green: this._desktopManager.selectColor.green,
-                                                        blue: this._desktopManager.selectColor.blue,
-                                                        alpha: 0.6})
+            Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({
+                red: this._desktopManager.selectColor.red,
+                green: this._desktopManager.selectColor.green,
+                blue: this._desktopManager.selectColor.blue,
+                alpha: 0.6,
+            })
             );
             cr.fill();
             cr.setLineWidth(1);
             cr.rectangle(xInit + 0.5, yInit + 0.5, xFin - xInit, yFin - yInit);
-            Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({red: this._desktopManager.selectColor.red,
-                                                        green: this._desktopManager.selectColor.green,
-                                                        blue: this._desktopManager.selectColor.blue,
-                                                        alpha: 1.0})
+            Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({
+                red: this._desktopManager.selectColor.red,
+                green: this._desktopManager.selectColor.green,
+                blue: this._desktopManager.selectColor.blue,
+                alpha: 1.0,
+            })
             );
             cr.stroke();
         }
         if (this._desktopManager.showDropPlace && (this._selectedList !== null)) {
-            for(let [x, y] of this._selectedList) {
+            for (let [x, y] of this._selectedList) {
                 cr.rectangle(x + 0.5, y + 0.5, this._elementWidth, this._elementHeight);
-                Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({red: 1.0 - this._desktopManager.selectColor.red,
-                                                            green: 1.0 - this._desktopManager.selectColor.green,
-                                                            blue: 1.0 - this._desktopManager.selectColor.blue,
-                                                            alpha: 0.4})
+                Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({
+                    red: 1.0 - this._desktopManager.selectColor.red,
+                    green: 1.0 - this._desktopManager.selectColor.green,
+                    blue: 1.0 - this._desktopManager.selectColor.blue,
+                    alpha: 0.4,
+                })
                 );
                 cr.fill();
                 cr.setLineWidth(0.5);
                 cr.rectangle(x + 0.5, y + 0.5, this._elementWidth, this._elementHeight);
-                Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({red: 1.0 - this._desktopManager.selectColor.red,
-                                                            green: 1.0 - this._desktopManager.selectColor.green,
-                                                            blue: 1.0 - this._desktopManager.selectColor.blue,
-                                                            alpha: 1.0})
+                Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({
+                    red: 1.0 - this._desktopManager.selectColor.red,
+                    green: 1.0 - this._desktopManager.selectColor.green,
+                    blue: 1.0 - this._desktopManager.selectColor.blue,
+                    alpha: 1.0,
+                })
                 );
                 cr.stroke();
             }
@@ -752,50 +752,49 @@ var DesktopGrid = class {
         /**
          * Checks if these coordinates belong to this grid.
          *
-         * @Returns: -1 if there is no free space for new icons;
+         *  Returns: -1 if there is no free space for new icons;
          *            0 if the coordinates are inside this grid;
          *            or the distance to the middle point, if none of the previous
          */
 
-         let isFree = false;
-         for (let element in this._gridStatus) {
-             if (!this._gridStatus[element]) {
-                 isFree = true;
-                 break;
-             }
-         }
-         if (!isFree) {
-             return -1;
-         }
-         if (this._coordinatesBelongToThisWindow(x, y)) {
-             return 0;
-         }
-         return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) + Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
+        let isFree = false;
+        for (let element in this._gridStatus) {
+            if (!this._gridStatus[element]) {
+                isFree = true;
+                break;
+            }
+        }
+        if (!isFree)
+            return -1;
+
+        if (this._coordinatesBelongToThisWindow(x, y))
+            return 0;
+
+        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) + Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
     }
 
-    coordinatesGlobalToLocal(X, Y, widget=null) {
+    coordinatesGlobalToLocal(X, Y, widget = null) {
         X -= this._x;
         Y -= this._y;
-        if (! widget) {
+        if (!widget)
             widget = this._container;
-        }
-        let [belong, x, y] = this._window.translate_coordinates(widget, X, Y);
+
+        let [x, y] = this._window.translate_coordinates(widget, X, Y).slice(1);
         return [x, y];
     }
 
-    coordinatesLocalToGlobal(x, y, widget=null) {
-        if (! widget) {
+    coordinatesLocalToGlobal(x, y, widget = null) {
+        if (!widget)
             widget = this._container;
-        }
-        let [belongs, X, Y] = widget.translate_coordinates(this._window, x, y);
+
+        let [X, Y] = widget.translate_coordinates(this._window, x, y).slice(1);
         return [X + this._x, Y + this._y];
     }
 
     _addFileItemTo(fileItem, column, row, coordinatesAction) {
-
-        if (this._destroying) {
+        if (this._destroying)
             return;
-        }
+
         let localX = Math.floor(this._width * column / this._maxColumns);
         let localY = Math.floor(this._height * row / this._maxRows);
         this._container.put(fileItem.container, localX + elementSpacing, localY + elementSpacing);
@@ -803,25 +802,24 @@ var DesktopGrid = class {
         this._fileItems[fileItem.uri] = [column, row, fileItem];
         let [x, y] = this.coordinatesLocalToGlobal(localX + elementSpacing, localY + elementSpacing);
         fileItem.setCoordinates(x,
-                                y,
-                                this._elementWidth - 2 * elementSpacing,
-                                this._elementHeight - 2 * elementSpacing,
-                                elementSpacing,
-                                this);
+            y,
+            this._elementWidth - 2 * elementSpacing,
+            this._elementHeight - 2 * elementSpacing,
+            elementSpacing,
+            this);
         /* If this file is new in the Desktop and hasn't yet
          * fixed coordinates, store the new possition to ensure
          * that the next time it will be shown in the same possition.
          * Also store the new possition if it has been moved by the user,
          * and not triggered by a screen change.
          */
-        if ((fileItem.savedCoordinates == null) || (coordinatesAction == Enums.StoredCoordinates.OVERWRITE)) {
+        if ((fileItem.savedCoordinates === null) || (coordinatesAction === Enums.StoredCoordinates.OVERWRITE))
             fileItem.savedCoordinates = [x, y];
-        }
     }
 
     removeItem(fileItem) {
         if (fileItem.uri in this._fileItems) {
-            let [column, row, tmp] = this._fileItems[fileItem.uri];
+            let [column, row] = this._fileItems[fileItem.uri].slice(0, 3);
             this._setGridUse(column, row, false);
             this._container.remove(fileItem.container);
             delete this._fileItems[fileItem.uri];
@@ -829,23 +827,23 @@ var DesktopGrid = class {
     }
 
     addFileItemCloseTo(fileItem, x, y, coordinatesAction) {
-        let add_volumes_opposite = Prefs.desktopSettings.get_boolean('add-volumes-opposite');
+        let addVolumesOpposite = Prefs.desktopSettings.get_boolean('add-volumes-opposite');
         let [column, row] = this._getEmptyPlaceClosestTo(x,
-                                                         y,
-                                                         coordinatesAction,
-                                                         fileItem.isDrive && add_volumes_opposite);
+            y,
+            coordinatesAction,
+            fileItem.isDrive && addVolumesOpposite);
         this._addFileItemTo(fileItem, column, row, coordinatesAction);
     }
 
-    _isEmptyAt(x,y) {
-        return (this._gridStatus[y * this._maxColumns + x] === false);
+    _isEmptyAt(x, y) {
+        return this._gridStatus[y * this._maxColumns + x] === false;
     }
 
     _setGridUse(x, y, inUse) {
         this._gridStatus[y * this._maxColumns + x] = inUse;
     }
 
-    getGridAt(x, y, globalCoordinates=false) {
+    getGridAt(x, y, globalCoordinates = false) {
         if (this._coordinatesBelongToThisGrid(x, y)) {
             [x, y] = this.coordinatesGlobalToLocal(x, y);
             if (globalCoordinates) {
@@ -875,49 +873,48 @@ var DesktopGrid = class {
 
     getGlobaltoLocalRectangle(gdkRectangle) {
         const [X, Y] = this.coordinatesGlobalToLocal(gdkRectangle.x, gdkRectangle.y);
-        return new Gdk.Rectangle({x:X, y:Y, width:gdkRectangle.width, height:gdkRectangle.height})
+        return new Gdk.Rectangle({ x: X, y: Y, width: gdkRectangle.width, height: gdkRectangle.height });
     }
 
     _getEmptyPlaceClosestTo(x, y, coordinatesAction, reverseHorizontal) {
-
         [x, y] = this.coordinatesGlobalToLocal(x, y);
         let placeX = Math.floor(x / this._elementWidth);
         let placeY = Math.floor(y / this._elementHeight);
 
         let cornerInversion = Prefs.get_start_corner();
-        if (reverseHorizontal) {
+        if (reverseHorizontal)
             cornerInversion[0] = !cornerInversion[0];
-        }
+
 
         placeX = DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
         placeY = DesktopIconsUtil.clamp(placeY, 0, this._maxRows - 1);
-        if (this._isEmptyAt(placeX, placeY) && (coordinatesAction != Enums.StoredCoordinates.ASSIGN)) {
+        if (this._isEmptyAt(placeX, placeY) && (coordinatesAction !== Enums.StoredCoordinates.ASSIGN))
             return [placeX, placeY];
-        }
+
         let found = false;
         let resColumn = null;
         let resRow = null;
         let minDistance = Infinity;
         let column, row;
-        for (let tmp_column = 0; tmp_column < this._maxColumns; tmp_column++) {
-            if (cornerInversion[0]) {
-                column = this._maxColumns - tmp_column - 1;
-            } else {
-                column = tmp_column;
-            }
-            for (let tmp_row = 0; tmp_row < this._maxRows; tmp_row++) {
-                if (cornerInversion[1]) {
-                    row = this._maxRows - tmp_row - 1;
-                } else {
-                    row = tmp_row;
-                }
-                if (!this._isEmptyAt(column, row)) {
+        for (let tmpColumn = 0; tmpColumn < this._maxColumns; tmpColumn++) {
+            if (cornerInversion[0])
+                column = this._maxColumns - tmpColumn - 1;
+            else
+                column = tmpColumn;
+
+            for (let tmpRow = 0; tmpRow < this._maxRows; tmpRow++) {
+                if (cornerInversion[1])
+                    row = this._maxRows - tmpRow - 1;
+                else
+                    row = tmpRow;
+
+                if (!this._isEmptyAt(column, row))
                     continue;
-                }
+
 
                 let proposedX = column * this._elementWidth;
                 let proposedY = row * this._elementHeight;
-                if (coordinatesAction == Enums.StoredCoordinates.ASSIGN)
+                if (coordinatesAction === Enums.StoredCoordinates.ASSIGN)
                     return [column, row];
                 let distance = DesktopIconsUtil.distanceBetweenPoints(proposedX, proposedY, x, y);
                 if (distance < minDistance) {
@@ -929,9 +926,9 @@ var DesktopGrid = class {
             }
         }
 
-        if (!found) {
-            throw new Error(`Not enough place at monitor`);
-        }
+        if (!found)
+            throw new Error('Not enough place at monitor');
+
 
         return [resColumn, resRow];
     }
