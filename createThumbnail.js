@@ -22,13 +22,16 @@ imports.gi.versions.GnomeDesktop = '3.0';
 const GnomeDesktop = imports.gi.GnomeDesktop;
 const Gio = imports.gi.Gio;
 
+/**
+ *
+ */
 function CreateThumbnail() {
     let thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
 
     let file = Gio.File.new_for_path(ARGV[0]);
-    if (!file.query_exists(null)) {
+    if (!file.query_exists(null))
         return 1;
-    }
+
 
     let fileUri = file.get_uri();
     let fileInfo = file.query_info('standard::content-type,time::modified', Gio.FileQueryInfoFlags.NONE, null);
@@ -36,16 +39,16 @@ function CreateThumbnail() {
 
     // check if the thumbnail has been already created in the meantime by another program
     let thumbnail = thumbnailFactory.lookup(fileUri, modifiedTime);
-    if (thumbnail != null) {
+    if (thumbnail !== null)
         return 3;
-    }
-    if (thumbnailFactory.has_valid_failed_thumbnail(fileUri, modifiedTime)) {
+
+    if (thumbnailFactory.has_valid_failed_thumbnail(fileUri, modifiedTime))
         return 4;
-    }
+
 
     // now, generate the file
     let thumbnailPixbuf = thumbnailFactory.generate_thumbnail(fileUri, fileInfo.get_content_type());
-    if (thumbnailPixbuf == null) {
+    if (thumbnailPixbuf === null) {
         thumbnailFactory.create_failed_thumbnail(fileUri, modifiedTime);
         return 2;
     } else {
