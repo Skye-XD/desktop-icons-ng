@@ -428,7 +428,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
      * Drag and Drop *
      ***********************/
 
-    async recieveDrop(X, Y, x, y, selection, info, gdkDropAction, event, dragItem) {
+    async receiveDrop(X, Y, x, y, selection, info, gdkDropAction, event, dragItem) {
 
         if (! this.dropCapable) {
             return;

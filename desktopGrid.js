@@ -504,12 +504,12 @@ var DesktopGrid = class {
                     let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
                     if (clickItem && !clickItem._hasToRouteDragToGrid()) {
                         if (this._desktopManager.showDropPlace) {
-                            clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
+                            clickItem.receiveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
                             drop.finish(gdkDropReturnAction);
                             this.receiveLeave();
                             return true;
                         } else if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
-                            clickItem.recieveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
+                            clickItem.receiveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
                             drop.finish(gdkDropReturnAction);
                             this.receiveLeave();
                             return true;
@@ -542,9 +542,9 @@ var DesktopGrid = class {
                 if (clickItem && clickItem.dropCapable()) {
                     this._desktopManager.unHighLightDropTarget();
                     if (this._desktopManager.showDropPlace)
-                        clickItem.highLightDropTarget(x, y);
+                        clickItem.highLightDropTarget();
                     else if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0])
-                        clickItem.highLightDropTarget(x, y);
+                        clickItem.highLightDropTarget();
                 }
             } else {
                 this._desktopManager.unHighLightDropTarget();
