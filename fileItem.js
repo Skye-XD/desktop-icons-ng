@@ -479,7 +479,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             }
         } else {
             this._desktopManager.askWhatToDoWithFiles(fileList, this._file.get_uri(),
-                X, Y, x, y, event, false);
+                X, Y, x, y, event, { desktopActions: false });
         }
 
     return true;
