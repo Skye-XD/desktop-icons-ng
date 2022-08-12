@@ -1,6 +1,7 @@
 /* Emulate X11WindowType
  *
  * Copyright (C) 2020 Sergio Costas (rastersoft@gmail.com)
+ * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) - modified to use for X11 windows as well
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +17,6 @@
  */
 
 const GLib = imports.gi.GLib;
-const Shell = imports.gi.Shell;
 const Meta = imports.gi.Meta;
 const Main = imports.ui.main;
 
@@ -26,67 +26,63 @@ class ManageWindow {
 
        Trusted windows will set in the title the characters @!, followed
        by the coordinates where to put the window separated by a colon, and
-       ended in semicolon. After that, it can have one or more of these letters
+       ended in semicolon. After that, it can have one or more of these letters-
 
-       * B : put this window at the bottom of the screen
-       * T : put this window at the top of the screen
+       * B : put and always keep this window at the bottom of the stack of windows on screen
+       * T : put and always keep this window at the top of the stack of windows the screen
        * D : show this window in all desktops
        * H : hide this window from window list
 
        Using the title is generally not a problem because the desktop windows
-       doesn't have a tittle. But some other windows may have and still need to
-       take advantage of this, so adding a single blank space at the end of the
+       do not have a title. But some other windows may have and still need to
+       set a title and use this class, so adding a single blank space at the end of the
        title is equivalent to @!H, and having two blank spaces at the end of the
-       title is equivalent to @!HTD. This allows to take advantage of these flags
-       even to decorated windows.
+       title is equivalent to @!HTD. This allows use of these flags for decorated or titled windows.
     */
 
-    constructor(window, wayland_client, changedStatusCB) {
-        this._isX11 = ! Meta.is_wayland_compositor();
-        this._wayland_client = wayland_client;
+    constructor(window, waylandClient, changedStatusCB) {
+        this._isX11 = !Meta.is_wayland_compositor();
+        this._waylandClient = waylandClient;
         this._window = window;
         this._signalIDs = [];
         this._changedStatusCB = changedStatusCB;
         this._signalIDs.push(window.connect_after('raised', () => {
-            if (this._keepAtBottom && !this._keepAtTop) {
+            if (this._keepAtBottom && !this._keepAtTop)
                 this._window.lower();
-            }
         }));
         this._signalIDs.push(window.connect('position-changed', () => {
             if (this._fixed && (this._x !== null) && (this._y !== null)) {
                 this._window.move_frame(true, this._x, this._y);
-                if (this._window.fullscreen) {
+                if (this._window.fullscreen)
                     this._window.unmake_fullscreen();
-                }
             }
         }));
-        this._signalIDs.push(window.connect("notify::title", () => {
+        this._signalIDs.push(window.connect('notify::title', () => {
             this._parseTitle();
         }));
-        this._signalIDs.push(window.connect("notify::above", () => {
-            if (this._keepAtBottom && this._window.above) {
+        this._signalIDs.push(window.connect('notify::above', () => {
+            if (this._keepAtBottom && this._window.above)
                 this._window.unmake_above();
-            }
         }));
-        this._signalIDs.push(window.connect("notify::minimized", () => {
+        this._signalIDs.push(window.connect('notify::minimized', () => {
             this._window.unminimize();
         }));
         this._parseTitle();
     }
 
     disconnect() {
-        for(let signalID of this._signalIDs) {
+        for (let signalID of this._signalIDs)
             this._window.disconnect(signalID);
-        }
-        if (this._keepAtTop) {
+
+        if (this._keepAtTop)
             this._window.unmake_above();
-        }
+
         this._window = null;
-        this._wayland_client = null;
+        this._waylandClient = null;
     }
 
     set_wayland_client(client) {
-        this._wayland_client = client;
+        this._waylandClient = client;
     }
 
     _parseTitle() {
@@ -99,32 +95,31 @@ class ManageWindow {
         this._hideFromWindowList = false;
         this._fixed = false;
         let title = this._window.get_title();
-        if (title != null) {
-            if ((title.length > 0) && (title[title.length-1] == ' ')) {
-                if ((title.length > 1) && (title[title.length-2] == ' ')) {
-                    title = "@!HTD";
-                } else {
-                    title = "@!H";
-                }
+        if (title !== null) {
+            if ((title.length > 0) && (title[title.length - 1] === ' ')) {
+                if ((title.length > 1) && (title[title.length - 2] === ' '))
+                    title = '@!HTD';
+                else
+                    title = '@!H';
             }
-            let pos = title.search("@!");
-            if (pos != -1) {
-                let pos2 = title.search(";", pos)
+            let pos = title.search('@!');
+            if (pos !== -1) {
+                let pos2 = title.search(';', pos);
                 let coords;
-                if (pos2 != -1) {
-                    coords = title.substring(pos+2, pos2).trim().split(",");
-                } else {
-                    coords = title.substring(pos+2).trim().split(",");
-                }
+                if (pos2 !== -1)
+                    coords = title.substring(pos + 2, pos2).trim().split(',');
+                else
+                    coords = title.substring(pos + 2).trim().split(',');
+
                 try {
                     this._x = parseInt(coords[0]);
                     this._y = parseInt(coords[1]);
-                } catch(e) {
+                } catch (e) {
                     global.log(`Exception ${e.message}.\n${e.stack}`);
                 }
                 try {
-                    let extra_chars = title.substring(pos+2).trim().toUpperCase();
-                    for (let char of extra_chars) {
+                    let extraChars = title.substring(pos + 2).trim().toUpperCase();
+                    for (let char of extraChars) {
                         switch (char) {
                         case 'B':
                             this._keepAtBottom = true;
@@ -145,30 +140,28 @@ class ManageWindow {
                             break;
                         }
                     }
-                } catch(e) {
+                } catch (e) {
                     global.log(`Exception ${e.message}.\n${e.stack}`);
                 }
             }
-            if (this._fixed && (this._x !== null) && (this._y !== null)) {
+            if (this._fixed && (this._x !== null) && (this._y !== null))
                 this._window.move_frame(true, this._x, this._y);
+
+            if (!this._isX11 && this._waylandClient) {
+                if (this._hideFromWindowList)
+                    this._waylandClient.hide_from_window_list(this._window);
+                else
+                    this._waylandClient.show_in_window_list(this._window);
             }
-            if (! this._isX11 && this._wayland_client) {
-                if (this._hideFromWindowList) {
-                    this._wayland_client.hide_from_window_list(this._window);
-                } else {
-                    this._wayland_client.show_in_window_list(this._window);
-                }
-            }
-            if (this._keepAtTop != keepAtTop) {
-                if (this._keepAtTop) {
+            if (this._keepAtTop !== keepAtTop) {
+                if (this._keepAtTop)
                     this._window.make_above();
-                } else {
+                else
                     this._window.unmake_above();
-                }
             }
-            if (this._keepAtBottom) {
+            if (this._keepAtBottom)
                 this._window.lower();
-            }
+
             this._changedStatusCB(this);
         }
     }
@@ -176,16 +169,14 @@ class ManageWindow {
     refreshState(checkWorkspace) {
         if (checkWorkspace && this._showInAllDesktops) {
             let currentWorkspace = global.workspace_manager.get_active_workspace();
-            if (!this._window.located_on_workspace(currentWorkspace)) {
+            if (!this._window.located_on_workspace(currentWorkspace))
                 this._window.change_workspace(currentWorkspace);
-            }
         }
-        if (this._window.fullscreen) {
+        if (this._window.fullscreen)
             this._window.unmake_fullscreen();
-        }
-        if (this._keepAtBottom) {
+
+        if (this._keepAtBottom)
             this._window.lower();
-        }
     }
 
     get hideFromWindowList() {
@@ -199,49 +190,47 @@ class ManageWindow {
 
 var EmulateX11WindowType = class {
     /*
-     This class makes all the heavy lifting for emulating WindowType.
+     This class does all the heavy lifting for emulating WindowType.
      Just make one instance of it, call enable(), and whenever a window
      that you want to give "superpowers" is mapped, add it with the
      "addWindow" method. That's all.
      */
-    constructor () {
+    constructor() {
         this._isX11 = !Meta.is_wayland_compositor();
         this._windowList = [];
         this._enableRefresh = true;
-        this._wayland_client = null;
+        this._waylandClient = null;
     }
 
     set_wayland_client(client) {
-        this._wayland_client = client;
-        for(let window of this._windowList) {
-            if (window.customJS_ding) {
-                window.customJS_ding.set_wayland_client(this._wayland_client);
-            }
+        this._waylandClient = client;
+        for (let window of this._windowList) {
+            if (window.customJS_ding)
+                window.customJS_ding.set_wayland_client(this._waylandClient);
         }
     }
 
     enable() {
         this._idMap = global.window_manager.connect_after('map', (obj, windowActor) => {
             let window = windowActor.get_meta_window();
-            if (this._wayland_client && this._wayland_client.query_window_belongs_to(window)) {
+            if (this._waylandClient && this._waylandClient.query_window_belongs_to(window))
                 this.addWindow(window);
-            }
+
             if (this._isX11) {
                 let appid = window.get_gtk_application_id();
                 let windowpid = window.get_pid();
-                let mypid = this._wayland_client.query_pid_of_program();
-                if ((appid == 'com.rastersoft.ding') && (windowpid == mypid)) {
+                let mypid = this._waylandClient.query_pid_of_program();
+                if ((appid === 'com.rastersoft.ding') && (windowpid === mypid))
                     this.addWindow(window);
-                }
             }
             this._refreshWindows(false);
         });
-        this._idDestroy = global.window_manager.connect_after("destroy", (wm, windowActor) => {
+        this._idDestroy = global.window_manager.connect_after('destroy', (wm, windowActor) => {
             // if a window is closed, ensure that the desktop doesn't receive the focus
             let window = windowActor.get_meta_window();
-            if (window && (window.get_window_type() >= Meta.WindowType.DROPDOWN_MENU)) {
+            if (window && (window.get_window_type() >= Meta.WindowType.DROPDOWN_MENU))
                 return;
-            }
+
             this._refreshWindows(true);
         });
         /* Something odd happens with "stick" when using popup submenus, so
@@ -269,9 +258,9 @@ var EmulateX11WindowType = class {
             GLib.source_remove(this._activate_window_ID);
             this._activate_window_ID = null;
         }
-        for(let window of this._windowList) {
+        for (let window of this._windowList)
             this._clearWindow(window);
-        }
+
         this._windowList = [];
 
         // disconnect signals
@@ -301,13 +290,13 @@ var EmulateX11WindowType = class {
         if (window.get_meta_window) { // it is a MetaWindowActor
             window = window.get_meta_window();
         }
-        window.customJS_ding = new ManageWindow(window, this._wayland_client, () => {
+        window.customJS_ding = new ManageWindow(window, this._waylandClient, () => {
             this._refreshWindows(true);
         });
         this._windowList.push(window);
-        window.customJS_ding.unmanagedID = window.connect("unmanaged", (window) => {
-            this._clearWindow(window);
-            this._windowList = this._windowList.filter(item => item !== window);
+        window.customJS_ding.unmanagedID = window.connect('unmanaged', win => {
+            this._clearWindow(win);
+            this._windowList = this._windowList.filter(item => item !== win);
         });
     }
 
@@ -321,9 +310,9 @@ var EmulateX11WindowType = class {
         if (!this._activate_window_ID) {
             this._activate_window_ID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
                 if (this._enableRefresh) {
-                    for (let window of this._windowList) {
+                    for (let window of this._windowList)
                         window.customJS_ding.refreshState(checkWorkspace);
-                    }
+
                     if (checkWorkspace) {
                         // activate the top-most window
                         let windows = global.display.get_tab_list(Meta.TabList.NORMAL_ALL, global.workspace_manager.get_active_workspace());
@@ -350,4 +339,4 @@ var EmulateX11WindowType = class {
             });
         }
     }
-}
+};
