@@ -18,7 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
@@ -38,12 +37,11 @@ const Gettext = imports.gettext.domain('ding');
 const _ = Gettext.gettext;
 
 var FileItem = class extends desktopIconItem.desktopIconItem {
-
     constructor(desktopManager, file, fileInfo, fileExtra, custom) {
         super(desktopManager, fileExtra);
         this._fileInfo = fileInfo;
         this._custom = custom;
-        this._isSpecial = this._fileExtra != Enums.FileType.NONE;
+        this._isSpecial = this._fileExtra !== Enums.FileType.NONE;
         this._file = file;
         this.isStackTop = false;
         this.stackUnique = false;
@@ -71,11 +69,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         /* Set the metadata */
         this._updateMetadataFromFileInfo(fileInfo);
 
-        if (this._attributeCanExecute && !this._isValidDesktopFile) {
+        if (this._attributeCanExecute && !this._isValidDesktopFile)
             this._execLine = this.file.get_path();
-        } else {
+        else
             this._execLine = null;
-        }
+
 
         if (this.isTrash) {
             // if this icon is the trash, monitor the state of the directory to update the icon
@@ -85,12 +83,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         }
 
         this._updateName();
-        if (this._dropCoordinates) {
+        if (this._dropCoordinates)
             this.setSelected();
-        }
     }
 
-    /***********************
+    /** *********************
      * Destroyers *
      ***********************/
 
@@ -102,71 +99,68 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             this._monitorTrashDir.cancel();
             this._monitorTrashId = 0;
         }
-        if (this._queryFileInfoCancellable) {
+        if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
-        }
-        if (this._queryTrashInfoCancellable) {
+
+        if (this._queryTrashInfoCancellable)
             this._queryTrashInfoCancellable.cancel();
-        }
-        if (this._umountCancellable) {
+
+        if (this._umountCancellable)
             this._umountCancellable.cancel();
-        }
-        if (this._ejectCancellable) {
+
+        if (this._ejectCancellable)
             this._ejectCancellable.cancel();
-        }
-        if (this._savedCoordinatesCancellable) {
+
+        if (this._savedCoordinatesCancellable)
             this._savedCoordinatesCancellable.cancel();
-        }
-        if (this._dropCoordinatesCancellable) {
+
+        if (this._dropCoordinatesCancellable)
             this._dropCoordinatesCancellable.cancel();
-        }
+
         if (this._scheduleTrashRefreshId) {
             GLib.source_remove(this._scheduleTrashRefreshId);
             this._scheduleTrashRefreshId = 0;
         }
         /* Metadata */
-        if (this._setMetadataTrustedCancellable) {
+        if (this._setMetadataTrustedCancellable)
             this._setMetadataTrustedCancellable.cancel();
-        }
     }
 
-    /***********************
+    /** *********************
      * Creators *
      ***********************/
 
-    _getVisibleName(useAttributes) {
-        if (this._fileExtra == Enums.FileType.EXTERNAL_DRIVE) {
+    _getVisibleName() {
+        if (this._fileExtra === Enums.FileType.EXTERNAL_DRIVE)
             return this._custom.get_name();
-        } else {
+        else
             return this._fileInfo.get_display_name();
-        }
     }
 
     _setFileName(text) {
-        if (this._fileExtra == Enums.FileType.USER_DIRECTORY_HOME) {
+        if (this._fileExtra === Enums.FileType.USER_DIRECTORY_HOME) {
             // TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-            text = _("Home");
+            text = _('Home');
         }
         this._setLabelName(text);
     }
 
     _readCoordinatesFromAttribute(fileInfo, attribute) {
         let savedCoordinates = fileInfo.get_attribute_as_string(attribute);
-        if ((savedCoordinates != null) && (savedCoordinates != '')) {
+        if ((savedCoordinates !== null) && (savedCoordinates !== '')) {
             savedCoordinates = savedCoordinates.split(',');
             if (savedCoordinates.length >= 2) {
-                if (!isNaN(savedCoordinates[0]) && !isNaN(savedCoordinates[1])) {
+                if (!isNaN(savedCoordinates[0]) && !isNaN(savedCoordinates[1]))
                     return [Number(savedCoordinates[0]), Number(savedCoordinates[1])];
-                }
             }
         }
         return null;
     }
 
     async _refreshMetadataAsync(rebuild, cancellable) {
-        if (this._destroyed) {
+        if (this._destroyed)
             return;
-        }
+
 
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
@@ -178,14 +172,14 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         try {
             const newFileInfo =
                 await this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
-                                                  Gio.FileQueryInfoFlags.NONE,
-                                                  GLib.PRIORITY_DEFAULT,
-                                                  cancellable);
+                    Gio.FileQueryInfoFlags.NONE,
+                    GLib.PRIORITY_DEFAULT,
+                    cancellable);
             let oldLabelText = this._currentFileName;
             this._updateMetadataFromFileInfo(newFileInfo);
-            if (this.displayName != oldLabelText) {
+            if (this.displayName !== oldLabelText)
                 this._setFileName(this.displayName);
-            }
+
             this._updateName();
             if (rebuild) {
                 try {
@@ -194,7 +188,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                     if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                         throw e;
                     logError(e, `Exception while updating the icon after a metadata update: ${e.message}`);
-                };
+                }
             }
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
@@ -210,11 +204,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
         this._displayName = this._getVisibleName();
         this._attributeCanExecute = fileInfo.get_attribute_boolean('access::can-execute');
-        this._unixmode = fileInfo.get_attribute_uint32('unix::mode')
-        this._writableByOthers = (this._unixmode & Enums.S_IWOTH) != 0;
-        this._trusted = fileInfo.get_attribute_as_string('metadata::trusted') == 'true';
+        this._unixmode = fileInfo.get_attribute_uint32('unix::mode');
+        this._writableByOthers = (this._unixmode & Enums.S_IWOTH) !== 0;
+        this._trusted = fileInfo.get_attribute_as_string('metadata::trusted') === 'true';
         this._attributeContentType = fileInfo.get_content_type();
-        this._isDesktopFile = this._attributeContentType == 'application/x-desktop';
+        this._isDesktopFile = this._attributeContentType === 'application/x-desktop';
 
         if (this._isDesktopFile && this._writableByOthers)
             log(`desktop-icons: File ${this._displayName} is writable by others - will not allow launching`);
@@ -228,7 +222,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 } else {
                     this._isValidDesktopFile = true;
                 }
-            } catch(e) {
+            } catch (e) {
                 print(`Error reading Desktop file ${this.uri}: ${e}`);
             }
         } else {
@@ -236,49 +230,49 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         }
 
         this._fileType = fileInfo.get_file_type();
-        this._isDirectory = this._fileType == Gio.FileType.DIRECTORY;
-        this._isSpecial = this._fileExtra != Enums.FileType.NONE;
+        this._isDirectory = this._fileType === Gio.FileType.DIRECTORY;
+        this._isSpecial = this._fileExtra !== Enums.FileType.NONE;
         this._isHidden = fileInfo.get_is_hidden() | fileInfo.get_is_backup();
         this._isSymlink = fileInfo.get_is_symlink();
-        this._modifiedTime = fileInfo.get_attribute_uint64("time::modified");
+        this._modifiedTime = fileInfo.get_attribute_uint64('time::modified');
         /*
          * This is a glib trick to detect broken symlinks. If a file is a symlink, the filetype
          * points to the final file, unless it is broken; thus if the file type is SYMBOLIC_LINK,
          * it must be a broken link.
          * https://developer.gnome.org/gio/stable/GFile.html#g-file-query-info
          */
-        this._isBrokenSymlink = this._isSymlink && this._fileType == Gio.FileType.SYMBOLIC_LINK
+        this._isBrokenSymlink = this._isSymlink && this._fileType === Gio.FileType.SYMBOLIC_LINK;
     }
 
     async _doOpenContext(context, fileList) {
-        if (! fileList ) {
-            fileList = [] ;
-        }
-        if (this._isSymlink) {
+        if (!fileList)
+            fileList = [];
+
+        if (this._isSymlink)
             await this._refreshMetadataAsync(true).catch(e => logError(e));
-        }
+
         if (this._isBrokenSymlink) {
             try {
                 log(`Error: Can’t open ${this.file.get_uri()} because it is a broken symlink.`);
                 let title = _('Broken Link');
                 let error = _('Can not open this File because it is a Broken Symlink');
                 this._showerrorpopup(title, error);
-            } catch(e) {}
+            } catch (e) {}
             return;
         }
 
         if (this._isDesktopFile) {
             try {
                 this._launchDesktopFile(context, fileList);
-            } catch(e) {}
+            } catch (e) {}
             return;
         }
 
         if (this._isDirectory && this._desktopManager.useNemo) {
             try {
-                DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()],DesktopIconsUtil.getFilteredEnviron());
+                DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()], DesktopIconsUtil.getFilteredEnviron());
                 return;
-            } catch(err) {
+            } catch (err) {
                 log(`Error trying to launch Nemo: ${err.message}\n${err}`);
             }
         }
@@ -317,49 +311,43 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _launchDesktopFile(context, fileList) {
-
         if (this.trustedDesktopFile) {
             this._desktopFile.launch_uris_as_manager(fileList, context, GLib.SpawnFlags.SEARCH_PATH, null, null);
             return;
         }
 
-        let error;
-
-        if (! this._isValidDesktopFile) {
-            let title = _("Broken Desktop File");
-            let error = _("This .desktop file has errors or points to a program without permissions. It can not be executed.\n\n\t<b>Edit the file to set the correct executable Program.</b>");
+        if (!this._isValidDesktopFile) {
+            let title = _('Broken Desktop File');
+            let error = _('This .desktop file has errors or points to a program without permissions. It can not be executed.\n\n\t<b>Edit the file to set the correct executable Program.</b>');
             this._showerrorpopup(title, error);
             return;
         }
 
-        if (this._writableByOthers || ! this._attributeCanExecute) {
+        if (this._writableByOthers || !this._attributeCanExecute) {
             let title = _('Invalid Permissions on Desktop File');
             let error = _('This .desktop File has incorrect Permissions. Right Click to edit Properties, then:\n');
-            if (this._writableByOthers) {
-                error = error + _('\n<b>Set Permissions, in "Others Access", "Read Only" or "None"</b>');
-            }
-            if (! this._attributeCanExecute) {
-                error = error + _('\n<b>Enable option, "Allow Executing File as a Program"</b>');
-            }
+            if (this._writableByOthers)
+                error += _('\n<b>Set Permissions, in "Others Access", "Read Only" or "None"</b>');
+
+            if (!this._attributeCanExecute)
+                error += _('\n<b>Enable option, "Allow Executing File as a Program"</b>');
+
             this._showerrorpopup(title, error);
             return;
         }
 
-        if (! this.trustedDesktopFile) {
-            let title = ("Untrusted Desktop File");
+        if (!this.trustedDesktopFile) {
+            let title = 'Untrusted Desktop File';
             let error = _('This .desktop file is not trusted, it can not be launched. To enable launching, right-click, then:\n\n<b>Enable "Allow Launching"</b>');
             this._showerrorpopup(title, error);
-            return;
         }
-
     }
 
     _updateName() {
-        if (this._isValidDesktopFile && !this._desktopManager.writableByOthers && !this._writableByOthers && this.trustedDesktopFile) {
-            this._setFileName(this._desktopFile.get_locale_string("Name"));
-        } else {
+        if (this._isValidDesktopFile && !this._desktopManager.writableByOthers && !this._writableByOthers && this.trustedDesktopFile)
+            this._setFileName(this._desktopFile.get_locale_string('Name'));
+        else
             this._setFileName(this._getVisibleName());
-        }
     }
 
     _monitorTrash() {
@@ -368,46 +356,45 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._scheduleTrashRefreshId = 0;
         this._monitorTrashDir = this._file.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
         this._monitorTrashId = this._monitorTrashDir.connect('changed', (obj, file, otherFile, eventType) => {
-            switch(eventType) {
-                case Gio.FileMonitorEvent.DELETED:
-                case Gio.FileMonitorEvent.MOVED_OUT:
-                case Gio.FileMonitorEvent.CREATED:
-                case Gio.FileMonitorEvent.MOVED_IN:
-                    if (this._queryTrashInfoCancellable || this._scheduleTrashRefreshId) {
-                        if (this._scheduleTrashRefreshId) {
-                            GLib.source_remove(this._scheduleTrashRefreshId);
-                        }
-                        if (this._queryTrashInfoCancellable) {
-                            this._queryTrashInfoCancellable.cancel();
-                            this._queryTrashInfoCancellable = null;
-                        }
-                        this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                            this._refreshTrashIcon().catch(e => logError(e));
-                            this._scheduleTrashRefreshId = 0;
-                            return GLib.SOURCE_REMOVE;
-                        });
-                    } else {
-                        this._refreshTrashIcon().catch(e => logError(e));
-                        // after a refresh, don't allow more refreshes until 200ms after, to coalesce extra events
-                        this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                            this._scheduleTrashRefreshId = 0;
-                            return GLib.SOURCE_REMOVE;
-                        });
+            switch (eventType) {
+            case Gio.FileMonitorEvent.DELETED:
+            case Gio.FileMonitorEvent.MOVED_OUT:
+            case Gio.FileMonitorEvent.CREATED:
+            case Gio.FileMonitorEvent.MOVED_IN:
+                if (this._queryTrashInfoCancellable || this._scheduleTrashRefreshId) {
+                    if (this._scheduleTrashRefreshId)
+                        GLib.source_remove(this._scheduleTrashRefreshId);
+
+                    if (this._queryTrashInfoCancellable) {
+                        this._queryTrashInfoCancellable.cancel();
+                        this._queryTrashInfoCancellable = null;
                     }
+                    this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
+                        this._refreshTrashIcon().catch(e => logError(e));
+                        this._scheduleTrashRefreshId = 0;
+                        return GLib.SOURCE_REMOVE;
+                    });
+                } else {
+                    this._refreshTrashIcon().catch(e => logError(e));
+                    // after a refresh, don't allow more refreshes until 200ms after, to coalesce extra events
+                    this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
+                        this._scheduleTrashRefreshId = 0;
+                        return GLib.SOURCE_REMOVE;
+                    });
+                }
                 break;
             }
         });
     }
 
-    /***********************
+    /** *********************
      * Button Clicks *
      ***********************/
 
     _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         super._doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed);
-        if (this.getClickCount() == 2 && !Prefs.CLICK_POLICY_SINGLE) {
+        if (this.getClickCount() === 2 && !Prefs.CLICK_POLICY_SINGLE)
             this.doOpen();
-        }
     }
 
     _doButtonOneReleased(button, X, Y, x, y, shiftPressed, controlPressed) {
@@ -417,39 +404,37 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             this._primaryButtonPressed = false;
             if (!shiftPressed && !controlPressed) {
                 this._desktopManager.selected(this, Enums.Selection.RELEASE);
-                if (Prefs.CLICK_POLICY_SINGLE) {
+                if (Prefs.CLICK_POLICY_SINGLE)
                     this.doOpen();
-                }
             }
         }
     }
 
-    /***********************
+    /** *********************
      * Drag and Drop *
      ***********************/
 
     async receiveDrop(X, Y, x, y, selection, info, gdkDropAction, event, dragItem) {
-
-        if (! this.dropCapable) {
+        if (!this.dropCapable)
             return;
-        }
+
 
         if (info !== Enums.DndTargetInfo.GNOME_ICON_LIST &&
             info !== Enums.DndTargetInfo.URI_LIST &&
-            info !== Enums.DndTargetInfo.DING_ICON_LIST) {
+            info !== Enums.DndTargetInfo.DING_ICON_LIST)
             return;
-        }
+
 
         const fileList = selection.split('\r\n');
-        if (fileList.length >= 2) {
+        if (fileList.length >= 2)
             fileList.splice(-1, 1);
-        }
 
-        if (!fileList.length) {
+
+        if (!fileList.length)
             return;
-        }
 
-        if (dragItem && (dragItem.uri == this._file.get_uri() ||
+
+        if (dragItem && (dragItem.uri === this._file.get_uri() ||
             !(this._isValidDesktopFile || this.isDirectory))) {
             // Dragging a file/folder over itself or over another file will do nothing,
             // allow drag to directory or valid desktop file
@@ -472,7 +457,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
         if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
             try {
-                const doneAction = await this._desktopManager.copyOrMoveUris(fileList,
+                await this._desktopManager.copyOrMoveUris(fileList,
                     this._file.get_uri(), event, { forceCopy });
             } catch (e) {
                 logError(e);
@@ -482,26 +467,25 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 X, Y, x, y, event, { desktopActions: false });
         }
 
-    return true;
+        return true;
     }
 
     _hasToRouteDragToGrid() {
-        return this._isSelected && (this._desktopManager.dragItem) && (this._desktopManager.dragItem.uri !== this._file.get_uri());
+        return this._isSelected && this._desktopManager.dragItem && (this._desktopManager.dragItem.uri !== this._file.get_uri());
     }
 
     dropCapable() {
-        if ((this._fileExtra == Enums.FileType.USER_DIRECTORY_TRASH) ||
-            (this._fileExtra == Enums.FileType.USER_DIRECTORY_HOME) ||
-            (this._isDirectory) ||
-            (this._isValidDesktopFile) ||
-            (this._hasToRouteDragToGrid())) {
-                return true;
-        } else {
+        if ((this._fileExtra === Enums.FileType.USER_DIRECTORY_TRASH) ||
+            (this._fileExtra === Enums.FileType.USER_DIRECTORY_HOME) ||
+            this._isDirectory ||
+            this._isValidDesktopFile ||
+            this._hasToRouteDragToGrid())
+            return true;
+        else
             return false;
-        }
     }
 
-     /***********************
+    /** *********************
      * Icon Rendering *
      ***********************/
 
@@ -517,9 +501,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         try {
             this._fileInfo =
                 await this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
-                                                  Gio.FileQueryInfoFlags.NONE,
-                                                  GLib.PRIORITY_DEFAULT,
-                                                  cancellable);
+                    Gio.FileQueryInfoFlags.NONE,
+                    GLib.PRIORITY_DEFAULT,
+                    cancellable);
             try {
                 await this._updateIcon(cancellable);
             } catch (e) {
@@ -532,7 +516,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 return false;
 
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Error getting the number of files in the trash: ${error.message}`);
+                logError(e, `Error getting the number of files in the trash: ${e.message}`);
         } finally {
             if (cancellable === this._queryTrashInfoCancellable)
                 this._queryTrashInfoCancellable = null;
@@ -541,17 +525,16 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return false;
     }
 
-    /***********************
+    /** *********************
      * Class Methods *
      ***********************/
 
     onAttributeChanged() {
-        if (this._destroyed) {
+        if (this._destroyed)
             return;
-        }
-        if (this._isDesktopFile) {
+
+        if (this._isDesktopFile)
             this._refreshMetadataAsync(true).catch(e => logError(e));
-        }
     }
 
     updatedMetadata() {
@@ -594,9 +577,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     doOpen(fileList) {
-        if (! fileList ) {
-            fileList = [] ;
-        }
+        if (!fileList)
+            fileList = [];
+
         this._doOpenContext(null, fileList).catch(e => logError(e));
     }
 
@@ -628,30 +611,30 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             return;
         }
 
-        for(let gpu in gpus) {
+        for (let gpu in gpus) {
             if (!gpus[gpu])
                 continue;
 
-            let default_variant = gpus[gpu]['Default'];
-            if (!default_variant || default_variant.get_boolean())
+            let defaultVariant = gpus[gpu]['Default'];
+            if (!defaultVariant || defaultVariant.get_boolean())
                 continue;
 
             let env = gpus[gpu]['Environment'];
             if (!env)
                 continue;
 
-            let env_s = env.get_strv();
-            let context = new Gio.AppLaunchContext;
-            for (let i = 0; i < env_s.length; i=i+2) {
-                context.setenv(env_s[i], env_s[i+1]);
-            }
+            let envS = env.get_strv();
+            let context = new Gio.AppLaunchContext();
+            for (let i = 0; i < envS.length; i += 2)
+                context.setenv(envS[i], envS[i + 1]);
+
             this._doOpenContext(context, null).catch(e => logError(e));
             return;
         }
         log('Could not find discrete GPU data in switcheroo-control');
     }
 
-    _onOpenTerminalClicked () {
+    _onOpenTerminalClicked() {
         DesktopIconsUtil.launchTerminal(this.file.get_path(), null);
     }
 
@@ -679,7 +662,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         await this._setFileAttributes(info, cancellable, { refresh: false });
     }
 
-    /***********************
+    /** *********************
      * Getters and setters *
      ***********************/
 
@@ -692,29 +675,27 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     get canEject() {
-        if (this._custom) {
+        if (this._custom)
             return this._custom.can_eject();
-        } else {
+        else
             return false;
-        }
     }
 
     get canRename() {
-        return !this.trustedDesktopFile && (this._fileExtra == Enums.FileType.NONE);
+        return !this.trustedDesktopFile && (this._fileExtra === Enums.FileType.NONE);
     }
 
     get canUnmount() {
-        if (this._custom) {
+        if (this._custom)
             return this._custom.can_unmount();
-        } else {
+        else
             return false;
-        }
     }
 
     get displayName() {
-        if (this.trustedDesktopFile) {
+        if (this.trustedDesktopFile)
             return this._desktopFile.get_name();
-        }
+
         return this._displayName || null;
     }
 
@@ -762,7 +743,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     get isAllSelectable() {
-        return this._fileExtra == Enums.FileType.NONE;
+        return this._fileExtra === Enums.FileType.NONE;
     }
 
     get isDirectory() {
@@ -784,16 +765,16 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     set metadataTrusted(value) {
         this._trusted = value;
 
-        if (this._setMetadataTrustedCancellable) {
+        if (this._setMetadataTrustedCancellable)
             this._setMetadataTrustedCancellable.cancel();
-        }
+
 
         const cancellable = new Gio.Cancellable();
         this._setMetadataTrustedCancellable = cancellable;
 
         let info = new Gio.FileInfo();
         info.set_attribute_string('metadata::trusted',
-                                  value ? 'true' : 'false');
+            value ? 'true' : 'false');
 
         this._setFileAttributes(info, cancellable).catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
@@ -860,11 +841,10 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     get isStackMarker() {
-        if (this.isStackTop && ! this.stackUnique) {
+        if (this.isStackTop && !this.stackUnique)
             return true;
-        } else {
+        else
             return false;
-        }
     }
 };
 Signals.addSignalMethods(FileItem.prototype);
