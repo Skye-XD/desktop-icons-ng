@@ -30,15 +30,18 @@ var codePath;
 var ThumbnailLoaderLoaded = null;
 var errorFound;
 
+/**
+ *
+ * @param {string} ARGV command line arguments, asdesktop and codePath
+ */
 function parseCommandLine(ARGV) {
-    if (ARGV.includes('asdesktop')) {
+    if (ARGV.includes('asdesktop'))
         asDesktop = true;
-    }
-    if (ARGV.length == 0) {
-    codePath = '.';
-    } else {
-    codePath = ARGV[0];
-    }
+
+    if (ARGV.length === 0)
+        codePath = '.';
+    else
+        codePath = ARGV[0];
 }
 
 parseCommandLine(ARGV);
@@ -55,37 +58,36 @@ var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
         this._dbusAdvertiseUpdate();
         this.mainApp.hold();
         this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
-                GLib.source_remove(this._sigtermID);
-                this._forcedExit = true;
-                if (this._running) {
-                    this._proc.force_exit();
-                }
-                this.mainApp.release();
-                return false;
-       });
+            GLib.source_remove(this._sigtermID);
+            this._forcedExit = true;
+            if (this._running)
+                this._proc.force_exit();
+
+            this.mainApp.release();
+            return false;
+        });
     }
 
     _dbusAdvertiseUpdate() {
         let updateThumbnail = new Gio.SimpleAction({
             name: 'updateThumbnail',
-            parameter_type: new GLib.VariantType('as')
+            parameter_type: new GLib.VariantType('as'),
         });
         updateThumbnail.connect('activate', async (action, parameter) => {
             let [fileUri, filePath, fileAttributeContentType, fileModifiedTime] = parameter.recursiveUnpack();
             const gioFile = Gio.File.new_for_uri(fileUri);
             const file = {
-                "uri": fileUri,
-                "path": filePath,
-                "file": gioFile,
-                "attributeContentType": fileAttributeContentType,
-                "modifiedTime": fileModifiedTime
-            }
+                'uri': fileUri,
+                'path': filePath,
+                'file': gioFile,
+                'attributeContentType': fileAttributeContentType,
+                'modifiedTime': fileModifiedTime,
+            };
             if (this.canThumbnail(file)) {
                 const cancellable = new Gio.Cancellable();
                 const thumbnail = await this.getThumbnail(file, cancellable);
-                if (thumbnail != null) {
+                if (thumbnail !== null)
                     this._updateDesktopIcon(file, thumbnail);
-                }
             }
         });
         let actionGroup = new Gio.SimpleActionGroup();
@@ -115,44 +117,45 @@ var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
         let thumbnailUpdateVariant = new GLib.Variant('as', [file.uri, thumbnail]);
         this.remoteDingUpdate.activate_action('updateThumbnail', thumbnailUpdateVariant);
     }
-}
+};
 
-const dingThumbnailApp = new Gtk.Application({application_id: asDesktop ? 'com.rastersoft.dingThumbnailer' : 'com.rastersoft.dingTestThumbnailer',
-                                     flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE});
+const dingThumbnailApp = new Gtk.Application({
+    application_id: asDesktop ? 'com.rastersoft.dingThumbnailer' : 'com.rastersoft.dingTestThumbnailer',
+    flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
+});
 
 dingThumbnailApp.connect('startup', () => {
 });
 
 dingThumbnailApp.connect('activate', () => {
-    if (!ThumbnailLoaderLoaded) {
+    if (!ThumbnailLoaderLoaded)
         ThumbnailLoaderLoaded = new ThumbnailApp(codePath, asDesktop, dingThumbnailApp);
-    }
 });
 
 dingThumbnailApp.connect('command-line', (app, commandLine) => {
     try {
-        let argv =[];
+        let argv = [];
         argv = commandLine.get_arguments();
-        if (argv.length == 0) {
+        if (argv.length === 0)
             codePath = '.';
-        } else {
+        else
             codePath = argv[0];
-        }
-        if ( ! commandLine.get_is_remote()) {
+
+        if (!commandLine.get_is_remote())
             dingThumbnailApp.activate();
-        }
+
         commandLine.set_exit_status(0);
     } catch (e) {
         errorFound = true;
-        print( `Error starting Thumbnail.js: ${e.message}\n${e.stack}`);
+        print(`Error starting Thumbnail.js: ${e.message}\n${e.stack}`);
         commandLine.set_exit_status(1);
     }
 });
 
 dingThumbnailApp.run(ARGV);
 
-if (!errorFound) {
+if (!errorFound)
     0;
-} else {
+else
     1;
-}
+
