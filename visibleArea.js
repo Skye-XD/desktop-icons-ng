@@ -26,7 +26,7 @@ var VisibleArea = class {
         this._marginsList = {};
         this._refreshTimerId = null;
         // This UUID allows to ensure that the object is really a DesktopIconsIntegration object
-        this._extensionUUID = "130cbc66-235c-4bd6-8571-98d2d8bba5e2";
+        this._extensionUUID = '130cbc66-235c-4bd6-8571-98d2d8bba5e2';
     }
 
     disable() {
@@ -37,17 +37,17 @@ var VisibleArea = class {
     }
 
     setMarginsForExtension(extensionUUID, margins) {
-        if (margins == null) {
-            if (!(extensionUUID in this._marginsList)) {
+        if (margins === null) {
+            if (!(extensionUUID in this._marginsList))
                 return;
-            }
+
             delete this._marginsList[extensionUUID];
         } else {
             this._marginsList[extensionUUID] = margins;
         }
-        if (this._refreshTimerId) {
+        if (this._refreshTimerId)
             GLib.source_remove(this._refreshTimerId);
-        }
+
         this._refreshTimerId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 250, () => {
             this._refreshMargins();
             this._refreshTimerId = null;
@@ -61,20 +61,19 @@ var VisibleArea = class {
             let margins = this._marginsList[extensionUUID];
             for (let workspace in margins) {
                 let index = workspace;
-                if (workspace < 0) {
+                if (workspace < 0)
                     index = Main.layoutManager.primaryIndex;
-                }
+
                 if (!(index in this._usableAreas)) {
                     this._usableAreas[index] = {
                         top: 0,
                         bottom: 0,
                         left: 0,
-                        right: 0
+                        right: 0,
                     };
                 }
-                for (let index2 of ['top', 'bottom', 'left', 'right']) {
+                for (let index2 of ['top', 'bottom', 'left', 'right'])
                     this._usableAreas[index][index2] = Math.max(this._usableAreas[index][index2], margins[workspace][index2]);
-                }
             }
         }
         this.emit('updated-usable-area');
@@ -107,7 +106,6 @@ var VisibleArea = class {
      */
 
     getMonitorGeometry(ws, monitorIndex) {
-
         let geometry = ws.get_display().get_monitor_geometry(monitorIndex);
         let scale = ws.get_display().get_monitor_scale(monitorIndex);
         let area = ws.get_work_area_for_monitor(monitorIndex);
@@ -127,22 +125,20 @@ var VisibleArea = class {
 
             const hiddenMargin = 1000;
 
-            if (this._usableAreas[monitorIndex]['top'] > marginTop) {
+            if (this._usableAreas[monitorIndex]['top'] > marginTop)
                 marginTop = this._usableAreas[monitorIndex]['top'] + hiddenMargin;
-            }
 
-            if (this._usableAreas[monitorIndex]['bottom'] > marginBottom) {
+
+            if (this._usableAreas[monitorIndex]['bottom'] > marginBottom)
                 marginBottom = this._usableAreas[monitorIndex]['bottom'] + hiddenMargin;
-            }
 
-            if (this._usableAreas[monitorIndex]['left'] > marginLeft) {
+
+            if (this._usableAreas[monitorIndex]['left'] > marginLeft)
                 marginLeft = this._usableAreas[monitorIndex]['left'] + hiddenMargin;
-            }
 
-            if (this._usableAreas[monitorIndex]['right'] > marginRight) {
+
+            if (this._usableAreas[monitorIndex]['right'] > marginRight)
                 marginRight = this._usableAreas[monitorIndex]['right'] + hiddenMargin;
-            }
-
         }
 
         return {
@@ -150,16 +146,16 @@ var VisibleArea = class {
             y: geometry.y,
             width: geometry.width,
             height: geometry.height,
-            scale: scale,
-            marginTop: marginTop,
-            marginBottom: marginBottom,
-            marginLeft: marginLeft,
-            marginRight: marginRight
+            scale,
+            marginTop,
+            marginBottom,
+            marginLeft,
+            marginRight,
         };
     }
 
     get uuid() {
         return this._extensionUUID;
     }
-}
+};
 Signals.addSignalMethods(VisibleArea.prototype);
