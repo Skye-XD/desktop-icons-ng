@@ -18,19 +18,18 @@
 
 const Gtk = imports.gi.Gtk;
 const Gdk = imports.gi.Gdk;
-const Pango = imports.gi.Pango;
 const DesktopIconsUtil = imports.desktopIconsUtil;
 const Gettext = imports.gettext.domain('ding');
 
 const _ = Gettext.gettext;
 
 var ShowErrorPopup = class {
-
     constructor(text, secondaryText, modal, textEntryAccelsTurnOff, textEntryAccelsTurnOn) {
-
-        this._window = new Gtk.MessageDialog({transient_for: null,
-                                              message_type: Gtk.MessageType.ERROR,
-                                              buttons: Gtk.ButtonsType.NONE});
+        this._window = new Gtk.MessageDialog({
+            transient_for: null,
+            message_type: Gtk.MessageType.ERROR,
+            buttons: Gtk.ButtonsType.NONE,
+        });
         let label = this._window.get_message_area().get_first_child().get_next_sibling();
         label.set_justify(Gtk.Justification.CENTER);
         this._window.secondary_use_markup = true;
@@ -38,18 +37,18 @@ var ShowErrorPopup = class {
         this._window.secondary_text = secondaryText;
         DesktopIconsUtil.windowHidePagerTaskbarModal(this._window, true);
         textEntryAccelsTurnOff();
-        this.deleteButton = this._window.add_button(_("Close"), Gtk.ResponseType.OK);
+        this.deleteButton = this._window.add_button(_('Close'), Gtk.ResponseType.OK);
         this.deleteButton.connect('clicked', () => {
-                textEntryAccelsTurnOn();
-                this._window.hide();
-                this._window.destroy();
-                this._window = null; 
+            textEntryAccelsTurnOn();
+            this._window.hide();
+            this._window.destroy();
+            this._window = null;
         });
         this._window.connect('close-request', () => {
-                textEntryAccelsTurnOn();
-                this._window.destroy();
-                this._window = null;
-            });
+            textEntryAccelsTurnOn();
+            this._window.destroy();
+            this._window = null;
+        });
         if (modal) {
             this._window.show();
             this._window.present_with_time(Gdk.CURRENT_TIME);
@@ -60,12 +59,11 @@ var ShowErrorPopup = class {
         this._window.show();
         this._window.present_with_time(Gdk.CURRENT_TIME);
         this.timeoutClose(3000);
-     }
+    }
 
     async timeoutClose(time) {
         await DesktopIconsUtil.waitDelayMs(time);
-        if (this._window) {
+        if (this._window)
             this.deleteButton.activate();
-        }
     }
 };
