@@ -30,7 +30,7 @@ try {
     gnomedesktop = 4;
     Gtk = imports.gi.Gtk;
     GnomeDesktop = imports.gi.GnomeDesktop;
-} catch(e) {
+} catch (e) {
     gnomedesktop = 3;
     imports.gi.versions.GnomeDesktop = '3.0';
     imports.gi.versions.Gtk = '3.0';
@@ -58,16 +58,14 @@ if (useAsyncAPI) {
 }
 
 var ThumbnailLoader = class {
-
     constructor(codePath) {
         this._timeoutValue = 5000;
         this._codePath = codePath;
         this._thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
-        if (useAsyncAPI) {
-            print("Detected async api for thumbnails");
-        } else {
-            print("Failed to detected async api for thumbnails");
-        }
+        if (useAsyncAPI)
+            print('Detected async api for thumbnails');
+        else
+            print('Failed to detected async api for thumbnails');
     }
 
     async _generateThumbnail(file, cancellable) {
@@ -80,9 +78,8 @@ var ThumbnailLoader = class {
         if (useAsyncAPI) {
             if (!await this._createThumbnailAsync(file, cancellable))
                 return null;
-        } else {
-            if (!await this._createThumbnailSubprocess(file, cancellable))
-                return null;
+        } else if (!await this._createThumbnailSubprocess(file, cancellable)) {
+            return null;
         }
 
         if (cancellable.is_cancelled())
@@ -159,7 +156,7 @@ var ThumbnailLoader = class {
 
         try {
             await proc.wait_check_async(cancellable);
-            return (proc.get_status() == 0);
+            return proc.get_status() === 0;
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 logError(e, `Failed to generate thumbnail for ${file.displayName}: ${e.message}`);
@@ -173,20 +170,20 @@ var ThumbnailLoader = class {
 
     canThumbnail(file) {
         return this._thumbnailFactory.can_thumbnail(file.uri,
-                                                    file.attributeContentType,
-                                                    file.modifiedTime);
+            file.attributeContentType,
+            file.modifiedTime);
     }
 
     async getThumbnail(file, cancellable) {
         try {
             let thumbnail = this._thumbnailFactory.lookup(file.uri, file.modifiedTime);
-            if (thumbnail == null) {
+            if (thumbnail === null)
                 thumbnail = await this._generateThumbnail(file, cancellable);
-            }
+
             return thumbnail;
-        } catch(error) {
+        } catch (error) {
             print(`Error when asking for a thumbnail for ${file.displayName}: ${error.message}\n${error.stack}`);
         }
         return null;
     }
-}
+};
