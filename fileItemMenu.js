@@ -43,22 +43,22 @@ var FileItemMenu = class {
                     try {
                         this._getExtractionSupportedTypes();
                         return false;
-                    } catch(e) {}
+                    } catch (e) {}
                 });
             } else {
                 this._decompressibleTypes = [];
             }
         });
-        if (DBusUtils.RemoteFileOperations.gnomeArchiveManager.isAvailable) {
+        if (DBusUtils.RemoteFileOperations.gnomeArchiveManager.isAvailable)
             this._getExtractionSupportedTypes();
-        }
+
 
         this.scriptsMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
             DesktopIconsUtil.getScriptsDir(),
             this._onScriptClicked.bind(this),
             this._scriptsDirSelectionFilter.bind(this),
             this._desktopManager.mainApp,
-            "scriptapp"
+            'scriptapp'
         );
         this.activeFileItem = null;
         this._createFileItemMenuActions();
@@ -75,28 +75,25 @@ var FileItemMenu = class {
                         return;
                     }
                     for (let key of result.values()) {
-                        for (let type of key.values()) {
+                        for (let type of key.values())
                             this._decompressibleTypes.push(Object.values(type)[0]);
-                        }
                     }
                 }
             );
-        } catch(e) {}
+        } catch (e) {}
     }
 
     _scriptsDirSelectionFilter(fileinfo) {
         let name = fileinfo.get_name();
-        let hidden = (name.substring(0, 1) == '.');
+        let hidden = name.substring(0, 1) === '.';
         let executable = fileinfo.get_attribute_boolean('access::can-execute');
-        if (!hidden && executable) {
+        if (!hidden && executable)
             return name;
-        } else {
+        else
             return null;
-        }
     }
 
     _createFileItemMenuActions() {
-
         let openMultipleFileAction = Gio.SimpleAction.new('openMultipleFileAction', null);
         openMultipleFileAction.connect('activate', () => {
             this._doMultiOpen();
@@ -106,17 +103,16 @@ var FileItemMenu = class {
         let openOneFileAction = Gio.SimpleAction.new('openOneFileAction', null);
         openOneFileAction.connect('activate', () => {
             if (this.activeFileItem) {
-                if (this.activeFileItem.isStackMarker) {
+                if (this.activeFileItem.isStackMarker)
                     this._desktopManager.onToggleStackUnstackThisTypeClicked(this.activeFileItem.attributeContentType);
-                } else {
+                else
                     this.activeFileItem.doOpen();
-                }
             }
         });
         this._mainApp.add_action(openOneFileAction);
-        this._mainApp.set_accels_for_action('app.openOneFileAction', ['Return'])
+        this._mainApp.set_accels_for_action('app.openOneFileAction', ['Return']);
 
-        let stackunstack = Gio.SimpleAction.new('stackunstack', GLib.VariantType.new("s"));
+        let stackunstack = Gio.SimpleAction.new('stackunstack', GLib.VariantType.new('s'));
         stackunstack.connect('activate', (action, paramenter) => {
             this._desktopManager.onToggleStackUnstackThisTypeClicked(paramenter.unpack());
         });
@@ -127,7 +123,9 @@ var FileItemMenu = class {
         this._mainApp.add_action(doopenwith);
 
         let graphicslaunch = Gio.SimpleAction.new('graphicslaunch', null);
-        graphicslaunch.connect('activate', () => {this.activeFileItem.doDiscreteGpu();});
+        graphicslaunch.connect('activate', () => {
+            this.activeFileItem.doDiscreteGpu();
+        });
         this._mainApp.add_action(graphicslaunch);
 
         let runasaprogram = Gio.SimpleAction.new('runasaprogram', null);
@@ -141,21 +139,21 @@ var FileItemMenu = class {
             this._desktopManager.doCut();
         });
         this._mainApp.add_action(this._docut);
-        this._mainApp.set_accels_for_action('app.docut', ['<Control>X'])
+        this._mainApp.set_accels_for_action('app.docut', ['<Control>X']);
 
         this._docopy = Gio.SimpleAction.new('docopy', null);
         this._docopy.connect('activate',  () => {
             this._desktopManager.doCopy();
         });
         this._mainApp.add_action(this._docopy);
-        this._mainApp.set_accels_for_action('app.docopy', ['<Control>C'])
+        this._mainApp.set_accels_for_action('app.docopy', ['<Control>C']);
 
         let dorename = Gio.SimpleAction.new('dorename', null);
         dorename.connect('activate', () => {
             this._desktopManager.doRename(this.activeFileItem, false);
         });
         this._mainApp.add_action(dorename);
-        this._mainApp.set_accels_for_action('app.dorename', ['F2'])
+        this._mainApp.set_accels_for_action('app.dorename', ['F2']);
 
         this.moveToTrash = Gio.SimpleAction.new('movetotrash', null);
         this.moveToTrash.connect('activate', () => {
@@ -169,10 +167,12 @@ var FileItemMenu = class {
             this._desktopManager.doDeletePermanently();
         });
         this._mainApp.add_action(this.deletePermanantly);
-        this._mainApp.set_accels_for_action('app.deletepermanantly', ['<Shift>Delete'])
+        this._mainApp.set_accels_for_action('app.deletepermanantly', ['<Shift>Delete']);
 
         let emptytrash = Gio.SimpleAction.new('emptytrash', null);
-        emptytrash.connect('activate', () => {this._desktopManager.doEmptyTrash();});
+        emptytrash.connect('activate', () => {
+            this._desktopManager.doEmptyTrash();
+        });
         this._mainApp.add_action(emptytrash);
 
         let allowdisallowlaunching = Gio.SimpleAction.new('allowdisallowlaunching', null);
@@ -184,7 +184,7 @@ var FileItemMenu = class {
         let eject = Gio.SimpleAction.new('eject', null);
         eject.connect('activate', () => {
             this.activeFileItem.eject(atWidget ? fileItem.container : null).catch(e => logError(e));
-        ;});
+        });
         this._mainApp.add_action(eject);
 
         let unmount = Gio.SimpleAction.new('unmount', null);
@@ -199,11 +199,15 @@ var FileItemMenu = class {
         this._mainApp.add_action(extractautoar);
 
         let extracthere = Gio.SimpleAction.new('extracthere', null);
-        extracthere.connect('activate', () => {this._extractFileFromSelection(true);});
+        extracthere.connect('activate', () => {
+            this._extractFileFromSelection(true);
+        });
         this._mainApp.add_action(extracthere);
 
         let extractto = Gio.SimpleAction.new('extractto', null);
-        extractto.connect('activate', () => {this._extractFileFromSelection(false);});
+        extractto.connect('activate', () => {
+            this._extractFileFromSelection(false);
+        });
         this._mainApp.add_action(extractto);
 
         let sendto = Gio.SimpleAction.new('sendto', null);
@@ -217,8 +221,8 @@ var FileItemMenu = class {
         let newfolderfromselection = Gio.SimpleAction.new('newfolderfromselection', null);
         newfolderfromselection.connect('activate', () => {
             const event = {
-                "parentWindow": this.activeFileItem._grid._window,
-                "timestamp" : Gdk.CURRENT_TIME
+                'parentWindow': this.activeFileItem._grid._window,
+                'timestamp': Gdk.CURRENT_TIME,
             };
             this._doNewFolderFromSelection(this.activeFileItem.savedCoordinates, this.activeFileItem, event).catch(e => logError(e));
         });
@@ -229,92 +233,91 @@ var FileItemMenu = class {
             this._onPropertiesClicked();
         });
         this._mainApp.add_action(properties);
-        this._mainApp.set_accels_for_action('app.properties', ['<Control>I','<Alt>Return'])
+        this._mainApp.set_accels_for_action('app.properties', ['<Control>I', '<Alt>Return']);
 
         let showinfiles = Gio.SimpleAction.new('showinfiles', null);
         showinfiles.connect('activate', this._onShowInFilesClicked.bind(this, null));
         this._mainApp.add_action(showinfiles);
 
         let openinterminal = Gio.SimpleAction.new('openinterminal', null);
-        openinterminal.connect('activate', () => {DesktopIconsUtil.launchTerminal(this.activeFileItem.path, null);});
+        openinterminal.connect('activate', () => {
+            DesktopIconsUtil.launchTerminal(this.activeFileItem.path, null);
+        });
         this._mainApp.add_action(openinterminal);
     }
 
-    showMenu(fileItem, button=null, X=null, Y=null, x=null, y=null, shiftSelected=false, controlSelected=false) {
-
+    showMenu(fileItem, button = null, X = null, Y = null, x = null, y = null, shiftSelected = false, controlSelected = false) {
         this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
         const selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
         const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
-        const menulocation = X ? new Gdk.Rectangle({x:x,y:y,width:1,height:1}) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
+        const menulocation = X ? new Gdk.Rectangle({ x, y, width: 1, height: 1 }) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
 
         this._menu = Gio.Menu.new();
 
-        if (! this.activeFileItem.isStackMarker) {
-            if (selectedItemsNum > 1) {
-                this._menu.append( _("Open All..."), "app.openMultipleFileAction");
-            } else {
-                this._menu.append(_("Open"), "app.openOneFileAction");
-            }
+        if (!this.activeFileItem.isStackMarker) {
+            if (selectedItemsNum > 1)
+                this._menu.append(_('Open All...'), 'app.openMultipleFileAction');
+            else
+                this._menu.append(_('Open'), 'app.openOneFileAction');
         }
 
         let keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
-        if (keepStacked && ! fileItem.stackUnique) {
-            if (! fileItem.isSpecial && ! fileItem.isDirectory && ! fileItem.isValidDesktopFile) {
+        if (keepStacked && !fileItem.stackUnique) {
+            if (!fileItem.isSpecial && !fileItem.isDirectory && !fileItem.isValidDesktopFile) {
                 let unstackList = Prefs.getUnstackList();
                 let typeInList = unstackList.includes(fileItem.attributeContentType);
-                let menuitem = Gio.MenuItem.new((typeInList) ? _("Stack This Type") : _("Unstack This Type"), null);
-                let variant = GLib.Variant.new("s", fileItem.attributeContentType);
-                menuitem.set_action_and_target_value("app.stackunstack", variant);
+                let menuitem = Gio.MenuItem.new(typeInList ? _('Stack This Type') : _('Unstack This Type'), null);
+                let variant = GLib.Variant.new('s', fileItem.attributeContentType);
+                menuitem.set_action_and_target_value('app.stackunstack', variant);
                 this._menu.append_item(menuitem);
             }
         }
 
         // fileExtra == NONE
 
-        if (fileItem.isAllSelectable &&  ! fileItem.isStackMarker) {
+        if (fileItem.isAllSelectable &&  !fileItem.isStackMarker) {
+            if (scriptsSubmenu !== null)
+                this._menu.append_submenu(_('Scripts'), scriptsSubmenu);
 
-            if (scriptsSubmenu !== null) {
-                this._menu.append_submenu(_("Scripts"), scriptsSubmenu);
-            }
 
             if (!fileItem.isDirectory) {
                 let openWithMenu = Gio.Menu.new();
-                openWithMenu.append(selectedItemsNum > 1 ? _("Open All With Other Application...") : _("Open With Other Application"), "app.doopenwith");
-                if (DBusUtils.discreteGpuAvailable && fileItem.trustedDesktopFile) {
-                    openWithMenu.append(_('Launch using Dedicated Graphics Card'), "app.graphicslaunch");
-                }
+                openWithMenu.append(selectedItemsNum > 1 ? _('Open All With Other Application...') : _('Open With Other Application'), 'app.doopenwith');
+                if (DBusUtils.discreteGpuAvailable && fileItem.trustedDesktopFile)
+                    openWithMenu.append(_('Launch using Dedicated Graphics Card'), 'app.graphicslaunch');
+
                 this._menu.append_section(null, openWithMenu);
             }
 
             if (fileItem.attributeCanExecute && !fileItem.isDirectory && !fileItem.isValidDesktopFile && fileItem.execLine && Gio.content_type_can_be_executable(fileItem.attributeContentType)) {
                 let runAsProgram = Gio.Menu.new();
-                runAsProgram.append(_("Run as a Program"), "app.runasaprogram");
+                runAsProgram.append(_('Run as a Program'), 'app.runasaprogram');
                 this._menu.append_section(null, runAsProgram);
             }
 
             let allowCutCopyTrash = this._desktopManager.checkIfSpecialFilesAreSelected();
             let cutCopyPasteMenu = Gio.Menu.new();
-            cutCopyPasteMenu.append(_('Cut'), "app.docut");
+            cutCopyPasteMenu.append(_('Cut'), 'app.docut');
             this._docut.set_enabled(!allowCutCopyTrash);
-            cutCopyPasteMenu.append(_('Copy'), "app.docopy");
+            cutCopyPasteMenu.append(_('Copy'), 'app.docopy');
             this._docopy.set_enabled(!allowCutCopyTrash);
-            if (fileItem.canRename && (selectedItemsNum == 1)) {
-                cutCopyPasteMenu.append(_('Rename…'), "app.dorename");
-            }
+            if (fileItem.canRename && (selectedItemsNum === 1))
+                cutCopyPasteMenu.append(_('Rename…'), 'app.dorename');
+
             this._menu.append_section(null, cutCopyPasteMenu);
 
             let trashMenu = Gio.Menu.new();
-            trashMenu.append(_('Move to Trash'), "app.movetotrash");
+            trashMenu.append(_('Move to Trash'), 'app.movetotrash');
             this.moveToTrash.set_enabled(!allowCutCopyTrash);
             if (Prefs.nautilusSettings.get_boolean('show-delete-permanently')) {
-                trashMenu.append(_('Delete permanently'), "app.deletepermanantly");
+                trashMenu.append(_('Delete permanently'), 'app.deletepermanantly');
                 this.deletePermanantly.set_enabled(!allowCutCopyTrash);
             }
             this._menu.append_section(null, trashMenu);
 
-            if (fileItem.isValidDesktopFile && !this._desktopManager.writableByOthers && !fileItem.writableByOthers && (selectedItemsNum == 1 )) {
+            if (fileItem.isValidDesktopFile && !this._desktopManager.writableByOthers && !fileItem.writableByOthers && (selectedItemsNum === 1)) {
                 let allowLaunchingMenu = Gio.Menu.new();
-                allowLaunchingMenu.append(fileItem.trustedDesktopFile ? _("Don't Allow Launching") : _("Allow Launching"), "app.allowdisallowlaunching");
+                allowLaunchingMenu.append(fileItem.trustedDesktopFile ? _("Don't Allow Launching") : _('Allow Launching'), 'app.allowdisallowlaunching');
                 this._menu.append_section(null, allowLaunchingMenu);
             }
         }
@@ -323,7 +326,7 @@ var FileItemMenu = class {
 
         if (fileItem.isTrash) {
             let emptyTrashMenu = Gio.Menu.new();
-            emptyTrashMenu.append(_('Empty Trash'), "app.emptytrash");
+            emptyTrashMenu.append(_('Empty Trash'), 'app.emptytrash');
             this._menu.append_section(null, emptyTrashMenu);
         }
 
@@ -331,81 +334,80 @@ var FileItemMenu = class {
 
         if (fileItem.isDrive) {
             let driveMenu = Gio.Menu.new();
-            if (fileItem.canEject) {
-                driveMenu.append(_('Eject'), "app.eject");
-            }
-            if (fileItem.canUnmount) {
-                driveMenu.append(_('Unmount'), "app.unmount");
-            }
-            if (fileItem.canEject || fileItem.canUnmount) {
+            if (fileItem.canEject)
+                driveMenu.append(_('Eject'), 'app.eject');
+
+            if (fileItem.canUnmount)
+                driveMenu.append(_('Unmount'), 'app.unmount');
+
+            if (fileItem.canEject || fileItem.canUnmount)
                 this._menu.append_section(null, driveMenu);
-            }
         }
 
-        if (fileItem.isAllSelectable && (!this._desktopManager.checkIfSpecialFilesAreSelected()) && (selectedItemsNum >= 1 )) {
+        if (fileItem.isAllSelectable && !this._desktopManager.checkIfSpecialFilesAreSelected() && (selectedItemsNum >= 1)) {
             let extractMenu = Gio.Menu.new();
             let addedExtractHere = false;
             if (this._getExtractableAutoAr()) {
                 addedExtractHere = true;
-                extractMenu.append(_("Extract Here"), "app.extractautoar");
+                extractMenu.append(_('Extract Here'), 'app.extractautoar');
             }
-            if (selectedItemsNum == 1 && this._getExtractable()) {
-                if (!addedExtractHere) {
-                    extractMenu.append(_("Extract Here"), "app.extracthere");
-                }
-                extractMenu.append(_("Extract To..."), "app.extractto");
+            if (selectedItemsNum === 1 && this._getExtractable()) {
+                if (!addedExtractHere)
+                    extractMenu.append(_('Extract Here'), 'app.extracthere');
+
+                extractMenu.append(_('Extract To...'), 'app.extractto');
             }
 
-            if (!fileItem.isDirectory) {
-                extractMenu.append(_('Send to...'), "app.sendto");
-            }
+            if (!fileItem.isDirectory)
+                extractMenu.append(_('Send to...'), 'app.sendto');
+
 
             if (this._desktopManager.getCurrentSelection().every(f => f.isDirectory)) {
                 extractMenu.append(
                     Gettext.ngettext(
                         'Compress {0} folder', 'Compress {0} folders', selectedItemsNum).replace(
-                            '{0}', selectedItemsNum),
-                    "app.compressfiles"
+                        '{0}', selectedItemsNum),
+                    'app.compressfiles'
                 );
             } else {
                 extractMenu.append(
                     Gettext.ngettext(
                         'Compress {0} file', 'Compress {0} files', selectedItemsNum).replace(
-                            '{0}', selectedItemsNum),
-                    "app.compressfiles"
+                        '{0}', selectedItemsNum),
+                    'app.compressfiles'
                 );
             }
 
             extractMenu.append(
-                Gettext.ngettext('New Folder with {0} item', 'New Folder with {0} items' , selectedItemsNum).replace('{0}', selectedItemsNum),
-                "app.newfolderfromselection"
+                Gettext.ngettext('New Folder with {0} item', 'New Folder with {0} items', selectedItemsNum).replace('{0}', selectedItemsNum),
+                'app.newfolderfromselection'
             );
 
-        this._menu.append_section(null, extractMenu);
+            this._menu.append_section(null, extractMenu);
         }
 
-        if (! fileItem.isStackMarker) {
+        if (!fileItem.isStackMarker) {
             let propertiesMenu = Gio.Menu.new();
-            propertiesMenu.append(selectedItemsNum > 1 ? _('Common Properties') : _('Properties'), "app.properties");
+            propertiesMenu.append(selectedItemsNum > 1 ? _('Common Properties') : _('Properties'), 'app.properties');
             this._menu.append_section(null, propertiesMenu);
 
             let showInFilesMenu = Gio.Menu.new();
-            showInFilesMenu.append(selectedItemsNum > 1 ? _('Show All in Files') : _('Show in Files'), "app.showinfiles");
+            showInFilesMenu.append(selectedItemsNum > 1 ? _('Show All in Files') : _('Show in Files'), 'app.showinfiles');
             this._menu.append_section(null, showInFilesMenu);
         }
 
-        if (fileItem.isDirectory && (fileItem.path != null) && (selectedItemsNum == 1)) {
+        if (fileItem.isDirectory && (fileItem.path !== null) && (selectedItemsNum === 1)) {
             let openInTerminalMenu = Gio.Menu.new();
-            openInTerminalMenu.append(_('Open in Terminal'), "app.openinterminal");
+            openInTerminalMenu.append(_('Open in Terminal'), 'app.openinterminal');
             this._menu.append_section(null, openInTerminalMenu);
         }
         this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
         this.popupmenu.set_parent(fileItem._grid._container);
         this.popupmenu.set_pointing_to(menulocation);
         const menuGtkPosition = fileItem._grid.getIntelligentPosition(menulocation);
-        if (menuGtkPosition) {
+        if (menuGtkPosition)
             this.popupmenu.set_position(menuGtkPosition);
-        }
+
         fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
         this.popupmenu.connect('closed', async () => {
@@ -426,11 +428,11 @@ var FileItemMenu = class {
         let showInFilesList = this._desktopManager.getCurrentSelection(true);
         if (this._desktopManager.useNemo) {
             try {
-                for (let element of showInFilesList) {
-                    DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', element],DesktopIconsUtil.getFilteredEnviron());
-                }
+                for (let element of showInFilesList)
+                    DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', element], DesktopIconsUtil.getFilteredEnviron());
+
                 return;
-            } catch(err) {
+            } catch (err) {
                 log(`Error trying to launch Nemo: ${err.message}\n${err}`);
             }
         }
@@ -441,7 +443,7 @@ var FileItemMenu = class {
     _doMultiOpen() {
         for (let fileItem of this._desktopManager.getCurrentSelection(false)) {
             fileItem.unsetSelected();
-            fileItem.doOpen() ;
+            fileItem.doOpen();
         }
     }
 
@@ -452,8 +454,8 @@ var FileItemMenu = class {
             context.set_timestamp(Gdk.CURRENT_TIME);
             let mimetype = Gio.content_type_guess(fileItems[0].fileName, null)[0];
             let chooser = Gtk.AppChooserDialog.new_for_content_type(null,
-                                                                    Gtk.DialogFlags.MODAL + Gtk.DialogFlags.USE_HEADER_BAR,
-                                                                    mimetype);
+                Gtk.DialogFlags.MODAL + Gtk.DialogFlags.USE_HEADER_BAR,
+                mimetype);
             this._desktopManager.textEntryAccelsTurnOff();
             chooser.show();
             chooser.present_with_time(Gdk.CURRENT_TIME);
@@ -461,13 +463,13 @@ var FileItemMenu = class {
                 chooser.response(Gtk.ResponseType.CANCEL);
             });
             chooser.connect('response', (actor, retval) => {
-                if (retval == Gtk.ResponseType.OK) {
+                if (retval === Gtk.ResponseType.OK) {
                     let appInfo = chooser.get_app_info();
                     if (appInfo) {
                         let fileList = [];
-                        for (let item of fileItems) {
+                        for (let item of fileItems)
                             fileList.push(item.file);
-                        }
+
                         appInfo.launch(fileList, context);
                     }
                 }
@@ -479,12 +481,11 @@ var FileItemMenu = class {
     }
 
     async _extractFileFromSelection(extractHere) {
-
         let extractFileItemURI;
         let extractFolderName;
         let position;
-        const header = _("No Extraction Folder");
-        const text = _("Unable to extract File, extraction Folder Does not Exist")
+        const header = _('No Extraction Folder');
+        const text = _('Unable to extract File, extraction Folder Does not Exist');
 
         for (let fileItem of this._desktopManager.getCurrentSelection(false)) {
             extractFileItemURI = fileItem.file.get_uri();
@@ -495,16 +496,16 @@ var FileItemMenu = class {
 
         if (extractHere) {
             extractFolderName = DesktopIconsUtil.getFileExtensionOffset(extractFolderName).basename;
-            const targetURI = await this._desktopManager.doNewFolder(position, extractFolderName, {rename: false});
-            if (targetURI) {
+            const targetURI = await this._desktopManager.doNewFolder(position, extractFolderName, { rename: false });
+            if (targetURI)
                 DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, targetURI, true);
-            } else {
+            else
                 this._desktopManager.DBusManager.doNotify(header, text);
-            }
+
             return;
         }
 
-        const dialog = new Gtk.FileChooserDialog({title: _('Select Extract Destination')});
+        const dialog = new Gtk.FileChooserDialog({ title: _('Select Extract Destination') });
         dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
         dialog.set_create_folders(true);
         dialog.set_current_folder(DesktopIconsUtil.getDesktopDir());
@@ -520,11 +521,10 @@ var FileItemMenu = class {
         dialog.connect('response', (actor, response) => {
             if (response === Gtk.ResponseType.ACCEPT) {
                 const folder = dialog.get_file().get_uri();
-                if (folder) {
+                if (folder)
                     DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, folder, true);
-                } else {
+                else
                     this._desktopManager.DBusManager.doNotify(header, text);
-                }
             }
             this._desktopManager.textEntryAccelsTurnOn();
             dialog.destroy();
@@ -533,35 +533,33 @@ var FileItemMenu = class {
 
     _getExtractableAutoAr() {
         let fileList = this._desktopManager.getCurrentSelection(false);
-        if (DBusUtils.GnomeArchiveManager.isAvailable && (fileList.length == 1)) {
+        if (DBusUtils.GnomeArchiveManager.isAvailable && (fileList.length === 1))
             return false;
-        }
+
         for (let item of fileList) {
-            if (!this._desktopManager.autoAr.fileIsCompressed(item.fileName)) {
+            if (!this._desktopManager.autoAr.fileIsCompressed(item.fileName))
                 return false;
-            }
         }
         return true;
     }
 
     _getExtractable() {
-        for (let item of this._desktopManager.getCurrentSelection(false)) {
+        for (let item of this._desktopManager.getCurrentSelection(false))
             return this._decompressibleTypes.includes(item.attributeContentType);
-        }
     }
 
     _mailFilesFromSelection() {
         if (this._desktopManager.checkIfDirectoryIsSelected()) {
-            let WindowError = new ShowErrorPopup.ShowErrorPopup(_("Can not email a Directory"),
-                                                                _("Selection includes a Directory, compress the directory to a file first."),
-                                                                false,
-                                                                this._textEntryAccelsTurnOff.bind(this),
-                                                                this._textEntryAccelsTurnOn.bind(this));
+            let WindowError = new ShowErrorPopup.ShowErrorPopup(_('Can not email a Directory'),
+                _('Selection includes a Directory, compress the directory to a file first.'),
+                false,
+                this._textEntryAccelsTurnOff.bind(this),
+                this._textEntryAccelsTurnOn.bind(this));
             WindowError.run();
             return;
         }
         let xdgEmailCommand = [];
-        xdgEmailCommand.push('xdg-email')
+        xdgEmailCommand.push('xdg-email');
         for (let fileItem of this._desktopManager.getCurrentSelection(false)) {
             fileItem.unsetSelected;
             xdgEmailCommand.push('--attach');
@@ -584,14 +582,14 @@ var FileItemMenu = class {
         this._desktopManager.unselectAll();
     }
 
-    async _doNewFolderFromSelection(assignedposition=null, clickedItem, event) {
-        if (!clickedItem) {
+    async _doNewFolderFromSelection(assignedposition = null, clickedItem, event) {
+        if (!clickedItem)
             return;
-        }
+
         let position = assignedposition ? assignedposition  : clickedItem.savedCoordinates;
         let newFolderFileItems = this._desktopManager.getCurrentSelection(true);
         this._desktopManager.unselectAll();
-        clickedItem.removeFromGrid({callOnDestroy: false});
+        clickedItem.removeFromGrid({ callOnDestroy: false });
         const newFolder = await this._desktopManager.doNewFolder(position);
         if (newFolder) {
             DBusUtils.RemoteFileOperations.pushEvent(event);
@@ -600,14 +598,14 @@ var FileItemMenu = class {
     }
 
     _onScriptClicked(menuItemPath) {
-        let pathList = "NAUTILUS_SCRIPT_SELECTED_FILE_PATHS=";
-        let uriList = "NAUTILUS_SCRIPT_SELECTED_URIS=";
+        let pathList = 'NAUTILUS_SCRIPT_SELECTED_FILE_PATHS=';
+        let uriList = 'NAUTILUS_SCRIPT_SELECTED_URIS=';
         let currentUri = `NAUTILUS_SCRIPT_CURRENT_URI=${DesktopIconsUtil.getDesktopDir().get_uri()}`;
         let params = [menuItemPath];
-        for (let item of this._desktopManager.getCurrentSelection(false) ) {
+        for (let item of this._desktopManager.getCurrentSelection(false)) {
             if (!item.isSpecial) {
-                pathList +=(`${item.file.get_path()}\n`);
-                uriList +=(`${item.file.get_uri()}\n`);
+                pathList += `${item.file.get_path()}\n`;
+                uriList += `${item.file.get_uri()}\n`;
                 params.push(item.file.get_path());
             }
         }
@@ -626,4 +624,4 @@ var FileItemMenu = class {
     _textEntryAccelsTurnOn() {
         this._desktopManager.textEntryAccelsTurnOn();
     }
-}
+};
