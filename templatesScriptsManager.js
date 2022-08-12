@@ -23,7 +23,6 @@ const FileUtils = imports.fileUtils;
 const DesktopIconsUtil = imports.desktopIconsUtil;
 
 var TemplatesScriptsManager = class {
-
     constructor(baseFolder, callback, selectionfilter, mainApp, appname) {
         this._callback = callback;
         this._selectionFilter = selectionfilter;
@@ -34,36 +33,36 @@ var TemplatesScriptsManager = class {
         this._entriesDirMonitors = [];
         this.gioMenu = null;
         this.scriptManagerActionName = appname;
-        this.menuSimpleAction = Gio.SimpleAction.new(`${this.scriptManagerActionName}`, GLib.VariantType.new("s"));
-        this.menuSimpleAction.connect("activate", (action,parameter) => this._callback(parameter.recursiveUnpack()));
+        this.menuSimpleAction = Gio.SimpleAction.new(`${this.scriptManagerActionName}`, GLib.VariantType.new('s'));
+        this.menuSimpleAction.connect('activate', (action, parameter) => this._callback(parameter.recursiveUnpack()));
         this._mainApp.add_action(this.menuSimpleAction);
 
-        if (this._entriesDir == GLib.get_home_dir()) {
+        if (this._entriesDir === GLib.get_home_dir())
             this._entriesDir = null;
-        }
+
         if (this._entriesDir !== null) {
             this._monitorDir = baseFolder.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
             this._monitorDir.set_rate_limit(1000);
-            this._monitorDir.connect('changed', (obj, file, otherFile, eventType) => {
-                this.updateEntries().catch((e) => {
+            this._monitorDir.connect('changed', () => {
+                this.updateEntries().catch(e => {
                     print(`Exception while updating entries in monitor: ${e.message}\n${e.stack}`);
                 });
             });
-            this.updateEntries().catch((e) => {
+            this.updateEntries().catch(e => {
                 print(`Exception while updating entries: ${e.message}\n${e.stack}`);
             });
         }
     }
 
     async updateEntries() {
-        if (this._entriesEnumerateCancellable) {
+        if (this._entriesEnumerateCancellable)
             this._entriesEnumerateCancellable.cancel();
-        }
+
 
         const cancellable = new Gio.Cancellable();
         this._entriesEnumerateCancellable = cancellable;
 
-        this._entriesDirMonitors.map(f => {
+        this._entriesDirMonitors.forEach(f => {
             f[0].disconnect(f[1]);
             f[0].cancel();
         });
@@ -82,22 +81,23 @@ var TemplatesScriptsManager = class {
                 this._entriesEnumerateCancellable = null;
         }
 
-        [this._entries, this.gioMenu] = (entriesList !== null) ? entriesList : [null, null];
+        [this._entries, this.gioMenu] = entriesList !== null ? entriesList : [null, null];
     }
 
     async _processDirectory(directory, cancellable) {
+        var files = null;
         try {
-            var files = await this._readDirectory(directory, cancellable);
-        } catch(e) {
+            files = await this._readDirectory(directory, cancellable);
+        } catch (e) {
             return null;
         }
 
-        if (files === null) {
+        if (files === null)
             return null;
-        }
+
 
         let outputEntries = [];
-        let menu = new Gio.Menu;
+        let menu = new Gio.Menu();
         let menuhasentries = false;
 
         for (let file of files) {
@@ -114,28 +114,30 @@ var TemplatesScriptsManager = class {
 
             let monitorDir = file[1].monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
             monitorDir.set_rate_limit(1000);
-            let monitorId = monitorDir.connect('changed', (obj, file, otherFile, eventType) => { this.updateEntries(); });
+            let monitorId = monitorDir.connect('changed', () => {
+                this.updateEntries();
+            });
             this._entriesDirMonitors.push([monitorDir, monitorId]);
 
             let submenu;
             let subentriesList;
             subentriesList = await this._processDirectory(file[1], cancellable);
-            if (subentriesList === null) {
+            if (subentriesList === null)
                 return null;
-            }
+
             [file[2], submenu] = subentriesList;
-            if (file[2].length != 0 ) {
+            if (file[2].length !== 0)
                 outputEntries.push(file);
-            }
+
             if (submenu) {
                 let menuItem = Gio.MenuItem.new_submenu(`${menuItemName}`, submenu);
                 menu.append_item(menuItem);
                 menuhasentries = true;
             }
         }
-        if (! menuhasentries) {
+        if (!menuhasentries)
             menu = null;
-        }
+
         return [outputEntries, menu];
     }
 
@@ -147,17 +149,17 @@ var TemplatesScriptsManager = class {
         const fileList = [];
         childrenInfo.forEach(info => {
             const menuitemName = this._selectionFilter(info);
-            if (! menuitemName ) {
+            if (!menuitemName)
                 return;
-            }
 
-            const isDir = (info.get_file_type() === Gio.FileType.DIRECTORY);
+
+            const isDir = info.get_file_type() === Gio.FileType.DIRECTORY;
             const child = directory.get_child(info.get_name());
 
             fileList.push([
                 menuitemName,
                 isDir ? child : child.get_path(),
-                isDir ? [] : null
+                isDir ? [] : null,
             ]);
         });
 
@@ -165,7 +167,7 @@ var TemplatesScriptsManager = class {
             return a[0].localeCompare(b[0], {
                 sensitivity: 'accent',
                 numeric: 'true',
-                localeMatcher: 'lookup'
+                localeMatcher: 'lookup',
             });
         });
 
@@ -175,4 +177,4 @@ var TemplatesScriptsManager = class {
     getGioMenu() {
         return this.gioMenu;
     }
-}
+};
