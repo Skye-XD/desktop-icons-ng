@@ -26,12 +26,17 @@ const Preferences = Me.imports.preferences;
 
 var _ = Gettext.domain('ding').gettext;
 
+/**
+ *
+ */
 function init() {
     Preferences.init(extensionPath, Enums);
 }
 
+/**
+ *
+ */
 function buildPrefsWidget() {
-
     let localedir = Me.dir.get_child('locale');
     if (localedir.query_exists(null))
         Gettext.bindtextdomain('ding', localedir.get_path());
