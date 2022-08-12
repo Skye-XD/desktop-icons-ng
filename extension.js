@@ -19,7 +19,6 @@
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
 const Meta = imports.gi.Meta;
-const St = imports.gi.St;
 
 const Main = imports.ui.main;
 
@@ -39,8 +38,8 @@ PromiseUtils._promisify({ keepOriginal: true },
 PromiseUtils._promisify({ keepOriginal: true },
     Gio.Subprocess.prototype, 'wait_async');
 
-const fileProto = imports.system.version >= 17200 ?
-    Gio.File.prototype : Gio._LocalFilePrototype;
+const fileProto = imports.system.version >= 17200
+    ? Gio.File.prototype : Gio._LocalFilePrototype;
 
 PromiseUtils._promisify({ keepOriginal: true },
     fileProto, 'enumerate_children_async');
@@ -54,13 +53,16 @@ let data = {};
 
 var DesktopIconsUsableArea = null;
 
+/**
+ * Inits the Extension
+ */
 function init() {
     data.isEnabled = false;
     data.launchDesktopId = 0;
     data.currentProcess = null;
 
     data.GnomeShellOverride = null;
-    data.GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split(".")[0]);
+    data.GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
 
     /* The constructor of the EmulateX11 class only initializes some
      * internal properties, but nothing else. In fact, it has its own
@@ -87,20 +89,22 @@ function init() {
  * Enables the extension
  */
 function enable() {
-    if (!data.GnomeShellOverride) {
+    if (!data.GnomeShellOverride)
         data.GnomeShellOverride = new GnomeShellOverride.GnomeShellOverride();
-    }
 
-    if (!data.x11Manager) {
+
+    if (!data.x11Manager)
         data.x11Manager = new EmulateX11.EmulateX11WindowType();
-    }
+
     if (!DesktopIconsUsableArea) {
         DesktopIconsUsableArea = new VisibleArea.VisibleArea();
         data.visibleArea = DesktopIconsUsableArea;
     }
     // If the desktop is still starting up, we wait until it is ready
     if (Main.layoutManager._startingUp) {
-        data.startupPreparedId = Main.layoutManager.connect('startup-complete', () => { innerEnable(true); });
+        data.startupPreparedId = Main.layoutManager.connect('startup-complete', () => {
+            innerEnable(true);
+        });
     } else {
         innerEnable(false);
     }
@@ -108,6 +112,8 @@ function enable() {
 
 /**
  * The true code that configures everything and launches the desktop program
+ *
+ * @param {integer} removeId Layout manager 'startup-complete' connection ID
  */
 function innerEnable(removeId) {
     if (data.killingProcess) {
@@ -119,7 +125,7 @@ function innerEnable(removeId) {
             innerEnable();
             return GLib.SOURCE_REMOVE;
         });
-        return
+        return;
     }
 
     if (removeId) {
@@ -156,9 +162,9 @@ function innerEnable(removeId) {
     });
 
     data.isEnabled = true;
-    if (data.launchDesktopId) {
+    if (data.launchDesktopId)
         GLib.source_remove(data.launchDesktopId);
-    }
+
     launchDesktop().catch(e => logError(e));
 
     data.remoteDingActions = Gio.DBusActionGroup.get(
@@ -170,13 +176,12 @@ function innerEnable(removeId) {
     data.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe('com.rastersoft.ding', 'com.rastersoft.ding.geometrycontrol', 'updategeometry', '/com/rastersoft/ding/geometrycontrol', null, Gio.DBusSignalFlags.NONE, () => {
         updateDesktopGeometry();
     });
-
 }
 
 /**
  * Kills the current desktop program
  */
- function killCurrentProcess() {
+function killCurrentProcess() {
     if (data.launchDesktopId) {
         GLib.source_remove(data.launchDesktopId);
         data.launchDesktopId = 0;
@@ -195,7 +200,6 @@ function innerEnable(removeId) {
  * Disables the extension
  */
 function disable() {
-
     DesktopIconsUsableArea = null;
     data.isEnabled = false;
     killCurrentProcess();
@@ -232,35 +236,39 @@ function disable() {
     }
 }
 
+/**
+ * Sends updated geometry data to the DING desktop program over DBus
+ */
 function updateDesktopGeometry() {
-    if (data.remoteDingActions && (Main.layoutManager.monitors.length != 0)) {
+    if (data.remoteDingActions && (Main.layoutManager.monitors.length !== 0))
         data.remoteDingActions.activate_action('updateGridWindows', getDesktopGeometry());
-    }
 }
 
+/**
+ * Gets current desktop Geometry from visibleArea.js
+ */
 function getDesktopGeometry() {
     let desktopList = [];
     let ws = global.workspace_manager.get_workspace_by_index(0);
-    for(let monitorIndex = 0; monitorIndex < Main.layoutManager.monitors.length; monitorIndex++) {
+    for (let monitorIndex = 0; monitorIndex < Main.layoutManager.monitors.length; monitorIndex++) {
         let area = data.visibleArea.getMonitorGeometry(ws, monitorIndex);
         let desktopListElement = new GLib.Variant('a{sd}', {
-            'x' : area.x,
+            'x': area.x,
             'y': area.y,
-            'width' : area.width,
-            'height' : area.height,
-            'zoom' : area.scale,
-            'marginTop' : area.marginTop,
-            'marginBottom' : area.marginBottom,
-            'marginLeft' : area.marginLeft,
-            'marginRight' : area.marginRight,
-            'monitorIndex' : monitorIndex,
-            'primaryMonitor' : Main.layoutManager.primaryIndex
+            'width': area.width,
+            'height': area.height,
+            'zoom': area.scale,
+            'marginTop': area.marginTop,
+            'marginBottom': area.marginBottom,
+            'marginLeft': area.marginLeft,
+            'marginRight': area.marginRight,
+            monitorIndex,
+            'primaryMonitor': Main.layoutManager.primaryIndex,
         });
         desktopList.push(desktopListElement);
     }
     return new GLib.Variant('av', desktopList);
 }
-
 
 /**
  * This function checks all the processes in the system and kills those
@@ -269,14 +277,13 @@ function getDesktopGeometry() {
  * or other odd cases. It requires the /proc virtual filesystem, but
  * doesn't fail if it doesn't exist.
  */
-
 async function doKillAllOldDesktopProcesses() {
     const procFolder = Gio.File.new_for_path('/proc');
     const processes = await FileUtils.enumerateDir(procFolder);
-    const thisPath = 'gjs ' + GLib.build_filenamev([
+    const thisPath = `gjs ${GLib.build_filenamev([
         ExtensionUtils.getCurrentExtension().path,
-        'ding.js'
-    ]);
+        'ding.js',
+    ])}`;
 
     const killPromises = processes.map(async info => {
         const filename = info.get_name();
@@ -289,11 +296,10 @@ async function doKillAllOldDesktopProcesses() {
             let contents = '';
 
             for (let i = 0; i < readData.length; i++) {
-                if (readData[i] < 32) {
+                if (readData[i] < 32)
                     contents += ' ';
-                } else {
+                else
                     contents += String.fromCharCode(readData[i]);
-                }
             }
 
             if (contents.startsWith(thisPath)) {
@@ -303,20 +309,24 @@ async function doKillAllOldDesktopProcesses() {
                 await proc.wait_async_promise(null);
             }
         } catch (e) {
-            return;
+
         }
     });
 
     await Promise.all(killPromises);
 }
 
+/**
+ *
+ * @param {integer} reloadTime Relaunch time after crash in ms
+ */
 function doRelaunch(reloadTime) {
     data.currentProcess = null;
     data.x11Manager.set_wayland_client(null);
     if (data.isEnabled) {
-        if (data.launchDesktopId) {
+        if (data.launchDesktopId)
             GLib.source_remove(data.launchDesktopId);
-        }
+
         data.launchDesktopId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, reloadTime, () => {
             data.launchDesktopId = 0;
             launchDesktop().catch(e => logError(e));
@@ -332,8 +342,7 @@ function doRelaunch(reloadTime) {
  * debug it.
  */
 async function launchDesktop() {
-
-    global.log("Launching DING process");
+    global.log('Launching DING process');
     let argv = [];
     argv.push(GLib.build_filenamev([ExtensionUtils.getCurrentExtension().path, 'ding.js']));
     // Specify that it must work as true desktop
@@ -345,7 +354,7 @@ async function launchDesktop() {
     argv.push('-V');
     argv.push(`${data.GnomeShellVersion}`);
 
-    data.currentProcess = new LaunchSubprocess(0, "DING");
+    data.currentProcess = new LaunchSubprocess(0, 'DING');
     data.currentProcess.set_cwd(GLib.get_home_dir());
     data.x11Manager.set_wayland_client(data.currentProcess);
 
@@ -377,9 +386,9 @@ async function launchDesktop() {
         reloadTime = 1;
     }
 
-    if (!data.currentProcess || subprocess !== data.currentProcess.subprocess) {
+    if (!data.currentProcess || subprocess !== data.currentProcess.subprocess)
         return;
-    }
+
 
     if (subprocess.get_if_exited())
         subprocess.get_exit_status();
@@ -397,13 +406,12 @@ async function launchDesktop() {
  * @param {string} process_id An string id for the debug output
  */
 var LaunchSubprocess = class {
-
-    constructor(flags, process_id) {
-        this._process_id = process_id;
-        this._launcher = new Gio.SubprocessLauncher({flags: flags | Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE});
+    constructor(flags, processId) {
+        this._processID = processId;
+        this._launcher = new Gio.SubprocessLauncher({ flags: flags | Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE });
         if (Meta.is_wayland_compositor()) {
             this._waylandClient = Meta.WaylandClient.new(this._launcher);
-            if (Config.PACKAGE_VERSION == '3.38.0') {
+            if (Config.PACKAGE_VERSION === '3.38.0') {
                 // workaround for bug in 3.38.0
                 this._launcher.ref();
             }
@@ -414,11 +422,10 @@ var LaunchSubprocess = class {
 
     async spawnv(argv) {
         try {
-            if (Meta.is_wayland_compositor()) {
+            if (Meta.is_wayland_compositor())
                 this.subprocess = this._waylandClient.spawnv(global.display, argv);
-            } else {
+            else
                 this.subprocess = this._launcher.spawnv(argv);
-            }
         } catch (e) {
             this.subprocess = null;
             throw e;
@@ -431,9 +438,9 @@ var LaunchSubprocess = class {
         this.cancellable = cancellable;
 
         // This is for GLib 2.68 or greater
-        if (this._launcher.close) {
+        if (this._launcher.close)
             this._launcher.close();
-        }
+
         this._launcher = null;
 
         /*
@@ -458,7 +465,7 @@ var LaunchSubprocess = class {
     }
 
     set_cwd(cwd) {
-        this._launcher.set_cwd (cwd);
+        this._launcher.set_cwd(cwd);
     }
 
     async readOutput(dataInputStream, cancellable) {
@@ -466,12 +473,12 @@ var LaunchSubprocess = class {
             const [output, length] = await dataInputStream.read_line_async_promise(
                 GLib.PRIORITY_DEFAULT, cancellable);
             if (length)
-                print(`${this._process_id}: ${ByteArray.toString(output)}`);
+                print(`${this._processID}: ${ByteArray.toString(output)}`);
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 return;
 
-            logError(e, `${this._process_id}_Error`);
+            logError(e, `${this._processID}_Error`);
         }
 
         await this.readOutput(dataInputStream, cancellable);
@@ -479,38 +486,37 @@ var LaunchSubprocess = class {
 
     /**
      * Queries whether the passed window belongs to the launched subprocess or not.
+     *
      * @param {MetaWindow} window The window to check.
      */
-    query_window_belongs_to (window) {
-        if (!Meta.is_wayland_compositor()) {
+    query_window_belongs_to(window) {
+        if (!Meta.is_wayland_compositor())
             return false;
-        }
-        if (!this.process_running) {
+
+        if (!this.process_running)
             return false;
-        }
+
         try {
-            return (this._waylandClient.owns_window(window));
-        } catch(e) {
+            return this._waylandClient.owns_window(window);
+        } catch (e) {
             return false;
         }
     }
 
     query_pid_of_program() {
-        if (!this.process_running) {
+        if (!this.process_running)
             return false;
-        }
+
         return this.subprocess.get_identifier();
     }
 
     show_in_window_list(window) {
-        if (Meta.is_wayland_compositor() && this.process_running) {
+        if (Meta.is_wayland_compositor() && this.process_running)
             this._waylandClient.show_in_window_list(window);
-        }
     }
 
     hide_from_window_list(window) {
-        if (Meta.is_wayland_compositor() && this.process_running) {
+        if (Meta.is_wayland_compositor() && this.process_running)
             this._waylandClient.hide_from_window_list(window);
-        }
     }
-}
+};
