@@ -18,17 +18,16 @@
 
 const Shell = imports.gi.Shell;
 const Meta = imports.gi.Meta;
-const Main = imports.ui.main;
 var WorkspaceAnimation = null;
 try {
     WorkspaceAnimation = imports.ui.workspaceAnimation;
-} catch(err) {
-    log ("Workspace Animation does not exist");
+} catch (err) {
+    log('Workspace Animation does not exist');
 }
 
 var replaceData = {};
 
-    /*
+/*
      * This class overrides methods in the Gnome Shell. The new methods
      * need to be defined below the class as seperate functions.
      * The old methods that are overriden can be accesed by relpacedata.old_'name-of-replaced-method'
@@ -37,16 +36,15 @@ var replaceData = {};
 
 
 var GnomeShellOverride = class {
-    constructor () {
+    constructor() {
         this._isX11 = !Meta.is_wayland_compositor();
     }
 
     enable() {
         if (this._isX11) {  // ** X11 Methods only
             if (WorkspaceAnimation &&
-                WorkspaceAnimation.WorkspaceGroup !== undefined) {
+                WorkspaceAnimation.WorkspaceGroup !== undefined)
                 this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', new_shouldShowWindow);
-            }
         } else {    // ** Wayland replace methods below this
             this.replaceMethod(Shell.Global, 'get_window_actors', newGetWindowActors);
         }
@@ -56,9 +54,8 @@ var GnomeShellOverride = class {
 
     disable() {
         for (let value of Object.values(replaceData)) {
-            if (value[0]) {
+            if (value[0])
                 value[1].prototype[value[2]] = value[0];
-            }
         }
         replaceData = {};
     }
@@ -72,67 +69,65 @@ var GnomeShellOverride = class {
      *
      * @param {class} className The class where to replace the method
      * @param {string} methodName The method to replace
-     * @param {function} functionToCall The function to call as the replaced method
+     * @param {Function} functionToCall The function to call as the replaced method
      * @param {string} [classId] an extra ID to identify the stored method when two
      *                           methods with the same name are replaced in
      *                           two different classes
      */
 
     replaceMethod(className, methodName, functionToCall, classId) {
-        if (classId) {
-            replaceData['old_' + classId + '_' + methodName] = [className.prototype[methodName], className, methodName, classId];
-        } else {
-            replaceData['old_' + methodName] = [className.prototype[methodName], className, methodName];
-        }
+        if (classId)
+            replaceData[`old_${classId}_${methodName}`] = [className.prototype[methodName], className, methodName, classId];
+        else
+            replaceData[`old_${methodName}`] = [className.prototype[methodName], className, methodName];
+
         className.prototype[methodName] = functionToCall;
     }
+};
+
+
+/**
+ * New Functions used to replace the gnome shell functions are defined below.
+ */
+
+/**
+ * Receives a list of metaWindow or metaWindowActor objects, and remove from it
+ * our desktop window
+ *
+ * @param {GList} windowList A list of metaWindow or metaWindowActor objects
+ * @returns {GList} The same list, but with the desktop window removed
+ */
+function removeDesktopWindowFromList(windowList) {
+    let returnVal = [];
+    for (let element of windowList) {
+        let window = element;
+        if (window.get_meta_window) { // it is a MetaWindowActor
+            window = window.get_meta_window();
+        }
+        if (!window.customJS_ding || !window.customJS_ding.hideFromWindowList)
+            returnVal.push(element);
+    }
+    return returnVal;
 }
 
+/**
+ * Method replacement for Shell.Global.get_window_actors
+ * It removes the desktop window from the list of windows in the Activities mode
+ */
+function newGetWindowActors() {
+    let windowList = replaceData.old_get_window_actors[0].apply(this, []);
+    return removeDesktopWindowFromList(windowList);
+}
 
-    /**
-     * New Functions used to replace the gnome shell functions are defined below.
-     */
+/**
+ * Method replacement under X11 for should show window
+ * It removes the desktop window from the window animation
+ *
+ * @param {Meta.Window} window the window
+ */
+function new_shouldShowWindow(window) {
+    if (window.get_window_type() === Meta.WindowType.DESKTOP)
+        return false;
 
-    /**
-     * Receives a list of metaWindow or metaWindowActor objects, and remove from it
-     * our desktop window
-     *
-     * @param {GList} windowList A list of metaWindow or metaWindowActor objects
-     * @returns {GList} The same list, but with the desktop window removed
-     */
-
-    function removeDesktopWindowFromList(windowList) {
-        let returnVal = [];
-        for (let element of windowList) {
-            let window = element;
-            if (window.get_meta_window) { // it is a MetaWindowActor
-                window = window.get_meta_window();
-            }
-            if (!window.customJS_ding || !window.customJS_ding.hideFromWindowList) {
-                returnVal.push(element);
-            }
-        }
-        return returnVal;
-    }
-
-    /**
-     * Method replacement for Shell.Global.get_window_actors
-     * It removes the desktop window from the list of windows in the Activities mode
-     */
-
-    function newGetWindowActors() {
-        let windowList = replaceData.old_get_window_actors[0].apply(this, []);
-        return removeDesktopWindowFromList(windowList);
-    }
-
-    /**
-     * Method replacement under X11 for should show window
-     * It removes the desktop window from the window animation
-     */
-
-    function new_shouldShowWindow(window) {
-        if (window.get_window_type() === Meta.WindowType.DESKTOP) {
-            return false;
-        }
-        return replaceData.old__shouldShowWindow[0].apply(this, [window,]);
-    }
+    return replaceData.old__shouldShowWindow[0].apply(this, [window]);
+}
