@@ -23,6 +23,13 @@ const DEFAULT_QUERY_ATTRIBUTES = [
     Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
 ].join(',');
 
+/**
+ *
+ * @param dir
+ * @param cancellable
+ * @param priority
+ * @param queryAttributes
+ */
 async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DEFAULT,
     queryAttributes = DEFAULT_QUERY_ATTRIBUTES) {
     const childrenEnumerator = await dir.enumerate_children_async_promise(queryAttributes,
@@ -31,7 +38,6 @@ async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DE
     try {
         const children = [];
         while (true) {
-
             // The enumerator doesn't support multiple async calls, nor
             // we can predict how many they will be, so using Promise.all
             // isn't an option here, thus we just need to await each batch
@@ -50,17 +56,31 @@ async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DE
     }
 }
 
+/**
+ *
+ * @param dir
+ * @param deleteParent
+ * @param cancellable
+ * @param priority
+ */
 async function recursivelyDeleteDir(dir, deleteParent, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     const children = await enumerateDir(dir, cancellable, priority);
-    for (let info of children) {
+    for (let info of children)
         await deleteFile(dir.get_child(info.get_name()), info, cancellable, priority);
-    }
+
 
     if (deleteParent)
         await dir.delete_async_promise(priority, cancellable);
 }
 
+/**
+ *
+ * @param file
+ * @param info
+ * @param cancellable
+ * @param priority
+ */
 async function deleteFile(file, info = null, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     if (!info) {
@@ -81,21 +101,33 @@ async function deleteFile(file, info = null, cancellable = null,
     }
 }
 
+/**
+ *
+ * @param file
+ * @param cancellable
+ * @param priority
+ */
 async function queryExists(file, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
-        try {
-            await file.query_info_async_promise(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
-                Gio.FileQueryInfoFlags.NONE, priority, cancellable);
-            return true;
-        } catch (e) {
-            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                throw e;
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                logError(e);
-            return false;
-        }
+    try {
+        await file.query_info_async_promise(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
+            Gio.FileQueryInfoFlags.NONE, priority, cancellable);
+        return true;
+    } catch (e) {
+        if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+            throw e;
+        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+            logError(e);
+        return false;
+    }
 }
 
+/**
+ *
+ * @param dir
+ * @param cancellable
+ * @param priority
+ */
 async function recursivelyMakeDir(dir, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     try {
@@ -120,9 +152,9 @@ async function recursivelyMakeDir(dir, cancellable = null,
     }
 
     // Sadly we must be sequential here, so we can't use Promise.all
-    missingDirs.forEach(async dir => {
+    missingDirs.forEach(async direct => {
         try {
-            await dir.make_directory_async(priority, cancellable);
+            await direct.make_directory_async(priority, cancellable);
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
                 throw e;
