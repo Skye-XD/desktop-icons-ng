@@ -2587,7 +2587,7 @@ var DesktopManager = class {
             if (item.stackUnique)
                 stackTopMarkerFolderList.push(item);
 
-            item._updateIcon();
+            item._updateIcon().catch(e => logError(e, 'error loading stackMarker Icon'));
         }
         otherFiles = [];
         this._sortByName(specialFiles);
