@@ -169,11 +169,11 @@ function innerEnable(removeId) {
 
     data.remoteDingActions = Gio.DBusActionGroup.get(
         Gio.DBus.session,
-        'com.rastersoft.ding',
-        '/com/rastersoft/ding/actions'
+        'com.desktop.ding',
+        '/com/desktop/ding/actions'
     );
 
-    data.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe('com.rastersoft.ding', 'com.rastersoft.ding.geometrycontrol', 'updategeometry', '/com/rastersoft/ding/geometrycontrol', null, Gio.DBusSignalFlags.NONE, () => {
+    data.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe('com.desktop.ding', 'com.desktop.ding.geometrycontrol', 'updategeometry', '/com/desktop/ding/geometrycontrol', null, Gio.DBusSignalFlags.NONE, () => {
         updateDesktopGeometry();
     });
 }

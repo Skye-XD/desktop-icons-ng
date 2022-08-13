@@ -100,14 +100,14 @@ var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
         if (this.asDesktop) {
             this.remoteDingUpdate = Gio.DBusActionGroup.get(
                 Gio.DBus.session,
-                'com.rastersoft.ding',
-                '/com/rastersoft/ding/actions'
+                'com.desktop.ding',
+                '/com/desktop/ding/actions'
             );
         } else {
             this.remoteDingUpdate = Gio.DBusActionGroup.get(
                 Gio.DBus.session,
-                'com.rastersoft.dingtest',
-                '/com/rastersoft/dingtest/actions'
+                'com.desktop.dingtest',
+                '/com/desktop/dingtest/actions'
             );
         }
         actionGroup.add_action(updateThumbnail);
@@ -120,7 +120,7 @@ var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
 };
 
 const dingThumbnailApp = new Gtk.Application({
-    application_id: asDesktop ? 'com.rastersoft.dingThumbnailer' : 'com.rastersoft.dingTestThumbnailer',
+    application_id: asDesktop ? 'com.desktop.dingThumbnailer' : 'com.desktop.dingTestThumbnailer',
     flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
 });
 

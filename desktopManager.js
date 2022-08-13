@@ -314,14 +314,14 @@ var DesktopManager = class {
         if (this._asDesktop) {
             this.remoteThumbnailUpdate =  Gio.DBusActionGroup.get(
                 Gio.DBus.session,
-                'com.rastersoft.dingThumbnailer',
-                '/com/rastersoft/dingThumbnailer/actions'
+                'com.desktop.dingThumbnailer',
+                '/com/desktop/dingThumbnailer/actions'
             );
         } else {
             this.remoteThumbnailUpdate =  Gio.DBusActionGroup.get(
                 Gio.DBus.session,
-                'com.rastersoft.dingTestThumbnailer',
-                '/com/rastersoft/dingTestThumbnailer/actions'
+                'com.desktop.dingTestThumbnailer',
+                '/com/desktop/dingTestThumbnailer/actions'
             );
         }
         await this._detectThumbnailerConnection(this.remoteThumbnailUpdate);
@@ -409,7 +409,7 @@ var DesktopManager = class {
         if (this._asDesktop) {
             const signalXml = `
                 <node>
-                  <interface name="com.rastersoft.ding.geometrycontrol">
+                  <interface name="com.desktop.ding.geometrycontrol">
                     <signal name="updategeometry">
                       <arg name="type" type="s"/>
                       <arg name="value" type="b"/>
@@ -435,7 +435,7 @@ var DesktopManager = class {
 
     _requestGeometryUpdate() {
         let variant = new GLib.Variant('(sb)', ['updategeometry', true]);
-        this._connection.emit_signal(null, `${this._busname}/geometrycontrol`, 'com.rastersoft.ding.geometrycontrol', 'updategeometry', variant);
+        this._connection.emit_signal(null, `${this._busname}/geometrycontrol`, 'com.desktop.ding.geometrycontrol', 'updategeometry', variant);
     }
 
     updateGridWindows(newdesktoplist) {

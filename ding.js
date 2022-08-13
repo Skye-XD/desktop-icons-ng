@@ -196,20 +196,20 @@ var dbusManager = null;
 if (asDesktop) {
     remoteDingActions = Gio.DBusActionGroup.get(
         Gio.DBus.session,
-        'com.rastersoft.ding',
-        '/com/rastersoft/ding/actions'
+        'com.desktop.ding',
+        '/com/desktop/ding/actions'
     );
 } else {
     remoteDingActions = Gio.DBusActionGroup.get(
         Gio.DBus.session,
-        'com.rastersoft.dingtest',
-        '/com/rastersoft/dingtest/actions'
+        'com.desktop.dingtest',
+        '/com/desktop/dingtest/actions'
     );
 }
 
 // Use different AppIDs to allow to test it from a command line while the main desktop is also running from the extension
 const dingApp = new Gtk.Application({
-    application_id: asDesktop ? 'com.rastersoft.ding' : 'com.rastersoft.dingtest',
+    application_id: asDesktop ? 'com.desktop.ding' : 'com.desktop.dingtest',
     flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE | Gio.ApplicationFlags.REPLACE,
 });
 

@@ -10,7 +10,7 @@ prefix = get_option('prefix')
 datadir = join_paths (prefix, get_option('datadir'))
 schema_dir = join_paths(datadir, 'glib-2.0', 'schemas')
 
-extensions_dir = join_paths(prefix, 'share', 'gnome-shell', 'extensions', 'ding@rastersoft.com')
+extensions_dir = join_paths(prefix, 'share', 'gnome-shell', 'extensions', 'gtk4-ding@smedius.gitlab.com')
 
 install_data([
     'autoAr.js',
