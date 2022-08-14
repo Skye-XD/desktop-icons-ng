@@ -546,10 +546,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._refreshMetadataAsync(false).catch(e => logError(e));
     }
 
-    async eject(parentWidget) {
+    async eject(atWidget) {
         if (!this._custom || this._ejectCancellable)
             return;
 
+        const parentWidget =  atWidget ?? this._grid._window ;
         const mountOp = new Gtk.MountOperation();
         mountOp.set_parent(parentWidget);
         this._ejectCancellable = new Gio.Cancellable();
@@ -561,10 +562,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         }
     }
 
-    async unmount(parentWidget) {
+    async unmount(atWidget) {
         if (!this._custom || this._umountCancellable)
             return;
 
+        const parentWidget = atWidget ?? this._grid._window ;
         const mountOp = new Gtk.MountOperation();
         mountOp.set_parent(parentWidget);
         this._umountCancellable = new Gio.Cancellable();
