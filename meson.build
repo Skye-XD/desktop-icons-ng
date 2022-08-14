@@ -1,5 +1,5 @@
-project('ding',
-  version: '46',
+project('gtk4-ding',
+  version: '1',
   license: 'GPL3'
 )
 

@@ -1,6 +1,46 @@
 # History of versions #
 
-* noVersion 47
+* Gtk4 Verion 1 First Release of Gtk4 port.
+
+  * Fix Drag and Drop. Need to add drag and drop controllers to DesktipIconItem.js. (Sundeep Mediratta)
+  * Fix Rectangle Selection. Fixed by using Gtk.Overlay. (Sundeep Mediratta)
+  * Fix clipboard. Fixed. Use new Gdk4 clipboard object, remove old dbus code from extension.js. (Sundeep Mediratta)
+  * Fix DbusUtils Nautilus Wayland window handle. (Sundeep Mediratta)
+  * Cosmetic Fixes to Gtk4 Boxes as Padding and spacing is gone in Gtk4 and need to use other methods. (Sundeep Mediratta)
+  * Gtk4 Composite Emblem Icons. (Sundeep Mediratta)
+  * Set custom icons using Gtk4 methods and calls. (Sundeep Mediratta)
+  * Make Icons skinny, not tiles so that there is space around them to initiate selection rectangles. (Sundeep Mediratta)
+  * Use Gtk Application keyboard accelerators for functions, Shortcuts are shown in Gio.Menus. (Sundeep Mediratta)
+  * GnomeDesktop.DesktopThumbnailFactory is Gtk3 in gnome 40,41, new Gtk thumbnail.js application will allow use of Gtk3 factory over Dbus. (Sundeep Mediratta)
+  * Fix - the desktop is not highlighted with a green rectangle on Drag and Drop. (Sundeep Mediratta)
+  * Fix - Rename popups and fileItem right click menus work correctly even if the desktop is refreshed while they are open. (Sundeep Mediratta)
+  * Rename popups and the right click menus are re positioned to point to the correct fileItem, This also applies to stacktopItems (Sundeep Mediratta)
+  * Fix - Selection is kept even if the desktop is refreshed. (Sundeep Mediratta)
+  * Fix - Keyboard accelerators work even after Gtk.PopoverMenu sub-menus are shown and dismissed. (Sundeep Mediratta)
+  * Fix - Window Transparency under X11. (Sundeep Mediratta)
+  * Fix Rubber band initiation by Leverages Gtk calls to translate coordinates. (Sundeep Mediratta)
+  * Refactoring to avoid boolean parameters, make code more readable. (Sundeep Mediratta)
+
+**NEW FEATURES**
+
+  * File Right click menus on stack markers when stacks are enabled also moves with the marker. (Sundeep Mediratta)
+  * Can Make Links on the Desktop on Drag and Drop from Nautilus. Pressing the Alt button on drag modifies the drop to ask the user to Copy, Move or Make Links at the destination. (Sundeep Mediratta)
+  * Links are checked just before launching them, If they are broken the icon is updated to the broken link icon, and the error dialog is popped up correctly. (Sundeep Mediratta)
+  * The reverse is also true, if a broken link resolves correctly as the target re-appeared, the link is opened and the icon updated to the correct icon.
+  * Copied files retain the dropped position. (Sundeep Mediratta)
+  * Merged all changes from branch more-asyncness, by Marco Trevisan. (Marco Trevisian, merge changes Sundeep Mediratta)
+  * Prevent Flashing Icons - Use async await promises to update the entire fileList icon widgets prior to placing on desktop. (Sundeep Mediratta)
+  * Use Promises when icons are placed in desktop, This allows queuing code that can only be executed when icon placing is complete and the desktop draw is done. (Sundeep Mediratta)
+  * Optimize refreshMenus after Icons are placed on Grid to point to the correct fileItem with the above promise. (Sundeep Mediratta)
+  * Also remake the menu as the old menu does not scroll and malfunctions. (Sundeep Mediratta)
+  * Fix rename popup. No longer uses callback from fileItem, Directly use Promises to detecticons are placed on grid to reposition. (Sundeep Mediratta)
+  * When Dock in in intelligent hide or auto hide mode, prevent menus from going under the dock, menus avoid docks and hidden objects in margins. (Sundeep Mediratta)
+  * Add eslintrc.json file and lint folder containing eslint rules for GJS/Gnome files. (Sundeep Mediratta)
+  * The entire project and all .js files are now scanned and corrected with eslint. (Sundeep Mediratta)
+  * All formatting is fixed and errors from eslint resolved, should follow GJS/Gnome guidelines. (Sundeep Mediratta)
+  * Change the UUID of the extension, the application ID  and the Dbus object paths for the application to differentiate it from the gtk-3 desktop icons NG extension. (Sundeep Mediratta)
+
+* Version 47
   * Pass the primary monitor index through DBus (Sergio Costas)
   * Added keyboard navigation support (Sergio Costas)
   * Code cleanups (Sergio Costas)

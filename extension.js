@@ -342,7 +342,7 @@ function doRelaunch(reloadTime) {
  * debug it.
  */
 async function launchDesktop() {
-    global.log('Launching DING process');
+    global.log('Launching Gtk4-DING process');
     let argv = [];
     argv.push(GLib.build_filenamev([ExtensionUtils.getCurrentExtension().path, 'ding.js']));
     // Specify that it must work as true desktop
@@ -354,7 +354,7 @@ async function launchDesktop() {
     argv.push('-V');
     argv.push(`${data.GnomeShellVersion}`);
 
-    data.currentProcess = new LaunchSubprocess(0, 'DING');
+    data.currentProcess = new LaunchSubprocess(0, 'Gtk4-DING');
     data.currentProcess.set_cwd(GLib.get_home_dir());
     data.x11Manager.set_wayland_client(data.currentProcess);
 
