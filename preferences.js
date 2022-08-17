@@ -24,6 +24,7 @@ const Gtk = imports.gi.Gtk;
 const GObject = imports.gi.GObject;
 const Gio = imports.gi.Gio;
 const GioSSS = Gio.SettingsSchemaSource;
+const PrefrencesFrame = imports.preferencesFrame;
 
 const Gettext = imports.gettext;
 
@@ -36,9 +37,9 @@ var nautilusSettings;
 var nautilusCompression;
 var gtkSettings;
 var desktopSettings;
-var mutterSettings = null;
 // This is already in Nautilus settings, so it should not be made tweakable here
 var CLICK_POLICY_SINGLE = false;
+var preferencesFrame;
 
 /**
  *
@@ -66,9 +67,8 @@ function init(path, enums) {
         nautilusCompression = new Gio.Settings({ settings_schema: compressionSchema });
 
     desktopSettings = get_schema(Enums.SCHEMA);
-    let schemaMutter = schemaSource.lookup(Enums.SCHEMA_MUTTER, true);
-    if (schemaMutter)
-        mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
+
+    preferencesFrame = new PrefrencesFrame.PreferencesFrame(Gtk, GObject, desktopSettings, nautilusSettings, gtkSettings, _);
 }
 
 /**
@@ -96,132 +96,8 @@ function get_schema(schema) {
     return new Gio.Settings({ settings_schema: schemaObj });
 }
 
-/**
- *
- */
 function get_preferencesFrame() {
-    let frame = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
-    frame.set_spacing(10);
-    frame.set_margin_top(10);
-    frame.set_margin_bottom(10);
-    frame.set_margin_start(10);
-    frame.set_margin_end(10);
-
-    frame.append(buildSelector(desktopSettings, 'icon-size', _('Size for the desktop icons'), { 'tiny': _('Tiny'), 'small': _('Small'), 'standard': _('Standard'), 'large': _('Large') }));
-    frame.append(buildSwitcher(desktopSettings, 'show-home', _('Show the personal folder in the desktop')));
-    frame.append(buildSwitcher(desktopSettings, 'show-trash', _('Show the trash icon in the desktop')));
-    frame.append(buildSwitcher(desktopSettings, 'show-volumes', _('Show external drives in the desktop')));
-    frame.append(buildSwitcher(desktopSettings, 'show-network-volumes', _('Show network drives in the desktop')));
-    frame.append(buildSelector(desktopSettings,
-        'start-corner',
-        _('New icons alignment'),
-        {
-            'top-left': _('Top-left corner'),
-            'top-right': _('Top-right corner'),
-            'bottom-left': _('Bottom-left corner'),
-            'bottom-right': _('Bottom-right corner'),
-        }));
-    frame.append(buildSwitcher(desktopSettings, 'add-volumes-opposite', _('Add new drives to the opposite side of the screen')));
-    frame.append(buildSwitcher(desktopSettings, 'show-drop-place', _("Highlight the drop place during Drag'n'Drop")));
-    frame.append(buildSwitcher(desktopSettings, 'use-nemo', _('Use Nemo to open folders')));
-    frame.append(buildSwitcher(desktopSettings, 'show-link-emblem', _('Add an emblem to soft links')));
-    frame.append(buildSwitcher(desktopSettings, 'dark-text-in-labels', _('Use dark text in icon labels')));
-    frame.append(new Gtk.Separator({ orientation: Gtk.Orientation.HORIZONTAL }));
-
-    // Nautilus Options
-    let frameLabel = new Gtk.Label({
-        label: `<b>${_('Settings shared with Nautilus')}</b>`,
-        use_markup: true,
-    });
-    let nautilusFrame = new Gtk.Frame({ label_widget: frameLabel });
-    let nautilusBox = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL, spacing: 10 });
-    nautilusBox.set_margin_top(5);
-    nautilusBox.set_margin_bottom(5);
-    nautilusBox.set_margin_start(5);
-    nautilusBox.set_margin_end(5);
-    nautilusFrame.set_child(nautilusBox);
-    frame.append(nautilusFrame);
-
-    nautilusBox.append(buildSelector(nautilusSettings, 'click-policy', _('Click type for open files'), { 'single': _('Single click'), 'double': _('Double click') }));
-    nautilusBox.append(buildSwitcher(gtkSettings, 'show-hidden', _('Show hidden files')));
-    nautilusBox.append(buildSwitcher(nautilusSettings, 'show-delete-permanently', _('Show a context menu item to delete permanently')));
-    // Gnome Shell 40 removed this option
-    try {
-        nautilusBox.append(buildSelector(nautilusSettings,
-            'executable-text-activation',
-            _('Action to do when launching a program from the desktop'), {
-                'display': _('Display the content of the file'),
-                'launch': _('Launch the file'),
-                'ask': _('Ask what to do'),
-            }));
-    } catch (e) {
-    }
-
-    nautilusBox.append(buildSelector(nautilusSettings,
-        'show-image-thumbnails',
-        _('Show image thumbnails'), {
-            'never': _('Never'),
-            'local-only': _('Local files only'),
-            'always': _('Always'),
-        }));
-
-    return frame;
-}
-
-/**
- *
- * @param settings
- * @param key
- * @param labelText
- */
-function buildSwitcher(settings, key, labelText) {
-    let hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, spacing: 10 });
-    hbox.set_hexpand(true);
-    let label = new Gtk.Label({ label: labelText, xalign: 0 });
-    let switcher = new Gtk.Switch({ active: settings.get_boolean(key) });
-    label.set_hexpand(true);
-    switcher.set_hexpand(false);
-    switcher.set_halign(Gtk.Align.END);
-    settings.bind(key, switcher, 'active', 3);
-    hbox.append(label);// , true, true, 0);
-    hbox.append(switcher);
-    return hbox;
-}
-
-/**
- *
- * @param settings
- * @param key
- * @param labelText
- * @param elements
- */
-function buildSelector(settings, key, labelText, elements) {
-    let listStore = new Gtk.ListStore();
-    listStore.set_column_types([GObject.TYPE_STRING, GObject.TYPE_STRING]);
-    let schemaKey = settings.settings_schema.get_key(key);
-    let values = schemaKey.get_range().get_child_value(1).get_child_value(0).get_strv();
-    for (let val of values) {
-        let iter = listStore.append();
-        let visibleText = val;
-        if (visibleText in elements)
-            visibleText = elements[visibleText];
-        listStore.set(iter, [0, 1], [visibleText, val]);
-    }
-    let hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, spacing: 10 });
-    hbox.set_hexpand(true);
-    let label = new Gtk.Label({ label: labelText, xalign: 0 });
-    label.set_hexpand(true);
-    let combo = new Gtk.ComboBox({ model: listStore });
-    combo.set_hexpand(false);
-    combo.set_halign(Gtk.Align.END);
-    let rendererText = new Gtk.CellRendererText();
-    combo.pack_start(rendererText, false);
-    combo.add_attribute(rendererText, 'text', 0);
-    combo.set_id_column(1);
-    settings.bind(key, combo, 'active-id', 3);
-    hbox.append(label);// true, true, 0);
-    hbox.append(combo);
-    return hbox;
+    return preferencesFrame.getFrame();
 }
 
 /**

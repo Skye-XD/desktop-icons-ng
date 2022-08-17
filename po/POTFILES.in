@@ -15,7 +15,7 @@ fileItem.js
 fileItemMenu.js
 preferences.js
 prefs.js
-prefswindow.js
+preferencesFrame.js
 showErrorPopup.js
 stackItem.js
 templatesScriptsManager.js
