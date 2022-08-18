@@ -197,7 +197,13 @@ function killCurrentProcess() {
 }
 
 /**
- * Disables the extension
+ * Disables the extension. Under Gnome 42 the extension runs with the session mode 'unlock-dialog'.
+ * This allows the extension to keep running when the lock screen comes on. The advantage is that
+ * the Gtk4 program that is spawned by this extension keep running, rendering all the file icons
+ * on the desktop. When the user logs back in the desktop is already rendered and running, the
+ * desktop program does not need to be first killed on the lock-screen and then launced again on
+ * unlock.
+ * If disable is called, it explictly kill the desktop program. This will hapen on log out.
  */
 function disable() {
     DesktopIconsUsableArea = null;
