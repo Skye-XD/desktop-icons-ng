@@ -15,22 +15,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const GLib = imports.gi.GLib;
-const Gio = imports.gi.Gio;
-const Gtk = imports.gi.Gtk;
+const { GLib, Gio, Gtk } = imports.gi;
 var GnomeAutoar = null;
 try {
     GnomeAutoar = imports.gi.GnomeAutoar;
-} catch (e) {
-}
+} catch (e) {}
 
-const Enums = imports.enums;
-const FileUtils = imports.fileUtils;
-const Prefs = imports.preferences;
-const DBusUtils = imports.dbusUtils;
 const Signals = imports.signals;
 
-const Gettext = imports.gettext.domain('ding');
+const Enums = imports.app.enums;
+const Prefs = imports.app.preferences;
+const DBusUtils = imports.utils.dbusUtils;
+const FileUtils = imports.utils.fileUtils;
+
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 

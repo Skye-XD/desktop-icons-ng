@@ -35,6 +35,7 @@ fi
 echo "# -------------------"
 echo "# Buiding with meson"
 echo "# -------------------"
+cp scripts/meson.build ./
 meson --prefix="${LOCAL_PREFIX}" --localedir=locale "${BUILD_DIR}" "${REPO_DIR}"
 ninja -C "${BUILD_DIR}" install
 
@@ -48,9 +49,10 @@ mkdir schemas
 cp "${SCHEMADIR}"/*.xml schemas/
 glib-compile-schemas schemas/
 cp -r "${EXTENSIONS_DIR}"/* .
-zip -qr "${UUID}.zip" ./*.js ./*.css ./*.json ./locale ./schemas
+zip -qr "${UUID}.zip" ./*.js ./*.css ./*.json ./locale ./schemas ./app ./utils
 mv -f "${UUID}.zip" "${REPO_DIR}/"
 cd "${REPO_DIR}" || exit
 
 # Clean
 rm -rf "${BUILD_DIR}" "${LOCAL_PREFIX}"
+rm meson.build

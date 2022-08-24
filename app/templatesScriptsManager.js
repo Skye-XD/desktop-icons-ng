@@ -16,11 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
-const Enums = imports.enums;
-const FileUtils = imports.fileUtils;
-const DesktopIconsUtil = imports.desktopIconsUtil;
+const { Gio, GLib } = imports.gi;
+const Enums = imports.app.enums;
+const FileUtils = imports.utils.fileUtils;
 
 var TemplatesScriptsManager = class {
     constructor(baseFolder, callback, selectionfilter, mainApp, appname) {

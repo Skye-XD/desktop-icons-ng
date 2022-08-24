@@ -24,8 +24,8 @@ const Gettext = imports.gettext;
 
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
-const Enums = Me.imports.enums;
-const PreferencesFrame = Me.imports.preferencesFrame;
+const Enums = Me.imports.app.enums;
+const PreferencesFrame = Me.imports.app.preferencesFrame;
 
 /**
  * prefs initiation

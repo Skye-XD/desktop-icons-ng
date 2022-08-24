@@ -19,10 +19,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const desktopIconItem = imports.desktopIconItem;
-const Prefs = imports.preferences;
+const desktopIconItem = imports.app.desktopIconItem;
+const Prefs = imports.app.preferences;
 const Signals = imports.signals;
-const Gettext = imports.gettext.domain('ding');
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 

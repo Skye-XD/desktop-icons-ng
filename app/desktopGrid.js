@@ -20,16 +20,13 @@
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
-const Gtk = imports.gi.Gtk;
-const Gdk = imports.gi.Gdk;
-const GLib = imports.gi.GLib;
-const GObject = imports.gi.GObject;
-const Prefs = imports.preferences;
-const Enums = imports.enums;
-const DesktopIconsUtil = imports.desktopIconsUtil;
+const { Gtk, Gdk, GLib, GObject } = imports.gi;
+const Prefs = imports.app.preferences;
+const Enums = imports.app.enums;
+const DesktopIconsUtil = imports.utils.desktopIconsUtil;
 const ByteArray = imports.byteArray;
 
-const Gettext = imports.gettext.domain('ding');
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 

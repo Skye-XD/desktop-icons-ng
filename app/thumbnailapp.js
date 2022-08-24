@@ -20,10 +20,7 @@
 
 imports.gi.versions.GnomeDesktop = '3.0';
 imports.gi.versions.Gtk = '3.0';
-const Gtk = imports.gi.Gtk;
-const GnomeDesktop = imports.gi.GnomeDesktop;
-const GLib = imports.gi.GLib;
-const Gio = imports.gi.Gio;
+const { Gtk, GnomeDesktop, GLib, Gio } = imports.gi;
 
 var asDesktop = false;
 var codePath;
@@ -47,7 +44,7 @@ function parseCommandLine(ARGV) {
 parseCommandLine(ARGV);
 
 imports.searchPath.unshift(codePath);
-const Thumbnail = imports.thumbnails;
+const Thumbnail = imports.app.thumbnails;
 
 var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
     constructor(codePath, asDesktop, thumbnailapp) {
@@ -158,4 +155,3 @@ if (!errorFound)
     0;
 else
     1;
-

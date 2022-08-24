@@ -20,34 +20,31 @@
 imports.gi.versions.Gtk = '4.0';
 imports.gi.versions.Gdk = '4.0';
 
-const GLib = imports.gi.GLib;
-const Gtk = imports.gi.Gtk;
-const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
+const { GLib, Gtk, Gdk, Gio } = imports.gi;
 const ByteArray = imports.byteArray;
 
-const FileItem = imports.fileItem;
-const FileUtils = imports.fileUtils;
-const stackItem = imports.stackItem;
-const DesktopGrid = imports.desktopGrid;
-const DesktopIconsUtil = imports.desktopIconsUtil;
-const Prefs = imports.preferences;
-const Enums = imports.enums;
-const DBusUtils = imports.dbusUtils;
-const AskRenamePopup = imports.askRenamePopup;
-const ShowErrorPopup = imports.showErrorPopup;
-const TemplatesScriptsManager = imports.templatesScriptsManager;
-const FileItemMenu = imports.fileItemMenu;
-const AutoAr = imports.autoAr;
-const PromiseUtils = imports.promiseUtils;
-
+const FileItem = imports.app.fileItem;
+const stackItem = imports.app.stackItem;
+const DesktopGrid = imports.app.desktopGrid;
+const Prefs = imports.app.preferences;
+const Enums = imports.app.enums;
+const AskRenamePopup = imports.app.askRenamePopup;
+const ShowErrorPopup = imports.app.showErrorPopup;
+const TemplatesScriptsManager = imports.app.templatesScriptsManager;
+const FileItemMenu = imports.app.fileItemMenu;
+const AutoAr = imports.app.autoAr;
 var Thumbnails = null;
 try {
     imports.gi.versions.GnomeDesktop = '4.0';
-    Thumbnails = imports.thumbnails;
+    Thumbnails = imports.app.thumbnails;
 } catch (e) {}
 
-const Gettext = imports.gettext.domain('ding');
+const PromiseUtils = imports.utils.promiseUtils;
+const FileUtils = imports.utils.fileUtils;
+const DesktopIconsUtil = imports.utils.desktopIconsUtil;
+const DBusUtils = imports.utils.dbusUtils;
+
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
@@ -219,7 +216,7 @@ var DesktopManager = class {
         this.rubberBand = false;
 
         let cssProvider = new Gtk.CssProvider();
-        cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([codePath, 'stylesheet.css'])));
+        cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([codePath, 'app','stylesheet.css'])));
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         this._configureSelectionColor();
@@ -304,7 +301,7 @@ var DesktopManager = class {
 
     async _startThumbnailer() {
         let args = [];
-        args.push(GLib.build_filenamev([this._codePath, 'thumbnailapp.js']));
+        args.push(GLib.build_filenamev([this._codePath, 'app', 'thumbnailapp.js']));
         args.push(this._codePath);
         if (this._asDesktop)
             args.push('asdesktop');

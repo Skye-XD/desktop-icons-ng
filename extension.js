@@ -16,12 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const GLib = imports.gi.GLib;
-const Gio = imports.gi.Gio;
-const Meta = imports.gi.Meta;
-
+const { GLib, Gio, Meta } = imports.gi;
 const Main = imports.ui.main;
-
 const ExtensionUtils = imports.misc.extensionUtils;
 const Config = imports.misc.config;
 const ByteArray = imports.byteArray;
@@ -30,8 +26,8 @@ const Me = ExtensionUtils.getCurrentExtension();
 const EmulateX11 = Me.imports.emulateX11WindowType;
 const VisibleArea = Me.imports.visibleArea;
 const GnomeShellOverride = Me.imports.gnomeShellOverride;
-const PromiseUtils = Me.imports.promiseUtils;
-const FileUtils = Me.imports.fileUtils;
+const PromiseUtils = Me.imports.utils.promiseUtils;
+const FileUtils = Me.imports.utils.fileUtils;
 
 PromiseUtils._promisify({ keepOriginal: true },
     Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish_utf8');
@@ -288,6 +284,7 @@ async function doKillAllOldDesktopProcesses() {
     const processes = await FileUtils.enumerateDir(procFolder);
     const thisPath = `gjs ${GLib.build_filenamev([
         ExtensionUtils.getCurrentExtension().path,
+        'app',
         'ding.js',
     ])}`;
 
@@ -350,7 +347,7 @@ function doRelaunch(reloadTime) {
 async function launchDesktop() {
     global.log('Launching Gtk4-DING process');
     let argv = [];
-    argv.push(GLib.build_filenamev([ExtensionUtils.getCurrentExtension().path, 'ding.js']));
+    argv.push(GLib.build_filenamev([ExtensionUtils.getCurrentExtension().path, 'app', 'ding.js']));
     // Specify that it must work as true desktop
     argv.push('-E');
     // The path. Allows the program to find translations, settings and modules.

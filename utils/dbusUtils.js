@@ -22,7 +22,7 @@ imports.gi.versions.GdkWayland = '4.0';
 
 const { Gdk, Gio, GLib, Gtk, GdkX11, GdkWayland } = imports.gi;
 const Signals = imports.signals;
-const DBusInterfaces = imports.dbusInterfaces;
+const DBusInterfaces = imports.utils.dbusInterfaces;
 
 var NautilusFileOperations2 = null;
 var FreeDesktopFileManager = null;

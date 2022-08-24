@@ -19,16 +19,13 @@
 
 imports.gi.versions.Gtk = '4.0';
 
-const GLib = imports.gi.GLib;
-const Gtk = imports.gi.Gtk;
-const GObject = imports.gi.GObject;
-const Gio = imports.gi.Gio;
+const { GLib, Gtk, GObject, Gio } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
-const PrefrencesFrame = imports.preferencesFrame;
+const PrefrencesFrame = imports.app.preferencesFrame;
 
 const Gettext = imports.gettext;
 
-var _ = Gettext.domain('ding').gettext;
+var _ = Gettext.domain('gtk4-ding').gettext;
 
 var extensionPath;
 var Enums;

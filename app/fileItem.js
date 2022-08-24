@@ -18,21 +18,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Gtk = imports.gi.Gtk;
-const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
-const DesktopIconsUtil = imports.desktopIconsUtil;
-const desktopIconItem = imports.desktopIconItem;
-const ShowErrorPopup = imports.showErrorPopup;
-const PromiseUtils = imports.promiseUtils;
-
-const Prefs = imports.preferences;
-const Enums = imports.enums;
-const DBusUtils = imports.dbusUtils;
+const { Gtk, Gdk, Gio, GLib } = imports.gi;
+const desktopIconItem = imports.app.desktopIconItem;
+const ShowErrorPopup = imports.app.showErrorPopup;
+const Prefs = imports.app.preferences;
+const Enums = imports.app.enums;
+const DBusUtils = imports.utils.dbusUtils;
+const PromiseUtils = imports.utils.promiseUtils;
+const DesktopIconsUtil = imports.utils.desktopIconsUtil;
 
 const Signals = imports.signals;
-const Gettext = imports.gettext.domain('ding');
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
@@ -550,7 +546,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (!this._custom || this._ejectCancellable)
             return;
 
-        const parentWidget =  atWidget ?? this._grid._window ;
+        const parentWidget =  atWidget ?? this._grid._window;
         const mountOp = new Gtk.MountOperation();
         mountOp.set_parent(parentWidget);
         this._ejectCancellable = new Gio.Cancellable();
@@ -566,7 +562,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (!this._custom || this._umountCancellable)
             return;
 
-        const parentWidget = atWidget ?? this._grid._window ;
+        const parentWidget = atWidget ?? this._grid._window;
         const mountOp = new Gtk.MountOperation();
         mountOp.set_parent(parentWidget);
         this._umountCancellable = new Gio.Cancellable();

@@ -38,9 +38,8 @@ try {
     GnomeDesktop = imports.gi.GnomeDesktop;
 }
 
-const GLib = imports.gi.GLib;
-const Gio = imports.gi.Gio;
-const FileUtils = imports.fileUtils;
+const { GLib, Gio } = imports.gi;
+const FileUtils = imports.utils.fileUtils;
 
 const useAsyncAPI =
     !!GnomeDesktop.DesktopThumbnailFactory.prototype.generate_thumbnail_async;

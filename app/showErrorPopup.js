@@ -1,5 +1,6 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
+ * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) gtk4 port
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
  * Based on code original (C) Carlos Soriano
  *
@@ -16,10 +17,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Gtk = imports.gi.Gtk;
-const Gdk = imports.gi.Gdk;
-const DesktopIconsUtil = imports.desktopIconsUtil;
-const Gettext = imports.gettext.domain('ding');
+const { Gtk, Gdk } = imports.gi;
+const DesktopIconsUtil = imports.utils.desktopIconsUtil;
+
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 

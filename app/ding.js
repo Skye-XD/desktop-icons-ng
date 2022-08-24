@@ -19,9 +19,7 @@
  */
 
 imports.gi.versions.Gtk = '4.0';
-const Gtk = imports.gi.Gtk;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
+const { Gtk, Gio, GLib } = imports.gi;
 
 let desktops = [];
 let lastCommand = null;
@@ -162,11 +160,11 @@ parseCommandLine(ARGV);
 
 imports.searchPath.unshift(codePath);
 
-const DBusUtils = imports.dbusUtils;
-const Prefs = imports.preferences;
+const Prefs = imports.app.preferences;
+const Enums = imports.app.enums;
+const DBusUtils = imports.utils.dbusUtils;
+const PromiseUtils = imports.utils.promiseUtils;
 const Gettext = imports.gettext;
-const Enums = imports.enums;
-const PromiseUtils = imports.promiseUtils;
 
 PromiseUtils._promisify({}, Gio.AppInfo, 'launch_default_for_uri_async');
 PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'close_async');
@@ -185,10 +183,10 @@ PromiseUtils._promisify({}, fileProto, 'set_attributes_async');
 
 let localePath = GLib.build_filenamev([codePath, 'locale']);
 if (Gio.File.new_for_path(localePath).query_exists(null))
-    Gettext.bindtextdomain('ding', localePath);
+    Gettext.bindtextdomain('gtk4-ding', localePath);
 
 
-const DesktopManager = imports.desktopManager;
+const DesktopManager = imports.app.desktopManager;
 
 var desktopManager = null;
 var dbusManager = null;
@@ -256,4 +254,3 @@ if (!errorFound)
     0;
 else
     1;
-

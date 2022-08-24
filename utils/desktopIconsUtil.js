@@ -19,17 +19,16 @@
 
 imports.gi.versions.GdkX11 = '4.0';
 imports.gi.versions.Gdk = '4.0';
-
+const { Gio, GLib } = imports.gi;
 const ByteArray = imports.byteArray;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
-const Prefs = imports.preferences;
-const Enums = imports.enums;
-const FileUtils = imports.fileUtils;
-const Gettext = imports.gettext.domain('ding');
 
+const Prefs = imports.app.preferences;
+const Enums = imports.app.enums;
+const FileUtils = imports.utils.fileUtils;
 var applicationid = null;
 var usingX11 = null;
+
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 

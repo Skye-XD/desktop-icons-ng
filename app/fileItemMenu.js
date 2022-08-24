@@ -16,18 +16,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const DBusUtils = imports.dbusUtils;
-const GLib = imports.gi.GLib;
-const Gdk = imports.gi.Gdk;
-const Gtk = imports.gi.Gtk;
-const Gio = imports.gi.Gio;
+const { GLib, Gdk, Gtk, Gio } = imports.gi;
 
-const TemplatesScriptsManager = imports.templatesScriptsManager;
-const DesktopIconsUtil = imports.desktopIconsUtil;
-const Prefs = imports.preferences;
-const ShowErrorPopup = imports.showErrorPopup;
+const TemplatesScriptsManager = imports.app.templatesScriptsManager;
+const Prefs = imports.app.preferences;
+const ShowErrorPopup = imports.app.showErrorPopup;
+const DesktopIconsUtil = imports.utils.desktopIconsUtil;
+const DBusUtils = imports.utils.dbusUtils;
 
-const Gettext = imports.gettext.domain('ding');
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 

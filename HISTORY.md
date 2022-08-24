@@ -39,6 +39,8 @@
   * The entire project and all .js files are now scanned and corrected with eslint. (Sundeep Mediratta)
   * All formatting is fixed and errors from eslint resolved, should follow GJS/Gnome guidelines. (Sundeep Mediratta)
   * Change the UUID of the extension, the application ID  and the Dbus object paths for the application to differentiate it from the gtk-3 desktop icons NG extension. (Sundeep Mediratta)
+  * Extension now runs on the lock screen under Gnome 42 and higher, so DING is no longer killed on lock and then restarted on unlock.
+  * New Directory structure for better organization.
 
 * Version 47
   * Pass the primary monitor index through DBus (Sergio Costas)

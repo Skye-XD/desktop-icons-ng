@@ -38,6 +38,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] For Gnome 42, allow use of 'unlock-dialog' in session mode for the extension, so that it is not relaunched every time.
 
+- [x] Re-organization, New Folder structure to avoid confusion and facilitate review.
 
 **EXPERIMENTAL FEATURES**
 
@@ -116,7 +117,7 @@ Please report errors, and if you can fix it, please do so. See Contributing belo
 
 ## Manual installation
 
-The easiest way of installing DING is to run the `local_install.sh` script. It performs the build steps specified in the next section.
+The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next section.
 
 In Ubuntu Jammy and probably later, the Ubuntu session is locked and only the default Ubuntu extensions run. Ubuntu runs it's own Desktop Icon Extension. Therefore, installing the extension from extensions.gnome.org will not work directly. The install script provided in the repository bypasses this and installs this as a manually installed extension. The default Desktop Icons extension that ships with Ubuntu then needs to be deactivated, and the manually installed one activated.
 
@@ -152,7 +153,7 @@ The extension also intercepts three Gnome Shell system calls, in order to hide t
 
 ## Launching the Desktop Icons application stand-alone
 
-It is possible to launch the desktop icons application in stand-alone mode to do debugging and testing, but, of course, it will behave as a classic Gtk program: there will be a window with its titlebar, and the background won't be transparent (it could be, but since the idea is to do debug, it is better this way). To do so, just launch './ding.js' from the repository directory. If it can't find the schemas file, just enter the 'schemas' folder and type 'glib-compile-schemas .', and retry.
+It is possible to launch the desktop icons application in stand-alone mode to do debugging and testing, but, of course, it will behave as a classic Gtk program: there will be a window with its titlebar, and the background won't be transparent (it could be, but since the idea is to do debug, it is better this way). To do so, just launch 'app/ding.js' from the base repository directory. If it can't find the schemas file, just enter the 'schemas' folder and type 'glib-compile-schemas .', and retry.
 
 It accepts the following command line parameters:
 
@@ -179,12 +180,13 @@ It's possible to read more information in the Meson docs to tweak the configurat
 For a regular use and local development these are the steps to build the project and install it:
 
 ```bash
+cp /scripts/meson.build ./
 meson --prefix=$HOME/.local/ --localedir=share/gnome-shell/extensions/gtk4-ding@smedius.gilab.com/locale .build
 ninja -C .build install
 ```
 
 It is strongly recommended to delete the destination folder ($HOME/.local/share/gnome-shell/extensions/gt4-ding@smedius.gitlab.com) before doing this, to ensure that no old
-data is kept.
+data is kept. It is also recommended to delete the local .build folder and the copied file meson.build after the build is finished to clean up.
 
 ## Installing with Puppet
 
@@ -192,10 +194,13 @@ If you want to install it in several machines using puppet, you must first creat
 
 ```bash
 mkdir install_folder
+cp scripts/meson.build ./
 meson --prefix=`pwd`/install_folder --localedir=share/locale .build
 ninja -C .build
 ninja -C .build install
 rm -f install_folder/share/glib-2.0/schemas/gschemas.compiled
+rm -rf .build
+rm meson.build
 ```
 
 The content of the `install_folder` folder is what you must copy in the destination computers at /usr. Afterdoing that, you must run in each computer `sudo glib-compile-schemas /usr/share/glib-2.0/schemas` to update the schemas in the system.

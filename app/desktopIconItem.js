@@ -20,20 +20,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Gtk = imports.gi.Gtk;
-const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
-const Pango = imports.gi.Pango;
-const GdkPixbuf = imports.gi.GdkPixbuf;
-const DesktopIconsUtil = imports.desktopIconsUtil;
-const FileUtils = imports.fileUtils;
+const { Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf } = imports.gi;
+const DesktopIconsUtil = imports.utils.desktopIconsUtil;
+const FileUtils = imports.utils.fileUtils;
 
-const Prefs = imports.preferences;
-const Enums = imports.enums;
+const Prefs = imports.app.preferences;
+const Enums = imports.app.enums;
 
 const Signals = imports.signals;
-const Gettext = imports.gettext.domain('ding');
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 

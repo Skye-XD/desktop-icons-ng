@@ -16,13 +16,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Gtk = imports.gi.Gtk;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
-const DBusUtils = imports.dbusUtils;
-const DesktopIconsUtil = imports.desktopIconsUtil;
-const FileUtils = imports.fileUtils;
-const Gettext = imports.gettext.domain('ding');
+const { Gtk, Gio, GLib } = imports.gi;
+const DBusUtils = imports.utils.dbusUtils;
+const DesktopIconsUtil = imports.utils.desktopIconsUtil;
+const FileUtils = imports.utils.fileUtils;
+const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
