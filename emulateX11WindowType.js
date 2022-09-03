@@ -220,7 +220,7 @@ var EmulateX11WindowType = class {
                 let appid = window.get_gtk_application_id();
                 let windowpid = window.get_pid();
                 let mypid = this._waylandClient.query_pid_of_program();
-                if ((appid === 'com.rastersoft.ding') && (windowpid === mypid))
+                if ((appid === 'com.desktop.ding') && (windowpid === mypid))
                     this.addWindow(window);
             }
             this._refreshWindows(false);
