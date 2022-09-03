@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: desktop-icons master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-04 20:42+0200\n"
-"PO-Revision-Date: 2022-01-10 18:51+0100\n"
+"PO-Revision-Date: 2022-09-01 08:39+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: askRenamePopup.js:42
 msgid "Folder name"
@@ -38,13 +38,15 @@ msgstr "Rinomina"
 
 #: dbusUtils.js:66
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr ""
+msgstr "\"${programName}\" è richiesto per Desktop Icons"
 
 #: dbusUtils.js:67
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
+"Per permettere il funzionamento di questa funzionalità in Desktop Icons, "
+"installare \"${programName}\" nel sistema."
 
 #: desktopIconsUtil.js:96
 msgid "Command not found"
@@ -69,7 +71,7 @@ msgstr "Annulla"
 
 #: desktopManager.js:795
 msgid "Find Files on Desktop"
-msgstr "Trova i file sul desktop"
+msgstr "Trova i file sulla scrivania"
 
 #: desktopManager.js:860 desktopManager.js:1483
 msgid "New Folder"
@@ -133,7 +135,7 @@ msgstr "Mantieni inpilato per tipo..."
 
 #: desktopManager.js:1563
 msgid "Sort Home/Drives/Trash..."
-msgstr "Ordina Home/Drives/Cestino..."
+msgstr "Ordina Home/Dispositivi/Cestino..."
 
 #: desktopManager.js:1569
 msgid "Sort by Name"
@@ -162,16 +164,15 @@ msgstr "Home"
 
 #: fileItem.js:275
 msgid "Broken Link"
-msgstr ""
+msgstr "Collegamento interrotto"
 
 #: fileItem.js:276
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "Non è possibile aprire questo file perché è un collegamento interrotto"
 
 #: fileItem.js:326
-#, fuzzy
 msgid "Broken Desktop File"
-msgstr "Mostra la scrivania in File"
+msgstr "File corrotto in scrivania"
 
 #: fileItem.js:327
 msgid ""
@@ -180,28 +181,40 @@ msgid ""
 "\n"
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
+"Questo file .desktop contiene errori o punta a un programma senza permessi. "
+"Non può essere eseguito.\n"
+"\n"
+"\t<b>Modificare il file per impostare il corretto eseguibile.</b>"
 
 #: fileItem.js:333
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "Permessi non validi nel file in scrivania"
 
 #: fileItem.js:334
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
+"Questo file .desktop non ha i permessi corretti. Click destro per modificare "
+"le Proprietà, e:\n"
 
 #: fileItem.js:336
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
+"\n"
+"<b>Impostare i permessi in \"Leggere e scrivere\", \"Leggere soltanto\" o "
+"\"Nessuno\"</b>"
 
 #: fileItem.js:339
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
+"\n"
+"<b>Abilitare l'opzione \"Consentire l'esecuzione del file come programma\"</"
+"b>"
 
 #: fileItem.js:347
 msgid ""
@@ -210,6 +223,10 @@ msgid ""
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
+"Questo file .desktop non è affidabile, non può essere eseguito. Per "
+"permetterne l'esecuzione, click destro e:\n"
+"\n"
+"<b>Abilitare \"Permetti l'esecuzione\"</b>"
 
 #: fileItemMenu.js:118
 msgid "Open All..."
@@ -233,7 +250,7 @@ msgstr "Script"
 
 #: fileItemMenu.js:147
 msgid "Open All With Other Application..."
-msgstr "Apri tutto con un'altra applicazione"
+msgstr "Apri tutto con un'altra applicazione…"
 
 #: fileItemMenu.js:147
 msgid "Open With Other Application"
@@ -245,7 +262,7 @@ msgstr "Esegui con la scheda grafica dedicata"
 
 #: fileItemMenu.js:162
 msgid "Run as a program"
-msgstr ""
+msgstr "Esegui come programma"
 
 #: fileItemMenu.js:170
 msgid "Cut"
@@ -382,7 +399,7 @@ msgstr "Mostra le periferiche esterne sulla scrivania"
 
 #: prefswindow.js:50 schemas/org.gnome.shell.extensions.ding.gschema.xml:50
 msgid "Show network drives in the desktop"
-msgstr "Mostra le periferiche di rete sulla scrivania."
+msgstr "Mostra le periferiche di rete sulla scrivania"
 
 #: prefswindow.js:53
 msgid "New icons alignment"
@@ -414,15 +431,15 @@ msgstr "Evidenzia il punto di rilascio durante il trascinamento"
 
 #: prefswindow.js:61 schemas/org.gnome.shell.extensions.ding.gschema.xml:90
 msgid "Use Nemo to open folders"
-msgstr ""
+msgstr "Usare Nemo per aprire le cartelle"
 
 #: prefswindow.js:63
 msgid "Add an emblem to soft links"
-msgstr ""
+msgstr "Aggiungere un'icona ai collegamenti simbolici"
 
 #: prefswindow.js:65
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "Usa testo scuro nelle etichette delle icone"
 
 #. Nautilus options
 #: prefswindow.js:71
@@ -515,15 +532,15 @@ msgstr "Angolo iniziale delle nuove icone"
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
-msgstr "Imposta l'angolo da cui le icone inizieranno ad essere posizionate"
+msgstr "Imposta l'angolo d'inizio per il posizionamento delle icone."
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
-msgstr "Mostra le periferiche connesse al computer"
+msgstr "Mostra le periferiche connesse al computer."
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
-msgstr "Mostra i volumi di rete montati nella scrivania"
+msgstr "Mostra i volumi di rete montati nella scrivania."
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:56
 msgid ""
@@ -575,9 +592,8 @@ msgid "Icons Arranged by this property"
 msgstr "Icone ordinate per questa proprietà"
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:80
-#, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Mantieni le icone disposte"
+msgstr "Mantieni le icone impilate"
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:81
 msgid "Always keep Icons Stacked, Similar types are grouped"
@@ -593,25 +609,28 @@ msgstr "Un array di tipi di stringhe, non impilare questi tipi di file"
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:91
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr ""
+msgstr "Usare Nemo invece di Nautilus per aprire le cartelle."
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:95
 msgid "Add an emblem to links"
-msgstr ""
+msgstr "Aggiungere un'icona ai collegamenti"
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:96
 msgid "Add an emblem to allow to identify soft links."
 msgstr ""
+"Aggiungere un'icona per permettere di identificare i collegamenti simbolici."
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:100
 msgid "Use black for label text"
-msgstr ""
+msgstr "Usa il nero per il testo delle etichette"
 
 #: schemas/org.gnome.shell.extensions.ding.gschema.xml:101
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
+"Colora di nero invece che bianco il testo delle etichette. Utile quando si "
+"utilizzano sfondi chiari."
 
 #~ msgid ""
 #~ "To configure Desktop Icons NG, do right-click in the desktop and choose "
