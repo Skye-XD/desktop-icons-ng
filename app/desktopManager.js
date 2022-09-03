@@ -216,7 +216,7 @@ var DesktopManager = class {
         this.rubberBand = false;
 
         let cssProvider = new Gtk.CssProvider();
-        cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([codePath, 'app','stylesheet.css'])));
+        cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([codePath, 'app', 'stylesheet.css'])));
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         this._configureSelectionColor();

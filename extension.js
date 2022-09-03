@@ -169,9 +169,16 @@ function innerEnable(removeId) {
         '/com/desktop/ding/actions'
     );
 
-    data.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe('com.desktop.ding', 'com.desktop.ding.geometrycontrol', 'updategeometry', '/com/desktop/ding/geometrycontrol', null, Gio.DBusSignalFlags.NONE, () => {
-        updateDesktopGeometry();
-    });
+    data.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe(
+        'com.desktop.ding',
+        'com.desktop.ding.geometrycontrol',
+        'updategeometry',
+        '/com/desktop/ding/geometrycontrol',
+        null,
+        Gio.DBusSignalFlags.NONE, () => {
+            updateDesktopGeometry();
+        }
+    );
 }
 
 /**
