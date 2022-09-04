@@ -22,6 +22,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Merged all changes from branch more-asyncness, by Marco Trevisan, that was submitted upstream, to this Gtk4 branch to use async functions for everything.
 
+- [x] Make DBus Proxies asynchronously, so the extension starts at once and does not hang till DBus services respond to requests.
+
 - [x] Prevent Flashing Icons - Use async await promises to update the entire fileList icon widgets prior to placing on desktop. Do the same for stack Top Marker Folders.
 
 - [x] Use Promises to detect when icons have been placed on the desktop, so that in draw desktop, it is clear that all the icons are placed on the desktop and desktop drawing is complete. This allows queuing code that can only be executed when icon placing is complete and the desktop draw is done.
@@ -210,7 +212,7 @@ The content of the `install_folder` folder is what you must copy in the destinat
 To create a ZIP file with the extension, just run:
 
 ```bash
-./export-zip.sh
+./scripts/export-zip.sh
 ```
 
 This will create the file `gtk4-ding@smedius.gitlab.com.zip` with the extension, following the rules for publishing at extensions.gnome.org.

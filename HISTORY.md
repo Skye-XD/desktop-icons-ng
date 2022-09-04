@@ -1,6 +1,15 @@
 # History of versions #
 
-* Gtk4 Verion 1 First Release of Gtk4 port.
+* Gtk4 Version 2
+  * Fix prefs.js to not leave global variables so that extension could be accepted at extensions.gnome.org (Sundeep Mediatta)
+  * New Folder structure to separate extension and the DING application. Facilitate review at extensions.gnome.org (Sundeep Mediratta)
+  * Clearly state in comments why extension needs to run on the lock screen so it could be accepted at extensions.gnome.org (Sundeep Mediratta)
+  * Update Readme etc. Sync version number with extensions.gnome.org. (Sundeep Mediratta)
+  * New .pot file for gtk4-ding. (Sundeep Mediratta)
+  * Fix incorrect application name in emulateX11WindowType.js (Sundeep Mediratta)
+  * Use set instead of array for windowlist in emulateX11WindowType. (Sundeep Mediratta)
+
+* Gtk4 Version 1 First Release of Gtk4 port.
 
   * Fix Drag and Drop. Need to add drag and drop controllers to DesktipIconItem.js. (Sundeep Mediratta)
   * Fix Rectangle Selection. Fixed by using Gtk.Overlay. (Sundeep Mediratta)
@@ -29,6 +38,7 @@
   * The reverse is also true, if a broken link resolves correctly as the target re-appeared, the link is opened and the icon updated to the correct icon.
   * Copied files retain the dropped position. (Sundeep Mediratta)
   * Merged all changes from branch more-asyncness, by Marco Trevisan. (Marco Trevisian, merge changes Sundeep Mediratta)
+  * Make DBus Proxies asynchronously, so the extension starts at once and does not hang till DBus services respond to requests. (Sundeep Mediratta)
   * Prevent Flashing Icons - Use async await promises to update the entire fileList icon widgets prior to placing on desktop. (Sundeep Mediratta)
   * Use Promises when icons are placed in desktop, This allows queuing code that can only be executed when icon placing is complete and the desktop draw is done. (Sundeep Mediratta)
   * Optimize refreshMenus after Icons are placed on Grid to point to the correct fileItem with the above promise. (Sundeep Mediratta)
@@ -40,7 +50,6 @@
   * All formatting is fixed and errors from eslint resolved, should follow GJS/Gnome guidelines. (Sundeep Mediratta)
   * Change the UUID of the extension, the application ID  and the Dbus object paths for the application to differentiate it from the gtk-3 desktop icons NG extension. (Sundeep Mediratta)
   * Extension now runs on the lock screen under Gnome 42 and higher, so DING is no longer killed on lock and then restarted on unlock.
-  * New Directory structure for better organization.
 
 * Version 47
   * Pass the primary monitor index through DBus (Sergio Costas)
