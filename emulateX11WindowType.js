@@ -1,7 +1,7 @@
 /* Emulate X11WindowType
  *
+ * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2020 Sergio Costas (rastersoft@gmail.com)
- * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) - modified to use for X11 windows as well
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -197,7 +197,7 @@ var EmulateX11WindowType = class {
      */
     constructor() {
         this._isX11 = !Meta.is_wayland_compositor();
-        this._windowList = [];
+        this._windowList = new Set();
         this._enableRefresh = true;
         this._waylandClient = null;
     }
@@ -261,7 +261,7 @@ var EmulateX11WindowType = class {
         for (let window of this._windowList)
             this._clearWindow(window);
 
-        this._windowList = [];
+        this._windowList.clear();
 
         // disconnect signals
         if (this._idMap) {
@@ -290,13 +290,15 @@ var EmulateX11WindowType = class {
         if (window.get_meta_window) { // it is a MetaWindowActor
             window = window.get_meta_window();
         }
+        if (this._windowList.has(window))
+            return;
         window.customJS_ding = new ManageWindow(window, this._waylandClient, () => {
             this._refreshWindows(true);
         });
-        this._windowList.push(window);
+        this._windowList.add(window);
         window.customJS_ding.unmanagedID = window.connect('unmanaged', win => {
             this._clearWindow(win);
-            this._windowList = this._windowList.filter(item => item !== win);
+            this._windowList.delete(window);
         });
     }
 
