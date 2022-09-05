@@ -92,7 +92,10 @@ var DndTargetInfo = {
     GNOME_ICON_LIST: 'x-special/gnome-icon-list',
     URI_LIST: 'text/uri-list',
     TEXT_PLAIN: 'text/plain',
-    MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain'],
+    GDKFILELIST: 'GdkFileList',
+    GCHARARRAY: 'gchararray',
+    GFILE: 'GFile',
+    MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'GdkFileList', 'gchararray', 'GFile','text/uri-list', 'text/plain'],
 };
 
 var DEFAULT_ATTRIBUTES = 'metadata::*,standard::*,access::*,time::modified,unix::mode';

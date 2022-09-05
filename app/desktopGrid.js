@@ -437,10 +437,14 @@ var DesktopGrid = class {
         this.gridDropController.connect('accept', (actor, drop) => {
             if (drop.get_formats().match(formats)) {
                 dropformats = drop.get_formats().to_string();
+                log(dropformats);
                 if (dropformats.includes(Enums.DndTargetInfo.DING_ICON_LIST))
                     info = Enums.DndTargetInfo.DING_ICON_LIST;
                 else if (dropformats.includes(Enums.DndTargetInfo.GNOME_ICON_LIST))
                     info = Enums.DndTargetInfo.GNOME_ICON_LIST;
+                else if (dropformats.includes(Enums.DndTargetInfo.GDKFILELIST) &&
+                        dropformats.includes(Enums.DndTargetInfo.GFILE))
+                    info = Enums.DndTargetInfo.GDKFILELIST;
                 else if (dropformats.includes(Enums.DndTargetInfo.TEXT_PLAIN))
                     info = Enums.DndTargetInfo.TEXT_PLAIN;
 
