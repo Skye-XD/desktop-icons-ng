@@ -416,17 +416,13 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
 
         if (info !== Enums.DndTargetInfo.GNOME_ICON_LIST &&
+            info !== Enums.DndTargetInfo.GDKFILELIST &&
             info !== Enums.DndTargetInfo.URI_LIST &&
             info !== Enums.DndTargetInfo.DING_ICON_LIST)
             return;
 
-
-        const fileList = selection.split('\r\n');
-        if (fileList.length >= 2)
-            fileList.splice(-1, 1);
-
-
-        if (!fileList.length)
+        const fileList = this._desktopManager.makeFileListFromSelection(selection, info);
+        if (! fileList)
             return;
 
 
