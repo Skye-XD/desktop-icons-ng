@@ -1,5 +1,10 @@
 # History of versions #
 
+* Gtk4 Version 3
+  * Fix Drag and Drop to work with Nautilus 43rc. (Sundeep Mediratta)
+  * Update metadata to work with upcoming Gnome 43.
+  * Version Bump
+
 * Gtk4 Version 2
   * Fix prefs.js to not leave global variables so that extension could be accepted at extensions.gnome.org (Sundeep Mediatta)
   * New Folder structure to separate extension and the DING application. Facilitate review at extensions.gnome.org (Sundeep Mediratta)

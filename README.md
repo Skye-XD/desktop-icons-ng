@@ -42,6 +42,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Re-organization, New Folder structure to avoid confusion and facilitate review.
 
+- [x] Update to work with Gnome 43 and Nautilus 43rc.
+
 **EXPERIMENTAL FEATURES**
 
 There is optional integration with Gsconnect extension available. If Gsconnect extension is installed, right click menus allow sending files directly from the desktop using Gsconnect. To use this feature, look for the "Gtk4-gsconnect-integration" branch in this repository, and install from that branch. Feedback, fixes appreciated, this branch has not been well tested at all.
