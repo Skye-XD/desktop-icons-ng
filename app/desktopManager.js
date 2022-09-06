@@ -662,7 +662,7 @@ var DesktopManager = class {
     makeFileListFromSelection(selection, info) {
         let fileList;
 
-        if (info === Enums.DndTargetInfo.GDKFILELIST) {
+        if (info === Enums.DndTargetInfo.URI_LIST) {
             fileList = selection.replace('/', '');
             fileList = fileList.split(' /');
             if (!fileList.length)
@@ -690,13 +690,11 @@ var DesktopManager = class {
             [xOrigin, yOrigin] = dragItem.getCoordinates().slice(0, 3);
             this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
             break;
-        case Enums.DndTargetInfo.URI_LIST:
-        case Enums.DndTargetInfo.GDKFILELIST:
         case Enums.DndTargetInfo.GNOME_ICON_LIST:
+        case Enums.DndTargetInfo.URI_LIST:
             const fileList = this.makeFileListFromSelection(selection, info);
             if (!fileList)
                 return;
-            log(fileList);
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
                 try {
                     await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], forceCopy);

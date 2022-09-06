@@ -91,11 +91,11 @@ var DndTargetInfo = {
     DING_ICON_LIST: 'x-special/ding-icon-list',
     GNOME_ICON_LIST: 'x-special/gnome-icon-list',
     URI_LIST: 'text/uri-list',
-    TEXT_PLAIN: 'text/plain',
+    TEXT_PLAIN: 'text/plain;charset=utf-8',
     GDKFILELIST: 'GdkFileList',
     GCHARARRAY: 'gchararray',
     GFILE: 'GFile',
-    MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'GdkFileList', 'gchararray', 'GFile','text/uri-list', 'text/plain'],
+    MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain;charset=utf-8'],
 };
 
 var DEFAULT_ATTRIBUTES = 'metadata::*,standard::*,access::*,time::modified,unix::mode';
