@@ -613,7 +613,7 @@ var DesktopManager = class {
         }
         // force to store the new coordinates
         this._addFilesToDesktop(fileItems, Enums.StoredCoordinates.OVERWRITE);
-        if (this.keepArranged) {
+        if (keepArranged) {
             this._updateDesktop().catch(e => {
                 print(`Exception while doing move with drag and drop and keeping arranged: ${e.message}\n${e.stack}`);
             });
@@ -659,30 +659,42 @@ var DesktopManager = class {
         this.dragItem = null;
     }
 
+    makeFileListFromSelection(selection, info) {
+        let fileList;
+
+        if (info === Enums.DndTargetInfo.URI_LIST) {
+            fileList = selection.replace('/', '');
+            fileList = fileList.split(' /');
+            if (!fileList.length)
+                return null;
+            fileList = fileList.map(f => f = `file:///${f}`);
+        } else {
+            fileList = selection.split('\r\n');
+            if (fileList.length >= 2)
+                fileList.splice(-1, 1);
+        }
+
+        return fileList.length ? fileList : null;
+    }
+
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, selection, info, gdkDropAction, event, dragItem) {
         this.onDragLeave();
 
         let dropCoordinates;
         let xOrigin;
         let yOrigin;
-
-        const fileList = selection.split('\r\n');
-        if (fileList.length >= 2)
-            fileList.splice(-1, 1);
-
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
-
-        if (!fileList.length)
-            return;
-
 
         switch (info) {
         case Enums.DndTargetInfo.DING_ICON_LIST:
             [xOrigin, yOrigin] = dragItem.getCoordinates().slice(0, 3);
             this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
             break;
-        case Enums.DndTargetInfo.URI_LIST:
         case Enums.DndTargetInfo.GNOME_ICON_LIST:
+        case Enums.DndTargetInfo.URI_LIST:
+            const fileList = this.makeFileListFromSelection(selection, info);
+            if (!fileList)
+                return;
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
                 try {
                     await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], forceCopy);

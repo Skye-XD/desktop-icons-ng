@@ -428,24 +428,18 @@ var DesktopGrid = class {
     setDropDestination(widget) {
         this.gridDropController = new Gtk.DropTargetAsync();
         this.gridDropController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
-        let formats = Gdk.ContentFormats.new(Enums.DndTargetInfo.MIME_TYPES);
-        this.gridDropController.set_formats(formats);
-        let dropformats;
-        let info;
-        let selection;
+        const desktopAcceptFormats = Gdk.ContentFormats.new(Enums.DndTargetInfo.MIME_TYPES);
+        const fileItemAcceptFormats = Gdk.ContentFormats.new([Enums.DndTargetInfo.GNOME_ICON_LIST, Enums.DndTargetInfo.URI_LIST]);
+        const desktopMoveIconsFormat = Gdk.ContentFormats.new([Enums.DndTargetInfo.DING_ICON_LIST]);
+        const textDropFormat = Gdk.ContentFormats.new([Enums.DndTargetInfo.TEXT_PLAIN]);
+        this.gridDropController.set_formats(desktopAcceptFormats);
+
+        let acceptFormat = null;
+        let selectionList = null;
 
         this.gridDropController.connect('accept', (actor, drop) => {
-            if (drop.get_formats().match(formats)) {
-                dropformats = drop.get_formats().to_string();
-                if (dropformats.includes(Enums.DndTargetInfo.DING_ICON_LIST))
-                    info = Enums.DndTargetInfo.DING_ICON_LIST;
-                else if (dropformats.includes(Enums.DndTargetInfo.GNOME_ICON_LIST))
-                    info = Enums.DndTargetInfo.GNOME_ICON_LIST;
-                else if (dropformats.includes(Enums.DndTargetInfo.TEXT_PLAIN))
-                    info = Enums.DndTargetInfo.TEXT_PLAIN;
-
+            if (drop.get_formats().match(desktopAcceptFormats))
                 return true;
-            }
         });
 
         this.gridDropController.connect('drag-enter', () => {
@@ -453,27 +447,51 @@ var DesktopGrid = class {
         });
 
         this.gridDropController.connect('drag-motion', (actor, drop, x, y) => {
-            let clickItem = this._fileAt(x, y);
+            let desktopDropZone = false;
+            let fileItemDropZone = false;
+            let fileItem = this._fileAt(x, y);
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
-            this.receiveMotion(x, y, false);
-            if (clickItem && !clickItem.dropCapable()) {
+            let dropRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+            let desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
+            let filesMove = drop.get_formats().match(fileItemAcceptFormats);
+
+            if (fileItem) {
                 if (this._desktopManager.showDropPlace)
-                    return false;
-                else if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0])
-                    return false;
+                    fileItemDropZone = true;
+                else if (dropRectangle.intersect(fileItem.iconRectangle)[0] || dropRectangle.intersect(fileItem.labelRectangle)[0])
+                    fileItemDropZone = true;
+                if (desktopMove && fileItem._hasToRouteDragToGrid())
+                    fileItemDropZone = false;
             }
-            if (clickItem && clickItem.dropCapable && (clickItem._fileExtra !== Enums.FileType.EXTERNAL_DRIVE))
+            desktopDropZone = !fileItemDropZone;
+
+            this.receiveMotion(x, y, false);
+
+            if (fileItemDropZone && !fileItem.dropCapable)
+                return false;
+
+            if (fileItemDropZone && fileItem.dropCapable) {
+                if (!filesMove)
+                    return false;
+
+                if (fileItem._fileExtra !== Enums.FileType.EXTERNAL_DRIVE)
+                    return Gdk.DragAction.MOVE;
+
+                if (fileItem._fileExtra === Enums.FileType.EXTERNAL_DRIVE)
+                    return Gdk.DragAction.COPY;
+            }
+
+            if (desktopDropZone) {
+                if (desktopMove) {
+                    if (this._desktopManager.keepArranged || this._desktopManager.keepStacked) {
+                        if (Prefs.desktopSettings.get_boolean('sort-special-folders'))
+                            return false;
+                        else if (this._desktopManager.getCurrentSelection().filter(f => !f.isSpecial).length >= 1)
+                            return false;
+                    }
+                }
                 return Gdk.DragAction.MOVE;
-
-            if (clickItem && (clickItem._fileExtra === Enums.FileType.EXTERNAL_DRIVE))
-                return Gdk.DragAction.COPY;
-
-            if ((this._desktopManager.keepArranged || this._desktopManager.keepStacked) && info === Enums.DndTargetInfo.DING_ICON_LIST) {
-                if (!this._desktopManager.getCurrentSelection().filter(f => f.isSpecial).length)
-                    return false;
             }
-            return Gdk.DragAction.MOVE;
         });
 
         this.gridDropController.connect('drag-leave', () => {
@@ -486,44 +504,68 @@ var DesktopGrid = class {
                 'timestamp': Gdk.CURRENT_TIME,
             };
 
-            drop.read_value_async(String.$gtype, GLib.PRIORITY_DEFAULT, null, (dropactor, task) => {
-                selection = dropactor.read_value_finish(task);
-                if (selection && info) {
-                    let gdkDropAction = drop.get_actions();
-                    let gdkDropReturnAction;
-                    if ((gdkDropAction !== Gdk.DragAction.MOVE) || (gdkDropAction !== Gdk.DragAction.COPY))
-                        gdkDropReturnAction = Gdk.DragAction.MOVE;
-                    else
-                        gdkDropReturnAction = gdkDropAction;
+            let desktopDropZone = false;
+            let fileItemDropZone = false;
+            let fileItem = this._fileAt(x, y);
+            let [X, Y] = this.coordinatesLocalToGlobal(x, y);
+            let dropRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+            let desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
+            let filesMove = drop.get_formats().match(fileItemAcceptFormats);
+            if (fileItem) {
+                if (this._desktopManager.showDropPlace)
+                    fileItemDropZone = true;
+                else if (dropRectangle.intersect(fileItem.iconRectangle)[0] || dropRectangle.intersect(fileItem.labelRectangle)[0])
+                    fileItemDropZone = true;
+                if (desktopMove && fileItem._hasToRouteDragToGrid())
+                    fileItemDropZone = false;
+            }
+            desktopDropZone = !fileItemDropZone;
 
-                    let clickItem = this._fileAt(x, y);
-                    let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                    let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
-                    if (clickItem && !clickItem._hasToRouteDragToGrid()) {
-                        if (this._desktopManager.showDropPlace) {
-                            clickItem.receiveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
-                            drop.finish(gdkDropReturnAction);
-                            this.receiveLeave();
-                            return true;
-                        } else if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
-                            clickItem.receiveDrop(X, Y, x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
-                            drop.finish(gdkDropReturnAction);
-                            this.receiveLeave();
-                            return true;
-                        }
-                    }
-                    this.receiveDrop(x, y, selection, info, gdkDropAction, event, this._desktopManager.dragItem);
-                    drop.finish(gdkDropReturnAction);
-                    if (this._using_X11) {
+            let textDrop = drop.get_formats().match(textDropFormat) && !desktopMove && !filesMove;
+            if (textDrop)
+                acceptFormat = Enums.DndTargetInfo.TEXT_PLAIN;
+
+            if (desktopMove)
+                acceptFormat = Enums.DndTargetInfo.DING_ICON_LIST;
+
+            if (filesMove && !desktopMove)
+                acceptFormat = Enums.DndTargetInfo.URI_LIST;
+
+            drop.read_value_async(String.$gtype, GLib.PRIORITY_DEFAULT, null, (dropactor, task) => {
+                selectionList = dropactor.read_value_finish(task);
+
+                if (!selectionList && !acceptFormat) {
+                    if (this._using_X11)
                         this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
-                        this.receiveLeave();
-                    }
+                    this.receiveLeave();
+                    return false;
+                }
+
+                let gdkDropAction = drop.get_actions();
+                let gdkDropReturnAction;
+                if ((gdkDropAction !== Gdk.DragAction.MOVE) || (gdkDropAction !== Gdk.DragAction.COPY))
+                    gdkDropReturnAction = Gdk.DragAction.MOVE;
+                else
+                    gdkDropReturnAction = gdkDropAction;
+
+                if (fileItemDropZone && (desktopMove || filesMove)) {
+                    fileItem.receiveDrop(X, Y, x, y, selectionList, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
+                    drop.finish(gdkDropReturnAction);
+                    this.receiveLeave();
+                    return true;
+                }
+
+                if (desktopDropZone && (desktopMove || filesMove || textDrop)) {
+                    this.receiveDrop(x, y, selectionList, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
+                    drop.finish(gdkDropReturnAction);
+                    if (this._using_X11)
+                        this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+                    this.receiveLeave();
                     return true;
                 } else {
-                    if (this._using_X11) {
+                    if (this._using_X11)
                         this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
-                        this.receiveLeave();
-                    }
+                    this.receiveLeave();
                     return false;
                 }
             });
@@ -533,15 +575,15 @@ var DesktopGrid = class {
         this.gridDropControllerMotion = new Gtk.DropControllerMotion();
         this.gridDropControllerMotion.connect('motion', (actor, x, y) => {
             if (!this.gridDropControllerMotion.is_pointer) {
-                let clickItem = this._fileAt(x, y);
+                let fileItem = this._fileAt(x, y);
                 let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
-                if (clickItem && clickItem.dropCapable()) {
+                let pointerRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+                if (fileItem && fileItem.dropCapable) {
                     this._desktopManager.unHighLightDropTarget();
                     if (this._desktopManager.showDropPlace)
-                        clickItem.highLightDropTarget();
-                    else if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0])
-                        clickItem.highLightDropTarget();
+                        fileItem.highLightDropTarget();
+                    else if (pointerRectangle.intersect(fileItem.iconRectangle)[0] || pointerRectangle.intersect(fileItem.labelRectangle)[0])
+                        fileItem.highLightDropTarget();
                 }
             } else {
                 this._desktopManager.unHighLightDropTarget();
@@ -561,7 +603,7 @@ var DesktopGrid = class {
                 let [X, Y] = this.coordinatesLocalToGlobal(x, y);
                 let [a, b] = clickItem._calculateOffset(X, Y);
                 widgetDragController.set_icon(clickItem.dragIcon, a, b);
-                this._loadDragData(clickItem);
+                this._loadDragData();
                 if (this.contentProvider)
                     return this.contentProvider;
             }
@@ -576,25 +618,23 @@ var DesktopGrid = class {
         widget.add_controller(widgetDragController);
     }
 
-    _loadDragData(clickItem) {
-        let dingdragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.DING_ICON_LIST);
-        let dingcontentProvider;
-        if (dingdragData !== null) {
-            dingcontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.DING_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(dingdragData)));
-        } else {
-            this.contentProvider = null;
+    _loadDragData() {
+        this.contentProvider = null;
+
+        let dingDragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.DING_ICON_LIST);
+        if (!dingDragData)
             return;
-        }
-        let textlistdragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.TEXT_PLAIN);
-        let textlistcontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, ByteArray.toGBytes(ByteArray.fromString(textlistdragData)));
-        if ((clickItem._fileExtra !== Enums.FileType.USER_DIRECTORY_TRASH) &&
-            (clickItem._fileExtra !== Enums.FileType.USER_DIRECTORY_HOME) &&
-            (clickItem._fileExtra !== Enums.FileType.EXTERNAL_DRIVE)) {
-            let gnomedragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.GNOME_ICON_LIST);
-            let gnomecontentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(gnomedragData)));
-            this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, gnomecontentProvider, textlistcontentProvider]);
+
+        let dingContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.DING_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
+        let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
+
+        if (this._desktopManager.checkIfSpecialFilesAreSelected()) {
+            this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, textlistContentProvider]);
         } else {
-            this.contentProvider = Gdk.ContentProvider.new_union([dingcontentProvider, textlistcontentProvider]);
+            let gnomeDragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.GNOME_ICON_LIST);
+            let gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(gnomeDragData)));
+            let textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.URI_LIST, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
+            this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, gnomeContentProvider, textUriListContentProvider, textlistContentProvider]);
         }
     }
 
@@ -670,7 +710,7 @@ var DesktopGrid = class {
             x += ox;
             y += oy;
             let r = this.getGridAt(x, y);
-            if ((r !== null) && (!this.gridInUse(r[0], r[1]) || this._fileAt(r[0], r[1]).isSelected))
+            if (!isNaN(r[0]) && !isNaN(r[1]) && (!this.gridInUse(r[0], r[1]) || this._fileAt(r[0], r[1]).isSelected))
                 newSelectedList.push(r);
         }
         if (newSelectedList.length === 0) {
