@@ -613,7 +613,7 @@ var DesktopManager = class {
         }
         // force to store the new coordinates
         this._addFilesToDesktop(fileItems, Enums.StoredCoordinates.OVERWRITE);
-        if (this.keepArranged) {
+        if (keepArranged) {
             this._updateDesktop().catch(e => {
                 print(`Exception while doing move with drag and drop and keeping arranged: ${e.message}\n${e.stack}`);
             });
