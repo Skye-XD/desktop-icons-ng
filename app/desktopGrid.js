@@ -432,6 +432,7 @@ var DesktopGrid = class {
         const fileItemAcceptFormats = Gdk.ContentFormats.new([Enums.DndTargetInfo.GNOME_ICON_LIST, Enums.DndTargetInfo.URI_LIST]);
         const desktopMoveIconsFormat = Gdk.ContentFormats.new([Enums.DndTargetInfo.DING_ICON_LIST]);
         const textDropFormat = Gdk.ContentFormats.new([Enums.DndTargetInfo.TEXT_PLAIN]);
+        const oldNautilusDropFormat = Gdk.ContentFormats.new([Enums.DndTargetInfo.GNOME_ICON_LIST]);
         this.gridDropController.set_formats(desktopAcceptFormats);
 
         let acceptFormat = null;
@@ -511,6 +512,7 @@ var DesktopGrid = class {
             let dropRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
             let desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
             let filesMove = drop.get_formats().match(fileItemAcceptFormats);
+            let oldNautilusMove = drop.get_formats().match(oldNautilusDropFormat);
             if (fileItem) {
                 if (this._desktopManager.showDropPlace)
                     fileItemDropZone = true;
@@ -528,8 +530,12 @@ var DesktopGrid = class {
             if (desktopMove)
                 acceptFormat = Enums.DndTargetInfo.DING_ICON_LIST;
 
-            if (filesMove && !desktopMove)
-                acceptFormat = Enums.DndTargetInfo.URI_LIST;
+            if (filesMove && !desktopMove) {
+                if (oldNautilusMove)
+                    acceptFormat = Enums.DndTargetInfo.GNOME_ICON_LIST;
+                else
+                    acceptFormat = Enums.DndTargetInfo.URI_LIST;
+            }
 
             drop.read_value_async(String.$gtype, GLib.PRIORITY_DEFAULT, null, (dropactor, task) => {
                 selectionList = dropactor.read_value_finish(task);
