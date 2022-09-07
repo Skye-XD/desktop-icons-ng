@@ -1,5 +1,9 @@
 # History of versions #
 
+* Gtk4 version 5
+  * Fix regression- still accept drag and drop from old Nautilus in old format
+  * Version Bump to 5 to sync with extensions.gnome.org
+
 * Gtk4 Version 3
   * Fix Drag and Drop to work with Nautilus 43rc. (Sundeep Mediratta)
   * Update metadata to work with upcoming Gnome 43.
