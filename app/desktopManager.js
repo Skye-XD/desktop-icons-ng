@@ -659,40 +659,39 @@ var DesktopManager = class {
         this.dragItem = null;
     }
 
-    makeFileListFromSelection(selection, info) {
+    makeFileListFromSelection(dropData, acceptFormat) {
         let fileList;
 
-        if (info === Enums.DndTargetInfo.URI_LIST) {
-            fileList = selection.replace('/', '');
-            fileList = fileList.split(' /');
-            if (!fileList.length)
-                return null;
-            fileList = fileList.map(f => f = `file:///${f}`);
-        } else {
-            fileList = selection.split('\r\n');
-            if (fileList.length >= 2)
-                fileList.splice(-1, 1);
-        }
+        if (!dropData)
+            return null;
 
-        return fileList.length ? fileList : null;
+        if (acceptFormat === Enums.DndTargetInfo.GNOME_ICON_LIST)
+            fileList = GLib.Uri.list_extract_uris(dropData);
+        else
+            fileList = dropData.get_files().map(f => f.get_uri());
+
+        if (fileList && fileList.length)
+            return fileList;
+        else
+            return null;
     }
 
-    async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, selection, info, gdkDropAction, event, dragItem) {
+    async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
         this.onDragLeave();
 
         let dropCoordinates;
         let xOrigin;
         let yOrigin;
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
+        const fileList = this.makeFileListFromSelection(dropData, acceptFormat);
 
-        switch (info) {
+        switch (acceptFormat) {
         case Enums.DndTargetInfo.DING_ICON_LIST:
             [xOrigin, yOrigin] = dragItem.getCoordinates().slice(0, 3);
             this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
             break;
         case Enums.DndTargetInfo.GNOME_ICON_LIST:
         case Enums.DndTargetInfo.URI_LIST:
-            const fileList = this.makeFileListFromSelection(selection, info);
             if (!fileList)
                 return;
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
@@ -710,7 +709,7 @@ var DesktopManager = class {
             break;
         case Enums.DndTargetInfo.TEXT_PLAIN:
             dropCoordinates = [xGlobalDestination, yGlobalDestination];
-            this.detectURLorText(selection, dropCoordinates);
+            this.detectURLorText(dropData, dropCoordinates);
             break;
         }
     }

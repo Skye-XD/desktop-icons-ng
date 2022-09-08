@@ -436,7 +436,7 @@ var DesktopGrid = class {
         this.gridDropController.set_formats(desktopAcceptFormats);
 
         let acceptFormat = null;
-        let selectionList = null;
+        let dropData = null;
 
         this.gridDropController.connect('accept', (actor, drop) => {
             if (drop.get_formats().match(desktopAcceptFormats))
@@ -513,6 +513,8 @@ var DesktopGrid = class {
             let desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
             let filesMove = drop.get_formats().match(fileItemAcceptFormats);
             let oldNautilusMove = drop.get_formats().match(oldNautilusDropFormat);
+            let readFormat = Gdk.FileList.$gtype;
+
             if (fileItem) {
                 if (this._desktopManager.showDropPlace)
                     fileItemDropZone = true;
@@ -524,58 +526,40 @@ var DesktopGrid = class {
             desktopDropZone = !fileItemDropZone;
 
             let textDrop = drop.get_formats().match(textDropFormat) && !desktopMove && !filesMove;
-            if (textDrop)
+            if (textDrop) {
                 acceptFormat = Enums.DndTargetInfo.TEXT_PLAIN;
+                readFormat = String.$gtype;
+            }
 
             if (desktopMove)
                 acceptFormat = Enums.DndTargetInfo.DING_ICON_LIST;
 
             if (filesMove && !desktopMove) {
-                if (oldNautilusMove)
+                if (oldNautilusMove) {
                     acceptFormat = Enums.DndTargetInfo.GNOME_ICON_LIST;
-                else
+                    readFormat = String.$gtype;
+                } else {
                     acceptFormat = Enums.DndTargetInfo.URI_LIST;
+                }
             }
 
-            drop.read_value_async(String.$gtype, GLib.PRIORITY_DEFAULT, null, (dropactor, task) => {
-                selectionList = dropactor.read_value_finish(task);
+            if (desktopMove && !filesMove)
+                return this._completeDrop(X, Y, x, y, drop, dropData, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event);
 
-                if (!selectionList && !acceptFormat) {
+            drop.read_value_async(readFormat, GLib.PRIORITY_DEFAULT, null, (dropactor, result) => {
+                dropData = dropactor.read_value_finish(result);
+
+                if (!dropData && !acceptFormat) {
                     if (this._using_X11)
                         this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
                     this.receiveLeave();
                     return false;
                 }
 
-                let gdkDropAction = drop.get_actions();
-                let gdkDropReturnAction;
-                if ((gdkDropAction !== Gdk.DragAction.MOVE) || (gdkDropAction !== Gdk.DragAction.COPY))
-                    gdkDropReturnAction = Gdk.DragAction.MOVE;
-                else
-                    gdkDropReturnAction = gdkDropAction;
-
-                if (fileItemDropZone && (desktopMove || filesMove)) {
-                    fileItem.receiveDrop(X, Y, x, y, selectionList, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
-                    drop.finish(gdkDropReturnAction);
-                    this.receiveLeave();
-                    return true;
-                }
-
-                if (desktopDropZone && (desktopMove || filesMove || textDrop)) {
-                    this.receiveDrop(x, y, selectionList, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
-                    drop.finish(gdkDropReturnAction);
-                    if (this._using_X11)
-                        this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
-                    this.receiveLeave();
-                    return true;
-                } else {
-                    if (this._using_X11)
-                        this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
-                    this.receiveLeave();
-                    return false;
-                }
+                return this._completeDrop(X, Y, x, y, drop, dropData, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event);
             });
         });
+
         widget.add_controller(this.gridDropController);
 
         this.gridDropControllerMotion = new Gtk.DropControllerMotion();
@@ -595,8 +579,43 @@ var DesktopGrid = class {
                 this._desktopManager.unHighLightDropTarget();
             }
         });
+
         widget.add_controller(this.gridDropControllerMotion);
     }
+
+    _completeDrop(X, Y, x, y, drop, dropData, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event) {
+        let gdkDropAction = drop.get_actions();
+        let gdkDropReturnAction;
+        if ((gdkDropAction !== Gdk.DragAction.MOVE) || (gdkDropAction !== Gdk.DragAction.COPY))
+            gdkDropReturnAction = Gdk.DragAction.MOVE;
+        else
+            gdkDropReturnAction = gdkDropAction;
+
+        if (fileItemDropZone && (desktopMove || filesMove)) {
+            fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
+            drop.finish(gdkDropReturnAction);
+            if (this._using_X11)
+                this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+            this.receiveLeave();
+            return true;
+        }
+
+        if (desktopDropZone && (desktopMove || filesMove || textDrop)) {
+            this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
+            drop.finish(gdkDropReturnAction);
+            if (this._using_X11)
+                this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+            this.receiveLeave();
+            return true;
+        }
+
+        // Finally if all above does not work, catchall-
+        if (this._using_X11)
+            this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+        this.receiveLeave();
+        return false;
+    }
+
 
     setDragSource(widget) {
         let widgetDragController = Gtk.DragSource.new();
@@ -632,14 +651,14 @@ var DesktopGrid = class {
             return;
 
         let dingContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.DING_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
-        let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
 
         if (this._desktopManager.checkIfSpecialFilesAreSelected()) {
-            this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, textlistContentProvider]);
+            this.contentProvider = dingContentProvider;
         } else {
             let gnomeDragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.GNOME_ICON_LIST);
             let gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(gnomeDragData)));
             let textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.URI_LIST, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
+            let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
             this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, gnomeContentProvider, textUriListContentProvider, textlistContentProvider]);
         }
     }
