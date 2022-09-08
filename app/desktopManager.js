@@ -21,7 +21,6 @@ imports.gi.versions.Gtk = '4.0';
 imports.gi.versions.Gdk = '4.0';
 
 const { GLib, Gtk, Gdk, Gio } = imports.gi;
-const ByteArray = imports.byteArray;
 
 const FileItem = imports.app.fileItem;
 const stackItem = imports.app.stackItem;
@@ -1004,6 +1003,7 @@ var DesktopManager = class {
              * there is text data in the old format.
              */
             let text = null;
+            let textDecoder = new TextDecoder();
             if (clipboard.get_formats()) {
                 let mimetypes = clipboard.get_formats().to_string();
                 if (mimetypes.includes('x-special/gnome-copied-files')) {
@@ -1012,7 +1012,7 @@ var DesktopManager = class {
                             try {
                                 let success = actor.read_finish(result);
                                 let bytes = success[0].read_bytes(8192, null);
-                                text = ByteArray.toString(bytes.get_data());
+                                text = textDecoder.decode(bytes.get_data());
                                 text = `x-special/nautilus-clipboard\n${text}\n`;
                                 this._setClipboardContent(text);
                                 resolve(true);
@@ -1033,7 +1033,7 @@ var DesktopManager = class {
                             try {
                                 let success = actor.read_finish(result);
                                 let bytes = success[0].read_bytes(8192, null);
-                                text = ByteArray.toString(bytes.get_data());
+                                text = textDecoder.decode(bytes.get_data());
                                 if (text && !text.endsWith('\n'))
                                     text += '\n';
 
@@ -2194,10 +2194,11 @@ var DesktopManager = class {
         }
 
         let contentProvider;
+        let textCoder = new TextEncoder();
         if (this.GnomeShellVersion < 40)
-            contentProvider = Gdk.ContentProvider.new_for_bytes('text/plain', ByteArray.toGBytes(ByteArray.fromString(content)));
+            contentProvider = Gdk.ContentProvider.new_for_bytes('text/plain', textCoder.encode(content));
         else
-            contentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files', ByteArray.toGBytes(ByteArray.fromString(content)));
+            contentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files', textCoder.encode(content));
 
         clipboard.set_content(contentProvider);
     }
