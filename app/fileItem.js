@@ -410,17 +410,17 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
      * Drag and Drop *
      ***********************/
 
-    async receiveDrop(X, Y, x, y, selection, info, gdkDropAction, event, dragItem) {
+    async receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, dragItem) {
         if (!this.dropCapable)
             return;
 
 
-        if (info !== Enums.DndTargetInfo.DING_ICON_LIST &&
-            info !== Enums.DndTargetInfo.GNOME_ICON_LIST &&
-            info !== Enums.DndTargetInfo.URI_LIST)
+        if (acceptFormat !== Enums.DndTargetInfo.DING_ICON_LIST &&
+            acceptFormat !== Enums.DndTargetInfo.GNOME_ICON_LIST &&
+            acceptFormat !== Enums.DndTargetInfo.URI_LIST)
             return;
 
-        const fileList = this._desktopManager.makeFileListFromSelection(selection, info);
+        const fileList = this._desktopManager.makeFileListFromSelection(dropData, acceptFormat);
         if (!fileList)
             return;
 
