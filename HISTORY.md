@@ -1,5 +1,12 @@
 # History of versions #
 
+* Gtk4 version 6
+  * More reliable drag and drop with Nautilus 43rc with Gtk4, using Gdk.FileList istead of parsing URI strings. (Sundeep Mediratta)
+  * String URI's from old Nautilus are more reliably parsed with GLib.Uri. (Sundeep Mediratta)
+  * Handle local drops directly without reading the drop data, just accepting drop. This prevents and gives user feedback when tring to drop Special Files like Trash to Nautilus. (Sundeep Mediratta)
+  * Use native GJS TextEncoder() and TextDecoder() objects instead of importing ByteArray for manipulating bytes. (Sundeep Mediratta)
+  * Version Bump - metadata.json
+
 * Gtk4 version 5
   * Fix regression- still accept drag and drop from old Nautilus in old format
   * Version Bump to 5 to sync with extensions.gnome.org

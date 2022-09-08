@@ -42,7 +42,13 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Re-organization, New Folder structure to avoid confusion and facilitate review.
 
-- [x] Update to work with Gnome 43 and Nautilus 43rc.
+- [x] Update to work with Gnome 43 and Nautilus 43rc. Drag and drop with Gnome 43 more reliable using Gdk.FileList
+
+- [x] More Reliable parsing of string URI lists with old Nautilus with GLib.Uri.
+
+- [x] Give visual feedback and prevent smoothly dropping special files if selected, on Nautilus windows by doing local drops by accepting but not reading drop data.
+
+- [x] Use native TextEncoder and TextDecoder objects in GJS instead of ByteArray imports.
 
 **EXPERIMENTAL FEATURES**
 
@@ -100,7 +106,7 @@ There is optional integration with Gsconnect extension available. If Gsconnect e
 
 - [ ] Gdk.Display.get_default().get_app_launch_context() when used in launch() to launch a desktop file crashes GJS. Likely problem in GJS. Current workaround is not to use the context, set to null, till fixed upstream.
 
-- [ ] Dragged Icon sets the wrong offset for the cursor and defaults to 0,0 with Gtk.DragSource.set_icon in Wayland. This works perfectly in X11 and the correct offset is set. Again likely problem in GJS/Gtk4, however drag and drop otherwise works perfectly till fixed upstream.
+- [ ] Dragged Icon sets the wrong offset for the cursor and defaults to 0,0 with Gtk.DragSource.set_icon in Wayland. This works perfectly in X11 and the correct offset is set. Again problem in Gtk4 on Wayland, But reported and issue in Gtk4 [here](https://gitlab.gnome.org/GNOME/gtk/-/issues/2341), however drag and drop otherwise works perfectly till fixed upstream.
 
 - [ ] Application keyboard shortcut accelerators stop working after a submenu of a menu is closed, work perfectly if only the menu is closed. Bug reported [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse, no clear solution. Current workaround is to destroy the menu once closed. Keyboard accelerators then work again normally.
 
