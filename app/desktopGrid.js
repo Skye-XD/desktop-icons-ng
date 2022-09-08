@@ -24,7 +24,6 @@ const { Gtk, Gdk, GLib, GObject } = imports.gi;
 const Prefs = imports.app.preferences;
 const Enums = imports.app.enums;
 const DesktopIconsUtil = imports.utils.desktopIconsUtil;
-const ByteArray = imports.byteArray;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
@@ -645,20 +644,21 @@ var DesktopGrid = class {
 
     _loadDragData() {
         this.contentProvider = null;
+        let textCoder = new TextEncoder();
 
         let dingDragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.DING_ICON_LIST);
         if (!dingDragData)
             return;
 
-        let dingContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.DING_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
+        let dingContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.DING_ICON_LIST, textCoder.encode(dingDragData));
 
         if (this._desktopManager.checkIfSpecialFilesAreSelected()) {
             this.contentProvider = dingContentProvider;
         } else {
             let gnomeDragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.GNOME_ICON_LIST);
-            let gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, ByteArray.toGBytes(ByteArray.fromString(gnomeDragData)));
-            let textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.URI_LIST, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
-            let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, ByteArray.toGBytes(ByteArray.fromString(dingDragData)));
+            let gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, textCoder.encode(gnomeDragData));
+            let textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.URI_LIST, textCoder.encode(dingDragData));
+            let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, textCoder.encode(dingDragData));
             this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, gnomeContentProvider, textUriListContentProvider, textlistContentProvider]);
         }
     }
