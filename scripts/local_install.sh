@@ -10,7 +10,9 @@ ninja -C .build install
 rm -rf .build
 rm ./meson.build
 
-. /etc/lsb-release
+if [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+fi
 
 if  [ $DISTRIB_ID = "Ubuntu" ] && (($(bc <<< "$DISTRIB_RELEASE > 22"))); then
     echo "Installing for Ubuntu Jammy...."
