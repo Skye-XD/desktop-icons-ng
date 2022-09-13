@@ -1,5 +1,10 @@
 # History of versions #
 
+* Gtk4 version 7
+  * Fix for fractional scaling and zoom on wayland on the latest distributions. (Sundeep Medirattta)
+  * Fix install script to detect /etc/lsb-release prior to trying to read it. (Sundeep Mediratta)
+  * Version Bumb to 7 - metadata.json
+
 * Gtk4 version 6
   * More reliable drag and drop with Nautilus 43rc with Gtk4, using Gdk.FileList istead of parsing URI strings. (Sundeep Mediratta)
   * String URI's from old Nautilus are more reliably parsed with GLib.Uri. (Sundeep Mediratta)
