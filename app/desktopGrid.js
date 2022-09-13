@@ -43,7 +43,7 @@ var DesktopGrid = class {
         this._desktopDescription = desktopDescription;
         this._using_X11 = DesktopIconsUtil.usingX11 = Gdk.Display.get_default().constructor.$gtype.name === 'GdkX11Display';
         this.updateWindowGeometry();
-        this.updateUnscaledHeightWidthMargins();
+        this.updateScaledHeightWidthMargins();
         this.createGrids();
 
         this._window = new Gtk.ApplicationWindow({ application: desktopManager.mainApp, 'title': desktopName });
@@ -169,15 +169,15 @@ var DesktopGrid = class {
         this._x = this._desktopDescription.x;
         this._y = this._desktopDescription.y;
         this._monitor = this._desktopDescription.monitorIndex;
-        this._size_divisor = this._zoom;
+        this._sizer = this._zoom;
         if (this._asDesktop) {
             if (this._using_X11)
-                this._size_divisor = Math.ceil(this._zoom);
+                this._sizer = Math.ceil(this._zoom);
             else if (this._premultiplied)
-                this._size_divisor = 1;
+                this._sizer = 1;
         }
-        this._windowWidth = Math.floor(this._desktopDescription.width / this._size_divisor);
-        this._windowHeight = Math.floor(this._desktopDescription.height / this._size_divisor);
+        this._windowWidth = Math.floor(this._desktopDescription.width * this._sizer);
+        this._windowHeight = Math.floor(this._desktopDescription.height * this._sizer);
     }
 
     resizeWindow() {
@@ -191,7 +191,7 @@ var DesktopGrid = class {
         this._drawArea.set_content_width(this._windowWidth);
     }
 
-    updateUnscaledHeightWidthMargins() {
+    updateScaledHeightWidthMargins() {
         this._marginLeftHiddenObject = false;
         this._marginRightHiddenObject = false;
         this._marginTopHiddenObject = false;
@@ -223,12 +223,6 @@ var DesktopGrid = class {
     }
 
     createGrids() {
-        this._width = Math.floor(this._width / this._size_divisor);
-        this._height = Math.floor(this._height / this._size_divisor);
-        this._marginTop = Math.floor(this._marginTop / this._size_divisor);
-        this._marginBottom = Math.floor(this._marginBottom / this._size_divisor);
-        this._marginLeft = Math.floor(this._marginLeft / this._size_divisor);
-        this._marginRight = Math.floor(this._marginRight / this._size_divisor);
         this._maxColumns = Math.floor(this._width / (Prefs.get_desired_width() + 4 * elementSpacing));
         this._maxRows =  Math.floor(this._height / (Prefs.get_desired_height() + 4 * elementSpacing));
         this._elementWidth = Math.floor(this._width / this._maxColumns);
@@ -260,7 +254,7 @@ var DesktopGrid = class {
     }
 
     resizeGrid() {
-        this.updateUnscaledHeightWidthMargins();
+        this.updateScaledHeightWidthMargins();
         this.createGrids();
         this.updateGridRectangle();
         this.sizeContainer(this._container);
