@@ -1286,8 +1286,7 @@ var DesktopManager = class {
             let desktopFile = Gio.DesktopAppInfo.new('gnome-background-panel.desktop');
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
-            // Fix me, context in the following causes a crash;
-            desktopFile.launch([], null);
+            desktopFile.launch([], context);
         });
         this.mainApp.add_action(changeBackGround);
 
@@ -1296,8 +1295,7 @@ var DesktopManager = class {
             let desktopFile = Gio.DesktopAppInfo.new('gnome-display-panel.desktop');
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
-            // Fix me, context in the following causes a crash;
-            desktopFile.launch([], null);
+            desktopFile.launch([], context);
         });
         this.mainApp.add_action(changeDisplaySettings);
 
