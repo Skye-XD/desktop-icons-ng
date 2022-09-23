@@ -78,6 +78,8 @@ var DesktopGrid = class {
         });
 
         this._container = new Gtk.Fixed();
+        this._containerContext = this._container.get_style_context();
+        this._containerContext.add_class('unhighlightdroptarget');
         this.sizeContainer(this._container);
         this._overlay = new Gtk.Overlay();
         this._overlay.set_child(this._container);
@@ -150,12 +152,6 @@ var DesktopGrid = class {
 
         this.setDropDestination(this._container);
         this.setDragSource(this._container);
-        let stateChangeSignalID = GObject.signal_lookup('state-flags-changed', this._container.constructor.$gtype);
-        GObject.signal_override_class_closure(stateChangeSignalID, this._container, () => {
-            this._container.unset_state_flags(Gtk.StateFlags.DROP_ACTIVE);
-            GObject.signal_stop_emission_by_name(this._container, 'state-flags-changed');
-            return false;
-        });
 
         this.updateGridRectangle();
     }
@@ -549,8 +545,6 @@ var DesktopGrid = class {
                 dropData = dropactor.read_value_finish(result);
 
                 if (!dropData && !acceptFormat) {
-                    if (this._using_X11)
-                        this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
                     this.receiveLeave();
                     return false;
                 }
@@ -593,8 +587,6 @@ var DesktopGrid = class {
         if (fileItemDropZone && (desktopMove || filesMove)) {
             fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
             drop.finish(gdkDropReturnAction);
-            if (this._using_X11)
-                this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
             this.receiveLeave();
             return true;
         }
@@ -602,15 +594,12 @@ var DesktopGrid = class {
         if (desktopDropZone && (desktopMove || filesMove || textDrop)) {
             this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
             drop.finish(gdkDropReturnAction);
-            if (this._using_X11)
-                this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
             this.receiveLeave();
             return true;
         }
 
         // Finally if all above does not work, catchall-
-        if (this._using_X11)
-            this._container.set_state_flags(Gtk.StateFlags.NORMAL, true);
+
         this.receiveLeave();
         return false;
     }
