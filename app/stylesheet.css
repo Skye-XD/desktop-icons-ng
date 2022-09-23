@@ -28,3 +28,7 @@ window.desktopwindow {
 window.testwindow {
     background-color: rgba(0, 0, 0, 100);
 }
+
+.unhighlightdroptarget:drop(active) {
+	box-shadow: none;
+}

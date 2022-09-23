@@ -1,5 +1,8 @@
 # History of versions #
 
+* Work in Progress
+  * Use CSS to unhighlight droptarget instead of intercepting GObject calls. (Sundeep Mediratta)
+
 * Gtk4 version 8
   * Fix regression in mutter settings not being detected. (Sundeep Mediratta)
   * Detect change in mutter settings 'Experimental Features' to update desktop windows with the new 'premultiplied' boolean automatically. (Sundeep Mediratta)
