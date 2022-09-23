@@ -59,17 +59,6 @@ var DesktopManager = class {
         this._codePath = codePath;
         this._asDesktop = asDesktop;
 
-        this._premultiplied = false;
-        try {
-            for (let f of Prefs.mutterSettings.get_strv('experimental-features')) {
-                if (f === 'scale-monitor-framebuffer') {
-                    this._premultiplied = true;
-                    break;
-                }
-            }
-        } catch (e) {
-        }
-
         this.dbusManager = dbusManager;
         this.autoAr = new AutoAr.AutoAr(this);
 
@@ -220,6 +209,14 @@ var DesktopManager = class {
 
         this._configureSelectionColor();
         this._createMenuActionGroup();
+        this._getPremultiplied();
+        Prefs.mutterSettings.connect('changed', () => {
+            this._getPremultiplied();
+            for (let desktop of this._desktops)
+                desktop._premultiplied = this._premultiplied;
+            this._requestGeometryUpdate();
+        });
+
         this._createGridWindows();
 
         DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
@@ -427,6 +424,19 @@ var DesktopManager = class {
                 f.updateIcon();
             }
         });
+    }
+
+    _getPremultiplied() {
+        this._premultiplied = false;
+        try {
+            for (let f of Prefs.mutterSettings.get_strv('experimental-features')) {
+                if (f === 'scale-monitor-framebuffer') {
+                    this._premultiplied = true;
+                    break;
+                }
+            }
+        } catch (e) {
+        }
     }
 
     _requestGeometryUpdate() {
