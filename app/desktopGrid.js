@@ -20,7 +20,7 @@
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
-const { Gtk, Gdk, GLib, GObject } = imports.gi;
+const { Gtk, Gdk, GLib } = imports.gi;
 const Prefs = imports.app.preferences;
 const Enums = imports.app.enums;
 const DesktopIconsUtil = imports.utils.desktopIconsUtil;
