@@ -34,6 +34,7 @@ var nautilusSettings;
 var nautilusCompression;
 var gtkSettings;
 var desktopSettings;
+var mutterSettings = null;
 // This is already in Nautilus settings, so it should not be made tweakable here
 var CLICK_POLICY_SINGLE = false;
 var preferencesFrame;
@@ -64,6 +65,11 @@ function init(path, enums) {
         nautilusCompression = new Gio.Settings({ settings_schema: compressionSchema });
 
     desktopSettings = get_schema(Enums.SCHEMA);
+
+    let schemaMutter = schemaSource.lookup(Enums.SCHEMA_MUTTER, true);
+    if (schemaMutter) {
+        mutterSettings = new Gio.Settings({ settings_schema: schemaMutter});
+    }
 
     preferencesFrame = new PrefrencesFrame.PreferencesFrame(Gtk, GObject, desktopSettings, nautilusSettings, gtkSettings, _);
 }
