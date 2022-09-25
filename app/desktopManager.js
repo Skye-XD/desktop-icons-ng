@@ -25,7 +25,6 @@ const { GLib, Gtk, Gdk, Gio } = imports.gi;
 const FileItem = imports.app.fileItem;
 const stackItem = imports.app.stackItem;
 const DesktopGrid = imports.app.desktopGrid;
-const Prefs = imports.app.preferences;
 const Enums = imports.app.enums;
 const AskRenamePopup = imports.app.askRenamePopup;
 const ShowErrorPopup = imports.app.showErrorPopup;
@@ -48,7 +47,7 @@ const Gettext = imports.gettext.domain('gtk4-ding');
 const _ = Gettext.gettext;
 
 var DesktopManager = class {
-    constructor(mainApp, dbusManager, desktopList, codePath, asDesktop, primaryIndex, version) {
+    constructor(mainApp, Utils, desktopList, codePath, asDesktop, primaryIndex, version) {
         this.mainApp = mainApp;
         if (asDesktop) {
             this.mainApp.hold(); // Don't close the application if there are no desktops
@@ -59,7 +58,8 @@ var DesktopManager = class {
         this._codePath = codePath;
         this._asDesktop = asDesktop;
 
-        this.dbusManager = dbusManager;
+        this.dbusManager = Utils.dbusManager;
+        this.Prefs = Utils.Preferences;
         this.autoAr = new AutoAr.AutoAr(this);
 
         if (version)
@@ -101,28 +101,28 @@ var DesktopManager = class {
             this.mainApp,
             'templateapp'
         );
-        this._showHidden = Prefs.gtkSettings.get_boolean('show-hidden');
-        this.showDropPlace = Prefs.desktopSettings.get_boolean('show-drop-place');
-        this.useNemo = Prefs.desktopSettings.get_boolean('use-nemo');
-        this.showLinkEmblem = Prefs.desktopSettings.get_boolean('show-link-emblem');
-        this.darkText = Prefs.desktopSettings.get_boolean('dark-text-in-labels');
-        this._settingsId = Prefs.desktopSettings.connect('changed', (obj, key) => {
+        this._showHidden = this.Prefs.gtkSettings.get_boolean('show-hidden');
+        this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
+        this.useNemo = this.Prefs.desktopSettings.get_boolean('use-nemo');
+        this.showLinkEmblem = this.Prefs.desktopSettings.get_boolean('show-link-emblem');
+        this.darkText = this.Prefs.desktopSettings.get_boolean('dark-text-in-labels');
+        this._settingsId = this.Prefs.desktopSettings.connect('changed', (obj, key) => {
             if (key === 'dark-text-in-labels')  {
-                this.darkText = Prefs.desktopSettings.get_boolean('dark-text-in-labels');
+                this.darkText = this.Prefs.desktopSettings.get_boolean('dark-text-in-labels');
                 this._updateDesktop().catch(e => {
                     print(`Exception while updating Desktop after Dark Text changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
             if (key === 'show-link-emblem') {
-                this.showLinkEmblem = Prefs.desktopSettings.get_boolean('show-link-emblem');
+                this.showLinkEmblem = this.Prefs.desktopSettings.get_boolean('show-link-emblem');
                 this._updateDesktop().catch(e => {
                     print(`Exception while updating Desktop after Show Emblems changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
             if (key === 'use-nemo') {
-                this.useNemo = Prefs.desktopSettings.get_boolean('use-nemo');
+                this.useNemo = this.Prefs.desktopSettings.get_boolean('use-nemo');
                 return;
             }
             if (key === 'icon-size') {
@@ -149,7 +149,7 @@ var DesktopManager = class {
                 return;
             }
             if (key === 'keep-stacked') {
-                this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
+                this.keepStacked = this.Prefs.desktopSettings.get_boolean('keep-stacked');
                 if (!this.keepStacked)
                     this._unstack();
                 else
@@ -158,27 +158,27 @@ var DesktopManager = class {
                 return;
             }
             if (key === 'keep-arranged') {
-                this.keepArranged = Prefs.desktopSettings.get_boolean('keep-arranged');
+                this.keepArranged = this.Prefs.desktopSettings.get_boolean('keep-arranged');
                 if (this.keepArranged)
                     this.doSorts({ redisplay: true });
 
                 return;
             }
-            this.showDropPlace = Prefs.desktopSettings.get_boolean('show-drop-place');
+            this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
             this._updateDesktop().catch(e => {
                 print(`Exception while updating Desktop after Settings Changed: ${e.message}\n${e.stack}`);
             });
         });
-        Prefs.gtkSettings.connect('changed', (obj, key) => {
+        this.Prefs.gtkSettings.connect('changed', (obj, key) => {
             if (key === 'show-hidden') {
-                this._showHidden = Prefs.gtkSettings.get_boolean('show-hidden');
+                this._showHidden = this.Prefs.gtkSettings.get_boolean('show-hidden');
                 this._updateDesktop().catch(e => {
                     print(`Exception while updating Desktop after Hidden Settings Changed: ${e.message}\n${e.stack}`);
                 });
                 this.templatesMonitor.updateEntries();
             }
         });
-        Prefs.nautilusSettings.connect('changed', (obj, key) => {
+        this.Prefs.nautilusSettings.connect('changed', (obj, key) => {
             if (key === 'show-image-thumbnails') {
                 this._updateDesktop().catch(e => {
                     print(`Exception while updating Desktop after Nautilus Settings Changed: ${e.message}\n${e.stack}`);
@@ -213,7 +213,7 @@ var DesktopManager = class {
         this._configureSelectionColor();
         this._createMenuActionGroup();
         this._getPremultiplied();
-        Prefs.mutterSettings.connect('changed', () => {
+        this.Prefs.mutterSettings.connect('changed', () => {
             this._getPremultiplied();
             for (let desktop of this._desktops)
                 desktop._premultiplied = this._premultiplied;
@@ -432,7 +432,7 @@ var DesktopManager = class {
     _getPremultiplied() {
         this._premultiplied = false;
         try {
-            for (let f of Prefs.mutterSettings.get_strv('experimental-features')) {
+            for (let f of this.Prefs.mutterSettings.get_strv('experimental-features')) {
                 if (f === 'scale-monitor-framebuffer') {
                     this._premultiplied = true;
                     break;
@@ -1320,12 +1320,12 @@ var DesktopManager = class {
         cleanUpIconsAction.connect('activate', () => this._sortAllFilesFromGridsByPosition());
         this.mainApp.add_action(cleanUpIconsAction);
 
-        let keepArrangedAction = Prefs.desktopSettings.create_action('keep-arranged');
+        let keepArrangedAction = this.Prefs.desktopSettings.create_action('keep-arranged');
         this.mainApp.add_action(keepArrangedAction);
-        Prefs.desktopSettings.bind('keep-arranged', cleanUpIconsAction, 'enabled', 16);
-        this.mainApp.add_action(Prefs.desktopSettings.create_action('keep-stacked'));
-        this.mainApp.add_action(Prefs.desktopSettings.create_action('sort-special-folders'));
-        this.mainApp.add_action(Prefs.desktopSettings.create_action('arrangeorder'));
+        this.Prefs.desktopSettings.bind('keep-arranged', cleanUpIconsAction, 'enabled', 16);
+        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('keep-stacked'));
+        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('sort-special-folders'));
+        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('arrangeorder'));
 
         let findFilesAction = Gio.SimpleAction.new('findFiles', null);
         findFilesAction.connect('activate', () => {
@@ -1345,7 +1345,7 @@ var DesktopManager = class {
 
         let showHideHiddenFiles = Gio.SimpleAction.new('showHideHiddenFiles', null);
         showHideHiddenFiles.connect('activate', () => {
-            Prefs.gtkSettings.set_boolean('show-hidden', !this._showHidden);
+            this.Prefs.gtkSettings.set_boolean('show-hidden', !this._showHidden);
         });
         this.mainApp.add_action(showHideHiddenFiles);
         this.mainApp.set_accels_for_action('app.showHideHiddenFiles', ['<Control>H']);
@@ -1546,7 +1546,7 @@ var DesktopManager = class {
         });
         this.preferencesWindow.set_title(_('Settings'));
         DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
-        let frame = Prefs.get_preferencesFrame();
+        let frame = this.Prefs.get_preferencesFrame();
         this.preferencesWindow.set_child(frame);
         this.preferencesWindow.show();
     }
@@ -2024,9 +2024,9 @@ var DesktopManager = class {
     }
 
     _placeAllFilesOnGrids(opts = { redisplay: false }) {
-        this.keepStacked = Prefs.desktopSettings.get_boolean('keep-stacked');
-        this.keepArranged = Prefs.desktopSettings.get_boolean('keep-arranged');
-        this.sortSpecialFolders = Prefs.desktopSettings.get_boolean('sort-special-folders');
+        this.keepStacked = this.Prefs.desktopSettings.get_boolean('keep-stacked');
+        this.keepArranged = this.Prefs.desktopSettings.get_boolean('keep-arranged');
+        this.sortSpecialFolders = this.Prefs.desktopSettings.get_boolean('sort-special-folders');
         if (this.keepStacked)
             this.doStacks(opts);
         else if (this.keepArranged)
@@ -2444,7 +2444,7 @@ var DesktopManager = class {
 
     onToggleStackUnstackThisTypeClicked(type, typeInList = null, unstackList = null) {
         if (!unstackList) {
-            unstackList = Prefs.getUnstackList();
+            unstackList = this.Prefs.getUnstackList();
             typeInList = unstackList.includes(type);
         }
         if (typeInList) {
@@ -2453,7 +2453,7 @@ var DesktopManager = class {
         } else {
             unstackList.push(type);
         }
-        Prefs.setUnstackList(unstackList);
+        this.Prefs.setUnstackList(unstackList);
     }
 
     doStacks(opts = { redisplay: false }) {
@@ -2572,7 +2572,7 @@ var DesktopManager = class {
         let stackedFiles = [];
         let newFileList = [];
         let stackTopMarkerFolderList = [];
-        let unstackList = Prefs.getUnstackList();
+        let unstackList = this.Prefs.getUnstackList();
         if (this._allFileList && opts.redisplay) {
             this._fileList.forEach(f => {
                 if (f.isStackMarker)
@@ -2644,7 +2644,7 @@ var DesktopManager = class {
         otherFiles.push(...directoryFiles);
         otherFiles.push(...stackTopMarkerFolderList);
 
-        switch (Prefs.getSortOrder()) {
+        switch (this.Prefs.getSortOrder()) {
         case Enums.SortOrder.NAME:
             this._sortByName(otherFiles);
             break;
@@ -2724,7 +2724,7 @@ var DesktopManager = class {
             return;
 
         this._fileList.map(f => f.removeFromGrid({ callOnDestroy: false }));
-        let cornerInversion = Prefs.get_start_corner();
+        let cornerInversion = this.Prefs.getStartCorner();
         if (!cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
                 if (a._x1 < b._x1)
@@ -2881,7 +2881,7 @@ var DesktopManager = class {
         if (opts.redisplay)
             this._fileList.map(f => f.removeFromGrid());
 
-        switch (Prefs.getSortOrder()) {
+        switch (this.Prefs.getSortOrder()) {
         case Enums.SortOrder.NAME:
             this._sortAllFilesFromGridsByName();
             break;

@@ -21,149 +21,101 @@ imports.gi.versions.Gtk = '4.0';
 
 const { GLib, Gtk, GObject, Gio } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
-const PrefrencesFrame = imports.app.preferencesFrame;
 
 const Gettext = imports.gettext;
 
 var _ = Gettext.domain('gtk4-ding').gettext;
 
-var extensionPath;
-var Enums;
+var Preferences = class {
+    constructor(Data) {
+        this._extensionPath = Data.codePath;
+        this._Enums = Data.Enums;
+        let schemaSource = GioSSS.get_default();
+        let schemaGtk = schemaSource.lookup(this._Enums.SCHEMA_GTK, true);
+        this.gtkSettings = new Gio.Settings({ settings_schema: schemaGtk });
+        let schemaObj = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS, true);
+        if (!schemaObj) {
+            this.nautilusSettings = null;
+            this.CLICK_POLICY_SINGLE = false;
+        } else {
+            this.nautilusSettings = new Gio.Settings({ settings_schema: schemaObj });
+            this.nautilusSettings.connect('changed', this._onNautilusSettingsChanged);
+            this._onNautilusSettingsChanged();
+        }
+        const compressionSchema = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS_COMPRESSION, true);
+        if (!compressionSchema)
+            this.nautilusCompression = null;
+        else
+            this.nautilusCompression = new Gio.Settings({ settings_schema: compressionSchema });
 
-var nautilusSettings;
-var nautilusCompression;
-var gtkSettings;
-var desktopSettings;
-var mutterSettings = null;
-// This is already in Nautilus settings, so it should not be made tweakable here
-var CLICK_POLICY_SINGLE = false;
-var preferencesFrame;
+        this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
 
-/**
- *
- * @param path
- * @param enums
- */
-function init(path, enums) {
-    extensionPath = path;
-    Enums = enums;
-    let schemaSource = GioSSS.get_default();
-    let schemaGtk = schemaSource.lookup(Enums.SCHEMA_GTK, true);
-    gtkSettings = new Gio.Settings({ settings_schema: schemaGtk });
-    let schemaObj = schemaSource.lookup(Enums.SCHEMA_NAUTILUS, true);
-    if (!schemaObj) {
-        nautilusSettings = null;
-    } else {
-        nautilusSettings = new Gio.Settings({ settings_schema: schemaObj });
-        nautilusSettings.connect('changed', _onNautilusSettingsChanged);
-        _onNautilusSettingsChanged();
+        let schemaMutter = schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
+        if (schemaMutter)
+            this.mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
+
+        this._preferencesFrame = new Data.PreferencesFrame.PreferencesFrame(Gtk, GObject, this.desktopSettings, this.nautilusSettings, this.gtkSettings, _);
     }
-    const compressionSchema = schemaSource.lookup(Enums.SCHEMA_NAUTILUS_COMPRESSION, true);
-    if (!compressionSchema)
-        nautilusCompression = null;
-    else
-        nautilusCompression = new Gio.Settings({ settings_schema: compressionSchema });
 
-    desktopSettings = get_schema(Enums.SCHEMA);
+    _onNautilusSettingsChanged() {
+        this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
+    }
 
-    let schemaMutter = schemaSource.lookup(Enums.SCHEMA_MUTTER, true);
-    if (schemaMutter)
-        mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
-
-    preferencesFrame = new PrefrencesFrame.PreferencesFrame(Gtk, GObject, desktopSettings, nautilusSettings, gtkSettings, _);
-}
-
-/**
- *
- * @param schema
- */
-function get_schema(schema) {
-    // check if this extension was built with "make zip-file", and thus
-    // has the schema files in a subfolder
-    // otherwise assume that extension has been installed in the
-    // same prefix as gnome-shell (and therefore schemas are available
-    // in the standard folders)
-    let schemaSource;
-    let schemaFile = Gio.File.new_for_path(GLib.build_filenamev([extensionPath, 'schemas', 'gschemas.compiled']));
-    if (schemaFile.query_exists(null))
-        schemaSource = GioSSS.new_from_directory(GLib.build_filenamev([extensionPath, 'schemas']), GioSSS.get_default(), false);
-    else
-        schemaSource = GioSSS.get_default();
+    _get_schema(schema) {
+        // check if this extension was built with "make zip-file", and thus
+        // has the schema files in a subfolder
+        // otherwise assume that extension has been installed in the
+        // same prefix as gnome-shell (and therefore schemas are available
+        // in the standard folders)
+        let schemaSource;
+        let schemaFile = Gio.File.new_for_path(GLib.build_filenamev([this._extensionPath, 'schemas', 'gschemas.compiled']));
+        if (schemaFile.query_exists(null))
+            schemaSource = GioSSS.new_from_directory(GLib.build_filenamev([this._extensionPath, 'schemas']), GioSSS.get_default(), false);
+        else
+            schemaSource = GioSSS.get_default();
 
 
-    let schemaObj = schemaSource.lookup(schema, true);
-    if (!schemaObj)
-        throw new Error(`Schema ${schema} could not be found for extension. Please check your installation.`);
+        let schemaObj = schemaSource.lookup(schema, true);
+        if (!schemaObj)
+            throw new Error(`Schema ${schema} could not be found for extension. Please check your installation.`);
 
-    return new Gio.Settings({ settings_schema: schemaObj });
-}
+        return new Gio.Settings({ settings_schema: schemaObj });
+    }
 
-function get_preferencesFrame() {
-    return preferencesFrame.getFrame();
-}
+    getPreferencesFrame() {
+        return this._preferencesFrame.getFrame();
+    }
 
-/**
- *
- */
-function _onNautilusSettingsChanged() {
-    CLICK_POLICY_SINGLE = nautilusSettings.get_string('click-policy') === 'single';
-}
+    getIconSize() {
+        return this._Enums.ICON_SIZE[this.desktopSettings.get_string('icon-size')];
+    }
 
-/**
- *
- */
-function get_icon_size() {
-    return Enums.ICON_SIZE[desktopSettings.get_string('icon-size')];
-}
+    getDesiredWidth() {
+        return this._Enums.ICON_WIDTH[this.desktopSettings.get_string('icon-size')];
+    }
 
-/**
- *
- */
-function get_desired_width() {
-    return Enums.ICON_WIDTH[desktopSettings.get_string('icon-size')];
-}
+    getDesiredHeight() {
+        return this._Enums.ICON_HEIGHT[this.desktopSettings.get_string('icon-size')];
+    }
 
-/**
- *
- */
-function get_desired_height() {
-    return Enums.ICON_HEIGHT[desktopSettings.get_string('icon-size')];
-}
+    getStartCorner() {
+        return this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')].slice();
+    }
 
-/**
- *
- */
-function get_start_corner() {
-    return Enums.START_CORNER[desktopSettings.get_string('start-corner')].slice();
-}
+    getSortOrder() {
+        return this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+    }
 
-/**
- *
- */
-function getSortOrder() {
-    return Enums.SortOrder[desktopSettings.get_string(Enums.SortOrder.ORDER)];
-}
+    setSortOrder(order) {
+        let x = Object.values(this._Enums.SortOrder).indexOf(order);
+        this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, x);
+    }
 
-/**
- *
- * @param order
- */
-function setSortOrder(order) {
-    let x = Object.values(Enums.SortOrder).indexOf(order);
-    desktopSettings.set_enum(Enums.SortOrder.ORDER, x);
-}
+    getUnstackList() {
+        return this.desktopSettings.get_strv('unstackedtypes');
+    }
 
-/**
- *
- */
-function getUnstackList() {
-    return desktopSettings.get_strv('unstackedtypes');
-}
-
-/**
- *
- * @param array
- */
-function setUnstackList(array) {
-    desktopSettings.set_strv('unstackedtypes', array);
-}
+    setUnstackList(array) {
+        this.desktopSettings.set_strv('unstackedtypes', array);
+    }
+};

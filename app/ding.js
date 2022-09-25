@@ -160,7 +160,8 @@ parseCommandLine(ARGV);
 
 imports.searchPath.unshift(codePath);
 
-const Prefs = imports.app.preferences;
+const Preferences = imports.app.preferences;
+const PreferencesFrame = imports.app.preferencesFrame;
 const Enums = imports.app.enums;
 const DBusUtils = imports.utils.dbusUtils;
 const PromiseUtils = imports.utils.promiseUtils;
@@ -190,6 +191,8 @@ const DesktopManager = imports.app.desktopManager;
 
 var desktopManager = null;
 var dbusManager = null;
+var Utils = {};
+var Data = { codePath, Enums, PreferencesFrame };
 
 if (asDesktop) {
     remoteDingActions = Gio.DBusActionGroup.get(
@@ -212,14 +215,15 @@ const dingApp = new Gtk.Application({
 });
 
 dingApp.connect('startup', () => {
-    Prefs.init(codePath, Enums);
-    dbusManager = DBusUtils.init(dingApp);
+    Data.dingApp = dingApp;
+    Utils.Preferences = new Preferences.Preferences(Data);
+    Utils.dbusManager = DBusUtils.init(dingApp);
 });
 
 dingApp.connect('activate', () => {
     if (!desktopManager) {
         desktopManager = new DesktopManager.DesktopManager(dingApp,
-            dbusManager,
+            Utils,
             desktops,
             codePath,
             asDesktop,
