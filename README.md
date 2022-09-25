@@ -50,6 +50,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Use native TextEncoder and TextDecoder objects in GJS instead of ByteArray imports.
 
+- [x] Use native libadwaita prefrences window from gnome-extensions if possible to maintain UI consistency.
+
 **EXPERIMENTAL FEATURES**
 
 There is optional integration with Gsconnect extension available. If Gsconnect extension is installed, right click menus allow sending files directly from the desktop using Gsconnect. To use this feature, look for the "Gtk4-gsconnect-integration" branch in this repository, and install from that branch. Feedback, fixes appreciated, this branch has not been well tested at all.
@@ -195,7 +197,7 @@ meson --prefix=$HOME/.local/ --localedir=share/gnome-shell/extensions/gtk4-ding@
 ninja -C .build install
 ```
 
-It is strongly recommended to delete the destination folder ($HOME/.local/share/gnome-shell/extensions/gt4-ding@smedius.gitlab.com) before doing this, to ensure that no old
+It is strongly recommended to delete the destination folder ($HOME/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com) before doing this, to ensure that no old
 data is kept. It is also recommended to delete the local .build folder and the copied file meson.build after the build is finished to clean up.
 
 ## Installing with Puppet
