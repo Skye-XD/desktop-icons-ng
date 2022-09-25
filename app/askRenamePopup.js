@@ -18,14 +18,15 @@
 
 const { Gtk, Gio, GLib } = imports.gi;
 const DBusUtils = imports.utils.dbusUtils;
-const DesktopIconsUtil = imports.utils.desktopIconsUtil;
-const FileUtils = imports.utils.fileUtils;
+
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
 var AskRenamePopup = class {
-    constructor(fileItem, allowReturnOnSameName, closeCB) {
+    constructor(fileItem, allowReturnOnSameName, closeCB, Data) {
+        this.FileUtils = Data.FileUtils;
+        this.DesktopIconsUtil = Data.DesktopIconsUtil;
         this._validateCancellable = new Gio.Cancellable();
         this._closeCB = closeCB;
         this._allowReturnOnSameName = allowReturnOnSameName;
@@ -81,7 +82,7 @@ var AskRenamePopup = class {
         this._popover.popup();
         this._validate().catch(e => logError(e));
         this._textArea.grab_focus_without_selecting();
-        this._textArea.select_region(0, DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, { 'isDirectory': fileItem.isDirectory }).offset);
+        this._textArea.select_region(0, this.DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, { 'isDirectory': fileItem.isDirectory }).offset);
     }
 
     async _validate() {
@@ -102,7 +103,7 @@ var AskRenamePopup = class {
         let sensitive = true;
         try {
             const finalFile = this._desktopFile.get_child(text);
-            if (await FileUtils.queryExists(finalFile, this._validateCancellable))
+            if (await this.FileUtils.queryExists(finalFile, this._validateCancellable))
                 sensitive = false;
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))

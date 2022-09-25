@@ -20,12 +20,7 @@
 
 const { Gtk, Gdk, Gio, GLib } = imports.gi;
 const desktopIconItem = imports.app.desktopIconItem;
-const ShowErrorPopup = imports.app.showErrorPopup;
-const Prefs = imports.app.preferences;
-const Enums = imports.app.enums;
 const DBusUtils = imports.utils.dbusUtils;
-const PromiseUtils = imports.utils.promiseUtils;
-const DesktopIconsUtil = imports.utils.desktopIconsUtil;
 
 const Signals = imports.signals;
 const Gettext = imports.gettext.domain('gtk4-ding');
@@ -35,9 +30,10 @@ const _ = Gettext.gettext;
 var FileItem = class extends desktopIconItem.desktopIconItem {
     constructor(desktopManager, file, fileInfo, fileExtra, custom) {
         super(desktopManager, fileExtra);
+        this.PromiseUtils = desktopManager.PromiseUtils;
         this._fileInfo = fileInfo;
         this._custom = custom;
-        this._isSpecial = this._fileExtra !== Enums.FileType.NONE;
+        this._isSpecial = this._fileExtra !== this.Enums.FileType.NONE;
         this._file = file;
         this.isStackTop = false;
         this.stackUnique = false;
@@ -45,15 +41,15 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (imports.system.version < 17200 &&
             this._file.constructor.prototype !== Gio._LocalFilePrototype) {
             /* Older gjs may need specific implementations for special files */
-            PromiseUtils._promisify({},
+            this.PromiseUtils._promisify({},
                 this._file.constructor.prototype, 'query_info_async');
         }
 
         if (this._custom) {
             /* gjs doesn't handle well some virtual implementations */
-            PromiseUtils._promisify({}, this._custom.constructor.prototype,
+            this.PromiseUtils._promisify({}, this._custom.constructor.prototype,
                 'eject_with_operation');
-            PromiseUtils._promisify({}, this._custom.constructor.prototype,
+            this.PromiseUtils._promisify({}, this._custom.constructor.prototype,
                 'unmount_with_operation');
         }
 
@@ -127,14 +123,14 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
      ***********************/
 
     _getVisibleName() {
-        if (this._fileExtra === Enums.FileType.EXTERNAL_DRIVE)
+        if (this._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE)
             return this._custom.get_name();
         else
             return this._fileInfo.get_display_name();
     }
 
     _setFileName(text) {
-        if (this._fileExtra === Enums.FileType.USER_DIRECTORY_HOME) {
+        if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_HOME) {
             // TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
             text = _('Home');
         }
@@ -167,7 +163,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
         try {
             const newFileInfo =
-                await this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
+                await this._file.query_info_async(this.Enums.DEFAULT_ATTRIBUTES,
                     Gio.FileQueryInfoFlags.NONE,
                     GLib.PRIORITY_DEFAULT,
                     cancellable);
@@ -201,7 +197,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._displayName = this._getVisibleName();
         this._attributeCanExecute = fileInfo.get_attribute_boolean('access::can-execute');
         this._unixmode = fileInfo.get_attribute_uint32('unix::mode');
-        this._writableByOthers = (this._unixmode & Enums.S_IWOTH) !== 0;
+        this._writableByOthers = (this._unixmode & this.Enums.S_IWOTH) !== 0;
         this._trusted = fileInfo.get_attribute_as_string('metadata::trusted') === 'true';
         this._attributeContentType = fileInfo.get_content_type();
         this._isDesktopFile = this._attributeContentType === 'application/x-desktop';
@@ -227,7 +223,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
         this._fileType = fileInfo.get_file_type();
         this._isDirectory = this._fileType === Gio.FileType.DIRECTORY;
-        this._isSpecial = this._fileExtra !== Enums.FileType.NONE;
+        this._isSpecial = this._fileExtra !== this.Enums.FileType.NONE;
         this._isHidden = fileInfo.get_is_hidden() | fileInfo.get_is_backup();
         this._isSymlink = fileInfo.get_is_symlink();
         this._modifiedTime = fileInfo.get_attribute_uint64('time::modified');
@@ -266,7 +262,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
         if (this._isDirectory && this._desktopManager.useNemo) {
             try {
-                DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()], DesktopIconsUtil.getFilteredEnviron());
+                this.DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()], this.DesktopIconsUtil.getFilteredEnviron());
                 return;
             } catch (err) {
                 log(`Error trying to launch Nemo: ${err.message}\n${err}`);
@@ -297,7 +293,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _showerrorpopup(title, error) {
-        new ShowErrorPopup.ShowErrorPopup(
+        new this._desktopManager.showErrorPopup.ShowErrorPopup(
             title,
             error,
             true,
@@ -389,7 +385,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
     _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         super._doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed);
-        if (this.getClickCount() === 2 && !Prefs.CLICK_POLICY_SINGLE)
+        if (this.getClickCount() === 2 && !this.Prefs.CLICK_POLICY_SINGLE)
             this.doOpen();
     }
 
@@ -399,8 +395,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (this._primaryButtonPressed) {
             this._primaryButtonPressed = false;
             if (!shiftPressed && !controlPressed) {
-                this._desktopManager.selected(this, Enums.Selection.RELEASE);
-                if (Prefs.CLICK_POLICY_SINGLE)
+                this._desktopManager.selected(this, this.Enums.Selection.RELEASE);
+                if (this.Prefs.CLICK_POLICY_SINGLE)
                     this.doOpen();
             }
         }
@@ -415,9 +411,9 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             return;
 
 
-        if (acceptFormat !== Enums.DndTargetInfo.DING_ICON_LIST &&
-            acceptFormat !== Enums.DndTargetInfo.GNOME_ICON_LIST &&
-            acceptFormat !== Enums.DndTargetInfo.URI_LIST)
+        if (acceptFormat !== this.Enums.DndTargetInfo.DING_ICON_LIST &&
+            acceptFormat !== this.Enums.DndTargetInfo.GNOME_ICON_LIST &&
+            acceptFormat !== this.Enums.DndTargetInfo.URI_LIST)
             return;
 
         const fileList = this._desktopManager.makeFileListFromSelection(dropData, acceptFormat);
@@ -438,7 +434,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             return;
         }
 
-        if (this._fileExtra === Enums.FileType.USER_DIRECTORY_TRASH) {
+        if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
             DBusUtils.RemoteFileOperations.pushEvent(event);
             DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
             return;
@@ -466,8 +462,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     dropCapable() {
-        if ((this._fileExtra === Enums.FileType.USER_DIRECTORY_TRASH) ||
-            (this._fileExtra === Enums.FileType.USER_DIRECTORY_HOME) ||
+        if ((this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) ||
+            (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_HOME) ||
             this._isDirectory ||
             this._isValidDesktopFile ||
             this._hasToRouteDragToGrid())
@@ -491,7 +487,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
         try {
             this._fileInfo =
-                await this._file.query_info_async(Enums.DEFAULT_ATTRIBUTES,
+                await this._file.query_info_async(this.Enums.DEFAULT_ATTRIBUTES,
                     Gio.FileQueryInfoFlags.NONE,
                     GLib.PRIORITY_DEFAULT,
                     cancellable);
@@ -586,7 +582,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
          */
         if (this.metadataTrusted && !this._attributeCanExecute) {
             let info = new Gio.FileInfo();
-            let newUnixMode = this._unixmode | Enums.S_IXUSR;
+            let newUnixMode = this._unixmode | this.Enums.S_IXUSR;
             info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, newUnixMode);
             await this._setFileAttributes(info);
         }
@@ -628,7 +624,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _onOpenTerminalClicked() {
-        DesktopIconsUtil.launchTerminal(this.file.get_path(), null);
+        this.DesktopIconsUtil.launchTerminal(this.file.get_path(), null);
     }
 
     async _setFileAttributes(fileInfo, cancellable = null, opts = { refresh: true }) {
@@ -675,7 +671,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     get canRename() {
-        return !this.trustedDesktopFile && (this._fileExtra === Enums.FileType.NONE);
+        return !this.trustedDesktopFile && (this._fileExtra === this.Enums.FileType.NONE);
     }
 
     get canUnmount() {
@@ -697,7 +693,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     set dropCoordinates(pos) {
-        if (DesktopIconsUtil.coordinatesEqual(this._dropCoordinates, pos))
+        if (this.DesktopIconsUtil.coordinatesEqual(this._dropCoordinates, pos))
             return;
 
         const oldPos = this._dropCoordinates;
@@ -736,7 +732,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     get isAllSelectable() {
-        return this._fileExtra === Enums.FileType.NONE;
+        return this._fileExtra === this.Enums.FileType.NONE;
     }
 
     get isDirectory() {
@@ -748,7 +744,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     get isTrash() {
-        return this._fileExtra === Enums.FileType.USER_DIRECTORY_TRASH;
+        return this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH;
     }
 
     get metadataTrusted() {
@@ -791,7 +787,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     set savedCoordinates(pos) {
-        if (DesktopIconsUtil.coordinatesEqual(this._savedCoordinates, pos))
+        if (this.DesktopIconsUtil.coordinatesEqual(this._savedCoordinates, pos))
             return;
 
         const oldPos = this._savedCoordinates;

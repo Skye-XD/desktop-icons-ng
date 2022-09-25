@@ -21,9 +21,6 @@ imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
 const { Gtk, Gdk, GLib } = imports.gi;
-const Enums = imports.app.enums;
-const DesktopIconsUtil = imports.utils.desktopIconsUtil;
-
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -36,12 +33,13 @@ var DesktopGrid = class {
         this._destroying = false;
         this._desktopManager = desktopManager;
         this.Prefs = this._desktopManager.Prefs;
+        this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
+        this.Enums = this._desktopManager.Enums;
         this._desktopName = desktopName;
         this._asDesktop = asDesktop;
         this._premultiplied = premultiplied;
-        this._asDesktop = asDesktop;
         this._desktopDescription = desktopDescription;
-        this._using_X11 = DesktopIconsUtil.usingX11 = Gdk.Display.get_default().constructor.$gtype.name === 'GdkX11Display';
+        this._using_X11 = this.DesktopIconsUtil.usingX11();
         this.updateWindowGeometry();
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
@@ -54,7 +52,7 @@ var DesktopGrid = class {
             // Transparent Background only if this instance is working as a desktop
             this._windowContext.add_class('desktopwindow');
             if (this._using_X11) {
-                DesktopIconsUtil.hideX11windowTaskbar(this._window);
+                this.DesktopIconsUtil.hideX11windowTaskbar(this._window);
             } else { // Wayland
                 this._window.maximize();
             }
@@ -423,11 +421,11 @@ var DesktopGrid = class {
     setDropDestination(widget) {
         this.gridDropController = new Gtk.DropTargetAsync();
         this.gridDropController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
-        const desktopAcceptFormats = Gdk.ContentFormats.new(Enums.DndTargetInfo.MIME_TYPES);
-        const fileItemAcceptFormats = Gdk.ContentFormats.new([Enums.DndTargetInfo.GNOME_ICON_LIST, Enums.DndTargetInfo.URI_LIST]);
-        const desktopMoveIconsFormat = Gdk.ContentFormats.new([Enums.DndTargetInfo.DING_ICON_LIST]);
-        const textDropFormat = Gdk.ContentFormats.new([Enums.DndTargetInfo.TEXT_PLAIN]);
-        const oldNautilusDropFormat = Gdk.ContentFormats.new([Enums.DndTargetInfo.GNOME_ICON_LIST]);
+        const desktopAcceptFormats = Gdk.ContentFormats.new(this.Enums.DndTargetInfo.MIME_TYPES);
+        const fileItemAcceptFormats = Gdk.ContentFormats.new([this.Enums.DndTargetInfo.GNOME_ICON_LIST, this.Enums.DndTargetInfo.URI_LIST]);
+        const desktopMoveIconsFormat = Gdk.ContentFormats.new([this.Enums.DndTargetInfo.DING_ICON_LIST]);
+        const textDropFormat = Gdk.ContentFormats.new([this.Enums.DndTargetInfo.TEXT_PLAIN]);
+        const oldNautilusDropFormat = Gdk.ContentFormats.new([this.Enums.DndTargetInfo.GNOME_ICON_LIST]);
         this.gridDropController.set_formats(desktopAcceptFormats);
 
         let acceptFormat = null;
@@ -470,10 +468,10 @@ var DesktopGrid = class {
                 if (!filesMove)
                     return false;
 
-                if (fileItem._fileExtra !== Enums.FileType.EXTERNAL_DRIVE)
+                if (fileItem._fileExtra !== this.Enums.FileType.EXTERNAL_DRIVE)
                     return Gdk.DragAction.MOVE;
 
-                if (fileItem._fileExtra === Enums.FileType.EXTERNAL_DRIVE)
+                if (fileItem._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE)
                     return Gdk.DragAction.COPY;
             }
 
@@ -522,19 +520,19 @@ var DesktopGrid = class {
 
             let textDrop = drop.get_formats().match(textDropFormat) && !desktopMove && !filesMove;
             if (textDrop) {
-                acceptFormat = Enums.DndTargetInfo.TEXT_PLAIN;
+                acceptFormat = this.Enums.DndTargetInfo.TEXT_PLAIN;
                 readFormat = String.$gtype;
             }
 
             if (desktopMove)
-                acceptFormat = Enums.DndTargetInfo.DING_ICON_LIST;
+                acceptFormat = this.Enums.DndTargetInfo.DING_ICON_LIST;
 
             if (filesMove && !desktopMove) {
                 if (oldNautilusMove) {
-                    acceptFormat = Enums.DndTargetInfo.GNOME_ICON_LIST;
+                    acceptFormat = this.Enums.DndTargetInfo.GNOME_ICON_LIST;
                     readFormat = String.$gtype;
                 } else {
-                    acceptFormat = Enums.DndTargetInfo.URI_LIST;
+                    acceptFormat = this.Enums.DndTargetInfo.URI_LIST;
                 }
             }
 
@@ -635,19 +633,19 @@ var DesktopGrid = class {
         this.contentProvider = null;
         let textCoder = new TextEncoder();
 
-        let dingDragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.DING_ICON_LIST);
+        let dingDragData = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.DING_ICON_LIST);
         if (!dingDragData)
             return;
 
-        let dingContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.DING_ICON_LIST, textCoder.encode(dingDragData));
+        let dingContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.DING_ICON_LIST, textCoder.encode(dingDragData));
 
         if (this._desktopManager.checkIfSpecialFilesAreSelected()) {
             this.contentProvider = dingContentProvider;
         } else {
-            let gnomeDragData = this._desktopManager.fillDragDataGet(Enums.DndTargetInfo.GNOME_ICON_LIST);
-            let gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.GNOME_ICON_LIST, textCoder.encode(gnomeDragData));
-            let textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.URI_LIST, textCoder.encode(dingDragData));
-            let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(Enums.DndTargetInfo.TEXT_PLAIN, textCoder.encode(dingDragData));
+            let gnomeDragData = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.GNOME_ICON_LIST);
+            let gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.GNOME_ICON_LIST, textCoder.encode(gnomeDragData));
+            let textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST, textCoder.encode(dingDragData));
+            let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN, textCoder.encode(dingDragData));
             this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, gnomeContentProvider, textUriListContentProvider, textlistContentProvider]);
         }
     }
@@ -689,8 +687,8 @@ var DesktopGrid = class {
     _getGridCoordinates(x, y) {
         let placeX = Math.floor(x / this._elementWidth);
         let placeY = Math.floor(y / this._elementHeight);
-        placeX = DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
-        placeY = DesktopIconsUtil.clamp(placeY, 0, this._maxRows - 1);
+        placeX = this.DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
+        placeY = this.DesktopIconsUtil.clamp(placeY, 0, this._maxRows - 1);
         return [placeX, placeY];
     }
 
@@ -864,7 +862,7 @@ var DesktopGrid = class {
          * Also store the new possition if it has been moved by the user,
          * and not triggered by a screen change.
          */
-        if ((fileItem.savedCoordinates === null) || (coordinatesAction === Enums.StoredCoordinates.OVERWRITE))
+        if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
             fileItem.savedCoordinates = [x, y];
     }
 
@@ -937,9 +935,9 @@ var DesktopGrid = class {
             cornerInversion[0] = !cornerInversion[0];
 
 
-        placeX = DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
-        placeY = DesktopIconsUtil.clamp(placeY, 0, this._maxRows - 1);
-        if (this._isEmptyAt(placeX, placeY) && (coordinatesAction !== Enums.StoredCoordinates.ASSIGN))
+        placeX = this.DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
+        placeY = this.DesktopIconsUtil.clamp(placeY, 0, this._maxRows - 1);
+        if (this._isEmptyAt(placeX, placeY) && (coordinatesAction !== this.Enums.StoredCoordinates.ASSIGN))
             return [placeX, placeY];
 
         let found = false;
@@ -965,9 +963,9 @@ var DesktopGrid = class {
 
                 let proposedX = column * this._elementWidth;
                 let proposedY = row * this._elementHeight;
-                if (coordinatesAction === Enums.StoredCoordinates.ASSIGN)
+                if (coordinatesAction === this.Enums.StoredCoordinates.ASSIGN)
                     return [column, row];
-                let distance = DesktopIconsUtil.distanceBetweenPoints(proposedX, proposedY, x, y);
+                let distance = this.DesktopIconsUtil.distanceBetweenPoints(proposedX, proposedY, x, y);
                 if (distance < minDistance) {
                     found = true;
                     minDistance = distance;

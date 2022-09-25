@@ -21,13 +21,8 @@
  */
 
 const { Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf } = imports.gi;
-const DesktopIconsUtil = imports.utils.desktopIconsUtil;
-const FileUtils = imports.utils.fileUtils;
-
-const Prefs = imports.app.preferences;
-const Enums = imports.app.enums;
-
 const Signals = imports.signals;
+
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -38,6 +33,10 @@ GdkPixbuf.Pixbuf.get_formats().forEach(f => PIXBUF_CONTENT_TYPES.add(...f.get_mi
 var desktopIconItem = class desktopIconItem {
     constructor(desktopManager, fileExtra) {
         this._desktopManager = desktopManager;
+        this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
+        this.FileUtils = desktopManager.FileUtils;
+        this.Prefs = desktopManager.Prefs;
+        this.Enums = desktopManager.Enums;
         this._fileExtra = fileExtra;
         this._queryFileInfoCancellable = null;
         this._grid = null;
@@ -290,7 +289,7 @@ var desktopIconItem = class desktopIconItem {
 
     _doButtonThreePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         if (!this._isSelected)
-            this._desktopManager.selected(this, Enums.Selection.RIGHT_BUTTON);
+            this._desktopManager.selected(this, this.Enums.Selection.RIGHT_BUTTON);
 
         this._desktopManager.fileItemMenu.showMenu(this, button, X, Y, x, y, shiftPressed, controlPressed);
     }
@@ -299,9 +298,9 @@ var desktopIconItem = class desktopIconItem {
         if (this.getClickCount() === 1) {
             this._primaryButtonPressed = true;
             if (shiftPressed || controlPressed)
-                this._desktopManager.selected(this, Enums.Selection.WITH_SHIFT);
+                this._desktopManager.selected(this, this.Enums.Selection.WITH_SHIFT);
             else
-                this._desktopManager.selected(this, Enums.Selection.ALONE);
+                this._desktopManager.selected(this, this.Enums.Selection.ALONE);
         }
     }
 
@@ -317,7 +316,7 @@ var desktopIconItem = class desktopIconItem {
             this._styleContext.add_class('file-item-hover');
             this._labelStyleContext.add_class('file-item-hover');
         }
-        if (Prefs.CLICK_POLICY_SINGLE) {
+        if (this.Prefs.CLICK_POLICY_SINGLE) {
             let window = this._grid._window;
             if (window)
                 window.set_cursor(Gdk.Cursor.new_from_name('hand', null));
@@ -331,7 +330,7 @@ var desktopIconItem = class desktopIconItem {
             this._styleContext.remove_class('file-item-hover');
             this._labelStyleContext.remove_class('file-item-hover');
         }
-        if (Prefs.CLICK_POLICY_SINGLE) {
+        if (this.Prefs.CLICK_POLICY_SINGLE) {
             let window = this._grid._window;
             if (window)
                 window.set_cursor(Gdk.Cursor.new_from_name('default', null));
@@ -345,7 +344,7 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _updateDragStatus(context, time) {
-        if (DesktopIconsUtil.getModifiersInDnD(context, Gdk.ModifierType.CONTROL_MASK))
+        if (this.DesktopIconsUtil.getModifiersInDnD(context, Gdk.ModifierType.CONTROL_MASK))
             Gdk.drag_status(context, Gdk.DragAction.COPY, time);
         else
             Gdk.drag_status(context, Gdk.DragAction.MOVE, time);
@@ -448,7 +447,7 @@ var desktopIconItem = class desktopIconItem {
             }
             if (this.thumbnailFile && (this.thumbnailFile !== '')) {
                 let customIconFile = Gio.File.new_for_path(this.thumbnailFile);
-                if (await FileUtils.queryExists(customIconFile)) {
+                if (await this.FileUtils.queryExists(customIconFile)) {
                     let loadedImage = await this._loadImageAsIcon(customIconFile, cancellable);
                     if (loadedImage | this._destroyed)
                         return;
@@ -461,7 +460,7 @@ var desktopIconItem = class desktopIconItem {
             logError(error, `Error while updating icon: ${error.message}`);
         }
 
-        if (this._fileExtra === Enums.FileType.USER_DIRECTORY_TRASH) {
+        if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
             let pixbuf = this._createEmblemedIcon(this._fileInfo.get_icon(), null);
             if (cancellable.is_cancelled())
                 return;
@@ -471,7 +470,7 @@ var desktopIconItem = class desktopIconItem {
 
         let iconSet = false;
 
-        if ((Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never') &&
+        if ((this.Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never') &&
             this._desktopManager.thumbnailLoader.canThumbnail(this)) {
             try {
                 const thumbnail = await this._desktopManager.thumbnailLoader.getThumbnail(
@@ -489,7 +488,7 @@ var desktopIconItem = class desktopIconItem {
         }
 
         if (!iconSet &&
-            Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never' &&
+            this.Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never' &&
             this.fileSize < 5242880 &&
             PIXBUF_CONTENT_TYPES.has(this._fileInfo.get_content_type())) {
             try {
@@ -522,7 +521,7 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _getDefaultIcon() {
-        if (this._fileExtra === Enums.FileType.EXTERNAL_DRIVE)
+        if (this._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE)
             return this._custom.get_icon();
 
         return this._fileInfo.get_icon();
@@ -532,8 +531,8 @@ var desktopIconItem = class desktopIconItem {
         try {
             const [thumbnailData] = await imageFile.load_bytes_async(cancellable);
             const iconTexture = Gdk.Texture.new_from_bytes(thumbnailData);
-            let width = Prefs.get_desired_width() - 8;
-            let height = Prefs.get_icon_size() - 8;
+            let width = this.Prefs.getDesiredWidth() - 8;
+            let height = this.Prefs.getIconSize() - 8;
             const aspectRatio = iconTexture.width / iconTexture.height;
             if ((width / height) > aspectRatio)
                 width = height * aspectRatio;
@@ -572,7 +571,7 @@ var desktopIconItem = class desktopIconItem {
 
         if (emblem) {
             const scale = this._icon.get_scale_factor();
-            let finalSize = Math.floor(Prefs.get_icon_size() / 3) * scale;
+            let finalSize = Math.floor(this.Prefs.getIconSize() / 3) * scale;
             let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
             let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
             let emblemSnapshot = Gtk.Snapshot.new();
@@ -603,9 +602,9 @@ var desktopIconItem = class desktopIconItem {
         const scale = this._icon.get_scale_factor();
         let iconPaintable = null;
         try {
-            iconPaintable = theme.lookup_by_gicon(icon, Prefs.get_icon_size(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            iconPaintable = theme.lookup_by_gicon(icon, this.Prefs.getIconSize(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
         } catch (e) {
-            iconPaintable = theme.lookup_icon('text-x-generic', [], Prefs.get_icon_size(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            iconPaintable = theme.lookup_icon('text-x-generic', [], this.Prefs.getIconSize(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
         }
         return this._addEmblemsToIconIfNeeded(iconPaintable);
     }
@@ -626,7 +625,7 @@ var desktopIconItem = class desktopIconItem {
     }
 
     get isDrive() {
-        return this._fileExtra === Enums.FileType.EXTERNAL_DRIVE;
+        return this._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE;
     }
 
     get isSelected() {

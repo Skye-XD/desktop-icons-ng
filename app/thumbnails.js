@@ -39,7 +39,6 @@ try {
 }
 
 const { GLib, Gio } = imports.gi;
-const FileUtils = imports.utils.fileUtils;
 
 const useAsyncAPI =
     !!GnomeDesktop.DesktopThumbnailFactory.prototype.generate_thumbnail_async;
@@ -57,7 +56,8 @@ if (useAsyncAPI) {
 }
 
 var ThumbnailLoader = class {
-    constructor(codePath) {
+    constructor(codePath, FileUtils) {
+        this.FileUtils = FileUtils;
         this._timeoutValue = 5000;
         this._codePath = codePath;
         this._thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
@@ -68,7 +68,7 @@ var ThumbnailLoader = class {
     }
 
     async _generateThumbnail(file, cancellable) {
-        if (!await FileUtils.queryExists(file.file))
+        if (!await this.FileUtils.queryExists(file.file))
             return null;
 
         if (this._thumbnailFactory.has_valid_failed_thumbnail(file.uri, file.modifiedTime))
