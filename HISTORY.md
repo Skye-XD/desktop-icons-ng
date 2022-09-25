@@ -2,6 +2,7 @@
 
 * Work in Progress
   * Use CSS to unhighlight droptarget instead of intercepting GObject calls. (Sundeep Mediratta)
+  * Use native libadwaita prefrences window from gnome-extensions if possible to maintain UI consistency. (Sundeep Mediratta)
 
 * Gtk4 version 8
   * Fix regression in mutter settings not being detected. (Sundeep Mediratta)

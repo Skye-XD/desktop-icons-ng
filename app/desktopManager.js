@@ -66,6 +66,9 @@ var DesktopManager = class {
             this.GnomeShellVersion = version;
         else
             this.GnomeShellVersion = 40;
+        this.uuid = 'gtk4-ding@smedius.gitlab.com';
+        if (this._asDesktop)
+            this.uuid = GLib.path_get_basename(this._codePath);
 
         this._primaryIndex = primaryIndex;
         if (primaryIndex < desktopList.length)
@@ -1511,6 +1514,30 @@ var DesktopManager = class {
 
     _showPreferences() {
         if (this.preferencesWindow)
+            return;
+
+        let success = false;
+        let completed = false;
+        let process;
+        let argv = ['/usr/bin/gnome-extensions', 'prefs', `${this.uuid}`];
+
+        try {
+            process = GLib.spawn_sync(null, argv, null,
+                GLib.SpawnFlags.DEFAULT,
+                null);
+            completed = GLib.spawn_check_exit_status(process[3]);
+            success = process[0];
+        } catch {
+            let textDecoder = new TextDecoder();
+            let errortext = textDecoder.decode(process[2]);
+            let windowopen = errortext.includes('Already showing a prefs dialog');
+            if (windowopen) {
+                this.dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
+                return;
+            }
+        }
+
+        if (success && completed)
             return;
 
         this.preferencesWindow = new Gtk.Window({ resizable: false });
