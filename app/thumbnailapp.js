@@ -18,9 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-imports.gi.versions.GnomeDesktop = '3.0';
 imports.gi.versions.Gtk = '3.0';
-const { Gtk, GnomeDesktop, GLib, Gio } = imports.gi;
+const { Gtk, GLib, Gio } = imports.gi;
 
 var asDesktop = false;
 var codePath;
@@ -45,12 +44,13 @@ parseCommandLine(ARGV);
 
 imports.searchPath.unshift(codePath);
 const Thumbnail = imports.app.thumbnails;
+const FileUtils = imports.utils.FileUtils;
 
 var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
-    constructor(codePath, asDesktop, thumbnailapp) {
-        super(codePath);
-        this.mainApp = thumbnailapp;
-        this.asDesktop = asDesktop;
+    constructor(path, desktopBoolean, appName, fileutils) {
+        super(path, fileutils);
+        this.mainApp = appName;
+        this.asDesktop = desktopBoolean;
         this._codePath = codePath;
         this._dbusAdvertiseUpdate();
         this.mainApp.hold();
@@ -126,7 +126,7 @@ dingThumbnailApp.connect('startup', () => {
 
 dingThumbnailApp.connect('activate', () => {
     if (!ThumbnailLoaderLoaded)
-        ThumbnailLoaderLoaded = new ThumbnailApp(codePath, asDesktop, dingThumbnailApp);
+        ThumbnailLoaderLoaded = new ThumbnailApp(codePath, asDesktop, dingThumbnailApp, FileUtils);
 });
 
 dingThumbnailApp.connect('command-line', (app, commandLine) => {

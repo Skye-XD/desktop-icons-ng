@@ -20,8 +20,8 @@
  */
 
 const desktopIconItem = imports.app.desktopIconItem;
-const Prefs = imports.app.preferences;
 const Signals = imports.signals;
+
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -45,7 +45,7 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
     _createStackTopIcon() {
         let iconPaintable;
         let folder = 'folder';
-        if (Prefs.getUnstackList().includes(this._attributeContentType))
+        if (this.Prefs.getUnstackList().includes(this._attributeContentType))
             folder = 'folder-open';
 
         iconPaintable = this._createEmblemedIcon(null, `${folder}`);

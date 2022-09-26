@@ -160,10 +160,13 @@ parseCommandLine(ARGV);
 
 imports.searchPath.unshift(codePath);
 
-const Prefs = imports.app.preferences;
+const Preferences = imports.app.preferences;
+const PreferencesFrame = imports.app.preferencesFrame;
 const Enums = imports.app.enums;
 const DBusUtils = imports.utils.dbusUtils;
 const PromiseUtils = imports.utils.promiseUtils;
+const FileUtils = imports.utils.fileUtils;
+const DesktopIconsUtil = imports.utils.desktopIconsUtil;
 const Gettext = imports.gettext;
 
 PromiseUtils._promisify({}, Gio.AppInfo, 'launch_default_for_uri_async');
@@ -189,7 +192,8 @@ if (Gio.File.new_for_path(localePath).query_exists(null))
 const DesktopManager = imports.app.desktopManager;
 
 var desktopManager = null;
-var dbusManager = null;
+var Utils = { FileUtils, PromiseUtils };
+var Data = { codePath, Enums, PreferencesFrame };
 
 if (asDesktop) {
     remoteDingActions = Gio.DBusActionGroup.get(
@@ -212,14 +216,16 @@ const dingApp = new Gtk.Application({
 });
 
 dingApp.connect('startup', () => {
-    Prefs.init(codePath, Enums);
-    dbusManager = DBusUtils.init(dingApp);
+    Data.dingApp = dingApp;
+    Utils.Preferences = new Preferences.Preferences(Data);
+    Utils.DesktopIconsUtil = new DesktopIconsUtil.DesktopIconsUtil(Data, Utils);
+    Utils.DBusUtils = new DBusUtils.DBusUtils(dingApp);
 });
 
 dingApp.connect('activate', () => {
     if (!desktopManager) {
-        desktopManager = new DesktopManager.DesktopManager(dingApp,
-            dbusManager,
+        desktopManager = new DesktopManager.DesktopManager(Data,
+            Utils,
             desktops,
             codePath,
             asDesktop,

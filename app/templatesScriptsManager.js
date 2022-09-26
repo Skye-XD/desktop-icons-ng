@@ -17,20 +17,20 @@
  */
 
 const { Gio, GLib } = imports.gi;
-const Enums = imports.app.enums;
-const FileUtils = imports.utils.fileUtils;
 
 var TemplatesScriptsManager = class {
-    constructor(baseFolder, callback, selectionfilter, mainApp, appname) {
+    constructor(baseFolder, callback, selectionfilter, Data) {
         this._callback = callback;
         this._selectionFilter = selectionfilter;
-        this._mainApp = mainApp;
+        this._mainApp = Data.mainApp;
+        this.scriptManagerActionName = Data.appName;
+        this.FileUtils = Data.FileUtils;
+        this.Enums = Data.Enums;
         this._entries = [];
         this._entriesEnumerateCancellable = null;
         this._entriesDir = baseFolder;
         this._entriesDirMonitors = [];
         this.gioMenu = null;
-        this.scriptManagerActionName = appname;
         this.menuSimpleAction = Gio.SimpleAction.new(`${this.scriptManagerActionName}`, GLib.VariantType.new('s'));
         this.menuSimpleAction.connect('activate', (action, parameter) => this._callback(parameter.recursiveUnpack()));
         this._mainApp.add_action(this.menuSimpleAction);
@@ -140,9 +140,9 @@ var TemplatesScriptsManager = class {
     }
 
     async _readDirectory(directory, cancellable) {
-        const childrenInfo = await FileUtils.enumerateDir(directory,
+        const childrenInfo = await this.FileUtils.enumerateDir(directory,
             cancellable, GLib.PRIORITY_DEFAULT,
-            Enums.DEFAULT_ATTRIBUTES);
+            this.Enums.DEFAULT_ATTRIBUTES);
 
         const fileList = [];
         childrenInfo.forEach(info => {

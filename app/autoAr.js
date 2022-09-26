@@ -23,11 +23,6 @@ try {
 
 const Signals = imports.signals;
 
-const Enums = imports.app.enums;
-const Prefs = imports.app.preferences;
-const DBusUtils = imports.utils.dbusUtils;
-const FileUtils = imports.utils.fileUtils;
-
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -35,6 +30,7 @@ const _ = Gettext.gettext;
 var AutoAr = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
+        this.FileUtils = desktopManager.FileUtils;
         this._progressWindow = new Gtk.Window({
             title: 'Archives Operations',
             resizable: false,
@@ -267,6 +263,7 @@ Signals.addSignalMethods(AutoAr.prototype);
 const progressDialog = class {
     constructor(autoArClass, message) {
         this._autoAr = autoArClass;
+        this.FileUtils = autoArClass.FileUtils;
         this._waitingForPassword = false;
         this._currentPassword = null;
         this._buttonPromiseAccept = null;
@@ -364,7 +361,7 @@ const progressDialog = class {
         });
 
         try {
-            await FileUtils.deleteFile(file, null, cancellable);
+            await this.FileUtils.deleteFile(file, null, cancellable);
         } catch (e) {
             logError(e, `Failed to remove ${file.get_path()}: ${e.message}`);
         } finally {
@@ -538,6 +535,8 @@ const progressDialog = class {
 
 const CompressDialog = class {
     constructor(desktopManager, fileList, destinationFolder) {
+        this.Enums = desktopManager.Enums;
+        this.Prefs = desktopManager.Prefs;
         this._fileList = [];
         for (let file of fileList)
             this._fileList.push(file.file);
@@ -562,10 +561,10 @@ const CompressDialog = class {
         container.halign = Gtk.Align.CENTER;
         container.spacing = 6;
 
-        if (Prefs.nautilusCompression)
-            this._selectedType = Prefs.nautilusCompression.get_enum('default-compression-format');
+        if (this.Prefs.nautilusCompression)
+            this._selectedType = this.Prefs.nautilusCompression.get_enum('default-compression-format');
         else
-            this._selectedType = Enums.CompressionType.ZIP;
+            this._selectedType = this.Enums.CompressionType.ZIP;
 
 
         const archiveLabel = new Gtk.Label({
@@ -655,8 +654,8 @@ const CompressDialog = class {
     }
 
     _updateStatus() {
-        if (Prefs.nautilusCompression)
-            Prefs.nautilusCompression.set_enum('default-compression-format', this._selectedType);
+        if (this.Prefs.nautilusCompression)
+            this.Prefs.nautilusCompression.set_enum('default-compression-format', this._selectedType);
 
         const label = this._compressOptions[this._selectedType].extension;
         this._extensionLabel.label = label;
@@ -683,25 +682,25 @@ const CompressDialog = class {
 
     _fillComboBox() {
         this._compressOptions = {};
-        this._addComboEntry(Enums.CompressionType.ZIP, {
+        this._addComboEntry(this.Enums.CompressionType.ZIP, {
             extension: '.zip',
             id: 'zip',
             description: _('Compatible with all operating systems.'),
             password: false,
         });
-        this._addComboEntry(Enums.CompressionType.ENCRYPTED_ZIP, {
+        this._addComboEntry(this.Enums.CompressionType.ENCRYPTED_ZIP, {
             extension: '.zip',
             id: 'encryptedzip',
             description: _('Password protected .zip, must be installed on Windows and Mac.'),
             password: true,
         });
-        this._addComboEntry(Enums.CompressionType.TAR_XZ, {
+        this._addComboEntry(this.Enums.CompressionType.TAR_XZ, {
             extension: '.tar.xz',
             id: 'tar.xz',
             description: _('Smaller archives but Linux and Mac only.'),
             password: false,
         });
-        this._addComboEntry(Enums.CompressionType.SEVEN_ZIP, {
+        this._addComboEntry(this.Enums.CompressionType.SEVEN_ZIP, {
             extension: '.7z',
             id: '7z',
             description: _('Smaller archives but must be installed on Windows and Mac.'),

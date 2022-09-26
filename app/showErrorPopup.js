@@ -18,14 +18,14 @@
  */
 
 const { Gtk, Gdk } = imports.gi;
-const DesktopIconsUtil = imports.utils.desktopIconsUtil;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
 var ShowErrorPopup = class {
-    constructor(text, secondaryText, modal, textEntryAccelsTurnOff, textEntryAccelsTurnOn) {
+    constructor(text, secondaryText, modal, textEntryAccelsTurnOff, textEntryAccelsTurnOn, DesktopIconsUtil) {
+        this.DesktopIconsUtil = DesktopIconsUtil;
         this._window = new Gtk.MessageDialog({
             transient_for: null,
             message_type: Gtk.MessageType.ERROR,
@@ -36,7 +36,7 @@ var ShowErrorPopup = class {
         this._window.secondary_use_markup = true;
         this._window.text = text;
         this._window.secondary_text = secondaryText;
-        DesktopIconsUtil.windowHidePagerTaskbarModal(this._window, true);
+        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this._window, true);
         textEntryAccelsTurnOff();
         this.deleteButton = this._window.add_button(_('Close'), Gtk.ResponseType.OK);
         this.deleteButton.connect('clicked', () => {
@@ -63,7 +63,7 @@ var ShowErrorPopup = class {
     }
 
     async timeoutClose(time) {
-        await DesktopIconsUtil.waitDelayMs(time);
+        await this.DesktopIconsUtil.waitDelayMs(time);
         if (this._window)
             this.deleteButton.activate();
     }
