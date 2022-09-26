@@ -20,7 +20,6 @@
 
 const { Gtk, Gdk, Gio, GLib } = imports.gi;
 const desktopIconItem = imports.app.desktopIconItem;
-const DBusUtils = imports.utils.dbusUtils;
 
 const Signals = imports.signals;
 const Gettext = imports.gettext.domain('gtk4-ding');
@@ -30,6 +29,7 @@ const _ = Gettext.gettext;
 var FileItem = class extends desktopIconItem.desktopIconItem {
     constructor(desktopManager, file, fileInfo, fileExtra, custom) {
         super(desktopManager, fileExtra);
+        this.DBusUtils = desktopManager.DBusUtils;
         this.PromiseUtils = desktopManager.PromiseUtils;
         this._fileInfo = fileInfo;
         this._custom = custom;
@@ -269,7 +269,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             }
         }
 
-        if (!DBusUtils.GnomeArchiveManager.isAvailable &&
+        if (!this.DBusUtils.GnomeArchiveManager.isAvailable &&
             this._fileType === Gio.FileType.REGULAR &&
             this._desktopManager.autoAr.fileIsCompressed(this.fileName)) {
             this._desktopManager.autoAr.extractFile(this.fileName);
@@ -298,7 +298,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             error,
             true,
             this._textEntryAccelsTurnOff.bind(this),
-            this._textEntryAccelsTurnOn.bind(this)
+            this._textEntryAccelsTurnOn.bind(this),
+            this.DesktopIconsUtil
         );
     }
 
@@ -435,8 +436,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         }
 
         if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
-            DBusUtils.RemoteFileOperations.pushEvent(event);
-            DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
+            this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
             return;
         }
 
@@ -590,11 +591,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     doDiscreteGpu() {
-        if (!DBusUtils.discreteGpuAvailable) {
+        if (!this.DBusUtils.discreteGpuAvailable) {
             log('Could not apply discrete GPU environment, switcheroo-control not available');
             return;
         }
-        let gpus = DBusUtils.SwitcherooControl.proxy.GPUs;
+        let gpus = this.DBusUtils.SwitcherooControl.proxy.GPUs;
         if (!gpus) {
             log('Could not apply discrete GPU environment. No GPUs in list.');
             return;

@@ -17,7 +17,6 @@
  */
 
 const { Gtk, Gio, GLib } = imports.gi;
-const DBusUtils = imports.utils.dbusUtils;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
@@ -27,6 +26,7 @@ var AskRenamePopup = class {
     constructor(fileItem, allowReturnOnSameName, closeCB, Data) {
         this.FileUtils = Data.FileUtils;
         this.DesktopIconsUtil = Data.DesktopIconsUtil;
+        this.DBusUtils = Data.DBusUtils;
         this._validateCancellable = new Gio.Cancellable();
         this._closeCB = closeCB;
         this._allowReturnOnSameName = allowReturnOnSameName;
@@ -119,7 +119,7 @@ var AskRenamePopup = class {
         if (this._fileItem.fileName === this._textArea.text)
             return;
 
-        DBusUtils.RemoteFileOperations.RenameURIRemote(
+        this.DBusUtils.RemoteFileOperations.RenameURIRemote(
             this._fileItem.file.get_uri(), this._textArea.text
         );
     }

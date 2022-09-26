@@ -17,7 +17,6 @@
  */
 
 const { GLib, Gdk, Gtk, Gio } = imports.gi;
-const DBusUtils = imports.utils.dbusUtils;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
@@ -29,10 +28,11 @@ var FileItemMenu = class {
         this._mainApp = this._desktopManager.mainApp;
         this.Prefs = this._desktopManager.Prefs;
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
+        this.DBusUtils = desktopManager.DBusUtils;
         this._templatesScriptsManager = this._desktopManager.templatesScriptsManager;
         this._showErrorPopup = this._desktopManager.showErrorPopup;
         this._decompressibleTypes = [];
-        DBusUtils.RemoteFileOperations.gnomeArchiveManager.connect('changed-status', (actor, available) => {
+        this.DBusUtils.RemoteFileOperations.gnomeArchiveManager.connect('changed-status', (actor, available) => {
             if (available) {
                 // wait a second to ensure that everything has settled
                 GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
@@ -45,7 +45,7 @@ var FileItemMenu = class {
                 this._decompressibleTypes = [];
             }
         });
-        if (DBusUtils.RemoteFileOperations.gnomeArchiveManager.isAvailable)
+        if (this.DBusUtils.RemoteFileOperations.gnomeArchiveManager.isAvailable)
             this._getExtractionSupportedTypes();
 
 
@@ -66,7 +66,7 @@ var FileItemMenu = class {
 
     _getExtractionSupportedTypes() {
         this._decompressibleTypes = [];
-        const archiveProxy = DBusUtils.GnomeArchiveManager.proxy;
+        const archiveProxy = this.DBusUtils.GnomeArchiveManager.proxy;
         try {
             archiveProxy?.GetSupportedTypesRemote('extract',
                 (result, error) => {
@@ -283,7 +283,7 @@ var FileItemMenu = class {
             if (!fileItem.isDirectory) {
                 let openWithMenu = Gio.Menu.new();
                 openWithMenu.append(selectedItemsNum > 1 ? _('Open All With Other Application...') : _('Open With Other Application'), 'app.doopenwith');
-                if (DBusUtils.discreteGpuAvailable && fileItem.trustedDesktopFile)
+                if (this.DBusUtils.discreteGpuAvailable && fileItem.trustedDesktopFile)
                     openWithMenu.append(_('Launch using Dedicated Graphics Card'), 'app.graphicslaunch');
 
                 this._menu.append_section(null, openWithMenu);
@@ -421,7 +421,7 @@ var FileItemMenu = class {
     _onPropertiesClicked() {
         let propertiesFileList = this._desktopManager.getCurrentSelection(true);
         const timestamp = Gdk.CURRENT_TIME;
-        DBusUtils.RemoteFileOperations.ShowItemPropertiesRemote(propertiesFileList, timestamp);
+        this.DBusUtils.RemoteFileOperations.ShowItemPropertiesRemote(propertiesFileList, timestamp);
     }
 
     _onShowInFilesClicked() {
@@ -437,7 +437,7 @@ var FileItemMenu = class {
             }
         }
         const timestamp = Gdk.CURRENT_TIME;
-        DBusUtils.RemoteFileOperations.ShowItemsRemote(showInFilesList, timestamp);
+        this.DBusUtils.RemoteFileOperations.ShowItemsRemote(showInFilesList, timestamp);
     }
 
     _doMultiOpen() {
@@ -498,7 +498,7 @@ var FileItemMenu = class {
             extractFolderName = this.DesktopIconsUtil.getFileExtensionOffset(extractFolderName).basename;
             const targetURI = await this._desktopManager.doNewFolder(position, extractFolderName, { rename: false });
             if (targetURI)
-                DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, targetURI, true);
+                this.DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, targetURI, true);
             else
                 this._desktopManager.DBusManager.doNotify(header, text);
 
@@ -522,7 +522,7 @@ var FileItemMenu = class {
             if (response === Gtk.ResponseType.ACCEPT) {
                 const folder = dialog.get_file().get_uri();
                 if (folder)
-                    DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, folder, true);
+                    this.DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, folder, true);
                 else
                     this._desktopManager.DBusManager.doNotify(header, text);
             }
@@ -533,7 +533,7 @@ var FileItemMenu = class {
 
     _getExtractableAutoAr() {
         let fileList = this._desktopManager.getCurrentSelection(false);
-        if (DBusUtils.GnomeArchiveManager.isAvailable && (fileList.length === 1))
+        if (this.DBusUtils.GnomeArchiveManager.isAvailable && (fileList.length === 1))
             return false;
 
         for (let item of fileList) {
@@ -554,7 +554,9 @@ var FileItemMenu = class {
                 _('Selection includes a Directory, compress the directory to a file first.'),
                 false,
                 this._textEntryAccelsTurnOff.bind(this),
-                this._textEntryAccelsTurnOn.bind(this));
+                this._textEntryAccelsTurnOn.bind(this),
+                this.DesktopIconsUtil
+            );
             WindowError.run();
             return;
         }
@@ -571,9 +573,9 @@ var FileItemMenu = class {
     _doCompressFilesFromSelection() {
         let desktopFolder = this.DesktopIconsUtil.getDesktopDir();
         if (desktopFolder) {
-            if (DBusUtils.GnomeArchiveManager.isAvailable) {
+            if (this.DBusUtils.GnomeArchiveManager.isAvailable) {
                 const toCompress = this._desktopManager.getCurrentSelection(true);
-                DBusUtils.RemoteFileOperations.CompressRemote(toCompress, desktopFolder.get_uri(), true);
+                this.DBusUtils.RemoteFileOperations.CompressRemote(toCompress, desktopFolder.get_uri(), true);
             } else {
                 const toCompress = this._desktopManager.getCurrentSelection(false);
                 this._desktopManager.autoAr.compressFileItems(toCompress, desktopFolder.get_path());
@@ -592,8 +594,8 @@ var FileItemMenu = class {
         clickedItem.removeFromGrid({ callOnDestroy: false });
         const newFolder = await this._desktopManager.doNewFolder(position);
         if (newFolder) {
-            DBusUtils.RemoteFileOperations.pushEvent(event);
-            DBusUtils.RemoteFileOperations.MoveURIsRemote(newFolderFileItems, newFolder);
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
+            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(newFolderFileItems, newFolder);
         }
     }
 

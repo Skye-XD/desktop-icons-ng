@@ -36,8 +36,6 @@ try {
     Thumbnails = imports.app.thumbnails;
 } catch (e) {}
 
-const DBusUtils = imports.utils.dbusUtils;
-
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -56,8 +54,8 @@ var DesktopManager = class {
         this.Enums = Data.Enums;
         this._codePath = codePath;
         this._asDesktop = asDesktop;
-
-        this.dbusManager = Utils.dbusManager;
+        this.DBusUtils = Utils.DBusUtils;
+        this.dbusManager = Utils.DBusUtils.dbusManagerObject;
         this.Prefs = Utils.Preferences;
         this.autoAr = new AutoAr.AutoAr(this);
 
@@ -227,17 +225,17 @@ var DesktopManager = class {
 
         this._createGridWindows();
 
-        DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
-        DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
             if (available)
                 this._syncUndoRedo();
             else
                 this._syncUndoRedo(true);
         });
-        if (DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
+        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
             this._syncUndoRedo();
 
-        DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
+        this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
         this._allFileList = null;
         this._fileList = [];
         this._forcedExit = false;
@@ -250,11 +248,14 @@ var DesktopManager = class {
         try {
             this.DesktopIconsUtil.trySpawn(null, ['nautilus', '--version']);
         } catch (e) {
-            this._errorWindow = new ShowErrorPopup.ShowErrorPopup(_('Nautilus File Manager not found'),
+            this._errorWindow = new ShowErrorPopup.ShowErrorPopup(
+                _('Nautilus File Manager not found'),
                 _('The Nautilus File Manager is mandatory to work with Desktop Icons NG.'),
                 true,
                 this.textEntryAccelsTurnOff.bind(this),
-                this.textEntryAccelsTurnOn.bind(this));
+                this.textEntryAccelsTurnOn.bind(this),
+                this.DesktopIconsUtil
+            );
         }
         this._pendingDropFiles = {};
         if (this._asDesktop) {
@@ -872,8 +873,8 @@ var DesktopManager = class {
 
     async copyOrMoveUris(uriList, destinationUri, event, params = {}) {
         if (params.forceCopy) {
-            DBusUtils.RemoteFileOperations.pushEvent(event);
-            DBusUtils.RemoteFileOperations.CopyURIsRemote(uriList, destinationUri);
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
+            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(uriList, destinationUri);
             return Gdk.DragAction.COPY;
         }
 
@@ -888,13 +889,13 @@ var DesktopManager = class {
         }));
 
         if (moveFiles.length) {
-            DBusUtils.RemoteFileOperations.pushEvent(event);
-            DBusUtils.RemoteFileOperations.MoveURIsRemote(moveFiles, destinationUri);
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
+            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(moveFiles, destinationUri);
         }
 
         if (copyFiles.length) {
-            DBusUtils.RemoteFileOperations.pushEvent(event);
-            DBusUtils.RemoteFileOperations.CopyURIsRemote(copyFiles, destinationUri);
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
+            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(copyFiles, destinationUri);
         }
 
         return moveFiles.length ? Gdk.DragAction.MOVE : Gdk.DragAction.COPY;
@@ -1093,7 +1094,7 @@ var DesktopManager = class {
             this._redoMenuItem.hide();
             return;
         }
-        switch (DBusUtils.RemoteFileOperations.UndoStatus()) {
+        switch (this.DBusUtils.RemoteFileOperations.UndoStatus()) {
         case this.Enums.UndoStatus.UNDO:
             this.doUndoSimpleAction.set_enabled(true);
             this.doRedoSimpleAction.set_enabled(false);
@@ -1115,11 +1116,11 @@ var DesktopManager = class {
     }
 
     _doUndo() {
-        DBusUtils.RemoteFileOperations.UndoRemote();
+        this.DBusUtils.RemoteFileOperations.UndoRemote();
     }
 
     _doRedo() {
-        DBusUtils.RemoteFileOperations.RedoRemote();
+        this.DBusUtils.RemoteFileOperations.RedoRemote();
     }
 
     onKeyPress(keyval, keycode, state, grid) {
@@ -1145,7 +1146,9 @@ var DesktopManager = class {
                         null,
                         true,
                         this.textEntryAccelsTurnOff.bind(this),
-                        this.textEntryAccelsTurnOn.bind(this));
+                        this.textEntryAccelsTurnOn.bind(this),
+                        this.DesktopIconsUtil
+                    );
                     windowError.timeoutClose(2000);
                     return true;
                 }
@@ -1369,7 +1372,7 @@ var DesktopManager = class {
             if (this.popupmenuopen || !this.activeFileItem)
                 return;
 
-            DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
+            this.DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
         });
         this.mainApp.add_action(previewAction);
         this.mainApp.set_accels_for_action('app.previewAction', ['space']);
@@ -1663,12 +1666,12 @@ var DesktopManager = class {
             if (this._clickX !== 0)
                 this.clearFileCoordinates(this._clipboardFiles, [this._clickX, this._clickY]);
 
-            DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
+            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
             if (this._clickX !== 0)
                 this.clearFileCoordinates(this._clipboardFiles, [this._clickX, this._clickY], true);
 
-            DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
+            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
         }
     }
 
@@ -2256,7 +2259,7 @@ var DesktopManager = class {
             i.file.get_uri());
 
         if (selection.length)
-            DBusUtils.RemoteFileOperations.TrashURIsRemote(selection);
+            this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selection);
     }
 
     doDeletePermanently() {
@@ -2269,11 +2272,11 @@ var DesktopManager = class {
             return;
         }
 
-        DBusUtils.RemoteFileOperations.DeleteURIsRemote(toDelete);
+        this.DBusUtils.RemoteFileOperations.DeleteURIsRemote(toDelete);
     }
 
     doEmptyTrash(askConfirmation = true) {
-        DBusUtils.RemoteFileOperations.EmptyTrashRemote(askConfirmation);
+        this.DBusUtils.RemoteFileOperations.EmptyTrashRemote(askConfirmation);
     }
 
     checkIfSpecialFilesAreSelected() {
@@ -2348,6 +2351,7 @@ var DesktopManager = class {
                 {
                     FileUtils: this.FileUtils,
                     DesktopIconsUtil: this.DesktopIconsUtil,
+                    DBusUtils: this.DBusUtils,
                 }
             );
         } else {

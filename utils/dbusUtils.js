@@ -20,20 +20,9 @@ imports.gi.versions.GdkX11 = '4.0';
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.GdkWayland = '4.0';
 
-const { Gdk, Gio, GLib, Gtk, GdkX11, GdkWayland } = imports.gi;
+const { Gdk, Gio, GLib, GdkX11, GdkWayland } = imports.gi;
 const Signals = imports.signals;
 const DBusInterfaces = imports.utils.dbusInterfaces;
-
-var NautilusFileOperations2 = null;
-var FreeDesktopFileManager = null;
-var GnomeNautilusPreview = null;
-var SwitcherooControl = null;
-var GnomeArchiveManager = null;
-var GtkVfsMetadata = null;
-var discreteGpuAvailable = false;
-var dbusManagerObject;
-var RemoteFileOperations;
-var applicationid;
 
 const Gettext = imports.gettext.domain('ding');
 
@@ -580,15 +569,16 @@ class DbusOperationsManager {
 
 
 class RemoteFileOperationsManager extends DbusOperationsManager {
-    constructor(fileOperationsManager, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager) {
+    constructor(fileOperationsManager, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager, applicationId) {
         super(FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager);
+        this.applicationId = applicationId;
         this.fileOperationsManager = fileOperationsManager;
         this._createPlatformData();
         this._eventsStack = [];
     }
 
     pushEvent(params = {}) {
-        const parentWindow = params.parentWindow ? params.parentWindow : applicationid.get_active_window();
+        const parentWindow = params.parentWindow ? params.parentWindow : this.applicationId.get_active_window();
         const currentEventTime = params.timestamp ? params.timestamp : Gdk.CURRENT_TIME;
         this._eventsStack.unshift({
             parentWindow,
@@ -615,7 +605,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
 
         this.platformData = this.fileOperationsManager.platformData = async () => {
             const eventParameters = this._eventsStack.pop() || {
-                'parentWindow': applicationid.get_active_window(),
+                'parentWindow': this.applicationId.get_active_window(),
                 'timestamp': Gdk.CURRENT_TIME,
             };
             const parentWindow = eventParameters.parentWindow;
@@ -1006,97 +996,104 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     }
 }
 
+var DBusUtils = class DBusUtils {
+    constructor(mainApp) {
+        this.applicationId = mainApp;
+        this.discreteGpuAvailable = false;
+        this.dbusManagerObject = new DBusManager();
 
-/**
- *
- * @param {Gtk.AppID} mainapp a Gtk application ID
- */
-function init(mainapp) {
-    applicationid = mainapp;
-    dbusManagerObject = new DBusManager();
-
-    let data = dbusManagerObject.getIntrospectionData(
-        'org.gnome.Nautilus',
-        '/org/gnome/Nautilus/FileOperations2',
-        false);
-
-    if (data) {
-        // NautilusFileOperations2
-        NautilusFileOperations2 = new ProxyManager(
-            dbusManagerObject,
+        let data = this.dbusManagerObject.getIntrospectionData(
             'org.gnome.Nautilus',
             '/org/gnome/Nautilus/FileOperations2',
-            'org.gnome.Nautilus.FileOperations2',
+            false);
+
+        if (data) {
+            // NautilusFileOperations2
+            this.NautilusFileOperations2 = new ProxyManager(
+                this.dbusManagerObject,
+                'org.gnome.Nautilus',
+                '/org/gnome/Nautilus/FileOperations2',
+                'org.gnome.Nautilus.FileOperations2',
+                false,
+                'Nautilus'
+            );
+        } else {
+            print('Emulating NautilusFileOperations2 with the old NautilusFileOperations interface');
+            // Emulate NautilusFileOperations2 with the old interface
+            this.NautilusFileOperations2 = new ProxyManager(
+                this.dbusManagerObject,
+                'org.gnome.Nautilus',
+                '/org/gnome/Nautilus',
+                'org.gnome.Nautilus.FileOperations',
+                false,
+                'Nautilus'
+            );
+        }
+
+        this.FreeDesktopFileManager = new ProxyManager(
+            this.dbusManagerObject,
+            'org.freedesktop.FileManager1',
+            '/org/freedesktop/FileManager1',
+            'org.freedesktop.FileManager1',
             false,
             'Nautilus'
         );
-    } else {
-        print('Emulating NautilusFileOperations2 with the old NautilusFileOperations interface');
-        // Emulate NautilusFileOperations2 with the old interface
-        NautilusFileOperations2 = new ProxyManager(
-            dbusManagerObject,
-            'org.gnome.Nautilus',
-            '/org/gnome/Nautilus',
-            'org.gnome.Nautilus.FileOperations',
+
+        this.GnomeNautilusPreview = new ProxyManager(
+            this.dbusManagerObject,
+            'org.gnome.NautilusPreviewer',
+            '/org/gnome/NautilusPreviewer',
+            'org.gnome.NautilusPreviewer',
             false,
-            'Nautilus'
+            'Nautilus-Sushi'
         );
+
+        this.GnomeArchiveManager = new ProxyManager(
+            this.dbusManagerObject,
+            'org.gnome.ArchiveManager1',
+            '/org/gnome/ArchiveManager1',
+            'org.gnome.ArchiveManager1',
+            false,
+            'File-roller'
+        );
+
+        this.GtkVfsMetadata = new ProxyManager(
+            this.dbusManagerObject,
+            'org.gtk.vfs.Metadata',
+            '/org/gtk/vfs/metadata',
+            'org.gtk.vfs.Metadata',
+            false,
+            'Gvfs daemon'
+        );
+
+        this.SwitcherooControl = new ProxyManager(
+            this.dbusManagerObject,
+            'net.hadess.SwitcherooControl',
+            '/net/hadess/SwitcherooControl',
+            'net.hadess.SwitcherooControl',
+            true,
+            'Switcheroo control'
+        );
+        this.discreteGpuAvailable = this.SwitcherooControl.isAvailable;
+        this.SwitcherooControl.connect('changed-status', (obj, newStatus) => {
+            this.discreteGpuAvailable = newStatus;
+        });
+
+        if (data) {
+            this.RemoteFileOperations = new RemoteFileOperationsManager(
+                this.NautilusFileOperations2,
+                this.FreeDesktopFileManager,
+                this.GnomeNautilusPreview,
+                this.GnomeArchiveManager,
+                this.applicationId
+            );
+        } else {
+            this.RemoteFileOperations = new LegacyRemoteFileOperationsManager(
+                this.NautilusFileOperations2,
+                this.FreeDesktopFileManager,
+                this.GnomeNautilusPreview,
+                this.GnomeArchiveManager
+            );
+        }
     }
-
-    FreeDesktopFileManager = new ProxyManager(
-        dbusManagerObject,
-        'org.freedesktop.FileManager1',
-        '/org/freedesktop/FileManager1',
-        'org.freedesktop.FileManager1',
-        false,
-        'Nautilus'
-    );
-
-    GnomeNautilusPreview = new ProxyManager(
-        dbusManagerObject,
-        'org.gnome.NautilusPreviewer',
-        '/org/gnome/NautilusPreviewer',
-        'org.gnome.NautilusPreviewer',
-        false,
-        'Nautilus-Sushi'
-    );
-
-    GnomeArchiveManager = new ProxyManager(
-        dbusManagerObject,
-        'org.gnome.ArchiveManager1',
-        '/org/gnome/ArchiveManager1',
-        'org.gnome.ArchiveManager1',
-        false,
-        'File-roller'
-    );
-
-    GtkVfsMetadata = new ProxyManager(
-        dbusManagerObject,
-        'org.gtk.vfs.Metadata',
-        '/org/gtk/vfs/metadata',
-        'org.gtk.vfs.Metadata',
-        false,
-        'Gvfs daemon'
-    );
-
-    SwitcherooControl = new ProxyManager(
-        dbusManagerObject,
-        'net.hadess.SwitcherooControl',
-        '/net/hadess/SwitcherooControl',
-        'net.hadess.SwitcherooControl',
-        true,
-        'Switcheroo control'
-    );
-    discreteGpuAvailable = SwitcherooControl.isAvailable;
-    SwitcherooControl.connect('changed-status', (obj, newStatus) => {
-        discreteGpuAvailable = newStatus;
-    });
-
-    if (data)
-        RemoteFileOperations = new RemoteFileOperationsManager(NautilusFileOperations2, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager);
-    else
-        RemoteFileOperations = new LegacyRemoteFileOperationsManager(NautilusFileOperations2, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager);
-
-
-    return dbusManagerObject;
-}
+};

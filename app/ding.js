@@ -219,7 +219,7 @@ dingApp.connect('startup', () => {
     Data.dingApp = dingApp;
     Utils.Preferences = new Preferences.Preferences(Data);
     Utils.DesktopIconsUtil = new DesktopIconsUtil.DesktopIconsUtil(Data, Utils);
-    Utils.dbusManager = DBusUtils.init(dingApp);
+    Utils.DBusUtils = new DBusUtils.DBusUtils(dingApp);
 });
 
 dingApp.connect('activate', () => {
