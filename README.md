@@ -50,6 +50,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Use native TextEncoder and TextDecoder objects in GJS instead of ByteArray imports.
 
+- [x] Use CSS to unhighlight Drop Target.
+
 - [x] Use native libadwaita prefrences window from gnome-extensions if possible to maintain UI consistency.
 
 **EXPERIMENTAL FEATURES**
@@ -100,6 +102,8 @@ There is optional integration with Gsconnect extension available. If Gsconnect e
 - [x] Leverages Gtk4 calls to translate coordinates. Fix Rubber band initiation by correcting the grid Global Rectangle, local to global and global to local coordinates. Leverages Gtk calls for \_coordinatesBelongToThisGrid() and new \_coordinatesBelongToThisWindow(); Fixes initiation of this.globalRectangle using the above calls. Fixes iconContainer and labelContainer global rectangles with the above calls as well so that they work with fractional scaling. Thanks to Sergio Costas for Pointing out that eventbox gives negative coordinates in margins. Fix for correcting getDistance(x, y) from Sergio Costas !348. Removed scale from desktopgrid.js. Removed zoom from desktopIconItem.js
 
 - [x] Refactoring to avoid boolean parameters, make code more readable. Added eslint.json and GJS/Gnome eslintrc-gjs.yml and eslintrc-shell.yml for linting.
+
+- [x] Refactoring to avoid multiple imports, preferences, desktopiconsutil, DBusUtils, Enums, FileUtils, PromiseUtils just imported once at DING startup. Prefrences, desktopiconsUtil and DBusUtils are now classes. Extensive linting of Code, Header imports cleaned up to avoid importing the same thing twice. This facilitates, renaming, moving, reorgainizing of files into different folder, as the code will have to be changed in just one file to accomodate instead of editing multiple files.
 
 
 **KNOWN ISSUES**

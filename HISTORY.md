@@ -1,8 +1,10 @@
 # History of versions #
 
-* Work in Progress
+* Gtk4 version 9
   * Use CSS to unhighlight droptarget instead of intercepting GObject calls. (Sundeep Mediratta)
   * Use native libadwaita prefrences window from gnome-extensions if possible to maintain UI consistency. (Sundeep Mediratta)
+  * Make DBusUtils, Preferences, DesktopIconsUtil classes that are just imported once at DING startup. Import FileUtils, PromiseUtils, Enums just once at app startup. Extensice refactoring, linting of code, avoid duplicate imports, Minimize Header imports, just pass objects if imported already. (Sundeep Mediratta)
+  * Verion Bump to 9 - metadata.json.
 
 * Gtk4 version 8
   * Fix regression in mutter settings not being detected. (Sundeep Mediratta)
