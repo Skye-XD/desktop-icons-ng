@@ -230,9 +230,8 @@ var DesktopGrid = class {
     }
 
     updateGridRectangle() {
-        let [x, y] = this.coordinatesLocalToGlobal(0, 0);
-        this.gridGlobalRectangle.x = x;
-        this.gridGlobalRectangle.y = y;
+        this.gridGlobalRectangle.x = this._x + this._marginLeft;
+        this.gridGlobalRectangle.y = this._y + this._marginTop;
         this.gridGlobalRectangle.width = this._width;
         this.gridGlobalRectangle.height = this._height;
     }
@@ -256,9 +255,9 @@ var DesktopGrid = class {
     resizeGrid() {
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
-        this.updateGridRectangle();
         this.sizeContainer(this._container);
         this.sizeContainer(this._drawArea);
+        this.updateGridRectangle();
         this.setGridStatus();
     }
 
@@ -722,7 +721,7 @@ var DesktopGrid = class {
             x += ox;
             y += oy;
             let r = this.getGridAt(x, y);
-            if (!isNaN(r[0]) && !isNaN(r[1]) && (!this.gridInUse(r[0], r[1]) || this._fileAt(r[0], r[1]).isSelected))
+            if (r && !isNaN(r[0]) && !isNaN(r[1]) && (!this.gridInUse(r[0], r[1]) || this._fileAt(r[0], r[1]).isSelected))
                 newSelectedList.push(r);
         }
         if (newSelectedList.length === 0) {
@@ -816,7 +815,7 @@ var DesktopGrid = class {
         if (!isFree)
             return -1;
 
-        if (this._coordinatesBelongToThisWindow(x, y))
+        if (this._coordinatesBelongToThisGrid(x, y))
             return 0;
 
         return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) + Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
@@ -909,15 +908,8 @@ var DesktopGrid = class {
     }
 
     _coordinatesBelongToThisGrid(X, Y) {
-        X -= this._x;
-        Y -= this._y;
-        return this._window.translate_coordinates(this._container, X, Y)[0];
-    }
-
-    _coordinatesBelongToThisWindow(X, Y) {
-        X -= this._x;
-        Y -= this._y;
-        return this._window.translate_coordinates(this._window, X, Y)[0];
+        let checkRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+        return this.gridGlobalRectangle.intersect(checkRectangle)[0];
     }
 
     getGlobaltoLocalRectangle(gdkRectangle) {
