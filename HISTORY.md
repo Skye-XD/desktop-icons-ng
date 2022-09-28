@@ -1,5 +1,10 @@
 # History of versions #
 
+* Gtk4 version 10
+  * Fix DND of icons on second monitor, use second monitor effectively. (Sundeep Mediratta)
+  * Fix Global Rectangle, dont use Gtk translate coordinates as it was giving errors leaving last column of grids inaccessible for drops. (Sundeep Mediratta)
+  * Version Bump to 10 - metadata.json.
+
 * Gtk4 version 9
   * Use CSS to unhighlight droptarget instead of intercepting GObject calls. (Sundeep Mediratta)
   * Use native libadwaita prefrences window from gnome-extensions if possible to maintain UI consistency. (Sundeep Mediratta)
