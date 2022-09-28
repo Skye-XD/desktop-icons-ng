@@ -642,10 +642,10 @@ var DesktopManager = class {
         this.dragItem = item;
     }
 
-    onDragMotion(x, y) {
+    onDragMotion(X, Y) {
         if (this.dragItem === null) {
             for (let desktop of this._desktops)
-                desktop.refreshDrag([[0, 0]], x, y);
+                desktop.refreshDrag([[0, 0]], X, Y);
 
             return;
         }
@@ -664,7 +664,7 @@ var DesktopManager = class {
             }
         }
         for (let desktop of this._desktops)
-            desktop.refreshDrag(this._dragList, x, y);
+            desktop.refreshDrag(this._dragList, X, Y);
     }
 
     onDragLeave() {
