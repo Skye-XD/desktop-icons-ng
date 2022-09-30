@@ -796,15 +796,12 @@ var DesktopGrid = class {
         }
     }
 
-    getDistance(x, y) {
-        /**
-         * Checks if these coordinates belong to this grid.
-         *
-         *  Returns: -1 if there is no free space for new icons;
-         *            0 if the coordinates are inside this grid;
-         *            or the distance to the middle point, if none of the previous
-         */
+    getDistance(x) {
+        // Returns the distance to the middle point of this grid from X //
+        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) + Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
+    }
 
+    isAvailable() {
         let isFree = false;
         for (let element in this._gridStatus) {
             if (!this._gridStatus[element]) {
@@ -812,13 +809,7 @@ var DesktopGrid = class {
                 break;
             }
         }
-        if (!isFree)
-            return -1;
-
-        if (this._coordinatesBelongToThisGrid(x, y))
-            return 0;
-
-        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) + Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
+        return isFree;
     }
 
     coordinatesGlobalToLocal(X, Y, widget = null) {
@@ -892,7 +883,7 @@ var DesktopGrid = class {
     }
 
     getGridAt(x, y, globalCoordinates = false) {
-        if (this._coordinatesBelongToThisGrid(x, y)) {
+        if (this.coordinatesBelongToThisGrid(x, y)) {
             [x, y] = this.coordinatesGlobalToLocal(x, y);
             if (globalCoordinates) {
                 x = this._elementWidth * Math.floor((x / this._elementWidth) + 0.5);
@@ -907,7 +898,7 @@ var DesktopGrid = class {
         }
     }
 
-    _coordinatesBelongToThisGrid(X, Y) {
+    coordinatesBelongToThisGrid(X, Y) {
         let checkRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
         return this.gridGlobalRectangle.intersect(checkRectangle)[0];
     }

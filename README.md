@@ -105,6 +105,7 @@ There is optional integration with Gsconnect extension available. If Gsconnect e
 
 - [x] Refactoring to avoid multiple imports, preferences, desktopiconsutil, DBusUtils, Enums, FileUtils, PromiseUtils just imported once at DING startup. Prefrences, desktopiconsUtil and DBusUtils are now classes. Extensive linting of Code, Header imports cleaned up to avoid importing the same thing twice. This facilitates, renaming, moving, reorgainizing of files into different folder, as the code will have to be changed in just one file to accomodate instead of editing multiple files.
 
+- [x] Fix - always show new Icons on primary monitor on multi monitor setups. When primary monitor is switched during session, this tracks it as well.
 
 **KNOWN ISSUES**
 
