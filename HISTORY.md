@@ -1,8 +1,9 @@
 # History of versions #
 
-* Gtk4 Work in Progress
+* Gtk4 version 11
   * Fix - always show new Icons on primary monitor on multi monitor setups. When primary monitor is switched during session, this tracks it as well. (Sundeep Mediratta)
   * New Feature - Add a preferences option to place new icons on the non primary display if multiple monitors are connected. (Sundeep Mediratta)
+  * Version Bump to 11 - metadata.json. Also update gtk4-ding.po.
 
 * Gtk4 version 10
   * Fix DND of icons on second monitor, use second monitor effectively. (Sundeep Mediratta)

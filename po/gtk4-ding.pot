@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-25 21:20-0400\n"
+"POT-Creation-Date: 2022-09-30 06:20-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "File name"
 msgstr ""
 
-#: app/askRenamePopup.js:56 app/autoAr.js:299 app/desktopManager.js:1187
+#: app/askRenamePopup.js:56 app/autoAr.js:299 app/desktopManager.js:1198
 msgid "OK"
 msgstr ""
 
@@ -52,8 +52,8 @@ msgstr ""
 msgid "Compressing files"
 msgstr ""
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:751
-#: app/desktopManager.js:1189 app/fileItemMenu.js:512
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:762
+#: app/desktopManager.js:1200 app/fileItemMenu.js:512
 msgid "Cancel"
 msgstr ""
 
@@ -165,147 +165,147 @@ msgstr ""
 msgid "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
 msgstr ""
 
-#: app/desktopManager.js:748
+#: app/desktopManager.js:759
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:749 app/fileItemMenu.js:302
+#: app/desktopManager.js:760 app/fileItemMenu.js:302
 msgid "Copy"
 msgstr ""
 
-#: app/desktopManager.js:750
+#: app/desktopManager.js:761
 msgid "Link"
 msgstr ""
 
-#: app/desktopManager.js:753
+#: app/desktopManager.js:764
 msgid "Choose Action for Files"
 msgstr ""
 
-#: app/desktopManager.js:822 app/desktopManager.js:854
+#: app/desktopManager.js:833 app/desktopManager.js:865
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:823 app/desktopManager.js:855
+#: app/desktopManager.js:834 app/desktopManager.js:866
 msgid "Error while trying to create a symbolic Link"
 msgstr ""
 
-#: app/desktopManager.js:1145
+#: app/desktopManager.js:1156
 msgid "Clear Current Selection before New Search"
 msgstr ""
 
-#: app/desktopManager.js:1191
+#: app/desktopManager.js:1202
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1442
+#: app/desktopManager.js:1453
 msgid "Sort by Name"
 msgstr ""
 
-#: app/desktopManager.js:1443
+#: app/desktopManager.js:1454
 msgid "Sort by Name Descending"
 msgstr ""
 
-#: app/desktopManager.js:1444
+#: app/desktopManager.js:1455
 msgid "Sort by Modified Time"
 msgstr ""
 
-#: app/desktopManager.js:1445
+#: app/desktopManager.js:1456
 msgid "Sort by Type"
 msgstr ""
 
-#: app/desktopManager.js:1446
+#: app/desktopManager.js:1457
 msgid "Sort by Size"
 msgstr ""
 
-#: app/desktopManager.js:1449
+#: app/desktopManager.js:1460
 msgid "Keep Arranged…"
 msgstr ""
 
-#: app/desktopManager.js:1453
+#: app/desktopManager.js:1464
 msgid "Keep Stacked by Type…"
 msgstr ""
 
-#: app/desktopManager.js:1454
+#: app/desktopManager.js:1465
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopManager.js:1459 app/desktopManager.js:2389
+#: app/desktopManager.js:1470 app/desktopManager.js:2425
 msgid "New Folder"
 msgstr ""
 
-#: app/desktopManager.js:1463
+#: app/desktopManager.js:1474
 msgid "New Document"
 msgstr ""
 
-#: app/desktopManager.js:1467
+#: app/desktopManager.js:1478
 msgid "Paste"
 msgstr ""
 
-#: app/desktopManager.js:1468
+#: app/desktopManager.js:1479
 msgid "Undo"
 msgstr ""
 
-#: app/desktopManager.js:1469
+#: app/desktopManager.js:1480
 msgid "Redo"
 msgstr ""
 
-#: app/desktopManager.js:1474
+#: app/desktopManager.js:1485
 msgid "Select All"
 msgstr ""
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1490
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopManager.js:1483
+#: app/desktopManager.js:1494
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1499
 msgid "Show Desktop In Files"
 msgstr ""
 
-#: app/desktopManager.js:1489
+#: app/desktopManager.js:1500
 msgid "Open In Terminal"
 msgstr ""
 
-#: app/desktopManager.js:1494
+#: app/desktopManager.js:1505
 msgid "Change Background…"
 msgstr ""
 
-#: app/desktopManager.js:1499
+#: app/desktopManager.js:1510
 msgid "Desktop Icon Settings"
 msgstr ""
 
-#: app/desktopManager.js:1500
+#: app/desktopManager.js:1511
 msgid "Display Settings"
 msgstr ""
 
-#: app/desktopManager.js:1543
+#: app/desktopManager.js:1554
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopManager.js:1543
+#: app/desktopManager.js:1554
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopManager.js:1555
+#: app/desktopManager.js:1566
 msgid "Settings"
 msgstr ""
 
-#: app/desktopManager.js:2412
+#: app/desktopManager.js:2448
 msgid "Folder Creation Failed"
 msgstr ""
 
-#: app/desktopManager.js:2413
+#: app/desktopManager.js:2449
 msgid "Error while trying to create a Folder"
 msgstr ""
 
-#: app/desktopManager.js:2455
+#: app/desktopManager.js:2491
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2456
+#: app/desktopManager.js:2492
 msgid "Error while trying to create a Document"
 msgstr ""
 
@@ -566,78 +566,82 @@ msgid "Bottom-right corner"
 msgstr ""
 
 #: app/preferencesFrame.js:54
-msgid "Add new drives to the opposite side of the screen"
+msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
 #: app/preferencesFrame.js:55
-msgid "Highlight the drop place during Drag'n'Drop"
+msgid "Add new drives to the opposite side of the screen"
 msgstr ""
 
 #: app/preferencesFrame.js:56
-msgid "Use Nemo to open folders"
+msgid "Highlight the drop place during Drag'n'Drop"
 msgstr ""
 
 #: app/preferencesFrame.js:57
-msgid "Add an emblem to soft links"
+msgid "Use Nemo to open folders"
 msgstr ""
 
 #: app/preferencesFrame.js:58
+msgid "Add an emblem to soft links"
+msgstr ""
+
+#: app/preferencesFrame.js:59
 msgid "Use dark text in icon labels"
 msgstr ""
 
-#: app/preferencesFrame.js:63
+#: app/preferencesFrame.js:64
 msgid "Settings shared with Nautilus"
 msgstr ""
 
-#: app/preferencesFrame.js:78
+#: app/preferencesFrame.js:79
 msgid "Click type for open files"
 msgstr ""
 
-#: app/preferencesFrame.js:78
+#: app/preferencesFrame.js:79
 msgid "Single click"
 msgstr ""
 
-#: app/preferencesFrame.js:78
+#: app/preferencesFrame.js:79
 msgid "Double click"
 msgstr ""
 
-#: app/preferencesFrame.js:79
+#: app/preferencesFrame.js:80
 msgid "Show hidden files"
 msgstr ""
 
-#: app/preferencesFrame.js:80
+#: app/preferencesFrame.js:81
 msgid "Show a context menu item to delete permanently"
 msgstr ""
 
-#: app/preferencesFrame.js:85
+#: app/preferencesFrame.js:86
 msgid "Action to do when launching a program from the desktop"
 msgstr ""
 
-#: app/preferencesFrame.js:86
+#: app/preferencesFrame.js:87
 msgid "Display the content of the file"
 msgstr ""
 
-#: app/preferencesFrame.js:87
+#: app/preferencesFrame.js:88
 msgid "Launch the file"
 msgstr ""
 
-#: app/preferencesFrame.js:88
+#: app/preferencesFrame.js:89
 msgid "Ask what to do"
 msgstr ""
 
-#: app/preferencesFrame.js:94
+#: app/preferencesFrame.js:95
 msgid "Show image thumbnails"
 msgstr ""
 
-#: app/preferencesFrame.js:95
+#: app/preferencesFrame.js:96
 msgid "Never"
 msgstr ""
 
-#: app/preferencesFrame.js:96
+#: app/preferencesFrame.js:97
 msgid "Local files only"
 msgstr ""
 
-#: app/preferencesFrame.js:97
+#: app/preferencesFrame.js:98
 msgid "Always"
 msgstr ""
 
