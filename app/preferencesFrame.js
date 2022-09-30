@@ -51,6 +51,7 @@ var PreferencesFrame = class {
                 'bottom-left': this._('Bottom-left corner'),
                 'bottom-right': this._('Bottom-right corner'),
             }));
+        frame.append(this.buildSwitcher(this.desktopSettings, 'show-second-monitor', this._('Add new icons to Secondary Monitors first, if available')));
         frame.append(this.buildSwitcher(this.desktopSettings, 'add-volumes-opposite', this._('Add new drives to the opposite side of the screen')));
         frame.append(this.buildSwitcher(this.desktopSettings, 'show-drop-place', this._("Highlight the drop place during Drag'n'Drop")));
         frame.append(this.buildSwitcher(this.desktopSettings, 'use-nemo', this._('Use Nemo to open folders')));

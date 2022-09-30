@@ -54,6 +54,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Use native libadwaita prefrences window from gnome-extensions if possible to maintain UI consistency.
 
+- [X] Add a preferences option to place new icons on the non primary display if multiple monitors are connected. If a second monitor is connected, new icons can now be placed on the secondary monitors first, not the Primary Display.
+
 **EXPERIMENTAL FEATURES**
 
 There is optional integration with Gsconnect extension available. If Gsconnect extension is installed, right click menus allow sending files directly from the desktop using Gsconnect. To use this feature, look for the "Gtk4-gsconnect-integration" branch in this repository, and install from that branch. Feedback, fixes appreciated, this branch has not been well tested at all.
