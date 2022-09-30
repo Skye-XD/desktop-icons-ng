@@ -454,11 +454,17 @@ var DesktopManager = class {
     }
 
     updateGridWindows(newdesktoplist) {
+        let newPrimaryIndex;
+        let indexChanged = false;
         if ((newdesktoplist.length > 0) && ('primaryMonitor' in newdesktoplist[0]))
-            this._primaryIndex = newdesktoplist[0].primaryMonitor;
+            newPrimaryIndex = newdesktoplist[0].primaryMonitor;
+        if (newPrimaryIndex !== this._primaryIndex)
+            indexChanged = true;
 
         if (newdesktoplist.length !== this._desktopList.length) {
             this._fileList.forEach(x => x.removeFromGrid());
+            if (indexChanged)
+                this._primaryIndex = newPrimaryIndex;
             this._desktopList = newdesktoplist;
             if (this._primaryIndex < this._desktopList.length)
                 this._primaryScreen = this._desktopList[this._primaryIndex];
@@ -469,6 +475,7 @@ var DesktopManager = class {
             this._placeAllFilesOnGrids({ redisplay: true });
             return;
         }
+
         let monitorschanged = [];
         let gridschanged = [];
         for (let index = 0; index < newdesktoplist.length; index++) {
@@ -492,23 +499,27 @@ var DesktopManager = class {
                     gridschanged.push(index);
             }
         }
-        if (gridschanged.length > 0) {
+        if (gridschanged.length || indexChanged) {
             this._fileList.forEach(x => x.removeFromGrid());
-            for (let gridindex of gridschanged) {
-                let desktop = this._desktops[gridindex];
-                desktop.updateGridDescription(newdesktoplist[gridindex]);
-                if (monitorschanged.includes(gridindex))
-                    desktop.resizeWindow();
+            if (gridschanged.length) {
+                for (let gridindex of gridschanged) {
+                    let desktop = this._desktops[gridindex];
+                    desktop.updateGridDescription(newdesktoplist[gridindex]);
+                    if (monitorschanged.includes(gridindex))
+                        desktop.resizeWindow();
 
-                desktop.resizeGrid();
+                    desktop.resizeGrid();
+                }
             }
+            if (indexChanged)
+                this._primaryIndex = newPrimaryIndex;
             this._desktopList = newdesktoplist;
+            if (this._primaryIndex < this._desktopList.length)
+                this._primaryScreen = this._desktopList[this._primaryIndex];
+            else
+                this._primaryScreen = null;
             this._placeAllFilesOnGrids({ redisplay: true });
         }
-        if (this._primaryIndex < this._desktopList.length)
-            this._primaryScreen = this._desktopList[this._primaryIndex];
-        else
-            this._primaryScreen = null;
     }
 
     _createGridWindows() {
@@ -1651,7 +1662,7 @@ var DesktopManager = class {
             let Y = fileItem.iconRectangle.y + fileItem.iconRectangle.height / 2;
             this.fileItemMenu.showMenu(fileItem, 3, 0, 0, X, Y, false, false);
         } else {
-            let grid = this._desktops.filter(f => f._coordinatesBelongToThisGrid(this.pointerX, this.pointerY));
+            let grid = this._desktops.filter(f => f.coordinatesBelongToThisGrid(this.pointerX, this.pointerY));
             this.onPressButton(null, null, this.pointerX, this.pointerY, 3, false, false, grid[0]);
         }
     }
@@ -2049,6 +2060,7 @@ var DesktopManager = class {
 
         let outOfDesktops = [];
         let notAssignedYet = [];
+
         // First, add those icons that fit in the current desktops
         for (let fileItem of fileList) {
             if (fileItem.savedCoordinates === null) {
@@ -2061,7 +2073,7 @@ var DesktopManager = class {
             let [itemX, itemY] = fileItem.savedCoordinates;
             let addedToDesktop = false;
             for (let desktop of this._desktops) {
-                if (desktop.getDistance(itemX, itemY) === 0) {
+                if (desktop.coordinatesBelongToThisGrid(itemX, itemY) && desktop.isAvailable()) {
                     addedToDesktop = true;
                     desktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
                     break;
@@ -2070,6 +2082,7 @@ var DesktopManager = class {
             if (!addedToDesktop)
                 outOfDesktops.push(fileItem);
         }
+
         // Now, assign those icons that are outside the current desktops,
         // but have assigned coordinates
         for (let fileItem of outOfDesktops) {
@@ -2077,32 +2090,31 @@ var DesktopManager = class {
             let [itemX, itemY] = fileItem.savedCoordinates;
             let newDesktop = null;
             for (let desktop of this._desktops) {
-                let distance = desktop.getDistance(itemX, itemY);
-                if (distance === -1)
+                if (!desktop.isAvailable())
                     continue;
+
+                let distance = desktop.getDistance(itemX);
 
                 if ((minDistance === -1) || (distance < minDistance)) {
                     minDistance = distance;
                     newDesktop = desktop;
                 }
             }
-            if (newDesktop === null) {
-                print('Not enough space to add icons');
-                break;
-            } else {
+            if (newDesktop)
                 newDesktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
-            }
+            else
+                print('Not enough space to add icons');
         }
+
         // Finally, assign those icons that still don't have coordinates
         for (let fileItem of notAssignedYet) {
-            let x, y;
+            let x = 0;
+            let y = 0;
+            let primaryDesktop = this._desktops[this._primaryIndex];
             if (fileItem.dropCoordinates === null) {
                 if (this._primaryScreen !== null) {
-                    x = this._primaryScreen.x;
-                    y = this._primaryScreen.y;
-                } else {
-                    x = 0;
-                    y = 0;
+                    x = primaryDesktop.gridGlobalRectangle.x;
+                    y = primaryDesktop.gridGlobalRectangle.y;
                 }
                 storeMode = this.Enums.StoredCoordinates.ASSIGN;
             } else {
@@ -2110,25 +2122,29 @@ var DesktopManager = class {
                 fileItem.dropCoordinates = null;
                 storeMode = this.Enums.StoredCoordinates.OVERWRITE;
             }
+
             // try first in the designated desktop
             let assigned = false;
-            for (let desktop of this._desktops) {
-                if (desktop.getDistance(x, y) === 0) {
-                    desktop.addFileItemCloseTo(fileItem, x, y, storeMode);
-                    assigned = true;
-                    break;
-                }
+            if (primaryDesktop.coordinatesBelongToThisGrid(x, y) && primaryDesktop.isAvailable()) {
+                primaryDesktop.addFileItemCloseTo(fileItem, x, y, storeMode);
+                assigned = true;
             }
+
             if (assigned)
                 continue;
 
             // if there is no space in the designated desktop, try in another
+            let newDesktop = null;
             for (let desktop of this._desktops) {
-                if (desktop.getDistance(x, y) !== -1) {
-                    desktop.addFileItemCloseTo(fileItem, x, y, storeMode);
-                    break;
-                }
+                if (!desktop.isAvailable())
+                    continue;
+                newDesktop = desktop;
             }
+
+            if (newDesktop)
+                newDesktop.addFileItemCloseTo(fileItem, x, y, storeMode);
+            else
+                print('Not enough space to add icons');
         }
     }
 
