@@ -100,5 +100,10 @@
         <summary>Use black for label text</summary>
         <description>Paint the label text in black instead of white. Useful when using light backgrounds.</description>
     </key>
+    <key type="b" name="show-second-monitor">
+        <default>false</default>
+        <summary>Show new icons on non primary monitor if connected</summary>
+        <description>If a second monitor is connected, new icons are placed on the non primary monitor</description>
+    </key>
     </schema>
 </schemalist>

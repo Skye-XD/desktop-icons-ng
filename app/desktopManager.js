@@ -2110,11 +2110,11 @@ var DesktopManager = class {
         for (let fileItem of notAssignedYet) {
             let x = 0;
             let y = 0;
-            let primaryDesktop = this._desktops[this._primaryIndex];
+            let preferredDesktop = this._getPreferredDisplayDesktop();
             if (fileItem.dropCoordinates === null) {
                 if (this._primaryScreen !== null) {
-                    x = primaryDesktop.gridGlobalRectangle.x;
-                    y = primaryDesktop.gridGlobalRectangle.y;
+                    x = preferredDesktop.gridGlobalRectangle.x;
+                    y = preferredDesktop.gridGlobalRectangle.y;
                 }
                 storeMode = this.Enums.StoredCoordinates.ASSIGN;
             } else {
@@ -2125,8 +2125,8 @@ var DesktopManager = class {
 
             // try first in the designated desktop
             let assigned = false;
-            if (primaryDesktop.coordinatesBelongToThisGrid(x, y) && primaryDesktop.isAvailable()) {
-                primaryDesktop.addFileItemCloseTo(fileItem, x, y, storeMode);
+            if (preferredDesktop.coordinatesBelongToThisGrid(x, y) && preferredDesktop.isAvailable()) {
+                preferredDesktop.addFileItemCloseTo(fileItem, x, y, storeMode);
                 assigned = true;
             }
 
@@ -2145,6 +2145,26 @@ var DesktopManager = class {
                 newDesktop.addFileItemCloseTo(fileItem, x, y, storeMode);
             else
                 print('Not enough space to add icons');
+        }
+    }
+
+    _getPreferredDisplayDesktop() {
+        if (this._desktops.length === 1)
+            return this._desktops[0];
+
+        let showOnSecondaryMonitor = this.Prefs.desktopSettings.get_boolean('show-second-monitor');
+        if (!showOnSecondaryMonitor)
+            return this._desktops[this._primaryIndex];
+
+        if (this._desktops.length > 1) {
+            let tempDesktops = this._desktops.filter((desktop, index) => index !== this._primaryIndex);
+            if (tempDesktops.length === 1)
+                return tempDesktops[0];
+
+            if (tempDesktops.length <= this._primaryIndex)
+                return tempDesktops[0];
+            else
+                return tempDesktops[tempDesktops.length - 1];
         }
     }
 
