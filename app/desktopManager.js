@@ -2074,21 +2074,14 @@ var DesktopManager = class {
     _addFilesToDesktop(fileList, storeMode) {
         if (this._desktops.length === 0)
             return;
-        let preferredDesktop = this._getPreferredDisplayDesktop();
-        if (!preferredDesktop)
-            return;
 
         let outOfDesktops = [];
         let notAssignedYet = [];
-        let droppedFiles = [];
 
-        // First, add those icons that have saved coordinates and fit in the current desktops
+        // First, add those icons that fit in the current desktops
         for (let fileItem of fileList) {
             if (fileItem.savedCoordinates === null) {
-                if (fileItem.dropCoordinates !== null)
-                    droppedFiles.push(fileItem);
-                else
-                    notAssignedYet.push(fileItem);
+                notAssignedYet.push(fileItem);
                 continue;
             }
             if (fileItem.dropCoordinates !== null)
@@ -2103,47 +2096,49 @@ var DesktopManager = class {
                     break;
                 }
             }
-
             if (!addedToDesktop)
                 outOfDesktops.push(fileItem);
         }
 
         // Now, assign those icons that are outside the current desktops,
-        // but have assigned saved coordinates
-        this._addFilesCloseToAssignedDesktop(outOfDesktops, storeMode, preferredDesktop);
-
-        // Now assing those icons that have dropped coordinates
-        outOfDesktops = [];
-        for (let fileItem of droppedFiles) {
-            let [x, y] = fileItem.dropCoordinates;
-            storeMode = this.Enums.StoredCoordinates.OVERWRITE;
-            let addedToDesktop = false;
-
+        // but have assigned coordinates
+        for (let fileItem of outOfDesktops) {
+            let minDistance = -1;
+            let [itemX, itemY] = fileItem.savedCoordinates;
+            let newDesktop = null;
             for (let desktop of this._desktops) {
-                if (desktop.coordinatesBelongToThisGrid(x, y) && desktop.isAvailable()) {
-                    fileItem.dropCoordinates = null;
-                    desktop.addFileItemCloseTo(fileItem, x, y, storeMode);
-                    addedToDesktop = true;
-                    break;
-                }
+                if (!desktop.isAvailable())
+                    continue;
 
-                if (!addedToDesktop)
-                    outOfDesktops.push(fileItem);
+                let distance = desktop.getDistance(itemX);
+
+                if ((minDistance === -1) || (distance < minDistance)) {
+                    minDistance = distance;
+                    newDesktop = desktop;
+                }
             }
+            if (newDesktop)
+                newDesktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
+            else
+                print('Not enough space to add icons');
         }
 
-        // Now, assign those icons that are outside the current dropped desktop,
-        // but have assigned drop coordinates on the closest desktop
-        this._addFilesCloseToAssignedDesktop(outOfDesktops, storeMode, preferredDesktop);
-
-
-        // Finally, assign coordinates of preferred desktop to those new icons
-        // that still don't have coordinates and place on preferred desktop
-        outOfDesktops = [];
+        // Finally, assign those icons that still don't have coordinates
         for (let fileItem of notAssignedYet) {
-            let x = preferredDesktop.gridGlobalRectangle.x;
-            let y = preferredDesktop.gridGlobalRectangle.y;
-            storeMode = this.Enums.StoredCoordinates.ASSIGN;
+            let x = 0;
+            let y = 0;
+            let preferredDesktop = this._getPreferredDisplayDesktop();
+            if (fileItem.dropCoordinates === null) {
+                if (this._primaryScreen !== null) {
+                    x = preferredDesktop.gridGlobalRectangle.x;
+                    y = preferredDesktop.gridGlobalRectangle.y;
+                }
+                storeMode = this.Enums.StoredCoordinates.ASSIGN;
+            } else {
+                [x, y] = fileItem.dropCoordinates;
+                fileItem.dropCoordinates = null;
+                storeMode = this.Enums.StoredCoordinates.OVERWRITE;
+            }
 
             // try first in the designated desktop
             let assigned = false;
@@ -2152,68 +2147,33 @@ var DesktopManager = class {
                 assigned = true;
             }
 
-            if (!assigned)
-                outOfDesktops.push(fileItem);
-        }
+            if (assigned)
+                continue;
 
-        // if there was no space in the preferred desktop, place on the desktop closest to preferred
-        this._addFilesCloseToAssignedDesktop(outOfDesktops, storeMode, preferredDesktop);
-    }
-
-    _addFilesCloseToAssignedDesktop(fileList, storeMode, preferredDesktop) {
-        for (let fileItem of fileList) {
-            let minDistance = -1;
-            let x = preferredDesktop.gridGlobalRectangle.x;
-            let y = preferredDesktop.gridGlobalRectangle.y;
-            if (fileItem.savedCoordinates) {
-                [x, y] = fileItem.savedCoordinates;
-            } else if (fileItem.droppedCoordinates) {
-                [x, y] = fileItem.droppedCoordinates;
-                storeMode = this.Enums.StoredCoordinates.OVERWRITE;
-            }
-
-            // Find the closest desktop to given position
+            // if there is no space in the designated desktop, try in another
             let newDesktop = null;
             for (let desktop of this._desktops) {
                 if (!desktop.isAvailable())
                     continue;
-
-                let distance = desktop.getDistance(x);
-
-                if ((minDistance === -1) || (distance < minDistance)) {
-                    minDistance = distance;
-                    newDesktop = desktop;
-                }
+                newDesktop = desktop;
             }
 
-            if (newDesktop) {
-                if (fileItem.droppedCoordinates)
-                    fileItem.droppedCoordinates = null;
+            if (newDesktop)
                 newDesktop.addFileItemCloseTo(fileItem, x, y, storeMode);
-            } else {
+            else
                 print('Not enough space to add icons');
-            }
         }
     }
 
     _getPreferredDisplayDesktop() {
-        if (!this._desktops.length)
-            return null;
-
         if (this._desktops.length === 1)
             return this._desktops[0];
 
         let showOnSecondaryMonitor = this.Prefs.desktopSettings.get_boolean('show-second-monitor');
-        if (!showOnSecondaryMonitor) {
-            if (this._primaryScreen)
-                return this._desktops[this._primaryIndex];
-            else
-                return this._desktops[0];
-        }
+        if (!showOnSecondaryMonitor)
+            return this._desktops[this._primaryIndex];
 
         if (this._desktops.length > 1) {
-            if (!this._primaryScreen)
-                return this._desktops(this._desktops.length - 1);
             let tempDesktops = this._desktops.filter((desktop, index) => index !== this._primaryIndex);
             if (tempDesktops.length === 1)
                 return tempDesktops[0];
@@ -2223,9 +2183,6 @@ var DesktopManager = class {
             else
                 return tempDesktops[tempDesktops.length - 1];
         }
-
-        // Catch All if everything fails
-        return this._desktops[0];
     }
 
     async _updateWritableByOthers() {
