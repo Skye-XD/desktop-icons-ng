@@ -122,11 +122,13 @@ var AskRenamePopup = class {
         this.DBusUtils.RemoteFileOperations.RenameURIRemote(
             this._fileItem.file.get_uri(), this._textArea.text
         );
+        this._popover.unparent();
     }
 
     close() {
         this._popover.popdown();
         this._closeCB();
+        this._popover.unparent();
     }
 
     popupat(fileItem) {
