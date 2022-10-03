@@ -73,8 +73,8 @@ var DesktopManager = class {
         else
             this._primaryScreen = null;
 
-        this._clickX = 0;
-        this._clickY = 0;
+        this._clickX = null;
+        this._clickY = null;
         this.pointerX = 0;
         this.pointerY = 0;
         this._dragList = null;
@@ -258,6 +258,7 @@ var DesktopManager = class {
             );
         }
         this._pendingDropFiles = {};
+        this._pendingSelfCopyFiles = {};
         if (this._asDesktop) {
             this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
                 GLib.source_remove(this._sigtermID);
@@ -560,30 +561,46 @@ var DesktopManager = class {
     }
 
     _setPendingDropCoordinates(file, dropCoordinates) {
-        if (dropCoordinates) {
-            const basename = file.get_basename();
-            if (this.updateFileList().map(f => f.fileName).includes(basename))
+        if (!dropCoordinates)
+            return;
+        const basename = file.get_basename();
+
+        let selfCopy = false;
+        this.updateFileList().forEach(fileItem => {
+            if (fileItem.fileName === basename) {
                 this._pendingDropFiles[`${basename}COPYEXPECTED`] = dropCoordinates;
-            else
-                this._pendingDropFiles[basename] = dropCoordinates;
-        }
+                this._pendingSelfCopyFiles[basename] = fileItem.savedCoordinates;
+                selfCopy = true;
+            }
+        });
+
+        if (!selfCopy)
+            this._pendingDropFiles[basename] = dropCoordinates;
     }
 
     async clearFileCoordinates(fileList, dropCoordinates, doCopy = false) {
         if (this.keepArranged || this.keepStacked)
             return;
 
+        this._pendingDropFiles = {};
+        this._pendingSelfCopyFiles = {};
 
         await Promise.all(fileList.map(async element => {
             let file = Gio.File.new_for_uri(element);
+
             if (!file.is_native()) {
                 this._setPendingDropCoordinates(file, dropCoordinates);
                 return;
             }
+
             let info = new Gio.FileInfo();
             info.set_attribute_string('metadata::nautilus-icon-position', '');
-            if (dropCoordinates !== null && !doCopy)
-                info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
+            if (dropCoordinates !== null) {
+                if (!doCopy)
+                    info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
+                else
+                    this._setPendingDropCoordinates(file, dropCoordinates);
+            }
 
             try {
                 await file.set_attributes_async(info,
@@ -594,7 +611,6 @@ var DesktopManager = class {
                 if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
                     this._setPendingDropCoordinates(file, dropCoordinates);
             }
-            this._setPendingDropCoordinates(file, dropCoordinates);
         }));
     }
 
@@ -1270,10 +1286,14 @@ var DesktopManager = class {
 
         this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
         this.doPasteSimpleAction.connect('activate', async () => {
-            if (!this.popupmenuopen)
-                await this._updateClipboard();
+            try {
+                if (!this.popupmenuopen)
+                    await this._updateClipboard();
 
-            this._doPaste();
+                this._doPaste();
+            } catch (e) {
+                logError(e, 'Paste action Failed');
+            }
         });
         this.mainApp.add_action(this.doPasteSimpleAction);
         this.mainApp.set_accels_for_action('app.doPaste', ['<Control>V']);
@@ -1664,18 +1684,15 @@ var DesktopManager = class {
     _doPaste() {
         if (this._clipboardFiles === null)
             return;
-
+        if (!this._clickX && !this._clickY)
+            return;
+        let pasteCoordinates = [this._clickX, this._clickY];
         let desktopDir = this._desktopDir.get_uri();
 
         if (this._isCut) {
-            if (this._clickX !== 0)
-                this.clearFileCoordinates(this._clipboardFiles, [this._clickX, this._clickY]);
-
             this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
-            if (this._clickX !== 0)
-                this.clearFileCoordinates(this._clipboardFiles, [this._clickX, this._clickY], true);
-
+            this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, { docopy: true });
             this.DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
         }
     }
@@ -1904,7 +1921,7 @@ var DesktopManager = class {
                     }
 
                     fileList.push(fileItem);
-                    if (fileItem.dropCoordinates === null) {
+                    if (fileItem.savedCoordinates === null && fileItem.dropCoordinates === null) {
                         const basename = fileItem.file.get_basename();
                         this._checkBasenameInPending(fileItem, basename);
                     }
@@ -1949,6 +1966,11 @@ var DesktopManager = class {
     }
 
     _checkBasenameInPending(fileItem, basename) {
+        if (basename in this._pendingSelfCopyFiles) {
+            fileItem.savedCoordinates = this._pendingSelfCopyFiles[basename];
+            delete this._pendingSelfCopyFiles[basename];
+            return;
+        }
         if (basename in this._pendingDropFiles) {
             fileItem.dropCoordinates = this._pendingDropFiles[basename];
             delete this._pendingDropFiles[basename];
@@ -1961,17 +1983,12 @@ var DesktopManager = class {
             basenameStart = basename.slice(0, lastParenthesisPosition - 1);
             if (basenameStart) {
                 for (let fileName of Object.keys(this._pendingDropFiles)) {
-                    if (fileName.startsWith(basenameStart))
+                    if (fileName.startsWith(basenameStart)) {
                         fileItem.dropCoordinates = this._pendingDropFiles[fileName];
+                        delete this._pendingDropFiles[fileName];
+                    }
                 }
             }
-        }
-    }
-
-    _clearPendingDropFiles() {
-        for (let fileName of Object.keys(this._pendingDropFiles)) {
-            if (fileName.endsWith('COPYEXPECTED'))
-                delete this._pendingDropFiles[fileName];
         }
     }
 
