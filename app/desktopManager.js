@@ -354,14 +354,8 @@ var DesktopManager = class {
 
     _metadataChanged(proxy, nameOwner, args) {
         let filepath = GLib.build_filenamev([GLib.get_home_dir(), args[1]]);
-        if (this._desktopDir.get_path() === GLib.path_get_dirname(filepath)) {
-            for (let fileItem of this.updateFileList()) {
-                if (fileItem.path === filepath) {
-                    fileItem.updatedMetadata();
-                    break;
-                }
-            }
-        }
+        if (this._desktopDir.get_path() === GLib.path_get_dirname(filepath))
+            this._updateDesktop();
     }
 
     updateFileList() {
