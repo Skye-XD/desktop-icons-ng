@@ -76,7 +76,7 @@ var AskRenamePopup = class {
         contentBox.show();
         this._popover.set_parent(fileItem._grid._window);
         this._popover.set_pointing_to(fileItem.iconLocalWindowRectangle);
-        const menuGtkPosition = fileItem._grid.getIntelligentPosition(fileItem.iconRectangle);
+        const menuGtkPosition = fileItem._grid.getIntelligentPosition(fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle));
         if (menuGtkPosition)
             this._popover.set_position(menuGtkPosition);
 
@@ -133,12 +133,12 @@ var AskRenamePopup = class {
 
     popupat(fileItem) {
         this._fileItem = fileItem;
-        const menuGtkPosition = fileItem._grid.getIntelligentPosition(fileItem.iconRectangle);
+        const menuGtkPosition = fileItem._grid.getIntelligentPosition(fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle));
         if (menuGtkPosition)
             this._popover.set_position(menuGtkPosition);
 
         this._popover.unparent();
-        this._popver.set_parent(fileItem._grid._window);
+        this._popover.set_parent(fileItem._grid._window);
         this._popover.set_pointing_to(this._fileItem.iconLocalWindowRectangle);
     }
 };
