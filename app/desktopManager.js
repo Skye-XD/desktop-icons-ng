@@ -2444,6 +2444,7 @@ var DesktopManager = class {
                         this.newItemDoRename.delete(fileItem.fileName);
                     this._renameWindow = null;
                 },
+                this._setPendingDropCoordinates.bind(this),
                 {
                     FileUtils: this.FileUtils,
                     DesktopIconsUtil: this.DesktopIconsUtil,

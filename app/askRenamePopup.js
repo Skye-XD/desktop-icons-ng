@@ -23,10 +23,11 @@ const Gettext = imports.gettext.domain('gtk4-ding');
 const _ = Gettext.gettext;
 
 var AskRenamePopup = class {
-    constructor(fileItem, allowReturnOnSameName, closeCB, Data) {
+    constructor(fileItem, allowReturnOnSameName, closeCB, setPendingDropCoordinatesCB, Data) {
         this.FileUtils = Data.FileUtils;
         this.DesktopIconsUtil = Data.DesktopIconsUtil;
         this.DBusUtils = Data.DBusUtils;
+        this.setPendingDropCoordinates = setPendingDropCoordinatesCB;
         this._validateCancellable = new Gio.Cancellable();
         this._closeCB = closeCB;
         this._allowReturnOnSameName = allowReturnOnSameName;
@@ -116,19 +117,18 @@ var AskRenamePopup = class {
     _do_rename() {
         this._popover.popdown();
         this._closeCB();
-        if (this._fileItem.fileName === this._textArea.text)
-            return;
-
+        let newFilePath = GLib.build_filenamev([this._desktopFile.get_path(), this._textArea.text]);
+        let newFile = Gio.File.new_for_path(newFilePath);
+        this.setPendingDropCoordinates(newFile, this._fileItem.savedCoordinates);
+        this._fileItem.savedCoordinates = null;
         this.DBusUtils.RemoteFileOperations.RenameURIRemote(
             this._fileItem.file.get_uri(), this._textArea.text
         );
-        this._popover.unparent();
     }
 
     close() {
         this._popover.popdown();
-        this._closeCB();
-        this._popover.unparent();
+        this._closeCB(null);
     }
 
     popupat(fileItem) {
