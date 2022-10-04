@@ -584,7 +584,7 @@ var DesktopManager = class {
             this._pendingDropFiles[basename] = dropCoordinates;
     }
 
-    async clearFileCoordinates(fileList, dropCoordinates, doCopy = false) {
+    async clearFileCoordinates(fileList, dropCoordinates, opts = { doCopy: false }) {
         if (this.keepArranged || this.keepStacked)
             return;
 
@@ -602,7 +602,7 @@ var DesktopManager = class {
             let info = new Gio.FileInfo();
             info.set_attribute_string('metadata::nautilus-icon-position', '');
             if (dropCoordinates !== null) {
-                if (!doCopy)
+                if (!opts.doCopy)
                     info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
                 else
                     this._setPendingDropCoordinates(file, dropCoordinates);
@@ -741,7 +741,7 @@ var DesktopManager = class {
                 return;
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
                 try {
-                    await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], forceCopy);
+                    await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], { doCopy: forceCopy });
                     await this.copyOrMoveUris(fileList,
                         this._desktopDir.get_uri(), event, { forceCopy });
                 } catch (e) {
@@ -801,7 +801,7 @@ var DesktopManager = class {
             case Action.COPY:
                 try {
                     if (opts.desktopactions)
-                        await this.clearFileCoordinates(fileList, [X, Y], true);
+                        await this.clearFileCoordinates(fileList, [X, Y], { dopCopy: true });
 
                     let forceCopy = true;
                     await this.copyOrMoveUris(fileList,
@@ -1698,7 +1698,7 @@ var DesktopManager = class {
         if (this._isCut) {
             this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
-            this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, { docopy: true });
+            this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, { doCopy: true });
             this.DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
         }
     }
