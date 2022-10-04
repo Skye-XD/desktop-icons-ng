@@ -133,6 +133,7 @@ var desktopIconItem = class desktopIconItem {
         this._labelStyleContext.add_class('file-item');
 
         this.iconRectangle = new Gdk.Rectangle();
+        this.iconLocalWindowRectangle = new Gdk.Rectangle();
         this.labelRectangle = new Gdk.Rectangle();
 
         this._iconEventController = Gtk.EventControllerMotion.new();
@@ -177,6 +178,15 @@ var desktopIconItem = class desktopIconItem {
         this.iconRectangle.y = y;
         this.iconRectangle.width = this.iconwidth;
         this.iconRectangle.height = this.iconheight;
+        this._calculateLocalWindowRectangle();
+    }
+
+    _calculateLocalWindowRectangle() {
+        let [x, y] = this._grid.coordinatesLocalToWindow(0, 0, this._iconContainer);
+        this.iconLocalWindowRectangle.x = x;
+        this.iconLocalWindowRectangle.y = y;
+        this.iconLocalWindowRectangle.width = this.iconwidth;
+        this.iconLocalWindowRectangle.height = this.iconheight;
     }
 
     _calculateLabelRectangle() {

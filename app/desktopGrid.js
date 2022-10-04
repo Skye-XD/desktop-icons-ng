@@ -822,11 +822,16 @@ var DesktopGrid = class {
         return [x, y];
     }
 
-    coordinatesLocalToGlobal(x, y, widget = null) {
+    coordinatesLocalToWindow(x, y, widget = null) {
         if (!widget)
             widget = this._container;
 
         let [X, Y] = widget.translate_coordinates(this._window, x, y).slice(1);
+        return [X, Y]
+    }
+
+    coordinatesLocalToGlobal(x, y, widget = null) {
+        let [X, Y] = this.coordinatesLocalToWindow(x, y, widget);
         return [X + this._x, Y + this._y];
     }
 
