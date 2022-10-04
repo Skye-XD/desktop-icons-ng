@@ -137,6 +137,7 @@ var AskRenamePopup = class {
         if (menuGtkPosition)
             this._popover.set_position(menuGtkPosition);
 
+        this._popover.unparent();
         this._popver.set_parent(fileItem._grid._window);
         this._popover.set_pointing_to(this._fileItem.iconLocalWindowRectangle);
     }
