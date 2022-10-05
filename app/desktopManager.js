@@ -1698,6 +1698,7 @@ var DesktopManager = class {
         let desktopDir = this._desktopDir.get_uri();
 
         if (this._isCut) {
+            // This pops up Nautilus error dialog, which is what we want.
             this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
             this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, { doCopy: true });
@@ -1929,7 +1930,7 @@ var DesktopManager = class {
                     }
 
                     fileList.push(fileItem);
-                    if (fileItem.savedCoordinates === null && fileItem.dropCoordinates === null) {
+                    if (fileItem.savedCoordinates === null || fileItem.dropCoordinates === null) {
                         const basename = fileItem.file.get_basename();
                         this._checkBasenameInPending(fileItem, basename);
                     }
@@ -1975,7 +1976,8 @@ var DesktopManager = class {
 
     _checkBasenameInPending(fileItem, basename) {
         if (basename in this._pendingSelfCopyFiles) {
-            fileItem.savedCoordinates = this._pendingSelfCopyFiles[basename];
+            if (fileItem.savedCoordinates === null)
+                fileItem.savedCoordinates = this._pendingSelfCopyFiles[basename];
             delete this._pendingSelfCopyFiles[basename];
             return;
         }
