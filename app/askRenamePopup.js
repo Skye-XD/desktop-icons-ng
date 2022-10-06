@@ -120,7 +120,6 @@ var AskRenamePopup = class {
         let newFilePath = GLib.build_filenamev([this._desktopFile.get_path(), this._textArea.text]);
         let newFile = Gio.File.new_for_path(newFilePath);
         this.setPendingDropCoordinates(newFile, this._fileItem.savedCoordinates);
-        this._fileItem.savedCoordinates = null;
         this.DBusUtils.RemoteFileOperations.RenameURIRemote(
             this._fileItem.file.get_uri(), this._textArea.text
         );
