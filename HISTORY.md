@@ -1,5 +1,13 @@
 # History of versions #
 
+* Gtk4 verion 12
+  * Fix - pasting a copy of a desktop file - the pasted copy and the original do not change positions. (Sundeep Mediratta)
+  * Fix - Renaming a file on the desktop does not change position of the renamed file. (Sundeep Mediratta)
+  * Fix - Ask Rename popup would not display on second monitor, fixed. (Sundeep Mediratta)
+  * Fix - Moving, dropping icons, moving, dropping links etc are always dropped on the correct highlighted grid. (Sundeep Mediratta)
+  * Multiple small clean ups and fixes. (Sundeep Mediratta)
+  * Version Bump to 13 - metadata.json.
+
 * Gtk4 version 11
   * Fix - always show new Icons on primary monitor on multi monitor setups. When primary monitor is switched during session, this tracks it as well. (Sundeep Mediratta)
   * New Feature - Add a preferences option to place new icons on the non primary display if multiple monitors are connected. (Sundeep Mediratta)
