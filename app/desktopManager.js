@@ -625,15 +625,6 @@ var DesktopManager = class {
         if (this.sortSpecialFolders && keepArranged)
             return;
 
-        // Find the grid where the destination lies and aim towards the positive side, middle of grid to ensure drop in the grid
-        for (let desktop of this._desktops) {
-            let grid = desktop.getGridAt(xDestination, yDestination, true);
-            if (grid !== null) {
-                xDestination = grid[0] + desktop._elementWidth / 2;
-                yDestination = grid[1] + desktop._elementHeight / 2;
-                break;
-            }
-        }
         let deltaX = xDestination - xOrigin;
         let deltaY = yDestination - yOrigin;
         let fileItems = [];
@@ -721,6 +712,7 @@ var DesktopManager = class {
             return null;
     }
 
+
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
         this.onDragLeave();
 
@@ -729,6 +721,16 @@ var DesktopManager = class {
         let yOrigin;
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
         const fileList = this.makeFileListFromSelection(dropData, acceptFormat);
+
+        // Find the grid where the destination lies and aim towards the positive side, middle of grid to ensure drop in the grid
+        for (let desktop of this._desktops) {
+            let grid = desktop.getGridAt(xGlobalDestination, yGlobalDestination, true);
+            if (grid !== null) {
+                xGlobalDestination = grid[0] + desktop._elementWidth / 2;
+                yGlobalDestination = grid[1] + desktop._elementHeight / 2;
+                break;
+            }
+        }
 
         switch (acceptFormat) {
         case this.Enums.DndTargetInfo.DING_ICON_LIST:
