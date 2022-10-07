@@ -2120,12 +2120,12 @@ var DesktopManager = class {
         // Now assign those icons that have dropped coordinates
         for (let fileItem of droppedFiles) {
             let [x, y] = fileItem.dropCoordinates;
-            fileItem.dropCoordinates = null;
             storeMode = this.Enums.StoredCoordinates.OVERWRITE;
             let addedToDesktop = false;
 
             for (let desktop of this._desktops) {
                 if (desktop.coordinatesBelongToThisGrid(x, y) && desktop.isAvailable()) {
+                    fileItem.dropCoordinates = null;
                     desktop.addFileItemCloseTo(fileItem, x, y, storeMode);
                     addedToDesktop = true;
                     break;
@@ -2169,12 +2169,14 @@ var DesktopManager = class {
     _addFilesCloseToAssignedDesktop(fileList, storeMode, preferredDesktop) {
         for (let fileItem of fileList) {
             let minDistance = -1;
-            let x = preferredDesktop.gridGlobalRectangle.x;
-            let y = preferredDesktop.gridGlobalRectangle.y;
+            let desktopX;
+            let x = desktopX = preferredDesktop.gridGlobalRectangle.x;
+            let desktopY = preferredDesktop.gridGlobalRectangle.y;
             if (fileItem.savedCoordinates) {
-                [x, y] = fileItem.savedCoordinates;
+                x = fileItem.savedCoordinates[0];
+                storeMode = this.Enums.StoredCoordinates.ASSIGN;
             } else if (fileItem.droppedCoordinates) {
-                [x, y] = fileItem.droppedCoordinates;
+                x = fileItem.droppedCoordinates[0];
                 storeMode = this.Enums.StoredCoordinates.OVERWRITE;
             }
 
@@ -2189,13 +2191,15 @@ var DesktopManager = class {
                 if ((minDistance === -1) || (distance < minDistance)) {
                     minDistance = distance;
                     newDesktop = desktop;
+                    desktopX = newDesktop.gridGlobalRectangle.x;
+                    desktopY = newDesktop.gridGlobalRectangle.y;
                 }
             }
 
             if (newDesktop) {
                 if (fileItem.droppedCoordinates)
                     fileItem.droppedCoordinates = null;
-                newDesktop.addFileItemCloseTo(fileItem, x, y, storeMode);
+                newDesktop.addFileItemCloseTo(fileItem, desktopX, desktopY, storeMode);
             } else {
                 print('Not enough space to add icons');
             }
