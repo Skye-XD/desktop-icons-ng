@@ -109,6 +109,8 @@ There is optional integration with Gsconnect extension available. If Gsconnect e
 
 - [x] Fix - always show new Icons on primary monitor on multi monitor setups. When primary monitor is switched during session, this tracks it as well.
 
+- [x] Fix - Clean up addFiles to desktop, completely rewritten, more legible and understandable. Multiple fixes for more reliable placement of icons.
+
 **KNOWN ISSUES**
 
 - [ ] On X11, in latest Ubuntu and Fedora, Gtk.GestureClick.get_current_event_state() button click returns wrong state, crashing the Program. Works perfectly on Wayland on all distributions tried, worked on older version of Manjaro on X, but the newer releases of Manjaro and ArchLinux also have this bug. This appears to be doe to an error in GJS, reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/507). Reported upstream [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse and [here](https://bugs.launchpad.net/ubuntu/+source/gjs/+bug/1975544) on Ubuntu Launchpad.
