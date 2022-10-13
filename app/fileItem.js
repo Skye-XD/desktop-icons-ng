@@ -810,6 +810,10 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         });
     }
 
+    set temporarySavedPosition(pos) {
+        this._savedCoordinates = pos;
+    }
+
     get trustedDesktopFile() {
         return this._isValidDesktopFile &&
                this._attributeCanExecute &&
