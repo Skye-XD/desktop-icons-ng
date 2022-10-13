@@ -863,7 +863,7 @@ var DesktopGrid = class {
          * Also store the new possition if it has been moved by the user,
          * and not triggered by a screen change.
          */
-        if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
+        if ((fileItem.savedCoordinates == null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
             fileItem.savedCoordinates = [x, y];
     }
 
