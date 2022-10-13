@@ -801,13 +801,18 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._savedCoordinatesCancellable = cancellable;
 
         this._storeCoordinates('nautilus-icon-position', pos, cancellable).catch(e => {
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 logError(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
-            this._savedCoordinates = oldPos;
+                this._savedCoordinates = oldPos;
+            }
         }).finally(() => {
             if (this._savedCoordinatesCancellable === cancellable)
                 this._savedCoordinatesCancellable = null;
         });
+    }
+
+    set temporarySavedPosition(pos) {
+        this._savedCoordinates = pos;
     }
 
     get trustedDesktopFile() {

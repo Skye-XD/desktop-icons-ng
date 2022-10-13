@@ -635,7 +635,7 @@ var DesktopManager = class {
                         fileItems.push(item);
                         item.removeFromGrid({ callOnDestroy: false });
                         let [x, y] = item.getCoordinates().slice(0, 3);
-                        item._savedCoordinates = [x + deltaX, y + deltaY];
+                        item.temporarySavedPosition = [x + deltaX, y + deltaY];
                     } else {
                         continue;
                     }
@@ -643,7 +643,7 @@ var DesktopManager = class {
                     fileItems.push(item);
                     item.removeFromGrid({ callOnDestroy: false });
                     let [x, y] = item.getCoordinates().slice(0, 3);
-                    item._savedCoordinates = [x + deltaX, y + deltaY];
+                    item.temporarySavedPosition = [x + deltaX, y + deltaY];
                 }
             }
         }
@@ -2970,7 +2970,7 @@ var DesktopManager = class {
             return;
         }
         for (let fileItem of this._fileList) {
-            fileItem.savedCoordinates = null;
+            fileItem.temporarySavedPosition = null;
             fileItem.dropCoordinates = null;
         }
         this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.ASSIGN);
@@ -2987,7 +2987,7 @@ var DesktopManager = class {
             }
             if (!fileItem._isSpecial) {
                 otherFiles.push(fileItem);
-                fileItem.savedCoordinates = null;
+                fileItem.temporarySavedPosition = null;
                 fileItem.dropCoordinates = null;
                 continue;
             }
