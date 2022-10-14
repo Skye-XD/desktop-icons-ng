@@ -707,9 +707,10 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._dropCoordinatesCancellable = cancellable;
 
         this._storeCoordinates('nautilus-drop-position', pos, cancellable).catch(e => {
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 logError(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
-            this._dropCoordinates = oldPos;
+                this._dropCoordinates = oldPos;
+            }
         }).finally(() => {
             if (this._dropCoordinatesCancellable === cancellable)
                 this._dropCoordinatesCancellable = null;
