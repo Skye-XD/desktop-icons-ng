@@ -2361,11 +2361,19 @@ var DesktopManager = class {
     }
 
     doTrash() {
-        const selection = this._fileList.filter(i => i.isSelected && !i.isSpecial).map(i =>
+        const selectionItems = this._fileList.filter(i => i.isSelected && !i.isSpecial);
+        const selectionURIs = selectionItems.map(i =>
             i.file.get_uri());
 
-        if (selection.length)
-            this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selection);
+        this._pendingDropFiles = {};
+        this._pendingSelfCopyFiles = {};
+
+        if (selectionURIs.length) {
+            selectionItems.forEach(f => {
+                this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
+            });
+            this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
+        }
     }
 
     doDeletePermanently() {
