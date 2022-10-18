@@ -2362,18 +2362,19 @@ var DesktopManager = class {
 
     doTrash() {
         const selectionItems = this._fileList.filter(i => i.isSelected && !i.isSpecial);
-        const selectionURIs = selectionItems.map(i =>
-            i.file.get_uri());
 
+        if (!selectionItems.length)
+            return;
+
+        const selectionURIs = [];
         this._pendingDropFiles = {};
         this._pendingSelfCopyFiles = {};
 
-        if (selectionURIs.length) {
-            selectionItems.forEach(f => {
-                this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
-            });
-            this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
-        }
+        selectionItems.forEach(f => {
+            selectionURIs.push(f.file.get_uri());
+            this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
+        });
+        this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
     }
 
     doDeletePermanently() {
