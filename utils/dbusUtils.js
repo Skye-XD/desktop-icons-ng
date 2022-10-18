@@ -23,6 +23,7 @@ imports.gi.versions.GdkWayland = '4.0';
 const { Gdk, Gio, GLib, GdkX11, GdkWayland } = imports.gi;
 const Signals = imports.signals;
 const DBusInterfaces = imports.utils.dbusInterfaces;
+const GsConnect = imports.utils.gsConnect;
 
 const Gettext = imports.gettext.domain('ding');
 
@@ -1095,5 +1096,16 @@ var DBusUtils = class DBusUtils {
                 this.GnomeArchiveManager
             );
         }
+
+        this.GsConnectManager = new ProxyManager(
+            this.dbusManagerObject,
+            'org.gnome.Shell.Extensions.GSConnect',
+            '/org/gnome/Shell/Extensions/GSConnect',
+            'org.freedesktop.DBus.ObjectManager',
+            false,
+            'GsConnect Extension'
+        );
+
+        this.RemoteSendFileOperations = new GsConnect.GsConnectSendFileOperationsManager(this.GsConnectManager, this.applicationId);
     }
 };

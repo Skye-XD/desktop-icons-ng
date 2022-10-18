@@ -362,6 +362,12 @@ var FileItemMenu = class {
                 extractMenu.append(_('Send to...'), 'app.sendto');
 
 
+            if (!this._desktopManager.checkIfDirectoryIsSelected()) {
+                let gsconnectsubmenu = this.DBusUtils.RemoteSendFileOperations.create_gsconnect_menu(this._desktopManager.getCurrentSelection());
+                if (gsconnectsubmenu)
+                    extractMenu.append_submenu(_('Send to Device'), gsconnectsubmenu);
+            }
+
             if (this._desktopManager.getCurrentSelection().every(f => f.isDirectory)) {
                 extractMenu.append(
                     Gettext.ngettext(
