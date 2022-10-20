@@ -56,9 +56,9 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [X] Add a preferences option to place new icons on the non primary display if multiple monitors are connected. If a second monitor is connected, new icons can now be placed on the secondary monitors first, not the Primary Display.
 
-**EXPERIMENTAL FEATURES**
+- [x] Trashed files are put back to the same position on the desktop if undo action is selected from the right click 'copy, paste, undo, redo' sub menu on the desktop.
 
-There is optional integration with Gsconnect extension available. If Gsconnect extension is installed, right click menus allow sending files directly from the desktop using Gsconnect. To use this feature, look for the "Gtk4-gsconnect-integration" branch in this repository, and install from that branch. Feedback, fixes appreciated, this branch has not been well tested at all.
+- [x] Integration with Gsconnect extension. If Gsconnect extension is installed, right click menus allow sending files directly from the desktop using Gsconnect to a paired mobile device.
 
 
 **FIXES**

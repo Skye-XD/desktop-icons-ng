@@ -1,5 +1,11 @@
 # History of versions #
 
+* Gtk4 version 14
+  * Trashed files are restored to their original position on undo action with right click menu. (Sundeep Mediratta)
+  * Gsconnect branch merged to mainline. If GsConnect extension is installed, right click menu action to send file to paired device. (Sundeep Mediratta)
+  * Miscellaneous drop coordinate fixes.
+  * Version Bump to 14 - metadata.json.
+
 * Gtk4 version 13
   * Clean up addFiles to desktop, completely rewritten, more legible and understandable. (Sundeep Mediratta)
   * Fix - async writing of saved coordinates race condition, introduce temporary saved position. (Sundeep Mediratta)
