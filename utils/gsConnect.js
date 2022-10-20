@@ -120,7 +120,7 @@ var GsConnectSendFileOperationsManager =  class {
             parameter_type: new GLib.VariantType('s'),
         });
         sendfiles.connect('activate', (action, parameter) => {
-            let device = parameter.recursive_unpack();
+            let device = parameter.recursiveUnpack();
             this._send_files(device);
         });
         this._mainApp.add_action(sendfiles);
@@ -166,14 +166,10 @@ var GsConnectSendFileOperationsManager =  class {
         this._update_devices();
         if (this._sendable_file_items(this.sendablefiles) && this._get_devices()) {
             this._menu = new Gio.Menu();
-            this._menu.connect_after('selection-done', () => {
-                this._menu.destroy();
-                this._menu = null;
-            });
             for (let device of Object.keys(this.devices)) {
                 let menuitem = Gio.MenuItem.new(`${device}`, null);
                 menuitem.set_action_and_target_value('app.sendfiles', GLib.Variant.new('s', `${device}`));
-                this._menu.add(menuitem);
+                this._menu.append_item(menuitem);
             }
             return this._menu;
         } else {
