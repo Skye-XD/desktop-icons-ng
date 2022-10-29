@@ -44,7 +44,7 @@ parseCommandLine(ARGV);
 
 imports.searchPath.unshift(codePath);
 const Thumbnail = imports.app.thumbnails;
-const FileUtils = imports.utils.FileUtils;
+const FileUtils = imports.utils.fileUtils;
 
 var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
     constructor(path, desktopBoolean, appName, fileutils) {
