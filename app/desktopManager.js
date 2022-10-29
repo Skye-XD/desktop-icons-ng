@@ -696,10 +696,12 @@ var DesktopManager = class {
     }
 
     makeFileListFromSelection(dropData, acceptFormat) {
-        let fileList;
-
         if (!dropData)
             return null;
+        if (acceptFormat === this.Enums.DndTargetInfo.TEXT_PLAIN)
+            return null;
+
+        let fileList;
 
         if (acceptFormat === this.Enums.DndTargetInfo.GNOME_ICON_LIST)
             fileList = GLib.Uri.list_extract_uris(dropData);
