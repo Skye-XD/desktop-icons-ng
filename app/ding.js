@@ -163,10 +163,10 @@ imports.searchPath.unshift(codePath);
 const Preferences = imports.app.preferences;
 const PreferencesFrame = imports.app.preferencesFrame;
 const Enums = imports.app.enums;
-const DBusUtils = imports.utils.dbusUtils;
+const DBusUtils = imports.app.utils.dbusUtils;
 const PromiseUtils = imports.utils.promiseUtils;
 const FileUtils = imports.utils.fileUtils;
-const DesktopIconsUtil = imports.utils.desktopIconsUtil;
+const DesktopIconsUtil = imports.app.utils.desktopIconsUtil;
 const Gettext = imports.gettext;
 
 PromiseUtils._promisify({}, Gio.AppInfo, 'launch_default_for_uri_async');

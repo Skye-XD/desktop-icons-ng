@@ -29,7 +29,7 @@ var DesktopIconsUtil = class {
     constructor(Data, Utils) {
         this.applicationid = Data.dingApp;
         this.Enums = Data.Enums;
-        this.FileUtils = Data.FileUtils;
+        this.FileUtils = Utils.FileUtils;
         this.Prefs = Utils.Preferences;
     }
 

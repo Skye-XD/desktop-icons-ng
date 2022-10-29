@@ -22,8 +22,8 @@ imports.gi.versions.GdkWayland = '4.0';
 
 const { Gdk, Gio, GLib, GdkX11, GdkWayland } = imports.gi;
 const Signals = imports.signals;
-const DBusInterfaces = imports.utils.dbusInterfaces;
-const GsConnect = imports.utils.gsConnect;
+const DBusInterfaces = imports.app.utils.dbusInterfaces;
+const GsConnect = imports.app.utils.gsConnect;
 
 const Gettext = imports.gettext.domain('ding');
 
