@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 15
+  * Fix typo in importing fileUtils in thumbnailapp.js
+  * Fix drag and drop of plain text to desktop - regression, had stopped working.
+  * Move all utils used by app to utils subfolder in app folder as requested by reviewrs on gnome.extensions.org
+  * Updated Readme with download links.
+  * Version Bump to 15 - metadata.json.
+
 
 * Gtk4 version 14
   * Trashed files are restored to their original position on undo action with right click menu. (Sundeep Mediratta)

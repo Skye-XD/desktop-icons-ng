@@ -136,6 +136,18 @@ Please report errors, and if you can fix it, please do so. See Contributing belo
 * File-roller >= 3.38 or Gnome AutoAr (including gir1.2 files)
 * Desktop folder already created
 
+## Installation
+
+The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
+
+<p align="left">
+    <a href="https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/" style="margin-left: 20px">
+        <img src="/media/svg/Gnome_logo.svg" width="120px"/>
+    </a>
+</p>
+
+For Archlinux, Manjaro, it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng).
+
 ## Manual installation
 
 The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next section.
