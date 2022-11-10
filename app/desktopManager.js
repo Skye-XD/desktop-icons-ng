@@ -400,9 +400,17 @@ var DesktopManager = class {
         updateThumbnail.connect('activate', (action, parameter) => {
             this.updateFileItemThumbnail(parameter.recursiveUnpack());
         });
+        let createDesktopShortcut = new Gio.SimpleAction({
+            name: 'createDesktopShortcut',
+            parameter_type: new GLib.VariantType('a{sv}'),
+        });
+        createDesktopShortcut.connect('activate', (action, parameter) => {
+            this.createDesktopShortcut(parameter.recursiveUnpack());
+        });
         let actionGroup = new Gio.SimpleActionGroup();
         actionGroup.add_action(updateGridWindows);
         actionGroup.add_action(updateThumbnail);
+        actionGroup.add_action(createDesktopShortcut);
         this._busname = this.mainApp.get_dbus_object_path();
         this._connection = Gio.DBus.session;
         this._dbusConnectionGroupId = this._connection.export_action_group(
@@ -423,6 +431,17 @@ var DesktopManager = class {
             geometryIface.export(this._connection, `${this._busname}/geometrycontrol`);
             this._requestGeometryUpdate();
         }
+    }
+
+    createDesktopShortcut(shortcutinfo) {
+        log(shortcutinfo.uri);
+        log(shortcutinfo.X);
+        log(shortcutinfo.Y);
+        let shortcutUri = shortcutinfo.uri;
+        let X = parseInt(shortcutinfo.X);
+        let Y = parseInt(shortcutinfo.Y);
+        log(this._desktopDir.get_uri());
+        this.makeLinks([shortcutUri], this._desktopDir.get_uri(), X, Y);
     }
 
     updateFileItemThumbnail(thumbnailinfo) {
