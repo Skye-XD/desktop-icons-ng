@@ -433,15 +433,15 @@ var DesktopManager = class {
         }
     }
 
-    createDesktopShortcut(shortcutinfo) {
-        log(shortcutinfo.uri);
-        log(shortcutinfo.X);
-        log(shortcutinfo.Y);
-        let shortcutUri = shortcutinfo.uri;
+    async createDesktopShortcut(shortcutinfo) {
+        let fileList = [shortcutinfo.uri];
         let X = parseInt(shortcutinfo.X);
         let Y = parseInt(shortcutinfo.Y);
-        log(this._desktopDir.get_uri());
-        this.makeLinks([shortcutUri], this._desktopDir.get_uri(), X, Y);
+        let destinationuri = this._desktopDir.get_uri();
+        await this.clearFileCoordinates(fileList, [X, Y], { doCopy: true });
+        let forceCopy = true;
+        await this.copyOrMoveUris(fileList,
+            destinationuri, {}, { forceCopy });
     }
 
     updateFileItemThumbnail(thumbnailinfo) {

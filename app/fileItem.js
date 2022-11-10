@@ -634,7 +634,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             GLib.PRIORITY_LOW,
             cancellable);
 
-        if (cancellable.is_cancelled()) {
+        if (cancellable && cancellable.is_cancelled()) {
             throw new GLib.Error(Gio.IOErrorEnum,
                 Gio.IOErrorEnum.CANCELLED,
                 'Operation was cancelled');

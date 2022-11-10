@@ -366,31 +366,19 @@ class HandleDragActors {
     }
 
     handleDragOver(source, actor, x, y, time) {
-        log('dragged over');
         if (source.app == null || source.app.is_window_backed())
             return DND.DragMotionResult.NO_DROP;
 
-        log('move drag');
-        log(x);
-        log(y);
         return DND.DragMotionResult.CONTINUE;
     }
 
     acceptDrop(source, actor, x, y, time) {
-        log('dropped');
         if (source.app == null || source.app.is_window_backed())
             return false;
-
-        log('move drop');
-        log(x);
-        log(y);
 
         let appFavorites = AppFavorites.getAppFavorites();
         let sourceAppId = source.app.get_id();
         let sourceAppPath = source.app.appInfo.get_filename();
-        log(sourceAppId);
-        log(sourceAppPath);
-        log(source.app);
         let appIsFavorite = appFavorites.isFavorite(sourceAppId);
 
         if (appIsFavorite) {
