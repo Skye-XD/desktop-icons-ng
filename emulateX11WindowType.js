@@ -16,9 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const GLib = imports.gi.GLib;
-const Meta = imports.gi.Meta;
+const { GLib, Gio, Meta } = imports.gi;
 const Main = imports.ui.main;
+const DND = imports.ui.dnd;
+const AppFavorites = imports.ui.appFavorites;
 
 class ManageWindow {
     /* This class is added to each managed window, and it's used to
@@ -216,14 +217,14 @@ var EmulateX11WindowType = class {
         this._idMap = global.window_manager.connect_after('map', (obj, windowActor) => {
             let window = windowActor.get_meta_window();
             if (this._waylandClient && this._waylandClient.query_window_belongs_to(window))
-                this.addWindow(window);
+                this.addWindow(window, windowActor);
 
             if (this._isX11) {
                 let appid = window.get_gtk_application_id();
                 let windowpid = window.get_pid();
                 let mypid = this._waylandClient.query_pid_of_program();
                 if ((appid === 'com.desktop.ding') && (windowpid === mypid))
-                    this.addWindow(window);
+                    this.addWindow(window, windowActor);
             }
             this._refreshWindows(false);
         });
@@ -289,7 +290,7 @@ var EmulateX11WindowType = class {
         }
     }
 
-    addWindow(window) {
+    addWindow(window, windowActor) {
         if (window.get_meta_window) { // it is a MetaWindowActor
             window = window.get_meta_window();
         }
@@ -298,6 +299,8 @@ var EmulateX11WindowType = class {
         window.customJS_ding = new ManageWindow(window, this._waylandClient, () => {
             this._refreshWindows(true);
         });
+        window.actor = windowActor;
+        windowActor._delegate = new HandleDragActors(windowActor);
         this._windowList.add(window);
         window.customJS_ding.unmanagedID = window.connect('unmanaged', win => {
             this._clearWindow(win);
@@ -309,6 +312,8 @@ var EmulateX11WindowType = class {
         window.disconnect(window.customJS_ding.unmanagedID);
         window.customJS_ding.disconnect();
         window.customJS_ding = null;
+        window.actor._delegate = null;
+        window.actor = null;
     }
 
     _refreshWindows(checkWorkspace) {
@@ -345,3 +350,54 @@ var EmulateX11WindowType = class {
         }
     }
 };
+
+class HandleDragActors {
+    /* This class is added to each managed windowActor, and it's used to
+       make it behave like a shell Actor that can accept drops from Gnome Shell dnd.
+    */
+
+    constructor(windowActor) {
+        this.windowActor = windowActor;
+        this.remoteDingActions = Gio.DBusActionGroup.get(
+            Gio.DBus.session,
+            'com.desktop.ding',
+            '/com/desktop/ding/actions'
+        );
+    }
+
+    handleDragOver(source, actor, x, y, time) {
+        if (source.app == null || source.app.is_window_backed())
+            return DND.DragMotionResult.NO_DROP;
+
+        return DND.DragMotionResult.CONTINUE;
+    }
+
+    acceptDrop(source, actor, x, y, time) {
+        if (source.app == null || source.app.is_window_backed())
+            return false;
+
+        let appFavorites = AppFavorites.getAppFavorites();
+        let sourceAppId = source.app.get_id();
+        let sourceAppPath = source.app.appInfo.get_filename();
+        let appIsFavorite = appFavorites.isFavorite(sourceAppId);
+
+        if (appIsFavorite) {
+            appFavorites.removeFavorite(sourceAppId);
+            if (sourceAppPath) {
+                this.remoteDingActions.activate_action('createDesktopShortcut',
+                    new GLib.Variant('a{sv}', {
+                        uri: GLib.Variant.new_string(`file://${sourceAppPath}`),
+                        X: new GLib.Variant('i', parseInt(x)),
+                        Y: new GLib.Variant('i', parseInt(y)),
+                    })
+                );
+            }
+        }
+
+        appFavorites.emit('changed');
+
+        return true;
+    }
+}
+
+
