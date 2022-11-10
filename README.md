@@ -60,6 +60,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Integration with Gsconnect extension. If Gsconnect extension is installed, right click menus allow sending files directly from the desktop using Gsconnect to a paired mobile device.
 
+- [x] Allows dropping Favorite Apps from the Dock to the Desktop to make .desktop files on Desktop. The advantage is that files can then be dropped directly on the icon to launch them.
 
 **FIXES**
 

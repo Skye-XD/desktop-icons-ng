@@ -1,4 +1,9 @@
 # History of versions #
+
+* Gtk4 version 16
+  * Allow dropping Favorite Apps from the Dock to the Desktop to give a launchable/droppable .desktop file on the Desktop. (Sundeep Mediratta)
+  * Version Bump to 16 - metadata.json, update readme and history.
+
 * Gtk4 version 15
   * Fix typo in importing fileUtils in thumbnailapp.js
   * Fix drag and drop of plain text to desktop - regression, had stopped working.
