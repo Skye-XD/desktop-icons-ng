@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { GLib, Gio, Meta } = imports.gi;
+const { GLib, Gio, Meta, Clutter } = imports.gi;
 const Main = imports.ui.main;
 const DND = imports.ui.dnd;
 const AppFavorites = imports.ui.appFavorites;
@@ -365,37 +365,49 @@ class HandleDragActors {
         );
     }
 
-    handleDragOver(source, actor, x, y, time) {
-        if (source.app == null || source.app.is_window_backed())
-            return DND.DragMotionResult.NO_DROP;
+    _getModifierKeys() {
+        let [, , state] = global.get_pointer();
+        state &= Clutter.ModifierType.MODIFIER_MASK;
+        this.isControl = (state & Clutter.ModifierType.CONTROL_MASK) !== 0;
+        this.isShift = (state & Clutter.ModifierType.SHIFT_MASK) !== 0;
+    }
 
+    handleDragOver(source) {
+        if (source.app == null)
+            return DND.DragMotionResult.NO_DROP;
+        this._getModifierKeys();
+        if (this.isShift) {
+            global.display.set_cursor(Meta.Cursor.DND_COPY);
+            return DND.DragMotionResult.COPY_DROP;
+        }
+        if (this.isControl) {
+            global.display.set_cursor(Meta.Cursor.DND_MOVE);
+            return DND.DragMotionResult.MOVE_DROP;
+        }
         return DND.DragMotionResult.CONTINUE;
     }
 
-    acceptDrop(source, actor, x, y, time) {
-        if (source.app == null || source.app.is_window_backed())
+    acceptDrop(source, actor, x, y) {
+        if (source.app == null)
             return false;
 
         let appFavorites = AppFavorites.getAppFavorites();
         let sourceAppId = source.app.get_id();
         let sourceAppPath = source.app.appInfo.get_filename();
         let appIsFavorite = appFavorites.isFavorite(sourceAppId);
-
-        if (appIsFavorite) {
+        this._getModifierKeys();
+        if (appIsFavorite && !this.isShift)
             appFavorites.removeFavorite(sourceAppId);
-            if (sourceAppPath) {
-                this.remoteDingActions.activate_action('createDesktopShortcut',
-                    new GLib.Variant('a{sv}', {
-                        uri: GLib.Variant.new_string(`file://${sourceAppPath}`),
-                        X: new GLib.Variant('i', parseInt(x)),
-                        Y: new GLib.Variant('i', parseInt(y)),
-                    })
-                );
-            }
+        if (sourceAppPath && (this.isControl || this.isShift)) {
+            this.remoteDingActions.activate_action('createDesktopShortcut',
+                new GLib.Variant('a{sv}', {
+                    uri: GLib.Variant.new_string(`file://${sourceAppPath}`),
+                    X: new GLib.Variant('i', parseInt(x)),
+                    Y: new GLib.Variant('i', parseInt(y)),
+                })
+            );
         }
-
         appFavorites.emit('changed');
-
         return true;
     }
 }
