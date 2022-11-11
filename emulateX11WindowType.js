@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { GLib, Gio, Meta } = imports.gi;
+const { GLib, Gio, Meta, Clutter } = imports.gi;
 const Main = imports.ui.main;
 const DND = imports.ui.dnd;
 const AppFavorites = imports.ui.appFavorites;
@@ -365,11 +365,22 @@ class HandleDragActors {
         );
     }
 
+    _isControl() {
+        let [, , state] = global.get_pointer();
+        state &= Clutter.ModifierType.MODIFIER_MASK;
+        return (state & Clutter.ModifierType.CONTROL_MASK) !== 0;
+    }
+
     handleDragOver(source, actor, x, y, time) {
         if (source.app == null || source.app.is_window_backed())
             return DND.DragMotionResult.NO_DROP;
-
-        return DND.DragMotionResult.CONTINUE;
+        if (this._isControl()) {
+            global.display.set_cursor(Meta.Cursor.DND_COPY);
+            return DND.DragMotionResult.COPY_DROP;
+        } else {
+            global.display.set_cursor(Meta.Cursor.DND_MOVE);
+            return DND.DragMotionResult.MOVE_DROP;
+        }
     }
 
     acceptDrop(source, actor, x, y, time) {
@@ -383,7 +394,7 @@ class HandleDragActors {
 
         if (appIsFavorite) {
             appFavorites.removeFavorite(sourceAppId);
-            if (sourceAppPath) {
+            if (sourceAppPath && this._isControl()) {
                 this.remoteDingActions.activate_action('createDesktopShortcut',
                     new GLib.Variant('a{sv}', {
                         uri: GLib.Variant.new_string(`file://${sourceAppPath}`),
@@ -392,11 +403,11 @@ class HandleDragActors {
                     })
                 );
             }
+            appFavorites.emit('changed');
+            return true;
+        } else {
+            return false;
         }
-
-        appFavorites.emit('changed');
-
-        return true;
     }
 }
 
