@@ -1,5 +1,9 @@
 # History of versions #
 
+* Gtk4 version 17
+  * Allow using modifierKeys to move, copy or remove apps from the dock. (Sundeep Mediratta)
+  * Version Bump to 17 - metadata.json, update readme and history.
+
 * Gtk4 version 16
   * Allow dropping Favorite Apps from the Dock to the Desktop to give a launchable/droppable .desktop file on the Desktop. (Sundeep Mediratta)
   * Version Bump to 16 - metadata.json, update readme and history.

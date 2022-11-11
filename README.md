@@ -62,6 +62,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Allows dropping Favorite Apps from the Dock to the Desktop to make .desktop files on Desktop. The advantage is that files can then be dropped directly on the icon to launch them.
 
+- [x] If the app in the dock is a favorite, dragging and dropping from desktop removes it from the favorites. Like 'REMOVE'. If the app in the dock is a favorite, pressing the control key while dropping results in removing it from the favorites, and creating a new .desktop file for the app on the desktop in the dropped position. Analogous to 'MOVE'. Pressing the shift key while dropping results in creating a new .desktop file for the app on the desktop in the dropped position without removing it from the favorites if it is in he favorites. This can make shortcuts for running apps that are not in the favorites. Analogous to 'COPY'
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
