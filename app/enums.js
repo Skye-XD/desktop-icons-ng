@@ -108,5 +108,23 @@ var SCHEMA_MUTTER = 'org.gnome.mutter';
 var EXEC_KEY = 'exec';
 var NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
 
-var S_IXUSR = 0o00100;
-var S_IWOTH = 0o00002;
+var S_ISUID = 0004000 // set-user-ID bit
+var S_ISGID = 0002000 // set-group-ID bit (see below)
+var S_ISVTX = 0001000 // sticky bit (see below)
+
+var S_IRWXU = 0o00700 // mask for file owner permissions
+var S_IRUSR = 0o00400 // owner has read permission
+var S_IWUSR = 0o00200 // owner has write permission
+var S_IXUSR = 0o00100 // owner has execute permission
+
+var S_IRWXG = 0o00070 // mask for group permissions
+var S_IRGRP = 0o00040 // group has read permission
+var S_IWGRP = 0o00020 // group has write permission
+var S_IXGRP = 0o00010 // group has execute permission
+
+var S_IRWXO = 0o00007 // mask for permissions for others (not in group)
+var S_IROTH = 0o00004 // others have read permission
+var S_IWOTH = 0o00002 // others have write permission
+var S_IXOTH = 0o00001 // others have execute permissio
+
+// From https://www.commandlinux.com/man-page/man2/lstat.2.html
