@@ -197,7 +197,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._displayName = this._getVisibleName();
         this._attributeCanExecute = fileInfo.get_attribute_boolean('access::can-execute');
         this._unixmode = fileInfo.get_attribute_uint32('unix::mode');
-        this._writableByOthers = (this._unixmode & this.Enums.S_IWOTH) !== 0;
+        this._writableByOthers = (this._unixmode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
         this._trusted = fileInfo.get_attribute_as_string('metadata::trusted') === 'true';
         this._attributeContentType = fileInfo.get_content_type();
         this._isDesktopFile = this._attributeContentType === 'application/x-desktop';
@@ -583,7 +583,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
          */
         if (this.metadataTrusted && !this._attributeCanExecute) {
             let info = new Gio.FileInfo();
-            let newUnixMode = this._unixmode | this.Enums.S_IXUSR;
+            let newUnixMode = this._unixmode | this.Enums.UnixPermissions.S_IXUSR;
             info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, newUnixMode);
             await this._setFileAttributes(info);
         }

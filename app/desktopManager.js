@@ -437,11 +437,8 @@ var DesktopManager = class {
         let fileList = [shortcutinfo.uri];
         let X = parseInt(shortcutinfo.X);
         let Y = parseInt(shortcutinfo.Y);
-        let destinationuri = this._desktopDir.get_uri();
         await this.clearFileCoordinates(fileList, [X, Y], { doCopy: true });
-        let forceCopy = true;
-        await this.copyOrMoveUris(fileList,
-            destinationuri, {}, { forceCopy });
+        await this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
     }
 
     updateFileItemThumbnail(thumbnailinfo) {
@@ -2263,7 +2260,7 @@ var DesktopManager = class {
         const info = await this._desktopDir.query_info_async(Gio.FILE_ATTRIBUTE_UNIX_MODE,
             Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
         this.unixMode = info.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
-        let writableByOthers = (this.unixMode & this.Enums.S_IWOTH) !== 0;
+        let writableByOthers = (this.unixMode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
         if (writableByOthers !== this.writableByOthers) {
             this.writableByOthers = writableByOthers;
             if (this.writableByOthers)
