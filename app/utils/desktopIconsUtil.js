@@ -363,50 +363,54 @@ var DesktopIconsUtil = class {
      * Makes an executable .desktop file on the desktop with metadata set trusted.
      */
     copyDesktopFileToDesktop(fileUri, dropCoordinates) {
-        let gioFile = Gio.File.new_for_uri(fileUri);
-        let destinationGioFile = Gio.File.new_for_path(
-            GLib.build_filenamev(
-                [GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP), gioFile.get_basename()]
-            )
-        );
-        let gioFileCopyFlags = Gio.FileCopyFlags.OVERWRITE | Gio.FileCopyFlags.TARGET_DEFAULT_PERMS;
-        gioFile.copy_async(
-            destinationGioFile,
-            gioFileCopyFlags,
-            GLib.PRIORITY_LOW,
-            null,
-            null,
-            (source, result) => {
-                try {
-                    let res = source.copy_finish(result);
-                    if (res) {
-                        let info = new Gio.FileInfo();
-                        if (dropCoordinates !== null)
-                            info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
-                        let newUnixMode = this.Enums.S_IRUSR | this.Enums.S_IWUSR |
-                            this.Enums.S_IXUSR | this.Enums.S_IRGRP |
-                            this.Enums.S_IWGRP | this.Enums.S_IROTH;
-                        info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, newUnixMode);
-                        info.set_attribute_string('metadata::trusted', 'true');
-                        destinationGioFile.set_attributes_async(
-                            info,
-                            Gio.FileQueryInfoFlags.NONE,
-                            GLib.PRIORITY_LOW,
-                            null,
-                            (sour, resul) => {
-                                try {
-                                    sour.set_attributes_finish(resul);
-                                } catch (error) {
-                                    log(`Failed to make executable .desktop File: ${error.message}`);
+        return new Promise((resolve, reject) => {
+            let gioFile = Gio.File.new_for_uri(fileUri);
+            let destinationGioFile = Gio.File.new_for_path(
+                GLib.build_filenamev(
+                    [GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP), gioFile.get_basename()]
+                )
+            );
+            let gioFileCopyFlags = Gio.FileCopyFlags.OVERWRITE | Gio.FileCopyFlags.TARGET_DEFAULT_PERMS;
+            gioFile.copy_async(
+                destinationGioFile,
+                gioFileCopyFlags,
+                GLib.PRIORITY_LOW,
+                null,
+                null,
+                (source, result) => {
+                    try {
+                        let res = source.copy_finish(result);
+                        if (res) {
+                            let info = new Gio.FileInfo();
+                            if (dropCoordinates !== null)
+                                info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
+                            let newUnixMode = this.Enums.S_IRUSR | this.Enums.S_IWUSR |
+                                this.Enums.S_IXUSR | this.Enums.S_IRGRP |
+                                this.Enums.S_IWGRP | this.Enums.S_IROTH;
+                            info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, newUnixMode);
+                            info.set_attribute_string('metadata::trusted', 'true');
+                            destinationGioFile.set_attributes_async(
+                                info,
+                                Gio.FileQueryInfoFlags.NONE,
+                                GLib.PRIORITY_LOW,
+                                null,
+                                (sour, resul) => {
+                                    try {
+                                        resolve(sour.set_attributes_finish(resul));
+                                    } catch (error) {
+                                        log(`Failed to make executable .desktop File: ${error.message}`);
+                                        reject(error);
+                                    }
                                 }
-                            }
-                        );
+                            );
+                        }
+                    } catch (e) {
+                        logError(e);
+                        reject(e);
                     }
-                } catch (e) {
-                    logError(e);
                 }
-            }
-        );
+            );
+        });
     }
 
     /**
