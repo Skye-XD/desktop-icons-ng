@@ -437,11 +437,8 @@ var DesktopManager = class {
         let fileList = [shortcutinfo.uri];
         let X = parseInt(shortcutinfo.X);
         let Y = parseInt(shortcutinfo.Y);
-        let destinationuri = this._desktopDir.get_uri();
         await this.clearFileCoordinates(fileList, [X, Y], { doCopy: true });
-        let forceCopy = true;
-        await this.copyOrMoveUris(fileList,
-            destinationuri, {}, { forceCopy });
+        this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
     }
 
     updateFileItemThumbnail(thumbnailinfo) {
