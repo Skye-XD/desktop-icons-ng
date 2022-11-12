@@ -108,7 +108,7 @@ var SCHEMA_MUTTER = 'org.gnome.mutter';
 var EXEC_KEY = 'exec';
 var NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
 
-const UnixPermissions = {
+var UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit
     S_ISGID: 0o02000, // set-group-ID bit (see below)
     S_ISVTX: 0o01000, // sticky bit (see below)
