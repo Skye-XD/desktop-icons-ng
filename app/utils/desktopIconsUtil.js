@@ -384,9 +384,9 @@ var DesktopIconsUtil = class {
                             let info = new Gio.FileInfo();
                             if (dropCoordinates !== null)
                                 info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
-                            let newUnixMode = this.Enums.S_IRUSR | this.Enums.S_IWUSR |
-                                this.Enums.S_IXUSR | this.Enums.S_IRGRP |
-                                this.Enums.S_IWGRP | this.Enums.S_IROTH;
+                            let newUnixMode = this.Enums.UnixPermissions.S_IRUSR | this.Enums.UnixPermissions.S_IWUSR |
+                                this.Enums.UnixPermissions.S_IXUSR | this.Enums.UnixPermissions.S_IRGRP |
+                                this.Enums.UnixPermissions.S_IWGRP | this.Enums.UnixPermissions.S_IROTH;
                             info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, newUnixMode);
                             info.set_attribute_string('metadata::trusted', 'true');
                             destinationGioFile.set_attributes_async(
