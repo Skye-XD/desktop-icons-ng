@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Shell = imports.gi.Shell;
-const Meta = imports.gi.Meta;
+const { Meta, Clutter } = imports.gi;
+
 var WorkspaceAnimation = null;
 try {
     WorkspaceAnimation = imports.ui.workspaceAnimation;
@@ -41,13 +41,8 @@ var GnomeShellOverride = class {
     }
 
     enable() {
-        if (this._isX11) {  // ** X11 Methods only
-            if (WorkspaceAnimation &&
-                WorkspaceAnimation.WorkspaceGroup !== undefined)
-                this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', new_shouldShowWindow);
-        } else {    // ** Wayland replace methods below this
-            this.replaceMethod(Shell.Global, 'get_window_actors', newGetWindowActors);
-        }
+        if (WorkspaceAnimation)
+            this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', new_shouldShowWindow);
     }
 
     // restore external methods only if have been intercepted
@@ -91,43 +86,28 @@ var GnomeShellOverride = class {
  */
 
 /**
- * Receives a list of metaWindow or metaWindowActor objects, and remove from it
- * our desktop window
- *
- * @param {GList} windowList A list of metaWindow or metaWindowActor objects
- * @returns {GList} The same list, but with the desktop window removed
- */
-function removeDesktopWindowFromList(windowList) {
-    let returnVal = [];
-    for (let element of windowList) {
-        let window = element;
-        if (window.get_meta_window) { // it is a MetaWindowActor
-            window = window.get_meta_window();
-        }
-        if (!window.customJS_ding || !window.customJS_ding.hideFromWindowList)
-            returnVal.push(element);
-    }
-    return returnVal;
-}
-
-/**
- * Method replacement for Shell.Global.get_window_actors
- * It removes the desktop window from the list of windows in the Activities mode
- */
-function newGetWindowActors() {
-    let windowList = replaceData.old_get_window_actors[0].apply(this, []);
-    return removeDesktopWindowFromList(windowList);
-}
-
-/**
- * Method replacement under X11 for should show window
- * It removes the desktop window from the window animation
+ * Method replacement for should_show_window
+ * Adds the desktop window to the background if it is not on that workspace
+ * Therefore while switching workspaces with gestures, it appears the icons are already there.
+ * There is slight flickering right at the end after switch as the real window is moved to the new workspace..
+ * That is to be resolved...
  *
  * @param {Meta.Window} window the window
  */
 function new_shouldShowWindow(window) {
-    if (window.get_window_type() === Meta.WindowType.DESKTOP)
-        return false;
-
+    if (window.customJS_ding && this._workspace) {
+        if (!this.dingClone) {
+            const geometry = global.display.get_monitor_geometry(this._monitor.index);
+            const [intersects] = window.get_frame_rect().intersect(geometry);
+            if (!intersects && this._background) {
+                this.dingClone = new Clutter.Clone({
+                    source: window.actor,
+                    x: window.actor.x - this._monitor.x,
+                    y: window.actor.y - this._monitor.y,
+                });
+                this._background.add_child(this.dingClone);
+            }
+        }
+    }
     return replaceData.old__shouldShowWindow[0].apply(this, [window]);
 }
