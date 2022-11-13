@@ -99,7 +99,7 @@ function new_shouldShowWindow(window) {
         if (!this.dingClone) {
             const geometry = global.display.get_monitor_geometry(this._monitor.index);
             const [intersects] = window.get_frame_rect().intersect(geometry);
-            if (!intersects && this._background) {
+            if (intersects && this._background) {
                 this.dingClone = new Clutter.Clone({
                     source: window.actor,
                     x: window.actor.x - this._monitor.x,
