@@ -1,5 +1,11 @@
 # History of versions #
 
+* Gtk4 version 18
+  * Sets the .desktop Icon formed by moving or copying from dock favorites as trusted and executable. (Sundeep Mediratta)
+  * Uses async Gio file copy to make the desktop icon, thus reolving relative symlinks for flatpack or snaps. (Sundeep Mediratta)
+  * Make the DING window clone stick to background on other workspaces when switching with gestures. Makes it look as if the window was always there. (Sundeep Mediratta)
+  * Version bump to 18 - metadata.json, update readme and history, now only for Gnome 42 & 43! as we are overriding only the latest shell.
+
 * Gtk4 version 17
   * Allow using modifierKeys to move, copy or remove apps from the dock. (Sundeep Mediratta)
   * Version Bump to 17 - metadata.json, update readme and history.

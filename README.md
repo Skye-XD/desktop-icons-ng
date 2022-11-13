@@ -64,6 +64,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] If the app in the dock is a favorite, dragging and dropping from desktop removes it from the favorites. Like 'REMOVE'. If the app in the dock is a favorite, pressing the control key while dropping results in removing it from the favorites, and creating a new .desktop file for the app on the desktop in the dropped position. Analogous to 'MOVE'. Pressing the shift key while dropping results in creating a new .desktop file for the app on the desktop in the dropped position without removing it from the favorites if it is in he favorites. This can make shortcuts for running apps that are not in the favorites. Analogous to 'COPY'
 
+- [x] Improved workspace switching with gestures - icons appear on all the workspaces while switching make it seem that Desktop is on all windows.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -113,6 +115,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 - [x] Fix - always show new Icons on primary monitor on multi monitor setups. When primary monitor is switched during session, this tracks it as well.
 
 - [x] Fix - Clean up addFiles to desktop, completely rewritten, more legible and understandable. Multiple fixes for more reliable placement of icons.
+
+- [x] Fix - Desktop files from dock are copied/moved correctly with executable bit set and marked trusted, relative symlinks for file resolved for flatpacks.
 
 **KNOWN ISSUES**
 
