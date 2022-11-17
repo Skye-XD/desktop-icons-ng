@@ -89,10 +89,8 @@ var GnomeShellOverride = class {
 
 /**
  * Method replacement for should_show_window
- * Adds the desktop window to the background if it is not on that workspace
+ * Adds the desktop window to the background if it is not on that workspace, removes from _syncstack
  * Therefore while switching workspaces with gestures, it appears the icons are already there.
- * There is slight flickering right at the end after switch as the real window is moved to the new workspace..
- * That is to be resolved...
  *
  * @param {Meta.Window} window the window
  */
@@ -118,19 +116,14 @@ function new_shouldShowWindow(window) {
 /**
  * Method replacement for finishWorkspaceSwitch
  * Adds a delay before destroying the moving window
- * To give time for the DING window to move to the new Workspace
+ * To give time for the DING window to move to the new Workspace behind the moving window.
  * To prevent flickering of icons.
  *
  * @param {object} switchData the original switchData for the function
  */
 function new_finishWorkspaceSwitch(switchData) {
-    log('switchFinished');
-    Meta.enable_unredirect_for_display(global.display);
-    this._switchData = null;
     GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
-        switchData.monitors.forEach(m => m.destroy());
-        this.movingWindow = null;
-        //replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);;
+        replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);;
         return false;
     });
 }
