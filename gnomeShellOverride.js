@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { Meta, Clutter } = imports.gi;
+const { Meta, Clutter, GLib } = imports.gi;
 
 var WorkspaceAnimation = null;
 try {
@@ -41,8 +41,10 @@ var GnomeShellOverride = class {
     }
 
     enable() {
-        if (WorkspaceAnimation)
+        if (WorkspaceAnimation) {
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', new_shouldShowWindow);
+            this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', new_finishWorkspaceSwitch);
+        }
     }
 
     // restore external methods only if have been intercepted
@@ -108,6 +110,27 @@ function new_shouldShowWindow(window) {
                 this._background.add_child(this.dingClone);
             }
         }
+        return false;
     }
     return replaceData.old__shouldShowWindow[0].apply(this, [window]);
+}
+
+/**
+ * Method replacement for finishWorkspaceSwitch
+ * Adds a delay before destroying the moving window
+ * To give time for the DING window to move to the new Workspace
+ * To prevent flickering of icons.
+ *
+ * @param {object} switchData the original switchData for the function
+ */
+function new_finishWorkspaceSwitch(switchData) {
+    log('switchFinished');
+    Meta.enable_unredirect_for_display(global.display);
+    this._switchData = null;
+    GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
+        switchData.monitors.forEach(m => m.destroy());
+        this.movingWindow = null;
+        //replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);;
+        return false;
+    });
 }
