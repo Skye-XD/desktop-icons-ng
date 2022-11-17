@@ -1,5 +1,10 @@
 # History of versions #
 
+* Gtk4 version 19
+  * Fix window displacement when dragging down on top bar. (Sundeep Mediratta)
+  * Fix icons flickering when changing work spaces with swipe gesture. (Sundeep Mediratta)
+  * Version bump to 19 - metadata.json, update readme and history.
+
 * Gtk4 version 18
   * Sets the .desktop Icon formed by moving or copying from dock favorites as trusted and executable. (Sundeep Mediratta)
   * Uses async Gio file copy to make the desktop icon, thus reolving relative symlinks for flatpack or snaps. (Sundeep Mediratta)
