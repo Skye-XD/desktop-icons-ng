@@ -54,7 +54,11 @@ var DesktopGrid = class {
             if (this._using_X11) {
                 this.DesktopIconsUtil.hideX11windowTaskbar(this._window);
             } else { // Wayland
+                // Compositer hang on some high resolution requires all windows be maximized to map and display initially.
                 this._window.maximize();
+                // However this creates an error where the window can be moved by the user by dragging down on top panel.
+                // So we unmaximize all windows after they are mapped as maximization is not needed anymore.
+                this._window.connect('map', () => this._window.unmaximize());
             }
         } else {
             // Opaque black test window
