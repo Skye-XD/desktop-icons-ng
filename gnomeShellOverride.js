@@ -26,6 +26,7 @@ try {
 }
 
 var replaceData = {};
+var workSpaceSwitchTimeoutID = null;
 
 /*
      * This class overrides methods in the Gnome Shell. The new methods
@@ -50,6 +51,10 @@ var GnomeShellOverride = class {
     // restore external methods only if have been intercepted
 
     disable() {
+        if (workSpaceSwitchTimeoutID) {
+            GLib.Source.remove(workSpaceSwitchTimeoutID);
+            workSpaceSwitchTimeoutID = null;
+        }
         for (let value of Object.values(replaceData)) {
             if (value[0])
                 value[1].prototype[value[2]] = value[0];
@@ -122,8 +127,9 @@ function new_shouldShowWindow(window) {
  * @param {object} switchData the original switchData for the function
  */
 function new_finishWorkspaceSwitch(switchData) {
-    GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
-        replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);;
+    workSpaceSwitchTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
+        replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);
+        workSpaceSwitchTimeoutID = null;
         return false;
     });
 }
