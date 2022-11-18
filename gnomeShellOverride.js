@@ -127,6 +127,10 @@ function new_shouldShowWindow(window) {
  * @param {object} switchData the original switchData for the function
  */
 function new_finishWorkspaceSwitch(switchData) {
+    if (workSpaceSwitchTimeoutID) {
+        GLib.Source.remove(workSpaceSwitchTimeoutID);
+        workSpaceSwitchTimeoutID = null;
+    }
     workSpaceSwitchTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
         replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);
         workSpaceSwitchTimeoutID = null;
