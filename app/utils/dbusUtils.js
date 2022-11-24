@@ -1128,7 +1128,7 @@ class ExtensionControl {
 
     async getState() {
         let x = await this._getShellDevicePointer();
-        return (x) ? x.slice(2, 1) : null;
+        return x ? x[0].slice(2) : null;
     }
 
     updateDesktopGeometry() {
@@ -1137,7 +1137,7 @@ class ExtensionControl {
 
     async getDropTargetCoordinates() {
         let x = await this._getShellDevicePointer();
-        return (x) ? x.slice(0, 2) : null;
+        return x ? x[0].slice(0, 2) : null;
     }
 
     _getShellDevicePointer() {

@@ -34,6 +34,7 @@ var DesktopGrid = class {
         this._desktopManager = desktopManager;
         this.Prefs = this._desktopManager.Prefs;
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
+        this.DBusUtils = this._desktopManager.DBusUtils;
         this.Enums = this._desktopManager.Enums;
         this._desktopName = desktopName;
         this._asDesktop = asDesktop;
@@ -119,11 +120,11 @@ var DesktopGrid = class {
         this._buttonClick.set_button(0);
         this._buttonClick.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
         this._container.add_controller(this._buttonClick);
-        this._buttonClick.connect('pressed', (actor, nPress, x, y) => {
+        this._buttonClick.connect('pressed', async (actor, nPress, x, y) => {
             let button = actor.get_current_button();
             let state;
             if (this._using_X11)
-                state = this.DBusUtils.RemoteExtensionControl.getState();
+                state = await this.DBusUtils.RemoteExtensionControl.getState();
             else
                 state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
@@ -140,9 +141,10 @@ var DesktopGrid = class {
             this._desktopManager.onPressButton(X, Y, x, y, button, isShift, isCtrl, this);
         });
 
-        this._buttonClick.connect('released', (actor, nPress, x, y) => {
+        this._buttonClick.connect('released', async (actor, nPress, x, y) => {
+            let state;
             if (this._using_X11)
-                state = this.DBusUtils.RemoteExtensionControl.getState();
+                state = await this.DBusUtils.RemoteExtensionControl.getState();
             else
                 state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
