@@ -66,6 +66,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Improved workspace switching with gestures - icons appear on all the workspaces while switching make it seem that Desktop is on all windows.
 
+- [x] Enable opening files, by dragging the icon and dropping on the app icon on the Dock. Checked on Dash to Dock and Dash to Panel. Currently, only if animation of icons on hover is enabled on Dash to Panel, this does not work. During animation, Dash to Panel appears to make clones of the original dock Items that it animates, and I am unable to extract the information about the underlying app they represent. However, I believe with a simple fix upstream in Dash to Panel, this should work even with animated icons on hover.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.

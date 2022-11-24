@@ -1107,5 +1107,69 @@ var DBusUtils = class DBusUtils {
         );
 
         this.RemoteSendFileOperations = new GsConnect.GsConnectSendFileOperationsManager(this.GsConnectManager, this.applicationId);
+
+        this.RemoteExtensionManager = new ProxyManager(
+            this.dbusManagerObject,
+            'com.desktop.dingextension',
+            '/com/desktop/dingextension/service',
+            'com.desktop.dingextension.service',
+            false,
+            null
+        );
+
+        this.RemoteExtensionControl = new ExtensionControl(this.RemoteExtensionManager);
     }
 };
+
+class ExtensionControl {
+    constructor(RemoteExtensionManager) {
+        this.RemoteExtensionManager = RemoteExtensionManager;
+    }
+
+    updateDesktopGeometry() {
+        this.RemoteExtensionManager.proxy.updateDesktopGeometrySync();
+    }
+
+    getDropTargetCoordinates() {
+        return new Promise(resolve => {
+            try {
+                this.RemoteExtensionManager.proxy.getShellGlobalCoordinatesRemote(
+                    (coords, error) => {
+                        if (error) {
+                            logError(error, 'Unable to get global Coordinates');
+                            resolve(null);
+                        } else {
+                            resolve(coords);
+                        }
+                    }
+                );
+            } catch (e) {
+                logError(e);
+            }
+        });
+    }
+
+    getDropTargetAppInfoDesktopFile(dropCoordinates = [0, 0]) {
+        return new Promise(resolve => {
+            try {
+                let dropX = dropCoordinates[0];
+                let dropY = dropCoordinates[1];
+                this.RemoteExtensionManager.proxy.getDropTargetAppInfoDesktopFileRemote(
+                    [dropX, dropY],
+                    (desktopFileAppPath, error) => {
+                        if (error) {
+                            logError(error, 'Unable to get .desktop file');
+                            resolve(null);
+                        } else if (desktopFileAppPath == 'null') {
+                            resolve(null);
+                        } else {
+                            resolve(desktopFileAppPath[0]);
+                        }
+                    }
+                );
+            } catch (e) {
+                logError(e);
+            }
+        });
+    }
+}

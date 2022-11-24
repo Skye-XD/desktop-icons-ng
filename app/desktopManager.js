@@ -730,6 +730,39 @@ var DesktopManager = class {
             return null;
     }
 
+    async detectShellDrop() {
+        let shellDropCoordinates = null;
+        shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates();
+        let desktopFileAppPath = null;
+        if (shellDropCoordinates) {
+            let i = 0;
+            while (i < 5) {
+                desktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(shellDropCoordinates);
+                if (desktopFileAppPath) {
+                    this._completeGnomeShellDrop(desktopFileAppPath);
+                    break;
+                } else {
+                    i += 1;
+                    await this.DesktopIconsUtil.waitDelayMs(25);
+                }
+            }
+        }
+    }
+
+    _completeGnomeShellDrop(desktopFileAppPath) {
+        try {
+            let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
+            if (!desktopFile) {
+                log('Couldn’t parse desktopFile as a desktop file');
+                return;
+            }
+            const context = Gdk.Display.get_default().get_app_launch_context();
+            context.set_timestamp(Gdk.CURRENT_TIME);
+            desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
+        } catch (e) {
+            logError(e, 'Error reading Desktop file, cannot Launch application');
+        }
+    }
 
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
         this.onDragLeave();
