@@ -664,7 +664,7 @@ var DingExtensionService = class {
     }
 
     getShellGlobalCoordinates() {
-        let x = global.get_pointer().slice(0, 2);
+        let x = global.get_pointer();
         return x;
     }
 };

@@ -121,7 +121,11 @@ var DesktopGrid = class {
         this._container.add_controller(this._buttonClick);
         this._buttonClick.connect('pressed', (actor, nPress, x, y) => {
             let button = actor.get_current_button();
-            let state = this._buttonClick.get_current_event_state();
+            let state;
+            if (this._using_X11)
+                state = this.DBusUtils.RemoteExtensionControl.getState();
+            else
+                state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
             let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
@@ -137,7 +141,10 @@ var DesktopGrid = class {
         });
 
         this._buttonClick.connect('released', (actor, nPress, x, y) => {
-            let state = this._buttonClick.get_current_event_state();
+            if (this._using_X11)
+                state = this.DBusUtils.RemoteExtensionControl.getState();
+            else
+                state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
             let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
