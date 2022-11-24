@@ -626,8 +626,9 @@ var DesktopGrid = class {
             this._desktopManager.onReleaseButton(this);
             this._desktopManager.onDragBegin(clickItem);
         });
-        widgetDragController.connect('drag-end', () => {
+        widgetDragController.connect('drag-end', async () => {
             this._desktopManager.onDragEnd();
+            await this._desktopManager.detectShellDrop(this).catch(e => logError(e));
         });
         widget.add_controller(widgetDragController);
     }

@@ -168,57 +168,71 @@ var DBusInterfaces = {
 
     // org.freedesktop.Notifications
     'org.freedesktop.Notifications': `<node>
-  <interface name="org.freedesktop.Notifications">
-    <method name="Notify">
-      <arg type="s" name="arg_0" direction="in">
-      </arg>
-      <arg type="u" name="arg_1" direction="in">
-      </arg>
-      <arg type="s" name="arg_2" direction="in">
-      </arg>
-      <arg type="s" name="arg_3" direction="in">
-      </arg>
-      <arg type="s" name="arg_4" direction="in">
-      </arg>
-      <arg type="as" name="arg_5" direction="in">
-      </arg>
-      <arg type="a{sv}" name="arg_6" direction="in">
-      </arg>
-      <arg type="i" name="arg_7" direction="in">
-      </arg>
-      <arg type="u" name="arg_8" direction="out">
-      </arg>
-    </method>
-    <method name="CloseNotification">
-      <arg type="u" name="arg_0" direction="in">
-      </arg>
-    </method>
-    <method name="GetCapabilities">
-      <arg type="as" name="arg_0" direction="out">
-      </arg>
-    </method>
-    <method name="GetServerInformation">
-      <arg type="s" name="arg_0" direction="out">
-      </arg>
-      <arg type="s" name="arg_1" direction="out">
-      </arg>
-      <arg type="s" name="arg_2" direction="out">
-      </arg>
-      <arg type="s" name="arg_3" direction="out">
-      </arg>
-    </method>
-    <signal name="NotificationClosed">
-      <arg type="u" name="arg_0">
-      </arg>
-      <arg type="u" name="arg_1">
-      </arg>
-    </signal>
-    <signal name="ActionInvoked">
-      <arg type="u" name="arg_0">
-      </arg>
-      <arg type="s" name="arg_1">
-      </arg>
-    </signal>
-  </interface>
-</node>`,
+    <interface name="org.freedesktop.Notifications">
+      <method name="Notify">
+        <arg type="s" name="arg_0" direction="in">
+        </arg>
+        <arg type="u" name="arg_1" direction="in">
+        </arg>
+        <arg type="s" name="arg_2" direction="in">
+        </arg>
+        <arg type="s" name="arg_3" direction="in">
+        </arg>
+        <arg type="s" name="arg_4" direction="in">
+        </arg>
+        <arg type="as" name="arg_5" direction="in">
+        </arg>
+        <arg type="a{sv}" name="arg_6" direction="in">
+        </arg>
+        <arg type="i" name="arg_7" direction="in">
+        </arg>
+        <arg type="u" name="arg_8" direction="out">
+        </arg>
+      </method>
+      <method name="CloseNotification">
+        <arg type="u" name="arg_0" direction="in">
+        </arg>
+      </method>
+      <method name="GetCapabilities">
+        <arg type="as" name="arg_0" direction="out">
+        </arg>
+      </method>
+      <method name="GetServerInformation">
+        <arg type="s" name="arg_0" direction="out">
+        </arg>
+        <arg type="s" name="arg_1" direction="out">
+        </arg>
+        <arg type="s" name="arg_2" direction="out">
+        </arg>
+        <arg type="s" name="arg_3" direction="out">
+        </arg>
+      </method>
+      <signal name="NotificationClosed">
+        <arg type="u" name="arg_0">
+        </arg>
+        <arg type="u" name="arg_1">
+        </arg>
+      </signal>
+      <signal name="ActionInvoked">
+        <arg type="u" name="arg_0">
+        </arg>
+        <arg type="s" name="arg_1">
+        </arg>
+      </signal>
+    </interface>
+  </node>`,
+
+    // com.desktop.dingextension/service
+    'com.desktop.dingextension.service': `<node>
+    <interface name="com.desktop.dingextension.service">
+      <method name="updateDesktopGeometry"/>
+      <method name="getDropTargetAppInfoDesktopFile">
+        <arg type="ad" direction="in" name="Global Drop Coordinates"/>
+        <arg type="s" direction="out" name=".desktop Application File Path or 'null'"/>
+      </method>
+      <method name="getShellGlobalCoordinates">
+        <arg type="ad" direction="out" name="Global pointer Coordinates"/>
+      </method>
+    </interface>
+  </node>`,
 };

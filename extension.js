@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { GLib, Gio, Meta } = imports.gi;
+const { GLib, Gio, Meta, Clutter } = imports.gi;
 const Main = imports.ui.main;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Config = imports.misc.config;
@@ -44,10 +44,27 @@ PromiseUtils._promisify({ keepOriginal: true },
 PromiseUtils._promisify({ keepOriginal: true },
     Gio.FileEnumerator.prototype, 'next_files_async');
 
+const ifaceXml = `
+<node>
+  <interface name="com.desktop.dingextension.service">
+    <method name="updateDesktopGeometry"/>
+    <method name="getDropTargetAppInfoDesktopFile">
+      <arg type="ad" direction="in" name="Global Drop Coordinates"/>
+      <arg type="s" direction="out" name=".desktop Application File Path or 'null'"/>
+    </method>
+    <method name="getShellGlobalCoordinates">
+        <arg type="ad" direction="out" name="Global pointer Coordinates"/>
+    </method>
+  </interface>
+</node>`;
+
 // This object will contain all the global variables
 let data = {};
 
 var DesktopIconsUsableArea = null;
+var dingExtensionServiceImplementation = null;
+var dingExtensionServiceInterface = null;
+
 
 /**
  * Inits the Extension
@@ -157,6 +174,30 @@ function innerEnable(removeId) {
         updateDesktopGeometry();
     });
 
+    data.dbusConnectionId = Gio.bus_own_name(
+        Gio.BusType.SESSION,
+        'com.desktop.dingextension',
+        Gio.BusNameOwnerFlags.NONE,
+        onBusAcquired.bind(dingExtensionServiceImplementation),
+        (connection, name) => {
+            log(name);
+            data.dbusConnectionName = name;
+        },
+        () => {
+            data.dbusConnectionName = null;
+        }
+    );
+
+    data.lockSignalhandlerId = Gio.DBus.session.signal_subscribe(
+        'org.gnome.ScreenSaver',
+        'org.gnome.ScreenSaver',
+        'ActiveChanged',
+        '/org/gnome/ScreenSaver',
+        null,
+        Gio.DBusSignalFlags.NONE,
+        onActiveChanged
+    );
+
     data.isEnabled = true;
     if (data.launchDesktopId)
         GLib.source_remove(data.launchDesktopId);
@@ -181,6 +222,53 @@ function innerEnable(removeId) {
     );
 }
 
+/**
+ * Start stop the  Dbus Service with screen locks and unlocks
+ *
+ * @param {GObject} connection the Dbus Connection
+ * param {string} name the name
+ */
+function onActiveChanged(connection, sender, path, iface, signal, params) {
+    const value = params.get_child_value(0);
+    const locked = value.get_boolean();
+    if (locked) {
+        if (data.dbusConnectionId) {
+            Gio.bus_unown_name(data.dbusConnectionId);
+            data.dbusConnectionId = 0;
+        }
+    } else {
+        if (!data.dbusConnectionId || !data.dbusConnectionName) {
+            data.dbusConnectionId = Gio.bus_own_name(
+                Gio.BusType.SESSION,
+                'com.desktop.dingextension',
+                Gio.BusNameOwnerFlags.NONE,
+                onBusAcquired.bind(dingExtensionServiceImplementation),
+                (connection, name) => {
+                    log(name);
+                    data.dbusConnectionName = name;
+                },
+                () => {
+                    data.dbusConnectionName = null;
+                }
+            );
+        }
+    }
+}
+
+/**
+ * Start the Dbus Service
+ *
+ * @param {GObject} connection the Dbus Connection
+ * param {string} name the name
+ */
+function onBusAcquired(connection) {
+    if (data.dbusConnectionName)
+        return;
+    dingExtensionServiceImplementation = new DingExtensionService();
+    dingExtensionServiceInterface = Gio.DBusExportedObject.wrapJSObject(ifaceXml,
+        dingExtensionServiceImplementation);
+    dingExtensionServiceInterface.export(connection, '/com/desktop/dingextension/service');
+}
 /**
  * Kills the current desktop program
  */
@@ -220,13 +308,19 @@ function disable() {
         GLib.source_remove(data.startupProcessKillWaitId);
         data.startupProcessKillWaitId = 0;
     }
-
+    if (data.dbusConnectionId) {
+        Gio.bus_unown_name(data.dbusConnectionId);
+        data.dbusConnectionId = 0;
+    }
     // disconnect signals only if connected
+    if (data.lockSignalhandlerId) {
+        Gio.DBus.session.signal_unsubscribe(data.lockSignalhandlerId);
+        data.lockSignalhandlerId = 0;
+    }
     if (data.remoteGeometryUpdateRequestedId) {
         Gio.DBus.session.signal_unsubscribe(data.remoteGeometryUpdateRequestedId);
         data.remoteGeometryUpdateRequestedId = 0;
     }
-
     if (data.visibleAreaId) {
         data.visibleArea.disconnect(data.visibleAreaId);
         data.visibleAreaId = 0;
@@ -528,5 +622,49 @@ var LaunchSubprocess = class {
     hide_from_window_list(window) {
         if (Meta.is_wayland_compositor() && this.process_running)
             this._waylandClient.hide_from_window_list(window);
+    }
+};
+
+/**
+ * This class implements the Dbus Services Provided for the extension
+ */
+var DingExtensionService = class {
+    updateDesktopGeometry() {
+        updateDesktopGeometry();
+    }
+
+    getDropTargetAppInfoDesktopFile([dropX, dropY]) {
+        let desktopfile = null;
+        let actor = null;
+        if (!dropX && !dropY)
+            [dropX, dropY] = global.get_pointer().slice(0, 2);
+        actor = global.get_stage().get_actor_at_pos(Clutter.PickMode.ALL, dropX, dropY);
+        let i = 0;
+        let checkactor;
+        while (actor && (i < 5)) {
+            if (actor._delegate)
+                checkactor = actor._delegate;
+            else
+                checkactor = actor;
+            if (checkactor.app) {
+                if (checkactor.app.appInfo) {
+                    if (checkactor.app.appInfo.get_filename()) {
+                        desktopfile = actor.app.appInfo.get_filename();
+                        break;
+                    }
+                }
+            }
+            i += 1;
+            actor = actor.get_parent();
+        }
+        if (desktopfile)
+            return desktopfile;
+        else
+            return 'null';
+    }
+
+    getShellGlobalCoordinates() {
+        let x = global.get_pointer().slice(0, 2);
+        return x;
     }
 };
