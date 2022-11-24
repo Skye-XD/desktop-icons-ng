@@ -1,5 +1,10 @@
 # History of versions #
 
+* Gtk4 version 22
+  * Add supoort for dragging files from the desktop to the app icon on the dock, to open the file with the app. (Sundeep Mediratta)
+  * Version skips, update to 22 to sync with extensions.gnome.org
+  * Version bump to 22 - metadata.json, update readme and history.
+
 * Gtk4 version 19
   * Fix window displacement when dragging down on top bar. (Sundeep Mediratta)
   * Fix icons flickering when changing work spaces with swipe gesture. (Sundeep Mediratta)
