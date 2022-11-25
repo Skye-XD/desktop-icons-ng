@@ -123,6 +123,7 @@ var DesktopGrid = class {
         this._buttonClick.connect('pressed', async (actor, nPress, x, y) => {
             let button = actor.get_current_button();
             let state;
+            // X11 workaround for GJS bug getting state
             if (this._using_X11)
                 state = await this.DBusUtils.RemoteExtensionControl.getState();
             else
@@ -143,6 +144,7 @@ var DesktopGrid = class {
 
         this._buttonClick.connect('released', async (actor, nPress, x, y) => {
             let state;
+            // X11 workaround for GJS bug getting state
             if (this._using_X11)
                 state = await this.DBusUtils.RemoteExtensionControl.getState();
             else
