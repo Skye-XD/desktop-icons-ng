@@ -48,14 +48,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Rozbalit sem"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "Zkomprimovat {0} soubor"
 
@@ -82,7 +79,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Rozbalit sem"
 
@@ -92,7 +88,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Rozbalit sem"
 
@@ -138,13 +133,11 @@ msgstr ""
 
 #: app/autoAr.js:547
 #, fuzzy
-#| msgid "Create"
 msgid "Create archive"
 msgstr "Vytvořit"
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "Přejmenovat soubor"
 
@@ -194,7 +187,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Zobrazit v Souborech"
 
@@ -236,7 +228,6 @@ msgstr "Seřadit podle Velikosti"
 
 #: app/desktopManager.js:1484
 #, fuzzy
-#| msgid "Keep Arranged..."
 msgid "Keep Arranged…"
 msgstr "Nechat uspořádané..."
 
@@ -246,7 +237,6 @@ msgstr ""
 
 #: app/desktopManager.js:1489
 #, fuzzy
-#| msgid "Sort Home/Drives/Trash..."
 msgid "Sort Home/Drives/Trash…"
 msgstr "Seřadit Domovská složka/Jednotky/Koš..."
 
@@ -280,19 +270,16 @@ msgstr "Uspořádat Ikony"
 
 #: app/desktopManager.js:1518
 #, fuzzy
-#| msgid "Arrange By..."
 msgid "Arrange By…"
 msgstr "Uspořádat podle..."
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Zobrazit plochu v Souborech"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Otevřít v terminálu"
 
@@ -302,7 +289,6 @@ msgstr "Změnit pozadí…"
 
 #: app/desktopManager.js:1534
 #, fuzzy
-#| msgid "Desktop Icons Settings"
 msgid "Desktop Icon Settings"
 msgstr "Nastavení ikon na ploše"
 
@@ -324,13 +310,11 @@ msgstr "Nastavení ikon na ploše"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "Název nové složky"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "Při odstraňování souborů se vyskytla chyba"
 
@@ -487,8 +471,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Zkomprimovat {0} soubor"
@@ -531,7 +513,6 @@ msgstr "Otevřít v terminálu"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Rozbalit sem"
 
@@ -920,3 +901,21 @@ msgstr ""
 
 #~ msgid "Ok"
 #~ msgstr "Ok"
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Zobrazit plochu v Souborech"
+
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Nastavení ikon na ploše"
+
+#~ msgid "Arrange By..."
+#~ msgstr "Uspořádat podle..."
+
+#~ msgid "Keep Arranged..."
+#~ msgstr "Nechat uspořádané..."
+
+#~ msgid "Sort Home/Drives/Trash..."
+#~ msgstr "Seřadit Domovská složka/Jednotky/Koš..."
+
+#~ msgid "Error while deleting files"
+#~ msgstr "Při odstraňování souborů se vyskytla chyba"

@@ -46,14 +46,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "在這裡解開"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "壓縮 {0} 檔案"
 
@@ -80,7 +77,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "在這裡解開"
 
@@ -90,7 +86,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "在這裡解開"
 
@@ -140,7 +135,6 @@ msgstr ""
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "檔案名稱"
 
@@ -190,7 +184,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "在《檔案》中顯示"
 
@@ -282,7 +275,6 @@ msgstr "在《檔案》中開啟桌面"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "開啟終端器"
 
@@ -313,13 +305,11 @@ msgstr "設定"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "資料夾名稱"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "刪除檔案時發生錯誤"
 
@@ -476,8 +466,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "壓縮 {0} 檔案"
@@ -515,7 +503,6 @@ msgstr "開啟終端器"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "在這裡解開"
 
@@ -875,3 +862,14 @@ msgstr ""
 
 #~ msgid "Huge"
 #~ msgstr "巨大圖示"
+
+#, fuzzy
+#~ msgid "Show Desktop in Files"
+#~ msgstr "在《檔案》中開啟桌面"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "桌面圖示設定"
+
+#~ msgid "Error while deleting files"
+#~ msgstr "刪除檔案時發生錯誤"

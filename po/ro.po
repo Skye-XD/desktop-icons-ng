@@ -46,14 +46,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Extrage aici"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "Comprimă {0} fișier"
 
@@ -80,7 +77,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Extrage aici"
 
@@ -90,7 +86,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Extrage aici"
 
@@ -136,13 +131,11 @@ msgstr ""
 
 #: app/autoAr.js:547
 #, fuzzy
-#| msgid "Create"
 msgid "Create archive"
 msgstr "Creează"
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "Nume fișier"
 
@@ -194,7 +187,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Arată în fișiere"
 
@@ -236,7 +228,6 @@ msgstr "Sortează după dimensiune"
 
 #: app/desktopManager.js:1484
 #, fuzzy
-#| msgid "Keep Arranged..."
 msgid "Keep Arranged…"
 msgstr "Aranjează automat..."
 
@@ -246,7 +237,6 @@ msgstr ""
 
 #: app/desktopManager.js:1489
 #, fuzzy
-#| msgid "Sort Home/Drives/Trash..."
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortează Acasă/Unități/Coș de gunoi..."
 
@@ -280,19 +270,16 @@ msgstr "Aranjează pictogramele"
 
 #: app/desktopManager.js:1518
 #, fuzzy
-#| msgid "Arrange By..."
 msgid "Arrange By…"
 msgstr "Aranjează după..."
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Arată Desktop în Fișiere"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Deschide în terminal"
 
@@ -302,7 +289,6 @@ msgstr "Schimbă fundalul..."
 
 #: app/desktopManager.js:1534
 #, fuzzy
-#| msgid "Desktop Icons Settings"
 msgid "Desktop Icon Settings"
 msgstr "Setări Pictograme Desktop"
 
@@ -324,13 +310,11 @@ msgstr "Setări"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "Nume dosar"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "Eroare la ștergerea fișierelor"
 
@@ -487,8 +471,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Comprimă {0} fișier"
@@ -528,7 +510,6 @@ msgstr "Deschide în terminal"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Extrage aici"
 
@@ -909,3 +890,21 @@ msgstr ""
 
 #~ msgid "There is already a file or folder with that name."
 #~ msgstr "Deja există un fișier sau un dosar cu același nume."
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Arată Desktop în Fișiere"
+
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Setări Pictograme Desktop"
+
+#~ msgid "Arrange By..."
+#~ msgstr "Aranjează după..."
+
+#~ msgid "Keep Arranged..."
+#~ msgstr "Aranjează automat..."
+
+#~ msgid "Sort Home/Drives/Trash..."
+#~ msgstr "Sortează Acasă/Unități/Coș de gunoi..."
+
+#~ msgid "Error while deleting files"
+#~ msgstr "Eroare la ștergerea fișierelor"

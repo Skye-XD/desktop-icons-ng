@@ -48,7 +48,6 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Pak ud her"
 
@@ -79,7 +78,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Pak ud her"
 
@@ -89,7 +87,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Pak ud her"
 
@@ -135,7 +132,6 @@ msgstr ""
 
 #: app/autoAr.js:547
 #, fuzzy
-#| msgid "Create"
 msgid "Create archive"
 msgstr "Opret"
 
@@ -190,7 +186,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Vis i Filer"
 
@@ -277,13 +272,11 @@ msgstr ""
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Vis skrivebordet i Filer"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Åbn i terminal"
 
@@ -516,7 +509,6 @@ msgstr "Åbn i terminal"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Pak ud her"
 
@@ -883,3 +875,10 @@ msgstr ""
 
 #~ msgid "Huge"
 #~ msgstr "Enorme"
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Vis skrivebordet i Filer"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Skærmindstillinger"

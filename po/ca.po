@@ -44,14 +44,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Extreu aquí"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "Comprimeix {0} fitxer"
 
@@ -78,7 +75,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Extreu aquí"
 
@@ -88,7 +84,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Extreu aquí"
 
@@ -138,7 +133,6 @@ msgstr ""
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "Nom del fitxer"
 
@@ -190,7 +184,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Mostra al Fitxers"
 
@@ -277,13 +270,11 @@ msgstr ""
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Mostra l'escriptori al Fitxers"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Obre al Terminal"
 
@@ -314,13 +305,11 @@ msgstr "Paràmetres"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "Nom de la carpeta"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "S'ha produït un error en suprimir els fitxers"
 
@@ -477,8 +466,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Comprimeix {0} fitxer"
@@ -518,7 +505,6 @@ msgstr "Obre al Terminal"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Extreu aquí"
 
@@ -870,3 +856,13 @@ msgstr ""
 
 #~ msgid "If you delete an item, it will be permanently lost."
 #~ msgstr "Si suprimiu un element, es perdrà permanentment."
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Mostra l'escriptori al Fitxers"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Paràmetres de les icones de l'escriptori"
+
+#~ msgid "Error while deleting files"
+#~ msgstr "S'ha produït un error en suprimir els fitxers"

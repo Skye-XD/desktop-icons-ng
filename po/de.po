@@ -47,14 +47,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Hier entpacken"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "Komprimiere {0} Datei"
 
@@ -81,7 +78,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Hier entpacken"
 
@@ -91,7 +87,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Hier entpacken"
 
@@ -141,7 +136,6 @@ msgstr ""
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "Dateiname"
 
@@ -191,7 +185,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "In Dateiverwaltung anzeigen"
 
@@ -233,7 +226,6 @@ msgstr "Sortiere nach Dateigröße"
 
 #: app/desktopManager.js:1484
 #, fuzzy
-#| msgid "Keep Arranged..."
 msgid "Keep Arranged…"
 msgstr "Angeordnet lassen..."
 
@@ -243,7 +235,6 @@ msgstr ""
 
 #: app/desktopManager.js:1489
 #, fuzzy
-#| msgid "Sort Home/Drives/Trash..."
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortiere Home/Laufwerke/Papierkorb..."
 
@@ -277,19 +268,16 @@ msgstr "Symbole anordnen"
 
 #: app/desktopManager.js:1518
 #, fuzzy
-#| msgid "Arrange By..."
 msgid "Arrange By…"
 msgstr "Anordnen nach..."
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Schreibtisch in Dateien anzeigen"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Im Terminal öffnen"
 
@@ -299,7 +287,6 @@ msgstr "Hintergrund ändern …"
 
 #: app/desktopManager.js:1534
 #, fuzzy
-#| msgid "Desktop Icons Settings"
 msgid "Desktop Icon Settings"
 msgstr "Arbeitsfläche-Einstellungen"
 
@@ -321,13 +308,11 @@ msgstr "Einstellungen"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "Ordnername"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "Fehler beim Löschen der Dateien"
 
@@ -484,8 +469,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Komprimiere {0} Datei"
@@ -525,7 +508,6 @@ msgstr "Im Terminal öffnen"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Hier entpacken"
 
@@ -881,3 +863,21 @@ msgstr ""
 
 #~ msgid "If you delete an item, it will be permanently lost."
 #~ msgstr "Sobald Sie ein Objekt löschen, geht es dauerhaft verloren."
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Schreibtisch in Dateien anzeigen"
+
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Arbeitsfläche-Einstellungen"
+
+#~ msgid "Arrange By..."
+#~ msgstr "Anordnen nach..."
+
+#~ msgid "Keep Arranged..."
+#~ msgstr "Angeordnet lassen..."
+
+#~ msgid "Sort Home/Drives/Trash..."
+#~ msgstr "Sortiere Home/Laufwerke/Papierkorb..."
+
+#~ msgid "Error while deleting files"
+#~ msgstr "Fehler beim Löschen der Dateien"

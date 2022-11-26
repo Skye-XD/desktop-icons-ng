@@ -52,14 +52,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Extrair aqui"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "Comprimir {0} arquivo"
 
@@ -86,7 +83,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Extrair aqui"
 
@@ -96,7 +92,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Extrair aqui"
 
@@ -142,7 +137,6 @@ msgstr ""
 
 #: app/autoAr.js:547
 #, fuzzy
-#| msgid "Create"
 msgid "Create archive"
 msgstr "Criar"
 
@@ -199,7 +193,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Mostrar no gestor de arquivos"
 
@@ -241,7 +234,6 @@ msgstr "Ordenar por Tamanho"
 
 #: app/desktopManager.js:1484
 #, fuzzy
-#| msgid "Keep Arranged..."
 msgid "Keep Arranged…"
 msgstr "Manter Ordenado..."
 
@@ -251,7 +243,6 @@ msgstr ""
 
 #: app/desktopManager.js:1489
 #, fuzzy
-#| msgid "Sort Home/Drives/Trash..."
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordenar Home/Drives/Lixeira..."
 
@@ -286,19 +277,16 @@ msgstr "Ordenar Ícones"
 
 #: app/desktopManager.js:1518
 #, fuzzy
-#| msgid "Arrange By..."
 msgid "Arrange By…"
 msgstr "Ordenar por..."
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Mostrar a área de trabalho nos Arquivos"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Abrir no terminal"
 
@@ -334,7 +322,6 @@ msgstr "Nome da nova pasta"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "Erro ao excluir os arquivos"
 
@@ -493,8 +480,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Comprimir {0} arquivo"
@@ -536,7 +521,6 @@ msgstr "Abrir no terminal"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Extrair aqui"
 
@@ -939,3 +923,22 @@ msgstr ""
 
 #~ msgid "Ok"
 #~ msgstr "Ok"
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Mostrar a área de trabalho nos Arquivos"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Configurações dos ícones no Desktop"
+
+#~ msgid "Arrange By..."
+#~ msgstr "Ordenar por..."
+
+#~ msgid "Keep Arranged..."
+#~ msgstr "Manter Ordenado..."
+
+#~ msgid "Sort Home/Drives/Trash..."
+#~ msgstr "Ordenar Home/Drives/Lixeira..."
+
+#~ msgid "Error while deleting files"
+#~ msgstr "Erro ao excluir os arquivos"

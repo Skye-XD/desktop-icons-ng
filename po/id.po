@@ -48,7 +48,6 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Ekstrak Di Sini"
 
@@ -79,7 +78,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Ekstrak Di Sini"
 
@@ -89,7 +87,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Ekstrak Di Sini"
 
@@ -135,7 +132,6 @@ msgstr ""
 
 #: app/autoAr.js:547
 #, fuzzy
-#| msgid "Create"
 msgid "Create archive"
 msgstr "Buat"
 
@@ -190,7 +186,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Tampilkan pada Berkas"
 
@@ -277,13 +272,11 @@ msgstr ""
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Tampilkan Destop pada Berkas"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Buka dalam Terminal"
 
@@ -516,7 +509,6 @@ msgstr "Buka dalam Terminal"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Ekstrak Di Sini"
 
@@ -886,3 +878,10 @@ msgstr ""
 
 #~ msgid "Huge"
 #~ msgstr "Sangat besar"
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Tampilkan Destop pada Berkas"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Pengaturan Tampilan"
