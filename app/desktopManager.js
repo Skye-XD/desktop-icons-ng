@@ -732,7 +732,7 @@ var DesktopManager = class {
 
     async detectShellDrop() {
         if (this._localDrag())
-            return;
+            return false;
         let shellDropCoordinates = null;
         shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates();
         let desktopFileAppPath = null;
@@ -741,14 +741,15 @@ var DesktopManager = class {
             while (i < 10) {
                 desktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(shellDropCoordinates);
                 if (desktopFileAppPath) {
-                    this._completeGnomeShellDrop(desktopFileAppPath);
-                    break;
+                    let completed = this._completeGnomeShellDrop(desktopFileAppPath);
+                    return completed;
                 } else {
                     i += 1;
                     await this.DesktopIconsUtil.waitDelayMs(25);
                 }
             }
         }
+        return false;
     }
 
     _completeGnomeShellDrop(desktopFileAppPath) {
@@ -756,22 +757,23 @@ var DesktopManager = class {
             let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
             if (!desktopFile) {
                 log('Couldn’t parse desktopFile as a desktop file');
-                return;
+                return false;
             }
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
             desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
+            return true;
         } catch (e) {
             logError(e, 'Error reading Desktop file, cannot Launch application');
+            return false;
         }
     }
 
     _localDrag() {
         let localDrag = false;
         this._desktops.forEach(d => {
-            if (d.localDrag) {
+            if (d.localDrag)
                 localDrag = true;
-            }
         });
         return localDrag;
     }
