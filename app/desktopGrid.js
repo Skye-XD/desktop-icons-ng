@@ -451,6 +451,7 @@ var DesktopGrid = class {
         });
 
         this.gridDropController.connect('drag-enter', () => {
+            this.localDrag = true;
             return Gdk.DragAction.MOVE;
         });
 
@@ -503,6 +504,7 @@ var DesktopGrid = class {
         });
 
         this.gridDropController.connect('drag-leave', () => {
+            this.localDrag = false;
             this.receiveLeave();
         });
 

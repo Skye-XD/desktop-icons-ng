@@ -731,6 +731,8 @@ var DesktopManager = class {
     }
 
     async detectShellDrop() {
+        if (this._localDrag())
+            return;
         let shellDropCoordinates = null;
         shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates();
         let desktopFileAppPath = null;
@@ -762,6 +764,16 @@ var DesktopManager = class {
         } catch (e) {
             logError(e, 'Error reading Desktop file, cannot Launch application');
         }
+    }
+
+    _localDrag() {
+        let localDrag = false;
+        this._desktops.forEach(d => {
+            if (d.localDrag) {
+                localDrag = true;
+            }
+        });
+        return localDrag;
     }
 
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
