@@ -1,5 +1,9 @@
 # History of versions #
 
+* Gtk4 version 23, Happy Thanksgiving Release!
+  * Add support back for X11. Uses a workaround to get state from the shell. Hacky! Fix when GJS if fixed. (Sundeep Mediratta)
+  * Version bumg to 23 - metadata.json, update history.
+
 * Gtk4 version 22
   * Add supoort for dragging files from the desktop to the app icon on the dock, to open the file with the app. (Sundeep Mediratta)
   * Version skips, update to 22 to sync with extensions.gnome.org
