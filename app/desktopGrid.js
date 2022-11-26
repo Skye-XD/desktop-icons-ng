@@ -451,6 +451,7 @@ var DesktopGrid = class {
         });
 
         this.gridDropController.connect('drag-enter', () => {
+            this.localDrag = true;
             return Gdk.DragAction.MOVE;
         });
 
@@ -503,6 +504,7 @@ var DesktopGrid = class {
         });
 
         this.gridDropController.connect('drag-leave', () => {
+            this.localDrag = false;
             this.receiveLeave();
         });
 
@@ -637,9 +639,16 @@ var DesktopGrid = class {
             this._desktopManager.onReleaseButton(this);
             this._desktopManager.onDragBegin(clickItem);
         });
+        widgetDragController.connect('drag-cancel', async (actor, drag, reason) => {
+            if (reason == Gdk.DragCancelReason.NO_TARGET || reason == Gdk.DragCancelReason.ERROR) {
+                let gnomedropDetected = await this._desktopManager.detectShellDrop(this).catch(e => logError(e));
+                return gnomedropDetected;
+            } else {
+                return false;
+            }
+        });
         widgetDragController.connect('drag-end', async () => {
             this._desktopManager.onDragEnd();
-            await this._desktopManager.detectShellDrop(this).catch(e => logError(e));
         });
         widget.add_controller(widgetDragController);
     }
