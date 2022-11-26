@@ -53,7 +53,7 @@ const ifaceXml = `
       <arg type="s" direction="out" name=".desktop Application File Path or 'null'"/>
     </method>
     <method name="getShellGlobalCoordinates">
-        <arg type="ad" direction="out" name="Global pointer Coordinates"/>
+        <arg type="ai" direction="out" name="Global pointer Coordinates"/>
     </method>
   </interface>
 </node>`;
@@ -664,7 +664,7 @@ var DingExtensionService = class {
     }
 
     getShellGlobalCoordinates() {
-        let x = global.get_pointer().slice(0, 2);
+        let x = global.get_pointer();
         return x;
     }
 };

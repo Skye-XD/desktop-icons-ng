@@ -1126,11 +1126,21 @@ class ExtensionControl {
         this.RemoteExtensionManager = RemoteExtensionManager;
     }
 
+    async getState() {
+        let x = await this._getShellDevicePointer();
+        return x ? x[0].slice(2) : null;
+    }
+
     updateDesktopGeometry() {
         this.RemoteExtensionManager.proxy.updateDesktopGeometrySync();
     }
 
-    getDropTargetCoordinates() {
+    async getDropTargetCoordinates() {
+        let x = await this._getShellDevicePointer();
+        return x ? x[0].slice(0, 2) : null;
+    }
+
+    _getShellDevicePointer() {
         return new Promise(resolve => {
             try {
                 this.RemoteExtensionManager.proxy.getShellGlobalCoordinatesRemote(

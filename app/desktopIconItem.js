@@ -262,16 +262,24 @@ var desktopIconItem = class desktopIconItem {
      ***********************/
 
     _updateClickState(button, eventtime) {
-        let settings = Gtk.Settings.get_default();
+        const settings = Gtk.Settings.get_default();
+        let doubleClickTime = settings.gtk_double_click_time;
+
+        // Workaround for X11
+        if (this.DesktopIconsUtil.usingX11) {
+            eventtime = GLib.get_monotonic_time();
+            doubleClickTime *= 1000;
+        }
 
         if ((button === this._lastClickButton) &&
-            ((eventtime - this._lastClickTime) < settings.gtk_double_click_time))
+            ((eventtime - this._lastClickTime) < doubleClickTime))
             this._clickCount++;
         else
             this._clickCount = 1;
 
         this._lastClickTime = eventtime;
         this._lastClickButton = button;
+        log(this._clickCount);
     }
 
     getClickCount() {
