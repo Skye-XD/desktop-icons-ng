@@ -39,7 +39,7 @@ var Preferences = class {
             this.CLICK_POLICY_SINGLE = false;
         } else {
             this.nautilusSettings = new Gio.Settings({ settings_schema: schemaObj });
-            this.nautilusSettings.connect('changed', this._onNautilusSettingsChanged);
+            this.nautilusSettings.connect('changed', this._onNautilusSettingsChanged.bind(this));
             this._onNautilusSettingsChanged();
         }
         const compressionSchema = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS_COMPRESSION, true);
