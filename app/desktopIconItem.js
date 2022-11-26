@@ -279,7 +279,6 @@ var desktopIconItem = class desktopIconItem {
 
         this._lastClickTime = eventtime;
         this._lastClickButton = button;
-        log(this._clickCount);
     }
 
     getClickCount() {

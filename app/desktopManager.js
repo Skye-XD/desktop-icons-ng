@@ -736,7 +736,7 @@ var DesktopManager = class {
         let desktopFileAppPath = null;
         if (shellDropCoordinates) {
             let i = 0;
-            while (i < 5) {
+            while (i < 10) {
                 desktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(shellDropCoordinates);
                 if (desktopFileAppPath) {
                     this._completeGnomeShellDrop(desktopFileAppPath);
