@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-29 10:36-0400\n"
-"PO-Revision-Date: 2022-11-27 20:59+0000\n"
+"PO-Revision-Date: 2022-11-28 08:30+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
@@ -36,767 +36,838 @@ msgstr "Gi nytt navn"
 
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr er ikke installert"
 
 #: app/autoAr.js:72
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"For å kunne fungere med sammenpakkede filer må du installere file-roller, og/"
+"eller gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 msgid "Extracting files"
-msgstr ""
+msgstr "Pakker ut filer"
 
 #: app/autoAr.js:220
 msgid "Compressing files"
-msgstr ""
+msgstr "Pakker sammen filer"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:782
 #: app/desktopManager.js:1220 app/fileItemMenu.js:518
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
-msgstr ""
+msgstr "Skriv inn et passord her"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "Fjerner delvis fil «${outputFile}»"
 
 #: app/autoAr.js:373
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Oppretter målmappe"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "Pakker ut filer til «${outputPath}»"
 
 #: app/autoAr.js:435
 msgid "Extraction completed"
-msgstr ""
+msgstr "Utpakket"
 
 #: app/autoAr.js:436
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "Filer utpakket til «${fullPathFile}»."
 
 #: app/autoAr.js:442
 msgid "Extraction cancelled"
-msgstr ""
+msgstr "Utpakking avbrutt"
 
 #: app/autoAr.js:443
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Utpakking av filer til «${fullPathFile}» avbrutt av brukeren."
 
 #: app/autoAr.js:453
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Passord kreves for ${filename}"
 
 #: app/autoAr.js:456
 msgid "Error during extraction"
-msgstr ""
+msgstr "Feil under utpakking"
 
 #: app/autoAr.js:483
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "Pakker sammen filer til «${outputFile}»"
 
 #: app/autoAr.js:496
 msgid "Compression completed"
-msgstr ""
+msgstr "Sammenpakking fullført"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "Sammenpakking av filer til «{outputFile}» fullført."
 
 #: app/autoAr.js:501 app/autoAr.js:508
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Avbrutt sammenpakking"
 
 #: app/autoAr.js:502
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "Utdatafilen «${outputFile}» finnes allerede."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Sammenpakking av filer til «${outputFile}» avbrutt av brukeren."
 
 #: app/autoAr.js:512
 msgid "Error during compression"
-msgstr ""
+msgstr "Feil under sammenpakking"
 
 #: app/autoAr.js:547
 msgid "Create archive"
-msgstr ""
+msgstr "Opprett arkiv"
 
 #: app/autoAr.js:571
 msgid "Archive name"
-msgstr ""
+msgstr "Arkivnavn"
 
 #: app/autoAr.js:604
 msgid "Password"
-msgstr ""
+msgstr "Passord"
 
 #: app/autoAr.js:617
 msgid "Create"
-msgstr ""
+msgstr "Opprett"
 
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "Kompatibelt med alle operativsystemer."
 
 #: app/autoAr.js:694
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "Passordbeskyttet .zip må installeres på Windows og macOS."
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "Mindre arkiv, men kun for Linux og macOS."
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "Mindre arkiv, men må installeres på Windows og macOS."
 
 #: app/desktopManager.js:252
 msgid "Nautilus File Manager not found"
-msgstr ""
+msgstr "Fant ikke Nautilus-filbehandleren"
 
 #: app/desktopManager.js:253
 msgid "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
-msgstr ""
+msgstr "Nautilus-filbehandleren kreves for å jobbe med Desktop Icons NG."
 
 #: app/desktopManager.js:779
 msgid "Move"
-msgstr ""
+msgstr "Flytt"
 
 #: app/desktopManager.js:780 app/fileItemMenu.js:302
 msgid "Copy"
-msgstr ""
+msgstr "Kopier"
 
 #: app/desktopManager.js:781
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "Sammenlenk"
 
 #: app/desktopManager.js:784
 msgid "Choose Action for Files"
-msgstr ""
+msgstr "Velg handling for filer"
 
 #: app/desktopManager.js:853 app/desktopManager.js:885
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "Opprettelse av symbolsk lenke mislyktes"
 
 #: app/desktopManager.js:854 app/desktopManager.js:886
+#, fuzzy
 msgid "Error while trying to create a symbolic Link"
-msgstr ""
+msgstr "Kunne ikke opprette symbolsk lenke"
 
 #: app/desktopManager.js:1176
 msgid "Clear Current Selection before New Search"
-msgstr ""
+msgstr "Tøm nåværende utvalg før nytt søk"
 
 #: app/desktopManager.js:1222
 msgid "Find Files on Desktop"
-msgstr ""
+msgstr "Finn filer på skrivebordet"
 
 #: app/desktopManager.js:1477
 msgid "Sort by Name"
-msgstr ""
+msgstr "Sorter etter navn"
 
 #: app/desktopManager.js:1478
+#, fuzzy
 msgid "Sort by Name Descending"
-msgstr ""
+msgstr "Sorter etter navn (synkende)"
 
 #: app/desktopManager.js:1479
 msgid "Sort by Modified Time"
-msgstr ""
+msgstr "Sorter etter endringstid"
 
 #: app/desktopManager.js:1480
 msgid "Sort by Type"
-msgstr ""
+msgstr "Sorter etter type"
 
 #: app/desktopManager.js:1481
 msgid "Sort by Size"
-msgstr ""
+msgstr "Sorter etter størrelse"
 
 #: app/desktopManager.js:1484
 msgid "Keep Arranged…"
-msgstr ""
+msgstr "Behold sortert …"
 
 #: app/desktopManager.js:1488
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "Behold sortert etter type …"
 
 #: app/desktopManager.js:1489
 msgid "Sort Home/Drives/Trash…"
-msgstr ""
+msgstr "Sorter hjemmemappe/lagringsenheter/papirkurv …"
 
 #: app/desktopManager.js:1494 app/desktopManager.js:2507
 msgid "New Folder"
-msgstr ""
+msgstr "Ny mappe"
 
 #: app/desktopManager.js:1498
 msgid "New Document"
-msgstr ""
+msgstr "Nytt dokument"
 
 #: app/desktopManager.js:1502
 msgid "Paste"
-msgstr ""
+msgstr "Lim inn"
 
 #: app/desktopManager.js:1503
 msgid "Undo"
-msgstr ""
+msgstr "Angre"
 
 #: app/desktopManager.js:1504
 msgid "Redo"
-msgstr ""
+msgstr "Gjenta"
 
 #: app/desktopManager.js:1509
 msgid "Select All"
-msgstr ""
+msgstr "Velg alle"
 
 #: app/desktopManager.js:1514
 msgid "Arrange Icons"
-msgstr ""
+msgstr "Sorter ikoner"
 
 #: app/desktopManager.js:1518
+#, fuzzy
 msgid "Arrange By…"
-msgstr ""
+msgstr "Sorter etter …"
 
 #: app/desktopManager.js:1523
+#, fuzzy
 msgid "Show Desktop In Files"
-msgstr ""
+msgstr "Vis skrivebord i filer"
 
 #: app/desktopManager.js:1524
 msgid "Open In Terminal"
-msgstr ""
+msgstr "Åpne i terminal"
 
 #: app/desktopManager.js:1529
 msgid "Change Background…"
-msgstr ""
+msgstr "Endre bakgrunn …"
 
 #: app/desktopManager.js:1534
 msgid "Desktop Icon Settings"
-msgstr ""
+msgstr "Innstillinger for skrivebordsikon"
 
 #: app/desktopManager.js:1535
 msgid "Display Settings"
-msgstr ""
+msgstr "Skjerminnstillinger"
 
 #: app/desktopManager.js:1578
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "Innstillingsvinduet er åpent"
 
 #: app/desktopManager.js:1578
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "Dette vinduet er åpent. Bytt til det aktive vinduet."
 
 #: app/desktopManager.js:1590
 msgid "Settings"
-msgstr ""
+msgstr "Innstillinger"
 
 #: app/desktopManager.js:2530
+#, fuzzy
 msgid "Folder Creation Failed"
-msgstr ""
+msgstr "Mappeopprettelse mislyktes"
 
 #: app/desktopManager.js:2531
 msgid "Error while trying to create a Folder"
-msgstr ""
+msgstr "Kunne ikke opprette mappe"
 
 #: app/desktopManager.js:2573
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Malopprettelse mislyktes"
 
 #: app/desktopManager.js:2574
+#, fuzzy
 msgid "Error while trying to create a Document"
-msgstr ""
+msgstr "Kunne ikke opprette dokument"
 
 #: app/fileItem.js:135
 msgid "Home"
-msgstr ""
+msgstr "Hjem"
 
 #: app/fileItem.js:249
 msgid "Broken Link"
-msgstr ""
+msgstr "Knekt lenke"
 
 #: app/fileItem.js:250
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "Kan ikke åpne denne filen fordi det er en ødelagt symbolsk lenke"
 
 #: app/fileItem.js:313
 msgid "Broken Desktop File"
-msgstr ""
+msgstr "Ødelagt skrivebordsfil"
 
 #: app/fileItem.js:314
+#, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
 "\n"
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
+"Denne .desktop-filen har feil, eller peker til et program uten tilganger. "
+"Den kan ikke kjøres.\n"
+"\n"
+"\t<b>Rediger filen for å sette tilgang for å kjøre den som program.</b>"
 
 #: app/fileItem.js:320
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "Ugyldige tilganger for skrivebordsfil"
 
 #: app/fileItem.js:321
+#, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
+"Denne .desktop-filen har uriktige tilganger. Høyreklikk for å redigere "
+"egenskaper, og så:\n"
 
 #: app/fileItem.js:323
+#, fuzzy
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
+"\n"
+"<b>Sett tilganger i «Andre Tilgang» «Skrivebeskyttet», eller «Ingen»</b>"
 
 #: app/fileItem.js:326
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
+"\n"
+"<b>Skru på valget «Tillat kjøring av filen som program»</b>"
 
 #: app/fileItem.js:334
+#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
+"Denne .desktop-filen er ikke betrodd, så den kan ikke kjøres. For å skru på "
+"kjøring av filen som program:\n"
+"\n"
+"<b>Skru på «Tillat kjøring»</b>"
 
 #: app/fileItemMenu.js:259
+#, fuzzy
 msgid "Open All..."
-msgstr ""
+msgstr "Åpne alle …"
 
 #: app/fileItemMenu.js:261
 msgid "Open"
-msgstr ""
+msgstr "Åpne"
 
 #: app/fileItemMenu.js:269
 msgid "Stack This Type"
-msgstr ""
+msgstr "Stable denne typen"
 
 #: app/fileItemMenu.js:269
 msgid "Unstack This Type"
-msgstr ""
+msgstr "Opphev stabling av denne typen"
 
 #: app/fileItemMenu.js:280
 msgid "Scripts"
-msgstr ""
+msgstr "Skript"
 
 #: app/fileItemMenu.js:285
 msgid "Open All With Other Application..."
-msgstr ""
+msgstr "Åpne alle med annet program …"
 
 #: app/fileItemMenu.js:285
 msgid "Open With Other Application"
-msgstr ""
+msgstr "Åpne med annet program"
 
 #: app/fileItemMenu.js:287
 msgid "Launch using Dedicated Graphics Card"
-msgstr ""
+msgstr "Start ved bruk av dedikert grafikkort"
 
 #: app/fileItemMenu.js:294
 msgid "Run as a Program"
-msgstr ""
+msgstr "Kjør som et program"
 
 #: app/fileItemMenu.js:300
 msgid "Cut"
-msgstr ""
+msgstr "Klipp ut"
 
 #: app/fileItemMenu.js:305
 msgid "Rename…"
-msgstr ""
+msgstr "Gi nytt navn …"
 
 #: app/fileItemMenu.js:310
 msgid "Move to Trash"
-msgstr ""
+msgstr "Flytt til papirkurv"
 
 #: app/fileItemMenu.js:313
 msgid "Delete permanently"
-msgstr ""
+msgstr "Slett for godt"
 
 #: app/fileItemMenu.js:320
 msgid "Don't Allow Launching"
-msgstr ""
+msgstr "Ikke tillat kjøring som program"
 
 #: app/fileItemMenu.js:320
 msgid "Allow Launching"
-msgstr ""
+msgstr "Tillat kjøring som program"
 
 #: app/fileItemMenu.js:329
 msgid "Empty Trash"
-msgstr ""
+msgstr "Tøm papirkurv"
 
 #: app/fileItemMenu.js:338
 msgid "Eject"
-msgstr ""
+msgstr "Løs ut"
 
 #: app/fileItemMenu.js:341
 msgid "Unmount"
-msgstr ""
+msgstr "Avmonter"
 
 #: app/fileItemMenu.js:352 app/fileItemMenu.js:356
 msgid "Extract Here"
-msgstr ""
+msgstr "Pakk ut her"
 
 #: app/fileItemMenu.js:358
 msgid "Extract To..."
-msgstr ""
+msgstr "Pakk ut til …"
 
 #: app/fileItemMenu.js:362
 msgid "Send to..."
-msgstr ""
+msgstr "Send til …"
 
 #: app/fileItemMenu.js:368
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Send til mobilenhet"
 
 #: app/fileItemMenu.js:374
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pakk sammen {0} mappe"
+msgstr[1] "Pakk sammen {0} mapper"
 
 #: app/fileItemMenu.js:381
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pakk sammen {0} fil"
+msgstr[1] "Pakk sammen {0} filer"
 
 #: app/fileItemMenu.js:388
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ny mappe med {0} element"
+msgstr[1] "Ny mappe med {0} elementer"
 
 #: app/fileItemMenu.js:397
 msgid "Common Properties"
-msgstr ""
+msgstr "Gemene egenskaper"
 
 #: app/fileItemMenu.js:397
 msgid "Properties"
-msgstr ""
+msgstr "Egenskaper"
 
 #: app/fileItemMenu.js:401
+#, fuzzy
 msgid "Show All in Files"
-msgstr ""
+msgstr "Vis alle i filer"
 
 #: app/fileItemMenu.js:401
+#, fuzzy
 msgid "Show in Files"
-msgstr ""
+msgstr "Vis i filer"
 
 #: app/fileItemMenu.js:407
 msgid "Open in Terminal"
-msgstr ""
+msgstr "Åpne i terminal"
 
 #: app/fileItemMenu.js:493
 msgid "No Extraction Folder"
-msgstr ""
+msgstr "Ingen utpakkingsmappe"
 
 #: app/fileItemMenu.js:494
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "Kunne ikke pakke ut fil. Utpakkingsmappen finnes ikke."
 
 #: app/fileItemMenu.js:514
 msgid "Select Extract Destination"
-msgstr ""
+msgstr "Velg mål for utpakking"
 
 #: app/fileItemMenu.js:519
 msgid "Select"
-msgstr ""
+msgstr "Velg"
 
 #: app/fileItemMenu.js:559
 msgid "Can not email a Directory"
-msgstr ""
+msgstr "Kan ikke e-poste en katalog"
 
 #: app/fileItemMenu.js:560
 msgid "Selection includes a Directory, compress the directory to a file first."
-msgstr ""
+msgstr "Utvalget inneholder en katalog. Pakk den sammen til en fil først."
 
 #: app/preferencesFrame.js:40
 msgid "Size for the desktop icons"
-msgstr ""
+msgstr "Størrelse på skrivebordsikoner"
 
 #: app/preferencesFrame.js:40
 msgid "Tiny"
-msgstr ""
+msgstr "Knøtt"
 
 #: app/preferencesFrame.js:40
 msgid "Small"
-msgstr ""
+msgstr "Små"
 
 #: app/preferencesFrame.js:40
 msgid "Standard"
-msgstr ""
+msgstr "Vanlig"
 
 #: app/preferencesFrame.js:40
 msgid "Large"
-msgstr ""
+msgstr "Store"
 
 #: app/preferencesFrame.js:41
+#, fuzzy
 msgid "Show the personal folder in the desktop"
-msgstr ""
+msgstr "Vis hjemmemappen på skrivebordet"
 
 #: app/preferencesFrame.js:42
+#, fuzzy
 msgid "Show the trash icon in the desktop"
-msgstr ""
+msgstr "Vis papirkurvsikonet på skrivebordet"
 
 #: app/preferencesFrame.js:43
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+#, fuzzy
 msgid "Show external drives in the desktop"
-msgstr ""
+msgstr "Vis eksterne enheter på skrivebordet"
 
 #: app/preferencesFrame.js:44
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+#, fuzzy
 msgid "Show network drives in the desktop"
-msgstr ""
+msgstr "Vis nettverkslagringsenheter på skrivebordet"
 
 #: app/preferencesFrame.js:47
 msgid "New icons alignment"
-msgstr ""
+msgstr "Plassering av nye ikoner"
 
 #: app/preferencesFrame.js:49
 msgid "Top-left corner"
-msgstr ""
+msgstr "Øvre venstre hjørne"
 
 #: app/preferencesFrame.js:50
 msgid "Top-right corner"
-msgstr ""
+msgstr "Øvre høyre hjørne"
 
 #: app/preferencesFrame.js:51
 msgid "Bottom-left corner"
-msgstr ""
+msgstr "Nedre venstre hjørne"
 
 #: app/preferencesFrame.js:52
 msgid "Bottom-right corner"
-msgstr ""
+msgstr "Nedre høyre hjørne"
 
 #: app/preferencesFrame.js:54
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "Legg til nye ikoner på sekundærskjermer først, hvis tilgjengelig"
 
 #: app/preferencesFrame.js:55
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
-msgstr ""
+msgstr "Legg til nye lagringsenheter på motsatt side av skjermen"
 
 #: app/preferencesFrame.js:56
+#, fuzzy
 msgid "Highlight the drop place during Drag'n'Drop"
-msgstr ""
+msgstr "Framhev innlimingsplass under dra-og-slipp"
 
 #: app/preferencesFrame.js:57
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
-msgstr ""
+msgstr "Bruk Nemo for å åpne mapper"
 
 #: app/preferencesFrame.js:58
 msgid "Add an emblem to soft links"
-msgstr ""
+msgstr "Legg til et emblem for myke lenker"
 
 #: app/preferencesFrame.js:59
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "Bruk mørk tekst i ikonetiketter"
 
 #: app/preferencesFrame.js:64
+#, fuzzy
 msgid "Settings shared with Nautilus"
-msgstr ""
+msgstr "Innstillinger delt med Nautilus"
 
 #: app/preferencesFrame.js:79
+#, fuzzy
 msgid "Click type for open files"
-msgstr ""
+msgstr "Klikktype for åpning av filer"
 
 #: app/preferencesFrame.js:79
 msgid "Single click"
-msgstr ""
+msgstr "Enkeltklikk"
 
 #: app/preferencesFrame.js:79
 msgid "Double click"
-msgstr ""
+msgstr "Dobbeltklikk"
 
 #: app/preferencesFrame.js:80
 msgid "Show hidden files"
-msgstr ""
+msgstr "Vis skjulte filer"
 
 #: app/preferencesFrame.js:81
 msgid "Show a context menu item to delete permanently"
-msgstr ""
+msgstr "Vis en bindeleddsmeny-element for å slette for godt"
 
 #: app/preferencesFrame.js:86
 msgid "Action to do when launching a program from the desktop"
-msgstr ""
+msgstr "Handling å utføre ved kjøring av et program fra skrivebordet"
 
 #: app/preferencesFrame.js:87
 msgid "Display the content of the file"
-msgstr ""
+msgstr "Vis innholdet av filen"
 
 #: app/preferencesFrame.js:88
 msgid "Launch the file"
-msgstr ""
+msgstr "Start filen"
 
 #: app/preferencesFrame.js:89
 msgid "Ask what to do"
-msgstr ""
+msgstr "Spør hva som skal gjøres"
 
 #: app/preferencesFrame.js:95
 msgid "Show image thumbnails"
-msgstr ""
+msgstr "Vis bilde-miniatyrbilder"
 
 #: app/preferencesFrame.js:96
 msgid "Never"
-msgstr ""
+msgstr "Aldri"
 
 #: app/preferencesFrame.js:97
 msgid "Local files only"
-msgstr ""
+msgstr "Kun lokale filer"
 
 #: app/preferencesFrame.js:98
 msgid "Always"
-msgstr ""
+msgstr "Alltid"
 
 #: app/showErrorPopup.js:41
 msgid "Close"
-msgstr ""
+msgstr "Lukk"
 
 #: app/utils/dbusUtils.js:58
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr ""
+msgstr "«${programName}» kreves for skrivebordsikoner"
 
 #: app/utils/dbusUtils.js:59
+#, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
+"For at dette skal virke for skrivebordsikoner må du installere "
+"«${programName}» på systemet ditt."
 
 #: app/utils/desktopIconsUtil.js:150
 msgid "Command not found"
-msgstr ""
+msgstr "Fant ikke kommandoen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
-msgstr ""
+msgstr "Ikonstørrelse"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
-msgstr ""
+msgstr "Sett størrelsen for skrivebordsikonene."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+#, fuzzy
 msgid "Show personal folder"
-msgstr ""
+msgstr "Vis hjemmemappe"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+#, fuzzy
 msgid "Show the personal folder in the desktop."
-msgstr ""
+msgstr "Vis hjemmemappen på skrivebordet."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
-msgstr ""
+msgstr "Vis papirkurvsikon"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
-msgstr ""
+msgstr "Vis papirkurvsikonet på skrivebordet."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
-msgstr ""
+msgstr "Oppstartshjørne for nye ikoner"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+#, fuzzy
 msgid "Set the corner from where the icons will start to be placed."
-msgstr ""
+msgstr "Sett hjørnet du vil begynne plassering av ikonene i."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
+#, fuzzy
 msgid "Show the disk drives connected to the computer."
-msgstr ""
+msgstr "Vis lagringsenhetene tilknyttet datamaskinen."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
-msgstr ""
+msgstr "Vis monterte nettverksdataområder på skrivebordet."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
 msgstr ""
+"Når du legger til lagringsenheter og dataområder på skriveborder vil de bli "
+"lagt til på andre siden av skjermen."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+#, fuzzy
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr ""
+msgstr "Viser firkant i målmappen ved dra-og-slipp"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+#, fuzzy
 msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
+"Markerer stedet i rutenettet med semigjennomsiktig firkant der ikonene vil "
+"legges med dra-og-slipp."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+#, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr ""
+msgstr "Sorter spesialmapper — Hjem/papirkurv/lagringsenheter."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+#, fuzzy
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
+"Endre posisjon for hjemmemappen, papirkurv og montert nettverkslagring eller "
+"eksterne lagringsenheter ved sortering av ikoner på skrivebordet"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
-msgstr ""
+msgstr "Behold ikoner sortert"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr ""
+msgstr "Alltid behold ikoner sortert etter sist valgte sortering"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 msgid "Arrange Order"
-msgstr ""
+msgstr "Velg sortering"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 msgid "Icons Arranged by this property"
-msgstr ""
+msgstr "Ikoner sortert etter denne egenskapen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+#, fuzzy
 msgid "Keep Icons Stacked"
-msgstr ""
+msgstr "Behold ikoner stablet"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+#, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
+msgstr "Alltid behold ikoner stablet. Lignende ikoner grupperes."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+#, fuzzy
 msgid "Type of Files to not Stack"
-msgstr ""
+msgstr "Filtyper å ikke stable"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+#, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
+msgstr "En samling strengtyper. Ikke stable disse filtypene."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr ""
+msgstr "Bruk Nemo istedenfor Nautilus for å åpne mapper."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 msgid "Add an emblem to links"
-msgstr ""
+msgstr "Legg til et emblem for lenker"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr ""
+msgstr "Legg til et emblem for å identifisere myke lenker."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Use black for label text"
-msgstr ""
+msgstr "Bruk svart etikett-tekst"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
+"Bruk svart for etikett-tekst istedenfor hvit. Nyttig ved bruk av lyse "
+"bakgrunner."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
+msgstr "Vis nye ikoner på annet enn hovedskjerm hvis dette er tilkoblet"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
-msgstr ""
+msgstr "Hvis en annen skjerm er tilkoblet vil nye ikoner plasseres på denne"
