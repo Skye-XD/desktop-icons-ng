@@ -739,7 +739,7 @@ var DesktopManager = class {
         if (shellDropCoordinates) {
             let i = 0;
             while (i < 10) {
-                desktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(shellDropCoordinates);
+                desktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(shellDropCoordinates).catch(e => logError(e));
                 if (desktopFileAppPath) {
                     let completed = this._completeGnomeShellDrop(desktopFileAppPath);
                     return completed;
@@ -752,10 +752,8 @@ var DesktopManager = class {
         return false;
     }
 
-    _completeGnomeShellDrop(desktopFileAppPath) {
-        log(desktopFileAppPath);
+    async _completeGnomeShellDrop(desktopFileAppPath) {
         if (desktopFileAppPath.endsWith('.desktop')) {
-            log('desktopFile');
             try {
                 let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
                 if (!desktopFile) {
@@ -772,8 +770,11 @@ var DesktopManager = class {
             }
         }
         if (desktopFileAppPath == 'trash:///') {
-            log('trash file');
             this.doTrash();
+            return true;
+        }
+        if (desktopFileAppPath.startsWith('file:///')) {
+            await this.copyOrMoveUris(this.getCurrentSelection(true), desktopFileAppPath, {}, {}).catch(e => logError(e));
             return true;
         }
         return false;
