@@ -641,6 +641,7 @@ var DingExtensionService = class {
         actor = global.get_stage().get_actor_at_pos(Clutter.PickMode.ALL, dropX, dropY);
         let i = 0;
         let checkactor;
+
         while (actor && (i < 10)) {
             if (actor._delegate)
                 checkactor = actor._delegate;
@@ -654,13 +655,13 @@ var DingExtensionService = class {
 
             if (checkactor?.location?.get_uri()) {
                 droptarget = checkactor.location.get_uri();
-                log(checkactor.location.get_uri());
                 break;
             }
 
             i += 1;
             actor = actor.get_parent();
         }
+
         if (droptarget)
             return droptarget;
         else
