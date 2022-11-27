@@ -753,20 +753,30 @@ var DesktopManager = class {
     }
 
     _completeGnomeShellDrop(desktopFileAppPath) {
-        try {
-            let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
-            if (!desktopFile) {
-                log('Couldn’t parse desktopFile as a desktop file');
+        log(desktopFileAppPath);
+        if (desktopFileAppPath.endsWith('.desktop')) {
+            log('desktopFile');
+            try {
+                let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
+                if (!desktopFile) {
+                    log('Couldn’t parse desktopFile as a desktop file');
+                    return false;
+                }
+                const context = Gdk.Display.get_default().get_app_launch_context();
+                context.set_timestamp(Gdk.CURRENT_TIME);
+                desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
+                return true;
+            } catch (e) {
+                logError(e, 'Error reading Desktop file, cannot Launch application');
                 return false;
             }
-            const context = Gdk.Display.get_default().get_app_launch_context();
-            context.set_timestamp(Gdk.CURRENT_TIME);
-            desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
-            return true;
-        } catch (e) {
-            logError(e, 'Error reading Desktop file, cannot Launch application');
-            return false;
         }
+        if (desktopFileAppPath == 'trash:///') {
+            log('trash file');
+            this.doTrash();
+            return true;
+        }
+        return false;
     }
 
     _localDrag() {

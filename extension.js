@@ -634,7 +634,7 @@ var DingExtensionService = class {
     }
 
     getDropTargetAppInfoDesktopFile([dropX, dropY]) {
-        let desktopfile = null;
+        let droptarget = null;
         let actor = null;
         if (!dropX && !dropY)
             [dropX, dropY] = global.get_pointer().slice(0, 2);
@@ -649,16 +649,20 @@ var DingExtensionService = class {
             if (checkactor.app) {
                 if (checkactor.app.appInfo) {
                     if (checkactor.app.appInfo.get_filename()) {
-                        desktopfile = actor.app.appInfo.get_filename();
+                        droptarget = checkactor.app.appInfo.get_filename();
                         break;
                     }
                 }
             }
+            if (checkactor?.location?.get_uri()) {
+                droptarget = checkactor.location.get_uri();
+                log(checkactor.location.get_uri());
+            }
             i += 1;
             actor = actor.get_parent();
         }
-        if (desktopfile)
-            return desktopfile;
+        if (droptarget)
+            return droptarget;
         else
             return 'null';
     }
