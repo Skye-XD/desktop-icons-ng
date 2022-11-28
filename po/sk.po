@@ -48,14 +48,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Rozbaliť sem"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "Skomprimovať {0} súborov"
 
@@ -82,7 +79,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Rozbaliť sem"
 
@@ -92,7 +88,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Rozbaliť sem"
 
@@ -142,7 +137,6 @@ msgstr ""
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "Názov súboru"
 
@@ -194,7 +188,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Zobraziť v aplikácii Súbory"
 
@@ -236,7 +229,6 @@ msgstr "Usporiadať podľa veľkosti"
 
 #: app/desktopManager.js:1484
 #, fuzzy
-#| msgid "Keep Arranged..."
 msgid "Keep Arranged…"
 msgstr "Udržiavať usporiadané..."
 
@@ -246,7 +238,6 @@ msgstr ""
 
 #: app/desktopManager.js:1489
 #, fuzzy
-#| msgid "Sort Home/Drives/Trash..."
 msgid "Sort Home/Drives/Trash…"
 msgstr "Usporiadať Domov/jednotky/Kôš..."
 
@@ -280,19 +271,16 @@ msgstr "Usporiadať ikony"
 
 #: app/desktopManager.js:1518
 #, fuzzy
-#| msgid "Arrange By..."
 msgid "Arrange By…"
 msgstr "Usporiadať podľa..."
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Zobraziť Plochu v aplikácii Súbory"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Otvoriť v termináli"
 
@@ -302,7 +290,6 @@ msgstr "Zmeniť pozadie…"
 
 #: app/desktopManager.js:1534
 #, fuzzy
-#| msgid "Desktop Icons Settings"
 msgid "Desktop Icon Settings"
 msgstr "Nastavenia ikon pracovnej plochy"
 
@@ -324,7 +311,6 @@ msgstr "Nastavenia"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "Názov priečinku"
 
@@ -485,8 +471,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Skomprimovať {0} súborov"
@@ -529,7 +513,6 @@ msgstr "Otvoriť v termináli"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Rozbaliť sem"
 
@@ -871,3 +854,18 @@ msgstr ""
 
 #~ msgid "Execute"
 #~ msgstr "Spustiť"
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Zobraziť Plochu v aplikácii Súbory"
+
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Nastavenia ikon pracovnej plochy"
+
+#~ msgid "Arrange By..."
+#~ msgstr "Usporiadať podľa..."
+
+#~ msgid "Keep Arranged..."
+#~ msgstr "Udržiavať usporiadané..."
+
+#~ msgid "Sort Home/Drives/Trash..."
+#~ msgstr "Usporiadať Domov/jednotky/Kôš..."

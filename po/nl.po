@@ -49,7 +49,6 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Hier uitpakken"
 
@@ -80,7 +79,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Hier uitpakken"
 
@@ -90,7 +88,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Hier uitpakken"
 
@@ -136,7 +133,6 @@ msgstr ""
 
 #: app/autoAr.js:547
 #, fuzzy
-#| msgid "Create"
 msgid "Create archive"
 msgstr "Aanmaken"
 
@@ -191,7 +187,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Tonen in Bestanden"
 
@@ -278,13 +273,11 @@ msgstr ""
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Bureaublad tonen in Bestanden"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Openen in terminalvenster"
 
@@ -320,7 +313,6 @@ msgstr "Nieuwe mapnaam"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "Fout tijdens het verwijderen"
 
@@ -519,7 +511,6 @@ msgstr "Openen in terminalvenster"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Hier uitpakken"
 
@@ -886,3 +877,13 @@ msgstr ""
 
 #~ msgid "There is already a file or folder with that name."
 #~ msgstr "Er bestaat al een bestand of map met die naam."
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Bureaublad tonen in Bestanden"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Scherminstellingen"
+
+#~ msgid "Error while deleting files"
+#~ msgstr "Fout tijdens het verwijderen"

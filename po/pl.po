@@ -49,14 +49,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Rozpakuj tutaj"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "Kompresuj {0} plik"
 
@@ -83,7 +80,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Rozpakuj tutaj"
 
@@ -93,7 +89,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Rozpakuj tutaj"
 
@@ -139,13 +134,11 @@ msgstr ""
 
 #: app/autoAr.js:547
 #, fuzzy
-#| msgid "Create"
 msgid "Create archive"
 msgstr "Utwórz"
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "Nazwa pliku"
 
@@ -195,7 +188,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Wyświetl w menedżerze plików"
 
@@ -238,19 +230,16 @@ msgstr "Rozmiar"
 
 #: app/desktopManager.js:1484
 #, fuzzy
-#| msgid "Keep Arranged..."
 msgid "Keep Arranged…"
 msgstr "Autorozmieszczanie"
 
 #: app/desktopManager.js:1488
 #, fuzzy
-#| msgid "Keep Stacked by type..."
 msgid "Keep Stacked by Type…"
 msgstr "Grupuj wg. typu"
 
 #: app/desktopManager.js:1489
 #, fuzzy
-#| msgid "Sort Home/Drives/Trash..."
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortuj katalog domowy/Napędy/Kosz"
 
@@ -284,19 +273,16 @@ msgstr "Rozmieść ikony"
 
 #: app/desktopManager.js:1518
 #, fuzzy
-#| msgid "Arrange By..."
 msgid "Arrange By…"
 msgstr "Sortuj według..."
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Wyświetl pulpit w menedżerze plików"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Otwórz w terminalu"
 
@@ -306,7 +292,6 @@ msgstr "Zmień tło…"
 
 #: app/desktopManager.js:1534
 #, fuzzy
-#| msgid "Desktop Icons Settings"
 msgid "Desktop Icon Settings"
 msgstr "Ustawienia ikon na pulpicie"
 
@@ -328,13 +313,11 @@ msgstr "Ustawienia"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "Nazwa katalogu"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "Wystąpił błąd podczas usuwania plików"
 
@@ -438,7 +421,6 @@ msgstr "Uruchom za pomocą dedykowanej karty graficznej"
 
 #: app/fileItemMenu.js:294
 #, fuzzy
-#| msgid "Run as a program"
 msgid "Run as a Program"
 msgstr "Uruchom jako program"
 
@@ -496,8 +478,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Kompresuj {0} plik"
@@ -540,7 +520,6 @@ msgstr "Otwórz w terminalu"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Rozpakuj tutaj"
 
@@ -924,3 +903,27 @@ msgstr ""
 
 #~ msgid "There is already a file or folder with that name."
 #~ msgstr "Plik lub katalog o tej nazwie już istnieje."
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Wyświetl pulpit w menedżerze plików"
+
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Ustawienia ikon na pulpicie"
+
+#~ msgid "Arrange By..."
+#~ msgstr "Sortuj według..."
+
+#~ msgid "Keep Arranged..."
+#~ msgstr "Autorozmieszczanie"
+
+#~ msgid "Keep Stacked by type..."
+#~ msgstr "Grupuj wg. typu"
+
+#~ msgid "Sort Home/Drives/Trash..."
+#~ msgstr "Sortuj katalog domowy/Napędy/Kosz"
+
+#~ msgid "Run as a program"
+#~ msgstr "Uruchom jako program"
+
+#~ msgid "Error while deleting files"
+#~ msgstr "Wystąpił błąd podczas usuwania plików"

@@ -47,14 +47,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Выняць сюды"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "Сціснуць {0} файл"
 
@@ -81,7 +78,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Выняць сюды"
 
@@ -91,7 +87,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Выняць сюды"
 
@@ -141,7 +136,6 @@ msgstr ""
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "Імя файла"
 
@@ -192,7 +186,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Паказаць у файлавым менеджары"
 
@@ -279,13 +272,11 @@ msgstr ""
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Паказаць Стол у файлавым менеджары"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Адкрыць у Тэрмінале"
 
@@ -316,13 +307,11 @@ msgstr "Настройкі"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "Імя папкі"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "Памылка падчас выдалення файлаў"
 
@@ -480,8 +469,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Сціснуць {0} файл"
@@ -524,7 +511,6 @@ msgstr "Адкрыць у Тэрмінале"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Выняць сюды"
 
@@ -873,3 +859,13 @@ msgstr ""
 
 #~ msgid "New folder"
 #~ msgstr "Новая папка"
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Паказаць Стол у файлавым менеджары"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Настройкі значкоў Стала"
+
+#~ msgid "Error while deleting files"
+#~ msgstr "Памылка падчас выдалення файлаў"

@@ -48,7 +48,6 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Tire fûr ca"
 
@@ -79,7 +78,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Tire fûr ca"
 
@@ -89,7 +87,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Tire fûr ca"
 
@@ -135,7 +132,6 @@ msgstr ""
 
 #: app/autoAr.js:547
 #, fuzzy
-#| msgid "Create"
 msgid "Create archive"
 msgstr "Cree"
 
@@ -190,7 +186,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Mostre in File"
 
@@ -277,13 +272,11 @@ msgstr ""
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Mostre Scritori in File"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Vierç in Terminâl"
 
@@ -516,7 +509,6 @@ msgstr "Vierç in Terminâl"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Tire fûr ca"
 
@@ -883,3 +875,10 @@ msgstr ""
 
 #~ msgid "There is already a file or folder with that name."
 #~ msgstr "Un file o une cartele cul stes non e esist za."
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Mostre Scritori in File"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Impostazions visôr"

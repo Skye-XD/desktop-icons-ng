@@ -51,8 +51,6 @@ msgstr ""
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "דחיסת קובץ {0}"
 
@@ -135,7 +133,6 @@ msgstr ""
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "שם הקובץ"
 
@@ -270,13 +267,11 @@ msgstr ""
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show hidden files"
 msgid "Show Desktop In Files"
 msgstr "הצגת קבצים מוסתרים"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "פתיחה במסוף"
 
@@ -307,13 +302,11 @@ msgstr "הגדרות"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "שם התיקייה"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "שגיאה במחיקת הקבצים"
 
@@ -469,8 +462,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "דחיסת קובץ {0}"
@@ -855,3 +846,10 @@ msgstr ""
 
 #~ msgid "New folder"
 #~ msgstr "תיקיה חדשה"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "הגדרות תצוגה"
+
+#~ msgid "Error while deleting files"
+#~ msgstr "שגיאה במחיקת הקבצים"

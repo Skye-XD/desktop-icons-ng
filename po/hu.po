@@ -47,14 +47,11 @@ msgstr ""
 
 #: app/autoAr.js:203
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extracting files"
 msgstr "Kibontás ide"
 
 #: app/autoAr.js:220
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compressing files"
 msgstr "{0} fájl tömörítése"
 
@@ -81,7 +78,6 @@ msgstr ""
 
 #: app/autoAr.js:435
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction completed"
 msgstr "Kibontás ide"
 
@@ -91,7 +87,6 @@ msgstr ""
 
 #: app/autoAr.js:442
 #, fuzzy
-#| msgid "Extract Here"
 msgid "Extraction cancelled"
 msgstr "Kibontás ide"
 
@@ -141,7 +136,6 @@ msgstr ""
 
 #: app/autoAr.js:571
 #, fuzzy
-#| msgid "File name"
 msgid "Archive name"
 msgstr "Fájlnév"
 
@@ -191,7 +185,6 @@ msgstr ""
 
 #: app/desktopManager.js:784
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Choose Action for Files"
 msgstr "Megjelenítés a Fájlokban"
 
@@ -278,13 +271,11 @@ msgstr ""
 
 #: app/desktopManager.js:1523
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In Files"
 msgstr "Asztal megjelenítése a Fájlokban"
 
 #: app/desktopManager.js:1524
 #, fuzzy
-#| msgid "Open in Terminal"
 msgid "Open In Terminal"
 msgstr "Megnyitás terminálban"
 
@@ -315,13 +306,11 @@ msgstr "Beállítások"
 
 #: app/desktopManager.js:2530
 #, fuzzy
-#| msgid "Folder name"
 msgid "Folder Creation Failed"
 msgstr "Mappanév"
 
 #: app/desktopManager.js:2531
 #, fuzzy
-#| msgid "Error while deleting files"
 msgid "Error while trying to create a Folder"
 msgstr "Hiba történt a fájlok törlésekor"
 
@@ -478,8 +467,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:374
 #, fuzzy
-#| msgid "Compress {0} file"
-#| msgid_plural "Compress {0} files"
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "{0} fájl tömörítése"
@@ -519,7 +506,6 @@ msgstr "Megnyitás terminálban"
 
 #: app/fileItemMenu.js:493
 #, fuzzy
-#| msgid "Extract Here"
 msgid "No Extraction Folder"
 msgstr "Kibontás ide"
 
@@ -869,3 +855,13 @@ msgstr ""
 
 #~ msgid "If you delete an item, it will be permanently lost."
 #~ msgstr "Ha töröl egy elemet, akkor az véglegesen elvész."
+
+#~ msgid "Show Desktop in Files"
+#~ msgstr "Asztal megjelenítése a Fájlokban"
+
+#, fuzzy
+#~ msgid "Desktop Icons Settings"
+#~ msgstr "Asztali ikonok beállítása"
+
+#~ msgid "Error while deleting files"
+#~ msgstr "Hiba történt a fájlok törlésekor"
