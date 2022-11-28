@@ -68,6 +68,10 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Enable opening files, by dragging the icon and dropping on the app icon on the Dock. Checked on Dash to Dock and Dash to Panel. Currently, only if animation of icons on hover is enabled on Dash to Panel, this does not work. During animation, Dash to Panel appears to make clones of the original dock Items that it animates, and I am unable to extract the information about the underlying app they represent. However, I believe with a simple fix upstream in Dash to Panel, this should work even with animated icons on hover.
 
+- [x] Drag and drop files from desktop to the Trash Icon on Dash to Dock directly.
+
+- [x] Drag and drop files to Mounted Volumes on Dash to Dock to copy files.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.

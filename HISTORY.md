@@ -1,8 +1,14 @@
 # History of versions #
 
+* Gtk4 version 24
+  * Add support for dragging files directily from desktop to Trash or monted volumes on Dash to Dock. (Sundeep Mediratta)
+  * Make drop on Dash more sensitive for X11. (Sundeep Mediratta)
+  * Update project id on all translations. (Sundeep Mediratta)
+  * Version Bump to 24 - metadata.json, update history and Readme
+
 * Gtk4 version 23, Happy Thanksgiving Release!
   * Add support back for X11. Uses a workaround to get state from the shell. Hacky! Fix when GJS if fixed. (Sundeep Mediratta)
-  * Version bumg to 23 - metadata.json, update history.
+  * Version bump to 23 - metadata.json, update history.
 
 * Gtk4 version 22
   * Add supoort for dragging files from the desktop to the app icon on the dock, to open the file with the app. (Sundeep Mediratta)
