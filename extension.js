@@ -634,31 +634,36 @@ var DingExtensionService = class {
     }
 
     getDropTargetAppInfoDesktopFile([dropX, dropY]) {
-        let desktopfile = null;
+        let droptarget = null;
         let actor = null;
         if (!dropX && !dropY)
             [dropX, dropY] = global.get_pointer().slice(0, 2);
         actor = global.get_stage().get_actor_at_pos(Clutter.PickMode.ALL, dropX, dropY);
         let i = 0;
         let checkactor;
+
         while (actor && (i < 10)) {
             if (actor._delegate)
                 checkactor = actor._delegate;
             else
                 checkactor = actor;
-            if (checkactor.app) {
-                if (checkactor.app.appInfo) {
-                    if (checkactor.app.appInfo.get_filename()) {
-                        desktopfile = actor.app.appInfo.get_filename();
-                        break;
-                    }
-                }
+
+            if (checkactor?.app?.appInfo?.get_filename()) {
+                droptarget = checkactor.app.appInfo.get_filename();
+                break;
             }
+
+            if (checkactor?.location?.get_uri()) {
+                droptarget = checkactor.location.get_uri();
+                break;
+            }
+
             i += 1;
             actor = actor.get_parent();
         }
-        if (desktopfile)
-            return desktopfile;
+
+        if (droptarget)
+            return droptarget;
         else
             return 'null';
     }

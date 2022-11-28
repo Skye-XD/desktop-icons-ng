@@ -739,7 +739,7 @@ var DesktopManager = class {
         if (shellDropCoordinates) {
             let i = 0;
             while (i < 10) {
-                desktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(shellDropCoordinates);
+                desktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(shellDropCoordinates).catch(e => logError(e));
                 if (desktopFileAppPath) {
                     let completed = this._completeGnomeShellDrop(desktopFileAppPath);
                     return completed;
@@ -752,21 +752,32 @@ var DesktopManager = class {
         return false;
     }
 
-    _completeGnomeShellDrop(desktopFileAppPath) {
-        try {
-            let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
-            if (!desktopFile) {
-                log('Couldn’t parse desktopFile as a desktop file');
+    async _completeGnomeShellDrop(desktopFileAppPath) {
+        if (desktopFileAppPath.endsWith('.desktop')) {
+            try {
+                let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
+                if (!desktopFile) {
+                    log('Couldn’t parse desktopFile as a desktop file');
+                    return false;
+                }
+                const context = Gdk.Display.get_default().get_app_launch_context();
+                context.set_timestamp(Gdk.CURRENT_TIME);
+                desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
+                return true;
+            } catch (e) {
+                logError(e, 'Error reading Desktop file, cannot Launch application');
                 return false;
             }
-            const context = Gdk.Display.get_default().get_app_launch_context();
-            context.set_timestamp(Gdk.CURRENT_TIME);
-            desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
-            return true;
-        } catch (e) {
-            logError(e, 'Error reading Desktop file, cannot Launch application');
-            return false;
         }
+        if (desktopFileAppPath == 'trash:///') {
+            this.doTrash();
+            return true;
+        }
+        if (desktopFileAppPath.startsWith('file:///')) {
+            await this.copyOrMoveUris(this.getCurrentSelection(true), desktopFileAppPath, {}, {}).catch(e => logError(e));
+            return true;
+        }
+        return false;
     }
 
     _localDrag() {
