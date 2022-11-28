@@ -267,8 +267,7 @@ This will create the file `gtk4-ding@smedius.gitlab.com.zip` with the extension,
 
 ## Contributing
 
-Fixes are welcome, specially to this newer and less tested Gtk4 version. \
-Please file fixes and new ideas with an MR at GitLab.
+Fixes are welcome, specially to this newer and less tested Gtk4 version. Please file fixes and new ideas with an MR at GitLab.
 
 There are ESLint rules in the repository, if able, please run ESLint on all contributions so that they follow GJS/Gnome guidelines. The ESLint.json is in the repository. The eslint-gjs.yml and eslint-shell.yml files are in the lint folder of the repository.
 
