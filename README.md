@@ -270,13 +270,9 @@ This will create the file `gtk4-ding@smedius.gitlab.com.zip` with the extension,
 Fixes are welcome, specially to this newer and less tested Gtk4 version. \
 Please file fixes and new ideas with an MR at GitLab.
 
-There are ESLint rules in the repository, \
-if able, please run ESLint on all contributions so that they follow GJS/Gnome guidelines. \
-The ESLint.json is in the repository. \
-The eslint-gjs.yml and eslint-shell.yml files are in the lint folder of the repository.
+There are ESLint rules in the repository, if able, please run ESLint on all contributions so that they follow GJS/Gnome guidelines. The ESLint.json is in the repository. The eslint-gjs.yml and eslint-shell.yml files are in the lint folder of the repository.
 
-Translations are welcomed, the project uses gettext and there are PO/POT files in the repository. \
-You can help translate Gtk4 Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
+Translations are welcomed, the project uses gettext and there are PO/POT files in the repository. You can help translate Gtk4 Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
 
 <a href="https://hosted.weblate.org/engage/gtk4-desktop-icons-ng/">
 <img src="https://hosted.weblate.org/widgets/gtk4-desktop-icons-ng/-/gtk4-ding-pot/horizontal-auto.svg" alt="Translation status" />
