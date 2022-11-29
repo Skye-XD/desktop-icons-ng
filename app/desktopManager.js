@@ -773,7 +773,7 @@ var DesktopManager = class {
             this.doTrash();
             return true;
         }
-        if (desktopFileAppPath.startsWith('file:///')) {
+        if (desktopFileAppPath.startsWith('file:///') || desktopFileAppPath.startsWith('davs://')) {
             await this.copyOrMoveUris(this.getCurrentSelection(true), desktopFileAppPath, {}, {}).catch(e => logError(e));
             return true;
         }
