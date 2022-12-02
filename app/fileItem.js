@@ -200,6 +200,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._writableByOthers = (this._unixmode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
         this._trusted = fileInfo.get_attribute_as_string('metadata::trusted') === 'true';
         this._attributeContentType = fileInfo.get_content_type();
+        if (this._attributeContentType === 'image/x-xcf')
+            this._updateFindThumbnail();
         this._isDesktopFile = this._attributeContentType === 'application/x-desktop';
 
         if (this._isDesktopFile && this._writableByOthers)
@@ -476,6 +478,21 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     /** *********************
      * Icon Rendering *
      ***********************/
+
+    _updateFindThumbnail() {
+        let md5FileUriHash = this.DesktopIconsUtil.getMD5Hash(this.uri);
+        if (!md5FileUriHash)
+            return;
+        let thumbnailMD5Name = `${md5FileUriHash}.png`;
+        const subFolders = ['normal', 'large'];
+        for (const subfolder of subFolders) {
+            let thumbnailFile = GLib.build_filenamev([GLib.get_home_dir(), this.Enums.THUMBNAILS_DIR, subfolder, thumbnailMD5Name]);
+            if (Gio.File.new_for_path(thumbnailFile).query_exists(null)) {
+                this.thumbnailFile = thumbnailFile;
+                break;
+            }
+        }
+    }
 
     async _refreshTrashIcon() {
         if (this._queryTrashInfoCancellable) {
