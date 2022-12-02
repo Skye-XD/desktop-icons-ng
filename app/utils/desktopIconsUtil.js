@@ -89,6 +89,22 @@ var DesktopIconsUtil = class {
         return Math.max(Math.min(value, max), min);
     }
 
+    /**
+     * Returns the MD5 hash of a string
+     *
+     * @param {string} string the String to encode
+     */
+    getMD5Hash(string) {
+        let hashString = null;
+        const md5Hasher = GLib.Checksum.new(GLib.ChecksumType.MD5);
+        if (md5Hasher) {
+            let textCoder = new TextEncoder();
+            md5Hasher.update(textCoder.encode(string));
+            hashString = md5Hasher.get_string();
+            md5Hasher.free();
+        }
+        return hashString;
+    }
 
     /**
      *
