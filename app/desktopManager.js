@@ -113,14 +113,14 @@ var DesktopManager = class {
             if (key === 'dark-text-in-labels')  {
                 this.darkText = this.Prefs.desktopSettings.get_boolean('dark-text-in-labels');
                 this._updateDesktop().catch(e => {
-                    print(`Exception while updating Desktop after Dark Text changed: ${e.message}\n${e.stack}`);
+                    print(`Exception while updating desktop after \"Dark Text\" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
             if (key === 'show-link-emblem') {
                 this.showLinkEmblem = this.Prefs.desktopSettings.get_boolean('show-link-emblem');
                 this._updateDesktop().catch(e => {
-                    print(`Exception while updating Desktop after Show Emblems changed: ${e.message}\n${e.stack}`);
+                    print(`Exception while updating desktop after \"Show Emblems\" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
@@ -169,14 +169,14 @@ var DesktopManager = class {
             }
             this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
             this._updateDesktop().catch(e => {
-                print(`Exception while updating Desktop after Settings Changed: ${e.message}\n${e.stack}`);
+                print(`Exception while updating desktop after the settings changed: ${e.message}\n${e.stack}`);
             });
         });
         this.Prefs.gtkSettings.connect('changed', (obj, key) => {
             if (key === 'show-hidden') {
                 this._showHidden = this.Prefs.gtkSettings.get_boolean('show-hidden');
                 this._updateDesktop().catch(e => {
-                    print(`Exception while updating Desktop after Hidden Settings Changed: ${e.message}\n${e.stack}`);
+                    print(`Exception while updating desktop after the hidden settings changed: ${e.message}\n${e.stack}`);
                 });
                 this.templatesMonitor.updateEntries();
             }
@@ -184,25 +184,25 @@ var DesktopManager = class {
         this.Prefs.nautilusSettings.connect('changed', (obj, key) => {
             if (key === 'show-image-thumbnails') {
                 this._updateDesktop().catch(e => {
-                    print(`Exception while updating Desktop after Nautilus Settings Changed: ${e.message}\n${e.stack}`);
+                    print(`Exception while updating Desktop after the GNOME Files settings changed: ${e.message}\n${e.stack}`);
                 });
             }
         });
         this._gtkIconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         this._gtkIconTheme.connect('changed', () => {
             this._updateDesktop().catch(e => {
-                print(`Exception while updating Desktop after Gtk Icon Theme Change: ${e.message}\n${e.stack}`);
+                print(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
             });
         });
         this._volumeMonitor = Gio.VolumeMonitor.get();
         this._volumeMonitor.connect('mount-added', () => {
             this._updateDesktop().catch(e => {
-                print(`Exception while updating Desktop after mount added: ${e.message}\n${e.stack}`);
+                print(`Exception while updating Desktop after a mount was added: ${e.message}\n${e.stack}`);
             });
         });
         this._volumeMonitor.connect('mount-removed', () => GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
             this._updateDesktop().catch(e => {
-                print(`Exception while updating Desktop after mount removed: ${e.message}\n${e.stack}`);
+                print(`Exception while updating desktop after a mount was removed: ${e.message}\n${e.stack}`);
             });
             return GLib.SOURCE_REMOVE;
         }));
@@ -249,8 +249,8 @@ var DesktopManager = class {
             this.DesktopIconsUtil.trySpawn(null, ['nautilus', '--version']);
         } catch (e) {
             this._errorWindow = new ShowErrorPopup.ShowErrorPopup(
-                _('Nautilus File Manager not found'),
-                _('The Nautilus File Manager is mandatory to work with Desktop Icons NG.'),
+                _('GNOME Files not found'),
+                _('The GNOME Files application is required by Desktop Icons NG.'),
                 true,
                 this.textEntryAccelsTurnOff.bind(this),
                 this.textEntryAccelsTurnOn.bind(this),
@@ -278,7 +278,7 @@ var DesktopManager = class {
         } else {
             this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath, this.FileUtils);
             this._updateDesktop().catch(e => {
-                print(`Exception while Initiating Desktop: ${e.message}\n${e.stack}`);
+                print(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
             });
         }
     }
@@ -667,7 +667,7 @@ var DesktopManager = class {
         this._addFilesToDesktop(fileItems, this.Enums.StoredCoordinates.OVERWRITE);
         if (keepArranged) {
             this._updateDesktop().catch(e => {
-                print(`Exception while doing move with drag and drop and keeping arranged: ${e.message}\n${e.stack}`);
+                print(`Exception while doing move with drag and drop and \"Keep arranged…\": ${e.message}\n${e.stack}`);
             });
         }
     }
@@ -757,7 +757,7 @@ var DesktopManager = class {
             try {
                 let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
                 if (!desktopFile) {
-                    log('Couldn’t parse desktopFile as a desktop file');
+                    log('Could not parse desktopFile as a desktop file');
                     return false;
                 }
                 const context = Gdk.Display.get_default().get_app_launch_context();
@@ -765,7 +765,7 @@ var DesktopManager = class {
                 desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
                 return true;
             } catch (e) {
-                logError(e, 'Error reading Desktop file, cannot Launch application');
+                logError(e, 'Error reading desktop file. Cannot launch application.');
                 return false;
             }
         }
@@ -773,7 +773,7 @@ var DesktopManager = class {
             this.doTrash();
             return true;
         }
-        if (desktopFileAppPath.startsWith('file:///')) {
+        if (desktopFileAppPath.startsWith('file:///') || desktopFileAppPath.startsWith('davs://')) {
             await this.copyOrMoveUris(this.getCurrentSelection(true), desktopFileAppPath, {}, {}).catch(e => logError(e));
             return true;
         }
@@ -873,7 +873,7 @@ var DesktopManager = class {
                     await this.copyOrMoveUris(fileList,
                         destinationuri, event, { forceCopy });
                 } catch {
-                    logError('Error Moing Files');
+                    logError('Error moving files');
                 }
                 break;
             case Action.COPY:
@@ -885,7 +885,7 @@ var DesktopManager = class {
                     await this.copyOrMoveUris(fileList,
                         destinationuri, event, { forceCopy });
                 } catch {
-                    logError('Error Copying Files');
+                    logError('Error copying files');
                 }
                 break;
             case Action.LINK:
@@ -895,7 +895,7 @@ var DesktopManager = class {
                     else
                         await this.makeFileSystemLinks(fileList, destinationuri);
                 } catch {
-                    logError('Error making Links');
+                    logError('Error making links');
                 }
                 break;
             }
@@ -923,9 +923,9 @@ var DesktopManager = class {
                         i += 1;
                         newSymlinkName = `${baseNameParts.basename} ${i}${baseNameParts.extension}`;
                     } else {
-                        logError(e, 'Error making File System Links');
+                        logError(e, 'Error making file-system links');
                         const header = _('Making SymLink Failed');
-                        const text = _('Error while trying to create a symbolic Link');
+                        const text = _('Could not create symbolic link');
                         this.dbusManager.doNotify(header, text);
                         break;
                     }
@@ -951,13 +951,13 @@ var DesktopManager = class {
                             GLib.PRIORITY_LOW,
                             null);
                     } catch (e) {
-                        logError(e, 'Error setting Link FileInfo');
+                        logError(e, 'Error setting link FileInfo');
                     }
                 }
             } catch {
-                logError('Error making Desktop Links');
+                logError('Error making desktop links');
                 const header = _('Making SymLink Failed');
-                const text = _('Error while trying to create a symbolic Link');
+                const text = _('Could not create symbolic link');
                 this.dbusManager.doNotify(header, text);
             }
         }));
@@ -1169,7 +1169,7 @@ var DesktopManager = class {
                             }
                         });
                     } catch (e) {
-                        print(`Exception while reading clipboard mimetype text/plain: ${e.message}\n${e.stack}`);
+                        print(`Exception while reading clipboard media-type \"text/plain\": ${e.message}\n${e.stack}`);
                         this._setClipboardContent(text);
                         resolve(false);
                     }
@@ -1247,7 +1247,7 @@ var DesktopManager = class {
             if (found) {
                 if ((this.getNumberOfSelectedItems() >= 1) && !this.keypressTimeoutID) {
                     let windowError = new ShowErrorPopup.ShowErrorPopup(
-                        _('Clear Current Selection before New Search'),
+                        _('Clear current selection before new search'),
                         null,
                         true,
                         this.textEntryAccelsTurnOff.bind(this),
@@ -1376,7 +1376,7 @@ var DesktopManager = class {
 
                 this._doPaste();
             } catch (e) {
-                logError(e, 'Paste action Failed');
+                logError(e, 'Paste action failed');
             }
         });
         this.mainApp.add_action(this.doPasteSimpleAction);
@@ -1454,7 +1454,7 @@ var DesktopManager = class {
         let updateDesktop = Gio.SimpleAction.new('updateDesktop', null);
         updateDesktop.connect('activate', () => {
             this._updateDesktop().catch(e => {
-                print(`Exception while updating Desktop after pressing F5: ${e.message}\n${e.stack}`);
+                print(`Exception while updating desktop after pressing \"F5\": ${e.message}\n${e.stack}`);
             });
         });
         this.mainApp.add_action(updateDesktop);
@@ -1548,11 +1548,11 @@ var DesktopManager = class {
 
     _createDesktopBackgroundGioMenu() {
         this.sortingRadioMenu = Gio.Menu.new();
-        this.sortingRadioMenu.append(_('Sort by Name'), 'app.arrangeorder::NAME');
-        this.sortingRadioMenu.append(_('Sort by Name Descending'), 'app.arrangeorder::DESCENDINGNAME');
-        this.sortingRadioMenu.append(_('Sort by Modified Time'), 'app.arrangeorder::MODIFIEDTIME');
-        this.sortingRadioMenu.append(_('Sort by Type'), 'app.arrangeorder::KIND');
-        this.sortingRadioMenu.append(_('Sort by Size'), 'app.arrangeorder::SIZE');
+        this.sortingRadioMenu.append(_('Name'), 'app.arrangeorder::NAME');
+        this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeorder::DESCENDINGNAME');
+        this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeorder::MODIFIEDTIME');
+        this.sortingRadioMenu.append(_('Type'), 'app.arrangeorder::KIND');
+        this.sortingRadioMenu.append(_('Size'), 'app.arrangeorder::SIZE');
 
         this.sortingSubMenu = Gio.Menu.new();
         this.keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
@@ -1594,7 +1594,7 @@ var DesktopManager = class {
         this.desktopBackgroundGioMenu.append_section(null, this.sortingMenu);
 
         this.desktopTerminalMenu = Gio.Menu.new();
-        this.desktopTerminalMenu.append(_('Show Desktop In Files'), 'app.showDesktopInFiles');
+        this.desktopTerminalMenu.append(_('Show Desktop In GNOME Files'), 'app.showDesktopInFiles');
         this.desktopTerminalMenu.append(_('Open In Terminal'), 'app.openInTerminal');
 
         this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
@@ -1625,7 +1625,7 @@ var DesktopManager = class {
             await Gio.AppInfo.launch_default_for_uri_async(
                 this._desktopDir.get_uri(), context, null);
         } catch (e) {
-            logError(e, `Error opening Desktop in Files: ${e.message}`);
+            logError(e, `Error opening desktop in GNOME Files: ${e.message}`);
         }
     }
 
@@ -1774,7 +1774,7 @@ var DesktopManager = class {
         let desktopDir = this._desktopDir.get_uri();
 
         if (this._isCut) {
-            // This pops up Nautilus error dialog, which is what we want.
+            // This pops up GNOME Files error dialog, which is what we want.
             this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
             this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, { doCopy: true });
@@ -2322,7 +2322,7 @@ var DesktopManager = class {
         if (writableByOthers !== this.writableByOthers) {
             this.writableByOthers = writableByOthers;
             if (this.writableByOthers)
-                print('desktop-icons: Desktop is writable by others - will not allow launching any desktop files');
+                print('desktop-icons: The desktop is writable by others. Not allowing launching any desktop files.');
 
             return true;
         } else {
@@ -2360,7 +2360,7 @@ var DesktopManager = class {
                     try {
                         await this._updateDesktop();
                     } catch (e) {
-                        logError(e, `Exception while updating Desktop from Directory Monitor Attribute Change: ${e.message}`);
+                        logError(e, `Exception while updating desktop from Directory Monitor attribute change: ${e.message}`);
                     }
                 }
                 return;
@@ -2371,7 +2371,7 @@ var DesktopManager = class {
         try {
             await this._updateDesktop();
         } catch (e) {
-            logError(e, `Exception while updating Desktop from Directory Monitor: ${e.message}`);
+            logError(e, `Exception while updating desktop from Directory Monitor: ${e.message}`);
         }
     }
 
@@ -2602,7 +2602,7 @@ var DesktopManager = class {
             } catch (e) {
                 logError(e, `Failed to create folder ${e.message}`);
                 const header = _('Folder Creation Failed');
-                const text = _('Error while trying to create a Folder');
+                const text = _('Could not create folder');
                 this.dbusManager.doNotify(header, text);
                 if (position || suggestedName)
                     return null;
@@ -2640,12 +2640,12 @@ var DesktopManager = class {
                 await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
                     GLib.PRIORITY_DEFAULT, null);
             } catch (e) {
-                logError(e, `Filed to set template metadata ${e.message}`);
+                logError(e, `Failed to set template metadata ${e.message}`);
             }
         } catch (e) {
             logError(e, `Failed to create template ${e.message}`);
             const header = _('Template Creation Error');
-            const text = _('Error while trying to create a Document');
+            const text = _('Could not create document');
             this.dbusManager.doNotify(header, text);
         }
     }
@@ -2839,7 +2839,7 @@ var DesktopManager = class {
             if (item.stackUnique)
                 stackTopMarkerFolderList.push(item);
 
-            item._updateIcon().catch(e => logError(e, 'error loading stackMarker Icon'));
+            item._updateIcon().catch(e => logError(e, 'Error loading stackMarker icon'));
         }
         otherFiles = [];
         this._sortByName(specialFiles);
