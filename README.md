@@ -42,7 +42,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Re-organization, New Folder structure to avoid confusion and facilitate review.
 
-- [x] Update to work with Gnome 43 and Nautilus 43rc. Drag and drop with Gnome 43 more reliable using Gdk.FileList
+- [x] Update to work with Gnome 43 and File 43, Files 44alpha.
 
 - [x] More Reliable parsing of string URI lists with old Nautilus with GLib.Uri.
 
@@ -70,7 +70,9 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Drag and drop files from desktop to the Trash Icon on Dash to Dock directly.
 
-- [x] Drag and drop files to Mounted Volumes on Dash to Dock to copy files.
+- [x] Drag and drop files to Mounted Volumes and davs:// mounted Volumes on Dash to Dock to copy files.
+
+- [x] Display thumbnail for GIMP files if one exists, usually if the File was opened or created in local GIMP install.
 
 **FIXES**
 
@@ -126,7 +128,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Fix window displacement when dragging down on top bar.
 
-- [x] Fix icons flickering when changing work spaces with swipe gesture. (Sundeep Mediratta)
+- [x] Fix icons flickering when changing work spaces with swipe gesture.
 
 **KNOWN ISSUES**
 
@@ -135,6 +137,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 - [x] ~~Gdk.Display.get_default().get_app_launch_context() when used in launch() to launch a desktop file crashes GJS. Likely problem in GJS. Current workaround is not to use the context, set to null, till fixed upstream.~~ This is now fixed in latest GJS and enabled in the latest release.
 
 - [ ] Dragged Icon sets the wrong offset for the cursor and defaults to 0,0 with Gtk.DragSource.set_icon in Wayland. This works perfectly in X11 and the correct offset is set. Again problem in Gtk4 on Wayland, But reported and issue in Gtk4 [here](https://gitlab.gnome.org/GNOME/gtk/-/issues/2341), however drag and drop otherwise works perfectly till fixed upstream.
+
+- [ ] Gtk.DropTargetAsync - doing a read_async() followed by read_finish() on the drop dumps core. So cannot elect to read a particular mime type. Currently have to use read_value_async() followed by read_value_finish(). This restricts us to reading default String.$gtype on drops from Nautilus/Files. Although this works, it is not ideal. The issue is reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/522) in GJS.
 
 - [ ] Application keyboard shortcut accelerators stop working after a submenu of a menu is closed, work perfectly if only the menu is closed. Bug reported [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse, no clear solution. Current workaround is to destroy the menu once closed. Keyboard accelerators then work again normally.
 
@@ -146,6 +150,18 @@ If this extension does not work for you, just deactivate it in extensions manage
 
 Please report errors, and if you can fix it, please do so. See Contributing below.
 
+**THEME ISSUES**
+
+Users have reported multiple issues with themes. This sheds light and clarifies the issues.
+
+The extension has two parts, the extension itself that runs in the shell, and a pure Gtk4 program that runs outside the gnome shell and renders all the icons on the desktop. For example, when you see the preferences window, it is actually a libadwaita window spawned by the Gnome shell. The right click menus are true Gtk4 application menus and do not belong to the shell. Themes just applied to the shell will not apply to the application. In gnome tweaks, apply a them with the corresponding name to "Applications" or "Legacy Applications" as well. DING application window will respect that application theme. Most good, well designed, comprehensive themes have a dark application theme corresponding to the shell dark theme with the same name. This is true of most major distributions. The application and extension is regularly checked on default Ubuntu, Manjaro and by extension ArchLinux, and intermittently on the latest Fedora, and most themes works well.
+
+If downloaded themes are applied, then they have to be designed for gtk4 as well, meaning they have to have correct .css files in a gtk4 folder. Older, gtk3 and gtk2 themes will not work on the app.
+
+If a downloaded theme messes up the DING window, but works perfectly with the default distribution themes with no user themes applied, then there is a problem with the downloaded user themes. Downloaded user themes .css files take precedence over default system and application .css files and can create problems. Fixing application theme at this point will not help. In that case you can fix the .css file in the gtk4 folder of the theme or ask the Theme author for a fix.
+
+If despite all the above you feel fixing the .css in the DING application or extension would help, please feel free to contribute a fix, see Contributing below, or create an issue with the suggestion for the fix.
+
 ## Requirements
 
 * GNOME Shell >= 40
@@ -155,15 +171,17 @@ Please report errors, and if you can fix it, please do so. See Contributing belo
 
 ## Installation
 
-The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
-
-<p align="left">
+<p style="text-align: left;">
     <a href="https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/" style="margin-left: 20px">
         <img src="/media/svg/Gnome_logo.svg" width="120px"/>
     </a>
 </p>
-
+<p style="text-align: left;">
+The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
+</p>
+<p style="text-align: left;">
 For Archlinux, Manjaro, it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng).
+</p>
 
 ## Manual installation
 
@@ -272,10 +290,15 @@ Fixes are welcome, specially to this newer and less tested Gtk4 version. Please 
 There are ESLint rules in the repository, if able, please run ESLint on all contributions so that they follow GJS/Gnome guidelines. The ESLint.json is in the repository. The eslint-gjs.yml and eslint-shell.yml files are in the lint folder of the repository.
 
 Translations are welcomed, the project uses gettext and there are PO/POT files in the repository. You can help translate Gtk4 Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
-
+<p style="text-align: center;">
 <a href="https://hosted.weblate.org/engage/gtk4-desktop-icons-ng/">
 <img src="https://hosted.weblate.org/widgets/gtk4-desktop-icons-ng/-/gtk4-ding-pot/horizontal-auto.svg" alt="Translation status" />
+</a></p>
+<p style="text-align: center;">
+<a href="https://hosted.weblate.org/engage/gtk4-desktop-icons-ng/">
+<img src="https://hosted.weblate.org/widgets/gtk4-desktop-icons-ng/-/gtk4-ding-pot/287x66-white.png" alt="Translation status" />
 </a>
+</p>
 
 ## Source code and contacting the author
 
