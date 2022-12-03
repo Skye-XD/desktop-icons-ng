@@ -722,7 +722,7 @@ var DesktopManager = class {
         if (acceptFormat === this.Enums.DndTargetInfo.GNOME_ICON_LIST)
             fileList = GLib.Uri.list_extract_uris(dropData);
         else
-            fileList = dropData.get_files().map(f => f.get_uri());
+            fileList = dropData.slice(1).split(' /').map(f => `file:///${f}`);
 
         if (fileList && fileList.length)
             return fileList;

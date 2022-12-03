@@ -549,6 +549,7 @@ var DesktopGrid = class {
                     readFormat = String.$gtype;
                 } else {
                     acceptFormat = this.Enums.DndTargetInfo.URI_LIST;
+                    readFormat = String.$gtype;
                 }
             }
 
