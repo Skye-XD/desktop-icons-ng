@@ -1,5 +1,14 @@
 # History of versions #
 
+* Gtk4 version 25
+  * Fix regression, Drag and Drop with Files version 43 and 44 was not working reliably. (Sundeep Mediratta)
+  * Show GIMP thumbnails for GIMP files if the thumbnails exist. (Sundeep Mediratta)
+  * Allow copy to davs:// locations mounted on the Dock. (Sundeep Mediratta)
+  * Multiple translation Fixes and Weblate integration. (Allan Nordhøy)
+  * Translations updates (Weblate Contributers)
+  * Readme update for Theme issues
+  * Version Bumpt to 25 - metadata.json, update history and Readme
+
 * Gtk4 version 24
   * Add support for dragging files directily from desktop to Trash or monted volumes on Dash to Dock. (Sundeep Mediratta)
   * Make drop on Dash more sensitive for X11. (Sundeep Mediratta)
