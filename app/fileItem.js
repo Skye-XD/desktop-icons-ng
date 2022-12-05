@@ -200,8 +200,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._writableByOthers = (this._unixmode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
         this._trusted = fileInfo.get_attribute_as_string('metadata::trusted') === 'true';
         this._attributeContentType = fileInfo.get_content_type();
-        if (this._attributeContentType === 'image/x-xcf')
-            this._updateFindThumbnail();
         this._isDesktopFile = this._attributeContentType === 'application/x-desktop';
 
         if (this._isDesktopFile && this._writableByOthers)
@@ -478,6 +476,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     /** *********************
      * Icon Rendering *
      ***********************/
+
+    /*
+     * ExtraCode to find thumbnail in the thumbnail Folder
+     * Was Used to find GIMP thumbnails, however ThumbnailFactory.normal can now find it.
+    */
 
     _updateFindThumbnail() {
         let md5FileUriHash = this.DesktopIconsUtil.getMD5Hash(this.uri);

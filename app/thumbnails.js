@@ -61,6 +61,7 @@ var ThumbnailLoader = class {
         this._timeoutValue = 5000;
         this._codePath = codePath;
         this._thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
+        this._thumbnailFactoryNormal = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.NORMAL);
         if (useAsyncAPI)
             print('Detected async api for thumbnails');
         else
@@ -173,9 +174,24 @@ var ThumbnailLoader = class {
             file.modifiedTime);
     }
 
+    _lookupThumbnail(file) {
+        let thumbnail = this._thumbnailFactory.lookup(file.uri, file.modifiedTime);
+        if (thumbnail)
+            return thumbnail;
+        thumbnail = this._thumbnailFactoryNormal.lookup(file.uri, file.modifiedTime);
+        return thumbnail;
+    }
+
+    hasThumbnail(file) {
+        if (this._lookupThumbnail(file))
+            return true;
+        else
+            return false;
+    }
+
     async getThumbnail(file, cancellable) {
         try {
-            let thumbnail = this._thumbnailFactory.lookup(file.uri, file.modifiedTime);
+            let thumbnail = this._lookupThumbnail(file);
             if (thumbnail === null)
                 thumbnail = await this._generateThumbnail(file, cancellable);
 
