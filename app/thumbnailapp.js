@@ -80,12 +80,10 @@ var ThumbnailApp = class extends Thumbnail.ThumbnailLoader {
                 'attributeContentType': fileAttributeContentType,
                 'modifiedTime': fileModifiedTime,
             };
-            if (this.canThumbnail(file)) {
-                const cancellable = new Gio.Cancellable();
-                const thumbnail = await this.getThumbnail(file, cancellable);
-                if (thumbnail !== null)
-                    this._updateDesktopIcon(file, thumbnail);
-            }
+            const cancellable = new Gio.Cancellable();
+            const thumbnail = await this.getThumbnail(file, cancellable);
+            if (thumbnail !== null)
+                this._updateDesktopIcon(file, thumbnail);
         });
         let actionGroup = new Gio.SimpleActionGroup();
         let busname = this.mainApp.get_dbus_object_path();

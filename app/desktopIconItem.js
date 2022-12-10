@@ -487,9 +487,7 @@ var desktopIconItem = class desktopIconItem {
 
         let iconSet = false;
 
-        if ((this.Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never') &&
-            (this._desktopManager.thumbnailLoader.canThumbnail(this) ||
-            this._desktopManager.thumbnailLoader.hasThumbnail(this))) {
+        if (this.Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never') {
             try {
                 const thumbnail = await this._desktopManager.thumbnailLoader.getThumbnail(
                     this, cancellable);

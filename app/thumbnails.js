@@ -61,11 +61,16 @@ var ThumbnailLoader = class {
         this._timeoutValue = 5000;
         this._codePath = codePath;
         this._thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
-        this._thumbnailFactoryNormal = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.NORMAL);
         if (useAsyncAPI)
             print('Detected async api for thumbnails');
         else
             print('Failed to detected async api for thumbnails');
+        this.standardThumbnailsFolder = GLib.build_filenamev([GLib.get_home_dir(), '.cache/thumbnails']);
+        this.standardThumbnailSubFolders = ['large', 'normal'];
+        this.gimpSnapThumbnailsFolder = GLib.build_filenamev([GLib.get_home_dir(), 'snap/common/gimp', '.cache/thumbnails']);
+        this.gimpFlatPackThumbnailsFolder = GLib.build_filenamev([GLib.get_home_dir(), '.var/app/org.gimp.GIMP', 'cache/thumbnails']);
+        this.md5Hasher = GLib.Checksum.new(GLib.ChecksumType.MD5);
+        this.textCoder = new TextEncoder();
     }
 
     async _generateThumbnail(file, cancellable) {
@@ -168,33 +173,90 @@ var ThumbnailLoader = class {
         return false;
     }
 
+    /*
+     * ExtraCode to find thumbnail in the thumbnail Folder
+     * Was Used to find GIMP thumbnails, however ThumbnailFactoryNormal can now find it.
+     * However to do that you have to start two ThumbnailFactories, this is simpler and lighter
+     * Can be used to search arbitrary folders for thumbnails in Futre if necessary, not just Subfolders
+    */
+
+    _findThumbnail(file, basePath, subFolders = null, cancellable) {
+        if (!basePath)
+            return null;
+
+        let md5FileUriHash = this._getMD5Hash(file.uri);
+        if (!md5FileUriHash)
+            return null;
+
+        let thumbnailMD5Name = `${md5FileUriHash}.png`;
+        let thumbnailFilePath = null;
+        let thumbnailFileSearchPath = null;
+
+        if (subFolders) {
+            for (const subfolder of subFolders) {
+                thumbnailFileSearchPath = GLib.build_filenamev([basePath, subfolder, thumbnailMD5Name]);
+                if (Gio.File.new_for_path(thumbnailFileSearchPath).query_exists(cancellable)) {
+                    thumbnailFilePath = thumbnailFileSearchPath;
+                    break;
+                }
+            }
+            return thumbnailFilePath;
+        }
+
+        thumbnailFileSearchPath = GLib.build_filenamev([basePath, thumbnailMD5Name]);
+        if (Gio.File.new_for_path(thumbnailFileSearchPath).query_exists(cancellable))
+            thumbnailFilePath = thumbnailFileSearchPath;
+        return thumbnailFilePath;
+    }
+
+    _getMD5Hash(string) {
+        let hashString = null;
+        this.md5Hasher.update(this.textCoder.encode(string));
+        hashString = this.md5Hasher.get_string();
+        this.md5Hasher.reset();
+        return hashString;
+    }
+
     canThumbnail(file) {
         return this._thumbnailFactory.can_thumbnail(file.uri,
             file.attributeContentType,
             file.modifiedTime);
     }
 
-    _lookupThumbnail(file) {
-        let thumbnail = this._thumbnailFactory.lookup(file.uri, file.modifiedTime);
-        if (thumbnail)
+    _lookupThumbnail(file, cancellable) {
+        let thumbnail = null;
+        // do searches for only special cases to conserve resources //
+        if (file.attributeContentType === 'image/x-xcf') {
+            // lets do a local search in thumbnails dir, look only in normal subfolder as we already searched large
+            thumbnail = this._findThumbnail(file, this.standardThumbnailsFolder, ['normal'], cancellable);
+            if (thumbnail)
+                return thumbnail;
+
+            // we can now search far and wide in snaps and flatpacks if we want.
+            thumbnail = this._findThumbnail(file, this.gimpSnapThumbnailsFolder, this.standardThumbnailSubFolders, cancellable);
+            if (!thumbnail)
+                thumbnail = this._findThumbnail(file, this.gimpFlatPackThumbnailsFolder, this.standardThumbnailSubFolders, cancellable);
             return thumbnail;
-        thumbnail = this._thumbnailFactoryNormal.lookup(file.uri, file.modifiedTime);
+        }
         return thumbnail;
     }
 
-    hasThumbnail(file) {
-        if (this._lookupThumbnail(file))
-            return true;
+    hasThumbnail(file, cancellable) {
+        let thumbnail = this._thumbnailFactory.lookup(file.uri, file.modifiedTime);
+        if (thumbnail)
+            return thumbnail;
+        thumbnail = this._lookupThumbnail(file, cancellable);
+        if (thumbnail)
+            return thumbnail;
         else
-            return false;
+            return null;
     }
 
     async getThumbnail(file, cancellable) {
         try {
-            let thumbnail = this._lookupThumbnail(file);
-            if (thumbnail === null)
+            let thumbnail = this.hasThumbnail(file, cancellable);
+            if (!thumbnail && this.canThumbnail(file))
                 thumbnail = await this._generateThumbnail(file, cancellable);
-
             return thumbnail;
         } catch (error) {
             print(`Error when asking for a thumbnail for ${file.displayName}: ${error.message}\n${error.stack}`);
