@@ -721,8 +721,8 @@ var DesktopManager = class {
 
         if (acceptFormat === this.Enums.DndTargetInfo.GNOME_ICON_LIST)
             fileList = GLib.Uri.list_extract_uris(dropData);
-        else if(acceptFormat === this.Enums.DndTargetInfo.DING_ICON_LIST)
-            fileList = dropData.get_files();
+        else if (acceptFormat === this.Enums.DndTargetInfo.DING_ICON_LIST)
+            fileList = dropData.get_files().map(f => f.get_uri());
         else
             fileList = dropData.slice(1).split(' /').map(f => `file:///${f}`);
 
