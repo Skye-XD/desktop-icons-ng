@@ -74,6 +74,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Display thumbnail for GIMP files if one exists, usually if the File was opened or created in local GIMP install.
 
+- [x] Lookup GIMP files for snap and flatpack install as well. Also optimizes the thumbnail lookup code to make fewer lookups, and not execute unnecessarly code.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.

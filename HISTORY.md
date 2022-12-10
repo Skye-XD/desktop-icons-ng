@@ -1,5 +1,11 @@
 # History of versions #
 
+* Gtk4 version 26
+  * Fix regression of dropping local files on folder or icons not working. (Sundeep Mediratta)
+  * Look for GIMP files for snap and flatpack installs. (Sundeep Mediratta)
+  * Optimized thumbnail lookup code, more efficient faster with fewer looup and use of resources. (Sundeep Mediratta)
+  * Verssion Bump to 26 - metadata.json, update history and Readme.
+
 * Gtk4 version 25
   * Fix regression, Drag and Drop with Files version 43 and 44 was not working reliably. (Sundeep Mediratta)
   * Show GIMP thumbnails for GIMP files if the thumbnails exist. (Sundeep Mediratta)
@@ -7,7 +13,7 @@
   * Multiple translation Fixes and Weblate integration. (Allan Nordhøy)
   * Translations updates (Weblate Contributers)
   * Readme update for Theme issues
-  * Version Bumpt to 25 - metadata.json, update history and Readme
+  * Version Bump to 25 - metadata.json, update history and Readme
 
 * Gtk4 version 24
   * Add support for dragging files directily from desktop to Trash or monted volumes on Dash to Dock. (Sundeep Mediratta)
