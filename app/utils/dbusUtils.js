@@ -425,6 +425,7 @@ class DBusManager {
     }
 
     getIntrospectionData(serviceName, objectName, inSystemBus) {
+        let data = null;
         try {
             let wraper = new Gio.DBusProxy.makeProxyWrapper(DBusInterfaces.DBusInterfaces['org.freedesktop.DBus.Introspectable'])(
                 inSystemBus ? Gio.DBus.system : Gio.DBus.session,
@@ -432,7 +433,7 @@ class DBusManager {
                 objectName,
                 null
             );
-            var data = wraper.IntrospectSync()[0];
+            data = wraper.IntrospectSync()[0];
         } catch (e) {
             print(`Error getting introspection data over Dbus: ${e.message}\n${e.stack}`);
             return null;
