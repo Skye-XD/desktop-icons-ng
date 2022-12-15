@@ -115,20 +115,17 @@ function enable() {
     }
     // If the desktop is still starting up, we wait until it is ready
     if (Main.layoutManager._startingUp) {
-        data.startupPreparedId = Main.layoutManager.connect('startup-complete', () => {
-            innerEnable(true);
-        });
+        data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable());
     } else {
-        innerEnable(false);
+        data.startupPrepareId = null;
+        innerEnable();
     }
 }
 
 /**
  * The true code that configures everything and launches the desktop program
- *
- * @param {integer} removeId Layout manager 'startup-complete' connection ID
  */
-function innerEnable(removeId) {
+function innerEnable() {
     if (data.killingProcess) {
         data.startupProcessKillWaitId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
             if (data.killingProcess)
@@ -141,14 +138,14 @@ function innerEnable(removeId) {
         return;
     }
 
-    if (removeId) {
+    if (data.starupPrepareId) {
         Main.layoutManager.disconnect(data.startupPreparedId);
         data.startupPreparedId = null;
     }
 
     data.GnomeShellOverride.enable();
 
-    // under X11 we now need to cheat, so only do all this under wayland as well as X
+    // under X11 we now need to cheat, so now do all this under wayland as well as X
     data.x11Manager.enable();
 
     /*
@@ -246,8 +243,7 @@ function onActiveChanged(connection, sender, path, iface, signal, params) {
             'com.desktop.dingextension',
             Gio.BusNameOwnerFlags.NONE,
             onBusAcquired.bind(dingExtensionServiceImplementation),
-            (dbusConnection, name) => {
-                log(name);
+            (conn, name) => {
                 data.dbusConnectionName = name;
             },
             () => {
