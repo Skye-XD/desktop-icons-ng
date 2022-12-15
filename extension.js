@@ -115,7 +115,7 @@ function enable() {
     }
     // If the desktop is still starting up, we wait until it is ready
     if (Main.layoutManager._startingUp) {
-        data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable());
+        data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable.bind(this));
     } else {
         data.startupPrepareId = null;
         innerEnable();
@@ -171,19 +171,7 @@ function innerEnable() {
         updateDesktopGeometry();
     });
 
-    data.dbusConnectionId = Gio.bus_own_name(
-        Gio.BusType.SESSION,
-        'com.desktop.dingextension',
-        Gio.BusNameOwnerFlags.NONE,
-        onBusAcquired.bind(dingExtensionServiceImplementation),
-        (connection, name) => {
-            log(name);
-            data.dbusConnectionName = name;
-        },
-        () => {
-            data.dbusConnectionName = null;
-        }
-    );
+    data.dbusConnectionId = acquireDBusName();
 
     data.lockSignalhandlerId = Gio.DBus.session.signal_subscribe(
         'org.gnome.ScreenSaver',
@@ -192,7 +180,7 @@ function innerEnable() {
         '/org/gnome/ScreenSaver',
         null,
         Gio.DBusSignalFlags.NONE,
-        onActiveChanged
+        onActiveChanged.bind(this)
     );
 
     data.isEnabled = true;
@@ -213,21 +201,43 @@ function innerEnable() {
         'updategeometry',
         '/com/desktop/ding/geometrycontrol',
         null,
-        Gio.DBusSignalFlags.NONE, () => {
-            updateDesktopGeometry();
-        }
+        Gio.DBusSignalFlags.NONE,
+        updateDesktopGeometry.bind(this)
     );
 }
+
+/**
+ * Acquire the DBus Name on the Session Bus
+ *
+ */
+function acquireDBusName() {
+    let ID = Gio.bus_own_name(
+        Gio.BusType.SESSION,
+        'com.desktop.dingextension',
+        Gio.BusNameOwnerFlags.NONE,
+        onBusAcquired.bind(dingExtensionServiceImplementation),
+        (connection, name) => {
+            log(`${name} DBus Name Acquired`);
+            data.dbusConnectionName = name;
+        },
+        (connection, name) => {
+            log(`${name} DBus and Name Lost`);
+            data.dbusConnectionName = null;
+        }
+    );
+    return ID;
+}
+
 
 /**
  * Start stop the  Dbus Service with screen locks and unlocks
  *
  * @param {GObject} connection the Dbus Connection
- * @param sender
- * @param path
- * @param iface
- * @param signal
- * @param params
+ * @param {string} sender the numeric Dbus Sender address
+ * @param {string} path the Dbus Sender path
+ * @param {string} iface the Sender Dbus interface
+ * @param {string} signal the signal name
+ * @param {GLib.variant} params the GLib.variant with parameters
  */
 function onActiveChanged(connection, sender, path, iface, signal, params) {
     const value = params.get_child_value(0);
@@ -236,20 +246,10 @@ function onActiveChanged(connection, sender, path, iface, signal, params) {
         if (data.dbusConnectionId) {
             Gio.bus_unown_name(data.dbusConnectionId);
             data.dbusConnectionId = 0;
+            log(`${data.dbusConnectionName} DBus Name Relenquished`);
         }
     } else if (!data.dbusConnectionId || !data.dbusConnectionName) {
-        data.dbusConnectionId = Gio.bus_own_name(
-            Gio.BusType.SESSION,
-            'com.desktop.dingextension',
-            Gio.BusNameOwnerFlags.NONE,
-            onBusAcquired.bind(dingExtensionServiceImplementation),
-            (conn, name) => {
-                data.dbusConnectionName = name;
-            },
-            () => {
-                data.dbusConnectionName = null;
-            }
-        );
+        data.dbusConnectionId = acquireDBusName();
     }
 }
 
@@ -257,7 +257,7 @@ function onActiveChanged(connection, sender, path, iface, signal, params) {
  * Start the Dbus Service
  *
  * @param {GObject} connection the Dbus Connection
- * param {string} name the name
+ *
  */
 function onBusAcquired(connection) {
     if (data.dbusConnectionName)
