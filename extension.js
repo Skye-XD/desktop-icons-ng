@@ -150,26 +150,18 @@ function innerEnable() {
 
     /*
      * If the desktop geometry changes (because a new monitor has been added, for example),
-     * we kill the desktop program. It will be relaunched automatically with the new geometry,
-     * thus adapting to it on-the-fly.
      */
-    data.monitorsChangedId = Main.layoutManager.connect('monitors-changed', () => {
-        updateDesktopGeometry();
-    });
+    data.monitorsChangedId = Main.layoutManager.connect('monitors-changed', updateDesktopGeometry);
+
     /*
-     * Any change in the workareas must be detected too, for example if the used size
-     * changes.
+     * Any change in the workareas must be detected too, for example if the used size changes.
      */
-    data.workareasChangedId = global.display.connect('workareas-changed', () => {
-        updateDesktopGeometry();
-    });
+    data.workareasChangedId = global.display.connect('workareas-changed', updateDesktopGeometry);
 
     /*
      * This callback allows to detect a change in the working area (like when changing the Scale value)
      */
-    data.visibleAreaId = data.visibleArea.connect('updated-usable-area', () => {
-        updateDesktopGeometry();
-    });
+    data.visibleAreaId = data.visibleArea.connect('updated-usable-area', updateDesktopGeometry);
 
     data.dbusConnectionId = acquireDBusName();
 
