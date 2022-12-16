@@ -115,7 +115,7 @@ function enable() {
     }
     // If the desktop is still starting up, we wait until it is ready
     if (Main.layoutManager._startingUp) {
-        data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable.bind(this));
+        data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable);
     } else {
         data.startupPrepareId = null;
         innerEnable();
@@ -180,7 +180,7 @@ function innerEnable() {
         '/org/gnome/ScreenSaver',
         null,
         Gio.DBusSignalFlags.NONE,
-        onActiveChanged.bind(this)
+        onActiveChanged
     );
 
     data.isEnabled = true;
@@ -202,7 +202,7 @@ function innerEnable() {
         '/com/desktop/ding/geometrycontrol',
         null,
         Gio.DBusSignalFlags.NONE,
-        updateDesktopGeometry.bind(this)
+        updateDesktopGeometry
     );
 }
 
