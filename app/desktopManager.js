@@ -109,6 +109,9 @@ var DesktopManager = class {
         this.useNemo = this.Prefs.desktopSettings.get_boolean('use-nemo');
         this.showLinkEmblem = this.Prefs.desktopSettings.get_boolean('show-link-emblem');
         this.darkText = this.Prefs.desktopSettings.get_boolean('dark-text-in-labels');
+        this.keepStacked = this.Prefs.desktopSettings.get_boolean('keep-stacked');
+        this.keepArranged = this.Prefs.desktopSettings.get_boolean('keep-arranged');
+        this.sortSpecialFolders = this.Prefs.desktopSettings.get_boolean('sort-special-folders');
         this._settingsId = this.Prefs.desktopSettings.connect('changed', (obj, key) => {
             if (key === 'dark-text-in-labels')  {
                 this.darkText = this.Prefs.desktopSettings.get_boolean('dark-text-in-labels');
@@ -126,6 +129,10 @@ var DesktopManager = class {
             }
             if (key === 'use-nemo') {
                 this.useNemo = this.Prefs.desktopSettings.get_boolean('use-nemo');
+                return;
+            }
+            if (key === 'sort-special-folders') {
+                this.sortSpecialFolders = this.Prefs.desktopSettings.get_boolean('sort-special-folders');
                 return;
             }
             if (key === 'icon-size') {
