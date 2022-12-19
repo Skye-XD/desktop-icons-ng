@@ -42,30 +42,14 @@ const _ = Gettext.gettext;
 
 var DesktopManager = class {
     constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex, version) {
+        // Inherit
         this.mainApp = Data.dingApp;
+        this._codePath = codePath;
+        this._asDesktop = asDesktop;
         if (asDesktop) {
             this.mainApp.hold(); // Don't close the application if there are no desktops
             this._hold_active = true;
         }
-        this._selectedFiles = null;
-        this.DesktopIconsUtil = Utils.DesktopIconsUtil;
-        this.PromiseUtils = Utils.PromiseUtils;
-        this.FileUtils = Utils.FileUtils;
-        this.Enums = Data.Enums;
-        this._codePath = codePath;
-        this._asDesktop = asDesktop;
-        this.DBusUtils = Utils.DBusUtils;
-        this.dbusManager = Utils.DBusUtils.dbusManagerObject;
-        this.Prefs = Utils.Preferences;
-        this.autoAr = new AutoAr.AutoAr(this);
-
-        if (version)
-            this.GnomeShellVersion = version;
-        else
-            this.GnomeShellVersion = 40;
-        this.uuid = 'gtk4-ding@smedius.gitlab.com';
-        if (this._asDesktop)
-            this.uuid = GLib.path_get_basename(this._codePath);
 
         this._primaryIndex = primaryIndex;
         if (primaryIndex < desktopList.length)
@@ -73,6 +57,30 @@ var DesktopManager = class {
         else
             this._primaryScreen = null;
 
+        if (version)
+            this.GnomeShellVersion = version;
+        else
+            this.GnomeShellVersion = 40;
+
+        this.uuid = 'gtk4-ding@smedius.gitlab.com';
+        if (this._asDesktop)
+            this.uuid = GLib.path_get_basename(this._codePath);
+
+        // Init and import Scripts and classes
+        this.DesktopIconsUtil = Utils.DesktopIconsUtil;
+        this.PromiseUtils = Utils.PromiseUtils;
+        this.FileUtils = Utils.FileUtils;
+        this.Enums = Data.Enums;
+        this.DBusUtils = Utils.DBusUtils;
+        this.dbusManager = Utils.DBusUtils.dbusManagerObject;
+        this.Prefs = Utils.Preferences;
+        this.showErrorPopup = ShowErrorPopup;
+        this.templatesScriptsManager = TemplatesScriptsManager;
+        this.autoAr = new AutoAr.AutoAr(this);
+        this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
+
+        // Init Variables
+        this._selectedFiles = null;
         this._clickX = null;
         this._clickY = null;
         this.pointerX = 0;
@@ -84,15 +92,101 @@ var DesktopManager = class {
         this._desktopFilesChanged = false;
         this._readingDesktopFiles = false;
         this._desktopDir = this.DesktopIconsUtil.getDesktopDir();
-        this._updateWritableByOthers().catch(e => logError(e));
-        this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
-        this._monitorDesktopDir.set_rate_limit(1000);
-        this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
-            this._updateDesktopIfChanged(file, otherFile, eventType).catch(e => logError(e)));
+        this.rubberBand = false;
+        this._allFileList = null;
+        this._fileList = [];
+        this._forcedExit = false;
+        this._scriptsList = [];
+        this.ignoreKeys = [Gdk.KEY_space, Gdk.KEY_Shift_L, Gdk.KEY_Shift_R, Gdk.KEY_Control_L, Gdk.KEY_Control_R, Gdk.KEY_Caps_Lock, Gdk.KEY_Shift_Lock, Gdk.KEY_Meta_L, Gdk.KEY_Meta_R, Gdk.KEY_Alt_L, Gdk.KEY_Alt_R, Gdk.KEY_Super_L, Gdk.KEY_Super_R, Gdk.KEY_ISO_Level3_Shift, Gdk.KEY_ISO_Level5_Shift];
 
-        this.showErrorPopup = ShowErrorPopup;
-        this.templatesScriptsManager = TemplatesScriptsManager;
-        this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
+
+        // init methods
+        this._initCSSprovider();
+        this._configureSelectionColor();
+        this._startMonitoringTemplatesDir();
+        this._createMenuActionGroup();
+        this._updateWritableByOthers().catch(e => logError(e));
+        this._monitorDesktopChanges();
+        this._initAndMonitorSettings();
+
+
+        this._getPremultiplied();
+        this._createGridWindows();
+
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
+            if (available)
+                this._syncUndoRedo();
+            else
+                this._syncUndoRedo(true);
+        });
+        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
+            this._syncUndoRedo();
+
+        this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
+
+        // Check if Nautilus is available
+        try {
+            this.DesktopIconsUtil.trySpawn(null, ['nautilus', '--version']);
+        } catch (e) {
+            this._errorWindow = new ShowErrorPopup.ShowErrorPopup(
+                _('GNOME Files not found'),
+                _('The GNOME Files application is required by Desktop Icons NG.'),
+                true,
+                this.textEntryAccelsTurnOff.bind(this),
+                this.textEntryAccelsTurnOn.bind(this),
+                this.DesktopIconsUtil
+            );
+        }
+        this._pendingDropFiles = {};
+        this._pendingSelfCopyFiles = {};
+        if (this._asDesktop) {
+            this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
+                GLib.source_remove(this._sigtermID);
+                this.terminateProgram();
+                if (this._hold_active) {
+                    this.mainApp.release();
+                    this._hold_active = false;
+                }
+                return false;
+            });
+        }
+        this._dbusAdvertiseUpdate();
+        if (!Thumbnails) {
+            this._startThumbnailer();
+            this.thumbnailLoader = {};
+            this.thumbnailLoader.canThumbnail = this._getRemoteIconThumbNail.bind(this);
+        } else {
+            this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath, this.FileUtils);
+            this._updateDesktop().catch(e => {
+                print(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
+            });
+        }
+    }
+
+    terminateProgram() {
+        if (this._allFileList && (this._allFileList.length > 0)) {
+            this._fileList.forEach(f => {
+                if (f.isStackMarker)
+                    f.onDestroy();
+            });
+            this._allFileList.forEach(f => f.onDestroy());
+        } else {
+            this._fileList.forEach(f => f.onDestroy());
+        }
+        for (let desktop of this._desktops)
+            desktop.destroy();
+
+        this._desktops = [];
+        this._forcedExit = true;
+        if (this._desktopEnumerateCancellable)
+            this._desktopEnumerateCancellable.cancel();
+
+        if (this.thumbnailApp)
+            this.thumbnailApp.send_signal(15);
+    }
+
+    _startMonitoringTemplatesDir() {
         this.templatesMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
             this.DesktopIconsUtil.getTemplatesDir(),
             this._newDocument.bind(this),
@@ -104,6 +198,22 @@ var DesktopManager = class {
                 Enums: this.Enums,
             }
         );
+    }
+    
+    _initCSSprovider() {
+        let cssProvider = new Gtk.CssProvider();
+        cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([this._codePath, 'app', 'stylesheet.css'])));
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+    }
+
+    _monitorDesktopChanges() {
+        this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._monitorDesktopDir.set_rate_limit(1000);
+        this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
+            this._updateDesktopIfChanged(file, otherFile, eventType).catch(e => logError(e)));
+    }
+
+    _initAndMonitorSettings() {
         this._showHidden = this.Prefs.gtkSettings.get_boolean('show-hidden');
         this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
         this.useNemo = this.Prefs.desktopSettings.get_boolean('use-nemo');
@@ -213,103 +323,12 @@ var DesktopManager = class {
             });
             return GLib.SOURCE_REMOVE;
         }));
-
-        this.rubberBand = false;
-
-        let cssProvider = new Gtk.CssProvider();
-        cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([codePath, 'app', 'stylesheet.css'])));
-        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        this._configureSelectionColor();
-        this._createMenuActionGroup();
-        this._getPremultiplied();
         this.Prefs.mutterSettings.connect('changed', () => {
             this._getPremultiplied();
             for (let desktop of this._desktops)
                 desktop._premultiplied = this._premultiplied;
             this._requestGeometryUpdate();
         });
-
-        this._createGridWindows();
-
-        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
-        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
-            if (available)
-                this._syncUndoRedo();
-            else
-                this._syncUndoRedo(true);
-        });
-        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
-            this._syncUndoRedo();
-
-        this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
-        this._allFileList = null;
-        this._fileList = [];
-        this._forcedExit = false;
-
-        this._scriptsList = [];
-
-        this.ignoreKeys = [Gdk.KEY_space, Gdk.KEY_Shift_L, Gdk.KEY_Shift_R, Gdk.KEY_Control_L, Gdk.KEY_Control_R, Gdk.KEY_Caps_Lock, Gdk.KEY_Shift_Lock, Gdk.KEY_Meta_L, Gdk.KEY_Meta_R, Gdk.KEY_Alt_L, Gdk.KEY_Alt_R, Gdk.KEY_Super_L, Gdk.KEY_Super_R, Gdk.KEY_ISO_Level3_Shift, Gdk.KEY_ISO_Level5_Shift];
-
-        // Check if Nautilus is available
-        try {
-            this.DesktopIconsUtil.trySpawn(null, ['nautilus', '--version']);
-        } catch (e) {
-            this._errorWindow = new ShowErrorPopup.ShowErrorPopup(
-                _('GNOME Files not found'),
-                _('The GNOME Files application is required by Desktop Icons NG.'),
-                true,
-                this.textEntryAccelsTurnOff.bind(this),
-                this.textEntryAccelsTurnOn.bind(this),
-                this.DesktopIconsUtil
-            );
-        }
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
-        if (this._asDesktop) {
-            this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
-                GLib.source_remove(this._sigtermID);
-                this.terminateProgram();
-                if (this._hold_active) {
-                    this.mainApp.release();
-                    this._hold_active = false;
-                }
-                return false;
-            });
-        }
-        this._dbusAdvertiseUpdate();
-        if (!Thumbnails) {
-            this._startThumbnailer();
-            this.thumbnailLoader = {};
-            this.thumbnailLoader.canThumbnail = this._getRemoteIconThumbNail.bind(this);
-        } else {
-            this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath, this.FileUtils);
-            this._updateDesktop().catch(e => {
-                print(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
-            });
-        }
-    }
-
-    terminateProgram() {
-        if (this._allFileList && (this._allFileList.length > 0)) {
-            this._fileList.forEach(f => {
-                if (f.isStackMarker)
-                    f.onDestroy();
-            });
-            this._allFileList.forEach(f => f.onDestroy());
-        } else {
-            this._fileList.forEach(f => f.onDestroy());
-        }
-        for (let desktop of this._desktops)
-            desktop.destroy();
-
-        this._desktops = [];
-        this._forcedExit = true;
-        if (this._desktopEnumerateCancellable)
-            this._desktopEnumerateCancellable.cancel();
-
-        if (this.thumbnailApp)
-            this.thumbnailApp.send_signal(15);
     }
 
     async _startThumbnailer() {
