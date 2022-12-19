@@ -55,6 +55,8 @@ var Preferences = class {
             this.mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
 
         this._preferencesFrame = new Data.PreferencesFrame.PreferencesFrame(Gtk, GObject, this.desktopSettings, this.nautilusSettings, this.gtkSettings, _);
+        this.desktopSettings.connect('changed', this._onDesktopSettingsChanged.bind(this));
+        this._cacheSettings();
     }
 
     _onNautilusSettingsChanged() {
@@ -82,28 +84,59 @@ var Preferences = class {
         return new Gio.Settings({ settings_schema: schemaObj });
     }
 
+    _cacheSettings() {
+        this.getPreferencesFrame();
+        this.getIconSize();
+        this.getDesiredWidth();
+        this.getDesiredHeight();
+        this.getStartCorner();
+        this.getSortOrder();
+    }
+
+    _onDesktopSettingsChanged(obj, key) {
+        switch (key) {
+        case 'icon-size':
+            this.getIconSize();
+            this.getDesiredHeight();
+            this.getDesiredWidth();
+            break;
+        case 'start-corner':
+            this.getStartCorner();
+            break;
+        case 'unstacked-types':
+            this.getUnstackList();
+            break;
+        }
+    }
+
     getPreferencesFrame() {
-        return this._preferencesFrame.getFrame();
+        this.PrefrencesFrame = this._preferencesFrame.getFrame();
+        return this.PreferencesFrame;
     }
 
     getIconSize() {
-        return this._Enums.ICON_SIZE[this.desktopSettings.get_string('icon-size')];
+        this.IconSize = this._Enums.ICON_SIZE[this.desktopSettings.get_string('icon-size')];
+        return this.IconSize;
     }
 
     getDesiredWidth() {
-        return this._Enums.ICON_WIDTH[this.desktopSettings.get_string('icon-size')];
+        this.DesiredWidth = this._Enums.ICON_WIDTH[this.desktopSettings.get_string('icon-size')];
+        return this.DesiredWidth;
     }
 
     getDesiredHeight() {
-        return this._Enums.ICON_HEIGHT[this.desktopSettings.get_string('icon-size')];
+        this.DesiredHeight = this._Enums.ICON_HEIGHT[this.desktopSettings.get_string('icon-size')];
+        return this.DesiredHeight;
     }
 
     getStartCorner() {
-        return this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')].slice();
+        this.StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')].slice();
+        return this.StartCorner;
     }
 
     getSortOrder() {
-        return this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+        this.SortOrder = this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+        return this.SortOrder;
     }
 
     setSortOrder(order) {
@@ -112,7 +145,8 @@ var Preferences = class {
     }
 
     getUnstackList() {
-        return this.desktopSettings.get_strv('unstackedtypes');
+        this.UnstackList = this.desktopSettings.get_strv('unstackedtypes');
+        return this.UnstackList;
     }
 
     setUnstackList(array) {
