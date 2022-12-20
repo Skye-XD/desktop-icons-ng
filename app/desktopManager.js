@@ -97,8 +97,9 @@ var DesktopManager = class {
         this._fileList = [];
         this._forcedExit = false;
         this._scriptsList = [];
+        this._pendingDropFiles = {};
+        this._pendingSelfCopyFiles = {};
         this.ignoreKeys = [Gdk.KEY_space, Gdk.KEY_Shift_L, Gdk.KEY_Shift_R, Gdk.KEY_Control_L, Gdk.KEY_Control_R, Gdk.KEY_Caps_Lock, Gdk.KEY_Shift_Lock, Gdk.KEY_Meta_L, Gdk.KEY_Meta_R, Gdk.KEY_Alt_L, Gdk.KEY_Alt_R, Gdk.KEY_Super_L, Gdk.KEY_Super_R, Gdk.KEY_ISO_Level3_Shift, Gdk.KEY_ISO_Level5_Shift];
-
 
         // init methods
         this._initCSSprovider();
@@ -109,23 +110,18 @@ var DesktopManager = class {
         this._monitorDesktopChanges();
         this._initAndMonitorSettings();
 
-
+        // create grid windows
         this._getPremultiplied();
         this._createGridWindows();
 
-        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
-        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
-            if (available)
-                this._syncUndoRedo();
-            else
-                this._syncUndoRedo(true);
-        });
-        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
-            this._syncUndoRedo();
+        // Start Dbus Services
+        this._intDBusSignalMonitoring();
+        this._dbusAdvertiseUpdate();
 
-        this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
+        // Start Dbus thumbnailing if no Gtk4 gnomedesktopiconfactory
+        this._initDbusThumbnailing();
 
-        // Check if Nautilus is available
+        // Check if Gnome Files is available and give warinig
         try {
             this.DesktopIconsUtil.trySpawn(null, ['nautilus', '--version']);
         } catch (e) {
@@ -138,8 +134,8 @@ var DesktopManager = class {
                 this.DesktopIconsUtil
             );
         }
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
+
+        // setup gracefull termination
         if (this._asDesktop) {
             this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
                 GLib.source_remove(this._sigtermID);
@@ -151,13 +147,15 @@ var DesktopManager = class {
                 return false;
             });
         }
-        this._dbusAdvertiseUpdate();
+    }
+
+    _initDbusThumbnailing() {
         if (!Thumbnails) {
             this._startThumbnailer();
             this.thumbnailLoader = {};
             this.thumbnailLoader.canThumbnail = this._getRemoteIconThumbNail.bind(this);
         } else {
-            this.thumbnailLoader = new Thumbnails.ThumbnailLoader(codePath, this.FileUtils);
+            this.thumbnailLoader = new Thumbnails.ThumbnailLoader(this._codePath, this.FileUtils);
             this._updateDesktop().catch(e => {
                 print(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
             });
@@ -199,7 +197,23 @@ var DesktopManager = class {
             }
         );
     }
-    
+
+    _intDBusSignalMonitoring() {
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
+
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
+            if (available)
+                this._syncUndoRedo();
+            else
+                this._syncUndoRedo(true);
+        });
+
+        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
+            this._syncUndoRedo();
+
+        this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
+    }
+
     _initCSSprovider() {
         let cssProvider = new Gtk.CssProvider();
         cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([this._codePath, 'app', 'stylesheet.css'])));
@@ -226,14 +240,14 @@ var DesktopManager = class {
             if (key === 'dark-text-in-labels')  {
                 this.darkText = this.Prefs.desktopSettings.get_boolean('dark-text-in-labels');
                 this._updateDesktop().catch(e => {
-                    print(`Exception while updating desktop after \"Dark Text\" changed: ${e.message}\n${e.stack}`);
+                    print(`Exception while updating desktop after "Dark Text" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
             if (key === 'show-link-emblem') {
                 this.showLinkEmblem = this.Prefs.desktopSettings.get_boolean('show-link-emblem');
                 this._updateDesktop().catch(e => {
-                    print(`Exception while updating desktop after \"Show Emblems\" changed: ${e.message}\n${e.stack}`);
+                    print(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
@@ -693,7 +707,7 @@ var DesktopManager = class {
         this._addFilesToDesktop(fileItems, this.Enums.StoredCoordinates.OVERWRITE);
         if (keepArranged) {
             this._updateDesktop().catch(e => {
-                print(`Exception while doing move with drag and drop and \"Keep arranged…\": ${e.message}\n${e.stack}`);
+                print(`Exception while doing move with drag and drop and "Keep arranged…": ${e.message}\n${e.stack}`);
             });
         }
     }
@@ -797,7 +811,7 @@ var DesktopManager = class {
                 return false;
             }
         }
-        if (desktopFileAppPath == 'trash:///') {
+        if (desktopFileAppPath === 'trash:///') {
             this.doTrash();
             return true;
         }
@@ -1197,7 +1211,7 @@ var DesktopManager = class {
                             }
                         });
                     } catch (e) {
-                        print(`Exception while reading clipboard media-type \"text/plain\": ${e.message}\n${e.stack}`);
+                        print(`Exception while reading clipboard media-type "text/plain": ${e.message}\n${e.stack}`);
                         this._setClipboardContent(text);
                         resolve(false);
                     }
@@ -1482,7 +1496,7 @@ var DesktopManager = class {
         let updateDesktop = Gio.SimpleAction.new('updateDesktop', null);
         updateDesktop.connect('activate', () => {
             this._updateDesktop().catch(e => {
-                print(`Exception while updating desktop after pressing \"F5\": ${e.message}\n${e.stack}`);
+                print(`Exception while updating desktop after pressing "F5": ${e.message}\n${e.stack}`);
             });
         });
         this.mainApp.add_action(updateDesktop);
