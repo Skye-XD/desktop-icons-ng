@@ -236,6 +236,7 @@ var DesktopManager = class {
         this.keepStacked = this.Prefs.desktopSettings.get_boolean('keep-stacked');
         this.keepArranged = this.Prefs.desktopSettings.get_boolean('keep-arranged');
         this.sortSpecialFolders = this.Prefs.desktopSettings.get_boolean('sort-special-folders');
+        this.showOnSecondaryMonitor = this.Prefs.desktopSettings.get_boolean('show-second-monitor');
         this._settingsId = this.Prefs.desktopSettings.connect('changed', (obj, key) => {
             if (key === 'dark-text-in-labels')  {
                 this.darkText = this.Prefs.desktopSettings.get_boolean('dark-text-in-labels');
@@ -257,6 +258,10 @@ var DesktopManager = class {
             }
             if (key === 'sort-special-folders') {
                 this.sortSpecialFolders = this.Prefs.desktopSettings.get_boolean('sort-special-folders');
+                return;
+            }
+            if (key === 'show-second-monitor') {
+                this.showOnSecondaryMonitor = this.Prefs.desktopSettings.get_boolean('show-second-monitor');
                 return;
             }
             if (key === 'icon-size') {
@@ -2182,9 +2187,6 @@ var DesktopManager = class {
     }
 
     _placeAllFilesOnGrids(opts = { redisplay: false }) {
-        this.keepStacked = this.Prefs.desktopSettings.get_boolean('keep-stacked');
-        this.keepArranged = this.Prefs.desktopSettings.get_boolean('keep-arranged');
-        this.sortSpecialFolders = this.Prefs.desktopSettings.get_boolean('sort-special-folders');
         if (this.keepStacked)
             this.doStacks(opts);
         else if (this.keepArranged)
@@ -2331,8 +2333,7 @@ var DesktopManager = class {
         if (this._desktops.length === 1)
             return this._desktops[0];
 
-        let showOnSecondaryMonitor = this.Prefs.desktopSettings.get_boolean('show-second-monitor');
-        if (!showOnSecondaryMonitor) {
+        if (!this.showOnSecondaryMonitor) {
             if (this._primaryScreen)
                 return this._desktops[this._primaryIndex];
             else
