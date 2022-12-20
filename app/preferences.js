@@ -55,8 +55,7 @@ var Preferences = class {
             this.mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
 
         this._preferencesFrame = new Data.PreferencesFrame.PreferencesFrame(Gtk, GObject, this.desktopSettings, this.nautilusSettings, this.gtkSettings, _);
-        this.desktopSettings.connect('changed', this._onDesktopSettingsChanged.bind(this));
-        this._cacheSettings();
+        this._cacheInitialSettings();
     }
 
     _onNautilusSettingsChanged() {
@@ -84,48 +83,42 @@ var Preferences = class {
         return new Gio.Settings({ settings_schema: schemaObj });
     }
 
-    _cacheSettings() {
-        this.getPreferencesFrame();
-        this.getIconSize();
-        this.getDesiredWidth();
-        this.getDesiredHeight();
+    _cacheInitialSettings() {
+        this.PrefrencesFrame = this._preferencesFrame.getFrame();
+        this.updateIconSize();
         this.getStartCorner();
         this.getSortOrder();
     }
 
-    _onDesktopSettingsChanged(obj, key) {
-        switch (key) {
-        case 'icon-size':
-            this.getIconSize();
-            this.getDesiredHeight();
-            this.getDesiredWidth();
-            break;
-        case 'start-corner':
-            this.getStartCorner();
-            break;
-        case 'unstacked-types':
-            this.getUnstackList();
-            break;
-        }
+    updateIconSize() {
+        let iconSize = this.desktopSettings.get_string('icon-size')
+        this.IconSize = this._Enums.ICON_SIZE[iconSize];
+        this.DesiredWidth = this._Enums.ICON_WIDTH[iconSize];
+        this.DesiredHeight = this._Enums.ICON_HEIGHT[iconSize];
+    }
+
+    setSortOrder(order) {
+        let x = Object.values(this._Enums.SortOrder).indexOf(order);
+        this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, x);
+    }
+
+    setUnstackList(array) {
+        this.desktopSettings.set_strv('unstackedtypes', array);
     }
 
     getPreferencesFrame() {
-        this.PrefrencesFrame = this._preferencesFrame.getFrame();
         return this.PreferencesFrame;
     }
 
     getIconSize() {
-        this.IconSize = this._Enums.ICON_SIZE[this.desktopSettings.get_string('icon-size')];
         return this.IconSize;
     }
 
     getDesiredWidth() {
-        this.DesiredWidth = this._Enums.ICON_WIDTH[this.desktopSettings.get_string('icon-size')];
         return this.DesiredWidth;
     }
 
     getDesiredHeight() {
-        this.DesiredHeight = this._Enums.ICON_HEIGHT[this.desktopSettings.get_string('icon-size')];
         return this.DesiredHeight;
     }
 
@@ -139,17 +132,8 @@ var Preferences = class {
         return this.SortOrder;
     }
 
-    setSortOrder(order) {
-        let x = Object.values(this._Enums.SortOrder).indexOf(order);
-        this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, x);
-    }
-
     getUnstackList() {
         this.UnstackList = this.desktopSettings.get_strv('unstackedtypes');
         return this.UnstackList;
-    }
-
-    setUnstackList(array) {
-        this.desktopSettings.set_strv('unstackedtypes', array);
     }
 };

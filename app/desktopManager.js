@@ -265,6 +265,7 @@ var DesktopManager = class {
                 return;
             }
             if (key === 'icon-size') {
+                this.Prefs.updateIconSize();
                 this._fileList.forEach(x => x.removeFromGrid());
                 for (let desktop of this._desktops)
                     desktop.resizeGrid();
