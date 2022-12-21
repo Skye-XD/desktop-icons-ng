@@ -18,7 +18,6 @@
 const Main = imports.ui.main;
 const Signals = imports.signals;
 const GLib = imports.gi.GLib;
-const ExtensionUtils = imports.misc.extensionUtils;
 
 var VisibleArea = class {
     constructor() {

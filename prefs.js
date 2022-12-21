@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+/* exported init, buildPrefsWidget */
 const { Gtk, Gio, GObject } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 const Gettext = imports.gettext;

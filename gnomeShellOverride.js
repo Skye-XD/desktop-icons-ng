@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+/* exported GnomeShellOverride */
 const { Meta, Clutter, GLib } = imports.gi;
 
 var WorkspaceAnimation = null;
@@ -43,8 +43,8 @@ var GnomeShellOverride = class {
 
     enable() {
         if (WorkspaceAnimation) {
-            this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', new_shouldShowWindow);
-            this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', new_finishWorkspaceSwitch);
+            this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', newShouldShowWindow);
+            this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', newFinishWorkspaceSwitch);
         }
     }
 
@@ -99,7 +99,7 @@ var GnomeShellOverride = class {
  *
  * @param {Meta.Window} window the window
  */
-function new_shouldShowWindow(window) {
+function newShouldShowWindow(window) {
     if (window.customJS_ding && this._workspace) {
         if (!this.dingClone) {
             const geometry = global.display.get_monitor_geometry(this._monitor.index);
@@ -126,7 +126,7 @@ function new_shouldShowWindow(window) {
  *
  * @param {object} switchData the original switchData for the function
  */
-function new_finishWorkspaceSwitch(switchData) {
+function newFinishWorkspaceSwitch(switchData) {
     if (workSpaceSwitchTimeoutID) {
         GLib.Source.remove(workSpaceSwitchTimeoutID);
         workSpaceSwitchTimeoutID = null;
