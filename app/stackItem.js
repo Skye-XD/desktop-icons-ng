@@ -45,7 +45,7 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
     _createStackTopIcon() {
         let iconPaintable;
         let folder = 'folder';
-        if (this.Prefs.getUnstackList().includes(this._attributeContentType))
+        if (this.Prefs.UnstackList.includes(this._attributeContentType))
             folder = 'folder-open';
 
         iconPaintable = this._createEmblemedIcon(null, `${folder}`);

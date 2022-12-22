@@ -237,6 +237,7 @@ var DesktopManager = class {
         this.keepArranged = this.Prefs.desktopSettings.get_boolean('keep-arranged');
         this.sortSpecialFolders = this.Prefs.desktopSettings.get_boolean('sort-special-folders');
         this.showOnSecondaryMonitor = this.Prefs.desktopSettings.get_boolean('show-second-monitor');
+        this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
         this._settingsId = this.Prefs.desktopSettings.connect('changed', (obj, key) => {
             if (key === 'dark-text-in-labels')  {
                 this.darkText = this.Prefs.desktopSettings.get_boolean('dark-text-in-labels');
@@ -260,6 +261,10 @@ var DesktopManager = class {
                 this.sortSpecialFolders = this.Prefs.desktopSettings.get_boolean('sort-special-folders');
                 return;
             }
+            if (key === 'add-volumes-opposite') {
+                this.Prefs.updateVolumesOpposite();
+                return;
+            }
             if (key === 'show-second-monitor') {
                 this.showOnSecondaryMonitor = this.Prefs.desktopSettings.get_boolean('show-second-monitor');
                 return;
@@ -275,6 +280,7 @@ var DesktopManager = class {
                 return;
             }
             if (key === this.Enums.SortOrder.ORDER) {
+                this.Prefs.updateSortOrder();
                 if (this.keepStacked)
                     this.doStacks({ redisplay: true });
                 else
@@ -283,6 +289,7 @@ var DesktopManager = class {
                 return;
             }
             if (key === 'unstackedtypes') {
+                this.Prefs.updateUnstackList();
                 if (this.keepStacked)
                     this.doStacks({ redisplay: true });
 
@@ -304,7 +311,12 @@ var DesktopManager = class {
 
                 return;
             }
-            this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
+            if (key === 'show-drop-place') {
+                this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
+                return;
+            }
+            if (key === 'start-corner')
+                this.Prefs.updateStartCorner();
             this._updateDesktop().catch(e => {
                 print(`Exception while updating desktop after the settings changed: ${e.message}\n${e.stack}`);
             });
@@ -2697,7 +2709,7 @@ var DesktopManager = class {
 
     onToggleStackUnstackThisTypeClicked(type, typeInList = null, unstackList = null) {
         if (!unstackList) {
-            unstackList = this.Prefs.getUnstackList();
+            unstackList = this.Prefs.UnstackList;
             typeInList = unstackList.includes(type);
         }
         if (typeInList) {
@@ -2706,7 +2718,7 @@ var DesktopManager = class {
         } else {
             unstackList.push(type);
         }
-        this.Prefs.setUnstackList(unstackList);
+        this.Prefs.UnstackList = unstackList;
     }
 
     doStacks(opts = { redisplay: false }) {
@@ -2825,7 +2837,7 @@ var DesktopManager = class {
         let stackedFiles = [];
         let newFileList = [];
         let stackTopMarkerFolderList = [];
-        let unstackList = this.Prefs.getUnstackList();
+        let unstackList = this.Prefs.UnstackList;
         if (this._allFileList && opts.redisplay) {
             this._fileList.forEach(f => {
                 if (f.isStackMarker)
@@ -2897,7 +2909,7 @@ var DesktopManager = class {
         otherFiles.push(...directoryFiles);
         otherFiles.push(...stackTopMarkerFolderList);
 
-        switch (this.Prefs.getSortOrder()) {
+        switch (this.Prefs.SortOrder) {
         case this.Enums.SortOrder.NAME:
             this._sortByName(otherFiles);
             break;
@@ -2977,7 +2989,7 @@ var DesktopManager = class {
             return;
 
         this._fileList.map(f => f.removeFromGrid({ callOnDestroy: false }));
-        let cornerInversion = this.Prefs.getStartCorner();
+        let cornerInversion = this.Prefs.StartCorner;
         if (!cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
                 if (a._x1 < b._x1)
@@ -3134,7 +3146,7 @@ var DesktopManager = class {
         if (opts.redisplay)
             this._fileList.map(f => f.removeFromGrid());
 
-        switch (this.Prefs.getSortOrder()) {
+        switch (this.Prefs.SortOrder) {
         case this.Enums.SortOrder.NAME:
             this._sortAllFilesFromGridsByName();
             break;

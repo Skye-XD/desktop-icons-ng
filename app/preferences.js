@@ -31,8 +31,12 @@ var Preferences = class {
         this._extensionPath = Data.codePath;
         this._Enums = Data.Enums;
         let schemaSource = GioSSS.get_default();
+
+        // Gtk
         let schemaGtk = schemaSource.lookup(this._Enums.SCHEMA_GTK, true);
         this.gtkSettings = new Gio.Settings({ settings_schema: schemaGtk });
+
+        // Gnome Files
         let schemaObj = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS, true);
         if (!schemaObj) {
             this.nautilusSettings = null;
@@ -42,19 +46,23 @@ var Preferences = class {
             this.nautilusSettings.connect('changed', this._onNautilusSettingsChanged.bind(this));
             this._onNautilusSettingsChanged();
         }
+
+        // Compression
         const compressionSchema = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS_COMPRESSION, true);
         if (!compressionSchema)
             this.nautilusCompression = null;
         else
             this.nautilusCompression = new Gio.Settings({ settings_schema: compressionSchema });
 
-        this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
-
+        // Mutter Settings
         let schemaMutter = schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
         if (schemaMutter)
             this.mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
 
         this._preferencesFrame = new Data.PreferencesFrame.PreferencesFrame(Gtk, GObject, this.desktopSettings, this.nautilusSettings, this.gtkSettings, _);
+
+        // Our Settings
+        this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
         this._cacheInitialSettings();
     }
 
@@ -84,56 +92,84 @@ var Preferences = class {
     }
 
     _cacheInitialSettings() {
-        this.PrefrencesFrame = this._preferencesFrame.getFrame();
         this.updateIconSize();
-        this.getStartCorner();
-        this.getSortOrder();
+        this.updateStartCorner();
+        this.updateSortOrder();
+        this.updateUnstackList();
+        this.updateVolumesOpposite();
     }
 
+    getPreferencesFrame() {
+        this.PrefrencesFrame = this._preferencesFrame.getFrame();
+        return this.PreferencesFrame;
+    }
+
+
+    // Updaters
     updateIconSize() {
-        let iconSize = this.desktopSettings.get_string('icon-size')
-        this.IconSize = this._Enums.ICON_SIZE[iconSize];
-        this.DesiredWidth = this._Enums.ICON_WIDTH[iconSize];
-        this.DesiredHeight = this._Enums.ICON_HEIGHT[iconSize];
+        let iconSize = this.desktopSettings.get_string('icon-size');
+        this._IconSize = this._Enums.ICON_SIZE[iconSize];
+        this._DesiredWidth = this._Enums.ICON_WIDTH[iconSize];
+        this._DesiredHeight = this._Enums.ICON_HEIGHT[iconSize];
     }
 
-    setSortOrder(order) {
+    updateSortOrder() {
+        this._SortOrder = this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+    }
+
+    updateStartCorner() {
+        this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
+    }
+
+    updateUnstackList() {
+        this._UnstackList = this.desktopSettings.get_strv('unstackedtypes');
+    }
+
+    updateVolumesOpposite() {
+        this._addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
+    }
+
+    // Setters
+    set SortOrder(order) {
+        this._sortOrder = order;
         let x = Object.values(this._Enums.SortOrder).indexOf(order);
         this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, x);
     }
 
-    setUnstackList(array) {
+    set UnstackList(array) {
+        this._UnstackList = array;
         this.desktopSettings.set_strv('unstackedtypes', array);
     }
 
-    getPreferencesFrame() {
-        return this.PreferencesFrame;
+    // Getters
+
+    get IconSize() {
+        return this._IconSize;
     }
 
-    getIconSize() {
-        return this.IconSize;
+    get DesiredWidth() {
+        return this._DesiredWidth;
     }
 
-    getDesiredWidth() {
-        return this.DesiredWidth;
+    get DesiredHeight() {
+        return this._DesiredHeight;
     }
 
-    getDesiredHeight() {
-        return this.DesiredHeight;
+    get StartCorner() {
+        // Return a shallow copy that can be mutated without affecting other icons with cornerinversion in DesktopGrid
+        return [...this._StartCorner];
     }
 
-    getStartCorner() {
-        this.StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')].slice();
-        return this.StartCorner;
+    get SortOrder() {
+        return this._SortOrder;
     }
 
-    getSortOrder() {
-        this.SortOrder = this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
-        return this.SortOrder;
+    get UnstackList() {
+        // Return a shallow copy that can be mutated without affecting the original
+        return [...this._UnstackList];
     }
 
-    getUnstackList() {
-        this.UnstackList = this.desktopSettings.get_strv('unstackedtypes');
-        return this.UnstackList;
+    get AddVolumesOpposite() {
+        return this._addVolumesOpposite;
     }
 };

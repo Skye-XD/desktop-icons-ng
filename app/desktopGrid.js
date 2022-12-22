@@ -238,8 +238,8 @@ var DesktopGrid = class {
         this._marginBottom = Math.floor(this._marginBottom / this._sizer);
         this._marginLeft = Math.floor(this._marginLeft / this._sizer);
         this._marginRight = Math.floor(this._marginRight / this._sizer);
-        this._maxColumns = Math.floor(this._width / (this.Prefs.getDesiredWidth() + 4 * elementSpacing));
-        this._maxRows =  Math.floor(this._height / (this.Prefs.getDesiredHeight() + 4 * elementSpacing));
+        this._maxColumns = Math.floor(this._width / (this.Prefs.DesiredWidth + 4 * elementSpacing));
+        this._maxRows =  Math.floor(this._height / (this.Prefs.DesiredHeight + 4 * elementSpacing));
         this._elementWidth = Math.floor(this._width / this._maxColumns);
         this._elementHeight = Math.floor(this._height / this._maxRows);
     }
@@ -493,7 +493,7 @@ var DesktopGrid = class {
             if (desktopDropZone) {
                 if (desktopMove) {
                     if (this._desktopManager.keepArranged || this._desktopManager.keepStacked) {
-                        if (this.Prefs.desktopSettings.get_boolean('sort-special-folders'))
+                        if (this._desktopManager.sortSpecialFolders)
                             return false;
                         else if (this._desktopManager.getCurrentSelection().filter(f => !f.isSpecial).length >= 1)
                             return false;
@@ -903,11 +903,13 @@ var DesktopGrid = class {
     }
 
     addFileItemCloseTo(fileItem, x, y, coordinatesAction) {
-        let addVolumesOpposite = this.Prefs.desktopSettings.get_boolean('add-volumes-opposite');
-        let [column, row] = this._getEmptyPlaceClosestTo(x,
+        let addVolumesOpposite = this.Prefs.AddVolumesOpposite;
+        let [column, row] = this._getEmptyPlaceClosestTo(
+            x,
             y,
             coordinatesAction,
-            fileItem.isDrive && addVolumesOpposite);
+            fileItem.isDrive && addVolumesOpposite
+        );
         this._addFileItemTo(fileItem, column, row, coordinatesAction);
     }
 
@@ -950,10 +952,9 @@ var DesktopGrid = class {
         let placeX = Math.floor(x / this._elementWidth);
         let placeY = Math.floor(y / this._elementHeight);
 
-        let cornerInversion = this.Prefs.getStartCorner();
+        let cornerInversion = this.Prefs.StartCorner;
         if (reverseHorizontal)
             cornerInversion[0] = !cornerInversion[0];
-
 
         placeX = this.DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
         placeY = this.DesktopIconsUtil.clamp(placeY, 0, this._maxRows - 1);
