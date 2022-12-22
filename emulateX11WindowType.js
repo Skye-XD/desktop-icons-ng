@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+/* exported EmulateX11WindowType */
 const { GLib, Gio, Meta, Clutter } = imports.gi;
 const Main = imports.ui.main;
 const DND = imports.ui.dnd;

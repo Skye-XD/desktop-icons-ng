@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+/* exported init, enable, disable */
 const { GLib, Gio, Meta, Clutter } = imports.gi;
 const Main = imports.ui.main;
 const ExtensionUtils = imports.misc.extensionUtils;
@@ -226,7 +226,11 @@ function innerEnable(removeId) {
  * Start stop the  Dbus Service with screen locks and unlocks
  *
  * @param {GObject} connection the Dbus Connection
- * param {string} name the name
+ * @param sender
+ * @param path
+ * @param iface
+ * @param signal
+ * @param params
  */
 function onActiveChanged(connection, sender, path, iface, signal, params) {
     const value = params.get_child_value(0);
@@ -236,22 +240,20 @@ function onActiveChanged(connection, sender, path, iface, signal, params) {
             Gio.bus_unown_name(data.dbusConnectionId);
             data.dbusConnectionId = 0;
         }
-    } else {
-        if (!data.dbusConnectionId || !data.dbusConnectionName) {
-            data.dbusConnectionId = Gio.bus_own_name(
-                Gio.BusType.SESSION,
-                'com.desktop.dingextension',
-                Gio.BusNameOwnerFlags.NONE,
-                onBusAcquired.bind(dingExtensionServiceImplementation),
-                (connection, name) => {
-                    log(name);
-                    data.dbusConnectionName = name;
-                },
-                () => {
-                    data.dbusConnectionName = null;
-                }
-            );
-        }
+    } else if (!data.dbusConnectionId || !data.dbusConnectionName) {
+        data.dbusConnectionId = Gio.bus_own_name(
+            Gio.BusType.SESSION,
+            'com.desktop.dingextension',
+            Gio.BusNameOwnerFlags.NONE,
+            onBusAcquired.bind(dingExtensionServiceImplementation),
+            (dbusConnection, name) => {
+                log(name);
+                data.dbusConnectionName = name;
+            },
+            () => {
+                data.dbusConnectionName = null;
+            }
+        );
     }
 }
 
