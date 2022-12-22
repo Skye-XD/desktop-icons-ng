@@ -92,11 +92,21 @@ var Preferences = class {
     }
 
     _cacheInitialSettings() {
-        this.updateIconSize();
-        this.updateStartCorner();
-        this.updateSortOrder();
-        this.updateUnstackList();
-        this.updateVolumesOpposite();
+        this._updateIconSize();
+        this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
+        this._UnstackList = this.desktopSettings.get_strv('unstackedtypes');
+        this.SortOrder = this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+        this.addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
+        this.showHidden = this.gtkSettings.get_boolean('show-hidden');
+        this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
+        this.useNemo = this.desktopSettings.get_boolean('use-nemo');
+        this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
+        this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
+        this.keepStacked = this.desktopSettings.get_boolean('keep-stacked');
+        this.keepArranged = this.desktopSettings.get_boolean('keep-arranged');
+        this.sortSpecialFolders = this.desktopSettings.get_boolean('sort-special-folders');
+        this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
+        this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
     }
 
     getPreferencesFrame() {
@@ -104,29 +114,128 @@ var Preferences = class {
         return this.PreferencesFrame;
     }
 
-
     // Updaters
-    updateIconSize() {
+    _updateIconSize() {
         let iconSize = this.desktopSettings.get_string('icon-size');
-        this._IconSize = this._Enums.ICON_SIZE[iconSize];
-        this._DesiredWidth = this._Enums.ICON_WIDTH[iconSize];
-        this._DesiredHeight = this._Enums.ICON_HEIGHT[iconSize];
+        this.IconSize = this._Enums.ICON_SIZE[iconSize];
+        this.DesiredWidth = this._Enums.ICON_WIDTH[iconSize];
+        this.DesiredHeight = this._Enums.ICON_HEIGHT[iconSize];
     }
 
-    updateSortOrder() {
-        this._SortOrder = this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+    // Monitoring
+    init(desktopManager) {
+        this._desktopManager = desktopManager;
+        this._monitorDesktopSettings();
     }
+        
+    _monitorDesktopSettings() {
+        this._settingsId = this.desktopSettings.connect('changed', (obj, key) => {
+            if (key === 'dark-text-in-labels')  {
+                this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
+                this._desktopManager._updateDesktop().catch(e => {
+                    print(`Exception while updating desktop after "Dark Text" changed: ${e.message}\n${e.stack}`);
+                });
+                return;
+            }
+            if (key === 'show-link-emblem') {
+                this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
+                this.desktopManager._updateDesktop().catch(e => {
+                    print(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
+                });
+                return;
+            }
+            if (key === 'use-nemo') {
+                this.useNemo = this.desktopSettings.get_boolean('use-nemo');
+                return;
+            }
+            if (key === 'sort-special-folders') {
+                this.sortSpecialFolders = this.desktopSettings.get_boolean('sort-special-folders');
+                return;
+            }
+            if (key === 'add-volumes-opposite') {
+                this.addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
+                return;
+            }
+            if (key === 'show-second-monitor') {
+                this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
+                return;
+            }
+            if (key === 'icon-size') {
+                this._updateIconSize();
+                this._desktopManager.onIconSizeChanged();
+                return;
+            }
+            if (key === this.Enums.SortOrder.ORDER) {
+                this.SortOrder = this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+                this._desktopManager.onSortOrderChanged();
+            }
+            if (key === 'unstackedtypes') {
+                this._UnstackList = this.desktopSettings.get_strv('unstackedtypes');
+                this._desktopManager.onUnstackedTypesChanged();
+                return;
+            }
+            if (key === 'keep-stacked') {
+                this.keepStacked = this.desktopSettings.get_boolean('keep-stacked');
+                this._desktopManager.onkeepStackedChanged();
+                return;
+            }
+            if (key === 'keep-arranged') {
+                this.keepArranged = this.Prefs.desktopSettings.get_boolean('keep-arranged');
+                if (this.keepArranged)
+                    this.doSorts({ redisplay: true });
 
-    updateStartCorner() {
-        this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
-    }
-
-    updateUnstackList() {
-        this._UnstackList = this.desktopSettings.get_strv('unstackedtypes');
-    }
-
-    updateVolumesOpposite() {
-        this._addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
+                return;
+            }
+            if (key === 'show-drop-place') {
+                this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
+                return;
+            }
+            if (key === 'start-corner')
+                this.Prefs.updateStartCorner();
+            this._updateDesktop().catch(e => {
+                print(`Exception while updating desktop after the settings changed: ${e.message}\n${e.stack}`);
+            });
+        });
+        this.Prefs.gtkSettings.connect('changed', (obj, key) => {
+            if (key === 'show-hidden') {
+                this._showHidden = this.Prefs.gtkSettings.get_boolean('show-hidden');
+                this._updateDesktop().catch(e => {
+                    print(`Exception while updating desktop after the hidden settings changed: ${e.message}\n${e.stack}`);
+                });
+                this.templatesMonitor.updateEntries();
+            }
+        });
+        this.Prefs.nautilusSettings.connect('changed', (obj, key) => {
+            if (key === 'show-image-thumbnails') {
+                this._updateDesktop().catch(e => {
+                    print(`Exception while updating Desktop after the GNOME Files settings changed: ${e.message}\n${e.stack}`);
+                });
+            }
+        });
+        this._gtkIconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        this._gtkIconTheme.connect('changed', () => {
+            this._updateDesktop().catch(e => {
+                print(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
+            });
+        });
+        this._volumeMonitor = Gio.VolumeMonitor.get();
+        this._volumeMonitor.connect('mount-added', () => {
+            this._updateDesktop().catch(e => {
+                print(`Exception while updating Desktop after a mount was added: ${e.message}\n${e.stack}`);
+            });
+        });
+        this._volumeMonitor.connect('mount-removed', () => GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+            this._updateDesktop().catch(e => {
+                print(`Exception while updating desktop after a mount was removed: ${e.message}\n${e.stack}`);
+            });
+            return GLib.SOURCE_REMOVE;
+        }));
+        this.Prefs.mutterSettings.connect('changed', () => {
+            this._getPremultiplied();
+            for (let desktop of this._desktops)
+                desktop._premultiplied = this._premultiplied;
+            this._requestGeometryUpdate();
+        });
     }
 
     // Setters
@@ -142,34 +251,13 @@ var Preferences = class {
     }
 
     // Getters
-
-    get IconSize() {
-        return this._IconSize;
-    }
-
-    get DesiredWidth() {
-        return this._DesiredWidth;
-    }
-
-    get DesiredHeight() {
-        return this._DesiredHeight;
-    }
-
     get StartCorner() {
         // Return a shallow copy that can be mutated without affecting other icons with cornerinversion in DesktopGrid
         return [...this._StartCorner];
     }
 
-    get SortOrder() {
-        return this._SortOrder;
-    }
-
     get UnstackList() {
         // Return a shallow copy that can be mutated without affecting the original
         return [...this._UnstackList];
-    }
-
-    get AddVolumesOpposite() {
-        return this._addVolumesOpposite;
     }
 };
