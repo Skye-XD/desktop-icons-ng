@@ -56,20 +56,12 @@ var AskRenamePopup = class {
         contentBox.attach(this._textArea, 0, 1, 1, 1);
         this._button = new Gtk.Button({ label: allowReturnOnSameName ? _('OK') : _('Rename') });
         contentBox.attach(this._button, 1, 1, 1, 1);
-        this._button.connect('clicked', () => {
-            this._do_rename();
-        });
-        this._textArea.connect('changed', () => {
+        this._buttonId = this._button.connect('clicked', this._do_rename.bind(this));
+        this._textAreaChangedId = this._textArea.connect('changed', () => {
             this._validate().catch(e => logError(e));
         });
-        this._textArea.connect('activate', () => {
-            if (this._button.sensitive)
-                this._do_rename();
-        });
-        this._popover.connect('closed', () => {
-            this._validateCancellable.cancel();
-            closeCB();
-        });
+        this._textAreaActivateId = this._textArea.connect('activate', this._do_rename.bind(this));
+        this._popoverId = this._popover.connect('closed', this._cleanAll.bind(this));
         this._textArea.set_activates_default(true);
         this._popover.set_default_widget(this._textArea);
         this._button.get_style_context().add_class('suggested-action');
@@ -84,6 +76,15 @@ var AskRenamePopup = class {
         this._validate().catch(e => logError(e));
         this._textArea.grab_focus_without_selecting();
         this._textArea.select_region(0, this.DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, { 'isDirectory': fileItem.isDirectory }).offset);
+    }
+
+    _cleanAll() {
+        this._validateCancellable.cancel();
+        this._button.disconnect(this._buttonId);
+        this._textArea.disconnect(this._textAreaActivateId);
+        this._textArea.disconnect(this._textAreaChangedId);
+        this._popover.disconnect(this._popoverId);
+        this._closeCB();
     }
 
     async _validate() {
@@ -115,8 +116,10 @@ var AskRenamePopup = class {
     }
 
     _do_rename() {
+        if (!this._button.sensitive)
+            return;
+        // popdown will trigger the 'close' signal, which, in turn, will call _closeCB()
         this._popover.popdown();
-        this._closeCB();
         let newFilePath = GLib.build_filenamev([this._desktopFile.get_path(), this._textArea.text]);
         let newFile = Gio.File.new_for_path(newFilePath);
         this.setPendingDropCoordinates(newFile, this._fileItem.savedCoordinates);
@@ -127,7 +130,6 @@ var AskRenamePopup = class {
 
     close() {
         this._popover.popdown();
-        this._closeCB(null);
     }
 
     popupat(fileItem) {
