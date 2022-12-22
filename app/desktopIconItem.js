@@ -358,6 +358,8 @@ var desktopIconItem = class desktopIconItem {
     _hasToRouteDragToGrid() {
         if (this._grid)
             return true;
+        else
+            return false;
     }
 
     _updateDragStatus(context, time) {
