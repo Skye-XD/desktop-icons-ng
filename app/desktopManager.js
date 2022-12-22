@@ -2609,7 +2609,7 @@ var DesktopManager = class {
                 if (position || suggestedName)
                     return null;
 
-                return;
+                return null;
             }
 
             if (opts.rename) {
@@ -2621,6 +2621,7 @@ var DesktopManager = class {
             if (position || suggestedName)
                 return dir.get_uri();
         }
+        return null;
     }
 
     async _newDocument(template) {
