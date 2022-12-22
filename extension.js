@@ -115,20 +115,17 @@ function enable() {
     }
     // If the desktop is still starting up, we wait until it is ready
     if (Main.layoutManager._startingUp) {
-        data.startupPreparedId = Main.layoutManager.connect('startup-complete', () => {
-            innerEnable(true);
-        });
+        data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable);
     } else {
-        innerEnable(false);
+        data.startupPrepareId = null;
+        innerEnable();
     }
 }
 
 /**
  * The true code that configures everything and launches the desktop program
- *
- * @param {integer} removeId Layout manager 'startup-complete' connection ID
  */
-function innerEnable(removeId) {
+function innerEnable() {
     if (data.killingProcess) {
         data.startupProcessKillWaitId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
             if (data.killingProcess)
@@ -141,52 +138,32 @@ function innerEnable(removeId) {
         return;
     }
 
-    if (removeId) {
+    if (data.starupPrepareId) {
         Main.layoutManager.disconnect(data.startupPreparedId);
         data.startupPreparedId = null;
     }
 
     data.GnomeShellOverride.enable();
 
-    // under X11 we now need to cheat, so only do all this under wayland as well as X
+    // under X11 we now need to cheat, so now do all this under wayland as well as X
     data.x11Manager.enable();
 
     /*
      * If the desktop geometry changes (because a new monitor has been added, for example),
-     * we kill the desktop program. It will be relaunched automatically with the new geometry,
-     * thus adapting to it on-the-fly.
      */
-    data.monitorsChangedId = Main.layoutManager.connect('monitors-changed', () => {
-        updateDesktopGeometry();
-    });
+    data.monitorsChangedId = Main.layoutManager.connect('monitors-changed', updateDesktopGeometry);
+
     /*
-     * Any change in the workareas must be detected too, for example if the used size
-     * changes.
+     * Any change in the workareas must be detected too, for example if the used size changes.
      */
-    data.workareasChangedId = global.display.connect('workareas-changed', () => {
-        updateDesktopGeometry();
-    });
+    data.workareasChangedId = global.display.connect('workareas-changed', updateDesktopGeometry);
 
     /*
      * This callback allows to detect a change in the working area (like when changing the Scale value)
      */
-    data.visibleAreaId = data.visibleArea.connect('updated-usable-area', () => {
-        updateDesktopGeometry();
-    });
+    data.visibleAreaId = data.visibleArea.connect('updated-usable-area', updateDesktopGeometry);
 
-    data.dbusConnectionId = Gio.bus_own_name(
-        Gio.BusType.SESSION,
-        'com.desktop.dingextension',
-        Gio.BusNameOwnerFlags.NONE,
-        onBusAcquired.bind(dingExtensionServiceImplementation),
-        (connection, name) => {
-            log(name);
-            data.dbusConnectionName = name;
-        },
-        () => {
-            data.dbusConnectionName = null;
-        }
-    );
+    data.dbusConnectionId = acquireDBusName();
 
     data.lockSignalhandlerId = Gio.DBus.session.signal_subscribe(
         'org.gnome.ScreenSaver',
@@ -216,21 +193,43 @@ function innerEnable(removeId) {
         'updategeometry',
         '/com/desktop/ding/geometrycontrol',
         null,
-        Gio.DBusSignalFlags.NONE, () => {
-            updateDesktopGeometry();
-        }
+        Gio.DBusSignalFlags.NONE,
+        updateDesktopGeometry
     );
 }
+
+/**
+ * Acquire the DBus Name on the Session Bus
+ *
+ */
+function acquireDBusName() {
+    let ID = Gio.bus_own_name(
+        Gio.BusType.SESSION,
+        'com.desktop.dingextension',
+        Gio.BusNameOwnerFlags.NONE,
+        onBusAcquired.bind(dingExtensionServiceImplementation),
+        (connection, name) => {
+            log(`${name} DBus Name Acquired`);
+            data.dbusConnectionName = name;
+        },
+        (connection, name) => {
+            log(`${name} DBus and Name Lost`);
+            data.dbusConnectionName = null;
+        }
+    );
+    return ID;
+}
+
 
 /**
  * Start stop the  Dbus Service with screen locks and unlocks
  *
  * @param {GObject} connection the Dbus Connection
- * @param sender
- * @param path
- * @param iface
- * @param signal
- * @param params
+ * @param {string} sender the numeric Dbus Sender address
+ * @param {string} path the Dbus Sender path
+ * @param {string} iface the Sender Dbus interface
+ * @param {string} signal the signal name
+ * @param {GLib.variant} params the GLib.variant with parameters
  */
 function onActiveChanged(connection, sender, path, iface, signal, params) {
     const value = params.get_child_value(0);
@@ -239,21 +238,10 @@ function onActiveChanged(connection, sender, path, iface, signal, params) {
         if (data.dbusConnectionId) {
             Gio.bus_unown_name(data.dbusConnectionId);
             data.dbusConnectionId = 0;
+            log(`${data.dbusConnectionName} DBus Name Relenquished`);
         }
     } else if (!data.dbusConnectionId || !data.dbusConnectionName) {
-        data.dbusConnectionId = Gio.bus_own_name(
-            Gio.BusType.SESSION,
-            'com.desktop.dingextension',
-            Gio.BusNameOwnerFlags.NONE,
-            onBusAcquired.bind(dingExtensionServiceImplementation),
-            (dbusConnection, name) => {
-                log(name);
-                data.dbusConnectionName = name;
-            },
-            () => {
-                data.dbusConnectionName = null;
-            }
-        );
+        data.dbusConnectionId = acquireDBusName();
     }
 }
 
@@ -261,7 +249,7 @@ function onActiveChanged(connection, sender, path, iface, signal, params) {
  * Start the Dbus Service
  *
  * @param {GObject} connection the Dbus Connection
- * param {string} name the name
+ *
  */
 function onBusAcquired(connection) {
     if (data.dbusConnectionName)
