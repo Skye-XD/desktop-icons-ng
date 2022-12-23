@@ -19,7 +19,7 @@
 
 imports.gi.versions.Gtk = '4.0';
 
-const { GLib, Gtk, GObject, Gio } = imports.gi;
+const { GLib, Gtk, GObject, Gio, Gdk } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 
 const Gettext = imports.gettext;
@@ -31,6 +31,7 @@ var Preferences = class {
         this._extensionPath = Data.codePath;
         this._Enums = Data.Enums;
         let schemaSource = GioSSS.get_default();
+        this._desktopManager = null;
 
         // Gtk
         let schemaGtk = schemaSource.lookup(this._Enums.SCHEMA_GTK, true);
@@ -43,8 +44,6 @@ var Preferences = class {
             this.CLICK_POLICY_SINGLE = false;
         } else {
             this.nautilusSettings = new Gio.Settings({ settings_schema: schemaObj });
-            this.nautilusSettings.connect('changed', this._onNautilusSettingsChanged.bind(this));
-            this._onNautilusSettingsChanged();
         }
 
         // Compression
@@ -64,10 +63,6 @@ var Preferences = class {
         // Our Settings
         this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
         this._cacheInitialSettings();
-    }
-
-    _onNautilusSettingsChanged() {
-        this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
     }
 
     _get_schema(schema) {
@@ -95,7 +90,7 @@ var Preferences = class {
         this._updateIconSize();
         this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
         this._UnstackList = this.desktopSettings.get_strv('unstackedtypes');
-        this.SortOrder = this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+        this.sortOrder = this.desktopSettings.get_enum(this._Enums.SortOrder.ORDER);
         this.addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
         this.showHidden = this.gtkSettings.get_boolean('show-hidden');
         this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
@@ -106,7 +101,8 @@ var Preferences = class {
         this.keepArranged = this.desktopSettings.get_boolean('keep-arranged');
         this.sortSpecialFolders = this.desktopSettings.get_boolean('sort-special-folders');
         this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
-        this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
+        this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
+        this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
     }
 
     getPreferencesFrame() {
@@ -127,9 +123,13 @@ var Preferences = class {
         this._desktopManager = desktopManager;
         this._monitorDesktopSettings();
     }
-        
+
     _monitorDesktopSettings() {
-        this._settingsId = this.desktopSettings.connect('changed', (obj, key) => {
+        if (!this._desktopManager)
+            return;
+
+        // Desktop Settings
+        this.desktopSettings.connect('changed', (obj, key) => {
             if (key === 'dark-text-in-labels')  {
                 this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
                 this._desktopManager._updateDesktop().catch(e => {
@@ -139,7 +139,7 @@ var Preferences = class {
             }
             if (key === 'show-link-emblem') {
                 this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
-                this.desktopManager._updateDesktop().catch(e => {
+                this._desktopManager._updateDesktop().catch(e => {
                     print(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
@@ -165,9 +165,10 @@ var Preferences = class {
                 this._desktopManager.onIconSizeChanged();
                 return;
             }
-            if (key === this.Enums.SortOrder.ORDER) {
-                this.SortOrder = this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
+            if (key === this._Enums.SortOrder.ORDER) {
+                this.sortOrder = this.desktopSettings.get_enum(this._Enums.SortOrder.ORDER);
                 this._desktopManager.onSortOrderChanged();
+                return;
             }
             if (key === 'unstackedtypes') {
                 this._UnstackList = this.desktopSettings.get_strv('unstackedtypes');
@@ -180,69 +181,54 @@ var Preferences = class {
                 return;
             }
             if (key === 'keep-arranged') {
-                this.keepArranged = this.Prefs.desktopSettings.get_boolean('keep-arranged');
-                if (this.keepArranged)
-                    this.doSorts({ redisplay: true });
-
+                this.keepArranged = this.desktopSettings.get_boolean('keep-arranged');
+                this._desktopManager.onKeepArrangedChanged();
                 return;
             }
             if (key === 'show-drop-place') {
-                this.showDropPlace = this.Prefs.desktopSettings.get_boolean('show-drop-place');
+                this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
                 return;
             }
             if (key === 'start-corner')
-                this.Prefs.updateStartCorner();
-            this._updateDesktop().catch(e => {
-                print(`Exception while updating desktop after the settings changed: ${e.message}\n${e.stack}`);
-            });
+                this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
+            this._desktopManager.onSettingsChanged();
         });
-        this.Prefs.gtkSettings.connect('changed', (obj, key) => {
+
+        // Gtk Settings
+        this.gtkSettings.connect('changed', (obj, key) => {
             if (key === 'show-hidden') {
-                this._showHidden = this.Prefs.gtkSettings.get_boolean('show-hidden');
-                this._updateDesktop().catch(e => {
-                    print(`Exception while updating desktop after the hidden settings changed: ${e.message}\n${e.stack}`);
-                });
-                this.templatesMonitor.updateEntries();
+                this.showHidden = this.gtkSettings.get_boolean('show-hidden');
+                this._desktopManager.onGtkSettingsChanged();
             }
         });
-        this.Prefs.nautilusSettings.connect('changed', (obj, key) => {
+
+        // Gnome Files Settings
+        this.nautilusSettings.connect('changed', (obj, key) => {
             if (key === 'show-image-thumbnails') {
-                this._updateDesktop().catch(e => {
-                    print(`Exception while updating Desktop after the GNOME Files settings changed: ${e.message}\n${e.stack}`);
-                });
+                this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
+                this._desktopManager.onGnomeFilesSettingsChanged();
+                return;
             }
+            if (key === 'click-policy')
+                this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
         });
+
+        // Icon Theme Changes
         this._gtkIconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         this._gtkIconTheme.connect('changed', () => {
-            this._updateDesktop().catch(e => {
-                print(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
-            });
+            this._desktopManager.onGtkIconThemeChange();
         });
-        this._volumeMonitor = Gio.VolumeMonitor.get();
-        this._volumeMonitor.connect('mount-added', () => {
-            this._updateDesktop().catch(e => {
-                print(`Exception while updating Desktop after a mount was added: ${e.message}\n${e.stack}`);
-            });
-        });
-        this._volumeMonitor.connect('mount-removed', () => GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
-            this._updateDesktop().catch(e => {
-                print(`Exception while updating desktop after a mount was removed: ${e.message}\n${e.stack}`);
-            });
-            return GLib.SOURCE_REMOVE;
-        }));
-        this.Prefs.mutterSettings.connect('changed', () => {
-            this._getPremultiplied();
-            for (let desktop of this._desktops)
-                desktop._premultiplied = this._premultiplied;
-            this._requestGeometryUpdate();
+
+        // Mutter settings
+        this.mutterSettings.connect('changed', () => {
+            this._desktopManager.onMutterSettingsChanged();
         });
     }
 
     // Setters
     set SortOrder(order) {
         this._sortOrder = order;
-        let x = Object.values(this._Enums.SortOrder).indexOf(order);
-        this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, x);
+        this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, order);
     }
 
     set UnstackList(array) {

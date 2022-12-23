@@ -465,7 +465,7 @@ var DesktopGrid = class {
             let filesMove = drop.get_formats().match(fileItemAcceptFormats);
 
             if (fileItem) {
-                if (this._desktopManager.showDropPlace)
+                if (this.Prefs.showDropPlace)
                     fileItemDropZone = true;
                 else if (dropRectangle.intersect(fileItem.iconRectangle)[0] || dropRectangle.intersect(fileItem.labelRectangle)[0])
                     fileItemDropZone = true;
@@ -492,8 +492,8 @@ var DesktopGrid = class {
 
             if (desktopDropZone) {
                 if (desktopMove) {
-                    if (this._desktopManager.keepArranged || this._desktopManager.keepStacked) {
-                        if (this._desktopManager.sortSpecialFolders)
+                    if (this.Prefs.keepArranged || this.Prefs.keepStacked) {
+                        if (this.Prefs.sortSpecialFolders)
                             return false;
                         else if (this._desktopManager.getCurrentSelection().filter(f => !f.isSpecial).length >= 1)
                             return false;
@@ -525,7 +525,7 @@ var DesktopGrid = class {
             let readFormat = Gdk.FileList.$gtype;
 
             if (fileItem) {
-                if (this._desktopManager.showDropPlace)
+                if (this.Prefs.showDropPlace)
                     fileItemDropZone = true;
                 else if (dropRectangle.intersect(fileItem.iconRectangle)[0] || dropRectangle.intersect(fileItem.labelRectangle)[0])
                     fileItemDropZone = true;
@@ -578,7 +578,7 @@ var DesktopGrid = class {
                 let pointerRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
                 if (fileItem && fileItem.dropCapable) {
                     this._desktopManager.unHighLightDropTarget();
-                    if (this._desktopManager.showDropPlace)
+                    if (this.Prefs.showDropPlace)
                         fileItem.highLightDropTarget();
                     else if (pointerRectangle.intersect(fileItem.iconRectangle)[0] || pointerRectangle.intersect(fileItem.labelRectangle)[0])
                         fileItem.highLightDropTarget();
@@ -797,7 +797,7 @@ var DesktopGrid = class {
             );
             cr.stroke();
         }
-        if (this._desktopManager.showDropPlace && (this._selectedList !== null)) {
+        if (this.Prefs.showDropPlace && (this._selectedList !== null)) {
             for (let [x, y] of this._selectedList) {
                 cr.rectangle(x + 0.5, y + 0.5, this._elementWidth, this._elementHeight);
                 Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({

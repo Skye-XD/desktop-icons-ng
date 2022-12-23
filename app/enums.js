@@ -73,11 +73,11 @@ var WhatToDoWithExecutable = {
 
 var SortOrder = {
     ORDER: 'arrangeorder',
-    NAME: 'name',
-    DESCENDINGNAME: 'descendingname',
-    MODIFIEDTIME: 'modifiedtime',
-    KIND: 'kind',
-    SIZE: 'size',
+    NAME: 1,
+    DESCENDINGNAME: 2,
+    MODIFIEDTIME: 3,
+    KIND: 4,
+    SIZE: 5,
 };
 
 var CompressionType = {

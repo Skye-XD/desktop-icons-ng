@@ -432,7 +432,7 @@ var FileItemMenu = class {
 
     _onShowInFilesClicked() {
         let showInFilesList = this._desktopManager.getCurrentSelection(true);
-        if (this._desktopManager.useNemo) {
+        if (this.Prefs.useNemo) {
             try {
                 for (let element of showInFilesList)
                     this.DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', element], this.DesktopIconsUtil.getFilteredEnviron());

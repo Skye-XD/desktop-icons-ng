@@ -109,6 +109,7 @@ var DesktopManager = class {
         this._updateWritableByOthers().catch(e => logError(e));
         this._monitorDesktopChanges();
         this.Prefs.init(this);
+        this._monitorVolumes();
 
         // create grid windows
         this._getPremultiplied();
@@ -301,7 +302,7 @@ var DesktopManager = class {
         const name = this.DesktopIconsUtil.getFileExtensionOffset(fileinfo.get_name()).basename;
         const hiddenfile = name.substring(0, 1) === '.';
 
-        if (!this._showHidden && hiddenfile)
+        if (!this.Prefs.showHidden && hiddenfile)
             return null;
 
         return name;
@@ -523,7 +524,7 @@ var DesktopManager = class {
     }
 
     async clearFileCoordinates(fileList, dropCoordinates, opts = { doCopy: false }) {
-        if (this.keepArranged || this.keepStacked)
+        if (this.Prefs.keepArranged || this.Prefs.keepStacked)
             return;
 
         this._pendingDropFiles = {};
@@ -559,8 +560,8 @@ var DesktopManager = class {
     }
 
     doMoveWithDragAndDrop(xOrigin, yOrigin, xDestination, yDestination) {
-        let keepArranged = this.keepArranged || this.keepStacked;
-        if (this.sortSpecialFolders && keepArranged)
+        let keepArranged = this.Prefs.keepArranged || this.Prefs.keepStacked;
+        if (this.Prefs.sortSpecialFolders && keepArranged)
             return;
 
         let deltaX = xDestination - xOrigin;
@@ -1386,7 +1387,7 @@ var DesktopManager = class {
 
         let showHideHiddenFiles = Gio.SimpleAction.new('showHideHiddenFiles', null);
         showHideHiddenFiles.connect('activate', () => {
-            this.Prefs.gtkSettings.set_boolean('show-hidden', !this._showHidden);
+            this.Prefs.gtkSettings.set_boolean('show-hidden', !this.Prefs.showHidden);
         });
         this.mainApp.add_action(showHideHiddenFiles);
         this.mainApp.set_accels_for_action('app.showHideHiddenFiles', ['<Control>H']);
@@ -1480,7 +1481,7 @@ var DesktopManager = class {
 
         this.sortingSubMenu = Gio.Menu.new();
         this.keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
-        if (!this.keepStacked)
+        if (!this.Prefs.keepStacked)
             this.sortingSubMenu.append_item(this.keepArrangedMenuItem);
 
         this.sortingSubMenu.append(_('Keep Stacked by Type…'), 'app.keep-stacked');
@@ -1510,7 +1511,7 @@ var DesktopManager = class {
 
         this.sortingMenu = Gio.Menu.new();
         this.cleanUpMenuItem = Gio.MenuItem.new(_('Arrange Icons'), 'app.cleanUpIcons');
-        if (!this.keepStacked)
+        if (!this.Prefs.keepStacked)
             this.sortingMenu.append_item(this.cleanUpMenuItem);
 
         this.arrangeSubMenuItem = Gio.MenuItem.new_submenu(_('Arrange By…'), this.sortingSubMenu);
@@ -1917,7 +1918,7 @@ var DesktopManager = class {
                         info,
                         this.Enums.FileType.NONE,
                         null);
-                    if (fileItem.isHidden && !this._showHidden) {
+                    if (fileItem.isHidden && !this.Prefs.showHidden) {
                         /* if there are hidden files in the desktop and the user doesn't want to
                             show them, remove the coordinates. This ensures that if the user enables
                             showing them, they won't fight with other icons for the same place
@@ -2064,9 +2065,9 @@ var DesktopManager = class {
     }
 
     _placeAllFilesOnGrids(opts = { redisplay: false }) {
-        if (this.keepStacked)
+        if (this.Prefs.keepStacked)
             this.doStacks(opts);
-        else if (this.keepArranged)
+        else if (this.Prefs.keepArranged)
             this.doSorts(opts);
         else
             this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
@@ -2210,7 +2211,7 @@ var DesktopManager = class {
         if (this._desktops.length === 1)
             return this._desktops[0];
 
-        if (!this.showOnSecondaryMonitor) {
+        if (!this.Prefs.showOnSecondaryMonitor) {
             if (this._primaryScreen)
                 return this._desktops[this._primaryIndex];
             else
@@ -2255,7 +2256,7 @@ var DesktopManager = class {
             // use only CHANGES_DONE_HINT
             return;
         }
-        if (!this._showHidden && (file.get_basename()[0] === '.')) {
+        if (!this.Prefs.showHidden && (file.get_basename()[0] === '.')) {
             // If the file is not visible, we don't need to refresh the desktop
             // Unless it is a hidden file being renamed to visible
             if (!otherFile || (otherFile.get_basename()[0] === '.'))
@@ -2620,7 +2621,7 @@ var DesktopManager = class {
                 this.sortingSubMenu.prepend_item(this.keepArrangedMenuItem);
                 this.sortingMenu.prepend_item(this.cleanUpMenuItem);
             }
-            if (this.keepArranged)
+            if (this.Prefs.keepArranged)
                 this.doSorts();
             else
                 this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
@@ -2773,7 +2774,7 @@ var DesktopManager = class {
         otherFiles.push(...directoryFiles);
         otherFiles.push(...stackTopMarkerFolderList);
 
-        switch (this.Prefs.SortOrder) {
+        switch (this.Prefs.sortOrder) {
         case this.Enums.SortOrder.NAME:
             this._sortByName(otherFiles);
             break;
@@ -2849,7 +2850,7 @@ var DesktopManager = class {
     }
 
     _sortAllFilesFromGridsByPosition() {
-        if (this.keepArranged)
+        if (this.Prefs.keepArranged)
             return;
 
         this._fileList.map(f => f.removeFromGrid({ callOnDestroy: false }));
@@ -2971,7 +2972,7 @@ var DesktopManager = class {
     }
 
     _reassignFilesToDesktop() {
-        if (!this.sortSpecialFolders) {
+        if (!this.Prefs.sortSpecialFolders) {
             this._reassignFilesToDesktopPreserveSpecialFiles();
             return;
         }
@@ -3010,7 +3011,7 @@ var DesktopManager = class {
         if (opts.redisplay)
             this._fileList.map(f => f.removeFromGrid());
 
-        switch (this.Prefs.SortOrder) {
+        switch (this.Prefs.sortOrder) {
         case this.Enums.SortOrder.NAME:
             this._sortAllFilesFromGridsByName();
             break;
@@ -3032,33 +3033,98 @@ var DesktopManager = class {
         }
     }
 
+    _monitorVolumes() {
+        this._volumeMonitor = Gio.VolumeMonitor.get();
+        this._volumeMonitor.connect('mount-added', () => {
+            this.onMountAdded();
+        });
+        this._volumeMonitor.connect('mount-removed', () => {
+            GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+                this.onMountRemoved();
+                return GLib.SOURCE_REMOVE;
+            });
+        });
+    }
+
+    onMutterSettingsChanged() {
+        this._getPremultiplied();
+        for (let desktop of this._desktops)
+            desktop._premultiplied = this._premultiplied;
+        this._requestGeometryUpdate();
+    }
+
+    onSettingsChanged() {
+        this._updateDesktop().catch(e => {
+            print(`Exception while updating Desktop after the settings changed: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    onShowLinkEmblemschanged() {
+        this._desktopManager._updateDesktop().catch(e => {
+            print(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    onMountAdded() {
+        this._updateDesktop().catch(e => {
+            print(`Exception while updating Desktop after a mount was added: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    onMountRemoved() {
+        this._updateDesktop().catch(e => {
+            print(`Exception while updating Desktop after a mount was removed: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    onGtkIconThemeChange() {
+        this._updateDesktop().catch(e => {
+            print(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    onGnomeFilesSettingsChanged() {
+        this._updateDesktop().catch(e => {
+            print(`Exception while updating Desktop after the GNOME Files settings changed: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    onGtkSettingsChanged() {
+        this._updateDesktop().catch(e => {
+            print(`Exception while updating desktop after the hidden settings changed: ${e.message}\n${e.stack}`);
+        });
+        this.templatesMonitor.updateEntries();
+    }
+
+    onKeepArrangedChanged() {
+        if (this.Prefs.keepArranged)
+            this.doSorts({ redisplay: true });
+    }
+
     onUnstackedTypesChanged() {
-        this.Prefs.updateUnstackList();
-        if (this.keepStacked)
+        if (this.Prefs.keepStacked)
             this.doStacks({ redisplay: true });
     }
 
-    onkeepStackedChanged(){
-        if (!this.keepStacked)
+    onkeepStackedChanged() {
+        if (!this.Prefs.keepStacked)
             this._unstack();
         else
             this.doStacks({ redisplay: true });
     }
 
     onSortOrderChanged() {
-        if (this.keepStacked)
+        if (this.Prefs.keepStacked)
             this.doStacks({ redisplay: true });
         else
             this.doSorts({ redisplay: true });
-
-        return;
     }
-    
+
     onIconSizeChanged() {
         this._fileList.forEach(x => x.removeFromGrid());
         for (let desktop of this._desktops)
             desktop.resizeGrid();
-    
+
         this._fileList.forEach(x => x.updateIcon());
         this._placeAllFilesOnGrids({ redisplay: true });
     }
