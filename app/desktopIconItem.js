@@ -111,7 +111,7 @@ var desktopIconItem = class desktopIconItem {
         this._label = new Gtk.Label();
         this._labelContainer = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER });
         let labelStyleContext = this._label.get_style_context();
-        if (this._desktopManager.darkText)
+        if (this.Prefs.darkText)
             labelStyleContext.add_class('file-label-dark');
         else
             labelStyleContext.add_class('file-label');
@@ -489,7 +489,7 @@ var desktopIconItem = class desktopIconItem {
 
         let iconSet = false;
 
-        if (this.Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never') {
+        if (this.Prefs.showImageThumbnails) {
             try {
                 const thumbnail = await this._desktopManager.thumbnailLoader.getThumbnail(
                     this, cancellable);
@@ -506,7 +506,7 @@ var desktopIconItem = class desktopIconItem {
         }
 
         if (!iconSet &&
-            this.Prefs.nautilusSettings.get_string('show-image-thumbnails') !== 'never' &&
+            this.Prefs.showImageThumbnails &&
             this.fileSize < 5242880 &&
             PIXBUF_CONTENT_TYPES.has(this._fileInfo.get_content_type())) {
             try {
@@ -549,8 +549,8 @@ var desktopIconItem = class desktopIconItem {
         try {
             const [thumbnailData] = await imageFile.load_bytes_async(cancellable);
             const iconTexture = Gdk.Texture.new_from_bytes(thumbnailData);
-            let width = this.Prefs.getDesiredWidth() - 8;
-            let height = this.Prefs.getIconSize() - 8;
+            let width = this.Prefs.DesiredWidth - 8;
+            let height = this.Prefs.IconSize - 8;
             const aspectRatio = iconTexture.width / iconTexture.height;
             if ((width / height) > aspectRatio)
                 width = height * aspectRatio;
@@ -577,7 +577,7 @@ var desktopIconItem = class desktopIconItem {
         if (this._isDesktopFile && (!this._isValidDesktopFile || !this.trustedDesktopFile))
             emblem = Gio.ThemedIcon.new('emblem-unreadable');
 
-        if (this._isSymlink && (this._desktopManager.showLinkEmblem || this._isBrokenSymlink)) {
+        if (this._isSymlink && (this.Prefs.showLinkEmblem || this._isBrokenSymlink)) {
             if (this._isBrokenSymlink)
                 emblem = Gio.ThemedIcon.new('emblem-unreadable');
             else
@@ -589,7 +589,7 @@ var desktopIconItem = class desktopIconItem {
 
         if (emblem) {
             const scale = this._icon.get_scale_factor();
-            let finalSize = Math.floor(this.Prefs.getIconSize() / 3) * scale;
+            let finalSize = Math.floor(this.Prefs.IconSize / 3) * scale;
             let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
             let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
             let emblemSnapshot = Gtk.Snapshot.new();
@@ -620,9 +620,9 @@ var desktopIconItem = class desktopIconItem {
         const scale = this._icon.get_scale_factor();
         let iconPaintable = null;
         try {
-            iconPaintable = theme.lookup_by_gicon(icon, this.Prefs.getIconSize(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            iconPaintable = theme.lookup_by_gicon(icon, this.Prefs.IconSize, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
         } catch (e) {
-            iconPaintable = theme.lookup_icon('text-x-generic', [], this.Prefs.getIconSize(), scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            iconPaintable = theme.lookup_icon('text-x-generic', [], this.Prefs.IconSize, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
         }
         return this._addEmblemsToIconIfNeeded(iconPaintable);
     }

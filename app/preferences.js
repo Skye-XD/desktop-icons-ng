@@ -19,7 +19,7 @@
 
 imports.gi.versions.Gtk = '4.0';
 
-const { GLib, Gtk, GObject, Gio } = imports.gi;
+const { GLib, Gtk, GObject, Gio, Gdk } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 
 const Gettext = imports.gettext;
@@ -31,34 +31,38 @@ var Preferences = class {
         this._extensionPath = Data.codePath;
         this._Enums = Data.Enums;
         let schemaSource = GioSSS.get_default();
+        this._desktopManager = null;
+
+        // Gtk
         let schemaGtk = schemaSource.lookup(this._Enums.SCHEMA_GTK, true);
         this.gtkSettings = new Gio.Settings({ settings_schema: schemaGtk });
+
+        // Gnome Files
         let schemaObj = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS, true);
         if (!schemaObj) {
             this.nautilusSettings = null;
             this.CLICK_POLICY_SINGLE = false;
         } else {
             this.nautilusSettings = new Gio.Settings({ settings_schema: schemaObj });
-            this.nautilusSettings.connect('changed', this._onNautilusSettingsChanged.bind(this));
-            this._onNautilusSettingsChanged();
         }
+
+        // Compression
         const compressionSchema = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS_COMPRESSION, true);
         if (!compressionSchema)
             this.nautilusCompression = null;
         else
             this.nautilusCompression = new Gio.Settings({ settings_schema: compressionSchema });
 
-        this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
-
+        // Mutter Settings
         let schemaMutter = schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
         if (schemaMutter)
             this.mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
 
         this._preferencesFrame = new Data.PreferencesFrame.PreferencesFrame(Gtk, GObject, this.desktopSettings, this.nautilusSettings, this.gtkSettings, _);
-    }
 
-    _onNautilusSettingsChanged() {
-        this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
+        // Our Settings
+        this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
+        this._cacheInitialSettings();
     }
 
     _get_schema(schema) {
@@ -82,40 +86,164 @@ var Preferences = class {
         return new Gio.Settings({ settings_schema: schemaObj });
     }
 
+    _cacheInitialSettings() {
+        this._updateIconSize();
+        this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
+        this._UnstackList = this.desktopSettings.get_strv('unstackedtypes');
+        this.sortOrder = this.desktopSettings.get_enum(this._Enums.SortOrder.ORDER);
+        this.addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
+        this.showHidden = this.gtkSettings.get_boolean('show-hidden');
+        this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
+        this.useNemo = this.desktopSettings.get_boolean('use-nemo');
+        this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
+        this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
+        this.keepStacked = this.desktopSettings.get_boolean('keep-stacked');
+        this.keepArranged = this.desktopSettings.get_boolean('keep-arranged');
+        this.sortSpecialFolders = this.desktopSettings.get_boolean('sort-special-folders');
+        this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
+        this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
+        this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
+    }
+
     getPreferencesFrame() {
-        return this._preferencesFrame.getFrame();
+        this.PrefrencesFrame = this._preferencesFrame.getFrame();
+        return this.PreferencesFrame;
     }
 
-    getIconSize() {
-        return this._Enums.ICON_SIZE[this.desktopSettings.get_string('icon-size')];
+    // Updaters
+    _updateIconSize() {
+        let iconSize = this.desktopSettings.get_string('icon-size');
+        this.IconSize = this._Enums.ICON_SIZE[iconSize];
+        this.DesiredWidth = this._Enums.ICON_WIDTH[iconSize];
+        this.DesiredHeight = this._Enums.ICON_HEIGHT[iconSize];
     }
 
-    getDesiredWidth() {
-        return this._Enums.ICON_WIDTH[this.desktopSettings.get_string('icon-size')];
+    // Monitoring
+    init(desktopManager) {
+        this._desktopManager = desktopManager;
+        this._monitorDesktopSettings();
     }
 
-    getDesiredHeight() {
-        return this._Enums.ICON_HEIGHT[this.desktopSettings.get_string('icon-size')];
+    _monitorDesktopSettings() {
+        if (!this._desktopManager)
+            return;
+
+        // Desktop Settings
+        this.desktopSettings.connect('changed', (obj, key) => {
+            if (key === 'dark-text-in-labels')  {
+                this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
+                this._desktopManager._updateDesktop().catch(e => {
+                    print(`Exception while updating desktop after "Dark Text" changed: ${e.message}\n${e.stack}`);
+                });
+                return;
+            }
+            if (key === 'show-link-emblem') {
+                this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
+                this._desktopManager._updateDesktop().catch(e => {
+                    print(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
+                });
+                return;
+            }
+            if (key === 'use-nemo') {
+                this.useNemo = this.desktopSettings.get_boolean('use-nemo');
+                return;
+            }
+            if (key === 'sort-special-folders') {
+                this.sortSpecialFolders = this.desktopSettings.get_boolean('sort-special-folders');
+                return;
+            }
+            if (key === 'add-volumes-opposite') {
+                this.addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
+                return;
+            }
+            if (key === 'show-second-monitor') {
+                this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
+                return;
+            }
+            if (key === 'icon-size') {
+                this._updateIconSize();
+                this._desktopManager.onIconSizeChanged();
+                return;
+            }
+            if (key === this._Enums.SortOrder.ORDER) {
+                this.sortOrder = this.desktopSettings.get_enum(this._Enums.SortOrder.ORDER);
+                this._desktopManager.onSortOrderChanged();
+                return;
+            }
+            if (key === 'unstackedtypes') {
+                this._UnstackList = this.desktopSettings.get_strv('unstackedtypes');
+                this._desktopManager.onUnstackedTypesChanged();
+                return;
+            }
+            if (key === 'keep-stacked') {
+                this.keepStacked = this.desktopSettings.get_boolean('keep-stacked');
+                this._desktopManager.onkeepStackedChanged();
+                return;
+            }
+            if (key === 'keep-arranged') {
+                this.keepArranged = this.desktopSettings.get_boolean('keep-arranged');
+                this._desktopManager.onKeepArrangedChanged();
+                return;
+            }
+            if (key === 'show-drop-place') {
+                this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
+                return;
+            }
+            if (key === 'start-corner')
+                this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
+            this._desktopManager.onSettingsChanged();
+        });
+
+        // Gtk Settings
+        this.gtkSettings.connect('changed', (obj, key) => {
+            if (key === 'show-hidden') {
+                this.showHidden = this.gtkSettings.get_boolean('show-hidden');
+                this._desktopManager.onGtkSettingsChanged();
+            }
+        });
+
+        // Gnome Files Settings
+        this.nautilusSettings.connect('changed', (obj, key) => {
+            if (key === 'show-image-thumbnails') {
+                this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
+                this._desktopManager.onGnomeFilesSettingsChanged();
+                return;
+            }
+            if (key === 'click-policy')
+                this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
+        });
+
+        // Icon Theme Changes
+        this._gtkIconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        this._gtkIconTheme.connect('changed', () => {
+            this._desktopManager.onGtkIconThemeChange();
+        });
+
+        // Mutter settings
+        this.mutterSettings.connect('changed', () => {
+            this._desktopManager.onMutterSettingsChanged();
+        });
     }
 
-    getStartCorner() {
-        return this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')].slice();
+    // Setters
+    set SortOrder(order) {
+        this._sortOrder = order;
+        this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, order);
     }
 
-    getSortOrder() {
-        return this._Enums.SortOrder[this.desktopSettings.get_string(this._Enums.SortOrder.ORDER)];
-    }
-
-    setSortOrder(order) {
-        let x = Object.values(this._Enums.SortOrder).indexOf(order);
-        this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, x);
-    }
-
-    getUnstackList() {
-        return this.desktopSettings.get_strv('unstackedtypes');
-    }
-
-    setUnstackList(array) {
+    set UnstackList(array) {
+        this._UnstackList = array;
         this.desktopSettings.set_strv('unstackedtypes', array);
+    }
+
+    // Getters
+    get StartCorner() {
+        // Return a shallow copy that can be mutated without affecting other icons with cornerinversion in DesktopGrid
+        return [...this._StartCorner];
+    }
+
+    get UnstackList() {
+        // Return a shallow copy that can be mutated without affecting the original
+        return [...this._UnstackList];
     }
 };
