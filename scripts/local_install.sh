@@ -2,13 +2,10 @@
 
 rm -rf ~/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/*
 rm -rf .build
-rm -f ./meson.build
 mkdir .build
-cp scripts/meson.build ./
 meson setup --prefix=$HOME/.local/ --localedir=share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/locale ./ .build
 ninja -C .build install
 rm -rf .build
-rm -f ./meson.build
 
 if [ -f /etc/lsb-release ]; then
     . /etc/lsb-release

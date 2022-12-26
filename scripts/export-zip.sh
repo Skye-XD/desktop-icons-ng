@@ -35,7 +35,7 @@ fi
 echo "# -------------------"
 echo "# Buiding with meson"
 echo "# -------------------"
-cp scripts/meson.build ./
+
 meson --prefix="${LOCAL_PREFIX}" --localedir=locale "${BUILD_DIR}" "${REPO_DIR}"
 ninja -C "${BUILD_DIR}" install
 
@@ -55,4 +55,3 @@ cd "${REPO_DIR}" || exit
 
 # Clean
 rm -rf "${BUILD_DIR}" "${LOCAL_PREFIX}"
-rm meson.build
