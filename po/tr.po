@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-29 10:36-0400\n"
+"POT-Creation-Date: 2022-12-26 18:08-0500\n"
 "PO-Revision-Date: 2021-10-12 00:28+0300\n"
 "Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
 "Language-Team: Turkish <developer@pardus.org.tr>\n"
@@ -32,7 +32,7 @@ msgstr "Klasör adı"
 msgid "File name"
 msgstr "Dosya adı"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1218
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1217
 msgid "OK"
 msgstr "Tamam"
 
@@ -60,8 +60,8 @@ msgstr "Buraya Çıkar"
 msgid "Compressing files"
 msgstr "{0} dosyayı sıkıştır"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:782
-#: app/desktopManager.js:1220 app/fileItemMenu.js:518
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:781
+#: app/desktopManager.js:1219 app/fileItemMenu.js:518
 msgid "Cancel"
 msgstr "İptal"
 
@@ -168,165 +168,171 @@ msgstr ""
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
 
-#: app/desktopManager.js:252
-msgid "Nautilus File Manager not found"
+#: app/desktopManager.js:130
+#, fuzzy
+#| msgid "Nautilus File Manager not found"
+msgid "GNOME Files not found"
 msgstr "Nautilus dosya yöneticisi bulunamadı"
 
-#: app/desktopManager.js:253
-msgid "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
-msgstr "Nautilus dosya yöneticisi olmadan bu eklenti bir işe yaramaz"
+#: app/desktopManager.js:131
+msgid "The GNOME Files application is required by Desktop Icons NG."
+msgstr ""
 
-#: app/desktopManager.js:779
+#: app/desktopManager.js:778
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:780 app/fileItemMenu.js:302
+#: app/desktopManager.js:779 app/fileItemMenu.js:302
 msgid "Copy"
 msgstr "Kopyala"
 
-#: app/desktopManager.js:781
+#: app/desktopManager.js:780
 msgid "Link"
 msgstr ""
 
-#: app/desktopManager.js:784
+#: app/desktopManager.js:783
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Dosyalarʼda Göster"
 
-#: app/desktopManager.js:853 app/desktopManager.js:885
+#: app/desktopManager.js:852 app/desktopManager.js:884
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:854 app/desktopManager.js:886
-msgid "Error while trying to create a symbolic Link"
+#: app/desktopManager.js:853 app/desktopManager.js:885
+msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/desktopManager.js:1176
-msgid "Clear Current Selection before New Search"
+#: app/desktopManager.js:1175
+#, fuzzy
+#| msgid "Clear Current Selection before New Search"
+msgid "Clear current selection before new search"
 msgstr "Yeni Aramadan Önce Mevcut Seçimi Temizle"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1221
 msgid "Find Files on Desktop"
 msgstr "Masaüstündeki Dosyaları Bul"
 
+#: app/desktopManager.js:1476
+msgid "Name"
+msgstr ""
+
 #: app/desktopManager.js:1477
-msgid "Sort by Name"
-msgstr "Ada Göre Sırala"
+msgid "Name Z-A"
+msgstr ""
 
 #: app/desktopManager.js:1478
-msgid "Sort by Name Descending"
-msgstr "Azalan Şekilde Ada Göre Sırala"
-
-#: app/desktopManager.js:1479
-msgid "Sort by Modified Time"
+#, fuzzy
+#| msgid "Sort by Modified Time"
+msgid "Modified Time"
 msgstr "Değiştirilme Zamanına Göre Sırala"
 
+#: app/desktopManager.js:1479
+msgid "Type"
+msgstr ""
+
 #: app/desktopManager.js:1480
-msgid "Sort by Type"
-msgstr "Türe Göre Sırala"
+msgid "Size"
+msgstr ""
 
-#: app/desktopManager.js:1481
-msgid "Sort by Size"
-msgstr "Boyuta Göre Sırala"
-
-#: app/desktopManager.js:1484
+#: app/desktopManager.js:1483
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Düzenli Tut..."
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1487
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Türe Göre Yığılı Tut..."
 
-#: app/desktopManager.js:1489
+#: app/desktopManager.js:1488
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Evi/Sürücüleri/Çöp Kutusunu Sırala..."
 
-#: app/desktopManager.js:1494 app/desktopManager.js:2507
+#: app/desktopManager.js:1493 app/desktopManager.js:2502
 msgid "New Folder"
 msgstr "Yeni Klasör"
 
-#: app/desktopManager.js:1498
+#: app/desktopManager.js:1497
 msgid "New Document"
 msgstr "Yeni Belge"
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1501
 msgid "Paste"
 msgstr "Yapıştır"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1502
 msgid "Undo"
 msgstr "Geri Al"
 
-#: app/desktopManager.js:1504
+#: app/desktopManager.js:1503
 msgid "Redo"
 msgstr "Yinele"
 
-#: app/desktopManager.js:1509
+#: app/desktopManager.js:1508
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1513
 msgid "Arrange Icons"
 msgstr "Simgeleri Sırala"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Sırala..."
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1522
 #, fuzzy
-msgid "Show Desktop In Files"
+msgid "Show Desktop In GNOME Files"
 msgstr "Masaüstünü Dosyalarʼda Göster"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1523
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Uçbirimde Aç"
 
-#: app/desktopManager.js:1529
+#: app/desktopManager.js:1528
 msgid "Change Background…"
 msgstr "Arka Planı Değiştir…"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1533
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Masaüstü Simgeleri Ayarları"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1534
 msgid "Display Settings"
 msgstr "Görüntü Ayarları"
 
-#: app/desktopManager.js:1578
+#: app/desktopManager.js:1577
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopManager.js:1578
+#: app/desktopManager.js:1577
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopManager.js:1590
+#: app/desktopManager.js:1589
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: app/desktopManager.js:2530
+#: app/desktopManager.js:2525
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Klasör adı"
 
-#: app/desktopManager.js:2531
-msgid "Error while trying to create a Folder"
+#: app/desktopManager.js:2526
+msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2573
+#: app/desktopManager.js:2569
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2574
-msgid "Error while trying to create a Document"
+#: app/desktopManager.js:2570
+msgid "Could not create document"
 msgstr ""
 
 #: app/fileItem.js:135
@@ -562,12 +568,10 @@ msgid "Show the trash icon in the desktop"
 msgstr "Çöp kutusunu masaüstünde göster"
 
 #: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
 msgstr "Harici sürücüleri masaüstünde göster"
 
 #: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
 msgstr "Ağ sürücülerini masaüstünde göster"
 
@@ -596,7 +600,6 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
 #: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
 
@@ -605,7 +608,6 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Sürükle ve Bırak sırasında bırakma yerini vurgula"
 
 #: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Klasörleri açmak için Nemo kullan"
 
@@ -691,143 +693,110 @@ msgstr ""
 msgid "Command not found"
 msgstr "Komut Bulunamadı"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
-msgid "Icon size"
-msgstr "Simge boyutu"
+#~ msgid ""
+#~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
+#~ msgstr "Nautilus dosya yöneticisi olmadan bu eklenti bir işe yaramaz"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
-msgid "Set the size for the desktop icons."
-msgstr "Masaüstü simgelerinin boyutunu ayarla."
+#~ msgid "Sort by Name"
+#~ msgstr "Ada Göre Sırala"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
-msgid "Show personal folder"
-msgstr "Kişisel klasörü göster"
+#~ msgid "Sort by Name Descending"
+#~ msgstr "Azalan Şekilde Ada Göre Sırala"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
-msgid "Show the personal folder in the desktop."
-msgstr "Kişisel klasörü masaüstünde göster."
+#~ msgid "Sort by Type"
+#~ msgstr "Türe Göre Sırala"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
-msgid "Show trash icon"
-msgstr "Çöp kutusunu göster"
+#~ msgid "Sort by Size"
+#~ msgstr "Boyuta Göre Sırala"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
-msgid "Show the trash icon in the desktop."
-msgstr "Çöp kutusu simgesini masaüstünde göster."
+#~ msgid "Icon size"
+#~ msgstr "Simge boyutu"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
-msgid "New icons start corner"
-msgstr "Yeni simgelerin başlangıç köşesi"
+#~ msgid "Set the size for the desktop icons."
+#~ msgstr "Masaüstü simgelerinin boyutunu ayarla."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
-msgid "Set the corner from where the icons will start to be placed."
-msgstr "Simgelerin nereden itibaren hizalanacağını ayarla"
+#~ msgid "Show personal folder"
+#~ msgstr "Kişisel klasörü göster"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
-msgid "Show the disk drives connected to the computer."
-msgstr "Bilgisayara bağlı disk sürücülerini göster."
+#~ msgid "Show the personal folder in the desktop."
+#~ msgstr "Kişisel klasörü masaüstünde göster."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
-msgid "Show mounted network volumes in the desktop."
-msgstr "Masaüstünde bağlı ağ birimlerini göster."
+#~ msgid "Show trash icon"
+#~ msgstr "Çöp kutusunu göster"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
-"Masaüstüne sürücüler ve birimler eklerken, bunları ekranın karşı tarafına "
-"ekle."
+#~ msgid "Show the trash icon in the desktop."
+#~ msgstr "Çöp kutusu simgesini masaüstünde göster."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
-msgid "Shows a rectangle in the destination place during DnD"
-msgstr "DND sırasında hedef yerde bir dikdörtgen gösterir"
+#~ msgid "New icons start corner"
+#~ msgstr "Yeni simgelerin başlangıç köşesi"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"Bir Sürükle Bırak işlemi yaparken, simgenin yarı saydam bir dikdörtgenle "
-"yerleştirileceği ızgaradaki yeri işaretler."
+#~ msgid "Set the corner from where the icons will start to be placed."
+#~ msgstr "Simgelerin nereden itibaren hizalanacağını ayarla"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
-msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Özel Klasörleri Sırala - Ev/Çöp Sürücüler."
+#~ msgid "Show the disk drives connected to the computer."
+#~ msgstr "Bilgisayara bağlı disk sürücülerini göster."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"Masaüstündeki simgeleri düzenlerken, Ev, Çöp Kutusu ve takılı Ağ veya Harici "
-"Sürücülerin konumunu sıralamak ve değiştirmek için"
+#~ msgid "Show mounted network volumes in the desktop."
+#~ msgstr "Masaüstünde bağlı ağ birimlerini göster."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
-msgid "Keep Icons Arranged"
-msgstr "Simgeleri Düzenli Tut"
+#~ msgid ""
+#~ "When adding drives and volumes to the desktop, add them to the opposite "
+#~ "side of the screen."
+#~ msgstr ""
+#~ "Masaüstüne sürücüler ve birimler eklerken, bunları ekranın karşı tarafına "
+#~ "ekle."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
-msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "Simgeleri son sıralama düzenine göre daima düzenli tut"
+#~ msgid "Shows a rectangle in the destination place during DnD"
+#~ msgstr "DND sırasında hedef yerde bir dikdörtgen gösterir"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
-msgid "Arrange Order"
-msgstr "Sıralama Düzeni"
+#~ msgid ""
+#~ "When doing a Drag'n'Drop operation, marks the place in the grid where the "
+#~ "icon will be put with a semitransparent rectangle."
+#~ msgstr ""
+#~ "Bir Sürükle Bırak işlemi yaparken, simgenin yarı saydam bir dikdörtgenle "
+#~ "yerleştirileceği ızgaradaki yeri işaretler."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
-msgid "Icons Arranged by this property"
-msgstr "Simgeler bu düzene göre sıralandı"
+#~ msgid "Sort Special Folders - Home/Trash Drives."
+#~ msgstr "Özel Klasörleri Sırala - Ev/Çöp Sürücüler."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+#~ msgid ""
+#~ "When arranging Icons on desktop, to sort and change the position of the "
+#~ "Home, Trash and mounted Network or External Drives"
+#~ msgstr ""
+#~ "Masaüstündeki simgeleri düzenlerken, Ev, Çöp Kutusu ve takılı Ağ veya "
+#~ "Harici Sürücülerin konumunu sıralamak ve değiştirmek için"
+
+#~ msgid "Keep Icons Arranged"
+#~ msgstr "Simgeleri Düzenli Tut"
+
+#~ msgid "Always keep Icons Arranged by the last arranged order"
+#~ msgstr "Simgeleri son sıralama düzenine göre daima düzenli tut"
+
+#~ msgid "Arrange Order"
+#~ msgstr "Sıralama Düzeni"
+
+#~ msgid "Icons Arranged by this property"
+#~ msgstr "Simgeler bu düzene göre sıralandı"
+
 #, fuzzy
-msgid "Keep Icons Stacked"
-msgstr "Simgeleri Düzenli Tut"
+#~ msgid "Keep Icons Stacked"
+#~ msgstr "Simgeleri Düzenli Tut"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
-msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Simgeleri son sıralama düzenine göre daima düzenli tut"
+#~ msgid "Always keep Icons Stacked, Similar types are grouped"
+#~ msgstr "Simgeleri son sıralama düzenine göre daima düzenli tut"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
-msgid "Type of Files to not Stack"
-msgstr "Yığılı tutulmayacak dosyaların türü"
+#~ msgid "Type of Files to not Stack"
+#~ msgstr "Yığılı tutulmayacak dosyaların türü"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
+#~ msgid "Use Nemo instead of Nautilus to open folders."
+#~ msgstr "Klasörleri açmak için Nautilus yerine Nemo kullan."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Klasörleri açmak için Nautilus yerine Nemo kullan."
+#~ msgid "Add an emblem to links"
+#~ msgstr "Bağlantılara amblem ekle"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
-msgid "Add an emblem to links"
-msgstr "Bağlantılara amblem ekle"
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid "Add an emblem to allow to identify soft links."
-msgstr ""
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-msgid "Use black for label text"
-msgstr "Etiket metni için siyah kullan"
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-msgid "Show new icons on non primary monitor if connected"
-msgstr ""
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
+#~ msgid "Use black for label text"
+#~ msgstr "Etiket metni için siyah kullan"
 
 #~ msgid "Show Desktop in Files"
 #~ msgstr "Masaüstünü Dosyalarʼda Göster"

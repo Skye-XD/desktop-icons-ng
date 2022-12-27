@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-29 10:36-0400\n"
+"POT-Creation-Date: 2022-12-26 18:08-0500\n"
 "PO-Revision-Date: 2022-03-17 16:16+0100\n"
 "Last-Translator: Sergio Costas <rastersoft@gmail.com>\n"
 "Language-Team: Español; Castellano <rastersoft@gmail.com>\n"
@@ -28,7 +28,7 @@ msgstr "Nombre de la carpeta"
 msgid "File name"
 msgstr "Nombre de archivo"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1218
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1217
 msgid "OK"
 msgstr "Aceptar"
 
@@ -56,8 +56,8 @@ msgstr "Extraer aquí"
 msgid "Compressing files"
 msgstr "Comprimir {0} archivo"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:782
-#: app/desktopManager.js:1220 app/fileItemMenu.js:518
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:781
+#: app/desktopManager.js:1219 app/fileItemMenu.js:518
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -165,168 +165,172 @@ msgstr ""
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
 
-#: app/desktopManager.js:252
-msgid "Nautilus File Manager not found"
+#: app/desktopManager.js:130
+#, fuzzy
+#| msgid "Nautilus File Manager not found"
+msgid "GNOME Files not found"
 msgstr "No se encontró el Gestor de ficheros Nautilus"
 
-#: app/desktopManager.js:253
-msgid "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
+#: app/desktopManager.js:131
+msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr ""
-"El gestor de ficheros Nautilus es necesario para que Desktop Icons NG "
-"funcione."
 
-#: app/desktopManager.js:779
+#: app/desktopManager.js:778
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:780 app/fileItemMenu.js:302
+#: app/desktopManager.js:779 app/fileItemMenu.js:302
 msgid "Copy"
 msgstr "Copiar"
 
-#: app/desktopManager.js:781
+#: app/desktopManager.js:780
 msgid "Link"
 msgstr ""
 
-#: app/desktopManager.js:784
+#: app/desktopManager.js:783
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Mostrar en Files"
 
-#: app/desktopManager.js:853 app/desktopManager.js:885
+#: app/desktopManager.js:852 app/desktopManager.js:884
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:854 app/desktopManager.js:886
-msgid "Error while trying to create a symbolic Link"
+#: app/desktopManager.js:853 app/desktopManager.js:885
+msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/desktopManager.js:1176
-msgid "Clear Current Selection before New Search"
+#: app/desktopManager.js:1175
+#, fuzzy
+#| msgid "Clear Current Selection before New Search"
+msgid "Clear current selection before new search"
 msgstr "Limpiar la selección actual para nueva búsqueda"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1221
 msgid "Find Files on Desktop"
 msgstr "Buscar ficheros en el Escritorio"
 
+#: app/desktopManager.js:1476
+msgid "Name"
+msgstr ""
+
 #: app/desktopManager.js:1477
-msgid "Sort by Name"
-msgstr "Ordenar por nombre"
+msgid "Name Z-A"
+msgstr ""
 
 #: app/desktopManager.js:1478
-msgid "Sort by Name Descending"
-msgstr "Ordenar por nombre inverso"
-
-#: app/desktopManager.js:1479
-msgid "Sort by Modified Time"
+#, fuzzy
+#| msgid "Sort by Modified Time"
+msgid "Modified Time"
 msgstr "Ordenar por fecha de modificación"
 
+#: app/desktopManager.js:1479
+msgid "Type"
+msgstr ""
+
 #: app/desktopManager.js:1480
-msgid "Sort by Type"
-msgstr "Ordenar por tipo"
+msgid "Size"
+msgstr ""
 
-#: app/desktopManager.js:1481
-msgid "Sort by Size"
-msgstr "Ordenar por tamaño"
-
-#: app/desktopManager.js:1484
+#: app/desktopManager.js:1483
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Mantener ordenados"
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1487
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Mantener agrupados por tipo..."
 
-#: app/desktopManager.js:1489
+#: app/desktopManager.js:1488
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordenar Home/Unidades/Papelera..."
 
-#: app/desktopManager.js:1494 app/desktopManager.js:2507
+#: app/desktopManager.js:1493 app/desktopManager.js:2502
 msgid "New Folder"
 msgstr "Nueva carpeta"
 
-#: app/desktopManager.js:1498
+#: app/desktopManager.js:1497
 msgid "New Document"
 msgstr "Documento nuevo"
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1501
 msgid "Paste"
 msgstr "Pegar"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1502
 msgid "Undo"
 msgstr "Deshacer"
 
-#: app/desktopManager.js:1504
+#: app/desktopManager.js:1503
 msgid "Redo"
 msgstr "Rehacer"
 
-#: app/desktopManager.js:1509
+#: app/desktopManager.js:1508
 msgid "Select All"
 msgstr "Seleccionar Todo"
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1513
 msgid "Arrange Icons"
 msgstr "Ordenar Iconos"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Ordenar por..."
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1522
 #, fuzzy
-msgid "Show Desktop In Files"
+msgid "Show Desktop In GNOME Files"
 msgstr "Mostrar el escritorio en Archivos"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1523
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Abrir en una terminal"
 
-#: app/desktopManager.js:1529
+#: app/desktopManager.js:1528
 msgid "Change Background…"
 msgstr "Cambiar el fondo..."
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1533
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Preferencias de Iconos en el Escritorio"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1534
 msgid "Display Settings"
 msgstr "Preferencias de pantalla"
 
-#: app/desktopManager.js:1578
+#: app/desktopManager.js:1577
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopManager.js:1578
+#: app/desktopManager.js:1577
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopManager.js:1590
+#: app/desktopManager.js:1589
 msgid "Settings"
 msgstr "Preferencias"
 
-#: app/desktopManager.js:2530
+#: app/desktopManager.js:2525
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Nombre de la carpeta"
 
-#: app/desktopManager.js:2531
+#: app/desktopManager.js:2526
 #, fuzzy
-msgid "Error while trying to create a Folder"
+msgid "Could not create folder"
 msgstr "Se produjo un error al intentar borrar la carpeta {:}."
 
-#: app/desktopManager.js:2573
+#: app/desktopManager.js:2569
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2574
-msgid "Error while trying to create a Document"
+#: app/desktopManager.js:2570
+msgid "Could not create document"
 msgstr ""
 
 #: app/fileItem.js:135
@@ -581,12 +585,10 @@ msgid "Show the trash icon in the desktop"
 msgstr "Mostrar la papelera en el escritorio"
 
 #: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
 msgstr "Mostrar unidades externas en el escritorio"
 
 #: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
 msgstr "Mostrar unidades de red en el escritorio"
 
@@ -615,7 +617,6 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
 #: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Añadir nuevas unidades en el lado opuesto de la pantalla"
 
@@ -624,7 +625,6 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Resaltar el lugar de destino durante Drag'n'Drop"
 
 #: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Usar Nemo para abrir las carpetas"
 
@@ -712,145 +712,126 @@ msgstr ""
 msgid "Command not found"
 msgstr "Comando no encontrado"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
-msgid "Icon size"
-msgstr "Tamaño de los iconos"
+#~ msgid ""
+#~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
+#~ msgstr ""
+#~ "El gestor de ficheros Nautilus es necesario para que Desktop Icons NG "
+#~ "funcione."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
-msgid "Set the size for the desktop icons."
-msgstr "Establece el tamaño de los iconos del escritorio."
+#~ msgid "Sort by Name"
+#~ msgstr "Ordenar por nombre"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
-msgid "Show personal folder"
-msgstr "Mostrar la carpeta personal"
+#~ msgid "Sort by Name Descending"
+#~ msgstr "Ordenar por nombre inverso"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
-msgid "Show the personal folder in the desktop."
-msgstr "Mostrar la carpeta personal en el escritorio."
+#~ msgid "Sort by Type"
+#~ msgstr "Ordenar por tipo"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
-msgid "Show trash icon"
-msgstr "Mostrar la papelera"
+#~ msgid "Sort by Size"
+#~ msgstr "Ordenar por tamaño"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
-msgid "Show the trash icon in the desktop."
-msgstr "Mostrar la papelera en el escritorio."
+#~ msgid "Icon size"
+#~ msgstr "Tamaño de los iconos"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
-msgid "New icons start corner"
-msgstr "Esquina para los nuevos iconos"
+#~ msgid "Set the size for the desktop icons."
+#~ msgstr "Establece el tamaño de los iconos del escritorio."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
-msgid "Set the corner from where the icons will start to be placed."
-msgstr ""
-"Establece la esquina a partir de la cual los nuevos iconos se irán añadiendo."
+#~ msgid "Show personal folder"
+#~ msgstr "Mostrar la carpeta personal"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
-msgid "Show the disk drives connected to the computer."
-msgstr "Mostrar los discos duros conectados al ordenador."
+#~ msgid "Show the personal folder in the desktop."
+#~ msgstr "Mostrar la carpeta personal en el escritorio."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
-msgid "Show mounted network volumes in the desktop."
-msgstr "Muestra en el escritorio las unidades de red montadas."
+#~ msgid "Show trash icon"
+#~ msgstr "Mostrar la papelera"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
-"Al añadir unidades y volúmenes al escritorio, añadirlos en el lado opuesto "
-"de la pantalla."
+#~ msgid "Show the trash icon in the desktop."
+#~ msgstr "Mostrar la papelera en el escritorio."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
-msgid "Shows a rectangle in the destination place during DnD"
-msgstr "Mostrar un rectángulo en el punto de destino durante DnD"
+#~ msgid "New icons start corner"
+#~ msgstr "Esquina para los nuevos iconos"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"Durante una operación de Arrastrar'y'Soltar, muestra en qué lugar se "
-"depositará el icono."
+#~ msgid "Set the corner from where the icons will start to be placed."
+#~ msgstr ""
+#~ "Establece la esquina a partir de la cual los nuevos iconos se irán "
+#~ "añadiendo."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
-msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Ordenar carpetas especiales - Home/Papelera/Unidades"
+#~ msgid "Show the disk drives connected to the computer."
+#~ msgstr "Mostrar los discos duros conectados al ordenador."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"Al ordenar los iconos en el escritorio, cambiar la posición de Home, "
-"papelera y unidades externas y de red"
+#~ msgid "Show mounted network volumes in the desktop."
+#~ msgstr "Muestra en el escritorio las unidades de red montadas."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
-msgid "Keep Icons Arranged"
-msgstr "Mantener los iconos ordenados"
+#~ msgid ""
+#~ "When adding drives and volumes to the desktop, add them to the opposite "
+#~ "side of the screen."
+#~ msgstr ""
+#~ "Al añadir unidades y volúmenes al escritorio, añadirlos en el lado "
+#~ "opuesto de la pantalla."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
-msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "Mantener los iconos ordenados según la última opción utilizada"
+#~ msgid "Shows a rectangle in the destination place during DnD"
+#~ msgstr "Mostrar un rectángulo en el punto de destino durante DnD"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
-msgid "Arrange Order"
-msgstr "Orden para los iconos"
+#~ msgid ""
+#~ "When doing a Drag'n'Drop operation, marks the place in the grid where the "
+#~ "icon will be put with a semitransparent rectangle."
+#~ msgstr ""
+#~ "Durante una operación de Arrastrar'y'Soltar, muestra en qué lugar se "
+#~ "depositará el icono."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
-msgid "Icons Arranged by this property"
-msgstr "Ordenar los iconos en base a esta propiedad"
+#~ msgid "Sort Special Folders - Home/Trash Drives."
+#~ msgstr "Ordenar carpetas especiales - Home/Papelera/Unidades"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-msgid "Keep Icons Stacked"
-msgstr "Mantener los iconos apilados"
+#~ msgid ""
+#~ "When arranging Icons on desktop, to sort and change the position of the "
+#~ "Home, Trash and mounted Network or External Drives"
+#~ msgstr ""
+#~ "Al ordenar los iconos en el escritorio, cambiar la posición de Home, "
+#~ "papelera y unidades externas y de red"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Mantener los iconos apilados, tipos similares se agruparán"
+#~ msgid "Keep Icons Arranged"
+#~ msgstr "Mantener los iconos ordenados"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
-msgid "Type of Files to not Stack"
-msgstr "Tipos de ficheros que no se deben apilar"
+#~ msgid "Always keep Icons Arranged by the last arranged order"
+#~ msgstr "Mantener los iconos ordenados según la última opción utilizada"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
-"Un array de cadenas con tipos de fichero, No apilar estos tipos de fichero"
+#~ msgid "Arrange Order"
+#~ msgstr "Orden para los iconos"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Usar Nemo en lugar de Nautilus para abrir carpetas."
+#~ msgid "Icons Arranged by this property"
+#~ msgstr "Ordenar los iconos en base a esta propiedad"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
-msgid "Add an emblem to links"
-msgstr "Añadir un emblema a los enlaces"
+#~ msgid "Keep Icons Stacked"
+#~ msgstr "Mantener los iconos apilados"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid "Add an emblem to allow to identify soft links."
-msgstr "Añadir un emblema para identificar los enlaces simbólicos."
+#~ msgid "Always keep Icons Stacked, Similar types are grouped"
+#~ msgstr "Mantener los iconos apilados, tipos similares se agruparán"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-msgid "Use black for label text"
-msgstr "Utilizar negro para el texto de las etiquetas"
+#~ msgid "Type of Files to not Stack"
+#~ msgstr "Tipos de ficheros que no se deben apilar"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-"Pintar el texto de las etiquetas en negro en lugar de blanco. Útil cuando se "
-"utilizan fondos de color claro."
+#~ msgid "An Array of strings types, Don't Stack these types of files"
+#~ msgstr ""
+#~ "Un array de cadenas con tipos de fichero, No apilar estos tipos de fichero"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-msgid "Show new icons on non primary monitor if connected"
-msgstr ""
+#~ msgid "Use Nemo instead of Nautilus to open folders."
+#~ msgstr "Usar Nemo en lugar de Nautilus para abrir carpetas."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
+#~ msgid "Add an emblem to links"
+#~ msgstr "Añadir un emblema a los enlaces"
+
+#~ msgid "Add an emblem to allow to identify soft links."
+#~ msgstr "Añadir un emblema para identificar los enlaces simbólicos."
+
+#~ msgid "Use black for label text"
+#~ msgstr "Utilizar negro para el texto de las etiquetas"
+
+#~ msgid ""
+#~ "Paint the label text in black instead of white. Useful when using light "
+#~ "backgrounds."
+#~ msgstr ""
+#~ "Pintar el texto de las etiquetas en negro en lugar de blanco. Útil cuando "
+#~ "se utilizan fondos de color claro."
 
 #~ msgid "Add an emblem to .desktop files"
 #~ msgstr "Añadir un emblema a los ficheros .desktop"
