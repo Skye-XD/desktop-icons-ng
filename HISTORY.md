@@ -1,5 +1,16 @@
 # History of versions #
 
+* Gtk4 version 27
+  * Preferences are now cached and all code is migrated to Preferences.js including monitoring code. Global Preferences from this file. (Sundeep Mediratta)
+  * Meson.build now back in root folder, install and export scripts updated accordingly. (Sundeep Mediratta)
+  * Cleanup of extension code, consolidate DBus name aquisition to common method, optimze code. (Sundeep Mediratta)
+  * Fix Error if GSconnect extension not installed. (Sergio Costas)
+  * Multiple eslint errors fixed. (Sergio Costas)
+  * Disconnect all signals on destroy - askRenamePopup.js and fixe callback/destruction called twice. (Sergio Costas).
+  * Multiple fixes and forwardports from Gtk3 branch. (Sergio Costas)
+  * Update po/gtk4-ding.pot and all weblate translations.
+  * Version Bump to 27 - metadata.json, update history and Readme.
+
 * Gtk4 version 26
   * Fix regression of dropping local files on folder or icons not working. (Sundeep Mediratta)
   * Look for GIMP files for snap and flatpack installs. (Sundeep Mediratta)

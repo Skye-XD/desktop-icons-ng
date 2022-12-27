@@ -6,7 +6,7 @@ Gtk4 Desktop Icons NG is an extension and a program together for the GNOME Shell
 
 Desktop Icons NG (DING) by Sergio Costas itself is a fork/rewrite of the official 'Desktop Icons' extension, orignially by Carlos Soriano.
 
-This new Gtk4 extension is also submitted upstream to the DING project as a merge request. It has not been merged yet. Therefore there are two extensions available, the classic stable Gtk3 DING and this newer, less tested Gtk4 branch.
+This new Gtk4 extension was originally submitted upstream to the DING project as a merge request. It was not merged for quite some time with development continuing on both branches simultaneously. The branches started diverging significantly, and further, the new commit's in gtk3-DING branch were not easily adaptable to changes already made in the gtk4 branch. That has since made it very difficult to rebase and merge all the new changes to the Gtk3 branch. A mutual decision was therefore made to continue independent development of both branches. Important bug fixes from branches are still backported and forward-ported between them. Therefore there are two extensions available, the classic stable Gtk3 DING and this newer, less tested Gtk4 branch.
 
 This fork of DING is ported to use the Gtk4 toolkit. This, and the original DING can both be installed together, but only one can be activated at a time in the extension Manager. They use different install directories and GSettings schemas, therefore preferences set in one will not carrry through to the other. This is to avoid trampling on the stable branch and isolate errors from this branch.
 
@@ -20,7 +20,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Copied files retain the dropped position.
 
-- [x] Merged all changes from branch more-asyncness, by Marco Trevisan, that was submitted upstream, to this Gtk4 branch to use async functions for everything.
+- [x] Merged all changes from branch more-asyncness, by Marco Trevisan, that was submitted upstream to the gtk3 branch, to this Gtk4 branch to use async functions for everything.
 
 - [x] Make DBus Proxies asynchronously, so the extension starts at once and does not hang till DBus services respond to requests.
 
@@ -66,7 +66,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Improved workspace switching with gestures - icons appear on all the workspaces while switching make it seem that Desktop is on all windows.
 
-- [x] Enable opening files, by dragging the icon and dropping on the app icon on the Dock. Checked on Dash to Dock and Dash to Panel. Currently, only if animation of icons on hover is enabled on Dash to Panel, this does not work. During animation, Dash to Panel appears to make clones of the original dock Items that it animates, and I am unable to extract the information about the underlying app they represent. However, I believe with a simple fix upstream in Dash to Panel, this should work even with animated icons on hover.
+- [x] Enable opening files, by dragging the icon and dropping on the app icon on the Dock. Checked on Dash to Dock and Dash to Panel and Ubuntu Dock. Submitted patch to Dash-to-Panel upstream - that has already been merged, makes this work even on Dash to Panel when the panel icons are animated.
 
 - [x] Drag and drop files from desktop to the Trash Icon on Dash to Dock directly.
 
@@ -132,6 +132,12 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Fix icons flickering when changing work spaces with swipe gesture.
 
+- [x] All Preferences are now cached in native javascript instead of calling GioSSS code repeatedly. All preferences/settings monitoring code is now migrated to one place in preferences.js with all preferences/settings available globally from this file.
+
+- [x] MR subnmitted upstream to Hide-top-bar extension and Transparent-top-bar (Adjustable Transparency), both merged make those extension work well with Gtk4-DING.
+
+- [x] MR submitted to Dash to Dock [here](https://github.com/micheleg/dash-to-dock/pull/1890) for intellihide, and [here](https://github.com/micheleg/dash-to-dock/pull/1888) for Transparency, MR submitted to Dash to Panel [here](https://github.com/home-sweet-gnome/dash-to-panel/pull/1790) to make those extensions detect the Gtk4-DING window and correct intellihide and transparency behaviour. These have not been merged yet. The MR branches can be downloaded and installed to have correctly working Dash to Dock and Dash to Panel with intellihide.
+
 **KNOWN ISSUES**
 
 - [ ] On X11, in latest Ubuntu and Fedora, Gtk.GestureClick.get_current_event_state() button click returns wrong state, crashing the Program. Works perfectly on Wayland on all distributions tried, worked on older version of Manjaro on X, but the newer releases of Manjaro and ArchLinux also have this bug. This appears to be doe to an error in GJS, reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/507). Reported upstream [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse and [here](https://bugs.launchpad.net/ubuntu/+source/gjs/+bug/1975544) on Ubuntu Launchpad. I have deviced a workaround to make this work under X11 for now till the bug is fixed upstream. Please feel free to fix and propose MR's to make this work properly. This is the first time this code has run on X11 in the last 8 months while many features were added to the main branch! Therefore be advised, X11 branch may have bugs. Specefically Gtk.Double Click time may be a problem as I had to do some hardcoding to make double clicks work.
@@ -182,7 +188,10 @@ If despite all the above you feel fixing the .css in the DING application or ext
 The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
 </p>
 <p style="text-align: left;">
-For Archlinux, Manjaro, it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng).
+For Archlinux, (and if needed, Manjaro), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng).
+</p>
+<p style="text-align: left;">
+For Manjaro, a native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. The link to the pkgbuild file in the Manjaro repository is [here](https://gitlab.manjaro.org/packages/community/gnome/gnome-shell-extension/-/tree/master/gnome-shell-extension-gtk4-desktop-icons-ng).
 </p>
 
 ## Manual installation
@@ -250,13 +259,11 @@ It's possible to read more information in the Meson docs to tweak the configurat
 For a regular use and local development these are the steps to build the project and install it:
 
 ```bash
-cp /scripts/meson.build ./
 meson --prefix=$HOME/.local/ --localedir=share/gnome-shell/extensions/gtk4-ding@smedius.gilab.com/locale .build
 ninja -C .build install
 ```
 
-It is strongly recommended to delete the destination folder ($HOME/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com) before doing this, to ensure that no old
-data is kept. It is also recommended to delete the local .build folder and the copied file meson.build after the build is finished to clean up.
+It is strongly recommended to delete the destination folder ($HOME/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com) before doing this, to ensure that no old data is kept. It is also recommended to delete the local .build folder after the build is finished to clean up.
 
 ## Installing with Puppet
 
@@ -264,16 +271,14 @@ If you want to install it in several machines using puppet, you must first creat
 
 ```bash
 mkdir install_folder
-cp scripts/meson.build ./
 meson --prefix=`pwd`/install_folder --localedir=share/locale .build
 ninja -C .build
 ninja -C .build install
 rm -f install_folder/share/glib-2.0/schemas/gschemas.compiled
 rm -rf .build
-rm meson.build
 ```
 
-The content of the `install_folder` folder is what you must copy in the destination computers at /usr. Afterdoing that, you must run in each computer `sudo glib-compile-schemas /usr/share/glib-2.0/schemas` to update the schemas in the system.
+The content of the `install_folder` needs to be copied to the destination computers at /usr install folder. After doing that, run `sudo glib-compile-schemas /usr/share/glib-2.0/schemas` in each of the installed computers to update the schemas for that system.
 
 ## Export extension ZIP file for extensions.gnome.org
 
@@ -283,7 +288,7 @@ To create a ZIP file with the extension, just run:
 ./scripts/export-zip.sh
 ```
 
-This will create the file `gtk4-ding@smedius.gitlab.com.zip` with the extension, following the rules for publishing at extensions.gnome.org.
+This will create the zip file `gtk4-ding@smedius.gitlab.com.zip` of the extension, following the publishing rules at extensions.gnome.org.
 
 ## Contributing
 
