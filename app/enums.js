@@ -105,6 +105,7 @@ var SCHEMA_NAUTILUS_COMPRESSION = 'org.gnome.nautilus.compression';
 var SCHEMA_GTK = 'org.gtk.Settings.FileChooser';
 var SCHEMA = 'org.gnome.shell.extensions.gtk4-ding';
 var SCHEMA_MUTTER = 'org.gnome.mutter';
+var SCHEMA_DARK_SETTINGS = 'org.gnome.desktop.interface';
 var EXEC_KEY = 'exec';
 var NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
 var THUMBNAILS_DIR = '.cache/thumbnails';

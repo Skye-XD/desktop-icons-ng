@@ -102,7 +102,8 @@ var DesktopManager = class {
         this.ignoreKeys = [Gdk.KEY_space, Gdk.KEY_Shift_L, Gdk.KEY_Shift_R, Gdk.KEY_Control_L, Gdk.KEY_Control_R, Gdk.KEY_Caps_Lock, Gdk.KEY_Shift_Lock, Gdk.KEY_Meta_L, Gdk.KEY_Meta_R, Gdk.KEY_Alt_L, Gdk.KEY_Alt_R, Gdk.KEY_Super_L, Gdk.KEY_Super_R, Gdk.KEY_ISO_Level3_Shift, Gdk.KEY_ISO_Level5_Shift];
 
         // init methods
-        this._initCSSprovider();
+        this._checkApplyDarkModeSetting();
+        this._initLocalCSSprovider();
         this._configureSelectionColor();
         this._startMonitoringTemplatesDir();
         this._createMenuActionGroup();
@@ -215,10 +216,53 @@ var DesktopManager = class {
         this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
     }
 
-    _initCSSprovider() {
+    _checkApplyDarkModeSetting() {
+        let displayGtkSettings = Gtk.Settings.get_for_display(Gdk.Display.get_default());
+        displayGtkSettings.gtk_application_prefer_dark_theme = this.Prefs.darkMode;
+    }
+
+    _initLocalCSSprovider() {
         let cssProvider = new Gtk.CssProvider();
         cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([this._codePath, 'app', 'stylesheet.css'])));
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+    }
+
+    _configureSelectionColor() {
+        let box = new Gtk.Box();
+        this._styleContext = box.get_style_context();
+        this._styleContext.add_class('view');
+        this._setSelectionColor();
+    }
+
+    _setSelectionColor() {
+        let [exists, color] = this._styleContext.lookup_color('theme_selected_bg_color');
+        if (exists) {
+            this.selectColor = color;
+        } else {
+            this.selectColor =  new Gdk.RGBA({
+                red: 0,
+                green: 0,
+                blue: 0.9,
+                alpha: 1.0,
+            });
+        }
+        [exists, color] = this._styleContext.lookup_color('theme_selected_fg_color');
+        if (exists) {
+            this.hoverColor = color;
+        } else {
+            this.hoverColor =  new Gdk.RGBA({
+                red: 0.9,
+                green: 0.9,
+                blue: 0.9,
+                alpha: 1.0,
+            });
+        }
+
+        let cssColorDefinition = `@define-color desktop_icons_bg_color ${this.selectColor.to_string()};\n`;
+        cssColorDefinition += `@define-color desktop_icons_fg_color ${this.hoverColor.to_string()};`;
+        this._cssColorProviderSelection = new Gtk.CssProvider();
+        this._cssColorProviderSelection.load_from_data(cssColorDefinition);
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection, 600);
     }
 
     _monitorDesktopChanges() {
@@ -477,32 +521,6 @@ var DesktopManager = class {
 
             this._desktops.push(new DesktopGrid.DesktopGrid(this, desktopName, desktop, this._asDesktop, this._premultiplied));
         }
-    }
-
-    _configureSelectionColor() {
-        let box = new Gtk.Box();
-        this._styleContext = box.get_style_context();
-        this._styleContext.add_class('view');
-        this._cssProviderSelection = new Gtk.CssProvider();
-        this._styleContext.connect('notify::vfunc_changed', () => {
-            Gtk.StyleContext.remove_provider_for_display(Gdk.Screen.get_default(), this._cssProviderSelection);
-            this._setSelectionColor();
-        });
-        this._setSelectionColor();
-    }
-
-    _setSelectionColor() {
-        let [exists, color] = this._styleContext.lookup_color('theme_selected_bg_color');
-        if (exists)
-            this.selectColor = color;
-        else
-            this.selectColor = this._styleContext.get_color(); // just set to foreground color
-
-        let style = `.desktop-icons-selected {
-            background-color: rgba(${this.selectColor.red * 255},${this.selectColor.green * 255}, ${this.selectColor.blue * 255}, 0.6);
-        }`;
-        this._cssProviderSelection.load_from_data(style);
-        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), this._cssProviderSelection, 600);
     }
 
     _setPendingDropCoordinates(file, dropCoordinates) {
@@ -3127,5 +3145,10 @@ var DesktopManager = class {
 
         this._fileList.forEach(x => x.updateIcon());
         this._placeAllFilesOnGrids({ redisplay: true });
+    }
+
+    onGtkThemeChange() {
+        Gtk.StyleContext.remove_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection);
+        this._setSelectionColor();
     }
 };
