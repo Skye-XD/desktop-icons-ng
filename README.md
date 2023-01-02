@@ -76,6 +76,10 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Lookup GIMP files for snap and flatpack install as well. Also optimizes the thumbnail lookup code to make fewer lookups, and not execute unnecessarly code.
 
+- [x] Detect Change to Dark Mode in Gnome Global Settings, reload dark variant of current theme (for correctly formatted themes with a valid dark-variant) to display correct widgets in correct theme css and vice versa without restarting the app.
+
+- [x] Detect Gtk Theme Changes to update currently applied theme, update selection color and rubber band color in real time to show new colors and themes without restarting the app.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -138,6 +142,12 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] MR submitted to Dash to Dock [here](https://github.com/micheleg/dash-to-dock/pull/1890) for intellihide, and [here](https://github.com/micheleg/dash-to-dock/pull/1888) for Transparency, MR submitted to Dash to Panel [here](https://github.com/home-sweet-gnome/dash-to-panel/pull/1790) to make those extensions detect the Gtk4-DING window and correct intellihide and transparency behaviour. These have not been merged yet. The MR branches can be downloaded and installed to have correctly working Dash to Dock and Dash to Panel with intellihide.
 
+- [x] Updated css to set custum named program colors.
+
+- [x] Updated css selectors speceficity and apply specefic Gtk4 methods to widgets, to prevent interference form user applied Gtk themes.
+
+- [x] Minimized use of Gtk.StyleContext as it is being depriciated, no only used to detect and set rubberband color.
+
 **KNOWN ISSUES**
 
 - [ ] On X11, in latest Ubuntu and Fedora, Gtk.GestureClick.get_current_event_state() button click returns wrong state, crashing the Program. Works perfectly on Wayland on all distributions tried, worked on older version of Manjaro on X, but the newer releases of Manjaro and ArchLinux also have this bug. This appears to be doe to an error in GJS, reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/507). Reported upstream [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse and [here](https://bugs.launchpad.net/ubuntu/+source/gjs/+bug/1975544) on Ubuntu Launchpad. I have deviced a workaround to make this work under X11 for now till the bug is fixed upstream. Please feel free to fix and propose MR's to make this work properly. This is the first time this code has run on X11 in the last 8 months while many features were added to the main branch! Therefore be advised, X11 branch may have bugs. Specefically Gtk.Double Click time may be a problem as I had to do some hardcoding to make double clicks work.
@@ -162,13 +172,25 @@ Please report errors, and if you can fix it, please do so. See Contributing belo
 
 Users have reported multiple issues with themes. This sheds light and clarifies the issues.
 
-The extension has two parts, the extension itself that runs in the shell, and a pure Gtk4 program that runs outside the gnome shell and renders all the icons on the desktop. For example, when you see the preferences window, it is actually a libadwaita window spawned by the Gnome shell. The right click menus are true Gtk4 application menus and do not belong to the shell. Themes just applied to the shell will not apply to the application. In gnome tweaks, apply a them with the corresponding name to "Applications" or "Legacy Applications" as well. DING application window will respect that application theme. Most good, well designed, comprehensive themes have a dark application theme corresponding to the shell dark theme with the same name. This is true of most major distributions. The application and extension is regularly checked on default Ubuntu, Manjaro and by extension ArchLinux, and intermittently on the latest Fedora, and most themes works well.
+The extension has two parts, the extension itself that runs in the shell, and a pure Gtk4 program that runs outside the gnome shell and renders all the icons on the desktop. For example, when you see the preferences window, it is actually a libadwaita window spawned by the Gnome shell. The right click menus are true Gtk4 application menus and do not belong to the shell. Themes just applied to the shell will not apply to the application.
+
+In gnome tweaks, apply a them with the corresponding name to "Applications" or "Legacy Applications" as well. DING application window will respect that application theme. Most good, well designed, comprehensive themes have a Gtk theme a corresponding to the shell theme with the same name. This is true of most major distributions. The application and extension is regularly checked on default Ubuntu, Manjaro and by extension ArchLinux, and intermittently on the latest Fedora, and most themes works well.
+
+Thems so set will be immediately to the running DING on making the change.
 
 If downloaded themes are applied, then they have to be designed for gtk4 as well, meaning they have to have correct .css files in a gtk4 folder. Older, gtk3 and gtk2 themes will not work on the app.
 
 If a downloaded theme messes up the DING window, but works perfectly with the default distribution themes with no user themes applied, then there is a problem with the downloaded user themes. Downloaded user themes .css files take precedence over default system and application .css files and can create problems. Fixing application theme at this point will not help. In that case you can fix the .css file in the gtk4 folder of the theme or ask the Theme author for a fix.
 
 If despite all the above you feel fixing the .css in the DING application or extension would help, please feel free to contribute a fix, see Contributing below, or create an issue with the suggestion for the fix.
+
+**DARK MODE ISSUES**
+
+Gnome allows Global Dark mode in Settings. This mode does not automatically apply to Gtk4 Applications like DING. Previously, a specefic dark theme needed to be applied to the legacy gtk applications in gnome tweaks to enable dark mode for menus etc. in gtk4-DING.
+
+Good, Modern Gtk Themes have a dark "variant" built into the theme itself, wihout neccessarily being named a dark theme. Gtk4-DING now detects the change in Gnome Settings to dark mode, and then applies it to Gtk4 settings. This is a boolean setting and affects all the users Gtk applications. If other Gtk applications have the ability to detect this, they should be able to reload their themes as well.
+
+Gtk4-DING now detects the change and reloads the dark variant of the current Gtk theme automatically and applies it, so now Gtk4-DING should switch to dark-mode auotmatically on making the setting change in Gnome Settings, even from the shortcut menus in the top right corner with Gnome 43.
 
 ## Requirements
 
