@@ -70,7 +70,6 @@ var desktopIconItem = class desktopIconItem {
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
 
-
         /* Icons update */
         if (this._updateIconCancellable)
             this._updateIconCancellable.cancel();
@@ -83,6 +82,12 @@ var desktopIconItem = class desktopIconItem {
         /* DragItem */
         if (this.dragIconSignal)
             this.dragIcon.disconnect(this.dragIconSignal);
+
+        if (this._iconStateFlag)
+            this._iconContainer.disconnect(this._iconStateFlag);
+
+        if (this._labelStateFlag)
+            this._labelContainer.disconnect(this._labelStateFlag);
     }
 
     onDestroy() {
@@ -106,15 +111,15 @@ var desktopIconItem = class desktopIconItem {
         this._iconContainer.set_hexpand(false);
         this._iconContainer.set_halign(Gtk.Align.CENTER);
         this._iconContainer.set_baseline_position(Gtk.BaselinePosition.CENTER);
+        this._iconContainer.set_name('file-item');
         this._iconContainer.append(this._icon);
 
         this._label = new Gtk.Label();
         this._labelContainer = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER });
-        let labelStyleContext = this._label.get_style_context();
         if (this.Prefs.darkText)
-            labelStyleContext.add_class('file-label-dark');
+            this._label.add_css_class('file-label-dark');
         else
-            labelStyleContext.add_class('file-label');
+            this._label.add_css_class('file-label');
 
         this._label.set_ellipsize(Pango.EllipsizeMode.END);
         this._label.set_wrap(true);
@@ -122,31 +127,35 @@ var desktopIconItem = class desktopIconItem {
         this._label.set_yalign(0.0);
         this._label.set_justify(Gtk.Justification.CENTER);
         this._label.set_lines(2);
+        this._labelContainer.set_name('file-item');
         this._labelContainer.append(this._label);
 
         this.container.append(this._iconContainer);
         this.container.append(this._labelContainer);
 
-        this._styleContext = this._iconContainer.get_style_context();
-        this._labelStyleContext = this._labelContainer.get_style_context();
-        this._styleContext.add_class('file-item');
-        this._labelStyleContext.add_class('file-item');
-
         this.iconRectangle = new Gdk.Rectangle();
         this.iconLocalWindowRectangle = new Gdk.Rectangle();
         this.labelRectangle = new Gdk.Rectangle();
 
-        this._iconEventController = Gtk.EventControllerMotion.new();
-        this._iconEventController.set_propagation_phase(Gtk.PropagationPhase.TARGET);
-        this._iconEventController.connect('enter', () => this._onEnter());
-        this._iconEventController.connect('leave', () => this._onLeave());
-        this._iconContainer.add_controller(this._iconEventController);
+        this._iconStateFlag = this._iconContainer.connect('state-flags-changed', () => {
+            if (this._checkHasHoveredPointer(this._iconContainer)) {
+                this._onEnter();
+                this._labelContainer.add_css_class('mimic-hovered');
+            } else {
+                this._onLeave();
+                this._labelContainer.remove_css_class('mimic-hovered');
+            }
+        });
 
-        this._labelEventController = Gtk.EventControllerMotion.new();
-        this._labelEventController.set_propagation_phase(Gtk.PropagationPhase.TARGET);
-        this._labelEventController.connect('enter', () => this._onEnter());
-        this._labelEventController.connect('leave', () => this._onLeave());
-        this._labelContainer.add_controller(this._labelEventController);
+        this._labelStateFlag = this._labelContainer.connect('state-flags-changed', () => {
+            if (this._checkHasHoveredPointer(this._labelContainer)) {
+                this._onEnter();
+                this._iconContainer.add_css_class('mimic-hovered');
+            } else {
+                this._onLeave();
+                this._iconContainer.remove_css_class('mimic-hovered');
+            }
+        });
 
         this.dragIcon = Gtk.WidgetPaintable.new(this.container);
         this.dragIconSignal = this.dragIcon.connect('invalidate-size', () => {
@@ -261,6 +270,14 @@ var desktopIconItem = class desktopIconItem {
      * Button Clicks *
      ***********************/
 
+    _checkHasHoveredPointer(widget) {
+        let stateFlags = widget.get_state_flags();
+        if ((stateFlags & Gtk.StateFlags.PRELIGHT) === Gtk.StateFlags.PRELIGHT)
+            return true;
+        else
+            return false;
+    }
+
     _updateClickState(button, eventtime) {
         const settings = Gtk.Settings.get_default();
         let doubleClickTime = settings.gtk_double_click_time;
@@ -329,10 +346,6 @@ var desktopIconItem = class desktopIconItem {
      ***********************/
 
     _onEnter() {
-        if (!this._styleContext.has_class('file-item-hover')) {
-            this._styleContext.add_class('file-item-hover');
-            this._labelStyleContext.add_class('file-item-hover');
-        }
         if (this.Prefs.CLICK_POLICY_SINGLE) {
             let window = this._grid._window;
             if (window)
@@ -343,10 +356,6 @@ var desktopIconItem = class desktopIconItem {
 
     _onLeave() {
         this._primaryButtonPressed = false;
-        if (this._styleContext.has_class('file-item-hover')) {
-            this._styleContext.remove_class('file-item-hover');
-            this._labelStyleContext.remove_class('file-item-hover');
-        }
         if (this.Prefs.CLICK_POLICY_SINGLE) {
             let window = this._grid._window;
             if (window)
@@ -369,15 +378,26 @@ var desktopIconItem = class desktopIconItem {
             Gdk.drag_status(context, Gdk.DragAction.MOVE, time);
     }
 
+    setHightLighted() {
+        if (!this._iconContainer.get_css_classes().includes('desktop-icons-selected'))
+            this._iconContainer.add_css_class('desktop-icons-selected');
+        if (!this._labelContainer.get_css_classes().includes('desktop-icons-selected'))
+            this._labelContainer.add_css_class('desktop-icons-selected');
+    }
+
+    setUnHighLighted() {
+        if (this._iconContainer.get_css_classes().includes('desktop-icons-selected'))
+            this._iconContainer.remove_css_class('desktop-icons-selected');
+        if (this._labelContainer.get_css_classes().includes('desktop-icons-selected'))
+            this._labelContainer.remove_css_class('desktop-icons-selected');
+    }
+
     highLightDropTarget() {
         if (this._hasToRouteDragToGrid()) {
             this._grid.receiveMotion(this._x1, this._y1, true);
             return;
         }
-        if (!this._styleContext.has_class('desktop-icons-selected')) {
-            this._styleContext.add_class('desktop-icons-selected');
-            this._labelStyleContext.add_class('desktop-icons-selected');
-        }
+        this.setHightLighted();
         this._grid.highLightGridAt(this._x1, this._y1);
     }
 
@@ -386,10 +406,7 @@ var desktopIconItem = class desktopIconItem {
             this._grid.receiveLeave();
             return;
         }
-        if (!this._isSelected && this._styleContext.has_class('desktop-icons-selected')) {
-            this._styleContext.remove_class('desktop-icons-selected');
-            this._labelStyleContext.remove_class('desktop-icons-selected');
-        }
+        this.setUnHighLighted();
         this._grid.unHighLightGrids();
     }
 
@@ -409,14 +426,10 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _setSelectedStatus() {
-        if (this._isSelected && !this._styleContext.has_class('desktop-icons-selected')) {
-            this._styleContext.add_class('desktop-icons-selected');
-            this._labelStyleContext.add_class('desktop-icons-selected');
-        }
-        if (!this._isSelected && this._styleContext.has_class('desktop-icons-selected')) {
-            this._styleContext.remove_class('desktop-icons-selected');
-            this._labelStyleContext.remove_class('desktop-icons-selected');
-        }
+        if (this._isSelected)
+            this.setHightLighted();
+        if (!this._isSelected)
+            this.setUnHighLighted();
     }
 
     _calculateOffset(X, Y) {

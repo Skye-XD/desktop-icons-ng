@@ -46,12 +46,11 @@ var DesktopGrid = class {
         this.createGrids();
 
         this._window = new Gtk.ApplicationWindow({ application: desktopManager.mainApp, 'title': desktopName });
-        this._windowContext = this._window.get_style_context();
         if (this._asDesktop) {
             this._window.set_decorated(false);
             this._window.set_deletable(false);
             // Transparent Background only if this instance is working as a desktop
-            this._windowContext.add_class('desktopwindow');
+            this._window.set_name('desktopwindow');
             if (this._using_X11) {
                 this.DesktopIconsUtil.hideX11windowTaskbar(this._window);
             } else { // Wayland
@@ -63,7 +62,7 @@ var DesktopGrid = class {
             }
         } else {
             // Opaque black test window
-            this._windowContext.add_class('testwindow');
+            this._window.set_name('testwindow');
         }
         this._window.set_resizable(false);
         this._window.connect('close-request', () => {
