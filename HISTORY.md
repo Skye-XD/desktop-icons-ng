@@ -1,5 +1,11 @@
 # History of versions #
 
+* Gtk4 version 28
+  * Fix CSS application with specific selectors and DING named colors, use Gtk4 calls to apply css. (Sundeep Mediratta)
+  * Reload CSS on theme changes to change rubber band and selection colors on the fly. (Sundeep Mediratta)
+  * Reload Dark Theme Variant on the fly with changes in Global Gnome Settings to Dark Mode. (Sundeep Mediratta)
+  * Version Bump to 28 - metadata.json, update History and Readme.
+
 * Gtk4 version 27
   * Preferences are now cached and all code is migrated to Preferences.js including monitoring code. Global Preferences from this file. (Sundeep Mediratta)
   * Meson.build now back in root folder, install and export scripts updated accordingly. (Sundeep Mediratta)
