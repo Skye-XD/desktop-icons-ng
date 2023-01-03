@@ -170,27 +170,27 @@ Please report errors, and if you can fix it, please do so. See Contributing belo
 
 **THEME ISSUES**
 
-Users have reported multiple issues with themes. This sheds light and clarifies the issues.
+The most common issues users have reported so far pertains to issues with user installed themes. This sheds light and clarifies the issues.
 
 The extension has two parts, the extension itself that runs in the shell, and a pure Gtk4 program that runs outside the gnome shell and renders all the icons on the desktop. For example, when you see the preferences window, it is actually a libadwaita window spawned by the Gnome shell. The right click menus are true Gtk4 application menus and do not belong to the shell. Themes just applied to the shell will not apply to the application.
 
 In gnome tweaks, apply a them with the corresponding name to "Applications" or "Legacy Applications" as well. DING application window will respect that application theme. Most good, well designed, comprehensive themes have a Gtk theme a corresponding to the shell theme with the same name. This is true of most major distributions. The application and extension is regularly checked on default Ubuntu, Manjaro and by extension ArchLinux, and intermittently on the latest Fedora, and most themes works well.
 
-Thems so set will be immediately to the running DING on making the change.
+Themes so set will be immediately applied to the running DING on making the change.
 
-If downloaded themes are applied, then they have to be designed for gtk4 as well, meaning they have to have correct .css files in a gtk4 folder. Older, gtk3 and gtk2 themes will not work on the app.
+If downloaded themes are applied, then they have to be designed for gtk4 as well, meaning they have to have correct .css files in a gtk4 folder, ~/.theme/"themename"/gtk4 or the corresponding /user/share/thmes/"themename"/gtk4 folder. Older, gtk3 and gtk2 themes will not work on the app.
 
-If a downloaded theme messes up the DING window, but works perfectly with the default distribution themes with no user themes applied, then there is a problem with the downloaded user themes. Downloaded user themes .css files take precedence over default system and application .css files and can create problems. Fixing application theme at this point will not help. In that case you can fix the .css file in the gtk4 folder of the theme or ask the Theme author for a fix.
+If a downloaded theme messes up the DING window, but works perfectly with the default distribution themes with no user themes applied, then there is a problem with the downloaded user themes. This can be confirmed by moving the css files from the gtk4 folder of the theme and restarting the extensions. Downloaded user themes css files in the ~/.themes folder take precedence over all default system and application css files, and can thus create problems by overridig the application css file. Fixing application theme at this point will not help. In that case you can fix the .css file in the gtk4 folder of the ~.themes/"themename"/gtk4 or ask the theme author for a fix.
 
 If despite all the above you feel fixing the .css in the DING application or extension would help, please feel free to contribute a fix, see Contributing below, or create an issue with the suggestion for the fix.
 
 **DARK MODE ISSUES**
 
-Gnome allows Global Dark mode in Settings. This mode does not automatically apply to Gtk4 Applications like DING. Previously, a specefic dark theme needed to be applied to the legacy gtk applications in gnome tweaks to enable dark mode for menus etc. in gtk4-DING.
+Gnome allows Global Dark mode in Settings. This mode does not automatically apply to Gtk4 Applications like DING, it only works on libAdwaita applications and the Gnome Shell. Previously, a specefic dark theme needed to be applied to the "legacy" gtk applications in gnome tweaks to enable dark mode for menus etc. in gtk4-DING.
 
-Good, Modern Gtk Themes have a dark "variant" built into the theme itself, wihout neccessarily being named a dark theme. Gtk4-DING now detects the change in Gnome Settings to dark mode, and then applies it to Gtk4 settings. This is a boolean setting and affects all the users Gtk applications. If other Gtk applications have the ability to detect this, they should be able to reload their themes as well.
+Good, Modern Gtk Themes have a dark "variant" built into the theme itself, wihout neccessarily being named "dark" theme. Gtk4-DING now detects the change in Gnome Settings to dark mode, and then applies it to global Gtk settings for the user. This is a boolean setting and affects all Gtk applications of the user.
 
-Gtk4-DING now detects the change and reloads the dark variant of the current Gtk theme automatically and applies it, so now Gtk4-DING should switch to dark-mode auotmatically on making the setting change in Gnome Settings, even from the shortcut menus in the top right corner with Gnome 43.
+As Gtk4-DING now detects the change, it reloads the dark variant of the current Gtk theme automatically and applies it, so now Gtk4-DING should switch to dark-mode auotmatically on making the setting change in Gnome Settings, even from the shortcut menus in the top right corner with Gnome 43.  The theme has to have a dark "variant" description in the css files for the themes for this to work properly. The default Adwaita theme does have this variant built in. If other Gtk applications have the ability to detect the change made by Gtk4-DING to the global gtk settings for the user, they should be able to reload their themes as well.
 
 ## Requirements
 
@@ -213,7 +213,7 @@ The extension can be installed from [extensions.gnome.org](https://extensions.gn
 For Archlinux, (and if needed, Manjaro), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng).
 </p>
 <p style="text-align: left;">
-For Manjaro, a native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. The link to the pkgbuild file in the Manjaro repository is [here](https://gitlab.manjaro.org/packages/community/gnome/gnome-shell-extension/-/tree/master/gnome-shell-extension-gtk4-desktop-icons-ng).
+For Manjaro, a native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository available.
 </p>
 
 ## Manual installation
