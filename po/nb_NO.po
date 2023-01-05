@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Allan Nordhøy <epost@anotheragency.no>, 2022.
+# Allan Nordhøy <epost@anotheragency.no>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-26 18:08-0500\n"
-"PO-Revision-Date: 2022-11-28 08:30+0000\n"
+"PO-Revision-Date: 2023-01-04 06:48+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -43,8 +43,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"For å kunne fungere med sammenpakkede filer må du installere file-roller, og/"
-"eller gir-1.2-gnomeAutoAr"
+"Installer file-roller, og/eller gir-1.2-gnomeAutoAr for å kunne jobbe med "
+"sammenpakkede filer"
 
 #: app/autoAr.js:203
 msgid "Extracting files"
@@ -172,7 +172,7 @@ msgstr "Fant ikke Nautilus-filbehandleren"
 
 #: app/desktopManager.js:131
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "GNOME Files-programmet kreves av Desktop Icons NG."
 
 #: app/desktopManager.js:778
 msgid "Move"
@@ -213,11 +213,11 @@ msgstr "Finn filer på skrivebordet"
 
 #: app/desktopManager.js:1476
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #: app/desktopManager.js:1477
 msgid "Name Z-A"
-msgstr ""
+msgstr "Navn Å-A"
 
 #: app/desktopManager.js:1478
 #, fuzzy
@@ -227,11 +227,11 @@ msgstr "Sorter etter endringstid"
 
 #: app/desktopManager.js:1479
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: app/desktopManager.js:1480
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 #: app/desktopManager.js:1483
 msgid "Keep Arranged…"
@@ -349,17 +349,16 @@ msgid "Broken Desktop File"
 msgstr "Ødelagt skrivebordsfil"
 
 #: app/fileItem.js:314
-#, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
 "\n"
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
-"Denne .desktop-filen har feil, eller peker til et program uten tilganger. "
-"Den kan ikke kjøres.\n"
+".desktop-filen har feil, eller peker til et program uten tilganger. Den kan "
+"ikke kjøres.\n"
 "\n"
-"\t<b>Rediger filen for å sette tilgang for å kjøre den som program.</b>"
+"\t<b>Rediger filen for å tillate kjøring av den som program.</b>"
 
 #: app/fileItem.js:320
 msgid "Invalid Permissions on Desktop File"
@@ -392,15 +391,14 @@ msgstr ""
 "<b>Skru på valget «Tillat kjøring av filen som program»</b>"
 
 #: app/fileItem.js:334
-#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
-"Denne .desktop-filen er ikke betrodd, så den kan ikke kjøres. For å skru på "
-"kjøring av filen som program:\n"
+".desktop-filen er ikke betrodd, så den kan ikke kjøres. Høyreklikk den og "
+"velg:\n"
 "\n"
 "<b>Skru på «Tillat kjøring»</b>"
 
