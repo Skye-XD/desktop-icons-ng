@@ -3,30 +3,31 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Eaglers <eaglersdeveloper@gmail.com>, 2018
 # Ser82-png <sw@atrus.ru>, 2021-2022
-#
+# Сергей <asvmail.as@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-26 18:08-0500\n"
-"PO-Revision-Date: 2022-03-19 07:20+1000\n"
-"Last-Translator: Ser82-png <sw@atrus.ru>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-01-24 13:07+0000\n"
+"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
-msgstr "Имя папки"
+msgstr "Название папки"
 
 #: app/askRenamePopup.js:49
 msgid "File name"
-msgstr "Имя файла"
+msgstr "Название файла"
 
 #: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1217
 msgid "OK"
@@ -38,23 +39,23 @@ msgstr "Переименовать"
 
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr не установлен"
 
 #: app/autoAr.js:72
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"Для возможности работы со сжатыми файлами установите file-roller и/или gir-1."
+"2-gnomeAutoAr"
 
 #: app/autoAr.js:203
-#, fuzzy
 msgid "Extracting files"
-msgstr "Распаковать здесь"
+msgstr "Извлечение файлов"
 
 #: app/autoAr.js:220
-#, fuzzy
 msgid "Compressing files"
-msgstr "Сжать {0} файл"
+msgstr "Сжатие файлов"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:781
 #: app/desktopManager.js:1219 app/fileItemMenu.js:518
@@ -63,120 +64,115 @@ msgstr "Отмена"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
-msgstr ""
+msgstr "Введите пароль"
 
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "Удаление неполного файла '${outputFile}'"
 
 #: app/autoAr.js:373
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Создание папки назначения"
 
 #: app/autoAr.js:405
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "Извлечение файлов в '${outputPath}'"
 
 #: app/autoAr.js:435
-#, fuzzy
 msgid "Extraction completed"
-msgstr "Распаковать здесь"
+msgstr "Извлечение завершено"
 
 #: app/autoAr.js:436
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "Извлечение '${fullPathFile}' завершено."
 
 #: app/autoAr.js:442
-#, fuzzy
 msgid "Extraction cancelled"
-msgstr "Распаковать здесь"
+msgstr "Извлечение отменено"
 
 #: app/autoAr.js:443
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Извлечение '${fullPathFile}' было отменено пользователем."
 
 #: app/autoAr.js:453
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Требуется пароль для ${filename}"
 
 #: app/autoAr.js:456
 msgid "Error during extraction"
-msgstr ""
+msgstr "Ошибка при извлечении"
 
 #: app/autoAr.js:483
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "Сжатие файлов в '${outputFile}'"
 
 #: app/autoAr.js:496
 msgid "Compression completed"
-msgstr ""
+msgstr "Сжатие завершено"
 
 #: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "Сжатие файлов в '${outputFile}' завершено."
 
 #: app/autoAr.js:501 app/autoAr.js:508
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Сжатие отменено"
 
 #: app/autoAr.js:502
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "Целевой файл '${outputFile}' уже существует."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Сжатие файлов в '${outputFile}' было отменено пользователем."
 
 #: app/autoAr.js:512
 msgid "Error during compression"
-msgstr ""
+msgstr "Ошибка при сжатии"
 
 #: app/autoAr.js:547
 msgid "Create archive"
-msgstr ""
+msgstr "Создать архив"
 
 #: app/autoAr.js:571
-#, fuzzy
 msgid "Archive name"
-msgstr "Имя файла"
+msgstr "Название архива"
 
 #: app/autoAr.js:604
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: app/autoAr.js:617
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "Совместимые со всеми операционными системами."
 
 #: app/autoAr.js:694
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "Защищённые паролем ZIP-архивы, требующие установки на Windows и Mac."
 
 #: app/autoAr.js:700
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "Архивы меньшего размера, совместимые только с Linux и Mac."
 
 #: app/autoAr.js:706
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "Архивы меньшего размера, требующие установки на Windows и Mac."
 
 #: app/desktopManager.js:130
-#, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "Файловый менеджер Nautilus не найден"
+msgstr "Файловый менеджер GNOME не найден"
 
 #: app/desktopManager.js:131
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Для Desktop Icons NG требуется приложение Файлы GNOME."
 
 #: app/desktopManager.js:778
 msgid "Move"
-msgstr ""
+msgstr "Переместить"
 
 #: app/desktopManager.js:779 app/fileItemMenu.js:302
 msgid "Copy"
@@ -184,24 +180,21 @@ msgstr "Копировать"
 
 #: app/desktopManager.js:780
 msgid "Link"
-msgstr ""
+msgstr "Ссылка"
 
 #: app/desktopManager.js:783
-#, fuzzy
 msgid "Choose Action for Files"
-msgstr "Показать в файловом менеджере"
+msgstr "Выбрать действие для файлового менеджера"
 
 #: app/desktopManager.js:852 app/desktopManager.js:884
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "Ошибка создания SymLink"
 
 #: app/desktopManager.js:853 app/desktopManager.js:885
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "Не удалось создать символическую ссылку"
 
 #: app/desktopManager.js:1175
-#, fuzzy
-#| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Очистить текущую подборку перед новым поиском"
 
@@ -211,40 +204,35 @@ msgstr "Поиск файлов на рабочем столе"
 
 #: app/desktopManager.js:1476
 msgid "Name"
-msgstr ""
+msgstr "Название"
 
 #: app/desktopManager.js:1477
 msgid "Name Z-A"
-msgstr ""
+msgstr "Название A-Я"
 
 #: app/desktopManager.js:1478
-#, fuzzy
-#| msgid "Sort by Modified Time"
 msgid "Modified Time"
-msgstr "Сортировать по времени изменения"
+msgstr "Время изменения"
 
 #: app/desktopManager.js:1479
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: app/desktopManager.js:1480
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: app/desktopManager.js:1483
-#, fuzzy
 msgid "Keep Arranged…"
-msgstr "Сохранить порядок..."
+msgstr "Сохранить порядок…"
 
 #: app/desktopManager.js:1487
-#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Сохранить сгруппированными по типу..."
+msgstr "Сохранить сгруппированными по типу…"
 
 #: app/desktopManager.js:1488
-#, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Сортировать Домашняя папка/Диски/Корзина..."
+msgstr "Сортировать Домашняя папка/Диски/Корзина…"
 
 #: app/desktopManager.js:1493 app/desktopManager.js:2502
 msgid "New Folder"
@@ -275,17 +263,14 @@ msgid "Arrange Icons"
 msgstr "Упорядочить значки"
 
 #: app/desktopManager.js:1517
-#, fuzzy
 msgid "Arrange By…"
-msgstr "Упорядочить по..."
+msgstr "Упорядочить по…"
 
 #: app/desktopManager.js:1522
-#, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Показать рабочий стол в файловом менеджере"
 
 #: app/desktopManager.js:1523
-#, fuzzy
 msgid "Open In Terminal"
 msgstr "Открыть в терминале"
 
@@ -304,33 +289,31 @@ msgstr "Настройки экрана"
 
 #: app/desktopManager.js:1577
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "Окно параметров открыто"
 
 #: app/desktopManager.js:1577
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "Это окно открыто. Пожалуйста, переключитесь на активное окно."
 
 #: app/desktopManager.js:1589
 msgid "Settings"
 msgstr "Параметры"
 
 #: app/desktopManager.js:2525
-#, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Имя папки"
+msgstr "Ошибка создания папки"
 
 #: app/desktopManager.js:2526
-#, fuzzy
 msgid "Could not create folder"
-msgstr "Произошла ошибка при попытке окончательно удалить папку {:}."
+msgstr "Не удалось создать папку"
 
 #: app/desktopManager.js:2569
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Ошибка создания шаблона"
 
 #: app/desktopManager.js:2570
 msgid "Could not create document"
-msgstr ""
+msgstr "Не удалось создать документ"
 
 #: app/fileItem.js:135
 msgid "Home"
@@ -348,7 +331,7 @@ msgstr ""
 
 #: app/fileItem.js:313
 msgid "Broken Desktop File"
-msgstr "Нерабочий .desktop файл"
+msgstr "Нерабочий .desktop-файл"
 
 #: app/fileItem.js:314
 msgid ""
@@ -422,7 +405,7 @@ msgstr "Разгруппировать этот тип"
 
 #: app/fileItemMenu.js:280
 msgid "Scripts"
-msgstr "Сценарии"
+msgstr "Скрипты"
 
 #: app/fileItemMenu.js:285
 msgid "Open All With Other Application..."
@@ -437,7 +420,6 @@ msgid "Launch using Dedicated Graphics Card"
 msgstr "Запустить, используя дискретную видеокарту"
 
 #: app/fileItemMenu.js:294
-#, fuzzy
 msgid "Run as a Program"
 msgstr "Запустить как программу"
 
@@ -479,11 +461,11 @@ msgstr "Отмонтировать"
 
 #: app/fileItemMenu.js:352 app/fileItemMenu.js:356
 msgid "Extract Here"
-msgstr "Распаковать здесь"
+msgstr "Извлечь здесь"
 
 #: app/fileItemMenu.js:358
 msgid "Extract To..."
-msgstr "Распаковать в..."
+msgstr "Извлечь в..."
 
 #: app/fileItemMenu.js:362
 msgid "Send to..."
@@ -491,15 +473,14 @@ msgstr "Отправить в..."
 
 #: app/fileItemMenu.js:368
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Отправить на мобильное устройство"
 
 #: app/fileItemMenu.js:374
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Сжать {0} файл"
-msgstr[1] "Сжать {0} файла"
-msgstr[2] "Сжать {0} файлов"
+msgstr[0] "Сжать {0} папку"
+msgstr[1] "Сжать {0} папки"
+msgstr[2] "Сжать {0} папок"
 
 #: app/fileItemMenu.js:381
 msgid "Compress {0} file"
@@ -536,17 +517,16 @@ msgid "Open in Terminal"
 msgstr "Открыть в терминале"
 
 #: app/fileItemMenu.js:493
-#, fuzzy
 msgid "No Extraction Folder"
-msgstr "Распаковать здесь"
+msgstr "Нет папки для извлечения"
 
 #: app/fileItemMenu.js:494
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "Невозможно извлечь файл, папка извлечения не существует"
 
 #: app/fileItemMenu.js:514
 msgid "Select Extract Destination"
-msgstr "Выбрать папку назначения для распаковки"
+msgstr "Выбрать место назначения для извлечения"
 
 #: app/fileItemMenu.js:519
 msgid "Select"
@@ -606,7 +586,7 @@ msgstr "Верхний левый угол"
 
 #: app/preferencesFrame.js:50
 msgid "Top-right corner"
-msgstr "Правый верхний угол"
+msgstr "Верхний правый угол"
 
 #: app/preferencesFrame.js:51
 msgid "Bottom-left corner"
@@ -614,11 +594,12 @@ msgstr "Нижний левый угол"
 
 #: app/preferencesFrame.js:52
 msgid "Bottom-right corner"
-msgstr "Правый нижний угол"
+msgstr "Нижний правый угол"
 
 #: app/preferencesFrame.js:54
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
+"Сначала добавлять новые значки на вторичные мониторы, если они доступны."
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
@@ -702,7 +683,7 @@ msgstr "Закрыть"
 
 #: app/utils/dbusUtils.js:58
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "Для Desktop Icons требуется \"${programName}\" "
+msgstr "Для Desktop Icons требуется \"${programName}\""
 
 #: app/utils/dbusUtils.js:59
 msgid ""
