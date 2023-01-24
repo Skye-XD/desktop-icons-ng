@@ -4,13 +4,14 @@
 # Eaglers <eaglersdeveloper@gmail.com>, 2018
 # Ser82-png <sw@atrus.ru>, 2021-2022
 # Сергей <asvmail.as@gmail.com>, 2023.
+# dinos <ecg-diagnostic@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-26 18:08-0500\n"
 "PO-Revision-Date: 2023-01-24 13:07+0000\n"
-"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
+"Last-Translator: dinos <ecg-diagnostic@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -279,7 +280,6 @@ msgid "Change Background…"
 msgstr "Изменить фон…"
 
 #: app/desktopManager.js:1533
-#, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Параметры Desktop Icons"
 
@@ -355,7 +355,7 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Этот .desktop файл имеет неправильные разрешения. Щёлкните правой кнопкой "
+"Этот .desktop-файл имеет неправильные разрешения. Щёлкните правой кнопкой "
 "мыши, чтобы изменить свойства, а затем:\n"
 
 #: app/fileItem.js:323
