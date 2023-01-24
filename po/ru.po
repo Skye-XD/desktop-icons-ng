@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-26 18:08-0500\n"
-"PO-Revision-Date: 2023-01-24 13:07+0000\n"
+"PO-Revision-Date: 2023-01-25 13:51+0000\n"
 "Last-Translator: dinos <ecg-diagnostic@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
@@ -598,8 +598,7 @@ msgstr "Нижний правый угол"
 
 #: app/preferencesFrame.js:54
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Сначала добавлять новые значки на вторичные мониторы, если они доступны."
+msgstr "Сначала добавлять новые значки на вторичные мониторы, если они доступны"
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
@@ -607,7 +606,7 @@ msgstr "Добавлять новые диски на противоположн
 
 #: app/preferencesFrame.js:56
 msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "Выделять место назначения во время Drag'n'Drop"
+msgstr "Выделять место назначения в процессе перетаскивания"
 
 #: app/preferencesFrame.js:57
 msgid "Use Nemo to open folders"
