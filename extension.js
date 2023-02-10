@@ -509,10 +509,10 @@ var LaunchSubprocess = class {
             } catch (e) {
                 let context = Shell.Global.get().context;
                 this._waylandClient = Meta.WaylandClient.new(context,
-                                                             this._launcher);
+                    this._launcher);
             }
 
-            if (Config.PACKAGE_VERSION == '3.38.0') {
+            if (Config.PACKAGE_VERSION === '3.38.0') {
                 // workaround for bug in 3.38.0
                 this._launcher.ref();
             }

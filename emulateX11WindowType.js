@@ -297,7 +297,7 @@ var EmulateX11WindowType = class {
         if (this._windowList.has(window))
             return;
         window.customJS_ding = new ManageWindow(window, this._waylandClient, () => {
-            this._refreshWindows(true);
+            this._refreshWindows(false);
         });
         window.actor = windowActor;
         windowActor._delegate = new HandleDragActors(windowActor);
