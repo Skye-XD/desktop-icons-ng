@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /* exported init, enable, disable */
-const { GLib, Gio, Meta, Clutter } = imports.gi;
+const { GLib, Gio, Meta, Clutter, Shell } = imports.gi;
 const Main = imports.ui.main;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Config = imports.misc.config;
@@ -504,8 +504,15 @@ var LaunchSubprocess = class {
         this._processID = processId;
         this._launcher = new Gio.SubprocessLauncher({ flags: flags | Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE });
         if (Meta.is_wayland_compositor()) {
-            this._waylandClient = Meta.WaylandClient.new(this._launcher);
-            if (Config.PACKAGE_VERSION === '3.38.0') {
+            try {
+                this._waylandClient = Meta.WaylandClient.new(this._launcher);
+            } catch (e) {
+                let context = Shell.Global.get().context;
+                this._waylandClient = Meta.WaylandClient.new(context,
+                                                             this._launcher);
+            }
+
+            if (Config.PACKAGE_VERSION == '3.38.0') {
                 // workaround for bug in 3.38.0
                 this._launcher.ref();
             }
