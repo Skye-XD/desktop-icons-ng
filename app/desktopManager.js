@@ -261,7 +261,12 @@ var DesktopManager = class {
         let cssColorDefinition = `@define-color desktop_icons_bg_color ${this.selectColor.to_string()};\n`;
         cssColorDefinition += `@define-color desktop_icons_fg_color ${this.hoverColor.to_string()};`;
         this._cssColorProviderSelection = new Gtk.CssProvider();
-        this._cssColorProviderSelection.load_from_data(cssColorDefinition);
+        // fix for api change Gtk 4.9 
+        try {
+            this._cssColorProviderSelection.load_from_data(cssColorDefinition);
+        } catch(e) {
+            this._cssColorProviderSelection.load_from_data(cssColorDefinition, -1);
+        }
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection, 600);
     }
 
