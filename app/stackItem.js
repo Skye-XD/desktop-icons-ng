@@ -69,16 +69,16 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
     }
 
     keyboardSelected() {
-        if (!this._styleContext.has_class('file-item-hover')) {
-            this._styleContext.add_class('file-item-hover');
-            this._labelStyleContext.add_class('file-item-hover');
+        if (!this._iconContainer.get_css_classes().includes('mimic-hovered')) {
+            this._iconContainer.add_css_class('mimic-hovered');
+            this._labelContainer.add_css_class('mimic-hovered');
         }
     }
 
     _keyboardUnSelected() {
-        if (this._styleContext.has_class('file-item-hover')) {
-            this._styleContext.remove_class('file-item-hover');
-            this._labelStyleContext.remove_class('file-item-hover');
+        if (this._iconContainer.get_css_classes().includes('mimic-hovered')) {
+            this._iconContainer.remove_css_class('mimic-hovered');
+            this._labelContainer.remove_css_class('mimic-hovered');
         }
     }
 
