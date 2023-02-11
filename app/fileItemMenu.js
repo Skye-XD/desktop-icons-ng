@@ -264,8 +264,7 @@ var FileItemMenu = class {
         let keepStacked = this.Prefs.desktopSettings.get_boolean('keep-stacked');
         if (keepStacked && !fileItem.stackUnique) {
             if (!fileItem.isSpecial && !fileItem.isDirectory && !fileItem.isValidDesktopFile) {
-                let unstackList = this.Prefs.getUnstackList();
-                let typeInList = unstackList.includes(fileItem.attributeContentType);
+                let typeInList = this.Prefs.UnstackList.includes(fileItem.attributeContentType);
                 let menuitem = Gio.MenuItem.new(typeInList ? _('Stack This Type') : _('Unstack This Type'), null);
                 let variant = GLib.Variant.new('s', fileItem.attributeContentType);
                 menuitem.set_action_and_target_value('app.stackunstack', variant);
