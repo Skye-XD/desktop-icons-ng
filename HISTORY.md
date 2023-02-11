@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 30
+  * Fix Gtk.CssProvider calls for API change Gtk 4.9 (Sundeep Mediratta)
+  * Fix API change for Meta, Mutter 44, cherry pick from Gtk3 DING. (Daniel Van Vougt)
+  * Fix right click menus in Stacks view not showing for fileItems, stackItems. (Sundeep Mediratta)
+  * Fix - always start in Gnome overview mode on initialization. (Sundeep Mediratta)
+  * Multiple Translation merges - please see authous on Weblate Web Site
+  * Version Bump to 30 (skip verion to keep up with gnome.extensions.org), update metadata.json, History
 
 * Gtk4 version 28
   * Fix CSS application with specific selectors and DING named colors, use Gtk4 calls to apply css. (Sundeep Mediratta)
