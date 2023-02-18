@@ -91,6 +91,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             this._monitorTrashDir.cancel();
             this._monitorTrashId = 0;
         }
+        if (this._symlinkFileMonitorId) {
+            this._symlinkFileMonitor.disconnect(this._symlinkFileMonitorId);
+            this._symlinkFileMonitor.cancel();
+            this._symlinkFileMonitorId = 0;
+        }
+
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
 
@@ -225,8 +231,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._isDirectory = this._fileType === Gio.FileType.DIRECTORY;
         this._isSpecial = this._fileExtra !== this.Enums.FileType.NONE;
         this._isHidden = fileInfo.get_is_hidden() | fileInfo.get_is_backup();
-        this._isSymlink = fileInfo.get_is_symlink();
         this._modifiedTime = fileInfo.get_attribute_uint64('time::modified');
+        this._isSymlink = fileInfo.get_is_symlink();
         /*
          * This is a glib trick to detect broken symlinks. If a file is a symlink, the filetype
          * points to the final file, unless it is broken; thus if the file type is SYMBOLIC_LINK,
@@ -234,6 +240,20 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
          * https://developer.gnome.org/gio/stable/GFile.html#g-file-query-info
          */
         this._isBrokenSymlink = this._isSymlink && this._fileType === Gio.FileType.SYMBOLIC_LINK;
+        if (this._isSymlink && !this._symlinkFileMonitor)
+            this._monitorSymlink();
+    }
+
+    _monitorSymlink() {
+        let symlinkTarget = this._fileInfo.get_symlink_target();
+        let symlinkTargetGioFile = Gio.File.new_for_path(symlinkTarget);
+        this._symlinkFileMonitor = symlinkTargetGioFile.monitor(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._symlinkFileMonitor.set_rate_limit(1000);
+        this._symlinkFileMonitorId = this._symlinkFileMonitor.connect('changed', this._updateSymlinkIcon.bind(this));
+    }
+    
+    _updateSymlinkIcon() {
+        this._refreshMetadataAsync(true, null);
     }
 
     async _doOpenContext(context, fileList) {
