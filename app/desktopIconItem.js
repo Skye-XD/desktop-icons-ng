@@ -346,6 +346,8 @@ var desktopIconItem = class desktopIconItem {
      ***********************/
 
     _onEnter() {
+        if (!this._grid)
+            return;
         if (this.Prefs.CLICK_POLICY_SINGLE) {
             let window = this._grid._window;
             if (window)
@@ -356,6 +358,8 @@ var desktopIconItem = class desktopIconItem {
 
     _onLeave() {
         this._primaryButtonPressed = false;
+        if (!this._grid)
+            return;
         if (this.Prefs.CLICK_POLICY_SINGLE) {
             let window = this._grid._window;
             if (window)
