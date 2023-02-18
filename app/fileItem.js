@@ -91,8 +91,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             this._monitorTrashDir.cancel();
             this._monitorTrashId = 0;
         }
-        if (this._symlinkFileMonitorId)
-            this._symlinkFileMonitorId.disconnect(this._monitorSymlinkId);
+        if (this._symlinkFileMonitorId) {
+            this._symlinkFileMonitor.disconnect(this._symlinkFileMonitorId);
+            this._symlinkFileMonitor.cancel();
+            this._symlinkFileMonitorId = 0;
+        }
 
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
@@ -237,16 +240,16 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
          * https://developer.gnome.org/gio/stable/GFile.html#g-file-query-info
          */
         this._isBrokenSymlink = this._isSymlink && this._fileType === Gio.FileType.SYMBOLIC_LINK;
-        if (this._isSymlink && !this._symlinkFileMonitorId)
+        if (this._isSymlink && !this._symlinkFileMonitor)
             this._monitorSymlink();
     }
 
     _monitorSymlink() {
         let symlinkTarget = this._fileInfo.get_symlink_target();
         let symlinkTargetGioFile = Gio.File.new_for_path(symlinkTarget);
-        this._symlinkFileMonitorId = symlinkTargetGioFile.monitor(Gio.FileMonitorFlags.WATCH_MOVES, null);
-        this._symlinkFileMonitorId.set_rate_limit(1000);
-        this._symlinkFileMonitorId.connect('changed', this._updateSymlinkIcon.bind(this));
+        this._symlinkFileMonitor = symlinkTargetGioFile.monitor(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._symlinkFileMonitor.set_rate_limit(1000);
+        this._symlinkFileMonitorId = this._symlinkFileMonitor.connect('changed', this._updateSymlinkIcon.bind(this));
     }
     
     _updateSymlinkIcon() {
