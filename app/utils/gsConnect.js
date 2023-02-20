@@ -71,6 +71,8 @@ var GsConnectSendFileOperationsManager =  class {
         if (signalName === 'InterfacesAdded') {
             for (let [objectPath, props] of Object.entries(objects)) {
                 props = props['org.gnome.Shell.Extensions.GSConnect.Device'];
+                if (!props)
+                    continue;
                 let action = Gio.DBusActionGroup.get(this.gsConnectProxy.get_connection(), this.gsConnectServiceName, objectPath);
                 this.gsConnectDevices[objectPath] = [props['Name'], action];
             }
