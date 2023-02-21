@@ -717,9 +717,15 @@ var DesktopManager = class {
                     desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
                     return true;
                 } else {
-                    const header = _('Could not open File!');
-                    const text = _(`${DropAppName} can not open this file type`);
-                    this.dbusManager.doNotify(header, text);
+                    let windowError = new ShowErrorPopup.ShowErrorPopup(
+                        _('Could not open File'),
+                        _(`${DropAppName} can not open this file Type!`),
+                        true,
+                        this.textEntryAccelsTurnOff.bind(this),
+                        this.textEntryAccelsTurnOn.bind(this),
+                        this.DesktopIconsUtil
+                    );
+                    windowError.timeoutClose(3000);
                     return false;
                 }
             } catch (e) {
