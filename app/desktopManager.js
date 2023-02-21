@@ -708,10 +708,26 @@ var DesktopManager = class {
                     log('Could not parse desktopFile as a desktop file');
                     return false;
                 }
-                const context = Gdk.Display.get_default().get_app_launch_context();
-                context.set_timestamp(Gdk.CURRENT_TIME);
-                desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
-                return true;
+                let DropAppName = desktopFile.get_name();
+                let AppsSupportingDrag = Gio.AppInfo.get_all_for_type(this.getCurrentSelection()[0].attributeContentType);
+                AppsSupportingDrag = AppsSupportingDrag.map(f => f.get_name());
+                if (AppsSupportingDrag.includes(DropAppName)) {
+                    const context = Gdk.Display.get_default().get_app_launch_context();
+                    context.set_timestamp(Gdk.CURRENT_TIME);
+                    desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
+                    return true;
+                } else {
+                    let windowError = new ShowErrorPopup.ShowErrorPopup(
+                        _('Could not open File'),
+                        _(`${DropAppName} can not open this file Type!`),
+                        true,
+                        this.textEntryAccelsTurnOff.bind(this),
+                        this.textEntryAccelsTurnOn.bind(this),
+                        this.DesktopIconsUtil
+                    );
+                    windowError.timeoutClose(3000);
+                    return false;
+                }
             } catch (e) {
                 logError(e, 'Error reading desktop file. Cannot launch application.');
                 return false;
