@@ -260,9 +260,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (!fileList)
             fileList = [];
 
-        if (this._isSymlink)
-            await this._refreshMetadataAsync(true).catch(e => logError(e));
-
         if (this._isBrokenSymlink) {
             try {
                 log(`Error: Can’t open ${this.file.get_uri()} because it is a broken symlink.`);
