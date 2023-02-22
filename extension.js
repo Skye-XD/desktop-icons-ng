@@ -507,9 +507,8 @@ var LaunchSubprocess = class {
             try {
                 this._waylandClient = Meta.WaylandClient.new(this._launcher);
             } catch (e) {
-                let context = Shell.Global.get().context;
-                this._waylandClient = Meta.WaylandClient.new(context,
-                    this._launcher);
+                this._waylandClient = Meta.WaylandClient.new(global.context,
+                                                             this._launcher);
             }
 
             if (Config.PACKAGE_VERSION === '3.38.0') {

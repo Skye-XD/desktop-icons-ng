@@ -182,7 +182,7 @@ var DesktopManager = class {
         if (this._desktopEnumerateCancellable)
             this._desktopEnumerateCancellable.cancel();
 
-        this.fileItemMenu.destroy()
+        this.fileItemMenu.destroy();
 
         if (this.thumbnailApp)
             this.thumbnailApp.send_signal(15);
@@ -263,10 +263,10 @@ var DesktopManager = class {
         let cssColorDefinition = `@define-color desktop_icons_bg_color ${this.selectColor.to_string()};\n`;
         cssColorDefinition += `@define-color desktop_icons_fg_color ${this.hoverColor.to_string()};`;
         this._cssColorProviderSelection = new Gtk.CssProvider();
-        // fix for api change Gtk 4.9 
+        // fix for api change Gtk 4.9
         try {
             this._cssColorProviderSelection.load_from_data(cssColorDefinition);
-        } catch(e) {
+        } catch (e) {
             this._cssColorProviderSelection.load_from_data(cssColorDefinition, -1);
         }
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection, 600);

@@ -251,7 +251,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this._symlinkFileMonitor.set_rate_limit(1000);
         this._symlinkFileMonitorId = this._symlinkFileMonitor.connect('changed', this._updateSymlinkIcon.bind(this));
     }
-    
+
     _updateSymlinkIcon() {
         this._refreshMetadataAsync(true, null);
     }
