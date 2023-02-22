@@ -32,7 +32,7 @@ var FileItemMenu = class {
         this._templatesScriptsManager = this._desktopManager.templatesScriptsManager;
         this._showErrorPopup = this._desktopManager.showErrorPopup;
         this._decompressibleTypes = [];
-        this.DBusUtils.RemoteFileOperations.gnomeArchiveManager.connect('changed-status', (actor, available) => {
+        this.archiveConnectionId = this.DBusUtils.RemoteFileOperations.gnomeArchiveManager.connect('changed-status', (actor, available) => {
             if (available) {
                 // wait a second to ensure that everything has settled
                 GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
@@ -62,6 +62,11 @@ var FileItemMenu = class {
         );
         this.activeFileItem = null;
         this._createFileItemMenuActions();
+    }
+
+    destroy() {
+        this.DBusUtils.RemoteFileOperations.gnomeArchiveManager.disconnect(this.archiveConnectionId);
+        this.archiveConnectionId = 0;
     }
 
     _getExtractionSupportedTypes() {

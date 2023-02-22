@@ -182,6 +182,8 @@ var DesktopManager = class {
         if (this._desktopEnumerateCancellable)
             this._desktopEnumerateCancellable.cancel();
 
+        this.fileItemMenu.destroy()
+
         if (this.thumbnailApp)
             this.thumbnailApp.send_signal(15);
     }
