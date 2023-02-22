@@ -80,6 +80,10 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Detect Gtk Theme Changes to update currently applied theme, update selection color and rubber band color in real time to show new colors and themes without restarting the app.
 
+- [x] Link targets are now monitored, if a link is broken it is updated immediately on the Desktop.
+
+- [x] When files are dropped on the Dock, now a check is done to make sure the application in the Dock can actually open the file prior to launching it. If it is uable to open the files, an error message is shown.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.

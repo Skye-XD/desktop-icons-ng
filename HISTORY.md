@@ -1,4 +1,12 @@
 # History of versions #
+
+* Gtk4 version 31
+  * Link targets are now monitored in the background for broken links. (Sundeep Mediratta)
+  * Check Dock Application can actually launch the file dropped on it from the Desktop prior to launching the application. (Sundeep Mediratta)
+  * Multiple Fixes to prevent errors in logs. (Sundeep Mediratta)
+  * Cherry Pick simplify global context lookup. (Daniel Van Vaugt)
+  * Version Bump to 31, update metadata.json, Hitory and Readme.
+
 * Gtk4 version 30
   * Fix Gtk.CssProvider calls for API change Gtk 4.9 (Sundeep Mediratta)
   * Fix API change for Meta, Mutter 44, cherry pick from Gtk3 DING. (Daniel Van Vougt)
