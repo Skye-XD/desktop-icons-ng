@@ -621,9 +621,9 @@ var DesktopGrid = class {
             let draggedItem = this._fileAt(x, y);
             if (draggedItem && !this._desktopManager.rubberBand) {
                 clickItem = draggedItem;
-                let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                let [a, b] = clickItem._calculateOffset(X, Y);
-                widgetDragController.set_icon(clickItem.dragIcon, a, b);
+                let [a, b] = this._container.translate_coordinates(clickItem._icon, x, y).slice(1).map(f => Math.round(f));
+                let dragIcon = Gtk.WidgetPaintable.new(clickItem._icon);
+                widgetDragController.set_icon(dragIcon, a, b);
                 this._loadDragData();
                 if (this.contentProvider)
                     return this.contentProvider;

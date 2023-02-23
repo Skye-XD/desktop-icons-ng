@@ -436,10 +436,6 @@ var desktopIconItem = class desktopIconItem {
             this.setUnHighLighted();
     }
 
-    _calculateOffset(X, Y) {
-        return [Math.round(X - this._x1), Math.round(Y - this._y1)];
-    }
-
     receiveDrop(x, y, selection, info) {
     }
 
