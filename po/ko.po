@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2022-04-23 10:08+0900\n"
-"Last-Translator: 이정희 <daemul72@gmail.com>\n"
-"Language-Team: Korean <jingimem@gmail.com>\n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -36,24 +37,27 @@ msgid "Rename"
 msgstr "이름 바꾸기"
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr이 설치되지 않았습니다."
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr ""
+msgstr "압축 파일로 작업하려면 file-roller 및/또는 gir-1.2-gnomeAutoAr를 "
+"설치하십시오."
 
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "여기 풀기"
+msgstr "파일 추출 중"
 
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "{0}개 파일 압축하기"
+msgstr "파일 압축"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
 #: app/desktopManager.js:1260 app/fileItemMenu.js:522
@@ -61,198 +65,230 @@ msgid "Cancel"
 msgstr "취소"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "여기에 비밀번호를 입력하세요"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "부분 파일 '${outputFile}' 제거"
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "대상 폴더 생성"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "파일을 '${outputPath}'로 추출"
 
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "여기 풀기"
+msgstr "추출 완료"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "'${fullPathFile}' 추출이 완료되었습니다."
 
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "여기 풀기"
+msgstr "추출 취소됨"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "사용자가 '${fullPathFile}' 추출을 취소했습니다."
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "${filename}에 대한 암호가 필요합니다."
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "추출 중 오류"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "파일을 '${outputFile}'로 압축"
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "압축 완료"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "'${outputFile}' 파일 압축이 완료되었습니다."
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "취소된 압축"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "출력 파일 '${outputFile}'이(가) 이미 있습니다."
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "파일을 '${outputFile}'로 압축하는 작업이 사용자에 의해 취소되었습니다."
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "압축 중 오류"
 
 #: app/autoAr.js:547
+#, fuzzy
 msgid "Create archive"
-msgstr ""
+msgstr "아카이브 생성"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "파일 이름"
+msgstr "아카이브 이름"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "비밀번호"
 
 #: app/autoAr.js:617
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "만들다"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "모든 운영 체제와 호환됩니다."
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "암호로 보호된 .zip은 Windows 및 Mac에 설치해야 합니다."
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "더 작은 아카이브이지만 Linux 및 Mac만 가능합니다."
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "더 작은 아카이브이지만 Windows 및 Mac에 설치해야 합니다."
 
 #: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "노틸러스 파일 관리자를 찾을 수 없습니다"
+msgstr "그놈 파일을 찾을 수 없음"
 
 #: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Desktop Icons NG에는 그놈 파일 응용 프로그램이 필요합니다."
 
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Could not open File"
-msgstr "파일 삭제 중 오류가 발생하였습니다."
+msgstr "파일을 열 수 없습니다"
 
 #: app/desktopManager.js:724
+#, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr ""
+msgstr "${appName}은(는) 이 유형의 파일을 열 수 없습니다!"
 
 #: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "이동하다"
 
 #: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "복사하기"
 
 #: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "링크"
 
 #: app/desktopManager.js:824
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "파일로 표시"
+msgstr "파일에 대한 작업 선택"
 
 #: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "SymLink 만들기 실패"
 
 #: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "심볼릭 링크를 생성할 수 없습니다."
 
 #: app/desktopManager.js:1216
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
-msgstr "새 검색 전에 현재 선택 지우기"
+msgstr "새 검색 전에 현재 선택 항목 지우기"
 
 #: app/desktopManager.js:1262
 msgid "Find Files on Desktop"
 msgstr "데스크탑에서 파일 찾기"
 
 #: app/desktopManager.js:1517
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #: app/desktopManager.js:1518
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "이름 Z-A"
 
 #: app/desktopManager.js:1519
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
-msgstr "수정된 시간순으로 정렬"
+msgstr "수정된 시간"
 
 #: app/desktopManager.js:1520
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "유형"
 
 #: app/desktopManager.js:1521
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "크기"
 
 #: app/desktopManager.js:1524
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "정렬 유지..."
+msgstr "정리 유지…"
 
 #: app/desktopManager.js:1528
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "유형별로 스택됨 유지..."
+msgstr "유형별로 누적 유지…"
 
 #: app/desktopManager.js:1529
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "집/드라이브/휴지통 정렬..."
+msgstr "홈/드라이브/휴지통 정렬…"
 
 #: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
@@ -285,17 +321,17 @@ msgstr "아이콘 정렬"
 #: app/desktopManager.js:1558
 #, fuzzy
 msgid "Arrange By…"
-msgstr "정렬 기준..."
+msgstr "정렬 기준…"
 
 #: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "파일에 바탕화면 표시"
+msgstr "그놈 파일에서 데스크탑 보기"
 
 #: app/desktopManager.js:1564
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "터미널로 열기"
+msgstr "터미널에서 열기"
 
 #: app/desktopManager.js:1569
 msgid "Change Background…"
@@ -304,19 +340,21 @@ msgstr "배경화면 변경…"
 #: app/desktopManager.js:1574
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "바탕화면 아이콘 설정"
+msgstr "데스크탑 아이콘 설정"
 
 #: app/desktopManager.js:1575
 msgid "Display Settings"
 msgstr "화면 설정"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "기본 설정 창이 열려 있습니다."
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "이 창이 열려 있습니다. 활성 창으로 전환하십시오."
 
 #: app/desktopManager.js:1630
 msgid "Settings"
@@ -325,20 +363,22 @@ msgstr "설정"
 #: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "폴더 이름"
+msgstr "폴더 생성 실패"
 
 #: app/desktopManager.js:2567
 #, fuzzy
 msgid "Could not create folder"
-msgstr "파일 삭제 중 오류가 발생하였습니다."
+msgstr "폴더를 생성할 수 없습니다."
 
 #: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "템플릿 생성 오류"
 
 #: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "문서를 생성할 수 없습니다."
 
 #: app/fileItem.js:141
 msgid "Home"
@@ -494,14 +534,15 @@ msgid "Send to..."
 msgstr "다음으로 보내기…"
 
 #: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "모바일 장치로 보내기"
 
 #: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "{0}개 파일 압축하기"
+msgstr[0] "{0} 폴더 압축"
 
 #: app/fileItemMenu.js:385
 msgid "Compress {0} file"
@@ -536,11 +577,12 @@ msgstr "터미널로 열기"
 #: app/fileItemMenu.js:497
 #, fuzzy
 msgid "No Extraction Folder"
-msgstr "여기 풀기"
+msgstr "추출 폴더 없음"
 
 #: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "파일을 추출할 수 없습니다. 추출 폴더가 존재하지 않습니다."
 
 #: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
@@ -615,8 +657,9 @@ msgid "Bottom-right corner"
 msgstr "우측 하단부터"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "가능한 경우 먼저 보조 모니터에 새 아이콘을 추가하십시오."
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
