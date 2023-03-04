@@ -6,15 +6,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2019-07-22 10:24+0200\n"
-"Last-Translator: Jordi Mas <jmas@softcatala.org>\n"
-"Language-Team: Catalan <info@softcatala.org>\n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -33,24 +34,28 @@ msgid "Rename"
 msgstr "Canvia el nom"
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr no està instal·lat"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"Per poder treballar amb fitxers comprimits, instal·leu file-roller i/o gir-1."
+"2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Extreu aquí"
+msgstr "Extracció de fitxers"
 
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "Comprimeix {0} fitxer"
+msgstr "Comprimint fitxers"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
 #: app/desktopManager.js:1260 app/fileItemMenu.js:522
@@ -58,191 +63,229 @@ msgid "Cancel"
 msgstr "Cancel·la"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "Introduïu una contrasenya aquí"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "S'està eliminant el fitxer parcial '${outputFile}'"
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "S'està creant la carpeta de destinació"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "S'estan extreure fitxers a '${outputPath}'"
 
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Extreu aquí"
+msgstr "Extracció completada"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "S'ha completat l'extracció de \"${fullPathFile}\"."
 
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Extreu aquí"
+msgstr "S'ha cancel·lat l'extracció"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "L'usuari ha cancel·lat l'extracció de '${fullPathFile}'."
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Cal una frase de contrasenya per a ${filename}"
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "Error durant l'extracció"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "S'estan comprimint fitxers a \"${outputFile}\""
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "Compressió completada"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "S'ha completat la compressió dels fitxers a '${outputFile}'."
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Compressió cancel·lada"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "El fitxer de sortida '${outputFile}' ja existeix."
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "L'usuari ha cancel·lat la compressió de fitxers a '${outputFile}'."
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "Error durant la compressió"
 
 #: app/autoAr.js:547
+#, fuzzy
 msgid "Create archive"
-msgstr ""
+msgstr "Crea un arxiu"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "Nom del fitxer"
+msgstr "Nom de l'arxiu"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Contrasenya"
 
 #: app/autoAr.js:617
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "Compatible amb tots els sistemes operatius."
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr ".zip protegit amb contrasenya, s'ha d'instal·lar a Windows i Mac."
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "Arxius més petits però només Linux i Mac."
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "Arxius més petits però s'han d'instal·lar a Windows i Mac."
 
 #: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "No s'ha trobat el gestor de fitxers del Nautilus"
+msgstr "No s'han trobat fitxers de GNOME"
 
 #: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Desktop Icons NG requereix l'aplicació GNOME Files."
 
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Could not open File"
-msgstr "S'ha produït un error en suprimir els fitxers"
+msgstr "No s'ha pogut obrir el fitxer"
 
 #: app/desktopManager.js:724
+#, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr ""
+msgstr "${appName} no pot obrir fitxers d'aquest tipus!"
 
 #: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "Mou-te"
 
 #: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Copia"
 
 #: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "Enllaç"
 
 #: app/desktopManager.js:824
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Mostra al Fitxers"
+msgstr "Trieu Acció per als fitxers"
 
 #: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "Ha fallat en fer SymLink"
 
 #: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "No s'ha pogut crear l'enllaç simbòlic"
 
 #: app/desktopManager.js:1216
+#, fuzzy
 msgid "Clear current selection before new search"
-msgstr ""
+msgstr "Esborra la selecció actual abans de fer una nova cerca"
 
 #: app/desktopManager.js:1262
+#, fuzzy
 msgid "Find Files on Desktop"
-msgstr ""
+msgstr "Cerca fitxers a l'escriptori"
 
 #: app/desktopManager.js:1517
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: app/desktopManager.js:1518
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "Nom Z-A"
 
 #: app/desktopManager.js:1519
+#, fuzzy
 msgid "Modified Time"
-msgstr ""
+msgstr "Hora modificada"
 
 #: app/desktopManager.js:1520
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 #: app/desktopManager.js:1521
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "Mida"
 
 #: app/desktopManager.js:1524
+#, fuzzy
 msgid "Keep Arranged…"
-msgstr ""
+msgstr "Mantenir-se ordenat…"
 
 #: app/desktopManager.js:1528
+#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "Mantenir apilats per tipus…"
 
 #: app/desktopManager.js:1529
+#, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr ""
+msgstr "Ordena Inici/Unitats/Paperera…"
 
 #: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
@@ -267,25 +310,27 @@ msgstr "Refés"
 #: app/desktopManager.js:1549
 #, fuzzy
 msgid "Select All"
-msgstr "Selecciona-ho tot"
+msgstr "Seleccionar tot"
 
 #: app/desktopManager.js:1554
+#, fuzzy
 msgid "Arrange Icons"
-msgstr ""
+msgstr "Organitza les icones"
 
 #: app/desktopManager.js:1558
+#, fuzzy
 msgid "Arrange By…"
-msgstr ""
+msgstr "Organitza per…"
 
 #: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Mostra l'escriptori al Fitxers"
+msgstr "Mostra l'escriptori als fitxers del GNOME"
 
 #: app/desktopManager.js:1564
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Obre al Terminal"
+msgstr "Obre a la terminal"
 
 #: app/desktopManager.js:1569
 msgid "Change Background…"
@@ -294,19 +339,21 @@ msgstr "Canvia el fons de l'escriptori…"
 #: app/desktopManager.js:1574
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Paràmetres de les icones de l'escriptori"
+msgstr "Configuració d'icones de l'escriptori"
 
 #: app/desktopManager.js:1575
 msgid "Display Settings"
 msgstr "Paràmetres de la pantalla"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "La finestra de preferències està oberta"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "Aquesta finestra està oberta. Si us plau, canvieu a la finestra activa."
 
 #: app/desktopManager.js:1630
 msgid "Settings"
@@ -315,37 +362,41 @@ msgstr "Paràmetres"
 #: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Nom de la carpeta"
+msgstr "La creació de la carpeta ha fallat"
 
 #: app/desktopManager.js:2567
 #, fuzzy
 msgid "Could not create folder"
-msgstr "S'ha produït un error en suprimir els fitxers"
+msgstr "No s'ha pogut crear la carpeta"
 
 #: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Error de creació de plantilla"
 
 #: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "No s'ha pogut crear el document"
 
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "Inici"
 
 #: app/fileItem.js:266
+#, fuzzy
 msgid "Broken Link"
-msgstr ""
+msgstr "Enllaç trencat"
 
 #: app/fileItem.js:267
+#, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "No es pot obrir aquest fitxer perquè és un enllaç simbòlic trencat"
 
 #: app/fileItem.js:330
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Mostra l'escriptori al Fitxers"
+msgstr "Fitxer d'escriptori trencat"
 
 #: app/fileItem.js:331
 msgid ""
@@ -356,8 +407,9 @@ msgid ""
 msgstr ""
 
 #: app/fileItem.js:337
+#, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "Permisos no vàlids al fitxer de l'escriptori"
 
 #: app/fileItem.js:338
 msgid ""
@@ -366,16 +418,23 @@ msgid ""
 msgstr ""
 
 #: app/fileItem.js:340
+#, fuzzy
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
+"\n"
+"<b>Estableix els permisos, a \"Accés d'altres\", \"Només lectura\" o \"Cap\""
+"</b>"
 
 #: app/fileItem.js:343
+#, fuzzy
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
+"\n"
+"<b>Activa l'opció \"Permet l'execució del fitxer com a programa\"</b>"
 
 #: app/fileItem.js:351
 msgid ""
@@ -394,12 +453,14 @@ msgid "Open"
 msgstr "Obre"
 
 #: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Stack This Type"
-msgstr ""
+msgstr "Apila aquest tipus"
 
 #: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Unstack This Type"
-msgstr ""
+msgstr "Desapila aquest tipus"
 
 #: app/fileItemMenu.js:284
 msgid "Scripts"
@@ -418,8 +479,9 @@ msgid "Launch using Dedicated Graphics Card"
 msgstr "Llança usant targeta gràfica dedicada"
 
 #: app/fileItemMenu.js:298
+#, fuzzy
 msgid "Run as a Program"
-msgstr ""
+msgstr "Executar com a programa"
 
 #: app/fileItemMenu.js:304
 msgid "Cut"
@@ -470,15 +532,16 @@ msgid "Send to..."
 msgstr "Envia a..."
 
 #: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Envia al dispositiu mòbil"
 
 #: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Comprimeix {0} fitxer"
-msgstr[1] "Comprimeix {0} fitxers"
+msgstr[0] "Comprimiu la carpeta {0}"
+msgstr[1] "Comprimiu {0} carpetes"
 
 #: app/fileItemMenu.js:385
 msgid "Compress {0} file"
@@ -515,20 +578,22 @@ msgstr "Obre al Terminal"
 #: app/fileItemMenu.js:497
 #, fuzzy
 msgid "No Extraction Folder"
-msgstr "Extreu aquí"
+msgstr "Sense carpeta d'extracció"
 
 #: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "No es pot extreure el fitxer, la carpeta d'extracció no existeix"
 
 #: app/fileItemMenu.js:518
+#, fuzzy
 msgid "Select Extract Destination"
-msgstr ""
+msgstr "Seleccioneu Extreu la destinació"
 
 #: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Select"
-msgstr "Selecciona-ho tot"
+msgstr "Seleccioneu"
 
 #: app/fileItemMenu.js:563
 msgid "Can not email a Directory"
@@ -596,8 +661,10 @@ msgid "Bottom-right corner"
 msgstr "Cantonada inferior dreta"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
+"Afegiu primer icones noves als monitors secundaris, si estan disponibles"
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
@@ -608,16 +675,19 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Ressalta el lloc desplegable durant l'arrossegat"
 
 #: app/preferencesFrame.js:57
+#, fuzzy
 msgid "Use Nemo to open folders"
-msgstr ""
+msgstr "Utilitzeu Nemo per obrir carpetes"
 
 #: app/preferencesFrame.js:58
+#, fuzzy
 msgid "Add an emblem to soft links"
-msgstr ""
+msgstr "Afegiu un emblema als enllaços suaus"
 
 #: app/preferencesFrame.js:59
+#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "Utilitzeu text fosc a les etiquetes d'icones"
 
 #: app/preferencesFrame.js:64
 msgid "Settings shared with Nautilus"
@@ -676,12 +746,14 @@ msgid "Always"
 msgstr "Sempre"
 
 #: app/showErrorPopup.js:41
+#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "Tanca"
 
 #: app/utils/dbusUtils.js:58
+#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr ""
+msgstr "\"${programName}\" és necessari per a les icones d'escriptori"
 
 #: app/utils/dbusUtils.js:59
 msgid ""
