@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2021-12-12 18:32+0100\n"
-"Last-Translator: Tim Hofstede <phokas@mail.de>\n"
-"Language-Team: German - Germany <->\n"
-"Language: de_DE\n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 41.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -36,8 +37,9 @@ msgid "Rename"
 msgstr "Umbenennen ..."
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr ist nicht installiert"
 
 #: app/autoAr.js:72
 msgid ""
@@ -48,12 +50,12 @@ msgstr ""
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Hier entpacken"
+msgstr "Entpacke Dateien"
 
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "Komprimiere {0} Datei"
+msgstr "Dateien komprimieren"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
 #: app/desktopManager.js:1260 app/fileItemMenu.js:522
@@ -61,197 +63,233 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "Geben Sie hier ein Passwort ein"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "Teildatei „${outputFile}“ wird entfernt"
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Zielordner erstellen"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "Extrahieren von Dateien in '${outputPath}'"
 
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Hier entpacken"
+msgstr "Extraktion abgeschlossen"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "Das Extrahieren von „${fullPathFile}“ ist abgeschlossen."
 
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Hier entpacken"
+msgstr "Extraktion abgebrochen"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Das Extrahieren von „${fullPathFile}“ wurde vom Benutzer abgebrochen."
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Passphrase für ${filename} erforderlich"
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "Fehler beim Extrahieren"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "Dateien in '${outputFile}' komprimieren"
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "Komprimierung abgeschlossen"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "Das Komprimieren von Dateien in '${outputFile}' wurde abgeschlossen."
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Komprimierung abgebrochen"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "Die Ausgabedatei „${outputFile}“ existiert bereits."
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr ""
+"Das Komprimieren von Dateien in '${outputFile}' wurde vom Benutzer "
+"abgebrochen."
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "Fehler beim Komprimieren"
 
 #: app/autoAr.js:547
+#, fuzzy
 msgid "Create archive"
-msgstr ""
+msgstr "Archiv erstellen"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "Dateiname"
+msgstr "Archivname"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Passwort"
 
 #: app/autoAr.js:617
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "Erstellen"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "Kompatibel mit allen Betriebssystemen."
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr ""
+"Passwortgeschützte .zip-Datei, muss auf Windows und Mac installiert werden."
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "Kleinere Archive, aber nur Linux und Mac."
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "Kleinere Archive müssen aber auf Windows und Mac installiert werden."
 
 #: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "Nautilus-Dateiverwaltung nicht gefunden"
+msgstr "GNOME-Dateien nicht gefunden"
 
 #: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Die Anwendung GNOME-Dateien wird von Desktop Icons NG benötigt."
 
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Could not open File"
-msgstr "Fehler beim Löschen der Dateien"
+msgstr "Konnte die Datei nicht öffnen"
 
 #: app/desktopManager.js:724
+#, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr ""
+msgstr "${appName} kann Dateien dieses Typs nicht öffnen!"
 
 #: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "Umzug"
 
 #: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Kopieren"
 
 #: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "Verknüpfung"
 
 #: app/desktopManager.js:824
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "In Dateiverwaltung anzeigen"
+msgstr "Wählen Sie Aktion für Dateien"
 
 #: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "Erstellen von SymLink fehlgeschlagen"
 
 #: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "Symbolischer Link konnte nicht erstellt werden"
 
 #: app/desktopManager.js:1216
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
-msgstr "Aktuelle Auswahl vor neuer Suche löschen"
+msgstr "Löschen Sie die aktuelle Auswahl vor einer neuen Suche"
 
 #: app/desktopManager.js:1262
 msgid "Find Files on Desktop"
 msgstr "Dateien auf dem Schreibtisch finden"
 
 #: app/desktopManager.js:1517
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: app/desktopManager.js:1518
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "Name Z-A"
 
 #: app/desktopManager.js:1519
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
-msgstr "Sortiere nach Änderungsdatum"
+msgstr "Geänderte Zeit"
 
 #: app/desktopManager.js:1520
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: app/desktopManager.js:1521
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "Größe"
 
 #: app/desktopManager.js:1524
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Angeordnet lassen..."
+msgstr "Ordnung halten …"
 
 #: app/desktopManager.js:1528
+#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "Nach Typ gestapelt halten…"
 
 #: app/desktopManager.js:1529
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sortiere Home/Laufwerke/Papierkorb..."
+msgstr "Start/Laufwerke/Papierkorb sortieren…"
 
 #: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
@@ -284,12 +322,12 @@ msgstr "Symbole anordnen"
 #: app/desktopManager.js:1558
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Anordnen nach..."
+msgstr "Anordnen nach…"
 
 #: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Schreibtisch in Dateien anzeigen"
+msgstr "Desktop in GNOME-Dateien anzeigen"
 
 #: app/desktopManager.js:1564
 #, fuzzy
@@ -303,19 +341,21 @@ msgstr "Hintergrund ändern …"
 #: app/desktopManager.js:1574
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Arbeitsfläche-Einstellungen"
+msgstr "Desktop-Icon-Einstellungen"
 
 #: app/desktopManager.js:1575
 msgid "Display Settings"
 msgstr "Anzeigeeinstellungen"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "Das Einstellungsfenster ist geöffnet"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "Dieses Fenster ist geöffnet. Bitte wechseln Sie in das aktive Fenster."
 
 #: app/desktopManager.js:1630
 msgid "Settings"
@@ -324,37 +364,43 @@ msgstr "Einstellungen"
 #: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Ordnername"
+msgstr "Ordnererstellung fehlgeschlagen"
 
 #: app/desktopManager.js:2567
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Fehler beim Löschen der Dateien"
+msgstr "Ordner konnte nicht erstellt werden"
 
 #: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Fehler bei der Vorlagenerstellung"
 
 #: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "Dokument konnte nicht erstellt werden"
 
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "Persönlicher Ordner"
 
 #: app/fileItem.js:266
+#, fuzzy
 msgid "Broken Link"
-msgstr ""
+msgstr "Defekter Link"
 
 #: app/fileItem.js:267
+#, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
+"Diese Datei kann nicht geöffnet werden, da es sich um einen defekten Symlink "
+"handelt"
 
 #: app/fileItem.js:330
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Schreibtisch in Dateien anzeigen"
+msgstr "Defekte Desktop-Datei"
 
 #: app/fileItem.js:331
 msgid ""
@@ -365,8 +411,9 @@ msgid ""
 msgstr ""
 
 #: app/fileItem.js:337
+#, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "Ungültige Berechtigungen für Desktop-Datei"
 
 #: app/fileItem.js:338
 msgid ""
@@ -375,16 +422,23 @@ msgid ""
 msgstr ""
 
 #: app/fileItem.js:340
+#, fuzzy
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
+"\n"
+"<b>Berechtigungen festlegen, in \"Zugriff anderer\", \"Nur lesen\" oder "
+"\"Keine\"</b>"
 
 #: app/fileItem.js:343
+#, fuzzy
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
+"\n"
+"<b>Option aktivieren, \"Datei als Programm ausführen lassen\"</b>"
 
 #: app/fileItem.js:351
 msgid ""
@@ -403,12 +457,14 @@ msgid "Open"
 msgstr "Öffnen"
 
 #: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Stack This Type"
-msgstr ""
+msgstr "Stapeln Sie diesen Typ"
 
 #: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Unstack This Type"
-msgstr ""
+msgstr "Entstapeln Sie diesen Typ"
 
 #: app/fileItemMenu.js:284
 msgid "Scripts"
@@ -427,8 +483,9 @@ msgid "Launch using Dedicated Graphics Card"
 msgstr "Mit dedizierter Grafikkarte starten"
 
 #: app/fileItemMenu.js:298
+#, fuzzy
 msgid "Run as a Program"
-msgstr ""
+msgstr "Als Programm ausführen"
 
 #: app/fileItemMenu.js:304
 msgid "Cut"
@@ -479,15 +536,16 @@ msgid "Send to..."
 msgstr "Senden an ..."
 
 #: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "An Mobilgerät senden"
 
 #: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Komprimiere {0} Datei"
-msgstr[1] "Komprimiere {0} Dateien"
+msgstr[0] "Komprimieren Sie den Ordner {0}"
+msgstr[1] "Komprimiere {0} Ordner"
 
 #: app/fileItemMenu.js:385
 msgid "Compress {0} file"
@@ -524,11 +582,12 @@ msgstr "Im Terminal öffnen"
 #: app/fileItemMenu.js:497
 #, fuzzy
 msgid "No Extraction Folder"
-msgstr "Hier entpacken"
+msgstr "Kein Extraktionsordner"
 
 #: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "Datei kann nicht extrahiert werden, Extraktionsordner existiert nicht"
 
 #: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
@@ -605,8 +664,10 @@ msgid "Bottom-right corner"
 msgstr "Ecke unten rechts"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
+"Fügen Sie zuerst neue Symbole zu sekundären Monitoren hinzu, falls verfügbar"
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
@@ -617,16 +678,19 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Zielposition bei Drag'n'Drop hervorheben"
 
 #: app/preferencesFrame.js:57
+#, fuzzy
 msgid "Use Nemo to open folders"
-msgstr ""
+msgstr "Verwenden Sie Nemo, um Ordner zu öffnen"
 
 #: app/preferencesFrame.js:58
+#, fuzzy
 msgid "Add an emblem to soft links"
-msgstr ""
+msgstr "Fügen Sie Softlinks ein Emblem hinzu"
 
 #: app/preferencesFrame.js:59
+#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "Verwenden Sie dunklen Text in Symbolbeschriftungen"
 
 #: app/preferencesFrame.js:64
 msgid "Settings shared with Nautilus"
@@ -689,8 +753,9 @@ msgid "Close"
 msgstr "Schließen"
 
 #: app/utils/dbusUtils.js:58
+#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr ""
+msgstr "\"${programName}\" wird für Desktop-Icons benötigt"
 
 #: app/utils/dbusUtils.js:59
 msgid ""
