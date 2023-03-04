@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2023-01-04 06:48+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -66,7 +66,7 @@ msgstr "Skriv inn et passord her"
 #: app/autoAr.js:354
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "Fjerner delvis fil «${outputFile}»"
+msgstr "Fjerner delvis fil '${outputFile}'"
 
 #: app/autoAr.js:373
 msgid "Creating destination folder"
@@ -75,7 +75,7 @@ msgstr "Oppretter målmappe"
 #: app/autoAr.js:405
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Pakker ut filer til «${outputPath}»"
+msgstr "Trekker ut filer til '${outputPath}'"
 
 #: app/autoAr.js:435
 msgid "Extraction completed"
@@ -112,7 +112,7 @@ msgstr "Sammenpakking fullført"
 #: app/autoAr.js:497
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Sammenpakking av filer til «{outputFile}» fullført."
+msgstr "Komprimering av filer til '${outputFile}' er fullført."
 
 #: app/autoAr.js:501 app/autoAr.js:508
 msgid "Cancelled compression"
@@ -157,18 +157,18 @@ msgstr "Passordbeskyttet .zip må installeres på Windows og macOS."
 #: app/autoAr.js:700
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Mindre arkiv, men kun for Linux og macOS."
+msgstr "Mindre arkiver, men kun Linux og Mac."
 
 #: app/autoAr.js:706
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Mindre arkiv, men må installeres på Windows og macOS."
+msgstr "Mindre arkiver, men må installeres på Windows og Mac."
 
 #: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "Fant ikke Nautilus-filbehandleren"
+msgstr "GNOME-filer ble ikke funnet"
 
 #: app/desktopManager.js:132
 msgid "The GNOME Files application is required by Desktop Icons NG."
@@ -178,11 +178,12 @@ msgstr "GNOME Files-programmet kreves av Desktop Icons NG."
 #, fuzzy
 #| msgid "Error while trying to create a Folder"
 msgid "Could not open File"
-msgstr "Kunne ikke opprette mappe"
+msgstr "Kunne ikke åpne filen"
 
 #: app/desktopManager.js:724
+#, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr ""
+msgstr "${appName} kan ikke åpne filer av denne typen!"
 
 #: app/desktopManager.js:819
 msgid "Move"
@@ -195,7 +196,7 @@ msgstr "Kopier"
 #: app/desktopManager.js:821
 #, fuzzy
 msgid "Link"
-msgstr "Sammenlenk"
+msgstr "Link"
 
 #: app/desktopManager.js:824
 msgid "Choose Action for Files"
@@ -204,18 +205,18 @@ msgstr "Velg handling for filer"
 #: app/desktopManager.js:893 app/desktopManager.js:925
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Opprettelse av symbolsk lenke mislyktes"
+msgstr "Å lage SymLink mislyktes"
 
 #: app/desktopManager.js:894 app/desktopManager.js:926
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Kunne ikke opprette symbolsk lenke"
+msgstr "Kunne ikke opprette symbolsk kobling"
 
 #: app/desktopManager.js:1216
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
-msgstr "Tøm nåværende utvalg før nytt søk"
+msgstr "Fjern gjeldende valg før nytt søk"
 
 #: app/desktopManager.js:1262
 msgid "Find Files on Desktop"
@@ -233,7 +234,7 @@ msgstr "Navn Å-A"
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
-msgstr "Sorter etter endringstid"
+msgstr "Endret tid"
 
 #: app/desktopManager.js:1520
 msgid "Type"
@@ -286,12 +287,12 @@ msgstr "Sorter ikoner"
 #: app/desktopManager.js:1558
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Sorter etter …"
+msgstr "Arrangert av…"
 
 #: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Vis skrivebord i filer"
+msgstr "Vis skrivebord i GNOME-filer"
 
 #: app/desktopManager.js:1564
 msgid "Open In Terminal"
@@ -324,7 +325,7 @@ msgstr "Innstillinger"
 #: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Mappeopprettelse mislyktes"
+msgstr "Oppretting av mappe mislyktes"
 
 #: app/desktopManager.js:2567
 #, fuzzy
@@ -335,12 +336,12 @@ msgstr "Kunne ikke opprette mappe"
 #: app/desktopManager.js:2610
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Malopprettelse mislyktes"
+msgstr "Feil ved opprettelse av mal"
 
 #: app/desktopManager.js:2611
 #, fuzzy
 msgid "Could not create document"
-msgstr "Kunne ikke opprette dokument"
+msgstr "Kunne ikke opprette dokumentet"
 
 #: app/fileItem.js:141
 msgid "Home"
@@ -380,8 +381,8 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Denne .desktop-filen har uriktige tilganger. Høyreklikk for å redigere "
-"egenskaper, og så:\n"
+"Denne .desktop-filen har feil tillatelser. Høyreklikk for å redigere "
+"egenskaper, deretter:\n"
 
 #: app/fileItem.js:340
 #, fuzzy
@@ -390,7 +391,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Sett tilganger i «Andre Tilgang» «Skrivebeskyttet», eller «Ingen»</b>"
+"<b>Angi tillatelser i «Andre tilgang», «Skrivebeskyttet» eller «Ingen»</b>"
 
 #: app/fileItem.js:343
 msgid ""
@@ -415,7 +416,7 @@ msgstr ""
 #: app/fileItemMenu.js:264
 #, fuzzy
 msgid "Open All..."
-msgstr "Åpne alle …"
+msgstr "Åpne alle..."
 
 #: app/fileItemMenu.js:266
 msgid "Open"
@@ -530,7 +531,7 @@ msgstr "Egenskaper"
 #: app/fileItemMenu.js:405
 #, fuzzy
 msgid "Show All in Files"
-msgstr "Vis alle i filer"
+msgstr "Vis alt i filer"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
@@ -548,7 +549,7 @@ msgstr "Ingen utpakkingsmappe"
 #: app/fileItemMenu.js:498
 #, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr "Kunne ikke pakke ut fil. Utpakkingsmappen finnes ikke."
+msgstr "Kan ikke pakke ut fil, uttrekksmappe eksisterer ikke"
 
 #: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
@@ -589,22 +590,22 @@ msgstr "Store"
 #: app/preferencesFrame.js:41
 #, fuzzy
 msgid "Show the personal folder in the desktop"
-msgstr "Vis hjemmemappen på skrivebordet"
+msgstr "Vis den personlige mappen på skrivebordet"
 
 #: app/preferencesFrame.js:42
 #, fuzzy
 msgid "Show the trash icon in the desktop"
-msgstr "Vis papirkurvsikonet på skrivebordet"
+msgstr "Vis søppelikonet på skrivebordet"
 
 #: app/preferencesFrame.js:43
 #, fuzzy
 msgid "Show external drives in the desktop"
-msgstr "Vis eksterne enheter på skrivebordet"
+msgstr "Vis eksterne stasjoner på skrivebordet"
 
 #: app/preferencesFrame.js:44
 #, fuzzy
 msgid "Show network drives in the desktop"
-msgstr "Vis nettverkslagringsenheter på skrivebordet"
+msgstr "Vis nettverksstasjoner på skrivebordet"
 
 #: app/preferencesFrame.js:47
 msgid "New icons alignment"
@@ -637,7 +638,7 @@ msgstr "Legg til nye lagringsenheter på motsatt side av skjermen"
 #: app/preferencesFrame.js:56
 #, fuzzy
 msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "Framhev innlimingsplass under dra-og-slipp"
+msgstr "Marker slippstedet under Drag'n'Drop"
 
 #: app/preferencesFrame.js:57
 msgid "Use Nemo to open folders"
@@ -659,7 +660,7 @@ msgstr "Innstillinger delt med Nautilus"
 #: app/preferencesFrame.js:79
 #, fuzzy
 msgid "Click type for open files"
-msgstr "Klikktype for åpning av filer"
+msgstr "Klikk type for åpne filer"
 
 #: app/preferencesFrame.js:79
 msgid "Single click"
