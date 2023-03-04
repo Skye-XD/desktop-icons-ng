@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2021-07-11 21:08+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <chinese-l10n@googlegroups.com>\n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -35,24 +36,26 @@ msgid "Rename"
 msgstr "重新命名"
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "未安裝 AutoAr"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr ""
+msgstr "為了能夠處理壓縮文件，請安裝 file-roller 和/或 gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "在這裡解開"
+msgstr "提取文件"
 
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "壓縮 {0} 檔案"
+msgstr "壓縮文件"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
 #: app/desktopManager.js:1260 app/fileItemMenu.js:522
@@ -60,191 +63,229 @@ msgid "Cancel"
 msgstr "取消"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "在這裡輸入密碼"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "刪除部分文件“${outputFile}”"
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "創建目標文件夾"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "將文件提取到“${outputPath}”"
 
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "在這裡解開"
+msgstr "提取完成"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "提取“${fullPathFile}”已完成。"
 
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "在這裡解開"
+msgstr "提取已取消"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "提取“${fullPathFile}”已被用戶取消。"
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "${filename} 需要密碼"
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "提取時出錯"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "將文件壓縮到“${outputFile}”"
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "壓縮完成"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "將文件壓縮到“${outputFile}”中已完成。"
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "取消壓縮"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "輸出文件“${outputFile}”已經存在。"
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "用戶已取消將文件壓縮到“${outputFile}”中。"
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "壓縮時出錯"
 
 #: app/autoAr.js:547
+#, fuzzy
 msgid "Create archive"
-msgstr ""
+msgstr "創建存檔"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "檔案名稱"
+msgstr "存檔名稱"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: app/autoAr.js:617
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "創造"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "兼容所有操作系統。"
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "受密碼保護的 .zip，必須安裝在 Windows 和 Mac 上。"
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "較小的檔案，但僅限 Linux 和 Mac。"
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "較小的存檔，但必須安裝在 Windows 和 Mac 上。"
 
 #: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "無法找到《檔案 (Nautilus 瀏覽器)》"
+msgstr "找不到 GNOME 文件"
 
 #: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Desktop Icons NG 需要 GNOME Files 應用程序。"
 
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Could not open File"
-msgstr "刪除檔案時發生錯誤"
+msgstr "無法打開文件"
 
 #: app/desktopManager.js:724
+#, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr ""
+msgstr "${appName} 無法打開此類型的文件！"
 
 #: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "移動"
 
 #: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "複製"
 
 #: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "關聯"
 
 #: app/desktopManager.js:824
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "在《檔案》中顯示"
+msgstr "為文件選擇操作"
 
 #: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "使 SymLink 失敗"
 
 #: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "無法創建符號鏈接"
 
 #: app/desktopManager.js:1216
+#, fuzzy
 msgid "Clear current selection before new search"
-msgstr ""
+msgstr "在新搜索之前清除當前選擇"
 
 #: app/desktopManager.js:1262
+#, fuzzy
 msgid "Find Files on Desktop"
-msgstr ""
+msgstr "在桌面上查找文件"
 
 #: app/desktopManager.js:1517
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "姓名"
 
 #: app/desktopManager.js:1518
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "名稱 Z-A"
 
 #: app/desktopManager.js:1519
+#, fuzzy
 msgid "Modified Time"
-msgstr ""
+msgstr "修改時間"
 
 #: app/desktopManager.js:1520
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 #: app/desktopManager.js:1521
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "尺寸"
 
 #: app/desktopManager.js:1524
+#, fuzzy
 msgid "Keep Arranged…"
-msgstr ""
+msgstr "保持安排…"
 
 #: app/desktopManager.js:1528
+#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "按類型堆疊……"
 
 #: app/desktopManager.js:1529
+#, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr ""
+msgstr "排序主頁/驅動器/垃圾桶……"
 
 #: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
@@ -269,25 +310,27 @@ msgstr "重做"
 #: app/desktopManager.js:1549
 #, fuzzy
 msgid "Select All"
-msgstr "全部選取"
+msgstr "全選"
 
 #: app/desktopManager.js:1554
+#, fuzzy
 msgid "Arrange Icons"
-msgstr ""
+msgstr "排列圖標"
 
 #: app/desktopManager.js:1558
+#, fuzzy
 msgid "Arrange By…"
-msgstr ""
+msgstr "安排…"
 
 #: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "在《檔案》中開啟桌面"
+msgstr "在 GNOME 文件中顯示桌面"
 
 #: app/desktopManager.js:1564
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "開啟終端器"
+msgstr "在終端中打開"
 
 #: app/desktopManager.js:1569
 msgid "Change Background…"
@@ -296,19 +339,21 @@ msgstr "變更背景圖片…"
 #: app/desktopManager.js:1574
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "桌面圖示設定"
+msgstr "桌面圖標設置"
 
 #: app/desktopManager.js:1575
 msgid "Display Settings"
 msgstr "顯示設定"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "首選項窗口已打開"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "這個窗口是打開的。請切換到活動窗口。"
 
 #: app/desktopManager.js:1630
 msgid "Settings"
@@ -317,75 +362,95 @@ msgstr "設定"
 #: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "資料夾名稱"
+msgstr "文件夾創建失敗"
 
 #: app/desktopManager.js:2567
 #, fuzzy
 msgid "Could not create folder"
-msgstr "刪除檔案時發生錯誤"
+msgstr "無法創建文件夾"
 
 #: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "模板創建錯誤"
 
 #: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "無法創建文檔"
 
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "家目錄"
 
 #: app/fileItem.js:266
+#, fuzzy
 msgid "Broken Link"
-msgstr ""
+msgstr "損壞的鏈接"
 
 #: app/fileItem.js:267
+#, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "無法打開此文件，因為它是損壞的符號鏈接"
 
 #: app/fileItem.js:330
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "在《檔案》中開啟桌面"
+msgstr "損壞的桌面文件"
 
 #: app/fileItem.js:331
+#, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
 "\n"
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
+"此 .desktop 文件有錯誤或指向未經許可的程序。它不能被執行。\n"
+"\n"
+"<b>編輯文件以設置正確的可執行程序。</b>"
 
 #: app/fileItem.js:337
+#, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "桌面文件的無效權限"
 
 #: app/fileItem.js:338
+#, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
-msgstr ""
+msgstr "此 .desktop 文件的權限不正確。右擊編輯屬性，然後：\n"
 
 #: app/fileItem.js:340
+#, fuzzy
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
+"\n"
+"<b>設置權限，在“其他訪問”中，“只讀”或“無”</b>"
 
 #: app/fileItem.js:343
+#, fuzzy
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
+"\n"
+"<b>啟用選項，“允許將文件作為程序執行”</b>"
 
 #: app/fileItem.js:351
+#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
+"此 .desktop 文件不受信任，無法啟動。要啟用啟動，請右鍵單擊，然後：\n"
+"\n"
+"<b>啟用“允許啟動”</b>"
 
 #: app/fileItemMenu.js:264
 msgid "Open All..."
@@ -396,12 +461,14 @@ msgid "Open"
 msgstr "開啟"
 
 #: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Stack This Type"
-msgstr ""
+msgstr "堆疊此類型"
 
 #: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Unstack This Type"
-msgstr ""
+msgstr "拆開這種類型"
 
 #: app/fileItemMenu.js:284
 msgid "Scripts"
@@ -416,12 +483,14 @@ msgid "Open With Other Application"
 msgstr "用其他應用程式開啟"
 
 #: app/fileItemMenu.js:291
+#, fuzzy
 msgid "Launch using Dedicated Graphics Card"
-msgstr ""
+msgstr "使用專用顯卡啟動"
 
 #: app/fileItemMenu.js:298
+#, fuzzy
 msgid "Run as a Program"
-msgstr ""
+msgstr "作為程序運行"
 
 #: app/fileItemMenu.js:304
 msgid "Cut"
@@ -472,14 +541,15 @@ msgid "Send to..."
 msgstr "傳送到…"
 
 #: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "發送到移動設備"
 
 #: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "壓縮 {0} 檔案"
+msgstr[0] "壓縮 {0} 個文件夾"
 
 #: app/fileItemMenu.js:385
 msgid "Compress {0} file"
@@ -490,7 +560,7 @@ msgstr[0] "壓縮 {0} 檔案"
 #, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] "新增空白的（有 {0} 項目）資料夾"
+msgstr[0] "包含 {0} 項的新文件夾"
 
 #: app/fileItemMenu.js:401
 msgid "Common Properties"
@@ -515,11 +585,12 @@ msgstr "開啟終端器"
 #: app/fileItemMenu.js:497
 #, fuzzy
 msgid "No Extraction Folder"
-msgstr "在這裡解開"
+msgstr "沒有提取文件夾"
 
 #: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "無法提取文件，提取文件夾不存在"
 
 #: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
@@ -594,8 +665,9 @@ msgid "Bottom-right corner"
 msgstr "右下角"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "如果可用，首先向輔助監視器添加新圖標"
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
@@ -606,16 +678,19 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "拖曳時強調顯示拖曳後位置"
 
 #: app/preferencesFrame.js:57
+#, fuzzy
 msgid "Use Nemo to open folders"
-msgstr ""
+msgstr "使用 Nemo 打開文件夾"
 
 #: app/preferencesFrame.js:58
+#, fuzzy
 msgid "Add an emblem to soft links"
-msgstr ""
+msgstr "為軟鏈接添加標誌"
 
 #: app/preferencesFrame.js:59
+#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "在圖標標籤中使用深色文本"
 
 #: app/preferencesFrame.js:64
 msgid "Settings shared with Nautilus"
@@ -674,18 +749,21 @@ msgid "Always"
 msgstr "總是"
 
 #: app/showErrorPopup.js:41
+#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: app/utils/dbusUtils.js:58
+#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr ""
+msgstr "桌面圖標需要“${programName}”"
 
 #: app/utils/dbusUtils.js:59
+#, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
-msgstr ""
+msgstr "要在桌面圖標中使用此功能，您必須在系統中安裝“${programName}”。"
 
 #: app/utils/desktopIconsUtil.js:150
 msgid "Command not found"
