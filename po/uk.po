@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2021-11-06 13:11+0100\n"
-"Last-Translator: Stanisław Zadorozhnyi <zadorozhniy123@icloud.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -36,8 +37,9 @@ msgid "Rename"
 msgstr "Перейменувати"
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr не встановлено"
 
 #: app/autoAr.js:72
 msgid ""
@@ -48,12 +50,12 @@ msgstr ""
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Розпакувати сюди"
+msgstr "Розпакування файлів"
 
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "Стиснути {0} файл"
+msgstr "Стиснення файлів"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
 #: app/desktopManager.js:1260 app/fileItemMenu.js:522
@@ -61,197 +63,230 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "Введіть тут пароль"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "Видалення часткового файлу \"${outputFile}\""
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Створення папки призначення"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "Розпакування файлів у \"${outputPath}\""
 
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Розпакувати сюди"
+msgstr "Видобуток завершено"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "Видобуток '${fullPathFile}' завершено."
 
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Розпакувати сюди"
+msgstr "Вилучення скасовано"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Видобування '${fullPathFile}' було скасовано користувачем."
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Для ${filename} потрібна парольна фраза"
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "Помилка під час вилучення"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "Стиснення файлів у \"${outputFile}\""
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "Стиснення завершено"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "Стиснення файлів у '${outputFile}' завершено."
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Скасовано стиснення"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "Вихідний файл \"${outputFile}\" уже існує."
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Користувач скасував стиснення файлів у '${outputFile}'."
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "Помилка під час стиснення"
 
 #: app/autoAr.js:547
+#, fuzzy
 msgid "Create archive"
-msgstr ""
+msgstr "Створити архів"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "Назва файлу"
+msgstr "Назва архіву"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: app/autoAr.js:617
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "Сумісний з усіма операційними системами."
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "Захищений паролем .zip, потрібно встановити на Windows і Mac."
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "Менші архіви, але лише для Linux і Mac."
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "Менші архіви, але їх потрібно встановити на Windows і Mac."
 
 #: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "Файловий Менеджер Nautilus не знайдено"
+msgstr "Файли GNOME не знайдено"
 
 #: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Програма GNOME Files потрібна Desktop Icons NG."
 
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Could not open File"
-msgstr "Сталася помилка при спробі остаточно вилучити теку {:}."
+msgstr "Не вдалося відкрити файл"
 
 #: app/desktopManager.js:724
+#, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr ""
+msgstr "${appName} не може відкривати файли цього типу!"
 
 #: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "рухатися"
 
 #: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Копіювати"
 
 #: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "Посилання"
 
 #: app/desktopManager.js:824
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Показати у Файлах"
+msgstr "Виберіть «Дія для файлів»."
 
 #: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "Не вдалося створити SymLink"
 
 #: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "Не вдалося створити символічне посилання"
 
 #: app/desktopManager.js:1216
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
-msgstr "Очистити поточний вибір перед Новим Пошуком"
+msgstr "Очистити поточний вибір перед новим пошуком"
 
 #: app/desktopManager.js:1262
 msgid "Find Files on Desktop"
 msgstr "Пошук файлів на стільниці"
 
 #: app/desktopManager.js:1517
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 #: app/desktopManager.js:1518
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "Назва Z-A"
 
 #: app/desktopManager.js:1519
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
-msgstr "Сортувати за часом останньої зміни"
+msgstr "Час зміни"
 
 #: app/desktopManager.js:1520
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: app/desktopManager.js:1521
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 #: app/desktopManager.js:1524
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Зберегти порядок..."
+msgstr "Тримайте в порядку…"
 
 #: app/desktopManager.js:1528
+#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "Зберігати за типом…"
 
 #: app/desktopManager.js:1529
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Сортувати Домівка/Диски/Смітник..."
+msgstr "Сортувати Домашня сторінка/Диски/Кошик…"
 
 #: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
@@ -276,7 +311,7 @@ msgstr "Повторити"
 #: app/desktopManager.js:1549
 #, fuzzy
 msgid "Select All"
-msgstr "Виділити все"
+msgstr "Вибрати все"
 
 #: app/desktopManager.js:1554
 msgid "Arrange Icons"
@@ -285,17 +320,17 @@ msgstr "Впорядкувати"
 #: app/desktopManager.js:1558
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Впорядкувати за..."
+msgstr "Організувати до…"
 
 #: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Показати стільницю в Файлах"
+msgstr "Показати робочий стіл у файлах GNOME"
 
 #: app/desktopManager.js:1564
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Відкрити в терміналі"
+msgstr "Відкрийте в терміналі"
 
 #: app/desktopManager.js:1569
 msgid "Change Background…"
@@ -304,19 +339,21 @@ msgstr "Змінити тло…"
 #: app/desktopManager.js:1574
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Параметри Desktop Icons"
+msgstr "Налаштування піктограм робочого столу"
 
 #: app/desktopManager.js:1575
 msgid "Display Settings"
 msgstr "Параметри екрану"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "Вікно налаштувань відкрито"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "Це вікно відкрито. Будь ласка, перейдіть до активного вікна."
 
 #: app/desktopManager.js:1630
 msgid "Settings"
@@ -325,37 +362,41 @@ msgstr "Параметри"
 #: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Назва теки"
+msgstr "Помилка створення папки"
 
 #: app/desktopManager.js:2567
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Сталася помилка при спробі остаточно вилучити теку {:}."
+msgstr "Не вдалося створити папку"
 
 #: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Помилка створення шаблону"
 
 #: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "Не вдалося створити документ"
 
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "Домівка"
 
 #: app/fileItem.js:266
+#, fuzzy
 msgid "Broken Link"
-msgstr ""
+msgstr "Порушене посилання"
 
 #: app/fileItem.js:267
+#, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "Неможливо відкрити цей файл, оскільки це несправне символічне посилання"
 
 #: app/fileItem.js:330
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Показати стільницю в Файлах"
+msgstr "Зламаний файл робочого столу"
 
 #: app/fileItem.js:331
 msgid ""
@@ -366,8 +407,9 @@ msgid ""
 msgstr ""
 
 #: app/fileItem.js:337
+#, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "Недійсні дозволи для файлу на робочому столі"
 
 #: app/fileItem.js:338
 msgid ""
@@ -376,16 +418,22 @@ msgid ""
 msgstr ""
 
 #: app/fileItem.js:340
+#, fuzzy
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
+"\n"
+"<b>Установіть дозволи в «Доступ інших», «Лише читання» або «Немає»</b>"
 
 #: app/fileItem.js:343
+#, fuzzy
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
+"\n"
+"<b>Увімкнути опцію \"Дозволити виконання файлу як програми\"</b>"
 
 #: app/fileItem.js:351
 msgid ""
@@ -404,12 +452,14 @@ msgid "Open"
 msgstr "Відкрити"
 
 #: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Stack This Type"
-msgstr ""
+msgstr "Стек цього типу"
 
 #: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Unstack This Type"
-msgstr ""
+msgstr "Видаліть цей тип"
 
 #: app/fileItemMenu.js:284
 msgid "Scripts"
@@ -428,8 +478,9 @@ msgid "Launch using Dedicated Graphics Card"
 msgstr "Запустити через відповідну графічну плату"
 
 #: app/fileItemMenu.js:298
+#, fuzzy
 msgid "Run as a Program"
-msgstr ""
+msgstr "Запуск як програма"
 
 #: app/fileItemMenu.js:304
 msgid "Cut"
@@ -480,16 +531,17 @@ msgid "Send to..."
 msgstr "Відправити до..."
 
 #: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Надіслати на мобільний пристрій"
 
 #: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Стиснути {0} файл"
-msgstr[1] "Стиснути {0} файли"
-msgstr[2] "Стиснути {0} файлів"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] "Стиснути {0} папки"
 
 #: app/fileItemMenu.js:385
 msgid "Compress {0} file"
@@ -528,11 +580,12 @@ msgstr "Відкрити в терміналі"
 #: app/fileItemMenu.js:497
 #, fuzzy
 msgid "No Extraction Folder"
-msgstr "Розпакувати сюди"
+msgstr "Немає папки вилучення"
 
 #: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "Не вдається розпакувати файл, папка для вилучення не існує"
 
 #: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
@@ -607,8 +660,9 @@ msgid "Bottom-right corner"
 msgstr "Нижній правий кут"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "Спочатку додайте нові піктограми до вторинних моніторів, якщо вони є"
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
@@ -619,16 +673,19 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Підсвічувати місце падіння під час перетягування"
 
 #: app/preferencesFrame.js:57
+#, fuzzy
 msgid "Use Nemo to open folders"
-msgstr ""
+msgstr "Використовуйте Nemo для відкриття папок"
 
 #: app/preferencesFrame.js:58
+#, fuzzy
 msgid "Add an emblem to soft links"
-msgstr ""
+msgstr "Додайте емблему до програмних посилань"
 
 #: app/preferencesFrame.js:59
+#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "Використовуйте темний текст у написах значків"
 
 #: app/preferencesFrame.js:64
 msgid "Settings shared with Nautilus"
@@ -691,8 +748,9 @@ msgid "Close"
 msgstr "Закрити"
 
 #: app/utils/dbusUtils.js:58
+#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr ""
+msgstr "\"${programName}\" потрібна для значків на робочому столі"
 
 #: app/utils/dbusUtils.js:59
 msgid ""
