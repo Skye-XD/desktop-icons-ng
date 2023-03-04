@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 18:08-0500\n"
+"POT-Creation-Date: 2023-03-04 09:49-0500\n"
 "PO-Revision-Date: 2023-01-04 06:48+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
+"desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Mappenavn"
 msgid "File name"
 msgstr "Filnavn"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1217
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
 msgid "OK"
 msgstr "OK"
 
@@ -54,8 +54,8 @@ msgstr "Pakker ut filer"
 msgid "Compressing files"
 msgstr "Pakker sammen filer"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:781
-#: app/desktopManager.js:1219 app/fileItemMenu.js:518
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
+#: app/desktopManager.js:1260 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -164,191 +164,201 @@ msgstr "Mindre arkiv, men kun for Linux og macOS."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Mindre arkiv, men må installeres på Windows og macOS."
 
-#: app/desktopManager.js:130
+#: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "Fant ikke Nautilus-filbehandleren"
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:132
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "GNOME Files-programmet kreves av Desktop Icons NG."
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:723
+#, fuzzy
+#| msgid "Error while trying to create a Folder"
+msgid "Could not open File"
+msgstr "Kunne ikke opprette mappe"
+
+#: app/desktopManager.js:724
+msgid "${appName} can not open files of this Type!"
+msgstr ""
+
+#: app/desktopManager.js:819
 msgid "Move"
 msgstr "Flytt"
 
-#: app/desktopManager.js:779 app/fileItemMenu.js:302
+#: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Kopier"
 
-#: app/desktopManager.js:780
+#: app/desktopManager.js:821
 #, fuzzy
 msgid "Link"
 msgstr "Sammenlenk"
 
-#: app/desktopManager.js:783
+#: app/desktopManager.js:824
 msgid "Choose Action for Files"
 msgstr "Velg handling for filer"
 
-#: app/desktopManager.js:852 app/desktopManager.js:884
+#: app/desktopManager.js:893 app/desktopManager.js:925
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Opprettelse av symbolsk lenke mislyktes"
 
-#: app/desktopManager.js:853 app/desktopManager.js:885
+#: app/desktopManager.js:894 app/desktopManager.js:926
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Kunne ikke opprette symbolsk lenke"
 
-#: app/desktopManager.js:1175
+#: app/desktopManager.js:1216
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Tøm nåværende utvalg før nytt søk"
 
-#: app/desktopManager.js:1221
+#: app/desktopManager.js:1262
 msgid "Find Files on Desktop"
 msgstr "Finn filer på skrivebordet"
 
-#: app/desktopManager.js:1476
+#: app/desktopManager.js:1517
 msgid "Name"
 msgstr "Navn"
 
-#: app/desktopManager.js:1477
+#: app/desktopManager.js:1518
 msgid "Name Z-A"
 msgstr "Navn Å-A"
 
-#: app/desktopManager.js:1478
+#: app/desktopManager.js:1519
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Sorter etter endringstid"
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1520
 msgid "Type"
 msgstr "Type"
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1521
 msgid "Size"
 msgstr "Størrelse"
 
-#: app/desktopManager.js:1483
+#: app/desktopManager.js:1524
 msgid "Keep Arranged…"
 msgstr "Behold sortert …"
 
-#: app/desktopManager.js:1487
+#: app/desktopManager.js:1528
 msgid "Keep Stacked by Type…"
 msgstr "Behold sortert etter type …"
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1529
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sorter hjemmemappe/lagringsenheter/papirkurv …"
 
-#: app/desktopManager.js:1493 app/desktopManager.js:2502
+#: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
 msgstr "Ny mappe"
 
-#: app/desktopManager.js:1497
+#: app/desktopManager.js:1538
 msgid "New Document"
 msgstr "Nytt dokument"
 
-#: app/desktopManager.js:1501
+#: app/desktopManager.js:1542
 msgid "Paste"
 msgstr "Lim inn"
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1543
 msgid "Undo"
 msgstr "Angre"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1544
 msgid "Redo"
 msgstr "Gjenta"
 
-#: app/desktopManager.js:1508
+#: app/desktopManager.js:1549
 msgid "Select All"
 msgstr "Velg alle"
 
-#: app/desktopManager.js:1513
+#: app/desktopManager.js:1554
 msgid "Arrange Icons"
 msgstr "Sorter ikoner"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1558
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Sorter etter …"
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Vis skrivebord i filer"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1564
 msgid "Open In Terminal"
 msgstr "Åpne i terminal"
 
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1569
 msgid "Change Background…"
 msgstr "Endre bakgrunn …"
 
-#: app/desktopManager.js:1533
+#: app/desktopManager.js:1574
 msgid "Desktop Icon Settings"
 msgstr "Innstillinger for skrivebordsikon"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1575
 msgid "Display Settings"
 msgstr "Skjerminnstillinger"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1618
 msgid "Preferences Window is Open"
 msgstr "Innstillingsvinduet er åpent"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1618
 msgid "This Window is open. Please switch to the active window."
 msgstr "Dette vinduet er åpent. Bytt til det aktive vinduet."
 
-#: app/desktopManager.js:1589
+#: app/desktopManager.js:1630
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: app/desktopManager.js:2525
+#: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Mappeopprettelse mislyktes"
 
-#: app/desktopManager.js:2526
+#: app/desktopManager.js:2567
 #, fuzzy
 #| msgid "Error while trying to create a Folder"
 msgid "Could not create folder"
 msgstr "Kunne ikke opprette mappe"
 
-#: app/desktopManager.js:2569
+#: app/desktopManager.js:2610
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Malopprettelse mislyktes"
 
-#: app/desktopManager.js:2570
+#: app/desktopManager.js:2611
 #, fuzzy
 msgid "Could not create document"
 msgstr "Kunne ikke opprette dokument"
 
-#: app/fileItem.js:135
+#: app/fileItem.js:141
 msgid "Home"
 msgstr "Hjem"
 
-#: app/fileItem.js:249
+#: app/fileItem.js:266
 msgid "Broken Link"
 msgstr "Knekt lenke"
 
-#: app/fileItem.js:250
+#: app/fileItem.js:267
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Kan ikke åpne denne filen fordi det er en ødelagt symbolsk lenke"
 
-#: app/fileItem.js:313
+#: app/fileItem.js:330
 msgid "Broken Desktop File"
 msgstr "Ødelagt skrivebordsfil"
 
-#: app/fileItem.js:314
+#: app/fileItem.js:331
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -360,11 +370,11 @@ msgstr ""
 "\n"
 "\t<b>Rediger filen for å tillate kjøring av den som program.</b>"
 
-#: app/fileItem.js:320
+#: app/fileItem.js:337
 msgid "Invalid Permissions on Desktop File"
 msgstr "Ugyldige tilganger for skrivebordsfil"
 
-#: app/fileItem.js:321
+#: app/fileItem.js:338
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -373,7 +383,7 @@ msgstr ""
 "Denne .desktop-filen har uriktige tilganger. Høyreklikk for å redigere "
 "egenskaper, og så:\n"
 
-#: app/fileItem.js:323
+#: app/fileItem.js:340
 #, fuzzy
 msgid ""
 "\n"
@@ -382,7 +392,7 @@ msgstr ""
 "\n"
 "<b>Sett tilganger i «Andre Tilgang» «Skrivebeskyttet», eller «Ingen»</b>"
 
-#: app/fileItem.js:326
+#: app/fileItem.js:343
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -390,7 +400,7 @@ msgstr ""
 "\n"
 "<b>Skru på valget «Tillat kjøring av filen som program»</b>"
 
-#: app/fileItem.js:334
+#: app/fileItem.js:351
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -402,157 +412,157 @@ msgstr ""
 "\n"
 "<b>Skru på «Tillat kjøring»</b>"
 
-#: app/fileItemMenu.js:259
+#: app/fileItemMenu.js:264
 #, fuzzy
 msgid "Open All..."
 msgstr "Åpne alle …"
 
-#: app/fileItemMenu.js:261
+#: app/fileItemMenu.js:266
 msgid "Open"
 msgstr "Åpne"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:273
 msgid "Stack This Type"
 msgstr "Stable denne typen"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:273
 msgid "Unstack This Type"
 msgstr "Opphev stabling av denne typen"
 
-#: app/fileItemMenu.js:280
+#: app/fileItemMenu.js:284
 msgid "Scripts"
 msgstr "Skript"
 
-#: app/fileItemMenu.js:285
+#: app/fileItemMenu.js:289
 msgid "Open All With Other Application..."
 msgstr "Åpne alle med annet program …"
 
-#: app/fileItemMenu.js:285
+#: app/fileItemMenu.js:289
 msgid "Open With Other Application"
 msgstr "Åpne med annet program"
 
-#: app/fileItemMenu.js:287
+#: app/fileItemMenu.js:291
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Start ved bruk av dedikert grafikkort"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:298
 msgid "Run as a Program"
 msgstr "Kjør som et program"
 
-#: app/fileItemMenu.js:300
+#: app/fileItemMenu.js:304
 msgid "Cut"
 msgstr "Klipp ut"
 
-#: app/fileItemMenu.js:305
+#: app/fileItemMenu.js:309
 msgid "Rename…"
 msgstr "Gi nytt navn …"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:314
 msgid "Move to Trash"
 msgstr "Flytt til papirkurv"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:317
 msgid "Delete permanently"
 msgstr "Slett for godt"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:324
 msgid "Don't Allow Launching"
 msgstr "Ikke tillat kjøring som program"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:324
 msgid "Allow Launching"
 msgstr "Tillat kjøring som program"
 
-#: app/fileItemMenu.js:329
+#: app/fileItemMenu.js:333
 msgid "Empty Trash"
 msgstr "Tøm papirkurv"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:342
 msgid "Eject"
 msgstr "Løs ut"
 
-#: app/fileItemMenu.js:341
+#: app/fileItemMenu.js:345
 msgid "Unmount"
 msgstr "Avmonter"
 
-#: app/fileItemMenu.js:352 app/fileItemMenu.js:356
+#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
 msgid "Extract Here"
 msgstr "Pakk ut her"
 
-#: app/fileItemMenu.js:358
+#: app/fileItemMenu.js:362
 msgid "Extract To..."
 msgstr "Pakk ut til …"
 
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:366
 msgid "Send to..."
 msgstr "Send til …"
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:372
 msgid "Send to Mobile Device"
 msgstr "Send til mobilenhet"
 
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:378
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Pakk sammen {0} mappe"
 msgstr[1] "Pakk sammen {0} mapper"
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Pakk sammen {0} fil"
 msgstr[1] "Pakk sammen {0} filer"
 
-#: app/fileItemMenu.js:388
+#: app/fileItemMenu.js:392
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Ny mappe med {0} element"
 msgstr[1] "Ny mappe med {0} elementer"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:401
 msgid "Common Properties"
 msgstr "Gemene egenskaper"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:401
 msgid "Properties"
 msgstr "Egenskaper"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:405
 #, fuzzy
 msgid "Show All in Files"
 msgstr "Vis alle i filer"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:405
 #, fuzzy
 msgid "Show in Files"
 msgstr "Vis i filer"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:411
 msgid "Open in Terminal"
 msgstr "Åpne i terminal"
 
-#: app/fileItemMenu.js:493
+#: app/fileItemMenu.js:497
 msgid "No Extraction Folder"
 msgstr "Ingen utpakkingsmappe"
 
-#: app/fileItemMenu.js:494
+#: app/fileItemMenu.js:498
 #, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
 msgstr "Kunne ikke pakke ut fil. Utpakkingsmappen finnes ikke."
 
-#: app/fileItemMenu.js:514
+#: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
 msgstr "Velg mål for utpakking"
 
-#: app/fileItemMenu.js:519
+#: app/fileItemMenu.js:523
 msgid "Select"
 msgstr "Velg"
 
-#: app/fileItemMenu.js:559
+#: app/fileItemMenu.js:563
 msgid "Can not email a Directory"
 msgstr "Kan ikke e-poste en katalog"
 
-#: app/fileItemMenu.js:560
+#: app/fileItemMenu.js:564
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Utvalget inneholder en katalog. Pakk den sammen til en fil først."
 
