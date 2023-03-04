@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2022-07-23 09:59+0800\n"
-"Last-Translator: huaweidu <huaweidu@foxmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -35,24 +36,26 @@ msgid "Rename"
 msgstr "重命名"
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "未安装 AutoAr"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr ""
+msgstr "为了能够处理压缩文件，请安装 file-roller 和/或 gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "提取到此处"
+msgstr "提取文件"
 
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "压缩{0}文件"
+msgstr "压缩文件"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
 #: app/desktopManager.js:1260 app/fileItemMenu.js:522
@@ -60,198 +63,230 @@ msgid "Cancel"
 msgstr "取消"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "在这里输入密码"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "删除部分文件“${outputFile}”"
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "创建目标文件夹"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "将文件提取到“${outputPath}”"
 
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "提取到此处"
+msgstr "提取完成"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "提取“${fullPathFile}”已完成。"
 
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "提取到此处"
+msgstr "提取已取消"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "提取“${fullPathFile}”已被用户取消。"
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "${filename} 需要密码"
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "提取时出错"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "将文件压缩到“${outputFile}”"
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "压缩完成"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "将文件压缩到“${outputFile}”中已完成。"
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "取消压缩"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "输出文件“${outputFile}”已经存在。"
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "用户已取消将文件压缩到“${outputFile}”中。"
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "压缩时出错"
 
 #: app/autoAr.js:547
+#, fuzzy
 msgid "Create archive"
-msgstr ""
+msgstr "创建存档"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "文件名称"
+msgstr "存档名称"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: app/autoAr.js:617
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "创造"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "兼容所有操作系统。"
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "受密码保护的 .zip，必须安装在 Windows 和 Mac 上。"
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "较小的档案，但仅限 Linux 和 Mac。"
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "较小的存档，但必须安装在 Windows 和 Mac 上。"
 
 #: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "Nautilus 文件管理器 找不到"
+msgstr "找不到 GNOME 文件"
 
 #: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Desktop Icons NG 需要 GNOME Files 应用程序。"
 
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Could not open File"
-msgstr "删除文件发生错误"
+msgstr "无法打开文件"
 
 #: app/desktopManager.js:724
+#, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr ""
+msgstr "${appName} 无法打开此类型的文件！"
 
 #: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "移动"
 
 #: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "复制"
 
 #: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "关联"
 
 #: app/desktopManager.js:824
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "在文件夹中显示"
+msgstr "为文件选择操作"
 
 #: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "使 SymLink 失败"
 
 #: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "无法创建符号链接"
 
 #: app/desktopManager.js:1216
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
-msgstr "在进行新的搜索之前清除当前选择"
+msgstr "在新搜索之前清除当前选择"
 
 #: app/desktopManager.js:1262
 msgid "Find Files on Desktop"
 msgstr "在桌面上发现文件"
 
 #: app/desktopManager.js:1517
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "姓名"
 
 #: app/desktopManager.js:1518
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "名称 Z-A"
 
 #: app/desktopManager.js:1519
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
-msgstr "按修改时间排序"
+msgstr "修改时间"
 
 #: app/desktopManager.js:1520
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #: app/desktopManager.js:1521
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "尺寸"
 
 #: app/desktopManager.js:1524
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "保持安排..."
+msgstr "保持安排…"
 
 #: app/desktopManager.js:1528
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "依据文件类型保持堆叠..."
+msgstr "按类型堆叠……"
 
 #: app/desktopManager.js:1529
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "排序主目录/驱动器/回收站..."
+msgstr "排序主页/驱动器/垃圾桶……"
 
 #: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
@@ -284,12 +319,12 @@ msgstr "图标排序"
 #: app/desktopManager.js:1558
 #, fuzzy
 msgid "Arrange By…"
-msgstr "排序方式..."
+msgstr "安排…"
 
 #: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "在文件管理器中打开桌面"
+msgstr "在 GNOME 文件中显示桌面"
 
 #: app/desktopManager.js:1564
 #, fuzzy
@@ -310,12 +345,14 @@ msgid "Display Settings"
 msgstr "显示设置"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "首选项窗口已打开"
 
 #: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "这个窗口是打开的。请切换到活动窗口。"
 
 #: app/desktopManager.js:1630
 msgid "Settings"
@@ -324,20 +361,22 @@ msgstr "设置"
 #: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "文件夹名称"
+msgstr "文件夹创建失败"
 
 #: app/desktopManager.js:2567
 #, fuzzy
 msgid "Could not create folder"
-msgstr "删除文件发生错误"
+msgstr "无法创建文件夹"
 
 #: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "模板创建错误"
 
 #: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "无法创建文档"
 
 #: app/fileItem.js:141
 msgid "Home"
@@ -490,14 +529,15 @@ msgid "Send to..."
 msgstr "发送到…"
 
 #: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "发送到移动设备"
 
 #: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "压缩{0}文件"
+msgstr[0] "压缩 {0} 个文件夹"
 
 #: app/fileItemMenu.js:385
 msgid "Compress {0} file"
@@ -532,11 +572,12 @@ msgstr "在终端中打开"
 #: app/fileItemMenu.js:497
 #, fuzzy
 msgid "No Extraction Folder"
-msgstr "提取到此处"
+msgstr "没有提取文件夹"
 
 #: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "无法提取文件，提取文件夹不存在"
 
 #: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
@@ -611,8 +652,9 @@ msgid "Bottom-right corner"
 msgstr "右下角"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "如果可用，首先向辅助监视器添加新图标"
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
