@@ -721,7 +721,7 @@ var DesktopManager = class {
                 } else {
                     let windowError = new ShowErrorPopup.ShowErrorPopup(
                         _('Could not open File'),
-                        _(`${DropAppName} can not open this file Type!`),
+                        _('${appName} can not open files of this Type!').replace('${appName}', DropAppName),
                         true,
                         this.textEntryAccelsTurnOff.bind(this),
                         this.textEntryAccelsTurnOn.bind(this),
