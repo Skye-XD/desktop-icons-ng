@@ -9,15 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 18:08-0500\n"
-"PO-Revision-Date: 2022-03-18 18:54+0900\n"
-"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
-"Language-Team: Japanese\n"
+"POT-Creation-Date: 2023-03-04 09:49-0500\n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -27,7 +29,7 @@ msgstr "フォルダー名"
 msgid "File name"
 msgstr "ファイル名"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1217
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
 msgid "OK"
 msgstr "OK"
 
@@ -36,320 +38,367 @@ msgid "Rename"
 msgstr "名前の変更"
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr がインストールされていません"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr ""
+msgstr "圧縮ファイルを操作できるようにするには、file-roller および/または gir-1.2-"
+"gnomeAutoAr をインストールします。"
 
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "ここで展開"
+msgstr "ファイルの抽出"
 
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "{0} 個のファイルを圧縮"
+msgstr "ファイルの圧縮"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:781
-#: app/desktopManager.js:1219 app/fileItemMenu.js:518
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
+#: app/desktopManager.js:1260 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "キャンセル"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "ここにパスワードを入力してください"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "部分ファイル '${outputFile}' を削除しています"
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "宛先フォルダーの作成"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "ファイルを「${outputPath}」に抽出しています"
 
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "ここで展開"
+msgstr "抽出完了"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "「${fullPathFile}」の抽出が完了しました。"
 
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "ここで展開"
+msgstr "抽出がキャンセルされました"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "'${fullPathFile}' の抽出は、ユーザーによってキャンセルされました。"
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "${filename} にはパスフレーズが必要です"
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "抽出中のエラー"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "ファイルを「${outputFile}」に圧縮しています"
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "圧縮完了"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "'${outputFile}' へのファイルの圧縮が完了しました。"
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "圧縮解除"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "出力ファイル '${outputFile}' は既に存在します。"
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "'${outputFile}' へのファイルの圧縮は、ユーザーによってキャンセルされました。"
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "圧縮中のエラー"
 
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "作成"
+msgstr "アーカイブを作成"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "ファイル名"
+msgstr "アーカイブ名"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 #: app/autoAr.js:617
 msgid "Create"
 msgstr "作成"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "すべてのオペレーティング システムと互換性があります。"
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "パスワードで保護された .zip は、Windows および Mac "
+"にインストールする必要があります。"
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "小さいアーカイブですが、Linux と Mac のみです。"
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "小さいアーカイブですが、Windows および Mac にインストールする必要があります。"
 
-#: app/desktopManager.js:130
+#: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "Nautilus ファイルマネージャーが見つかりません"
+msgstr "GNOME ファイルが見つかりません"
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Desktop Icons NG には GNOME Files アプリケーションが必要です。"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:723
+#, fuzzy
+msgid "Could not open File"
+msgstr "ファイルを開けませんでした"
+
+#: app/desktopManager.js:724
+#, fuzzy
+msgid "${appName} can not open files of this Type!"
+msgstr "${appName} はこのタイプのファイルを開くことができません!"
+
+#: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "動く"
 
-#: app/desktopManager.js:779 app/fileItemMenu.js:302
+#: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "コピー"
 
-#: app/desktopManager.js:780
+#: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "リンク"
 
-#: app/desktopManager.js:783
+#: app/desktopManager.js:824
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "“ファイル”で表示する"
+msgstr "ファイルのアクションを選択"
 
-#: app/desktopManager.js:852 app/desktopManager.js:884
+#: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "SymLink の作成に失敗しました"
 
-#: app/desktopManager.js:853 app/desktopManager.js:885
+#: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "シンボリック リンクを作成できませんでした"
 
-#: app/desktopManager.js:1175
+#: app/desktopManager.js:1216
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
-msgstr "新しく検索する前に現在の選択を解除してください"
+msgstr "新しい検索の前に現在の選択をクリアする"
 
-#: app/desktopManager.js:1221
+#: app/desktopManager.js:1262
 msgid "Find Files on Desktop"
 msgstr "デスクトップ上のファイルを検索"
 
-#: app/desktopManager.js:1476
+#: app/desktopManager.js:1517
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
-#: app/desktopManager.js:1477
+#: app/desktopManager.js:1518
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "名前 Z-A"
 
-#: app/desktopManager.js:1478
+#: app/desktopManager.js:1519
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
-msgstr "更新日で並べ替え"
+msgstr "修正時刻"
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1520
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1521
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "サイズ"
 
-#: app/desktopManager.js:1483
+#: app/desktopManager.js:1524
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "整列を維持..."
+msgstr "整理しておく…"
 
 # デスクトップにあるファイルを疑似フォルダーにまとめる (グループ化する)
-#: app/desktopManager.js:1487
+#: app/desktopManager.js:1528
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "種類ごとに束ねる..."
+msgstr "タイプごとに積み重ねる…"
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1529
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "ホーム/ドライブ/ゴミ箱を並べ替え..."
+msgstr "ホーム/ドライブ/ゴミ箱を並べ替え…"
 
-#: app/desktopManager.js:1493 app/desktopManager.js:2502
+#: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
 msgstr "新しいフォルダー"
 
-#: app/desktopManager.js:1497
+#: app/desktopManager.js:1538
 msgid "New Document"
 msgstr "新しいドキュメント"
 
-#: app/desktopManager.js:1501
+#: app/desktopManager.js:1542
 msgid "Paste"
 msgstr "貼り付け"
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1543
 msgid "Undo"
 msgstr "元に戻す"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1544
 msgid "Redo"
 msgstr "やり直す"
 
-#: app/desktopManager.js:1508
+#: app/desktopManager.js:1549
 msgid "Select All"
 msgstr "すべて選択"
 
-#: app/desktopManager.js:1513
+#: app/desktopManager.js:1554
 msgid "Arrange Icons"
 msgstr "アイコンを整列"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1558
 #, fuzzy
 msgid "Arrange By…"
-msgstr "指定して整列..."
+msgstr "並べ替え…"
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "“ファイル”でデスクトップを表示する"
+msgstr "GNOME ファイルのデスクトップを表示"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "端末で開く"
+msgstr "ターミナルで開く"
 
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1569
 msgid "Change Background…"
 msgstr "背景を変更…"
 
-#: app/desktopManager.js:1533
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Desktop Icons の設定"
+msgstr "デスクトップ アイコンの設定"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1575
 msgid "Display Settings"
 msgstr "ディスプレイの設定"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "環境設定ウィンドウが開いています"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "このウィンドウは開いています。アクティブなウィンドウに切り替えてください。"
 
-#: app/desktopManager.js:1589
+#: app/desktopManager.js:1630
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:2525
+#: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "フォルダー名"
+msgstr "フォルダの作成に失敗しました"
 
-#: app/desktopManager.js:2526
+#: app/desktopManager.js:2567
 #, fuzzy
 msgid "Could not create folder"
-msgstr "ファイルの削除中にエラーが発生しました"
+msgstr "フォルダを作成できませんでした"
 
-#: app/desktopManager.js:2569
+#: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "テンプレート作成エラー"
 
-#: app/desktopManager.js:2570
+#: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "ドキュメントを作成できませんでした"
 
-#: app/fileItem.js:135
+#: app/fileItem.js:141
 msgid "Home"
 msgstr "ホーム"
 
-#: app/fileItem.js:249
+#: app/fileItem.js:266
 msgid "Broken Link"
 msgstr "壊れたリンク"
 
-#: app/fileItem.js:250
+#: app/fileItem.js:267
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "シンボリックリンクのリンク先が存在しないためファイルを開けません"
 
-#: app/fileItem.js:313
+#: app/fileItem.js:330
 msgid "Broken Desktop File"
 msgstr "壊れたデスクトップファイル"
 
-#: app/fileItem.js:314
+#: app/fileItem.js:331
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -360,11 +409,11 @@ msgstr ""
 "\n"
 "\t<b>ファイルを開いて正しい実行可能プログラムを設定してください。</b>"
 
-#: app/fileItem.js:320
+#: app/fileItem.js:337
 msgid "Invalid Permissions on Desktop File"
 msgstr "無効な権限のデスクトップファイル"
 
-#: app/fileItem.js:321
+#: app/fileItem.js:338
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -372,7 +421,7 @@ msgstr ""
 "この .desktop ファイルの権限が正しくありません。右クリックしてプロパティを開"
 "き、次のように変更してください:\n"
 
-#: app/fileItem.js:323
+#: app/fileItem.js:340
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
@@ -380,7 +429,7 @@ msgstr ""
 "\n"
 "<b>\"その他のアクセス権\" を \"読み取り専用\" または \"なし\" に設定する</b>"
 
-#: app/fileItem.js:326
+#: app/fileItem.js:343
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -388,7 +437,7 @@ msgstr ""
 "\n"
 "<b>\"プログラムとして実行可能\" オプションを有効にする</b>"
 
-#: app/fileItem.js:334
+#: app/fileItem.js:351
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -400,155 +449,157 @@ msgstr ""
 "\n"
 "<b>\"起動を許可する\" を有効にする</b>"
 
-#: app/fileItemMenu.js:259
+#: app/fileItemMenu.js:264
 msgid "Open All..."
 msgstr "すべて開く..."
 
-#: app/fileItemMenu.js:261
+#: app/fileItemMenu.js:266
 msgid "Open"
 msgstr "開く"
 
 # 疑似フォルダーの右クリックメニュー
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:273
 msgid "Stack This Type"
 msgstr "この種類を束ねる"
 
 # 疑似フォルダーの右クリックメニュー
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:273
 msgid "Unstack This Type"
 msgstr "この種類を並べる"
 
-#: app/fileItemMenu.js:280
+#: app/fileItemMenu.js:284
 msgid "Scripts"
 msgstr "スクリプト"
 
-#: app/fileItemMenu.js:285
+#: app/fileItemMenu.js:289
 msgid "Open All With Other Application..."
 msgstr "別のアプリケーションですべて開く..."
 
-#: app/fileItemMenu.js:285
+#: app/fileItemMenu.js:289
 msgid "Open With Other Application"
 msgstr "別のアプリケーションで開く"
 
-#: app/fileItemMenu.js:287
+#: app/fileItemMenu.js:291
 msgid "Launch using Dedicated Graphics Card"
 msgstr "特定のグラフィックカードを使用して起動"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:298
 #, fuzzy
 msgid "Run as a Program"
 msgstr "プログラムとして実行"
 
-#: app/fileItemMenu.js:300
+#: app/fileItemMenu.js:304
 msgid "Cut"
 msgstr "切り取り"
 
-#: app/fileItemMenu.js:305
+#: app/fileItemMenu.js:309
 msgid "Rename…"
 msgstr "名前を変更…"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:314
 msgid "Move to Trash"
 msgstr "ゴミ箱へ移動する"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:317
 msgid "Delete permanently"
 msgstr "完全に削除"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:324
 msgid "Don't Allow Launching"
 msgstr "起動を許可しない"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:324
 msgid "Allow Launching"
 msgstr "起動を許可する"
 
-#: app/fileItemMenu.js:329
+#: app/fileItemMenu.js:333
 msgid "Empty Trash"
 msgstr "ゴミ箱を空にする"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:342
 msgid "Eject"
 msgstr "取り出す"
 
-#: app/fileItemMenu.js:341
+#: app/fileItemMenu.js:345
 msgid "Unmount"
 msgstr "アンマウント"
 
-#: app/fileItemMenu.js:352 app/fileItemMenu.js:356
+#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
 msgid "Extract Here"
 msgstr "ここで展開"
 
-#: app/fileItemMenu.js:358
+#: app/fileItemMenu.js:362
 msgid "Extract To..."
 msgstr "展開先..."
 
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:366
 msgid "Send to..."
 msgstr "送る..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "モバイル デバイスに送信"
 
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "{0} 個のファイルを圧縮"
+msgstr[0] "{0} フォルダを圧縮"
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "{0} 個のファイルを圧縮"
 
-#: app/fileItemMenu.js:388
+#: app/fileItemMenu.js:392
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "{0} 個のアイテムを新しいフォルダーへ移動する"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:401
 msgid "Common Properties"
 msgstr "共通のプロパティ"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:401
 msgid "Properties"
 msgstr "プロパティ"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:405
 msgid "Show All in Files"
 msgstr "“ファイル”ですべて表示する"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:405
 msgid "Show in Files"
 msgstr "“ファイル”で表示する"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:411
 msgid "Open in Terminal"
 msgstr "端末で開く"
 
-#: app/fileItemMenu.js:493
+#: app/fileItemMenu.js:497
 #, fuzzy
 msgid "No Extraction Folder"
-msgstr "ここで展開"
+msgstr "抽出フォルダなし"
 
-#: app/fileItemMenu.js:494
+#: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "ファイルを抽出できません。抽出フォルダが存在しません"
 
-#: app/fileItemMenu.js:514
+#: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
 msgstr "展開する宛先を選択"
 
-#: app/fileItemMenu.js:519
+#: app/fileItemMenu.js:523
 msgid "Select"
 msgstr "選択"
 
-#: app/fileItemMenu.js:559
+#: app/fileItemMenu.js:563
 msgid "Can not email a Directory"
 msgstr "ディレクトリをメールで送ることはできません"
 
-#: app/fileItemMenu.js:560
+#: app/fileItemMenu.js:564
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "ディレクトリが選択されています。ディレクトリはファイルに圧縮してください。"
@@ -610,8 +661,9 @@ msgid "Bottom-right corner"
 msgstr "右下"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "可能であれば、最初に新しいアイコンをセカンダリ モニターに追加します。"
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"

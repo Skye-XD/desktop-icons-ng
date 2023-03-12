@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 18:08-0500\n"
-"PO-Revision-Date: 2019-03-12 09:51+0100\n"
-"Last-Translator: Olteanu Laurențiu <laur.olteanu@outlook.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2023-03-04 09:49-0500\n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -26,7 +27,7 @@ msgstr "Nume dosar"
 msgid "File name"
 msgstr "Nume fișier"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1217
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
 msgid "OK"
 msgstr "Ok"
 
@@ -35,319 +36,371 @@ msgid "Rename"
 msgstr "Redenumește"
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr nu este instalat"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"Pentru a putea lucra cu fișiere comprimate, instalați file-roller și/sau "
+"gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Extrage aici"
+msgstr "Extragerea fișierelor"
 
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "Comprimă {0} fișier"
+msgstr "Comprimarea fișierelor"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:781
-#: app/desktopManager.js:1219 app/fileItemMenu.js:518
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
+#: app/desktopManager.js:1260 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Anulează"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "Introduceți o parolă aici"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "Se elimină fișierul parțial „${outputFile}”"
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Se creează folderul de destinație"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "Extragerea fișierelor în „${outputPath}”"
 
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Extrage aici"
+msgstr "Extragerea finalizată"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "Extragerea „${fullPathFile}” a fost finalizată."
 
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Extrage aici"
+msgstr "Extragerea a fost anulată"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Extragerea „${fullPathFile}” a fost anulată de către utilizator."
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Fraza de acces necesară pentru ${filename}"
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "Eroare la extracție"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "Comprimarea fișierelor în „${outputFile}”"
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "Compresia finalizată"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "Comprimarea fișierelor în „${outputFile}” a fost finalizată."
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Compresia anulată"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "Fișierul de ieșire „${outputFile}” există deja."
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Comprimarea fișierelor în „${outputFile}” a fost anulată de utilizator."
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "Eroare în timpul compresiei"
 
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "Creează"
+msgstr "Creați arhiva"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "Nume fișier"
+msgstr "Numele arhivei"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Parola"
 
 #: app/autoAr.js:617
 msgid "Create"
 msgstr "Creează"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "Compatibil cu toate sistemele de operare."
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr ".zip protejat prin parolă, trebuie instalat pe Windows și Mac."
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "Arhive mai mici, dar numai pentru Linux și Mac."
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "Arhive mai mici, dar trebuie instalate pe Windows și Mac."
 
-#: app/desktopManager.js:130
+#: app/desktopManager.js:131
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
-msgstr "Managerul de fișiere Nautilus nu a fost"
+msgstr "Fișierele GNOME nu au fost găsite"
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "Aplicația Fișiere GNOME este necesară de Desktop Icons NG."
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:723
+#, fuzzy
+msgid "Could not open File"
+msgstr "Fișierul nu poate fi deschis"
+
+#: app/desktopManager.js:724
+#, fuzzy
+msgid "${appName} can not open files of this Type!"
+msgstr "${appName} nu poate deschide fișiere de acest tip!"
+
+#: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "Mișcare"
 
-#: app/desktopManager.js:779 app/fileItemMenu.js:302
+#: app/desktopManager.js:820 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Copiază"
 
-#: app/desktopManager.js:780
+#: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "Legătură"
 
-#: app/desktopManager.js:783
+#: app/desktopManager.js:824
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Arată în fișiere"
+msgstr "Alegeți Acțiune pentru fișiere"
 
-#: app/desktopManager.js:852 app/desktopManager.js:884
+#: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "Efectuarea SymLink a eșuat"
 
-#: app/desktopManager.js:853 app/desktopManager.js:885
+#: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "Nu s-a putut crea legătura simbolică"
 
-#: app/desktopManager.js:1175
+#: app/desktopManager.js:1216
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
-msgstr "Șterge selecția curentă înainte de o Căutare Nouă"
+msgstr "Ștergeți selecția curentă înainte de o nouă căutare"
 
-#: app/desktopManager.js:1221
+#: app/desktopManager.js:1262
 msgid "Find Files on Desktop"
 msgstr "Caută fișiere pe Desktop"
 
-#: app/desktopManager.js:1476
+#: app/desktopManager.js:1517
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Nume"
 
-#: app/desktopManager.js:1477
+#: app/desktopManager.js:1518
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "Numele Z-A"
 
-#: app/desktopManager.js:1478
+#: app/desktopManager.js:1519
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
-msgstr "Sortează dupa data modificării"
+msgstr "Timp modificat"
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1520
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1521
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "mărimea"
 
-#: app/desktopManager.js:1483
+#: app/desktopManager.js:1524
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Aranjează automat..."
+msgstr "Păstrați aranjat…"
 
-#: app/desktopManager.js:1487
+#: app/desktopManager.js:1528
+#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "Păstrați stivuite după tip…"
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1529
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sortează Acasă/Unități/Coș de gunoi..."
+msgstr "Sortare Acasă/Drive/Coș de gunoi…"
 
-#: app/desktopManager.js:1493 app/desktopManager.js:2502
+#: app/desktopManager.js:1534 app/desktopManager.js:2543
 msgid "New Folder"
 msgstr "Director nou"
 
-#: app/desktopManager.js:1497
+#: app/desktopManager.js:1538
 msgid "New Document"
 msgstr "Document nou"
 
-#: app/desktopManager.js:1501
+#: app/desktopManager.js:1542
 msgid "Paste"
 msgstr "Lipește"
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1543
 msgid "Undo"
 msgstr "Anulează"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1544
 msgid "Redo"
 msgstr "Refă"
 
-#: app/desktopManager.js:1508
+#: app/desktopManager.js:1549
 msgid "Select All"
 msgstr "Selectează tot"
 
-#: app/desktopManager.js:1513
+#: app/desktopManager.js:1554
 msgid "Arrange Icons"
 msgstr "Aranjează pictogramele"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1558
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Aranjează după..."
+msgstr "Aranjeaza dupa…"
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1563
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Arată Desktop în Fișiere"
+msgstr "Afișați desktopul în fișierele GNOME"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Deschide în terminal"
+msgstr "Deschideți în terminal"
 
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1569
 msgid "Change Background…"
 msgstr "Schimbă fundalul..."
 
-#: app/desktopManager.js:1533
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Setări Pictograme Desktop"
+msgstr "Setări pictograme desktop"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1575
 msgid "Display Settings"
 msgstr "Setări afișaj"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "Fereastra Preferințe este deschisă"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
+"Această fereastră este deschisă. Vă rugăm să comutați la fereastra activă."
 
-#: app/desktopManager.js:1589
+#: app/desktopManager.js:1630
 msgid "Settings"
 msgstr "Setări"
 
-#: app/desktopManager.js:2525
+#: app/desktopManager.js:2566
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Nume dosar"
+msgstr "Crearea folderului a eșuat"
 
-#: app/desktopManager.js:2526
+#: app/desktopManager.js:2567
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Eroare la ștergerea fișierelor"
+msgstr "Nu s-a putut crea folderul"
 
-#: app/desktopManager.js:2569
+#: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Eroare la crearea șablonului"
 
-#: app/desktopManager.js:2570
+#: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "Documentul nu a putut fi creat"
 
-#: app/fileItem.js:135
+#: app/fileItem.js:141
 msgid "Home"
 msgstr "Acasă"
 
-#: app/fileItem.js:249
+#: app/fileItem.js:266
+#, fuzzy
 msgid "Broken Link"
-msgstr ""
+msgstr "Legătură ruptă"
 
-#: app/fileItem.js:250
+#: app/fileItem.js:267
+#, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
+"Nu se poate deschide acest fișier deoarece este un link simbolic întrerupt"
 
-#: app/fileItem.js:313
+#: app/fileItem.js:330
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Arată Desktop în Fișiere"
+msgstr "Fișier desktop spart"
 
-#: app/fileItem.js:314
+#: app/fileItem.js:331
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -355,29 +408,36 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:320
+#: app/fileItem.js:337
+#, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "Permisiuni nevalide pe fișierul desktop"
 
-#: app/fileItem.js:321
+#: app/fileItem.js:338
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 
-#: app/fileItem.js:323
+#: app/fileItem.js:340
+#, fuzzy
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
+"\n"
+"<b>Setați permisiuni, în „Acces alții”, „Numai citire” sau „Niciuna”</b>"
 
-#: app/fileItem.js:326
+#: app/fileItem.js:343
+#, fuzzy
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
+"\n"
+"<b>Activați opțiunea, „Permiteți executarea fișierului ca program”</b>"
 
-#: app/fileItem.js:334
+#: app/fileItem.js:351
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -385,155 +445,160 @@ msgid ""
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
 
-#: app/fileItemMenu.js:259
+#: app/fileItemMenu.js:264
 msgid "Open All..."
 msgstr "Deschide tot..."
 
-#: app/fileItemMenu.js:261
+#: app/fileItemMenu.js:266
 msgid "Open"
 msgstr "Deschide"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Stack This Type"
-msgstr ""
+msgstr "Stivuiți acest tip"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Unstack This Type"
-msgstr ""
+msgstr "Demontați acest tip"
 
-#: app/fileItemMenu.js:280
+#: app/fileItemMenu.js:284
 msgid "Scripts"
 msgstr "Scripturi"
 
-#: app/fileItemMenu.js:285
+#: app/fileItemMenu.js:289
 msgid "Open All With Other Application..."
 msgstr "Deschide tot cu altă aplicație..."
 
-#: app/fileItemMenu.js:285
+#: app/fileItemMenu.js:289
 msgid "Open With Other Application"
 msgstr "Deschide cu altă aplicație"
 
-#: app/fileItemMenu.js:287
+#: app/fileItemMenu.js:291
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Lanseaza folosind Placă Video Dedicată"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:298
+#, fuzzy
 msgid "Run as a Program"
-msgstr ""
+msgstr "Rulați ca program"
 
-#: app/fileItemMenu.js:300
+#: app/fileItemMenu.js:304
 msgid "Cut"
 msgstr "Taie"
 
-#: app/fileItemMenu.js:305
+#: app/fileItemMenu.js:309
 msgid "Rename…"
 msgstr "Redenumește…"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:314
 msgid "Move to Trash"
 msgstr "Mută la coșul de gunoi"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:317
 msgid "Delete permanently"
 msgstr "Șterge definitiv"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:324
 msgid "Don't Allow Launching"
 msgstr "Nu permite lansarea"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:324
 msgid "Allow Launching"
 msgstr "Permite lansarea"
 
-#: app/fileItemMenu.js:329
+#: app/fileItemMenu.js:333
 msgid "Empty Trash"
 msgstr "Golește coșul de gunoi"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:342
 msgid "Eject"
 msgstr "Scoate"
 
-#: app/fileItemMenu.js:341
+#: app/fileItemMenu.js:345
 msgid "Unmount"
 msgstr "Demontează"
 
-#: app/fileItemMenu.js:352 app/fileItemMenu.js:356
+#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
 msgid "Extract Here"
 msgstr "Extrage aici"
 
-#: app/fileItemMenu.js:358
+#: app/fileItemMenu.js:362
 msgid "Extract To..."
 msgstr "Extrage în..."
 
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:366
 msgid "Send to..."
 msgstr "Trimite la..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Trimiteți pe dispozitivul mobil"
 
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Comprimă {0} fișier"
-msgstr[1] "Comprimă {0} fișiere"
+msgstr[0] "Comprimați folderul {0}"
+msgstr[1] "Comprimați {0} dosare"
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Comprimă {0} fișier"
 msgstr[1] "Comprimă {0} fișiere"
 
-#: app/fileItemMenu.js:388
+#: app/fileItemMenu.js:392
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Dosar nou cu {0} element"
 msgstr[1] "Dosar nou cu {0} elemente"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:401
 msgid "Common Properties"
 msgstr "Proprietăți generale"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:401
 msgid "Properties"
 msgstr "Proprietăți"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:405
 msgid "Show All in Files"
 msgstr "Arată toate fișierele"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:405
 msgid "Show in Files"
 msgstr "Arată în fișiere"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:411
 msgid "Open in Terminal"
 msgstr "Deschide în terminal"
 
-#: app/fileItemMenu.js:493
+#: app/fileItemMenu.js:497
 #, fuzzy
 msgid "No Extraction Folder"
-msgstr "Extrage aici"
+msgstr "Fără dosar de extragere"
 
-#: app/fileItemMenu.js:494
+#: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "Nu se poate extrage fișierul, folderul de extracție nu există"
 
-#: app/fileItemMenu.js:514
+#: app/fileItemMenu.js:518
 msgid "Select Extract Destination"
 msgstr "Selectează destinația pentru extragere"
 
-#: app/fileItemMenu.js:519
+#: app/fileItemMenu.js:523
 msgid "Select"
 msgstr "Selectează"
 
-#: app/fileItemMenu.js:559
+#: app/fileItemMenu.js:563
 msgid "Can not email a Directory"
 msgstr "Nu se poate trimite un dosar prin email"
 
-#: app/fileItemMenu.js:560
+#: app/fileItemMenu.js:564
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Selecția include un dosar, mai întâi arhiveză-l într-un fișier"
 
@@ -594,8 +659,11 @@ msgid "Bottom-right corner"
 msgstr "Colțul dreapta-jos"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
+"Adăugați mai întâi pictograme noi la monitoarele secundare, dacă sunt "
+"disponibile"
 
 #: app/preferencesFrame.js:55
 msgid "Add new drives to the opposite side of the screen"
@@ -607,16 +675,19 @@ msgstr ""
 "Evidențiază punctul de plasare în timpul operațiunii de trage si plasează"
 
 #: app/preferencesFrame.js:57
+#, fuzzy
 msgid "Use Nemo to open folders"
-msgstr ""
+msgstr "Utilizați Nemo pentru a deschide foldere"
 
 #: app/preferencesFrame.js:58
+#, fuzzy
 msgid "Add an emblem to soft links"
-msgstr ""
+msgstr "Adăugați o emblemă la linkurile soft"
 
 #: app/preferencesFrame.js:59
+#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "Folosiți text întunecat în etichetele pictogramelor"
 
 #: app/preferencesFrame.js:64
 msgid "Settings shared with Nautilus"
@@ -679,8 +750,9 @@ msgid "Close"
 msgstr "Închide"
 
 #: app/utils/dbusUtils.js:58
+#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr ""
+msgstr "„${programName}” este necesar pentru pictogramele de pe desktop"
 
 #: app/utils/dbusUtils.js:59
 msgid ""

@@ -6,324 +6,414 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 18:08-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2023-03-04 09:49-0500\n"
+"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: app/askRenamePopup.js:49
+#, fuzzy
 msgid "Folder name"
-msgstr ""
+msgstr "Nomo de dosierujo"
 
 #: app/askRenamePopup.js:49
+#, fuzzy
 msgid "File name"
-msgstr ""
+msgstr "Dosiernomo"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1217
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
+#, fuzzy
 msgid "OK"
-msgstr ""
+msgstr "bone"
 
 #: app/askRenamePopup.js:57
+#, fuzzy
 msgid "Rename"
-msgstr ""
+msgstr "Alinomi"
 
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr ne estas instalita"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"Por povi labori kun kunpremitaj dosieroj, instalu file-roller kaj/aŭ gir-1."
+"2-gnomeAutoAr"
 
 #: app/autoAr.js:203
+#, fuzzy
 msgid "Extracting files"
-msgstr ""
+msgstr "Eltiro de dosieroj"
 
 #: app/autoAr.js:220
+#, fuzzy
 msgid "Compressing files"
-msgstr ""
+msgstr "Kunpremante dosierojn"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:781
-#: app/desktopManager.js:1219 app/fileItemMenu.js:518
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
+#: app/desktopManager.js:1260 app/fileItemMenu.js:522
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "Nuligi"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "Enigu pasvorton ĉi tie"
 
 #: app/autoAr.js:354
+#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "Forigante partan dosieron '${outputFile}'"
 
 #: app/autoAr.js:373
+#, fuzzy
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Kreante cel-dosierujon"
 
 #: app/autoAr.js:405
+#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "Eltiro de dosieroj en '${outputPath}'"
 
 #: app/autoAr.js:435
+#, fuzzy
 msgid "Extraction completed"
-msgstr ""
+msgstr "Eltiro finiĝis"
 
 #: app/autoAr.js:436
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "Ekstraktado de '${fullPathFile}' finiĝis."
 
 #: app/autoAr.js:442
+#, fuzzy
 msgid "Extraction cancelled"
-msgstr ""
+msgstr "Eltiro nuligita"
 
 #: app/autoAr.js:443
+#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Eltiro '${fullPathFile}' estis nuligita de la uzanto."
 
 #: app/autoAr.js:453
+#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Pasfrazo necesa por ${dosiernomo}"
 
 #: app/autoAr.js:456
+#, fuzzy
 msgid "Error during extraction"
-msgstr ""
+msgstr "Eraro dum eltiro"
 
 #: app/autoAr.js:483
+#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "Kunpremante dosierojn en '${outputFile}'"
 
 #: app/autoAr.js:496
+#, fuzzy
 msgid "Compression completed"
-msgstr ""
+msgstr "Kunpremado finiĝis"
 
 #: app/autoAr.js:497
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "Kunpremado de dosieroj en '${outputFile}' finiĝis."
 
 #: app/autoAr.js:501 app/autoAr.js:508
+#, fuzzy
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Nuligita kunpremo"
 
 #: app/autoAr.js:502
+#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "La eligdosiero '${outputFile}' jam ekzistas."
 
 #: app/autoAr.js:509
+#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "Kunpremado de dosieroj en '${outputFile}' estis nuligita de la uzanto."
 
 #: app/autoAr.js:512
+#, fuzzy
 msgid "Error during compression"
-msgstr ""
+msgstr "Eraro dum kunpremado"
 
 #: app/autoAr.js:547
+#, fuzzy
 msgid "Create archive"
-msgstr ""
+msgstr "Krei arkivon"
 
 #: app/autoAr.js:571
+#, fuzzy
 msgid "Archive name"
-msgstr ""
+msgstr "Arkiva nomo"
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Pasvorto"
 
 #: app/autoAr.js:617
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "Krei"
 
 #: app/autoAr.js:688
+#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "Kongrua kun ĉiuj operaciumoj."
 
 #: app/autoAr.js:694
+#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "Pasvorto protektita .zip, devas esti instalita en Vindozo kaj Mac."
 
 #: app/autoAr.js:700
+#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "Pli malgrandaj arkivoj sed nur Linukso kaj Mac."
 
 #: app/autoAr.js:706
+#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
-
-#: app/desktopManager.js:130
-msgid "GNOME Files not found"
-msgstr ""
+msgstr "Pli malgrandaj arkivoj sed devas esti instalitaj en Vindozo kaj Mac."
 
 #: app/desktopManager.js:131
+#, fuzzy
+msgid "GNOME Files not found"
+msgstr "GNOME-dosieroj ne trovitaj"
+
+#: app/desktopManager.js:132
+#, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr ""
+msgstr "La aplikaĵo GNOME Files estas postulata de Desktop Icons NG."
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:723
+#, fuzzy
+msgid "Could not open File"
+msgstr "Ne eblis malfermi Dosieron"
+
+#: app/desktopManager.js:724
+#, fuzzy
+msgid "${appName} can not open files of this Type!"
+msgstr "${appName} ne povas malfermi dosierojn de ĉi tiu Tipo!"
+
+#: app/desktopManager.js:819
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "Movu"
 
-#: app/desktopManager.js:779 app/fileItemMenu.js:302
+#: app/desktopManager.js:820 app/fileItemMenu.js:306
+#, fuzzy
 msgid "Copy"
-msgstr ""
+msgstr "Kopiu"
 
-#: app/desktopManager.js:780
+#: app/desktopManager.js:821
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "Ligo"
 
-#: app/desktopManager.js:783
+#: app/desktopManager.js:824
+#, fuzzy
 msgid "Choose Action for Files"
-msgstr ""
+msgstr "Elektu Agon por Dosieroj"
 
-#: app/desktopManager.js:852 app/desktopManager.js:884
+#: app/desktopManager.js:893 app/desktopManager.js:925
+#, fuzzy
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "Farado de SymLink Malsukcesis"
 
-#: app/desktopManager.js:853 app/desktopManager.js:885
+#: app/desktopManager.js:894 app/desktopManager.js:926
+#, fuzzy
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "Ne eblis krei simbolan ligon"
 
-#: app/desktopManager.js:1175
+#: app/desktopManager.js:1216
+#, fuzzy
 msgid "Clear current selection before new search"
-msgstr ""
+msgstr "Forigi nunan elekton antaŭ nova serĉo"
 
-#: app/desktopManager.js:1221
+#: app/desktopManager.js:1262
+#, fuzzy
 msgid "Find Files on Desktop"
-msgstr ""
-
-#: app/desktopManager.js:1476
-msgid "Name"
-msgstr ""
-
-#: app/desktopManager.js:1477
-msgid "Name Z-A"
-msgstr ""
-
-#: app/desktopManager.js:1478
-msgid "Modified Time"
-msgstr ""
-
-#: app/desktopManager.js:1479
-msgid "Type"
-msgstr ""
-
-#: app/desktopManager.js:1480
-msgid "Size"
-msgstr ""
-
-#: app/desktopManager.js:1483
-msgid "Keep Arranged…"
-msgstr ""
-
-#: app/desktopManager.js:1487
-msgid "Keep Stacked by Type…"
-msgstr ""
-
-#: app/desktopManager.js:1488
-msgid "Sort Home/Drives/Trash…"
-msgstr ""
-
-#: app/desktopManager.js:1493 app/desktopManager.js:2502
-msgid "New Folder"
-msgstr ""
-
-#: app/desktopManager.js:1497
-msgid "New Document"
-msgstr ""
-
-#: app/desktopManager.js:1501
-msgid "Paste"
-msgstr ""
-
-#: app/desktopManager.js:1502
-msgid "Undo"
-msgstr ""
-
-#: app/desktopManager.js:1503
-msgid "Redo"
-msgstr ""
-
-#: app/desktopManager.js:1508
-msgid "Select All"
-msgstr ""
-
-#: app/desktopManager.js:1513
-msgid "Arrange Icons"
-msgstr ""
+msgstr "Trovu dosierojn sur labortablo"
 
 #: app/desktopManager.js:1517
-msgid "Arrange By…"
-msgstr ""
+#, fuzzy
+msgid "Name"
+msgstr "Nomo"
 
-#: app/desktopManager.js:1522
-msgid "Show Desktop In GNOME Files"
-msgstr ""
+#: app/desktopManager.js:1518
+#, fuzzy
+msgid "Name Z-A"
+msgstr "Nomo Z-A"
 
-#: app/desktopManager.js:1523
-msgid "Open In Terminal"
-msgstr ""
+#: app/desktopManager.js:1519
+#, fuzzy
+msgid "Modified Time"
+msgstr "Modifita Tempo"
+
+#: app/desktopManager.js:1520
+#, fuzzy
+msgid "Type"
+msgstr "Tajpu"
+
+#: app/desktopManager.js:1521
+#, fuzzy
+msgid "Size"
+msgstr "Grandeco"
+
+#: app/desktopManager.js:1524
+#, fuzzy
+msgid "Keep Arranged…"
+msgstr "Konservu Aranĝita…"
 
 #: app/desktopManager.js:1528
+#, fuzzy
+msgid "Keep Stacked by Type…"
+msgstr "Konservu Stakitaj laŭ Tipo…"
+
+#: app/desktopManager.js:1529
+#, fuzzy
+msgid "Sort Home/Drives/Trash…"
+msgstr "Ordigi Hejmo/Veturadoj/Rubo…"
+
+#: app/desktopManager.js:1534 app/desktopManager.js:2543
+#, fuzzy
+msgid "New Folder"
+msgstr "Nova Dosierujo"
+
+#: app/desktopManager.js:1538
+#, fuzzy
+msgid "New Document"
+msgstr "Nova Dokumento"
+
+#: app/desktopManager.js:1542
+#, fuzzy
+msgid "Paste"
+msgstr "Alglui"
+
+#: app/desktopManager.js:1543
+#, fuzzy
+msgid "Undo"
+msgstr "Malfari"
+
+#: app/desktopManager.js:1544
+#, fuzzy
+msgid "Redo"
+msgstr "Refari"
+
+#: app/desktopManager.js:1549
+#, fuzzy
+msgid "Select All"
+msgstr "Elekti ĉiujn"
+
+#: app/desktopManager.js:1554
+#, fuzzy
+msgid "Arrange Icons"
+msgstr "Aranĝu piktogramojn"
+
+#: app/desktopManager.js:1558
+#, fuzzy
+msgid "Arrange By…"
+msgstr "Aranĝu per…"
+
+#: app/desktopManager.js:1563
+#, fuzzy
+msgid "Show Desktop In GNOME Files"
+msgstr "Montru labortablon en GNOME-dosieroj"
+
+#: app/desktopManager.js:1564
+#, fuzzy
+msgid "Open In Terminal"
+msgstr "Malfermu En Terminalo"
+
+#: app/desktopManager.js:1569
+#, fuzzy
 msgid "Change Background…"
-msgstr ""
+msgstr "Ŝanĝi fonon…"
 
-#: app/desktopManager.js:1533
+#: app/desktopManager.js:1574
+#, fuzzy
 msgid "Desktop Icon Settings"
-msgstr ""
+msgstr "Agordoj de labortablaj piktogramoj"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1575
+#, fuzzy
 msgid "Display Settings"
-msgstr ""
+msgstr "Montraj Agordoj"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1618
+#, fuzzy
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "Preferoj Fenestro estas Malferma"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1618
+#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "Ĉi tiu Fenestro estas malfermita. Bonvolu ŝanĝi al la aktiva fenestro."
 
-#: app/desktopManager.js:1589
+#: app/desktopManager.js:1630
+#, fuzzy
 msgid "Settings"
-msgstr ""
+msgstr "Agordoj"
 
-#: app/desktopManager.js:2525
+#: app/desktopManager.js:2566
+#, fuzzy
 msgid "Folder Creation Failed"
-msgstr ""
+msgstr "Kreado de dosierujoj malsukcesis"
 
-#: app/desktopManager.js:2526
+#: app/desktopManager.js:2567
+#, fuzzy
 msgid "Could not create folder"
-msgstr ""
+msgstr "Ne eblis krei dosierujon"
 
-#: app/desktopManager.js:2569
+#: app/desktopManager.js:2610
+#, fuzzy
 msgid "Template Creation Error"
-msgstr ""
+msgstr "Eraro pri Kreado de Ŝablono"
 
-#: app/desktopManager.js:2570
+#: app/desktopManager.js:2611
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "Ne eblis krei dokumenton"
 
-#: app/fileItem.js:135
+#: app/fileItem.js:141
+#, fuzzy
 msgid "Home"
-msgstr ""
+msgstr "Hejmo"
 
-#: app/fileItem.js:249
+#: app/fileItem.js:266
+#, fuzzy
 msgid "Broken Link"
-msgstr ""
+msgstr "Rompita Ligo"
 
-#: app/fileItem.js:250
+#: app/fileItem.js:267
+#, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "Ne povas malfermi ĉi tiun dosieron ĉar ĝi estas Rompita Simligo"
 
-#: app/fileItem.js:313
+#: app/fileItem.js:330
+#, fuzzy
 msgid "Broken Desktop File"
-msgstr ""
+msgstr "Rompita Labortabla Dosiero"
 
-#: app/fileItem.js:314
+#: app/fileItem.js:331
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -331,29 +421,39 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:320
+#: app/fileItem.js:337
+#, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "Nevalidaj Permesoj sur Labortabla Dosiero"
 
-#: app/fileItem.js:321
+#: app/fileItem.js:338
+#, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
+"Ĉi tiu .desktop Dosiero havas malĝustajn Permesojn. Dekstre Klaku por "
+"redakti Propraĵojn, tiam:\n"
 
-#: app/fileItem.js:323
+#: app/fileItem.js:340
+#, fuzzy
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
+"\n"
+"<b>Agordu Permesojn, en \"Alia Aliro\", \"Nur Legado\" aŭ \"Neniu\"</b>"
 
-#: app/fileItem.js:326
+#: app/fileItem.js:343
+#, fuzzy
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
+"\n"
+"<b>Ebligu opcion, \"Permesi Plenumon de Dosiero kiel Programo\"</b>"
 
-#: app/fileItem.js:334
+#: app/fileItem.js:351
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -361,299 +461,371 @@ msgid ""
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
 
-#: app/fileItemMenu.js:259
+#: app/fileItemMenu.js:264
+#, fuzzy
 msgid "Open All..."
-msgstr ""
+msgstr "Malfermu Ĉion..."
 
-#: app/fileItemMenu.js:261
+#: app/fileItemMenu.js:266
+#, fuzzy
 msgid "Open"
-msgstr ""
+msgstr "Malfermu"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Stack This Type"
-msgstr ""
+msgstr "Staku Ĉi tiun Tipon"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:273
+#, fuzzy
 msgid "Unstack This Type"
-msgstr ""
+msgstr "Malstaku Ĉi tiun Tipon"
 
-#: app/fileItemMenu.js:280
+#: app/fileItemMenu.js:284
+#, fuzzy
 msgid "Scripts"
-msgstr ""
+msgstr "Skriptoj"
 
-#: app/fileItemMenu.js:285
+#: app/fileItemMenu.js:289
+#, fuzzy
 msgid "Open All With Other Application..."
-msgstr ""
+msgstr "Malfermu Ĉion Per Alia Apliko..."
 
-#: app/fileItemMenu.js:285
+#: app/fileItemMenu.js:289
+#, fuzzy
 msgid "Open With Other Application"
-msgstr ""
+msgstr "Malfermu kun Alia Apliko"
 
-#: app/fileItemMenu.js:287
+#: app/fileItemMenu.js:291
+#, fuzzy
 msgid "Launch using Dedicated Graphics Card"
-msgstr ""
+msgstr "Lanĉu uzante Dediĉitan Grafikan Karton"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:298
+#, fuzzy
 msgid "Run as a Program"
-msgstr ""
+msgstr "Kuru kiel Programo"
 
-#: app/fileItemMenu.js:300
+#: app/fileItemMenu.js:304
+#, fuzzy
 msgid "Cut"
-msgstr ""
+msgstr "Tranĉi"
 
-#: app/fileItemMenu.js:305
+#: app/fileItemMenu.js:309
+#, fuzzy
 msgid "Rename…"
-msgstr ""
+msgstr "Alinomi…"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:314
+#, fuzzy
 msgid "Move to Trash"
-msgstr ""
+msgstr "Movu al Rubujo"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:317
+#, fuzzy
 msgid "Delete permanently"
-msgstr ""
+msgstr "Forigu konstante"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:324
+#, fuzzy
 msgid "Don't Allow Launching"
-msgstr ""
+msgstr "Ne Permesu Lanĉon"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:324
+#, fuzzy
 msgid "Allow Launching"
-msgstr ""
+msgstr "Permesu Lanĉon"
 
-#: app/fileItemMenu.js:329
+#: app/fileItemMenu.js:333
+#, fuzzy
 msgid "Empty Trash"
-msgstr ""
+msgstr "Malplenigi Rubujon"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:342
+#, fuzzy
 msgid "Eject"
-msgstr ""
+msgstr "Elĵeti"
 
-#: app/fileItemMenu.js:341
+#: app/fileItemMenu.js:345
+#, fuzzy
 msgid "Unmount"
-msgstr ""
+msgstr "Malmunti"
 
-#: app/fileItemMenu.js:352 app/fileItemMenu.js:356
+#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
+#, fuzzy
 msgid "Extract Here"
-msgstr ""
-
-#: app/fileItemMenu.js:358
-msgid "Extract To..."
-msgstr ""
+msgstr "Ekstraktu Ĉi tie"
 
 #: app/fileItemMenu.js:362
+#, fuzzy
+msgid "Extract To..."
+msgstr "Eltiro al..."
+
+#: app/fileItemMenu.js:366
+#, fuzzy
 msgid "Send to..."
-msgstr ""
+msgstr "Sendu al..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:372
+#, fuzzy
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "Sendu al Poŝtelefono"
 
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kunpremu {0}-dosierujon"
+msgstr[1] "Kunpremu {0} dosierujojn"
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:385
+#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kunpremu {0} dosieron"
+msgstr[1] "Kunpremu {0} dosierojn"
 
-#: app/fileItemMenu.js:388
+#: app/fileItemMenu.js:392
+#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Nova dosierujo kun {0} ero"
+msgstr[1] "Nova dosierujo kun {0} eroj"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:401
+#, fuzzy
 msgid "Common Properties"
-msgstr ""
+msgstr "Komunaj Propraĵoj"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:401
+#, fuzzy
 msgid "Properties"
-msgstr ""
+msgstr "Propraĵoj"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:405
+#, fuzzy
 msgid "Show All in Files"
-msgstr ""
+msgstr "Montru Ĉion en Dosieroj"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:405
+#, fuzzy
 msgid "Show in Files"
-msgstr ""
+msgstr "Montru en Dosieroj"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:411
+#, fuzzy
 msgid "Open in Terminal"
-msgstr ""
+msgstr "Malfermu en Terminalo"
 
-#: app/fileItemMenu.js:493
+#: app/fileItemMenu.js:497
+#, fuzzy
 msgid "No Extraction Folder"
-msgstr ""
+msgstr "Neniu Eltira Dosierujo"
 
-#: app/fileItemMenu.js:494
+#: app/fileItemMenu.js:498
+#, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
-msgstr ""
+msgstr "Ne eblas ĉerpi dosieron, eltira dosierujo ne ekzistas"
 
-#: app/fileItemMenu.js:514
+#: app/fileItemMenu.js:518
+#, fuzzy
 msgid "Select Extract Destination"
-msgstr ""
+msgstr "Elektu Ekstraktan Celon"
 
-#: app/fileItemMenu.js:519
+#: app/fileItemMenu.js:523
+#, fuzzy
 msgid "Select"
-msgstr ""
+msgstr "Elektu"
 
-#: app/fileItemMenu.js:559
+#: app/fileItemMenu.js:563
+#, fuzzy
 msgid "Can not email a Directory"
-msgstr ""
+msgstr "Ne povas retpoŝti Adresaron"
 
-#: app/fileItemMenu.js:560
+#: app/fileItemMenu.js:564
+#, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
-msgstr ""
+msgstr "Elekto inkluzivas Dosierujon, unue kunpremu la dosierujon al dosiero."
 
 #: app/preferencesFrame.js:40
+#, fuzzy
 msgid "Size for the desktop icons"
-msgstr ""
+msgstr "Grandeco por la labortablaj ikonoj"
 
 #: app/preferencesFrame.js:40
+#, fuzzy
 msgid "Tiny"
-msgstr ""
+msgstr "Eta"
 
 #: app/preferencesFrame.js:40
+#, fuzzy
 msgid "Small"
-msgstr ""
+msgstr "Malgranda"
 
 #: app/preferencesFrame.js:40
+#, fuzzy
 msgid "Standard"
-msgstr ""
+msgstr "Normo"
 
 #: app/preferencesFrame.js:40
+#, fuzzy
 msgid "Large"
-msgstr ""
+msgstr "Granda"
 
 #: app/preferencesFrame.js:41
+#, fuzzy
 msgid "Show the personal folder in the desktop"
-msgstr ""
+msgstr "Montru la personan dosierujon en la labortablo"
 
 #: app/preferencesFrame.js:42
+#, fuzzy
 msgid "Show the trash icon in the desktop"
-msgstr ""
+msgstr "Montru la rubujon en la labortablo"
 
 #: app/preferencesFrame.js:43
+#, fuzzy
 msgid "Show external drives in the desktop"
-msgstr ""
+msgstr "Montru eksterajn diskojn en la labortablo"
 
 #: app/preferencesFrame.js:44
+#, fuzzy
 msgid "Show network drives in the desktop"
-msgstr ""
+msgstr "Montru retajn diskojn en la labortablo"
 
 #: app/preferencesFrame.js:47
+#, fuzzy
 msgid "New icons alignment"
-msgstr ""
+msgstr "Nova vicigo de ikonoj"
 
 #: app/preferencesFrame.js:49
+#, fuzzy
 msgid "Top-left corner"
-msgstr ""
+msgstr "Supra maldekstra angulo"
 
 #: app/preferencesFrame.js:50
+#, fuzzy
 msgid "Top-right corner"
-msgstr ""
+msgstr "Supra dekstra angulo"
 
 #: app/preferencesFrame.js:51
+#, fuzzy
 msgid "Bottom-left corner"
-msgstr ""
+msgstr "Malsupra-maldekstra angulo"
 
 #: app/preferencesFrame.js:52
+#, fuzzy
 msgid "Bottom-right corner"
-msgstr ""
+msgstr "Malsupra dekstra angulo"
 
 #: app/preferencesFrame.js:54
+#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "Aldonu novajn ikonojn al Malĉefaj Monitoroj unue, se disponeblas"
 
 #: app/preferencesFrame.js:55
+#, fuzzy
 msgid "Add new drives to the opposite side of the screen"
-msgstr ""
+msgstr "Aldonu novajn diskojn al la kontraŭa flanko de la ekrano"
 
 #: app/preferencesFrame.js:56
+#, fuzzy
 msgid "Highlight the drop place during Drag'n'Drop"
-msgstr ""
+msgstr "Marku la fallokon dum Drag'n'Drop"
 
 #: app/preferencesFrame.js:57
+#, fuzzy
 msgid "Use Nemo to open folders"
-msgstr ""
+msgstr "Uzu Nemo por malfermi dosierujojn"
 
 #: app/preferencesFrame.js:58
+#, fuzzy
 msgid "Add an emblem to soft links"
-msgstr ""
+msgstr "Aldonu emblemon al molaj ligiloj"
 
 #: app/preferencesFrame.js:59
+#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "Uzu malhelan tekston en ikonaj etikedoj"
 
 #: app/preferencesFrame.js:64
+#, fuzzy
 msgid "Settings shared with Nautilus"
-msgstr ""
+msgstr "Agordoj dividitaj kun Nautilus"
 
 #: app/preferencesFrame.js:79
+#, fuzzy
 msgid "Click type for open files"
-msgstr ""
+msgstr "Alklaku tipo por malfermitaj dosieroj"
 
 #: app/preferencesFrame.js:79
+#, fuzzy
 msgid "Single click"
-msgstr ""
+msgstr "Ununura klako"
 
 #: app/preferencesFrame.js:79
+#, fuzzy
 msgid "Double click"
-msgstr ""
+msgstr "Duobla klako"
 
 #: app/preferencesFrame.js:80
+#, fuzzy
 msgid "Show hidden files"
-msgstr ""
+msgstr "Montru kaŝitajn dosierojn"
 
 #: app/preferencesFrame.js:81
+#, fuzzy
 msgid "Show a context menu item to delete permanently"
-msgstr ""
+msgstr "Montru kuntekstan menueron por ĉiam forigi"
 
 #: app/preferencesFrame.js:86
+#, fuzzy
 msgid "Action to do when launching a program from the desktop"
-msgstr ""
+msgstr "Ago farenda dum lanĉo de programo de la labortablo"
 
 #: app/preferencesFrame.js:87
+#, fuzzy
 msgid "Display the content of the file"
-msgstr ""
+msgstr "Montru la enhavon de la dosiero"
 
 #: app/preferencesFrame.js:88
+#, fuzzy
 msgid "Launch the file"
-msgstr ""
+msgstr "Lanĉu la dosieron"
 
 #: app/preferencesFrame.js:89
+#, fuzzy
 msgid "Ask what to do"
-msgstr ""
+msgstr "Demandu kion fari"
 
 #: app/preferencesFrame.js:95
+#, fuzzy
 msgid "Show image thumbnails"
-msgstr ""
+msgstr "Montru bildetojn"
 
 #: app/preferencesFrame.js:96
+#, fuzzy
 msgid "Never"
-msgstr ""
+msgstr "Neniam"
 
 #: app/preferencesFrame.js:97
+#, fuzzy
 msgid "Local files only"
-msgstr ""
+msgstr "Nur lokaj dosieroj"
 
 #: app/preferencesFrame.js:98
+#, fuzzy
 msgid "Always"
-msgstr ""
+msgstr "Ĉiam"
 
 #: app/showErrorPopup.js:41
+#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "Fermu"
 
 #: app/utils/dbusUtils.js:58
+#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr ""
+msgstr "\"${programName}\" estas necesa por labortablaj piktogramoj"
 
 #: app/utils/dbusUtils.js:59
 msgid ""
@@ -662,5 +834,6 @@ msgid ""
 msgstr ""
 
 #: app/utils/desktopIconsUtil.js:150
+#, fuzzy
 msgid "Command not found"
-msgstr ""
+msgstr "Ordono ne trovita"
