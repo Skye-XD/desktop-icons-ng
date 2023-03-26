@@ -667,12 +667,14 @@ var DesktopManager = class {
 
         let fileList;
 
-        if (acceptFormat === this.Enums.DndTargetInfo.GNOME_ICON_LIST)
+        if (acceptFormat === this.Enums.DndTargetInfo.GNOME_ICON_LIST) {
             fileList = GLib.Uri.list_extract_uris(dropData);
-        else if (acceptFormat === this.Enums.DndTargetInfo.DING_ICON_LIST)
+        } else if (acceptFormat === this.Enums.DndTargetInfo.DING_ICON_LIST) {
             fileList = dropData.get_files().map(f => f.get_uri());
-        else
-            fileList = dropData.slice(1).split(' /').map(f => `file:///${f}`);
+        } else {
+            const spaceSlashParse = /\s\//;
+            fileList = dropData.slice(1).split(spaceSlashParse).map(f => `file:///${f}`);
+        }
 
         if (fileList && fileList.length)
             return fileList;
