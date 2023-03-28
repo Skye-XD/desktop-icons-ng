@@ -566,10 +566,12 @@ var DesktopManager = class {
             let info = new Gio.FileInfo();
             info.set_attribute_string('metadata::nautilus-icon-position', '');
             if (dropCoordinates !== null) {
-                if (!opts.doCopy)
+                if (!opts.doCopy) {
                     info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
-                else
+                } else {
                     this._setPendingDropCoordinates(file, dropCoordinates);
+                    return;
+                }
             }
 
             try {
