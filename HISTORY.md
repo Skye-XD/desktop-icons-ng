@@ -1,5 +1,12 @@
 # History of versions #
 
+* Gtk4 version 32
+  * Weblate Translations updates
+  * Use regex to determine space separated Nautilus drop files to fix Drop Bug on different distributions. (Sundeep Mediratta)
+  * Fix Error where files belonging to different Users, without read access were causing a GJS crash on move to Desktop. (Sundeep Mediratta)
+  * Version Bump to 32, update metadata.json, History
+  * Highest version for Gnome 43, as does not work properly with drag offsets on Gnome 44.
+
 * Gtk4 version 31
   * Link targets are now monitored in the background for broken links. (Sundeep Mediratta)
   * Check Dock Application can actually launch the file dropped on it from the Desktop prior to launching the application. (Sundeep Mediratta)
