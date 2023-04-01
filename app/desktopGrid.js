@@ -507,7 +507,7 @@ var DesktopGrid = class {
             this.receiveLeave();
         });
 
-        this.gridDropController.connect('drop', (actor, drop, x, y) => {
+        this.gridDropController.connect('drop', async (actor, drop, x, y) => {
             const event = {
                 'parentWindow': this._window,
                 'timestamp': Gdk.CURRENT_TIME,
@@ -551,24 +551,68 @@ var DesktopGrid = class {
                     readFormat = String.$gtype;
                 }
             }
-
+            log(acceptFormat);
             let gdkDropAction = drop.get_actions();
-
-            if (desktopMove && !filesMove) {
-                drop.finish(gdkDropAction);
-                return this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event);
+            log(gdkDropAction);
+            if (!Gdk.DragAction.is_unique) {
+                if (gdkDropAction > (Gdk.DragAction.COPY | Gdk.DragAction.MOVE))
+                    gdkDropAction = Gdk.DragAction.ASK;
             }
 
-            drop.read_value_async(readFormat, GLib.PRIORITY_DEFAULT, null, (dropactor, result) => {
-                dropData = dropactor.read_value_finish(result);
-                drop.finish(gdkDropAction);
-                if (!dropData && !acceptFormat) {
-                    this.receiveLeave();
+            let gdkReturnAction = Gdk.DragAction.COPY;
+
+            if (desktopMove && gdkDropAction === Gdk.DragAction.MOVE) {
+                log('starting');
+                gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event);
+                if (gdkReturnAction) {
+                    log('returning drop');
+                    drop.finish(gdkReturnAction);
+                    return true;
+                } else {
                     return false;
                 }
+            }
 
-                return this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event);
-            });
+            log('starting read');
+            log(readFormat);
+            log(acceptFormat);
+            try {
+                drop.read_value_async(readFormat, GLib.PRIORITY_DEFAULT, null, async (dropactor, result) => {
+                    dropData = dropactor.read_value_finish(result);
+                    log(dropData);
+                    if (dropData === '')
+                        dropData = null;
+                    log(dropData);
+                    // drop.finish(gdkDropAction);
+                    if (!dropData && !acceptFormat) {
+                        log('leaving');
+                        this.receiveLeave();
+                        drop.finish(gdkReturnAction);
+                        return false;
+                    }
+
+                    if (textDrop) {
+                        log('textDropped');
+                        gdkReturnAction = Gdk.DragAction.COPY;
+                        this._desktopManager.onTextDrop(dropData, [X, Y]);
+                        drop.finish(gdkReturnAction);
+                        return true;
+                    }
+
+                    gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event);
+                    if (gdkReturnAction) {
+                        log('returning returning drop');
+                        log(gdkReturnAction);
+                        drop.finish(gdkReturnAction);
+                        log('drop finished');
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+            } catch (e) {
+                logError(e);
+            }
         });
 
         widget.add_controller(this.gridDropController);
@@ -594,7 +638,9 @@ var DesktopGrid = class {
         widget.add_controller(this.gridDropControllerMotion);
     }
 
-    _completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event) {
+    async _completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event) {
+        log('in complete drop');
+        let returnAction = Gdk.DragAction.COPY;
         if (fileItemDropZone && (desktopMove || filesMove)) {
             fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
             this.receiveLeave();
@@ -602,14 +648,15 @@ var DesktopGrid = class {
         }
 
         if (desktopDropZone && (desktopMove || filesMove || textDrop)) {
-            this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
+            log('going to recieve drop');
+            returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
             this.receiveLeave();
-            return true;
+            return returnAction;
         }
 
-        // Finally if all above does not work, catchall-
-        this.receiveLeave();
-        return false;
+        // // Finally if all above does not work, catchall-
+        // this.receiveLeave();
+        // return false;
     }
 
 
@@ -669,6 +716,7 @@ var DesktopGrid = class {
     }
 
     receiveLeave() {
+        this._window.queue_draw();
         this._desktopManager.onDragLeave();
     }
 
@@ -684,11 +732,13 @@ var DesktopGrid = class {
     }
 
     async receiveDrop(x, y, selection, info, gdkDropAction, event, dragItem) {
+        log('in recievedrop');
         x = this._elementWidth * Math.floor(x / this._elementWidth);
         y = this._elementHeight * Math.floor(y / this._elementHeight);
         let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-        await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, event, dragItem).catch(e => logError(e));
-        this._window.queue_draw();
+        let returnAction = await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, event, dragItem).catch(e => logError(e));
+        log(returnAction);
+        return returnAction;
     }
 
     highLightGridAt(x, y) {

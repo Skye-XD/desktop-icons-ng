@@ -760,7 +760,7 @@ var DesktopManager = class {
     }
 
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
-        this.onDragLeave();
+        //this.onDragLeave();
 
         let dropCoordinates;
         let xOrigin;
@@ -778,36 +778,64 @@ var DesktopManager = class {
             }
         }
 
+        let returnAction;
         switch (acceptFormat) {
         case this.Enums.DndTargetInfo.DING_ICON_LIST:
             [xOrigin, yOrigin] = dragItem.getCoordinates().slice(0, 3);
-            this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
-            break;
+            if (gdkDropAction === Gdk.DragAction.MOVE) {
+                this.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
+                returnAction = Gdk.DragAction.MOVE;
+                break;
+            }
         case this.Enums.DndTargetInfo.GNOME_ICON_LIST:
         case this.Enums.DndTargetInfo.URI_LIST:
             if (!fileList)
                 return;
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
                 try {
+                    log('got to clear file')
                     await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], { doCopy: forceCopy });
-                    await this.copyOrMoveUris(fileList,
+                    returnAction = await this.copyOrMoveUris(fileList,
                         this._desktopDir.get_uri(), event, { forceCopy });
                 } catch (e) {
                     logError(e);
                 }
             } else {
+                if (gdkDropAction >= Gdk.DragAction.LINK)
+                    returnAction = Gdk.DragAction.LINK;
+                else
+                    returnAction = Gdk.DragAction.COPY;
                 this.askWhatToDoWithFiles(fileList, this._desktopDir.get_uri(),
                     xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, event);
             }
             break;
         case this.Enums.DndTargetInfo.TEXT_PLAIN:
+            returnAction = Gdk.DragAction.COPY
             dropCoordinates = [xGlobalDestination, yGlobalDestination];
             this.detectURLorText(dropData, dropCoordinates);
             break;
         }
+        log('returning from manager');
+        log(returnAction)
+        return returnAction;
     }
 
-    askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = { desktopactions: true }) {
+    onTextDrop(dropData, [xGlobalDestination, yGlobalDestination]) {
+        log('in text drop')
+        log(dropData)
+        log(xGlobalDestination)
+        for (let desktop of this._desktops) {
+            let grid = desktop.getGridAt(xGlobalDestination, yGlobalDestination, true);
+            if (grid !== null) {
+                xGlobalDestination = grid[0] + desktop._elementWidth / 2;
+                yGlobalDestination = grid[1] + desktop._elementHeight / 2;
+                break;
+            }
+        }
+        this.detectURLorText(dropData, [xGlobalDestination, yGlobalDestination])
+    }
+
+    async askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = { desktopactions: true }) {
         this._askWhatToDoWindow = new Gtk.Dialog({
             use_header_bar: false,
             resizable: false,
@@ -815,14 +843,9 @@ var DesktopManager = class {
         let headerbar = Gtk.HeaderBar.new();
         headerbar.set_show_title_buttons(false);
         this._askWhatToDoWindow.set_titlebar(headerbar);
-        const Action = {
-            MOVE: 1,
-            COPY: 2,
-            LINK: 3,
-        };
-        this._askWhatToDoWindow.add_button(_('Move'), Action.MOVE);
-        this._askWhatToDoWindow.add_button(_('Copy'), Action.COPY);
-        this._askWhatToDoWindow.add_button(_('Link'), Action.LINK);
+        this._askWhatToDoWindow.add_button(_('Move'), Gdk.DragAction.MOVE);
+        this._askWhatToDoWindow.add_button(_('Copy'), Gdk.DragAction.COPY);
+        this._askWhatToDoWindow.add_button(_('Link'), Gdk.DragAction.LINK);
         this._askWhatToDoWindow.add_button(_('Cancel'), Gtk.ResponseType.CLOSE);
         this._askWhatToDoWindow.set_modal(true);
         this._askWhatToDoWindow.set_title(_('Choose Action for Files'));
@@ -834,7 +857,7 @@ var DesktopManager = class {
         });
         this._askWhatToDoWindow.connect('response', async (actor, retval) => {
             switch (retval) {
-            case Action.MOVE:
+            case Gdk.DragAction.MOVE:
                 try {
                     if (opts.desktopactions)
                         await this.clearFileCoordinates(fileList, [X, Y]);
@@ -846,7 +869,7 @@ var DesktopManager = class {
                     logError('Error moving files');
                 }
                 break;
-            case Action.COPY:
+            case Gdk.DragAction.COPY:
                 try {
                     if (opts.desktopactions)
                         await this.clearFileCoordinates(fileList, [X, Y], { dopCopy: true });
@@ -858,7 +881,7 @@ var DesktopManager = class {
                     logError('Error copying files');
                 }
                 break;
-            case Action.LINK:
+            case Gdk.DragAction.LINK:
                 try {
                     if (opts.desktopactions)
                         await this.makeLinks(fileList, destinationuri, X, Y);
@@ -872,6 +895,8 @@ var DesktopManager = class {
             this.textEntryAccelsTurnOn();
             this._askWhatToDoWindow.destroy();
             this._askWhatToDoWindow = null;
+            log(retval);
+            return retval
         });
     }
 
