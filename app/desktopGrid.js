@@ -121,7 +121,6 @@ var DesktopGrid = class {
         this._container.add_controller(this._buttonClick);
         this._buttonClick.connect('pressed', async (actor, nPress, x, y) => {
             let button = actor.get_current_button();
-            log(button);
             let state;
             // X11 workaround for GJS bug getting state
             if (this._using_X11)
@@ -130,7 +129,6 @@ var DesktopGrid = class {
                 state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
             let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
-            this.isAlt = (state & Gdk.ModifierType.ALT_MASK) !== 0;
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem) {
@@ -144,7 +142,6 @@ var DesktopGrid = class {
         });
 
         this._buttonClick.connect('released', async (actor, nPress, x, y) => {
-            log('released');
             let state;
             // X11 workaround for GJS bug getting state
             if (this._using_X11)
@@ -153,7 +150,6 @@ var DesktopGrid = class {
                 state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
             let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
-            this.isAlt = (state & Gdk.ModifierType.ALT_MASK) !== 0;
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem && !this._desktopManager.rubberBand) {
@@ -559,7 +555,6 @@ var DesktopGrid = class {
             }
 
             let gdkDropAction = drop.get_actions();
-            log(gdkDropAction);
             if (!Gdk.DragAction.is_unique(gdkDropAction)) {
                 if (this._using_X11 && (gdkDropAction >= (Gdk.DragAction.COPY | Gdk.DragAction.MOVE)))
                     gdkDropAction = Gdk.DragAction.MOVE;
@@ -569,7 +564,6 @@ var DesktopGrid = class {
             let gdkReturnAction = Gdk.DragAction.COPY;
 
             if (desktopMove && !filesMove && (gdkDropAction === Gdk.DragAction.MOVE)) {
-                log('localMove');
                 let [xOrigin, yOrigin] = this._desktopManager.dragItem.getCoordinates().slice(0, 3);
                 let [xGlobalDestination, yGlobalDestination] = this._desktopManager._positiveOffsetGridAim(X, Y);
                 this._desktopManager.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
@@ -592,20 +586,15 @@ var DesktopGrid = class {
                     }
 
                     if (textDrop) {
-                        log('textDropped');
                         gdkReturnAction = Gdk.DragAction.COPY;
                         this._desktopManager.onTextDrop(dropData, [X, Y]);
                         drop.finish(gdkReturnAction);
-                        log('returning text drop');
                         return true;
                     }
 
                     gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event).catch(e => logError(e));
                     if (gdkReturnAction) {
-                        log('returning returning drop');
-                        log(gdkReturnAction);
                         drop.finish(gdkReturnAction);
-                        log('drop finished');
                         return true;
                     } else {
                         return false;
@@ -640,7 +629,6 @@ var DesktopGrid = class {
     }
 
     async _completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event) {
-        log('in complete drop');
         let returnAction = Gdk.DragAction.COPY;
         if (fileItemDropZone && (desktopMove || filesMove)) {
             returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem).catch(e => logError(e));
@@ -688,7 +676,7 @@ var DesktopGrid = class {
                 return false;
             }
         });
-        widgetDragController.connect('drag-end', async () => {
+        widgetDragController.connect('drag-end', () => {
             this._desktopManager.onDragEnd();
         });
         widget.add_controller(widgetDragController);
@@ -732,12 +720,10 @@ var DesktopGrid = class {
     }
 
     async receiveDrop(x, y, selection, info, gdkDropAction, event, dragItem) {
-        log('in recievedrop');
         x = this._elementWidth * Math.floor(x / this._elementWidth);
         y = this._elementHeight * Math.floor(y / this._elementHeight);
         let [X, Y] = this.coordinatesLocalToGlobal(x, y);
         let returnAction = await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, event, dragItem).catch(e => logError(e));
-        log(returnAction);
         return returnAction;
     }
 

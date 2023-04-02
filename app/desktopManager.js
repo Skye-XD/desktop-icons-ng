@@ -587,7 +587,6 @@ var DesktopManager = class {
     }
 
     doMoveWithDragAndDrop(xOrigin, yOrigin, xDestination, yDestination) {
-        log('moving')
         let keepArranged = this.Prefs.keepArranged || this.Prefs.keepStacked;
         if (this.Prefs.sortSpecialFolders && keepArranged)
             return;
@@ -770,7 +769,7 @@ var DesktopManager = class {
                 break;
             }
         }
-        return [xGlobalDestination, yGlobalDestination]
+        return [xGlobalDestination, yGlobalDestination];
     }
 
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
@@ -799,7 +798,6 @@ var DesktopManager = class {
                 return;
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
                 try {
-                    log('got to clear file')
                     await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], { doCopy: forceCopy });
                     returnAction = await this.copyOrMoveUris(fileList,
                         this._desktopDir.get_uri(), event, { forceCopy });
@@ -816,24 +814,20 @@ var DesktopManager = class {
             }
             break;
         case this.Enums.DndTargetInfo.TEXT_PLAIN:
-            returnAction = Gdk.DragAction.COPY
+            returnAction = Gdk.DragAction.COPY;
             dropCoordinates = [xGlobalDestination, yGlobalDestination];
             this.detectURLorText(dropData, dropCoordinates);
             break;
         }
-        log('returning from manager');
-        log(returnAction)
         return returnAction;
     }
 
     onTextDrop(dropData, [xGlobalDestination, yGlobalDestination]) {
         [xGlobalDestination, yGlobalDestination] = this._positiveOffsetGridAim(xGlobalDestination, yGlobalDestination);
-        log(xGlobalDestination);
-        log(dropData)
         this.detectURLorText(dropData, [xGlobalDestination, yGlobalDestination]);
     }
 
-    async askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = { desktopactions: true }) {
+    askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = { desktopactions: true }) {
         this._askWhatToDoWindow = new Gtk.Dialog({
             use_header_bar: false,
             resizable: false,
@@ -893,8 +887,7 @@ var DesktopManager = class {
             this.textEntryAccelsTurnOn();
             this._askWhatToDoWindow.destroy();
             this._askWhatToDoWindow = null;
-            log(retval);
-            return retval
+            return retval;
         });
     }
 
