@@ -635,6 +635,7 @@ var DesktopManager = class {
     }
 
     onDragBegin(item) {
+        this.saveCurrentFileCoordinatesForUndo();
         this.dragItem = item;
     }
 
@@ -810,9 +811,7 @@ var DesktopManager = class {
                 return;
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
                 try {
-                    if (localDrop)
-                        this.saveCurrentFileCoordinatesForUndo();
-                    else
+                    if (!localDrop)
                         await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], { doCopy: forceCopy });
                     returnAction = await this.copyOrMoveUris(fileList,
                         this._desktopDir.get_uri(), event, { forceCopy });
@@ -2435,20 +2434,25 @@ var DesktopManager = class {
         this._manageCutCopy('doCut');
     }
 
-    doTrash() {
+    doTrash(localDrag = false, event = null) {
         const selectionItems = this._fileList.filter(i => i.isSelected && !i.isSpecial);
 
         if (!selectionItems.length)
             return;
 
         const selectionURIs = [];
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
+        if (!localDrag) {
+            this._pendingDropFiles = {};
+            this._pendingSelfCopyFiles = {};
+        }
 
         selectionItems.forEach(f => {
             selectionURIs.push(f.file.get_uri());
-            this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
+            if (!localDrag)
+                this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
         });
+        if (event)
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
         this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
     }
 

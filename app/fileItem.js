@@ -456,7 +456,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
         if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
             if (localDrop) {
-                this._desktopManager.doTrash();
+                this._desktopManager.doTrash(localDrop, event);
             } else {
                 this.DBusUtils.RemoteFileOperations.pushEvent(event);
                 this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
