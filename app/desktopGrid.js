@@ -487,14 +487,10 @@ var DesktopGrid = class {
                     return false;
 
                 if (fileItem._fileExtra !== this.Enums.FileType.EXTERNAL_DRIVE) {
-                    drop.status(Gdk.DragAction.COPY | Gdk.DragAction.MOVE | Gdk.DragAction.LINK,
-                        Gdk.DragAction.MOVE);
                     return Gdk.DragAction.MOVE;
                 }
 
                 if (fileItem._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE) {
-                    drop.status(Gdk.DragAction.COPY | Gdk.DragAction.MOVE | Gdk.DragAction.LINK,
-                        Gdk.DragAction.COPY);
                     return Gdk.DragAction.COPY;
                 }
             }
@@ -508,8 +504,6 @@ var DesktopGrid = class {
                             return false;
                     }
                 }
-                drop.status(Gdk.DragAction.COPY | Gdk.DragAction.MOVE | Gdk.DragAction.LINK,
-                    Gdk.DragAction.MOVE);
                 return Gdk.DragAction.MOVE;
             }
         });
