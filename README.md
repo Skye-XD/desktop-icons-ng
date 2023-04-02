@@ -14,7 +14,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 **NEW FEATURES**
 
-- [x] Can Make Links on the Desktop on Drag and Drop from Nautilus. Pressing the Alt button on drag modifies the drop to ask the user to Copy, Move or Make Links at the destination.
+- [x] Can Make Links on the Desktop on Drag and Drop from Nautilus. Pressing the Alt button on drag modifies the drop to ask the user to Copy, Move or Make Links at the destination. This unfortunately does not work in X11 as pressing the button does not modify the drop Gdk.DragAction. Shift forces a move, Control forces Copy in both Wayland and X11.
 
 - [x] Links are checked just before launching them, in case they got broken in the background with no recent desktop refresh. If they are broken the icon is updated to the broken link icon, and the error dialog is popped up correctly. The reverse is also true, if a broken link resolves correctly as the target re-appeared, the link is opened and the icon updated to the correct icon.
 
@@ -152,6 +152,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Minimized use of Gtk.StyleContext as it is being depriciated, no only used to detect and set rubberband color.
 
+- [x] Fix Drag and Drop with X11 yet again. Alt key modifier does not work in X11.
+
 **KNOWN ISSUES**
 
 - [ ] On X11, in latest Ubuntu and Fedora, Gtk.GestureClick.get_current_event_state() button click returns wrong state, crashing the Program. Works perfectly on Wayland on all distributions tried, worked on older version of Manjaro on X, but the newer releases of Manjaro and ArchLinux also have this bug. This appears to be doe to an error in GJS, reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/507). Reported upstream [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse and [here](https://bugs.launchpad.net/ubuntu/+source/gjs/+bug/1975544) on Ubuntu Launchpad. I have deviced a workaround to make this work under X11 for now till the bug is fixed upstream. Please feel free to fix and propose MR's to make this work properly. This is the first time this code has run on X11 in the last 8 months while many features were added to the main branch! Therefore be advised, X11 branch may have bugs. Specefically Gtk.Double Click time may be a problem as I had to do some hardcoding to make double clicks work.
@@ -167,6 +169,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 - [ ] Nesting submenus do not work, crash GJS, currently use sliding submenus with Gio.Menu. Bug reported [here](https://discourse.gnome.org/t/gtk4-gtk-popovermenu-new-from-model-full-fails-in-gjs/9603) in Gnome Discourse, and [fix](https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4668) was committed upstream. Wait till widely available in distributions prior to using option for nesting submenus, currently use sliding submenus.
 
 - [x] ~~Gtk.DropTargetAsync(), in X11, does not set Gtk.StateFlags.NORMAL on the widget once the drag is finished. Current workaround is to set it manually with Widget.set_state_flags(Gtk.StateFlags.NORMAL, true) explicitly on drag end. It works perfectly on Wayland without a workaround.~~ This is no longer relevent or necessary, use CSS to unhighlight droptarget.
+
+- [ ] Reading a text drop on the desktop stopped working as dropactor.read_value_finish(result) does not seem to return the text dropped from Gnome 43 onwards :-(. Also see above- cannot read mime type directly from Gtk.DropTargetAsync.
 
 If this extension does not work for you, just deactivate it in extensions manager, and you can use the classic DING Gtk3 extension.
 
