@@ -121,6 +121,7 @@ var DesktopGrid = class {
         this._container.add_controller(this._buttonClick);
         this._buttonClick.connect('pressed', async (actor, nPress, x, y) => {
             let button = actor.get_current_button();
+            log(button);
             let state;
             // X11 workaround for GJS bug getting state
             if (this._using_X11)
@@ -129,6 +130,7 @@ var DesktopGrid = class {
                 state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
             let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+            this.isAlt = (state & Gdk.ModifierType.ALT_MASK) !== 0;
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem) {
@@ -142,6 +144,7 @@ var DesktopGrid = class {
         });
 
         this._buttonClick.connect('released', async (actor, nPress, x, y) => {
+            log('released');
             let state;
             // X11 workaround for GJS bug getting state
             if (this._using_X11)
@@ -150,6 +153,7 @@ var DesktopGrid = class {
                 state = this._buttonClick.get_current_event_state();
             let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
             let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+            this.isAlt = (state & Gdk.ModifierType.ALT_MASK) !== 0;
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem && !this._desktopManager.rubberBand) {
@@ -447,8 +451,10 @@ var DesktopGrid = class {
                 return true;
         });
 
-        this.gridDropController.connect('drag-enter', () => {
+        this.gridDropController.connect('drag-enter', (actor, drop) => {
             this.localDrag = true;
+            drop.status(Gdk.DragAction.COPY | Gdk.DragAction.MOVE | Gdk.DragAction.LINK,
+                Gdk.DragAction.MOVE);
             return Gdk.DragAction.MOVE;
         });
 
@@ -480,11 +486,17 @@ var DesktopGrid = class {
                 if (!filesMove)
                     return false;
 
-                if (fileItem._fileExtra !== this.Enums.FileType.EXTERNAL_DRIVE)
+                if (fileItem._fileExtra !== this.Enums.FileType.EXTERNAL_DRIVE) {
+                    drop.status(Gdk.DragAction.COPY | Gdk.DragAction.MOVE | Gdk.DragAction.LINK,
+                        Gdk.DragAction.MOVE);
                     return Gdk.DragAction.MOVE;
+                }
 
-                if (fileItem._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE)
+                if (fileItem._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE) {
+                    drop.status(Gdk.DragAction.COPY | Gdk.DragAction.MOVE | Gdk.DragAction.LINK,
+                        Gdk.DragAction.COPY);
                     return Gdk.DragAction.COPY;
+                }
             }
 
             if (desktopDropZone) {
@@ -496,6 +508,8 @@ var DesktopGrid = class {
                             return false;
                     }
                 }
+                drop.status(Gdk.DragAction.COPY | Gdk.DragAction.MOVE | Gdk.DragAction.LINK,
+                    Gdk.DragAction.MOVE);
                 return Gdk.DragAction.MOVE;
             }
         });
@@ -551,16 +565,21 @@ var DesktopGrid = class {
             }
 
             let gdkDropAction = drop.get_actions();
-            if (!Gdk.DragAction.is_unique) {
-                if (gdkDropAction > (Gdk.DragAction.COPY | Gdk.DragAction.MOVE))
+            log(gdkDropAction);
+            if (!Gdk.DragAction.is_unique(gdkDropAction)) {
+                if (this._using_X11 && (gdkDropAction >= (Gdk.DragAction.COPY | Gdk.DragAction.MOVE)))
+                    gdkDropAction = Gdk.DragAction.MOVE;
+                else if (gdkDropAction > (Gdk.DragAction.COPY | Gdk.DragAction.MOVE))
                     gdkDropAction = Gdk.DragAction.ASK;
             }
             let gdkReturnAction = Gdk.DragAction.COPY;
 
-            if (desktopMove && !filesMove && gdkDropAction === Gdk.DragAction.MOVE) {
+            if (desktopMove && !filesMove && (gdkDropAction === Gdk.DragAction.MOVE)) {
+                log('localMove');
                 let [xOrigin, yOrigin] = this._desktopManager.dragItem.getCoordinates().slice(0, 3);
                 let [xGlobalDestination, yGlobalDestination] = this._desktopManager._positiveOffsetGridAim(X, Y);
                 this._desktopManager.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
+                this.receiveLeave();
                 drop.finish(gdkDropAction);
                 return true;
             }
@@ -568,8 +587,8 @@ var DesktopGrid = class {
             try {
                 drop.read_value_async(readFormat, GLib.PRIORITY_DEFAULT, null, async (dropactor, result) => {
                     dropData = dropactor.read_value_finish(result);
-   
-                    if (dropData == '')
+
+                    if (dropData === '')
                         dropData = null;
 
                     if (!dropData && !acceptFormat) {
@@ -583,7 +602,7 @@ var DesktopGrid = class {
                         gdkReturnAction = Gdk.DragAction.COPY;
                         this._desktopManager.onTextDrop(dropData, [X, Y]);
                         drop.finish(gdkReturnAction);
-                        log('returning text drop')
+                        log('returning text drop');
                         return true;
                     }
 
@@ -630,9 +649,9 @@ var DesktopGrid = class {
         log('in complete drop');
         let returnAction = Gdk.DragAction.COPY;
         if (fileItemDropZone && (desktopMove || filesMove)) {
-            log('infileitem drop')
+            log('infileitem drop');
             returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
-            log(returnAction)
+            log(returnAction);
             this.receiveLeave();
             return returnAction;
         }
@@ -671,7 +690,7 @@ var DesktopGrid = class {
             this._desktopManager.onDragBegin(clickItem);
         });
         widgetDragController.connect('drag-cancel', async (actor, drag, reason) => {
-            if (reason == Gdk.DragCancelReason.NO_TARGET || reason == Gdk.DragCancelReason.ERROR) {
+            if (reason === Gdk.DragCancelReason.NO_TARGET || reason === Gdk.DragCancelReason.ERROR) {
                 let gnomedropDetected = await this._desktopManager.detectShellDrop(this).catch(e => logError(e));
                 return gnomedropDetected;
             } else {
