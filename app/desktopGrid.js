@@ -600,7 +600,7 @@ var DesktopGrid = class {
                         return true;
                     }
 
-                    gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event);
+                    gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event).catch(e => logError(e));
                     if (gdkReturnAction) {
                         log('returning returning drop');
                         log(gdkReturnAction);
@@ -643,16 +643,13 @@ var DesktopGrid = class {
         log('in complete drop');
         let returnAction = Gdk.DragAction.COPY;
         if (fileItemDropZone && (desktopMove || filesMove)) {
-            log('infileitem drop');
-            returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
-            log(returnAction);
+            returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem).catch(e => logError(e));
             this.receiveLeave();
             return returnAction;
         }
 
         if (desktopDropZone && (desktopMove || filesMove)) {
-            log('going to recieve drop');
-            returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
+            returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem).catch(e => logError(e));
             this.receiveLeave();
             return returnAction;
         }
