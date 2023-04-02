@@ -587,6 +587,7 @@ var DesktopManager = class {
     }
 
     doMoveWithDragAndDrop(xOrigin, yOrigin, xDestination, yDestination) {
+        log('moving')
         let keepArranged = this.Prefs.keepArranged || this.Prefs.keepStacked;
         if (this.Prefs.sortSpecialFolders && keepArranged)
             return;
@@ -759,15 +760,7 @@ var DesktopManager = class {
         return localDrag;
     }
 
-    async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
-        //this.onDragLeave();
-
-        let dropCoordinates;
-        let xOrigin;
-        let yOrigin;
-        const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
-        const fileList = this.makeFileListFromSelection(dropData, acceptFormat);
-
+    _positiveOffsetGridAim(xGlobalDestination, yGlobalDestination) {
         // Find the grid where the destination lies and aim towards the positive side, middle of grid to ensure drop in the grid
         for (let desktop of this._desktops) {
             let grid = desktop.getGridAt(xGlobalDestination, yGlobalDestination, true);
@@ -777,6 +770,19 @@ var DesktopManager = class {
                 break;
             }
         }
+        return [xGlobalDestination, yGlobalDestination]
+    }
+
+    async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
+        this.onDragLeave();
+
+        let dropCoordinates;
+        let xOrigin;
+        let yOrigin;
+        const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
+        const fileList = this.makeFileListFromSelection(dropData, acceptFormat);
+
+        [xGlobalDestination, yGlobalDestination] = this._positiveOffsetGridAim(xGlobalDestination, yGlobalDestination);
 
         let returnAction;
         switch (acceptFormat) {
@@ -821,18 +827,10 @@ var DesktopManager = class {
     }
 
     onTextDrop(dropData, [xGlobalDestination, yGlobalDestination]) {
-        log('in text drop')
+        [xGlobalDestination, yGlobalDestination] = this._positiveOffsetGridAim(xGlobalDestination, yGlobalDestination);
+        log(xGlobalDestination);
         log(dropData)
-        log(xGlobalDestination)
-        for (let desktop of this._desktops) {
-            let grid = desktop.getGridAt(xGlobalDestination, yGlobalDestination, true);
-            if (grid !== null) {
-                xGlobalDestination = grid[0] + desktop._elementWidth / 2;
-                yGlobalDestination = grid[1] + desktop._elementHeight / 2;
-                break;
-            }
-        }
-        this.detectURLorText(dropData, [xGlobalDestination, yGlobalDestination])
+        this.detectURLorText(dropData, [xGlobalDestination, yGlobalDestination]);
     }
 
     async askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = { desktopactions: true }) {
@@ -1001,7 +999,7 @@ var DesktopManager = class {
         return moveFiles.length ? Gdk.DragAction.MOVE : Gdk.DragAction.COPY;
     }
 
-    async detectURLorText(fileList, dropCoordinates) {
+    async detectURLorText(dropData, dropCoordinates) {
         /**
          * Checks to see if a string is a URL
          *
@@ -1017,7 +1015,9 @@ var DesktopManager = class {
             '(\\#[-a-z\\d_]*)?$', 'i');
             return !!pattern.test(str);
         }
-        let text = fileList.toString();
+        let text = dropData.toString();
+        if (text === '')
+            return;
         if (isValidURL(text)) {
             await this.writeURLlinktoDesktop(text, dropCoordinates);
         } else {

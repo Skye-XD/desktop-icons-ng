@@ -161,10 +161,8 @@ var DesktopGrid = class {
             }
             this._desktopManager.onReleaseButton(this);
         });
-
         this.setDropDestination(this._container);
         this.setDragSource(this._container);
-
         this.updateGridRectangle();
     }
 
@@ -507,7 +505,7 @@ var DesktopGrid = class {
             this.receiveLeave();
         });
 
-        this.gridDropController.connect('drop', async (actor, drop, x, y) => {
+        this.gridDropController.connect('drop', (actor, drop, x, y) => {
             const event = {
                 'parentWindow': this._window,
                 'timestamp': Gdk.CURRENT_TIME,
@@ -551,41 +549,30 @@ var DesktopGrid = class {
                     readFormat = String.$gtype;
                 }
             }
-            log(acceptFormat);
+
             let gdkDropAction = drop.get_actions();
-            log(gdkDropAction);
             if (!Gdk.DragAction.is_unique) {
                 if (gdkDropAction > (Gdk.DragAction.COPY | Gdk.DragAction.MOVE))
                     gdkDropAction = Gdk.DragAction.ASK;
             }
-
             let gdkReturnAction = Gdk.DragAction.COPY;
 
-            if (desktopMove && gdkDropAction === Gdk.DragAction.MOVE) {
-                log('starting');
-                gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event);
-                if (gdkReturnAction) {
-                    log('returning drop');
-                    drop.finish(gdkReturnAction);
-                    return true;
-                } else {
-                    return false;
-                }
+            if (desktopMove && !filesMove && gdkDropAction === Gdk.DragAction.MOVE) {
+                let [xOrigin, yOrigin] = this._desktopManager.dragItem.getCoordinates().slice(0, 3);
+                let [xGlobalDestination, yGlobalDestination] = this._desktopManager._positiveOffsetGridAim(X, Y);
+                this._desktopManager.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
+                drop.finish(gdkDropAction);
+                return true;
             }
 
-            log('starting read');
-            log(readFormat);
-            log(acceptFormat);
             try {
                 drop.read_value_async(readFormat, GLib.PRIORITY_DEFAULT, null, async (dropactor, result) => {
                     dropData = dropactor.read_value_finish(result);
-                    log(dropData);
-                    if (dropData === '')
+   
+                    if (dropData == '')
                         dropData = null;
-                    log(dropData);
-                    // drop.finish(gdkDropAction);
+
                     if (!dropData && !acceptFormat) {
-                        log('leaving');
                         this.receiveLeave();
                         drop.finish(gdkReturnAction);
                         return false;
@@ -596,6 +583,7 @@ var DesktopGrid = class {
                         gdkReturnAction = Gdk.DragAction.COPY;
                         this._desktopManager.onTextDrop(dropData, [X, Y]);
                         drop.finish(gdkReturnAction);
+                        log('returning text drop')
                         return true;
                     }
 
@@ -642,21 +630,23 @@ var DesktopGrid = class {
         log('in complete drop');
         let returnAction = Gdk.DragAction.COPY;
         if (fileItemDropZone && (desktopMove || filesMove)) {
-            fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
+            log('infileitem drop')
+            returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
+            log(returnAction)
             this.receiveLeave();
-            return true;
+            return returnAction;
         }
 
-        if (desktopDropZone && (desktopMove || filesMove || textDrop)) {
+        if (desktopDropZone && (desktopMove || filesMove)) {
             log('going to recieve drop');
             returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem);
             this.receiveLeave();
             return returnAction;
         }
 
-        // // Finally if all above does not work, catchall-
-        // this.receiveLeave();
-        // return false;
+        // Finally if all above does not work, catchall-
+        this.receiveLeave();
+        return false;
     }
 
 
