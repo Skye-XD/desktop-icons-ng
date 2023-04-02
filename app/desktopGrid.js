@@ -630,15 +630,15 @@ var DesktopGrid = class {
 
     async _completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event) {
         let returnAction = Gdk.DragAction.COPY;
+        let localDrop = drop.get_drag() ? true : false;
         if (fileItemDropZone && (desktopMove || filesMove)) {
-            let localDrop = drop.get_drag() ? true : false;
             returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => logError(e));
             this.receiveLeave();
             return returnAction;
         }
 
         if (desktopDropZone && (desktopMove || filesMove)) {
-            returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, event, this._desktopManager.dragItem).catch(e => logError(e));
+            returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => logError(e));
             this.receiveLeave();
             return returnAction;
         }
@@ -720,11 +720,11 @@ var DesktopGrid = class {
         this._desktopManager.onDragMotion(X, Y);
     }
 
-    async receiveDrop(x, y, selection, info, gdkDropAction, event, dragItem) {
+    async receiveDrop(x, y, selection, info, gdkDropAction, localDrop, event, dragItem) {
         x = this._elementWidth * Math.floor(x / this._elementWidth);
         y = this._elementHeight * Math.floor(y / this._elementHeight);
         let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-        let returnAction = await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, event, dragItem).catch(e => logError(e));
+        let returnAction = await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, localDrop, event, dragItem).catch(e => logError(e));
         return returnAction;
     }
 
