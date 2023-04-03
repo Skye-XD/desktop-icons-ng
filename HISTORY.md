@@ -1,4 +1,7 @@
 # History of versions #
+* Gtk4 version 33
+  * Fix Drag and Drop with X11 leaving spurious floating drop icons. (Sundeep Mediratta)
+  * Fix issue where sometimes dragItem would be set to null before the drag was actually completed. (Sundeep Mediratta)
 
 * Gtk4 version 32
   * Weblate Translations updates

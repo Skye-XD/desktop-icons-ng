@@ -426,53 +426,62 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
     async receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, dragItem) {
         if (!this.dropCapable)
-            return;
+            return false;
 
 
         if (acceptFormat !== this.Enums.DndTargetInfo.DING_ICON_LIST &&
             acceptFormat !== this.Enums.DndTargetInfo.GNOME_ICON_LIST &&
             acceptFormat !== this.Enums.DndTargetInfo.URI_LIST)
-            return;
+            return false;
 
         const fileList = this._desktopManager.makeFileListFromSelection(dropData, acceptFormat);
         if (!fileList)
-            return;
+            return false;
 
 
         if (dragItem && (dragItem.uri === this._file.get_uri() ||
             !(this._isValidDesktopFile || this.isDirectory))) {
             // Dragging a file/folder over itself or over another file will do nothing,
             // allow drag to directory or valid desktop file
-            return;
+            return false;
         }
 
         if (this._isValidDesktopFile) {
             // open the desktop file with these dropped files as the arguments
             this.doOpen(fileList);
-            return;
-        }
-
-        if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
-            this.DBusUtils.RemoteFileOperations.pushEvent(event);
-            this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
-            return;
+            return Gdk.DragAction.COPY;
         }
 
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
 
+        if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
+            this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
+            if (forceCopy)
+                return Gdk.DragAction.COPY;
+            else
+                return Gdk.DragAction.MOVE;
+        }
+
+        let returnAction;
+
         if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
             try {
-                await this._desktopManager.copyOrMoveUris(fileList,
+                returnAction = await this._desktopManager.copyOrMoveUris(fileList,
                     this._file.get_uri(), event, { forceCopy });
             } catch (e) {
                 logError(e);
             }
         } else {
+            if (gdkDropAction >= Gdk.DragAction.LINK)
+                returnAction = Gdk.DragAction.LINK;
+            else
+                returnAction = Gdk.DragAction.COPY;
             this._desktopManager.askWhatToDoWithFiles(fileList, this._file.get_uri(),
                 X, Y, x, y, event, { desktopActions: false });
         }
 
-        return true;
+        return returnAction;
     }
 
     _hasToRouteDragToGrid() {
