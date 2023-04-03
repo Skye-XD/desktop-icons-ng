@@ -152,7 +152,11 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Minimized use of Gtk.StyleContext as it is being depriciated, no only used to detect and set rubberband color.
 
-- [x] Fix Drag and Drop with X11 yet again. Alt key modifier does not work in X11.
+- [x] Fix Drag and Drop with X11 yet again. There were spurious icons on drag in X11, and dragItem would be set to null before the drag was completed. Alt key modifier unfortunately now does not work in X11.
+
+- [x] When a  file is dragged to trash or to another folder on the desktop or a window in Gnome Files, right click undo action now restores the file to it's previous position.
+
+- [x] Drag icon offset on Wayland now works correctly.
 
 **KNOWN ISSUES**
 
@@ -160,7 +164,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] ~~Gdk.Display.get_default().get_app_launch_context() when used in launch() to launch a desktop file crashes GJS. Likely problem in GJS. Current workaround is not to use the context, set to null, till fixed upstream.~~ This is now fixed in latest GJS and enabled in the latest release.
 
-- [ ] Dragged Icon sets the wrong offset for the cursor and defaults to 0,0 with Gtk.DragSource.set_icon in Wayland. This works perfectly in X11 and the correct offset is set. Again problem in Gtk4 on Wayland, But reported and issue in Gtk4 [here](https://gitlab.gnome.org/GNOME/gtk/-/issues/2341), however drag and drop otherwise works perfectly till fixed upstream.
+- [x] Dragged Icon sets the wrong offset for the cursor and defaults to 0,0 with Gtk.DragSource.set_icon in Wayland. This works perfectly in X11 and the correct offset is set. Again problem in Gtk4 on Wayland, But reported and issue in Gtk4 [here](https://gitlab.gnome.org/GNOME/gtk/-/issues/2341), however drag and drop otherwise works perfectly till fixed upstream.
 
 - [ ] Gtk.DropTargetAsync - doing a read_async() followed by read_finish() on the drop dumps core. So cannot elect to read a particular mime type. Currently have to use read_value_async() followed by read_value_finish(). This restricts us to reading default String.$gtype on drops from Nautilus/Files. Although this works, it is not ideal. The issue is reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/522) in GJS.
 

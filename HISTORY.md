@@ -2,13 +2,16 @@
 * Gtk4 version 33
   * Fix Drag and Drop with X11 leaving spurious floating drop icons. (Sundeep Mediratta)
   * Fix issue where sometimes dragItem would be set to null before the drag was actually completed. (Sundeep Mediratta)
+  * When a file on the desktop is dragged to trash or to another folder on desktop or files, undoing returns it to same position. (Sundeep Mediratta)
+  * Offset to icon on Wayland on dragging icon is now rendered correctly. (Sundeep Mediratta)
+  * Version Bump to 33, update metadata.json and History.md.
 
 * Gtk4 version 32
   * Weblate Translations updates
   * Use regex to determine space separated Nautilus drop files to fix Drop Bug on different distributions. (Sundeep Mediratta)
   * Fix Error where files belonging to different Users, without read access were causing a GJS crash on move to Desktop. (Sundeep Mediratta)
   * Version Bump to 32, update metadata.json, History
-  * Highest version for Gnome 43, as does not work properly with drag offsets on Gnome 44.
+  * Version will be retired, does not work properly with drag offsets on Gnome 43.4 and causes spurious drag icons on X11.
 
 * Gtk4 version 31
   * Link targets are now monitored in the background for broken links. (Sundeep Mediratta)
