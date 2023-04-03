@@ -548,6 +548,18 @@ var DesktopManager = class {
             this._pendingDropFiles[basename] = dropCoordinates;
     }
 
+    saveCurrentFileCoordinatesForUndo() {
+        if (this.Prefs.keepArranged || this.Prefs.keepStacked)
+            return;
+
+        this._pendingDropFiles = {};
+        this._pendingSelfCopyFiles = {};
+
+        this.getCurrentSelection().forEach(f => {
+            this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
+        });
+    }
+
     async clearFileCoordinates(fileList, dropCoordinates, opts = { doCopy: false }) {
         if (this.Prefs.keepArranged || this.Prefs.keepStacked)
             return;
@@ -623,6 +635,7 @@ var DesktopManager = class {
     }
 
     onDragBegin(item) {
+        this.saveCurrentFileCoordinatesForUndo();
         this.dragItem = item;
     }
 
@@ -772,7 +785,7 @@ var DesktopManager = class {
         return [xGlobalDestination, yGlobalDestination];
     }
 
-    async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, event, dragItem) {
+    async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, localDrop, event, dragItem) {
         this.onDragLeave();
 
         let dropCoordinates;
@@ -798,7 +811,8 @@ var DesktopManager = class {
                 return;
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
                 try {
-                    await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], { doCopy: forceCopy });
+                    if (!localDrop)
+                        await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], { doCopy: forceCopy });
                     returnAction = await this.copyOrMoveUris(fileList,
                         this._desktopDir.get_uri(), event, { forceCopy });
                 } catch (e) {
@@ -2420,20 +2434,25 @@ var DesktopManager = class {
         this._manageCutCopy('doCut');
     }
 
-    doTrash() {
+    doTrash(localDrag = false, event = null) {
         const selectionItems = this._fileList.filter(i => i.isSelected && !i.isSpecial);
 
         if (!selectionItems.length)
             return;
 
         const selectionURIs = [];
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
+        if (!localDrag) {
+            this._pendingDropFiles = {};
+            this._pendingSelfCopyFiles = {};
+        }
 
         selectionItems.forEach(f => {
             selectionURIs.push(f.file.get_uri());
-            this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
+            if (!localDrag)
+                this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
         });
+        if (event)
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
         this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
     }
 

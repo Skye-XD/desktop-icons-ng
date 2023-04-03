@@ -424,7 +424,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
      * Drag and Drop *
      ***********************/
 
-    async receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, event, dragItem) {
+    async receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, dragItem) {
         if (!this.dropCapable)
             return false;
 
@@ -455,8 +455,12 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
 
         if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
-            this.DBusUtils.RemoteFileOperations.pushEvent(event);
-            this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
+            if (localDrop) {
+                this._desktopManager.doTrash(localDrop, event);
+            } else {
+                this.DBusUtils.RemoteFileOperations.pushEvent(event);
+                this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
+            }
             if (forceCopy)
                 return Gdk.DragAction.COPY;
             else
@@ -466,6 +470,8 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         let returnAction;
 
         if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
+            if (localDrop)
+                this._desktopManager.saveCurrentFileCoordinatesForUndo(fileList);
             try {
                 returnAction = await this._desktopManager.copyOrMoveUris(fileList,
                     this._file.get_uri(), event, { forceCopy });
