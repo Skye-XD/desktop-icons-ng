@@ -482,13 +482,11 @@ var DesktopGrid = class {
                 if (!filesMove)
                     return false;
 
-                if (fileItem._fileExtra !== this.Enums.FileType.EXTERNAL_DRIVE) {
+                if (fileItem._fileExtra !== this.Enums.FileType.EXTERNAL_DRIVE)
                     return Gdk.DragAction.MOVE;
-                }
 
-                if (fileItem._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE) {
+                if (fileItem._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE)
                     return Gdk.DragAction.COPY;
-                }
             }
 
             if (desktopDropZone) {
@@ -634,7 +632,7 @@ var DesktopGrid = class {
 
     async _completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event) {
         let returnAction = Gdk.DragAction.COPY;
-        let localDrop = drop.get_drag() ? true : false;
+        let localDrop = !!drop.get_drag();
         if (fileItemDropZone && (desktopMove || filesMove)) {
             returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => logError(e));
             return returnAction;
