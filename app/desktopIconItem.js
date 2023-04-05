@@ -439,7 +439,7 @@ var desktopIconItem = class desktopIconItem {
     receiveDrop(x, y, selection, info) {
     }
 
-    dropCapable() {
+    _dropCapable() {
         return false;
     }
 
@@ -653,6 +653,10 @@ var desktopIconItem = class desktopIconItem {
             return;
 
         this._state = state;
+    }
+
+    get dropCapable() {
+        return this._dropCapable();
     }
 
     get isDrive() {

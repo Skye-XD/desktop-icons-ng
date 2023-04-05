@@ -494,7 +494,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return this._isSelected && this._desktopManager.dragItem && (this._desktopManager.dragItem.uri !== this._file.get_uri());
     }
 
-    dropCapable() {
+    _dropCapable() {
         if ((this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) ||
             (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_HOME) ||
             this._isDirectory ||
