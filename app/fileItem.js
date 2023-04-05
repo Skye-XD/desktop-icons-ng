@@ -321,7 +321,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _launchDesktopFile(context, fileList) {
-        if (this.trustedDesktopFile) {
+        if (this.trustedDesktopFile && this._desktopManager.checkAppOpensFileType(this._desktopFile, fileList[0], null)) {
             this._desktopFile.launch_uris_as_manager(fileList, context, GLib.SpawnFlags.SEARCH_PATH, null, null);
             return;
         }
@@ -428,7 +428,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         if (!this.dropCapable)
             return false;
 
-
         if (acceptFormat !== this.Enums.DndTargetInfo.DING_ICON_LIST &&
             acceptFormat !== this.Enums.DndTargetInfo.GNOME_ICON_LIST &&
             acceptFormat !== this.Enums.DndTargetInfo.URI_LIST)
@@ -437,7 +436,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         const fileList = this._desktopManager.makeFileListFromSelection(dropData, acceptFormat);
         if (!fileList)
             return false;
-
 
         if (dragItem && (dragItem.uri === this._file.get_uri() ||
             !(this._isValidDesktopFile || this.isDirectory))) {
@@ -477,6 +475,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                     this._file.get_uri(), event, { forceCopy });
             } catch (e) {
                 logError(e);
+                return false;
             }
         } else {
             if (gdkDropAction >= Gdk.DragAction.LINK)

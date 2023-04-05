@@ -727,25 +727,11 @@ var DesktopManager = class {
                     log('Could not parse desktopFile as a desktop file');
                     return false;
                 }
-                let DropAppName = desktopFile.get_name();
-                let AppsSupportingDrag = Gio.AppInfo.get_all_for_type(this.getCurrentSelection()[0].attributeContentType);
-                AppsSupportingDrag = AppsSupportingDrag.map(f => f.get_name());
-                if (AppsSupportingDrag.includes(DropAppName)) {
+                if (this.checkAppOpensFileType(desktopFile, null, this.getCurrentSelection()[0].attributeContentType)) {
                     const context = Gdk.Display.get_default().get_app_launch_context();
                     context.set_timestamp(Gdk.CURRENT_TIME);
                     desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
                     return true;
-                } else {
-                    let windowError = new ShowErrorPopup.ShowErrorPopup(
-                        _('Could not open File'),
-                        _('${appName} can not open files of this Type!').replace('${appName}', DropAppName),
-                        true,
-                        this.textEntryAccelsTurnOff.bind(this),
-                        this.textEntryAccelsTurnOn.bind(this),
-                        this.DesktopIconsUtil
-                    );
-                    windowError.timeoutClose(3000);
-                    return false;
                 }
             } catch (e) {
                 logError(e, 'Error reading desktop file. Cannot launch application.');
@@ -761,6 +747,37 @@ var DesktopManager = class {
             return true;
         }
         return false;
+    }
+
+    checkAppOpensFileType(gioDesktopAppInfo, fileUri = null, attributeContentType = null) {
+        let Appname = gioDesktopAppInfo.get_name();
+        let gioFileInfo;
+        let AppsSupportingOpen = [];
+        if (fileUri) {
+            gioFileInfo = Gio.File.new_for_uri(fileUri).query_info(this.Enums.DEFAULT_ATTRIBUTES,
+                Gio.FileQueryInfoFlags.NONE,
+                null);
+            AppsSupportingOpen = Gio.AppInfo.get_all_for_type(gioFileInfo.get_content_type());
+        } else if (attributeContentType) {
+            AppsSupportingOpen = Gio.AppInfo.get_all_for_type(attributeContentType);
+        } else {
+            return false;
+        }
+        AppsSupportingOpen = AppsSupportingOpen.map(f => f.get_name());
+        if (AppsSupportingOpen.includes(Appname)) {
+            return true;
+        } else {
+            let windowError = new ShowErrorPopup.ShowErrorPopup(
+                _('Could not open File'),
+                _('${appName} can not open files of this Type!').replace('${appName}', Appname),
+                true,
+                this.textEntryAccelsTurnOff.bind(this),
+                this.textEntryAccelsTurnOn.bind(this),
+                this.DesktopIconsUtil
+            );
+            windowError.timeoutClose(3000);
+            return false;
+        }
     }
 
     _localDrag() {
