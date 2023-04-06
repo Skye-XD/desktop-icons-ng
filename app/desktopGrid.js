@@ -482,13 +482,11 @@ var DesktopGrid = class {
                 if (!filesMove)
                     return false;
 
-                if (fileItem._fileExtra !== this.Enums.FileType.EXTERNAL_DRIVE) {
+                if (fileItem._fileExtra !== this.Enums.FileType.EXTERNAL_DRIVE)
                     return Gdk.DragAction.MOVE;
-                }
 
-                if (fileItem._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE) {
+                if (fileItem._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE)
                     return Gdk.DragAction.COPY;
-                }
             }
 
             if (desktopDropZone) {
@@ -563,7 +561,7 @@ var DesktopGrid = class {
             }
             let gdkReturnAction = Gdk.DragAction.COPY;
 
-            if (desktopMove && !filesMove && (gdkDropAction === Gdk.DragAction.MOVE)) {
+            if (desktopMove && desktopDropZone && (gdkDropAction === Gdk.DragAction.MOVE)) {
                 let [xOrigin, yOrigin] = this._desktopManager.dragItem.getCoordinates().slice(0, 3);
                 let [xGlobalDestination, yGlobalDestination] = this._desktopManager._positiveOffsetGridAim(X, Y);
                 this._desktopManager.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
@@ -576,32 +574,36 @@ var DesktopGrid = class {
                 drop.read_value_async(readFormat, GLib.PRIORITY_DEFAULT, null, async (dropactor, result) => {
                     dropData = dropactor.read_value_finish(result);
 
-                    if (dropData === '')
-                        dropData = null;
-
-                    if (!dropData && !acceptFormat) {
+                    if (!dropData || !acceptFormat) {
+                        drop.finish(0);
                         this.receiveLeave();
-                        drop.finish(gdkReturnAction);
                         return false;
                     }
 
-                    if (textDrop) {
+                    if (dropData && textDrop) {
                         gdkReturnAction = Gdk.DragAction.COPY;
                         this._desktopManager.onTextDrop(dropData, [X, Y]);
                         drop.finish(gdkReturnAction);
+                        this.receiveLeave();
                         return true;
                     }
 
                     gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event).catch(e => logError(e));
                     if (gdkReturnAction) {
                         drop.finish(gdkReturnAction);
+                        this.receiveLeave();
                         return true;
                     } else {
+                        drop.finish(0);
+                        this.receiveLeave();
                         return false;
                     }
                 });
             } catch (e) {
                 logError(e);
+                drop.finish(0);
+                this.receiveLeave();
+                return false;
             }
         });
 
@@ -630,21 +632,18 @@ var DesktopGrid = class {
 
     async _completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event) {
         let returnAction = Gdk.DragAction.COPY;
-        let localDrop = drop.get_drag() ? true : false;
+        let localDrop = !!drop.get_drag();
         if (fileItemDropZone && (desktopMove || filesMove)) {
             returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => logError(e));
-            this.receiveLeave();
             return returnAction;
         }
 
         if (desktopDropZone && (desktopMove || filesMove)) {
             returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => logError(e));
-            this.receiveLeave();
             return returnAction;
         }
 
         // Finally if all above does not work, catchall-
-        this.receiveLeave();
         return false;
     }
 
