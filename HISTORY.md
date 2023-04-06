@@ -1,4 +1,10 @@
 # History of versions #
+* Gtk4 version 34
+  * Bug fixes to drag and drop. (Sundeep Mediratta)
+  * Fix regression, dropCapable was somehow dropped from the getter function for desktopIconItem/FileItem. (Sundeep Mediratta)
+  * When a file is dropped on a .desktop icon, a check is made to make sure the app can launch the file prior to launching the app. (Sundeep Mediratta)
+  * Version Bump to 34, update metadata.json, Readme.md and History.md
+
 * Gtk4 version 33
   * Fix Drag and Drop with X11 leaving spurious floating drop icons. (Sundeep Mediratta)
   * Fix issue where sometimes dragItem would be set to null before the drag was actually completed. (Sundeep Mediratta)

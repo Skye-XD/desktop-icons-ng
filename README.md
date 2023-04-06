@@ -84,6 +84,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] When files are dropped on the Dock, now a check is done to make sure the application in the Dock can actually open the file prior to launching it. If it is uable to open the files, an error message is shown.
 
+- [x] When files are dropped on a .desktop file on the Desktop, a check is done prior to launching the app to make sure the app can open the dropped file, similar to above and an error shown if it does not open files of this type.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -160,11 +162,13 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 **KNOWN ISSUES**
 
-- [ ] On X11, in latest Ubuntu and Fedora, Gtk.GestureClick.get_current_event_state() button click returns wrong state, crashing the Program. Works perfectly on Wayland on all distributions tried, worked on older version of Manjaro on X, but the newer releases of Manjaro and ArchLinux also have this bug. This appears to be doe to an error in GJS, reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/507). Reported upstream [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse and [here](https://bugs.launchpad.net/ubuntu/+source/gjs/+bug/1975544) on Ubuntu Launchpad. I have deviced a workaround to make this work under X11 for now till the bug is fixed upstream. Please feel free to fix and propose MR's to make this work properly. This is the first time this code has run on X11 in the last 8 months while many features were added to the main branch! Therefore be advised, X11 branch may have bugs. Specefically Gtk.Double Click time may be a problem as I had to do some hardcoding to make double clicks work.
+- [x] On X11, in latest Ubuntu and Fedora, Gtk.GestureClick.get_current_event_state() button click returns wrong state, crashing the Program. Works perfectly on Wayland on all distributions tried, worked on older version of Manjaro on X, but the newer releases of Manjaro and ArchLinux also have this bug. This appears to be doe to an error in GJS, reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/507). Reported upstream [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse and [here](https://bugs.launchpad.net/ubuntu/+source/gjs/+bug/1975544) on Ubuntu Launchpad. I have deviced a workaround to make this work under X11 for now till the bug is fixed upstream. Please feel free to fix and propose MR's to make this work properly. This is the first time this code has run on X11 in the last 8 months while many features were added to the main branch! Therefore be advised, X11 branch may have bugs. Specefically Gtk.Double Click time may be a problem as I had to do some hardcoding to make double clicks work.
+This is now fixed 4/5/2023 with [!829 in GJS](https://gitlab.gnome.org/GNOME/gjs/-/merge_requests/829). Should be able to use regular code with no workarounds with the newer versions of GJS
 
 - [x] ~~Gdk.Display.get_default().get_app_launch_context() when used in launch() to launch a desktop file crashes GJS. Likely problem in GJS. Current workaround is not to use the context, set to null, till fixed upstream.~~ This is now fixed in latest GJS and enabled in the latest release.
 
 - [x] Dragged Icon sets the wrong offset for the cursor and defaults to 0,0 with Gtk.DragSource.set_icon in Wayland. This works perfectly in X11 and the correct offset is set. Again problem in Gtk4 on Wayland, But reported and issue in Gtk4 [here](https://gitlab.gnome.org/GNOME/gtk/-/issues/2341), however drag and drop otherwise works perfectly till fixed upstream.
+Issue is now fixed in Version 33 of the extension on Gnome 44 after upstream fixes.
 
 - [ ] Gtk.DropTargetAsync - doing a read_async() followed by read_finish() on the drop dumps core. So cannot elect to read a particular mime type. Currently have to use read_value_async() followed by read_value_finish(). This restricts us to reading default String.$gtype on drops from Nautilus/Files. Although this works, it is not ideal. The issue is reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/522) in GJS.
 
@@ -174,7 +178,7 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] ~~Gtk.DropTargetAsync(), in X11, does not set Gtk.StateFlags.NORMAL on the widget once the drag is finished. Current workaround is to set it manually with Widget.set_state_flags(Gtk.StateFlags.NORMAL, true) explicitly on drag end. It works perfectly on Wayland without a workaround.~~ This is no longer relevent or necessary, use CSS to unhighlight droptarget.
 
-- [ ] Reading a text drop on the desktop stopped working as dropactor.read_value_finish(result) does not seem to return the text dropped from Gnome 43 onwards :-(. Also see above- cannot read mime type directly from Gtk.DropTargetAsync.
+- [x] ~~Reading a text drop on the desktop stopped working as dropactor.read_value_finish(result) does not seem to return the text dropped from Gnome 43 onwards :-(. Also see above- cannot read mime type directly from Gtk.DropTargetAsync.~~ Works with firefox, Chrome uses a different mechanism...
 
 If this extension does not work for you, just deactivate it in extensions manager, and you can use the classic DING Gtk3 extension.
 
