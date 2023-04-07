@@ -535,16 +535,12 @@ var desktopIconItem = class desktopIconItem {
 
         if (!iconSet) {
             let iconPaintable;
-            if (this._isBrokenSymlink) {
+            if (this._isBrokenSymlink)
                 iconPaintable = this._createEmblemedIcon(null, 'text-x-generic');
-            } else if (this._desktopFile && this._desktopFile.has_key('Icon')) {
-                log('Found Desktop File with Icon');
-                log(this._desktopFile.get_name());
-                log(this._desktopFile.get_string('Icon'));
+            else if (this._desktopFile && this._desktopFile.has_key('Icon'))
                 iconPaintable = this._createEmblemedIcon(null, this._desktopFile.get_string('Icon'));
-            } else {
+            else
                 iconPaintable = this._createEmblemedIcon(this._getDefaultIcon(), null);
-            }
 
             if (cancellable.is_cancelled())
                 return;
@@ -625,17 +621,14 @@ var desktopIconItem = class desktopIconItem {
             if (GLib.path_is_absolute(iconName)) {
                 try {
                     let iconFile = Gio.File.new_for_commandline_arg(iconName);
-                    log('command line icon set')
                     icon = new Gio.FileIcon({ file: iconFile });
                 } catch (e) {
                     icon = Gio.ThemedIcon.new_with_default_fallbacks(iconName);
                 }
             } else {
                 try {
-                    icon = Gio.ThemedIcon.new(iconName);
-                    log('string Icon set')
+                    icon = Gio.Icon.new_for_string(iconName);
                 } catch (e) {
-                    log('Could not set icon from IconString')
                     icon = Gio.ThemedIcon.new_with_default_fallbacks(iconName);
                 }
             }
