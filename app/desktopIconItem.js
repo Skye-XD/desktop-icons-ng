@@ -626,7 +626,11 @@ var desktopIconItem = class desktopIconItem {
                     icon = Gio.ThemedIcon.new_with_default_fallbacks(iconName);
                 }
             } else {
-                icon = Gio.ThemedIcon.new_with_default_fallbacks(iconName);
+                try {
+                    icon = Gio.Icon.new_for_string(iconName);
+                } catch (e) {
+                    icon = Gio.ThemedIcon.new_with_default_fallbacks(iconName);
+                }
             }
         }
         let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
