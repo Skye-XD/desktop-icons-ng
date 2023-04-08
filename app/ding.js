@@ -19,7 +19,7 @@
  */
 
 imports.gi.versions.Gtk = '4.0';
-const { Gtk, Gio, GLib } = imports.gi;
+const { Gtk, Gio, GLib, Adw} = imports.gi;
 
 let desktops = [];
 let lastCommand = null;
@@ -210,7 +210,7 @@ if (asDesktop) {
 }
 
 // Use different AppIDs to allow to test it from a command line while the main desktop is also running from the extension
-const dingApp = new Gtk.Application({
+const dingApp = new Adw.Application({
     application_id: asDesktop ? 'com.desktop.ding' : 'com.desktop.dingtest',
     flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE | Gio.ApplicationFlags.REPLACE,
 });

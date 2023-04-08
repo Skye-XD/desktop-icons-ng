@@ -20,7 +20,7 @@
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
-const { Gtk, Gdk, GLib } = imports.gi;
+const { Gtk, Gdk, GLib, Adw } = imports.gi;
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -45,7 +45,7 @@ var DesktopGrid = class {
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
 
-        this._window = new Gtk.ApplicationWindow({ application: desktopManager.mainApp, 'title': desktopName });
+        this._window = new Adw.ApplicationWindow({ application: desktopManager.mainApp, 'title': desktopName });
         if (this._asDesktop) {
             this._window.set_decorated(false);
             this._window.set_deletable(false);
@@ -85,7 +85,7 @@ var DesktopGrid = class {
         this.sizeContainer(this._container);
         this._overlay = new Gtk.Overlay();
         this._overlay.set_child(this._container);
-        this._window.set_child(this._overlay);
+        this._window.set_content(this._overlay);
         this.gridGlobalRectangle = new Gdk.Rectangle();
 
         this._selectedList = null;
