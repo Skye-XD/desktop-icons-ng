@@ -62,7 +62,12 @@ var DesktopGrid = class {
             }
         } else {
             // Opaque black test window
-            this._window.set_name('testwindow');
+            let headerBar = Adw.HeaderBar.new();
+            let headerTitle = Adw.WindowTitle.new('DING Test Window', '');
+            headerBar.set_title_widget(headerTitle);
+            headerBar.set_show_end_title_buttons(true);
+            this.testbox = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0);
+            this.testbox.append(headerBar);
         }
         this._window.set_resizable(false);
         this._window.connect('close-request', () => {
@@ -85,7 +90,12 @@ var DesktopGrid = class {
         this.sizeContainer(this._container);
         this._overlay = new Gtk.Overlay();
         this._overlay.set_child(this._container);
-        this._window.set_content(this._overlay);
+        if (this._asDesktop) {
+            this._window.set_content(this._overlay);
+        } else {
+            this.testbox.append(this._overlay);
+            this._window.set_content(this.testbox);
+        }
         this.gridGlobalRectangle = new Gdk.Rectangle();
 
         this._selectedList = null;
