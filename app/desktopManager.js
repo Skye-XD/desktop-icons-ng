@@ -224,14 +224,14 @@ var DesktopManager = class {
     }
 
     _configureSelectionColor() {
-        let box = new Gtk.Box();
+        let box = new Gtk.Label();
         this._styleContext = box.get_style_context();
         this._styleContext.add_class('view');
         this._setSelectionColor();
     }
 
     _setSelectionColor() {
-        let [exists, color] = this._styleContext.lookup_color('theme_selected_bg_color');
+        let [exists, color] = this._styleContext.lookup_color('accent_bg_color');
         if (exists) {
             this.selectColor = color;
         } else {
@@ -242,7 +242,7 @@ var DesktopManager = class {
                 alpha: 1.0,
             });
         }
-        [exists, color] = this._styleContext.lookup_color('theme_selected_fg_color');
+        [exists, color] = this._styleContext.lookup_color('accent_fg_color');
         if (exists) {
             this.hoverColor = color;
         } else {
