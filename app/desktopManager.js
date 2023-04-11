@@ -1670,14 +1670,12 @@ var DesktopManager = class {
         if (success && completed)
             return;
 
-        this.preferencesWindow = new Gtk.Window({ resizable: false });
+        this.preferencesWindow = this.Prefs.getAdwPreferencesWindow();
         this.preferencesWindow.connect('close-request', () => {
             this.preferencesWindow = null;
         });
         this.preferencesWindow.set_title(_('Settings'));
         this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
-        let frame = this.Prefs.getPreferencesFrame();
-        this.preferencesWindow.set_child(frame);
         this.preferencesWindow.show();
     }
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="gtk4-ding">
     <enum id="org.gnome.shell.extension.gtk4-ding.ZoomLevel">
-        <value value="3" nick="tiny"/>
-        <value value="0" nick="small"/>
-        <value value="1" nick="standard"/>
-        <value value="2" nick="large"/>
+        <value value="0" nick="tiny"/>
+        <value value="1" nick="small"/>
+        <value value="2" nick="standard"/>
+        <value value="3" nick="large"/>
     </enum>
     <enum id="org.gnome.shell.extension.gtk4-ding.StartCorner">
         <value value="0" nick="top-left"/>

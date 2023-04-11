@@ -19,7 +19,7 @@
 
 imports.gi.versions.Gtk = '4.0';
 
-const { GLib, Gtk, GObject, Gio, Gdk } = imports.gi;
+const { GLib, Gtk, GObject, Gio, Gdk, Adw } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 
 const Gettext = imports.gettext;
@@ -63,11 +63,12 @@ var Preferences = class {
         if (schemaGnomeSettings)
             this.schemaGnomeThemeSettings = new Gio.Settings({ settings_schema: schemaGnomeSettings });
 
-        this._preferencesFrame = new Data.PreferencesFrame.PreferencesFrame(Gtk, GObject, this.desktopSettings, this.nautilusSettings, this.gtkSettings, _);
-
         // Our Settings
         this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
         this._cacheInitialSettings();
+
+        this._adwPreferencesWindow = new Data.AdwPreferencesWindow.AdwPreferencesWindow(Gtk, GObject, this.desktopSettings,
+            this.nautilusSettings, this.gtkSettings, _, Adw, Gio);
     }
 
     _get_schema(schema) {
@@ -111,9 +112,9 @@ var Preferences = class {
         this.darkMode = this.schemaGnomeThemeSettings.get_string('color-scheme') === 'prefer-dark';
     }
 
-    getPreferencesFrame() {
-        this.PrefrencesFrame = this._preferencesFrame.getFrame();
-        return this.PreferencesFrame;
+    getAdwPreferencesWindow() {
+        this.AdwPreferencesWindow = this._adwPreferencesWindow.getAdwPreferencesWindow();
+        return this.AdwPreferencesWindow;
     }
 
     // Updaters
