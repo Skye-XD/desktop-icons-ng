@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"PO-Revision-Date: 2023-04-08 16:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -28,7 +28,7 @@ msgstr "Імя папкі"
 msgid "File name"
 msgstr "Імя файла"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
 #, fuzzy
 msgid "OK"
 msgstr "добра"
@@ -49,7 +49,7 @@ msgid ""
 "gnomeAutoAr"
 msgstr ""
 "Каб мець магчымасць працаваць са сціснутымі файламі, усталюйце file-roller і/"
-"або gir-1.2-gnomeAutoAr"
+"ці gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
@@ -61,8 +61,8 @@ msgstr "Выманне файлаў"
 msgid "Compressing files"
 msgstr "Сцісканне файлаў"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
-#: app/desktopManager.js:1260 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
+#: app/desktopManager.js:1313 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Скасаваць"
 
@@ -202,187 +202,188 @@ msgstr "Файлы GNOME не знойдзены"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Прыкладанне GNOME Files патрабуецца Desktop Icons NG."
 
-#: app/desktopManager.js:723
+#: app/desktopManager.js:771
 #, fuzzy
 msgid "Could not open File"
 msgstr "Немагчыма адкрыць файл"
 
-#: app/desktopManager.js:724
+#: app/desktopManager.js:772
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} не можа адкрываць файлы гэтага тыпу!"
 
-#: app/desktopManager.js:819
+#: app/desktopManager.js:869
 #, fuzzy
 msgid "Move"
 msgstr "Рухайцеся"
 
-#: app/desktopManager.js:820 app/fileItemMenu.js:306
+#: app/desktopManager.js:870 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Капіяваць"
 
-#: app/desktopManager.js:821
+#: app/desktopManager.js:871
 #, fuzzy
 msgid "Link"
 msgstr "Спасылка"
 
-#: app/desktopManager.js:824
+#: app/desktopManager.js:874
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Выберыце «Дзеянне для файлаў»."
 
-#: app/desktopManager.js:893 app/desktopManager.js:925
+#: app/desktopManager.js:944 app/desktopManager.js:976
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Не атрымалася стварыць SymLink"
 
-#: app/desktopManager.js:894 app/desktopManager.js:926
+#: app/desktopManager.js:945 app/desktopManager.js:977
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Не атрымалася стварыць сімвалічную спасылку"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1269
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Ачысціць бягучы выбар перад новым пошукам"
 
-#: app/desktopManager.js:1262
+#: app/desktopManager.js:1315
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Пошук файлаў на працоўным стале"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1570
 #, fuzzy
 msgid "Name"
 msgstr "Імя"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Імя Z-A"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1572
 #, fuzzy
 msgid "Modified Time"
 msgstr "Зменены час"
 
-#: app/desktopManager.js:1520
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Type"
 msgstr "Тып"
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Size"
 msgstr "Памер"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1577
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Захоўвайце парадак…"
 
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1581
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Захоўваць стэк па тыпу…"
 
-#: app/desktopManager.js:1529
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сартаваць Галоўная/Дыскі/Сметніца…"
 
-#: app/desktopManager.js:1534 app/desktopManager.js:2543
+#: app/desktopManager.js:1587 app/desktopManager.js:2601
 msgid "New Folder"
 msgstr "Новая папка"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1591
 msgid "New Document"
 msgstr "Новы дакумент"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1595
 msgid "Paste"
 msgstr "Уставіць"
 
-#: app/desktopManager.js:1543
+#: app/desktopManager.js:1596
 msgid "Undo"
 msgstr "Адрабіць"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1597
 msgid "Redo"
 msgstr "Паўтарыць"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1602
 #, fuzzy
 msgid "Select All"
 msgstr "Абраць усё"
 
-#: app/desktopManager.js:1554
+#: app/desktopManager.js:1607
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Упарадкаваць абразкі"
 
-#: app/desktopManager.js:1558
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Упарадкаваць па…"
+msgstr "Арганізаваць па…"
 
-#: app/desktopManager.js:1563
+#: app/desktopManager.js:1616
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Паказаць працоўны стол у файлах GNOME"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1617
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Адкрыйце ў тэрмінале"
 
-#: app/desktopManager.js:1569
+#: app/desktopManager.js:1622
 msgid "Change Background…"
 msgstr "Змяніць фон..."
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Налады значкоў працоўнага стала"
 
-#: app/desktopManager.js:1575
+#: app/desktopManager.js:1628
 msgid "Display Settings"
 msgstr "Настройкі дісплэя"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Акно налад адкрыта"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Гэта акно адкрыта. Пераключыцеся ў актыўнае акно."
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1683
 msgid "Settings"
 msgstr "Настройкі"
 
-#: app/desktopManager.js:2566
+#: app/desktopManager.js:2624
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Збой стварэння папкі"
 
-#: app/desktopManager.js:2567
+#: app/desktopManager.js:2625
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Немагчыма стварыць папку"
 
-#: app/desktopManager.js:2610
+#: app/desktopManager.js:2668
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Памылка стварэння шаблона"
 
-#: app/desktopManager.js:2611
+#: app/desktopManager.js:2669
 #, fuzzy
 msgid "Could not create document"
 msgstr "Немагчыма стварыць дакумент"
 
+#. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "Хатоўка"
@@ -437,7 +438,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Уключыць опцыю «Дазволіць выкананне файла як праграмы»</b>"
+"<b>Уключыць опцыю \"Дазволіць выкананне файла як праграмы\"</b>"
 
 #: app/fileItem.js:351
 msgid ""
@@ -541,7 +542,6 @@ msgid "Send to Mobile Device"
 msgstr "Адправіць на мабільную прыладу"
 
 #: app/fileItemMenu.js:378
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -637,10 +637,12 @@ msgid "Show the trash icon in the desktop"
 msgstr "Паказваць значок сметніцы на працоўным стале"
 
 #: app/preferencesFrame.js:43
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
 msgstr "Паказваць зменныя носьбіты на працоўным стале"
 
 #: app/preferencesFrame.js:44
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
 msgstr "Паказваць сеткавыя носьбіты на працоўным стале"
 
@@ -667,9 +669,11 @@ msgstr "Ніжні правы вугал"
 #: app/preferencesFrame.js:54
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Спачатку дадайце новыя значкі на дадатковыя маніторы, калі такія маюцца"
+msgstr ""
+"Спачатку дадайце новыя значкі на дадатковыя маніторы, калі такія маюцца"
 
 #: app/preferencesFrame.js:55
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Дадаць новыя носьбіты на супрацьлеглы бок экрану"
 
@@ -678,6 +682,7 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Падсвечваць месца перамяшчэння файла падчас Drag'n'Drop"
 
 #: app/preferencesFrame.js:57
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "Выкарыстоўвайце Nemo для адкрыцця тэчак"
@@ -768,58 +773,150 @@ msgstr ""
 msgid "Command not found"
 msgstr "Каманда не знойдзена"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+msgid "Icon size"
+msgstr "Памер значка"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
+msgid "Set the size for the desktop icons."
+msgstr "Наладзіць памер значкоў працоўнага стала."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+msgid "Show personal folder"
+msgstr "Паказваць асабістую папку"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+msgid "Show the personal folder in the desktop."
+msgstr "Паказваць асабістую папку на працоўным стале."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+msgid "Show trash icon"
+msgstr "Паказваць значок сметніцы"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
+msgid "Show the trash icon in the desktop."
+msgstr "Паказваць значок сметніцы на працоўным стале."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
+msgid "New icons start corner"
+msgstr "Вугал экрана для новых значкоў"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+msgid "Set the corner from where the icons will start to be placed."
+msgstr "Наладзіць вугал з якога будзе пачынацца размяшчэнне значкоў."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
+msgid "Show the disk drives connected to the computer."
+msgstr "Паказваць зменныя носьбіты, падлучаныя да камп'ютара."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
+msgid "Show mounted network volumes in the desktop."
+msgstr "Паказваць прымантаваныя сеткавыя тамы на працоўным стале."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"Пры дадаванні носьбітаў і тамоў на стол, размяшчаць іх на супрацьлеглым баку "
+"экрана."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+msgid "Shows a rectangle in the destination place during DnD"
+msgstr "Паказваць прамавугольнік у месцы перамяшчэння падчас DnD"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"Падчас аперацыі Drag'n'Drop пазначае месца ў сетцы, у якое будзе перамешчаны "
+"элемент, паўпразрыстым прамавугольнікам."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+msgid "Sort Special Folders - Home/Trash Drives."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
+#, fuzzy
+msgid "Keep Icons Arranged"
+msgstr "Захоўвайце парадак…"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+msgid "Always keep Icons Arranged by the last arranged order"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
+#, fuzzy
+msgid "Arrange Order"
+msgstr "Упарадкаваць абразкі"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+msgid "Icons Arranged by this property"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+msgid "Keep Icons Stacked"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+msgid "Always keep Icons Stacked, Similar types are grouped"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+msgid "Type of Files to not Stack"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+msgid "An Array of strings types, Don't Stack these types of files"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
+#, fuzzy
+msgid "Use Nemo instead of Nautilus to open folders."
+msgstr "Выкарыстоўвайце Nemo для адкрыцця тэчак"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#, fuzzy
+msgid "Add an emblem to links"
+msgstr "Дадаць эмблему ў праграмныя спасылкі"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#, fuzzy
+msgid "Add an emblem to allow to identify soft links."
+msgstr "Дадаць эмблему ў праграмныя спасылкі"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+msgid "Use black for label text"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+msgid "Show new icons on non primary monitor if connected"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
 #~ msgstr ""
 #~ "Файлавы менеджар Nautilus з'яўляецца неабходным для працы Desktop Icons "
 #~ "NG."
-
-#~ msgid "Icon size"
-#~ msgstr "Памер значка"
-
-#~ msgid "Set the size for the desktop icons."
-#~ msgstr "Наладзіць памер значкоў працоўнага стала."
-
-#~ msgid "Show personal folder"
-#~ msgstr "Паказваць асабістую папку"
-
-#~ msgid "Show the personal folder in the desktop."
-#~ msgstr "Паказваць асабістую папку на працоўным стале."
-
-#~ msgid "Show trash icon"
-#~ msgstr "Паказваць значок сметніцы"
-
-#~ msgid "Show the trash icon in the desktop."
-#~ msgstr "Паказваць значок сметніцы на працоўным стале."
-
-#~ msgid "New icons start corner"
-#~ msgstr "Вугал экрана для новых значкоў"
-
-#~ msgid "Set the corner from where the icons will start to be placed."
-#~ msgstr "Наладзіць вугал з якога будзе пачынацца размяшчэнне значкоў."
-
-#~ msgid "Show the disk drives connected to the computer."
-#~ msgstr "Паказваць зменныя носьбіты, падлучаныя да камп'ютара."
-
-#~ msgid "Show mounted network volumes in the desktop."
-#~ msgstr "Паказваць прымантаваныя сеткавыя тамы на працоўным стале."
-
-#~ msgid ""
-#~ "When adding drives and volumes to the desktop, add them to the opposite "
-#~ "side of the screen."
-#~ msgstr ""
-#~ "Пры дадаванні носьбітаў і тамоў на стол, размяшчаць іх на супрацьлеглым "
-#~ "баку экрана."
-
-#~ msgid "Shows a rectangle in the destination place during DnD"
-#~ msgstr "Паказваць прамавугольнік у месцы перамяшчэння падчас DnD"
-
-#~ msgid ""
-#~ "When doing a Drag'n'Drop operation, marks the place in the grid where the "
-#~ "icon will be put with a semitransparent rectangle."
-#~ msgstr ""
-#~ "Падчас аперацыі Drag'n'Drop пазначае месца ў сетцы, у якое будзе "
-#~ "перамешчаны элемент, паўпразрыстым прамавугольнікам."
 
 #~ msgid ""
 #~ "To configure Desktop Icons NG, do right-click in the desktop and choose "

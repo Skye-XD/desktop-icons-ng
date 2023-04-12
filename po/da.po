@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"PO-Revision-Date: 2023-04-08 16:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: app/askRenamePopup.js:49
 #, fuzzy
@@ -29,7 +29,7 @@ msgstr "Mappenavn"
 msgid "File name"
 msgstr "Filnavn"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
 msgid "OK"
 msgstr "OK"
 
@@ -59,8 +59,8 @@ msgstr "Udpakning af filer"
 msgid "Compressing files"
 msgstr "Komprimering af filer"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
-#: app/desktopManager.js:1260 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
+#: app/desktopManager.js:1313 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Annullér"
 
@@ -199,187 +199,188 @@ msgstr "GNOME-filer blev ikke fundet"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Programmet GNOME Files er påkrævet af Desktop Icons NG."
 
-#: app/desktopManager.js:723
+#: app/desktopManager.js:771
 #, fuzzy
 msgid "Could not open File"
 msgstr "Filen kunne ikke åbnes"
 
-#: app/desktopManager.js:724
+#: app/desktopManager.js:772
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} kan ikke åbne filer af denne type!"
 
-#: app/desktopManager.js:819
+#: app/desktopManager.js:869
 #, fuzzy
 msgid "Move"
 msgstr "Bevæge sig"
 
-#: app/desktopManager.js:820 app/fileItemMenu.js:306
+#: app/desktopManager.js:870 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Kopiér"
 
-#: app/desktopManager.js:821
+#: app/desktopManager.js:871
 #, fuzzy
 msgid "Link"
 msgstr "Link"
 
-#: app/desktopManager.js:824
+#: app/desktopManager.js:874
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Vælg handling for filer"
 
-#: app/desktopManager.js:893 app/desktopManager.js:925
+#: app/desktopManager.js:944 app/desktopManager.js:976
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "At lave SymLink mislykkedes"
 
-#: app/desktopManager.js:894 app/desktopManager.js:926
+#: app/desktopManager.js:945 app/desktopManager.js:977
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Kunne ikke oprette symbolsk link"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1269
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Ryd det aktuelle valg før ny søgning"
 
-#: app/desktopManager.js:1262
+#: app/desktopManager.js:1315
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Find filer på skrivebordet"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1570
 #, fuzzy
 msgid "Name"
 msgstr "Navn"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Navn Z-A"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1572
 #, fuzzy
 msgid "Modified Time"
 msgstr "Ændret tid"
 
-#: app/desktopManager.js:1520
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Type"
 msgstr "Type"
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Size"
 msgstr "Størrelse"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1577
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Hold arrangeret…"
 
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1581
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Hold stablet efter type…"
 
-#: app/desktopManager.js:1529
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sorter hjem/drev/affald…"
 
-#: app/desktopManager.js:1534 app/desktopManager.js:2543
+#: app/desktopManager.js:1587 app/desktopManager.js:2601
 msgid "New Folder"
 msgstr "Ny mappe"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1591
 msgid "New Document"
 msgstr "Nyt dokument"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1595
 msgid "Paste"
 msgstr "Indsæt"
 
-#: app/desktopManager.js:1543
+#: app/desktopManager.js:1596
 msgid "Undo"
 msgstr "Fortryd"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1597
 msgid "Redo"
 msgstr "Omgør"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1602
 #, fuzzy
 msgid "Select All"
 msgstr "Vælg alle"
 
-#: app/desktopManager.js:1554
+#: app/desktopManager.js:1607
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Arranger ikoner"
 
-#: app/desktopManager.js:1558
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arranger efter…"
 
-#: app/desktopManager.js:1563
+#: app/desktopManager.js:1616
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Vis skrivebordet i GNOME-filer"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1617
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Åbn i terminal"
 
-#: app/desktopManager.js:1569
+#: app/desktopManager.js:1622
 msgid "Change Background…"
 msgstr "Skift baggrund …"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Indstillinger for skrivebordsikoner"
 
-#: app/desktopManager.js:1575
+#: app/desktopManager.js:1628
 msgid "Display Settings"
 msgstr "Skærmindstillinger"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Præferencevinduet er åbent"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Dette vindue er åbent. Skift venligst til det aktive vindue."
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1683
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: app/desktopManager.js:2566
+#: app/desktopManager.js:2624
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Oprettelse af mappe mislykkedes"
+msgstr "Mappeoprettelse mislykkedes"
 
-#: app/desktopManager.js:2567
+#: app/desktopManager.js:2625
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Kunne ikke oprette mappe"
 
-#: app/desktopManager.js:2610
+#: app/desktopManager.js:2668
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Skabelonoprettelsesfejl"
 
-#: app/desktopManager.js:2611
+#: app/desktopManager.js:2669
 #, fuzzy
 msgid "Could not create document"
 msgstr "Kunne ikke oprette dokument"
 
+#. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "Hjem"
@@ -646,11 +647,13 @@ msgid "Show the trash icon in the desktop"
 msgstr "Vis papirkurvsikonet på skrivebordet"
 
 #: app/preferencesFrame.js:43
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 #, fuzzy
 msgid "Show external drives in the desktop"
 msgstr "Vis eksterne drev på skrivebordet"
 
 #: app/preferencesFrame.js:44
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 #, fuzzy
 msgid "Show network drives in the desktop"
 msgstr "Vis netværksdrev på skrivebordet"
@@ -658,7 +661,7 @@ msgstr "Vis netværksdrev på skrivebordet"
 #: app/preferencesFrame.js:47
 #, fuzzy
 msgid "New icons alignment"
-msgstr "Ny ikonjustering"
+msgstr "Ny justering af ikoner"
 
 #: app/preferencesFrame.js:49
 #, fuzzy
@@ -686,6 +689,7 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Tilføj nye ikoner til sekundære skærme først, hvis de er tilgængelige"
 
 #: app/preferencesFrame.js:55
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 #, fuzzy
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Tilføj nye drev til den modsatte side af skærmen"
@@ -696,6 +700,7 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Fremhæv dropstedet under Drag'n'Drop"
 
 #: app/preferencesFrame.js:57
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "Brug Nemo til at åbne mapper"
@@ -801,31 +806,144 @@ msgstr ""
 msgid "Command not found"
 msgstr "Kommando ikke fundet"
 
-#~ msgid "Icon size"
-#~ msgstr "Ikonstørrelse"
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+msgid "Icon size"
+msgstr "Ikonstørrelse"
 
-#~ msgid "Set the size for the desktop icons."
-#~ msgstr "Angiv størrelsen på skrivebordsikoner."
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
+msgid "Set the size for the desktop icons."
+msgstr "Angiv størrelsen på skrivebordsikoner."
 
-#~ msgid "Show personal folder"
-#~ msgstr "Vis personlig mappe"
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+msgid "Show personal folder"
+msgstr "Vis personlig mappe"
 
-#~ msgid "Show the personal folder in the desktop."
-#~ msgstr "Vis den personlige mappe på skrivebordet."
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+msgid "Show the personal folder in the desktop."
+msgstr "Vis den personlige mappe på skrivebordet."
 
-#~ msgid "Show trash icon"
-#~ msgstr "Vis papirkurvsikon"
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+msgid "Show trash icon"
+msgstr "Vis papirkurvsikon"
 
-#~ msgid "Show the trash icon in the desktop."
-#~ msgstr "Vis papirkurvsikonet på skrivebordet."
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
+msgid "Show the trash icon in the desktop."
+msgstr "Vis papirkurvsikonet på skrivebordet."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 #, fuzzy
-#~ msgid "New icons start corner"
-#~ msgstr "Ikonstørrelse"
+msgid "New icons start corner"
+msgstr "Ikonstørrelse"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+msgid "Set the corner from where the icons will start to be placed."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 #, fuzzy
-#~ msgid "Show mounted network volumes in the desktop."
-#~ msgstr "Vis den personlige mappe på skrivebordet."
+msgid "Show the disk drives connected to the computer."
+msgstr "Vis den personlige mappe på skrivebordet"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
+#, fuzzy
+msgid "Show mounted network volumes in the desktop."
+msgstr "Vis den personlige mappe på skrivebordet."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
+#, fuzzy
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr "Tilføj nye drev til den modsatte side af skærmen"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+msgid "Shows a rectangle in the destination place during DnD"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+msgid "Sort Special Folders - Home/Trash Drives."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
+#, fuzzy
+msgid "Keep Icons Arranged"
+msgstr "Hold arrangeret…"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+msgid "Always keep Icons Arranged by the last arranged order"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
+#, fuzzy
+msgid "Arrange Order"
+msgstr "Arranger ikoner"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+msgid "Icons Arranged by this property"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+msgid "Keep Icons Stacked"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+msgid "Always keep Icons Stacked, Similar types are grouped"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+msgid "Type of Files to not Stack"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+msgid "An Array of strings types, Don't Stack these types of files"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
+#, fuzzy
+msgid "Use Nemo instead of Nautilus to open folders."
+msgstr "Brug Nemo til at åbne mapper"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#, fuzzy
+msgid "Add an emblem to links"
+msgstr "Tilføj et emblem til bløde links"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#, fuzzy
+msgid "Add an emblem to allow to identify soft links."
+msgstr "Tilføj et emblem til bløde links"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+msgid "Use black for label text"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+msgid "Show new icons on non primary monitor if connected"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
 
 #~ msgid "Do you want to run “{0}”, or display its contents?"
 #~ msgstr "Vil du køre “{0}” eller vise dens indhold?"
@@ -843,10 +961,6 @@ msgstr "Kommando ikke fundet"
 
 #~ msgid "If you delete an item, it will be permanently lost."
 #~ msgstr "Hvis du sletter et objekt, vil det gå tabt permanent."
-
-#, fuzzy
-#~ msgid "Show external disk drives in the desktop"
-#~ msgstr "Vis den personlige mappe på skrivebordet"
 
 #, fuzzy
 #~ msgid "Show the external drives"

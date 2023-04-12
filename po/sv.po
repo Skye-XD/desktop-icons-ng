@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"PO-Revision-Date: 2023-04-08 16:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -29,7 +29,7 @@ msgstr "Mappnamn"
 msgid "File name"
 msgstr "Filnamn"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
 msgid "OK"
 msgstr "OK"
 
@@ -61,8 +61,8 @@ msgstr "Extrahera filer"
 msgid "Compressing files"
 msgstr "Komprimerar filer"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
-#: app/desktopManager.js:1260 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
+#: app/desktopManager.js:1313 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -184,7 +184,7 @@ msgstr "Lösenordsskyddad .zip, måste installeras på Windows och Mac."
 #: app/autoAr.js:700
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Mindre arkiv men bara Linux och Mac."
+msgstr "Mindre arkiv men endast Linux och Mac."
 
 #: app/autoAr.js:706
 #, fuzzy
@@ -202,186 +202,187 @@ msgstr "GNOME-filer hittades inte"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Programmet GNOME Files krävs av Desktop Icons NG."
 
-#: app/desktopManager.js:723
+#: app/desktopManager.js:771
 #, fuzzy
 msgid "Could not open File"
 msgstr "Kunde inte öppna filen"
 
-#: app/desktopManager.js:724
+#: app/desktopManager.js:772
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} kan inte öppna filer av denna typ!"
 
-#: app/desktopManager.js:819
+#: app/desktopManager.js:869
 #, fuzzy
 msgid "Move"
 msgstr "Flytta"
 
-#: app/desktopManager.js:820 app/fileItemMenu.js:306
+#: app/desktopManager.js:870 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Kopiera"
 
-#: app/desktopManager.js:821
+#: app/desktopManager.js:871
 #, fuzzy
 msgid "Link"
 msgstr "Länk"
 
-#: app/desktopManager.js:824
+#: app/desktopManager.js:874
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Välj Åtgärd för filer"
 
-#: app/desktopManager.js:893 app/desktopManager.js:925
+#: app/desktopManager.js:944 app/desktopManager.js:976
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Att göra SymLink misslyckades"
 
-#: app/desktopManager.js:894 app/desktopManager.js:926
+#: app/desktopManager.js:945 app/desktopManager.js:977
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Det gick inte att skapa symbolisk länk"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1269
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Rensa aktuellt val innan ny sökning"
 
-#: app/desktopManager.js:1262
+#: app/desktopManager.js:1315
 msgid "Find Files on Desktop"
 msgstr "Hitta filer på skrivbordet"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1570
 #, fuzzy
 msgid "Name"
 msgstr "namn"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Namn Z-A"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1572
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Ändrad tid"
 
-#: app/desktopManager.js:1520
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Size"
 msgstr "Storlek"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1577
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Håll ordning…"
 
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1581
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Håll staplade efter typ…"
 
-#: app/desktopManager.js:1529
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sortera hem/enheter/papperskorgen…"
+msgstr "Sortera hem/enheter/sopor…"
 
-#: app/desktopManager.js:1534 app/desktopManager.js:2543
+#: app/desktopManager.js:1587 app/desktopManager.js:2601
 msgid "New Folder"
 msgstr "Ny mapp"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1591
 msgid "New Document"
 msgstr "Nytt dokument"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1595
 msgid "Paste"
 msgstr "Klistra in"
 
-#: app/desktopManager.js:1543
+#: app/desktopManager.js:1596
 msgid "Undo"
 msgstr "Ångra"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1597
 msgid "Redo"
 msgstr "Gör om"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1602
 msgid "Select All"
 msgstr "Markera alla"
 
-#: app/desktopManager.js:1554
+#: app/desktopManager.js:1607
 msgid "Arrange Icons"
 msgstr "Arrangera ikonerna"
 
-#: app/desktopManager.js:1558
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Ordna efter…"
 
-#: app/desktopManager.js:1563
+#: app/desktopManager.js:1616
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Visa skrivbordet i GNOME-filer"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1617
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Öppna i terminal"
 
-#: app/desktopManager.js:1569
+#: app/desktopManager.js:1622
 msgid "Change Background…"
 msgstr "Ändra bakgrund…"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Skrivbordsikoninställningar"
 
-#: app/desktopManager.js:1575
+#: app/desktopManager.js:1628
 msgid "Display Settings"
 msgstr "Visningsinställningar"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Fönstret med inställningar är öppet"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Detta fönster är öppet. Växla till det aktiva fönstret."
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1683
 msgid "Settings"
 msgstr "Inställningar"
 
-#: app/desktopManager.js:2566
+#: app/desktopManager.js:2624
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Det gick inte att skapa mappar"
 
-#: app/desktopManager.js:2567
+#: app/desktopManager.js:2625
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Det gick inte att skapa mappen"
 
-#: app/desktopManager.js:2610
+#: app/desktopManager.js:2668
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Fel vid skapande av mall"
 
-#: app/desktopManager.js:2611
+#: app/desktopManager.js:2669
 #, fuzzy
 msgid "Could not create document"
 msgstr "Det gick inte att skapa dokumentet"
 
+#. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "Hem"
@@ -643,10 +644,12 @@ msgid "Show the trash icon in the desktop"
 msgstr "Visa papperskorgen på skrivbordet"
 
 #: app/preferencesFrame.js:43
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
 msgstr "Visa externa enheter på skrivbordet"
 
 #: app/preferencesFrame.js:44
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
 msgstr "Visa nätverksenheter på skrivbordet"
 
@@ -681,6 +684,7 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Lägg till nya ikoner till sekundära bildskärmar först, om tillgängliga"
 
 #: app/preferencesFrame.js:55
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Lägg till nya enheter på motsatt sida av skärmen"
 
@@ -690,6 +694,7 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Markera släppplatsen under Drag'n'Drop"
 
 #: app/preferencesFrame.js:57
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Använd Nemo för att öppna kataloger"
 
@@ -793,6 +798,149 @@ msgstr ""
 msgid "Command not found"
 msgstr "Kommandot hittades inte"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+msgid "Icon size"
+msgstr "Ikonstorlek"
+
+# TODO: *ON* the desktop?
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
+msgid "Set the size for the desktop icons."
+msgstr "Ställ in storleken för skrivbordsikonerna."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+msgid "Show personal folder"
+msgstr "Visa personlig mapp"
+
+# TODO: *ON* the desktop?
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+msgid "Show the personal folder in the desktop."
+msgstr "Visa den personliga mappen på skrivbordet."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+msgid "Show trash icon"
+msgstr "Visa papperskorgsikon"
+
+# TODO: *ON* the desktop?
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
+msgid "Show the trash icon in the desktop."
+msgstr "Visa papperskorgsikonen på skrivbordet."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
+msgid "New icons start corner"
+msgstr "Starthörn för nya ikoner"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+msgid "Set the corner from where the icons will start to be placed."
+msgstr "Ställ in hörnet där ikonerna ska börja placeras."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
+msgid "Show the disk drives connected to the computer."
+msgstr "Visa de hårddiskar som är anslutna till datorn."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
+msgid "Show mounted network volumes in the desktop."
+msgstr "Visa monterade nätverksvolymer på skrivbordet."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"När enheter och volymer läggs till på skrivbordet, lägg till dem på motsatt "
+"sida av skärmen."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+msgid "Shows a rectangle in the destination place during DnD"
+msgstr "Visar en rektangel i målplatsen under dra-och-släpp"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"När en dra-och-släpp-operation utförs, markeras platsen i rutnätet där "
+"ikonen kommer placeras med en halvgenomskinlig rektangel."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+msgid "Sort Special Folders - Home/Trash Drives."
+msgstr "Sortera särskilda kataloger - Hem/Papperskorg Diskar."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"I samband med att arrangera ikoner på skrivbordet, att sortera och ändra "
+"positionen för Hem, Papperskorg och monterade nätverk eller externa diskar"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
+msgid "Keep Icons Arranged"
+msgstr "Behåll ikonerna arrangerade"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+msgid "Always keep Icons Arranged by the last arranged order"
+msgstr ""
+"Behåll alltid ikonerna arrangerade efter den senaste sorteringsordningen"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
+msgid "Arrange Order"
+msgstr "Arrangera ordningen"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+msgid "Icons Arranged by this property"
+msgstr "Ikonerna arrangerade efter denna egenskap"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+msgid "Keep Icons Stacked"
+msgstr "Behåll ikonerna arrangerade"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+msgid "Always keep Icons Stacked, Similar types are grouped"
+msgstr "Behåll alltid ikonerna arrangerade, grupperade efter typ"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+msgid "Type of Files to not Stack"
+msgstr "Filtyper som inte arrangeras"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+msgid "An Array of strings types, Don't Stack these types of files"
+msgstr "En lista över typer, arrangera inte dessa filtyper"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
+msgid "Use Nemo instead of Nautilus to open folders."
+msgstr "Använd Nemo istället för Nautilus för att öppna kataloger."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+msgid "Add an emblem to links"
+msgstr "Lägg till ett emblem till länkar"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+msgid "Add an emblem to allow to identify soft links."
+msgstr ""
+"Lägg till ett emblem för att identifiering av mjuka länkar ska tillåtas."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+msgid "Use black for label text"
+msgstr "Använd svart för etikett-text"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+"Måla etikett-text  i svart istället för vit. Användbart när ljusa bakgrunder "
+"används."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+msgid "Show new icons on non primary monitor if connected"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
 #~ msgstr ""
@@ -810,111 +958,6 @@ msgstr "Kommandot hittades inte"
 
 #~ msgid "Sort by Size"
 #~ msgstr "Sortera efter storlek"
-
-#~ msgid "Icon size"
-#~ msgstr "Ikonstorlek"
-
-# TODO: *ON* the desktop?
-#~ msgid "Set the size for the desktop icons."
-#~ msgstr "Ställ in storleken för skrivbordsikonerna."
-
-#~ msgid "Show personal folder"
-#~ msgstr "Visa personlig mapp"
-
-# TODO: *ON* the desktop?
-#~ msgid "Show the personal folder in the desktop."
-#~ msgstr "Visa den personliga mappen på skrivbordet."
-
-#~ msgid "Show trash icon"
-#~ msgstr "Visa papperskorgsikon"
-
-# TODO: *ON* the desktop?
-#~ msgid "Show the trash icon in the desktop."
-#~ msgstr "Visa papperskorgsikonen på skrivbordet."
-
-#~ msgid "New icons start corner"
-#~ msgstr "Starthörn för nya ikoner"
-
-#~ msgid "Set the corner from where the icons will start to be placed."
-#~ msgstr "Ställ in hörnet där ikonerna ska börja placeras."
-
-#~ msgid "Show the disk drives connected to the computer."
-#~ msgstr "Visa de hårddiskar som är anslutna till datorn."
-
-#~ msgid "Show mounted network volumes in the desktop."
-#~ msgstr "Visa monterade nätverksvolymer på skrivbordet."
-
-#~ msgid ""
-#~ "When adding drives and volumes to the desktop, add them to the opposite "
-#~ "side of the screen."
-#~ msgstr ""
-#~ "När enheter och volymer läggs till på skrivbordet, lägg till dem på "
-#~ "motsatt sida av skärmen."
-
-#~ msgid "Shows a rectangle in the destination place during DnD"
-#~ msgstr "Visar en rektangel i målplatsen under dra-och-släpp"
-
-#~ msgid ""
-#~ "When doing a Drag'n'Drop operation, marks the place in the grid where the "
-#~ "icon will be put with a semitransparent rectangle."
-#~ msgstr ""
-#~ "När en dra-och-släpp-operation utförs, markeras platsen i rutnätet där "
-#~ "ikonen kommer placeras med en halvgenomskinlig rektangel."
-
-#~ msgid "Sort Special Folders - Home/Trash Drives."
-#~ msgstr "Sortera särskilda kataloger - Hem/Papperskorg Diskar."
-
-#~ msgid ""
-#~ "When arranging Icons on desktop, to sort and change the position of the "
-#~ "Home, Trash and mounted Network or External Drives"
-#~ msgstr ""
-#~ "I samband med att arrangera ikoner på skrivbordet, att sortera och ändra "
-#~ "positionen för Hem, Papperskorg och monterade nätverk eller externa diskar"
-
-#~ msgid "Keep Icons Arranged"
-#~ msgstr "Behåll ikonerna arrangerade"
-
-#~ msgid "Always keep Icons Arranged by the last arranged order"
-#~ msgstr ""
-#~ "Behåll alltid ikonerna arrangerade efter den senaste sorteringsordningen"
-
-#~ msgid "Arrange Order"
-#~ msgstr "Arrangera ordningen"
-
-#~ msgid "Icons Arranged by this property"
-#~ msgstr "Ikonerna arrangerade efter denna egenskap"
-
-#~ msgid "Keep Icons Stacked"
-#~ msgstr "Behåll ikonerna arrangerade"
-
-#~ msgid "Always keep Icons Stacked, Similar types are grouped"
-#~ msgstr "Behåll alltid ikonerna arrangerade, grupperade efter typ"
-
-#~ msgid "Type of Files to not Stack"
-#~ msgstr "Filtyper som inte arrangeras"
-
-#~ msgid "An Array of strings types, Don't Stack these types of files"
-#~ msgstr "En lista över typer, arrangera inte dessa filtyper"
-
-#~ msgid "Use Nemo instead of Nautilus to open folders."
-#~ msgstr "Använd Nemo istället för Nautilus för att öppna kataloger."
-
-#~ msgid "Add an emblem to links"
-#~ msgstr "Lägg till ett emblem till länkar"
-
-#~ msgid "Add an emblem to allow to identify soft links."
-#~ msgstr ""
-#~ "Lägg till ett emblem för att identifiering av mjuka länkar ska tillåtas."
-
-#~ msgid "Use black for label text"
-#~ msgstr "Använd svart för etikett-text"
-
-#~ msgid ""
-#~ "Paint the label text in black instead of white. Useful when using light "
-#~ "backgrounds."
-#~ msgstr ""
-#~ "Måla etikett-text  i svart istället för vit. Användbart när ljusa "
-#~ "bakgrunder används."
 
 #~ msgid "Show Desktop in Files"
 #~ msgstr "Visa skrivbord i Filer"

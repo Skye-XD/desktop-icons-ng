@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-04 09:49-0500\n"
+"POT-Creation-Date: 2023-04-10 16:43+0200\n"
 "PO-Revision-Date: 2023-03-05 15:42+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr "フォルダー名"
 msgid "File name"
 msgstr "ファイル名"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
 msgid "OK"
 msgstr "OK"
 
@@ -47,7 +47,8 @@ msgstr "AutoAr がインストールされていません"
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr "圧縮ファイルを操作できるようにするには、file-roller および/または gir-1.2-"
+msgstr ""
+"圧縮ファイルを操作できるようにするには、file-roller および/または gir-1.2-"
 "gnomeAutoAr をインストールします。"
 
 #: app/autoAr.js:203
@@ -60,8 +61,8 @@ msgstr "ファイルの抽出"
 msgid "Compressing files"
 msgstr "ファイルの圧縮"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
-#: app/desktopManager.js:1260 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
+#: app/desktopManager.js:1313 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -143,7 +144,8 @@ msgstr "出力ファイル '${outputFile}' は既に存在します。"
 #: app/autoAr.js:509
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "'${outputFile}' へのファイルの圧縮は、ユーザーによってキャンセルされました。"
+msgstr ""
+"'${outputFile}' へのファイルの圧縮は、ユーザーによってキャンセルされました。"
 
 #: app/autoAr.js:512
 #, fuzzy
@@ -177,8 +179,9 @@ msgstr "すべてのオペレーティング システムと互換性があり�
 #: app/autoAr.js:694
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "パスワードで保護された .zip は、Windows および Mac "
-"にインストールする必要があります。"
+msgstr ""
+"パスワードで保護された .zip は、Windows および Mac にインストールする必要があ"
+"ります。"
 
 #: app/autoAr.js:700
 #, fuzzy
@@ -188,7 +191,8 @@ msgstr "小さいアーカイブですが、Linux と Mac のみです。"
 #: app/autoAr.js:706
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "小さいアーカイブですが、Windows および Mac にインストールする必要があります。"
+msgstr ""
+"小さいアーカイブですが、Windows および Mac にインストールする必要があります。"
 
 #: app/desktopManager.js:131
 #, fuzzy
@@ -201,187 +205,189 @@ msgstr "GNOME ファイルが見つかりません"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Desktop Icons NG には GNOME Files アプリケーションが必要です。"
 
-#: app/desktopManager.js:723
+#: app/desktopManager.js:771
 #, fuzzy
 msgid "Could not open File"
 msgstr "ファイルを開けませんでした"
 
-#: app/desktopManager.js:724
+#: app/desktopManager.js:772
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} はこのタイプのファイルを開くことができません!"
 
-#: app/desktopManager.js:819
+#: app/desktopManager.js:869
 #, fuzzy
 msgid "Move"
 msgstr "動く"
 
-#: app/desktopManager.js:820 app/fileItemMenu.js:306
+#: app/desktopManager.js:870 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "コピー"
 
-#: app/desktopManager.js:821
+#: app/desktopManager.js:871
 #, fuzzy
 msgid "Link"
 msgstr "リンク"
 
-#: app/desktopManager.js:824
+#: app/desktopManager.js:874
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "ファイルのアクションを選択"
 
-#: app/desktopManager.js:893 app/desktopManager.js:925
+#: app/desktopManager.js:944 app/desktopManager.js:976
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "SymLink の作成に失敗しました"
 
-#: app/desktopManager.js:894 app/desktopManager.js:926
+#: app/desktopManager.js:945 app/desktopManager.js:977
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "シンボリック リンクを作成できませんでした"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1269
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "新しい検索の前に現在の選択をクリアする"
 
-#: app/desktopManager.js:1262
+#: app/desktopManager.js:1315
 msgid "Find Files on Desktop"
 msgstr "デスクトップ上のファイルを検索"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1570
 #, fuzzy
 msgid "Name"
 msgstr "名前"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name Z-A"
 msgstr "名前 Z-A"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1572
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "修正時刻"
 
-#: app/desktopManager.js:1520
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Type"
 msgstr "タイプ"
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Size"
 msgstr "サイズ"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1577
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "整理しておく…"
 
 # デスクトップにあるファイルを疑似フォルダーにまとめる (グループ化する)
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1581
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "タイプごとに積み重ねる…"
 
-#: app/desktopManager.js:1529
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "ホーム/ドライブ/ゴミ箱を並べ替え…"
 
-#: app/desktopManager.js:1534 app/desktopManager.js:2543
+#: app/desktopManager.js:1587 app/desktopManager.js:2601
 msgid "New Folder"
 msgstr "新しいフォルダー"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1591
 msgid "New Document"
 msgstr "新しいドキュメント"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1595
 msgid "Paste"
 msgstr "貼り付け"
 
-#: app/desktopManager.js:1543
+#: app/desktopManager.js:1596
 msgid "Undo"
 msgstr "元に戻す"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1597
 msgid "Redo"
 msgstr "やり直す"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1602
 msgid "Select All"
 msgstr "すべて選択"
 
-#: app/desktopManager.js:1554
+#: app/desktopManager.js:1607
 msgid "Arrange Icons"
 msgstr "アイコンを整列"
 
-#: app/desktopManager.js:1558
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Arrange By…"
 msgstr "並べ替え…"
 
-#: app/desktopManager.js:1563
+#: app/desktopManager.js:1616
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "GNOME ファイルのデスクトップを表示"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1617
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "ターミナルで開く"
 
-#: app/desktopManager.js:1569
+#: app/desktopManager.js:1622
 msgid "Change Background…"
 msgstr "背景を変更…"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "デスクトップ アイコンの設定"
 
-#: app/desktopManager.js:1575
+#: app/desktopManager.js:1628
 msgid "Display Settings"
 msgstr "ディスプレイの設定"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "環境設定ウィンドウが開いています"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "このウィンドウは開いています。アクティブなウィンドウに切り替えてください。"
+msgstr ""
+"このウィンドウは開いています。アクティブなウィンドウに切り替えてください。"
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1683
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:2566
+#: app/desktopManager.js:2624
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "フォルダの作成に失敗しました"
 
-#: app/desktopManager.js:2567
+#: app/desktopManager.js:2625
 #, fuzzy
 msgid "Could not create folder"
 msgstr "フォルダを作成できませんでした"
 
-#: app/desktopManager.js:2610
+#: app/desktopManager.js:2668
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "テンプレート作成エラー"
 
-#: app/desktopManager.js:2611
+#: app/desktopManager.js:2669
 #, fuzzy
 msgid "Could not create document"
 msgstr "ドキュメントを作成できませんでした"
 
+#. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "ホーム"
@@ -633,10 +639,12 @@ msgid "Show the trash icon in the desktop"
 msgstr "デスクトップにゴミ箱を表示する"
 
 #: app/preferencesFrame.js:43
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
 msgstr "デスクトップに外付けドライブを表示する"
 
 #: app/preferencesFrame.js:44
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
 msgstr "デスクトップにネットワークドライブを表示する"
 
@@ -666,6 +674,7 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "可能であれば、最初に新しいアイコンをセカンダリ モニターに追加します。"
 
 #: app/preferencesFrame.js:55
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
 msgstr "新しいドライブのアイコンは反対側に配置する"
 
@@ -674,6 +683,7 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "ドラッグアンドドロップ中にドロップ先を強調表示する"
 
 #: app/preferencesFrame.js:57
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Nemo を使用してフォルダーを開く"
 
@@ -761,6 +771,144 @@ msgstr ""
 msgid "Command not found"
 msgstr "コマンドが見つかりません"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+msgid "Icon size"
+msgstr "アイコンサイズ"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
+msgid "Set the size for the desktop icons."
+msgstr "デスクトップのアイコンサイズを設定します。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+msgid "Show personal folder"
+msgstr "ホームフォルダーを表示する"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+msgid "Show the personal folder in the desktop."
+msgstr "デスクトップにホームフォルダーを表示します。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+msgid "Show trash icon"
+msgstr "ゴミ箱アイコンを表示する"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
+msgid "Show the trash icon in the desktop."
+msgstr "デスクトップにゴミ箱のアイコンを表示します。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
+msgid "New icons start corner"
+msgstr "新しいアイコンの配置位置"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+msgid "Set the corner from where the icons will start to be placed."
+msgstr "アイコンの配置の基準になるコーナーを設定します。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
+msgid "Show the disk drives connected to the computer."
+msgstr "コンピューターに接続されているディスクドライブを表示します。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
+msgid "Show mounted network volumes in the desktop."
+msgstr "マウント済みのネットワークボリュームをデスクトップに表示します。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"ドライブやボリュームのアイコンをデスクトップに追加する場合、通常の配置位置の"
+"反対側に追加します。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+msgid "Shows a rectangle in the destination place during DnD"
+msgstr "ドラッグアンドドロップ中にドロップ先を枠で囲って強調する"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"ドラッグアンドドロップするときに、アイコンが配置されるドロップ先の場所を半透"
+"明の四角形で強調表示します。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+msgid "Sort Special Folders - Home/Trash Drives."
+msgstr "ホームフォルダー/ゴミ箱/外付けドライブなどの特殊なフォルダーを並べ替え"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"デスクトップ上のアイコンを整列するときに、ホームフォルダー、ゴミ箱、マウント"
+"されたネットワーク/外付けドライブのアイコンも整列の対象にします。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
+msgid "Keep Icons Arranged"
+msgstr "アイコンの整列を維持する"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+msgid "Always keep Icons Arranged by the last arranged order"
+msgstr "常に最後に選択した並び順でアイコンが整列されるようにします"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
+msgid "Arrange Order"
+msgstr "整列順"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+msgid "Icons Arranged by this property"
+msgstr "このプロパティでアイコンを整列させます"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+msgid "Keep Icons Stacked"
+msgstr "アイコンを束ねる"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+msgid "Always keep Icons Stacked, Similar types are grouped"
+msgstr "常に同じ種類のアイコンを 1 つにまとめてグループ化します"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+msgid "Type of Files to not Stack"
+msgstr "束ねないファイルの種類"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+msgid "An Array of strings types, Don't Stack these types of files"
+msgstr "グループ化しない種類の文字列配列です"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
+msgid "Use Nemo instead of Nautilus to open folders."
+msgstr "Nautilus の代わりに Nemo でフォルダーを開きます。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+msgid "Add an emblem to links"
+msgstr "リンクにエンブレムを追加する"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+msgid "Add an emblem to allow to identify soft links."
+msgstr "ソフトリンクにエンブレムを追加して判別しやすくします。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+msgid "Use black for label text"
+msgstr "ラベルのテキストの色に黒を使用する"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+"ラベルのテキストを白色の代わりに黒色で描画します。明るい背景を使用している場"
+"合に有用です。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+msgid "Show new icons on non primary monitor if connected"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
 #~ msgstr ""
@@ -777,107 +925,6 @@ msgstr "コマンドが見つかりません"
 
 #~ msgid "Sort by Size"
 #~ msgstr "サイズで並べ替え"
-
-#~ msgid "Icon size"
-#~ msgstr "アイコンサイズ"
-
-#~ msgid "Set the size for the desktop icons."
-#~ msgstr "デスクトップのアイコンサイズを設定します。"
-
-#~ msgid "Show personal folder"
-#~ msgstr "ホームフォルダーを表示する"
-
-#~ msgid "Show the personal folder in the desktop."
-#~ msgstr "デスクトップにホームフォルダーを表示します。"
-
-#~ msgid "Show trash icon"
-#~ msgstr "ゴミ箱アイコンを表示する"
-
-#~ msgid "Show the trash icon in the desktop."
-#~ msgstr "デスクトップにゴミ箱のアイコンを表示します。"
-
-#~ msgid "New icons start corner"
-#~ msgstr "新しいアイコンの配置位置"
-
-#~ msgid "Set the corner from where the icons will start to be placed."
-#~ msgstr "アイコンの配置の基準になるコーナーを設定します。"
-
-#~ msgid "Show the disk drives connected to the computer."
-#~ msgstr "コンピューターに接続されているディスクドライブを表示します。"
-
-#~ msgid "Show mounted network volumes in the desktop."
-#~ msgstr "マウント済みのネットワークボリュームをデスクトップに表示します。"
-
-#~ msgid ""
-#~ "When adding drives and volumes to the desktop, add them to the opposite "
-#~ "side of the screen."
-#~ msgstr ""
-#~ "ドライブやボリュームのアイコンをデスクトップに追加する場合、通常の配置位置"
-#~ "の反対側に追加します。"
-
-#~ msgid "Shows a rectangle in the destination place during DnD"
-#~ msgstr "ドラッグアンドドロップ中にドロップ先を枠で囲って強調する"
-
-#~ msgid ""
-#~ "When doing a Drag'n'Drop operation, marks the place in the grid where the "
-#~ "icon will be put with a semitransparent rectangle."
-#~ msgstr ""
-#~ "ドラッグアンドドロップするときに、アイコンが配置されるドロップ先の場所を半"
-#~ "透明の四角形で強調表示します。"
-
-#~ msgid "Sort Special Folders - Home/Trash Drives."
-#~ msgstr ""
-#~ "ホームフォルダー/ゴミ箱/外付けドライブなどの特殊なフォルダーを並べ替え"
-
-#~ msgid ""
-#~ "When arranging Icons on desktop, to sort and change the position of the "
-#~ "Home, Trash and mounted Network or External Drives"
-#~ msgstr ""
-#~ "デスクトップ上のアイコンを整列するときに、ホームフォルダー、ゴミ箱、マウン"
-#~ "トされたネットワーク/外付けドライブのアイコンも整列の対象にします。"
-
-#~ msgid "Keep Icons Arranged"
-#~ msgstr "アイコンの整列を維持する"
-
-#~ msgid "Always keep Icons Arranged by the last arranged order"
-#~ msgstr "常に最後に選択した並び順でアイコンが整列されるようにします"
-
-#~ msgid "Arrange Order"
-#~ msgstr "整列順"
-
-#~ msgid "Icons Arranged by this property"
-#~ msgstr "このプロパティでアイコンを整列させます"
-
-#~ msgid "Keep Icons Stacked"
-#~ msgstr "アイコンを束ねる"
-
-#~ msgid "Always keep Icons Stacked, Similar types are grouped"
-#~ msgstr "常に同じ種類のアイコンを 1 つにまとめてグループ化します"
-
-#~ msgid "Type of Files to not Stack"
-#~ msgstr "束ねないファイルの種類"
-
-#~ msgid "An Array of strings types, Don't Stack these types of files"
-#~ msgstr "グループ化しない種類の文字列配列です"
-
-#~ msgid "Use Nemo instead of Nautilus to open folders."
-#~ msgstr "Nautilus の代わりに Nemo でフォルダーを開きます。"
-
-#~ msgid "Add an emblem to links"
-#~ msgstr "リンクにエンブレムを追加する"
-
-#~ msgid "Add an emblem to allow to identify soft links."
-#~ msgstr "ソフトリンクにエンブレムを追加して判別しやすくします。"
-
-#~ msgid "Use black for label text"
-#~ msgstr "ラベルのテキストの色に黒を使用する"
-
-#~ msgid ""
-#~ "Paint the label text in black instead of white. Useful when using light "
-#~ "backgrounds."
-#~ msgstr ""
-#~ "ラベルのテキストを白色の代わりに黒色で描画します。明るい背景を使用している"
-#~ "場合に有用です。"
 
 #~ msgid "Add an emblem to .desktop files"
 #~ msgstr ".desktop ファイルにエンブレムを追加する"
