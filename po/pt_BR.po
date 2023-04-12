@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-10 16:43+0200\n"
-"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: app/askRenamePopup.js:49
 #, fuzzy
@@ -548,6 +548,7 @@ msgid "Send to Mobile Device"
 msgstr "Enviar para dispositivo móvel"
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -810,7 +811,7 @@ msgstr "Mostra o ícone da lixeira na área de trabalho."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 #, fuzzy
 msgid "New icons start corner"
-msgstr "Tamanho do ícone"
+msgstr "Canto inicial de novos ícones"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
@@ -823,7 +824,7 @@ msgstr "Mostrar as unidades de discos conectadas ao computador."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
-msgstr "Mostra a pasta pessoal na área de trabalho."
+msgstr "Mostrar volumes de rede montados na área de trabalho."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
@@ -878,56 +879,66 @@ msgstr "Ícones ordenados por esta propriedade"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 #, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Manter Ícones Ordenados"
+msgstr "Mantenha os ícones empilhados"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr ""
-"Sempre mantenha ícone ordenados de acordo com a última forma de organizar"
+"Sempre mantenha os ícones empilhados, os tipos semelhantes são agrupados"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+#, fuzzy
 msgid "Type of Files to not Stack"
-msgstr ""
+msgstr "Tipo de arquivos para não empilhar"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+#, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
+msgstr "Uma matriz de tipos de strings, não empilhe esses tipos de arquivos"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Use o Nemo para abrir pastas"
+msgstr "Use o Nemo em vez do Nautilus para abrir pastas."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Adicionar um emblema aos links suaves"
+msgstr "Adicionar um emblema aos links"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Adicionar um emblema aos links suaves"
+msgstr "Adicione um emblema para permitir a identificação de soft links."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#, fuzzy
 msgid "Use black for label text"
-msgstr ""
+msgstr "Use preto para o texto da etiqueta"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
+"Pinte o texto do rótulo em preto em vez de branco. Útil ao usar fundos "
+"claros."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
+msgstr "Mostrar novos ícones no monitor não principal, se conectado"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
+"Se um segundo monitor estiver conectado, novos ícones serão colocados no "
+"monitor não principal"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
