@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-10 16:43+0200\n"
-"PO-Revision-Date: 2023-04-08 16:50+0000\n"
+"PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -932,14 +932,18 @@ msgstr ""
 "används."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
+msgstr "Visa nya ikoner på icke primär monitor om den är ansluten"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
+"Om en andra monitor är ansluten, placeras nya ikoner på den icke primära "
+"monitorn"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
