@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-10 16:43+0200\n"
-"PO-Revision-Date: 2023-04-08 16:50+0000\n"
+"PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -834,8 +834,9 @@ msgstr ""
 "megjeleníteni egy félig áttetsző négyzetben."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+#, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr ""
+msgstr "Speciális mappák rendezése – Otthoni/Kukameghajtók."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 msgid ""
@@ -846,71 +847,89 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "Tartsa rendezve…"
+msgstr "Tartsa az ikonokat elrendezve"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+#, fuzzy
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr ""
+msgstr "Mindig tartsa az ikonokat az utolsó sorrend szerint rendezve"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
 msgid "Arrange Order"
-msgstr "Ikonok rendezése"
+msgstr "Rendelés rendezése"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+#, fuzzy
 msgid "Icons Arranged by this property"
-msgstr ""
+msgstr "Ikonok a tulajdonság szerint rendezve"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+#, fuzzy
 msgid "Keep Icons Stacked"
-msgstr ""
+msgstr "Tartsa halmozott ikonokat"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+#, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr ""
+"Mindig tartsa az ikonokat halmozottan, a hasonló típusok csoportosítva vannak"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+#, fuzzy
 msgid "Type of Files to not Stack"
-msgstr ""
+msgstr "A nem halmozandó fájlok típusa"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+#, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
+msgstr "Karakterlánctípusok tömbje, ne rakja egymásra az ilyen típusú fájlokat"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "A Nemo segítségével nyissa meg a mappákat"
+msgstr "Használja a Nemót a Nautilus helyett a mappák megnyitásához."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Adjon emblémát a puha hivatkozásokhoz"
+msgstr "Adjon emblémát a hivatkozásokhoz"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Adjon emblémát a puha hivatkozásokhoz"
+msgstr ""
+"Adjon hozzá egy emblémát, amely lehetővé teszi a lágy hivatkozások "
+"azonosítását."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#, fuzzy
 msgid "Use black for label text"
-msgstr ""
+msgstr "Használjon feketét a címke szövegéhez"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
+"Fesd a címke szövegét fehér helyett feketére. Világos hátterek használatakor "
+"hasznos."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Show new icons on non primary monitor if connected"
 msgstr ""
+"Új ikonok megjelenítése a nem elsődleges monitoron, ha csatlakoztatva van"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
+"Ha egy második monitor is csatlakoztatva van, új ikonok kerülnek a nem "
+"elsődleges monitorra"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
