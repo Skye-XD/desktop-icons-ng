@@ -10,17 +10,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-10 16:43+0200\n"
-"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -885,32 +885,40 @@ msgstr "Użyj Nemo zamiast Nautilus'a do otwierania katalogów"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Dodaj emblemat do miękkich linków"
+msgstr "Dodaj emblemat do linków"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Dodaj emblemat do miękkich linków"
+msgstr "Dodaj emblemat, aby umożliwić identyfikację miękkich linków."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#, fuzzy
 msgid "Use black for label text"
-msgstr ""
+msgstr "Użyj czarnego tekstu etykiety"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
+"Pomaluj tekst etykiety na czarno zamiast na biało. Przydatne przy "
+"korzystaniu z jasnego tła."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
+msgstr "Pokaż nowe ikony na monitorze innym niż główny, jeśli jest podłączony"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
+"Jeśli podłączony jest drugi monitor, nowe ikony są umieszczane na monitorze "
+"innym niż główny"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
