@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"PO-Revision-Date: 2023-04-08 16:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -29,7 +29,7 @@ msgstr "Názov priečinku"
 msgid "File name"
 msgstr "Názov súboru"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
 msgid "OK"
 msgstr "OK"
 
@@ -58,8 +58,8 @@ msgstr "Extrahovanie súborov"
 msgid "Compressing files"
 msgstr "Komprimovanie súborov"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
-#: app/desktopManager.js:1260 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
+#: app/desktopManager.js:1313 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -176,7 +176,7 @@ msgstr "Kompatibilné so všetkými operačnými systémami."
 #: app/autoAr.js:694
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ".zip chránený heslom, musí byť nainštalovaný v systéme Windows a Mac."
+msgstr ".zip chránený heslom, musí byť nainštalovaný na Windows a Mac."
 
 #: app/autoAr.js:700
 #, fuzzy
@@ -199,186 +199,187 @@ msgstr "Súbory GNOME sa nenašli"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Ikony pracovnej plochy NG vyžadujú aplikáciu Súbory GNOME."
 
-#: app/desktopManager.js:723
+#: app/desktopManager.js:771
 #, fuzzy
 msgid "Could not open File"
 msgstr "Súbor sa nepodarilo otvoriť"
 
-#: app/desktopManager.js:724
+#: app/desktopManager.js:772
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} nemôže otvárať súbory tohto typu!"
 
-#: app/desktopManager.js:819
+#: app/desktopManager.js:869
 #, fuzzy
 msgid "Move"
 msgstr "Pohybujte sa"
 
-#: app/desktopManager.js:820 app/fileItemMenu.js:306
+#: app/desktopManager.js:870 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Kopírovať"
 
-#: app/desktopManager.js:821
+#: app/desktopManager.js:871
 #, fuzzy
 msgid "Link"
 msgstr "Odkaz"
 
-#: app/desktopManager.js:824
+#: app/desktopManager.js:874
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Vyberte Akcia pre súbory"
 
-#: app/desktopManager.js:893 app/desktopManager.js:925
+#: app/desktopManager.js:944 app/desktopManager.js:976
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Vytvorenie SymLink zlyhalo"
 
-#: app/desktopManager.js:894 app/desktopManager.js:926
+#: app/desktopManager.js:945 app/desktopManager.js:977
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Nepodarilo sa vytvoriť symbolický odkaz"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1269
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Pred novým vyhľadávaním vymažte aktuálny výber"
 
-#: app/desktopManager.js:1262
+#: app/desktopManager.js:1315
 msgid "Find Files on Desktop"
 msgstr "Nájdenie súborov na pracovnej ploche"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1570
 #, fuzzy
 msgid "Name"
 msgstr "názov"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Meno Z-A"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1572
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Upravený čas"
 
-#: app/desktopManager.js:1520
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Size"
 msgstr "Veľkosť"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1577
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Majte usporiadané…"
 
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1581
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Ponechať v sklade podľa typu…"
 
-#: app/desktopManager.js:1529
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Triediť domov/Disky/Kôš…"
 
-#: app/desktopManager.js:1534 app/desktopManager.js:2543
+#: app/desktopManager.js:1587 app/desktopManager.js:2601
 msgid "New Folder"
 msgstr "Nový priečinok"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1591
 msgid "New Document"
 msgstr "Nový dokument"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1595
 msgid "Paste"
 msgstr "Vložiť"
 
-#: app/desktopManager.js:1543
+#: app/desktopManager.js:1596
 msgid "Undo"
 msgstr "Vrátiť späť"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1597
 msgid "Redo"
 msgstr "Zopakovať"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1602
 msgid "Select All"
 msgstr "Vybrať všetko"
 
-#: app/desktopManager.js:1554
+#: app/desktopManager.js:1607
 msgid "Arrange Icons"
 msgstr "Usporiadať ikony"
 
-#: app/desktopManager.js:1558
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Usporiadať podľa…"
 
-#: app/desktopManager.js:1563
+#: app/desktopManager.js:1616
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Zobraziť pracovnú plochu v súboroch GNOME"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1617
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Otvoriť v termináli"
 
-#: app/desktopManager.js:1569
+#: app/desktopManager.js:1622
 msgid "Change Background…"
 msgstr "Zmeniť pozadie…"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Nastavenia ikon na pracovnej ploche"
 
-#: app/desktopManager.js:1575
+#: app/desktopManager.js:1628
 msgid "Display Settings"
 msgstr "Nastavenia displejov"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Okno predvolieb je otvorené"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Toto okno je otvorené. Prepnite sa do aktívneho okna."
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1683
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: app/desktopManager.js:2566
+#: app/desktopManager.js:2624
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Vytvorenie priečinka zlyhalo"
 
-#: app/desktopManager.js:2567
+#: app/desktopManager.js:2625
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Priečinok sa nepodarilo vytvoriť"
 
-#: app/desktopManager.js:2610
+#: app/desktopManager.js:2668
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba pri vytváraní šablóny"
 
-#: app/desktopManager.js:2611
+#: app/desktopManager.js:2669
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nepodarilo sa vytvoriť dokument"
 
+#. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "Domov"
@@ -410,7 +411,7 @@ msgstr ""
 #: app/fileItem.js:337
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Neplatné povolenia v súbore pracovnej plochy"
+msgstr "Neplatné povolenia pre súbor pracovnej plochy"
 
 #: app/fileItem.js:338
 msgid ""
@@ -456,7 +457,7 @@ msgstr "Otvoriť"
 #: app/fileItemMenu.js:273
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Tento typ zásobníka"
+msgstr "Stack Tento typ"
 
 #: app/fileItemMenu.js:273
 #, fuzzy
@@ -538,7 +539,6 @@ msgid "Send to Mobile Device"
 msgstr "Odoslať do mobilného zariadenia"
 
 #: app/fileItemMenu.js:378
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -634,10 +634,12 @@ msgid "Show the trash icon in the desktop"
 msgstr "Zobraziť ikonu Koša na pracovnej ploche"
 
 #: app/preferencesFrame.js:43
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
 msgstr "Zobraziť externé jednotky na pracovnej ploche"
 
 #: app/preferencesFrame.js:44
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
 msgstr "Zobraziť sieťové jednotky na pracovnej ploche"
 
@@ -667,6 +669,7 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Najprv pridajte nové ikony na sekundárne monitory, ak sú k dispozícii"
 
 #: app/preferencesFrame.js:55
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Pridať nové jednotky na opačnú stranu obrazovky"
 
@@ -675,6 +678,7 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Zvýrazniť miesto pustenia počas operácie ťahania a pustenia"
 
 #: app/preferencesFrame.js:57
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "Na otváranie priečinkov použite Nemo"
@@ -687,7 +691,7 @@ msgstr "Pridajte emblém na mäkké odkazy"
 #: app/preferencesFrame.js:59
 #, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "V menovkách ikon používajte tmavý text"
+msgstr "Na štítkoch ikon použite tmavý text"
 
 #: app/preferencesFrame.js:64
 msgid "Settings shared with Nautilus"
@@ -764,6 +768,147 @@ msgstr ""
 msgid "Command not found"
 msgstr "Príkaz sa nenašiel"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+msgid "Icon size"
+msgstr "Veľkosť ikon"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
+msgid "Set the size for the desktop icons."
+msgstr "Nastaví veľkosť ikon na pracovnej ploche."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+msgid "Show personal folder"
+msgstr "Zobraziť osobný priečinok"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+msgid "Show the personal folder in the desktop."
+msgstr "Zobrazí osobný priečinok na pracovnej ploche."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+msgid "Show trash icon"
+msgstr "Zobraziť ikonu Koša"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
+msgid "Show the trash icon in the desktop."
+msgstr "Zobrazí ikonu Koša na pracovnej ploche."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
+msgid "New icons start corner"
+msgstr "Počiatočný roh pre nové ikony"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+msgid "Set the corner from where the icons will start to be placed."
+msgstr "Nastaví roh, z ktorého začnú byť umiestňované ikony."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
+msgid "Show the disk drives connected to the computer."
+msgstr "Zobrazí diskové jednotky pripojené k počítaču."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
+msgid "Show mounted network volumes in the desktop."
+msgstr "Zobrazí pripojené sieťové zväzky na pracovnej ploche."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"Pri pridaní jednotiek a zväzkov na pracovnú plochu, budú pridané na opačnú "
+"stranu obrazovky."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+msgid "Shows a rectangle in the destination place during DnD"
+msgstr "Zobrazí obdĺžnik v cieľovom umiestnení počas ťahania a pustenia"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"Počas vykonávania operácie ťahania a pustenia sa označí miesto v mriežke, "
+"kde bude ikona umiestnená, polopriehladným obdĺžnikom."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+msgid "Sort Special Folders - Home/Trash Drives."
+msgstr "Usporiadať špeciálne priečinky - Domov/Kôš, jednotky."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"Pri usporiadaní ikon na ploche, usporiadať a zmeniť pozíciu ikon pre Domov, "
+"Kôš a pripojených sieťových alebo externých jednotiek"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
+msgid "Keep Icons Arranged"
+msgstr "Udržiavať ikony usporiadané"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+msgid "Always keep Icons Arranged by the last arranged order"
+msgstr "Vždy zachovať ikony usporiadané podľa posledného poradia usporiadania"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
+msgid "Arrange Order"
+msgstr "Poradie usporiadania"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+msgid "Icons Arranged by this property"
+msgstr "Ikony budú zoradené podľa tejto vlastnosti"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+#, fuzzy
+msgid "Keep Icons Stacked"
+msgstr "Udržiavať ikony usporiadané"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+#, fuzzy
+msgid "Always keep Icons Stacked, Similar types are grouped"
+msgstr "Vždy zachovať ikony usporiadané podľa posledného poradia usporiadania"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+msgid "Type of Files to not Stack"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+msgid "An Array of strings types, Don't Stack these types of files"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
+#, fuzzy
+msgid "Use Nemo instead of Nautilus to open folders."
+msgstr "Na otváranie priečinkov použite Nemo"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#, fuzzy
+msgid "Add an emblem to links"
+msgstr "Pridajte emblém na mäkké odkazy"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#, fuzzy
+msgid "Add an emblem to allow to identify soft links."
+msgstr "Pridajte emblém na mäkké odkazy"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+msgid "Use black for label text"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+msgid "Show new icons on non primary monitor if connected"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
 #~ msgstr ""
@@ -781,85 +926,6 @@ msgstr "Príkaz sa nenašiel"
 
 #~ msgid "Sort by Size"
 #~ msgstr "Usporiadať podľa veľkosti"
-
-#~ msgid "Icon size"
-#~ msgstr "Veľkosť ikon"
-
-#~ msgid "Set the size for the desktop icons."
-#~ msgstr "Nastaví veľkosť ikon na pracovnej ploche."
-
-#~ msgid "Show personal folder"
-#~ msgstr "Zobraziť osobný priečinok"
-
-#~ msgid "Show the personal folder in the desktop."
-#~ msgstr "Zobrazí osobný priečinok na pracovnej ploche."
-
-#~ msgid "Show trash icon"
-#~ msgstr "Zobraziť ikonu Koša"
-
-#~ msgid "Show the trash icon in the desktop."
-#~ msgstr "Zobrazí ikonu Koša na pracovnej ploche."
-
-#~ msgid "New icons start corner"
-#~ msgstr "Počiatočný roh pre nové ikony"
-
-#~ msgid "Set the corner from where the icons will start to be placed."
-#~ msgstr "Nastaví roh, z ktorého začnú byť umiestňované ikony."
-
-#~ msgid "Show the disk drives connected to the computer."
-#~ msgstr "Zobrazí diskové jednotky pripojené k počítaču."
-
-#~ msgid "Show mounted network volumes in the desktop."
-#~ msgstr "Zobrazí pripojené sieťové zväzky na pracovnej ploche."
-
-#~ msgid ""
-#~ "When adding drives and volumes to the desktop, add them to the opposite "
-#~ "side of the screen."
-#~ msgstr ""
-#~ "Pri pridaní jednotiek a zväzkov na pracovnú plochu, budú pridané na "
-#~ "opačnú stranu obrazovky."
-
-#~ msgid "Shows a rectangle in the destination place during DnD"
-#~ msgstr "Zobrazí obdĺžnik v cieľovom umiestnení počas ťahania a pustenia"
-
-#~ msgid ""
-#~ "When doing a Drag'n'Drop operation, marks the place in the grid where the "
-#~ "icon will be put with a semitransparent rectangle."
-#~ msgstr ""
-#~ "Počas vykonávania operácie ťahania a pustenia sa označí miesto v mriežke, "
-#~ "kde bude ikona umiestnená, polopriehladným obdĺžnikom."
-
-#~ msgid "Sort Special Folders - Home/Trash Drives."
-#~ msgstr "Usporiadať špeciálne priečinky - Domov/Kôš, jednotky."
-
-#~ msgid ""
-#~ "When arranging Icons on desktop, to sort and change the position of the "
-#~ "Home, Trash and mounted Network or External Drives"
-#~ msgstr ""
-#~ "Pri usporiadaní ikon na ploche, usporiadať a zmeniť pozíciu ikon pre "
-#~ "Domov, Kôš a pripojených sieťových alebo externých jednotiek"
-
-#~ msgid "Keep Icons Arranged"
-#~ msgstr "Udržiavať ikony usporiadané"
-
-#~ msgid "Always keep Icons Arranged by the last arranged order"
-#~ msgstr ""
-#~ "Vždy zachovať ikony usporiadané podľa posledného poradia usporiadania"
-
-#~ msgid "Arrange Order"
-#~ msgstr "Poradie usporiadania"
-
-#~ msgid "Icons Arranged by this property"
-#~ msgstr "Ikony budú zoradené podľa tejto vlastnosti"
-
-#, fuzzy
-#~ msgid "Keep Icons Stacked"
-#~ msgstr "Udržiavať ikony usporiadané"
-
-#, fuzzy
-#~ msgid "Always keep Icons Stacked, Similar types are grouped"
-#~ msgstr ""
-#~ "Vždy zachovať ikony usporiadané podľa posledného poradia usporiadania"
 
 #~ msgid ""
 #~ "To configure Desktop Icons NG, do right-click in the desktop and choose "

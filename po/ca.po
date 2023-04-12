@@ -5,17 +5,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-04 09:49-0500\n"
-"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"PO-Revision-Date: 2023-04-08 16:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -25,7 +25,7 @@ msgstr "Nom de la carpeta"
 msgid "File name"
 msgstr "Nom del fitxer"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1258
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
 msgid "OK"
 msgstr "D'acord"
 
@@ -44,8 +44,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Per poder treballar amb fitxers comprimits, instal·leu file-roller i/o gir-1."
-"2-gnomeAutoAr"
+"Per poder treballar amb fitxers comprimits, instal·leu file-roller i/o "
+"gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
@@ -57,8 +57,8 @@ msgstr "Extracció de fitxers"
 msgid "Compressing files"
 msgstr "Comprimint fitxers"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:822
-#: app/desktopManager.js:1260 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
+#: app/desktopManager.js:1313 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Cancel·la"
 
@@ -198,187 +198,189 @@ msgstr "No s'han trobat fitxers de GNOME"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Desktop Icons NG requereix l'aplicació GNOME Files."
 
-#: app/desktopManager.js:723
+#: app/desktopManager.js:771
 #, fuzzy
 msgid "Could not open File"
 msgstr "No s'ha pogut obrir el fitxer"
 
-#: app/desktopManager.js:724
+#: app/desktopManager.js:772
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} no pot obrir fitxers d'aquest tipus!"
 
-#: app/desktopManager.js:819
+#: app/desktopManager.js:869
 #, fuzzy
 msgid "Move"
 msgstr "Mou-te"
 
-#: app/desktopManager.js:820 app/fileItemMenu.js:306
+#: app/desktopManager.js:870 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Copia"
 
-#: app/desktopManager.js:821
+#: app/desktopManager.js:871
 #, fuzzy
 msgid "Link"
 msgstr "Enllaç"
 
-#: app/desktopManager.js:824
+#: app/desktopManager.js:874
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Trieu Acció per als fitxers"
 
-#: app/desktopManager.js:893 app/desktopManager.js:925
+#: app/desktopManager.js:944 app/desktopManager.js:976
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Ha fallat en fer SymLink"
 
-#: app/desktopManager.js:894 app/desktopManager.js:926
+#: app/desktopManager.js:945 app/desktopManager.js:977
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "No s'ha pogut crear l'enllaç simbòlic"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1269
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Esborra la selecció actual abans de fer una nova cerca"
 
-#: app/desktopManager.js:1262
+#: app/desktopManager.js:1315
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Cerca fitxers a l'escriptori"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1570
 #, fuzzy
 msgid "Name"
 msgstr "Nom"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nom Z-A"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1572
 #, fuzzy
 msgid "Modified Time"
 msgstr "Hora modificada"
 
-#: app/desktopManager.js:1520
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Type"
 msgstr "Tipus"
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Size"
 msgstr "Mida"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1577
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Mantenir-se ordenat…"
 
-#: app/desktopManager.js:1528
+#: app/desktopManager.js:1581
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Mantenir apilats per tipus…"
 
-#: app/desktopManager.js:1529
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordena Inici/Unitats/Paperera…"
 
-#: app/desktopManager.js:1534 app/desktopManager.js:2543
+#: app/desktopManager.js:1587 app/desktopManager.js:2601
 msgid "New Folder"
 msgstr "Carpeta nova"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1591
 msgid "New Document"
 msgstr "Document nou"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1595
 msgid "Paste"
 msgstr "Enganxa"
 
-#: app/desktopManager.js:1543
+#: app/desktopManager.js:1596
 msgid "Undo"
 msgstr "Desfés"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1597
 msgid "Redo"
 msgstr "Refés"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1602
 #, fuzzy
 msgid "Select All"
 msgstr "Seleccionar tot"
 
-#: app/desktopManager.js:1554
+#: app/desktopManager.js:1607
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Organitza les icones"
 
-#: app/desktopManager.js:1558
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Organitza per…"
 
-#: app/desktopManager.js:1563
+#: app/desktopManager.js:1616
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Mostra l'escriptori als fitxers del GNOME"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1617
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Obre a la terminal"
 
-#: app/desktopManager.js:1569
+#: app/desktopManager.js:1622
 msgid "Change Background…"
 msgstr "Canvia el fons de l'escriptori…"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Configuració d'icones de l'escriptori"
 
-#: app/desktopManager.js:1575
+#: app/desktopManager.js:1628
 msgid "Display Settings"
 msgstr "Paràmetres de la pantalla"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "La finestra de preferències està oberta"
 
-#: app/desktopManager.js:1618
+#: app/desktopManager.js:1671
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "Aquesta finestra està oberta. Si us plau, canvieu a la finestra activa."
+msgstr ""
+"Aquesta finestra està oberta. Si us plau, canvieu a la finestra activa."
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1683
 msgid "Settings"
 msgstr "Paràmetres"
 
-#: app/desktopManager.js:2566
+#: app/desktopManager.js:2624
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "La creació de la carpeta ha fallat"
+msgstr "No s'ha pogut crear la carpeta"
 
-#: app/desktopManager.js:2567
+#: app/desktopManager.js:2625
 #, fuzzy
 msgid "Could not create folder"
 msgstr "No s'ha pogut crear la carpeta"
 
-#: app/desktopManager.js:2610
+#: app/desktopManager.js:2668
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Error de creació de plantilla"
 
-#: app/desktopManager.js:2611
+#: app/desktopManager.js:2669
 #, fuzzy
 msgid "Could not create document"
 msgstr "No s'ha pogut crear el document"
 
+#. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:141
 msgid "Home"
 msgstr "Inici"
@@ -424,8 +426,8 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Estableix els permisos, a \"Accés d'altres\", \"Només lectura\" o \"Cap\""
-"</b>"
+"<b>Estableix els permisos, a \"Accés d'altres\", \"Només lectura\" o \"Cap"
+"\"</b>"
 
 #: app/fileItem.js:343
 #, fuzzy
@@ -633,10 +635,12 @@ msgid "Show the trash icon in the desktop"
 msgstr "Mostra la icona de la paperera a l'escriptori"
 
 #: app/preferencesFrame.js:43
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
 msgstr "Mostra les unitats externes a l'escriptori"
 
 #: app/preferencesFrame.js:44
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
 msgstr "Mostra les unitats de xarxa a l'escriptori"
 
@@ -664,9 +668,10 @@ msgstr "Cantonada inferior dreta"
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
-"Afegiu primer icones noves als monitors secundaris, si estan disponibles"
+"Afegiu icones noves als monitors secundaris primer, si estan disponibles"
 
 #: app/preferencesFrame.js:55
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Afegeix noves unitats al costat oposat de la pantalla"
 
@@ -675,6 +680,7 @@ msgid "Highlight the drop place during Drag'n'Drop"
 msgstr "Ressalta el lloc desplegable durant l'arrossegat"
 
 #: app/preferencesFrame.js:57
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "Utilitzeu Nemo per obrir carpetes"
@@ -765,58 +771,150 @@ msgstr ""
 msgid "Command not found"
 msgstr "No s'ha trobat l'ordre"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+msgid "Icon size"
+msgstr "Mida d'icona"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
+msgid "Set the size for the desktop icons."
+msgstr "Estableix la mida per les icones de l'escriptori."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+msgid "Show personal folder"
+msgstr "Mostra la carpeta personal"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+msgid "Show the personal folder in the desktop."
+msgstr "Mostra la carpeta personal a l'escriptori."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+msgid "Show trash icon"
+msgstr "Mostra la icona de la paperera"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
+msgid "Show the trash icon in the desktop."
+msgstr "Mostra la icona de la paperera a l'escriptori."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
+msgid "New icons start corner"
+msgstr "Angle d'inici de les icones noves"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+msgid "Set the corner from where the icons will start to be placed."
+msgstr "Estableix la cantonada des d'on s'iniciaran les icones."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
+msgid "Show the disk drives connected to the computer."
+msgstr "Mostra les unitats de disc connectades a l'ordinador."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
+msgid "Show mounted network volumes in the desktop."
+msgstr "Mostra els volums de xarxa muntats a l'escriptori."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"Quan s'afegeixin unitats i volums a l'escriptori, afegiu-los a la part "
+"oposada de la pantalla."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+msgid "Shows a rectangle in the destination place during DnD"
+msgstr "Mostra un rectangle al lloc de destinació durant el DnD"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"En fer una operació d'arrossegar i deixar anar, marca el lloc a la graella "
+"on la icona es posarà amb un rectangle semitransparent."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+msgid "Sort Special Folders - Home/Trash Drives."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
+#, fuzzy
+msgid "Keep Icons Arranged"
+msgstr "Mantenir-se ordenat…"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+msgid "Always keep Icons Arranged by the last arranged order"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
+#, fuzzy
+msgid "Arrange Order"
+msgstr "Organitza les icones"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+msgid "Icons Arranged by this property"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+msgid "Keep Icons Stacked"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+msgid "Always keep Icons Stacked, Similar types are grouped"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+msgid "Type of Files to not Stack"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+msgid "An Array of strings types, Don't Stack these types of files"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
+#, fuzzy
+msgid "Use Nemo instead of Nautilus to open folders."
+msgstr "Utilitzeu Nemo per obrir carpetes"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#, fuzzy
+msgid "Add an emblem to links"
+msgstr "Afegiu un emblema als enllaços suaus"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#, fuzzy
+msgid "Add an emblem to allow to identify soft links."
+msgstr "Afegiu un emblema als enllaços suaus"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+msgid "Use black for label text"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+msgid "Show new icons on non primary monitor if connected"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
 #~ msgstr ""
 #~ "El gestor de fitxers Nautilus és obligatori per a treballar amb les "
 #~ "icones de l'escriptori NG."
-
-#~ msgid "Icon size"
-#~ msgstr "Mida d'icona"
-
-#~ msgid "Set the size for the desktop icons."
-#~ msgstr "Estableix la mida per les icones de l'escriptori."
-
-#~ msgid "Show personal folder"
-#~ msgstr "Mostra la carpeta personal"
-
-#~ msgid "Show the personal folder in the desktop."
-#~ msgstr "Mostra la carpeta personal a l'escriptori."
-
-#~ msgid "Show trash icon"
-#~ msgstr "Mostra la icona de la paperera"
-
-#~ msgid "Show the trash icon in the desktop."
-#~ msgstr "Mostra la icona de la paperera a l'escriptori."
-
-#~ msgid "New icons start corner"
-#~ msgstr "Angle d'inici de les icones noves"
-
-#~ msgid "Set the corner from where the icons will start to be placed."
-#~ msgstr "Estableix la cantonada des d'on s'iniciaran les icones."
-
-#~ msgid "Show the disk drives connected to the computer."
-#~ msgstr "Mostra les unitats de disc connectades a l'ordinador."
-
-#~ msgid "Show mounted network volumes in the desktop."
-#~ msgstr "Mostra els volums de xarxa muntats a l'escriptori."
-
-#~ msgid ""
-#~ "When adding drives and volumes to the desktop, add them to the opposite "
-#~ "side of the screen."
-#~ msgstr ""
-#~ "Quan s'afegeixin unitats i volums a l'escriptori, afegiu-los a la part "
-#~ "oposada de la pantalla."
-
-#~ msgid "Shows a rectangle in the destination place during DnD"
-#~ msgstr "Mostra un rectangle al lloc de destinació durant el DnD"
-
-#~ msgid ""
-#~ "When doing a Drag'n'Drop operation, marks the place in the grid where the "
-#~ "icon will be put with a semitransparent rectangle."
-#~ msgstr ""
-#~ "En fer una operació d'arrossegar i deixar anar, marca el lloc a la "
-#~ "graella on la icona es posarà amb un rectangle semitransparent."
 
 #~ msgid ""
 #~ "To configure Desktop Icons NG, do right-click in the desktop and choose "
