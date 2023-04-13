@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-10 16:43+0200\n"
-"PO-Revision-Date: 2023-04-08 16:50+0000\n"
+"PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -839,21 +839,22 @@ msgstr "Toon het prullenbakpictogram op het bureaublad."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 #, fuzzy
 msgid "New icons start corner"
-msgstr "Pictogramgrootte"
+msgstr "Nieuwe iconen starthoek"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+#, fuzzy
 msgid "Set the corner from where the icons will start to be placed."
-msgstr ""
+msgstr "Stel de hoek in waar de pictogrammen worden geplaatst."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 #, fuzzy
 msgid "Show the disk drives connected to the computer."
-msgstr "Toon de persoonlijke map op het bureaublad"
+msgstr "Toon de schijfstations die op de computer zijn aangesloten."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
-msgstr "Toon de persoonlijke map op het bureaublad."
+msgstr "Toon gekoppelde netwerkvolumes op het bureaublad."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
@@ -863,8 +864,9 @@ msgid ""
 msgstr "Voeg nieuwe schijven toe aan de andere kant van het scherm"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+#, fuzzy
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr ""
+msgstr "Toont een rechthoek op de plaats van bestemming tijdens DnD"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""
@@ -873,8 +875,9 @@ msgid ""
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+#, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr ""
+msgstr "Speciale mappen sorteren - Home/Trash Drives."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 msgid ""
@@ -885,65 +888,78 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "Blijf Gerangschikt…"
+msgstr "Houd pictogrammen gerangschikt"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+#, fuzzy
 msgid "Always keep Icons Arranged by the last arranged order"
 msgstr ""
+"Houd pictogrammen altijd gerangschikt op de laatst gearrangeerde volgorde"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
 msgid "Arrange Order"
-msgstr "Iconen sorteren"
+msgstr "Bestelling regelen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+#, fuzzy
 msgid "Icons Arranged by this property"
-msgstr ""
+msgstr "Iconen Gerangschikt door deze eigenschap"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+#, fuzzy
 msgid "Keep Icons Stacked"
-msgstr ""
+msgstr "Houd pictogrammen gestapeld"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+#, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr ""
+"Houd pictogrammen altijd gestapeld, vergelijkbare typen zijn gegroepeerd"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+#, fuzzy
 msgid "Type of Files to not Stack"
-msgstr ""
+msgstr "Type bestanden om niet te stapelen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+#, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
+msgstr "Een array van typen strings, stapel dit soort bestanden niet"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Gebruik Nemo om mappen te openen"
+msgstr "Gebruik Nemo in plaats van Nautilus om mappen te openen."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Voeg een embleem toe aan softlinks"
+msgstr "Voeg een embleem toe aan links"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Voeg een embleem toe aan softlinks"
+msgstr "Voeg een embleem toe om zachte links te identificeren."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#, fuzzy
 msgid "Use black for label text"
-msgstr ""
+msgstr "Gebruik zwart voor labeltekst"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
+"Verf de labeltekst in zwart in plaats van wit. Handig bij gebruik van lichte "
+"achtergronden."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
+msgstr "Toon nieuwe pictogrammen op niet-primaire monitor indien aangesloten"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 msgid ""

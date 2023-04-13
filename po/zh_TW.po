@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-10 16:43+0200\n"
-"PO-Revision-Date: 2023-03-05 15:42+0000\n"
+"PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -813,7 +813,7 @@ msgstr "顯示連接於本機的硬碟"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
-msgstr "在桌面顯示個人資料夾。"
+msgstr "在桌面上顯示已安裝的網絡卷。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
@@ -821,7 +821,7 @@ msgstr "在桌面顯示個人資料夾。"
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
-msgstr "將新掛載硬碟置於螢幕的另一邊"
+msgstr "將驅動器和卷添加到桌面時，將它們添加到屏幕的另一側。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
@@ -834,83 +834,95 @@ msgid ""
 msgstr "當執行拖曳，在圖示即將被置放的位置用半透明矩形顯示方格"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+#, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr ""
+msgstr "排序特殊文件夾 - 主頁/垃圾驅動器。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+#, fuzzy
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
-msgstr ""
+msgstr "在桌面上排列圖標時，排序和更改主頁、垃圾箱和已安裝的網絡或外部驅動器的位置"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "保持安排…"
+msgstr "保持圖標排列"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+#, fuzzy
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr ""
+msgstr "始終保持圖標按最後排列的順序排列"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
 msgid "Arrange Order"
-msgstr "排列圖標"
+msgstr "安排訂單"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+#, fuzzy
 msgid "Icons Arranged by this property"
-msgstr ""
+msgstr "此屬性排列的圖標"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+#, fuzzy
 msgid "Keep Icons Stacked"
-msgstr ""
+msgstr "保持圖標堆疊"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+#, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
+msgstr "始終保持圖標堆疊，相似類型分組"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+#, fuzzy
 msgid "Type of Files to not Stack"
-msgstr ""
+msgstr "不堆疊的文件類型"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+#, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
+msgstr "字符串類型的數組，不要堆疊這些類型的文件"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "使用 Nemo 打開文件夾"
+msgstr "使用 Nemo 而不是 Nautilus 打開文件夾。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "為軟鏈接添加標誌"
+msgstr "為鏈接添加標誌"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "為軟鏈接添加標誌"
+msgstr "添加標誌以允許識別軟鏈接。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#, fuzzy
 msgid "Use black for label text"
-msgstr ""
+msgstr "使用黑色作為標籤文本"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
-msgstr ""
+msgstr "將標籤文本塗成黑色而不是白色。使用淺色背景時很有用。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
+msgstr "如果已連接，則在非主監視器上顯示新圖標"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
-msgstr ""
+msgstr "如果連接了第二台顯示器，新圖標將放置在非主顯示器上"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
