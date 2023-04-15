@@ -48,8 +48,6 @@ function fillPreferencesWindow(window) {
     else
         nautilusSettings = new Gio.Settings({ settings_schema: schemaNautilus });
 
-    const gettext = Gettext.domain(Me.metadata.uuid).gettext;
-
-    const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(Gtk, GObject, desktopSettings, nautilusSettings, gtkSettings, gettext, Adw, Gio);
+    const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings);
     preferencesWindow.getAdwPreferencesWindow(window);
 }

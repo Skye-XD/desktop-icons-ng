@@ -67,8 +67,8 @@ var Preferences = class {
         this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
         this._cacheInitialSettings();
 
-        this._adwPreferencesWindow = new Data.AdwPreferencesWindow.AdwPreferencesWindow(Gtk, GObject, this.desktopSettings,
-            this.nautilusSettings, this.gtkSettings, _, Adw, Gio);
+        this._adwPreferencesWindow = new Data.AdwPreferencesWindow.AdwPreferencesWindow(this.desktopSettings,
+            this.nautilusSettings, this.gtkSettings);
     }
 
     _get_schema(schema) {
