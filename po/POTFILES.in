@@ -1,3 +1,4 @@
+app/adwPreferencesWindow.js
 app/askRenamePopup.js
 app/autoAr.js
 app/createThumbnail.js
@@ -9,7 +10,6 @@ app/enums.js
 app/fileItem.js
 app/fileItemMenu.js
 app/preferences.js
-app/preferencesFrame.js
 app/showErrorPopup.js
 app/stackItem.js
 app/templatesScriptsManager.js
