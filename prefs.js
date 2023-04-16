@@ -20,7 +20,6 @@
 /* exported init, buildPrefsWidget */
 const { Gio } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
-const Gettext = imports.gettext;
 
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
@@ -36,6 +35,12 @@ function init() {
     ExtensionUtils.initTranslations(Me.metadata.uuid);
 }
 
+/**
+ * prefs fillPreferencesWindow
+ *
+ * @param {AdwPreferencesWindow} window a preferences window from the shell
+ * @returns {void}
+ */
 function fillPreferencesWindow(window) {
     let desktopSettings = ExtensionUtils.getSettings();
     let schemaSource = GioSSS.get_default();
@@ -48,6 +53,6 @@ function fillPreferencesWindow(window) {
     else
         nautilusSettings = new Gio.Settings({ settings_schema: schemaNautilus });
 
-    const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings);
+    const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, Me.path);
     preferencesWindow.getAdwPreferencesWindow(window);
 }

@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { Gtk, Gio, GObject, Adw } = imports.gi;
+const { Gtk, Gdk, GLib, Gio, GObject, Adw } = imports.gi;
 const Gettext = imports.gettext;
 var _ = Gettext.domain('gtk4-ding').gettext;
 
@@ -147,10 +147,14 @@ const ComboRowWithKey = GObject.registerClass({
 
 
 var AdwPreferencesWindow = class {
-    constructor(desktopSettings, nautilusSettings, gtkSettings) {
+    constructor(desktopSettings, nautilusSettings, gtkSettings, extensionPath) {
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;
         this.gtkSettings = gtkSettings;
+        this.iconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        this.iconPath = GLib.build_filenamev([extensionPath, 'icons']);
+        this.iconTheme.add_resource_path(this.iconPath);
+        this.iconTheme.add_search_path(this.iconPath);
     }
 
     getAdwPreferencesWindow(window = null) {
@@ -165,17 +169,17 @@ var AdwPreferencesWindow = class {
         const prefsFrame = new Adw.PreferencesPage();
         prefsFrame.set_name(_('Desktop'));
         prefsFrame.set_title(_('Desktop'));
-        prefsFrame.set_icon_name('user-desktop-symbolic');
+        prefsFrame.set_icon_name('prefs-desktop-symbolic');
 
         const filesPrefsFrame = new Adw.PreferencesPage();
         filesPrefsFrame.set_name(_('Files'));
         filesPrefsFrame.set_title(_('Files'));
-        filesPrefsFrame.set_icon_name('folder-symbolic');
+        filesPrefsFrame.set_icon_name('prefs-files-symbolic');
 
         const tweaksFrame = new Adw.PreferencesPage();
         tweaksFrame.set_name(_('Tweaks'));
         tweaksFrame.set_title(_('Tweaks'));
-        tweaksFrame.set_icon_name('view-more-symbolic');
+        tweaksFrame.set_icon_name('prefs-more-symbolic');
 
         prefsWindow.add(prefsFrame);
         prefsWindow.add(filesPrefsFrame);

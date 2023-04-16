@@ -19,7 +19,7 @@
 
 imports.gi.versions.Gtk = '4.0';
 
-const { GLib, Gtk, GObject, Gio, Gdk, Adw } = imports.gi;
+const { GLib, Gtk, Gio, Gdk } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 
 const Gettext = imports.gettext;
@@ -68,7 +68,7 @@ var Preferences = class {
         this._cacheInitialSettings();
 
         this._adwPreferencesWindow = new Data.AdwPreferencesWindow.AdwPreferencesWindow(this.desktopSettings,
-            this.nautilusSettings, this.gtkSettings);
+            this.nautilusSettings, this.gtkSettings, this._extensionPath);
     }
 
     _get_schema(schema) {
