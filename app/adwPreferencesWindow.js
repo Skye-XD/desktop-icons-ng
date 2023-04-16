@@ -96,12 +96,34 @@ const ComboRowWithKey = GObject.registerClass({
     }
 
     makeEnumn(enumexpression) {
+        const listStore = new Gio.ListStore(ListObject._$gtype);
         this.enumExpression = {};
         let i = 0;
         for (let key in enumexpression) {
             this.enumExpression[key] = parseInt(i);
+            let listObject = new ListObject();
+            listObject.indexkey = key;
+            listObject.description = enumexpression[key];
+            listStore.append(listObject);
             i += 1;
         }
+
+        this.set_model(listStore);
+
+        const listFactory = new Gtk.SignalListItemFactory();
+        listFactory.connect('setup', (actor, listitem) => {
+            let label = new Gtk.Label();
+            listitem.set_child(label);
+        });
+        listFactory.connect('bind', (actor, listitem) => {
+            let label = listitem.get_child();
+            let item = listitem.get_item();
+            label.set_text(item.description);
+        });
+        this.set_factory(listFactory);
+
+        const expression = new Gtk.PropertyExpression(ListObject, null, 'description');
+        this.set_expression(expression);
     }
 
     get indexkey() {
@@ -148,7 +170,7 @@ var AdwPreferencesWindow = class {
         const filesPrefsFrame = new Adw.PreferencesPage();
         filesPrefsFrame.set_name(_('Files'));
         filesPrefsFrame.set_title(_('Files'));
-        filesPrefsFrame.set_icon_name('user-home-symbolic');
+        filesPrefsFrame.set_icon_name('folder-symbolic');
 
         const tweaksFrame = new Adw.PreferencesPage();
         tweaksFrame.set_name(_('Tweaks'));
@@ -244,7 +266,7 @@ var AdwPreferencesWindow = class {
         switcher.set_vexpand(false);
         actionRow.set_title(labelText);
         actionRow.add_suffix(switcher);
-        settings.bind(key, switcher, 'active', 3);  // Gio.SettingsBindFlags.DEFAULT = 3
+        settings.bind(key, switcher, 'active', Gio.SettingsBindFlags.DEFAULT);
         actionRow.set_activatable_widget(switcher);
 
         return actionRow;
@@ -255,33 +277,8 @@ var AdwPreferencesWindow = class {
         actionRow.set_title(labelText);
         actionRow.set_use_subtitle(false);
         actionRow.makeEnumn(elements);
-
-        const listStore = new Gio.ListStore(ListObject._$gtype);
-        for (let keys in elements) {
-            let listObject = new ListObject();
-            listObject.indexkey = keys;
-            listObject.description = elements[keys];
-            listStore.append(listObject);
-        }
-        actionRow.set_model(listStore);
-
-        let listFactory = new Gtk.SignalListItemFactory();
-        listFactory.connect('setup', (actor, listitem) => {
-            let label = new Gtk.Label();
-            listitem.set_child(label);
-        });
-        listFactory.connect('bind', (actor, listitem) => {
-            let label = listitem.get_child();
-            let item = listitem.get_item();
-            label.set_text(item.description);
-        });
-        actionRow.set_factory(listFactory);
-
-        let expression = new Gtk.PropertyExpression(ListObject, null, 'description');
-        actionRow.set_expression(expression);
-
         actionRow.set_selected(settings.get_enum(key));
-        settings.bind(key, actionRow, 'indexkey', 3);  // Gio.SettingsBindFlags.DEFAULT = 3
+        settings.bind(key, actionRow, 'indexkey', Gio.SettingsBindFlags.DEFAULT);
 
         return actionRow;
     }

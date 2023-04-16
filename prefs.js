@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /* exported init, buildPrefsWidget */
-const { Gtk, Gio, GObject, Adw } = imports.gi;
+const { Gio } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 const Gettext = imports.gettext;
 
