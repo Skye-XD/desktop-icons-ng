@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"POT-Creation-Date: 2023-04-16 08:10-0400\n"
 "PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,6 +19,186 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Weblate 4.17-dev\n"
+
+#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+msgid "Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+msgid "Files"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:205
+msgid "Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:190
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "הגדרות סמל שולחן העבודה"
+
+#: app/adwPreferencesWindow.js:191
+#, fuzzy
+#| msgid "Size for the desktop icons"
+msgid "Settings for the Desktop Program"
+msgstr "הגדר את הגודל עבור סמלי שולחן העבודה."
+
+#: app/adwPreferencesWindow.js:195
+msgid "Volumes"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:196
+msgid "Desktop volumes display"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:200
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Files Settings"
+msgstr "הגדרות תצוגה"
+
+#: app/adwPreferencesWindow.js:201
+#, fuzzy
+msgid "Settings shared with Gnome Files"
+msgstr "הגדרות משותפות עם Nautilus"
+
+#: app/adwPreferencesWindow.js:206
+msgid "Miscellaneous Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:211
+msgid "Size for the desktop icons"
+msgstr "גודל הסמלים בשולחן העבודה"
+
+#: app/adwPreferencesWindow.js:213
+msgid "Tiny"
+msgstr "פצפון"
+
+#: app/adwPreferencesWindow.js:214
+msgid "Small"
+msgstr "קטן"
+
+#: app/adwPreferencesWindow.js:215
+msgid "Standard"
+msgstr "רגיל"
+
+#: app/adwPreferencesWindow.js:216
+msgid "Large"
+msgstr "גדול"
+
+#: app/adwPreferencesWindow.js:221
+#, fuzzy
+msgid "New icons alignment"
+msgstr "יישור אייקונים חדש"
+
+#: app/adwPreferencesWindow.js:223
+#, fuzzy
+msgid "Top left corner"
+msgstr "פינה שמאלית עליונה"
+
+#: app/adwPreferencesWindow.js:224
+#, fuzzy
+msgid "Top right corner"
+msgstr "פינה ימנית עליונה"
+
+#: app/adwPreferencesWindow.js:225
+#, fuzzy
+msgid "Bottom left corner"
+msgstr "פינה שמאלית תחתונה"
+
+#: app/adwPreferencesWindow.js:226
+#, fuzzy
+msgid "Bottom right corner"
+msgstr "פינה ימנית תחתונה"
+
+#: app/adwPreferencesWindow.js:229
+#, fuzzy
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr "הוסף תחילה סמלים חדשים לצגים משניים, אם זמינים"
+
+#: app/adwPreferencesWindow.js:231
+#, fuzzy
+msgid "Show the personal folder on the desktop"
+msgstr "הצג את התיקיה האישית בשולחן העבודה"
+
+#: app/adwPreferencesWindow.js:232
+#, fuzzy
+msgid "Show the trash icon on the desktop"
+msgstr "הצג את סמל האשפה בשולחן העבודה"
+
+#: app/adwPreferencesWindow.js:233
+#, fuzzy
+msgid "Show external drives on the desktop"
+msgstr "הצג כוננים חיצוניים בשולחן העבודה"
+
+#: app/adwPreferencesWindow.js:234
+#, fuzzy
+msgid "Show network drives on the desktop"
+msgstr "הצג כונני רשת בשולחן העבודה"
+
+#: app/adwPreferencesWindow.js:235
+#, fuzzy
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "הוסף כוננים חדשים לצד הנגדי של המסך"
+
+#: app/adwPreferencesWindow.js:237
+#, fuzzy
+msgid "Highlight the drop grid during Drag and Drop"
+msgstr "הדגש את מקום הירידה במהלך Drag'n'Drop"
+
+#: app/adwPreferencesWindow.js:238
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+#, fuzzy
+msgid "Use Nemo to open folders"
+msgstr "השתמש ב-Nemo כדי לפתוח תיקיות"
+
+#: app/adwPreferencesWindow.js:239
+#, fuzzy
+msgid "Add an emblem to soft links"
+msgstr "הוסף סמל לקישורים רכים"
+
+#: app/adwPreferencesWindow.js:240
+#, fuzzy
+msgid "Use dark text in icon labels"
+msgstr "השתמש בטקסט כהה בתוויות סמלים"
+
+#: app/adwPreferencesWindow.js:244
+msgid "Action to Open Items"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:246
+msgid "Single click"
+msgstr "לחיצה יחידה"
+
+#: app/adwPreferencesWindow.js:247
+msgid "Double click"
+msgstr "לחיצה כפולה"
+
+#: app/adwPreferencesWindow.js:251
+msgid "Show image thumbnails"
+msgstr "הצגת תמונות מממוזערות"
+
+#: app/adwPreferencesWindow.js:253
+msgid "Always"
+msgstr "תמיד"
+
+#: app/adwPreferencesWindow.js:254
+msgid "On this computer only"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:255
+msgid "Never"
+msgstr "אף פעם"
+
+#: app/adwPreferencesWindow.js:257
+#, fuzzy
+msgid "Show a context menu item to delete permanently"
+msgstr "הצג פריט בתפריט ההקשר למחיקה לצמיתות"
+
+#: app/adwPreferencesWindow.js:258
+msgid "Show hidden files"
+msgstr "הצגת קבצים מוסתרים"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -28,7 +208,7 @@ msgstr "שם התיקייה"
 msgid "File name"
 msgstr "שם הקובץ"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1305
 msgid "OK"
 msgstr "אישור"
 
@@ -60,8 +240,8 @@ msgstr "חילוץ קבצים"
 msgid "Compressing files"
 msgstr "דחיסת קבצים"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
-#: app/desktopManager.js:1313 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
+#: app/desktopManager.js:1307 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "ביטול"
 
@@ -190,194 +370,194 @@ msgstr "ארכיונים קטנים יותר אבל לינוקס ו-Mac בלבד
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "ארכיונים קטנים יותר אך חייבים להיות מותקן ב-Windows וב-Mac."
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:130
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "קבצי GNOME לא נמצאו"
 
-#: app/desktopManager.js:132
+#: app/desktopManager.js:131
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "היישום GNOME Files נדרש על ידי Desktop Icons NG."
 
-#: app/desktopManager.js:771
+#: app/desktopManager.js:765
 #, fuzzy
 msgid "Could not open File"
 msgstr "לא ניתן לפתוח את הקובץ"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:766
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} לא יכול לפתוח קבצים מסוג זה!"
 
-#: app/desktopManager.js:869
+#: app/desktopManager.js:863
 #, fuzzy
 msgid "Move"
 msgstr "מהלך \\ לזוז \\ לעבור"
 
-#: app/desktopManager.js:870 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "העתקה"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:865
 #, fuzzy
 msgid "Link"
 msgstr "קישור"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:868
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "בחר פעולה עבור קבצים"
 
-#: app/desktopManager.js:944 app/desktopManager.js:976
+#: app/desktopManager.js:938 app/desktopManager.js:970
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "ביצוע SymLink נכשל"
 
-#: app/desktopManager.js:945 app/desktopManager.js:977
+#: app/desktopManager.js:939 app/desktopManager.js:971
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "לא ניתן ליצור קישור סמלי"
 
-#: app/desktopManager.js:1269
+#: app/desktopManager.js:1263
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "נקה את הבחירה הנוכחית לפני חיפוש חדש"
 
-#: app/desktopManager.js:1315
+#: app/desktopManager.js:1309
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "מצא קבצים בשולחן העבודה"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Name"
 msgstr "שֵׁם"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Name Z-A"
 msgstr "שם Z-A"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1566
 #, fuzzy
 msgid "Modified Time"
 msgstr "זמן שונה"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1567
 #, fuzzy
 msgid "Type"
 msgstr "סוּג"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1568
 #, fuzzy
 msgid "Size"
 msgstr "גודל"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "שמור על סדר…"
 
-#: app/desktopManager.js:1581
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "שמור על ערימה לפי סוג…"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1576
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "מיין בית/כוננים/אשפה…"
 
-#: app/desktopManager.js:1587 app/desktopManager.js:2601
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 msgid "New Folder"
 msgstr "תיקיה חדשה"
 
-#: app/desktopManager.js:1591
+#: app/desktopManager.js:1585
 msgid "New Document"
 msgstr "מסמך חדש"
 
-#: app/desktopManager.js:1595
+#: app/desktopManager.js:1589
 msgid "Paste"
 msgstr "הדבקה"
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1590
 msgid "Undo"
 msgstr "ביטול פעולה"
 
-#: app/desktopManager.js:1597
+#: app/desktopManager.js:1591
 msgid "Redo"
 msgstr "ביצוע חוזר"
 
-#: app/desktopManager.js:1602
+#: app/desktopManager.js:1596
 #, fuzzy
 msgid "Select All"
 msgstr "בחר הכל"
 
-#: app/desktopManager.js:1607
+#: app/desktopManager.js:1601
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "סידור אייקונים"
 
-#: app/desktopManager.js:1611
+#: app/desktopManager.js:1605
 #, fuzzy
 msgid "Arrange By…"
 msgstr "לסדר לפי…"
 
-#: app/desktopManager.js:1616
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "הצג את שולחן העבודה בקבצי GNOME"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "פתח בטרמינל"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1616
 msgid "Change Background…"
 msgstr "שינוי הרקע…"
 
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "הגדרות סמל שולחן העבודה"
 
-#: app/desktopManager.js:1628
+#: app/desktopManager.js:1622
 msgid "Display Settings"
 msgstr "הגדרות תצוגה"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "חלון ההעדפות פתוח"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "חלון זה פתוח. נא לעבור לחלון הפעיל."
 
-#: app/desktopManager.js:1683
+#: app/desktopManager.js:1677
 msgid "Settings"
 msgstr "הגדרות"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2616
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "יצירת התיקייה נכשלה"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2617
 #, fuzzy
 msgid "Could not create folder"
 msgstr "לא ניתן ליצור תיקיה"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2660
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "שגיאה ביצירת תבנית"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2661
 #, fuzzy
 msgid "Could not create document"
 msgstr "לא ניתן ליצור מסמך"
@@ -623,166 +803,6 @@ msgstr "לא יכול לשלוח מדריך בדוא\"ל"
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "הבחירה כוללת ספרייה, תחילה דחוס את הספרייה לקובץ."
 
-#: app/preferencesFrame.js:40
-msgid "Size for the desktop icons"
-msgstr "גודל הסמלים בשולחן העבודה"
-
-#: app/preferencesFrame.js:40
-msgid "Tiny"
-msgstr "פצפון"
-
-#: app/preferencesFrame.js:40
-msgid "Small"
-msgstr "קטן"
-
-#: app/preferencesFrame.js:40
-msgid "Standard"
-msgstr "רגיל"
-
-#: app/preferencesFrame.js:40
-msgid "Large"
-msgstr "גדול"
-
-#: app/preferencesFrame.js:41
-#, fuzzy
-msgid "Show the personal folder in the desktop"
-msgstr "הצג את התיקיה האישית בשולחן העבודה"
-
-#: app/preferencesFrame.js:42
-#, fuzzy
-msgid "Show the trash icon in the desktop"
-msgstr "הצג את סמל האשפה בשולחן העבודה"
-
-#: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-#, fuzzy
-msgid "Show external drives in the desktop"
-msgstr "הצג כוננים חיצוניים בשולחן העבודה"
-
-#: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-#, fuzzy
-msgid "Show network drives in the desktop"
-msgstr "הצג כונני רשת בשולחן העבודה"
-
-#: app/preferencesFrame.js:47
-#, fuzzy
-msgid "New icons alignment"
-msgstr "יישור אייקונים חדש"
-
-#: app/preferencesFrame.js:49
-#, fuzzy
-msgid "Top-left corner"
-msgstr "פינה שמאלית עליונה"
-
-#: app/preferencesFrame.js:50
-#, fuzzy
-msgid "Top-right corner"
-msgstr "פינה ימנית עליונה"
-
-#: app/preferencesFrame.js:51
-#, fuzzy
-msgid "Bottom-left corner"
-msgstr "פינה שמאלית תחתונה"
-
-#: app/preferencesFrame.js:52
-#, fuzzy
-msgid "Bottom-right corner"
-msgstr "פינה ימנית תחתונה"
-
-#: app/preferencesFrame.js:54
-#, fuzzy
-msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "הוסף תחילה סמלים חדשים לצגים משניים, אם זמינים"
-
-#: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-#, fuzzy
-msgid "Add new drives to the opposite side of the screen"
-msgstr "הוסף כוננים חדשים לצד הנגדי של המסך"
-
-#: app/preferencesFrame.js:56
-#, fuzzy
-msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "הדגש את מקום הירידה במהלך Drag'n'Drop"
-
-#: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
-msgid "Use Nemo to open folders"
-msgstr "השתמש ב-Nemo כדי לפתוח תיקיות"
-
-#: app/preferencesFrame.js:58
-#, fuzzy
-msgid "Add an emblem to soft links"
-msgstr "הוסף סמל לקישורים רכים"
-
-#: app/preferencesFrame.js:59
-#, fuzzy
-msgid "Use dark text in icon labels"
-msgstr "השתמש בטקסט כהה בתוויות סמלים"
-
-#: app/preferencesFrame.js:64
-#, fuzzy
-msgid "Settings shared with Nautilus"
-msgstr "הגדרות משותפות עם Nautilus"
-
-#: app/preferencesFrame.js:79
-#, fuzzy
-msgid "Click type for open files"
-msgstr "לחץ על הקלד לקבצים פתוחים"
-
-#: app/preferencesFrame.js:79
-msgid "Single click"
-msgstr "לחיצה יחידה"
-
-#: app/preferencesFrame.js:79
-msgid "Double click"
-msgstr "לחיצה כפולה"
-
-#: app/preferencesFrame.js:80
-msgid "Show hidden files"
-msgstr "הצגת קבצים מוסתרים"
-
-#: app/preferencesFrame.js:81
-#, fuzzy
-msgid "Show a context menu item to delete permanently"
-msgstr "הצג פריט בתפריט ההקשר למחיקה לצמיתות"
-
-#: app/preferencesFrame.js:86
-#, fuzzy
-msgid "Action to do when launching a program from the desktop"
-msgstr "פעולה שיש לבצע בעת הפעלת תוכנית משולחן העבודה"
-
-#: app/preferencesFrame.js:87
-#, fuzzy
-msgid "Display the content of the file"
-msgstr "הצג את תוכן הקובץ"
-
-#: app/preferencesFrame.js:88
-msgid "Launch the file"
-msgstr "הפעלת הקובץ"
-
-#: app/preferencesFrame.js:89
-msgid "Ask what to do"
-msgstr "לשאול מה לעשות"
-
-#: app/preferencesFrame.js:95
-msgid "Show image thumbnails"
-msgstr "הצגת תמונות מממוזערות"
-
-#: app/preferencesFrame.js:96
-msgid "Never"
-msgstr "אף פעם"
-
-#: app/preferencesFrame.js:97
-msgid "Local files only"
-msgstr "לקבצים מקומיים בלבד"
-
-#: app/preferencesFrame.js:98
-msgid "Always"
-msgstr "תמיד"
-
 #: app/showErrorPopup.js:41
 #, fuzzy
 msgid "Close"
@@ -844,15 +864,30 @@ msgstr "פינת התחלה של אייקונים חדשים"
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "הגדר את הפינה ממנה יתחילו להציב את הסמלים."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+#, fuzzy
+msgid "Show external drives in the desktop"
+msgstr "הצג כוננים חיצוניים בשולחן העבודה"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 #, fuzzy
 msgid "Show the disk drives connected to the computer."
 msgstr "הצג את כונני הדיסקים המחוברים למחשב."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+#, fuzzy
+msgid "Show network drives in the desktop"
+msgstr "הצג כונני רשת בשולחן העבודה"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
 msgstr "הצג אמצעי אחסון רכובים ברשת בשולחן העבודה."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+#, fuzzy
+msgid "Add new drives to the opposite side of the screen"
+msgstr "הוסף כוננים חדשים לצד הנגדי של המסך"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
@@ -964,6 +999,27 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr "אם צג שני מחובר, סמלים חדשים ממוקמים על הצג הלא ראשי"
+
+#, fuzzy
+#~ msgid "Click type for open files"
+#~ msgstr "לחץ על הקלד לקבצים פתוחים"
+
+#, fuzzy
+#~ msgid "Action to do when launching a program from the desktop"
+#~ msgstr "פעולה שיש לבצע בעת הפעלת תוכנית משולחן העבודה"
+
+#, fuzzy
+#~ msgid "Display the content of the file"
+#~ msgstr "הצג את תוכן הקובץ"
+
+#~ msgid "Launch the file"
+#~ msgstr "הפעלת הקובץ"
+
+#~ msgid "Ask what to do"
+#~ msgstr "לשאול מה לעשות"
+
+#~ msgid "Local files only"
+#~ msgstr "לקבצים מקומיים בלבד"
 
 #~ msgid "Do you want to run “{0}”, or display its contents?"
 #~ msgstr "האם ברצונך להריץ את \"{0}\", או להציג את תוכנו?"

@@ -8,17 +8,203 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"POT-Creation-Date: 2023-04-16 08:10-0400\n"
 "PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.17-dev\n"
+
+#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+msgid "Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+msgid "Files"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:205
+msgid "Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:190
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "데스크탑 아이콘 설정"
+
+#: app/adwPreferencesWindow.js:191
+#, fuzzy
+#| msgid "Set the size for the desktop icons."
+msgid "Settings for the Desktop Program"
+msgstr "바탕 화면 아이콘의 크기를 지정합니다."
+
+#: app/adwPreferencesWindow.js:195
+msgid "Volumes"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:196
+msgid "Desktop volumes display"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:200
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Files Settings"
+msgstr "화면 설정"
+
+#: app/adwPreferencesWindow.js:201
+#, fuzzy
+#| msgid "Settings shared with Nautilus"
+msgid "Settings shared with Gnome Files"
+msgstr "노틸러스와 설정 공유"
+
+#: app/adwPreferencesWindow.js:206
+msgid "Miscellaneous Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:211
+msgid "Size for the desktop icons"
+msgstr "바탕화면 아이콘 크기"
+
+#: app/adwPreferencesWindow.js:213
+msgid "Tiny"
+msgstr "매우 작은 아이콘"
+
+#: app/adwPreferencesWindow.js:214
+msgid "Small"
+msgstr "작은 아이콘"
+
+#: app/adwPreferencesWindow.js:215
+msgid "Standard"
+msgstr "중간 아이콘"
+
+#: app/adwPreferencesWindow.js:216
+msgid "Large"
+msgstr "큰 아이콘"
+
+#: app/adwPreferencesWindow.js:221
+msgid "New icons alignment"
+msgstr "새 아이콘 정렬 방식"
+
+#: app/adwPreferencesWindow.js:223
+#, fuzzy
+#| msgid "Top-left corner"
+msgid "Top left corner"
+msgstr "좌측 상단부터"
+
+#: app/adwPreferencesWindow.js:224
+#, fuzzy
+#| msgid "Top-right corner"
+msgid "Top right corner"
+msgstr "우측 상단부터"
+
+#: app/adwPreferencesWindow.js:225
+#, fuzzy
+#| msgid "Bottom-left corner"
+msgid "Bottom left corner"
+msgstr "좌측 하단부터"
+
+#: app/adwPreferencesWindow.js:226
+#, fuzzy
+#| msgid "Bottom-right corner"
+msgid "Bottom right corner"
+msgstr "우측 하단부터"
+
+#: app/adwPreferencesWindow.js:229
+#, fuzzy
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr "가능한 경우 먼저 보조 모니터에 새 아이콘을 추가하십시오."
+
+#: app/adwPreferencesWindow.js:231
+#, fuzzy
+#| msgid "Show the personal folder in the desktop"
+msgid "Show the personal folder on the desktop"
+msgstr "바탕화면에 개인 폴더 표시"
+
+#: app/adwPreferencesWindow.js:232
+#, fuzzy
+#| msgid "Show the trash icon in the desktop"
+msgid "Show the trash icon on the desktop"
+msgstr "바탕화면에 휴지통 표시"
+
+#: app/adwPreferencesWindow.js:233
+#, fuzzy
+#| msgid "Show external drives in the desktop"
+msgid "Show external drives on the desktop"
+msgstr "바탕화면에 외장 드라이브 표시"
+
+#: app/adwPreferencesWindow.js:234
+#, fuzzy
+#| msgid "Show network drives in the desktop"
+msgid "Show network drives on the desktop"
+msgstr "바탕화면에 네트워크 드라이브 표시"
+
+#: app/adwPreferencesWindow.js:235
+#, fuzzy
+#| msgid "Add new drives to the opposite side of the screen"
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "새 드라이브를 스크린 반대편에 추가"
+
+#: app/adwPreferencesWindow.js:237
+#, fuzzy
+#| msgid "Highlight the drop place during Drag'n'Drop"
+msgid "Highlight the drop grid during Drag and Drop"
+msgstr "드래그 앤 드랍 시 드랍 위치 강조 효과"
+
+#: app/adwPreferencesWindow.js:238
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+msgid "Use Nemo to open folders"
+msgstr "폴더를 여는 Nemo 사용"
+
+#: app/adwPreferencesWindow.js:239
+msgid "Add an emblem to soft links"
+msgstr "소프트 링크에 엠블럼 추가"
+
+#: app/adwPreferencesWindow.js:240
+msgid "Use dark text in icon labels"
+msgstr "아이콘 레이블에 어두운 텍스트 사용"
+
+#: app/adwPreferencesWindow.js:244
+msgid "Action to Open Items"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:246
+msgid "Single click"
+msgstr "한 번 클릭"
+
+#: app/adwPreferencesWindow.js:247
+msgid "Double click"
+msgstr "두 번 클릭"
+
+#: app/adwPreferencesWindow.js:251
+msgid "Show image thumbnails"
+msgstr "이미지 마중그림 표시"
+
+#: app/adwPreferencesWindow.js:253
+msgid "Always"
+msgstr "항상"
+
+#: app/adwPreferencesWindow.js:254
+msgid "On this computer only"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:255
+msgid "Never"
+msgstr "보지 않음"
+
+#: app/adwPreferencesWindow.js:257
+msgid "Show a context menu item to delete permanently"
+msgstr "영구적으로 삭제할 컨텍스트 메뉴 항목 표시"
+
+#: app/adwPreferencesWindow.js:258
+msgid "Show hidden files"
+msgstr "숨김 파일 표시"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -28,7 +214,7 @@ msgstr "폴더 이름"
 msgid "File name"
 msgstr "파일 이름"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1305
 msgid "OK"
 msgstr "확인"
 
@@ -60,8 +246,8 @@ msgstr "파일 추출 중"
 msgid "Compressing files"
 msgstr "파일 압축"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
-#: app/desktopManager.js:1313 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
+#: app/desktopManager.js:1307 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "취소"
 
@@ -190,193 +376,193 @@ msgstr "더 작은 아카이브이지만 Linux 및 Mac만 가능합니다."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "더 작은 아카이브이지만 Windows 및 Mac에 설치해야 합니다."
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:130
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "그놈 파일을 찾을 수 없음"
 
-#: app/desktopManager.js:132
+#: app/desktopManager.js:131
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Desktop Icons NG에는 그놈 파일 응용 프로그램이 필요합니다."
 
-#: app/desktopManager.js:771
+#: app/desktopManager.js:765
 #, fuzzy
 msgid "Could not open File"
 msgstr "파일을 열 수 없습니다"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:766
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName}은(는) 이 유형의 파일을 열 수 없습니다!"
 
-#: app/desktopManager.js:869
+#: app/desktopManager.js:863
 #, fuzzy
 msgid "Move"
 msgstr "이동하다"
 
-#: app/desktopManager.js:870 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "복사하기"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:865
 #, fuzzy
 msgid "Link"
 msgstr "링크"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:868
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "파일에 대한 작업 선택"
 
-#: app/desktopManager.js:944 app/desktopManager.js:976
+#: app/desktopManager.js:938 app/desktopManager.js:970
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "SymLink 만들기 실패"
 
-#: app/desktopManager.js:945 app/desktopManager.js:977
+#: app/desktopManager.js:939 app/desktopManager.js:971
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "심볼릭 링크를 생성할 수 없습니다."
 
-#: app/desktopManager.js:1269
+#: app/desktopManager.js:1263
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "새 검색 전에 현재 선택 항목 지우기"
 
-#: app/desktopManager.js:1315
+#: app/desktopManager.js:1309
 msgid "Find Files on Desktop"
 msgstr "데스크탑에서 파일 찾기"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Name"
 msgstr "이름"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Name Z-A"
 msgstr "이름 Z-A"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1566
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "수정된 시간"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1567
 #, fuzzy
 msgid "Type"
 msgstr "유형"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1568
 #, fuzzy
 msgid "Size"
 msgstr "크기"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "정리 유지…"
 
-#: app/desktopManager.js:1581
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "유형별로 누적 유지…"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1576
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "홈/드라이브/휴지통 정렬…"
 
-#: app/desktopManager.js:1587 app/desktopManager.js:2601
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 msgid "New Folder"
 msgstr "새 폴더"
 
-#: app/desktopManager.js:1591
+#: app/desktopManager.js:1585
 msgid "New Document"
 msgstr "새 문서"
 
-#: app/desktopManager.js:1595
+#: app/desktopManager.js:1589
 msgid "Paste"
 msgstr "붙여넣기"
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1590
 msgid "Undo"
 msgstr "실행 취소"
 
-#: app/desktopManager.js:1597
+#: app/desktopManager.js:1591
 msgid "Redo"
 msgstr "다시 실행"
 
-#: app/desktopManager.js:1602
+#: app/desktopManager.js:1596
 msgid "Select All"
 msgstr "모두 선택"
 
-#: app/desktopManager.js:1607
+#: app/desktopManager.js:1601
 msgid "Arrange Icons"
 msgstr "아이콘 정렬"
 
-#: app/desktopManager.js:1611
+#: app/desktopManager.js:1605
 #, fuzzy
 msgid "Arrange By…"
 msgstr "정렬 기준…"
 
-#: app/desktopManager.js:1616
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "그놈 파일에서 데스크탑 보기"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "터미널에서 열기"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1616
 msgid "Change Background…"
 msgstr "배경화면 변경…"
 
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "데스크탑 아이콘 설정"
 
-#: app/desktopManager.js:1628
+#: app/desktopManager.js:1622
 msgid "Display Settings"
 msgstr "화면 설정"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "기본 설정 창이 열려 있습니다."
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "이 창이 열려 있습니다. 활성 창으로 전환하십시오."
 
-#: app/desktopManager.js:1683
+#: app/desktopManager.js:1677
 msgid "Settings"
 msgstr "설정"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2616
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "폴더 생성 실패"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2617
 #, fuzzy
 msgid "Could not create folder"
 msgstr "폴더를 생성할 수 없습니다."
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2660
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "템플릿 생성 오류"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2661
 #, fuzzy
 msgid "Could not create document"
 msgstr "문서를 생성할 수 없습니다."
@@ -602,147 +788,6 @@ msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "선택 파일 중 디렉터리가 포함되어 있어, 먼저 파일로 압축이 필요합니다."
 
-#: app/preferencesFrame.js:40
-msgid "Size for the desktop icons"
-msgstr "바탕화면 아이콘 크기"
-
-#: app/preferencesFrame.js:40
-msgid "Tiny"
-msgstr "매우 작은 아이콘"
-
-#: app/preferencesFrame.js:40
-msgid "Small"
-msgstr "작은 아이콘"
-
-#: app/preferencesFrame.js:40
-msgid "Standard"
-msgstr "중간 아이콘"
-
-#: app/preferencesFrame.js:40
-msgid "Large"
-msgstr "큰 아이콘"
-
-#: app/preferencesFrame.js:41
-msgid "Show the personal folder in the desktop"
-msgstr "바탕화면에 개인 폴더 표시"
-
-#: app/preferencesFrame.js:42
-msgid "Show the trash icon in the desktop"
-msgstr "바탕화면에 휴지통 표시"
-
-#: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-msgid "Show external drives in the desktop"
-msgstr "바탕화면에 외장 드라이브 표시"
-
-#: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-msgid "Show network drives in the desktop"
-msgstr "바탕화면에 네트워크 드라이브 표시"
-
-#: app/preferencesFrame.js:47
-msgid "New icons alignment"
-msgstr "새 아이콘 정렬 방식"
-
-#: app/preferencesFrame.js:49
-msgid "Top-left corner"
-msgstr "좌측 상단부터"
-
-#: app/preferencesFrame.js:50
-msgid "Top-right corner"
-msgstr "우측 상단부터"
-
-#: app/preferencesFrame.js:51
-msgid "Bottom-left corner"
-msgstr "좌측 하단부터"
-
-#: app/preferencesFrame.js:52
-msgid "Bottom-right corner"
-msgstr "우측 하단부터"
-
-#: app/preferencesFrame.js:54
-#, fuzzy
-msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "가능한 경우 먼저 보조 모니터에 새 아이콘을 추가하십시오."
-
-#: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-msgid "Add new drives to the opposite side of the screen"
-msgstr "새 드라이브를 스크린 반대편에 추가"
-
-#: app/preferencesFrame.js:56
-msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "드래그 앤 드랍 시 드랍 위치 강조 효과"
-
-#: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-msgid "Use Nemo to open folders"
-msgstr "폴더를 여는 Nemo 사용"
-
-#: app/preferencesFrame.js:58
-msgid "Add an emblem to soft links"
-msgstr "소프트 링크에 엠블럼 추가"
-
-#: app/preferencesFrame.js:59
-msgid "Use dark text in icon labels"
-msgstr "아이콘 레이블에 어두운 텍스트 사용"
-
-#: app/preferencesFrame.js:64
-msgid "Settings shared with Nautilus"
-msgstr "노틸러스와 설정 공유"
-
-#: app/preferencesFrame.js:79
-msgid "Click type for open files"
-msgstr "파일 열기 시 클릭 유형"
-
-#: app/preferencesFrame.js:79
-msgid "Single click"
-msgstr "한 번 클릭"
-
-#: app/preferencesFrame.js:79
-msgid "Double click"
-msgstr "두 번 클릭"
-
-#: app/preferencesFrame.js:80
-msgid "Show hidden files"
-msgstr "숨김 파일 표시"
-
-#: app/preferencesFrame.js:81
-msgid "Show a context menu item to delete permanently"
-msgstr "영구적으로 삭제할 컨텍스트 메뉴 항목 표시"
-
-#: app/preferencesFrame.js:86
-msgid "Action to do when launching a program from the desktop"
-msgstr "바탕화면에서 프로그램을 실행할 때 수행할 작업"
-
-#: app/preferencesFrame.js:87
-msgid "Display the content of the file"
-msgstr "파일의 내용 표시"
-
-#: app/preferencesFrame.js:88
-msgid "Launch the file"
-msgstr "파일 실행"
-
-#: app/preferencesFrame.js:89
-msgid "Ask what to do"
-msgstr "어떤 작업 수행할 지 선택"
-
-#: app/preferencesFrame.js:95
-msgid "Show image thumbnails"
-msgstr "이미지 마중그림 표시"
-
-#: app/preferencesFrame.js:96
-msgid "Never"
-msgstr "보지 않음"
-
-#: app/preferencesFrame.js:97
-msgid "Local files only"
-msgstr "로컬 파일만"
-
-#: app/preferencesFrame.js:98
-msgid "Always"
-msgstr "항상"
-
 #: app/showErrorPopup.js:41
 msgid "Close"
 msgstr "닫기"
@@ -795,13 +840,25 @@ msgstr "새 아이콘 배치할 코너"
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "아이콘 배치를 시작할 모서리를 설정합니다."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+msgid "Show external drives in the desktop"
+msgstr "바탕화면에 외장 드라이브 표시"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
 msgstr "컴퓨터에 연결된 디스크 드라이브를 표시합니다."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+msgid "Show network drives in the desktop"
+msgstr "바탕화면에 네트워크 드라이브 표시"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
 msgstr "데스크탑에 탑재된 네트워크 볼륨을 표시합니다."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+msgid "Add new drives to the opposite side of the screen"
+msgstr "새 드라이브를 스크린 반대편에 추가"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
@@ -899,7 +956,26 @@ msgstr "연결된 경우 기본이 아닌 모니터에 새 아이콘 표시"
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
-msgstr "두 번째 모니터가 연결되면 기본 모니터가 아닌 모니터에 새 아이콘이 배치됩니다."
+msgstr ""
+"두 번째 모니터가 연결되면 기본 모니터가 아닌 모니터에 새 아이콘이 배치됩니다."
+
+#~ msgid "Click type for open files"
+#~ msgstr "파일 열기 시 클릭 유형"
+
+#~ msgid "Action to do when launching a program from the desktop"
+#~ msgstr "바탕화면에서 프로그램을 실행할 때 수행할 작업"
+
+#~ msgid "Display the content of the file"
+#~ msgstr "파일의 내용 표시"
+
+#~ msgid "Launch the file"
+#~ msgstr "파일 실행"
+
+#~ msgid "Ask what to do"
+#~ msgstr "어떤 작업 수행할 지 선택"
+
+#~ msgid "Local files only"
+#~ msgstr "로컬 파일만"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."

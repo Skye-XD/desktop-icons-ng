@@ -9,17 +9,207 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"POT-Creation-Date: 2023-04-16 08:10-0400\n"
 "PO-Revision-Date: 2023-04-13 02:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
+"ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 4.17-dev\n"
+
+#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+msgid "Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+msgid "Files"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:205
+msgid "Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:190
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "Nastavení ikon na ploše"
+
+#: app/adwPreferencesWindow.js:191
+#, fuzzy
+#| msgid "Set the size for the desktop icons."
+msgid "Settings for the Desktop Program"
+msgstr "Nastavit velikost pro ikony na pracovní ploše."
+
+#: app/adwPreferencesWindow.js:195
+msgid "Volumes"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:196
+msgid "Desktop volumes display"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:200
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Files Settings"
+msgstr "Zobrazit nastavení"
+
+#: app/adwPreferencesWindow.js:201
+#, fuzzy
+#| msgid "Settings shared with Nautilus"
+msgid "Settings shared with Gnome Files"
+msgstr "Nastavení sdílená s Nautilem"
+
+#: app/adwPreferencesWindow.js:206
+msgid "Miscellaneous Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:211
+msgid "Size for the desktop icons"
+msgstr "Velikost ikon na pracovní ploše"
+
+#: app/adwPreferencesWindow.js:213
+msgid "Tiny"
+msgstr "Drobný"
+
+#: app/adwPreferencesWindow.js:214
+msgid "Small"
+msgstr "Malé"
+
+#: app/adwPreferencesWindow.js:215
+msgid "Standard"
+msgstr "Standardní"
+
+#: app/adwPreferencesWindow.js:216
+msgid "Large"
+msgstr "Velké"
+
+#: app/adwPreferencesWindow.js:221
+msgid "New icons alignment"
+msgstr "Zarovnání nových ikon"
+
+#: app/adwPreferencesWindow.js:223
+#, fuzzy
+#| msgid "Top-left corner"
+msgid "Top left corner"
+msgstr "Levý horní roh"
+
+#: app/adwPreferencesWindow.js:224
+#, fuzzy
+#| msgid "Top-right corner"
+msgid "Top right corner"
+msgstr "Pravý horní roh"
+
+#: app/adwPreferencesWindow.js:225
+#, fuzzy
+#| msgid "Bottom-left corner"
+msgid "Bottom left corner"
+msgstr "Spodní levý roh"
+
+#: app/adwPreferencesWindow.js:226
+#, fuzzy
+#| msgid "Bottom-right corner"
+msgid "Bottom right corner"
+msgstr "Spodní pravý roh"
+
+#: app/adwPreferencesWindow.js:229
+#, fuzzy
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr ""
+"Nejprve přidejte nové ikony na sekundární monitory, pokud jsou k dispozici"
+
+#: app/adwPreferencesWindow.js:231
+#, fuzzy
+#| msgid "Show the personal folder in the desktop"
+msgid "Show the personal folder on the desktop"
+msgstr "Zobrazovat osobní složku na pracovní ploše"
+
+#: app/adwPreferencesWindow.js:232
+#, fuzzy
+#| msgid "Show the trash icon in the desktop"
+msgid "Show the trash icon on the desktop"
+msgstr "Zobrazovat ikonu koše na pracovní ploše"
+
+#: app/adwPreferencesWindow.js:233
+#, fuzzy
+#| msgid "Show external drives in the desktop"
+msgid "Show external drives on the desktop"
+msgstr "Zobrazovat disky připojené k počítači"
+
+#: app/adwPreferencesWindow.js:234
+#, fuzzy
+#| msgid "Show network drives in the desktop"
+msgid "Show network drives on the desktop"
+msgstr "Zobrazovat síťové disky připojené k počítači"
+
+#: app/adwPreferencesWindow.js:235
+#, fuzzy
+#| msgid "Add new drives to the opposite side of the screen"
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "Dávat nové disky na opačnou stranu obrazovky"
+
+#: app/adwPreferencesWindow.js:237
+#, fuzzy
+#| msgid "Highlight the drop place during Drag'n'Drop"
+msgid "Highlight the drop grid during Drag and Drop"
+msgstr "Zvýraznit místo k položení při přetahování souborů"
+
+#: app/adwPreferencesWindow.js:238
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+#, fuzzy
+msgid "Use Nemo to open folders"
+msgstr "Použijte Nemo k otevření složek"
+
+#: app/adwPreferencesWindow.js:239
+#, fuzzy
+msgid "Add an emblem to soft links"
+msgstr "Přidejte emblém k měkkým odkazům"
+
+#: app/adwPreferencesWindow.js:240
+#, fuzzy
+msgid "Use dark text in icon labels"
+msgstr "Používejte tmavý text v popiscích ikon"
+
+#: app/adwPreferencesWindow.js:244
+msgid "Action to Open Items"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:246
+msgid "Single click"
+msgstr "Jeden klik"
+
+#: app/adwPreferencesWindow.js:247
+msgid "Double click"
+msgstr "Dvojklik"
+
+#: app/adwPreferencesWindow.js:251
+msgid "Show image thumbnails"
+msgstr "Zobrazit náhledové obrázky"
+
+#: app/adwPreferencesWindow.js:253
+msgid "Always"
+msgstr "Vždy"
+
+#: app/adwPreferencesWindow.js:254
+msgid "On this computer only"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:255
+msgid "Never"
+msgstr "Nikdy"
+
+#: app/adwPreferencesWindow.js:257
+msgid "Show a context menu item to delete permanently"
+msgstr "Zobrazit položku kontextové nabídky, kterou chcete trvale smazat"
+
+#: app/adwPreferencesWindow.js:258
+msgid "Show hidden files"
+msgstr "Zobrazit skryté soubory"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -29,7 +219,7 @@ msgstr "Název nové složky"
 msgid "File name"
 msgstr "Přejmenovat soubor"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1305
 msgid "OK"
 msgstr "Budiž"
 
@@ -61,8 +251,8 @@ msgstr "Extrahování souborů"
 msgid "Compressing files"
 msgstr "Komprese souborů"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
-#: app/desktopManager.js:1313 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
+#: app/desktopManager.js:1307 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -190,193 +380,193 @@ msgstr "Menší archivy, ale pouze Linux a Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Menší archivy, ale musí být nainstalovány na Windows a Mac."
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:130
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "Soubory GNOME nebyly nalezeny"
 
-#: app/desktopManager.js:132
+#: app/desktopManager.js:131
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Aplikace GNOME Files vyžaduje Desktop Icons NG."
 
-#: app/desktopManager.js:771
+#: app/desktopManager.js:765
 #, fuzzy
 msgid "Could not open File"
 msgstr "Soubor nelze otevřít"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:766
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} nemůže otevřít soubory tohoto typu!"
 
-#: app/desktopManager.js:869
+#: app/desktopManager.js:863
 #, fuzzy
 msgid "Move"
 msgstr "Hýbat se"
 
-#: app/desktopManager.js:870 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Kopírovat"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:865
 #, fuzzy
 msgid "Link"
 msgstr "Odkaz"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:868
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Vyberte Akce pro soubory"
 
-#: app/desktopManager.js:944 app/desktopManager.js:976
+#: app/desktopManager.js:938 app/desktopManager.js:970
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Vytváření SymLink se nezdařilo"
 
-#: app/desktopManager.js:945 app/desktopManager.js:977
+#: app/desktopManager.js:939 app/desktopManager.js:971
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Nepodařilo se vytvořit symbolický odkaz"
 
-#: app/desktopManager.js:1269
+#: app/desktopManager.js:1263
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Před novým hledáním vymažte aktuální výběr"
 
-#: app/desktopManager.js:1315
+#: app/desktopManager.js:1309
 msgid "Find Files on Desktop"
 msgstr "Najít soubory na Ploše"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Name"
 msgstr "název"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Jméno Z-A"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1566
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Upravený čas"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1567
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1568
 #, fuzzy
 msgid "Size"
 msgstr "Velikost"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Mějte pořádek…"
 
-#: app/desktopManager.js:1581
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Ponechat seskládané podle typu…"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1576
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Třídit domov/disky/koš…"
 
-#: app/desktopManager.js:1587 app/desktopManager.js:2601
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 msgid "New Folder"
 msgstr "Nová složka"
 
-#: app/desktopManager.js:1591
+#: app/desktopManager.js:1585
 msgid "New Document"
 msgstr "Nový Dokument"
 
-#: app/desktopManager.js:1595
+#: app/desktopManager.js:1589
 msgid "Paste"
 msgstr "Vložit"
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1590
 msgid "Undo"
 msgstr "Zpět"
 
-#: app/desktopManager.js:1597
+#: app/desktopManager.js:1591
 msgid "Redo"
 msgstr "Znovu"
 
-#: app/desktopManager.js:1602
+#: app/desktopManager.js:1596
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: app/desktopManager.js:1607
+#: app/desktopManager.js:1601
 msgid "Arrange Icons"
 msgstr "Uspořádat Ikony"
 
-#: app/desktopManager.js:1611
+#: app/desktopManager.js:1605
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Řadit dle…"
 
-#: app/desktopManager.js:1616
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Zobrazit plochu v souborech GNOME"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Otevřít v terminálu"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1616
 msgid "Change Background…"
 msgstr "Změnit pozadí…"
 
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopManager.js:1628
+#: app/desktopManager.js:1622
 msgid "Display Settings"
 msgstr "Zobrazit nastavení"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Okno předvoleb je otevřené"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Toto okno je otevřené. Přepněte do aktivního okna."
 
-#: app/desktopManager.js:1683
+#: app/desktopManager.js:1677
 msgid "Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2616
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Vytvoření složky se nezdařilo"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2617
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Nelze vytvořit složku"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2660
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba při vytváření šablony"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2661
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nelze vytvořit dokument"
@@ -611,151 +801,6 @@ msgstr "Nemůžete poslat složku emailem"
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Výběr obsahuje Složku, nejdříve musíte zkomprimovat složku do souboru."
 
-#: app/preferencesFrame.js:40
-msgid "Size for the desktop icons"
-msgstr "Velikost ikon na pracovní ploše"
-
-#: app/preferencesFrame.js:40
-msgid "Tiny"
-msgstr "Drobný"
-
-#: app/preferencesFrame.js:40
-msgid "Small"
-msgstr "Malé"
-
-#: app/preferencesFrame.js:40
-msgid "Standard"
-msgstr "Standardní"
-
-#: app/preferencesFrame.js:40
-msgid "Large"
-msgstr "Velké"
-
-#: app/preferencesFrame.js:41
-msgid "Show the personal folder in the desktop"
-msgstr "Zobrazovat osobní složku na pracovní ploše"
-
-#: app/preferencesFrame.js:42
-msgid "Show the trash icon in the desktop"
-msgstr "Zobrazovat ikonu koše na pracovní ploše"
-
-#: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-msgid "Show external drives in the desktop"
-msgstr "Zobrazovat disky připojené k počítači"
-
-#: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-msgid "Show network drives in the desktop"
-msgstr "Zobrazovat síťové disky připojené k počítači"
-
-#: app/preferencesFrame.js:47
-msgid "New icons alignment"
-msgstr "Zarovnání nových ikon"
-
-#: app/preferencesFrame.js:49
-msgid "Top-left corner"
-msgstr "Levý horní roh"
-
-#: app/preferencesFrame.js:50
-msgid "Top-right corner"
-msgstr "Pravý horní roh"
-
-#: app/preferencesFrame.js:51
-msgid "Bottom-left corner"
-msgstr "Spodní levý roh"
-
-#: app/preferencesFrame.js:52
-msgid "Bottom-right corner"
-msgstr "Spodní pravý roh"
-
-#: app/preferencesFrame.js:54
-#, fuzzy
-msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Nejprve přidejte nové ikony na sekundární monitory, pokud jsou k dispozici"
-
-#: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-msgid "Add new drives to the opposite side of the screen"
-msgstr "Dávat nové disky na opačnou stranu obrazovky"
-
-#: app/preferencesFrame.js:56
-msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "Zvýraznit místo k položení při přetahování souborů"
-
-#: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
-msgid "Use Nemo to open folders"
-msgstr "Použijte Nemo k otevření složek"
-
-#: app/preferencesFrame.js:58
-#, fuzzy
-msgid "Add an emblem to soft links"
-msgstr "Přidejte emblém k měkkým odkazům"
-
-#: app/preferencesFrame.js:59
-#, fuzzy
-msgid "Use dark text in icon labels"
-msgstr "Používejte tmavý text v popiscích ikon"
-
-#: app/preferencesFrame.js:64
-msgid "Settings shared with Nautilus"
-msgstr "Nastavení sdílená s Nautilem"
-
-#: app/preferencesFrame.js:79
-msgid "Click type for open files"
-msgstr "Typ kliknutí požadovaný pro otevření souboru"
-
-#: app/preferencesFrame.js:79
-msgid "Single click"
-msgstr "Jeden klik"
-
-#: app/preferencesFrame.js:79
-msgid "Double click"
-msgstr "Dvojklik"
-
-#: app/preferencesFrame.js:80
-msgid "Show hidden files"
-msgstr "Zobrazit skryté soubory"
-
-#: app/preferencesFrame.js:81
-msgid "Show a context menu item to delete permanently"
-msgstr "Zobrazit položku kontextové nabídky, kterou chcete trvale smazat"
-
-#: app/preferencesFrame.js:86
-msgid "Action to do when launching a program from the desktop"
-msgstr "Co se má stát když spouštíte spustitelný soubor z plochy"
-
-#: app/preferencesFrame.js:87
-msgid "Display the content of the file"
-msgstr "Zobrazit obsah souboru"
-
-#: app/preferencesFrame.js:88
-msgid "Launch the file"
-msgstr "Spustit soubor"
-
-#: app/preferencesFrame.js:89
-msgid "Ask what to do"
-msgstr "Zeptat se co se má stát"
-
-#: app/preferencesFrame.js:95
-msgid "Show image thumbnails"
-msgstr "Zobrazit náhledové obrázky"
-
-#: app/preferencesFrame.js:96
-msgid "Never"
-msgstr "Nikdy"
-
-#: app/preferencesFrame.js:97
-msgid "Local files only"
-msgstr "Pouze pro místní soubory"
-
-#: app/preferencesFrame.js:98
-msgid "Always"
-msgstr "Vždy"
-
 #: app/showErrorPopup.js:41
 msgid "Close"
 msgstr "Zavřít"
@@ -810,13 +855,25 @@ msgstr "Místo kam se přidávají nové ikony"
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "Vyberte roh do kterého budou ikony pokládány."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+msgid "Show external drives in the desktop"
+msgstr "Zobrazovat disky připojené k počítači"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
 msgstr "Zobrazovat disky připojené k počítači."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+msgid "Show network drives in the desktop"
+msgstr "Zobrazovat síťové disky připojené k počítači"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
 msgstr "Zobrazovat připojené síťové disky připojené k počítači."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+msgid "Add new drives to the opposite side of the screen"
+msgstr "Dávat nové disky na opačnou stranu obrazovky"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
@@ -927,6 +984,24 @@ msgid ""
 msgstr ""
 "Pokud je připojen druhý monitor, na jiný než primární monitor se umístí nové "
 "ikony"
+
+#~ msgid "Click type for open files"
+#~ msgstr "Typ kliknutí požadovaný pro otevření souboru"
+
+#~ msgid "Action to do when launching a program from the desktop"
+#~ msgstr "Co se má stát když spouštíte spustitelný soubor z plochy"
+
+#~ msgid "Display the content of the file"
+#~ msgstr "Zobrazit obsah souboru"
+
+#~ msgid "Launch the file"
+#~ msgstr "Spustit soubor"
+
+#~ msgid "Ask what to do"
+#~ msgstr "Zeptat se co se má stát"
+
+#~ msgid "Local files only"
+#~ msgstr "Pouze pro místní soubory"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
