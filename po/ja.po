@@ -10,64 +10,70 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "デスクトップ"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "ファイル"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "微調整"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "デスクトップ アイコンの設定"
+msgstr "デスクトップ設定"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "デスクトップのアイコンサイズを設定します。"
+msgstr "デスクトップ プログラムの設定"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "ボリューム"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "デスクトップのボリューム表示"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "ディスプレイの設定"
+msgstr "ファイル設定"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Nautilus と共有される設定"
+msgstr "Gnome ファイルと共有される設定"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "その他の微調整"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -97,25 +103,25 @@ msgstr "新しいアイコンの配置位置"
 #, fuzzy
 #| msgid "Top-left corner"
 msgid "Top left corner"
-msgstr "左上"
+msgstr "左上隅"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
-msgstr "右上"
+msgstr "右上隅"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 #| msgid "Bottom-left corner"
 msgid "Bottom left corner"
-msgstr "左下"
+msgstr "左下隅"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
-msgstr "右下"
+msgstr "右下隅"
 
 #: app/adwPreferencesWindow.js:229
 #, fuzzy
@@ -126,13 +132,13 @@ msgstr "可能であれば、最初に新しいアイコンをセカンダリ �
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
-msgstr "デスクトップにホームフォルダーを表示する"
+msgstr "デスクトップに個人用フォルダを表示する"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "デスクトップにゴミ箱を表示する"
+msgstr "デスクトップにゴミ箱アイコンを表示する"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
@@ -144,19 +150,19 @@ msgstr "デスクトップに外付けドライブを表示する"
 #, fuzzy
 #| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
-msgstr "デスクトップにネットワークドライブを表示する"
+msgstr "デスクトップにネットワーク ドライブを表示する"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "新しいドライブのアイコンは反対側に配置する"
+msgstr "デスクトップの反対側に新しいドライブを追加します"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "ドラッグアンドドロップ中にドロップ先を強調表示する"
+msgstr "ドラッグ アンド ドロップ中にドロップ グリッドを強調表示する"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -172,8 +178,9 @@ msgid "Use dark text in icon labels"
 msgstr "アイコンのラベルの文字を暗くする"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "アイテムを開くアクション"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -192,8 +199,9 @@ msgid "Always"
 msgstr "常に"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "このコンピュータのみ"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
