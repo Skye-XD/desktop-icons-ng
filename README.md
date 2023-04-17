@@ -1,4 +1,4 @@
-# Gtk4 DING Desktop Icons New Generation
+# Gtk4/libadwaita DING Desktop Icons New Generation
 
 ## What is it?
 
@@ -8,11 +8,12 @@ Desktop Icons NG (DING) by Sergio Costas itself is a fork/rewrite of the officia
 
 This new Gtk4 extension was originally submitted upstream to the DING project as a merge request. It was not merged for quite some time with development continuing on both branches simultaneously. The branches started diverging significantly, and further, the new commit's in gtk3-DING branch were not easily adaptable to changes already made in the gtk4 branch. That has since made it very difficult to rebase and merge all the new changes to the Gtk3 branch. A mutual decision was therefore made to continue independent development of both branches. Important bug fixes from branches are still backported and forward-ported between them. Therefore there are two extensions available, the classic stable Gtk3 DING and this newer, less tested Gtk4 branch.
 
-This fork of DING is ported to use the Gtk4 toolkit. This, and the original DING can both be installed together, but only one can be activated at a time in the extension Manager. They use different install directories and GSettings schemas, therefore preferences set in one will not carrry through to the other. This is to avoid trampling on the stable branch and isolate errors from this branch.
+This fork of DING is ported to use the Gtk4 toolkit, and now has been ported to libadwaita. This, and the original DING can both be installed together, but only one can be activated at a time in the extension Manager. They use different install directories and GSettings schemas, therefore preferences set in one will not carrry through to the other. This is to avoid trampling on the stable branch and isolate errors from this branch.
 
-Other than using the Gtk4 toolkit, it in addition it has several new features, fixes and enhancemnts.
+Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has several new features, fixes and enhancemnts.
 
 **NEW FEATURES**
+- [x] Based on libadwaita, Gtk4 toolkits.
 
 - [x] Can Make Links on the Desktop on Drag and Drop from Nautilus. Pressing the Alt button on drag modifies the drop to ask the user to Copy, Move or Make Links at the destination. This unfortunately does not work in X11 as pressing the button does not modify the drop Gdk.DragAction. Shift forces a move, Control forces Copy in both Wayland and X11.
 
@@ -160,6 +161,8 @@ Other than using the Gtk4 toolkit, it in addition it has several new features, f
 
 - [x] Drag icon offset on Wayland now works correctly.
 
+- [x] Fix Chrome App icons not showing correctly on some distributions.
+
 **KNOWN ISSUES**
 
 - [x] On X11, in latest Ubuntu and Fedora, Gtk.GestureClick.get_current_event_state() button click returns wrong state, crashing the Program. Works perfectly on Wayland on all distributions tried, worked on older version of Manjaro on X, but the newer releases of Manjaro and ArchLinux also have this bug. This appears to be doe to an error in GJS, reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/507). Reported upstream [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse and [here](https://bugs.launchpad.net/ubuntu/+source/gjs/+bug/1975544) on Ubuntu Launchpad. I have deviced a workaround to make this work under X11 for now till the bug is fixed upstream. Please feel free to fix and propose MR's to make this work properly. This is the first time this code has run on X11 in the last 8 months while many features were added to the main branch! Therefore be advised, X11 branch may have bugs. Specefically Gtk.Double Click time may be a problem as I had to do some hardcoding to make double clicks work.
@@ -167,7 +170,7 @@ This is now fixed 4/5/2023 with [!829 in GJS](https://gitlab.gnome.org/GNOME/gjs
 
 - [x] ~~Gdk.Display.get_default().get_app_launch_context() when used in launch() to launch a desktop file crashes GJS. Likely problem in GJS. Current workaround is not to use the context, set to null, till fixed upstream.~~ This is now fixed in latest GJS and enabled in the latest release.
 
-- [x] Dragged Icon sets the wrong offset for the cursor and defaults to 0,0 with Gtk.DragSource.set_icon in Wayland. This works perfectly in X11 and the correct offset is set. Again problem in Gtk4 on Wayland, But reported and issue in Gtk4 [here](https://gitlab.gnome.org/GNOME/gtk/-/issues/2341), however drag and drop otherwise works perfectly till fixed upstream.
+- [x] ~~Dragged Icon sets the wrong offset for the cursor and defaults to 0,0 with Gtk.DragSource.set_icon in Wayland. This works perfectly in X11 and the correct offset is set. Again problem in Gtk4 on Wayland, But reported and issue in Gtk4 [here](https://gitlab.gnome.org/GNOME/gtk/-/issues/2341), however drag and drop otherwise works perfectly till fixed upstream.~~
 Issue is now fixed in Version 33 of the extension on Gnome 44 after upstream fixes.
 
 - [ ] Gtk.DropTargetAsync - doing a read_async() followed by read_finish() on the drop dumps core. So cannot elect to read a particular mime type. Currently have to use read_value_async() followed by read_value_finish(). This restricts us to reading default String.$gtype on drops from Nautilus/Files. Although this works, it is not ideal. The issue is reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/522) in GJS.
@@ -186,6 +189,8 @@ Please report errors, and if you can fix it, please do so. See Contributing belo
 
 **THEME ISSUES**
 
+SINCE APRIL 16, 2023, veriosn 35, GTK4-DING IS A LIBADWAITA APPLICATION. HOPEFULLY THERE WILL BE NO MORE ISSUES. PLEASE SEE BELOW FOR PREVIOUS VERSIONS.
+
 The most common issues users have reported so far pertains to issues with user installed themes. This sheds light and clarifies the issues. The most common issue is a white opaque window with no background image with icons on it, and desktop menus not changing to dark mode on Gnome theme changes.
 
 The extension has two parts, the extension itself that runs in the shell, and a pure Gtk4 program that runs outside the gnome shell and renders all the icons on the desktop. For example, when you see the preferences window, it is actually a libadwaita window spawned by the Gnome shell. The right click menus are true Gtk4 application menus and do not belong to the shell. Themes just applied to the shell will not apply to the application.
@@ -203,6 +208,8 @@ Downloaded user themes css files in the the Users local folder, ~/.themes, ~/.lo
 If despite all the above you feel fixing the .css in the gtk4-DING application or extension would help, please feel free to contribute a fix, see Contributing below, or create an issue with the suggestion for the fix.
 
 **DARK MODE ISSUES**
+
+SINCE APRIL 16, 2023, veriosn 35, GTK4-DING IS A LIBADWAITA APPLICATION. HOPEFULLY THERE WILL BE NO MORE ISSUES. PLEASE SEE BELOW FOR PREVIOUS VERSIONS.
 
 Gnome allows Global Dark mode in Settings. This mode does not automatically apply to Gtk4 Applications like DING, it only works on libAdwaita applications and the Gnome Shell. Previously, a specefic dark theme needed to be applied to the "legacy" gtk applications in gnome tweaks to enable dark mode for menus etc. in gtk4-DING.
 

@@ -1,4 +1,12 @@
 # History of versions #
+* Gtk4 version 35
+  * Gtk4-Ding is now a libadwaita app, port to libadwaita complete (Sundeep Mediratta)
+  * Fix, preferences window not opening the second time from Extensions on libadwaita port. (Sergio Costas)
+  * Update POTFILES.in, meson build automatically. (Marco Trevisian)
+  * Fix Chrome App Icons not set correctly on some distributions. (Sundeep Mediratta, debugging help from Mirko Girgenti)
+  * Multiple translation updates. (Hosted Weblate authors)
+  * Version Bump to 35, update metadata.json, Readme.md and History.md
+
 * Gtk4 version 34
   * Bug fixes to drag and drop. (Sundeep Mediratta)
   * Fix regression, dropCapable was somehow dropped from the getter function for desktopIconItem/FileItem. (Sundeep Mediratta)

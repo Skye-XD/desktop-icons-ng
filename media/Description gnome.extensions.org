@@ -1,7 +1,8 @@
-Gtk4 Desktop Icons NG with GSconnect Integration, Drag and Drop onto Dock (Gtk4-DING)
+Libadwaita, Gtk4 Desktop Icons NG with GSconnect Integration, Drag and Drop onto Dock (Gtk4-DING)
 
-Gtk4 Port of Desktop Icons NG with updated and modified code base, uses gio menus, all functions are async where possible, multiple fixes and new features-
+Libadwaita/Gtk4 Port of Desktop Icons NG with updated and modified code base, uses gio menus, all functions are async where possible, multiple fixes and new features-
 
+* Now uses libadwaita.
 * Make Links on Desktop with Alt button on Wayland. Does not work with X11.
 * Copied/dropped/pasted files retain dropped position.
 * Right Click Menus will not go under the dock.
