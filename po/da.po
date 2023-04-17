@@ -8,63 +8,69 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:50+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Indstillinger for skrivebordsikoner"
+msgstr "Skrivebordsindstillinger"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Angiv størrelsen på skrivebordsikoner."
+msgstr "Indstillinger for skrivebordsprogrammet"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Bind"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Skrivebordsvolumener vises"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Skærmindstillinger"
+msgstr "Filindstillinger"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Indstillinger delt med Nautilus"
+msgstr "Indstillinger delt med Gnome Files"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Diverse tweaks"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -127,7 +133,7 @@ msgstr "Vis den personlige mappe på skrivebordet"
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Vis papirkurvsikonet på skrivebordet"
+msgstr "Vis papirkurven på skrivebordet"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
@@ -142,12 +148,12 @@ msgstr "Vis netværksdrev på skrivebordet"
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Tilføj nye drev til den modsatte side af skærmen"
+msgstr "Tilføj nye drev til den modsatte side af skrivebordet"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Fremhæv dropstedet under Drag'n'Drop"
+msgstr "Fremhæv slip-gitteret under træk og slip"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -166,8 +172,9 @@ msgid "Use dark text in icon labels"
 msgstr "Brug mørk tekst i ikonetiketter"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Handling for at åbne elementer"
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
@@ -190,8 +197,9 @@ msgid "Always"
 msgstr "Altid"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Kun på denne computer"
 
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
@@ -233,10 +241,13 @@ msgid "AutoAr is not installed"
 msgstr "AutoAr er ikke installeret"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"For at kunne arbejde med komprimerede filer skal du installere file-roller "
+"og/eller gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
@@ -631,12 +642,17 @@ msgstr ""
 "<b>Aktiver mulighed, \"Tillad at udføre fil som et program\"</b>"
 
 #: app/fileItem.js:351
+#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
+"Denne .desktop-fil er ikke tillid til, den kan ikke startes. For at aktivere "
+"start skal du højreklikke og derefter:\n"
+"\n"
+"<b>Aktiver \"Tillad lancering\"</b>"
 
 #: app/fileItemMenu.js:264
 #, fuzzy
@@ -817,10 +833,13 @@ msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "\"${programName}\" er nødvendig for skrivebordsikoner"
 
 #: app/utils/dbusUtils.js:59
+#, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
+"For at denne funktionalitet skal fungere i skrivebordsikoner, skal du "
+"installere \"${programName}\" i dit system."
 
 #: app/utils/desktopIconsUtil.js:150
 #, fuzzy
@@ -891,7 +910,9 @@ msgstr "Tilføj nye drev til den modsatte side af skærmen"
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
-msgstr "Tilføj nye drev til den modsatte side af skærmen"
+msgstr ""
+"Når du tilføjer drev og diskenheder til skrivebordet, skal du tilføje dem "
+"til den modsatte side af skærmen."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 #, fuzzy
@@ -899,10 +920,13 @@ msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Viser et rektangel på destinationsstedet under DnD"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+#, fuzzy
 msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
+"Når du udfører en Drag'n'Drop-operation, markerer du det sted i gitteret, "
+"hvor ikonet vil blive sat med et halvgennemsigtigt rektangel."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
@@ -910,10 +934,13 @@ msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Sorter specielle mapper - Home/Trash Drives."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+#, fuzzy
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
+"Når du arrangerer ikoner på skrivebordet, for at sortere og ændre "
+"placeringen af hjemmet, papirkurven og monteret netværk eller eksterne drev"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
