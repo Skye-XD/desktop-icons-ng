@@ -14,64 +14,70 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "masaüstü"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Dosyalar"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "ince ayarlar"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Masaüstü Simge Ayarları"
+msgstr "Masaüstü Ayarları"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Masaüstü simgelerinin boyutunu ayarla."
+msgstr "Masaüstü Programı Ayarları"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Birimler"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Masaüstü birimleri ekranı"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Görüntü Ayarları"
+msgstr "Dosya Ayarları"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Ayarlar Nautilus ile paylaşıldı"
+msgstr "Gnome Files ile paylaşılan ayarlar"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Çeşitli Düzenlemeler"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -107,7 +113,7 @@ msgstr "Sol üst köşe"
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
-msgstr "Sağ üst Köşe"
+msgstr "Sağ üst köşe"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
@@ -136,7 +142,7 @@ msgstr "Kişisel klasörü masaüstünde göster"
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Çöp kutusunu masaüstünde göster"
+msgstr "Çöp simgesini masaüstünde göster"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
@@ -154,13 +160,13 @@ msgstr "Ağ sürücülerini masaüstünde göster"
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
+msgstr "Masaüstünün karşı tarafına yeni sürücüler ekleyin"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Sürükle ve Bırak sırasında bırakma yerini vurgula"
+msgstr "Sürükle ve Bırak sırasında bırakma ızgarasını vurgulayın"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -176,8 +182,9 @@ msgid "Use dark text in icon labels"
 msgstr "Simge etiketlerinde koyu metin kullan"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Öğeleri Açma Eylemi"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -196,8 +203,9 @@ msgid "Always"
 msgstr "Her zaman"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Yalnızca bu bilgisayarda"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
@@ -633,12 +641,17 @@ msgstr ""
 "etkinleştirin</b>"
 
 #: app/fileItem.js:351
+#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
+"Bu .desktop dosyası güvenilir değil, başlatılamaz. Başlatmayı etkinleştirmek "
+"için sağ tıklayın, ardından:\n"
+"\n"
+"<b>\"Başlatmaya İzin Ver\"i Etkinleştir</b>"
 
 #: app/fileItemMenu.js:264
 msgid "Open All..."
