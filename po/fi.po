@@ -10,65 +10,71 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2021-04-08 06:16+0000\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Työpöytä"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Tiedostot"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Työpöydän kuvakeasetukset"
+msgstr "Työpöytäasetukset"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Aseta työpöytäkuvakkeiden koko."
+msgstr "Työpöytäohjelman asetukset"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Volyymit"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Työpöydän äänenvoimakkuuden näyttö"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Näytön asetukset"
+msgstr "Tiedostojen asetukset"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Jaa asetukset Nautilus-tiedostonhallinnan kanssa"
+msgstr "Gnome Filesin kanssa jaetut asetukset"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Muut tweaks"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -129,19 +135,19 @@ msgstr ""
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
-msgstr "Näytä kotikansio työpöydällä"
+msgstr "Näytä henkilökohtainen kansio työpöydällä"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Näytä roskakorin kuvake työpöydällä"
+msgstr "Näytä roskakorikuvake työpöydällä"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
 #| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
-msgstr "Näytä erilliset tallennusvälineet työpöydällä"
+msgstr "Näytä ulkoiset asemat työpöydällä"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
@@ -153,13 +159,13 @@ msgstr "Näytä verkkoasemat työpöydällä"
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Lisää uudet tallennusvälineet näytön toiselle puolelle"
+msgstr "Lisää uusia asemia työpöydän vastakkaiselle puolelle"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Korosta pudotuspaikka vedettäessä ja pudotettaessa"
+msgstr "Korosta pudotusruudukko vetämällä ja pudottamalla"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -175,8 +181,9 @@ msgid "Use dark text in icon labels"
 msgstr "Käytä tummaa tekstiä kuvakkeiden selitteissä"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Toimi kohteiden avaamiseksi"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -195,8 +202,9 @@ msgid "Always"
 msgstr "Aina"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Vain tällä tietokoneella"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
