@@ -10,64 +10,70 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Skrivbord"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Skrivbordsikoninställningar"
+msgstr "Skrivbordsinställningar"
 
 # TODO: *ON* the desktop?
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Ställ in storleken för skrivbordsikonerna."
+msgstr "Inställningar för skrivbordsprogrammet"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Volymer"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Skrivbordsvolymer visas"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Visningsinställningar"
+msgstr "Filinställningar"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Inställningar som delas med Nautilus"
+msgstr "Inställningar som delas med Gnome Files"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Diverse tweaks"
 
 # TODO: *ON* the desktop?
 #: app/adwPreferencesWindow.js:211
@@ -153,12 +159,12 @@ msgstr "Visa nätverksenheter på skrivbordet"
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Lägg till nya enheter på motsatt sida av skärmen"
+msgstr "Lägg till nya enheter på den motsatta sidan av skrivbordet"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Markera släppplatsen under Drag'n'Drop"
+msgstr "Markera släpprutnätet under Dra och släpp"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -176,8 +182,9 @@ msgid "Use dark text in icon labels"
 msgstr "Använd mörk text i ikonetiketter"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Åtgärd för att öppna objekt"
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
@@ -200,8 +207,9 @@ msgid "Always"
 msgstr "Alltid"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Endast på den här datorn"
 
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
