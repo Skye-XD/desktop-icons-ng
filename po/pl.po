@@ -10,65 +10,71 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Pulpit"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Akta"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Poprawki"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Ustawienia ikon pulpitu"
+msgstr "Ustawienia pulpitu"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Ustawia rozmiar ikon na pulpicie."
+msgstr "Ustawienia programu komputerowego"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Wolumeny"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Wyświetlanie woluminów pulpitu"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Ustawienia ekranu"
+msgstr "Ustawienia plików"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Ustawienia współdzielone z Nautilus"
+msgstr "Ustawienia współdzielone z plikami Gnome"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Różne poprawki"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -98,25 +104,25 @@ msgstr "Wyrównanie nowych ikon"
 #, fuzzy
 #| msgid "Top-left corner"
 msgid "Top left corner"
-msgstr "Do lewego górnego rogu"
+msgstr "Górny lewy róg"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
-msgstr "Do prawego górnego rogu"
+msgstr "Prawy górny róg"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 #| msgid "Bottom-left corner"
 msgid "Bottom left corner"
-msgstr "Do lewego dolnego rogu"
+msgstr "Lewy dolny róg"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
-msgstr "Do prawego dolnego rogu"
+msgstr "Dolny prawy róg"
 
 #: app/adwPreferencesWindow.js:229
 #, fuzzy
@@ -127,13 +133,13 @@ msgstr "Najpierw dodaj nowe ikony do monitorów pomocniczych, jeśli są dostęp
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
-msgstr "Katalog domowy na pulpicie"
+msgstr "Pokaż folder osobisty na pulpicie"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Kosz na pulpicie"
+msgstr "Pokaż ikonę kosza na pulpicie"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
@@ -151,13 +157,13 @@ msgstr "Pokaż dyski sieciowe na pulpicie"
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Dodaj nowe dyski po przeciwnej stronie ekranu"
+msgstr "Dodaj nowe dyski po przeciwnej stronie pulpitu"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Podświetl miejsce upuszczenia pliku podczas przeciągania"
+msgstr "Podświetl siatkę upuszczania podczas przeciągania i upuszczania"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -175,8 +181,9 @@ msgid "Use dark text in icon labels"
 msgstr "Używaj ciemnego tekstu w etykietach ikon"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Akcja otwierania przedmiotów"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -195,8 +202,9 @@ msgid "Always"
 msgstr "Zawsze"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Tylko na tym komputerze"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
@@ -609,10 +617,13 @@ msgid "Invalid Permissions on Desktop File"
 msgstr "Nieprawidłowe uprawnienia do pliku pulpitu"
 
 #: app/fileItem.js:338
+#, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
+"Ten plik .desktop ma nieprawidłowe uprawnienia. Kliknij prawym przyciskiem "
+"myszy, aby edytować Właściwości, a następnie:\n"
 
 #: app/fileItem.js:340
 #, fuzzy
