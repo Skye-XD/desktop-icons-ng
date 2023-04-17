@@ -102,7 +102,6 @@ var DesktopManager = class {
         this.ignoreKeys = [Gdk.KEY_space, Gdk.KEY_Shift_L, Gdk.KEY_Shift_R, Gdk.KEY_Control_L, Gdk.KEY_Control_R, Gdk.KEY_Caps_Lock, Gdk.KEY_Shift_Lock, Gdk.KEY_Meta_L, Gdk.KEY_Meta_R, Gdk.KEY_Alt_L, Gdk.KEY_Alt_R, Gdk.KEY_Super_L, Gdk.KEY_Super_R, Gdk.KEY_ISO_Level3_Shift, Gdk.KEY_ISO_Level5_Shift];
 
         // init methods
-        this._checkApplyDarkModeSetting();
         this._initLocalCSSprovider();
         this._configureSelectionColor();
         this._startMonitoringTemplatesDir();
@@ -218,11 +217,6 @@ var DesktopManager = class {
         this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
     }
 
-    _checkApplyDarkModeSetting() {
-        let displayGtkSettings = Gtk.Settings.get_for_display(Gdk.Display.get_default());
-        displayGtkSettings.gtk_application_prefer_dark_theme = this.Prefs.darkMode;
-    }
-
     _initLocalCSSprovider() {
         let cssProvider = new Gtk.CssProvider();
         cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([this._codePath, 'app', 'stylesheet.css'])));
@@ -230,14 +224,14 @@ var DesktopManager = class {
     }
 
     _configureSelectionColor() {
-        let box = new Gtk.Box();
+        let box = new Gtk.Label();
         this._styleContext = box.get_style_context();
         this._styleContext.add_class('view');
         this._setSelectionColor();
     }
 
     _setSelectionColor() {
-        let [exists, color] = this._styleContext.lookup_color('theme_selected_bg_color');
+        let [exists, color] = this._styleContext.lookup_color('accent_bg_color');
         if (exists) {
             this.selectColor = color;
         } else {
@@ -248,7 +242,7 @@ var DesktopManager = class {
                 alpha: 1.0,
             });
         }
-        [exists, color] = this._styleContext.lookup_color('theme_selected_fg_color');
+        [exists, color] = this._styleContext.lookup_color('accent_fg_color');
         if (exists) {
             this.hoverColor = color;
         } else {
@@ -1676,14 +1670,12 @@ var DesktopManager = class {
         if (success && completed)
             return;
 
-        this.preferencesWindow = new Gtk.Window({ resizable: false });
+        this.preferencesWindow = this.Prefs.getAdwPreferencesWindow();
         this.preferencesWindow.connect('close-request', () => {
             this.preferencesWindow = null;
         });
         this.preferencesWindow.set_title(_('Settings'));
         this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
-        let frame = this.Prefs.getPreferencesFrame();
-        this.preferencesWindow.set_child(frame);
         this.preferencesWindow.show();
     }
 

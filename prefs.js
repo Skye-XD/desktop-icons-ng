@@ -18,14 +18,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /* exported init, buildPrefsWidget */
-const { Gtk, Gio, GObject } = imports.gi;
+const { Gio } = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
-const Gettext = imports.gettext;
 
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Enums = Me.imports.app.enums;
-const PreferencesFrame = Me.imports.app.preferencesFrame;
+const adwPreferencesWindow = Me.imports.app.adwPreferencesWindow;
 
 /**
  * prefs initiation
@@ -37,11 +36,12 @@ function init() {
 }
 
 /**
- * prefs widget
+ * prefs fillPreferencesWindow
  *
- * @returns {Gtk.Widget}
+ * @param {AdwPreferencesWindow} window a preferences window from the shell
+ * @returns {void}
  */
-function buildPrefsWidget() {
+function fillPreferencesWindow(window) {
     let desktopSettings = ExtensionUtils.getSettings();
     let schemaSource = GioSSS.get_default();
     let schemaGtk = schemaSource.lookup(Enums.SCHEMA_GTK, true);
@@ -53,11 +53,6 @@ function buildPrefsWidget() {
     else
         nautilusSettings = new Gio.Settings({ settings_schema: schemaNautilus });
 
-    const gettext = Gettext.domain(Me.metadata.uuid).gettext;
-
-    const preferencesFrame = new PreferencesFrame.PreferencesFrame(Gtk, GObject, desktopSettings, nautilusSettings, gtkSettings, gettext);
-    let frame = preferencesFrame.getFrame();
-    frame.show();
-
-    return frame;
+    const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, Me.path);
+    preferencesWindow.getAdwPreferencesWindow(window);
 }

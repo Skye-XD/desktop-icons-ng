@@ -19,7 +19,7 @@
  */
 
 imports.gi.versions.Gtk = '4.0';
-const { Gtk, Gio, GLib } = imports.gi;
+const { Gtk, Gio, GLib, Adw} = imports.gi;
 
 let desktops = [];
 let lastCommand = null;
@@ -161,7 +161,7 @@ parseCommandLine(ARGV);
 imports.searchPath.unshift(codePath);
 
 const Preferences = imports.app.preferences;
-const PreferencesFrame = imports.app.preferencesFrame;
+const AdwPreferencesWindow = imports.app.adwPreferencesWindow;
 const Enums = imports.app.enums;
 const DBusUtils = imports.app.utils.dbusUtils;
 const PromiseUtils = imports.utils.promiseUtils;
@@ -193,7 +193,7 @@ const DesktopManager = imports.app.desktopManager;
 
 var desktopManager = null;
 var Utils = { FileUtils, PromiseUtils };
-var Data = { codePath, Enums, PreferencesFrame };
+var Data = { codePath, Enums, AdwPreferencesWindow};
 
 if (asDesktop) {
     remoteDingActions = Gio.DBusActionGroup.get(
@@ -210,7 +210,7 @@ if (asDesktop) {
 }
 
 // Use different AppIDs to allow to test it from a command line while the main desktop is also running from the extension
-const dingApp = new Gtk.Application({
+const dingApp = new Adw.Application({
     application_id: asDesktop ? 'com.desktop.ding' : 'com.desktop.dingtest',
     flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE | Gio.ApplicationFlags.REPLACE,
 });
