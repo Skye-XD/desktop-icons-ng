@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"POT-Creation-Date: 2023-04-16 08:10-0400\n"
 "PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -19,6 +19,195 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.17-dev\n"
 
+#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+msgid "Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+msgid "Files"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:205
+msgid "Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:190
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "桌面圖標設置"
+
+#: app/adwPreferencesWindow.js:191
+#, fuzzy
+#| msgid "Set the size for the desktop icons."
+msgid "Settings for the Desktop Program"
+msgstr "設定桌面圖示的大小。"
+
+#: app/adwPreferencesWindow.js:195
+msgid "Volumes"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:196
+msgid "Desktop volumes display"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:200
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Files Settings"
+msgstr "顯示設定"
+
+#: app/adwPreferencesWindow.js:201
+#, fuzzy
+#| msgid "Settings shared with Nautilus"
+msgid "Settings shared with Gnome Files"
+msgstr "與《檔案》共用設定"
+
+#: app/adwPreferencesWindow.js:206
+msgid "Miscellaneous Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:211
+msgid "Size for the desktop icons"
+msgstr "桌面圖示的大小"
+
+#: app/adwPreferencesWindow.js:213
+msgid "Tiny"
+msgstr "更小圖示"
+
+#: app/adwPreferencesWindow.js:214
+msgid "Small"
+msgstr "小圖示"
+
+#: app/adwPreferencesWindow.js:215
+msgid "Standard"
+msgstr "適中圖示"
+
+#: app/adwPreferencesWindow.js:216
+msgid "Large"
+msgstr "大圖示"
+
+#: app/adwPreferencesWindow.js:221
+msgid "New icons alignment"
+msgstr "新圖示排序位置"
+
+#: app/adwPreferencesWindow.js:223
+#, fuzzy
+#| msgid "Top-left corner"
+msgid "Top left corner"
+msgstr "左上角"
+
+#: app/adwPreferencesWindow.js:224
+#, fuzzy
+#| msgid "Top-right corner"
+msgid "Top right corner"
+msgstr "右上角"
+
+#: app/adwPreferencesWindow.js:225
+#, fuzzy
+#| msgid "Bottom-left corner"
+msgid "Bottom left corner"
+msgstr "左下角"
+
+#: app/adwPreferencesWindow.js:226
+#, fuzzy
+#| msgid "Bottom-right corner"
+msgid "Bottom right corner"
+msgstr "右下角"
+
+#: app/adwPreferencesWindow.js:229
+#, fuzzy
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr "如果可用，首先向輔助監視器添加新圖標"
+
+#: app/adwPreferencesWindow.js:231
+#, fuzzy
+#| msgid "Show the personal folder in the desktop"
+msgid "Show the personal folder on the desktop"
+msgstr "在桌面顯示個人資料夾"
+
+#: app/adwPreferencesWindow.js:232
+#, fuzzy
+#| msgid "Show the trash icon in the desktop"
+msgid "Show the trash icon on the desktop"
+msgstr "在桌面顯示垃圾桶圖示"
+
+#: app/adwPreferencesWindow.js:233
+#, fuzzy
+#| msgid "Show external drives in the desktop"
+msgid "Show external drives on the desktop"
+msgstr "在桌面顯示外接硬碟"
+
+#: app/adwPreferencesWindow.js:234
+#, fuzzy
+#| msgid "Show network drives in the desktop"
+msgid "Show network drives on the desktop"
+msgstr "在桌面顯示網路資料夾"
+
+#: app/adwPreferencesWindow.js:235
+#, fuzzy
+#| msgid "Add new drives to the opposite side of the screen"
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "將新掛載硬碟置於螢幕的另一邊"
+
+#: app/adwPreferencesWindow.js:237
+#, fuzzy
+#| msgid "Highlight the drop place during Drag'n'Drop"
+msgid "Highlight the drop grid during Drag and Drop"
+msgstr "拖曳時強調顯示拖曳後位置"
+
+#: app/adwPreferencesWindow.js:238
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+#, fuzzy
+msgid "Use Nemo to open folders"
+msgstr "使用 Nemo 打開文件夾"
+
+#: app/adwPreferencesWindow.js:239
+#, fuzzy
+msgid "Add an emblem to soft links"
+msgstr "為軟鏈接添加標誌"
+
+#: app/adwPreferencesWindow.js:240
+#, fuzzy
+msgid "Use dark text in icon labels"
+msgstr "在圖標標籤中使用深色文本"
+
+#: app/adwPreferencesWindow.js:244
+msgid "Action to Open Items"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:246
+msgid "Single click"
+msgstr "單擊"
+
+#: app/adwPreferencesWindow.js:247
+msgid "Double click"
+msgstr "雙擊"
+
+#: app/adwPreferencesWindow.js:251
+msgid "Show image thumbnails"
+msgstr "顯示影像縮圖"
+
+#: app/adwPreferencesWindow.js:253
+msgid "Always"
+msgstr "總是"
+
+#: app/adwPreferencesWindow.js:254
+msgid "On this computer only"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:255
+msgid "Never"
+msgstr "從不"
+
+#: app/adwPreferencesWindow.js:257
+msgid "Show a context menu item to delete permanently"
+msgstr "在快速選單顯示永久刪除"
+
+#: app/adwPreferencesWindow.js:258
+msgid "Show hidden files"
+msgstr "顯示隱藏檔"
+
 #: app/askRenamePopup.js:49
 msgid "Folder name"
 msgstr "資料夾名稱"
@@ -27,7 +216,7 @@ msgstr "資料夾名稱"
 msgid "File name"
 msgstr "檔案名稱"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1305
 msgid "OK"
 msgstr "確定"
 
@@ -57,8 +246,8 @@ msgstr "提取文件"
 msgid "Compressing files"
 msgstr "壓縮文件"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
-#: app/desktopManager.js:1313 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
+#: app/desktopManager.js:1307 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "取消"
 
@@ -187,194 +376,194 @@ msgstr "較小的檔案，但僅限 Linux 和 Mac。"
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "較小的存檔，但必須安裝在 Windows 和 Mac 上。"
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:130
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "找不到 GNOME 文件"
 
-#: app/desktopManager.js:132
+#: app/desktopManager.js:131
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Desktop Icons NG 需要 GNOME Files 應用程序。"
 
-#: app/desktopManager.js:771
+#: app/desktopManager.js:765
 #, fuzzy
 msgid "Could not open File"
 msgstr "無法打開文件"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:766
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} 無法打開此類型的文件！"
 
-#: app/desktopManager.js:869
+#: app/desktopManager.js:863
 #, fuzzy
 msgid "Move"
 msgstr "移動"
 
-#: app/desktopManager.js:870 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "複製"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:865
 #, fuzzy
 msgid "Link"
 msgstr "關聯"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:868
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "為文件選擇操作"
 
-#: app/desktopManager.js:944 app/desktopManager.js:976
+#: app/desktopManager.js:938 app/desktopManager.js:970
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "使 SymLink 失敗"
 
-#: app/desktopManager.js:945 app/desktopManager.js:977
+#: app/desktopManager.js:939 app/desktopManager.js:971
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "無法創建符號鏈接"
 
-#: app/desktopManager.js:1269
+#: app/desktopManager.js:1263
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "在新搜索之前清除當前選擇"
 
-#: app/desktopManager.js:1315
+#: app/desktopManager.js:1309
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "在桌面上查找文件"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Name"
 msgstr "姓名"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Name Z-A"
 msgstr "名稱 Z-A"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1566
 #, fuzzy
 msgid "Modified Time"
 msgstr "修改時間"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1567
 #, fuzzy
 msgid "Type"
 msgstr "類型"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1568
 #, fuzzy
 msgid "Size"
 msgstr "尺寸"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "保持安排…"
 
-#: app/desktopManager.js:1581
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "按類型堆疊……"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1576
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "排序主頁/驅動器/垃圾桶……"
 
-#: app/desktopManager.js:1587 app/desktopManager.js:2601
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 msgid "New Folder"
 msgstr "新增資料夾"
 
-#: app/desktopManager.js:1591
+#: app/desktopManager.js:1585
 msgid "New Document"
 msgstr "新增文件"
 
-#: app/desktopManager.js:1595
+#: app/desktopManager.js:1589
 msgid "Paste"
 msgstr "貼上"
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1590
 msgid "Undo"
 msgstr "復原"
 
-#: app/desktopManager.js:1597
+#: app/desktopManager.js:1591
 msgid "Redo"
 msgstr "重做"
 
-#: app/desktopManager.js:1602
+#: app/desktopManager.js:1596
 #, fuzzy
 msgid "Select All"
 msgstr "全選"
 
-#: app/desktopManager.js:1607
+#: app/desktopManager.js:1601
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "排列圖標"
 
-#: app/desktopManager.js:1611
+#: app/desktopManager.js:1605
 #, fuzzy
 msgid "Arrange By…"
 msgstr "安排…"
 
-#: app/desktopManager.js:1616
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "在 GNOME 文件中顯示桌面"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "在終端中打開"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1616
 msgid "Change Background…"
 msgstr "變更背景圖片…"
 
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "桌面圖標設置"
 
-#: app/desktopManager.js:1628
+#: app/desktopManager.js:1622
 msgid "Display Settings"
 msgstr "顯示設定"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "首選項窗口已打開"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "這個窗口是打開的。請切換到活動窗口。"
 
-#: app/desktopManager.js:1683
+#: app/desktopManager.js:1677
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2616
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "文件夾創建失敗"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2617
 #, fuzzy
 msgid "Could not create folder"
 msgstr "無法創建文件夾"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2660
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "模板創建錯誤"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2661
 #, fuzzy
 msgid "Could not create document"
 msgstr "無法創建文檔"
@@ -609,150 +798,6 @@ msgstr "無法寄送資料夾"
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "已選項目含資料夾，先把資料夾壓縮成一個檔案。"
 
-#: app/preferencesFrame.js:40
-msgid "Size for the desktop icons"
-msgstr "桌面圖示的大小"
-
-#: app/preferencesFrame.js:40
-msgid "Tiny"
-msgstr "更小圖示"
-
-#: app/preferencesFrame.js:40
-msgid "Small"
-msgstr "小圖示"
-
-#: app/preferencesFrame.js:40
-msgid "Standard"
-msgstr "適中圖示"
-
-#: app/preferencesFrame.js:40
-msgid "Large"
-msgstr "大圖示"
-
-#: app/preferencesFrame.js:41
-msgid "Show the personal folder in the desktop"
-msgstr "在桌面顯示個人資料夾"
-
-#: app/preferencesFrame.js:42
-msgid "Show the trash icon in the desktop"
-msgstr "在桌面顯示垃圾桶圖示"
-
-#: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-msgid "Show external drives in the desktop"
-msgstr "在桌面顯示外接硬碟"
-
-#: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-msgid "Show network drives in the desktop"
-msgstr "在桌面顯示網路資料夾"
-
-#: app/preferencesFrame.js:47
-msgid "New icons alignment"
-msgstr "新圖示排序位置"
-
-#: app/preferencesFrame.js:49
-msgid "Top-left corner"
-msgstr "左上角"
-
-#: app/preferencesFrame.js:50
-msgid "Top-right corner"
-msgstr "右上角"
-
-#: app/preferencesFrame.js:51
-msgid "Bottom-left corner"
-msgstr "左下角"
-
-#: app/preferencesFrame.js:52
-msgid "Bottom-right corner"
-msgstr "右下角"
-
-#: app/preferencesFrame.js:54
-#, fuzzy
-msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "如果可用，首先向輔助監視器添加新圖標"
-
-#: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-msgid "Add new drives to the opposite side of the screen"
-msgstr "將新掛載硬碟置於螢幕的另一邊"
-
-#: app/preferencesFrame.js:56
-msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "拖曳時強調顯示拖曳後位置"
-
-#: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
-msgid "Use Nemo to open folders"
-msgstr "使用 Nemo 打開文件夾"
-
-#: app/preferencesFrame.js:58
-#, fuzzy
-msgid "Add an emblem to soft links"
-msgstr "為軟鏈接添加標誌"
-
-#: app/preferencesFrame.js:59
-#, fuzzy
-msgid "Use dark text in icon labels"
-msgstr "在圖標標籤中使用深色文本"
-
-#: app/preferencesFrame.js:64
-msgid "Settings shared with Nautilus"
-msgstr "與《檔案》共用設定"
-
-#: app/preferencesFrame.js:79
-msgid "Click type for open files"
-msgstr "開啟檔案時的點擊方式"
-
-#: app/preferencesFrame.js:79
-msgid "Single click"
-msgstr "單擊"
-
-#: app/preferencesFrame.js:79
-msgid "Double click"
-msgstr "雙擊"
-
-#: app/preferencesFrame.js:80
-msgid "Show hidden files"
-msgstr "顯示隱藏檔"
-
-#: app/preferencesFrame.js:81
-msgid "Show a context menu item to delete permanently"
-msgstr "在快速選單顯示永久刪除"
-
-#: app/preferencesFrame.js:86
-msgid "Action to do when launching a program from the desktop"
-msgstr "在桌面執行應用程式時的動作"
-
-#: app/preferencesFrame.js:87
-msgid "Display the content of the file"
-msgstr "顯示檔案內容"
-
-#: app/preferencesFrame.js:88
-msgid "Launch the file"
-msgstr "執行檔案"
-
-#: app/preferencesFrame.js:89
-msgid "Ask what to do"
-msgstr "詢問要做什麼"
-
-#: app/preferencesFrame.js:95
-msgid "Show image thumbnails"
-msgstr "顯示影像縮圖"
-
-#: app/preferencesFrame.js:96
-msgid "Never"
-msgstr "從不"
-
-#: app/preferencesFrame.js:97
-msgid "Local files only"
-msgstr "顯示本機檔案"
-
-#: app/preferencesFrame.js:98
-msgid "Always"
-msgstr "總是"
-
 #: app/showErrorPopup.js:41
 #, fuzzy
 msgid "Close"
@@ -806,14 +851,26 @@ msgstr "新圖示排序方式"
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "設定新圖示置放的位置"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+msgid "Show external drives in the desktop"
+msgstr "在桌面顯示外接硬碟"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
 msgstr "顯示連接於本機的硬碟"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+msgid "Show network drives in the desktop"
+msgstr "在桌面顯示網路資料夾"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
 msgstr "在桌面上顯示已安裝的網絡卷。"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+msgid "Add new drives to the opposite side of the screen"
+msgstr "將新掛載硬碟置於螢幕的另一邊"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
@@ -843,7 +900,8 @@ msgstr "排序特殊文件夾 - 主頁/垃圾驅動器。"
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
-msgstr "在桌面上排列圖標時，排序和更改主頁、垃圾箱和已安裝的網絡或外部驅動器的位置"
+msgstr ""
+"在桌面上排列圖標時，排序和更改主頁、垃圾箱和已安裝的網絡或外部驅動器的位置"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
@@ -923,6 +981,24 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr "如果連接了第二台顯示器，新圖標將放置在非主顯示器上"
+
+#~ msgid "Click type for open files"
+#~ msgstr "開啟檔案時的點擊方式"
+
+#~ msgid "Action to do when launching a program from the desktop"
+#~ msgstr "在桌面執行應用程式時的動作"
+
+#~ msgid "Display the content of the file"
+#~ msgstr "顯示檔案內容"
+
+#~ msgid "Launch the file"
+#~ msgstr "執行檔案"
+
+#~ msgid "Ask what to do"
+#~ msgstr "詢問要做什麼"
+
+#~ msgid "Local files only"
+#~ msgstr "顯示本機檔案"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."

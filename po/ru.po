@@ -9,18 +9,205 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"POT-Creation-Date: 2023-04-16 08:10-0400\n"
 "PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.17-dev\n"
+
+#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+msgid "Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+msgid "Files"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:205
+msgid "Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:190
+#, fuzzy
+#| msgid "Desktop Icon Settings"
+msgid "Desktop Settings"
+msgstr "Параметры Desktop Icons"
+
+#: app/adwPreferencesWindow.js:191
+#, fuzzy
+#| msgid "Set the size for the desktop icons."
+msgid "Settings for the Desktop Program"
+msgstr "Установить размер значков на рабочем столе."
+
+#: app/adwPreferencesWindow.js:195
+msgid "Volumes"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:196
+msgid "Desktop volumes display"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:200
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Files Settings"
+msgstr "Настройки экрана"
+
+#: app/adwPreferencesWindow.js:201
+#, fuzzy
+#| msgid "Settings shared with Nautilus"
+msgid "Settings shared with Gnome Files"
+msgstr "Общие настройки с Nautilus"
+
+#: app/adwPreferencesWindow.js:206
+msgid "Miscellaneous Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:211
+msgid "Size for the desktop icons"
+msgstr "Размер значков на рабочем столе"
+
+#: app/adwPreferencesWindow.js:213
+msgid "Tiny"
+msgstr "Крошечный"
+
+#: app/adwPreferencesWindow.js:214
+msgid "Small"
+msgstr "Маленький"
+
+#: app/adwPreferencesWindow.js:215
+msgid "Standard"
+msgstr "Стандартный"
+
+#: app/adwPreferencesWindow.js:216
+msgid "Large"
+msgstr "Большой"
+
+#: app/adwPreferencesWindow.js:221
+msgid "New icons alignment"
+msgstr "Выравнивание для новых значков"
+
+#: app/adwPreferencesWindow.js:223
+#, fuzzy
+#| msgid "Top-left corner"
+msgid "Top left corner"
+msgstr "Верхний левый угол"
+
+#: app/adwPreferencesWindow.js:224
+#, fuzzy
+#| msgid "Top-right corner"
+msgid "Top right corner"
+msgstr "Верхний правый угол"
+
+#: app/adwPreferencesWindow.js:225
+#, fuzzy
+#| msgid "Bottom-left corner"
+msgid "Bottom left corner"
+msgstr "Нижний левый угол"
+
+#: app/adwPreferencesWindow.js:226
+#, fuzzy
+#| msgid "Bottom-right corner"
+msgid "Bottom right corner"
+msgstr "Нижний правый угол"
+
+#: app/adwPreferencesWindow.js:229
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr ""
+"Сначала добавлять новые значки на вторичные мониторы, если они доступны"
+
+#: app/adwPreferencesWindow.js:231
+#, fuzzy
+#| msgid "Show the personal folder in the desktop"
+msgid "Show the personal folder on the desktop"
+msgstr "Показывать домашнюю папку на рабочем столе"
+
+#: app/adwPreferencesWindow.js:232
+#, fuzzy
+#| msgid "Show the trash icon in the desktop"
+msgid "Show the trash icon on the desktop"
+msgstr "Показывать корзину на рабочем столе"
+
+#: app/adwPreferencesWindow.js:233
+#, fuzzy
+#| msgid "Show external drives in the desktop"
+msgid "Show external drives on the desktop"
+msgstr "Показывать внешние диски на рабочем столе"
+
+#: app/adwPreferencesWindow.js:234
+#, fuzzy
+#| msgid "Show network drives in the desktop"
+msgid "Show network drives on the desktop"
+msgstr "Показывать сетевые диски на рабочем столе"
+
+#: app/adwPreferencesWindow.js:235
+#, fuzzy
+#| msgid "Add new drives to the opposite side of the screen"
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "Добавлять новые диски на противоположную сторону экрана"
+
+#: app/adwPreferencesWindow.js:237
+#, fuzzy
+#| msgid "Highlight the drop place during Drag'n'Drop"
+msgid "Highlight the drop grid during Drag and Drop"
+msgstr "Выделять место назначения в процессе перетаскивания"
+
+#: app/adwPreferencesWindow.js:238
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+msgid "Use Nemo to open folders"
+msgstr "Использовать Nemo для открытия папок"
+
+#: app/adwPreferencesWindow.js:239
+msgid "Add an emblem to soft links"
+msgstr "Добавить эмблему к символическим ссылкам"
+
+#: app/adwPreferencesWindow.js:240
+msgid "Use dark text in icon labels"
+msgstr "Использовать тёмный текст в подписях к значкам"
+
+#: app/adwPreferencesWindow.js:244
+msgid "Action to Open Items"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:246
+msgid "Single click"
+msgstr "Одинарный щелчок"
+
+#: app/adwPreferencesWindow.js:247
+msgid "Double click"
+msgstr "Двойной щелчок"
+
+#: app/adwPreferencesWindow.js:251
+msgid "Show image thumbnails"
+msgstr "Показывать миниатюры изображений"
+
+#: app/adwPreferencesWindow.js:253
+msgid "Always"
+msgstr "Всегда"
+
+#: app/adwPreferencesWindow.js:254
+msgid "On this computer only"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:255
+msgid "Never"
+msgstr "Никогда"
+
+#: app/adwPreferencesWindow.js:257
+msgid "Show a context menu item to delete permanently"
+msgstr "Добавить пункт в контекстное меню «Удалить безвозвратно»"
+
+#: app/adwPreferencesWindow.js:258
+msgid "Show hidden files"
+msgstr "Показывать скрытые файлы"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -30,7 +217,7 @@ msgstr "Название папки"
 msgid "File name"
 msgstr "Название файла"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1305
 msgid "OK"
 msgstr "ОК"
 
@@ -58,8 +245,8 @@ msgstr "Извлечение файлов"
 msgid "Compressing files"
 msgstr "Сжатие файлов"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
-#: app/desktopManager.js:1313 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
+#: app/desktopManager.js:1307 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -163,163 +350,163 @@ msgstr "Архивы меньшего размера, совместимые т�
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Архивы меньшего размера, требующие установки на Windows и Mac."
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:130
 msgid "GNOME Files not found"
 msgstr "Файловый менеджер GNOME не найден"
 
-#: app/desktopManager.js:132
+#: app/desktopManager.js:131
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Для Desktop Icons NG требуется приложение Файлы GNOME."
 
-#: app/desktopManager.js:771
+#: app/desktopManager.js:765
 msgid "Could not open File"
 msgstr "Не удалось открыть файл"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:766
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} не может открывать файлы этого типа!"
 
-#: app/desktopManager.js:869
+#: app/desktopManager.js:863
 msgid "Move"
 msgstr "Переместить"
 
-#: app/desktopManager.js:870 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Копировать"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:865
 msgid "Link"
 msgstr "Ссылка"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:868
 msgid "Choose Action for Files"
 msgstr "Выбрать действие для файлового менеджера"
 
-#: app/desktopManager.js:944 app/desktopManager.js:976
+#: app/desktopManager.js:938 app/desktopManager.js:970
 msgid "Making SymLink Failed"
 msgstr "Ошибка создания SymLink"
 
-#: app/desktopManager.js:945 app/desktopManager.js:977
+#: app/desktopManager.js:939 app/desktopManager.js:971
 msgid "Could not create symbolic link"
 msgstr "Не удалось создать символическую ссылку"
 
-#: app/desktopManager.js:1269
+#: app/desktopManager.js:1263
 msgid "Clear current selection before new search"
 msgstr "Очистить текущую подборку перед новым поиском"
 
-#: app/desktopManager.js:1315
+#: app/desktopManager.js:1309
 msgid "Find Files on Desktop"
 msgstr "Поиск файлов на рабочем столе"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1564
 msgid "Name"
 msgstr "Название"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1565
 msgid "Name Z-A"
 msgstr "Название A-Я"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1566
 msgid "Modified Time"
 msgstr "Время изменения"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1567
 msgid "Type"
 msgstr "Тип"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1568
 msgid "Size"
 msgstr "Размер"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1571
 msgid "Keep Arranged…"
 msgstr "Сохранить порядок…"
 
-#: app/desktopManager.js:1581
+#: app/desktopManager.js:1575
 msgid "Keep Stacked by Type…"
 msgstr "Сохранить сгруппированными по типу…"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1576
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сортировать Домашняя папка/Диски/Корзина…"
 
-#: app/desktopManager.js:1587 app/desktopManager.js:2601
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 msgid "New Folder"
 msgstr "Создать папку"
 
-#: app/desktopManager.js:1591
+#: app/desktopManager.js:1585
 msgid "New Document"
 msgstr "Создать документ"
 
-#: app/desktopManager.js:1595
+#: app/desktopManager.js:1589
 msgid "Paste"
 msgstr "Вставить"
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1590
 msgid "Undo"
 msgstr "Отменить"
 
-#: app/desktopManager.js:1597
+#: app/desktopManager.js:1591
 msgid "Redo"
 msgstr "Повторить"
 
-#: app/desktopManager.js:1602
+#: app/desktopManager.js:1596
 msgid "Select All"
 msgstr "Выделить всё"
 
-#: app/desktopManager.js:1607
+#: app/desktopManager.js:1601
 msgid "Arrange Icons"
 msgstr "Упорядочить значки"
 
-#: app/desktopManager.js:1611
+#: app/desktopManager.js:1605
 msgid "Arrange By…"
 msgstr "Упорядочить по…"
 
-#: app/desktopManager.js:1616
+#: app/desktopManager.js:1610
 msgid "Show Desktop In GNOME Files"
 msgstr "Показать рабочий стол в файловом менеджере"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1611
 msgid "Open In Terminal"
 msgstr "Открыть в терминале"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1616
 msgid "Change Background…"
 msgstr "Изменить фон…"
 
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1621
 msgid "Desktop Icon Settings"
 msgstr "Параметры Desktop Icons"
 
-#: app/desktopManager.js:1628
+#: app/desktopManager.js:1622
 msgid "Display Settings"
 msgstr "Настройки экрана"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 msgid "Preferences Window is Open"
 msgstr "Окно параметров открыто"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 msgid "This Window is open. Please switch to the active window."
 msgstr "Это окно открыто. Пожалуйста, переключитесь на активное окно."
 
-#: app/desktopManager.js:1683
+#: app/desktopManager.js:1677
 msgid "Settings"
 msgstr "Параметры"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2616
 msgid "Folder Creation Failed"
 msgstr "Ошибка создания папки"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2617
 msgid "Could not create folder"
 msgstr "Не удалось создать папку"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2660
 msgid "Template Creation Error"
 msgstr "Ошибка создания шаблона"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2661
 msgid "Could not create document"
 msgstr "Не удалось создать документ"
 
@@ -549,147 +736,6 @@ msgstr "Невозможно отправить каталог по электр
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Выбран каталог, сначала сожмите его в файл."
 
-#: app/preferencesFrame.js:40
-msgid "Size for the desktop icons"
-msgstr "Размер значков на рабочем столе"
-
-#: app/preferencesFrame.js:40
-msgid "Tiny"
-msgstr "Крошечный"
-
-#: app/preferencesFrame.js:40
-msgid "Small"
-msgstr "Маленький"
-
-#: app/preferencesFrame.js:40
-msgid "Standard"
-msgstr "Стандартный"
-
-#: app/preferencesFrame.js:40
-msgid "Large"
-msgstr "Большой"
-
-#: app/preferencesFrame.js:41
-msgid "Show the personal folder in the desktop"
-msgstr "Показывать домашнюю папку на рабочем столе"
-
-#: app/preferencesFrame.js:42
-msgid "Show the trash icon in the desktop"
-msgstr "Показывать корзину на рабочем столе"
-
-#: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-msgid "Show external drives in the desktop"
-msgstr "Показывать внешние диски на рабочем столе"
-
-#: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-msgid "Show network drives in the desktop"
-msgstr "Показывать сетевые диски на рабочем столе"
-
-#: app/preferencesFrame.js:47
-msgid "New icons alignment"
-msgstr "Выравнивание для новых значков"
-
-#: app/preferencesFrame.js:49
-msgid "Top-left corner"
-msgstr "Верхний левый угол"
-
-#: app/preferencesFrame.js:50
-msgid "Top-right corner"
-msgstr "Верхний правый угол"
-
-#: app/preferencesFrame.js:51
-msgid "Bottom-left corner"
-msgstr "Нижний левый угол"
-
-#: app/preferencesFrame.js:52
-msgid "Bottom-right corner"
-msgstr "Нижний правый угол"
-
-#: app/preferencesFrame.js:54
-msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Сначала добавлять новые значки на вторичные мониторы, если они доступны"
-
-#: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-msgid "Add new drives to the opposite side of the screen"
-msgstr "Добавлять новые диски на противоположную сторону экрана"
-
-#: app/preferencesFrame.js:56
-msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "Выделять место назначения в процессе перетаскивания"
-
-#: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-msgid "Use Nemo to open folders"
-msgstr "Использовать Nemo для открытия папок"
-
-#: app/preferencesFrame.js:58
-msgid "Add an emblem to soft links"
-msgstr "Добавить эмблему к символическим ссылкам"
-
-#: app/preferencesFrame.js:59
-msgid "Use dark text in icon labels"
-msgstr "Использовать тёмный текст в подписях к значкам"
-
-#: app/preferencesFrame.js:64
-msgid "Settings shared with Nautilus"
-msgstr "Общие настройки с Nautilus"
-
-#: app/preferencesFrame.js:79
-msgid "Click type for open files"
-msgstr "Тип нажатия для открытия файлов"
-
-#: app/preferencesFrame.js:79
-msgid "Single click"
-msgstr "Одинарный щелчок"
-
-#: app/preferencesFrame.js:79
-msgid "Double click"
-msgstr "Двойной щелчок"
-
-#: app/preferencesFrame.js:80
-msgid "Show hidden files"
-msgstr "Показывать скрытые файлы"
-
-#: app/preferencesFrame.js:81
-msgid "Show a context menu item to delete permanently"
-msgstr "Добавить пункт в контекстное меню «Удалить безвозвратно»"
-
-#: app/preferencesFrame.js:86
-msgid "Action to do when launching a program from the desktop"
-msgstr "Действие при запуске программы с рабочего стола"
-
-#: app/preferencesFrame.js:87
-msgid "Display the content of the file"
-msgstr "Показать содержимое файла"
-
-#: app/preferencesFrame.js:88
-msgid "Launch the file"
-msgstr "Запустить файл"
-
-#: app/preferencesFrame.js:89
-msgid "Ask what to do"
-msgstr "Спросить что делать"
-
-#: app/preferencesFrame.js:95
-msgid "Show image thumbnails"
-msgstr "Показывать миниатюры изображений"
-
-#: app/preferencesFrame.js:96
-msgid "Never"
-msgstr "Никогда"
-
-#: app/preferencesFrame.js:97
-msgid "Local files only"
-msgstr "Только для локальных файлов"
-
-#: app/preferencesFrame.js:98
-msgid "Always"
-msgstr "Всегда"
-
 #: app/showErrorPopup.js:41
 msgid "Close"
 msgstr "Закрыть"
@@ -742,13 +788,25 @@ msgstr "Новые значки начинают размещаться с уг�
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "Установите угол, с которого значки начнут размещаться."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+msgid "Show external drives in the desktop"
+msgstr "Показывать внешние диски на рабочем столе"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
 msgstr "Показывать диски, подключенные к компьютеру."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+msgid "Show network drives in the desktop"
+msgstr "Показывать сетевые диски на рабочем столе"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
 msgstr "Показывать подключенные сетевые тома на рабочем столе."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+msgid "Add new drives to the opposite side of the screen"
+msgstr "Добавлять новые диски на противоположную сторону экрана"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
@@ -851,6 +909,24 @@ msgid ""
 msgstr ""
 "Если подключен второй монитор, новые значки размещаются на неосновном "
 "мониторе."
+
+#~ msgid "Click type for open files"
+#~ msgstr "Тип нажатия для открытия файлов"
+
+#~ msgid "Action to do when launching a program from the desktop"
+#~ msgstr "Действие при запуске программы с рабочего стола"
+
+#~ msgid "Display the content of the file"
+#~ msgstr "Показать содержимое файла"
+
+#~ msgid "Launch the file"
+#~ msgstr "Запустить файл"
+
+#~ msgid "Ask what to do"
+#~ msgstr "Спросить что делать"
+
+#~ msgid "Local files only"
+#~ msgstr "Только для локальных файлов"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."

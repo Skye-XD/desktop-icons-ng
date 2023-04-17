@@ -9,17 +9,205 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"POT-Creation-Date: 2023-04-16 08:10-0400\n"
 "PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.17-dev\n"
+
+#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+msgid "Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+msgid "Files"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:205
+msgid "Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:190
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "Configuración de iconos de escritorio"
+
+#: app/adwPreferencesWindow.js:191
+#, fuzzy
+#| msgid "Set the size for the desktop icons."
+msgid "Settings for the Desktop Program"
+msgstr "Establece el tamaño de los iconos del escritorio."
+
+#: app/adwPreferencesWindow.js:195
+msgid "Volumes"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:196
+msgid "Desktop volumes display"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:200
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Files Settings"
+msgstr "Preferencias de pantalla"
+
+#: app/adwPreferencesWindow.js:201
+#, fuzzy
+#| msgid "Settings shared with Nautilus"
+msgid "Settings shared with Gnome Files"
+msgstr "Configuración compartida con Nautilus"
+
+#: app/adwPreferencesWindow.js:206
+msgid "Miscellaneous Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:211
+msgid "Size for the desktop icons"
+msgstr "Tamaño de los iconos del escritorio"
+
+#: app/adwPreferencesWindow.js:213
+msgid "Tiny"
+msgstr "Diminuto"
+
+#: app/adwPreferencesWindow.js:214
+msgid "Small"
+msgstr "Pequeño"
+
+#: app/adwPreferencesWindow.js:215
+msgid "Standard"
+msgstr "Estándar"
+
+#: app/adwPreferencesWindow.js:216
+msgid "Large"
+msgstr "Grande"
+
+#: app/adwPreferencesWindow.js:221
+msgid "New icons alignment"
+msgstr "Alineamiento de nuevos iconos"
+
+#: app/adwPreferencesWindow.js:223
+#, fuzzy
+#| msgid "Top-left corner"
+msgid "Top left corner"
+msgstr "Esquina superior-izquierda"
+
+#: app/adwPreferencesWindow.js:224
+#, fuzzy
+#| msgid "Top-right corner"
+msgid "Top right corner"
+msgstr "Esquina superior-derecha"
+
+#: app/adwPreferencesWindow.js:225
+#, fuzzy
+#| msgid "Bottom-left corner"
+msgid "Bottom left corner"
+msgstr "Esquina inferior-izquierda"
+
+#: app/adwPreferencesWindow.js:226
+#, fuzzy
+#| msgid "Bottom-right corner"
+msgid "Bottom right corner"
+msgstr "Esquina inferior-derecha"
+
+#: app/adwPreferencesWindow.js:229
+#, fuzzy
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr ""
+"Agregue nuevos íconos a los monitores secundarios primero, si están "
+"disponibles"
+
+#: app/adwPreferencesWindow.js:231
+#, fuzzy
+#| msgid "Show the personal folder in the desktop"
+msgid "Show the personal folder on the desktop"
+msgstr "Mostrar la carpeta personal en el escritorio"
+
+#: app/adwPreferencesWindow.js:232
+#, fuzzy
+#| msgid "Show the trash icon in the desktop"
+msgid "Show the trash icon on the desktop"
+msgstr "Mostrar la papelera en el escritorio"
+
+#: app/adwPreferencesWindow.js:233
+#, fuzzy
+#| msgid "Show external drives in the desktop"
+msgid "Show external drives on the desktop"
+msgstr "Mostrar unidades externas en el escritorio"
+
+#: app/adwPreferencesWindow.js:234
+#, fuzzy
+#| msgid "Show network drives in the desktop"
+msgid "Show network drives on the desktop"
+msgstr "Mostrar unidades de red en el escritorio"
+
+#: app/adwPreferencesWindow.js:235
+#, fuzzy
+#| msgid "Add new drives to the opposite side of the screen"
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "Añadir nuevas unidades en el lado opuesto de la pantalla"
+
+#: app/adwPreferencesWindow.js:237
+#, fuzzy
+#| msgid "Highlight the drop place during Drag'n'Drop"
+msgid "Highlight the drop grid during Drag and Drop"
+msgstr "Resaltar el lugar de destino durante Drag'n'Drop"
+
+#: app/adwPreferencesWindow.js:238
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+msgid "Use Nemo to open folders"
+msgstr "Usar Nemo para abrir las carpetas"
+
+#: app/adwPreferencesWindow.js:239
+msgid "Add an emblem to soft links"
+msgstr "Añadir un emblema a los enlaces simbólicos"
+
+#: app/adwPreferencesWindow.js:240
+msgid "Use dark text in icon labels"
+msgstr "Utilizar texto oscuro en las etiquetas de los iconos"
+
+#: app/adwPreferencesWindow.js:244
+msgid "Action to Open Items"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:246
+msgid "Single click"
+msgstr "Click simple"
+
+#: app/adwPreferencesWindow.js:247
+msgid "Double click"
+msgstr "Click doble"
+
+#: app/adwPreferencesWindow.js:251
+msgid "Show image thumbnails"
+msgstr "Mostrar miniaturas de imágenes"
+
+#: app/adwPreferencesWindow.js:253
+msgid "Always"
+msgstr "Siempre"
+
+#: app/adwPreferencesWindow.js:254
+msgid "On this computer only"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:255
+msgid "Never"
+msgstr "Nunca"
+
+#: app/adwPreferencesWindow.js:257
+msgid "Show a context menu item to delete permanently"
+msgstr "Permitir borrar permanentemente desde el menú contextual"
+
+#: app/adwPreferencesWindow.js:258
+msgid "Show hidden files"
+msgstr "Mostrar archivos ocultos"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -29,7 +217,7 @@ msgstr "Nombre de la carpeta"
 msgid "File name"
 msgstr "Nombre de archivo"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1305
 msgid "OK"
 msgstr "Aceptar"
 
@@ -61,8 +249,8 @@ msgstr "Extrayendo archivos"
 msgid "Compressing files"
 msgstr "Comprimir archivos"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
-#: app/desktopManager.js:1313 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
+#: app/desktopManager.js:1307 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -190,193 +378,193 @@ msgstr "Archivos más pequeños pero solo Linux y Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Archivos más pequeños pero deben instalarse en Windows y Mac."
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:130
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "Archivos GNOME no encontrados"
 
-#: app/desktopManager.js:132
+#: app/desktopManager.js:131
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Desktop Icons NG requiere la aplicación GNOME Files."
 
-#: app/desktopManager.js:771
+#: app/desktopManager.js:765
 #, fuzzy
 msgid "Could not open File"
 msgstr "No se pudo abrir el archivo"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:766
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "¡${appName} no puede abrir archivos de este tipo!"
 
-#: app/desktopManager.js:869
+#: app/desktopManager.js:863
 #, fuzzy
 msgid "Move"
 msgstr "Mover"
 
-#: app/desktopManager.js:870 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Copiar"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:865
 #, fuzzy
 msgid "Link"
 msgstr "Enlace"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:868
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Elegir acción para archivos"
 
-#: app/desktopManager.js:944 app/desktopManager.js:976
+#: app/desktopManager.js:938 app/desktopManager.js:970
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Ha fallado la creación de SymLink"
 
-#: app/desktopManager.js:945 app/desktopManager.js:977
+#: app/desktopManager.js:939 app/desktopManager.js:971
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "No se pudo crear el enlace simbólico"
 
-#: app/desktopManager.js:1269
+#: app/desktopManager.js:1263
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Borrar selección actual antes de nueva búsqueda"
 
-#: app/desktopManager.js:1315
+#: app/desktopManager.js:1309
 msgid "Find Files on Desktop"
 msgstr "Buscar ficheros en el Escritorio"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Name"
 msgstr "Nombre"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nombre Z-A"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1566
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Hora modificada"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1567
 #, fuzzy
 msgid "Type"
 msgstr "Tipo"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1568
 #, fuzzy
 msgid "Size"
 msgstr "Tamaño"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Manténgase organizado…"
 
-#: app/desktopManager.js:1581
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Mantener apilados por tipo…"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1576
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordenar Inicio/Unidades/Papelera…"
 
-#: app/desktopManager.js:1587 app/desktopManager.js:2601
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 msgid "New Folder"
 msgstr "Nueva carpeta"
 
-#: app/desktopManager.js:1591
+#: app/desktopManager.js:1585
 msgid "New Document"
 msgstr "Documento nuevo"
 
-#: app/desktopManager.js:1595
+#: app/desktopManager.js:1589
 msgid "Paste"
 msgstr "Pegar"
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1590
 msgid "Undo"
 msgstr "Deshacer"
 
-#: app/desktopManager.js:1597
+#: app/desktopManager.js:1591
 msgid "Redo"
 msgstr "Rehacer"
 
-#: app/desktopManager.js:1602
+#: app/desktopManager.js:1596
 msgid "Select All"
 msgstr "Seleccionar Todo"
 
-#: app/desktopManager.js:1607
+#: app/desktopManager.js:1601
 msgid "Arrange Icons"
 msgstr "Ordenar Iconos"
 
-#: app/desktopManager.js:1611
+#: app/desktopManager.js:1605
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Organizar por…"
 
-#: app/desktopManager.js:1616
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Mostrar escritorio en archivos GNOME"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Abrir en terminal"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1616
 msgid "Change Background…"
 msgstr "Cambiar el fondo..."
 
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Configuración de iconos de escritorio"
 
-#: app/desktopManager.js:1628
+#: app/desktopManager.js:1622
 msgid "Display Settings"
 msgstr "Preferencias de pantalla"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "La ventana de preferencias está abierta"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Esta ventana está abierta. Cambie a la ventana activa."
 
-#: app/desktopManager.js:1683
+#: app/desktopManager.js:1677
 msgid "Settings"
 msgstr "Preferencias"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2616
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Error al crear la carpeta"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2617
 #, fuzzy
 msgid "Could not create folder"
 msgstr "No se pudo crear la carpeta"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2660
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Error de creación de plantilla"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2661
 #, fuzzy
 msgid "Could not create document"
 msgstr "No se pudo crear el documento"
@@ -607,149 +795,6 @@ msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La selección incluye un directorio. Debe comprimirse a un fichero primero."
 
-#: app/preferencesFrame.js:40
-msgid "Size for the desktop icons"
-msgstr "Tamaño de los iconos del escritorio"
-
-#: app/preferencesFrame.js:40
-msgid "Tiny"
-msgstr "Diminuto"
-
-#: app/preferencesFrame.js:40
-msgid "Small"
-msgstr "Pequeño"
-
-#: app/preferencesFrame.js:40
-msgid "Standard"
-msgstr "Estándar"
-
-#: app/preferencesFrame.js:40
-msgid "Large"
-msgstr "Grande"
-
-#: app/preferencesFrame.js:41
-msgid "Show the personal folder in the desktop"
-msgstr "Mostrar la carpeta personal en el escritorio"
-
-#: app/preferencesFrame.js:42
-msgid "Show the trash icon in the desktop"
-msgstr "Mostrar la papelera en el escritorio"
-
-#: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-msgid "Show external drives in the desktop"
-msgstr "Mostrar unidades externas en el escritorio"
-
-#: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-msgid "Show network drives in the desktop"
-msgstr "Mostrar unidades de red en el escritorio"
-
-#: app/preferencesFrame.js:47
-msgid "New icons alignment"
-msgstr "Alineamiento de nuevos iconos"
-
-#: app/preferencesFrame.js:49
-msgid "Top-left corner"
-msgstr "Esquina superior-izquierda"
-
-#: app/preferencesFrame.js:50
-msgid "Top-right corner"
-msgstr "Esquina superior-derecha"
-
-#: app/preferencesFrame.js:51
-msgid "Bottom-left corner"
-msgstr "Esquina inferior-izquierda"
-
-#: app/preferencesFrame.js:52
-msgid "Bottom-right corner"
-msgstr "Esquina inferior-derecha"
-
-#: app/preferencesFrame.js:54
-#, fuzzy
-msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Agregue nuevos íconos a los monitores secundarios primero, si están "
-"disponibles"
-
-#: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-msgid "Add new drives to the opposite side of the screen"
-msgstr "Añadir nuevas unidades en el lado opuesto de la pantalla"
-
-#: app/preferencesFrame.js:56
-msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "Resaltar el lugar de destino durante Drag'n'Drop"
-
-#: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-msgid "Use Nemo to open folders"
-msgstr "Usar Nemo para abrir las carpetas"
-
-#: app/preferencesFrame.js:58
-msgid "Add an emblem to soft links"
-msgstr "Añadir un emblema a los enlaces simbólicos"
-
-#: app/preferencesFrame.js:59
-msgid "Use dark text in icon labels"
-msgstr "Utilizar texto oscuro en las etiquetas de los iconos"
-
-#: app/preferencesFrame.js:64
-msgid "Settings shared with Nautilus"
-msgstr "Configuración compartida con Nautilus"
-
-#: app/preferencesFrame.js:79
-msgid "Click type for open files"
-msgstr "Tipo de click para abrir ficheros"
-
-#: app/preferencesFrame.js:79
-msgid "Single click"
-msgstr "Click simple"
-
-#: app/preferencesFrame.js:79
-msgid "Double click"
-msgstr "Click doble"
-
-#: app/preferencesFrame.js:80
-msgid "Show hidden files"
-msgstr "Mostrar archivos ocultos"
-
-#: app/preferencesFrame.js:81
-msgid "Show a context menu item to delete permanently"
-msgstr "Permitir borrar permanentemente desde el menú contextual"
-
-#: app/preferencesFrame.js:86
-msgid "Action to do when launching a program from the desktop"
-msgstr "Acción a realizar al lanzar un programa desde el escritorio"
-
-#: app/preferencesFrame.js:87
-msgid "Display the content of the file"
-msgstr "Mostrar el contenido del fichero"
-
-#: app/preferencesFrame.js:88
-msgid "Launch the file"
-msgstr "Ejecutar el fichero"
-
-#: app/preferencesFrame.js:89
-msgid "Ask what to do"
-msgstr "Preguntar qué hacer"
-
-#: app/preferencesFrame.js:95
-msgid "Show image thumbnails"
-msgstr "Mostrar miniaturas de imágenes"
-
-#: app/preferencesFrame.js:96
-msgid "Never"
-msgstr "Nunca"
-
-#: app/preferencesFrame.js:97
-msgid "Local files only"
-msgstr "Sólo ficheros locales"
-
-#: app/preferencesFrame.js:98
-msgid "Always"
-msgstr "Siempre"
-
 #: app/showErrorPopup.js:41
 msgid "Close"
 msgstr "Cerrar"
@@ -803,13 +848,25 @@ msgid "Set the corner from where the icons will start to be placed."
 msgstr ""
 "Establece la esquina a partir de la cual los nuevos iconos se irán añadiendo."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+msgid "Show external drives in the desktop"
+msgstr "Mostrar unidades externas en el escritorio"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
 msgstr "Mostrar los discos duros conectados al ordenador."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+msgid "Show network drives in the desktop"
+msgstr "Mostrar unidades de red en el escritorio"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
 msgstr "Muestra en el escritorio las unidades de red montadas."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+msgid "Add new drives to the opposite side of the screen"
+msgstr "Añadir nuevas unidades en el lado opuesto de la pantalla"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
@@ -913,6 +970,24 @@ msgid ""
 msgstr ""
 "Si se conecta un segundo monitor, se colocan nuevos íconos en el monitor no "
 "principal"
+
+#~ msgid "Click type for open files"
+#~ msgstr "Tipo de click para abrir ficheros"
+
+#~ msgid "Action to do when launching a program from the desktop"
+#~ msgstr "Acción a realizar al lanzar un programa desde el escritorio"
+
+#~ msgid "Display the content of the file"
+#~ msgstr "Mostrar el contenido del fichero"
+
+#~ msgid "Launch the file"
+#~ msgstr "Ejecutar el fichero"
+
+#~ msgid "Ask what to do"
+#~ msgstr "Preguntar qué hacer"
+
+#~ msgid "Local files only"
+#~ msgstr "Sólo ficheros locales"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."

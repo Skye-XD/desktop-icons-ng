@@ -13,17 +13,203 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"POT-Creation-Date: 2023-04-16 08:10-0400\n"
 "PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.17-dev\n"
+
+#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+msgid "Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+msgid "Files"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:205
+msgid "Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:190
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "Masaüstü Simge Ayarları"
+
+#: app/adwPreferencesWindow.js:191
+#, fuzzy
+#| msgid "Set the size for the desktop icons."
+msgid "Settings for the Desktop Program"
+msgstr "Masaüstü simgelerinin boyutunu ayarla."
+
+#: app/adwPreferencesWindow.js:195
+msgid "Volumes"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:196
+msgid "Desktop volumes display"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:200
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Files Settings"
+msgstr "Görüntü Ayarları"
+
+#: app/adwPreferencesWindow.js:201
+#, fuzzy
+#| msgid "Settings shared with Nautilus"
+msgid "Settings shared with Gnome Files"
+msgstr "Ayarlar Nautilus ile paylaşıldı"
+
+#: app/adwPreferencesWindow.js:206
+msgid "Miscellaneous Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:211
+msgid "Size for the desktop icons"
+msgstr "Masaüstü simgeleri boyutu"
+
+#: app/adwPreferencesWindow.js:213
+msgid "Tiny"
+msgstr "Minik"
+
+#: app/adwPreferencesWindow.js:214
+msgid "Small"
+msgstr "Küçük"
+
+#: app/adwPreferencesWindow.js:215
+msgid "Standard"
+msgstr "Standart"
+
+#: app/adwPreferencesWindow.js:216
+msgid "Large"
+msgstr "Büyük"
+
+#: app/adwPreferencesWindow.js:221
+msgid "New icons alignment"
+msgstr "Yeni simge hizalaması"
+
+#: app/adwPreferencesWindow.js:223
+#, fuzzy
+#| msgid "Top-left corner"
+msgid "Top left corner"
+msgstr "Sol üst köşe"
+
+#: app/adwPreferencesWindow.js:224
+#, fuzzy
+#| msgid "Top-right corner"
+msgid "Top right corner"
+msgstr "Sağ üst Köşe"
+
+#: app/adwPreferencesWindow.js:225
+#, fuzzy
+#| msgid "Bottom-left corner"
+msgid "Bottom left corner"
+msgstr "Sol alt köşe"
+
+#: app/adwPreferencesWindow.js:226
+#, fuzzy
+#| msgid "Bottom-right corner"
+msgid "Bottom right corner"
+msgstr "Sağ alt köşe"
+
+#: app/adwPreferencesWindow.js:229
+#, fuzzy
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr "Varsa, önce İkincil Monitörlere yeni simgeler ekleyin"
+
+#: app/adwPreferencesWindow.js:231
+#, fuzzy
+#| msgid "Show the personal folder in the desktop"
+msgid "Show the personal folder on the desktop"
+msgstr "Kişisel klasörü masaüstünde göster"
+
+#: app/adwPreferencesWindow.js:232
+#, fuzzy
+#| msgid "Show the trash icon in the desktop"
+msgid "Show the trash icon on the desktop"
+msgstr "Çöp kutusunu masaüstünde göster"
+
+#: app/adwPreferencesWindow.js:233
+#, fuzzy
+#| msgid "Show external drives in the desktop"
+msgid "Show external drives on the desktop"
+msgstr "Harici sürücüleri masaüstünde göster"
+
+#: app/adwPreferencesWindow.js:234
+#, fuzzy
+#| msgid "Show network drives in the desktop"
+msgid "Show network drives on the desktop"
+msgstr "Ağ sürücülerini masaüstünde göster"
+
+#: app/adwPreferencesWindow.js:235
+#, fuzzy
+#| msgid "Add new drives to the opposite side of the screen"
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
+
+#: app/adwPreferencesWindow.js:237
+#, fuzzy
+#| msgid "Highlight the drop place during Drag'n'Drop"
+msgid "Highlight the drop grid during Drag and Drop"
+msgstr "Sürükle ve Bırak sırasında bırakma yerini vurgula"
+
+#: app/adwPreferencesWindow.js:238
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+msgid "Use Nemo to open folders"
+msgstr "Klasörleri açmak için Nemo kullan"
+
+#: app/adwPreferencesWindow.js:239
+msgid "Add an emblem to soft links"
+msgstr "Yumuşak linklere amblem ekle"
+
+#: app/adwPreferencesWindow.js:240
+msgid "Use dark text in icon labels"
+msgstr "Simge etiketlerinde koyu metin kullan"
+
+#: app/adwPreferencesWindow.js:244
+msgid "Action to Open Items"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:246
+msgid "Single click"
+msgstr "Tek tıklama"
+
+#: app/adwPreferencesWindow.js:247
+msgid "Double click"
+msgstr "Çift tıklama"
+
+#: app/adwPreferencesWindow.js:251
+msgid "Show image thumbnails"
+msgstr "Resim önizlemelerini göster"
+
+#: app/adwPreferencesWindow.js:253
+msgid "Always"
+msgstr "Her zaman"
+
+#: app/adwPreferencesWindow.js:254
+msgid "On this computer only"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:255
+msgid "Never"
+msgstr "Asla"
+
+#: app/adwPreferencesWindow.js:257
+msgid "Show a context menu item to delete permanently"
+msgstr "Tamamen silmek için sağ tıkta seçenek göster"
+
+#: app/adwPreferencesWindow.js:258
+msgid "Show hidden files"
+msgstr "Gizli dosyaları göster"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -33,7 +219,7 @@ msgstr "Klasör adı"
 msgid "File name"
 msgstr "Dosya adı"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1305
 msgid "OK"
 msgstr "Tamam"
 
@@ -65,8 +251,8 @@ msgstr "Dosyaları ayıklamak"
 msgid "Compressing files"
 msgstr "Dosyaları sıkıştırma"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
-#: app/desktopManager.js:1313 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
+#: app/desktopManager.js:1307 app/fileItemMenu.js:522
 msgid "Cancel"
 msgstr "İptal"
 
@@ -198,193 +384,193 @@ msgstr "Daha küçük arşivler ancak yalnızca Linux ve Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Daha küçük arşivler ancak Windows ve Mac'e yüklenmesi gerekir."
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:130
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "GNOME Dosyaları bulunamadı"
 
-#: app/desktopManager.js:132
+#: app/desktopManager.js:131
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "GNOME Dosyaları uygulaması, Desktop Icons NG tarafından gereklidir."
 
-#: app/desktopManager.js:771
+#: app/desktopManager.js:765
 #, fuzzy
 msgid "Could not open File"
 msgstr "Dosya açılamadı"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:766
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName}, bu Türdeki dosyaları açamaz!"
 
-#: app/desktopManager.js:869
+#: app/desktopManager.js:863
 #, fuzzy
 msgid "Move"
 msgstr "Taşınmak"
 
-#: app/desktopManager.js:870 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:306
 msgid "Copy"
 msgstr "Kopyala"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:865
 #, fuzzy
 msgid "Link"
 msgstr "Bağlantı"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:868
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Dosyalar için İşlemi Seçin"
 
-#: app/desktopManager.js:944 app/desktopManager.js:976
+#: app/desktopManager.js:938 app/desktopManager.js:970
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "SymLink'i Başarısız Hale Getirme"
 
-#: app/desktopManager.js:945 app/desktopManager.js:977
+#: app/desktopManager.js:939 app/desktopManager.js:971
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Sembolik bağlantı oluşturulamadı"
 
-#: app/desktopManager.js:1269
+#: app/desktopManager.js:1263
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Yeni aramadan önce mevcut seçimi temizle"
 
-#: app/desktopManager.js:1315
+#: app/desktopManager.js:1309
 msgid "Find Files on Desktop"
 msgstr "Masaüstündeki Dosyaları Bul"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Name"
 msgstr "İsim"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Name Z-A"
 msgstr "isim ZA"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1566
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Değiştirilen Zaman"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1567
 #, fuzzy
 msgid "Type"
 msgstr "Tip"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1568
 #, fuzzy
 msgid "Size"
 msgstr "Boyut"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Düzenli tutun…"
 
-#: app/desktopManager.js:1581
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Türüne Göre Yığmaya Devam Edin…"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1576
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sırala Ana Sayfa/Sürücüler/Çöp Kutusu…"
 
-#: app/desktopManager.js:1587 app/desktopManager.js:2601
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 msgid "New Folder"
 msgstr "Yeni Klasör"
 
-#: app/desktopManager.js:1591
+#: app/desktopManager.js:1585
 msgid "New Document"
 msgstr "Yeni Belge"
 
-#: app/desktopManager.js:1595
+#: app/desktopManager.js:1589
 msgid "Paste"
 msgstr "Yapıştır"
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1590
 msgid "Undo"
 msgstr "Geri Al"
 
-#: app/desktopManager.js:1597
+#: app/desktopManager.js:1591
 msgid "Redo"
 msgstr "Yinele"
 
-#: app/desktopManager.js:1602
+#: app/desktopManager.js:1596
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: app/desktopManager.js:1607
+#: app/desktopManager.js:1601
 msgid "Arrange Icons"
 msgstr "Simgeleri Sırala"
 
-#: app/desktopManager.js:1611
+#: app/desktopManager.js:1605
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Düzenle…"
 
-#: app/desktopManager.js:1616
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Masaüstünü GNOME Dosyalarında Göster"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Terminalde Aç"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1616
 msgid "Change Background…"
 msgstr "Arka Planı Değiştir…"
 
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Masaüstü Simge Ayarları"
 
-#: app/desktopManager.js:1628
+#: app/desktopManager.js:1622
 msgid "Display Settings"
 msgstr "Görüntü Ayarları"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Tercihler Penceresi Açık"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Bu Pencere açık. Lütfen etkin pencereye geçin."
 
-#: app/desktopManager.js:1683
+#: app/desktopManager.js:1677
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2616
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Klasör Oluşturulamadı"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2617
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Klasör oluşturulamadı"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2660
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Şablon Oluşturma Hatası"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2661
 #, fuzzy
 msgid "Could not create document"
 msgstr "Doküman oluşturulamadı"
@@ -608,147 +794,6 @@ msgstr "Bir dizine e-posta gönderilemez"
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Seçim bir Dizin içeriyor, önce dizini bir dosyaya sıkıştırın."
 
-#: app/preferencesFrame.js:40
-msgid "Size for the desktop icons"
-msgstr "Masaüstü simgeleri boyutu"
-
-#: app/preferencesFrame.js:40
-msgid "Tiny"
-msgstr "Minik"
-
-#: app/preferencesFrame.js:40
-msgid "Small"
-msgstr "Küçük"
-
-#: app/preferencesFrame.js:40
-msgid "Standard"
-msgstr "Standart"
-
-#: app/preferencesFrame.js:40
-msgid "Large"
-msgstr "Büyük"
-
-#: app/preferencesFrame.js:41
-msgid "Show the personal folder in the desktop"
-msgstr "Kişisel klasörü masaüstünde göster"
-
-#: app/preferencesFrame.js:42
-msgid "Show the trash icon in the desktop"
-msgstr "Çöp kutusunu masaüstünde göster"
-
-#: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-msgid "Show external drives in the desktop"
-msgstr "Harici sürücüleri masaüstünde göster"
-
-#: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-msgid "Show network drives in the desktop"
-msgstr "Ağ sürücülerini masaüstünde göster"
-
-#: app/preferencesFrame.js:47
-msgid "New icons alignment"
-msgstr "Yeni simge hizalaması"
-
-#: app/preferencesFrame.js:49
-msgid "Top-left corner"
-msgstr "Sol üst köşe"
-
-#: app/preferencesFrame.js:50
-msgid "Top-right corner"
-msgstr "Sağ üst Köşe"
-
-#: app/preferencesFrame.js:51
-msgid "Bottom-left corner"
-msgstr "Sol alt köşe"
-
-#: app/preferencesFrame.js:52
-msgid "Bottom-right corner"
-msgstr "Sağ alt köşe"
-
-#: app/preferencesFrame.js:54
-#, fuzzy
-msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Varsa, önce İkincil Monitörlere yeni simgeler ekleyin"
-
-#: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-msgid "Add new drives to the opposite side of the screen"
-msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
-
-#: app/preferencesFrame.js:56
-msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "Sürükle ve Bırak sırasında bırakma yerini vurgula"
-
-#: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-msgid "Use Nemo to open folders"
-msgstr "Klasörleri açmak için Nemo kullan"
-
-#: app/preferencesFrame.js:58
-msgid "Add an emblem to soft links"
-msgstr "Yumuşak linklere amblem ekle"
-
-#: app/preferencesFrame.js:59
-msgid "Use dark text in icon labels"
-msgstr "Simge etiketlerinde koyu metin kullan"
-
-#: app/preferencesFrame.js:64
-msgid "Settings shared with Nautilus"
-msgstr "Ayarlar Nautilus ile paylaşıldı"
-
-#: app/preferencesFrame.js:79
-msgid "Click type for open files"
-msgstr "Dosyaları açma türü"
-
-#: app/preferencesFrame.js:79
-msgid "Single click"
-msgstr "Tek tıklama"
-
-#: app/preferencesFrame.js:79
-msgid "Double click"
-msgstr "Çift tıklama"
-
-#: app/preferencesFrame.js:80
-msgid "Show hidden files"
-msgstr "Gizli dosyaları göster"
-
-#: app/preferencesFrame.js:81
-msgid "Show a context menu item to delete permanently"
-msgstr "Tamamen silmek için sağ tıkta seçenek göster"
-
-#: app/preferencesFrame.js:86
-msgid "Action to do when launching a program from the desktop"
-msgstr "Masaüstünden program çalıştırırken ne yapılsın"
-
-#: app/preferencesFrame.js:87
-msgid "Display the content of the file"
-msgstr "İçeriği göster"
-
-#: app/preferencesFrame.js:88
-msgid "Launch the file"
-msgstr "Çalıştır"
-
-#: app/preferencesFrame.js:89
-msgid "Ask what to do"
-msgstr "Ne yapılacağını sor"
-
-#: app/preferencesFrame.js:95
-msgid "Show image thumbnails"
-msgstr "Resim önizlemelerini göster"
-
-#: app/preferencesFrame.js:96
-msgid "Never"
-msgstr "Asla"
-
-#: app/preferencesFrame.js:97
-msgid "Local files only"
-msgstr "Yalnızca yerel dosyalar"
-
-#: app/preferencesFrame.js:98
-msgid "Always"
-msgstr "Her zaman"
-
 #: app/showErrorPopup.js:41
 msgid "Close"
 msgstr "Kapat"
@@ -803,13 +848,25 @@ msgstr "Yeni simgelerin başlangıç köşesi"
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "Simgelerin nereden itibaren hizalanacağını ayarla"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+msgid "Show external drives in the desktop"
+msgstr "Harici sürücüleri masaüstünde göster"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
 msgstr "Bilgisayara bağlı disk sürücülerini göster."
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+msgid "Show network drives in the desktop"
+msgstr "Ağ sürücülerini masaüstünde göster"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
 msgstr "Masaüstünde bağlı ağ birimlerini göster."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+msgid "Add new drives to the opposite side of the screen"
+msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
@@ -890,7 +947,8 @@ msgstr "Bağlantılara amblem ekle"
 #, fuzzy
 #| msgid "Add an emblem to soft links"
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Esnek bağlantıların tanımlanmasına izin vermek için bir amblem ekleyin."
+msgstr ""
+"Esnek bağlantıların tanımlanmasına izin vermek için bir amblem ekleyin."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Use black for label text"
@@ -918,6 +976,24 @@ msgid ""
 msgstr ""
 "İkinci bir monitör bağlanırsa, birincil olmayan monitöre yeni simgeler "
 "yerleştirilir"
+
+#~ msgid "Click type for open files"
+#~ msgstr "Dosyaları açma türü"
+
+#~ msgid "Action to do when launching a program from the desktop"
+#~ msgstr "Masaüstünden program çalıştırırken ne yapılsın"
+
+#~ msgid "Display the content of the file"
+#~ msgstr "İçeriği göster"
+
+#~ msgid "Launch the file"
+#~ msgstr "Çalıştır"
+
+#~ msgid "Ask what to do"
+#~ msgstr "Ne yapılacağını sor"
+
+#~ msgid "Local files only"
+#~ msgstr "Yalnızca yerel dosyalar"
 
 #~ msgid ""
 #~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."

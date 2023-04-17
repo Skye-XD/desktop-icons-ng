@@ -6,17 +6,206 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-10 16:43+0200\n"
+"POT-Creation-Date: 2023-04-16 08:10-0400\n"
 "PO-Revision-Date: 2023-04-13 02:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.17-dev\n"
+
+#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+msgid "Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+msgid "Files"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:205
+msgid "Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:190
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "ডেস্কটপ আইকন সেটিংস"
+
+#: app/adwPreferencesWindow.js:191
+#, fuzzy
+msgid "Settings for the Desktop Program"
+msgstr "ডেস্কটপ আইকনগুলির জন্য আকার সেট করুন।"
+
+#: app/adwPreferencesWindow.js:195
+msgid "Volumes"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:196
+msgid "Desktop volumes display"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:200
+#, fuzzy
+msgid "Files Settings"
+msgstr "প্রদর্শন সেটিং"
+
+#: app/adwPreferencesWindow.js:201
+#, fuzzy
+msgid "Settings shared with Gnome Files"
+msgstr "নটিলাসের সাথে শেয়ার করা সেটিংস৷"
+
+#: app/adwPreferencesWindow.js:206
+msgid "Miscellaneous Tweaks"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:211
+#, fuzzy
+msgid "Size for the desktop icons"
+msgstr "ডেস্কটপ আইকনগুলির জন্য আকার"
+
+#: app/adwPreferencesWindow.js:213
+#, fuzzy
+msgid "Tiny"
+msgstr "ক্ষুদ্র"
+
+#: app/adwPreferencesWindow.js:214
+#, fuzzy
+msgid "Small"
+msgstr "ছোট"
+
+#: app/adwPreferencesWindow.js:215
+#, fuzzy
+msgid "Standard"
+msgstr "স্ট্যান্ডার্ড"
+
+#: app/adwPreferencesWindow.js:216
+#, fuzzy
+msgid "Large"
+msgstr "বড়"
+
+#: app/adwPreferencesWindow.js:221
+#, fuzzy
+msgid "New icons alignment"
+msgstr "নতুন আইকন প্রান্তিককরণ"
+
+#: app/adwPreferencesWindow.js:223
+#, fuzzy
+msgid "Top left corner"
+msgstr "উপরের বাঁদিকের কোণায়"
+
+#: app/adwPreferencesWindow.js:224
+#, fuzzy
+msgid "Top right corner"
+msgstr "উপরের-ডান কোণে"
+
+#: app/adwPreferencesWindow.js:225
+#, fuzzy
+msgid "Bottom left corner"
+msgstr "নীচে-বাম কোণে"
+
+#: app/adwPreferencesWindow.js:226
+#, fuzzy
+msgid "Bottom right corner"
+msgstr "নিচের ডান কর্ণার"
+
+#: app/adwPreferencesWindow.js:229
+#, fuzzy
+msgid "Add new icons to Secondary Monitors first, if available"
+msgstr "সেকেন্ডারি মনিটরে নতুন আইকন যোগ করুন, যদি উপলব্ধ থাকে"
+
+#: app/adwPreferencesWindow.js:231
+#, fuzzy
+msgid "Show the personal folder on the desktop"
+msgstr "ডেস্কটপে ব্যক্তিগত ফোল্ডার দেখান"
+
+#: app/adwPreferencesWindow.js:232
+#, fuzzy
+msgid "Show the trash icon on the desktop"
+msgstr "ডেস্কটপে ট্র্যাশ আইকন দেখান"
+
+#: app/adwPreferencesWindow.js:233
+#, fuzzy
+msgid "Show external drives on the desktop"
+msgstr "ডেস্কটপে বহিরাগত ড্রাইভ দেখান"
+
+#: app/adwPreferencesWindow.js:234
+#, fuzzy
+msgid "Show network drives on the desktop"
+msgstr "ডেস্কটপে নেটওয়ার্ক ড্রাইভ দেখান"
+
+#: app/adwPreferencesWindow.js:235
+#, fuzzy
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "স্ক্রিনের বিপরীত দিকে নতুন ড্রাইভ যোগ করুন"
+
+#: app/adwPreferencesWindow.js:237
+#, fuzzy
+msgid "Highlight the drop grid during Drag and Drop"
+msgstr "ড্র্যাগ'এন'ড্রপের সময় ড্রপ স্থানটি হাইলাইট করুন"
+
+#: app/adwPreferencesWindow.js:238
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+#, fuzzy
+msgid "Use Nemo to open folders"
+msgstr "ফোল্ডার খুলতে নিমো ব্যবহার করুন"
+
+#: app/adwPreferencesWindow.js:239
+#, fuzzy
+msgid "Add an emblem to soft links"
+msgstr "নরম লিঙ্কগুলিতে একটি প্রতীক যোগ করুন"
+
+#: app/adwPreferencesWindow.js:240
+#, fuzzy
+msgid "Use dark text in icon labels"
+msgstr "আইকন লেবেলে গাঢ় লেখা ব্যবহার করুন"
+
+#: app/adwPreferencesWindow.js:244
+msgid "Action to Open Items"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:246
+#, fuzzy
+msgid "Single click"
+msgstr "একক ক্লিক"
+
+#: app/adwPreferencesWindow.js:247
+#, fuzzy
+msgid "Double click"
+msgstr "ডবল ক্লিক করুন"
+
+#: app/adwPreferencesWindow.js:251
+#, fuzzy
+msgid "Show image thumbnails"
+msgstr "ছবির থাম্বনেল দেখান"
+
+#: app/adwPreferencesWindow.js:253
+#, fuzzy
+msgid "Always"
+msgstr "সর্বদা"
+
+#: app/adwPreferencesWindow.js:254
+msgid "On this computer only"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:255
+#, fuzzy
+msgid "Never"
+msgstr "কখনই না"
+
+#: app/adwPreferencesWindow.js:257
+#, fuzzy
+msgid "Show a context menu item to delete permanently"
+msgstr "স্থায়ীভাবে মুছে ফেলার জন্য একটি প্রসঙ্গ মেনু আইটেম দেখান"
+
+#: app/adwPreferencesWindow.js:258
+#, fuzzy
+msgid "Show hidden files"
+msgstr "গোপন ফাইলগুলো দেখুন"
 
 #: app/askRenamePopup.js:49
 #, fuzzy
@@ -28,7 +217,7 @@ msgstr "ফোল্ডারের নাম"
 msgid "File name"
 msgstr "ফাইলের নাম"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1311
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1305
 #, fuzzy
 msgid "OK"
 msgstr "ঠিক আছে"
@@ -62,8 +251,8 @@ msgstr "ফাইল নিষ্কাশন করা হচ্ছে"
 msgid "Compressing files"
 msgstr "ফাইল কম্প্রেস করা হচ্ছে"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:872
-#: app/desktopManager.js:1313 app/fileItemMenu.js:522
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
+#: app/desktopManager.js:1307 app/fileItemMenu.js:522
 #, fuzzy
 msgid "Cancel"
 msgstr "বাতিল করুন"
@@ -193,202 +382,202 @@ msgstr "ছোট সংরক্ষণাগার কিন্তু শুধ
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "ছোট আর্কাইভ কিন্তু Windows এবং Mac এ ইনস্টল করা আবশ্যক।"
 
-#: app/desktopManager.js:131
+#: app/desktopManager.js:130
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "জিনোম ফাইল পাওয়া যায়নি"
 
-#: app/desktopManager.js:132
+#: app/desktopManager.js:131
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "ডেস্কটপ আইকন এনজি দ্বারা জিনোম ফাইল অ্যাপ্লিকেশন প্রয়োজন।"
 
-#: app/desktopManager.js:771
+#: app/desktopManager.js:765
 #, fuzzy
 msgid "Could not open File"
 msgstr "ফাইল খোলা যায়নি"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:766
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} এই ধরনের ফাইল খুলতে পারে না!"
 
-#: app/desktopManager.js:869
+#: app/desktopManager.js:863
 #, fuzzy
 msgid "Move"
 msgstr "সরান"
 
-#: app/desktopManager.js:870 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:306
 #, fuzzy
 msgid "Copy"
 msgstr "কপি"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:865
 #, fuzzy
 msgid "Link"
 msgstr "লিঙ্ক"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:868
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "ফাইলের জন্য অ্যাকশন নির্বাচন করুন"
 
-#: app/desktopManager.js:944 app/desktopManager.js:976
+#: app/desktopManager.js:938 app/desktopManager.js:970
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "সিমলিঙ্ক তৈরি করা ব্যর্থ হয়েছে৷"
 
-#: app/desktopManager.js:945 app/desktopManager.js:977
+#: app/desktopManager.js:939 app/desktopManager.js:971
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "প্রতীকী লিঙ্ক তৈরি করা যায়নি"
 
-#: app/desktopManager.js:1269
+#: app/desktopManager.js:1263
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "নতুন অনুসন্ধানের আগে বর্তমান নির্বাচন সাফ করুন"
 
-#: app/desktopManager.js:1315
+#: app/desktopManager.js:1309
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "ডেস্কটপে ফাইল খুঁজুন"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Name"
 msgstr "নাম"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Name Z-A"
 msgstr "নাম Z-A"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1566
 #, fuzzy
 msgid "Modified Time"
 msgstr "পরিবর্তিত সময়"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1567
 #, fuzzy
 msgid "Type"
 msgstr "টাইপ"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1568
 #, fuzzy
 msgid "Size"
 msgstr "আকার"
 
-#: app/desktopManager.js:1577
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "গুছিয়ে রাখুন…"
 
-#: app/desktopManager.js:1581
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "প্রকার অনুসারে স্ট্যাক করা রাখুন…"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1576
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "হোম/ড্রাইভ/ট্র্যাশ সাজান…"
 
-#: app/desktopManager.js:1587 app/desktopManager.js:2601
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 #, fuzzy
 msgid "New Folder"
 msgstr "নতুন ফোল্ডার"
 
-#: app/desktopManager.js:1591
+#: app/desktopManager.js:1585
 #, fuzzy
 msgid "New Document"
 msgstr "নতুন নথি"
 
-#: app/desktopManager.js:1595
+#: app/desktopManager.js:1589
 #, fuzzy
 msgid "Paste"
 msgstr "পেস্ট করুন"
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1590
 #, fuzzy
 msgid "Undo"
 msgstr "পূর্বাবস্থায় ফেরান"
 
-#: app/desktopManager.js:1597
+#: app/desktopManager.js:1591
 #, fuzzy
 msgid "Redo"
 msgstr "আবার করুন"
 
-#: app/desktopManager.js:1602
+#: app/desktopManager.js:1596
 #, fuzzy
 msgid "Select All"
 msgstr "সব নির্বাচন করুন"
 
-#: app/desktopManager.js:1607
+#: app/desktopManager.js:1601
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "আইকনগুলোকে সাজান"
 
-#: app/desktopManager.js:1611
+#: app/desktopManager.js:1605
 #, fuzzy
 msgid "Arrange By…"
 msgstr "দ্বারা ব্যবস্থা…"
 
-#: app/desktopManager.js:1616
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "GNOME ফাইলে ডেস্কটপ দেখান"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1611
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "টার্মিনালে খুলুন"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1616
 #, fuzzy
 msgid "Change Background…"
 msgstr "পটভূমি পরিবর্তন…"
 
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "ডেস্কটপ আইকন সেটিংস"
 
-#: app/desktopManager.js:1628
+#: app/desktopManager.js:1622
 #, fuzzy
 msgid "Display Settings"
 msgstr "প্রদর্শন সেটিং"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "পছন্দ উইন্ডো খোলা আছে"
 
-#: app/desktopManager.js:1671
+#: app/desktopManager.js:1665
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "এই উইন্ডো খোলা আছে. সক্রিয় উইন্ডোতে স্যুইচ করুন."
 
-#: app/desktopManager.js:1683
+#: app/desktopManager.js:1677
 #, fuzzy
 msgid "Settings"
 msgstr "সেটিংস"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2616
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "ফোল্ডার তৈরি করা ব্যর্থ হয়েছে৷"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2617
 #, fuzzy
 msgid "Could not create folder"
 msgstr "ফোল্ডার তৈরি করা যায়নি"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2660
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "টেমপ্লেট তৈরির ত্রুটি৷"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2661
 #, fuzzy
 msgid "Could not create document"
 msgstr "ডকুমেন্ট তৈরি করা যায়নি"
@@ -572,21 +761,18 @@ msgid "Send to Mobile Device"
 msgstr "মোবাইল ডিভাইসে পাঠান"
 
 #: app/fileItemMenu.js:378
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
 
 #: app/fileItemMenu.js:385
-#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
 msgstr[1] "{0}টি ফাইল কম্প্রেস করুন"
 
 #: app/fileItemMenu.js:392
-#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -649,180 +835,6 @@ msgstr ""
 "নির্বাচনের মধ্যে একটি ডিরেক্টরি অন্তর্ভুক্ত রয়েছে, প্রথমে একটি ফাইলে ডিরেক্টরিটি "
 "সংকুচিত করুন।"
 
-#: app/preferencesFrame.js:40
-#, fuzzy
-msgid "Size for the desktop icons"
-msgstr "ডেস্কটপ আইকনগুলির জন্য আকার"
-
-#: app/preferencesFrame.js:40
-#, fuzzy
-msgid "Tiny"
-msgstr "ক্ষুদ্র"
-
-#: app/preferencesFrame.js:40
-#, fuzzy
-msgid "Small"
-msgstr "ছোট"
-
-#: app/preferencesFrame.js:40
-#, fuzzy
-msgid "Standard"
-msgstr "স্ট্যান্ডার্ড"
-
-#: app/preferencesFrame.js:40
-#, fuzzy
-msgid "Large"
-msgstr "বড়"
-
-#: app/preferencesFrame.js:41
-#, fuzzy
-msgid "Show the personal folder in the desktop"
-msgstr "ডেস্কটপে ব্যক্তিগত ফোল্ডার দেখান"
-
-#: app/preferencesFrame.js:42
-#, fuzzy
-msgid "Show the trash icon in the desktop"
-msgstr "ডেস্কটপে ট্র্যাশ আইকন দেখান"
-
-#: app/preferencesFrame.js:43
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-#, fuzzy
-msgid "Show external drives in the desktop"
-msgstr "ডেস্কটপে বহিরাগত ড্রাইভ দেখান"
-
-#: app/preferencesFrame.js:44
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-#, fuzzy
-msgid "Show network drives in the desktop"
-msgstr "ডেস্কটপে নেটওয়ার্ক ড্রাইভ দেখান"
-
-#: app/preferencesFrame.js:47
-#, fuzzy
-msgid "New icons alignment"
-msgstr "নতুন আইকন প্রান্তিককরণ"
-
-#: app/preferencesFrame.js:49
-#, fuzzy
-msgid "Top-left corner"
-msgstr "উপরের বাঁদিকের কোণায়"
-
-#: app/preferencesFrame.js:50
-#, fuzzy
-msgid "Top-right corner"
-msgstr "উপরের-ডান কোণে"
-
-#: app/preferencesFrame.js:51
-#, fuzzy
-msgid "Bottom-left corner"
-msgstr "নীচে-বাম কোণে"
-
-#: app/preferencesFrame.js:52
-#, fuzzy
-msgid "Bottom-right corner"
-msgstr "নিচের ডান কর্ণার"
-
-#: app/preferencesFrame.js:54
-#, fuzzy
-msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "সেকেন্ডারি মনিটরে নতুন আইকন যোগ করুন, যদি উপলব্ধ থাকে"
-
-#: app/preferencesFrame.js:55
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-#, fuzzy
-msgid "Add new drives to the opposite side of the screen"
-msgstr "স্ক্রিনের বিপরীত দিকে নতুন ড্রাইভ যোগ করুন"
-
-#: app/preferencesFrame.js:56
-#, fuzzy
-msgid "Highlight the drop place during Drag'n'Drop"
-msgstr "ড্র্যাগ'এন'ড্রপের সময় ড্রপ স্থানটি হাইলাইট করুন"
-
-#: app/preferencesFrame.js:57
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
-msgid "Use Nemo to open folders"
-msgstr "ফোল্ডার খুলতে নিমো ব্যবহার করুন"
-
-#: app/preferencesFrame.js:58
-#, fuzzy
-msgid "Add an emblem to soft links"
-msgstr "নরম লিঙ্কগুলিতে একটি প্রতীক যোগ করুন"
-
-#: app/preferencesFrame.js:59
-#, fuzzy
-msgid "Use dark text in icon labels"
-msgstr "আইকন লেবেলে গাঢ় লেখা ব্যবহার করুন"
-
-#: app/preferencesFrame.js:64
-#, fuzzy
-msgid "Settings shared with Nautilus"
-msgstr "নটিলাসের সাথে শেয়ার করা সেটিংস৷"
-
-#: app/preferencesFrame.js:79
-#, fuzzy
-msgid "Click type for open files"
-msgstr "খোলা ফাইলের জন্য টাইপ ক্লিক করুন"
-
-#: app/preferencesFrame.js:79
-#, fuzzy
-msgid "Single click"
-msgstr "একক ক্লিক"
-
-#: app/preferencesFrame.js:79
-#, fuzzy
-msgid "Double click"
-msgstr "ডবল ক্লিক করুন"
-
-#: app/preferencesFrame.js:80
-#, fuzzy
-msgid "Show hidden files"
-msgstr "গোপন ফাইলগুলো দেখুন"
-
-#: app/preferencesFrame.js:81
-#, fuzzy
-msgid "Show a context menu item to delete permanently"
-msgstr "স্থায়ীভাবে মুছে ফেলার জন্য একটি প্রসঙ্গ মেনু আইটেম দেখান"
-
-#: app/preferencesFrame.js:86
-#, fuzzy
-msgid "Action to do when launching a program from the desktop"
-msgstr "ডেস্কটপ থেকে একটি প্রোগ্রাম চালু করার সময় করণীয়"
-
-#: app/preferencesFrame.js:87
-#, fuzzy
-msgid "Display the content of the file"
-msgstr "ফাইলের বিষয়বস্তু প্রদর্শন করুন"
-
-#: app/preferencesFrame.js:88
-#, fuzzy
-msgid "Launch the file"
-msgstr "ফাইলটি চালু করুন"
-
-#: app/preferencesFrame.js:89
-#, fuzzy
-msgid "Ask what to do"
-msgstr "কি করতে হবে জিজ্ঞাসা"
-
-#: app/preferencesFrame.js:95
-#, fuzzy
-msgid "Show image thumbnails"
-msgstr "ছবির থাম্বনেল দেখান"
-
-#: app/preferencesFrame.js:96
-#, fuzzy
-msgid "Never"
-msgstr "কখনই না"
-
-#: app/preferencesFrame.js:97
-#, fuzzy
-msgid "Local files only"
-msgstr "শুধুমাত্র স্থানীয় ফাইল"
-
-#: app/preferencesFrame.js:98
-#, fuzzy
-msgid "Always"
-msgstr "সর্বদা"
-
 #: app/showErrorPopup.js:41
 #, fuzzy
 msgid "Close"
@@ -884,15 +896,30 @@ msgstr "নতুন আইকন কোণার শুরু"
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "কোণটি সেট করুন যেখান থেকে আইকনগুলি স্থাপন করা শুরু হবে।"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+#, fuzzy
+msgid "Show external drives in the desktop"
+msgstr "ডেস্কটপে বহিরাগত ড্রাইভ দেখান"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 #, fuzzy
 msgid "Show the disk drives connected to the computer."
 msgstr "কম্পিউটারের সাথে সংযুক্ত ডিস্ক ড্রাইভগুলি দেখান।"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+#, fuzzy
+msgid "Show network drives in the desktop"
+msgstr "ডেস্কটপে নেটওয়ার্ক ড্রাইভ দেখান"
+
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
 msgstr "ডেস্কটপে মাউন্ট করা নেটওয়ার্ক ভলিউম দেখান।"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+#, fuzzy
+msgid "Add new drives to the opposite side of the screen"
+msgstr "স্ক্রিনের বিপরীত দিকে নতুন ড্রাইভ যোগ করুন"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
@@ -900,8 +927,7 @@ msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
 msgstr ""
-"ডেস্কটপে ড্রাইভ এবং ভলিউম যুক্ত করার সময়, সেগুলিকে স্ক্রিনের বিপরীত দিকে "
-"যুক্ত করুন।"
+"ডেস্কটপে ড্রাইভ এবং ভলিউম যুক্ত করার সময়, সেগুলিকে স্ক্রিনের বিপরীত দিকে যুক্ত করুন।"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 #, fuzzy
@@ -953,8 +979,7 @@ msgstr "আইকন স্ট্যাক রাখুন"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
-"আইকনগুলিকে সর্বদা স্ট্যাক রাখুন, অনুরূপ প্রকারগুলিকে গোষ্ঠীভুক্ত করা হয়৷"
+msgstr "আইকনগুলিকে সর্বদা স্ট্যাক রাখুন, অনুরূপ প্রকারগুলিকে গোষ্ঠীভুক্ত করা হয়৷"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
@@ -992,8 +1017,8 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"সাদার পরিবর্তে কালো রঙে লেবেল টেক্সট আঁকুন। হালকা ব্যাকগ্রাউন্ড ব্যবহার করার "
-"সময় দরকারী।"
+"সাদার পরিবর্তে কালো রঙে লেবেল টেক্সট আঁকুন। হালকা ব্যাকগ্রাউন্ড ব্যবহার করার সময় "
+"দরকারী।"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
@@ -1006,5 +1031,28 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"যদি একটি দ্বিতীয় মনিটর সংযুক্ত থাকে, নতুন আইকনগুলি অ প্রাথমিক মনিটরে স্থাপন "
-"করা হয়"
+"যদি একটি দ্বিতীয় মনিটর সংযুক্ত থাকে, নতুন আইকনগুলি অ প্রাথমিক মনিটরে স্থাপন করা হয়"
+
+#, fuzzy
+#~ msgid "Click type for open files"
+#~ msgstr "খোলা ফাইলের জন্য টাইপ ক্লিক করুন"
+
+#, fuzzy
+#~ msgid "Action to do when launching a program from the desktop"
+#~ msgstr "ডেস্কটপ থেকে একটি প্রোগ্রাম চালু করার সময় করণীয়"
+
+#, fuzzy
+#~ msgid "Display the content of the file"
+#~ msgstr "ফাইলের বিষয়বস্তু প্রদর্শন করুন"
+
+#, fuzzy
+#~ msgid "Launch the file"
+#~ msgstr "ফাইলটি চালু করুন"
+
+#, fuzzy
+#~ msgid "Ask what to do"
+#~ msgstr "কি করতে হবে জিজ্ঞাসা"
+
+#, fuzzy
+#~ msgid "Local files only"
+#~ msgstr "শুধুমাত্র স্থানীয় ফাইল"
