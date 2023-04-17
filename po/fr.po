@@ -9,64 +9,70 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Bureau"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Des dossiers"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Ajustements"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Paramètres de l'icône du bureau"
+msgstr "Paramètres du bureau"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Définit la taille des icônes du bureau."
+msgstr "Paramètres du programme de bureau"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Volumes"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Affichage des volumes de bureau"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Paramètres d’affichage"
+msgstr "Paramètres des fichiers"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Paramètres partagés avec Nautilus"
+msgstr "Paramètres partagés avec Gnome Files"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Réglages divers"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -102,7 +108,7 @@ msgstr "Coin supérieur gauche"
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
-msgstr "Coin supérieur droit"
+msgstr "Le coin supérieur droit"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
@@ -114,7 +120,7 @@ msgstr "Coin inférieur gauche"
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
-msgstr "Coin inférieur droit"
+msgstr "Le coin inférieur droit"
 
 #: app/adwPreferencesWindow.js:229
 #, fuzzy
@@ -132,31 +138,31 @@ msgstr "Afficher le dossier personnel sur le bureau"
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Afficher la corbeille sur le bureau"
+msgstr "Afficher l'icône de la corbeille sur le bureau"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
 #| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
-msgstr "Afficher les volumes de stockage externes sur le bureau"
+msgstr "Afficher les disques externes sur le bureau"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 #| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
-msgstr "Afficher les volumes réseau sur le bureau"
+msgstr "Afficher les lecteurs réseau sur le bureau"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Ajouter les nouveaux volumes de stockage sur le côté opposé de l’écran"
+msgstr "Ajouter de nouveaux lecteurs sur le côté opposé du bureau"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Mettre en évidence la destination lors d’un glisser‑déposer"
+msgstr "Mettez en surbrillance la grille de dépôt pendant le glisser-déposer"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -172,8 +178,9 @@ msgid "Use dark text in icon labels"
 msgstr "Utiliser un texte sombre pour les libellés des icônes"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Action pour ouvrir des éléments"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -192,8 +199,9 @@ msgid "Always"
 msgstr "Toujours"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Sur cet ordinateur uniquement"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
@@ -230,10 +238,13 @@ msgid "AutoAr is not installed"
 msgstr "AutoAr n'est pas installé"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"Pour pouvoir travailler avec des fichiers compressés, installez file-roller "
+"et/ou gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
@@ -733,6 +744,7 @@ msgid "Send to Mobile Device"
 msgstr "Envoyer vers un appareil mobile"
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
