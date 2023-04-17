@@ -10,64 +10,70 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Escritorio"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "archivos"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Ajustes"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Configuración de iconos de escritorio"
+msgstr "Configuración de escritorio"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Establece el tamaño de los iconos del escritorio."
+msgstr "Configuración para el programa de escritorio"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Volúmenes"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Visualización de volúmenes de escritorio"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Preferencias de pantalla"
+msgstr "Configuración de archivos"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Configuración compartida con Nautilus"
+msgstr "Configuraciones compartidas con Gnome Files"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Ajustes varios"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -97,25 +103,25 @@ msgstr "Alineamiento de nuevos iconos"
 #, fuzzy
 #| msgid "Top-left corner"
 msgid "Top left corner"
-msgstr "Esquina superior-izquierda"
+msgstr "Esquina superior izquierda"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
-msgstr "Esquina superior-derecha"
+msgstr "Esquina superior derecha"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 #| msgid "Bottom-left corner"
 msgid "Bottom left corner"
-msgstr "Esquina inferior-izquierda"
+msgstr "Esquina izquierda inferior"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
-msgstr "Esquina inferior-derecha"
+msgstr "Esquina inferior derecha"
 
 #: app/adwPreferencesWindow.js:229
 #, fuzzy
@@ -134,7 +140,7 @@ msgstr "Mostrar la carpeta personal en el escritorio"
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Mostrar la papelera en el escritorio"
+msgstr "Mostrar el icono de la papelera en el escritorio"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
@@ -152,13 +158,13 @@ msgstr "Mostrar unidades de red en el escritorio"
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Añadir nuevas unidades en el lado opuesto de la pantalla"
+msgstr "Agregue nuevas unidades al lado opuesto del escritorio"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Resaltar el lugar de destino durante Drag'n'Drop"
+msgstr "Resalte la cuadrícula de caída durante Arrastrar y soltar"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -174,8 +180,9 @@ msgid "Use dark text in icon labels"
 msgstr "Utilizar texto oscuro en las etiquetas de los iconos"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Acción para abrir elementos"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -194,8 +201,9 @@ msgid "Always"
 msgstr "Siempre"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Solo en esta computadora"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
