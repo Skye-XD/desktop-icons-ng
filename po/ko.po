@@ -9,64 +9,70 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "데스크탑"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "파일"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "비틀기"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "데스크탑 아이콘 설정"
+msgstr "데스크탑 설정"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "바탕 화면 아이콘의 크기를 지정합니다."
+msgstr "데스크톱 프로그램 설정"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "볼륨"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "데스크톱 볼륨 표시"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "화면 설정"
+msgstr "파일 설정"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "노틸러스와 설정 공유"
+msgstr "그놈 파일과 공유되는 설정"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "기타 조정"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -96,25 +102,25 @@ msgstr "새 아이콘 정렬 방식"
 #, fuzzy
 #| msgid "Top-left corner"
 msgid "Top left corner"
-msgstr "좌측 상단부터"
+msgstr "왼쪽 위 모서리"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
-msgstr "우측 상단부터"
+msgstr "오른쪽 위 모서리"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 #| msgid "Bottom-left corner"
 msgid "Bottom left corner"
-msgstr "좌측 하단부터"
+msgstr "왼쪽 하단 모서리"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
-msgstr "우측 하단부터"
+msgstr "오른쪽 하단 모서리"
 
 #: app/adwPreferencesWindow.js:229
 #, fuzzy
@@ -125,37 +131,37 @@ msgstr "가능한 경우 먼저 보조 모니터에 새 아이콘을 추가하�
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
-msgstr "바탕화면에 개인 폴더 표시"
+msgstr "바탕 화면에 개인 폴더 표시"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "바탕화면에 휴지통 표시"
+msgstr "바탕 화면에 휴지통 아이콘 표시"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
 #| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
-msgstr "바탕화면에 외장 드라이브 표시"
+msgstr "데스크탑에 외부 드라이브 표시"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 #| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
-msgstr "바탕화면에 네트워크 드라이브 표시"
+msgstr "데스크탑에 네트워크 드라이브 표시"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "새 드라이브를 스크린 반대편에 추가"
+msgstr "바탕 화면의 반대쪽에 새 드라이브를 추가합니다."
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "드래그 앤 드랍 시 드랍 위치 강조 효과"
+msgstr "드래그 앤 드롭 중에 드롭 그리드 강조 표시"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -171,8 +177,9 @@ msgid "Use dark text in icon labels"
 msgstr "아이콘 레이블에 어두운 텍스트 사용"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "항목 열기 작업"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -191,8 +198,9 @@ msgid "Always"
 msgstr "항상"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "이 컴퓨터에서만"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
