@@ -153,7 +153,6 @@ var AdwPreferencesWindow = class {
         this.gtkSettings = gtkSettings;
         this.iconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         this.iconPath = GLib.build_filenamev([extensionPath, 'icons']);
-        this.iconTheme.add_resource_path(this.iconPath);
         this.iconTheme.add_search_path(this.iconPath);
     }
 
