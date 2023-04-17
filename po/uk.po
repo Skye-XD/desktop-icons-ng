@@ -8,65 +8,71 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"PO-Revision-Date: 2023-04-18 00:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Робочий стіл"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Файли"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Твіки"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Налаштування піктограм робочого столу"
+msgstr "Налаштування робочого столу"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Встановити розмір піктограм на стільниці."
+msgstr "Налаштування програми для робочого столу"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Обсяги"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Дисплей обсягів робочого столу"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Параметри екрану"
+msgstr "Налаштування файлів"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Спільні параметри з Nautilus"
+msgstr "Параметри, надані спільно з Gnome Files"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Різні налаштування"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -102,7 +108,7 @@ msgstr "Верхній лівий кут"
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
-msgstr "Верхній лівий кут"
+msgstr "Верхній правий кут"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
@@ -114,7 +120,7 @@ msgstr "Нижній лівий кут"
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
-msgstr "Нижній правий кут"
+msgstr "Правий нижній кут"
 
 #: app/adwPreferencesWindow.js:229
 #, fuzzy
@@ -125,37 +131,37 @@ msgstr "Спочатку додайте нові піктограми до вт�
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
-msgstr "Показувати особисту теку на стільниці"
+msgstr "Показати особисту папку на робочому столі"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Показувати піктограму смітника на стільниці"
+msgstr "Показати значок кошика на робочому столі"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
 #| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
-msgstr "Показувати змінні носії на стільниці"
+msgstr "Показати зовнішні диски на робочому столі"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 #| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
-msgstr "Показувати мережеві носії на стільниці"
+msgstr "Показати мережеві диски на робочому столі"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Додавати нові змінні носії до протилежного боку екрану"
+msgstr "Додайте нові диски на протилежну сторону робочого столу"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Підсвічувати місце падіння під час перетягування"
+msgstr "Виділіть сітку скидання під час перетягування"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -174,8 +180,9 @@ msgid "Use dark text in icon labels"
 msgstr "Використовуйте темний текст у написах значків"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Дія для відкриття елементів"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -194,8 +201,9 @@ msgid "Always"
 msgstr "Завжди"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Лише на цьому комп’ютері"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
@@ -231,10 +239,13 @@ msgid "AutoAr is not installed"
 msgstr "AutoAr не встановлено"
 
 #: app/autoAr.js:72
+#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"Щоб мати можливість працювати зі стисненими файлами, встановіть file-roller "
+"та/або gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
@@ -603,10 +614,13 @@ msgid "Invalid Permissions on Desktop File"
 msgstr "Недійсні дозволи для файлу на робочому столі"
 
 #: app/fileItem.js:338
+#, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
+"Цей файл .desktop має неправильні дозволи. Клацніть правою кнопкою миші, щоб "
+"змінити властивості, а потім:\n"
 
 #: app/fileItem.js:340
 #, fuzzy
@@ -727,6 +741,7 @@ msgid "Send to Mobile Device"
 msgstr "Надіслати на мобільний пристрій"
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -803,10 +818,13 @@ msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "\"${programName}\" потрібна для значків на робочому столі"
 
 #: app/utils/dbusUtils.js:59
+#, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
+"Щоб ця функція працювала в піктограмах робочого столу, вам потрібно "
+"встановити \"${programName}\" у вашій системі."
 
 #: app/utils/desktopIconsUtil.js:150
 msgid "Command not found"
