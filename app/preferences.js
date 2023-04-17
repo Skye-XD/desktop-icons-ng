@@ -58,12 +58,12 @@ var Preferences = class {
         if (schemaMutter)
             this.mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
 
-        this._preferencesFrame = new Data.PreferencesFrame.PreferencesFrame(Gtk, GObject, this.desktopSettings, this.nautilusSettings, this.gtkSettings, _);
-
         // Gnome Dark Settings
-        let schemaDarkSettings = schemaSource.lookup(this._Enums.SCHEMA_DARK_SETTINGS, true);
-        if (schemaDarkSettings)
-            this.schemaGnomeDarkSettings = new Gio.Settings({ settings_schema: schemaDarkSettings });
+        let schemaGnomeSettings = schemaSource.lookup(this._Enums.SCHEMA_GNOME_SETTINGS, true);
+        if (schemaGnomeSettings)
+            this.schemaGnomeThemeSettings = new Gio.Settings({ settings_schema: schemaGnomeSettings });
+
+        this._preferencesFrame = new Data.PreferencesFrame.PreferencesFrame(Gtk, GObject, this.desktopSettings, this.nautilusSettings, this.gtkSettings, _);
 
         // Our Settings
         this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
@@ -108,7 +108,7 @@ var Preferences = class {
         this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
         this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
         this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
-        this.darkMode = this.schemaGnomeDarkSettings.get_string('color-scheme') === 'prefer-dark';
+        this.darkMode = this.schemaGnomeThemeSettings.get_string('color-scheme') === 'prefer-dark';
     }
 
     getPreferencesFrame() {
@@ -231,12 +231,11 @@ var Preferences = class {
             this._desktopManager.onGtkThemeChange();
         });
 
+
         // Gnome Dark Mode Changes
-        this.schemaGnomeDarkSettings.connect('changed', (obj, key) => {
-            if (key === 'color-scheme') {
-                this.darkMode = this.schemaGnomeDarkSettings.get_string('color-scheme') === 'prefer-dark';
-                let displayGtkSettings = Gtk.Settings.get_for_display(Gdk.Display.get_default());
-                displayGtkSettings.gtk_application_prefer_dark_theme = this.darkMode;
+        this.schemaGnomeThemeSettings.connect('changed', (obj, key) => {
+            if ((key === 'color-scheme') || (key === 'gtk-theme') || (key === 'icon-theme')) {
+                this.darkMode = this.schemaGnomeThemeSettings.get_string('color-scheme') === 'prefer-dark';
                 this._desktopManager.onGtkThemeChange();
             }
         });

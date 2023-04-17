@@ -102,7 +102,6 @@ var DesktopManager = class {
         this.ignoreKeys = [Gdk.KEY_space, Gdk.KEY_Shift_L, Gdk.KEY_Shift_R, Gdk.KEY_Control_L, Gdk.KEY_Control_R, Gdk.KEY_Caps_Lock, Gdk.KEY_Shift_Lock, Gdk.KEY_Meta_L, Gdk.KEY_Meta_R, Gdk.KEY_Alt_L, Gdk.KEY_Alt_R, Gdk.KEY_Super_L, Gdk.KEY_Super_R, Gdk.KEY_ISO_Level3_Shift, Gdk.KEY_ISO_Level5_Shift];
 
         // init methods
-        this._checkApplyDarkModeSetting();
         this._initLocalCSSprovider();
         this._configureSelectionColor();
         this._startMonitoringTemplatesDir();
@@ -216,11 +215,6 @@ var DesktopManager = class {
             this._syncUndoRedo();
 
         this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
-    }
-
-    _checkApplyDarkModeSetting() {
-        let displayGtkSettings = Gtk.Settings.get_for_display(Gdk.Display.get_default());
-        displayGtkSettings.gtk_application_prefer_dark_theme = this.Prefs.darkMode;
     }
 
     _initLocalCSSprovider() {
