@@ -10,64 +10,70 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:50+0000\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
 #: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "plocha počítače"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Soubory"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Vychytávky"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Nastavení ikon na ploše"
+msgstr "Nastavení plochy"
 
 #: app/adwPreferencesWindow.js:191
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Nastavit velikost pro ikony na pracovní ploše."
+msgstr "Nastavení pro Desktop Program"
 
 #: app/adwPreferencesWindow.js:195
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Svazky"
 
 #: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Zobrazení svazků na ploše"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Zobrazit nastavení"
+msgstr "Nastavení souborů"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Nastavení sdílená s Nautilem"
+msgstr "Nastavení sdílená se soubory Gnome"
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Různé Tweaks"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Size for the desktop icons"
@@ -109,13 +115,13 @@ msgstr "Pravý horní roh"
 #, fuzzy
 #| msgid "Bottom-left corner"
 msgid "Bottom left corner"
-msgstr "Spodní levý roh"
+msgstr "Levý dolní roh"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
-msgstr "Spodní pravý roh"
+msgstr "Pravý dolní roh"
 
 #: app/adwPreferencesWindow.js:229
 #, fuzzy
@@ -127,37 +133,37 @@ msgstr ""
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
-msgstr "Zobrazovat osobní složku na pracovní ploše"
+msgstr "Zobrazit osobní složku na ploše"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Zobrazovat ikonu koše na pracovní ploše"
+msgstr "Zobrazit ikonu koše na ploše"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
 #| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
-msgstr "Zobrazovat disky připojené k počítači"
+msgstr "Zobrazit externí disky na ploše"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 #| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
-msgstr "Zobrazovat síťové disky připojené k počítači"
+msgstr "Zobrazit síťové disky na ploše"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Dávat nové disky na opačnou stranu obrazovky"
+msgstr "Přidejte nové disky na opačnou stranu plochy"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Zvýraznit místo k položení při přetahování souborů"
+msgstr "Během Drag and Drop zvýrazněte mřížku přetažení"
 
 #: app/adwPreferencesWindow.js:238
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -176,8 +182,9 @@ msgid "Use dark text in icon labels"
 msgstr "Používejte tmavý text v popiscích ikon"
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Akce k otevření položek"
 
 #: app/adwPreferencesWindow.js:246
 msgid "Single click"
@@ -196,8 +203,9 @@ msgid "Always"
 msgstr "Vždy"
 
 #: app/adwPreferencesWindow.js:254
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Pouze na tomto počítači"
 
 #: app/adwPreferencesWindow.js:255
 msgid "Never"
