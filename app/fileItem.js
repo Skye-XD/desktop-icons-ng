@@ -321,7 +321,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _launchDesktopFile(context, fileList) {
-        if (this.trustedDesktopFile && this._desktopManager.checkAppOpensFileType(this._desktopFile, fileList[0], null)) {
+        if (this.trustedDesktopFile && (!fileList.length || this._desktopManager.checkAppOpensFileType(this._desktopFile, fileList[0], null))) {
             this._desktopFile.launch_uris_as_manager(fileList, context, GLib.SpawnFlags.SEARCH_PATH, null, null);
             return;
         }
