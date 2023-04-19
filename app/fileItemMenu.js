@@ -249,6 +249,13 @@ var FileItemMenu = class {
             this.DesktopIconsUtil.launchTerminal(this.activeFileItem.path, null);
         });
         this._mainApp.add_action(openinterminal);
+
+        let makeLinks = Gio.SimpleAction.new('makeLinks', null);
+        makeLinks.connect('activate', () => {
+            this._makeLinks();
+        });
+        this._mainApp.add_action(makeLinks);
+        this._mainApp.set_accels_for_action('app.makeLinks', ['<Shift><Control>M']);
     }
 
     showMenu(fileItem, button = null, X = null, Y = null, x = null, y = null, shiftSelected = false, controlSelected = false) {
@@ -342,6 +349,8 @@ var FileItemMenu = class {
                 trashMenu.append(_('Rename…'), 'app.dorename');
 
             if (fileItem.isAllSelectable && !this._desktopManager.checkIfSpecialFilesAreSelected() && (selectedItemsNum >= 1)) {
+                trashMenu.append(_('Create Link...'), 'app.makeLinks');
+
                 if (this._desktopManager.getCurrentSelection().every(f => f.isDirectory)) {
                     trashMenu.append(
                         Gettext.ngettext(
@@ -411,9 +420,9 @@ var FileItemMenu = class {
         this._menu.append_section(null, emptyTrashMenu);
         if (fileItem.canEject || fileItem.canUnmount)
             this._menu.append_section(null, driveMenu);
-        this._menu.append_section(null, propertiesMenu);
         this._menu.append_section(null, showInFilesMenu);
         this._menu.append_section(null, openInTerminalMenu);
+        this._menu.append_section(null, propertiesMenu);
 
         this.popupmenu = Gtk.PopoverMenu.new_from_model(this._menu);
         this.popupmenu.set_parent(fileItem._grid._container);
@@ -611,6 +620,14 @@ var FileItemMenu = class {
             this.DBusUtils.RemoteFileOperations.pushEvent(event);
             this.DBusUtils.RemoteFileOperations.MoveURIsRemote(newFolderFileItems, newFolder);
         }
+    }
+
+    _makeLinks() {
+        let desktopFolder = this.DesktopIconsUtil.getDesktopDir();
+        const toLink = this._desktopManager.getCurrentSelection(true);
+        let [X ,Y] = this.activeFileItem.getCoordinates().slice(0, 2);
+        if (!this._desktopManager.checkIfSpecialFilesAreSelected() && toLink.length)
+            this._desktopManager.makeLinks(toLink, desktopFolder.get_uri(), X, Y);
     }
 
     _onScriptClicked(menuItemPath) {
