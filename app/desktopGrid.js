@@ -573,8 +573,7 @@ var DesktopGrid = class {
 
             if (desktopMove && desktopDropZone && (gdkDropAction === Gdk.DragAction.MOVE)) {
                 let [xOrigin, yOrigin] = this._desktopManager.dragItem.getCoordinates().slice(0, 3);
-                let [xGlobalDestination, yGlobalDestination] = this._desktopManager._positiveOffsetGridAim(X, Y);
-                this._desktopManager.doMoveWithDragAndDrop(xOrigin, yOrigin, xGlobalDestination, yGlobalDestination);
+                this._desktopManager.doMoveWithDragAndDrop(xOrigin, yOrigin, X, Y);
                 this.receiveLeave();
                 drop.finish(gdkDropAction);
                 return true;
