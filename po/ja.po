@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-19 00:06-0400\n"
-"PO-Revision-Date: 2023-04-18 00:49+0000\n"
+"PO-Revision-Date: 2023-04-20 04:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -660,8 +660,9 @@ msgid "Open All..."
 msgstr "すべて開く..."
 
 #: app/fileItemMenu.js:306
+#, fuzzy
 msgid "Open with {foo}"
-msgstr ""
+msgstr "{foo} で開く"
 
 #: app/fileItemMenu.js:308
 msgid "Open"
@@ -683,7 +684,7 @@ msgstr "別のアプリケーションですべて開く..."
 #, fuzzy
 #| msgid "Open All..."
 msgid "Open With..."
-msgstr "すべて開く..."
+msgstr "で開く..."
 
 #: app/fileItemMenu.js:331
 msgid "Launch using Dedicated Graphics Card"
@@ -716,13 +717,13 @@ msgstr "切り取り"
 #, fuzzy
 #| msgid "Send to..."
 msgid "Move to..."
-msgstr "送る..."
+msgstr "へ引っ越す..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
 #| msgid "Send to..."
 msgid "Copy to..."
-msgstr "送る..."
+msgstr "コピー先..."
 
 #: app/fileItemMenu.js:366
 msgid "Rename…"
@@ -732,7 +733,7 @@ msgstr "名前を変更…"
 #, fuzzy
 #| msgid "Create"
 msgid "Create Link..."
-msgstr "作成"
+msgstr "リンクを作成..."
 
 #: app/fileItemMenu.js:374
 #, fuzzy
@@ -746,8 +747,9 @@ msgid_plural "Compress {0} files"
 msgstr[0] "{0} 個のファイルを圧縮"
 
 #: app/fileItemMenu.js:388
+#, fuzzy
 msgid "Email to..."
-msgstr ""
+msgstr "メールアドレス..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -823,23 +825,23 @@ msgstr "選択"
 #: app/fileItemMenu.js:579 app/fileItemMenu.js:612
 #, fuzzy
 msgid "No Destination Folder"
-msgstr "抽出フォルダなし"
+msgstr "宛先フォルダーがありません"
 
 #: app/fileItemMenu.js:580
 #, fuzzy
 msgid "Unable to move Files, destination folder does not exist"
-msgstr "ファイルを抽出できません。抽出フォルダが存在しません"
+msgstr "ファイルを移動できません。宛先フォルダが存在しません"
 
 #: app/fileItemMenu.js:582 app/fileItemMenu.js:615
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
-msgstr "展開する宛先を選択"
+msgstr "目的地を選択"
 
 #: app/fileItemMenu.js:613
 #, fuzzy
 msgid "Unable to copy Files, destination folder does not exist"
-msgstr "ファイルを抽出できません。抽出フォルダが存在しません"
+msgstr "ファイルをコピーできません。宛先フォルダが存在しません"
 
 #: app/fileItemMenu.js:660
 msgid "Can not email a Directory"
