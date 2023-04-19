@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-19 00:06-0400\n"
-"PO-Revision-Date: 2023-04-18 00:50+0000\n"
+"PO-Revision-Date: 2023-04-20 04:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -649,8 +649,9 @@ msgid "Open All..."
 msgstr "全部打开..."
 
 #: app/fileItemMenu.js:306
+#, fuzzy
 msgid "Open with {foo}"
-msgstr ""
+msgstr "用 {foo} 打开"
 
 #: app/fileItemMenu.js:308
 msgid "Open"
@@ -672,7 +673,7 @@ msgstr "用其他方式打开。"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Open With..."
-msgstr "全部打开..."
+msgstr "打开用..."
 
 #: app/fileItemMenu.js:331
 msgid "Launch using Dedicated Graphics Card"
@@ -703,13 +704,13 @@ msgstr "剪切"
 #, fuzzy
 #| msgid "Send to..."
 msgid "Move to..."
-msgstr "发送到…"
+msgstr "搬去..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
 #| msgid "Send to..."
 msgid "Copy to..."
-msgstr "发送到…"
+msgstr "复制到..."
 
 #: app/fileItemMenu.js:366
 msgid "Rename…"
@@ -718,7 +719,7 @@ msgstr "重命名……"
 #: app/fileItemMenu.js:369
 #, fuzzy
 msgid "Create Link..."
-msgstr "创造"
+msgstr "创建链接..."
 
 #: app/fileItemMenu.js:374
 #, fuzzy
@@ -732,8 +733,9 @@ msgid_plural "Compress {0} files"
 msgstr[0] "压缩{0}文件"
 
 #: app/fileItemMenu.js:388
+#, fuzzy
 msgid "Email to..."
-msgstr ""
+msgstr "发邮件给..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -809,23 +811,23 @@ msgstr "选择"
 #: app/fileItemMenu.js:579 app/fileItemMenu.js:612
 #, fuzzy
 msgid "No Destination Folder"
-msgstr "没有提取文件夹"
+msgstr "没有目标文件夹"
 
 #: app/fileItemMenu.js:580
 #, fuzzy
 msgid "Unable to move Files, destination folder does not exist"
-msgstr "无法提取文件，提取文件夹不存在"
+msgstr "无法移动文件，目标文件夹不存在"
 
 #: app/fileItemMenu.js:582 app/fileItemMenu.js:615
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
-msgstr "选择提取目录"
+msgstr "选择目的地"
 
 #: app/fileItemMenu.js:613
 #, fuzzy
 msgid "Unable to copy Files, destination folder does not exist"
-msgstr "无法提取文件，提取文件夹不存在"
+msgstr "无法复制文件，目标文件夹不存在"
 
 #: app/fileItemMenu.js:660
 msgid "Can not email a Directory"
