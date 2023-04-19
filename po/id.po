@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:51+0000\n"
+"POT-Creation-Date: 2023-04-19 00:06-0400\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/id/>\n"
@@ -17,193 +17,201 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
-#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
-#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "File"
 
-#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:204
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Tweak"
+
+#: app/adwPreferencesWindow.js:189
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "Pengaturan Desktop"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-msgid "Desktop Settings"
-msgstr "Pengaturan Ikon Desktop"
-
-#: app/adwPreferencesWindow.js:191
-#, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Set ukuran untuk ikon destop."
+msgstr "Pengaturan untuk Program Desktop"
+
+#: app/adwPreferencesWindow.js:194
+#, fuzzy
+msgid "Volumes"
+msgstr "Volume"
 
 #: app/adwPreferencesWindow.js:195
-msgid "Volumes"
-msgstr ""
-
-#: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Tampilan volume desktop"
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:199
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Pengaturan Tampilan"
+msgstr "Pengaturan File"
 
-#: app/adwPreferencesWindow.js:201
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Pengaturan dibagikan dengan Nautilus"
+msgstr "Pengaturan dibagikan dengan File Gnome"
 
-#: app/adwPreferencesWindow.js:206
+#: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Tweak Lain-Lain"
 
-#: app/adwPreferencesWindow.js:211
+#: app/adwPreferencesWindow.js:210
 msgid "Size for the desktop icons"
 msgstr "Ukuran untuk ikon destop"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:212
 #, fuzzy
 msgid "Tiny"
 msgstr "Kecil"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:213
 msgid "Small"
 msgstr "Kecil"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:214
 msgid "Standard"
 msgstr "Standar"
 
-#: app/adwPreferencesWindow.js:216
+#: app/adwPreferencesWindow.js:215
 msgid "Large"
 msgstr "Besar"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:220
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Penyelarasan ikon baru"
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:222
 #, fuzzy
 msgid "Top left corner"
 msgstr "Pojok kiri atas"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:223
 #, fuzzy
 msgid "Top right corner"
 msgstr "Ujung kanan atas"
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Pojok kiri bawah"
 
-#: app/adwPreferencesWindow.js:226
+#: app/adwPreferencesWindow.js:225
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Pojok kanan bawah"
 
-#: app/adwPreferencesWindow.js:229
+#: app/adwPreferencesWindow.js:228
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Tambahkan ikon baru ke Monitor Sekunder terlebih dahulu, jika tersedia"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:230
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
-msgstr "Tampilkan folder pribadi di destop"
+msgstr "Tampilkan folder pribadi di desktop"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:231
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Tampilkan ikon tong sampah di destop"
+msgstr "Tampilkan ikon tempat sampah di desktop"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Tampilkan drive eksternal di desktop"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:233
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Tampilkan drive jaringan di desktop"
 
-#: app/adwPreferencesWindow.js:235
+#: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Tambahkan drive baru ke sisi berlawanan dari layar"
+msgstr "Tambahkan drive baru ke sisi berlawanan dari desktop"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Sorot tempat jatuhkan selama Drag'n'Drop"
+msgstr "Sorot kotak jatuhkan selama Seret dan Jatuhkan"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:237
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "Gunakan Nemo untuk membuka folder"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:238
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "Tambahkan lambang ke tautan lunak"
 
-#: app/adwPreferencesWindow.js:240
+#: app/adwPreferencesWindow.js:239
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Gunakan teks gelap di label ikon"
 
-#: app/adwPreferencesWindow.js:244
+#: app/adwPreferencesWindow.js:243
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Tindakan untuk Membuka Item"
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Single click"
 msgstr "Klik tunggal"
 
-#: app/adwPreferencesWindow.js:247
+#: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Double click"
 msgstr "Klik dua kali"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Tampilkan thumbnail gambar"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Always"
 msgstr "Selalu"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:253
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Di komputer ini saja"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Never"
 msgstr "Tidak pernah"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Tampilkan item menu konteks untuk dihapus secara permanen"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Tampilkan file tersembunyi"
@@ -252,7 +260,8 @@ msgid "Compressing files"
 msgstr "Mengompresi file"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307 app/fileItemMenu.js:522
+#: app/desktopManager.js:1307 app/fileItemMenu.js:552 app/fileItemMenu.js:586
+#: app/fileItemMenu.js:619
 msgid "Cancel"
 msgstr "Batal"
 
@@ -406,7 +415,7 @@ msgstr "${appName} tidak dapat membuka file jenis ini!"
 msgid "Move"
 msgstr "Bergerak"
 
-#: app/desktopManager.js:864 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:357
 msgid "Copy"
 msgstr "Salin"
 
@@ -634,175 +643,223 @@ msgstr ""
 "<b>Aktifkan opsi, \"Izinkan File Pelaksana sebagai Program\"</b>"
 
 #: app/fileItem.js:351
+#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
+"File .desktop ini tidak dipercaya, tidak dapat diluncurkan. Untuk "
+"mengaktifkan peluncuran, klik kanan, lalu:\n"
+"\n"
+"<b>Aktifkan \"Izinkan Peluncuran\"</b>"
 
-#: app/fileItemMenu.js:264
-#, fuzzy
-msgid "Open All..."
-msgstr "Buka semua..."
-
-#: app/fileItemMenu.js:266
-msgid "Open"
-msgstr "Buka"
-
-#: app/fileItemMenu.js:273
-#, fuzzy
-msgid "Stack This Type"
-msgstr "Tumpuk Jenis Ini"
-
-#: app/fileItemMenu.js:273
-#, fuzzy
-msgid "Unstack This Type"
-msgstr "Hapus Tipe Ini"
-
-#: app/fileItemMenu.js:284
-#, fuzzy
-msgid "Scripts"
-msgstr "Skrip"
-
-#: app/fileItemMenu.js:289
-#, fuzzy
-msgid "Open All With Other Application..."
-msgstr "Buka Semua Dengan Aplikasi Lain..."
-
-#: app/fileItemMenu.js:289
-msgid "Open With Other Application"
-msgstr "Buka Dengan Aplikasi Lain"
-
-#: app/fileItemMenu.js:291
-#, fuzzy
-msgid "Launch using Dedicated Graphics Card"
-msgstr "Luncurkan menggunakan Kartu Grafis Khusus"
-
-#: app/fileItemMenu.js:298
-#, fuzzy
-msgid "Run as a Program"
-msgstr "Jalankan sebagai Program"
-
-#: app/fileItemMenu.js:304
-msgid "Cut"
-msgstr "Potong"
-
-#: app/fileItemMenu.js:309
-msgid "Rename…"
-msgstr "Ganti Nama…"
-
-#: app/fileItemMenu.js:314
-msgid "Move to Trash"
-msgstr "Pindahkan ke Tong Sampah"
-
-#: app/fileItemMenu.js:317
-msgid "Delete permanently"
-msgstr "Hapus permanen"
-
-#: app/fileItemMenu.js:324
-#, fuzzy
-msgid "Don't Allow Launching"
-msgstr "Jangan Izinkan Peluncuran"
-
-#: app/fileItemMenu.js:324
-msgid "Allow Launching"
-msgstr "Izinkan Peluncuran"
-
-#: app/fileItemMenu.js:333
-msgid "Empty Trash"
-msgstr "Kosongkan Tong Sampah"
-
-#: app/fileItemMenu.js:342
-msgid "Eject"
-msgstr "Keluarkan Media"
-
-#: app/fileItemMenu.js:345
-msgid "Unmount"
-msgstr "Lepas Kaitan"
-
-#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
-msgid "Extract Here"
-msgstr "Ekstrak Di Sini"
-
-#: app/fileItemMenu.js:362
-msgid "Extract To..."
-msgstr "Ekstrak ke…"
-
-#: app/fileItemMenu.js:366
-msgid "Send to..."
-msgstr "Kirim ke…"
-
-#: app/fileItemMenu.js:372
-#, fuzzy
-msgid "Send to Mobile Device"
-msgstr "Kirim ke Perangkat Seluler"
-
-#: app/fileItemMenu.js:378
-#, fuzzy
-msgid "Compress {0} folder"
-msgid_plural "Compress {0} folders"
-msgstr[0] "Kompres {0} folder"
-
-#: app/fileItemMenu.js:385
-#, fuzzy
-msgid "Compress {0} file"
-msgid_plural "Compress {0} files"
-msgstr[0] "Kompres {0} berkas"
-
-#: app/fileItemMenu.js:392
+#: app/fileItemMenu.js:294
 #, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Folder Baru dengan {0} item"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:301
+#, fuzzy
+msgid "Open All..."
+msgstr "Buka semua..."
+
+#: app/fileItemMenu.js:306
+msgid "Open with {foo}"
+msgstr ""
+
+#: app/fileItemMenu.js:308
+msgid "Open"
+msgstr "Buka"
+
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:321
+msgid "Extract Here"
+msgstr "Ekstrak Di Sini"
+
+#: app/fileItemMenu.js:323
+msgid "Extract To..."
+msgstr "Ekstrak ke…"
+
+#: app/fileItemMenu.js:328
+#, fuzzy
+msgid "Open All With Other Application..."
+msgstr "Buka Semua Dengan Aplikasi Lain..."
+
+#: app/fileItemMenu.js:328
+#, fuzzy
+msgid "Open With..."
+msgstr "Buka semua..."
+
+#: app/fileItemMenu.js:331
+#, fuzzy
+msgid "Launch using Dedicated Graphics Card"
+msgstr "Luncurkan menggunakan Kartu Grafis Khusus"
+
+#: app/fileItemMenu.js:338
+#, fuzzy
+msgid "Stack This Type"
+msgstr "Tumpuk Jenis Ini"
+
+#: app/fileItemMenu.js:338
+#, fuzzy
+msgid "Unstack This Type"
+msgstr "Hapus Tipe Ini"
+
+#: app/fileItemMenu.js:349
+#, fuzzy
+msgid "Run as a Program"
+msgstr "Jalankan sebagai Program"
+
+#: app/fileItemMenu.js:352
+#, fuzzy
+msgid "Scripts"
+msgstr "Skrip"
+
+#: app/fileItemMenu.js:355
+msgid "Cut"
+msgstr "Potong"
+
+#: app/fileItemMenu.js:361
+#, fuzzy
+#| msgid "Send to..."
+msgid "Move to..."
+msgstr "Kirim ke…"
+
+#: app/fileItemMenu.js:362
+#, fuzzy
+#| msgid "Send to..."
+msgid "Copy to..."
+msgstr "Kirim ke…"
+
+#: app/fileItemMenu.js:366
+msgid "Rename…"
+msgstr "Ganti Nama…"
+
+#: app/fileItemMenu.js:369
+#, fuzzy
+#| msgid "Create"
+msgid "Create Link..."
+msgstr "Buat"
+
+#: app/fileItemMenu.js:374
+#, fuzzy
+msgid "Compress {0} folder"
+msgid_plural "Compress {0} folders"
+msgstr[0] "Kompres {0} folder"
+
+#: app/fileItemMenu.js:381
+#, fuzzy
+msgid "Compress {0} file"
+msgid_plural "Compress {0} files"
+msgstr[0] "Kompres {0} berkas"
+
+#: app/fileItemMenu.js:388
+msgid "Email to..."
+msgstr ""
+
+#: app/fileItemMenu.js:393
+#, fuzzy
+msgid "Send to Mobile Device"
+msgstr "Kirim ke Perangkat Seluler"
+
+#: app/fileItemMenu.js:397
+msgid "Move to Trash"
+msgstr "Pindahkan ke Tong Sampah"
+
+#: app/fileItemMenu.js:400
+msgid "Delete permanently"
+msgstr "Hapus permanen"
+
+#: app/fileItemMenu.js:405
+#, fuzzy
+msgid "Don't Allow Launching"
+msgstr "Jangan Izinkan Peluncuran"
+
+#: app/fileItemMenu.js:405
+msgid "Allow Launching"
+msgstr "Izinkan Peluncuran"
+
+#: app/fileItemMenu.js:411
+msgid "Empty Trash"
+msgstr "Kosongkan Tong Sampah"
+
+#: app/fileItemMenu.js:417
+msgid "Eject"
+msgstr "Keluarkan Media"
+
+#: app/fileItemMenu.js:420
+msgid "Unmount"
+msgstr "Lepas Kaitan"
+
+#: app/fileItemMenu.js:424
 #, fuzzy
 msgid "Common Properties"
 msgstr "Properti Umum"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:424
 msgid "Properties"
 msgstr "Properti"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 #, fuzzy
 msgid "Show All in Files"
 msgstr "Tampilkan Semua di File"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 msgid "Show in Files"
 msgstr "Tampilkan pada Berkas"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:429
 msgid "Open in Terminal"
 msgstr "Buka dalam Terminal"
 
-#: app/fileItemMenu.js:497
+#: app/fileItemMenu.js:527
 #, fuzzy
 msgid "No Extraction Folder"
 msgstr "Tidak Ada Folder Ekstraksi"
 
-#: app/fileItemMenu.js:498
+#: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
 msgstr "Tidak dapat mengekstrak File, Folder ekstraksi Tidak Ada"
 
-#: app/fileItemMenu.js:518
+#: app/fileItemMenu.js:548
 #, fuzzy
 msgid "Select Extract Destination"
 msgstr "Pilih Ekstrak Tujuan"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:553 app/fileItemMenu.js:587 app/fileItemMenu.js:620
 msgid "Select"
 msgstr "Pilih"
 
-#: app/fileItemMenu.js:563
+#: app/fileItemMenu.js:579 app/fileItemMenu.js:612
+#, fuzzy
+msgid "No Destination Folder"
+msgstr "Tidak Ada Folder Ekstraksi"
+
+#: app/fileItemMenu.js:580
+#, fuzzy
+msgid "Unable to move Files, destination folder does not exist"
+msgstr "Tidak dapat mengekstrak File, Folder ekstraksi Tidak Ada"
+
+#: app/fileItemMenu.js:582 app/fileItemMenu.js:615
+#, fuzzy
+msgid "Select Destination"
+msgstr "Pilih Ekstrak Tujuan"
+
+#: app/fileItemMenu.js:613
+#, fuzzy
+msgid "Unable to copy Files, destination folder does not exist"
+msgstr "Tidak dapat mengekstrak File, Folder ekstraksi Tidak Ada"
+
+#: app/fileItemMenu.js:660
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Tidak dapat mengirim email ke Direktori"
 
-#: app/fileItemMenu.js:564
+#: app/fileItemMenu.js:661
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Pilihan termasuk Direktori, kompres direktori ke file terlebih dahulu."
@@ -818,10 +875,13 @@ msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "\"${programName}\" diperlukan untuk Ikon Desktop"
 
 #: app/utils/dbusUtils.js:59
+#, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
+"Agar fungsionalitas ini berfungsi di Ikon Desktop, Anda harus menginstal "
+"\"${programName}\" di sistem Anda."
 
 #: app/utils/desktopIconsUtil.js:150
 msgid "Command not found"
@@ -901,10 +961,13 @@ msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Menampilkan persegi panjang di tempat tujuan selama DnD"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
+#, fuzzy
 msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
+"Saat melakukan operasi Drag'n'Drop, tandai tempat di grid tempat ikon akan "
+"diletakkan dengan persegi panjang semitransparan."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
@@ -912,10 +975,13 @@ msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Sortir Folder Khusus - Drive Rumah/Sampah."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
+#, fuzzy
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
+"Saat mengatur Ikon di desktop, untuk mengurutkan dan mengubah posisi Home, "
+"Trash, dan Network yang terpasang atau Drive Eksternal"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
@@ -998,6 +1064,9 @@ msgid ""
 "monitor"
 msgstr ""
 "Jika monitor kedua tersambung, ikon baru ditempatkan di monitor non utama"
+
+#~ msgid "Open With Other Application"
+#~ msgstr "Buka Dengan Aplikasi Lain"
 
 #, fuzzy
 #~ msgid "Click type for open files"

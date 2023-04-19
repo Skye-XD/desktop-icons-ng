@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 08:10-0400\n"
-"PO-Revision-Date: 2023-04-13 02:50+0000\n"
+"POT-Creation-Date: 2023-04-19 00:06-0400\n"
+"PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/cs/>\n"
@@ -19,195 +19,203 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.17\n"
 
-#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "plocha počítače"
 
-#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Soubory"
 
-#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:204
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Vychytávky"
+
+#: app/adwPreferencesWindow.js:189
+#, fuzzy
+msgid "Desktop Settings"
+msgstr "Nastavení plochy"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-msgid "Desktop Settings"
-msgstr "Nastavení ikon na ploše"
-
-#: app/adwPreferencesWindow.js:191
-#, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
-msgstr "Nastavit velikost pro ikony na pracovní ploše."
+msgstr "Nastavení pro Desktop Program"
+
+#: app/adwPreferencesWindow.js:194
+#, fuzzy
+msgid "Volumes"
+msgstr "Svazky"
 
 #: app/adwPreferencesWindow.js:195
-msgid "Volumes"
-msgstr ""
-
-#: app/adwPreferencesWindow.js:196
+#, fuzzy
 msgid "Desktop volumes display"
-msgstr ""
+msgstr "Zobrazení svazků na ploše"
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:199
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
-msgstr "Zobrazit nastavení"
+msgstr "Nastavení souborů"
 
-#: app/adwPreferencesWindow.js:201
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
-msgstr "Nastavení sdílená s Nautilem"
+msgstr "Nastavení sdílená se soubory Gnome"
 
-#: app/adwPreferencesWindow.js:206
+#: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Různé Tweaks"
 
-#: app/adwPreferencesWindow.js:211
+#: app/adwPreferencesWindow.js:210
 msgid "Size for the desktop icons"
 msgstr "Velikost ikon na pracovní ploše"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:212
 msgid "Tiny"
 msgstr "Drobný"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:213
 msgid "Small"
 msgstr "Malé"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:214
 msgid "Standard"
 msgstr "Standardní"
 
-#: app/adwPreferencesWindow.js:216
+#: app/adwPreferencesWindow.js:215
 msgid "Large"
 msgstr "Velké"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:220
 msgid "New icons alignment"
 msgstr "Zarovnání nových ikon"
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:222
 #, fuzzy
 #| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Levý horní roh"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:223
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Pravý horní roh"
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:224
 #, fuzzy
 #| msgid "Bottom-left corner"
 msgid "Bottom left corner"
-msgstr "Spodní levý roh"
+msgstr "Levý dolní roh"
 
-#: app/adwPreferencesWindow.js:226
+#: app/adwPreferencesWindow.js:225
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
-msgstr "Spodní pravý roh"
+msgstr "Pravý dolní roh"
 
-#: app/adwPreferencesWindow.js:229
+#: app/adwPreferencesWindow.js:228
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Nejprve přidejte nové ikony na sekundární monitory, pokud jsou k dispozici"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:230
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
-msgstr "Zobrazovat osobní složku na pracovní ploše"
+msgstr "Zobrazit osobní složku na ploše"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:231
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
-msgstr "Zobrazovat ikonu koše na pracovní ploše"
+msgstr "Zobrazit ikonu koše na ploše"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
-msgstr "Zobrazovat disky připojené k počítači"
+msgstr "Zobrazit externí disky na ploše"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:233
 #, fuzzy
 #| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
-msgstr "Zobrazovat síťové disky připojené k počítači"
+msgstr "Zobrazit síťové disky na ploše"
 
-#: app/adwPreferencesWindow.js:235
+#: app/adwPreferencesWindow.js:234
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Dávat nové disky na opačnou stranu obrazovky"
+msgstr "Přidejte nové disky na opačnou stranu plochy"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:236
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Zvýraznit místo k položení při přetahování souborů"
+msgstr "Během Drag and Drop zvýrazněte mřížku přetažení"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:237
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "Použijte Nemo k otevření složek"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:238
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "Přidejte emblém k měkkým odkazům"
 
-#: app/adwPreferencesWindow.js:240
+#: app/adwPreferencesWindow.js:239
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Používejte tmavý text v popiscích ikon"
 
-#: app/adwPreferencesWindow.js:244
+#: app/adwPreferencesWindow.js:243
+#, fuzzy
 msgid "Action to Open Items"
-msgstr ""
+msgstr "Akce k otevření položek"
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:245
 msgid "Single click"
 msgstr "Jeden klik"
 
-#: app/adwPreferencesWindow.js:247
+#: app/adwPreferencesWindow.js:246
 msgid "Double click"
 msgstr "Dvojklik"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:250
 msgid "Show image thumbnails"
 msgstr "Zobrazit náhledové obrázky"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:252
 msgid "Always"
 msgstr "Vždy"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:253
+#, fuzzy
 msgid "On this computer only"
-msgstr ""
+msgstr "Pouze na tomto počítači"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:254
 msgid "Never"
 msgstr "Nikdy"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:256
 msgid "Show a context menu item to delete permanently"
 msgstr "Zobrazit položku kontextové nabídky, kterou chcete trvale smazat"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:257
 msgid "Show hidden files"
 msgstr "Zobrazit skryté soubory"
 
@@ -252,7 +260,8 @@ msgid "Compressing files"
 msgstr "Komprese souborů"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307 app/fileItemMenu.js:522
+#: app/desktopManager.js:1307 app/fileItemMenu.js:552 app/fileItemMenu.js:586
+#: app/fileItemMenu.js:619
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -406,7 +415,7 @@ msgstr "${appName} nemůže otevřít soubory tohoto typu!"
 msgid "Move"
 msgstr "Hýbat se"
 
-#: app/desktopManager.js:864 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:357
 msgid "Copy"
 msgstr "Kopírovat"
 
@@ -641,99 +650,93 @@ msgid ""
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
 
-#: app/fileItemMenu.js:264
+#: app/fileItemMenu.js:294
+msgid "New Folder with {0} item"
+msgid_plural "New Folder with {0} items"
+msgstr[0] "Nová složka s {0} položkou"
+msgstr[1] "Nová složka s {0} položkami"
+msgstr[2] "Nová složka s {0} položkami"
+
+#: app/fileItemMenu.js:301
 msgid "Open All..."
 msgstr "Otevřít vše..."
 
-#: app/fileItemMenu.js:266
+#: app/fileItemMenu.js:306
+msgid "Open with {foo}"
+msgstr ""
+
+#: app/fileItemMenu.js:308
 msgid "Open"
 msgstr "Otevřít"
 
-#: app/fileItemMenu.js:273
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:321
+msgid "Extract Here"
+msgstr "Rozbalit sem"
+
+#: app/fileItemMenu.js:323
+msgid "Extract To..."
+msgstr "Rozbalit do…"
+
+#: app/fileItemMenu.js:328
+msgid "Open All With Other Application..."
+msgstr "Otevřít vše v jiné aplikaci..."
+
+#: app/fileItemMenu.js:328
+#, fuzzy
+#| msgid "Open All..."
+msgid "Open With..."
+msgstr "Otevřít vše..."
+
+#: app/fileItemMenu.js:331
+msgid "Launch using Dedicated Graphics Card"
+msgstr "Spustit pomocí dedikované grafické karty"
+
+#: app/fileItemMenu.js:338
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Stack Tento typ"
 
-#: app/fileItemMenu.js:273
+#: app/fileItemMenu.js:338
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Rozbalit tento typ"
 
-#: app/fileItemMenu.js:284
-msgid "Scripts"
-msgstr "Skripty"
-
-#: app/fileItemMenu.js:289
-msgid "Open All With Other Application..."
-msgstr "Otevřít vše v jiné aplikaci..."
-
-#: app/fileItemMenu.js:289
-msgid "Open With Other Application"
-msgstr "Otevřít pomocí jiné aplikace"
-
-#: app/fileItemMenu.js:291
-msgid "Launch using Dedicated Graphics Card"
-msgstr "Spustit pomocí dedikované grafické karty"
-
-#: app/fileItemMenu.js:298
+#: app/fileItemMenu.js:349
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Spustit jako program"
 
-#: app/fileItemMenu.js:304
+#: app/fileItemMenu.js:352
+msgid "Scripts"
+msgstr "Skripty"
+
+#: app/fileItemMenu.js:355
 msgid "Cut"
 msgstr "Vyjmout"
 
-#: app/fileItemMenu.js:309
+#: app/fileItemMenu.js:361
+#, fuzzy
+#| msgid "Send to..."
+msgid "Move to..."
+msgstr "Poslat..."
+
+#: app/fileItemMenu.js:362
+#, fuzzy
+#| msgid "Send to..."
+msgid "Copy to..."
+msgstr "Poslat..."
+
+#: app/fileItemMenu.js:366
 msgid "Rename…"
 msgstr "Přejmenovat…"
 
-#: app/fileItemMenu.js:314
-msgid "Move to Trash"
-msgstr "Přesunout do koše"
-
-#: app/fileItemMenu.js:317
-msgid "Delete permanently"
-msgstr "Odstranit nadobro"
-
-#: app/fileItemMenu.js:324
-msgid "Don't Allow Launching"
-msgstr "Nepovolit spouštění"
-
-#: app/fileItemMenu.js:324
-msgid "Allow Launching"
-msgstr "Povolit spouštění"
-
-#: app/fileItemMenu.js:333
-msgid "Empty Trash"
-msgstr "Vyprázdnit koš"
-
-#: app/fileItemMenu.js:342
-msgid "Eject"
-msgstr "Vysunout"
-
-#: app/fileItemMenu.js:345
-msgid "Unmount"
-msgstr "Odpojit"
-
-#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
-msgid "Extract Here"
-msgstr "Rozbalit sem"
-
-#: app/fileItemMenu.js:362
-msgid "Extract To..."
-msgstr "Rozbalit do…"
-
-#: app/fileItemMenu.js:366
-msgid "Send to..."
-msgstr "Poslat..."
-
-#: app/fileItemMenu.js:372
+#: app/fileItemMenu.js:369
 #, fuzzy
-msgid "Send to Mobile Device"
-msgstr "Odeslat do mobilního zařízení"
+#| msgid "Create"
+msgid "Create Link..."
+msgstr "Vytvořit"
 
-#: app/fileItemMenu.js:378
+#: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
@@ -741,63 +744,114 @@ msgstr[0] "Komprimovat složku {0}"
 msgstr[1] ""
 msgstr[2] "Komprimujte složky (celkem {0})."
 
-#: app/fileItemMenu.js:385
+#: app/fileItemMenu.js:381
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Zkomprimovat {0} soubor"
 msgstr[1] "Zkomprimovat {0} soubory"
 msgstr[2] "Zkomprimovat {0} souborů"
 
-#: app/fileItemMenu.js:392
-msgid "New Folder with {0} item"
-msgid_plural "New Folder with {0} items"
-msgstr[0] "Nová složka s {0} položkou"
-msgstr[1] "Nová složka s {0} položkami"
-msgstr[2] "Nová složka s {0} položkami"
+#: app/fileItemMenu.js:388
+msgid "Email to..."
+msgstr ""
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:393
+#, fuzzy
+msgid "Send to Mobile Device"
+msgstr "Odeslat do mobilního zařízení"
+
+#: app/fileItemMenu.js:397
+msgid "Move to Trash"
+msgstr "Přesunout do koše"
+
+#: app/fileItemMenu.js:400
+msgid "Delete permanently"
+msgstr "Odstranit nadobro"
+
+#: app/fileItemMenu.js:405
+msgid "Don't Allow Launching"
+msgstr "Nepovolit spouštění"
+
+#: app/fileItemMenu.js:405
+msgid "Allow Launching"
+msgstr "Povolit spouštění"
+
+#: app/fileItemMenu.js:411
+msgid "Empty Trash"
+msgstr "Vyprázdnit koš"
+
+#: app/fileItemMenu.js:417
+msgid "Eject"
+msgstr "Vysunout"
+
+#: app/fileItemMenu.js:420
+msgid "Unmount"
+msgstr "Odpojit"
+
+#: app/fileItemMenu.js:424
 msgid "Common Properties"
 msgstr "Vlastnosti"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:424
 msgid "Properties"
 msgstr "Vlastnosti"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 msgid "Show All in Files"
 msgstr "Zobrazit vše v Souborech"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 msgid "Show in Files"
 msgstr "Zobrazit v Souborech"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:429
 msgid "Open in Terminal"
 msgstr "Otevřít v terminálu"
 
-#: app/fileItemMenu.js:497
+#: app/fileItemMenu.js:527
 #, fuzzy
 msgid "No Extraction Folder"
 msgstr "Žádná extrakční složka"
 
-#: app/fileItemMenu.js:498
+#: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
 msgstr "Nelze extrahovat soubor, extrakce Složka neexistuje"
 
-#: app/fileItemMenu.js:518
+#: app/fileItemMenu.js:548
 msgid "Select Extract Destination"
 msgstr "Vybrat místo k extrahování"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:553 app/fileItemMenu.js:587 app/fileItemMenu.js:620
 msgid "Select"
 msgstr "Vybrat vše"
 
-#: app/fileItemMenu.js:563
+#: app/fileItemMenu.js:579 app/fileItemMenu.js:612
+#, fuzzy
+msgid "No Destination Folder"
+msgstr "Žádná extrakční složka"
+
+#: app/fileItemMenu.js:580
+#, fuzzy
+msgid "Unable to move Files, destination folder does not exist"
+msgstr "Nelze extrahovat soubor, extrakce Složka neexistuje"
+
+#: app/fileItemMenu.js:582 app/fileItemMenu.js:615
+#, fuzzy
+#| msgid "Select Extract Destination"
+msgid "Select Destination"
+msgstr "Vybrat místo k extrahování"
+
+#: app/fileItemMenu.js:613
+#, fuzzy
+msgid "Unable to copy Files, destination folder does not exist"
+msgstr "Nelze extrahovat soubor, extrakce Složka neexistuje"
+
+#: app/fileItemMenu.js:660
 msgid "Can not email a Directory"
 msgstr "Nemůžete poslat složku emailem"
 
-#: app/fileItemMenu.js:564
+#: app/fileItemMenu.js:661
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Výběr obsahuje Složku, nejdříve musíte zkomprimovat složku do souboru."
 
@@ -984,6 +1038,9 @@ msgid ""
 msgstr ""
 "Pokud je připojen druhý monitor, na jiný než primární monitor se umístí nové "
 "ikony"
+
+#~ msgid "Open With Other Application"
+#~ msgstr "Otevřít pomocí jiné aplikace"
 
 #~ msgid "Click type for open files"
 #~ msgstr "Typ kliknutí požadovaný pro otevření souboru"
