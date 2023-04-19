@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-19 00:06-0400\n"
-"PO-Revision-Date: 2023-04-18 00:50+0000\n"
+"PO-Revision-Date: 2023-04-20 04:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -665,6 +665,7 @@ msgstr ""
 "<b>\"লঞ্চ করার অনুমতি দিন\" সক্ষম করুন</b>"
 
 #: app/fileItemMenu.js:294
+#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -676,8 +677,9 @@ msgid "Open All..."
 msgstr "সব খোলো..।"
 
 #: app/fileItemMenu.js:306
+#, fuzzy
 msgid "Open with {foo}"
-msgstr ""
+msgstr "{foo} দিয়ে খুলুন"
 
 #: app/fileItemMenu.js:308
 #, fuzzy
@@ -702,7 +704,7 @@ msgstr "অন্য অ্যাপ্লিকেশন দিয়ে সব
 #: app/fileItemMenu.js:328
 #, fuzzy
 msgid "Open With..."
-msgstr "সব খোলো..।"
+msgstr "সঙ্গে খোলা..।"
 
 #: app/fileItemMenu.js:331
 #, fuzzy
@@ -737,12 +739,12 @@ msgstr "কাটা"
 #: app/fileItemMenu.js:361
 #, fuzzy
 msgid "Move to..."
-msgstr "পাঠানো..।"
+msgstr "চলো..।"
 
 #: app/fileItemMenu.js:362
 #, fuzzy
 msgid "Copy to..."
-msgstr "পাঠানো..।"
+msgstr "নকল করা..।"
 
 #: app/fileItemMenu.js:366
 #, fuzzy
@@ -752,23 +754,26 @@ msgstr "নাম পরিবর্তন করুন…"
 #: app/fileItemMenu.js:369
 #, fuzzy
 msgid "Create Link..."
-msgstr "সৃষ্টি"
+msgstr "লিঙ্ক তৈরি করুন..।"
 
 #: app/fileItemMenu.js:374
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
 
 #: app/fileItemMenu.js:381
+#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
 msgstr[1] "{0}টি ফাইল কম্প্রেস করুন"
 
 #: app/fileItemMenu.js:388
+#, fuzzy
 msgid "Email to..."
-msgstr ""
+msgstr "ইমেইল..।"
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -858,22 +863,22 @@ msgstr "নির্বাচন করুন"
 #: app/fileItemMenu.js:579 app/fileItemMenu.js:612
 #, fuzzy
 msgid "No Destination Folder"
-msgstr "এক্সট্রাকশন ফোল্ডার নেই"
+msgstr "কোনো গন্তব্য ফোল্ডার নেই"
 
 #: app/fileItemMenu.js:580
 #, fuzzy
 msgid "Unable to move Files, destination folder does not exist"
-msgstr "ফাইল নিষ্কাশন করতে অক্ষম, নিষ্কাশন ফোল্ডার বিদ্যমান নেই"
+msgstr "ফাইলগুলি সরাতে অক্ষম, গন্তব্য ফোল্ডারটি বিদ্যমান নেই৷"
 
 #: app/fileItemMenu.js:582 app/fileItemMenu.js:615
 #, fuzzy
 msgid "Select Destination"
-msgstr "এক্সট্রাক্ট গন্তব্য নির্বাচন করুন"
+msgstr "গন্তব্য নির্বাচন করুন"
 
 #: app/fileItemMenu.js:613
 #, fuzzy
 msgid "Unable to copy Files, destination folder does not exist"
-msgstr "ফাইল নিষ্কাশন করতে অক্ষম, নিষ্কাশন ফোল্ডার বিদ্যমান নেই"
+msgstr "ফাইল কপি করতে অক্ষম, গন্তব্য ফোল্ডার বিদ্যমান নেই"
 
 #: app/fileItemMenu.js:660
 #, fuzzy
