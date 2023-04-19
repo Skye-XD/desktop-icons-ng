@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 08:10-0400\n"
+"POT-Creation-Date: 2023-04-19 00:06-0400\n"
 "PO-Revision-Date: 2023-04-18 00:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,202 +20,202 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.17\n"
 
-#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
 msgstr "Schreibtisch"
 
-#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
 msgstr "Dateien"
 
-#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:204
 #, fuzzy
 msgid "Tweaks"
 msgstr "Optimierungen"
 
-#: app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:189
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Desktop-Einstellungen"
 
-#: app/adwPreferencesWindow.js:191
+#: app/adwPreferencesWindow.js:190
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Einstellungen für das Desktop-Programm"
 
-#: app/adwPreferencesWindow.js:195
+#: app/adwPreferencesWindow.js:194
 #, fuzzy
 msgid "Volumes"
 msgstr "Bände"
 
-#: app/adwPreferencesWindow.js:196
+#: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop volumes display"
 msgstr "Anzeige der Desktop-Volumes"
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:199
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Dateieinstellungen"
 
-#: app/adwPreferencesWindow.js:201
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Mit Gnome-Dateien geteilte Einstellungen"
 
-#: app/adwPreferencesWindow.js:206
+#: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Verschiedene Anpassungen"
 
-#: app/adwPreferencesWindow.js:211
+#: app/adwPreferencesWindow.js:210
 msgid "Size for the desktop icons"
 msgstr "Größe der Arbeitsflächensymbole"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:212
 msgid "Tiny"
 msgstr "Winzig"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:213
 msgid "Small"
 msgstr "Klein"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:214
 msgid "Standard"
 msgstr "Standard"
 
-#: app/adwPreferencesWindow.js:216
+#: app/adwPreferencesWindow.js:215
 msgid "Large"
 msgstr "Groß"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:220
 msgid "New icons alignment"
 msgstr "Ausrichtung der Arbeitsflächensymbole"
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:222
 #, fuzzy
 #| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Obere linke Ecke"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:223
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Obere rechte Ecke"
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:224
 #, fuzzy
 #| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Untere linke Ecke"
 
-#: app/adwPreferencesWindow.js:226
+#: app/adwPreferencesWindow.js:225
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Rechte untere Ecke"
 
-#: app/adwPreferencesWindow.js:229
+#: app/adwPreferencesWindow.js:228
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Fügen Sie zuerst neue Symbole zu sekundären Monitoren hinzu, falls verfügbar"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:230
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Zeigen Sie den persönlichen Ordner auf dem Desktop an"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:231
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Zeigen Sie das Papierkorbsymbol auf dem Desktop an"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "Externe Laufwerke auf dem Desktop anzeigen"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:233
 #, fuzzy
 #| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "Netzlaufwerke auf dem Desktop anzeigen"
 
-#: app/adwPreferencesWindow.js:235
+#: app/adwPreferencesWindow.js:234
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr ""
 "Fügen Sie der gegenüberliegenden Seite des Desktops neue Laufwerke hinzu"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:236
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Heben Sie das Drop-Raster während Drag and Drop hervor"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:237
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "Verwenden Sie Nemo, um Ordner zu öffnen"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:238
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "Fügen Sie Softlinks ein Emblem hinzu"
 
-#: app/adwPreferencesWindow.js:240
+#: app/adwPreferencesWindow.js:239
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Verwenden Sie dunklen Text in Symbolbeschriftungen"
 
-#: app/adwPreferencesWindow.js:244
+#: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Aktion zum Öffnen von Elementen"
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:245
 msgid "Single click"
 msgstr "Einfacher Klick"
 
-#: app/adwPreferencesWindow.js:247
+#: app/adwPreferencesWindow.js:246
 msgid "Double click"
 msgstr "Doppelklick"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:250
 msgid "Show image thumbnails"
 msgstr "Miniatur-Vorschaubilder anzeigen"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:252
 msgid "Always"
 msgstr "Alle Dateien"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:253
 #, fuzzy
 msgid "On this computer only"
 msgstr "Nur auf diesem Computer"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:254
 msgid "Never"
 msgstr "Nie"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:256
 msgid "Show a context menu item to delete permanently"
 msgstr "Aktion zum dauerhaften Löschen anzeigen"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:257
 msgid "Show hidden files"
 msgstr "Verborgene Dateien anzeigen"
 
@@ -260,7 +260,8 @@ msgid "Compressing files"
 msgstr "Dateien komprimieren"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307 app/fileItemMenu.js:522
+#: app/desktopManager.js:1307 app/fileItemMenu.js:552 app/fileItemMenu.js:586
+#: app/fileItemMenu.js:619
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -418,7 +419,7 @@ msgstr "${appName} kann Dateien dieses Typs nicht öffnen!"
 msgid "Move"
 msgstr "Umzug"
 
-#: app/desktopManager.js:864 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:357
 msgid "Copy"
 msgstr "Kopieren"
 
@@ -651,160 +652,204 @@ msgid ""
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
 
-#: app/fileItemMenu.js:264
+#: app/fileItemMenu.js:294
+msgid "New Folder with {0} item"
+msgid_plural "New Folder with {0} items"
+msgstr[0] "Neuer Ordner mit {0} Datei"
+msgstr[1] "Neuer Ordner mit {0} Dateien"
+
+#: app/fileItemMenu.js:301
 msgid "Open All..."
 msgstr "Alle öffnen ..."
 
-#: app/fileItemMenu.js:266
+#: app/fileItemMenu.js:306
+msgid "Open with {foo}"
+msgstr ""
+
+#: app/fileItemMenu.js:308
 msgid "Open"
 msgstr "Öffnen"
 
-#: app/fileItemMenu.js:273
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:321
+msgid "Extract Here"
+msgstr "Hier entpacken"
+
+#: app/fileItemMenu.js:323
+msgid "Extract To..."
+msgstr "Entpacken nach ..."
+
+#: app/fileItemMenu.js:328
+msgid "Open All With Other Application..."
+msgstr "Alle mit anderer Anwendung öffnen."
+
+#: app/fileItemMenu.js:328
+#, fuzzy
+#| msgid "Open All..."
+msgid "Open With..."
+msgstr "Alle öffnen ..."
+
+#: app/fileItemMenu.js:331
+msgid "Launch using Dedicated Graphics Card"
+msgstr "Mit dedizierter Grafikkarte starten"
+
+#: app/fileItemMenu.js:338
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Stapeln Sie diesen Typ"
 
-#: app/fileItemMenu.js:273
+#: app/fileItemMenu.js:338
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Entstapeln Sie diesen Typ"
 
-#: app/fileItemMenu.js:284
-msgid "Scripts"
-msgstr "Skripte"
-
-#: app/fileItemMenu.js:289
-msgid "Open All With Other Application..."
-msgstr "Alle mit anderer Anwendung öffnen."
-
-#: app/fileItemMenu.js:289
-msgid "Open With Other Application"
-msgstr "Mit anderer Anwendung öffnen"
-
-#: app/fileItemMenu.js:291
-msgid "Launch using Dedicated Graphics Card"
-msgstr "Mit dedizierter Grafikkarte starten"
-
-#: app/fileItemMenu.js:298
+#: app/fileItemMenu.js:349
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Als Programm ausführen"
 
-#: app/fileItemMenu.js:304
+#: app/fileItemMenu.js:352
+msgid "Scripts"
+msgstr "Skripte"
+
+#: app/fileItemMenu.js:355
 msgid "Cut"
 msgstr "Ausschneiden"
 
-#: app/fileItemMenu.js:309
+#: app/fileItemMenu.js:361
+#, fuzzy
+#| msgid "Send to..."
+msgid "Move to..."
+msgstr "Senden an ..."
+
+#: app/fileItemMenu.js:362
+#, fuzzy
+#| msgid "Send to..."
+msgid "Copy to..."
+msgstr "Senden an ..."
+
+#: app/fileItemMenu.js:366
 msgid "Rename…"
 msgstr "Umbenennen …"
 
-#: app/fileItemMenu.js:314
-msgid "Move to Trash"
-msgstr "In den Papierkorb verschieben"
-
-#: app/fileItemMenu.js:317
-msgid "Delete permanently"
-msgstr "Dauerhaft löschen"
-
-#: app/fileItemMenu.js:324
-msgid "Don't Allow Launching"
-msgstr "Start nicht erlauben"
-
-#: app/fileItemMenu.js:324
-msgid "Allow Launching"
-msgstr "Start erlauben"
-
-#: app/fileItemMenu.js:333
-msgid "Empty Trash"
-msgstr "Papierkorb leeren"
-
-#: app/fileItemMenu.js:342
-msgid "Eject"
-msgstr "Auswerfen"
-
-#: app/fileItemMenu.js:345
-msgid "Unmount"
-msgstr "Aushängen"
-
-#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
-msgid "Extract Here"
-msgstr "Hier entpacken"
-
-#: app/fileItemMenu.js:362
-msgid "Extract To..."
-msgstr "Entpacken nach ..."
-
-#: app/fileItemMenu.js:366
-msgid "Send to..."
-msgstr "Senden an ..."
-
-#: app/fileItemMenu.js:372
+#: app/fileItemMenu.js:369
 #, fuzzy
-msgid "Send to Mobile Device"
-msgstr "An Mobilgerät senden"
+msgid "Create Link..."
+msgstr "Erstellen"
 
-#: app/fileItemMenu.js:378
+#: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Komprimieren Sie den Ordner {0}"
 msgstr[1] "Komprimiere {0} Ordner"
 
-#: app/fileItemMenu.js:385
+#: app/fileItemMenu.js:381
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Komprimiere {0} Datei"
 msgstr[1] "Komprimiere {0} Dateien"
 
-#: app/fileItemMenu.js:392
-msgid "New Folder with {0} item"
-msgid_plural "New Folder with {0} items"
-msgstr[0] "Neuer Ordner mit {0} Datei"
-msgstr[1] "Neuer Ordner mit {0} Dateien"
+#: app/fileItemMenu.js:388
+msgid "Email to..."
+msgstr ""
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:393
+#, fuzzy
+msgid "Send to Mobile Device"
+msgstr "An Mobilgerät senden"
+
+#: app/fileItemMenu.js:397
+msgid "Move to Trash"
+msgstr "In den Papierkorb verschieben"
+
+#: app/fileItemMenu.js:400
+msgid "Delete permanently"
+msgstr "Dauerhaft löschen"
+
+#: app/fileItemMenu.js:405
+msgid "Don't Allow Launching"
+msgstr "Start nicht erlauben"
+
+#: app/fileItemMenu.js:405
+msgid "Allow Launching"
+msgstr "Start erlauben"
+
+#: app/fileItemMenu.js:411
+msgid "Empty Trash"
+msgstr "Papierkorb leeren"
+
+#: app/fileItemMenu.js:417
+msgid "Eject"
+msgstr "Auswerfen"
+
+#: app/fileItemMenu.js:420
+msgid "Unmount"
+msgstr "Aushängen"
+
+#: app/fileItemMenu.js:424
 msgid "Common Properties"
 msgstr "Eigenschaften"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:424
 msgid "Properties"
 msgstr "Eigenschaften"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 msgid "Show All in Files"
 msgstr "Alle in Dateiverwaltung anzeigen"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 msgid "Show in Files"
 msgstr "In Dateiverwaltung anzeigen"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:429
 msgid "Open in Terminal"
 msgstr "Im Terminal öffnen"
 
-#: app/fileItemMenu.js:497
+#: app/fileItemMenu.js:527
 #, fuzzy
 msgid "No Extraction Folder"
 msgstr "Kein Extraktionsordner"
 
-#: app/fileItemMenu.js:498
+#: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
 msgstr "Datei kann nicht extrahiert werden, Extraktionsordner existiert nicht"
 
-#: app/fileItemMenu.js:518
+#: app/fileItemMenu.js:548
 msgid "Select Extract Destination"
 msgstr "Ziel für die Entpackung auswählen"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:553 app/fileItemMenu.js:587 app/fileItemMenu.js:620
 msgid "Select"
 msgstr "Auswählen"
 
-#: app/fileItemMenu.js:563
+#: app/fileItemMenu.js:579 app/fileItemMenu.js:612
+#, fuzzy
+msgid "No Destination Folder"
+msgstr "Kein Extraktionsordner"
+
+#: app/fileItemMenu.js:580
+#, fuzzy
+msgid "Unable to move Files, destination folder does not exist"
+msgstr "Datei kann nicht extrahiert werden, Extraktionsordner existiert nicht"
+
+#: app/fileItemMenu.js:582 app/fileItemMenu.js:615
+#, fuzzy
+#| msgid "Select Extract Destination"
+msgid "Select Destination"
+msgstr "Ziel für die Entpackung auswählen"
+
+#: app/fileItemMenu.js:613
+#, fuzzy
+msgid "Unable to copy Files, destination folder does not exist"
+msgstr "Datei kann nicht extrahiert werden, Extraktionsordner existiert nicht"
+
+#: app/fileItemMenu.js:660
 msgid "Can not email a Directory"
 msgstr "Kann Verzeichnis nicht per E-Mail verschicken"
 
-#: app/fileItemMenu.js:564
+#: app/fileItemMenu.js:661
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "Auswahl beinhaltet ein Verzeichnis, komprimiere zunächst Verzeichnis zu "
@@ -825,8 +870,8 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Damit diese Funktion in Desktop-Symbolen funktioniert, müssen Sie \""
-"${programName}\" in Ihrem System installieren."
+"Damit diese Funktion in Desktop-Symbolen funktioniert, müssen Sie "
+"\"${programName}\" in Ihrem System installieren."
 
 #: app/utils/desktopIconsUtil.js:150
 msgid "Command not found"
@@ -996,6 +1041,9 @@ msgid ""
 msgstr ""
 "Wenn ein zweiter Monitor angeschlossen ist, werden neue Symbole auf dem "
 "nicht primären Monitor platziert"
+
+#~ msgid "Open With Other Application"
+#~ msgstr "Mit anderer Anwendung öffnen"
 
 #~ msgid "Click type for open files"
 #~ msgstr "Öffnen-Aktion"

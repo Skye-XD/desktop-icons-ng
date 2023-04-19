@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 08:10-0400\n"
+"POT-Creation-Date: 2023-04-19 00:06-0400\n"
 "PO-Revision-Date: 2022-07-03 21:02+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -18,188 +18,188 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.1\n"
 
-#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 msgid "Files"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:204
 msgid "Tweaks"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:189
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Paramètres icònas de burèu"
 
-#: app/adwPreferencesWindow.js:191
+#: app/adwPreferencesWindow.js:190
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Definir la talha de las icònas burèu."
 
-#: app/adwPreferencesWindow.js:195
+#: app/adwPreferencesWindow.js:194
 msgid "Volumes"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:196
+#: app/adwPreferencesWindow.js:195
 msgid "Desktop volumes display"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:199
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Paramètres d'afichatge"
 
-#: app/adwPreferencesWindow.js:201
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 #| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Paramètres partejats amb Nautilus"
 
-#: app/adwPreferencesWindow.js:206
+#: app/adwPreferencesWindow.js:205
 msgid "Miscellaneous Tweaks"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:211
+#: app/adwPreferencesWindow.js:210
 msgid "Size for the desktop icons"
 msgstr "Talha de las icònas burèu"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:212
 msgid "Tiny"
 msgstr "Minuscula"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:213
 msgid "Small"
 msgstr "Pichona"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:214
 msgid "Standard"
 msgstr "Estandarda"
 
-#: app/adwPreferencesWindow.js:216
+#: app/adwPreferencesWindow.js:215
 msgid "Large"
 msgstr "Granda"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:220
 msgid "New icons alignment"
 msgstr "Alinhament de las icònas novèlas"
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:222
 #, fuzzy
 #| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Caire en naut a esquèrra"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:223
 #, fuzzy
 #| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Caire en naut a drecha"
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:224
 #, fuzzy
 #| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Caire en bas a esquèrra"
 
-#: app/adwPreferencesWindow.js:226
+#: app/adwPreferencesWindow.js:225
 #, fuzzy
 #| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Caire en bas a drecha"
 
-#: app/adwPreferencesWindow.js:229
+#: app/adwPreferencesWindow.js:228
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:230
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Mostrar lo dorsièr personal pel burèu"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:231
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Mostrar l'icòna de l'escobilhièr pel burèu"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:232
 #, fuzzy
 #| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "Mostrar los lector extèrns montats pel burèu"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:233
 #, fuzzy
 #| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "Mostrar los lectors ret montats pel burèu"
 
-#: app/adwPreferencesWindow.js:235
+#: app/adwPreferencesWindow.js:234
 #, fuzzy
 #| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Apondre los lectors novèls al costat opausat de l’ecran"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:236
 #, fuzzy
 #| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Enlusir la zòna de depaus pendent un lisar-depausar"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:237
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Utilizar Nemo per dobrir los dossièrs"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:238
 msgid "Add an emblem to soft links"
 msgstr "Apondre una emblèma als ligams leugièrs"
 
-#: app/adwPreferencesWindow.js:240
+#: app/adwPreferencesWindow.js:239
 msgid "Use dark text in icon labels"
 msgstr "Utilizar un tèxte escur pels labèls d’icòna"
 
-#: app/adwPreferencesWindow.js:244
+#: app/adwPreferencesWindow.js:243
 msgid "Action to Open Items"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:245
 msgid "Single click"
 msgstr "Clic simple"
 
-#: app/adwPreferencesWindow.js:247
+#: app/adwPreferencesWindow.js:246
 msgid "Double click"
 msgstr "Clic doble"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:250
 msgid "Show image thumbnails"
 msgstr "Mostrar las miniaturas d'imatge"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:252
 msgid "Always"
 msgstr "Totjorn"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:253
 msgid "On this computer only"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:254
 msgid "Never"
 msgstr "Jamai"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:256
 msgid "Show a context menu item to delete permanently"
 msgstr "Mostrar un element de menú contextual per suprimir definitivament"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:257
 msgid "Show hidden files"
 msgstr "Visualizar los fichièrs amagats"
 
@@ -240,7 +240,8 @@ msgid "Compressing files"
 msgstr "Compressar {0} fichièr"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307 app/fileItemMenu.js:522
+#: app/desktopManager.js:1307 app/fileItemMenu.js:552 app/fileItemMenu.js:586
+#: app/fileItemMenu.js:619
 msgid "Cancel"
 msgstr "Anullar"
 
@@ -369,7 +370,7 @@ msgstr ""
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:864 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:357
 msgid "Copy"
 msgstr "Copiar"
 
@@ -593,156 +594,197 @@ msgstr ""
 "\n"
 "<b>Activar « Autorizar lo lançament »</b>"
 
-#: app/fileItemMenu.js:264
+#: app/fileItemMenu.js:294
+msgid "New Folder with {0} item"
+msgid_plural "New Folder with {0} items"
+msgstr[0] "Dorsièr novèl amb {0} element"
+msgstr[1] "Dorsièr novèl amb {0} elements"
+
+#: app/fileItemMenu.js:301
 msgid "Open All..."
 msgstr "Dobrir tot..."
 
-#: app/fileItemMenu.js:266
+#: app/fileItemMenu.js:306
+msgid "Open with {foo}"
+msgstr ""
+
+#: app/fileItemMenu.js:308
 msgid "Open"
 msgstr "Dobrir"
 
-#: app/fileItemMenu.js:273
-msgid "Stack This Type"
-msgstr "Apilar aqueste tipe"
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:321
+msgid "Extract Here"
+msgstr "Traire aicí"
 
-#: app/fileItemMenu.js:273
-msgid "Unstack This Type"
-msgstr "Desplegar aqueste tipe"
+#: app/fileItemMenu.js:323
+msgid "Extract To..."
+msgstr "Extraire dins..."
 
-#: app/fileItemMenu.js:284
-msgid "Scripts"
-msgstr "Scripts"
-
-#: app/fileItemMenu.js:289
+#: app/fileItemMenu.js:328
 msgid "Open All With Other Application..."
 msgstr "Dobrir tot amb una autra aplicacion..."
 
-#: app/fileItemMenu.js:289
-msgid "Open With Other Application"
-msgstr "Dobrir amb una autra aplicacion"
+#: app/fileItemMenu.js:328
+#, fuzzy
+#| msgid "Open All..."
+msgid "Open With..."
+msgstr "Dobrir tot..."
 
-#: app/fileItemMenu.js:291
+#: app/fileItemMenu.js:331
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Aviar en utilizant la carta grafica dedicada"
 
-#: app/fileItemMenu.js:298
+#: app/fileItemMenu.js:338
+msgid "Stack This Type"
+msgstr "Apilar aqueste tipe"
+
+#: app/fileItemMenu.js:338
+msgid "Unstack This Type"
+msgstr "Desplegar aqueste tipe"
+
+#: app/fileItemMenu.js:349
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Executar coma un programa"
 
-#: app/fileItemMenu.js:304
+#: app/fileItemMenu.js:352
+msgid "Scripts"
+msgstr "Scripts"
+
+#: app/fileItemMenu.js:355
 msgid "Cut"
 msgstr "Copar"
 
-#: app/fileItemMenu.js:309
+#: app/fileItemMenu.js:361
+#, fuzzy
+#| msgid "Send to..."
+msgid "Move to..."
+msgstr "Mandar a..."
+
+#: app/fileItemMenu.js:362
+#, fuzzy
+#| msgid "Send to..."
+msgid "Copy to..."
+msgstr "Mandar a..."
+
+#: app/fileItemMenu.js:366
 msgid "Rename…"
 msgstr "Renomenar…"
 
-#: app/fileItemMenu.js:314
-msgid "Move to Trash"
-msgstr "Desplaçar dins l'escobilhièr"
-
-#: app/fileItemMenu.js:317
-msgid "Delete permanently"
-msgstr "Suprimir definitivament"
-
-#: app/fileItemMenu.js:324
-msgid "Don't Allow Launching"
-msgstr "Permetre pas l’aviada"
-
-#: app/fileItemMenu.js:324
-msgid "Allow Launching"
-msgstr "Permetre l'aviada"
-
-#: app/fileItemMenu.js:333
-msgid "Empty Trash"
-msgstr "Voidar l'escobilièr"
-
-#: app/fileItemMenu.js:342
-msgid "Eject"
-msgstr "Ejectar"
-
-#: app/fileItemMenu.js:345
-msgid "Unmount"
-msgstr "Desmontar"
-
-#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
-msgid "Extract Here"
-msgstr "Traire aicí"
-
-#: app/fileItemMenu.js:362
-msgid "Extract To..."
-msgstr "Extraire dins..."
-
-#: app/fileItemMenu.js:366
-msgid "Send to..."
-msgstr "Mandar a..."
-
-#: app/fileItemMenu.js:372
-msgid "Send to Mobile Device"
+#: app/fileItemMenu.js:369
+msgid "Create Link..."
 msgstr ""
 
-#: app/fileItemMenu.js:378
+#: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Compressar {0} fichièr"
 msgstr[1] "Compressar {0} fichièrs"
 
-#: app/fileItemMenu.js:385
+#: app/fileItemMenu.js:381
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Compressar {0} fichièr"
 msgstr[1] "Compressar {0} fichièrs"
 
-#: app/fileItemMenu.js:392
-msgid "New Folder with {0} item"
-msgid_plural "New Folder with {0} items"
-msgstr[0] "Dorsièr novèl amb {0} element"
-msgstr[1] "Dorsièr novèl amb {0} elements"
+#: app/fileItemMenu.js:388
+msgid "Email to..."
+msgstr ""
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:393
+msgid "Send to Mobile Device"
+msgstr ""
+
+#: app/fileItemMenu.js:397
+msgid "Move to Trash"
+msgstr "Desplaçar dins l'escobilhièr"
+
+#: app/fileItemMenu.js:400
+msgid "Delete permanently"
+msgstr "Suprimir definitivament"
+
+#: app/fileItemMenu.js:405
+msgid "Don't Allow Launching"
+msgstr "Permetre pas l’aviada"
+
+#: app/fileItemMenu.js:405
+msgid "Allow Launching"
+msgstr "Permetre l'aviada"
+
+#: app/fileItemMenu.js:411
+msgid "Empty Trash"
+msgstr "Voidar l'escobilièr"
+
+#: app/fileItemMenu.js:417
+msgid "Eject"
+msgstr "Ejectar"
+
+#: app/fileItemMenu.js:420
+msgid "Unmount"
+msgstr "Desmontar"
+
+#: app/fileItemMenu.js:424
 msgid "Common Properties"
 msgstr "Proprietats comunas"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:424
 msgid "Properties"
 msgstr "Proprietats"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 msgid "Show All in Files"
 msgstr "Tot mostrar dins Fichièrs"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 msgid "Show in Files"
 msgstr "Mostrar dins Fichièrs"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:429
 msgid "Open in Terminal"
 msgstr "Dobrir dins un terminal"
 
-#: app/fileItemMenu.js:497
+#: app/fileItemMenu.js:527
 #, fuzzy
 msgid "No Extraction Folder"
 msgstr "Traire aicí"
 
-#: app/fileItemMenu.js:498
+#: app/fileItemMenu.js:528
 msgid "Unable to extract File, extraction Folder Does not Exist"
 msgstr ""
 
-#: app/fileItemMenu.js:518
+#: app/fileItemMenu.js:548
 msgid "Select Extract Destination"
 msgstr "Seleccionar una destinacion per l'extraccion"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:553 app/fileItemMenu.js:587 app/fileItemMenu.js:620
 msgid "Select"
 msgstr "Causir"
 
-#: app/fileItemMenu.js:563
+#: app/fileItemMenu.js:579 app/fileItemMenu.js:612
+#, fuzzy
+msgid "No Destination Folder"
+msgstr "Traire aicí"
+
+#: app/fileItemMenu.js:580
+msgid "Unable to move Files, destination folder does not exist"
+msgstr ""
+
+#: app/fileItemMenu.js:582 app/fileItemMenu.js:615
+#, fuzzy
+#| msgid "Select Extract Destination"
+msgid "Select Destination"
+msgstr "Seleccionar una destinacion per l'extraccion"
+
+#: app/fileItemMenu.js:613
+msgid "Unable to copy Files, destination folder does not exist"
+msgstr ""
+
+#: app/fileItemMenu.js:660
 msgid "Can not email a Directory"
 msgstr "Impossible d’enviar un email a un Repertòri"
 
-#: app/fileItemMenu.js:564
+#: app/fileItemMenu.js:661
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La seleccion inclutz un repertòri, compressatz lo repertòri d'en primièr."
@@ -919,6 +961,9 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
+
+#~ msgid "Open With Other Application"
+#~ msgstr "Dobrir amb una autra aplicacion"
 
 #~ msgid "Click type for open files"
 #~ msgstr "Tipe de clic utilizat per dobrir de fichièrs"

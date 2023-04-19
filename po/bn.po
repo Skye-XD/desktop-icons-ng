@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 08:10-0400\n"
+"POT-Creation-Date: 2023-04-19 00:06-0400\n"
 "PO-Revision-Date: 2023-04-18 00:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,199 +18,199 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.17\n"
 
-#: app/adwPreferencesWindow.js:170 app/adwPreferencesWindow.js:171
+#: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
 msgstr "ডেস্কটপ"
 
-#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
 msgstr "নথি পত্র"
 
-#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:204
 #, fuzzy
 msgid "Tweaks"
 msgstr "Tweaks"
 
-#: app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:189
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "ডেস্কটপ সেটিংস"
 
-#: app/adwPreferencesWindow.js:191
+#: app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "ডেস্কটপ প্রোগ্রামের জন্য সেটিংস"
 
-#: app/adwPreferencesWindow.js:195
+#: app/adwPreferencesWindow.js:194
 #, fuzzy
 msgid "Volumes"
 msgstr "ভলিউম"
 
-#: app/adwPreferencesWindow.js:196
+#: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop volumes display"
 msgstr "ডেস্কটপ ভলিউম প্রদর্শন"
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:199
 #, fuzzy
 msgid "Files Settings"
 msgstr "ফাইল সেটিংস"
 
-#: app/adwPreferencesWindow.js:201
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "জিনোম ফাইলের সাথে শেয়ার করা সেটিংস"
 
-#: app/adwPreferencesWindow.js:206
+#: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "বিবিধ Tweaks"
 
-#: app/adwPreferencesWindow.js:211
+#: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Size for the desktop icons"
 msgstr "ডেস্কটপ আইকনগুলির জন্য আকার"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:212
 #, fuzzy
 msgid "Tiny"
 msgstr "ক্ষুদ্র"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:213
 #, fuzzy
 msgid "Small"
 msgstr "ছোট"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:214
 #, fuzzy
 msgid "Standard"
 msgstr "স্ট্যান্ডার্ড"
 
-#: app/adwPreferencesWindow.js:216
+#: app/adwPreferencesWindow.js:215
 #, fuzzy
 msgid "Large"
 msgstr "বড়"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:220
 #, fuzzy
 msgid "New icons alignment"
 msgstr "নতুন আইকন প্রান্তিককরণ"
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:222
 #, fuzzy
 msgid "Top left corner"
 msgstr "উপরের বাঁদিকের কোণায়"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:223
 #, fuzzy
 msgid "Top right corner"
 msgstr "উপরের ডান কোণে"
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "নিচের বাম কোণে"
 
-#: app/adwPreferencesWindow.js:226
+#: app/adwPreferencesWindow.js:225
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "নিচের ডান কর্ণার"
 
-#: app/adwPreferencesWindow.js:229
+#: app/adwPreferencesWindow.js:228
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "সেকেন্ডারি মনিটরে নতুন আইকন যোগ করুন, যদি উপলব্ধ থাকে"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "ডেস্কটপে ব্যক্তিগত ফোল্ডার দেখান"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:231
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "ডেস্কটপে ট্র্যাশ আইকন দেখান"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "ডেস্কটপে বহিরাগত ড্রাইভ দেখান"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:233
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "ডেস্কটপে নেটওয়ার্ক ড্রাইভ দেখান"
 
-#: app/adwPreferencesWindow.js:235
+#: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "ডেস্কটপের বিপরীত দিকে নতুন ড্রাইভ যোগ করুন"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "ড্র্যাগ এবং ড্রপের সময় ড্রপ গ্রিড হাইলাইট করুন"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:237
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "ফোল্ডার খুলতে নিমো ব্যবহার করুন"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:238
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "নরম লিঙ্কগুলিতে একটি প্রতীক যোগ করুন"
 
-#: app/adwPreferencesWindow.js:240
+#: app/adwPreferencesWindow.js:239
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "আইকন লেবেলে গাঢ় লেখা ব্যবহার করুন"
 
-#: app/adwPreferencesWindow.js:244
+#: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "আইটেম খুলতে অ্যাকশন"
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Single click"
 msgstr "একক ক্লিক"
 
-#: app/adwPreferencesWindow.js:247
+#: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Double click"
 msgstr "ডবল ক্লিক করুন"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "ছবির থাম্বনেল দেখান"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Always"
 msgstr "সর্বদা"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:253
 #, fuzzy
 msgid "On this computer only"
 msgstr "শুধুমাত্র এই কম্পিউটারে"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Never"
 msgstr "কখনই না"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "স্থায়ীভাবে মুছে ফেলার জন্য একটি প্রসঙ্গ মেনু আইটেম দেখান"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Show hidden files"
 msgstr "গোপন ফাইলগুলো দেখুন"
@@ -260,7 +260,8 @@ msgid "Compressing files"
 msgstr "ফাইল কম্প্রেস করা হচ্ছে"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307 app/fileItemMenu.js:522
+#: app/desktopManager.js:1307 app/fileItemMenu.js:552 app/fileItemMenu.js:586
+#: app/fileItemMenu.js:619
 #, fuzzy
 msgid "Cancel"
 msgstr "বাতিল করুন"
@@ -415,7 +416,7 @@ msgstr "${appName} এই ধরনের ফাইল খুলতে পার
 msgid "Move"
 msgstr "সরান"
 
-#: app/desktopManager.js:864 app/fileItemMenu.js:306
+#: app/desktopManager.js:864 app/fileItemMenu.js:357
 #, fuzzy
 msgid "Copy"
 msgstr "কপি"
@@ -658,193 +659,228 @@ msgid ""
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
-"এই .desktop ফাইলটি বিশ্বস্ত নয়, এটি চালু করা যাবে না। লঞ্চ সক্ষম করতে, "
-"ডান-ক্লিক করুন, তারপর:\n"
+"এই .desktop ফাইলটি বিশ্বস্ত নয়, এটি চালু করা যাবে না। লঞ্চ সক্ষম করতে, ডান-ক্লিক "
+"করুন, তারপর:\n"
 "\n"
 "<b>\"লঞ্চ করার অনুমতি দিন\" সক্ষম করুন</b>"
 
-#: app/fileItemMenu.js:264
-#, fuzzy
-msgid "Open All..."
-msgstr "সব খোলো..।"
-
-#: app/fileItemMenu.js:266
-#, fuzzy
-msgid "Open"
-msgstr "খোলা"
-
-#: app/fileItemMenu.js:273
-#, fuzzy
-msgid "Stack This Type"
-msgstr "এই ধরনের স্ট্যাক"
-
-#: app/fileItemMenu.js:273
-#, fuzzy
-msgid "Unstack This Type"
-msgstr "এই টাইপ আনস্ট্যাক করুন"
-
-#: app/fileItemMenu.js:284
-#, fuzzy
-msgid "Scripts"
-msgstr "স্ক্রিপ্ট"
-
-#: app/fileItemMenu.js:289
-#, fuzzy
-msgid "Open All With Other Application..."
-msgstr "অন্য অ্যাপ্লিকেশন দিয়ে সব খুলুন..।"
-
-#: app/fileItemMenu.js:289
-#, fuzzy
-msgid "Open With Other Application"
-msgstr "অন্য অ্যাপ্লিকেশন দিয়ে খুলুন"
-
-#: app/fileItemMenu.js:291
-#, fuzzy
-msgid "Launch using Dedicated Graphics Card"
-msgstr "ডেডিকেটেড গ্রাফিক্স কার্ড ব্যবহার করে লঞ্চ করুন"
-
-#: app/fileItemMenu.js:298
-#, fuzzy
-msgid "Run as a Program"
-msgstr "একটি প্রোগ্রাম হিসাবে চালান"
-
-#: app/fileItemMenu.js:304
-#, fuzzy
-msgid "Cut"
-msgstr "কাটা"
-
-#: app/fileItemMenu.js:309
-#, fuzzy
-msgid "Rename…"
-msgstr "নাম পরিবর্তন করুন…"
-
-#: app/fileItemMenu.js:314
-#, fuzzy
-msgid "Move to Trash"
-msgstr "আবর্জনা সরান"
-
-#: app/fileItemMenu.js:317
-#, fuzzy
-msgid "Delete permanently"
-msgstr "চিরতরে মুছে দাও"
-
-#: app/fileItemMenu.js:324
-#, fuzzy
-msgid "Don't Allow Launching"
-msgstr "লঞ্চ করার অনুমতি দেবেন না"
-
-#: app/fileItemMenu.js:324
-#, fuzzy
-msgid "Allow Launching"
-msgstr "লঞ্চ করার অনুমতি দিন"
-
-#: app/fileItemMenu.js:333
-#, fuzzy
-msgid "Empty Trash"
-msgstr "ট্র্যাশ খালি"
-
-#: app/fileItemMenu.js:342
-#, fuzzy
-msgid "Eject"
-msgstr "বের করে দাও"
-
-#: app/fileItemMenu.js:345
-#, fuzzy
-msgid "Unmount"
-msgstr "আনমাউন্ট করুন"
-
-#: app/fileItemMenu.js:356 app/fileItemMenu.js:360
-#, fuzzy
-msgid "Extract Here"
-msgstr "এখানে নির্যাস"
-
-#: app/fileItemMenu.js:362
-#, fuzzy
-msgid "Extract To..."
-msgstr "এতে এক্সট্র্যাক্ট করুন..।"
-
-#: app/fileItemMenu.js:366
-#, fuzzy
-msgid "Send to..."
-msgstr "পাঠানো..।"
-
-#: app/fileItemMenu.js:372
-#, fuzzy
-msgid "Send to Mobile Device"
-msgstr "মোবাইল ডিভাইসে পাঠান"
-
-#: app/fileItemMenu.js:378
-#, fuzzy
-msgid "Compress {0} folder"
-msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
-
-#: app/fileItemMenu.js:385
-#, fuzzy
-msgid "Compress {0} file"
-msgid_plural "Compress {0} files"
-msgstr[0] ""
-msgstr[1] "{0}টি ফাইল কম্প্রেস করুন"
-
-#: app/fileItemMenu.js:392
-#, fuzzy
+#: app/fileItemMenu.js:294
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
 msgstr[1] "{0}টি আইটেম সহ নতুন ফোল্ডার৷"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:301
+#, fuzzy
+msgid "Open All..."
+msgstr "সব খোলো..।"
+
+#: app/fileItemMenu.js:306
+msgid "Open with {foo}"
+msgstr ""
+
+#: app/fileItemMenu.js:308
+#, fuzzy
+msgid "Open"
+msgstr "খোলা"
+
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:321
+#, fuzzy
+msgid "Extract Here"
+msgstr "এখানে নির্যাস"
+
+#: app/fileItemMenu.js:323
+#, fuzzy
+msgid "Extract To..."
+msgstr "এতে এক্সট্র্যাক্ট করুন..।"
+
+#: app/fileItemMenu.js:328
+#, fuzzy
+msgid "Open All With Other Application..."
+msgstr "অন্য অ্যাপ্লিকেশন দিয়ে সব খুলুন..।"
+
+#: app/fileItemMenu.js:328
+#, fuzzy
+msgid "Open With..."
+msgstr "সব খোলো..।"
+
+#: app/fileItemMenu.js:331
+#, fuzzy
+msgid "Launch using Dedicated Graphics Card"
+msgstr "ডেডিকেটেড গ্রাফিক্স কার্ড ব্যবহার করে লঞ্চ করুন"
+
+#: app/fileItemMenu.js:338
+#, fuzzy
+msgid "Stack This Type"
+msgstr "এই ধরনের স্ট্যাক"
+
+#: app/fileItemMenu.js:338
+#, fuzzy
+msgid "Unstack This Type"
+msgstr "এই টাইপ আনস্ট্যাক করুন"
+
+#: app/fileItemMenu.js:349
+#, fuzzy
+msgid "Run as a Program"
+msgstr "একটি প্রোগ্রাম হিসাবে চালান"
+
+#: app/fileItemMenu.js:352
+#, fuzzy
+msgid "Scripts"
+msgstr "স্ক্রিপ্ট"
+
+#: app/fileItemMenu.js:355
+#, fuzzy
+msgid "Cut"
+msgstr "কাটা"
+
+#: app/fileItemMenu.js:361
+#, fuzzy
+msgid "Move to..."
+msgstr "পাঠানো..।"
+
+#: app/fileItemMenu.js:362
+#, fuzzy
+msgid "Copy to..."
+msgstr "পাঠানো..।"
+
+#: app/fileItemMenu.js:366
+#, fuzzy
+msgid "Rename…"
+msgstr "নাম পরিবর্তন করুন…"
+
+#: app/fileItemMenu.js:369
+#, fuzzy
+msgid "Create Link..."
+msgstr "সৃষ্টি"
+
+#: app/fileItemMenu.js:374
+msgid "Compress {0} folder"
+msgid_plural "Compress {0} folders"
+msgstr[0] ""
+msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
+
+#: app/fileItemMenu.js:381
+msgid "Compress {0} file"
+msgid_plural "Compress {0} files"
+msgstr[0] ""
+msgstr[1] "{0}টি ফাইল কম্প্রেস করুন"
+
+#: app/fileItemMenu.js:388
+msgid "Email to..."
+msgstr ""
+
+#: app/fileItemMenu.js:393
+#, fuzzy
+msgid "Send to Mobile Device"
+msgstr "মোবাইল ডিভাইসে পাঠান"
+
+#: app/fileItemMenu.js:397
+#, fuzzy
+msgid "Move to Trash"
+msgstr "আবর্জনা সরান"
+
+#: app/fileItemMenu.js:400
+#, fuzzy
+msgid "Delete permanently"
+msgstr "চিরতরে মুছে দাও"
+
+#: app/fileItemMenu.js:405
+#, fuzzy
+msgid "Don't Allow Launching"
+msgstr "লঞ্চ করার অনুমতি দেবেন না"
+
+#: app/fileItemMenu.js:405
+#, fuzzy
+msgid "Allow Launching"
+msgstr "লঞ্চ করার অনুমতি দিন"
+
+#: app/fileItemMenu.js:411
+#, fuzzy
+msgid "Empty Trash"
+msgstr "ট্র্যাশ খালি"
+
+#: app/fileItemMenu.js:417
+#, fuzzy
+msgid "Eject"
+msgstr "বের করে দাও"
+
+#: app/fileItemMenu.js:420
+#, fuzzy
+msgid "Unmount"
+msgstr "আনমাউন্ট করুন"
+
+#: app/fileItemMenu.js:424
 #, fuzzy
 msgid "Common Properties"
 msgstr "সাধারণ বৈশিষ্ট্য"
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:424
 #, fuzzy
 msgid "Properties"
 msgstr "বৈশিষ্ট্য"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 #, fuzzy
 msgid "Show All in Files"
 msgstr "ফাইলে সব দেখান"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:425
 #, fuzzy
 msgid "Show in Files"
 msgstr "ফাইলে দেখান"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:429
 #, fuzzy
 msgid "Open in Terminal"
 msgstr "টার্মিনালে খুলুন"
 
-#: app/fileItemMenu.js:497
+#: app/fileItemMenu.js:527
 #, fuzzy
 msgid "No Extraction Folder"
 msgstr "এক্সট্রাকশন ফোল্ডার নেই"
 
-#: app/fileItemMenu.js:498
+#: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, extraction Folder Does not Exist"
 msgstr "ফাইল নিষ্কাশন করতে অক্ষম, নিষ্কাশন ফোল্ডার বিদ্যমান নেই"
 
-#: app/fileItemMenu.js:518
+#: app/fileItemMenu.js:548
 #, fuzzy
 msgid "Select Extract Destination"
 msgstr "এক্সট্রাক্ট গন্তব্য নির্বাচন করুন"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:553 app/fileItemMenu.js:587 app/fileItemMenu.js:620
 #, fuzzy
 msgid "Select"
 msgstr "নির্বাচন করুন"
 
-#: app/fileItemMenu.js:563
+#: app/fileItemMenu.js:579 app/fileItemMenu.js:612
+#, fuzzy
+msgid "No Destination Folder"
+msgstr "এক্সট্রাকশন ফোল্ডার নেই"
+
+#: app/fileItemMenu.js:580
+#, fuzzy
+msgid "Unable to move Files, destination folder does not exist"
+msgstr "ফাইল নিষ্কাশন করতে অক্ষম, নিষ্কাশন ফোল্ডার বিদ্যমান নেই"
+
+#: app/fileItemMenu.js:582 app/fileItemMenu.js:615
+#, fuzzy
+msgid "Select Destination"
+msgstr "এক্সট্রাক্ট গন্তব্য নির্বাচন করুন"
+
+#: app/fileItemMenu.js:613
+#, fuzzy
+msgid "Unable to copy Files, destination folder does not exist"
+msgstr "ফাইল নিষ্কাশন করতে অক্ষম, নিষ্কাশন ফোল্ডার বিদ্যমান নেই"
+
+#: app/fileItemMenu.js:660
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "একটি ডিরেক্টরি ইমেল করতে পারবেন না"
 
-#: app/fileItemMenu.js:564
+#: app/fileItemMenu.js:661
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
@@ -867,8 +903,8 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"এই কার্যকারিতা ডেস্কটপ আইকনে কাজ করার জন্য, আপনাকে অবশ্যই আপনার সিস্টেমে \""
-"${programName}\" ইনস্টল করতে হবে।"
+"এই কার্যকারিতা ডেস্কটপ আইকনে কাজ করার জন্য, আপনাকে অবশ্যই আপনার সিস্টেমে "
+"\"${programName}\" ইনস্টল করতে হবে।"
 
 #: app/utils/desktopIconsUtil.js:150
 #, fuzzy
@@ -959,8 +995,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"একটি Drag'n'Drop অপারেশন করার সময়, গ্রিডের সেই স্থানটিকে চিহ্নিত করুন যেখানে"
-" একটি অর্ধস্বচ্ছ আয়তক্ষেত্র দিয়ে আইকনটি স্থাপন করা হবে।"
+"একটি Drag'n'Drop অপারেশন করার সময়, গ্রিডের সেই স্থানটিকে চিহ্নিত করুন যেখানে "
+"একটি অর্ধস্বচ্ছ আয়তক্ষেত্র দিয়ে আইকনটি স্থাপন করা হবে।"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
@@ -973,8 +1009,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"ডেস্কটপে আইকন সাজানোর সময়, হোম, ট্র্যাশ এবং মাউন্ট করা নেটওয়ার্ক বা "
-"এক্সটার্নাল ড্রাইভের অবস্থান বাছাই এবং পরিবর্তন করতে"
+"ডেস্কটপে আইকন সাজানোর সময়, হোম, ট্র্যাশ এবং মাউন্ট করা নেটওয়ার্ক বা এক্সটার্নাল "
+"ড্রাইভের অবস্থান বাছাই এবং পরিবর্তন করতে"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
@@ -1057,6 +1093,10 @@ msgid ""
 "monitor"
 msgstr ""
 "যদি একটি দ্বিতীয় মনিটর সংযুক্ত থাকে, নতুন আইকনগুলি অ প্রাথমিক মনিটরে স্থাপন করা হয়"
+
+#, fuzzy
+#~ msgid "Open With Other Application"
+#~ msgstr "অন্য অ্যাপ্লিকেশন দিয়ে খুলুন"
 
 #, fuzzy
 #~ msgid "Click type for open files"
