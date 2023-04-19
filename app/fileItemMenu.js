@@ -256,6 +256,18 @@ var FileItemMenu = class {
         });
         this._mainApp.add_action(makeLinks);
         this._mainApp.set_accels_for_action('app.makeLinks', ['<Shift><Control>M']);
+
+        let bulkCopy = Gio.SimpleAction.new('bulkCopy', null);
+        bulkCopy.connect('activate', () => {
+            this._bulkCopy();
+        });
+        this._mainApp.add_action(bulkCopy);
+
+        let bulkMove = Gio.SimpleAction.new('bulkMove', null);
+        bulkMove.connect('activate', () => {
+            this._bulkMove();
+        });
+        this._mainApp.add_action(bulkMove);
     }
 
     showMenu(fileItem, button = null, X = null, Y = null, x = null, y = null, shiftSelected = false, controlSelected = false) {
@@ -344,6 +356,11 @@ var FileItemMenu = class {
             this._docut.set_enabled(!allowCutCopyTrash);
             cutCopyPasteMenu.append(_('Copy'), 'app.docopy');
             this._docopy.set_enabled(!allowCutCopyTrash);
+
+            if (!this._desktopManager.checkIfSpecialFilesAreSelected()) {
+                cutCopyPasteMenu.append(_('Move to...'), 'app.bulkMove');
+                cutCopyPasteMenu.append(_('Copy to...'), 'app.bulkCopy');
+            }
 
             if (fileItem.canRename && (selectedItemsNum === 1))
                 trashMenu.append(_('Rename…'), 'app.dorename');
@@ -554,6 +571,73 @@ var FileItemMenu = class {
         });
     }
 
+
+    _bulkMove() {
+        if (this._desktopManager.checkIfSpecialFilesAreSelected())
+            return;
+        let moveList = this._desktopManager.getCurrentSelection(true);
+        const header = _('No Destination Folder');
+        const text = _('Unable to move Files, destination folder does not exist');
+
+        const dialog = new Gtk.FileChooserDialog({ title: _('Select Destination') });
+        dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
+        dialog.set_create_folders(true);
+        dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
+        dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
+        dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
+        this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
+        this._desktopManager.textEntryAccelsTurnOff();
+        dialog.show();
+        dialog.present_with_time(Gdk.CURRENT_TIME);
+        dialog.connect('close', () => {
+            dialog.response(Gtk.ResponseType.CANCEL);
+        });
+        dialog.connect('response', (actor, response) => {
+            if (response === Gtk.ResponseType.ACCEPT) {
+                const folder = dialog.get_file().get_uri();
+                if (folder)
+                    this.DBusUtils.RemoteFileOperations.MoveURIsRemote(moveList, folder);
+                else
+                    this._desktopManager.DBusManager.doNotify(header, text);
+            }
+            this._desktopManager.textEntryAccelsTurnOn();
+            dialog.destroy();
+        });
+    }
+
+    _bulkCopy() {
+        if (this._desktopManager.checkIfSpecialFilesAreSelected())
+            return;
+        let copyList = this._desktopManager.getCurrentSelection(true);
+        const header = _('No Destination Folder');
+        const text = _('Unable to copy Files, destination folder does not exist');
+
+        const dialog = new Gtk.FileChooserDialog({ title: _('Select Destination') });
+        dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
+        dialog.set_create_folders(true);
+        dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
+        dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
+        dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
+        this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
+        this._desktopManager.textEntryAccelsTurnOff();
+        dialog.show();
+        dialog.present_with_time(Gdk.CURRENT_TIME);
+        dialog.connect('close', () => {
+            dialog.response(Gtk.ResponseType.CANCEL);
+        });
+        dialog.connect('response', (actor, response) => {
+            if (response === Gtk.ResponseType.ACCEPT) {
+                const folder = dialog.get_file().get_uri();
+                if (folder)
+                    this.DBusUtils.RemoteFileOperations.CopyURIsRemote(copyList, folder);
+                else
+                    this._desktopManager.DBusManager.doNotify(header, text);
+            }
+            this._desktopManager.textEntryAccelsTurnOn();
+            dialog.destroy();
+        });
+    }
+
     _getExtractableAutoAr() {
         let fileList = this._desktopManager.getCurrentSelection(false);
         if (this.DBusUtils.GnomeArchiveManager.isAvailable && (fileList.length === 1))
@@ -625,7 +709,7 @@ var FileItemMenu = class {
     _makeLinks() {
         let desktopFolder = this.DesktopIconsUtil.getDesktopDir();
         const toLink = this._desktopManager.getCurrentSelection(true);
-        let [X ,Y] = this.activeFileItem.getCoordinates().slice(0, 2);
+        let [X, Y] = this.activeFileItem.getCoordinates().slice(0, 2);
         if (!this._desktopManager.checkIfSpecialFilesAreSelected() && toLink.length)
             this._desktopManager.makeLinks(toLink, desktopFolder.get_uri(), X, Y);
     }
