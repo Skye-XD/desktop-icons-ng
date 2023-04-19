@@ -14,16 +14,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-19 00:06-0400\n"
-"PO-Revision-Date: 2023-04-18 00:49+0000\n"
+"PO-Revision-Date: 2023-04-20 04:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -664,8 +664,9 @@ msgid "Open All..."
 msgstr "Tümünü Aç..."
 
 #: app/fileItemMenu.js:306
+#, fuzzy
 msgid "Open with {foo}"
-msgstr ""
+msgstr "{foo} ile aç"
 
 #: app/fileItemMenu.js:308
 msgid "Open"
@@ -687,7 +688,7 @@ msgstr "Tümünü Başka Uygulamayla Aç..."
 #, fuzzy
 #| msgid "Open All..."
 msgid "Open With..."
-msgstr "Tümünü Aç..."
+msgstr "Bununla aç..."
 
 #: app/fileItemMenu.js:331
 msgid "Launch using Dedicated Graphics Card"
@@ -720,13 +721,13 @@ msgstr "Kes"
 #, fuzzy
 #| msgid "Send to..."
 msgid "Move to..."
-msgstr "Gönder..."
+msgstr "Taşınmak..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
 #| msgid "Send to..."
 msgid "Copy to..."
-msgstr "Gönder..."
+msgstr "Kopyala..."
 
 #: app/fileItemMenu.js:366
 msgid "Rename…"
@@ -735,7 +736,7 @@ msgstr "Yeniden Adlandır…"
 #: app/fileItemMenu.js:369
 #, fuzzy
 msgid "Create Link..."
-msgstr "Yaratmak"
+msgstr "Bağlantı Oluştur..."
 
 #: app/fileItemMenu.js:374
 #, fuzzy
@@ -749,8 +750,9 @@ msgid_plural "Compress {0} files"
 msgstr[0] "{0} dosyayı sıkıştır"
 
 #: app/fileItemMenu.js:388
+#, fuzzy
 msgid "Email to..."
-msgstr ""
+msgstr "E-posta..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -826,23 +828,23 @@ msgstr "Seç"
 #: app/fileItemMenu.js:579 app/fileItemMenu.js:612
 #, fuzzy
 msgid "No Destination Folder"
-msgstr "Çıkarma Klasörü Yok"
+msgstr "Hedef Klasör Yok"
 
 #: app/fileItemMenu.js:580
 #, fuzzy
 msgid "Unable to move Files, destination folder does not exist"
-msgstr "Dosya ayıklanamıyor, çıkarma Klasörü Mevcut Değil"
+msgstr "Dosyalar taşınamıyor, hedef klasör mevcut değil"
 
 #: app/fileItemMenu.js:582 app/fileItemMenu.js:615
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
-msgstr "Çıkarma Hedefini Seç"
+msgstr "Varış yerini seçin"
 
 #: app/fileItemMenu.js:613
 #, fuzzy
 msgid "Unable to copy Files, destination folder does not exist"
-msgstr "Dosya ayıklanamıyor, çıkarma Klasörü Mevcut Değil"
+msgstr "Dosyalar kopyalanamıyor, hedef klasör mevcut değil"
 
 #: app/fileItemMenu.js:660
 msgid "Can not email a Directory"
