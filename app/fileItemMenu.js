@@ -524,8 +524,8 @@ var FileItemMenu = class {
         let extractFileItemURI;
         let extractFolderName;
         let position;
-        const header = _('No Extraction Folder');
-        const text = _('Unable to extract File, extraction Folder Does not Exist');
+        const header = _('Extraction Cancelled');
+        const text = _('Unable to extract File, no destination folder');
 
         for (let fileItem of this._desktopManager.getCurrentSelection(false)) {
             extractFileItemURI = fileItem.file.get_uri();
@@ -540,102 +540,71 @@ var FileItemMenu = class {
             if (targetURI)
                 this.DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, targetURI, true);
             else
-                this._desktopManager.DBusManager.doNotify(header, text);
+                this._desktopManager.dbusManager.doNotify(header, text);
 
             return;
         }
 
-        const dialog = new Gtk.FileChooserDialog({ title: _('Select Extract Destination') });
-        dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
-        dialog.set_create_folders(true);
-        dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
-        dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
-        dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
-        this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
-        this._desktopManager.textEntryAccelsTurnOff();
-        dialog.show();
-        dialog.present_with_time(Gdk.CURRENT_TIME);
-        dialog.connect('close', () => {
-            dialog.response(Gtk.ResponseType.CANCEL);
-        });
-        dialog.connect('response', (actor, response) => {
-            if (response === Gtk.ResponseType.ACCEPT) {
-                const folder = dialog.get_file().get_uri();
-                if (folder)
-                    this.DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, folder, true);
-                else
-                    this._desktopManager.DBusManager.doNotify(header, text);
-            }
-            this._desktopManager.textEntryAccelsTurnOn();
-            dialog.destroy();
-        });
+        let folder = await this.getSelectedFolderGio().catch(e => logError(e));
+        if (folder)
+            this.DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, folder.get_uri(), true);
+        else
+            this._desktopManager.dbusManager.doNotify(header, text);
     }
 
 
-    _bulkMove() {
+    async _bulkMove() {
         if (this._desktopManager.checkIfSpecialFilesAreSelected())
             return;
         let moveList = this._desktopManager.getCurrentSelection(true);
-        const header = _('No Destination Folder');
-        const text = _('Unable to move Files, destination folder does not exist');
+        const header = _('Move Cancelled');
+        const text = _('Unable to move Files, no destination folder');
+        let folder = await this.getSelectedFolderGio().catch(e => logError(e));
+        if (folder)
+            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(moveList, folder.get_uri());
+        else
+            this._desktopManager.dbusManager.doNotify(header, text);
+    }
 
-        const dialog = new Gtk.FileChooserDialog({ title: _('Select Destination') });
-        dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
-        dialog.set_create_folders(true);
-        dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
-        dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
-        dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
-        this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
-        this._desktopManager.textEntryAccelsTurnOff();
-        dialog.show();
-        dialog.present_with_time(Gdk.CURRENT_TIME);
-        dialog.connect('close', () => {
-            dialog.response(Gtk.ResponseType.CANCEL);
-        });
-        dialog.connect('response', (actor, response) => {
-            if (response === Gtk.ResponseType.ACCEPT) {
-                const folder = dialog.get_file().get_uri();
+
+    getSelectedFolderGio(dialogTitle = null, selectionText = null) {
+        return new Promise(resolve => {
+            if (!dialogTitle)
+                dialogTitle =  _('Select Destination');
+            if (!selectionText)
+                selectionText = _('Select');
+            const dialog = new Gtk.FileDialog({
+                title: dialogTitle,
+                accept_label: selectionText,
+                modal: false,
+                initial_folder: this.DesktopIconsUtil.getDesktopDir(),
+            });
+            dialog.select_folder(null, null, (actor, gioasyncresponse) => {
+                let folder;
+                try {
+                    folder = actor.select_folder_finish(gioasyncresponse);
+                } catch (e) {
+                    resolve(false);
+                }
                 if (folder)
-                    this.DBusUtils.RemoteFileOperations.MoveURIsRemote(moveList, folder);
+                    resolve(folder);
                 else
-                    this._desktopManager.DBusManager.doNotify(header, text);
-            }
-            this._desktopManager.textEntryAccelsTurnOn();
-            dialog.destroy();
+                    resolve(false);
+            });
         });
     }
 
-    _bulkCopy() {
+    async _bulkCopy() {
         if (this._desktopManager.checkIfSpecialFilesAreSelected())
             return;
         let copyList = this._desktopManager.getCurrentSelection(true);
-        const header = _('No Destination Folder');
-        const text = _('Unable to copy Files, destination folder does not exist');
-
-        const dialog = new Gtk.FileChooserDialog({ title: _('Select Destination') });
-        dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
-        dialog.set_create_folders(true);
-        dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
-        dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
-        dialog.add_button(_('Select'), Gtk.ResponseType.ACCEPT);
-        this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
-        this._desktopManager.textEntryAccelsTurnOff();
-        dialog.show();
-        dialog.present_with_time(Gdk.CURRENT_TIME);
-        dialog.connect('close', () => {
-            dialog.response(Gtk.ResponseType.CANCEL);
-        });
-        dialog.connect('response', (actor, response) => {
-            if (response === Gtk.ResponseType.ACCEPT) {
-                const folder = dialog.get_file().get_uri();
-                if (folder)
-                    this.DBusUtils.RemoteFileOperations.CopyURIsRemote(copyList, folder);
-                else
-                    this._desktopManager.DBusManager.doNotify(header, text);
-            }
-            this._desktopManager.textEntryAccelsTurnOn();
-            dialog.destroy();
-        });
+        const header = _('Copy Cancelled');
+        const text = _('Unable to copy Files, no destination folder');
+        let folder = await this.getSelectedFolderGio().catch(e => logError(e));
+        if (folder)
+            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(copyList, folder.get_uri());
+        else
+            this._desktopManager.dbusManager.doNotify(header, text);
     }
 
     _getExtractableAutoAr() {
