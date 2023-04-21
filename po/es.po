@@ -61,27 +61,27 @@ msgstr "Configuraciones compartidas con Gnome Files"
 msgid "Miscellaneous Tweaks"
 msgstr "Ajustes varios"
 
-#: ../app/adwPreferencesWindow.js:210
+#: ../app/adwPreferencesWindow.js:210 app/adwPreferencesWindow.js:210
 msgid "Size for the desktop icons"
 msgstr "Tamaño de los iconos del escritorio"
 
-#: ../app/adwPreferencesWindow.js:212
+#: ../app/adwPreferencesWindow.js:212 app/adwPreferencesWindow.js:212
 msgid "Tiny"
 msgstr "Diminuto"
 
-#: ../app/adwPreferencesWindow.js:213
+#: ../app/adwPreferencesWindow.js:213 app/adwPreferencesWindow.js:213
 msgid "Small"
 msgstr "Pequeño"
 
-#: ../app/adwPreferencesWindow.js:214
+#: ../app/adwPreferencesWindow.js:214 app/adwPreferencesWindow.js:214
 msgid "Standard"
 msgstr "Estándar"
 
-#: ../app/adwPreferencesWindow.js:215
+#: ../app/adwPreferencesWindow.js:215 app/adwPreferencesWindow.js:215
 msgid "Large"
 msgstr "Grande"
 
-#: ../app/adwPreferencesWindow.js:220
+#: ../app/adwPreferencesWindow.js:220 app/adwPreferencesWindow.js:220
 msgid "New icons alignment"
 msgstr "Alineamiento de nuevos iconos"
 
@@ -133,14 +133,16 @@ msgstr "Resaltar el punto de destino durante Arrastrar y soltar"
 
 #: ../app/adwPreferencesWindow.js:237
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:27
+#: app/adwPreferencesWindow.js:237
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Usar Nemo para abrir las carpetas"
 
-#: ../app/adwPreferencesWindow.js:238
+#: ../app/adwPreferencesWindow.js:238 app/adwPreferencesWindow.js:238
 msgid "Add an emblem to soft links"
 msgstr "Añadir un emblema a los enlaces simbólicos"
 
-#: ../app/adwPreferencesWindow.js:239
+#: ../app/adwPreferencesWindow.js:239 app/adwPreferencesWindow.js:239
 msgid "Use dark text in icon labels"
 msgstr "Utilizar texto oscuro en las etiquetas de los iconos"
 
@@ -148,19 +150,19 @@ msgstr "Utilizar texto oscuro en las etiquetas de los iconos"
 msgid "Action to Open Items"
 msgstr "Acción para abrir elementos"
 
-#: ../app/adwPreferencesWindow.js:245
+#: ../app/adwPreferencesWindow.js:245 app/adwPreferencesWindow.js:245
 msgid "Single click"
 msgstr "Click simple"
 
-#: ../app/adwPreferencesWindow.js:246
+#: ../app/adwPreferencesWindow.js:246 app/adwPreferencesWindow.js:246
 msgid "Double click"
 msgstr "Click doble"
 
-#: ../app/adwPreferencesWindow.js:250
+#: ../app/adwPreferencesWindow.js:250 app/adwPreferencesWindow.js:250
 msgid "Show image thumbnails"
 msgstr "Mostrar miniaturas de imágenes"
 
-#: ../app/adwPreferencesWindow.js:252
+#: ../app/adwPreferencesWindow.js:252 app/adwPreferencesWindow.js:252
 msgid "Always"
 msgstr "Siempre"
 
@@ -168,32 +170,33 @@ msgstr "Siempre"
 msgid "On this computer only"
 msgstr "Solo en este equipo"
 
-#: ../app/adwPreferencesWindow.js:254
+#: ../app/adwPreferencesWindow.js:254 app/adwPreferencesWindow.js:254
 msgid "Never"
 msgstr "Nunca"
 
-#: ../app/adwPreferencesWindow.js:256
+#: ../app/adwPreferencesWindow.js:256 app/adwPreferencesWindow.js:256
 msgid "Show a context menu item to delete permanently"
 msgstr "Permitir borrar permanentemente desde el menú contextual"
 
-#: ../app/adwPreferencesWindow.js:257
+#: ../app/adwPreferencesWindow.js:257 app/adwPreferencesWindow.js:257
 msgid "Show hidden files"
 msgstr "Mostrar archivos ocultos"
 
-#: ../app/askRenamePopup.js:49
+#: ../app/askRenamePopup.js:49 app/askRenamePopup.js:49
 msgid "Folder name"
 msgstr "Nombre de la carpeta"
 
-#: ../app/askRenamePopup.js:49
+#: ../app/askRenamePopup.js:49 app/askRenamePopup.js:49
 msgid "File name"
 msgstr "Nombre de archivo"
 
 #: ../app/askRenamePopup.js:57 ../app/autoAr.js:299
-#: ../app/desktopManager.js:1305
+#: ../app/desktopManager.js:1305 app/askRenamePopup.js:57 app/autoAr.js:299
+#: app/desktopManager.js:1305
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../app/askRenamePopup.js:57
+#: ../app/askRenamePopup.js:57 app/askRenamePopup.js:57
 msgid "Rename"
 msgstr "Renombrar…"
 
@@ -219,7 +222,9 @@ msgstr "Comprimir archivos"
 
 #: ../app/autoAr.js:291 ../app/autoAr.js:620 ../app/desktopManager.js:866
 #: ../app/desktopManager.js:1307 ../app/fileItemMenu.js:552
-#: ../app/fileItemMenu.js:586 ../app/fileItemMenu.js:619
+#: ../app/fileItemMenu.js:586 ../app/fileItemMenu.js:619 app/autoAr.js:291
+#: app/autoAr.js:620 app/desktopManager.js:866 app/desktopManager.js:1307
+#: app/fileItemMenu.js:552 app/fileItemMenu.js:586 app/fileItemMenu.js:619
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -303,7 +308,7 @@ msgstr "Nombre del archivo"
 msgid "Password"
 msgstr "Contraseña"
 
-#: ../app/autoAr.js:617
+#: ../app/autoAr.js:617 app/autoAr.js:617
 msgid "Create"
 msgstr "Crear"
 
@@ -344,6 +349,7 @@ msgid "Move"
 msgstr "Mover"
 
 #: ../app/desktopManager.js:864 ../app/fileItemMenu.js:357
+#: app/desktopManager.js:864 app/fileItemMenu.js:357
 msgid "Copy"
 msgstr "Copiar"
 
@@ -367,7 +373,7 @@ msgstr "No se pudo crear el enlace simbólico"
 msgid "Clear current selection before new search"
 msgstr "Borre la selección actual antes de comenzar una nueva búsqueda"
 
-#: ../app/desktopManager.js:1309
+#: ../app/desktopManager.js:1309 app/desktopManager.js:1309
 msgid "Find Files on Desktop"
 msgstr "Buscar ficheros en el Escritorio"
 
@@ -404,30 +410,31 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Ordenar Inicio/Unidades/Papelera…"
 
 #: ../app/desktopManager.js:1581 ../app/desktopManager.js:2593
+#: app/desktopManager.js:1581 app/desktopManager.js:2593
 msgid "New Folder"
 msgstr "Nueva carpeta"
 
-#: ../app/desktopManager.js:1585
+#: ../app/desktopManager.js:1585 app/desktopManager.js:1585
 msgid "New Document"
 msgstr "Documento nuevo"
 
-#: ../app/desktopManager.js:1589
+#: ../app/desktopManager.js:1589 app/desktopManager.js:1589
 msgid "Paste"
 msgstr "Pegar"
 
-#: ../app/desktopManager.js:1590
+#: ../app/desktopManager.js:1590 app/desktopManager.js:1590
 msgid "Undo"
 msgstr "Deshacer"
 
-#: ../app/desktopManager.js:1591
+#: ../app/desktopManager.js:1591 app/desktopManager.js:1591
 msgid "Redo"
 msgstr "Rehacer"
 
-#: ../app/desktopManager.js:1596
+#: ../app/desktopManager.js:1596 app/desktopManager.js:1596
 msgid "Select All"
 msgstr "Seleccionar Todo"
 
-#: ../app/desktopManager.js:1601
+#: ../app/desktopManager.js:1601 app/desktopManager.js:1601
 msgid "Arrange Icons"
 msgstr "Ordenar Iconos"
 
@@ -443,7 +450,7 @@ msgstr "Mostrar escritorio en GNOME Files"
 msgid "Open In Terminal"
 msgstr "Abrir en un terminal"
 
-#: ../app/desktopManager.js:1616
+#: ../app/desktopManager.js:1616 app/desktopManager.js:1616
 msgid "Change Background…"
 msgstr "Cambiar el fondo..."
 
@@ -451,7 +458,7 @@ msgstr "Cambiar el fondo..."
 msgid "Desktop Icon Settings"
 msgstr "Configuración de iconos de escritorio"
 
-#: ../app/desktopManager.js:1622
+#: ../app/desktopManager.js:1622 app/desktopManager.js:1622
 msgid "Display Settings"
 msgstr "Preferencias de pantalla"
 
@@ -463,7 +470,7 @@ msgstr "La ventana de preferencias está abierta"
 msgid "This Window is open. Please switch to the active window."
 msgstr "Esta ventana está abierta. Cambie a la ventana activa."
 
-#: ../app/desktopManager.js:1677
+#: ../app/desktopManager.js:1677 app/desktopManager.js:1677
 msgid "Settings"
 msgstr "Preferencias"
 
@@ -484,23 +491,23 @@ msgid "Could not create document"
 msgstr "No se pudo crear el documento"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: ../app/fileItem.js:141
+#: ../app/fileItem.js:141 app/fileItem.js:141
 msgid "Home"
 msgstr "Carpeta personal"
 
-#: ../app/fileItem.js:266
+#: ../app/fileItem.js:266 app/fileItem.js:266
 msgid "Broken Link"
 msgstr "Enlace roto"
 
-#: ../app/fileItem.js:267
+#: ../app/fileItem.js:267 app/fileItem.js:267
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "No se puede abrir este fichero porque es un enlace roto"
 
-#: ../app/fileItem.js:330
+#: ../app/fileItem.js:330 app/fileItem.js:330
 msgid "Broken Desktop File"
 msgstr "Fichero .desktop dañado"
 
-#: ../app/fileItem.js:331
+#: ../app/fileItem.js:331 app/fileItem.js:331
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -512,11 +519,11 @@ msgstr ""
 "\n"
 "\t<b>Edita el fichero para que apunte al ejecutable correcto.</b>"
 
-#: ../app/fileItem.js:337
+#: ../app/fileItem.js:337 app/fileItem.js:337
 msgid "Invalid Permissions on Desktop File"
 msgstr "Permisos no válidos en el fichero .desktop"
 
-#: ../app/fileItem.js:338
+#: ../app/fileItem.js:338 app/fileItem.js:338
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -524,16 +531,16 @@ msgstr ""
 "Este fichero .desktop tiene permisos incorrectos. Haz click con el botón "
 "derecho para editar la Propiedades, y luego:\n"
 
-#: ../app/fileItem.js:340
+#: ../app/fileItem.js:340 app/fileItem.js:340
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Cambiar los permisos, en \"Otros accesos\", a \"Sólo lectura\" o "
-"\"Ninguno\"</b>"
+"<b>Cambiar los permisos, en \"Otros accesos\", a \"Sólo lectura\" o \"Ninguno"
+"\"</b>"
 
-#: ../app/fileItem.js:343
+#: ../app/fileItem.js:343 app/fileItem.js:343
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -541,7 +548,7 @@ msgstr ""
 "\n"
 "<b>Activa la opción \"Permitir ejecutar el archivo como un programa\"</b>"
 
-#: ../app/fileItem.js:351
+#: ../app/fileItem.js:351 app/fileItem.js:351
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -553,13 +560,13 @@ msgstr ""
 "\n"
 "<b>Escoge \"Permitir lanzar\"</b>"
 
-#: ../app/fileItemMenu.js:294
+#: ../app/fileItemMenu.js:294 app/fileItemMenu.js:294
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Nueva carpeta con {0} elemento"
 msgstr[1] "Nueva carpeta con {0} elementos"
 
-#: ../app/fileItemMenu.js:301
+#: ../app/fileItemMenu.js:301 app/fileItemMenu.js:301
 msgid "Open All..."
 msgstr "Abrir todo..."
 
@@ -567,19 +574,20 @@ msgstr "Abrir todo..."
 msgid "Open with {foo}"
 msgstr "Abrir con {foo}"
 
-#: ../app/fileItemMenu.js:308
+#: ../app/fileItemMenu.js:308 app/fileItemMenu.js:308
 msgid "Open"
 msgstr "Abrir"
 
 #: ../app/fileItemMenu.js:317 ../app/fileItemMenu.js:321
+#: app/fileItemMenu.js:317 app/fileItemMenu.js:321
 msgid "Extract Here"
 msgstr "Extraer aquí"
 
-#: ../app/fileItemMenu.js:323
+#: ../app/fileItemMenu.js:323 app/fileItemMenu.js:323
 msgid "Extract To..."
 msgstr "Extraer a..."
 
-#: ../app/fileItemMenu.js:328
+#: ../app/fileItemMenu.js:328 app/fileItemMenu.js:328
 msgid "Open All With Other Application..."
 msgstr "Abrir todo con otra aplicación"
 
@@ -587,15 +595,15 @@ msgstr "Abrir todo con otra aplicación"
 msgid "Open With..."
 msgstr "Abrir con..."
 
-#: ../app/fileItemMenu.js:331
+#: ../app/fileItemMenu.js:331 app/fileItemMenu.js:331
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Lanzar con la Tarjeta Gráfica Dedicada"
 
-#: ../app/fileItemMenu.js:338
+#: ../app/fileItemMenu.js:338 app/fileItemMenu.js:338
 msgid "Stack This Type"
 msgstr "Agrupar este tipo"
 
-#: ../app/fileItemMenu.js:338
+#: ../app/fileItemMenu.js:338 app/fileItemMenu.js:338
 msgid "Unstack This Type"
 msgstr "Desagrupar este tipo"
 
@@ -603,11 +611,11 @@ msgstr "Desagrupar este tipo"
 msgid "Run as a Program"
 msgstr "Ejecutar como un programa"
 
-#: ../app/fileItemMenu.js:352
+#: ../app/fileItemMenu.js:352 app/fileItemMenu.js:352
 msgid "Scripts"
 msgstr "Scripts"
 
-#: ../app/fileItemMenu.js:355
+#: ../app/fileItemMenu.js:355 app/fileItemMenu.js:355
 msgid "Cut"
 msgstr "Cortar"
 
@@ -619,7 +627,7 @@ msgstr "Mover a..."
 msgid "Copy to..."
 msgstr "Copiar a..."
 
-#: ../app/fileItemMenu.js:366
+#: ../app/fileItemMenu.js:366 app/fileItemMenu.js:366
 msgid "Rename…"
 msgstr "Renombrar…"
 
@@ -633,7 +641,7 @@ msgid_plural "Compress {0} folders"
 msgstr[0] "Comprimir {0} carpeta"
 msgstr[1] "Comprimir {0} carpetas"
 
-#: ../app/fileItemMenu.js:381
+#: ../app/fileItemMenu.js:381 app/fileItemMenu.js:381
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Comprimir {0} archivo"
@@ -647,51 +655,51 @@ msgstr "Enviar por correo a..."
 msgid "Send to Mobile Device"
 msgstr "Enviar a dispositivo móvil"
 
-#: ../app/fileItemMenu.js:397
+#: ../app/fileItemMenu.js:397 app/fileItemMenu.js:397
 msgid "Move to Trash"
 msgstr "Mover a la papelera"
 
-#: ../app/fileItemMenu.js:400
+#: ../app/fileItemMenu.js:400 app/fileItemMenu.js:400
 msgid "Delete permanently"
 msgstr "Borrar permanentemente"
 
-#: ../app/fileItemMenu.js:405
+#: ../app/fileItemMenu.js:405 app/fileItemMenu.js:405
 msgid "Don't Allow Launching"
 msgstr "No permitir lanzar"
 
-#: ../app/fileItemMenu.js:405
+#: ../app/fileItemMenu.js:405 app/fileItemMenu.js:405
 msgid "Allow Launching"
 msgstr "Permitir lanzar"
 
-#: ../app/fileItemMenu.js:411
+#: ../app/fileItemMenu.js:411 app/fileItemMenu.js:411
 msgid "Empty Trash"
 msgstr "Vaciar la papelera"
 
-#: ../app/fileItemMenu.js:417
+#: ../app/fileItemMenu.js:417 app/fileItemMenu.js:417
 msgid "Eject"
 msgstr "Expulsar"
 
-#: ../app/fileItemMenu.js:420
+#: ../app/fileItemMenu.js:420 app/fileItemMenu.js:420
 msgid "Unmount"
 msgstr "Desmontar"
 
-#: ../app/fileItemMenu.js:424
+#: ../app/fileItemMenu.js:424 app/fileItemMenu.js:424
 msgid "Common Properties"
 msgstr "Propiedades Comunes"
 
-#: ../app/fileItemMenu.js:424
+#: ../app/fileItemMenu.js:424 app/fileItemMenu.js:424
 msgid "Properties"
 msgstr "Propiedades"
 
-#: ../app/fileItemMenu.js:425
+#: ../app/fileItemMenu.js:425 app/fileItemMenu.js:425
 msgid "Show All in Files"
 msgstr "Mostrar todo en Files"
 
-#: ../app/fileItemMenu.js:425
+#: ../app/fileItemMenu.js:425 app/fileItemMenu.js:425
 msgid "Show in Files"
 msgstr "Mostrar en Files"
 
-#: ../app/fileItemMenu.js:429
+#: ../app/fileItemMenu.js:429 app/fileItemMenu.js:429
 msgid "Open in Terminal"
 msgstr "Abrir en una terminal"
 
@@ -703,12 +711,13 @@ msgstr "No hay carpeta de extracción"
 msgid "Unable to extract File, extraction Folder Does not Exist"
 msgstr "No se puede extraer el archivo, la carpeta de destino no existe"
 
-#: ../app/fileItemMenu.js:548
+#: ../app/fileItemMenu.js:548 app/fileItemMenu.js:548
 msgid "Select Extract Destination"
 msgstr "Seleccionar el destino para extraer"
 
 #: ../app/fileItemMenu.js:553 ../app/fileItemMenu.js:587
-#: ../app/fileItemMenu.js:620
+#: ../app/fileItemMenu.js:620 app/fileItemMenu.js:553 app/fileItemMenu.js:587
+#: app/fileItemMenu.js:620
 msgid "Select"
 msgstr "Seleccionar"
 
@@ -728,24 +737,24 @@ msgstr "Seleccione el destino"
 msgid "Unable to copy Files, destination folder does not exist"
 msgstr "No se puede copiar el archivo, la carpeta de destino no existe"
 
-#: ../app/fileItemMenu.js:660
+#: ../app/fileItemMenu.js:660 app/fileItemMenu.js:660
 msgid "Can not email a Directory"
 msgstr "No se puede enviar un directorio"
 
-#: ../app/fileItemMenu.js:661
+#: ../app/fileItemMenu.js:661 app/fileItemMenu.js:661
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La selección incluye un directorio. Debe comprimirse a un fichero primero."
 
-#: ../app/showErrorPopup.js:41
+#: ../app/showErrorPopup.js:41 app/showErrorPopup.js:41
 msgid "Close"
 msgstr "Cerrar"
 
-#: ../app/utils/dbusUtils.js:58
+#: ../app/utils/dbusUtils.js:58 app/utils/dbusUtils.js:58
 msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "Desktop Icons necesita el programa \"${programName}\""
 
-#: ../app/utils/dbusUtils.js:59
+#: ../app/utils/dbusUtils.js:59 app/utils/dbusUtils.js:59
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
@@ -753,64 +762,78 @@ msgstr ""
 "Para disponer de esta funcionalidad en Desktop Icons, es necesario que "
 "instales \"${programName}\" en tu sistema."
 
-#: ../app/utils/desktopIconsUtil.js:150
+#: ../app/utils/desktopIconsUtil.js:150 app/utils/desktopIconsUtil.js:150
 msgid "Command not found"
 msgstr "Comando no encontrado"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:1
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
 msgstr "Tamaño de los iconos"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:2
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
 msgstr "Establece el tamaño de los iconos del escritorio."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:3
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
 msgid "Show personal folder"
 msgstr "Mostrar la carpeta personal"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:4
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 msgid "Show the personal folder in the desktop."
 msgstr "Mostrar la carpeta personal en el escritorio."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:5
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
 msgstr "Mostrar la papelera"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:6
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
 msgstr "Mostrar la papelera en el escritorio."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:7
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
 msgstr "Esquina para los nuevos iconos"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:8
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
 msgstr ""
 "Establece la esquina a partir de la cual los nuevos iconos se irán añadiendo."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:9
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
 msgstr "Mostrar unidades externas en el escritorio"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:10
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
 msgstr "Mostrar los discos duros conectados al ordenador."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:11
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
 msgstr "Mostrar unidades de red en el escritorio"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:12
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
 msgstr "Muestra en el escritorio las unidades de red montadas."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:13
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Añadir nuevas unidades en el lado opuesto de la pantalla"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:14
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
@@ -819,10 +842,12 @@ msgstr ""
 "de la pantalla."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:15
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Mostrar un rectángulo en el punto de destino durante DnD"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:16
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
@@ -831,10 +856,12 @@ msgstr ""
 "depositará el icono."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:17
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Ordenar carpetas especiales - Home/Papelera/Unidades"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:18
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
@@ -843,55 +870,68 @@ msgstr ""
 "papelera y unidades externas y de red"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:19
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
 msgstr "Mantener los iconos ordenados"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:20
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 msgid "Always keep Icons Arranged by the last arranged order"
 msgstr "Mantener los iconos ordenados según la última opción utilizada"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:21
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 msgid "Arrange Order"
 msgstr "Orden para los iconos"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:22
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 msgid "Icons Arranged by this property"
 msgstr "Ordenar los iconos en base a esta propiedad"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:23
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 msgid "Keep Icons Stacked"
 msgstr "Mantener los iconos apilados"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:24
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr "Mantener los iconos apilados, tipos similares se agruparán"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:25
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 msgid "Type of Files to not Stack"
 msgstr "Tipos de ficheros que no se deben apilar"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:26
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr ""
 "Un array de cadenas con tipos de fichero, No apilar estos tipos de fichero"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:28
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Use Nemo instead of Nautilus to open folders."
 msgstr "Usar Nemo en lugar de Nautilus para abrir carpetas."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:29
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 msgid "Add an emblem to links"
 msgstr "Añadir un emblema a los enlaces"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:30
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 msgid "Add an emblem to allow to identify soft links."
 msgstr "Añadir un emblema para identificar los enlaces simbólicos."
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:31
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Use black for label text"
 msgstr "Utilizar negro para el texto de las etiquetas"
 
 #: ../schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml.h:32
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."

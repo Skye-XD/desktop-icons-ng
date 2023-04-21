@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-19 00:06-0400\n"
-"PO-Revision-Date: 2023-04-18 00:50+0000\n"
+"PO-Revision-Date: 2023-04-20 04:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -615,8 +615,9 @@ msgid "Open All..."
 msgstr "Åpne alle..."
 
 #: app/fileItemMenu.js:306
+#, fuzzy
 msgid "Open with {foo}"
-msgstr ""
+msgstr "Åpne med {foo}"
 
 #: app/fileItemMenu.js:308
 msgid "Open"
@@ -637,7 +638,7 @@ msgstr "Åpne alle med annet program …"
 #: app/fileItemMenu.js:328
 #, fuzzy
 msgid "Open With..."
-msgstr "Åpne alle..."
+msgstr "Åpne med..."
 
 #: app/fileItemMenu.js:331
 msgid "Launch using Dedicated Graphics Card"
@@ -667,13 +668,13 @@ msgstr "Klipp ut"
 #, fuzzy
 #| msgid "Send to..."
 msgid "Move to..."
-msgstr "Send til …"
+msgstr "Flytte til..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
 #| msgid "Send to..."
 msgid "Copy to..."
-msgstr "Send til …"
+msgstr "Kopier til..."
 
 #: app/fileItemMenu.js:366
 msgid "Rename…"
@@ -683,7 +684,7 @@ msgstr "Gi nytt navn …"
 #, fuzzy
 #| msgid "Create"
 msgid "Create Link..."
-msgstr "Opprett"
+msgstr "Opprett lenke..."
 
 #: app/fileItemMenu.js:374
 msgid "Compress {0} folder"
@@ -698,8 +699,9 @@ msgstr[0] "Pakk sammen {0} fil"
 msgstr[1] "Pakk sammen {0} filer"
 
 #: app/fileItemMenu.js:388
+#, fuzzy
 msgid "Email to..."
-msgstr ""
+msgstr "Epost til..."
 
 #: app/fileItemMenu.js:393
 msgid "Send to Mobile Device"
@@ -776,23 +778,23 @@ msgstr "Velg"
 #, fuzzy
 #| msgid "No Extraction Folder"
 msgid "No Destination Folder"
-msgstr "Ingen utpakkingsmappe"
+msgstr "Ingen destinasjonsmappe"
 
 #: app/fileItemMenu.js:580
 #, fuzzy
 msgid "Unable to move Files, destination folder does not exist"
-msgstr "Kan ikke pakke ut fil, uttrekksmappe eksisterer ikke"
+msgstr "Kan ikke flytte filer, målmappen eksisterer ikke"
 
 #: app/fileItemMenu.js:582 app/fileItemMenu.js:615
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
-msgstr "Velg mål for utpakking"
+msgstr "Velg Destinasjon"
 
 #: app/fileItemMenu.js:613
 #, fuzzy
 msgid "Unable to copy Files, destination folder does not exist"
-msgstr "Kan ikke pakke ut fil, uttrekksmappe eksisterer ikke"
+msgstr "Kan ikke kopiere filer, målmappen eksisterer ikke"
 
 #: app/fileItemMenu.js:660
 msgid "Can not email a Directory"

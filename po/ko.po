@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-19 00:06-0400\n"
-"PO-Revision-Date: 2023-04-18 00:49+0000\n"
+"PO-Revision-Date: 2023-04-20 04:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -655,8 +655,9 @@ msgid "Open All..."
 msgstr "모두 열기…"
 
 #: app/fileItemMenu.js:306
+#, fuzzy
 msgid "Open with {foo}"
-msgstr ""
+msgstr "{foo}로 열기"
 
 #: app/fileItemMenu.js:308
 msgid "Open"
@@ -678,7 +679,7 @@ msgstr "다른 프로그램으로 모두 열기…"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Open With..."
-msgstr "모두 열기…"
+msgstr "다음으로 열기..."
 
 #: app/fileItemMenu.js:331
 msgid "Launch using Dedicated Graphics Card"
@@ -709,13 +710,13 @@ msgstr "잘라내기"
 #, fuzzy
 #| msgid "Send to..."
 msgid "Move to..."
-msgstr "다음으로 보내기…"
+msgstr "이동..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
 #| msgid "Send to..."
 msgid "Copy to..."
-msgstr "다음으로 보내기…"
+msgstr "에게 복사..."
 
 #: app/fileItemMenu.js:366
 msgid "Rename…"
@@ -724,7 +725,7 @@ msgstr "이름 바꾸기…"
 #: app/fileItemMenu.js:369
 #, fuzzy
 msgid "Create Link..."
-msgstr "만들다"
+msgstr "링크 만들기..."
 
 #: app/fileItemMenu.js:374
 #, fuzzy
@@ -738,8 +739,9 @@ msgid_plural "Compress {0} files"
 msgstr[0] "{0}개 파일 압축하기"
 
 #: app/fileItemMenu.js:388
+#, fuzzy
 msgid "Email to..."
-msgstr ""
+msgstr "받는 사람..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -815,23 +817,23 @@ msgstr "선택"
 #: app/fileItemMenu.js:579 app/fileItemMenu.js:612
 #, fuzzy
 msgid "No Destination Folder"
-msgstr "추출 폴더 없음"
+msgstr "대상 폴더 없음"
 
 #: app/fileItemMenu.js:580
 #, fuzzy
 msgid "Unable to move Files, destination folder does not exist"
-msgstr "파일을 추출할 수 없습니다. 추출 폴더가 존재하지 않습니다."
+msgstr "파일을 이동할 수 없습니다. 대상 폴더가 없습니다."
 
 #: app/fileItemMenu.js:582 app/fileItemMenu.js:615
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
-msgstr "대상 압축풀기 선택"
+msgstr "목적지 선택"
 
 #: app/fileItemMenu.js:613
 #, fuzzy
 msgid "Unable to copy Files, destination folder does not exist"
-msgstr "파일을 추출할 수 없습니다. 추출 폴더가 존재하지 않습니다."
+msgstr "파일을 복사할 수 없습니다. 대상 폴더가 없습니다."
 
 #: app/fileItemMenu.js:660
 msgid "Can not email a Directory"

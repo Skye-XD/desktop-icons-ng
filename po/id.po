@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-19 00:06-0400\n"
-"PO-Revision-Date: 2023-04-18 00:49+0000\n"
+"PO-Revision-Date: 2023-04-20 04:49+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -667,8 +667,9 @@ msgid "Open All..."
 msgstr "Buka semua..."
 
 #: app/fileItemMenu.js:306
+#, fuzzy
 msgid "Open with {foo}"
-msgstr ""
+msgstr "Buka dengan {foo}"
 
 #: app/fileItemMenu.js:308
 msgid "Open"
@@ -690,7 +691,7 @@ msgstr "Buka Semua Dengan Aplikasi Lain..."
 #: app/fileItemMenu.js:328
 #, fuzzy
 msgid "Open With..."
-msgstr "Buka semua..."
+msgstr "Buka dengan..."
 
 #: app/fileItemMenu.js:331
 #, fuzzy
@@ -725,13 +726,13 @@ msgstr "Potong"
 #, fuzzy
 #| msgid "Send to..."
 msgid "Move to..."
-msgstr "Kirim ke…"
+msgstr "Pindah ke..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
 #| msgid "Send to..."
 msgid "Copy to..."
-msgstr "Kirim ke…"
+msgstr "Salin ke..."
 
 #: app/fileItemMenu.js:366
 msgid "Rename…"
@@ -741,7 +742,7 @@ msgstr "Ganti Nama…"
 #, fuzzy
 #| msgid "Create"
 msgid "Create Link..."
-msgstr "Buat"
+msgstr "Buat Tautan..."
 
 #: app/fileItemMenu.js:374
 #, fuzzy
@@ -756,8 +757,9 @@ msgid_plural "Compress {0} files"
 msgstr[0] "Kompres {0} berkas"
 
 #: app/fileItemMenu.js:388
+#, fuzzy
 msgid "Email to..."
-msgstr ""
+msgstr "Email ke..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -837,22 +839,22 @@ msgstr "Pilih"
 #: app/fileItemMenu.js:579 app/fileItemMenu.js:612
 #, fuzzy
 msgid "No Destination Folder"
-msgstr "Tidak Ada Folder Ekstraksi"
+msgstr "Tidak Ada Folder Tujuan"
 
 #: app/fileItemMenu.js:580
 #, fuzzy
 msgid "Unable to move Files, destination folder does not exist"
-msgstr "Tidak dapat mengekstrak File, Folder ekstraksi Tidak Ada"
+msgstr "Tidak dapat memindahkan File, folder tujuan tidak ada"
 
 #: app/fileItemMenu.js:582 app/fileItemMenu.js:615
 #, fuzzy
 msgid "Select Destination"
-msgstr "Pilih Ekstrak Tujuan"
+msgstr "Pilih Tujuan"
 
 #: app/fileItemMenu.js:613
 #, fuzzy
 msgid "Unable to copy Files, destination folder does not exist"
-msgstr "Tidak dapat mengekstrak File, Folder ekstraksi Tidak Ada"
+msgstr "Tidak dapat menyalin File, folder tujuan tidak ada"
 
 #: app/fileItemMenu.js:660
 #, fuzzy
