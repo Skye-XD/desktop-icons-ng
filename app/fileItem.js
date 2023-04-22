@@ -412,12 +412,14 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         // over an icon, and if (s)he has not started a drag&drop operation
         if (this._primaryButtonPressed) {
             this._primaryButtonPressed = false;
-            if (!shiftPressed && !controlPressed) {
+            if (!shiftPressed && !controlPressed)
                 this._desktopManager.selected(this, this.Enums.Selection.RELEASE);
-                if (this.Prefs.CLICK_POLICY_SINGLE)
-                    this.doOpen();
-            }
         }
+        if (this.getClickCount() === 1 &&
+             this.Prefs.CLICK_POLICY_SINGLE &&
+             !shiftPressed &&
+             !controlPressed)
+            this.doOpen();
     }
 
     /** *********************
