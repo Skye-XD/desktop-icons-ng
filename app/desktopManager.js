@@ -1897,7 +1897,8 @@ var DesktopManager = class {
         case this.Enums.Selection.RELEASE:
             for (let item of this._fileList) {
                 if (item === fileItem)
-                    item.setSelected();
+                    if (item.isSelected)
+                        item.setSelected();
                 else
                     item.unsetSelected();
             }

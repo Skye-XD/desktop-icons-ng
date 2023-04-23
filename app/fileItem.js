@@ -408,13 +408,6 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _doButtonOneReleased(button, X, Y, x, y, shiftPressed, controlPressed) {
-        // primaryButtonPressed is TRUE only if the user has pressed the button
-        // over an icon, and if (s)he has not started a drag&drop operation
-        if (this._primaryButtonPressed) {
-            this._primaryButtonPressed = false;
-            if (!shiftPressed && !controlPressed)
-                this._desktopManager.selected(this, this.Enums.Selection.RELEASE);
-        }
         if (this.getClickCount() === 1 &&
              this.Prefs.CLICK_POLICY_SINGLE &&
              !shiftPressed &&
