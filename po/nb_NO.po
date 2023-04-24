@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 00:06-0400\n"
+"POT-Creation-Date: 2023-04-23 20:09-0400\n"
 "PO-Revision-Date: 2023-04-20 04:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
+"desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,8 +243,7 @@ msgid "Compressing files"
 msgstr "Pakker sammen filer"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307 app/fileItemMenu.js:552 app/fileItemMenu.js:586
-#: app/fileItemMenu.js:619
+#: app/desktopManager.js:1307
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -445,7 +444,7 @@ msgstr "Behold sortert etter type …"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sorter hjemmemappe/lagringsenheter/papirkurv …"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2593
+#: app/desktopManager.js:1581 app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Ny mappe"
 
@@ -511,23 +510,23 @@ msgstr "Dette vinduet er åpent. Bytt til det aktive vinduet."
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: app/desktopManager.js:2616
+#: app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Oppretting av mappe mislyktes"
 
-#: app/desktopManager.js:2617
+#: app/desktopManager.js:2620
 #, fuzzy
 #| msgid "Error while trying to create a Folder"
 msgid "Could not create folder"
 msgstr "Kunne ikke opprette mappe"
 
-#: app/desktopManager.js:2660
+#: app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Feil ved opprettelse av mal"
 
-#: app/desktopManager.js:2661
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "Kunne ikke opprette dokumentet"
@@ -758,49 +757,53 @@ msgid "Open in Terminal"
 msgstr "Åpne i terminal"
 
 #: app/fileItemMenu.js:527
-msgid "No Extraction Folder"
-msgstr "Ingen utpakkingsmappe"
+#, fuzzy
+#| msgid "Extraction cancelled"
+msgid "Extraction Cancelled"
+msgstr "Utpakking avbrutt"
 
 #: app/fileItemMenu.js:528
 #, fuzzy
-msgid "Unable to extract File, extraction Folder Does not Exist"
+msgid "Unable to extract File, no destination folder"
 msgstr "Kan ikke pakke ut fil, uttrekksmappe eksisterer ikke"
 
-#: app/fileItemMenu.js:548
-msgid "Select Extract Destination"
-msgstr "Velg mål for utpakking"
-
-#: app/fileItemMenu.js:553 app/fileItemMenu.js:587 app/fileItemMenu.js:620
-msgid "Select"
-msgstr "Velg"
-
-#: app/fileItemMenu.js:579 app/fileItemMenu.js:612
+#: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "No Extraction Folder"
-msgid "No Destination Folder"
-msgstr "Ingen destinasjonsmappe"
+#| msgid "Cancel"
+msgid "Move Cancelled"
+msgstr "Avbryt"
 
-#: app/fileItemMenu.js:580
+#: app/fileItemMenu.js:561
 #, fuzzy
-msgid "Unable to move Files, destination folder does not exist"
+msgid "Unable to move Files, no destination folder"
 msgstr "Kan ikke flytte filer, målmappen eksisterer ikke"
 
-#: app/fileItemMenu.js:582 app/fileItemMenu.js:615
+#: app/fileItemMenu.js:573
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Velg Destinasjon"
 
-#: app/fileItemMenu.js:613
+#: app/fileItemMenu.js:575
+msgid "Select"
+msgstr "Velg"
+
+#: app/fileItemMenu.js:601
 #, fuzzy
-msgid "Unable to copy Files, destination folder does not exist"
+#| msgid "Cancel"
+msgid "Copy Cancelled"
+msgstr "Avbryt"
+
+#: app/fileItemMenu.js:602
+#, fuzzy
+msgid "Unable to copy Files, no destination folder"
 msgstr "Kan ikke kopiere filer, målmappen eksisterer ikke"
 
-#: app/fileItemMenu.js:660
+#: app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "Kan ikke e-poste en katalog"
 
-#: app/fileItemMenu.js:661
+#: app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Utvalget inneholder en katalog. Pakk den sammen til en fil først."
 
@@ -808,11 +811,11 @@ msgstr "Utvalget inneholder en katalog. Pakk den sammen til en fil først."
 msgid "Close"
 msgstr "Lukk"
 
-#: app/utils/dbusUtils.js:58
+#: app/utils/dbusUtils.js:59
 msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "«${programName}» kreves for skrivebordsikoner"
 
-#: app/utils/dbusUtils.js:59
+#: app/utils/dbusUtils.js:60
 #, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
@@ -993,6 +996,17 @@ msgid ""
 msgstr ""
 "Hvis en annen skjerm er tilkoblet, plasseres nye ikoner på den ikke-primære "
 "skjermen"
+
+#~ msgid "No Extraction Folder"
+#~ msgstr "Ingen utpakkingsmappe"
+
+#~ msgid "Select Extract Destination"
+#~ msgstr "Velg mål for utpakking"
+
+#, fuzzy
+#~| msgid "No Extraction Folder"
+#~ msgid "No Destination Folder"
+#~ msgstr "Ingen destinasjonsmappe"
 
 #~ msgid "Open With Other Application"
 #~ msgstr "Åpne med annet program"
