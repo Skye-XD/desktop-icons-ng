@@ -1,3 +1,4 @@
+
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2019-2022 Sergio Costas (rastersoft@gmail.com)
@@ -435,7 +436,9 @@ class DBusManager {
             );
             data = wraper.IntrospectSync()[0];
         } catch (e) {
-            print(`Error getting introspection data over Dbus: ${e.message}\n${e.stack}`);
+            let message = e.message;
+            if (!message.includes('org.gnome.Shell.Extensions.GSConnect'))
+                print(`Error getting introspection data over Dbus: ${e.message}\n${e.stack}`);
             return null;
         }
         if (data === null)
