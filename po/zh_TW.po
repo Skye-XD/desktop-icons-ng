@@ -42,7 +42,6 @@ msgstr "桌面設置"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "桌面程序的設置"
 
@@ -58,13 +57,11 @@ msgstr "桌面卷顯示"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "文件設置"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "與 Gnome Files 共享的設置"
 
@@ -99,25 +96,21 @@ msgstr "新圖示排序位置"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "左上角"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "右上角"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "左下角"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "右下角"
 
@@ -128,37 +121,31 @@ msgstr "如果可用，首先向輔助監視器添加新圖標"
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "在桌面上顯示個人文件夾"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "在桌面上顯示垃圾桶圖標"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
-#| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "在桌面上顯示外部驅動器"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
-#| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "在桌面上顯示網絡驅動器"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "將新驅動器添加到桌面的另一側"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "在拖放過程中突出顯示放置網格"
 
@@ -386,7 +373,6 @@ msgstr "較小的存檔，但必須安裝在 Windows 和 Mac 上。"
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "找不到 GNOME 文件"
 
@@ -485,6 +471,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "排序主頁/驅動器/垃圾桶……"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "新增資料夾"
 
@@ -556,22 +543,22 @@ msgstr "這個窗口是打開的。請切換到活動窗口。"
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "文件夾創建失敗"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "無法創建文件夾"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "模板創建錯誤"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "無法創建文檔"
@@ -683,7 +670,6 @@ msgstr "用其他應用程式開啟所有……"
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "打開用..."
 
@@ -717,13 +703,11 @@ msgstr "剪下"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "搬去..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "複製到..."
 
@@ -817,7 +801,6 @@ msgstr "無法提取文件，沒有目標文件夾"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "移動取消"
 
@@ -828,7 +811,6 @@ msgstr "無法移動文件，沒有目標文件夾"
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "選擇目的地"
 
@@ -836,22 +818,21 @@ msgstr "選擇目的地"
 msgid "Select"
 msgstr "選擇"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "複製取消"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "無法複製文件，沒有目標文件夾"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "無法寄送資料夾"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "已選項目含資料夾，先把資料夾壓縮成一個檔案。"
 
@@ -931,7 +912,6 @@ msgstr "將新掛載硬碟置於螢幕的另一邊"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."

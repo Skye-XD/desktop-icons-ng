@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-23 22:24-0400\n"
-"PO-Revision-Date: 2023-04-24 02:28+0000\n"
+"PO-Revision-Date: 2023-04-24 02:39+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,6 @@ msgstr "Nastavenia pracovnej plochy"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Nastavenia programu Desktop"
 
@@ -60,13 +59,11 @@ msgstr "Zobrazenie hlasitosti na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Nastavenia súborov"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Nastavenia zdieľané so súbormi Gnome"
 
@@ -101,25 +98,21 @@ msgstr "Zarovnanie nových ikon"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Ľavý horný roh"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Pravý horný roh"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Ľavý dolný roh"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Pravý dolný roh"
 
@@ -130,37 +123,31 @@ msgstr "Najprv pridajte nové ikony na sekundárne monitory, ak sú k dispozíci
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Zobrazte osobný priečinok na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Zobrazte ikonu koša na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
-#| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "Zobraziť externé disky na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
-#| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "Zobraziť sieťové disky na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Pridajte nové disky na opačnú stranu pracovnej plochy"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Počas Drag and Drop zvýraznite mriežku presunutia"
 
@@ -390,7 +377,6 @@ msgstr "Menšie archívy, ale musia byť nainštalované na Windows a Mac."
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "Súbory GNOME sa nenašli"
 
@@ -440,7 +426,6 @@ msgstr "Nepodarilo sa vytvoriť symbolický odkaz"
 
 #: app/desktopManager.js:1263
 #, fuzzy
-#| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Pred novým vyhľadávaním vymažte aktuálny výber"
 
@@ -460,7 +445,6 @@ msgstr "Meno Z-A"
 
 #: app/desktopManager.js:1566
 #, fuzzy
-#| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Upravený čas"
 
@@ -490,6 +474,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Triediť domov/Disky/Kôš…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Nový priečinok"
 
@@ -559,22 +544,22 @@ msgstr "Toto okno je otvorené. Prepnite sa do aktívneho okna."
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Vytvorenie priečinka zlyhalo"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Priečinok sa nepodarilo vytvoriť"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba pri vytváraní šablóny"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nepodarilo sa vytvoriť dokument"
@@ -683,7 +668,6 @@ msgstr "Otvoriť všetko inou aplikáciou..."
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "Otvorený s..."
 
@@ -716,13 +700,11 @@ msgstr "Vystrihnúť"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "Presunúť do..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Kopírovať do..."
 
@@ -736,6 +718,7 @@ msgid "Create Link..."
 msgstr "Vytvoriť odkaz..."
 
 #: app/fileItemMenu.js:374
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -819,7 +802,6 @@ msgstr "Nie je možné extrahovať súbor, žiadny cieľový priečinok"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Presun bol zrušený"
 
@@ -830,7 +812,6 @@ msgstr "Nie je možné presunúť súbory, žiadny cieľový priečinok"
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Vyberte Cieľ"
 
@@ -838,22 +819,21 @@ msgstr "Vyberte Cieľ"
 msgid "Select"
 msgstr "Vybrať"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Kopírovanie bolo zrušené"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nie je možné skopírovať súbory, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "Nedá sa odoslať adresár pomocou emailu"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Výber obsahuje adresár. Najskôr skomprimujte adresár do súboru."
 

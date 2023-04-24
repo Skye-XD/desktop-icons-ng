@@ -11,10 +11,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-23 22:24-0400\n"
-"PO-Revision-Date: 2023-04-24 02:28+0000\n"
+"PO-Revision-Date: 2023-04-24 02:39+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,6 @@ msgstr "Configurações da área de trabalho"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Configurações para o programa de desktop"
 
@@ -61,13 +60,11 @@ msgstr "Exibição de volumes da área de trabalho"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Configurações de arquivos"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Configurações compartilhadas com arquivos Gnome"
 
@@ -103,25 +100,21 @@ msgstr "Novo alinhamento de ícones"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Canto superior esquerdo"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Canto superior direito"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Canto inferior esquerdo"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Canto inferior direito"
 
@@ -133,13 +126,11 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Mostrar a pasta pessoal na área de trabalho"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Mostrar o ícone da lixeira na área de trabalho"
 
@@ -155,13 +146,11 @@ msgstr "Mostrar unidades de rede na área de trabalho"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Adicione novas unidades ao lado oposto da área de trabalho"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Destaque a grade de soltar durante arrastar e soltar"
 
@@ -395,7 +384,6 @@ msgstr "Arquivos menores, mas devem ser instalados no Windows e Mac."
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "Arquivos GNOME não encontrados"
 
@@ -465,7 +453,6 @@ msgstr "Nome Z-A"
 
 #: app/desktopManager.js:1566
 #, fuzzy
-#| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Hora modificada"
 
@@ -495,6 +482,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Classificar Home/Drives/Lixeira…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Nova pasta"
 
@@ -565,22 +553,22 @@ msgstr "Esta janela está aberta. Mude para a janela ativa."
 msgid "Settings"
 msgstr "Configurações"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Falha na Criação da Pasta"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Não foi possível criar a pasta"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Erro de criação de modelo"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "Não foi possível criar o documento"
@@ -688,7 +676,6 @@ msgstr "Abrir tudo com outro aplicativo..."
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "Abrir com..."
 
@@ -721,13 +708,11 @@ msgstr "Recortar"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "Mover para..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Copiar para..."
 
@@ -737,11 +722,11 @@ msgstr "Renomear…"
 
 #: app/fileItemMenu.js:369
 #, fuzzy
-#| msgid "Create"
 msgid "Create Link..."
 msgstr "Criar link..."
 
 #: app/fileItemMenu.js:374
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -826,7 +811,6 @@ msgstr "Não é possível extrair o arquivo, nenhuma pasta de destino"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Movimento cancelado"
 
@@ -837,7 +821,6 @@ msgstr "Não é possível mover arquivos, nenhuma pasta de destino"
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Selecione o destino"
 
@@ -846,22 +829,21 @@ msgstr "Selecione o destino"
 msgid "Select"
 msgstr "Selecione"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Cópia cancelada"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Não é possível copiar arquivos, nenhuma pasta de destino"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "Não é possível enviar um diretório por email"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "Seleção inclui um diretório, comprima o diretório em um arquivo primeiro"

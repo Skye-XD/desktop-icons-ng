@@ -403,6 +403,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Сортировать Домашняя папка/Диски/Корзина…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Создать папку"
 
@@ -466,19 +467,19 @@ msgstr "Это окно открыто. Пожалуйста, переключи
 msgid "Settings"
 msgstr "Параметры"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 msgid "Folder Creation Failed"
 msgstr "Ошибка создания папки"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 msgid "Could not create folder"
 msgstr "Не удалось создать папку"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 msgid "Template Creation Error"
 msgstr "Ошибка создания шаблона"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 msgid "Could not create document"
 msgstr "Не удалось создать документ"
 
@@ -702,25 +703,21 @@ msgstr "Открыть в терминале"
 
 #: app/fileItemMenu.js:527
 #, fuzzy
-#| msgid "Extraction cancelled"
 msgid "Extraction Cancelled"
 msgstr "Извлечение отменено"
 
 #: app/fileItemMenu.js:528
 #, fuzzy
-#| msgid "Unable to extract File, extraction Folder Does not Exist"
 msgid "Unable to extract File, no destination folder"
 msgstr "Не удалось извлечь файл, нет папки назначения"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Перемещение отменено"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
-#| msgid "Unable to extract File, extraction Folder Does not Exist"
 msgid "Unable to move Files, no destination folder"
 msgstr "Невозможно переместить файлы, нет папки назначения"
 
@@ -732,23 +729,21 @@ msgstr "Выберите место назначения"
 msgid "Select"
 msgstr "Выделить"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Копировать отменено"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
-#| msgid "Unable to extract File, extraction Folder Does not Exist"
 msgid "Unable to copy Files, no destination folder"
 msgstr "Невозможно скопировать файлы, нет папки назначения"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "Невозможно отправить каталог по электронной почте"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Выбран каталог, сначала сожмите его в файл."
 
@@ -931,7 +926,6 @@ msgstr ""
 #~ msgstr "Выбрать место назначения для извлечения"
 
 #, fuzzy
-#~| msgid "No Extraction Folder"
 #~ msgid "No Destination Folder"
 #~ msgstr "Нет папки назначения"
 

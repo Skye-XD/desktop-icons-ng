@@ -43,7 +43,6 @@ msgstr "데스크탑 설정"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "데스크톱 프로그램 설정"
 
@@ -59,13 +58,11 @@ msgstr "데스크톱 볼륨 표시"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "파일 설정"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "그놈 파일과 공유되는 설정"
 
@@ -100,25 +97,21 @@ msgstr "새 아이콘 정렬 방식"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "왼쪽 위 모서리"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "오른쪽 위 모서리"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "왼쪽 하단 모서리"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "오른쪽 하단 모서리"
 
@@ -129,37 +122,31 @@ msgstr "가능한 경우 먼저 보조 모니터에 새 아이콘을 추가하�
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "바탕 화면에 개인 폴더 표시"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "바탕 화면에 휴지통 아이콘 표시"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
-#| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "데스크탑에 외부 드라이브 표시"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
-#| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "데스크탑에 네트워크 드라이브 표시"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "바탕 화면의 반대쪽에 새 드라이브를 추가합니다."
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "드래그 앤 드롭 중에 드롭 그리드 강조 표시"
 
@@ -386,7 +373,6 @@ msgstr "더 작은 아카이브이지만 Windows 및 Mac에 설치해야 합니�
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "그놈 파일을 찾을 수 없음"
 
@@ -436,7 +422,6 @@ msgstr "심볼릭 링크를 생성할 수 없습니다."
 
 #: app/desktopManager.js:1263
 #, fuzzy
-#| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "새 검색 전에 현재 선택 항목 지우기"
 
@@ -456,7 +441,6 @@ msgstr "이름 Z-A"
 
 #: app/desktopManager.js:1566
 #, fuzzy
-#| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "수정된 시간"
 
@@ -486,6 +470,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "홈/드라이브/휴지통 정렬…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "새 폴더"
 
@@ -555,22 +540,22 @@ msgstr "이 창이 열려 있습니다. 활성 창으로 전환하십시오."
 msgid "Settings"
 msgstr "설정"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "폴더 생성 실패"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "폴더를 생성할 수 없습니다."
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "템플릿 생성 오류"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "문서를 생성할 수 없습니다."
@@ -676,7 +661,6 @@ msgstr "다른 프로그램으로 모두 열기…"
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "다음으로 열기..."
 
@@ -707,13 +691,11 @@ msgstr "잘라내기"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "이동..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "에게 복사..."
 
@@ -807,7 +789,6 @@ msgstr "파일을 추출할 수 없습니다. 대상 폴더가 없습니다."
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "이동 취소됨"
 
@@ -818,7 +799,6 @@ msgstr "파일을 이동할 수 없습니다. 대상 폴더가 없습니다."
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "목적지 선택"
 
@@ -826,22 +806,21 @@ msgstr "목적지 선택"
 msgid "Select"
 msgstr "선택"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "복사 취소됨"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "파일을 복사할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "선택 파일 중 디렉터리가 포함되어 있어, 먼저 파일로 압축이 필요합니다."
 
