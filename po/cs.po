@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 20:09-0400\n"
-"PO-Revision-Date: 2023-04-20 04:49+0000\n"
+"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/cs/>\n"
@@ -260,7 +260,7 @@ msgid "Compressing files"
 msgstr "Komprese souborů"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307
+#: app/desktopManager.js:1307 app/fileItemMenu.js:609
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -489,7 +489,7 @@ msgstr "Ponechat seskládané podle typu…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Třídit domov/disky/koš…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2597
 msgid "New Folder"
 msgstr "Nová složka"
 
@@ -559,22 +559,22 @@ msgstr "Toto okno je otevřené. Přepněte do aktivního okna."
 msgid "Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopManager.js:2619
+#: app/desktopManager.js:2620
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Vytvoření složky se nezdařilo"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Nelze vytvořit složku"
 
-#: app/desktopManager.js:2663
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba při vytváření šablony"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nelze vytvořit dokument"
@@ -817,45 +817,45 @@ msgstr "Extrakce zrušena"
 #: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Nelze extrahovat soubor, extrakce Složka neexistuje"
+msgstr "Nelze extrahovat soubor, žádná cílová složka"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
-msgstr "Zrušit"
+msgstr "Přesun zrušen"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Soubory nelze přesunout, cílová složka neexistuje"
+msgstr "Nelze přesunout soubory, žádná cílová složka"
 
-#: app/fileItemMenu.js:573
+#: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Vyberte možnost Cíl"
 
-#: app/fileItemMenu.js:575
+#: app/fileItemMenu.js:575 app/fileItemMenu.js:603
 msgid "Select"
 msgstr "Vybrat vše"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
-msgstr "Zrušit"
+msgstr "Kopírování zrušeno"
 
-#: app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Soubory nelze zkopírovat, cílová složka neexistuje"
+msgstr "Nelze kopírovat soubory, žádná cílová složka"
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "Nemůžete poslat složku emailem"
 
-#: app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Výběr obsahuje Složku, nejdříve musíte zkomprimovat složku do souboru."
 

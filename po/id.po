@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 20:09-0400\n"
-"PO-Revision-Date: 2023-04-20 04:49+0000\n"
+"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/id/>\n"
@@ -260,7 +260,7 @@ msgid "Compressing files"
 msgstr "Mengompresi file"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307
+#: app/desktopManager.js:1307 app/fileItemMenu.js:609
 msgid "Cancel"
 msgstr "Batal"
 
@@ -488,7 +488,7 @@ msgstr "Tetap Tumpuk berdasarkan Jenis…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortir Rumah/Drive/Sampah…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2597
 msgid "New Folder"
 msgstr "Folder Baru"
 
@@ -560,22 +560,22 @@ msgstr "Jendela ini terbuka. Silakan beralih ke jendela aktif."
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: app/desktopManager.js:2619
+#: app/desktopManager.js:2620
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Pembuatan Folder Gagal"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Tidak dapat membuat folder"
 
-#: app/desktopManager.js:2663
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Kesalahan Pembuatan Templat"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create document"
 msgstr "Tidak dapat membuat dokumen"
@@ -819,50 +819,50 @@ msgstr "Buka dalam Terminal"
 #: app/fileItemMenu.js:527
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Ekstraksi dibatalkan"
+msgstr "Ekstraksi Dibatalkan"
 
 #: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Tidak dapat mengekstrak File, Folder ekstraksi Tidak Ada"
+msgstr "Tidak dapat mengekstrak File, tidak ada folder tujuan"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
-msgstr "Batal"
+msgstr "Pindah Dibatalkan"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Tidak dapat memindahkan File, folder tujuan tidak ada"
+msgstr "Tidak dapat memindahkan File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:573
+#: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
 msgid "Select Destination"
 msgstr "Pilih Tujuan"
 
-#: app/fileItemMenu.js:575
+#: app/fileItemMenu.js:575 app/fileItemMenu.js:603
 msgid "Select"
 msgstr "Pilih"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
-msgstr "Batal"
+msgstr "Salin Dibatalkan"
 
-#: app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Tidak dapat menyalin File, folder tujuan tidak ada"
+msgstr "Tidak dapat menyalin File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Tidak dapat mengirim email ke Direktori"
 
-#: app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Pilihan termasuk Direktori, kompres direktori ke file terlebih dahulu."

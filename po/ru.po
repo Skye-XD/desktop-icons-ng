@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 20:09-0400\n"
-"PO-Revision-Date: 2023-04-20 04:49+0000\n"
+"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
@@ -40,8 +40,6 @@ msgid "Desktop Settings"
 msgstr "Настройки рабочего стола"
 
 #: app/adwPreferencesWindow.js:190
-#, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Настройки настольной программы"
 
@@ -220,7 +218,7 @@ msgid "Compressing files"
 msgstr "Сжатие файлов"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307
+#: app/desktopManager.js:1307 app/fileItemMenu.js:609
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -378,7 +376,7 @@ msgstr "Название"
 
 #: app/desktopManager.js:1565
 msgid "Name Z-A"
-msgstr "Название A-Я"
+msgstr "Название от A до Я"
 
 #: app/desktopManager.js:1566
 msgid "Modified Time"
@@ -404,7 +402,7 @@ msgstr "Сохранить сгруппированными по типу…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сортировать Домашняя папка/Диски/Корзина…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2597
 msgid "New Folder"
 msgstr "Создать папку"
 
@@ -468,19 +466,19 @@ msgstr "Это окно открыто. Пожалуйста, переключи
 msgid "Settings"
 msgstr "Параметры"
 
-#: app/desktopManager.js:2619
+#: app/desktopManager.js:2620
 msgid "Folder Creation Failed"
 msgstr "Ошибка создания папки"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 msgid "Could not create folder"
 msgstr "Не удалось создать папку"
 
-#: app/desktopManager.js:2663
+#: app/desktopManager.js:2664
 msgid "Template Creation Error"
 msgstr "Ошибка создания шаблона"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 msgid "Could not create document"
 msgstr "Не удалось создать документ"
 
@@ -569,7 +567,6 @@ msgid "Open All..."
 msgstr "Открыть всё..."
 
 #: app/fileItemMenu.js:306
-#, fuzzy
 msgid "Open with {foo}"
 msgstr "Открыть с помощью {foo}"
 
@@ -590,10 +587,8 @@ msgid "Open All With Other Application..."
 msgstr "Открыть всё в другом приложении..."
 
 #: app/fileItemMenu.js:328
-#, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
-msgstr "Открыть с..."
+msgstr "Открыть с помощью..."
 
 #: app/fileItemMenu.js:331
 msgid "Launch using Dedicated Graphics Card"
@@ -620,24 +615,18 @@ msgid "Cut"
 msgstr "Вырезать"
 
 #: app/fileItemMenu.js:361
-#, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "Перейти к..."
 
 #: app/fileItemMenu.js:362
-#, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
-msgstr "Скопировать в..."
+msgstr "Копировать в..."
 
 #: app/fileItemMenu.js:366
 msgid "Rename…"
 msgstr "Переименовать…"
 
 #: app/fileItemMenu.js:369
-#, fuzzy
-#| msgid "Create"
 msgid "Create Link..."
 msgstr "Создать ссылку..."
 
@@ -656,9 +645,8 @@ msgstr[1] "Сжать {0} файла"
 msgstr[2] "Сжать {0} файлов"
 
 #: app/fileItemMenu.js:388
-#, fuzzy
 msgid "Email to..."
-msgstr "Электронная почта..."
+msgstr "Отправить электронную почту..."
 
 #: app/fileItemMenu.js:393
 msgid "Send to Mobile Device"
@@ -722,47 +710,45 @@ msgstr "Извлечение отменено"
 #, fuzzy
 #| msgid "Unable to extract File, extraction Folder Does not Exist"
 msgid "Unable to extract File, no destination folder"
-msgstr "Невозможно извлечь файл, папка извлечения не существует"
+msgstr "Не удалось извлечь файл, нет папки назначения"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
-msgstr "Отмена"
+msgstr "Перемещение отменено"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
 #| msgid "Unable to extract File, extraction Folder Does not Exist"
 msgid "Unable to move Files, no destination folder"
-msgstr "Невозможно переместить файлы, папка назначения не существует"
+msgstr "Невозможно переместить файлы, нет папки назначения"
 
-#: app/fileItemMenu.js:573
-#, fuzzy
-#| msgid "Select Extract Destination"
+#: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 msgid "Select Destination"
-msgstr "Выберите пункт назначения"
+msgstr "Выберите место назначения"
 
-#: app/fileItemMenu.js:575
+#: app/fileItemMenu.js:575 app/fileItemMenu.js:603
 msgid "Select"
 msgstr "Выделить"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
-msgstr "Отмена"
+msgstr "Копировать отменено"
 
-#: app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 #| msgid "Unable to extract File, extraction Folder Does not Exist"
 msgid "Unable to copy Files, no destination folder"
-msgstr "Невозможно скопировать файлы, папка назначения не существует"
+msgstr "Невозможно скопировать файлы, нет папки назначения"
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "Невозможно отправить каталог по электронной почте"
 
-#: app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Выбран каталог, сначала сожмите его в файл."
 

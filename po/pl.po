@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 20:09-0400\n"
-"PO-Revision-Date: 2023-04-20 04:49+0000\n"
+"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
@@ -259,7 +259,7 @@ msgid "Compressing files"
 msgstr "Kompresowanie plików"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307
+#: app/desktopManager.js:1307 app/fileItemMenu.js:609
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -491,7 +491,7 @@ msgstr "Zachowaj stos według typu…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortuj Dom/Dyski/Kosz…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2597
 msgid "New Folder"
 msgstr "Nowy katalog"
 
@@ -561,22 +561,22 @@ msgstr "To okno jest otwarte. Proszę przejść do aktywnego okna."
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: app/desktopManager.js:2619
+#: app/desktopManager.js:2620
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Tworzenie folderu nie powiodło się"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Nie można utworzyć folderu"
 
-#: app/desktopManager.js:2663
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Błąd tworzenia szablonu"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nie można utworzyć dokumentu"
@@ -817,46 +817,46 @@ msgstr "Ekstrakcja anulowana"
 #: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Nie można wyodrębnić pliku, folder wyodrębniania nie istnieje"
+msgstr "Nie można wyodrębnić pliku, brak folderu docelowego"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
-msgstr "Anuluj"
+msgstr "Przenieś anulowano"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Nie można przenieść plików, folder docelowy nie istnieje"
+msgstr "Nie można przenieść plików, brak folderu docelowego"
 
-#: app/fileItemMenu.js:573
+#: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Wybierz miejsce docelowe"
 
-#: app/fileItemMenu.js:575
+#: app/fileItemMenu.js:575 app/fileItemMenu.js:603
 #, fuzzy
 msgid "Select"
 msgstr "Wybierać"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
-msgstr "Anuluj"
+msgstr "Kopiuj anulowano"
 
-#: app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Nie można skopiować plików, folder docelowy nie istnieje"
+msgstr "Nie można skopiować plików, brak folderu docelowego"
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "Nie można wysłać Katalogu"
 
-#: app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Zaznaczenie zawiera Katalog, najpierw skompresuj Katalog do pliku."
 

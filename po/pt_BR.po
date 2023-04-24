@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 20:09-0400\n"
-"PO-Revision-Date: 2023-04-20 04:49+0000\n"
+"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
 "desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -264,7 +264,7 @@ msgid "Compressing files"
 msgstr "Compactando arquivos"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307
+#: app/desktopManager.js:1307 app/fileItemMenu.js:609
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -494,7 +494,7 @@ msgstr "Manter empilhado por tipo…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Classificar Home/Drives/Lixeira…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2597
 msgid "New Folder"
 msgstr "Nova pasta"
 
@@ -565,22 +565,22 @@ msgstr "Esta janela está aberta. Mude para a janela ativa."
 msgid "Settings"
 msgstr "Configurações"
 
-#: app/desktopManager.js:2619
+#: app/desktopManager.js:2620
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Falha na Criação da Pasta"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Não foi possível criar a pasta"
 
-#: app/desktopManager.js:2663
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Erro de criação de modelo"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create document"
 msgstr "Não foi possível criar o documento"
@@ -822,46 +822,46 @@ msgstr "Extração cancelada"
 #: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Não foi possível extrair o arquivo, a pasta de extração não existe"
+msgstr "Não é possível extrair o arquivo, nenhuma pasta de destino"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
-msgstr "Cancelar"
+msgstr "Movimento cancelado"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Não foi possível mover os arquivos, a pasta de destino não existe"
+msgstr "Não é possível mover arquivos, nenhuma pasta de destino"
 
-#: app/fileItemMenu.js:573
+#: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Selecione o destino"
 
-#: app/fileItemMenu.js:575
+#: app/fileItemMenu.js:575 app/fileItemMenu.js:603
 #, fuzzy
 msgid "Select"
 msgstr "Selecione"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
-msgstr "Cancelar"
+msgstr "Cópia cancelada"
 
-#: app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Não foi possível copiar os arquivos, a pasta de destino não existe"
+msgstr "Não é possível copiar arquivos, nenhuma pasta de destino"
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "Não é possível enviar um diretório por email"
 
-#: app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "Seleção inclui um diretório, comprima o diretório em um arquivo primeiro"
