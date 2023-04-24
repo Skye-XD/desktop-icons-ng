@@ -1,19 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2018-2019.
 # Sergio Costas <rastersoft@gmail.com>, 2018-2023.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-23 22:24-0400\n"
-"PO-Revision-Date: 2023-04-24 02:28+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/es/>\n"
+"PO-Revision-Date: 2023-04-25 17:52+0000\n"
+"Last-Translator: Sergio Costas <rastersoft@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -195,7 +193,7 @@ msgstr "Aceptar"
 
 #: app/askRenamePopup.js:57
 msgid "Rename"
-msgstr "Renombrar…"
+msgstr "Renombrar"
 
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
@@ -224,7 +222,7 @@ msgstr "Cancelar"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
-msgstr "Introduzca una contraseña"
+msgstr "Introduzca una contraseña aquí"
 
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
@@ -437,7 +435,7 @@ msgstr "Organizar por…"
 
 #: app/desktopManager.js:1610
 msgid "Show Desktop In GNOME Files"
-msgstr "Mostrar escritorio en GNOME Files"
+msgstr "Mostrar el escritorio en GNOME Files"
 
 #: app/desktopManager.js:1611
 msgid "Open In Terminal"
@@ -445,7 +443,7 @@ msgstr "Abrir en un terminal"
 
 #: app/desktopManager.js:1616
 msgid "Change Background…"
-msgstr "Cambiar el fondo..."
+msgstr "Cambiar el fondo…"
 
 #: app/desktopManager.js:1621
 msgid "Desktop Icon Settings"
@@ -581,7 +579,7 @@ msgstr "Extraer a..."
 
 #: app/fileItemMenu.js:328
 msgid "Open All With Other Application..."
-msgstr "Abrir todo con otra aplicación"
+msgstr "Abrir todo con otra aplicación..."
 
 #: app/fileItemMenu.js:328
 msgid "Open With..."
@@ -696,22 +694,18 @@ msgid "Open in Terminal"
 msgstr "Abrir en una terminal"
 
 #: app/fileItemMenu.js:527
-#, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extracción cancelada"
 
 #: app/fileItemMenu.js:528
-#, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "No se puede extraer el archivo, no hay carpeta de destino"
 
 #: app/fileItemMenu.js:560
-#, fuzzy
 msgid "Move Cancelled"
-msgstr "Mover cancelado"
+msgstr "\"Mover\" cancelado"
 
 #: app/fileItemMenu.js:561
-#, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "No se pueden mover archivos, no hay carpeta de destino"
 
@@ -724,12 +718,10 @@ msgid "Select"
 msgstr "Seleccionar"
 
 #: app/fileItemMenu.js:647 app/fileItemMenu.js:601
-#, fuzzy
 msgid "Copy Cancelled"
 msgstr "Copia cancelada"
 
 #: app/fileItemMenu.js:648 app/fileItemMenu.js:602
-#, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "No se pueden copiar archivos, no hay carpeta de destino"
 
@@ -837,7 +829,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Ordenar carpetas especiales - Home/Papelera/Unidades"
+msgstr "Ordenar carpetas especiales - Home/Papelera/Unidades."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 msgid ""
