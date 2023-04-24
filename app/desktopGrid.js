@@ -687,6 +687,7 @@ var DesktopGrid = class {
         });
         widgetDragController.connect('drag-end', () => {
             this._desktopManager.onDragEnd();
+            this._desktopManager.selected(clickItem, this.Enums.Selection.RELEASE);
         });
         widget.add_controller(widgetDragController);
     }

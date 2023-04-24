@@ -45,7 +45,6 @@ var desktopIconItem = class desktopIconItem {
         this._clickCount = 0;
         this._isSelected = false;
         this._isSpecial = false;
-        this._primaryButtonPressed = false;
         this._savedCoordinates = null;
         this._dropCoordinates = null;
         this._destroyed = false;
@@ -330,7 +329,6 @@ var desktopIconItem = class desktopIconItem {
 
     _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         if (this.getClickCount() === 1) {
-            this._primaryButtonPressed = true;
             if (shiftPressed || controlPressed)
                 this._desktopManager.selected(this, this.Enums.Selection.WITH_SHIFT);
             else
@@ -357,7 +355,6 @@ var desktopIconItem = class desktopIconItem {
     }
 
     _onLeave() {
-        this._primaryButtonPressed = false;
         if (!this._grid)
             return;
         if (this.Prefs.CLICK_POLICY_SINGLE) {
