@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 00:06-0400\n"
+"POT-Creation-Date: 2023-04-23 20:09-0400\n"
 "PO-Revision-Date: 2019-03-05 22:20+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
@@ -227,8 +227,7 @@ msgid "Compressing files"
 msgstr ""
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307 app/fileItemMenu.js:552 app/fileItemMenu.js:586
-#: app/fileItemMenu.js:619
+#: app/desktopManager.js:1307
 msgid "Cancel"
 msgstr "Anule"
 
@@ -417,7 +416,7 @@ msgstr ""
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2593
+#: app/desktopManager.js:1581 app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Gnove cartele"
 
@@ -485,20 +484,20 @@ msgstr ""
 msgid "Settings"
 msgstr "Impostazions"
 
-#: app/desktopManager.js:2616
+#: app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Gnûf non de cartele"
 
-#: app/desktopManager.js:2617
+#: app/desktopManager.js:2620
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2660
+#: app/desktopManager.js:2663
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2661
+#: app/desktopManager.js:2664
 msgid "Could not create document"
 msgstr ""
 
@@ -712,43 +711,46 @@ msgstr "Vierç in Terminâl"
 
 #: app/fileItemMenu.js:527
 #, fuzzy
-msgid "No Extraction Folder"
+msgid "Extraction Cancelled"
 msgstr "Tire fûr ca"
 
 #: app/fileItemMenu.js:528
-msgid "Unable to extract File, extraction Folder Does not Exist"
+msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:548
-msgid "Select Extract Destination"
-msgstr ""
-
-#: app/fileItemMenu.js:553 app/fileItemMenu.js:587 app/fileItemMenu.js:620
-msgid "Select"
-msgstr "Selezione"
-
-#: app/fileItemMenu.js:579 app/fileItemMenu.js:612
+#: app/fileItemMenu.js:560
 #, fuzzy
-msgid "No Destination Folder"
-msgstr "Tire fûr ca"
+#| msgid "Cancel"
+msgid "Move Cancelled"
+msgstr "Anule"
 
-#: app/fileItemMenu.js:580
-msgid "Unable to move Files, destination folder does not exist"
+#: app/fileItemMenu.js:561
+msgid "Unable to move Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:582 app/fileItemMenu.js:615
+#: app/fileItemMenu.js:573
 msgid "Select Destination"
 msgstr ""
 
-#: app/fileItemMenu.js:613
-msgid "Unable to copy Files, destination folder does not exist"
+#: app/fileItemMenu.js:575
+msgid "Select"
+msgstr "Selezione"
+
+#: app/fileItemMenu.js:601
+#, fuzzy
+#| msgid "Cancel"
+msgid "Copy Cancelled"
+msgstr "Anule"
+
+#: app/fileItemMenu.js:602
+msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:660
+#: app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:661
+#: app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 
@@ -756,11 +758,11 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: app/utils/dbusUtils.js:58
+#: app/utils/dbusUtils.js:59
 msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr ""
 
-#: app/utils/dbusUtils.js:59
+#: app/utils/dbusUtils.js:60
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
@@ -916,6 +918,14 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
+
+#, fuzzy
+#~ msgid "No Extraction Folder"
+#~ msgstr "Tire fûr ca"
+
+#, fuzzy
+#~ msgid "No Destination Folder"
+#~ msgstr "Tire fûr ca"
 
 #~ msgid "Open With Other Application"
 #~ msgstr "Vierç cuntune altre aplicazion"

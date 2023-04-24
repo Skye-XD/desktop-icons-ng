@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 00:06-0400\n"
+"POT-Creation-Date: 2023-04-23 20:09-0400\n"
 "PO-Revision-Date: 2023-04-20 04:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -260,8 +260,7 @@ msgid "Compressing files"
 msgstr "ফাইল কম্প্রেস করা হচ্ছে"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307 app/fileItemMenu.js:552 app/fileItemMenu.js:586
-#: app/fileItemMenu.js:619
+#: app/desktopManager.js:1307
 #, fuzzy
 msgid "Cancel"
 msgstr "বাতিল করুন"
@@ -491,7 +490,7 @@ msgstr "প্রকার অনুসারে স্ট্যাক করা
 msgid "Sort Home/Drives/Trash…"
 msgstr "হোম/ড্রাইভ/ট্র্যাশ সাজান…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2593
+#: app/desktopManager.js:1581 app/desktopManager.js:2596
 #, fuzzy
 msgid "New Folder"
 msgstr "নতুন ফোল্ডার"
@@ -571,22 +570,22 @@ msgstr "এই উইন্ডো খোলা আছে. সক্রিয় 
 msgid "Settings"
 msgstr "সেটিংস"
 
-#: app/desktopManager.js:2616
+#: app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "ফোল্ডার তৈরি করা ব্যর্থ হয়েছে৷"
 
-#: app/desktopManager.js:2617
+#: app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "ফোল্ডার তৈরি করা যায়নি"
 
-#: app/desktopManager.js:2660
+#: app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "টেমপ্লেট তৈরির ত্রুটি৷"
 
-#: app/desktopManager.js:2661
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "ডকুমেন্ট তৈরি করা যায়নি"
@@ -665,7 +664,6 @@ msgstr ""
 "<b>\"লঞ্চ করার অনুমতি দিন\" সক্ষম করুন</b>"
 
 #: app/fileItemMenu.js:294
-#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -757,14 +755,12 @@ msgid "Create Link..."
 msgstr "লিঙ্ক তৈরি করুন..।"
 
 #: app/fileItemMenu.js:374
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
 
 #: app/fileItemMenu.js:381
-#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
@@ -842,50 +838,50 @@ msgstr "টার্মিনালে খুলুন"
 
 #: app/fileItemMenu.js:527
 #, fuzzy
-msgid "No Extraction Folder"
-msgstr "এক্সট্রাকশন ফোল্ডার নেই"
+msgid "Extraction Cancelled"
+msgstr "নিষ্কাশন বাতিল করা হয়েছে"
 
 #: app/fileItemMenu.js:528
 #, fuzzy
-msgid "Unable to extract File, extraction Folder Does not Exist"
+msgid "Unable to extract File, no destination folder"
 msgstr "ফাইল নিষ্কাশন করতে অক্ষম, নিষ্কাশন ফোল্ডার বিদ্যমান নেই"
 
-#: app/fileItemMenu.js:548
+#: app/fileItemMenu.js:560
 #, fuzzy
-msgid "Select Extract Destination"
-msgstr "এক্সট্রাক্ট গন্তব্য নির্বাচন করুন"
+msgid "Move Cancelled"
+msgstr "বাতিল করুন"
 
-#: app/fileItemMenu.js:553 app/fileItemMenu.js:587 app/fileItemMenu.js:620
+#: app/fileItemMenu.js:561
 #, fuzzy
-msgid "Select"
-msgstr "নির্বাচন করুন"
-
-#: app/fileItemMenu.js:579 app/fileItemMenu.js:612
-#, fuzzy
-msgid "No Destination Folder"
-msgstr "কোনো গন্তব্য ফোল্ডার নেই"
-
-#: app/fileItemMenu.js:580
-#, fuzzy
-msgid "Unable to move Files, destination folder does not exist"
+msgid "Unable to move Files, no destination folder"
 msgstr "ফাইলগুলি সরাতে অক্ষম, গন্তব্য ফোল্ডারটি বিদ্যমান নেই৷"
 
-#: app/fileItemMenu.js:582 app/fileItemMenu.js:615
+#: app/fileItemMenu.js:573
 #, fuzzy
 msgid "Select Destination"
 msgstr "গন্তব্য নির্বাচন করুন"
 
-#: app/fileItemMenu.js:613
+#: app/fileItemMenu.js:575
 #, fuzzy
-msgid "Unable to copy Files, destination folder does not exist"
+msgid "Select"
+msgstr "নির্বাচন করুন"
+
+#: app/fileItemMenu.js:601
+#, fuzzy
+msgid "Copy Cancelled"
+msgstr "বাতিল করুন"
+
+#: app/fileItemMenu.js:602
+#, fuzzy
+msgid "Unable to copy Files, no destination folder"
 msgstr "ফাইল কপি করতে অক্ষম, গন্তব্য ফোল্ডার বিদ্যমান নেই"
 
-#: app/fileItemMenu.js:660
+#: app/fileItemMenu.js:629
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "একটি ডিরেক্টরি ইমেল করতে পারবেন না"
 
-#: app/fileItemMenu.js:661
+#: app/fileItemMenu.js:630
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
@@ -897,12 +893,12 @@ msgstr ""
 msgid "Close"
 msgstr "বন্ধ"
 
-#: app/utils/dbusUtils.js:58
+#: app/utils/dbusUtils.js:59
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "ডেস্কটপ আইকনগুলির জন্য \"${programName}\" প্রয়োজন৷"
 
-#: app/utils/dbusUtils.js:59
+#: app/utils/dbusUtils.js:60
 #, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
@@ -1098,6 +1094,18 @@ msgid ""
 "monitor"
 msgstr ""
 "যদি একটি দ্বিতীয় মনিটর সংযুক্ত থাকে, নতুন আইকনগুলি অ প্রাথমিক মনিটরে স্থাপন করা হয়"
+
+#, fuzzy
+#~ msgid "No Extraction Folder"
+#~ msgstr "এক্সট্রাকশন ফোল্ডার নেই"
+
+#, fuzzy
+#~ msgid "Select Extract Destination"
+#~ msgstr "এক্সট্রাক্ট গন্তব্য নির্বাচন করুন"
+
+#, fuzzy
+#~ msgid "No Destination Folder"
+#~ msgstr "কোনো গন্তব্য ফোল্ডার নেই"
 
 #, fuzzy
 #~ msgid "Open With Other Application"
