@@ -40,7 +40,6 @@ msgstr "Configuració de l'escriptori"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Configuració del programa d'escriptori"
 
@@ -56,13 +55,11 @@ msgstr "Mostra els volums d'escriptori"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Configuració de fitxers"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Configuració compartida amb Gnome Files"
 
@@ -97,25 +94,21 @@ msgstr "Alineació de les icones noves"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Canton superior esquerre"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Canton superior dret"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Cantó inferior esquerre"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Cantó inferior dret"
 
@@ -127,37 +120,31 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Mostra la carpeta personal a l'escriptori"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Mostra la icona de la paperera a l'escriptori"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
-#| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "Mostra les unitats externes a l'escriptori"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
-#| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "Mostra les unitats de xarxa a l'escriptori"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Afegiu unitats noves al costat oposat de l'escriptori"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Ressalteu la quadrícula durant l'arrossegar i deixar anar"
 
@@ -387,7 +374,6 @@ msgstr "Arxius més petits però s'han d'instal·lar a Windows i Mac."
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "No s'han trobat fitxers de GNOME"
 
@@ -486,6 +472,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Ordena Inici/Unitats/Paperera…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Carpeta nova"
 
@@ -558,22 +545,22 @@ msgstr ""
 msgid "Settings"
 msgstr "Paràmetres"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "No s'ha pogut crear la carpeta"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "No s'ha pogut crear la carpeta"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Error de creació de plantilla"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "No s'ha pogut crear el document"
@@ -680,7 +667,6 @@ msgstr "Obre amb una altra aplicació..."
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "Obert amb..."
 
@@ -713,13 +699,11 @@ msgstr "Retalla"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "Moure's cap a..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Copia a..."
 
@@ -815,7 +799,6 @@ msgstr "No es pot extreure el fitxer, no hi ha carpeta de destinació"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "S'ha cancel·lat el moviment"
 
@@ -834,22 +817,21 @@ msgstr "Seleccioneu Destinació"
 msgid "Select"
 msgstr "Seleccioneu"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Còpia cancel·lada"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "No es poden copiar els fitxers, no hi ha carpeta de destinació"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "No es pot enviar un directori per correu electrònic"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La selecció inclou un directori, comprimeix-hi el directori en un fitxer."

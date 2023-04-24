@@ -45,7 +45,6 @@ msgstr "Ustawienia pulpitu"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Ustawienia programu komputerowego"
 
@@ -61,13 +60,11 @@ msgstr "Wyświetlanie woluminów pulpitu"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Ustawienia plików"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Ustawienia współdzielone z plikami Gnome"
 
@@ -102,25 +99,21 @@ msgstr "Wyrównanie nowych ikon"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Górny lewy róg"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Prawy górny róg"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Lewy dolny róg"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Dolny prawy róg"
 
@@ -131,37 +124,31 @@ msgstr "Najpierw dodaj nowe ikony do monitorów pomocniczych, jeśli są dostęp
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Pokaż folder osobisty na pulpicie"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Pokaż ikonę kosza na pulpicie"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
-#| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "Pokaż dyski zewnętrzne na pulpicie"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
-#| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "Pokaż dyski sieciowe na pulpicie"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Dodaj nowe dyski po przeciwnej stronie pulpitu"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Podświetl siatkę upuszczania podczas przeciągania i upuszczania"
 
@@ -392,7 +379,6 @@ msgstr ""
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "Nie znaleziono plików GNOME"
 
@@ -442,7 +428,6 @@ msgstr "Nie można utworzyć dowiązania symbolicznego"
 
 #: app/desktopManager.js:1263
 #, fuzzy
-#| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Wyczyść bieżący wybór przed nowym wyszukiwaniem"
 
@@ -462,7 +447,6 @@ msgstr "Nazwa Z-A"
 
 #: app/desktopManager.js:1566
 #, fuzzy
-#| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Zmodyfikowany czas"
 
@@ -492,6 +476,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Sortuj Dom/Dyski/Kosz…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Nowy katalog"
 
@@ -561,22 +546,22 @@ msgstr "To okno jest otwarte. Proszę przejść do aktywnego okna."
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Tworzenie folderu nie powiodło się"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Nie można utworzyć folderu"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Błąd tworzenia szablonu"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nie można utworzyć dokumentu"
@@ -685,7 +670,6 @@ msgstr "Otwórz za pomocą innego programu..."
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "Otwierać z..."
 
@@ -716,13 +700,11 @@ msgstr "Wytnij"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "Przenieś do..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Kopiuj do..."
 
@@ -732,7 +714,6 @@ msgstr "Zmień nazwę…"
 
 #: app/fileItemMenu.js:369
 #, fuzzy
-#| msgid "Create"
 msgid "Create Link..."
 msgstr "Utwórz łącze..."
 
@@ -821,7 +802,6 @@ msgstr "Nie można wyodrębnić pliku, brak folderu docelowego"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Przenieś anulowano"
 
@@ -832,7 +812,6 @@ msgstr "Nie można przenieść plików, brak folderu docelowego"
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Wybierz miejsce docelowe"
 
@@ -841,22 +820,21 @@ msgstr "Wybierz miejsce docelowe"
 msgid "Select"
 msgstr "Wybierać"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Kopiuj anulowano"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nie można skopiować plików, brak folderu docelowego"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "Nie można wysłać Katalogu"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Zaznaczenie zawiera Katalog, najpierw skompresuj Katalog do pliku."
 

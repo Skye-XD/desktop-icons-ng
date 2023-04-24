@@ -44,7 +44,6 @@ msgstr "Nastavení plochy"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Nastavení pro Desktop Program"
 
@@ -60,13 +59,11 @@ msgstr "Zobrazení svazků na ploše"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Nastavení souborů"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Nastavení sdílená se soubory Gnome"
 
@@ -101,25 +98,21 @@ msgstr "Zarovnání nových ikon"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Levý horní roh"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Pravý horní roh"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Levý dolní roh"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Pravý dolní roh"
 
@@ -131,37 +124,31 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Zobrazit osobní složku na ploše"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Zobrazit ikonu koše na ploše"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
-#| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "Zobrazit externí disky na ploše"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
-#| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "Zobrazit síťové disky na ploše"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Přidejte nové disky na opačnou stranu plochy"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Během Drag and Drop zvýrazněte mřížku přetažení"
 
@@ -390,7 +377,6 @@ msgstr "Menší archivy, ale musí být nainstalovány na Windows a Mac."
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "Soubory GNOME nebyly nalezeny"
 
@@ -440,7 +426,6 @@ msgstr "Nepodařilo se vytvořit symbolický odkaz"
 
 #: app/desktopManager.js:1263
 #, fuzzy
-#| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Před novým hledáním vymažte aktuální výběr"
 
@@ -460,7 +445,6 @@ msgstr "Jméno Z-A"
 
 #: app/desktopManager.js:1566
 #, fuzzy
-#| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Upravený čas"
 
@@ -490,6 +474,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Třídit domov/disky/koš…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Nová složka"
 
@@ -559,22 +544,22 @@ msgstr "Toto okno je otevřené. Přepněte do aktivního okna."
 msgid "Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Vytvoření složky se nezdařilo"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Nelze vytvořit složku"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba při vytváření šablony"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nelze vytvořit dokument"
@@ -683,7 +668,6 @@ msgstr "Otevřít vše v jiné aplikaci..."
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "Otevřít s..."
 
@@ -716,13 +700,11 @@ msgstr "Vyjmout"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "Přesunout do..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Kopírovat do..."
 
@@ -732,7 +714,6 @@ msgstr "Přejmenovat…"
 
 #: app/fileItemMenu.js:369
 #, fuzzy
-#| msgid "Create"
 msgid "Create Link..."
 msgstr "Vytvořit odkaz..."
 
@@ -821,7 +802,6 @@ msgstr "Nelze extrahovat soubor, žádná cílová složka"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Přesun zrušen"
 
@@ -832,7 +812,6 @@ msgstr "Nelze přesunout soubory, žádná cílová složka"
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Vyberte možnost Cíl"
 
@@ -840,22 +819,21 @@ msgstr "Vyberte možnost Cíl"
 msgid "Select"
 msgstr "Vybrat vše"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Kopírování zrušeno"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nelze kopírovat soubory, žádná cílová složka"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "Nemůžete poslat složku emailem"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Výběr obsahuje Složku, nejdříve musíte zkomprimovat složku do souboru."
 

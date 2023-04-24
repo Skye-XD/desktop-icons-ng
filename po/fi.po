@@ -45,7 +45,6 @@ msgstr "Työpöytäasetukset"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Työpöytäohjelman asetukset"
 
@@ -61,13 +60,11 @@ msgstr "Työpöydän äänenvoimakkuuden näyttö"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Tiedostojen asetukset"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Gnome Filesin kanssa jaetut asetukset"
 
@@ -102,25 +99,21 @@ msgstr "Uusien kuvakkeiden asettelu"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Vasen yläkulma"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Oikea yläkulma"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Vasen alakulma"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Oikea alakulma"
 
@@ -133,37 +126,31 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Näytä henkilökohtainen kansio työpöydällä"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Näytä roskakorikuvake työpöydällä"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
-#| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "Näytä ulkoiset asemat työpöydällä"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
-#| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "Näytä verkkoasemat työpöydällä"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Lisää uusia asemia työpöydän vastakkaiselle puolelle"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Korosta pudotusruudukko vetämällä ja pudottamalla"
 
@@ -391,7 +378,6 @@ msgstr "Pienemmät arkistot, mutta ne on asennettava Windowsiin ja Maciin."
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "GNOME-tiedostoja ei löydy"
 
@@ -441,7 +427,6 @@ msgstr "Symbolista linkkiä ei voitu luoda"
 
 #: app/desktopManager.js:1263
 #, fuzzy
-#| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Tyhjennä nykyinen valinta ennen uutta hakua"
 
@@ -461,7 +446,6 @@ msgstr "Nimi Z-A"
 
 #: app/desktopManager.js:1566
 #, fuzzy
-#| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Muokattu aika"
 
@@ -491,6 +475,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Lajittele Koti/Drivet/Roskakori…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Uusi kansio"
 
@@ -560,22 +545,22 @@ msgstr "Tämä ikkuna on auki. Vaihda aktiiviseen ikkunaan."
 msgid "Settings"
 msgstr "Asetukset"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Kansion luominen epäonnistui"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Kansiota ei voitu luoda"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Mallin luontivirhe"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "Asiakirjaa ei voitu luoda"
@@ -683,7 +668,6 @@ msgstr "Avaa kaikki toisella sovelluksella..."
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "Avaa..."
 
@@ -714,13 +698,11 @@ msgstr "Leikkaa"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "Muuttaa..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Kopioi..."
 
@@ -816,7 +798,6 @@ msgstr "Tiedostoa ei voi purkaa, ei kohdekansiota"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Siirto peruutettu"
 
@@ -827,7 +808,6 @@ msgstr "Tiedostoja ei voi siirtää, ei kohdekansiota"
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Valitse Kohde"
 
@@ -835,22 +815,21 @@ msgstr "Valitse Kohde"
 msgid "Select"
 msgstr "Valitse"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Kopiointi peruutettu"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Tiedostoja ei voi kopioida, ei kohdekansiota"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "Kansiota ei voi lähettää sähköpostitse"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Valinta sisältää kansion, pakkaa kansio tiedostoksi ensin."
 

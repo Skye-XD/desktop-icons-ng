@@ -403,6 +403,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Ordenar Inicio/Unidades/Papelera…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Nueva carpeta"
 
@@ -466,19 +467,19 @@ msgstr "Esta ventana está abierta. Cambie a la ventana activa."
 msgid "Settings"
 msgstr "Preferencias"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 msgid "Folder Creation Failed"
 msgstr "Error al crear la carpeta"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 msgid "Could not create folder"
 msgstr "No se pudo crear la carpeta"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 msgid "Template Creation Error"
 msgstr "Error al crear la plantilla"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 msgid "Could not create document"
 msgstr "No se pudo crear el documento"
 
@@ -696,25 +697,21 @@ msgstr "Abrir en una terminal"
 
 #: app/fileItemMenu.js:527
 #, fuzzy
-#| msgid "Extraction cancelled"
 msgid "Extraction Cancelled"
 msgstr "Extracción cancelada"
 
 #: app/fileItemMenu.js:528
 #, fuzzy
-#| msgid "Unable to extract File, extraction Folder Does not Exist"
 msgid "Unable to extract File, no destination folder"
 msgstr "No se puede extraer el archivo, no hay carpeta de destino"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Mover cancelado"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
-#| msgid "Unable to move Files, destination folder does not exist"
 msgid "Unable to move Files, no destination folder"
 msgstr "No se pueden mover archivos, no hay carpeta de destino"
 
@@ -726,23 +723,21 @@ msgstr "Seleccione el destino"
 msgid "Select"
 msgstr "Seleccionar"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Copia cancelada"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
-#| msgid "Unable to copy Files, destination folder does not exist"
 msgid "Unable to copy Files, no destination folder"
 msgstr "No se pueden copiar archivos, no hay carpeta de destino"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "No se puede enviar un directorio"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La selección incluye un directorio. Debe comprimirse a un fichero primero."

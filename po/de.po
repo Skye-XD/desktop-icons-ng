@@ -43,7 +43,6 @@ msgstr "Desktop-Einstellungen"
 
 #: app/adwPreferencesWindow.js:190
 #, fuzzy
-#| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Einstellungen für das Desktop-Programm"
 
@@ -59,13 +58,11 @@ msgstr "Anzeige der Desktop-Volumes"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
-#| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Dateieinstellungen"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
-#| msgid "Settings shared with Nautilus"
 msgid "Settings shared with Gnome Files"
 msgstr "Mit Gnome-Dateien geteilte Einstellungen"
 
@@ -100,25 +97,21 @@ msgstr "Ausrichtung der Arbeitsflächensymbole"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
-#| msgid "Top-left corner"
 msgid "Top left corner"
 msgstr "Obere linke Ecke"
 
 #: app/adwPreferencesWindow.js:223
 #, fuzzy
-#| msgid "Top-right corner"
 msgid "Top right corner"
 msgstr "Obere rechte Ecke"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
-#| msgid "Bottom-left corner"
 msgid "Bottom left corner"
 msgstr "Untere linke Ecke"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
-#| msgid "Bottom-right corner"
 msgid "Bottom right corner"
 msgstr "Rechte untere Ecke"
 
@@ -130,38 +123,32 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
-#| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Zeigen Sie den persönlichen Ordner auf dem Desktop an"
 
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
-#| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Zeigen Sie das Papierkorbsymbol auf dem Desktop an"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
-#| msgid "Show external drives in the desktop"
 msgid "Show external drives on the desktop"
 msgstr "Externe Laufwerke auf dem Desktop anzeigen"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
-#| msgid "Show network drives in the desktop"
 msgid "Show network drives on the desktop"
 msgstr "Netzlaufwerke auf dem Desktop anzeigen"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
-#| msgid "Add new drives to the opposite side of the screen"
 msgid "Add new drives to the opposite side of the desktop"
 msgstr ""
 "Fügen Sie der gegenüberliegenden Seite des Desktops neue Laufwerke hinzu"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
-#| msgid "Highlight the drop place during Drag'n'Drop"
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Heben Sie das Drop-Raster während Drag and Drop hervor"
 
@@ -394,7 +381,6 @@ msgstr "Kleinere Archive müssen aber auf Windows und Mac installiert werden."
 
 #: app/desktopManager.js:130
 #, fuzzy
-#| msgid "Nautilus File Manager not found"
 msgid "GNOME Files not found"
 msgstr "GNOME-Dateien nicht gefunden"
 
@@ -444,7 +430,6 @@ msgstr "Symbolischer Link konnte nicht erstellt werden"
 
 #: app/desktopManager.js:1263
 #, fuzzy
-#| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Löschen Sie die aktuelle Auswahl vor einer neuen Suche"
 
@@ -464,7 +449,6 @@ msgstr "Name Z-A"
 
 #: app/desktopManager.js:1566
 #, fuzzy
-#| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Geänderte Zeit"
 
@@ -494,6 +478,7 @@ msgid "Sort Home/Drives/Trash…"
 msgstr "Start/Laufwerke/Papierkorb sortieren…"
 
 #: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:2596
 msgid "New Folder"
 msgstr "Neuer Ordner"
 
@@ -563,22 +548,22 @@ msgstr "Dieses Fenster ist geöffnet. Bitte wechseln Sie in das aktive Fenster."
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2620 app/desktopManager.js:2619
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Ordnererstellung fehlgeschlagen"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2621 app/desktopManager.js:2620
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Ordner konnte nicht erstellt werden"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2664 app/desktopManager.js:2663
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Fehler bei der Vorlagenerstellung"
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2665 app/desktopManager.js:2664
 #, fuzzy
 msgid "Could not create document"
 msgstr "Dokument konnte nicht erstellt werden"
@@ -684,7 +669,6 @@ msgstr "Alle mit anderer Anwendung öffnen."
 
 #: app/fileItemMenu.js:328
 #, fuzzy
-#| msgid "Open All..."
 msgid "Open With..."
 msgstr "Öffnen mit..."
 
@@ -717,13 +701,11 @@ msgstr "Ausschneiden"
 
 #: app/fileItemMenu.js:361
 #, fuzzy
-#| msgid "Send to..."
 msgid "Move to..."
 msgstr "Ziehen nach..."
 
 #: app/fileItemMenu.js:362
 #, fuzzy
-#| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Kopieren nach..."
 
@@ -819,7 +801,6 @@ msgstr "Datei kann nicht extrahiert werden, kein Zielordner"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
-#| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Umzug abgebrochen"
 
@@ -830,7 +811,6 @@ msgstr "Dateien können nicht verschoben werden, kein Zielordner"
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Ziel aussuchen"
 
@@ -838,22 +818,21 @@ msgstr "Ziel aussuchen"
 msgid "Select"
 msgstr "Auswählen"
 
-#: app/fileItemMenu.js:647
+#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
 #, fuzzy
-#| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Kopieren abgebrochen"
 
-#: app/fileItemMenu.js:648
+#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Dateien können nicht kopiert werden, kein Zielordner"
 
-#: app/fileItemMenu.js:675
+#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
 msgid "Can not email a Directory"
 msgstr "Kann Verzeichnis nicht per E-Mail verschicken"
 
-#: app/fileItemMenu.js:676
+#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "Auswahl beinhaltet ein Verzeichnis, komprimiere zunächst Verzeichnis zu "
