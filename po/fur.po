@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 20:09-0400\n"
+"POT-Creation-Date: 2023-04-23 22:24-0400\n"
 "PO-Revision-Date: 2019-03-05 22:20+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
@@ -227,7 +227,7 @@ msgid "Compressing files"
 msgstr ""
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307
+#: app/desktopManager.js:1307 app/fileItemMenu.js:609
 msgid "Cancel"
 msgstr "Anule"
 
@@ -416,7 +416,7 @@ msgstr ""
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2597
 msgid "New Folder"
 msgstr "Gnove cartele"
 
@@ -484,20 +484,20 @@ msgstr ""
 msgid "Settings"
 msgstr "Impostazions"
 
-#: app/desktopManager.js:2619
+#: app/desktopManager.js:2620
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Gnûf non de cartele"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2663
+#: app/desktopManager.js:2664
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 msgid "Could not create document"
 msgstr ""
 
@@ -728,29 +728,29 @@ msgstr "Anule"
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:573
+#: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 msgid "Select Destination"
 msgstr ""
 
-#: app/fileItemMenu.js:575
+#: app/fileItemMenu.js:575 app/fileItemMenu.js:603
 msgid "Select"
 msgstr "Selezione"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Anule"
 
-#: app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 

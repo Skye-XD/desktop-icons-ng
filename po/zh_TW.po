@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 20:09-0400\n"
-"PO-Revision-Date: 2023-04-20 04:49+0000\n"
+"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -255,7 +255,7 @@ msgid "Compressing files"
 msgstr "壓縮文件"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307
+#: app/desktopManager.js:1307 app/fileItemMenu.js:609
 msgid "Cancel"
 msgstr "取消"
 
@@ -484,7 +484,7 @@ msgstr "按類型堆疊……"
 msgid "Sort Home/Drives/Trash…"
 msgstr "排序主頁/驅動器/垃圾桶……"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2597
 msgid "New Folder"
 msgstr "新增資料夾"
 
@@ -556,22 +556,22 @@ msgstr "這個窗口是打開的。請切換到活動窗口。"
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:2619
+#: app/desktopManager.js:2620
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "文件夾創建失敗"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Could not create folder"
 msgstr "無法創建文件夾"
 
-#: app/desktopManager.js:2663
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "模板創建錯誤"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create document"
 msgstr "無法創建文檔"
@@ -808,50 +808,50 @@ msgstr "開啟終端器"
 #: app/fileItemMenu.js:527
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "提取已取消"
+msgstr "提取取消"
 
 #: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "無法提取文件，提取文件夾不存在"
+msgstr "無法提取文件，沒有目標文件夾"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
-msgstr "取消"
+msgstr "移動取消"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "無法移動文件，目標文件夾不存在"
+msgstr "無法移動文件，沒有目標文件夾"
 
-#: app/fileItemMenu.js:573
+#: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "選擇目的地"
 
-#: app/fileItemMenu.js:575
+#: app/fileItemMenu.js:575 app/fileItemMenu.js:603
 msgid "Select"
 msgstr "選擇"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
-msgstr "取消"
+msgstr "複製取消"
 
-#: app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "無法複製文件，目標文件夾不存在"
+msgstr "無法複製文件，沒有目標文件夾"
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "無法寄送資料夾"
 
-#: app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "已選項目含資料夾，先把資料夾壓縮成一個檔案。"
 

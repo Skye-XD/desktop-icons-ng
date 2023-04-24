@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 20:09-0400\n"
-"PO-Revision-Date: 2023-04-20 04:49+0000\n"
+"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/nl/>\n"
@@ -262,7 +262,7 @@ msgid "Compressing files"
 msgstr "Bestanden comprimeren"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:866
-#: app/desktopManager.js:1307
+#: app/desktopManager.js:1307 app/fileItemMenu.js:609
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -493,7 +493,7 @@ msgstr "Blijf gestapeld op type …"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sorteer Home/Schijven/Prullenbak…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2597
 msgid "New Folder"
 msgstr "Nieuwe map"
 
@@ -565,22 +565,22 @@ msgstr "Dit venster is geopend. Schakel over naar het actieve venster."
 msgid "Settings"
 msgstr "Instellingen"
 
-#: app/desktopManager.js:2619
+#: app/desktopManager.js:2620
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Aanmaken van map mislukt"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Kan map niet maken"
 
-#: app/desktopManager.js:2663
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Fout bij maken van sjabloon"
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create document"
 msgstr "Kan document niet maken"
@@ -827,45 +827,45 @@ msgstr "Extractie geannuleerd"
 #: app/fileItemMenu.js:528
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Kan bestand niet uitpakken, uitpakmap bestaat niet"
+msgstr "Kan bestand niet uitpakken, geen doelmap"
 
 #: app/fileItemMenu.js:560
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
-msgstr "Annuleren"
+msgstr "Verhuizing geannuleerd"
 
 #: app/fileItemMenu.js:561
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Kan bestanden niet verplaatsen, doelmap bestaat niet"
+msgstr "Kan bestanden niet verplaatsen, geen doelmap"
 
-#: app/fileItemMenu.js:573
+#: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 #, fuzzy
 msgid "Select Destination"
 msgstr "Kies bestemming"
 
-#: app/fileItemMenu.js:575
+#: app/fileItemMenu.js:575 app/fileItemMenu.js:603
 msgid "Select"
 msgstr "Selecteren"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
-msgstr "Annuleren"
+msgstr "Kopiëren geannuleerd"
 
-#: app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Kan bestanden niet kopiëren, doelmap bestaat niet"
+msgstr "Kan bestanden niet kopiëren, geen doelmap"
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Kan een directory niet e-mailen"
 
-#: app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Selectie omvat een map, comprimeer de map eerst naar een bestand."
