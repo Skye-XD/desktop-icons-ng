@@ -122,8 +122,10 @@ var DesktopGrid = class {
             this._desktopManager.onKeyPress(keyval, keycode, state, this);
         });
         this._eventMotion.connect('motion', (actor, x, y) => {
+            this._desktopManager.drawSelectionRectangle().catch(e => logError(e));
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            this._desktopManager.onMotion(X, Y);
+            this._desktopManager.onMotion(X, Y).catch(e => logError(e));
+            return false;
         });
         this._buttonClick = Gtk.GestureClick.new();
         this._buttonClick.set_button(0);
@@ -792,7 +794,7 @@ var DesktopGrid = class {
         if (newSelectedList.length === 0) {
             if (this._selectedList !== null) {
                 this._selectedList = null;
-                this._drawArea.queue_draw();
+                this.queue_draw();
             }
             return;
         }
@@ -801,10 +803,10 @@ var DesktopGrid = class {
                 return;
         }
         this._selectedList = newSelectedList;
-        this._drawArea.queue_draw();
+        this.queue_draw();
     }
 
-    queue_draw() {
+    async queue_draw() {
         this._drawArea.queue_draw();
     }
 
@@ -821,7 +823,7 @@ var DesktopGrid = class {
                 red: this._desktopManager.selectColor.red,
                 green: this._desktopManager.selectColor.green,
                 blue: this._desktopManager.selectColor.blue,
-                alpha: 0.6,
+                alpha: 0.3,
             })
             );
             cr.fill();
