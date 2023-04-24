@@ -1,4 +1,21 @@
 # History of versions #
+* Gtk4 version 37
+  * Fix for single click opening working on alternate clicks. (Sundeep Mediratta)
+  * Fix unecessary resource utilization to save icons. (Sundeep Mediratta)
+  * Fix regression - local move not dropping file at the right drop target. (Sundeep Mediratta)
+  * Fix regression - .desktop files not opening on clicking. (Sundeep Mediratta)
+  * Prevent error logging if GsConnect extension is not installed. (Sundeep Mediratta)
+  * Redo icon right click menu to mirror GNOME Files right click options. (Sundeep Mediratta)
+  * Add options to right click menu to move/copy to.., make links for files. (Sundeep Mediratta)
+  * Use new Gtk4 FileDialog to choose folders for move/copy/extract to.. (Sundeep Mediratta)
+  * Fall back to using Gtk4 FileChooserDialog if FileDialog does not exist (requires Gtk 4.10). (Sundeep Mediatta)
+  * Make all calls to grid drawing function asynchronous to speed selection rectangle and drop target. (Sundeep Mediatta)
+  * Change alpha of selection rectangle to more transparent to mirror Gnome Files Selection. (Sundeep Mediratta)
+  * Spanish translation. (Sergio Costas)
+  * Multiple translation updates. (Weblate authors).
+  * Version Bump to 37 to keep up with extensions.gnome.org.
+  * Update metadata.json and History.md
+
 * Gtk4 version 35
   * Gtk4-Ding is now a libadwaita app, port to libadwaita complete (Sundeep Mediratta)
   * Fix, preferences window not opening the second time from Extensions on libadwaita port. (Sergio Costas)
