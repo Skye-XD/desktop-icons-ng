@@ -1898,11 +1898,12 @@ var DesktopManager = class {
             break;
         case this.Enums.Selection.RELEASE:
             for (let item of this._fileList) {
-                if (item === fileItem)
+                if (item === fileItem) {
                     if (item.isSelected)
                         item.setSelected();
-                else
-                    item.unsetSelected();
+                    else
+                        item.unsetSelected();
+                }
             }
             break;
         }
