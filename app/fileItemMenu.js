@@ -567,7 +567,7 @@ var FileItemMenu = class {
     }
 
 
-    getSelectedFolderGio(dialogTitle = null, selectionText = null) {
+    getSelectedFolderGioNewMethod(dialogTitle = null, selectionText = null) {
         return new Promise(resolve => {
             if (!dialogTitle)
                 dialogTitle =  _('Select Destination');
@@ -592,6 +592,52 @@ var FileItemMenu = class {
                     resolve(false);
             });
         });
+    }
+
+
+    getSelectedFolderGioOldMethod(dialogTitle = null, selectionText = null) {
+        return new Promise(resolve => {
+            if (!dialogTitle)
+                dialogTitle =  _('Select Destination');
+            if (!selectionText)
+                selectionText = _('Select');
+            let returnValue = null;
+            const dialog = new Gtk.FileChooserDialog({ title: dialogTitle });
+            dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
+            dialog.set_create_folders(true);
+            dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
+            dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
+            dialog.add_button(selectionText, Gtk.ResponseType.ACCEPT);
+            this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
+            this._desktopManager.textEntryAccelsTurnOff();
+            dialog.show();
+            dialog.present_with_time(Gdk.CURRENT_TIME);
+            dialog.connect('close', () => {
+                dialog.response(Gtk.ResponseType.CANCEL);
+            });
+            dialog.connect('response', (actor, response) => {
+                if (response === Gtk.ResponseType.ACCEPT) {
+                    const folder = dialog.get_file();
+                    if (folder)
+                        returnValue = folder;
+                    else
+                        returnValue = false;
+                }
+                this._desktopManager.textEntryAccelsTurnOn();
+                dialog.destroy();
+                resolve(returnValue);
+            });
+        });
+    }
+
+    async getSelectedFolderGio(dialogTitle = null, selectionText = null) {
+        let result;
+        try {
+            result = await this.getSelectedFolderGioNewMethod(dialogTitle, selectionText);
+        } catch (e) {
+            result = await this.getSelectedFolderGioOldMethod(dialogTitle, selectionText);
+        }
+        return result;
     }
 
     async _bulkCopy() {
