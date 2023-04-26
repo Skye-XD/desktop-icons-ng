@@ -127,12 +127,15 @@ function newShouldShowWindow(window) {
  * @param {object} switchData the original switchData for the function
  */
 function newFinishWorkspaceSwitch(switchData) {
-    if (workSpaceSwitchTimeoutID) {
-        GLib.Source.remove(workSpaceSwitchTimeoutID);
-        workSpaceSwitchTimeoutID = null;
-    }
-    workSpaceSwitchTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
-        replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);
+    Meta.enable_unredirect_for_display(global.display);
+    let movingWindow = this.movingWindow;
+
+    this._switchData = null;
+    this.movingWindow = null;
+
+    workSpaceSwitchTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
+        switchData.monitors.forEach(m => m.destroy());
+        movingWindow = null;
         workSpaceSwitchTimeoutID = null;
         return false;
     });
