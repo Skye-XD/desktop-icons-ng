@@ -122,6 +122,8 @@ var DesktopGrid = class {
             this._desktopManager.onKeyPress(keyval, keycode, state, this);
         });
         this._eventMotion.connect('motion', (actor, x, y) => {
+            if (!this._desktopManager.rubberBand)
+                return false;
             this._desktopManager.drawSelectionRectangle().catch(e => logError(e));
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             this._desktopManager.onMotion(X, Y).catch(e => logError(e));
