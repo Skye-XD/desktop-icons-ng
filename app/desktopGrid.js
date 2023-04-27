@@ -124,9 +124,8 @@ var DesktopGrid = class {
         this._eventMotion.connect('motion', (actor, x, y) => {
             if (!this._desktopManager.rubberBand)
                 return false;
-            this._desktopManager.drawSelectionRectangle().catch(e => logError(e));
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            this._desktopManager.onMotion(X, Y).catch(e => logError(e));
+            this._desktopManager.onMotion(X, Y);
             return false;
         });
         this._buttonClick = Gtk.GestureClick.new();
@@ -808,7 +807,7 @@ var DesktopGrid = class {
         this.queue_draw();
     }
 
-    async queue_draw() {
+    queue_draw() {
         this._drawArea.queue_draw();
     }
 
