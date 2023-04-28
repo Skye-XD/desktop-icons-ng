@@ -815,53 +815,62 @@ var DesktopGrid = class {
         if (this._desktopManager.rubberBand && this._desktopManager.selectionRectangle) {
             if (!this.gridGlobalRectangle.intersect(this._desktopManager.selectionRectangle)[0])
                 return;
+            this._drawRubberBand(actor, cr);
+        }
+        if (this.Prefs.showDropPlace && (this._selectedList !== null))
+            this._drawDropRectangles(this._selectedList, cr).catch(logError);
+    }
 
-            let [xInit, yInit] = this.coordinatesGlobalToLocal(this._desktopManager.x1, this._desktopManager.y1);
-            let [xFin, yFin] = this.coordinatesGlobalToLocal(this._desktopManager.x2, this._desktopManager.y2);
+    _drawRubberBand(actor, cr) {
+        let [xInit, yInit] = this.coordinatesGlobalToLocal(this._desktopManager.x1, this._desktopManager.y1);
+        let [xFin, yFin] = this.coordinatesGlobalToLocal(this._desktopManager.x2, this._desktopManager.y2);
+        let width = xFin - xInit;
+        let height = yFin - yInit;
+        const fillColor = new Gdk.RGBA({
+            red: this._desktopManager.selectColor.red,
+            green: this._desktopManager.selectColor.green,
+            blue: this._desktopManager.selectColor.blue,
+            alpha: 0.3,
+        });
+        const outlineColor = new Gdk.RGBA({
+            red: this._desktopManager.selectColor.red,
+            green: this._desktopManager.selectColor.green,
+            blue: this._desktopManager.selectColor.blue,
+            alpha: 1.0,
+        });
+        this._rectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor).catch(logError);
+    }
 
-            cr.rectangle(xInit + 0.5, yInit + 0.5, xFin - xInit, yFin - yInit);
-            Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({
-                red: this._desktopManager.selectColor.red,
-                green: this._desktopManager.selectColor.green,
-                blue: this._desktopManager.selectColor.blue,
-                alpha: 0.3,
-            })
-            );
+    async _drawDropRectangles(selectionList, cr) {
+        let drawPromiseArray = [];
+        const fillColor = new Gdk.RGBA({
+            red: 1.0 - this._desktopManager.selectColor.red,
+            green: 1.0 - this._desktopManager.selectColor.green,
+            blue: 1.0 - this._desktopManager.selectColor.blue,
+            alpha: 0.4,
+        });
+        const outlineColor = new Gdk.RGBA({
+            red: 1.0 - this._desktopManager.selectColor.red,
+            green: 1.0 - this._desktopManager.selectColor.green,
+            blue: 1.0 - this._desktopManager.selectColor.blue,
+            alpha: 1.0,
+        });
+        for (let [x, y] of selectionList)
+            drawPromiseArray.push(this._rectangleDraw(x, y, this._elementWidth, this._elementHeight, cr, fillColor, outlineColor));
+        await Promise.all([drawPromiseArray]);
+    }
+
+    _rectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
+        return new Promise(resolve => {
+            cr.rectangle(x + 0.5, y + 0.5, width, height);
+            Gdk.cairo_set_source_rgba(cr, fillColor);
             cr.fill();
-            cr.setLineWidth(1);
-            cr.rectangle(xInit + 0.5, yInit + 0.5, xFin - xInit, yFin - yInit);
-            Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({
-                red: this._desktopManager.selectColor.red,
-                green: this._desktopManager.selectColor.green,
-                blue: this._desktopManager.selectColor.blue,
-                alpha: 1.0,
-            })
-            );
+            cr.setLineWidth(0.5);
+            cr.rectangle(x + 0.5, y + 0.5, width, height);
+            Gdk.cairo_set_source_rgba(cr, outlineColor);
             cr.stroke();
-        }
-        if (this.Prefs.showDropPlace && (this._selectedList !== null)) {
-            for (let [x, y] of this._selectedList) {
-                cr.rectangle(x + 0.5, y + 0.5, this._elementWidth, this._elementHeight);
-                Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({
-                    red: 1.0 - this._desktopManager.selectColor.red,
-                    green: 1.0 - this._desktopManager.selectColor.green,
-                    blue: 1.0 - this._desktopManager.selectColor.blue,
-                    alpha: 0.4,
-                })
-                );
-                cr.fill();
-                cr.setLineWidth(0.5);
-                cr.rectangle(x + 0.5, y + 0.5, this._elementWidth, this._elementHeight);
-                Gdk.cairo_set_source_rgba(cr, new Gdk.RGBA({
-                    red: 1.0 - this._desktopManager.selectColor.red,
-                    green: 1.0 - this._desktopManager.selectColor.green,
-                    blue: 1.0 - this._desktopManager.selectColor.blue,
-                    alpha: 1.0,
-                })
-                );
-                cr.stroke();
-            }
-        }
+            resolve(true);
+        });
     }
 
     getDistance(x) {
