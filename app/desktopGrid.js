@@ -109,7 +109,7 @@ var DesktopGrid = class {
         this._drawArea.set_content_height(this._windowHeight);
         this._drawArea.set_content_width(this._windowWidth);
         this.sizeContainer(this._drawArea);
-        this._drawArea.set_draw_func(this._doDrawRubberBand.bind(this));
+        this._drawArea.set_draw_func(this._doDrawOnGrid.bind(this));
         this._overlay.add_overlay(this._drawArea);
         this._drawArea.set_can_target(false);
 
@@ -743,12 +743,12 @@ var DesktopGrid = class {
     highLightGridAt(x, y) {
         let selected = this.getGridAt(x, y, false);
         this._selectedList = [selected];
-        this._window.queue_draw();
+        this._drawDropRectangles();
     }
 
     unHighLightGrids() {
         this._selectedList = null;
-        this._window.queue_draw();
+        this._drawDropRectangles();
     }
 
     _getGridCoordinates(x, y) {
@@ -779,7 +779,7 @@ var DesktopGrid = class {
     refreshDrag(selectedList, ox, oy) {
         if (selectedList === null) {
             this._selectedList = null;
-            this._drawArea.queue_draw();
+            this._drawDropRectangles();
             return;
         }
         let newSelectedList = [];
@@ -795,7 +795,7 @@ var DesktopGrid = class {
         if (newSelectedList.length === 0) {
             if (this._selectedList !== null) {
                 this._selectedList = null;
-                this.queue_draw();
+                this._drawDropRectangles();
             }
             return;
         }
@@ -804,28 +804,35 @@ var DesktopGrid = class {
                 return;
         }
         this._selectedList = newSelectedList;
-        this.queue_draw();
+        this._drawDropRectangles();
+    }
+
+    _doDrawOnGrid(actor, cr) {
+        this._doDrawRubberBand(actor, cr);
+        this._doDrawDropRectangles(actor, cr);
     }
 
     queue_draw() {
         this._drawArea.queue_draw();
     }
 
-    _doDrawRubberBand(actor, cr) {
-        if (this._desktopManager.rubberBand && this._desktopManager.selectionRectangle) {
-            if (!this.gridGlobalRectangle.intersect(this._desktopManager.selectionRectangle)[0])
-                return;
-            this._drawRubberBand(actor, cr);
-        }
-        if (this.Prefs.showDropPlace && (this._selectedList !== null))
-            this._drawDropRectangles(this._selectedList, cr).catch(logError);
+    _drawDropRectangles() {
+        this._drawArea.queue_draw();
     }
 
-    _drawRubberBand(actor, cr) {
-        let [xInit, yInit] = this.coordinatesGlobalToLocal(this._desktopManager.x1, this._desktopManager.y1);
-        let [xFin, yFin] = this.coordinatesGlobalToLocal(this._desktopManager.x2, this._desktopManager.y2);
-        let width = xFin - xInit;
-        let height = yFin - yInit;
+    drawRubberBand() {
+        this._drawArea.queue_draw();
+    }
+
+    async _doDrawRubberBand(actor, cr) {
+        if (!this._desktopManager.rubberBand ||
+            !this._desktopManager.selectionRectangle ||
+            !this.gridGlobalRectangle.intersect(this._desktopManager.selectionRectangle)[0])
+            return;
+        const [xInit, yInit] = this.coordinatesGlobalToLocal(this._desktopManager.x1, this._desktopManager.y1);
+        const [xFin, yFin] = this.coordinatesGlobalToLocal(this._desktopManager.x2, this._desktopManager.y2);
+        const width = xFin - xInit;
+        const height = yFin - yInit;
         const fillColor = new Gdk.RGBA({
             red: this._desktopManager.selectColor.red,
             green: this._desktopManager.selectColor.green,
@@ -838,11 +845,12 @@ var DesktopGrid = class {
             blue: this._desktopManager.selectColor.blue,
             alpha: 1.0,
         });
-        this._rectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor).catch(logError);
+        await this._rectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor).catch(logError);
     }
 
-    async _drawDropRectangles(selectionList, cr) {
-        let drawPromiseArray = [];
+    async _doDrawDropRectangles(actor, cr) {
+        if (!this.Prefs.showDropPlace || this._selectedList === null)
+            return;
         const fillColor = new Gdk.RGBA({
             red: 1.0 - this._desktopManager.selectColor.red,
             green: 1.0 - this._desktopManager.selectColor.green,
@@ -855,9 +863,10 @@ var DesktopGrid = class {
             blue: 1.0 - this._desktopManager.selectColor.blue,
             alpha: 1.0,
         });
-        for (let [x, y] of selectionList)
-            drawPromiseArray.push(this._rectangleDraw(x, y, this._elementWidth, this._elementHeight, cr, fillColor, outlineColor));
-        await Promise.all([drawPromiseArray]);
+        const dropRectanglePromises = this._selectedList.map(([x, y]) => {
+            this._rectangleDraw(x, y, this._elementWidth, this._elementHeight, cr, fillColor, outlineColor);
+        });
+        await Promise.all(dropRectanglePromises).catch(logError);
     }
 
     _rectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
@@ -945,7 +954,7 @@ var DesktopGrid = class {
          * Also store the new possition if it has been moved by the user,
          * and not triggered by a screen change.
          */
-        if ((fileItem.savedCoordinates == null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
+        if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
             fileItem.savedCoordinates = [x, y];
     }
 
