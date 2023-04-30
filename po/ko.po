@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"POT-Creation-Date: 2023-04-30 17:39-0400\n"
 "PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -469,8 +469,7 @@ msgstr "유형별로 누적 유지…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "홈/드라이브/휴지통 정렬…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2597
-#: app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2598
 msgid "New Folder"
 msgstr "새 폴더"
 
@@ -540,22 +539,22 @@ msgstr "이 창이 열려 있습니다. 활성 창으로 전환하십시오."
 msgid "Settings"
 msgstr "설정"
 
-#: app/desktopManager.js:2620 app/desktopManager.js:2619
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "폴더 생성 실패"
 
-#: app/desktopManager.js:2621 app/desktopManager.js:2620
+#: app/desktopManager.js:2622
 #, fuzzy
 msgid "Could not create folder"
 msgstr "폴더를 생성할 수 없습니다."
 
-#: app/desktopManager.js:2664 app/desktopManager.js:2663
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "템플릿 생성 오류"
 
-#: app/desktopManager.js:2665 app/desktopManager.js:2664
+#: app/desktopManager.js:2666
 #, fuzzy
 msgid "Could not create document"
 msgstr "문서를 생성할 수 없습니다."
@@ -806,21 +805,21 @@ msgstr "목적지 선택"
 msgid "Select"
 msgstr "선택"
 
-#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "복사 취소됨"
 
-#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "파일을 복사할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
-#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "선택 파일 중 디렉터리가 포함되어 있어, 먼저 파일로 압축이 필요합니다."
 

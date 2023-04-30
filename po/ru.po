@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 22:24-0400\n"
-"PO-Revision-Date: 2023-04-25 17:52+0000\n"
-"Last-Translator: dinos <ecg-diagnostic@mail.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
+"POT-Creation-Date: 2023-04-30 17:39-0400\n"
+"PO-Revision-Date: 2023-04-27 09:50+0000\n"
+"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
@@ -376,7 +376,7 @@ msgstr "Название"
 
 #: app/desktopManager.js:1565
 msgid "Name Z-A"
-msgstr "Название от A до Я"
+msgstr "Названия от Я до А"
 
 #: app/desktopManager.js:1566
 msgid "Modified Time"
@@ -402,8 +402,7 @@ msgstr "Сохранить сгруппированными по типу…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сортировать Домашняя папка/Диски/Корзина…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2597
-#: app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2598
 msgid "New Folder"
 msgstr "Создать папку"
 
@@ -467,19 +466,19 @@ msgstr "Это окно открыто. Пожалуйста, переключи
 msgid "Settings"
 msgstr "Параметры"
 
-#: app/desktopManager.js:2620 app/desktopManager.js:2619
+#: app/desktopManager.js:2621
 msgid "Folder Creation Failed"
 msgstr "Ошибка создания папки"
 
-#: app/desktopManager.js:2621 app/desktopManager.js:2620
+#: app/desktopManager.js:2622
 msgid "Could not create folder"
 msgstr "Не удалось создать папку"
 
-#: app/desktopManager.js:2664 app/desktopManager.js:2663
+#: app/desktopManager.js:2665
 msgid "Template Creation Error"
 msgstr "Ошибка создания шаблона"
 
-#: app/desktopManager.js:2665 app/desktopManager.js:2664
+#: app/desktopManager.js:2666
 msgid "Could not create document"
 msgstr "Не удалось создать документ"
 
@@ -714,9 +713,8 @@ msgid "Move Cancelled"
 msgstr "Перемещение отменено"
 
 #: app/fileItemMenu.js:561
-#, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Невозможно переместить файлы, нет папки назначения"
+msgstr "Не удалось переместить файлы, нет папки назначения"
 
 #: app/fileItemMenu.js:573 app/fileItemMenu.js:601
 msgid "Select Destination"
@@ -726,19 +724,19 @@ msgstr "Выберите место назначения"
 msgid "Select"
 msgstr "Выделить"
 
-#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 msgid "Copy Cancelled"
 msgstr "Копирование отменено"
 
-#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 msgid "Unable to copy Files, no destination folder"
 msgstr "Не удалось скопировать файлы, нет папки назначения"
 
-#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "Невозможно отправить каталог по электронной почте"
 
-#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Выбран каталог, сначала сожмите его в файл."
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"POT-Creation-Date: 2023-04-30 17:39-0400\n"
 "PO-Revision-Date: 2022-07-03 21:02+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -437,7 +437,7 @@ msgstr "Gardar l’empilament per tipe..."
 msgid "Sort Home/Drives/Trash…"
 msgstr "Triar Repertòri personal/disques/escobilhièr..."
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2597
+#: app/desktopManager.js:1581 app/desktopManager.js:2598
 msgid "New Folder"
 msgstr "Dorsièr novèl"
 
@@ -505,20 +505,20 @@ msgstr ""
 msgid "Settings"
 msgstr "Paramètres"
 
-#: app/desktopManager.js:2620
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Nom del dorsièr"
 
-#: app/desktopManager.js:2621
+#: app/desktopManager.js:2622
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2665
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2666
 msgid "Could not create document"
 msgstr ""
 
