@@ -916,9 +916,9 @@ var DesktopManager = class {
         });
     }
 
-    async makeFileSystemLinks(fileList, destination) {
+    makeFileSystemLinks(fileList, destination) {
         let gioDestination = Gio.File.new_for_uri(destination);
-        await Promise.all(fileList.map(async file => {
+        fileList.forEach(file => {
             const fileGio = Gio.File.new_for_uri(file);
             const baseNameParts = this.DesktopIconsUtil.getFileExtensionOffset(fileGio.get_basename());
             let i = 0;
@@ -942,7 +942,7 @@ var DesktopManager = class {
                     }
                 }
             } while (true);
-        }));
+        });
     }
 
     async makeLinks(fileList, destination, X, Y) {
@@ -2019,12 +2019,13 @@ var DesktopManager = class {
                         }
                         return;
                     }
-
-                    fileList.push(fileItem);
+                    fileItem.savedCoordinates = fileItem.savedCoordinates ?? null;
+                    fileItem.dropCoordinates = fileItem.dropCoordinates ?? null;
                     if (fileItem.savedCoordinates === null || fileItem.dropCoordinates === null) {
                         const basename = fileItem.file.get_basename();
                         this._checkBasenameInPending(fileItem, basename);
                     }
+                    fileList.push(fileItem);
                 });
             };
 
