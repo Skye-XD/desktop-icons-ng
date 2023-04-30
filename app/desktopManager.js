@@ -1815,12 +1815,12 @@ var DesktopManager = class {
         return [true, isCut, files];
     }
 
-    async drawSelectionRectangle() {
+    drawSelectionRectangles() {
         for (let grid of this._desktops)
-            grid.queue_draw().catch(e => logError(e));
+            grid.queue_draw()
     }
 
-    async onMotion(X, Y) {
+    onMotion(X, Y) {
         this.pointerX = X;
         this.pointerY = Y;
         if (this.rubberBand) {
@@ -1829,7 +1829,7 @@ var DesktopManager = class {
             this.y1 = Math.min(Y, this.rubberBandInitY);
             this.y2 = Math.max(Y, this.rubberBandInitY);
             this.selectionRectangle = new Gdk.Rectangle({ 'x': this.x1, 'y': this.y1, 'width': this.x2 - this.x1, 'height': this.y2 - this.y1 });
-
+            this.drawSelectionRectangles();
             for (let item of this._fileList) {
                 let labelintersect = item.labelRectangle.intersect(this.selectionRectangle)[0];
                 let iconintersect = item.iconRectangle.intersect(this.selectionRectangle)[0];
