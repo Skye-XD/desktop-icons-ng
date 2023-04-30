@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"POT-Creation-Date: 2023-04-30 17:39-0400\n"
 "PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -473,8 +473,7 @@ msgstr "Păstrați stivuite după tip…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortare Acasă/Drive/Coș de gunoi…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2597
-#: app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2598
 msgid "New Folder"
 msgstr "Director nou"
 
@@ -545,22 +544,22 @@ msgstr ""
 msgid "Settings"
 msgstr "Setări"
 
-#: app/desktopManager.js:2620 app/desktopManager.js:2619
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Crearea folderului a eșuat"
 
-#: app/desktopManager.js:2621 app/desktopManager.js:2620
+#: app/desktopManager.js:2622
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Nu s-a putut crea folderul"
 
-#: app/desktopManager.js:2664 app/desktopManager.js:2663
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Eroare la crearea șablonului"
 
-#: app/desktopManager.js:2665 app/desktopManager.js:2664
+#: app/desktopManager.js:2666
 #, fuzzy
 msgid "Could not create document"
 msgstr "Documentul nu a putut fi creat"
@@ -816,21 +815,21 @@ msgstr "Selectați Destinație"
 msgid "Select"
 msgstr "Selectează"
 
-#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Copie anulată"
 
-#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nu se pot copia fișiere, niciun folder de destinație"
 
-#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "Nu se poate trimite un dosar prin email"
 
-#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Selecția include un dosar, mai întâi arhiveză-l într-un fișier"
 

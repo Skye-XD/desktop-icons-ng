@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"POT-Creation-Date: 2023-04-30 17:39-0400\n"
 "PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -471,8 +471,7 @@ msgstr "Mantenir apilats per tipus…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordena Inici/Unitats/Paperera…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2597
-#: app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2598
 msgid "New Folder"
 msgstr "Carpeta nova"
 
@@ -545,22 +544,22 @@ msgstr ""
 msgid "Settings"
 msgstr "Paràmetres"
 
-#: app/desktopManager.js:2620 app/desktopManager.js:2619
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "No s'ha pogut crear la carpeta"
 
-#: app/desktopManager.js:2621 app/desktopManager.js:2620
+#: app/desktopManager.js:2622
 #, fuzzy
 msgid "Could not create folder"
 msgstr "No s'ha pogut crear la carpeta"
 
-#: app/desktopManager.js:2664 app/desktopManager.js:2663
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Error de creació de plantilla"
 
-#: app/desktopManager.js:2665 app/desktopManager.js:2664
+#: app/desktopManager.js:2666
 #, fuzzy
 msgid "Could not create document"
 msgstr "No s'ha pogut crear el document"
@@ -817,21 +816,21 @@ msgstr "Seleccioneu Destinació"
 msgid "Select"
 msgstr "Seleccioneu"
 
-#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Còpia cancel·lada"
 
-#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "No es poden copiar els fitxers, no hi ha carpeta de destinació"
 
-#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "No es pot enviar un directori per correu electrònic"
 
-#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La selecció inclou un directori, comprimeix-hi el directori en un fitxer."

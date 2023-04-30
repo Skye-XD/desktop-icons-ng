@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"POT-Creation-Date: 2023-04-30 17:39-0400\n"
 "PO-Revision-Date: 2023-04-24 02:39+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
@@ -475,8 +475,7 @@ msgstr "Захоўваць стэк па тыпу…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сартаваць Галоўная/Дыскі/Сметніца…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2597
-#: app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2598
 msgid "New Folder"
 msgstr "Новая папка"
 
@@ -548,22 +547,22 @@ msgstr "Гэта акно адкрыта. Пераключыцеся ў акты
 msgid "Settings"
 msgstr "Настройкі"
 
-#: app/desktopManager.js:2620 app/desktopManager.js:2619
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Збой стварэння папкі"
 
-#: app/desktopManager.js:2621 app/desktopManager.js:2620
+#: app/desktopManager.js:2622
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Немагчыма стварыць папку"
 
-#: app/desktopManager.js:2664 app/desktopManager.js:2663
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Памылка стварэння шаблона"
 
-#: app/desktopManager.js:2665 app/desktopManager.js:2664
+#: app/desktopManager.js:2666
 #, fuzzy
 msgid "Could not create document"
 msgstr "Немагчыма стварыць дакумент"
@@ -720,7 +719,6 @@ msgid "Create Link..."
 msgstr "Стварыць спасылку..."
 
 #: app/fileItemMenu.js:374
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -822,21 +820,21 @@ msgstr "Выберыце пункт прызначэння"
 msgid "Select"
 msgstr "Вылучыць"
 
-#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Капіраванне адменена"
 
-#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Немагчыма скапіраваць файлы, няма папкі прызначэння"
 
-#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "Немагчыма даслаць папку"
 
-#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Сярод вылучанага ёсць папка, спачатку сцісніце папку ў файл."
 

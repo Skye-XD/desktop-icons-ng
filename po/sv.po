@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-23 22:24-0400\n"
+"POT-Creation-Date: 2023-04-30 17:39-0400\n"
 "PO-Revision-Date: 2023-04-24 02:28+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -489,8 +489,7 @@ msgstr "Håll staplade efter typ…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortera hem/enheter/sopor…"
 
-#: app/desktopManager.js:1581 app/desktopManager.js:2597
-#: app/desktopManager.js:2596
+#: app/desktopManager.js:1581 app/desktopManager.js:2598
 msgid "New Folder"
 msgstr "Ny mapp"
 
@@ -560,22 +559,22 @@ msgstr "Detta fönster är öppet. Växla till det aktiva fönstret."
 msgid "Settings"
 msgstr "Inställningar"
 
-#: app/desktopManager.js:2620 app/desktopManager.js:2619
+#: app/desktopManager.js:2621
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Det gick inte att skapa mappar"
 
-#: app/desktopManager.js:2621 app/desktopManager.js:2620
+#: app/desktopManager.js:2622
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Det gick inte att skapa mappen"
 
-#: app/desktopManager.js:2664 app/desktopManager.js:2663
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Fel vid skapande av mall"
 
-#: app/desktopManager.js:2665 app/desktopManager.js:2664
+#: app/desktopManager.js:2666
 #, fuzzy
 msgid "Could not create document"
 msgstr "Det gick inte att skapa dokumentet"
@@ -828,21 +827,21 @@ msgstr "Välj Destination"
 msgid "Select"
 msgstr "Välj"
 
-#: app/fileItemMenu.js:647 app/fileItemMenu.js:601
+#: app/fileItemMenu.js:647
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopiering avbruten"
 
-#: app/fileItemMenu.js:648 app/fileItemMenu.js:602
+#: app/fileItemMenu.js:648
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Det går inte att kopiera filer, ingen målmapp"
 
-#: app/fileItemMenu.js:675 app/fileItemMenu.js:629
+#: app/fileItemMenu.js:675
 msgid "Can not email a Directory"
 msgstr "Kan inte maila en katalog"
 
-#: app/fileItemMenu.js:676 app/fileItemMenu.js:630
+#: app/fileItemMenu.js:676
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Valet innehåller en katalog,  komprimera katalogen till en fil först."
 
