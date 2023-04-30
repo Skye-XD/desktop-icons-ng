@@ -1817,7 +1817,7 @@ var DesktopManager = class {
 
     drawSelectionRectangles() {
         for (let grid of this._desktops)
-            grid.queue_draw()
+            grid.drawRubberBand();
     }
 
     onMotion(X, Y) {
@@ -1849,7 +1849,7 @@ var DesktopManager = class {
             this.selectionRectangle = null;
         }
         for (let grid of this._desktops)
-            grid.queue_draw();
+            grid.drawRubberBand();
 
         return false;
     }
@@ -2021,7 +2021,7 @@ var DesktopManager = class {
                     }
 
                     fileList.push(fileItem);
-                    if (fileItem.savedCoordinates == null || fileItem.dropCoordinates == null) {
+                    if (fileItem.savedCoordinates === null || fileItem.dropCoordinates === null) {
                         const basename = fileItem.file.get_basename();
                         this._checkBasenameInPending(fileItem, basename);
                     }
@@ -2067,7 +2067,7 @@ var DesktopManager = class {
 
     _checkBasenameInPending(fileItem, basename) {
         if (basename in this._pendingSelfCopyFiles) {
-            if (fileItem.savedCoordinates == null)
+            if (fileItem.savedCoordinates === null)
                 fileItem.savedCoordinates = this._pendingSelfCopyFiles[basename];
             delete this._pendingSelfCopyFiles[basename];
             return;
@@ -2174,7 +2174,7 @@ var DesktopManager = class {
 
         // First, add those icons that have saved coordinates and fit in the current desktops
         for (let fileItem of fileList) {
-            if (fileItem.savedCoordinates == null) {
+            if (fileItem.savedCoordinates === null) {
                 if (fileItem.dropCoordinates !== null)
                     droppedFiles.push(fileItem);
                 else
