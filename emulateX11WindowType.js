@@ -254,6 +254,11 @@ var EmulateX11WindowType = class {
             this._enableRefresh = true;
             this._refreshWindows(true);
         });
+
+        /* If a window is lowered with shortcuts, detect and fix DING window */
+        this._restackedID = global.display.connect('restacked',
+            this._syncToBottomOfStack.bind(this)
+        );
     }
 
     disable() {
@@ -288,6 +293,10 @@ var EmulateX11WindowType = class {
             Main.overview.disconnect(this._hidingId);
             this._hidingId = null;
         }
+        if (this._restackedID) {
+            global.display.disconnect(this._restackedID);
+            this._restackedID = null;
+        }
     }
 
     addWindow(window, windowActor) {
@@ -314,6 +323,15 @@ var EmulateX11WindowType = class {
         window.customJS_ding = null;
         window.actor._delegate = null;
         window.actor = null;
+    }
+
+    _syncToBottomOfStack() {
+        let windows = global.display.get_tab_list(Meta.TabList.NORMAL_ALL, global.workspace_manager.get_active_workspace());
+        windows = global.display.sort_windows_by_stacking(windows);
+        if (!windows[0].customJS_ding && windows.length > 1) {
+            for (let window of this._windowList)
+                window.customJS_ding.refreshState(false);
+        }
     }
 
     _refreshWindows(checkWorkspace) {
