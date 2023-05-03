@@ -199,7 +199,7 @@ var EmulateX11WindowType = class {
     constructor() {
         this._isX11 = !Meta.is_wayland_compositor();
         this._windowList = null;
-        this._enableRefresh = true;
+        this._overviewHiding = true;
         this._waylandClient = null;
     }
 
@@ -222,8 +222,8 @@ var EmulateX11WindowType = class {
             if (this._isX11) {
                 let appid = window.get_gtk_application_id();
                 let windowpid = window.get_pid();
-                let mypid = this._waylandClient.query_pid_of_program();
-                if ((appid == 'com.desktop.ding') && (windowpid == mypid))
+                let mypid = parseInt(this._waylandClient.query_pid_of_program());
+                if ((appid === 'com.desktop.ding') && (windowpid === mypid))
                     this.addWindow(window, windowActor);
             }
             this._refreshWindows(false);
@@ -247,11 +247,11 @@ var EmulateX11WindowType = class {
            "stick", or the windows will appear
          */
         this._showingId = Main.overview.connect('showing', () => {
-            this._enableRefresh = false;
+            this._overviewHiding = false;
         });
 
         this._hidingId = Main.overview.connect('hiding', () => {
-            this._enableRefresh = true;
+            this._overviewHiding = true;
             this._refreshWindows(true);
         });
 
@@ -331,13 +331,19 @@ var EmulateX11WindowType = class {
         if (!windows[0].customJS_ding && windows.length > 1) {
             for (let window of this._windowList)
                 window.customJS_ding.refreshState(false);
+            this._activateTopWindow(windows[0]);
         }
+    }
+
+    _activateTopWindow(lastWindow) {
+        let topWindow = global.display.get_tab_next(Meta.TabList.NORMAL, global.workspace_manager.get_active_workspace(), lastWindow, true);
+        topWindow.focus(Clutter.CURRENT_TIME);
     }
 
     _refreshWindows(checkWorkspace) {
         if (!this._activate_window_ID) {
             this._activate_window_ID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
-                if (this._enableRefresh) {
+                if (this._overviewHiding) {
                     for (let window of this._windowList)
                         window.customJS_ding.refreshState(checkWorkspace);
 
