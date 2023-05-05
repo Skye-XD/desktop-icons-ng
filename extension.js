@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /* exported init, enable, disable */
-const { GLib, Gio, Meta, Clutter, Shell } = imports.gi;
+const { GLib, Gio, Meta, Clutter } = imports.gi;
 const Main = imports.ui.main;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Config = imports.misc.config;
@@ -507,8 +507,7 @@ var LaunchSubprocess = class {
             try {
                 this._waylandClient = Meta.WaylandClient.new(this._launcher);
             } catch (e) {
-                this._waylandClient = Meta.WaylandClient.new(global.context,
-                                                             this._launcher);
+                this._waylandClient = Meta.WaylandClient.new(global.context, this._launcher);
             }
 
             if (Config.PACKAGE_VERSION === '3.38.0') {

@@ -167,12 +167,16 @@ class ManageWindow {
         }
     }
 
-    refreshState(checkWorkspace) {
-        if (checkWorkspace && this._showInAllDesktops) {
+    moveToActiveWorkspace() {
+        if (this._showInAllDesktops) {
             let currentWorkspace = global.workspace_manager.get_active_workspace();
             if (!this._window.located_on_workspace(currentWorkspace))
                 this._window.change_workspace(currentWorkspace);
         }
+        this.moveDesktopWindowToBottom();
+    }
+
+    moveDesktopWindowToBottom() {
         if (this._window.fullscreen)
             this._window.unmake_fullscreen();
 
@@ -194,12 +198,12 @@ var EmulateX11WindowType = class {
      This class does all the heavy lifting for emulating WindowType.
      Just make one instance of it, call enable(), and whenever a window
      that you want to give "superpowers" is mapped, add it with the
-     "addWindow" method. That's all.
+     "addWindowManagedCustomJS_ding" method. That's all.
      */
     constructor() {
         this._isX11 = !Meta.is_wayland_compositor();
         this._windowList = null;
-        this._enableRefresh = true;
+        this._overviewHiding = true;
         this._waylandClient = null;
     }
 
@@ -214,46 +218,54 @@ var EmulateX11WindowType = class {
     enable() {
         if (!this._windowList)
             this._windowList = new Set();
+
         this._idMap = global.window_manager.connect_after('map', (obj, windowActor) => {
             let window = windowActor.get_meta_window();
             if (this._waylandClient && this._waylandClient.query_window_belongs_to(window))
-                this.addWindow(window, windowActor);
+                this._addWindowManagedCustomJS_ding(window, windowActor);
 
             if (this._isX11) {
                 let appid = window.get_gtk_application_id();
                 let windowpid = window.get_pid();
-                let mypid = this._waylandClient.query_pid_of_program();
-                if ((appid == 'com.desktop.ding') && (windowpid == mypid))
-                    this.addWindow(window, windowActor);
+                let mypid = parseInt(this._waylandClient.query_pid_of_program());
+                if ((appid === 'com.desktop.ding') && (windowpid === mypid))
+                    this._addWindowManagedCustomJS_ding(window, windowActor);
             }
-            this._refreshWindows(false);
+            this._onIdleRestackMoveWindow({ moveDesktopWindowToBottom: true });
         });
+
         this._idDestroy = global.window_manager.connect_after('destroy', (wm, windowActor) => {
             // if a window is closed, ensure that the desktop doesn't receive the focus
             let window = windowActor.get_meta_window();
             if (window && (window.get_window_type() >= Meta.WindowType.DROPDOWN_MENU))
                 return;
 
-            this._refreshWindows(true);
+            this._onIdleRestackMoveWindow({ moveToActiveWorkspace: true });
         });
         /* Something odd happens with "stick" when using popup submenus, so
            this implements the same functionality
          */
+
         this._switchWorkspaceId = global.window_manager.connect('switch-workspace', () => {
-            this._refreshWindows(true);
+            this._onIdleRestackMoveWindow({ moveToActiveWorkspace: true });
         });
 
         /* But in Overview mode it is paramount to not change the workspace to emulate
            "stick", or the windows will appear
          */
         this._showingId = Main.overview.connect('showing', () => {
-            this._enableRefresh = false;
+            this._overviewHiding = false;
         });
 
         this._hidingId = Main.overview.connect('hiding', () => {
-            this._enableRefresh = true;
-            this._refreshWindows(true);
+            this._overviewHiding = true;
+            this._onIdleRestackMoveWindow({ moveToActiveWorkspace: true });
         });
+
+        /* If a window is lowered with shortcuts, detect and fix DING window */
+        this._restackedID = global.display.connect('restacked',
+            this._syncToBottomOfStack.bind(this)
+        );
     }
 
     disable() {
@@ -288,16 +300,22 @@ var EmulateX11WindowType = class {
             Main.overview.disconnect(this._hidingId);
             this._hidingId = null;
         }
+        if (this._restackedID) {
+            global.display.disconnect(this._restackedID);
+            this._restackedID = null;
+        }
     }
 
-    addWindow(window, windowActor) {
+    _addWindowManagedCustomJS_ding(window, windowActor) {
         if (window.get_meta_window) { // it is a MetaWindowActor
             window = window.get_meta_window();
         }
+
         if (this._windowList.has(window))
             return;
+
         window.customJS_ding = new ManageWindow(window, this._waylandClient, () => {
-            this._refreshWindows(false);
+            this._onIdleRestackMoveWindow({ moveDesktopWindowToBottom: true });
         });
         window.actor = windowActor;
         windowActor._delegate = new HandleDragActors(windowActor);
@@ -316,32 +334,54 @@ var EmulateX11WindowType = class {
         window.actor = null;
     }
 
-    _refreshWindows(checkWorkspace) {
+    _syncToBottomOfStack() {
+        let windows = global.display.get_tab_list(Meta.TabList.NORMAL_ALL, global.workspace_manager.get_active_workspace());
+        windows = global.display.sort_windows_by_stacking(windows);
+        if (windows.length > 1 && !windows[0].customJS_ding) {
+            this._moveDesktopWindowToBottom();
+            this._activateTopWindowFromLastWindow(windows[0]);
+        }
+    }
+
+    _activateTopWindowFromLastWindow(lastWindow) {
+        let topWindow = global.display.get_tab_next(Meta.TabList.NORMAL, global.workspace_manager.get_active_workspace(), lastWindow, true);
+        topWindow.focus(Clutter.CURRENT_TIME);
+    }
+
+    _activateTopWindowOnActiveWorkspace() {
+        let window = global.display.get_tab_current(Meta.TabList.NORMAL, global.workspace_manager.get_active_workspace());
+        if (window && (!window.customJS_ding || !window.customJS_ding._keepAtBottom) && !window.minimized) {
+            Main.activateWindow(window);
+        } else {
+            for (window of this._windowList) {
+                if (window.customJS_ding && window.customJS_ding._keepAtBottom && !window.minimized) {
+                    Main.activateWindow(window);
+                    break;
+                }
+            }
+        }
+    }
+
+    _moveDesktopWindowToBottom() {
+        for (let window of this._windowList)
+            window.customJS_ding.moveDesktopWindowToBottom();
+    }
+
+    _moveDesktopWindowToActiveWorkspace() {
+        for (let window of this._windowList)
+            window.customJS_ding.moveToActiveWorkspace();
+    }
+
+    _onIdleRestackMoveWindow(action = { moveToActiveWorkspace: true }) {
         if (!this._activate_window_ID) {
             this._activate_window_ID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
-                if (this._enableRefresh) {
-                    for (let window of this._windowList)
-                        window.customJS_ding.refreshState(checkWorkspace);
+                if (this._overviewHiding) {
+                    if (action.moveDesktopWindowToBottom)
+                        this._moveDesktopWindowToBottom();
 
-                    if (checkWorkspace) {
-                        // activate the top-most window
-                        let windows = global.display.get_tab_list(Meta.TabList.NORMAL_ALL, global.workspace_manager.get_active_workspace());
-                        let anyActive = false;
-                        for (let window of windows) {
-                            if ((!window.customJS_ding || !window.customJS_ding._keepAtBottom) && !window.minimized) {
-                                Main.activateWindow(window);
-                                anyActive = true;
-                                break;
-                            }
-                        }
-                        if (!anyActive) {
-                            for (let window of this._windowList) {
-                                if (window.customJS_ding && window.customJS_ding._keepAtBottom && !window.minimized) {
-                                    Main.activateWindow(window);
-                                    break;
-                                }
-                            }
-                        }
+                    if (action.moveToActiveWorkspace) {
+                        this._moveDesktopWindowToActiveWorkspace();
+                        this._activateTopWindowOnActiveWorkspace();
                     }
                 }
                 this._activate_window_ID = null;
@@ -373,7 +413,7 @@ class HandleDragActors {
     }
 
     handleDragOver(source) {
-        if (source.app == null)
+        if ((source.app ?? null) === null)
             return DND.DragMotionResult.NO_DROP;
         this._getModifierKeys();
         if (this.isShift) {
@@ -388,7 +428,7 @@ class HandleDragActors {
     }
 
     acceptDrop(source, actor, x, y) {
-        if (source.app == null)
+        if ((source.app ?? null) === null)
             return false;
 
         let appFavorites = AppFavorites.getAppFavorites();
