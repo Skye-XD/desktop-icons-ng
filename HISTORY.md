@@ -1,4 +1,14 @@
 # History of versions #
+* Gtk4 version 38
+  * Fix for icons showing on top of windows with rapid workspace changes using shortcuts. (Sundeep Mediratta)
+  * Fix for icons showing on top on lowering windows using middle click or shortcut keys. (Sundeep Mediratta)
+  * Optimze drawing rectangles on the grid using async calls and promises. (Sundeep Mediratta)
+  * Revert previous wrong async without await, prevent excessive CPU usage on mouse movement with lag on DING window. (Sundeep Mediratta)
+  * Lint clean multiple file errors, extension.js, emulateX11WindowType.js, desktopManager.js and desktopGrid.js. (Sundeep Mediratta)
+  * Rename all methods in emulateX11WidnowType.js to make it verbose, less cryptic and remove confusing true/false parameters. (Sundeep Mediratta)
+  * Multilpe translations update. (Weblate authours)
+  * Update HIstory.md, metadata.json, Versin Bumbp to 38.
+
 * Gtk4 version 37
   * Fix for single click opening working on alternate clicks. (Sundeep Mediratta)
   * Fix unecessary resource utilization to save icons. (Sundeep Mediratta)
