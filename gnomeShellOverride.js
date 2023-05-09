@@ -127,14 +127,15 @@ function newShouldShowWindow(window) {
  * @param {object} switchData the original switchData for the function
  */
 function newFinishWorkspaceSwitch(switchData) {
-    Meta.enable_unredirect_for_display(global.display);
     let movingWindow = this.movingWindow;
+    let mymonitorGroup = switchData.monitors;
+    let dummyMonitor = Clutter.Actor.new();
+    switchData.monitors = [dummyMonitor];
 
-    this._switchData = null;
-    this.movingWindow = null;
+    replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);
 
     workSpaceSwitchTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
-        switchData.monitors.forEach(m => m.destroy());
+        mymonitorGroup.forEach(m => m.destroy());
         movingWindow = null;
         workSpaceSwitchTimeoutID = null;
         return false;
