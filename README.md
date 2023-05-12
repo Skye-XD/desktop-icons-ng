@@ -39,21 +39,21 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] Other than the UUID of the extension, changed the application ID, the Dbus object paths and GSetting schemas for the application. This is to differentiate it from the gtk-3 desktop icons NG extension. Both can be installed simultaneously on the same system. However both should not be run at the same time, only one extension should be active. This lets users test the extension, report problems that need fixing, and revert to the original gtk3 DING if does not work for them.
 
-- [x] For Gnome 42, allow use of 'unlock-dialog' in session mode for the extension, so that it is not relaunched every time.
+- [x] For Gnome 42 and newer, allow use of 'unlock-dialog' in session mode for the extension, so that it is not relaunched every time.
 
 - [x] Re-organization, New Folder structure to avoid confusion and facilitate review.
 
-- [x] Update to work with Gnome 43 and File 43, Files 44alpha.
+- [x] Update to work with Gnome 43, 44 and File 43, Files 44.
 
 - [x] More Reliable parsing of string URI lists with old Nautilus with GLib.Uri.
 
-- [x] Give visual feedback and prevent smoothly dropping special files if selected, on Nautilus windows by doing local drops by accepting but not reading drop data.
+- [x] Give visual feedback and prevent smoothly dropping special files if selected, on Nautilus windows by doing local drops and by accepting but not reading drop data.
 
 - [x] Use native TextEncoder and TextDecoder objects in GJS instead of ByteArray imports.
 
 - [x] Use CSS to unhighlight Drop Target.
 
-- [x] Use native libadwaita prefrences window from gnome-extensions if possible to maintain UI consistency.
+- [x] Use native libadwaita prefrences window. Same look if launched from extensions manager or if needed, launch natively if unable to launch from extension manager.
 
 - [X] Add a preferences option to place new icons on the non primary display if multiple monitors are connected. If a second monitor is connected, new icons can now be placed on the secondary monitors first, not the Primary Display.
 
@@ -77,7 +77,7 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] Lookup GIMP files for snap and flatpack install as well. Also optimizes the thumbnail lookup code to make fewer lookups, and not execute unnecessarly code.
 
-- [x] Detect Change to Dark Mode in Gnome Global Settings, reload dark variant of current theme (for correctly formatted themes with a valid dark-variant) to display correct widgets in correct theme css and vice versa without restarting the app.
+- [x] Detect Change to Dark Mode in Gnome Global Settings, reload dark variant of current theme (for correctly formatted themes with a valid dark-variant) to display correct widgets in correct theme css and vice versa without restarting the app. WITH LIBADWAITA, THIS IS NO LONGER NECESSARY.
 
 - [x] Detect Gtk Theme Changes to update currently applied theme, update selection color and rubber band color in real time to show new colors and themes without restarting the app.
 
@@ -149,11 +149,11 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] MR submitted to Dash to Dock [here](https://github.com/micheleg/dash-to-dock/pull/1890) for intellihide, and [here](https://github.com/micheleg/dash-to-dock/pull/1888) for Transparency, MR submitted to Dash to Panel [here](https://github.com/home-sweet-gnome/dash-to-panel/pull/1790) to make those extensions detect the Gtk4-DING window and correct intellihide and transparency behaviour. These have not been merged yet. The MR branches can be downloaded and installed to have correctly working Dash to Dock and Dash to Panel with intellihide.
 
-- [x] Updated css to set custum named program colors.
+- [x] Updated css to set custum named program colors. --Updated now to libadwaita.
 
-- [x] Updated css selectors speceficity and apply specefic Gtk4 methods to widgets, to prevent interference form user applied Gtk themes.
+- [x] Updated css selectors speceficity and apply specefic Gtk4 methods to widgets, to prevent interference form user applied Gtk themes. --Updated now to libawaita.
 
-- [x] Minimized use of Gtk.StyleContext as it is being depriciated, no only used to detect and set rubberband color.
+- [x] Minimized use of Gtk.StyleContext as it is being depriciated, no only used to detect and set rubberband color. --updated now to libadwaita.
 
 - [x] Fix Drag and Drop with X11 yet again. There were spurious icons on drag in X11, and dragItem would be set to null before the drag was completed. Alt key modifier unfortunately now does not work in X11.
 
@@ -183,13 +183,15 @@ Issue is now fixed in Version 33 of the extension on Gnome 44 after upstream fix
 
 - [x] ~~Reading a text drop on the desktop stopped working as dropactor.read_value_finish(result) does not seem to return the text dropped from Gnome 43 onwards :-(. Also see above- cannot read mime type directly from Gtk.DropTargetAsync.~~ Works with firefox, Chrome uses a different mechanism...
 
+- [ ] GNOME shortcuts allow an application window to be lowered, and they use the lower() method, sending the application window below the DING window. This is now detected by connecting to restacked signal to send the DING window back to the lowest position. Unfortunately results in flashing of icons. This needs to be fixed in GNOME shell to either not allowing an application window to be lowered with the lower() call, or if allowing lowering, to to it intelligently to reposition above the DING window.
+
 If this extension does not work for you, just deactivate it in extensions manager, and you can use the classic DING Gtk3 extension.
 
 Please report errors, and if you can fix it, please do so. See Contributing below.
 
 **THEME ISSUES**
 
-SINCE APRIL 16, 2023, veriosn 35, GTK4-DING IS A LIBADWAITA APPLICATION. HOPEFULLY THERE WILL BE NO MORE ISSUES. PLEASE SEE BELOW FOR PREVIOUS VERSIONS.
+SINCE APRIL 16, 2023, veriosn 35, GTK4-DING IS A LIBADWAITA APPLICATION. ONLY DEFAULT LIBADWAITA THEME WILL WORK, GTK THEMES WILL NOT EXCEPT ICONS AND SELECTION/BACKGROUND COLORS. HOPEFULLY THERE WILL BE NO MORE ISSUES. PLEASE SEE BELOW FOR PREVIOUS VERSIONS.
 
 The most common issues users have reported so far pertains to issues with user installed themes. This sheds light and clarifies the issues. The most common issue is a white opaque window with no background image with icons on it, and desktop menus not changing to dark mode on Gnome theme changes.
 
@@ -209,7 +211,7 @@ If despite all the above you feel fixing the .css in the gtk4-DING application o
 
 **DARK MODE ISSUES**
 
-SINCE APRIL 16, 2023, veriosn 35, GTK4-DING IS A LIBADWAITA APPLICATION. HOPEFULLY THERE WILL BE NO MORE ISSUES. PLEASE SEE BELOW FOR PREVIOUS VERSIONS.
+SINCE APRIL 16, 2023, veriosn 35, GTK4-DING IS A LIBADWAITA APPLICATION. HOPEFULLY THERE WILL BE NO MORE ISSUES. DARK MODE SHOULD BE AUTOMATIC WITH LIBADWAITA. PLEASE SEE BELOW FOR PREVIOUS VERSIONS.
 
 Gnome allows Global Dark mode in Settings. This mode does not automatically apply to Gtk4 Applications like DING, it only works on libAdwaita applications and the Gnome Shell. Previously, a specefic dark theme needed to be applied to the "legacy" gtk applications in gnome tweaks to enable dark mode for menus etc. in gtk4-DING.
 
@@ -269,11 +271,14 @@ These two last items are paramount in Wayland systems, because there an applicat
 
 Of course, to avoid breaking the security model of Wayland, it is paramount to ensure that no other program can pose as DING. In old versions, the process for identifying the window was quite convoluted, passing an UUID through STDIN and putting it in the window title. But since Gnome Shell 3.38 there is a new API that allows to check whether a window belongs to an specific process launched from an extension, which makes the code much cleaner and straightforward.
 
-The extension monitors all 'map' signals, and when a window from the DING process previously launched is mapped, it knows that it is the desktop window. It stores that window object, sends it to the bottom of the stack, and connects to three signals:
+The extension monitors all 'map' signals, and when a window from the DING process previously launched is mapped, it knows that it is the desktop window. It stores that window object, sends it to the bottom of the stack, and connects to multiple signals:
 
 * raised: it is called every time the window is sent to the front, so in the callback, the extension sends it again to the bottom.
+* above: calls unmake_above().
+* minimized: udoes the minimze action.
 * position-changed: although the window doesn't have titlebar, it still is possible to move it using Alt+F7, or pressing Super and dragging it with the mouse, so this callback returns the window to the right possition every time the user tries to move it.
 * unmanaged: called when the window disappears. It deletes the UUID, and waits for the desktop program to be killed (it will be relaunched again by the extension, and, of course, a new UUID will be used).
+* restacked: if another window is pushed to the bottom of the stack with lower() (there is a GNOME shortcut action available to do this), and goes below the DING window, the DING window is lowered again below this window. This unfortunately gives flashing of icons, needs to be fixed in gnome shell so that shorcuts for lower use the tab list, to position the window above the DING window.
 
 It also monitors other signals to ensure that the desktop receives the focus only when there are no other windows in the current desktop, and to keep the icons in the right screen, no matter if the user changes to another virtual desktop.
 

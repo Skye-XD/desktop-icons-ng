@@ -1,4 +1,8 @@
 # History of versions #
+* Gtk4 version 39
+  * Fix gnomeshelloverride.js for workspace animation override in gnome shell, so that all other extensions also trying to override this function work properly without crashing the shell. (Sundeep Mediratta)
+  * Update History.md, metadata.json, Version Bump to 39.
+
 * Gtk4 version 38
   * Fix for icons showing on top of windows with rapid workspace changes using shortcuts. (Sundeep Mediratta)
   * Fix for icons showing on top on lowering windows using middle click or shortcut keys. (Sundeep Mediratta)
@@ -7,7 +11,7 @@
   * Lint clean multiple file errors, extension.js, emulateX11WindowType.js, desktopManager.js and desktopGrid.js. (Sundeep Mediratta)
   * Rename all methods in emulateX11WidnowType.js to make it verbose, less cryptic and remove confusing true/false parameters. (Sundeep Mediratta)
   * Multilpe translations update. (Weblate authours)
-  * Update HIstory.md, metadata.json, Versin Bumbp to 38.
+  * Update History.md, metadata.json, Versin Bump to 38.
 
 * Gtk4 version 37
   * Fix for single click opening working on alternate clicks. (Sundeep Mediratta)
