@@ -30,6 +30,8 @@ const ShowErrorPopup = imports.app.showErrorPopup;
 const TemplatesScriptsManager = imports.app.templatesScriptsManager;
 const FileItemMenu = imports.app.fileItemMenu;
 const AutoAr = imports.app.autoAr;
+const AppChooser = imports.app.appChooser;
+
 var Thumbnails = null;
 try {
     imports.gi.versions.GnomeDesktop = '4.0';
@@ -77,6 +79,7 @@ var DesktopManager = class {
         this.showErrorPopup = ShowErrorPopup;
         this.templatesScriptsManager = TemplatesScriptsManager;
         this.autoAr = new AutoAr.AutoAr(this);
+        this.appChooser = AppChooser;
         this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
 
         // Init Variables

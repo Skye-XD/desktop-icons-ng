@@ -25,6 +25,8 @@ const _ = Gettext.gettext;
 var FileItemMenu = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
+        this._codePath = this._desktopManager._codePath;
+        this.appChooser = this._desktopManager.appChooser;
         this._mainApp = this._desktopManager.mainApp;
         this.Prefs = this._desktopManager.Prefs;
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
@@ -489,20 +491,19 @@ var FileItemMenu = class {
 
     _doOpenWith() {
         let fileItems = this._desktopManager.getCurrentSelection(false);
+        if (!this.activeFileItem)
+            this.activeFileItem = fileItems[0];
         if (fileItems) {
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
-            let mimetype = Gio.content_type_guess(fileItems[0].fileName, null)[0];
-            let chooser = Gtk.AppChooserDialog.new_for_content_type(null,
-                Gtk.DialogFlags.MODAL + Gtk.DialogFlags.USE_HEADER_BAR,
-                mimetype);
+            // let mimetype = Gio.content_type_guess(this.activeFileItem.fileName, null)[0];
+            let chooser = new this.appChooser.AppChooserDialog(this._codePath, fileItems, this.activeFileItem, this._desktopManager.dbusManager);
             this._desktopManager.textEntryAccelsTurnOff();
             chooser.show();
-            chooser.present_with_time(Gdk.CURRENT_TIME);
-            chooser.connect('close', () => {
+            chooser.appChooserDialog.connect('close', () => {
                 chooser.response(Gtk.ResponseType.CANCEL);
             });
-            chooser.connect('response', (actor, retval) => {
+            chooser.appChooserDialog.connect('response', (actor, retval) => {
                 if (retval === Gtk.ResponseType.OK) {
                     let appInfo = chooser.get_app_info();
                     if (appInfo) {
@@ -515,7 +516,8 @@ var FileItemMenu = class {
                 }
                 this._desktopManager.textEntryAccelsTurnOn();
                 chooser.hide();
-                chooser.destroy();
+                chooser.finalize();
+                chooser = null;
             });
         }
     }
