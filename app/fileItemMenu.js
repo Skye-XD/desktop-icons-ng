@@ -489,36 +489,28 @@ var FileItemMenu = class {
         }
     }
 
-    _doOpenWith() {
+    async _doOpenWith() {
         let fileItems = this._desktopManager.getCurrentSelection(false);
         if (!this.activeFileItem)
             this.activeFileItem = fileItems[0];
         if (fileItems) {
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
-            // let mimetype = Gio.content_type_guess(this.activeFileItem.fileName, null)[0];
             let chooser = new this.appChooser.AppChooserDialog(this._codePath, fileItems, this.activeFileItem, this._desktopManager.dbusManager);
             this._desktopManager.textEntryAccelsTurnOff();
             chooser.show();
-            chooser.appChooserDialog.connect('close', () => {
-                chooser.response(Gtk.ResponseType.CANCEL);
-            });
-            chooser.appChooserDialog.connect('response', (actor, retval) => {
-                if (retval === Gtk.ResponseType.OK) {
-                    let appInfo = chooser.get_app_info();
-                    if (appInfo) {
-                        let fileList = [];
-                        for (let item of fileItems)
-                            fileList.push(item.file);
+            const appInfo = await chooser.getApplicationSelected().catch(e => logError(e));
+            if (appInfo) {
+                let fileList = [];
+                for (let item of fileItems)
+                    fileList.push(item.file);
 
-                        appInfo.launch(fileList, context);
-                    }
-                }
-                this._desktopManager.textEntryAccelsTurnOn();
-                chooser.hide();
-                chooser.finalize();
-                chooser = null;
-            });
+                appInfo.launch(fileList, context);
+            }
+            this._desktopManager.textEntryAccelsTurnOn();
+            chooser.hide();
+            chooser.finalize();
+            chooser = null;
         }
     }
 

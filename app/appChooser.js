@@ -73,46 +73,55 @@ var AppChooserDialog = class {
             this._onApplicationSelected(this.appChooserWidget, this.selectedAppInfo);
         this.appChooserWidget.connect('application-activated', this._onApplicationActivated.bind(this));
         this.appChooserWidget.connect('application-selected', this._onApplicationSelected.bind(this));
-        this.appChooserWidgetOkButton = this.builderObject.get_object('ok_button');
-        this.appChooserWidgetOkButton.connect('clicked', this._okClicked.bind(this));
         if (this.singleContentType && !this.mimeTypeIsDirectory) {
             let description = Gio.content_type_get_description(this.mimeType);
             this.appChooserRow.set_subtitle(description);
         } else {
             this.appChooserRowBox.set_visible(false);
         }
+        this.appChooserDialog.connect('close', () => {
+            this.appChooserDialog.response(Gtk.ResponseType.CANCEL);
+        });
+        this.appChooserDialog.connect('response', (actor, retval) => {
+            if (retval === Gtk.ResponseType.OK) {
+                this._checkUpdateDefaultAppForMimeType();
+                this.applicationSelectionComplete(this.selectedAppInfo);
+            } else {
+                this.applicationSelectionComplete(null);
+            }
+        });
     }
 
-    _okClicked() {
+    _checkUpdateDefaultAppForMimeType() {
         if (!this.singleContentType)
             return;
         let newAppSelected = false;
         if (this.appChooserRowSwitch.get_sensitive())
             newAppSelected = this.appChooserRowSwitch.get_active();
         if (newAppSelected) {
-            let newAppInfo = this.get_app_info();
-            let success = newAppInfo.set_as_default_for_type(this.mimeType);
+            let success = this.selectedAppInfo.set_as_default_for_type(this.mimeType);
             if (!success) {
                 let header = _('Error changing default application');
                 let message = _('Error while setting {foo} as default application for {mimetype}');
-                message = message.replace('{foo}', newAppInfo.get_display_name());
+                message = message.replace('{foo}', this.selectedAppInfo.get_display_name());
                 message = message.replace('{mimetype}', Gio.content_type_get_description(this.mimeType));
                 this._dbusManager.doNotify(header, message);
             }
         }
     }
 
-    _onApplicationActivated() {
-        this._okClicked();
+    _onApplicationActivated(actor, appInfo) {
+        this.selectedAppInfo = appInfo;
         this.appChooserDialog.response(Gtk.ResponseType.OK);
     }
 
     _onApplicationSelected(actor, appInfo) {
         if (!this.appChooserDialog)
             return;
-        this.appChooserDialog.set_response_sensitive(Gtk.ResponseType.OK, appInfo !== null);
+        this.selectedAppInfo = appInfo;
+        this.appChooserDialog.set_response_sensitive(Gtk.ResponseType.OK, this.selectedAppInfo !== null);
         let defaultAppInfo = Gio.AppInfo.get_default_for_type(this.mimeType, false);
-        let defaultSelected = defaultAppInfo.equal(appInfo);
+        let defaultSelected = defaultAppInfo.equal(this.selectedAppInfo);
         this.appChooserRowSwitch.set_state(defaultSelected);
         this.appChooserRowSwitch.set_sensitive(!defaultSelected);
     }
@@ -140,7 +149,9 @@ var AppChooserDialog = class {
         this.builderObject = null;
     }
 
-    get_app_info() {
-        return this.appChooserWidget.get_app_info();
+    getApplicationSelected() {
+        return new Promise(resolve => {
+            this.applicationSelectionComplete = resolve;
+        });
     }
 };
