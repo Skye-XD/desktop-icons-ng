@@ -1,4 +1,5 @@
 app/adwPreferencesWindow.js
+app/appChooser.js
 app/askRenamePopup.js
 app/autoAr.js
 app/createThumbnail.js
@@ -22,4 +23,5 @@ emulateX11WindowType.js
 extension.js
 prefs.js
 visibleArea.js
+app/resources/ui/ding-app-chooser.ui
 schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml
