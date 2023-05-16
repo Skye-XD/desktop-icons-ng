@@ -35,9 +35,14 @@ install_subdir(
   'icons', install_dir: extensions_dir
 )
 
+install_subdir(
+  'resources', install_dir: extensions_dir
+)
+
 subdir(
   'po'
 )
+
 subdir(
   'schemas'
 )

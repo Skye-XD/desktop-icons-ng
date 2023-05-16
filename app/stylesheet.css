@@ -51,3 +51,8 @@ box > #file-item.desktop-icons-selected {
 .unhighlightdroptarget:drop(active) {
     box-shadow: none;
 }
+
+#DingAppChooser treeview {
+    min-height: 36px;
+    -gtk-icon-size: 32px;
+}
