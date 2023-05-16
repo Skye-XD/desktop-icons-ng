@@ -36,7 +36,7 @@ var AppChooserDialog = class {
         }
         this._dbusManager = dbusManager;
         this.mimeType = activeFileItem.attributeContentType;
-        let appChooserDialogUiPath = GLib.build_filenamev([codepath, 'resources', 'ui', 'ding-app-chooser.ui']);
+        let appChooserDialogUiPath = GLib.build_filenamev([codepath, 'app', 'resources', 'ui', 'ding-app-chooser.ui']);
         this.builderObject = Gtk.Builder.new_from_file(appChooserDialogUiPath);
         this.builderObject.set_translation_domain('gtk4-ding');
         this.appChooserDialog = this.builderObject.get_object('DingAppChooser');

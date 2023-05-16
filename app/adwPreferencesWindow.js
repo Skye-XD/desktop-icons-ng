@@ -152,7 +152,7 @@ var AdwPreferencesWindow = class {
         this.nautilusSettings = nautilusSettings;
         this.gtkSettings = gtkSettings;
         this.iconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-        this.iconPath = GLib.build_filenamev([extensionPath, 'icons']);
+        this.iconPath = GLib.build_filenamev([extensionPath, 'app', 'resources', 'icons']);
         this.iconTheme.add_search_path(this.iconPath);
     }
 
