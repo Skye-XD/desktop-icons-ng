@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 17:54-0400\n"
-"PO-Revision-Date: 2023-04-30 21:46+0000\n"
+"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hr/>\n"
@@ -214,35 +214,38 @@ msgstr "Prikažite stavku kontekstnog izbornika za trajno brisanje"
 msgid "Show hidden files"
 msgstr "Prikaži skrivene datoteke"
 
-#: app/appChooser.js:52
-msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
-
-#: app/appChooser.js:60
+#: app/appChooser.js:54
 #, fuzzy
-msgid "Open Items"
-msgstr "Akcija za otvaranje stavki"
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "Odaberite aplikaciju za otvaranje <b>{foo}</b>"
 
 #: app/appChooser.js:62
 #, fuzzy
+msgid "Open Items"
+msgstr "Otvorene stavke"
+
+#: app/appChooser.js:64
+#, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
-msgstr "Nova mapa"
+msgstr "Otvori mapu"
 
-#: app/appChooser.js:64 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
-msgstr "Otvori"
+msgstr "Otvorena datoteka"
 
-#: app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Greška tijekom ekstrakcije"
+msgstr "Pogreška pri promjeni zadane aplikacije"
 
-#: app/appChooser.js:105
+#: app/appChooser.js:107
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
+"Pogreška prilikom postavljanja {foo} kao zadane aplikacije za {mimetype}"
 
 #: app/askRenamePopup.js:49
 #, fuzzy
@@ -288,7 +291,7 @@ msgid "Compressing files"
 msgstr "Sažimanje datoteka"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604
 msgid "Cancel"
 msgstr "Odustani"
 
@@ -508,7 +511,7 @@ msgstr "Održavajte dogovor…"
 #: app/desktopManager.js:1578
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Zadrži naslagano po vrsti…"
+msgstr "Zadrži naslagano prema vrsti…"
 
 #: app/desktopManager.js:1579
 #, fuzzy
@@ -837,51 +840,51 @@ msgstr "Prikaži u Datotekama"
 msgid "Open in Terminal"
 msgstr "Otvori u Terminalu"
 
-#: app/fileItemMenu.js:521
+#: app/fileItemMenu.js:522
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Izdvajanje je otkazano"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Nije moguće izdvojiti datoteku, nema odredišne mape"
 
-#: app/fileItemMenu.js:554
+#: app/fileItemMenu.js:555
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Premještanje otkazano"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:556
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Nije moguće premjestiti datoteke, nema odredišne mape"
 
-#: app/fileItemMenu.js:567 app/fileItemMenu.js:595
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
 #, fuzzy
 msgid "Select Destination"
 msgstr "Odaberite Odredište"
 
-#: app/fileItemMenu.js:569 app/fileItemMenu.js:597
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 msgid "Select"
 msgstr "Odaberi"
 
-#: app/fileItemMenu.js:641
+#: app/fileItemMenu.js:642
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopiranje je otkazano"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:643
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nije moguće kopirati datoteke, nema odredišne mape"
 
-#: app/fileItemMenu.js:669
+#: app/fileItemMenu.js:670
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Ne mogu poslati imenik e-poštom"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:671
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Odabir uključuje imenik, prvo komprimirajte imenik u datoteku."
@@ -910,24 +913,26 @@ msgid "Command not found"
 msgstr "Naredba nije pronađena"
 
 #: app/resources/ui/ding-app-chooser.ui:47
+#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "Odaberite aplikaciju za otvaranje odabranih datoteka."
 
 #: app/resources/ui/ding-app-chooser.ui:81
+#, fuzzy
 msgid "Always use for this file type"
-msgstr ""
+msgstr "Uvijek koristite za ovu vrstu datoteke"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
-msgstr "Odustani"
+msgstr "_Otkazati"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 #| msgid "Open"
 msgid "_Open"
-msgstr "Otvori"
+msgstr "_Otvoren"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1105,8 +1110,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Ako je spojen drugi monitor, nove ikone postavljaju se na monitor koji nije "
-"primarni"
+"Ako je priključen drugi monitor, nove ikone postavljaju se na monitor koji "
+"nije primarni"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

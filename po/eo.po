@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 17:54-0400\n"
-"PO-Revision-Date: 2023-04-24 02:28+0000\n"
+"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/eo/>\n"
@@ -215,33 +215,35 @@ msgstr "Montru kuntekstan menueron por ĉiam forigi"
 msgid "Show hidden files"
 msgstr "Montru kaŝitajn dosierojn"
 
-#: app/appChooser.js:52
-msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
-
-#: app/appChooser.js:60
+#: app/appChooser.js:54
 #, fuzzy
-msgid "Open Items"
-msgstr "Ago por Malfermi Erojn"
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "Elektu aplikaĵon por malfermi <b>{foo}</b>"
 
 #: app/appChooser.js:62
 #, fuzzy
-msgid "Open Folder"
-msgstr "Nova Dosierujo"
+msgid "Open Items"
+msgstr "Malfermu Erojn"
 
-#: app/appChooser.js:64 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:64
+#, fuzzy
+msgid "Open Folder"
+msgstr "Malfermu Dosierujon"
+
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Malfermu"
+msgstr "Malfermu Dosieron"
 
-#: app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Eraro dum eltiro"
+msgstr "Eraro ŝanĝante defaŭltan aplikaĵon"
 
-#: app/appChooser.js:105
+#: app/appChooser.js:107
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "Eraro dum agordado de {foo} kiel defaŭlta aplikaĵo por {mimetype}"
 
 #: app/askRenamePopup.js:49
 #, fuzzy
@@ -288,7 +290,7 @@ msgid "Compressing files"
 msgstr "Kunpremante dosierojn"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604
 #, fuzzy
 msgid "Cancel"
 msgstr "Nuligi"
@@ -361,7 +363,7 @@ msgstr "Kunpremado de dosieroj en '${outputFile}' finiĝis."
 #: app/autoAr.js:501 app/autoAr.js:508
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "Nuligita kunpremo"
+msgstr "Nuligis kunpremadon"
 
 #: app/autoAr.js:502
 #, fuzzy
@@ -722,7 +724,7 @@ msgstr "Ekstraktu Ĉi tie"
 #: app/fileItemMenu.js:325
 #, fuzzy
 msgid "Extract To..."
-msgstr "Ekstrakti al..."
+msgstr "Eltiro al..."
 
 #: app/fileItemMenu.js:330
 #, fuzzy
@@ -868,52 +870,52 @@ msgstr "Montru en Dosieroj"
 msgid "Open in Terminal"
 msgstr "Malfermu en Terminalo"
 
-#: app/fileItemMenu.js:521
+#: app/fileItemMenu.js:522
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Eltiro Nuligis"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Ne eblas ĉerpi dosieron, neniu cela dosierujo"
 
-#: app/fileItemMenu.js:554
+#: app/fileItemMenu.js:555
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Movo Nuligita"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:556
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Ne eblas movi dosierojn, neniu cela dosierujo"
 
-#: app/fileItemMenu.js:567 app/fileItemMenu.js:595
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
 #, fuzzy
 msgid "Select Destination"
 msgstr "Elektu Celon"
 
-#: app/fileItemMenu.js:569 app/fileItemMenu.js:597
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 #, fuzzy
 msgid "Select"
 msgstr "Elektu"
 
-#: app/fileItemMenu.js:641
+#: app/fileItemMenu.js:642
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopio Nuligita"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:643
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Ne eblas kopii dosierojn, neniu celloka dosierujo"
 
-#: app/fileItemMenu.js:669
+#: app/fileItemMenu.js:670
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Ne povas retpoŝti Adresaron"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:671
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Elekto inkluzivas Dosierujon, unue kunpremu la dosierujon al dosiero."
@@ -943,22 +945,24 @@ msgid "Command not found"
 msgstr "Ordono ne trovita"
 
 #: app/resources/ui/ding-app-chooser.ui:47
+#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "Elektu apon por malfermi la elektitajn dosierojn."
 
 #: app/resources/ui/ding-app-chooser.ui:81
+#, fuzzy
 msgid "Always use for this file type"
-msgstr ""
+msgstr "Ĉiam uzu por ĉi tiu dosiertipo"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "Nuligi"
+msgstr "_Nuligi"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Malfermu"
+msgstr "_Malfermu"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy

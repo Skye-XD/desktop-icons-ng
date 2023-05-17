@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 17:54-0400\n"
-"PO-Revision-Date: 2023-04-24 02:28+0000\n"
+"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sv/>\n"
@@ -221,35 +221,37 @@ msgstr "Visa en snabbmeny som ska raderas permanent"
 msgid "Show hidden files"
 msgstr "Visa gömda filer"
 
-#: app/appChooser.js:52
-msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
-
-#: app/appChooser.js:60
+#: app/appChooser.js:54
 #, fuzzy
-msgid "Open Items"
-msgstr "Åtgärd för att öppna objekt"
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "Välj ett program för att öppna <b>{foo}</b>"
 
 #: app/appChooser.js:62
 #, fuzzy
+msgid "Open Items"
+msgstr "Öppna föremål"
+
+#: app/appChooser.js:64
+#, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
-msgstr "Ny mapp"
+msgstr "Öppen mapp"
 
-#: app/appChooser.js:64 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
-msgstr "Öppna"
+msgstr "Öppna fil"
 
-#: app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Fel under extraktion"
+msgstr "Fel vid ändring av standardprogram"
 
-#: app/appChooser.js:105
+#: app/appChooser.js:107
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "Fel vid inställning av {foo} som standardapplikation för {mimetype}"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -292,7 +294,7 @@ msgid "Compressing files"
 msgstr "Komprimerar filer"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -517,7 +519,7 @@ msgstr "Håll staplade efter typ…"
 #: app/desktopManager.js:1579
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sortera hem/enheter/sopor…"
+msgstr "Sortera hem/enheter/papperskorgen…"
 
 #: app/desktopManager.js:1584 app/desktopManager.js:2601
 msgid "New Folder"
@@ -607,7 +609,7 @@ msgstr "Fel vid skapande av mall"
 #: app/desktopManager.js:2669
 #, fuzzy
 msgid "Could not create document"
-msgstr "Det gick inte att skapa dokumentet"
+msgstr "Det gick inte att skapa dokument"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:141
@@ -828,50 +830,50 @@ msgstr "Visa i Filer"
 msgid "Open in Terminal"
 msgstr "Öppna i terminal"
 
-#: app/fileItemMenu.js:521
+#: app/fileItemMenu.js:522
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extraktion avbruten"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Det går inte att extrahera filen, ingen målmapp"
 
-#: app/fileItemMenu.js:554
+#: app/fileItemMenu.js:555
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Flytten avbröts"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:556
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Det går inte att flytta filer, ingen målmapp"
 
-#: app/fileItemMenu.js:567 app/fileItemMenu.js:595
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
 #, fuzzy
 msgid "Select Destination"
 msgstr "Välj Destination"
 
-#: app/fileItemMenu.js:569 app/fileItemMenu.js:597
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 msgid "Select"
 msgstr "Välj"
 
-#: app/fileItemMenu.js:641
+#: app/fileItemMenu.js:642
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopiering avbruten"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:643
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Det går inte att kopiera filer, ingen målmapp"
 
-#: app/fileItemMenu.js:669
+#: app/fileItemMenu.js:670
 msgid "Can not email a Directory"
 msgstr "Kan inte maila en katalog"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:671
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Valet innehåller en katalog,  komprimera katalogen till en fil först."
 
@@ -896,24 +898,26 @@ msgid "Command not found"
 msgstr "Kommandot hittades inte"
 
 #: app/resources/ui/ding-app-chooser.ui:47
+#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "Välj en app för att öppna de valda filerna."
 
 #: app/resources/ui/ding-app-chooser.ui:81
+#, fuzzy
 msgid "Always use for this file type"
-msgstr ""
+msgstr "Använd alltid för denna filtyp"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
-msgstr "Avbryt"
+msgstr "_Annullera"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 #| msgid "Open"
 msgid "_Open"
-msgstr "Öppna"
+msgstr "_Öppen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1063,7 +1067,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Visa nya ikoner på icke primär monitor om den är ansluten"
+msgstr "Visa nya ikoner på icke primär bildskärm om den är ansluten"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
@@ -1071,8 +1075,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Om en andra monitor är ansluten, placeras nya ikoner på den icke primära "
-"monitorn"
+"Om en andra bildskärm är ansluten, placeras nya ikoner på den icke primära "
+"bildskärmen"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

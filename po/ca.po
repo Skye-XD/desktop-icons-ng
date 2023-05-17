@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 17:54-0400\n"
-"PO-Revision-Date: 2023-04-24 02:28+0000\n"
+"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ca/>\n"
@@ -202,35 +202,39 @@ msgstr "Mostra un element de menú contextual per a suprimir-lo permanentment"
 msgid "Show hidden files"
 msgstr "Mostra els fitxers ocults"
 
-#: app/appChooser.js:52
-msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
-
-#: app/appChooser.js:60
+#: app/appChooser.js:54
 #, fuzzy
-msgid "Open Items"
-msgstr "Acció per obrir elements"
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "Trieu una aplicació per obrir <b>{foo}</b>"
 
 #: app/appChooser.js:62
 #, fuzzy
+msgid "Open Items"
+msgstr "Elements oberts"
+
+#: app/appChooser.js:64
+#, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
-msgstr "Carpeta nova"
+msgstr "Carpeta oberta"
 
-#: app/appChooser.js:64 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
-msgstr "Obre"
+msgstr "Arxiu obert"
 
-#: app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Error durant l'extracció"
+msgstr "S'ha produït un error en canviar l'aplicació predeterminada"
 
-#: app/appChooser.js:105
+#: app/appChooser.js:107
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
+"S'ha produït un error en establir {foo} com a aplicació predeterminada per a "
+"{mimetype}"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -273,7 +277,7 @@ msgid "Compressing files"
 msgstr "Comprimint fitxers"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604
 msgid "Cancel"
 msgstr "Cancel·la"
 
@@ -320,7 +324,7 @@ msgstr "L'usuari ha cancel·lat l'extracció de '${fullPathFile}'."
 #: app/autoAr.js:453
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Cal una frase de contrasenya per a ${filename}"
+msgstr "Es requereix una frase de contrasenya per a ${filename}"
 
 #: app/autoAr.js:456
 #, fuzzy
@@ -577,7 +581,7 @@ msgstr "Paràmetres"
 #: app/desktopManager.js:2624
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "No s'ha pogut crear la carpeta"
+msgstr "La creació de la carpeta ha fallat"
 
 #: app/desktopManager.js:2625
 #, fuzzy
@@ -766,7 +770,7 @@ msgstr "Correu electrònic a..."
 #: app/fileItemMenu.js:395
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Envia al dispositiu mòbil"
+msgstr "Enviar al dispositiu mòbil"
 
 #: app/fileItemMenu.js:399
 msgid "Move to Trash"
@@ -816,51 +820,51 @@ msgstr "Mostra al Fitxers"
 msgid "Open in Terminal"
 msgstr "Obre al Terminal"
 
-#: app/fileItemMenu.js:521
+#: app/fileItemMenu.js:522
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extracció cancel·lada"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "No es pot extreure el fitxer, no hi ha carpeta de destinació"
 
-#: app/fileItemMenu.js:554
+#: app/fileItemMenu.js:555
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "S'ha cancel·lat el moviment"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:556
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "No es poden moure els fitxers, no hi ha carpeta de destinació"
 
-#: app/fileItemMenu.js:567 app/fileItemMenu.js:595
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
 #, fuzzy
 msgid "Select Destination"
 msgstr "Seleccioneu Destinació"
 
-#: app/fileItemMenu.js:569 app/fileItemMenu.js:597
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 #, fuzzy
 msgid "Select"
 msgstr "Seleccioneu"
 
-#: app/fileItemMenu.js:641
+#: app/fileItemMenu.js:642
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Còpia cancel·lada"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:643
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "No es poden copiar els fitxers, no hi ha carpeta de destinació"
 
-#: app/fileItemMenu.js:669
+#: app/fileItemMenu.js:670
 msgid "Can not email a Directory"
 msgstr "No es pot enviar un directori per correu electrònic"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:671
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La selecció inclou un directori, comprimeix-hi el directori en un fitxer."
@@ -889,24 +893,26 @@ msgid "Command not found"
 msgstr "No s'ha trobat l'ordre"
 
 #: app/resources/ui/ding-app-chooser.ui:47
+#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "Trieu una aplicació per obrir els fitxers seleccionats."
 
 #: app/resources/ui/ding-app-chooser.ui:81
+#, fuzzy
 msgid "Always use for this file type"
-msgstr ""
+msgstr "Feu servir sempre per a aquest tipus de fitxer"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
-msgstr "Cancel·la"
+msgstr "_Cancel · lar"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 #| msgid "Open"
 msgid "_Open"
-msgstr "Obre"
+msgstr "_Obert"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

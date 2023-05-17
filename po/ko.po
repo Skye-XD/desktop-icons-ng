@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 17:54-0400\n"
-"PO-Revision-Date: 2023-04-24 02:28+0000\n"
+"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ko/>\n"
@@ -201,35 +201,38 @@ msgstr "영구적으로 삭제할 컨텍스트 메뉴 항목 표시"
 msgid "Show hidden files"
 msgstr "숨김 파일 표시"
 
-#: app/appChooser.js:52
-msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
-
-#: app/appChooser.js:60
+#: app/appChooser.js:54
 #, fuzzy
-msgid "Open Items"
-msgstr "항목 열기 작업"
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "<b>{foo}</b>를 열 응용 프로그램 선택"
 
 #: app/appChooser.js:62
 #, fuzzy
+msgid "Open Items"
+msgstr "열린 항목"
+
+#: app/appChooser.js:64
+#, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
-msgstr "새 폴더"
+msgstr "폴더 열기"
 
-#: app/appChooser.js:64 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
-msgstr "열기"
+msgstr "파일 열기"
 
-#: app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
-msgstr "추출 중 오류"
+msgstr "기본 애플리케이션 변경 오류"
 
-#: app/appChooser.js:105
+#: app/appChooser.js:107
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
+"{foo}를 {mimetype}의 기본 애플리케이션으로 설정하는 동안 오류가 발생했습니다."
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -272,7 +275,7 @@ msgid "Compressing files"
 msgstr "파일 압축"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604
 msgid "Cancel"
 msgstr "취소"
 
@@ -354,7 +357,7 @@ msgstr "출력 파일 '${outputFile}'이(가) 이미 있습니다."
 #: app/autoAr.js:509
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "파일을 '${outputFile}'로 압축하는 작업이 사용자에 의해 취소되었습니다."
+msgstr "사용자가 파일을 '${outputFile}'로 압축하는 작업을 취소했습니다."
 
 #: app/autoAr.js:512
 #, fuzzy
@@ -487,7 +490,7 @@ msgstr "크기"
 #: app/desktopManager.js:1574
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "정리 유지…"
+msgstr "계속 정리…"
 
 #: app/desktopManager.js:1578
 #, fuzzy
@@ -806,50 +809,50 @@ msgstr "파일로 표시"
 msgid "Open in Terminal"
 msgstr "터미널로 열기"
 
-#: app/fileItemMenu.js:521
+#: app/fileItemMenu.js:522
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "추출 취소됨"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "파일을 추출할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:554
+#: app/fileItemMenu.js:555
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "이동 취소됨"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:556
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "파일을 이동할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:567 app/fileItemMenu.js:595
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
 #, fuzzy
 msgid "Select Destination"
 msgstr "목적지 선택"
 
-#: app/fileItemMenu.js:569 app/fileItemMenu.js:597
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 msgid "Select"
 msgstr "선택"
 
-#: app/fileItemMenu.js:641
+#: app/fileItemMenu.js:642
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "복사 취소됨"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:643
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "파일을 복사할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:669
+#: app/fileItemMenu.js:670
 msgid "Can not email a Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:671
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "선택 파일 중 디렉터리가 포함되어 있어, 먼저 파일로 압축이 필요합니다."
 
@@ -874,24 +877,26 @@ msgid "Command not found"
 msgstr "명령을 찾을 수 없습니다"
 
 #: app/resources/ui/ding-app-chooser.ui:47
+#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "선택한 파일을 열 앱을 선택합니다."
 
 #: app/resources/ui/ding-app-chooser.ui:81
+#, fuzzy
 msgid "Always use for this file type"
-msgstr ""
+msgstr "이 파일 형식에 항상 사용"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
-msgstr "취소"
+msgstr "_취소"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 #| msgid "Open"
 msgid "_Open"
-msgstr "열기"
+msgstr "_열려 있는"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
