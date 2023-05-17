@@ -201,34 +201,33 @@ msgstr "영구적으로 삭제할 컨텍스트 메뉴 항목 표시"
 msgid "Show hidden files"
 msgstr "숨김 파일 표시"
 
-#: app/appChooser.js:54
+#: app/appChooser.js:54 app/appChooser.js:52
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "<b>{foo}</b>를 열 응용 프로그램 선택"
 
-#: app/appChooser.js:62
+#: app/appChooser.js:62 app/appChooser.js:60
 #, fuzzy
 msgid "Open Items"
 msgstr "열린 항목"
 
-#: app/appChooser.js:64
+#: app/appChooser.js:64 app/appChooser.js:62
 #, fuzzy
-#| msgid "New Folder"
 msgid "Open Folder"
 msgstr "폴더 열기"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:64
 #, fuzzy
-#| msgid "Open"
 msgid "Open File"
 msgstr "파일 열기"
 
-#: app/appChooser.js:106
+#: app/appChooser.js:106 app/appChooser.js:104
 #, fuzzy
 msgid "Error changing default application"
 msgstr "기본 애플리케이션 변경 오류"
 
-#: app/appChooser.js:107
+#: app/appChooser.js:107 app/appChooser.js:105
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
@@ -275,7 +274,7 @@ msgid "Compressing files"
 msgstr "파일 압축"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
 msgid "Cancel"
 msgstr "취소"
 
@@ -809,50 +808,52 @@ msgstr "파일로 표시"
 msgid "Open in Terminal"
 msgstr "터미널로 열기"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "추출 취소됨"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "파일을 추출할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "이동 취소됨"
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "파일을 이동할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Select Destination"
 msgstr "목적지 선택"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
+#: app/fileItemMenu.js:597
 msgid "Select"
 msgstr "선택"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "복사 취소됨"
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "파일을 복사할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
 msgid "Can not email a Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "선택 파일 중 디렉터리가 포함되어 있어, 먼저 파일로 압축이 필요합니다."
 
@@ -888,13 +889,11 @@ msgstr "이 파일 형식에 항상 사용"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
-#| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_취소"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
-#| msgid "Open"
 msgid "_Open"
 msgstr "_열려 있는"
 

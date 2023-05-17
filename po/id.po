@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 22:00-0400\n"
-"PO-Revision-Date: 2023-05-17 02:03+0000\n"
+"PO-Revision-Date: 2023-05-17 02:21+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,7 +149,7 @@ msgstr "Tambahkan drive baru ke sisi berlawanan dari desktop"
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Sorot kotak jatuhkan selama Seret dan Jatuhkan"
+msgstr "Sorot kotak jatuhkan selama Seret dan Lepas"
 
 #: app/adwPreferencesWindow.js:237
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -212,34 +212,33 @@ msgstr "Tampilkan item menu konteks untuk dihapus secara permanen"
 msgid "Show hidden files"
 msgstr "Tampilkan file tersembunyi"
 
-#: app/appChooser.js:54
+#: app/appChooser.js:54 app/appChooser.js:52
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Pilih aplikasi untuk membuka <b>{foo}</b>"
 
-#: app/appChooser.js:62
+#: app/appChooser.js:62 app/appChooser.js:60
 #, fuzzy
 msgid "Open Items"
 msgstr "Buka Item"
 
-#: app/appChooser.js:64
+#: app/appChooser.js:64 app/appChooser.js:62
 #, fuzzy
-#| msgid "New Folder"
 msgid "Open Folder"
 msgstr "Folder terbuka"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:64
 #, fuzzy
-#| msgid "Open"
 msgid "Open File"
 msgstr "Membuka file"
 
-#: app/appChooser.js:106
+#: app/appChooser.js:106 app/appChooser.js:104
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Kesalahan mengubah aplikasi default"
 
-#: app/appChooser.js:107
+#: app/appChooser.js:107 app/appChooser.js:105
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
@@ -290,7 +289,7 @@ msgid "Compressing files"
 msgstr "Mengompresi file"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
 msgid "Cancel"
 msgstr "Batal"
 
@@ -843,51 +842,53 @@ msgstr "Tampilkan pada Berkas"
 msgid "Open in Terminal"
 msgstr "Buka dalam Terminal"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ekstraksi Dibatalkan"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Tidak dapat mengekstrak File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Pindah Dibatalkan"
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Tidak dapat memindahkan File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Select Destination"
 msgstr "Pilih Tujuan"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
+#: app/fileItemMenu.js:597
 msgid "Select"
 msgstr "Pilih"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Salin Dibatalkan"
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Tidak dapat menyalin File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Tidak dapat mengirim email ke Direktori"
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Pilihan termasuk Direktori, kompres direktori ke file terlebih dahulu."
@@ -927,13 +928,11 @@ msgstr "Selalu gunakan untuk jenis file ini"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
-#| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_Membatalkan"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
-#| msgid "Open"
 msgid "_Open"
 msgstr "_Membuka"
 

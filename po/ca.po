@@ -202,34 +202,33 @@ msgstr "Mostra un element de menú contextual per a suprimir-lo permanentment"
 msgid "Show hidden files"
 msgstr "Mostra els fitxers ocults"
 
-#: app/appChooser.js:54
+#: app/appChooser.js:54 app/appChooser.js:52
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Trieu una aplicació per obrir <b>{foo}</b>"
 
-#: app/appChooser.js:62
+#: app/appChooser.js:62 app/appChooser.js:60
 #, fuzzy
 msgid "Open Items"
 msgstr "Elements oberts"
 
-#: app/appChooser.js:64
+#: app/appChooser.js:64 app/appChooser.js:62
 #, fuzzy
-#| msgid "New Folder"
 msgid "Open Folder"
 msgstr "Carpeta oberta"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:64
 #, fuzzy
-#| msgid "Open"
 msgid "Open File"
 msgstr "Arxiu obert"
 
-#: app/appChooser.js:106
+#: app/appChooser.js:106 app/appChooser.js:104
 #, fuzzy
 msgid "Error changing default application"
 msgstr "S'ha produït un error en canviar l'aplicació predeterminada"
 
-#: app/appChooser.js:107
+#: app/appChooser.js:107 app/appChooser.js:105
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
@@ -277,7 +276,7 @@ msgid "Compressing files"
 msgstr "Comprimint fitxers"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
 msgid "Cancel"
 msgstr "Cancel·la"
 
@@ -820,51 +819,53 @@ msgstr "Mostra al Fitxers"
 msgid "Open in Terminal"
 msgstr "Obre al Terminal"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extracció cancel·lada"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "No es pot extreure el fitxer, no hi ha carpeta de destinació"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "S'ha cancel·lat el moviment"
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "No es poden moure els fitxers, no hi ha carpeta de destinació"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Select Destination"
 msgstr "Seleccioneu Destinació"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
+#: app/fileItemMenu.js:597
 #, fuzzy
 msgid "Select"
 msgstr "Seleccioneu"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Còpia cancel·lada"
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "No es poden copiar els fitxers, no hi ha carpeta de destinació"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
 msgid "Can not email a Directory"
 msgstr "No es pot enviar un directori per correu electrònic"
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La selecció inclou un directori, comprimeix-hi el directori en un fitxer."
@@ -904,13 +905,11 @@ msgstr "Feu servir sempre per a aquest tipus de fitxer"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
-#| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_Cancel · lar"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
-#| msgid "Open"
 msgid "_Open"
 msgstr "_Obert"
 

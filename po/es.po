@@ -179,36 +179,33 @@ msgstr "Permitir borrar permanentemente desde el menú contextual"
 msgid "Show hidden files"
 msgstr "Mostrar archivos ocultos"
 
-#: app/appChooser.js:54
+#: app/appChooser.js:54 app/appChooser.js:52
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Elija una aplicación para abrir <b>{foo}</b>"
 
-#: app/appChooser.js:62
+#: app/appChooser.js:62 app/appChooser.js:60
 #, fuzzy
-#| msgid "Action to Open Items"
 msgid "Open Items"
 msgstr "Artículos abiertos"
 
-#: app/appChooser.js:64
+#: app/appChooser.js:64 app/appChooser.js:62
 #, fuzzy
-#| msgid "New Folder"
 msgid "Open Folder"
 msgstr "Carpeta abierta"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:64
 #, fuzzy
-#| msgid "Open"
 msgid "Open File"
 msgstr "Abrir documento"
 
-#: app/appChooser.js:106
+#: app/appChooser.js:106 app/appChooser.js:104
 #, fuzzy
-#| msgid "Error during extraction"
 msgid "Error changing default application"
 msgstr "Error al cambiar la aplicación predeterminada"
 
-#: app/appChooser.js:107
+#: app/appChooser.js:107 app/appChooser.js:105
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
@@ -251,7 +248,7 @@ msgid "Compressing files"
 msgstr "Comprimir archivos"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -727,43 +724,45 @@ msgstr "Mostrar en Files"
 msgid "Open in Terminal"
 msgstr "Abrir en una terminal"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
 msgid "Extraction Cancelled"
 msgstr "Extracción cancelada"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
 msgid "Unable to extract File, no destination folder"
 msgstr "No se puede extraer el archivo, no hay carpeta de destino"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
 msgid "Move Cancelled"
 msgstr "\"Mover\" cancelado"
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
 msgid "Unable to move Files, no destination folder"
 msgstr "No se pueden mover archivos, no hay carpeta de destino"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 msgid "Select Destination"
 msgstr "Seleccione el destino"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
+#: app/fileItemMenu.js:597
 msgid "Select"
 msgstr "Seleccionar"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
 msgid "Copy Cancelled"
 msgstr "Copia cancelada"
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
 msgid "Unable to copy Files, no destination folder"
 msgstr "No se pueden copiar archivos, no hay carpeta de destino"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
 msgid "Can not email a Directory"
 msgstr "No se puede enviar un directorio"
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La selección incluye un directorio. Debe comprimirse a un fichero primero."
@@ -800,13 +799,11 @@ msgstr "Usar siempre para este tipo de archivo"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
-#| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_Cancelar"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
-#| msgid "Open"
 msgid "_Open"
 msgstr "_Abierto"
 
