@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 17:54-0400\n"
-"PO-Revision-Date: 2023-04-30 21:46+0000\n"
+"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sk/>\n"
@@ -165,7 +165,7 @@ msgstr "Pridajte emblém na mäkké odkazy"
 #: app/adwPreferencesWindow.js:239
 #, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Na štítkoch ikon použite tmavý text"
+msgstr "V menovkách ikon používajte tmavý text"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
@@ -205,35 +205,37 @@ msgstr "Zobraziť kontextovú ponuku položky na trvalé odstránenie"
 msgid "Show hidden files"
 msgstr "Zobraziť skryté súbory"
 
-#: app/appChooser.js:52
-msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
-
-#: app/appChooser.js:60
+#: app/appChooser.js:54
 #, fuzzy
-msgid "Open Items"
-msgstr "Akcia na otvorenie položiek"
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "Vyberte aplikáciu na otvorenie <b>{foo}</b>"
 
 #: app/appChooser.js:62
 #, fuzzy
+msgid "Open Items"
+msgstr "Otvoriť položky"
+
+#: app/appChooser.js:64
+#, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
-msgstr "Nový priečinok"
+msgstr "Otvorte zložku"
 
-#: app/appChooser.js:64 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
-msgstr "Otvoriť"
+msgstr "Otvorený súbor"
 
-#: app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Chyba pri extrakcii"
+msgstr "Chyba pri zmene predvolenej aplikácie"
 
-#: app/appChooser.js:105
+#: app/appChooser.js:107
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "Chyba pri nastavovaní {foo} ako predvolenej aplikácie pre {mimetype}"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -276,7 +278,7 @@ msgid "Compressing files"
 msgstr "Komprimovanie súborov"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -393,7 +395,7 @@ msgstr "Kompatibilné so všetkými operačnými systémami."
 #: app/autoAr.js:694
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ".zip chránený heslom, musí byť nainštalovaný na Windows a Mac."
+msgstr ".zip chránený heslom, musí byť nainštalovaný v systéme Windows a Mac."
 
 #: app/autoAr.js:700
 #, fuzzy
@@ -625,7 +627,7 @@ msgstr ""
 #: app/fileItem.js:337
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Neplatné povolenia pre súbor pracovnej plochy"
+msgstr "Neplatné povolenia v súbore pracovnej plochy"
 
 #: app/fileItem.js:338
 #, fuzzy
@@ -707,7 +709,7 @@ msgstr "Spustiť pomocou vyhradenej grafickej karty"
 #: app/fileItemMenu.js:340
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Stack Tento typ"
+msgstr "Tento typ zásobníka"
 
 #: app/fileItemMenu.js:340
 #, fuzzy
@@ -818,50 +820,50 @@ msgstr "Zobraziť v aplikácii Súbory"
 msgid "Open in Terminal"
 msgstr "Otvoriť v termináli"
 
-#: app/fileItemMenu.js:521
+#: app/fileItemMenu.js:522
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extrakcia zrušená"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Nie je možné extrahovať súbor, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:554
+#: app/fileItemMenu.js:555
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Presun bol zrušený"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:556
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Nie je možné presunúť súbory, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:567 app/fileItemMenu.js:595
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
 #, fuzzy
 msgid "Select Destination"
 msgstr "Vyberte Cieľ"
 
-#: app/fileItemMenu.js:569 app/fileItemMenu.js:597
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 msgid "Select"
 msgstr "Vybrať"
 
-#: app/fileItemMenu.js:641
+#: app/fileItemMenu.js:642
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopírovanie bolo zrušené"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:643
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nie je možné skopírovať súbory, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:669
+#: app/fileItemMenu.js:670
 msgid "Can not email a Directory"
 msgstr "Nedá sa odoslať adresár pomocou emailu"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:671
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Výber obsahuje adresár. Najskôr skomprimujte adresár do súboru."
 
@@ -880,32 +882,34 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Aby táto funkcia fungovala v ikonách pracovnej plochy, musíte si do systému "
-"nainštalovať „${programName}“."
+"Aby táto funkcia fungovala v ikonách pracovnej plochy, musíte do svojho "
+"systému nainštalovať \"${programName}\"."
 
 #: app/utils/desktopIconsUtil.js:150
 msgid "Command not found"
 msgstr "Príkaz sa nenašiel"
 
 #: app/resources/ui/ding-app-chooser.ui:47
+#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "Vyberte aplikáciu na otvorenie vybratých súborov."
 
 #: app/resources/ui/ding-app-chooser.ui:81
+#, fuzzy
 msgid "Always use for this file type"
-msgstr ""
+msgstr "Vždy použiť pre tento typ súboru"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
-msgstr "Zrušiť"
+msgstr "_Zrušiť"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 #| msgid "Open"
 msgid "_Open"
-msgstr "Otvoriť"
+msgstr "_OTVORENÉ"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

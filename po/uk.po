@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 17:54-0400\n"
-"PO-Revision-Date: 2023-04-30 21:46+0000\n"
+"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/uk/>\n"
@@ -204,35 +204,38 @@ msgstr "Додати пункт \"Вилучити остаточно\" у ко�
 msgid "Show hidden files"
 msgstr "Показувати приховані файли"
 
-#: app/appChooser.js:52
-msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
-
-#: app/appChooser.js:60
+#: app/appChooser.js:54
 #, fuzzy
-msgid "Open Items"
-msgstr "Дія для відкриття елементів"
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "Виберіть програму, щоб відкрити <b>{foo}</b>"
 
 #: app/appChooser.js:62
 #, fuzzy
+msgid "Open Items"
+msgstr "Відкриті елементи"
+
+#: app/appChooser.js:64
+#, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
-msgstr "Створити теку"
+msgstr "Відкрити папку"
 
-#: app/appChooser.js:64 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
-msgstr "Відкрити"
+msgstr "Відкрити файл"
 
-#: app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Помилка під час вилучення"
+msgstr "Помилка зміни програми за умовчанням"
 
-#: app/appChooser.js:105
+#: app/appChooser.js:107
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
+"Помилка під час встановлення {foo} як програми за умовчанням для {mimetype}"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -275,7 +278,7 @@ msgid "Compressing files"
 msgstr "Стиснення файлів"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -392,7 +395,7 @@ msgstr "Сумісний з усіма операційними системам
 #: app/autoAr.js:694
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Захищений паролем .zip, потрібно встановити на Windows і Mac."
+msgstr "Захищений паролем .zip, має бути встановлено на Windows і Mac."
 
 #: app/autoAr.js:700
 #, fuzzy
@@ -470,7 +473,7 @@ msgstr "Ім'я"
 #: app/desktopManager.js:1568
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Назва Z-A"
+msgstr "Назва З-А"
 
 #: app/desktopManager.js:1569
 #, fuzzy
@@ -643,7 +646,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Установіть дозволи в «Доступ інших», «Лише читання» або «Немає»</b>"
+"<b>Установити дозволи в «Доступ інших», «Лише для читання» або «Немає»</b>"
 
 #: app/fileItem.js:343
 #, fuzzy
@@ -652,7 +655,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Увімкнути параметр «Дозволити виконання файлу як програми» </b>"
+"<b>Увімкнути опцію \"Дозволити виконання файлу як програми\"</b>"
 
 #: app/fileItem.js:351
 msgid ""
@@ -817,50 +820,50 @@ msgstr "Показати у Файлах"
 msgid "Open in Terminal"
 msgstr "Відкрити в терміналі"
 
-#: app/fileItemMenu.js:521
+#: app/fileItemMenu.js:522
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Вилучення скасовано"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Неможливо видобути файл, немає папки призначення"
 
-#: app/fileItemMenu.js:554
+#: app/fileItemMenu.js:555
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Переміщення скасовано"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:556
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Неможливо перемістити файли, немає цільової папки"
 
-#: app/fileItemMenu.js:567 app/fileItemMenu.js:595
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
 #, fuzzy
 msgid "Select Destination"
 msgstr "Виберіть пункт призначення"
 
-#: app/fileItemMenu.js:569 app/fileItemMenu.js:597
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 msgid "Select"
 msgstr "Виділити"
 
-#: app/fileItemMenu.js:641
+#: app/fileItemMenu.js:642
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Копіювання скасовано"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:643
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Неможливо скопіювати файли, немає папки призначення"
 
-#: app/fileItemMenu.js:669
+#: app/fileItemMenu.js:670
 msgid "Can not email a Directory"
 msgstr "Неможливо відправити теку електронною поштою"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:671
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Вибір включає теку, для початку стисніть теку в файл."
 
@@ -887,24 +890,26 @@ msgid "Command not found"
 msgstr "Команда не знайдена"
 
 #: app/resources/ui/ding-app-chooser.ui:47
+#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "Виберіть програму, щоб відкрити вибрані файли."
 
 #: app/resources/ui/ding-app-chooser.ui:81
+#, fuzzy
 msgid "Always use for this file type"
-msgstr ""
+msgstr "Завжди використовуйте для цього типу файлу"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
-msgstr "Скасувати"
+msgstr "_Скасувати"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 #| msgid "Open"
 msgid "_Open"
-msgstr "Відкрити"
+msgstr "_ВІДЧИНЕНО"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1058,7 +1063,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Показувати нові значки на неосновному моніторі, якщо підключено"
+msgstr "Показувати нові піктограми на неосновному моніторі, якщо підключено"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy

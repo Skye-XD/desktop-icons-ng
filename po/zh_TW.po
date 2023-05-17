@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 17:54-0400\n"
-"PO-Revision-Date: 2023-04-24 02:28+0000\n"
+"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -203,35 +203,37 @@ msgstr "在快速選單顯示永久刪除"
 msgid "Show hidden files"
 msgstr "顯示隱藏檔"
 
-#: app/appChooser.js:52
-msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
-
-#: app/appChooser.js:60
+#: app/appChooser.js:54
 #, fuzzy
-msgid "Open Items"
-msgstr "打開項目的操作"
+msgid "Choose an application to open <b>{foo}</b>"
+msgstr "選擇一個應用程序打開 <b>{foo}</b>"
 
 #: app/appChooser.js:62
 #, fuzzy
+msgid "Open Items"
+msgstr "未清項"
+
+#: app/appChooser.js:64
+#, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
-msgstr "新增資料夾"
+msgstr "打開文件夾"
 
-#: app/appChooser.js:64 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
-msgstr "開啟"
+msgstr "打開文件"
 
-#: app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
-msgstr "提取時出錯"
+msgstr "更改默認應用程序時出錯"
 
-#: app/appChooser.js:105
+#: app/appChooser.js:107
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "將 {foo} 設置為 {mimetype} 的默認應用程序時出錯"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -272,7 +274,7 @@ msgid "Compressing files"
 msgstr "壓縮文件"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604
 msgid "Cancel"
 msgstr "取消"
 
@@ -818,50 +820,50 @@ msgstr "在《檔案》中顯示"
 msgid "Open in Terminal"
 msgstr "開啟終端器"
 
-#: app/fileItemMenu.js:521
+#: app/fileItemMenu.js:522
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "提取取消"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:523
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "無法提取文件，沒有目標文件夾"
 
-#: app/fileItemMenu.js:554
+#: app/fileItemMenu.js:555
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "移動取消"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:556
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "無法移動文件，沒有目標文件夾"
 
-#: app/fileItemMenu.js:567 app/fileItemMenu.js:595
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
 #, fuzzy
 msgid "Select Destination"
 msgstr "選擇目的地"
 
-#: app/fileItemMenu.js:569 app/fileItemMenu.js:597
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 msgid "Select"
 msgstr "選擇"
 
-#: app/fileItemMenu.js:641
+#: app/fileItemMenu.js:642
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "複製取消"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:643
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "無法複製文件，沒有目標文件夾"
 
-#: app/fileItemMenu.js:669
+#: app/fileItemMenu.js:670
 msgid "Can not email a Directory"
 msgstr "無法寄送資料夾"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:671
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "已選項目含資料夾，先把資料夾壓縮成一個檔案。"
 
@@ -887,24 +889,26 @@ msgid "Command not found"
 msgstr "無法找到指令"
 
 #: app/resources/ui/ding-app-chooser.ui:47
+#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "選擇一個應用程序以打開所選文件。"
 
 #: app/resources/ui/ding-app-chooser.ui:81
+#, fuzzy
 msgid "Always use for this file type"
-msgstr ""
+msgstr "始終用於此文件類型"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
-msgstr "取消"
+msgstr "_取消"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 #| msgid "Open"
 msgid "_Open"
-msgstr "開啟"
+msgstr "_打開"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1059,7 +1063,7 @@ msgstr "將標籤文本塗成黑色而不是白色。使用淺色背景時很有
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "如果已連接，則在非主監視器上顯示新圖標"
+msgstr "如果已連接，則在非主顯示器上顯示新圖標"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
