@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 40
+  * Fix icons not showing on preferences window in extensions downloaded from extensions.gnome.org. (Sundeep Mediratta)
+  * Simplify folder structure, move icons and css files into resources as part of app, fix scripts. Should always bundle the icons and other resources with the application with the new scripts in future and prevent the problem mentioned above in the first place. (Sundeep Mediratta)
+  * New application-chooser dialog, uses Gtk4, libadwaita. Same UI as the chooser in Gnome Files. Allows opening files on desktop with a different application. Has a switch to enable setting a new default application for a file type. (Sundeep Mediratta)
+  * Weblate translation updates. (Weblate authours).
+  * Update metadata.json, History.md, Readme.md, Version Bump to 40.
+
 * Gtk4 version 39
   * Fix gnomeshelloverride.js for workspace animation override in gnome shell, so that all other extensions also trying to override this function work properly without crashing the shell. (Sundeep Mediratta)
   * Update History.md, metadata.json, Version Bump to 39.

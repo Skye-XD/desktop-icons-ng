@@ -87,6 +87,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] When files are dropped on a .desktop file on the Desktop, a check is done prior to launching the app to make sure the app can open the dropped file, similar to above and an error shown if it does not open files of this type.
 
+- [x] New app-chooser dialog - same dialog as Gnome Files, uses Gtk4 and libadwaita, to allow opening a desktop file with a different application. Now includes a switch to set the new application as the default for the file type.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -162,6 +164,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 - [x] Drag icon offset on Wayland now works correctly.
 
 - [x] Fix Chrome App icons not showing correctly on some distributions.
+
+- [x] Simplify folder structure, move everything into resources, fixes icons not showing from extension downloaded from extensions.gnome.org.
 
 **KNOWN ISSUES**
 
