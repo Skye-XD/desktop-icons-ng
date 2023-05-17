@@ -24,7 +24,7 @@ const Gettext = imports.gettext.domain('gtk4-ding');
 const _ = Gettext.gettext;
 
 var AppChooserDialog = class {
-    constructor(codepath, fileItems, activeFileItem = null, dbusManager) {
+    constructor(codepath, fileItems, activeFileItem = null, dbusUtils, desktopIconsUtil) {
         if (!activeFileItem)
             activeFileItem = fileItems[0];
         if (fileItems.length === 1) {
@@ -34,13 +34,15 @@ var AppChooserDialog = class {
             this.fileName = null;
             this.singleContentType = this._detectSingleContentType(fileItems);
         }
-        this._dbusManager = dbusManager;
+        this._dbusUtils = dbusUtils;
+        this._desktopIconsUtil = desktopIconsUtil;
         this.mimeType = activeFileItem.attributeContentType;
         let appChooserDialogUiPath = GLib.build_filenamev([codepath, 'app', 'resources', 'ui', 'ding-app-chooser.ui']);
         this.builderObject = Gtk.Builder.new_from_file(appChooserDialogUiPath);
         this.builderObject.set_translation_domain('gtk4-ding');
         this.appChooserDialog = this.builderObject.get_object('DingAppChooser');
         this.appChooserDialog.set_name('DingAppChooser');
+        this._desktopIconsUtil.windowHidePagerTaskbarModal(this.appChooserDialog, true);
         this.appChooserBox = this.builderObject.get_object('app_chooser_widget_box');
         this.appChooserWidget = Gtk.AppChooserWidget.new(this.mimeType);
         this.appChooserWidget.set_show_default(true);
@@ -105,7 +107,7 @@ var AppChooserDialog = class {
                 let message = _('Error while setting {foo} as default application for {mimetype}');
                 message = message.replace('{foo}', this.selectedAppInfo.get_display_name());
                 message = message.replace('{mimetype}', Gio.content_type_get_description(this.mimeType));
-                this._dbusManager.doNotify(header, message);
+                this._dbusUtils.doNotify(header, message);
             }
         }
     }

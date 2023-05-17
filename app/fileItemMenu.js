@@ -496,7 +496,8 @@ var FileItemMenu = class {
         if (fileItems) {
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
-            let chooser = new this.appChooser.AppChooserDialog(this._codePath, fileItems, this.activeFileItem, this._desktopManager.dbusManager);
+            let chooser = new this.appChooser.AppChooserDialog(this._codePath, fileItems, this.activeFileItem, this._desktopManager.dbusManager,
+                this._desktopManager.DesktopIconsUtil);
             this._desktopManager.textEntryAccelsTurnOff();
             chooser.show();
             const appInfo = await chooser.getApplicationSelected().catch(e => logError(e));
