@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 22:00-0400\n"
-"PO-Revision-Date: 2023-05-17 02:03+0000\n"
+"PO-Revision-Date: 2023-05-17 02:21+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,34 +205,33 @@ msgstr "Zobraziť kontextovú ponuku položky na trvalé odstránenie"
 msgid "Show hidden files"
 msgstr "Zobraziť skryté súbory"
 
-#: app/appChooser.js:54
+#: app/appChooser.js:54 app/appChooser.js:52
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Vyberte aplikáciu na otvorenie <b>{foo}</b>"
 
-#: app/appChooser.js:62
+#: app/appChooser.js:62 app/appChooser.js:60
 #, fuzzy
 msgid "Open Items"
 msgstr "Otvoriť položky"
 
-#: app/appChooser.js:64
+#: app/appChooser.js:64 app/appChooser.js:62
 #, fuzzy
-#| msgid "New Folder"
 msgid "Open Folder"
 msgstr "Otvorte zložku"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:64
 #, fuzzy
-#| msgid "Open"
 msgid "Open File"
 msgstr "Otvorený súbor"
 
-#: app/appChooser.js:106
+#: app/appChooser.js:106 app/appChooser.js:104
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Chyba pri zmene predvolenej aplikácie"
 
-#: app/appChooser.js:107
+#: app/appChooser.js:107 app/appChooser.js:105
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Chyba pri nastavovaní {foo} ako predvolenej aplikácie pre {mimetype}"
@@ -278,7 +277,7 @@ msgid "Compressing files"
 msgstr "Komprimovanie súborov"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -749,6 +748,7 @@ msgid "Create Link..."
 msgstr "Vytvoriť odkaz..."
 
 #: app/fileItemMenu.js:376
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -820,50 +820,52 @@ msgstr "Zobraziť v aplikácii Súbory"
 msgid "Open in Terminal"
 msgstr "Otvoriť v termináli"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extrakcia zrušená"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Nie je možné extrahovať súbor, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Presun bol zrušený"
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Nie je možné presunúť súbory, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Select Destination"
 msgstr "Vyberte Cieľ"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
+#: app/fileItemMenu.js:597
 msgid "Select"
 msgstr "Vybrať"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopírovanie bolo zrušené"
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nie je možné skopírovať súbory, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
 msgid "Can not email a Directory"
 msgstr "Nedá sa odoslať adresár pomocou emailu"
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Výber obsahuje adresár. Najskôr skomprimujte adresár do súboru."
 
@@ -901,13 +903,11 @@ msgstr "Vždy použiť pre tento typ súboru"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
-#| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
-#| msgid "Open"
 msgid "_Open"
 msgstr "_OTVORENÉ"
 

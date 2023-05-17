@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 22:00-0400\n"
-"PO-Revision-Date: 2023-05-17 02:03+0000\n"
+"PO-Revision-Date: 2023-05-17 02:21+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -215,32 +215,33 @@ msgstr "স্থায়ীভাবে মুছে ফেলার জন্
 msgid "Show hidden files"
 msgstr "গোপন ফাইলগুলো দেখুন"
 
-#: app/appChooser.js:54
+#: app/appChooser.js:54 app/appChooser.js:52
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "খোলার জন্য একটি অ্যাপ্লিকেশন বেছে নিন <b>{foo}</b>"
 
-#: app/appChooser.js:62
+#: app/appChooser.js:62 app/appChooser.js:60
 #, fuzzy
 msgid "Open Items"
 msgstr "উন্মুক্ত বস্তু"
 
-#: app/appChooser.js:64
+#: app/appChooser.js:64 app/appChooser.js:62
 #, fuzzy
 msgid "Open Folder"
 msgstr "ফোল্ডার খোলা"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:64
 #, fuzzy
 msgid "Open File"
 msgstr "খোলা ফাইল"
 
-#: app/appChooser.js:106
+#: app/appChooser.js:106 app/appChooser.js:104
 #, fuzzy
 msgid "Error changing default application"
 msgstr "ডিফল্ট অ্যাপ্লিকেশন পরিবর্তন ত্রুটি"
 
-#: app/appChooser.js:107
+#: app/appChooser.js:107 app/appChooser.js:105
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "{foo} কে {mimetype}-এর জন্য ডিফল্ট অ্যাপ্লিকেশন হিসেবে সেট করার সময় ত্রুটি"
@@ -290,7 +291,7 @@ msgid "Compressing files"
 msgstr "ফাইল কম্প্রেস করা হচ্ছে"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
 #, fuzzy
 msgid "Cancel"
 msgstr "বাতিল করুন"
@@ -694,6 +695,7 @@ msgstr ""
 "<b>\"লঞ্চ করার অনুমতি দিন\" সক্ষম করুন</b>"
 
 #: app/fileItemMenu.js:296
+#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -785,12 +787,14 @@ msgid "Create Link..."
 msgstr "লিঙ্ক তৈরি করুন..।"
 
 #: app/fileItemMenu.js:376
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
 
 #: app/fileItemMenu.js:383
+#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
@@ -866,52 +870,54 @@ msgstr "ফাইলে দেখান"
 msgid "Open in Terminal"
 msgstr "টার্মিনালে খুলুন"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "নিষ্কাশন বাতিল করা হয়েছে"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "ফাইল এক্সট্র্যাক্ট করতে অক্ষম, কোনো গন্তব্য ফোল্ডার নেই৷"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "সরানো বাতিল"
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "ফাইলগুলি সরাতে অক্ষম, কোনও গন্তব্য ফোল্ডার নেই৷"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Select Destination"
 msgstr "গন্তব্য নির্বাচন করুন"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
+#: app/fileItemMenu.js:597
 #, fuzzy
 msgid "Select"
 msgstr "নির্বাচন করুন"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "কপি বাতিল"
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "ফাইল কপি করতে অক্ষম, কোনো গন্তব্য ফোল্ডার নেই৷"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "একটি ডিরেক্টরি ইমেল করতে পারবেন না"
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""

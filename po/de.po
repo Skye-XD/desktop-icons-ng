@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 22:00-0400\n"
-"PO-Revision-Date: 2023-05-17 02:03+0000\n"
+"PO-Revision-Date: 2023-05-17 02:21+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Schreibtisch"
+msgstr "Desktop"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -54,7 +54,7 @@ msgstr "Bände"
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Anzeige der Desktop-Volumes"
+msgstr "Desktop-Volumes werden angezeigt"
 
 #: app/adwPreferencesWindow.js:199
 #, fuzzy
@@ -64,12 +64,12 @@ msgstr "Dateieinstellungen"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Mit Gnome-Dateien geteilte Einstellungen"
+msgstr "Mit Gnome Files geteilte Einstellungen"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Verschiedene Anpassungen"
+msgstr "Verschiedene Optimierungen"
 
 #: app/adwPreferencesWindow.js:210
 msgid "Size for the desktop icons"
@@ -146,12 +146,12 @@ msgstr "Netzlaufwerke auf dem Desktop anzeigen"
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr ""
-"Fügen Sie der gegenüberliegenden Seite des Desktops neue Laufwerke hinzu"
+"Fügen Sie neue Laufwerke auf der gegenüberliegenden Seite des Desktops hinzu"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Heben Sie das Drop-Raster während Drag and Drop hervor"
+msgstr "Markieren Sie das Drop-Raster beim Drag-and-Drop"
 
 #: app/adwPreferencesWindow.js:237
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -207,34 +207,33 @@ msgstr "Aktion zum dauerhaften Löschen anzeigen"
 msgid "Show hidden files"
 msgstr "Verborgene Dateien anzeigen"
 
-#: app/appChooser.js:54
+#: app/appChooser.js:54 app/appChooser.js:52
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Wählen Sie eine Anwendung zum Öffnen von <b>{foo}</b>"
 
-#: app/appChooser.js:62
+#: app/appChooser.js:62 app/appChooser.js:60
 #, fuzzy
 msgid "Open Items"
 msgstr "Offene Posten"
 
-#: app/appChooser.js:64
+#: app/appChooser.js:64 app/appChooser.js:62
 #, fuzzy
-#| msgid "New Folder"
 msgid "Open Folder"
 msgstr "Ordner öffnen"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:64
 #, fuzzy
-#| msgid "Open"
 msgid "Open File"
 msgstr "Datei öffnen"
 
-#: app/appChooser.js:106
+#: app/appChooser.js:106 app/appChooser.js:104
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Fehler beim Ändern der Standardanwendung"
 
-#: app/appChooser.js:107
+#: app/appChooser.js:107 app/appChooser.js:105
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Fehler beim Festlegen von {foo} als Standardanwendung für {mimetype}"
@@ -280,7 +279,7 @@ msgid "Compressing files"
 msgstr "Komprimieren von Dateien"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -823,50 +822,52 @@ msgstr "In Dateiverwaltung anzeigen"
 msgid "Open in Terminal"
 msgstr "Im Terminal öffnen"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extraktion abgebrochen"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Datei kann nicht extrahiert werden, kein Zielordner"
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Umzug abgebrochen"
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Dateien können nicht verschoben werden, kein Zielordner"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Select Destination"
 msgstr "Ziel aussuchen"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
+#: app/fileItemMenu.js:597
 msgid "Select"
 msgstr "Auswählen"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopieren abgebrochen"
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Dateien können nicht kopiert werden, kein Zielordner"
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
 msgid "Can not email a Directory"
 msgstr "Kann Verzeichnis nicht per E-Mail verschicken"
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "Auswahl beinhaltet ein Verzeichnis, komprimiere zunächst Verzeichnis zu "
@@ -906,13 +907,11 @@ msgstr "Für diesen Dateityp immer verwenden"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
-#| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_Stornieren"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
-#| msgid "Open"
 msgid "_Open"
 msgstr "_Offen"
 
