@@ -20,7 +20,7 @@
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
-const { Gtk, Gdk, GLib, Adw } = imports.gi;
+const { Gtk, Gdk, GLib, Gio, Adw } = imports.gi;
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -41,6 +41,7 @@ var DesktopGrid = class {
         this._premultiplied = premultiplied;
         this._desktopDescription = desktopDescription;
         this._using_X11 = this.DesktopIconsUtil.usingX11();
+        this.directoryOpenTimer = null;
         this.updateWindowGeometry();
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
@@ -634,8 +635,11 @@ var DesktopGrid = class {
                     else if (pointerRectangle.intersect(fileItem.iconRectangle)[0] || pointerRectangle.intersect(fileItem.labelRectangle)[0])
                         fileItem.highLightDropTarget();
                 }
+                if (fileItem && fileItem.isDirectory)
+                    this._startSpringLoadedTimer(fileItem);
             } else {
                 this._desktopManager.unHighLightDropTarget();
+                this._stopSpringLoadedTimer();
             }
         });
 
@@ -738,6 +742,32 @@ var DesktopGrid = class {
         let [X, Y] = this.coordinatesLocalToGlobal(x, y);
         let returnAction = await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, localDrop, event, dragItem).catch(e => logError(e));
         return returnAction;
+    }
+
+    _startSpringLoadedTimer(fileItem) {
+        if (this.directoryOpenTimer)
+            return;
+        if (this._desktopManager.dragItem.uri === fileItem.uri)
+            return;
+        this.directoryOpenTimer = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 2000, () => {
+            const context = Gdk.Display.get_default().get_app_launch_context();
+            context.set_timestamp(Gdk.CURRENT_TIME);
+            try {
+                Gio.AppInfo.launch_default_for_uri(
+                    fileItem.uri, context);
+            } catch (e) {
+                logError(e, `Error opening ${fileItem.uri} in GNOME Files: ${e.message}`);
+            }
+            this.directoryOpenTimer = null;
+            return false;
+        });
+    }
+
+    _stopSpringLoadedTimer() {
+        if (this.directoryOpenTimer) {
+            GLib.Source.remove(this.directoryOpenTimer);
+            this.directoryOpenTimer = null;
+        }
     }
 
     highLightGridAt(x, y) {
