@@ -1,4 +1,7 @@
 # History of versions #
+* Gtk4 version 41
+  * New Drag Navigation - dragging an icon over a folder icon or a drive icon, and then hovering over it will open that location in Gnome Files. (Sundeep Mediratta)
+
 * Gtk4 version 40
   * Fix icons not showing on preferences window in extensions downloaded from extensions.gnome.org. (Sundeep Mediratta)
   * Simplify folder structure, move icons and css files into resources as part of app, fix scripts. Should always bundle the icons and other resources with the application with the new scripts in future and prevent the problem mentioned above in the first place. (Sundeep Mediratta)
