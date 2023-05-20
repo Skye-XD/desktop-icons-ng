@@ -635,7 +635,7 @@ var DesktopGrid = class {
                     else if (pointerRectangle.intersect(fileItem.iconRectangle)[0] || pointerRectangle.intersect(fileItem.labelRectangle)[0])
                         fileItem.highLightDropTarget();
                 }
-                if (fileItem && fileItem.isDirectory)
+                if (fileItem && (fileItem.isDirectory || fileItem.isDrive))
                     this._startSpringLoadedTimer(fileItem);
             } else {
                 this._desktopManager.unHighLightDropTarget();
