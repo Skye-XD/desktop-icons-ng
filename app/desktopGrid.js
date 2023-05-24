@@ -20,7 +20,7 @@
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
-const { Gtk, Gdk, GLib, Gio, Adw } = imports.gi;
+const { Gtk, Gdk, GLib, Gio, Graphene, Gsk, Adw } = imports.gi;
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -673,7 +673,7 @@ var DesktopGrid = class {
             if (draggedItem && !this._desktopManager.rubberBand) {
                 clickItem = draggedItem;
                 let [a, b] = this.coordinatesWidgetToWidget(x, y, this._container, clickItem._icon).map(f => Math.round(f));
-                let dragIcon = Gtk.WidgetPaintable.new(clickItem._icon);
+                let dragIcon = this._createStackedDragIcon(clickItem);
                 widgetDragController.set_icon(dragIcon, a, b);
                 this._loadDragData();
                 if (this.contentProvider)
@@ -718,6 +718,54 @@ var DesktopGrid = class {
             let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN, textCoder.encode(dingDragData));
             this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, gnomeContentProvider, textUriListContentProvider, textlistContentProvider]);
         }
+    }
+
+    _createStackedDragIcon(draggedItem) {
+        let  dragIconArray = this._desktopManager.getCurrentSelection(false);
+        dragIconArray.sort((a, b) => a.uri === draggedItem.uri ? -1 : b.uri === draggedItem.uri ? 1 : 0);
+        dragIconArray = dragIconArray.map(f => f._icon.get_paintable());
+        const numberOfIcons = dragIconArray.length;
+
+        const dragIcon = Gtk.Snapshot.new();
+        /* A wide shadow for the pile of icons gives a sense of floating. */
+        const stackShadow = { color: { red: 0, green: 0, blue: 0, alpha: 0.15 }, dx: 0, dy: 2, radius: 10 };
+        /* A slight shadow swhich makes each icon in the stack look separate. */
+        const iconShadow = { color: { red: 0, green: 0, blue: 0, alpha: 0.30 }, dx: 0, dy: 1, radius: 1 };
+
+        let xOffset = numberOfIcons % 2 === 1 ? 6 : -6;
+        let yOffset;
+        switch (numberOfIcons) {
+        case 1:
+            yOffset = 0;
+            break;
+        case 2:
+            yOffset = 10;
+            break;
+        case 3:
+            yOffset = 6;
+            break;
+        default:
+            yOffset = 4;
+        }
+
+        dragIcon.translate(new Graphene.Point({ x: 10 + (xOffset / 2), y: yOffset * numberOfIcons }));
+        let shadow = new Gsk.Shadow(stackShadow);
+        dragIcon.push_shadow([shadow]);
+        dragIconArray.reverse().forEach(paintableWidget => {
+            let w = paintableWidget.get_intrinsic_width();
+            let h = paintableWidget.get_intrinsic_height();
+            let X = Math.floor((this.Prefs.IconSize - w) / 2);
+            let Y = Math.floor((this.Prefs.IconSize - h) / 2);
+            dragIcon.translate(new Graphene.Point({ x: -xOffset, y: -yOffset }));
+            xOffset = -xOffset;
+            dragIcon.translate(new Graphene.Point({ x: X, y: Y }));
+            dragIcon.push_shadow([new Gsk.Shadow(iconShadow)]);
+            paintableWidget.snapshot(dragIcon, w, h);
+            dragIcon.pop();
+            dragIcon.translate(new Graphene.Point({ x: -X, y: -Y }));
+        });
+        dragIcon.pop();
+        return dragIcon.to_paintable(null);
     }
 
     receiveLeave() {
