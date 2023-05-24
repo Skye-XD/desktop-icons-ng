@@ -89,6 +89,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] New app-chooser dialog - same dialog as Gnome Files, uses Gtk4 and libadwaita, to allow opening a desktop file with a different application. Now includes a switch to set the new application as the default for the file type.
 
+- [x] New Drag Navigation - dragging an icon over a folder icon or a drive icon, and then hovering over it will open that location in Gnome Files. The drag can then be completed in the Files window with further navigation into subfolders using drag navigation built into Gnome Files.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
