@@ -3,6 +3,7 @@ Libadwaita, Gtk4 Desktop Icons NG with GSconnect Integration, Drag and Drop onto
 Libadwaita/Gtk4 Port of Desktop Icons NG with updated and modified code base, uses gio menus, all functions are async where possible, multiple fixes and new features-
 
 * New - Drag Navigation - dragging an icon over a folder icon or a drive icon, and then hovering over it will open that location in Gnome Files.
+* New - Drag Icon now forms a bunch of icons if multiple icons are dragged. Code from Nautilus, translated to files.
 * Now uses libadwaita.
 * Make Links on Desktop with Alt button on Wayland. Does not work with X11.
 * Copied/dropped/pasted files retain dropped position.

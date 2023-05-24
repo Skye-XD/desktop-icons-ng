@@ -91,6 +91,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] New Drag Navigation - dragging an icon over a folder icon or a drive icon, and then hovering over it will open that location in Gnome Files. The drag can then be completed in the Files window with further navigation into subfolders using drag navigation built into Gnome Files.
 
+- [x] New - when multiple icons are dragged, form a bunch of icons as a drag-icon rather than a single icon.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.

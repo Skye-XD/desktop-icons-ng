@@ -720,6 +720,7 @@ var DesktopGrid = class {
         }
     }
 
+    // The following code is translated from Nautilus C to Javascript to form the similar stack of items
     _createStackedDragIcon(draggedItem) {
         let  dragIconArray = this._desktopManager.getCurrentSelection(false);
         dragIconArray.sort((a, b) => a.uri === draggedItem.uri ? -1 : b.uri === draggedItem.uri ? 1 : 0);
