@@ -1,7 +1,9 @@
 # History of versions #
 * Gtk4 version 41
-  * New Drag Navigation - dragging an icon over a folder icon or a drive icon, and then hovering over it will open that location in Gnome Files. (Sundeep Mediratta)
+  * New - Drag Navigation - dragging an icon over a folder icon or a drive icon, and then hovering over it will open that location in Gnome Files. (Sundeep Mediratta)
   * New - Make a stack of dragged icon as the drag icon. Uses code tranlated from C in Nautilus to form the icon just as Nautilus. (Suneep Mediratta)
+  * Fix broken right click and appchooser with appimage files as there is no default application available. (Sundeep Mediratta)
+  * New - Run appimage files with right click if they are executable - mirror Gnome Files behaviour. (Sundeep Mediratta)
 
 * Gtk4 version 40
   * Fix icons not showing on preferences window in extensions downloaded from extensions.gnome.org. (Sundeep Mediratta)
