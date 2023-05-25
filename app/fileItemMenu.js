@@ -302,7 +302,7 @@ var FileItemMenu = class {
             if (selectedItemsNum > 1) {
                 openMenu.append(_('Open All...'), 'app.openMultipleFileAction');
             } else {
-                let app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, true).get_name();
+                let app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, true)?.get_name();
                 let menuLabel;
                 if (app && !this.activeFileItem.isValidDesktopFile)
                     menuLabel = _('Open with {foo}');

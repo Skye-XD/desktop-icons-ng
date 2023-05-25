@@ -297,7 +297,14 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             await Gio.AppInfo.launch_default_for_uri_async(this.file.get_uri(),
                 null, null);
         } catch (e) {
-            logError(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_SUPPORTED)) {
+                let title = _('Opening File Failed');
+                let defaultAppInfo = Gio.content_type_get_description(this.attributeContentType);
+                let error = _('There is no application installed to open "{foo}" type of files').replace('{foo}', defaultAppInfo);
+                this._showerrorpopup(title, error);
+            } else {
+                logError(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
+            }
         }
     }
 
