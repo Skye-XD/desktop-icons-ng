@@ -4,12 +4,14 @@
   * New - Make a stack of dragged icon as the drag icon. Uses code tranlated from C in Nautilus to form the icon just as Nautilus. (Suneep Mediratta)
   * Fix broken right click and appchooser with appimage files as there is no default application available. (Sundeep Mediratta)
   * New - Run appimage files with right click if they are executable - mirror Gnome Files behaviour. (Sundeep Mediratta)
+  * Weblate translation updates. (Weblate authors)
+  * update metadata.json, History.md, Version Bump to 41.
 
 * Gtk4 version 40
   * Fix icons not showing on preferences window in extensions downloaded from extensions.gnome.org. (Sundeep Mediratta)
   * Simplify folder structure, move icons and css files into resources as part of app, fix scripts. Should always bundle the icons and other resources with the application with the new scripts in future and prevent the problem mentioned above in the first place. (Sundeep Mediratta)
   * New application-chooser dialog, uses Gtk4, libadwaita. Same UI as the chooser in Gnome Files. Allows opening files on desktop with a different application. Has a switch to enable setting a new default application for a file type. (Sundeep Mediratta)
-  * Weblate translation updates. (Weblate authours).
+  * Weblate translation updates. (Weblate authors).
   * Update metadata.json, History.md, Readme.md, Version Bump to 40.
 
 * Gtk4 version 39
