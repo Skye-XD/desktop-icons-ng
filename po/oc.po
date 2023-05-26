@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"POT-Creation-Date: 2023-05-25 21:59-0400\n"
 "PO-Revision-Date: 2022-07-03 21:02+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -269,7 +269,7 @@ msgid "Compressing files"
 msgstr "Compressar {0} fichièr"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Anullar"
 
@@ -398,7 +398,7 @@ msgstr ""
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:359
+#: app/desktopManager.js:867 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Copiar"
 
@@ -565,11 +565,21 @@ msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 "Dubertura d'aqueste fichièr impossibla pr’amor qu’es un ligam simbolic copat"
 
-#: app/fileItem.js:330
+#: app/fileItem.js:306
+#, fuzzy
+#| msgid "Open"
+msgid "Opening File Failed"
+msgstr "Dobrir"
+
+#: app/fileItem.js:308
+msgid "There is no application installed to open \"{foo}\" type of files"
+msgstr ""
+
+#: app/fileItem.js:342
 msgid "Broken Desktop File"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
-#: app/fileItem.js:331
+#: app/fileItem.js:343
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -581,11 +591,11 @@ msgstr ""
 "\n"
 "\t<b>Modificatz lo fichièr per definir un programa executable corrèct.</b>"
 
-#: app/fileItem.js:337
+#: app/fileItem.js:349
 msgid "Invalid Permissions on Desktop File"
 msgstr "Autorizacion invalida sul fichièr de burèu"
 
-#: app/fileItem.js:338
+#: app/fileItem.js:350
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -593,7 +603,7 @@ msgstr ""
 "Aqueste fichièr .desktop a d’autorizacions incorrèctas. Fasètz clicatz drech "
 "per modificar las proprietats, puèi :\n"
 
-#: app/fileItem.js:340
+#: app/fileItem.js:352
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
@@ -602,7 +612,7 @@ msgstr ""
 "<b>Definir las autorizacions, dins « Autres accèsses », « Lectura sola » o "
 "« Cap »</b>"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:355
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -610,7 +620,7 @@ msgstr ""
 "\n"
 "<b>Activar l’opcion, « Permetre d’executar lo fichièr coma programa »</b>"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:363
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -633,189 +643,193 @@ msgid "Open All..."
 msgstr "Dobrir tot..."
 
 #: app/fileItemMenu.js:308
-msgid "Open with {foo}"
+msgid "Run"
 msgstr ""
 
 #: app/fileItemMenu.js:310
+msgid "Open with {foo}"
+msgstr ""
+
+#: app/fileItemMenu.js:312
 msgid "Open"
 msgstr "Dobrir"
 
-#: app/fileItemMenu.js:319 app/fileItemMenu.js:323
+#: app/fileItemMenu.js:321 app/fileItemMenu.js:325
 msgid "Extract Here"
 msgstr "Traire aicí"
 
-#: app/fileItemMenu.js:325
+#: app/fileItemMenu.js:327
 msgid "Extract To..."
 msgstr "Extraire dins..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 msgid "Open All With Other Application..."
 msgstr "Dobrir tot amb una autra aplicacion..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 #, fuzzy
 #| msgid "Open All..."
 msgid "Open With..."
 msgstr "Dobrir tot..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Aviar en utilizant la carta grafica dedicada"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 msgid "Stack This Type"
 msgstr "Apilar aqueste tipe"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 msgid "Unstack This Type"
 msgstr "Desplegar aqueste tipe"
 
-#: app/fileItemMenu.js:351
+#: app/fileItemMenu.js:353
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Executar coma un programa"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Scripts"
 msgstr "Scripts"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Cut"
 msgstr "Copar"
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 #, fuzzy
 #| msgid "Send to..."
 msgid "Move to..."
 msgstr "Mandar a..."
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:366
 #, fuzzy
 #| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Mandar a..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:370
 msgid "Rename…"
 msgstr "Renomenar…"
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 msgid "Create Link..."
 msgstr ""
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Compressar {0} fichièr"
 msgstr[1] "Compressar {0} fichièrs"
 
-#: app/fileItemMenu.js:383
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Compressar {0} fichièr"
 msgstr[1] "Compressar {0} fichièrs"
 
-#: app/fileItemMenu.js:390
+#: app/fileItemMenu.js:392
 msgid "Email to..."
 msgstr ""
 
-#: app/fileItemMenu.js:395
+#: app/fileItemMenu.js:397
 msgid "Send to Mobile Device"
 msgstr ""
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:401
 msgid "Move to Trash"
 msgstr "Desplaçar dins l'escobilhièr"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:404
 msgid "Delete permanently"
 msgstr "Suprimir definitivament"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Don't Allow Launching"
 msgstr "Permetre pas l’aviada"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Allow Launching"
 msgstr "Permetre l'aviada"
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:415
 msgid "Empty Trash"
 msgstr "Voidar l'escobilièr"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:421
 msgid "Eject"
 msgstr "Ejectar"
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:424
 msgid "Unmount"
 msgstr "Desmontar"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Common Properties"
 msgstr "Proprietats comunas"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Properties"
 msgstr "Proprietats"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show All in Files"
 msgstr "Tot mostrar dins Fichièrs"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show in Files"
 msgstr "Mostrar dins Fichièrs"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:433
 msgid "Open in Terminal"
 msgstr "Dobrir dins un terminal"
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:524
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Traire aicí"
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:525
 msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:557
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Anullar"
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:558
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Seleccionar una destinacion per l'extraccion"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
 msgid "Select"
 msgstr "Causir"
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:644
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Anullar"
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:645
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:672
 msgid "Can not email a Directory"
 msgstr "Impossible d’enviar un email a un Repertòri"
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:673
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "La seleccion inclutz un repertòri, compressatz lo repertòri d'en primièr."

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 22:00-0400\n"
-"PO-Revision-Date: 2023-05-17 02:03+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2023-05-25 21:59-0400\n"
+"PO-Revision-Date: 2023-05-26 04:04+0000\n"
+"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -53,7 +53,7 @@ msgstr "Отображение томов на рабочем столе"
 
 #: app/adwPreferencesWindow.js:199
 msgid "Files Settings"
-msgstr "Настройки файлов"
+msgstr "Настройки менеджера файлов"
 
 #: app/adwPreferencesWindow.js:200
 msgid "Settings shared with Gnome Files"
@@ -181,37 +181,33 @@ msgstr "Добавить пункт в контекстное меню «Уда�
 msgid "Show hidden files"
 msgstr "Показывать скрытые файлы"
 
-#: app/appChooser.js:54 app/appChooser.js:52
-#, fuzzy
+#: app/appChooser.js:54
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Выберите приложение для открытия <b>{foo}</b>"
 
-#: app/appChooser.js:62 app/appChooser.js:60
+#: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
 msgstr "Открытые позиции"
 
-#: app/appChooser.js:64 app/appChooser.js:62
-#, fuzzy
+#: app/appChooser.js:64
 msgid "Open Folder"
 msgstr "Открыть папку"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
-#: app/appChooser.js:64
-#, fuzzy
 msgid "Open File"
 msgstr "Открыть файл"
 
-#: app/appChooser.js:106 app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Ошибка изменения приложения по умолчанию"
 
-#: app/appChooser.js:107 app/appChooser.js:105
-#, fuzzy
+#: app/appChooser.js:107
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
-"Ошибка при установке {foo} в качестве приложения по умолчанию для {mimetype}"
+"Произошла ошибка при установке {foo} в качестве приложения по умолчанию для "
+"{mimetype}"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -250,7 +246,7 @@ msgid "Compressing files"
 msgstr "Сжатие файлов"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -374,7 +370,7 @@ msgstr "${appName} не может открывать файлы этого ти
 msgid "Move"
 msgstr "Переместить"
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:359
+#: app/desktopManager.js:867 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Копировать"
 
@@ -529,11 +525,21 @@ msgstr ""
 "Невозможно открыть этот файл, потому что это неработающая символическая "
 "ссылка"
 
-#: app/fileItem.js:330
+#: app/fileItem.js:306
+#, fuzzy
+#| msgid "Open File"
+msgid "Opening File Failed"
+msgstr "Открыть файл"
+
+#: app/fileItem.js:308
+msgid "There is no application installed to open \"{foo}\" type of files"
+msgstr ""
+
+#: app/fileItem.js:342
 msgid "Broken Desktop File"
 msgstr "Нерабочий .desktop-файл"
 
-#: app/fileItem.js:331
+#: app/fileItem.js:343
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -546,11 +552,11 @@ msgstr ""
 "\t<b>Отредактируйте файл так, чтобы он указывал на необходимый исполняемый "
 "файл.</b>"
 
-#: app/fileItem.js:337
+#: app/fileItem.js:349
 msgid "Invalid Permissions on Desktop File"
 msgstr "Неверные права доступа к .desktop файлу"
 
-#: app/fileItem.js:338
+#: app/fileItem.js:350
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -558,7 +564,7 @@ msgstr ""
 "Этот .desktop-файл имеет неправильные разрешения. Щёлкните правой кнопкой "
 "мыши, чтобы изменить свойства, а затем:\n"
 
-#: app/fileItem.js:340
+#: app/fileItem.js:352
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
@@ -567,7 +573,7 @@ msgstr ""
 "<b>Установите разрешения в разделе «Права доступа» на «Только чтение» или "
 "«Нет»</b>"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:355
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -575,7 +581,7 @@ msgstr ""
 "\n"
 "<b>Включить параметр «Разрешить выполнение файла как программы»</b>"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:363
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -599,178 +605,180 @@ msgid "Open All..."
 msgstr "Открыть всё..."
 
 #: app/fileItemMenu.js:308
+msgid "Run"
+msgstr ""
+
+#: app/fileItemMenu.js:310
 msgid "Open with {foo}"
 msgstr "Открыть с помощью {foo}"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:312
 msgid "Open"
 msgstr "Открыть"
 
-#: app/fileItemMenu.js:319 app/fileItemMenu.js:323
+#: app/fileItemMenu.js:321 app/fileItemMenu.js:325
 msgid "Extract Here"
 msgstr "Извлечь здесь"
 
-#: app/fileItemMenu.js:325
+#: app/fileItemMenu.js:327
 msgid "Extract To..."
 msgstr "Извлечь в..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 msgid "Open All With Other Application..."
 msgstr "Открыть всё в другом приложении..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 msgid "Open With..."
 msgstr "Открыть с помощью..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Запустить, используя дискретную видеокарту"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 msgid "Stack This Type"
 msgstr "Сгруппировать этот тип"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 msgid "Unstack This Type"
 msgstr "Разгруппировать этот тип"
 
-#: app/fileItemMenu.js:351
+#: app/fileItemMenu.js:353
 msgid "Run as a Program"
 msgstr "Запустить как программу"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Scripts"
 msgstr "Скрипты"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Cut"
 msgstr "Вырезать"
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 msgid "Move to..."
 msgstr "Перейти к..."
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:366
 msgid "Copy to..."
 msgstr "Копировать в..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:370
 msgid "Rename…"
 msgstr "Переименовать…"
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 msgid "Create Link..."
 msgstr "Создать ссылку..."
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:378
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Сжать {0} папку"
 msgstr[1] "Сжать {0} папки"
 msgstr[2] "Сжать {0} папок"
 
-#: app/fileItemMenu.js:383
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Сжать {0} файл"
 msgstr[1] "Сжать {0} файла"
 msgstr[2] "Сжать {0} файлов"
 
-#: app/fileItemMenu.js:390
+#: app/fileItemMenu.js:392
 msgid "Email to..."
 msgstr "Отправить электронную почту..."
 
-#: app/fileItemMenu.js:395
+#: app/fileItemMenu.js:397
 msgid "Send to Mobile Device"
 msgstr "Отправить на мобильное устройство"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:401
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:404
 msgid "Delete permanently"
 msgstr "Удалить безвозвратно"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Don't Allow Launching"
 msgstr "Не разрешать запуск"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Allow Launching"
 msgstr "Разрешить запуск"
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:415
 msgid "Empty Trash"
 msgstr "Очистить корзину"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:421
 msgid "Eject"
 msgstr "Извлечь"
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:424
 msgid "Unmount"
 msgstr "Отмонтировать"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Common Properties"
 msgstr "Общие свойства"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Properties"
 msgstr "Свойства"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show All in Files"
 msgstr "Показать всё в файловом менеджере"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show in Files"
 msgstr "Показать в файловом менеджере"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:433
 msgid "Open in Terminal"
 msgstr "Открыть в терминале"
 
-#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
+#: app/fileItemMenu.js:524
 msgid "Extraction Cancelled"
 msgstr "Извлечение отменено"
 
-#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
+#: app/fileItemMenu.js:525
 msgid "Unable to extract File, no destination folder"
 msgstr "Не удалось извлечь файл, нет папки назначения"
 
-#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
+#: app/fileItemMenu.js:557
 msgid "Move Cancelled"
 msgstr "Перемещение отменено"
 
-#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
+#: app/fileItemMenu.js:558
 msgid "Unable to move Files, no destination folder"
 msgstr "Не удалось переместить файлы, нет папки назначения"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
-#: app/fileItemMenu.js:595
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 msgid "Select Destination"
 msgstr "Выберите место назначения"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
-#: app/fileItemMenu.js:597
+#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
 msgid "Select"
 msgstr "Выделить"
 
-#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:644
 msgid "Copy Cancelled"
 msgstr "Копирование отменено"
 
-#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:645
 msgid "Unable to copy Files, no destination folder"
 msgstr "Не удалось скопировать файлы, нет папки назначения"
 
-#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
+#: app/fileItemMenu.js:672
 msgid "Can not email a Directory"
 msgstr "Невозможно отправить каталог по электронной почте"
 
-#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
+#: app/fileItemMenu.js:673
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Выбран каталог, сначала сожмите его в файл."
 
@@ -795,22 +803,18 @@ msgid "Command not found"
 msgstr "Команда не найдена"
 
 #: app/resources/ui/ding-app-chooser.ui:47
-#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "Выберите приложение, чтобы открыть выбранные файлы."
+msgstr "Выберите приложение для открытия выбранных файлов."
 
 #: app/resources/ui/ding-app-chooser.ui:81
-#, fuzzy
 msgid "Always use for this file type"
-msgstr "Всегда используйте для этого типа файла"
+msgstr "Всегда использовать для этого типа файлов"
 
 #: app/resources/ui/ding-app-chooser.ui:104
-#, fuzzy
 msgid "_Cancel"
-msgstr "_Отмена"
+msgstr "_Отменить"
 
 #: app/resources/ui/ding-app-chooser.ui:110
-#, fuzzy
 msgid "_Open"
 msgstr "_Открыть"
 
