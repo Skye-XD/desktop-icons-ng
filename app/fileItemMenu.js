@@ -304,7 +304,9 @@ var FileItemMenu = class {
             } else {
                 let app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, true)?.get_name();
                 let menuLabel;
-                if (app && !this.activeFileItem.isValidDesktopFile)
+                if (this.activeFileItem.executableContentType && this.activeFileItem.isExecutable && !this.activeFileItem.fileContainsText)
+                    menuLabel = _('Run');
+                else if (app && !this.activeFileItem.isValidDesktopFile)
                     menuLabel = _('Open with {foo}');
                 else
                     menuLabel = _('Open');

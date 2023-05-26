@@ -293,6 +293,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             return;
         }
 
+        if (this.isExecutable && this.executableContentType && !this.fileContainsText) {
+            this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(), [this.path], null);
+            return;
+        }
+
         try {
             await Gio.AppInfo.launch_default_for_uri_async(this.file.get_uri(),
                 null, null);
@@ -754,8 +759,16 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return this._execLine;
     }
 
+    get executableContentType() {
+        return Gio.content_type_can_be_executable(this.attributeContentType);
+    }
+
     get file() {
         return this._file;
+    }
+
+    get fileContainsText() {
+        return this._attributeContentType === 'text/plain';
     }
 
     get fileName() {
@@ -772,6 +785,10 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
     get isDirectory() {
         return this._isDirectory;
+    }
+
+    get isExecutable() {
+        return this._attributeCanExecute;
     }
 
     get isHidden() {
