@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"POT-Creation-Date: 2023-05-25 21:59-0400\n"
 "PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -205,33 +205,32 @@ msgstr "Arată un meniu de context pentru ștergere definitivă"
 msgid "Show hidden files"
 msgstr "Arată fișierele ascunse"
 
-#: app/appChooser.js:54 app/appChooser.js:52
+#: app/appChooser.js:54
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Alegeți o aplicație pentru a deschide <b>{foo}</b>"
 
-#: app/appChooser.js:62 app/appChooser.js:60
+#: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
 msgstr "Deschideți articole"
 
-#: app/appChooser.js:64 app/appChooser.js:62
+#: app/appChooser.js:64
 #, fuzzy
 msgid "Open Folder"
 msgstr "Deschideți folderul"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
-#: app/appChooser.js:64
 #, fuzzy
 msgid "Open File"
 msgstr "Deschide fișierul"
 
-#: app/appChooser.js:106 app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Eroare la modificarea aplicației implicite"
 
-#: app/appChooser.js:107 app/appChooser.js:105
+#: app/appChooser.js:107
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Eroare la setarea {foo} ca aplicație implicită pentru {mimetype}"
@@ -277,7 +276,7 @@ msgid "Compressing files"
 msgstr "Comprimarea fișierelor"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Anulează"
 
@@ -431,7 +430,7 @@ msgstr "${appName} nu poate deschide fișiere de acest tip!"
 msgid "Move"
 msgstr "Mișcare"
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:359
+#: app/desktopManager.js:867 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Copiază"
 
@@ -611,12 +610,21 @@ msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 "Nu se poate deschide acest fișier deoarece este un link simbolic întrerupt"
 
-#: app/fileItem.js:330
+#: app/fileItem.js:306
+#, fuzzy
+msgid "Opening File Failed"
+msgstr "Deschide fișierul"
+
+#: app/fileItem.js:308
+msgid "There is no application installed to open \"{foo}\" type of files"
+msgstr ""
+
+#: app/fileItem.js:342
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "Fișier desktop spart"
 
-#: app/fileItem.js:331
+#: app/fileItem.js:343
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -624,12 +632,12 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:337
+#: app/fileItem.js:349
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Permisiuni nevalide pe fișierul desktop"
 
-#: app/fileItem.js:338
+#: app/fileItem.js:350
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -638,7 +646,7 @@ msgstr ""
 "Acest fișier .desktop are permisiuni incorecte. Faceți clic dreapta pentru a "
 "edita proprietăți, apoi:\n"
 
-#: app/fileItem.js:340
+#: app/fileItem.js:352
 #, fuzzy
 msgid ""
 "\n"
@@ -647,7 +655,7 @@ msgstr ""
 "\n"
 "<b>Setați permisiuni, în „Acces alții”, „Numai citire” sau „Niciuna”</b>"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:355
 #, fuzzy
 msgid ""
 "\n"
@@ -656,7 +664,7 @@ msgstr ""
 "\n"
 "<b>Activați opțiunea, „Permiteți executarea fișierului ca program”</b>"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:363
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -675,194 +683,196 @@ msgid "Open All..."
 msgstr "Deschide tot..."
 
 #: app/fileItemMenu.js:308
+msgid "Run"
+msgstr ""
+
+#: app/fileItemMenu.js:310
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Deschide cu {foo}"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:312
 msgid "Open"
 msgstr "Deschide"
 
-#: app/fileItemMenu.js:319 app/fileItemMenu.js:323
+#: app/fileItemMenu.js:321 app/fileItemMenu.js:325
 msgid "Extract Here"
 msgstr "Extrage aici"
 
-#: app/fileItemMenu.js:325
+#: app/fileItemMenu.js:327
 msgid "Extract To..."
 msgstr "Extrage în..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 msgid "Open All With Other Application..."
 msgstr "Deschide tot cu altă aplicație..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 #, fuzzy
 msgid "Open With..."
 msgstr "Deschis cu..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Lanseaza folosind Placă Video Dedicată"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Stivuiți acest tip"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Demontați acest tip"
 
-#: app/fileItemMenu.js:351
+#: app/fileItemMenu.js:353
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Rulați ca program"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Scripts"
 msgstr "Scripturi"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Cut"
 msgstr "Taie"
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 #, fuzzy
 msgid "Move to..."
 msgstr "Mutați la..."
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Copy to..."
 msgstr "Copiaza in..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:370
 msgid "Rename…"
 msgstr "Redenumește…"
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 #, fuzzy
 msgid "Create Link..."
 msgstr "Creați link..."
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Comprimați folderul {0}"
 msgstr[1] "Comprimați {0} dosare"
 
-#: app/fileItemMenu.js:383
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Comprimă {0} fișier"
 msgstr[1] "Comprimă {0} fișiere"
 
-#: app/fileItemMenu.js:390
+#: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Email to..."
 msgstr "E-mail la..."
 
-#: app/fileItemMenu.js:395
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Trimiteți pe dispozitivul mobil"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:401
 msgid "Move to Trash"
 msgstr "Mută la coșul de gunoi"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:404
 msgid "Delete permanently"
 msgstr "Șterge definitiv"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Don't Allow Launching"
 msgstr "Nu permite lansarea"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Allow Launching"
 msgstr "Permite lansarea"
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:415
 msgid "Empty Trash"
 msgstr "Golește coșul de gunoi"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:421
 msgid "Eject"
 msgstr "Scoate"
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:424
 msgid "Unmount"
 msgstr "Demontează"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Common Properties"
 msgstr "Proprietăți generale"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Properties"
 msgstr "Proprietăți"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show All in Files"
 msgstr "Arată toate fișierele"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show in Files"
 msgstr "Arată în fișiere"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:433
 msgid "Open in Terminal"
 msgstr "Deschide în terminal"
 
-#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
+#: app/fileItemMenu.js:524
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extragerea a fost anulată"
 
-#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
+#: app/fileItemMenu.js:525
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Nu se poate extrage fișierul, niciun folder de destinație"
 
-#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
+#: app/fileItemMenu.js:557
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Mutare anulată"
 
-#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
+#: app/fileItemMenu.js:558
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Nu se pot muta fișiere, niciun folder de destinație"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
-#: app/fileItemMenu.js:595
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 #, fuzzy
 msgid "Select Destination"
 msgstr "Selectați Destinație"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
-#: app/fileItemMenu.js:597
+#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
 msgid "Select"
 msgstr "Selectează"
 
-#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:644
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Copie anulată"
 
-#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:645
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nu se pot copia fișiere, niciun folder de destinație"
 
-#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
+#: app/fileItemMenu.js:672
 msgid "Can not email a Directory"
 msgstr "Nu se poate trimite un dosar prin email"
 
-#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
+#: app/fileItemMenu.js:673
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Selecția include un dosar, mai întâi arhiveză-l într-un fișier"
 

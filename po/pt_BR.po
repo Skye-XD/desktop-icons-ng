@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"POT-Creation-Date: 2023-05-25 21:59-0400\n"
 "PO-Revision-Date: 2023-05-17 02:21+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
+"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -209,33 +209,32 @@ msgstr "Mostrar a opção de excluir permanentemente no menu de contexto"
 msgid "Show hidden files"
 msgstr "Mostrar arquivos ocultos"
 
-#: app/appChooser.js:54 app/appChooser.js:52
+#: app/appChooser.js:54
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Escolha um aplicativo para abrir <b>{foo}</b>"
 
-#: app/appChooser.js:62 app/appChooser.js:60
+#: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
 msgstr "Abrir itens"
 
-#: app/appChooser.js:64 app/appChooser.js:62
+#: app/appChooser.js:64
 #, fuzzy
 msgid "Open Folder"
 msgstr "Pasta aberta"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
-#: app/appChooser.js:64
 #, fuzzy
 msgid "Open File"
 msgstr "Abrir arquivo"
 
-#: app/appChooser.js:106 app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Erro ao alterar o aplicativo padrão"
 
-#: app/appChooser.js:107 app/appChooser.js:105
+#: app/appChooser.js:107
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Erro ao definir {foo} como aplicativo padrão para {mimetype}"
@@ -284,7 +283,7 @@ msgid "Compressing files"
 msgstr "Compactando arquivos"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -438,7 +437,7 @@ msgstr "${appName} não pode abrir arquivos deste tipo!"
 msgid "Move"
 msgstr "Mover"
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:359
+#: app/desktopManager.js:867 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Copiar"
 
@@ -618,12 +617,21 @@ msgstr "Link quebrado"
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Não é possível abrir este arquivo porque é um link simbólico quebrado"
 
-#: app/fileItem.js:330
+#: app/fileItem.js:306
+#, fuzzy
+msgid "Opening File Failed"
+msgstr "Abrir arquivo"
+
+#: app/fileItem.js:308
+msgid "There is no application installed to open \"{foo}\" type of files"
+msgstr ""
+
+#: app/fileItem.js:342
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "Arquivo de área de trabalho quebrado"
 
-#: app/fileItem.js:331
+#: app/fileItem.js:343
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -631,12 +639,12 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:337
+#: app/fileItem.js:349
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Permissões inválidas no arquivo da área de trabalho"
 
-#: app/fileItem.js:338
+#: app/fileItem.js:350
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -645,7 +653,7 @@ msgstr ""
 "Este arquivo .desktop tem permissões incorretas. Clique com o botão direito "
 "para editar Propriedades, então:\n"
 
-#: app/fileItem.js:340
+#: app/fileItem.js:352
 #, fuzzy
 msgid ""
 "\n"
@@ -655,7 +663,7 @@ msgstr ""
 "<b>Definir permissões, em \"Outros acessos\", \"Somente leitura\" ou \"Nenhum"
 "\"</b>"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:355
 #, fuzzy
 msgid ""
 "\n"
@@ -664,7 +672,7 @@ msgstr ""
 "\n"
 "<b> Ativar opção, \"Permitir execução de arquivo como um programa\" </b>"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:363
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -683,199 +691,200 @@ msgid "Open All..."
 msgstr "Abrir todos..."
 
 #: app/fileItemMenu.js:308
+msgid "Run"
+msgstr ""
+
+#: app/fileItemMenu.js:310
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Abra com {foo}"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:312
 msgid "Open"
 msgstr "Abrir"
 
-#: app/fileItemMenu.js:319 app/fileItemMenu.js:323
+#: app/fileItemMenu.js:321 app/fileItemMenu.js:325
 msgid "Extract Here"
 msgstr "Extrair aqui"
 
-#: app/fileItemMenu.js:325
+#: app/fileItemMenu.js:327
 msgid "Extract To..."
 msgstr "Extrair para…"
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 #, fuzzy
 msgid "Open All With Other Application..."
 msgstr "Abrir tudo com outro aplicativo..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 #, fuzzy
 msgid "Open With..."
 msgstr "Abrir com..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Abrir usando placa de vídeo dedicada"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Empilhe este tipo"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Desempilhar este tipo"
 
-#: app/fileItemMenu.js:351
+#: app/fileItemMenu.js:353
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Executar como um programa"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Scripts"
 msgstr "Scripts"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Cut"
 msgstr "Recortar"
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 #, fuzzy
 msgid "Move to..."
 msgstr "Mover para..."
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Copy to..."
 msgstr "Copiar para..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:370
 msgid "Rename…"
 msgstr "Renomear…"
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 #, fuzzy
 msgid "Create Link..."
 msgstr "Criar link..."
 
-#: app/fileItemMenu.js:376
-#, fuzzy
+#: app/fileItemMenu.js:378
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "Comprimir {0} pastas"
 
-#: app/fileItemMenu.js:383
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Comprimir {0} arquivo"
 msgstr[1] "Comprimir {0} arquivos"
 
-#: app/fileItemMenu.js:390
+#: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Email to..."
 msgstr "Email para..."
 
-#: app/fileItemMenu.js:395
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Enviar para dispositivo móvel"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:401
 msgid "Move to Trash"
 msgstr "Mover para a lixeira"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:404
 msgid "Delete permanently"
 msgstr "Excluir permanentemente"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 #, fuzzy
 msgid "Don't Allow Launching"
 msgstr "Não permitir o lançamento"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Allow Launching"
 msgstr "Permitir iniciar"
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:415
 msgid "Empty Trash"
 msgstr "Esvaziar lixeira"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:421
 msgid "Eject"
 msgstr "Ejetar"
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:424
 msgid "Unmount"
 msgstr "Desmontar"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 #, fuzzy
 msgid "Common Properties"
 msgstr "Propriedades Comuns"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Properties"
 msgstr "Propriedades"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 #, fuzzy
 msgid "Show All in Files"
 msgstr "Mostrar tudo em arquivos"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show in Files"
 msgstr "Mostrar no gestor de arquivos"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:433
 msgid "Open in Terminal"
 msgstr "Abrir no terminal"
 
-#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
+#: app/fileItemMenu.js:524
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extração cancelada"
 
-#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
+#: app/fileItemMenu.js:525
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Não é possível extrair o arquivo, nenhuma pasta de destino"
 
-#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
+#: app/fileItemMenu.js:557
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Movimento cancelado"
 
-#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
+#: app/fileItemMenu.js:558
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Não é possível mover arquivos, nenhuma pasta de destino"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
-#: app/fileItemMenu.js:595
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 #, fuzzy
 msgid "Select Destination"
 msgstr "Selecione o destino"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
-#: app/fileItemMenu.js:597
+#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
 #, fuzzy
 msgid "Select"
 msgstr "Selecione"
 
-#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:644
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Cópia cancelada"
 
-#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:645
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Não é possível copiar arquivos, nenhuma pasta de destino"
 
-#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
+#: app/fileItemMenu.js:672
 msgid "Can not email a Directory"
 msgstr "Não é possível enviar um diretório por email"
 
-#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
+#: app/fileItemMenu.js:673
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 "Seleção inclui um diretório, comprima o diretório em um arquivo primeiro"

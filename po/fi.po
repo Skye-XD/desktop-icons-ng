@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"POT-Creation-Date: 2023-05-25 21:59-0400\n"
 "PO-Revision-Date: 2023-05-17 02:03+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -205,33 +205,32 @@ msgstr "Näytä valikkokohde pysyvästi poistamiselle"
 msgid "Show hidden files"
 msgstr "Näytä piilotiedostot"
 
-#: app/appChooser.js:54 app/appChooser.js:52
+#: app/appChooser.js:54
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Valitse sovellus avataksesi <b>{foo}</b>"
 
-#: app/appChooser.js:62 app/appChooser.js:60
+#: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
 msgstr "Avaa kohteet"
 
-#: app/appChooser.js:64 app/appChooser.js:62
+#: app/appChooser.js:64
 #, fuzzy
 msgid "Open Folder"
 msgstr "Avaa kansio"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
-#: app/appChooser.js:64
 #, fuzzy
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
-#: app/appChooser.js:106 app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Virhe oletussovelluksen muuttamisessa"
 
-#: app/appChooser.js:107 app/appChooser.js:105
+#: app/appChooser.js:107
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Virhe asetettaessa {foo} oletussovellukseksi kohteelle {mimetype}"
@@ -277,7 +276,7 @@ msgid "Compressing files"
 msgstr "Tiedostojen pakkaaminen"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Peru"
 
@@ -432,7 +431,7 @@ msgstr "${appName} ei voi avata tämän tyyppisiä tiedostoja!"
 msgid "Move"
 msgstr "Liikkua"
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:359
+#: app/desktopManager.js:867 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Kopioi"
 
@@ -608,11 +607,20 @@ msgstr "Rikkinäinen linkki"
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Tiedostoa ei voitu avata, sillä se on rikkinäinen linkki"
 
-#: app/fileItem.js:330
+#: app/fileItem.js:306
+#, fuzzy
+msgid "Opening File Failed"
+msgstr "Avaa tiedosto"
+
+#: app/fileItem.js:308
+msgid "There is no application installed to open \"{foo}\" type of files"
+msgstr ""
+
+#: app/fileItem.js:342
 msgid "Broken Desktop File"
 msgstr "Rikkinäinen työpöytätiedosto"
 
-#: app/fileItem.js:331
+#: app/fileItem.js:343
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -624,11 +632,11 @@ msgstr ""
 "\n"
 "\t<b>Muokkaa tiedostoa asettaaksesi oikea suoritettava ohjelma.<b>"
 
-#: app/fileItem.js:337
+#: app/fileItem.js:349
 msgid "Invalid Permissions on Desktop File"
 msgstr "Vialliset oikeudet työpöytätiedostossa"
 
-#: app/fileItem.js:338
+#: app/fileItem.js:350
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -636,7 +644,7 @@ msgstr ""
 "Tällä .desktop-tiedostolla on väärät oikeudet. Naksauta oikealla hiiren "
 "napilla ja valitse Ominaisuudet, sitten:\n"
 
-#: app/fileItem.js:340
+#: app/fileItem.js:352
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
@@ -645,7 +653,7 @@ msgstr ""
 "<b>Aseta oikeudet kohdassa \"Muut oikeudet\", joko \"Vain luku\" tai \"Ei "
 "mikään\"</b>"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:355
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -653,7 +661,7 @@ msgstr ""
 "\n"
 "<b>Kytke päälle valinta \"Salli tiedoston suoritus ohjelmana\"</b>"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:363
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -676,192 +684,194 @@ msgid "Open All..."
 msgstr "Avaa kaikki..."
 
 #: app/fileItemMenu.js:308
+msgid "Run"
+msgstr ""
+
+#: app/fileItemMenu.js:310
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Avaa käyttäjällä {foo}"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:312
 msgid "Open"
 msgstr "Avaa"
 
-#: app/fileItemMenu.js:319 app/fileItemMenu.js:323
+#: app/fileItemMenu.js:321 app/fileItemMenu.js:325
 msgid "Extract Here"
 msgstr "Pura tänne"
 
-#: app/fileItemMenu.js:325
+#: app/fileItemMenu.js:327
 msgid "Extract To..."
 msgstr "Pura…"
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 msgid "Open All With Other Application..."
 msgstr "Avaa kaikki toisella sovelluksella..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 #, fuzzy
 msgid "Open With..."
 msgstr "Avaa..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Käynnistä erillisnäytönohjainta käyttäen"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 msgid "Stack This Type"
 msgstr "Pinoa tämäntyyppiset"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 msgid "Unstack This Type"
 msgstr "Älä pinoa tämäntyyppisiä"
 
-#: app/fileItemMenu.js:351
+#: app/fileItemMenu.js:353
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Suorita ohjelmana"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Scripts"
 msgstr "Komentosarjat"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Cut"
 msgstr "Leikkaa"
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 #, fuzzy
 msgid "Move to..."
 msgstr "Muuttaa..."
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Copy to..."
 msgstr "Kopioi..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:370
 msgid "Rename…"
 msgstr "Nimeä uudelleen…"
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 #, fuzzy
 msgid "Create Link..."
 msgstr "Luo linkki..."
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Pakkaa {0} kansio"
 msgstr[1] "Pakkaa {0} kansiota"
 
-#: app/fileItemMenu.js:383
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Pakkaa {0} tiedosto"
 msgstr[1] "Pakkaa {0} tiedostoa"
 
-#: app/fileItemMenu.js:390
+#: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Email to..."
 msgstr "Lähettää sähköposti jollekin..."
 
-#: app/fileItemMenu.js:395
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Lähetä mobiililaitteeseen"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:401
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:404
 msgid "Delete permanently"
 msgstr "Poista pysyvästi"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Don't Allow Launching"
 msgstr "Älä salli käynnistämistä"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Allow Launching"
 msgstr "Salli käynnistäminen"
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:415
 msgid "Empty Trash"
 msgstr "Tyhjennä roskakori"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:421
 msgid "Eject"
 msgstr "Irrota"
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:424
 msgid "Unmount"
 msgstr "Irrota osio"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Common Properties"
 msgstr "Yhteiset ominaisuudet"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Properties"
 msgstr "Ominaisuudet"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show All in Files"
 msgstr "Näytä kaikki Tiedostot-sovelluksessa"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show in Files"
 msgstr "Näytä tiedostonhallinnassa"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:433
 msgid "Open in Terminal"
 msgstr "Avaa päätteessä"
 
-#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
+#: app/fileItemMenu.js:524
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Poiminta peruutettu"
 
-#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
+#: app/fileItemMenu.js:525
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Tiedostoa ei voi purkaa, ei kohdekansiota"
 
-#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
+#: app/fileItemMenu.js:557
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Siirto peruutettu"
 
-#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
+#: app/fileItemMenu.js:558
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Tiedostoja ei voi siirtää, ei kohdekansiota"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
-#: app/fileItemMenu.js:595
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 #, fuzzy
 msgid "Select Destination"
 msgstr "Valitse Kohde"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
-#: app/fileItemMenu.js:597
+#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
 msgid "Select"
 msgstr "Valitse"
 
-#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:644
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopiointi peruutettu"
 
-#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:645
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Tiedostoja ei voi kopioida, ei kohdekansiota"
 
-#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
+#: app/fileItemMenu.js:672
 msgid "Can not email a Directory"
 msgstr "Kansiota ei voi lähettää sähköpostitse"
 
-#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
+#: app/fileItemMenu.js:673
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Valinta sisältää kansion, pakkaa kansio tiedostoksi ensin."
 

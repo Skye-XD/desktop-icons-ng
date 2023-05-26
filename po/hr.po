@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"POT-Creation-Date: 2023-05-25 21:59-0400\n"
 "PO-Revision-Date: 2023-05-17 02:21+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18-dev\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
@@ -214,33 +214,32 @@ msgstr "Prikažite stavku kontekstnog izbornika za trajno brisanje"
 msgid "Show hidden files"
 msgstr "Prikaži skrivene datoteke"
 
-#: app/appChooser.js:54 app/appChooser.js:52
+#: app/appChooser.js:54
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Odaberite aplikaciju za otvaranje <b>{foo}</b>"
 
-#: app/appChooser.js:62 app/appChooser.js:60
+#: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
 msgstr "Otvorene stavke"
 
-#: app/appChooser.js:64 app/appChooser.js:62
+#: app/appChooser.js:64
 #, fuzzy
 msgid "Open Folder"
 msgstr "Otvori mapu"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
-#: app/appChooser.js:64
 #, fuzzy
 msgid "Open File"
 msgstr "Otvorena datoteka"
 
-#: app/appChooser.js:106 app/appChooser.js:104
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Pogreška pri promjeni zadane aplikacije"
 
-#: app/appChooser.js:107 app/appChooser.js:105
+#: app/appChooser.js:107
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
@@ -290,7 +289,7 @@ msgid "Compressing files"
 msgstr "Sažimanje datoteka"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604 app/fileItemMenu.js:603
+#: app/desktopManager.js:1310 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Odustani"
 
@@ -443,7 +442,7 @@ msgstr "${appName} ne može otvoriti datoteke ove vrste!"
 msgid "Move"
 msgstr "Potez"
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:359
+#: app/desktopManager.js:867 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Kopiraj"
 
@@ -624,12 +623,21 @@ msgstr "Pokvarena veza"
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Ne mogu otvoriti ovu datoteku jer je neispravna simbolička veza"
 
-#: app/fileItem.js:330
+#: app/fileItem.js:306
+#, fuzzy
+msgid "Opening File Failed"
+msgstr "Otvorena datoteka"
+
+#: app/fileItem.js:308
+msgid "There is no application installed to open \"{foo}\" type of files"
+msgstr ""
+
+#: app/fileItem.js:342
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "Pokvarena datoteka radne površine"
 
-#: app/fileItem.js:331
+#: app/fileItem.js:343
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -637,12 +645,12 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:337
+#: app/fileItem.js:349
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Nevažeća dopuštenja za datoteku radne površine"
 
-#: app/fileItem.js:338
+#: app/fileItem.js:350
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -651,7 +659,7 @@ msgstr ""
 "Ova .desktop datoteka ima neispravne dozvole. Desni klik za uređivanje "
 "svojstava, zatim:\n"
 
-#: app/fileItem.js:340
+#: app/fileItem.js:352
 #, fuzzy
 msgid ""
 "\n"
@@ -660,7 +668,7 @@ msgstr ""
 "\n"
 "<b>Postavite dopuštenja, u \"Others Access\", \"Read Only\" ili \"None\"</b>"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:355
 #, fuzzy
 msgid ""
 "\n"
@@ -669,7 +677,7 @@ msgstr ""
 "\n"
 "<b>Omogući opciju, \"Dopusti izvođenje datoteke kao programa\"</b>"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:363
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -678,7 +686,6 @@ msgid ""
 msgstr ""
 
 #: app/fileItemMenu.js:296
-#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -691,204 +698,204 @@ msgid "Open All..."
 msgstr "Otvori sve..."
 
 #: app/fileItemMenu.js:308
+msgid "Run"
+msgstr ""
+
+#: app/fileItemMenu.js:310
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Otvori pomoću {foo}"
 
-#: app/fileItemMenu.js:310
+#: app/fileItemMenu.js:312
 msgid "Open"
 msgstr "Otvori"
 
-#: app/fileItemMenu.js:319 app/fileItemMenu.js:323
+#: app/fileItemMenu.js:321 app/fileItemMenu.js:325
 msgid "Extract Here"
 msgstr "Raspakiraj ovdje"
 
-#: app/fileItemMenu.js:325
+#: app/fileItemMenu.js:327
 msgid "Extract To..."
 msgstr "Raspakiraj u…"
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 #, fuzzy
 msgid "Open All With Other Application..."
 msgstr "Otvori sve s drugom aplikacijom..."
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 #, fuzzy
 msgid "Open With..."
 msgstr "Otvoriti sa..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Pokretanje pomoću namjenske grafičke kartice"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Složite ovu vrstu"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Ukloni ovu vrstu"
 
-#: app/fileItemMenu.js:351
+#: app/fileItemMenu.js:353
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Pokreni kao program"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 #, fuzzy
 msgid "Scripts"
 msgstr "Skripte"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Cut"
 msgstr "Izreži"
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 #, fuzzy
 msgid "Move to..."
 msgstr "Premjesti u..."
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Copy to..."
 msgstr "Kopiraj u..."
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:370
 msgid "Rename…"
 msgstr "Preimenuj…"
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 #, fuzzy
 msgid "Create Link..."
 msgstr "Stvori vezu..."
 
-#: app/fileItemMenu.js:376
-#, fuzzy
+#: app/fileItemMenu.js:378
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] "Komprimiraj {0} mapa"
 
-#: app/fileItemMenu.js:383
-#, fuzzy
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] "Komprimiraj {0} datoteka"
 
-#: app/fileItemMenu.js:390
+#: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Email to..."
 msgstr "E-mail na..."
 
-#: app/fileItemMenu.js:395
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Pošalji na mobilni uređaj"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:401
 msgid "Move to Trash"
 msgstr "Premjesti u smeće"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:404
 msgid "Delete permanently"
 msgstr "Obriši trajno"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 #, fuzzy
 msgid "Don't Allow Launching"
 msgstr "Ne dopuštaj pokretanje"
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Allow Launching"
 msgstr "Dopusti pokretanje"
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:415
 msgid "Empty Trash"
 msgstr "Isprazni smeće"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:421
 msgid "Eject"
 msgstr "Izbaci"
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:424
 msgid "Unmount"
 msgstr "Odmontiraj"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 #, fuzzy
 msgid "Common Properties"
 msgstr "Uobičajena svojstva"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Properties"
 msgstr "Svojstva"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 #, fuzzy
 msgid "Show All in Files"
 msgstr "Prikaži sve u datotekama"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show in Files"
 msgstr "Prikaži u Datotekama"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:433
 msgid "Open in Terminal"
 msgstr "Otvori u Terminalu"
 
-#: app/fileItemMenu.js:522 app/fileItemMenu.js:521
+#: app/fileItemMenu.js:524
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Izdvajanje je otkazano"
 
-#: app/fileItemMenu.js:523 app/fileItemMenu.js:522
+#: app/fileItemMenu.js:525
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Nije moguće izdvojiti datoteku, nema odredišne mape"
 
-#: app/fileItemMenu.js:555 app/fileItemMenu.js:554
+#: app/fileItemMenu.js:557
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Premještanje otkazano"
 
-#: app/fileItemMenu.js:556 app/fileItemMenu.js:555
+#: app/fileItemMenu.js:558
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Nije moguće premjestiti datoteke, nema odredišne mape"
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596 app/fileItemMenu.js:567
-#: app/fileItemMenu.js:595
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 #, fuzzy
 msgid "Select Destination"
 msgstr "Odaberite Odredište"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598 app/fileItemMenu.js:569
-#: app/fileItemMenu.js:597
+#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
 msgid "Select"
 msgstr "Odaberi"
 
-#: app/fileItemMenu.js:642 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:644
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopiranje je otkazano"
 
-#: app/fileItemMenu.js:643 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:645
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nije moguće kopirati datoteke, nema odredišne mape"
 
-#: app/fileItemMenu.js:670 app/fileItemMenu.js:669
+#: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Ne mogu poslati imenik e-poštom"
 
-#: app/fileItemMenu.js:671 app/fileItemMenu.js:670
+#: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Odabir uključuje imenik, prvo komprimirajte imenik u datoteku."
