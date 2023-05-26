@@ -93,6 +93,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] New - when multiple icons are dragged, form a bunch of icons as a drag-icon rather than a single icon.
 
+- [x] New - Deal with appimage files, if executable launch them, otherwise show an error.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -170,6 +172,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 - [x] Fix Chrome App icons not showing correctly on some distributions.
 
 - [x] Simplify folder structure, move everything into resources, fixes icons not showing from extension downloaded from extensions.gnome.org.
+
+- [x] Fix errors with appImage files - no default application installed led to broken right click menu and appchooser dialog.
 
 **KNOWN ISSUES**
 

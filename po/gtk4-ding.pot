@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 22:00-0400\n"
+"POT-Creation-Date: 2023-05-25 21:59-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,7 +235,7 @@ msgid "Compressing files"
 msgstr ""
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:604
+#: app/desktopManager.js:1310 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr ""
 
@@ -359,7 +359,7 @@ msgstr ""
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:359
+#: app/desktopManager.js:867 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr ""
 
@@ -512,11 +512,19 @@ msgstr ""
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 
-#: app/fileItem.js:330
+#: app/fileItem.js:306
+msgid "Opening File Failed"
+msgstr ""
+
+#: app/fileItem.js:308
+msgid "There is no application installed to open \"{foo}\" type of files"
+msgstr ""
+
+#: app/fileItem.js:342
 msgid "Broken Desktop File"
 msgstr ""
 
-#: app/fileItem.js:331
+#: app/fileItem.js:343
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -524,29 +532,29 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:337
+#: app/fileItem.js:349
 msgid "Invalid Permissions on Desktop File"
 msgstr ""
 
-#: app/fileItem.js:338
+#: app/fileItem.js:350
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 
-#: app/fileItem.js:340
+#: app/fileItem.js:352
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 
-#: app/fileItem.js:343
+#: app/fileItem.js:355
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 
-#: app/fileItem.js:351
+#: app/fileItem.js:363
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -565,174 +573,178 @@ msgid "Open All..."
 msgstr ""
 
 #: app/fileItemMenu.js:308
-msgid "Open with {foo}"
+msgid "Run"
 msgstr ""
 
 #: app/fileItemMenu.js:310
+msgid "Open with {foo}"
+msgstr ""
+
+#: app/fileItemMenu.js:312
 msgid "Open"
 msgstr ""
 
-#: app/fileItemMenu.js:319 app/fileItemMenu.js:323
+#: app/fileItemMenu.js:321 app/fileItemMenu.js:325
 msgid "Extract Here"
 msgstr ""
 
-#: app/fileItemMenu.js:325
+#: app/fileItemMenu.js:327
 msgid "Extract To..."
 msgstr ""
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 msgid "Open All With Other Application..."
 msgstr ""
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:332
 msgid "Open With..."
 msgstr ""
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 msgid "Launch using Dedicated Graphics Card"
 msgstr ""
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 msgid "Stack This Type"
 msgstr ""
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:342
 msgid "Unstack This Type"
 msgstr ""
 
-#: app/fileItemMenu.js:351
+#: app/fileItemMenu.js:353
 msgid "Run as a Program"
 msgstr ""
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 msgid "Scripts"
 msgstr ""
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Cut"
 msgstr ""
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:365
 msgid "Move to..."
 msgstr ""
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:366
 msgid "Copy to..."
 msgstr ""
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:370
 msgid "Rename…"
 msgstr ""
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 msgid "Create Link..."
 msgstr ""
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:378
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: app/fileItemMenu.js:383
+#: app/fileItemMenu.js:385
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: app/fileItemMenu.js:390
+#: app/fileItemMenu.js:392
 msgid "Email to..."
 msgstr ""
 
-#: app/fileItemMenu.js:395
+#: app/fileItemMenu.js:397
 msgid "Send to Mobile Device"
 msgstr ""
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:401
 msgid "Move to Trash"
 msgstr ""
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:404
 msgid "Delete permanently"
 msgstr ""
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Don't Allow Launching"
 msgstr ""
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:409
 msgid "Allow Launching"
 msgstr ""
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:415
 msgid "Empty Trash"
 msgstr ""
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:421
 msgid "Eject"
 msgstr ""
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:424
 msgid "Unmount"
 msgstr ""
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Common Properties"
 msgstr ""
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:428
 msgid "Properties"
 msgstr ""
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show All in Files"
 msgstr ""
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:429
 msgid "Show in Files"
 msgstr ""
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:433
 msgid "Open in Terminal"
 msgstr ""
 
-#: app/fileItemMenu.js:522
+#: app/fileItemMenu.js:524
 msgid "Extraction Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:523
+#: app/fileItemMenu.js:525
 msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:555
+#: app/fileItemMenu.js:557
 msgid "Move Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:556
+#: app/fileItemMenu.js:558
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:568 app/fileItemMenu.js:596
+#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
 msgid "Select Destination"
 msgstr ""
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
 msgid "Select"
 msgstr ""
 
-#: app/fileItemMenu.js:642
+#: app/fileItemMenu.js:644
 msgid "Copy Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:643
+#: app/fileItemMenu.js:645
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:670
+#: app/fileItemMenu.js:672
 msgid "Can not email a Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:671
+#: app/fileItemMenu.js:673
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 

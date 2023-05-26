@@ -123,7 +123,9 @@ var AppChooserDialog = class {
         this.selectedAppInfo = appInfo;
         this.appChooserDialog.set_response_sensitive(Gtk.ResponseType.OK, this.selectedAppInfo !== null);
         let defaultAppInfo = Gio.AppInfo.get_default_for_type(this.mimeType, false);
-        let defaultSelected = defaultAppInfo.equal(this.selectedAppInfo);
+        let defaultSelected = false;
+        if (defaultAppInfo)
+            defaultSelected = defaultAppInfo.equal(this.selectedAppInfo);
         this.appChooserRowSwitch.set_state(defaultSelected);
         this.appChooserRowSwitch.set_sensitive(!defaultSelected);
     }

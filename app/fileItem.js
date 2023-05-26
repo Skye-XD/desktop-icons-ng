@@ -293,11 +293,23 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             return;
         }
 
+        if (this.isExecutable && this.executableContentType && !this.fileContainsText) {
+            this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(), [this.path], null);
+            return;
+        }
+
         try {
             await Gio.AppInfo.launch_default_for_uri_async(this.file.get_uri(),
                 null, null);
         } catch (e) {
-            logError(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_SUPPORTED)) {
+                let title = _('Opening File Failed');
+                let defaultAppInfo = Gio.content_type_get_description(this.attributeContentType);
+                let error = _('There is no application installed to open "{foo}" type of files').replace('{foo}', defaultAppInfo);
+                this._showerrorpopup(title, error);
+            } else {
+                logError(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
+            }
         }
     }
 
@@ -747,8 +759,16 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         return this._execLine;
     }
 
+    get executableContentType() {
+        return Gio.content_type_can_be_executable(this.attributeContentType);
+    }
+
     get file() {
         return this._file;
+    }
+
+    get fileContainsText() {
+        return this._attributeContentType === 'text/plain';
     }
 
     get fileName() {
@@ -765,6 +785,10 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
 
     get isDirectory() {
         return this._isDirectory;
+    }
+
+    get isExecutable() {
+        return this._attributeCanExecute;
     }
 
     get isHidden() {
