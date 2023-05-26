@@ -40,6 +40,7 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
         this._createIconActor();
         this._createStackTopIcon();
         this._setLabelName(this._file);
+        this._savedCoordinates = null;
     }
 
     _createStackTopIcon() {
@@ -124,6 +125,14 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
 
     get isStackMarker() {
         return true;
+    }
+
+    get savedCoordinates() {
+        return this._savedCoordinates;
+    }
+
+    set savedCoordinates(pos) {
+        this._savedCoordinates = pos;
     }
 
     set size(size) {
