@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-25 21:59-0400\n"
-"PO-Revision-Date: 2023-05-17 02:03+0000\n"
+"PO-Revision-Date: 2023-05-27 11:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
@@ -602,11 +602,12 @@ msgstr "无法打开此文件，因为它是一个断开的符号链接"
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "打开文件"
+msgstr "打开文件失败"
 
 #: app/fileItem.js:308
+#, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr ""
+msgstr "没有安装打开“{foo}”类型文件的应用程序"
 
 #: app/fileItem.js:342
 msgid "Broken Desktop File"
@@ -671,8 +672,9 @@ msgid "Open All..."
 msgstr "全部打开..."
 
 #: app/fileItemMenu.js:308
+#, fuzzy
 msgid "Run"
-msgstr ""
+msgstr "跑步"
 
 #: app/fileItemMenu.js:310
 #, fuzzy

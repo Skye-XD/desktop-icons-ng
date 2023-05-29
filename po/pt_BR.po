@@ -11,10 +11,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-25 21:59-0400\n"
-"PO-Revision-Date: 2023-05-17 02:21+0000\n"
+"PO-Revision-Date: 2023-05-27 11:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -620,11 +620,13 @@ msgstr "Não é possível abrir este arquivo porque é um link simbólico quebra
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Abrir arquivo"
+msgstr "Falha na abertura do arquivo"
 
 #: app/fileItem.js:308
+#, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr ""
+"Não há nenhum aplicativo instalado para abrir arquivos do tipo \"{foo}\""
 
 #: app/fileItem.js:342
 #, fuzzy
@@ -691,8 +693,9 @@ msgid "Open All..."
 msgstr "Abrir todos..."
 
 #: app/fileItemMenu.js:308
+#, fuzzy
 msgid "Run"
-msgstr ""
+msgstr "Correr"
 
 #: app/fileItemMenu.js:310
 #, fuzzy
@@ -768,6 +771,7 @@ msgid "Create Link..."
 msgstr "Criar link..."
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""

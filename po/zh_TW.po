@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-25 21:59-0400\n"
-"PO-Revision-Date: 2023-05-17 02:03+0000\n"
+"PO-Revision-Date: 2023-05-27 11:51+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -610,11 +610,12 @@ msgstr "無法打開此文件，因為它是損壞的符號鏈接"
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "打開文件"
+msgstr "打開文件失敗"
 
 #: app/fileItem.js:308
+#, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr ""
+msgstr "沒有安裝打開“{foo}”類型文件的應用程序"
 
 #: app/fileItem.js:342
 #, fuzzy
@@ -686,8 +687,9 @@ msgid "Open All..."
 msgstr "開啟所有項目……"
 
 #: app/fileItemMenu.js:308
+#, fuzzy
 msgid "Run"
-msgstr ""
+msgstr "跑步"
 
 #: app/fileItemMenu.js:310
 #, fuzzy
