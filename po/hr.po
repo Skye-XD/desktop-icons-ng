@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-25 21:59-0400\n"
-"PO-Revision-Date: 2023-05-17 02:21+0000\n"
+"PO-Revision-Date: 2023-05-27 11:50+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18-dev\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
@@ -626,11 +626,12 @@ msgstr "Ne mogu otvoriti ovu datoteku jer je neispravna simbolička veza"
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Otvorena datoteka"
+msgstr "Otvaranje datoteke nije uspjelo"
 
 #: app/fileItem.js:308
+#, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr ""
+msgstr "Nema instalirane aplikacije za otvaranje datoteka vrste \"{foo}\"."
 
 #: app/fileItem.js:342
 #, fuzzy
@@ -686,6 +687,7 @@ msgid ""
 msgstr ""
 
 #: app/fileItemMenu.js:296
+#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -698,8 +700,9 @@ msgid "Open All..."
 msgstr "Otvori sve..."
 
 #: app/fileItemMenu.js:308
+#, fuzzy
 msgid "Run"
-msgstr ""
+msgstr "Trčanje"
 
 #: app/fileItemMenu.js:310
 #, fuzzy
@@ -777,6 +780,7 @@ msgid "Create Link..."
 msgstr "Stvori vezu..."
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -784,6 +788,7 @@ msgstr[1] ""
 msgstr[2] "Komprimiraj {0} mapa"
 
 #: app/fileItemMenu.js:385
+#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
