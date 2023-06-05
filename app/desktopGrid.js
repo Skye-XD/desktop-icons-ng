@@ -675,6 +675,7 @@ var DesktopGrid = class {
                 let [a, b] = this.coordinatesWidgetToWidget(x, y, this._container, clickItem._icon).map(f => Math.round(f));
                 let dragIcon = this._createStackedDragIcon(clickItem);
                 widgetDragController.set_icon(dragIcon, a, b);
+                this._desktopManager.dragSourceOffset = [a, b];
                 this._loadDragData();
                 if (this.contentProvider)
                     return this.contentProvider;

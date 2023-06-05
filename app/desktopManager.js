@@ -659,16 +659,19 @@ var DesktopManager = class {
         }
         for (let desktop of this._desktops)
             desktop.refreshDrag(this._dragList, X, Y);
+        this._stopMonitoringDockUriNavigation();
     }
 
     onDragLeave() {
         this._dragList = null;
         for (let desktop of this._desktops)
             desktop.refreshDrag(null, 0, 0);
+        this._startMonitoringDockUriNavigation();
     }
 
     onDragEnd() {
         this.dragItem = null;
+        this._stopMonitoringDockUriNavigation();
     }
 
     makeFileListFromSelection(dropData, acceptFormat) {
@@ -692,6 +695,59 @@ var DesktopManager = class {
             return fileList;
         else
             return null;
+    }
+
+    _startMonitoringDockUriNavigation() {
+        if (this._localDrag() || this._dockUriSpringTimerID)
+            return;
+        this._dockSpringOpenFile = null;
+        this._dockSpringOpenTime = GLib.get_monotonic_time();
+        this._dockUriSpringTimerID =  GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, this._dockUriSpringTimerFunction.bind(this));
+    }
+
+    async _dockUriSpringTimerFunction() {
+        // Failsafe - remove the timer if going on for too long
+        if ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > 30000000)
+            return false;
+        let shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
+        let [a, b] = this.dragSourceOffset;
+        let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this.dragItem.iconRectangle.height / 2];
+        let currentDesktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
+        if (!currentDesktopFileAppPath ||
+                !(currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
+                currentDesktopFileAppPath.startsWith('file://') ||
+                currentDesktopFileAppPath.startsWith('davs://')))
+            return true;
+        if (!this._dockSpringOpenFile) {
+            this._dockSpringOpenFile = currentDesktopFileAppPath;
+            this._dockSpringOpenTime = GLib.get_monotonic_time();
+            return true;
+        }
+        if ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > 2200000) {
+            this._dockSpringOpenFile = null;
+            this._dockSpringOpenTime = null;
+        }
+        if (this._dockSpringOpenFile === currentDesktopFileAppPath && ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > 1800000)) {
+            const context = Gdk.Display.get_default().get_app_launch_context();
+            context.set_timestamp(Gdk.CURRENT_TIME);
+            let uri;
+            try {
+                if (this._dockSpringOpenFile.endsWith('Nautilus.desktop'))
+                    uri = this._desktopDir.get_uri();
+                else
+                    uri = this._dockSpringOpenFile;
+                Gio.AppInfo.launch_default_for_uri(uri, context);
+            } catch (e) {
+                logError(e, `Error opening ${uri} in GNOME Files: ${e.message}`);
+            }
+            this._dockSpringOpenFile = null;
+        }
+    }
+
+    _stopMonitoringDockUriNavigation() {
+        if (this._dockUriSpringTimerID)
+            GLib.Source.remove(this._dockUriSpringTimerID);
+        this._dockUriSpringTimerID = 0;
     }
 
     async detectShellDrop() {
