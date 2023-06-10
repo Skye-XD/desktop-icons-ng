@@ -666,6 +666,7 @@ var DesktopManager = class {
         this._dragList = null;
         for (let desktop of this._desktops)
             desktop.refreshDrag(null, 0, 0);
+        // Synthesise, extrapolate drag motion on a shell actor
         this._startMonitoringDockUriNavigation();
     }
 
@@ -702,13 +703,23 @@ var DesktopManager = class {
             return;
         this._dockSpringOpenFile = null;
         this._dockSpringOpenTime = GLib.get_monotonic_time();
-        this._dockUriSpringTimerID =  GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, this._dockUriSpringTimerFunction.bind(this));
+        this._dockSpringOpenComplete = false;
+        // Careful, we have to and are calling an async function in the timer, which will always return true,
+        // therefore the function has to kill itself if not killed by drag end...
+        this._dockUriSpringTimerID =  GLib.timeout_add(GLib.PRIORITY_DEFAULT, this.Enums.DND_SHELL_HOVER_POLL,
+            this._dockUriSpringTimerFunction.bind(this));
     }
 
     async _dockUriSpringTimerFunction() {
-        // Failsafe - remove the timer if going on for too long
-        if ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > 30000000)
-            return false;
+        // Failsafe kill the function - remove the timer if going on for too long, default 30 seconds
+        if ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_SHELL_HOVER_POLL * 150000) {
+            let stopID = this._dockUriSpringTimerID;
+            this._dockUriSpringTimerID = 0;
+            if (stopID)
+                GLib.Source.remove(stopID);
+            return GLib.SOURCE_REMOVE;
+        }
+
         let shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
         let [a, b] = this.dragSourceOffset;
         let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this.dragItem.iconRectangle.height / 2];
@@ -717,17 +728,18 @@ var DesktopManager = class {
                 !(currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
                 currentDesktopFileAppPath.startsWith('file://') ||
                 currentDesktopFileAppPath.startsWith('davs://')))
-            return true;
+            return GLib.SOURCE_CONTINUE;
+
+        // On a URI, start hover timing and reset timer
         if (!this._dockSpringOpenFile) {
             this._dockSpringOpenFile = currentDesktopFileAppPath;
             this._dockSpringOpenTime = GLib.get_monotonic_time();
-            return true;
+            return GLib.SOURCE_CONTINUE;
         }
-        if ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > 2200000) {
-            this._dockSpringOpenFile = null;
-            this._dockSpringOpenTime = null;
-        }
-        if (this._dockSpringOpenFile === currentDesktopFileAppPath && ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > 1800000)) {
+
+        // Open the URI, got here after hover timing started
+        if (this._dockSpringOpenFile === currentDesktopFileAppPath && !this._dockSpringOpenComplete &&
+              ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_HOVER_TIMEOUT * 1000)) {
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
             let uri;
@@ -737,10 +749,22 @@ var DesktopManager = class {
                 else
                     uri = this._dockSpringOpenFile;
                 Gio.AppInfo.launch_default_for_uri(uri, context);
+                this._dockSpringOpenComplete = true;
             } catch (e) {
                 logError(e, `Error opening ${uri} in GNOME Files: ${e.message}`);
             }
+            return GLib.SOURCE_CONTINUE;
+        }
+
+        // URI is the same, window is opened, do nothing
+        if (this._dockSpringOpenFile === currentDesktopFileAppPath && this._dockSpringOpenComplete)
+            return GLib.SOURCE_CONTINUE;
+
+        // If still alive, window is opened and uri is changed, reset
+        if (this._dockSpringOpenFile !== currentDesktopFileAppPath && this._dockSpringOpenComplete) {
             this._dockSpringOpenFile = null;
+            this._dockSpringOpenComplete = false;
+            return GLib.SOURCE_CONTINUE;
         }
     }
 
