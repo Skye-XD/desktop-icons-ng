@@ -255,6 +255,7 @@ var AdwPreferencesWindow = class {
             }));
         filesGroup.add(this.addActionRowSwitch(this.nautilusSettings, 'show-delete-permanently', _('Show a context menu item to delete permanently')));
         filesGroup.add(this.addActionRowSwitch(this.gtkSettings, 'show-hidden', _('Show hidden files')));
+        filesGroup.add(this.addActionRowSwitch(this.nautilusSettings, 'open-folder-on-dnd-hover', _('Open folders on drag hover')));
 
         if (!window)
             return prefsWindow;
