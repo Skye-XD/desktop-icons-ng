@@ -799,7 +799,7 @@ var DesktopGrid = class {
             return;
         if (this._desktopManager.dragItem.uri === fileItem.uri)
             return;
-        this.directoryOpenTimer = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 2000, () => {
+        this.directoryOpenTimer = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this.Enums.DND_HOVER_TIMEOUT, () => {
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
             try {
@@ -808,16 +808,15 @@ var DesktopGrid = class {
             } catch (e) {
                 logError(e, `Error opening ${fileItem.uri} in GNOME Files: ${e.message}`);
             }
-            this.directoryOpenTimer = null;
-            return false;
+            this.directoryOpenTimer = 0;
+            return GLib.SOURCE_REMOVE;
         });
     }
 
     _stopSpringLoadedTimer() {
-        if (this.directoryOpenTimer) {
+        if (this.directoryOpenTimer)
             GLib.Source.remove(this.directoryOpenTimer);
-            this.directoryOpenTimer = null;
-        }
+        this.directoryOpenTimer = 0;
     }
 
     highLightGridAt(x, y) {
