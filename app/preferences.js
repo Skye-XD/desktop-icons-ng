@@ -42,6 +42,7 @@ var Preferences = class {
         if (!schemaObj) {
             this.nautilusSettings = null;
             this.CLICK_POLICY_SINGLE = false;
+            this.openFolderOnDndHover = false;
         } else {
             this.nautilusSettings = new Gio.Settings({ settings_schema: schemaObj });
         }
@@ -108,6 +109,7 @@ var Preferences = class {
         this.sortSpecialFolders = this.desktopSettings.get_boolean('sort-special-folders');
         this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
         this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
+        this.openFolderOnDndHover = this.nautilusSettings.get_boolean('open-folder-on-dnd-hover');
         this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
         this.darkMode = this.schemaGnomeThemeSettings.get_string('color-scheme') === 'prefer-dark';
     }
@@ -218,6 +220,8 @@ var Preferences = class {
             }
             if (key === 'click-policy')
                 this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
+            if (key === 'open-folder-on-dnd-hover')
+                this.openFolderOnDndHover = this.nautilusSettings.get_boolean('open-folder-on-dnd-hover');
         });
 
         // Icon Theme Changes

@@ -699,7 +699,7 @@ var DesktopManager = class {
     }
 
     _startMonitoringDockUriNavigation() {
-        if (!this.dragItem || this._localDrag() || this._dockUriSpringTimerID)
+        if (!this.Prefs.openFolderOnDndHover || !this.dragItem || this._localDrag() || this._dockUriSpringTimerID)
             return;
         this._dockSpringOpenFile = null;
         this._dockSpringOpenTime = GLib.get_monotonic_time();

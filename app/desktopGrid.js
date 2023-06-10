@@ -795,7 +795,7 @@ var DesktopGrid = class {
     }
 
     _startSpringLoadedTimer(fileItem) {
-        if (this.directoryOpenTimer)
+        if (!this.Prefs.openFolderOnDndHover || this.directoryOpenTimer)
             return;
         if (this._desktopManager.dragItem.uri === fileItem.uri)
             return;
