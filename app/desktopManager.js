@@ -699,7 +699,7 @@ var DesktopManager = class {
     }
 
     _startMonitoringDockUriNavigation() {
-        if (this._localDrag() || this._dockUriSpringTimerID)
+        if (!this.dragItem || this._localDrag() || this._dockUriSpringTimerID)
             return;
         this._dockSpringOpenFile = null;
         this._dockSpringOpenTime = GLib.get_monotonic_time();
@@ -707,12 +707,20 @@ var DesktopManager = class {
         // Careful, we have to and are calling an async function in the timer, which will always return true,
         // therefore the function has to kill itself if not killed by drag end...
         this._dockUriSpringTimerID =  GLib.timeout_add(GLib.PRIORITY_DEFAULT, this.Enums.DND_SHELL_HOVER_POLL,
-            this._dockUriSpringTimerFunction.bind(this));
+            async () => {
+                try {
+                    await this._dockUriSpringTimerFunction();
+                } catch (e) {
+                    logError(e);
+                    return GLib.SOURCE_REMOVE;
+                }
+            }
+        );
     }
 
     async _dockUriSpringTimerFunction() {
         // Failsafe kill the function - remove the timer if going on for too long, default 30 seconds
-        if ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_SHELL_HOVER_POLL * 150000) {
+        if (!this.dragItem || (GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_SHELL_HOVER_POLL * 150000) {
             let stopID = this._dockUriSpringTimerID;
             this._dockUriSpringTimerID = 0;
             if (stopID)
