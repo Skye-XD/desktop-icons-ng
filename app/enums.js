@@ -109,6 +109,8 @@ var SCHEMA_GNOME_SETTINGS = 'org.gnome.desktop.interface';
 var EXEC_KEY = 'exec';
 var NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
 var THUMBNAILS_DIR = '.cache/thumbnails';
+var DND_HOVER_TIMEOUT = 500; // In milliseconds
+var DND_SHELL_HOVER_POLL = 200; // In milliseconds
 
 var UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit

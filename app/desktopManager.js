@@ -659,16 +659,20 @@ var DesktopManager = class {
         }
         for (let desktop of this._desktops)
             desktop.refreshDrag(this._dragList, X, Y);
+        this._stopMonitoringDockUriNavigation();
     }
 
     onDragLeave() {
         this._dragList = null;
         for (let desktop of this._desktops)
             desktop.refreshDrag(null, 0, 0);
+        // Synthesise, extrapolate drag motion on a shell actor
+        this._startMonitoringDockUriNavigation();
     }
 
     onDragEnd() {
         this.dragItem = null;
+        this._stopMonitoringDockUriNavigation();
     }
 
     makeFileListFromSelection(dropData, acceptFormat) {
@@ -692,6 +696,90 @@ var DesktopManager = class {
             return fileList;
         else
             return null;
+    }
+
+    _startMonitoringDockUriNavigation() {
+        if (!this.Prefs.openFolderOnDndHover || !this.dragItem || this._localDrag() || this._dockUriSpringTimerID)
+            return;
+        this._dockSpringOpenFile = null;
+        this._dockSpringOpenTime = GLib.get_monotonic_time();
+        this._dockSpringOpenComplete = false;
+        // Careful, we have to and are calling an async function in the timer, which will always return true,
+        // therefore the function has to kill itself if not killed by drag end...
+        this._dockUriSpringTimerID =  GLib.timeout_add(GLib.PRIORITY_DEFAULT, this.Enums.DND_SHELL_HOVER_POLL,
+            async () => {
+                try {
+                    await this._dockUriSpringTimerFunction();
+                } catch (e) {
+                    logError(e);
+                    return GLib.SOURCE_REMOVE;
+                }
+            }
+        );
+    }
+
+    async _dockUriSpringTimerFunction() {
+        // Failsafe kill the function - remove the timer if going on for too long, default 30 seconds
+        if (!this.dragItem || (GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_SHELL_HOVER_POLL * 150000) {
+            let stopID = this._dockUriSpringTimerID;
+            this._dockUriSpringTimerID = 0;
+            if (stopID)
+                GLib.Source.remove(stopID);
+            return GLib.SOURCE_REMOVE;
+        }
+
+        let shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
+        let [a, b] = this.dragSourceOffset;
+        let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this.dragItem.iconRectangle.height / 2];
+        let currentDesktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
+        if (!currentDesktopFileAppPath ||
+                !(currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
+                currentDesktopFileAppPath.startsWith('file://') ||
+                currentDesktopFileAppPath.startsWith('davs://')))
+            return GLib.SOURCE_CONTINUE;
+
+        // On a URI, start hover timing and reset timer
+        if (!this._dockSpringOpenFile) {
+            this._dockSpringOpenFile = currentDesktopFileAppPath;
+            this._dockSpringOpenTime = GLib.get_monotonic_time();
+            return GLib.SOURCE_CONTINUE;
+        }
+
+        // Open the URI, got here after hover timing started
+        if (this._dockSpringOpenFile === currentDesktopFileAppPath && !this._dockSpringOpenComplete &&
+              ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_HOVER_TIMEOUT * 1000)) {
+            const context = Gdk.Display.get_default().get_app_launch_context();
+            context.set_timestamp(Gdk.CURRENT_TIME);
+            let uri;
+            try {
+                if (this._dockSpringOpenFile.endsWith('Nautilus.desktop'))
+                    uri = this._desktopDir.get_uri();
+                else
+                    uri = this._dockSpringOpenFile;
+                Gio.AppInfo.launch_default_for_uri(uri, context);
+                this._dockSpringOpenComplete = true;
+            } catch (e) {
+                logError(e, `Error opening ${uri} in GNOME Files: ${e.message}`);
+            }
+            return GLib.SOURCE_CONTINUE;
+        }
+
+        // URI is the same, window is opened, do nothing
+        if (this._dockSpringOpenFile === currentDesktopFileAppPath && this._dockSpringOpenComplete)
+            return GLib.SOURCE_CONTINUE;
+
+        // If still alive, window is opened and uri is changed, reset
+        if (this._dockSpringOpenFile !== currentDesktopFileAppPath && this._dockSpringOpenComplete) {
+            this._dockSpringOpenFile = null;
+            this._dockSpringOpenComplete = false;
+            return GLib.SOURCE_CONTINUE;
+        }
+    }
+
+    _stopMonitoringDockUriNavigation() {
+        if (this._dockUriSpringTimerID)
+            GLib.Source.remove(this._dockUriSpringTimerID);
+        this._dockUriSpringTimerID = 0;
     }
 
     async detectShellDrop() {
