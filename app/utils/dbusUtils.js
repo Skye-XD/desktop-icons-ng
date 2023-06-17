@@ -1186,4 +1186,14 @@ class ExtensionControl {
             }
         });
     }
+
+    setDragCursor(cursor = 'default') {
+        this.RemoteExtensionManager.proxy.setDragCursorRemote(
+            cursor,
+            (result, error) => {
+                if (error)
+                    logError(error, 'Unable to set Shell Cursor');
+            }
+        );
+    }
 }

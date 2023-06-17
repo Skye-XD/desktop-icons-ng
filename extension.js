@@ -55,6 +55,9 @@ const ifaceXml = `
     <method name="getShellGlobalCoordinates">
         <arg type="ai" direction="out" name="Global pointer Coordinates"/>
     </method>
+    <method name="setDragCursor">
+    <arg type="s" direction="in" name="Set Shell Cursor"/>
+</method>
   </interface>
 </node>`;
 
@@ -661,6 +664,22 @@ var DingExtensionService = class {
             return droptarget;
         else
             return 'null';
+    }
+
+    setDragCursor(cursor) {
+        switch (cursor) {
+        case 'dndMoveCursor':
+            global.display.set_cursor(Meta.Cursor.DND_MOVE);
+            break;
+        case 'dndCopyCursor':
+            global.display.set_cursor(Meta.Cursor.DND_COPY);
+            break;
+        case 'dndNoDropCursor':
+            global.display.set_cursor(Meta.Cursor.DND_UNSUPPORTED_TARGET);
+            break;
+        default:
+            global.display.set_cursor(Meta.Cursor.DEFAULT);
+        }
     }
 
     getShellGlobalCoordinates() {
