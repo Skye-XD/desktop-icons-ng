@@ -2,6 +2,8 @@ Libadwaita, Gtk4 Desktop Icons NG with GSconnect Integration, Drag and Drop onto
 
 Libadwaita/Gtk4 Port of Desktop Icons NG with updated and modified code base, uses gio menus, all functions are async where possible, multiple fixes and new features-
 
+* New Drag Navigation on Dock - dragging an icon over the Gnome Files icon on the dock or mounted drives, and hovering over it for 2 seconds will open a Gnome Files Window.
+* New - Set the correct cursor with proposed action on drop on dock, improve drop detection.
 * New - Drag Navigation - dragging an icon over a folder icon or a drive icon, and then hovering over it will open that location in Gnome Files.
 * New - Drag Icon now forms a bunch of icons if multiple icons are dragged. Code from Nautilus, translated to files.
 * New - Now deals correctly with appimage files on desktop.
