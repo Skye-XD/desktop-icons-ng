@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 21:59-0400\n"
-"PO-Revision-Date: 2023-05-27 11:50+0000\n"
+"POT-Creation-Date: 2023-06-17 16:32-0400\n"
+"PO-Revision-Date: 2023-06-12 21:53+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -179,6 +179,11 @@ msgstr "Permitir borrar permanentemente desde el menú contextual"
 msgid "Show hidden files"
 msgstr "Mostrar archivos ocultos"
 
+#: app/adwPreferencesWindow.js:258
+#, fuzzy
+msgid "Open folders on drag hover"
+msgstr "Abrir carpetas al arrastrar el cursor"
+
 #: app/appChooser.js:54
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
@@ -218,7 +223,7 @@ msgstr "Nombre de la carpeta"
 msgid "File name"
 msgstr "Nombre de archivo"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1308
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1435
 msgid "OK"
 msgstr "Aceptar"
 
@@ -246,8 +251,8 @@ msgstr "Extrayendo archivos"
 msgid "Compressing files"
 msgstr "Comprimir archivos"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:996
+#: app/desktopManager.js:1437 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -359,155 +364,155 @@ msgstr "No se encontró GNOME Files"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Desktop Icons NG necesita la aplicación GNOME Files."
 
-#: app/desktopManager.js:768
+#: app/desktopManager.js:896
 msgid "Could not open File"
 msgstr "No se pudo abrir el archivo"
 
-#: app/desktopManager.js:769
+#: app/desktopManager.js:897
 msgid "${appName} can not open files of this Type!"
 msgstr "¡${appName} no puede abrir archivos de este tipo!"
 
-#: app/desktopManager.js:866
+#: app/desktopManager.js:993
 msgid "Move"
 msgstr "Mover"
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:361
+#: app/desktopManager.js:994 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Copiar"
 
-#: app/desktopManager.js:868
+#: app/desktopManager.js:995
 msgid "Link"
 msgstr "Enlazar"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:998
 msgid "Choose Action for Files"
 msgstr "Elegir acción para archivos"
 
-#: app/desktopManager.js:941 app/desktopManager.js:973
+#: app/desktopManager.js:1068 app/desktopManager.js:1100
 msgid "Making SymLink Failed"
 msgstr "No se ha podido crear el enlace simbólico"
 
-#: app/desktopManager.js:942 app/desktopManager.js:974
+#: app/desktopManager.js:1069 app/desktopManager.js:1101
 msgid "Could not create symbolic link"
 msgstr "No se pudo crear el enlace simbólico"
 
-#: app/desktopManager.js:1266
+#: app/desktopManager.js:1393
 msgid "Clear current selection before new search"
 msgstr "Borre la selección actual antes de comenzar una nueva búsqueda"
 
-#: app/desktopManager.js:1312
+#: app/desktopManager.js:1439
 msgid "Find Files on Desktop"
 msgstr "Buscar ficheros en el Escritorio"
 
-#: app/desktopManager.js:1567
+#: app/desktopManager.js:1694
 msgid "Name"
 msgstr "Nombre"
 
-#: app/desktopManager.js:1568
+#: app/desktopManager.js:1695
 msgid "Name Z-A"
 msgstr "Nombre Z-A"
 
-#: app/desktopManager.js:1569
+#: app/desktopManager.js:1696
 msgid "Modified Time"
 msgstr "Fecha de modificación"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1697
 msgid "Type"
 msgstr "Tipo"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1698
 msgid "Size"
 msgstr "Tamaño"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1701
 msgid "Keep Arranged…"
 msgstr "Mantener ordenado…"
 
-#: app/desktopManager.js:1578
+#: app/desktopManager.js:1705
 msgid "Keep Stacked by Type…"
 msgstr "Mantener apilados por tipo…"
 
-#: app/desktopManager.js:1579
+#: app/desktopManager.js:1706
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordenar Inicio/Unidades/Papelera…"
 
-#: app/desktopManager.js:1584 app/desktopManager.js:2601
+#: app/desktopManager.js:1711 app/desktopManager.js:2728
 msgid "New Folder"
 msgstr "Nueva carpeta"
 
-#: app/desktopManager.js:1588
+#: app/desktopManager.js:1715
 msgid "New Document"
 msgstr "Documento nuevo"
 
-#: app/desktopManager.js:1592
+#: app/desktopManager.js:1719
 msgid "Paste"
 msgstr "Pegar"
 
-#: app/desktopManager.js:1593
+#: app/desktopManager.js:1720
 msgid "Undo"
 msgstr "Deshacer"
 
-#: app/desktopManager.js:1594
+#: app/desktopManager.js:1721
 msgid "Redo"
 msgstr "Rehacer"
 
-#: app/desktopManager.js:1599
+#: app/desktopManager.js:1726
 msgid "Select All"
 msgstr "Seleccionar Todo"
 
-#: app/desktopManager.js:1604
+#: app/desktopManager.js:1731
 msgid "Arrange Icons"
 msgstr "Ordenar Iconos"
 
-#: app/desktopManager.js:1608
+#: app/desktopManager.js:1735
 msgid "Arrange By…"
 msgstr "Organizar por…"
 
-#: app/desktopManager.js:1613
+#: app/desktopManager.js:1740
 msgid "Show Desktop In GNOME Files"
 msgstr "Mostrar el escritorio en GNOME Files"
 
-#: app/desktopManager.js:1614
+#: app/desktopManager.js:1741
 msgid "Open In Terminal"
 msgstr "Abrir en un terminal"
 
-#: app/desktopManager.js:1619
+#: app/desktopManager.js:1746
 msgid "Change Background…"
 msgstr "Cambiar el fondo…"
 
-#: app/desktopManager.js:1624
+#: app/desktopManager.js:1751
 msgid "Desktop Icon Settings"
 msgstr "Configuración de iconos de escritorio"
 
-#: app/desktopManager.js:1625
+#: app/desktopManager.js:1752
 msgid "Display Settings"
 msgstr "Preferencias de pantalla"
 
-#: app/desktopManager.js:1668
+#: app/desktopManager.js:1795
 msgid "Preferences Window is Open"
 msgstr "La ventana de preferencias está abierta"
 
-#: app/desktopManager.js:1668
+#: app/desktopManager.js:1795
 msgid "This Window is open. Please switch to the active window."
 msgstr "Esta ventana está abierta. Cambie a la ventana activa."
 
-#: app/desktopManager.js:1680
+#: app/desktopManager.js:1807
 msgid "Settings"
 msgstr "Preferencias"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2751
 msgid "Folder Creation Failed"
 msgstr "Error al crear la carpeta"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2752
 msgid "Could not create folder"
 msgstr "No se pudo crear la carpeta"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2795
 msgid "Template Creation Error"
 msgstr "Error al crear la plantilla"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2796
 msgid "Could not create document"
 msgstr "No se pudo crear el documento"
 
@@ -535,11 +540,11 @@ msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr ""
 "No hay ninguna aplicación instalada para abrir archivos de tipo \"{foo}\""
 
-#: app/fileItem.js:342
+#: app/fileItem.js:343
 msgid "Broken Desktop File"
 msgstr "Fichero .desktop dañado"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:344
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -551,11 +556,11 @@ msgstr ""
 "\n"
 "\t<b>Edita el fichero para que apunte al ejecutable correcto.</b>"
 
-#: app/fileItem.js:349
+#: app/fileItem.js:350
 msgid "Invalid Permissions on Desktop File"
 msgstr "Permisos no válidos en el fichero .desktop"
 
-#: app/fileItem.js:350
+#: app/fileItem.js:351
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -563,7 +568,7 @@ msgstr ""
 "Este fichero .desktop tiene permisos incorrectos. Haz click con el botón "
 "derecho para editar la Propiedades, y luego:\n"
 
-#: app/fileItem.js:352
+#: app/fileItem.js:353
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
@@ -572,7 +577,7 @@ msgstr ""
 "<b>Cambiar los permisos, en \"Otros accesos\", a \"Sólo lectura\" o \"Ninguno"
 "\"</b>"
 
-#: app/fileItem.js:355
+#: app/fileItem.js:356
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -580,7 +585,7 @@ msgstr ""
 "\n"
 "<b>Activa la opción \"Permitir ejecutar el archivo como un programa\"</b>"
 
-#: app/fileItem.js:363
+#: app/fileItem.js:364
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
