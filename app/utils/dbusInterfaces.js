@@ -233,6 +233,9 @@ var DBusInterfaces = {
       <method name="getShellGlobalCoordinates">
         <arg type="ai" direction="out" name="Global pointer Coordinates"/>
       </method>
+      <method name="setDragCursor">
+        <arg type="s" direction="in" name="Set Shell Cursor"/>
+      </method>
     </interface>
   </node>`,
 };

@@ -634,6 +634,7 @@ var DesktopManager = class {
     onDragBegin(item) {
         this.saveCurrentFileCoordinatesForUndo();
         this.dragItem = item;
+        this._currentDesktopFileAppPath = null;
     }
 
     onDragMotion(X, Y) {
@@ -673,6 +674,8 @@ var DesktopManager = class {
     onDragEnd() {
         this.dragItem = null;
         this._stopMonitoringDockUriNavigation();
+        this._currentDesktopFileAppPath = null;
+        this._setShellDropCursor();
     }
 
     makeFileListFromSelection(dropData, acceptFormat) {
@@ -699,9 +702,10 @@ var DesktopManager = class {
     }
 
     _startMonitoringDockUriNavigation() {
-        if (!this.Prefs.openFolderOnDndHover || !this.dragItem || this._localDrag() || this._dockUriSpringTimerID)
+        if (!this.dragItem || this._localDrag() || this._dockUriSpringTimerID)
             return;
         this._dockSpringOpenFile = null;
+        this._currentDesktopFileAppPath = null;
         this._dockSpringOpenTime = GLib.get_monotonic_time();
         this._dockSpringOpenComplete = false;
         // Careful, we have to and are calling an async function in the timer, which will always return true,
@@ -723,30 +727,34 @@ var DesktopManager = class {
         if (!this.dragItem || (GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_SHELL_HOVER_POLL * 150000) {
             let stopID = this._dockUriSpringTimerID;
             this._dockUriSpringTimerID = 0;
+            this._setShellDropCursor();
             if (stopID)
                 GLib.Source.remove(stopID);
             return GLib.SOURCE_REMOVE;
         }
 
+        this._setShellDropCursor();
+
         let shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
         let [a, b] = this.dragSourceOffset;
         let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this.dragItem.iconRectangle.height / 2];
-        let currentDesktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
-        if (!currentDesktopFileAppPath ||
-                !(currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
-                currentDesktopFileAppPath.startsWith('file://') ||
-                currentDesktopFileAppPath.startsWith('davs://')))
+        this._currentDesktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
+        if (!this._currentDesktopFileAppPath ||
+                !(this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
+                this._currentDesktopFileAppPath.startsWith('file://') ||
+                this._currentDesktopFileAppPath.startsWith('davs://')))
             return GLib.SOURCE_CONTINUE;
+
 
         // On a URI, start hover timing and reset timer
         if (!this._dockSpringOpenFile) {
-            this._dockSpringOpenFile = currentDesktopFileAppPath;
+            this._dockSpringOpenFile = this._currentDesktopFileAppPath;
             this._dockSpringOpenTime = GLib.get_monotonic_time();
             return GLib.SOURCE_CONTINUE;
         }
 
         // Open the URI, got here after hover timing started
-        if (this._dockSpringOpenFile === currentDesktopFileAppPath && !this._dockSpringOpenComplete &&
+        if (this._dockSpringOpenFile === this._currentDesktopFileAppPath && !this._dockSpringOpenComplete &&
               ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_HOVER_TIMEOUT * 1000)) {
             const context = Gdk.Display.get_default().get_app_launch_context();
             context.set_timestamp(Gdk.CURRENT_TIME);
@@ -756,7 +764,8 @@ var DesktopManager = class {
                     uri = this._desktopDir.get_uri();
                 else
                     uri = this._dockSpringOpenFile;
-                Gio.AppInfo.launch_default_for_uri(uri, context);
+                if (this.Prefs.openFolderOnDndHover)
+                    Gio.AppInfo.launch_default_for_uri(uri, context);
                 this._dockSpringOpenComplete = true;
             } catch (e) {
                 logError(e, `Error opening ${uri} in GNOME Files: ${e.message}`);
@@ -765,11 +774,11 @@ var DesktopManager = class {
         }
 
         // URI is the same, window is opened, do nothing
-        if (this._dockSpringOpenFile === currentDesktopFileAppPath && this._dockSpringOpenComplete)
+        if (this._dockSpringOpenFile === this._currentDesktopFileAppPath && this._dockSpringOpenComplete)
             return GLib.SOURCE_CONTINUE;
 
         // If still alive, window is opened and uri is changed, reset
-        if (this._dockSpringOpenFile !== currentDesktopFileAppPath && this._dockSpringOpenComplete) {
+        if (this._dockSpringOpenFile !== this._currentDesktopFileAppPath && this._dockSpringOpenComplete) {
             this._dockSpringOpenFile = null;
             this._dockSpringOpenComplete = false;
             return GLib.SOURCE_CONTINUE;
@@ -777,58 +786,83 @@ var DesktopManager = class {
     }
 
     _stopMonitoringDockUriNavigation() {
-        if (this._dockUriSpringTimerID)
+        if (this._dockUriSpringTimerID) {
             GLib.Source.remove(this._dockUriSpringTimerID);
+            this._currentDesktopFileAppPath = null;
+            this._setShellDropCursor();
+        }
         this._dockUriSpringTimerID = 0;
     }
 
-    async detectShellDrop() {
-        if (this._localDrag())
-            return false;
-        let shellDropCoordinates = null;
-        shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates();
-        let desktopFileAppPath = null;
-        if (shellDropCoordinates) {
-            let i = 0;
-            while (i < 10) {
-                desktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(shellDropCoordinates).catch(e => logError(e));
-                if (desktopFileAppPath) {
-                    let completed = this._completeGnomeShellDrop(desktopFileAppPath);
-                    return completed;
-                } else {
-                    i += 1;
-                    await this.DesktopIconsUtil.waitDelayMs(25);
-                }
-            }
+    _setShellDropCursor(cursor = null) {
+        if (cursor) {
+            this.DBusUtils.RemoteExtensionControl.setDragCursor(cursor);
+            return;
         }
-        return false;
+        if (!this._currentDesktopFileAppPath) {
+            this.DBusUtils.RemoteExtensionControl.setDragCursor('default');
+            return;
+        }
+        if (this._currentDesktopFileAppPath.endsWith('.desktop')) {
+            try {
+                let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([this._currentDesktopFileAppPath]));
+                if (!desktopFile) {
+                    log('Could not parse desktopFile as a desktop file, cannot set shell cursor');
+                    this.DBusUtils.RemoteExtensionControl.setDragCursor('dndNoDropCursor');
+                    return;
+                }
+                let object = this.checkAppOpensFileType(desktopFile, null, this.getCurrentSelection()[0].attributeContentType);
+                if (object.canopenFile) {
+                    this.DBusUtils.RemoteExtensionControl.setDragCursor('dndCopyCursor');
+                    return;
+                } else if ((this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') && this.Prefs.openFolderOnDndHover)||
+                 this._currentDesktopFileAppPath.startsWith('file://') ||
+                 this._currentDesktopFileAppPath.startsWith('davs://')) {
+                    this.DBusUtils.RemoteExtensionControl.setDragCursor('dndMoveCursor');
+                } else {
+                    this.DBusUtils.RemoteExtensionControl.setDragCursor('dndNoDropCursor');
+                    return;
+                }
+            } catch (e) {
+                logError(e, 'Error reading desktop file. Cannot set shell Cursor');
+                this.DBusUtils.RemoteExtensionControl.setDragCursor('dndNoDropCursor');
+            }
+            return;
+        }
+        this.DBusUtils.RemoteExtensionControl.setDragCursor('default');
     }
 
-    async _completeGnomeShellDrop(desktopFileAppPath) {
-        if (desktopFileAppPath.endsWith('.desktop')) {
+    async completeGnomeShellDrop() {
+        if  (!this._currentDesktopFileAppPath)
+            return false;
+        if (this._currentDesktopFileAppPath.endsWith('.desktop')) {
             try {
-                let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([desktopFileAppPath]));
+                let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([this._currentDesktopFileAppPath]));
                 if (!desktopFile) {
                     log('Could not parse desktopFile as a desktop file');
                     return false;
                 }
-                if (this.checkAppOpensFileType(desktopFile, null, this.getCurrentSelection()[0].attributeContentType)) {
+                let object = this.checkAppOpensFileType(desktopFile, null, this.getCurrentSelection()[0].attributeContentType);
+                if (object.canopenFile) {
                     const context = Gdk.Display.get_default().get_app_launch_context();
                     context.set_timestamp(Gdk.CURRENT_TIME);
                     desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
                     return true;
+                } else {
+                    this._showAppCannotOpenError(object.Appname);
+                    return false;
                 }
             } catch (e) {
                 logError(e, 'Error reading desktop file. Cannot launch application.');
                 return false;
             }
         }
-        if (desktopFileAppPath === 'trash:///') {
+        if (this._currentDesktopFileAppPath === 'trash:///') {
             this.doTrash();
             return true;
         }
-        if (desktopFileAppPath.startsWith('file:///') || desktopFileAppPath.startsWith('davs://')) {
-            await this.copyOrMoveUris(this.getCurrentSelection(true), desktopFileAppPath, {}, {}).catch(e => logError(e));
+        if (this._currentDesktopFileAppPath.startsWith('file:///') || this._currentDesktopFileAppPath.startsWith('davs://')) {
+            await this.copyOrMoveUris(this.getCurrentSelection(true), this._currentDesktopFileAppPath, {}, {}).catch(e => logError(e));
             return true;
         }
         return false;
@@ -846,23 +880,28 @@ var DesktopManager = class {
         } else if (attributeContentType) {
             AppsSupportingOpen = Gio.AppInfo.get_all_for_type(attributeContentType);
         } else {
-            return false;
+            return { canopenFile: false, Appname: 'None' };
         }
         AppsSupportingOpen = AppsSupportingOpen.map(f => f.get_name());
-        if (AppsSupportingOpen.includes(Appname)) {
-            return true;
-        } else {
-            let windowError = new ShowErrorPopup.ShowErrorPopup(
-                _('Could not open File'),
-                _('${appName} can not open files of this Type!').replace('${appName}', Appname),
-                true,
-                this.textEntryAccelsTurnOff.bind(this),
-                this.textEntryAccelsTurnOn.bind(this),
-                this.DesktopIconsUtil
-            );
-            windowError.timeoutClose(3000);
-            return false;
-        }
+        let canopenFile;
+        if (AppsSupportingOpen.includes(Appname))
+            canopenFile = true;
+        else
+            canopenFile = false;
+        return { canopenFile, Appname };
+    }
+
+    _showAppCannotOpenError(Appname) {
+        let windowError = new ShowErrorPopup.ShowErrorPopup(
+            _('Could not open File'),
+            _('${appName} can not open files of this Type!').replace('${appName}', Appname),
+            true,
+            this.textEntryAccelsTurnOff.bind(this),
+            this.textEntryAccelsTurnOn.bind(this),
+            this.DesktopIconsUtil
+        );
+        windowError.timeoutClose(3000);
+        return false;
     }
 
     _localDrag() {
