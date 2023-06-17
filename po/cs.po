@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 21:59-0400\n"
-"PO-Revision-Date: 2023-05-27 11:50+0000\n"
+"POT-Creation-Date: 2023-06-17 16:32-0400\n"
+"PO-Revision-Date: 2023-06-12 21:53+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
+"ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -206,6 +206,11 @@ msgstr "Zobrazit položku kontextové nabídky, kterou chcete trvale smazat"
 msgid "Show hidden files"
 msgstr "Zobrazit skryté soubory"
 
+#: app/adwPreferencesWindow.js:258
+#, fuzzy
+msgid "Open folders on drag hover"
+msgstr "Otevřete složky při přetažení"
+
 #: app/appChooser.js:54
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
@@ -244,7 +249,7 @@ msgstr "Název nové složky"
 msgid "File name"
 msgstr "Přejmenovat soubor"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1308
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1435
 msgid "OK"
 msgstr "Budiž"
 
@@ -276,8 +281,8 @@ msgstr "Extrahování souborů"
 msgid "Compressing files"
 msgstr "Komprese souborů"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:869
-#: app/desktopManager.js:1310 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:996
+#: app/desktopManager.js:1437 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -415,180 +420,180 @@ msgstr "Soubory GNOME nebyly nalezeny"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Aplikace GNOME Files vyžaduje Desktop Icons NG."
 
-#: app/desktopManager.js:768
+#: app/desktopManager.js:896
 #, fuzzy
 msgid "Could not open File"
 msgstr "Soubor nelze otevřít"
 
-#: app/desktopManager.js:769
+#: app/desktopManager.js:897
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} nemůže otevřít soubory tohoto typu!"
 
-#: app/desktopManager.js:866
+#: app/desktopManager.js:993
 #, fuzzy
 msgid "Move"
 msgstr "Hýbat se"
 
-#: app/desktopManager.js:867 app/fileItemMenu.js:361
+#: app/desktopManager.js:994 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Kopírovat"
 
-#: app/desktopManager.js:868
+#: app/desktopManager.js:995
 #, fuzzy
 msgid "Link"
 msgstr "Odkaz"
 
-#: app/desktopManager.js:871
+#: app/desktopManager.js:998
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Vyberte Akce pro soubory"
 
-#: app/desktopManager.js:941 app/desktopManager.js:973
+#: app/desktopManager.js:1068 app/desktopManager.js:1100
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Vytváření SymLink se nezdařilo"
 
-#: app/desktopManager.js:942 app/desktopManager.js:974
+#: app/desktopManager.js:1069 app/desktopManager.js:1101
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Nepodařilo se vytvořit symbolický odkaz"
 
-#: app/desktopManager.js:1266
+#: app/desktopManager.js:1393
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Před novým hledáním vymažte aktuální výběr"
 
-#: app/desktopManager.js:1312
+#: app/desktopManager.js:1439
 msgid "Find Files on Desktop"
 msgstr "Najít soubory na Ploše"
 
-#: app/desktopManager.js:1567
+#: app/desktopManager.js:1694
 #, fuzzy
 msgid "Name"
 msgstr "název"
 
-#: app/desktopManager.js:1568
+#: app/desktopManager.js:1695
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Jméno Z-A"
 
-#: app/desktopManager.js:1569
+#: app/desktopManager.js:1696
 #, fuzzy
 msgid "Modified Time"
 msgstr "Upravený čas"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1697
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1698
 #, fuzzy
 msgid "Size"
 msgstr "Velikost"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1701
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Mějte pořádek…"
 
-#: app/desktopManager.js:1578
+#: app/desktopManager.js:1705
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Ponechat seskládané podle typu…"
 
-#: app/desktopManager.js:1579
+#: app/desktopManager.js:1706
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Třídit domov/disky/koš…"
 
-#: app/desktopManager.js:1584 app/desktopManager.js:2601
+#: app/desktopManager.js:1711 app/desktopManager.js:2728
 msgid "New Folder"
 msgstr "Nová složka"
 
-#: app/desktopManager.js:1588
+#: app/desktopManager.js:1715
 msgid "New Document"
 msgstr "Nový Dokument"
 
-#: app/desktopManager.js:1592
+#: app/desktopManager.js:1719
 msgid "Paste"
 msgstr "Vložit"
 
-#: app/desktopManager.js:1593
+#: app/desktopManager.js:1720
 msgid "Undo"
 msgstr "Zpět"
 
-#: app/desktopManager.js:1594
+#: app/desktopManager.js:1721
 msgid "Redo"
 msgstr "Znovu"
 
-#: app/desktopManager.js:1599
+#: app/desktopManager.js:1726
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: app/desktopManager.js:1604
+#: app/desktopManager.js:1731
 msgid "Arrange Icons"
 msgstr "Uspořádat Ikony"
 
-#: app/desktopManager.js:1608
+#: app/desktopManager.js:1735
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Řadit dle…"
 
-#: app/desktopManager.js:1613
+#: app/desktopManager.js:1740
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Zobrazit plochu v souborech GNOME"
 
-#: app/desktopManager.js:1614
+#: app/desktopManager.js:1741
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Otevřít v terminálu"
 
-#: app/desktopManager.js:1619
+#: app/desktopManager.js:1746
 msgid "Change Background…"
 msgstr "Změnit pozadí…"
 
-#: app/desktopManager.js:1624
+#: app/desktopManager.js:1751
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopManager.js:1625
+#: app/desktopManager.js:1752
 msgid "Display Settings"
 msgstr "Zobrazit nastavení"
 
-#: app/desktopManager.js:1668
+#: app/desktopManager.js:1795
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Okno předvoleb je otevřené"
 
-#: app/desktopManager.js:1668
+#: app/desktopManager.js:1795
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Toto okno je otevřené. Přepněte do aktivního okna."
 
-#: app/desktopManager.js:1680
+#: app/desktopManager.js:1807
 msgid "Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopManager.js:2624
+#: app/desktopManager.js:2751
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Vytvoření složky se nezdařilo"
 
-#: app/desktopManager.js:2625
+#: app/desktopManager.js:2752
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Nelze vytvořit složku"
 
-#: app/desktopManager.js:2668
+#: app/desktopManager.js:2795
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba při vytváření šablony"
 
-#: app/desktopManager.js:2669
+#: app/desktopManager.js:2796
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nelze vytvořit dokument"
@@ -619,12 +624,12 @@ msgstr "Otevření souboru se nezdařilo"
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "Není nainstalována žádná aplikace pro otevírání souborů typu „{foo}“."
 
-#: app/fileItem.js:342
+#: app/fileItem.js:343
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "Poškozený soubor na ploše"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:344
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -632,12 +637,12 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:349
+#: app/fileItem.js:350
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Neplatná oprávnění pro soubor na ploše"
 
-#: app/fileItem.js:350
+#: app/fileItem.js:351
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -646,7 +651,7 @@ msgstr ""
 "Tento soubor .desktop má nesprávná oprávnění. Klepnutím pravým tlačítkem "
 "upravte vlastnosti a poté:\n"
 
-#: app/fileItem.js:352
+#: app/fileItem.js:353
 #, fuzzy
 msgid ""
 "\n"
@@ -656,7 +661,7 @@ msgstr ""
 "<b>Nastavte oprávnění v \"Přístup ostatních\", \"Pouze pro čtení\" nebo "
 "\"Žádné\"</b>"
 
-#: app/fileItem.js:355
+#: app/fileItem.js:356
 #, fuzzy
 msgid ""
 "\n"
@@ -665,7 +670,7 @@ msgstr ""
 "\n"
 "<b>Povolit možnost „Povolit spouštění souboru jako programu“</b>"
 
-#: app/fileItem.js:363
+#: app/fileItem.js:364
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
