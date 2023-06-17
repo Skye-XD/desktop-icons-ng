@@ -95,6 +95,10 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] New - Deal with appimage files, if executable launch them, otherwise show an error.
 
+- [x] New Drag Navigation on Dock - dragging an icon over the Gnome Files icon on the dock or mounted drives, and hovering over it for 2 seconds will open a Gnome Files Window to drop/copy/move file into, with further drag navigation possible into the subfolders in the opened Gnome Files Window. The opening is triggered by the middle of the left edge of the dragged icon.
+
+- [x] New - Set the correct cursor with current action on Drop on Gnome Shell Actors like the Dock. Improve Gnome Shell Drop.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
