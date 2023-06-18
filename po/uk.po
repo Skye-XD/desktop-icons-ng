@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-17 16:32-0400\n"
-"PO-Revision-Date: 2023-06-12 21:53+0000\n"
+"PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -398,7 +398,7 @@ msgstr "Сумісний з усіма операційними системам
 #: app/autoAr.js:694
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Захищений паролем .zip, має бути встановлено на Windows і Mac."
+msgstr "Захищений паролем .zip, потрібно встановити на Windows і Mac."
 
 #: app/autoAr.js:700
 #, fuzzy
@@ -476,7 +476,7 @@ msgstr "Ім'я"
 #: app/desktopManager.js:1695
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Назва З-А"
+msgstr "Назва Z-A"
 
 #: app/desktopManager.js:1696
 #, fuzzy
@@ -659,7 +659,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Установити дозволи в «Доступ інших», «Лише для читання» або «Немає»</b>"
+"<b>Установіть дозволи в «Доступ інших», «Лише читання» або «Немає»</b>"
 
 #: app/fileItem.js:356
 #, fuzzy
@@ -668,7 +668,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Увімкнути опцію \"Дозволити виконання файлу як програми\"</b>"
+"<b>Увімкнути параметр «Дозволити виконання файлу як програми»</b>"
 
 #: app/fileItem.js:364
 msgid ""
@@ -767,6 +767,7 @@ msgid "Create Link..."
 msgstr "Створити посилання..."
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -1035,7 +1036,7 @@ msgstr "Тримайте значки в стопку"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Завжди зберігайте значки в стопці, схожі типи групуються"
+msgstr "Завжди зберігайте піктограми в стопці, схожі типи групуються"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
@@ -1055,7 +1056,7 @@ msgstr "Використовуйте Nemo замість Nautilus для від�
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Додати емблему до посилань"
+msgstr "Додайте емблему до посилань"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
@@ -1065,7 +1066,7 @@ msgstr "Додайте емблему, щоб дозволити ідентиф�
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
 msgid "Use black for label text"
-msgstr "Використовуйте чорний колір для тексту етикетки"
+msgstr "Використовуйте чорний колір для тексту мітки"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, fuzzy

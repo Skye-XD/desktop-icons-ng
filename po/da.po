@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-17 16:32-0400\n"
-"PO-Revision-Date: 2023-06-12 21:53+0000\n"
+"PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -94,7 +94,7 @@ msgstr "Store"
 #: app/adwPreferencesWindow.js:220
 #, fuzzy
 msgid "New icons alignment"
-msgstr "Ny justering af ikoner"
+msgstr "Ny ikonjustering"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
@@ -594,7 +594,7 @@ msgstr "Indstillinger"
 #: app/desktopManager.js:2751
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Mappeoprettelse mislykkedes"
+msgstr "Oprettelse af mappe mislykkedes"
 
 #: app/desktopManager.js:2752
 #, fuzzy
@@ -661,7 +661,7 @@ msgid ""
 "Properties, then:\n"
 msgstr ""
 "Denne .desktop-fil har forkerte tilladelser. Højreklik for at redigere "
-"egenskaber, og derefter:\n"
+"egenskaber, derefter:\n"
 
 #: app/fileItem.js:353
 #, fuzzy
@@ -670,7 +670,8 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Indstil tilladelser i \"Andre adgang\", \"Kun læse\" eller \"Ingen\"</b>"
+"<b>Indstil tilladelser i \"Andre adgang\", \"Skrivebeskyttet\" eller \"Ingen"
+"\"</b>"
 
 #: app/fileItem.js:356
 #, fuzzy
