@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-17 16:32-0400\n"
-"PO-Revision-Date: 2023-06-12 21:53+0000\n"
+"PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/eo/>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -313,7 +313,7 @@ msgstr "Forigante partan dosieron '${outputFile}'"
 #: app/autoAr.js:373
 #, fuzzy
 msgid "Creating destination folder"
-msgstr "Kreante celdosierujon"
+msgstr "Kreante cel-dosierujon"
 
 #: app/autoAr.js:405
 #, fuzzy
@@ -368,7 +368,7 @@ msgstr "Kunpremado de dosieroj en '${outputFile}' finiĝis."
 #: app/autoAr.js:501 app/autoAr.js:508
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "Nuligis kunpremadon"
+msgstr "Nuligita kunpremo"
 
 #: app/autoAr.js:502
 #, fuzzy

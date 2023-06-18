@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-17 16:32-0400\n"
-"PO-Revision-Date: 2023-06-12 21:53+0000\n"
+"PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -1044,7 +1044,7 @@ msgstr "将标签文本绘制为黑色字体，而不是白色字体。使用浅
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "如果已连接，则在非主监视器上显示新图标"
+msgstr "如果已连接，则在非主显示器上显示新图标"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy

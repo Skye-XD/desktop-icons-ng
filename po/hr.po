@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-17 16:32-0400\n"
-"PO-Revision-Date: 2023-06-12 21:53+0000\n"
+"PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.1\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
@@ -50,7 +50,7 @@ msgstr "Postavke za desktop program"
 #: app/adwPreferencesWindow.js:194
 #, fuzzy
 msgid "Volumes"
-msgstr "Svesci"
+msgstr "svezaci"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -514,7 +514,7 @@ msgstr "Održavajte dogovor…"
 #: app/desktopManager.js:1705
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Zadrži naslagano prema vrsti…"
+msgstr "Zadrži naslagano po vrsti…"
 
 #: app/desktopManager.js:1706
 #, fuzzy
@@ -662,7 +662,7 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Ova .desktop datoteka ima neispravne dozvole. Desni klik za uređivanje "
+"Ova datoteka .desktop ima neispravne dozvole. Desni klik za uređivanje "
 "svojstava, zatim:\n"
 
 #: app/fileItem.js:353
@@ -692,6 +692,7 @@ msgid ""
 msgstr ""
 
 #: app/fileItemMenu.js:296
+#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -784,6 +785,7 @@ msgid "Create Link..."
 msgstr "Stvori vezu..."
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -791,6 +793,7 @@ msgstr[1] ""
 msgstr[2] "Komprimiraj {0} mapa"
 
 #: app/fileItemMenu.js:385
+#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
@@ -905,7 +908,7 @@ msgstr "Ne mogu poslati imenik e-poštom"
 #: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
-msgstr "Odabir uključuje imenik, prvo komprimirajte imenik u datoteku."
+msgstr "Odabir uključuje direktorij, prvo komprimirajte direktorij u datoteku."
 
 #: app/showErrorPopup.js:41
 #, fuzzy

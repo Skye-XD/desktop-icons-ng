@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-17 16:32-0400\n"
-"PO-Revision-Date: 2023-06-12 21:53+0000\n"
+"PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -328,7 +328,7 @@ msgstr "Extrahovanie '${fullPathFile}' bolo zrušené používateľom."
 #: app/autoAr.js:453
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Vyžaduje sa prístupová fráza pre ${filename}"
+msgstr "Pre ${filename} sa vyžaduje prístupová fráza"
 
 #: app/autoAr.js:456
 #, fuzzy
@@ -398,7 +398,7 @@ msgstr "Kompatibilné so všetkými operačnými systémami."
 #: app/autoAr.js:694
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ".zip chránený heslom, musí byť nainštalovaný v systéme Windows a Mac."
+msgstr ".zip chránený heslom, musí byť nainštalovaný na Windows a Mac."
 
 #: app/autoAr.js:700
 #, fuzzy
@@ -501,7 +501,7 @@ msgstr "Majte usporiadané…"
 #: app/desktopManager.js:1705
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Ponechať v sklade podľa typu…"
+msgstr "Ponechať zoskladané podľa typu…"
 
 #: app/desktopManager.js:1706
 #, fuzzy
@@ -641,7 +641,7 @@ msgstr ""
 #: app/fileItem.js:350
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Neplatné povolenia v súbore pracovnej plochy"
+msgstr "Neplatné povolenia pre súbor pracovnej plochy"
 
 #: app/fileItem.js:351
 #, fuzzy
@@ -659,7 +659,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Nastavte povolenia v časti „Prístup pre ostatných“, „Iba na čítanie“ "
+"<b>Nastavte povolenia v položkách „Prístup pre ostatných“, „Iba na čítanie“ "
 "alebo „Žiadne“</b>"
 
 #: app/fileItem.js:356
@@ -728,7 +728,7 @@ msgstr "Spustiť pomocou vyhradenej grafickej karty"
 #: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Tento typ zásobníka"
+msgstr "Stack Tento typ"
 
 #: app/fileItemMenu.js:342
 #, fuzzy
@@ -768,6 +768,7 @@ msgid "Create Link..."
 msgstr "Vytvoriť odkaz..."
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -901,8 +902,8 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Aby táto funkcia fungovala v ikonách pracovnej plochy, musíte do svojho "
-"systému nainštalovať \"${programName}\"."
+"Aby táto funkcia fungovala v ikonách pracovnej plochy, musíte si do systému "
+"nainštalovať „${programName}“."
 
 #: app/utils/desktopIconsUtil.js:150
 msgid "Command not found"
