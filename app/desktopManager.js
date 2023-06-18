@@ -673,9 +673,8 @@ var DesktopManager = class {
 
     onDragEnd() {
         this.dragItem = null;
-        this._stopMonitoringDockUriNavigation();
         this._currentDesktopFileAppPath = null;
-        this._setShellDropCursor();
+        this._stopMonitoringDockUriNavigation();
     }
 
     makeFileListFromSelection(dropData, acceptFormat) {
@@ -727,18 +726,17 @@ var DesktopManager = class {
         if (!this.dragItem || (GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_SHELL_HOVER_POLL * 150000) {
             let stopID = this._dockUriSpringTimerID;
             this._dockUriSpringTimerID = 0;
-            this._setShellDropCursor();
+            this._setShellDropCursor(this.Enums.ShellDropCursor.DEFAULT);
             if (stopID)
                 GLib.Source.remove(stopID);
             return GLib.SOURCE_REMOVE;
         }
 
-        this._setShellDropCursor();
-
         let shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
         let [a, b] = this.dragSourceOffset;
         let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this.dragItem.iconRectangle.height / 2];
         this._currentDesktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
+        this._setShellDropCursor();
         if (!this._currentDesktopFileAppPath ||
                 !(this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
                 this._currentDesktopFileAppPath.startsWith('file://') ||
@@ -789,7 +787,7 @@ var DesktopManager = class {
         if (this._dockUriSpringTimerID) {
             GLib.Source.remove(this._dockUriSpringTimerID);
             this._currentDesktopFileAppPath = null;
-            this._setShellDropCursor();
+            this._setShellDropCursor(this.Enums.ShellDropCursor.DEFAULT);
         }
         this._dockUriSpringTimerID = 0;
     }
@@ -800,36 +798,40 @@ var DesktopManager = class {
             return;
         }
         if (!this._currentDesktopFileAppPath) {
-            this.DBusUtils.RemoteExtensionControl.setDragCursor('default');
+            this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
             return;
         }
-        if (this._currentDesktopFileAppPath.endsWith('.desktop')) {
-            try {
+        try {
+            if (this._currentDesktopFileAppPath.endsWith('.desktop')) {
                 let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([this._currentDesktopFileAppPath]));
                 if (!desktopFile) {
                     log('Could not parse desktopFile as a desktop file, cannot set shell cursor');
-                    this.DBusUtils.RemoteExtensionControl.setDragCursor('dndNoDropCursor');
+                    this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
                     return;
                 }
                 let object = this.checkAppOpensFileType(desktopFile, null, this.getCurrentSelection()[0].attributeContentType);
                 if (object.canopenFile) {
-                    this.DBusUtils.RemoteExtensionControl.setDragCursor('dndCopyCursor');
+                    this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.COPY);
                     return;
-                } else if ((this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') && this.Prefs.openFolderOnDndHover)||
-                 this._currentDesktopFileAppPath.startsWith('file://') ||
-                 this._currentDesktopFileAppPath.startsWith('davs://')) {
-                    this.DBusUtils.RemoteExtensionControl.setDragCursor('dndMoveCursor');
+                } else if (this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') && this.Prefs.openFolderOnDndHover) {
+                    this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.MOVE);
+                    return;
                 } else {
-                    this.DBusUtils.RemoteExtensionControl.setDragCursor('dndNoDropCursor');
-                    return;
+                    this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
                 }
-            } catch (e) {
-                logError(e, 'Error reading desktop file. Cannot set shell Cursor');
-                this.DBusUtils.RemoteExtensionControl.setDragCursor('dndNoDropCursor');
+            } else if (this._currentDesktopFileAppPath.startsWith('file://') ||
+                this._currentDesktopFileAppPath.startsWith('davs://') ||
+                this._currentDesktopFileAppPath.startsWith('trash://')) {
+                this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.MOVE);
+                return;
+            } else {
+                this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
+                return;
             }
-            return;
+        } catch (e) {
+            logError(e, 'Error reading desktop file. Cannot set shell Cursor');
         }
-        this.DBusUtils.RemoteExtensionControl.setDragCursor('default');
+        this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
     }
 
     async completeGnomeShellDrop() {
