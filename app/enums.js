@@ -98,6 +98,13 @@ var DndTargetInfo = {
     MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain;charset=utf-8'],
 };
 
+var ShellDropCursor = {
+    DEFAULT: 'default',
+    NODROP: 'dndNoDropCursor',
+    COPY: 'dndCopyCursor',
+    MOVE: 'dndMoveCursor',
+}
+
 var DEFAULT_ATTRIBUTES = 'metadata::*,standard::*,access::*,time::modified,unix::mode';
 var TERMINAL_SCHEMA = 'org.gnome.desktop.default-applications.terminal';
 var SCHEMA_NAUTILUS = 'org.gnome.nautilus.preferences';

@@ -61,6 +61,13 @@ const ifaceXml = `
   </interface>
 </node>`;
 
+const ShellDropCursor = {
+    DEFAULT: 'default',
+    NODROP: 'dndNoDropCursor',
+    COPY: 'dndCopyCursor',
+    MOVE: 'dndMoveCursor',
+};
+
 // This object will contain all the global variables
 let data = {};
 
@@ -668,13 +675,13 @@ var DingExtensionService = class {
 
     setDragCursor(cursor) {
         switch (cursor) {
-        case 'dndMoveCursor':
+        case ShellDropCursor.MOVE:
             global.display.set_cursor(Meta.Cursor.DND_MOVE);
             break;
-        case 'dndCopyCursor':
+        case ShellDropCursor.COPY:
             global.display.set_cursor(Meta.Cursor.DND_COPY);
             break;
-        case 'dndNoDropCursor':
+        case ShellDropCursor.NODROP:
             global.display.set_cursor(Meta.Cursor.DND_UNSUPPORTED_TARGET);
             break;
         default:
