@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-17 16:32-0400\n"
+"POT-Creation-Date: 2023-06-19 05:38-0400\n"
 "PO-Revision-Date: 2023-06-17 20:45+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -219,7 +219,7 @@ msgstr "Название папки"
 msgid "File name"
 msgstr "Название файла"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1435
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1437
 msgid "OK"
 msgstr "ОК"
 
@@ -247,8 +247,8 @@ msgstr "Извлечение файлов"
 msgid "Compressing files"
 msgstr "Сжатие файлов"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:996
-#: app/desktopManager.js:1437 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:998
+#: app/desktopManager.js:1439 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -360,155 +360,155 @@ msgstr "Файловый менеджер GNOME не найден"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Для Desktop Icons NG требуется приложение Файлы GNOME."
 
-#: app/desktopManager.js:896
+#: app/desktopManager.js:898
 msgid "Could not open File"
 msgstr "Не удалось открыть файл"
 
-#: app/desktopManager.js:897
+#: app/desktopManager.js:899
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} не может открывать файлы этого типа!"
 
-#: app/desktopManager.js:993
+#: app/desktopManager.js:995
 msgid "Move"
 msgstr "Переместить"
 
-#: app/desktopManager.js:994 app/fileItemMenu.js:361
+#: app/desktopManager.js:996 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Копировать"
 
-#: app/desktopManager.js:995
+#: app/desktopManager.js:997
 msgid "Link"
 msgstr "Ссылка"
 
-#: app/desktopManager.js:998
+#: app/desktopManager.js:1000
 msgid "Choose Action for Files"
 msgstr "Выбрать действие для файлового менеджера"
 
-#: app/desktopManager.js:1068 app/desktopManager.js:1100
+#: app/desktopManager.js:1070 app/desktopManager.js:1102
 msgid "Making SymLink Failed"
 msgstr "Ошибка создания SymLink"
 
-#: app/desktopManager.js:1069 app/desktopManager.js:1101
+#: app/desktopManager.js:1071 app/desktopManager.js:1103
 msgid "Could not create symbolic link"
 msgstr "Не удалось создать символическую ссылку"
 
-#: app/desktopManager.js:1393
+#: app/desktopManager.js:1395
 msgid "Clear current selection before new search"
 msgstr "Очистить текущую подборку перед новым поиском"
 
-#: app/desktopManager.js:1439
+#: app/desktopManager.js:1441
 msgid "Find Files on Desktop"
 msgstr "Поиск файлов на рабочем столе"
 
-#: app/desktopManager.js:1694
+#: app/desktopManager.js:1696
 msgid "Name"
 msgstr "Название"
 
-#: app/desktopManager.js:1695
+#: app/desktopManager.js:1697
 msgid "Name Z-A"
 msgstr "Названия от Я до А"
 
-#: app/desktopManager.js:1696
+#: app/desktopManager.js:1698
 msgid "Modified Time"
 msgstr "Время изменения"
 
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1699
 msgid "Type"
 msgstr "Тип"
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1700
 msgid "Size"
 msgstr "Размер"
 
-#: app/desktopManager.js:1701
+#: app/desktopManager.js:1703
 msgid "Keep Arranged…"
 msgstr "Сохранить порядок…"
 
-#: app/desktopManager.js:1705
+#: app/desktopManager.js:1707
 msgid "Keep Stacked by Type…"
 msgstr "Сохранить сгруппированными по типу…"
 
-#: app/desktopManager.js:1706
+#: app/desktopManager.js:1708
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сортировать Домашняя папка/Диски/Корзина…"
 
-#: app/desktopManager.js:1711 app/desktopManager.js:2728
+#: app/desktopManager.js:1713 app/desktopManager.js:2730
 msgid "New Folder"
 msgstr "Создать папку"
 
-#: app/desktopManager.js:1715
+#: app/desktopManager.js:1717
 msgid "New Document"
 msgstr "Создать документ"
 
-#: app/desktopManager.js:1719
+#: app/desktopManager.js:1721
 msgid "Paste"
 msgstr "Вставить"
 
-#: app/desktopManager.js:1720
+#: app/desktopManager.js:1722
 msgid "Undo"
 msgstr "Отменить"
 
-#: app/desktopManager.js:1721
+#: app/desktopManager.js:1723
 msgid "Redo"
 msgstr "Повторить"
 
-#: app/desktopManager.js:1726
+#: app/desktopManager.js:1728
 msgid "Select All"
 msgstr "Выделить всё"
 
-#: app/desktopManager.js:1731
+#: app/desktopManager.js:1733
 msgid "Arrange Icons"
 msgstr "Упорядочить значки"
 
-#: app/desktopManager.js:1735
+#: app/desktopManager.js:1737
 msgid "Arrange By…"
 msgstr "Упорядочить по…"
 
-#: app/desktopManager.js:1740
+#: app/desktopManager.js:1742
 msgid "Show Desktop In GNOME Files"
 msgstr "Показать рабочий стол в файловом менеджере"
 
-#: app/desktopManager.js:1741
+#: app/desktopManager.js:1743
 msgid "Open In Terminal"
 msgstr "Открыть в терминале"
 
-#: app/desktopManager.js:1746
+#: app/desktopManager.js:1748
 msgid "Change Background…"
 msgstr "Изменить фон…"
 
-#: app/desktopManager.js:1751
+#: app/desktopManager.js:1753
 msgid "Desktop Icon Settings"
 msgstr "Параметры Desktop Icons"
 
-#: app/desktopManager.js:1752
+#: app/desktopManager.js:1754
 msgid "Display Settings"
 msgstr "Настройки экрана"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 msgid "Preferences Window is Open"
 msgstr "Окно параметров открыто"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 msgid "This Window is open. Please switch to the active window."
 msgstr "Это окно открыто. Пожалуйста, переключитесь на активное окно."
 
-#: app/desktopManager.js:1807
+#: app/desktopManager.js:1809
 msgid "Settings"
 msgstr "Параметры"
 
-#: app/desktopManager.js:2751
+#: app/desktopManager.js:2753
 msgid "Folder Creation Failed"
 msgstr "Ошибка создания папки"
 
-#: app/desktopManager.js:2752
+#: app/desktopManager.js:2754
 msgid "Could not create folder"
 msgstr "Не удалось создать папку"
 
-#: app/desktopManager.js:2795
+#: app/desktopManager.js:2797
 msgid "Template Creation Error"
 msgstr "Ошибка создания шаблона"
 
-#: app/desktopManager.js:2796
+#: app/desktopManager.js:2798
 msgid "Could not create document"
 msgstr "Не удалось создать документ"
 

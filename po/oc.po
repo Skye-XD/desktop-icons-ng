@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-17 16:32-0400\n"
+"POT-Creation-Date: 2023-06-19 05:38-0400\n"
 "PO-Revision-Date: 2022-07-03 21:02+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -244,7 +244,7 @@ msgstr "Nom del dorsièr"
 msgid "File name"
 msgstr "Nom de fichièr"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1435
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1437
 msgid "OK"
 msgstr "D’acordi"
 
@@ -272,8 +272,8 @@ msgstr "Traire aicí"
 msgid "Compressing files"
 msgstr "Compressar {0} fichièr"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:996
-#: app/desktopManager.js:1437 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:998
+#: app/desktopManager.js:1439 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Anullar"
 
@@ -390,168 +390,168 @@ msgstr "Gestionari de fichièrs Nautilus pas trobat"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr ""
 
-#: app/desktopManager.js:896
+#: app/desktopManager.js:898
 msgid "Could not open File"
 msgstr ""
 
-#: app/desktopManager.js:897
+#: app/desktopManager.js:899
 msgid "${appName} can not open files of this Type!"
 msgstr ""
 
-#: app/desktopManager.js:993
+#: app/desktopManager.js:995
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:994 app/fileItemMenu.js:361
+#: app/desktopManager.js:996 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Copiar"
 
-#: app/desktopManager.js:995
+#: app/desktopManager.js:997
 msgid "Link"
 msgstr ""
 
-#: app/desktopManager.js:998
+#: app/desktopManager.js:1000
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Mostrar dins Fichièrs"
 
-#: app/desktopManager.js:1068 app/desktopManager.js:1100
+#: app/desktopManager.js:1070 app/desktopManager.js:1102
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:1069 app/desktopManager.js:1101
+#: app/desktopManager.js:1071 app/desktopManager.js:1103
 msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/desktopManager.js:1393
+#: app/desktopManager.js:1395
 #, fuzzy
 #| msgid "Clear Current Selection before New Search"
 msgid "Clear current selection before new search"
 msgstr "Escafar la seleccion actuala abans una recèrca novèla"
 
-#: app/desktopManager.js:1439
+#: app/desktopManager.js:1441
 msgid "Find Files on Desktop"
 msgstr "Recercar de fichièrs al burèu"
 
-#: app/desktopManager.js:1694
+#: app/desktopManager.js:1696
 msgid "Name"
 msgstr ""
 
-#: app/desktopManager.js:1695
+#: app/desktopManager.js:1697
 msgid "Name Z-A"
 msgstr ""
 
-#: app/desktopManager.js:1696
+#: app/desktopManager.js:1698
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Triar per data de modificacion"
 
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1699
 msgid "Type"
 msgstr ""
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1700
 msgid "Size"
 msgstr ""
 
-#: app/desktopManager.js:1701
+#: app/desktopManager.js:1703
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Gardar arrengat..."
 
-#: app/desktopManager.js:1705
+#: app/desktopManager.js:1707
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Gardar l’empilament per tipe..."
 
-#: app/desktopManager.js:1706
+#: app/desktopManager.js:1708
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Triar Repertòri personal/disques/escobilhièr..."
 
-#: app/desktopManager.js:1711 app/desktopManager.js:2728
+#: app/desktopManager.js:1713 app/desktopManager.js:2730
 msgid "New Folder"
 msgstr "Dorsièr novèl"
 
-#: app/desktopManager.js:1715
+#: app/desktopManager.js:1717
 msgid "New Document"
 msgstr "Document novèl"
 
-#: app/desktopManager.js:1719
+#: app/desktopManager.js:1721
 msgid "Paste"
 msgstr "Pegar"
 
-#: app/desktopManager.js:1720
+#: app/desktopManager.js:1722
 msgid "Undo"
 msgstr "Desfar"
 
-#: app/desktopManager.js:1721
+#: app/desktopManager.js:1723
 msgid "Redo"
 msgstr "Refar"
 
-#: app/desktopManager.js:1726
+#: app/desktopManager.js:1728
 msgid "Select All"
 msgstr "Tot seleccionar"
 
-#: app/desktopManager.js:1731
+#: app/desktopManager.js:1733
 msgid "Arrange Icons"
 msgstr "Arrengar las icònas"
 
-#: app/desktopManager.js:1735
+#: app/desktopManager.js:1737
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arrengar per..."
 
-#: app/desktopManager.js:1740
+#: app/desktopManager.js:1742
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
-#: app/desktopManager.js:1741
+#: app/desktopManager.js:1743
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Dobrir dins un terminal"
 
-#: app/desktopManager.js:1746
+#: app/desktopManager.js:1748
 msgid "Change Background…"
 msgstr "Modificar lo rèireplan…"
 
-#: app/desktopManager.js:1751
+#: app/desktopManager.js:1753
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Paramètres icònas de burèu"
 
-#: app/desktopManager.js:1752
+#: app/desktopManager.js:1754
 msgid "Display Settings"
 msgstr "Paramètres d'afichatge"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopManager.js:1807
+#: app/desktopManager.js:1809
 msgid "Settings"
 msgstr "Paramètres"
 
-#: app/desktopManager.js:2751
+#: app/desktopManager.js:2753
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Nom del dorsièr"
 
-#: app/desktopManager.js:2752
+#: app/desktopManager.js:2754
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2795
+#: app/desktopManager.js:2797
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2796
+#: app/desktopManager.js:2798
 msgid "Could not create document"
 msgstr ""
 
