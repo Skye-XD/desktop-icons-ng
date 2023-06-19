@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-17 16:32-0400\n"
+"POT-Creation-Date: 2023-06-19 05:38-0400\n"
 "PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18.1\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
@@ -260,7 +260,7 @@ msgstr "Ime datoteke"
 msgid "File name"
 msgstr "Naziv datoteke"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1435
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1437
 msgid "OK"
 msgstr "U redu"
 
@@ -293,8 +293,8 @@ msgstr "Izdvajanje datoteka"
 msgid "Compressing files"
 msgstr "Sažimanje datoteka"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:996
-#: app/desktopManager.js:1437 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:998
+#: app/desktopManager.js:1439 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Odustani"
 
@@ -432,183 +432,183 @@ msgstr "GNOME datoteke nisu pronađene"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Aplikacija GNOME Files potrebna je za Desktop Icons NG."
 
-#: app/desktopManager.js:896
+#: app/desktopManager.js:898
 #, fuzzy
 msgid "Could not open File"
 msgstr "Nije moguće otvoriti datoteku"
 
-#: app/desktopManager.js:897
+#: app/desktopManager.js:899
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} ne može otvoriti datoteke ove vrste!"
 
-#: app/desktopManager.js:993
+#: app/desktopManager.js:995
 #, fuzzy
 msgid "Move"
 msgstr "Potez"
 
-#: app/desktopManager.js:994 app/fileItemMenu.js:361
+#: app/desktopManager.js:996 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: app/desktopManager.js:995
+#: app/desktopManager.js:997
 #, fuzzy
 msgid "Link"
 msgstr "Veza"
 
-#: app/desktopManager.js:998
+#: app/desktopManager.js:1000
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Odaberite Akcija za datoteke"
 
-#: app/desktopManager.js:1068 app/desktopManager.js:1100
+#: app/desktopManager.js:1070 app/desktopManager.js:1102
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Izrada SymLinka nije uspjela"
 
-#: app/desktopManager.js:1069 app/desktopManager.js:1101
+#: app/desktopManager.js:1071 app/desktopManager.js:1103
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Nije moguće stvoriti simboličku vezu"
 
-#: app/desktopManager.js:1393
+#: app/desktopManager.js:1395
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Očisti trenutni odabir prije novog pretraživanja"
 
-#: app/desktopManager.js:1439
+#: app/desktopManager.js:1441
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Pronađite datoteke na radnoj površini"
 
-#: app/desktopManager.js:1694
+#: app/desktopManager.js:1696
 #, fuzzy
 msgid "Name"
 msgstr "Ime"
 
-#: app/desktopManager.js:1695
+#: app/desktopManager.js:1697
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Ime Z-A"
 
-#: app/desktopManager.js:1696
+#: app/desktopManager.js:1698
 #, fuzzy
 msgid "Modified Time"
 msgstr "Modificirano vrijeme"
 
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1699
 #, fuzzy
 msgid "Type"
 msgstr "Tip"
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1700
 #, fuzzy
 msgid "Size"
 msgstr "Veličina"
 
-#: app/desktopManager.js:1701
+#: app/desktopManager.js:1703
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Održavajte dogovor…"
 
-#: app/desktopManager.js:1705
+#: app/desktopManager.js:1707
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Zadrži naslagano po vrsti…"
 
-#: app/desktopManager.js:1706
+#: app/desktopManager.js:1708
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Poredaj Početna/Pogoni/Otpad…"
 
-#: app/desktopManager.js:1711 app/desktopManager.js:2728
+#: app/desktopManager.js:1713 app/desktopManager.js:2730
 msgid "New Folder"
 msgstr "Nova mapa"
 
-#: app/desktopManager.js:1715
+#: app/desktopManager.js:1717
 msgid "New Document"
 msgstr "Novi dokument"
 
-#: app/desktopManager.js:1719
+#: app/desktopManager.js:1721
 msgid "Paste"
 msgstr "Zalijepi"
 
-#: app/desktopManager.js:1720
+#: app/desktopManager.js:1722
 msgid "Undo"
 msgstr "Poništi"
 
-#: app/desktopManager.js:1721
+#: app/desktopManager.js:1723
 msgid "Redo"
 msgstr "Ponovi"
 
-#: app/desktopManager.js:1726
+#: app/desktopManager.js:1728
 #, fuzzy
 msgid "Select All"
 msgstr "Odaberi sve"
 
-#: app/desktopManager.js:1731
+#: app/desktopManager.js:1733
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Rasporedi ikone"
 
-#: app/desktopManager.js:1735
+#: app/desktopManager.js:1737
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Poredati po…"
 
-#: app/desktopManager.js:1740
+#: app/desktopManager.js:1742
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Prikaži radnu površinu u GNOME datotekama"
 
-#: app/desktopManager.js:1741
+#: app/desktopManager.js:1743
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Otvorite u terminalu"
 
-#: app/desktopManager.js:1746
+#: app/desktopManager.js:1748
 msgid "Change Background…"
 msgstr "Promijeni pozadinu…"
 
-#: app/desktopManager.js:1751
+#: app/desktopManager.js:1753
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Postavke ikona radne površine"
 
-#: app/desktopManager.js:1752
+#: app/desktopManager.js:1754
 msgid "Display Settings"
 msgstr "Postavke zaslona"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Prozor postavki je otvoren"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Ovaj prozor je otvoren. Prijeđite na aktivni prozor."
 
-#: app/desktopManager.js:1807
+#: app/desktopManager.js:1809
 msgid "Settings"
 msgstr "Postavke"
 
-#: app/desktopManager.js:2751
+#: app/desktopManager.js:2753
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Stvaranje mape nije uspjelo"
 
-#: app/desktopManager.js:2752
+#: app/desktopManager.js:2754
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Nije moguće stvoriti mapu"
 
-#: app/desktopManager.js:2795
+#: app/desktopManager.js:2797
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Pogreška pri izradi predloška"
 
-#: app/desktopManager.js:2796
+#: app/desktopManager.js:2798
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nije moguće izraditi dokument"
@@ -692,7 +692,6 @@ msgid ""
 msgstr ""
 
 #: app/fileItemMenu.js:296
-#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -785,7 +784,6 @@ msgid "Create Link..."
 msgstr "Stvori vezu..."
 
 #: app/fileItemMenu.js:378
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -793,7 +791,6 @@ msgstr[1] ""
 msgstr[2] "Komprimiraj {0} mapa"
 
 #: app/fileItemMenu.js:385
-#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""

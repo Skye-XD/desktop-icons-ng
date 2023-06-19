@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-17 16:32-0400\n"
+"POT-Creation-Date: 2023-06-19 05:38-0400\n"
 "PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -264,7 +264,7 @@ msgstr "Mappnamn"
 msgid "File name"
 msgstr "Filnamn"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1435
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1437
 msgid "OK"
 msgstr "OK"
 
@@ -296,8 +296,8 @@ msgstr "Extrahera filer"
 msgid "Compressing files"
 msgstr "Komprimerar filer"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:996
-#: app/desktopManager.js:1437 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:998
+#: app/desktopManager.js:1439 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -436,180 +436,180 @@ msgstr "GNOME-filer hittades inte"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Programmet GNOME Files krävs av Desktop Icons NG."
 
-#: app/desktopManager.js:896
+#: app/desktopManager.js:898
 #, fuzzy
 msgid "Could not open File"
 msgstr "Kunde inte öppna filen"
 
-#: app/desktopManager.js:897
+#: app/desktopManager.js:899
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} kan inte öppna filer av denna typ!"
 
-#: app/desktopManager.js:993
+#: app/desktopManager.js:995
 #, fuzzy
 msgid "Move"
 msgstr "Flytta"
 
-#: app/desktopManager.js:994 app/fileItemMenu.js:361
+#: app/desktopManager.js:996 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Kopiera"
 
-#: app/desktopManager.js:995
+#: app/desktopManager.js:997
 #, fuzzy
 msgid "Link"
 msgstr "Länk"
 
-#: app/desktopManager.js:998
+#: app/desktopManager.js:1000
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Välj Åtgärd för filer"
 
-#: app/desktopManager.js:1068 app/desktopManager.js:1100
+#: app/desktopManager.js:1070 app/desktopManager.js:1102
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Att göra SymLink misslyckades"
 
-#: app/desktopManager.js:1069 app/desktopManager.js:1101
+#: app/desktopManager.js:1071 app/desktopManager.js:1103
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Det gick inte att skapa symbolisk länk"
 
-#: app/desktopManager.js:1393
+#: app/desktopManager.js:1395
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Rensa aktuellt val innan ny sökning"
 
-#: app/desktopManager.js:1439
+#: app/desktopManager.js:1441
 msgid "Find Files on Desktop"
 msgstr "Hitta filer på skrivbordet"
 
-#: app/desktopManager.js:1694
+#: app/desktopManager.js:1696
 #, fuzzy
 msgid "Name"
 msgstr "namn"
 
-#: app/desktopManager.js:1695
+#: app/desktopManager.js:1697
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Namn Z-A"
 
-#: app/desktopManager.js:1696
+#: app/desktopManager.js:1698
 #, fuzzy
 msgid "Modified Time"
 msgstr "Ändrad tid"
 
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1699
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1700
 #, fuzzy
 msgid "Size"
 msgstr "Storlek"
 
-#: app/desktopManager.js:1701
+#: app/desktopManager.js:1703
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Håll ordning…"
 
-#: app/desktopManager.js:1705
+#: app/desktopManager.js:1707
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Håll staplade efter typ…"
 
-#: app/desktopManager.js:1706
+#: app/desktopManager.js:1708
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortera hem/enheter/papperskorgen…"
 
-#: app/desktopManager.js:1711 app/desktopManager.js:2728
+#: app/desktopManager.js:1713 app/desktopManager.js:2730
 msgid "New Folder"
 msgstr "Ny mapp"
 
-#: app/desktopManager.js:1715
+#: app/desktopManager.js:1717
 msgid "New Document"
 msgstr "Nytt dokument"
 
-#: app/desktopManager.js:1719
+#: app/desktopManager.js:1721
 msgid "Paste"
 msgstr "Klistra in"
 
-#: app/desktopManager.js:1720
+#: app/desktopManager.js:1722
 msgid "Undo"
 msgstr "Ångra"
 
-#: app/desktopManager.js:1721
+#: app/desktopManager.js:1723
 msgid "Redo"
 msgstr "Gör om"
 
-#: app/desktopManager.js:1726
+#: app/desktopManager.js:1728
 msgid "Select All"
 msgstr "Markera alla"
 
-#: app/desktopManager.js:1731
+#: app/desktopManager.js:1733
 msgid "Arrange Icons"
 msgstr "Arrangera ikonerna"
 
-#: app/desktopManager.js:1735
+#: app/desktopManager.js:1737
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Ordna efter…"
 
-#: app/desktopManager.js:1740
+#: app/desktopManager.js:1742
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Visa skrivbordet i GNOME-filer"
 
-#: app/desktopManager.js:1741
+#: app/desktopManager.js:1743
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Öppna i terminal"
 
-#: app/desktopManager.js:1746
+#: app/desktopManager.js:1748
 msgid "Change Background…"
 msgstr "Ändra bakgrund…"
 
-#: app/desktopManager.js:1751
+#: app/desktopManager.js:1753
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Skrivbordsikoninställningar"
 
-#: app/desktopManager.js:1752
+#: app/desktopManager.js:1754
 msgid "Display Settings"
 msgstr "Visningsinställningar"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Fönstret med inställningar är öppet"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Detta fönster är öppet. Växla till det aktiva fönstret."
 
-#: app/desktopManager.js:1807
+#: app/desktopManager.js:1809
 msgid "Settings"
 msgstr "Inställningar"
 
-#: app/desktopManager.js:2751
+#: app/desktopManager.js:2753
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Det gick inte att skapa mappar"
 
-#: app/desktopManager.js:2752
+#: app/desktopManager.js:2754
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Det gick inte att skapa mappen"
 
-#: app/desktopManager.js:2795
+#: app/desktopManager.js:2797
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Fel vid skapande av mall"
 
-#: app/desktopManager.js:2796
+#: app/desktopManager.js:2798
 #, fuzzy
 msgid "Could not create document"
 msgstr "Det gick inte att skapa dokumentet"

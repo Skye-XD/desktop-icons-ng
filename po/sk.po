@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-17 16:32-0400\n"
+"POT-Creation-Date: 2023-06-19 05:38-0400\n"
 "PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,7 +248,7 @@ msgstr "Názov priečinku"
 msgid "File name"
 msgstr "Názov súboru"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1435
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1437
 msgid "OK"
 msgstr "OK"
 
@@ -280,8 +280,8 @@ msgstr "Extrahovanie súborov"
 msgid "Compressing files"
 msgstr "Komprimovanie súborov"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:996
-#: app/desktopManager.js:1437 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:998
+#: app/desktopManager.js:1439 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -420,180 +420,180 @@ msgstr "Súbory GNOME sa nenašli"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Ikony pracovnej plochy NG vyžadujú aplikáciu Súbory GNOME."
 
-#: app/desktopManager.js:896
+#: app/desktopManager.js:898
 #, fuzzy
 msgid "Could not open File"
 msgstr "Súbor sa nepodarilo otvoriť"
 
-#: app/desktopManager.js:897
+#: app/desktopManager.js:899
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} nemôže otvárať súbory tohto typu!"
 
-#: app/desktopManager.js:993
+#: app/desktopManager.js:995
 #, fuzzy
 msgid "Move"
 msgstr "Pohybujte sa"
 
-#: app/desktopManager.js:994 app/fileItemMenu.js:361
+#: app/desktopManager.js:996 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Kopírovať"
 
-#: app/desktopManager.js:995
+#: app/desktopManager.js:997
 #, fuzzy
 msgid "Link"
 msgstr "Odkaz"
 
-#: app/desktopManager.js:998
+#: app/desktopManager.js:1000
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Vyberte Akcia pre súbory"
 
-#: app/desktopManager.js:1068 app/desktopManager.js:1100
+#: app/desktopManager.js:1070 app/desktopManager.js:1102
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Vytvorenie SymLink zlyhalo"
 
-#: app/desktopManager.js:1069 app/desktopManager.js:1101
+#: app/desktopManager.js:1071 app/desktopManager.js:1103
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Nepodarilo sa vytvoriť symbolický odkaz"
 
-#: app/desktopManager.js:1393
+#: app/desktopManager.js:1395
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Pred novým vyhľadávaním vymažte aktuálny výber"
 
-#: app/desktopManager.js:1439
+#: app/desktopManager.js:1441
 msgid "Find Files on Desktop"
 msgstr "Nájdenie súborov na pracovnej ploche"
 
-#: app/desktopManager.js:1694
+#: app/desktopManager.js:1696
 #, fuzzy
 msgid "Name"
 msgstr "názov"
 
-#: app/desktopManager.js:1695
+#: app/desktopManager.js:1697
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Meno Z-A"
 
-#: app/desktopManager.js:1696
+#: app/desktopManager.js:1698
 #, fuzzy
 msgid "Modified Time"
 msgstr "Upravený čas"
 
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1699
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1700
 #, fuzzy
 msgid "Size"
 msgstr "Veľkosť"
 
-#: app/desktopManager.js:1701
+#: app/desktopManager.js:1703
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Majte usporiadané…"
 
-#: app/desktopManager.js:1705
+#: app/desktopManager.js:1707
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Ponechať zoskladané podľa typu…"
 
-#: app/desktopManager.js:1706
+#: app/desktopManager.js:1708
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Triediť domov/Disky/Kôš…"
 
-#: app/desktopManager.js:1711 app/desktopManager.js:2728
+#: app/desktopManager.js:1713 app/desktopManager.js:2730
 msgid "New Folder"
 msgstr "Nový priečinok"
 
-#: app/desktopManager.js:1715
+#: app/desktopManager.js:1717
 msgid "New Document"
 msgstr "Nový dokument"
 
-#: app/desktopManager.js:1719
+#: app/desktopManager.js:1721
 msgid "Paste"
 msgstr "Vložiť"
 
-#: app/desktopManager.js:1720
+#: app/desktopManager.js:1722
 msgid "Undo"
 msgstr "Vrátiť späť"
 
-#: app/desktopManager.js:1721
+#: app/desktopManager.js:1723
 msgid "Redo"
 msgstr "Zopakovať"
 
-#: app/desktopManager.js:1726
+#: app/desktopManager.js:1728
 msgid "Select All"
 msgstr "Vybrať všetko"
 
-#: app/desktopManager.js:1731
+#: app/desktopManager.js:1733
 msgid "Arrange Icons"
 msgstr "Usporiadať ikony"
 
-#: app/desktopManager.js:1735
+#: app/desktopManager.js:1737
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Usporiadať podľa…"
 
-#: app/desktopManager.js:1740
+#: app/desktopManager.js:1742
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Zobraziť pracovnú plochu v súboroch GNOME"
 
-#: app/desktopManager.js:1741
+#: app/desktopManager.js:1743
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Otvoriť v termináli"
 
-#: app/desktopManager.js:1746
+#: app/desktopManager.js:1748
 msgid "Change Background…"
 msgstr "Zmeniť pozadie…"
 
-#: app/desktopManager.js:1751
+#: app/desktopManager.js:1753
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Nastavenia ikon na pracovnej ploche"
 
-#: app/desktopManager.js:1752
+#: app/desktopManager.js:1754
 msgid "Display Settings"
 msgstr "Nastavenia displejov"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Okno predvolieb je otvorené"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Toto okno je otvorené. Prepnite sa do aktívneho okna."
 
-#: app/desktopManager.js:1807
+#: app/desktopManager.js:1809
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: app/desktopManager.js:2751
+#: app/desktopManager.js:2753
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Vytvorenie priečinka zlyhalo"
 
-#: app/desktopManager.js:2752
+#: app/desktopManager.js:2754
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Priečinok sa nepodarilo vytvoriť"
 
-#: app/desktopManager.js:2795
+#: app/desktopManager.js:2797
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba pri vytváraní šablóny"
 
-#: app/desktopManager.js:2796
+#: app/desktopManager.js:2798
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nepodarilo sa vytvoriť dokument"
@@ -768,7 +768,6 @@ msgid "Create Link..."
 msgstr "Vytvoriť odkaz..."
 
 #: app/fileItemMenu.js:378
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""

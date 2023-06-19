@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-17 16:32-0400\n"
+"POT-Creation-Date: 2023-06-19 05:38-0400\n"
 "PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18.1\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
@@ -248,7 +248,7 @@ msgstr "Назва теки"
 msgid "File name"
 msgstr "Назва файлу"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1435
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1437
 msgid "OK"
 msgstr "Ок"
 
@@ -280,8 +280,8 @@ msgstr "Розпакування файлів"
 msgid "Compressing files"
 msgstr "Стиснення файлів"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:996
-#: app/desktopManager.js:1437 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:998
+#: app/desktopManager.js:1439 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -420,181 +420,181 @@ msgstr "Файли GNOME не знайдено"
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Програма GNOME Files потрібна Desktop Icons NG."
 
-#: app/desktopManager.js:896
+#: app/desktopManager.js:898
 #, fuzzy
 msgid "Could not open File"
 msgstr "Не вдалося відкрити файл"
 
-#: app/desktopManager.js:897
+#: app/desktopManager.js:899
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} не може відкривати файли цього типу!"
 
-#: app/desktopManager.js:993
+#: app/desktopManager.js:995
 #, fuzzy
 msgid "Move"
 msgstr "рухатися"
 
-#: app/desktopManager.js:994 app/fileItemMenu.js:361
+#: app/desktopManager.js:996 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Копіювати"
 
-#: app/desktopManager.js:995
+#: app/desktopManager.js:997
 #, fuzzy
 msgid "Link"
 msgstr "Посилання"
 
-#: app/desktopManager.js:998
+#: app/desktopManager.js:1000
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Виберіть «Дія для файлів»."
 
-#: app/desktopManager.js:1068 app/desktopManager.js:1100
+#: app/desktopManager.js:1070 app/desktopManager.js:1102
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Не вдалося створити SymLink"
 
-#: app/desktopManager.js:1069 app/desktopManager.js:1101
+#: app/desktopManager.js:1071 app/desktopManager.js:1103
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Не вдалося створити символічне посилання"
 
-#: app/desktopManager.js:1393
+#: app/desktopManager.js:1395
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Очистити поточний вибір перед новим пошуком"
 
-#: app/desktopManager.js:1439
+#: app/desktopManager.js:1441
 msgid "Find Files on Desktop"
 msgstr "Пошук файлів на стільниці"
 
-#: app/desktopManager.js:1694
+#: app/desktopManager.js:1696
 #, fuzzy
 msgid "Name"
 msgstr "Ім'я"
 
-#: app/desktopManager.js:1695
+#: app/desktopManager.js:1697
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Назва Z-A"
 
-#: app/desktopManager.js:1696
+#: app/desktopManager.js:1698
 #, fuzzy
 msgid "Modified Time"
 msgstr "Час зміни"
 
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1699
 #, fuzzy
 msgid "Type"
 msgstr "Тип"
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1700
 #, fuzzy
 msgid "Size"
 msgstr "Розмір"
 
-#: app/desktopManager.js:1701
+#: app/desktopManager.js:1703
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Тримайте в порядку…"
 
-#: app/desktopManager.js:1705
+#: app/desktopManager.js:1707
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Зберігати за типом…"
 
-#: app/desktopManager.js:1706
+#: app/desktopManager.js:1708
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сортувати Домашня сторінка/Диски/Кошик…"
 
-#: app/desktopManager.js:1711 app/desktopManager.js:2728
+#: app/desktopManager.js:1713 app/desktopManager.js:2730
 msgid "New Folder"
 msgstr "Створити теку"
 
-#: app/desktopManager.js:1715
+#: app/desktopManager.js:1717
 msgid "New Document"
 msgstr "Створити документ"
 
-#: app/desktopManager.js:1719
+#: app/desktopManager.js:1721
 msgid "Paste"
 msgstr "Вставити"
 
-#: app/desktopManager.js:1720
+#: app/desktopManager.js:1722
 msgid "Undo"
 msgstr "Відмінити"
 
-#: app/desktopManager.js:1721
+#: app/desktopManager.js:1723
 msgid "Redo"
 msgstr "Повторити"
 
-#: app/desktopManager.js:1726
+#: app/desktopManager.js:1728
 #, fuzzy
 msgid "Select All"
 msgstr "Вибрати все"
 
-#: app/desktopManager.js:1731
+#: app/desktopManager.js:1733
 msgid "Arrange Icons"
 msgstr "Впорядкувати"
 
-#: app/desktopManager.js:1735
+#: app/desktopManager.js:1737
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Організувати до…"
 
-#: app/desktopManager.js:1740
+#: app/desktopManager.js:1742
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Показати робочий стіл у файлах GNOME"
 
-#: app/desktopManager.js:1741
+#: app/desktopManager.js:1743
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Відкрийте в терміналі"
 
-#: app/desktopManager.js:1746
+#: app/desktopManager.js:1748
 msgid "Change Background…"
 msgstr "Змінити тло…"
 
-#: app/desktopManager.js:1751
+#: app/desktopManager.js:1753
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Налаштування піктограм робочого столу"
 
-#: app/desktopManager.js:1752
+#: app/desktopManager.js:1754
 msgid "Display Settings"
 msgstr "Параметри екрану"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Вікно налаштувань відкрито"
 
-#: app/desktopManager.js:1795
+#: app/desktopManager.js:1797
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Це вікно відкрито. Будь ласка, перейдіть до активного вікна."
 
-#: app/desktopManager.js:1807
+#: app/desktopManager.js:1809
 msgid "Settings"
 msgstr "Параметри"
 
-#: app/desktopManager.js:2751
+#: app/desktopManager.js:2753
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Помилка створення папки"
 
-#: app/desktopManager.js:2752
+#: app/desktopManager.js:2754
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Не вдалося створити папку"
 
-#: app/desktopManager.js:2795
+#: app/desktopManager.js:2797
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Помилка створення шаблону"
 
-#: app/desktopManager.js:2796
+#: app/desktopManager.js:2798
 #, fuzzy
 msgid "Could not create document"
 msgstr "Не вдалося створити документ"
@@ -767,7 +767,6 @@ msgid "Create Link..."
 msgstr "Створити посилання..."
 
 #: app/fileItemMenu.js:378
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
