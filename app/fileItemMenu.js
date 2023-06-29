@@ -669,7 +669,7 @@ var FileItemMenu = class {
 
     _mailFilesFromSelection() {
         if (this._desktopManager.checkIfDirectoryIsSelected()) {
-            let WindowError = new this._ShowErrorPopup.ShowErrorPopup(_('Can not email a Directory'),
+            let WindowError = new this._showErrorPopup.ShowErrorPopup(_('Can not email a Directory'),
                 _('Selection includes a Directory, compress the directory to a file first.'),
                 false,
                 this._textEntryAccelsTurnOff.bind(this),
