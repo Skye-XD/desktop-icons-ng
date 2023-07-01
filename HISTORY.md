@@ -1,4 +1,10 @@
 # History of versions #
+* Gtk4 version 44 - June maintenance
+  * Fix regression - error dialog not showing in fileItemMenu.js. (Sundeep Mediratta)
+  * Separate app logic for drag and drop on Gnome Shell to new class in gnomeShellDragDrop.js. (Sundeep Mediratta)
+  * Weblate translation updates. (Weblate Authors)
+  * update metadata.json, History.md, version bump to 44
+
 * Gtk4 version 43
   * Bug Fix - Drag on Trash icon not showing correct cursor. (Sundeep Mediratta)
   * Weblate translation updates. (Weblate Authors)
