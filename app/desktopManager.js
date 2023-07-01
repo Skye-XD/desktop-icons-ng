@@ -31,6 +31,7 @@ const TemplatesScriptsManager = imports.app.templatesScriptsManager;
 const FileItemMenu = imports.app.fileItemMenu;
 const AutoAr = imports.app.autoAr;
 const AppChooser = imports.app.appChooser;
+const GnomeShellDragDrop = imports.app.gnomeShellDragDrop;
 
 var Thumbnails = null;
 try {
@@ -634,7 +635,7 @@ var DesktopManager = class {
     onDragBegin(item) {
         this.saveCurrentFileCoordinatesForUndo();
         this.dragItem = item;
-        this._currentDesktopFileAppPath = null;
+        this._stopGnomeShellDrag();
     }
 
     onDragMotion(X, Y) {
@@ -660,7 +661,7 @@ var DesktopManager = class {
         }
         for (let desktop of this._desktops)
             desktop.refreshDrag(this._dragList, X, Y);
-        this._stopMonitoringDockUriNavigation();
+        this._stopGnomeShellDrag();
     }
 
     onDragLeave() {
@@ -668,13 +669,22 @@ var DesktopManager = class {
         for (let desktop of this._desktops)
             desktop.refreshDrag(null, 0, 0);
         // Synthesise, extrapolate drag motion on a shell actor
-        this._startMonitoringDockUriNavigation();
+        this._startGnomeShellDrag();
     }
 
     onDragEnd() {
         this.dragItem = null;
-        this._currentDesktopFileAppPath = null;
-        this._stopMonitoringDockUriNavigation();
+        this._stopGnomeShellDrag();
+    }
+
+    _startGnomeShellDrag() {
+        if (!this._localDrag() && this.dragItem && !this.gnomeShellDrag)
+            this.gnomeShellDrag = new GnomeShellDragDrop.GnomeShellDrag(this);
+    }
+
+    _stopGnomeShellDrag() {
+        this.gnomeShellDrag?.destroy();
+        this.gnomeShellDrag = null;
     }
 
     makeFileListFromSelection(dropData, acceptFormat) {
@@ -698,212 +708,6 @@ var DesktopManager = class {
             return fileList;
         else
             return null;
-    }
-
-    _startMonitoringDockUriNavigation() {
-        if (!this.dragItem || this._localDrag() || this._dockUriSpringTimerID)
-            return;
-        this._dockSpringOpenFile = null;
-        this._currentDesktopFileAppPath = null;
-        this._dockSpringOpenTime = GLib.get_monotonic_time();
-        this._dockSpringOpenComplete = false;
-        // Careful, we have to and are calling an async function in the timer, which will always return true,
-        // therefore the function has to kill itself if not killed by drag end...
-        this._dockUriSpringTimerID =  GLib.timeout_add(GLib.PRIORITY_DEFAULT, this.Enums.DND_SHELL_HOVER_POLL,
-            async () => {
-                try {
-                    await this._dockUriSpringTimerFunction();
-                } catch (e) {
-                    logError(e);
-                    return GLib.SOURCE_REMOVE;
-                }
-            }
-        );
-    }
-
-    async _dockUriSpringTimerFunction() {
-        // Failsafe kill the function - remove the timer if going on for too long, default 30 seconds
-        if (!this.dragItem || (GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_SHELL_HOVER_POLL * 150000) {
-            let stopID = this._dockUriSpringTimerID;
-            this._dockUriSpringTimerID = 0;
-            this._setShellDropCursor(this.Enums.ShellDropCursor.DEFAULT);
-            if (stopID)
-                GLib.Source.remove(stopID);
-            return GLib.SOURCE_REMOVE;
-        }
-
-        let shellDropCoordinates = await this.DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
-        let [a, b] = this.dragSourceOffset;
-        let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this.dragItem.iconRectangle.height / 2];
-        this._currentDesktopFileAppPath = await this.DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
-        this._setShellDropCursor();
-        if (!this._currentDesktopFileAppPath ||
-                !(this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
-                this._currentDesktopFileAppPath.startsWith('file://') ||
-                this._currentDesktopFileAppPath.startsWith('davs://')))
-            return GLib.SOURCE_CONTINUE;
-
-
-        // On a URI, start hover timing and reset timer
-        if (!this._dockSpringOpenFile) {
-            this._dockSpringOpenFile = this._currentDesktopFileAppPath;
-            this._dockSpringOpenTime = GLib.get_monotonic_time();
-            return GLib.SOURCE_CONTINUE;
-        }
-
-        // Open the URI, got here after hover timing started
-        if (this._dockSpringOpenFile === this._currentDesktopFileAppPath && !this._dockSpringOpenComplete &&
-              ((GLib.get_monotonic_time() - this._dockSpringOpenTime) > this.Enums.DND_HOVER_TIMEOUT * 1000)) {
-            const context = Gdk.Display.get_default().get_app_launch_context();
-            context.set_timestamp(Gdk.CURRENT_TIME);
-            let uri;
-            try {
-                if (this._dockSpringOpenFile.endsWith('Nautilus.desktop'))
-                    uri = this._desktopDir.get_uri();
-                else
-                    uri = this._dockSpringOpenFile;
-                if (this.Prefs.openFolderOnDndHover)
-                    Gio.AppInfo.launch_default_for_uri(uri, context);
-                this._dockSpringOpenComplete = true;
-            } catch (e) {
-                logError(e, `Error opening ${uri} in GNOME Files: ${e.message}`);
-            }
-            return GLib.SOURCE_CONTINUE;
-        }
-
-        // URI is the same, window is opened, do nothing
-        if (this._dockSpringOpenFile === this._currentDesktopFileAppPath && this._dockSpringOpenComplete)
-            return GLib.SOURCE_CONTINUE;
-
-        // If still alive, window is opened and uri is changed, reset
-        if (this._dockSpringOpenFile !== this._currentDesktopFileAppPath && this._dockSpringOpenComplete) {
-            this._dockSpringOpenFile = null;
-            this._dockSpringOpenComplete = false;
-            return GLib.SOURCE_CONTINUE;
-        }
-    }
-
-    _stopMonitoringDockUriNavigation() {
-        if (this._dockUriSpringTimerID) {
-            GLib.Source.remove(this._dockUriSpringTimerID);
-            this._currentDesktopFileAppPath = null;
-            this._setShellDropCursor(this.Enums.ShellDropCursor.DEFAULT);
-        }
-        this._dockUriSpringTimerID = 0;
-    }
-
-    _setShellDropCursor(cursor = null) {
-        if (cursor) {
-            this.DBusUtils.RemoteExtensionControl.setDragCursor(cursor);
-            return;
-        }
-        if (!this._currentDesktopFileAppPath) {
-            this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
-            return;
-        }
-        try {
-            if (this._currentDesktopFileAppPath.endsWith('.desktop')) {
-                let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([this._currentDesktopFileAppPath]));
-                if (!desktopFile) {
-                    log('Could not parse desktopFile as a desktop file, cannot set shell cursor');
-                    this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
-                    return;
-                }
-                let object = this.checkAppOpensFileType(desktopFile, null, this.getCurrentSelection()[0].attributeContentType);
-                if (object.canopenFile) {
-                    this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.COPY);
-                    return;
-                } else if (this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') && this.Prefs.openFolderOnDndHover) {
-                    this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.MOVE);
-                    return;
-                } else {
-                    this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
-                }
-            } else if (this._currentDesktopFileAppPath.startsWith('file://') ||
-                this._currentDesktopFileAppPath.startsWith('davs://') ||
-                this._currentDesktopFileAppPath.startsWith('trash://')) {
-                this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.MOVE);
-                return;
-            } else {
-                this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
-                return;
-            }
-        } catch (e) {
-            logError(e, 'Error reading desktop file. Cannot set shell Cursor');
-        }
-        this.DBusUtils.RemoteExtensionControl.setDragCursor(this.Enums.ShellDropCursor.NODROP);
-    }
-
-    async completeGnomeShellDrop() {
-        if  (!this._currentDesktopFileAppPath)
-            return false;
-        if (this._currentDesktopFileAppPath.endsWith('.desktop')) {
-            try {
-                let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([this._currentDesktopFileAppPath]));
-                if (!desktopFile) {
-                    log('Could not parse desktopFile as a desktop file');
-                    return false;
-                }
-                let object = this.checkAppOpensFileType(desktopFile, null, this.getCurrentSelection()[0].attributeContentType);
-                if (object.canopenFile) {
-                    const context = Gdk.Display.get_default().get_app_launch_context();
-                    context.set_timestamp(Gdk.CURRENT_TIME);
-                    desktopFile.launch_uris_as_manager(this.getCurrentSelection(true), context, GLib.SpawnFlags.SEARCH_PATH, null, null);
-                    return true;
-                } else {
-                    this._showAppCannotOpenError(object.Appname);
-                    return false;
-                }
-            } catch (e) {
-                logError(e, 'Error reading desktop file. Cannot launch application.');
-                return false;
-            }
-        }
-        if (this._currentDesktopFileAppPath === 'trash:///') {
-            this.doTrash();
-            return true;
-        }
-        if (this._currentDesktopFileAppPath.startsWith('file:///') || this._currentDesktopFileAppPath.startsWith('davs://')) {
-            await this.copyOrMoveUris(this.getCurrentSelection(true), this._currentDesktopFileAppPath, {}, {}).catch(e => logError(e));
-            return true;
-        }
-        return false;
-    }
-
-    checkAppOpensFileType(gioDesktopAppInfo, fileUri = null, attributeContentType = null) {
-        let Appname = gioDesktopAppInfo.get_name();
-        let gioFileInfo;
-        let AppsSupportingOpen = [];
-        if (fileUri) {
-            gioFileInfo = Gio.File.new_for_uri(fileUri).query_info(this.Enums.DEFAULT_ATTRIBUTES,
-                Gio.FileQueryInfoFlags.NONE,
-                null);
-            AppsSupportingOpen = Gio.AppInfo.get_all_for_type(gioFileInfo.get_content_type());
-        } else if (attributeContentType) {
-            AppsSupportingOpen = Gio.AppInfo.get_all_for_type(attributeContentType);
-        } else {
-            return { canopenFile: false, Appname: 'None' };
-        }
-        AppsSupportingOpen = AppsSupportingOpen.map(f => f.get_name());
-        let canopenFile;
-        if (AppsSupportingOpen.includes(Appname))
-            canopenFile = true;
-        else
-            canopenFile = false;
-        return { canopenFile, Appname };
-    }
-
-    _showAppCannotOpenError(Appname) {
-        let windowError = new ShowErrorPopup.ShowErrorPopup(
-            _('Could not open File'),
-            _('${appName} can not open files of this Type!').replace('${appName}', Appname),
-            true,
-            this.textEntryAccelsTurnOff.bind(this),
-            this.textEntryAccelsTurnOn.bind(this),
-            this.DesktopIconsUtil
-        );
-        windowError.timeoutClose(3000);
-        return false;
     }
 
     _localDrag() {

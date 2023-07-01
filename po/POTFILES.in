@@ -10,6 +10,7 @@ app/ding.js
 app/enums.js
 app/fileItem.js
 app/fileItemMenu.js
+app/gnomeShellDragDrop.js
 app/preferences.js
 app/showErrorPopup.js
 app/stackItem.js

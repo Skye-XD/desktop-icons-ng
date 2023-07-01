@@ -322,10 +322,11 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _showerrorpopup(title, error) {
+        let modal = true;
         new this._desktopManager.showErrorPopup.ShowErrorPopup(
             title,
             error,
-            true,
+            modal,
             this._textEntryAccelsTurnOff.bind(this),
             this._textEntryAccelsTurnOn.bind(this),
             this.DesktopIconsUtil
@@ -333,10 +334,15 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
     }
 
     _launchDesktopFile(context, fileList) {
-        let object = this._desktopManager(this._desktopFile, fileList[0], null);
+        let object = this.DesktopIconsUtil.checkAppOpensFileType(this._desktopFile, fileList[0], null);
         if (this.trustedDesktopFile && (!fileList.length || object.canopenFile)) {
             this._desktopFile.launch_uris_as_manager(fileList, context, GLib.SpawnFlags.SEARCH_PATH, null, null);
             return;
+        } else if (this.trustedDesktopFile && !object.canopenFile) {
+            let Appname = object.Appname;
+            let title = _('Could not open File');
+            let error = _('${appName} can not open files of this Type!').replace('${appName}', Appname);
+            this._showerrorpopup(title, error);
         }
 
         if (!this._isValidDesktopFile) {

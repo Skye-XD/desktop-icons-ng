@@ -469,4 +469,27 @@ var DesktopIconsUtil = class {
 
         return false;
     }
+
+    checkAppOpensFileType(gioDesktopAppInfo, fileUri = null, attributeContentType = null) {
+        let Appname = gioDesktopAppInfo.get_name();
+        let gioFileInfo;
+        let AppsSupportingOpen = [];
+        if (fileUri) {
+            gioFileInfo = Gio.File.new_for_uri(fileUri).query_info(this.Enums.DEFAULT_ATTRIBUTES,
+                Gio.FileQueryInfoFlags.NONE,
+                null);
+            AppsSupportingOpen = Gio.AppInfo.get_all_for_type(gioFileInfo.get_content_type());
+        } else if (attributeContentType) {
+            AppsSupportingOpen = Gio.AppInfo.get_all_for_type(attributeContentType);
+        } else {
+            return { canopenFile: false, Appname: 'None' };
+        }
+        AppsSupportingOpen = AppsSupportingOpen.map(f => f.get_name());
+        let canopenFile;
+        if (AppsSupportingOpen.includes(Appname))
+            canopenFile = true;
+        else
+            canopenFile = false;
+        return { canopenFile, Appname };
+    }
 };
