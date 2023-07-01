@@ -31,7 +31,7 @@ const TemplatesScriptsManager = imports.app.templatesScriptsManager;
 const FileItemMenu = imports.app.fileItemMenu;
 const AutoAr = imports.app.autoAr;
 const AppChooser = imports.app.appChooser;
-const GnomeShellDrop = imports.app.gnomeShellDrop;
+const GnomeShellDragDrop = imports.app.gnomeShellDragDrop;
 
 var Thumbnails = null;
 try {
@@ -635,7 +635,7 @@ var DesktopManager = class {
     onDragBegin(item) {
         this.saveCurrentFileCoordinatesForUndo();
         this.dragItem = item;
-        this._stopGnomeShellDrop();
+        this._stopGnomeShellDrag();
     }
 
     onDragMotion(X, Y) {
@@ -661,7 +661,7 @@ var DesktopManager = class {
         }
         for (let desktop of this._desktops)
             desktop.refreshDrag(this._dragList, X, Y);
-        this._stopGnomeShellDrop();
+        this._stopGnomeShellDrag();
     }
 
     onDragLeave() {
@@ -669,22 +669,22 @@ var DesktopManager = class {
         for (let desktop of this._desktops)
             desktop.refreshDrag(null, 0, 0);
         // Synthesise, extrapolate drag motion on a shell actor
-        this._startGnomeShellDrop();
+        this._startGnomeShellDrag();
     }
 
     onDragEnd() {
         this.dragItem = null;
-        this._stopGnomeShellDrop();
+        this._stopGnomeShellDrag();
     }
 
-    _startGnomeShellDrop() {
-        if (!this._localDrag() && this.dragItem && !this.gnomeShellDrop)
-            this.gnomeShellDrop = new GnomeShellDrop.GnomeShellDrop(this);
+    _startGnomeShellDrag() {
+        if (!this._localDrag() && this.dragItem && !this.gnomeShellDrag)
+            this.gnomeShellDrag = new GnomeShellDragDrop.GnomeShellDrag(this);
     }
 
-    _stopGnomeShellDrop() {
-        this.gnomeShellDrop?.destroy();
-        this.gnomeShellDrop = null;
+    _stopGnomeShellDrag() {
+        this.gnomeShellDrag?.destroy();
+        this.gnomeShellDrag = null;
     }
 
     makeFileListFromSelection(dropData, acceptFormat) {

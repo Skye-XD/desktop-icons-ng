@@ -687,8 +687,11 @@ var DesktopGrid = class {
         });
         widgetDragController.connect('drag-cancel', async (actor, drag, reason) => {
             if (reason === Gdk.DragCancelReason.NO_TARGET || reason === Gdk.DragCancelReason.ERROR) {
-                let gnomedropDetected = await this._desktopManager.gnomeShellDrop?.completeGnomeShellDrop().catch(e => logError(e));
-                return gnomedropDetected;
+                let gnomedropDetected = await this._desktopManager.gnomeShellDrag?.completeGnomeShellDrop().catch(e => logError(e));
+                if (gnomedropDetected)
+                    return true;
+                else
+                    return false;
             } else {
                 return false;
             }
