@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-19 05:38-0400\n"
+"POT-Creation-Date: 2023-06-30 18:11-0700\n"
 "PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -259,7 +259,7 @@ msgstr "Nama folder"
 msgid "File name"
 msgstr "Nama file"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1437
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1241
 msgid "OK"
 msgstr "OK"
 
@@ -292,8 +292,8 @@ msgstr "Mengekstrak file"
 msgid "Compressing files"
 msgstr "Mengompresi file"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:998
-#: app/desktopManager.js:1439 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:802
+#: app/desktopManager.js:1243 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "Batal"
 
@@ -422,193 +422,183 @@ msgstr "Arsip lebih kecil tetapi hanya untuk Linux dan Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Arsip lebih kecil tetapi harus diinstal di Windows dan Mac."
 
-#: app/desktopManager.js:133
+#: app/desktopManager.js:134
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "Berkas GNOME tidak ditemukan"
 
-#: app/desktopManager.js:134
+#: app/desktopManager.js:135
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Aplikasi File GNOME diperlukan oleh Desktop Icons NG."
 
-#: app/desktopManager.js:898
-#, fuzzy
-msgid "Could not open File"
-msgstr "Tidak dapat membuka File"
-
-#: app/desktopManager.js:899
-#, fuzzy
-msgid "${appName} can not open files of this Type!"
-msgstr "${appName} tidak dapat membuka file jenis ini!"
-
-#: app/desktopManager.js:995
+#: app/desktopManager.js:799
 #, fuzzy
 msgid "Move"
 msgstr "Bergerak"
 
-#: app/desktopManager.js:996 app/fileItemMenu.js:361
+#: app/desktopManager.js:800 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "Salin"
 
-#: app/desktopManager.js:997
+#: app/desktopManager.js:801
 #, fuzzy
 msgid "Link"
 msgstr "Tautan"
 
-#: app/desktopManager.js:1000
+#: app/desktopManager.js:804
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Pilih Tindakan untuk File"
 
-#: app/desktopManager.js:1070 app/desktopManager.js:1102
+#: app/desktopManager.js:874 app/desktopManager.js:906
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Membuat SymLink Gagal"
 
-#: app/desktopManager.js:1071 app/desktopManager.js:1103
+#: app/desktopManager.js:875 app/desktopManager.js:907
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Tidak dapat membuat tautan simbolik"
 
-#: app/desktopManager.js:1395
+#: app/desktopManager.js:1199
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Hapus pilihan saat ini sebelum pencarian baru"
 
-#: app/desktopManager.js:1441
+#: app/desktopManager.js:1245
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Temukan File di Desktop"
 
-#: app/desktopManager.js:1696
+#: app/desktopManager.js:1500
 #, fuzzy
 msgid "Name"
 msgstr "Nama"
 
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1501
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nama Z-A"
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1502
 #, fuzzy
 msgid "Modified Time"
 msgstr "Waktu yang Dimodifikasi"
 
-#: app/desktopManager.js:1699
+#: app/desktopManager.js:1503
 #, fuzzy
 msgid "Type"
 msgstr "Jenis"
 
-#: app/desktopManager.js:1700
+#: app/desktopManager.js:1504
 #, fuzzy
 msgid "Size"
 msgstr "Ukuran"
 
-#: app/desktopManager.js:1703
+#: app/desktopManager.js:1507
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Tetap Teratur…"
 
-#: app/desktopManager.js:1707
+#: app/desktopManager.js:1511
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Tetap Tumpuk berdasarkan Jenis…"
 
-#: app/desktopManager.js:1708
+#: app/desktopManager.js:1512
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortir Rumah/Drive/Sampah…"
 
-#: app/desktopManager.js:1713 app/desktopManager.js:2730
+#: app/desktopManager.js:1517 app/desktopManager.js:2534
 msgid "New Folder"
 msgstr "Folder Baru"
 
-#: app/desktopManager.js:1717
+#: app/desktopManager.js:1521
 msgid "New Document"
 msgstr "Dokumen Baru"
 
-#: app/desktopManager.js:1721
+#: app/desktopManager.js:1525
 msgid "Paste"
 msgstr "Tempel"
 
-#: app/desktopManager.js:1722
+#: app/desktopManager.js:1526
 msgid "Undo"
 msgstr "Tak Jadi"
 
-#: app/desktopManager.js:1723
+#: app/desktopManager.js:1527
 msgid "Redo"
 msgstr "Jadi Lagi"
 
-#: app/desktopManager.js:1728
+#: app/desktopManager.js:1532
 #, fuzzy
 msgid "Select All"
 msgstr "Pilih Semua"
 
-#: app/desktopManager.js:1733
+#: app/desktopManager.js:1537
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Susun Ikon"
 
-#: app/desktopManager.js:1737
+#: app/desktopManager.js:1541
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Diatur oleh…"
 
-#: app/desktopManager.js:1742
+#: app/desktopManager.js:1546
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "Tampilkan Desktop Di File GNOME"
 
-#: app/desktopManager.js:1743
+#: app/desktopManager.js:1547
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "Buka Di Terminal"
 
-#: app/desktopManager.js:1748
+#: app/desktopManager.js:1552
 msgid "Change Background…"
 msgstr "Ubah Latar Belakang…"
 
-#: app/desktopManager.js:1753
+#: app/desktopManager.js:1557
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Pengaturan Ikon Desktop"
 
-#: app/desktopManager.js:1754
+#: app/desktopManager.js:1558
 msgid "Display Settings"
 msgstr "Pengaturan Tampilan"
 
-#: app/desktopManager.js:1797
+#: app/desktopManager.js:1601
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Jendela Preferensi Terbuka"
 
-#: app/desktopManager.js:1797
+#: app/desktopManager.js:1601
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Jendela ini terbuka. Silakan beralih ke jendela aktif."
 
-#: app/desktopManager.js:1809
+#: app/desktopManager.js:1613
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: app/desktopManager.js:2753
+#: app/desktopManager.js:2557
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Pembuatan Folder Gagal"
 
-#: app/desktopManager.js:2754
+#: app/desktopManager.js:2558
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Tidak dapat membuat folder"
 
-#: app/desktopManager.js:2797
+#: app/desktopManager.js:2601
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Kesalahan Pembuatan Templat"
 
-#: app/desktopManager.js:2798
+#: app/desktopManager.js:2602
 #, fuzzy
 msgid "Could not create document"
 msgstr "Tidak dapat membuat dokumen"
@@ -638,12 +628,22 @@ msgstr "Membuka File Gagal"
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "Tidak ada aplikasi yang diinstal untuk membuka jenis file \"{foo}\"."
 
-#: app/fileItem.js:343
+#: app/fileItem.js:343 app/gnomeShellDragDrop.js:224
+#, fuzzy
+msgid "Could not open File"
+msgstr "Tidak dapat membuka File"
+
+#: app/fileItem.js:344 app/gnomeShellDragDrop.js:225
+#, fuzzy
+msgid "${appName} can not open files of this Type!"
+msgstr "${appName} tidak dapat membuka file jenis ini!"
+
+#: app/fileItem.js:349
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "Berkas Desktop Rusak"
 
-#: app/fileItem.js:344
+#: app/fileItem.js:350
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -651,12 +651,12 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:350
+#: app/fileItem.js:356
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Izin Tidak Valid pada File Desktop"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:357
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -665,7 +665,7 @@ msgstr ""
 "File .desktop ini memiliki Izin yang salah. Klik kanan untuk mengedit "
 "Properties, lalu:\n"
 
-#: app/fileItem.js:353
+#: app/fileItem.js:359
 #, fuzzy
 msgid ""
 "\n"
@@ -675,7 +675,7 @@ msgstr ""
 "<b>Tetapkan Izin, di \"Akses Lainnya\", \"Hanya Baca\", atau \"Tidak Ada\"</"
 "b>"
 
-#: app/fileItem.js:356
+#: app/fileItem.js:362
 #, fuzzy
 msgid ""
 "\n"
@@ -684,7 +684,7 @@ msgstr ""
 "\n"
 "<b>Aktifkan opsi, \"Izinkan File Pelaksana sebagai Program\"</b>"
 
-#: app/fileItem.js:364
+#: app/fileItem.js:370
 #, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
