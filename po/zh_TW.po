@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-19 05:38-0400\n"
+"POT-Creation-Date: 2023-06-30 18:11-0700\n"
 "PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -246,7 +246,7 @@ msgstr "資料夾名稱"
 msgid "File name"
 msgstr "檔案名稱"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1437
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1241
 msgid "OK"
 msgstr "確定"
 
@@ -276,8 +276,8 @@ msgstr "提取文件"
 msgid "Compressing files"
 msgstr "壓縮文件"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:998
-#: app/desktopManager.js:1439 app/fileItemMenu.js:606
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:802
+#: app/desktopManager.js:1243 app/fileItemMenu.js:606
 msgid "Cancel"
 msgstr "取消"
 
@@ -406,193 +406,183 @@ msgstr "較小的檔案，但僅限 Linux 和 Mac。"
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "較小的存檔，但必須安裝在 Windows 和 Mac 上。"
 
-#: app/desktopManager.js:133
+#: app/desktopManager.js:134
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "找不到 GNOME 文件"
 
-#: app/desktopManager.js:134
+#: app/desktopManager.js:135
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Desktop Icons NG 需要 GNOME Files 應用程序。"
 
-#: app/desktopManager.js:898
-#, fuzzy
-msgid "Could not open File"
-msgstr "無法打開文件"
-
-#: app/desktopManager.js:899
-#, fuzzy
-msgid "${appName} can not open files of this Type!"
-msgstr "${appName} 無法打開此類型的文件！"
-
-#: app/desktopManager.js:995
+#: app/desktopManager.js:799
 #, fuzzy
 msgid "Move"
 msgstr "移動"
 
-#: app/desktopManager.js:996 app/fileItemMenu.js:361
+#: app/desktopManager.js:800 app/fileItemMenu.js:361
 msgid "Copy"
 msgstr "複製"
 
-#: app/desktopManager.js:997
+#: app/desktopManager.js:801
 #, fuzzy
 msgid "Link"
 msgstr "關聯"
 
-#: app/desktopManager.js:1000
+#: app/desktopManager.js:804
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "為文件選擇操作"
 
-#: app/desktopManager.js:1070 app/desktopManager.js:1102
+#: app/desktopManager.js:874 app/desktopManager.js:906
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "使 SymLink 失敗"
 
-#: app/desktopManager.js:1071 app/desktopManager.js:1103
+#: app/desktopManager.js:875 app/desktopManager.js:907
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "無法創建符號鏈接"
 
-#: app/desktopManager.js:1395
+#: app/desktopManager.js:1199
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "在新搜索之前清除當前選擇"
 
-#: app/desktopManager.js:1441
+#: app/desktopManager.js:1245
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "在桌面上查找文件"
 
-#: app/desktopManager.js:1696
+#: app/desktopManager.js:1500
 #, fuzzy
 msgid "Name"
 msgstr "姓名"
 
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1501
 #, fuzzy
 msgid "Name Z-A"
 msgstr "名稱 Z-A"
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1502
 #, fuzzy
 msgid "Modified Time"
 msgstr "修改時間"
 
-#: app/desktopManager.js:1699
+#: app/desktopManager.js:1503
 #, fuzzy
 msgid "Type"
 msgstr "類型"
 
-#: app/desktopManager.js:1700
+#: app/desktopManager.js:1504
 #, fuzzy
 msgid "Size"
 msgstr "尺寸"
 
-#: app/desktopManager.js:1703
+#: app/desktopManager.js:1507
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "保持安排…"
 
-#: app/desktopManager.js:1707
+#: app/desktopManager.js:1511
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "按類型堆疊……"
 
-#: app/desktopManager.js:1708
+#: app/desktopManager.js:1512
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "排序主頁/驅動器/垃圾…"
 
-#: app/desktopManager.js:1713 app/desktopManager.js:2730
+#: app/desktopManager.js:1517 app/desktopManager.js:2534
 msgid "New Folder"
 msgstr "新增資料夾"
 
-#: app/desktopManager.js:1717
+#: app/desktopManager.js:1521
 msgid "New Document"
 msgstr "新增文件"
 
-#: app/desktopManager.js:1721
+#: app/desktopManager.js:1525
 msgid "Paste"
 msgstr "貼上"
 
-#: app/desktopManager.js:1722
+#: app/desktopManager.js:1526
 msgid "Undo"
 msgstr "復原"
 
-#: app/desktopManager.js:1723
+#: app/desktopManager.js:1527
 msgid "Redo"
 msgstr "重做"
 
-#: app/desktopManager.js:1728
+#: app/desktopManager.js:1532
 #, fuzzy
 msgid "Select All"
 msgstr "全選"
 
-#: app/desktopManager.js:1733
+#: app/desktopManager.js:1537
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "排列圖標"
 
-#: app/desktopManager.js:1737
+#: app/desktopManager.js:1541
 #, fuzzy
 msgid "Arrange By…"
 msgstr "安排…"
 
-#: app/desktopManager.js:1742
+#: app/desktopManager.js:1546
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "在 GNOME 文件中顯示桌面"
 
-#: app/desktopManager.js:1743
+#: app/desktopManager.js:1547
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "在終端中打開"
 
-#: app/desktopManager.js:1748
+#: app/desktopManager.js:1552
 msgid "Change Background…"
 msgstr "變更背景圖片…"
 
-#: app/desktopManager.js:1753
+#: app/desktopManager.js:1557
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "桌面圖標設置"
 
-#: app/desktopManager.js:1754
+#: app/desktopManager.js:1558
 msgid "Display Settings"
 msgstr "顯示設定"
 
-#: app/desktopManager.js:1797
+#: app/desktopManager.js:1601
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "首選項窗口已打開"
 
-#: app/desktopManager.js:1797
+#: app/desktopManager.js:1601
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "這個窗口是打開的。請切換到活動窗口。"
 
-#: app/desktopManager.js:1809
+#: app/desktopManager.js:1613
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:2753
+#: app/desktopManager.js:2557
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "文件夾創建失敗"
 
-#: app/desktopManager.js:2754
+#: app/desktopManager.js:2558
 #, fuzzy
 msgid "Could not create folder"
 msgstr "無法創建文件夾"
 
-#: app/desktopManager.js:2797
+#: app/desktopManager.js:2601
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "模板創建錯誤"
 
-#: app/desktopManager.js:2798
+#: app/desktopManager.js:2602
 #, fuzzy
 msgid "Could not create document"
 msgstr "無法創建文檔"
@@ -622,12 +612,22 @@ msgstr "打開文件失敗"
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "沒有安裝打開“{foo}”類型文件的應用程序"
 
-#: app/fileItem.js:343
+#: app/fileItem.js:343 app/gnomeShellDragDrop.js:224
+#, fuzzy
+msgid "Could not open File"
+msgstr "無法打開文件"
+
+#: app/fileItem.js:344 app/gnomeShellDragDrop.js:225
+#, fuzzy
+msgid "${appName} can not open files of this Type!"
+msgstr "${appName} 無法打開此類型的文件！"
+
+#: app/fileItem.js:349
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "損壞的桌面文件"
 
-#: app/fileItem.js:344
+#: app/fileItem.js:350
 #, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
@@ -639,19 +639,19 @@ msgstr ""
 "\n"
 "<b>編輯文件以設置正確的可執行程序。</b>"
 
-#: app/fileItem.js:350
+#: app/fileItem.js:356
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "桌面文件的無效權限"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:357
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr "此 .desktop 文件的權限不正確。右擊編輯屬性，然後：\n"
 
-#: app/fileItem.js:353
+#: app/fileItem.js:359
 #, fuzzy
 msgid ""
 "\n"
@@ -660,7 +660,7 @@ msgstr ""
 "\n"
 "<b>設置權限，在“其他訪問”中，“只讀”或“無”</b>"
 
-#: app/fileItem.js:356
+#: app/fileItem.js:362
 #, fuzzy
 msgid ""
 "\n"
@@ -669,7 +669,7 @@ msgstr ""
 "\n"
 "<b>啟用選項，“允許將文件作為程序執行”</b>"
 
-#: app/fileItem.js:364
+#: app/fileItem.js:370
 #, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
