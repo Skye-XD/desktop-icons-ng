@@ -1,6 +1,6 @@
 /* Gnome Shell Override
  *
- * Copyright (C) 2021 Sundeep Mediratta (smedius@gmail.com)
+ * Copyright (C) 2021 - 2023 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2020 Sergio Costas (rastersoft@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,8 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 /* exported GnomeShellOverride */
-const { Meta, Clutter, GLib } = imports.gi;
+
+const { Meta, Clutter, GLib, Shell} = imports.gi;
 
 var WorkspaceAnimation = null;
 try {
@@ -25,15 +27,24 @@ try {
     log('Workspace Animation does not exist');
 }
 
+var WindowManager = null;
+try {
+    WindowManager = imports.ui.windowManager;
+} catch (err) {
+    log('WindowManager does not exist');
+}
+
+var Main = imports.ui.main;
+
 var replaceData = {};
 var workSpaceSwitchTimeoutID = null;
 
 /*
-     * This class overrides methods in the Gnome Shell. The new methods
-     * need to be defined below the class as seperate functions.
-     * The old methods that are overriden can be accesed by relpacedata.old_'name-of-replaced-method'
-     * in the new functions
-    */
+* This class overrides methods in the Gnome Shell. The new methods
+* need to be defined below the class as seperate functions.
+* The old methods that are overriden can be accesed by relpacedata.old_'name-of-replaced-method'
+* in the new functions
+*/
 
 
 var GnomeShellOverride = class {
@@ -42,10 +53,14 @@ var GnomeShellOverride = class {
     }
 
     enable() {
+        // Prevent window flicker as the DING window moves to the new workspace.
         if (WorkspaceAnimation) {
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', newShouldShowWindow);
             this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', newFinishWorkspaceSwitch);
         }
+        // Prevent the unlimited workspaces by not acccounting for the DING window to define empty workspace
+        if (WindowManager.WorkspaceTracker)
+            this.replaceMethod(WindowManager.WorkspaceTracker, '_checkWorkspaces', newCheckWorkspaces);
     }
 
     // restore external methods only if have been intercepted
@@ -77,7 +92,7 @@ var GnomeShellOverride = class {
      *                           two different classes
      */
 
-    replaceMethod(className, methodName, functionToCall, classId) {
+    replaceMethod(className, methodName, functionToCall, classId = null) {
         if (classId)
             replaceData[`old_${classId}_${methodName}`] = [className.prototype[methodName], className, methodName, classId];
         else
@@ -140,4 +155,85 @@ function newFinishWorkspaceSwitch(switchData) {
         workSpaceSwitchTimeoutID = null;
         return false;
     });
+}
+
+/**
+ * Method replacement for checkWorkspaces
+ * Makes sure that the DING window does not count in decision to make new Workspace
+ *
+ */
+function newCheckWorkspaces() {
+    let MIN_NUM_WORKSPACES = 2;
+    let workspaceManager = global.workspace_manager;
+    let i;
+    let emptyWorkspaces = [];
+
+    if (!Meta.prefs_get_dynamic_workspaces()) {
+        this._checkWorkspacesId = 0;
+        return false;
+    }
+
+    // Update workspaces only if Dynamic Workspace Management has not been paused by some other function
+    if (this._pauseWorkspaceCheck)
+        return true;
+
+    for (i = 0; i < this._workspaces.length; i++) {
+        let lastRemoved = this._workspaces[i]._lastRemovedWindow;
+        if ((lastRemoved &&
+             (lastRemoved.get_window_type() == Meta.WindowType.SPLASHSCREEN ||
+              lastRemoved.get_window_type() == Meta.WindowType.DIALOG ||
+              lastRemoved.get_window_type() == Meta.WindowType.MODAL_DIALOG)) ||
+            this._workspaces[i]._keepAliveId)
+            emptyWorkspaces[i] = false;
+        else
+            emptyWorkspaces[i] = true;
+    }
+
+    let sequences = Shell.WindowTracker.get_default().get_startup_sequences();
+    for (i = 0; i < sequences.length; i++) {
+        let index = sequences[i].get_workspace();
+        if (index >= 0 && index <= workspaceManager.n_workspaces)
+            emptyWorkspaces[index] = false;
+    }
+
+    let windows = global.get_window_actors();
+    for (i = 0; i < windows.length; i++) {
+        let actor = windows[i];
+        let win = actor.get_meta_window();
+        // Don't use the DING window to decide if workspace is empty
+        if (win.is_on_all_workspaces() || win.customJS_ding)
+            continue;
+
+        let workspaceIndex = win.get_workspace().index();
+        emptyWorkspaces[workspaceIndex] = false;
+    }
+
+    // If we don't have an empty workspace at the end, add one
+    if (!emptyWorkspaces[emptyWorkspaces.length - 1]) {
+        workspaceManager.append_new_workspace(false, global.get_current_time());
+        emptyWorkspaces.push(true);
+    }
+
+    // Enforce minimum number of workspaces
+    while (emptyWorkspaces.length < MIN_NUM_WORKSPACES) {
+        workspaceManager.append_new_workspace(false, global.get_current_time());
+        emptyWorkspaces.push(true);
+    }
+
+    let lastIndex = emptyWorkspaces.length - 1;
+    let lastEmptyIndex = emptyWorkspaces.lastIndexOf(false) + 1;
+    let activeWorkspaceIndex = workspaceManager.get_active_workspace_index();
+    emptyWorkspaces[activeWorkspaceIndex] = false;
+
+    // Delete empty workspaces except for the last one; do it from the end
+    // to avoid index changes
+    for (i = lastIndex; i >= 0; i--) {
+        if (workspaceManager.n_workspaces === MIN_NUM_WORKSPACES)
+            break;
+        if (emptyWorkspaces[i] && i != lastEmptyIndex)
+            workspaceManager.remove_workspace(this._workspaces[i], global.get_current_time());
+    }
+
+    this._checkWorkspacesId = 0;
+    return false;
 }
