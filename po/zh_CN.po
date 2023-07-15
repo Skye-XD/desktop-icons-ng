@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-30 18:11-0700\n"
-"PO-Revision-Date: 2023-06-18 02:07+0000\n"
+"PO-Revision-Date: 2023-07-02 02:31+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -602,7 +602,7 @@ msgstr "打开文件失败"
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr "没有安装打开“{foo}”类型文件的应用程序"
+msgstr "没有安装用于打开“{foo}”类型文件的应用程序"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:224
 #, fuzzy
@@ -684,7 +684,7 @@ msgstr "跑步"
 #: app/fileItemMenu.js:310
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "用 {foo} 打开"
+msgstr "使用 {foo} 打开"
 
 #: app/fileItemMenu.js:312
 msgid "Open"
@@ -823,7 +823,7 @@ msgstr "在终端中打开"
 #: app/fileItemMenu.js:524
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "提取取消"
+msgstr "提取已取消"
 
 #: app/fileItemMenu.js:525
 #, fuzzy
@@ -833,7 +833,7 @@ msgstr "无法提取文件，没有目标文件夹"
 #: app/fileItemMenu.js:557
 #, fuzzy
 msgid "Move Cancelled"
-msgstr "移动取消"
+msgstr "搬迁已取消"
 
 #: app/fileItemMenu.js:558
 #, fuzzy
@@ -852,7 +852,7 @@ msgstr "选择"
 #: app/fileItemMenu.js:644
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "复制取消"
+msgstr "复制已取消"
 
 #: app/fileItemMenu.js:645
 #, fuzzy
