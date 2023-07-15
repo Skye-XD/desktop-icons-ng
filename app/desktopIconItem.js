@@ -87,6 +87,8 @@ var desktopIconItem = class desktopIconItem {
 
         if (this._labelStateFlag)
             this._labelContainer.disconnect(this._labelStateFlag);
+
+        this._destroyToolTip();
     }
 
     onDestroy() {
@@ -135,6 +137,16 @@ var desktopIconItem = class desktopIconItem {
         this.iconRectangle = new Gdk.Rectangle();
         this.iconLocalWindowRectangle = new Gdk.Rectangle();
         this.labelRectangle = new Gdk.Rectangle();
+
+        this._iconContainerEventController = Gtk.EventControllerMotion.new();
+        this._iconContainerEventController.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
+        this._icon.add_controller(this._iconContainerEventController);
+        this._iconContainerEventController.connect('enter', () => {
+            this._showToolTip();
+        });
+        this._iconContainerEventController.connect('leave', () => {
+            this._destroyToolTip();
+        });
 
         this._iconStateFlag = this._iconContainer.connect('state-flags-changed', () => {
             if (this._checkHasHoveredPointer(this._iconContainer)) {
@@ -231,7 +243,6 @@ var desktopIconItem = class desktopIconItem {
     _setLabelName(text) {
         var nextChar;
         this._currentFileName = text;
-        this._iconContainer.set_tooltip_text(text);
         let lastCutPos = -1;
         let newText = '';
         for (let pos = 0; pos < text.length; pos++) {
@@ -323,7 +334,7 @@ var desktopIconItem = class desktopIconItem {
     _doButtonThreePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         if (!this._isSelected)
             this._desktopManager.selected(this, this.Enums.Selection.RIGHT_BUTTON);
-
+        this._destroyToolTip();
         this._desktopManager.fileItemMenu.showMenu(this, button, X, Y, x, y, shiftPressed, controlPressed);
     }
 
@@ -363,6 +374,24 @@ var desktopIconItem = class desktopIconItem {
                 window.set_cursor(Gdk.Cursor.new_from_name('default', null));
         }
         return false;
+    }
+
+    _showToolTip() {
+        if (this._toolTipTimer)
+            return;
+        this._toolTipTimer = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this.Enums.TOOLTIP_HOVER_TIMEOUT, () => {
+            this._desktopManager.fileItemMenu.showToolTip(this);
+            this._toolTipTimer = 0;
+            return GLib.SOURCE_REMOVE;
+        });
+    }
+
+    _destroyToolTip() {
+        if (this._toolTipTimer) {
+            GLib.Source.remove(this._toolTipTimer);
+            this._toolTipTimer = 0;
+        }
+        this._desktopManager.fileItemMenu.hideToolTip(this);
     }
 
     _hasToRouteDragToGrid() {
