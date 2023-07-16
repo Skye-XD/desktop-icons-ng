@@ -178,11 +178,17 @@ var AdwPreferencesWindow = class {
         const tweaksFrame = new Adw.PreferencesPage();
         tweaksFrame.set_name(_('Tweaks'));
         tweaksFrame.set_title(_('Tweaks'));
-        tweaksFrame.set_icon_name('prefs-more-symbolic');
+        tweaksFrame.set_icon_name('prefs-tweaks-symbolic');
+
+        const aboutFrame = new Adw.PreferencesPage();
+        aboutFrame.set_name(_('About'));
+        aboutFrame.set_title(_('About'));
+        aboutFrame.set_icon_name('prefs-more-symbolic');
 
         prefsWindow.add(prefsFrame);
         prefsWindow.add(filesPrefsFrame);
         prefsWindow.add(tweaksFrame);
+        prefsWindow.add(aboutFrame);
         prefsWindow.set_visible(prefsFrame);
 
         const desktopGroup = new Adw.PreferencesGroup();
@@ -204,6 +210,13 @@ var AdwPreferencesWindow = class {
         tweaksGroup.set_title(_('Tweaks'));
         tweaksGroup.set_description(_('Miscellaneous Tweaks'));
         tweaksFrame.add(tweaksGroup);
+
+        const aboutGroup = new Adw.PreferencesGroup();
+        aboutGroup.set_title('Gtk4 Desktop Icons NG');
+        const version = 44;
+        let versiontitle = _(`Version ${version}`);
+        aboutGroup.set_description(versiontitle);
+        aboutFrame.add(aboutGroup);
 
         desktopGroup.add(this.addActionRowSelector(this.desktopSettings,
             'icon-size',
@@ -257,6 +270,10 @@ var AdwPreferencesWindow = class {
         filesGroup.add(this.addActionRowSwitch(this.gtkSettings, 'show-hidden', _('Show hidden files')));
         filesGroup.add(this.addActionRowSwitch(this.nautilusSettings, 'open-folder-on-dnd-hover', _('Open folders on drag hover')));
 
+        aboutGroup.add(this.addActionRowButton(_('Website'), 'https://gitlab.com/smedius/desktop-icons-ng', _('Visit'), this.launchWebsite.bind(this)));
+        aboutGroup.add(this.addActionRowButton(_('Issues'), null, _('Report'), this.launchIssueTracker.bind(this)));
+        aboutGroup.add(this.addActionRowButton(_('License'), 'GNU GPLv3', 'GNU GPLv3', this.luanchLicense.bind(this)));
+
         if (!window)
             return prefsWindow;
     }
@@ -285,6 +302,49 @@ var AdwPreferencesWindow = class {
         settings.bind(key, actionRow, 'indexkey', Gio.SettingsBindFlags.DEFAULT);
 
         return actionRow;
+    }
+
+    addActionRowButton(title, subtitle, buttonLabel, action) {
+        const actionRow = Adw.ActionRow.new();
+        actionRow.set_title(title);
+        if (subtitle) {
+            actionRow.set_subtitle(subtitle);
+            actionRow.set_subtitle_selectable(true);
+        }
+        if (buttonLabel && action) {
+            const button = Gtk.Button.new_with_label(buttonLabel);
+            button.set_size_request(120, -1);
+            button.set_halign(Gtk.Align.END);
+            button.set_valign(Gtk.Align.CENTER);
+            button.set_hexpand(true);
+            button.set_vexpand(false);
+            button.connect('clicked', action.bind(this));
+            actionRow.add_suffix(button);
+            actionRow.set_activatable_widget(button);
+        }
+
+        return actionRow;
+    }
+
+    launchUri(uri) {
+        const context = Gdk.Display.get_default().get_app_launch_context();
+        context.set_timestamp(Gdk.CURRENT_TIME);
+        Gio.AppInfo.launch_default_for_uri(uri, context);
+    }
+
+    launchIssueTracker() {
+        const issueUri = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues';
+        this.launchUri(issueUri);
+    }
+
+    launchWebsite() {
+        const webSiteUri = 'https://gitlab.com/smedius/desktop-icons-ng';
+        this.launchUri(webSiteUri);
+    }
+
+    luanchLicense() {
+        const licenseUri ='https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/COPYING';
+        this.launchUri(licenseUri);
     }
 };
 
