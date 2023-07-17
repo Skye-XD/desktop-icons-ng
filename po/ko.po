@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-30 18:11-0700\n"
+"POT-Creation-Date: 2023-07-17 00:43-0400\n"
 "PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -31,180 +31,204 @@ msgid "Files"
 msgstr "파일"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
-#: app/adwPreferencesWindow.js:204
+#: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
 msgstr "비틀기"
 
-#: app/adwPreferencesWindow.js:189
+#: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+msgid "About"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "데스크탑 설정"
 
-#: app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "데스크톱 프로그램 설정"
 
-#: app/adwPreferencesWindow.js:194
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
 msgstr "볼륨"
 
-#: app/adwPreferencesWindow.js:195
+#: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
 msgstr "데스크톱 볼륨 표시"
 
-#: app/adwPreferencesWindow.js:199
+#: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
 msgstr "파일 설정"
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "그놈 파일과 공유되는 설정"
 
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "기타 조정"
 
-#: app/adwPreferencesWindow.js:210
+#: app/adwPreferencesWindow.js:223
 msgid "Size for the desktop icons"
 msgstr "바탕화면 아이콘 크기"
 
-#: app/adwPreferencesWindow.js:212
+#: app/adwPreferencesWindow.js:225
 msgid "Tiny"
 msgstr "매우 작은 아이콘"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:226
 msgid "Small"
 msgstr "작은 아이콘"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:227
 msgid "Standard"
 msgstr "중간 아이콘"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:228
 msgid "Large"
 msgstr "큰 아이콘"
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:233
 msgid "New icons alignment"
 msgstr "새 아이콘 정렬 방식"
 
-#: app/adwPreferencesWindow.js:222
+#: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top left corner"
 msgstr "왼쪽 위 모서리"
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Top right corner"
 msgstr "오른쪽 위 모서리"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "왼쪽 하단 모서리"
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:238
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "오른쪽 하단 모서리"
 
-#: app/adwPreferencesWindow.js:228
+#: app/adwPreferencesWindow.js:241
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "가능한 경우 먼저 보조 모니터에 새 아이콘을 추가하십시오."
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "바탕 화면에 개인 폴더 표시"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "바탕 화면에 휴지통 아이콘 표시"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "데스크탑에 외부 드라이브 표시"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "데스크탑에 네트워크 드라이브 표시"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:247
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "바탕 화면의 반대쪽에 새 드라이브를 추가합니다."
 
-#: app/adwPreferencesWindow.js:236
+#: app/adwPreferencesWindow.js:249
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "드래그 앤 드롭 중에 드롭 그리드 강조 표시"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:250
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "폴더를 여는 Nemo 사용"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:251
 msgid "Add an emblem to soft links"
 msgstr "소프트 링크에 엠블럼 추가"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:252
 msgid "Use dark text in icon labels"
 msgstr "아이콘 레이블에 어두운 텍스트 사용"
 
-#: app/adwPreferencesWindow.js:243
+#: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "항목 열기 작업"
 
-#: app/adwPreferencesWindow.js:245
+#: app/adwPreferencesWindow.js:258
 msgid "Single click"
 msgstr "한 번 클릭"
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:259
 msgid "Double click"
 msgstr "두 번 클릭"
 
-#: app/adwPreferencesWindow.js:250
+#: app/adwPreferencesWindow.js:263
 msgid "Show image thumbnails"
 msgstr "이미지 마중그림 표시"
 
-#: app/adwPreferencesWindow.js:252
+#: app/adwPreferencesWindow.js:265
 msgid "Always"
 msgstr "항상"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "On this computer only"
 msgstr "이 컴퓨터에서만"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:267
 msgid "Never"
 msgstr "보지 않음"
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:269
 msgid "Show a context menu item to delete permanently"
 msgstr "영구적으로 삭제할 컨텍스트 메뉴 항목 표시"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:270
 msgid "Show hidden files"
 msgstr "숨김 파일 표시"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "드래그 호버에서 폴더 열기"
+
+#: app/adwPreferencesWindow.js:273
+msgid "Website"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:273
+msgid "Visit"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
+msgid "Issues"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
+msgid "Report"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:275
+msgid "License"
+msgstr ""
 
 #: app/appChooser.js:54
 #, fuzzy
@@ -278,7 +302,7 @@ msgid "Compressing files"
 msgstr "파일 압축"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:802
-#: app/desktopManager.js:1243 app/fileItemMenu.js:606
+#: app/desktopManager.js:1243 app/fileItemMenu.js:630
 msgid "Cancel"
 msgstr "취소"
 
@@ -827,50 +851,50 @@ msgstr "파일로 표시"
 msgid "Open in Terminal"
 msgstr "터미널로 열기"
 
-#: app/fileItemMenu.js:524
+#: app/fileItemMenu.js:548
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "추출 취소됨"
 
-#: app/fileItemMenu.js:525
+#: app/fileItemMenu.js:549
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "파일을 추출할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:557
+#: app/fileItemMenu.js:581
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "이동 취소됨"
 
-#: app/fileItemMenu.js:558
+#: app/fileItemMenu.js:582
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "파일을 이동할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:594 app/fileItemMenu.js:622
 #, fuzzy
 msgid "Select Destination"
 msgstr "목적지 선택"
 
-#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:596 app/fileItemMenu.js:624
 msgid "Select"
 msgstr "선택"
 
-#: app/fileItemMenu.js:644
+#: app/fileItemMenu.js:668
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "복사 취소됨"
 
-#: app/fileItemMenu.js:645
+#: app/fileItemMenu.js:669
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "파일을 복사할 수 없습니다. 대상 폴더가 없습니다."
 
-#: app/fileItemMenu.js:672
+#: app/fileItemMenu.js:696
 msgid "Can not email a Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
-#: app/fileItemMenu.js:673
+#: app/fileItemMenu.js:697
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "선택 파일 중 디렉터리가 포함되어 있어, 먼저 파일로 압축이 필요합니다."
 

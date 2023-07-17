@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-30 18:11-0700\n"
+"POT-Creation-Date: 2023-07-17 00:43-0400\n"
 "PO-Revision-Date: 2023-06-17 20:45+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -31,159 +31,183 @@ msgid "Files"
 msgstr "Файлы"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
-#: app/adwPreferencesWindow.js:204
+#: app/adwPreferencesWindow.js:210
 msgid "Tweaks"
 msgstr "Твики"
 
-#: app/adwPreferencesWindow.js:189
+#: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+msgid "About"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:195
 msgid "Desktop Settings"
 msgstr "Настройки рабочего стола"
 
-#: app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:196
 msgid "Settings for the Desktop Program"
 msgstr "Настройки настольной программы"
 
-#: app/adwPreferencesWindow.js:194
+#: app/adwPreferencesWindow.js:200
 msgid "Volumes"
 msgstr "Тома"
 
-#: app/adwPreferencesWindow.js:195
+#: app/adwPreferencesWindow.js:201
 msgid "Desktop volumes display"
 msgstr "Отображение томов на рабочем столе"
 
-#: app/adwPreferencesWindow.js:199
+#: app/adwPreferencesWindow.js:205
 msgid "Files Settings"
 msgstr "Настройки менеджера файлов"
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:206
 msgid "Settings shared with Gnome Files"
 msgstr "Настройки, общие с файловым менеджером Gnome"
 
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:211
 msgid "Miscellaneous Tweaks"
 msgstr "Разные настройки"
 
-#: app/adwPreferencesWindow.js:210
+#: app/adwPreferencesWindow.js:223
 msgid "Size for the desktop icons"
 msgstr "Размер значков на рабочем столе"
 
-#: app/adwPreferencesWindow.js:212
+#: app/adwPreferencesWindow.js:225
 msgid "Tiny"
 msgstr "Крошечный"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:226
 msgid "Small"
 msgstr "Маленький"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:227
 msgid "Standard"
 msgstr "Стандартный"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:228
 msgid "Large"
 msgstr "Большой"
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:233
 msgid "New icons alignment"
 msgstr "Выравнивание для новых значков"
 
-#: app/adwPreferencesWindow.js:222
+#: app/adwPreferencesWindow.js:235
 msgid "Top left corner"
 msgstr "Верхний левый угол"
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:236
 msgid "Top right corner"
 msgstr "Верхний правый угол"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:237
 msgid "Bottom left corner"
 msgstr "Нижний левый угол"
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:238
 msgid "Bottom right corner"
 msgstr "Нижний правый угол"
 
-#: app/adwPreferencesWindow.js:228
+#: app/adwPreferencesWindow.js:241
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Сначала добавлять новые значки на вторичные мониторы, если они доступны"
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:243
 msgid "Show the personal folder on the desktop"
 msgstr "Показывать личную папку на рабочем столе"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:244
 msgid "Show the trash icon on the desktop"
 msgstr "Показывать значок корзины на рабочем столе"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:245
 msgid "Show external drives on the desktop"
 msgstr "Показывать внешние диски на рабочем столе"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:246
 msgid "Show network drives on the desktop"
 msgstr "Показывать сетевые диски на рабочем столе"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:247
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Добавлять новые диски на противоположную сторону рабочего стола"
 
-#: app/adwPreferencesWindow.js:236
+#: app/adwPreferencesWindow.js:249
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Выделять сетку перетаскивания во время перетаскивания"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:250
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Использовать Nemo для открытия папок"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:251
 msgid "Add an emblem to soft links"
 msgstr "Добавить эмблему к символическим ссылкам"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:252
 msgid "Use dark text in icon labels"
 msgstr "Использовать тёмный текст в подписях к значкам"
 
-#: app/adwPreferencesWindow.js:243
+#: app/adwPreferencesWindow.js:256
 msgid "Action to Open Items"
 msgstr "Действие для открытия элементов"
 
-#: app/adwPreferencesWindow.js:245
+#: app/adwPreferencesWindow.js:258
 msgid "Single click"
 msgstr "Одинарный щелчок"
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:259
 msgid "Double click"
 msgstr "Двойной щелчок"
 
-#: app/adwPreferencesWindow.js:250
+#: app/adwPreferencesWindow.js:263
 msgid "Show image thumbnails"
 msgstr "Показывать миниатюры изображений"
 
-#: app/adwPreferencesWindow.js:252
+#: app/adwPreferencesWindow.js:265
 msgid "Always"
 msgstr "Всегда"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:266
 msgid "On this computer only"
 msgstr "Только на этом компьютере"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:267
 msgid "Never"
 msgstr "Никогда"
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:269
 msgid "Show a context menu item to delete permanently"
 msgstr "Добавить пункт в контекстное меню «Удалить безвозвратно»"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:270
 msgid "Show hidden files"
 msgstr "Показывать скрытые файлы"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:271
 msgid "Open folders on drag hover"
 msgstr "Открывать папки при наведении курсора"
+
+#: app/adwPreferencesWindow.js:273
+msgid "Website"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:273
+msgid "Visit"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
+msgid "Issues"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
+msgid "Report"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:275
+msgid "License"
+msgstr ""
 
 #: app/appChooser.js:54
 msgid "Choose an application to open <b>{foo}</b>"
@@ -248,7 +272,7 @@ msgid "Compressing files"
 msgstr "Сжатие файлов"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:802
-#: app/desktopManager.js:1243 app/fileItemMenu.js:606
+#: app/desktopManager.js:1243 app/fileItemMenu.js:630
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -742,43 +766,43 @@ msgstr "Показать в файловом менеджере"
 msgid "Open in Terminal"
 msgstr "Открыть в терминале"
 
-#: app/fileItemMenu.js:524
+#: app/fileItemMenu.js:548
 msgid "Extraction Cancelled"
 msgstr "Извлечение отменено"
 
-#: app/fileItemMenu.js:525
+#: app/fileItemMenu.js:549
 msgid "Unable to extract File, no destination folder"
 msgstr "Не удалось извлечь файл, нет папки назначения"
 
-#: app/fileItemMenu.js:557
+#: app/fileItemMenu.js:581
 msgid "Move Cancelled"
 msgstr "Перемещение отменено"
 
-#: app/fileItemMenu.js:558
+#: app/fileItemMenu.js:582
 msgid "Unable to move Files, no destination folder"
 msgstr "Не удалось переместить файлы, нет папки назначения"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:594 app/fileItemMenu.js:622
 msgid "Select Destination"
 msgstr "Выберите место назначения"
 
-#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:596 app/fileItemMenu.js:624
 msgid "Select"
 msgstr "Выделить"
 
-#: app/fileItemMenu.js:644
+#: app/fileItemMenu.js:668
 msgid "Copy Cancelled"
 msgstr "Копирование отменено"
 
-#: app/fileItemMenu.js:645
+#: app/fileItemMenu.js:669
 msgid "Unable to copy Files, no destination folder"
 msgstr "Не удалось скопировать файлы, нет папки назначения"
 
-#: app/fileItemMenu.js:672
+#: app/fileItemMenu.js:696
 msgid "Can not email a Directory"
 msgstr "Невозможно отправить каталог по электронной почте"
 
-#: app/fileItemMenu.js:673
+#: app/fileItemMenu.js:697
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Выбран каталог, сначала сожмите его в файл."
 

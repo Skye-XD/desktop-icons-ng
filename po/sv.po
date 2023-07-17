@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-30 18:11-0700\n"
+"POT-Creation-Date: 2023-07-17 00:43-0400\n"
 "PO-Revision-Date: 2023-06-18 02:07+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -32,199 +32,223 @@ msgid "Files"
 msgstr "Filer"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
-#: app/adwPreferencesWindow.js:204
+#: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
 msgstr "Tweaks"
 
-#: app/adwPreferencesWindow.js:189
+#: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+msgid "About"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Skrivbordsinställningar"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Inställningar för skrivbordsprogrammet"
 
-#: app/adwPreferencesWindow.js:194
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
 msgstr "Volymer"
 
-#: app/adwPreferencesWindow.js:195
+#: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
 msgstr "Skrivbordsvolymer visas"
 
-#: app/adwPreferencesWindow.js:199
+#: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
 msgstr "Filinställningar"
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Inställningar som delas med Gnome Files"
 
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Diverse tweaks"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:210
+#: app/adwPreferencesWindow.js:223
 #, fuzzy
 msgid "Size for the desktop icons"
 msgstr "Storlek för skrivbordsikonerna"
 
-#: app/adwPreferencesWindow.js:212
+#: app/adwPreferencesWindow.js:225
 #, fuzzy
 msgid "Tiny"
 msgstr "Mycket liten"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:226
 #, fuzzy
 msgid "Small"
 msgstr "Små"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:227
 #, fuzzy
 msgid "Standard"
 msgstr "Standard"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:228
 #, fuzzy
 msgid "Large"
 msgstr "Stor"
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:233
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Ny ikonjustering"
 
-#: app/adwPreferencesWindow.js:222
+#: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top left corner"
 msgstr "Övre vänstra hörnet"
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Top right corner"
 msgstr "Översta högra hörnet"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Nedre vänstra hörnet"
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:238
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Nedre högra hörnet"
 
-#: app/adwPreferencesWindow.js:228
+#: app/adwPreferencesWindow.js:241
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Lägg till nya ikoner till sekundära bildskärmar först, om tillgängliga"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Visa den personliga mappen på skrivbordet"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Visa papperskorgen på skrivbordet"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Visa externa enheter på skrivbordet"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Visa nätverksenheter på skrivbordet"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:247
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Lägg till nya enheter på den motsatta sidan av skrivbordet"
 
-#: app/adwPreferencesWindow.js:236
+#: app/adwPreferencesWindow.js:249
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "Markera släpprutnätet under Dra och släpp"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:250
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Använd Nemo för att öppna kataloger"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:251
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "Lägg till ett emblem till mjuka länkar"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Använd mörk text i ikonetiketter"
 
-#: app/adwPreferencesWindow.js:243
+#: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Åtgärd för att öppna objekt"
 
-#: app/adwPreferencesWindow.js:245
+#: app/adwPreferencesWindow.js:258
 #, fuzzy
 msgid "Single click"
 msgstr "Ett enda klick"
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:259
 #, fuzzy
 msgid "Double click"
 msgstr "Dubbelklicka"
 
-#: app/adwPreferencesWindow.js:250
+#: app/adwPreferencesWindow.js:263
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Visa bildminiatyrer"
 
-#: app/adwPreferencesWindow.js:252
+#: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "Always"
 msgstr "Alltid"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "On this computer only"
 msgstr "Endast på den här datorn"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:267
 #, fuzzy
 msgid "Never"
 msgstr "Aldrig"
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:269
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Visa en snabbmeny som ska raderas permanent"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Visa gömda filer"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Öppna mappar när du drar muspekaren"
+
+#: app/adwPreferencesWindow.js:273
+msgid "Website"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:273
+msgid "Visit"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
+msgid "Issues"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
+msgid "Report"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:275
+msgid "License"
+msgstr ""
 
 #: app/appChooser.js:54
 #, fuzzy
@@ -297,7 +321,7 @@ msgid "Compressing files"
 msgstr "Komprimerar filer"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:802
-#: app/desktopManager.js:1243 app/fileItemMenu.js:606
+#: app/desktopManager.js:1243 app/fileItemMenu.js:630
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -848,50 +872,50 @@ msgstr "Visa i Filer"
 msgid "Open in Terminal"
 msgstr "Öppna i terminal"
 
-#: app/fileItemMenu.js:524
+#: app/fileItemMenu.js:548
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extraktion avbruten"
 
-#: app/fileItemMenu.js:525
+#: app/fileItemMenu.js:549
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Det går inte att extrahera filen, ingen målmapp"
 
-#: app/fileItemMenu.js:557
+#: app/fileItemMenu.js:581
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Flytten avbröts"
 
-#: app/fileItemMenu.js:558
+#: app/fileItemMenu.js:582
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Det går inte att flytta filer, ingen målmapp"
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:594 app/fileItemMenu.js:622
 #, fuzzy
 msgid "Select Destination"
 msgstr "Välj Destination"
 
-#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:596 app/fileItemMenu.js:624
 msgid "Select"
 msgstr "Välj"
 
-#: app/fileItemMenu.js:644
+#: app/fileItemMenu.js:668
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopiering avbruten"
 
-#: app/fileItemMenu.js:645
+#: app/fileItemMenu.js:669
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Det går inte att kopiera filer, ingen målmapp"
 
-#: app/fileItemMenu.js:672
+#: app/fileItemMenu.js:696
 msgid "Can not email a Directory"
 msgstr "Kan inte maila en katalog"
 
-#: app/fileItemMenu.js:673
+#: app/fileItemMenu.js:697
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "Valet innehåller en katalog,  komprimera katalogen till en fil först."
 
