@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-30 18:11-0700\n"
+"POT-Creation-Date: 2023-07-17 00:43-0400\n"
 "PO-Revision-Date: 2019-03-05 22:20+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
@@ -26,170 +26,194 @@ msgid "Files"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
-#: app/adwPreferencesWindow.js:204
+#: app/adwPreferencesWindow.js:210
 msgid "Tweaks"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:189
+#: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+msgid "About"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Impostazions visôr"
 
-#: app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:196
 #, fuzzy
 #| msgid "Set the size for the desktop icons."
 msgid "Settings for the Desktop Program"
 msgstr "Stabilìs la dimension pes iconis dal scritori."
 
-#: app/adwPreferencesWindow.js:194
+#: app/adwPreferencesWindow.js:200
 msgid "Volumes"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:195
+#: app/adwPreferencesWindow.js:201
 msgid "Desktop volumes display"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:199
+#: app/adwPreferencesWindow.js:205
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Files Settings"
 msgstr "Impostazions visôr"
 
-#: app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:206
 msgid "Settings shared with Gnome Files"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:205
+#: app/adwPreferencesWindow.js:211
 msgid "Miscellaneous Tweaks"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:210
+#: app/adwPreferencesWindow.js:223
 msgid "Size for the desktop icons"
 msgstr "Dimension pes iconis dal scritori"
 
-#: app/adwPreferencesWindow.js:212
+#: app/adwPreferencesWindow.js:225
 msgid "Tiny"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:226
 msgid "Small"
 msgstr "Piçule"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:227
 msgid "Standard"
 msgstr "Standard"
 
-#: app/adwPreferencesWindow.js:215
+#: app/adwPreferencesWindow.js:228
 msgid "Large"
 msgstr "Largje"
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:233
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Dimension icone"
 
-#: app/adwPreferencesWindow.js:222
+#: app/adwPreferencesWindow.js:235
 msgid "Top left corner"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:223
+#: app/adwPreferencesWindow.js:236
 msgid "Top right corner"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:237
 msgid "Bottom left corner"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:225
+#: app/adwPreferencesWindow.js:238
 msgid "Bottom right corner"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:228
+#: app/adwPreferencesWindow.js:241
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:243
 #, fuzzy
 #| msgid "Show the personal folder in the desktop"
 msgid "Show the personal folder on the desktop"
 msgstr "Mostre la cartele personâl intal scritori"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:244
 #, fuzzy
 #| msgid "Show the trash icon in the desktop"
 msgid "Show the trash icon on the desktop"
 msgstr "Mostre la icone de scovacere intal scritori"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Mostre la cartele personâl intal scritori"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Mostre la cartele personâl intal scritori."
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:247
 msgid "Add new drives to the opposite side of the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:236
+#: app/adwPreferencesWindow.js:249
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:250
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:251
 msgid "Add an emblem to soft links"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:252
 msgid "Use dark text in icon labels"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:243
+#: app/adwPreferencesWindow.js:256
 msgid "Action to Open Items"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:245
+#: app/adwPreferencesWindow.js:258
 msgid "Single click"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:259
 msgid "Double click"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:250
+#: app/adwPreferencesWindow.js:263
 msgid "Show image thumbnails"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:252
+#: app/adwPreferencesWindow.js:265
 msgid "Always"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:266
 msgid "On this computer only"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:267
 msgid "Never"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:269
 msgid "Show a context menu item to delete permanently"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Mostre in File"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:271
 msgid "Open folders on drag hover"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:273
+msgid "Website"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:273
+msgid "Visit"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
+msgid "Issues"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
+msgid "Report"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:275
+msgid "License"
 msgstr ""
 
 #: app/appChooser.js:54
@@ -260,7 +284,7 @@ msgid "Compressing files"
 msgstr ""
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:802
-#: app/desktopManager.js:1243 app/fileItemMenu.js:606
+#: app/desktopManager.js:1243 app/fileItemMenu.js:630
 msgid "Cancel"
 msgstr "Anule"
 
@@ -756,48 +780,48 @@ msgstr "Mostre in File"
 msgid "Open in Terminal"
 msgstr "Vierç in Terminâl"
 
-#: app/fileItemMenu.js:524
+#: app/fileItemMenu.js:548
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Tire fûr ca"
 
-#: app/fileItemMenu.js:525
+#: app/fileItemMenu.js:549
 msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:557
+#: app/fileItemMenu.js:581
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Anule"
 
-#: app/fileItemMenu.js:558
+#: app/fileItemMenu.js:582
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:570 app/fileItemMenu.js:598
+#: app/fileItemMenu.js:594 app/fileItemMenu.js:622
 msgid "Select Destination"
 msgstr ""
 
-#: app/fileItemMenu.js:572 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:596 app/fileItemMenu.js:624
 msgid "Select"
 msgstr "Selezione"
 
-#: app/fileItemMenu.js:644
+#: app/fileItemMenu.js:668
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Anule"
 
-#: app/fileItemMenu.js:645
+#: app/fileItemMenu.js:669
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:672
+#: app/fileItemMenu.js:696
 msgid "Can not email a Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:673
+#: app/fileItemMenu.js:697
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr ""
 
