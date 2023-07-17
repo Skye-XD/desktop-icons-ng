@@ -99,6 +99,10 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] New - Set the correct cursor with current action on Drop on Gnome Shell Actors like the Dock. Improve Gnome Shell Drop.
 
+- [X] New - tool tips are now positioned correctly to not go under the dash or make it autohide, or go over any gnome shell actors on the edge of the screen.
+
+- [X] New - About pane if preferences page that shows the correct version of the extension and weblimks to gitlab website.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -181,7 +185,11 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] Separate code for gnome shell drag and drop to a new class in gnomeShellDragDrop.js. Simplify DesktopManager.js.
 
+- [x] Fix - Gnome shell creates a empty workspace to the right as it detects the DING window. This can lead to Unlimited Workspaces. STILL DOES NOT WORK CORRECTL WITH AUTO-MOVE-WINDOWS EXTENSION UNLESS THAT EXTENSION IS LOADED AFTER Gtk4 DING. (Sundeep Mediratta)
+
 **KNOWN ISSUES**
+
+- [ ] UNLIMITED WORKSPACES TO THE RIGHT - auto-move-windows from gnome extensions patches the gnome shell workspace tracker that breaks Gtk4 DING gnome shell override to the same functions in the shell. This can still result in unlimited workspaces, and makes an empty workspace to the right of the current workspace if it only has the DING window. The only correct solution is to enable gtk4-DING first and then auto-move-windows, but this is not a viable long term solution. The best recommended action is to completely disable auto-move-windows extension. Highly recommend smart-auto-move-windows from EGO that works perfectly with Gtk4-DING, with even better functionality and more features thant the alod auto-move-windows, and appears to do so without patching/overriding the Gnome Shell.
 
 - [x] On X11, in latest Ubuntu and Fedora, Gtk.GestureClick.get_current_event_state() button click returns wrong state, crashing the Program. Works perfectly on Wayland on all distributions tried, worked on older version of Manjaro on X, but the newer releases of Manjaro and ArchLinux also have this bug. This appears to be doe to an error in GJS, reported upstream [here](https://gitlab.gnome.org/GNOME/gjs/-/issues/507). Reported upstream [here](https://discourse.gnome.org/t/gtk4-eventcontroller-gestureclick-returns-incorrect-state-gdk-modifiertype-on-mouse-button-press-in-x11/9710) in Gnome Discourse and [here](https://bugs.launchpad.net/ubuntu/+source/gjs/+bug/1975544) on Ubuntu Launchpad. I have deviced a workaround to make this work under X11 for now till the bug is fixed upstream. Please feel free to fix and propose MR's to make this work properly. This is the first time this code has run on X11 in the last 8 months while many features were added to the main branch! Therefore be advised, X11 branch may have bugs. Specefically Gtk.Double Click time may be a problem as I had to do some hardcoding to make double clicks work.
 This is now fixed 4/5/2023 with [!829 in GJS](https://gitlab.gnome.org/GNOME/gjs/-/merge_requests/829). Should be able to use regular code with no workarounds with the newer versions of GJS

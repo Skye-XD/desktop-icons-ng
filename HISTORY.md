@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 45
+  * New - tool tips are now positioned correctly to not go under the dash or make it autohide, or go over any gnome shell actors on the edge of the screen. (Sundeep Mediratta)
+  * New - About pane if preferences page that shows the correct version of the extension and weblimks to gitlab website. (Sundeep Mediratta)
+  * Fix - Gnome shell creates a empty workspace to the right as it detects the DING window. This can lead to Unlimited Workspaces. STILL DOES NOT WORK CORRECTL WITH AUTO-MOVE-WINDOWS EXTENSION. (Sundeep Mediratta)
+  * Weblate translation updates.
+  * Update metadata.json, History.md, Version Bump to 45
+
 * Gtk4 version 44 - June maintenance
   * Fix regression - error dialog not showing in fileItemMenu.js. (Sundeep Mediratta)
   * Separate app logic for drag and drop on Gnome Shell to new class in gnomeShellDragDrop.js. (Sundeep Mediratta)

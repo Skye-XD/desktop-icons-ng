@@ -213,7 +213,7 @@ var AdwPreferencesWindow = class {
 
         const aboutGroup = new Adw.PreferencesGroup();
         aboutGroup.set_title('Gtk4 Desktop Icons NG');
-        const version = 44;
+        const version = 45;
         let versiontitle = _(`Version ${version}`);
         aboutGroup.set_description(versiontitle);
         aboutFrame.add(aboutGroup);
