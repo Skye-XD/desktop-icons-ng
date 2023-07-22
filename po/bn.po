@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-02 02:31+0000\n"
+"PO-Revision-Date: 2023-07-17 10:55+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,8 +35,9 @@ msgid "Tweaks"
 msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "সম্পর্কিত"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -225,24 +226,29 @@ msgid "Open folders on drag hover"
 msgstr "ড্র্যাগ হোভারে ফোল্ডার খুলুন"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Website"
-msgstr ""
+msgstr "ওয়েবসাইট"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Visit"
-msgstr ""
+msgstr "ভিজিট করুন"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Issues"
-msgstr ""
+msgstr "ইস্যু"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "রিপোর্ট"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "License"
-msgstr ""
+msgstr "লাইসেন্স"
 
 #: app/appChooser.js:54
 #, fuzzy
@@ -733,6 +739,7 @@ msgstr ""
 "<b>\"লঞ্চ করার অনুমতি দিন\" সক্ষম করুন</b>"
 
 #: app/fileItemMenu.js:296
+#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -829,12 +836,14 @@ msgid "Create Link..."
 msgstr "লিঙ্ক তৈরি করুন..।"
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
 
 #: app/fileItemMenu.js:385
+#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""

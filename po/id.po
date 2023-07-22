@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-06-18 02:07+0000\n"
+"PO-Revision-Date: 2023-07-17 10:55+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -36,8 +36,9 @@ msgid "Tweaks"
 msgstr "Tweak"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "Tentang"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -222,24 +223,29 @@ msgid "Open folders on drag hover"
 msgstr "Buka folder saat drag hover"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Website"
-msgstr ""
+msgstr "Situs web"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Visit"
-msgstr ""
+msgstr "Mengunjungi"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Issues"
-msgstr ""
+msgstr "Masalah"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "Laporan"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "License"
-msgstr ""
+msgstr "Lisensi"
 
 #: app/appChooser.js:54
 #, fuzzy
