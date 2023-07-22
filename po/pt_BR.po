@@ -11,10 +11,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-02 02:31+0000\n"
+"PO-Revision-Date: 2023-07-17 10:55+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,8 +39,9 @@ msgid "Tweaks"
 msgstr "Ajustes"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -216,27 +217,32 @@ msgstr "Mostrar arquivos ocultos"
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Abra pastas ao arrastar o cursor"
+msgstr "Abra pastas ao arrastar o mouse"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Website"
-msgstr ""
+msgstr "Local na rede Internet"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Visit"
-msgstr ""
+msgstr "Visita"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Issues"
-msgstr ""
+msgstr "Problemas"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "Relatório"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "License"
-msgstr ""
+msgstr "Licença"
 
 #: app/appChooser.js:54
 #, fuzzy
@@ -800,6 +806,7 @@ msgid "Create Link..."
 msgstr "Criar link..."
 
 #: app/fileItemMenu.js:378
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""

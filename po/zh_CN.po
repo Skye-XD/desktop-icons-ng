@@ -2,14 +2,14 @@
 # Copyright (C) 2018 desktop-icons's COPYRIGHT HOLDER
 # This file is distributed under the same license as the desktop-icons package.
 # Okeyja <bross049deng@gmail.com>, 2020.
-#
+# Daniel Zhang <xiaozhangshiw@163.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-02 02:31+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-07-19 09:07+0000\n"
+"Last-Translator: Daniel Zhang <xiaozhangshiw@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -20,7 +20,6 @@ msgstr ""
 "X-Generator: Weblate 5.0-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
-#, fuzzy
 msgid "Desktop"
 msgstr "桌面"
 
@@ -36,8 +35,9 @@ msgid "Tweaks"
 msgstr "微调"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -207,27 +207,32 @@ msgstr "显示隐藏文件"
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "拖动悬停打开文件夹"
+msgstr "拖动鼠标悬停时打开文件夹"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Website"
-msgstr ""
+msgstr "网站"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Visit"
-msgstr ""
+msgstr "访问"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Issues"
-msgstr ""
+msgstr "问题"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "报告"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "License"
-msgstr ""
+msgstr "执照"
 
 #: app/appChooser.js:54
 #, fuzzy
