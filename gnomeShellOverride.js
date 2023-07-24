@@ -18,7 +18,12 @@
 
 /* exported GnomeShellOverride */
 
-const { Meta, Clutter, GLib, Shell} = imports.gi;
+const { Meta, Clutter, GLib, Shell } = imports.gi;
+const Main = imports.ui.main;
+const ExtensionUtils = imports.misc.extensionUtils;
+const { ExtensionState } = ExtensionUtils;
+const ExtensionManager = Main.extensionManager;
+const Config = imports.misc.config;
 
 var WorkspaceAnimation = null;
 try {
@@ -34,7 +39,8 @@ try {
     log('WindowManager does not exist');
 }
 
-var Main = imports.ui.main;
+const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
+const autoMoveWindowsuuid = 'auto-move-windows@gnome-shell-extensions.gcampax.github.com';
 
 var replaceData = {};
 var workSpaceSwitchTimeoutID = null;
@@ -59,8 +65,16 @@ var GnomeShellOverride = class {
             this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', newFinishWorkspaceSwitch);
         }
         // Prevent the unlimited workspaces by not acccounting for the DING window to define empty workspace
-        if (WindowManager.WorkspaceTracker)
-            this.replaceMethod(WindowManager.WorkspaceTracker, '_checkWorkspaces', newCheckWorkspaces);
+        if (GnomeShellVersion <= 44) {
+            this._prevCheckWorkspaces = null;
+            this._checkWorkspacesID = ExtensionManager.connect('extension-state-changed', (_obj, extension) => {
+                if (!extension)
+                    return;
+                if (extension.uuid === autoMoveWindowsuuid)
+                    this._replaceCheckWorkspaces();
+            });
+            this._replaceCheckWorkspaces();
+        }
     }
 
     // restore external methods only if have been intercepted
@@ -68,13 +82,33 @@ var GnomeShellOverride = class {
     disable() {
         if (workSpaceSwitchTimeoutID) {
             GLib.Source.remove(workSpaceSwitchTimeoutID);
-            workSpaceSwitchTimeoutID = null;
+            workSpaceSwitchTimeoutID = 0;
         }
+
+        if (this._checkWorkspacesId)
+            ExtensionManager.disconnect(this._checkWorkspacesID);
+        this._checkWorkspacesID = 0;
+
+        this._disableCheckWorkSpaces();
         for (let value of Object.values(replaceData)) {
             if (value[0])
                 value[1].prototype[value[2]] = value[0];
         }
         replaceData = {};
+    }
+
+
+    restoreMethod(oldMethodName) {
+        let value = replaceData[oldMethodName];
+        if (value) {
+            if (value[0])
+                value[1].prototype[value[2]] = value[0];
+        }
+        delete replaceData[oldMethodName];
+    }
+
+    _deleteMethod(oldMethodName) {
+        delete replaceData[oldMethodName];
     }
 
     /**
@@ -99,6 +133,24 @@ var GnomeShellOverride = class {
             replaceData[`old_${methodName}`] = [className.prototype[methodName], className, methodName];
 
         className.prototype[methodName] = functionToCall;
+    }
+
+    _replaceCheckWorkspaces() {
+        let extensionLoaded = ExtensionManager.getUuids().includes(autoMoveWindowsuuid);
+        let extensionEnabled = checkEnabled(autoMoveWindowsuuid);
+        if (extensionLoaded && extensionEnabled) {
+            this._prevCheckWorkspaces = Main.wm._workspaceTracker._checkWorkspaces;
+            Main.wm._workspaceTracker._checkWorkspaces = newAutoMoveCheckWorkspaces();
+        } else {
+            this._prevCheckWorkspaces = Main.wm._workspaceTracker._checkWorkspaces;
+            Main.wm._workspaceTracker._checkWorkspaces = newCheckWorkspaces;
+        }
+    }
+
+    _disableCheckWorkSpaces() {
+        if (this._prevCheckWorkspaces)
+            Main.wm._workspaceTracker._checkWorkspaces = this._prevCheckWorkspaces;
+        this._prevCheckWorkspaces = null;
     }
 };
 
@@ -155,6 +207,33 @@ function newFinishWorkspaceSwitch(switchData) {
         workSpaceSwitchTimeoutID = null;
         return false;
     });
+}
+
+/**
+ * Method replacement for checkWorkspaces if auto-move-windows is enabled
+ * Makes sure that the DING window does not count in decision to make new Workspace
+ *
+ */
+function newAutoMoveCheckWorkspaces() {
+    return function () {
+        const keepAliveWorkspaces = [];
+        let foundNonEmpty = false;
+        for (let i = this._workspaces.length - 1; i >= 0; i--) {
+            if (!foundNonEmpty) {
+                foundNonEmpty = this._workspaces[i].list_windows().some(
+                    w => !(w.is_on_all_workspaces() || w.customJS_ding));
+            } else if (!this._workspaces[i]._keepAliveId) {
+                keepAliveWorkspaces.push(this._workspaces[i]);
+            }
+        }
+
+        // make sure the original method only removes empty workspaces at the end
+        keepAliveWorkspaces.forEach(ws => (ws._keepAliveId = 1));
+        newCheckWorkspaces.call(this);
+        keepAliveWorkspaces.forEach(ws => delete ws._keepAliveId);
+
+        return false;
+    };
 }
 
 /**
@@ -237,3 +316,21 @@ function newCheckWorkspaces() {
     this._checkWorkspacesId = 0;
     return false;
 }
+
+/**
+ * Checks if extension uuid exists, is loaded and enabled
+ * Useful in ordering extensions, so we can load and override Gnome Shell as necessary
+ *
+ * @param {string} uuid the extension uuid
+ * @returns {bool} if the extension is enabled
+ */
+function checkEnabled(uuid) {
+    let extension = ExtensionManager.lookup(uuid);
+    if (!extension)
+        return false;
+    if (extension.state !== ExtensionState.ENABLED)
+        return false;
+    else
+        return true;
+}
+
