@@ -4,7 +4,7 @@ Libadwaita/Gtk4 Port of Desktop Icons NG with updated and modified code base, us
 
 * New - tool tips are now positioned correctly to not go under the dash or make it autohide, or go over any gnome shell actors on the edge of the screen.
 * New - About pane if preferences page that shows the correct version of the extension and weblimks to gitlab website.
-* Fix - Gnome shell creates a empty workspace to the right as it detects the DING window. This can lead to Unlimited Workspaces. STILL DOES NOT WORK CORRECTL WITH AUTO-MOVE-WINDOWS EXTENSION.
+* Fix - Gnome shell and extension auto-move-windows creates a empty workspace to the right as it detects the DING window. This can lead to Unlimited Workspaces. Although this now works, extension smart-auto-move recommended for a better solution.
 * New Drag Navigation on Dock - dragging an icon over the Gnome Files icon on the dock or mounted drives, and hovering over it for 1/2 seconds will open a Gnome Files Window.
 * New - Set the correct cursor with proposed action on drop on dock, improve drop detection.
 * New - Drag Navigation - dragging an icon over a folder icon or a drive icon, and then hovering over it for 1/2 seconds will open that location in Gnome Files.

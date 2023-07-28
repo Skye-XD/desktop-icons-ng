@@ -1,4 +1,9 @@
 # History of versions #
+* Gtk4 version 46
+  * Fix- Stops unlimited workspaces to the right with extensions AUTO-MOVE-WINDOWS enabled. Overrides auto move windows as well so no extra workspaces are created to the right.
+  * Weblate translation updates
+  * Update metadata.json, History.md, Version Bump to 46 - sync with EGO
+
 * Gtk4 version 45
   * New - tool tips are now positioned correctly to not go under the dash or make it autohide, or go over any gnome shell actors on the edge of the screen. (Sundeep Mediratta)
   * New - About pane if preferences page that shows the correct version of the extension and weblimks to gitlab website. (Sundeep Mediratta)
