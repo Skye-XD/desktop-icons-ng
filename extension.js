@@ -114,6 +114,7 @@ function init() {
 function enable() {
     if (!data.GnomeShellOverride)
         data.GnomeShellOverride = new GnomeShellOverride.GnomeShellOverride();
+    data.GnomeShellOverride.enable();
 
     if (!data.x11Manager)
         data.x11Manager = new EmulateX11.EmulateX11WindowType();
@@ -122,6 +123,7 @@ function enable() {
         DesktopIconsUsableArea = new VisibleArea.VisibleArea();
         data.visibleArea = DesktopIconsUsableArea;
     }
+
     // If the desktop is still starting up, we wait until it is ready
     if (Main.layoutManager._startingUp) {
         data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable);
@@ -151,8 +153,6 @@ function innerEnable() {
         Main.layoutManager.disconnect(data.startupPreparedId);
         data.startupPreparedId = null;
     }
-
-    data.GnomeShellOverride.enable();
 
     // under X11 we now need to cheat, so now do all this under wayland as well as X
     data.x11Manager.enable();
