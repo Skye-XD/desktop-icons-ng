@@ -115,7 +115,6 @@ function enable() {
     if (!data.GnomeShellOverride)
         data.GnomeShellOverride = new GnomeShellOverride.GnomeShellOverride();
 
-
     if (!data.x11Manager)
         data.x11Manager = new EmulateX11.EmulateX11WindowType();
 
