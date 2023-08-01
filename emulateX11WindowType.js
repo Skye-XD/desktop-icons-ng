@@ -124,6 +124,10 @@ class ManageWindow {
                         switch (char) {
                         case 'B':
                             this._keepAtBottom = true;
+                            this._window.get_window_type = function () {
+                                return Meta.WindowType.DESKTOP;
+                            };
+                            log(this._window.get_window_type());
                             this._keepAtTop = false;
                             break;
                         case 'T':
