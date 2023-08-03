@@ -221,7 +221,7 @@ function newAutoMoveCheckWorkspaces() {
         for (let i = this._workspaces.length - 1; i >= 0; i--) {
             if (!foundNonEmpty) {
                 foundNonEmpty = this._workspaces[i].list_windows().some(
-                    w => !(w.is_on_all_workspaces() || w.customJS_ding));
+                    w => !(w.is_on_all_workspaces() || w.get_window_type() === Meta.WindowType.DESKTOP));
             } else if (!this._workspaces[i]._keepAliveId) {
                 keepAliveWorkspaces.push(this._workspaces[i]);
             }
@@ -280,7 +280,7 @@ function newCheckWorkspaces() {
         let actor = windows[i];
         let win = actor.get_meta_window();
         // Don't use the DING window to decide if workspace is empty
-        if (win.is_on_all_workspaces() || win.customJS_ding)
+        if (win.is_on_all_workspaces() || (win.get_window_type() === Meta.WindowType.DESKTOP))
             continue;
 
         let workspaceIndex = win.get_workspace().index();
