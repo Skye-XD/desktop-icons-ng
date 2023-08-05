@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
@@ -324,7 +324,7 @@ msgstr "Extrahera filer"
 #: app/autoAr.js:220
 #, fuzzy
 msgid "Compressing files"
-msgstr "Komprimerar filer"
+msgstr "Komprimera filer"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:802
 #: app/desktopManager.js:1243 app/fileItemMenu.js:630
@@ -449,7 +449,7 @@ msgstr "Lösenordsskyddad .zip, måste installeras på Windows och Mac."
 #: app/autoAr.js:700
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Mindre arkiv men endast Linux och Mac."
+msgstr "Mindre arkiv men bara Linux och Mac."
 
 #: app/autoAr.js:706
 #, fuzzy
@@ -542,7 +542,7 @@ msgstr "Håll staplade efter typ…"
 #: app/desktopManager.js:1512
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sortera hem/enheter/papperskorgen…"
+msgstr "Sortera hem/enheter/sopor…"
 
 #: app/desktopManager.js:1517 app/desktopManager.js:2534
 msgid "New Folder"
@@ -594,7 +594,7 @@ msgstr "Ändra bakgrund…"
 #: app/desktopManager.js:1557
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Skrivbordsikoninställningar"
+msgstr "Inställningar för skrivbordsikon"
 
 #: app/desktopManager.js:1558
 msgid "Display Settings"
@@ -1113,7 +1113,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Visa nya ikoner på icke primär bildskärm om den är ansluten"
+msgstr "Visa nya ikoner på icke primär monitor om den är ansluten"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
@@ -1121,8 +1121,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Om en andra bildskärm är ansluten, placeras nya ikoner på den icke primära "
-"bildskärmen"
+"Om en andra monitor är ansluten, placeras nya ikoner på den icke primära "
+"monitorn"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

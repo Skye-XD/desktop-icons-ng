@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
@@ -149,7 +149,7 @@ msgstr "デスクトップにネットワークドライブを表示する"
 #: app/adwPreferencesWindow.js:247
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "新しいドライブをデスクトップの反対側に追加します。"
+msgstr "新しいドライブをデスクトップの反対側に追加します"
 
 #: app/adwPreferencesWindow.js:249
 #, fuzzy

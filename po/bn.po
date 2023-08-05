@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
@@ -393,7 +393,7 @@ msgstr "কম্প্রেশন সম্পন্ন হয়েছে"
 #: app/autoAr.js:497
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "ফাইলগুলিকে '${outputFile}'-এ কম্প্রেস করা সম্পূর্ণ হয়েছে।"
+msgstr "ফাইলগুলিকে '${outputFile}'-এ কম্প্রেস করা সম্পন্ন হয়েছে।"
 
 #: app/autoAr.js:501 app/autoAr.js:508
 #, fuzzy
@@ -998,7 +998,7 @@ msgstr "কমান্ড পাওয়া যায়নি"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "নির্বাচিত ফাইল খুলতে একটি অ্যাপ্লিকেশন চয়ন করুন।"
+msgstr "নির্বাচিত ফাইলগুলি খুলতে একটি অ্যাপ চয়ন করুন।"
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
@@ -1018,7 +1018,7 @@ msgstr "_খোলা"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "আইকন আকার"
+msgstr "আইকনের আকার"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy
@@ -1099,13 +1099,13 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"একটি Drag'n'Drop অপারেশন করার সময়, গ্রিডের সেই স্থানটিকে চিহ্নিত করুন যেখানে "
-"একটি অর্ধস্বচ্ছ আয়তক্ষেত্র দিয়ে আইকনটি স্থাপন করা হবে।"
+"একটি ড্র্যাগ'এন'ড্রপ অপারেশন করার সময়, গ্রিডের সেই জায়গাটিকে চিহ্নিত করুন "
+"যেখানে একটি অর্ধস্বচ্ছ আয়তক্ষেত্র দিয়ে আইকনটি রাখা হবে।"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "বিশেষ ফোল্ডারগুলি সাজান - হোম/ট্র্যাশ ড্রাইভ।"
+msgstr "বিশেষ ফোল্ডার বাছাই করুন - হোম/ট্র্যাশ ড্রাইভ।"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 #, fuzzy
@@ -1144,7 +1144,8 @@ msgstr "আইকন স্ট্যাক রাখুন"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "আইকনগুলিকে সর্বদা স্ট্যাক করে রাখুন, অনুরূপ প্রকারগুলিকে গোষ্ঠীভুক্ত করা হয়৷"
+msgstr ""
+"আইকনগুলিকে সর্বদা স্ট্যাক রাখুন, অনুরূপ প্রকারগুলিকে গোষ্ঠীভুক্ত করা হয়৷"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy

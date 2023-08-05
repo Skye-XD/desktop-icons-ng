@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:01+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
@@ -816,7 +816,7 @@ msgstr "צור קישור..."
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "דחוס את התיקייה {0}"
+msgstr[0] "דחוס את התיקיה {0}"
 msgstr[1] "דחוס {0} תיקיות"
 msgstr[2] ""
 msgstr[3] "דחוס {0} תיקיות"
@@ -948,7 +948,7 @@ msgstr "סגור"
 #: app/utils/dbusUtils.js:59
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "\"${programName}\" דרוש עבור סמלי שולחן העבודה"
+msgstr "\"${programName}\" נדרש עבור סמלי שולחן העבודה"
 
 #: app/utils/dbusUtils.js:60
 #, fuzzy
@@ -1077,8 +1077,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"בעת סידור אייקונים בשולחן העבודה, כדי למיין ולשנות את המיקום של הבית, האשפה "
-"והכוננים המורכבים ברשת או חיצונית"
+"בעת סידור אייקונים על שולחן העבודה, כדי למיין ולשנות את המיקום של הבית, "
+"האשפה וכונני הרשת או החיצוניים המותקנות"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy

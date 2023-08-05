@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:01+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
@@ -534,7 +534,7 @@ msgstr "Održavajte dogovor…"
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Zadrži naslagano po vrsti…"
+msgstr "Zadrži naslagano prema vrsti…"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -692,7 +692,7 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Ova datoteka .desktop ima neispravne dozvole. Desni klik za uređivanje "
+"Ova .desktop datoteka ima neispravne dozvole. Desni klik za uređivanje "
 "svojstava, zatim:\n"
 
 #: app/fileItem.js:359
@@ -774,7 +774,7 @@ msgstr "Pokretanje pomoću namjenske grafičke kartice"
 #: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Složite ovu vrstu"
+msgstr "Stack This Type"
 
 #: app/fileItemMenu.js:342
 #, fuzzy
@@ -938,7 +938,7 @@ msgstr "Ne mogu poslati imenik e-poštom"
 #: app/fileItemMenu.js:697
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
-msgstr "Odabir uključuje direktorij, prvo komprimirajte direktorij u datoteku."
+msgstr "Odabir uključuje imenik, prvo komprimirajte imenik u datoteku."
 
 #: app/showErrorPopup.js:41
 #, fuzzy
@@ -1082,7 +1082,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "Držite ikone raspoređene"
+msgstr "Držite ikone poredane"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 #, fuzzy
@@ -1159,8 +1159,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Ako je priključen drugi monitor, nove ikone postavljaju se na monitor koji "
-"nije primarni"
+"Ako je spojen drugi monitor, nove ikone postavljaju se na monitor koji nije "
+"primarni"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"
