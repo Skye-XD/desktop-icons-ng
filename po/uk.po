@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
@@ -428,7 +428,7 @@ msgstr "Сумісний з усіма операційними системам
 #: app/autoAr.js:694
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Захищений паролем .zip, потрібно встановити на Windows і Mac."
+msgstr "Захищений паролем .zip, має бути встановлено на Windows і Mac."
 
 #: app/autoAr.js:700
 #, fuzzy
@@ -496,7 +496,7 @@ msgstr "Ім'я"
 #: app/desktopManager.js:1501
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Назва Z-A"
+msgstr "Назва З-А"
 
 #: app/desktopManager.js:1502
 #, fuzzy
@@ -689,7 +689,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Установіть дозволи в «Доступ інших», «Лише читання» або «Немає»</b>"
+"<b>Установити дозволи в «Доступ інших», «Лише для читання» або «Немає»</b>"
 
 #: app/fileItem.js:362
 #, fuzzy
@@ -698,7 +698,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Увімкнути параметр «Дозволити виконання файлу як програми»</b>"
+"<b>Увімкнути опцію \"Дозволити виконання файлу як програми\"</b>"
 
 #: app/fileItem.js:370
 msgid ""
@@ -1066,7 +1066,7 @@ msgstr "Тримайте значки в стопку"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Завжди зберігайте піктограми в стопці, схожі типи групуються"
+msgstr "Завжди зберігайте значки в стопці, схожі типи групуються"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
@@ -1086,7 +1086,7 @@ msgstr "Використовуйте Nemo замість Nautilus для від�
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Додайте емблему до посилань"
+msgstr "Додати емблему до посилань"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
@@ -1096,7 +1096,7 @@ msgstr "Додайте емблему, щоб дозволити ідентиф�
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
 msgid "Use black for label text"
-msgstr "Використовуйте чорний колір для тексту мітки"
+msgstr "Використовуйте чорний колір для тексту етикетки"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, fuzzy
@@ -1110,7 +1110,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Показувати нові піктограми на неосновному моніторі, якщо підключено"
+msgstr "Показувати нові значки на неосновному моніторі, якщо підключено"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy

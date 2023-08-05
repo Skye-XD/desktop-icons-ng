@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:01+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
@@ -154,7 +154,7 @@ msgstr "Tambahkan drive baru ke sisi berlawanan dari desktop"
 #: app/adwPreferencesWindow.js:249
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Sorot kotak jatuhkan selama Seret dan Jatuhkan"
+msgstr "Sorot kotak jatuhkan selama Seret dan Lepas"
 
 #: app/adwPreferencesWindow.js:250
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -355,7 +355,7 @@ msgstr "Ekstraksi selesai"
 #: app/autoAr.js:436
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "Mengekstrak '${fullPathFile}' telah selesai."
+msgstr "Ekstraksi '${fullPathFile}' telah selesai."
 
 #: app/autoAr.js:442
 #, fuzzy
@@ -1151,7 +1151,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Tampilkan ikon baru pada monitor non utama jika terhubung"
+msgstr "Tampilkan ikon baru pada monitor non utama jika tersambung"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy

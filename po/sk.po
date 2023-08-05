@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
@@ -358,7 +358,7 @@ msgstr "Extrahovanie '${fullPathFile}' bolo zrušené používateľom."
 #: app/autoAr.js:453
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Pre ${filename} sa vyžaduje prístupová fráza"
+msgstr "Vyžaduje sa prístupová fráza pre ${filename}"
 
 #: app/autoAr.js:456
 #, fuzzy
@@ -428,7 +428,7 @@ msgstr "Kompatibilné so všetkými operačnými systémami."
 #: app/autoAr.js:694
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ".zip chránený heslom, musí byť nainštalovaný na Windows a Mac."
+msgstr ".zip chránený heslom, musí byť nainštalovaný v systéme Windows a Mac."
 
 #: app/autoAr.js:700
 #, fuzzy
@@ -521,7 +521,7 @@ msgstr "Majte usporiadané…"
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Ponechať zoskladané podľa typu…"
+msgstr "Ponechať v sklade podľa typu…"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -689,7 +689,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Nastavte povolenia v položkách „Prístup pre ostatných“, „Iba na čítanie“ "
+"<b>Nastavte povolenia v časti „Prístup pre ostatných“, „Iba na čítanie“ "
 "alebo „Žiadne“</b>"
 
 #: app/fileItem.js:362
@@ -758,7 +758,7 @@ msgstr "Spustiť pomocou vyhradenej grafickej karty"
 #: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Stack Tento typ"
+msgstr "Tento typ zásobníka"
 
 #: app/fileItemMenu.js:342
 #, fuzzy

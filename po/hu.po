@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:01+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
@@ -247,7 +247,7 @@ msgstr "Válasszon egy alkalmazást a <b>{foo}</b> megnyitásához"
 #: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
-msgstr "Nyissa meg az Elemeket"
+msgstr "Nyissa meg az elemeket"
 
 #: app/appChooser.js:64
 #, fuzzy
@@ -611,7 +611,7 @@ msgstr "A mappa létrehozása nem sikerült"
 #: app/desktopManager.js:2558
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Nem sikerült mappát létrehozni"
+msgstr "Nem sikerült létrehozni a mappát"
 
 #: app/desktopManager.js:2601
 #, fuzzy
@@ -636,7 +636,7 @@ msgstr "Törött link"
 #: app/fileItem.js:267
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "Ezt a fájlt nem lehet megnyitni, mert egy törött szimbólumhivatkozás"
+msgstr "Ezt a fájlt nem lehet megnyitni, mert egy hibás szimbolikus hivatkozás"
 
 #: app/fileItem.js:306
 #, fuzzy
@@ -693,7 +693,8 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Engedélyek beállítása „Egyéb hozzáférés”, „Csak olvasás” vagy „Nincs” </b>"
+"<b>Engedélyek beállítása „Egyéb hozzáférés”, „Csak olvasási” vagy „Nincs” "
+"</b>"
 
 #: app/fileItem.js:362
 #, fuzzy
@@ -879,7 +880,7 @@ msgstr "Kivonás megszakítva"
 #: app/fileItemMenu.js:549
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Nem sikerült kicsomagolni a fájlt, nincs célmappa"
+msgstr "Nem lehet kicsomagolni a fájlt, nincs célmappa"
 
 #: app/fileItemMenu.js:581
 #, fuzzy

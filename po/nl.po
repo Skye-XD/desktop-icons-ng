@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
@@ -464,7 +464,7 @@ msgstr "GNOME Bestanden niet gevonden"
 #: app/desktopManager.js:135
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "De toepassing GNOME Files is vereist door Desktop Icons NG."
+msgstr "De toepassing GNOME Files is vereist voor Desktop Icons NG."
 
 #: app/desktopManager.js:799
 #, fuzzy
@@ -538,7 +538,7 @@ msgstr "Blijf Gerangschikt…"
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Blijf gestapeld op type…"
+msgstr "Blijf gestapeld op type …"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -876,7 +876,7 @@ msgstr "Ontkoppelen"
 #: app/fileItemMenu.js:428
 #, fuzzy
 msgid "Common Properties"
-msgstr "Gemeenschappelijke eigenschappen"
+msgstr "Gemeenschappelijke Eigenschappen"
 
 #: app/fileItemMenu.js:428
 msgid "Properties"
@@ -1160,8 +1160,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Als er een tweede monitor is aangesloten, worden er nieuwe pictogrammen op "
-"de niet-primaire monitor geplaatst"
+"Als er een tweede monitor is aangesloten, worden nieuwe pictogrammen op de "
+"niet-primaire monitor geplaatst"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

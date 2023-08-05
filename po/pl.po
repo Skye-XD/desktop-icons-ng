@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pl/>\n"
@@ -71,7 +71,7 @@ msgstr "Ustawienia plików"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Ustawienia współdzielone z plikami Gnome"
+msgstr "Ustawienia udostępnione plikom Gnome"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
@@ -580,7 +580,7 @@ msgstr "Zmień tło…"
 #: app/desktopManager.js:1557
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Ustawienia ikon na pulpicie"
+msgstr "Ustawienia ikon pulpitu"
 
 #: app/desktopManager.js:1558
 msgid "Display Settings"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
@@ -501,7 +501,7 @@ msgstr "İsim"
 #: app/desktopManager.js:1501
 #, fuzzy
 msgid "Name Z-A"
-msgstr "İsim ZA"
+msgstr "isim ZA"
 
 #: app/desktopManager.js:1502
 #, fuzzy
@@ -1087,7 +1087,7 @@ msgstr "Bağlantılara amblem ekle"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Esnek bağlantıları tanımlamaya izin vermek için bir amblem ekleyin."
+msgstr "Esnek bağlantıların tanımlanmasına izin vermek için bir amblem ekleyin."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Use black for label text"

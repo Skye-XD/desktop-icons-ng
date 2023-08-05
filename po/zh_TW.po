@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-17 00:43-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -33,7 +33,7 @@ msgstr "文件"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "微調"
+msgstr "調整"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -68,7 +68,7 @@ msgstr "文件設置"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "與 Gnome Files 共享的設置"
+msgstr "與 Gnome 文件共享的設置"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
@@ -122,7 +122,7 @@ msgstr "右下角"
 #: app/adwPreferencesWindow.js:241
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "如果可用，首先向輔助監視器添加新圖標"
+msgstr "首先將新圖標添加到輔助監視器（如果有）"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
@@ -152,7 +152,7 @@ msgstr "將新驅動器添加到桌面的另一側"
 #: app/adwPreferencesWindow.js:249
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "在拖放過程中突出顯示放置網格"
+msgstr "在拖放期間突出顯示放置網格"
 
 #: app/adwPreferencesWindow.js:250
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -163,7 +163,7 @@ msgstr "使用 Nemo 打開文件夾"
 #: app/adwPreferencesWindow.js:251
 #, fuzzy
 msgid "Add an emblem to soft links"
-msgstr "為軟鏈接添加標誌"
+msgstr "為軟鏈接添加徽章"
 
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
@@ -194,7 +194,7 @@ msgstr "總是"
 #: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "On this computer only"
-msgstr "僅在這台電腦上"
+msgstr "僅在此計算機上"
 
 #: app/adwPreferencesWindow.js:267
 msgid "Never"
@@ -241,7 +241,7 @@ msgstr "執照"
 #: app/appChooser.js:54
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "選擇一個應用程序打開 <b>{foo}</b>"
+msgstr "選擇要打開的應用程序 <b>{foo}</b>"
 
 #: app/appChooser.js:62
 #, fuzzy
@@ -287,14 +287,14 @@ msgstr "重新命名"
 #: app/autoAr.js:71
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "未安裝 AutoAr"
+msgstr "AutoAr 未安裝"
 
 #: app/autoAr.js:72
 #, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr "為了能夠處理壓縮文件，請安裝 file-roller 和/或 gir-1.2-gnomeAutoAr"
+msgstr "為了能夠使用壓縮文件，請安裝 file-roller 和/或 gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 #, fuzzy
@@ -314,7 +314,7 @@ msgstr "取消"
 #: app/autoAr.js:311 app/autoAr.js:608
 #, fuzzy
 msgid "Enter a password here"
-msgstr "在這裡輸入密碼"
+msgstr "在此輸入密碼"
 
 #: app/autoAr.js:354
 #, fuzzy
@@ -329,7 +329,7 @@ msgstr "創建目標文件夾"
 #: app/autoAr.js:405
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "將文件提取到“${outputPath}”"
+msgstr "將文件提取到“${outputPath}”中"
 
 #: app/autoAr.js:435
 #, fuzzy
@@ -349,7 +349,7 @@ msgstr "提取已取消"
 #: app/autoAr.js:443
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "提取“${fullPathFile}”已被用戶取消。"
+msgstr "用戶已取消提取“${fullPathFile}”。"
 
 #: app/autoAr.js:453
 #, fuzzy
@@ -359,7 +359,7 @@ msgstr "${filename} 需要密碼"
 #: app/autoAr.js:456
 #, fuzzy
 msgid "Error during extraction"
-msgstr "提取時出錯"
+msgstr "提取過程中出錯"
 
 #: app/autoAr.js:483
 #, fuzzy
@@ -374,7 +374,7 @@ msgstr "壓縮完成"
 #: app/autoAr.js:497
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "將文件壓縮到“${outputFile}”中已完成。"
+msgstr "將文件壓縮到“${outputFile}”已完成。"
 
 #: app/autoAr.js:501 app/autoAr.js:508
 #, fuzzy
@@ -384,12 +384,12 @@ msgstr "取消壓縮"
 #: app/autoAr.js:502
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "輸出文件“${outputFile}”已經存在。"
+msgstr "輸出文件“${outputFile}”已存在。"
 
 #: app/autoAr.js:509
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "用戶已取消將文件壓縮到“${outputFile}”中。"
+msgstr "用戶已取消將文件壓縮到“${outputFile}”。"
 
 #: app/autoAr.js:512
 #, fuzzy
@@ -399,12 +399,12 @@ msgstr "壓縮時出錯"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "創建存檔"
+msgstr "創建檔案"
 
 #: app/autoAr.js:571
 #, fuzzy
 msgid "Archive name"
-msgstr "存檔名稱"
+msgstr "檔案名稱"
 
 #: app/autoAr.js:604
 #, fuzzy
@@ -419,7 +419,7 @@ msgstr "創造"
 #: app/autoAr.js:688
 #, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "兼容所有操作系統。"
+msgstr "與所有操作系統兼容。"
 
 #: app/autoAr.js:694
 #, fuzzy
@@ -434,12 +434,12 @@ msgstr "較小的檔案，但僅限 Linux 和 Mac。"
 #: app/autoAr.js:706
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "較小的存檔，但必須安裝在 Windows 和 Mac 上。"
+msgstr "檔案較小，但必須安裝在 Windows 和 Mac 上。"
 
 #: app/desktopManager.js:134
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "找不到 GNOME 文件"
+msgstr "未找到 GNOME 文件"
 
 #: app/desktopManager.js:135
 #, fuzzy
@@ -463,12 +463,12 @@ msgstr "關聯"
 #: app/desktopManager.js:804
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "為文件選擇操作"
+msgstr "選擇文件操作"
 
 #: app/desktopManager.js:874 app/desktopManager.js:906
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "使 SymLink 失敗"
+msgstr "建立符號鏈接失敗"
 
 #: app/desktopManager.js:875 app/desktopManager.js:907
 #, fuzzy
@@ -518,12 +518,12 @@ msgstr "保持安排…"
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "按類型堆疊……"
+msgstr "保持按類型堆疊…"
 
 #: app/desktopManager.js:1512
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "排序主頁/驅動器/垃圾…"
+msgstr "排序首頁/驅動器/垃圾箱…"
 
 #: app/desktopManager.js:1517 app/desktopManager.js:2534
 msgid "New Folder"
@@ -558,7 +558,7 @@ msgstr "排列圖標"
 #: app/desktopManager.js:1541
 #, fuzzy
 msgid "Arrange By…"
-msgstr "安排…"
+msgstr "安排方式…"
 
 #: app/desktopManager.js:1546
 #, fuzzy
@@ -591,7 +591,7 @@ msgstr "首選項窗口已打開"
 #: app/desktopManager.js:1601
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "這個窗口是打開的。請切換到活動窗口。"
+msgstr "此窗口已打開。請切換到活動窗口。"
 
 #: app/desktopManager.js:1613
 msgid "Settings"
@@ -625,7 +625,7 @@ msgstr "家目錄"
 #: app/fileItem.js:266
 #, fuzzy
 msgid "Broken Link"
-msgstr "損壞的鏈接"
+msgstr "斷開的鏈接"
 
 #: app/fileItem.js:267
 #, fuzzy
@@ -665,21 +665,21 @@ msgid ""
 "\n"
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
-"此 .desktop 文件有錯誤或指向未經許可的程序。它不能被執行。\n"
+"此 .desktop 文件有錯誤或指向沒有權限的程序。它不能被執行。\n"
 "\n"
 "<b>編輯文件以設置正確的可執行程序。</b>"
 
 #: app/fileItem.js:356
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "桌面文件的無效權限"
+msgstr "桌面文件的權限無效"
 
 #: app/fileItem.js:357
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
-msgstr "此 .desktop 文件的權限不正確。右擊編輯屬性，然後：\n"
+msgstr "此 .desktop 文件的權限不正確。右鍵單擊編輯屬性，然後：\n"
 
 #: app/fileItem.js:359
 #, fuzzy
@@ -688,7 +688,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>設置權限，在“其他訪問”中，“只讀”或“無”</b>"
+"<b>設置權限，“其他訪問”、“只讀”或“無”</b>"
 
 #: app/fileItem.js:362
 #, fuzzy
@@ -697,7 +697,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>啟用選項，“允許將文件作為程序執行”</b>"
+"<b>啟用選項“允許將文件作為程序執行”</b>"
 
 #: app/fileItem.js:370
 #, fuzzy
@@ -765,7 +765,7 @@ msgstr "堆疊此類型"
 #: app/fileItemMenu.js:342
 #, fuzzy
 msgid "Unstack This Type"
-msgstr "拆開這種類型"
+msgstr "取消堆疊此類型"
 
 #: app/fileItemMenu.js:353
 #, fuzzy
@@ -818,7 +818,7 @@ msgstr "發郵件給..."
 #: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "發送到移動設備"
+msgstr "發送至移動設備"
 
 #: app/fileItemMenu.js:401
 msgid "Move to Trash"
@@ -939,7 +939,7 @@ msgstr "無法找到指令"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "選擇一個應用程序以打開所選文件。"
+msgstr "選擇一個應用程序來打開選定的文件。"
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
@@ -1003,7 +1003,7 @@ msgstr "在桌面顯示網路資料夾"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
-msgstr "在桌面上顯示已安裝的網絡卷。"
+msgstr "在桌面中顯示已安裝的網絡卷。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
@@ -1014,7 +1014,7 @@ msgstr "將新掛載硬碟置於螢幕的另一邊"
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
-msgstr "將驅動器和卷添加到桌面時，將它們添加到屏幕的另一側。"
+msgstr "將驅動器和卷添加到桌面時，請將它們添加到屏幕的另一側。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
@@ -1029,7 +1029,7 @@ msgstr "當執行拖曳，在圖示即將被置放的位置用半透明矩形顯
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "排序特殊文件夾 - 主頁/垃圾驅動器。"
+msgstr "對特殊文件夾進行排序 - 主目錄/垃圾驅動器。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 #, fuzzy
@@ -1087,7 +1087,7 @@ msgstr "使用 Nemo 而不是 Nautilus 打開文件夾。"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "為鏈接添加標誌"
+msgstr "向鏈接添加標誌"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
@@ -1109,7 +1109,7 @@ msgstr "將標籤文本塗成黑色而不是白色。使用淺色背景時很有
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "如果已連接，則在非主監視器上顯示新圖標"
+msgstr "如果已連接，則在非主顯示器上顯示新圖標"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
