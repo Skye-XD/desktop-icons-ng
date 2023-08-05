@@ -309,7 +309,8 @@ var AdwPreferencesWindow = class {
         actionRow.set_title(title);
         if (subtitle) {
             actionRow.set_subtitle(subtitle);
-            actionRow.set_subtitle_selectable(true);
+            if (Adw.get_minor_version() > 2)
+                actionRow.set_subtitle_selectable(true);
         }
         if (buttonLabel && action) {
             const button = Gtk.Button.new_with_label(buttonLabel);
