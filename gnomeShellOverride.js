@@ -40,7 +40,6 @@ try {
 }
 
 const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
-const autoMoveWindowsuuid = 'auto-move-windows@gnome-shell-extensions.gcampax.github.com';
 
 var replaceData = {};
 var workSpaceSwitchTimeoutID = null;
@@ -65,17 +64,6 @@ var GnomeShellOverride = class {
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', newShouldShowWindow);
             this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', newFinishWorkspaceSwitch);
         }
-        // Prevent the unlimited workspaces by not acccounting for the DING window to define empty workspace
-        if (GnomeShellVersion <= 44) {
-            this._prevCheckWorkspaces = null;
-            this._checkWorkspacesID = ExtensionManager.connect('extension-state-changed', (_obj, extension) => {
-                if (!extension)
-                    return;
-                if (extension.uuid === autoMoveWindowsuuid)
-                    this._replaceCheckWorkspaces();
-            });
-            this._replaceCheckWorkspaces();
-        }
     }
 
     // restore external methods only if have been intercepted
@@ -85,12 +73,6 @@ var GnomeShellOverride = class {
             GLib.Source.remove(workSpaceSwitchTimeoutID);
             workSpaceSwitchTimeoutID = 0;
         }
-
-        if (this._checkWorkspacesId)
-            ExtensionManager.disconnect(this._checkWorkspacesID);
-        this._checkWorkspacesID = 0;
-
-        this._disableCheckWorkSpaces();
         for (let value of Object.values(replaceData)) {
             if (value[0])
                 value[1].prototype[value[2]] = value[0];
@@ -105,10 +87,6 @@ var GnomeShellOverride = class {
             if (value[0])
                 value[1].prototype[value[2]] = value[0];
         }
-        delete replaceData[oldMethodName];
-    }
-
-    _deleteMethod(oldMethodName) {
         delete replaceData[oldMethodName];
     }
 
@@ -135,26 +113,7 @@ var GnomeShellOverride = class {
 
         className.prototype[methodName] = functionToCall;
     }
-
-    _replaceCheckWorkspaces() {
-        let extensionLoaded = ExtensionManager.getUuids().includes(autoMoveWindowsuuid);
-        let extensionEnabled = checkEnabled(autoMoveWindowsuuid);
-        if (extensionLoaded && extensionEnabled) {
-            this._prevCheckWorkspaces = Main.wm._workspaceTracker._checkWorkspaces;
-            Main.wm._workspaceTracker._checkWorkspaces = newAutoMoveCheckWorkspaces();
-        } else {
-            this._prevCheckWorkspaces = Main.wm._workspaceTracker._checkWorkspaces;
-            Main.wm._workspaceTracker._checkWorkspaces = newCheckWorkspaces;
-        }
-    }
-
-    _disableCheckWorkSpaces() {
-        if (this._prevCheckWorkspaces)
-            Main.wm._workspaceTracker._checkWorkspaces = this._prevCheckWorkspaces;
-        this._prevCheckWorkspaces = null;
-    }
-};
-
+}
 
 /**
  * New Functions used to replace the gnome shell functions are defined below.
@@ -235,114 +194,6 @@ function newFinishWorkspaceSwitch(switchData) {
         workSpaceSwitchTimeoutID = null;
         return false;
     });
-}
-
-/**
- * Method replacement for checkWorkspaces if auto-move-windows is enabled
- * Makes sure that the DING window does not count in decision to make new Workspace
- *
- */
-function newAutoMoveCheckWorkspaces() {
-    return function () {
-        const keepAliveWorkspaces = [];
-        let foundNonEmpty = false;
-        for (let i = this._workspaces.length - 1; i >= 0; i--) {
-            if (!foundNonEmpty) {
-                foundNonEmpty = this._workspaces[i].list_windows().some(
-                    w => !(w.is_on_all_workspaces() || w.get_window_type() === Meta.WindowType.DESKTOP));
-            } else if (!this._workspaces[i]._keepAliveId) {
-                keepAliveWorkspaces.push(this._workspaces[i]);
-            }
-        }
-
-        // make sure the original method only removes empty workspaces at the end
-        keepAliveWorkspaces.forEach(ws => (ws._keepAliveId = 1));
-        newCheckWorkspaces.call(this);
-        keepAliveWorkspaces.forEach(ws => delete ws._keepAliveId);
-
-        return false;
-    };
-}
-
-/**
- * Method replacement for checkWorkspaces
- * Makes sure that the DING window does not count in decision to make new Workspace
- *
- */
-function newCheckWorkspaces() {
-    let MIN_NUM_WORKSPACES = 2;
-    let workspaceManager = global.workspace_manager;
-    let i;
-    let emptyWorkspaces = [];
-
-    if (!Meta.prefs_get_dynamic_workspaces()) {
-        this._checkWorkspacesId = 0;
-        return false;
-    }
-
-    // Update workspaces only if Dynamic Workspace Management has not been paused by some other function
-    if (this._pauseWorkspaceCheck)
-        return true;
-
-    for (i = 0; i < this._workspaces.length; i++) {
-        let lastRemoved = this._workspaces[i]._lastRemovedWindow;
-        if ((lastRemoved &&
-             (lastRemoved.get_window_type() == Meta.WindowType.SPLASHSCREEN ||
-              lastRemoved.get_window_type() == Meta.WindowType.DIALOG ||
-              lastRemoved.get_window_type() == Meta.WindowType.MODAL_DIALOG)) ||
-            this._workspaces[i]._keepAliveId)
-            emptyWorkspaces[i] = false;
-        else
-            emptyWorkspaces[i] = true;
-    }
-
-    let sequences = Shell.WindowTracker.get_default().get_startup_sequences();
-    for (i = 0; i < sequences.length; i++) {
-        let index = sequences[i].get_workspace();
-        if (index >= 0 && index <= workspaceManager.n_workspaces)
-            emptyWorkspaces[index] = false;
-    }
-
-    let windows = global.get_window_actors();
-    for (i = 0; i < windows.length; i++) {
-        let actor = windows[i];
-        let win = actor.get_meta_window();
-        // Don't use the DING window to decide if workspace is empty
-        if (win.is_on_all_workspaces() || (win.get_window_type() === Meta.WindowType.DESKTOP))
-            continue;
-
-        let workspaceIndex = win.get_workspace().index();
-        emptyWorkspaces[workspaceIndex] = false;
-    }
-
-    // If we don't have an empty workspace at the end, add one
-    if (!emptyWorkspaces[emptyWorkspaces.length - 1]) {
-        workspaceManager.append_new_workspace(false, global.get_current_time());
-        emptyWorkspaces.push(true);
-    }
-
-    // Enforce minimum number of workspaces
-    while (emptyWorkspaces.length < MIN_NUM_WORKSPACES) {
-        workspaceManager.append_new_workspace(false, global.get_current_time());
-        emptyWorkspaces.push(true);
-    }
-
-    let lastIndex = emptyWorkspaces.length - 1;
-    let lastEmptyIndex = emptyWorkspaces.lastIndexOf(false) + 1;
-    let activeWorkspaceIndex = workspaceManager.get_active_workspace_index();
-    emptyWorkspaces[activeWorkspaceIndex] = false;
-
-    // Delete empty workspaces except for the last one; do it from the end
-    // to avoid index changes
-    for (i = lastIndex; i >= 0; i--) {
-        if (workspaceManager.n_workspaces === MIN_NUM_WORKSPACES)
-            break;
-        if (emptyWorkspaces[i] && i != lastEmptyIndex)
-            workspaceManager.remove_workspace(this._workspaces[i], global.get_current_time());
-    }
-
-    this._checkWorkspacesId = 0;
-    return false;
 }
 
 /**
