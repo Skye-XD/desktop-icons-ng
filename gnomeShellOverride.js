@@ -18,11 +18,7 @@
 
 /* exported GnomeShellOverride */
 
-const { Meta, Clutter, GLib, Shell } = imports.gi;
-const Main = imports.ui.main;
-const ExtensionUtils = imports.misc.extensionUtils;
-const { ExtensionState } = ExtensionUtils;
-const ExtensionManager = Main.extensionManager;
+const { Meta, Clutter, GLib } = imports.gi;
 const Config = imports.misc.config;
 
 var WorkspaceAnimation = null;
@@ -32,13 +28,7 @@ try {
     log('Workspace Animation does not exist');
 }
 
-var WindowManager = null;
-try {
-    WindowManager = imports.ui.windowManager;
-} catch (err) {
-    log('WindowManager does not exist');
-}
-
+// Need to know this to apply overrides correctly
 const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
 
 var replaceData = {};
@@ -59,7 +49,7 @@ var GnomeShellOverride = class {
 
     enable() {
         // Prevent window flicker as the DING window moves to the new workspace.
-        if (WorkspaceAnimation) {
+        if (WorkspaceAnimation && GnomeShellVersion < 45) {
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_createWindows', newCreateWindows);
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', newShouldShowWindow);
             this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', newFinishWorkspaceSwitch);
@@ -170,46 +160,5 @@ function createDesktopWindow() {
             this._windowRecords.push(record);
         }
     }
-}
-
-/**
- * Method replacement for finishWorkspaceSwitch
- * Adds a delay before destroying the moving window
- * To give time for the DING window to move to the new Workspace behind the moving window.
- * To prevent flickering of icons.
- *
- * @param {object} switchData the original switchData for the function
- */
-function newFinishWorkspaceSwitch(switchData) {
-    let movingWindow = this.movingWindow;
-    let mymonitorGroup = switchData.monitors;
-    let dummyMonitor = Clutter.Actor.new();
-    switchData.monitors = [dummyMonitor];
-
-    replaceData.old__finishWorkspaceSwitch[0].apply(this, [switchData]);
-
-    workSpaceSwitchTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
-        mymonitorGroup.forEach(m => m.destroy());
-        movingWindow = null;
-        workSpaceSwitchTimeoutID = null;
-        return false;
-    });
-}
-
-/**
- * Checks if extension uuid exists, is loaded and enabled
- * Useful in ordering extensions, so we can load and override Gnome Shell as necessary
- *
- * @param {string} uuid the extension uuid
- * @returns {bool} if the extension is enabled
- */
-function checkEnabled(uuid) {
-    let extension = ExtensionManager.lookup(uuid);
-    if (!extension)
-        return false;
-    if (extension.state !== ExtensionState.ENABLED)
-        return false;
-    else
-        return true;
 }
 
