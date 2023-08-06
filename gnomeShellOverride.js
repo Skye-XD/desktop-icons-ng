@@ -52,7 +52,6 @@ var GnomeShellOverride = class {
         if (WorkspaceAnimation && GnomeShellVersion < 45) {
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_createWindows', newCreateWindows);
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', newShouldShowWindow);
-            this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', newFinishWorkspaceSwitch);
         }
     }
 
@@ -103,7 +102,7 @@ var GnomeShellOverride = class {
 
         className.prototype[methodName] = functionToCall;
     }
-}
+};
 
 /**
  * New Functions used to replace the gnome shell functions are defined below.

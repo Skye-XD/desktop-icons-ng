@@ -171,15 +171,6 @@ class ManageWindow {
         }
     }
 
-    moveToActiveWorkspace() {
-        if (this._showInAllDesktops) {
-            let currentWorkspace = global.workspace_manager.get_active_workspace();
-            if (!this._window.located_on_workspace(currentWorkspace))
-                this._window.change_workspace(currentWorkspace);
-        }
-        this.moveDesktopWindowToBottom();
-    }
-
     moveDesktopWindowToBottom() {
         if (this._window.fullscreen)
             this._window.unmake_fullscreen();
@@ -244,14 +235,15 @@ var EmulateX11WindowType = class {
             if (window && (window.get_window_type() >= Meta.WindowType.DROPDOWN_MENU))
                 return;
 
-            this._onIdleRestackMoveWindow({ moveToActiveWorkspace: true });
+            this._onIdleRestackMoveWindow({ activateTopWindowOnWorkspace: true });
         });
         /* Something odd happens with "stick" when using popup submenus, so
            this implements the same functionality
          */
 
         this._switchWorkspaceId = global.window_manager.connect('switch-workspace', () => {
-            this._onIdleRestackMoveWindow({ moveToActiveWorkspace: true });
+            this._moveDesktopWindowToBottom();
+            this._onIdleRestackMoveWindow({ activateTopWindowOnWorkspace: true });
         });
 
         /* But in Overview mode it is paramount to not change the workspace to emulate
@@ -263,7 +255,7 @@ var EmulateX11WindowType = class {
 
         this._hidingId = Main.overview.connect('hiding', () => {
             this._overviewHiding = true;
-            this._onIdleRestackMoveWindow({ moveToActiveWorkspace: true });
+            this._onIdleRestackMoveWindow({ activateTopWindowOnWorkspace: true });
         });
 
         /* If a window is lowered with shortcuts, detect and fix DING window */
@@ -371,22 +363,15 @@ var EmulateX11WindowType = class {
             window.customJS_ding.moveDesktopWindowToBottom();
     }
 
-    _moveDesktopWindowToActiveWorkspace() {
-        for (let window of this._windowList)
-            window.customJS_ding.moveToActiveWorkspace();
-    }
-
-    _onIdleRestackMoveWindow(action = { moveToActiveWorkspace: true }) {
+    _onIdleRestackMoveWindow(action = { activateTopWindowOnWorkspace: true }) {
         if (!this._activate_window_ID) {
             this._activate_window_ID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
                 if (this._overviewHiding) {
                     if (action.moveDesktopWindowToBottom)
                         this._moveDesktopWindowToBottom();
 
-                    if (action.moveToActiveWorkspace) {
-                        this._moveDesktopWindowToActiveWorkspace();
+                    if (action.activateTopWindowOnWorkspace)
                         this._activateTopWindowOnActiveWorkspace();
-                    }
                 }
                 this._activate_window_ID = null;
                 return GLib.SOURCE_REMOVE;
