@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 00:43-0400\n"
+"POT-Creation-Date: 2023-08-06 17:13-0400\n"
 "PO-Revision-Date: 2023-07-17 10:55+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -228,6 +228,10 @@ msgid "Issues"
 msgstr "Problemes"
 
 #: app/adwPreferencesWindow.js:274
+msgid "Report issues on issue tracker"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Report"
 msgstr "Informeu"
@@ -236,6 +240,18 @@ msgstr "Informeu"
 #, fuzzy
 msgid "License"
 msgstr "llicència"
+
+#: app/adwPreferencesWindow.js:276
+msgid "Translation"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:276
+msgid "Help translate in your web browser"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:276
+msgid "Translate"
+msgstr ""
 
 #: app/appChooser.js:54
 #, fuzzy

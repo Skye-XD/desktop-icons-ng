@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-17 00:43-0400\n"
+"POT-Creation-Date: 2023-08-06 17:13-0400\n"
 "PO-Revision-Date: 2023-08-02 02:02+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,6 +241,10 @@ msgid "Issues"
 msgstr "ইস্যু"
 
 #: app/adwPreferencesWindow.js:274
+msgid "Report issues on issue tracker"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Report"
 msgstr "রিপোর্ট"
@@ -249,6 +253,18 @@ msgstr "রিপোর্ট"
 #, fuzzy
 msgid "License"
 msgstr "লাইসেন্স"
+
+#: app/adwPreferencesWindow.js:276
+msgid "Translation"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:276
+msgid "Help translate in your web browser"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:276
+msgid "Translate"
+msgstr ""
 
 #: app/appChooser.js:54
 #, fuzzy
@@ -739,7 +755,6 @@ msgstr ""
 "<b>\"লঞ্চ করার অনুমতি দিন\" সক্ষম করুন</b>"
 
 #: app/fileItemMenu.js:296
-#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -836,14 +851,12 @@ msgid "Create Link..."
 msgstr "লিঙ্ক তৈরি করুন..।"
 
 #: app/fileItemMenu.js:378
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
 
 #: app/fileItemMenu.js:385
-#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
@@ -1099,8 +1112,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"একটি ড্র্যাগ'এন'ড্রপ অপারেশন করার সময়, গ্রিডের সেই জায়গাটিকে চিহ্নিত করুন "
-"যেখানে একটি অর্ধস্বচ্ছ আয়তক্ষেত্র দিয়ে আইকনটি রাখা হবে।"
+"একটি ড্র্যাগ'এন'ড্রপ অপারেশন করার সময়, গ্রিডের সেই জায়গাটিকে চিহ্নিত করুন যেখানে "
+"একটি অর্ধস্বচ্ছ আয়তক্ষেত্র দিয়ে আইকনটি রাখা হবে।"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
@@ -1144,8 +1157,7 @@ msgstr "আইকন স্ট্যাক রাখুন"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
-"আইকনগুলিকে সর্বদা স্ট্যাক রাখুন, অনুরূপ প্রকারগুলিকে গোষ্ঠীভুক্ত করা হয়৷"
+msgstr "আইকনগুলিকে সর্বদা স্ট্যাক রাখুন, অনুরূপ প্রকারগুলিকে গোষ্ঠীভুক্ত করা হয়৷"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
