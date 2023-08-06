@@ -271,8 +271,9 @@ var AdwPreferencesWindow = class {
         filesGroup.add(this.addActionRowSwitch(this.nautilusSettings, 'open-folder-on-dnd-hover', _('Open folders on drag hover')));
 
         aboutGroup.add(this.addActionRowButton(_('Website'), 'https://gitlab.com/smedius/desktop-icons-ng', _('Visit'), this.launchWebsite.bind(this)));
-        aboutGroup.add(this.addActionRowButton(_('Issues'), null, _('Report'), this.launchIssueTracker.bind(this)));
+        aboutGroup.add(this.addActionRowButton(_('Issues'), _('Report issues on issue tracker'), _('Report'), this.launchIssueTracker.bind(this)));
         aboutGroup.add(this.addActionRowButton(_('License'), 'GNU GPLv3', 'GNU GPLv3', this.luanchLicense.bind(this)));
+        aboutGroup.add(this.addActionRowButton(_('Translation'), _('Help translate in your web browser'), _('Translate'), this.launchWebTranslation.bind(this)));
 
         if (!window)
             return prefsWindow;
@@ -344,8 +345,13 @@ var AdwPreferencesWindow = class {
     }
 
     luanchLicense() {
-        const licenseUri ='https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/COPYING';
+        const licenseUri = 'https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/COPYING';
         this.launchUri(licenseUri);
+    }
+
+    launchWebTranslation() {
+        const translationUri = 'https://hosted.weblate.org/engage/gtk4-desktop-icons-ng';
+        this.launchUri(translationUri);
     }
 };
 
