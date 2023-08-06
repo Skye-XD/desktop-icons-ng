@@ -46,11 +46,13 @@ class ManageWindow {
         this._waylandClient = waylandClient;
         this._window = window;
         this._signalIDs = [];
-        this._changedStatusCB = changedStatusCB;
+        this._onIdleChangedStatusCallback = changedStatusCB;
+
         this._signalIDs.push(window.connect_after('raised', () => {
             if (this._keepAtBottom && !this._keepAtTop)
                 this._window.lower();
         }));
+
         this._signalIDs.push(window.connect('position-changed', () => {
             if (this._fixed && (this._x !== null) && (this._y !== null)) {
                 this._window.move_frame(true, this._x, this._y);
@@ -58,22 +60,43 @@ class ManageWindow {
                     this._window.unmake_fullscreen();
             }
         }));
+
         this._signalIDs.push(window.connect('notify::title', () => {
             this._parseTitle();
         }));
+
         this._signalIDs.push(window.connect('notify::above', () => {
             if (this._keepAtBottom && this._window.above)
                 this._window.unmake_above();
         }));
+
         this._signalIDs.push(window.connect('notify::minimized', () => {
             this._window.unminimize();
         }));
+
+        this._workSpaceSwitchID = global.window_manager.connect('switch-workspace',
+            this._onWorkSpaceChanged.bind(this)
+        );
+
+        /* If a window is lowered with shortcuts, detect and fix DING window */
+        this._restackedID = global.display.connect('restacked',
+            this._syncToBottomOfStack.bind(this)
+        );
+
         this._parseTitle();
     }
 
     disconnect() {
-        for (let signalID of this._signalIDs)
-            this._window.disconnect(signalID);
+        for (let signalID of this._signalIDs) {
+            if (signalID)
+                this._window.disconnect(signalID);
+        }
+
+        if (this._workSpaceSwitchID)
+            global.window_manager.disconnect(this._workSpaceSwitchID);
+
+        if (this._restackedID)
+            global.display.disconnect(this._restackedID);
 
         if (this._keepAtTop)
             this._window.unmake_above();
@@ -167,11 +190,29 @@ class ManageWindow {
             if (this._keepAtBottom)
                 this._window.lower();
 
-            this._changedStatusCB(this);
+            let moveDesktopWindowToBottom = true;
+            this._onIdleChangedStatusCallback({ moveDesktopWindowToBottom });
         }
     }
 
-    moveDesktopWindowToBottom() {
+    _onWorkSpaceChanged() {
+        this._syncToBottomOfStack();
+        this._onIdleActivateTopWindowOnActiveWorkspace();
+    }
+
+    _onIdleActivateTopWindowOnActiveWorkspace() {
+        let activateTopWindowOnWorkspace = true;
+        this._onIdleChangedStatusCallback({ activateTopWindowOnWorkspace });
+    }
+
+    _syncToBottomOfStack() {
+        let windows = global.display.get_tab_list(Meta.TabList.NORMAL_ALL, global.workspace_manager.get_active_workspace());
+        windows = global.display.sort_windows_by_stacking(windows);
+        if (windows.length > 1 && !windows[0].customJS_ding)
+            this._moveDesktopWindowToBottom();
+    }
+
+    _moveDesktopWindowToBottom() {
         if (this._window.fullscreen)
             this._window.unmake_fullscreen();
 
@@ -226,7 +267,6 @@ var EmulateX11WindowType = class {
                 if ((appid === 'com.desktop.ding') && (windowpid === mypid))
                     this._addWindowManagedCustomJS_ding(window, windowActor);
             }
-            this._onIdleRestackMoveWindow({ moveDesktopWindowToBottom: true });
         });
 
         this._idDestroy = global.window_manager.connect_after('destroy', (wm, windowActor) => {
@@ -235,15 +275,7 @@ var EmulateX11WindowType = class {
             if (window && (window.get_window_type() >= Meta.WindowType.DROPDOWN_MENU))
                 return;
 
-            this._onIdleRestackMoveWindow({ activateTopWindowOnWorkspace: true });
-        });
-        /* Something odd happens with "stick" when using popup submenus, so
-           this implements the same functionality
-         */
-
-        this._switchWorkspaceId = global.window_manager.connect('switch-workspace', () => {
-            this._moveDesktopWindowToBottom();
-            this._onIdleRestackMoveWindow({ activateTopWindowOnWorkspace: true });
+            this.onIdleReStackActivteWindows({ activateTopWindowOnWorkspace: true });
         });
 
         /* But in Overview mode it is paramount to not change the workspace to emulate
@@ -255,13 +287,8 @@ var EmulateX11WindowType = class {
 
         this._hidingId = Main.overview.connect('hiding', () => {
             this._overviewHiding = true;
-            this._onIdleRestackMoveWindow({ activateTopWindowOnWorkspace: true });
+            this.onIdleReStackActivteWindows({ activateTopWindowOnWorkspace: true });
         });
-
-        /* If a window is lowered with shortcuts, detect and fix DING window */
-        this._restackedID = global.display.connect('restacked',
-            this._syncToBottomOfStack.bind(this)
-        );
     }
 
     disable() {
@@ -284,10 +311,6 @@ var EmulateX11WindowType = class {
             global.window_manager.disconnect(this._idDestroy);
             this._idDestroy = null;
         }
-        if (this._switchWorkspaceId) {
-            global.window_manager.disconnect(this._switchWorkspaceId);
-            this._switchWorkspaceId = null;
-        }
         if (this._showingId) {
             Main.overview.disconnect(this._showingId);
             this._showingId = null;
@@ -295,10 +318,6 @@ var EmulateX11WindowType = class {
         if (this._hidingId) {
             Main.overview.disconnect(this._hidingId);
             this._hidingId = null;
-        }
-        if (this._restackedID) {
-            global.display.disconnect(this._restackedID);
-            this._restackedID = null;
         }
     }
 
@@ -310,9 +329,7 @@ var EmulateX11WindowType = class {
         if (this._windowList.has(window))
             return;
 
-        window.customJS_ding = new ManageWindow(window, this._waylandClient, () => {
-            this._onIdleRestackMoveWindow({ moveDesktopWindowToBottom: true });
-        });
+        window.customJS_ding = new ManageWindow(window, this._waylandClient, this.onIdleReStackActivteWindows.bind(this));
         window.actor = windowActor;
         windowActor._delegate = new HandleDragActors(windowActor);
         this._windowList.add(window);
@@ -330,40 +347,21 @@ var EmulateX11WindowType = class {
         window.actor = null;
     }
 
-    _syncToBottomOfStack() {
-        let windows = global.display.get_tab_list(Meta.TabList.NORMAL_ALL, global.workspace_manager.get_active_workspace());
-        windows = global.display.sort_windows_by_stacking(windows);
-        if (windows.length > 1 && !windows[0].customJS_ding) {
-            this._moveDesktopWindowToBottom();
-            this._activateTopWindowFromLastWindow(windows[0]);
-        }
-    }
-
-    _activateTopWindowFromLastWindow(lastWindow) {
-        let topWindow = global.display.get_tab_next(Meta.TabList.NORMAL, global.workspace_manager.get_active_workspace(), lastWindow, true);
-        topWindow.focus(Clutter.CURRENT_TIME);
-    }
-
     _activateTopWindowOnActiveWorkspace() {
-        let window = global.display.get_tab_current(Meta.TabList.NORMAL, global.workspace_manager.get_active_workspace());
-        if (window && (!window.customJS_ding || !window.customJS_ding._keepAtBottom) && !window.minimized) {
-            Main.activateWindow(window);
-        } else {
-            for (window of this._windowList) {
-                if (window.customJS_ding && window.customJS_ding._keepAtBottom && !window.minimized) {
-                    Main.activateWindow(window);
-                    break;
-                }
-            }
+        let windows = global.display.get_tab_list(Meta.TabList.NORMAL, global.workspace_manager.get_active_workspace());
+        windows = global.display.sort_windows_by_stacking(windows);
+        if (windows.length) {
+            let topWindow = windows[windows.length - 1];
+            topWindow.focus(Clutter.CURRENT_TIME);
         }
     }
 
     _moveDesktopWindowToBottom() {
         for (let window of this._windowList)
-            window.customJS_ding.moveDesktopWindowToBottom();
+            window.customJS_ding._moveDesktopWindowToBottom();
     }
 
-    _onIdleRestackMoveWindow(action = { activateTopWindowOnWorkspace: true }) {
+    onIdleReStackActivteWindows(action = { activateTopWindowOnWorkspace: true }) {
         if (!this._activate_window_ID) {
             this._activate_window_ID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
                 if (this._overviewHiding) {

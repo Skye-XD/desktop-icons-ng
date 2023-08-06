@@ -150,7 +150,7 @@ function createDesktopWindow() {
                 y: windowActor.y - this._monitor.y,
             });
             const record = { windowActor, clone };
-            this._background.add_child(clone);
+            this._background?.add_child(clone);
 
             windowActor.connectObject('destroy', () => {
                 clone.destroy();
