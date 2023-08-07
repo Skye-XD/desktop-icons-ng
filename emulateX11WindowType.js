@@ -191,12 +191,12 @@ class ManageWindow {
                 this._window.lower();
 
             let moveDesktopWindowToBottom = true;
-            this._onIdleChangedStatusCallback({ moveDesktopWindowToBottom });
+            let activateTopWindowOnWorkspace = true;
+            this._onIdleChangedStatusCallback({ moveDesktopWindowToBottom, activateTopWindowOnWorkspace});
         }
     }
 
     _onWorkSpaceChanged() {
-        this._syncToBottomOfStack();
         this._onIdleActivateTopWindowOnActiveWorkspace();
     }
 
