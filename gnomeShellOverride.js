@@ -61,6 +61,7 @@ var GnomeShellOverride = class {
     enable() {
         // Prevent window flicker as the DING window moves to the new workspace.
         if (WorkspaceAnimation) {
+            this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_createWindows', newCreateWindows);
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', newShouldShowWindow);
             this.replaceMethod(WorkspaceAnimation.WorkspaceAnimationController, '_finishWorkspaceSwitch', newFinishWorkspaceSwitch);
         }
@@ -167,22 +168,49 @@ var GnomeShellOverride = class {
  * @param {Meta.Window} window the window
  */
 function newShouldShowWindow(window) {
-    if (window.customJS_ding && this._workspace) {
-        if (!this.dingClone) {
-            const geometry = global.display.get_monitor_geometry(this._monitor.index);
-            const [intersects] = window.get_frame_rect().intersect(geometry);
-            if (intersects && this._background) {
-                this.dingClone = new Clutter.Clone({
-                    source: window.actor,
-                    x: window.actor.x - this._monitor.x,
-                    y: window.actor.y - this._monitor.y,
-                });
-                this._background.add_child(this.dingClone);
-            }
-        }
+    if (window.is_on_all_workspaces() && (window.get_window_type() === Meta.WindowType.DESKTOP))
         return false;
-    }
     return replaceData.old__shouldShowWindow[0].apply(this, [window]);
+}
+
+/**
+ * Method Replament to make background window when creating window clones
+ *
+ */
+function newCreateWindows() {
+    if (this._workspace)
+        createDesktopWindow.apply(this, []);
+    replaceData.old__createWindows[0].apply(this, []);
+}
+
+
+/**
+ * Method Replament to make background window when creating window clones
+ *
+ */
+function createDesktopWindow() {
+    const desktopActors = global.get_window_actors().filter(w =>
+        w.meta_window.is_on_all_workspaces() && (w.meta_window.get_window_type() === Meta.WindowType.DESKTOP));
+
+    for (const windowActor of desktopActors) {
+        const geometry = global.display.get_monitor_geometry(this._monitor.index);
+        const [intersects] = windowActor.meta_window.get_frame_rect().intersect(geometry);
+        if (intersects && this._background) {
+            const clone = new Clutter.Clone({
+                source: windowActor,
+                x: windowActor.x - this._monitor.x,
+                y: windowActor.y - this._monitor.y,
+            });
+            const record = { windowActor, clone };
+            this._background.add_child(clone);
+
+            windowActor.connectObject('destroy', () => {
+                clone.destroy();
+            }, this);
+
+            this._windowRecords.push(record);
+        }
+    }
 }
 
 /**
