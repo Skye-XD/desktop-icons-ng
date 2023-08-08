@@ -20,6 +20,8 @@ const { Gtk, Gdk, GLib, Gio, GObject, Adw } = imports.gi;
 const Gettext = imports.gettext;
 var _ = Gettext.domain('gtk4-ding').gettext;
 
+const version = 47;
+
 const ListObject = GObject.registerClass({
     GTypeName: 'peferences-list',
     Properties: {
@@ -213,7 +215,6 @@ var AdwPreferencesWindow = class {
 
         const aboutGroup = new Adw.PreferencesGroup();
         aboutGroup.set_title('Gtk4 Desktop Icons NG');
-        const version = 46;
         let versiontitle = _(`Version ${version}`);
         aboutGroup.set_description(versiontitle);
         aboutFrame.add(aboutGroup);

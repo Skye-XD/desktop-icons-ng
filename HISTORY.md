@@ -1,4 +1,14 @@
 # History of versions #
+* Gtk4 version 47
+  * Makes DING windows Meta.WindowType.DESKTOP and is_on_all_workspacesso that it works perfectly with Gnome Shell without unlimited workspaces. Also works with auto-move-windows with no further modifications. Minimal overrides to gnome shell workspaceAnimation.js to support this, remove prior multiple overrides. (Sundeep Mediratta)
+  * When doing drag and drop over the dock, synthesize a hover event to highlight the dock item correctly as well as to enable scrolling and insure visibility of the app icon when it is crolled out of view on the Dock. (Sundeep Mediratta)
+  * Fix DbusUtils regressions. (Sundeep Mediratta)
+  * Gnome Shell overrides now happen immediately on enabling as expected by the shell. (Sundeep Mediratta)
+  * Fixes regression in Ubuntu Jammy, preferences window would crash as it only has old verison of libadwaita - now works with the old version. (Sundeep Mediratta)
+  * Added a link for Translations in the about page to facilated users helping in translations on Weblate.
+  * Multiple tranlation updates.  (Weblate Authors)
+  * Update metadata.json, History.md, Version Bump to 47.
+
 * Gtk4 version 46
   * Fix- Stops unlimited workspaces to the right with extensions AUTO-MOVE-WINDOWS enabled. Overrides auto move windows as well so no extra workspaces are created to the right.
   * Weblate translation updates

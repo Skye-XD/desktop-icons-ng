@@ -103,6 +103,10 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [X] New - About pane if preferences page that shows the correct version of the extension and weblimks to gitlab website.
 
+- [x] New - Translation link in about window.
+
+- [x] New - Correctly hover over Dock in drag and drop to enable highlighing of the app icon and scrolling for hidden ones.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -186,6 +190,10 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 - [x] Separate code for gnome shell drag and drop to a new class in gnomeShellDragDrop.js. Simplify DesktopManager.js.
 
 - [x] Fix - Gnome shell creates a empty workspace to the right as it detects the DING window. This can lead to Unlimited Workspaces. STILL DOES NOT WORK CORRECTL WITH AUTO-MOVE-WINDOWS EXTENSION UNLESS THAT EXTENSION IS LOADED AFTER Gtk4 DING. (Sundeep Mediratta)
+
+- [x] Version 47 fixes the above problems with unlimited workspaces with auto-move-windows as well as the Shell. Window is Meta.WindowType.DESKTOP, and is_on_all_workspaces even on wayland vastly simplifying management with minimal gnome shell overrides.
+
+- [x] Multiple fixes for regressions, fix for Ubuntu to work with old version of libAdwaita.
 
 **KNOWN ISSUES**
 
