@@ -106,6 +106,7 @@ class ProxyManager {
                 this._proxy.disconnect(this._signalsIDs[signal]);
 
             delete this._signalsIDs[signal];
+            delete this._signals[signal];
         }
     }
 
@@ -115,6 +116,7 @@ class ProxyManager {
                 this._proxy.disconnectSignal(this._connectSignalsIDs[signal]);
 
             delete this._connectSignalsIDs[signal];
+            delete this._connectSignals[signal];
         }
     }
 
@@ -140,12 +142,16 @@ class ProxyManager {
             } catch (e) {
                 this._available = false;
                 this._proxy = null;
+                this._signalIDs = {};
+                this._connectSignalsIDs = {};
                 print(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
                 return false;
             }
         } else {
             this._available = false;
             this._proxy = null;
+            this._signalIDs = {};
+            this._connectSignalsIDs = {};
             return false;
         }
     }
