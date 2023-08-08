@@ -124,6 +124,9 @@ function enable() {
         data.visibleArea = DesktopIconsUsableArea;
     }
 
+    if (!data.synthesizeHover)
+        data.synthesizeHover = new SynthesizeHover();
+
     // If the desktop is still starting up, we wait until it is ready
     if (Main.layoutManager._startingUp) {
         data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable);
@@ -302,6 +305,7 @@ function disable() {
     data.GnomeShellOverride.disable();
     data.x11Manager.disable();
     data.visibleArea.disable();
+    data.synthesizeHover.disable();
 
     if (data.startupProcessKillWaitId) {
         GLib.source_remove(data.startupProcessKillWaitId);
@@ -666,10 +670,12 @@ var DingExtensionService = class {
             actor = actor.get_parent();
         }
 
-        if (droptarget)
+        if (droptarget) {
+            data.synthesizeHover.hoverOver(checkactor);
             return droptarget;
-        else
+        } else {
             return 'null';
+        }
     }
 
     setDragCursor(cursor) {
@@ -691,5 +697,52 @@ var DingExtensionService = class {
     getShellGlobalCoordinates() {
         let x = global.get_pointer();
         return x;
+    }
+};
+
+/** This class simulates a hover on the Dock so thet the dock app items
+ * can be visible and scroll automatically on drops.
+ */
+var SynthesizeHover = class {
+    constructor() {
+        this._hoveredActor = null;
+        this._hoverTimeoutID = 0;
+    }
+
+    destroy() {
+        this._cancelCurrentTimer();
+        this._hoveredActor = null;
+    }
+
+    hoverOver(newactor) {
+        if (newactor == this._hoveredActor) {
+            this._resetHoverTimer();
+            return;
+        }
+        if (this._hoveredActor)
+            this._hoveredActor.set_hover(false);
+        this._cancelCurrentTimer();
+        this._hoveredActor = newactor;
+        this._hoveredActor.sync_hover();
+        this._setNewHoverTimer(this._hoveredActor);
+    }
+
+    _resetHoverTimer() {
+        this._cancelCurrentTimer();
+        this._setNewHoverTimer(this._hoveredActor);
+    }
+
+    _cancelCurrentTimer() {
+        if (this._hoverTimeoutID)
+            GLib.source_remove(this._hoverTimeoutID);
+        this._hoverTimeoutID = 0;
+    }
+
+    _setNewHoverTimer(actor) {
+        this._hoverTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 750, () => {
+            actor.set_hover(false);
+            this._hoverTimeoutID = 0;
+            return false;
+        });
     }
 };
