@@ -709,7 +709,7 @@ var SynthesizeHover = class {
         this._hoverTimeoutID = 0;
     }
 
-    destroy() {
+    disable() {
         this._cancelCurrentTimer();
         this._hoveredActor = null;
     }
