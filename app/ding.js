@@ -161,7 +161,7 @@ parseCommandLine(ARGV);
 imports.searchPath.unshift(codePath);
 
 const Preferences = imports.app.preferences;
-const AdwPreferencesWindow = imports.app.adwPreferencesWindow;
+// const AdwPreferencesWindow = imports.app.adwPreferencesWindow;
 const Enums = imports.app.enums;
 const DBusUtils = imports.app.utils.dbusUtils;
 const PromiseUtils = imports.app.utils.promiseUtils;
@@ -192,8 +192,8 @@ if (Gio.File.new_for_path(localePath).query_exists(null))
 const DesktopManager = imports.app.desktopManager;
 
 var desktopManager = null;
-var Utils = { FileUtils, PromiseUtils };
-var Data = { codePath, Enums, AdwPreferencesWindow};
+var Utils = {FileUtils, PromiseUtils };
+var Data = {codePath, Enums};
 
 if (asDesktop) {
     remoteDingActions = Gio.DBusActionGroup.get(

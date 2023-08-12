@@ -68,8 +68,10 @@ var Preferences = class {
         this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
         this._cacheInitialSettings();
 
-        this._adwPreferencesWindow = new Data.AdwPreferencesWindow.AdwPreferencesWindow(this.desktopSettings,
-            this.nautilusSettings, this.gtkSettings, this._extensionPath);
+        if (Data.AdwPreferencesWindow) {
+            this._adwPreferencesWindow = new Data.AdwPreferencesWindow.AdwPreferencesWindow(this.desktopSettings,
+                this.nautilusSettings, this.gtkSettings, this._extensionPath);
+        }
     }
 
     _get_schema(schema) {

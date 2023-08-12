@@ -1603,16 +1603,16 @@ var DesktopManager = class {
             }
         }
 
-        if (success && completed)
-            return;
+        // if (success && completed)
+        //     return;
 
-        this.preferencesWindow = this.Prefs.getAdwPreferencesWindow();
-        this.preferencesWindow.connect('close-request', () => {
-            this.preferencesWindow = null;
-        });
-        this.preferencesWindow.set_title(_('Settings'));
-        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
-        this.preferencesWindow.show();
+        // this.preferencesWindow = this.Prefs.getAdwPreferencesWindow();
+        // this.preferencesWindow.connect('close-request', () => {
+        //     this.preferencesWindow = null;
+        // });
+        // this.preferencesWindow.set_title(_('Settings'));
+        // this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
+        // this.preferencesWindow.show();
     }
 
     _onOpenTerminalClicked() {
