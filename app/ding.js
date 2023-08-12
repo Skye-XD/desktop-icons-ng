@@ -19,7 +19,7 @@
  */
 
 imports.gi.versions.Gtk = '4.0';
-const {Gtk, Gio, GLib, Adw} = imports.gi;
+const {Gio, GLib, Adw} = imports.gi;
 
 let desktops = [];
 let lastCommand = null;
@@ -164,8 +164,8 @@ const Preferences = imports.app.preferences;
 const AdwPreferencesWindow = imports.app.adwPreferencesWindow;
 const Enums = imports.app.enums;
 const DBusUtils = imports.app.utils.dbusUtils;
-const PromiseUtils = imports.utils.promiseUtils;
-const FileUtils = imports.utils.fileUtils;
+const PromiseUtils = imports.app.utils.promiseUtils;
+const FileUtils = imports.app.utils.fileUtils;
 const DesktopIconsUtil = imports.app.utils.desktopIconsUtil;
 const Gettext = imports.gettext;
 
