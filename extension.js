@@ -71,7 +71,7 @@ const ShellDropCursor = {
 
 export default class DingExtension extends Extension {
     constructor(metadata) {
-        super(metadata)
+        super(metadata);
         this._init();
     }
 
@@ -512,7 +512,7 @@ export default class DingExtension extends Extension {
 
         this._doRelaunch(reloadTime);
     }
-};
+}
 
 /**
  * This class encapsulates the code to launch a subprocess that can detect whether a window belongs to it

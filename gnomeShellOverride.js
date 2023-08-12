@@ -18,18 +18,13 @@
 
 /* exported GnomeShellOverride */
 
-const { Meta, Clutter, GLib } = imports.gi;
-const Config = imports.misc.config;
+const {Meta, Clutter, GLib} = imports.gi;
 
-var WorkspaceAnimation = null;
-try {
-    WorkspaceAnimation = imports.ui.workspaceAnimation;
-} catch (err) {
-    log('Workspace Animation does not exist');
-}
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
+import * as WorkspaceAnimation from 'resource:///org/gnome/shell/ui/WorkspaceAnimation.js';
 
 // Need to know this to apply overrides correctly
-const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
+const GnomeShellVersion = 45;
 
 var replaceData = {};
 var workSpaceSwitchTimeoutID = null;
@@ -149,7 +144,7 @@ function createDesktopWindow() {
                 x: windowActor.x - this._monitor.x,
                 y: windowActor.y - this._monitor.y,
             });
-            const record = { windowActor, clone };
+            const record = {windowActor, clone};
             this._background?.add_child(clone);
 
             windowActor.connectObject('destroy', () => {
