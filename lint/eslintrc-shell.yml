@@ -38,3 +38,6 @@ overrides:
       _: readonly
       C_: readonly
       N_: readonly
+
+parserOptions:
+  sourceType: module
