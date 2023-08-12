@@ -22,6 +22,7 @@ const {Meta, Clutter, GLib} = imports.gi;
 
 import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 import * as WorkspaceAnimation from 'resource:///org/gnome/shell/ui/WorkspaceAnimation.js';
+export {GnomeShellOverride};
 
 // Need to know this to apply overrides correctly
 const GnomeShellVersion = 45;

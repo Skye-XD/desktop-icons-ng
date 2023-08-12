@@ -22,11 +22,11 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 
-const EmulateX11 = imports.emulateX11WindowType;
-const VisibleArea = imports.visibleArea;
-const GnomeShellOverride = imports.gnomeShellOverride;
-const PromiseUtils = imports.utils.promiseUtils;
-const FileUtils = imports.utils.fileUtils;
+import * as EmulateX11 from './emulateX11WindowType.js';
+import * as VisibleArea from './visibleArea.js';
+import * as GnomeShellOverride from './gnomeShellOverride.js';
+import * as PromiseUtils from './utils/promiseUtils.js';
+import * as FileUtils from './utils/fileUtils.js';
 
 const GnomeShellVersion = 45;
 

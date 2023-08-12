@@ -19,7 +19,7 @@
  */
 
 imports.gi.versions.Gtk = '4.0';
-const { Gtk, Gio, GLib, Adw} = imports.gi;
+const {Gtk, Gio, GLib, Adw} = imports.gi;
 
 let desktops = [];
 let lastCommand = null;

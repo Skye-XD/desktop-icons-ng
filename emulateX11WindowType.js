@@ -21,7 +21,7 @@ const {GLib, Gio, Meta, Clutter} = imports.gi;
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as DND from 'resource:///org/gnome/shell/ui/dnd.js';
 import * as AppFavorites from 'resource:///org/gnome/shell/ui/appFavorites.js';
-
+export {EmulateX11WindowType};
 class ManageWindow {
     /* This class is added to each managed window, and it's used to
        make it behave like an X11 Desktop window.

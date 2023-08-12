@@ -18,7 +18,7 @@
 /* This is coming from gjs 1.72, adding options to allow not to replace the
  * original method, in case we want to avoid clashes with already used async
  * methods. This can be dropped when such requirements are not needed */
-function _promisify(options, proto, asyncFunc,
+export function _promisify(options, proto, asyncFunc,
     finishFunc = `${asyncFunc.replace(/_(begin|async)$/, '')}_finish`) {
     if (proto[asyncFunc] === undefined)
         throw new Error(`${proto} has no method named ${asyncFunc}`);

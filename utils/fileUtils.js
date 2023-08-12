@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { GLib, Gio } = imports.gi;
+const {GLib, Gio} = imports.gi;
 
 const DEFAULT_ENUMERATE_BATCH_SIZE = 100;
 const DEFAULT_QUERY_ATTRIBUTES = [
@@ -30,7 +30,7 @@ const DEFAULT_QUERY_ATTRIBUTES = [
  * @param priority
  * @param queryAttributes
  */
-async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DEFAULT,
+export async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DEFAULT,
     queryAttributes = DEFAULT_QUERY_ATTRIBUTES) {
     const childrenEnumerator = await dir.enumerate_children_async_promise(queryAttributes,
         Gio.FileQueryInfoFlags.NONE, priority, cancellable);
@@ -63,7 +63,7 @@ async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DE
  * @param cancellable
  * @param priority
  */
-async function recursivelyDeleteDir(dir, deleteParent, cancellable = null,
+export async function recursivelyDeleteDir(dir, deleteParent, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     const children = await enumerateDir(dir, cancellable, priority);
     for (let info of children)
@@ -81,7 +81,7 @@ async function recursivelyDeleteDir(dir, deleteParent, cancellable = null,
  * @param cancellable
  * @param priority
  */
-async function deleteFile(file, info = null, cancellable = null,
+export async function deleteFile(file, info = null, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     if (!info) {
         info = await file.query_info_async_promise(
@@ -107,7 +107,7 @@ async function deleteFile(file, info = null, cancellable = null,
  * @param cancellable
  * @param priority
  */
-async function queryExists(file, cancellable = null,
+export async function queryExists(file, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     try {
         await file.query_info_async_promise(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
@@ -128,7 +128,7 @@ async function queryExists(file, cancellable = null,
  * @param cancellable
  * @param priority
  */
-async function recursivelyMakeDir(dir, cancellable = null,
+export async function recursivelyMakeDir(dir, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     try {
         await dir.make_directory_async(priority, cancellable);
