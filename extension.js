@@ -20,7 +20,6 @@ const { GLib, Gio, Meta, Clutter } = imports.gi;
 const Main = imports.ui.main;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Config = imports.misc.config;
-const ByteArray = imports.byteArray;
 
 const Me = ExtensionUtils.getCurrentExtension();
 const EmulateX11 = Me.imports.emulateX11WindowType;
@@ -590,11 +589,12 @@ var LaunchSubprocess = class {
     }
 
     async readOutput(dataInputStream, cancellable) {
+        let textDecoder = new TextDecoder();
         try {
             const [output, length] = await dataInputStream.read_line_async_promise(
                 GLib.PRIORITY_DEFAULT, cancellable);
             if (length)
-                print(`${this._processID}: ${ByteArray.toString(output)}`);
+                print(`${this._processID}: ${textDecoder.decode(output)}`);
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 return;
