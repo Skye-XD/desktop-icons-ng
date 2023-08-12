@@ -16,31 +16,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /* exported init, enable, disable */
-const { GLib, Gio, Meta, Clutter } = imports.gi;
-const Main = imports.ui.main;
-const ExtensionUtils = imports.misc.extensionUtils;
-const Config = imports.misc.config;
+const {GLib, Gio, Meta, Clutter} = imports.gi;
 
-const Me = ExtensionUtils.getCurrentExtension();
-const EmulateX11 = Me.imports.emulateX11WindowType;
-const VisibleArea = Me.imports.visibleArea;
-const GnomeShellOverride = Me.imports.gnomeShellOverride;
-const PromiseUtils = Me.imports.utils.promiseUtils;
-const FileUtils = Me.imports.utils.fileUtils;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 
-PromiseUtils._promisify({ keepOriginal: true },
+const EmulateX11 = imports.emulateX11WindowType;
+const VisibleArea = imports.visibleArea;
+const GnomeShellOverride = imports.gnomeShellOverride;
+const PromiseUtils = imports.utils.promiseUtils;
+const FileUtils = imports.utils.fileUtils;
+
+const GnomeShellVersion = 45;
+
+PromiseUtils._promisify({keepOriginal: true},
     Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish_utf8');
-PromiseUtils._promisify({ keepOriginal: true },
+PromiseUtils._promisify({keepOriginal: true},
     Gio.Subprocess.prototype, 'wait_async');
 
 const fileProto = imports.system.version >= 17200
     ? Gio.File.prototype : Gio._LocalFilePrototype;
 
-PromiseUtils._promisify({ keepOriginal: true },
+PromiseUtils._promisify({keepOriginal: true},
     fileProto, 'enumerate_children_async');
-PromiseUtils._promisify({ keepOriginal: true },
+PromiseUtils._promisify({keepOriginal: true},
     Gio.FileEnumerator.prototype, 'close_async');
-PromiseUtils._promisify({ keepOriginal: true },
+PromiseUtils._promisify({keepOriginal: true},
     Gio.FileEnumerator.prototype, 'next_files_async');
 
 const ifaceXml = `
@@ -67,8 +69,9 @@ const ShellDropCursor = {
     MOVE: 'dndMoveCursor',
 };
 
-var DingExtension = class {
-    constructor() {
+export default class DingExtension extends Extension {
+    constructor(metadata) {
+        super(metadata)
         this._init();
     }
 
@@ -84,7 +87,7 @@ var DingExtension = class {
         this.dingExtensionServiceInterface = null;
 
         this.GnomeShellOverride = null;
-        this.GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
+        this.GnomeShellVersion = GnomeShellVersion;
 
         /* The constructor of the EmulateX11 class only initializes some
          * internal properties, but nothing else. In fact, it has its own
@@ -128,7 +131,7 @@ var DingExtension = class {
 
         // If the desktop is still starting up, we wait until it is ready
         if (Main.layoutManager._startingUp) {
-            this.startupPreparedId = Main.layoutManager.connect('startup-complete', this.innerEnable.bind(this));
+            this.startupPreparedId = Main.layoutManager.connect('startup-complete', this._innerEnable.bind(this));
         } else {
             this.startupPrepareId = null;
             this._innerEnable();
@@ -145,7 +148,7 @@ var DingExtension = class {
                     return GLib.SOURCE_CONTINUE;
 
                 this.startupProcessKillWaitId = 0;
-                this.innerEnable();
+                this._innerEnable();
                 return GLib.SOURCE_REMOVE;
             });
             return;
@@ -394,7 +397,7 @@ var DingExtension = class {
         const procFolder = Gio.File.new_for_path('/proc');
         const processes = await FileUtils.enumerateDir(procFolder);
         const thisPath = `gjs ${GLib.build_filenamev([
-            ExtensionUtils.getCurrentExtension().path,
+            this.path,
             'app',
             'ding.js',
         ])}`;
@@ -417,7 +420,7 @@ var DingExtension = class {
                 }
 
                 if (contents.startsWith(thisPath)) {
-                    let proc = new Gio.Subprocess({ argv: ['/bin/kill', filename] });
+                    let proc = new Gio.Subprocess({argv: ['/bin/kill', filename]});
                     proc.init(null);
                     print(`Killing old DING process ${filename}`);
                     await proc.wait_async_promise(null);
@@ -458,12 +461,12 @@ var DingExtension = class {
     async _launchDesktop() {
         console.log('Launching Gtk4-DING process');
         let argv = [];
-        argv.push(GLib.build_filenamev([ExtensionUtils.getCurrentExtension().path, 'app', 'ding.js']));
+        argv.push(GLib.build_filenamev([this.path, 'app', 'ding.js']));
         // Specify that it must work as true desktop
         argv.push('-E');
         // The path. Allows the program to find translations, settings and modules.
         argv.push('-P');
-        argv.push(ExtensionUtils.getCurrentExtension().path);
+        argv.push(this.path);
         // The current Gnome Shell Version for correct operation of clipboard with Gtk4.
         argv.push('-V');
         argv.push(`${this.GnomeShellVersion}`);
@@ -523,7 +526,7 @@ var DingExtension = class {
 var LaunchSubprocess = class {
     constructor(flags, processId) {
         this._processID = processId;
-        this._launcher = new Gio.SubprocessLauncher({ flags: flags | Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE });
+        this._launcher = new Gio.SubprocessLauncher({flags: flags | Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE});
         if (Meta.is_wayland_compositor()) {
             try {
                 this._waylandClient = Meta.WaylandClient.new(this._launcher);
