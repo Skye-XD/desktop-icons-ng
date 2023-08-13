@@ -21,7 +21,7 @@
 const {Gio} = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 
-import * as Enums from './app/enums.js';
+import * as Enums from './exportedenums.js';
 import * as  adwPreferencesWindow from './app/adwPreferencesWindow.js';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
