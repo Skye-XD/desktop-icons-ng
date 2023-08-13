@@ -18,11 +18,12 @@
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
-const { Gtk, Gdk, Gio, GLib, Adw } = imports.gi;
+const {Gtk, Gdk, Gio, GLib, Adw} = imports.gi;
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
+// eslint-disable-next-line no-unused-vars
 var AppChooserDialog = class {
     constructor(codepath, fileItems, activeFileItem = null, dbusUtils, desktopIconsUtil) {
         if (!activeFileItem)

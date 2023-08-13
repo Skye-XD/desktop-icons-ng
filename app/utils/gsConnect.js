@@ -21,6 +21,7 @@
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 
+// eslint-disable-next-line no-unused-vars
 var GsConnectSendFileOperationsManager =  class {
     constructor(GsConnectManager, applicationid) {
         this._mainApp = applicationid;

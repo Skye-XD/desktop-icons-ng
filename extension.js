@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
@@ -28,7 +29,7 @@ import * as GnomeShellOverride from './gnomeShellOverride.js';
 import * as PromiseUtils from './utils/promiseUtils.js';
 import * as FileUtils from './utils/fileUtils.js';
 
-const GnomeShellVersion = 45;
+const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
 
 PromiseUtils._promisify({keepOriginal: true},
     Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish_utf8');
@@ -731,6 +732,7 @@ var SynthesizeHover = class {
     }
 
     hoverOver(newactor) {
+        // eslint-disable-next-line eqeqeq
         if (newactor == this._hoveredActor) {
             this._resetHoverTimer();
             return;

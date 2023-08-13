@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-param-type */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2022 Marco Trevisan <marco.trevisan@canonical.com>
@@ -25,10 +26,10 @@ const DEFAULT_QUERY_ATTRIBUTES = [
 
 /**
  *
- * @param dir
- * @param cancellable
- * @param priority
- * @param queryAttributes
+ * @param {object} dir Gio.File
+ * @param {object} cancellable Gio.Cancellable
+ * @param {integer} priority GLib.PRIORITY
+ * @param {integer} queryAttributes Flags
  */
 async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DEFAULT,
     queryAttributes = DEFAULT_QUERY_ATTRIBUTES) {
@@ -67,6 +68,7 @@ async function recursivelyDeleteDir(dir, deleteParent, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     const children = await enumerateDir(dir, cancellable, priority);
     for (let info of children)
+        // eslint-disable-next-line no-await-in-loop
         await deleteFile(dir.get_child(info.get_name()), info, cancellable, priority);
 
 
@@ -107,6 +109,7 @@ async function deleteFile(file, info = null, cancellable = null,
  * @param cancellable
  * @param priority
  */
+// eslint-disable-next-line no-unused-vars
 async function queryExists(file, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     try {
@@ -128,6 +131,7 @@ async function queryExists(file, cancellable = null,
  * @param cancellable
  * @param priority
  */
+// eslint-disable-next-line no-unused-vars
 async function recursivelyMakeDir(dir, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     try {
@@ -140,6 +144,7 @@ async function recursivelyMakeDir(dir, cancellable = null,
     const missingDirs = [dir];
     for (let parent = dir.get_parent(); parent; parent = parent.get_parent()) {
         try {
+            // eslint-disable-next-line no-await-in-loop
             await parent.make_directory_async(priority, cancellable);
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))

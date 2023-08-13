@@ -16,12 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { Gtk, Gio, GLib } = imports.gi;
+const {Gtk, Gio, GLib} = imports.gi;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
+// eslint-disable-next-line no-unused-vars
 var AskRenamePopup = class {
     constructor(fileItem, allowReturnOnSameName, closeCB, setPendingDropCoordinatesCB, Data) {
         this.FileUtils = Data.FileUtils;
@@ -54,7 +55,7 @@ var AskRenamePopup = class {
         this._textArea = new Gtk.Entry();
         this._textArea.text = fileItem.fileName;
         contentBox.attach(this._textArea, 0, 1, 1, 1);
-        this._button = new Gtk.Button({ label: allowReturnOnSameName ? _('OK') : _('Rename') });
+        this._button = new Gtk.Button({label: allowReturnOnSameName ? _('OK') : _('Rename')});
         contentBox.attach(this._button, 1, 1, 1, 1);
         this._buttonId = this._button.connect('clicked', this._do_rename.bind(this));
         this._textAreaChangedId = this._textArea.connect('changed', () => {
@@ -75,7 +76,7 @@ var AskRenamePopup = class {
         this._popover.popup();
         this._validate().catch(e => logError(e));
         this._textArea.grab_focus_without_selecting();
-        this._textArea.select_region(0, this.DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, { 'isDirectory': fileItem.isDirectory }).offset);
+        this._textArea.select_region(0, this.DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, {'isDirectory': fileItem.isDirectory}).offset);
     }
 
     _cleanAll() {

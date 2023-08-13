@@ -19,7 +19,7 @@
  */
 
 imports.gi.versions.GnomeDesktop = '3.0';
-const { GnomeDesktop, Gio } = imports.gi;
+const {GnomeDesktop, Gio} = imports.gi;
 
 /**
  *

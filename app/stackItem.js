@@ -53,6 +53,7 @@ var stackItem = class extends desktopIconItem.desktopIconItem {
         this._icon.set_paintable(iconPaintable);
     }
 
+    // eslint-disable-next-line no-unused-vars
     _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         this._desktopManager.onToggleStackUnstackThisTypeClicked(this.attributeContentType);
     }

@@ -1,3 +1,6 @@
+/* eslint-disable no-invalid-this */
+/* eslint-disable no-undef */
+/* The above is for use of global in this file as Shell.global */
 /* Gnome Shell Override
  *
  * Copyright (C) 2021 - 2023 Sundeep Mediratta (smedius@gmail.com)
@@ -25,7 +28,7 @@ import * as WorkspaceAnimation from 'resource:///org/gnome/shell/ui/workspaceAni
 export {GnomeShellOverride};
 
 // Need to know this to apply overrides correctly
-const GnomeShellVersion = 45;
+const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
 
 var replaceData = {};
 var workSpaceSwitchTimeoutID = null;

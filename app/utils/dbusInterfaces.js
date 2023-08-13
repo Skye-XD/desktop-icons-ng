@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// eslint-disable-next-line no-unused-vars
 var DBusInterfaces = {
     // net.haddes.SwitcherooControl
     'net.hadess.SwitcherooControl': `<node>

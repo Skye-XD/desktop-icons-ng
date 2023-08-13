@@ -279,11 +279,13 @@ var AdwPreferencesWindow = class {
 
         if (!window)
             return prefsWindow;
+        else
+            return true;
     }
 
     addActionRowSwitch(settings, key, labelText) {
         const actionRow = Adw.ActionRow.new();
-        const switcher = new Gtk.Switch({ active: settings.get_boolean(key) });
+        const switcher = new Gtk.Switch({active: settings.get_boolean(key)});
         switcher.set_halign(Gtk.Align.END);
         switcher.set_valign(Gtk.Align.CENTER);
         switcher.set_hexpand(false);

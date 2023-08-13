@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-spacing */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) gtk4 port
@@ -23,6 +24,7 @@ const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
+// eslint-disable-next-line no-unused-vars
 var ShowErrorPopup = class {
     constructor(text, secondaryText, modal, textEntryAccelsTurnOff, textEntryAccelsTurnOn, DesktopIconsUtil) {
         this.DesktopIconsUtil = DesktopIconsUtil;

@@ -18,11 +18,12 @@
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
-const { Gdk, GLib, Gio } = imports.gi;
+const {Gdk, GLib, Gio} = imports.gi;
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
+// eslint-disable-next-line no-unused-vars
 var GnomeShellDrag = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
@@ -55,8 +56,8 @@ var GnomeShellDrag = class {
                     await this._dockUriSpringTimerFunction();
                 } catch (e) {
                     logError(e);
-                    return GLib.SOURCE_REMOVE;
                 }
+                return GLib.SOURCE_REMOVE;
             }
         );
     }
@@ -121,6 +122,7 @@ var GnomeShellDrag = class {
             this._dockSpringOpenComplete = false;
             return GLib.SOURCE_CONTINUE;
         }
+        return GLib.SOURCE_REMOVE;
     }
 
     _stopMonitoringDockUriNavigation() {
@@ -222,6 +224,7 @@ var GnomeShellDrag = class {
         let modal = true;
         let windowError = new this._desktopManager.showErrorPopup.ShowErrorPopup(
             _('Could not open File'),
+            // eslint-disable-next-line no-template-curly-in-string
             _('${appName} can not open files of this Type!').replace('${appName}', Appname),
             modal,
             this._textEntryAccelsTurnOff.bind(this),

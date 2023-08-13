@@ -21,7 +21,7 @@ imports.gi.versions.GdkX11 = '4.0';
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.GdkWayland = '4.0';
 
-const { Gdk, Gio, GLib, GdkX11, GdkWayland } = imports.gi;
+const {Gdk, Gio, GLib, GdkX11, GdkWayland} = imports.gi;
 const Signals = imports.signals;
 const DBusInterfaces = imports.app.utils.dbusInterfaces;
 const GsConnect = imports.app.utils.gsConnect;
@@ -56,7 +56,9 @@ class ProxyManager {
         if (typeof programNeeded === 'string') {
             // if 'programNeeded' is a string, create a generic message for the notification.
             this._programNeeded = [
+                // eslint-disable-next-line no-template-curly-in-string
                 _('"${programName}" is needed for Desktop Icons').replace('${programName}', programNeeded),
+                // eslint-disable-next-line no-template-curly-in-string
                 _('For this functionality to work in Desktop Icons, you must install "${programName}" in your system.').replace('${programName}', programNeeded),
             ];
         } else {
@@ -1007,6 +1009,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 var DBusUtils = class DBusUtils {
     constructor(mainApp) {
         this.applicationId = mainApp;
@@ -1180,6 +1183,7 @@ class ExtensionControl {
                         if (error) {
                             logError(error, 'Unable to get .desktop file');
                             resolve(null);
+                        // eslint-disable-next-line eqeqeq
                         } else if (desktopFileAppPath == 'null') {
                             resolve(null);
                         } else {

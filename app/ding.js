@@ -148,7 +148,7 @@ function parseCommandLine(argv) {
         /* if no desktop list is provided, like when launching the program in stand-alone mode,
          * configure a 1280x720 desktop
          */
-        desktops.push({ x: 0, y: 0, width: 1280, height: 720, zoom: 1, marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: 0, monitorIndex: 0 });
+        desktops.push({x: 0, y: 0, width: 1280, height: 720, zoom: 1, marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: 0, monitorIndex: 0});
     }
     for (let desktop of desktops)
         desktop.primaryMonitor = primaryIndex;
@@ -192,7 +192,7 @@ if (Gio.File.new_for_path(localePath).query_exists(null))
 const DesktopManager = imports.app.desktopManager;
 
 var desktopManager = null;
-var Utils = {FileUtils, PromiseUtils };
+var Utils = {FileUtils, PromiseUtils};
 var Data = {codePath, Enums};
 
 if (asDesktop) {
@@ -202,6 +202,8 @@ if (asDesktop) {
         '/com/desktop/ding/actions'
     );
 } else {
+    // Used for testing, remotely setting desktop geometry instead of command line, see line 247
+    // eslint-disable-next-line no-unused-vars
     remoteDingActions = Gio.DBusActionGroup.get(
         Gio.DBus.session,
         'com.desktop.dingtest',
@@ -257,6 +259,8 @@ if (!errorFound)
 
 
 if (!errorFound)
+    // eslint-disable-next-line no-unused-expressions
     0;
 else
+    // eslint-disable-next-line no-unused-expressions
     1;

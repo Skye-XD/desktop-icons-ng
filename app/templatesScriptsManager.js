@@ -16,8 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const { Gio, GLib } = imports.gi;
+const {Gio, GLib} = imports.gi;
 
+// eslint-disable-next-line no-unused-vars
 var TemplatesScriptsManager = class {
     constructor(baseFolder, callback, selectionfilter, Data) {
         this._callback = callback;
@@ -119,6 +120,7 @@ var TemplatesScriptsManager = class {
 
             let submenu;
             let subentriesList;
+            // eslint-disable-next-line no-await-in-loop
             subentriesList = await this._processDirectory(file[1], cancellable);
             if (subentriesList === null)
                 return null;

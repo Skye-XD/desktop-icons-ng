@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
@@ -16,9 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var ICON_SIZE = { 'tiny': 36, 'small': 48, 'standard': 64, 'large': 96 };
-var ICON_WIDTH = { 'tiny': 70, 'small': 90, 'standard': 120, 'large': 130 };
-var ICON_HEIGHT = { 'tiny': 80, 'small': 90, 'standard': 106, 'large': 138 };
+var ICON_SIZE = {'tiny': 36, 'small': 48, 'standard': 64, 'large': 96};
+var ICON_WIDTH = {'tiny': 70, 'small': 90, 'standard': 120, 'large': 130};
+var ICON_HEIGHT = {'tiny': 80, 'small': 90, 'standard': 106, 'large': 138};
 
 var START_CORNER = {
     'top-left': [false, false],
@@ -103,7 +104,7 @@ var ShellDropCursor = {
     NODROP: 'dndNoDropCursor',
     COPY: 'dndCopyCursor',
     MOVE: 'dndMoveCursor',
-}
+};
 
 var DEFAULT_ATTRIBUTES = 'metadata::*,standard::*,access::*,time::modified,unix::mode';
 var TERMINAL_SCHEMA = 'org.gnome.desktop.default-applications.terminal';

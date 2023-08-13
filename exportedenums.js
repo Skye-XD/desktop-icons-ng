@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-export const ICON_SIZE = { 'tiny': 36, 'small': 48, 'standard': 64, 'large': 96 };
-export const ICON_WIDTH = { 'tiny': 70, 'small': 90, 'standard': 120, 'large': 130 };
-export const ICON_HEIGHT = { 'tiny': 80, 'small': 90, 'standard': 106, 'large': 138 };
+export const ICON_SIZE = {'tiny': 36, 'small': 48, 'standard': 64, 'large': 96};
+export const ICON_WIDTH = {'tiny': 70, 'small': 90, 'standard': 120, 'large': 130};
+export const ICON_HEIGHT = {'tiny': 80, 'small': 90, 'standard': 106, 'large': 138};
 
 export const START_CORNER = {
     'top-left': [false, false],
@@ -103,7 +103,7 @@ export const ShellDropCursor = {
     NODROP: 'dndNoDropCursor',
     COPY: 'dndCopyCursor',
     MOVE: 'dndMoveCursor',
-}
+};
 
 export const DEFAULT_ATTRIBUTES = 'metadata::*,standard::*,access::*,time::modified,unix::mode';
 export const TERMINAL_SCHEMA = 'org.gnome.desktop.default-applications.terminal';

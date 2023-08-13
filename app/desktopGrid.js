@@ -20,7 +20,7 @@
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
 
-const { Gtk, Gdk, GLib, Gio, Graphene, Gsk, Adw } = imports.gi;
+const {Gtk, Gdk, GLib, Gio, Graphene, Gsk, Adw} = imports.gi;
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
@@ -28,6 +28,7 @@ const _ = Gettext.gettext;
 
 var elementSpacing = 2;
 
+// eslint-disable-next-line no-unused-vars
 var DesktopGrid = class {
     constructor(desktopManager, desktopName, desktopDescription, asDesktop, premultiplied) {
         this._destroying = false;
@@ -46,7 +47,7 @@ var DesktopGrid = class {
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
 
-        this._window = new Adw.ApplicationWindow({ application: desktopManager.mainApp, 'title': desktopName });
+        this._window = new Adw.ApplicationWindow({application: desktopManager.mainApp, 'title': desktopName});
         if (this._asDesktop) {
             this._window.set_decorated(false);
             this._window.set_deletable(false);
@@ -146,7 +147,7 @@ var DesktopGrid = class {
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem) {
-                let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+                let clickRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
                     clickItem._onPressButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
@@ -167,7 +168,7 @@ var DesktopGrid = class {
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
             let clickItem = this._fileAt(x, y);
             if (clickItem && !this._desktopManager.rubberBand) {
-                let clickRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+                let clickRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
                     clickItem._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
@@ -459,6 +460,8 @@ var DesktopGrid = class {
         this.gridDropController.connect('accept', (actor, drop) => {
             if (drop.get_formats().match(desktopAcceptFormats))
                 return true;
+            else
+                return false;
         });
 
         this.gridDropController.connect('drag-enter', (actor, drop) => {
@@ -473,7 +476,7 @@ var DesktopGrid = class {
             let fileItemDropZone = false;
             let fileItem = this._fileAt(x, y);
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            let dropRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+            let dropRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
             let desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
             let filesMove = drop.get_formats().match(fileItemAcceptFormats);
 
@@ -514,6 +517,7 @@ var DesktopGrid = class {
                 }
                 return Gdk.DragAction.MOVE;
             }
+            return false;
         });
 
         this.gridDropController.connect('drag-leave', () => {
@@ -531,7 +535,7 @@ var DesktopGrid = class {
             let fileItemDropZone = false;
             let fileItem = this._fileAt(x, y);
             let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            let dropRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+            let dropRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
             let desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
             let filesMove = drop.get_formats().match(fileItemAcceptFormats);
             let oldNautilusMove = drop.get_formats().match(oldNautilusDropFormat);
@@ -616,8 +620,8 @@ var DesktopGrid = class {
                 logError(e);
                 drop.finish(0);
                 this.receiveLeave();
-                return false;
             }
+            return false;
         });
 
         widget.add_controller(this.gridDropController);
@@ -627,7 +631,7 @@ var DesktopGrid = class {
             if (!this.gridDropControllerMotion.is_pointer) {
                 let fileItem = this._fileAt(x, y);
                 let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                let pointerRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+                let pointerRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (fileItem && fileItem.dropCapable) {
                     this._desktopManager.unHighLightDropTarget();
                     if (this.Prefs.showDropPlace)
@@ -680,6 +684,7 @@ var DesktopGrid = class {
                 if (this.contentProvider)
                     return this.contentProvider;
             }
+            return true;
         });
         widgetDragController.connect('drag-begin', () => {
             this._desktopManager.onReleaseButton(this);
@@ -727,15 +732,16 @@ var DesktopGrid = class {
     // The following code is translated from Nautilus C to Javascript to form the similar stack of items
     _createStackedDragIcon(draggedItem) {
         let  dragIconArray = this._desktopManager.getCurrentSelection(false);
+        // eslint-disable-next-line no-nested-ternary
         dragIconArray.sort((a, b) => a.uri === draggedItem.uri ? -1 : b.uri === draggedItem.uri ? 1 : 0);
         dragIconArray = dragIconArray.map(f => f._icon.get_paintable());
         const numberOfIcons = dragIconArray.length;
 
         const dragIcon = Gtk.Snapshot.new();
         /* A wide shadow for the pile of icons gives a sense of floating. */
-        const stackShadow = { color: { red: 0, green: 0, blue: 0, alpha: 0.15 }, dx: 0, dy: 2, radius: 10 };
+        const stackShadow = {color: {red: 0, green: 0, blue: 0, alpha: 0.15}, dx: 0, dy: 2, radius: 10};
         /* A slight shadow swhich makes each icon in the stack look separate. */
-        const iconShadow = { color: { red: 0, green: 0, blue: 0, alpha: 0.30 }, dx: 0, dy: 1, radius: 1 };
+        const iconShadow = {color: {red: 0, green: 0, blue: 0, alpha: 0.30}, dx: 0, dy: 1, radius: 1};
 
         let xOffset = numberOfIcons % 2 === 1 ? 6 : -6;
         let yOffset;
@@ -753,7 +759,7 @@ var DesktopGrid = class {
             yOffset = 4;
         }
 
-        dragIcon.translate(new Graphene.Point({ x: 10 + (xOffset / 2), y: yOffset * numberOfIcons }));
+        dragIcon.translate(new Graphene.Point({x: 10 + (xOffset / 2), y: yOffset * numberOfIcons}));
         let shadow = new Gsk.Shadow(stackShadow);
         dragIcon.push_shadow([shadow]);
         dragIconArray.reverse().forEach(paintableWidget => {
@@ -761,13 +767,13 @@ var DesktopGrid = class {
             let h = paintableWidget.get_intrinsic_height();
             let X = Math.floor((this.Prefs.IconSize - w) / 2);
             let Y = Math.floor((this.Prefs.IconSize - h) / 2);
-            dragIcon.translate(new Graphene.Point({ x: -xOffset, y: -yOffset }));
+            dragIcon.translate(new Graphene.Point({x: -xOffset, y: -yOffset}));
             xOffset = -xOffset;
-            dragIcon.translate(new Graphene.Point({ x: X, y: Y }));
+            dragIcon.translate(new Graphene.Point({x: X, y: Y}));
             dragIcon.push_shadow([new Gsk.Shadow(iconShadow)]);
             paintableWidget.snapshot(dragIcon, w, h);
             dragIcon.pop();
-            dragIcon.translate(new Graphene.Point({ x: -X, y: -Y }));
+            dragIcon.translate(new Graphene.Point({x: -X, y: -Y}));
         });
         dragIcon.pop();
         return dragIcon.to_paintable(null);
@@ -946,7 +952,7 @@ var DesktopGrid = class {
             alpha: 1.0,
         });
         const dropRectanglePromises = this._selectedList.map(([x, y]) => {
-            this._rectangleDraw(x, y, this._elementWidth, this._elementHeight, cr, fillColor, outlineColor);
+            return this._rectangleDraw(x, y, this._elementWidth, this._elementHeight, cr, fillColor, outlineColor);
         });
         await Promise.all(dropRectanglePromises).catch(logError);
     }
@@ -1085,13 +1091,13 @@ var DesktopGrid = class {
     }
 
     coordinatesBelongToThisGrid(X, Y) {
-        let checkRectangle = new Gdk.Rectangle({ x: X, y: Y, width: 1, height: 1 });
+        let checkRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
         return this.gridGlobalRectangle.intersect(checkRectangle)[0];
     }
 
     getGlobaltoLocalRectangle(gdkRectangle) {
         const [X, Y] = this.coordinatesGlobalToLocal(gdkRectangle.x, gdkRectangle.y);
-        return new Gdk.Rectangle({ x: X, y: Y, width: gdkRectangle.width, height: gdkRectangle.height });
+        return new Gdk.Rectangle({x: X, y: Y, width: gdkRectangle.width, height: gdkRectangle.height});
     }
 
     _getEmptyPlaceClosestTo(x, y, coordinatesAction, reverseHorizontal) {
