@@ -20,7 +20,7 @@
 imports.gi.versions.Gtk = '4.0';
 imports.gi.versions.Gdk = '4.0';
 
-const { GLib, Gtk, Gdk, Gio } = imports.gi;
+const {GLib, Gtk, Gdk, Gio} = imports.gi;
 
 const FileItem = imports.app.fileItem;
 const stackItem = imports.app.stackItem;
@@ -32,17 +32,13 @@ const FileItemMenu = imports.app.fileItemMenu;
 const AutoAr = imports.app.autoAr;
 const AppChooser = imports.app.appChooser;
 const GnomeShellDragDrop = imports.app.gnomeShellDragDrop;
-
-var Thumbnails = null;
-try {
-    imports.gi.versions.GnomeDesktop = '4.0';
-    Thumbnails = imports.app.thumbnails;
-} catch (e) {}
+const Thumbnails = imports.app.thumbnails;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
+// eslint-disable-next-line no-unused-vars
 var DesktopManager = class {
     constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex, version) {
         // Inherit
@@ -123,7 +119,6 @@ var DesktopManager = class {
         this._intDBusSignalMonitoring();
         this._dbusAdvertiseUpdate();
 
-        // Start Dbus thumbnailing if no Gtk4 gnomedesktopiconfactory
         this._initDbusThumbnailing();
 
         // Check if Gnome Files is available and give warinig
@@ -155,16 +150,10 @@ var DesktopManager = class {
     }
 
     _initDbusThumbnailing() {
-        if (!Thumbnails) {
-            this._startThumbnailer();
-            this.thumbnailLoader = {};
-            this.thumbnailLoader.getThumbnail = this._getRemoteIconThumbNail.bind(this);
-        } else {
-            this.thumbnailLoader = new Thumbnails.ThumbnailLoader(this._codePath, this.FileUtils);
-            this._updateDesktop().catch(e => {
-                print(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
-            });
-        }
+        this.thumbnailLoader = new Thumbnails.ThumbnailLoader(this._codePath, this.FileUtils);
+        this._updateDesktop().catch(e => {
+            print(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
+        });
     }
 
     terminateProgram() {
@@ -277,54 +266,6 @@ var DesktopManager = class {
             this._updateDesktopIfChanged(file, otherFile, eventType).catch(e => logError(e)));
     }
 
-    async _startThumbnailer() {
-        let args = [];
-        args.push(GLib.build_filenamev([this._codePath, 'app', 'thumbnailapp.js']));
-        args.push(this._codePath);
-        if (this._asDesktop)
-            args.push('asdesktop');
-
-        this.thumbnailApp = new Gio.Subprocess({ argv: args });
-        this.thumbnailApp.init(null);
-        if (this._asDesktop) {
-            this.remoteThumbnailUpdate =  Gio.DBusActionGroup.get(
-                Gio.DBus.session,
-                'com.desktop.dingThumbnailer',
-                '/com/desktop/dingThumbnailer/actions'
-            );
-        } else {
-            this.remoteThumbnailUpdate =  Gio.DBusActionGroup.get(
-                Gio.DBus.session,
-                'com.desktop.dingTestThumbnailer',
-                '/com/desktop/dingTestThumbnailer/actions'
-            );
-        }
-        await this._detectThumbnailerConnection(this.remoteThumbnailUpdate);
-        this._updateDesktop().catch(e => {
-            print(`Exception while Initiating Desktop: ${e.message}\n${e.stack}`);
-        });
-    }
-
-    _detectThumbnailerConnection(remotegroup) {
-        return new Promise((resolve, reject) => {
-            try {
-                remotegroup.connect('action-added', (group, actionName) => {
-                    if (actionName === 'updateThumbnail')
-                        resolve(true);
-                });
-                remotegroup.list_actions();
-            } catch (e) {
-                reject(e);
-            }
-        });
-    }
-
-    _getRemoteIconThumbNail(fileItem) {
-        let thumbnailInfoVariant = new GLib.Variant('as', [fileItem._file.get_uri(), fileItem._file.get_path(), fileItem.attributeContentType, `${fileItem.modifiedTime}`]);
-        this.remoteThumbnailUpdate.activate_action('updateThumbnail', thumbnailInfoVariant);
-        return null;
-    }
-
     _metadataChanged(proxy, nameOwner, args) {
         let filepath = GLib.build_filenamev([GLib.get_home_dir(), args[1]]);
         if (this._desktopDir.get_path() === GLib.path_get_dirname(filepath)) {
@@ -365,13 +306,6 @@ var DesktopManager = class {
         updateGridWindows.connect('activate', (action, parameter) => {
             this.updateGridWindows(parameter.recursiveUnpack());
         });
-        let updateThumbnail = new Gio.SimpleAction({
-            name: 'updateThumbnail',
-            parameter_type: new GLib.VariantType('as'),
-        });
-        updateThumbnail.connect('activate', (action, parameter) => {
-            this.updateFileItemThumbnail(parameter.recursiveUnpack());
-        });
         let createDesktopShortcut = new Gio.SimpleAction({
             name: 'createDesktopShortcut',
             parameter_type: new GLib.VariantType('a{sv}'),
@@ -381,7 +315,6 @@ var DesktopManager = class {
         });
         let actionGroup = new Gio.SimpleActionGroup();
         actionGroup.add_action(updateGridWindows);
-        actionGroup.add_action(updateThumbnail);
         actionGroup.add_action(createDesktopShortcut);
         this._busname = this.mainApp.get_dbus_object_path();
         this._connection = Gio.DBus.session;
@@ -409,19 +342,8 @@ var DesktopManager = class {
         let fileList = [shortcutinfo.uri];
         let X = parseInt(shortcutinfo.X);
         let Y = parseInt(shortcutinfo.Y);
-        await this.clearFileCoordinates(fileList, [X, Y], { doCopy: true });
+        await this.clearFileCoordinates(fileList, [X, Y], {doCopy: true});
         await this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
-    }
-
-    updateFileItemThumbnail(thumbnailinfo) {
-        let fileuri = thumbnailinfo[0];
-        let thumbnailFile = thumbnailinfo[1];
-        this.updateFileList().forEach(f => {
-            if (f.uri === fileuri) {
-                f.thumbnailFile = thumbnailFile;
-                f.updateIcon();
-            }
-        });
     }
 
     _getPremultiplied() {
@@ -461,7 +383,7 @@ var DesktopManager = class {
                 this._primaryScreen = null;
 
             this._createGridWindows();
-            this._placeAllFilesOnGrids({ redisplay: true });
+            this._placeAllFilesOnGrids({redisplay: true});
             return;
         }
 
@@ -507,7 +429,7 @@ var DesktopManager = class {
                 this._primaryScreen = this._desktopList[this._primaryIndex];
             else
                 this._primaryScreen = null;
-            this._placeAllFilesOnGrids({ redisplay: true });
+            this._placeAllFilesOnGrids({redisplay: true});
         }
     }
 
@@ -558,7 +480,7 @@ var DesktopManager = class {
         });
     }
 
-    async clearFileCoordinates(fileList, dropCoordinates, opts = { doCopy: false }) {
+    async clearFileCoordinates(fileList, dropCoordinates, opts = {doCopy: false}) {
         if (this.Prefs.keepArranged || this.Prefs.keepStacked)
             return;
 
@@ -609,7 +531,7 @@ var DesktopManager = class {
                 if (keepArranged) {
                     if (item.isSpecial) {
                         fileItems.push(item);
-                        item.removeFromGrid({ callOnDestroy: false });
+                        item.removeFromGrid({callOnDestroy: false});
                         let [x, y] = item.getCoordinates().slice(0, 3);
                         item.temporarySavedPosition = [x + deltaX, y + deltaY];
                     } else {
@@ -617,7 +539,7 @@ var DesktopManager = class {
                     }
                 } else {
                     fileItems.push(item);
-                    item.removeFromGrid({ callOnDestroy: false });
+                    item.removeFromGrid({callOnDestroy: false});
                     let [x, y] = item.getCoordinates().slice(0, 3);
                     item.temporarySavedPosition = [x + deltaX, y + deltaY];
                 }
@@ -752,6 +674,7 @@ var DesktopManager = class {
                 returnAction = Gdk.DragAction.MOVE;
                 break;
             }
+        // eslint-disable-next-line no-fallthrough
         case this.Enums.DndTargetInfo.GNOME_ICON_LIST:
         case this.Enums.DndTargetInfo.URI_LIST:
             if (!fileList)
@@ -759,9 +682,9 @@ var DesktopManager = class {
             if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
                 try {
                     if (!localDrop)
-                        await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], { doCopy: forceCopy });
+                        await this.clearFileCoordinates(fileList, [xGlobalDestination, yGlobalDestination], {doCopy: forceCopy});
                     returnAction = await this.copyOrMoveUris(fileList,
-                        this._desktopDir.get_uri(), event, { forceCopy });
+                        this._desktopDir.get_uri(), event, {forceCopy});
                 } catch (e) {
                     logError(e);
                 }
@@ -779,7 +702,10 @@ var DesktopManager = class {
             dropCoordinates = [xGlobalDestination, yGlobalDestination];
             this.detectURLorText(dropData, dropCoordinates);
             break;
+        default:
+            returnAction = Gdk.DragAction.COPY;
         }
+        // eslint-disable-next-line consistent-return
         return returnAction;
     }
 
@@ -788,7 +714,7 @@ var DesktopManager = class {
         this.detectURLorText(dropData, [xGlobalDestination, yGlobalDestination]);
     }
 
-    askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = { desktopactions: true }) {
+    askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = {desktopactions: true}) {
         this._askWhatToDoWindow = new Gtk.Dialog({
             use_header_bar: false,
             resizable: false,
@@ -817,7 +743,7 @@ var DesktopManager = class {
 
                     let forceCopy = false;
                     await this.copyOrMoveUris(fileList,
-                        destinationuri, event, { forceCopy });
+                        destinationuri, event, {forceCopy});
                 } catch {
                     logError('Error moving files');
                 }
@@ -825,11 +751,11 @@ var DesktopManager = class {
             case Gdk.DragAction.COPY:
                 try {
                     if (opts.desktopactions)
-                        await this.clearFileCoordinates(fileList, [X, Y], { dopCopy: true });
+                        await this.clearFileCoordinates(fileList, [X, Y], {dopCopy: true});
 
                     let forceCopy = true;
                     await this.copyOrMoveUris(fileList,
-                        destinationuri, event, { forceCopy });
+                        destinationuri, event, {forceCopy});
                 } catch {
                     logError('Error copying files');
                 }
@@ -1035,7 +961,7 @@ var DesktopManager = class {
             this._createDesktopBackgroundGioMenu();
             this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
             this.popupmenu.set_parent(grid._container);
-            const menuLocation = new Gdk.Rectangle({ x, y, width: 1, height: 1 });
+            const menuLocation = new Gdk.Rectangle({x, y, width: 1, height: 1});
             this.popupmenu.set_pointing_to(menuLocation);
             const menuGtkPosition = grid.getIntelligentPosition(menuLocation);
             if (menuGtkPosition)
@@ -1597,22 +1523,11 @@ var DesktopManager = class {
             let textDecoder = new TextDecoder();
             let errortext = textDecoder.decode(process[2]);
             let windowopen = errortext.includes('Already showing a prefs dialog');
-            if (windowopen) {
+            if (windowopen)
                 this.dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
-                return;
-            }
         }
-
-        // if (success && completed)
-        //     return;
-
-        // this.preferencesWindow = this.Prefs.getAdwPreferencesWindow();
-        // this.preferencesWindow.connect('close-request', () => {
-        //     this.preferencesWindow = null;
-        // });
-        // this.preferencesWindow.set_title(_('Settings'));
-        // this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
-        // this.preferencesWindow.show();
+        if (!completed || !success)
+            log('Error opening preferences window');
     }
 
     _onOpenTerminalClicked() {
@@ -1697,6 +1612,7 @@ var DesktopManager = class {
             newItem.keyboardSelected();
 
         this.activeFileItem = this.fileItemMenu.activeFileItem = newItem;
+        return true;
     }
 
     _menuKeyPressed() {
@@ -1724,7 +1640,7 @@ var DesktopManager = class {
             // This pops up GNOME Files error dialog, which is what we want.
             this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
-            this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, { doCopy: true });
+            this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, {doCopy: true});
             this.DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
         }
     }
@@ -1764,7 +1680,7 @@ var DesktopManager = class {
             this.x2 = Math.max(X, this.rubberBandInitX);
             this.y1 = Math.min(Y, this.rubberBandInitY);
             this.y2 = Math.max(Y, this.rubberBandInitY);
-            this.selectionRectangle = new Gdk.Rectangle({ 'x': this.x1, 'y': this.y1, 'width': this.x2 - this.x1, 'height': this.y2 - this.y1 });
+            this.selectionRectangle = new Gdk.Rectangle({'x': this.x1, 'y': this.y1, 'width': this.x2 - this.x1, 'height': this.y2 - this.y1});
             this.drawSelectionRectangles();
             for (let item of this._fileList) {
                 let labelintersect = item.labelRectangle.intersect(this.selectionRectangle)[0];
@@ -1847,7 +1763,7 @@ var DesktopManager = class {
 
     _removeAllFilesFromGrids() {
         for (let fileItem of this._fileList)
-            fileItem.removeFromGrid({ callOnDestroy: true });
+            fileItem.removeFromGrid({callOnDestroy: true});
 
         this._fileList = [];
     }
@@ -1870,6 +1786,7 @@ var DesktopManager = class {
         while (true) {
             this._desktopFilesChanged = false;
             try {
+                // eslint-disable-next-line no-await-in-loop
                 fileList = await this._doReadAsync();
             } catch (e) {
                 if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
@@ -1891,6 +1808,7 @@ var DesktopManager = class {
                     this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
                 }
             }
+            // eslint-disable-next-line no-await-in-loop
             await this.DesktopIconsUtil.waitDelayMs(500);
             if ((GLib.get_monotonic_time() - this._lastDesktopUpdateRequest) > 1000000)
                 this._forceDraw = true;
@@ -2091,7 +2009,7 @@ var DesktopManager = class {
         }
     }
 
-    _placeAllFilesOnGrids(opts = { redisplay: false }) {
+    _placeAllFilesOnGrids(opts = {redisplay: false}) {
         if (this.Prefs.keepStacked)
             this.doStacks(opts);
         else if (this.Prefs.keepArranged)
@@ -2524,7 +2442,7 @@ var DesktopManager = class {
         return newName;
     }
 
-    async doNewFolder(position = null, suggestedName = null, opts = { rename: true }) {
+    async doNewFolder(position = null, suggestedName = null, opts = {rename: true}) {
         this.unselectAll();
 
         if (!position)
@@ -2618,7 +2536,7 @@ var DesktopManager = class {
         this.Prefs.UnstackList = unstackList;
     }
 
-    doStacks(opts = { redisplay: false }) {
+    doStacks(opts = {redisplay: false}) {
         if (opts.redisplay) {
             for (let fileItem of this._fileList)
                 fileItem.removeFromGrid();
@@ -2689,7 +2607,7 @@ var DesktopManager = class {
         list.push(fileItem);
     }
 
-    _sortAllFilesFromGridsByKindStacked(opts = { redisplay: false }) {
+    _sortAllFilesFromGridsByKindStacked(opts = {redisplay: false}) {
         /**
          * Looks through the generated fileItems
          */
@@ -2854,7 +2772,7 @@ var DesktopManager = class {
             // sort by label name instead of the the fileName or displayName so that the "Home" folder is sorted in the correct order
             // alphabetical sort taking into account accent characters & locale, natural language sort for numbers, ie 10.etc before 2.etc
             // other options for locale are best fit, or by specifying directly in function below for translators
-            return a._label.get_text().localeCompare(b._label.get_text(), { sensitivity: 'accent', numeric: 'true', localeMatcher: 'lookup' });
+            return a._label.get_text().localeCompare(b._label.get_text(), {sensitivity: 'accent', numeric: 'true', localeMatcher: 'lookup'});
         }
         fileList.sort(byName);
     }
@@ -2868,7 +2786,7 @@ var DesktopManager = class {
          */
         function byKindByName(a, b) {
             return a.attributeContentType.localeCompare(b.attributeContentType) ||
-             a._label.get_text().localeCompare(b._label.get_text(), { sensitivity: 'accent', numeric: 'true', localeMatcher: 'lookup' });
+             a._label.get_text().localeCompare(b._label.get_text(), {sensitivity: 'accent', numeric: 'true', localeMatcher: 'lookup'});
         }
         fileList.sort(byKindByName);
     }
@@ -2885,7 +2803,7 @@ var DesktopManager = class {
         if (this.Prefs.keepArranged)
             return;
 
-        this._fileList.map(f => f.removeFromGrid({ callOnDestroy: false }));
+        this._fileList.map(f => f.removeFromGrid({callOnDestroy: false}));
         let cornerInversion = this.Prefs.StartCorner;
         if (!cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
@@ -3039,7 +2957,7 @@ var DesktopManager = class {
         this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
     }
 
-    doSorts(opts = { redisplay: false }) {
+    doSorts(opts = {redisplay: false}) {
         if (opts.redisplay)
             this._fileList.map(f => f.removeFromGrid());
 
@@ -3130,26 +3048,26 @@ var DesktopManager = class {
 
     onKeepArrangedChanged() {
         if (this.Prefs.keepArranged)
-            this.doSorts({ redisplay: true });
+            this.doSorts({redisplay: true});
     }
 
     onUnstackedTypesChanged() {
         if (this.Prefs.keepStacked)
-            this.doStacks({ redisplay: true });
+            this.doStacks({redisplay: true});
     }
 
     onkeepStackedChanged() {
         if (!this.Prefs.keepStacked)
             this._unstack();
         else
-            this.doStacks({ redisplay: true });
+            this.doStacks({redisplay: true});
     }
 
     onSortOrderChanged() {
         if (this.Prefs.keepStacked)
-            this.doStacks({ redisplay: true });
+            this.doStacks({redisplay: true});
         else
-            this.doSorts({ redisplay: true });
+            this.doSorts({redisplay: true});
     }
 
     onIconSizeChanged() {
@@ -3158,7 +3076,7 @@ var DesktopManager = class {
             desktop.resizeGrid();
 
         this._fileList.forEach(x => x.updateIcon());
-        this._placeAllFilesOnGrids({ redisplay: true });
+        this._placeAllFilesOnGrids({redisplay: true});
     }
 
     onGtkThemeChange() {

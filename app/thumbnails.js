@@ -20,25 +20,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var gnomedesktop;
-var Gtk;
-var GnomeDesktop;
-
-try {
-    imports.gi.versions.GnomeDesktop = '4.0';
-    imports.gi.versions.Gtk = '4.0';
-    gnomedesktop = 4;
-    Gtk = imports.gi.Gtk;
-    GnomeDesktop = imports.gi.GnomeDesktop;
-} catch (e) {
-    gnomedesktop = 3;
-    imports.gi.versions.GnomeDesktop = '3.0';
-    imports.gi.versions.Gtk = '3.0';
-    Gtk = imports.gi.Gtk;
-    GnomeDesktop = imports.gi.GnomeDesktop;
-}
-
-const { GLib, Gio } = imports.gi;
+imports.gi.versions.GnomeDesktop = '4.0';
+imports.gi.versions.Gtk = '4.0';
+const GnomeDesktop = imports.gi.GnomeDesktop;
+const {GLib, Gio} = imports.gi;
 
 const useAsyncAPI =
     !!GnomeDesktop.DesktopThumbnailFactory.prototype.generate_thumbnail_async;
@@ -55,6 +40,7 @@ if (useAsyncAPI) {
         'save_thumbnail_finish');
 }
 
+// eslint-disable-next-line no-unused-vars
 var ThumbnailLoader = class {
     constructor(codePath, FileUtils) {
         this.FileUtils = FileUtils;
@@ -147,7 +133,7 @@ var ThumbnailLoader = class {
         const args = [];
         args.push(GLib.build_filenamev([this._codePath, 'createThumbnail.js']));
         args.push(file.path);
-        const proc = new Gio.Subprocess({ argv: args });
+        const proc = new Gio.Subprocess({argv: args});
 
         let timeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this._timeoutValue, () => {
             print(`Timeout while generating thumbnail for ${file.displayName}`);
