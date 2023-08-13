@@ -14,7 +14,6 @@ extensions_dir = join_paths(prefix, 'share', 'gnome-shell', 'extensions', 'gtk4-
 
 install_data([
     'emulateX11WindowType.js',
-    'exportedenums.js',
     'extension.js',
     'gnomeShellOverride.js',
     'metadata.json',

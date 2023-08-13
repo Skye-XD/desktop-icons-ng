@@ -1526,8 +1526,17 @@ var DesktopManager = class {
             if (windowopen)
                 this.dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
         }
-        if (!completed || !success)
-            log('Error opening preferences window');
+
+        if (success && completed)
+            return;
+
+        this.preferencesWindow = this.Prefs.getAdwPreferencesWindow();
+        this.preferencesWindow.connect('close-request', () => {
+            this.preferencesWindow = null;
+        });
+        this.preferencesWindow.set_title(_('Settings'));
+        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
+        this.preferencesWindow.show();
     }
 
     _onOpenTerminalClicked() {

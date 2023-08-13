@@ -17,18 +17,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var ICON_SIZE = {'tiny': 36, 'small': 48, 'standard': 64, 'large': 96};
-var ICON_WIDTH = {'tiny': 70, 'small': 90, 'standard': 120, 'large': 130};
-var ICON_HEIGHT = {'tiny': 80, 'small': 90, 'standard': 106, 'large': 138};
+export const ICON_SIZE = {'tiny': 36, 'small': 48, 'standard': 64, 'large': 96};
+export const ICON_WIDTH = {'tiny': 70, 'small': 90, 'standard': 120, 'large': 130};
+export const ICON_HEIGHT = {'tiny': 80, 'small': 90, 'standard': 106, 'large': 138};
 
-var START_CORNER = {
+export const START_CORNER = {
     'top-left': [false, false],
     'top-right': [true, false],
     'bottom-left': [false, true],
     'bottom-right': [true, true],
 };
 
-var FileType = {
+export const FileType = {
     NONE: null,
     USER_DIRECTORY_HOME: 'show-home',
     USER_DIRECTORY_TRASH: 'show-trash',
@@ -36,13 +36,13 @@ var FileType = {
     STACK_TOP: 'stack-top',
 };
 
-var StoredCoordinates = {
+export const StoredCoordinates = {
     PRESERVE: 0,
     OVERWRITE: 1,
     ASSIGN: 2,
 };
 
-var Selection = {
+export const Selection = {
     ALONE: 0,
     WITH_SHIFT: 1,
     RIGHT_BUTTON: 2,
@@ -52,27 +52,27 @@ var Selection = {
 };
 
 /* From NautilusFileUndoManagerState */
-var UndoStatus = {
+export const UndoStatus = {
     NONE: 0,
     UNDO: 1,
     REDO: 2,
 };
 
-var FileExistOperation = {
+export const FileExistOperation = {
     ASK: 0,
     OVERWRITE: 1,
     RENAME: 2,
     SKIP: 3,
 };
 
-var WhatToDoWithExecutable = {
+export const WhatToDoWithExecutable = {
     EXECUTE: 0,
     EXECUTE_IN_TERMINAL: 1,
     DISPLAY: 2,
     CANCEL: 3,
 };
 
-var SortOrder = {
+export const SortOrder = {
     ORDER: 'arrangeorder',
     NAME: 1,
     DESCENDINGNAME: 2,
@@ -81,14 +81,14 @@ var SortOrder = {
     SIZE: 5,
 };
 
-var CompressionType = {
+export const CompressionType = {
     ZIP: 0,
     TAR_XZ: 1,
     SEVEN_ZIP: 2,
     ENCRYPTED_ZIP: 3,
 };
 
-var DndTargetInfo = {
+export const DndTargetInfo = {
     DING_ICON_LIST: 'x-special/ding-icon-list',
     GNOME_ICON_LIST: 'x-special/gnome-icon-list',
     URI_LIST: 'text/uri-list',
@@ -99,29 +99,29 @@ var DndTargetInfo = {
     MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain;charset=utf-8'],
 };
 
-var ShellDropCursor = {
+export const ShellDropCursor = {
     DEFAULT: 'default',
     NODROP: 'dndNoDropCursor',
     COPY: 'dndCopyCursor',
     MOVE: 'dndMoveCursor',
 };
 
-var DEFAULT_ATTRIBUTES = 'metadata::*,standard::*,access::*,time::modified,unix::mode';
-var TERMINAL_SCHEMA = 'org.gnome.desktop.default-applications.terminal';
-var SCHEMA_NAUTILUS = 'org.gnome.nautilus.preferences';
-var SCHEMA_NAUTILUS_COMPRESSION = 'org.gnome.nautilus.compression';
-var SCHEMA_GTK = 'org.gtk.Settings.FileChooser';
-var SCHEMA = 'org.gnome.shell.extensions.gtk4-ding';
-var SCHEMA_MUTTER = 'org.gnome.mutter';
-var SCHEMA_GNOME_SETTINGS = 'org.gnome.desktop.interface';
-var EXEC_KEY = 'exec';
-var NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
-var THUMBNAILS_DIR = '.cache/thumbnails';
-var DND_HOVER_TIMEOUT = 500; // In milliseconds
-var DND_SHELL_HOVER_POLL = 200; // In milliseconds
-var TOOLTIP_HOVER_TIMEOUT = 1000; // In milliseconds
+export const DEFAULT_ATTRIBUTES = 'metadata::*,standard::*,access::*,time::modified,unix::mode';
+export const TERMINAL_SCHEMA = 'org.gnome.desktop.default-applications.terminal';
+export const SCHEMA_NAUTILUS = 'org.gnome.nautilus.preferences';
+export const SCHEMA_NAUTILUS_COMPRESSION = 'org.gnome.nautilus.compression';
+export const SCHEMA_GTK = 'org.gtk.Settings.FileChooser';
+export const SCHEMA = 'org.gnome.shell.extensions.gtk4-ding';
+export const SCHEMA_MUTTER = 'org.gnome.mutter';
+export const SCHEMA_GNOME_SETTINGS = 'org.gnome.desktop.interface';
+export const EXEC_KEY = 'exec';
+export const NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
+export const THUMBNAILS_DIR = '.cache/thumbnails';
+export const DND_HOVER_TIMEOUT = 500; // In milliseconds
+export const DND_SHELL_HOVER_POLL = 200; // In milliseconds
+export const TOOLTIP_HOVER_TIMEOUT = 1000; // In milliseconds
 
-var UnixPermissions = {
+export const UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit
     S_ISGID: 0o02000, // set-group-ID bit (see below)
     S_ISVTX: 0o01000, // sticky bit (see below)
