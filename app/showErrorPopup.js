@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-spacing */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) gtk4 port
@@ -19,7 +18,7 @@
  */
 export {ShowErrorPopup};
 
-const { Gtk, Gdk } = imports.gi;
+const {Gtk, Gdk} = imports.gi;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
