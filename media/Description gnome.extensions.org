@@ -2,6 +2,8 @@ Libadwaita, Gtk4 Desktop Icons NG with GSconnect Integration, Drag and Drop onto
 
 Libadwaita/Gtk4 Port of Desktop Icons NG with updated and modified code base, uses gio menus, all functions are async where possible, multiple fixes and new features-
 
+Ported to ESM modules, supports Gnome 45
+
 * New - Sets correct hovering behaviour during drag and drop on the Dock, enables scrolling to icons when they are hidden.
 * Fix - unlimited workspaces, now works correctly even with auto-move-windows. More optimal and minimal shell overrides.
 * New - Help with translation link in about pance of preferences. Multiple other fixes, including using old libAdwaita on Ubuntu Jammy.

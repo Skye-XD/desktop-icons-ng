@@ -1,4 +1,9 @@
 # History of versions #
+* Gtk4 version 48
+  * Move extension.js and all files as well as the app to ESM imports.(Sundeep Mediratta)
+  * Translations update. (Weblate)
+  * update metadata.json, History.md, Version Bump to 48.
+
 * Gtk4 version 47
   * Makes DING windows Meta.WindowType.DESKTOP and is_on_all_workspacesso that it works perfectly with Gnome Shell without unlimited workspaces. Also works with auto-move-windows with no further modifications. Minimal overrides to gnome shell workspaceAnimation.js to support this, remove prior multiple overrides. (Sundeep Mediratta)
   * When doing drag and drop over the dock, synthesize a hover event to highlight the dock item correctly as well as to enable scrolling and insure visibility of the app icon when it is crolled out of view on the Dock. (Sundeep Mediratta)

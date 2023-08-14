@@ -107,6 +107,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] New - Correctly hover over Dock in drag and drop to enable highlighing of the app icon and scrolling for hidden ones.
 
+- [x] Port to ESM imports, support Gnome 45
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
