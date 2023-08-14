@@ -1,4 +1,4 @@
-#!/usr/bin/env gjs
+#!/usr/bin/env -S gjs -m
 
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
@@ -159,15 +159,16 @@ parseCommandLine(ARGV);
 // this allows to import files from the current folder
 
 imports.searchPath.unshift(codePath);
-
-const Preferences = imports.app.preferences;
-const AdwPreferencesWindow = imports.app.adwPreferencesWindow;
-const Enums = imports.app.enums;
-const DBusUtils = imports.app.utils.dbusUtils;
-const PromiseUtils = imports.utils.promiseUtils;
-const FileUtils = imports.utils.fileUtils;
-const DesktopIconsUtil = imports.app.utils.desktopIconsUtil;
 const Gettext = imports.gettext;
+
+import * as Preferences from './preferences.js';
+import * as AdwPreferencesWindow from './adwPreferencesWindow.js';
+import * as Enums from './enums.js';
+import * as DBusUtils from './utils/dbusUtils.js';
+import * as PromiseUtils from '../utils/promiseUtils.js';
+import * as FileUtils from '../utils/fileUtils.js';
+import * as DesktopIconsUtil from './utils/desktopIconsUtil.js';
+import * as DesktopManager from './desktopManager.js';
 
 PromiseUtils._promisify({}, Gio.AppInfo, 'launch_default_for_uri_async');
 PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'close_async');
@@ -187,9 +188,6 @@ PromiseUtils._promisify({}, fileProto, 'set_attributes_async');
 let localePath = GLib.build_filenamev([codePath, 'locale']);
 if (Gio.File.new_for_path(localePath).query_exists(null))
     Gettext.bindtextdomain('gtk4-ding', localePath);
-
-
-const DesktopManager = imports.app.desktopManager;
 
 var desktopManager = null;
 var Utils = {FileUtils, PromiseUtils};

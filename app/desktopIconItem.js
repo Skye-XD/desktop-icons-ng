@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {desktopIconItem};
 
 const {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf} = imports.gi;
 const Signals = imports.signals;
@@ -30,7 +31,7 @@ const _ = Gettext.gettext;
 const PIXBUF_CONTENT_TYPES = new Set();
 GdkPixbuf.Pixbuf.get_formats().forEach(f => PIXBUF_CONTENT_TYPES.add(...f.get_mime_types()));
 
-var desktopIconItem = class desktopIconItem {
+const desktopIconItem = class {
     constructor(desktopManager, fileExtra) {
         this._desktopManager = desktopManager;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;

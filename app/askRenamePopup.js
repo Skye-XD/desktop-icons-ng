@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-spacing */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
@@ -15,6 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {AskRenamePopup};
 
 const {Gtk, Gio, GLib} = imports.gi;
 
@@ -22,8 +24,7 @@ const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
-// eslint-disable-next-line no-unused-vars
-var AskRenamePopup = class {
+const AskRenamePopup = class {
     constructor(fileItem, allowReturnOnSameName, closeCB, setPendingDropCoordinatesCB, Data) {
         this.FileUtils = Data.FileUtils;
         this.DesktopIconsUtil = Data.DesktopIconsUtil;

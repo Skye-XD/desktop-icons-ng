@@ -148,8 +148,7 @@ const ComboRowWithKey = GObject.registerClass({
     }
 });
 
-
-var AdwPreferencesWindow = class {
+const AdwPreferencesWindow = class {
     constructor(desktopSettings, nautilusSettings, gtkSettings, extensionPath) {
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;

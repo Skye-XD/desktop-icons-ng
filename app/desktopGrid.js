@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {DesktopGrid};
 
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.Gtk = '4.0';
@@ -29,7 +30,7 @@ const _ = Gettext.gettext;
 var elementSpacing = 2;
 
 // eslint-disable-next-line no-unused-vars
-var DesktopGrid = class {
+const DesktopGrid = class {
     constructor(desktopManager, desktopName, desktopDescription, asDesktop, premultiplied) {
         this._destroying = false;
         this._desktopManager = desktopManager;

@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {ThumbnailLoader};
 
 imports.gi.versions.GnomeDesktop = '4.0';
 imports.gi.versions.Gtk = '4.0';
@@ -40,8 +41,7 @@ if (useAsyncAPI) {
         'save_thumbnail_finish');
 }
 
-// eslint-disable-next-line no-unused-vars
-var ThumbnailLoader = class {
+const ThumbnailLoader = class {
     constructor(codePath, FileUtils) {
         this.FileUtils = FileUtils;
         this._timeoutValue = 5000;

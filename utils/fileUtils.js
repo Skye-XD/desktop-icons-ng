@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-param-type */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2022 Marco Trevisan <marco.trevisan@canonical.com>
@@ -67,6 +68,7 @@ export async function recursivelyDeleteDir(dir, deleteParent, cancellable = null
     priority = GLib.PRIORITY_DEFAULT) {
     const children = await enumerateDir(dir, cancellable, priority);
     for (let info of children)
+        // eslint-disable-next-line no-await-in-loop
         await deleteFile(dir.get_child(info.get_name()), info, cancellable, priority);
 
 
@@ -140,6 +142,7 @@ export async function recursivelyMakeDir(dir, cancellable = null,
     const missingDirs = [dir];
     for (let parent = dir.get_parent(); parent; parent = parent.get_parent()) {
         try {
+            // eslint-disable-next-line no-await-in-loop
             await parent.make_directory_async(priority, cancellable);
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))

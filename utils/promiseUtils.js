@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-param */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2022 Marco Trevisan <marco.trevisan@canonical.com>
@@ -18,6 +19,9 @@
 /* This is coming from gjs 1.72, adding options to allow not to replace the
  * original method, in case we want to avoid clashes with already used async
  * methods. This can be dropped when such requirements are not needed */
+/**
+ *
+ */
 export function _promisify(options, proto, asyncFunc,
     finishFunc = `${asyncFunc.replace(/_(begin|async)$/, '')}_finish`) {
     if (proto[asyncFunc] === undefined)
@@ -41,7 +45,7 @@ export function _promisify(options, proto, asyncFunc,
             return this[`_original_${asyncFunc}`](...args);
         return new Promise((resolve, reject) => {
             const callStack = new Error().stack.split('\n').filter(line => !line.match(/promisify/)).join('\n');
-            this[`_original_${asyncFunc}`](...args, function (source, res) {
+            this[`_original_${asyncFunc}`](...args, (source, res) => {
                 try {
                     const result = source !== null && source[finishFunc] !== undefined
                         ? source[finishFunc](res)

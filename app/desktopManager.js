@@ -16,30 +16,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import * as FileItem from './fileItem.js';
+import * as stackItem from './stackItem.js';
+import * as DesktopGrid from './desktopGrid.js';
+import * as AskRenamePopup from './askRenamePopup.js';
+import * as ShowErrorPopup from './showErrorPopup.js';
+import * as TemplatesScriptsManager from './templatesScriptsManager.js';
+import * as FileItemMenu from './fileItemMenu.js';
+import * as AutoAr from './autoAr.js';
+import * as AppChooser from './appChooser.js';
+import * as GnomeShellDragDrop from './gnomeShellDragDrop.js';
+import * as Thumbnails from './thumbnails.js';
+
+export {DesktopManager};
 
 imports.gi.versions.Gtk = '4.0';
 imports.gi.versions.Gdk = '4.0';
 
 const {GLib, Gtk, Gdk, Gio} = imports.gi;
 
-const FileItem = imports.app.fileItem;
-const stackItem = imports.app.stackItem;
-const DesktopGrid = imports.app.desktopGrid;
-const AskRenamePopup = imports.app.askRenamePopup;
-const ShowErrorPopup = imports.app.showErrorPopup;
-const TemplatesScriptsManager = imports.app.templatesScriptsManager;
-const FileItemMenu = imports.app.fileItemMenu;
-const AutoAr = imports.app.autoAr;
-const AppChooser = imports.app.appChooser;
-const GnomeShellDragDrop = imports.app.gnomeShellDragDrop;
-const Thumbnails = imports.app.thumbnails;
-
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
-// eslint-disable-next-line no-unused-vars
-var DesktopManager = class {
+const DesktopManager = class {
     constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex, version) {
         // Inherit
         this.mainApp = Data.dingApp;

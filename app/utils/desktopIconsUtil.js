@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {DesktopIconsUtil};
 
 imports.gi.versions.GdkX11 = '4.0';
 imports.gi.versions.Gdk = '4.0';
@@ -25,8 +26,7 @@ const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
-// eslint-disable-next-line no-unused-vars
-var DesktopIconsUtil = class {
+const DesktopIconsUtil = class {
     constructor(Data, Utils) {
         this.applicationid = Data.dingApp;
         this.Enums = Data.Enums;

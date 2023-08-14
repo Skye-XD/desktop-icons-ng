@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {Preferences};
 
 imports.gi.versions.Gtk = '4.0';
 
@@ -26,8 +27,7 @@ const Gettext = imports.gettext;
 
 var _ = Gettext.domain('gtk4-ding').gettext;
 
-// eslint-disable-next-line no-unused-vars
-var Preferences = class {
+const Preferences = class {
     constructor(Data) {
         this._extensionPath = Data.codePath;
         this._Enums = Data.Enums;

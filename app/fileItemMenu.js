@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {FileItemMenu};
 
 const {GLib, Gdk, Gtk, Gio} = imports.gi;
 
@@ -22,8 +23,7 @@ const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
-// eslint-disable-next-line no-unused-vars
-var FileItemMenu = class {
+const FileItemMenu = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
         this._codePath = this._desktopManager._codePath;

@@ -17,11 +17,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {GsConnectSendFileOperationsManager};
 
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 
-// eslint-disable-next-line no-unused-vars
 var GsConnectSendFileOperationsManager =  class {
     constructor(GsConnectManager, applicationid) {
         this._mainApp = applicationid;
