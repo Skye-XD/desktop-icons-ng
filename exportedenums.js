@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)

@@ -19,8 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {desktopIconItem};
 
-const { Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf } = imports.gi;
+const {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf} = imports.gi;
 const Signals = imports.signals;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
@@ -30,7 +31,7 @@ const _ = Gettext.gettext;
 const PIXBUF_CONTENT_TYPES = new Set();
 GdkPixbuf.Pixbuf.get_formats().forEach(f => PIXBUF_CONTENT_TYPES.add(...f.get_mime_types()));
 
-var desktopIconItem = class desktopIconItem {
+const desktopIconItem = class {
     constructor(desktopManager, fileExtra) {
         this._desktopManager = desktopManager;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
@@ -55,7 +56,7 @@ var desktopIconItem = class desktopIconItem {
      * Destroyers *
      ***********************/
 
-    removeFromGrid(opts = { callOnDestroy: false }) {
+    removeFromGrid(opts = {callOnDestroy: false}) {
         if (this._grid) {
             this._grid.removeItem(this);
             this._grid = null;
@@ -101,14 +102,14 @@ var desktopIconItem = class desktopIconItem {
      ***********************/
 
     _createIconActor() {
-        this.container = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER });
+        this.container = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER});
         this._containerId = this.container.connect('destroy', () => this.onDestroy());
 
         this._icon = new Gtk.Picture();
         this._icon.set_can_shrink(false);
         this._icon.set_keep_aspect_ratio(true);
         this._icon.set_halign(Gtk.Align.CENTER);
-        this._iconContainer = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
+        this._iconContainer = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL});
         this._iconContainer.set_hexpand(false);
         this._iconContainer.set_halign(Gtk.Align.CENTER);
         this._iconContainer.set_baseline_position(Gtk.BaselinePosition.CENTER);
@@ -116,7 +117,7 @@ var desktopIconItem = class desktopIconItem {
         this._iconContainer.append(this._icon);
 
         this._label = new Gtk.Label();
-        this._labelContainer = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER });
+        this._labelContainer = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER});
         if (this.Prefs.darkText)
             this._label.add_css_class('file-label-dark');
         else
@@ -347,6 +348,7 @@ var desktopIconItem = class desktopIconItem {
         }
     }
 
+    // eslint-disable-next-line no-unused-vars
     _doButtonOneReleased(button, X, Y, x, y, shiftPressed, controlPressed) {
     }
 
@@ -356,7 +358,7 @@ var desktopIconItem = class desktopIconItem {
 
     _onEnter() {
         if (!this._grid)
-            return;
+            return true;
         if (this.Prefs.CLICK_POLICY_SINGLE) {
             let window = this._grid._window;
             if (window)
@@ -367,7 +369,7 @@ var desktopIconItem = class desktopIconItem {
 
     _onLeave() {
         if (!this._grid)
-            return;
+            return true;
         if (this.Prefs.CLICK_POLICY_SINGLE) {
             let window = this._grid._window;
             if (window)
@@ -462,6 +464,7 @@ var desktopIconItem = class desktopIconItem {
             this.setUnHighLighted();
     }
 
+    // eslint-disable-next-line no-unused-vars
     receiveDrop(x, y, selection, info) {
     }
 
@@ -647,7 +650,7 @@ var desktopIconItem = class desktopIconItem {
             if (GLib.path_is_absolute(iconName)) {
                 try {
                     let iconFile = Gio.File.new_for_commandline_arg(iconName);
-                    icon = new Gio.FileIcon({ file: iconFile });
+                    icon = new Gio.FileIcon({file: iconFile});
                 } catch (e) {
                     icon = Gio.ThemedIcon.new_with_default_fallbacks(iconName);
                 }

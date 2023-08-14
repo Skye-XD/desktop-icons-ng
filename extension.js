@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
@@ -16,32 +17,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /* exported init, enable, disable */
-const { GLib, Gio, Meta, Clutter } = imports.gi;
-const Main = imports.ui.main;
-const ExtensionUtils = imports.misc.extensionUtils;
-const Config = imports.misc.config;
-const ByteArray = imports.byteArray;
+const {GLib, Gio, Meta, Clutter} = imports.gi;
 
-const Me = ExtensionUtils.getCurrentExtension();
-const EmulateX11 = Me.imports.emulateX11WindowType;
-const VisibleArea = Me.imports.visibleArea;
-const GnomeShellOverride = Me.imports.gnomeShellOverride;
-const PromiseUtils = Me.imports.utils.promiseUtils;
-const FileUtils = Me.imports.utils.fileUtils;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 
-PromiseUtils._promisify({ keepOriginal: true },
+import * as EmulateX11 from './emulateX11WindowType.js';
+import * as VisibleArea from './visibleArea.js';
+import * as GnomeShellOverride from './gnomeShellOverride.js';
+import * as PromiseUtils from './utils/promiseUtils.js';
+import * as FileUtils from './utils/fileUtils.js';
+
+const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
+
+PromiseUtils._promisify({keepOriginal: true},
     Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish_utf8');
-PromiseUtils._promisify({ keepOriginal: true },
+PromiseUtils._promisify({keepOriginal: true},
     Gio.Subprocess.prototype, 'wait_async');
 
 const fileProto = imports.system.version >= 17200
     ? Gio.File.prototype : Gio._LocalFilePrototype;
 
-PromiseUtils._promisify({ keepOriginal: true },
+PromiseUtils._promisify({keepOriginal: true},
     fileProto, 'enumerate_children_async');
-PromiseUtils._promisify({ keepOriginal: true },
+PromiseUtils._promisify({keepOriginal: true},
     Gio.FileEnumerator.prototype, 'close_async');
-PromiseUtils._promisify({ keepOriginal: true },
+PromiseUtils._promisify({keepOriginal: true},
     Gio.FileEnumerator.prototype, 'next_files_async');
 
 const ifaceXml = `
@@ -68,439 +70,449 @@ const ShellDropCursor = {
     MOVE: 'dndMoveCursor',
 };
 
-// This object will contain all the global variables
-let data = {};
-
-var DesktopIconsUsableArea = null;
-var dingExtensionServiceImplementation = null;
-var dingExtensionServiceInterface = null;
-
-
-/**
- * Inits the Extension
- */
-function init() {
-    data.isEnabled = false;
-    data.launchDesktopId = 0;
-    data.currentProcess = null;
-
-    data.GnomeShellOverride = null;
-    data.GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
-
-    /* The constructor of the EmulateX11 class only initializes some
-     * internal properties, but nothing else. In fact, it has its own
-     * enable() and disable() methods. That's why it could have been
-     * created here, in init(). But since the rule seems to be NO CLASS
-     * CREATION IN INIT UNDER NO CIRCUMSTANCES...
-     */
-    data.x11Manager = null;
-    data.visibleArea = null;
-
-    /* Ensures that there aren't "rogue" processes.
-     * This is a safeguard measure for the case of Gnome Shell being
-     * relaunched (for example, under X11, with Alt+F2 and R), to kill
-     * any old DING instance. That's why it must be here, in init(),
-     * and not in enable() or disable() (disable already guarantees that
-     * the current instance is killed).
-     */
-    data.killingProcess = true;
-    doKillAllOldDesktopProcesses().catch(e => logError(e)).finally(() => (data.killingProcess = false));
-}
-
-
-/**
- * Enables the extension
- */
-function enable() {
-    if (!data.GnomeShellOverride)
-        data.GnomeShellOverride = new GnomeShellOverride.GnomeShellOverride();
-    data.GnomeShellOverride.enable();
-
-    if (!data.x11Manager)
-        data.x11Manager = new EmulateX11.EmulateX11WindowType();
-
-    if (!DesktopIconsUsableArea) {
-        DesktopIconsUsableArea = new VisibleArea.VisibleArea();
-        data.visibleArea = DesktopIconsUsableArea;
+export default class DingExtension extends Extension {
+    constructor(metadata) {
+        super(metadata);
+        this._init();
     }
 
-    if (!data.synthesizeHover)
-        data.synthesizeHover = new SynthesizeHover();
-
-    // If the desktop is still starting up, we wait until it is ready
-    if (Main.layoutManager._startingUp) {
-        data.startupPreparedId = Main.layoutManager.connect('startup-complete', innerEnable);
-    } else {
-        data.startupPrepareId = null;
-        innerEnable();
-    }
-}
-
-/**
- * The true code that configures everything and launches the desktop program
- */
-function innerEnable() {
-    if (data.killingProcess) {
-        data.startupProcessKillWaitId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
-            if (data.killingProcess)
-                return GLib.SOURCE_CONTINUE;
-
-            data.startupProcessKillWaitId = 0;
-            innerEnable();
-            return GLib.SOURCE_REMOVE;
-        });
-        return;
-    }
-
-    if (data.starupPrepareId) {
-        Main.layoutManager.disconnect(data.startupPreparedId);
-        data.startupPreparedId = null;
-    }
-
-    // under X11 we now need to cheat, so now do all this under wayland as well as X
-    data.x11Manager.enable();
-
-    /*
-     * If the desktop geometry changes (because a new monitor has been added, for example),
+    /**
+     * Inits the Extension
      */
-    data.monitorsChangedId = Main.layoutManager.connect('monitors-changed', updateDesktopGeometry);
+    _init() {
+        this.isEnabled = false;
+        this.launchDesktop = 0;
+        this.waylandClient = null;
+        this.DesktopIconsUsableArea = null;
+        this.dingExtensionServiceImplementation = null;
+        this.dingExtensionServiceInterface = null;
 
-    /*
-     * Any change in the workareas must be detected too, for example if the used size changes.
+        this.GnomeShellOverride = null;
+        this.GnomeShellVersion = GnomeShellVersion;
+
+        /* The constructor of the EmulateX11 class only initializes some
+         * internal properties, but nothing else. In fact, it has its own
+         * enable() and disable() methods. That's why it could have been
+         * created here, in init(). But since the rule seems to be NO CLASS
+         * CREATION IN INIT UNDER NO CIRCUMSTANCES...
+         */
+        this.x11Manager = null;
+        this.visibleArea = null;
+
+        /* Ensures that there aren't "rogue" processes.
+         * This is a safeguard measure for the case of Gnome Shell being
+         * relaunched (for example, under X11, with Alt+F2 and R), to kill
+         * any old DING instance. That's why it must be here, in init(),
+         * and not in enable() or disable() (disable already guarantees that
+         * the current instance is killed).
+         */
+        this.killingProcess = true;
+        this._doKillAllOldDesktopProcesses().catch(e => logError(e)).finally(() => (this.killingProcess = false));
+    }
+
+
+    /**
+     * Enables the extension
      */
-    data.workareasChangedId = global.display.connect('workareas-changed', updateDesktopGeometry);
+    enable() {
+        if (!this.GnomeShellOverride)
+            this.GnomeShellOverride = new GnomeShellOverride.GnomeShellOverride();
+        this.GnomeShellOverride.enable();
 
-    /*
-     * This callback allows to detect a change in the working area (like when changing the Scale value)
-     */
-    data.visibleAreaId = data.visibleArea.connect('updated-usable-area', updateDesktopGeometry);
+        if (!this.x11Manager)
+            this.x11Manager = new EmulateX11.EmulateX11WindowType();
 
-    data.dbusConnectionId = acquireDBusName();
-
-    data.lockSignalhandlerId = Gio.DBus.session.signal_subscribe(
-        'org.gnome.ScreenSaver',
-        'org.gnome.ScreenSaver',
-        'ActiveChanged',
-        '/org/gnome/ScreenSaver',
-        null,
-        Gio.DBusSignalFlags.NONE,
-        onActiveChanged
-    );
-
-    data.isEnabled = true;
-    if (data.launchDesktopId)
-        GLib.source_remove(data.launchDesktopId);
-
-    launchDesktop().catch(e => logError(e));
-
-    data.remoteDingActions = Gio.DBusActionGroup.get(
-        Gio.DBus.session,
-        'com.desktop.ding',
-        '/com/desktop/ding/actions'
-    );
-
-    data.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe(
-        'com.desktop.ding',
-        'com.desktop.ding.geometrycontrol',
-        'updategeometry',
-        '/com/desktop/ding/geometrycontrol',
-        null,
-        Gio.DBusSignalFlags.NONE,
-        updateDesktopGeometry
-    );
-}
-
-/**
- * Acquire the DBus Name on the Session Bus
- *
- */
-function acquireDBusName() {
-    let ID = Gio.bus_own_name(
-        Gio.BusType.SESSION,
-        'com.desktop.dingextension',
-        Gio.BusNameOwnerFlags.NONE,
-        onBusAcquired.bind(dingExtensionServiceImplementation),
-        (connection, name) => {
-            log(`${name} DBus Name Acquired`);
-            data.dbusConnectionName = name;
-        },
-        (connection, name) => {
-            log(`${name} DBus and Name Lost`);
-            data.dbusConnectionName = null;
+        if (!this.DesktopIconsUsableArea) {
+            this.DesktopIconsUsableArea = new VisibleArea.VisibleArea();
+            this.visibleArea = this.DesktopIconsUsableArea;
         }
-    );
-    return ID;
-}
 
+        if (!this.synthesizeHover)
+            this.synthesizeHover = new SynthesizeHover();
 
-/**
- * Start stop the  Dbus Service with screen locks and unlocks
- *
- * @param {GObject} connection the Dbus Connection
- * @param {string} sender the numeric Dbus Sender address
- * @param {string} path the Dbus Sender path
- * @param {string} iface the Sender Dbus interface
- * @param {string} signal the signal name
- * @param {GLib.variant} params the GLib.variant with parameters
- */
-function onActiveChanged(connection, sender, path, iface, signal, params) {
-    const value = params.get_child_value(0);
-    const locked = value.get_boolean();
-    if (locked) {
-        if (data.dbusConnectionId) {
-            Gio.bus_unown_name(data.dbusConnectionId);
-            data.dbusConnectionId = 0;
-            log(`${data.dbusConnectionName} DBus Name Relenquished`);
+        // If the desktop is still starting up, we wait until it is ready
+        if (Main.layoutManager._startingUp) {
+            this.startupPreparedId = Main.layoutManager.connect('startup-complete', this._innerEnable.bind(this));
+        } else {
+            this.startupPrepareId = null;
+            this._innerEnable();
         }
-    } else if (!data.dbusConnectionId || !data.dbusConnectionName) {
-        data.dbusConnectionId = acquireDBusName();
-    }
-}
-
-/**
- * Start the Dbus Service
- *
- * @param {GObject} connection the Dbus Connection
- *
- */
-function onBusAcquired(connection) {
-    if (data.dbusConnectionName)
-        return;
-    dingExtensionServiceImplementation = new DingExtensionService();
-    dingExtensionServiceInterface = Gio.DBusExportedObject.wrapJSObject(ifaceXml,
-        dingExtensionServiceImplementation);
-    dingExtensionServiceInterface.export(connection, '/com/desktop/dingextension/service');
-}
-/**
- * Kills the current desktop program
- */
-function killCurrentProcess() {
-    if (data.launchDesktopId) {
-        GLib.source_remove(data.launchDesktopId);
-        data.launchDesktopId = 0;
     }
 
-    // kill the desktop program. It will be reloaded automatically.
-    if (data.currentProcess && data.currentProcess.subprocess) {
-        data.currentProcess.cancellable.cancel();
-        data.currentProcess.subprocess.send_signal(15);
-    }
-    data.currentProcess = null;
-    data.x11Manager.set_wayland_client(null);
-}
+    /**
+     * The true code that configures everything and launches the desktop program
+     */
+    _innerEnable() {
+        if (this.killingProcess) {
+            this.startupProcessKillWaitId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+                if (this.killingProcess)
+                    return GLib.SOURCE_CONTINUE;
 
-/**
- * Disables the extension. Under Gnome 42 the extension runs with the session mode 'unlock-dialog'.
- * This allows the extension to keep running when the lock screen comes on. The advantage is that
- * the Gtk4 program that is spawned by this extension keep running, rendering all the file icons
- * on the desktop. When the user logs back in the desktop is already rendered and running, the
- * desktop program does not need to be first killed on the lock-screen and then launced again on
- * unlock.
- * If disable is called, it explictly kill the desktop program. This will hapen on log out.
- */
-function disable() {
-    DesktopIconsUsableArea = null;
-    data.isEnabled = false;
-    killCurrentProcess();
-    data.GnomeShellOverride.disable();
-    data.x11Manager.disable();
-    data.visibleArea.disable();
-    data.synthesizeHover.disable();
+                this.startupProcessKillWaitId = 0;
+                this._innerEnable();
+                return GLib.SOURCE_REMOVE;
+            });
+            return;
+        }
 
-    if (data.startupProcessKillWaitId) {
-        GLib.source_remove(data.startupProcessKillWaitId);
-        data.startupProcessKillWaitId = 0;
-    }
-    if (data.dbusConnectionId) {
-        Gio.bus_unown_name(data.dbusConnectionId);
-        data.dbusConnectionId = 0;
-    }
-    // disconnect signals only if connected
-    if (data.lockSignalhandlerId) {
-        Gio.DBus.session.signal_unsubscribe(data.lockSignalhandlerId);
-        data.lockSignalhandlerId = 0;
-    }
-    if (data.remoteGeometryUpdateRequestedId) {
-        Gio.DBus.session.signal_unsubscribe(data.remoteGeometryUpdateRequestedId);
-        data.remoteGeometryUpdateRequestedId = 0;
-    }
-    if (data.visibleAreaId) {
-        data.visibleArea.disconnect(data.visibleAreaId);
-        data.visibleAreaId = 0;
-    }
-    if (data.startupPreparedId) {
-        Main.layoutManager.disconnect(data.startupPreparedId);
-        data.startupPreparedId = 0;
-    }
-    if (data.monitorsChangedId) {
-        Main.layoutManager.disconnect(data.monitorsChangedId);
-        data.monitorsChangedId = 0;
-    }
-    if (data.workareasChangedId) {
-        global.display.disconnect(data.workareasChangedId);
-        data.workareasChangedId = 0;
-    }
-}
+        if (this.starupPrepareId) {
+            Main.layoutManager.disconnect(this.startupPreparedId);
+            this.startupPreparedId = null;
+        }
 
-/**
- * Sends updated geometry data to the DING desktop program over DBus
- */
-function updateDesktopGeometry() {
-    if (data.remoteDingActions && (Main.layoutManager.monitors.length !== 0))
-        data.remoteDingActions.activate_action('updateGridWindows', getDesktopGeometry());
-}
+        // under X11 we now need to cheat, so now do all this under wayland as well as X
+        this.x11Manager.enable();
 
-/**
- * Gets current desktop Geometry from visibleArea.js
- */
-function getDesktopGeometry() {
-    let desktopList = [];
-    let ws = global.workspace_manager.get_workspace_by_index(0);
-    for (let monitorIndex = 0; monitorIndex < Main.layoutManager.monitors.length; monitorIndex++) {
-        let area = data.visibleArea.getMonitorGeometry(ws, monitorIndex);
-        let desktopListElement = new GLib.Variant('a{sd}', {
-            'x': area.x,
-            'y': area.y,
-            'width': area.width,
-            'height': area.height,
-            'zoom': area.scale,
-            'marginTop': area.marginTop,
-            'marginBottom': area.marginBottom,
-            'marginLeft': area.marginLeft,
-            'marginRight': area.marginRight,
-            monitorIndex,
-            'primaryMonitor': Main.layoutManager.primaryIndex,
+        /*
+         * If the desktop geometry changes (because a new monitor has been added, for example),
+         */
+        this.monitorsChangedId = Main.layoutManager.connect('monitors-changed', this._updateDesktopGeometry.bind(this));
+
+        /*
+         * Any change in the workareas must be detected too, for example if the used size changes.
+         */
+        this.workareasChangedId = global.display.connect('workareas-changed', this._updateDesktopGeometry.bind(this));
+
+        /*
+         * This callback allows to detect a change in the working area (like when changing the Scale value)
+         */
+        this.visibleAreaId = this.visibleArea.connect('updated-usable-area', this._updateDesktopGeometry.bind(this));
+
+        this.dbusConnectionId = this._acquireDBusName();
+
+        this.lockSignalhandlerId = Gio.DBus.session.signal_subscribe(
+            'org.gnome.ScreenSaver',
+            'org.gnome.ScreenSaver',
+            'ActiveChanged',
+            '/org/gnome/ScreenSaver',
+            null,
+            Gio.DBusSignalFlags.NONE,
+            this._onActiveChanged.bind(this)
+        );
+
+        this.isEnabled = true;
+        if (this.launchDesktop)
+            GLib.source_remove(this.launchDesktop);
+
+        this._launchDesktop().catch(e => logError(e));
+
+        this.remoteDingActions = Gio.DBusActionGroup.get(
+            Gio.DBus.session,
+            'com.desktop.ding',
+            '/com/desktop/ding/actions'
+        );
+
+        this.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe(
+            'com.desktop.ding',
+            'com.desktop.ding.geometrycontrol',
+            'updategeometry',
+            '/com/desktop/ding/geometrycontrol',
+            null,
+            Gio.DBusSignalFlags.NONE,
+            this._updateDesktopGeometry.bind(this)
+        );
+    }
+
+    /**
+     * Acquire the DBus Name on the Session Bus
+     *
+     */
+    _acquireDBusName() {
+        let ID = Gio.bus_own_name(
+            Gio.BusType.SESSION,
+            'com.desktop.dingextension',
+            Gio.BusNameOwnerFlags.NONE,
+            this._onBusAcquired.bind(this),
+            (connection, name) => {
+                log(`${name} DBus Name Acquired`);
+                this.dbusConnectionName = name;
+            },
+            (connection, name) => {
+                log(`${name} DBus and Name Lost`);
+                this.dbusConnectionName = null;
+            }
+        );
+        return ID;
+    }
+
+    /**
+     * Start the Dbus Service
+     *
+     * @param {GObject} connection the Dbus Connection
+     *
+     */
+    _onBusAcquired(connection) {
+        if (this.dbusConnectionName)
+            return;
+        this.dingExtensionServiceImplementation = new DingExtensionService(this._updateDesktopGeometry.bind(this));
+        this.dingExtensionServiceInterface = Gio.DBusExportedObject.wrapJSObject(ifaceXml,
+            this.dingExtensionServiceImplementation);
+        this.dingExtensionServiceImplementation._impl = this.dingExtensionServiceInterface;
+        this.dingExtensionServiceInterface.export(connection, '/com/desktop/dingextension/service');
+    }
+
+    _stopDbusService() {
+        Gio.bus_unown_name(this.dbusConnectionId);
+        this.dbusConnectionId = 0;
+        log(`${this.dbusConnectionName} DBus Name Relenquished`);
+    }
+
+
+    /**
+     * Start stop the  Dbus Service with screen locks and unlocks
+     *
+     * @param {GObject} connection the Dbus Connection
+     * @param {string} sender the numeric Dbus Sender address
+     * @param {string} path the Dbus Sender path
+     * @param {string} iface the Sender Dbus interface
+     * @param {string} signal the signal name
+     * @param {GLib.variant} params the GLib.variant with parameters
+     */
+    _onActiveChanged(connection, sender, path, iface, signal, params) {
+        const value = params.get_child_value(0);
+        const locked = value.get_boolean();
+        if (locked) {
+            if (this.dbusConnectionId)
+                this._stopDbusService();
+        } else if (!this.dbusConnectionId || !this.dbusConnectionName) {
+            this.dbusConnectionId = this._acquireDBusName();
+        }
+    }
+
+    /**
+     * Kills the current desktop program
+     */
+    _killCurrentProcess() {
+        if (this.launchDesktop) {
+            GLib.source_remove(this.launchDesktop);
+            this.launchDesktop = 0;
+        }
+
+        // kill the desktop program. It will be reloaded automatically.
+        if (this.waylandClient && this.waylandClient.subprocess) {
+            this.waylandClient.cancellable.cancel();
+            this.waylandClient.subprocess.send_signal(15);
+        }
+        this.waylandClient = null;
+        this.x11Manager.set_wayland_client(null);
+    }
+
+    /**
+     * Disables the extension. Under Gnome 42 the extension runs with the session mode 'unlock-dialog'.
+     * This allows the extension to keep running when the lock screen comes on. The advantage is that
+     * the Gtk4 programs that are spawned by this extension keep running, rendering all the file icons
+     * on the desktop. When the user logs back in the desktop is already rendered and running, the
+     * desktop program does not need to be first killed on the lock-screen and then launced again on
+     * unlock.
+     *
+     * If disable is called, it explictly kill the desktop program. This will hapen on log out.
+     */
+    disable() {
+        this.isEnabled = false;
+        this.DesktopIconsUsableArea = null;
+        this._killCurrentProcess();
+        this.GnomeShellOverride.disable();
+        this.x11Manager.disable();
+        this.visibleArea.disable();
+        this.synthesizeHover.disable();
+
+        if (this.startupProcessKillWaitId) {
+            GLib.source_remove(this.startupProcessKillWaitId);
+            this.startupProcessKillWaitId = 0;
+        }
+        if (this.dbusConnectionId) {
+            Gio.bus_unown_name(this.dbusConnectionId);
+            this.dbusConnectionId = 0;
+        }
+        // disconnect signals only if connected
+        if (this.lockSignalhandlerId) {
+            Gio.DBus.session.signal_unsubscribe(this.lockSignalhandlerId);
+            this.lockSignalhandlerId = 0;
+        }
+        if (this.remoteGeometryUpdateRequestedId) {
+            Gio.DBus.session.signal_unsubscribe(this.remoteGeometryUpdateRequestedId);
+            this.remoteGeometryUpdateRequestedId = 0;
+        }
+        if (this.visibleAreaId) {
+            this.visibleArea.disconnect(this.visibleAreaId);
+            this.visibleAreaId = 0;
+        }
+        if (this.startupPreparedId) {
+            Main.layoutManager.disconnect(this.startupPreparedId);
+            this.startupPreparedId = 0;
+        }
+        if (this.monitorsChangedId) {
+            Main.layoutManager.disconnect(this.monitorsChangedId);
+            this.monitorsChangedId = 0;
+        }
+        if (this.workareasChangedId) {
+            global.display.disconnect(this.workareasChangedId);
+            this.workareasChangedId = 0;
+        }
+    }
+
+
+    /**
+     * Sends updated geometry data to the DING desktop program over DBus
+     */
+    _updateDesktopGeometry() {
+        if (this.remoteDingActions && (Main.layoutManager.monitors.length !== 0))
+            this.remoteDingActions.activate_action('updateGridWindows', this._getDesktopGeometry());
+    }
+
+    /**
+     * Gets current desktop Geometry from visibleArea.js
+     */
+    _getDesktopGeometry() {
+        let desktopList = [];
+        let ws = global.workspace_manager.get_workspace_by_index(0);
+        for (let monitorIndex = 0; monitorIndex < Main.layoutManager.monitors.length; monitorIndex++) {
+            let area = this.visibleArea.getMonitorGeometry(ws, monitorIndex);
+            let desktopListElement = new GLib.Variant('a{sd}', {
+                'x': area.x,
+                'y': area.y,
+                'width': area.width,
+                'height': area.height,
+                'zoom': area.scale,
+                'marginTop': area.marginTop,
+                'marginBottom': area.marginBottom,
+                'marginLeft': area.marginLeft,
+                'marginRight': area.marginRight,
+                monitorIndex,
+                'primaryMonitor': Main.layoutManager.primaryIndex,
+            });
+            desktopList.push(desktopListElement);
+        }
+        return new GLib.Variant('av', desktopList);
+    }
+
+
+    /**
+     * This function checks all the processes in the system and kills those
+     * that are a desktop manager from the current user (but not others).
+     * This allows to avoid having several ones in case gnome shell resets,
+     * or other odd cases. It requires the /proc virtual filesystem, but
+     * doesn't fail if it doesn't exist.
+     */
+    async _doKillAllOldDesktopProcesses() {
+        const procFolder = Gio.File.new_for_path('/proc');
+        const processes = await FileUtils.enumerateDir(procFolder);
+        const thisPath = `gjs ${GLib.build_filenamev([
+            this.path,
+            'app',
+            'ding.js',
+        ])}`;
+
+        const killPromises = processes.map(async info => {
+            const filename = info.get_name();
+            const processPath = GLib.build_filenamev(['/proc', filename, 'cmdline']);
+            const processUser = Gio.File.new_for_path(processPath);
+
+            try {
+                const [binaryData] = await processUser.load_bytes_async_promise(null);
+                const readData = binaryData.get_data();
+                let contents = '';
+
+                for (let i = 0; i < readData.length; i++) {
+                    if (readData[i] < 32)
+                        contents += ' ';
+                    else
+                        contents += String.fromCharCode(readData[i]);
+                }
+
+                if (contents.startsWith(thisPath)) {
+                    let proc = new Gio.Subprocess({argv: ['/bin/kill', filename]});
+                    proc.init(null);
+                    print(`Killing old DING process ${filename}`);
+                    await proc.wait_async_promise(null);
+                }
+            } catch (e) {
+
+            }
         });
-        desktopList.push(desktopListElement);
+
+        await Promise.all(killPromises);
     }
-    return new GLib.Variant('av', desktopList);
-}
 
-/**
- * This function checks all the processes in the system and kills those
- * that are a desktop manager from the current user (but not others).
- * This allows to avoid having several ones in case gnome shell resets,
- * or other odd cases. It requires the /proc virtual filesystem, but
- * doesn't fail if it doesn't exist.
- */
-async function doKillAllOldDesktopProcesses() {
-    const procFolder = Gio.File.new_for_path('/proc');
-    const processes = await FileUtils.enumerateDir(procFolder);
-    const thisPath = `gjs ${GLib.build_filenamev([
-        ExtensionUtils.getCurrentExtension().path,
-        'app',
-        'ding.js',
-    ])}`;
+    /**
+     *
+     * @param {integer} reloadTime Relaunch time after crash in ms
+     */
+    _doRelaunch(reloadTime) {
+        this.waylandClient = null;
+        this.x11Manager.set_wayland_client(null);
+        if (this.isEnabled) {
+            if (this.launchDesktop)
+                GLib.source_remove(this.launchDesktop);
 
-    const killPromises = processes.map(async info => {
-        const filename = info.get_name();
-        const processPath = GLib.build_filenamev(['/proc', filename, 'cmdline']);
-        const processUser = Gio.File.new_for_path(processPath);
+            this.launchDesktop = GLib.timeout_add(GLib.PRIORITY_DEFAULT, reloadTime, () => {
+                this.launchDesktop = 0;
+                this._launchDesktop().catch(e => logError(e));
+                return false;
+            });
+        }
+    }
+
+    /**
+     * Launches the desktop program, passing to it the current desktop geometry for each monitor
+     * and the path where it is stored. It also monitors it, to relaunch it in case it dies or is
+     * killed. Finally, it reads STDOUT and STDERR and redirects them to the journal, to help to
+     * debug it.
+     */
+    async _launchDesktop() {
+        console.log('Launching Gtk4-DING process');
+        let argv = [];
+        argv.push(GLib.build_filenamev([this.path, 'app', 'ding.js']));
+        // Specify that it must work as true desktop
+        argv.push('-E');
+        // The path. Allows the program to find translations, settings and modules.
+        argv.push('-P');
+        argv.push(this.path);
+        // The current Gnome Shell Version for correct operation of clipboard with Gtk4.
+        argv.push('-V');
+        argv.push(`${this.GnomeShellVersion}`);
+
+        this.waylandClient = new LaunchSubprocess(0, 'Gtk4-DING');
+        this.waylandClient.set_cwd(GLib.get_home_dir());
+        this.x11Manager.set_wayland_client(this.waylandClient);
+
+        const launchTime = GLib.get_monotonic_time();
+        let subprocess;
 
         try {
-            const [binaryData] = await processUser.load_bytes_async_promise(null);
-            const readData = binaryData.get_data();
-            let contents = '';
-
-            for (let i = 0; i < readData.length; i++) {
-                if (readData[i] < 32)
-                    contents += ' ';
-                else
-                    contents += String.fromCharCode(readData[i]);
-            }
-
-            if (contents.startsWith(thisPath)) {
-                let proc = new Gio.Subprocess({ argv: ['/bin/kill', filename] });
-                proc.init(null);
-                print(`Killing old DING process ${filename}`);
-                await proc.wait_async_promise(null);
-            }
+            subprocess = await this.waylandClient.spawnv(argv);
         } catch (e) {
-
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                logError(e, `Error while trying to launch DING process: ${e.message}`);
+                this._doRelaunch(1000);
+            }
+            return;
         }
-    });
 
-    await Promise.all(killPromises);
-}
-
-/**
- *
- * @param {integer} reloadTime Relaunch time after crash in ms
- */
-function doRelaunch(reloadTime) {
-    data.currentProcess = null;
-    data.x11Manager.set_wayland_client(null);
-    if (data.isEnabled) {
-        if (data.launchDesktopId)
-            GLib.source_remove(data.launchDesktopId);
-
-        data.launchDesktopId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, reloadTime, () => {
-            data.launchDesktopId = 0;
-            launchDesktop().catch(e => logError(e));
-            return false;
-        });
-    }
-}
-
-/**
- * Launches the desktop program, passing to it the current desktop geometry for each monitor
- * and the path where it is stored. It also monitors it, to relaunch it in case it dies or is
- * killed. Finally, it reads STDOUT and STDERR and redirects them to the journal, to help to
- * debug it.
- */
-async function launchDesktop() {
-    global.log('Launching Gtk4-DING process');
-    let argv = [];
-    argv.push(GLib.build_filenamev([ExtensionUtils.getCurrentExtension().path, 'app', 'ding.js']));
-    // Specify that it must work as true desktop
-    argv.push('-E');
-    // The path. Allows the program to find translations, settings and modules.
-    argv.push('-P');
-    argv.push(ExtensionUtils.getCurrentExtension().path);
-    // The current Gnome Shell Version for correct operation of clipboard with Gtk4.
-    argv.push('-V');
-    argv.push(`${data.GnomeShellVersion}`);
-
-    data.currentProcess = new LaunchSubprocess(0, 'Gtk4-DING');
-    data.currentProcess.set_cwd(GLib.get_home_dir());
-    data.x11Manager.set_wayland_client(data.currentProcess);
-
-    const launchTime = GLib.get_monotonic_time();
-    let subprocess;
-
-    try {
-        subprocess = await data.currentProcess.spawnv(argv);
-    } catch (e) {
-        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-            logError(e, `Error while trying to launch DING process: ${e.message}`);
-            doRelaunch(1000);
+        /*
+        * If the desktop process dies, wait 100ms and relaunch it, unless the exit status is different than
+        * zero, in which case it will wait one second. This is done this way to avoid relaunching the desktop
+        * too fast if it has a bug that makes it fail continuously, avoiding filling the journal too fast.
+        */
+        const delta = GLib.get_monotonic_time() - launchTime;
+        let reloadTime;
+        if (delta < 1000000) {
+            // If the process is dying over and over again, ensure that it isn't respawn faster than once per second
+            reloadTime = 1000;
+        } else {
+            // but if the process just died after having run for at least one second, reload it ASAP
+            reloadTime = 1;
         }
-        return;
+
+        if (!this.waylandClient || subprocess !== this.waylandClient.subprocess)
+            return;
+
+
+        if (subprocess.get_if_exited())
+            subprocess.get_exit_status();
+
+        this._doRelaunch(reloadTime);
     }
-
-    /*
-     * If the desktop process dies, wait 100ms and relaunch it, unless the exit status is different than
-     * zero, in which case it will wait one second. This is done this way to avoid relaunching the desktop
-     * too fast if it has a bug that makes it fail continuously, avoiding filling the journal too fast.
-     */
-    const delta = GLib.get_monotonic_time() - launchTime;
-    let reloadTime;
-    if (delta < 1000000) {
-        // If the process is dying over and over again, ensure that it isn't respawn faster than once per second
-        reloadTime = 1000;
-    } else {
-        // but if the process just died after having run for at least one second, reload it ASAP
-        reloadTime = 1;
-    }
-
-    if (!data.currentProcess || subprocess !== data.currentProcess.subprocess)
-        return;
-
-
-    if (subprocess.get_if_exited())
-        subprocess.get_exit_status();
-
-    doRelaunch(reloadTime);
 }
 
 /**
@@ -515,7 +527,7 @@ async function launchDesktop() {
 var LaunchSubprocess = class {
     constructor(flags, processId) {
         this._processID = processId;
-        this._launcher = new Gio.SubprocessLauncher({ flags: flags | Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE });
+        this._launcher = new Gio.SubprocessLauncher({flags: flags | Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE});
         if (Meta.is_wayland_compositor()) {
             try {
                 this._waylandClient = Meta.WaylandClient.new(this._launcher);
@@ -581,11 +593,12 @@ var LaunchSubprocess = class {
     }
 
     async readOutput(dataInputStream, cancellable) {
+        let textDecoder = new TextDecoder();
         try {
             const [output, length] = await dataInputStream.read_line_async_promise(
                 GLib.PRIORITY_DEFAULT, cancellable);
             if (length)
-                print(`${this._processID}: ${ByteArray.toString(output)}`);
+                print(`${this._processID}: ${textDecoder.decode(output)}`);
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 return;
@@ -637,8 +650,12 @@ var LaunchSubprocess = class {
  * This class implements the Dbus Services Provided for the extension
  */
 var DingExtensionService = class {
+    constructor(updateDesktopGeometryCB) {
+        this.geometryUpdate = updateDesktopGeometryCB;
+    }
+
     updateDesktopGeometry() {
-        updateDesktopGeometry();
+        this.geometryUpdate();
     }
 
     getDropTargetAppInfoDesktopFile([dropX, dropY]) {
@@ -671,7 +688,7 @@ var DingExtensionService = class {
         }
 
         if (droptarget) {
-            data.synthesizeHover.hoverOver(checkactor);
+            this.synthesizeHover.hoverOver(checkactor);
             return droptarget;
         } else {
             return 'null';
@@ -715,6 +732,7 @@ var SynthesizeHover = class {
     }
 
     hoverOver(newactor) {
+        // eslint-disable-next-line eqeqeq
         if (newactor == this._hoveredActor) {
             this._resetHoverTimer();
             return;

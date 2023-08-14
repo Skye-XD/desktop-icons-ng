@@ -15,9 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Main = imports.ui.main;
 const Signals = imports.signals;
 const GLib = imports.gi.GLib;
+
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+export {VisibleArea};
 
 var VisibleArea = class {
     constructor() {

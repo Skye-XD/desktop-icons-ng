@@ -16,20 +16,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+import * as DBusInterfaces from './dbusInterfaces.js';
+import * as GsConnect from './gsConnect.js';
+
+export {DBusUtils};
 
 imports.gi.versions.GdkX11 = '4.0';
 imports.gi.versions.Gdk = '4.0';
 imports.gi.versions.GdkWayland = '4.0';
 
-const { Gdk, Gio, GLib, GdkX11, GdkWayland } = imports.gi;
+const {Gdk, Gio, GLib, GdkX11, GdkWayland} = imports.gi;
 const Signals = imports.signals;
-const DBusInterfaces = imports.app.utils.dbusInterfaces;
-const GsConnect = imports.app.utils.gsConnect;
 
 const Gettext = imports.gettext.domain('ding');
 
 const _ = Gettext.gettext;
-
 class ProxyManager {
     /*
     * This class manages a DBus object through a DBusProxy. Any access to the proxy when the
@@ -56,7 +57,9 @@ class ProxyManager {
         if (typeof programNeeded === 'string') {
             // if 'programNeeded' is a string, create a generic message for the notification.
             this._programNeeded = [
+                // eslint-disable-next-line no-template-curly-in-string
                 _('"${programName}" is needed for Desktop Icons').replace('${programName}', programNeeded),
+                // eslint-disable-next-line no-template-curly-in-string
                 _('For this functionality to work in Desktop Icons, you must install "${programName}" in your system.').replace('${programName}', programNeeded),
             ];
         } else {
@@ -1007,7 +1010,8 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     }
 }
 
-var DBusUtils = class DBusUtils {
+// eslint-disable-next-line no-unused-vars
+const DBusUtils = class {
     constructor(mainApp) {
         this.applicationId = mainApp;
         this.discreteGpuAvailable = false;
@@ -1180,6 +1184,7 @@ class ExtensionControl {
                         if (error) {
                             logError(error, 'Unable to get .desktop file');
                             resolve(null);
+                        // eslint-disable-next-line eqeqeq
                         } else if (desktopFileAppPath == 'null') {
                             resolve(null);
                         } else {

@@ -15,12 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {AdwPreferencesWindow};
 
-const { Gtk, Gdk, GLib, Gio, GObject, Adw } = imports.gi;
+const {Gtk, Gdk, GLib, Gio, GObject, Adw} = imports.gi;
 const Gettext = imports.gettext;
 var _ = Gettext.domain('gtk4-ding').gettext;
 
-const version = 47;
+const version = 48;
 
 const ListObject = GObject.registerClass({
     GTypeName: 'peferences-list',
@@ -147,8 +148,7 @@ const ComboRowWithKey = GObject.registerClass({
     }
 });
 
-
-var AdwPreferencesWindow = class {
+const AdwPreferencesWindow = class {
     constructor(desktopSettings, nautilusSettings, gtkSettings, extensionPath) {
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;
@@ -278,11 +278,13 @@ var AdwPreferencesWindow = class {
 
         if (!window)
             return prefsWindow;
+        else
+            return true;
     }
 
     addActionRowSwitch(settings, key, labelText) {
         const actionRow = Adw.ActionRow.new();
-        const switcher = new Gtk.Switch({ active: settings.get_boolean(key) });
+        const switcher = new Gtk.Switch({active: settings.get_boolean(key)});
         switcher.set_halign(Gtk.Align.END);
         switcher.set_valign(Gtk.Align.CENTER);
         switcher.set_hexpand(false);

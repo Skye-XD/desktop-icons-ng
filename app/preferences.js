@@ -16,17 +16,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {Preferences};
 
 imports.gi.versions.Gtk = '4.0';
 
-const { GLib, Gtk, Gio, Gdk } = imports.gi;
+const {GLib, Gtk, Gio, Gdk} = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 
 const Gettext = imports.gettext;
 
 var _ = Gettext.domain('gtk4-ding').gettext;
 
-var Preferences = class {
+const Preferences = class {
     constructor(Data) {
         this._extensionPath = Data.codePath;
         this._Enums = Data.Enums;
@@ -35,7 +36,7 @@ var Preferences = class {
 
         // Gtk
         let schemaGtk = schemaSource.lookup(this._Enums.SCHEMA_GTK, true);
-        this.gtkSettings = new Gio.Settings({ settings_schema: schemaGtk });
+        this.gtkSettings = new Gio.Settings({settings_schema: schemaGtk});
 
         // Gnome Files
         let schemaObj = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS, true);
@@ -44,7 +45,7 @@ var Preferences = class {
             this.CLICK_POLICY_SINGLE = false;
             this.openFolderOnDndHover = false;
         } else {
-            this.nautilusSettings = new Gio.Settings({ settings_schema: schemaObj });
+            this.nautilusSettings = new Gio.Settings({settings_schema: schemaObj});
         }
 
         // Compression
@@ -52,17 +53,17 @@ var Preferences = class {
         if (!compressionSchema)
             this.nautilusCompression = null;
         else
-            this.nautilusCompression = new Gio.Settings({ settings_schema: compressionSchema });
+            this.nautilusCompression = new Gio.Settings({settings_schema: compressionSchema});
 
         // Mutter Settings
         let schemaMutter = schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
         if (schemaMutter)
-            this.mutterSettings = new Gio.Settings({ settings_schema: schemaMutter });
+            this.mutterSettings = new Gio.Settings({settings_schema: schemaMutter});
 
         // Gnome Dark Settings
         let schemaGnomeSettings = schemaSource.lookup(this._Enums.SCHEMA_GNOME_SETTINGS, true);
         if (schemaGnomeSettings)
-            this.schemaGnomeThemeSettings = new Gio.Settings({ settings_schema: schemaGnomeSettings });
+            this.schemaGnomeThemeSettings = new Gio.Settings({settings_schema: schemaGnomeSettings});
 
         // Our Settings
         this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
@@ -90,7 +91,7 @@ var Preferences = class {
         if (!schemaObj)
             throw new Error(`Schema ${schema} could not be found for extension. Please check your installation.`);
 
-        return new Gio.Settings({ settings_schema: schemaObj });
+        return new Gio.Settings({settings_schema: schemaObj});
     }
 
     _cacheInitialSettings() {

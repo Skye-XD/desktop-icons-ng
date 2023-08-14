@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Copyright (C) 2022 Sergio Costas (sergio.costas@canonical.com)
@@ -14,8 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {AutoAr};
 
-const { GLib, Gio, Gtk } = imports.gi;
+const {GLib, Gio, Gtk} = imports.gi;
 var GnomeAutoar = null;
 try {
     GnomeAutoar = imports.gi.GnomeAutoar;
@@ -288,7 +290,7 @@ const progressDialog = class {
             halign: Gtk.Align.START,
             orientation: Gtk.Orientation.VERTICAL,
         });
-        this._cancelButton = new Gtk.Button({ label: _('Cancel') });
+        this._cancelButton = new Gtk.Button({label: _('Cancel')});
         this._cancelButton.connect('clicked', () => {
             if (this._buttonPromiseAccept) {
                 this._buttonPromiseAccept(false);
@@ -296,7 +298,7 @@ const progressDialog = class {
             }
             this._cancellable.cancel();
         });
-        this._passOkButton = new Gtk.Button({ label: _('OK') });
+        this._passOkButton = new Gtk.Button({label: _('OK')});
         this._passOkButton.get_style_context().add_class('suggested-action');
         const passOKfunc = function () {
             this._processBar.show();
@@ -329,7 +331,7 @@ const progressDialog = class {
         });
         this._passEntry.connect('activate', passOKfunc);
 
-        const separator = new Gtk.Separator({ orientation: Gtk.Orientation.HORIZONTAL });
+        const separator = new Gtk.Separator({orientation: Gtk.Orientation.HORIZONTAL});
         this._container.append(separator);
         const updateSeparatorVisibility = () => {
             const progressElements = this._autoAr.getProgressElements();
@@ -588,7 +590,7 @@ const CompressDialog = class {
             orientation: Gtk.Orientation.HORIZONTAL,
         });
         this._extensionLabel = new Gtk.Label();
-        this._extensionLock = new Gtk.Image({ icon_name: 'dialog-password' });
+        this._extensionLock = new Gtk.Image({icon_name: 'dialog-password'});
         extensionContainer.append(this._extensionLabel);
         extensionContainer.append(this._extensionLock);
         this._extensionDropdown.set_child(extensionContainer);
@@ -605,7 +607,7 @@ const CompressDialog = class {
             margin_top: 6,
             xalign: 0,
         });
-        this._passEntry = new Gtk.PasswordEntry({ placeholder_text: _('Enter a password here') });
+        this._passEntry = new Gtk.PasswordEntry({placeholder_text: _('Enter a password here')});
         this._passEntry.set_show_peek_icon(true);
 
         container.append(box1);
@@ -713,16 +715,16 @@ const CompressDialog = class {
         if (!this._desktopManager.autoAr.extensionIsAvailable(data.extension))
             return;
 
-        const container = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
-        const container2 = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
-        const container3 = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
+        const container = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL});
+        const container2 = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL});
+        const container3 = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL});
         container3.append(new Gtk.Label({
             label: data.extension,
             justify: Gtk.Justification.LEFT,
             xalign: 0,
         }));
         if (data.password)
-            container3.append(new Gtk.Image({ icon_name: 'dialog-password' }));
+            container3.append(new Gtk.Image({icon_name: 'dialog-password'}));
 
         container.append(container3);
         container.append(new Gtk.Label({
@@ -732,7 +734,7 @@ const CompressDialog = class {
         }));
         const button = new Gtk.Button();
         container2.append(container);
-        data.selected_icon = new Gtk.Image({ icon_name: 'emblem-default' });
+        data.selected_icon = new Gtk.Image({icon_name: 'emblem-default'});
         container2.append(data.selected_icon);
         button.set_child(container2);
         this._extensionPopoverContainer.append(button);

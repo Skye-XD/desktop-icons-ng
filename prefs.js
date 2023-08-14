@@ -17,42 +17,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-/* exported init, buildPrefsWidget */
-const { Gio } = imports.gi;
+const {Gio} = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
 
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
-const Enums = Me.imports.app.enums;
-const adwPreferencesWindow = Me.imports.app.adwPreferencesWindow;
+import * as Enums from './app/enums.js';
+import * as  adwPreferencesWindow from './app/adwPreferencesWindow.js';
+import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
-/**
- * prefs initiation
- *
- * @returns {void}
- */
-function init() {
-    ExtensionUtils.initTranslations(Me.metadata.uuid);
-}
+export default class dingPreferences extends ExtensionPreferences {
+    fillPreferencesWindow(window) {
+        let desktopSettings = this.getSettings();
+        let schemaSource = GioSSS.get_default();
+        let schemaGtk = schemaSource.lookup(Enums.SCHEMA_GTK, true);
+        let gtkSettings = new Gio.Settings({settings_schema: schemaGtk});
+        let schemaNautilus = schemaSource.lookup(Enums.SCHEMA_NAUTILUS, true);
+        let nautilusSettings;
+        if (!schemaNautilus)
+            nautilusSettings = null;
+        else
+            nautilusSettings = new Gio.Settings({settings_schema: schemaNautilus});
 
-/**
- * prefs fillPreferencesWindow
- *
- * @param {AdwPreferencesWindow} window a preferences window from the shell
- * @returns {void}
- */
-function fillPreferencesWindow(window) {
-    let desktopSettings = ExtensionUtils.getSettings();
-    let schemaSource = GioSSS.get_default();
-    let schemaGtk = schemaSource.lookup(Enums.SCHEMA_GTK, true);
-    let gtkSettings = new Gio.Settings({ settings_schema: schemaGtk });
-    let schemaNautilus = schemaSource.lookup(Enums.SCHEMA_NAUTILUS, true);
-    let nautilusSettings;
-    if (!schemaNautilus)
-        nautilusSettings = null;
-    else
-        nautilusSettings = new Gio.Settings({ settings_schema: schemaNautilus });
-
-    const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, Me.path);
-    preferencesWindow.getAdwPreferencesWindow(window);
+        const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path);
+        preferencesWindow.getAdwPreferencesWindow(window);
+    }
 }

@@ -16,16 +16,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {DesktopIconsUtil};
 
 imports.gi.versions.GdkX11 = '4.0';
 imports.gi.versions.Gdk = '4.0';
-const { Gio, GLib, Gdk } = imports.gi;
+const {Gio, GLib, Gdk} = imports.gi;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
-var DesktopIconsUtil = class {
+const DesktopIconsUtil = class {
     constructor(Data, Utils) {
         this.applicationid = Data.dingApp;
         this.Enums = Data.Enums;
@@ -177,7 +178,7 @@ var DesktopIconsUtil = class {
      * @param {string} command command to exectue
      */
     launchTerminal(workdir, command) {
-        let terminalSettings = new Gio.Settings({ schema_id: this.Enums.TERMINAL_SCHEMA });
+        let terminalSettings = new Gio.Settings({schema_id: this.Enums.TERMINAL_SCHEMA});
         let exec = terminalSettings.get_string(this.Enums.EXEC_KEY);
         let argv = [exec, `--working-directory=${workdir}`];
         if (command) {
@@ -254,7 +255,7 @@ var DesktopIconsUtil = class {
      * @param {string} filename Name of file
      * @param {object} opts Oject with boolean option keys
      */
-    getFileExtensionOffset(filename, opts = { 'isDirectory': false }) {
+    getFileExtensionOffset(filename, opts = {'isDirectory': false}) {
         let offset = filename.length;
         let extension = '';
         if (!opts.isDirectory) {
@@ -274,7 +275,7 @@ var DesktopIconsUtil = class {
                 filename = filename.substring(0, offset);
             }
         }
-        return { offset, 'basename': filename, extension };
+        return {offset, 'basename': filename, extension};
     }
 
 
@@ -482,7 +483,7 @@ var DesktopIconsUtil = class {
         } else if (attributeContentType) {
             AppsSupportingOpen = Gio.AppInfo.get_all_for_type(attributeContentType);
         } else {
-            return { canopenFile: false, Appname: 'None' };
+            return {canopenFile: false, Appname: 'None'};
         }
         AppsSupportingOpen = AppsSupportingOpen.map(f => f.get_name());
         let canopenFile;
@@ -490,6 +491,6 @@ var DesktopIconsUtil = class {
             canopenFile = true;
         else
             canopenFile = false;
-        return { canopenFile, Appname };
+        return {canopenFile, Appname};
     }
 };

@@ -14,8 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {DBusInterfaces};
 
-var DBusInterfaces = {
+const DBusInterfaces = {
     // net.haddes.SwitcherooControl
     'net.hadess.SwitcherooControl': `<node>
     <interface name="net.hadess.SwitcherooControl">

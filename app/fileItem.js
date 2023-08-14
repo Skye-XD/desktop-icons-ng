@@ -17,16 +17,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import * as desktopIconItem from './desktopIconItem.js';
+export {FileItem};
 
-const { Gtk, Gdk, Gio, GLib } = imports.gi;
-const desktopIconItem = imports.app.desktopIconItem;
+const {Gtk, Gdk, Gio, GLib} = imports.gi;
 
 const Signals = imports.signals;
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
-var FileItem = class extends desktopIconItem.desktopIconItem {
+const FileItem = class extends desktopIconItem.desktopIconItem {
     constructor(desktopManager, file, fileInfo, fileExtra, custom) {
         super(desktopManager, fileExtra);
         this.DBusUtils = desktopManager.DBusUtils;
@@ -341,6 +342,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         } else if (this.trustedDesktopFile && !object.canopenFile) {
             let Appname = object.Appname;
             let title = _('Could not open File');
+            // eslint-disable-next-line no-template-curly-in-string
             let error = _('${appName} can not open files of this Type!').replace('${appName}', Appname);
             this._showerrorpopup(title, error);
         }
@@ -486,7 +488,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
                 this._desktopManager.saveCurrentFileCoordinatesForUndo(fileList);
             try {
                 returnAction = await this._desktopManager.copyOrMoveUris(fileList,
-                    this._file.get_uri(), event, { forceCopy });
+                    this._file.get_uri(), event, {forceCopy});
             } catch (e) {
                 logError(e);
                 return false;
@@ -497,7 +499,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
             else
                 returnAction = Gdk.DragAction.COPY;
             this._desktopManager.askWhatToDoWithFiles(fileList, this._file.get_uri(),
-                X, Y, x, y, event, { desktopActions: false });
+                X, Y, x, y, event, {desktopActions: false});
         }
 
         return returnAction;
@@ -673,7 +675,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         this.DesktopIconsUtil.launchTerminal(this.file.get_path(), null);
     }
 
-    async _setFileAttributes(fileInfo, cancellable = null, opts = { refresh: true }) {
+    async _setFileAttributes(fileInfo, cancellable = null, opts = {refresh: true}) {
         await this._file.set_attributes_async(fileInfo,
             Gio.FileQueryInfoFlags.NONE,
             GLib.PRIORITY_LOW,
@@ -694,7 +696,7 @@ var FileItem = class extends desktopIconItem.desktopIconItem {
         info.set_attribute_string(`metadata::${name}`,
             `${coords ? coords.join(',') : ''}`);
 
-        await this._setFileAttributes(info, cancellable, { refresh: false });
+        await this._setFileAttributes(info, cancellable, {refresh: false});
     }
 
     /** *********************

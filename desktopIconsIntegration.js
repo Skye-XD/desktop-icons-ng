@@ -28,6 +28,8 @@
 /** *****************************************************************************
  * Integration class
  *
+ * Modified for Gnome Shell 45 to support ESM
+ *
  * This class must be added to other extensions in order to integrate
  * them with Desktop Icons NG. It allows an extension to notify how much margin
  * it uses in each side of each monitor.
@@ -36,9 +38,9 @@
  * DESKTOP ICONS NG MAINTAINER: https://gitlab.com/rastersoft/desktop-icons-ng
  *
  * In the *enable()* function, create a *DesktopIconsUsableAreaClass()*
- * object with
+ * object with the uuid of your extension like-
  *
- *     new DesktopIconsIntegration.DesktopIconsUsableAreaClass(object);
+ *     new DesktopIconsIntegration.DesktopIconsUsableAreaClass(myExtensionUUID);
  *
  * Now, in the *disable()* function just call to the *destroy()* method before
  * nullifying the pointer. You must create a new object in enable() the next
@@ -55,16 +57,15 @@
  *
  *******************************************************************************/
 
-const GLib = imports.gi.GLib;
-const Main = imports.ui.main;
-
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
+import GLib from 'gi://GLib';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import {ExtensionState} from 'resource:///org/gnome/shell/misc/extensionUtils.js';
 
 const IDENTIFIER_UUID = '130cbc66-235c-4bd6-8571-98d2d8bba5e2';
 
-var DesktopIconsUsableAreaClass = class {
-    constructor() {
+export var DesktopIconsUsableAreaClass = class {
+    constructor(myuuid) {
+        this._myUUID = myuuid;
         this._extensionManager = Main.extensionManager;
         this._timedMarginsID = 0;
         this._margins = {};
@@ -73,7 +74,7 @@ var DesktopIconsUsableAreaClass = class {
                 return;
 
             // If an extension is being enabled and lacks the DesktopIconsUsableArea object, we can avoid launching a refresh
-            if (extension.state === ExtensionUtils.ExtensionState.ENABLED) {
+            if (extension.state === ExtensionState.ENABLED) {
                 this._sendMarginsToExtension(extension);
                 return;
             }
@@ -149,11 +150,11 @@ var DesktopIconsUsableAreaClass = class {
     _sendMarginsToExtension(extension) {
         // check that the extension is an extension that has the logic to accept
         // working margins
-        if (extension?.state !== ExtensionUtils.ExtensionState.ENABLED)
+        if (extension?.state !== ExtensionState.ENABLED)
             return;
 
         const usableArea = extension?.stateObj?.DesktopIconsUsableArea;
         if (usableArea?.uuid === IDENTIFIER_UUID)
-            usableArea.setMarginsForExtension(Me.uuid, this._margins);
+            usableArea.setMarginsForExtension(this._myUUID, this._margins);
     }
 };

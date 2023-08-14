@@ -15,12 +15,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+/* global global */
 /* exported EmulateX11WindowType */
-const { GLib, Gio, Meta, Clutter } = imports.gi;
-const Main = imports.ui.main;
-const DND = imports.ui.dnd;
-const AppFavorites = imports.ui.appFavorites;
+const {GLib, Gio, Meta, Clutter} = imports.gi;
 
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as DND from 'resource:///org/gnome/shell/ui/dnd.js';
+import * as AppFavorites from 'resource:///org/gnome/shell/ui/appFavorites.js';
+export {EmulateX11WindowType};
 class ManageWindow {
     /* This class is added to each managed window, and it's used to
        make it behave like an X11 Desktop window.
@@ -192,7 +194,7 @@ class ManageWindow {
 
             let moveDesktopWindowToBottom = true;
             let activateTopWindowOnWorkspace = true;
-            this._onIdleChangedStatusCallback({ moveDesktopWindowToBottom, activateTopWindowOnWorkspace});
+            this._onIdleChangedStatusCallback({moveDesktopWindowToBottom, activateTopWindowOnWorkspace});
         }
     }
 
@@ -202,7 +204,7 @@ class ManageWindow {
 
     _onIdleActivateTopWindowOnActiveWorkspace() {
         let activateTopWindowOnWorkspace = true;
-        this._onIdleChangedStatusCallback({ activateTopWindowOnWorkspace });
+        this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
     }
 
     _syncToBottomOfStack() {
@@ -275,7 +277,7 @@ var EmulateX11WindowType = class {
             if (window && (window.get_window_type() >= Meta.WindowType.DROPDOWN_MENU))
                 return;
 
-            this.onIdleReStackActivteWindows({ activateTopWindowOnWorkspace: true });
+            this.onIdleReStackActivteWindows({activateTopWindowOnWorkspace: true});
         });
 
         /* But in Overview mode it is paramount to not change the workspace to emulate
@@ -287,7 +289,7 @@ var EmulateX11WindowType = class {
 
         this._hidingId = Main.overview.connect('hiding', () => {
             this._overviewHiding = true;
-            this.onIdleReStackActivteWindows({ activateTopWindowOnWorkspace: true });
+            this.onIdleReStackActivteWindows({activateTopWindowOnWorkspace: true});
         });
     }
 
@@ -361,7 +363,7 @@ var EmulateX11WindowType = class {
             window.customJS_ding._moveDesktopWindowToBottom();
     }
 
-    onIdleReStackActivteWindows(action = { activateTopWindowOnWorkspace: true }) {
+    onIdleReStackActivteWindows(action = {activateTopWindowOnWorkspace: true}) {
         if (!this._activate_window_ID) {
             this._activate_window_ID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
                 if (this._overviewHiding) {

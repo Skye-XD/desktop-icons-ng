@@ -15,10 +15,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {TemplatesScriptsManager};
 
-const { Gio, GLib } = imports.gi;
+const {Gio, GLib} = imports.gi;
 
-var TemplatesScriptsManager = class {
+const TemplatesScriptsManager = class {
     constructor(baseFolder, callback, selectionfilter, Data) {
         this._callback = callback;
         this._selectionFilter = selectionfilter;
@@ -119,6 +120,7 @@ var TemplatesScriptsManager = class {
 
             let submenu;
             let subentriesList;
+            // eslint-disable-next-line no-await-in-loop
             subentriesList = await this._processDirectory(file[1], cancellable);
             if (subentriesList === null)
                 return null;

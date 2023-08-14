@@ -15,14 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+export {FileItemMenu};
 
-const { GLib, Gdk, Gtk, Gio } = imports.gi;
+const {GLib, Gdk, Gtk, Gio} = imports.gi;
 
 const Gettext = imports.gettext.domain('gtk4-ding');
 
 const _ = Gettext.gettext;
 
-var FileItemMenu = class {
+const FileItemMenu = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
         this._codePath = this._desktopManager._codePath;
@@ -40,8 +41,8 @@ var FileItemMenu = class {
                 GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
                     try {
                         this._getExtractionSupportedTypes();
-                        return false;
                     } catch (e) {}
+                    return false;
                 });
             } else {
                 this._decompressibleTypes = [];
@@ -272,11 +273,14 @@ var FileItemMenu = class {
         this._mainApp.add_action(bulkMove);
     }
 
+    /* Shows all possible values that can be assigned to this function */
+
+    // eslint-disable-next-line no-unused-vars
     showMenu(fileItem, button = null, X = null, Y = null, x = null, y = null, shiftSelected = false, controlSelected = false) {
         this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
         const selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
         const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
-        const menulocation = X ? new Gdk.Rectangle({ x, y, width: 1, height: 1 }) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
+        const menulocation = X ? new Gdk.Rectangle({x, y, width: 1, height: 1}) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
 
         this._menu = Gio.Menu.new();
         let makeFolderMenu = Gio.Menu.new();
@@ -473,7 +477,7 @@ var FileItemMenu = class {
         this._toolTipLabel = Gtk.Label.new(fileItem._currentFileName);
         this._toolTipPopup.set_child(this._toolTipLabel);
         this._toolTipPopup.set_parent(fileItem._grid._window);
-        const popupLocation = new Gdk.Rectangle({ x: fileItem.iconRectangle.x, y: fileItem.iconRectangle.y, width: 1, height: 1 });
+        const popupLocation = new Gdk.Rectangle({x: fileItem.iconRectangle.x, y: fileItem.iconRectangle.y, width: 1, height: 1});
         const popupGtkPosition = fileItem._grid.getIntelligentPosition(popupLocation);
         if (popupGtkPosition)
             this._toolTipPopup.set_position(popupGtkPosition);
@@ -557,7 +561,7 @@ var FileItemMenu = class {
 
         if (extractHere) {
             extractFolderName = this.DesktopIconsUtil.getFileExtensionOffset(extractFolderName).basename;
-            const targetURI = await this._desktopManager.doNewFolder(position, extractFolderName, { rename: false });
+            const targetURI = await this._desktopManager.doNewFolder(position, extractFolderName, {rename: false});
             if (targetURI)
                 this.DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, targetURI, true);
             else
@@ -623,7 +627,7 @@ var FileItemMenu = class {
             if (!selectionText)
                 selectionText = _('Select');
             let returnValue = null;
-            const dialog = new Gtk.FileChooserDialog({ title: dialogTitle });
+            const dialog = new Gtk.FileChooserDialog({title: dialogTitle});
             dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
             dialog.set_create_folders(true);
             dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
@@ -687,8 +691,11 @@ var FileItemMenu = class {
     }
 
     _getExtractable() {
-        for (let item of this._desktopManager.getCurrentSelection(false))
+        let item = this._desktopManager.getCurrentSelection(false)[0];
+        if (item)
             return this._decompressibleTypes.includes(item.attributeContentType);
+        else
+            return false;
     }
 
     _mailFilesFromSelection() {
@@ -734,7 +741,7 @@ var FileItemMenu = class {
         let position = assignedposition ? assignedposition  : clickedItem.savedCoordinates;
         let newFolderFileItems = this._desktopManager.getCurrentSelection(true);
         this._desktopManager.unselectAll();
-        clickedItem.removeFromGrid({ callOnDestroy: false });
+        clickedItem.removeFromGrid({callOnDestroy: false});
         const newFolder = await this._desktopManager.doNewFolder(position);
         if (newFolder) {
             this.DBusUtils.RemoteFileOperations.pushEvent(event);
