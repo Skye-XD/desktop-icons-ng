@@ -74,8 +74,11 @@ const GnomeShellDrag = class {
         }
 
         let shellDropCoordinates = await this._DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
+        // Apply offset so that we do not detect the drag icon surface
         let [a, b] = this._dragItem.dragSourceOffset;
         let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this._dragItem.iconRectangle.height / 2];
+        // With Gnome 45, the x offset has to be decreased by one to get off the drag surface of the icon
+        leftEdge[0] -= 1;
         this._currentDesktopFileAppPath = await this._DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
         this._setShellDropCursor();
         if (!this._currentDesktopFileAppPath ||

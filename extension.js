@@ -662,8 +662,9 @@ var DingExtensionService = class {
     getDropTargetAppInfoDesktopFile([dropX, dropY]) {
         let droptarget = null;
         let actor = null;
-        if (!dropX && !dropY)
+        if (!dropX || !dropY)
             [dropX, dropY] = global.get_pointer().slice(0, 2);
+
         actor = global.get_stage().get_actor_at_pos(Clutter.PickMode.ALL, dropX, dropY);
         let i = 0;
         let checkactor;
