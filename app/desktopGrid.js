@@ -673,6 +673,7 @@ const DesktopGrid = class {
         let widgetDragController = Gtk.DragSource.new();
         let clickItem;
         widgetDragController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
+        // eslint-disable-next-line consistent-return
         widgetDragController.connect('prepare', (actor, x, y) => {
             let draggedItem = this._fileAt(x, y);
             if (draggedItem && !this._desktopManager.rubberBand) {
@@ -685,7 +686,6 @@ const DesktopGrid = class {
                 if (this.contentProvider)
                     return this.contentProvider;
             }
-            return true;
         });
         widgetDragController.connect('drag-begin', () => {
             this._desktopManager.onReleaseButton(this);
