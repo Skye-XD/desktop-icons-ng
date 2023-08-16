@@ -482,12 +482,15 @@ const FileItemMenu = class {
         if (popupGtkPosition)
             this._toolTipPopup.set_position(popupGtkPosition);
         this._toolTipPopup.popup();
+        this._toolTipPopup.connect('closed', () => {
+            this._toolTipPopup.unparent();
+            this._toolTipPopup = null;
+        });
     }
 
     hideToolTip() {
         if (this._toolTipPopup)
             this._toolTipPopup.popdown();
-        this._toolTipPopup = null;
     }
 
     _onPropertiesClicked() {
