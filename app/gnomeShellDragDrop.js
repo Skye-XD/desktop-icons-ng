@@ -26,10 +26,12 @@ const _ = Gettext.gettext;
 
 const GnomeShellDrag = class {
     constructor(desktopManager) {
+        this._DBusUtils = desktopManager.DBusUtils;
+        if (!this._DBusUtils.RemoteExtensionControl.isAvailable)
+            return;
         this._desktopManager = desktopManager;
         this._dragItem = desktopManager.dragItem;
         this._DesktopIconsUtil = desktopManager.DesktopIconsUtil;
-        this._DBusUtils = desktopManager.DBusUtils;
         this._Enums = desktopManager.Enums;
         this._Prefs = desktopManager.Prefs;
         this._selectedFiles = desktopManager.getCurrentSelection();
@@ -138,6 +140,8 @@ const GnomeShellDrag = class {
     }
 
     _setShellDropCursor(cursor = null) {
+        if (!this._DBusUtils.RemoteExtensionControl.isAvailable)
+            return;
         if (cursor) {
             this._DBusUtils.RemoteExtensionControl.setDragCursor(cursor);
             return;
