@@ -127,9 +127,6 @@ export default class DingExtension extends Extension {
             this.visibleArea = this.DesktopIconsUsableArea;
         }
 
-        if (!this.synthesizeHover)
-            this.synthesizeHover = new SynthesizeHover();
-
         // If the desktop is still starting up, we wait until it is ready
         if (Main.layoutManager._startingUp) {
             this.startupPreparedId = Main.layoutManager.connect('startup-complete', this._innerEnable.bind(this));
@@ -252,6 +249,7 @@ export default class DingExtension extends Extension {
     }
 
     _stopDbusService() {
+        this.dingExtensionServiceImplementation.disable();
         Gio.bus_unown_name(this.dbusConnectionId);
         this.dbusConnectionId = 0;
         log(`${this.dbusConnectionName} DBus Name Relenquished`);
@@ -314,16 +312,14 @@ export default class DingExtension extends Extension {
         this.GnomeShellOverride.disable();
         this.x11Manager.disable();
         this.visibleArea.disable();
-        this.synthesizeHover.disable();
 
         if (this.startupProcessKillWaitId) {
             GLib.source_remove(this.startupProcessKillWaitId);
             this.startupProcessKillWaitId = 0;
         }
-        if (this.dbusConnectionId) {
-            Gio.bus_unown_name(this.dbusConnectionId);
-            this.dbusConnectionId = 0;
-        }
+        if (this.dbusConnectionId)
+            this._stopDbusService();
+
         // disconnect signals only if connected
         if (this.lockSignalhandlerId) {
             Gio.DBus.session.signal_unsubscribe(this.lockSignalhandlerId);
@@ -652,6 +648,11 @@ var LaunchSubprocess = class {
 var DingExtensionService = class {
     constructor(updateDesktopGeometryCB) {
         this.geometryUpdate = updateDesktopGeometryCB;
+        this.synthesizeHover = new SynthesizeHover();
+    }
+
+    disable() {
+        this.synthesizeHover.disable();
     }
 
     updateDesktopGeometry() {
@@ -661,8 +662,9 @@ var DingExtensionService = class {
     getDropTargetAppInfoDesktopFile([dropX, dropY]) {
         let droptarget = null;
         let actor = null;
-        if (!dropX && !dropY)
+        if (!dropX || !dropY)
             [dropX, dropY] = global.get_pointer().slice(0, 2);
+
         actor = global.get_stage().get_actor_at_pos(Clutter.PickMode.ALL, dropX, dropY);
         let i = 0;
         let checkactor;
@@ -728,6 +730,8 @@ var SynthesizeHover = class {
 
     disable() {
         this._cancelCurrentTimer();
+        if (this._hoveredActor)
+            this._hoveredActor.set_hover(false);
         this._hoveredActor = null;
     }
 
@@ -742,12 +746,12 @@ var SynthesizeHover = class {
         this._cancelCurrentTimer();
         this._hoveredActor = newactor;
         this._hoveredActor.sync_hover();
-        this._setNewHoverTimer(this._hoveredActor);
+        this._setNewHoverTimer();
     }
 
     _resetHoverTimer() {
         this._cancelCurrentTimer();
-        this._setNewHoverTimer(this._hoveredActor);
+        this._setNewHoverTimer();
     }
 
     _cancelCurrentTimer() {
@@ -756,9 +760,11 @@ var SynthesizeHover = class {
         this._hoverTimeoutID = 0;
     }
 
-    _setNewHoverTimer(actor) {
-        this._hoverTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 750, () => {
-            actor.set_hover(false);
+    _setNewHoverTimer() {
+        this._hoverTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+            if (this._hoveredActor)
+                this._hoveredActor.set_hover(false);
+            this._hoveredActor = null;
             this._hoverTimeoutID = 0;
             return false;
         });

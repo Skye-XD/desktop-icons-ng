@@ -1207,4 +1207,8 @@ class ExtensionControl {
             }
         );
     }
+
+    get isAvailable() {
+        return this.RemoteExtensionManager.isAvailable;
+    }
 }

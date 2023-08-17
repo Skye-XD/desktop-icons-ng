@@ -26,10 +26,12 @@ const _ = Gettext.gettext;
 
 const GnomeShellDrag = class {
     constructor(desktopManager) {
+        this._DBusUtils = desktopManager.DBusUtils;
+        if (!this._DBusUtils.RemoteExtensionControl.isAvailable)
+            return;
         this._desktopManager = desktopManager;
         this._dragItem = desktopManager.dragItem;
         this._DesktopIconsUtil = desktopManager.DesktopIconsUtil;
-        this._DBusUtils = desktopManager.DBusUtils;
         this._Enums = desktopManager.Enums;
         this._Prefs = desktopManager.Prefs;
         this._selectedFiles = desktopManager.getCurrentSelection();
@@ -74,8 +76,11 @@ const GnomeShellDrag = class {
         }
 
         let shellDropCoordinates = await this._DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
+        // Apply offset so that we do not detect the drag icon surface
         let [a, b] = this._dragItem.dragSourceOffset;
         let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this._dragItem.iconRectangle.height / 2];
+        // With Gnome 45, the x offset has to be decreased by one to get off the drag surface of the icon
+        leftEdge[0] -= 1;
         this._currentDesktopFileAppPath = await this._DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
         this._setShellDropCursor();
         if (!this._currentDesktopFileAppPath ||
@@ -135,6 +140,8 @@ const GnomeShellDrag = class {
     }
 
     _setShellDropCursor(cursor = null) {
+        if (!this._DBusUtils.RemoteExtensionControl.isAvailable)
+            return;
         if (cursor) {
             this._DBusUtils.RemoteExtensionControl.setDragCursor(cursor);
             return;
