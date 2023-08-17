@@ -1,4 +1,21 @@
 # History of versions #
+* Gtk4 version 50
+  * Updates for Gnome 45 to work with other extensions and fix errors
+  * Fix Drand and Drop on Dock - decrease offset to detect drag over dock, got broken by one pixel in Gnome 45. (Sundeep Mediratta)
+  * Fix synthesize hover to deselect hover on actor if disabled. Drop all refrences to the hovered actor on disable and timeout. (Sundeep Mediratta)
+  * Fix tooltip popovers - destroy completely on popdown. (Sundeep Mediratta)
+  * Don't start gnome shell drop if extension control dbus not available, eg. when testing with no extension enabled. Prevents unnecceary errors. (Sundeep Mediratta)
+  * Fix no content provider error introduced with lint cleanup. (Sundeep Mediratta)
+  * Further eslint clean up with new upstream eslint rules for Gnome Shell and GJS.
+  * Update metadata.json, History.md. Version Bump to 50.
+
+* Gtk4 version 49
+  * Maintainence fix release for Gnome 44 and lower with fixes backported from the Gnome 45 branch, Gtk4 version 48
+  * Fix synthesize hover to deselect hover on actor if disabled. (Sundeep Mediratta)
+  * Fix tooltip popovers - destroy completely on popdown. (Sundeep Mediratta)
+  * Don't start gnome shell drop if extension control dbus not available, eg. when testing. Prevents unnecceary errors. (Sundeep Mediratta)
+  * Update metadata.json, History.md. Version Bump to 49 to sync with EGO.
+
 * Gtk4 version 48
   * Move extension.js and all files as well as the app to ESM imports.(Sundeep Mediratta)
   * Translations update. (Weblate)

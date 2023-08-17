@@ -21,7 +21,7 @@ const {Gtk, Gdk, GLib, Gio, GObject, Adw} = imports.gi;
 const Gettext = imports.gettext;
 var _ = Gettext.domain('gtk4-ding').gettext;
 
-const version = 48;
+const version = 50;
 
 const ListObject = GObject.registerClass({
     GTypeName: 'peferences-list',
