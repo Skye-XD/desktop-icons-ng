@@ -745,12 +745,12 @@ var SynthesizeHover = class {
         this._cancelCurrentTimer();
         this._hoveredActor = newactor;
         this._hoveredActor.sync_hover();
-        this._setNewHoverTimer(this._hoveredActor);
+        this._setNewHoverTimer();
     }
 
     _resetHoverTimer() {
         this._cancelCurrentTimer();
-        this._setNewHoverTimer(this._hoveredActor);
+        this._setNewHoverTimer();
     }
 
     _cancelCurrentTimer() {
@@ -759,9 +759,11 @@ var SynthesizeHover = class {
         this._hoverTimeoutID = 0;
     }
 
-    _setNewHoverTimer(actor) {
-        this._hoverTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 750, () => {
-            actor.set_hover(false);
+    _setNewHoverTimer() {
+        this._hoverTimeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+            if (this._hoveredActor)
+                this._hoveredActor.set_hover(false);
+            this._hoveredActor = null;
             this._hoverTimeoutID = 0;
             return false;
         });
