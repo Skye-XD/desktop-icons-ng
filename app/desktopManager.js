@@ -1512,15 +1512,19 @@ const DesktopManager = class {
         try {
             process = GLib.spawn_sync(null, argv, null,
                 GLib.SpawnFlags.DEFAULT,
-                null);
+                () => {});
             completed = GLib.spawn_check_exit_status(process[3]);
             success = process[0];
-        } catch {
+        } catch (e) {
             let textDecoder = new TextDecoder();
             let errortext = textDecoder.decode(process[2]);
             let windowopen = errortext.includes('Already showing a prefs dialog');
-            if (windowopen)
+            if (windowopen) {
                 this.dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
+                return;
+            } else {
+                completed = false;
+            }
         }
 
         if (success && completed)
