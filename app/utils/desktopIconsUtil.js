@@ -16,15 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import {Gio, GLib, Gdk} from '../../dependencies/gi.js';
+import {_} from '../../dependencies/gettext.js';
+
 export {DesktopIconsUtil};
-
-imports.gi.versions.GdkX11 = '4.0';
-imports.gi.versions.Gdk = '4.0';
-const {Gio, GLib, Gdk} = imports.gi;
-
-const Gettext = imports.gettext.domain('gtk4-ding');
-
-const _ = Gettext.gettext;
 
 const DesktopIconsUtil = class {
     constructor(Data, Utils) {

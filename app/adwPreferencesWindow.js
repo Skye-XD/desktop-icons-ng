@@ -15,13 +15,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import {Gtk, Gdk, GLib, Gio, GObject, Adw} from '../dependencies/gi.js';
+import {_} from '../dependencies/gettext.js';
+import {version} from './dependencies.js';
+
 export {AdwPreferencesWindow};
-
-const {Gtk, Gdk, GLib, Gio, GObject, Adw} = imports.gi;
-const Gettext = imports.gettext;
-var _ = Gettext.domain('gtk4-ding').gettext;
-
-const version = 50;
 
 const ListObject = GObject.registerClass({
     GTypeName: 'peferences-list',

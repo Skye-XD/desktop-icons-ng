@@ -17,10 +17,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-export {CreateThumbnail};
+import {GnomeDesktop, Gio} from '../dependencies/gi.js';
 
-imports.gi.versions.GnomeDesktop = '3.0';
-const {GnomeDesktop, Gio} = imports.gi;
+export {CreateThumbnail};
 
 /**
  *

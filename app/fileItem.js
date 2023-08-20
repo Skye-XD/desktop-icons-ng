@@ -17,17 +17,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import * as desktopIconItem from './desktopIconItem.js';
+import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
+import * as DesktopIconItem from './desktopIconItem.js';
+import {_} from '../dependencies/gettext.js';
+
 export {FileItem};
 
-const {Gtk, Gdk, Gio, GLib} = imports.gi;
-
 const Signals = imports.signals;
-const Gettext = imports.gettext.domain('gtk4-ding');
 
-const _ = Gettext.gettext;
-
-const FileItem = class extends desktopIconItem.desktopIconItem {
+const FileItem = class extends DesktopIconItem.DesktopIconItem {
     constructor(desktopManager, file, fileInfo, fileExtra, custom) {
         super(desktopManager, fileExtra);
         this.DBusUtils = desktopManager.DBusUtils;

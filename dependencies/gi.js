@@ -12,9 +12,7 @@ import GObject from 'gi://GObject';
 import Graphene from 'gi://Graphene';
 import Gsk from 'gi://Gsk';
 import Gtk from 'gi://Gtk';
-import Meta from 'gi://Meta';
 import Pango from 'gi://Pango';
-import Shell from 'gi://Shell';
 
 export {
     Adw,
@@ -31,7 +29,5 @@ export {
     Graphene,
     Gsk,
     Gtk,
-    Meta,
-    Pango,
-    Shell
+    Pango
 };

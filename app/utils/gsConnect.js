@@ -17,10 +17,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-export {GsConnectSendFileOperationsManager};
+import {Gio, GLib} from '../../dependencies/gi.js';
 
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
+export {GsConnectSendFileOperationsManager};
 
 var GsConnectSendFileOperationsManager =  class {
     constructor(GsConnectManager, applicationid) {

@@ -18,16 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import * as desktopIconItem from './desktopIconItem.js';
-export {stackItem};
+import {_} from '../dependencies/gettext.js';
+import * as DesktopIconItem from './desktopIconItem.js';
+
+export {StackItem};
 
 const Signals = imports.signals;
 
-const Gettext = imports.gettext.domain('gtk4-ding');
-
-const _ = Gettext.gettext;
-
-const stackItem = class extends desktopIconItem.desktopIconItem {
+const StackItem = class extends DesktopIconItem.DesktopIconItem {
     constructor(desktopManager, file, attributeContentType, fileExtra) {
         super(desktopManager, fileExtra);
         this._isSpecial = false;
@@ -144,4 +142,4 @@ const stackItem = class extends desktopIconItem.desktopIconItem {
         this._modifiedTime = time;
     }
 };
-Signals.addSignalMethods(stackItem.prototype);
+Signals.addSignalMethods(StackItem.prototype);
