@@ -17,7 +17,8 @@
  */
 /* global global */
 /* exported EmulateX11WindowType */
-import {GLib, Gio, Clutter} from './dependencies/gi.js';
+import {GLib, Gio} from './dependencies/gi.js';
+import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as DND from 'resource:///org/gnome/shell/ui/dnd.js';

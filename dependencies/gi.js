@@ -1,5 +1,4 @@
 import Adw from 'gi://Adw';
-import Clutter from 'gi://Clutter';
 import Gdk from 'gi://Gdk?version=4.0';
 import GdkPixbuf from 'gi://GdkPixbuf';
 import GdkWayland from 'gi://GdkWayland?version=4.0';
@@ -16,7 +15,6 @@ import Pango from 'gi://Pango';
 
 export {
     Adw,
-    Clutter,
     Gdk,
     GdkPixbuf,
     GdkX11,
