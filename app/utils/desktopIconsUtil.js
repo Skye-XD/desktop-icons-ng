@@ -137,7 +137,7 @@ const DesktopIconsUtil = class {
         try {
             pid = GLib.spawn_async(workdir, argv, environ,
                 GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD,
-                null).slice(1);
+                () => {}).slice(1);
         } catch (err) {
             /* Rewrite the error in case of ENOENT */
             if (err.matches(GLib.SpawnError, GLib.SpawnError.NOENT)) {
