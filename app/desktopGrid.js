@@ -16,16 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import {Gtk, Gdk, GLib, Gio, Graphene, Gsk, Adw} from '../dependencies/gi.js';
+import {_} from '../dependencies/gettext.js';
+
 export {DesktopGrid};
-
-imports.gi.versions.Gdk = '4.0';
-imports.gi.versions.Gtk = '4.0';
-
-const {Gtk, Gdk, GLib, Gio, Graphene, Gsk, Adw} = imports.gi;
-const Gettext = imports.gettext.domain('gtk4-ding');
-
-const _ = Gettext.gettext;
-
 
 var elementSpacing = 2;
 

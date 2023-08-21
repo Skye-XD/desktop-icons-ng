@@ -17,17 +17,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import * as desktopIconItem from './desktopIconItem.js';
+import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
+import * as DesktopIconItem from './desktopIconItem.js';
+import {_} from '../dependencies/gettext.js';
+
 export {FileItem};
 
-const {Gtk, Gdk, Gio, GLib} = imports.gi;
-
 const Signals = imports.signals;
-const Gettext = imports.gettext.domain('gtk4-ding');
 
-const _ = Gettext.gettext;
-
-const FileItem = class extends desktopIconItem.desktopIconItem {
+const FileItem = class extends DesktopIconItem.DesktopIconItem {
     constructor(desktopManager, file, fileInfo, fileExtra, custom) {
         super(desktopManager, fileExtra);
         this.DBusUtils = desktopManager.DBusUtils;
@@ -202,8 +200,8 @@ const FileItem = class extends desktopIconItem.desktopIconItem {
         this._fileInfo = fileInfo;
 
         this._displayName = this._getVisibleName();
-        this._attributeCanExecute = fileInfo.get_attribute_boolean('access::can-execute');
-        this._unixmode = fileInfo.get_attribute_uint32('unix::mode');
+        this._attributeCanExecute = fileInfo.get_attribute_boolean(Gio.FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE);
+        this._unixmode = fileInfo.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
         this._writableByOthers = (this._unixmode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
         this._trusted = fileInfo.get_attribute_as_string('metadata::trusted') === 'true';
         this._attributeContentType = fileInfo.get_content_type();
@@ -231,9 +229,10 @@ const FileItem = class extends desktopIconItem.desktopIconItem {
         this._fileType = fileInfo.get_file_type();
         this._isDirectory = this._fileType === Gio.FileType.DIRECTORY;
         this._isSpecial = this._fileExtra !== this.Enums.FileType.NONE;
-        this._isHidden = fileInfo.get_is_hidden() | fileInfo.get_is_backup();
-        this._modifiedTime = fileInfo.get_attribute_uint64('time::modified');
-        this._isSymlink = fileInfo.get_is_symlink();
+        this._isHidden = fileInfo.get_attribute_boolean(Gio.FILE_ATTRIBUTE_STANDARD_IS_HIDDEN) ||
+            fileInfo.get_attribute_boolean(Gio.FILE_ATTRIBUTE_STANDARD_IS_BACKUP);
+        this._modifiedTime = fileInfo.get_attribute_uint64(Gio.FILE_ATTRIBUTE_TIME_MODIFIED);
+        this._isSymlink = fileInfo.get_attribute_boolean(Gio.FILE_ATTRIBUTE_STANDARD_IS_SYMLINK);
         /*
          * This is a glib trick to detect broken symlinks. If a file is a symlink, the filetype
          * points to the final file, unless it is broken; thus if the file type is SYMBOLIC_LINK,

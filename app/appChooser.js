@@ -14,15 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import {Gtk, Gdk, Gio, GLib, Adw} from '../dependencies/gi.js';
+import {_} from '../dependencies/gettext.js';
 
-imports.gi.versions.Gdk = '4.0';
-imports.gi.versions.Gtk = '4.0';
 export {AppChooserDialog};
-
-const {Gtk, Gdk, Gio, GLib, Adw} = imports.gi;
-const Gettext = imports.gettext.domain('gtk4-ding');
-
-const _ = Gettext.gettext;
 
 const AppChooserDialog = class {
     constructor(codepath, fileItems, activeFileItem = null, dbusUtils, desktopIconsUtil) {

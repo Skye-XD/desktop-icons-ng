@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-export {TemplatesScriptsManager};
+import {Gio, GLib} from '../dependencies/gi.js';
 
-const {Gio, GLib} = imports.gi;
+export {TemplatesScriptsManager};
 
 const TemplatesScriptsManager = class {
     constructor(baseFolder, callback, selectionfilter, Data) {

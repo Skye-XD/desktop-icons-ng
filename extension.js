@@ -17,7 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /* exported init, enable, disable */
-const {GLib, Gio, Meta, Clutter} = imports.gi;
+import {GLib, Gio} from './dependencies/gi.js';
+import Clutter from 'gi://Clutter';
+import Meta from 'gi://Meta';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';

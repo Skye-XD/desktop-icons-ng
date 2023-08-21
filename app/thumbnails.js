@@ -19,12 +19,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-export {ThumbnailLoader};
+import {GLib, Gio, GnomeDesktop} from '../dependencies/gi.js';
 
-imports.gi.versions.GnomeDesktop = '4.0';
-imports.gi.versions.Gtk = '4.0';
-const GnomeDesktop = imports.gi.GnomeDesktop;
-const {GLib, Gio} = imports.gi;
+export {ThumbnailLoader};
 
 const useAsyncAPI =
     !!GnomeDesktop.DesktopThumbnailFactory.prototype.generate_thumbnail_async;

@@ -17,9 +17,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-imports.gi.versions.Gtk = '4.0';
-const {Gio, GLib, Adw} = imports.gi;
+import {Gio, GLib, Adw} from '../dependencies/gi.js';
+import * as Gettext from 'gettext';
+import {
+    Preferences,
+    AdwPreferencesWindow,
+    Enums,
+    DBusUtils,
+    DesktopIconsUtil,
+    DesktopManager
+} from './dependencies.js';
+import * as PromiseUtils from '../utils/promiseUtils.js';
+import * as FileUtils from '../utils/fileUtils.js';
 
 let desktops = [];
 let lastCommand = null;
@@ -159,16 +168,6 @@ parseCommandLine(ARGV);
 // this allows to import files from the current folder
 
 imports.searchPath.unshift(codePath);
-const Gettext = imports.gettext;
-
-import * as Preferences from './preferences.js';
-import * as AdwPreferencesWindow from './adwPreferencesWindow.js';
-import * as Enums from './enums.js';
-import * as DBusUtils from './utils/dbusUtils.js';
-import * as PromiseUtils from '../utils/promiseUtils.js';
-import * as FileUtils from '../utils/fileUtils.js';
-import * as DesktopIconsUtil from './utils/desktopIconsUtil.js';
-import * as DesktopManager from './desktopManager.js';
 
 PromiseUtils._promisify({}, Gio.AppInfo, 'launch_default_for_uri_async');
 PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'close_async');
@@ -253,7 +252,7 @@ dingApp.connect('command-line', (app, commandLine) => {
 });
 
 if (!errorFound)
-    dingApp.run(ARGV);
+    dingApp.runAsync(ARGV);
 
 
 if (!errorFound)

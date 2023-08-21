@@ -16,28 +16,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import * as FileItem from './fileItem.js';
-import * as stackItem from './stackItem.js';
-import * as DesktopGrid from './desktopGrid.js';
-import * as AskRenamePopup from './askRenamePopup.js';
-import * as ShowErrorPopup from './showErrorPopup.js';
-import * as TemplatesScriptsManager from './templatesScriptsManager.js';
-import * as FileItemMenu from './fileItemMenu.js';
-import * as AutoAr from './autoAr.js';
-import * as AppChooser from './appChooser.js';
-import * as GnomeShellDragDrop from './gnomeShellDragDrop.js';
-import * as Thumbnails from './thumbnails.js';
+import {
+    FileItem,
+    DesktopGrid,
+    AskRenamePopup,
+    ShowErrorPopup,
+    TemplatesScriptsManager,
+    FileItemMenu,
+    AutoAr,
+    AppChooser,
+    GnomeShellDragDrop,
+    Thumbnails,
+    StackItem
+} from './dependencies.js';
+
+import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
+import {_} from '../dependencies/gettext.js';
 
 export {DesktopManager};
-
-imports.gi.versions.Gtk = '4.0';
-imports.gi.versions.Gdk = '4.0';
-
-const {GLib, Gtk, Gdk, Gio} = imports.gi;
-
-const Gettext = imports.gettext.domain('gtk4-ding');
-
-const _ = Gettext.gettext;
 
 const DesktopManager = class {
     constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex, version) {
@@ -1516,15 +1512,19 @@ const DesktopManager = class {
         try {
             process = GLib.spawn_sync(null, argv, null,
                 GLib.SpawnFlags.DEFAULT,
-                null);
+                () => {});
             completed = GLib.spawn_check_exit_status(process[3]);
             success = process[0];
-        } catch {
+        } catch (e) {
             let textDecoder = new TextDecoder();
             let errortext = textDecoder.decode(process[2]);
             let windowopen = errortext.includes('Already showing a prefs dialog');
-            if (windowopen)
+            if (windowopen) {
                 this.dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
+                return;
+            } else {
+                completed = false;
+            }
         }
 
         if (success && completed)
@@ -2607,7 +2607,7 @@ const DesktopManager = class {
 
     _makeStackTopMarkerFolder(type, list) {
         let stackAttribute = type.split('/')[1];
-        let fileItem = new stackItem.stackItem(
+        let fileItem = new StackItem.StackItem(
             this,
             stackAttribute,
             type,

@@ -15,19 +15,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-export {AutoAr};
-
-const {GLib, Gio, Gtk} = imports.gi;
-var GnomeAutoar = null;
-try {
-    GnomeAutoar = imports.gi.GnomeAutoar;
-} catch (e) {}
+import {Gtk, GLib, Gio, GnomeAutoar} from '../dependencies/gi.js';
+import {_} from '../dependencies/gettext.js';
 
 const Signals = imports.signals;
 
-const Gettext = imports.gettext.domain('gtk4-ding');
-
-const _ = Gettext.gettext;
+export {AutoAr};
 
 var AutoAr = class {
     constructor(desktopManager) {

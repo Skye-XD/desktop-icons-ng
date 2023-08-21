@@ -16,16 +16,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import {GLib, Gtk, Gio, Gdk} from '../dependencies/gi.js';
+import {_} from '../dependencies/gettext.js';
+
 export {Preferences};
 
-imports.gi.versions.Gtk = '4.0';
-
-const {GLib, Gtk, Gio, Gdk} = imports.gi;
 const GioSSS = Gio.SettingsSchemaSource;
-
-const Gettext = imports.gettext;
-
-var _ = Gettext.domain('gtk4-ding').gettext;
 
 const Preferences = class {
     constructor(Data) {

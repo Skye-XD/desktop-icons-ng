@@ -17,11 +17,13 @@
  */
 /* global global */
 /* exported EmulateX11WindowType */
-const {GLib, Gio, Meta, Clutter} = imports.gi;
-
+import {GLib, Gio} from './dependencies/gi.js';
+import Clutter from 'gi://Clutter';
+import Meta from 'gi://Meta';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as DND from 'resource:///org/gnome/shell/ui/dnd.js';
 import * as AppFavorites from 'resource:///org/gnome/shell/ui/appFavorites.js';
+
 export {EmulateX11WindowType};
 class ManageWindow {
     /* This class is added to each managed window, and it's used to

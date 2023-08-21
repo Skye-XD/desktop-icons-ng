@@ -19,19 +19,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-export {desktopIconItem};
+import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf} from '../dependencies/gi.js';
+import {_} from '../dependencies/gettext.js';
 
-const {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf} = imports.gi;
+export {DesktopIconItem};
+
 const Signals = imports.signals;
-
-const Gettext = imports.gettext.domain('gtk4-ding');
-
-const _ = Gettext.gettext;
 
 const PIXBUF_CONTENT_TYPES = new Set();
 GdkPixbuf.Pixbuf.get_formats().forEach(f => PIXBUF_CONTENT_TYPES.add(...f.get_mime_types()));
 
-const desktopIconItem = class {
+const DesktopIconItem = class {
     constructor(desktopManager, fileExtra) {
         this._desktopManager = desktopManager;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
@@ -712,4 +710,4 @@ const desktopIconItem = class {
         this._dropCoordinates = pos;
     }
 };
-Signals.addSignalMethods(desktopIconItem.prototype);
+Signals.addSignalMethods(DesktopIconItem.prototype);

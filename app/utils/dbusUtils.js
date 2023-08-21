@@ -16,21 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-import * as DBusInterfaces from './dbusInterfaces.js';
-import * as GsConnect from './gsConnect.js';
+import {Gdk, Gio, GLib, GdkX11, GdkWayland} from '../../dependencies/gi.js';
+import {DBusInterfaces, GsConnect} from '../dependencies.js';
+import {_} from '../../dependencies/gettext.js';
 
-export {DBusUtils};
-
-imports.gi.versions.GdkX11 = '4.0';
-imports.gi.versions.Gdk = '4.0';
-imports.gi.versions.GdkWayland = '4.0';
-
-const {Gdk, Gio, GLib, GdkX11, GdkWayland} = imports.gi;
 const Signals = imports.signals;
 
-const Gettext = imports.gettext.domain('ding');
-
-const _ = Gettext.gettext;
+export {DBusUtils};
 class ProxyManager {
     /*
     * This class manages a DBus object through a DBusProxy. Any access to the proxy when the

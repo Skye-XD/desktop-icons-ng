@@ -17,13 +17,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-const {Gio} = imports.gi;
-const GioSSS = Gio.SettingsSchemaSource;
+import {Gio} from './dependencies/gi.js';
 
 import * as Enums from './app/enums.js';
 import * as  adwPreferencesWindow from './app/adwPreferencesWindow.js';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
+const GioSSS = Gio.SettingsSchemaSource;
 export default class dingPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         let desktopSettings = this.getSettings();
