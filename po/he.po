@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 23:20-0400\n"
+"POT-Creation-Date: 2023-08-20 21:58-0400\n"
 "PO-Revision-Date: 2023-08-02 02:01+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -20,295 +20,295 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Weblate 5.0-dev\n"
 
-#: app/adwPreferencesWindow.js:171 app/adwPreferencesWindow.js:172
+#: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
 msgstr "שולחן עבודה"
 
-#: app/adwPreferencesWindow.js:176 app/adwPreferencesWindow.js:177
+#: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
 msgstr "קבצים"
 
-#: app/adwPreferencesWindow.js:181 app/adwPreferencesWindow.js:182
-#: app/adwPreferencesWindow.js:212
+#: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
 msgstr "תיקונים"
 
-#: app/adwPreferencesWindow.js:186 app/adwPreferencesWindow.js:187
+#: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
 msgstr "על אודות"
 
-#: app/adwPreferencesWindow.js:197
+#: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "הגדרות שולחן העבודה"
 
-#: app/adwPreferencesWindow.js:198
+#: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "הגדרות עבור תוכנית שולחן העבודה"
 
-#: app/adwPreferencesWindow.js:202
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
 msgstr "כרכים"
 
-#: app/adwPreferencesWindow.js:203
+#: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
 msgstr "הצגת נפחי שולחן העבודה"
 
-#: app/adwPreferencesWindow.js:207
+#: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
 msgstr "הגדרות קבצים"
 
-#: app/adwPreferencesWindow.js:208
+#: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "הגדרות משותפות עם Gnome Files"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "שינויים שונים"
 
-#: app/adwPreferencesWindow.js:224
+#: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
 msgstr "גודל הסמלים בשולחן העבודה"
 
-#: app/adwPreferencesWindow.js:226
+#: app/adwPreferencesWindow.js:224
 msgid "Tiny"
 msgstr "פצפון"
 
-#: app/adwPreferencesWindow.js:227
+#: app/adwPreferencesWindow.js:225
 msgid "Small"
 msgstr "קטן"
 
-#: app/adwPreferencesWindow.js:228
+#: app/adwPreferencesWindow.js:226
 msgid "Standard"
 msgstr "רגיל"
 
-#: app/adwPreferencesWindow.js:229
+#: app/adwPreferencesWindow.js:227
 msgid "Large"
 msgstr "גדול"
 
-#: app/adwPreferencesWindow.js:234
+#: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "New icons alignment"
 msgstr "יישור אייקונים חדש"
 
-#: app/adwPreferencesWindow.js:236
+#: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
 msgstr "פינה שמאלית עליונה"
 
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
 msgstr "בפינה הימנית העליונה"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "פינה שמאלית תחתונה"
 
-#: app/adwPreferencesWindow.js:239
+#: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "בפינה הימנית התחתונה"
 
-#: app/adwPreferencesWindow.js:242
+#: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "הוסף תחילה סמלים חדשים לצגים משניים, אם זמינים"
 
-#: app/adwPreferencesWindow.js:244
+#: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "הצג את התיקיה האישית בשולחן העבודה"
 
-#: app/adwPreferencesWindow.js:245
+#: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "הצג את סמל האשפה בשולחן העבודה"
 
-#: app/adwPreferencesWindow.js:246
+#: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "הצג כוננים חיצוניים על שולחן העבודה"
 
-#: app/adwPreferencesWindow.js:247
+#: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "הצג כונני רשת בשולחן העבודה"
 
-#: app/adwPreferencesWindow.js:248
+#: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "הוסף כוננים חדשים לצד הנגדי של שולחן העבודה"
 
-#: app/adwPreferencesWindow.js:250
+#: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
 msgstr "הדגש את רשת השחרור במהלך גרירה ושחרור"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
 msgstr "השתמש ב-Nemo כדי לפתוח תיקיות"
 
-#: app/adwPreferencesWindow.js:252
+#: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "הוסף סמל לקישורים רכים"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:251
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "השתמש בטקסט כהה בתוויות סמלים"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "פעולה לפתיחת פריטים"
 
-#: app/adwPreferencesWindow.js:259
+#: app/adwPreferencesWindow.js:257
 msgid "Single click"
 msgstr "לחיצה יחידה"
 
-#: app/adwPreferencesWindow.js:260
+#: app/adwPreferencesWindow.js:258
 msgid "Double click"
 msgstr "לחיצה כפולה"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:262
 msgid "Show image thumbnails"
 msgstr "הצגת תמונות מממוזערות"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:264
 msgid "Always"
 msgstr "תמיד"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
 msgstr "במחשב זה בלבד"
 
-#: app/adwPreferencesWindow.js:268
+#: app/adwPreferencesWindow.js:266
 msgid "Never"
 msgstr "אף פעם"
 
-#: app/adwPreferencesWindow.js:270
+#: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "הצג פריט בתפריט ההקשר למחיקה לצמיתות"
 
-#: app/adwPreferencesWindow.js:271
+#: app/adwPreferencesWindow.js:269
 msgid "Show hidden files"
 msgstr "הצגת קבצים מוסתרים"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "פתח תיקיות בגרור ריחוף"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
 msgstr "אתר אינטרנט"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
 msgstr "לְבַקֵר"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
 msgstr "נושאים"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:273
 msgid "Report issues on issue tracker"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
 msgstr "להגיש תלונה"
 
-#: app/adwPreferencesWindow.js:276
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
 msgstr "רישיון"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:275
 msgid "Translation"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:275
 msgid "Help translate in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:275
 msgid "Translate"
 msgstr ""
 
-#: app/appChooser.js:55
+#: app/appChooser.js:50
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "בחר אפליקציה לפתיחת <b>{foo}</b>"
 
-#: app/appChooser.js:63
+#: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
 msgstr "פתח פריטים"
 
-#: app/appChooser.js:65
+#: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
 msgstr "תיקייה פתוחה"
 
-#: app/appChooser.js:67 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
 msgstr "קובץ פתוח"
 
-#: app/appChooser.js:107
+#: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
 msgstr "שגיאה בשינוי יישום ברירת המחדל"
 
-#: app/appChooser.js:108
+#: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "שגיאה בעת הגדרת {foo} כיישום ברירת המחדל עבור {mimetype}"
 
-#: app/askRenamePopup.js:51
+#: app/askRenamePopup.js:48
 msgid "Folder name"
 msgstr "שם התיקייה"
 
-#: app/askRenamePopup.js:51
+#: app/askRenamePopup.js:48
 msgid "File name"
 msgstr "שם הקובץ"
 
-#: app/askRenamePopup.js:59 app/autoAr.js:301 app/desktopManager.js:1167
+#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1163
 msgid "OK"
 msgstr "אישור"
 
-#: app/askRenamePopup.js:59
+#: app/askRenamePopup.js:56
 msgid "Rename"
 msgstr "שינוי שם"
 
-#: app/autoAr.js:73
+#: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
 msgstr "AutoAr אינו מותקן"
 
-#: app/autoAr.js:74
+#: app/autoAr.js:67
 #, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
@@ -317,299 +317,299 @@ msgstr ""
 "כדי להיות מסוגל לעבוד עם קבצים דחוסים, התקן קובץ רולר ו/או gir-1.2-"
 "gnomeAutoAr"
 
-#: app/autoAr.js:205
+#: app/autoAr.js:198
 #, fuzzy
 msgid "Extracting files"
 msgstr "חילוץ קבצים"
 
-#: app/autoAr.js:222
+#: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
 msgstr "דחיסת קבצים"
 
-#: app/autoAr.js:293 app/autoAr.js:622 app/desktopManager.js:728
-#: app/desktopManager.js:1169 app/fileItemMenu.js:634
+#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
+#: app/desktopManager.js:1165 app/fileItemMenu.js:634
 msgid "Cancel"
 msgstr "ביטול"
 
-#: app/autoAr.js:313 app/autoAr.js:610
+#: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
 msgstr "הזן סיסמה כאן"
 
-#: app/autoAr.js:356
+#: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
 msgstr "מסיר קובץ חלקי '${outputFile}'"
 
-#: app/autoAr.js:375
+#: app/autoAr.js:368
 #, fuzzy
 msgid "Creating destination folder"
 msgstr "יצירת תיקיית יעד"
 
-#: app/autoAr.js:407
+#: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
 msgstr "חילוץ קבצים לתוך '${outputPath}'"
 
-#: app/autoAr.js:437
+#: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
 msgstr "החילוץ הושלם"
 
-#: app/autoAr.js:438
+#: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "חילוץ '${fullPathFile}' הושלם."
 
-#: app/autoAr.js:444
+#: app/autoAr.js:437
 #, fuzzy
 msgid "Extraction cancelled"
 msgstr "החילוץ בוטל"
 
-#: app/autoAr.js:445
+#: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "חילוץ '${fullPathFile}' בוטל על ידי המשתמש."
 
-#: app/autoAr.js:455
+#: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
 msgstr "נדרש ביטוי סיסמה עבור ${filename}"
 
-#: app/autoAr.js:458
+#: app/autoAr.js:451
 #, fuzzy
 msgid "Error during extraction"
 msgstr "שגיאה במהלך החילוץ"
 
-#: app/autoAr.js:485
+#: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
 msgstr "דחיסת קבצים לתוך '${outputFile}'"
 
-#: app/autoAr.js:498
+#: app/autoAr.js:491
 #, fuzzy
 msgid "Compression completed"
 msgstr "הדחיסה הושלמה"
 
-#: app/autoAr.js:499
+#: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "דחיסת הקבצים לתוך '${outputFile}' הושלמה."
 
-#: app/autoAr.js:503 app/autoAr.js:510
+#: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
 msgid "Cancelled compression"
 msgstr "דחיסה בוטלה"
 
-#: app/autoAr.js:504
+#: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
 msgstr "קובץ הפלט '${outputFile}' כבר קיים."
 
-#: app/autoAr.js:511
+#: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "דחיסת קבצים לתוך '${outputFile}' בוטלה על ידי המשתמש."
 
-#: app/autoAr.js:514
+#: app/autoAr.js:507
 #, fuzzy
 msgid "Error during compression"
 msgstr "שגיאה במהלך הדחיסה"
 
-#: app/autoAr.js:549
+#: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
 msgstr "צור ארכיון"
 
-#: app/autoAr.js:573
+#: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
 msgstr "שם הארכיון"
 
-#: app/autoAr.js:606
+#: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
 msgstr "סיסמה"
 
-#: app/autoAr.js:619
+#: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
 msgstr "לִיצוֹר"
 
-#: app/autoAr.js:690
+#: app/autoAr.js:683
 #, fuzzy
 msgid "Compatible with all operating systems."
 msgstr "תואם לכל מערכות ההפעלה."
 
-#: app/autoAr.js:696
+#: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "‎.zip מוגן בסיסמה, חייב להיות מותקן ב-Windows וב-Mac."
 
-#: app/autoAr.js:702
+#: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
 msgstr "ארכיונים קטנים יותר אבל לינוקס ו-Mac בלבד."
 
-#: app/autoAr.js:708
+#: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "ארכיונים קטנים יותר אך חייבים להיות מותקן ב-Windows וב-Mac."
 
-#: app/desktopManager.js:129
+#: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "קבצי GNOME לא נמצאו"
 
-#: app/desktopManager.js:130
+#: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "היישום GNOME Files נדרש על ידי Desktop Icons NG."
 
-#: app/desktopManager.js:725
+#: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
 msgstr "מהלך \\ לזוז \\ לעבור"
 
-#: app/desktopManager.js:726 app/fileItemMenu.js:365
+#: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
 msgstr "העתקה"
 
-#: app/desktopManager.js:727
+#: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
 msgstr "קישור"
 
-#: app/desktopManager.js:730
+#: app/desktopManager.js:726
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "בחר פעולה עבור קבצים"
 
-#: app/desktopManager.js:800 app/desktopManager.js:832
+#: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "ביצוע SymLink נכשל"
 
-#: app/desktopManager.js:801 app/desktopManager.js:833
+#: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "לא ניתן ליצור קישור סמלי"
 
-#: app/desktopManager.js:1125
+#: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "נקה את הבחירה הנוכחית לפני חיפוש חדש"
 
-#: app/desktopManager.js:1171
+#: app/desktopManager.js:1167
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "מצא קבצים בשולחן העבודה"
 
-#: app/desktopManager.js:1426
+#: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
 msgstr "שֵׁם"
 
-#: app/desktopManager.js:1427
+#: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
 msgstr "שם Z-A"
 
-#: app/desktopManager.js:1428
+#: app/desktopManager.js:1424
 #, fuzzy
 msgid "Modified Time"
 msgstr "זמן שונה"
 
-#: app/desktopManager.js:1429
+#: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
 msgstr "סוּג"
 
-#: app/desktopManager.js:1430
+#: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
 msgstr "גודל"
 
-#: app/desktopManager.js:1433
+#: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "שמור על סדר…"
 
-#: app/desktopManager.js:1437
+#: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "שמור על ערימה לפי סוג…"
 
-#: app/desktopManager.js:1438
+#: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "מיין בית/כוננים/אשפה…"
 
-#: app/desktopManager.js:1443 app/desktopManager.js:2461
+#: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
 msgstr "תיקיה חדשה"
 
-#: app/desktopManager.js:1447
+#: app/desktopManager.js:1443
 msgid "New Document"
 msgstr "מסמך חדש"
 
-#: app/desktopManager.js:1451
+#: app/desktopManager.js:1447
 msgid "Paste"
 msgstr "הדבקה"
 
-#: app/desktopManager.js:1452
+#: app/desktopManager.js:1448
 msgid "Undo"
 msgstr "ביטול פעולה"
 
-#: app/desktopManager.js:1453
+#: app/desktopManager.js:1449
 msgid "Redo"
 msgstr "ביצוע חוזר"
 
-#: app/desktopManager.js:1458
+#: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
 msgstr "בחר הכל"
 
-#: app/desktopManager.js:1463
+#: app/desktopManager.js:1459
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "סידור אייקונים"
 
-#: app/desktopManager.js:1467
+#: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
 msgstr "לסדר לפי…"
 
-#: app/desktopManager.js:1472
+#: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
 msgstr "הצג את שולחן העבודה בקבצי GNOME"
 
-#: app/desktopManager.js:1473
+#: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
 msgstr "פתח בטרמינל"
 
-#: app/desktopManager.js:1478
+#: app/desktopManager.js:1474
 msgid "Change Background…"
 msgstr "שינוי הרקע…"
 
-#: app/desktopManager.js:1483
+#: app/desktopManager.js:1479
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "הגדרות סמל שולחן העבודה"
 
-#: app/desktopManager.js:1484
+#: app/desktopManager.js:1480
 msgid "Display Settings"
 msgstr "הגדרות תצוגה"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "חלון ההעדפות פתוח"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "חלון זה פתוח. נא לעבור לחלון הפעיל."
@@ -639,47 +639,47 @@ msgid "Could not create document"
 msgstr "לא ניתן ליצור מסמך"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:142
+#: app/fileItem.js:140
 msgid "Home"
 msgstr "בית"
 
-#: app/fileItem.js:267
+#: app/fileItem.js:266
 #, fuzzy
 msgid "Broken Link"
 msgstr "לינק שבור"
 
-#: app/fileItem.js:268
+#: app/fileItem.js:267
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "לא ניתן לפתוח את הקובץ הזה מכיוון שהוא קישור סימול שבור"
 
-#: app/fileItem.js:307
+#: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "פתיחת הקובץ נכשלה"
 
-#: app/fileItem.js:309
+#: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "לא מותקן יישום לפתיחת קבצים מסוג \"{foo}\"."
 
-#: app/fileItem.js:344 app/gnomeShellDragDrop.js:226
+#: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
 msgstr "לא ניתן לפתוח את הקובץ"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:346 app/gnomeShellDragDrop.js:228
+#: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} לא יכול לפתוח קבצים מסוג זה!"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:350
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "קובץ שולחן עבודה שבור"
 
-#: app/fileItem.js:352
+#: app/fileItem.js:351
 #, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
@@ -692,12 +692,12 @@ msgstr ""
 "\n"
 "<b>ערוך את הקובץ כדי להגדיר את תוכנית ההפעלה הנכונה.</b>"
 
-#: app/fileItem.js:358
+#: app/fileItem.js:357
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "הרשאות לא חוקיות בקובץ שולחן העבודה"
 
-#: app/fileItem.js:359
+#: app/fileItem.js:358
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -706,7 +706,7 @@ msgstr ""
 "לקובץ .desktop זה יש הרשאות שגויות. לחץ לחיצה ימנית כדי לערוך מאפיינים, "
 "ולאחר מכן:\n"
 
-#: app/fileItem.js:361
+#: app/fileItem.js:360
 #, fuzzy
 msgid ""
 "\n"
@@ -715,7 +715,7 @@ msgstr ""
 "\n"
 "<b>הגדר הרשאות, ב\"גישה של אחרים\", \"קריאה בלבד\" או \"ללא\"</b>"
 
-#: app/fileItem.js:364
+#: app/fileItem.js:363
 #, fuzzy
 msgid ""
 "\n"
@@ -724,7 +724,7 @@ msgstr ""
 "\n"
 "<b>אפשר אפשרות, \"אפשר הפעלת קובץ כתוכנית\"</b>"
 
-#: app/fileItem.js:372
+#: app/fileItem.js:371
 #, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
@@ -737,7 +737,7 @@ msgstr ""
 "\n"
 "<b>הפעל את \"אפשר הפעלה\"</b>"
 
-#: app/fileItemMenu.js:300
+#: app/fileItemMenu.js:297
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "תיקיה חדשה עם פריט {0}"
@@ -745,91 +745,91 @@ msgstr[1] "תיקיה חדשה עם {0} פריטים"
 msgstr[2] "תיקיה חדשה עם {0} פריטים"
 msgstr[3] "תיקיה חדשה עם {0} פריטים"
 
-#: app/fileItemMenu.js:307
+#: app/fileItemMenu.js:304
 msgid "Open All..."
 msgstr "לפתוח הכול..."
 
-#: app/fileItemMenu.js:312
+#: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
 msgstr "לָרוּץ"
 
-#: app/fileItemMenu.js:314
+#: app/fileItemMenu.js:311
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "פתח עם {foo}"
 
-#: app/fileItemMenu.js:316
+#: app/fileItemMenu.js:313
 msgid "Open"
 msgstr "פתיחה"
 
-#: app/fileItemMenu.js:325 app/fileItemMenu.js:329
+#: app/fileItemMenu.js:322 app/fileItemMenu.js:326
 #, fuzzy
 msgid "Extract Here"
 msgstr "לחלץ כאן"
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:328
 #, fuzzy
 msgid "Extract To..."
 msgstr "לחלץ ל..."
 
-#: app/fileItemMenu.js:336
+#: app/fileItemMenu.js:333
 msgid "Open All With Other Application..."
 msgstr "לפתוח הכול באמצעות יישום אחר..."
 
-#: app/fileItemMenu.js:336
+#: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
 msgstr "לפתוח עם..."
 
-#: app/fileItemMenu.js:339
+#: app/fileItemMenu.js:336
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
 msgstr "הפעל באמצעות כרטיס גרפי ייעודי"
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Stack This Type"
 msgstr "ערימת סוג זה"
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "בטל ערימה מסוג זה"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Run as a Program"
 msgstr "הפעל כתוכנית"
 
-#: app/fileItemMenu.js:360
+#: app/fileItemMenu.js:357
 msgid "Scripts"
 msgstr "תסריטים"
 
-#: app/fileItemMenu.js:363
+#: app/fileItemMenu.js:360
 msgid "Cut"
 msgstr "גזירה"
 
-#: app/fileItemMenu.js:369
+#: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
 msgstr "לעבור ל..."
 
-#: app/fileItemMenu.js:370
+#: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
 msgstr "העתק אל..."
 
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:371
 msgid "Rename…"
 msgstr "שינוי שם…"
 
-#: app/fileItemMenu.js:377
+#: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Create Link..."
 msgstr "צור קישור..."
 
-#: app/fileItemMenu.js:382
+#: app/fileItemMenu.js:379
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
@@ -838,7 +838,7 @@ msgstr[1] "דחוס {0} תיקיות"
 msgstr[2] ""
 msgstr[3] "דחוס {0} תיקיות"
 
-#: app/fileItemMenu.js:389
+#: app/fileItemMenu.js:386
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "דחיסת קובץ {0}"
@@ -846,64 +846,64 @@ msgstr[1] "דחיסת {0} קבצים"
 msgstr[2] "דחיסת {0} קבצים"
 msgstr[3] "דחיסת {0} קבצים"
 
-#: app/fileItemMenu.js:396
+#: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Email to..."
 msgstr "שלח דואר אלקטרוני אל..."
 
-#: app/fileItemMenu.js:401
+#: app/fileItemMenu.js:398
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "שלח למכשיר נייד"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:402
 msgid "Move to Trash"
 msgstr "העברה לאשפה"
 
-#: app/fileItemMenu.js:408
+#: app/fileItemMenu.js:405
 msgid "Delete permanently"
 msgstr "מחיקה לצמיתות"
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:410
 msgid "Don't Allow Launching"
 msgstr "לא לאפשר הפעלה"
 
-#: app/fileItemMenu.js:413
+#: app/fileItemMenu.js:410
 msgid "Allow Launching"
 msgstr "לאפשר הפעלה"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:416
 msgid "Empty Trash"
 msgstr "פינוי האשפה"
 
-#: app/fileItemMenu.js:425
+#: app/fileItemMenu.js:422
 msgid "Eject"
 msgstr "שליפה"
 
-#: app/fileItemMenu.js:428
+#: app/fileItemMenu.js:425
 msgid "Unmount"
 msgstr "ניתוק"
 
-#: app/fileItemMenu.js:432
+#: app/fileItemMenu.js:429
 #, fuzzy
 msgid "Common Properties"
 msgstr "מאפיינים נפוצים"
 
-#: app/fileItemMenu.js:432
+#: app/fileItemMenu.js:429
 msgid "Properties"
 msgstr "מאפיינים"
 
-#: app/fileItemMenu.js:433
+#: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Show All in Files"
 msgstr "הצג הכל בקבצים"
 
-#: app/fileItemMenu.js:433
+#: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Show in Files"
 msgstr "הצג בקבצים"
 
-#: app/fileItemMenu.js:437
+#: app/fileItemMenu.js:434
 msgid "Open in Terminal"
 msgstr "פתיחה במסוף"
 
@@ -957,19 +957,19 @@ msgstr "לא יכול לשלוח מדריך בדוא\"ל"
 msgid "Selection includes a Directory, compress the directory to a file first."
 msgstr "הבחירה כוללת ספרייה, תחילה דחוס את הספרייה לקובץ."
 
-#: app/showErrorPopup.js:43
+#: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
 msgstr "סגור"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/utils/dbusUtils.js:61
+#: app/utils/dbusUtils.js:53
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "\"${programName}\" נדרש עבור סמלי שולחן העבודה"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/utils/dbusUtils.js:63
+#: app/utils/dbusUtils.js:55
 #, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
@@ -978,7 +978,7 @@ msgstr ""
 "כדי שפונקציונליות זו תפעל באייקוני שולחן העבודה, עליך להתקין את "
 "\"${programName}\" במערכת שלך."
 
-#: app/utils/desktopIconsUtil.js:151
+#: app/utils/desktopIconsUtil.js:146
 msgid "Command not found"
 msgstr "הפקודה לא נמצאה"
 
