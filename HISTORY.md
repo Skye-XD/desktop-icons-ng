@@ -1,4 +1,13 @@
 # History of versions #
+* Gtk4 version 51
+  * Updates all files to ESM imports for Gnome 45. (Sundeep Mediratta).
+  * Fix ESM race conditon top level await bug with runAsync() for Adw.Application. Fix as suggested by Florian Mullner.
+  * Fix preferences window launch bug. (Sundeep Mediratta)
+  * Fix Nautilus not present but in Gnome 45. (Sundeep Mediratta)
+  * Fix GFileInfo query bugs. (Sundeep Mediratta)
+  * update gtk4-ding.pot, weblate translations.
+  * Update Metadata.json, History.md. Verion Bump to 51.
+
 * Gtk4 version 50
   * Updates for Gnome 45 to work with other extensions and fix errors
   * Fix Drand and Drop on Dock - decrease offset to detect drag over dock, got broken by one pixel in Gnome 45. (Sundeep Mediratta)

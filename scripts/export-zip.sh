@@ -49,7 +49,7 @@ mkdir schemas
 cp "${SCHEMADIR}"/*.xml schemas/
 glib-compile-schemas schemas/
 cp -r "${EXTENSIONS_DIR}"/* .
-zip -qr "${UUID}.zip" ./*.js ./*.json ./locale ./schemas ./app ./utils
+zip -qr "${UUID}.zip" ./*.js ./*.json ./locale ./schemas ./app ./utils ./dependencies
 mv -f "${UUID}.zip" "${REPO_DIR}/"
 cd "${REPO_DIR}" || exit
 
