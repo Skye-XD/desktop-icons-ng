@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gio} from './dependencies/gi.js';
+import Gio from 'gi://Gio';
 
 import * as Enums from './app/enums.js';
 import * as  adwPreferencesWindow from './app/adwPreferencesWindow.js';

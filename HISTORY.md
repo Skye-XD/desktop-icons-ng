@@ -1,4 +1,8 @@
 # History of versions #
+* Gtk4 version 53
+  * EGO requested changes to extension.js, limit imports.
+  * Update Metadata.json, History.md, Version Bump to 53.
+
 * Gtk4 version 52
   * EGO requested changes to extension.js, limit imports.
   * Update Metadata.json, History.md, Version Bump to 52.
