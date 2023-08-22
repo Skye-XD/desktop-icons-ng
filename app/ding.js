@@ -26,7 +26,7 @@ import {
     DBusUtils,
     DesktopIconsUtil,
     DesktopManager
-} from './dependencies.js';
+} from '../dependencies/localFiles.js';
 import * as PromiseUtils from '../utils/promiseUtils.js';
 import * as FileUtils from '../utils/fileUtils.js';
 

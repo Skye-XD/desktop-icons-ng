@@ -28,7 +28,7 @@ import {
     GnomeShellDragDrop,
     Thumbnails,
     StackItem
-} from './dependencies.js';
+} from '../dependencies/localFiles.js';
 
 import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';

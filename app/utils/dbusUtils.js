@@ -17,7 +17,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 import {Gdk, Gio, GLib, GdkX11, GdkWayland} from '../../dependencies/gi.js';
-import {DBusInterfaces, GsConnect} from '../dependencies.js';
+import {DBusInterfaces, GsConnect} from '../../dependencies/localFiles.js';
 import {_} from '../../dependencies/gettext.js';
 
 const Signals = imports.signals;
