@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-import {GLib, Gio} from '../dependencies/gi.js';
+import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
 
 const DEFAULT_ENUMERATE_BATCH_SIZE = 100;
 const DEFAULT_QUERY_ATTRIBUTES = [

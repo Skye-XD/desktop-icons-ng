@@ -13,6 +13,7 @@ schema_dir = join_paths(datadir, 'glib-2.0', 'schemas')
 extensions_dir = join_paths(prefix, 'share', 'gnome-shell', 'extensions', 'gtk4-ding@smedius.gitlab.com')
 
 install_data([
+    'dingManager.js',
     'emulateX11WindowType.js',
     'extension.js',
     'gnomeShellOverride.js',

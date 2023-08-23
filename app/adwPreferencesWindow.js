@@ -17,7 +17,7 @@
  */
 import {Gtk, Gdk, GLib, Gio, GObject, Adw} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
-import {version} from './dependencies.js';
+import {version} from '../dependencies/localFiles.js';
 
 export {AdwPreferencesWindow};
 

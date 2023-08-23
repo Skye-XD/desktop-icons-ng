@@ -20,7 +20,7 @@
  */
 
 /* exported GnomeShellOverride */
-import {GLib} from './dependencies/gi.js';
+import GLib from 'gi://GLib';
 import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
 
