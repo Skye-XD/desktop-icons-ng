@@ -275,19 +275,24 @@ The other option is to install extensions that automatically toggle legacy appli
 The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
 </p>
 
-For Nix OS, please see addtional manual installation instructions in the section below.
+This should work out of the box for <b><u>Debian, Fedora</b></u>
 
 <p style="text-align: left;">
-For Archlinux, (and if needed, Manjaro), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng).
+For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng). Default install from extensions.gnome.org should also work.
 </p>
 <p style="text-align: left;">
-For Manjaro, a native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository available.
+For <b><u>Manjaro</b></u>, a native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository available.
 </p>
 
+For <b><u>Nix OS</b></u>, please see addtional manual installation instructions in the section below.
+
+<b><u>Ubuntu</b></u> requires manual installation, see instructions below.
 
 ## Manual installation
 
 The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next section.
+
+<b><u>Ubuntu</b></u>
 
 In Ubuntu Jammy and probably later, the Ubuntu session is locked and only the default Ubuntu extensions run. Ubuntu runs it's own Desktop Icon Extension. Therefore, installing the extension from extensions.gnome.org will not work directly. The install script provided in the repository bypasses this and installs this as a manually installed extension. The default Desktop Icons extension that ships with Ubuntu then needs to be deactivated, and the manually installed one activated.
 
@@ -299,7 +304,7 @@ The other way to update to the newest one in Ubuntu is to install the "gnome-ses
 
 That will allow the experience similar to the original Ubuntu desktop, but with the most recent versions of the extensions, without the default Ubuntu Desktop Icons Extension.
 
-Nix OS
+<b><u>Nix OS</b></u>
 
 Manual Fix to enable extension (tested in NixOS 23.05, GNOME 44.2, gtk4-ding extension version 38). We need to add the following in the configs:
 
