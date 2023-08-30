@@ -274,12 +274,16 @@ The other option is to install extensions that automatically toggle legacy appli
 <p style="text-align: left;">
 The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
 </p>
+
+For Nix OS, please see addtional manual installation instructions in the section below.
+
 <p style="text-align: left;">
 For Archlinux, (and if needed, Manjaro), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng).
 </p>
 <p style="text-align: left;">
 For Manjaro, a native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository available.
 </p>
+
 
 ## Manual installation
 
@@ -294,6 +298,30 @@ The other way to update to the newest one in Ubuntu is to install the "gnome-ses
 * Appindicator and KstatusNotifierItem support
 
 That will allow the experience similar to the original Ubuntu desktop, but with the most recent versions of the extensions, without the default Ubuntu Desktop Icons Extension.
+
+Nix OS
+
+Manual Fix to enable extension (tested in NixOS 23.05, GNOME 44.2, gtk4-ding extension version 38). We need to add the following in the configs:
+
+Install gjs-
+
+```
+environment.systemPackages = with pkgs; [
+  gjs
+];
+``````
+Expose schema of nautilus-
+
+
+```
+services.xserver.desktopManager.gnome.extraGSettingsOverridePackages = with pkgs; [
+  gnome.nautilus
+  #gnome.mutter # should not be needed
+  #gtk4 # should not be needed
+];
+``````
+
+Logout and log back in. Enable the extension manually. For some reason, home-manager configs cannot enable the extension using dconf.settings.
 
 ## Internal architecture
 
