@@ -7,319 +7,323 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/eo/>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Surtabla"
+msgstr "@Desktop@"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "Dosieroj"
+msgstr "#/osiero@"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Taksoj"
+msgstr "Tweaks@"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Pri"
+msgstr "@About@"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Labortablaj Agordoj"
+msgstr "@Desktop #/ikso@"
 
 #: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Agordoj por la Labortabla Programo"
+msgstr "#/ikso @for #/a @Desktop #/rogramo@"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumoj"
+msgstr "#/olumo@"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Surtablaj volumoj montriĝas"
+msgstr "@Desktop #/olumo #/ontriĝo@"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "Dosieroj Agordoj"
+msgstr "#/osiero #/ikso@"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Agordoj dividitaj kun Gnome Files"
+msgstr "#/ikso #/ividi @with #/nomo #/osiero@"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Diversaj Tweaks"
+msgstr "@Miscellaneous Tweaks@"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
 msgid "Size for the desktop icons"
-msgstr "Grandeco por la labortablaj ikonoj"
+msgstr "#/randeco @for #/a @desktop #/kono@"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Tiny"
-msgstr "Eta"
+msgstr "#/ta@"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 msgid "Small"
-msgstr "Malgranda"
+msgstr "#/algranda@"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
 msgid "Standard"
-msgstr "Normo"
+msgstr "#/ormo@"
 
 #: app/adwPreferencesWindow.js:227
 #, fuzzy
 msgid "Large"
-msgstr "Granda"
+msgstr "#/randa@"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "New icons alignment"
-msgstr "Nova vicigo de ikonoj"
+msgstr "#/ova #/kono #/icigo@"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
-msgstr "Supra maldekstra angulo"
+msgstr "@Top @left #/ngulo@"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Supra dekstra angulo"
+msgstr "@Top #/usta #/ngulo@"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Malsupra maldekstra angulo"
+msgstr "@Bottom @left #/ngulo@"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Malsupra dekstra angulo"
+msgstr "@Bottom #/usta #/ngulo@"
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Aldonu novajn ikonojn al Malĉefaj Monitoroj unue, se disponeblas"
+msgstr "#/ldoni #/ova #/kono @to @Secondary #/onitoro @first@, @if @available@"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Montru la personan dosierujon sur la labortablo"
+msgstr "#/ontri #/a @personal #/eko @on #/a @desktop@"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Montru la rubujon sur la labortablo"
+msgstr "#/ontri #/a #/orĵetaĵo #/kono @on #/a @desktop@"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Montru eksterajn diskojn sur la labortablo"
+msgstr "#/ezulto @external #/tirado @on #/a @desktop@"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Montru retajn diskojn sur la labortablo"
+msgstr "#/ezulto #/eto #/tirado @on #/a @desktop@"
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Aldonu novajn diskojn al la kontraŭa flanko de la labortablo"
+msgstr "#/ldoni #/ova #/tirado @to #/a @opposite #/lanko @of #/a @desktop@"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Marku la gutokradon dum Treni kaj Faligi"
+msgstr "#/eliefigi #/a #/alo #/rado @during #/aleŝo @and #/alo@"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
-msgstr "Uzu Nemo por malfermi dosierujojn"
+msgstr "#/zo Nemo #/alfermi #/eko@"
 
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Add an emblem to soft links"
-msgstr "Aldonu emblemon al molaj ligiloj"
+msgstr "#/ldoni #/mblemo @to #/ola #/igo@"
 
 #: app/adwPreferencesWindow.js:251
 #, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Uzu malhelan tekston en ikonaj etikedoj"
+msgstr "#/zo #/alluma #/eksto @in #/kono #/tikedo@"
 
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Ago por Malfermi Erojn"
+msgstr "#/go #/alfermi #/ro@"
 
 #: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Single click"
-msgstr "Ununura klako"
+msgstr "@Single #/lako@"
 
 #: app/adwPreferencesWindow.js:258
 #, fuzzy
 msgid "Double click"
-msgstr "Duobla klako"
+msgstr "@Double #/lako@"
 
 #: app/adwPreferencesWindow.js:262
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Montru bildetojn"
+msgstr "#/ezulto #/ildo thumbnails@"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Always"
-msgstr "Ĉiam"
+msgstr "@Always@"
 
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
-msgstr "Nur en ĉi tiu komputilo"
+msgstr "@On #/i tiu @computer @only@"
 
 #: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "Never"
-msgstr "Neniam"
+msgstr "@Never@"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
-msgstr "Montru kuntekstan menueron por ĉiam forigi"
+msgstr "#/ontri #/unteksto #/enuo #/ro #/origi @permanently@"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
 msgid "Show hidden files"
-msgstr "Montru kaŝitajn dosierojn"
+msgstr "#/ezulto #/aŝi #/osiero@"
 
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Malfermu dosierujojn sur treni ŝvebi"
+msgstr "@Open #/eko @on #/aleŝo #/vebi@"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Retejo"
+msgstr "#/etejo@"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Vizitu"
+msgstr "#/izito@"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Temoj"
+msgstr "#/fero@"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "#/aporto #/fero @on #/fero #/puristo@"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Raporto"
+msgstr "#/aporto@"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "Permesilo"
+msgstr "#/icenco@"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "#/raduko@"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "#/elpo #/raduki @in #/ia #/raneaĵo #/etumilo@"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "#/raduki@"
 
 #: app/appChooser.js:50
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Elektu aplikaĵon por malfermi <b>{foo}</b>"
+msgstr "#/lekti #/pliko #/alfermi <b>{foo}</b>@"
 
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Malfermu Erojn"
+msgstr "@Open #/ro@"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Malfermu Dosierujon"
+msgstr "@Open #/eko@"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Malfermu Dosieron"
+msgstr "@Open #/osiero@"
 
 #: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Eraro ŝanĝante defaŭltan aplikaĵon"
+msgstr "#/raro #/anĝi @default #/pliko@"
 
 #: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Eraro dum agordado de {foo} kiel defaŭlta aplikaĵo por {mimetype}"
+msgstr "#/raro @while #/iksi {foo} @as @default #/pliko @for {mimetype}@"
 
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "Folder name"
-msgstr "Dosierujo nomo"
+msgstr "#/eko #/omo@"
 
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "File name"
-msgstr "Dosiernomo"
+msgstr "#/osiero #/omo@"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1163
 #, fuzzy
 msgid "OK"
-msgstr "bone"
+msgstr "@OK@"
 
 #: app/askRenamePopup.js:56
 #, fuzzy
 msgid "Rename"
-msgstr "Alinomi"
+msgstr "#/enomi@"
 
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "AutoAr ne estas instalita"
+msgstr "AutoAr @not #/sti #/nstali@"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -327,381 +331,386 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Por povi labori kun kunpremitaj dosieroj, instalu file-roller kaj/aŭ gir-1.2-"
-"gnomeAutoAr"
+"#/sti #/apabla #/abori @with #/unpremi #/osiero@, #/nstali #/osiero@-#/ulilo "
+"@and/@or gir@-@1.2@-gnomeAutoAr@"
 
 #: app/autoAr.js:198
 #, fuzzy
 msgid "Extracting files"
-msgstr "Eltiro de dosieroj"
+msgstr "#/ltiri #/osiero@"
 
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Kunpremante dosierojn"
+msgstr "#/unpremi #/osiero@"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
 #, fuzzy
 msgid "Cancel"
-msgstr "Nuligi"
+msgstr "#/uligi@"
 
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Enigu pasvorton ĉi tie"
+msgstr "#/niri #/asvorto @here@"
 
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "Forigante partan dosieron '${outputFile}'"
+msgstr "#/origi @partial #/osiero '${outputFile}'@"
 
 #: app/autoAr.js:368
 #, fuzzy
 msgid "Creating destination folder"
-msgstr "Kreante cel-dosierujon"
+msgstr "#/rei #/elloko #/eko@"
 
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Eltiro de dosieroj en '${outputPath}'"
+msgstr "#/ltiri #/osiero @into '${outputPath}'@"
 
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Eltiro finiĝis"
+msgstr "#/ltiro #/ompletigi@"
 
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "Ekstraktado de '${fullPathFile}' finiĝis."
+msgstr "#/ltiri '${fullPathFile}' #/sti #/ompletigi@.@"
 
 #: app/autoAr.js:437
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Eltiro nuligita"
+msgstr "#/ltiro #/uligi@"
 
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Eltiro '${fullPathFile}' estis nuligita de la uzanto."
+msgstr "#/ltiri '${fullPathFile}' #/sti #/uligi @by #/a #/zanto@.@"
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Pasfrazo necesa por ${dosiernomo}"
+msgstr "Passphrase #/ostuli @for ${filename}@"
 
 #: app/autoAr.js:451
 #, fuzzy
 msgid "Error during extraction"
-msgstr "Eraro dum eltiro"
+msgstr "#/raro @during #/ltiro@"
 
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Kunpremante dosierojn en '${outputFile}'"
+msgstr "#/unpremi #/osiero @into '${outputFile}'@"
 
 #: app/autoAr.js:491
 #, fuzzy
 msgid "Compression completed"
-msgstr "Kunpremado finiĝis"
+msgstr "Compression #/ompletigi@"
 
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Kunpremado de dosieroj en '${outputFile}' finiĝis."
+msgstr "#/unpremi #/osiero @into '${outputFile}' #/sti #/ompletigi@.@"
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "Nuligita kunpremo"
+msgstr "#/uligi compression@"
 
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "La eligdosiero '${outputFile}' jam ekzistas."
+msgstr "#/a #/roduktado #/osiero '${outputFile}' @already #/kzisti@.@"
 
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "Kunpremado de dosieroj en '${outputFile}' estis nuligita de la uzanto."
+msgstr ""
+"#/unpremi #/osiero @into '${outputFile}' #/sti #/uligi @by #/a #/zanto@.@"
 
 #: app/autoAr.js:507
 #, fuzzy
 msgid "Error during compression"
-msgstr "Eraro dum kunpremado"
+msgstr "#/raro @during compression@"
 
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Krei arkivon"
+msgstr "#/rei #/rkivo@"
 
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "Arkiva nomo"
+msgstr "#/rkivo #/omo@"
 
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Pasvorto"
+msgstr "#/asvorto@"
 
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Krei"
+msgstr "#/rei@"
 
 #: app/autoAr.js:683
 #, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "Kongrua kun ĉiuj operaciumoj."
+msgstr "@Compatible @with @all #/unkcii #/istemo@.@"
 
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Pasvorto protektita .zip, devas esti instalita en Vindozo kaj Mac."
+msgstr ""
+"#/asvorto #/rotekti @.#/Ipo@, #/evi #/sti #/nstali @on #/enestro @and Mac@.@"
 
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Pli malgrandaj arkivoj sed nur Linukso kaj Mac."
+msgstr "Pli #/algranda #/rkivo @but #/inukso @and Mac @only@.@"
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Pli malgrandaj arkivoj sed devas esti instalitaj en Vindozo kaj Mac."
+msgstr ""
+"Pli #/algranda #/rkivo @but #/evi #/sti #/nstali @on #/enestro @and Mac@.@"
 
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "GNOME-dosieroj ne trovitaj"
+msgstr "#/NOMO #/egistri @not #/ondi@"
 
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "La aplikaĵo GNOME Files estas postulata de Desktop Icons NG."
+msgstr "#/a #/NOMO #/osiero #/pliko #/sti #/ostuli @by @Desktop #/kono #/G@.@"
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Movu"
+msgstr "#/ovo@"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 #, fuzzy
 msgid "Copy"
-msgstr "Kopiu"
+msgstr "#/opio@"
 
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Ligo"
+msgstr "#/igo@"
 
 #: app/desktopManager.js:726
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Elektu Agon por Dosieroj"
+msgstr "#/lekti #/go @for #/osiero@"
 
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Farado de SymLink Malsukcesis"
+msgstr "#/ari SymLink #/alsukcesi@"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Ne eblis krei simbolan ligon"
+msgstr "@not povus #/rei @symbolic #/igo@"
 
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Forigi nunan elekton antaŭ nova serĉo"
+msgstr "#/lara @current #/lekto @before #/ova #/erĉo@"
 
 #: app/desktopManager.js:1167
 #, fuzzy
 msgid "Find Files on Desktop"
-msgstr "Trovu dosierojn sur labortablo"
+msgstr "#/rovi #/osiero @on @Desktop@"
 
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "Nomo"
+msgstr "#/omo@"
 
 #: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Nomo Z-A"
+msgstr "#/omo @Z@-@"
 
 #: app/desktopManager.js:1424
 #, fuzzy
 msgid "Modified Time"
-msgstr "Modifita Tempo"
+msgstr "#/odifi #/empo@"
 
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "Tajpu"
+msgstr "#/ipo@"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "Grandeco"
+msgstr "#/randeco@"
 
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Konservu Aranĝita…"
+msgstr "#/eni #/ranĝi…@"
 
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Konservu Stakitaj laŭ Tipo…"
+msgstr "#/eni #/takigi @by #/ipo…@"
 
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Ordigi Hejmo/Veturadoj/Rubo…"
+msgstr "#/peco #/ejmo/#/tirado/#/orĵetaĵo…@"
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 #, fuzzy
 msgid "New Folder"
-msgstr "Nova Dosierujo"
+msgstr "#/ova #/eko@"
 
 #: app/desktopManager.js:1443
 #, fuzzy
 msgid "New Document"
-msgstr "Nova Dokumento"
+msgstr "#/ova #/okumento@"
 
 #: app/desktopManager.js:1447
 #, fuzzy
 msgid "Paste"
-msgstr "Alglui"
+msgstr "#/lmeti@"
 
 #: app/desktopManager.js:1448
 #, fuzzy
 msgid "Undo"
-msgstr "Malfari"
+msgstr "#/alfari@"
 
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Redo"
-msgstr "Refari"
+msgstr "#/enovigi@"
 
 #: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
-msgstr "Elekti ĉiujn"
+msgstr "@Select @All@"
 
 #: app/desktopManager.js:1459
 #, fuzzy
 msgid "Arrange Icons"
-msgstr "Aranĝu piktogramojn"
+msgstr "#/ranĝi #/kono@"
 
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Aranĝu per…"
+msgstr "#/ranĝi @By…@"
 
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Montru labortablon en GNOME-dosieroj"
+msgstr "#/ezulto @Desktop @In #/NOMO #/osiero@"
 
 #: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Malfermu En Terminalo"
+msgstr "#/urniro @In #/erminalo@"
 
 #: app/desktopManager.js:1474
 #, fuzzy
 msgid "Change Background…"
-msgstr "Ŝanĝi fonon…"
+msgstr "#/anĝo #/ono…@"
 
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Agordoj de labortablaj piktogramoj"
+msgstr "@Desktop #/kono #/ikso@"
 
 #: app/desktopManager.js:1480
 #, fuzzy
 msgid "Display Settings"
-msgstr "Montraj Agordoj"
+msgstr "#/ontriĝo #/ikso@"
 
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
-msgstr "Preferoj Fenestro estas Malferma"
+msgstr "#/refero #/enestro #/sti #/urniro@"
 
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "Ĉi tiu Fenestro estas malfermita. Bonvolu ŝanĝi al la aktiva fenestro."
+msgstr ""
+"#/i tiu #/enestro #/sti #/urniro@. @Please #/alti @to #/a @active "
+"#/enestro@.@"
 
 #: app/desktopManager.js:1537
 #, fuzzy
 msgid "Settings"
-msgstr "Agordoj"
+msgstr "#/ikso@"
 
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Kreado de dosierujoj malsukcesis"
+msgstr "#/eko #/reo #/alsukcesi@"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Ne eblis krei dosierujon"
+msgstr "@not povus #/rei #/eko@"
 
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Eraro pri Kreado de Ŝablono"
+msgstr "#/ablono #/reo #/raro@"
 
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "Ne eblis krei dokumenton"
+msgstr "@not povus #/rei #/okumento@"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
 #, fuzzy
 msgid "Home"
-msgstr "Hejmo"
+msgstr "@Home@"
 
 #: app/fileItem.js:266
 #, fuzzy
 msgid "Broken Link"
-msgstr "Rompita Ligo"
+msgstr "@Broken #/igo@"
 
 #: app/fileItem.js:267
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "Ne povas malfermi ĉi tiun dosieron ĉar ĝi estas Rompita Simligo"
+msgstr "@not #/ovi #/i tiu #/osiero @because @prpers #/sti  @Broken Symlink@"
 
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Malfermo de Dosiero Malsukcesis"
+msgstr "@Opening #/osiero #/alsukcesi@"
 
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr "Ne estas instalita aplikaĵo por malfermi \"{foo}\" tipon de dosieroj"
+msgstr "#/sti #/eniu #/pliko #/nstali #/alfermi \"{foo}\" #/ipo @of #/osiero@"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Ne eblis malfermi Dosieron"
+msgstr "@not povus #/alfermi #/osiero@"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "${appName} ne povas malfermi dosierojn de ĉi tiu Tipo!"
+msgstr "${appName} @not #/ovi #/osiero @of #/i tiu #/ipo@!@"
 
 #: app/fileItem.js:350
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Rompita Labortabla Dosiero"
+msgstr "#/ompi @Desktop #/osiero@"
 
 #: app/fileItem.js:351
 msgid ""
@@ -714,7 +723,7 @@ msgstr ""
 #: app/fileItem.js:357
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Nevalidaj Permesoj sur Labortabla Dosiero"
+msgstr "@Invalid #/ermeso @on @Desktop #/osiero@"
 
 #: app/fileItem.js:358
 #, fuzzy
@@ -722,8 +731,8 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Ĉi tiu .desktop Dosiero havas malĝustajn Permesojn. Dekstre Klaku por "
-"redakti Propraĵojn, tiam:\n"
+"#/i tiu @.@Desktop #/osiero #/avi @incorrect #/ermeso@. #/Usta #/lako #/"
+"edakti #/emoveblaĵo@, @then@:@\n"
 
 #: app/fileItem.js:360
 #, fuzzy
@@ -732,7 +741,8 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Agordu Permesojn, en \"Alia Aliro\", \"Nur Legado\" aŭ \"Neniu\"</b>"
+"<b>#/iksi #/ermeso@, @in \"#/lia #/liri\"@, \"#/egi @Only\" @or \"#/eniu\""
+"</b>@"
 
 #: app/fileItem.js:363
 #, fuzzy
@@ -741,7 +751,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Ebligu opcion, \"Permesi Plenumon de Dosiero kiel Programo\"</b>"
+"<b>#/bligi #/lekto@, \"#/ermesi #/fektivigi #/osiero @as a #/rogramo\"</b>@"
 
 #: app/fileItem.js:371
 #, fuzzy
@@ -760,243 +770,244 @@ msgstr ""
 #, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] "Nova dosierujo kun {0} ero"
-msgstr[1] "Nova dosierujo kun {0} eroj"
+msgstr[0] "#/ova #/eko @with {@0} #/ro@"
+msgstr[1] "#/ova #/eko @with {@0} #/ro@"
 
 #: app/fileItemMenu.js:304
 #, fuzzy
 msgid "Open All..."
-msgstr "Malfermu Ĉion..."
+msgstr "#/urniro @All@.@.@.@"
 
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Kuri"
+msgstr "#/uro@"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "Malfermu per {foo}"
+msgstr "#/urniro @with {foo}@"
 
 #: app/fileItemMenu.js:313
 #, fuzzy
 msgid "Open"
-msgstr "Malfermu"
+msgstr "#/urniro@"
 
 #: app/fileItemMenu.js:322 app/fileItemMenu.js:326
 #, fuzzy
 msgid "Extract Here"
-msgstr "Ekstraktu Ĉi tie"
+msgstr "#/ltiraĵo @Here@"
 
 #: app/fileItemMenu.js:328
 #, fuzzy
 msgid "Extract To..."
-msgstr "Eltiro al..."
+msgstr "#/ltiraĵo @To@.@.@.@"
 
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open All With Other Application..."
-msgstr "Malfermu Ĉion Per Alia Apliko..."
+msgstr "#/urniro @All @With #/lia #/pliko@.@.@.@"
 
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Malfermu Kun..."
+msgstr "#/urniro @With@.@.@.@"
 
 #: app/fileItemMenu.js:336
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
-msgstr "Lanĉu uzante Dediĉitan Grafikan Karton"
+msgstr "#/anĉo #/zi @Dedicated #/rafikaĵo #/arto@"
 
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Staku Ĉi tiun Tipon"
+msgstr "#/takigi #/i tiu #/ipo@"
 
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Unstack This Type"
-msgstr "Malstaku Ĉi tiun Tipon"
+msgstr "Unstack #/i tiu #/ipo@"
 
 #: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Run as a Program"
-msgstr "Kuru kiel Programo"
+msgstr "#/uri @as a #/rogramo@"
 
 #: app/fileItemMenu.js:357
 #, fuzzy
 msgid "Scripts"
-msgstr "Skriptoj"
+msgstr "#/kribo@"
 
 #: app/fileItemMenu.js:360
 #, fuzzy
 msgid "Cut"
-msgstr "Tranĉi"
+msgstr "#/ncizo@"
 
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Movi al..."
+msgstr "#/ovo @to@.@.@.@"
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopiu al..."
+msgstr "#/opio @to@.@.@.@"
 
 #: app/fileItemMenu.js:371
 #, fuzzy
 msgid "Rename…"
-msgstr "Alinomi…"
+msgstr "#/enomi…@"
 
 #: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Create Link..."
-msgstr "Krei ligilon..."
+msgstr "#/rei #/igo@.@.@.@"
 
 #: app/fileItemMenu.js:379
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Kunpremu {0}-dosierujon"
-msgstr[1] "Kunpremu {0} dosierujojn"
+msgstr[0] "#/unpremi {@0} #/eko@"
+msgstr[1] "#/unpremi {@0} #/eko@"
 
 #: app/fileItemMenu.js:386
 #, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] "Kunpremu {0} dosieron"
-msgstr[1] "Kunpremu {0} dosierojn"
+msgstr[0] "#/unpremi {@0} #/osiero@"
+msgstr[1] "#/unpremi {@0} #/osiero@"
 
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Email to..."
-msgstr "Retpoŝtu al..."
+msgstr "#/etpoŝto @to@.@.@.@"
 
 #: app/fileItemMenu.js:398
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Sendu al Poŝtelefono"
+msgstr "#/endi @to @Mobile #/parato@"
 
 #: app/fileItemMenu.js:402
 #, fuzzy
 msgid "Move to Trash"
-msgstr "Movu al Rubujo"
+msgstr "#/ovo #/uinigi@"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Forigu konstante"
+msgstr "#/origi @permanently@"
 
 #: app/fileItemMenu.js:410
 #, fuzzy
 msgid "Don't Allow Launching"
-msgstr "Ne Permesu Lanĉon"
+msgstr "@not #/ermesi #/anĉo@"
 
 #: app/fileItemMenu.js:410
 #, fuzzy
 msgid "Allow Launching"
-msgstr "Permesu Lanĉon"
+msgstr "#/ermesi #/anĉi@"
 
 #: app/fileItemMenu.js:416
 #, fuzzy
 msgid "Empty Trash"
-msgstr "Malplenigi Rubujon"
+msgstr "#/enhoma #/orĵetaĵo@"
 
 #: app/fileItemMenu.js:422
 #, fuzzy
 msgid "Eject"
-msgstr "Elĵeti"
+msgstr "#/lĵeti@"
 
 #: app/fileItemMenu.js:425
 #, fuzzy
 msgid "Unmount"
-msgstr "Malmunti"
+msgstr "Unmount@"
 
 #: app/fileItemMenu.js:429
 #, fuzzy
 msgid "Common Properties"
-msgstr "Komunaj Propraĵoj"
+msgstr "#/fta #/emoveblaĵo@"
 
 #: app/fileItemMenu.js:429
 #, fuzzy
 msgid "Properties"
-msgstr "Propraĵoj"
+msgstr "#/emoveblaĵo@"
 
 #: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Show All in Files"
-msgstr "Montru Ĉion en Dosieroj"
+msgstr "#/ezulto @All @in #/osiero@"
 
 #: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Show in Files"
-msgstr "Montru en Dosieroj"
+msgstr "#/ezulto @in #/osiero@"
 
 #: app/fileItemMenu.js:434
 #, fuzzy
 msgid "Open in Terminal"
-msgstr "Malfermu en Terminalo"
+msgstr "#/urniro @in #/erminalo@"
 
 #: app/fileItemMenu.js:552
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Eltiro Nuligis"
+msgstr "#/ltiro #/uligi@"
 
 #: app/fileItemMenu.js:553
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Ne eblas ĉerpi dosieron, neniu cela dosierujo"
+msgstr "@Unable #/ltiri #/osiero@, #/eniu #/elloko #/eko@"
 
 #: app/fileItemMenu.js:585
 #, fuzzy
 msgid "Move Cancelled"
-msgstr "Movo Nuligita"
+msgstr "#/ovo #/uligi@"
 
 #: app/fileItemMenu.js:586
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Ne eblas movi dosierojn, neniu cela dosierujo"
+msgstr "@Unable #/ovi #/osiero@, #/eniu #/elloko #/eko@"
 
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Elektu Celon"
+msgstr "@Select #/elloko@"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 #, fuzzy
 msgid "Select"
-msgstr "Elektu"
+msgstr "@Select@"
 
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Kopio Nuligita"
+msgstr "#/opio #/uligi@"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Ne eblas kopii dosierojn, neniu celloka dosierujo"
+msgstr "@Unable #/opii #/osiero@, #/eniu #/elloko #/eko@"
 
 #: app/fileItemMenu.js:703
 #, fuzzy
 msgid "Can not email a Directory"
-msgstr "Ne povas retpoŝti Adresaron"
+msgstr "@not #/ovi #/dresaro@"
 
 #: app/fileItemMenu.js:704
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
-msgstr "Elekto inkluzivas Dosierujon, unue kunpremu la dosierujon al dosiero."
+msgstr ""
+"#/lekto #/nkluzivi #/dresaro@, #/unpremi #/a #/dresaro @to #/osiero @first@.@"
 
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "Fermu"
+msgstr "@Close@"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "\"${programName}\" estas necesa por labortablaj piktogramoj"
+msgstr "\"${programName}\" #/sti #/evi @for @Desktop #/kono@"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1005,98 +1016,98 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Por ke ĉi tiu funkcio funkciu en labortablaj piktogramoj, vi devas instali "
-"\"${programName}\" en via sistemo."
+"@For #/i tiu #/unkcio #/abori @in @Desktop #/kono@, @prpers #/evi #/nstali \""
+"${programName}\" @in #/ia #/istemo@.@"
 
 #: app/utils/desktopIconsUtil.js:146
 #, fuzzy
 msgid "Command not found"
-msgstr "Ordono ne trovita"
+msgstr "#/omandi @not #/ondi@"
 
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "Elektu apon por malfermi la elektitajn dosierojn."
+msgstr "#/lekti  app #/alfermi #/a #/lekti #/osiero@.@"
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "Ĉiam uzu por ĉi tiu dosiertipo"
+msgstr "@Always #/zi @for #/i tiu #/osiero #/ipo@"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Nuligi"
+msgstr "_#/uligi@"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Malfermu"
+msgstr "_#/urniro@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "Ikono grandeco"
+msgstr "#/kono #/randeco@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy
 msgid "Set the size for the desktop icons."
-msgstr "Agordu la grandecon por la labortablaj ikonoj."
+msgstr "#/iksi #/a #/randeco @for #/a @desktop #/kono@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
 #, fuzzy
 msgid "Show personal folder"
-msgstr "Montru personan dosierujon"
+msgstr "#/ezulto @personal #/eko@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 #, fuzzy
 msgid "Show the personal folder in the desktop."
-msgstr "Montru la personan dosierujon en la labortablo."
+msgstr "#/ontri #/a @personal #/eko @in #/a @desktop@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 #, fuzzy
 msgid "Show trash icon"
-msgstr "Montru rubo-ikonon"
+msgstr "#/ezulto #/orĵetaĵo #/kono@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 #, fuzzy
 msgid "Show the trash icon in the desktop."
-msgstr "Montru la rubujon en la labortablo."
+msgstr "#/ontri #/a #/orĵetaĵo #/kono @in #/a @desktop@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 #, fuzzy
 msgid "New icons start corner"
-msgstr "Novaj ikonoj komenciĝas angulo"
+msgstr "#/ova #/kono #/omenco #/ngulo@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 #, fuzzy
 msgid "Set the corner from where the icons will start to be placed."
-msgstr "Agordu la angulon de kie la ikonoj komencos esti metitaj."
+msgstr "#/iksi #/a #/ngulo @from @where #/a #/kono #/omenci #/sti #/oki@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 #, fuzzy
 msgid "Show external drives in the desktop"
-msgstr "Montru eksterajn diskojn en la labortablo"
+msgstr "#/ezulto @external #/tirado @in #/a @desktop@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 #, fuzzy
 msgid "Show the disk drives connected to the computer."
-msgstr "Montru la diskojn konektitajn al la komputilo."
+msgstr "#/ontri #/a #/isko #/eturi #/onekti @to #/a #/omputilo@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 #, fuzzy
 msgid "Show network drives in the desktop"
-msgstr "Montru retajn diskojn en la labortablo"
+msgstr "#/ezulto #/eto #/tirado @in #/a @desktop@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
-msgstr "Montru muntitajn retajn volumojn en la labortablo."
+msgstr "#/ezulto #/liiĝi #/eto #/olumo @in #/a @desktop@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 #, fuzzy
 msgid "Add new drives to the opposite side of the screen"
-msgstr "Aldonu novajn diskojn al la kontraŭa flanko de la ekrano"
+msgstr "#/ldoni #/ova #/tirado @to #/a @opposite #/lanko @of #/a #/krano@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
@@ -1104,13 +1115,13 @@ msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
 msgstr ""
-"Aldonante diskojn kaj volumojn al la labortablo, aldonu ilin al la kontraŭa "
-"flanko de la ekrano."
+"@When #/ldoni #/tirado @and #/olumo @to #/a @desktop@, #/ldoni @prpers @to #/"
+"a @opposite #/lanko @of #/a #/krano@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 #, fuzzy
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr "Montras rektangulon en la celloko dum DnD"
+msgstr "#/ontri #/ektangulo @in #/a #/elloko #/oko @during DnD@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 #, fuzzy
@@ -1118,13 +1129,13 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"Farante Drag'n'Drop-operacion, markas la lokon en la krado kie la ikono "
-"estos metita kun duontravidebla rektangulo."
+"@When #/ari #/aleŝo'@n'#/alo #/peracio@, #/arki #/a #/oko @in #/a #/rado @"
+"where #/a #/kono #/sti #/eti @with  semitransparent #/ektangulo@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Ordigi Specialajn Dosierujojn - Hejmo/Rubo-Diskoj."
+msgstr "#/peco @Special #/eko @- #/ejmo/#/orĵetaĵo #/tirado@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 #, fuzzy
@@ -1132,68 +1143,68 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"Kiam vi aranĝas piktogramojn sur labortablo, por ordigi kaj ŝanĝi la "
-"pozicion de la Hejma, Rubujo kaj muntita Reto aŭ Eksteraj Diskoj"
+"@When #/ranĝi #/kono @on @desktop@, #/rdigi @and #/anĝi #/a #/ozicio @of #/a "
+"#/ejmo@, #/orĵetaĵo @and @mounted #/eto @or @External #/tirado@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "Konservu piktogramojn aranĝitaj"
+msgstr "#/eni #/kono #/ranĝi@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 #, fuzzy
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "Ĉiam konservu piktogramojn aranĝitajn laŭ la lasta aranĝita ordo"
+msgstr "@Always #/eni #/kono #/ranĝi @by #/a @last #/ranĝi #/rdo@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
 msgid "Arrange Order"
-msgstr "Aranĝu Ordon"
+msgstr "#/ranĝi #/rdo@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 #, fuzzy
 msgid "Icons Arranged by this property"
-msgstr "Ikonoj Aranĝitaj de ĉi tiu posedaĵo"
+msgstr "#/kono #/ranĝi @by #/i tiu #/emoveblaĵo@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 #, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Konservu piktogramojn"
+msgstr "#/eni #/kono #/takigi@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Ĉiam tenu piktogramojn, Similaj tipoj estas grupigitaj"
+msgstr "@Always #/eni #/kono #/takigi@, @Similar #/ipo #/sti #/rupigi@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
 msgid "Type of Files to not Stack"
-msgstr "Tipo de Dosieroj por ne Staki"
+msgstr "#/ipo @of #/osiero @not #/takigi@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Tabelo de tipoj de ŝnuroj, Ne Staku ĉi tiujn tipojn de dosieroj"
+msgstr "#/ro @of #/nuro #/ipo@, @not #/takigi #/i tiu #/ipo @of #/osiero@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Uzu Nemo anstataŭ Nautilus por malfermi dosierujojn."
+msgstr "#/zo Nemo @instead of Nautilus #/alfermi #/eko@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Aldonu emblemon al ligiloj"
+msgstr "#/ldoni #/mblemo @to #/igo@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Aldonu emblemon por permesi identigi molajn ligilojn."
+msgstr "#/ldoni #/mblemo #/ermesi #/dentigi #/ola #/igo@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
 msgid "Use black for label text"
-msgstr "Uzu nigran por etikedo teksto"
+msgstr "#/zo #/igrulo @for #/tikedo #/eksto@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, fuzzy
@@ -1201,13 +1212,13 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"Pentru la tekston de la etikedo nigre anstataŭ blanka. Utila kiam vi uzas "
-"malpezajn fonojn."
+"#/entri #/a #/tikedo #/eksto @in #/igrulo @instead of #/lankulo@. @Useful @"
+"when #/zi #/uma #/ono@.@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Montru novajn ikonojn sur ne ĉefa ekrano se ligite"
+msgstr "#/ezulto #/ova #/kono @on @non @primary #/onitoro @if #/onekti@"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
@@ -1215,8 +1226,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Se dua ekrano estas konektita, novaj ikonoj estas metitaj sur la neprimaran "
-"ekranon"
+"@If @second #/onitoro #/sti #/onekti@, #/ova #/kono #/sti #/oki @on #/a @non "
+"@primary #/onitoro@"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

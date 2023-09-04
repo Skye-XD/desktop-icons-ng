@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-08-02 02:02+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -35,12 +35,12 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "微調整"
+msgstr "ツイート"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "だいたい"
+msgstr "お問い合わせ"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -60,7 +60,7 @@ msgstr "ボリューム"
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "デスクトップボリュームの表示"
+msgstr "デスクトップの容積の表示"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
@@ -70,12 +70,12 @@ msgstr "ファイル設定"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Gnome Files と共有される設定"
+msgstr "Gnomeファイルと共有設定"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "その他の調整"
+msgstr "その他 ツイート"
 
 #: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
@@ -104,42 +104,42 @@ msgstr "新しいアイコンの配置位置"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
-msgstr "左上隅"
+msgstr "左上"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "右上隅"
+msgstr "右上"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "左下隅"
+msgstr "左下"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "右下隅"
+msgstr "右下"
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "利用可能な場合は、まずセカンダリ モニターに新しいアイコンを追加します"
+msgstr "利用可能な場合は、最初のSecond Monitorに新しいアイコンを追加します。"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "デスクトップ上の個人フォルダーを表示する"
+msgstr "デスクトップにホームフォルダーを表示する"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "デスクトップにゴミ箱アイコンを表示する"
+msgstr "デスクトップにゴミ箱を表示する"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "デスクトップ上に外部ドライブを表示する"
+msgstr "デスクトップに外付けドライブを表示する"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
@@ -149,12 +149,12 @@ msgstr "デスクトップにネットワークドライブを表示する"
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "新しいドライブをデスクトップの反対側に追加します"
+msgstr "デスクトップの反対側に新しいドライブを追加"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "ドラッグ アンド ドロップ中にドロップ グリッドを強調表示します。"
+msgstr "ドラッグ&ドロップ時にドロップグリッドをハイライト"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -193,7 +193,7 @@ msgstr "常に"
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
-msgstr "このコンピュータ上のみ"
+msgstr "このコンピューターのみ"
 
 #: app/adwPreferencesWindow.js:266
 msgid "Never"
@@ -210,31 +210,32 @@ msgstr "隠しファイルを表示する"
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "ドラッグホバーでフォルダーを開く"
+msgstr "ドラッグホバーのフォルダを開く"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Webサイト"
+msgstr "サイトマップ"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "訪問"
+msgstr "アクセス"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "問題"
+msgstr "問題点"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "問題トラッカーに関するレポートの問題"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "報告"
+msgstr "レポート"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -242,21 +243,24 @@ msgid "License"
 msgstr "ライセンス"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "コンテンツ"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "Webブラウザで翻訳する"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "ログイン"
 
 #: app/appChooser.js:50
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "<b>{foo}</b> を開くアプリケーションを選択してください"
+msgstr "<b>{foo}</b>を開くためのアプリケーションを選択"
 
 #: app/appChooser.js:58
 #, fuzzy
@@ -266,7 +270,7 @@ msgstr "オープンアイテム"
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "開いたフォルダ"
+msgstr "オープンフォルダ"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
@@ -276,14 +280,13 @@ msgstr "ファイルを開く"
 #: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
-msgstr "デフォルトのアプリケーションの変更中にエラーが発生しました"
+msgstr "デフォルトのアプリケーションを変更するエラー"
 
 #: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
-"{foo} を {mimetype} のデフォルト アプリケーションとして設定中にエラーが発生し"
-"ました"
+msgstr "{mimetype} のデフォルトアプリケーションとして {foo} "
+"を設定しているときにエラー"
 
 #: app/askRenamePopup.js:48
 msgid "Folder name"
@@ -304,16 +307,15 @@ msgstr "名前の変更"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "AutoAr がインストールされていません"
+msgstr "自動車 インストールされていない"
 
 #: app/autoAr.js:67
 #, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr ""
-"圧縮ファイルを操作できるようにするには、file-roller および/または gir-1.2-"
-"gnomeAutoAr をインストールします。"
+msgstr "圧縮ファイルで作業できるようにするには、ファイルローラーと/またはgir-1."
+"2-gnomeをインストールします。 オートアー"
 
 #: app/autoAr.js:198
 #, fuzzy
@@ -323,7 +325,7 @@ msgstr "ファイルの抽出"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "ファイルの圧縮"
+msgstr "ファイル圧縮"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -333,89 +335,87 @@ msgstr "キャンセル"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "ここにパスワードを入力してください"
+msgstr "パスワードを入力してください"
 
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "部分ファイル「${outputFile}」を削除しています"
+msgstr "部分ファイルの削除 '${outputFile} お問い合わせ"
 
 #: app/autoAr.js:368
 #, fuzzy
 msgid "Creating destination folder"
-msgstr "保存先フォルダーの作成"
+msgstr "宛先フォルダを作成する"
 
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "ファイルを「${outputPath}」に抽出しています"
+msgstr "ファイルを '${outputPath} に抽出する お問い合わせ"
 
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "抽出が完了しました"
+msgstr "抽出完了"
 
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "「${fullPathFile}」の解凍が完了しました。"
+msgstr "'${fullPathFile}' の抽出が完了しました。."
 
 #: app/autoAr.js:437
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "抽出がキャンセルされました"
+msgstr "抽出のキャンセル"
 
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "「${fullPathFile}」の抽出はユーザーによってキャンセルされました。"
+msgstr "'${fullPathFile}' をユーザが取り消してしまいました。."
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "${filename} にはパスフレーズが必要です"
+msgstr "${filename} に必要なパスフレーズ"
 
 #: app/autoAr.js:451
 #, fuzzy
 msgid "Error during extraction"
-msgstr "抽出中のエラー"
+msgstr "抽出時のエラー"
 
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "ファイルを「${outputFile}」に圧縮しています"
+msgstr "'${outputFile} にファイルを圧縮する お問い合わせ"
 
 #: app/autoAr.js:491
 #, fuzzy
 msgid "Compression completed"
-msgstr "圧縮が完了しました"
+msgstr "圧縮完了"
 
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "ファイルを「${outputFile}」に圧縮することが完了しました。"
+msgstr "'${outputFile}' にファイルを圧縮して完了しました。."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "圧縮のキャンセル"
+msgstr "キャンセルされた圧縮"
 
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "出力ファイル '${outputFile}' はすでに存在します。"
+msgstr "出力ファイル '${outputFile}' は既に存在しています。."
 
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"ファイルを '${outputFile}' に圧縮することがユーザーによってキャンセルされまし"
-"た。"
+msgstr "'${outputFile}' にファイルを圧縮すると、ユーザがキャンセルされました。."
 
 #: app/autoAr.js:507
 #, fuzzy
 msgid "Error during compression"
-msgstr "圧縮中のエラー"
+msgstr "圧縮時のエラー"
 
 #: app/autoAr.js:542
 #, fuzzy
@@ -439,40 +439,37 @@ msgstr "作成"
 #: app/autoAr.js:683
 #, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "すべてのオペレーティング システムと互換性があります。"
+msgstr "すべてのオペレーティング システムと互換性がある。."
 
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
-"パスワードで保護された .zip を Windows および Mac にインストールする必要があ"
-"ります。"
+msgstr "パスワードは、WindowsとMacにインストールする必要があります。."
 
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "アーカイブは小さいですが、Linux と Mac のみです。"
+msgstr "小規模なアーカイブですが、Linux と Mac のみ。."
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
-"アーカイブは小さいですが、Windows と Mac にインストールする必要があります。"
+msgstr "より小さなアーカイブは、WindowsとMacにインストールする必要があります。."
 
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "GNOME ファイルが見つかりません"
+msgstr "グノーム 見つからないファイル"
 
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "Desktop Icons NG には GNOME Files アプリケーションが必要です。"
+msgstr "グノーム デスクトップアイコンNGでファイルアプリケーションが必要です。."
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "動く"
+msgstr "ふりがな"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -481,27 +478,27 @@ msgstr "コピー"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "リンク"
+msgstr "サイトマップ"
 
 #: app/desktopManager.js:726
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "ファイルのアクションを選択"
+msgstr "ファイルのためのアクションを選択"
 
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "SymLink の作成に失敗しました"
+msgstr "SymLink を失敗させる"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "シンボリックリンクを作成できませんでした"
+msgstr "シンボリックリンクを作成できません"
 
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "新しい検索の前に現在の選択をクリアします"
+msgstr "新しく検索する前に現在の選択を解除してください"
 
 #: app/desktopManager.js:1167
 msgid "Find Files on Desktop"
@@ -510,38 +507,38 @@ msgstr "デスクトップ上のファイルを検索"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "お名前 (必須)"
 
 #: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
-msgstr "名前 Z-A"
+msgstr "名称 Z-A"
 
 #: app/desktopManager.js:1424
 #, fuzzy
 msgid "Modified Time"
-msgstr "変更時刻"
+msgstr "変更された時間"
 
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "タイプ"
+msgstr "タイプ:"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "サイズ"
+msgstr "サイズ:"
 
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "整理整頓を続けてください…"
+msgstr "アレンジを続け.."
 
 # デスクトップにあるファイルを疑似フォルダーにまとめる (グループ化する)
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "種類ごとに積み重ねて…"
+msgstr "タイプでスタックし続ける.."
 
 #: app/desktopManager.js:1434
 #, fuzzy
@@ -579,17 +576,17 @@ msgstr "アイコンを整列"
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "手配方法…"
+msgstr "アレンジして.."
 
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "GNOME ファイルでデスクトップを表示"
+msgstr "デスクトップを表示する GNOMEファイル"
 
 #: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "ターミナルを開く"
+msgstr "端末で開く"
 
 #: app/desktopManager.js:1474
 msgid "Change Background…"
@@ -598,7 +595,7 @@ msgstr "背景を変更…"
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "デスクトップアイコンの設定"
+msgstr "Desktop Icons の設定"
 
 #: app/desktopManager.js:1480
 msgid "Display Settings"
@@ -607,13 +604,12 @@ msgstr "ディスプレイの設定"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
-msgstr "設定ウィンドウが開いています"
+msgstr "設定ウィンドウが開きます"
 
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
-"このウィンドウは開いています。アクティブなウィンドウに切り替えてください。"
+msgstr "このウィンドウが開きます。 アクティブなウィンドウに切り替えてください。."
 
 #: app/desktopManager.js:1537
 msgid "Settings"
@@ -622,12 +618,12 @@ msgstr "設定"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "フォルダーの作成に失敗しました"
+msgstr "フォルダ作成失敗"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "フォルダーを作成できませんでした"
+msgstr "フォルダを作成できません"
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -637,7 +633,7 @@ msgstr "テンプレート作成エラー"
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "ドキュメントを作成できませんでした"
+msgstr "文書を作成できない"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -655,25 +651,24 @@ msgstr "シンボリックリンクのリンク先が存在しないためファ
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "ファイルを開けませんでした"
+msgstr "ファイルを開く 失敗"
 
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr ""
-"「{foo}」タイプのファイルを開くためのアプリケーションがインストールされていま"
-"せん"
+msgstr "\"{foo}\" "
+"タイプのファイルを開くためにインストールされていないアプリケーション"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "ファイルを開けませんでした"
+msgstr "開けない ファイル"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "${appName} はこのタイプのファイルを開けません!"
+msgstr "${appName}はこのタイプのファイルを開くことができません!"
 
 #: app/fileItem.js:350
 msgid "Broken Desktop File"
@@ -742,7 +737,7 @@ msgstr "すべて開く..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "走る"
+msgstr "ログイン"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -768,7 +763,7 @@ msgstr "別のアプリケーションですべて開く..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "開く..."
+msgstr "オープン..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -800,12 +795,12 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "へ引っ越す..."
+msgstr "移動する..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピー先..."
+msgstr "コピーする."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -814,13 +809,13 @@ msgstr "名前を変更…"
 #: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Create Link..."
-msgstr "リンクを作成..."
+msgstr "リンクの作成."
 
 #: app/fileItemMenu.js:379
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "{0} 個のフォルダを圧縮します"
+msgstr[0] "圧縮{0}フォルダ"
 
 #: app/fileItemMenu.js:386
 msgid "Compress {0} file"
@@ -830,12 +825,12 @@ msgstr[0] "{0} 個のファイルを圧縮"
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Email to..."
-msgstr "メールアドレス..."
+msgstr "電子メール."
 
 #: app/fileItemMenu.js:398
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "モバイルデバイスに送信"
+msgstr "モバイルデバイスへの送信"
 
 #: app/fileItemMenu.js:402
 msgid "Move to Trash"
@@ -888,27 +883,27 @@ msgstr "端末で開く"
 #: app/fileItemMenu.js:552
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "抽出がキャンセルされました"
+msgstr "抽出の取消される"
 
 #: app/fileItemMenu.js:553
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "ファイルを抽出できません。宛先フォルダーがありません"
+msgstr "抽出できない ファイル、宛先フォルダなし"
 
 #: app/fileItemMenu.js:585
 #, fuzzy
 msgid "Move Cancelled"
-msgstr "移動がキャンセルされました"
+msgstr "キャンセルされる移動"
 
 #: app/fileItemMenu.js:586
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "ファイルを移動できません。宛先フォルダーがありません"
+msgstr "ファイルを移動することができない、コピー先フォルダなし"
 
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "目的地を選択してください"
+msgstr "目的地を選択"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -917,12 +912,12 @@ msgstr "選択"
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "コピーがキャンセルされました"
+msgstr "コピーキャンセル"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "ファイルをコピーできません。宛先フォルダーがありません"
+msgstr "ファイル、コピー先フォルダをコピーできない"
 
 #: app/fileItemMenu.js:703
 msgid "Can not email a Directory"
@@ -958,12 +953,12 @@ msgstr "コマンドが見つかりません"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "選択したファイルを開くアプリを選択します。"
+msgstr "選択したファイルを開きます。."
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "このファイル タイプには常に使用します"
+msgstr "常にこのファイルタイプを使用する"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
@@ -973,7 +968,7 @@ msgstr "_キャンセル"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_開ける"
+msgstr "_オープン"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1118,16 +1113,15 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "接続されている場合、非プライマリ モニターに新しいアイコンを表示します"
+msgstr "接続されていないプライマリモニターで新しいアイコンを表示"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
-msgstr ""
-"2 番目のモニターが接続されている場合、新しいアイコンは非プライマリ モニターに"
-"配置されます。"
+msgstr "2番目のモニターが接続されている場合は、非プライマリモニターに新しいアイコンが"
+"配置されます"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

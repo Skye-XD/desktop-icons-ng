@@ -10,21 +10,21 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-08-02 02:02+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Skrivbord"
+msgstr "Desktop"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -40,12 +40,12 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Handla om"
+msgstr "Om"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Skrivbordsinställningar"
+msgstr "Desktop Inställningar"
 
 # TODO: *ON* the desktop?
 #: app/adwPreferencesWindow.js:196
@@ -56,17 +56,17 @@ msgstr "Inställningar för skrivbordsprogrammet"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volymer"
+msgstr "Volymerna"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Skrivbordsvolymer visas"
+msgstr "Desktop volymer display"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "Filinställningar"
+msgstr "Filer Inställningar"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -76,23 +76,23 @@ msgstr "Inställningar som delas med Gnome Files"
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Diverse tweaks"
+msgstr "Miscellaneous Tweaks"
 
 # TODO: *ON* the desktop?
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
 msgid "Size for the desktop icons"
-msgstr "Storlek för skrivbordsikonerna"
+msgstr "Storlek för desktop ikonerna"
 
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Tiny"
-msgstr "Mycket liten"
+msgstr "Tiny"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 msgid "Small"
-msgstr "Små"
+msgstr "Lite liten"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
@@ -107,44 +107,45 @@ msgstr "Stor"
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "New icons alignment"
-msgstr "Ny ikonjustering"
+msgstr "Nya ikoner anpassning"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
-msgstr "Övre vänstra hörnet"
+msgstr "Top vänster hörn"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Översta högra hörnet"
+msgstr "Top höger hörn"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Nedre vänstra hörnet"
+msgstr "Bottom vänster hörn"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Nedre högra hörnet"
+msgstr "Bottom höger hörn"
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Lägg till nya ikoner till sekundära bildskärmar först, om tillgängliga"
+msgstr ""
+"Lägg till nya ikoner till sekundära övervakare först, om de är tillgängliga"
 
 # TODO: *ON* the desktop?
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Visa den personliga mappen på skrivbordet"
+msgstr "Visa den personliga mappen på skrivbordet."
 
 # TODO: *ON* the desktop?
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Visa papperskorgen på skrivbordet"
+msgstr "Visa papperskorgsikonen på skrivbordet."
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
@@ -159,12 +160,12 @@ msgstr "Visa nätverksenheter på skrivbordet"
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Lägg till nya enheter på den motsatta sidan av skrivbordet"
+msgstr "Lägg till nya enheter till den motsatta sidan av skrivbordet"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Markera släpprutnätet under Dra och släpp"
+msgstr "Höj droppnätet under Drag och Drop"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -184,57 +185,57 @@ msgstr "Använd mörk text i ikonetiketter"
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Åtgärd för att öppna objekt"
+msgstr "Åtgärder för att öppna objekt"
 
 #: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Single click"
-msgstr "Ett enda klick"
+msgstr "Single Click"
 
 #: app/adwPreferencesWindow.js:258
 #, fuzzy
 msgid "Double click"
-msgstr "Dubbelklicka"
+msgstr "Dubbelklick"
 
 #: app/adwPreferencesWindow.js:262
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Visa bildminiatyrer"
+msgstr "Visa bild miniatyrer"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Always"
-msgstr "Alltid"
+msgstr "Alltid alltid"
 
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
-msgstr "Endast på den här datorn"
+msgstr "På denna dator endast"
 
 #: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "Never"
-msgstr "Aldrig"
+msgstr "Aldrig aldrig"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
-msgstr "Visa en snabbmeny som ska raderas permanent"
+msgstr "Visa ett kontextmenyobjekt för att radera permanent"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
 msgid "Show hidden files"
-msgstr "Visa gömda filer"
+msgstr "Visa dolda filer"
 
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Öppna mappar när du drar muspekaren"
+msgstr "Öppna mappar på drag hover"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Hemsida"
+msgstr "Webbplats"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -244,16 +245,17 @@ msgstr "Besök"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "frågor"
+msgstr "Frågor"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "Rapportera frågor om emission tracker"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Rapportera"
+msgstr "Rapport"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -261,46 +263,49 @@ msgid "License"
 msgstr "Licens"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Översättning"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "Hjälp översätta i din webbläsare"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Översättning"
 
 #: app/appChooser.js:50
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Välj ett program för att öppna <b>{foo}</b>"
+msgstr "Välj en applikation för att öppna <b>{foo}</b>"
 
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Öppna föremål"
+msgstr "Öppna objekt"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Öppen mapp"
+msgstr "Open Folder"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Öppna fil"
+msgstr "Öppen fil"
 
 #: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Fel vid ändring av standardprogram"
+msgstr "Fel ändra standardapplikation"
 
 #: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Fel vid inställning av {foo} som standardapplikation för {mimetype}"
+msgstr "Fel när du ställer in {foo} som standardapplikation för {mimetype}"
 
 #: app/askRenamePopup.js:48
 msgid "Folder name"
@@ -321,7 +326,7 @@ msgstr "Byt namn"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "AutoAr är inte installerat"
+msgstr "Auto Auto Auto Auto Ar är inte installerat"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -329,8 +334,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"För att kunna arbeta med komprimerade filer, installera file-roller och/"
-"eller gir-1.2-gnomeAutoAr"
+"För att kunna arbeta med komprimerade filer, installera fil-roller och / "
+"eller gir-1.2-gnome AutoAr"
 
 #: app/autoAr.js:198
 #, fuzzy
@@ -355,42 +360,42 @@ msgstr "Ange ett lösenord här"
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "Tar bort delfilen '${outputFile}'"
+msgstr "Ta bort partiell fil \"${outputFile} \""
 
 #: app/autoAr.js:368
 #, fuzzy
 msgid "Creating destination folder"
-msgstr "Skapar målmapp"
+msgstr "Skapa destination mapp"
 
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Extraherar filer till '${outputPath}'"
+msgstr "Extrahera filer till \"${outputPath} \""
 
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Extraktion avslutad"
+msgstr "Extraktion färdig"
 
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "Extraheringen av '${fullPathFile}' har slutförts."
+msgstr "Extrahera '${fullPathFile}' har slutförts."
 
 #: app/autoAr.js:437
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Extraktion avbruten"
+msgstr "Extraktion inställd"
 
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Att extrahera '${fullPathFile}' har avbrutits av användaren."
+msgstr "Extrahera \"${fullPathFile}\" har annullerats av användaren."
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Lösenfras krävs för ${filename}"
+msgstr "Passfras krävs för ${filenam}"
 
 #: app/autoAr.js:451
 #, fuzzy
@@ -400,37 +405,37 @@ msgstr "Fel under extraktion"
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Komprimerar filer till '${outputFile}'"
+msgstr "Komprimera filer till \"${outputFile} \""
 
 #: app/autoAr.js:491
 #, fuzzy
 msgid "Compression completed"
-msgstr "Kompressionen klar"
+msgstr "Kompression färdig"
 
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Komprimeringen av filer till '${outputFile}' har slutförts."
+msgstr "Komprimera filer till \"${outputFile}\" har slutförts."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "Avbruten komprimering"
+msgstr "Avbokad kompression"
 
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "Utdatafilen '${outputFile}' finns redan."
+msgstr "Utgångsfilen \"${outputFile}\" finns redan."
 
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "Att komprimera filer till '${outputFile}' har avbrutits av användaren."
+msgstr "Komprimera filer till \"${outputFile}\" har annullerats av användaren."
 
 #: app/autoAr.js:507
 #, fuzzy
 msgid "Error during compression"
-msgstr "Fel under komprimering"
+msgstr "Fel under kompression"
 
 #: app/autoAr.js:542
 #, fuzzy
@@ -460,7 +465,7 @@ msgstr "Kompatibel med alla operativsystem."
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Lösenordsskyddad .zip, måste installeras på Windows och Mac."
+msgstr "Lösenordsskyddat .zip måste installeras på Windows och Mac."
 
 #: app/autoAr.js:695
 #, fuzzy
@@ -475,12 +480,12 @@ msgstr "Mindre arkiv men måste installeras på Windows och Mac."
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "GNOME-filer hittades inte"
+msgstr "GNOME Filer som inte hittats"
 
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "Programmet GNOME Files krävs av Desktop Icons NG."
+msgstr "GNOME Filer ansökan krävs av Desktop Icons NG."
 
 #: app/desktopManager.js:721
 #, fuzzy
@@ -499,17 +504,17 @@ msgstr "Länk"
 #: app/desktopManager.js:726
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Välj Åtgärd för filer"
+msgstr "Välj åtgärd för filer"
 
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Att göra SymLink misslyckades"
+msgstr "Gör SymLink misslyckad"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Det gick inte att skapa symbolisk länk"
+msgstr "Kan inte skapa symbolisk länk"
 
 #: app/desktopManager.js:1121
 #, fuzzy
@@ -523,7 +528,7 @@ msgstr "Hitta filer på skrivbordet"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "namn"
+msgstr "Namnnamn"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -548,17 +553,17 @@ msgstr "Storlek"
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Håll ordning…"
+msgstr "Håll Arranged.."
 
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Håll staplade efter typ…"
+msgstr "Håll fast vid typ.."
 
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sortera hem/enheter/sopor…"
+msgstr "Sortera Hem/Diskar/Papperskorg…"
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
@@ -591,12 +596,12 @@ msgstr "Arrangera ikonerna"
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Ordna efter…"
+msgstr "Arrangera av.."
 
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Visa skrivbordet i GNOME-filer"
+msgstr "Show Desktop I GNOME-filer"
 
 #: app/desktopManager.js:1469
 #, fuzzy
@@ -610,7 +615,7 @@ msgstr "Ändra bakgrund…"
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Inställningar för skrivbordsikon"
+msgstr "Inställningar för Desktop Icons"
 
 #: app/desktopManager.js:1480
 msgid "Display Settings"
@@ -619,12 +624,12 @@ msgstr "Visningsinställningar"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
-msgstr "Fönstret med inställningar är öppet"
+msgstr "Föreställningar fönster är öppet"
 
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "Detta fönster är öppet. Växla till det aktiva fönstret."
+msgstr "Detta fönster är öppet. Vänligen växla till det aktiva fönstret."
 
 #: app/desktopManager.js:1537
 msgid "Settings"
@@ -633,22 +638,22 @@ msgstr "Inställningar"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Det gick inte att skapa mappar"
+msgstr "Mamma skapelse misslyckades"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Det gick inte att skapa mappen"
+msgstr "Kunde inte skapa mapp"
 
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Fel vid skapande av mall"
+msgstr "Malta Creation Fel"
 
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "Det gick inte att skapa dokumentet"
+msgstr "Kunde inte skapa dokument"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -666,17 +671,18 @@ msgstr "Kan inte öppna den här filen eftersom att det är en trasig symlänk"
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Det gick inte att öppna filen"
+msgstr "Öppningsfil misslyckades"
 
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr "Det finns inget program installerat för att öppna \"{foo}\"-filer"
+msgstr ""
+"Det finns ingen applikation installerad för att öppna \"{foo}\" typ av filer"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kunde inte öppna filen"
+msgstr "Kunde inte öppna Fil"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -752,7 +758,7 @@ msgstr "Öppna alla…"
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Springa"
+msgstr "Kör"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -813,7 +819,7 @@ msgstr "Flytta till..."
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopia till..."
+msgstr "Kopiera till..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -828,7 +834,7 @@ msgstr "Skapa länk..."
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Komprimera mappen {0}"
+msgstr[0] "Komprimera {0} mapp"
 msgstr[1] "Komprimera {0} mappar"
 
 #: app/fileItemMenu.js:386
@@ -840,12 +846,12 @@ msgstr[1] "Komprimera {0} filer"
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Email to..."
-msgstr "Mejla till..."
+msgstr "Email till..."
 
 #: app/fileItemMenu.js:398
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Skicka till mobil enhet"
+msgstr "Skicka till Mobile Device"
 
 #: app/fileItemMenu.js:402
 msgid "Move to Trash"
@@ -898,27 +904,27 @@ msgstr "Öppna i terminal"
 #: app/fileItemMenu.js:552
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Extraktion avbruten"
+msgstr "Extraktion annullerad"
 
 #: app/fileItemMenu.js:553
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Det går inte att extrahera filen, ingen målmapp"
+msgstr "Kan inte extrahera Fil, ingen destination mapp"
 
 #: app/fileItemMenu.js:585
 #, fuzzy
 msgid "Move Cancelled"
-msgstr "Flytten avbröts"
+msgstr "Flytta annullerad"
 
 #: app/fileItemMenu.js:586
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Det går inte att flytta filer, ingen målmapp"
+msgstr "Kan flytta filer, ingen destination mapp"
 
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Välj Destination"
+msgstr "Välj destination"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -927,12 +933,12 @@ msgstr "Välj"
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Kopiering avbruten"
+msgstr "Copy avbokad"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Det går inte att kopiera filer, ingen målmapp"
+msgstr "Kan inte kopiera filer, ingen destination mapp"
 
 #: app/fileItemMenu.js:703
 msgid "Can not email a Directory"
@@ -977,12 +983,12 @@ msgstr "Använd alltid för denna filtyp"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Annullera"
+msgstr "_Cancel"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Öppen"
+msgstr "Öppna"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1132,7 +1138,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Visa nya ikoner på icke primär monitor om den är ansluten"
+msgstr "Visa nya ikoner på icke primär bildskärm om de är anslutna"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
@@ -1140,8 +1146,8 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Om en andra monitor är ansluten, placeras nya ikoner på den icke primära "
-"monitorn"
+"Om en andra bildskärm är ansluten placeras nya ikoner på den primära "
+"bildskärmen"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

@@ -8,37 +8,37 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-08-02 02:01+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Desktop"
+msgstr "Login"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "File"
+msgstr "Login"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweak"
+msgstr "Login"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Tentang"
+msgstr "Sitemap"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -53,12 +53,12 @@ msgstr "Pengaturan untuk Program Desktop"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volume"
+msgstr "Login"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Tampilan volume desktop"
+msgstr "Tampilan volume Desktop"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
@@ -68,12 +68,12 @@ msgstr "Pengaturan File"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Pengaturan dibagikan dengan File Gnome"
+msgstr "Pengaturan bersama dengan file Gnome"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Tweak Lain-Lain"
+msgstr "Login Login"
 
 #: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
@@ -82,7 +82,7 @@ msgstr "Ukuran untuk ikon destop"
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Tiny"
-msgstr "Kecil"
+msgstr "Login"
 
 #: app/adwPreferencesWindow.js:225
 msgid "Small"
@@ -104,22 +104,22 @@ msgstr "Penyelarasan ikon baru"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
-msgstr "Pojok kiri atas"
+msgstr "Sudut kiri atas"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Ujung kanan atas"
+msgstr "Sudut kanan atas"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Pojok kiri bawah"
+msgstr "Sudut kiri bawah"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Pojok kanan bawah"
+msgstr "Sudut kanan bawah"
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
@@ -129,12 +129,12 @@ msgstr "Tambahkan ikon baru ke Monitor Sekunder terlebih dahulu, jika tersedia"
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Tampilkan folder pribadi di desktop"
+msgstr "Tampilkan folder pribadi di destop"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Tampilkan ikon tempat sampah di desktop"
+msgstr "Tampilkan ikon tong sampah di destop"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
@@ -154,7 +154,7 @@ msgstr "Tambahkan drive baru ke sisi berlawanan dari desktop"
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Sorot kotak jatuhkan selama Seret dan Lepas"
+msgstr "Menyoroti grid drop selama Drag dan Drop"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -165,22 +165,22 @@ msgstr "Gunakan Nemo untuk membuka folder"
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Add an emblem to soft links"
-msgstr "Tambahkan lambang ke tautan lunak"
+msgstr "Tambahkan emblem ke tautan lunak"
 
 #: app/adwPreferencesWindow.js:251
 #, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Gunakan teks gelap di label ikon"
+msgstr "Gunakan teks gelap dalam label ikon"
 
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Tindakan untuk Membuka Item"
+msgstr "Tindakan untuk Buka Barang"
 
 #: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Single click"
-msgstr "Klik tunggal"
+msgstr "Klik"
 
 #: app/adwPreferencesWindow.js:258
 #, fuzzy
@@ -190,27 +190,27 @@ msgstr "Klik dua kali"
 #: app/adwPreferencesWindow.js:262
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Tampilkan thumbnail gambar"
+msgstr "Tampilkan gambar thumbnails"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Always"
-msgstr "Selalu"
+msgstr "Sitemap"
 
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
-msgstr "Di komputer ini saja"
+msgstr "Di komputer ini hanya"
 
 #: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "Never"
-msgstr "Tidak pernah"
+msgstr "Sitemap"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
-msgstr "Tampilkan item menu konteks untuk dihapus secara permanen"
+msgstr "Tampilkan item menu konteks untuk menghapus secara permanen"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -220,48 +220,52 @@ msgstr "Tampilkan file tersembunyi"
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Buka folder saat drag hover"
+msgstr "Buka folder pada drag hover"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Situs web"
+msgstr "Sitemap"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Mengunjungi"
+msgstr "Sitemap"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Masalah"
+msgstr "Sitemap"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "Masalah laporan pada pelacak masalah"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Laporan"
+msgstr "Login"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "Lisensi"
+msgstr "Login"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Sitemap"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "Membantu menerjemahkan di browser web Anda"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Login"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -271,17 +275,17 @@ msgstr "Pilih aplikasi untuk membuka <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Buka Item"
+msgstr "Artikel"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Folder terbuka"
+msgstr "Folder"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Membuka file"
+msgstr "Buka File"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -292,7 +296,7 @@ msgstr "Kesalahan mengubah aplikasi default"
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
-"Terjadi kesalahan saat menyetel {foo} sebagai aplikasi default untuk "
+"Kesalahan sementara pengaturan {foo} sebagai aplikasi default untuk "
 "{mimetype}"
 
 #: app/askRenamePopup.js:48
@@ -312,12 +316,12 @@ msgstr "OK"
 #: app/askRenamePopup.js:56
 #, fuzzy
 msgid "Rename"
-msgstr "Ganti nama"
+msgstr "Login"
 
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "AutoAr tidak diinstal"
+msgstr "Login Login"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -325,8 +329,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Agar dapat bekerja dengan file terkompresi, instal file-roller dan/atau "
-"gir-1.2-gnomeAutoAr"
+"Untuk dapat bekerja dengan file terkompresi, instal file-roller dan / atau "
+"gir-1.2-gnome Login"
 
 #: app/autoAr.js:198
 #, fuzzy
@@ -336,7 +340,7 @@ msgstr "Mengekstrak file"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Mengompresi file"
+msgstr "Mengkompresi file"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -351,7 +355,7 @@ msgstr "Masukkan kata sandi di sini"
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "Menghapus sebagian file '${outputFile}'"
+msgstr "Menghapus file parsial '${outputFile} Sitemap"
 
 #: app/autoAr.js:368
 #, fuzzy
@@ -361,7 +365,7 @@ msgstr "Membuat folder tujuan"
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Mengekstrak file ke '${outputPath}'"
+msgstr "Mengekstrak file menjadi '${outputPath} Sitemap"
 
 #: app/autoAr.js:430
 #, fuzzy
@@ -371,7 +375,7 @@ msgstr "Ekstraksi selesai"
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "Ekstraksi '${fullPathFile}' telah selesai."
+msgstr "Ekstrak '${fullPathFile}' telah selesai."
 
 #: app/autoAr.js:437
 #, fuzzy
@@ -381,12 +385,12 @@ msgstr "Ekstraksi dibatalkan"
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Ekstraksi '${fullPathFile}' telah dibatalkan oleh pengguna."
+msgstr "Ekstrak '${fullPathFile}' telah dibatalkan oleh pengguna."
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Frasa sandi diperlukan untuk ${filename}"
+msgstr "Passphrase diperlukan untuk ${filename}"
 
 #: app/autoAr.js:451
 #, fuzzy
@@ -396,7 +400,7 @@ msgstr "Kesalahan selama ekstraksi"
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Mengompresi file ke dalam '${outputFile}'"
+msgstr "Menekan file ke '${outputFile} Sitemap"
 
 #: app/autoAr.js:491
 #, fuzzy
@@ -406,23 +410,22 @@ msgstr "Kompresi selesai"
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Mengompresi file ke dalam '${outputFile}' telah selesai."
+msgstr "Menekan file ke '${outputFile}' telah selesai."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "Kompresi dibatalkan"
+msgstr "Membatalkan kompresi"
 
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "File keluaran '${outputFile}' sudah ada."
+msgstr "File output '${outputFile}' sudah ada."
 
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"Mengompresi file ke dalam '${outputFile}' telah dibatalkan oleh pengguna."
+msgstr "Menekan file ke '${outputFile}' telah dibatalkan oleh pengguna."
 
 #: app/autoAr.js:507
 #, fuzzy
@@ -437,12 +440,12 @@ msgstr "Buat arsip"
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "Nama arsip"
+msgstr "Nama Arsip"
 
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Kata sandi"
+msgstr "Login"
 
 #: app/autoAr.js:612
 msgid "Create"
@@ -456,32 +459,32 @@ msgstr "Kompatibel dengan semua sistem operasi."
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ".zip yang dilindungi kata sandi, harus diinstal di Windows dan Mac."
+msgstr "Password dilindungi .zip, harus diinstal pada Windows dan Mac."
 
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Arsip lebih kecil tetapi hanya untuk Linux dan Mac."
+msgstr "Arsip yang lebih kecil tetapi Linux dan Mac saja."
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Arsip lebih kecil tetapi harus diinstal di Windows dan Mac."
+msgstr "Arsip yang lebih kecil tetapi harus diinstal pada Windows dan Mac."
 
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "Berkas GNOME tidak ditemukan"
+msgstr "Login File tidak ditemukan"
 
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "Aplikasi File GNOME diperlukan oleh Desktop Icons NG."
+msgstr "Login Aplikasi file diperlukan oleh ikon Desktop NG."
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Bergerak"
+msgstr "Login"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -490,7 +493,7 @@ msgstr "Salin"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Tautan"
+msgstr "Login"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -500,27 +503,27 @@ msgstr "Pilih Tindakan untuk File"
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Membuat SymLink Gagal"
+msgstr "Membuat SymLink Kegagalan"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Tidak dapat membuat tautan simbolik"
+msgstr "Tidak bisa membuat tautan simbolik"
 
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Hapus pilihan saat ini sebelum pencarian baru"
+msgstr "Seleksi arus yang jelas sebelum pencarian baru"
 
 #: app/desktopManager.js:1167
 #, fuzzy
 msgid "Find Files on Desktop"
-msgstr "Temukan File di Desktop"
+msgstr "Cari file di Desktop"
 
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "Nama"
+msgstr "Login"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -530,32 +533,32 @@ msgstr "Nama Z-A"
 #: app/desktopManager.js:1424
 #, fuzzy
 msgid "Modified Time"
-msgstr "Waktu yang Dimodifikasi"
+msgstr "Waktu yang dimodifikasi"
 
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "Jenis"
+msgstr "Login"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "Ukuran"
+msgstr "Sitemap"
 
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Tetap Teratur…"
+msgstr "Sitemap"
 
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Tetap Tumpuk berdasarkan Jenis…"
+msgstr "Jauhkan Ditumpuk oleh Jenis.."
 
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sortir Rumah/Drive/Sampah…"
+msgstr "Urutkan Rumah / Drive / Sampah .."
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
@@ -585,22 +588,22 @@ msgstr "Pilih Semua"
 #: app/desktopManager.js:1459
 #, fuzzy
 msgid "Arrange Icons"
-msgstr "Susun Ikon"
+msgstr "Login"
 
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Diatur oleh…"
+msgstr "Login"
 
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Tampilkan Desktop Di File GNOME"
+msgstr "Tampilkan Desktop Di GNOME File"
 
 #: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Buka Di Terminal"
+msgstr "Buka dalam Terminal"
 
 #: app/desktopManager.js:1474
 msgid "Change Background…"
@@ -632,22 +635,22 @@ msgstr "Pengaturan"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Pembuatan Folder Gagal"
+msgstr "Penciptaan Folder Kegagalan"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Tidak dapat membuat folder"
+msgstr "Tidak bisa membuat folder"
 
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Kesalahan Pembuatan Templat"
+msgstr "API documentation"
 
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "Tidak dapat membuat dokumen"
+msgstr "Tidak bisa membuat dokumen"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -662,7 +665,7 @@ msgstr "Tautan Rusak"
 #: app/fileItem.js:267
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "Tidak dapat membuka File ini karena merupakan Symlink Rusak"
+msgstr "Tidak dapat membuka File ini karena itu adalah Symlink Rusak"
 
 #: app/fileItem.js:306
 #, fuzzy
@@ -672,23 +675,23 @@ msgstr "Membuka File Gagal"
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr "Tidak ada aplikasi yang diinstal untuk membuka jenis file \"{foo}\"."
+msgstr "Tidak ada aplikasi yang diinstal untuk membuka \"{foo}\" jenis file"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Tidak dapat membuka File"
+msgstr "Tidak bisa terbuka Login"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "${appName} tidak dapat membuka file jenis ini!"
+msgstr "${appName} tidak dapat membuka file dari Jenis ini!"
 
 #: app/fileItem.js:350
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Berkas Desktop Rusak"
+msgstr "Rusak Desktop File"
 
 #: app/fileItem.js:351
 msgid ""
@@ -701,7 +704,7 @@ msgstr ""
 #: app/fileItem.js:357
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Izin Tidak Valid pada File Desktop"
+msgstr "Izin yang tidak valid pada File Desktop"
 
 #: app/fileItem.js:358
 #, fuzzy
@@ -709,8 +712,8 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"File .desktop ini memiliki Izin yang salah. Klik kanan untuk mengedit "
-"Properties, lalu:\n"
+"Login File memiliki Izin yang salah. Klik kanan untuk mengedit Properti, "
+"kemudian:\n"
 
 #: app/fileItem.js:360
 #, fuzzy
@@ -719,8 +722,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Tetapkan Izin, di \"Akses Lainnya\", \"Hanya Baca\", atau \"Tidak Ada\"</"
-"b>"
+"<b>Set Izin, dalam \"Others Access\", \"Read Only\" atau \"None\"</b>"
 
 #: app/fileItem.js:363
 #, fuzzy
@@ -729,7 +731,8 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Aktifkan opsi, \"Izinkan File Pelaksana sebagai Program\"</b>"
+"<b> Opsi yang dapat dinonaktifkan, \"Allow Executing File sebagai Program\""
+"</b>"
 
 #: app/fileItem.js:371
 #, fuzzy
@@ -740,25 +743,25 @@ msgid ""
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
 "File .desktop ini tidak dipercaya, tidak dapat diluncurkan. Untuk "
-"mengaktifkan peluncuran, klik kanan, lalu:\n"
+"mengaktifkan peluncuran, klik kanan, kemudian:\n"
 "\n"
-"<b>Aktifkan \"Izinkan Peluncuran\"</b>"
+"<b>Enable \"Allow Launching\"</b>"
 
 #: app/fileItemMenu.js:297
 #, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] "Folder Baru dengan {0} item"
+msgstr[0] "Folder baru dengan item {0}"
 
 #: app/fileItemMenu.js:304
 #, fuzzy
 msgid "Open All..."
-msgstr "Buka semua..."
+msgstr "Sitemap."
 
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Berlari"
+msgstr "Login"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -780,37 +783,37 @@ msgstr "Ekstrak ke…"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open All With Other Application..."
-msgstr "Buka Semua Dengan Aplikasi Lain..."
+msgstr "Buka Semua Dengan Aplikasi Lainnya..."
 
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Buka dengan..."
+msgstr "Sitemap."
 
 #: app/fileItemMenu.js:336
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
-msgstr "Luncurkan menggunakan Kartu Grafis Khusus"
+msgstr "Luncurkan menggunakan Kartu Grafik Khusus"
 
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Tumpuk Jenis Ini"
+msgstr "Susun Jenis ini"
 
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Unstack This Type"
-msgstr "Hapus Tipe Ini"
+msgstr "Unstack Jenis ini"
 
 #: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Run as a Program"
-msgstr "Jalankan sebagai Program"
+msgstr "Jalankan Program"
 
 #: app/fileItemMenu.js:357
 #, fuzzy
 msgid "Scripts"
-msgstr "Skrip"
+msgstr "Login"
 
 #: app/fileItemMenu.js:360
 msgid "Cut"
@@ -819,12 +822,12 @@ msgstr "Potong"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Pindah ke..."
+msgstr "Login."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Salin ke..."
+msgstr "Login."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -845,12 +848,12 @@ msgstr[0] "Kompres {0} folder"
 #, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] "Kompres {0} berkas"
+msgstr[0] "Kompres {0} file"
 
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Email to..."
-msgstr "Email ke..."
+msgstr "Login."
 
 #: app/fileItemMenu.js:398
 #, fuzzy
@@ -868,7 +871,7 @@ msgstr "Hapus permanen"
 #: app/fileItemMenu.js:410
 #, fuzzy
 msgid "Don't Allow Launching"
-msgstr "Jangan Izinkan Peluncuran"
+msgstr "Jangan Memungkinkan Peluncuran"
 
 #: app/fileItemMenu.js:410
 msgid "Allow Launching"
@@ -889,7 +892,7 @@ msgstr "Lepas Kaitan"
 #: app/fileItemMenu.js:429
 #, fuzzy
 msgid "Common Properties"
-msgstr "Properti Umum"
+msgstr "Sifat Umum"
 
 #: app/fileItemMenu.js:429
 msgid "Properties"
@@ -898,7 +901,7 @@ msgstr "Properti"
 #: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Show All in Files"
-msgstr "Tampilkan Semua di File"
+msgstr "Tampilkan Semua dalam File"
 
 #: app/fileItemMenu.js:430
 msgid "Show in Files"
@@ -911,17 +914,17 @@ msgstr "Buka dalam Terminal"
 #: app/fileItemMenu.js:552
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Ekstraksi Dibatalkan"
+msgstr "Ekstraksi Cancelled"
 
 #: app/fileItemMenu.js:553
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Tidak dapat mengekstrak File, tidak ada folder tujuan"
+msgstr "Tidak dapat diekstrak File, tidak ada folder tujuan"
 
 #: app/fileItemMenu.js:585
 #, fuzzy
 msgid "Move Cancelled"
-msgstr "Pindah Dibatalkan"
+msgstr "Login"
 
 #: app/fileItemMenu.js:586
 #, fuzzy
@@ -931,7 +934,7 @@ msgstr "Tidak dapat memindahkan File, tidak ada folder tujuan"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Pilih Tujuan"
+msgstr "Pilih Destinasi"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -940,7 +943,7 @@ msgstr "Pilih"
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Salin Dibatalkan"
+msgstr "WordPress.org"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
@@ -950,23 +953,24 @@ msgstr "Tidak dapat menyalin File, tidak ada folder tujuan"
 #: app/fileItemMenu.js:703
 #, fuzzy
 msgid "Can not email a Directory"
-msgstr "Tidak dapat mengirim email ke Direktori"
+msgstr "Tidak bisa email Direktori"
 
 #: app/fileItemMenu.js:704
 #, fuzzy
 msgid "Selection includes a Directory, compress the directory to a file first."
-msgstr "Pilihan termasuk Direktori, kompres direktori ke file terlebih dahulu."
+msgstr ""
+"Pemilihan termasuk Direktori, kompres direktori ke file terlebih dahulu."
 
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "Menutup"
+msgstr "Sitemap"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "\"${programName}\" diperlukan untuk Ikon Desktop"
+msgstr "\"${programName}\" diperlukan untuk ikon Desktop"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -975,8 +979,8 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Agar fungsionalitas ini berfungsi di Ikon Desktop, Anda harus menginstal "
-"\"${programName}\" di sistem Anda."
+"Untuk fungsi ini untuk bekerja di Desktop Icons, Anda harus menginstal \""
+"${programName}\" dalam sistem Anda."
 
 #: app/utils/desktopIconsUtil.js:146
 msgid "Command not found"
@@ -995,12 +999,12 @@ msgstr "Selalu gunakan untuk jenis file ini"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Membatalkan"
+msgstr "Login"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Membuka"
+msgstr "Sitemap"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1034,7 +1038,7 @@ msgstr "Ikon baru mulai sudut"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 #, fuzzy
 msgid "Set the corner from where the icons will start to be placed."
-msgstr "Atur sudut dari mana ikon akan mulai ditempatkan."
+msgstr "Mengatur sudut dari mana ikon akan mulai ditempatkan."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 #, fuzzy
@@ -1044,7 +1048,7 @@ msgstr "Tampilkan drive eksternal di desktop"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 #, fuzzy
 msgid "Show the disk drives connected to the computer."
-msgstr "Tampilkan drive disk yang terhubung ke komputer."
+msgstr "Tampilkan drive disk terhubung ke komputer."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 #, fuzzy
@@ -1054,12 +1058,12 @@ msgstr "Tampilkan drive jaringan di desktop"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
-msgstr "Tampilkan volume jaringan terpasang di desktop."
+msgstr "Tampilkan volume jaringan yang dipasang di desktop."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 #, fuzzy
 msgid "Add new drives to the opposite side of the screen"
-msgstr "Tambahkan drive baru ke sisi berlawanan dari layar"
+msgstr "Tambahkan drive baru ke sisi berlawanan layar"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
@@ -1067,13 +1071,13 @@ msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
 msgstr ""
-"Saat menambahkan drive dan volume ke desktop, tambahkan ke sisi layar yang "
-"berlawanan."
+"Saat menambahkan drive dan volume ke desktop, tambahkan ke sisi berlawanan "
+"layar."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 #, fuzzy
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr "Menampilkan persegi panjang di tempat tujuan selama DnD"
+msgstr "Tampilkan persegi panjang di tempat tujuan selama DnD"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 #, fuzzy
@@ -1081,13 +1085,13 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"Saat melakukan operasi Drag'n'Drop, tandai tempat di grid tempat ikon akan "
-"diletakkan dengan persegi panjang semitransparan."
+"Ketika melakukan operasi Drag'n'Drop, menandai tempat di grid di mana ikon "
+"akan diletakkan dengan persegi panjang semitransparan."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Sortir Folder Khusus - Drive Rumah/Sampah."
+msgstr "Menyortir Folder Khusus - Home/Trash Drives."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 #, fuzzy
@@ -1095,68 +1099,69 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"Saat mengatur Ikon di desktop, untuk mengurutkan dan mengubah posisi Home, "
-"Trash, dan Network yang terpasang atau Drive Eksternal"
+"Ketika mengatur Ikon di desktop, untuk memilah dan mengubah posisi Rumah, "
+"Sampah dan Jaringan yang dipasang atau Drive Eksternal"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "Jauhkan Ikon Diatur"
+msgstr "Buka ikon"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 #, fuzzy
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "Selalu pertahankan Ikon Diatur berdasarkan urutan yang terakhir diatur"
+msgstr "Selalu simpan Ikon Dirangkum oleh urutan tersusun terakhir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
 msgid "Arrange Order"
-msgstr "Atur Urutan"
+msgstr "Mengatur Order"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 #, fuzzy
 msgid "Icons Arranged by this property"
-msgstr "Ikon Diatur oleh properti ini"
+msgstr "Ikon yang Diserang oleh properti ini"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 #, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Simpan Ikon Bertumpuk"
+msgstr "Jauhkan ikon ditumpuk"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Selalu pertahankan Ikon Bertumpuk, Jenis serupa dikelompokkan"
+msgstr "Selalu simpan ikon ditumpuk, jenis serupa dikelompokkan"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
 msgid "Type of Files to not Stack"
-msgstr "Jenis File untuk tidak ditumpuk"
+msgstr "Jenis File untuk tidak Stack"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Array tipe string, Jangan Tumpuk tipe file ini"
+msgstr "Array jenis string, Jangan Stack jenis file ini"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Gunakan Nemo alih-alih Nautilus untuk membuka folder."
+msgstr "Gunakan Nemo bukan Nautilus untuk membuka folder."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Tambahkan lambang ke tautan"
+msgstr "Tambahkan emblem ke tautan"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Tambahkan lambang untuk memungkinkan mengidentifikasi tautan lunak."
+msgstr ""
+"Tambahkan emblem untuk memungkinkan untuk mengidentifikasi tautan lunak."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
 msgid "Use black for label text"
-msgstr "Gunakan warna hitam untuk teks label"
+msgstr "Gunakan hitam untuk teks label"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, fuzzy
@@ -1164,13 +1169,13 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"Warnai teks label dengan warna hitam, bukan putih. Berguna saat menggunakan "
-"latar belakang terang."
+"Cat teks label dalam warna hitam bukan putih. Berguna ketika menggunakan "
+"latar belakang cahaya."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Tampilkan ikon baru pada monitor non utama jika tersambung"
+msgstr "Tampilkan ikon baru pada monitor non primer jika terhubung"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
@@ -1178,7 +1183,7 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Jika monitor kedua tersambung, ikon baru ditempatkan di monitor non utama"
+"Jika monitor kedua terhubung, ikon baru ditempatkan pada monitor non primer"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

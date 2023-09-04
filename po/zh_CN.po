@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-08-02 02:02+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
@@ -32,12 +32,12 @@ msgstr "文件"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "调整"
+msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "关于"
+msgstr "约 门"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -47,7 +47,7 @@ msgstr "桌面设置"
 #: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "桌面程序的设置"
+msgstr "桌面方案背景"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -57,22 +57,22 @@ msgstr "卷"
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "桌面卷显示"
+msgstr "表格"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "文件设置"
+msgstr "档案"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "与 Gnome 文件共享的设置"
+msgstr "与Gnome文档共享的环境"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "杂项调整"
+msgstr "杂项 Tweaks"
 
 #: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
@@ -121,37 +121,37 @@ msgstr "右下角"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "首先将新图标添加到辅助监视器（如果有）"
+msgstr "第一次向二级监测员提供新的电灯,如果有的话。"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "在桌面上显示个人文件夹"
+msgstr "在桌面显示个人文件夹"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "在桌面上显示垃圾桶图标"
+msgstr "在桌面显示回收站图标"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "在桌面上显示外部驱动器"
+msgstr "在桌面显示外置驱动器"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "在桌面上显示网络驱动器"
+msgstr "在桌面显示个人文件夹"
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "将新驱动器添加到桌面的另一侧"
+msgstr "在 desktop对面增加新的驱动力"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "在拖放期间突出显示放置网格"
+msgstr "重点介绍Drag和Droop的输电网"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -169,7 +169,7 @@ msgstr "在标签文本中使用黑色字体"
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "打开项目的操作"
+msgstr "不限成员名额工作组"
 
 #: app/adwPreferencesWindow.js:257
 msgid "Single click"
@@ -190,7 +190,7 @@ msgstr "始终"
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
-msgstr "仅在此计算机上"
+msgstr "这部电脑"
 
 #: app/adwPreferencesWindow.js:266
 msgid "Never"
@@ -207,7 +207,7 @@ msgstr "显示隐藏文件"
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "拖动鼠标悬停时打开文件夹"
+msgstr "D. 拖拉的开放夹"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -217,16 +217,17 @@ msgstr "网站"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "访问"
+msgstr "访 问"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "问题"
+msgstr "议题"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "报告问题"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -239,46 +240,49 @@ msgid "License"
 msgstr "执照"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "翻译"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "帮助翻译你的网络浏览器"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "翻译"
 
 #: app/appChooser.js:50
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "选择要打开的应用程序 <b>{foo}</b>"
+msgstr "选择开放<b>{foo}</b>的申请"
 
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "未清项目"
+msgstr "开放项目"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "打开文件夹"
+msgstr "开放式激光器"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "打开文件"
+msgstr "公开文件"
 
 #: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
-msgstr "更改默认应用程序时出错"
+msgstr "逆向变化的缺省申请"
 
 #: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "将 {foo} 设置为 {mimetype} 的默认应用程序时出错"
+msgstr "1. 在确定“{foo}”时,错误作为“{mimetype}”的缺省申请"
 
 #: app/askRenamePopup.js:48
 msgid "Folder name"
@@ -299,24 +303,24 @@ msgstr "重命名"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "AutoAr 未安装"
+msgstr "自治 未安装"
 
 #: app/autoAr.js:67
 #, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr "为了能够使用压缩文件，请安装 file-roller 和/或 gir-1.2-gnomeAutoAr"
+msgstr "能够使用压缩文档、安装档案和/或gir-1.2-gnome AutoAr"
 
 #: app/autoAr.js:198
 #, fuzzy
 msgid "Extracting files"
-msgstr "提取文件"
+msgstr "取证文件"
 
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "压缩文件"
+msgstr "压缩档案"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -326,92 +330,92 @@ msgstr "取消"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "在此输入密码"
+msgstr "加入前言"
 
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "删除部分文件“${outputFile}”"
+msgstr "删除部分档案“零件” 页: 1"
 
 #: app/autoAr.js:368
 #, fuzzy
 msgid "Creating destination folder"
-msgstr "创建目标文件夹"
+msgstr "创造目的地"
 
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "将文件提取到“${outputPath}”中"
+msgstr "将档案摘入“产出”。 页: 1"
 
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "提取完成"
+msgstr "已完成的采掘"
 
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "提取“${fullPathFile}”已完成。"
+msgstr "删除“ifullPathFile}”的工作已经完成。."
 
 #: app/autoAr.js:437
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "提取已取消"
+msgstr "取消的回收"
 
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "用户已取消提取“${fullPathFile}”。"
+msgstr "用户已经取消了“ifullPathFile}”的提取。."
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "${filename} 需要密码"
+msgstr "笔记名}"
 
 #: app/autoAr.js:451
 #, fuzzy
 msgid "Error during extraction"
-msgstr "提取过程中出错"
+msgstr "提取过程中的错误"
 
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "将文件压缩到“${outputFile}”"
+msgstr "将档案压缩为“产出” 页: 1"
 
 #: app/autoAr.js:491
 #, fuzzy
 msgid "Compression completed"
-msgstr "压缩完成"
+msgstr "已完成的压缩"
 
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "将文件压缩到“${outputFile}”已完成。"
+msgstr "将文件压缩为“ioutputFile}”。."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "取消压缩"
+msgstr "缩略语"
 
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "输出文件“${outputFile}”已存在。"
+msgstr "产出文件“ioutputFile}”已经存在。."
 
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "用户已取消将文件压缩到“${outputFile}”。"
+msgstr "用户已取消将文件压缩为“ioutputFile}”。."
 
 #: app/autoAr.js:507
 #, fuzzy
 msgid "Error during compression"
-msgstr "压缩时出错"
+msgstr "压缩期间的误差"
 
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "创建档案"
+msgstr "建立档案"
 
 #: app/autoAr.js:566
 #, fuzzy
@@ -426,42 +430,42 @@ msgstr "密码"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "创造"
+msgstr "创建"
 
 #: app/autoAr.js:683
 #, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "与所有操作系统兼容。"
+msgstr "与所有操作系统兼容。."
 
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "受密码保护的 .zip，必须安装在 Windows 和 Mac 上。"
+msgstr "必须安装在Windows和Mac上。."
 
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "较小的档案，但仅限 Linux 和 Mac。"
+msgstr "较小的档案,但只剩下短链氯化石蜡和麦克风。."
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "档案较小，但必须安装在 Windows 和 Mac 上。"
+msgstr "小型档案必须安装在Windows和Mac。."
 
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "未找到 GNOME 文件"
+msgstr "GNOME 未找到的文件"
 
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "Desktop Icons NG 需要 GNOME Files 应用程序。"
+msgstr "GNOME 档案申请由政府桌面Icons提供。."
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "移动"
+msgstr "每天"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -470,27 +474,27 @@ msgstr "复制"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "关联"
+msgstr "链接"
 
 #: app/desktopManager.js:726
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "选择文件操作"
+msgstr "卷宗行动"
 
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "建立符号链接失败"
+msgstr "• 举办座谈会"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "无法创建符号链接"
+msgstr "不能建立象征性的联系"
 
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "在新搜索之前清除当前选择"
+msgstr "在进行新的搜索之前清除当前选择"
 
 #: app/desktopManager.js:1167
 msgid "Find Files on Desktop"
@@ -504,7 +508,7 @@ msgstr "姓名"
 #: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
-msgstr "名称 Z-A"
+msgstr "姓名Z-A"
 
 #: app/desktopManager.js:1424
 #, fuzzy
@@ -519,22 +523,22 @@ msgstr "类型"
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "尺寸"
+msgstr "规模"
 
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "保持安排…"
+msgstr "安排..…"
 
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "保持按类型堆叠…"
+msgstr "按类型分类"
 
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "排序首页/驱动器/垃圾箱…"
+msgstr "排序主目录/驱动器/回收站…"
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
@@ -567,12 +571,12 @@ msgstr "图标排序"
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "安排方式…"
+msgstr "Arrange By.."
 
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "在 GNOME 文件中显示桌面"
+msgstr "图表 In GNOME files"
 
 #: app/desktopManager.js:1469
 #, fuzzy
@@ -595,12 +599,12 @@ msgstr "显示设置"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
-msgstr "首选项窗口已打开"
+msgstr "开放窗口"
 
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "此窗口已打开。请切换到活动窗口。"
+msgstr "这一窗口已经开放。 请转至正窗口。."
 
 #: app/desktopManager.js:1537
 msgid "Settings"
@@ -609,22 +613,22 @@ msgstr "设置"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "文件夹创建失败"
+msgstr "Folder Creat Failed"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "无法创建文件夹"
+msgstr "不能创造双倍"
 
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "模板创建错误"
+msgstr "温度生成"
 
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "无法创建文档"
+msgstr "不要制定文件"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -642,23 +646,23 @@ msgstr "无法打开此文件，因为它是一个断开的符号链接"
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "打开文件失败"
+msgstr "开放文件"
 
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr "没有安装用于打开“{foo}”类型文件的应用程序"
+msgstr "没有安装用于公开“ifoo}”类型档案的申请。"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "无法打开文件"
+msgstr "否 文件"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "${appName} 无法打开此类型的文件！"
+msgstr "(1美元)!"
 
 #: app/fileItem.js:350
 msgid "Broken Desktop File"
@@ -725,12 +729,12 @@ msgstr "全部打开..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "跑步"
+msgstr "页: 1"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "使用 {foo} 打开"
+msgstr "1. 开放"
 
 #: app/fileItemMenu.js:313
 msgid "Open"
@@ -751,7 +755,7 @@ msgstr "用其他方式打开。"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "打开用..."
+msgstr "开放."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -781,12 +785,12 @@ msgstr "剪切"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "搬去..."
+msgstr "......"
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "复制到..."
+msgstr "页: 1."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -795,13 +799,13 @@ msgstr "重命名……"
 #: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Create Link..."
-msgstr "创建链接..."
+msgstr "建立联系."
 
 #: app/fileItemMenu.js:379
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "压缩 {0} 个文件夹"
+msgstr[0] "Compress{0} 夹"
 
 #: app/fileItemMenu.js:386
 msgid "Compress {0} file"
@@ -811,12 +815,12 @@ msgstr[0] "压缩{0}文件"
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Email to..."
-msgstr "发邮件给..."
+msgstr "Email to..."
 
 #: app/fileItemMenu.js:398
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "发送至移动设备"
+msgstr "移动电话"
 
 #: app/fileItemMenu.js:402
 msgid "Move to Trash"
@@ -869,22 +873,22 @@ msgstr "在终端中打开"
 #: app/fileItemMenu.js:552
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "提取已取消"
+msgstr "删除"
 
 #: app/fileItemMenu.js:553
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "无法提取文件，没有目标文件夹"
+msgstr "不可提取 档案,无目的地夹"
 
 #: app/fileItemMenu.js:585
 #, fuzzy
 msgid "Move Cancelled"
-msgstr "搬迁已取消"
+msgstr "Move Cancelled"
 
 #: app/fileItemMenu.js:586
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "无法移动文件，没有目标文件夹"
+msgstr "无法移动文件,没有目的地文件夹。"
 
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
@@ -898,12 +902,12 @@ msgstr "选择"
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "复制已取消"
+msgstr "页: 1"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "无法复制文件，没有目标文件夹"
+msgstr "无法复制文件,没有目的地文件夹。"
 
 #: app/fileItemMenu.js:703
 msgid "Can not email a Directory"
@@ -938,22 +942,22 @@ msgstr "命令无法找到"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "选择一个应用程序来打开选定的文件。"
+msgstr "选择打开选定的档案。."
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "始终用于此文件类型"
+msgstr "用于此类档案的通道"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_取消"
+msgstr "• Cancel"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_打开"
+msgstr "iii"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1092,14 +1096,14 @@ msgstr "将标签文本绘制为黑色字体，而不是白色字体。使用浅
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "如果已连接，则在非主显示器上显示新图标"
+msgstr "显示有关非初级监测的新方"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
-msgstr "如果连接了第二台显示器，新图标将放置在非主显示器上"
+msgstr "如果第二个监测器连接起来,则将新信标放在非初级监测器上。"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"
