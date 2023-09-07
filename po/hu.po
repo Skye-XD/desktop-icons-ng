@@ -9,26 +9,26 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-08-02 02:01+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Asztali"
+msgstr "Desktop"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "Fájlok"
+msgstr "Files"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
@@ -39,42 +39,42 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Ról ről"
+msgstr "Körülbelül"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Asztali beállítások"
+msgstr "Desktop beállítások"
 
 #: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Az asztali program beállításai"
+msgstr "Beállítások az asztali programhoz"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Kötetek"
+msgstr "Volumák"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Az asztali kötetek megjelenítése"
+msgstr "Desktop mennyiségek kijelző"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "Fájlok beállításai"
+msgstr "Files beállítások"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "A Gnome Files szolgáltatással megosztott beállítások"
+msgstr "Beállítások megosztott Gnome Files"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Egyéb Tweaks"
+msgstr "Miscellanous Tweaks"
 
 #: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
@@ -123,58 +123,58 @@ msgstr "Jobb alsó sarok"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Először adjon hozzá új ikonokat a másodlagos monitorokhoz, ha elérhető"
+msgstr "Adjon hozzá új ikonokat a Másodlagos Monitorokhoz, ha elérhető"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Jelenítse meg a személyes mappát az asztalon"
+msgstr "A személyes mappa megjelenítése az asztalon"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Jelenítse meg a kuka ikont az asztalon"
+msgstr "A kuka ikon megjelenítése az asztalon"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Külső meghajtók megjelenítése az asztalon"
+msgstr "A külső meghajtók megjelenítése az asztalon"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Hálózati meghajtók megjelenítése az asztalon"
+msgstr "A hálózati meghajtók megjelenítése az asztalon."
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Adjon hozzá új meghajtókat az asztal másik oldalához"
+msgstr "Adjon új meghajtókat az asztal ellentétes oldalára"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Emelje ki a rácsot a Drag and Drop közben"
+msgstr "Kiemeli a csepprácsot a Drag és a Drop során"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
-msgstr "A Nemo segítségével nyissa meg a mappákat"
+msgstr "Használja a Nemo-t, hogy nyissa meg a mappákat"
 
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Add an emblem to soft links"
-msgstr "Adjon emblémát a lágy hivatkozásokhoz"
+msgstr "Adjon emblémát a puha linkekhez"
 
 #: app/adwPreferencesWindow.js:251
 #, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Használjon sötét szöveget az ikoncímkékben"
+msgstr "Használjon sötét szöveget az ikon címkéiben"
 
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Művelet az elemek megnyitásához"
+msgstr "Akció az Open Items-hez"
 
 #: app/adwPreferencesWindow.js:257
 msgid "Single click"
@@ -195,7 +195,7 @@ msgstr "Mindig"
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
-msgstr "Csak ezen a számítógépen"
+msgstr "Ezen a számítógépen csak"
 
 #: app/adwPreferencesWindow.js:266
 msgid "Never"
@@ -212,7 +212,7 @@ msgstr "Rejtett fájlok megjelenítése"
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Nyissa meg a mappákat az egérmutató húzásával"
+msgstr "Nyílt mappák a drag hover"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -227,11 +227,12 @@ msgstr "Látogatás"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Problémák"
+msgstr "Tények"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "Jelentés kérdések a kérdéskövetővel kapcsolatban"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -244,16 +245,19 @@ msgid "License"
 msgstr "Engedély"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Fordítás"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "Segítség fordítás a webböngészőben"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Fordítás"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -263,29 +267,28 @@ msgstr "Válasszon egy alkalmazást a <b>{foo}</b> megnyitásához"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Nyissa meg az elemeket"
+msgstr "Nyitott elemek"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Nyitott mappa"
+msgstr "Open Folder"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Fájl megnyitása"
+msgstr "Nyitott fájl"
 
 #: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Hiba az alapértelmezett alkalmazás módosításakor"
+msgstr "Hiba megváltoztatja az alapértelmezett alkalmazást"
 
 #: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
-"Hiba történt a(z) {foo} alapértelmezett alkalmazásként való beállítása "
-"közben a(z) {mimetype} számára"
+"Hiba, miközben beállítás {foo}, mint alapértelmezett alkalmazás {mimetype}"
 
 #: app/askRenamePopup.js:48
 msgid "Folder name"
@@ -306,7 +309,7 @@ msgstr "Átnevezés"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "Az AutoAr nincs telepítve"
+msgstr "Automata Ar nem telepítve"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -314,18 +317,18 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"A tömörített fájlokkal való munkavégzéshez telepítse a file-rollert és/vagy "
-"a gir-1.2-gnomeAutoAr-t"
+"Ahhoz, hogy kompressált fájlokkal dolgozhasson, telepítse a fájl-rollert és /"
+" vagy gir-1.2-gnome-t AutoAr"
 
 #: app/autoAr.js:198
 #, fuzzy
 msgid "Extracting files"
-msgstr "Fájlok kibontása"
+msgstr "Kivonási fájlok"
 
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Fájlok tömörítése"
+msgstr "Compressing fájlok"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -335,83 +338,82 @@ msgstr "Mégse"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Adjon meg egy jelszót itt"
+msgstr "Írj be egy jelszót itt"
 
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "„${outputFile}” részfájl eltávolítása"
+msgstr "A részleges fájl eltávolítása \"${outputFile} \"...\""
 
 #: app/autoAr.js:368
 #, fuzzy
 msgid "Creating destination folder"
-msgstr "Célmappa létrehozása"
+msgstr "Létrehozása cél mappa"
 
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Fájlok kibontása a(z) „${outputPath}” mappába"
+msgstr "A fájlok kivonása \"${outputPath} \"...\""
 
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "A kivonás befejeződött"
+msgstr "Kitermelés befejeződött"
 
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "A '${fullPathFile}' kicsomagolása befejeződött."
+msgstr "A \"$ {fullPathFile\" kivonatot befejezték."
 
 #: app/autoAr.js:437
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Kivonás megszakítva"
+msgstr "Kitermelés törölve"
 
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "A felhasználó megszakította a '${fullPathFile}' kibontását."
+msgstr "A „$ {fullPathFile” kivonatot a felhasználó törölte."
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Összetett jelszó szükséges a következőhöz: ${filename}"
+msgstr "Passphrase szükséges $ {filename}"
 
 #: app/autoAr.js:451
 #, fuzzy
 msgid "Error during extraction"
-msgstr "Hiba a kivonás során"
+msgstr "Hiba a kitermelés során"
 
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Fájlok tömörítése „${outputFile}” fájlba"
+msgstr "A fájlok \"$ {outputFile} \"...\""
 
 #: app/autoAr.js:491
 #, fuzzy
 msgid "Compression completed"
-msgstr "A tömörítés befejeződött"
+msgstr "A kompresszió befejeződött"
 
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "A fájlok '${outputFile}' fájlba tömörítése befejeződött."
+msgstr "A fájlok \"$ {outputFile}-be történő elnyomása befejeződött."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "A tömörítés megszakítva"
+msgstr "Törölt tömörítés"
 
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "A „${outputFile}” kimeneti fájl már létezik."
+msgstr "A kimeneti fájl \"$ {outputFile} már létezik."
 
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"A fájlok '${outputFile}' fájlba való tömörítését a felhasználó megszakította."
+msgstr "A fájlok \"$ {outputFile}-be történő elnyomását a felhasználó törölte."
 
 #: app/autoAr.js:507
 #, fuzzy
@@ -421,12 +423,12 @@ msgstr "Hiba a tömörítés során"
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Archívum létrehozása"
+msgstr "Készíts archívumot"
 
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "Archívum neve"
+msgstr "Archív név"
 
 #: app/autoAr.js:599
 #, fuzzy
@@ -436,42 +438,42 @@ msgstr "Jelszó"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Teremt"
+msgstr "Teremtés"
 
 #: app/autoAr.js:683
 #, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "Minden operációs rendszerrel kompatibilis."
+msgstr "Kompatibilis az összes operációs rendszerrel."
 
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Jelszóval védett .zip, telepíteni kell Windows és Mac rendszeren."
+msgstr "A .zip védett jelszót a Windows és a Mac rendszeren kell telepíteni."
 
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Kisebb archívumok, de csak Linux és Mac."
+msgstr "Kisebb archívumok, de a Linux és a Mac csak."
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Kisebb archívumok, de telepíteni kell Windows és Mac rendszeren."
+msgstr "Kisebb archívumok, de telepíteni kell a Windows és Mac."
 
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "A GNOME fájlok nem találhatók"
+msgstr "GNOME Nem talált fájlok"
 
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "A GNOME Files alkalmazást a Desktop Icons NG megköveteli."
+msgstr "A GNOME A fájlok alkalmazása a Desktop Icons NG szükséges."
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Mozog"
+msgstr "Mozgás"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -485,27 +487,27 @@ msgstr "Link"
 #: app/desktopManager.js:726
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Válassza a Művelet fájlokhoz lehetőséget"
+msgstr "Válasszon Action for Files"
 
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "A SymLink létrehozása nem sikerült"
+msgstr "SymLink Failed készítése"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Nem sikerült szimbolikus linket létrehozni"
+msgstr "Nem hozhat létre szimbolikus kapcsolatot"
 
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Az új keresés előtt törölje az aktuális kijelölést"
+msgstr "Tiszta jelenlegi kiválasztás az új keresés előtt"
 
 #: app/desktopManager.js:1167
 #, fuzzy
 msgid "Find Files on Desktop"
-msgstr "Fájlok keresése az asztalon"
+msgstr "Találjon fájlokat az asztalon"
 
 #: app/desktopManager.js:1422
 #, fuzzy
@@ -515,7 +517,7 @@ msgstr "Név"
 #: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Név Z-A"
+msgstr "Z-A név"
 
 #: app/desktopManager.js:1424
 #, fuzzy
@@ -525,7 +527,7 @@ msgstr "Módosított idő"
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "típus"
+msgstr "Típus"
 
 #: app/desktopManager.js:1426
 #, fuzzy
@@ -535,17 +537,17 @@ msgstr "Méret"
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Tartsa rendezve…"
+msgstr "Tartsa be arranged.."
 
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Típus szerint halmozott…"
+msgstr "Tartsa meg a Stacked by Type.."
 
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Kezdőlap/Meghajtók/Kuka rendezése…"
+msgstr "Dalszöveg: Sort Home/Drives/Trash.."
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
@@ -570,27 +572,27 @@ msgstr "Újra"
 #: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
-msgstr "Mindet kiválaszt"
+msgstr "Minden"
 
 #: app/desktopManager.js:1459
 #, fuzzy
 msgid "Arrange Icons"
-msgstr "Ikonok rendezése"
+msgstr "Arrange Icons"
 
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Rendezés:…"
+msgstr "Arrange By.."
 
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Asztal megjelenítése a GNOME fájlokban"
+msgstr "Dalszöveg: Desktop A GNOME fájlokban"
 
 #: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Megnyitás a terminálban"
+msgstr "Megnyitás terminálban"
 
 #: app/desktopManager.js:1474
 msgid "Change Background…"
@@ -599,7 +601,7 @@ msgstr "Háttér megváltoztatása…"
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Asztali ikon beállításai"
+msgstr "Desktop Icon beállítások"
 
 #: app/desktopManager.js:1480
 msgid "Display Settings"
@@ -608,12 +610,12 @@ msgstr "Megjelenítés beállításai"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
-msgstr "A Beállítások ablak nyitva van"
+msgstr "Preferenciák ablak nyitott"
 
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "Ez az ablak nyitva van. Kérjük, váltson az aktív ablakra."
+msgstr "Ez az ablak nyitott. Kérjük, kapcsolja be az aktív ablakot."
 
 #: app/desktopManager.js:1537
 msgid "Settings"
@@ -622,22 +624,22 @@ msgstr "Beállítások"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "A mappa létrehozása nem sikerült"
+msgstr "Folder Teremtés Hibás"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Nem sikerült létrehozni a mappát"
+msgstr "Nem hozhat létre mappát"
 
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Sablon létrehozási hiba"
+msgstr "Template Creation hiba"
 
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "Nem sikerült létrehozni a dokumentumot"
+msgstr "Nem hozhat létre dokumentumot"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -647,39 +649,38 @@ msgstr "Saját mappa"
 #: app/fileItem.js:266
 #, fuzzy
 msgid "Broken Link"
-msgstr "Törött link"
+msgstr "Broken Link"
 
 #: app/fileItem.js:267
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "Ezt a fájlt nem lehet megnyitni, mert egy hibás szimbolikus hivatkozás"
+msgstr "Nem tudja megnyitni ezt a fájlt, mert Broken Symlink"
 
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "A fájl megnyitása nem sikerült"
+msgstr "Fájl hiba megnyitása"
 
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr ""
-"Nincs telepítve olyan alkalmazás, amely megnyitná a „{foo}” típusú fájlokat"
+msgstr "Nincs olyan alkalmazás, amely kinyitja a \"{foo}\" típusú fájlokat"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nem sikerült megnyitni a fájlt"
+msgstr "Nem nyitott File"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "A ${appName} nem tudja megnyitni az ilyen típusú fájlokat!"
+msgstr "$ {appName} nem tudja megnyitni az ilyen típusú fájlokat!"
 
 #: app/fileItem.js:350
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Törött asztali fájl"
+msgstr "Broken Desktop fájl"
 
 #: app/fileItem.js:351
 msgid ""
@@ -692,7 +693,7 @@ msgstr ""
 #: app/fileItem.js:357
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Érvénytelen engedélyek az asztali fájlban"
+msgstr "Érvénytelen engedélyek az asztali fájlról"
 
 #: app/fileItem.js:358
 #, fuzzy
@@ -700,8 +701,8 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Ennek a .desktop fájlnak helytelen engedélyei vannak. Kattintson a jobb "
-"gombbal a Tulajdonságok szerkesztéséhez, majd:\n"
+"Ez .desktop A fájl helytelen engedélyekkel rendelkezik. Kattintson a "
+"Tulajdonok szerkesztésére, majd:\n"
 
 #: app/fileItem.js:360
 #, fuzzy
@@ -710,8 +711,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Engedélyek beállítása „Egyéb hozzáférés”, „Csak olvasási” vagy „Nincs” </"
-"b>"
+"<b>Set engedélyek, a \"Others Access\", \"Read Only\" vagy \"None\" </b>"
 
 #: app/fileItem.js:363
 #, fuzzy
@@ -720,16 +720,20 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Engedélyezze a \"Fájl végrehajtásának engedélyezése programként\" opciót</"
-"b>"
+"<b>Enable opció: \"Allow Executing File as a Program\"</b>"
 
 #: app/fileItem.js:371
+#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
+"Ez a .desktop fájl nem megbízható, nem lehet elindítani. Az indítás, a jobb "
+"kattintás lehetővé tétele érdekében:\n"
+"\n"
+"<b>Enable \"Allow Launch\"</b>"
 
 #: app/fileItemMenu.js:297
 msgid "New Folder with {0} item"
@@ -744,12 +748,12 @@ msgstr "Összes megnyitása…"
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Fuss"
+msgstr "Run"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "Megnyitás a következővel: {foo}"
+msgstr "Nyissa meg a {foo}"
 
 #: app/fileItemMenu.js:313
 msgid "Open"
@@ -770,7 +774,7 @@ msgstr "Összes megnyitása egyéb alkalmazással…"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Nyitott..."
+msgstr "Nyílt..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -779,17 +783,17 @@ msgstr "Futtatás a dedikált videokártyával"
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Halmozza ezt a típust"
+msgstr "Stack Ez a típus"
 
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Unstack This Type"
-msgstr "Bontsa ki ezt a típust"
+msgstr "Ellenőrizze ezt a típust"
 
 #: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Run as a Program"
-msgstr "Futtassa programként"
+msgstr "Futás mint program"
 
 #: app/fileItemMenu.js:357
 msgid "Scripts"
@@ -802,12 +806,12 @@ msgstr "Kivágás"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Költözik..."
+msgstr "Mozgás..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Másold..."
+msgstr "Másolj..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -822,8 +826,8 @@ msgstr "Link létrehozása..."
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "{0} mappa tömörítése"
-msgstr[1] "{0} mappa tömörítése"
+msgstr[0] "Compress {0} mappa"
+msgstr[1] "Compress {0} mappák"
 
 #: app/fileItemMenu.js:386
 msgid "Compress {0} file"
@@ -834,12 +838,12 @@ msgstr[1] "{0} fájl tömörítése"
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Email to..."
-msgstr "E-mail címe..."
+msgstr "E-mail..."
 
 #: app/fileItemMenu.js:398
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Küldés mobileszközre"
+msgstr "Küldje el a mobil eszközöket"
 
 #: app/fileItemMenu.js:402
 msgid "Move to Trash"
@@ -892,42 +896,42 @@ msgstr "Megnyitás terminálban"
 #: app/fileItemMenu.js:552
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Kivonás megszakítva"
+msgstr "Kitermelés törölve"
 
 #: app/fileItemMenu.js:553
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Nem lehet kicsomagolni a fájlt, nincs célmappa"
+msgstr "Képtelen kivonat File, nincs rendeltetési mappa"
 
 #: app/fileItemMenu.js:585
 #, fuzzy
 msgid "Move Cancelled"
-msgstr "Áthelyezés megszakítva"
+msgstr "Move törölve"
 
 #: app/fileItemMenu.js:586
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Nem lehet áthelyezni a fájlokat, nincs célmappa"
+msgstr "Képtelen fájlokat mozgatni, nincs rendeltetési mappa"
 
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Válassza a Destination lehetőséget"
+msgstr "Válassza ki a rendelést"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 #, fuzzy
 msgid "Select"
-msgstr "Válassza ki"
+msgstr "Válasszon"
 
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Másolás megszakítva"
+msgstr "Copy törölve"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "A fájlok nem másolhatók, nincs célmappa"
+msgstr "Képtelen másolni Files, nincs rendeltetési mappa"
 
 #: app/fileItemMenu.js:703
 msgid "Can not email a Directory"
@@ -940,13 +944,13 @@ msgstr "A kijelölés könyvtárat tartalmaz, előbb tömörítse egy fájlba."
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "Bezárás"
+msgstr "Bezár"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "A „${programName}” szükséges az asztali ikonokhoz"
+msgstr "\"${programName} szükséges az asztali ikonokhoz"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -955,8 +959,8 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Ahhoz, hogy ez a funkció működjön a Desktop Icons alkalmazásban, telepítenie "
-"kell a „${programName}” programot a rendszerére."
+"Ehhez a funkcionalitáshoz, hogy dolgozzon az asztali ikonokban, telepítenie "
+"kell a \"${programName}-t a rendszerében."
 
 #: app/utils/desktopIconsUtil.js:146
 msgid "Command not found"
@@ -970,17 +974,17 @@ msgstr "Válasszon egy alkalmazást a kiválasztott fájlok megnyitásához."
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "Mindig ehhez a fájltípushoz használja"
+msgstr "Mindig használja ezt a fájltípust"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Megszünteti"
+msgstr "_Cancel"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Nyisd ki"
+msgstr "_Open"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1057,7 +1061,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Speciális mappák rendezése – Otthoni/Kukameghajtók."
+msgstr "Sort Special Folders - Home / Trash meghajtók."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 #, fuzzy
@@ -1065,71 +1069,69 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"Amikor ikonokat rendez el az asztalon, a Home, a Kuka és a csatlakoztatott "
-"hálózati vagy külső meghajtók rendezéséhez és helyzetének módosításához"
+"Az asztali ikonok megszervezése, az Otthon, a Trash és a felszerelt Hálózat "
+"vagy a külső meghajtók helyzetének rendezése és megváltoztatása"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "Tartsa az ikonokat elrendezve"
+msgstr "Tartsa be az ikonokat"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 #, fuzzy
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "Mindig tartsa az ikonokat az utolsó sorrend szerint rendezve"
+msgstr "Mindig tartsa az ikonokat Az utolsó elrendelt rend"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
 msgid "Arrange Order"
-msgstr "Rendelés rendezése"
+msgstr "Arrange Order"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 #, fuzzy
 msgid "Icons Arranged by this property"
-msgstr "Ikonok a tulajdonság szerint rendezve"
+msgstr "Icons Arranged ezt a tulajdont"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 #, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Tartsa halmozott ikonokat"
+msgstr "Tartsa meg az ikonokat"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
-"Mindig tartsa az ikonokat halmozottan, a hasonló típusok csoportosítva vannak"
+msgstr "Mindig tartsa meg az Icons Stacked, hasonló típusok csoportosulnak"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
 msgid "Type of Files to not Stack"
-msgstr "A nem halmozandó fájlok típusa"
+msgstr "Files típusa, hogy ne álljon"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Karakterlánctípusok tömbje, ne rakja egymásra az ilyen típusú fájlokat"
+msgstr "A szúró típusok Arrayja, Ne kövesse az ilyen típusú fájlokat"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Használja a Nemót a Nautilus helyett a mappák megnyitásához."
+msgstr "Használja a Nemo-t a Nautilus helyett, hogy nyissa meg a mappákat."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Add an emblem to links"
-msgstr "Adjon emblémát a hivatkozásokhoz"
+msgstr "Adjon egy emblemát a linkekhez"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
 msgstr ""
-"Adjon hozzá egy emblémát, amely lehetővé teszi a lágy hivatkozások "
-"azonosítását."
+"Adjon hozzá egy emblémát, amely lehetővé teszi a puha linkek azonosítását."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
 msgid "Use black for label text"
-msgstr "Használjon feketét a címke szövegéhez"
+msgstr "Használjon fekete címke szöveghez"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, fuzzy
@@ -1137,14 +1139,13 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"Fesd a címke szövegét fehér helyett feketére. Világos hátterek használatakor "
-"hasznos."
+"Festd fel a címke szövegét fekete helyett fehér. Hasznos, ha fény háttérrel "
+"rendelkezik."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
-"Új ikonok megjelenítése a nem elsődleges monitoron, ha csatlakoztatva van"
+msgstr "Mutasson új ikonokat a nem elsődleges monitoron, ha csatlakozik"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
@@ -1152,7 +1153,7 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Ha egy második monitor is csatlakoztatva van, új ikonok kerülnek a nem "
+"Ha egy második monitor csatlakozik, új ikonokat helyeznek el a nem "
 "elsődleges monitorra"
 
 #, fuzzy

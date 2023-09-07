@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-09-04 16:45+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -28,13 +28,13 @@ msgstr "Bureau"
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "Des dossiers"
+msgstr "Fichiers"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Ajustements"
+msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -44,12 +44,12 @@ msgstr "À propos"
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Paramètres du bureau"
+msgstr "Paramètres de bureau"
 
 #: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Paramètres du programme de bureau"
+msgstr "Paramètres pour le programme Bureau"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -64,17 +64,17 @@ msgstr "Affichage des volumes de bureau"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "Paramètres des fichiers"
+msgstr "Paramètres de fichiers"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Paramètres partagés avec Gnome Files"
+msgstr "Paramètres partagés avec les fichiers Gnome"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Réglages divers"
+msgstr "Divers Tweaks"
 
 #: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
@@ -108,7 +108,7 @@ msgstr "Coin supérieur gauche"
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Le coin supérieur droit"
+msgstr "Coin supérieur droit"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
@@ -118,13 +118,13 @@ msgstr "Coin inférieur gauche"
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Le coin inférieur droit"
+msgstr "Coin inférieur droit"
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
-"Ajoutez d'abord de nouvelles icônes aux moniteurs secondaires, si disponibles"
+"Ajouter d'abord de nouvelles icônes aux moniteurs secondaires, si disponible"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
@@ -134,27 +134,27 @@ msgstr "Afficher le dossier personnel sur le bureau"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Afficher l'icône de la corbeille sur le bureau"
+msgstr "Afficher la corbeille sur le bureau"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Afficher les disques externes sur le bureau"
+msgstr "Afficher les volumes de stockage externes sur le bureau"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Afficher les lecteurs réseau sur le bureau"
+msgstr "Afficher les volumes réseau sur le bureau"
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Ajouter de nouveaux lecteurs sur le côté opposé du bureau"
+msgstr "Ajouter de nouveaux disques sur le côté opposé du bureau"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Mettez en surbrillance la grille de dépôt pendant le glisser-déposer"
+msgstr "Éclairer la grille de chute pendant Drag et Drop"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -172,7 +172,7 @@ msgstr "Utiliser un texte sombre pour les libellés des icônes"
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Action pour ouvrir des éléments"
+msgstr "Action to Open Items"
 
 #: app/adwPreferencesWindow.js:257
 msgid "Single click"
@@ -193,7 +193,7 @@ msgstr "Toujours"
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
-msgstr "Sur cet ordinateur uniquement"
+msgstr "Sur cet ordinateur seulement"
 
 #: app/adwPreferencesWindow.js:266
 msgid "Never"
@@ -211,12 +211,12 @@ msgstr "Afficher les fichiers cachés"
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Ouvrir les dossiers en faisant glisser la souris"
+msgstr "Ouvrir les dossiers sur glisser hover"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Site Internet"
+msgstr "Site Web"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -229,8 +229,9 @@ msgid "Issues"
 msgstr "Questions"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "Questions relatives au rapport sur la question"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -243,16 +244,19 @@ msgid "License"
 msgstr "Licence"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Traduction"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "Aide traduire dans votre navigateur web"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Traduire"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -262,29 +266,28 @@ msgstr "Choisissez une application pour ouvrir <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Éléments ouverts"
+msgstr "Open Items"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Dossier ouvert"
+msgstr "Open Folder"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Fichier ouvert"
+msgstr "Ouvrir le fichier"
 
 #: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Erreur lors de la modification de l'application par défaut"
+msgstr "Error changing default application"
 
 #: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
-"Erreur lors de la définition de {foo} comme application par défaut pour "
-"{mimetype}"
+"Erreur pendant le réglage {foo} comme application par défaut pour {mimetype}"
 
 #: app/askRenamePopup.js:48
 msgid "Folder name"
@@ -305,7 +308,7 @@ msgstr "Renommer"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "AutoAr n'est pas installé"
+msgstr "Auto Ar n'est pas installé"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -313,18 +316,18 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Pour pouvoir travailler avec des fichiers compressés, installez file-roller "
-"et/ou gir-1.2-gnomeAutoAr"
+"Pour pouvoir travailler avec des fichiers compressés, installez fichier-"
+"roller et/ou gir-1.2-gnome AutoAr"
 
 #: app/autoAr.js:198
 #, fuzzy
 msgid "Extracting files"
-msgstr "Extraction des fichiers"
+msgstr "Extraire des fichiers"
 
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Compression de fichiers"
+msgstr "Comprenez des fichiers"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -339,7 +342,7 @@ msgstr "Entrez un mot de passe ici"
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "Suppression du fichier partiel '${outputFile}'"
+msgstr "Suppression du fichier partiel '${outputFile} '"
 
 #: app/autoAr.js:368
 #, fuzzy
@@ -349,7 +352,7 @@ msgstr "Création du dossier de destination"
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Extraction de fichiers dans '${outputPath}'"
+msgstr "Extraire des fichiers dans '${outputPath} '"
 
 #: app/autoAr.js:430
 #, fuzzy
@@ -359,7 +362,7 @@ msgstr "Extraction terminée"
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "L'extraction de '${fullPathFile}' est terminée."
+msgstr "L'extrait de '${fullPathFile}' a été complété."
 
 #: app/autoAr.js:437
 #, fuzzy
@@ -369,22 +372,22 @@ msgstr "Extraction annulée"
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "L'extraction de '${fullPathFile}' a été annulée par l'utilisateur."
+msgstr "Extrait '${fullPathFile}' a été annulé par l'utilisateur."
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Mot de passe requis pour ${filename}"
+msgstr "Passphrase nécessaire pour ${filename}"
 
 #: app/autoAr.js:451
 #, fuzzy
 msgid "Error during extraction"
-msgstr "Erreur lors de l'extraction"
+msgstr "Erreur lors de l ' extraction"
 
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Compression des fichiers dans '${outputFile}'"
+msgstr "Compresser les fichiers dans '${outputFile} '"
 
 #: app/autoAr.js:491
 #, fuzzy
@@ -394,7 +397,7 @@ msgstr "Compression terminée"
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "La compression des fichiers dans '${outputFile}' est terminée."
+msgstr "Les fichiers de compression dans '${outputFile}' ont été remplis."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
@@ -410,7 +413,7 @@ msgstr "Le fichier de sortie '${outputFile}' existe déjà."
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr ""
-"La compression des fichiers dans '${outputFile}' a été annulée par "
+"Les fichiers compresseurs dans '${outputFile}' ont été annulés par "
 "l'utilisateur."
 
 #: app/autoAr.js:507
@@ -421,12 +424,12 @@ msgstr "Erreur lors de la compression"
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Créer une archive"
+msgstr "Créer des archives"
 
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "Nom de l'archive"
+msgstr "Nom des archives"
 
 #: app/autoAr.js:599
 #, fuzzy
@@ -446,32 +449,33 @@ msgstr "Compatible avec tous les systèmes d'exploitation."
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ".zip protégé par mot de passe, doit être installé sur Windows et Mac."
+msgstr "Password protected .zip, doit être installé sur Windows et Mac."
 
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Archives plus petites mais Linux et Mac uniquement."
+msgstr "Des archives plus petites mais Linux et Mac seulement."
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Archives plus petites mais doivent être installées sur Windows et Mac."
+msgstr ""
+"Des archives plus petites mais doivent être installées sur Windows et Mac."
 
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "Fichiers GNOME introuvables"
+msgstr "GNOME Fichiers non trouvés"
 
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "L'application GNOME Files est requise par Desktop Icons NG."
+msgstr "Le GNOME L'application de fichiers est requise par Desktop Icons NG."
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Déplacer"
+msgstr "Avancez"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -485,22 +489,22 @@ msgstr "Lien"
 #: app/desktopManager.js:726
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Choisissez une action pour les fichiers"
+msgstr "Choisissez Action for Files"
 
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "La création de SymLink a échoué"
+msgstr "Faire Failed SymLink"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Impossible de créer le lien symbolique"
+msgstr "Impossible de créer un lien symbolique"
 
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Effacer la sélection actuelle avant une nouvelle recherche"
+msgstr "Supprimer la sélection courante avant une nouvelle recherche"
 
 #: app/desktopManager.js:1167
 msgid "Find Files on Desktop"
@@ -519,12 +523,12 @@ msgstr "Nom Z-A"
 #: app/desktopManager.js:1424
 #, fuzzy
 msgid "Modified Time"
-msgstr "Heure modifiée"
+msgstr "Temps modifié"
 
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "Taper"
+msgstr "Type"
 
 #: app/desktopManager.js:1426
 #, fuzzy
@@ -534,17 +538,17 @@ msgstr "Taille"
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Restez arrangé…"
+msgstr "Ne bougez pas.."
 
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Gardez empilé par type…"
+msgstr "Gardez Stacked by Type.."
 
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Trier Accueil/Disques/Corbeille…"
+msgstr "Trier Dossier personnel, Corbeille et volumes…"
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
@@ -577,17 +581,17 @@ msgstr "Ordonner les icônes"
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Organiser par…"
+msgstr "Arranger par.."
 
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Afficher le bureau dans les fichiers GNOME"
+msgstr "Show Desktop Dans les fichiers GNOME"
 
 #: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Ouvrir dans le terminal"
+msgstr "Ouvrir un terminal"
 
 #: app/desktopManager.js:1474
 msgid "Change Background…"
@@ -596,7 +600,7 @@ msgstr "Changer l’arrière‑plan…"
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Paramètres de l'icône du bureau"
+msgstr "Préférences des icônes du bureau"
 
 #: app/desktopManager.js:1480
 msgid "Display Settings"
@@ -605,7 +609,7 @@ msgstr "Paramètres d’affichage"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
-msgstr "La fenêtre des préférences est ouverte"
+msgstr "Préférences La fenêtre est ouverte"
 
 #: app/desktopManager.js:1523
 #, fuzzy
@@ -619,22 +623,22 @@ msgstr "Paramètres"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "La création du dossier a échoué"
+msgstr "Folder Creation Failed"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Impossible de créer le dossier"
+msgstr "Impossible de créer un dossier"
 
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Erreur de création de modèle"
+msgstr "Template Creation Error"
 
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "Impossible de créer le document"
+msgstr "Impossible de créer un document"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -654,24 +658,23 @@ msgstr ""
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Échec de l'ouverture du fichier"
+msgstr "Fichier d'ouverture Failed"
 
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr ""
-"Aucune application n'est installée pour ouvrir les fichiers de type \"{foo}\""
+msgstr "Il n'y a pas d'application installée pour ouvrir des fichiers \"{foo}\""
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Impossible d'ouvrir le fichier"
+msgstr "Impossible. Fichier"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "${appName} ne peut pas ouvrir les fichiers de ce type !"
+msgstr "${appName} ne peut pas ouvrir les fichiers de ce type!"
 
 #: app/fileItem.js:350
 msgid "Broken Desktop File"
@@ -745,12 +748,12 @@ msgstr "Ouvrir tout…"
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Courir"
+msgstr "Run"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "Ouvrir avec {foo}"
+msgstr "Ouvrez avec {foo}"
 
 #: app/fileItemMenu.js:313
 msgid "Open"
@@ -771,7 +774,7 @@ msgstr "Tout ouvrir avec une autre application…"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Ouvrir avec..."
+msgstr "Ouvrez avec..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -801,12 +804,12 @@ msgstr "Couper"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Déménager à..."
+msgstr "Allez..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Copier..."
+msgstr "Bien reçu..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -818,10 +821,11 @@ msgid "Create Link..."
 msgstr "Créer un lien..."
 
 #: app/fileItemMenu.js:379
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
-msgstr[1] "Compresser {0} dossiers"
+msgstr[1] "Comprenez les dossiers {0}"
 
 #: app/fileItemMenu.js:386
 msgid "Compress {0} file"
@@ -832,12 +836,12 @@ msgstr[1] "Compresser {0} fichiers"
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Email to..."
-msgstr "Envoyer à..."
+msgstr "Email à..."
 
 #: app/fileItemMenu.js:398
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Envoyer vers un appareil mobile"
+msgstr "Envoyer à Appareil mobile"
 
 #: app/fileItemMenu.js:402
 msgid "Move to Trash"
@@ -895,7 +899,7 @@ msgstr "Extraction annulée"
 #: app/fileItemMenu.js:553
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
+msgstr "Impossible à extraire Fichier, pas de dossier de destination"
 
 #: app/fileItemMenu.js:585
 #, fuzzy
@@ -905,12 +909,12 @@ msgstr "Déplacement annulé"
 #: app/fileItemMenu.js:586
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Impossible de déplacer les fichiers, pas de dossier de destination"
+msgstr "Impossible de déplacer des fichiers, aucun dossier de destination"
 
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Sélectionner la destination"
+msgstr "Sélectionnez Destination"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -924,7 +928,7 @@ msgstr "Copie annulée"
 #: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Impossible de copier les fichiers, pas de dossier de destination"
+msgstr "Impossible de copier des fichiers, aucun dossier de destination"
 
 #: app/fileItemMenu.js:703
 msgid "Can not email a Directory"
@@ -970,12 +974,12 @@ msgstr "Toujours utiliser pour ce type de fichier"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Annuler"
+msgstr "Annuler"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Ouvrir"
+msgstr "_Ouvert"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1127,8 +1131,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
-"Afficher de nouvelles icônes sur le moniteur non principal s'il est connecté"
+msgstr "Afficher de nouvelles icônes sur moniteur non primaire si connecté"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
@@ -1137,7 +1140,7 @@ msgid ""
 "monitor"
 msgstr ""
 "Si un deuxième moniteur est connecté, de nouvelles icônes sont placées sur "
-"le moniteur secondaire"
+"le moniteur non primaire"
 
 #, fuzzy
 #~ msgid "No Extraction Folder"

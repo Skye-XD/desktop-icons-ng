@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -106,7 +106,7 @@ msgstr "Øvre venstre hjørne"
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Øvre høyre hjørne"
+msgstr "Øvr"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
@@ -116,7 +116,7 @@ msgstr "Nedre venstre hjørne"
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Nederste høyre hjørne"
+msgstr "Nedre høyre hjørne"
 
 #: app/adwPreferencesWindow.js:240
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -125,27 +125,27 @@ msgstr "Legg til nye ikoner på sekundærskjermer først, hvis tilgjengelig"
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Vis den personlige mappen på skrivebordet"
+msgstr "Vis hjemmemappen på skrivebordet"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Vis søppelikonet på skrivebordet"
+msgstr "Vis papirkurvsikonet på skrivebordet"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Vis eksterne stasjoner på skrivebordet"
+msgstr "Vis eksterne enheter på skrivebordet"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Vis nettverksstasjoner på skrivebordet"
+msgstr "Vis nettverkslagringsenheter på skrivebordet"
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Legg til nye stasjoner på motsatt side av skrivebordet"
+msgstr "Legg til nye lagringsenheter på motsatt side av skjermen"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
@@ -327,7 +327,7 @@ msgstr "Skriv inn et passord her"
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "Fjerner delvis fil '${outputFile}'"
+msgstr "Fjerner delvis fil «${outputFile}»"
 
 #: app/autoAr.js:368
 msgid "Creating destination folder"
@@ -336,7 +336,7 @@ msgstr "Oppretter målmappe"
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Trekker ut filer til '${outputPath}'"
+msgstr "Pakker ut filer til «${outputPath}»"
 
 #: app/autoAr.js:430
 msgid "Extraction completed"
@@ -373,7 +373,7 @@ msgstr "Sammenpakking fullført"
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Komprimering av filer til '${outputFile}' er fullført."
+msgstr "Sammenpakking av filer til «{outputFile}» fullført."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 msgid "Cancelled compression"
@@ -418,12 +418,12 @@ msgstr "Passordbeskyttet .zip må installeres på Windows og macOS."
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Mindre arkiver, men kun Linux og Mac."
+msgstr "Mindre arkiv, men kun for Linux og macOS."
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Mindre arkiver, men må installeres på Windows og Mac."
+msgstr "Mindre arkiv, men må installeres på Windows og macOS."
 
 #: app/desktopManager.js:125
 #, fuzzy
@@ -445,7 +445,7 @@ msgstr "Kopier"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Link"
+msgstr "Sammenlenk"
 
 #: app/desktopManager.js:726
 msgid "Choose Action for Files"
@@ -454,7 +454,7 @@ msgstr "Velg handling for filer"
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Å lage SymLink mislyktes"
+msgstr "Opprettelse av symbolsk lenke mislyktes"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
@@ -464,7 +464,7 @@ msgstr "Kunne ikke opprette symbolsk kobling"
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Fjern gjeldende valg før nytt søk"
+msgstr "Tøm nåværende utvalg før nytt søk"
 
 #: app/desktopManager.js:1167
 msgid "Find Files on Desktop"
@@ -534,7 +534,7 @@ msgstr "Sorter ikoner"
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Arrangert av…"
+msgstr "Sorter etter …"
 
 #: app/desktopManager.js:1468
 #, fuzzy
@@ -572,7 +572,7 @@ msgstr "Innstillinger"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Oppretting av mappe mislyktes"
+msgstr "Mappeopprettelse mislyktes"
 
 #: app/desktopManager.js:2485
 #, fuzzy
@@ -582,7 +582,7 @@ msgstr "Kunne ikke opprette mappe"
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Feil ved opprettelse av mal"
+msgstr "Malopprettelse mislyktes"
 
 #: app/desktopManager.js:2529
 #, fuzzy
@@ -649,8 +649,8 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Denne .desktop-filen har feil tillatelser. Høyreklikk for å redigere "
-"egenskaper, deretter:\n"
+"Denne .desktop-filen har uriktige tilganger. Høyreklikk for å redigere "
+"egenskaper, og så:\n"
 
 #: app/fileItem.js:360
 #, fuzzy
@@ -659,7 +659,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Angi tillatelser i «Andre tilgang», «Skrivebeskyttet» eller «Ingen»</b>"
+"<b>Sett tilganger i «Andre Tilgang» «Skrivebeskyttet», eller «Ingen»</b>"
 
 #: app/fileItem.js:363
 msgid ""
@@ -690,7 +690,7 @@ msgstr[1] "Ny mappe med {0} elementer"
 #: app/fileItemMenu.js:304
 #, fuzzy
 msgid "Open All..."
-msgstr "Åpne alle..."
+msgstr "Åpne alle …"
 
 #: app/fileItemMenu.js:309
 #, fuzzy
@@ -826,7 +826,7 @@ msgstr "Egenskaper"
 #: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Show All in Files"
-msgstr "Vis alt i filer"
+msgstr "Vis alle i filer"
 
 #: app/fileItemMenu.js:430
 #, fuzzy
@@ -840,7 +840,7 @@ msgstr "Åpne i terminal"
 #: app/fileItemMenu.js:552
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Utvinning avbrutt"
+msgstr "Utpakking avbrutt"
 
 #: app/fileItemMenu.js:553
 #, fuzzy
@@ -900,8 +900,8 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"For at denne funksjonaliteten skal fungere i skrivebordsikoner, må du "
-"installere \"${programName}\" i systemet ditt."
+"For at dette skal virke for skrivebordsikoner må du installere "
+"«${programName}» på systemet ditt."
 
 #: app/utils/desktopIconsUtil.js:146
 msgid "Command not found"
@@ -920,12 +920,12 @@ msgstr "Bruk alltid for denne filtypen"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Avbryt"
+msgstr "Avbryt"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Åpen"
+msgstr "Åpne"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -938,12 +938,12 @@ msgstr "Sett størrelsen for skrivebordsikonene."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
 #, fuzzy
 msgid "Show personal folder"
-msgstr "Vis personlig mappe"
+msgstr "Vis hjemmemappe"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 #, fuzzy
 msgid "Show the personal folder in the desktop."
-msgstr "Vis den personlige mappen på skrivebordet."
+msgstr "Vis hjemmemappen på skrivebordet."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
@@ -960,22 +960,22 @@ msgstr "Oppstartshjørne for nye ikoner"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 #, fuzzy
 msgid "Set the corner from where the icons will start to be placed."
-msgstr "Angi hjørnet der ikonene skal begynne å plasseres."
+msgstr "Sett hjørnet du vil begynne plassering av ikonene i."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 #, fuzzy
 msgid "Show external drives in the desktop"
-msgstr "Vis eksterne stasjoner på skrivebordet"
+msgstr "Vis eksterne enheter på skrivebordet"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 #, fuzzy
 msgid "Show the disk drives connected to the computer."
-msgstr "Vis diskstasjonene som er koblet til datamaskinen."
+msgstr "Vis lagringsenhetene tilknyttet datamaskinen."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 #, fuzzy
 msgid "Show network drives in the desktop"
-msgstr "Vis nettverksstasjoner på skrivebordet"
+msgstr "Vis nettverkslagringsenheter på skrivebordet"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
@@ -996,7 +996,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 #, fuzzy
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr "Viser et rektangel på destinasjonsstedet under DnD"
+msgstr "Viser firkant i målmappen ved dra-og-slipp"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 #, fuzzy
@@ -1004,13 +1004,13 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"Når du utfører en Drag'n'Drop-operasjon, markerer du stedet i rutenettet der "
-"ikonet skal plasseres med et halvgjennomsiktig rektangel."
+"Markerer stedet i rutenettet med semigjennomsiktig firkant der ikonene vil "
+"legges med dra-og-slipp."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Sorter spesielle mapper - Hjem/Søppelstasjoner."
+msgstr "Sorter spesialmapper — Hjem/papirkurv/lagringsenheter."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 #, fuzzy
@@ -1018,8 +1018,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"Når du arrangerer ikoner på skrivebordet, for å sortere og endre posisjonen "
-"til hjemmet, papirkurven og montert nettverk eller eksterne stasjoner"
+"Endre posisjon for hjemmemappen, papirkurv og montert nettverkslagring eller "
+"eksterne lagringsenheter ved sortering av ikoner på skrivebordet"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1040,22 +1040,22 @@ msgstr "Ikoner sortert etter denne egenskapen"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 #, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Hold ikoner stablet"
+msgstr "Behold ikoner stablet"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Hold alltid ikoner stablet. Lignende typer er gruppert"
+msgstr "Alltid behold ikoner stablet. Lignende ikoner grupperes."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
 msgid "Type of Files to not Stack"
-msgstr "Type filer som ikke skal stables"
+msgstr "Filtyper å ikke stable"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "En rekke strengtyper, ikke stable disse filtypene"
+msgstr "En samling strengtyper. Ikke stable disse filtypene."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Use Nemo instead of Nautilus to open folders."
@@ -1068,7 +1068,7 @@ msgstr "Legg til et emblem for lenker"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Legg til et emblem for å tillate å identifisere myke lenker."
+msgstr "Legg til et emblem for å identifisere myke lenker."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Use black for label text"
@@ -1080,8 +1080,8 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"Mal etikettteksten i svart i stedet for hvit. Nyttig ved bruk av lys "
-"bakgrunn."
+"Bruk svart for etikett-tekst istedenfor hvit. Nyttig ved bruk av lyse "
+"bakgrunner."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Show new icons on non primary monitor if connected"
@@ -1092,9 +1092,7 @@ msgstr "Vis nye ikoner på annet enn hovedskjerm hvis dette er tilkoblet"
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
-msgstr ""
-"Hvis en annen skjerm er tilkoblet, plasseres nye ikoner på den ikke-primære "
-"skjermen"
+msgstr "Hvis en annen skjerm er tilkoblet vil nye ikoner plasseres på denne"
 
 #~ msgid "No Extraction Folder"
 #~ msgstr "Ingen utpakkingsmappe"

@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-07-17 10:55+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ro/>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -102,22 +102,22 @@ msgstr "Aliniere pictograme noi"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
-msgstr "Coltul din stanga sus"
+msgstr "Colțul stânga-sus"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Coltul din dreapta-sus"
+msgstr "Colțul dreapta-sus"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Colțul din stânga jos"
+msgstr "Colțul stânga-jos"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Coltul din dreapta jos"
+msgstr "Colțul dreapta-jos"
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
@@ -129,27 +129,27 @@ msgstr ""
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Afișați folderul personal pe desktop"
+msgstr "Afișează dosarul personal pe desktop"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Afișați pictograma coș de gunoi pe desktop"
+msgstr "Arată coșul de gunoi pe desktop"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Afișați unități externe pe desktop"
+msgstr "Arată unitățile externe pe desktop"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Afișați unitățile de rețea pe desktop"
+msgstr "Arată unitățile de rețea pe desktop"
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Adăugați noi unități pe partea opusă a desktopului"
+msgstr "Adaugă unitățile noi în colțul opus al ecranului"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
@@ -498,7 +498,7 @@ msgstr "Nu s-a putut crea legătura simbolică"
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Ștergeți selecția curentă înainte de o nouă căutare"
+msgstr "Șterge selecția curentă înainte de o Căutare Nouă"
 
 #: app/desktopManager.js:1167
 msgid "Find Files on Desktop"
@@ -532,7 +532,7 @@ msgstr "mărimea"
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Păstrați aranjat…"
+msgstr "Aranjează automat…"
 
 #: app/desktopManager.js:1433
 #, fuzzy
@@ -542,7 +542,7 @@ msgstr "Păstrați stivuite după tip…"
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sortare Acasă/Drive/Coș de gunoi…"
+msgstr "Sortează Acasă/Unități/Coș de gunoi…"
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
@@ -585,7 +585,7 @@ msgstr "Afișați desktopul în fișierele GNOME"
 #: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Deschideți în terminal"
+msgstr "Deschide în terminal"
 
 #: app/desktopManager.js:1474
 msgid "Change Background…"
@@ -594,7 +594,7 @@ msgstr "Schimbă fundalul..."
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Setări pictograme desktop"
+msgstr "Setări Pictograme Desktop"
 
 #: app/desktopManager.js:1480
 msgid "Display Settings"
@@ -969,12 +969,12 @@ msgstr "Utilizați întotdeauna pentru acest tip de fișier"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Anulare"
+msgstr "Anulează"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Deschis"
+msgstr "Deschide"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

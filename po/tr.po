@@ -14,16 +14,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-08-02 02:02+0000\n"
+"PO-Revision-Date: 2023-09-04 16:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -39,7 +39,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "ince ayarlar"
+msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -54,32 +54,32 @@ msgstr "Masaüstü Ayarları"
 #: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Masaüstü Programı Ayarları"
+msgstr "Masaüstü Programı için ayarlar"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Birimler"
+msgstr "Ciltler"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Masaüstü birimleri ekranı"
+msgstr "Masaüstü hacimleri ekran görüntüsü"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "Dosya Ayarları"
+msgstr "Dosyalar Ayarlar"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Gnome Files ile paylaşılan ayarlar"
+msgstr "Gnome Files ile paylaşılan platformlar"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Çeşitli Düzenlemeler"
+msgstr "Miscellaneous Tweaks"
 
 #: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
@@ -113,7 +113,7 @@ msgstr "Sol üst köşe"
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Sağ üst köşe"
+msgstr "Sağ üst Köşe"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
@@ -128,7 +128,7 @@ msgstr "Sağ alt köşe"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Varsa, önce İkincil Monitörlere yeni simgeler ekleyin"
+msgstr "İlk önce ikincil monitörlere yeni simgeler ekleyin, eğer mevcut olursa"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
@@ -138,7 +138,7 @@ msgstr "Kişisel klasörü masaüstünde göster"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Çöp simgesini masaüstünde göster"
+msgstr "Çöp kutusunu masaüstünde göster"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
@@ -153,12 +153,12 @@ msgstr "Ağ sürücülerini masaüstünde göster"
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Masaüstünün karşı tarafına yeni sürücüler ekleyin"
+msgstr "Masaüstünün tam tersine yeni sürücüler ekleyin"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Sürükle ve Bırak sırasında bırakma ızgarasını vurgulayın"
+msgstr "Yüksek ışığı Drag ve Drop sırasında damla ızgara"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -176,7 +176,7 @@ msgstr "Simge etiketlerinde koyu metin kullan"
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Öğeleri Açma Eylemi"
+msgstr "Açık Eşyalara Eylem"
 
 #: app/adwPreferencesWindow.js:257
 msgid "Single click"
@@ -197,7 +197,7 @@ msgstr "Her zaman"
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "On this computer only"
-msgstr "Yalnızca bu bilgisayarda"
+msgstr "Bu bilgisayarda sadece"
 
 #: app/adwPreferencesWindow.js:266
 msgid "Never"
@@ -214,7 +214,7 @@ msgstr "Gizli dosyaları göster"
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Klasörleri sürükleyerek aç"
+msgstr "Sürüklenme üzerine açık klasörler"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -224,7 +224,7 @@ msgstr "İnternet sitesi"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Ziyaret etmek"
+msgstr "Ziyaret Ziyaret Ziyareti"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -232,8 +232,9 @@ msgid "Issues"
 msgstr "Sorunlar"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "Tartışma sorunları"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -243,50 +244,52 @@ msgstr "Rapor"
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "Lisans"
+msgstr "Lisans Lisans Lisans Lisans Lisans Lisans Lisans"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Tercüme Çeviri"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "Web tarayıcınızda çevirin Yardım"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Çeviri çevirisi"
 
 #: app/appChooser.js:50
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "<b>{foo}</b>'i açmak için bir uygulama seçin"
+msgstr "<b>{foo}</b>"
 
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Açık Öğeler"
+msgstr "Açık öğeler"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Açık dosya"
+msgstr "Open Folder"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Açık dosya"
+msgstr "Open File"
 
 #: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Varsayılan uygulama değiştirilirken hata oluştu"
+msgstr "Hata değişen varsayılan uygulama"
 
 #: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
-"{foo}, {mimetype} için varsayılan uygulama olarak ayarlanırken hata oluştu"
+msgstr "Hata, {foo} varsayılan uygulama olarak {mimetype}"
 
 #: app/askRenamePopup.js:48
 msgid "Folder name"
@@ -307,7 +310,7 @@ msgstr "Yeniden Adlandır"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "AutoAr yüklü değil"
+msgstr "Auto Auto Auto Auto Ar yüklü değildir"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -315,18 +318,18 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Sıkıştırılmış dosyalarla çalışabilmek için file-roller ve/veya gir-1.2-"
-"gnomeAutoAr yükleyin"
+"Sıkıştırılmış dosyalarla çalışabilmek için, file-roller ve/veya z-1.2-gnome "
+"AutoAr"
 
 #: app/autoAr.js:198
 #, fuzzy
 msgid "Extracting files"
-msgstr "Dosyaları ayıklamak"
+msgstr "Dosyalar"
 
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Dosyaları sıkıştırma"
+msgstr "Açıklama dosyaları"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -336,32 +339,32 @@ msgstr "İptal"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Buraya bir şifre girin"
+msgstr "Burada bir şifre girin"
 
 #: app/autoAr.js:349
 #, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "'${outputFile}' kısmi dosyası kaldırılıyor"
+msgstr "Kısmi dosyasının kaldırılması \"${outputFile} ‘ ‘ ‘"
 
 #: app/autoAr.js:368
 #, fuzzy
 msgid "Creating destination folder"
-msgstr "hedef klasör oluşturma"
+msgstr "Hedef klasörü oluşturmak"
 
 #: app/autoAr.js:400
 #, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Dosyalar '${outputPath}' içine ayıklanıyor"
+msgstr "Dosyaları '${PaPath} ‘ ‘ ‘"
 
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Çıkarma tamamlandı"
+msgstr "Ekstraksiyon tamamlandı tamamlandı"
 
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "'${fullPathFile}' dosyasının çıkarılması tamamlandı."
+msgstr "\"${fullPathFile\" tamamlandı."
 
 #: app/autoAr.js:437
 #, fuzzy
@@ -371,65 +374,62 @@ msgstr "Çıkarma iptal edildi"
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
-"'${fullPathFile}' dosyasının çıkarılması kullanıcı tarafından iptal edildi."
+msgstr "\"${fullPathFile}\" kullanıcı tarafından iptal edilmiştir."
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "${filename} için parola gerekli"
+msgstr "Passphrase ${filename}"
 
 #: app/autoAr.js:451
 #, fuzzy
 msgid "Error during extraction"
-msgstr "Çıkarma sırasında hata"
+msgstr "Ekstraksiyon sırasında hata"
 
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Dosyaları '${outputFile}' içine sıkıştırma"
+msgstr "Dosyaları '${outputFile} ‘ ‘ ‘"
 
 #: app/autoAr.js:491
 #, fuzzy
 msgid "Compression completed"
-msgstr "Sıkıştırma tamamlandı"
+msgstr "Tamamlandı"
 
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Dosyaların '${outputFile}' içine sıkıştırılması tamamlandı."
+msgstr "Dosyaları ‘${outputFile} tamamlandı."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
 msgid "Cancelled compression"
-msgstr "İptal edilen sıkıştırma"
+msgstr "İptal Edildi"
 
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "'${outputFile}' çıktı dosyası zaten var."
+msgstr "Çıktı dosyası ‘${outputFile} zaten var."
 
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"Dosyaların '${outputFile}' içine sıkıştırılması kullanıcı tarafından iptal "
-"edildi."
+msgstr "Dosyaları “${outputFile} kullanıcı tarafından iptal edildi."
 
 #: app/autoAr.js:507
 #, fuzzy
 msgid "Error during compression"
-msgstr "Sıkıştırma sırasında hata"
+msgstr "Frekans sırasında hata"
 
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Arşiv oluştur"
+msgstr "Create archive archive"
 
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "arşiv adı"
+msgstr "Arşiv adı"
 
 #: app/autoAr.js:599
 #, fuzzy
@@ -439,42 +439,42 @@ msgstr "Şifre"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Yaratmak"
+msgstr "Create Create Create Create Create"
 
 #: app/autoAr.js:683
 #, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "Tüm işletim sistemleri ile uyumludur."
+msgstr "Tüm işletim sistemleri ile uyumlu."
 
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Parola korumalı .zip, Windows ve Mac'e yüklenmelidir."
+msgstr "Şifre korumalı .zip, Windows ve Mac üzerinde kurulmalıdır."
 
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Daha küçük arşivler ancak yalnızca Linux ve Mac."
+msgstr "Küçük arşivler ama Linux ve Mac sadece."
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Daha küçük arşivler ancak Windows ve Mac'e yüklenmesi gerekir."
+msgstr "Küçük arşivler ancak Windows ve Mac üzerinde kurulmalıdır."
 
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "GNOME Dosyaları bulunamadı"
+msgstr "GNOME Dosyalar bulunamadı"
 
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "GNOME Dosyaları uygulaması, Desktop Icons NG tarafından gereklidir."
+msgstr "GNOME Dosyalar uygulama, Masaüstü Icons NG tarafından gereklidir."
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Taşınmak"
+msgstr "Move Move Move Move"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -483,27 +483,27 @@ msgstr "Kopyala"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Bağlantı"
+msgstr "Link Link Link Link Link"
 
 #: app/desktopManager.js:726
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Dosyalar için İşlemi Seçin"
+msgstr "Dosyalar için Eylem seçin"
 
 #: app/desktopManager.js:796 app/desktopManager.js:828
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "SymLink'i Başarısız Hale Getirme"
+msgstr "SymLink Başarısız Oldu"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Sembolik bağlantı oluşturulamadı"
+msgstr "Sembolik bağlantı oluşturmayabilir"
 
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Yeni aramadan önce mevcut seçimi temizle"
+msgstr "Yeni Aramadan Önce Mevcut Seçimi Temizle"
 
 #: app/desktopManager.js:1167
 msgid "Find Files on Desktop"
@@ -512,42 +512,42 @@ msgstr "Masaüstündeki Dosyaları Bul"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "İsim"
+msgstr "Name Name Name Name Name Name Name Name Name Name Name Name"
 
 #: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
-msgstr "isim ZA"
+msgstr "Ad Z-A"
 
 #: app/desktopManager.js:1424
 #, fuzzy
 msgid "Modified Time"
-msgstr "Değiştirilen Zaman"
+msgstr "Değiştirilmiş Zaman"
 
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "Tip"
+msgstr "Tipi Tipi Tipi Tipi"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "Boyut"
+msgstr "Boyut Boyutu"
 
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Düzenli tutun…"
+msgstr "Arranged'ı tut.."
 
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Türüne Göre Yığmaya Devam Edin…"
+msgstr "Tip tarafından takılmış olun.."
 
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sırala Ana Sayfa/Sürücüler/Çöp Kutusu…"
+msgstr "Evi/Sürücüleri/Çöp Kutusunu Sırala…"
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
@@ -580,17 +580,17 @@ msgstr "Simgeleri Sırala"
 #: app/desktopManager.js:1463
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Düzenle…"
+msgstr "Arrange By.."
 
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "GNOME Dosyalarında Masaüstünü Göster"
+msgstr "Show Desktop GNOME Files"
 
 #: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Terminalde Aç"
+msgstr "Uçbirimde Aç"
 
 #: app/desktopManager.js:1474
 msgid "Change Background…"
@@ -599,7 +599,7 @@ msgstr "Arka Planı Değiştir…"
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Masaüstü Simge Ayarları"
+msgstr "Masaüstü Simgeleri Ayarları"
 
 #: app/desktopManager.js:1480
 msgid "Display Settings"
@@ -608,12 +608,12 @@ msgstr "Görüntü Ayarları"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
-msgstr "Tercihler Penceresi Açık"
+msgstr "Tercihler Pencere Açık"
 
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "Bu Pencere açık. Lütfen etkin pencereye geçin."
+msgstr "Bu pencere açık. Lütfen aktif pencereye geçiş yapın."
 
 #: app/desktopManager.js:1537
 msgid "Settings"
@@ -622,22 +622,22 @@ msgstr "Ayarlar"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Klasör Oluşturulamadı"
+msgstr "Kater Yaratılış Başarısız"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Klasör oluşturulamadı"
+msgstr "Klasörü oluşturamaz"
 
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Şablon Oluşturma Hatası"
+msgstr "Şablon oluşturma hatası"
 
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "Doküman oluşturulamadı"
+msgstr "Belge oluşturmayabilir"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -655,23 +655,23 @@ msgstr "Bozuk bir Sembolik Bağlantı olduğu için bu Dosya açılamıyor"
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Dosya Açma Başarısız"
+msgstr "Açılış Dosyası Başarısız"
 
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr "\"{foo}\" tipi dosyaları açmak için kurulu bir uygulama yok"
+msgstr "\"{foo}\" tür dosyaları açmak için yüklü bir uygulama yoktur"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosya açılamadı"
+msgstr "Açıklanamaz Dosya"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "${appName}, bu Türdeki dosyaları açamaz!"
+msgstr "${appName} bu Type dosyaları açamaz!"
 
 #: app/fileItem.js:350
 msgid "Broken Desktop File"
@@ -695,8 +695,8 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Bu .desktop Dosyasının izinleri yanlış. Özellikleri düzenlemek için Sağ "
-"Tıklayın, ardından:\n"
+"Bu .desktop Dosya yanlış izinlere sahiptir. Doğru Özellikler düzenlemek için "
+"tıklayın, sonra:\n"
 
 #: app/fileItem.js:360
 #, fuzzy
@@ -705,7 +705,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>\"Diğer Erişim\", \"Salt Okunur\" veya \"Yok\"ta İzinleri Ayarla</b>"
+"<b>Set Permissions, \"Diğerleri Erişim\", \"Sadece\" veya \"None.\""
 
 #: app/fileItem.js:363
 #, fuzzy
@@ -714,8 +714,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>\"Dosyanın Program Olarak Yürütülmesine İzin Ver\" seçeneğini "
-"etkinleştirin</b>"
+"<b>Enable seçenek, \"Allow Executing File as a Program.\""
 
 #: app/fileItem.js:371
 #, fuzzy
@@ -725,10 +724,10 @@ msgid ""
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
-"Bu .desktop dosyası güvenilir değil, başlatılamaz. Başlatmayı etkinleştirmek "
-"için sağ tıklayın, ardından:\n"
+"Bu .desktop dosyası güvenilir değildir, başlatılamaz. Başlamak için, doğru "
+"tıklama, sonra:\n"
 "\n"
-"<b>\"Başlatmaya İzin Ver\"i Etkinleştir</b>"
+"<b>Enable \"Allow Starting\" (X127X)"
 
 #: app/fileItemMenu.js:297
 msgid "New Folder with {0} item"
@@ -742,12 +741,12 @@ msgstr "Tümünü Aç..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Koşmak"
+msgstr "Run Run Run"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "{foo} ile aç"
+msgstr "Open with {foo}"
 
 #: app/fileItemMenu.js:313
 msgid "Open"
@@ -768,7 +767,7 @@ msgstr "Tümünü Başka Uygulamayla Aç..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Bununla aç..."
+msgstr "Open With..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -777,17 +776,17 @@ msgstr "Özel Grafik Kartı kullanarak başlatın"
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Stack This Type"
-msgstr "Bu Türü Yığınla"
+msgstr "Bu Tür"
 
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Unstack This Type"
-msgstr "Bu Türü Kaldır"
+msgstr "Unstack This Type"
 
 #: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Run as a Program"
-msgstr "Program Olarak Çalıştır"
+msgstr "Program olarak çalıştır"
 
 #: app/fileItemMenu.js:357
 msgid "Scripts"
@@ -800,7 +799,7 @@ msgstr "Kes"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Taşınmak..."
+msgstr "Move to..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
@@ -814,13 +813,13 @@ msgstr "Yeniden Adlandır…"
 #: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Create Link..."
-msgstr "Bağlantı Oluştur..."
+msgstr "Create Link..."
 
 #: app/fileItemMenu.js:379
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "{0} klasörü sıkıştır"
+msgstr[0] "Compress {0} klasörler"
 
 #: app/fileItemMenu.js:386
 msgid "Compress {0} file"
@@ -835,7 +834,7 @@ msgstr "E-posta..."
 #: app/fileItemMenu.js:398
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Mobil Cihaza Gönder"
+msgstr "Mobile Device'a gönder"
 
 #: app/fileItemMenu.js:402
 msgid "Move to Trash"
@@ -888,27 +887,27 @@ msgstr "Uçbirimde Aç"
 #: app/fileItemMenu.js:552
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Çıkarma İptal Edildi"
+msgstr "Ekstraksiyon Cancelled"
 
 #: app/fileItemMenu.js:553
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Dosya çıkarılamıyor, hedef klasör yok"
+msgstr "Çıkarılabilir Dosya, hedef klasörü yok"
 
 #: app/fileItemMenu.js:585
 #, fuzzy
 msgid "Move Cancelled"
-msgstr "Taşıma İptal Edildi"
+msgstr "Move Cancelled"
 
 #: app/fileItemMenu.js:586
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Dosyalar taşınamıyor, hedef klasör yok"
+msgstr "Files'ı hareket etmek için kullanılamaz, hiçbir destinasyon klasörü"
 
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Varış yerini seçin"
+msgstr "Hedef seçin"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -917,12 +916,12 @@ msgstr "Seç"
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Kopyalama İptal Edildi"
+msgstr "Kopya Cancelled"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Dosyalar kopyalanamıyor, hedef klasör yok"
+msgstr "Dosyalar kopyalamak için kullanılamaz, hedef klasörü yok"
 
 #: app/fileItemMenu.js:703
 msgid "Can not email a Directory"
@@ -940,7 +939,7 @@ msgstr "Kapat"
 #: app/utils/dbusUtils.js:53
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "Masaüstü Simgeleri için \"${programName}\" gereklidir"
+msgstr "\"${programName}\" Masaüstü Icons için gereklidir"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -949,8 +948,8 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Bu işlevin Masaüstü Simgelerinde çalışması için sisteminize "
-"\"${programName}\" yüklemeniz gerekir."
+"Masaüstü Icons'ta çalışmak için, sisteminizde \"${programName} yüklemeniz "
+"gerekir."
 
 #: app/utils/desktopIconsUtil.js:146
 msgid "Command not found"
@@ -964,17 +963,17 @@ msgstr "Seçilen dosyaları açmak için bir uygulama seçin."
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "Her zaman bu dosya türü için kullan"
+msgstr "Her zaman bu dosya türü için kullanın"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_İptal etmek"
+msgstr "_Cancel"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Açık"
+msgstr "_Open"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1079,12 +1078,12 @@ msgstr "Simgeler bu düzene göre sıralandı"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 #, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Simgeleri Yığılmış Tutun"
+msgstr "Icons Stacked"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Simgeleri Her Zaman Yığılmış Tutun, Benzer türler gruplandırılır"
+msgstr "Her zaman Icons Stacked kalır, Benzer türler gruplanır"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 msgid "Type of Files to not Stack"
@@ -1093,7 +1092,7 @@ msgstr "Yığılı tutulmayacak dosyaların türü"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Dizi türleri, bu tür dosyaları İstifleme"
+msgstr "Bir dizi dize türü, bu tür dosyaları yüklemeyin"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Use Nemo instead of Nautilus to open folders."
@@ -1106,8 +1105,7 @@ msgstr "Bağlantılara amblem ekle"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr ""
-"Esnek bağlantıların tanımlanmasına izin vermek için bir amblem ekleyin."
+msgstr "Yumuşak bağlantıları tanımlamak için bir amblem ekleyin."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Use black for label text"
@@ -1119,13 +1117,13 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"Etiket metnini beyaz yerine siyaha boyayın. Açık renkli arka planlar "
-"kullanırken kullanışlıdır."
+"Beyaz yerine etiket metni kara renkte. Işık arka planlarını kullanırken "
+"kullanışlı."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Bağlıysa birincil olmayan monitörde yeni simgeler göster"
+msgstr "Bağlantıya bağlı olarak birincil monitörde yeni simgeler göster"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
@@ -1133,7 +1131,7 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"İkinci bir monitör bağlanırsa, birincil olmayan monitöre yeni simgeler "
+"İkinci bir monitör bağlanırsa, yeni simgeler birincil monitörlere "
 "yerleştirilir"
 
 #, fuzzy
