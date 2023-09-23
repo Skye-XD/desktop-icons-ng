@@ -278,6 +278,7 @@ const DingManager = class {
                 this._stopDbusService();
         } else if (!this.dbusConnectionId || !this.dbusConnectionName) {
             this.dbusConnectionId = this._acquireDBusName();
+            this.x11Manager.refreshWindows();
         }
     }
 

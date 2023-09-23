@@ -156,6 +156,11 @@ class ManageWindow {
                                 return Meta.WindowType.DESKTOP;
                             };
                             this._window.stick();
+                            // There seems to be a Meta bug that loses the stick() after session unlock, fix that
+                            // by adding a JSobject property.
+                            this._window.is_on_all_workspaces = function () {
+                                return true;
+                            }
                             this._keepAtTop = false;
                             break;
                         case 'T':
@@ -223,6 +228,10 @@ class ManageWindow {
 
         if (this._keepAtBottom)
             this._window.lower();
+    }
+
+    refreshProperties() {
+        this._parseTitle();
     }
 
     get hideFromWindowList() {
@@ -380,6 +389,12 @@ var EmulateX11WindowType = class {
                 return GLib.SOURCE_REMOVE;
             });
         }
+    }
+
+    // After shell unlock, window seems to lose stick property, refresh window properties
+    refreshWindows() {
+        for (let window of this._windowList)
+            window.customJS_ding.refreshProperties();
     }
 };
 
