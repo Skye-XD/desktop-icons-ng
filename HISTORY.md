@@ -1,4 +1,8 @@
 # History of versions #
+* Gtk4 verion 56
+ * Fix bug - Meta does not seem to honor window.stick() after gnome-shell unlock (usually 3rd time). (Sundeep Mediratta)
+ * update metadata.json, History.md. Version Bump to 56. Sync with EGO
+
 * Gtk4 version 53
   * EGO requested changes to extension.js, limit imports.
   * Update Metadata.json, History.md, Version Bump to 53.
