@@ -1,17 +1,26 @@
 # History of versions #
-* Gtk4 verion 56
+* Gtk4 version 58 for Gnome 45
+ * Fix stickyness loss with drag and drop of the DING actor in other extensions. (Sundeep Mediratta)
+ * Incorporate changes for window tiling to right, left or top bottom of workspace with gestures from rastersoft, Sergio Costas.
+ * Update metadat.json, History.md. Version Bump to 58, synct with EGO
+
+* Gtk4 version 57 for Gnome 44
+  * Drag and drop of desktop actor in windowlist extension can make the window loose stick(). Fix so that window is always stick() and on all workspaces. (Sundeep Mediratta)
+  Update metadata.json, History.md, Version Bump to 57 to sync with EGO.
+
+* Gtk4 verion 56 Gnome 45
  * Fix bug - Meta does not seem to honor window.stick() after gnome-shell unlock (usually 3rd time). (Sundeep Mediratta)
  * update metadata.json, History.md. Version Bump to 56. Sync with EGO
 
-* Gtk4 version 53
+* Gtk4 version 53 Gnome 45
   * EGO requested changes to extension.js, limit imports.
   * Update Metadata.json, History.md, Version Bump to 53.
 
-* Gtk4 version 52
+* Gtk4 version 52 Gnome 45
   * EGO requested changes to extension.js, limit imports.
   * Update Metadata.json, History.md, Version Bump to 52.
 
-* Gtk4 version 51
+* Gtk4 version 51 Gnome 45
   * Updates all files to ESM imports for Gnome 45. (Sundeep Mediratta).
   * Fix ESM race conditon top level await bug with runAsync() for Adw.Application. Fix as suggested by Florian Mullner.
   * Fix preferences window launch bug. (Sundeep Mediratta)
@@ -20,7 +29,7 @@
   * update gtk4-ding.pot, weblate translations.
   * Update Metadata.json, History.md. Verion Bump to 51.
 
-* Gtk4 version 50
+* Gtk4 version 50 for Gnome 45
   * Updates for Gnome 45 to work with other extensions and fix errors
   * Fix Drag and Drop on Dock - decrease offset to detect drag over dock, got broken by one pixel in Gnome 45. (Sundeep Mediratta)
   * Fix synthesize hover to deselect hover on actor if disabled. Drop all refrences to the hovered actor on disable and timeout. (Sundeep Mediratta)
@@ -30,19 +39,19 @@
   * Further eslint clean up with new upstream eslint rules for Gnome Shell and GJS.
   * Update metadata.json, History.md. Version Bump to 50.
 
-* Gtk4 version 49
+* Gtk4 version 49 for Gnome 44
   * Maintainence fix release for Gnome 44 and lower with fixes backported from the Gnome 45 branch, Gtk4 version 48
   * Fix synthesize hover to deselect hover on actor if disabled. (Sundeep Mediratta)
   * Fix tooltip popovers - destroy completely on popdown. (Sundeep Mediratta)
   * Don't start gnome shell drop if extension control dbus not available, eg. when testing. Prevents unnecceary errors. (Sundeep Mediratta)
   * Update metadata.json, History.md. Version Bump to 49 to sync with EGO.
 
-* Gtk4 version 48
+* Gtk4 version 48 Gnome 45
   * Move extension.js and all files as well as the app to ESM imports.(Sundeep Mediratta)
   * Translations update. (Weblate)
   * update metadata.json, History.md, Version Bump to 48.
 
-* Gtk4 version 47
+* Gtk4 version 47  - Branch point to Gnome 44 maintainence branch, last common branch prior to Gnome 45
   * Makes DING windows Meta.WindowType.DESKTOP and is_on_all_workspacesso that it works perfectly with Gnome Shell without unlimited workspaces. Also works with auto-move-windows with no further modifications. Minimal overrides to gnome shell workspaceAnimation.js to support this, remove prior multiple overrides. (Sundeep Mediratta)
   * When doing drag and drop over the dock, synthesize a hover event to highlight the dock item correctly as well as to enable scrolling and insure visibility of the app icon when it is crolled out of view on the Dock. (Sundeep Mediratta)
   * Fix DbusUtils regressions. (Sundeep Mediratta)

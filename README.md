@@ -199,6 +199,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] Fix - Meta does not honor window.stick() after 3rd shell unlock. Desktop Window would not be on all desktops after 3rd unlock.
 
+- [x] Fix - DING window actor thumbnail could be dragged and dropped in other extensions like workspace indicator. Prevent this showing icons only on one workspace.
+
 **KNOWN ISSUES**
 
 - [x] FIXED - UNLIMITED WORKSPACES TO THE RIGHT- with Meta.WindowType.DESKTOOP, window on all workspaces and minimal shell overrides - ~~auto-move-windows from gnome extensions patches the gnome shell workspace tracker that breaks Gtk4 DING gnome shell override to the same functions in the shell. This can still result in unlimited workspaces, and makes an empty workspace to the right of the current workspace if it only has the DING window. The only correct solution is to enable gtk4-DING first and then auto-move-windows, but this is not a viable long term solution. The best recommended action is to completely disable auto-move-windows extension. Highly recommend smart-auto-move-windows from EGO that works perfectly with Gtk4-DING, with even better functionality and more features thant the alod auto-move-windows, and appears to do so without patching/overriding the Gnome Shell.~~
