@@ -79,9 +79,25 @@ class ManageWindow {
             this._window.unminimize();
         }));
 
-        this._workSpaceSwitchID = global.window_manager.connect('switch-workspace',
-            this._onWorkSpaceChanged.bind(this)
-        );
+        this._signalIDs.push(window.connect('notify::maximized-vertically', () => {
+            if (!window.maximized_vertically)
+                window.maximize(Meta.MaximizeFlags.VERTICAL);
+            this._moveIntoPlace();
+        }));
+
+        this._signalIDs.push(window.connect('notify::maximized-horizontally', () => {
+            if (!window.maximized_horizontally)
+                window.maximize(Meta.MaximizeFlags.HORIZONTAL);
+            this._moveIntoPlace();
+        }));
+
+        this._signalIDs.push(window.connect('notify::on-all-workspaces',
+            this._checkOnAllWorkspaces.bind(this)
+        ));
+
+        this._signalIDs.push(window.connect('workspace-changed',
+            this._checkOnAllWorkspaces.bind(this)
+        ));
 
         /* If a window is lowered with shortcuts, detect and fix DING window */
         this._restackedID = global.display.connect('restacked',
@@ -97,8 +113,11 @@ class ManageWindow {
                 this._window.disconnect(signalID);
         }
 
-        if (this._workSpaceSwitchID)
-            global.window_manager.disconnect(this._workSpaceSwitchID);
+        if (this._checkOnAllWorkspaces_ID)
+            GLib.source_remove(this._checkOnAllWorkspaces_ID);
+
+        if (this._moveIntoPlaceID)
+            GLib.source_remove(this._moveIntoPlaceID);
 
         if (this._restackedID)
             global.display.disconnect(this._restackedID);
@@ -123,7 +142,9 @@ class ManageWindow {
         this._showInAllDesktops = false;
         this._hideFromWindowList = false;
         this._fixed = false;
+        this._desktopWindow = false;
         let title = this._window.get_title();
+
         if (title !== null) {
             if ((title.length > 0) && (title[title.length - 1] === ' ')) {
                 if ((title.length > 1) && (title[title.length - 2] === ' '))
@@ -152,15 +173,6 @@ class ManageWindow {
                         switch (char) {
                         case 'B':
                             this._keepAtBottom = true;
-                            this._window.get_window_type = function () {
-                                return Meta.WindowType.DESKTOP;
-                            };
-                            this._window.stick();
-                            // There seems to be a Meta bug that loses the stick() after session unlock, fix that
-                            // by adding a JSobject property.
-                            this._window.is_on_all_workspaces = function () {
-                                return true;
-                            }
                             this._keepAtTop = false;
                             break;
                         case 'T':
@@ -178,10 +190,12 @@ class ManageWindow {
                             break;
                         }
                     }
+                    this._desktopWindow = this._keepAtBottom && !this._keepAtTop && this._showInAllDesktops && this._hideFromWindowList;
                 } catch (e) {
                     global.log(`Exception ${e.message}.\n${e.stack}`);
                 }
             }
+
             if (this._fixed && (this._x !== null) && (this._y !== null))
                 this._window.move_frame(true, this._x, this._y);
 
@@ -191,14 +205,31 @@ class ManageWindow {
                 else
                     this._waylandClient.show_in_window_list(this._window);
             }
+
             if (this._keepAtTop !== keepAtTop) {
                 if (this._keepAtTop)
                     this._window.make_above();
                 else
                     this._window.unmake_above();
             }
+
             if (this._keepAtBottom)
                 this._window.lower();
+
+            if (this._showInAllDesktops) {
+                this._window.stick();
+                this._window.is_on_all_workspaces = function () {
+                    return true;
+                };
+            } else {
+                this._window.unstick();
+            }
+
+            if (this._desktopWindow) {
+                this._window.get_window_type = function () {
+                    return Meta.WindowType.DESKTOP;
+                };
+            }
 
             let moveDesktopWindowToBottom = true;
             let activateTopWindowOnWorkspace = true;
@@ -206,8 +237,35 @@ class ManageWindow {
         }
     }
 
-    _onWorkSpaceChanged() {
-        this._onIdleActivateTopWindowOnActiveWorkspace();
+    _checkOnAllWorkspaces() {
+        if (this._checkOnAllWorkspaces_ID)
+            GLib.source_remove(this._checkOnAllWorkspaces_ID);
+
+        this._checkOnAllWorkspaces_ID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
+            if (this._showInAllDesktops && !this._window.on_all_workspaces)
+                this._window.stick();
+
+            // the above should fix the problem, however this is an extra step
+            let currentWorkspace = global.workspace_manager.get_active_workspace();
+            if (!this._window.located_on_workspace(currentWorkspace))
+                this._window.change_workspace(currentWorkspace);
+
+            this._onIdleActivateTopWindowOnActiveWorkspace();
+            this._checkOnAllWorkspaces_ID = null;
+            return GLib.SOURCE_REMOVE;
+        });
+    }
+
+    _moveIntoPlace() {
+        if (this._moveIntoPlaceID)
+            GLib.source_remove(this._moveIntoPlaceID);
+
+        this._moveIntoPlaceID = GLib.timeout_add(GLib.PRIORITY_LOW, 250, () => {
+            if (this._fixed && (this._x !== null) && (this._y !== null))
+                this._window.move_frame(true, this._x, this._y);
+            this._moveIntoPlaceID = 0;
+            return GLib.SOURCE_REMOVE;
+        });
     }
 
     _onIdleActivateTopWindowOnActiveWorkspace() {
@@ -240,6 +298,10 @@ class ManageWindow {
 
     get keepAtBottom() {
         return this._keepAtBottom;
+    }
+
+    get desktopWindow() {
+        return this._desktopWindow;
     }
 }
 
