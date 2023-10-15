@@ -1,8 +1,15 @@
 # History of versions #
+* Gtk4 version 59 for Gnome 45
+ * Fix crash on lock screen. (Sundeep Mediratta)
+ * Remove X11 state workaround code, as GJS is fixed upstream and does not have this bug. (Sundeep Mediratta)
+ * Clean up Dbus stopping code and destroy all objects. (Sundeep Mediratta)
+ * Dbus Object is no longer stopped on the lock screen, simplifies code. (Sundeep Mediratta)
+ * Update metadata.json, Version Bump to 59.
+
 * Gtk4 version 58 for Gnome 45
  * Fix stickyness loss with drag and drop of the DING actor in other extensions. (Sundeep Mediratta)
  * Incorporate changes for window tiling to right, left or top bottom of workspace with gestures from rastersoft, Sergio Costas.
- * Update metadat.json, History.md. Version Bump to 58, synct with EGO
+ * Update metadata.json, History.md. Version Bump to 58, sync with EGO
 
 * Gtk4 version 57 for Gnome 44
   * Drag and drop of desktop actor in windowlist extension can make the window loose stick(). Fix so that window is always stick() and on all workspaces. (Sundeep Mediratta)
