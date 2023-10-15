@@ -243,8 +243,6 @@ const DingManager = class {
      *
      */
     _onBusAcquired(connection) {
-        if (this.dbusConnectionName)
-            return;
         this.dingExtensionServiceImplementation = new DingExtensionService(this._updateDesktopGeometry.bind(this));
         this.dingExtensionServiceInterface = Gio.DBusExportedObject.wrapJSObject(ifaceXml,
             this.dingExtensionServiceImplementation);
@@ -253,10 +251,14 @@ const DingManager = class {
     }
 
     _stopDbusService() {
+        this.dingExtensionServiceInterface.unexport();
         this.dingExtensionServiceImplementation.disable();
+        this.dingExtensionServiceImplementation = null;
+        this.dingExtensionServiceInterface = null;
         Gio.bus_unown_name(this.dbusConnectionId);
         this.dbusConnectionId = 0;
-        log(`${this.dbusConnectionName} DBus Name Relenquished`);
+        log(`${this.dbusConnectionName} DBus Name Relinquished`);
+        this.dbusConnectionName = null;
     }
 
 
@@ -273,13 +275,8 @@ const DingManager = class {
     _onActiveChanged(connection, sender, path, iface, signal, params) {
         const value = params.get_child_value(0);
         const locked = value.get_boolean();
-        if (locked) {
-            if (this.dbusConnectionId)
-                this._stopDbusService();
-        } else if (!this.dbusConnectionId || !this.dbusConnectionName) {
-            this.dbusConnectionId = this._acquireDBusName();
+        if (!locked)
             this.x11Manager.refreshWindows();
-        }
     }
 
     /**
