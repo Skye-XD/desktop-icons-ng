@@ -314,7 +314,7 @@ var EmulateX11WindowType = class {
      */
     constructor() {
         this._isX11 = !Meta.is_wayland_compositor();
-        this._windowList = null;
+        this._windowList = new Set();
         this._overviewHiding = true;
         this._waylandClient = null;
     }
@@ -328,9 +328,6 @@ var EmulateX11WindowType = class {
     }
 
     enable() {
-        if (!this._windowList)
-            this._windowList = new Set();
-
         this._idMap = global.window_manager.connect_after('map', (obj, windowActor) => {
             let window = windowActor.get_meta_window();
             if (this._waylandClient && this._waylandClient.query_window_belongs_to(window))
