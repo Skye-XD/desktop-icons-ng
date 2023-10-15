@@ -59,6 +59,23 @@ const GnomeShellDrag = class {
         );
     }
 
+    async _lookOffLeftEdgeForDrop(shellDropCoordinates) {
+        // Apply offset so that we do not detect the drag icon surface
+        let [a, b] = this._dragItem.dragSourceOffset;
+        let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this._dragItem.iconRectangle.height / 2];
+        // With Gnome 45, the x offset has to be decreased by one to get off the drag surface of the icon
+        leftEdge[0] -= 1;
+        // look upto 50 pixels away for a drop target, off the drag surface to the left
+        for (let i = 0; i <= 50; i += 10) {
+            leftEdge[0] -= i;
+            // eslint-disable-next-line no-await-in-loop
+            this._currentDesktopFileAppPath = await this._DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
+            if (this._currentDesktopFileAppPath)
+                break;
+        }
+        this._setShellDropCursor();
+    }
+
     async _dockUriSpringTimerFunction() {
         // Failsafe kill the function - remove the timer if going on for too long, default 30 seconds
         if (!this._dragItem || (GLib.get_monotonic_time() - this._dockSpringOpenTime) > this._Enums.DND_SHELL_HOVER_POLL * 150000) {
@@ -71,13 +88,9 @@ const GnomeShellDrag = class {
         }
 
         let shellDropCoordinates = await this._DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
-        // Apply offset so that we do not detect the drag icon surface
-        let [a, b] = this._dragItem.dragSourceOffset;
-        let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this._dragItem.iconRectangle.height / 2];
-        // With Gnome 45, the x offset has to be decreased by one to get off the drag surface of the icon
-        leftEdge[0] -= 1;
-        this._currentDesktopFileAppPath = await this._DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
-        this._setShellDropCursor();
+
+        this._lookOffLeftEdgeForDrop(shellDropCoordinates);
+
         if (!this._currentDesktopFileAppPath ||
                 !(this._currentDesktopFileAppPath.endsWith('Nautilus.desktop') ||
                 this._currentDesktopFileAppPath.startsWith('file://') ||
