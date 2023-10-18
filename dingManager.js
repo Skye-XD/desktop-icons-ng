@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
+ * Copyright(C) 2023 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
  * Based on code original (C) Carlos Soriano
  *
@@ -133,24 +134,24 @@ const DingManager = class {
 
         // If the desktop is still starting up, we wait until it is ready
         if (Main.layoutManager._startingUp) {
-            this.startupPreparedId = Main.layoutManager.connect('startup-complete', this._innerEnable.bind(this));
+            this.startupPreparedId = Main.layoutManager.connect('startup-complete', this._activateDelayedLaunch.bind(this));
         } else {
             this.startupPrepareId = null;
-            this._innerEnable();
+            this._activateDelayedLaunch();
         }
     }
 
     /**
      * The true code that configures everything and launches the desktop program
      */
-    _innerEnable() {
+    _activateDelayedLaunch() {
         if (this.killingProcess) {
             this.startupProcessKillWaitId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
                 if (this.killingProcess)
                     return GLib.SOURCE_CONTINUE;
 
                 this.startupProcessKillWaitId = 0;
-                this._innerEnable();
+                this._activateDelayedLaunch();
                 return GLib.SOURCE_REMOVE;
             });
             return;
@@ -215,6 +216,57 @@ const DingManager = class {
     }
 
     /**
+     * Disables the extension. For Gnome > 42 the extension runs with the session mode 'unlock-dialog'.
+     * This allows the extension to keep running when the lock screen comes on. The advantage is that
+     * the Gtk4 programs that are spawned by this extension keep running, rendering all the file icons
+     * on the desktop. When the user logs back in the desktop is already rendered and running, the
+     * desktop program does not need to be first killed on the lock-screen and then launced again on
+     * unlock.
+     *
+     * If disable is called, it explictly kill the desktop program. This will hapen on log out.
+     */
+    disable() {
+        this.isEnabled = false;
+        this.DesktopIconsUsableArea = null;
+        this._killCurrentProcess();
+        this.GnomeShellOverride.disable();
+        this.x11Manager.disable();
+        this.visibleArea.disable();
+
+        if (this.startupProcessKillWaitId) {
+            GLib.source_remove(this.startupProcessKillWaitId);
+            this.startupProcessKillWaitId = 0;
+        }
+        if (this.startupPreparedId) {
+            Main.layoutManager.disconnect(this.startupPreparedId);
+            this.startupPreparedId = 0;
+        }
+        if (this.monitorsChangedId) {
+            Main.layoutManager.disconnect(this.monitorsChangedId);
+            this.monitorsChangedId = 0;
+        }
+        if (this.workareasChangedId) {
+            global.display.disconnect(this.workareasChangedId);
+            this.workareasChangedId = 0;
+        }
+        if (this.visibleAreaId) {
+            this.visibleArea.disconnect(this.visibleAreaId);
+            this.visibleAreaId = 0;
+        }
+        if (this.dbusConnectionId)
+            this._stopDbusService();
+
+        if (this.lockSignalhandlerId) {
+            Gio.DBus.session.signal_unsubscribe(this.lockSignalhandlerId);
+            this.lockSignalhandlerId = 0;
+        }
+        if (this.remoteGeometryUpdateRequestedId) {
+            Gio.DBus.session.signal_unsubscribe(this.remoteGeometryUpdateRequestedId);
+            this.remoteGeometryUpdateRequestedId = 0;
+        }
+    }
+
+    /**
      * Acquire the DBus Name on the Session Bus
      *
      */
@@ -251,7 +303,8 @@ const DingManager = class {
     }
 
     _stopDbusService() {
-        this.dingExtensionServiceInterface.unexport();
+        if (this.dingExtensionServiceInterface)
+            this.dingExtensionServiceInterface.unexport();
         this.dingExtensionServiceImplementation.disable();
         this.dingExtensionServiceImplementation = null;
         this.dingExtensionServiceInterface = null;
@@ -263,7 +316,7 @@ const DingManager = class {
 
 
     /**
-     * Start stop the  Dbus Service with screen locks and unlocks
+     * Start stop needed functions with screen locks and unlocks
      *
      * @param {GObject} connection the Dbus Connection
      * @param {string} sender the numeric Dbus Sender address
@@ -278,77 +331,6 @@ const DingManager = class {
         if (!locked)
             this.x11Manager.refreshWindows();
     }
-
-    /**
-     * Kills the current desktop program
-     */
-    _killCurrentProcess() {
-        if (this.launchDesktop) {
-            GLib.source_remove(this.launchDesktop);
-            this.launchDesktop = 0;
-        }
-
-        // kill the desktop program. It will be reloaded automatically.
-        if (this.waylandClient && this.waylandClient.subprocess) {
-            this.waylandClient.cancellable.cancel();
-            this.waylandClient.subprocess.send_signal(15);
-        }
-        this.waylandClient = null;
-        this.x11Manager.set_wayland_client(null);
-    }
-
-    /**
-     * Disables the extension. Under Gnome 42 the extension runs with the session mode 'unlock-dialog'.
-     * This allows the extension to keep running when the lock screen comes on. The advantage is that
-     * the Gtk4 programs that are spawned by this extension keep running, rendering all the file icons
-     * on the desktop. When the user logs back in the desktop is already rendered and running, the
-     * desktop program does not need to be first killed on the lock-screen and then launced again on
-     * unlock.
-     *
-     * If disable is called, it explictly kill the desktop program. This will hapen on log out.
-     */
-    disable() {
-        this.isEnabled = false;
-        this.DesktopIconsUsableArea = null;
-        this._killCurrentProcess();
-        this.GnomeShellOverride.disable();
-        this.x11Manager.disable();
-        this.visibleArea.disable();
-
-        if (this.startupProcessKillWaitId) {
-            GLib.source_remove(this.startupProcessKillWaitId);
-            this.startupProcessKillWaitId = 0;
-        }
-        if (this.dbusConnectionId)
-            this._stopDbusService();
-
-        // disconnect signals only if connected
-        if (this.lockSignalhandlerId) {
-            Gio.DBus.session.signal_unsubscribe(this.lockSignalhandlerId);
-            this.lockSignalhandlerId = 0;
-        }
-        if (this.remoteGeometryUpdateRequestedId) {
-            Gio.DBus.session.signal_unsubscribe(this.remoteGeometryUpdateRequestedId);
-            this.remoteGeometryUpdateRequestedId = 0;
-        }
-        if (this.visibleAreaId) {
-            this.visibleArea.disconnect(this.visibleAreaId);
-            this.visibleAreaId = 0;
-        }
-        if (this.startupPreparedId) {
-            Main.layoutManager.disconnect(this.startupPreparedId);
-            this.startupPreparedId = 0;
-        }
-        if (this.monitorsChangedId) {
-            Main.layoutManager.disconnect(this.monitorsChangedId);
-            this.monitorsChangedId = 0;
-        }
-        if (this.workareasChangedId) {
-            global.display.disconnect(this.workareasChangedId);
-            this.workareasChangedId = 0;
-        }
-    }
-
 
     /**
      * Sends updated geometry data to the DING desktop program over DBus
@@ -384,6 +366,23 @@ const DingManager = class {
         return new GLib.Variant('av', desktopList);
     }
 
+    /**
+     * Kills the current desktop program
+     */
+    _killCurrentProcess() {
+        if (this.launchDesktop) {
+            GLib.source_remove(this.launchDesktop);
+            this.launchDesktop = 0;
+        }
+
+        // kill the desktop program. It will be reloaded automatically.
+        if (this.waylandClient && this.waylandClient.subprocess) {
+            this.waylandClient.cancellable.cancel();
+            this.waylandClient.subprocess.send_signal(15);
+        }
+        this.waylandClient = null;
+        this.x11Manager.set_wayland_client(null);
+    }
 
     /**
      * This function checks all the processes in the system and kills those

@@ -373,7 +373,6 @@ var EmulateX11WindowType = class {
             this._clearWindow(window);
 
         this._windowList.clear();
-        this._windowList = null;
 
         // disconnect signals
         if (this._idMap) {
