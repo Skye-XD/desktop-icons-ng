@@ -666,7 +666,7 @@ var DingExtensionService = class {
         if (!dropX || !dropY)
             [dropX, dropY] = global.get_pointer().slice(0, 2);
 
-        actor = global.get_stage().get_actor_at_pos(Clutter.PickMode.ALL, dropX, dropY);
+        actor = global.get_stage().get_actor_at_pos(Clutter.PickMode.REACTIVE, dropX, dropY);
         let i = 0;
         let checkactor;
 
