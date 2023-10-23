@@ -60,12 +60,8 @@ const GnomeShellDrag = class {
     }
 
     async _lookOffLeftEdgeForDrop(shellDropCoordinates) {
-        // Apply offset so that we do not detect the drag icon surface
-        let [a, b] = this._dragItem.dragSourceOffset;
-        let leftEdge = [shellDropCoordinates[0] - a, shellDropCoordinates[1] - b + this._dragItem.iconRectangle.height / 2];
-        // With Gnome 45, the x offset has to be decreased by one to get off the drag surface of the icon
-        leftEdge[0] -= 1;
-        // look upto 50 pixels away for a drop target, off the drag surface to the left
+        let leftEdge = shellDropCoordinates;
+        // look upto 50 pixels away for a drop target, off the drag cursor to the left
         for (let i = 0; i <= 50; i += 10) {
             leftEdge[0] -= i;
             // eslint-disable-next-line no-await-in-loop
