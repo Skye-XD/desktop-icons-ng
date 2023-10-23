@@ -1,4 +1,21 @@
 # History of versions #
+Gtk4 version 62 for Gnome 45
+ * More precise and intuitive drop on gnome shell, eg dock, on actor under cursor instead of the left edge of the drag Icon. (Sundeep Mediratta)
+ * Remove un-needed line break code in label, enforce Gtk3 style of naturalwrap mode for text. Reportedly looks icons look better. (Sundeep Mediratta)
+ * Fix remaining errors in disable code in dingManager. (Sundeep Mediratta)
+ * Merge Weblate translation updates. (Weblate Authors)
+ * Update metadata.json. Version Bump to 62, update History.md and Readme.md
+
+* Gtk4 version 61 for Gnome 44
+ * More precise and intuitive drop on gnome shell, ie dock, on actor under cursor instead of the left edge of the drag Icon.
+ * Remove un-needed line break code in label, enforce Gtk3 style of naturalwrap mode for text. Reportedly looks icons look better.
+ * Now only for Gnome shell 44!
+ * Update metadata.json. Version Bump to 61, update History.md
+
+* Gtk4 version 60 for Gnome 44
+ * Backport all fixes from version 59 to Gnome 44 maintainence branch. (Sundeep Mediratta)
+ * Update metadata.json, Version Bump 60, update History.md
+
 * Gtk4 version 59 for Gnome 45
  * Fix crash on lock screen. (Sundeep Mediratta)
  * Remove X11 state workaround code, as GJS is fixed upstream and does not have this bug. (Sundeep Mediratta)
