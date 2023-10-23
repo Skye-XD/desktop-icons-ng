@@ -121,10 +121,12 @@ const DesktopIconItem = class {
         else
             this._label.add_css_class('file-label');
 
+        this._label.set_natural_wrap_mode(Gtk.NaturalWrapMode.NONE);
         this._label.set_ellipsize(Pango.EllipsizeMode.END);
         this._label.set_wrap(true);
         this._label.set_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this._label.set_yalign(0.0);
+        this._label.set_xalign(0.0);
         this._label.set_justify(Gtk.Justification.CENTER);
         this._label.set_lines(2);
         this._labelContainer.set_name('file-item');
@@ -240,39 +242,8 @@ const DesktopIconItem = class {
     }
 
     _setLabelName(text) {
-        var nextChar;
         this._currentFileName = text;
-        let lastCutPos = -1;
-        let newText = '';
-        for (let pos = 0; pos < text.length; pos++) {
-            let character = text[pos];
-            newText += character;
-            if (pos < (text.length - 1))
-                nextChar = text[pos + 1];
-            else
-                nextChar = '';
-
-            if (character === ' ')
-                lastCutPos = pos;
-
-            if (['.', ',', '-', '_', '@', ':'].includes(character)) {
-                /* if the next character is already an space or this is the last
-                 * character, the string will be naturally cut here, so we do
-                 * nothing.
-                 */
-                if ((nextChar === ' ') || (nextChar === ''))
-                    continue;
-
-                /* if there is a cut element in the last four previous characters,
-                 * do not add a new cut element.
-                 */
-                if ((lastCutPos > -1) && ((pos - lastCutPos) < 4))
-                    continue;
-
-                newText += '\u200B';
-            }
-        }
-        this._label.label = newText;
+        this._label.label = text;
     }
 
     /** *********************
