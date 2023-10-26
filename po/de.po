@@ -1,16 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the ding package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Tim Hofstede <phokas@mail.de>, 2021.
-#
+# Laurenz Bihlmayer <lrdarknesss@yahoo.de>, 2023.
+# Andreas Rohr <github@andreas-rohr.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-10-24 16:04+0000\n"
+"Last-Translator: Andreas Rohr <github@andreas-rohr.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -18,10 +18,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.1.1-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
-#, fuzzy
 msgid "Desktop"
 msgstr "Desktop"
 
@@ -111,9 +110,8 @@ msgid "Top right corner"
 msgstr "Ecke oben rechts"
 
 #: app/adwPreferencesWindow.js:236
-#, fuzzy
 msgid "Bottom left corner"
-msgstr "Ecke unten links"
+msgstr "Untere linke Ecke"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
@@ -121,9 +119,8 @@ msgid "Bottom right corner"
 msgstr "Ecke unten rechts"
 
 #: app/adwPreferencesWindow.js:240
-#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Füg zu neue Ikonen zu Sekundär Monitore zuerst, ob verfügbar"
+msgstr "Neue Symbole zuerst zu sekundären Monitoren hinzufügen, falls verfügbar"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
@@ -306,9 +303,8 @@ msgid "Rename"
 msgstr "Umbenennen ..."
 
 #: app/autoAr.js:66
-#, fuzzy
 msgid "AutoAr is not installed"
-msgstr "AutoAr Ist nicht installiert"
+msgstr "AutoAr ist nicht installiert"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -325,9 +321,8 @@ msgid "Extracting files"
 msgstr "Gewinnend Dateien"
 
 #: app/autoAr.js:215
-#, fuzzy
 msgid "Compressing files"
-msgstr "#Zusammenpressen Dateien"
+msgstr "Dateien komprimieren"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -335,9 +330,8 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: app/autoAr.js:306 app/autoAr.js:603
-#, fuzzy
 msgid "Enter a password here"
-msgstr "Betritt hier ein Passwort"
+msgstr "Geben Sie hier ein Passwort ein"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -345,9 +339,8 @@ msgid "Removing partial file '${outputFile}'"
 msgstr "Entfernend partielle Datei '${outputFile}s"
 
 #: app/autoAr.js:368
-#, fuzzy
 msgid "Creating destination folder"
-msgstr "Schaffen Reiseziel Ordner"
+msgstr "Erstelle Zielordner"
 
 #: app/autoAr.js:400
 #, fuzzy
@@ -380,26 +373,20 @@ msgid "Passphrase required for ${filename}"
 msgstr "#Passphrase bedürft für ${filename}"
 
 #: app/autoAr.js:451
-#, fuzzy
 msgid "Error during extraction"
-msgstr "Fehler während Gewinnung"
+msgstr "Fehler beim Extrahieren"
 
 #: app/autoAr.js:478
-#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "#Zusammenpressen Dateien hinein '${outputFile}s"
+msgstr "Dateien nach '${outputFile}' komprimieren"
 
 #: app/autoAr.js:491
-#, fuzzy
 msgid "Compression completed"
-msgstr "Kompression vervollständigte"
+msgstr "Komprimierung abgeschlossen"
 
 #: app/autoAr.js:492
-#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
-"#Zusammenpressen Dateien hinein '${outputFile}s gewesen haben "
-"vervollständigt."
+msgstr "Das Komprimieren von Dateien nach '${outputFile}' wurde abgeschlossen."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
@@ -412,11 +399,10 @@ msgid "The output file '${outputFile}' already exists."
 msgstr "Die Ausgabe Datei '${outputFile}s schon existiert."
 
 #: app/autoAr.js:504
-#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr ""
-"#Zusammenpressen Dateien hinein '${outputFile}s gewesen haben gestrichen #"
-"bei dem Nutzer."
+"Das Komprimieren von Dateien nach '${outputFile}' wurde vom Benutzer "
+"abgebrochen."
 
 #: app/autoAr.js:507
 #, fuzzy
@@ -424,14 +410,12 @@ msgid "Error during compression"
 msgstr "Fehler während Kompression"
 
 #: app/autoAr.js:542
-#, fuzzy
 msgid "Create archive"
-msgstr "Schaff Archiv"
+msgstr "Archiv erstellen"
 
 #: app/autoAr.js:566
-#, fuzzy
 msgid "Archive name"
-msgstr "Archiv Name"
+msgstr "Archivname"
 
 #: app/autoAr.js:599
 #, fuzzy
@@ -439,14 +423,12 @@ msgid "Password"
 msgstr "Passwort"
 
 #: app/autoAr.js:612
-#, fuzzy
 msgid "Create"
-msgstr "Schaff"
+msgstr "Erstellen"
 
 #: app/autoAr.js:683
-#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "Vereinbar mit alle Betriebssystemen."
+msgstr "Kompatibel mit allen Betriebssystemen."
 
 #: app/autoAr.js:689
 #, fuzzy
@@ -500,14 +482,12 @@ msgid "Making SymLink Failed"
 msgstr "Machen SymLink Gescheitert"
 
 #: app/desktopManager.js:797 app/desktopManager.js:829
-#, fuzzy
 msgid "Could not create symbolic link"
-msgstr "#Können nicht schaffen symbolisches Band"
+msgstr "Symbolischer Link konnte nicht erstellt werden"
 
 #: app/desktopManager.js:1121
-#, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Aktuelle Auswahl vor neuer Suche löschen"
+msgstr "Aktuelle Auswahl vor einer neuen Suche löschen"
 
 #: app/desktopManager.js:1167
 msgid "Find Files on Desktop"
@@ -582,9 +562,8 @@ msgid "Arrange Icons"
 msgstr "Symbole anordnen"
 
 #: app/desktopManager.js:1463
-#, fuzzy
 msgid "Arrange By…"
-msgstr "Ordne an Mal…"
+msgstr "Anordnen nach…"
 
 #: app/desktopManager.js:1468
 #, fuzzy
@@ -601,9 +580,8 @@ msgid "Change Background…"
 msgstr "Hintergrund ändern …"
 
 #: app/desktopManager.js:1479
-#, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Arbeitsfläche-Einstellungen"
+msgstr "Desktop-Icon-Einstellungen"
 
 #: app/desktopManager.js:1480
 msgid "Display Settings"
@@ -629,9 +607,8 @@ msgid "Folder Creation Failed"
 msgstr "Ordner Kreation Scheiterte"
 
 #: app/desktopManager.js:2485
-#, fuzzy
 msgid "Could not create folder"
-msgstr "#Können nicht schaffen Ordner"
+msgstr "Ordner konnte nicht erstellt werden"
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -639,9 +616,8 @@ msgid "Template Creation Error"
 msgstr "Vorlage Kreation Fehler"
 
 #: app/desktopManager.js:2529
-#, fuzzy
 msgid "Could not create document"
-msgstr "#Können nicht schaffen Dokument"
+msgstr "Dokument konnte nicht erstellt werden"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -649,9 +625,8 @@ msgid "Home"
 msgstr "Persönlicher Ordner"
 
 #: app/fileItem.js:266
-#, fuzzy
 msgid "Broken Link"
-msgstr "Zerbrochen Band"
+msgstr "Defekter Link"
 
 #: app/fileItem.js:267
 #, fuzzy
@@ -675,14 +650,12 @@ msgstr "#Können nicht öffnen Datei"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
-#, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "${appName} #Können nicht öffnen Dateien von diesem Typ!"
+msgstr "${appName} kann Dateien dieses Typs nicht öffnen!"
 
 #: app/fileItem.js:350
-#, fuzzy
 msgid "Broken Desktop File"
-msgstr "Zerbrochen Desktop Datei"
+msgstr "Defekte Desktop-Datei"
 
 #: app/fileItem.js:351
 msgid ""
@@ -707,24 +680,21 @@ msgstr ""
 "Besitz, dann:\n"
 
 #: app/fileItem.js:360
-#, fuzzy
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Gesetzt Erlaubnisse, in \"andere Greifen zu\", \"Lest Nur\" oder \"#"
-"nichts\"</b>"
+"<b>Berechtigungen festlegen, in \"Zugriff anderer\", \"Nur lesen\" oder "
+"\"Keine\"</b>"
 
 #: app/fileItem.js:363
-#, fuzzy
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Aktivieren Option, \"#Erlauben Exekutieren Feilen da ein Programmheft\""
-"</b>"
+"<b>Option aktivieren, \"Datei als Programm ausführen\"</b>"
 
 #: app/fileItem.js:371
 msgid ""
@@ -822,11 +792,10 @@ msgid "Create Link..."
 msgstr "Schaff Band..."
 
 #: app/fileItemMenu.js:379
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Press zusammen {0} Ordner"
-msgstr[1] "Press zusammen {0} Ordner"
+msgstr[0] "Komprimiere {0} Ordner"
+msgstr[1] "Komprimiere {0} Ordner"
 
 #: app/fileItemMenu.js:386
 msgid "Compress {0} file"
@@ -947,9 +916,8 @@ msgstr "Schließen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
-#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "\"${programName}\" Ist gebraucht für Desktop Ikonen"
+msgstr "\"${programName}\" wird für Desktop-Icons benötigt"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
