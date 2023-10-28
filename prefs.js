@@ -23,21 +23,25 @@ import * as Enums from './app/enums.js';
 import * as  adwPreferencesWindow from './app/adwPreferencesWindow.js';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
-const GioSSS = Gio.SettingsSchemaSource;
 export default class dingPreferences extends ExtensionPreferences {
-    fillPreferencesWindow(window) {
-        let desktopSettings = this.getSettings();
-        let schemaSource = GioSSS.get_default();
-        let schemaGtk = schemaSource.lookup(Enums.SCHEMA_GTK, true);
-        let gtkSettings = new Gio.Settings({settings_schema: schemaGtk});
-        let schemaNautilus = schemaSource.lookup(Enums.SCHEMA_NAUTILUS, true);
+    constructor(metadata) {
+        super(metadata);
+        const desktopSettings = this.getSettings();
+        const GioSSS = Gio.SettingsSchemaSource;
+        const schemaSource = GioSSS.get_default();
+        const schemaGtk = schemaSource.lookup(Enums.SCHEMA_GTK, true);
+        const gtkSettings = new Gio.Settings({settings_schema: schemaGtk});
+        const schemaNautilus = schemaSource.lookup(Enums.SCHEMA_NAUTILUS, true);
         let nautilusSettings;
         if (!schemaNautilus)
             nautilusSettings = null;
         else
             nautilusSettings = new Gio.Settings({settings_schema: schemaNautilus});
 
-        const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path);
-        preferencesWindow.getAdwPreferencesWindow(window);
+        this.preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path);
+    }
+
+    fillPreferencesWindow(window) {
+        this.preferencesWindow.getAdwPreferencesWindow(window);
     }
 }
