@@ -213,6 +213,8 @@ const DingManager = class {
             Gio.DBusSignalFlags.NONE,
             this._updateDesktopGeometry.bind(this)
         );
+
+        log('gtk4-DING enabled.');
     }
 
     /**
@@ -264,6 +266,7 @@ const DingManager = class {
             Gio.DBus.session.signal_unsubscribe(this.remoteGeometryUpdateRequestedId);
             this.remoteGeometryUpdateRequestedId = 0;
         }
+        log('gtk4-DING disabled.');
     }
 
     /**
@@ -305,12 +308,14 @@ const DingManager = class {
     _stopDbusService() {
         if (this.dingExtensionServiceInterface)
             this.dingExtensionServiceInterface.unexport();
-        this.dingExtensionServiceImplementation.disable();
-        this.dingExtensionServiceImplementation = null;
         this.dingExtensionServiceInterface = null;
+        if (this.dingExtensionServiceImplementation)
+            this.dingExtensionServiceImplementation.disable();
+        this.dingExtensionServiceImplementation = null;
         Gio.bus_unown_name(this.dbusConnectionId);
         this.dbusConnectionId = 0;
-        log(`${this.dbusConnectionName} DBus Name Relinquished`);
+        if (this.dbusConnectionName)
+            log(`${this.dbusConnectionName} DBus Name Relinquished`);
         this.dbusConnectionName = null;
     }
 
