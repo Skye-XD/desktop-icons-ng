@@ -53,92 +53,54 @@ class ManageWindow {
         this._signalIDs = [];
         this._onIdleChangedStatusCallback = changedStatusCB;
 
-        this._signalIDs.push(window.connect_after('raised', () => {
-            if (this._keepAtBottom && !this._keepAtTop)
-                this._window.lower();
-        }));
-
-        this._signalIDs.push(window.connect('position-changed', () => {
-            if (this._fixed && (this._x !== null) && (this._y !== null)) {
-                this._window.move_frame(true, this._x, this._y);
-                if (this._window.fullscreen)
-                    this._window.unmake_fullscreen();
-            }
-        }));
-
-        this._signalIDs.push(window.connect('notify::title', () => {
-            this._parseTitle();
-        }));
-
-        this._signalIDs.push(window.connect('notify::above', () => {
-            if (this._keepAtBottom && this._window.above)
-                this._window.unmake_above();
-        }));
-
-        this._signalIDs.push(window.connect('notify::minimized', () => {
-            this._window.unminimize();
-        }));
-
-        this._signalIDs.push(window.connect('notify::maximized-vertically', () => {
-            if (!window.maximized_vertically)
-                window.maximize(Meta.MaximizeFlags.VERTICAL);
-            this._moveIntoPlace();
-        }));
-
-        this._signalIDs.push(window.connect('notify::maximized-horizontally', () => {
-            if (!window.maximized_horizontally)
-                window.maximize(Meta.MaximizeFlags.HORIZONTAL);
-            this._moveIntoPlace();
-        }));
-
-        this._signalIDs.push(window.connect('notify::on-all-workspaces',
-            this._checkOnAllWorkspaces.bind(this)
-        ));
-
-        this._signalIDs.push(window.connect('workspace-changed',
-            this._checkOnAllWorkspaces.bind(this)
-        ));
-
-        /* If a window is lowered with shortcuts, detect and fix DING window */
-        this._restackedID = global.display.connect('restacked',
-            this._syncToBottomOfStack.bind(this)
-        );
-
-        /* If the desktop is shown with keyboard gnome shortcuts, detect and put
-           DING window back, seems to be needed for X11, works without on Wayland
-        */
-        if (this._isX11) {
-            this._showDesktopID = global.workspace_manager.connect('showing-desktop-changed',
-                this._activateDesktopWindow.bind(this)
-            );
-        }
+        this._titleID = this._window.connect('notify::title', () => {
+            this.refreshProperties();
+        });
 
         this._parseTitle();
+        this._attachControllers();
     }
 
     disconnect() {
-        for (let signalID of this._signalIDs) {
-            if (signalID)
-                this._window.disconnect(signalID);
-        }
+        this._disconnetSignalsAndTimeouts();
 
-        if (this._checkOnAllWorkspaces_ID)
-            GLib.source_remove(this._checkOnAllWorkspaces_ID);
-
-        if (this._moveIntoPlaceID)
-            GLib.source_remove(this._moveIntoPlaceID);
-
-        if (this._restackedID)
-            global.display.disconnect(this._restackedID);
-
-        if (this._showDesktopID)
-            global.workspace_manager.disconnect(this._showDesktopID);
+        if (this._titleID)
+            this._window.disconnect(this._titleID);
+        this._titleID = 0;
 
         if (this._keepAtTop)
             this._window.unmake_above();
 
         this._window = null;
         this._waylandClient = null;
+    }
+
+    _disconnetSignalsAndTimeouts() {
+        for (let signalID of this._signalIDs) {
+            if (signalID)
+                this._window.disconnect(signalID);
+        }
+        this._signalIDs = [];
+
+        if (this._checkOnAllWorkspacesID)
+            GLib.source_remove(this._checkOnAllWorkspacesID);
+        this._checkOnAllWorkspacesID = 0;
+
+        if (this._moveIntoPlaceID)
+            GLib.source_remove(this._moveIntoPlaceID);
+        this._moveIntoPlaceID = 0;
+
+        if (this._restackedBottomID)
+            global.display.disconnect(this._restackedBottomID);
+        this._restackedBottomID = 0;
+
+        if (this._showDesktopID)
+            global.workspace_manager.disconnect(this._showDesktopID);
+        this._showDesktopID = 0;
+
+        if (this._restackedTopID)
+            global.display.disconnect(this._restackedTopID);
+        this._restackedTopID = 0;
     }
 
     set_wayland_client(client) {
@@ -149,7 +111,6 @@ class ManageWindow {
         this._x = null;
         this._y = null;
         this._keepAtBottom = false;
-        let keepAtTop = this._keepAtTop;
         this._keepAtTop = false;
         this._showInAllDesktops = false;
         this._hideFromWindowList = false;
@@ -207,65 +168,62 @@ class ManageWindow {
                     global.log(`Exception ${e.message}.\n${e.stack}`);
                 }
             }
-
-            if (this._fixed && (this._x !== null) && (this._y !== null))
-                this._window.move_frame(true, this._x, this._y);
-
-            if (!this._isX11 && this._waylandClient) {
-                if (this._hideFromWindowList)
-                    this._waylandClient.hide_from_window_list(this._window);
-                else
-                    this._waylandClient.show_in_window_list(this._window);
-            }
-
-            if (this._keepAtTop !== keepAtTop) {
-                if (this._keepAtTop)
-                    this._window.make_above();
-                else
-                    this._window.unmake_above();
-            }
-
-            if (this._keepAtBottom)
-                this._window.lower();
-
-            if (this._showInAllDesktops) {
-                this._window.stick();
-                this._window.is_on_all_workspaces = function () {
-                    return true;
-                };
-            } else {
-                this._window.unstick();
-            }
-
-            if (this._desktopWindow) {
-                this._window.get_window_type = function () {
-                    return Meta.WindowType.DESKTOP;
-                };
-            }
-
-            let moveDesktopWindowToBottom = true;
-            let activateTopWindowOnWorkspace = true;
-            this._onIdleChangedStatusCallback({moveDesktopWindowToBottom, activateTopWindowOnWorkspace});
         }
     }
 
-    _checkOnAllWorkspaces() {
-        if (this._checkOnAllWorkspaces_ID)
-            GLib.source_remove(this._checkOnAllWorkspaces_ID);
+    _attachControllers() {
+        if (this._fixed)
+            this._keepFixedWindowPosition();
 
-        this._checkOnAllWorkspaces_ID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
-            if (this._showInAllDesktops && !this._window.on_all_workspaces)
-                this._window.stick();
+        if (this._hideFromWindowList)
+            this._keepWindowHidden();
+        else
+            this._unhideWindow();
 
-            // the above should fix the problem, however this is an extra step
-            let currentWorkspace = global.workspace_manager.get_active_workspace();
-            if (!this._window.located_on_workspace(currentWorkspace))
-                this._window.change_workspace(currentWorkspace);
+        if (this._keepAtTop)
+            this._keepWindowOnTop();
+        else if (this._window.above)
+            this._window.unmake_above();
 
-            this._onIdleActivateTopWindowOnActiveWorkspace();
-            this._checkOnAllWorkspaces_ID = null;
-            return GLib.SOURCE_REMOVE;
-        });
+        if (this._keepAtBottom & !this._desktopWindow)
+            this._keepWindowAtBottom();
+
+        if (this._showInAllDesktops & !this._desktopWindow)
+            this._showWindowOnAllDesktops();
+        else if (this._window.on_all_workspaces)
+            this._window.unstick();
+
+        if (this._desktopWindow)
+            this._emulateDesktopWindow();
+    }
+
+    _keepFixedWindowPosition() {
+        this._signalIDs.push(this._window.connect('position-changed', () => {
+            if (this._fixed && (this._x !== null) && (this._y !== null)) {
+                this._window.move_frame(true, this._x, this._y);
+                if (this._window.fullscreen)
+                    this._window.unmake_fullscreen();
+            }
+        }));
+
+        this._signalIDs.push(this._window.connect('notify::minimized', () => {
+            this._window.unminimize();
+        }));
+
+        this._signalIDs.push(this._window.connect('notify::maximized-vertically', () => {
+            if (!this._window.maximized_vertically)
+                this._window.maximize(Meta.MaximizeFlags.VERTICAL);
+            this._moveIntoPlace();
+        }));
+
+        this._signalIDs.push(this._window.connect('notify::maximized-horizontally', () => {
+            if (!this._window.maximized_horizontally)
+                this._window.maximize(Meta.MaximizeFlags.HORIZONTAL);
+            this._moveIntoPlace();
+        }));
+
+        if ((this._x !== null) && (this._y !== null))
+            this._window.move_frame(true, this._x, this._y);
     }
 
     _moveIntoPlace() {
@@ -280,9 +238,49 @@ class ManageWindow {
         });
     }
 
-    _onIdleActivateTopWindowOnActiveWorkspace() {
-        let activateTopWindowOnWorkspace = true;
-        this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
+    _keepWindowHidden() {
+        if (!this._isX11 && this._waylandClient)
+            this._waylandClient.hide_from_window_list(this._window);
+    }
+
+    _unhideWindow() {
+        if (!this._isX11 && this._waylandClient)
+            this._waylandClient.show_in_window_list(this._window);
+    }
+
+    _keepWindowAtBottom() {
+        this._signalIDs.push(this._window.connect('notify::above', () => {
+            if (this._keepAtBottom && this._window.above)
+                this._window.unmake_above();
+        }));
+
+        this._signalIDs.push(this._window.connect_after('raised', () => {
+            if (this._keepAtBottom)
+                this._window.lower();
+        }));
+
+        /* If a window is lowered below us with shortcuts, detect and fix DING window */
+        this._restackedBottomID = global.display.connect('restacked',
+            this._syncToBottomOfStack.bind(this)
+        );
+
+        /* If the desktop is shown with keyboard gnome shortcuts, detect and put
+           DING window back, seems to be needed for X11, works without on Wayland
+        */
+        if (this._isX11) {
+            this._showDesktopID = global.workspace_manager.connect('showing-desktop-changed',
+                this._activateDesktopWindow.bind(this)
+            );
+        }
+
+        if (this._window.above)
+            this._window.unmake_above();
+        this._window.lower();
+    }
+
+    _activateDesktopWindow(wm) {
+        if (this._desktopWindow)
+            this._window.activate_with_workspace(Meta.CURRENT_TIME, wm.get_active_workspace());
     }
 
     _syncToBottomOfStack() {
@@ -300,13 +298,65 @@ class ManageWindow {
             this._window.lower();
     }
 
-    _activateDesktopWindow(wm) {
-        if (this._desktopWindow)
-            this._window.activate_with_workspace(Meta.CURRENT_TIME, wm.get_active_workspace());
+    _keepWindowOnTop() {
+        this._restackedTopID = global.display.connect('restacked', () => {
+            if (!this._window.above)
+                this._window.make_above();
+        });
+        if (!this._window.above)
+            this._window.make_above();
+    }
+
+    _showWindowOnAllDesktops() {
+        this._signalIDs.push(this._window.connect('notify::on-all-workspaces',
+            this._checkOnAllWorkspaces.bind(this)
+        ));
+
+        this._signalIDs.push(this._window.connect('workspace-changed',
+            this._checkOnAllWorkspaces.bind(this)
+        ));
+
+        this._window.stick();
+    }
+
+    _checkOnAllWorkspaces() {
+        if (this._checkOnAllWorkspacesID)
+            GLib.source_remove(this._checkOnAllWorkspacesID);
+
+        this._checkOnAllWorkspacesID = GLib.idle_add(GLib.PRIORITY_LOW, () => {
+            if (this._showInAllDesktops && !this._window.on_all_workspaces) {
+                this._window.stick();
+                this._onIdleActivateTopWindowOnActiveWorkspace();
+            }
+            this._checkOnAllWorkspacesID = null;
+            return GLib.SOURCE_REMOVE;
+        });
+    }
+
+    _emulateDesktopWindow() {
+        this._window.get_window_type = function () {
+            return Meta.WindowType.DESKTOP;
+        };
+        this._window.is_on_all_workspaces = function () {
+            return true;
+        };
+
+        this._keepWindowAtBottom();
+        this._showWindowOnAllDesktops();
+        const moveDesktopWindowToBottom = true;
+        const activateTopWindowOnWorkspace = true;
+        this._onIdleChangedStatusCallback({moveDesktopWindowToBottom, activateTopWindowOnWorkspace});
+    }
+
+    _onIdleActivateTopWindowOnActiveWorkspace() {
+        const activateTopWindowOnWorkspace = true;
+        this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
     }
 
     refreshProperties() {
+        this._disconnetSignalsAndTimeouts();
         this._parseTitle();
+        this._attachControllers();
     }
 
     get hideFromWindowList() {
