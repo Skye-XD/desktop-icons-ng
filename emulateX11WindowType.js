@@ -104,6 +104,15 @@ class ManageWindow {
             this._syncToBottomOfStack.bind(this)
         );
 
+        /* If the desktop is shown with keyboard gnome shortcuts, detect and put
+           DING window back, seems to be needed for X11, works without on Wayland
+        */
+        if (this._isX11) {
+            this._showDesktopID = global.workspace_manager.connect('showing-desktop-changed',
+                this._activateDesktopWindow.bind(this)
+            );
+        }
+
         this._parseTitle();
     }
 
@@ -121,6 +130,9 @@ class ManageWindow {
 
         if (this._restackedID)
             global.display.disconnect(this._restackedID);
+
+        if (this._showDesktopID)
+            global.workspace_manager.disconnect(this._showDesktopID);
 
         if (this._keepAtTop)
             this._window.unmake_above();
@@ -286,6 +298,11 @@ class ManageWindow {
 
         if (this._keepAtBottom)
             this._window.lower();
+    }
+
+    _activateDesktopWindow(wm) {
+        if (this._desktopWindow)
+            this._window.activate_with_workspace(Meta.CURRENT_TIME, wm.get_active_workspace());
     }
 
     refreshProperties() {
