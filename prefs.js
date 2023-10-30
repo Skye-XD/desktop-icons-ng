@@ -37,8 +37,7 @@ export default class dingPreferences extends ExtensionPreferences {
         else
             nautilusSettings = new Gio.Settings({settings_schema: schemaNautilus});
 
-        window._settings = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path);
-
-        window._settings.getAdwPreferencesWindow(window);
+        const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path);
+        preferencesWindow.getAdwPreferencesWindow(window);
     }
 }
