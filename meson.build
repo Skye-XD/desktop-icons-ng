@@ -16,7 +16,6 @@ install_data([
     'dingManager.js',
     'emulateX11WindowType.js',
     'extension.js',
-    'gnomeShellOverride.js',
     'metadata.json',
     'prefs.js',
     'visibleArea.js'
