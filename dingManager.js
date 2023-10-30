@@ -28,7 +28,6 @@ import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 
 import * as EmulateX11 from './emulateX11WindowType.js';
 import * as VisibleArea from './visibleArea.js';
-import * as GnomeShellOverride from './gnomeShellOverride.js';
 import * as PromiseUtils from './utils/promiseUtils.js';
 import * as FileUtils from './utils/fileUtils.js';
 
@@ -92,7 +91,6 @@ const DingManager = class {
         this.dingExtensionServiceImplementation = null;
         this.dingExtensionServiceInterface = null;
 
-        this.GnomeShellOverride = null;
         this.GnomeShellVersion = GnomeShellVersion;
 
         /* The constructor of the EmulateX11 class only initializes some
@@ -120,10 +118,6 @@ const DingManager = class {
      * Enables the extension
      */
     enable() {
-        if (!this.GnomeShellOverride)
-            this.GnomeShellOverride = new GnomeShellOverride.GnomeShellOverride();
-        this.GnomeShellOverride.enable();
-
         if (!this.x11Manager)
             this.x11Manager = new EmulateX11.EmulateX11WindowType();
 
@@ -231,7 +225,6 @@ const DingManager = class {
         this.isEnabled = false;
         this.DesktopIconsUsableArea = null;
         this._killCurrentProcess();
-        this.GnomeShellOverride.disable();
         this.x11Manager.disable();
         this.visibleArea.disable();
 
@@ -645,6 +638,20 @@ var LaunchSubprocess = class {
     hide_from_window_list(window) {
         if (Meta.is_wayland_compositor() && this.process_running)
             this._waylandClient.hide_from_window_list(window);
+    }
+
+    make_desktop_window(window) {
+        if (window.window_type === Meta.WindowType.DESKTOP)
+            return true;
+        if (Meta.is_wayland_compositor() && this.process_running) {
+            try {
+                this._waylandClient.make_desktop(window);
+                return true;
+            } catch (e) {
+                log('Meta.WaylandClient make_desktop method not implemented yet!');
+            }
+        }
+        return false;
     }
 };
 
