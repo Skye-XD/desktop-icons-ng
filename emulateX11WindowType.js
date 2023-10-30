@@ -194,7 +194,7 @@ class ManageWindow {
             this._window.unstick();
 
         if (this._desktopWindow)
-            this._emulateDesktopWindow();
+            this._makeWindowTypeDesktop();
     }
 
     _keepFixedWindowPosition() {
@@ -331,6 +331,12 @@ class ManageWindow {
             this._checkOnAllWorkspacesID = null;
             return GLib.SOURCE_REMOVE;
         });
+    }
+
+    _makeWindowTypeDesktop() {
+        const desktopWindowTypeSetOnWindow = this._waylandClient.make_desktop_window(this._window);
+        if (!desktopWindowTypeSetOnWindow)
+            this._emulateDesktopWindow();
     }
 
     _emulateDesktopWindow() {

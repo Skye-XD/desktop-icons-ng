@@ -646,6 +646,20 @@ var LaunchSubprocess = class {
         if (Meta.is_wayland_compositor() && this.process_running)
             this._waylandClient.hide_from_window_list(window);
     }
+
+    make_desktop_window(window) {
+        if (window.window_type === Meta.WindowType.DESKTOP)
+            return true;
+        if (Meta.is_wayland_compositor() && this.process_running) {
+            try {
+                this._waylandClient.make_desktop(window);
+                return true;
+            } catch (e) {
+                log('Meta.WaylandClient make_desktop method not implemented yet!');
+            }
+        }
+        return false;
+    }
 };
 
 /**
