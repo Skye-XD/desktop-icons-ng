@@ -24,8 +24,7 @@ import * as  adwPreferencesWindow from './app/adwPreferencesWindow.js';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 export default class dingPreferences extends ExtensionPreferences {
-    constructor(metadata) {
-        super(metadata);
+    fillPreferencesWindow(window) {
         const desktopSettings = this.getSettings();
         const GioSSS = Gio.SettingsSchemaSource;
         const schemaSource = GioSSS.get_default();
@@ -38,10 +37,8 @@ export default class dingPreferences extends ExtensionPreferences {
         else
             nautilusSettings = new Gio.Settings({settings_schema: schemaNautilus});
 
-        this.preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path);
-    }
+        window._settings = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path);
 
-    fillPreferencesWindow(window) {
-        this.preferencesWindow.getAdwPreferencesWindow(window);
+        window._settings.getAdwPreferencesWindow(window);
     }
 }
