@@ -109,6 +109,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] Port to ESM imports, support Gnome 45
 
+- [x] Use the new make_desktop() method introduced in mutter, if available, for deeper and seamless integration with Gnome shell with no need for monkey patching.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -206,6 +208,13 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 - [x] Fix - GnomeShellDrag code now identifies the actor under the cursor rather than off the left edge of the drag icon surface. Makes gnome shell drag and drop onto dock much more intuitive and natural.
 
 - [x] Fix - Enforces gtk3 style of text wrap mode for icon labels. Removes unneeded manually inserted line break code, reportedly makes the icons look much better.
+
+- [x] Fix - find file window loses focus.
+
+- [x] Fix - Gnome keybinding shortcuts to show desktop window can hide gtk4-Ding window on X11.
+
+- [x] Fix - Prevent rounded corners of desktop window
+
 
 **KNOWN ISSUES**
 

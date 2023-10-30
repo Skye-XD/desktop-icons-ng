@@ -42,10 +42,12 @@ box > #file-item.desktop-icons-selected {
 
 #desktopwindow.background {
     background-color: transparent;
+    border-radius: 0px;
 }
 
 #testwindow.background{
     background-color: black;
+    border-radius: 0px;
 }
 
 .unhighlightdroptarget:drop(active) {

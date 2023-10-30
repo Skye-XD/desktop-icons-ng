@@ -1,4 +1,18 @@
 # History of versions #
+* Gtk4 version 64 for Gnome 45
+ * Fix desktop keybinding shortcuts for gnome hide DING window in X11. (Sundeep Mediratta)
+ * Fix find file window loses focus to the topmost window - fixes done in emulateX11Windowtype.js to prevent loss of focus. (Sundeep Mediratta)
+ * Init the extensions and preferences in the constructor properly. (Sundeep Mediratta)
+ * Fix further errors in dbus disabling of extensions - again! Prevent errors when lock screen disables extensions. (Sundeep Mediratta)
+ * Rewrite and Refactor ManageWindow in emulateX11windowType completely to use make_desktop() method introduced in Mutter. (Sundeep Mediratta)
+ * Update stylesheet.css to prevent rounded corners.
+ * Update metadata.json. Version Bump to 64, update History.md and Readme.md
+
+* Gtk4 version 63 for Gnome 44
+ * Fix desktop keybinding shortcuts for gnome hide DING window in X11. (Sundeep Mediratta)
+ * Fix find file window loses focus to the topmost window - fixes done in emulateX11Windowtype.js to prevent loss of focus. (Sundeep Mediratta)
+ * Update metadata.json. Version Bump to 63, update History.md and Readme.md
+
 Gtk4 version 62 for Gnome 45
  * More precise and intuitive drop on gnome shell, eg dock, on actor under cursor instead of the left edge of the drag Icon. (Sundeep Mediratta)
  * Remove un-needed line break code in label, enforce Gtk3 style of naturalwrap mode for text. Reportedly looks icons look better. (Sundeep Mediratta)
@@ -7,8 +21,8 @@ Gtk4 version 62 for Gnome 45
  * Update metadata.json. Version Bump to 62, update History.md and Readme.md
 
 * Gtk4 version 61 for Gnome 44
- * More precise and intuitive drop on gnome shell, ie dock, on actor under cursor instead of the left edge of the drag Icon.
- * Remove un-needed line break code in label, enforce Gtk3 style of naturalwrap mode for text. Reportedly looks icons look better.
+ * More precise and intuitive drop on gnome shell, ie dock, on actor under cursor instead of the left edge of the drag Icon.  (Sundeep Mediratta)
+ * Remove un-needed line break code in label, enforce Gtk3 style of naturalwrap mode for text. Reportedly looks icons look better. (Sundeep Mediratta)
  * Now only for Gnome shell 44!
  * Update metadata.json. Version Bump to 61, update History.md
 
