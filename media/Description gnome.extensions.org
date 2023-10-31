@@ -6,6 +6,8 @@ Updated and modified code base, uses gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* New - Use mutter make_desktop() if available.
+* Fix - Gnome shortcut could hide window on X11
 * New - Sets correct hovering behaviour during drag and drop on the Dock, enables scrolling to icons when they are hidden.
 * Fix - DING window could be dragged and dropped in workspace indicators to show icons on only one workspace, fixes done to prevent.
 * Fix - unlimited workspaces, now works correctly even with auto-move-windows. More optimal and minimal shell overrides.

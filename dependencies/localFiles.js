@@ -19,4 +19,4 @@ export * as ShowErrorPopup from '../app/showErrorPopup.js';
 export * as StackItem from '../app/stackItem.js';
 export * as TemplatesScriptsManager from '../app/templatesScriptsManager.js';
 export * as Thumbnails from '../app/thumbnails.js';
-export const version = 64;
+export const version = 66;
