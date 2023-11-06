@@ -337,14 +337,14 @@ class ManageWindow {
         const desktopWindowTypeSetOnWindow = this._waylandClient.make_desktop_window(this._window);
         if (!desktopWindowTypeSetOnWindow)
             this._emulateDesktopWindow();
+        else
+            this._window.stick();
     }
 
     _emulateDesktopWindow() {
+        log('Emulating window type Desktop');
         this._window.get_window_type = function () {
             return Meta.WindowType.DESKTOP;
-        };
-        this._window.is_on_all_workspaces = function () {
-            return true;
         };
 
         this._keepWindowAtBottom();

@@ -646,9 +646,10 @@ var LaunchSubprocess = class {
         if (Meta.is_wayland_compositor() && this.process_running) {
             try {
                 this._waylandClient.make_desktop(window);
+                log('Making Wayland window type Desktop');
                 return true;
             } catch (e) {
-                log('Meta.WaylandClient make_desktop method not implemented yet!');
+                log('Meta.WaylandClient make_desktop() method not available yet!');
             }
         }
         return false;
