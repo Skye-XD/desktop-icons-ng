@@ -278,9 +278,9 @@ class ManageWindow {
         this._window.lower();
     }
 
-    _activateDesktopWindow(wm) {
+    _activateDesktopWindow() {
         if (this._desktopWindow)
-            this._window.activate_with_workspace(Meta.CURRENT_TIME, wm.get_active_workspace());
+            this._window.activate(Meta.CURRENT_TIME);
     }
 
     _syncToBottomOfStack() {
