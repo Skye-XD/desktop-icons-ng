@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2018-2019.
 # Sergio Costas <rastersoft@gmail.com>, 2018-2023.
+# gallegonovato <fran-carro@hotmail.es>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-11-03 23:37+0000\n"
+"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
@@ -33,9 +34,8 @@ msgid "Tweaks"
 msgstr "Ajustes"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
-#, fuzzy
 msgid "About"
-msgstr "Aproximadamente"
+msgstr "Acerca de"
 
 #: app/adwPreferencesWindow.js:195
 msgid "Desktop Settings"
