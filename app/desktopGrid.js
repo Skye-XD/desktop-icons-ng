@@ -49,7 +49,7 @@ const DesktopGrid = class {
             // Transparent Background only if this instance is working as a desktop
             this._window.set_name('desktopwindow');
             if (this._using_X11) {
-                this.DesktopIconsUtil.hideX11windowTaskbar(this._window);
+                this.DesktopIconsUtil.makeX11windowTaskbarHiddenDesktop(this._window);
             } else { // Wayland
                 // Compositer hang on some high resolution requires all windows be maximized to map and display initially.
                 this._window.maximize();
