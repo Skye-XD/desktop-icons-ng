@@ -1,12 +1,26 @@
 # History of versions #
-* Gtk4 version 64 for Gnome 45
+* Gtk4 version 68 for Gnome 45
+ * Make DING window type Meta.WindowType.DESKTOP on X11 with xprop. (Sundeep Mediratta)
+ * Fixes show desktop shortcuts on X11
+ * Weblate translations. (Weblate Authors)
+ * Update metadat.json. Version Bump to 68, update History.md and Readme.md
+
+* Gtk4 version 67 for Gnome 44
+ * Make DING window type Meta.WindowType.DESKTOP on X11 with xprop. (Sundeep Mediratta)
+ * Backport new emulateX11 code from the Gnome 45 branch. (Sundeep Mediratta)
+ * Fixes show desktop shortcuts on X11
+ * Weblate translations. (Weblate Authors)
+ * Update metadat.json. Version Bump to 67, update History.md and Readme.md
+
+* Gtk4 version 64-66 for Gnome 45
  * Fix desktop keybinding shortcuts for gnome hide DING window in X11. (Sundeep Mediratta)
  * Fix find file window loses focus to the topmost window - fixes done in emulateX11Windowtype.js to prevent loss of focus. (Sundeep Mediratta)
  * Init the extensions and preferences in the constructor properly. (Sundeep Mediratta)
  * Fix further errors in dbus disabling of extensions - again! Prevent errors when lock screen disables extensions. (Sundeep Mediratta)
  * Rewrite and Refactor ManageWindow in emulateX11windowType completely to use make_desktop() method introduced in Mutter. (Sundeep Mediratta)
  * Update stylesheet.css to prevent rounded corners.
- * Update metadata.json. Version Bump to 64, update History.md and Readme.md
+ * EGO Requested changes.
+ * Update metadata.json. Version Bump to 64,65,66, update History.md and Readme.md
 
 * Gtk4 version 63 for Gnome 44
  * Fix desktop keybinding shortcuts for gnome hide DING window in X11. (Sundeep Mediratta)

@@ -111,6 +111,8 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] Use the new make_desktop() method introduced in mutter, if available, for deeper and seamless integration with Gnome shell with no need for monkey patching.
 
+- [x] New - Correctly set gtk4-ding window to Meta.WindowType.DESKTOP on X11 with xprop.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -211,10 +213,9 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] Fix - find file window loses focus.
 
-- [x] Fix - Gnome keybinding shortcuts to show desktop window can hide gtk4-Ding window on X11.
-
 - [x] Fix - Prevent rounded corners of desktop window
 
+- [x] Fix - Gnome keybinding shortcuts to show desktop window can hide gtk4-Ding window on X11. Fixed the same shortcut not showing the windows back again on re-press. (Made the window Meta.WindowType.DESKTOP on X11)
 
 **KNOWN ISSUES**
 
