@@ -4,13 +4,15 @@
 # Tim Hofstede <phokas@mail.de>, 2021.
 # Laurenz Bihlmayer <lrdarknesss@yahoo.de>, 2023.
 # Andreas Rohr <github@andreas-rohr.de>, 2023.
+Inhalte# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-10-24 16:04+0000\n"
-"Last-Translator: Andreas Rohr <github@andreas-rohr.de>\n"
+"PO-Revision-Date: 2023-12-02 03:13+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -18,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
@@ -33,12 +35,12 @@ msgstr "Dateien"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "#Kneifen"
+msgstr "Optimierungen"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Etwa"
+msgstr "Info"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -53,7 +55,7 @@ msgstr "Lagen für das Desktop Programmheft"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Inhalte"
+msgstr "Bände"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -102,12 +104,12 @@ msgstr "Ausrichtung der Arbeitsflächensymbole"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
-msgstr "Ecke oben links"
+msgstr "Oben links"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Ecke oben rechts"
+msgstr "Oben rechts"
 
 #: app/adwPreferencesWindow.js:236
 msgid "Bottom left corner"
@@ -116,7 +118,7 @@ msgstr "Untere linke Ecke"
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Ecke unten rechts"
+msgstr "Unten rechts"
 
 #: app/adwPreferencesWindow.js:240
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -219,12 +221,12 @@ msgstr "Website"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Besuch"
+msgstr "Besuchen"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Sachverhalte"
+msgstr "Probleme"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -239,7 +241,7 @@ msgstr "Bericht"
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "Schein"
+msgstr "Lizenz"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -254,7 +256,7 @@ msgstr "Hilfe übersetzt in euren Web Browser"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "Übersetz"
+msgstr "Übersetzen"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -264,17 +266,17 @@ msgstr "Wähl aus einen Antrag zu öffnen <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Offene Stücke"
+msgstr "Offene Artikel"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Offener Ordner"
+msgstr "Ordner öffnen"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Offene Datei"
+msgstr "Datei öffnen"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -350,7 +352,7 @@ msgstr "Gewinnend Dateien hinein '${outputPath}s"
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Gewinnung vervollständigte"
+msgstr "Extraktion abgeschlossen"
 
 #: app/autoAr.js:431
 #, fuzzy
@@ -460,7 +462,7 @@ msgstr "Die GNOM Dateien Antrag ist bedürft bei Desktop Ikonen NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "#Übersiedlung"
+msgstr "Verschieben"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -469,7 +471,7 @@ msgstr "Kopieren"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Band"
+msgstr "Link"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -501,7 +503,7 @@ msgstr "Name"
 #: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Name Z-Ein"
+msgstr "Name Z-A"
 
 #: app/desktopManager.js:1424
 #, fuzzy
@@ -646,7 +648,7 @@ msgstr "Dort ist kein Antrag installierte zu öffnen \"{foo}\" Typ von Dateien"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "#Können nicht öffnen Datei"
+msgstr "Datei konnte nicht geöffnet werden"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -717,7 +719,7 @@ msgstr "Alle öffnen ..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Lauf"
+msgstr "&Ausführen"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -743,7 +745,7 @@ msgstr "Alle mit anderer Anwendung öffnen."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Öffne Mit..."
+msgstr "Öffnen mit..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -775,12 +777,12 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "#Übersiedlung zu..."
+msgstr "Verschieben auf..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopie zu..."
+msgstr "Kopieren nach …"
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -884,7 +886,7 @@ msgstr "Unfähig zu begeben Dateien, kein Reiseziel Ordner"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "#Ausgewählt Reiseziel"
+msgstr "Ziel auswählen"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -893,7 +895,7 @@ msgstr "Auswählen"
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Kopie Gestrichen"
+msgstr "Kopieren abgebrochen"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
@@ -946,12 +948,12 @@ msgstr "Immer benutzt für diesen Datei Typ"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Streich"
+msgstr "_Schließen"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Offen"
+msgstr "_Öffnen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
