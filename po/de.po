@@ -4,7 +4,7 @@
 # Tim Hofstede <phokas@mail.de>, 2021.
 # Laurenz Bihlmayer <lrdarknesss@yahoo.de>, 2023.
 # Andreas Rohr <github@andreas-rohr.de>, 2023.
-Inhalte# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
