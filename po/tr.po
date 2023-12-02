@@ -8,14 +8,16 @@
 # Cihan Alkan <cihanalk@gmail.com>, 2021.
 # Fatih Altun <fatih.altun@pardus.org.tr>, 2021.
 # Sabri Ünal <libreajans@gmail.com>, 2019, 2022.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-02 03:13+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -23,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -39,7 +41,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "İnce Ayarlar"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -64,7 +66,7 @@ msgstr "Ciltler"
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Masaüstü hacimleri ekran görüntüsü"
+msgstr "Masaüstü hacimleri Ekran"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
@@ -113,7 +115,7 @@ msgstr "Sol üst köşe"
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Sağ üst Köşe"
+msgstr "Sağ üst köşe"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
@@ -158,7 +160,7 @@ msgstr "Masaüstünün tam tersine yeni sürücüler ekleyin"
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Yüksek ışığı Drag ve Drop sırasında damla ızgara"
+msgstr "Yüksek ışığı Drag ve Drop sırasındaki damla ızgara"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -176,7 +178,7 @@ msgstr "Simge etiketlerinde koyu metin kullan"
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Açık Eşyalara Eylem"
+msgstr "Open Materials"
 
 #: app/adwPreferencesWindow.js:257
 msgid "Single click"
@@ -219,12 +221,12 @@ msgstr "Sürüklenme üzerine açık klasörler"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "İnternet sitesi"
+msgstr "Site"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Ziyaret Ziyaret Ziyareti"
+msgstr "Ziyaret"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -239,17 +241,17 @@ msgstr "Tartışma sorunları"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Rapor"
+msgstr "Bildir"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "Lisans Lisans Lisans Lisans Lisans Lisans Lisans"
+msgstr "Lisans"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translation"
-msgstr "Tercüme Çeviri"
+msgstr "Çeviri"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -259,7 +261,7 @@ msgstr "Web tarayıcınızda çevirin Yardım"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "Çeviri çevirisi"
+msgstr "Çevir"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -269,17 +271,17 @@ msgstr "<b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Açık öğeler"
+msgstr "Öğeyi aç"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Open Folder"
+msgstr "Klasör Aç"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Open File"
+msgstr "Dosya Aç"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -310,7 +312,7 @@ msgstr "Yeniden Adlandır"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "Auto Auto Auto Auto Ar yüklü değildir"
+msgstr "Auto Auto Auto Auto Ar yüklü değil"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -329,7 +331,7 @@ msgstr "Dosyalar"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Açıklama dosyaları"
+msgstr "Sıkıştırma dosyaları."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -414,7 +416,7 @@ msgstr "Çıktı dosyası ‘${outputFile} zaten var."
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "Dosyaları “${outputFile} kullanıcı tarafından iptal edildi."
+msgstr "Dosyaları ‘${outputFile} kullanıcı tarafından iptal edildi."
 
 #: app/autoAr.js:507
 #, fuzzy
@@ -424,7 +426,7 @@ msgstr "Frekans sırasında hata"
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Create archive archive"
+msgstr "Arşiv oluştur"
 
 #: app/autoAr.js:566
 #, fuzzy
@@ -434,12 +436,12 @@ msgstr "Arşiv adı"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Şifre"
+msgstr "Parola"
 
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Create Create Create Create Create"
+msgstr "Oluştur"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -474,7 +476,7 @@ msgstr "GNOME Dosyalar uygulama, Masaüstü Icons NG tarafından gereklidir."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Move Move Move Move"
+msgstr "Kaydır"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -483,7 +485,7 @@ msgstr "Kopyala"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Link Link Link Link Link"
+msgstr "Bağlantı"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -512,7 +514,7 @@ msgstr "Masaüstündeki Dosyaları Bul"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "Name Name Name Name Name Name Name Name Name Name Name Name"
+msgstr "Adı"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -527,12 +529,12 @@ msgstr "Değiştirilmiş Zaman"
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "Tipi Tipi Tipi Tipi"
+msgstr "Tür"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "Boyut Boyutu"
+msgstr "Boyut"
 
 #: app/desktopManager.js:1429
 #, fuzzy
@@ -627,7 +629,7 @@ msgstr "Kater Yaratılış Başarısız"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Klasörü oluşturamaz"
+msgstr "Klasör oluşturulamadı"
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -655,7 +657,7 @@ msgstr "Bozuk bir Sembolik Bağlantı olduğu için bu Dosya açılamıyor"
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Açılış Dosyası Başarısız"
+msgstr "Dosya açılamadı"
 
 #: app/fileItem.js:308
 #, fuzzy
@@ -665,7 +667,7 @@ msgstr "\"{foo}\" tür dosyaları açmak için yüklü bir uygulama yoktur"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Açıklanamaz Dosya"
+msgstr "Dosya açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -714,7 +716,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"<b>Enable seçenek, \"Allow Executing File as a Program.\""
+"<b>Enable seçenek, \"Allow Executing File as a Program\" (X54X)"
 
 #: app/fileItem.js:371
 #, fuzzy
@@ -724,7 +726,7 @@ msgid ""
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
-"Bu .desktop dosyası güvenilir değildir, başlatılamaz. Başlamak için, doğru "
+"Bu .desktop dosyası güvenilir değildir, başlatılamaz. başlatmak için, doğru "
 "tıklama, sonra:\n"
 "\n"
 "<b>Enable \"Allow Starting\" (X127X)"
@@ -741,7 +743,7 @@ msgstr "Tümünü Aç..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Run Run Run"
+msgstr "Çalıştır"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -767,7 +769,7 @@ msgstr "Tümünü Başka Uygulamayla Aç..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Open With..."
+msgstr "Birlikte aç…"
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -799,7 +801,7 @@ msgstr "Kes"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Move to..."
+msgstr "Taşı..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
@@ -907,7 +909,7 @@ msgstr "Files'ı hareket etmek için kullanılamaz, hiçbir destinasyon klasör�
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Hedef seçin"
+msgstr "Varış Noktası seç"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -968,12 +970,12 @@ msgstr "Her zaman bu dosya türü için kullanın"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Cancel"
+msgstr "_İptal"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Open"
+msgstr "_Aç"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1123,7 +1125,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Bağlantıya bağlı olarak birincil monitörde yeni simgeler göster"
+msgstr "Bağlantıya bağlı olarak yeni simgeler göster"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy
