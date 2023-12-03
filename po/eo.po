@@ -2,13 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # phlostically <phlostically@mailinator.com>, 2022.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
@@ -16,28 +18,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "@Desktop@"
+msgstr "Labortablo"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "#/osiero@"
+msgstr "Dosieroj"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks@"
+msgstr "Optimumigoj"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "@About@"
+msgstr "Pri"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -82,22 +84,22 @@ msgstr "#/randeco @for #/a @desktop #/kono@"
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Tiny"
-msgstr "#/ta@"
+msgstr "Pli eteta"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 msgid "Small"
-msgstr "#/algranda@"
+msgstr "Malgrandaj"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
 msgid "Standard"
-msgstr "#/ormo@"
+msgstr "Standard"
 
 #: app/adwPreferencesWindow.js:227
 #, fuzzy
 msgid "Large"
-msgstr "#/randa@"
+msgstr "Granda"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
@@ -188,7 +190,7 @@ msgstr "@Single #/lako@"
 #: app/adwPreferencesWindow.js:258
 #, fuzzy
 msgid "Double click"
-msgstr "@Double #/lako@"
+msgstr "Duobla alklako"
 
 #: app/adwPreferencesWindow.js:262
 #, fuzzy
@@ -198,7 +200,7 @@ msgstr "#/ezulto #/ildo thumbnails@"
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Always"
-msgstr "@Always@"
+msgstr "Ĉiam"
 
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
@@ -208,7 +210,7 @@ msgstr "@On #/i tiu @computer @only@"
 #: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "Never"
-msgstr "@Never@"
+msgstr "Neniam"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
@@ -218,7 +220,7 @@ msgstr "#/ontri #/unteksto #/enuo #/ro #/origi @permanently@"
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
 msgid "Show hidden files"
-msgstr "#/ezulto #/aŝi #/osiero@"
+msgstr "Montri kaŝitajn dosierojn"
 
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
@@ -228,17 +230,17 @@ msgstr "@Open #/eko @on #/aleŝo #/vebi@"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "#/etejo@"
+msgstr "Retejo"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "#/izito@"
+msgstr "Vizito"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "#/fero@"
+msgstr "Eraroj"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -248,17 +250,17 @@ msgstr "#/aporto #/fero @on #/fero #/puristo@"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "#/aporto@"
+msgstr "Raporti"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "#/icenco@"
+msgstr "Permesilo"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translation"
-msgstr "#/raduko@"
+msgstr "Translation"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -268,7 +270,7 @@ msgstr "#/elpo #/raduki @in #/ia #/raneaĵo #/etumilo@"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "#/raduki@"
+msgstr "Traduki"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -283,12 +285,12 @@ msgstr "@Open #/ro@"
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "@Open #/eko@"
+msgstr "Malfermi dosierujon"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "@Open #/osiero@"
+msgstr "Malfermi dosieron"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -303,22 +305,22 @@ msgstr "#/raro @while #/iksi {foo} @as @default #/pliko @for {mimetype}@"
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "Folder name"
-msgstr "#/eko #/omo@"
+msgstr "Nomo de dosierujo"
 
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "File name"
-msgstr "#/osiero #/omo@"
+msgstr "Dosiernomo"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1163
 #, fuzzy
 msgid "OK"
-msgstr "@OK@"
+msgstr "Bone"
 
 #: app/askRenamePopup.js:56
 #, fuzzy
 msgid "Rename"
-msgstr "#/enomi@"
+msgstr "Ŝanĝi nomon"
 
 #: app/autoAr.js:66
 #, fuzzy
@@ -348,7 +350,7 @@ msgstr "#/unpremi #/osiero@"
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
 #, fuzzy
 msgid "Cancel"
-msgstr "#/uligi@"
+msgstr "Nuligi"
 
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
@@ -449,12 +451,12 @@ msgstr "#/rkivo #/omo@"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "#/asvorto@"
+msgstr "pasvorto"
 
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "#/rei@"
+msgstr "Krei"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -491,17 +493,17 @@ msgstr "#/a #/NOMO #/osiero #/pliko #/sti #/ostuli @by @Desktop #/kono #/G@.@"
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "#/ovo@"
+msgstr "Movi"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 #, fuzzy
 msgid "Copy"
-msgstr "#/opio@"
+msgstr "Kopii"
 
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "#/igo@"
+msgstr "Ligilo"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -531,7 +533,7 @@ msgstr "#/rovi #/osiero @on @Desktop@"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "#/omo@"
+msgstr "Nomo"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -546,12 +548,12 @@ msgstr "#/odifi #/empo@"
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "#/ipo@"
+msgstr "Tipo"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "#/randeco@"
+msgstr "Grando"
 
 #: app/desktopManager.js:1429
 #, fuzzy
@@ -571,32 +573,32 @@ msgstr "#/peco #/ejmo/#/tirado/#/orĵetaĵo…@"
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 #, fuzzy
 msgid "New Folder"
-msgstr "#/ova #/eko@"
+msgstr "Nova dosierujo"
 
 #: app/desktopManager.js:1443
 #, fuzzy
 msgid "New Document"
-msgstr "#/ova #/okumento@"
+msgstr "Nova dokumento"
 
 #: app/desktopManager.js:1447
 #, fuzzy
 msgid "Paste"
-msgstr "#/lmeti@"
+msgstr "Alglui"
 
 #: app/desktopManager.js:1448
 #, fuzzy
 msgid "Undo"
-msgstr "#/alfari@"
+msgstr "Malfari"
 
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Redo"
-msgstr "#/enovigi@"
+msgstr "Refari"
 
 #: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
-msgstr "@Select @All@"
+msgstr "Elekti ĉion"
 
 #: app/desktopManager.js:1459
 #, fuzzy
@@ -631,7 +633,7 @@ msgstr "@Desktop #/kono #/ikso@"
 #: app/desktopManager.js:1480
 #, fuzzy
 msgid "Display Settings"
-msgstr "#/ontriĝo #/ikso@"
+msgstr "Montroagordaro"
 
 #: app/desktopManager.js:1523
 #, fuzzy
@@ -648,7 +650,7 @@ msgstr ""
 #: app/desktopManager.js:1537
 #, fuzzy
 msgid "Settings"
-msgstr "#/ikso@"
+msgstr "Agordoj"
 
 #: app/desktopManager.js:2484
 #, fuzzy
@@ -658,7 +660,7 @@ msgstr "#/eko #/reo #/alsukcesi@"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "@not povus #/rei #/eko@"
+msgstr "Ne povis krei dosierujon."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -674,7 +676,7 @@ msgstr "@not povus #/rei #/okumento@"
 #: app/fileItem.js:140
 #, fuzzy
 msgid "Home"
-msgstr "@Home@"
+msgstr "Home"
 
 #: app/fileItem.js:266
 #, fuzzy
@@ -699,7 +701,7 @@ msgstr "#/sti #/eniu #/pliko #/nstali #/alfermi \"{foo}\" #/ipo @of #/osiero@"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "@not povus #/alfermi #/osiero@"
+msgstr "Ne eblis malfermi dosieron"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -781,7 +783,7 @@ msgstr "#/urniro @All@.@.@.@"
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "#/uro@"
+msgstr "Ruli"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -791,7 +793,7 @@ msgstr "#/urniro @with {foo}@"
 #: app/fileItemMenu.js:313
 #, fuzzy
 msgid "Open"
-msgstr "#/urniro@"
+msgstr "Malfermi"
 
 #: app/fileItemMenu.js:322 app/fileItemMenu.js:326
 #, fuzzy
@@ -811,7 +813,7 @@ msgstr "#/urniro @All @With #/lia #/pliko@.@.@.@"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "#/urniro @With@.@.@.@"
+msgstr "Malfermi per…"
 
 #: app/fileItemMenu.js:336
 #, fuzzy
@@ -836,12 +838,12 @@ msgstr "#/uri @as a #/rogramo@"
 #: app/fileItemMenu.js:357
 #, fuzzy
 msgid "Scripts"
-msgstr "#/kribo@"
+msgstr "Programetoj"
 
 #: app/fileItemMenu.js:360
 #, fuzzy
 msgid "Cut"
-msgstr "#/ncizo@"
+msgstr "Eltondi"
 
 #: app/fileItemMenu.js:366
 #, fuzzy
@@ -856,7 +858,7 @@ msgstr "#/opio @to@.@.@.@"
 #: app/fileItemMenu.js:371
 #, fuzzy
 msgid "Rename…"
-msgstr "#/enomi…@"
+msgstr "Ŝanĝi nomon…"
 
 #: app/fileItemMenu.js:374
 #, fuzzy
@@ -890,7 +892,7 @@ msgstr "#/endi @to @Mobile #/parato@"
 #: app/fileItemMenu.js:402
 #, fuzzy
 msgid "Move to Trash"
-msgstr "#/ovo #/uinigi@"
+msgstr "&Movi rubujen"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
@@ -910,17 +912,17 @@ msgstr "#/ermesi #/anĉi@"
 #: app/fileItemMenu.js:416
 #, fuzzy
 msgid "Empty Trash"
-msgstr "#/enhoma #/orĵetaĵo@"
+msgstr "Malplenigi rubujon"
 
 #: app/fileItemMenu.js:422
 #, fuzzy
 msgid "Eject"
-msgstr "#/lĵeti@"
+msgstr "Eligi"
 
 #: app/fileItemMenu.js:425
 #, fuzzy
 msgid "Unmount"
-msgstr "Unmount@"
+msgstr "Demeti"
 
 #: app/fileItemMenu.js:429
 #, fuzzy
@@ -930,7 +932,7 @@ msgstr "#/fta #/emoveblaĵo@"
 #: app/fileItemMenu.js:429
 #, fuzzy
 msgid "Properties"
-msgstr "#/emoveblaĵo@"
+msgstr "Atributoj"
 
 #: app/fileItemMenu.js:430
 #, fuzzy
@@ -945,7 +947,7 @@ msgstr "#/ezulto @in #/osiero@"
 #: app/fileItemMenu.js:434
 #, fuzzy
 msgid "Open in Terminal"
-msgstr "#/urniro @in #/erminalo@"
+msgstr "Malfermi per termina&lo"
 
 #: app/fileItemMenu.js:552
 #, fuzzy
@@ -970,12 +972,12 @@ msgstr "@Unable #/ovi #/osiero@, #/eniu #/elloko #/eko@"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "@Select #/elloko@"
+msgstr "Select Destination"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 #, fuzzy
 msgid "Select"
-msgstr "@Select@"
+msgstr "Elekti"
 
 #: app/fileItemMenu.js:672
 #, fuzzy
@@ -1001,7 +1003,7 @@ msgstr ""
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "@Close@"
+msgstr "Fermi"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
@@ -1037,17 +1039,17 @@ msgstr "@Always #/zi @for #/i tiu #/osiero #/ipo@"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_#/uligi@"
+msgstr "_Nuligi"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_#/urniro@"
+msgstr "_Malfermi"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "#/kono #/randeco@"
+msgstr "Grandeco de piktogramoj"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy

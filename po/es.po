@@ -4,13 +4,15 @@
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2018-2019.
 # Sergio Costas <rastersoft@gmail.com>, 2018-2023.
 # gallegonovato <fran-carro@hotmail.es>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-11-03 23:37+0000\n"
-"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -18,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
@@ -202,7 +204,7 @@ msgstr "Visita"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Asuntos"
+msgstr "Cuestiones"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -212,7 +214,7 @@ msgstr "Asuntos de informe encima rastreador de asunto"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Informe"
+msgstr "Reportar"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -232,7 +234,7 @@ msgstr "La ayuda traduce en vuestro navegador de web"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "Traduce"
+msgstr "Traducir"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -242,17 +244,17 @@ msgstr "Escoger una aplicación para abrir <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Elementos abiertos"
+msgstr "@:account.creditlimit.openInvoices"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Carpeta abierta"
+msgstr "Abrir carpeta"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Lima abierta"
+msgstr "Abrir Archivo"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -659,7 +661,7 @@ msgstr "Abrir todo..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Carrera"
+msgstr "Ejecutar"
 
 #: app/fileItemMenu.js:311
 msgid "Open with {foo}"
@@ -869,12 +871,12 @@ msgstr "Siempre uso para este tipo de lima"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Anula"
+msgstr "_Cancelar"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Abierto"
+msgstr "_Abrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

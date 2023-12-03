@@ -4,14 +4,16 @@
 # Marek Černocký <marek@manet.cz>, 2018.
 # Milan Zink <zeten30@gmail.com>, 2018.
 # panmourovaty <dominikhejl@yahoo.com>, 2021.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
@@ -19,28 +21,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Čeština"
+msgstr "Plocha"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "Čeština"
+msgstr "Soubory"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Čeština"
+msgstr "Vylepšení"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "O nás"
+msgstr "O projektu"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -55,7 +57,7 @@ msgstr "Nastavení pro program Desktop"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Čeština"
+msgstr "Objemy"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -70,7 +72,7 @@ msgstr "Nastavení souborů"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Nastavení sdílené s soubory Gnome"
+msgstr "Nastavení sdílených s soubory Gnome"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
@@ -224,7 +226,7 @@ msgstr "Webové stránky"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Hledat"
+msgstr "Navštivte"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -239,7 +241,7 @@ msgstr "Problémy s hlášením o problému tracker"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Zpráva"
+msgstr "Hlášení"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -249,7 +251,7 @@ msgstr "Licence"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translation"
-msgstr "Čeština"
+msgstr "Posun"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -259,7 +261,7 @@ msgstr "Nápověda přeložit do vašeho webového prohlížeče"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "Čeština"
+msgstr "Překlad"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -269,17 +271,17 @@ msgstr "Vyberte aplikaci pro otevření <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Otevřené položky"
+msgstr "Otevřít Položku"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Otevřete složku"
+msgstr "Otevřít složku"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Otevřete soubor"
+msgstr "Otevřít soubor"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -329,7 +331,7 @@ msgstr "Extrahování souborů"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Komprese souborů"
+msgstr "Probíhá komprese souborů."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -369,12 +371,12 @@ msgstr "Výpis '${fullPathFile}' byl dokončen."
 #: app/autoAr.js:437
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Výpis zrušen"
+msgstr "Odhlášení zrušena"
 
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Výpis '${fullPathFile}' byl zrušen uživatelem."
+msgstr "Výpis '${fullPathFile} byl zrušen uživatelem."
 
 #: app/autoAr.js:448
 #, fuzzy
@@ -394,7 +396,7 @@ msgstr "Komprese souborů do '${outputFile} V"
 #: app/autoAr.js:491
 #, fuzzy
 msgid "Compression completed"
-msgstr "Komprese dokončena"
+msgstr "Komprese dokončené"
 
 #: app/autoAr.js:492
 #, fuzzy
@@ -473,7 +475,7 @@ msgstr "Čeština Soubory je vyžadováno aplikací Desktop Icons NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Čeština"
+msgstr "Přesunout"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -482,7 +484,7 @@ msgstr "Kopírovat"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Čeština"
+msgstr "Odkaz"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -511,7 +513,7 @@ msgstr "Najít soubory na Ploše"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "Jméno"
+msgstr "Název"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -536,7 +538,7 @@ msgstr "Velikost"
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Udržet.."
+msgstr "Udržujte.."
 
 #: app/desktopManager.js:1433
 #, fuzzy
@@ -626,7 +628,7 @@ msgstr "Vytvoření složky Failed"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Nelze vytvořit složku"
+msgstr "Nelze vytvořit složku."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -667,7 +669,7 @@ msgstr ""
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nelze otevřít Čeština"
+msgstr "Soubor se nedaří otevřít"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -742,7 +744,7 @@ msgstr "Otevřít vše..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Čeština"
+msgstr "Spustit"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -768,7 +770,7 @@ msgstr "Otevřít vše v jiné aplikaci..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Otevřené s..."
+msgstr "Otevřít v ..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -800,7 +802,7 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Pohybovat se..."
+msgstr "Přesunout do"
 
 #: app/fileItemMenu.js:367
 #, fuzzy
@@ -912,7 +914,7 @@ msgstr "Nelze přesunout soubory, bez cílové složky"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Vyberte cíl"
+msgstr "Vybrat cíl"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -973,7 +975,7 @@ msgstr "Vždy používejte pro tento typ souboru"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "Čeština"
+msgstr "_Zrušit"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
@@ -1139,7 +1141,7 @@ msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Pokud je připojen druhý monitor, jsou umístěny nové ikony na ne primárním "
+"Pokud je připojen druhý monitor, nové ikony jsou umístěny na ne primárním "
 "monitoru"
 
 #, fuzzy

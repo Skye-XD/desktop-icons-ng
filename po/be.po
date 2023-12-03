@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the ding package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Працоўны стол"
+msgstr "Камп'ютар"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -34,12 +34,12 @@ msgstr "Файлы"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Твікі"
+msgstr "Паляпшэнні"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Аб"
+msgstr "Аб канале"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -54,7 +54,7 @@ msgstr "Налады праграмы для працоўнага стала"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Аб'ёмы"
+msgstr "Гук"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -218,17 +218,17 @@ msgstr "Адкрываць папкі пры перацягванні"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Вэб-сайт"
+msgstr "Сайт"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Наведайце"
+msgstr "Наведванне"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Праблемы"
+msgstr "Пытанні"
 
 #: app/adwPreferencesWindow.js:273
 msgid "Report issues on issue tracker"
@@ -245,16 +245,18 @@ msgid "License"
 msgstr "Ліцэнзія"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Пераклад"
 
 #: app/adwPreferencesWindow.js:275
 msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Перакласці"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -269,7 +271,7 @@ msgstr "Адкрытыя элементы"
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Адкрыць тэчку"
+msgstr "Адкрыць каталог"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
@@ -298,7 +300,7 @@ msgstr "Імя файла"
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1163
 #, fuzzy
 msgid "OK"
-msgstr "добра"
+msgstr "Добра"
 
 #: app/askRenamePopup.js:56
 msgid "Rename"
@@ -436,7 +438,7 @@ msgstr "Пароль"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Ствараць"
+msgstr "Стварыць"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -471,7 +473,7 @@ msgstr "Прыкладанне GNOME Files патрабуецца Desktop Icons 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Рухайцеся"
+msgstr "Перамясціць"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -510,12 +512,12 @@ msgstr "Пошук файлаў на працоўным стале"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "Імя"
+msgstr "Назва"
 
 #: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Імя Z-A"
+msgstr "Імя (Я-А)"
 
 #: app/desktopManager.js:1424
 #, fuzzy
@@ -570,7 +572,7 @@ msgstr "Паўтарыць"
 #: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
-msgstr "Абраць усё"
+msgstr "Вылучыць усё"
 
 #: app/desktopManager.js:1459
 #, fuzzy
@@ -627,7 +629,7 @@ msgstr "Збой стварэння папкі"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Не атрымалася стварыць папку"
+msgstr "Не атрымалася стварыць нататку."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -668,7 +670,7 @@ msgstr "Не ўсталявана праграма для адкрыцця фа�
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Немагчыма адкрыць файл"
+msgstr "Не атрымалася адкрыць файл"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -679,7 +681,7 @@ msgstr "${appName} не можа адкрываць файлы гэтага ты
 #: app/fileItem.js:350
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Зламаны файл працоўнага стала"
+msgstr "Сапсаваныя файлы стальца"
 
 #: app/fileItem.js:351
 msgid ""
@@ -743,7 +745,7 @@ msgstr "Адкрыць усё..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Бегчы"
+msgstr "Запусьціць"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -913,7 +915,7 @@ msgstr "Немагчыма перамясціць файлы, няма папк�
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Выберыце пункт прызначэння"
+msgstr "Абраць пункт прызначэння"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -940,7 +942,7 @@ msgstr "Сярод вылучанага ёсць папка, спачатку с
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "Блізка"
+msgstr "Закрыць"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
@@ -975,12 +977,12 @@ msgstr "Заўсёды выкарыстоўвайце для гэтага тып
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "Скасаваць"
+msgstr "_Скасаваць"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Адкрыць"
+msgstr "_Адкрыць"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

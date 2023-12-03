@@ -2,13 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
 # João Mota <joao.mota.200810@gmail.com>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
@@ -16,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Área de trabalho"
+msgstr "Área de Trabalho"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -32,7 +35,7 @@ msgstr "Arquivos"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Ajustes"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -47,7 +50,7 @@ msgstr "Configurações do Desktop"
 #: app/adwPreferencesWindow.js:196
 #, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Configurações para o Programa de Área de Trabalho"
+msgstr "Configurações para o Programa de Ambiente de Trabalho"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -72,7 +75,7 @@ msgstr "Configurações compartilhadas com arquivos Gnome"
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Diversos Tweaks"
+msgstr "Diversos Fracas"
 
 #: app/adwPreferencesWindow.js:222
 #, fuzzy
@@ -82,7 +85,7 @@ msgstr "Tamanho para os ícones de desktop"
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Tiny"
-msgstr "Tiny"
+msgstr "Minúsculo"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
@@ -112,22 +115,22 @@ msgstr "Canto superior esquerdo"
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Canto superior direito"
+msgstr "Canto superior direito."
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Canto inferior esquerdo"
+msgstr "Canto inferior esquerdo."
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Canto inferior direito"
+msgstr "Canto inferior direito."
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Adicione novos ícones aos Monitores Secundários primeiro, se disponível"
+msgstr "Adicione novos ícones aos monitores secundários primeiro, se disponível"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
@@ -188,12 +191,12 @@ msgstr "Um único clique"
 #: app/adwPreferencesWindow.js:258
 #, fuzzy
 msgid "Double click"
-msgstr "Clique duas vezes"
+msgstr "Duplo clique"
 
 #: app/adwPreferencesWindow.js:262
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Mostrar miniaturas de imagem"
+msgstr "Mostrar miniaturas de imagens"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
@@ -218,7 +221,7 @@ msgstr "Mostrar um item de menu de contexto para excluir permanentemente"
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
 msgid "Show hidden files"
-msgstr "Mostrar arquivos ocultos"
+msgstr "Exibir ficheiros ocultos"
 
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
@@ -228,17 +231,17 @@ msgstr "Abrir pastas no mouse hover"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Site"
+msgstr "Website"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Visita"
+msgstr "Visitar"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Questões"
+msgstr "Problemas"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -288,7 +291,7 @@ msgstr "Abrir pasta"
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Abrir arquivo"
+msgstr "Abrir Arquivo"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -308,12 +311,12 @@ msgstr "Nome da pasta"
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "File name"
-msgstr "Nome do arquivo"
+msgstr "Nome do ficheiro"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1163
 #, fuzzy
 msgid "OK"
-msgstr "ESTÁ BEM"
+msgstr "OK"
 
 #: app/askRenamePopup.js:56
 #, fuzzy
@@ -342,13 +345,13 @@ msgstr "Extraindo arquivos"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Compactando arquivos"
+msgstr "Comprimindo arquivos."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
 #, fuzzy
 msgid "Cancel"
-msgstr "Cancelar Cancelar Cancelar"
+msgstr "Cancelar"
 
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
@@ -448,7 +451,7 @@ msgstr "Nome do arquivo"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Senha"
+msgstr "Palavra-Passe"
 
 #: app/autoAr.js:612
 #, fuzzy
@@ -483,17 +486,17 @@ msgstr "GNOME Arquivos não encontrados"
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "O GNOME Aplicação de arquivos é necessária por Desktop Icons NG."
+msgstr "O GNOME O aplicativo de arquivos é exigido pelo Desktop Icons NG."
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Mexam-se"
+msgstr "Mover"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 #, fuzzy
 msgid "Copy"
-msgstr "Entendido"
+msgstr "Copiar"
 
 #: app/desktopManager.js:723
 #, fuzzy
@@ -573,17 +576,17 @@ msgstr "Nova pasta"
 #: app/desktopManager.js:1443
 #, fuzzy
 msgid "New Document"
-msgstr "Novo documento"
+msgstr "Novo Documento"
 
 #: app/desktopManager.js:1447
 #, fuzzy
 msgid "Paste"
-msgstr "Pasta"
+msgstr "Colar"
 
 #: app/desktopManager.js:1448
 #, fuzzy
 msgid "Undo"
-msgstr "Não"
+msgstr "Desfazer"
 
 #: app/desktopManager.js:1449
 #, fuzzy
@@ -593,7 +596,7 @@ msgstr "Refazer"
 #: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
-msgstr "Selecione tudo"
+msgstr "Selecionar tudo"
 
 #: app/desktopManager.js:1459
 #, fuzzy
@@ -613,12 +616,12 @@ msgstr "Mostrar Desktop Em arquivos GNOME"
 #: app/desktopManager.js:1469
 #, fuzzy
 msgid "Open In Terminal"
-msgstr "Aberto no terminal"
+msgstr "Abrir no Termina&l"
 
 #: app/desktopManager.js:1474
 #, fuzzy
 msgid "Change Background…"
-msgstr "Mudança de fundo.."
+msgstr "Mudar imagem do fundo"
 
 #: app/desktopManager.js:1479
 #, fuzzy
@@ -628,12 +631,12 @@ msgstr "Configurações de ícone de desktop"
 #: app/desktopManager.js:1480
 #, fuzzy
 msgid "Display Settings"
-msgstr "Configurações de exibição"
+msgstr "Configurações de Visualização"
 
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Preferences Window is Open"
-msgstr "A janela de preferências é aberta"
+msgstr "A janela de preferências está aberta"
 
 #: app/desktopManager.js:1523
 #, fuzzy
@@ -653,7 +656,7 @@ msgstr "Criação de pasta Falhada"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Não poderia criar pasta"
+msgstr "Não consegui criar pasta."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -669,7 +672,7 @@ msgstr "Não poderia criar documento"
 #: app/fileItem.js:140
 #, fuzzy
 msgid "Home"
-msgstr "Home"
+msgstr "Página inicial"
 
 #: app/fileItem.js:266
 #, fuzzy
@@ -695,7 +698,7 @@ msgstr ""
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não podia abrir Arquivo"
+msgstr "Não pôde abrir o ficheiro"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -727,8 +730,8 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Isto. O arquivo tem Permissões incorretas. Clique direito para editar "
-"Propriedades, em seguida:\n"
+"Este .desktop O arquivo tem Permissões incorretas. Clique direito para "
+"editar Propriedades, em seguida:\n"
 
 #: app/fileItem.js:360
 #, fuzzy
@@ -772,7 +775,7 @@ msgstr "Abram..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Corre"
+msgstr "Para executar"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -782,7 +785,7 @@ msgstr "Abrir com {foo}"
 #: app/fileItemMenu.js:313
 #, fuzzy
 msgid "Open"
-msgstr "Abrir"
+msgstr "Aberto"
 
 #: app/fileItemMenu.js:322 app/fileItemMenu.js:326
 #, fuzzy
@@ -802,12 +805,12 @@ msgstr "Abra tudo com outra aplicação..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Aberto com..."
+msgstr "Abrir com..."
 
 #: app/fileItemMenu.js:336
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
-msgstr "Lançamento usando cartão gráfico dedicado"
+msgstr "Lançamento usando cartão de gráficos dedicado"
 
 #: app/fileItemMenu.js:343
 #, fuzzy
@@ -832,22 +835,22 @@ msgstr "Scripts"
 #: app/fileItemMenu.js:360
 #, fuzzy
 msgid "Cut"
-msgstr "Corta"
+msgstr "Cortar"
 
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Vamos..."
+msgstr "Mover para..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Entendido..."
+msgstr "Copiar para..."
 
 #: app/fileItemMenu.js:371
 #, fuzzy
 msgid "Rename…"
-msgstr "Renomear.."
+msgstr "Renomear…"
 
 #: app/fileItemMenu.js:374
 #, fuzzy
@@ -881,12 +884,12 @@ msgstr "Enviar para o dispositivo móvel"
 #: app/fileItemMenu.js:402
 #, fuzzy
 msgid "Move to Trash"
-msgstr "Mover para Trash"
+msgstr "Mova para a lixeira"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Excluir permanentemente"
+msgstr "Apagar permanentemente"
 
 #: app/fileItemMenu.js:410
 #, fuzzy
@@ -901,17 +904,17 @@ msgstr "Permitir o lançamento"
 #: app/fileItemMenu.js:416
 #, fuzzy
 msgid "Empty Trash"
-msgstr "Lixo vazio"
+msgstr "Esvaziar Lixo"
 
 #: app/fileItemMenu.js:422
 #, fuzzy
 msgid "Eject"
-msgstr "Ejecto"
+msgstr "Ejetar"
 
 #: app/fileItemMenu.js:425
 #, fuzzy
 msgid "Unmount"
-msgstr "Imposição"
+msgstr "Desmontar"
 
 #: app/fileItemMenu.js:429
 #, fuzzy
@@ -931,12 +934,12 @@ msgstr "Mostrar tudo em arquivos"
 #: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Show in Files"
-msgstr "Mostrar em Arquivos"
+msgstr "Mostrar nos Ficheiros"
 
 #: app/fileItemMenu.js:434
 #, fuzzy
 msgid "Open in Terminal"
-msgstr "Aberto no Terminal"
+msgstr "Abrir no Termina&l"
 
 #: app/fileItemMenu.js:552
 #, fuzzy
@@ -961,12 +964,12 @@ msgstr "Incapaz de mover arquivos, sem pasta de destino"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Selecione o destino"
+msgstr "Selecionar destino"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 #, fuzzy
 msgid "Select"
-msgstr "Selecione"
+msgstr "Selecionar"
 
 #: app/fileItemMenu.js:672
 #, fuzzy
@@ -1007,7 +1010,7 @@ msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Para essa funcionalidade funcionar em Desktop Icons, você deve instalar \""
+"Para que essa funcionalidade funcione em Desktop Icons, você deve instalar \""
 "${programName}\" em seu sistema."
 
 #: app/utils/desktopIconsUtil.js:146
@@ -1033,7 +1036,7 @@ msgstr "_Cancelar"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Abra"
+msgstr "_Abrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
@@ -1053,7 +1056,7 @@ msgstr "Mostrar pasta pessoal"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 #, fuzzy
 msgid "Show the personal folder in the desktop."
-msgstr "Mostre a pasta pessoal na área de trabalho."
+msgstr "Mostrar a pasta pessoal na área de trabalho."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 #, fuzzy
@@ -1175,7 +1178,7 @@ msgstr "Tipo de arquivos para não Stack"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Um array de tipos de strings, Não empilhe esses tipos de arquivos"
+msgstr "Um raio de tipos de strings, Não Empilhe esses tipos de arquivos"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy

@@ -4,14 +4,16 @@
 # Hayao Yamada <hayao@fascode.net>, 2021.
 # Mitsuya Shibata <mty.shibata@gmail.com>, 2021.
 # sicklylife <translation@sicklylife.jp>, 2021-2022.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -19,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -35,12 +37,12 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "ツイート"
+msgstr "カスタマイズ"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "お問い合わせ"
+msgstr "About"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -55,7 +57,7 @@ msgstr "デスクトッププログラムの設定"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "ボリューム"
+msgstr "巻数"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -75,7 +77,7 @@ msgstr "Gnomeファイルと共有設定"
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "その他 ツイート"
+msgstr "アクセサリー ツイート"
 
 #: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
@@ -124,7 +126,7 @@ msgstr "右下"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "利用可能な場合は、最初のSecond Monitorに新しいアイコンを追加します。"
+msgstr "利用可能な場合は、最初のSecond Monitorsに新しいアイコンを追加します"
 
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
@@ -215,17 +217,17 @@ msgstr "ドラッグホバーのフォルダを開く"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "サイトマップ"
+msgstr "URL"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "アクセス"
+msgstr "訪問"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "問題点"
+msgstr "課題"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -235,7 +237,7 @@ msgstr "問題トラッカーに関するレポートの問題"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "レポート"
+msgstr "通報"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -245,7 +247,7 @@ msgstr "ライセンス"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translation"
-msgstr "コンテンツ"
+msgstr "翻訳"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -255,7 +257,7 @@ msgstr "Webブラウザで翻訳する"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "ログイン"
+msgstr "翻訳"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -265,12 +267,12 @@ msgstr "<b>{foo}</b>を開くためのアプリケーションを選択"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "オープンアイテム"
+msgstr "アイテムを開く"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "オープンフォルダ"
+msgstr "フォルダを開く"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
@@ -285,8 +287,7 @@ msgstr "デフォルトのアプリケーションを変更するエラー"
 #: app/appChooser.js:103
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "{mimetype} のデフォルトアプリケーションとして {foo} "
-"を設定しているときにエラー"
+msgstr "{mimetype} のデフォルトアプリケーションとして {foo} を設定するときにエラー"
 
 #: app/askRenamePopup.js:48
 msgid "Folder name"
@@ -307,7 +308,7 @@ msgstr "名前の変更"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "自動車 インストールされていない"
+msgstr "オートマチック インストールされていない"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -325,7 +326,7 @@ msgstr "ファイルの抽出"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "ファイル圧縮"
+msgstr "ファイル圧縮中..."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -360,7 +361,7 @@ msgstr "抽出完了"
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "'${fullPathFile}' の抽出が完了しました。."
+msgstr "'${fullPathFile}' の抽出が完了しました."
 
 #: app/autoAr.js:437
 #, fuzzy
@@ -370,7 +371,7 @@ msgstr "抽出のキャンセル"
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "'${fullPathFile}' をユーザが取り消してしまいました。."
+msgstr "'${fullPathFile}' をユーザが取り消してしまいました."
 
 #: app/autoAr.js:448
 #, fuzzy
@@ -395,7 +396,7 @@ msgstr "圧縮完了"
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "'${outputFile}' にファイルを圧縮して完了しました。."
+msgstr "'${outputFile}' にファイルを圧縮して完了しました."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
@@ -405,12 +406,12 @@ msgstr "キャンセルされた圧縮"
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "出力ファイル '${outputFile}' は既に存在しています。."
+msgstr "出力ファイル '${outputFile}' は既に存在しています."
 
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "'${outputFile}' にファイルを圧縮すると、ユーザがキャンセルされました。."
+msgstr "'${outputFile}' にファイルを圧縮すると、ユーザがキャンセルされました."
 
 #: app/autoAr.js:507
 #, fuzzy
@@ -439,22 +440,22 @@ msgstr "作成"
 #: app/autoAr.js:683
 #, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "すべてのオペレーティング システムと互換性がある。."
+msgstr "すべてのオペレーティング システムと互換性がある."
 
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "パスワードは、WindowsとMacにインストールする必要があります。."
+msgstr "パスワードは、WindowsとMacにインストールする必要があります."
 
 #: app/autoAr.js:695
 #, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "小規模なアーカイブですが、Linux と Mac のみ。."
+msgstr "小規模なアーカイブですが、Linux と Mac のみ."
 
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "より小さなアーカイブは、WindowsとMacにインストールする必要があります。."
+msgstr "より小さなアーカイブは、WindowsとMacにインストールする必要があります."
 
 #: app/desktopManager.js:125
 #, fuzzy
@@ -464,12 +465,12 @@ msgstr "グノーム 見つからないファイル"
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "グノーム デスクトップアイコンNGでファイルアプリケーションが必要です。."
+msgstr "グノーム デスクトップアイコンNGでファイルアプリケーションが必要です."
 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "ふりがな"
+msgstr "Move"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -478,7 +479,7 @@ msgstr "コピー"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "サイトマップ"
+msgstr "リンク"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -507,7 +508,7 @@ msgstr "デスクトップ上のファイルを検索"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "お名前 (必須)"
+msgstr "プレイリスト名"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -522,12 +523,12 @@ msgstr "変更された時間"
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "タイプ:"
+msgstr "タイプ"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "サイズ:"
+msgstr "サイズ"
 
 #: app/desktopManager.js:1429
 #, fuzzy
@@ -609,7 +610,7 @@ msgstr "設定ウィンドウが開きます"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "このウィンドウが開きます。 アクティブなウィンドウに切り替えてください。."
+msgstr "このウィンドウが開きます。 アクティブなウィンドウに切り替えてください."
 
 #: app/desktopManager.js:1537
 msgid "Settings"
@@ -623,7 +624,7 @@ msgstr "フォルダ作成失敗"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "フォルダを作成できません"
+msgstr "フォルダーを作成できませんでした。"
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -662,7 +663,7 @@ msgstr "\"{foo}\" "
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "開けない ファイル"
+msgstr "ファイルが開けませんでした"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -737,7 +738,7 @@ msgstr "すべて開く..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "ログイン"
+msgstr "コマンドで起動"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -763,7 +764,7 @@ msgstr "別のアプリケーションですべて開く..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "オープン..."
+msgstr "アプリケーションで開く"
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -795,12 +796,12 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "移動する..."
+msgstr "を移動..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピーする."
+msgstr "コピーする"
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -809,7 +810,7 @@ msgstr "名前を変更…"
 #: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Create Link..."
-msgstr "リンクの作成."
+msgstr "リンクを作成する..."
 
 #: app/fileItemMenu.js:379
 #, fuzzy
@@ -953,22 +954,22 @@ msgstr "コマンドが見つかりません"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "選択したファイルを開きます。."
+msgstr "選択したファイルを開きます."
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "常にこのファイルタイプを使用する"
+msgstr "このファイルタイプを常に使用"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_キャンセル"
+msgstr "キャンセル(_C)"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_オープン"
+msgstr "開く(_O)"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

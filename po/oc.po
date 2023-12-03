@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the ding package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/oc/>\n"
 "Language: oc\n"
@@ -17,24 +17,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "Burèu"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "Fichièrs"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "Ajustaments"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "A prepaus"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -48,8 +52,9 @@ msgid "Settings for the Desktop Program"
 msgstr "Definir la talha de las icònas burèu."
 
 #: app/adwPreferencesWindow.js:200
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "Volum"
 
 #: app/adwPreferencesWindow.js:201
 msgid "Desktop volumes display"
@@ -213,40 +218,46 @@ msgid "Open folders on drag hover"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:272
+#, fuzzy
 msgid "Website"
-msgstr ""
+msgstr "Site Oèb"
 
 #: app/adwPreferencesWindow.js:272
 msgid "Visit"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Issues"
-msgstr ""
+msgstr "Problèmas"
 
 #: app/adwPreferencesWindow.js:273
 msgid "Report issues on issue tracker"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "Rapòrt"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "License"
-msgstr ""
+msgstr "License"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Translation"
 
 #: app/adwPreferencesWindow.js:275
 msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Traduire"
 
 #: app/appChooser.js:50
 msgid "Choose an application to open <b>{foo}</b>"
@@ -261,13 +272,13 @@ msgstr "Dobrir dins un terminal"
 #, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
-msgstr "Dorsièr novèl"
+msgstr "Dobrir un dorsièr"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
-msgstr "Dobrir"
+msgstr "Dobrir un fichièr"
 
 #: app/appChooser.js:102
 msgid "Error changing default application"
@@ -398,12 +409,14 @@ msgid "Archive name"
 msgstr "Nom de fichièr"
 
 #: app/autoAr.js:599
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Senhal"
 
 #: app/autoAr.js:612
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 #: app/autoAr.js:683
 msgid "Compatible with all operating systems."
@@ -432,16 +445,18 @@ msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr ""
 
 #: app/desktopManager.js:721
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "Desplaçar"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
 msgstr "Copiar"
 
 #: app/desktopManager.js:723
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "Ligam"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -467,8 +482,9 @@ msgid "Find Files on Desktop"
 msgstr "Recercar de fichièrs al burèu"
 
 #: app/desktopManager.js:1422
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: app/desktopManager.js:1423
 msgid "Name Z-A"
@@ -481,12 +497,14 @@ msgid "Modified Time"
 msgstr "Triar per data de modificacion"
 
 #: app/desktopManager.js:1425
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Tipe"
 
 #: app/desktopManager.js:1426
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "Talha"
 
 #: app/desktopManager.js:1429
 #, fuzzy
@@ -689,8 +707,9 @@ msgid "Open All..."
 msgstr "Dobrir tot..."
 
 #: app/fileItemMenu.js:309
+#, fuzzy
 msgid "Run"
-msgstr ""
+msgstr "Executar"
 
 #: app/fileItemMenu.js:311
 msgid "Open with {foo}"
@@ -855,7 +874,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
-msgstr "Seleccionar una destinacion per l'extraccion"
+msgstr "Chausir la destinacion"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -914,13 +933,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
-msgstr "Anullar"
+msgstr "_Anullar"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 #| msgid "Open"
 msgid "_Open"
-msgstr "Dobrir"
+msgstr "_Dobrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
