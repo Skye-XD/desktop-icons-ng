@@ -2,14 +2,15 @@
 # Copyright (C) 2019 desktop-icons's COPYRIGHT HOLDER
 # This file is distributed under the same license as the desktop-icons package.
 # Olteanu Laurențiu <laur.olteanu@outlook.com>, 2021.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
 "Language: ro\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -27,13 +28,13 @@ msgstr "Desktop"
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "Fișiere"
+msgstr "Fişiere"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Ajustări"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -53,7 +54,7 @@ msgstr "Setări pentru programul desktop"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumele"
+msgstr "Volume"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -218,17 +219,17 @@ msgstr "Deschideți folderele prin glisare"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Site-ul web"
+msgstr "Site web"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Vizita"
+msgstr "Vizită"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Probleme"
+msgstr "Listă probleme"
 
 #: app/adwPreferencesWindow.js:273
 msgid "Report issues on issue tracker"
@@ -237,7 +238,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Raport"
+msgstr "Raportează"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -245,16 +246,18 @@ msgid "License"
 msgstr "Licență"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Traducere"
 
 #: app/adwPreferencesWindow.js:275
 msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Traduceți"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -269,12 +272,12 @@ msgstr "Deschideți articole"
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Deschideți folderul"
+msgstr "Deschide dosar"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Deschide fișierul"
+msgstr "Deschide Fișier"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -324,7 +327,7 @@ msgstr "Extragerea fișierelor"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Comprimarea fișierelor"
+msgstr "Comprimare fișiere."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -469,7 +472,7 @@ msgstr "Aplicația Fișiere GNOME este necesară de Desktop Icons NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Mișcare"
+msgstr "Mută"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -478,7 +481,7 @@ msgstr "Copiază"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Legătură"
+msgstr "Link"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -512,7 +515,7 @@ msgstr "Nume"
 #: app/desktopManager.js:1423
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Numele Z-A"
+msgstr "Name (Z-A)"
 
 #: app/desktopManager.js:1424
 #, fuzzy
@@ -527,7 +530,7 @@ msgstr "Tip"
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "mărimea"
+msgstr "Dimensiune"
 
 #: app/desktopManager.js:1429
 #, fuzzy
@@ -623,7 +626,7 @@ msgstr "Crearea folderului a eșuat"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Nu s-a putut crea folderul"
+msgstr "Directorul nu a putut fi creat."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -666,7 +669,7 @@ msgstr ""
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Fișierul nu poate fi deschis"
+msgstr "Nu pot să deschid fișierul"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -677,7 +680,7 @@ msgstr "${appName} nu poate deschide fișiere de acest tip!"
 #: app/fileItem.js:350
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Fișier desktop spart"
+msgstr "Fișiere desktop nefuncționale"
 
 #: app/fileItem.js:351
 msgid ""
@@ -740,7 +743,7 @@ msgstr "Deschide tot..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Alerga"
+msgstr "Execută"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -766,7 +769,7 @@ msgstr "Deschide tot cu altă aplicație..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Deschis cu..."
+msgstr "Deschide cu..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -798,12 +801,12 @@ msgstr "Taie"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Mutați la..."
+msgstr "Mută la..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Copiaza in..."
+msgstr "Copiază la..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -908,7 +911,7 @@ msgstr "Nu se pot muta fișierele, nici un folder de destinație"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Selectați Destinație"
+msgstr "Selectați Destinația"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -969,12 +972,12 @@ msgstr "Utilizați întotdeauna pentru acest tip de fișier"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "Anulează"
+msgstr "_Anulare"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Deschide"
+msgstr "_Open"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

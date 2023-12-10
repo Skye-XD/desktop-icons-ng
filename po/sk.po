@@ -2,14 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Dušan Kazik <prescott66@gmail.com>, 2020-2021.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
@@ -17,14 +19,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Pozadia"
+msgstr "Stolný počítač"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -35,12 +37,12 @@ msgstr "Súbory"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Vyladenia"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "O nás"
+msgstr "O programe"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -160,7 +162,7 @@ msgstr "Zvýrazniť mriežku počas Drag a Drop"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Use Nemo to open folders"
-msgstr "Použite Nemo na otvorené zložky"
+msgstr "Použite Nemo na otvorené priečinky"
 
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
@@ -170,7 +172,7 @@ msgstr "Pridať znak mäkkých odkazov"
 #: app/adwPreferencesWindow.js:251
 #, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Použite tmavý text v ikonových etiketách"
+msgstr "Použite tmavý text v ikonových etikiet"
 
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
@@ -218,7 +220,7 @@ msgstr "Otvorené priečinky na drag Hover"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Webová stránka"
+msgstr "Web stránka"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -238,7 +240,7 @@ msgstr "Správa otázky týkajúce sa sledovača problémov"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Aktuality"
+msgstr "Report"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -248,7 +250,7 @@ msgstr "Licencia"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translation"
-msgstr "Preklady"
+msgstr "Preklad"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -258,7 +260,7 @@ msgstr "Pomoc preložiť vo vašom prehliadači"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "Preložiť"
+msgstr "Preklad"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -273,7 +275,7 @@ msgstr "Otvorené položky"
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Otvorte priečinok"
+msgstr "Otvoriť priečinok"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
@@ -283,7 +285,7 @@ msgstr "Otvoriť súbor"
 #: app/appChooser.js:102
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Chyba zmena predvolené aplikácie"
+msgstr "Chyba zmeny predvolené aplikácie"
 
 #: app/appChooser.js:103
 #, fuzzy
@@ -317,7 +319,7 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Ak chcete pracovať s komprimovanými súbormi, nainštalujte file-roller a/"
+"Ak chcete pracovať s komprimovanými súbormi, nainštalujte súbor-roller a/"
 "alebo gir-1.2-gnome Autonóm"
 
 #: app/autoAr.js:198
@@ -378,7 +380,7 @@ msgstr "Extrahovanie \"${fullPathFile}\" bolo zrušené užívateľom."
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Passphrase potrebný pre ${filename}"
+msgstr "Passphrase požadované pre ${filename}"
 
 #: app/autoAr.js:451
 #, fuzzy
@@ -473,7 +475,7 @@ msgstr "GNOME Aplikácia súborov je potrebná Desktop Icons NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Pohyb"
+msgstr "Presunúť"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -482,7 +484,7 @@ msgstr "Kopírovať"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Linky"
+msgstr "Odkaz"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -511,7 +513,7 @@ msgstr "Nájdenie súborov na pracovnej ploche"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "Meno"
+msgstr "Názov"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -626,7 +628,7 @@ msgstr "Skladanie Failed"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Nemohol vytvoriť zložku"
+msgstr "Priečinok sa nepodarilo vytvoriť."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -667,7 +669,7 @@ msgstr ""
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nemožno otvoriť Aktuality"
+msgstr "Nemožno otvoriť súbor"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -779,7 +781,7 @@ msgstr "Otvoriť všetko inou aplikáciou..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Otvoriť s..."
+msgstr "Otvoriť pomocou..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -832,7 +834,7 @@ msgstr "Vytvoriť odkaz..."
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
-msgstr[1] "Stlačenie {0}"
+msgstr[1] "Stlačenie {0} zložky"
 msgstr[2] "Stlačenie {0} priečinky"
 
 #: app/fileItemMenu.js:386
@@ -923,7 +925,7 @@ msgstr "Nie je možné presunúť súbory, žiadny cieľový priečinok"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Vyberte destináciu"
+msgstr "Vybrať cieľ"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -984,12 +986,12 @@ msgstr "Vždy použite tento typ súboru"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_ Cancel"
+msgstr "_Zrušiť"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Open"
+msgstr "_Otvoriť"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1099,7 +1101,7 @@ msgstr "Udržujte Ikony Stacked"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Vždy držať Icons Stacked, Podobné typy sú skupinené"
+msgstr "Vždy držať Icons Stacked, Podobné typy sú zoskupené"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy

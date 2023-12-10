@@ -4,13 +4,16 @@
 # Anders Jonsson <anders.jonsson@norsjovallen.se>, 2018-2021.
 # Josef Andersson <l10nl18nsweja@gmail.com>, 2019.
 # Luna Jernberg <droidbittin@gmail.com>, 2021, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-10-19 04:13+0000\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
@@ -18,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
@@ -37,7 +40,7 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Om"
+msgstr "Om Fluffychat"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -53,7 +56,7 @@ msgstr "Inställningar för skrivbordsprogrammet"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volymerna"
+msgstr "Volymer"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -73,7 +76,7 @@ msgstr "Inställningar som delas med Gnome Files"
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Miscellaneous Tweaks"
+msgstr "Miscellan Tweaks"
 
 # TODO: *ON* the desktop?
 #: app/adwPreferencesWindow.js:222
@@ -84,12 +87,12 @@ msgstr "Storlek för desktop ikonerna"
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Tiny"
-msgstr "Tiny"
+msgstr "Små"
 
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 msgid "Small"
-msgstr "Lite liten"
+msgstr "Mindre text"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
@@ -192,7 +195,7 @@ msgstr "Single Click"
 #: app/adwPreferencesWindow.js:258
 #, fuzzy
 msgid "Double click"
-msgstr "Dubbelklick"
+msgstr "Dubbelklicka"
 
 #: app/adwPreferencesWindow.js:262
 #, fuzzy
@@ -202,7 +205,7 @@ msgstr "Visa bild miniatyrer"
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Always"
-msgstr "Alltid alltid"
+msgstr "Alltid"
 
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
@@ -212,12 +215,12 @@ msgstr "På denna dator endast"
 #: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "Never"
-msgstr "Aldrig aldrig"
+msgstr "Aldrig"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
-msgstr "Visa ett kontextmenyobjekt för att radera permanent"
+msgstr "Visa ett kontextmenyalternativ för att radera permanent"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -242,7 +245,7 @@ msgstr "Besök"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Frågor"
+msgstr "Ärenden"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -272,7 +275,7 @@ msgstr "Hjälp översätta i din webbläsare"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "Översättning"
+msgstr "Översätt"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -287,12 +290,12 @@ msgstr "Öppna objekt"
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Open Folder"
+msgstr "Öppna mapp"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Öppen fil"
+msgstr "Öppna fil"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -341,7 +344,7 @@ msgstr "Extrahera filer"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Komprimera filer"
+msgstr "Komprimera filer."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -481,7 +484,7 @@ msgstr "GNOME Filer som inte hittats"
 #: app/desktopManager.js:126
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
-msgstr "GNOME Filer ansökan krävs av Desktop Icons NG."
+msgstr "GNOME Filer applikation krävs av Desktop Icons NG."
 
 #: app/desktopManager.js:721
 #, fuzzy
@@ -524,7 +527,7 @@ msgstr "Hitta filer på skrivbordet"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "Namnnamn"
+msgstr "Namn"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -625,7 +628,7 @@ msgstr "Föreställningar fönster är öppet"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "Detta fönster är öppet. Vänligen växla till det aktiva fönstret."
+msgstr "Detta fönster är öppet. Växla till det aktiva fönstret."
 
 #: app/desktopManager.js:1537
 msgid "Settings"
@@ -639,12 +642,12 @@ msgstr "Mamma skapelse misslyckades"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Kunde inte skapa mapp"
+msgstr "Kunde inte skapa mapp."
 
 #: app/desktopManager.js:2528
 #, fuzzy
 msgid "Template Creation Error"
-msgstr "Malta Creation Fel"
+msgstr "Mallar Skapelse Fel"
 
 #: app/desktopManager.js:2529
 #, fuzzy
@@ -678,7 +681,7 @@ msgstr ""
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kunde inte öppna Fil"
+msgstr "Kunde inte öppna filen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -920,7 +923,7 @@ msgstr "Kan flytta filer, ingen destination mapp"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Välj destination"
+msgstr "Select Destination"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -979,12 +982,12 @@ msgstr "Använd alltid för denna filtyp"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Cancel"
+msgstr "_Avbryt"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Öppna"
+msgstr "_Öppna"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

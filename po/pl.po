@@ -4,14 +4,16 @@
 # Paweł Piasek <pp@euro-linux.com>, 2022
 # Piotr Drąg <piotrdrag@gmail.com>, 2018-2019.
 # Aviary.pl <community-poland@mozilla.org>, 2018-2019.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
@@ -20,28 +22,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Desktop"
+msgstr "Komputer stacjonarny"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "Archiwum"
+msgstr "Pliki"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweak"
+msgstr "Usprawnienia"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "About"
+msgstr "O aplikacji"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -56,7 +58,7 @@ msgstr "Settings for the Desktop Program (ang.)"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumes"
+msgstr "Tomy"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -66,7 +68,7 @@ msgstr "Objętość deskatopu"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "Files Settings (ang.)"
+msgstr "Zdjęcia"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -218,17 +220,17 @@ msgstr "Open folder"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Strona internetowa"
+msgstr "Stronie internetowej"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Visit"
+msgstr "Odwiedź"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Issues"
+msgstr "Problemy"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -238,7 +240,7 @@ msgstr "Wydarzenia dotyczące dziennika"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Raport"
+msgstr "Zgłoś"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -258,7 +260,7 @@ msgstr "Strona internetowa"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "Translat"
+msgstr "Przetłumacz"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -268,17 +270,17 @@ msgstr "Choose to open (X30X) (ang.)"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Item otwarty"
+msgstr "Otwarte pozycje"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Open Folder"
+msgstr "Otwórz katalog"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Open File"
+msgstr "Otwórz plik"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -317,8 +319,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"By być w stanie pracować z skompresowanymi plikami, instalatorem lub gir-1.2-"
-"gnome. Autostrada"
+"Być może pracować z skompresowanymi plikami, instalatorem lub gir-1.2-gnome. "
+"Autostrada"
 
 #: app/autoAr.js:198
 #, fuzzy
@@ -328,7 +330,7 @@ msgstr "Pliki dodatkowe"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Plik tekstowy"
+msgstr "Kompresuję pliki."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -363,9 +365,7 @@ msgstr "Ukończenie"
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
-"Dotychczas zakończony został dodatkowy \"pełny przegląd\" (ang. "
-"fullPathFile)."
+msgstr "Dotychczas zakończono dodatkową kwotę \"pełną\"."
 
 #: app/autoAr.js:437
 #, fuzzy
@@ -416,7 +416,8 @@ msgstr "Obecnie plik wyjściowy \"OutputFile\" istnieje."
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr ""
-"Wpisy do pliku „o wartościach niższych” zostały anulowane przez użytkownika."
+"W plikach kompresyjnych do \"Owartościowych plików\" został anulowany przez "
+"użytkownika."
 
 #: app/autoAr.js:507
 #, fuzzy
@@ -426,17 +427,17 @@ msgstr "Error podczas kompresji"
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Archiwum"
+msgstr "Utwórz archiwum"
 
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "Nazwa"
+msgstr "Nazwa archiwum"
 
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Password"
+msgstr "Hasło"
 
 #: app/autoAr.js:612
 msgid "Create"
@@ -475,7 +476,7 @@ msgstr "GNOME Zastosowanie plików wymaga od Desktop Icons NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Move"
+msgstr "Przenieś"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -534,7 +535,7 @@ msgstr "Typ"
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "Size"
+msgstr "Wielkość"
 
 #: app/desktopManager.js:1429
 #, fuzzy
@@ -544,7 +545,7 @@ msgstr "Keep Arranged (ang.)"
 #: app/desktopManager.js:1433
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Zatrzymany przez Typ.."
+msgstr "Zatrzymany przez typ."
 
 #: app/desktopManager.js:1434
 #, fuzzy
@@ -587,7 +588,7 @@ msgstr "Arrange By.."
 #: app/desktopManager.js:1468
 #, fuzzy
 msgid "Show Desktop In GNOME Files"
-msgstr "Oficjalna strona W GNOME Files"
+msgstr "Oficjalna strona W GNOME"
 
 #: app/desktopManager.js:1469
 #, fuzzy
@@ -624,12 +625,12 @@ msgstr "Ustawienia"
 #: app/desktopManager.js:2484
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Folder Creation Failed (ang.)"
+msgstr "Folder Creation Failed"
 
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Could nie może tworzyć nicerni"
+msgstr "Nie można utworzyć katalogu."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -657,7 +658,7 @@ msgstr "Nie można otworzyć pliku ponieważ jest to uszkodzony link symboliczny
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Opening File Failed (ang.)"
+msgstr "Otwarcie pliku się nie powiodło"
 
 #: app/fileItem.js:308
 #, fuzzy
@@ -667,7 +668,7 @@ msgstr "Nie ma zastosowania do otwartego typu plików (ang.)"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nie otwierać File"
+msgstr "Nie można otworzyć pliku"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -695,7 +696,7 @@ msgstr ""
 #: app/fileItem.js:357
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Invalid Permission on Desktop (ang.)"
+msgstr "Invalid Permission on Desktop File (ang.)"
 
 #: app/fileItem.js:358
 #, fuzzy
@@ -703,8 +704,8 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-".desktop Archiwum jest nieprawidłowe. Współredaktor naczelny: „Click to edit "
-"Properties then:”.\n"
+".desktop Archiwum jest nieprawidłowe. Współredaktor naczelny - edit "
+"Properties, następnie:\n"
 
 #: app/fileItem.js:360
 #, fuzzy
@@ -722,7 +723,7 @@ msgid ""
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 "\n"
-"(X1X) – opcja wykonywana przez Allow Executing File jako program"
+"(X1X)Enable option: Allow Executing File as a Program (ang.)"
 
 #: app/fileItem.js:371
 msgid ""
@@ -746,7 +747,7 @@ msgstr "Otwórz wiele..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Runda"
+msgstr "Uruchomienie"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -772,7 +773,7 @@ msgstr "Otwórz za pomocą innego programu..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Otwarty z..."
+msgstr "Otwórz za pomocą..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -802,12 +803,12 @@ msgstr "Wytnij"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Move to..."
+msgstr "Przejdz do …"
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Copy to..."
+msgstr "Kopiuj do..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -822,9 +823,9 @@ msgstr "Create Link (ang.)."
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Compress {0} folder (ang.)"
+msgstr[0] "Compress {0} folder"
 msgstr[1] ""
-msgstr[2] "Compress {0} folder (ang.)"
+msgstr[2] "Compress {0} folder"
 
 #: app/fileItemMenu.js:386
 msgid "Compress {0} file"
@@ -914,17 +915,17 @@ msgstr "Nie mogąc przenieść Files, ani miejsca docelowego foldera"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Wybór"
+msgstr "Wybierz cel trasy"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 #, fuzzy
 msgid "Select"
-msgstr "Select"
+msgstr "Wybierz"
 
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Copy Cancelled"
+msgstr "Kopiowanie przerwane"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
@@ -974,12 +975,12 @@ msgstr "Zawsze używany do tego typu plików"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Cancel"
+msgstr "_Anuluj"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Open"
+msgstr "_Otwórz"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

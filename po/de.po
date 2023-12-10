@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-12-02 03:13+0000\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -55,7 +55,7 @@ msgstr "Lagen für das Desktop Programmheft"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Bände"
+msgstr "Volumes"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -266,7 +266,7 @@ msgstr "Wähl aus einen Antrag zu öffnen <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Offene Artikel"
+msgstr "@:account.creditlimit.openInvoices"
 
 #: app/appChooser.js:60
 #, fuzzy
@@ -276,7 +276,7 @@ msgstr "Ordner öffnen"
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Datei öffnen"
+msgstr "Öffne Datei"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -719,7 +719,7 @@ msgstr "Alle öffnen ..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "&Ausführen"
+msgstr "Ausführen"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -782,7 +782,7 @@ msgstr "Verschieben auf..."
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopieren nach …"
+msgstr "Kopieren nach..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"

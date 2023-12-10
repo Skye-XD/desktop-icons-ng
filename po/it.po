@@ -4,14 +4,16 @@
 # Massimo Branchini <max.bra.gtalk@gmail.com>, 2019.
 # Milo Casagrande <milo@milo.name>, 2019.
 # Albano Battistella <albano_battistella@hotmail.com>, 2022.
-#
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
@@ -19,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -35,7 +37,7 @@ msgstr "File"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Ritocchi"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -55,7 +57,7 @@ msgstr "Impostazioni per il programma Desktop"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volume"
+msgstr "Volumi"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -225,7 +227,7 @@ msgstr "Visita"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Questioni"
+msgstr "Problemi"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -235,7 +237,7 @@ msgstr "Segnala i problemi sul tracker di emissione"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Relazione"
+msgstr "Resoconto"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -245,7 +247,7 @@ msgstr "Licenza"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translation"
-msgstr "Traduzione:"
+msgstr "Traduzione"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -255,7 +257,7 @@ msgstr "Aiuta a tradurre nel tuo browser web"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "Traduttore"
+msgstr "Traduci"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -265,17 +267,17 @@ msgstr "Scegliere un'applicazione per aprire <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Articoli aperti"
+msgstr "Elementi Aperti"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Cartella aperta"
+msgstr "Apri cartella"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Aprire il file"
+msgstr "Apri file"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -327,7 +329,7 @@ msgstr "Estrazione di file"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "File di compressione"
+msgstr "Comprimere i files."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -357,7 +359,7 @@ msgstr "Estrarre i file in '${outputPath} '"
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Estrazione completata"
+msgstr "Estrazione completa"
 
 #: app/autoAr.js:431
 #, fuzzy
@@ -428,7 +430,7 @@ msgstr "Crea archivio"
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "Nome dell'archivio"
+msgstr "Nome archivio"
 
 #: app/autoAr.js:599
 #, fuzzy
@@ -472,7 +474,7 @@ msgstr "Il GNOME L'applicazione dei file è richiesta da Desktop Icons NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Muovetevi"
+msgstr "Move"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -510,7 +512,7 @@ msgstr "Trova i file sulla scrivania"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "Nome"
+msgstr "Per nome"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -625,7 +627,7 @@ msgstr "Creazione cartella non riuscita"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Non potrebbe creare cartella"
+msgstr "Impossibile creare la cartella"
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -653,7 +655,7 @@ msgstr "Non è possibile aprire questo file perché è un collegamento interrott
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "File di apertura non corretto"
+msgstr "Apertura file fallita"
 
 #: app/fileItem.js:308
 #, fuzzy
@@ -663,7 +665,7 @@ msgstr "Non c'è applicazione installata per aprire \"{foo}\" tipo di file"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Non si può aprire File"
+msgstr "Impossibile aprire il file"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -742,7 +744,7 @@ msgstr "Apri tutto..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Corri"
+msgstr "Eseguire"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -768,7 +770,7 @@ msgstr "Apri tutto con un'altra applicazione…"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Aperto con..."
+msgstr "Apri con..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -798,12 +800,12 @@ msgstr "Taglia"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Muovetevi..."
+msgstr "Spostare a"
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Ricevuto a..."
+msgstr "Copia in..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -908,7 +910,7 @@ msgstr "Non è possibile spostare file, nessuna cartella di destinazione"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Seleziona la destinazione"
+msgstr "Scegli la destinazione"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -968,12 +970,12 @@ msgstr "Utilizzare sempre per questo tipo di file"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "# Cancel #"
+msgstr "A_nnulla"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Aperta"
+msgstr "_Apri"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

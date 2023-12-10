@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the desktop-icons package.
 # JGJeong <jingimem@gmail.com>, 2021.
 # Junghee Lee <daemul72@gmail.com>, 2022.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
@@ -18,28 +20,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "제품 정보"
+msgstr "데스크톱"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "파일 형식"
+msgstr "파일"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "스낵 바"
+msgstr "트윅"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "제품정보"
+msgstr "소개"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -54,7 +56,7 @@ msgstr "데스크탑 프로그램 설정"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "회사연혁"
+msgstr "볼륨"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -171,7 +173,7 @@ msgstr "아이콘 레이블에 어두운 텍스트 사용"
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "공지사항"
+msgstr "본문 바로가기"
 
 #: app/adwPreferencesWindow.js:257
 msgid "Single click"
@@ -214,17 +216,17 @@ msgstr "드래그 hover에 폴더 열기"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "웹 사이트"
+msgstr "웹사이트"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "- 연혁"
+msgstr "방문하다"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "제품정보"
+msgstr "이슈"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -234,17 +236,17 @@ msgstr "문제 추적기에 대한 문제"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "제품정보"
+msgstr "보고서"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "이름 *"
+msgstr "라이선스"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translation"
-msgstr "번역하기"
+msgstr "번역"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -254,7 +256,7 @@ msgstr "웹 브라우저에서 번역하는 데 도움이"
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Translate"
-msgstr "이름 *"
+msgstr "번역하기"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -269,7 +271,7 @@ msgstr "공지사항"
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "오픈 폴더"
+msgstr "폴더 열기"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
@@ -312,7 +314,7 @@ msgstr "제품정보 Ar는 설치되지 않습니다"
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr "압축 파일로 작업 할 수 있도록, 파일 롤러 및 / 또는 gir-1.2-gnome을 설치 "
+msgstr "압축 파일과 함께 작동 할 수 있도록, 파일 롤러 및 / 또는 gir-1.2-gnome을 설치 "
 "자동차"
 
 #: app/autoAr.js:198
@@ -323,7 +325,7 @@ msgstr "파일 추출"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "파일 압축"
+msgstr "파일들을 압축하기."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -353,12 +355,12 @@ msgstr "파일 추출 '${outputPath} 이름 *"
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "적출 완료"
+msgstr "추출 완료"
 
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "'${fullPathFile}'을 추출한 것은 완료되었습니다."
+msgstr "'${fullPathFile}'를 추출한 것은 완료되었습니다."
 
 #: app/autoAr.js:437
 #, fuzzy
@@ -368,7 +370,7 @@ msgstr "관련 상품"
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "'${fullPathFile}' 을 추출하여 사용자가 취소했습니다."
+msgstr "'${fullPathFile}' 을 추출하여 사용자에 의해 취소되었습니다."
 
 #: app/autoAr.js:448
 #, fuzzy
@@ -408,7 +410,7 @@ msgstr "Output file '${outputFile}' 이미 존재합니다."
 #: app/autoAr.js:504
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "파일을 '${outputFile}'로 압축하면 사용자가 취소됩니다."
+msgstr "'${outputFile}'으로 파일을 압축하면 사용자가 취소됩니다."
 
 #: app/autoAr.js:507
 #, fuzzy
@@ -418,7 +420,7 @@ msgstr "압축 중 오류"
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "아카이브"
+msgstr "압축 파일 만들기"
 
 #: app/autoAr.js:566
 #, fuzzy
@@ -428,12 +430,12 @@ msgstr "Archive 이름"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "비밀번호"
+msgstr "패스워드"
 
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "이름 *"
+msgstr "만들기"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -468,7 +470,7 @@ msgstr "GNOME 소개 파일 응용 프로그램은 데스크톱 아이콘 NG에 
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "기타"
+msgstr "이동"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -506,7 +508,7 @@ msgstr "데스크탑에서 파일 찾기"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "이름 *"
+msgstr "이름"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -521,12 +523,12 @@ msgstr "수정 시간"
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "제품정보"
+msgstr "형식"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "크기 (mm)"
+msgstr "크기"
 
 #: app/desktopManager.js:1429
 #, fuzzy
@@ -621,7 +623,7 @@ msgstr "Folder 창조 실패"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "폴더를 만들 수 없습니다"
+msgstr "폴더를 만들 수 없습니다."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -649,7 +651,7 @@ msgstr "이 파일은 손상된 심볼릭링크이므로 열 수 없습니다"
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "파일 열기 실패"
+msgstr "파일을 열지 못했습니다"
 
 #: app/fileItem.js:308
 #, fuzzy
@@ -659,7 +661,7 @@ msgstr "\"{foo}\"파일을 열 수 있는 응용 프로그램이 없습니다"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "열 수 없습니다 파일 형식"
+msgstr "파일을 열 수 없습니다"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -735,7 +737,7 @@ msgstr "모두 열기…"
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "지원하다"
+msgstr "실행"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -761,7 +763,7 @@ msgstr "다른 프로그램으로 모두 열기…"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "오픈 ..."
+msgstr "다음으로 열기..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -791,7 +793,7 @@ msgstr "잘라내기"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "이동 ..."
+msgstr "다음으로 이동 ..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
@@ -899,7 +901,7 @@ msgstr "파일 이동 불가, 대상 폴더 없음"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "자주 묻는 질문"
+msgstr "도착지 선택"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -908,7 +910,7 @@ msgstr "선택"
 #: app/fileItemMenu.js:672
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "복사 취소"
+msgstr "복사가 취소되었습니다"
 
 #: app/fileItemMenu.js:673
 #, fuzzy
@@ -948,7 +950,7 @@ msgstr "명령을 찾을 수 없습니다"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "선택한 파일을 엽니다."
+msgstr "선택한 파일을 열려면 앱을 선택하십시오."
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
@@ -958,12 +960,12 @@ msgstr "이 파일 형식의 항상 사용"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_캔셀"
+msgstr "취소(_C)"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_영업"
+msgstr "열기(_O)"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1106,7 +1108,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "연결된 경우 non primary monitor에 새로운 아이콘을 표시합니다"
+msgstr "연결된 경우 non primary monitor에 새로운 아이콘을 표시하십시오"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, fuzzy

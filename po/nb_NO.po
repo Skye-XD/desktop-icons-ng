@@ -2,13 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Allan Nordhøy <epost@anotheragency.no>, 2022, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:46+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -16,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -32,7 +34,7 @@ msgstr "Filer"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Forbedringer"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -52,7 +54,7 @@ msgstr "Innstillinger for skrivebordsprogrammet"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumer"
+msgstr "Lydstyrke"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -101,22 +103,22 @@ msgstr "Plassering av nye ikoner"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
-msgstr "Øvre venstre hjørne"
+msgstr "Øverst i venstre hjørne"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Øvr"
+msgstr "Øverst i høyre hjørne"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Nedre venstre hjørne"
+msgstr "Nede i venstre hjørne"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Nedre høyre hjørne"
+msgstr "Nede i høyre hjørne"
 
 #: app/adwPreferencesWindow.js:240
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -211,7 +213,7 @@ msgstr "Åpne mapper ved å dra musepekeren"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Nettsted"
+msgstr "Nettside"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -221,7 +223,7 @@ msgstr "Besøk"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Problemer"
+msgstr "Problemoversikt"
 
 #: app/adwPreferencesWindow.js:273
 msgid "Report issues on issue tracker"
@@ -230,24 +232,26 @@ msgstr ""
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Rapportere"
+msgstr "Rapporter"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "Tillatelse"
+msgstr "Lisens"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "Oversettelse"
 
 #: app/adwPreferencesWindow.js:275
 msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "Oversett"
 
 #: app/appChooser.js:50
 #, fuzzy
@@ -257,7 +261,7 @@ msgstr "Velg et program for å åpne <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Åpne elementer"
+msgstr "Åpne element"
 
 #: app/appChooser.js:60
 #, fuzzy
@@ -267,7 +271,7 @@ msgstr "Åpne mappe"
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Åpen fil"
+msgstr "Åpne fil"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -445,7 +449,7 @@ msgstr "Kopier"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Sammenlenk"
+msgstr "Kobling"
 
 #: app/desktopManager.js:726
 msgid "Choose Action for Files"
@@ -577,7 +581,7 @@ msgstr "Mappeopprettelse mislyktes"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Kunne ikke opprette mappe"
+msgstr "Kunne ikke opprette mappe."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -587,7 +591,7 @@ msgstr "Malopprettelse mislyktes"
 #: app/desktopManager.js:2529
 #, fuzzy
 msgid "Could not create document"
-msgstr "Kunne ikke opprette dokumentet"
+msgstr "Klarte ikke å opprette socket."
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
@@ -615,7 +619,7 @@ msgstr "Det er ingen applikasjon installert for å åpne \"{foo}\"-filer"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kunne ikke åpne filen"
+msgstr "Klarte ikke å åpne filen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -695,7 +699,7 @@ msgstr "Åpne alle …"
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Løpe"
+msgstr "Kjør"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -721,7 +725,7 @@ msgstr "Åpne alle med annet program …"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Åpne med..."
+msgstr "Åpne med …"
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -750,12 +754,12 @@ msgstr "Klipp ut"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Flytte til..."
+msgstr "Flytt til..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopier til..."
+msgstr "Kopiér til..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -860,7 +864,7 @@ msgstr "Kan ikke flytte filer, ingen målmappe"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Velg Destinasjon"
+msgstr "Select Destination"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -920,12 +924,12 @@ msgstr "Bruk alltid for denne filtypen"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "Avbryt"
+msgstr "_Avbryt"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Åpne"
+msgstr "_Åpne"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

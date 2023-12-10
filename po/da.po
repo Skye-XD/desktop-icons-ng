@@ -2,14 +2,16 @@
 # Copyright (C) 2018 desktop-icons's COPYRIGHT HOLDER
 # This file is distributed under the same license as the desktop-icons package.
 # Alan Mortensen <alanmortensen.am@gmail.com>, 2018.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
@@ -17,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Skrivebord"
+msgstr "Computer"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -38,12 +40,12 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Om Om os"
+msgstr "Om"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Desktop indstillinger"
+msgstr "Indstillinger for skrivebordet"
 
 #: app/adwPreferencesWindow.js:196
 #, fuzzy
@@ -82,7 +84,7 @@ msgstr "Størrelsen på skrivebordsikoner"
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Tiny"
-msgstr "Tiny"
+msgstr "Lille"
 
 #: app/adwPreferencesWindow.js:225
 msgid "Small"
@@ -180,22 +182,22 @@ msgstr "Handling for at åbne elementer"
 #: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Single click"
-msgstr "Et enkelt klik"
+msgstr "Enkelte klik"
 
 #: app/adwPreferencesWindow.js:258
 #, fuzzy
 msgid "Double click"
-msgstr "Dobbelt klik"
+msgstr "Dobbelt-klik"
 
 #: app/adwPreferencesWindow.js:262
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Vis billedminiaturer"
+msgstr "Vis billed miniaturer"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Always"
-msgstr "Altid altid"
+msgstr "Altid"
 
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
@@ -205,7 +207,7 @@ msgstr "På denne computer kun"
 #: app/adwPreferencesWindow.js:266
 #, fuzzy
 msgid "Never"
-msgstr "Aldrig aldrig aldrig"
+msgstr "Aldrig"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
@@ -225,17 +227,17 @@ msgstr "Åbne mapper på træk hover"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Website hjemmeside"
+msgstr "Hjemmeside"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Besøg Besøg"
+msgstr "Besøg"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Problemer med spørgsmål"
+msgstr "Problemer"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -245,12 +247,12 @@ msgstr "Rapporter problemer med problemsporing"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Rapporteringsrapport"
+msgstr "Anmeld"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "Licenslicens"
+msgstr "Licens"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -275,7 +277,7 @@ msgstr "Vælg et program for at åbne <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Åbne elementer"
+msgstr "Åbn element"
 
 #: app/appChooser.js:60
 #, fuzzy
@@ -300,12 +302,12 @@ msgstr "Fejl under indstilling af {foo} som standardprogram for {mimetype}"
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "Folder name"
-msgstr "Mappenavn"
+msgstr "Navn på mappe"
 
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "File name"
-msgstr "Filnavn"
+msgstr "Fil navn"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1163
 msgid "OK"
@@ -338,7 +340,7 @@ msgstr "Uddrag af filer"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Komprimering af filer"
+msgstr "Komprimerer filer."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -444,7 +446,7 @@ msgstr "Arkiv navn"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Adgangskode nulstilling"
+msgstr "Adgangskode"
 
 #: app/autoAr.js:612
 msgid "Create"
@@ -473,7 +475,7 @@ msgstr "Små arkiver, men skal installeres på Windows og Mac."
 #: app/desktopManager.js:125
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "GNOME Filer, der ikke findes"
+msgstr "GNOME Filer ikke fundet"
 
 #: app/desktopManager.js:126
 #, fuzzy
@@ -483,7 +485,7 @@ msgstr "The GNOME Filer ansøgning kræves af Desktop Icons NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Flytte Flyt"
+msgstr "Flyt"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -492,7 +494,7 @@ msgstr "Kopiér"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Link Link Link Link"
+msgstr "Link"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -537,12 +539,12 @@ msgstr "Modificeret tid"
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "Type Type Type Type"
+msgstr "Type"
 
 #: app/desktopManager.js:1426
 #, fuzzy
 msgid "Size"
-msgstr "Størrelse Størrelse Størrelse"
+msgstr "Størrelse"
 
 #: app/desktopManager.js:1429
 #, fuzzy
@@ -582,7 +584,7 @@ msgstr "Omgør"
 #: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
-msgstr "Vælg alle"
+msgstr "Vælg Alle"
 
 #: app/desktopManager.js:1459
 #, fuzzy
@@ -639,7 +641,7 @@ msgstr "Opsætning af mappe"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Kan ikke oprette mappe"
+msgstr "Kunne ikke oprette mappe."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -679,7 +681,7 @@ msgstr "Der er ingen applikation installeret for at åbne \"{foo}\" type filer"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kan ikke åbne Filen fil"
+msgstr "Kunne ikke åbne filen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -690,7 +692,7 @@ msgstr "${appName} kan ikke åbne filer af denne type!"
 #: app/fileItem.js:350
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "I nærheden af Broken Desktop File"
+msgstr "Broken Desktop File"
 
 #: app/fileItem.js:351
 msgid ""
@@ -711,7 +713,7 @@ msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Denne .desktop Filen har forkerte tilladelser. Højreklik for at redigere "
+"Dette .desktop Filen har forkerte tilladelser. Højreklik for at redigere "
 "Egenskaber, og derefter:\n"
 
 #: app/fileItem.js:360
@@ -740,7 +742,7 @@ msgid ""
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
-"Denne .desktop-fil er ikke pålidelig, det kan ikke blive lanceret. For at "
+"Denne .desktop-fil er ikke betroet, det kan ikke blive lanceret. For at "
 "aktivere lancering skal du højreklikke på:\n"
 "\n"
 "<b>Enabel \"Allow Launching\"</b>"
@@ -760,7 +762,7 @@ msgstr "Åben alle..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Løb"
+msgstr "Kør"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -787,7 +789,7 @@ msgstr "Åbn alle med andre applikationer..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Åben med..."
+msgstr "Åbn med..."
 
 #: app/fileItemMenu.js:336
 #, fuzzy
@@ -820,7 +822,7 @@ msgstr "Klip"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Flytte til..."
+msgstr "Flyt til..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
@@ -934,7 +936,7 @@ msgstr "Kan ikke flytte filer, ingen destinationsmappe"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Vælg Destination"
+msgstr "Vælg destination"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -963,7 +965,7 @@ msgstr "Valget indeholder en mappe, komprimere mappen til en fil først."
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "Tæt på"
+msgstr "Luk"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
@@ -984,7 +986,7 @@ msgstr ""
 #: app/utils/desktopIconsUtil.js:146
 #, fuzzy
 msgid "Command not found"
-msgstr "Kommando ikke fundet"
+msgstr "Kommandoen blev ikke fundet!"
 
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
@@ -999,12 +1001,12 @@ msgstr "Brug altid denne filtype"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Cancel"
+msgstr "_Annuller"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Open"
+msgstr "_Åben"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1085,7 +1087,7 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"Når du foretager en Drag'n'Drop-operation, markerer stedet på nettet, hvor "
+"Når du foretager en Drag'n'Drop-operation, markerer stedet i nettet, hvor "
 "ikonet vil blive sat med et halvgennemsigtet rektangel."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
@@ -1168,8 +1170,7 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"Mal labelteksten i sort i stedet for hvid. Nyttig når du bruger lys "
-"baggrunde."
+"Mal labelteksten i sort i stedet for hvid. Nyttigt ved brug af lys baggrunde."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, fuzzy

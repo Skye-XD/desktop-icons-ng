@@ -1,13 +1,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Jordi Mas i Hernandez <jmas@softcatala.org>, 2019-2021
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -31,12 +32,12 @@ msgstr "Fitxers"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Ajustos"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Aproximadament"
+msgstr "Quant a"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -224,7 +225,7 @@ msgstr "Visita"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Assumptes"
+msgstr "Problemes"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -239,7 +240,7 @@ msgstr "Informe"
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "Llicència"
+msgstr "License"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -264,17 +265,17 @@ msgstr "Tria una aplicació per obrir <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Elements oberts"
+msgstr "Abrir Elemento"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Carpeta oberta"
+msgstr "Obre la carpeta"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Fitxer obert"
+msgstr "Obre un fitxer"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -324,7 +325,7 @@ msgstr "Extraient fitxers"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Comprimint fitxers"
+msgstr "Comprimint arxius."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -424,7 +425,7 @@ msgstr "Crea arxiu"
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "Nom d'arxiu"
+msgstr "Nom de l'arxiu"
 
 #: app/autoAr.js:599
 #, fuzzy
@@ -434,7 +435,7 @@ msgstr "Contrasenya"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Crea"
+msgstr "Nou"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -470,7 +471,7 @@ msgstr "El GNOM Arxiva l'aplicació és requerida per Icones d'Escriptori NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Moviment"
+msgstr "Mou"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -479,7 +480,7 @@ msgstr "Copia"
 #: app/desktopManager.js:723
 #, fuzzy
 msgid "Link"
-msgstr "Nexe"
+msgstr "Enllaç"
 
 #: app/desktopManager.js:726
 #, fuzzy
@@ -524,7 +525,7 @@ msgstr "Temps modificat"
 #: app/desktopManager.js:1425
 #, fuzzy
 msgid "Type"
-msgstr "Mena"
+msgstr "Tipo"
 
 #: app/desktopManager.js:1426
 #, fuzzy
@@ -569,7 +570,7 @@ msgstr "Refés"
 #: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
-msgstr "Selecciona Tot"
+msgstr "Ho selecciona tot"
 
 #: app/desktopManager.js:1459
 #, fuzzy
@@ -626,7 +627,7 @@ msgstr "Creació de carpeta va Fallar"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "No podria crear carpeta"
+msgstr "No s'ha pogut crear el directori."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -667,7 +668,7 @@ msgstr ""
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "No podria obrir Fitxer"
+msgstr "No s'ha pogut obrir el fitxer"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -747,7 +748,7 @@ msgstr "Obre-ho tot..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Cursa"
+msgstr "Executa"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -773,7 +774,7 @@ msgstr "Obre amb una altra aplicació..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Obre Amb..."
+msgstr "Obre amb..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -805,12 +806,12 @@ msgstr "Retalla"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Moviment a..."
+msgstr "Mou a ..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Còpia a..."
+msgstr "Copia a ..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -915,7 +916,7 @@ msgstr "Incapaç de moure Fitxers, cap carpeta de destinació"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Selecciona Destinació"
+msgstr "Selecciona un destí"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 #, fuzzy
@@ -944,7 +945,7 @@ msgstr ""
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "Proper"
+msgstr "Tanca"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
@@ -979,12 +980,12 @@ msgstr "Sempre utilitza per a aquesta mena de fitxer"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "_Anul·la"
+msgstr "_Cancel·la"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Obert"
+msgstr "_Obrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

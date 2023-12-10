@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the desktop-icons package.
 # ghentdebian <ghent.debian@gmail.com>, 2018.
 # Charles Monzat <charles.monzat@numericable.fr>, 2018.
-#
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -18,12 +20,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Bureau"
+msgstr "Ordinateur de bureau"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -34,7 +36,7 @@ msgstr "Fichiers"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Ajustements"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -54,7 +56,7 @@ msgstr "Paramètres pour le programme Bureau"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumes"
+msgstr "Tomes"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -211,22 +213,22 @@ msgstr "Afficher les fichiers cachés"
 #: app/adwPreferencesWindow.js:270
 #, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Ouvrir les dossiers sur glisser hover"
+msgstr "Ouvrir les dossiers sur glisser-over"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Site Web"
+msgstr "Site web"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Visit"
-msgstr "Visite"
+msgstr "Aller vers"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "Questions"
+msgstr "Problèmes"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -236,7 +238,7 @@ msgstr "Questions relatives au rapport sur la question"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "Rapport"
+msgstr "Signaler"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -266,17 +268,17 @@ msgstr "Choisissez une application pour ouvrir <b>{foo}</b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "Open Items"
+msgstr "@:account.invoiceList.invoiceTypes.openitem"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "Open Folder"
+msgstr "Ouvrir le dossier"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Ouvrir le fichier"
+msgstr "Ouvrir fichier"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -327,7 +329,7 @@ msgstr "Extraire des fichiers"
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "Comprenez des fichiers"
+msgstr "Compression des fichiers."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
 #: app/desktopManager.js:1165 app/fileItemMenu.js:634
@@ -372,12 +374,12 @@ msgstr "Extraction annulée"
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Extrait '${fullPathFile}' a été annulé par l'utilisateur."
+msgstr "Extraire '${fullPathFile}' a été annulé par l'utilisateur."
 
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Passphrase nécessaire pour ${filename}"
+msgstr "Passphrase requis pour ${filename}"
 
 #: app/autoAr.js:451
 #, fuzzy
@@ -424,12 +426,12 @@ msgstr "Erreur lors de la compression"
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Créer des archives"
+msgstr "Créer une archive"
 
 #: app/autoAr.js:566
 #, fuzzy
 msgid "Archive name"
-msgstr "Nom des archives"
+msgstr "Nom de l'archive"
 
 #: app/autoAr.js:599
 #, fuzzy
@@ -475,7 +477,7 @@ msgstr "Le GNOME L'application de fichiers est requise par Desktop Icons NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "Avancez"
+msgstr "Déplacer"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -658,17 +660,18 @@ msgstr ""
 #: app/fileItem.js:306
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Fichier d'ouverture Failed"
+msgstr "L'ouverture du fichier a échoué"
 
 #: app/fileItem.js:308
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
-msgstr "Il n'y a pas d'application installée pour ouvrir des fichiers \"{foo}\""
+msgstr ""
+"Il n'y a pas d'application installée pour ouvrir \"{foo}\" type de fichiers"
 
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "Impossible. Fichier"
+msgstr "Impossible d'ouvrir le fichier"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -748,7 +751,7 @@ msgstr "Ouvrir tout…"
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "Run"
+msgstr "Exécuter"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -774,7 +777,7 @@ msgstr "Tout ouvrir avec une autre application…"
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "Ouvrez avec..."
+msgstr "Ouvrir avec..."
 
 #: app/fileItemMenu.js:336
 msgid "Launch using Dedicated Graphics Card"
@@ -804,12 +807,12 @@ msgstr "Couper"
 #: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Move to..."
-msgstr "Allez..."
+msgstr "Déplacer vers..."
 
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Copy to..."
-msgstr "Bien reçu..."
+msgstr "Copier vers..."
 
 #: app/fileItemMenu.js:371
 msgid "Rename…"
@@ -914,7 +917,7 @@ msgstr "Impossible de déplacer des fichiers, aucun dossier de destination"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "Sélectionnez Destination"
+msgstr "Sélectionnez la destination"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 msgid "Select"
@@ -974,12 +977,12 @@ msgstr "Toujours utiliser pour ce type de fichier"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "Annuler"
+msgstr "_Annuler"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Ouvert"
+msgstr "_Ouvrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

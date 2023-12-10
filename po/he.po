@@ -2,14 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Omer I.S. <omeritzicschwartz@gmail.com>, 2021.
-#
+# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-09-04 16:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
 "Language: he\n"
@@ -18,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -34,7 +36,7 @@ msgstr "קבצים"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "שפצורים"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -54,7 +56,7 @@ msgstr "הגדרות לתוכנית שולחן העבודה"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "כרך"
+msgstr "כרכים"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -69,12 +71,12 @@ msgstr "הגדרות קבצים"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "תגית: Gnome Files"
+msgstr "תגיות קשורות Gnome Files"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Miscellaneous Tweaks"
+msgstr "ממזר Tweaks"
 
 #: app/adwPreferencesWindow.js:222
 msgid "Size for the desktop icons"
@@ -104,22 +106,22 @@ msgstr "היערכות חדשה"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Top left corner"
-msgstr "פינת שמאל"
+msgstr "פינה שמאלית-ע‎ליונה"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "פינת ימין"
+msgstr "פינה ימנית-עליונה"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "פינת שמאל"
+msgstr "פינה שמאלית-תחתונה"
 
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "פינת ימין"
+msgstr "פינה ימנית-תחתונה"
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
@@ -219,7 +221,7 @@ msgstr "תיקיות פתוחות על גרור"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "אתר אינטרנט"
+msgstr "אתר"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -229,7 +231,7 @@ msgstr "ביקור"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Issues"
-msgstr "בעיות"
+msgstr "סוגיות"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -239,12 +241,12 @@ msgstr "דוחות בנושא Tracker"
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "Report"
-msgstr "דיווח"
+msgstr "Report"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "License"
-msgstr "רישיון רישיון"
+msgstr "רישיון"
 
 #: app/adwPreferencesWindow.js:275
 #, fuzzy
@@ -269,17 +271,17 @@ msgstr "בחר בקשה לפתוח <b>"
 #: app/appChooser.js:58
 #, fuzzy
 msgid "Open Items"
-msgstr "פריטים פתוחים"
+msgstr "Open Items"
 
 #: app/appChooser.js:60
 #, fuzzy
 msgid "Open Folder"
-msgstr "פתוח Folder"
+msgstr "פתיחת תיקייה"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "קובץ פתוח"
+msgstr "פתיחת קובץ"
 
 #: app/appChooser.js:102
 #, fuzzy
@@ -319,7 +321,7 @@ msgid ""
 "gnomeAutoAr"
 msgstr ""
 "כדי להיות מסוגל לעבוד עם קבצים דחוסים, להתקין קובץ-roller ו / או gir-1.2-"
-"gnomeme AutoAr"
+"gnome AutoAr"
 
 #: app/autoAr.js:198
 #, fuzzy
@@ -339,7 +341,7 @@ msgstr "ביטול"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "היכנסו לסיסמה כאן"
+msgstr "היכנס לסיסמה כאן"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -389,7 +391,7 @@ msgstr "טעות במהלך החילוץ"
 #: app/autoAr.js:478
 #, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "לחץ על קבצים ל\"$ \"\""
+msgstr "הצבת קבצים ל\"$\" \"\""
 
 #: app/autoAr.js:491
 #, fuzzy
@@ -399,7 +401,7 @@ msgstr "דיכוי הושלם"
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "התקנת קבצים ל-\"$outputFile\"."
+msgstr "התקנת קבצים ל-\"$outputFile\" הושלמה."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
@@ -439,7 +441,7 @@ msgstr "סיסמה"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "יצירת"
+msgstr "צור"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -449,7 +451,7 @@ msgstr "מתאים לכל מערכות ההפעלה."
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "סיסמה מוגן .zip, יש להתקין על Windows ו- Mac."
+msgstr "סיסמה מוגן .zip, חייב להיות מותקן על Windows ו- Mac."
 
 #: app/autoAr.js:695
 #, fuzzy
@@ -474,7 +476,7 @@ msgstr "GNOME יישום קבצים נדרש על ידי Icons NG."
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Move"
-msgstr "לזוז"
+msgstr "מהלך"
 
 #: app/desktopManager.js:722 app/fileItemMenu.js:362
 msgid "Copy"
@@ -503,7 +505,7 @@ msgstr "לא יכול ליצור קישור סמלי"
 #: app/desktopManager.js:1121
 #, fuzzy
 msgid "Clear current selection before new search"
-msgstr "בחירה ברורה לפני חיפוש חדש"
+msgstr "בחירה נוכחית ברורה לפני חיפוש חדש"
 
 #: app/desktopManager.js:1167
 #, fuzzy
@@ -513,7 +515,7 @@ msgstr "מצא קבצים על שולחן העבודה"
 #: app/desktopManager.js:1422
 #, fuzzy
 msgid "Name"
-msgstr "שם השם"
+msgstr "שם"
 
 #: app/desktopManager.js:1423
 #, fuzzy
@@ -573,7 +575,7 @@ msgstr "ביצוע חוזר"
 #: app/desktopManager.js:1454
 #, fuzzy
 msgid "Select All"
-msgstr "בחר הכל"
+msgstr "בחירת הכל"
 
 #: app/desktopManager.js:1459
 #, fuzzy
@@ -630,7 +632,7 @@ msgstr "יצירת פלאדר נכשלת"
 #: app/desktopManager.js:2485
 #, fuzzy
 msgid "Could not create folder"
-msgstr "לא יכול ליצור תיקיה"
+msgstr "לא ניתן ליצור תיקייה."
 
 #: app/desktopManager.js:2528
 #, fuzzy
@@ -670,7 +672,7 @@ msgstr "אין יישום שהותקן כדי לפתוח את סוג הקבצי�
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
 #, fuzzy
 msgid "Could not open File"
-msgstr "לא יכול לפתוח File"
+msgstr "לא ניתן לפתוח קובץ"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
@@ -691,7 +693,7 @@ msgid ""
 "\n"
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
-"קובץ desktop זה יש שגיאות או נקודות לתוכנית ללא הרשאות. זה לא יכול להתבצע.\n"
+"קובץ זה desktop יש שגיאות או נקודות לתוכנית ללא הרשאות. זה לא יכול להתבצע.\n"
 "\n"
 "<b> העריכה את הקובץ כדי להגדיר את התוכנית הנכונה"
 
@@ -753,7 +755,7 @@ msgstr "לפתוח הכול..."
 #: app/fileItemMenu.js:309
 #, fuzzy
 msgid "Run"
-msgstr "לרוץ"
+msgstr "הרצה"
 
 #: app/fileItemMenu.js:311
 #, fuzzy
@@ -772,7 +774,7 @@ msgstr "הפקה כאן"
 #: app/fileItemMenu.js:328
 #, fuzzy
 msgid "Extract To..."
-msgstr "לחלץ..."
+msgstr "הפקה ל..."
 
 #: app/fileItemMenu.js:333
 msgid "Open All With Other Application..."
@@ -781,7 +783,7 @@ msgstr "לפתוח הכול באמצעות יישום אחר..."
 #: app/fileItemMenu.js:333
 #, fuzzy
 msgid "Open With..."
-msgstr "פתוח עם..."
+msgstr "פתיחה עם…"
 
 #: app/fileItemMenu.js:336
 #, fuzzy
@@ -902,7 +904,7 @@ msgstr "הצג הכל בקבצים"
 #: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Show in Files"
-msgstr "הצגת קבצים"
+msgstr "הראה בקבצים"
 
 #: app/fileItemMenu.js:434
 msgid "Open in Terminal"
@@ -931,7 +933,7 @@ msgstr "לא ניתן להעביר קבצים, אין תיקיית יעד"
 #: app/fileItemMenu.js:598 app/fileItemMenu.js:626
 #, fuzzy
 msgid "Select Destination"
-msgstr "יעד נבחר"
+msgstr "Select Destination"
 
 #: app/fileItemMenu.js:600 app/fileItemMenu.js:628
 #, fuzzy
@@ -961,13 +963,13 @@ msgstr "בחירה כוללת מדריך, דחוס את הבמאי לקובץ ר
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "סגור"
+msgstr "סגירה"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:53
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "\"$Vprogramname\" דרושים לאייקונים שולחניים"
+msgstr "\"הודעה חדשה\" דרושים לאייקונים שולחניים"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -996,12 +998,12 @@ msgstr "תמיד להשתמש בסוג קובץ זה"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "Can"
+msgstr "_ביטול"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "פתוח"
+msgstr "_פתיחה"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1058,7 +1060,7 @@ msgstr "רשת Show Drives in the שולחן העבודה"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, fuzzy
 msgid "Show mounted network volumes in the desktop."
-msgstr "הצג נפח רשת רכוב בטבלה."
+msgstr "הצג נפח רשת רכוב בשולחן העבודה."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 #, fuzzy
@@ -1096,18 +1098,18 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"בעת סידור איקונים על שולחן העבודה, למיין ולשנות את המיקום של הבית, טרש ורשת "
-"רכובה או כונן חיצוני"
+"בעת סידור איקונים על שולחן העבודה, למיין ולשנות את המיקום של הבית, Trash "
+"ורשת רכובה או כונן חיצוני"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "עקבו אחרי Icons Arranged"
+msgstr "שמור על איקונים מסודרים"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 #, fuzzy
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "תמיד לשמור על איקונים סידור אחרון"
+msgstr "תמיד לשמור על איקונים הסדר הקבוע האחרון"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
@@ -1142,7 +1144,7 @@ msgstr "סוג של מחרוזת, Don't Stack אלה סוגים של קבצים"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "השתמש Nemo במקום Nautlus כדי לפתוח תיקיות."
+msgstr "השתמש Nemo במקום Nautilus כדי לפתוח תיקיות."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
