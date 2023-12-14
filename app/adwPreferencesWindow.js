@@ -17,7 +17,6 @@
  */
 import {Gtk, Gdk, GLib, Gio, GObject, Adw} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
-import {version} from '../dependencies/localFiles.js';
 
 export {AdwPreferencesWindow};
 
@@ -147,13 +146,14 @@ const ComboRowWithKey = GObject.registerClass({
 });
 
 const AdwPreferencesWindow = class {
-    constructor(desktopSettings, nautilusSettings, gtkSettings, extensionPath) {
+    constructor(desktopSettings, nautilusSettings, gtkSettings, extensionPath, version) {
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;
         this.gtkSettings = gtkSettings;
         this.iconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         this.iconPath = GLib.build_filenamev([extensionPath, 'app', 'resources', 'icons']);
         this.iconTheme.add_search_path(this.iconPath);
+        this.version = version;
     }
 
     getAdwPreferencesWindow(window = null) {
@@ -213,7 +213,7 @@ const AdwPreferencesWindow = class {
 
         const aboutGroup = new Adw.PreferencesGroup();
         aboutGroup.set_title('Gtk4 Desktop Icons NG');
-        let versiontitle = _(`Version ${version}`);
+        let versiontitle = _(`Version ${this.version}`);
         aboutGroup.set_description(versiontitle);
         aboutFrame.add(aboutGroup);
 

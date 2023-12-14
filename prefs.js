@@ -31,13 +31,14 @@ export default class dingPreferences extends ExtensionPreferences {
         const schemaGtk = schemaSource.lookup(Enums.SCHEMA_GTK, true);
         const gtkSettings = new Gio.Settings({settings_schema: schemaGtk});
         const schemaNautilus = schemaSource.lookup(Enums.SCHEMA_NAUTILUS, true);
+        const version = this.metadata['version-name'];
         let nautilusSettings;
         if (!schemaNautilus)
             nautilusSettings = null;
         else
             nautilusSettings = new Gio.Settings({settings_schema: schemaNautilus});
 
-        const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path);
+        const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path, version);
         preferencesWindow.getAdwPreferencesWindow(window);
     }
 }
