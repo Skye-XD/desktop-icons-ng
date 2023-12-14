@@ -33,7 +33,8 @@ import * as FileUtils from '../utils/fileUtils.js';
 let desktops = [];
 let lastCommand = null;
 let codePath = '.';
-let version = null;
+let gnomeversion = null;
+let programversion = null;
 let errorFound = false;
 let asDesktop = false;
 let primaryIndex = 0;
@@ -53,6 +54,7 @@ function printUsage() {
     print('  -P code path            : set the path where the code is stored');
     print('  -M index                : index of the primary monitor');
     print('  -V gnome version        : pass the gnome version to the DING application');
+    print('  -v version              : pass the version of the program to display in preferences');
     print('  -D x:y:w:h:z:t:b:l:r:i  : monitor data');
     print('      x: X coordinate');
     print('      y: Y coordinate');
@@ -88,6 +90,7 @@ function parseCommandLine(argv) {
             case '-D': // Desktop definition: X:Y:WIDTH:HEIGHT:ZOOM:MARGINTOP:MARGINBOTTOM:MARGINLEFT:MARGINRIGHT:MONITORINDEX
             case '-M': // Primary monitor
             case '-V': // Pass the Gnome Shell Version
+            case '-v': // Pass the program version
                 lastCommand = arg;
                 break;
             default:
@@ -145,7 +148,10 @@ function parseCommandLine(argv) {
             desktopVariants.push(dataVariant);
             break;
         case '-V':
-            version = arg;
+            gnomeversion = arg;
+            break;
+        case '-v':
+            programversion = arg;
             break;
         case '-M':
             primaryIndex = parseInt(arg);
@@ -190,7 +196,7 @@ if (Gio.File.new_for_path(localePath).query_exists(null))
 
 var desktopManager = null;
 var Utils = {FileUtils, PromiseUtils};
-var Data = {codePath, Enums, AdwPreferencesWindow};
+var Data = {codePath, Enums, AdwPreferencesWindow, gnomeversion, programversion};
 
 if (asDesktop) {
     remoteDingActions = Gio.DBusActionGroup.get(
@@ -229,7 +235,8 @@ dingApp.connect('activate', () => {
             codePath,
             asDesktop,
             primaryIndex,
-            version);
+            gnomeversion
+        );
     }
 });
 

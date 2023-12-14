@@ -4,7 +4,7 @@ import {DingManager} from './dingManager.js';
 export default class DingExtension extends Extension {
     constructor(metadata) {
         super(metadata);
-        this.dingManager = new DingManager(this.path);
+        this.dingManager = new DingManager(this.path, metadata['version-name']);
         this.DesktopIconsUsableArea = null;
     }
 

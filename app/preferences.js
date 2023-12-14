@@ -26,6 +26,10 @@ const GioSSS = Gio.SettingsSchemaSource;
 const Preferences = class {
     constructor(Data) {
         this._extensionPath = Data.codePath;
+        if (Data.programversion)
+            this._programVersion = Data.programversion;
+        else
+            this._programVersion = 0;
         this._Enums = Data.Enums;
         let schemaSource = GioSSS.get_default();
         this._desktopManager = null;
@@ -66,7 +70,7 @@ const Preferences = class {
         this._cacheInitialSettings();
 
         this._adwPreferencesWindow = new Data.AdwPreferencesWindow.AdwPreferencesWindow(this.desktopSettings,
-            this.nautilusSettings, this.gtkSettings, this._extensionPath);
+            this.nautilusSettings, this.gtkSettings, this._extensionPath, this._programVersion);
     }
 
     _get_schema(schema) {

@@ -36,7 +36,7 @@ import {_} from '../dependencies/gettext.js';
 export {DesktopManager};
 
 const DesktopManager = class {
-    constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex, version) {
+    constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex, gnomeversion) {
         // Inherit
         this.mainApp = Data.dingApp;
         this._codePath = codePath;
@@ -52,8 +52,8 @@ const DesktopManager = class {
         else
             this._primaryScreen = null;
 
-        if (version)
-            this.GnomeShellVersion = version;
+        if (gnomeversion)
+            this.GnomeShellVersion = gnomeversion;
         else
             this.GnomeShellVersion = 40;
 
