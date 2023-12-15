@@ -75,9 +75,10 @@ const ShellDropCursor = {
 export {DingManager};
 
 const DingManager = class {
-    constructor(extensionpath, version) {
+    constructor(extensionpath, version, uuid) {
         this.path = extensionpath;
         this.version = version;
+        this.uuid = uuid;
         this._init();
     }
 
@@ -470,6 +471,9 @@ const DingManager = class {
         // The current version of the Extension
         argv.push('-v');
         argv.push(`${this.version}`);
+        // Give the uuid of the extension
+        argv.push('-U');
+        argv.push(`${this.uuid}`);
 
         this.waylandClient = new LaunchSubprocess(0, 'Gtk4-DING');
         this.waylandClient.set_cwd(GLib.get_home_dir());

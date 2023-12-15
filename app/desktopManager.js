@@ -36,7 +36,7 @@ import {_} from '../dependencies/gettext.js';
 export {DesktopManager};
 
 const DesktopManager = class {
-    constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex, gnomeversion) {
+    constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex) {
         // Inherit
         this.mainApp = Data.dingApp;
         this._codePath = codePath;
@@ -52,14 +52,9 @@ const DesktopManager = class {
         else
             this._primaryScreen = null;
 
-        if (gnomeversion)
-            this.GnomeShellVersion = gnomeversion;
-        else
-            this.GnomeShellVersion = 40;
+        this.GnomeShellVersion = Data.gnomeversion;
 
-        this.uuid = 'gtk4-ding@smedius.gitlab.com';
-        if (this._asDesktop)
-            this.uuid = GLib.path_get_basename(this._codePath);
+        this.uuid = Data.uuid;
 
         // Init and import Scripts and classes
         this.DesktopIconsUtil = Utils.DesktopIconsUtil;
