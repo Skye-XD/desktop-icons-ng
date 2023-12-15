@@ -26,10 +26,7 @@ const GioSSS = Gio.SettingsSchemaSource;
 const Preferences = class {
     constructor(Data, AdwPreferencesWindow) {
         this._extensionPath = Data.codePath;
-        if (Data.programversion)
-            this._programVersion = Data.programversion;
-        else
-            this._programVersion = 0;
+        this._programVersion = Data.programversion;
         this._Enums = Data.Enums;
         let schemaSource = GioSSS.get_default();
         this._desktopManager = null;
