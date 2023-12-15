@@ -13,8 +13,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 21:58-0400\n"
-"PO-Revision-Date: 2023-12-02 03:13+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2023-12-15 08:08+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -223,7 +224,7 @@ msgstr "Abrir pastas no mouse hover"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Website"
-msgstr "Website"
+msgstr "Site"
 
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
@@ -554,7 +555,7 @@ msgstr "Mantenha empilhados por tipo.."
 #: app/desktopManager.js:1434
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Ordenar Home/Drives/Lixeira…"
+msgstr "Classificar Início/Drives/Trash.."
 
 #: app/desktopManager.js:1439 app/desktopManager.js:2461
 msgid "New Folder"
