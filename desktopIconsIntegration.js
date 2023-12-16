@@ -5,6 +5,8 @@
  * License text:
  *
  * Copyright (C) 2021 Sergio Costas (rastersoft@gmail.com)
+ * Modified for Gnome Shell 45 to support ESM -
+ * Copyright (C) 2023 Sundeep Mediratta (smedius@gmail.com)
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -28,8 +30,6 @@
 /** *****************************************************************************
  * Integration class
  *
- * Modified for Gnome Shell 45 to support ESM
- *
  * This class must be added to other extensions in order to integrate
  * them with Desktop Icons NG. It allows an extension to notify how much margin
  * it uses in each side of each monitor.
@@ -38,7 +38,7 @@
  * DESKTOP ICONS NG MAINTAINER: https://gitlab.com/rastersoft/desktop-icons-ng
  *
  * In the *enable()* function, create a *DesktopIconsUsableAreaClass()*
- * object with the uuid of your extension like-
+ * object optionally passig the uuid of your extension like-
  *
  *     new DesktopIconsIntegration.DesktopIconsUsableAreaClass(myExtensionUUID);
  *
@@ -60,12 +60,18 @@
 import GLib from 'gi://GLib';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {ExtensionState} from 'resource:///org/gnome/shell/misc/extensionUtils.js';
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 const IDENTIFIER_UUID = '130cbc66-235c-4bd6-8571-98d2d8bba5e2';
 
 export var DesktopIconsUsableAreaClass = class {
-    constructor(myuuid) {
-        this._myUUID = myuuid;
+    constructor(myuuid = null) {
+        if (myuuid) {
+            this._myUUID = myuuid;
+        } else {
+            const Me = Extension.lookupByURL(import.meta.url);
+            this._myUUID = Me.uuid;
+        }
         this._extensionManager = Main.extensionManager;
         this._timedMarginsID = 0;
         this._margins = {};
