@@ -55,7 +55,8 @@ function printUsage() {
     print('  -P code path            : set the path where the code is stored');
     print('  -M index                : index of the primary monitor');
     print('  -V gnome version        : pass the gnome version to the DING application');
-    print('  -v version              : pass the version of the program to display in preferences');
+    print('  -v version              : pass the version-name of the program to display in extension/DING preferences');
+    print('  -U uuid                 : pass the uuid of the extension to use in the DING application');
     print('  -D x:y:w:h:z:t:b:l:r:i  : monitor data');
     print('      x: X coordinate');
     print('      y: Y coordinate');
