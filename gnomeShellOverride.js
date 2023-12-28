@@ -25,6 +25,9 @@ const {Meta, Clutter, GLib} = imports.gi;
 
 import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 import * as WorkspaceAnimation from 'resource:///org/gnome/shell/ui/workspaceAnimation.js';
+import * as Workspace from 'resource:///org/gnome/shell/ui/workspace.js';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+
 export {GnomeShellOverride};
 
 // Need to know this to apply overrides correctly
@@ -52,6 +55,7 @@ var GnomeShellOverride = class {
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_createWindows', newCreateWindows);
             this.replaceMethod(WorkspaceAnimation.WorkspaceGroup, '_shouldShowWindow', newShouldShowWindow);
         }
+        this.replaceMethod(Workspace.WorkspaceBackground, '_init', newWorkspaceBackgroundInit);
     }
 
     // restore external methods only if have been intercepted
@@ -160,3 +164,23 @@ function createDesktopWindow() {
     }
 }
 
+function newWorkspaceBackgroundInit(...Argv) {
+    replaceData.old__init[0].apply(this, [...Argv]);
+    const desktopWindows = global.get_window_actors().filter(a =>
+        a.meta_window.get_window_type() === Meta.WindowType.DESKTOP);
+    if (desktopWindows.length) {
+        this._workarea = Main.layoutManager.getWorkAreaForMonitor(this.monitorIndex);
+        for (let windowActor of desktopWindows) {
+            const clone = new Clutter.Clone({
+                source: windowActor,
+            });
+            const syncPosition = Clutter.BindConstraint.new(this._backgroundGroup, Clutter.BindCoordinate.ALL, 0);
+            this._bin.insert_child_above(clone, this._backgroundGroup);
+            clone.add_constraint(syncPosition);
+
+            windowActor.connectObject('destroy', () => {
+                clone.destroy();
+            }, this);
+        }
+    }
+}
