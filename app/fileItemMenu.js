@@ -505,7 +505,7 @@ const FileItemMenu = class {
 
                 return;
             } catch (err) {
-                log(`Error trying to launch Nemo: ${err.message}\n${err}`);
+                console.log(`Error trying to launch Nemo: ${err.message}\n${err}`);
             }
         }
         const timestamp = Gdk.CURRENT_TIME;

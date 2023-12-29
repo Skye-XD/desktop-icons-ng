@@ -210,7 +210,7 @@ const DingManager = class {
             this._updateDesktopGeometry.bind(this)
         );
 
-        log('gtk4-DING enabled.');
+        console.log('gtk4-DING enabled.');
     }
 
     /**
@@ -261,7 +261,7 @@ const DingManager = class {
             Gio.DBus.session.signal_unsubscribe(this.remoteGeometryUpdateRequestedId);
             this.remoteGeometryUpdateRequestedId = 0;
         }
-        log('gtk4-DING disabled.');
+        console.log('gtk4-DING disabled.');
     }
 
     /**
@@ -275,11 +275,11 @@ const DingManager = class {
             Gio.BusNameOwnerFlags.NONE,
             this._onBusAcquired.bind(this),
             (connection, name) => {
-                log(`${name} DBus Name Acquired`);
+                console.log(`${name} DBus Name Acquired`);
                 this.dbusConnectionName = name;
             },
             (connection, name) => {
-                log(`${name} DBus and Name Lost`);
+                console.log(`${name} DBus and Name Lost`);
                 this.dbusConnectionName = null;
             }
         );
@@ -310,7 +310,7 @@ const DingManager = class {
         Gio.bus_unown_name(this.dbusConnectionId);
         this.dbusConnectionId = 0;
         if (this.dbusConnectionName)
-            log(`${this.dbusConnectionName} DBus Name Relinquished`);
+            console.log(`${this.dbusConnectionName} DBus Name Relinquished`);
         this.dbusConnectionName = null;
     }
 
@@ -654,10 +654,10 @@ var LaunchSubprocess = class {
         if (Meta.is_wayland_compositor() && this.process_running) {
             try {
                 this._waylandClient.make_desktop(window);
-                log('Making Wayland window type Desktop');
+                console.log('Making Wayland window type Desktop');
                 return true;
             } catch (e) {
-                log('Meta.WaylandClient make_desktop() method not available yet!');
+                console.log('Meta.WaylandClient make_desktop() method not available yet!');
             }
         }
         return false;

@@ -208,13 +208,13 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this._isDesktopFile = this._attributeContentType === 'application/x-desktop';
 
         if (this._isDesktopFile && this._writableByOthers)
-            log(`desktop-icons: File ${this._displayName} is writable by others - will not allow launching`);
+            console.log(`desktop-icons: File ${this._displayName} is writable by others - will not allow launching`);
 
         if (this._isDesktopFile) {
             try {
                 this._desktopFile = Gio.DesktopAppInfo.new_from_filename(this._file.get_path());
                 if (!this._desktopFile) {
-                    log(`Couldn’t parse ${this._displayName} as a desktop file, will treat it as a regular file.`);
+                    console.log(`Couldn’t parse ${this._displayName} as a desktop file, will treat it as a regular file.`);
                     this._isValidDesktopFile = false;
                 } else {
                     this._isValidDesktopFile = true;
@@ -262,7 +262,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
         if (this._isBrokenSymlink) {
             try {
-                log(`Error: Can’t open ${this.file.get_uri()} because it is a broken symlink.`);
+                console.log(`Error: Can’t open ${this.file.get_uri()} because it is a broken symlink.`);
                 let title = _('Broken Link');
                 let error = _('Can not open this File because it is a Broken Symlink');
                 this._showerrorpopup(title, error);
@@ -281,7 +281,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             try {
                 this.DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()], this.DesktopIconsUtil.getFilteredEnviron());
             } catch (err) {
-                log(`Error trying to launch Nemo: ${err.message}\n${err}`);
+                console.log(`Error trying to launch Nemo: ${err.message}\n${err}`);
             }
             return;
         }
@@ -638,12 +638,12 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     doDiscreteGpu() {
         if (!this.DBusUtils.discreteGpuAvailable) {
-            log('Could not apply discrete GPU environment, switcheroo-control not available');
+            console.log('Could not apply discrete GPU environment, switcheroo-control not available');
             return;
         }
         let gpus = this.DBusUtils.SwitcherooControl.proxy.GPUs;
         if (!gpus) {
-            log('Could not apply discrete GPU environment. No GPUs in list.');
+            console.log('Could not apply discrete GPU environment. No GPUs in list.');
             return;
         }
 
@@ -667,7 +667,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             this._doOpenContext(context, null).catch(e => logError(e));
             return;
         }
-        log('Could not find discrete GPU data in switcheroo-control');
+        console.log('Could not find discrete GPU data in switcheroo-control');
     }
 
     _onOpenTerminalClicked() {

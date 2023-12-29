@@ -128,7 +128,7 @@ const DesktopIconsUtil = class {
             ' -f _NET_WM_WINDOW_TYPE 32a' +
             ' -set _NET_WM_WINDOW_TYPE' +
             ' _NET_WM_WINDOW_TYPE_DESKTOP';
-        log('Making X11 windowtype type Desktop');
+        console.log('Making X11 windowtype type Desktop');
         const argv = GLib.shell_parse_argv(commandline)[1];
         this.trySpawn(null, argv, null);
     }
@@ -423,7 +423,7 @@ const DesktopIconsUtil = class {
                                     try {
                                         resolve(sour.set_attributes_finish(resul));
                                     } catch (error) {
-                                        log(`Failed to make executable .desktop File: ${error.message}`);
+                                        console.log(`Failed to make executable .desktop File: ${error.message}`);
                                         reject(error);
                                     }
                                 }

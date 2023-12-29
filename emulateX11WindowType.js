@@ -342,7 +342,7 @@ class ManageWindow {
     }
 
     _emulateDesktopWindow() {
-        log('Emulating window type Desktop');
+        console.log('Emulating window type Desktop');
         this._window.get_window_type = function () {
             return Meta.WindowType.DESKTOP;
         };
