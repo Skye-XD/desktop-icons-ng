@@ -237,7 +237,7 @@ const DesktopIconsUtil = class {
         try {
             mountedFileSystems = volumeMonitor.get_mounts();
         } catch (e) {
-            print(`Failed to get the list of mounts with ${e}`);
+            console.log(`Failed to get the list of mounts with ${e}`);
             return [];
         }
 
@@ -252,7 +252,7 @@ const DesktopIconsUtil = class {
                     uris.push(uri);
                 }
             } catch (e) {
-                print(`Failed with ${e} while getting volume`);
+                console.log(`Failed with ${e} while getting volume`);
             }
         }
         return result;

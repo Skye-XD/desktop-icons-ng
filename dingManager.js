@@ -420,7 +420,7 @@ const DingManager = class {
                 if (contents.startsWith(thisPath)) {
                     let proc = new Gio.Subprocess({argv: ['/bin/kill', filename]});
                     proc.init(null);
-                    print(`Killing old DING process ${filename}`);
+                    console.log(`Killing old DING process ${filename}`);
                     await proc.wait_async_promise(null);
                 }
             } catch (e) {
@@ -601,7 +601,7 @@ var LaunchSubprocess = class {
             const [output, length] = await dataInputStream.read_line_async_promise(
                 GLib.PRIORITY_DEFAULT, cancellable);
             if (length)
-                print(`${this._processID}: ${textDecoder.decode(output)}`);
+                console.log(`${this._processID}: ${textDecoder.decode(output)}`);
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 return;

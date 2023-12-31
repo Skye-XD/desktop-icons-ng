@@ -44,11 +44,11 @@ const TemplatesScriptsManager = class {
             this._monitorDir.set_rate_limit(1000);
             this._monitorDir.connect('changed', () => {
                 this.updateEntries().catch(e => {
-                    print(`Exception while updating entries in monitor: ${e.message}\n${e.stack}`);
+                    console.log(`Exception while updating entries in monitor: ${e.message}\n${e.stack}`);
                 });
             });
             this.updateEntries().catch(e => {
-                print(`Exception while updating entries: ${e.message}\n${e.stack}`);
+                console.log(`Exception while updating entries: ${e.message}\n${e.stack}`);
             });
         }
     }

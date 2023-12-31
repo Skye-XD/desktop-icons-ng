@@ -76,7 +76,7 @@ const FileItemMenu = class {
             archiveProxy?.GetSupportedTypesRemote('extract',
                 (result, error) => {
                     if (error) {
-                        print(`Can't get the extractable types: ${error.message}. Ensure that File-Roller is installed.\n${error}.`);
+                        console.log(`Can't get the extractable types: ${error.message}. Ensure that File-Roller is installed.\n${error}.`);
                         return;
                     }
                     for (let key of result.values()) {

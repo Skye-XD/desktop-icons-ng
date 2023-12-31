@@ -220,7 +220,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                     this._isValidDesktopFile = true;
                 }
             } catch (e) {
-                print(`Error reading Desktop file ${this.uri}: ${e}`);
+                console.log(`Error reading Desktop file ${this.uri}: ${e}`);
             }
         } else {
             this._isValidDesktopFile = false;

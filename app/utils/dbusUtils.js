@@ -139,7 +139,7 @@ class ProxyManager {
                 this._proxy = null;
                 this._signalIDs = {};
                 this._connectSignalsIDs = {};
-                print(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
+                console.log(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
                 return false;
             }
         } else {
@@ -184,7 +184,7 @@ class ProxyManager {
                 } catch (e) {
                     this._available = false;
                     this._proxy = null;
-                    print(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
+                    console.log(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
                     resolve(false);
                 }
             } else {
@@ -206,8 +206,8 @@ class ProxyManager {
     get proxy() {
         if (!this._available || !this._proxy) {
             if (this._programNeeded && (this._timeout === 0)) {
-                print(this._programNeeded[0]);
-                print(this._programNeeded[1]);
+                console.log(this._programNeeded[0]);
+                console.log(this._programNeeded[1]);
                 this._dbusManager.doNotify(this._programNeeded[0], this._programNeeded[1]);
                 this._timeout = GLib.timeout_add(
                     GLib.PRIORITY_DEFAULT,
@@ -439,7 +439,7 @@ class DBusManager {
         } catch (e) {
             let message = e.message;
             if (!message.includes('org.gnome.Shell.Extensions.GSConnect'))
-                print(`Error getting introspection data over Dbus: ${e.message}\n${e.stack}`);
+                console.log(`Error getting introspection data over Dbus: ${e.message}\n${e.stack}`);
             return null;
         }
         if (data === null)
@@ -603,7 +603,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                             resolve(false);
                     });
                 } catch (e) {
-                    print(`Failed with "${e.message}" while getting wayland parent handle, WaylandHandle`);
+                    console.log(`Failed with "${e.message}" while getting wayland parent handle, WaylandHandle`);
                     resolve(false);
                 }
             });
@@ -1025,7 +1025,7 @@ const DBusUtils = class {
                 'Nautilus'
             );
         } else {
-            print('Emulating NautilusFileOperations2 with the old NautilusFileOperations interface');
+            console.log('Emulating NautilusFileOperations2 with the old NautilusFileOperations interface');
             // Emulate NautilusFileOperations2 with the old interface
             this.NautilusFileOperations2 = new ProxyManager(
                 this.dbusManagerObject,
