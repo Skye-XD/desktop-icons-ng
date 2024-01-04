@@ -115,6 +115,8 @@ export const SCHEMA = 'org.gnome.shell.extensions.gtk4-ding';
 export const SCHEMA_MUTTER = 'org.gnome.mutter';
 export const SCHEMA_GNOME_SETTINGS = 'org.gnome.desktop.interface';
 export const EXEC_KEY = 'exec';
+export const EXEC_STRING = 'exec-arg';
+export const DESKTOPFILE_TERMINAL_EXEC_KEY = 'X-ExecArg';
 export const NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
 export const THUMBNAILS_DIR = '.cache/thumbnails';
 export const DND_HOVER_TIMEOUT = 500; // In milliseconds
@@ -124,6 +126,7 @@ export const XDG_EMAIL_CMD = 'xdg-email';
 export const XDG_EMAIL_CMD_OPTIONS = '--attach';
 export const ZIP_CMD = 'zip';
 export const ZIP_CMD_OPTIONS = '-r';
+export const XDG_TERMINAL_LIST_FILE = 'xdg-terminals.list';
 
 export const UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit
