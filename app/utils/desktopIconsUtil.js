@@ -80,6 +80,23 @@ const DesktopIconsUtil = class {
         return systemTerminalConfFiles;
     }
 
+    getUserDataTerminalDir() {
+        const userDataDir = GLib.get_user_data_dir();
+        const terminalDir = GLib.build_filenamev([userDataDir, this.Enums.XDG_TERMINAL_DIR]);
+        return Gio.File.new_for_commandline_arg(terminalDir);
+    }
+
+    getSystemDataTerminalDirs() {
+        const systemDataDirs = this.Enums.SYSTEM_DATA_DIRS;
+        const systemDataTerminalFiles = [];
+        systemDataDirs.forEach(f => {
+            const file = GLib.build_filenamev([f, this.Enums.XDG_TERMINAL_DIR]);
+            const gioFile = Gio.File.new_for_commandline_arg(file);
+            systemDataTerminalFiles.push(gioFile);
+        });
+        return systemDataTerminalFiles;
+    }
+
     /**
      *
      * Returns the users Templates directory as a Gio.File
@@ -370,7 +387,9 @@ const DesktopIconsUtil = class {
     parseTerminalList(fileList) {
         const regexpattern = /^[/\\*#]/;
         const terminalGioDesktopAppInfoArray = [];
-        let fileListArray = fileList.split('\n').filter(f => !f.match(regexpattern));
+        if (fileList.endsWith('\n'))
+            fileList = fileList.slice(0, -1);
+        const fileListArray = fileList.split('\n').filter(f => !f.match(regexpattern));
         if (fileListArray.length) {
             fileListArray.forEach(f => {
                 const appinfo = Gio.DesktopAppInfo.new(f);

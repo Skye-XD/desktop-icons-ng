@@ -260,42 +260,39 @@ const Preferences = class {
         });
     }
 
-    _monitorTerminalSettings() {
-        this._xdgUserTerminalListGioFile = this._desktopIconsUtil.getUserTerminalConfFile();
-        this._xdgSystemTerminalListGioFiles = this._desktopIconsUtil.getSystemTerminalConfFile();
-        this._xdgUserTerminalMonitor = this._xdgUserTerminalListGioFile.monitor_file(
-            Gio.FileMonitorFlags.WATCH_MOVES, null);
-        this._xdgUserTerminalMonitor.set_rate_limit(1000);
-        this._xdgUserTerminalMonitor.connect('changed', () => {
-            this._updateTerminalSettings().catch(e => {
-                console.log(`Exception while updating entries in User Terminal monitor:
-                 ${e.message}\n${e.stack}`);
-            });
-        });
-        this._xdgSystemTerminalMonitors = [];
-        this._xdgSystemTerminalListGioFiles.forEach(f => {
-            const xdgSystemTerminalMonitor = f.monitor_file(
+    _setupTerminalMonitors() {
+        this._xdgTerminalMonitors = [];
+        const systemFiles = this._xdgSystemConf.concat(this._xdgSystemData);
+        const userFiles = [this._xdgUserConf, this._xdgUserData];
+        const filesToMonitor = userFiles.concat(systemFiles);
+        filesToMonitor.forEach(f => {
+            const fileMonitor = f.monitor(
                 Gio.FileMonitorFlags.WATCH_MOVES, null);
-            xdgSystemTerminalMonitor.set_rate_limit(1000);
-            xdgSystemTerminalMonitor.connect('changed', () => {
+            fileMonitor.set_rate_limit(1000);
+            fileMonitor.connect('changed', () => {
                 this._updateTerminalSettings().catch(e => {
                     console.log(`Exception while updating entries in System Terminal monitor:
                     ${e.message}\n${e.stack}`);
                 });
             });
-            this._xdgSystemTerminalMonitors.push(xdgSystemTerminalMonitor);
+            this._xdgTerminalMonitors.push(fileMonitor);
         });
-        this._updateTerminalSettings().catch(e => logError(e));
     }
 
-    async _updateTerminalSettings() {
+    _monitorTerminalSettings() {
+        this._xdgUserConf = this._desktopIconsUtil.getUserTerminalConfFile();
+        this._xdgSystemConf = this._desktopIconsUtil.getSystemTerminalConfFile();
+        this._xdgUserData = this._desktopIconsUtil.getUserDataTerminalDir();
+        this._xdgSystemData = this._desktopIconsUtil.getSystemDataTerminalDirs();
+
+        this._setupTerminalMonitors();
+        this._updateTerminalSettings();
+    }
+
+    _updateTerminalDconfSettings() {
         let defaultTerminal = null;
-        let execstring = null;
-        if (this.schemaTerminalSettings) {
+        if (this.schemaTerminalSettings)
             defaultTerminal = this.schemaTerminalSettings.get_string(this._Enums.EXEC_KEY);
-            execstring = this.schemaTerminalSettings.get_string(this._Enums.EXEC_STRING);
-        }
-        this._terminalExecString = execstring;
         let terminal;
         switch (defaultTerminal) {
         case 'gnome-terminal':
@@ -307,15 +304,21 @@ const Preferences = class {
         default:
             terminal = 'org.gnome.Console.desktop';
         }
-        this._terminal = Gio.DesktopAppInfo.new(terminal) ?? null;
+        const terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+        if (terminalappinfo)
+            return [terminalappinfo];
+        else
+            return [];
+    }
 
+    async _updateTerminalXdgConf() {
         let userfileList = [];
         let systemfileList = [];
-        if (this._xdgUserTerminalListGioFile.query_exists(null)) {
+        if (this._xdgUserConf.query_exists(null)) {
             let userfilecontents;
             try {
                 userfilecontents = await this._desktopIconsUtil.readFileContentsAsync(
-                    this._xdgUserTerminalListGioFile).catch(e => logError(e));
+                    this._xdgUserConf).catch(e => logError(e));
                 if (userfilecontents)
                     userfileList = this._desktopIconsUtil.parseTerminalList(userfilecontents);
             } catch (e) {
@@ -323,7 +326,7 @@ const Preferences = class {
             }
         }
 
-        for (let f of this._xdgSystemTerminalListGioFiles) {
+        for (let f of this._xdgSystemConf) {
             if (f.query_exists(null)) {
                 // eslint-disable-next-line no-await-in-loop
                 let systemFileContent = await this._desktopIconsUtil.readFileContentsAsync(f);
@@ -331,7 +334,40 @@ const Preferences = class {
                 systemfileList = systemfileList.concat(x);
             }
         }
-        this._terminalGioDesktopAppInfoList = userfileList.concat(systemfileList);
+        return userfileList.concat(systemfileList);
+    }
+
+    async _updateTerminalXdgData() {
+        let xdgDataFiles = [];
+        let scanFolders = [];
+        scanFolders = [this._xdgUserData, ...this._xdgSystemData];
+        for (let f of scanFolders) {
+            if (f.query_exists(null)) {
+                // eslint-disable-next-line no-await-in-loop
+                const iter = await f.enumerate_children_async('standard::*',
+                    Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, GLib.PRIORITY_DEFAULT, null);
+
+                // eslint-disable-next-line no-await-in-loop
+                for await (const fileInfo of iter) {
+                    const fileName = fileInfo.get_name();
+                    if (!fileName.endsWith('.desktop'))
+                        continue;
+                    const fpath = GLib.build_filenamev([f.get_path(), fileName]);
+                    const appinfo = Gio.DesktopAppInfo.new_from_filename(fpath);
+                    if (appinfo)
+                        xdgDataFiles.push(appinfo);
+                }
+            }
+        }
+        return xdgDataFiles;
+    }
+
+    async _updateTerminalSettings() {
+        this._terminalGioDesktopAppInfoList = [];
+        const a = await this._updateTerminalXdgConf().catch(e => logError(e));
+        const b = await this._updateTerminalXdgData().catch(e => logError(e));
+        const c = this._updateTerminalDconfSettings();
+        this._terminalGioDesktopAppInfoList = a.concat(b.concat(c));
 
         if (this._terminalGioDesktopAppInfoList.length)
             this._terminal = this._terminalGioDesktopAppInfoList[0];

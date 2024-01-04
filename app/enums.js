@@ -127,6 +127,8 @@ export const XDG_EMAIL_CMD_OPTIONS = '--attach';
 export const ZIP_CMD = 'zip';
 export const ZIP_CMD_OPTIONS = '-r';
 export const XDG_TERMINAL_LIST_FILE = 'xdg-terminals.list';
+export const XDG_TERMINAL_DIR = 'xdg-terminals';
+export const SYSTEM_DATA_DIRS = ['/usr/local/share', '/usr/share'];
 
 export const UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit
