@@ -116,7 +116,8 @@ export const SCHEMA_MUTTER = 'org.gnome.mutter';
 export const SCHEMA_GNOME_SETTINGS = 'org.gnome.desktop.interface';
 export const EXEC_KEY = 'exec';
 export const EXEC_STRING = 'exec-arg';
-export const DESKTOPFILE_TERMINAL_EXEC_KEY = 'X-ExecArg';
+export const DESKTOPFILE_TERMINAL_EXEC_KEY = 'Exec';
+export const DESKTOPFILE_TERMINAL_EXEC_SWITCH = 'X-ExecArg';
 export const NAUTILUS_SCRIPTS_DIR = '.local/share/nautilus/scripts';
 export const THUMBNAILS_DIR = '.cache/thumbnails';
 export const DND_HOVER_TIMEOUT = 500; // In milliseconds
@@ -129,7 +130,7 @@ export const ZIP_CMD_OPTIONS = '-r';
 export const XDG_TERMINAL_LIST_FILE = 'xdg-terminals.list';
 export const XDG_TERMINAL_DIR = 'xdg-terminals';
 export const SYSTEM_DATA_DIRS = ['/usr/local/share', '/usr/share'];
-
+export const XDG_TERMINAL_EXEC = 'xdg-terminal-exec';
 export const UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit
     S_ISGID: 0o02000, // set-group-ID bit (see below)

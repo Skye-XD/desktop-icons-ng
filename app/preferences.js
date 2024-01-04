@@ -371,7 +371,7 @@ const Preferences = class {
 
         if (this._terminalGioDesktopAppInfoList.length)
             this._terminal = this._terminalGioDesktopAppInfoList[0];
-        this._terminalExecString = this._terminal.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_KEY);
+        this._terminalExecString = this._terminal.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_SWITCH);
         if (!this._terminalExecString)
             this._terminalExecString = '-e';
     }
@@ -400,6 +400,10 @@ const Preferences = class {
 
     get Terminal() {
         return this._terminal;
+    }
+
+    get TerminalGioList() {
+        return this._terminalGioDesktopAppInfoList;
     }
 
     get TerminalExecString() {
