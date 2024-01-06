@@ -1461,7 +1461,8 @@ const DesktopManager = class {
 
         this.desktopTerminalMenu = Gio.Menu.new();
         this.desktopTerminalMenu.append(_('Show Desktop In GNOME Files'), 'app.showDesktopInFiles');
-        this.desktopTerminalMenu.append(_('Open In Terminal'), 'app.openInTerminal');
+        const terminalString = this.Prefs.TerminalName;
+        this.desktopTerminalMenu.append(_('Open In {0}').replace('{0}', terminalString), 'app.openInTerminal');
 
         this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
 
@@ -1535,8 +1536,7 @@ const DesktopManager = class {
     }
 
     _onOpenTerminalClicked() {
-        let desktopPath = this._desktopDir.get_path();
-        this.DesktopIconsUtil.launchTerminal(desktopPath, null);
+        this.fileItemMenu.launchTerminal(null, null);
     }
 
     _selectFileItemInDirection(symbol) {

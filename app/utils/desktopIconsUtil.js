@@ -61,6 +61,41 @@ const DesktopIconsUtil = class {
         return Gio.File.new_for_commandline_arg(scriptsDir);
     }
 
+    getUserTerminalConfFile() {
+        const xdgUserConfigFolder = GLib.get_user_config_dir();
+        const xdgUserTerminalListFile = GLib.build_filenamev([xdgUserConfigFolder,
+            this.Enums.XDG_TERMINAL_LIST_FILE]);
+        return Gio.File.new_for_commandline_arg(xdgUserTerminalListFile);
+    }
+
+    getSystemTerminalConfFile() {
+        const xdgEtcConfigFolder = GLib.get_system_config_dirs();
+        const systemTerminalConfFiles = [];
+        xdgEtcConfigFolder.forEach(f => {
+            const xdgSystemTerminalListFile = GLib.build_filenamev([f,
+                this.Enums.XDG_TERMINAL_LIST_FILE]);
+            const gioFile = Gio.File.new_for_commandline_arg(xdgSystemTerminalListFile);
+            systemTerminalConfFiles.push(gioFile);
+        });
+        return systemTerminalConfFiles;
+    }
+
+    getUserDataTerminalDir() {
+        const userDataDir = GLib.get_user_data_dir();
+        const terminalDir = GLib.build_filenamev([userDataDir, this.Enums.XDG_TERMINAL_DIR]);
+        return Gio.File.new_for_commandline_arg(terminalDir);
+    }
+
+    getSystemDataTerminalDirs() {
+        const systemDataDirs = this.Enums.SYSTEM_DATA_DIRS;
+        const systemDataTerminalFiles = [];
+        systemDataDirs.forEach(f => {
+            const file = GLib.build_filenamev([f, this.Enums.XDG_TERMINAL_DIR]);
+            const gioFile = Gio.File.new_for_commandline_arg(file);
+            systemDataTerminalFiles.push(gioFile);
+        });
+        return systemDataTerminalFiles;
+    }
 
     /**
      *
@@ -317,6 +352,53 @@ const DesktopIconsUtil = class {
         });
     }
 
+    /**
+     *
+     * @param {Gio.File} file a file Gio
+     * @param {Gio.Cancellable} cancellable gio cancellable
+     */
+    readFileContentsAsync(file, cancellable = null) {
+        return new Promise((resolve, reject) => {
+            try {
+                file.read_async(GLib.PRIORITY_DEFAULT, cancellable, (actor, result) => {
+                    try {
+                        let inputstream = actor.read_finish(result);
+                        let dataInputstream = Gio.DataInputStream.new(inputstream);
+                        let [string, number] = dataInputstream.read_upto('', 0, cancellable);
+                        if (number)
+                            resolve(string);
+                        else
+                            reject(Error.new('Empty String'));
+                    } catch (e) {
+                        reject(e);
+                    }
+                });
+            } catch (e) {
+                reject(e);
+            }
+        });
+    }
+
+    /**
+     *
+     * @param {string} fileList text with list of Terminals, new line terminated
+     * @returns {Array} an array of Gio.DesktopAppInfo for each desktop entry in file
+     */
+    parseTerminalList(fileList) {
+        const regexpattern = /^[/\\*#]/;
+        const terminalGioDesktopAppInfoArray = [];
+        if (fileList.endsWith('\n'))
+            fileList = fileList.slice(0, -1);
+        const fileListArray = fileList.split('\n').filter(f => !f.match(regexpattern));
+        if (fileListArray.length) {
+            fileListArray.forEach(f => {
+                const appinfo = Gio.DesktopAppInfo.new(f);
+                if (appinfo)
+                    terminalGioDesktopAppInfoArray.push(appinfo);
+            });
+        }
+        return terminalGioDesktopAppInfoArray;
+    }
 
     /**
      *

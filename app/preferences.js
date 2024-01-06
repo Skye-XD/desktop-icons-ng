@@ -62,6 +62,13 @@ const Preferences = class {
         if (schemaGnomeSettings)
             this.schemaGnomeThemeSettings = new Gio.Settings({settings_schema: schemaGnomeSettings});
 
+        // Depreciated Gnome Default Terminal Settings
+        let schemaTerminalSettings = schemaSource.lookup(this._Enums.TERMINAL_SCHEMA, true);
+        if (schemaTerminalSettings)
+            this.schemaTerminalSettings = new Gio.Settings({settings_schema: schemaTerminalSettings});
+        else
+            this.schemaTerminalSettings = null;
+
         // Our Settings
         this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
         this._cacheInitialSettings();
@@ -128,7 +135,9 @@ const Preferences = class {
     // Monitoring
     init(desktopManager) {
         this._desktopManager = desktopManager;
+        this._desktopIconsUtil = desktopManager.DesktopIconsUtil;
         this._monitorDesktopSettings();
+        this._monitorTerminalSettings();
     }
 
     _monitorDesktopSettings() {
@@ -234,7 +243,6 @@ const Preferences = class {
             this._desktopManager.onGtkThemeChange();
         });
 
-
         // Gnome Dark Mode Changes
         this.schemaGnomeThemeSettings.connect('changed', (obj, key) => {
             if ((key === 'color-scheme') || (key === 'gtk-theme') || (key === 'icon-theme')) {
@@ -243,10 +251,129 @@ const Preferences = class {
             }
         });
 
+        // Terminal settings Changes
+        this.schemaTerminalSettings?.connect('changed', this._updateTerminalSettings.bind(this));
+
         // Mutter settings
         this.mutterSettings.connect('changed', () => {
             this._desktopManager.onMutterSettingsChanged();
         });
+    }
+
+    _setupTerminalMonitors() {
+        this._xdgTerminalMonitors = [];
+        const systemFiles = this._xdgSystemConf.concat(this._xdgSystemData);
+        const userFiles = [this._xdgUserConf, this._xdgUserData];
+        const filesToMonitor = userFiles.concat(systemFiles);
+        filesToMonitor.forEach(f => {
+            const fileMonitor = f.monitor(
+                Gio.FileMonitorFlags.WATCH_MOVES, null);
+            fileMonitor.set_rate_limit(1000);
+            fileMonitor.connect('changed', () => {
+                this._updateTerminalSettings().catch(e => {
+                    console.log(`Exception while updating entries in System Terminal monitor:
+                    ${e.message}\n${e.stack}`);
+                });
+            });
+            this._xdgTerminalMonitors.push(fileMonitor);
+        });
+    }
+
+    _monitorTerminalSettings() {
+        this._xdgUserConf = this._desktopIconsUtil.getUserTerminalConfFile();
+        this._xdgSystemConf = this._desktopIconsUtil.getSystemTerminalConfFile();
+        this._xdgUserData = this._desktopIconsUtil.getUserDataTerminalDir();
+        this._xdgSystemData = this._desktopIconsUtil.getSystemDataTerminalDirs();
+
+        this._setupTerminalMonitors();
+        this._updateTerminalSettings();
+    }
+
+    _updateTerminalDconfSettings() {
+        let defaultTerminal = null;
+        if (this.schemaTerminalSettings)
+            defaultTerminal = this.schemaTerminalSettings.get_string(this._Enums.EXEC_KEY);
+        let terminal;
+        switch (defaultTerminal) {
+        case 'gnome-terminal':
+            terminal = 'org.gnome.Terminal.desktop';
+            break;
+        case 'gnome-console':
+            terminal = 'org.gnome.Console.desktop';
+            break;
+        default:
+            terminal = 'org.gnome.Console.desktop';
+        }
+        const terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+        if (terminalappinfo)
+            return [terminalappinfo];
+        else
+            return [];
+    }
+
+    async _updateTerminalXdgConf() {
+        let userfileList = [];
+        let systemfileList = [];
+        if (this._xdgUserConf.query_exists(null)) {
+            let userfilecontents;
+            try {
+                userfilecontents = await this._desktopIconsUtil.readFileContentsAsync(
+                    this._xdgUserConf).catch(e => logError(e));
+                if (userfilecontents)
+                    userfileList = this._desktopIconsUtil.parseTerminalList(userfilecontents);
+            } catch (e) {
+                logError(e);
+            }
+        }
+
+        for (let f of this._xdgSystemConf) {
+            if (f.query_exists(null)) {
+                // eslint-disable-next-line no-await-in-loop
+                let systemFileContent = await this._desktopIconsUtil.readFileContentsAsync(f);
+                let x = this._desktopIconsUtil.parseTerminalList(systemFileContent);
+                systemfileList = systemfileList.concat(x);
+            }
+        }
+        return userfileList.concat(systemfileList);
+    }
+
+    async _updateTerminalXdgData() {
+        let xdgDataFiles = [];
+        let scanFolders = [];
+        scanFolders = [this._xdgUserData, ...this._xdgSystemData];
+        for (let f of scanFolders) {
+            if (f.query_exists(null)) {
+                // eslint-disable-next-line no-await-in-loop
+                const iter = await f.enumerate_children_async('standard::*',
+                    Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, GLib.PRIORITY_DEFAULT, null);
+
+                // eslint-disable-next-line no-await-in-loop
+                for await (const fileInfo of iter) {
+                    const fileName = fileInfo.get_name();
+                    if (!fileName.endsWith('.desktop'))
+                        continue;
+                    const fpath = GLib.build_filenamev([f.get_path(), fileName]);
+                    const appinfo = Gio.DesktopAppInfo.new_from_filename(fpath);
+                    if (appinfo)
+                        xdgDataFiles.push(appinfo);
+                }
+            }
+        }
+        return xdgDataFiles;
+    }
+
+    async _updateTerminalSettings() {
+        this._terminalGioDesktopAppInfoList = [];
+        const a = await this._updateTerminalXdgConf().catch(e => logError(e));
+        const b = await this._updateTerminalXdgData().catch(e => logError(e));
+        const c = this._updateTerminalDconfSettings();
+        this._terminalGioDesktopAppInfoList = a.concat(b.concat(c));
+
+        if (this._terminalGioDesktopAppInfoList.length)
+            this._terminal = this._terminalGioDesktopAppInfoList[0];
+        this._terminalExecString = this._terminal.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_SWITCH);
+        if (!this._terminalExecString)
+            this._terminalExecString = '-e';
     }
 
     // Setters
@@ -269,5 +396,24 @@ const Preferences = class {
     get UnstackList() {
         // Return a shallow copy that can be mutated without affecting the original
         return [...this._UnstackList];
+    }
+
+    get Terminal() {
+        return this._terminal;
+    }
+
+    get TerminalGioList() {
+        return this._terminalGioDesktopAppInfoList;
+    }
+
+    get TerminalExecString() {
+        return this._terminalExecString;
+    }
+
+    get TerminalName() {
+        if (this._terminal)
+            return this._terminal.get_locale_string('Name');
+        else
+            return _('Console');
     }
 };

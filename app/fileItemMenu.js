@@ -30,6 +30,7 @@ const FileItemMenu = class {
         this.Enums = this._desktopManager.Enums;
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
         this.DBusUtils = desktopManager.DBusUtils;
+        this._Enums = desktopManager.Enums;
         this._templatesScriptsManager = this._desktopManager.templatesScriptsManager;
         this._showErrorPopup = this._desktopManager.showErrorPopup;
         this._decompressibleTypes = [];
@@ -247,7 +248,7 @@ const FileItemMenu = class {
 
         let openinterminal = Gio.SimpleAction.new('openinterminal', null);
         openinterminal.connect('activate', () => {
-            this.DesktopIconsUtil.launchTerminal(this.activeFileItem.path, null);
+            this.launchTerminal(this.activeFileItem.path, null);
         });
         this._mainApp.add_action(openinterminal);
 
@@ -430,8 +431,10 @@ const FileItemMenu = class {
             showInFilesMenu.append(selectedItemsNum > 1 ? _('Show All in Files') : _('Show in Files'), 'app.showinfiles');
         }
 
-        if (fileItem.isDirectory && (fileItem.path !== null) && (selectedItemsNum === 1))
-            openInTerminalMenu.append(_('Open in Terminal'), 'app.openinterminal');
+        if (fileItem.isDirectory && (fileItem.path !== null) && (selectedItemsNum === 1)) {
+            const terminalstring = this.Prefs.TerminalName;
+            openInTerminalMenu.append(_('Open in {0}').replace('{0}', terminalstring), 'app.openinterminal');
+        }
 
         this._menu.append_section(null, makeFolderMenu);
         this._menu.append_section(null, openMenu);
@@ -852,6 +855,57 @@ const FileItemMenu = class {
         environ.push(uriList);
         environ.push(currentUri);
         this.DesktopIconsUtil.trySpawn(null, params, environ);
+    }
+
+    launchTerminal(fileItemPath = null, commandLine = null) {
+        let workingdir = fileItemPath ? fileItemPath : this.DesktopIconsUtil.getDesktopDir().get_path();
+        const xdgTerminalExec = GLib.find_program_in_path(this._Enums.XDG_TERMINAL_EXEC);
+        let success = false;
+
+        if (xdgTerminalExec) {
+            try {
+                commandLine = commandLine ? commandLine : '';
+                const [args] = GLib.shell_parse_argv(`${xdgTerminalExec} ${commandLine}`).slice(1);
+                this.DesktopIconsUtil.trySpawn(workingdir, args, null);
+                console.log('Executed xdg-terminal-exec');
+                success = true;
+            } catch (e) {
+                console.log(`Error opening xdg-terminal-exec ${e}`);
+                success = false;
+            }
+        }
+
+        if (success)
+            return;
+
+        if (this.Prefs.Terminal) {
+            this.Prefs.TerminalGioList.some(t => {
+                const exec = t.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_KEY);
+                let execswitch = t.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_SWITCH);
+                execswitch = execswitch ? execswitch : '-e';
+                commandLine = commandLine ? `${execswitch} ${commandLine}` : '';
+                let [args] = GLib.shell_parse_argv(`${exec} ${commandLine}`).slice(1);
+                try {
+                    this.DesktopIconsUtil.trySpawn(workingdir, args, null);
+                    success = true;
+                } catch (e) {
+                    console.log(`{Error opening ${t.get_string('Name')}, ${e}`)
+                    success = false;
+                }
+                return success;
+            });
+        } else {
+            const header = _('Unable to Open in Gnome Console');
+            const text = _('Please Install Gnome Console or other Terminal Program');
+            this._desktopManager.dbusManager.doNotify(header, text);
+        }
+
+        if (success)
+            return;
+
+        const header = _('Unable to Open {0}').replace('{0}', this.Prefs.TerminalName);
+        const text = _('Please Install {0}').replace('{0}', this.Prefs.TerminalName);
+        this._desktopManager.dbusManager.doNotify(header, text);
     }
 
     _textEntryAccelsTurnOff() {
