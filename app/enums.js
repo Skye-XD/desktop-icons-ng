@@ -120,6 +120,10 @@ export const THUMBNAILS_DIR = '.cache/thumbnails';
 export const DND_HOVER_TIMEOUT = 500; // In milliseconds
 export const DND_SHELL_HOVER_POLL = 200; // In milliseconds
 export const TOOLTIP_HOVER_TIMEOUT = 1000; // In milliseconds
+export const XDG_EMAIL_CMD = 'xdg-email';
+export const XDG_EMAIL_CMD_OPTIONS = '--attach';
+export const ZIP_CMD = 'zip';
+export const ZIP_CMD_OPTIONS = '-r';
 
 export const UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit

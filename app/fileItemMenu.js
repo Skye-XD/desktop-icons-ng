@@ -27,6 +27,7 @@ const FileItemMenu = class {
         this.appChooser = this._desktopManager.appChooser;
         this._mainApp = this._desktopManager.mainApp;
         this.Prefs = this._desktopManager.Prefs;
+        this.Enums = this._desktopManager.Enums;
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
         this.DBusUtils = desktopManager.DBusUtils;
         this._templatesScriptsManager = this._desktopManager.templatesScriptsManager;
@@ -389,8 +390,7 @@ const FileItemMenu = class {
                     );
                 }
 
-                if (!fileItem.isDirectory)
-                    trashMenu.append(_('Email to...'), 'app.sendto');
+                trashMenu.append(_('Email to...'), 'app.sendto');
 
                 if (!this._desktopManager.checkIfDirectoryIsSelected()) {
                     let gsconnectsubmenu = this.DBusUtils.RemoteSendFileOperations.create_gsconnect_menu(this._desktopManager.getCurrentSelection());
@@ -699,25 +699,102 @@ const FileItemMenu = class {
     }
 
     _mailFilesFromSelection() {
+        if (this._desktopManager.checkIfSpecialFilesAreSelected())
+            return;
+        const pathnameArray = [];
+        this._desktopManager.getCurrentSelection(false).forEach(f => {
+            pathnameArray.push(f.file.get_path());
+        });
+
         if (this._desktopManager.checkIfDirectoryIsSelected()) {
-            let WindowError = new this._showErrorPopup.ShowErrorPopup(_('Can not email a Directory'),
-                _('Selection includes a Directory, compress the directory to a file first.'),
-                false,
-                this._textEntryAccelsTurnOff.bind(this),
-                this._textEntryAccelsTurnOn.bind(this),
-                this.DesktopIconsUtil
-            );
-            WindowError.run();
+            this._mailzippedFilesFromSelection(pathnameArray).catch(e => logError(e));
             return;
         }
-        let xdgEmailCommand = [];
-        xdgEmailCommand.push('xdg-email');
-        for (let fileItem of this._desktopManager.getCurrentSelection(false)) {
-            fileItem.unsetSelected();
-            xdgEmailCommand.push('--attach');
-            xdgEmailCommand.push(fileItem.file.get_path());
+        this._xdgEmailFiles(pathnameArray);
+        this._desktopManager.unselectAll();
+    }
+
+    _xdgEmailFiles(pathnameArray) {
+        const xdgEmailCommand = GLib.find_program_in_path(this.Enums.XDG_EMAIL_CMD);
+        if (!xdgEmailCommand) {
+            console.log('xdg-email command not installed, cannot send email');
+            const header = _('Mail Error');
+            const text = _('Unable to find xdg-email, please install the program');
+            this.dbusManager.doNotify(header, text);
+            return;
         }
-        this.DesktopIconsUtil.trySpawn(null, xdgEmailCommand);
+        const args = [xdgEmailCommand, this.Enums.XDG_EMAIL_CMD_OPTIONS];
+        try {
+            this.DesktopIconsUtil.trySpawn(null, args.concat(pathnameArray));
+        } catch (e) {
+            console.log(`Error emailing Files, ${e}`);
+            const header = _('Mail Error');
+            const text = _('There was an error in emailing Files');
+            this.dbusManager.doNotify(header, text);
+        }
+    }
+
+    _makezippedArchive(pathnameArray) {
+        const zipCommand = GLib.find_program_in_path(this.Enums.ZIP_CMD);
+        if (!zipCommand) {
+            console.log('zip command not installed, cannot send email');
+            const header = _('Mail Error');
+            const text = _('Unable to find zip command, please install the program');
+            this.dbusManager.doNotify(header, text);
+            return null;
+        }
+
+        // Translators - basename for a zipped archive created for mailing
+        const archiveName = _('Archive.zip');
+
+        let archiveFile;
+        let checkDir;
+        do {
+            const randomString = GLib.uuid_string_random().slice(0, 5);
+            const dir = `/tmp/gtk4-ding-${randomString}`;
+            archiveFile = `${dir}/${archiveName}`;
+            checkDir = Gio.File.new_for_commandline_arg(dir);
+        } while (!checkDir.make_directory(null));
+
+        const args = [zipCommand, this.Enums.ZIP_CMD_OPTIONS, archiveFile];
+        try {
+            const async = false;
+            const env = null;
+            const workdir = this.DesktopIconsUtil.getDesktopDir().get_path();
+            const relativePathArray = pathnameArray.map(f => GLib.path_get_basename(f));
+            this.DesktopIconsUtil.trySpawn(workdir, args.concat(relativePathArray), env, async);
+        } catch (e) {
+            console.log(`Error Zipping Files, ${e}`);
+            const header = _('Mail Error');
+            const text = _('There was an error in creating a zip archive');
+            this.dbusManager.doNotify(header, text);
+        }
+
+        if (Gio.File.new_for_commandline_arg(archiveFile).query_exists(null))
+            return archiveFile;
+        else
+            return null;
+    }
+
+    async _mailzippedFilesFromSelection(pathnameArray) {
+        this._textEntryAccelsTurnOff();
+        const chooser = new Gtk.AlertDialog();
+        chooser.set_message(_('Can not email a Directory'));
+        chooser.set_detail(_('Selection includes a Directory, compress to a .zip file first?'));
+        chooser.buttons = [_('Cancel'), _('OK')];
+        chooser.set_modal(true);
+        chooser.set_cancel_button(0);
+        chooser.set_default_button(1);
+        await chooser.choose(this.activeFileItem._grid._window, null, (actor, choice) => {
+            const buttonpress = actor.choose_finish(choice);
+            if (buttonpress === 1) {
+                const archive = this._makezippedArchive(pathnameArray);
+                if (archive)
+                    this._xdgEmailFiles([archive]);
+            }
+            this._desktopManager.unselectAll();
+        });
+        this._textEntryAccelsTurnOn();
     }
 
     _doCompressFilesFromSelection() {
