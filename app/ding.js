@@ -33,11 +33,13 @@ import * as FileUtils from '../utils/fileUtils.js';
 let desktops = [];
 let lastCommand = null;
 let codePath = '.';
-let version = null;
+let gnomeversion = 40;
+let programversion = 'Testing';
 let errorFound = false;
 let asDesktop = false;
 let primaryIndex = 0;
 let desktopVariants = [];
+let uuid = 'testing@gtk4-ding';
 let remoteDingActions;
 let data;
 let dataVariant;
@@ -53,6 +55,8 @@ function printUsage() {
     print('  -P code path            : set the path where the code is stored');
     print('  -M index                : index of the primary monitor');
     print('  -V gnome version        : pass the gnome version to the DING application');
+    print('  -v version              : pass the version-name of the program to display in extension/DING preferences');
+    print('  -U uuid                 : pass the uuid of the extension to use in the DING application');
     print('  -D x:y:w:h:z:t:b:l:r:i  : monitor data');
     print('      x: X coordinate');
     print('      y: Y coordinate');
@@ -88,6 +92,8 @@ function parseCommandLine(argv) {
             case '-D': // Desktop definition: X:Y:WIDTH:HEIGHT:ZOOM:MARGINTOP:MARGINBOTTOM:MARGINLEFT:MARGINRIGHT:MONITORINDEX
             case '-M': // Primary monitor
             case '-V': // Pass the Gnome Shell Version
+            case '-v': // Pass the program version
+            case '-U': // Pass the uuid
                 lastCommand = arg;
                 break;
             default:
@@ -145,7 +151,13 @@ function parseCommandLine(argv) {
             desktopVariants.push(dataVariant);
             break;
         case '-V':
-            version = arg;
+            gnomeversion = arg;
+            break;
+        case '-v':
+            programversion = arg;
+            break;
+        case '-U':
+            uuid = arg;
             break;
         case '-M':
             primaryIndex = parseInt(arg);
@@ -190,7 +202,7 @@ if (Gio.File.new_for_path(localePath).query_exists(null))
 
 var desktopManager = null;
 var Utils = {FileUtils, PromiseUtils};
-var Data = {codePath, Enums, AdwPreferencesWindow};
+var Data = {codePath, Enums, gnomeversion, programversion, uuid};
 
 if (asDesktop) {
     remoteDingActions = Gio.DBusActionGroup.get(
@@ -216,7 +228,7 @@ const dingApp = new Adw.Application({
 
 dingApp.connect('startup', () => {
     Data.dingApp = dingApp;
-    Utils.Preferences = new Preferences.Preferences(Data);
+    Utils.Preferences = new Preferences.Preferences(Data, AdwPreferencesWindow);
     Utils.DesktopIconsUtil = new DesktopIconsUtil.DesktopIconsUtil(Data, Utils);
     Utils.DBusUtils = new DBusUtils.DBusUtils(dingApp);
 });
@@ -228,8 +240,8 @@ dingApp.connect('activate', () => {
             desktops,
             codePath,
             asDesktop,
-            primaryIndex,
-            version);
+            primaryIndex
+        );
     }
 });
 

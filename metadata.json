@@ -5,6 +5,7 @@
     "shell-version": ["45"],
     "url": "https://gitlab.com/smedius/desktop-icons-ng",
     "version": "68",
+    "version-name": "69",
     "session-modes": ["user", "unlock-dialog"],
     "settings-schema": "org.gnome.shell.extensions.gtk4-ding",
     "gettext-domain": "gtk4-ding"

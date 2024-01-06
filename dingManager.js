@@ -75,8 +75,10 @@ const ShellDropCursor = {
 export {DingManager};
 
 const DingManager = class {
-    constructor(extensionpath) {
+    constructor(extensionpath, version, uuid) {
         this.path = extensionpath;
+        this.version = version;
+        this.uuid = uuid;
         this._init();
     }
 
@@ -466,6 +468,12 @@ const DingManager = class {
         // The current Gnome Shell Version for correct operation of clipboard with Gtk4.
         argv.push('-V');
         argv.push(`${this.GnomeShellVersion}`);
+        // The current version of the Extension
+        argv.push('-v');
+        argv.push(`${this.version}`);
+        // Give the uuid of the extension
+        argv.push('-U');
+        argv.push(`${this.uuid}`);
 
         this.waylandClient = new LaunchSubprocess(0, 'Gtk4-DING');
         this.waylandClient.set_cwd(GLib.get_home_dir());
