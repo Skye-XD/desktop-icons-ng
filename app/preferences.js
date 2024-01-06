@@ -108,7 +108,7 @@ const Preferences = class {
         this.addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
         this.showHidden = this.gtkSettings.get_boolean('show-hidden');
         this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
-        this.useNemo = this.desktopSettings.get_boolean('use-nemo');
+        this._useNemo = this.desktopSettings.get_boolean('use-nemo');
         this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
         this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
         this.keepStacked = this.desktopSettings.get_boolean('keep-stacked');
@@ -421,5 +421,9 @@ const Preferences = class {
 
     get NautilusName() {
         return this._gnomeFilesAppInfo.get_locale_string('Name');
+    }
+
+    get useNemo() {
+        return this._useNemo && GLib.find_program_in_path('nemo');
     }
 };
