@@ -427,8 +427,12 @@ const FileItemMenu = class {
         }
 
         if (!fileItem.isStackMarker) {
-            propertiesMenu.append(selectedItemsNum > 1 ? _('Common Properties') : _('Properties'), 'app.properties');
-            showInFilesMenu.append(selectedItemsNum > 1 ? _('Show All in Files') : _('Show in Files'), 'app.showinfiles');
+            propertiesMenu.append(selectedItemsNum > 1 ? _('Common Properties')
+                : _('Properties'), 'app.properties');
+
+            const nautilusName = this.Prefs.NautilusName;
+            showInFilesMenu.append(selectedItemsNum > 1 ? _('Show All in {0}').replace('{0}', nautilusName)
+                : _('Show in {0}').replace('{0}', nautilusName), 'app.showinfiles');
         }
 
         if (fileItem.isDirectory && (fileItem.path !== null) && (selectedItemsNum === 1)) {

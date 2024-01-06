@@ -670,10 +670,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         console.log('Could not find discrete GPU data in switcheroo-control');
     }
 
-    _onOpenTerminalClicked() {
-        this.DesktopIconsUtil.launchTerminal(this.file.get_path(), null);
-    }
-
     async _setFileAttributes(fileInfo, cancellable = null, opts = {refresh: true}) {
         await this._file.set_attributes_async(fileInfo,
             Gio.FileQueryInfoFlags.NONE,

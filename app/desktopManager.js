@@ -1460,9 +1460,12 @@ const DesktopManager = class {
         this.desktopBackgroundGioMenu.append_section(null, this.sortingMenu);
 
         this.desktopTerminalMenu = Gio.Menu.new();
-        this.desktopTerminalMenu.append(_('Show Desktop In GNOME Files'), 'app.showDesktopInFiles');
+        const nautilusName = this.Prefs.NautilusName
+        this.desktopTerminalMenu.append(_('Show Desktop In {0}').replace('{0}', nautilusName),
+            'app.showDesktopInFiles');
         const terminalString = this.Prefs.TerminalName;
-        this.desktopTerminalMenu.append(_('Open In {0}').replace('{0}', terminalString), 'app.openInTerminal');
+        this.desktopTerminalMenu.append(_('Open In {0}').replace('{0}', terminalString),
+            'app.openInTerminal');
 
         this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
 
