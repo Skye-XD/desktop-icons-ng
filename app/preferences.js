@@ -44,6 +44,8 @@ const Preferences = class {
         } else {
             this.nautilusSettings = new Gio.Settings({settings_schema: schemaObj});
         }
+        this._gnomeFilesAppInfo = Gio.DesktopAppInfo.new('org.gnome.Nautilus.desktop');
+
 
         // Compression
         const compressionSchema = schemaSource.lookup(this._Enums.SCHEMA_NAUTILUS_COMPRESSION, true);
@@ -292,7 +294,7 @@ const Preferences = class {
     _updateTerminalDconfSettings() {
         let defaultTerminal = null;
         if (this.schemaTerminalSettings)
-            defaultTerminal = this.schemaTerminalSettings.get_string(this._Enums.EXEC_KEY);
+            defaultTerminal = this.schemaTerminalSettings.get_string(this._Enums.DCONF_TERMINAL_EXEC_KEY);
         let terminal;
         switch (defaultTerminal) {
         case 'gnome-terminal':
@@ -415,5 +417,9 @@ const Preferences = class {
             return this._terminal.get_locale_string('Name');
         else
             return _('Console');
+    }
+
+    get NautilusName() {
+        return this._gnomeFilesAppInfo.get_locale_string('Name');
     }
 };

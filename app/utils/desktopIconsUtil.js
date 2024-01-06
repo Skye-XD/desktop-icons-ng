@@ -224,22 +224,6 @@ const DesktopIconsUtil = class {
 
     /**
      *
-     * @param {string} workdir working directory path
-     * @param {string} command command to exectue
-     */
-    launchTerminal(workdir, command) {
-        let terminalSettings = new Gio.Settings({schema_id: this.Enums.TERMINAL_SCHEMA});
-        let exec = terminalSettings.get_string(this.Enums.EXEC_KEY);
-        let argv = [exec, `--working-directory=${workdir}`];
-        if (command) {
-            argv.push('-e');
-            argv.push(command);
-        }
-        this.trySpawn(workdir, argv, null);
-    }
-
-    /**
-     *
      * @param {float} x first x coordinate
      * @param {float} y first y coordinate
      * @param {float} x2 second x coordinate
