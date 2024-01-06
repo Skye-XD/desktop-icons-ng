@@ -277,7 +277,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             return;
         }
 
-        if (this._isDirectory && this._desktopManager.useNemo) {
+        if (this._isDirectory && this.Prefs.useNemo) {
             try {
                 this.DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()], this.DesktopIconsUtil.getFilteredEnviron());
             } catch (err) {
