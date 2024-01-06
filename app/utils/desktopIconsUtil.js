@@ -138,19 +138,21 @@ const DesktopIconsUtil = class {
      * @param {string} workdir working directory path
      * @param  {Array(String)} argv child's argument vector
      * @param {Array} environ child's environment, or <code>null</code> to inherit parent's
+     * @param {bool}  async or async execution
      */
-    trySpawn(workdir, argv, environ = null) {
+    trySpawn(workdir, argv, environ = null, async = true) {
         /* The following code has been extracted from GNOME Shell's
          * source code in Misc.Util.trySpawn function and modified to
          * set the working directory.
          *
          * https://gitlab.gnome.org/GNOME/gnome-shell/blob/gnome-3-30/js/misc/util.js
          */
-
+        var exec = async ? GLib.spawn_async : GLib.spawn_sync;
+        var flags = async ? GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD
+            : GLib.SpawnFlags.SEARCH_PATH;
         var pid;
         try {
-            pid = GLib.spawn_async(workdir, argv, environ,
-                GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD,
+            pid = exec(workdir, argv, environ, flags,
                 () => {}).slice(1);
         } catch (err) {
             /* Rewrite the error in case of ENOENT */
@@ -174,6 +176,10 @@ const DesktopIconsUtil = class {
                 throw err;
             }
         }
+
+        if (!async)
+            return;
+
         // Dummy child watch; we don't want to double-fork internally
         // because then we lose the parent-child relationship, which
         // can break polkit.  See https://bugzilla.redhat.com//show_bug.cgi?id=819275
