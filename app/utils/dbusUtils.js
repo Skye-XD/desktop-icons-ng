@@ -36,12 +36,14 @@ class ProxyManager {
     * Whether the object is or not available can be checked with the 'isAvailable' property.
     * Also, every time the availability changes, the signal 'changed-status' is emitted.
     */
-    constructor(dbusManager, serviceName, objectName, interfaceName, inSystemBus, programNeeded, makeAsync = true) {
+    constructor(dbusManager, serviceName, objectName, interfaceName, inSystemBus,
+        programNeeded, makeAsync = true, nocomplaint = false) {
         this._dbusManager = dbusManager;
         this._serviceName = serviceName;
         this._objectName = objectName;
         this._interfaceName = interfaceName;
         this._inSystemBus = inSystemBus;
+        this._nocomplaint = nocomplaint;
         this._signals = {};
         this._signalsIDs = {};
         this._connectSignals = {};
@@ -195,6 +197,18 @@ class ProxyManager {
         });
     }
 
+    notify(message1, message2) {
+        this._dbusManager.doNotify(message1, message2);
+    }
+
+    notifyUnavailable() {
+        if (!this._programNeeded)
+            return;
+        console.log(this._programNeeded[0]);
+        console.log(this._programNeeded[1]);
+        this._dbusManager.doNotify(this._programNeeded[0], this._programNeeded[1]);
+    }
+
     get isAvailable() {
         return !!this._proxy;
     }
@@ -205,10 +219,10 @@ class ProxyManager {
 
     get proxy() {
         if (!this._available || !this._proxy) {
-            if (this._programNeeded && (this._timeout === 0)) {
-                console.log(this._programNeeded[0]);
-                console.log(this._programNeeded[1]);
-                this._dbusManager.doNotify(this._programNeeded[0], this._programNeeded[1]);
+            if (this._nocomplaint)
+                return false;
+            if (this._timeout === 0) {
+                this.notifyUnavailable();
                 this._timeout = GLib.timeout_add(
                     GLib.PRIORITY_DEFAULT,
                     1000,
@@ -1008,6 +1022,10 @@ const DBusUtils = class {
         this.applicationId = mainApp;
         this.discreteGpuAvailable = false;
         this.dbusManagerObject = new DBusManager();
+        const makeAsync = true;
+        const nocomplaint = true;
+        const insSytembus = true;
+        const insSessionBus = !insSytembus;
 
         let data = this.dbusManagerObject.getIntrospectionData(
             'org.gnome.Nautilus',
@@ -1021,8 +1039,9 @@ const DBusUtils = class {
                 'org.gnome.Nautilus',
                 '/org/gnome/Nautilus/FileOperations2',
                 'org.gnome.Nautilus.FileOperations2',
-                false,
-                'Nautilus'
+                insSessionBus,
+                'Nautilus',
+                makeAsync
             );
         } else {
             console.log('Emulating NautilusFileOperations2 with the old NautilusFileOperations interface');
@@ -1032,8 +1051,9 @@ const DBusUtils = class {
                 'org.gnome.Nautilus',
                 '/org/gnome/Nautilus',
                 'org.gnome.Nautilus.FileOperations',
-                false,
-                'Nautilus'
+                insSessionBus,
+                'Nautilus',
+                makeAsync
             );
         }
 
@@ -1042,8 +1062,9 @@ const DBusUtils = class {
             'org.freedesktop.FileManager1',
             '/org/freedesktop/FileManager1',
             'org.freedesktop.FileManager1',
-            false,
-            'Nautilus'
+            insSessionBus,
+            'Nautilus',
+            makeAsync
         );
 
         this.GnomeNautilusPreview = new ProxyManager(
@@ -1051,8 +1072,9 @@ const DBusUtils = class {
             'org.gnome.NautilusPreviewer',
             '/org/gnome/NautilusPreviewer',
             'org.gnome.NautilusPreviewer',
-            false,
-            'Nautilus-Sushi'
+            insSessionBus,
+            'Nautilus-Sushi',
+            makeAsync
         );
 
         this.GnomeArchiveManager = new ProxyManager(
@@ -1060,8 +1082,9 @@ const DBusUtils = class {
             'org.gnome.ArchiveManager1',
             '/org/gnome/ArchiveManager1',
             'org.gnome.ArchiveManager1',
-            false,
-            'File-roller'
+            insSessionBus,
+            'File-roller',
+            makeAsync
         );
 
         this.GtkVfsMetadata = new ProxyManager(
@@ -1069,8 +1092,9 @@ const DBusUtils = class {
             'org.gtk.vfs.Metadata',
             '/org/gtk/vfs/metadata',
             'org.gtk.vfs.Metadata',
-            false,
-            'Gvfs daemon'
+            insSessionBus,
+            'Gvfs daemon',
+            makeAsync
         );
 
         this.SwitcherooControl = new ProxyManager(
@@ -1078,8 +1102,9 @@ const DBusUtils = class {
             'net.hadess.SwitcherooControl',
             '/net/hadess/SwitcherooControl',
             'net.hadess.SwitcherooControl',
-            true,
-            'Switcheroo control'
+            insSytembus,
+            'Switcheroo control',
+            makeAsync
         );
         this.discreteGpuAvailable = this.SwitcherooControl.isAvailable;
         this.SwitcherooControl.connect('changed-status', (obj, newStatus) => {
@@ -1108,8 +1133,9 @@ const DBusUtils = class {
             'org.gnome.Shell.Extensions.GSConnect',
             '/org/gnome/Shell/Extensions/GSConnect',
             'org.freedesktop.DBus.ObjectManager',
-            false,
-            'GsConnect Extension'
+            insSessionBus,
+            'GsConnect Extension',
+            makeAsync
         );
 
         this.RemoteSendFileOperations = new GsConnect.GsConnectSendFileOperationsManager(this.GsConnectManager, this.applicationId);
@@ -1119,8 +1145,9 @@ const DBusUtils = class {
             'com.desktop.dingextension',
             '/com/desktop/dingextension/service',
             'com.desktop.dingextension.service',
-            false,
-            null
+            insSessionBus,
+            null,
+            makeAsync
         );
 
         this.RemoteExtensionControl = new ExtensionControl(this.RemoteExtensionManager);
