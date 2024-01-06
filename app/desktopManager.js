@@ -143,7 +143,7 @@ const DesktopManager = class {
     _initDbusThumbnailing() {
         this.thumbnailLoader = new Thumbnails.ThumbnailLoader(this._codePath, this.FileUtils);
         this._updateDesktop().catch(e => {
-            print(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
+            console.log(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
         });
     }
 
@@ -540,7 +540,7 @@ const DesktopManager = class {
         this._addFilesToDesktop(fileItems, this.Enums.StoredCoordinates.OVERWRITE);
         if (keepArranged) {
             this._updateDesktop().catch(e => {
-                print(`Exception while doing move with drag and drop and "Keep arranged…": ${e.message}\n${e.stack}`);
+                console.log(`Exception while doing move with drag and drop and "Keep arranged…": ${e.message}\n${e.stack}`);
             });
         }
     }
@@ -1007,13 +1007,13 @@ const DesktopManager = class {
                                 this._setClipboardContent(text);
                                 resolve(true);
                             } catch (e) {
-                                print(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
+                                console.log(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
                                 this._setClipboardContent(text);
                                 resolve(false);
                             }
                         });
                     } catch (e) {
-                        print(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${e.message}\n${e.stack}`);
+                        console.log(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${e.message}\n${e.stack}`);
                         this._setClipboardContent(text);
                         resolve(false);
                     }
@@ -1035,7 +1035,7 @@ const DesktopManager = class {
                             }
                         });
                     } catch (e) {
-                        print(`Exception while reading clipboard media-type "text/plain": ${e.message}\n${e.stack}`);
+                        console.log(`Exception while reading clipboard media-type "text/plain": ${e.message}\n${e.stack}`);
                         this._setClipboardContent(text);
                         resolve(false);
                     }
@@ -1320,7 +1320,7 @@ const DesktopManager = class {
         let updateDesktop = Gio.SimpleAction.new('updateDesktop', null);
         updateDesktop.connect('activate', () => {
             this._updateDesktop().catch(e => {
-                print(`Exception while updating desktop after pressing "F5": ${e.message}\n${e.stack}`);
+                console.log(`Exception while updating desktop after pressing "F5": ${e.message}\n${e.stack}`);
             });
         });
         this.mainApp.add_action(updateDesktop);
@@ -2148,7 +2148,7 @@ const DesktopManager = class {
                     fileItem.droppedCoordinates = null;
                 newDesktop.addFileItemCloseTo(fileItem, desktopX, desktopY, storeMode);
             } else {
-                print('Not enough space to add icons');
+                console.log('Not enough space to add icons');
             }
         }
     }
@@ -2192,7 +2192,7 @@ const DesktopManager = class {
         if (writableByOthers !== this.writableByOthers) {
             this.writableByOthers = writableByOthers;
             if (this.writableByOthers)
-                print('desktop-icons: The desktop is writable by others. Not allowing launching any desktop files.');
+                console.log('desktop-icons: The desktop is writable by others. Not allowing launching any desktop files.');
 
             return true;
         } else {
@@ -3009,43 +3009,43 @@ const DesktopManager = class {
 
     onSettingsChanged() {
         this._updateDesktop().catch(e => {
-            print(`Exception while updating Desktop after the settings changed: ${e.message}\n${e.stack}`);
+            console.log(`Exception while updating Desktop after the settings changed: ${e.message}\n${e.stack}`);
         });
     }
 
     onShowLinkEmblemschanged() {
         this._desktopManager._updateDesktop().catch(e => {
-            print(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
+            console.log(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
         });
     }
 
     onMountAdded() {
         this._updateDesktop().catch(e => {
-            print(`Exception while updating Desktop after a mount was added: ${e.message}\n${e.stack}`);
+            console.log(`Exception while updating Desktop after a mount was added: ${e.message}\n${e.stack}`);
         });
     }
 
     onMountRemoved() {
         this._updateDesktop().catch(e => {
-            print(`Exception while updating Desktop after a mount was removed: ${e.message}\n${e.stack}`);
+            console.log(`Exception while updating Desktop after a mount was removed: ${e.message}\n${e.stack}`);
         });
     }
 
     onGtkIconThemeChange() {
         this._updateDesktop().catch(e => {
-            print(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
+            console.log(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
         });
     }
 
     onGnomeFilesSettingsChanged() {
         this._updateDesktop().catch(e => {
-            print(`Exception while updating Desktop after the GNOME Files settings changed: ${e.message}\n${e.stack}`);
+            console.log(`Exception while updating Desktop after the GNOME Files settings changed: ${e.message}\n${e.stack}`);
         });
     }
 
     onGtkSettingsChanged() {
         this._updateDesktop().catch(e => {
-            print(`Exception while updating desktop after the hidden settings changed: ${e.message}\n${e.stack}`);
+            console.log(`Exception while updating desktop after the hidden settings changed: ${e.message}\n${e.stack}`);
         });
         this.templatesMonitor.updateEntries();
     }

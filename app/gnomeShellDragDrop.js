@@ -158,7 +158,7 @@ const GnomeShellDrag = class {
             if (this._currentDesktopFileAppPath.endsWith('.desktop')) {
                 let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([this._currentDesktopFileAppPath]));
                 if (!desktopFile) {
-                    log('Could not parse desktopFile as a desktop file, cannot set shell cursor');
+                    console.log('Could not parse desktopFile as a desktop file, cannot set shell cursor');
                     this._DBusUtils.RemoteExtensionControl.setDragCursor(this._Enums.ShellDropCursor.NODROP);
                     return;
                 }
@@ -194,7 +194,7 @@ const GnomeShellDrag = class {
             try {
                 let desktopFile = Gio.DesktopAppInfo.new_from_filename(GLib.build_filenamev([this._currentDesktopFileAppPath]));
                 if (!desktopFile) {
-                    log('Could not parse desktopFile as a desktop file');
+                    console.log('Could not parse desktopFile as a desktop file');
                     return false;
                 }
                 let object = this._DesktopIconsUtil.checkAppOpensFileType(desktopFile, null, this._selectedFiles[0].attributeContentType);

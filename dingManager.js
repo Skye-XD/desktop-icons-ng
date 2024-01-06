@@ -210,7 +210,7 @@ const DingManager = class {
             this._updateDesktopGeometry.bind(this)
         );
 
-        log('gtk4-DING enabled.');
+        console.log('gtk4-DING enabled.');
     }
 
     /**
@@ -261,7 +261,7 @@ const DingManager = class {
             Gio.DBus.session.signal_unsubscribe(this.remoteGeometryUpdateRequestedId);
             this.remoteGeometryUpdateRequestedId = 0;
         }
-        log('gtk4-DING disabled.');
+        console.log('gtk4-DING disabled.');
     }
 
     /**
@@ -275,11 +275,11 @@ const DingManager = class {
             Gio.BusNameOwnerFlags.NONE,
             this._onBusAcquired.bind(this),
             (connection, name) => {
-                log(`${name} DBus Name Acquired`);
+                console.log(`${name} DBus Name Acquired`);
                 this.dbusConnectionName = name;
             },
             (connection, name) => {
-                log(`${name} DBus and Name Lost`);
+                console.log(`${name} DBus and Name Lost`);
                 this.dbusConnectionName = null;
             }
         );
@@ -310,7 +310,7 @@ const DingManager = class {
         Gio.bus_unown_name(this.dbusConnectionId);
         this.dbusConnectionId = 0;
         if (this.dbusConnectionName)
-            log(`${this.dbusConnectionName} DBus Name Relinquished`);
+            console.log(`${this.dbusConnectionName} DBus Name Relinquished`);
         this.dbusConnectionName = null;
     }
 
@@ -420,7 +420,7 @@ const DingManager = class {
                 if (contents.startsWith(thisPath)) {
                     let proc = new Gio.Subprocess({argv: ['/bin/kill', filename]});
                     proc.init(null);
-                    print(`Killing old DING process ${filename}`);
+                    console.log(`Killing old DING process ${filename}`);
                     await proc.wait_async_promise(null);
                 }
             } catch (e) {
@@ -601,7 +601,7 @@ var LaunchSubprocess = class {
             const [output, length] = await dataInputStream.read_line_async_promise(
                 GLib.PRIORITY_DEFAULT, cancellable);
             if (length)
-                print(`${this._processID}: ${textDecoder.decode(output)}`);
+                console.log(`${this._processID}: ${textDecoder.decode(output)}`);
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 return;
@@ -654,10 +654,10 @@ var LaunchSubprocess = class {
         if (Meta.is_wayland_compositor() && this.process_running) {
             try {
                 this._waylandClient.make_desktop(window);
-                log('Making Wayland window type Desktop');
+                console.log('Making Wayland window type Desktop');
                 return true;
             } catch (e) {
-                log('Meta.WaylandClient make_desktop() method not available yet!');
+                console.log('Meta.WaylandClient make_desktop() method not available yet!');
             }
         }
         return false;

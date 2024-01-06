@@ -139,7 +139,7 @@ class ProxyManager {
                 this._proxy = null;
                 this._signalIDs = {};
                 this._connectSignalsIDs = {};
-                print(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
+                console.log(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
                 return false;
             }
         } else {
@@ -184,7 +184,7 @@ class ProxyManager {
                 } catch (e) {
                     this._available = false;
                     this._proxy = null;
-                    print(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
+                    console.log(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
                     resolve(false);
                 }
             } else {
@@ -206,8 +206,8 @@ class ProxyManager {
     get proxy() {
         if (!this._available || !this._proxy) {
             if (this._programNeeded && (this._timeout === 0)) {
-                print(this._programNeeded[0]);
-                print(this._programNeeded[1]);
+                console.log(this._programNeeded[0]);
+                console.log(this._programNeeded[1]);
                 this._dbusManager.doNotify(this._programNeeded[0], this._programNeeded[1]);
                 this._timeout = GLib.timeout_add(
                     GLib.PRIORITY_DEFAULT,
@@ -439,7 +439,7 @@ class DBusManager {
         } catch (e) {
             let message = e.message;
             if (!message.includes('org.gnome.Shell.Extensions.GSConnect'))
-                print(`Error getting introspection data over Dbus: ${e.message}\n${e.stack}`);
+                console.log(`Error getting introspection data over Dbus: ${e.message}\n${e.stack}`);
             return null;
         }
         if (data === null)
@@ -490,7 +490,7 @@ class DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error showing properties: ${error.message}`);
+                    console.log(`Error showing properties: ${error.message}`);
             }
         );
     }
@@ -507,7 +507,7 @@ class DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error showing file on desktop: ${error.message}`);
+                    console.log(`Error showing file on desktop: ${error.message}`);
             }
         );
     }
@@ -523,7 +523,7 @@ class DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error previewing file: ${error.message}`);
+                    console.log(`Error previewing file: ${error.message}`);
             });
     }
 
@@ -538,7 +538,7 @@ class DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error extracting files: ${error.message}`);
+                    console.log(`Error extracting files: ${error.message}`);
             });
     }
 
@@ -553,7 +553,7 @@ class DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error compressing files: ${error.message}`);
+                    console.log(`Error compressing files: ${error.message}`);
             }
         );
     }
@@ -603,7 +603,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                             resolve(false);
                     });
                 } catch (e) {
-                    print(`Failed with "${e.message}" while getting wayland parent handle, WaylandHandle`);
+                    console.log(`Failed with "${e.message}" while getting wayland parent handle, WaylandHandle`);
                     resolve(false);
                 }
             });
@@ -672,7 +672,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         callback(result, error);
 
                     if (error)
-                        log(`Error moving files: ${error.message}`);
+                        console.log(`Error moving files: ${error.message}`);
                 }
             );
         } catch (e) {
@@ -697,7 +697,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         callback(result, error);
 
                     if (error)
-                        log(`Error copying files: ${error.message}`);
+                        console.log(`Error copying files: ${error.message}`);
                 }
             );
         } catch (e) {
@@ -722,7 +722,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         callback(result, error);
 
                     if (error)
-                        log(`Error copying files: ${error.message}`);
+                        console.log(`Error copying files: ${error.message}`);
                 }
             );
         } catch (e) {
@@ -746,7 +746,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         callback(result, error);
 
                     if (error)
-                        log(`Error Trashing files: ${error.message}`);
+                        console.log(`Error Trashing files: ${error.message}`);
                 }
             );
         } catch (e) {
@@ -770,7 +770,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         callback(source, error);
 
                     if (error)
-                        log(`Error deleting files on the desktop: ${error.message}`);
+                        console.log(`Error deleting files on the desktop: ${error.message}`);
                 }
             );
         } catch (e) {
@@ -794,7 +794,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         callback(source, error);
 
                     if (error)
-                        log(`Error trashing files on the desktop: ${error.message}`);
+                        console.log(`Error trashing files on the desktop: ${error.message}`);
                 }
             );
         } catch (e) {
@@ -817,7 +817,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         callback(result, error);
 
                     if (error)
-                        log(`Error performing undo: ${error.message}`);
+                        console.log(`Error performing undo: ${error.message}`);
                 }
             );
         } catch (e) {
@@ -840,7 +840,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         callback(result, error);
 
                     if (error)
-                        log(`Error performing redo: ${error.message}`);
+                        console.log(`Error performing redo: ${error.message}`);
                 }
             );
         } catch (e) {
@@ -873,7 +873,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error moving files: ${error.message}`);
+                    console.log(`Error moving files: ${error.message}`);
             }
         );
     }
@@ -891,7 +891,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error copying files: ${error.message}`);
+                    console.log(`Error copying files: ${error.message}`);
             }
         );
     }
@@ -909,7 +909,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error renaming files: ${error.message}`);
+                    console.log(`Error renaming files: ${error.message}`);
             }
         );
     }
@@ -926,7 +926,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error moving files: ${error.message}`);
+                    console.log(`Error moving files: ${error.message}`);
             }
         );
     }
@@ -944,7 +944,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
                     callback(source, error);
 
                 if (error)
-                    log(`Error deleting files on the desktop: ${error.message}`);
+                    console.log(`Error deleting files on the desktop: ${error.message}`);
             }
         );
     }
@@ -960,7 +960,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
                     callback(source, error);
 
                 if (error)
-                    log(`Error trashing files on the desktop: ${error.message}`);
+                    console.log(`Error trashing files on the desktop: ${error.message}`);
             }
         );
     }
@@ -976,7 +976,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error performing undo: ${error.message}`);
+                    console.log(`Error performing undo: ${error.message}`);
             }
         );
     }
@@ -992,7 +992,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
                     callback(result, error);
 
                 if (error)
-                    log(`Error performing redo: ${error.message}`);
+                    console.log(`Error performing redo: ${error.message}`);
             }
         );
     }
@@ -1025,7 +1025,7 @@ const DBusUtils = class {
                 'Nautilus'
             );
         } else {
-            print('Emulating NautilusFileOperations2 with the old NautilusFileOperations interface');
+            console.log('Emulating NautilusFileOperations2 with the old NautilusFileOperations interface');
             // Emulate NautilusFileOperations2 with the old interface
             this.NautilusFileOperations2 = new ProxyManager(
                 this.dbusManagerObject,

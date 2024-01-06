@@ -45,9 +45,9 @@ const ThumbnailLoader = class {
         this._codePath = codePath;
         this._thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
         if (useAsyncAPI)
-            print('Detected async api for thumbnails');
+            console.log('Detected async api for thumbnails');
         else
-            print('Failed to detected async api for thumbnails');
+            console.log('Failed to detected async api for thumbnails');
         this.standardThumbnailsFolder = GLib.build_filenamev([GLib.get_home_dir(), '.cache/thumbnails']);
         this.standardThumbnailSubFolders = ['large', 'normal'];
         this.gimpSnapThumbnailsFolder = GLib.build_filenamev([GLib.get_home_dir(), 'snap/common/gimp', '.cache/thumbnails']);
@@ -79,7 +79,7 @@ const ThumbnailLoader = class {
     async _createThumbnailAsync(file, cancellable) {
         let gotTimeout = false;
         let timeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this._timeoutValue, () => {
-            print(`Timeout while generating thumbnail for ${file.displayName}`);
+            console.log(`Timeout while generating thumbnail for ${file.displayName}`);
             timeoutId = 0;
             gotTimeout = true;
             cancellable.cancel();
@@ -133,7 +133,7 @@ const ThumbnailLoader = class {
         const proc = new Gio.Subprocess({argv: args});
 
         let timeoutID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this._timeoutValue, () => {
-            print(`Timeout while generating thumbnail for ${file.displayName}`);
+            console.log(`Timeout while generating thumbnail for ${file.displayName}`);
             timeoutID = 0;
             proc.force_exit();
             this._thumbnailFactory.create_failed_thumbnail(file.uri, file.modifiedTime);
@@ -242,7 +242,7 @@ const ThumbnailLoader = class {
                 thumbnail = await this._generateThumbnail(file, cancellable);
             return thumbnail;
         } catch (error) {
-            print(`Error when asking for a thumbnail for ${file.displayName}: ${error.message}\n${error.stack}`);
+            console.log(`Error when asking for a thumbnail for ${file.displayName}: ${error.message}\n${error.stack}`);
         }
         return null;
     }

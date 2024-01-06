@@ -140,14 +140,14 @@ const Preferences = class {
             if (key === 'dark-text-in-labels')  {
                 this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
                 this._desktopManager._updateDesktop().catch(e => {
-                    print(`Exception while updating desktop after "Dark Text" changed: ${e.message}\n${e.stack}`);
+                    console.log(`Exception while updating desktop after "Dark Text" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
             if (key === 'show-link-emblem') {
                 this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
                 this._desktopManager._updateDesktop().catch(e => {
-                    print(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
+                    console.log(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
