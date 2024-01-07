@@ -203,10 +203,8 @@ const Preferences = class {
                 this._desktopManager.onKeepArrangedChanged();
                 return;
             }
-            if (key === 'show-drop-place') {
+            if (key === 'show-drop-place')
                 this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
-                return;
-            }
             if (key === 'start-corner')
                 this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
             this._desktopManager.onSettingsChanged();
