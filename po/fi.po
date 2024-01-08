@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-20 21:58-0400\n"
+"POT-Creation-Date: 2024-01-07 23:11-0500\n"
 "PO-Revision-Date: 2023-12-03 22:08+0000\n"
 "Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -158,107 +158,106 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Lisää uusia liikkeitä työpöydän vastakkaiselle puolelle"
 
 #: app/adwPreferencesWindow.js:248
-#, fuzzy
-msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Korosta laskuverkko Drag ja Drop"
+msgid "Rectangular icons with drop grid highlighting"
+msgstr ""
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Use Nemo to open folders"
 msgstr "Käytä Nemoa kansioiden avaamiseen"
 
-#: app/adwPreferencesWindow.js:250
+#: app/adwPreferencesWindow.js:252
 msgid "Add an emblem to soft links"
 msgstr "Merkitse linkit tiedostoihin symbolilla"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:253
 msgid "Use dark text in icon labels"
 msgstr "Käytä tummaa tekstiä kuvakkeiden selitteissä"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Toiminta avoimiin kohteisiin"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:259
 msgid "Single click"
 msgstr "Yksi napsautus"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:260
 msgid "Double click"
 msgstr "Kaksoisnapsautus"
 
-#: app/adwPreferencesWindow.js:262
+#: app/adwPreferencesWindow.js:264
 msgid "Show image thumbnails"
 msgstr "Näytä pienoiskuvat"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:266
 msgid "Always"
 msgstr "Aina"
 
-#: app/adwPreferencesWindow.js:265
+#: app/adwPreferencesWindow.js:267
 #, fuzzy
 msgid "On this computer only"
 msgstr "Vain tällä tietokoneella"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:268
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: app/adwPreferencesWindow.js:268
+#: app/adwPreferencesWindow.js:270
 msgid "Show a context menu item to delete permanently"
 msgstr "Näytä valikkokohde pysyvästi poistamiselle"
 
-#: app/adwPreferencesWindow.js:269
+#: app/adwPreferencesWindow.js:271
 msgid "Show hidden files"
 msgstr "Näytä piilotiedostot"
 
-#: app/adwPreferencesWindow.js:270
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Avoimet kansiot drag hoverissa"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Website"
 msgstr "Web-sivusto"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Visit"
 msgstr "Vieraile"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Issues"
 msgstr "Ongelmat"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Report issues on issue tracker"
 msgstr "Raportti aiheista seuraaja"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Report"
 msgstr "Raportoi"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:276
 #, fuzzy
 msgid "License"
 msgstr "Lisenssi"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:277
 #, fuzzy
 msgid "Translation"
 msgstr "Käännös"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:277
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Auta kääntämään verkkoselaimesi"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:277
 #, fuzzy
 msgid "Translate"
 msgstr "Käännä"
@@ -301,7 +300,8 @@ msgstr "Kansion nimi"
 msgid "File name"
 msgstr "Tiedoston nimi"
 
-#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1163
+#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
+#: app/fileItemMenu.js:791
 msgid "OK"
 msgstr "OK"
 
@@ -333,8 +333,8 @@ msgstr "Poista tiedostoja"
 msgid "Compressing files"
 msgstr "Pakataan tiedostoja."
 
-#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
-#: app/desktopManager.js:1165 app/fileItemMenu.js:634
+#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:719
+#: app/desktopManager.js:1160 app/fileItemMenu.js:641 app/fileItemMenu.js:791
 msgid "Cancel"
 msgstr "Peru"
 
@@ -464,180 +464,181 @@ msgstr "Pienempiä arkistoja, mutta vain Linux ja Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Pienempiä arkistoja, mutta ne on asennettava Windowsiin ja Maciin."
 
-#: app/desktopManager.js:125
+#: app/desktopManager.js:120
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME Tiedostoja ei löytynyt"
 
-#: app/desktopManager.js:126
+#: app/desktopManager.js:121
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "GNOME Tiedostojen käyttö edellyttää Desktop Icons NG."
 
-#: app/desktopManager.js:721
+#: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
 msgstr "Siirrä"
 
-#: app/desktopManager.js:722 app/fileItemMenu.js:362
+#: app/desktopManager.js:717 app/fileItemMenu.js:364
 msgid "Copy"
 msgstr "Kopioi"
 
-#: app/desktopManager.js:723
+#: app/desktopManager.js:718
 #, fuzzy
 msgid "Link"
 msgstr "Linkki"
 
-#: app/desktopManager.js:726
+#: app/desktopManager.js:721
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Valitse tiedostojen toiminta"
 
-#: app/desktopManager.js:796 app/desktopManager.js:828
+#: app/desktopManager.js:791 app/desktopManager.js:823
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "SymLink epäonnistui"
 
-#: app/desktopManager.js:797 app/desktopManager.js:829
+#: app/desktopManager.js:792 app/desktopManager.js:824
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Ei voi luoda symbolista linkkiä"
 
-#: app/desktopManager.js:1121
+#: app/desktopManager.js:1116
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Tyhjennä nykyinen valinta ennen uutta hakua"
 
-#: app/desktopManager.js:1167
+#: app/desktopManager.js:1162
 msgid "Find Files on Desktop"
 msgstr "Etsi tiedostoja työpöydällä"
 
-#: app/desktopManager.js:1422
+#: app/desktopManager.js:1417
 #, fuzzy
 msgid "Name"
 msgstr "Nimi"
 
-#: app/desktopManager.js:1423
+#: app/desktopManager.js:1418
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nimi Z-A"
 
-#: app/desktopManager.js:1424
+#: app/desktopManager.js:1419
 #, fuzzy
 msgid "Modified Time"
 msgstr "Muutettu aika"
 
-#: app/desktopManager.js:1425
+#: app/desktopManager.js:1420
 #, fuzzy
 msgid "Type"
 msgstr "Tyyppi"
 
-#: app/desktopManager.js:1426
+#: app/desktopManager.js:1421
 #, fuzzy
 msgid "Size"
 msgstr "Koko"
 
-#: app/desktopManager.js:1429
+#: app/desktopManager.js:1424
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Pidä järjestetty.."
 
-#: app/desktopManager.js:1433
+#: app/desktopManager.js:1428
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Pidä kiinni tyypistä.."
 
-#: app/desktopManager.js:1434
+#: app/desktopManager.js:1429
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Järjestä koti/asemat/roskakori…"
 
-#: app/desktopManager.js:1439 app/desktopManager.js:2461
+#: app/desktopManager.js:1434 app/desktopManager.js:2459
 msgid "New Folder"
 msgstr "Uusi kansio"
 
-#: app/desktopManager.js:1443
+#: app/desktopManager.js:1438
 msgid "New Document"
 msgstr "Uusi asiakirja"
 
-#: app/desktopManager.js:1447
+#: app/desktopManager.js:1442
 msgid "Paste"
 msgstr "Liitä"
 
-#: app/desktopManager.js:1448
+#: app/desktopManager.js:1443
 msgid "Undo"
 msgstr "Kumoa"
 
-#: app/desktopManager.js:1449
+#: app/desktopManager.js:1444
 msgid "Redo"
 msgstr "Tee uudelleen"
 
-#: app/desktopManager.js:1454
+#: app/desktopManager.js:1449
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: app/desktopManager.js:1459
+#: app/desktopManager.js:1454
 msgid "Arrange Icons"
 msgstr "Järjestä kuvakkeet"
 
-#: app/desktopManager.js:1463
+#: app/desktopManager.js:1458
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Järjestäytyminen.."
 
-#: app/desktopManager.js:1468
+#: app/desktopManager.js:1464
 #, fuzzy
-msgid "Show Desktop In GNOME Files"
-msgstr "Näytä työpöytä GNOME-tiedostot"
+#| msgid "Show Desktop in Files"
+msgid "Show Desktop In {0}"
+msgstr "Näytä työpöytä tiedostonhallinnassa"
 
-#: app/desktopManager.js:1469
+#: app/desktopManager.js:1467
 #, fuzzy
-msgid "Open In Terminal"
-msgstr "Avaa päätteessä"
+msgid "Open In {0}"
+msgstr "Avoinna {foo}"
 
-#: app/desktopManager.js:1474
+#: app/desktopManager.js:1473
 msgid "Change Background…"
 msgstr "Vaihda taustakuvaa…"
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1478
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Työpöytäkuvakkeiden asetukset"
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1479
 msgid "Display Settings"
 msgstr "Näytön asetukset"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1522
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Ikkuna on auki"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1522
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Tämä ikkuna on auki. Siirry aktiiviseen ikkunaan."
 
-#: app/desktopManager.js:1537
+#: app/desktopManager.js:1536
 msgid "Settings"
 msgstr "Asetukset"
 
-#: app/desktopManager.js:2484
+#: app/desktopManager.js:2482
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Folder Creation epäonnistui"
 
-#: app/desktopManager.js:2485
+#: app/desktopManager.js:2483
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Ei voitu luoda kansiota"
 
-#: app/desktopManager.js:2528
+#: app/desktopManager.js:2526
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Templata Creation Error"
 
-#: app/desktopManager.js:2529
+#: app/desktopManager.js:2527
 #, fuzzy
 msgid "Could not create document"
 msgstr "Asiakirjaa ei voi luoda"
@@ -665,13 +666,13 @@ msgstr "Avaustiedosto epäonnistui"
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "Ei ole olemassa sovellusta, joka avaa \"(foo)\" tiedostotyypin"
 
-#: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
+#: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
 msgstr "Tiedostoa ei voitu avata"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
+#: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "tiedostoja ei voi avata tämän tyypin tiedostoja!"
@@ -733,220 +734,275 @@ msgstr ""
 "\n"
 "<b>Valitse \"Salli käynnistäminen\"</b>"
 
-#: app/fileItemMenu.js:297
+#: app/fileItemMenu.js:299
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Uusi kansio jossa {0} kohde"
 msgstr[1] "Uusi kansio jossa {0} kohdetta"
 
-#: app/fileItemMenu.js:304
+#: app/fileItemMenu.js:306
 msgid "Open All..."
 msgstr "Avaa kaikki..."
 
-#: app/fileItemMenu.js:309
+#: app/fileItemMenu.js:311
 #, fuzzy
 msgid "Run"
 msgstr "Suorita"
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:313
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Avoinna {foo}"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:315
 msgid "Open"
 msgstr "Avaa"
 
-#: app/fileItemMenu.js:322 app/fileItemMenu.js:326
+#: app/fileItemMenu.js:324 app/fileItemMenu.js:328
 msgid "Extract Here"
 msgstr "Pura tänne"
 
-#: app/fileItemMenu.js:328
+#: app/fileItemMenu.js:330
 msgid "Extract To..."
 msgstr "Pura…"
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 msgid "Open All With Other Application..."
 msgstr "Avaa kaikki toisella sovelluksella..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 #, fuzzy
 msgid "Open With..."
 msgstr "Avaa sovelluksella..."
 
-#: app/fileItemMenu.js:336
+#: app/fileItemMenu.js:338
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Käynnistä erillisnäytönohjainta käyttäen"
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:345
 msgid "Stack This Type"
 msgstr "Pinoa tämäntyyppiset"
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:345
 msgid "Unstack This Type"
 msgstr "Älä pinoa tämäntyyppisiä"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Suorita ohjelmana"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Scripts"
 msgstr "Komentosarjat"
 
-#: app/fileItemMenu.js:360
+#: app/fileItemMenu.js:362
 msgid "Cut"
 msgstr "Leikkaa"
 
-#: app/fileItemMenu.js:366
+#: app/fileItemMenu.js:368
 #, fuzzy
 msgid "Move to..."
 msgstr "Siirtyminen..."
 
-#: app/fileItemMenu.js:367
+#: app/fileItemMenu.js:369
 #, fuzzy
 msgid "Copy to..."
 msgstr "Kopioi..."
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 msgid "Rename…"
 msgstr "Nimeä uudelleen…"
 
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Create Link..."
 msgstr "Luo linkki..."
 
-#: app/fileItemMenu.js:379
+#: app/fileItemMenu.js:381
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Komennus {0}"
 msgstr[1] "Kompressoi kansiot"
 
-#: app/fileItemMenu.js:386
+#: app/fileItemMenu.js:388
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Pakkaa {0} tiedosto"
 msgstr[1] "Pakkaa {0} tiedostoa"
 
-#: app/fileItemMenu.js:393
+#: app/fileItemMenu.js:394
 #, fuzzy
 msgid "Email to..."
 msgstr "Sähköpostia..."
 
-#: app/fileItemMenu.js:398
+#: app/fileItemMenu.js:399
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Lähetä mobiililaitteet"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:403
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:406
 msgid "Delete permanently"
 msgstr "Poista pysyvästi"
 
-#: app/fileItemMenu.js:410
+#: app/fileItemMenu.js:411
 msgid "Don't Allow Launching"
 msgstr "Älä salli käynnistämistä"
 
-#: app/fileItemMenu.js:410
+#: app/fileItemMenu.js:411
 msgid "Allow Launching"
 msgstr "Salli käynnistäminen"
 
-#: app/fileItemMenu.js:416
+#: app/fileItemMenu.js:417
 msgid "Empty Trash"
 msgstr "Tyhjennä roskakori"
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:423
 msgid "Eject"
 msgstr "Irrota"
 
-#: app/fileItemMenu.js:425
+#: app/fileItemMenu.js:426
 msgid "Unmount"
 msgstr "Irrota osio"
 
-#: app/fileItemMenu.js:429
+#: app/fileItemMenu.js:430
 msgid "Common Properties"
 msgstr "Yhteiset ominaisuudet"
 
-#: app/fileItemMenu.js:429
+#: app/fileItemMenu.js:431
 msgid "Properties"
 msgstr "Ominaisuudet"
 
-#: app/fileItemMenu.js:430
-msgid "Show All in Files"
+#: app/fileItemMenu.js:434
+#, fuzzy
+#| msgid "Show All in Files"
+msgid "Show All in {0}"
 msgstr "Näytä kaikki Tiedostot-sovelluksessa"
 
-#: app/fileItemMenu.js:430
-msgid "Show in Files"
+#: app/fileItemMenu.js:435
+#, fuzzy
+#| msgid "Show in Files"
+msgid "Show in {0}"
 msgstr "Näytä tiedostonhallinnassa"
 
-#: app/fileItemMenu.js:434
-msgid "Open in Terminal"
-msgstr "Avaa päätteessä"
+#: app/fileItemMenu.js:440
+#, fuzzy
+msgid "Open in {0}"
+msgstr "Avoinna {foo}"
 
-#: app/fileItemMenu.js:552
+#: app/fileItemMenu.js:559
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ylimääräinen peruttu"
 
-#: app/fileItemMenu.js:553
+#: app/fileItemMenu.js:560
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Et voi ottaa File, Ei Kohteen kansiota"
 
-#: app/fileItemMenu.js:585
+#: app/fileItemMenu.js:592
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Siirtyminen peruutettu"
 
-#: app/fileItemMenu.js:586
+#: app/fileItemMenu.js:593
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Et voi siirtää tiedostoja, ei kohdekansiota"
 
-#: app/fileItemMenu.js:598 app/fileItemMenu.js:626
+#: app/fileItemMenu.js:605 app/fileItemMenu.js:633
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
-#: app/fileItemMenu.js:600 app/fileItemMenu.js:628
+#: app/fileItemMenu.js:607 app/fileItemMenu.js:635
 msgid "Select"
 msgstr "Valitse"
 
-#: app/fileItemMenu.js:672
+#: app/fileItemMenu.js:679
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopio peruutettu"
 
-#: app/fileItemMenu.js:673
+#: app/fileItemMenu.js:680
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Et voi kopioida tiedostoja, ei kohdekansiota"
 
-#: app/fileItemMenu.js:703
+#: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
+#: app/fileItemMenu.js:775
+msgid "Mail Error"
+msgstr ""
+
+#: app/fileItemMenu.js:729
+msgid "Unable to find xdg-email, please install the program"
+msgstr ""
+
+#: app/fileItemMenu.js:739
+msgid "There was an error in emailing Files"
+msgstr ""
+
+#: app/fileItemMenu.js:749
+msgid "Unable to find zip command, please install the program"
+msgstr ""
+
+#. Translators - basename for a zipped archive created for mailing
+#: app/fileItemMenu.js:755
+#, fuzzy
+msgid "Archive.zip"
+msgstr "Archive Nimi"
+
+#: app/fileItemMenu.js:776
+msgid "There was an error in creating a zip archive"
+msgstr ""
+
+#: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
 msgstr "Kansiota ei voi lähettää sähköpostitse"
 
-#: app/fileItemMenu.js:704
-msgid "Selection includes a Directory, compress the directory to a file first."
+#: app/fileItemMenu.js:790
+#, fuzzy
+#| msgid ""
+#| "Selection includes a Directory, compress the directory to a file first."
+msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Valinta sisältää kansion, pakkaa kansio tiedostoksi ensin."
+
+#: app/fileItemMenu.js:902
+msgid "Unable to Open in Gnome Console"
+msgstr ""
+
+#: app/fileItemMenu.js:903
+msgid "Please Install Gnome Console or other Terminal Program"
+msgstr ""
+
+#: app/fileItemMenu.js:910
+msgid "Unable to Open {0}"
+msgstr ""
+
+#: app/fileItemMenu.js:911
+msgid "Please Install {0}"
+msgstr ""
+
+#: app/preferences.js:417
+msgid "Console"
+msgstr ""
 
 #: app/showErrorPopup.js:39
 msgid "Close"
 msgstr "Sulje"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/utils/dbusUtils.js:53
+#: app/utils/dbusUtils.js:55
 msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "\"${programName}\" tarvitaan työpöytäkuvakkeisiin"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/utils/dbusUtils.js:55
+#: app/utils/dbusUtils.js:57
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
@@ -954,7 +1010,7 @@ msgstr ""
 "Tämä työpöytäkuvakkeiden toiminnallisuus vaatii ohjelman\"${programName}\" "
 "asentamisen järjestelmään."
 
-#: app/utils/desktopIconsUtil.js:146
+#: app/utils/desktopIconsUtil.js:197
 msgid "Command not found"
 msgstr "Komentoa ei löydy"
 
@@ -1132,6 +1188,21 @@ msgstr ""
 "ensisijaiseen näyttöön"
 
 #, fuzzy
+#~ msgid "Highlight the drop grid during Drag and Drop"
+#~ msgstr "Korosta laskuverkko Drag ja Drop"
+
+#, fuzzy
+#~ msgid "Show Desktop In GNOME Files"
+#~ msgstr "Näytä työpöytä GNOME-tiedostot"
+
+#, fuzzy
+#~ msgid "Open In Terminal"
+#~ msgstr "Avaa päätteessä"
+
+#~ msgid "Open in Terminal"
+#~ msgstr "Avaa päätteessä"
+
+#, fuzzy
 #~ msgid "No Extraction Folder"
 #~ msgstr "Ei purkukansiota"
 
@@ -1214,9 +1285,6 @@ msgstr ""
 
 #~ msgid "If you delete an item, it will be permanently lost."
 #~ msgstr "Jos poistat kohteen, se häviää pysyvästi."
-
-#~ msgid "Show Desktop in Files"
-#~ msgstr "Näytä työpöytä tiedostonhallinnassa"
 
 #~ msgid "Desktop Icons Settings"
 #~ msgstr "Työpöytäkuvakkeiden asetukset"
