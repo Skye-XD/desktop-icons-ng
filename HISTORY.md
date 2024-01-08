@@ -1,9 +1,20 @@
 # History of versions #
+* Gtk4 version 69 for Gnome 45
+ * Rectangular icons and higlights like Nuatilus. Can be switched to the regular style with the old show drop target highlght toggle. (Sundeep Mediratta)
+ * Acts like xdg-terminal-exec, monitors all configuration files to show the correct Terminal to be lauched in right click menus and will execute the correct terminal if xdg-terminal-exec is not installed. If installed executes xdg-terminal-exec. (Sundeep Mediratta)
+ * Animates Overview - icons are shown on the background. (Sundeep Mediratta)
+ * Emails zip files if folders are selected. (Sundeep Mediratta)
+ * Code cleanup, remove log and print statements, use console.log. (Sundeep Mediratta)
+ * Set version name and uuid from extension, pass to ding over command line. (Suneep Mediratta)
+ * Dont show nemo option if nemo is not installed. Don't fool the user. (Sundeep Mediratta)
+ * Translatios. (Weblate Authors).
+ * Update metdata.json, version bump to 69, update History.md and Readme.md
+
 * Gtk4 version 68 for Gnome 45
  * Make DING window type Meta.WindowType.DESKTOP on X11 with xprop. (Sundeep Mediratta)
  * Fixes show desktop shortcuts on X11
  * Weblate translations. (Weblate Authors)
- * Update metadat.json. Version Bump to 68, update History.md and Readme.md
+ * Update metadata.json. Version Bump to 68, update History.md and Readme.md
 
 * Gtk4 version 67 for Gnome 44
  * Make DING window type Meta.WindowType.DESKTOP on X11 with xprop. (Sundeep Mediratta)

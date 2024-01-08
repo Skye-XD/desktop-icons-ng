@@ -113,6 +113,16 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] New - Correctly set gtk4-ding window to Meta.WindowType.DESKTOP on X11 with xprop.
 
+- [x] Launches the correct terminal app, GLib now uses xdg-terminal-exec, the extension uses that if installed. If it is not installed, it mimics xdg-terminal-exec and will launch the correct terminal set by the user. The terminal configured by the user will be shown correctly in the right click menu.
+
+- [x] Animates overview.
+
+- [x] Uses new version name in extension to be independent of EGO. Passed to the program directly over the command line.
+
+- [x] Can now email folders from the desktop, will zip them into files first.
+
+- [x] Uses rectangular icons now like Nautilus. Style can be switched to the old style with show drop targed deselected.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -217,6 +227,12 @@ Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has sev
 
 - [x] Fix - Gnome keybinding shortcuts to show desktop window can hide gtk4-Ding window on X11. Fixed the same shortcut not showing the windows back again on re-press. (Made the window Meta.WindowType.DESKTOP on X11)
 
+- [x] Fix - will not launch nemo if it is not installed, option to use nemo will be greyed out.
+
+- [x] Multiple code changes and renames in DBusUtils and elsewhere to make code more readable and maintainable. Use console log instead of log, no print statments.
+
+- [x] Use correct locale name for Files and Terminal applications in right click menus.
+
 **KNOWN ISSUES**
 
 - [x] FIXED - UNLIMITED WORKSPACES TO THE RIGHT- with Meta.WindowType.DESKTOOP, window on all workspaces and minimal shell overrides - ~~auto-move-windows from gnome extensions patches the gnome shell workspace tracker that breaks Gtk4 DING gnome shell override to the same functions in the shell. This can still result in unlimited workspaces, and makes an empty workspace to the right of the current workspace if it only has the DING window. The only correct solution is to enable gtk4-DING first and then auto-move-windows, but this is not a viable long term solution. The best recommended action is to completely disable auto-move-windows extension. Highly recommend smart-auto-move-windows from EGO that works perfectly with Gtk4-DING, with even better functionality and more features thant the alod auto-move-windows, and appears to do so without patching/overriding the Gnome Shell.~~
@@ -276,6 +292,24 @@ Good, Modern Gtk Application Themes have a dark "variant" built into the theme i
 As Gtk4-DING now detects the change, it reloads the dark variant of the current Gtk theme automatically and applies it, so now Gtk4-DING should switch to dark-mode auotmatically on making the setting change in Gnome Settings, even from the shortcut menus in the top right corner with Gnome 43.  The theme has to have a dark "variant" description in the css files for the themes for this to work properly. The default Adwaita theme does have this variant built in. If other Gtk applications have the ability to detect and react to the change made by Gtk4-DING to the global gtk settings for the user, they should be able to reload their themes as well.
 
 The other option is to install extensions that automatically toggle legacy application Gtk themes with changes in dark mode theme for the gnome shell. There are several on gnome.extensions.org, some examples are [Legacy-gtk3-theme-scheme-auto-switcher](https://extensions.gnome.org/extension/4998/legacy-gtk3-theme-scheme-auto-switcher/) and [Lightdark-theme-switcher](https://extensions.gnome.org/extension/4968/lightdark-theme-switcher/)
+
+**CHOOSING DEFAULT TERMINAL**
+
+Glib is (at least for now, till a better spec appears) launching xdg-terminal-exec to execute the default terminal for programs that need to be launched in the a "Terminal". See discussion on GLib issues.
+The Gnome Dconf key that specified the default terminal is depreciated.
+A good synopsis of the pros-and-cons and issues in [this comment](https://gitlab.gnome.org/GNOME/glib/-/issues/338#note_1745989) and on the [complicated file structure](https://github.com/ublue-os/main/issues/211#issuecomment-1551600704).
+Then newer specification that is supposed to better - [xdg-default-apps](https://gitlab.freedesktop.org/xdg/xdg-specs/-/issues/54#note_868443) spec. However this is not yet implemented, and appears stalled.
+However xdg-terminal-exec is a shell script and is not installed on all distributions.
+So, to let user launch their own default terminal application, gtk4-ding -
+A. will attempt to work like xdg-terminal-exec if it is not installed.
+* Look for $XDG_CONFIG_HOME/xdg-terminals.list, else for $XDG_CONFIG_DIRS/xdg-terminals.list. If this exists, try and open the first terminal in the list.
+* If $XDG_USER_DATA or $XDG_SYSTEM_DATA files have xdg-terminal folder with valid .desktop files, execute one of them.
+* If the depreciated dconf key for the default terminal still exists, launch the terminal specified there.
+B. If there is a valid xdg-terminal-exec binary, just execute that as GLib calls will do that. This allows a user to "hard code" a terminal by hacking xdg-terminal-exec.
+
+Easiest way of setting the terminal is .confg/terminal.list - one line, the name of the .desktop file to be launched.
+
+Ding now monitors all files and folders that define the terminal to be used and will automatically show the correct terminal that will be launched in the right click menu.
 
 ## Requirements
 
