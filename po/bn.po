@@ -2,23 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # holer ryaar <nuqunedadosa@rungel.net>, 2023.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-03 22:08+0000\n"
+"PO-Revision-Date: 2024-01-08 12:27+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -669,7 +669,7 @@ msgstr "ডকুমেন্ট তৈরি করা যায়নি"
 #: app/fileItem.js:140
 #, fuzzy
 msgid "Home"
-msgstr "Home"
+msgstr "হোম"
 
 #: app/fileItem.js:266
 #, fuzzy
@@ -848,7 +848,7 @@ msgstr "নকল করা..।"
 #: app/fileItemMenu.js:373
 #, fuzzy
 msgid "Rename…"
-msgstr "নাম পাল্টাও"
+msgstr "পুনঃনামকরণ"
 
 #: app/fileItemMenu.js:376
 #, fuzzy
@@ -1033,8 +1033,9 @@ msgid "Please Install {0}"
 msgstr ""
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 #: app/showErrorPopup.js:39
 #, fuzzy

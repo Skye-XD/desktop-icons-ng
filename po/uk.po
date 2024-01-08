@@ -2,25 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Stanisław Zadorozhnyi <zadorozhniy123@icloud.com>, 2021.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-03 22:08+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/uk/>\n"
+"PO-Revision-Date: 2024-01-08 12:27+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -153,8 +154,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Додати нові диски на протилежну сторону робочого столу"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "Прямокутні іконки з висвітленням сітчастої сітки"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -549,7 +551,7 @@ msgstr "Тримайте Stacked by Type .."
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Сортувати Домівка/Диски/Смітник…"
+msgstr "Сортувати Головна/Drives/Trash .."
 
 #: app/desktopManager.js:1434 app/desktopManager.js:2459
 msgid "New Folder"
@@ -589,12 +591,12 @@ msgstr "Аранжувати по .."
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Показати стільницю в Файлах"
+msgstr "Показати робочий стіл в {0}"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 msgid "Open In {0}"
-msgstr "Відкрити з {foo}"
+msgstr "Відкрити в {0}"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -826,6 +828,7 @@ msgid "Create Link..."
 msgstr "Створити посилання."
 
 #: app/fileItemMenu.js:381
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -889,18 +892,18 @@ msgstr "Властивості"
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
-msgstr "Показати все у Файлах"
+msgstr "Показати всі {0}"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "Показати у Файлах"
+msgstr "Показати в {0}"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Open in {0}"
-msgstr "Відкрити з {foo}"
+msgstr "Відкрити в {0}"
 
 #: app/fileItemMenu.js:559
 #, fuzzy
@@ -943,30 +946,35 @@ msgstr "Неможливо скопіювати файли, папки приз�
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "Помилка електронної пошти"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Неможливо знайти xdg-email, будь ласка, встановіть програму"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Був помилку у файлах електронної пошти"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Неможливо знайти команду zip, будь ласка, встановіть програму"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Назва архіву"
+msgstr "Архів.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Помилки в створенні архіву zip"
 
 #: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
@@ -977,27 +985,32 @@ msgstr "Неможливо відправити теку електронною 
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Вибір включає теку, для початку стисніть теку в файл."
+msgstr "Вибір включає в себе каталог, компрес в файл .zip спочатку?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Неможливо відкрити в консолі Gnome"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Будь ласка, встановіть консолі Gnome або іншу програму терміналу"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Відкрито {0} {0}"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Встановити {0} {0}"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 #: app/showErrorPopup.js:39
 msgid "Close"

@@ -2,24 +2,25 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
 # João Mota <joao.mota.200810@gmail.com>, 2023.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-03 22:08+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/pt/>\n"
+"PO-Revision-Date: 2024-01-08 12:27+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -115,7 +116,7 @@ msgstr "Canto superior esquerdo"
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Top right corner"
-msgstr "Canto superior direito."
+msgstr "Canto superior direito"
 
 #: app/adwPreferencesWindow.js:236
 #, fuzzy
@@ -159,8 +160,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Adicionar novas unidades ao lado oposto do desktop"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "Ícones retangulares com destaque de grade drop"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -341,7 +343,7 @@ msgstr ""
 #: app/autoAr.js:198
 #, fuzzy
 msgid "Extracting files"
-msgstr "Extraindo arquivos"
+msgstr "Nome"
 
 #: app/autoAr.js:215
 #, fuzzy
@@ -417,7 +419,7 @@ msgstr "Compressão concluída"
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Comprimir arquivos em '${outputFile}' foi concluído."
+msgstr "Extrair aqui"
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
@@ -517,7 +519,7 @@ msgstr "Fazendo SymLink Failed"
 #: app/desktopManager.js:792 app/desktopManager.js:824
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Não poderia criar um link simbólico"
+msgstr "Questões"
 
 #: app/desktopManager.js:1116
 #, fuzzy
@@ -557,7 +559,7 @@ msgstr "Tamanho"
 #: app/desktopManager.js:1424
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Mantenha-se arranjado.."
+msgstr "Nunca"
 
 #: app/desktopManager.js:1428
 #, fuzzy
@@ -612,12 +614,12 @@ msgstr "Organizar por.."
 #: app/desktopManager.js:1464
 #, fuzzy
 msgid "Show Desktop In {0}"
-msgstr "Mostrar Desktop Em arquivos GNOME"
+msgstr "Mostrar Desktop In {0}"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 msgid "Open In {0}"
-msgstr "Abrir com {foo}"
+msgstr "Abrir em {0}"
 
 #: app/desktopManager.js:1473
 #, fuzzy
@@ -652,7 +654,9 @@ msgstr "Configurações"
 #: app/desktopManager.js:2482
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Criação de pasta Falhada"
+msgstr ""
+"Para poder trabalhar com arquivos compactados, instale o rolo de arquivos e/"
+"ou gir-1.2-gnome Automática"
 
 #: app/desktopManager.js:2483
 #, fuzzy
@@ -699,7 +703,7 @@ msgstr ""
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir o ficheiro"
+msgstr "Falha ao abrir o ficheiro"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
@@ -723,7 +727,7 @@ msgstr ""
 #: app/fileItem.js:357
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Permissões inválidas no arquivo de desktop"
+msgstr "Configurações do Desktop"
 
 #: app/fileItem.js:358
 #, fuzzy
@@ -762,6 +766,7 @@ msgid ""
 msgstr ""
 
 #: app/fileItemMenu.js:299
+#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -850,7 +855,7 @@ msgstr "Copiar para..."
 #: app/fileItemMenu.js:373
 #, fuzzy
 msgid "Rename…"
-msgstr "Renomear…"
+msgstr "Alterar nome…"
 
 #: app/fileItemMenu.js:376
 #, fuzzy
@@ -858,12 +863,14 @@ msgid "Create Link..."
 msgstr "Criar Link..."
 
 #: app/fileItemMenu.js:381
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "Comprimir pastas {0}"
 
 #: app/fileItemMenu.js:388
+#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
@@ -887,7 +894,7 @@ msgstr "Mova para a lixeira"
 #: app/fileItemMenu.js:406
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Apagar permanentemente"
+msgstr "Eliminar permanentemente"
 
 #: app/fileItemMenu.js:411
 #, fuzzy
@@ -927,17 +934,17 @@ msgstr "Propriedades"
 #: app/fileItemMenu.js:434
 #, fuzzy
 msgid "Show All in {0}"
-msgstr "Mostrar tudo em arquivos"
+msgstr "Mostrar tudo em {0}"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 msgid "Show in {0}"
-msgstr "Mostrar nos Ficheiros"
+msgstr "Mostrar em"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Open in {0}"
-msgstr "Abrir com {foo}"
+msgstr "Abrir em {0}"
 
 #: app/fileItemMenu.js:559
 #, fuzzy
@@ -957,7 +964,7 @@ msgstr "Movimento cancelado"
 #: app/fileItemMenu.js:593
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Incapaz de mover arquivos, sem pasta de destino"
+msgstr "Fracas"
 
 #: app/fileItemMenu.js:605 app/fileItemMenu.js:633
 #, fuzzy
@@ -981,30 +988,35 @@ msgstr "Incapaz de copiar arquivos, sem pasta de destino"
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "Erro de correio"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Incapaz de encontrar xdg-email, instale o programa"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Houve um erro no emailing Files"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Incapaz de encontrar o comando zip, instale o programa"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Nome do arquivo"
+msgstr "Arquivo.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Houve um erro na criação de um arquivo zip"
 
 #: app/fileItemMenu.js:789
 #, fuzzy
@@ -1014,28 +1026,32 @@ msgstr "Não pode enviar um e-mail"
 #: app/fileItemMenu.js:790
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
-"Seleção inclui um Diretório, comprimir o diretório para um arquivo primeiro."
+msgstr "Seleção inclui um Diretório, comprimir para um arquivo .zip primeiro?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Incapaz de abrir no console do Gnome"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Instale o Console do Gnome ou outro programa terminal"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Incapaz de abrir Não"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Instalar por favor Não"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Terminal"
 
 #: app/showErrorPopup.js:39
 #, fuzzy
@@ -1054,9 +1070,7 @@ msgstr "\"${programName}\" é necessário para Desktop Icons"
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
-msgstr ""
-"Para que essa funcionalidade funcione em Desktop Icons, você deve instalar "
-"\"${programName}\" em seu sistema."
+msgstr "Configurações de exibição"
 
 #: app/utils/desktopIconsUtil.js:197
 #, fuzzy
@@ -1071,7 +1085,7 @@ msgstr "Escolha um aplicativo para abrir os arquivos selecionados."
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "Sempre use para este tipo de arquivo"
+msgstr "Scripts"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
@@ -1198,7 +1212,7 @@ msgstr "Sempre manter Ícones Organizado pela última ordem organizada"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
 msgid "Arrange Order"
-msgstr "Ordem de arranjo"
+msgstr "Nova pasta"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 #, fuzzy
@@ -1218,7 +1232,7 @@ msgstr "Sempre manter ícones empilhados, tipos semelhantes são agrupados"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
 msgid "Type of Files to not Stack"
-msgstr "Tipo de arquivos para não Stack"
+msgstr "Nome do arquivo"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, fuzzy
@@ -1238,7 +1252,7 @@ msgstr "Adicionar um emblema a links"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Adicione um emblema para permitir identificar links suaves."
+msgstr "Área de trabalho"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy

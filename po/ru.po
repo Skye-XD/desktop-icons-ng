@@ -6,22 +6,25 @@
 # Сергей <asvmail.as@gmail.com>, 2023.
 # dinos <ecg-diagnostic@mail.ru>, 2023.
 # Войнов Артем Романович <voynovar@gmail.com>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-08-25 13:53+0000\n"
-"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ru/>\n"
+"PO-Revision-Date: 2024-01-08 12:27+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
@@ -134,8 +137,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Добавлять новые диски на противоположную сторону рабочего стола"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "Прямоугольные иконки с выдвижной сеткой"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -502,13 +506,13 @@ msgstr "Упорядочить по…"
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Показать рабочий стол в файловом менеджере"
+msgstr "Показать рабочий стол в {0}"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 #| msgid "Open with {foo}"
 msgid "Open In {0}"
-msgstr "Открыть с помощью {foo}"
+msgstr "Открыто в {0}"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -781,19 +785,19 @@ msgstr "Свойства"
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
-msgstr "Показать всё в файловом менеджере"
+msgstr "Показать все в {0}"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "Показать в файловом менеджере"
+msgstr "Показать в {0}"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 #| msgid "Open with {foo}"
 msgid "Open in {0}"
-msgstr "Открыть с помощью {foo}"
+msgstr "Открыто в {0}"
 
 #: app/fileItemMenu.js:559
 msgid "Extraction Cancelled"
@@ -829,31 +833,36 @@ msgstr "Не удалось скопировать файлы, нет папки
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Невозможно найти xdg-email, пожалуйста, установите программу"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Была ошибка в рассылке файлов"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Невозможно найти команду zip, пожалуйста, установите программу"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 #| msgid "Archive name"
 msgid "Archive.zip"
-msgstr "Название архива"
+msgstr "Archive.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Была ошибка в создании архива zip"
 
 #: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
@@ -864,27 +873,32 @@ msgstr "Невозможно отправить каталог по электр
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Выбран каталог, сначала сожмите его в файл."
+msgstr "Отбор включает в себя Справочник, сжимается к .zip-файлу первым?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Невозможно открыть в Gnome Console"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Пожалуйста, установите консоль Gnome или другую терминальную программу"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Невозможно открыть {0}"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Установить {0}"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Консольный"
 
 #: app/showErrorPopup.js:39
 msgid "Close"
