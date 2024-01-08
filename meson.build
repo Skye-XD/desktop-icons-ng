@@ -18,7 +18,8 @@ install_data([
     'extension.js',
     'metadata.json',
     'prefs.js',
-    'visibleArea.js'
+    'visibleArea.js',
+    'gnomeShellOverride.js'
   ],
   install_dir: extensions_dir
 )
