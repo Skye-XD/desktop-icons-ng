@@ -245,7 +245,7 @@ const AdwPreferencesWindow = class {
         volumesGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-network-volumes', _('Show network drives on the desktop')));
         volumesGroup.add(this.addActionRowSwitch(this.desktopSettings, 'add-volumes-opposite', _('Add new drives to the opposite side of the desktop')));
 
-        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-drop-place', _('Highlight the drop grid during Drag and Drop')));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-drop-place', _('Rectangular icons with drop grid highlighting')));
         const nemoRow = this.addActionRowSwitch(this.desktopSettings, 'use-nemo', _('Use Nemo to open folders'));
         nemoRow.set_sensitive(GLib.find_program_in_path('nemo'));
         tweaksGroup.add(nemoRow);

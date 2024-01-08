@@ -893,7 +893,7 @@ const FileItemMenu = class {
                     this.DesktopIconsUtil.trySpawn(workingdir, args, null);
                     success = true;
                 } catch (e) {
-                    console.log(`{Error opening ${t.get_string('Name')}, ${e}`)
+                    console.log(`{Error opening ${t.get_string('Name')}, ${e}`);
                     success = false;
                 }
                 return success;

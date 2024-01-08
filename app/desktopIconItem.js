@@ -111,7 +111,6 @@ const DesktopIconItem = class {
         this._iconContainer.set_hexpand(false);
         this._iconContainer.set_halign(Gtk.Align.CENTER);
         this._iconContainer.set_baseline_position(Gtk.BaselinePosition.CENTER);
-        this._iconContainer.set_name('file-item');
         this._iconContainer.append(this._icon);
 
         this._label = new Gtk.Label();
@@ -130,10 +129,6 @@ const DesktopIconItem = class {
         this._label.set_justify(Gtk.Justification.CENTER);
         this._label.set_lines(2);
         this._labelContainer.set_name('file-item');
-        this._labelContainer.append(this._label);
-
-        this.container.append(this._iconContainer);
-        this.container.append(this._labelContainer);
 
         this.iconRectangle = new Gdk.Rectangle();
         this.iconLocalWindowRectangle = new Gdk.Rectangle();
@@ -149,23 +144,37 @@ const DesktopIconItem = class {
             this._destroyToolTip();
         });
 
-        this._iconStateFlag = this._iconContainer.connect('state-flags-changed', () => {
-            if (this._checkHasHoveredPointer(this._iconContainer)) {
-                this._onEnter();
-                this._labelContainer.add_css_class('mimic-hovered');
-            } else {
-                this._onLeave();
-                this._labelContainer.remove_css_class('mimic-hovered');
-            }
-        });
+        // This controls how the icons look - Rectangular or skinny trapezoid
+
+        if (this.Prefs.showDropPlace) {
+            this._labelContainer.append(this._iconContainer);
+            this._labelContainer.append(this._label);
+            this.container.append(this._labelContainer);
+        } else {
+            this._labelContainer.append(this._label);
+            this.container.append(this._iconContainer);
+            this.container.append(this._labelContainer);
+            this._iconStateFlag = this._iconContainer.connect('state-flags-changed', () => {
+                if (this._checkHasHoveredPointer(this._iconContainer)) {
+                    this._onEnter();
+                    this._labelContainer.add_css_class('mimic-hovered');
+                } else {
+                    this._onLeave();
+                    this._labelContainer.remove_css_class('mimic-hovered');
+                }
+            });
+            this._iconContainer.set_name('file-item');
+        }
 
         this._labelStateFlag = this._labelContainer.connect('state-flags-changed', () => {
             if (this._checkHasHoveredPointer(this._labelContainer)) {
                 this._onEnter();
-                this._iconContainer.add_css_class('mimic-hovered');
+                if (!this.Prefs.showDropPlace)
+                    this._iconContainer.add_css_class('mimic-hovered');
             } else {
                 this._onLeave();
-                this._iconContainer.remove_css_class('mimic-hovered');
+                if (!this.Prefs.showDropPlace)
+                    this._iconContainer.remove_css_class('mimic-hovered');
             }
         });
 
