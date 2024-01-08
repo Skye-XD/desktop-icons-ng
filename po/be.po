@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-20 21:58-0400\n"
+"POT-Creation-Date: 2024-01-07 23:11-0500\n"
 "PO-Revision-Date: 2023-12-03 22:08+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -152,9 +152,8 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Дадаць новыя носьбіты на супрацьлеглы бок экрану"
 
 #: app/adwPreferencesWindow.js:248
-#, fuzzy
-msgid "Highlight the drop grid during Drag and Drop"
-msgstr "Вылучыце сетку падзення падчас перацягвання"
+msgid "Rectangular icons with drop grid highlighting"
+msgstr ""
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -162,98 +161,98 @@ msgstr "Вылучыце сетку падзення падчас перацяг
 msgid "Use Nemo to open folders"
 msgstr "Выкарыстоўвайце Nemo для адкрыцця тэчак"
 
-#: app/adwPreferencesWindow.js:250
+#: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "Дадаць эмблему ў праграмныя спасылкі"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:253
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Выкарыстоўвайце цёмны тэкст у этыкетках значкоў"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Дзеянне для адкрыцця элементаў"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:259
 msgid "Single click"
 msgstr "Адзіночны клік"
 
-#: app/adwPreferencesWindow.js:258
+#: app/adwPreferencesWindow.js:260
 msgid "Double click"
 msgstr "Двайны клік"
 
-#: app/adwPreferencesWindow.js:262
+#: app/adwPreferencesWindow.js:264
 msgid "Show image thumbnails"
 msgstr "Паказваць мініяцюры"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:266
 msgid "Always"
 msgstr "Заўжды"
 
-#: app/adwPreferencesWindow.js:265
+#: app/adwPreferencesWindow.js:267
 #, fuzzy
 msgid "On this computer only"
 msgstr "Толькі на гэтым кампутары"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:268
 msgid "Never"
 msgstr "Ніколі"
 
-#: app/adwPreferencesWindow.js:268
+#: app/adwPreferencesWindow.js:270
 msgid "Show a context menu item to delete permanently"
 msgstr "Паказваць пункт \"выдаліць назаўжды\" у кантэкстным меню"
 
-#: app/adwPreferencesWindow.js:269
+#: app/adwPreferencesWindow.js:271
 msgid "Show hidden files"
 msgstr "Паказваць схаваныя файлы"
 
-#: app/adwPreferencesWindow.js:270
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Адкрываць папкі пры перацягванні"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Website"
 msgstr "Сайт"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Visit"
 msgstr "Наведванне"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Issues"
 msgstr "Пытанні"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:275
 msgid "Report issues on issue tracker"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:275
 #, fuzzy
 msgid "Report"
 msgstr "Справаздача"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:276
 #, fuzzy
 msgid "License"
 msgstr "Ліцэнзія"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:277
 #, fuzzy
 msgid "Translation"
 msgstr "Пераклад"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:277
 msgid "Help translate in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:277
 #, fuzzy
 msgid "Translate"
 msgstr "Перакласці"
@@ -297,7 +296,8 @@ msgstr "Імя папкі"
 msgid "File name"
 msgstr "Імя файла"
 
-#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1163
+#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
+#: app/fileItemMenu.js:791
 #, fuzzy
 msgid "OK"
 msgstr "Добра"
@@ -330,8 +330,8 @@ msgstr "Выманне файлаў"
 msgid "Compressing files"
 msgstr "Сцісканне файлаў"
 
-#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:724
-#: app/desktopManager.js:1165 app/fileItemMenu.js:634
+#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:719
+#: app/desktopManager.js:1160 app/fileItemMenu.js:641 app/fileItemMenu.js:791
 msgid "Cancel"
 msgstr "Скасаваць"
 
@@ -460,183 +460,184 @@ msgstr "Меншыя архівы, але толькі для Linux і Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Архівы меншага памеру, але павінны быць устаноўлены на Windows і Mac."
 
-#: app/desktopManager.js:125
+#: app/desktopManager.js:120
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "Файлы GNOME не знойдзены"
 
-#: app/desktopManager.js:126
+#: app/desktopManager.js:121
 #, fuzzy
 msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr "Прыкладанне GNOME Files патрабуецца Desktop Icons NG."
 
-#: app/desktopManager.js:721
+#: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
 msgstr "Перамясціць"
 
-#: app/desktopManager.js:722 app/fileItemMenu.js:362
+#: app/desktopManager.js:717 app/fileItemMenu.js:364
 msgid "Copy"
 msgstr "Капіяваць"
 
-#: app/desktopManager.js:723
+#: app/desktopManager.js:718
 #, fuzzy
 msgid "Link"
 msgstr "Спасылка"
 
-#: app/desktopManager.js:726
+#: app/desktopManager.js:721
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Выберыце «Дзеянне для файлаў»."
 
-#: app/desktopManager.js:796 app/desktopManager.js:828
+#: app/desktopManager.js:791 app/desktopManager.js:823
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Не атрымалася стварыць SymLink"
 
-#: app/desktopManager.js:797 app/desktopManager.js:829
+#: app/desktopManager.js:792 app/desktopManager.js:824
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Не атрымалася стварыць сімвалічную спасылку"
 
-#: app/desktopManager.js:1121
+#: app/desktopManager.js:1116
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Ачысціць бягучы выбар перад новым пошукам"
 
-#: app/desktopManager.js:1167
+#: app/desktopManager.js:1162
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Пошук файлаў на працоўным стале"
 
-#: app/desktopManager.js:1422
+#: app/desktopManager.js:1417
 #, fuzzy
 msgid "Name"
 msgstr "Назва"
 
-#: app/desktopManager.js:1423
+#: app/desktopManager.js:1418
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Імя (Я-А)"
 
-#: app/desktopManager.js:1424
+#: app/desktopManager.js:1419
 #, fuzzy
 msgid "Modified Time"
 msgstr "Зменены час"
 
-#: app/desktopManager.js:1425
+#: app/desktopManager.js:1420
 #, fuzzy
 msgid "Type"
 msgstr "Тып"
 
-#: app/desktopManager.js:1426
+#: app/desktopManager.js:1421
 #, fuzzy
 msgid "Size"
 msgstr "Памер"
 
-#: app/desktopManager.js:1429
+#: app/desktopManager.js:1424
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Захоўвайце парадак…"
 
-#: app/desktopManager.js:1433
+#: app/desktopManager.js:1428
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Захоўваць стэк па тыпу…"
 
-#: app/desktopManager.js:1434
+#: app/desktopManager.js:1429
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сартаваць Галоўная/Дыскі/Сметніца…"
 
-#: app/desktopManager.js:1439 app/desktopManager.js:2461
+#: app/desktopManager.js:1434 app/desktopManager.js:2459
 msgid "New Folder"
 msgstr "Новая папка"
 
-#: app/desktopManager.js:1443
+#: app/desktopManager.js:1438
 msgid "New Document"
 msgstr "Новы дакумент"
 
-#: app/desktopManager.js:1447
+#: app/desktopManager.js:1442
 msgid "Paste"
 msgstr "Уставіць"
 
-#: app/desktopManager.js:1448
+#: app/desktopManager.js:1443
 msgid "Undo"
 msgstr "Адрабіць"
 
-#: app/desktopManager.js:1449
+#: app/desktopManager.js:1444
 msgid "Redo"
 msgstr "Паўтарыць"
 
-#: app/desktopManager.js:1454
+#: app/desktopManager.js:1449
 #, fuzzy
 msgid "Select All"
 msgstr "Вылучыць усё"
 
-#: app/desktopManager.js:1459
+#: app/desktopManager.js:1454
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Упарадкаваць абразкі"
 
-#: app/desktopManager.js:1463
+#: app/desktopManager.js:1458
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Арганізаваць па…"
 
-#: app/desktopManager.js:1468
+#: app/desktopManager.js:1464
 #, fuzzy
-msgid "Show Desktop In GNOME Files"
-msgstr "Паказаць працоўны стол у файлах GNOME"
+#| msgid "Show Desktop in Files"
+msgid "Show Desktop In {0}"
+msgstr "Паказаць Стол у файлавым менеджары"
 
-#: app/desktopManager.js:1469
+#: app/desktopManager.js:1467
 #, fuzzy
-msgid "Open In Terminal"
-msgstr "Адкрыць у Тэрмінале"
+msgid "Open In {0}"
+msgstr "Адкрыць з дапамогай {foo}"
 
-#: app/desktopManager.js:1474
+#: app/desktopManager.js:1473
 msgid "Change Background…"
 msgstr "Змяніць фон..."
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1478
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Налады значкоў працоўнага стала"
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1479
 msgid "Display Settings"
 msgstr "Настройкі дісплэя"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1522
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Акно налад адкрыта"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1522
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Гэта акно адкрыта. Пераключыцеся ў актыўнае акно."
 
-#: app/desktopManager.js:1537
+#: app/desktopManager.js:1536
 msgid "Settings"
 msgstr "Настройкі"
 
-#: app/desktopManager.js:2484
+#: app/desktopManager.js:2482
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Збой стварэння папкі"
 
-#: app/desktopManager.js:2485
+#: app/desktopManager.js:2483
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Не атрымалася стварыць нататку."
 
-#: app/desktopManager.js:2528
+#: app/desktopManager.js:2526
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Памылка стварэння шаблона"
 
-#: app/desktopManager.js:2529
+#: app/desktopManager.js:2527
 #, fuzzy
 msgid "Could not create document"
 msgstr "Не атрымалася стварыць дакумент"
@@ -667,13 +668,13 @@ msgstr "Не ўдалося адкрыць файл"
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "Не ўсталявана праграма для адкрыцця файлаў тыпу \"{foo}\"."
 
-#: app/fileItem.js:343 app/gnomeShellDragDrop.js:228
+#: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
 msgstr "Не атрымалася адкрыць файл"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:345 app/gnomeShellDragDrop.js:230
+#: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} не можа адкрываць файлы гэтага тыпу!"
@@ -731,213 +732,268 @@ msgid ""
 "<b>Enable \"Allow Launching\"</b>"
 msgstr ""
 
-#: app/fileItemMenu.js:297
+#: app/fileItemMenu.js:299
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Новая папка з {0} элементам"
 msgstr[1] "Новая папка з {0} элементамі"
 msgstr[2] "Новая папка з {0} элементамі"
 
-#: app/fileItemMenu.js:304
+#: app/fileItemMenu.js:306
 msgid "Open All..."
 msgstr "Адкрыць усё..."
 
-#: app/fileItemMenu.js:309
+#: app/fileItemMenu.js:311
 #, fuzzy
 msgid "Run"
 msgstr "Запусьціць"
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:313
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Адкрыць з дапамогай {foo}"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:315
 msgid "Open"
 msgstr "Адкрыць"
 
-#: app/fileItemMenu.js:322 app/fileItemMenu.js:326
+#: app/fileItemMenu.js:324 app/fileItemMenu.js:328
 msgid "Extract Here"
 msgstr "Выняць сюды"
 
-#: app/fileItemMenu.js:328
+#: app/fileItemMenu.js:330
 msgid "Extract To..."
 msgstr "Выняць у..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 msgid "Open All With Other Application..."
 msgstr "Адурыць усё ў іншай праграме..."
 
-#: app/fileItemMenu.js:333
+#: app/fileItemMenu.js:335
 #, fuzzy
 msgid "Open With..."
 msgstr "Адкрыць з..."
 
-#: app/fileItemMenu.js:336
+#: app/fileItemMenu.js:338
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Запусціць з дапамогай дыскрэтнай відэакарты"
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:345
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Стэк гэтага тыпу"
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:345
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Выдаліце гэты тып"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:356
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Запуск як праграма"
 
-#: app/fileItemMenu.js:357
+#: app/fileItemMenu.js:359
 msgid "Scripts"
 msgstr "Скрыпты"
 
-#: app/fileItemMenu.js:360
+#: app/fileItemMenu.js:362
 msgid "Cut"
 msgstr "Выразаць"
 
-#: app/fileItemMenu.js:366
+#: app/fileItemMenu.js:368
 #, fuzzy
 msgid "Move to..."
 msgstr "Перайсці да..."
 
-#: app/fileItemMenu.js:367
+#: app/fileItemMenu.js:369
 #, fuzzy
 msgid "Copy to..."
 msgstr "Скапіраваць у..."
 
-#: app/fileItemMenu.js:371
+#: app/fileItemMenu.js:373
 msgid "Rename…"
 msgstr "Перайменаваць..."
 
-#: app/fileItemMenu.js:374
+#: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Create Link..."
 msgstr "Стварыць спасылку..."
 
-#: app/fileItemMenu.js:379
+#: app/fileItemMenu.js:381
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] "Сціснуць {0} папак"
 
-#: app/fileItemMenu.js:386
+#: app/fileItemMenu.js:388
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Сціснуць {0} файл"
 msgstr[1] "Сціснуць {0} файлы"
 msgstr[2] "Сціснуць {0} файлаў"
 
-#: app/fileItemMenu.js:393
+#: app/fileItemMenu.js:394
 #, fuzzy
 msgid "Email to..."
 msgstr "Адправіць па электроннай пошце..."
 
-#: app/fileItemMenu.js:398
+#: app/fileItemMenu.js:399
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Адправіць на мабільную прыладу"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:403
 msgid "Move to Trash"
 msgstr "Выкінуць у сметніцу"
 
-#: app/fileItemMenu.js:405
+#: app/fileItemMenu.js:406
 msgid "Delete permanently"
 msgstr "Выдаліць назаўжды"
 
-#: app/fileItemMenu.js:410
+#: app/fileItemMenu.js:411
 msgid "Don't Allow Launching"
 msgstr "Не дазваляць выкананне"
 
-#: app/fileItemMenu.js:410
+#: app/fileItemMenu.js:411
 msgid "Allow Launching"
 msgstr "Дазволіць выкананне"
 
-#: app/fileItemMenu.js:416
+#: app/fileItemMenu.js:417
 msgid "Empty Trash"
 msgstr "Сметніца пустая"
 
-#: app/fileItemMenu.js:422
+#: app/fileItemMenu.js:423
 #, fuzzy
 msgid "Eject"
 msgstr "Выняць"
 
-#: app/fileItemMenu.js:425
+#: app/fileItemMenu.js:426
 msgid "Unmount"
 msgstr "Адмантаваць"
 
-#: app/fileItemMenu.js:429
+#: app/fileItemMenu.js:430
 msgid "Common Properties"
 msgstr "Агульныя ўласцівасці"
 
-#: app/fileItemMenu.js:429
+#: app/fileItemMenu.js:431
 msgid "Properties"
 msgstr "Уласцівасці"
 
-#: app/fileItemMenu.js:430
-msgid "Show All in Files"
+#: app/fileItemMenu.js:434
+#, fuzzy
+#| msgid "Show All in Files"
+msgid "Show All in {0}"
 msgstr "Паказаць усё ў файлавым менеджары"
 
-#: app/fileItemMenu.js:430
-msgid "Show in Files"
+#: app/fileItemMenu.js:435
+#, fuzzy
+#| msgid "Show in Files"
+msgid "Show in {0}"
 msgstr "Паказаць у файлавым менеджары"
 
-#: app/fileItemMenu.js:434
-msgid "Open in Terminal"
-msgstr "Адкрыць у Тэрмінале"
+#: app/fileItemMenu.js:440
+#, fuzzy
+msgid "Open in {0}"
+msgstr "Адкрыць з дапамогай {foo}"
 
-#: app/fileItemMenu.js:552
+#: app/fileItemMenu.js:559
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Выманне адменена"
 
-#: app/fileItemMenu.js:553
+#: app/fileItemMenu.js:560
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Немагчыма распакаваць файл, няма папкі прызначэння"
 
-#: app/fileItemMenu.js:585
+#: app/fileItemMenu.js:592
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Пераезд адменены"
 
-#: app/fileItemMenu.js:586
+#: app/fileItemMenu.js:593
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Немагчыма перамясціць файлы, няма папкі прызначэння"
 
-#: app/fileItemMenu.js:598 app/fileItemMenu.js:626
+#: app/fileItemMenu.js:605 app/fileItemMenu.js:633
 #, fuzzy
 msgid "Select Destination"
 msgstr "Абраць пункт прызначэння"
 
-#: app/fileItemMenu.js:600 app/fileItemMenu.js:628
+#: app/fileItemMenu.js:607 app/fileItemMenu.js:635
 msgid "Select"
 msgstr "Вылучыць"
 
-#: app/fileItemMenu.js:672
+#: app/fileItemMenu.js:679
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Капіраванне адменена"
 
-#: app/fileItemMenu.js:673
+#: app/fileItemMenu.js:680
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Немагчыма скапіраваць файлы, няма папкі прызначэння"
 
-#: app/fileItemMenu.js:703
+#: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
+#: app/fileItemMenu.js:775
+msgid "Mail Error"
+msgstr ""
+
+#: app/fileItemMenu.js:729
+msgid "Unable to find xdg-email, please install the program"
+msgstr ""
+
+#: app/fileItemMenu.js:739
+msgid "There was an error in emailing Files"
+msgstr ""
+
+#: app/fileItemMenu.js:749
+msgid "Unable to find zip command, please install the program"
+msgstr ""
+
+#. Translators - basename for a zipped archive created for mailing
+#: app/fileItemMenu.js:755
+#, fuzzy
+msgid "Archive.zip"
+msgstr "Назва архіва"
+
+#: app/fileItemMenu.js:776
+msgid "There was an error in creating a zip archive"
+msgstr ""
+
+#: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
 msgstr "Немагчыма даслаць папку"
 
-#: app/fileItemMenu.js:704
-msgid "Selection includes a Directory, compress the directory to a file first."
+#: app/fileItemMenu.js:790
+#, fuzzy
+#| msgid ""
+#| "Selection includes a Directory, compress the directory to a file first."
+msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Сярод вылучанага ёсць папка, спачатку сцісніце папку ў файл."
+
+#: app/fileItemMenu.js:902
+msgid "Unable to Open in Gnome Console"
+msgstr ""
+
+#: app/fileItemMenu.js:903
+msgid "Please Install Gnome Console or other Terminal Program"
+msgstr ""
+
+#: app/fileItemMenu.js:910
+msgid "Unable to Open {0}"
+msgstr ""
+
+#: app/fileItemMenu.js:911
+msgid "Please Install {0}"
+msgstr ""
+
+#: app/preferences.js:417
+msgid "Console"
+msgstr ""
 
 #: app/showErrorPopup.js:39
 #, fuzzy
@@ -945,13 +1001,13 @@ msgid "Close"
 msgstr "Закрыць"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/utils/dbusUtils.js:53
+#: app/utils/dbusUtils.js:55
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "\"${programName}\" патрабуецца для значкоў працоўнага стала"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/utils/dbusUtils.js:55
+#: app/utils/dbusUtils.js:57
 #, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
@@ -960,7 +1016,7 @@ msgstr ""
 "Каб гэтая функцыя працавала ў значках працоўнага стала, вы павінны "
 "ўсталяваць \"${programName}\" у вашай сістэме."
 
-#: app/utils/desktopIconsUtil.js:146
+#: app/utils/desktopIconsUtil.js:197
 msgid "Command not found"
 msgstr "Каманда не знойдзена"
 
@@ -1153,6 +1209,21 @@ msgstr ""
 "Калі падлучаны другі манітор, новыя значкі змяшчаюцца на неасноўным маніторы"
 
 #, fuzzy
+#~ msgid "Highlight the drop grid during Drag and Drop"
+#~ msgstr "Вылучыце сетку падзення падчас перацягвання"
+
+#, fuzzy
+#~ msgid "Show Desktop In GNOME Files"
+#~ msgstr "Паказаць працоўны стол у файлах GNOME"
+
+#, fuzzy
+#~ msgid "Open In Terminal"
+#~ msgstr "Адкрыць у Тэрмінале"
+
+#~ msgid "Open in Terminal"
+#~ msgstr "Адкрыць у Тэрмінале"
+
+#, fuzzy
 #~ msgid "No Extraction Folder"
 #~ msgstr "Няма тэчкі для распакавання"
 
@@ -1223,9 +1294,6 @@ msgstr ""
 
 #~ msgid "New folder"
 #~ msgstr "Новая папка"
-
-#~ msgid "Show Desktop in Files"
-#~ msgstr "Паказаць Стол у файлавым менеджары"
 
 #, fuzzy
 #~ msgid "Desktop Icons Settings"
