@@ -8,24 +8,25 @@
 # Cihan Alkan <cihanalk@gmail.com>, 2021.
 # Fatih Altun <fatih.altun@pardus.org.tr>, 2021.
 # Sabri Ünal <libreajans@gmail.com>, 2019, 2022.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-15 08:08+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"PO-Revision-Date: 2024-01-08 12:27+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -158,8 +159,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Masaüstünün tam tersine yeni sürücüler ekleyin"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "Rectangular ikonları damla ızgara vurgulama ile"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -177,7 +179,7 @@ msgstr "Simge etiketlerinde koyu metin kullan"
 #: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Open Materials"
+msgstr "Open With..."
 
 #: app/adwPreferencesWindow.js:259
 msgid "Single click"
@@ -411,7 +413,7 @@ msgstr "İptal Edildi"
 #: app/autoAr.js:497
 #, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "Çıktı dosyası ‘${outputFile} zaten var."
+msgstr "Name Name Name Name Name Name Name Name Name Name Name"
 
 #: app/autoAr.js:504
 #, fuzzy
@@ -588,12 +590,12 @@ msgstr "Arrange By.."
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Masaüstünü Dosyalarʼda Göster"
+msgstr "Show Desktop In {0}"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 msgid "Open In {0}"
-msgstr "Open with {foo}"
+msgstr "Open In {0}"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -625,7 +627,7 @@ msgstr "Ayarlar"
 #: app/desktopManager.js:2482
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Kater Yaratılış Başarısız"
+msgstr "Masaüstü"
 
 #: app/desktopManager.js:2483
 #, fuzzy
@@ -668,7 +670,7 @@ msgstr "\"{foo}\" tür dosyaları açmak için yüklü bir uygulama yoktur"
 #: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyası açılamadı"
+msgstr "Dosya açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
@@ -708,7 +710,7 @@ msgid ""
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 "\n"
-"<b>Set Permissions, \"Diğerleri Erişim\", \"Sadece\" veya \"None.\""
+"Çeviri çevirisi"
 
 #: app/fileItem.js:363
 #, fuzzy
@@ -879,18 +881,18 @@ msgstr "Özellikler"
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
-msgstr "Tümünü Dosyalarʼda Göster"
+msgstr "Hepsini göster {0}"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "Dosyalarʼda Göster"
+msgstr "Show in {0}"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Open in {0}"
-msgstr "Open with {foo}"
+msgstr "{0}"
 
 #: app/fileItemMenu.js:559
 #, fuzzy
@@ -933,30 +935,35 @@ msgstr "Dosyalar kopyalamak için kullanılamaz, hedef klasörü yok"
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "Mail Hata"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Xdg-email bulmak için, lütfen programı yükleyin"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "E-posta dosyalarında bir hata vardı"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Zip komutunu bulmak için, lütfen programı yükleyin"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Arşiv adı"
+msgstr "Archive.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Bir zip arşivi oluşturmak için bir hata vardı"
 
 #: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
@@ -967,27 +974,32 @@ msgstr "Bir dizine e-posta gönderilemez"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Seçim bir Dizin içeriyor, önce dizini bir dosyaya sıkıştırın."
+msgstr "Seçme bir Rehber içerir, ilk önce bir .zip dosyasına sıkıştırır mı?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Gnome Console'da Açılabilir"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Lütfen Gnome Console veya diğer Terminal Programını yükleyin"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Açılabilir {0}"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Lütfen yükleme {0}"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Konsol"
 
 #: app/showErrorPopup.js:39
 msgid "Close"
@@ -997,7 +1009,7 @@ msgstr "Kapat"
 #: app/utils/dbusUtils.js:55
 #, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "\"${programName}\" Masaüstü Icons için gereklidir"
+msgstr "Sorunlar"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:57

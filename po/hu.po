@@ -4,24 +4,25 @@
 #
 # Meskó Balázs <mesko dot balazs at fsf dot hu>, 2021.
 # Balázs Úr <ur.balazs at fsf dot hu>, 2019.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-03 22:08+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hu/>\n"
+"PO-Revision-Date: 2024-01-08 12:27+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -154,8 +155,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Adjon új meghajtókat az asztal ellentétes oldalára"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "Négyszöges ikonok csepp rácskal kiemelve"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -591,12 +593,12 @@ msgstr "Arrange By.."
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Asztal megjelenítése a Fájlokban"
+msgstr "Mutasd a Desktop In {0}"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 msgid "Open In {0}"
-msgstr "Nyissa meg a {foo}"
+msgstr "Nyitott"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -889,18 +891,18 @@ msgstr "Tulajdonságok"
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
-msgstr "Összes megjelenítése a Fájlokban"
+msgstr "Mutasd meg az összeset"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "Megjelenítés a Fájlokban"
+msgstr "Mutasd meg"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Open in {0}"
-msgstr "Nyissa meg a {foo}"
+msgstr "Nyissa meg a {0}"
 
 #: app/fileItemMenu.js:559
 #, fuzzy
@@ -944,30 +946,35 @@ msgstr "Képtelen másolni Files, nincs rendeltetési mappa"
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "Mail Error"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Képtelen megtalálni az xdg-emailt, kérjük, telepítse a programot"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Volt egy hiba e-mailben Files"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Képtelen megtalálni a zip parancsot, kérjük, telepítse a programot"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Archív név"
+msgstr "Archive.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Volt egy hiba a zip archívum létrehozásában"
 
 #: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
@@ -978,27 +985,33 @@ msgstr "Könyvtár nem küldhető el e-mailben"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "A kijelölés könyvtárat tartalmaz, előbb tömörítse egy fájlba."
+msgstr ""
+"A kiválasztás magában foglalja a könyvtárat, először tömörítse a .zip fájlt?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Képtelen megnyitni a Gnome Console-ban"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Kérjük, telepítse a Gnome Console vagy más terminál programot"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Képtelen megnyitni {0}"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Kérjük, telepítse {0}"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Konzol"
 
 #: app/showErrorPopup.js:39
 #, fuzzy

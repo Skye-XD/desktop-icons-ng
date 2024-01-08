@@ -2,24 +2,25 @@
 # Copyright (C) 2018 desktop-icons's COPYRIGHT HOLDER
 # This file is distributed under the same license as the desktop-icons package.
 # Alan Mortensen <alanmortensen.am@gmail.com>, 2018.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-03 22:08+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/da/>\n"
+"PO-Revision-Date: 2024-01-08 12:27+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -65,7 +66,7 @@ msgstr "Skrivebordsvolumenvisning"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "Indstillinger for filer"
+msgstr "Filnavn"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -154,8 +155,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Tilføj nye drev til den modsatte side af skrivebordet"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "Rektangulære ikoner med drop gitter highlighting"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -460,7 +462,7 @@ msgstr "Kompatibel med alle operativsystemer."
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Adgangskodebeskyttet .zip skal installeres på Windows og Mac."
+msgstr "Altid altid"
 
 #: app/autoAr.js:695
 #, fuzzy
@@ -529,7 +531,7 @@ msgstr "Navn"
 #: app/desktopManager.js:1418
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Navn Z-A"
+msgstr "Komprimering af filer"
 
 #: app/desktopManager.js:1419
 #, fuzzy
@@ -600,12 +602,12 @@ msgstr "Arranger af.."
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Vis skrivebordet i Filer"
+msgstr "Vis skrivebord i {0}"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 msgid "Open In {0}"
-msgstr "Åben med {foo}"
+msgstr "Åbn i {0}"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -637,7 +639,7 @@ msgstr "Indstillinger"
 #: app/desktopManager.js:2482
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Opsætning af mappe"
+msgstr "Skrivebord"
 
 #: app/desktopManager.js:2483
 #, fuzzy
@@ -696,12 +698,13 @@ msgid "Broken Desktop File"
 msgstr "Broken Desktop File"
 
 #: app/fileItem.js:351
+#, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
 "\n"
 "\t<b>Edit the file to set the correct executable Program.</b>"
-msgstr ""
+msgstr "Aldrig aldrig aldrig"
 
 #: app/fileItem.js:357
 #, fuzzy
@@ -895,7 +898,7 @@ msgstr "Afmontér"
 #: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Common Properties"
-msgstr "Fælles egenskaber"
+msgstr "Problemer med spørgsmål"
 
 #: app/fileItemMenu.js:431
 msgid "Properties"
@@ -904,18 +907,18 @@ msgstr "Egenskaber"
 #: app/fileItemMenu.js:434
 #, fuzzy
 msgid "Show All in {0}"
-msgstr "Vis alle i filer"
+msgstr "Vis alle i {0}"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "Vis i Filer"
+msgstr "Vis i {0}"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Open in {0}"
-msgstr "Åben med {foo}"
+msgstr "Åbn i {0}"
 
 #: app/fileItemMenu.js:559
 #, fuzzy
@@ -958,30 +961,35 @@ msgstr "Kan ikke kopiere filer, ingen destinationsmappe"
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "Mail Fejl"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Kan ikke finde xdg-email, skal du installere programmet"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Der var en fejl i at sende filer"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Kan ikke finde zip kommando, skal du installere programmet"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Arkiv navn"
+msgstr "Arkiv.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Der var en fejl i at oprette et zip-arkiv"
 
 #: app/fileItemMenu.js:789
 #, fuzzy
@@ -991,27 +999,32 @@ msgstr "Kan ikke e-maile en mappe"
 #: app/fileItemMenu.js:790
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Valget indeholder en mappe, komprimere mappen til en fil først."
+msgstr "Udvælgelsen indeholder en mappe, komprimere til en .zip-fil først?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Kan ikke åbne i Gnome Console"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Installer Gnome Console eller andre Terminal Program"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Kan ikke åbne {0}"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Installer venligst Installer {0}"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Konsol"
 
 #: app/showErrorPopup.js:39
 #, fuzzy
@@ -1042,7 +1055,7 @@ msgstr "Kommandoen blev ikke fundet!"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "Vælg en app for at åbne de valgte filer."
+msgstr "Tæt på"
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
@@ -1116,7 +1129,7 @@ msgstr "Vis monterede netværksmængder på skrivebordet."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 #, fuzzy
 msgid "Add new drives to the opposite side of the screen"
-msgstr "Tilføj nye drev til den modsatte side af skærmen"
+msgstr "Navn Navn"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
