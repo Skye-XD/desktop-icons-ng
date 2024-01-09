@@ -2,36 +2,44 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
 # Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-01-09 18:06+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Georgian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "სამუშაო მაგიდა"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "ფაილები"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "მცირე ცვლილებები"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "შესახებ"
 
 #: app/adwPreferencesWindow.js:195
 msgid "Desktop Settings"
@@ -42,16 +50,18 @@ msgid "Settings for the Desktop Program"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:200
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "ხმა"
 
 #: app/adwPreferencesWindow.js:201
 msgid "Desktop volumes display"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:205
+#, fuzzy
 msgid "Files Settings"
-msgstr ""
+msgstr "ფილტრის მორგება"
 
 #: app/adwPreferencesWindow.js:206
 msgid "Settings shared with Gnome Files"
@@ -70,16 +80,19 @@ msgid "Tiny"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:225
+#, fuzzy
 msgid "Small"
-msgstr ""
+msgstr "პატარა"
 
 #: app/adwPreferencesWindow.js:226
+#, fuzzy
 msgid "Standard"
-msgstr ""
+msgstr "სტანდარტული"
 
 #: app/adwPreferencesWindow.js:227
+#, fuzzy
 msgid "Large"
-msgstr ""
+msgstr "დიდი"
 
 #: app/adwPreferencesWindow.js:232
 msgid "New icons alignment"
@@ -151,72 +164,83 @@ msgid "Single click"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:260
+#, fuzzy
 msgid "Double click"
-msgstr ""
+msgstr "ორმაგი წკაპი"
 
 #: app/adwPreferencesWindow.js:264
 msgid "Show image thumbnails"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:266
+#, fuzzy
 msgid "Always"
-msgstr ""
+msgstr "ყოველთვის"
 
 #: app/adwPreferencesWindow.js:267
 msgid "On this computer only"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:268
+#, fuzzy
 msgid "Never"
-msgstr ""
+msgstr "არასდროს"
 
 #: app/adwPreferencesWindow.js:270
 msgid "Show a context menu item to delete permanently"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:271
+#, fuzzy
 msgid "Show hidden files"
-msgstr ""
+msgstr "დამალული ფაილების ჩვენება"
 
 #: app/adwPreferencesWindow.js:272
 msgid "Open folders on drag hover"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Website"
-msgstr ""
+msgstr "ვებსაიტი"
 
 #: app/adwPreferencesWindow.js:274
+#, fuzzy
 msgid "Visit"
-msgstr ""
+msgstr "ვიზიტი"
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Issues"
-msgstr ""
+msgstr "პრობლემები"
 
 #: app/adwPreferencesWindow.js:275
 msgid "Report issues on issue tracker"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:275
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "ანგარიში"
 
 #: app/adwPreferencesWindow.js:276
+#, fuzzy
 msgid "License"
-msgstr ""
+msgstr "ლიცენზია"
 
 #: app/adwPreferencesWindow.js:277
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "თარგმანი"
 
 #: app/adwPreferencesWindow.js:277
 msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:277
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "თარგმნა"
 
 #: app/appChooser.js:50
 msgid "Choose an application to open <b>{foo}</b>"
@@ -227,12 +251,14 @@ msgid "Open Items"
 msgstr ""
 
 #: app/appChooser.js:60
+#, fuzzy
 msgid "Open Folder"
-msgstr ""
+msgstr "საქაღალდის გახსნა"
 
 #: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
+#, fuzzy
 msgid "Open File"
-msgstr ""
+msgstr "ფაილის გახსნა"
 
 #: app/appChooser.js:102
 msgid "Error changing default application"
@@ -247,17 +273,20 @@ msgid "Folder name"
 msgstr ""
 
 #: app/askRenamePopup.js:48
+#, fuzzy
 msgid "File name"
-msgstr ""
+msgstr "ფაილის სახელი:"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
 #: app/fileItemMenu.js:791
+#, fuzzy
 msgid "OK"
-msgstr ""
+msgstr "კარგი"
 
 #: app/askRenamePopup.js:56
+#, fuzzy
 msgid "Rename"
-msgstr ""
+msgstr "გადარქმევა"
 
 #: app/autoAr.js:66
 msgid "AutoAr is not installed"
@@ -279,8 +308,9 @@ msgstr ""
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:719
 #: app/desktopManager.js:1160 app/fileItemMenu.js:641 app/fileItemMenu.js:791
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 #: app/autoAr.js:306 app/autoAr.js:603
 msgid "Enter a password here"
@@ -355,16 +385,19 @@ msgid "Create archive"
 msgstr ""
 
 #: app/autoAr.js:566
+#, fuzzy
 msgid "Archive name"
-msgstr ""
+msgstr "არქივის სახელი"
 
 #: app/autoAr.js:599
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "პაროლი"
 
 #: app/autoAr.js:612
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "შექმნა"
 
 #: app/autoAr.js:683
 msgid "Compatible with all operating systems."
@@ -391,16 +424,19 @@ msgid "The GNOME Files application is required by Desktop Icons NG."
 msgstr ""
 
 #: app/desktopManager.js:716
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "გადატანა"
 
 #: app/desktopManager.js:717 app/fileItemMenu.js:364
+#, fuzzy
 msgid "Copy"
-msgstr ""
+msgstr "კოპირება"
 
 #: app/desktopManager.js:718
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "ბმული"
 
 #: app/desktopManager.js:721
 msgid "Choose Action for Files"
@@ -423,8 +459,9 @@ msgid "Find Files on Desktop"
 msgstr ""
 
 #: app/desktopManager.js:1417
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: app/desktopManager.js:1418
 msgid "Name Z-A"
@@ -435,12 +472,14 @@ msgid "Modified Time"
 msgstr ""
 
 #: app/desktopManager.js:1420
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "ტიპი"
 
 #: app/desktopManager.js:1421
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "ზომა"
 
 #: app/desktopManager.js:1424
 msgid "Keep Arranged…"
@@ -455,28 +494,33 @@ msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
 #: app/desktopManager.js:1434 app/desktopManager.js:2459
+#, fuzzy
 msgid "New Folder"
-msgstr ""
+msgstr "ახალი საქაღალდე"
 
 #: app/desktopManager.js:1438
 msgid "New Document"
 msgstr ""
 
 #: app/desktopManager.js:1442
+#, fuzzy
 msgid "Paste"
-msgstr ""
+msgstr "ჩასმა"
 
 #: app/desktopManager.js:1443
+#, fuzzy
 msgid "Undo"
-msgstr ""
+msgstr "ბრძანების გაუქმება"
 
 #: app/desktopManager.js:1444
+#, fuzzy
 msgid "Redo"
-msgstr ""
+msgstr "გამეორება"
 
 #: app/desktopManager.js:1449
+#, fuzzy
 msgid "Select All"
-msgstr ""
+msgstr "ყველას მონიშვნა"
 
 #: app/desktopManager.js:1454
 msgid "Arrange Icons"
@@ -515,8 +559,9 @@ msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
 #: app/desktopManager.js:1536
+#, fuzzy
 msgid "Settings"
-msgstr ""
+msgstr "პარამეტრები"
 
 #: app/desktopManager.js:2482
 msgid "Folder Creation Failed"
@@ -536,8 +581,9 @@ msgstr ""
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140
+#, fuzzy
 msgid "Home"
-msgstr ""
+msgstr "მთავარი"
 
 #: app/fileItem.js:266
 msgid "Broken Link"
@@ -617,16 +663,18 @@ msgid "Open All..."
 msgstr ""
 
 #: app/fileItemMenu.js:311
+#, fuzzy
 msgid "Run"
-msgstr ""
+msgstr "გაშვება"
 
 #: app/fileItemMenu.js:313
 msgid "Open with {foo}"
 msgstr ""
 
 #: app/fileItemMenu.js:315
+#, fuzzy
 msgid "Open"
-msgstr ""
+msgstr "გახსნა"
 
 #: app/fileItemMenu.js:324 app/fileItemMenu.js:328
 msgid "Extract Here"
@@ -641,8 +689,9 @@ msgid "Open All With Other Application..."
 msgstr ""
 
 #: app/fileItemMenu.js:335
+#, fuzzy
 msgid "Open With..."
-msgstr ""
+msgstr "გამხსნელი პროგრამა..."
 
 #: app/fileItemMenu.js:338
 msgid "Launch using Dedicated Graphics Card"
@@ -661,12 +710,14 @@ msgid "Run as a Program"
 msgstr ""
 
 #: app/fileItemMenu.js:359
+#, fuzzy
 msgid "Scripts"
-msgstr ""
+msgstr "სკრიპტები"
 
 #: app/fileItemMenu.js:362
+#, fuzzy
 msgid "Cut"
-msgstr ""
+msgstr "ამოჭრა გაცვლის ბუფერში"
 
 #: app/fileItemMenu.js:368
 msgid "Move to..."
@@ -677,8 +728,9 @@ msgid "Copy to..."
 msgstr ""
 
 #: app/fileItemMenu.js:373
+#, fuzzy
 msgid "Rename…"
-msgstr ""
+msgstr "გადარქმევა"
 
 #: app/fileItemMenu.js:376
 msgid "Create Link..."
@@ -705,8 +757,9 @@ msgid "Send to Mobile Device"
 msgstr ""
 
 #: app/fileItemMenu.js:403
+#, fuzzy
 msgid "Move to Trash"
-msgstr ""
+msgstr "%1 ფაილის ნაგავში გადატანა"
 
 #: app/fileItemMenu.js:406
 msgid "Delete permanently"
@@ -721,8 +774,9 @@ msgid "Allow Launching"
 msgstr ""
 
 #: app/fileItemMenu.js:417
+#, fuzzy
 msgid "Empty Trash"
-msgstr ""
+msgstr "ნაგვის გასუფთავება"
 
 #: app/fileItemMenu.js:423
 msgid "Eject"
@@ -737,8 +791,9 @@ msgid "Common Properties"
 msgstr ""
 
 #: app/fileItemMenu.js:431
+#, fuzzy
 msgid "Properties"
-msgstr ""
+msgstr "პარამეტრები"
 
 #: app/fileItemMenu.js:434
 msgid "Show All in {0}"
@@ -769,12 +824,14 @@ msgid "Unable to move Files, no destination folder"
 msgstr ""
 
 #: app/fileItemMenu.js:605 app/fileItemMenu.js:633
+#, fuzzy
 msgid "Select Destination"
-msgstr ""
+msgstr "Select Destination"
 
 #: app/fileItemMenu.js:607 app/fileItemMenu.js:635
+#, fuzzy
 msgid "Select"
-msgstr ""
+msgstr "არჩევა"
 
 #: app/fileItemMenu.js:679
 msgid "Copy Cancelled"
@@ -835,12 +892,14 @@ msgid "Please Install {0}"
 msgstr ""
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "კონსოლი"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -855,8 +914,9 @@ msgid ""
 msgstr ""
 
 #: app/utils/desktopIconsUtil.js:197
+#, fuzzy
 msgid "Command not found"
-msgstr ""
+msgstr "ბრძანება ვერ ვიპოვე: %1"
 
 #: app/resources/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
@@ -867,16 +927,19 @@ msgid "Always use for this file type"
 msgstr ""
 
 #: app/resources/ui/ding-app-chooser.ui:104
+#, fuzzy
 msgid "_Cancel"
-msgstr ""
+msgstr "_გაუქმება"
 
 #: app/resources/ui/ding-app-chooser.ui:110
+#, fuzzy
 msgid "_Open"
-msgstr ""
+msgstr "_გახსნა"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+#, fuzzy
 msgid "Icon size"
-msgstr ""
+msgstr "ხატულების ზომა"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
@@ -891,8 +954,9 @@ msgid "Show the personal folder in the desktop."
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+#, fuzzy
 msgid "Show trash icon"
-msgstr ""
+msgstr "სისტემის კუთხეში ხატულის ჩვენება"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
