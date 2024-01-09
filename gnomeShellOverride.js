@@ -45,7 +45,7 @@ var GnomeShellOverride = class {
     _newBackgroundInit(origninalMethod) {
         return function (...args) {
             origninalMethod.call(this, ...args);
-            const desktopWindows = global.get_window_actors().filter(a =>
+            const desktopWindows = global.get_window_actors().filter(a => a.meta_window.customJS_ding &&
                 a.meta_window.get_window_type() === Meta.WindowType.DESKTOP);
             if (desktopWindows.length) {
                 for (let windowActor of desktopWindows) {
