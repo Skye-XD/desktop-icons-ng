@@ -457,7 +457,7 @@ const DesktopIconItem = class {
     async updateIcon() {
         await this._updateIcon().catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                logError(e, `Exception while updating ${this._getVisibleName
+                console.error(e, `Exception while updating ${this._getVisibleName
                     ? this._getVisibleName() : 'an icon'}: ${e.message}`);
             }
         });
@@ -496,7 +496,7 @@ const DesktopIconItem = class {
             if (error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 throw error;
 
-            logError(error, `Error while updating icon: ${error.message}`);
+            console.error(error, `Error while updating icon: ${error.message}`);
         }
 
         if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
@@ -521,7 +521,7 @@ const DesktopIconItem = class {
                 if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                     throw e;
 
-                logError(e, `Error while generating thumbnail: ${e.message}`);
+                console.error(e, `Error while generating thumbnail: ${e.message}`);
             }
         }
 
@@ -536,7 +536,7 @@ const DesktopIconItem = class {
                 if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                     throw e;
 
-                logError(e, `Error while generating icon image: ${e.message}`);
+                console.error(e, `Error while generating icon image: ${e.message}`);
             }
         }
 
@@ -587,7 +587,7 @@ const DesktopIconItem = class {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 throw e;
 
-            logError(e, `Error while loading ${imageFile.get_uri()}`);
+            console.error(e, `Error while loading ${imageFile.get_uri()}`);
             return false;
         }
     }

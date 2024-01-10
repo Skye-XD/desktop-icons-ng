@@ -114,7 +114,7 @@ const DingManager = class {
          * the current instance is killed).
          */
         this.killingProcess = true;
-        this._doKillAllOldDesktopProcesses().catch(e => logError(e)).finally(() => (this.killingProcess = false));
+        this._doKillAllOldDesktopProcesses().catch(e => console.error(e)).finally(() => (this.killingProcess = false));
     }
 
 
@@ -198,7 +198,7 @@ const DingManager = class {
         if (this.launchDesktop)
             GLib.source_remove(this.launchDesktop);
 
-        this._launchDesktop().catch(e => logError(e));
+        this._launchDesktop().catch(e => console.error(e));
 
         this.remoteDingActions = Gio.DBusActionGroup.get(
             Gio.DBus.session,
@@ -451,7 +451,7 @@ const DingManager = class {
 
             this.launchDesktop = GLib.timeout_add(GLib.PRIORITY_DEFAULT, reloadTime, () => {
                 this.launchDesktop = 0;
-                this._launchDesktop().catch(e => logError(e));
+                this._launchDesktop().catch(e => console.error(e));
                 return false;
             });
         }
@@ -493,7 +493,7 @@ const DingManager = class {
             subprocess = await this.waylandClient.spawnv(argv);
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                logError(e, `Error while trying to launch DING process: ${e.message}`);
+                console.error(e, `Error while trying to launch DING process: ${e.message}`);
                 this._doRelaunch(1000);
             }
             return;
@@ -583,7 +583,7 @@ var LaunchSubprocess = class {
          * the desktop program is prepended with the "process_id" parameter sent in the constructor.
          */
         const dataInputStream = Gio.DataInputStream.new(this.subprocess.get_stdout_pipe());
-        this.readOutput(dataInputStream, cancellable).catch(e => logError(e));
+        this.readOutput(dataInputStream, cancellable).catch(e => console.error(e));
 
         try {
             this.process_running = true;
@@ -613,7 +613,7 @@ var LaunchSubprocess = class {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 return;
 
-            logError(e, `${this._processID}_Error`);
+            console.error(e, `${this._processID}_Error`);
         }
 
         await this.readOutput(dataInputStream, cancellable);

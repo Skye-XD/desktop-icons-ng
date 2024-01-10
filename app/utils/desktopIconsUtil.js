@@ -150,7 +150,7 @@ const DesktopIconsUtil = class {
             let argv = GLib.shell_parse_argv(commandLine).slice(1);
             this.trySpawn(null, argv, environ);
         } catch (e) {
-            logError(e, `${commandLine} failed with ${e}`);
+            console.error(e, `${commandLine} failed with ${e}`);
         }
     }
 
@@ -502,7 +502,7 @@ const DesktopIconsUtil = class {
                             );
                         }
                     } catch (e) {
-                        logError(e);
+                        console.error(e);
                         reject(e);
                     }
                 }

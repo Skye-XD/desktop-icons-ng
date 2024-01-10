@@ -184,19 +184,19 @@ const FileItemMenu = class {
 
         let allowdisallowlaunching = Gio.SimpleAction.new('allowdisallowlaunching', null);
         allowdisallowlaunching.connect('activate', () => {
-            this.activeFileItem.onAllowDisallowLaunchingClicked().catch(e => logError(e));
+            this.activeFileItem.onAllowDisallowLaunchingClicked().catch(e => console.error(e));
         });
         this._mainApp.add_action(allowdisallowlaunching);
 
         let eject = Gio.SimpleAction.new('eject', null);
         eject.connect('activate', () => {
-            this.activeFileItem.eject().catch(e => logError(e));
+            this.activeFileItem.eject().catch(e => console.error(e));
         });
         this._mainApp.add_action(eject);
 
         let unmount = Gio.SimpleAction.new('unmount', null);
         unmount.connect('activate', () => {
-            this.activeFileItem.unmount().catch(e => logError(e));
+            this.activeFileItem.unmount().catch(e => console.error(e));
         });
         this._mainApp.add_action(unmount);
 
@@ -231,7 +231,7 @@ const FileItemMenu = class {
                 'parentWindow': this.activeFileItem._grid._window,
                 'timestamp': Gdk.CURRENT_TIME,
             };
-            this._doNewFolderFromSelection(this.activeFileItem.savedCoordinates, this.activeFileItem, event).catch(e => logError(e));
+            this._doNewFolderFromSelection(this.activeFileItem.savedCoordinates, this.activeFileItem, event).catch(e => console.error(e));
         });
         this._mainApp.add_action(newfolderfromselection);
 
@@ -537,7 +537,7 @@ const FileItemMenu = class {
                 this._desktopManager.DesktopIconsUtil);
             this._desktopManager.textEntryAccelsTurnOff();
             chooser.show();
-            const appInfo = await chooser.getApplicationSelected().catch(e => logError(e));
+            const appInfo = await chooser.getApplicationSelected().catch(e => console.error(e));
             if (appInfo) {
                 let fileList = [];
                 for (let item of fileItems)
@@ -577,7 +577,7 @@ const FileItemMenu = class {
             return;
         }
 
-        let folder = await this.getSelectedFolderGio().catch(e => logError(e));
+        let folder = await this.getSelectedFolderGio().catch(e => console.error(e));
         if (folder)
             this.DBusUtils.RemoteFileOperations.ExtractRemote(extractFileItemURI, folder.get_uri(), true);
         else
@@ -591,7 +591,7 @@ const FileItemMenu = class {
         let moveList = this._desktopManager.getCurrentSelection(true);
         const header = _('Move Cancelled');
         const text = _('Unable to move Files, no destination folder');
-        let folder = await this.getSelectedFolderGio().catch(e => logError(e));
+        let folder = await this.getSelectedFolderGio().catch(e => console.error(e));
         if (folder)
             this.DBusUtils.RemoteFileOperations.MoveURIsRemote(moveList, folder.get_uri());
         else
@@ -678,7 +678,7 @@ const FileItemMenu = class {
         let copyList = this._desktopManager.getCurrentSelection(true);
         const header = _('Copy Cancelled');
         const text = _('Unable to copy Files, no destination folder');
-        let folder = await this.getSelectedFolderGio().catch(e => logError(e));
+        let folder = await this.getSelectedFolderGio().catch(e => console.error(e));
         if (folder)
             this.DBusUtils.RemoteFileOperations.CopyURIsRemote(copyList, folder.get_uri());
         else
@@ -714,7 +714,7 @@ const FileItemMenu = class {
         });
 
         if (this._desktopManager.checkIfDirectoryIsSelected()) {
-            this._mailzippedFilesFromSelection(pathnameArray).catch(e => logError(e));
+            this._mailzippedFilesFromSelection(pathnameArray).catch(e => console.error(e));
             return;
         }
         this._xdgEmailFiles(pathnameArray);

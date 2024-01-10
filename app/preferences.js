@@ -318,11 +318,11 @@ const Preferences = class {
             let userfilecontents;
             try {
                 userfilecontents = await this._desktopIconsUtil.readFileContentsAsync(
-                    this._xdgUserConf).catch(e => logError(e));
+                    this._xdgUserConf).catch(e => console.error(e));
                 if (userfilecontents)
                     userfileList = this._desktopIconsUtil.parseTerminalList(userfilecontents);
             } catch (e) {
-                logError(e);
+                console.error(e);
             }
         }
 
@@ -364,8 +364,8 @@ const Preferences = class {
 
     async _updateTerminalSettings() {
         this._terminalGioDesktopAppInfoList = [];
-        const a = await this._updateTerminalXdgConf().catch(e => logError(e));
-        const b = await this._updateTerminalXdgData().catch(e => logError(e));
+        const a = await this._updateTerminalXdgConf().catch(e => console.error(e));
+        const b = await this._updateTerminalXdgData().catch(e => console.error(e));
         const c = this._updateTerminalDconfSettings();
         this._terminalGioDesktopAppInfoList = a.concat(b.concat(c));
 

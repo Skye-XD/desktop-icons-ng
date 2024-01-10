@@ -57,7 +57,7 @@ const AskRenamePopup = class {
         contentBox.attach(this._button, 1, 1, 1, 1);
         this._buttonId = this._button.connect('clicked', this._do_rename.bind(this));
         this._textAreaChangedId = this._textArea.connect('changed', () => {
-            this._validate().catch(e => logError(e));
+            this._validate().catch(e => console.error(e));
         });
         this._textAreaActivateId = this._textArea.connect('activate', this._do_rename.bind(this));
         this._popoverId = this._popover.connect('closed', this._cleanAll.bind(this));
@@ -72,7 +72,7 @@ const AskRenamePopup = class {
             this._popover.set_position(menuGtkPosition);
 
         this._popover.popup();
-        this._validate().catch(e => logError(e));
+        this._validate().catch(e => console.error(e));
         this._textArea.grab_focus_without_selecting();
         this._textArea.select_region(0, this.DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, {'isDirectory': fileItem.isDirectory}).offset);
     }

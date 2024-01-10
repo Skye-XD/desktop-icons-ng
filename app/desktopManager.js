@@ -97,7 +97,7 @@ const DesktopManager = class {
         this._configureSelectionColor();
         this._startMonitoringTemplatesDir();
         this._createMenuActionGroup();
-        this._updateWritableByOthers().catch(e => logError(e));
+        this._updateWritableByOthers().catch(e => console.error(e));
         this._monitorDesktopChanges();
         this.Prefs.init(this);
         this._monitorVolumes();
@@ -254,7 +254,7 @@ const DesktopManager = class {
         this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
         this._monitorDesktopDir.set_rate_limit(1000);
         this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
-            this._updateDesktopIfChanged(file, otherFile, eventType).catch(e => logError(e)));
+            this._updateDesktopIfChanged(file, otherFile, eventType).catch(e => console.error(e)));
     }
 
     _metadataChanged(proxy, nameOwner, args) {
@@ -677,7 +677,7 @@ const DesktopManager = class {
                     returnAction = await this.copyOrMoveUris(fileList,
                         this._desktopDir.get_uri(), event, {forceCopy});
                 } catch (e) {
-                    logError(e);
+                    console.error(e);
                 }
             } else {
                 if (gdkDropAction >= Gdk.DragAction.LINK)
@@ -736,7 +736,7 @@ const DesktopManager = class {
                     await this.copyOrMoveUris(fileList,
                         destinationuri, event, {forceCopy});
                 } catch {
-                    logError('Error moving files');
+                    console.error('Error moving files');
                 }
                 break;
             case Gdk.DragAction.COPY:
@@ -748,7 +748,7 @@ const DesktopManager = class {
                     await this.copyOrMoveUris(fileList,
                         destinationuri, event, {forceCopy});
                 } catch {
-                    logError('Error copying files');
+                    console.error('Error copying files');
                 }
                 break;
             case Gdk.DragAction.LINK:
@@ -758,7 +758,7 @@ const DesktopManager = class {
                     else
                         await this.makeFileSystemLinks(fileList, destinationuri);
                 } catch {
-                    logError('Error making links');
+                    console.error('Error making links');
                 }
                 break;
             }
@@ -787,7 +787,7 @@ const DesktopManager = class {
                         i += 1;
                         newSymlinkName = `${baseNameParts.basename} ${i}${baseNameParts.extension}`;
                     } else {
-                        logError(e, 'Error making file-system links');
+                        console.error(e, 'Error making file-system links');
                         const header = _('Making SymLink Failed');
                         const text = _('Could not create symbolic link');
                         this.dbusManager.doNotify(header, text);
@@ -815,11 +815,11 @@ const DesktopManager = class {
                             GLib.PRIORITY_LOW,
                             null);
                     } catch (e) {
-                        logError(e, 'Error setting link FileInfo');
+                        console.error(e, 'Error setting link FileInfo');
                     }
                 }
             } catch {
-                logError('Error making desktop links');
+                console.error('Error making desktop links');
                 const header = _('Making SymLink Failed');
                 const text = _('Could not create symbolic link');
                 this.dbusManager.doNotify(header, text);
@@ -948,7 +948,7 @@ const DesktopManager = class {
         }
 
         if (button === 3) {
-            await this._updateClipboard().catch(e => logError(e, 'Error updating Clipboard'));
+            await this._updateClipboard().catch(e => console.error(e, 'Error updating Clipboard'));
             this._createDesktopBackgroundGioMenu();
             this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
             this.popupmenu.set_parent(grid._container);
@@ -1229,7 +1229,7 @@ const DesktopManager = class {
     _createMenuActionGroup() {
         let newFolder = Gio.SimpleAction.new('doNewFolder', null);
         newFolder.connect('activate', () => {
-            this.doNewFolder().catch(e => logError(e));
+            this.doNewFolder().catch(e => console.error(e));
         });
         this.mainApp.add_action(newFolder);
         this.mainApp.set_accels_for_action('app.doNewFolder', ['<Control><Shift>N']);
@@ -1242,7 +1242,7 @@ const DesktopManager = class {
 
                 this._doPaste();
             } catch (e) {
-                logError(e, 'Paste action failed');
+                console.error(e, 'Paste action failed');
             }
         });
         this.mainApp.add_action(this.doPasteSimpleAction);
@@ -1495,7 +1495,7 @@ const DesktopManager = class {
             await Gio.AppInfo.launch_default_for_uri_async(
                 this._desktopDir.get_uri(), context, null);
         } catch (e) {
-            logError(e, `Error opening desktop in GNOME Files: ${e.message}`);
+            console.error(e, `Error opening desktop in GNOME Files: ${e.message}`);
         }
     }
 
@@ -1811,7 +1811,7 @@ const DesktopManager = class {
                     break;
 
                 if (this._forceDraw) {
-                    this._drawDesktop(fileList).catch(e => logError(e));
+                    this._drawDesktop(fileList).catch(e => console.error(e));
                     this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
                 }
             }
@@ -1824,7 +1824,7 @@ const DesktopManager = class {
         }
         this._readingDesktopFiles = false;
         this._forceDraw = false;
-        this._drawDesktop(fileList).catch(e => logError(e));
+        this._drawDesktop(fileList).catch(e => console.error(e));
     }
 
     async _doReadAsync() {
@@ -1855,7 +1855,7 @@ const DesktopManager = class {
                 } catch (e) {
                     if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                         throw e;
-                    logError(e, `Failed with ${e.message} while adding extra folder ${newFolder.get_uri()}`);
+                    console.error(e, `Failed with ${e.message} while adding extra folder ${newFolder.get_uri()}`);
                 }
             });
 
@@ -1907,7 +1907,7 @@ const DesktopManager = class {
                 } catch (e) {
                     if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                         throw e;
-                    logError(e, `Failed with ${e.message} while adding volume ${newFolder}`);
+                    console.error(e, `Failed with ${e.message} while adding volume ${newFolder}`);
                 }
             });
 
@@ -1919,7 +1919,7 @@ const DesktopManager = class {
             return fileList;
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Failed to read contents of ${this._desktopDir.get_path()}`);
+                console.error(e, `Failed to read contents of ${this._desktopDir.get_path()}`);
             return null;
         } finally {
             if (cancellable === this._desktopEnumerateCancellable)
@@ -2233,7 +2233,7 @@ const DesktopManager = class {
                     try {
                         await this._updateDesktop();
                     } catch (e) {
-                        logError(e, `Exception while updating desktop from Directory Monitor attribute change: ${e.message}`);
+                        console.error(e, `Exception while updating desktop from Directory Monitor attribute change: ${e.message}`);
                     }
                 }
                 return;
@@ -2244,7 +2244,7 @@ const DesktopManager = class {
         try {
             await this._updateDesktop();
         } catch (e) {
-            logError(e, `Exception while updating desktop from Directory Monitor: ${e.message}`);
+            console.error(e, `Exception while updating desktop from Directory Monitor: ${e.message}`);
         }
     }
 
@@ -2475,10 +2475,10 @@ const DesktopManager = class {
                         GLib.PRIORITY_LOW,
                         null);
                 } catch (e) {
-                    logError(e, `Failed to set attributes to ${dir.get_path()}`);
+                    console.error(e, `Failed to set attributes to ${dir.get_path()}`);
                 }
             } catch (e) {
-                logError(e, `Failed to create folder ${e.message}`);
+                console.error(e, `Failed to create folder ${e.message}`);
                 const header = _('Folder Creation Failed');
                 const text = _('Could not create folder');
                 this.dbusManager.doNotify(header, text);
@@ -2519,10 +2519,10 @@ const DesktopManager = class {
                 await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
                     GLib.PRIORITY_DEFAULT, null);
             } catch (e) {
-                logError(e, `Failed to set template metadata ${e.message}`);
+                console.error(e, `Failed to set template metadata ${e.message}`);
             }
         } catch (e) {
-            logError(e, `Failed to create template ${e.message}`);
+            console.error(e, `Failed to create template ${e.message}`);
             const header = _('Template Creation Error');
             const text = _('Could not create document');
             this.dbusManager.doNotify(header, text);
@@ -2718,7 +2718,7 @@ const DesktopManager = class {
             if (item.stackUnique)
                 stackTopMarkerFolderList.push(item);
 
-            item._updateIcon().catch(e => logError(e, 'Error loading stackMarker icon'));
+            item._updateIcon().catch(e => console.error(e, 'Error loading stackMarker icon'));
         }
         otherFiles = [];
         this._sortByName(specialFiles);

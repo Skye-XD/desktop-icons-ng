@@ -74,7 +74,7 @@ const TemplatesScriptsManager = class {
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED) &&
                 !e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                logError(e);
+                console.error(e);
         } finally {
             if (this._entriesEnumerateCancellable === cancellable)
                 this._entriesEnumerateCancellable = null;

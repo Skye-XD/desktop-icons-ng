@@ -184,12 +184,12 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 } catch (e) {
                     if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                         throw e;
-                    logError(e, `Exception while updating the icon after a metadata update: ${e.message}`);
+                    console.error(e, `Exception while updating the icon after a metadata update: ${e.message}`);
                 }
             }
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Error getting file info: ${e.message}`);
+                console.error(e, `Error getting file info: ${e.message}`);
         } finally {
             if (this._queryFileInfoCancellable === cancellable)
                 this._queryFileInfoCancellable = null;
@@ -308,7 +308,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 let error = _('There is no application installed to open "{foo}" type of files').replace('{foo}', defaultAppInfo);
                 this._showerrorpopup(title, error);
             } else {
-                logError(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
+                console.error(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
             }
         }
     }
@@ -400,12 +400,12 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                         this._queryTrashInfoCancellable = null;
                     }
                     this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                        this._refreshTrashIcon().catch(e => logError(e));
+                        this._refreshTrashIcon().catch(e => console.error(e));
                         this._scheduleTrashRefreshId = 0;
                         return GLib.SOURCE_REMOVE;
                     });
                 } else {
-                    this._refreshTrashIcon().catch(e => logError(e));
+                    this._refreshTrashIcon().catch(e => console.error(e));
                     // after a refresh, don't allow more refreshes until 200ms after, to coalesce extra events
                     this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
                         this._scheduleTrashRefreshId = 0;
@@ -489,7 +489,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 returnAction = await this._desktopManager.copyOrMoveUris(fileList,
                     this._file.get_uri(), event, {forceCopy});
             } catch (e) {
-                logError(e);
+                console.error(e);
                 return false;
             }
         } else {
@@ -543,14 +543,14 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             } catch (e) {
                 if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                     throw e;
-                logError(e, `Exception while updating the trash icon: ${e.message}`);
+                console.error(e, `Exception while updating the trash icon: ${e.message}`);
             }
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
                 return false;
 
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Error getting the number of files in the trash: ${e.message}`);
+                console.error(e, `Error getting the number of files in the trash: ${e.message}`);
         } finally {
             if (cancellable === this._queryTrashInfoCancellable)
                 this._queryTrashInfoCancellable = null;
@@ -568,16 +568,16 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             return;
 
         if (this._isDesktopFile)
-            this._refreshMetadataAsync(true).catch(e => logError(e));
+            this._refreshMetadataAsync(true).catch(e => console.error(e));
     }
 
     updatedMetadata() {
-        this._refreshMetadataAsync(true).catch(e => logError(e));
+        this._refreshMetadataAsync(true).catch(e => console.error(e));
     }
 
     onFileRenamed(file) {
         this._file = file;
-        this._refreshMetadataAsync(false).catch(e => logError(e));
+        this._refreshMetadataAsync(false).catch(e => console.error(e));
     }
 
     async eject(atWidget) {
@@ -616,7 +616,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (!fileList)
             fileList = [];
 
-        this._doOpenContext(null, fileList).catch(e => logError(e));
+        this._doOpenContext(null, fileList).catch(e => console.error(e));
     }
 
     async onAllowDisallowLaunchingClicked() {
@@ -664,7 +664,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             for (let i = 0; i < envS.length; i += 2)
                 context.setenv(envS[i], envS[i + 1]);
 
-            this._doOpenContext(context, null).catch(e => logError(e));
+            this._doOpenContext(context, null).catch(e => console.error(e));
             return;
         }
         console.log('Could not find discrete GPU data in switcheroo-control');
@@ -750,7 +750,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
         this._storeCoordinates('nautilus-drop-position', pos, cancellable).catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                logError(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
+                console.error(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
                 this._dropCoordinates = oldPos;
             }
         }).finally(() => {
@@ -823,7 +823,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
         this._setFileAttributes(info, cancellable).catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Failed to set metadata::trusted: ${e.message}`);
+                console.error(e, `Failed to set metadata::trusted: ${e.message}`);
         }).finally(() => {
             if (cancellable === this._setMetadataTrustedCancellable)
                 this._setMetadataTrustedCancellable = null;
@@ -857,7 +857,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
         this._storeCoordinates('nautilus-icon-position', pos, cancellable).catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                logError(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
+                console.error(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
                 this._savedCoordinates = oldPos;
             }
         }).finally(() => {
