@@ -20,10 +20,11 @@
 
 /* exported GnomeShellOverride */
 
-const {Meta, Clutter} = imports.gi;
+const {Meta, Clutter, GObject} = imports.gi;
 
 import {WorkspaceBackground} from 'resource:///org/gnome/shell/ui/workspace.js';
 import {InjectionManager} from 'resource:///org/gnome/shell/extensions/extension.js';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 export {GnomeShellOverride};
 
@@ -45,22 +46,64 @@ var GnomeShellOverride = class {
     _newBackgroundInit(origninalMethod) {
         return function (...args) {
             origninalMethod.call(this, ...args);
-            const desktopWindows = global.get_window_actors().filter(a => a.meta_window.customJS_ding &&
+            const desktopWindows = global.get_window_actors().filter(a =>
                 a.meta_window.get_window_type() === Meta.WindowType.DESKTOP);
+
             if (desktopWindows.length) {
+                const desktopLayer = new Clutter.Actor({
+                    layout_manager: new DesktopLayout(),
+                    clip_to_allocation: true,
+                });
+
                 for (let windowActor of desktopWindows) {
                     const clone = new Clutter.Clone({
                         source: windowActor,
                     });
-                    const syncAll = Clutter.BindConstraint.new(this._bgManager.backgroundActor, Clutter.BindCoordinate.ALL, 0);
-                    clone.add_constraint(syncAll);
-                    this._backgroundGroup.insert_child_above(clone, this._bgManager.backgroundActor);
+
+                    desktopLayer.add_child(clone);
 
                     windowActor.connectObject('destroy', () => {
                         clone.destroy();
                     }, this);
                 }
+
+                const syncAll = Clutter.BindConstraint.new(this._bgManager.backgroundActor, Clutter.BindCoordinate.ALL, 0);
+                desktopLayer.add_constraint(syncAll);
+                this._backgroundGroup.insert_child_above(desktopLayer, this._bgManager.backgroundActor);
             }
         };
     }
 };
+
+class DesktopLayout extends Clutter.LayoutManager {
+    static {
+        GObject.registerClass(this);
+    }
+
+    vfunc_get_preferred_width() {
+        return [0, 0];
+    }
+
+    vfunc_get_preferred_height() {
+        return [0, 0];
+    }
+
+    vfunc_allocate(container, box) {
+        const monitor = Main.layoutManager.findIndexForActor(container);
+        const workArea = Main.layoutManager.getWorkAreaForMonitor(monitor);
+        const hscale = box.get_width() / workArea.width;
+        const vscale = box.get_height() / workArea.height;
+
+        for (const child of container) {
+            const childBox = new Clutter.ActorBox();
+            const frameRect = child.get_source()?.metaWindow.get_frame_rect();
+            childBox.set_size(
+                Math.round(Math.min(frameRect.width, workArea.width) * hscale),
+                Math.round(Math.min(frameRect.height, workArea.height) * vscale));
+            childBox.set_origin(
+                Math.round((frameRect.x) * hscale),
+                Math.round((frameRect.y) * vscale));
+            child.allocate(childBox);
+        }
+    }
+}
