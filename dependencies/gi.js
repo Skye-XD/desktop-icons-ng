@@ -6,7 +6,7 @@ import GdkX11 from 'gi://GdkX11?version=4.0';
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import GnomeDesktop from 'gi://GnomeDesktop?version=4.0';
-const GnomeAutoar = await import('gi://GnomeAutoar').then(module => module.default).catch(logError);
+const GnomeAutoar = await import('gi://GnomeAutoar').then(module => module.default).catch(e => console.error(e));
 import GObject from 'gi://GObject';
 import Graphene from 'gi://Graphene';
 import Gsk from 'gi://Gsk';

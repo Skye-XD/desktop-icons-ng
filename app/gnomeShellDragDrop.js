@@ -52,7 +52,7 @@ const GnomeShellDrag = class {
                 try {
                     await this._dockUriSpringTimerFunction();
                 } catch (e) {
-                    logError(e);
+                    console.error(e);
                 }
                 return GLib.SOURCE_REMOVE;
             }
@@ -65,7 +65,7 @@ const GnomeShellDrag = class {
         for (let i = 0; i <= 50; i += 10) {
             leftEdge[0] -= i;
             // eslint-disable-next-line no-await-in-loop
-            this._currentDesktopFileAppPath = await this._DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => logError(e));
+            this._currentDesktopFileAppPath = await this._DBusUtils.RemoteExtensionControl.getDropTargetAppInfoDesktopFile(leftEdge).catch(e => console.error(e));
             if (this._currentDesktopFileAppPath)
                 break;
         }
@@ -83,7 +83,7 @@ const GnomeShellDrag = class {
             return GLib.SOURCE_REMOVE;
         }
 
-        let shellDropCoordinates = await this._DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => logError(e));
+        let shellDropCoordinates = await this._DBusUtils.RemoteExtensionControl.getDropTargetCoordinates().catch(e => console.error(e));
 
         this._lookOffLeftEdgeForDrop(shellDropCoordinates);
 
@@ -116,7 +116,7 @@ const GnomeShellDrag = class {
                     Gio.AppInfo.launch_default_for_uri(uri, context);
                 this._dockSpringOpenComplete = true;
             } catch (e) {
-                logError(e, `Error opening ${uri} in GNOME Files: ${e.message}`);
+                console.error(e, `Error opening ${uri} in GNOME Files: ${e.message}`);
             }
             return GLib.SOURCE_CONTINUE;
         }
@@ -182,7 +182,7 @@ const GnomeShellDrag = class {
                 return;
             }
         } catch (e) {
-            logError(e, 'Error reading desktop file. Cannot set shell Cursor');
+            console.error(e, 'Error reading desktop file. Cannot set shell Cursor');
         }
         this._DBusUtils.RemoteExtensionControl.setDragCursor(this._Enums.ShellDropCursor.NODROP);
     }
@@ -208,7 +208,7 @@ const GnomeShellDrag = class {
                     return false;
                 }
             } catch (e) {
-                logError(e, 'Error reading desktop file. Cannot launch application.');
+                console.error(e, 'Error reading desktop file. Cannot launch application.');
                 return false;
             }
         }
@@ -217,7 +217,7 @@ const GnomeShellDrag = class {
             return true;
         }
         if (this._currentDesktopFileAppPath.startsWith('file:///') || this._currentDesktopFileAppPath.startsWith('davs://')) {
-            await this._desktopManager.copyOrMoveUris(this._selectedFilesURI, this._currentDesktopFileAppPath, {}, {}).catch(e => logError(e));
+            await this._desktopManager.copyOrMoveUris(this._selectedFilesURI, this._currentDesktopFileAppPath, {}, {}).catch(e => console.error(e));
             return true;
         }
         return false;

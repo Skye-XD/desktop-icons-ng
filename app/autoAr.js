@@ -198,7 +198,7 @@ var AutoAr = class {
         const doExtract = new progressDialog(this, _('Extracting files'));
         this._password = null;
         doExtract.doExtractFile(fullPath, folder, folderName).catch(
-            e => logError(e));
+            e => console.error(e));
     }
 
     compressFileItems(fileList, destinationFolder) {
@@ -214,7 +214,7 @@ var AutoAr = class {
 
         const doCompress = new progressDialog(this, _('Compressing files'));
         doCompress.doCompressFiles(fileList, outputFile, format, filter, password).catch(
-            e => logError(e));
+            e => console.error(e));
     }
 
     notify(title, text) {
@@ -358,7 +358,7 @@ const progressDialog = class {
         try {
             await this.FileUtils.deleteFile(file, null, cancellable);
         } catch (e) {
-            logError(e, `Failed to remove ${file.get_path()}: ${e.message}`);
+            console.error(e, `Failed to remove ${file.get_path()}: ${e.message}`);
         } finally {
             this._removeTimer();
         }
@@ -380,7 +380,7 @@ const progressDialog = class {
                     GLib.PRIORITY_DEFAULT,
                     this._cancellable);
             } catch (e) {
-                logError(e, `Failed to set attributes to ${folder.get_path()}`);
+                console.error(e, `Failed to set attributes to ${folder.get_path()}`);
             }
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {

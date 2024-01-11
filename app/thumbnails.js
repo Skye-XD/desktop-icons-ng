@@ -94,7 +94,7 @@ const ThumbnailLoader = class {
             modifiedTime = fileInfo.get_attribute_uint64('time::modified');
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Error while creating thumbnail: ${e.message}`);
+                console.error(e, `Error while creating thumbnail: ${e.message}`);
             return false;
         }
 
@@ -106,7 +106,7 @@ const ThumbnailLoader = class {
             return true;
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Error while creating thumbnail: ${e.message}`);
+                console.error(e, `Error while creating thumbnail: ${e.message}`);
             await this._createFailedThumbnailAsync(file, modifiedTime,
                 gotTimeout && cancellable.is_cancelled() ? null : cancellable);
         } finally {
@@ -122,7 +122,7 @@ const ThumbnailLoader = class {
             await this._thumbnailFactory.create_failed_thumbnail_async(file.uri,
                 modifiedTime, cancellable);
         } catch (e) {
-            logError(e, `Error while creating failed thumbnail: ${e.message}`);
+            console.error(e, `Error while creating failed thumbnail: ${e.message}`);
         }
     }
 
@@ -147,7 +147,7 @@ const ThumbnailLoader = class {
             return proc.get_status() === 0;
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                logError(e, `Failed to generate thumbnail for ${file.displayName}: ${e.message}`);
+                console.error(e, `Failed to generate thumbnail for ${file.displayName}: ${e.message}`);
         } finally {
             if (timeoutID)
                 GLib.source_remove(timeoutID);

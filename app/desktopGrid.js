@@ -590,7 +590,7 @@ const DesktopGrid = class {
                         return true;
                     }
 
-                    gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event).catch(e => logError(e));
+                    gdkReturnAction = await this._completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event).catch(e => console.error(e));
                     if (gdkReturnAction) {
                         drop.finish(gdkReturnAction);
                         this.receiveLeave();
@@ -602,7 +602,7 @@ const DesktopGrid = class {
                     }
                 });
             } catch (e) {
-                logError(e);
+                console.error(e);
                 drop.finish(0);
                 this.receiveLeave();
             }
@@ -639,12 +639,12 @@ const DesktopGrid = class {
         let returnAction = Gdk.DragAction.COPY;
         let localDrop = !!drop.get_drag();
         if (fileItemDropZone && (desktopMove || filesMove)) {
-            returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => logError(e));
+            returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => console.error(e));
             return returnAction;
         }
 
         if (desktopDropZone && (desktopMove || filesMove)) {
-            returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => logError(e));
+            returnAction = await this.receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => console.error(e));
             return returnAction;
         }
 
@@ -677,7 +677,7 @@ const DesktopGrid = class {
         });
         widgetDragController.connect('drag-cancel', async (actor, drag, reason) => {
             if (reason === Gdk.DragCancelReason.NO_TARGET || reason === Gdk.DragCancelReason.ERROR) {
-                let gnomedropDetected = await this._desktopManager.gnomeShellDrag?.completeGnomeShellDrop().catch(e => logError(e));
+                let gnomedropDetected = await this._desktopManager.gnomeShellDrag?.completeGnomeShellDrop().catch(e => console.error(e));
                 if (gnomedropDetected)
                     return true;
                 else
@@ -784,7 +784,7 @@ const DesktopGrid = class {
         x = this._elementWidth * Math.floor(x / this._elementWidth);
         y = this._elementHeight * Math.floor(y / this._elementHeight);
         let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-        let returnAction = await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, localDrop, event, dragItem).catch(e => logError(e));
+        let returnAction = await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, localDrop, event, dragItem).catch(e => console.error(e));
         return returnAction;
     }
 
@@ -800,7 +800,7 @@ const DesktopGrid = class {
                 Gio.AppInfo.launch_default_for_uri(
                     fileItem.uri, context);
             } catch (e) {
-                logError(e, `Error opening ${fileItem.uri} in GNOME Files: ${e.message}`);
+                console.error(e, `Error opening ${fileItem.uri} in GNOME Files: ${e.message}`);
             }
             this.directoryOpenTimer = 0;
             return GLib.SOURCE_REMOVE;
@@ -918,7 +918,7 @@ const DesktopGrid = class {
             blue: this._desktopManager.selectColor.blue,
             alpha: 1.0,
         });
-        await this._rectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor).catch(logError);
+        await this._rectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor).catch(console.error);
     }
 
     async _doDrawDropRectangles(actor, cr) {
@@ -939,7 +939,7 @@ const DesktopGrid = class {
         const dropRectanglePromises = this._selectedList.map(([x, y]) => {
             return this._rectangleDraw(x, y, this._elementWidth, this._elementHeight, cr, fillColor, outlineColor);
         });
-        await Promise.all(dropRectanglePromises).catch(logError);
+        await Promise.all(dropRectanglePromises).catch(console.error);
     }
 
     _rectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {

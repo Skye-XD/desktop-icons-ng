@@ -119,7 +119,7 @@ export async function queryExists(file, cancellable = null,
         if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
             throw e;
         if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-            logError(e);
+            console.error(e);
         return false;
     }
 }

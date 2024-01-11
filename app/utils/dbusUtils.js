@@ -74,7 +74,7 @@ class ProxyManager {
         if (newAvailability !== this._available) {
             if (newAvailability) {
                 if (makeAsync)
-                    await this.makeNewProxyAsync().catch(e => logError(e));
+                    await this.makeNewProxyAsync().catch(e => console.error(e));
                 else
                     this.makeNewProxySync();
             } else {
@@ -654,7 +654,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                         parentHandle = `x11:${xid}`;
                     }
                 } catch (e) {
-                    logError(e, 'Impossible to determine the parent window');
+                    console.error(e, 'Impossible to determine the parent window');
                 }
             }
 
@@ -690,7 +690,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 }
             );
         } catch (e) {
-            logError(e);
+            console.error(e);
         }
     }
 
@@ -715,7 +715,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 }
             );
         } catch (e) {
-            logError(e);
+            console.error(e);
         }
     }
 
@@ -740,7 +740,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 }
             );
         } catch (e) {
-            logError(e);
+            console.error(e);
         }
     }
 
@@ -764,7 +764,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 }
             );
         } catch (e) {
-            logError(e);
+            console.error(e);
         }
     }
 
@@ -788,7 +788,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 }
             );
         } catch (e) {
-            logError(e);
+            console.error(e);
         }
     }
 
@@ -812,7 +812,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 }
             );
         } catch (e) {
-            logError(e);
+            console.error(e);
         }
     }
 
@@ -835,7 +835,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 }
             );
         } catch (e) {
-            logError(e);
+            console.error(e);
         }
     }
 
@@ -858,7 +858,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 }
             );
         } catch (e) {
-            logError(e);
+            console.error(e);
         }
     }
 
@@ -1179,7 +1179,7 @@ class ExtensionControl {
                 this.RemoteExtensionManager.proxy.getShellGlobalCoordinatesRemote(
                     (coords, error) => {
                         if (error) {
-                            logError(error, 'Unable to get global Coordinates');
+                            console.error(error, 'Unable to get global Coordinates');
                             resolve(null);
                         } else {
                             resolve(coords);
@@ -1187,7 +1187,7 @@ class ExtensionControl {
                     }
                 );
             } catch (e) {
-                logError(e);
+                console.error(e);
             }
         });
     }
@@ -1201,7 +1201,7 @@ class ExtensionControl {
                     [dropX, dropY],
                     (desktopFileAppPath, error) => {
                         if (error) {
-                            logError(error, 'Unable to get .desktop file');
+                            console.error(error, 'Unable to get .desktop file');
                             resolve(null);
                         // eslint-disable-next-line eqeqeq
                         } else if (desktopFileAppPath == 'null') {
@@ -1212,7 +1212,7 @@ class ExtensionControl {
                     }
                 );
             } catch (e) {
-                logError(e);
+                console.error(e);
             }
         });
     }
@@ -1222,7 +1222,7 @@ class ExtensionControl {
             cursor,
             (result, error) => {
                 if (error)
-                    logError(error, 'Unable to set Shell Cursor');
+                    console.error(error, 'Unable to set Shell Cursor');
             }
         );
     }
