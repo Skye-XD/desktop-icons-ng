@@ -2,24 +2,25 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Dušan Kazik <prescott66@gmail.com>, 2020-2021.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-03 22:08+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sk/>\n"
+"PO-Revision-Date: 2024-01-09 18:06+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -154,8 +155,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Pridať nové disky na opačnú stranu pracovnej plochy"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "Obdĺžkové ikony s rozdeľovacím mriežkou"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -548,7 +550,7 @@ msgstr "Udržujte zakladané podľa typu .."
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Usporiadať Domov/jednotky/Kôš…"
+msgstr "Triediť Home/Drives/Trash.."
 
 #: app/desktopManager.js:1434 app/desktopManager.js:2459
 msgid "New Folder"
@@ -587,12 +589,12 @@ msgstr "Usporiadať podľa.."
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Zobraziť Plochu v aplikácii Súbory"
+msgstr "Zobraziť Desktop V {0}"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 msgid "Open In {0}"
-msgstr "Otvoriť s {foo}"
+msgstr "Otvoriť v {0}"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -831,6 +833,7 @@ msgid "Create Link..."
 msgstr "Vytvoriť odkaz..."
 
 #: app/fileItemMenu.js:381
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -894,18 +897,18 @@ msgstr "Vlastnosti"
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
-msgstr "Zobraziť všetko v aplikácii Súbory"
+msgstr "Zobraziť všetko v {0}"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "Zobraziť v aplikácii Súbory"
+msgstr "Zobraziť v {0}"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Open in {0}"
-msgstr "Otvoriť s {foo}"
+msgstr "Otvorené v {0}"
 
 #: app/fileItemMenu.js:559
 #, fuzzy
@@ -948,30 +951,35 @@ msgstr "Nemožno kopírovať súbory, žiadny cieľový priečinok"
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "Chyba pošty"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Nemožno nájsť xdg-email, prosím, nainštalujte program"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Tam bola chyba v e-mailových súboroch"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Nemožno nájsť zips príkaz, nainštalujte program"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Názov archívu"
+msgstr "Archív.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Tam bola chyba pri vytváraní archívu zips"
 
 #: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
@@ -982,27 +990,32 @@ msgstr "Nedá sa odoslať adresár pomocou emailu"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Výber obsahuje adresár. Najskôr skomprimujte adresár do súboru."
+msgstr "Výber obsahuje adresár, najprv kompresovať do súboru .zip?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Nemožno otvoriť v Gnome Console"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Nainštalujte Gnome Console alebo iný terminál program"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Nemožno otvoriť {0}"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Nainštalujte {0}"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Konzola"
 
 #: app/showErrorPopup.js:39
 msgid "Close"

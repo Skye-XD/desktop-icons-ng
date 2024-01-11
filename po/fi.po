@@ -5,24 +5,25 @@
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2018.
 # Timo Jyrinki <timo.jyrinki+l10n@gmail.com>, 2021.
 # Tuomas Nurmi <tuomas.nurmi@opinsys.fi>, 2022.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-03 22:08+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fi/>\n"
+"PO-Revision-Date: 2024-01-09 18:06+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 "X-Launchpad-Export-Date: 2021-04-08 06:16+0000\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
@@ -158,8 +159,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Lisää uusia liikkeitä työpöydän vastakkaiselle puolelle"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "Rectangular icons with drop grid highlighting Näytä tarkat tiedot"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -550,7 +552,7 @@ msgstr "Pidä kiinni tyypistä.."
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Järjestä koti/asemat/roskakori…"
+msgstr "Koti/kuljetukset / Trash.."
 
 #: app/desktopManager.js:1434 app/desktopManager.js:2459
 msgid "New Folder"
@@ -589,12 +591,12 @@ msgstr "Järjestäytyminen.."
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Näytä työpöytä tiedostonhallinnassa"
+msgstr "Näytä työpöytä {0}"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 msgid "Open In {0}"
-msgstr "Avoinna {foo}"
+msgstr "Avoinna {0}"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -882,18 +884,18 @@ msgstr "Ominaisuudet"
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
-msgstr "Näytä kaikki Tiedostot-sovelluksessa"
+msgstr "Näytä kaikki"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "Näytä tiedostonhallinnassa"
+msgstr "Näyttely {0}"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Open in {0}"
-msgstr "Avoinna {foo}"
+msgstr "Avoinna {0}"
 
 #: app/fileItemMenu.js:559
 #, fuzzy
@@ -936,30 +938,35 @@ msgstr "Et voi kopioida tiedostoja, ei kohdekansiota"
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "Sähkövirhe"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Et löydä xdg-sähköpostia, asenna ohjelma"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Sähköpostiviesteissä oli virhe"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Et löydä zip-komentoa, asenna ohjelma"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Archive Nimi"
+msgstr "Archive.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Epäonnistuneita zip-arkistossa"
 
 #: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
@@ -970,27 +977,32 @@ msgstr "Kansiota ei voi lähettää sähköpostitse"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Valinta sisältää kansion, pakkaa kansio tiedostoksi ensin."
+msgstr "Valinta sisältää hakemiston, pakkaa .zip-tiedostoon ensin?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Et voi avata Gnome Consolessa"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "Asenna Gnome Console tai muu terminaali"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Ei voi avata {0}"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "Ole hyvä ja asenna {0}"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Konsoli"
 
 #: app/showErrorPopup.js:39
 msgid "Close"

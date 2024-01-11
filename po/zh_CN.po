@@ -3,16 +3,17 @@
 # This file is distributed under the same license as the desktop-icons package.
 # Okeyja <bross049deng@gmail.com>, 2020.
 # Daniel Zhang <xiaozhangshiw@163.com>, 2023.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2023-12-03 22:08+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"PO-Revision-Date: 2024-01-09 18:06+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
@@ -55,7 +56,7 @@ msgstr "桌面方案背景"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "卷数"
+msgstr "体数据"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -152,8 +153,9 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "在 desktop对面增加新的驱动力"
 
 #: app/adwPreferencesWindow.js:248
+#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr ""
+msgstr "2. 突出显示低网的金字塔"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -541,7 +543,7 @@ msgstr "按类型分类"
 #: app/desktopManager.js:1429
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "排序主目录/驱动器/回收站…"
+msgstr "住宅/司机"
 
 #: app/desktopManager.js:1434 app/desktopManager.js:2459
 msgid "New Folder"
@@ -580,12 +582,12 @@ msgstr "Arrange By.."
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "在文件管理器中打开桌面"
+msgstr "图3"
 
 #: app/desktopManager.js:1467
 #, fuzzy
 msgid "Open In {0}"
-msgstr "开放式,{foo}"
+msgstr "开放式{0}"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -622,7 +624,7 @@ msgstr "Folder Creat Failed"
 #: app/desktopManager.js:2483
 #, fuzzy
 msgid "Could not create folder"
-msgstr "无法创建文件夹。"
+msgstr "无法创建文件夹"
 
 #: app/desktopManager.js:2526
 #, fuzzy
@@ -866,18 +868,18 @@ msgstr "属性"
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
-msgstr "全部在文件中展示"
+msgstr "(0}"
 
 #: app/fileItemMenu.js:435
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "在文件夹中显示"
+msgstr "图1"
 
 #: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Open in {0}"
-msgstr "开放式,{foo}"
+msgstr "开放式{0}"
 
 #: app/fileItemMenu.js:559
 #, fuzzy
@@ -920,30 +922,35 @@ msgstr "无法复制文件,没有目的地文件夹"
 
 #: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
 #: app/fileItemMenu.js:775
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "邮递 Error"
 
 #: app/fileItemMenu.js:729
+#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "无法找到xdg-email,请安装节目"
 
 #: app/fileItemMenu.js:739
+#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "电子邮件文件有误"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "无法找到警示,请安装方案"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
 #, fuzzy
 msgid "Archive.zip"
-msgstr "档案名称"
+msgstr "Corr.zip"
 
 #: app/fileItemMenu.js:776
+#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "creating积档案的建立有误"
 
 #: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
@@ -954,27 +961,32 @@ msgstr "文件夹不能邮件"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "选择包括目录，首先将目录压缩到文件中。"
+msgstr "甄选包括一名名录,先压缩到一.三卷档案?"
 
 #: app/fileItemMenu.js:902
+#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "Unable to Open in Gnome Console"
 
 #: app/fileItemMenu.js:903
+#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "请 Install Gnome Console或其他终端方案"
 
 #: app/fileItemMenu.js:910
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "开放{0}"
 
 #: app/fileItemMenu.js:911
+#, fuzzy
 msgid "Please Install {0}"
-msgstr ""
+msgstr "请问{0}"
 
 #: app/preferences.js:417
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "控制台视图"
 
 #: app/showErrorPopup.js:39
 msgid "Close"
