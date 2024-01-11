@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Eaglers <eaglersdeveloper@gmail.com>, 2018
 # Ser82-png <sw@atrus.ru>, 2021-2022
-# Сергей <asvmail.as@gmail.com>, 2023.
+# Сергей <asvmail.as@gmail.com>, 2023, 2024.
 # dinos <ecg-diagnostic@mail.ru>, 2023.
 # Войнов Артем Романович <voynovar@gmail.com>, 2023.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
@@ -13,9 +13,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2024-01-08 12:27+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2024-01-11 00:06+0000\n"
+"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -137,9 +136,8 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Добавлять новые диски на противоположную сторону рабочего стола"
 
 #: app/adwPreferencesWindow.js:248
-#, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr "Прямоугольные иконки с выдвижной сеткой"
+msgstr "Прямоугольные значки с подсветкой сетки"
 
 #: app/adwPreferencesWindow.js:249
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -782,22 +780,16 @@ msgid "Properties"
 msgstr "Свойства"
 
 #: app/fileItemMenu.js:434
-#, fuzzy
-#| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "Показать все в {0}"
 
 #: app/fileItemMenu.js:435
-#, fuzzy
-#| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "Показать в {0}"
 
 #: app/fileItemMenu.js:440
-#, fuzzy
-#| msgid "Open with {foo}"
 msgid "Open in {0}"
-msgstr "Открыто в {0}"
+msgstr "Открыть в {0}"
 
 #: app/fileItemMenu.js:559
 msgid "Extraction Cancelled"
@@ -838,9 +830,8 @@ msgid "Mail Error"
 msgstr "Ошибка"
 
 #: app/fileItemMenu.js:729
-#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr "Невозможно найти xdg-email, пожалуйста, установите программу"
+msgstr "Не удалось найти xdg-email, пожалуйста, установите программу"
 
 #: app/fileItemMenu.js:739
 #, fuzzy
@@ -848,21 +839,17 @@ msgid "There was an error in emailing Files"
 msgstr "Была ошибка в рассылке файлов"
 
 #: app/fileItemMenu.js:749
-#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr "Невозможно найти команду zip, пожалуйста, установите программу"
+msgstr "Не удалось найти команду zip, пожалуйста, установите программу"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:755
-#, fuzzy
-#| msgid "Archive name"
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
 #: app/fileItemMenu.js:776
-#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr "Была ошибка в создании архива zip"
+msgstr "При создании zip-архива возникла ошибка"
 
 #: app/fileItemMenu.js:789
 msgid "Can not email a Directory"
@@ -876,19 +863,17 @@ msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Отбор включает в себя Справочник, сжимается к .zip-файлу первым?"
 
 #: app/fileItemMenu.js:902
-#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr "Невозможно открыть в Gnome Console"
+msgstr "Не удалось открыть в Console для Gnome"
 
 #: app/fileItemMenu.js:903
-#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr "Пожалуйста, установите консоль Gnome или другую терминальную программу"
+msgstr ""
+"Пожалуйста, установите Console для Gnome или любой другой эмулятор терминала"
 
 #: app/fileItemMenu.js:910
-#, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Невозможно открыть {0}"
+msgstr "Не удалось открыть {0}"
 
 #: app/fileItemMenu.js:911
 #, fuzzy
@@ -896,9 +881,8 @@ msgid "Please Install {0}"
 msgstr "Установить {0}"
 
 #: app/preferences.js:417
-#, fuzzy
 msgid "Console"
-msgstr "Консольный"
+msgstr "Console"
 
 #: app/showErrorPopup.js:39
 msgid "Close"
