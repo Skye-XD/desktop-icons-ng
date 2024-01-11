@@ -1,4 +1,10 @@
 # History of versions #
+* Gtk4 version 70 for Gnome 45
+ * Fix dark text in labels not changing with preferences when in light mode. (Sundeep Mediratta)
+ * Fix distorted desktop actors, others than DING on overview on background. (Sundeep Mediratta)
+ * Replace logError with console.error. (Sundeep Mediratta)
+ * Update History.md, metadata.json. Version bump to 70.
+
 * Gtk4 version 69 for Gnome 45
  * Rectangular icons and higlights like Nuatilus. Can be switched to the regular style with the old show drop target highlght toggle. (Sundeep Mediratta)
  * Acts like xdg-terminal-exec, monitors all configuration files to show the correct Terminal to be lauched in right click menus and will execute the correct terminal if xdg-terminal-exec is not installed. If installed executes xdg-terminal-exec. (Sundeep Mediratta)
