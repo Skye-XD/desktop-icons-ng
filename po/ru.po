@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-07 23:11-0500\n"
-"PO-Revision-Date: 2024-01-11 00:06+0000\n"
+"PO-Revision-Date: 2024-01-12 03:06+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
@@ -501,16 +501,12 @@ msgid "Arrange By…"
 msgstr "Упорядочить по…"
 
 #: app/desktopManager.js:1464
-#, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Показать рабочий стол в {0}"
+msgstr "Показать рабочий стол в приложении «{0}»"
 
 #: app/desktopManager.js:1467
-#, fuzzy
-#| msgid "Open with {foo}"
 msgid "Open In {0}"
-msgstr "Открыто в {0}"
+msgstr "Открыть в приложении «{0}»"
 
 #: app/desktopManager.js:1473
 msgid "Change Background…"
@@ -781,15 +777,15 @@ msgstr "Свойства"
 
 #: app/fileItemMenu.js:434
 msgid "Show All in {0}"
-msgstr "Показать все в {0}"
+msgstr "Показать все в приложении «{0}»"
 
 #: app/fileItemMenu.js:435
 msgid "Show in {0}"
-msgstr "Показать в {0}"
+msgstr "Показать в приложении «{0}»"
 
 #: app/fileItemMenu.js:440
 msgid "Open in {0}"
-msgstr "Открыть в {0}"
+msgstr "Открыть в приложении «{0}»"
 
 #: app/fileItemMenu.js:559
 msgid "Extraction Cancelled"
@@ -856,11 +852,10 @@ msgid "Can not email a Directory"
 msgstr "Невозможно отправить каталог по электронной почте"
 
 #: app/fileItemMenu.js:790
-#, fuzzy
-#| msgid ""
-#| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Отбор включает в себя Справочник, сжимается к .zip-файлу первым?"
+msgstr ""
+"Выборка включает в себя каталог. Сжать его первым, чтобы добавить к ."
+"zip-файлу?"
 
 #: app/fileItemMenu.js:902
 msgid "Unable to Open in Gnome Console"
@@ -876,9 +871,8 @@ msgid "Unable to Open {0}"
 msgstr "Не удалось открыть {0}"
 
 #: app/fileItemMenu.js:911
-#, fuzzy
 msgid "Please Install {0}"
-msgstr "Установить {0}"
+msgstr "Пожалуйста, установите «{0}»"
 
 #: app/preferences.js:417
 msgid "Console"
