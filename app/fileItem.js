@@ -45,7 +45,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         }
 
         if (this._custom) {
-            /* gjs doesn't handle well some virtual implementations */
+            /* gjs doesn't handle some virtual implementations well*/
             this.PromiseUtils._promisify({}, this._custom.constructor.prototype,
                 'eject_with_operation');
             this.PromiseUtils._promisify({}, this._custom.constructor.prototype,
@@ -140,6 +140,47 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             text = _('Home');
         }
         this._setLabelName(text);
+    }
+
+    _setAccesibilityName() {
+        const visibleName = this._getVisibleName();
+        switch (this._fileExtra) {
+        case  this.Enums.FileType.USER_DIRECTORY_HOME:
+            this.container.update_property([Gtk.AccessibleProperty.LABEL], [_('Home')]);
+            break;
+        case this.Enums.FileType.USER_DIRECTORY_TRASH:
+            /** TRANSLATORS: when using a screen reader,this is the text read when
+             the trash folder is selected. */
+            this.container.update_property([Gtk.AccessibleProperty.LABEL],
+                [_('Trash')]);
+            break;
+        case this.Enums.FileType.EXTERNAL_DRIVE: {
+            /** TRANSLATORS: when using a screen reader, this is the text read when
+             * an external drive is selected. Example: if a USB stick named "my_portable"
+             * is selected, it will say "Drive my_portable" */
+            const driveName = _('Drive');
+            this.container.update_property([Gtk.AccessibleProperty.LABEL],
+                [`${driveName} ${visibleName}}`]);
+            break;
+        }
+        default:
+            if (this._isDirectory) {
+                /** TRANSLATORS: when using a screen reader, this is the text read when
+                 * a folder is selected. Example: if a folder named "things" is selected,
+                 * it will say "Folder things" */
+                const folderName = _('Folder');
+                this.container.update_property([Gtk.AccessibleProperty.LABEL],
+                    [`${folderName} ${visibleName}`]);
+            } else {
+                /** TRANSLATORS: when using a screen reader, this is the text read when
+                 * a normal file is selected. Example: if a file named "my_picture.jpg"
+                 * is selected, it will say "File my_picture.jpg" */
+                const fileName = _('File');
+                this.container.update_property([Gtk.AccessibleProperty.LABEL],
+                    [`${fileName} ${visibleName}`]);
+            }
+            break;
+        }
     }
 
     _readCoordinatesFromAttribute(fileInfo, attribute) {
@@ -279,7 +320,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
         if (this._isDirectory && this.Prefs.useNemo) {
             try {
-                this.DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()], this.DesktopIconsUtil.getFilteredEnviron());
+                this.DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()],
+                    this.DesktopIconsUtil.getFilteredEnviron());
             } catch (err) {
                 console.log(`Error trying to launch Nemo: ${err.message}\n${err}`);
             }
@@ -294,7 +336,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         }
 
         if (this.isExecutable && this.executableContentType && !this.fileContainsText) {
-            this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(), [this.path], null);
+            this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(),
+                [this.path], null);
             return;
         }
 
@@ -305,7 +348,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_SUPPORTED)) {
                 let title = _('Opening File Failed');
                 let defaultAppInfo = Gio.content_type_get_description(this.attributeContentType);
-                let error = _('There is no application installed to open "{foo}" type of files').replace('{foo}', defaultAppInfo);
+                let error = _('There is no application installed to open "{foo}" type of files').replace(
+                    '{foo}', defaultAppInfo);
                 this._showerrorpopup(title, error);
             } else {
                 console.error(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
@@ -378,6 +422,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             this._setFileName(this._desktopFile.get_locale_string('Name'));
         else
             this._setFileName(this._getVisibleName());
+        this._setAccesibilityName();
     }
 
     _monitorTrash() {
