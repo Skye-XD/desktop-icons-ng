@@ -104,47 +104,53 @@ const DesktopIconItem = class {
             orientation: Gtk.Orientation.VERTICAL,
             halign: Gtk.Align.CENTER,
             focusable: true,
+            can_focus: true,
+            accessible_role: Gtk.AccessibleRole.LABEL,
         });
         this._containerId = this.container.connect('destroy', () => this.onDestroy());
-        this.container.accessible_role = Gtk.AccessibleRole.LABEL;
-        this.container.set_can_focus(true);
 
-        this._icon = new Gtk.Picture();
-        this._icon.set_can_shrink(false);
-        this._icon.set_keep_aspect_ratio(true);
-        this._icon.set_halign(Gtk.Align.CENTER);
-        this._iconContainer = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL});
-        this._iconContainer.set_hexpand(false);
-        this._iconContainer.set_halign(Gtk.Align.CENTER);
-        this._iconContainer.set_baseline_position(Gtk.BaselinePosition.CENTER);
+        this._icon = new Gtk.Picture({
+            can_shrink: false,
+            keep_aspect_ratio: true,
+            halign: Gtk.Align.CENTER,
+        });
+
+        this._iconContainer = new Gtk.Box({
+            orientation: Gtk.Orientation.HORIZONTAL,
+            halign: Gtk.Align.CENTER,
+            hexpand: false,
+            baseline_position: Gtk.BaselinePosition.CENTER,
+        });
         this._iconContainer.append(this._icon);
 
-        this._label = new Gtk.Label();
-        this._labelContainer = new Gtk.Box({
-            orientation: Gtk.Orientation.VERTICAL,
+        this._label = new Gtk.Label({
             halign: Gtk.Align.CENTER,
+            natural_wrap_mode: Gtk.NaturalWrapMode.NONE,
+            ellipsize: Pango.EllipsizeMode.END,
+            wrap: true,
+            wrap_mode: Pango.WrapMode.WORD_CHAR,
+            yalign: 0.0,
+            xalign: 0.0,
+            justify: Gtk.Justification.CENTER,
+            lines: 2,
         });
         if (this.Prefs.darkText)
             this._label.add_css_class('file-label-dark');
         else
             this._label.add_css_class('file-label');
 
-        this._label.set_natural_wrap_mode(Gtk.NaturalWrapMode.NONE);
-        this._label.set_ellipsize(Pango.EllipsizeMode.END);
-        this._label.set_wrap(true);
-        this._label.set_wrap_mode(Pango.WrapMode.WORD_CHAR);
-        this._label.set_yalign(0.0);
-        this._label.set_xalign(0.0);
-        this._label.set_justify(Gtk.Justification.CENTER);
-        this._label.set_lines(2);
-        this._labelContainer.set_name('file-item');
+        this._labelContainer = new Gtk.Box({
+            orientation: Gtk.Orientation.VERTICAL,
+            name: 'file-item',
+        });
 
         this.iconRectangle = new Gdk.Rectangle();
         this.iconLocalWindowRectangle = new Gdk.Rectangle();
         this.labelRectangle = new Gdk.Rectangle();
 
-        this._iconContainerEventController = Gtk.EventControllerMotion.new();
-        this._iconContainerEventController.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
+        this._iconContainerEventController = new Gtk.EventControllerMotion({
+            propagation_phase: Gtk.PropagationPhase.CAPTURE,
+        });
         this._icon.add_controller(this._iconContainerEventController);
         this._iconContainerEventController.connect('enter', () => {
             this._showToolTip();
