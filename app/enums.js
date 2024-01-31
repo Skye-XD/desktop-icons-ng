@@ -40,6 +40,7 @@ export const StoredCoordinates = {
     PRESERVE: 0,
     OVERWRITE: 1,
     ASSIGN: 2,
+    REDISPLAY: 3,
 };
 
 export const Selection = {

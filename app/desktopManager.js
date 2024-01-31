@@ -420,7 +420,7 @@ const DesktopManager = class {
                 this._primaryScreen = this._desktopList[this._primaryIndex];
             else
                 this._primaryScreen = null;
-            this._placeAllFilesOnGrids({redisplay: true});
+            this._placeAllFilesOnGrids({redisplay: true, gridschanged: true});
         }
     }
 
@@ -2027,14 +2027,18 @@ const DesktopManager = class {
         }
         if (opts.redisplay)
             this._sortByPosition();
-        this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
+        let storeMode;
+        if (opts.gridschanged)
+            storeMode = this.Enums.StoredCoordinates.REDISPLAY;
+        else
+            storeMode = this.Enums.StoredCoordinates.PRESERVE;
+        this._addFilesToDesktop(this._fileList, storeMode);
     }
 
     _addFilesToDesktop(fileList, storeMode) {
         let preferredDesktop = this._getPreferredDisplayDesktop();
         if (!preferredDesktop)
             return;
-
         let outOfDesktops = [];
         let notAssignedYet = [];
         let droppedFiles = [];
