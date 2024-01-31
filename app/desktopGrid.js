@@ -975,12 +975,15 @@ const DesktopGrid = class {
 
     coordinatesGlobalToLocal(X, Y, widget = null) {
         [X, Y] = this.coordinatesGlobalToWindow(X, Y);
+        const sourcePoint = new Graphene.Point({x: X, y: Y});
 
         if (!widget)
             widget = this._container;
 
-        let [x, y] = this._window.translate_coordinates(widget, X, Y).slice(1);
-        return [x, y];
+        let [found, targetPoint] = this._window.compute_point(widget, sourcePoint);
+        if (!found)
+            return [0, 0];
+        return [targetPoint.x, targetPoint.y];
     }
 
     coordinatesGlobalToWindow(X, Y) {
@@ -990,16 +993,22 @@ const DesktopGrid = class {
     }
 
     coordinatesWidgetToWidget(x, y, widget1, widget2) {
-        let [X, Y] = widget1.translate_coordinates(widget2, x, y).slice(1);
-        return [X, Y];
+        const sourcePoint = new Graphene.Point({x, y});
+        let [found, targetPoint] = widget1.compute_point(widget2, sourcePoint);
+        if (!found)
+            return [0, 0];
+        return [targetPoint.x, targetPoint.y];
     }
 
     coordinatesLocalToWindow(x, y, widget = null) {
         if (!widget)
             widget = this._container;
 
-        let [X, Y] = widget.translate_coordinates(this._window, x, y).slice(1);
-        return [X, Y];
+        const sourcePoint = new Graphene.Point({x, y})
+        let [found, targetPoint] = widget.compute_point(this._window, sourcePoint);
+        if (!found)
+            return [0, 0];
+        return [targetPoint.x, targetPoint.y];
     }
 
     coordinatesLocalToGlobal(x, y, widget = null) {
