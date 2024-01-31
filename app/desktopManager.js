@@ -2017,12 +2017,17 @@ const DesktopManager = class {
     }
 
     _placeAllFilesOnGrids(opts = {redisplay: false}) {
-        if (this.Prefs.keepStacked)
+        if (this.Prefs.keepStacked) {
             this.doStacks(opts);
-        else if (this.Prefs.keepArranged)
+            return;
+        }
+        if (this.Prefs.keepArranged) {
             this.doSorts(opts);
-        else
-            this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
+            return;
+        }
+        if (opts.redisplay)
+            this._sortByPosition();
+        this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
     }
 
     _addFilesToDesktop(fileList, storeMode) {
@@ -2806,11 +2811,7 @@ const DesktopManager = class {
         this._reassignFilesToDesktop();
     }
 
-    _sortAllFilesFromGridsByPosition() {
-        if (this.Prefs.keepArranged)
-            return;
-
-        this._fileList.map(f => f.removeFromGrid({callOnDestroy: false}));
+    _sortByPosition() {
         let cornerInversion = this.Prefs.StartCorner;
         if (!cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
@@ -2864,6 +2865,13 @@ const DesktopManager = class {
                 return 0;
             });
         }
+    }
+
+    _sortAllFilesFromGridsByPosition() {
+        if (this.Prefs.keepArranged)
+            return;
+        this._fileList.map(f => f.removeFromGrid({callOnDestroy: false}));
+        this._sortByPosition();
         this._reassignFilesToDesktop();
     }
 
