@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-07 23:11-0500\n"
+"POT-Creation-Date: 2024-01-31 21:34-0500\n"
 "PO-Revision-Date: 2024-01-09 18:06+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -158,132 +158,127 @@ msgid "Rectangular icons with drop grid highlighting"
 msgstr "드롭 그리드 강조와 직사각형 아이콘"
 
 #: app/adwPreferencesWindow.js:249
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-msgid "Use Nemo to open folders"
-msgstr "폴더를 여는 Nemo 사용"
-
-#: app/adwPreferencesWindow.js:252
 msgid "Add an emblem to soft links"
 msgstr "소프트 링크에 엠블럼 추가"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:250
 msgid "Use dark text in icon labels"
 msgstr "아이콘 레이블에 어두운 텍스트 사용"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "본문 바로가기"
 
-#: app/adwPreferencesWindow.js:259
+#: app/adwPreferencesWindow.js:256
 msgid "Single click"
 msgstr "한 번 클릭"
 
-#: app/adwPreferencesWindow.js:260
+#: app/adwPreferencesWindow.js:257
 msgid "Double click"
 msgstr "두 번 클릭"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:261
 msgid "Show image thumbnails"
 msgstr "이미지 마중그림 표시"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:263
 msgid "Always"
 msgstr "항상"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "On this computer only"
 msgstr "이 컴퓨터에서만"
 
-#: app/adwPreferencesWindow.js:268
+#: app/adwPreferencesWindow.js:265
 msgid "Never"
 msgstr "보지 않음"
 
-#: app/adwPreferencesWindow.js:270
+#: app/adwPreferencesWindow.js:267
 msgid "Show a context menu item to delete permanently"
 msgstr "영구적으로 삭제할 컨텍스트 메뉴 항목 표시"
 
-#: app/adwPreferencesWindow.js:271
+#: app/adwPreferencesWindow.js:268
 msgid "Show hidden files"
 msgstr "숨김 파일 표시"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:269
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "드래그 hover에 폴더 열기"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Website"
 msgstr "웹사이트"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Visit"
 msgstr "방문하다"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Issues"
 msgstr "이슈"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report issues on issue tracker"
 msgstr "문제 추적기에 대한 문제"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
 msgstr "보고서"
 
-#: app/adwPreferencesWindow.js:276
+#: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "License"
 msgstr "라이선스"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translation"
 msgstr "번역"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "웹 브라우저에서 번역하는 데 도움이"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translate"
 msgstr "번역하기"
 
-#: app/appChooser.js:50
+#: app/appChooser.js:53
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "<b>{foo}</b>를 열려면 응용 프로그램을 선택하십시오"
 
-#: app/appChooser.js:58
+#: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
 msgstr "공지사항"
 
-#: app/appChooser.js:60
+#: app/appChooser.js:63
 #, fuzzy
 msgid "Open Folder"
 msgstr "폴더 열기"
 
-#: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
 msgstr "파일 열기"
 
-#: app/appChooser.js:102
+#: app/appChooser.js:105
 #, fuzzy
 msgid "Error changing default application"
 msgstr "오류 변경 기본 응용"
 
-#: app/appChooser.js:103
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "{foo}를 {mimetype에 대한 기본 응용 프로그램으로 설정하는 동안 오류}"
@@ -297,7 +292,7 @@ msgid "File name"
 msgstr "파일 이름"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
-#: app/fileItemMenu.js:791
+#: app/fileItemMenu.js:800
 msgid "OK"
 msgstr "확인"
 
@@ -330,7 +325,7 @@ msgid "Compressing files"
 msgstr "파일들을 압축하기."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:719
-#: app/desktopManager.js:1160 app/fileItemMenu.js:641 app/fileItemMenu.js:791
+#: app/desktopManager.js:1160 app/fileItemMenu.js:650 app/fileItemMenu.js:800
 msgid "Cancel"
 msgstr "취소"
 
@@ -459,6 +454,11 @@ msgstr "작은 아카이브하지만 리눅스와 Mac 만."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "작은 아카이브하지만 Windows 및 Mac에 설치해야합니다."
 
+#: app/desktopGrid.js:46
+#, fuzzy
+msgid "Desktop Icons"
+msgstr "바탕화면 아이콘 설정"
+
 #: app/desktopManager.js:120
 #, fuzzy
 msgid "GNOME Files not found"
@@ -474,7 +474,7 @@ msgstr "GNOME 소개 파일 응용 프로그램은 데스크톱 아이콘 NG에 
 msgid "Move"
 msgstr "이동"
 
-#: app/desktopManager.js:717 app/fileItemMenu.js:364
+#: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
 msgstr "복사하기"
 
@@ -547,7 +547,7 @@ msgstr "유형에 의해 스택 유지.."
 msgid "Sort Home/Drives/Trash…"
 msgstr "분류 홈/드라이브/트래시.."
 
-#: app/desktopManager.js:1434 app/desktopManager.js:2459
+#: app/desktopManager.js:1434 app/desktopManager.js:2468
 msgid "New Folder"
 msgstr "새 폴더"
 
@@ -618,65 +618,95 @@ msgstr "이 창은 열려 있습니다. 활성 창으로 전환하십시오."
 msgid "Settings"
 msgstr "설정"
 
-#: app/desktopManager.js:2482
+#: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Folder 창조 실패"
 
-#: app/desktopManager.js:2483
+#: app/desktopManager.js:2492
 #, fuzzy
 msgid "Could not create folder"
 msgstr "폴더를 만들 수 없습니다."
 
-#: app/desktopManager.js:2526
+#: app/desktopManager.js:2535
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "템플릿 생성 오류"
 
-#: app/desktopManager.js:2527
+#: app/desktopManager.js:2536
 #, fuzzy
 msgid "Could not create document"
 msgstr "문서 작성"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:140
+#: app/fileItem.js:140 app/fileItem.js:149
 msgid "Home"
 msgstr "홈"
 
-#: app/fileItem.js:266
+#: app/fileItem.js:155
+#, fuzzy
+#| msgid "Empty Trash"
+msgid "Trash"
+msgstr "휴지통 비우기"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * an external drive is selected. Example: if a USB stick named "my_portable"
+#. * is selected, it will say "Drive my_portable"
+#: app/fileItem.js:161
+msgid "Drive"
+msgstr ""
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a folder is selected. Example: if a folder named "things" is selected,
+#. * it will say "Folder things"
+#: app/fileItem.js:171
+#, fuzzy
+#| msgid "New Folder"
+msgid "Folder"
+msgstr "새 폴더"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a normal file is selected. Example: if a file named "my_picture.jpg"
+#. * is selected, it will say "File my_picture.jpg"
+#: app/fileItem.js:178
+#, fuzzy
+msgid "File"
+msgstr "파일"
+
+#: app/fileItem.js:307
 msgid "Broken Link"
 msgstr "깨진 링크"
 
-#: app/fileItem.js:267
+#: app/fileItem.js:308
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "이 파일은 손상된 심볼릭링크이므로 열 수 없습니다"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:339
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "파일을 열지 못했습니다"
 
-#: app/fileItem.js:308
+#: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "\"{foo}\"파일을 열 수 있는 응용 프로그램이 없습니다"
 
-#: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
+#: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
 msgstr "파일을 열 수 없습니다"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
+#: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} 이 유형의 파일을 열 수 없습니다!"
 
-#: app/fileItem.js:350
+#: app/fileItem.js:384
 msgid "Broken Desktop File"
 msgstr "깨진 바탕화면 파일"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:385
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -688,11 +718,11 @@ msgstr ""
 "\n"
 "<b>파일을 편집하여 올바른 실행 프로그램을 설정합니다.</b>"
 
-#: app/fileItem.js:357
+#: app/fileItem.js:391
 msgid "Invalid Permissions on Desktop File"
 msgstr "바탕화면 파일에 대한 잘못된 권한"
 
-#: app/fileItem.js:358
+#: app/fileItem.js:392
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -700,7 +730,7 @@ msgstr ""
 "이 .desktop 파일에 잘못된 권한이 있습니다. 마우스 오른쪽 버튼을 클릭하여 속성"
 "을 편집 한 다음:\n"
 
-#: app/fileItem.js:360
+#: app/fileItem.js:394
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
@@ -708,7 +738,7 @@ msgstr ""
 "\n"
 "<b>\"다른 접근\", \"읽기 전용\" 또는 \"없음\"에서 권한 설정</b>"
 
-#: app/fileItem.js:363
+#: app/fileItem.js:397
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -716,7 +746,7 @@ msgstr ""
 "\n"
 "<b>활성화 옵션, \"파일을 프로그램으로 실행하기 허용\"</b>"
 
-#: app/fileItem.js:371
+#: app/fileItem.js:405
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -737,258 +767,258 @@ msgstr[0] "{0}개 파일 새 폴더로 이동"
 msgid "Open All..."
 msgstr "모두 열기…"
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:317
 #, fuzzy
 msgid "Run"
 msgstr "실행"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:319
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "{foo}로 열기"
 
-#: app/fileItemMenu.js:315
+#: app/fileItemMenu.js:321
 msgid "Open"
 msgstr "열기"
 
-#: app/fileItemMenu.js:324 app/fileItemMenu.js:328
+#: app/fileItemMenu.js:330 app/fileItemMenu.js:334
 msgid "Extract Here"
 msgstr "여기 풀기"
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:336
 msgid "Extract To..."
 msgstr "다른 위치에 풀기…"
 
-#: app/fileItemMenu.js:335
-msgid "Open All With Other Application..."
-msgstr "다른 프로그램으로 모두 열기…"
-
-#: app/fileItemMenu.js:335
+#: app/fileItemMenu.js:341 app/fileItemMenu.js:344
 #, fuzzy
 msgid "Open With..."
 msgstr "다음으로 열기..."
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:344
+msgid "Open All With Other Application..."
+msgstr "다른 프로그램으로 모두 열기…"
+
+#: app/fileItemMenu.js:347
 msgid "Launch using Dedicated Graphics Card"
 msgstr "전용 그래픽 카드를 사용하여 실행"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:354
 msgid "Stack This Type"
 msgstr "이 유형 스택"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:354
 msgid "Unstack This Type"
 msgstr "이 유형 스택 해제"
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:365
 #, fuzzy
 msgid "Run as a Program"
 msgstr "프로그램으로 실행"
 
-#: app/fileItemMenu.js:359
+#: app/fileItemMenu.js:368
 msgid "Scripts"
 msgstr "스크립트"
 
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:371
 msgid "Cut"
 msgstr "잘라내기"
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Move to..."
 msgstr "다음으로 이동 ..."
 
-#: app/fileItemMenu.js:369
+#: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Copy to..."
 msgstr "복사..."
 
-#: app/fileItemMenu.js:373
+#: app/fileItemMenu.js:382
 msgid "Rename…"
 msgstr "이름 바꾸기…"
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:385
 #, fuzzy
 msgid "Create Link..."
 msgstr "링크 생성..."
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:390
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "압축 {0} 폴더"
 
-#: app/fileItemMenu.js:388
+#: app/fileItemMenu.js:397
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "{0}개 파일 압축하기"
 
-#: app/fileItemMenu.js:394
+#: app/fileItemMenu.js:403
 #, fuzzy
 msgid "Email to..."
 msgstr "이메일 ..."
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:408
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "모바일 장치에 전송"
 
-#: app/fileItemMenu.js:403
+#: app/fileItemMenu.js:412
 msgid "Move to Trash"
 msgstr "휴지통으로 옮기기"
 
-#: app/fileItemMenu.js:406
+#: app/fileItemMenu.js:415
 msgid "Delete permanently"
 msgstr "영구 삭제"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:420
 msgid "Don't Allow Launching"
 msgstr "실행을 허용하지 않음"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:420
 msgid "Allow Launching"
 msgstr "실행 허용"
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:426
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
-#: app/fileItemMenu.js:423
+#: app/fileItemMenu.js:432
 msgid "Eject"
 msgstr "꺼내기"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:435
 msgid "Unmount"
 msgstr "마운트 해제"
 
-#: app/fileItemMenu.js:430
+#: app/fileItemMenu.js:439
 msgid "Common Properties"
 msgstr "공통 속성"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:440
 msgid "Properties"
 msgstr "속성"
 
-#: app/fileItemMenu.js:434
+#: app/fileItemMenu.js:443
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "모두보기 {0}"
 
-#: app/fileItemMenu.js:435
+#: app/fileItemMenu.js:444
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "{0}에 표시"
 
-#: app/fileItemMenu.js:440
+#: app/fileItemMenu.js:449
 #, fuzzy
 msgid "Open in {0}"
 msgstr "{0}에서 열기"
 
-#: app/fileItemMenu.js:559
+#: app/fileItemMenu.js:568
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "추출 취소"
 
-#: app/fileItemMenu.js:560
+#: app/fileItemMenu.js:569
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "추출 가능 파일, 대상 폴더 없음"
 
-#: app/fileItemMenu.js:592
+#: app/fileItemMenu.js:601
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "이동 취소"
 
-#: app/fileItemMenu.js:593
+#: app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "파일 이동 불가, 대상 폴더 없음"
 
-#: app/fileItemMenu.js:605 app/fileItemMenu.js:633
+#: app/fileItemMenu.js:614 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Select Destination"
 msgstr "도착지 선택"
 
-#: app/fileItemMenu.js:607 app/fileItemMenu.js:635
+#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 msgid "Select"
 msgstr "선택"
 
-#: app/fileItemMenu.js:679
+#: app/fileItemMenu.js:688
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "복사가 취소되었습니다"
 
-#: app/fileItemMenu.js:680
+#: app/fileItemMenu.js:689
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "파일 복사, 대상 폴더 없음"
 
-#: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
-#: app/fileItemMenu.js:775
+#: app/fileItemMenu.js:737 app/fileItemMenu.js:747 app/fileItemMenu.js:757
+#: app/fileItemMenu.js:784
 #, fuzzy
 msgid "Mail Error"
 msgstr "메일 오류"
 
-#: app/fileItemMenu.js:729
+#: app/fileItemMenu.js:738
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email을 찾을 수 없습니다. 프로그램을 설치하십시오"
 
-#: app/fileItemMenu.js:739
+#: app/fileItemMenu.js:748
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "이메일 파일에 오류가 있었습니다"
 
-#: app/fileItemMenu.js:749
+#: app/fileItemMenu.js:758
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Zip 명령을 찾을 수 없으므로 프로그램을 설치하십시오"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:755
+#: app/fileItemMenu.js:764
 #, fuzzy
 msgid "Archive.zip"
 msgstr "아카이브"
 
-#: app/fileItemMenu.js:776
+#: app/fileItemMenu.js:785
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Zip 아카이브를 만드는 오류가 있었습니다"
 
-#: app/fileItemMenu.js:789
+#: app/fileItemMenu.js:798
 msgid "Can not email a Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
-#: app/fileItemMenu.js:790
+#: app/fileItemMenu.js:799
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "선택은 디렉토리를 포함, .zip 파일에 압축 먼저?"
 
-#: app/fileItemMenu.js:902
+#: app/fileItemMenu.js:911
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome 콘솔에서 열기"
 
-#: app/fileItemMenu.js:903
+#: app/fileItemMenu.js:912
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Gnome 콘솔 또는 기타 터미널 프로그램 설치"
 
-#: app/fileItemMenu.js:910
+#: app/fileItemMenu.js:919
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "자주 묻는 질문 이름 *"
 
-#: app/fileItemMenu.js:911
+#: app/fileItemMenu.js:920
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "설치하기 이름 *"
 
-#: app/preferences.js:417
+#: app/preferences.js:412
 #, fuzzy
 msgid "Console"
 msgstr "콘솔"
@@ -996,6 +1026,12 @@ msgstr "콘솔"
 #: app/showErrorPopup.js:39
 msgid "Close"
 msgstr "닫기"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
+#. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
+#: app/stackItem.js:44
+msgid "Stack"
+msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1149,23 +1185,19 @@ msgstr "스택하지 않을 파일 유형"
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "문자열 유형의 배열, 이러한 유형의 파일을 스택하지 않습니다"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "노틸러스 대신 Nemo를 사용하여 폴더를 엽니다."
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Add an emblem to links"
 msgstr "링크에 엠블럼 추가"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Add an emblem to allow to identify soft links."
 msgstr "소프트 링크를 식별할 수 있도록 엠블럼을 추가합니다."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 msgid "Use black for label text"
 msgstr "레이블 텍스트에 검정색 사용"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
@@ -1173,17 +1205,23 @@ msgstr ""
 "레이블 텍스트를 흰색 대신 검정색으로 칠합니다. 밝은 배경을 사용할 때 유용합니"
 "다."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
 msgstr "연결된 경우 non primary monitor에 새로운 아이콘을 표시하십시오"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr "두 번째 모니터가 연결되면 새로운 아이콘이 비주얼 모니터에 배치됩니다"
+
+#~ msgid "Use Nemo to open folders"
+#~ msgstr "폴더를 여는 Nemo 사용"
+
+#~ msgid "Use Nemo instead of Nautilus to open folders."
+#~ msgstr "노틸러스 대신 Nemo를 사용하여 폴더를 엽니다."
 
 #, fuzzy
 #~ msgid "Highlight the drop grid during Drag and Drop"

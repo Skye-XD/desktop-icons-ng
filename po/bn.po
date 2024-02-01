@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-07 23:11-0500\n"
+"POT-Creation-Date: 2024-01-31 21:34-0500\n"
 "PO-Revision-Date: 2024-01-08 12:27+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,140 +161,134 @@ msgid "Rectangular icons with drop grid highlighting"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:249
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
-msgid "Use Nemo to open folders"
-msgstr "ফোল্ডার খুলতে নিমো ব্যবহার করুন"
-
-#: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "নরম লিঙ্কগুলিতে একটি প্রতীক যোগ করুন"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "আইকন লেবেলে গাঢ় লেখা ব্যবহার করুন"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "আইটেম খুলতে অ্যাকশন"
 
-#: app/adwPreferencesWindow.js:259
+#: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Single click"
 msgstr "একক ক্লিক"
 
-#: app/adwPreferencesWindow.js:260
+#: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Double click"
 msgstr "ডাবল ক্লীক"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:261
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "ছবির থাম্বনেল দেখান"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:263
 #, fuzzy
 msgid "Always"
 msgstr "সর্বদা"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "On this computer only"
 msgstr "শুধুমাত্র এই কম্পিউটারে"
 
-#: app/adwPreferencesWindow.js:268
+#: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "Never"
 msgstr "Never"
 
-#: app/adwPreferencesWindow.js:270
+#: app/adwPreferencesWindow.js:267
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "স্থায়ীভাবে মুছে ফেলার জন্য একটি প্রসঙ্গ মেনু আইটেম দেখান"
 
-#: app/adwPreferencesWindow.js:271
+#: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Show hidden files"
 msgstr "লুকানো ফাইলগুলি দেখান"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:269
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "ড্র্যাগ হোভারে ফোল্ডার খুলুন"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Website"
 msgstr "Website"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Visit"
 msgstr "ভিজিট করুন"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Issues"
 msgstr "সমস্যা"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 msgid "Report issues on issue tracker"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
 msgstr "প্রতিবেদন"
 
-#: app/adwPreferencesWindow.js:276
+#: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "License"
 msgstr "লাইসেন্স"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translation"
 msgstr "অনুবাদ"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 msgid "Help translate in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translate"
 msgstr "অনুবাদ"
 
-#: app/appChooser.js:50
+#: app/appChooser.js:53
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "খোলার জন্য একটি অ্যাপ্লিকেশন বেছে নিন <b>{foo}</b>"
 
-#: app/appChooser.js:58
+#: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
 msgstr "উন্মুক্ত বস্তু"
 
-#: app/appChooser.js:60
+#: app/appChooser.js:63
 #, fuzzy
 msgid "Open Folder"
 msgstr "ফোল্ডার খুলুন"
 
-#: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
 msgstr "ফাইল খুলুন"
 
-#: app/appChooser.js:102
+#: app/appChooser.js:105
 #, fuzzy
 msgid "Error changing default application"
 msgstr "ডিফল্ট অ্যাপ্লিকেশন পরিবর্তন ত্রুটি"
 
-#: app/appChooser.js:103
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "{foo} কে {mimetype}-এর জন্য ডিফল্ট অ্যাপ্লিকেশন হিসেবে সেট করার সময় ত্রুটি"
@@ -310,7 +304,7 @@ msgid "File name"
 msgstr "ফাইলের নাম"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
-#: app/fileItemMenu.js:791
+#: app/fileItemMenu.js:800
 #, fuzzy
 msgid "OK"
 msgstr "ঠিক আছে"
@@ -345,7 +339,7 @@ msgid "Compressing files"
 msgstr "ফাইলগুলো কমপ্রেস হচ্ছে।"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:719
-#: app/desktopManager.js:1160 app/fileItemMenu.js:641 app/fileItemMenu.js:791
+#: app/desktopManager.js:1160 app/fileItemMenu.js:650 app/fileItemMenu.js:800
 #, fuzzy
 msgid "Cancel"
 msgstr "বাতিল"
@@ -475,6 +469,11 @@ msgstr "ছোট সংরক্ষণাগার কিন্তু শুধ
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "ছোট আর্কাইভ কিন্তু Windows এবং Mac এ ইনস্টল করা আবশ্যক।"
 
+#: app/desktopGrid.js:46
+#, fuzzy
+msgid "Desktop Icons"
+msgstr "ডেস্কটপ আইকন সেটিংস"
+
 #: app/desktopManager.js:120
 #, fuzzy
 msgid "GNOME Files not found"
@@ -490,7 +489,7 @@ msgstr "ডেস্কটপ আইকন এনজি দ্বারা জ�
 msgid "Move"
 msgstr "স্থানান্তর"
 
-#: app/desktopManager.js:717 app/fileItemMenu.js:364
+#: app/desktopManager.js:717 app/fileItemMenu.js:373
 #, fuzzy
 msgid "Copy"
 msgstr "Copy"
@@ -565,7 +564,7 @@ msgstr "প্রকার অনুসারে স্ট্যাক করা
 msgid "Sort Home/Drives/Trash…"
 msgstr "হোম/ড্রাইভ/ট্র্যাশ সাজান…"
 
-#: app/desktopManager.js:1434 app/desktopManager.js:2459
+#: app/desktopManager.js:1434 app/desktopManager.js:2468
 #, fuzzy
 msgid "New Folder"
 msgstr "নতুন ফোল্ডার"
@@ -645,69 +644,97 @@ msgstr "এই উইন্ডো খোলা আছে. সক্রিয় 
 msgid "Settings"
 msgstr "পছন্দসমূহ"
 
-#: app/desktopManager.js:2482
+#: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "ফোল্ডার তৈরি করা ব্যর্থ হয়েছে৷"
 
-#: app/desktopManager.js:2483
+#: app/desktopManager.js:2492
 #, fuzzy
 msgid "Could not create folder"
 msgstr "ফোল্ডার তৈরী করা সম্ভব হয়নি।"
 
-#: app/desktopManager.js:2526
+#: app/desktopManager.js:2535
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "টেমপ্লেট তৈরির ত্রুটি৷"
 
-#: app/desktopManager.js:2527
+#: app/desktopManager.js:2536
 #, fuzzy
 msgid "Could not create document"
 msgstr "ডকুমেন্ট তৈরি করা যায়নি"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:140
+#: app/fileItem.js:140 app/fileItem.js:149
 #, fuzzy
 msgid "Home"
 msgstr "হোম"
 
-#: app/fileItem.js:266
+#: app/fileItem.js:155
+#, fuzzy
+msgid "Trash"
+msgstr "ট্র্যাশ খালি"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * an external drive is selected. Example: if a USB stick named "my_portable"
+#. * is selected, it will say "Drive my_portable"
+#: app/fileItem.js:161
+msgid "Drive"
+msgstr ""
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a folder is selected. Example: if a folder named "things" is selected,
+#. * it will say "Folder things"
+#: app/fileItem.js:171
+#, fuzzy
+msgid "Folder"
+msgstr "নতুন ফোল্ডার"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a normal file is selected. Example: if a file named "my_picture.jpg"
+#. * is selected, it will say "File my_picture.jpg"
+#: app/fileItem.js:178
+#, fuzzy
+msgid "File"
+msgstr "ফাইল"
+
+#: app/fileItem.js:307
 #, fuzzy
 msgid "Broken Link"
 msgstr "ছিন্ন সুত্র"
 
-#: app/fileItem.js:267
+#: app/fileItem.js:308
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "এই ফাইলটি খোলা যাবে না কারণ এটি একটি ব্রোকেন সিমলিংক"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:339
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "ফাইল খুলতে ব্যর্থ হয়েছে"
 
-#: app/fileItem.js:308
+#: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "\"{foo}\" ধরনের ফাইল খোলার জন্য কোনো অ্যাপ্লিকেশন ইনস্টল করা নেই"
 
-#: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
+#: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
 msgstr "ফাইল খোলা যায়নি"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
+#: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} এই ধরনের ফাইল খুলতে পারে না!"
 
-#: app/fileItem.js:350
+#: app/fileItem.js:384
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "ডেস্কটপের ব্রোকেন ফাইল সমূহ"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:385
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -715,12 +742,12 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:357
+#: app/fileItem.js:391
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "ডেস্কটপ ফাইলে অবৈধ অনুমতি"
 
-#: app/fileItem.js:358
+#: app/fileItem.js:392
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -728,7 +755,7 @@ msgid ""
 msgstr ""
 "এই .desktop ফাইলের ভুল অনুমতি আছে। বৈশিষ্ট্য সম্পাদনা করতে ডান ক্লিক করুন, তারপর:\n"
 
-#: app/fileItem.js:360
+#: app/fileItem.js:394
 #, fuzzy
 msgid ""
 "\n"
@@ -737,7 +764,7 @@ msgstr ""
 "\n"
 "<b>\"অন্যান্য অ্যাক্সেস\", \"শুধুমাত্র পঠন\" বা \"কোনও নয়\"-এ অনুমতি সেট করুন</b>"
 
-#: app/fileItem.js:363
+#: app/fileItem.js:397
 #, fuzzy
 msgid ""
 "\n"
@@ -746,7 +773,7 @@ msgstr ""
 "\n"
 "<b>বিকল্প সক্ষম করুন, \"একটি প্রোগ্রাম হিসাবে ফাইল চালানোর অনুমতি দিন\"</b>"
 
-#: app/fileItem.js:371
+#: app/fileItem.js:405
 #, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
@@ -770,269 +797,269 @@ msgstr[1] "{0}টি আইটেম সহ নতুন ফোল্ডার�
 msgid "Open All..."
 msgstr "সব খোলো..।"
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:317
 #, fuzzy
 msgid "Run"
 msgstr "চালু করুন"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:319
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "{foo} দিয়ে খুলুন"
 
-#: app/fileItemMenu.js:315
+#: app/fileItemMenu.js:321
 #, fuzzy
 msgid "Open"
 msgstr "Open"
 
-#: app/fileItemMenu.js:324 app/fileItemMenu.js:328
+#: app/fileItemMenu.js:330 app/fileItemMenu.js:334
 #, fuzzy
 msgid "Extract Here"
 msgstr "এখানে নির্যাস"
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:336
 #, fuzzy
 msgid "Extract To..."
 msgstr "এতে এক্সট্র্যাক্ট করুন..।"
 
-#: app/fileItemMenu.js:335
-#, fuzzy
-msgid "Open All With Other Application..."
-msgstr "অন্য অ্যাপ্লিকেশন দিয়ে সব খুলুন..।"
-
-#: app/fileItemMenu.js:335
+#: app/fileItemMenu.js:341 app/fileItemMenu.js:344
 #, fuzzy
 msgid "Open With..."
 msgstr "সঙ্গে খোলা..।"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:344
+#, fuzzy
+msgid "Open All With Other Application..."
+msgstr "অন্য অ্যাপ্লিকেশন দিয়ে সব খুলুন..।"
+
+#: app/fileItemMenu.js:347
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
 msgstr "ডেডিকেটেড গ্রাফিক্স কার্ড ব্যবহার করে লঞ্চ করুন"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Stack This Type"
 msgstr "এই ধরনের স্ট্যাক"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "এই টাইপ আনস্ট্যাক করুন"
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:365
 #, fuzzy
 msgid "Run as a Program"
 msgstr "একটি প্রোগ্রাম হিসাবে চালান"
 
-#: app/fileItemMenu.js:359
+#: app/fileItemMenu.js:368
 #, fuzzy
 msgid "Scripts"
 msgstr "স্ক্রিপ্ট"
 
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:371
 #, fuzzy
 msgid "Cut"
 msgstr "কাটুন"
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Move to..."
 msgstr "চলো..।"
 
-#: app/fileItemMenu.js:369
+#: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Copy to..."
 msgstr "নকল করা..।"
 
-#: app/fileItemMenu.js:373
+#: app/fileItemMenu.js:382
 #, fuzzy
 msgid "Rename…"
 msgstr "পুনঃনামকরণ"
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:385
 #, fuzzy
 msgid "Create Link..."
 msgstr "লিঙ্ক তৈরি করুন..।"
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:390
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
 
-#: app/fileItemMenu.js:388
+#: app/fileItemMenu.js:397
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
 msgstr[1] "{0}টি ফাইল কম্প্রেস করুন"
 
-#: app/fileItemMenu.js:394
+#: app/fileItemMenu.js:403
 #, fuzzy
 msgid "Email to..."
 msgstr "ইমেইল..।"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:408
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "মোবাইল ডিভাইসে পাঠান"
 
-#: app/fileItemMenu.js:403
+#: app/fileItemMenu.js:412
 #, fuzzy
 msgid "Move to Trash"
 msgstr "ট্র্যাশে পাঠান"
 
-#: app/fileItemMenu.js:406
+#: app/fileItemMenu.js:415
 #, fuzzy
 msgid "Delete permanently"
 msgstr "চিরতরে মুছে দাও"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:420
 #, fuzzy
 msgid "Don't Allow Launching"
 msgstr "লঞ্চ করার অনুমতি দেবেন না"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:420
 #, fuzzy
 msgid "Allow Launching"
 msgstr "লঞ্চ করার অনুমতি দিন"
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:426
 #, fuzzy
 msgid "Empty Trash"
 msgstr "ট্র্যাশ খালি"
 
-#: app/fileItemMenu.js:423
+#: app/fileItemMenu.js:432
 #, fuzzy
 msgid "Eject"
 msgstr "বের করে দাও"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:435
 #, fuzzy
 msgid "Unmount"
 msgstr "আনমাউন্ট করুন"
 
-#: app/fileItemMenu.js:430
+#: app/fileItemMenu.js:439
 #, fuzzy
 msgid "Common Properties"
 msgstr "সাধারণ বৈশিষ্ট্য"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:440
 #, fuzzy
 msgid "Properties"
 msgstr "বৈশিষ্ট্যাবলী"
 
-#: app/fileItemMenu.js:434
+#: app/fileItemMenu.js:443
 #, fuzzy
 msgid "Show All in {0}"
 msgstr "ফাইলে সব দেখান"
 
-#: app/fileItemMenu.js:435
+#: app/fileItemMenu.js:444
 #, fuzzy
 msgid "Show in {0}"
 msgstr "ফাইলে দেখান"
 
-#: app/fileItemMenu.js:440
+#: app/fileItemMenu.js:449
 #, fuzzy
 msgid "Open in {0}"
 msgstr "{foo} দিয়ে খুলুন"
 
-#: app/fileItemMenu.js:559
+#: app/fileItemMenu.js:568
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "নিষ্কাশন বাতিল করা হয়েছে"
 
-#: app/fileItemMenu.js:560
+#: app/fileItemMenu.js:569
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "ফাইল এক্সট্র্যাক্ট করতে অক্ষম, কোনো গন্তব্য ফোল্ডার নেই৷"
 
-#: app/fileItemMenu.js:592
+#: app/fileItemMenu.js:601
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "সরানো বাতিল"
 
-#: app/fileItemMenu.js:593
+#: app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "ফাইলগুলি সরাতে অক্ষম, কোনও গন্তব্য ফোল্ডার নেই৷"
 
-#: app/fileItemMenu.js:605 app/fileItemMenu.js:633
+#: app/fileItemMenu.js:614 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select destination"
 
-#: app/fileItemMenu.js:607 app/fileItemMenu.js:635
+#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 #, fuzzy
 msgid "Select"
 msgstr "Select"
 
-#: app/fileItemMenu.js:679
+#: app/fileItemMenu.js:688
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "কপি বাতিল"
 
-#: app/fileItemMenu.js:680
+#: app/fileItemMenu.js:689
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "ফাইল কপি করতে অক্ষম, কোনো গন্তব্য ফোল্ডার নেই৷"
 
-#: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
-#: app/fileItemMenu.js:775
+#: app/fileItemMenu.js:737 app/fileItemMenu.js:747 app/fileItemMenu.js:757
+#: app/fileItemMenu.js:784
 msgid "Mail Error"
 msgstr ""
 
-#: app/fileItemMenu.js:729
+#: app/fileItemMenu.js:738
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 
-#: app/fileItemMenu.js:739
+#: app/fileItemMenu.js:748
 msgid "There was an error in emailing Files"
 msgstr ""
 
-#: app/fileItemMenu.js:749
+#: app/fileItemMenu.js:758
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:755
+#: app/fileItemMenu.js:764
 #, fuzzy
 msgid "Archive.zip"
 msgstr "সংরক্ষণাগার নাম"
 
-#: app/fileItemMenu.js:776
+#: app/fileItemMenu.js:785
 msgid "There was an error in creating a zip archive"
 msgstr ""
 
-#: app/fileItemMenu.js:789
+#: app/fileItemMenu.js:798
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "একটি ডিরেক্টরি ইমেল করতে পারবেন না"
 
-#: app/fileItemMenu.js:790
+#: app/fileItemMenu.js:799
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "নির্বাচনের মধ্যে একটি ডিরেক্টরি অন্তর্ভুক্ত রয়েছে, প্রথমে একটি ফাইলে ডিরেক্টরিটি "
 "সংকুচিত করুন।"
 
-#: app/fileItemMenu.js:902
+#: app/fileItemMenu.js:911
 msgid "Unable to Open in Gnome Console"
 msgstr ""
 
-#: app/fileItemMenu.js:903
+#: app/fileItemMenu.js:912
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
-#: app/fileItemMenu.js:910
+#: app/fileItemMenu.js:919
 msgid "Unable to Open {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:911
+#: app/fileItemMenu.js:920
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/preferences.js:417
+#: app/preferences.js:412
 #, fuzzy
 msgid "Console"
 msgstr "Console"
@@ -1041,6 +1068,12 @@ msgstr "Console"
 #, fuzzy
 msgid "Close"
 msgstr "বন্ধ করুন"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
+#. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
+#: app/stackItem.js:44
+msgid "Stack"
+msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1224,27 +1257,22 @@ msgstr "স্ট্যাক না করার জন্য ফাইলে�
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "স্ট্রিং ধরনের একটি অ্যারে, এই ধরনের ফাইল স্ট্যাক করবেন না"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, fuzzy
-msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "ফোল্ডার খুলতে নটিলাসের পরিবর্তে নিমো ব্যবহার করুন।"
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Add an emblem to links"
 msgstr "লিঙ্কগুলিতে একটি প্রতীক যোগ করুন"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
 msgstr "নরম লিঙ্কগুলি সনাক্ত করার অনুমতি দেওয়ার জন্য একটি প্রতীক যোগ করুন।"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Use black for label text"
 msgstr "লেবেল পাঠ্যের জন্য কালো ব্যবহার করুন"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
@@ -1253,18 +1281,26 @@ msgstr ""
 "সাদার পরিবর্তে কালো রঙে লেবেল টেক্সট আঁকুন। হালকা ব্যাকগ্রাউন্ড ব্যবহার করার সময় "
 "দরকারী।"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
 msgstr "সংযুক্ত থাকলে অ প্রাথমিক মনিটরে নতুন আইকন দেখান"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
 "যদি একটি দ্বিতীয় মনিটর সংযুক্ত থাকে, নতুন আইকনগুলি অ প্রাথমিক মনিটরে স্থাপন করা হয়"
+
+#, fuzzy
+#~ msgid "Use Nemo to open folders"
+#~ msgstr "ফোল্ডার খুলতে নিমো ব্যবহার করুন"
+
+#, fuzzy
+#~ msgid "Use Nemo instead of Nautilus to open folders."
+#~ msgstr "ফোল্ডার খুলতে নটিলাসের পরিবর্তে নিমো ব্যবহার করুন।"
 
 #, fuzzy
 #~ msgid "Highlight the drop grid during Drag and Drop"

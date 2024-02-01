@@ -7,12 +7,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-07 23:11-0500\n"
+"POT-Creation-Date: 2024-01-31 21:34-0500\n"
 "PO-Revision-Date: 2024-01-08 12:27+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/oc/>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -164,126 +164,121 @@ msgid "Rectangular icons with drop grid highlighting"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:249
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-msgid "Use Nemo to open folders"
-msgstr "Utilizar Nemo per dobrir los dossièrs"
-
-#: app/adwPreferencesWindow.js:252
 msgid "Add an emblem to soft links"
 msgstr "Apondre una emblèma als ligams leugièrs"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:250
 msgid "Use dark text in icon labels"
 msgstr "Utilizar un tèxte escur pels labèls d’icòna"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:254
 msgid "Action to Open Items"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:259
+#: app/adwPreferencesWindow.js:256
 msgid "Single click"
 msgstr "Clic simple"
 
-#: app/adwPreferencesWindow.js:260
+#: app/adwPreferencesWindow.js:257
 msgid "Double click"
 msgstr "Clic doble"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:261
 msgid "Show image thumbnails"
 msgstr "Mostrar las miniaturas d'imatge"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:263
 msgid "Always"
 msgstr "Totjorn"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:264
 msgid "On this computer only"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:268
+#: app/adwPreferencesWindow.js:265
 msgid "Never"
 msgstr "Jamai"
 
-#: app/adwPreferencesWindow.js:270
+#: app/adwPreferencesWindow.js:267
 msgid "Show a context menu item to delete permanently"
 msgstr "Mostrar un element de menú contextual per suprimir definitivament"
 
-#: app/adwPreferencesWindow.js:271
+#: app/adwPreferencesWindow.js:268
 msgid "Show hidden files"
 msgstr "Visualizar los fichièrs amagats"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:269
 msgid "Open folders on drag hover"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Website"
 msgstr "Site Oèb"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:271
 msgid "Visit"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Issues"
 msgstr "Problèmas"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 msgid "Report issues on issue tracker"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
 msgstr "Rapòrt"
 
-#: app/adwPreferencesWindow.js:276
+#: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "License"
 msgstr "License"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translation"
 msgstr "Translation"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 msgid "Help translate in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translate"
 msgstr "Traduire"
 
-#: app/appChooser.js:50
+#: app/appChooser.js:53
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr ""
 
-#: app/appChooser.js:58
+#: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
 msgstr "Dobrir dins un terminal"
 
-#: app/appChooser.js:60
+#: app/appChooser.js:63
 #, fuzzy
 #| msgid "New Folder"
 msgid "Open Folder"
 msgstr "Dobrir un dorsièr"
 
-#: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 #| msgid "Open"
 msgid "Open File"
 msgstr "Dobrir un fichièr"
 
-#: app/appChooser.js:102
+#: app/appChooser.js:105
 msgid "Error changing default application"
 msgstr ""
 
-#: app/appChooser.js:103
+#: app/appChooser.js:106
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
@@ -296,7 +291,7 @@ msgid "File name"
 msgstr "Nom de fichièr"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
-#: app/fileItemMenu.js:791
+#: app/fileItemMenu.js:800
 msgid "OK"
 msgstr "D’acordi"
 
@@ -325,7 +320,7 @@ msgid "Compressing files"
 msgstr "Compressar {0} fichièr"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:719
-#: app/desktopManager.js:1160 app/fileItemMenu.js:641 app/fileItemMenu.js:791
+#: app/desktopManager.js:1160 app/fileItemMenu.js:650 app/fileItemMenu.js:800
 msgid "Cancel"
 msgstr "Anullar"
 
@@ -434,6 +429,11 @@ msgstr ""
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
 
+#: app/desktopGrid.js:46
+#, fuzzy
+msgid "Desktop Icons"
+msgstr "Paramètres icònas de burèu"
+
 #: app/desktopManager.js:120
 #, fuzzy
 #| msgid "Nautilus File Manager not found"
@@ -449,7 +449,7 @@ msgstr ""
 msgid "Move"
 msgstr "Desplaçar"
 
-#: app/desktopManager.js:717 app/fileItemMenu.js:364
+#: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
 msgstr "Copiar"
 
@@ -521,7 +521,7 @@ msgstr "Gardar l’empilament per tipe…"
 msgid "Sort Home/Drives/Trash…"
 msgstr "Triar Repertòri personal/disques/escobilhièr…"
 
-#: app/desktopManager.js:1434 app/desktopManager.js:2459
+#: app/desktopManager.js:1434 app/desktopManager.js:2468
 msgid "New Folder"
 msgstr "Dorsièr novèl"
 
@@ -589,61 +589,91 @@ msgstr ""
 msgid "Settings"
 msgstr "Paramètres"
 
-#: app/desktopManager.js:2482
+#: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Nom del dorsièr"
 
-#: app/desktopManager.js:2483
+#: app/desktopManager.js:2492
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2526
+#: app/desktopManager.js:2535
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2527
+#: app/desktopManager.js:2536
 msgid "Could not create document"
 msgstr ""
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:140
+#: app/fileItem.js:140 app/fileItem.js:149
 msgid "Home"
 msgstr "Dossièr personal"
 
-#: app/fileItem.js:266
+#: app/fileItem.js:155
+#, fuzzy
+#| msgid "Empty Trash"
+msgid "Trash"
+msgstr "Voidar l'escobilièr"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * an external drive is selected. Example: if a USB stick named "my_portable"
+#. * is selected, it will say "Drive my_portable"
+#: app/fileItem.js:161
+msgid "Drive"
+msgstr ""
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a folder is selected. Example: if a folder named "things" is selected,
+#. * it will say "Folder things"
+#: app/fileItem.js:171
+#, fuzzy
+#| msgid "New Folder"
+msgid "Folder"
+msgstr "Dorsièr novèl"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a normal file is selected. Example: if a file named "my_picture.jpg"
+#. * is selected, it will say "File my_picture.jpg"
+#: app/fileItem.js:178
+#, fuzzy
+msgid "File"
+msgstr "Fichièrs"
+
+#: app/fileItem.js:307
 msgid "Broken Link"
 msgstr "Ligam copat"
 
-#: app/fileItem.js:267
+#: app/fileItem.js:308
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 "Dubertura d'aqueste fichièr impossibla pr’amor qu’es un ligam simbolic copat"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:339
 #, fuzzy
 #| msgid "Open"
 msgid "Opening File Failed"
 msgstr "Dobrir"
 
-#: app/fileItem.js:308
+#: app/fileItem.js:341
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr ""
 
-#: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
+#: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 msgid "Could not open File"
 msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
+#: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
 msgid "${appName} can not open files of this Type!"
 msgstr ""
 
-#: app/fileItem.js:350
+#: app/fileItem.js:384
 msgid "Broken Desktop File"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:385
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -655,11 +685,11 @@ msgstr ""
 "\n"
 "\t<b>Modificatz lo fichièr per definir un programa executable corrèct.</b>"
 
-#: app/fileItem.js:357
+#: app/fileItem.js:391
 msgid "Invalid Permissions on Desktop File"
 msgstr "Autorizacion invalida sul fichièr de burèu"
 
-#: app/fileItem.js:358
+#: app/fileItem.js:392
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -667,7 +697,7 @@ msgstr ""
 "Aqueste fichièr .desktop a d’autorizacions incorrèctas. Fasètz clicatz drech "
 "per modificar las proprietats, puèi :\n"
 
-#: app/fileItem.js:360
+#: app/fileItem.js:394
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
@@ -676,7 +706,7 @@ msgstr ""
 "<b>Definir las autorizacions, dins « Autres accèsses », « Lectura sola » o "
 "« Cap »</b>"
 
-#: app/fileItem.js:363
+#: app/fileItem.js:397
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
@@ -684,7 +714,7 @@ msgstr ""
 "\n"
 "<b>Activar l’opcion, « Permetre d’executar lo fichièr coma programa »</b>"
 
-#: app/fileItem.js:371
+#: app/fileItem.js:405
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -706,228 +736,228 @@ msgstr[1] "Dorsièr novèl amb {0} elements"
 msgid "Open All..."
 msgstr "Dobrir tot..."
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:317
 #, fuzzy
 msgid "Run"
 msgstr "Executar"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:319
 msgid "Open with {foo}"
 msgstr ""
 
-#: app/fileItemMenu.js:315
+#: app/fileItemMenu.js:321
 msgid "Open"
 msgstr "Dobrir"
 
-#: app/fileItemMenu.js:324 app/fileItemMenu.js:328
+#: app/fileItemMenu.js:330 app/fileItemMenu.js:334
 msgid "Extract Here"
 msgstr "Traire aicí"
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:336
 msgid "Extract To..."
 msgstr "Extraire dins..."
 
-#: app/fileItemMenu.js:335
-msgid "Open All With Other Application..."
-msgstr "Dobrir tot amb una autra aplicacion..."
-
-#: app/fileItemMenu.js:335
+#: app/fileItemMenu.js:341 app/fileItemMenu.js:344
 #, fuzzy
 #| msgid "Open All..."
 msgid "Open With..."
 msgstr "Dobrir tot..."
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:344
+msgid "Open All With Other Application..."
+msgstr "Dobrir tot amb una autra aplicacion..."
+
+#: app/fileItemMenu.js:347
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Aviar en utilizant la carta grafica dedicada"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:354
 msgid "Stack This Type"
 msgstr "Apilar aqueste tipe"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:354
 msgid "Unstack This Type"
 msgstr "Desplegar aqueste tipe"
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:365
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Executar coma un programa"
 
-#: app/fileItemMenu.js:359
+#: app/fileItemMenu.js:368
 msgid "Scripts"
 msgstr "Scripts"
 
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:371
 msgid "Cut"
 msgstr "Copar"
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:377
 #, fuzzy
 #| msgid "Send to..."
 msgid "Move to..."
 msgstr "Mandar a..."
 
-#: app/fileItemMenu.js:369
+#: app/fileItemMenu.js:378
 #, fuzzy
 #| msgid "Send to..."
 msgid "Copy to..."
 msgstr "Mandar a..."
 
-#: app/fileItemMenu.js:373
+#: app/fileItemMenu.js:382
 msgid "Rename…"
 msgstr "Renomenar…"
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:385
 msgid "Create Link..."
 msgstr ""
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:390
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Compressar {0} fichièr"
 msgstr[1] "Compressar {0} fichièrs"
 
-#: app/fileItemMenu.js:388
+#: app/fileItemMenu.js:397
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Compressar {0} fichièr"
 msgstr[1] "Compressar {0} fichièrs"
 
-#: app/fileItemMenu.js:394
+#: app/fileItemMenu.js:403
 msgid "Email to..."
 msgstr ""
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:408
 msgid "Send to Mobile Device"
 msgstr ""
 
-#: app/fileItemMenu.js:403
+#: app/fileItemMenu.js:412
 msgid "Move to Trash"
 msgstr "Desplaçar dins l'escobilhièr"
 
-#: app/fileItemMenu.js:406
+#: app/fileItemMenu.js:415
 msgid "Delete permanently"
 msgstr "Suprimir definitivament"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:420
 msgid "Don't Allow Launching"
 msgstr "Permetre pas l’aviada"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:420
 msgid "Allow Launching"
 msgstr "Permetre l'aviada"
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:426
 msgid "Empty Trash"
 msgstr "Voidar l'escobilièr"
 
-#: app/fileItemMenu.js:423
+#: app/fileItemMenu.js:432
 msgid "Eject"
 msgstr "Ejectar"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:435
 msgid "Unmount"
 msgstr "Desmontar"
 
-#: app/fileItemMenu.js:430
+#: app/fileItemMenu.js:439
 msgid "Common Properties"
 msgstr "Proprietats comunas"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:440
 msgid "Properties"
 msgstr "Proprietats"
 
-#: app/fileItemMenu.js:434
+#: app/fileItemMenu.js:443
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "Tot mostrar dins Fichièrs"
 
-#: app/fileItemMenu.js:435
+#: app/fileItemMenu.js:444
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "Mostrar dins Fichièrs"
 
-#: app/fileItemMenu.js:440
+#: app/fileItemMenu.js:449
 #, fuzzy
 #| msgid "Open"
 msgid "Open in {0}"
 msgstr "Dobrir un fichièr"
 
-#: app/fileItemMenu.js:559
+#: app/fileItemMenu.js:568
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Traire aicí"
 
-#: app/fileItemMenu.js:560
+#: app/fileItemMenu.js:569
 msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:592
+#: app/fileItemMenu.js:601
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Anullar"
 
-#: app/fileItemMenu.js:593
+#: app/fileItemMenu.js:602
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:605 app/fileItemMenu.js:633
+#: app/fileItemMenu.js:614 app/fileItemMenu.js:642
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Chausir la destinacion"
 
-#: app/fileItemMenu.js:607 app/fileItemMenu.js:635
+#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 msgid "Select"
 msgstr "Causir"
 
-#: app/fileItemMenu.js:679
+#: app/fileItemMenu.js:688
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Anullar"
 
-#: app/fileItemMenu.js:680
+#: app/fileItemMenu.js:689
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
-#: app/fileItemMenu.js:775
+#: app/fileItemMenu.js:737 app/fileItemMenu.js:747 app/fileItemMenu.js:757
+#: app/fileItemMenu.js:784
 msgid "Mail Error"
 msgstr ""
 
-#: app/fileItemMenu.js:729
+#: app/fileItemMenu.js:738
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 
-#: app/fileItemMenu.js:739
+#: app/fileItemMenu.js:748
 msgid "There was an error in emailing Files"
 msgstr ""
 
-#: app/fileItemMenu.js:749
+#: app/fileItemMenu.js:758
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:755
+#: app/fileItemMenu.js:764
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Nom de fichièr"
 
-#: app/fileItemMenu.js:776
+#: app/fileItemMenu.js:785
 msgid "There was an error in creating a zip archive"
 msgstr ""
 
-#: app/fileItemMenu.js:789
+#: app/fileItemMenu.js:798
 msgid "Can not email a Directory"
 msgstr "Impossible d’enviar un email a un Repertòri"
 
-#: app/fileItemMenu.js:790
+#: app/fileItemMenu.js:799
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
@@ -935,23 +965,23 @@ msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "La seleccion inclutz un repertòri, compressatz lo repertòri d'en primièr."
 
-#: app/fileItemMenu.js:902
+#: app/fileItemMenu.js:911
 msgid "Unable to Open in Gnome Console"
 msgstr ""
 
-#: app/fileItemMenu.js:903
+#: app/fileItemMenu.js:912
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
-#: app/fileItemMenu.js:910
+#: app/fileItemMenu.js:919
 msgid "Unable to Open {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:911
+#: app/fileItemMenu.js:920
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/preferences.js:417
+#: app/preferences.js:412
 #, fuzzy
 msgid "Console"
 msgstr "Console"
@@ -959,6 +989,12 @@ msgstr "Console"
 #: app/showErrorPopup.js:39
 msgid "Close"
 msgstr "Tancar"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
+#. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
+#: app/stackItem.js:44
+msgid "Stack"
+msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1116,24 +1152,20 @@ msgstr ""
 "Un tablèu amb de cadenas de tèxte de tipes, apilar pas aquestes tipes de "
 "fichièrs"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Utilizar Nemo allòc de Nautilus per dobrir los dossièrs."
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Add an emblem to links"
 msgstr "Apondre una emblèma als ligams"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Add an emblem to allow to identify soft links."
 msgstr ""
 "Apondre una emblèma per vos permetre d’identificar los ligams leugièrs."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 msgid "Use black for label text"
 msgstr "Utilizar lo negre pel tèxt de labèl"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
@@ -1141,15 +1173,21 @@ msgstr ""
 "Emplega lo negre pels tèxtes de labèl a la plaça del blanc. Util pendent "
 "l’utilizacion de fonzes clars."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
 msgstr ""
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
+
+#~ msgid "Use Nemo to open folders"
+#~ msgstr "Utilizar Nemo per dobrir los dossièrs"
+
+#~ msgid "Use Nemo instead of Nautilus to open folders."
+#~ msgstr "Utilizar Nemo allòc de Nautilus per dobrir los dossièrs."
 
 #, fuzzy
 #~| msgid "Highlight the drop place during Drag'n'Drop"
