@@ -420,7 +420,7 @@ const DesktopManager = class {
                 this._primaryScreen = this._desktopList[this._primaryIndex];
             else
                 this._primaryScreen = null;
-            this._placeAllFilesOnGrids({redisplay: true});
+            this._placeAllFilesOnGrids({redisplay: true, gridschanged: true});
         }
     }
 
@@ -2017,19 +2017,28 @@ const DesktopManager = class {
     }
 
     _placeAllFilesOnGrids(opts = {redisplay: false}) {
-        if (this.Prefs.keepStacked)
+        if (this.Prefs.keepStacked) {
             this.doStacks(opts);
-        else if (this.Prefs.keepArranged)
+            return;
+        }
+        if (this.Prefs.keepArranged) {
             this.doSorts(opts);
+            return;
+        }
+        if (opts.redisplay)
+            this._sortByPosition();
+        let storeMode;
+        if (opts.gridschanged)
+            storeMode = this.Enums.StoredCoordinates.REDISPLAY;
         else
-            this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
+            storeMode = this.Enums.StoredCoordinates.PRESERVE;
+        this._addFilesToDesktop(this._fileList, storeMode);
     }
 
     _addFilesToDesktop(fileList, storeMode) {
         let preferredDesktop = this._getPreferredDisplayDesktop();
         if (!preferredDesktop)
             return;
-
         let outOfDesktops = [];
         let notAssignedYet = [];
         let droppedFiles = [];
@@ -2806,11 +2815,7 @@ const DesktopManager = class {
         this._reassignFilesToDesktop();
     }
 
-    _sortAllFilesFromGridsByPosition() {
-        if (this.Prefs.keepArranged)
-            return;
-
-        this._fileList.map(f => f.removeFromGrid({callOnDestroy: false}));
+    _sortByPosition() {
         let cornerInversion = this.Prefs.StartCorner;
         if (!cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
@@ -2864,6 +2869,13 @@ const DesktopManager = class {
                 return 0;
             });
         }
+    }
+
+    _sortAllFilesFromGridsByPosition() {
+        if (this.Prefs.keepArranged)
+            return;
+        this._fileList.map(f => f.removeFromGrid({callOnDestroy: false}));
+        this._sortByPosition();
         this._reassignFilesToDesktop();
     }
 

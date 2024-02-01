@@ -974,13 +974,22 @@ const DesktopGrid = class {
     }
 
     coordinatesGlobalToLocal(X, Y, widget = null) {
+        // *** FIX ME ****
+        // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
+        // coordinates of the grid to the left of the grid the icons should be on!
+        // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
+        // to the left of where they should be immediately after grid resizing,
+        // otherwise works normally! see line 1057
         [X, Y] = this.coordinatesGlobalToWindow(X, Y);
+        const sourcePoint = new Graphene.Point({x: X, y: Y});
 
         if (!widget)
             widget = this._container;
 
-        let [x, y] = this._window.translate_coordinates(widget, X, Y).slice(1);
-        return [x, y];
+        let [found, targetPoint] = this._window.compute_point(widget, sourcePoint);
+        if (!found)
+            return [0, 0];
+        return [targetPoint.x, targetPoint.y];
     }
 
     coordinatesGlobalToWindow(X, Y) {
@@ -990,16 +999,22 @@ const DesktopGrid = class {
     }
 
     coordinatesWidgetToWidget(x, y, widget1, widget2) {
-        let [X, Y] = widget1.translate_coordinates(widget2, x, y).slice(1);
-        return [X, Y];
+        const sourcePoint = new Graphene.Point({x, y});
+        let [found, targetPoint] = widget1.compute_point(widget2, sourcePoint);
+        if (!found)
+            return [0, 0];
+        return [targetPoint.x, targetPoint.y];
     }
 
     coordinatesLocalToWindow(x, y, widget = null) {
         if (!widget)
             widget = this._container;
 
-        let [X, Y] = widget.translate_coordinates(this._window, x, y).slice(1);
-        return [X, Y];
+        const sourcePoint = new Graphene.Point({x, y});
+        let [found, targetPoint] = widget.compute_point(this._window, sourcePoint);
+        if (!found)
+            return [0, 0];
+        return [targetPoint.x, targetPoint.y];
     }
 
     coordinatesLocalToGlobal(x, y, widget = null) {
@@ -1044,6 +1059,17 @@ const DesktopGrid = class {
 
     addFileItemCloseTo(fileItem, x, y, coordinatesAction) {
         let addVolumesOpposite = this.Prefs.AddVolumesOpposite;
+        // This is a complete hack! ** FIX ME **
+        // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
+        // coordinates of the grid to the left of the grid the icons should be on!
+        // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
+        // to the left of where they should be, I cannot figure our why, otherwise
+        // works normally. So move the x, y coordinates a little only if redisplaying..
+        if (coordinatesAction === this.Enums.StoredCoordinates.REDISPLAY) {
+            x += this._elementWidth / 2;
+            y += this._elementHeight / 2;
+            coordinatesAction = this.Enums.StoredCoordinates.PRESERVE;
+        }
         let [column, row] = this._getEmptyPlaceClosestTo(
             x,
             y,
