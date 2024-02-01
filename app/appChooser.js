@@ -43,7 +43,10 @@ const AppChooserDialog = class {
         this.appChooserWidget = Gtk.AppChooserWidget.new(this.mimeType);
         this.appChooserWidget.set_show_default(true);
         this.appChooserWidget.set_show_fallback(true);
-        this.appChooserWidget.set_show_other(true);
+        if (this.mimeType === 'inode/directory')
+            this.appChooserWidget.set_show_other(false);
+        else
+            this.appChooserWidget.set_show_other(true);
         this.appChooserBox.append(this.appChooserWidget);
         this.appChooserWidget.set_vexpand(true);
         if (this.fileName !== null) {
