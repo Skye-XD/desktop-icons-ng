@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-07 23:11-0500\n"
+"POT-Creation-Date: 2024-01-22 21:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -384,6 +384,10 @@ msgstr ""
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
 
+#: app/desktopGrid.js:46
+msgid "Desktop Icons"
+msgstr ""
+
 #: app/desktopManager.js:120
 msgid "GNOME Files not found"
 msgstr ""
@@ -537,40 +541,65 @@ msgid "Could not create document"
 msgstr ""
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:140
+#: app/fileItem.js:140 app/fileItem.js:149
 msgid "Home"
 msgstr ""
 
-#: app/fileItem.js:266
+#: app/fileItem.js:155
+msgid "Trash"
+msgstr ""
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * an external drive is selected. Example: if a USB stick named "my_portable"
+#. * is selected, it will say "Drive my_portable"
+#: app/fileItem.js:161
+msgid "Drive"
+msgstr ""
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a folder is selected. Example: if a folder named "things" is selected,
+#. * it will say "Folder things"
+#: app/fileItem.js:171
+msgid "Folder"
+msgstr ""
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a normal file is selected. Example: if a file named "my_picture.jpg"
+#. * is selected, it will say "File my_picture.jpg"
+#: app/fileItem.js:178
+msgid "File"
+msgstr ""
+
+#: app/fileItem.js:307
 msgid "Broken Link"
 msgstr ""
 
-#: app/fileItem.js:267
+#: app/fileItem.js:308
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 
-#: app/fileItem.js:306
+#: app/fileItem.js:349
 msgid "Opening File Failed"
 msgstr ""
 
-#: app/fileItem.js:308
+#: app/fileItem.js:351
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr ""
 
-#: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
+#: app/fileItem.js:387 app/gnomeShellDragDrop.js:237
 msgid "Could not open File"
 msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
+#: app/fileItem.js:389 app/gnomeShellDragDrop.js:239
 msgid "${appName} can not open files of this Type!"
 msgstr ""
 
-#: app/fileItem.js:350
+#: app/fileItem.js:394
 msgid "Broken Desktop File"
 msgstr ""
 
-#: app/fileItem.js:351
+#: app/fileItem.js:395
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -578,29 +607,29 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:357
+#: app/fileItem.js:401
 msgid "Invalid Permissions on Desktop File"
 msgstr ""
 
-#: app/fileItem.js:358
+#: app/fileItem.js:402
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 
-#: app/fileItem.js:360
+#: app/fileItem.js:404
 msgid ""
 "\n"
 "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgstr ""
 
-#: app/fileItem.js:363
+#: app/fileItem.js:407
 msgid ""
 "\n"
 "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgstr ""
 
-#: app/fileItem.js:371
+#: app/fileItem.js:415
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -842,6 +871,12 @@ msgstr ""
 
 #: app/showErrorPopup.js:39
 msgid "Close"
+msgstr ""
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
+#. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
+#: app/stackItem.js:44
+msgid "Stack"
 msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string

@@ -100,8 +100,14 @@ const DesktopIconItem = class {
      ***********************/
 
     _createIconActor() {
-        this.container = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER});
+        this.container = new Gtk.Box({
+            orientation: Gtk.Orientation.VERTICAL,
+            halign: Gtk.Align.CENTER,
+            focusable: true,
+        });
         this._containerId = this.container.connect('destroy', () => this.onDestroy());
+        this.container.accessible_role = Gtk.AccessibleRole.LABEL;
+        this.container.set_can_focus(true);
 
         this._icon = new Gtk.Picture();
         this._icon.set_can_shrink(false);
@@ -114,7 +120,10 @@ const DesktopIconItem = class {
         this._iconContainer.append(this._icon);
 
         this._label = new Gtk.Label();
-        this._labelContainer = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, halign: Gtk.Align.CENTER});
+        this._labelContainer = new Gtk.Box({
+            orientation: Gtk.Orientation.VERTICAL,
+            halign: Gtk.Align.CENTER,
+        });
         if (this.Prefs.darkText)
             this._label.add_css_class('file-label-dark');
         else
@@ -436,8 +445,10 @@ const DesktopIconItem = class {
     }
 
     _setSelectedStatus() {
-        if (this._isSelected)
+        if (this._isSelected) {
             this.setHightLighted();
+            this.container.grab_focus();
+        }
         if (!this._isSelected)
             this.setUnHighLighted();
     }

@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import {_} from '../dependencies/gettext.js';
+import {Gtk} from '../dependencies/gi.js';
 import * as DesktopIconItem from './desktopIconItem.js';
 
 export {StackItem};
@@ -37,7 +38,12 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
         this._attributeContentType = attributeContentType;
         this._createIconActor();
         this._createStackTopIcon();
-        this._setLabelName(this._file);
+        const stackName = this._file;
+        /** TRANSLATORS: when using a screen reader, this is the text read when a stack is
+        selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures" */
+        const accessibleName = _('Stack');
+        this._setLabelName(stackName);
+        this.container.update_property([Gtk.AccessibleProperty.LABEL], [`${accessibleName} ${stackName}`]);
         this._savedCoordinates = null;
     }
 
@@ -57,7 +63,7 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     setSelected() {
-
+        this.container.grab_focus();
     }
 
     unsetSelected() {

@@ -43,6 +43,7 @@ const DesktopGrid = class {
         this.createGrids();
 
         this._window = new Adw.ApplicationWindow({application: desktopManager.mainApp, 'title': desktopName});
+        this._window.update_property([Gtk.AccessibleProperty.LABEL], [_('Desktop Icons')]);
         if (this._asDesktop) {
             this._window.set_decorated(false);
             this._window.set_deletable(false);
@@ -163,6 +164,7 @@ const DesktopGrid = class {
         });
         this.setDropDestination(this._container);
         this.setDragSource(this._container);
+
         this.updateGridRectangle();
     }
 
