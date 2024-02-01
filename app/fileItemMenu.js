@@ -306,7 +306,9 @@ const FileItemMenu = class {
                 openMenu.append(_('Open All...'), 'app.openMultipleFileAction');
             } else {
                 let app;
-                if (this.activeFileItem.attributeContentType === 'inode/directory')
+                if (this.activeFileItem.attributeContentType === 'inode/directory' &&
+                    Gio.AppInfo.get_all_for_type('inode/directory').length > 1
+                )
                     app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, false)?.get_name();
                 else
                     app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, true)?.get_name();
