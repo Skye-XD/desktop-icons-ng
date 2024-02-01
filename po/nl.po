@@ -9,12 +9,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-07 23:11-0500\n"
+"POT-Creation-Date: 2024-01-31 21:34-0500\n"
 "PO-Revision-Date: 2024-01-09 18:06+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
+"ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,142 +160,136 @@ msgid "Rectangular icons with drop grid highlighting"
 msgstr "Rectangular iconen met drop grid highlight"
 
 #: app/adwPreferencesWindow.js:249
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
-msgid "Use Nemo to open folders"
-msgstr "Gebruik Nemo om folders te openen"
-
-#: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "Voeg een embleem toe aan zachte schakels"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Gebruik donkere tekst in icon labels"
 
-#: app/adwPreferencesWindow.js:257
+#: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Actie aan Open Item"
 
-#: app/adwPreferencesWindow.js:259
+#: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Single click"
 msgstr "Single klik"
 
-#: app/adwPreferencesWindow.js:260
+#: app/adwPreferencesWindow.js:257
 #, fuzzy
 msgid "Double click"
 msgstr "Dubbelklikken"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:261
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Toon beeld duimnails"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:263
 #, fuzzy
 msgid "Always"
 msgstr "Altijd"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "On this computer only"
 msgstr "Alleen op deze computer"
 
-#: app/adwPreferencesWindow.js:268
+#: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "Never"
 msgstr "Nooit"
 
-#: app/adwPreferencesWindow.js:270
+#: app/adwPreferencesWindow.js:267
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Toon een context menu item om permanent te verwijderen"
 
-#: app/adwPreferencesWindow.js:271
+#: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Toon verborgen bestanden"
 
-#: app/adwPreferencesWindow.js:272
+#: app/adwPreferencesWindow.js:269
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Open folders van drag hover"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Website"
 msgstr "Webstede"
 
-#: app/adwPreferencesWindow.js:274
+#: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Visit"
 msgstr "Bezoek"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Issues"
 msgstr "Problemen"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report issues on issue tracker"
 msgstr "Rapportproblemen over de zoeker"
 
-#: app/adwPreferencesWindow.js:275
+#: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
 msgstr "Rapporteren"
 
-#: app/adwPreferencesWindow.js:276
+#: app/adwPreferencesWindow.js:273
 #, fuzzy
 msgid "License"
 msgstr "Licentie"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translation"
 msgstr "Vertaling"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Help vertalen in je web browser"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translate"
 msgstr "Vertalen"
 
-#: app/appChooser.js:50
+#: app/appChooser.js:53
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Kies een aanvraag om te openen"
 
-#: app/appChooser.js:58
+#: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
 msgstr "@:account.openItems.heading"
 
-#: app/appChooser.js:60
+#: app/appChooser.js:63
 #, fuzzy
 msgid "Open Folder"
 msgstr "Map openen"
 
-#: app/appChooser.js:62 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
 msgstr "Bestand openen"
 
-#: app/appChooser.js:102
+#: app/appChooser.js:105
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Verandering van defecte aanvragen"
 
-#: app/appChooser.js:103
+#: app/appChooser.js:106
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Error terwijl hij zich aanmeldt als defecte aanvraag voor mimetype"
@@ -311,7 +305,7 @@ msgid "File name"
 msgstr "Bestandsnaam"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
-#: app/fileItemMenu.js:791
+#: app/fileItemMenu.js:800
 msgid "OK"
 msgstr "Oké"
 
@@ -345,7 +339,7 @@ msgid "Compressing files"
 msgstr "Bezig met comprimeren van bestanden."
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:719
-#: app/desktopManager.js:1160 app/fileItemMenu.js:641 app/fileItemMenu.js:791
+#: app/desktopManager.js:1160 app/fileItemMenu.js:650 app/fileItemMenu.js:800
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -474,6 +468,11 @@ msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
 "Kleinere archieven, maar moeten geïnstalleerd worden op Windows en Mac."
 
+#: app/desktopGrid.js:46
+#, fuzzy
+msgid "Desktop Icons"
+msgstr "Desktop Icon Settings"
+
 #: app/desktopManager.js:120
 #, fuzzy
 msgid "GNOME Files not found"
@@ -489,7 +488,7 @@ msgstr "The GNOME De dossiers worden vereist door Desktop Icons NG."
 msgid "Move"
 msgstr "Move"
 
-#: app/desktopManager.js:717 app/fileItemMenu.js:364
+#: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
 msgstr "Kopiëren"
 
@@ -563,7 +562,7 @@ msgstr "Hou Stacked door Type.."
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sort Home/Drives/Trash.."
 
-#: app/desktopManager.js:1434 app/desktopManager.js:2459
+#: app/desktopManager.js:1434 app/desktopManager.js:2468
 msgid "New Folder"
 msgstr "Nieuwe map"
 
@@ -636,68 +635,98 @@ msgstr "Deze Window is open. Verander alsjeblieft naar het actieve raam."
 msgid "Settings"
 msgstr "Instellingen"
 
-#: app/desktopManager.js:2482
+#: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Folder Creation faalde"
 
-#: app/desktopManager.js:2483
+#: app/desktopManager.js:2492
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Kan geen map aanmaken."
 
-#: app/desktopManager.js:2526
+#: app/desktopManager.js:2535
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Vertaling:"
 
-#: app/desktopManager.js:2527
+#: app/desktopManager.js:2536
 #, fuzzy
 msgid "Could not create document"
 msgstr "Kon geen document maken"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:140
+#: app/fileItem.js:140 app/fileItem.js:149
 msgid "Home"
 msgstr "Persoonlijke map"
 
-#: app/fileItem.js:266
+#: app/fileItem.js:155
+#, fuzzy
+#| msgid "Empty Trash"
+msgid "Trash"
+msgstr "Prullenbak legen"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * an external drive is selected. Example: if a USB stick named "my_portable"
+#. * is selected, it will say "Drive my_portable"
+#: app/fileItem.js:161
+msgid "Drive"
+msgstr ""
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a folder is selected. Example: if a folder named "things" is selected,
+#. * it will say "Folder things"
+#: app/fileItem.js:171
+#, fuzzy
+#| msgid "New Folder"
+msgid "Folder"
+msgstr "Nieuwe map"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when
+#. * a normal file is selected. Example: if a file named "my_picture.jpg"
+#. * is selected, it will say "File my_picture.jpg"
+#: app/fileItem.js:178
+#, fuzzy
+msgid "File"
+msgstr "Bestanden"
+
+#: app/fileItem.js:307
 #, fuzzy
 msgid "Broken Link"
 msgstr "Gebroken Link"
 
-#: app/fileItem.js:267
+#: app/fileItem.js:308
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Kan dit dossier niet openen omdat het een Broken Symlink is"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:339
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "Bestand openen mislukt"
 
-#: app/fileItem.js:308
+#: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" type of files"
 msgstr "Er is geen aanmelding geïnstalleerd om een soort bestand te openen"
 
-#: app/fileItem.js:343 app/gnomeShellDragDrop.js:237
+#: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
 msgstr "Het bestand kan niet worden geopend"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:345 app/gnomeShellDragDrop.js:239
+#: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "Ik kan geen dossiers van deze Type openen!"
 
-#: app/fileItem.js:350
+#: app/fileItem.js:384
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "Gebroken Desktop Fi"
 
-#: app/fileItem.js:351
+#: app/fileItem.js:385
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -705,12 +734,12 @@ msgid ""
 "\t<b>Edit the file to set the correct executable Program.</b>"
 msgstr ""
 
-#: app/fileItem.js:357
+#: app/fileItem.js:391
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Invalid Permissie over Desktop File"
 
-#: app/fileItem.js:358
+#: app/fileItem.js:392
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -719,7 +748,7 @@ msgstr ""
 "Dit. Het dossier heeft onjuiste toestemmingen. Rechts Click to redit "
 "Properties, dan:\n"
 
-#: app/fileItem.js:360
+#: app/fileItem.js:394
 #, fuzzy
 msgid ""
 "\n"
@@ -728,7 +757,7 @@ msgstr ""
 "\n"
 "Vertaling:"
 
-#: app/fileItem.js:363
+#: app/fileItem.js:397
 #, fuzzy
 msgid ""
 "\n"
@@ -737,7 +766,7 @@ msgstr ""
 "\n"
 "'Allow Executing File is een Programma.'"
 
-#: app/fileItem.js:371
+#: app/fileItem.js:405
 #, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
@@ -762,267 +791,267 @@ msgstr[1] "Nieuwe Folder met"
 msgid "Open All..."
 msgstr "Open alle..."
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:317
 #, fuzzy
 msgid "Run"
 msgstr "Uitvoeren"
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:319
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Open met foo"
 
-#: app/fileItemMenu.js:315
+#: app/fileItemMenu.js:321
 msgid "Open"
 msgstr "Openen"
 
-#: app/fileItemMenu.js:324 app/fileItemMenu.js:328
+#: app/fileItemMenu.js:330 app/fileItemMenu.js:334
 msgid "Extract Here"
 msgstr "Hier uitpakken"
 
-#: app/fileItemMenu.js:330
+#: app/fileItemMenu.js:336
 msgid "Extract To..."
 msgstr "Uitpakken naar…"
 
-#: app/fileItemMenu.js:335
-#, fuzzy
-msgid "Open All With Other Application..."
-msgstr "Open All With Ande Application..."
-
-#: app/fileItemMenu.js:335
+#: app/fileItemMenu.js:341 app/fileItemMenu.js:344
 #, fuzzy
 msgid "Open With..."
 msgstr "Openen met..."
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:344
+#, fuzzy
+msgid "Open All With Other Application..."
+msgstr "Open All With Ande Application..."
+
+#: app/fileItemMenu.js:347
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Launch gebruikt toegewijde Graphics Card"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Stop dit Type"
 
-#: app/fileItemMenu.js:345
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Vernietig deze Type"
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:365
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Ren als Programma"
 
-#: app/fileItemMenu.js:359
+#: app/fileItemMenu.js:368
 msgid "Scripts"
 msgstr "Scripts"
 
-#: app/fileItemMenu.js:362
+#: app/fileItemMenu.js:371
 msgid "Cut"
 msgstr "Knippen"
 
-#: app/fileItemMenu.js:368
+#: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Move to..."
 msgstr "Verplaatsen naar ..."
 
-#: app/fileItemMenu.js:369
+#: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Copy to..."
 msgstr "Kopiëren naar..."
 
-#: app/fileItemMenu.js:373
+#: app/fileItemMenu.js:382
 msgid "Rename…"
 msgstr "Hernoemen…"
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:385
 #, fuzzy
 msgid "Create Link..."
 msgstr "Creëer Link..."
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:390
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Compress"
 msgstr[1] "Compress"
 
-#: app/fileItemMenu.js:388
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Compress"
 msgstr[1] "Vertaling:"
 
-#: app/fileItemMenu.js:394
+#: app/fileItemMenu.js:403
 #, fuzzy
 msgid "Email to..."
 msgstr "E-mail naar..."
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:408
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Stuur naar Mobile Device"
 
-#: app/fileItemMenu.js:403
+#: app/fileItemMenu.js:412
 msgid "Move to Trash"
 msgstr "Verplaatsen naar prullenbak"
 
-#: app/fileItemMenu.js:406
+#: app/fileItemMenu.js:415
 msgid "Delete permanently"
 msgstr "Definitief verwijderen"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:420
 #, fuzzy
 msgid "Don't Allow Launching"
 msgstr "Vertaling:"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:420
 msgid "Allow Launching"
 msgstr "Toepassingen starten toestaan"
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:426
 msgid "Empty Trash"
 msgstr "Prullenbak legen"
 
-#: app/fileItemMenu.js:423
+#: app/fileItemMenu.js:432
 msgid "Eject"
 msgstr "Uitwerpen"
 
-#: app/fileItemMenu.js:426
+#: app/fileItemMenu.js:435
 msgid "Unmount"
 msgstr "Ontkoppelen"
 
-#: app/fileItemMenu.js:430
+#: app/fileItemMenu.js:439
 #, fuzzy
 msgid "Common Properties"
 msgstr "Common Properties"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:440
 msgid "Properties"
 msgstr "Eigenschappen"
 
-#: app/fileItemMenu.js:434
+#: app/fileItemMenu.js:443
 #, fuzzy
 msgid "Show All in {0}"
 msgstr "Toon alles in"
 
-#: app/fileItemMenu.js:435
+#: app/fileItemMenu.js:444
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "Kom binnen"
 
-#: app/fileItemMenu.js:440
+#: app/fileItemMenu.js:449
 #, fuzzy
 msgid "Open in {0}"
 msgstr "Open in 0"
 
-#: app/fileItemMenu.js:559
+#: app/fileItemMenu.js:568
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Verwijderingskanker"
 
-#: app/fileItemMenu.js:560
+#: app/fileItemMenu.js:569
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Niet in staat om uit te trekken Geen bestemmingsvogel"
 
-#: app/fileItemMenu.js:592
+#: app/fileItemMenu.js:601
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Verplaats Cancell"
 
-#: app/fileItemMenu.js:593
+#: app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Niet in staat om Files te verplaatsen, geen bestemmingsvogel"
 
-#: app/fileItemMenu.js:605 app/fileItemMenu.js:633
+#: app/fileItemMenu.js:614 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Select Destination"
 msgstr "Bestemming selecteren"
 
-#: app/fileItemMenu.js:607 app/fileItemMenu.js:635
+#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 msgid "Select"
 msgstr "Selecteren"
 
-#: app/fileItemMenu.js:679
+#: app/fileItemMenu.js:688
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Begrepen"
 
-#: app/fileItemMenu.js:680
+#: app/fileItemMenu.js:689
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Niet in staat om Files te kopiëren, geen bestemmingsvogel"
 
-#: app/fileItemMenu.js:728 app/fileItemMenu.js:738 app/fileItemMenu.js:748
-#: app/fileItemMenu.js:775
+#: app/fileItemMenu.js:737 app/fileItemMenu.js:747 app/fileItemMenu.js:757
+#: app/fileItemMenu.js:784
 #, fuzzy
 msgid "Mail Error"
 msgstr "Post Error"
 
-#: app/fileItemMenu.js:729
+#: app/fileItemMenu.js:738
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 "Niet in staat om xdg-email te vinden, installeer alsjeblieft het programma"
 
-#: app/fileItemMenu.js:739
+#: app/fileItemMenu.js:748
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Er was een fout in het e-mailen van Files"
 
-#: app/fileItemMenu.js:749
+#: app/fileItemMenu.js:758
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 "Niet in staat om zip commando te vinden, installeer alsjeblieft het programma"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:755
+#: app/fileItemMenu.js:764
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archief"
 
-#: app/fileItemMenu.js:776
+#: app/fileItemMenu.js:785
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Er was een fout in het creëren van een zip archief"
 
-#: app/fileItemMenu.js:789
+#: app/fileItemMenu.js:798
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Kan een directeur niet e-mailen"
 
-#: app/fileItemMenu.js:790
+#: app/fileItemMenu.js:799
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Selectie inclusief een Directory, compressie voor een rits?"
 
-#: app/fileItemMenu.js:902
+#: app/fileItemMenu.js:911
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Niet in staat om te openen in Gnome Console"
 
-#: app/fileItemMenu.js:903
+#: app/fileItemMenu.js:912
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Vertaling:"
 
-#: app/fileItemMenu.js:910
+#: app/fileItemMenu.js:919
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Niet in staat om te openen _"
 
-#: app/fileItemMenu.js:911
+#: app/fileItemMenu.js:920
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Install _"
 
-#: app/preferences.js:417
+#: app/preferences.js:412
 #, fuzzy
 msgid "Console"
 msgstr "Console"
@@ -1031,6 +1060,12 @@ msgstr "Console"
 #, fuzzy
 msgid "Close"
 msgstr "Sluiten"
+
+#. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
+#. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
+#: app/stackItem.js:44
+msgid "Stack"
+msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1209,27 +1244,22 @@ msgstr "Type Files om niet te stoppen"
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "Een stralingstypes, steek deze dossiers niet in"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, fuzzy
-msgid "Use Nemo instead of Nautilus to open folders."
-msgstr "Gebruik Nemo in plaats van Nautilus om folders te openen."
-
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, fuzzy
 msgid "Add an emblem to links"
 msgstr "Voeg een embleem toe aan verbanden"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
 msgstr "Voeg een embleem toe om zachte schakels te identificeren."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Use black for label text"
 msgstr "Gebruik zwart voor etiket"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
@@ -1238,12 +1268,12 @@ msgstr ""
 "Verf het label in het zwart in plaats van wit. Gebruikelijk als je lichte "
 "achtergronden gebruikt."
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
 msgid "Show new icons on non primary monitor if connected"
 msgstr "Laat nieuwe iconen zien op geen primaire monitor als er verband is"
 
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
@@ -1251,6 +1281,14 @@ msgid ""
 msgstr ""
 "Als een tweede monitor verbonden is, worden er nieuwe icoons geplaatst op de "
 "niet primaire monitor"
+
+#, fuzzy
+#~ msgid "Use Nemo to open folders"
+#~ msgstr "Gebruik Nemo om folders te openen"
+
+#, fuzzy
+#~ msgid "Use Nemo instead of Nautilus to open folders."
+#~ msgstr "Gebruik Nemo in plaats van Nautilus om folders te openen."
 
 #, fuzzy
 #~ msgid "Highlight the drop grid during Drag and Drop"
