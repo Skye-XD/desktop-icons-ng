@@ -246,9 +246,6 @@ const AdwPreferencesWindow = class {
         volumesGroup.add(this.addActionRowSwitch(this.desktopSettings, 'add-volumes-opposite', _('Add new drives to the opposite side of the desktop')));
 
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-drop-place', _('Rectangular icons with drop grid highlighting')));
-        const nemoRow = this.addActionRowSwitch(this.desktopSettings, 'use-nemo', _('Use Nemo to open folders'));
-        nemoRow.set_sensitive(GLib.find_program_in_path('nemo'));
-        tweaksGroup.add(nemoRow);
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-link-emblem', _('Add an emblem to soft links')));
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings, 'dark-text-in-labels', _('Use dark text in icon labels')));
 
