@@ -6,8 +6,8 @@ Updated and modified code base, uses gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
-* new - show the correct file manager in the right click menu and give the user the option to change the file manager.
-* new - prevent jumping icons and keep icons in the correct position on dock resizing and desktopgrid resizing.
+* New - show the correct file manager in the right click menu and give the user the option to change the file manager.
+* Fix - prevent jumping icons and keep icons in the correct position on dock resizing and desktopgrid resizing.
 * new - add accessibility support with screen readers
 * New - Icons on background on overview.
 * New - Rectangular icons and highlighting like Nautilus. Can be changed in Settings, tweaks.

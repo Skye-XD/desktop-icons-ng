@@ -1,5 +1,5 @@
 # History of versions #
-* Gtk4 version 71 for Gnome 45
+* Gtk4 version 71 for Gnome 45, 46
  * Add accessibility support for screen readers. Dirct port from Gtk3-DING using Gtk4 semantics. (Sergio Costas, Sundeep Mediratta)
  * Use constructors in fileItem.js. (Sundeep Mediratta)
  * Prevent jumping icons, and keep icons arranged properly when dock shrinks and desktop grid resizes. Prevent empty column on the right when this happens. ( Sundeep Mediratta)
