@@ -318,16 +318,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             return;
         }
 
-        if (this._isDirectory && this.Prefs.useNemo) {
-            try {
-                this.DesktopIconsUtil.trySpawn(GLib.get_home_dir(), ['nemo', this.file.get_uri()],
-                    this.DesktopIconsUtil.getFilteredEnviron());
-            } catch (err) {
-                console.log(`Error trying to launch Nemo: ${err.message}\n${err}`);
-            }
-            return;
-        }
-
         if (!this.DBusUtils.GnomeArchiveManager.isAvailable &&
             this._fileType === Gio.FileType.REGULAR &&
             this._desktopManager.autoAr.fileIsCompressed(this.fileName)) {

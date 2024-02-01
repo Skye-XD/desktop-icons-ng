@@ -305,7 +305,13 @@ const FileItemMenu = class {
             if (selectedItemsNum > 1) {
                 openMenu.append(_('Open All...'), 'app.openMultipleFileAction');
             } else {
-                let app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, true)?.get_name();
+                let app;
+                if (this.activeFileItem.attributeContentType === 'inode/directory' &&
+                    Gio.AppInfo.get_all_for_type('inode/directory').length > 1
+                )
+                    app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, false)?.get_name();
+                else
+                    app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, true)?.get_name();
                 let menuLabel;
                 if (this.activeFileItem.executableContentType && this.activeFileItem.isExecutable && !this.activeFileItem.fileContainsText)
                     menuLabel = _('Run');
@@ -330,6 +336,9 @@ const FileItemMenu = class {
                 openMenu.append(_('Extract To...'), 'app.extractto');
             }
         }
+
+        if (fileItem.isDirectory && selectedItemsNum === 1)
+            openMenu.append(_('Open With...'), 'app.doopenwith');
 
         if (!this.activeFileItem.isStackMarker && !fileItem.isDirectory) {
             openMenu.append(selectedItemsNum > 1 ? _('Open All With Other Application...') : _('Open With...'), 'app.doopenwith');
