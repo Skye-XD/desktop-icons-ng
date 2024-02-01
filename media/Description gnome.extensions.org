@@ -6,12 +6,15 @@ Updated and modified code base, uses gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* new - show the correct file manager in the right click menu and give the user the option to change the file manager.
+* new - prevent jumping icons and keep icons in the correct position on dock resizing and desktopgrid resizing.
+* new - add accessibility support with screen readers
 * New - Icons on background on overview.
 * New - Rectangular icons and highlighting like Nautilus. Can be changed in Settings, tweaks.
 * New - will mail folders by zipping them.
 * New - default terminal can be set following specs for xdg-terminal-exec and gtk4-ding will execute it even if xdg-terminal-exec is not installed.
 * Fix - will not launch Nemo if not installed.
-* New - Use mutter make_desktop() if available.
+* New - Use mutter make_desktop() if available. With Gnome 45.3, now sets window_type DESKTOP even on Wayland.
 * Fix - Gnome shortcut could hide window on X11
 * New - Sets correct hovering behaviour during drag and drop on the Dock, enables scrolling to icons when they are hidden.
 * Fix - DING window could be dragged and dropped in workspace indicators to show icons on only one workspace, fixes done to prevent.

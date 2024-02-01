@@ -1,4 +1,12 @@
 # History of versions #
+* Gtk4 version 71 for Gnome 45
+ * Add accessibility support for screen readers. Dirct port from Gtk3-DING using Gtk4 semantics. (Sergio Costas, Sundeep Mediratta)
+ * Use constructors in fileItem.js. (Sundeep Mediratta)
+ * Prevent jumping icons, and keep icons arranged properly when dock shrinks and desktop grid resizes. Prevent empty column on the right when this happens. ( Sundeep Mediratta)
+ * Let user choose the default File Manager used to open folders, and show the default correct choice in the right click menu. Removes all code specific to Nemo including preferences. (Sundeep Mediatta)
+ * Weblate translation updates. (Weblate Authors)
+ * update History.md, Readme.md, metadata.json, Version bump to 71.
+
 * Gtk4 version 70 for Gnome 45
  * Fix dark text in labels not changing with preferences when in light mode. (Sundeep Mediratta)
  * Fix distorted desktop actors, others than DING on overview on background. (Sundeep Mediratta)
