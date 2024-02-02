@@ -3,18 +3,17 @@
 # This file is distributed under the same license as the desktop-icons package.
 # Alan Mortensen <alanmortensen.am@gmail.com>, 2018.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-01-08 12:27+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/da/>\n"
+"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,7 +65,7 @@ msgstr "Skrivebordsvolumenvisning"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Files Settings"
-msgstr "Filnavn"
+msgstr "Indstillinger for filer"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -137,7 +136,7 @@ msgstr "Vis den personlige mappe på skrivebordet"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Vis papirkurvsikonet på skrivebordet"
+msgstr "Vis papirkurven på skrivebordet"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
@@ -242,7 +241,7 @@ msgstr "Rapporter problemer med problemsporing"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Anmeld"
+msgstr "Rapporter"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -272,7 +271,7 @@ msgstr "Vælg et program for at åbne <b>{foo}</b>"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "Åbn element"
+msgstr "Åbne elementer"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -302,7 +301,7 @@ msgstr "Navn på mappe"
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "File name"
-msgstr "Fil navn"
+msgstr "Filnavn"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
 #: app/fileItemMenu.js:800
@@ -456,7 +455,7 @@ msgstr "Kompatibel med alle operativsystemer."
 #: app/autoAr.js:689
 #, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Altid altid"
+msgstr "Adgangskodebeskyttet .zip skal installeres på Windows og Mac."
 
 #: app/autoAr.js:695
 #, fuzzy
@@ -471,7 +470,7 @@ msgstr "Små arkiver, men skal installeres på Windows og Mac."
 #: app/desktopGrid.js:46
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Icon-indstillinger"
+msgstr "Desktop Icons"
 
 #: app/desktopManager.js:120
 #, fuzzy
@@ -530,7 +529,9 @@ msgstr "Navn"
 #: app/desktopManager.js:1418
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Komprimering af filer"
+msgstr ""
+"Når du foretager en Drag'n'Drop-operation, markerer stedet i nettet, hvor "
+"ikonet vil blive sat med et halvgennemsigtet rektangel."
 
 #: app/desktopManager.js:1419
 #, fuzzy
@@ -585,7 +586,7 @@ msgstr "Omgør"
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Select All"
-msgstr "Vælg Alle"
+msgstr "Vælg alle"
 
 #: app/desktopManager.js:1454
 #, fuzzy
@@ -638,7 +639,9 @@ msgstr "Indstillinger"
 #: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Skrivebord"
+msgstr ""
+"At kunne arbejde med komprimerede filer, installere fil-roller og / eller "
+"gir-1.2-gnome AutoAr"
 
 #: app/desktopManager.js:2492
 #, fuzzy
@@ -664,14 +667,15 @@ msgstr "Hjem"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Tøm papirkurven"
+msgstr "Papirkurv"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Disk"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -680,7 +684,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Ny mappe"
+msgstr "Mappe"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -688,7 +692,7 @@ msgstr "Ny mappe"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Filer"
+msgstr "Fil"
 
 #: app/fileItem.js:307
 #, fuzzy
@@ -927,7 +931,7 @@ msgstr "Afmontér"
 #: app/fileItemMenu.js:439
 #, fuzzy
 msgid "Common Properties"
-msgstr "Problemer med spørgsmål"
+msgstr "Fælles egenskaber"
 
 #: app/fileItemMenu.js:440
 msgid "Properties"
@@ -1058,13 +1062,14 @@ msgstr "Konsol"
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "Luk"
+msgstr "Close"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Stabl"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1090,7 +1095,7 @@ msgstr "Kommandoen blev ikke fundet!"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "Tæt på"
+msgstr "Vælg en app for at åbne de valgte filer."
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
@@ -1105,7 +1110,7 @@ msgstr "_Annuller"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Åben"
+msgstr "_Åbn"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1164,7 +1169,7 @@ msgstr "Vis monterede netværksmængder på skrivebordet."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 #, fuzzy
 msgid "Add new drives to the opposite side of the screen"
-msgstr "Navn Navn"
+msgstr "Tilføj nye drev til den modsatte side af skærmen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy

@@ -3,18 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # phlostically <phlostically@mailinator.com>, 2022.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-01-08 12:27+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/eo/>\n"
+"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,7 +90,7 @@ msgstr "Pli eteta"
 #: app/adwPreferencesWindow.js:225
 #, fuzzy
 msgid "Small"
-msgstr "Malgrandaj"
+msgstr "Malgranda"
 
 #: app/adwPreferencesWindow.js:226
 #, fuzzy
@@ -246,7 +245,7 @@ msgstr "Raporto temoj pri temo"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Raporti"
+msgstr "Signali"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -256,7 +255,7 @@ msgstr "Permesilo"
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translation"
-msgstr "Translation"
+msgstr "Tradukado"
 
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
@@ -317,7 +316,7 @@ msgstr "Bone"
 #: app/askRenamePopup.js:56
 #, fuzzy
 msgid "Rename"
-msgstr "Ŝanĝi nomon"
+msgstr "Renomigi"
 
 #: app/autoAr.js:66
 #, fuzzy
@@ -449,7 +448,7 @@ msgstr "Arkivo nomo"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "pasvorto"
+msgstr "Pasvorto"
 
 #: app/autoAr.js:612
 #, fuzzy
@@ -480,7 +479,7 @@ msgstr ""
 #: app/desktopGrid.js:46
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Icon Settings"
+msgstr "Desktop Icons"
 
 #: app/desktopManager.js:120
 #, fuzzy
@@ -535,7 +534,7 @@ msgstr "Trovi Dosierojn sur Desktop"
 #: app/desktopManager.js:1417
 #, fuzzy
 msgid "Name"
-msgstr "Nomo"
+msgstr "/Nomo"
 
 #: app/desktopManager.js:1418
 #, fuzzy
@@ -655,7 +654,9 @@ msgstr "Agordoj"
 #: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Folder Creation Failed"
+msgstr ""
+"Por povi labori kun kunpremitaj dosieroj, instali dosierskribilon kaj/aŭ ĝi-1"
+".2-gnome Aŭtoj"
 
 #: app/desktopManager.js:2492
 #, fuzzy
@@ -676,19 +677,20 @@ msgstr "Ne povas krei dokumenton"
 #: app/fileItem.js:140 app/fileItem.js:149
 #, fuzzy
 msgid "Home"
-msgstr "Home"
+msgstr "Hejmo"
 
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Trash"
-msgstr "Malplenigi rubujon"
+msgstr "Rubujo"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Diskingo"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -696,7 +698,7 @@ msgstr ""
 #: app/fileItem.js:171
 #, fuzzy
 msgid "Folder"
-msgstr "Nova dosierujo"
+msgstr "Dosierujo"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -704,7 +706,7 @@ msgstr "Nova dosierujo"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Dosieroj"
+msgstr "Dosiero"
 
 #: app/fileItem.js:307
 #, fuzzy
@@ -821,7 +823,7 @@ msgstr "Malfermite kun {foo}"
 #: app/fileItemMenu.js:321
 #, fuzzy
 msgid "Open"
-msgstr "Malfermi"
+msgstr "Komenci"
 
 #: app/fileItemMenu.js:330 app/fileItemMenu.js:334
 #, fuzzy
@@ -925,7 +927,7 @@ msgstr "&Movi rubujen"
 #: app/fileItemMenu.js:415
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Foriĝi permanente"
+msgstr "Permanence forigi"
 
 #: app/fileItemMenu.js:420
 #, fuzzy
@@ -1092,8 +1094,9 @@ msgstr "Fermi"
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Stako"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1139,7 +1142,7 @@ msgstr "_Malfermi"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "Grandeco de piktogramoj"
+msgstr "Piktogramgrandeco"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy

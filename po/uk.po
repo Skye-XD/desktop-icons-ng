@@ -3,18 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Stanisław Zadorozhnyi <zadorozhniy123@icloud.com>, 2021.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-01-08 12:27+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/uk/>\n"
+"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +41,7 @@ msgstr "Твіки"
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Про программу"
+msgstr "Про FreedomBox"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -131,22 +130,22 @@ msgstr "Додайте нові іконки до вторинних моніт�
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Показувати особисту теку на стільниці"
+msgstr "Показати персональну папку на робочому столі"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Показувати піктограму смітника на стільниці"
+msgstr "Показати значок сміття на робочому столі"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Показувати змінні носії на стільниці"
+msgstr "Показати зовнішні диски на робочому столі"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Показувати мережеві носії на стільниці"
+msgstr "Показати мережеві диски на робочому столі"
 
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
@@ -234,7 +233,7 @@ msgstr "Проблеми звіту про видачу"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Звіт"
+msgstr "Поскаржитися"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -254,7 +253,7 @@ msgstr "Допомога перекладу в веб-переглядачі"
 #: app/adwPreferencesWindow.js:274
 #, fuzzy
 msgid "Translate"
-msgstr "Перекладайте"
+msgstr "Перекласти"
 
 #: app/appChooser.js:53
 #, fuzzy
@@ -461,7 +460,7 @@ msgstr "Більші архіви, але повинні бути встанов
 #: app/desktopGrid.js:46
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Параметри Desktop Icons"
+msgstr "Настільні іконки"
 
 #: app/desktopManager.js:120
 #, fuzzy
@@ -477,7 +476,7 @@ msgstr ""
 #: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
-msgstr "Рух"
+msgstr "Порухайтесь"
 
 #: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
@@ -515,7 +514,7 @@ msgstr "Пошук файлів на стільниці"
 #: app/desktopManager.js:1417
 #, fuzzy
 msgid "Name"
-msgstr "Назва"
+msgstr "Ім'я"
 
 #: app/desktopManager.js:1418
 #, fuzzy
@@ -530,7 +529,7 @@ msgstr "Число завантажень"
 #: app/desktopManager.js:1420
 #, fuzzy
 msgid "Type"
-msgstr "Вид"
+msgstr "Тип"
 
 #: app/desktopManager.js:1421
 #, fuzzy
@@ -604,7 +603,7 @@ msgstr "Змінити тло…"
 #: app/desktopManager.js:1478
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Параметри Desktop Icons"
+msgstr "Настроювання іконок робочого столу"
 
 #: app/desktopManager.js:1479
 msgid "Display Settings"
@@ -632,7 +631,7 @@ msgstr "Складання папки"
 #: app/desktopManager.js:2492
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Неможливо створити теку."
+msgstr "Не вдалося створити теку."
 
 #: app/desktopManager.js:2535
 #, fuzzy
@@ -653,14 +652,15 @@ msgstr "Домівка"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Спорожнити смітник"
+msgstr "Смітник"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Драйв"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -669,7 +669,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Створити теку"
+msgstr "Тека"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -677,7 +677,7 @@ msgstr "Створити теку"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Файли"
+msgstr "Файл"
 
 #: app/fileItem.js:307
 #, fuzzy
@@ -857,6 +857,7 @@ msgid "Create Link..."
 msgstr "Створити посилання."
 
 #: app/fileItemMenu.js:390
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -1047,8 +1048,9 @@ msgstr "Закрити"
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Стек"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

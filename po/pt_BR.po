@@ -13,11 +13,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-01-08 12:27+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -140,7 +139,7 @@ msgstr "Mostrar a pasta pessoal na área de trabalho"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Mostrar o ícone da lixeira na área de trabalho"
+msgstr "Mostrar o ícone de lixo na área de trabalho"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
@@ -175,7 +174,7 @@ msgstr "Use texto escuro em etiquetas de ícones"
 #: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Ação para Itens Abertos"
+msgstr "Adicionar um emblema a links suaves"
 
 #: app/adwPreferencesWindow.js:256
 msgid "Single click"
@@ -239,7 +238,7 @@ msgstr "Relatar problemas no rastreador de problemas"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Relatório"
+msgstr "Denunciar"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -269,7 +268,7 @@ msgstr "Escolha um aplicativo para abrir <b>{foo}</b>"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "Abrir item"
+msgstr "Itens abertos"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -299,7 +298,7 @@ msgstr "Nome da pasta"
 #: app/askRenamePopup.js:48
 #, fuzzy
 msgid "File name"
-msgstr "Nome do arquivo"
+msgstr "Nome do ficheiro"
 
 #: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1158
 #: app/fileItemMenu.js:800
@@ -328,7 +327,7 @@ msgstr ""
 #: app/autoAr.js:198
 #, fuzzy
 msgid "Extracting files"
-msgstr "Nome"
+msgstr "Extraindo arquivos"
 
 #: app/autoAr.js:215
 #, fuzzy
@@ -403,7 +402,7 @@ msgstr "Compressão concluída"
 #: app/autoAr.js:492
 #, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Extrair aqui"
+msgstr "Comprimir arquivos em '${outputFile}' foi concluído."
 
 #: app/autoAr.js:496 app/autoAr.js:503
 #, fuzzy
@@ -467,7 +466,7 @@ msgstr "Arquivos menores, mas devem ser instalados no Windows e no Mac."
 #: app/desktopGrid.js:46
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Configurações de ícone de desktop"
+msgstr "Ícones de desktop"
 
 #: app/desktopManager.js:120
 #, fuzzy
@@ -496,7 +495,7 @@ msgstr "Link"
 #: app/desktopManager.js:721
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Escolha Ação para Arquivos"
+msgstr "Diversos Fracas"
 
 #: app/desktopManager.js:791 app/desktopManager.js:823
 #, fuzzy
@@ -506,7 +505,7 @@ msgstr "Fazendo SymLink Failed"
 #: app/desktopManager.js:792 app/desktopManager.js:824
 #, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Questões"
+msgstr "Não poderia criar um link simbólico"
 
 #: app/desktopManager.js:1116
 #, fuzzy
@@ -546,7 +545,7 @@ msgstr "Tamanho"
 #: app/desktopManager.js:1424
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Nunca"
+msgstr "Mantenha-se arranjado.."
 
 #: app/desktopManager.js:1428
 #, fuzzy
@@ -581,7 +580,7 @@ msgstr "Refazer"
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Select All"
-msgstr "Selecionar Tudo"
+msgstr "Selecionar tudo"
 
 #: app/desktopManager.js:1454
 msgid "Arrange Icons"
@@ -633,7 +632,9 @@ msgstr "Configurações"
 #: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Área de trabalho"
+msgstr ""
+"Para poder trabalhar com arquivos compactados, instale o rolo de arquivos e/"
+"ou gir-1.2-gnome Automática"
 
 #: app/desktopManager.js:2492
 #, fuzzy
@@ -659,14 +660,15 @@ msgstr "Pasta pessoal"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Esvaziar lixeira"
+msgstr "Lixeira"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Controlador"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -675,7 +677,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Nova pasta"
+msgstr "Pasta"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -683,7 +685,7 @@ msgstr "Nova pasta"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Arquivos"
+msgstr "Arquivo"
 
 #: app/fileItem.js:307
 #, fuzzy
@@ -709,7 +711,7 @@ msgstr ""
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir o arquivo"
+msgstr "Não foi possível abrir o arquivo"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
@@ -733,7 +735,7 @@ msgstr ""
 #: app/fileItem.js:391
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Compactando arquivos"
+msgstr "Configurações do Desktop"
 
 #: app/fileItem.js:392
 #, fuzzy
@@ -860,6 +862,7 @@ msgid "Create Link..."
 msgstr "Criar Link..."
 
 #: app/fileItemMenu.js:390
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -953,7 +956,7 @@ msgstr "Movimento cancelado"
 #: app/fileItemMenu.js:602
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Fracas"
+msgstr "Incapaz de mover arquivos, sem pasta de destino"
 
 #: app/fileItemMenu.js:614 app/fileItemMenu.js:642
 #, fuzzy
@@ -963,7 +966,7 @@ msgstr "Selecionar destino"
 #: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 #, fuzzy
 msgid "Select"
-msgstr "Select"
+msgstr "Seleciar"
 
 #: app/fileItemMenu.js:688
 #, fuzzy
@@ -1050,8 +1053,9 @@ msgstr "Fechar"
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Pilha"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1065,7 +1069,9 @@ msgstr "\"${programName}\" é necessário para Desktop Icons"
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
-msgstr "Configurações de exibição"
+msgstr ""
+"Para que essa funcionalidade funcione em Desktop Icons, você deve instalar \""
+"${programName}\" em seu sistema."
 
 #: app/utils/desktopIconsUtil.js:197
 msgid "Command not found"
@@ -1079,7 +1085,7 @@ msgstr "Escolha um aplicativo para abrir os arquivos selecionados."
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "Scripts"
+msgstr "Sempre use para este tipo de arquivo"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
@@ -1210,7 +1216,7 @@ msgstr "Sempre manter ícones empilhados, tipos semelhantes são agrupados"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
 msgid "Type of Files to not Stack"
-msgstr "Nome do arquivo"
+msgstr "Tipo de arquivos para não Stack"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, fuzzy
@@ -1225,7 +1231,7 @@ msgstr "Adicionar um emblema a links"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 #, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Área de trabalho"
+msgstr "Adicione um emblema para permitir identificar links suaves."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy

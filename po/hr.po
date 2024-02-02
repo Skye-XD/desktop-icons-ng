@@ -3,17 +3,16 @@
 # This file is distributed under the same license as the gnome-shell-extension-desktop-icons package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-01-08 12:27+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hr/>\n"
+"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +41,7 @@ msgstr "Prilagodbe"
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "O aplikaciji"
+msgstr "Informacije"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -583,7 +582,7 @@ msgstr "Ponovi"
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Select All"
-msgstr "Označavanje svega"
+msgstr "Odaberi sve"
 
 #: app/desktopManager.js:1454
 #, fuzzy
@@ -662,14 +661,15 @@ msgstr "Osobna mapa"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Isprazni smeće"
+msgstr "Smeće"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Vožnja"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -678,7 +678,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Nova mapa"
+msgstr "Mapa"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -686,7 +686,7 @@ msgstr "Nova mapa"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Datoteke"
+msgstr "Datoteka"
 
 #: app/fileItem.js:307
 #, fuzzy
@@ -711,7 +711,7 @@ msgstr "Nema instalirane aplikacije za otvaranje datoteka vrste \"{foo}\"."
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nije bilo moguće otvoriti datoteku"
+msgstr "Nije mogao otvoriti datoteku"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
@@ -1047,8 +1047,9 @@ msgstr "Zatvori"
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Složi"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1083,7 +1084,7 @@ msgstr "Uvijek koristite za ovu vrstu datoteke"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "O_dustani"
+msgstr "_Odustani"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
