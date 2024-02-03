@@ -8,15 +8,16 @@
 # Войнов Артем Романович <voynovar@gmail.com>, 2023.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-01-12 03:06+0000\n"
-"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ru/>\n"
+"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -395,7 +396,7 @@ msgstr "Архивы меньшего размера, требующие уст�
 #, fuzzy
 #| msgid "Desktop Icon Settings"
 msgid "Desktop Icons"
-msgstr "Параметры Desktop Icons"
+msgstr "Иконы рабочего стола"
 
 #: app/desktopManager.js:120
 msgid "GNOME Files not found"
@@ -558,14 +559,15 @@ msgstr "Домашняя папка"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Очистить корзину"
+msgstr "Мусор"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Драйв"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -574,7 +576,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Создать папку"
+msgstr "Папка"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -583,7 +585,7 @@ msgstr "Создать папку"
 #, fuzzy
 #| msgid "Files"
 msgid "File"
-msgstr "Файлы"
+msgstr "Файл"
 
 #: app/fileItem.js:307
 msgid "Broken Link"
@@ -917,8 +919,9 @@ msgstr "Закрыть"
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Стек"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

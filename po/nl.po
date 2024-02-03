@@ -10,11 +10,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-01-09 18:06+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/nl/>\n"
+"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +40,7 @@ msgstr "Afstellingen"
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
 msgid "About"
-msgstr "Over ons"
+msgstr "Over"
 
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
@@ -85,7 +84,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:224
 #, fuzzy
 msgid "Tiny"
-msgstr "Kleinst"
+msgstr "Erg klein"
 
 #: app/adwPreferencesWindow.js:225
 msgid "Small"
@@ -132,12 +131,12 @@ msgstr "Voeg eerst nieuwe iconen toe aan secundaire Monitors"
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Toon de persoonlijke map op het bureaublad"
+msgstr "Toon de persoonlijke map op het bureau"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Toon het prullenbakpictogram op het bureaublad"
+msgstr "Toon het afval icoon op het bureau"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
@@ -222,7 +221,7 @@ msgstr "Open folders van drag hover"
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Website"
-msgstr "Webstede"
+msgstr "Website"
 
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
@@ -282,7 +281,7 @@ msgstr "Map openen"
 #: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Bestand openen"
+msgstr "Open Bestand"
 
 #: app/appChooser.js:105
 #, fuzzy
@@ -312,7 +311,7 @@ msgstr "Oké"
 #: app/askRenamePopup.js:56
 #, fuzzy
 msgid "Rename"
-msgstr "Naam wijzigen"
+msgstr "Hernoemen"
 
 #: app/autoAr.js:66
 #, fuzzy
@@ -471,7 +470,7 @@ msgstr ""
 #: app/desktopGrid.js:46
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Icon Settings"
+msgstr "Desktop Icon"
 
 #: app/desktopManager.js:120
 #, fuzzy
@@ -486,7 +485,7 @@ msgstr "The GNOME De dossiers worden vereist door Desktop Icons NG."
 #: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
-msgstr "Move"
+msgstr "Beweeg"
 
 #: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
@@ -585,7 +584,7 @@ msgstr "Opnieuw"
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Select All"
-msgstr "Alles selecteren"
+msgstr "Kies alles"
 
 #: app/desktopManager.js:1454
 #, fuzzy
@@ -664,14 +663,15 @@ msgstr "Persoonlijke map"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Prullenbak legen"
+msgstr "Prullenbak"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Rijden"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -680,7 +680,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Nieuwe map"
+msgstr "Folder"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -688,7 +688,7 @@ msgstr "Nieuwe map"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Bestanden"
+msgstr "Bestand"
 
 #: app/fileItem.js:307
 #, fuzzy
@@ -713,7 +713,7 @@ msgstr "Er is geen aanmelding geïnstalleerd om een soort bestand te openen"
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Het bestand kan niet worden geopend"
+msgstr "Kon bestand niet openen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
@@ -1059,13 +1059,14 @@ msgstr "Console"
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "Close"
-msgstr "Sluiten"
+msgstr "Sluit"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Stapel"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

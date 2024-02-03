@@ -8,11 +8,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-01-08 12:27+0000\n"
+"PO-Revision-Date: 2024-02-02 06:01+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/oc/>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,7 +232,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Rapòrt"
+msgstr "Senhalar"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -631,7 +631,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Dorsièr novèl"
+msgstr "Folder"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -639,7 +639,7 @@ msgstr "Dorsièr novèl"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Fichièrs"
+msgstr "Fichièr"
 
 #: app/fileItem.js:307
 msgid "Broken Link"
