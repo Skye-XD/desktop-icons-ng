@@ -112,19 +112,9 @@ const DesktopManager = class {
 
         this._initDbusThumbnailing();
 
-        // Check if Gnome Files is available and give warinig
-        try {
-            this.DesktopIconsUtil.trySpawn(null, ['nautilus', '--version']);
-        } catch (e) {
-            this._errorWindow = new ShowErrorPopup.ShowErrorPopup(
-                _('GNOME Files not found'),
-                _('The GNOME Files application is required by Desktop Icons NG.'),
-                true,
-                this.textEntryAccelsTurnOff.bind(this),
-                this.textEntryAccelsTurnOn.bind(this),
-                this.DesktopIconsUtil
-            );
-        }
+        // Check if Gnome Files is available and executable, otherwise give warning
+        // Check and make sure Gnome Files is registered with xdg-utils to handle inode/directory
+        this._performSanityChecks();
 
         // setup gracefull termination
         if (this._asDesktop) {
@@ -138,6 +128,66 @@ const DesktopManager = class {
                 return false;
             });
         }
+    }
+
+    async _performSanityChecks() {
+        const inodeHandlers = Gio.AppInfo.get_all_for_type('inode/directory');
+        if (!GLib.find_program_in_path('nautilus')) {
+            const modal = true;
+            const helpURL = null;
+            const dontShow = true;
+            const errorWindow = this.showError(
+                _('GNOME Files not found'),
+                _('The GNOME Files application is required by Gtk4 Desktop Icons NG.'),
+                modal,
+                helpURL,
+                dontShow
+            );
+            await errorWindow.run();
+        }
+        if (!inodeHandlers.length) {
+            const modal = true;
+            const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
+            const dontShow = true;
+            const errorWindow = this.showError(
+                _('There is no default File Manager'),
+                _('There is no application that handles mimetype "inode/directory"'),
+                modal,
+                helpURL,
+                dontShow
+            );
+            await errorWindow.run();
+        }
+        if (!inodeHandlers.map(a => a.get_id()).includes('org.gnome.Nautilus.desktop')) {
+            const modal = true;
+            const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
+            const dontShow = true;
+            const errorWindow = this.showError(
+                _('Gnome Files is not registered as a File Manager'),
+                _('The Gnome Files application is not programmed to open Folders!\nCheck your xdg-utils installation\nCheck Gnome Files .desktop File installation'),
+                modal,
+                helpURL,
+                dontShow
+            );
+            await errorWindow.run();
+        }
+    }
+
+    showError(text, secondaryText, modal, helpURL = null, dontShow = false) {
+        const _errorDialog = new ShowErrorPopup.ShowErrorPopup(
+            text,
+            secondaryText,
+            modal,
+            this.textEntryAccelsTurnOff.bind(this),
+            this.textEntryAccelsTurnOn.bind(this),
+            this.DesktopIconsUtil,
+            helpURL
+        );
+
+        if (!dontShow)
+            _errorDialog.run();
+
+        return _errorDialog;
     }
 
     _initDbusThumbnailing() {
@@ -1112,15 +1162,15 @@ const DesktopManager = class {
             let found = this.scanForFiles(this.searchString, false);
             if (found) {
                 if ((this.getNumberOfSelectedItems() >= 1) && !this.keypressTimeoutID) {
-                    let windowError = new ShowErrorPopup.ShowErrorPopup(
+                    const secondaryText = null;
+                    const modal = true;
+                    const timoutClose = 2000; // In ms
+                    const errorDialog = this.showError(
                         _('Clear current selection before new search'),
-                        null,
-                        true,
-                        this.textEntryAccelsTurnOff.bind(this),
-                        this.textEntryAccelsTurnOn.bind(this),
-                        this.DesktopIconsUtil
+                        secondaryText,
+                        modal,
                     );
-                    windowError.timeoutClose(2000);
+                    errorDialog.timeoutClose(timoutClose);
                     return true;
                 }
                 this.searchEventTime = GLib.get_monotonic_time();
