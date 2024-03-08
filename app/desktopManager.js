@@ -2120,10 +2120,31 @@ const DesktopManager = class {
                 outOfDesktops.push(fileItem);
         }
 
-        // Now, assign those icons that are outside the current desktops,
-        // but have assigned saved coordinates
+        // Now, assign icons that have lande in changed margins, belong to monitor
+        // and the window, however are no longer on the grid.
+
         if (outOfDesktops.length) {
-            this._addFilesCloseToAssignedDesktop(outOfDesktops, storeMode, preferredDesktop);
+            const unassigned = [];
+            for (let fileItem of outOfDesktops) {
+                let addedToDesktop = false;
+                let [itemX, itemY] = fileItem.savedCoordinates;
+                for (let desktop of this._desktops) {
+                    if (desktop.coordinatesBelongToThisGridWindow &&
+                            desktop.isAvailable()) {
+                        addedToDesktop = true;
+                        desktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
+                        break;
+                    }
+                }
+
+                if (!addedToDesktop)
+                    unassigned.push(fileItem);
+            }
+
+            // Now, assign those icons that are outside the all current monitors, or do not
+            // have space on current monitor, but have assigned saved coordinates
+            if (unassigned.length)
+                this._addFilesCloseToAssignedDesktop(unassigned, storeMode, preferredDesktop);
             outOfDesktops = [];
         }
 
