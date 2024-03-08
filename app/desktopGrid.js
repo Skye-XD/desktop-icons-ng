@@ -1067,13 +1067,6 @@ const DesktopGrid = class {
 
     addFileItemCloseTo(fileItem, x, y, coordinatesAction) {
         let addVolumesOpposite = this.Prefs.AddVolumesOpposite;
-        // ** FIX ME **
-        // This code is not needed, see fix in coordinatesLocalToGlobal
-        if (coordinatesAction === this.Enums.StoredCoordinates.REDISPLAY) {
-            // x += this._elementWidth / 2;
-            // y += this._elementHeight / 2;
-            coordinatesAction = this.Enums.StoredCoordinates.OVERWRITE;
-        }
         let [column, row] = this._getEmptyPlaceClosestTo(
             x,
             y,

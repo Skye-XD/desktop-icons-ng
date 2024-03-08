@@ -2087,11 +2087,7 @@ const DesktopManager = class {
         }
         if (opts.redisplay)
             this._sortByCurrentPosition();
-        let storeMode;
-        if (opts.gridschanged)
-            storeMode = this.Enums.StoredCoordinates.REDISPLAY;
-        else
-            storeMode = this.Enums.StoredCoordinates.PRESERVE;
+        const storeMode = this.Enums.StoredCoordinates.PRESERVE;
         this._addFilesToDesktop(this._fileList, storeMode);
     }
 
