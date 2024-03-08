@@ -38,6 +38,7 @@ const DesktopGrid = class {
         this._desktopDescription = desktopDescription;
         this._using_X11 = this.DesktopIconsUtil.usingX11();
         this.directoryOpenTimer = null;
+        this.windowGlobalRectangle = new Gdk.Rectangle();
         this.updateWindowGeometry();
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
@@ -186,6 +187,10 @@ const DesktopGrid = class {
         }
         this._windowWidth = Math.floor(this._desktopDescription.width / this._sizer);
         this._windowHeight = Math.floor(this._desktopDescription.height / this._sizer);
+        this.windowGlobalRectangle.x = this._x;
+        this.windowGlobalRectangle.y = this._y;
+        this.windowGlobalRectangle.width = this._windowWidth;
+        this.windowGlobalRectangle.height = this._windowHeight;
     }
 
     resizeWindow() {
@@ -1104,8 +1109,13 @@ const DesktopGrid = class {
     }
 
     coordinatesBelongToThisGrid(X, Y) {
-        let checkRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+        const checkRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
         return this.gridGlobalRectangle.intersect(checkRectangle)[0];
+    }
+
+    coordinatesBelongToThisGridWindow(X, Y) {
+        const checkRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+        return this.windowGlobalRectangle.intersect(checkRectangle)[0];
     }
 
     getGlobaltoLocalRectangle(gdkRectangle) {
