@@ -2076,7 +2076,7 @@ const DesktopManager = class {
             return;
         }
         if (opts.redisplay)
-            this._sortByOriginalPosition();
+            this._sortByCurrentPosition();
         let storeMode;
         if (opts.gridschanged)
             storeMode = this.Enums.StoredCoordinates.REDISPLAY;
