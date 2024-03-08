@@ -1073,7 +1073,7 @@ const DesktopGrid = class {
         if (coordinatesAction === this.Enums.StoredCoordinates.REDISPLAY) {
             x += this._elementWidth / 2;
             y += this._elementHeight / 2;
-            coordinatesAction = this.Enums.StoredCoordinates.PRESERVE;
+            coordinatesAction = this.Enums.StoredCoordinates.OVERWRITE;
         }
         let [column, row] = this._getEmptyPlaceClosestTo(
             x,
@@ -1120,8 +1120,8 @@ const DesktopGrid = class {
 
     fileItemRectangleFitsThisGrid(X, Y) {
         const topLeftVertex = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
-        const Xr = X + this._elementWidth;
-        const Yr = Y + this._elementHeight;
+        const Xr = X + this._elementWidth - 2;
+        const Yr = Y + this._elementHeight - 2;
         const bottomRightVertex = new Gdk.Rectangle({x: Xr, y: Yr, width: 1, height: 1});
         return this.gridGlobalRectangle.intersect(topLeftVertex)[0] &&
             this.gridGlobalRectangle.intersect(bottomRightVertex)[0];
