@@ -136,6 +136,22 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
         return this._savedCoordinates;
     }
 
+    get x() {
+        return this._x1;
+    }
+
+    get y() {
+        return this._y1;
+    }
+
+    get X() {
+        return this._savedCoordinates[0];
+    }
+
+    get Y() {
+        return this._savedCoordinates[1];
+    }
+
     set savedCoordinates(pos) {
         this._savedCoordinates = pos;
     }

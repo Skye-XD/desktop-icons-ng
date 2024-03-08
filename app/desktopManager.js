@@ -2076,7 +2076,7 @@ const DesktopManager = class {
             return;
         }
         if (opts.redisplay)
-            this._sortByPosition();
+            this._sortByOriginalPosition();
         let storeMode;
         if (opts.gridschanged)
             storeMode = this.Enums.StoredCoordinates.REDISPLAY;
@@ -2108,7 +2108,8 @@ const DesktopManager = class {
             let [itemX, itemY] = fileItem.savedCoordinates;
             let addedToDesktop = false;
             for (let desktop of this._desktops) {
-                if (desktop.coordinatesBelongToThisGrid(itemX, itemY) && desktop.isAvailable()) {
+                if (desktop.fileItemRectangleFitsThisGrid(itemX, itemY) &&
+                        desktop.isAvailable()) {
                     addedToDesktop = true;
                     desktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
                     break;
@@ -2865,56 +2866,112 @@ const DesktopManager = class {
         this._reassignFilesToDesktop();
     }
 
-    _sortByPosition() {
+    _sortByOriginalPosition() {
         let cornerInversion = this.Prefs.StartCorner;
         if (!cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
-                if (a._x1 < b._x1)
+                if (a.X < b.X)
                     return -1;
-                if (a._x1 > b._x1)
+                if (a.X > b.X)
                     return 1;
-                if (a._y1 < b._y1)
+                if (a.Y < b.Y)
                     return -1;
-                if (a._y1 > b._y1)
+                if (a.Y > b.Y)
                     return 1;
                 return 0;
             });
         }
         if (cornerInversion[0] && cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
-                if (a._x1 < b._x1)
+                if (a.X < b.X)
                     return 1;
-                if (a._x1 > b._x1)
+                if (a.X > b.X)
                     return -1;
-                if (a._y1 < b._y1)
+                if (a.Y < b.Y)
                     return 1;
-                if (a._y1 > b._y1)
+                if (a.Y > b.Y)
                     return -1;
                 return 0;
             });
         }
         if (cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
-                if (a._x1 < b._x1)
+                if (a.X < b.X)
                     return 1;
-                if (a._x1 > b._x1)
+                if (a.X > b.X)
                     return -1;
-                if (a._y1 < b._y1)
+                if (a.Y < b.Y)
                     return -1;
-                if (a._y1 > b._y1)
+                if (a.Y > b.Y)
                     return 1;
                 return 0;
             });
         }
         if (!cornerInversion[0] && cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
-                if (a._x1 < b._x1)
+                if (a.X < b.X)
                     return -1;
-                if (a._x1 > b._x1)
+                if (a.X > b.X)
                     return 1;
-                if (a._y1 < b._y1)
+                if (a.Y < b.Y)
                     return 1;
-                if (a._y1 > b._y1)
+                if (a.Y > b.Y)
+                    return -1;
+                return 0;
+            });
+        }
+    }
+
+    _sortByCurrentPosition() {
+        let cornerInversion = this.Prefs.StartCorner;
+        if (!cornerInversion[0] && !cornerInversion[1]) {
+            this._fileList.sort((a, b) =>   {
+                if (a.x < b.x)
+                    return -1;
+                if (a.x > b.x)
+                    return 1;
+                if (a.y < b.y)
+                    return -1;
+                if (a.y > b.y)
+                    return 1;
+                return 0;
+            });
+        }
+        if (cornerInversion[0] && cornerInversion[1]) {
+            this._fileList.sort((a, b) =>   {
+                if (a.x < b.x)
+                    return 1;
+                if (a.x > b.x)
+                    return -1;
+                if (a.y < b.y)
+                    return 1;
+                if (a.y > b.y)
+                    return -1;
+                return 0;
+            });
+        }
+        if (cornerInversion[0] && !cornerInversion[1]) {
+            this._fileList.sort((a, b) =>   {
+                if (a.x < b.x)
+                    return 1;
+                if (a.x > b.x)
+                    return -1;
+                if (a.y < b.y)
+                    return -1;
+                if (a.y > b.y)
+                    return 1;
+                return 0;
+            });
+        }
+        if (!cornerInversion[0] && cornerInversion[1]) {
+            this._fileList.sort((a, b) =>   {
+                if (a.x < b.x)
+                    return -1;
+                if (a.x > b.x)
+                    return 1;
+                if (a.y < b.y)
+                    return 1;
+                if (a.y > b.y)
                     return -1;
                 return 0;
             });
@@ -2925,7 +2982,7 @@ const DesktopManager = class {
         if (this.Prefs.keepArranged)
             return;
         this._fileList.map(f => f.removeFromGrid({callOnDestroy: false}));
-        this._sortByPosition();
+        this._sortByCurrentPosition();
         this._reassignFilesToDesktop();
     }
 

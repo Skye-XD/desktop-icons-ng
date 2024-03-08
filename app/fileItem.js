@@ -903,6 +903,22 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this._savedCoordinates = pos;
     }
 
+    get x() {
+        return this._x1;
+    }
+
+    get y() {
+        return this._y1;
+    }
+
+    get X() {
+        return this._savedCoordinates[0];
+    }
+
+    get Y() {
+        return this._savedCoordinates[1];
+    }
+
     get trustedDesktopFile() {
         return this._isValidDesktopFile &&
                this._attributeCanExecute &&
