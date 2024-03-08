@@ -983,8 +983,11 @@ const DesktopGrid = class {
         // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
         // coordinates of the grid to the left of the grid the icons should be on!
         // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
-        // to the left of where they should be immediately after grid resizing,
-        // otherwise works normally! see line 1057
+        // instead of where they should be immediately after grid resizing,
+        // otherwise works normally! It appears that it keeps the last margin
+        // appllied to give the coordinates instead of the current one. So apply the margin
+        // twice to get the correct coordinates from localToGlobal. This is done in desktopManager
+        // on grid resize. Error is in GObject.compute_point();
         [X, Y] = this.coordinatesGlobalToWindow(X, Y);
         const sourcePoint = new Graphene.Point({x: X, y: Y});
 
@@ -1064,15 +1067,11 @@ const DesktopGrid = class {
 
     addFileItemCloseTo(fileItem, x, y, coordinatesAction) {
         let addVolumesOpposite = this.Prefs.AddVolumesOpposite;
-        // This is a complete hack! ** FIX ME **
-        // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
-        // coordinates of the grid to the left of the grid the icons should be on!
-        // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
-        // to the left of where they should be, I cannot figure our why, otherwise
-        // works normally. So move the x, y coordinates a little only if redisplaying..
+        // ** FIX ME **
+        // This code is not needed, see fix in coordinatesLocalToGlobal
         if (coordinatesAction === this.Enums.StoredCoordinates.REDISPLAY) {
-            x += this._elementWidth / 2;
-            y += this._elementHeight / 2;
+            // x += this._elementWidth / 2;
+            // y += this._elementHeight / 2;
             coordinatesAction = this.Enums.StoredCoordinates.OVERWRITE;
         }
         let [column, row] = this._getEmptyPlaceClosestTo(

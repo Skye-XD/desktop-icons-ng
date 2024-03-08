@@ -461,6 +461,16 @@ const DesktopManager = class {
                         desktop.resizeWindow();
 
                     desktop.resizeGrid();
+                    // *** FIX ME ****
+                    // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
+                    // coordinates of the grid to the left of the grid the icons should be on!
+                    // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
+                    // instead of where they should be immediately after grid resizing,
+                    // otherwise works normally! It appears that it keeps the last margin
+                    // appllied to give the coordinates instead of the current one. So apply the margin
+                    // twice to get the correct coordinates from localToGlobal. This is done here.
+                    // See desktopGrid.js, coordinatesLocalToGlobal(). Error in GObject.compute_point();
+                    desktop.resizeGrid();
                 }
             }
             if (indexChanged)
