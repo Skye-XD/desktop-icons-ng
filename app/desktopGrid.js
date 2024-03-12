@@ -821,7 +821,8 @@ const DesktopGrid = class {
     }
 
     highLightGridAt(x, y) {
-        let selected = this.getGridAt(x, y, false);
+        const globalCoordinates = false;
+        let selected = this.getCoordinatesOfGridContaining(x, y, globalCoordinates);
         this._selectedList = [selected];
         this._drawDropRectangles();
     }
@@ -831,7 +832,8 @@ const DesktopGrid = class {
         this._drawDropRectangles();
     }
 
-    _getGridCoordinates(x, y) {
+    _getColumnRowFromLocal(x, y) {
+        // Teturns the column, row of the grid that holds the local x, y
         let placeX = Math.floor(x / this._elementWidth);
         let placeY = Math.floor(y / this._elementHeight);
         placeX = this.DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
@@ -840,19 +842,26 @@ const DesktopGrid = class {
     }
 
     gridInUse(x, y) {
-        let [placeX, placeY] = this._getGridCoordinates(x, y);
+        // returns if the local grid containing local coordinates x, y has a file assigned.
+        let [placeX, placeY] = this._getColumnRowFromLocal(x, y);
         return !this._isEmptyAt(placeX, placeY);
     }
 
     getGridLocalCoordinates(x, y) {
-        let [column, row] = this._getGridCoordinates(x, y);
+        // returns the local grid coordinates of top left rectangle vertex of the grid that has local x,y
+        let [column, row] = this._getColumnRowFromLocal(x, y);
+        return this._getLocalCoordinatesForGrid(column, row);
+    }
+
+    _getLocalCoordinatesForGrid(column, row) {
         let localX = Math.floor(this._width * column / this._maxColumns);
         let localY = Math.floor(this._height * row / this._maxRows);
         return [localX, localY];
     }
 
     _fileAt(x, y) {
-        let [placeX, placeY] = this._getGridCoordinates(x, y);
+        // Returns the file at local cooridnates x, y
+        let [placeX, placeY] = this._getColumnRowFromLocal(x, y);
         return this._gridStatus[placeY * this._maxColumns + placeX];
     }
 
@@ -868,7 +877,7 @@ const DesktopGrid = class {
             y += this._elementHeight / 2;
             x += ox;
             y += oy;
-            let r = this.getGridAt(x, y);
+            let r = this.getCoordinatesOfGridContaining(x, y);
             if (r && !isNaN(r[0]) && !isNaN(r[1]) && (!this.gridInUse(r[0], r[1]) || this._fileAt(r[0], r[1]).isSelected))
                 newSelectedList.push(r);
         }
@@ -968,6 +977,7 @@ const DesktopGrid = class {
     }
 
     isAvailable() {
+        // Returns if the grid number is occumpied.
         let isFree = false;
         for (let element in this._gridStatus) {
             if (!this._gridStatus[element]) {
@@ -1036,18 +1046,17 @@ const DesktopGrid = class {
         return [X + this._x, Y + this._y];
     }
 
-    _addFileItemTo(fileItem, column, row, coordinatesAction) {
+    _addFileItemToGrid(fileItem, column, row, coordinatesAction) {
         if (this._destroying)
             return;
 
-        let localX = Math.floor(this._width * column / this._maxColumns);
-        let localY = Math.floor(this._height * row / this._maxRows);
+        let [localX, localY] = this._getLocalCoordinatesForGrid(column, row);
         this._container.put(fileItem.container, localX + elementSpacing, localY + elementSpacing);
         this._setGridUse(column, row, fileItem);
         this._fileItems[fileItem.uri] = [column, row, fileItem];
-        let [x, y] = this.coordinatesLocalToGlobal(localX + elementSpacing, localY + elementSpacing);
-        fileItem.setCoordinates(x,
-            y,
+        let [X, Y] = this.coordinatesLocalToGlobal(localX + elementSpacing, localY + elementSpacing);
+        fileItem.setCoordinates(X,
+            Y,
             this._elementWidth - 2 * elementSpacing,
             this._elementHeight - 2 * elementSpacing,
             elementSpacing,
@@ -1059,38 +1068,64 @@ const DesktopGrid = class {
          * and not triggered by a screen change.
          */
         if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
-            fileItem.savedCoordinates = [x, y];
+            fileItem.savedCoordinates = [X, Y];
     }
 
     removeItem(fileItem) {
         if (fileItem.uri in this._fileItems) {
             let [column, row] = this._fileItems[fileItem.uri].slice(0, 3);
             this._setGridUse(column, row, false);
-            this._container.remove(fileItem.container);
             delete this._fileItems[fileItem.uri];
         }
+        this._container.remove(fileItem.container);
     }
 
-    addFileItemCloseTo(fileItem, x, y, coordinatesAction) {
+    _placeIntoPosition(fileItem, X, Y, x, y, column, row, coordinatesAction) {
+        if (fileItem.savedCoordinates == null ||
+            (fileItem.savedCoordinates[0] === 0 &&
+            fileItem.savedCoordinates[1] === 0) ||
+            this.Prefs.showDropPlace) {
+            this._addFileItemToGrid(fileItem, column, row, coordinatesAction);
+            return;
+        }
+
+        if (this._destroying)
+            return;
+
+        this._container.put(fileItem.container, x, y);
+        fileItem.setCoordinates(X,
+            Y,
+            this._elementWidth - 2 * elementSpacing,
+            this._elementHeight - 2 * elementSpacing,
+            elementSpacing,
+            this);
+        if (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE)
+            fileItem.savedCoordinates = [X, Y];
+    }
+
+    addFileItemCloseTo(fileItem, X, Y, coordinatesAction) {
         let addVolumesOpposite = this.Prefs.AddVolumesOpposite;
+        let [x, y] = this.coordinatesGlobalToLocal(X, Y);
         let [column, row] = this._getEmptyPlaceClosestTo(
             x,
             y,
             coordinatesAction,
             fileItem.isDrive && addVolumesOpposite
         );
-        this._addFileItemTo(fileItem, column, row, coordinatesAction);
+        this._placeIntoPosition(fileItem, X, Y, x, y, column, row, coordinatesAction);
     }
 
-    _isEmptyAt(x, y) {
-        return this._gridStatus[y * this._maxColumns + x] === false;
+    _isEmptyAt(column, row) {
+        // returns if grid at column row has a file or not
+        return this._gridStatus[row * this._maxColumns + column] === false;
     }
 
     _setGridUse(x, y, inUse) {
         this._gridStatus[y * this._maxColumns + x] = inUse;
     }
 
-    getGridAt(x, y, globalCoordinates = false) {
+    getCoordinatesOfGridContaining(x, y, globalCoordinates = false) {
+        // returns the local or global coordinates if requested, of the local grid rectangle top left vertex that contains x, y
         if (this.coordinatesBelongToThisGrid(x, y)) {
             [x, y] = this.coordinatesGlobalToLocal(x, y);
             if (globalCoordinates) {
@@ -1131,16 +1166,13 @@ const DesktopGrid = class {
     }
 
     _getEmptyPlaceClosestTo(x, y, coordinatesAction, reverseHorizontal) {
-        [x, y] = this.coordinatesGlobalToLocal(x, y);
-        let placeX = Math.floor(x / this._elementWidth);
-        let placeY = Math.floor(y / this._elementHeight);
-
+        // returns the column row of empty grid available at global X, Y
         let cornerInversion = this.Prefs.StartCorner;
         if (reverseHorizontal)
             cornerInversion[0] = !cornerInversion[0];
 
-        placeX = this.DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
-        placeY = this.DesktopIconsUtil.clamp(placeY, 0, this._maxRows - 1);
+        let [placeX, placeY] = this._getColumnRowFromLocal(x, y);
+
         if (this._isEmptyAt(placeX, placeY) && (coordinatesAction !== this.Enums.StoredCoordinates.ASSIGN))
             return [placeX, placeY];
 

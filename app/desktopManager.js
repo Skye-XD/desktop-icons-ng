@@ -685,7 +685,7 @@ const DesktopManager = class {
     _positiveOffsetGridAim(xGlobalDestination, yGlobalDestination) {
         // Find the grid where the destination lies and aim towards the positive side, middle of grid to ensure drop in the grid
         for (let desktop of this._desktops) {
-            let grid = desktop.getGridAt(xGlobalDestination, yGlobalDestination, true);
+            let grid = desktop.getCoordinatesOfGridContaining(xGlobalDestination, yGlobalDestination, true);
             if (grid !== null) {
                 xGlobalDestination = grid[0] + desktop._elementWidth / 2;
                 yGlobalDestination = grid[1] + desktop._elementHeight / 2;
