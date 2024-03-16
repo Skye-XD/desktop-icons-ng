@@ -84,6 +84,7 @@ const DesktopManager = class {
         this._readingDesktopFiles = false;
         this._desktopDir = this.DesktopIconsUtil.getDesktopDir();
         this.rubberBand = false;
+        this.localDragOffset = [0, 0];
         this._allFileList = null;
         this._fileList = [];
         this._forcedExit = false;
@@ -560,13 +561,22 @@ const DesktopManager = class {
     }
 
     doMoveWithDragAndDrop(xOrigin, yOrigin, xDestination, yDestination) {
-        let keepArranged = this.Prefs.keepArranged || this.Prefs.keepStacked;
+        const keepArranged = this.Prefs.keepArranged || this.Prefs.keepStacked;
         if (this.Prefs.sortSpecialFolders && keepArranged)
             return;
 
-        let deltaX = xDestination - xOrigin;
-        let deltaY = yDestination - yOrigin;
-        let fileItems = [];
+        let deltaX;
+        let deltaY;
+
+        if (this.Prefs.showDropPlace) {
+            deltaX = xDestination - xOrigin;
+            deltaY = yDestination - yOrigin;
+        } else {
+            deltaX = xDestination - xOrigin - this.localDragOffset[0] * 2;
+            deltaY = yDestination - yOrigin - this.localDragOffset[1];
+        }
+
+        const fileItems = [];
         for (let item of this._fileList) {
             if (item.isSelected) {
                 if (keepArranged) {
@@ -704,7 +714,8 @@ const DesktopManager = class {
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
         const fileList = this.makeFileListFromSelection(dropData, acceptFormat);
 
-        [xGlobalDestination, yGlobalDestination] = this._positiveOffsetGridAim(xGlobalDestination, yGlobalDestination);
+        if (this.Prefs.showDropPlace)
+            [xGlobalDestination, yGlobalDestination] = this._positiveOffsetGridAim(xGlobalDestination, yGlobalDestination);
 
         let returnAction;
         switch (acceptFormat) {
@@ -751,7 +762,6 @@ const DesktopManager = class {
     }
 
     onTextDrop(dropData, [xGlobalDestination, yGlobalDestination]) {
-        [xGlobalDestination, yGlobalDestination] = this._positiveOffsetGridAim(xGlobalDestination, yGlobalDestination);
         this.detectURLorText(dropData, [xGlobalDestination, yGlobalDestination]);
     }
 
