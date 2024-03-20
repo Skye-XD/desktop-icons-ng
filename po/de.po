@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 msgid "Desktop"
@@ -36,7 +36,7 @@ msgstr "Dateien"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Optimierungen"
+msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -134,7 +134,7 @@ msgstr "Zeigen Sie den persönlichen Ordner auf dem Desktop"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Zeigen Sie das Müll-Symbol auf dem Desktop"
+msgstr "SymLink verfehlt machen"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
@@ -149,8 +149,7 @@ msgstr "Netzwerk-Laufwerke auf dem Desktop anzeigen"
 #: app/adwPreferencesWindow.js:246
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr ""
-"Neue Laufwerke auf der gegenüberliegenden Seite des Desktops hinzufügen"
+msgstr "Geöffnet in {0}"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
@@ -165,7 +164,7 @@ msgstr "Hinzufügen eines Emblems zu weichen Links"
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Weiter arrangiert.."
+msgstr "Verwenden Sie dunklen Text in Icon-Labels"
 
 #: app/adwPreferencesWindow.js:254
 #, fuzzy
@@ -233,7 +232,7 @@ msgstr "Berichtsfragen zum Emissionstracker"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Melden"
+msgstr "Bericht"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -350,7 +349,7 @@ msgstr "Dateien in '${outputPath} extrahieren '"
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Auslieferung abgeschlossen"
+msgstr "Entpacken abgeschlossen"
 
 #: app/autoAr.js:431
 #, fuzzy
@@ -443,7 +442,7 @@ msgstr "Kleinere Archive, nur Linux und Mac."
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Kleinere Archive müssen aber unter Windows und Mac installiert werden."
+msgstr "Aktion zum Öffnen von Gegenständen"
 
 #: app/desktopGrid.js:46
 #, fuzzy
@@ -644,7 +643,7 @@ msgstr "Papierkorb"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Steuerung"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -685,7 +684,7 @@ msgstr "Es gibt keine Anwendung installiert, um \"{foo}\" Dateityp zu öffnen"
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Konnte Datei nicht öffnen"
+msgstr "Datei kann nicht geöffnet werden"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
@@ -819,7 +818,7 @@ msgstr "Verschieben auf..."
 #: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopieren nach …"
+msgstr "Kopieren nach..."
 
 #: app/fileItemMenu.js:382
 msgid "Rename…"
@@ -1023,7 +1022,7 @@ msgstr "Schließen"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stapel"
+msgstr "Stapeln"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

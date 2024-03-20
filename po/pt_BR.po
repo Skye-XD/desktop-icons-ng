@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -22,12 +22,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
 msgid "Desktop"
-msgstr "Ambiente de trabalho"
+msgstr "Desktop"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -38,7 +38,7 @@ msgstr "Arquivos"
 #: app/adwPreferencesWindow.js:210
 #, fuzzy
 msgid "Tweaks"
-msgstr "Ajustes"
+msgstr "Forçados"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #, fuzzy
@@ -48,7 +48,7 @@ msgstr "Sobre"
 #: app/adwPreferencesWindow.js:195
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Configurações do Desktop"
+msgstr "Nome Z-A"
 
 #: app/adwPreferencesWindow.js:196
 #, fuzzy
@@ -174,7 +174,7 @@ msgstr "Use texto escuro em etiquetas de ícones"
 #: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Adicionar um emblema a links suaves"
+msgstr "Ação para Itens Abertos"
 
 #: app/adwPreferencesWindow.js:256
 msgid "Single click"
@@ -238,7 +238,7 @@ msgstr "Relatar problemas no rastreador de problemas"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Denunciar"
+msgstr "Relatório"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -342,7 +342,7 @@ msgstr "Cancelar"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Digite uma senha aqui"
+msgstr "Aberto com..."
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -466,7 +466,7 @@ msgstr "Arquivos menores, mas devem ser instalados no Windows e no Mac."
 #: app/desktopGrid.js:46
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Ícones de desktop"
+msgstr "Mostrar unidades de rede na área de trabalho"
 
 #: app/desktopManager.js:120
 #, fuzzy
@@ -481,7 +481,7 @@ msgstr "O GNOME O aplicativo de arquivos é exigido pelo Desktop Icons NG."
 #: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
-msgstr "Mover"
+msgstr "Mova"
 
 #: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
@@ -580,7 +580,7 @@ msgstr "Refazer"
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Select All"
-msgstr "Selecionar tudo"
+msgstr "Marque tudo"
 
 #: app/desktopManager.js:1454
 msgid "Arrange Icons"
@@ -735,7 +735,7 @@ msgstr ""
 #: app/fileItem.js:391
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Configurações do Desktop"
+msgstr "Permissões inválidas no arquivo de desktop"
 
 #: app/fileItem.js:392
 #, fuzzy
@@ -766,12 +766,13 @@ msgstr ""
 "<b> Habilitar opção, \"Permitir Executar arquivo como um programa\"</b>"
 
 #: app/fileItem.js:405
+#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "<b>Enable \"Allow Launching\"</b>"
-msgstr ""
+msgstr "Adicione novos ícones aos monitores secundários primeiro, se disponível"
 
 #: app/fileItemMenu.js:299
 msgid "New Folder with {0} item"
@@ -813,7 +814,7 @@ msgstr "Abrir com..."
 #: app/fileItemMenu.js:344
 #, fuzzy
 msgid "Open All With Other Application..."
-msgstr "Abra tudo com outra aplicação..."
+msgstr "Abrir com {foo}"
 
 #: app/fileItemMenu.js:347
 msgid "Launch using Dedicated Graphics Card"
@@ -1236,7 +1237,9 @@ msgstr "Adicione um emblema para permitir identificar links suaves."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Use black for label text"
-msgstr "Usar preto para o texto da etiqueta"
+msgstr ""
+"Pinte o texto da etiqueta em preto em vez de branco. Úteis ao usar fundos de "
+"luz."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
