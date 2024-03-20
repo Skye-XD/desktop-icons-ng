@@ -860,10 +860,37 @@ const DesktopGrid = class {
         return [localX, localY];
     }
 
+    _fileAtColumnRow(column, row) {
+        // only works for grid placement of icons,
+        // with free placements there maybe multiple fileItems per grid
+        const setOfFileItemsOnGridNumber = this._gridStatus.get(row * this._maxColumns + column);
+        if (this.Prefs.showDropPlace && setOfFileItemsOnGridNumber.size) {
+            for (const fileItem of setOfFileItemsOnGridNumber.keys())
+                return fileItem;
+        }
+        return null;
+    }
+
     _fileAt(x, y) {
-        // Returns the file at local cooridnates x, y
-        let [placeX, placeY] = this._getColumnRowFromLocal(x, y);
-        return this._gridStatus[placeY * this._maxColumns + placeX];
+        if (this.Prefs.showDropPlace) {
+            const [column, row] = this._getColumnRowFromLocal(x, y);
+            return this._fileAtColumnRow(column, row);
+        }
+        const widgetAtPointer = this._container.pick(x, y, Gtk.PickFlags.GTK_PICK_DEFAULT);
+        if (widgetAtPointer === this._container)
+            return null;
+        let fileItemFound = null;
+        for (const fileItem of this._fileItems.keys()) {
+            const [widgetX, widgetY] = this.coordinatesWidgetToWidget(x, y, this._container, fileItem.container);
+            if (widgetX === 0 && widgetY === 0)
+                continue;
+            const localWidget = fileItem.container.pick(widgetX, widgetY, Gtk.PickFlags.GTK_PICK_DEFAULT);
+            if (localWidget === widgetAtPointer) {
+                fileItemFound = fileItem;
+                break;
+            }
+        }
+        return fileItemFound;
     }
 
     refreshDrag(selectedList, ox, oy) {
@@ -881,7 +908,7 @@ const DesktopGrid = class {
             x += ox;
             y += oy;
             let r = this.getCoordinatesOfGridContaining(x, y);
-            if (r && !isNaN(r[0]) && !isNaN(r[1]) && (!this.gridInUse(r[0], r[1]) || this._fileAt(r[0], r[1]).isSelected))
+            if (r && !isNaN(r[0]) && !isNaN(r[1]) && (!this.gridInUse(r[0], r[1]) || this._fileAt(r[0], r[1])?.isSelected))
                 newSelectedList.push(r);
         }
         if (newSelectedList.length === 0) {
@@ -982,8 +1009,8 @@ const DesktopGrid = class {
     isAvailable() {
         // Returns if the grid number is occumpied.
         let isFree = false;
-        for (const [, setofFileItemsOnGridNumber] of this._gridStatus) {
-            if (!setofFileItemsOnGridNumber.size) {
+        for (const [, setOfFileItemsOnGridNumber] of this._gridStatus.entries()) {
+            if (!setOfFileItemsOnGridNumber.size) {
                 isFree = true;
                 break;
             }
@@ -1054,10 +1081,12 @@ const DesktopGrid = class {
             return;
 
         let [localX, localY] = this._getLocalCoordinatesForGrid(column, row);
-        this._container.put(fileItem.container, localX + elementSpacing, localY + elementSpacing);
+        localX += elementSpacing;
+        localY += elementSpacing;
+        this._container.put(fileItem.container, localX, localY);
         this._setGridUse(column, row, fileItem);
-        this._fileItems.set(fileItem, [column, row]);
-        let [X, Y] = this.coordinatesLocalToGlobal(localX + elementSpacing, localY + elementSpacing);
+        this._fileItems.set(fileItem, [localX, localY]);
+        let [X, Y] = this.coordinatesLocalToGlobal(localX, localY);
         fileItem.setCoordinates(X,
             Y,
             this._elementWidth - 2 * elementSpacing,
@@ -1077,7 +1106,7 @@ const DesktopGrid = class {
     removeItem(fileItem) {
         if (this._fileItems.has(fileItem))
             this._fileItems.delete(fileItem);
-        this._gridStatus.forEach(setofFileItemsOnGridNumber => setofFileItemsOnGridNumber.delete(fileItem));
+        this._gridStatus.forEach(setOfFileItemsOnGridNumber => setOfFileItemsOnGridNumber.delete(fileItem));
         this._container.remove(fileItem.container);
     }
 
@@ -1117,13 +1146,15 @@ const DesktopGrid = class {
             return;
 
         this._container.put(fileItem.container, x, y);
+        this._container.move(fileItem.container, x, y);
+        this._fileItems.set(fileItem, [x, y]);
         fileItem.setCoordinates(X,
             Y,
             this._elementWidth - 2 * elementSpacing,
             this._elementHeight - 2 * elementSpacing,
             elementSpacing,
             this);
-        // set coulumn row being used for all four vertices
+        // set column row being used for all four vertices
         this._setUseColumnRowOverlappingThis(fileItem, column, row, X, Y);
         /* If this file is new in the Desktop and hasn't yet
          * fixed coordinates, store the new possition to ensure
@@ -1149,13 +1180,13 @@ const DesktopGrid = class {
 
     _isEmptyAt(column, row) {
         // returns if grid at column row has a file or not
-        const setofFileItemsOnGridNumber = this._gridStatus.get(row * this._maxColumns + column);
-        return setofFileItemsOnGridNumber.size === 0;
+        const setOfFileItemsOnGridNumber = this._gridStatus.get(row * this._maxColumns + column);
+        return setOfFileItemsOnGridNumber.size === 0;
     }
 
     _setGridUse(column, row, fileItem) {
-        const setofFileItemsOnGridNumber = this._gridStatus.get(row * this._maxColumns + column);
-        setofFileItemsOnGridNumber.add(fileItem);
+        const setOfFileItemsOnGridNumber = this._gridStatus.get(row * this._maxColumns + column);
+        setOfFileItemsOnGridNumber.add(fileItem);
     }
 
     getCoordinatesOfGridContaining(x, y, globalCoordinates = false) {
