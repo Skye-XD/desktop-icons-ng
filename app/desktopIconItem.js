@@ -321,6 +321,7 @@ const DesktopIconItem = class {
 
     _onReleaseButton(actor, X, Y, x, y, shiftPressed, controlPressed) {
         let button = actor.get_current_button();
+        this._grid?.makeTopLayerOnGrid(this);
         if (button === 1)
             this._doButtonOneReleased(button, X, Y, x, y, shiftPressed, controlPressed);
     }

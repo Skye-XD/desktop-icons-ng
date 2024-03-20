@@ -1178,6 +1178,14 @@ const DesktopGrid = class {
         this._placeIntoPosition(fileItem, X, Y, x, y, column, row, coordinatesAction);
     }
 
+    makeTopLayerOnGrid(fileItem) {
+        if (this.Prefs.showDropPlace)
+            return;
+        const [x, y] = this._fileItems.get(fileItem);
+        this._container.remove(fileItem.container);
+        this._container.put(fileItem.container, x, y);
+    }
+
     _isEmptyAt(column, row) {
         // returns if grid at column row has a file or not
         const setOfFileItemsOnGridNumber = this._gridStatus.get(row * this._maxColumns + column);
