@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -29,7 +29,7 @@ msgstr "Destop"
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "Data-data"
+msgstr "Berkas"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
@@ -201,7 +201,7 @@ msgstr "Di komputer ini hanya"
 #: app/adwPreferencesWindow.js:265
 #, fuzzy
 msgid "Never"
-msgstr "Jangan Pernah"
+msgstr "Jangan pernah"
 
 #: app/adwPreferencesWindow.js:267
 #, fuzzy
@@ -241,7 +241,7 @@ msgstr "Masalah laporan pada pelacak masalah"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Laporkan"
+msgstr "Laporan"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -495,7 +495,7 @@ msgstr "Salin"
 #: app/desktopManager.js:718
 #, fuzzy
 msgid "Link"
-msgstr "Link / tautan"
+msgstr "Tautan"
 
 #: app/desktopManager.js:721
 #, fuzzy
@@ -638,7 +638,9 @@ msgstr "Pengaturan"
 #: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Pembuatan Folder Kegagalan"
+msgstr ""
+"Untuk dapat bekerja dengan file terkompresi, instal file-roller dan / atau "
+"gir-1.2-gnome Login"
 
 #: app/desktopManager.js:2492
 #, fuzzy
@@ -714,7 +716,7 @@ msgstr "Tidak ada aplikasi yang diinstal untuk membuka \"{foo}\" jenis file"
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Tidak bisa membuka file"
+msgstr "Tak dpaat membuka berkas"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239

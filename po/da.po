@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -241,7 +242,7 @@ msgstr "Rapporter problemer med problemsporing"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Rapporter"
+msgstr "Rapport"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -271,7 +272,7 @@ msgstr "Vælg et program for at åbne <b>{foo}</b>"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "Åbne elementer"
+msgstr "Vis alle i {0}"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -465,7 +466,7 @@ msgstr "Små arkiver, men Linux og Mac kun."
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Små arkiver, men skal installeres på Windows og Mac."
+msgstr "Handling for at åbne elementer"
 
 #: app/desktopGrid.js:46
 #, fuzzy
@@ -529,14 +530,12 @@ msgstr "Navn"
 #: app/desktopManager.js:1418
 #, fuzzy
 msgid "Name Z-A"
-msgstr ""
-"Når du foretager en Drag'n'Drop-operation, markerer stedet i nettet, hvor "
-"ikonet vil blive sat med et halvgennemsigtet rektangel."
+msgstr "Navn Z-A"
 
 #: app/desktopManager.js:1419
 #, fuzzy
 msgid "Modified Time"
-msgstr "Modificeret tid"
+msgstr "Altid holde Icons Stacked, Lignende typer er grupperet"
 
 #: app/desktopManager.js:1420
 #, fuzzy
@@ -1083,9 +1082,7 @@ msgstr "\"${programmerName}\" er nødvendig for Desktop Icons"
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
-msgstr ""
-"For denne funktion til at arbejde i Desktop Icons, skal du installere "
-"\"${programmerName}\" i dit system."
+msgstr "Auto Auto Auto Ar er ikke installeret"
 
 #: app/utils/desktopIconsUtil.js:197
 #, fuzzy
@@ -1190,14 +1187,12 @@ msgstr "Viser et rektangel på destinationsstedet under DnD"
 msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
-msgstr ""
-"Når du foretager en Drag'n'Drop-operation, markerer stedet i nettet, hvor "
-"ikonet vil blive sat med et halvgennemsigtet rektangel."
+msgstr "Komprimering af filer"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, fuzzy
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Sorter Specialmapper - Home/Trash Drives."
+msgstr "Kan ikke oprette dokument"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 #, fuzzy
@@ -1231,7 +1226,7 @@ msgstr "Ikoner Arrangeret af denne ejendom"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 #, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Hold Icons Stacked"
+msgstr "En samling af strenge typer, Må ikke Stack disse typer af filer"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, fuzzy

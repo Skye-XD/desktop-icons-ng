@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -231,7 +231,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Raportează"
+msgstr "Raportați"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -471,7 +471,7 @@ msgstr "Aplicația Fișiere GNOME este necesară de Desktop Icons NG."
 #: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
-msgstr "Mută"
+msgstr "Mutați"
 
 #: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
@@ -480,7 +480,7 @@ msgstr "Copiază"
 #: app/desktopManager.js:718
 #, fuzzy
 msgid "Link"
-msgstr "Legătură"
+msgstr "Link"
 
 #: app/desktopManager.js:721
 #, fuzzy
@@ -655,7 +655,7 @@ msgstr "Coș de gunoi"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Conduce"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -700,7 +700,7 @@ msgstr ""
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nu s-a putut deschide fișierul"
+msgstr "Fișierul nu poate fi deschis"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239

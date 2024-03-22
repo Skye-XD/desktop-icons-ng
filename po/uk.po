@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -233,7 +234,7 @@ msgstr "Проблеми звіту про видачу"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Поскаржитися"
+msgstr "Повідомити"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -476,7 +477,7 @@ msgstr ""
 #: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
-msgstr "Порухайтесь"
+msgstr "Пересунути"
 
 #: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
@@ -574,7 +575,7 @@ msgstr "Повторити"
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Select All"
-msgstr "Вибрати все"
+msgstr "Виділити все"
 
 #: app/desktopManager.js:1454
 msgid "Arrange Icons"
@@ -626,7 +627,9 @@ msgstr "Параметри"
 #: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Складання папки"
+msgstr ""
+"Для роботи з стисненими файлами встановіть файл-роликовий та/або gir-1.2-"
+"gnome Автоархів"
 
 #: app/desktopManager.js:2492
 #, fuzzy

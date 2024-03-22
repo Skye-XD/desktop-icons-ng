@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -29,7 +29,7 @@ msgstr "Área de Trabalho"
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Files"
-msgstr "Arquivos"
+msgstr "Ficheiros"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #: app/adwPreferencesWindow.js:210
@@ -176,7 +176,7 @@ msgstr "Use texto escuro em etiquetas de ícones"
 #: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Action to Open Items"
-msgstr "Adicionar um emblema a links suaves"
+msgstr "Ação para Itens Abertos"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
@@ -246,7 +246,7 @@ msgstr "Relatar problemas no rastreador de problemas"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Reportar"
+msgstr "Relatório"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -452,7 +452,7 @@ msgstr "Palavra-passe"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Cadastrar"
+msgstr "Criar"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -492,7 +492,7 @@ msgstr "O GNOME O aplicativo de arquivos é exigido pelo Desktop Icons NG."
 #: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
-msgstr "Movimento"
+msgstr "Mover"
 
 #: app/desktopManager.js:717 app/fileItemMenu.js:373
 #, fuzzy
@@ -552,7 +552,7 @@ msgstr "Tipo"
 #: app/desktopManager.js:1421
 #, fuzzy
 msgid "Size"
-msgstr "Tamanho"
+msgstr "Dimensão"
 
 #: app/desktopManager.js:1424
 #, fuzzy
@@ -597,7 +597,7 @@ msgstr "Refazer"
 #: app/desktopManager.js:1449
 #, fuzzy
 msgid "Select All"
-msgstr "Selecione Todos"
+msgstr "Marcar Tudo"
 
 #: app/desktopManager.js:1454
 #, fuzzy
@@ -754,7 +754,7 @@ msgstr ""
 #: app/fileItem.js:391
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Configurações do Desktop"
+msgstr "Permissões inválidas no arquivo de desktop"
 
 #: app/fileItem.js:392
 #, fuzzy
@@ -1091,7 +1091,7 @@ msgstr "Fechar"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Empilhar"
+msgstr "Pilha"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1249,7 +1249,7 @@ msgstr "Sempre manter Ícones Organizado pela última ordem organizada"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, fuzzy
 msgid "Arrange Order"
-msgstr "Nova pasta"
+msgstr "Ordem de arranjo"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 #, fuzzy

@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -55,7 +56,7 @@ msgstr "Settings por la Desktop Programo"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumoj"
+msgstr "Size"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -105,7 +106,7 @@ msgstr "Granda"
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "New icons alignment"
-msgstr "Novaj ikonoj paraleligo"
+msgstr "Bonvolu instali {0}"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
@@ -392,7 +393,7 @@ msgstr ""
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Passphrase postulis por pseŭdonomo"
+msgstr "Inpremante dosierojn en '$ { outputFile} \""
 
 #: app/autoAr.js:451
 #, fuzzy
@@ -738,7 +739,7 @@ msgstr "Ne eblis malfermi dosieron"
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
-msgstr "Aparato ne povas malfermi dosierojn de ĉi tiu tipo!"
+msgstr "Krei"
 
 #: app/fileItem.js:384
 #, fuzzy
@@ -823,7 +824,7 @@ msgstr "Malfermite kun {foo}"
 #: app/fileItemMenu.js:321
 #, fuzzy
 msgid "Open"
-msgstr "Komenci"
+msgstr "malfermita"
 
 #: app/fileItemMenu.js:330 app/fileItemMenu.js:334
 #, fuzzy
@@ -1064,7 +1065,9 @@ msgstr "Selektado inkludas Adresaron, kunpremi al .zip-dosiero unue?"
 #: app/fileItemMenu.js:911
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr "Nekapabla malfermiĝi en Gnome Console"
+msgstr ""
+"Dum aldonado de veturadoj kaj volumoj al la tablo, aldonas ilin al la "
+"kontraŭa flanko de la ekrano."
 
 #: app/fileItemMenu.js:912
 #, fuzzy
@@ -1122,7 +1125,7 @@ msgstr "Ne trovita"
 #: app/resources/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "Elektu app por malfermi la elektitajn dosierojn."
+msgstr "GN Dosieroj ne trovitaj"
 
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
@@ -1202,7 +1205,7 @@ msgstr "Spektaklo muntis sendostaciajn volumojn en la tablo."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 #, fuzzy
 msgid "Add new drives to the opposite side of the screen"
-msgstr "Aldoni novajn veturadojn al la kontraŭa flanko de la ekrano"
+msgstr "Arkivo nomo"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, fuzzy
@@ -1244,7 +1247,7 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "Icons Arranged"
+msgstr "Ĉiam ĉiam"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 #, fuzzy
@@ -1294,7 +1297,7 @@ msgstr "Aldonu emblemon por permesi identigi molajn ligilojn."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Use black for label text"
-msgstr "Uzu nigron por etikedteksto"
+msgstr "Tranĉo"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy

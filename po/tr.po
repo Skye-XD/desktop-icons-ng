@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -66,7 +66,7 @@ msgstr "Ciltler"
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Masaüstü hacimleri Ekran"
+msgstr "Bir Program Olarak Run"
 
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
@@ -160,7 +160,7 @@ msgstr "Masaüstünün tam tersine yeni sürücüler ekleyin"
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Rectangular icons with drop grid highlighting"
-msgstr "Rectangular ikonları damla ızgara vurgulama ile"
+msgstr "Hata değişen varsayılan uygulama"
 
 #: app/adwPreferencesWindow.js:249
 msgid "Add an emblem to soft links"
@@ -236,7 +236,7 @@ msgstr "Tartışma sorunları"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Bildir"
+msgstr "Rapor"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -362,7 +362,7 @@ msgstr "Ekstraksiyon tamamlandı tamamlandı"
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "\"${fullPathFile\" tamamlandı."
+msgstr "Open In {0}"
 
 #: app/autoAr.js:437
 #, fuzzy
@@ -525,7 +525,7 @@ msgstr "Ad Z-A"
 #: app/desktopManager.js:1419
 #, fuzzy
 msgid "Modified Time"
-msgstr "Değiştirilmiş Zaman"
+msgstr "Her zaman Icons Stacked kalır, Benzer türler gruplanır"
 
 #: app/desktopManager.js:1420
 #, fuzzy
@@ -702,7 +702,7 @@ msgstr "\"{foo}\" tür dosyaları açmak için yüklü bir uygulama yoktur"
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosya açılamadı"
+msgstr "Dosyası açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
@@ -850,7 +850,7 @@ msgstr "Yeniden Adlandır…"
 #: app/fileItemMenu.js:385
 #, fuzzy
 msgid "Create Link..."
-msgstr "Create Link..."
+msgstr "Lütfen yükleme {0}"
 
 #: app/fileItemMenu.js:390
 #, fuzzy
@@ -1221,9 +1221,7 @@ msgstr "Etiket metni için siyah kullan"
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
-msgstr ""
-"Beyaz yerine etiket metni kara renkte. Işık arka planlarını kullanırken "
-"kullanışlı."
+msgstr "Bir zip arşivi oluşturmak için bir hata vardı"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy

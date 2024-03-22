@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -235,7 +235,7 @@ msgstr "Problémy s hlášením o problému tracker"
 #: app/adwPreferencesWindow.js:272
 #, fuzzy
 msgid "Report"
-msgstr "Nahlásit"
+msgstr "Report"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -475,7 +475,7 @@ msgstr "Čeština Soubory je vyžadováno aplikací Desktop Icons NG."
 #: app/desktopManager.js:716
 #, fuzzy
 msgid "Move"
-msgstr "Hýbejte se"
+msgstr "Přesunout"
 
 #: app/desktopManager.js:717 app/fileItemMenu.js:373
 msgid "Copy"
@@ -624,7 +624,7 @@ msgstr "Nastavení ikon na ploše"
 #: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Vytvoření složky Failed"
+msgstr "Přidejte znak, který umožňuje identifikovat měkké odkazy."
 
 #: app/desktopManager.js:2492
 #, fuzzy
@@ -658,7 +658,7 @@ msgstr "Koš"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Úložiště"
+msgstr "Disk"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -701,7 +701,7 @@ msgstr ""
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nelze otevřít soubor"
+msgstr "Soubor nelze otevřít"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
@@ -839,7 +839,7 @@ msgstr "Přesuň k"
 #: app/fileItemMenu.js:378
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovat do .."
+msgstr "Kopírovat do..."
 
 #: app/fileItemMenu.js:382
 msgid "Rename…"

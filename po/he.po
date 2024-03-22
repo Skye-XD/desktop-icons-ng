@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-31 21:34-0500\n"
-"PO-Revision-Date: 2024-02-02 06:01+0000\n"
+"PO-Revision-Date: 2024-03-02 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:169 app/adwPreferencesWindow.js:170
 #, fuzzy
@@ -627,7 +627,9 @@ msgstr "הגדרות"
 #: app/desktopManager.js:2491
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "יצירת פלאדר נכשלת"
+msgstr ""
+"כדי להיות מסוגל לעבוד עם קבצים דחוסים, להתקין קובץ-roller ו / או gir-1.2-"
+"gnome AutoAr"
 
 #: app/desktopManager.js:2492
 #, fuzzy
@@ -703,7 +705,7 @@ msgstr "אין יישום שהותקן כדי לפתוח את סוג הקבצי�
 #: app/fileItem.js:377 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "Could not open File"
-msgstr "לא ניתן לפתוח את הקובץ"
+msgstr "לא ניתן לפתוח קובץ"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:379 app/gnomeShellDragDrop.js:239
@@ -970,7 +972,7 @@ msgstr "Select Destination"
 #: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 #, fuzzy
 msgid "Select"
-msgstr "בחירה"
+msgstr "בחרו"
 
 #: app/fileItemMenu.js:688
 #, fuzzy
