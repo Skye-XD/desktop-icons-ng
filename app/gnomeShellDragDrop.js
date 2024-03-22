@@ -232,17 +232,15 @@ const GnomeShellDrag = class {
     }
 
     _showAppCannotOpenError(Appname) {
-        let modal = true;
-        let windowError = new this._desktopManager.showErrorPopup.ShowErrorPopup(
+        const modal = true;
+        const timeout = 3000; // In ms
+        const errorDialog = this._desktopManager.showError(
             _('Could not open File'),
             // eslint-disable-next-line no-template-curly-in-string
             _('${appName} can not open files of this Type!').replace('${appName}', Appname),
-            modal,
-            this._textEntryAccelsTurnOff.bind(this),
-            this._textEntryAccelsTurnOn.bind(this),
-            this._DesktopIconsUtil
+            modal
         );
-        windowError.timeoutClose(3000);
+        errorDialog.timeoutClose(timeout);
         return false;
     }
 };

@@ -32,7 +32,6 @@ const FileItemMenu = class {
         this.DBusUtils = desktopManager.DBusUtils;
         this._Enums = desktopManager.Enums;
         this._templatesScriptsManager = this._desktopManager.templatesScriptsManager;
-        this._showErrorPopup = this._desktopManager.showErrorPopup;
         this._decompressibleTypes = [];
         this.archiveConnectionId = this.DBusUtils.RemoteFileOperations.gnomeArchiveManager.connect('changed-status', (actor, available) => {
             if (available) {

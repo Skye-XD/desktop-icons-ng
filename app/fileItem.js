@@ -338,9 +338,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_SUPPORTED)) {
                 let title = _('Opening File Failed');
                 let defaultAppInfo = Gio.content_type_get_description(this.attributeContentType);
-                let error = _('There is no application installed to open "{foo}" type of files').replace(
-                    '{foo}', defaultAppInfo);
-                this._showerrorpopup(title, error);
+                let error = _('There is no application installed to open "{foo}" files.').replace('{foo}', defaultAppInfo);
+                let helpURI = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
+                this._showerrorpopup(title, error, helpURI);
             } else {
                 console.error(e, `Error opening file ${this.file.get_uri()}: ${e.message}`);
             }
@@ -355,54 +355,52 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this._desktopManager.textEntryAccelsTurnOn();
     }
 
-    _showerrorpopup(title, error) {
-        let modal = true;
-        new this._desktopManager.showErrorPopup.ShowErrorPopup(
+    _showerrorpopup(title, error, helpURI = null) {
+        const modal = true;
+        this._desktopManager.showError(
             title,
             error,
             modal,
-            this._textEntryAccelsTurnOff.bind(this),
-            this._textEntryAccelsTurnOn.bind(this),
-            this.DesktopIconsUtil
+            helpURI
         );
     }
 
     _launchDesktopFile(context, fileList) {
-        let object = this.DesktopIconsUtil.checkAppOpensFileType(this._desktopFile, fileList[0], null);
-        if (this.trustedDesktopFile && (!fileList.length || object.canopenFile)) {
-            this._desktopFile.launch_uris_as_manager(fileList, context, GLib.SpawnFlags.SEARCH_PATH, null, null);
-            return;
-        } else if (this.trustedDesktopFile && !object.canopenFile) {
-            let Appname = object.Appname;
-            let title = _('Could not open File');
-            // eslint-disable-next-line no-template-curly-in-string
-            let error = _('${appName} can not open files of this Type!').replace('${appName}', Appname);
-            this._showerrorpopup(title, error);
-        }
-
         if (!this._isValidDesktopFile) {
-            let title = _('Broken Desktop File');
-            let error = _('This .desktop file has errors or points to a program without permissions. It can not be executed.\n\n\t<b>Edit the file to set the correct executable Program.</b>');
+            const title = _('Broken Desktop File');
+            const error = _('This .desktop file has errors or points to a program without permissions. It can not be executed.\n\nEdit the file to set the correct executable Program.');
             this._showerrorpopup(title, error);
             return;
         }
 
         if (this._writableByOthers || !this._attributeCanExecute) {
-            let title = _('Invalid Permissions on Desktop File');
+            const title = _('Invalid Permissions on Desktop File');
             let error = _('This .desktop File has incorrect Permissions. Right Click to edit Properties, then:\n');
             if (this._writableByOthers)
-                error += _('\n<b>Set Permissions, in "Others Access", "Read Only" or "None"</b>');
+                error += _('\nSet Permissions, in "Others Access", "Read Only" or "None"');
 
             if (!this._attributeCanExecute)
-                error += _('\n<b>Enable option, "Allow Executing File as a Program"</b>');
+                error += _('\nEnable option, "Allow Executing File as a Program"');
 
             this._showerrorpopup(title, error);
             return;
         }
 
         if (!this.trustedDesktopFile) {
-            let title = 'Untrusted Desktop File';
-            let error = _('This .desktop file is not trusted, it can not be launched. To enable launching, right-click, then:\n\n<b>Enable "Allow Launching"</b>');
+            const title = _('Untrusted Desktop File');
+            const error = _('This .desktop file is not trusted, it can not be launched. To enable launching, right-click, then:\n\nEnable "Allow Launching"');
+            this._showerrorpopup(title, error);
+            return;
+        }
+
+        let object = this.DesktopIconsUtil.checkAppOpensFileType(this._desktopFile, fileList[0], null);
+        if (this.trustedDesktopFile && (!fileList.length || object.canopenFile)) {
+            this._desktopFile.launch_uris_as_manager(fileList, context, GLib.SpawnFlags.SEARCH_PATH, null, null);
+        } else if (this.trustedDesktopFile && !object.canopenFile) {
+            const Appname = object.Appname;
+            const title = _('Could not open File');
+            // eslint-disable-next-line no-template-curly-in-string
+            const error = _('${appName} can not open files of this Type!').replace('${appName}', Appname);
             this._showerrorpopup(title, error);
         }
     }
