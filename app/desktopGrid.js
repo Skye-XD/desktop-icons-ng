@@ -38,6 +38,7 @@ const DesktopGrid = class {
         this._desktopDescription = desktopDescription;
         this._using_X11 = this.DesktopIconsUtil.usingX11();
         this.directoryOpenTimer = null;
+        this.windowGlobalRectangle = new Gdk.Rectangle();
         this.updateWindowGeometry();
         this.updateUnscaledHeightWidthMargins();
         this.createGrids();
@@ -186,6 +187,10 @@ const DesktopGrid = class {
         }
         this._windowWidth = Math.floor(this._desktopDescription.width / this._sizer);
         this._windowHeight = Math.floor(this._desktopDescription.height / this._sizer);
+        this.windowGlobalRectangle.x = this._x;
+        this.windowGlobalRectangle.y = this._y;
+        this.windowGlobalRectangle.width = this._windowWidth;
+        this.windowGlobalRectangle.height = this._windowHeight;
     }
 
     resizeWindow() {
@@ -978,8 +983,11 @@ const DesktopGrid = class {
         // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
         // coordinates of the grid to the left of the grid the icons should be on!
         // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
-        // to the left of where they should be immediately after grid resizing,
-        // otherwise works normally! see line 1057
+        // instead of where they should be immediately after grid resizing,
+        // otherwise works normally! It appears that it keeps the last margin
+        // appllied to give the coordinates instead of the current one. So apply the margin
+        // twice to get the correct coordinates from localToGlobal. This is done in desktopManager
+        // on grid resize. Error is in GObject.compute_point();
         [X, Y] = this.coordinatesGlobalToWindow(X, Y);
         const sourcePoint = new Graphene.Point({x: X, y: Y});
 
@@ -1059,17 +1067,6 @@ const DesktopGrid = class {
 
     addFileItemCloseTo(fileItem, x, y, coordinatesAction) {
         let addVolumesOpposite = this.Prefs.AddVolumesOpposite;
-        // This is a complete hack! ** FIX ME **
-        // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
-        // coordinates of the grid to the left of the grid the icons should be on!
-        // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
-        // to the left of where they should be, I cannot figure our why, otherwise
-        // works normally. So move the x, y coordinates a little only if redisplaying..
-        if (coordinatesAction === this.Enums.StoredCoordinates.REDISPLAY) {
-            x += this._elementWidth / 2;
-            y += this._elementHeight / 2;
-            coordinatesAction = this.Enums.StoredCoordinates.PRESERVE;
-        }
         let [column, row] = this._getEmptyPlaceClosestTo(
             x,
             y,
@@ -1104,8 +1101,22 @@ const DesktopGrid = class {
     }
 
     coordinatesBelongToThisGrid(X, Y) {
-        let checkRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+        const checkRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
         return this.gridGlobalRectangle.intersect(checkRectangle)[0];
+    }
+
+    coordinatesBelongToThisGridWindow(X, Y) {
+        const checkRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+        return this.windowGlobalRectangle.intersect(checkRectangle)[0];
+    }
+
+    fileItemRectangleFitsThisGrid(X, Y) {
+        const topLeftVertex = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+        const Xr = X + this._elementWidth - 2;
+        const Yr = Y + this._elementHeight - 2;
+        const bottomRightVertex = new Gdk.Rectangle({x: Xr, y: Yr, width: 1, height: 1});
+        return this.gridGlobalRectangle.intersect(topLeftVertex)[0] &&
+            this.gridGlobalRectangle.intersect(bottomRightVertex)[0];
     }
 
     getGlobaltoLocalRectangle(gdkRectangle) {

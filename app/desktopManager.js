@@ -461,6 +461,16 @@ const DesktopManager = class {
                         desktop.resizeWindow();
 
                     desktop.resizeGrid();
+                    // *** FIX ME ****
+                    // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
+                    // coordinates of the grid to the left of the grid the icons should be on!
+                    // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
+                    // instead of where they should be immediately after grid resizing,
+                    // otherwise works normally! It appears that it keeps the last margin
+                    // appllied to give the coordinates instead of the current one. So apply the margin
+                    // twice to get the correct coordinates from localToGlobal. This is done here.
+                    // See desktopGrid.js, coordinatesLocalToGlobal(). Error in GObject.compute_point();
+                    desktop.resizeGrid();
                 }
             }
             if (indexChanged)
@@ -2076,12 +2086,8 @@ const DesktopManager = class {
             return;
         }
         if (opts.redisplay)
-            this._sortByPosition();
-        let storeMode;
-        if (opts.gridschanged)
-            storeMode = this.Enums.StoredCoordinates.REDISPLAY;
-        else
-            storeMode = this.Enums.StoredCoordinates.PRESERVE;
+            this._sortByCurrentPosition();
+        const storeMode = this.Enums.StoredCoordinates.PRESERVE;
         this._addFilesToDesktop(this._fileList, storeMode);
     }
 
@@ -2108,7 +2114,8 @@ const DesktopManager = class {
             let [itemX, itemY] = fileItem.savedCoordinates;
             let addedToDesktop = false;
             for (let desktop of this._desktops) {
-                if (desktop.coordinatesBelongToThisGrid(itemX, itemY) && desktop.isAvailable()) {
+                if (desktop.fileItemRectangleFitsThisGrid(itemX, itemY) &&
+                        desktop.isAvailable()) {
                     addedToDesktop = true;
                     desktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
                     break;
@@ -2119,10 +2126,31 @@ const DesktopManager = class {
                 outOfDesktops.push(fileItem);
         }
 
-        // Now, assign those icons that are outside the current desktops,
-        // but have assigned saved coordinates
+        // Now, assign icons that have lande in changed margins, belong to monitor
+        // and the window, however are no longer on the grid.
+
         if (outOfDesktops.length) {
-            this._addFilesCloseToAssignedDesktop(outOfDesktops, storeMode, preferredDesktop);
+            const unassigned = [];
+            for (let fileItem of outOfDesktops) {
+                let addedToDesktop = false;
+                let [itemX, itemY] = fileItem.savedCoordinates;
+                for (let desktop of this._desktops) {
+                    if (desktop.coordinatesBelongToThisGridWindow &&
+                            desktop.isAvailable()) {
+                        addedToDesktop = true;
+                        desktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
+                        break;
+                    }
+                }
+
+                if (!addedToDesktop)
+                    unassigned.push(fileItem);
+            }
+
+            // Now, assign those icons that are outside the all current monitors, or do not
+            // have space on current monitor, but have assigned saved coordinates
+            if (unassigned.length)
+                this._addFilesCloseToAssignedDesktop(unassigned, storeMode, preferredDesktop);
             outOfDesktops = [];
         }
 
@@ -2865,56 +2893,112 @@ const DesktopManager = class {
         this._reassignFilesToDesktop();
     }
 
-    _sortByPosition() {
+    _sortByOriginalPosition() {
         let cornerInversion = this.Prefs.StartCorner;
         if (!cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
-                if (a._x1 < b._x1)
+                if (a.X < b.X)
                     return -1;
-                if (a._x1 > b._x1)
+                if (a.X > b.X)
                     return 1;
-                if (a._y1 < b._y1)
+                if (a.Y < b.Y)
                     return -1;
-                if (a._y1 > b._y1)
+                if (a.Y > b.Y)
                     return 1;
                 return 0;
             });
         }
         if (cornerInversion[0] && cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
-                if (a._x1 < b._x1)
+                if (a.X < b.X)
                     return 1;
-                if (a._x1 > b._x1)
+                if (a.X > b.X)
                     return -1;
-                if (a._y1 < b._y1)
+                if (a.Y < b.Y)
                     return 1;
-                if (a._y1 > b._y1)
+                if (a.Y > b.Y)
                     return -1;
                 return 0;
             });
         }
         if (cornerInversion[0] && !cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
-                if (a._x1 < b._x1)
+                if (a.X < b.X)
                     return 1;
-                if (a._x1 > b._x1)
+                if (a.X > b.X)
                     return -1;
-                if (a._y1 < b._y1)
+                if (a.Y < b.Y)
                     return -1;
-                if (a._y1 > b._y1)
+                if (a.Y > b.Y)
                     return 1;
                 return 0;
             });
         }
         if (!cornerInversion[0] && cornerInversion[1]) {
             this._fileList.sort((a, b) =>   {
-                if (a._x1 < b._x1)
+                if (a.X < b.X)
                     return -1;
-                if (a._x1 > b._x1)
+                if (a.X > b.X)
                     return 1;
-                if (a._y1 < b._y1)
+                if (a.Y < b.Y)
                     return 1;
-                if (a._y1 > b._y1)
+                if (a.Y > b.Y)
+                    return -1;
+                return 0;
+            });
+        }
+    }
+
+    _sortByCurrentPosition() {
+        let cornerInversion = this.Prefs.StartCorner;
+        if (!cornerInversion[0] && !cornerInversion[1]) {
+            this._fileList.sort((a, b) =>   {
+                if (a.x < b.x)
+                    return -1;
+                if (a.x > b.x)
+                    return 1;
+                if (a.y < b.y)
+                    return -1;
+                if (a.y > b.y)
+                    return 1;
+                return 0;
+            });
+        }
+        if (cornerInversion[0] && cornerInversion[1]) {
+            this._fileList.sort((a, b) =>   {
+                if (a.x < b.x)
+                    return 1;
+                if (a.x > b.x)
+                    return -1;
+                if (a.y < b.y)
+                    return 1;
+                if (a.y > b.y)
+                    return -1;
+                return 0;
+            });
+        }
+        if (cornerInversion[0] && !cornerInversion[1]) {
+            this._fileList.sort((a, b) =>   {
+                if (a.x < b.x)
+                    return 1;
+                if (a.x > b.x)
+                    return -1;
+                if (a.y < b.y)
+                    return -1;
+                if (a.y > b.y)
+                    return 1;
+                return 0;
+            });
+        }
+        if (!cornerInversion[0] && cornerInversion[1]) {
+            this._fileList.sort((a, b) =>   {
+                if (a.x < b.x)
+                    return -1;
+                if (a.x > b.x)
+                    return 1;
+                if (a.y < b.y)
+                    return 1;
+                if (a.y > b.y)
                     return -1;
                 return 0;
             });
@@ -2925,7 +3009,7 @@ const DesktopManager = class {
         if (this.Prefs.keepArranged)
             return;
         this._fileList.map(f => f.removeFromGrid({callOnDestroy: false}));
-        this._sortByPosition();
+        this._sortByCurrentPosition();
         this._reassignFilesToDesktop();
     }
 
