@@ -299,7 +299,9 @@ const Preferences = class {
         default:
             terminal = 'org.gnome.Console.desktop';
         }
-        const terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+        let terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+        if (!terminalappinfo)
+            terminalappinfo = Gio.DesktopAppInfo.new('org.gnome.Console.desktop');
         if (terminalappinfo)
             return [terminalappinfo];
         else
