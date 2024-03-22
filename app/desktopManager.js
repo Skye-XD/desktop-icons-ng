@@ -1178,7 +1178,7 @@ const DesktopManager = class {
                     const errorDialog = this.showError(
                         _('Clear current selection before new search'),
                         secondaryText,
-                        modal,
+                        modal
                     );
                     errorDialog.timeoutClose(timoutClose);
                     return true;

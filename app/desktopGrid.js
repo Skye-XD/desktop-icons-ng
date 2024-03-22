@@ -1131,13 +1131,19 @@ const DesktopGrid = class {
             this._setGridUse(bottomRightColumn, row, fileItem);
     }
 
+    _fileItemFitsOnGrid(fileItem) {
+        const [X, Y] = fileItem.savedCoordinates;
+        return this.fileItemRectangleFitsThisGrid(X, Y);
+    }
+
     _placeIntoPosition(fileItem, X, Y, x, y, column, row, coordinatesAction) {
         if (fileItem.savedCoordinates == null ||
             (fileItem.savedCoordinates[0] === 0 &&
             fileItem.savedCoordinates[1] === 0) ||
             this.Prefs.showDropPlace ||
             this.Prefs.keepArranged ||
-            this.Prefs.keepStacked) {
+            this.Prefs.keepStacked ||
+            !this._fileItemFitsOnGrid(fileItem)) {
             this._addFileItemToGrid(fileItem, column, row, coordinatesAction);
             return;
         }
