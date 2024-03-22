@@ -1163,7 +1163,7 @@ const DesktopGrid = class {
          * and not triggered by a screen change.
          */
         if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
-            fileItem.savedCoordinates = [X, Y];
+            fileItem.writeSavedCoordinates([X, Y]);
     }
 
     addFileItemCloseTo(fileItem, X, Y, coordinatesAction) {
