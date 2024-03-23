@@ -100,5 +100,10 @@
         <summary>Show new icons on non primary monitor if connected</summary>
         <description>If a second monitor is connected, new icons are placed on the non primary monitor</description>
     </key>
+        <key type="b" name="free-position-icons">
+        <default>false</default>
+        <summary>Icons can be positioned anywhere on Desktop</summary>
+        <description>Icons are not on a rectangular grid but can be postioned anywhere independent of grid</description>
+    </key>
     </schema>
 </schemalist>

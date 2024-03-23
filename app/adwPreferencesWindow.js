@@ -122,7 +122,10 @@ const ComboRowWithKey = GObject.registerClass({
         });
         this.set_factory(listFactory);
 
-        const expression = new Gtk.PropertyExpression(ListObject, null, 'description');
+        const expression = new Gtk.PropertyExpression(ListObject,
+            null,
+            'description'
+        );
         this.set_expression(expression);
     }
 
@@ -146,12 +149,15 @@ const ComboRowWithKey = GObject.registerClass({
 });
 
 const AdwPreferencesWindow = class {
-    constructor(desktopSettings, nautilusSettings, gtkSettings, extensionPath, version) {
+    constructor(desktopSettings, nautilusSettings, gtkSettings, extensionPath,
+        version) {
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;
         this.gtkSettings = gtkSettings;
-        this.iconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-        this.iconPath = GLib.build_filenamev([extensionPath, 'app', 'resources', 'icons']);
+        this.iconTheme = Gtk.IconTheme.get_for_display(
+            Gdk.Display.get_default());
+        this.iconPath = GLib.build_filenamev([extensionPath, 'app', 'resources',
+            'icons']);
         this.iconTheme.add_search_path(this.iconPath);
         this.version = version;
     }
@@ -237,17 +243,50 @@ const AdwPreferencesWindow = class {
                 'bottom-right': _('Bottom right corner'),
             }
         ));
-        desktopGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-second-monitor', _('Add new icons to Secondary Monitors first, if available')));
+        desktopGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-second-monitor',
+            _('Add new icons to Secondary Monitors first, if available')));
 
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-home', _('Show the personal folder on the desktop')));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-trash', _('Show the trash icon on the desktop')));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-volumes', _('Show external drives on the desktop')));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-network-volumes', _('Show network drives on the desktop')));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings, 'add-volumes-opposite', _('Add new drives to the opposite side of the desktop')));
+        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-home',
+            _('Show the personal folder on the desktop')
+        ));
+        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-trash',
+            _('Show the trash icon on the desktop')
+        ));
+        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-volumes',
+            _('Show external drives on the desktop')
+        ));
+        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-network-volumes',
+            _('Show network drives on the desktop')
+        ));
+        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'add-volumes-opposite',
+            _('Add new drives to the opposite side of the desktop')
+        ));
 
-        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-drop-place', _('Rectangular icons with drop grid highlighting')));
-        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings, 'show-link-emblem', _('Add an emblem to soft links')));
-        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings, 'dark-text-in-labels', _('Use dark text in icon labels')));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'free-position-icons',
+            _('Snap icons to grid'),
+            Gio.SettingsBindFlags.INVERT_BOOLEAN
+        ));
+        const dropPlaceRow = this.addActionRowSwitch(this.desktopSettings,
+            'show-drop-place',
+            _('Highlight the drop grid'));
+        this.desktopSettings.bind('free-position-icons', dropPlaceRow,
+            'sensitive',
+            Gio.SettingsBindFlags.INVERT_BOOLEAN);
+        tweaksGroup.add(dropPlaceRow);
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-link-emblem',
+            _('Add an emblem to soft links')));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'dark-text-in-labels',
+            _('Use dark text in icon labels')
+        ));
 
         filesGroup.add(this.addActionRowSelector(this.nautilusSettings,
             'click-policy',
@@ -264,14 +303,38 @@ const AdwPreferencesWindow = class {
                 'local-only': _('On this computer only'),
                 'never': _('Never'),
             }));
-        filesGroup.add(this.addActionRowSwitch(this.nautilusSettings, 'show-delete-permanently', _('Show a context menu item to delete permanently')));
-        filesGroup.add(this.addActionRowSwitch(this.gtkSettings, 'show-hidden', _('Show hidden files')));
-        filesGroup.add(this.addActionRowSwitch(this.nautilusSettings, 'open-folder-on-dnd-hover', _('Open folders on drag hover')));
+        filesGroup.add(this.addActionRowSwitch(this.nautilusSettings,
+            'show-delete-permanently',
+            _('Show a context menu item to delete permanently')
+        ));
+        filesGroup.add(this.addActionRowSwitch(this.gtkSettings,
+            'show-hidden',
+            _('Show hidden files')
+        ));
+        filesGroup.add(this.addActionRowSwitch(this.nautilusSettings,
+            'open-folder-on-dnd-hover',
+            _('Open folders on drag hover')
+        ));
 
-        aboutGroup.add(this.addActionRowButton(_('Website'), 'https://gitlab.com/smedius/desktop-icons-ng', _('Visit'), this.launchWebsite.bind(this)));
-        aboutGroup.add(this.addActionRowButton(_('Issues'), _('Report issues on issue tracker'), _('Report'), this.launchIssueTracker.bind(this)));
-        aboutGroup.add(this.addActionRowButton(_('License'), 'GNU GPLv3', 'GNU GPLv3', this.luanchLicense.bind(this)));
-        aboutGroup.add(this.addActionRowButton(_('Translation'), _('Help translate in your web browser'), _('Translate'), this.launchWebTranslation.bind(this)));
+        aboutGroup.add(this.addActionRowButton(_('Website'),
+            'https://gitlab.com/smedius/desktop-icons-ng',
+            _('Visit'),
+            this.launchWebsite.bind(this)
+        ));
+        aboutGroup.add(this.addActionRowButton(_('Issues'),
+            _('Report issues on issue tracker'),
+            _('Report'), this.launchIssueTracker.bind(this)
+        ));
+        aboutGroup.add(this.addActionRowButton(_('License'),
+            'GNU GPLv3',
+            'GNU GPLv3',
+            this.luanchLicense.bind(this)
+        ));
+        aboutGroup.add(this.addActionRowButton(_('Translation'),
+            _('Help translate in your web browser'),
+            _('Translate'),
+            this.launchWebTranslation.bind(this)
+        ));
 
         if (!window)
             return prefsWindow;
@@ -279,7 +342,7 @@ const AdwPreferencesWindow = class {
             return true;
     }
 
-    addActionRowSwitch(settings, key, labelText) {
+    addActionRowSwitch(settings, key, labelText, bindFlags = null) {
         const actionRow = Adw.ActionRow.new();
         const switcher = new Gtk.Switch({active: settings.get_boolean(key)});
         switcher.set_halign(Gtk.Align.END);
@@ -288,7 +351,9 @@ const AdwPreferencesWindow = class {
         switcher.set_vexpand(false);
         actionRow.set_title(labelText);
         actionRow.add_suffix(switcher);
-        settings.bind(key, switcher, 'active', Gio.SettingsBindFlags.DEFAULT);
+        if (!bindFlags)
+            bindFlags = Gio.SettingsBindFlags.DEFAULT;
+        settings.bind(key, switcher, 'active', bindFlags);
         actionRow.set_activatable_widget(switcher);
 
         return actionRow;
@@ -300,7 +365,8 @@ const AdwPreferencesWindow = class {
         actionRow.set_use_subtitle(false);
         actionRow.makeEnumn(elements);
         actionRow.set_selected(settings.get_enum(key));
-        settings.bind(key, actionRow, 'indexkey', Gio.SettingsBindFlags.DEFAULT);
+        settings.bind(key, actionRow, 'indexkey',
+            Gio.SettingsBindFlags.DEFAULT);
 
         return actionRow;
     }
@@ -345,12 +411,14 @@ const AdwPreferencesWindow = class {
     }
 
     luanchLicense() {
-        const licenseUri = 'https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/COPYING';
+        const licenseUri =
+        'https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/COPYING';
         this.launchUri(licenseUri);
     }
 
     launchWebTranslation() {
-        const translationUri = 'https://hosted.weblate.org/engage/gtk4-desktop-icons-ng';
+        const translationUri =
+        'https://hosted.weblate.org/engage/gtk4-desktop-icons-ng';
         this.launchUri(translationUri);
     }
 };
