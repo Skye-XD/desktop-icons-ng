@@ -568,7 +568,7 @@ const DesktopManager = class {
         let deltaX;
         let deltaY;
 
-        if (this.Prefs.showDropPlace) {
+        if (!this.Prefs.freePositionIcons) {
             deltaX = xDestination - xOrigin;
             deltaY = yDestination - yOrigin;
         } else {
@@ -714,7 +714,7 @@ const DesktopManager = class {
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
         const fileList = this.makeFileListFromSelection(dropData, acceptFormat);
 
-        if (this.Prefs.showDropPlace)
+        if (!this.Prefs.freePositionIcons)
             [xGlobalDestination, yGlobalDestination] = this._positiveOffsetGridAim(xGlobalDestination, yGlobalDestination);
 
         let returnAction;

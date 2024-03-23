@@ -473,7 +473,7 @@ const DesktopGrid = class {
             let filesMove = drop.get_formats().match(fileItemAcceptFormats);
 
             if (fileItem) {
-                if (this.Prefs.showDropPlace)
+                if (!this.Prefs.freePositionIcons)
                     fileItemDropZone = true;
                 else if (dropRectangle.intersect(fileItem.iconRectangle)[0] || dropRectangle.intersect(fileItem.labelRectangle)[0])
                     fileItemDropZone = true;
@@ -534,7 +534,7 @@ const DesktopGrid = class {
             let readFormat = Gdk.FileList.$gtype;
 
             if (fileItem) {
-                if (this.Prefs.showDropPlace)
+                if (!this.Prefs.freePositionIcons)
                     fileItemDropZone = true;
                 else if (dropRectangle.intersect(fileItem.iconRectangle)[0] || dropRectangle.intersect(fileItem.labelRectangle)[0])
                     fileItemDropZone = true;
@@ -626,7 +626,7 @@ const DesktopGrid = class {
                 let pointerRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (fileItem && fileItem.dropCapable) {
                     this._desktopManager.unHighLightDropTarget();
-                    if (this.Prefs.showDropPlace)
+                    if (!this.Prefs.freePositionIcons)
                         fileItem.highLightDropTarget();
                     else if (pointerRectangle.intersect(fileItem.iconRectangle)[0] || pointerRectangle.intersect(fileItem.labelRectangle)[0])
                         fileItem.highLightDropTarget();
@@ -864,7 +864,7 @@ const DesktopGrid = class {
         // only works for grid placement of icons,
         // with free placements there maybe multiple fileItems per grid
         const setOfFileItemsOnGridNumber = this._gridStatus.get(row * this._maxColumns + column);
-        if (this.Prefs.showDropPlace && setOfFileItemsOnGridNumber.size) {
+        if (!this.Prefs.freePositionIcons && setOfFileItemsOnGridNumber.size) {
             for (const fileItem of setOfFileItemsOnGridNumber.keys())
                 return fileItem;
         }
@@ -872,7 +872,7 @@ const DesktopGrid = class {
     }
 
     _fileAt(x, y) {
-        if (this.Prefs.showDropPlace) {
+        if (!this.Prefs.freePositionIcons) {
             const [column, row] = this._getColumnRowFromLocal(x, y);
             return this._fileAtColumnRow(column, row);
         }
@@ -1140,7 +1140,7 @@ const DesktopGrid = class {
         if (fileItem.savedCoordinates == null ||
             (fileItem.savedCoordinates[0] === 0 &&
             fileItem.savedCoordinates[1] === 0) ||
-            this.Prefs.showDropPlace ||
+            !this.Prefs.freePositionIcons ||
             this.Prefs.keepArranged ||
             this.Prefs.keepStacked ||
             !this._fileItemFitsOnGrid(fileItem)) {
@@ -1185,7 +1185,7 @@ const DesktopGrid = class {
     }
 
     makeTopLayerOnGrid(fileItem) {
-        if (this.Prefs.showDropPlace)
+        if (!this.Prefs.freePositionIcons)
             return;
         const [x, y] = this._fileItems.get(fileItem);
         this._container.remove(fileItem.container);

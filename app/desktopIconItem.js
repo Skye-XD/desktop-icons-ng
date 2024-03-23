@@ -161,7 +161,7 @@ const DesktopIconItem = class {
 
         // This controls how the icons look - Rectangular or skinny trapezoid
 
-        if (this.Prefs.showDropPlace) {
+        if (!this.Prefs.freePositionIcons) {
             this._labelContainer.append(this._iconContainer);
             this._labelContainer.append(this._label);
             this.container.append(this._labelContainer);
@@ -184,11 +184,11 @@ const DesktopIconItem = class {
         this._labelStateFlag = this._labelContainer.connect('state-flags-changed', () => {
             if (this._checkHasHoveredPointer(this._labelContainer)) {
                 this._onEnter();
-                if (!this.Prefs.showDropPlace)
+                if (this.Prefs.freePositionIcons)
                     this._iconContainer.add_css_class('mimic-hovered');
             } else {
                 this._onLeave();
-                if (!this.Prefs.showDropPlace)
+                if (this.Prefs.freePositionIcons)
                     this._iconContainer.remove_css_class('mimic-hovered');
             }
         });
