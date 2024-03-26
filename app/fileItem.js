@@ -727,6 +727,48 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         await this._setFileAttributes(info, cancellable, {refresh: false});
     }
 
+    writeSavedCoordinates(pos) {
+        const oldPos = this._savedCoordinates;
+        this._savedCoordinates = pos;
+
+        if (this._savedCoordinatesCancellable)
+            this._savedCoordinatesCancellable.cancel();
+
+        const cancellable = new Gio.Cancellable();
+        this._savedCoordinatesCancellable = cancellable;
+
+        this._storeCoordinates('nautilus-icon-position', pos, cancellable).catch(e => {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                console.error(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
+                this._savedCoordinates = oldPos;
+            }
+        }).finally(() => {
+            if (this._savedCoordinatesCancellable === cancellable)
+                this._savedCoordinatesCancellable = null;
+        });
+    }
+
+    writeDroppedCoordinates(pos) {
+        const oldPos = this._dropCoordinates;
+        this._dropCoordinates = pos;
+
+        if (this._dropCoordinatesCancellable)
+            this._dropCoordinatesCancellable.cancel();
+
+        const cancellable = new Gio.Cancellable();
+        this._dropCoordinatesCancellable = cancellable;
+
+        this._storeCoordinates('nautilus-drop-position', pos, cancellable).catch(e => {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                console.error(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
+                this._dropCoordinates = oldPos;
+            }
+        }).finally(() => {
+            if (this._dropCoordinatesCancellable === cancellable)
+                this._dropCoordinatesCancellable = null;
+        });
+    }
+
     /** *********************
      * Getters and setters *
      ***********************/
@@ -771,25 +813,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     set dropCoordinates(pos) {
         if (this.DesktopIconsUtil.coordinatesEqual(this._dropCoordinates, pos))
             return;
-
-        const oldPos = this._dropCoordinates;
-        this._dropCoordinates = pos;
-
-        if (this._dropCoordinatesCancellable)
-            this._dropCoordinatesCancellable.cancel();
-
-        const cancellable = new Gio.Cancellable();
-        this._dropCoordinatesCancellable = cancellable;
-
-        this._storeCoordinates('nautilus-drop-position', pos, cancellable).catch(e => {
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                console.error(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
-                this._dropCoordinates = oldPos;
-            }
-        }).finally(() => {
-            if (this._dropCoordinatesCancellable === cancellable)
-                this._dropCoordinatesCancellable = null;
-        });
+        this.writeDroppedCoordinates(pos);
     }
 
     get execLine() {
@@ -879,24 +903,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (this.DesktopIconsUtil.coordinatesEqual(this._savedCoordinates, pos))
             return;
 
-        const oldPos = this._savedCoordinates;
-        this._savedCoordinates = pos;
-
-        if (this._savedCoordinatesCancellable)
-            this._savedCoordinatesCancellable.cancel();
-
-        const cancellable = new Gio.Cancellable();
-        this._savedCoordinatesCancellable = cancellable;
-
-        this._storeCoordinates('nautilus-icon-position', pos, cancellable).catch(e => {
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                console.error(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
-                this._savedCoordinates = oldPos;
-            }
-        }).finally(() => {
-            if (this._savedCoordinatesCancellable === cancellable)
-                this._savedCoordinatesCancellable = null;
-        });
+        this.writeSavedCoordinates(pos);
     }
 
     set temporarySavedPosition(pos) {

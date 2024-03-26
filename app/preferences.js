@@ -107,13 +107,14 @@ const Preferences = class {
         this.sortOrder = this.desktopSettings.get_enum(this._Enums.SortOrder.ORDER);
         this.addVolumesOpposite = this.desktopSettings.get_boolean('add-volumes-opposite');
         this.showHidden = this.gtkSettings.get_boolean('show-hidden');
-        this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
+        this._showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
         this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
         this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
         this.keepStacked = this.desktopSettings.get_boolean('keep-stacked');
         this.keepArranged = this.desktopSettings.get_boolean('keep-arranged');
         this.sortSpecialFolders = this.desktopSettings.get_boolean('sort-special-folders');
         this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
+        this.freePositionIcons = this.desktopSettings.get_boolean('free-position-icons');
         this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
         this.openFolderOnDndHover = this.nautilusSettings.get_boolean('open-folder-on-dnd-hover');
         this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
@@ -199,7 +200,9 @@ const Preferences = class {
                 return;
             }
             if (key === 'show-drop-place')
-                this.showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
+                this._showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
+            if (key === 'free-position-icons')
+                this.freePositionIcons = this.desktopSettings.get_boolean('free-position-icons');
             if (key === 'start-corner')
                 this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
             this._desktopManager.onSettingsChanged();
@@ -416,5 +419,9 @@ const Preferences = class {
 
     get NautilusName() {
         return this._gnomeFilesAppInfo.get_locale_string('Name');
+    }
+
+    get showDropPlace() {
+        return this._showDropPlace && !this.freePositionIcons;
     }
 };
