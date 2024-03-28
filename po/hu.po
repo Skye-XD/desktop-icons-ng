@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-02 14:01+0000\n"
+"PO-Revision-Date: 2024-03-28 14:02+0000\n"
 "Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,7 +106,7 @@ msgstr "Új ikonok elrendezése"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Top left corner"
-msgstr "Bal-felső sarok"
+msgstr "Bal felső sarok"
 
 #: app/adwPreferencesWindow.js:241
 #, fuzzy
@@ -121,7 +121,7 @@ msgstr "Bal-alsó sarok"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Jobb-alsó sarok"
+msgstr "Jobb alsó sarok"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
@@ -154,13 +154,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Adjon új meghajtókat az asztal ellentétes oldalára"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Snap ikonok a rácshoz"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Kiemeli a csepprácsot a Drag és a Drop során"
+msgstr "Kiemeli a csepp rácsot"
 
 #: app/adwPreferencesWindow.js:285
 #, fuzzy
@@ -218,7 +219,7 @@ msgstr "Nyílt mappák a drag hover"
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "Website"
-msgstr "weboldal"
+msgstr "Weboldal"
 
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
@@ -476,20 +477,22 @@ msgstr "Nő Nem talált fájlok"
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "A GNOME A fájlok alkalmazása a Desktop Icons NG szükséges."
+msgstr "A GNOME A Gtk4 Desktop Icons NG szükséges."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Nincs alapértelmezett File Manager"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "Nincs olyan alkalmazás, amely megnyitja a \"{foo}\" típusú fájlokat"
+msgstr "Nincs olyan alkalmazás, amely kezeli a mimetype \"inode/directory\""
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "A Gnome Files nem regisztrált File Managerként"
 
 #: app/desktopManager.js:168
 msgid ""
@@ -501,7 +504,7 @@ msgstr ""
 #: app/desktopManager.js:776
 #, fuzzy
 msgid "Move"
-msgstr "Mozgatás"
+msgstr "Áthelyezés"
 
 #: app/desktopManager.js:777 app/fileItemMenu.js:372
 msgid "Copy"
@@ -653,9 +656,7 @@ msgstr "Beállítások"
 #: app/desktopManager.js:2569
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr ""
-"Ahhoz, hogy kompressált fájlokkal dolgozhasson, telepítse a fájl-rollert "
-"és / vagy gir-1.2-gnome-t AutoAr"
+msgstr "Folder Teremtés Hibás"
 
 #: app/desktopManager.js:2570
 #, fuzzy
@@ -726,7 +727,7 @@ msgstr "A fájl megnyitása sikertelen"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "Nincs olyan alkalmazás, amely megnyitja a \"{foo}\" típusú fájlokat"
+msgstr "Nincs olyan alkalmazás, amely megnyitja a \"{foo} fájlokat."
 
 #: app/fileItem.js:370
 #, fuzzy
@@ -762,7 +763,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>Set engedélyek, a \"Others Access\", \"Read Only\" vagy \"None\" </b>"
+"Beállítási engedélyek, az \"Others Access\", \"Read Only\" vagy \"None\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -771,12 +772,12 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>Enable opció: \"Allow Executing File as a Program\"</b>"
+"Lehetővé teszi az opciót: \"Legyen kivégző fájlt programként\""
 
 #: app/fileItem.js:390
 #, fuzzy
 msgid "Untrusted Desktop File"
-msgstr "Broken Desktop fájl"
+msgstr "Untrusted Desktop File"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -1075,8 +1076,9 @@ msgid "Console"
 msgstr "Konzol"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "További információk"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
@@ -1291,14 +1293,18 @@ msgstr ""
 "elsődleges monitorra"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Az ikonok bárhol elhelyezhetők az asztalon"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Az ikonok nem egy téglalapos hálózaton vannak, hanem bárhol elhalaszthatók, "
+"függetlenül a hálózattól"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"

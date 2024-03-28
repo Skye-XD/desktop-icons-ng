@@ -11,17 +11,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-01-09 18:06+0000\n"
+"PO-Revision-Date: 2024-03-28 14:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -137,17 +137,17 @@ msgstr "Afficher le dossier personnel sur le bureau"
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Afficher la corbeille sur le bureau"
+msgstr "Afficher l'icône de la poubelle sur le bureau"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Afficher les volumes de stockage externes sur le bureau"
+msgstr "Montrer des disques externes sur le bureau"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Afficher les volumes réseau sur le bureau"
+msgstr "Montrer des disques réseau sur le bureau"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
@@ -155,13 +155,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Ajouter de nouveaux disques sur le côté opposé du bureau"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Snap icons to grid"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Éclairer la grille de chute pendant Drag et Drop"
+msgstr "Éclairer la grille de chute"
 
 #: app/adwPreferencesWindow.js:285
 msgid "Add an emblem to soft links"
@@ -278,7 +279,7 @@ msgstr "Ouvrir le dossier"
 #: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Ouvrir le fichier"
+msgstr "Ouvrir un fichier"
 
 #: app/appChooser.js:105
 #, fuzzy
@@ -469,7 +470,7 @@ msgstr ""
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Préférences des icônes du bureau"
+msgstr "Icônes de bureau"
 
 #: app/desktopManager.js:141
 #, fuzzy
@@ -479,21 +480,23 @@ msgstr "GNOME Fichiers non trouvés"
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "Le GNOME L'application de fichiers est requise par Desktop Icons NG."
+msgstr ""
+"Le GNOME L'application de fichiers est requise par Gtk4 Desktop Icons NG."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Il n'y a pas de gestionnaire de fichiers par défaut"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr ""
-"Il n'y a pas d'application installée pour ouvrir \"{foo}\" type de fichiers"
+msgstr "Il n'y a pas d'application qui gère mimetype \"inode/directory\""
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Gnome Files n'est pas enregistré en tant que gestionnaire de fichiers"
 
 #: app/desktopManager.js:168
 msgid ""
@@ -505,7 +508,7 @@ msgstr ""
 #: app/desktopManager.js:776
 #, fuzzy
 msgid "Move"
-msgstr "Déplacer"
+msgstr "Bouger"
 
 #: app/desktopManager.js:777 app/fileItemMenu.js:372
 msgid "Copy"
@@ -631,7 +634,7 @@ msgstr "Changer l’arrière‑plan…"
 #: app/desktopManager.js:1538
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Préférences des icônes du bureau"
+msgstr "Paramètres Icon de bureau"
 
 #: app/desktopManager.js:1539
 msgid "Display Settings"
@@ -680,14 +683,15 @@ msgstr "Dossier personnel"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Vider la corbeille"
+msgstr "Poubelle"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -696,7 +700,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Nouveau dossier"
+msgstr "Dossier"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -704,7 +708,7 @@ msgstr "Nouveau dossier"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Fichiers"
+msgstr "Fichier"
 
 #: app/fileItem.js:307
 msgid "Broken Link"
@@ -719,13 +723,13 @@ msgstr ""
 #: app/fileItem.js:339
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "L'ouverture du fichier a échoué"
+msgstr "L’ouverture du fichier a échoué"
 
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr ""
-"Il n'y a pas d'application installée pour ouvrir \"{foo}\" type de fichiers"
+"Il n'y a pas d'application installée pour ouvrir des fichiers \"{foo}\"."
 
 #: app/fileItem.js:370
 msgid "Broken Desktop File"
@@ -772,8 +776,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>- définissez le droit d’accès dans les permissions pour « autres » à "
-"« lecture seule » ou « aucun » ;</b>"
+"Définir les permissions, dans \"Autres Accès\", \"Read Only\" ou \"None\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -785,14 +788,13 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>- activez l’option, « Autoriser l’exécution du fichier comme un "
-"programme ».</b>"
+"Activer l'option \"Allow Executing File as a Program\""
 
 #: app/fileItem.js:390
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
-msgstr "Fichier XDG Desktop incorrect"
+msgstr "Fichier de bureau non fiable"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -815,7 +817,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Impossible d'ouvrir le fichier"
+msgstr "Impossible d’ouvrir le fichier"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -892,7 +894,7 @@ msgstr "Couper"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Déplacer vers..."
+msgstr "Déplacer vers…"
 
 #: app/fileItemMenu.js:377
 #, fuzzy
@@ -909,6 +911,7 @@ msgid "Create Link..."
 msgstr "Créer un lien..."
 
 #: app/fileItemMenu.js:389
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -1094,14 +1097,16 @@ msgid "Console"
 msgstr "Terminal"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "Plus de précisions"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Pile"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1298,14 +1303,18 @@ msgstr ""
 "le moniteur non primaire"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Icons peut être positionné n'importe où sur Desktop"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Les icônes ne sont pas sur une grille rectangulaire mais peuvent être "
+"postées n'importe où indépendant de la grille"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"

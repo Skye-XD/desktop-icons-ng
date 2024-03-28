@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-02 14:01+0000\n"
+"PO-Revision-Date: 2024-03-28 14:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
 msgid "Desktop"
-msgstr "Área de Trabalho"
+msgstr "Desktop"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #, fuzzy
@@ -45,7 +45,7 @@ msgstr "Acerca"
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Nome Z-A"
+msgstr "Configurações do Desktop"
 
 #: app/adwPreferencesWindow.js:202
 #, fuzzy
@@ -125,13 +125,12 @@ msgstr "Canto inferior esquerdo."
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Canto inferior direito."
+msgstr "Canto inferior direito"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Adicione novos ícones aos monitores secundários primeiro, se disponível"
+msgstr "Mostrar a pasta pessoal na área de trabalho"
 
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
@@ -159,13 +158,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Adicionar novas unidades ao lado oposto do desktop"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Ícones de pressão para grade"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Destaque a grade de queda durante o Arrastar e soltar"
+msgstr "Destaque a grade de gota"
 
 #: app/adwPreferencesWindow.js:285
 #, fuzzy
@@ -250,7 +250,7 @@ msgstr "Relatar problemas no rastreador de problemas"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Relatório"
+msgstr "Denunciar"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -326,7 +326,7 @@ msgstr "Alterar nome"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "Automática Ar não está instalado"
+msgstr "Erro de Criação de Modelo"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -357,7 +357,7 @@ msgstr "Cancelar"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Aberto com..."
+msgstr "Digite uma senha aqui"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -482,7 +482,7 @@ msgstr "Arquivos menores, mas devem ser instalados no Windows e no Mac."
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Mostrar unidades de rede na área de trabalho"
+msgstr "Ícones de desktop"
 
 #: app/desktopManager.js:141
 #, fuzzy
@@ -492,21 +492,22 @@ msgstr "GNOME Arquivos não encontrados"
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "O GNOME O aplicativo de arquivos é exigido pelo Desktop Icons NG."
+msgstr "O GNOME Aplicação de arquivos é necessária por Gtk4 Desktop Icons NG."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Não há nenhum gerenciador de arquivos padrão"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr ""
-"Não há nenhuma aplicação instalada para abrir \"{foo}\" tipo de arquivos"
+msgstr "Não há nenhuma aplicação que manipula o mimetype \"inode/directory\""
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Arquivos Gnome não está registrado como um Gerenciador de arquivos"
 
 #: app/desktopManager.js:168
 msgid ""
@@ -578,7 +579,7 @@ msgstr "Tipo"
 #: app/desktopManager.js:1481
 #, fuzzy
 msgid "Size"
-msgstr "Dimensão"
+msgstr "Tamanho"
 
 #: app/desktopManager.js:1484
 #, fuzzy
@@ -695,7 +696,7 @@ msgstr "Erro de Criação de Modelo"
 #: app/desktopManager.js:2614
 #, fuzzy
 msgid "Could not create document"
-msgstr "Não poderia criar documento"
+msgstr "Enviar para o dispositivo móvel"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -714,7 +715,7 @@ msgstr "Lixo"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Disco"
+msgstr "'Drive'"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -750,8 +751,7 @@ msgstr "Arquivo de abertura Falhado"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr ""
-"Não há nenhuma aplicação instalada para abrir \"{foo}\" tipo de arquivos"
+msgstr "Não há nenhum aplicativo instalado para abrir arquivos \"{foo}\"."
 
 #: app/fileItem.js:370
 #, fuzzy
@@ -787,8 +787,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b> Permissões de segurança, em \"Outros Acesso\", \"Ler Apenas\" ou "
-"\"Nenhum\"</b>"
+"Definir Permissões, em \"Outros Acesso\", \"Ler Apenas\" ou \"Nenhum\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -797,12 +796,12 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b> Habilitar opção, \"Permitir Executar arquivo como um programa\"</b>"
+"Habilitar opção, \"Permitir Executar arquivo como um programa\""
 
 #: app/fileItem.js:390
 #, fuzzy
 msgid "Untrusted Desktop File"
-msgstr "Arquivo de desktop quebrado"
+msgstr "Arquivos de desktop não confiáveis"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -817,7 +816,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir o ficheiro"
+msgstr "Não foi possível abrir o ficheiro"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -826,6 +825,7 @@ msgid "${appName} can not open files of this Type!"
 msgstr "${appName} não pode abrir arquivos deste tipo!"
 
 #: app/fileItemMenu.js:298
+#, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
@@ -844,7 +844,7 @@ msgstr "Para executar"
 #: app/fileItemMenu.js:318
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "Abrir com {foo}"
+msgstr "Incapaz de abrir Não"
 
 #: app/fileItemMenu.js:320
 #, fuzzy
@@ -869,7 +869,7 @@ msgstr "Abrir com..."
 #: app/fileItemMenu.js:343
 #, fuzzy
 msgid "Open All With Other Application..."
-msgstr "Abrir com {foo}"
+msgstr "Abra tudo com outra aplicação..."
 
 #: app/fileItemMenu.js:346
 #, fuzzy
@@ -922,12 +922,14 @@ msgid "Create Link..."
 msgstr "Criar Link..."
 
 #: app/fileItemMenu.js:389
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "Comprimir pastas {0}"
 
 #: app/fileItemMenu.js:396
+#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
@@ -951,7 +953,7 @@ msgstr "Mova para a lixeira"
 #: app/fileItemMenu.js:414
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Eliminar permanentemente"
+msgstr "Apagar permanentemente"
 
 #: app/fileItemMenu.js:419
 #, fuzzy
@@ -1068,7 +1070,7 @@ msgstr "Incapaz de encontrar o comando zip, instale o programa"
 #: app/fileItemMenu.js:763
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Arquivo.zip"
+msgstr "Arquivos"
 
 #: app/fileItemMenu.js:784
 #, fuzzy
@@ -1103,7 +1105,7 @@ msgstr "Incapaz de abrir Não"
 #: app/fileItemMenu.js:919
 #, fuzzy
 msgid "Please Install {0}"
-msgstr "Instalar por favor Não"
+msgstr "Mostrar unidades de rede na área de trabalho"
 
 #: app/preferences.js:417
 #, fuzzy
@@ -1111,8 +1113,9 @@ msgid "Console"
 msgstr "Terminal"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "Mais informações"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
@@ -1317,9 +1320,7 @@ msgstr "Adicione um emblema para permitir identificar links suaves."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
 msgid "Use black for label text"
-msgstr ""
-"Pinte o texto da etiqueta em preto em vez de branco. Úteis ao usar fundos de "
-"luz."
+msgstr "Usar preto para o texto da etiqueta"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, fuzzy
@@ -1345,14 +1346,18 @@ msgstr ""
 "monitor não primário"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Ícones podem ser posicionados em qualquer lugar no Desktop"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Ícones não estão em uma grade retangular, mas podem ser postados em qualquer "
+"lugar independente da grade"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"

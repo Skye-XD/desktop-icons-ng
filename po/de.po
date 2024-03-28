@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-02 14:01+0000\n"
+"PO-Revision-Date: 2024-03-28 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr "Dateien"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Optimierungen"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -56,7 +56,7 @@ msgstr "Einstellungen für das Desktop-Programm"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumes"
+msgstr "Bände"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -119,7 +119,7 @@ msgstr "Untere linke Ecke"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Unten rechts"
+msgstr "Ecko unten-rechts"
 
 #: app/adwPreferencesWindow.js:248
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -134,7 +134,7 @@ msgstr "Zeigen Sie den persönlichen Ordner auf dem Desktop"
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "SymLink verfehlt machen"
+msgstr "Zeigen Sie das Müll-Symbol auf dem Desktop"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
@@ -149,16 +149,17 @@ msgstr "Netzwerk-Laufwerke auf dem Desktop anzeigen"
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Geöffnet in {0}"
+msgstr "Neue Laufwerke auf der gegenüberliegenden Seite des Desktops hinzufügen"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Snap-Symbole zum Gitter"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Markieren Sie das Drop Grid während Drag & Drop"
+msgstr "Das Drop Grid markieren"
 
 #: app/adwPreferencesWindow.js:285
 #, fuzzy
@@ -447,7 +448,7 @@ msgstr "Kleinere Archive, nur Linux und Mac."
 #: app/autoAr.js:701
 #, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Aktion zum Öffnen von Gegenständen"
+msgstr "Kleinere Archive müssen aber unter Windows und Mac installiert werden."
 
 #: app/desktopGrid.js:47
 #, fuzzy
@@ -464,20 +465,22 @@ msgstr "GNOME Dateien nicht gefunden"
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
-"Das GNOME Die Anwendung von Dateien wird von Desktop Icons NG benötigt."
+"Das GNOME Die Anwendung von Dateien wird von Gtk4 Desktop Icons NG benötigt."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Es gibt keinen Standard File Manager"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "Es gibt keine Anwendung installiert, um \"{foo}\" Dateityp zu öffnen"
+msgstr "Es gibt keine Anwendung, die mimetype \"inode/directory\" behandelt"
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Gnome Dateien werden nicht als Dateimanager registriert"
 
 #: app/desktopManager.js:168
 msgid ""
@@ -634,9 +637,7 @@ msgstr "Einstellungen"
 #: app/desktopManager.js:2569
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr ""
-"Um mit komprimierten Dateien arbeiten zu können, Datei-Roller und/oder "
-"gir-1.2-gnome installieren AutoAr"
+msgstr "Falter-Erstellung verfehlt"
 
 #: app/desktopManager.js:2570
 msgid "Could not create folder"
@@ -677,7 +678,7 @@ msgstr "Drive"
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Ordner"
+msgstr "Verzeichnis"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -704,7 +705,7 @@ msgstr "Datei öffnen gescheitert"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "Es gibt keine Anwendung installiert, um \"{foo}\" Dateityp zu öffnen"
+msgstr "Es gibt keine Anwendung installiert, um \"{foo}\"-Dateien zu öffnen."
 
 #: app/fileItem.js:370
 msgid "Broken Desktop File"
@@ -742,8 +743,8 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>Berechtigungen festlegen, in \"Zugriff anderer\", \"Nur lesen\" oder "
-"\"Keine\"</b>"
+"Stellen Sie Berechtigungen, in \"Andere Zugriff\", \"Lesen Sie nur\" oder "
+"\"Nein\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -755,13 +756,13 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>Option aktivieren, \"Datei als Programm ausführen\"</b>"
+"Option aktivieren, \"Datei als Programm ausführen\""
 
 #: app/fileItem.js:390
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
-msgstr "Defekte Desktop-Datei"
+msgstr "Nicht vertrauenswürdige Desktop-Datei"
 
 #: app/fileItem.js:391
 msgid ""
@@ -857,7 +858,7 @@ msgstr "Verschieben auf..."
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopieren nach..."
+msgstr "Kopieren nach …"
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"
@@ -1053,15 +1054,16 @@ msgid "Console"
 msgstr "Konsole"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "Weitere Informationen"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stapeln"
+msgstr "Stapel"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1262,14 +1264,18 @@ msgstr ""
 "primären Monitor platziert"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Icons können überall auf dem Desktop positioniert werden"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Icons sind nicht auf einem rechteckigen Gitter, sondern können überall "
+"unabhängig von Gittern postioniert werden"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"

@@ -10,11 +10,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-02 14:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/uk/>\n"
+"PO-Revision-Date: 2024-03-28 14:02+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -154,13 +153,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Додати нові диски на протилежну сторону робочого столу"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Snap ікони в сітку"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Виділіть падіння сітки під час перетягування та падіння"
+msgstr "Виділіть падіння сітки"
 
 #: app/adwPreferencesWindow.js:285
 #, fuzzy
@@ -218,7 +218,7 @@ msgstr "Відкрийте папки на перетягування"
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "Website"
-msgstr "Сайт"
+msgstr "Web-сторінка"
 
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
@@ -476,33 +476,38 @@ msgstr "ГНОМЕ Файли не знайдені"
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"ГНОМЕ Застосувати файли потрібно за допомогою іконок для робочого столу NG."
+msgstr "ГНОМЕ Файли, які необхідні для Gtk4 Desktop Icons NG."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Немає диспетчера файлів за замовчуванням"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "Для відкриття \"{foo}\" типу файлів"
+msgstr "Не існує програми, які керують mimetype \"inode/directory\""
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Файли Gnome не зареєстровані як файловий менеджер"
 
 #: app/desktopManager.js:168
+#, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"Додаток Gnome Files не запрограмований для відкритих папок!\n"
+"Перевірити установку xdg-utils\n"
+"Перевірити Gnome Файли .desktop Встановлення файлів"
 
 #: app/desktopManager.js:776
 #, fuzzy
 msgid "Move"
-msgstr "Пересунути"
+msgstr "Перемістити"
 
 #: app/desktopManager.js:777 app/fileItemMenu.js:372
 msgid "Copy"
@@ -511,7 +516,7 @@ msgstr "Копіювати"
 #: app/desktopManager.js:778
 #, fuzzy
 msgid "Link"
-msgstr "Посилання"
+msgstr "Поєднати"
 
 #: app/desktopManager.js:781
 #, fuzzy
@@ -652,9 +657,7 @@ msgstr "Параметри"
 #: app/desktopManager.js:2569
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr ""
-"Для роботи з стисненими файлами встановіть файл-роликовий та/або gir-1.2-"
-"gnome Автоархів"
+msgstr "Складання папки"
 
 #: app/desktopManager.js:2570
 #, fuzzy
@@ -725,7 +728,7 @@ msgstr "Не вдалося відкрити файл"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "Для відкриття \"{foo}\" типу файлів"
+msgstr "Для відкриття файлів \"{foo} немає програми."
 
 #: app/fileItem.js:370
 #, fuzzy
@@ -743,7 +746,7 @@ msgstr ""
 "Цей файл .desktop має помилки або точки до програми без дозволу. Не можна "
 "виконувати.\n"
 "\n"
-"<b>Редагувати файл, щоб встановити правильну версію </b>"
+"Редагувати файл, щоб встановити правильну програму."
 
 #: app/fileItem.js:377
 #, fuzzy
@@ -766,7 +769,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>Пропуски, в \"Інші Доступ\", \"Читати тільки\" або \"Нон\"X62X]"
+"Набір дозволів, в \"Інші Доступ\", \"Читати тільки\" або \"Нон\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -775,20 +778,25 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>Увімкнути параметр, \"Дозволяє виконання файлів як програми\"X54X]"
+"Увімкнути варіант, \"Дозволяти виконання файлів як програми\""
 
 #: app/fileItem.js:390
 #, fuzzy
 msgid "Untrusted Desktop File"
-msgstr "Broken Desktop Файл"
+msgstr "Ненадійні файли робочого столу"
 
 #: app/fileItem.js:391
+#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
+"Цей файл .desktop не довіряється, він не може бути запущений. Щоб включити "
+"запуск, клацніть правою кнопкою миші, потім:\n"
+"\n"
+"Увімкнути \"Дозволяє запуск\""
 
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
@@ -890,6 +898,7 @@ msgid "Create Link..."
 msgstr "Створити посилання."
 
 #: app/fileItemMenu.js:389
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -1074,8 +1083,9 @@ msgid "Console"
 msgstr "Console"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "Докладніше"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
@@ -1282,14 +1292,18 @@ msgstr ""
 "Якщо підключено другий монітор, на первинному моніторі розміщені нові іконки"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Ікони можуть розташовуватися в будь-якому місці на робочому столі"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Ікони не на прямокутній сітці, але можуть бути розміщені в будь-якому місці "
+"незалежно від сітки"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"
