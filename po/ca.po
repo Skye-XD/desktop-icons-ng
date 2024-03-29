@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-02 14:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ca/>\n"
+"PO-Revision-Date: 2024-03-28 14:01+0000\n"
+"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -151,13 +151,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Afegir noves unitats al costat oposat de l'escriptori"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Petar icones a la graella"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Ressalta el reixat de gota durant Arrossegar i Caure"
+msgstr "Destaca la reixeta de gota"
 
 #: app/adwPreferencesWindow.js:285
 #, fuzzy
@@ -215,7 +216,7 @@ msgstr "Obriu les carpetes en l'horitzonta d'arrossegament"
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "Website"
-msgstr "Lloc web"
+msgstr "Pàgina web"
 
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
@@ -255,7 +256,7 @@ msgstr "Ajuda a traduir el teu navegador web"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Translate"
-msgstr "Tradueix"
+msgstr "Traducció"
 
 #: app/appChooser.js:53
 #, fuzzy
@@ -437,7 +438,7 @@ msgstr "Contrasenya"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Crear"
+msgstr "Crea"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -472,27 +473,33 @@ msgstr "GNOME Arxius no trobats"
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "El GNOME Aplicació d'arxius és requerit per Icones d'escriptori NG."
+msgstr "El GNOME L'aplicació d'arxius és necessària per Gtk4 Desktop Icons NG."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "No hi ha cap gestor de fitxers predeterminat"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "No s'ha instal·lat cap aplicació per obrir \"{foo}\" tipus d'arxius"
+msgstr "No hi ha aplicació que maneja mimetype \"inode/directory\""
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Gnome Files no està registrat com a gestor de fitxers"
 
 #: app/desktopManager.js:168
+#, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"L’aplicació Gnome Files no està programada per obrir carpetes!\n"
+"Consulta la teva instal·lació\n"
+"Preguntes Freqüents - FAQ Instal·lació de fitxers"
 
 #: app/desktopManager.js:776
 #, fuzzy
@@ -506,7 +513,7 @@ msgstr "Copia"
 #: app/desktopManager.js:778
 #, fuzzy
 msgid "Link"
-msgstr "Enllaç"
+msgstr "Vincula"
 
 #: app/desktopManager.js:781
 #, fuzzy
@@ -649,9 +656,7 @@ msgstr "Paràmetres"
 #: app/desktopManager.js:2569
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr ""
-"Per poder treballar amb fitxers comprimits, instal·lar file-roller i/o "
-"gir-1.2-gnome AutoAr"
+msgstr "Creació de carpetes"
 
 #: app/desktopManager.js:2570
 #, fuzzy
@@ -722,7 +727,7 @@ msgstr "Obrir fitxer fallat"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "No s'ha instal·lat cap aplicació per obrir \"{foo}\" tipus d'arxius"
+msgstr "No s'ha instal·lat cap aplicació per obrir fitxers \"{foo}\"."
 
 #: app/fileItem.js:370
 #, fuzzy
@@ -758,7 +763,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>Set Permisos, en \"Altres Accessos\", \"Llegeix Només\" o \"Cap\"</b>"
+"Set Permissions, a \"Others Access\", \"Read Only\" o \"None\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -767,12 +772,12 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>Enable Opció, \"Permet executar fitxers com a programa\"</b>"
+"Activa l'opció \"Permet executar fitxers com a programa\""
 
 #: app/fileItem.js:390
 #, fuzzy
 msgid "Untrusted Desktop File"
-msgstr "Arxiu d'escriptori trencat"
+msgstr "Fitxer d'escriptori no confiat"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -1073,8 +1078,9 @@ msgid "Console"
 msgstr "Consola"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "Més informació"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
@@ -1288,14 +1294,18 @@ msgstr ""
 "primari"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Les icones es poden col·locar en qualsevol lloc de l'escriptori"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Les icones no es troben en una quadrícula rectangular, però es poden penjar "
+"a qualsevol lloc independent de la quadrícula"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"

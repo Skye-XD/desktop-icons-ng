@@ -9,16 +9,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-01-09 18:06+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Georgian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ka/>\n"
+"PO-Revision-Date: 2024-03-28 14:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Georgian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -87,7 +88,7 @@ msgstr "პატარა"
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "Standard"
-msgstr "სტანდარტული"
+msgstr "ჩვეულებრივი"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
@@ -99,20 +100,24 @@ msgid "New icons alignment"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:240
+#, fuzzy
 msgid "Top left corner"
-msgstr ""
+msgstr "ზედა მარცხენა კუთხე"
 
 #: app/adwPreferencesWindow.js:241
+#, fuzzy
 msgid "Top right corner"
-msgstr ""
+msgstr "ზედა მარჯვენა კუთხე"
 
 #: app/adwPreferencesWindow.js:242
+#, fuzzy
 msgid "Bottom left corner"
-msgstr ""
+msgstr "ქვედა მარცხენა კუთხე"
 
 #: app/adwPreferencesWindow.js:243
+#, fuzzy
 msgid "Bottom right corner"
-msgstr ""
+msgstr "ქვედა მარჯვენა კუთხე"
 
 #: app/adwPreferencesWindow.js:248
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -392,7 +397,7 @@ msgstr "არქივის სახელი"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "პაროლი"
+msgstr "აირჩიეთ პაროლი"
 
 #: app/autoAr.js:612
 #, fuzzy
@@ -585,7 +590,7 @@ msgstr ""
 #: app/desktopManager.js:1596
 #, fuzzy
 msgid "Settings"
-msgstr "პარამეტრები"
+msgstr "მორგება"
 
 #: app/desktopManager.js:2569
 msgid "Folder Creation Failed"
@@ -612,14 +617,15 @@ msgstr "მთავარი"
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Trash"
-msgstr "ნაგვის გასუფთავება"
+msgstr "ნაგავი"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "დრაივი"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -627,7 +633,7 @@ msgstr ""
 #: app/fileItem.js:171
 #, fuzzy
 msgid "Folder"
-msgstr "ახალი საქაღალდე"
+msgstr "საქაღალდე"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -635,7 +641,7 @@ msgstr "ახალი საქაღალდე"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "ფაილები"
+msgstr "ფაილი"
 
 #: app/fileItem.js:307
 msgid "Broken Link"
@@ -887,7 +893,7 @@ msgstr "Select Destination"
 #: app/fileItemMenu.js:615 app/fileItemMenu.js:643
 #, fuzzy
 msgid "Select"
-msgstr "არჩევა"
+msgstr "მონიშვნა"
 
 #: app/fileItemMenu.js:687
 msgid "Copy Cancelled"
@@ -953,14 +959,16 @@ msgid "Console"
 msgstr "კონსოლი"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "მეტი ინფორმაცია"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "დასტა"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

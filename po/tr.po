@@ -16,10 +16,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-02 14:01+0000\n"
+"PO-Revision-Date: 2024-03-28 14:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,7 +66,7 @@ msgstr "Ciltler"
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
 msgid "Desktop volumes display"
-msgstr "Bir Program Olarak Run"
+msgstr "Masaüstü hacimleri Ekran"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
@@ -140,7 +140,7 @@ msgstr "Masaüstünde kişisel klasörü göster"
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "SymLink Başarısız Oldu"
+msgstr "Masaüstünde çöp ikonunu göster"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
@@ -158,13 +158,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Masaüstünün tam tersine yeni sürücüler ekleyin"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Snap icons to grid"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Yüksek ışığı Drag ve Drop sırasındaki damla ızgara"
+msgstr "Yüksek ışık damla ızgara"
 
 #: app/adwPreferencesWindow.js:285
 msgid "Add an emblem to soft links"
@@ -198,7 +199,7 @@ msgstr "Her zaman"
 #: app/adwPreferencesWindow.js:303
 #, fuzzy
 msgid "On this computer only"
-msgstr "Açık öğeler"
+msgstr "Bu bilgisayarda sadece"
 
 #: app/adwPreferencesWindow.js:304
 msgid "Never"
@@ -367,7 +368,7 @@ msgstr "Ekstraksiyon tamamlandı tamamlandı"
 #: app/autoAr.js:431
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "Open In {0}"
+msgstr "\"${fullPathFile\" tamamlandı."
 
 #: app/autoAr.js:437
 #, fuzzy
@@ -472,32 +473,38 @@ msgstr "Masaüstü Icons"
 #: app/desktopManager.js:141
 #, fuzzy
 msgid "GNOME Files not found"
-msgstr "Açılış Dosyası Başarısız"
+msgstr "GNOME Dosyalar bulunamadı"
 
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME Dosyalar uygulama, Masaüstü Icons NG tarafından gereklidir."
+msgstr "GNOME Dosyalar uygulama Gtk4 Desktop Icons NG tarafından gereklidir."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Varsayılan File Manager yok"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "\"{foo}\" tür dosyaları açmak için yüklü bir uygulama yoktur"
+msgstr "Mimetype \"inode/yön\" ile uğraşan bir uygulama yoktur"
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Gnome Files bir File Manager olarak kaydedilmiyor"
 
 #: app/desktopManager.js:168
+#, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"Gnome Files uygulaması açık Folders için programlanmamıştır!\n"
+"xdg-utils kurulumunuzu kontrol edin\n"
+"Gnome Files .desktop Dosya yükleme"
 
 #: app/desktopManager.js:776
 #, fuzzy
@@ -550,7 +557,7 @@ msgstr "Ad Z-A"
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Modified Time"
-msgstr "Her zaman Icons Stacked kalır, Benzer türler gruplanır"
+msgstr "Değiştirilmiş Zaman"
 
 #: app/desktopManager.js:1480
 #, fuzzy
@@ -651,9 +658,7 @@ msgstr "Ayarlar"
 #: app/desktopManager.js:2569
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr ""
-"Sıkıştırılmış dosyalarla çalışabilmek için, file-roller ve/veya z-1.2-gnome "
-"AutoAr"
+msgstr "Kater Yaratılış Başarısız"
 
 #: app/desktopManager.js:2570
 #, fuzzy
@@ -722,7 +727,7 @@ msgstr "Dosya açılamadı"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "\"{foo}\" tür dosyaları açmak için yüklü bir uygulama yoktur"
+msgstr "\"{foo}\" dosyaları açmak için yüklü bir uygulama yoktur."
 
 #: app/fileItem.js:370
 msgid "Broken Desktop File"
@@ -756,7 +761,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>Set Permissions, \"Diğerleri Erişim\", \"Sadece\" veya \"None.\""
+"Set Permissions, \"Diğerleri Erişim\", \"Sadece\" veya \"None\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -765,13 +770,13 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>Enable seçenek, \"Allow Executing File as a Program\" (X54X)"
+"Enable seçenek, \"Allow Executing File as a Program\""
 
 #: app/fileItem.js:390
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
-msgstr "Kırık Masaüstünü Dosyası"
+msgstr "Olmayan Masaüstü Dosyası"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -784,7 +789,7 @@ msgstr ""
 "Bu .desktop dosyası güvenilir değildir, başlatılamaz. başlatmak için, doğru "
 "tıklama, sonra:\n"
 "\n"
-"<b>Enable \"Allow Starting\" (X127X)"
+"Enable \"Allow Starting\""
 
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
@@ -881,7 +886,7 @@ msgstr "Yeniden Adlandır…"
 #: app/fileItemMenu.js:384
 #, fuzzy
 msgid "Create Link..."
-msgstr "Lütfen yükleme {0}"
+msgstr "Create Link..."
 
 #: app/fileItemMenu.js:389
 #, fuzzy
@@ -897,7 +902,7 @@ msgstr[0] "{0} dosyayı sıkıştır"
 #: app/fileItemMenu.js:402
 #, fuzzy
 msgid "Email to..."
-msgstr "Çıkarılabilir Dosya, hedef klasörü yok"
+msgstr "E-posta..."
 
 #: app/fileItemMenu.js:407
 #, fuzzy
@@ -1065,8 +1070,9 @@ msgid "Console"
 msgstr "Konsol"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "Daha Fazla Bilgi"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
@@ -1252,7 +1258,9 @@ msgstr "Etiket metni için siyah kullan"
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
-msgstr "Bir zip arşivi oluşturmak için bir hata vardı"
+msgstr ""
+"Beyaz yerine etiket metni kara renkte. Işık arka planlarını kullanırken "
+"kullanışlı."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, fuzzy
@@ -1269,14 +1277,18 @@ msgstr ""
 "yerleştirilir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Icons, herhangi bir yerde masaüstünde konumlandırılabilir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Icons, dikdörtgen bir ızgarada değildir, ancak gridden bağımsız olarak "
+"herhangi bir yere aktarılabilir"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"

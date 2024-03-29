@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-02 14:01+0000\n"
+"PO-Revision-Date: 2024-03-28 14:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -135,14 +135,15 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Añadir nuevas unidades en el lado opuesto del escritorio"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Ajustar iconos a la red"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 #| msgid "Highlight the drop grid during Drag and Drop"
 msgid "Highlight the drop grid"
-msgstr "Resaltar el punto de destino durante Arrastrar y soltar"
+msgstr "Destacar la rejilla de goteo"
 
 #: app/adwPreferencesWindow.js:285
 msgid "Add an emblem to soft links"
@@ -246,7 +247,7 @@ msgstr "Elige una aplicación para abrir <b>{foo}</b>"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "Open Items"
+msgstr "@:account.creditlimit.openInvoices"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -426,20 +427,23 @@ msgstr "No se encontró GNOME Files"
 #, fuzzy
 #| msgid "The GNOME Files application is required by Desktop Icons NG."
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "Desktop Icons NG necesita la aplicación GNOME Files."
+msgstr ""
+"El GNOME La aplicación de archivos es necesaria por Gtk4 Desktop Icons NG."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "No hay administrador de archivos predeterminado"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "No hay aplicación instalada para abrir \"{foo}\" tipo de archivos"
+msgstr "No hay ninguna aplicación que maneja mimetipo \"inode/directory\""
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Gnome Files no está registrado como administrador de archivos"
 
 #: app/desktopManager.js:168
 msgid ""
@@ -613,7 +617,7 @@ msgstr "Papelera"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Unidad/disco"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -649,7 +653,7 @@ msgstr "Error al abrir el archivo"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "No hay aplicación instalada para abrir \"{foo}\" tipo de archivos"
+msgstr "No hay ninguna aplicación instalada para abrir archivos \"{foo}\"."
 
 #: app/fileItem.js:370
 msgid "Broken Desktop File"
@@ -695,8 +699,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>Cambiar los permisos, en \"Otros accesos\", a \"Sólo lectura\" o "
-"\"Ninguno\"</b>"
+"Establecer permisos, en \"Otros Acceso\", \"Read Only\" o \"None\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -708,13 +711,13 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>Activa la opción \"Permitir ejecutar el archivo como un programa\"</b>"
+"Activar opción, \"Permitir ejecutar archivo como programa\""
 
 #: app/fileItem.js:390
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
-msgstr "Fichero .desktop dañado"
+msgstr "Archivo de escritorio no confiable"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -999,8 +1002,9 @@ msgid "Console"
 msgstr "Consola"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "More Information"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
@@ -1198,14 +1202,18 @@ msgstr ""
 "Si hay un monitor secundario conectado, se añadirán los nuevos iconos en él"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Los iconos se pueden colocar en cualquier lugar del Escritorio"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Los iconos no están en una cuadrícula rectangular pero se pueden colocar en "
+"cualquier lugar independiente de la cuadrícula"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"
