@@ -1,4 +1,13 @@
 # History of versions #
+* Gtk4 version 72 for Gnome 45, 46
+ * Free postion icon anywhere on the desktop. Behavior can be changed in preferences, changes the shape of the icons, as well as the drag and drop behavior. (Sundeep Mediratta)
+ * Uses Gtk4 AlertDialog as he older dialogs are deprecitated. Allows a button to launch help URL for errors. (Sundeep Mediratta)
+ * Fixes regression, sets Console as default fallback terminal if another termianal is configured but not installed. (Sundeep Mediratta)
+ * Better icon respositioning on grid changes. (Sundeep Mediratta)
+ * Revert to old way of calculating localGridCoordinates as Gtk.Widget.compute_point() is applying wrong margins. (Sundeep Mediratta)
+ * Weblate translations. (Weblate Authours)
+ * Updated History.md, Readme.md, metadata.json. Version bump to 72
+ 
 * Gtk4 version 71 for Gnome 45, 46
  * Add accessibility support for screen readers. Dirct port from Gtk3-DING using Gtk4 semantics. (Sergio Costas, Sundeep Mediratta)
  * Use constructors in fileItem.js. (Sundeep Mediratta)
