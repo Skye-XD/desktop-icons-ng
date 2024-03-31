@@ -1,4 +1,4 @@
-**KNOWN ISSUES**
+## KNOWN ISSUES
 
 - [x] FIXED - UNLIMITED WORKSPACES TO THE RIGHT- with Meta.WindowType.DESKTOOP, window on all workspaces and minimal shell overrides - ~~auto-move-windows from gnome extensions patches the gnome shell workspace tracker that breaks Gtk4 DING gnome shell override to the same functions in the shell. This can still result in unlimited workspaces, and makes an empty workspace to the right of the current workspace if it only has the DING window. The only correct solution is to enable gtk4-DING first and then auto-move-windows, but this is not a viable long term solution. The best recommended action is to completely disable auto-move-windows extension. Highly recommend smart-auto-move-windows from EGO that works perfectly with Gtk4-DING, with even better functionality and more features thant the alod auto-move-windows, and appears to do so without patching/overriding the Gnome Shell.~~
 
@@ -28,7 +28,7 @@ If this extension does not work for you, just deactivate it in extensions manage
 
 Please report errors, and if you can fix it, please do so. See Contributing below.
 
-**THEME ISSUES**
+## THEME ISSUES
 
 SINCE APRIL 16, 2023, venison 35, GTK4-DING IS A LIBADWAITA APPLICATION. ONLY DEFAULT LIBADWAITA THEME WILL WORK, GTK THEMES WILL NOT EXCEPT ICONS AND SELECTION/BACKGROUND COLORS. HOPEFULLY THERE WILL BE NO MORE ISSUES. PLEASE SEE BELOW FOR PREVIOUS VERSIONS.
 
@@ -60,7 +60,7 @@ As Gtk4-DING now detects the change, it reloads the dark variant of the current 
 
 The other option is to install extensions that automatically toggle legacy application Gtk themes with changes in dark mode theme for the gnome shell. There are several on gnome.extensions.org, some examples are [Legacy-gtk3-theme-scheme-auto-switcher](https://extensions.gnome.org/extension/4998/legacy-gtk3-theme-scheme-auto-switcher/) and [Lightdark-theme-switcher](https://extensions.gnome.org/extension/4968/lightdark-theme-switcher/)
 
-**CHOOSING DEFAULT TERMINAL**
+## CHOOSING DEFAULT TERMINAL
 
 Glib is (at least for now, till a better spec appears) launching xdg-terminal-exec to execute the default terminal for programs that need to be launched in the a "Terminal". See discussion on GLib issues.
 The Gnome Dconf key that specified the default terminal is depreciated.
@@ -77,6 +77,8 @@ B. If there is a valid xdg-terminal-exec binary, just execute that as GLib calls
 Easiest way of setting the terminal is .confg/terminal.list - one line, the name of the .desktop file to be launched.
 
 Ding now monitors all files and folders that define the terminal to be used and will automatically show the correct terminal that will be launched in the right click menu.
+
+## DEFAULT APPLICATIONS, DEFAULT FILE MANAGER ISSUES
 
 **No application installed to open "XXXX" type of file**
 
