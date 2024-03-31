@@ -4,7 +4,7 @@
 # Eaglers <eaglersdeveloper@gmail.com>, 2018
 # Ser82-png <sw@atrus.ru>, 2021-2022
 # Сергей <asvmail.as@gmail.com>, 2023, 2024.
-# dinos <ecg-diagnostic@mail.ru>, 2023.
+# dinos <ecg-diagnostic@mail.ru>, 2023, 2024.
 # Войнов Артем Романович <voynovar@gmail.com>, 2023.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
@@ -14,9 +14,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-28 14:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2024-03-30 09:01+0000\n"
+"Last-Translator: dinos <ecg-diagnostic@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -410,27 +409,25 @@ msgid "GNOME Files not found"
 msgstr "Файловый менеджер GNOME не найден"
 
 #: app/desktopManager.js:142
-#, fuzzy
-#| msgid "The GNOME Files application is required by Desktop Icons NG."
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME Приложение для файлов требуется Gtk4 Desktop Icons NG."
+msgstr ""
+"Для «Gtk4 Desktop Icons NG» требуется приложение «Файлы» рабочего стола "
+"CNOME."
 
 #: app/desktopManager.js:154
-#, fuzzy
 msgid "There is no default File Manager"
-msgstr "По умолчанию нет файлового менеджера"
+msgstr "Нет файлового менеджера, установленного по умолчанию"
 
 #: app/desktopManager.js:155
-#, fuzzy
-#| msgid "There is no application installed to open \"{foo}\" type of files"
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
-"Не существует приложения, которое обрабатывает миметип «inode/directory»"
+"Не существует приложения, которое обрабатывает mimetype «inode/directory»"
 
 #: app/desktopManager.js:167
-#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "Gnome Files не зарегистрирован как File Manager"
+msgstr ""
+"Приложение «Файлы» среды рабочего стола Gnome не зарегистрировано в качестве "
+"файлового менеджера"
 
 #: app/desktopManager.js:168
 #, fuzzy
@@ -632,22 +629,14 @@ msgid "Opening File Failed"
 msgstr "Ошибка при открытии файла"
 
 #: app/fileItem.js:341
-#, fuzzy
-#| msgid "There is no application installed to open \"{foo}\" type of files"
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "Нет приложения, установленного для открытия файлов \"{foo}\"."
+msgstr "Не установлено приложение для открытия файлов «{foo}»."
 
 #: app/fileItem.js:370
 msgid "Broken Desktop File"
 msgstr "Нерабочий .desktop-файл"
 
 #: app/fileItem.js:371
-#, fuzzy
-#| msgid ""
-#| "This .desktop file has errors or points to a program without permissions. "
-#| "It can not be executed.\n"
-#| "\n"
-#| "\t<b>Edit the file to set the correct executable Program.</b>"
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -657,8 +646,7 @@ msgstr ""
 "Этот .desktop файл содержит ошибки или указывает на программу без "
 "необходимых разрешений. Его нельзя выполнить.\n"
 "\n"
-"\t<b>Отредактируйте файл так, чтобы он указывал на необходимый исполняемый "
-"файл.</b>"
+"Отредактируйте файл так, чтобы он указывал на необходимую программу."
 
 #: app/fileItem.js:377
 msgid "Invalid Permissions on Desktop File"
@@ -697,18 +685,10 @@ msgstr ""
 "Включить опцию «Allow Executing File as a Program»"
 
 #: app/fileItem.js:390
-#, fuzzy
-#| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
-msgstr "Недоверенный настольный файл"
+msgstr "Не вызывающий доверия .desktop файл"
 
 #: app/fileItem.js:391
-#, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "<b>Enable \"Allow Launching\"</b>"
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -718,7 +698,7 @@ msgstr ""
 "Этот .desktop файл не является доверенным, его нельзя запустить. Чтобы "
 "разрешить запуск, щёлкните правой кнопкой мыши, а затем:\n"
 "\n"
-"<b>включите «Разрешить запуск»</b>"
+"Включите «Разрешить запуск»"
 
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 msgid "Could not open File"
@@ -968,7 +948,6 @@ msgid "Console"
 msgstr "Console"
 
 #: app/showErrorPopup.js:39
-#, fuzzy
 msgid "More Information"
 msgstr "Дополнительная информация"
 
@@ -1161,12 +1140,10 @@ msgstr ""
 "мониторе"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Иконы могут быть размещены в любом месте на рабочем столе"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
