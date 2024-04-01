@@ -415,26 +415,10 @@ const DesktopGrid = class {
             }
             break;
         default:
-            this.disableIntellihide();
             returnvalue = null;
         }
         return returnvalue;
     }
-
-    disableIntellihide() {
-        //* Needs Fixing and testing with X11 *//
-        const enableShowInWindowList = `@!${this._x},${this._y};BDF`;
-        this._window.set_title(enableShowInWindowList);
-        this.showInWindowList = true;
-    }
-
-    enableIntellihide() {
-        if (this.showInWindowList) {
-            this._window.set_title(this._desktopName);
-            this.showInWindowList = false;
-        }
-    }
-
 
     setDropDestination(widget) {
         this.gridDropController = new Gtk.DropTargetAsync();
