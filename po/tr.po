@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-28 14:02+0000\n"
+"PO-Revision-Date: 2024-04-01 17:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
@@ -76,7 +76,7 @@ msgstr "Dosyalar Ayarlar"
 #: app/adwPreferencesWindow.js:212
 #, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Gnome Files ile paylaşılan platformlar"
+msgstr "Open File"
 
 #: app/adwPreferencesWindow.js:217
 #, fuzzy
@@ -286,7 +286,7 @@ msgstr "Dosya Aç"
 #: app/appChooser.js:105
 #, fuzzy
 msgid "Error changing default application"
-msgstr "Hata değişen varsayılan uygulama"
+msgstr "Hedef seçin"
 
 #: app/appChooser.js:106
 #, fuzzy
@@ -378,7 +378,7 @@ msgstr "Çıkarma iptal edildi"
 #: app/autoAr.js:438
 #, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "\"${fullPathFile}\" kullanıcı tarafından iptal edilmiştir."
+msgstr "Bu Tür"
 
 #: app/autoAr.js:448
 #, fuzzy
@@ -557,7 +557,7 @@ msgstr "Ad Z-A"
 #: app/desktopManager.js:1479
 #, fuzzy
 msgid "Modified Time"
-msgstr "Değiştirilmiş Zaman"
+msgstr "Her zaman Icons Stacked kalır, Benzer türler gruplanır"
 
 #: app/desktopManager.js:1480
 #, fuzzy
@@ -658,7 +658,9 @@ msgstr "Ayarlar"
 #: app/desktopManager.js:2569
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Kater Yaratılış Başarısız"
+msgstr ""
+"Sıkıştırılmış dosyalarla çalışabilmek için, file-roller ve/veya z-1.2-gnome "
+"AutoAr"
 
 #: app/desktopManager.js:2570
 #, fuzzy
@@ -794,7 +796,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyası açılamadı"
+msgstr "Dosya açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -907,7 +909,7 @@ msgstr "E-posta..."
 #: app/fileItemMenu.js:407
 #, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Mobile Device'a gönder"
+msgstr "Tamamlandı"
 
 #: app/fileItemMenu.js:411
 msgid "Move to Trash"
@@ -1109,7 +1111,7 @@ msgstr "Seçilen dosyaları açmak için bir uygulama seçin."
 #: app/resources/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
-msgstr "Her zaman bu dosya türü için kullanın"
+msgstr "Olmayan Masaüstü Dosyası"
 
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy

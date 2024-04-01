@@ -3,24 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Dušan Kazik <prescott66@gmail.com>, 2020-2021.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-01-09 18:06+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sk/>\n"
+"PO-Revision-Date: 2024-04-01 17:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -43,7 +42,7 @@ msgstr "Vyladenia"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "O programe"
+msgstr "O nás"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -58,7 +57,7 @@ msgstr "Nastavenie pre program Desktop"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Objemy"
+msgstr "Zväzky"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -132,22 +131,22 @@ msgstr "Pridajte nové ikony na sekundárne monitory, ak je k dispozícii"
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Zobraziť osobný priečinok na pracovnej ploche"
+msgstr "Zobraziť osobnú zložku na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Zobraziť ikonu Koša na pracovnej ploche"
+msgstr "Zobraziť ikonu koša na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Zobraziť externé jednotky na pracovnej ploche"
+msgstr "Zobraziť externé disky na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Zobraziť sieťové jednotky na pracovnej ploche"
+msgstr "Zobraziť sieťové disky na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
@@ -155,13 +154,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Pridať nové disky na opačnú stranu pracovnej plochy"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Snap ikony na mriežky"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Zvýrazniť mriežku počas Drag a Drop"
+msgstr "Zvýraznite mriežku"
 
 #: app/adwPreferencesWindow.js:285
 #, fuzzy
@@ -239,7 +239,7 @@ msgstr "Správa otázky týkajúce sa sledovača problémov"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Report"
+msgstr "Prehľad"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -259,7 +259,7 @@ msgstr "Pomoc preložiť vo vašom prehliadači"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Translate"
-msgstr "Preklad"
+msgstr "Začať prekladať"
 
 #: app/appChooser.js:53
 #, fuzzy
@@ -441,7 +441,7 @@ msgstr "Heslo"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "Vytvoriť"
+msgstr "Vytvor"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -466,7 +466,7 @@ msgstr "Malé archívy, ale musia byť inštalované na Windows a Mac."
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Nastavenia ikon pracovnej plochy"
+msgstr "Desktop Ikons"
 
 #: app/desktopManager.js:141
 #, fuzzy
@@ -476,21 +476,23 @@ msgstr "GNOME Súbory neboli nájdené"
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME Aplikácia súborov je potrebná Desktop Icons NG."
+msgstr "GNOME Aplikácia súborov je potrebná spoločnosťou Gtk4 Desktop Icons NG."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "Neexistuje žiadny predvolený File Manager"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
-"Neexistuje žiadna aplikácia nainštalovaný na otvorenie \"{foo}\" typ súborov"
+"Neexistuje žiadna aplikácia, ktorá spracováva mimetype \"inode/directory\""
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Gnome Files nie je registrovaný ako správca súborov"
 
 #: app/desktopManager.js:168
 msgid ""
@@ -628,7 +630,7 @@ msgstr "Zmeniť pozadie…"
 #: app/desktopManager.js:1538
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Nastavenia ikon pracovnej plochy"
+msgstr "Nastavenie Desktop Icon"
 
 #: app/desktopManager.js:1539
 msgid "Display Settings"
@@ -677,14 +679,15 @@ msgstr "Domov"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Vyprázdniť Kôš"
+msgstr "Kôš"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "Jednotka"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -693,7 +696,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Nový priečinok"
+msgstr "Priečinok"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -701,7 +704,7 @@ msgstr "Nový priečinok"
 #: app/fileItem.js:178
 #, fuzzy
 msgid "File"
-msgstr "Súbory"
+msgstr "Súbor"
 
 #: app/fileItem.js:307
 #, fuzzy
@@ -722,7 +725,7 @@ msgstr "Otvorenie súboru Failed"
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr ""
-"Neexistuje žiadna aplikácia nainštalovaný na otvorenie \"{foo}\" typ súborov"
+"Neexistuje žiadna aplikácia nainštalovaná na otvorenie \"{foo}\" súborov."
 
 #: app/fileItem.js:370
 #, fuzzy
@@ -740,7 +743,7 @@ msgstr ""
 "Tento súbor .desktop má chyby alebo body do programu bez povolenia. Nie je "
 "možné vykonať.\n"
 "\n"
-"<b>Povoľte súbor nastaviť správny spustiteľný program.</b>"
+"Upraviť súbor nastaviť správny spustiteľný program."
 
 #: app/fileItem.js:377
 #, fuzzy
@@ -763,8 +766,8 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>Set povolenia, v \"Ostatné prístup\", \"Prečítajte si iba\" alebo "
-"\"None\"</b>"
+"Nastaviť povolenia, v \"Ostatné prístup\", \"Prečítajte si iba\" alebo \"None"
+"\""
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -773,12 +776,12 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>Enable možnosť, \"Allow Executing File ako Program\"</b>"
+"Povoliť možnosť, \"Allow Executing File ako program\""
 
 #: app/fileItem.js:390
 #, fuzzy
 msgid "Untrusted Desktop File"
-msgstr "Broken Desktop File"
+msgstr "Nedôverovaný Desktop File"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -791,7 +794,7 @@ msgstr ""
 "Tento súbor .desktop nie je dôveryhodný, nemožno spustiť. Ak chcete povoliť "
 "spustenie, pravým tlačidlom, potom:\n"
 "\n"
-"<b>Enable \"Allow Launching\"</b>"
+"Enable \"Allow Launching\""
 
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
@@ -893,6 +896,7 @@ msgid "Create Link..."
 msgstr "Vytvoriť odkaz..."
 
 #: app/fileItemMenu.js:389
+#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
@@ -1077,14 +1081,16 @@ msgid "Console"
 msgstr "Konzola"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "Viac informácií"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "Naskladanie"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1285,14 +1291,18 @@ msgstr ""
 "monitore"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Ikony môžu byť umiestnené kdekoľvek na ploche"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Ikony nie sú na obdĺžnikovej mriežke, ale môžu byť postionované kdekoľvek "
+"nezávislé z mriežky"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-27 12:43+0000\n"
+"PO-Revision-Date: 2024-04-01 17:01+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -28,7 +28,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
 msgid "Desktop"
-msgstr "Desktop"
+msgstr "Área de trabalho"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #, fuzzy
@@ -129,8 +129,7 @@ msgstr "Canto inferior direito"
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Adicione novos ícones aos monitores secundários primeiro, se disponível"
+msgstr "Mostrar a pasta pessoal na área de trabalho"
 
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
@@ -319,7 +318,7 @@ msgstr "Renomear"
 #: app/autoAr.js:66
 #, fuzzy
 msgid "AutoAr is not installed"
-msgstr "Automática Ar não está instalado"
+msgstr "Erro de Criação de Modelo"
 
 #: app/autoAr.js:67
 #, fuzzy
@@ -524,7 +523,7 @@ msgstr "Link"
 #: app/desktopManager.js:781
 #, fuzzy
 msgid "Choose Action for Files"
-msgstr "Escolha Ação para Arquivos"
+msgstr "Diversos Fracas"
 
 #: app/desktopManager.js:851 app/desktopManager.js:883
 #, fuzzy
@@ -554,7 +553,7 @@ msgstr "Nome"
 #: app/desktopManager.js:1478
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Nome Z-A"
+msgstr "Compactando arquivos"
 
 #: app/desktopManager.js:1479
 #, fuzzy
@@ -661,7 +660,9 @@ msgstr "Configurações"
 #: app/desktopManager.js:2569
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Criação de pasta Falhada"
+msgstr ""
+"Para poder trabalhar com arquivos compactados, instale o rolo de arquivos e/"
+"ou gir-1.2-gnome Automática"
 
 #: app/desktopManager.js:2570
 #, fuzzy
@@ -676,7 +677,7 @@ msgstr "Erro de Criação de Modelo"
 #: app/desktopManager.js:2614
 #, fuzzy
 msgid "Could not create document"
-msgstr "Não poderia criar documento"
+msgstr "Enviar para o dispositivo móvel"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -823,7 +824,7 @@ msgstr "Para executar"
 #: app/fileItemMenu.js:318
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "Abrir com {foo}"
+msgstr "Incapaz de abrir Não"
 
 #: app/fileItemMenu.js:320
 msgid "Open"
@@ -1035,7 +1036,7 @@ msgstr "Incapaz de encontrar o comando zip, instale o programa"
 #: app/fileItemMenu.js:763
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Arquivo.zip"
+msgstr "Arquivos"
 
 #: app/fileItemMenu.js:784
 #, fuzzy
@@ -1071,7 +1072,7 @@ msgstr "Incapaz de abrir Não"
 #: app/fileItemMenu.js:919
 #, fuzzy
 msgid "Please Install {0}"
-msgstr "Instalar por favor Não"
+msgstr "Mostrar unidades de rede na área de trabalho"
 
 #: app/preferences.js:417
 #, fuzzy

@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-01-09 18:06+0000\n"
+"PO-Revision-Date: 2024-04-01 17:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -41,7 +41,7 @@ msgstr "트윅"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "소개"
+msgstr "정보"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -130,22 +130,22 @@ msgstr "Secondary Monitors에 새로운 아이콘을 먼저 추가하면 사용 
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "바탕화면에 개인 폴더 표시"
+msgstr "바탕 화면에 개인 폴더보기"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "바탕화면에 휴지통 표시"
+msgstr "바탕 화면에 쓰레기 아이콘 표시"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "바탕화면에 외장 드라이브 표시"
+msgstr "데스크톱에서 외부 드라이브보기"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "바탕화면에 네트워크 드라이브 표시"
+msgstr "데스크톱에서 네트워크 드라이브보기"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
@@ -153,13 +153,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "바탕 화면의 반대쪽에 새로운 드라이브를 추가"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Snap 아이콘을 그리드"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Drag와 Drop 동안 드롭 그리드를 하이라이트"
+msgstr "높은 조명 드롭 그리드"
 
 #: app/adwPreferencesWindow.js:285
 msgid "Add an emblem to soft links"
@@ -220,7 +221,7 @@ msgstr "웹사이트"
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
 msgid "Visit"
-msgstr "방문하다"
+msgstr "방문"
 
 #: app/adwPreferencesWindow.js:324
 #, fuzzy
@@ -357,7 +358,7 @@ msgstr "파일 추출 '${outputPath} 이름 *"
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "추출 완료"
+msgstr "적출 완료"
 
 #: app/autoAr.js:431
 #, fuzzy
@@ -432,12 +433,12 @@ msgstr "Archive 이름"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "패스워드"
+msgstr "비밀 번호"
 
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "만들기"
+msgstr "생성"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -462,7 +463,7 @@ msgstr "작은 아카이브하지만 Windows 및 Mac에 설치해야합니다."
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "바탕화면 아이콘 설정"
+msgstr "데스크탑 아이콘"
 
 #: app/desktopManager.js:141
 #, fuzzy
@@ -472,27 +473,33 @@ msgstr "사이트맵 찾을 수 없음"
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME 소개 파일 응용 프로그램은 데스크톱 아이콘 NG에 의해 요구됩니다."
+msgstr "GNOME 소개 파일 응용 프로그램은 Gtk4 데스크탑 아이콘 NG에 의해 요구됩니다."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "기본 파일 관리자가 없습니다"
 
 #: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "\"{foo}\"파일을 열 수 있는 응용 프로그램이 없습니다"
+msgstr "Mimetype \"inode/directory\"를 처리하는 응용 프로그램이 없습니다"
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Gnome Files는 파일 관리자로 등록되지 않습니다"
 
 #: app/desktopManager.js:168
+#, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"Gnome 파일 응용 프로그램은 폴더를 열 수 없습니다!\n"
+"xdg-utils 설치 확인\n"
+"Gnome 파일 확인 .desktop 파일 설치"
 
 #: app/desktopManager.js:776
 #, fuzzy
@@ -623,7 +630,7 @@ msgstr "배경화면 변경…"
 #: app/desktopManager.js:1538
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "바탕화면 아이콘 설정"
+msgstr "데스크탑 아이콘 설정"
 
 #: app/desktopManager.js:1539
 msgid "Display Settings"
@@ -672,14 +679,15 @@ msgstr "홈"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "휴지통 비우기"
+msgstr "휴지통"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "드라이브"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -688,7 +696,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "새 폴더"
+msgstr "폴더"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -714,7 +722,7 @@ msgstr "파일을 열지 못했습니다"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "\"{foo}\"파일을 열 수 있는 응용 프로그램이 없습니다"
+msgstr "\"{foo}\"파일을 엽니다."
 
 #: app/fileItem.js:370
 msgid "Broken Desktop File"
@@ -760,7 +768,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>\"다른 접근\", \"읽기 전용\" 또는 \"없음\"에서 권한 설정</b>"
+"\"기타 액세스\", \"Read Only\"또는 \"None\"에서 권한 설정"
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -772,13 +780,13 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"<b>활성화 옵션, \"파일을 프로그램으로 실행하기 허용\"</b>"
+"Enable option, \"프로그램으로 파일을 실행\""
 
 #: app/fileItem.js:390
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
-msgstr "깨진 바탕화면 파일"
+msgstr "Untrusted 데스크탑 파일"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -801,7 +809,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "파일을 열 수 없습니다"
+msgstr "파일을 열 수 없음"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -1075,14 +1083,16 @@ msgid "Console"
 msgstr "콘솔"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "자세한 정보"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "스택"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1115,7 +1125,7 @@ msgstr "이 파일 형식의 항상 사용"
 #: app/resources/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "취소(_C)"
+msgstr "_취소"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
@@ -1269,14 +1279,17 @@ msgid ""
 msgstr "두 번째 모니터가 연결되면 새로운 아이콘이 비주얼 모니터에 배치됩니다"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "아이콘은 데스크탑에서 어디에서나 배치할 수 있습니다"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr ""
+msgstr "아이콘은 직사각형 그리드에 있지 않지만 그리드의 독립적 인 곳에서 게시 할 수 "
+"있습니다"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"
