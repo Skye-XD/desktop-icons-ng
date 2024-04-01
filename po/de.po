@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-28 14:01+0000\n"
+"PO-Revision-Date: 2024-04-01 17:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -105,7 +105,7 @@ msgstr "Ausrichtung der Arbeitsflächensymbole"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Top left corner"
-msgstr "Oben links"
+msgstr "Ecke links-oben"
 
 #: app/adwPreferencesWindow.js:241
 #, fuzzy
@@ -195,7 +195,7 @@ msgstr "Alle Dateien"
 #: app/adwPreferencesWindow.js:303
 #, fuzzy
 msgid "On this computer only"
-msgstr "Nur auf diesem Computer"
+msgstr "Open Items"
 
 #: app/adwPreferencesWindow.js:304
 msgid "Never"
@@ -375,7 +375,7 @@ msgstr "Die Extraktion von '${fullPathFile}' wurde vom Benutzer aufgehoben."
 #: app/autoAr.js:448
 #, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Passphrase benötigt für ${filename}"
+msgstr "Es gibt keinen Standard File Manager"
 
 #: app/autoAr.js:451
 msgid "Error during extraction"
@@ -511,7 +511,7 @@ msgstr "Wählen Sie Aktion für Dateien"
 #: app/desktopManager.js:851 app/desktopManager.js:883
 #, fuzzy
 msgid "Making SymLink Failed"
-msgstr "SymLink verfehlt machen"
+msgstr "Anzeige der Desktop-Volumen"
 
 #: app/desktopManager.js:852 app/desktopManager.js:884
 msgid "Could not create symbolic link"
@@ -637,7 +637,9 @@ msgstr "Einstellungen"
 #: app/desktopManager.js:2569
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Falter-Erstellung verfehlt"
+msgstr ""
+"Um mit komprimierten Dateien arbeiten zu können, Datei-Roller und/oder gir-1."
+"2-gnome installieren AutoAr"
 
 #: app/desktopManager.js:2570
 msgid "Could not create folder"
@@ -669,7 +671,7 @@ msgstr "Papierkorb"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Steuerung"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -775,7 +777,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Datei kann nicht geöffnet werden"
+msgstr "Konnte Datei nicht öffnen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -800,7 +802,7 @@ msgstr "Ausführen"
 #: app/fileItemMenu.js:318
 #, fuzzy
 msgid "Open with {foo}"
-msgstr "Öffnen mit {foo}"
+msgstr "Unfähig zu öffnen 0)"
 
 #: app/fileItemMenu.js:320
 msgid "Open"
@@ -858,7 +860,7 @@ msgstr "Verschieben auf..."
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopieren nach …"
+msgstr "Kopieren nach..."
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"

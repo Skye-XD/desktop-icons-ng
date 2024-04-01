@@ -8,12 +8,13 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # yan <y191961946@gmail.com>, 2024.
 # 0xarch <alanqa-ops@outlook.com>, 2024.
+# 复予 <clonewith@qq.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-26 22:24+0000\n"
+"PO-Revision-Date: 2024-04-01 17:02+0000\n"
 "Last-Translator: 0xarch <alanqa-ops@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
@@ -29,22 +30,19 @@ msgid "Desktop"
 msgstr "桌面"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#, fuzzy
 msgid "Files"
 msgstr "文件"
 
 #: app/adwPreferencesWindow.js:185 app/adwPreferencesWindow.js:186
 #: app/adwPreferencesWindow.js:216
-#, fuzzy
 msgid "Tweaks"
-msgstr "细微调整"
+msgstr "优化"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 msgid "About"
 msgstr "关于"
 
 #: app/adwPreferencesWindow.js:201
-#, fuzzy
 msgid "Desktop Settings"
 msgstr "桌面设置"
 
@@ -53,14 +51,12 @@ msgid "Settings for the Desktop Program"
 msgstr "桌面程序的设置"
 
 #: app/adwPreferencesWindow.js:206
-#, fuzzy
 msgid "Volumes"
-msgstr "体数据"
+msgstr "卷"
 
 #: app/adwPreferencesWindow.js:207
-#, fuzzy
 msgid "Desktop volumes display"
-msgstr "表格"
+msgstr "桌面卷显示"
 
 #: app/adwPreferencesWindow.js:211
 msgid "Files Settings"
@@ -115,9 +111,8 @@ msgid "Bottom right corner"
 msgstr "右下角"
 
 #: app/adwPreferencesWindow.js:248
-#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "第一次向二级监测员提供新的电灯,如果有的话"
+msgstr "优先将新图标添加至第二块显示器(如果存在)"
 
 #: app/adwPreferencesWindow.js:252
 msgid "Show the personal folder on the desktop"
@@ -141,13 +136,14 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "在 desktop对面增加新的驱动力"
 
 #: app/adwPreferencesWindow.js:273
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Snap icons togrid"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
 msgid "Highlight the drop grid"
-msgstr "重点介绍Drag和Droop的输电网"
+msgstr "突出下降的电网"
 
 #: app/adwPreferencesWindow.js:285
 msgid "Add an emblem to soft links"
@@ -198,17 +194,14 @@ msgid "Open folders on drag hover"
 msgstr "拖动鼠标悬停时打开文件夹"
 
 #: app/adwPreferencesWindow.js:319
-#, fuzzy
 msgid "Website"
 msgstr "网站"
 
 #: app/adwPreferencesWindow.js:321
-#, fuzzy
 msgid "Visit"
 msgstr "访问"
 
 #: app/adwPreferencesWindow.js:324
-#, fuzzy
 msgid "Issues"
 msgstr "问题"
 
@@ -231,14 +224,12 @@ msgid "Translation"
 msgstr "翻译"
 
 #: app/adwPreferencesWindow.js:334
-#, fuzzy
 msgid "Help translate in your web browser"
-msgstr "帮助翻译你的网络浏览器"
+msgstr "在浏览器中帮助翻译这款软件"
 
 #: app/adwPreferencesWindow.js:335
-#, fuzzy
 msgid "Translate"
-msgstr "Translate"
+msgstr "翻译"
 
 #: app/appChooser.js:53
 #, fuzzy
@@ -258,14 +249,12 @@ msgid "Open File"
 msgstr "打开文件"
 
 #: app/appChooser.js:105
-#, fuzzy
 msgid "Error changing default application"
-msgstr "逆向变化的缺省申请"
+msgstr "更改默认应用程序时出错"
 
 #: app/appChooser.js:106
-#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "1. 在确定“{foo}”时,错误作为“{mimetype}”的缺省申请"
+msgstr "将 {foo} 设置为 {mimetype} 的默认应用程序时出错"
 
 #: app/askRenamePopup.js:48
 msgid "Folder name"
@@ -289,21 +278,19 @@ msgid "AutoAr is not installed"
 msgstr "GNOME AutoAr软件包未安装"
 
 #: app/autoAr.js:67
-#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr "能够使用压缩文档、安装档案和/或gir-1.2-gnome AutoAr"
+msgstr "为了能够处理压缩文件，请安装 file-roller 和/或 gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:198
-#, fuzzy
 msgid "Extracting files"
-msgstr "取证文件"
+msgstr "提取文件"
 
 #: app/autoAr.js:215
 #, fuzzy
 msgid "Compressing files"
-msgstr "正在压缩文件."
+msgstr "正在压缩文件…"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:779
 #: app/desktopManager.js:1220 app/fileItemMenu.js:649 app/fileItemMenu.js:799
@@ -317,14 +304,12 @@ msgid "Enter a password here"
 msgstr "加入前言"
 
 #: app/autoAr.js:349
-#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "删除部分档案“零件” 页: 1"
+msgstr "删除部分文件“${outputFile}”"
 
 #: app/autoAr.js:368
-#, fuzzy
 msgid "Creating destination folder"
-msgstr "创造目的地"
+msgstr "创建目标文件夹"
 
 #: app/autoAr.js:400
 #, fuzzy
@@ -332,9 +317,8 @@ msgid "Extracting files into '${outputPath}'"
 msgstr "将档案摘入“产出”。 页: 1"
 
 #: app/autoAr.js:430
-#, fuzzy
 msgid "Extraction completed"
-msgstr "完成分解"
+msgstr "提取完成"
 
 #: app/autoAr.js:431
 #, fuzzy
@@ -342,9 +326,8 @@ msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "删除“ifullPathFile}”的工作已经完成."
 
 #: app/autoAr.js:437
-#, fuzzy
 msgid "Extraction cancelled"
-msgstr "取消的回收"
+msgstr "提取已取消"
 
 #: app/autoAr.js:438
 #, fuzzy
@@ -352,9 +335,8 @@ msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "用户已经取消了“ifullPathFile}”的提取."
 
 #: app/autoAr.js:448
-#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "笔记名}"
+msgstr "${filename} 需要密码"
 
 #: app/autoAr.js:451
 #, fuzzy
@@ -439,7 +421,7 @@ msgstr "小型档案必须安装在Windows和Mac."
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "桌面图标设置"
+msgstr "Desktop Icon"
 
 #: app/desktopManager.js:141
 #, fuzzy
@@ -449,28 +431,34 @@ msgstr "GNOME 未找到的文件"
 #: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME 档案申请由全国政府桌面Icons提供."
+msgstr "GNOME Gtk4桌面Icons NG要求申请档案."
 
 #: app/desktopManager.js:154
+#, fuzzy
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "没有缺席档案管理员"
 
 #: app/desktopManager.js:155
 #, fuzzy
 #| msgid "There is no application installed to open \"{foo}\" type of files"
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "没有安装用于打开“{foo}”类型文件的应用程序"
+msgstr "没有处理杂质类“诺德/直系”的申请"
 
 #: app/desktopManager.js:167
+#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "Gnome文档没有登记为档案管理员"
 
 #: app/desktopManager.js:168
+#, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"Gnome文档申请没有列入开放的Folders!\n"
+"检查贵重用途安装\n"
+"查阅Gnome文档。 档案安装"
 
 #: app/desktopManager.js:776
 #, fuzzy
@@ -513,7 +501,7 @@ msgstr "在桌面上发现文件"
 #: app/desktopManager.js:1477
 #, fuzzy
 msgid "Name"
-msgstr "姓名"
+msgstr "名称"
 
 #: app/desktopManager.js:1478
 #, fuzzy
@@ -533,7 +521,7 @@ msgstr "类型"
 #: app/desktopManager.js:1481
 #, fuzzy
 msgid "Size"
-msgstr "尺寸"
+msgstr "大小"
 
 #: app/desktopManager.js:1484
 #, fuzzy
@@ -600,7 +588,7 @@ msgstr "更改背景…"
 #: app/desktopManager.js:1538
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "桌面图标设置"
+msgstr "桌面一星座"
 
 #: app/desktopManager.js:1539
 msgid "Display Settings"
@@ -649,14 +637,14 @@ msgstr "主目录"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "清空回收站"
+msgstr "回收站"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
 msgid "Drive"
-msgstr ""
+msgstr "驱动器"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -665,7 +653,7 @@ msgstr ""
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "新建文件夹"
+msgstr "文件夹"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -691,7 +679,7 @@ msgstr "打开文件失败"
 #, fuzzy
 #| msgid "There is no application installed to open \"{foo}\" type of files"
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "没有安装用于打开“{foo}”类型文件的应用程序"
+msgstr "没有安装用于公开“ifoo}”档案的申请."
 
 #: app/fileItem.js:370
 msgid "Broken Desktop File"
@@ -734,7 +722,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>设置权限，在其他中，设置只读或者无</b>"
+"在“其他途径”、“仅”或“非”中设定许可"
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -746,13 +734,13 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"勾选<b>允许执行文件</b>"
+"可行方案,“执行档案方案”"
 
 #: app/fileItem.js:390
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
-msgstr "已损坏的桌面文件"
+msgstr "未委托的桌面档案"
 
 #: app/fileItem.js:391
 #, fuzzy
@@ -1042,14 +1030,16 @@ msgid "Console"
 msgstr "控制台视图"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "更多信息"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
+#, fuzzy
 msgid "Stack"
-msgstr ""
+msgstr "包捆"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1228,14 +1218,16 @@ msgid ""
 msgstr "如果连接了第二台显示器，新图标将放置在非主显示器上"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Icons可以在桌面上站在任何地方"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
+#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr ""
+msgstr "Icons并不是一个直径网,而是可以在独立于电网的任何地方张贴"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"

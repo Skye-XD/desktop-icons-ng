@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 18:27-0400\n"
-"PO-Revision-Date: 2024-03-28 14:02+0000\n"
+"PO-Revision-Date: 2024-04-01 17:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
@@ -1058,7 +1058,7 @@ msgstr "Console"
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "More Information"
-msgstr "Mai multe informații"
+msgstr "Alte informații"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
