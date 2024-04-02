@@ -123,7 +123,7 @@ const DesktopGrid = class {
         this._eventMotion.connect('motion', (actor, x, y) => {
             if (!this._desktopManager.rubberBand)
                 return false;
-            let [X, Y] = this.coordinatesLocalToGlobal(x, y);
+            const [X, Y] = this.coordinatesLocalToGlobal(x, y);
             this._desktopManager.onMotion(X, Y);
             return false;
         });
@@ -132,14 +132,14 @@ const DesktopGrid = class {
         this._buttonClick.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
         this._container.add_controller(this._buttonClick);
         this._buttonClick.connect('pressed', (actor, nPress, x, y) => {
-            let button = actor.get_current_button();
-            let state = this._buttonClick.get_current_event_state();
-            let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
-            let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
-            let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            let clickItem = this._fileAt(x, y);
+            const button = actor.get_current_button();
+            const state = this._buttonClick.get_current_event_state();
+            const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+            const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+            const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+            const clickItem = this._fileAt(x, y);
             if (clickItem) {
-                let clickRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+                const clickRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
                     clickItem._onPressButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
@@ -149,13 +149,13 @@ const DesktopGrid = class {
         });
 
         this._buttonClick.connect('released', (actor, nPress, x, y) => {
-            let state = this._buttonClick.get_current_event_state();
-            let isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
-            let isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
-            let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            let clickItem = this._fileAt(x, y);
+            const state = this._buttonClick.get_current_event_state();
+            const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+            const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+            const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+            const clickItem = this._fileAt(x, y);
             if (clickItem && !this._desktopManager.rubberBand) {
-                let clickRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+                const clickRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
                     clickItem._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
@@ -455,11 +455,11 @@ const DesktopGrid = class {
         this.gridDropController.connect('drag-motion', (actor, drop, x, y) => {
             let desktopDropZone = false;
             let fileItemDropZone = false;
-            let fileItem = this._fileAt(x, y);
-            let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            let dropRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
-            let desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
-            let filesMove = drop.get_formats().match(fileItemAcceptFormats);
+            const fileItem = this._fileAt(x, y);
+            const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+            const dropRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+            const desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
+            const filesMove = drop.get_formats().match(fileItemAcceptFormats);
 
             if (fileItem) {
                 if (!this.Prefs.freePositionIcons)
@@ -514,12 +514,12 @@ const DesktopGrid = class {
 
             let desktopDropZone = false;
             let fileItemDropZone = false;
-            let fileItem = this._fileAt(x, y);
-            let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            let dropRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
-            let desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
-            let filesMove = drop.get_formats().match(fileItemAcceptFormats);
-            let oldNautilusMove = drop.get_formats().match(oldNautilusDropFormat);
+            const fileItem = this._fileAt(x, y);
+            const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+            const dropRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+            const desktopMove = drop.get_formats().match(desktopMoveIconsFormat);
+            const filesMove = drop.get_formats().match(fileItemAcceptFormats);
+            const oldNautilusMove = drop.get_formats().match(oldNautilusDropFormat);
             let readFormat = Gdk.FileList.$gtype;
 
             if (fileItem) {
@@ -532,7 +532,7 @@ const DesktopGrid = class {
             }
             desktopDropZone = !fileItemDropZone;
 
-            let textDrop = drop.get_formats().match(textDropFormat) && !desktopMove && !filesMove;
+            const textDrop = drop.get_formats().match(textDropFormat) && !desktopMove && !filesMove;
             if (textDrop) {
                 acceptFormat = this.Enums.DndTargetInfo.TEXT_PLAIN;
                 readFormat = String.$gtype;
@@ -610,9 +610,9 @@ const DesktopGrid = class {
         this.gridDropControllerMotion = new Gtk.DropControllerMotion();
         this.gridDropControllerMotion.connect('motion', (actor, x, y) => {
             if (!this.gridDropControllerMotion.is_pointer) {
-                let fileItem = this._fileAt(x, y);
-                let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-                let pointerRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+                const fileItem = this._fileAt(x, y);
+                const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+                const pointerRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (fileItem && fileItem.dropCapable) {
                     this._desktopManager.unHighLightDropTarget();
                     if (!this.Prefs.freePositionIcons)
@@ -633,7 +633,7 @@ const DesktopGrid = class {
 
     async _completeDrop(X, Y, x, y, drop, dropData, gdkDropAction, fileItem, acceptFormat, fileItemDropZone, desktopDropZone, desktopMove, filesMove, textDrop, event) {
         let returnAction = Gdk.DragAction.COPY;
-        let localDrop = !!drop.get_drag();
+        const localDrop = !!drop.get_drag();
         if (fileItemDropZone && (desktopMove || filesMove)) {
             returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => console.error(e));
             return returnAction;
@@ -650,7 +650,7 @@ const DesktopGrid = class {
 
 
     setDragSource(widget) {
-        let widgetDragController = Gtk.DragSource.new();
+        const widgetDragController = Gtk.DragSource.new();
         let clickItem;
         widgetDragController.set_actions(Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
         // eslint-disable-next-line consistent-return
@@ -674,7 +674,7 @@ const DesktopGrid = class {
         });
         widgetDragController.connect('drag-cancel', async (actor, drag, reason) => {
             if (reason === Gdk.DragCancelReason.NO_TARGET || reason === Gdk.DragCancelReason.ERROR) {
-                let gnomedropDetected = await this._desktopManager.gnomeShellDrag?.completeGnomeShellDrop().catch(e => console.error(e));
+                const gnomedropDetected = await this._desktopManager.gnomeShellDrag?.completeGnomeShellDrop().catch(e => console.error(e));
                 if (gnomedropDetected)
                     return true;
                 else
@@ -692,9 +692,9 @@ const DesktopGrid = class {
 
     _loadDragData() {
         this.contentProvider = null;
-        let textCoder = new TextEncoder();
+        const textCoder = new TextEncoder();
 
-        let dingDragData = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.DING_ICON_LIST);
+        const dingDragData = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.DING_ICON_LIST);
         if (!dingDragData)
             return;
 
@@ -703,20 +703,20 @@ const DesktopGrid = class {
         if (this._desktopManager.checkIfSpecialFilesAreSelected()) {
             this.contentProvider = dingContentProvider;
         } else {
-            let gnomeDragData = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.GNOME_ICON_LIST);
-            let gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.GNOME_ICON_LIST, textCoder.encode(gnomeDragData));
-            let textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST, textCoder.encode(dingDragData));
-            let textlistContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN, textCoder.encode(dingDragData));
+            const gnomeDragData = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.GNOME_ICON_LIST);
+            const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.GNOME_ICON_LIST, textCoder.encode(gnomeDragData));
+            const textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST, textCoder.encode(dingDragData));
+            const textlistContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN, textCoder.encode(dingDragData));
             this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, gnomeContentProvider, textUriListContentProvider, textlistContentProvider]);
         }
     }
 
     // The following code is translated from Nautilus C to Javascript to form the similar stack of items
     _createStackedDragIcon(draggedItem) {
-        let  dragIconArray = this._desktopManager.getCurrentSelection(false);
+        const  selectionArray = this._desktopManager.getCurrentSelection(false);
         // eslint-disable-next-line no-nested-ternary
-        dragIconArray.sort((a, b) => a.uri === draggedItem.uri ? -1 : b.uri === draggedItem.uri ? 1 : 0);
-        dragIconArray = dragIconArray.map(f => f._icon.get_paintable());
+        selectionArray.sort((a, b) => a.uri === draggedItem.uri ? -1 : b.uri === draggedItem.uri ? 1 : 0);
+        const dragIconArray = selectionArray.map(f => f._icon.get_paintable());
         const numberOfIcons = dragIconArray.length;
 
         const dragIcon = Gtk.Snapshot.new();
@@ -742,13 +742,13 @@ const DesktopGrid = class {
         }
 
         dragIcon.translate(new Graphene.Point({x: 10 + (xOffset / 2), y: yOffset * numberOfIcons}));
-        let shadow = new Gsk.Shadow(stackShadow);
+        const shadow = new Gsk.Shadow(stackShadow);
         dragIcon.push_shadow([shadow]);
         dragIconArray.reverse().forEach(paintableWidget => {
-            let w = paintableWidget.get_intrinsic_width();
-            let h = paintableWidget.get_intrinsic_height();
-            let X = Math.floor((this.Prefs.IconSize - w) / 2);
-            let Y = Math.floor((this.Prefs.IconSize - h) / 2);
+            const w = paintableWidget.get_intrinsic_width();
+            const h = paintableWidget.get_intrinsic_height();
+            const X = Math.floor((this.Prefs.IconSize - w) / 2);
+            const Y = Math.floor((this.Prefs.IconSize - h) / 2);
             dragIcon.translate(new Graphene.Point({x: -xOffset, y: -yOffset}));
             xOffset = -xOffset;
             dragIcon.translate(new Graphene.Point({x: X, y: Y}));
@@ -847,7 +847,7 @@ const DesktopGrid = class {
 
     highLightGridAt(x, y) {
         const globalCoordinates = false;
-        let selected = this.getCoordinatesOfGridContaining(x, y, globalCoordinates);
+        const selected = this.getCoordinatesOfGridContaining(x, y, globalCoordinates);
         this._selectedList = [selected];
         this._drawDropRectangles();
     }
@@ -945,13 +945,13 @@ const DesktopGrid = class {
 
     getGridLocalCoordinates(x, y) {
         // returns the local grid coordinates of top left rectangle vertex of the grid that has local x,y
-        let [column, row] = this._getColumnRowFromLocal(x, y);
+        const [column, row] = this._getColumnRowFromLocal(x, y);
         return this._getLocalCoordinatesForGrid(column, row);
     }
 
     _getLocalCoordinatesForGrid(column, row) {
-        let localX = Math.floor(this._width * column / this._maxColumns);
-        let localY = Math.floor(this._height * row / this._maxRows);
+        const localX = Math.floor(this._width * column / this._maxColumns);
+        const localY = Math.floor(this._height * row / this._maxRows);
         return [localX, localY];
     }
 
@@ -996,7 +996,7 @@ const DesktopGrid = class {
 
     coordinatesWidgetToWidget(x, y, widget1, widget2) {
         const sourcePoint = new Graphene.Point({x, y});
-        let [found, targetPoint] = widget1.compute_point(widget2, sourcePoint);
+        const [found, targetPoint] = widget1.compute_point(widget2, sourcePoint);
         if (!found)
             return [0, 0];
         return [targetPoint.x, targetPoint.y];
@@ -1007,14 +1007,14 @@ const DesktopGrid = class {
             widget = this._container;
 
         const sourcePoint = new Graphene.Point({x, y});
-        let [found, targetPoint] = widget.compute_point(this._window, sourcePoint);
+        const [found, targetPoint] = widget.compute_point(this._window, sourcePoint);
         if (!found)
             return [0, 0];
         return [targetPoint.x, targetPoint.y];
     }
 
     coordinatesLocalToGlobal(x, y, widget = null) {
-        let [X, Y] = this.coordinatesLocalToWindow(x, y, widget);
+        const [X, Y] = this.coordinatesLocalToWindow(x, y, widget);
         return [X + this._x, Y + this._y];
     }
 
@@ -1042,15 +1042,14 @@ const DesktopGrid = class {
         return new Gdk.Rectangle({x: X, y: Y, width: gdkRectangle.width, height: gdkRectangle.height});
     }
 
-    getCoordinatesOfGridContaining(x, y, globalCoordinates = false) {
+    getCoordinatesOfGridContaining(X, Y, globalCoordinates = false) {
         // returns the local or global coordinates if requested, of the local grid rectangle top left vertex that contains x, y
-        if (this.coordinatesBelongToThisGrid(x, y)) {
-            [x, y] = this.coordinatesGlobalToLocal(x, y);
+        if (this.coordinatesBelongToThisGrid(X, Y)) {
+            const [x, y] = this.coordinatesGlobalToLocal(X, Y);
             if (globalCoordinates) {
-                x = this._elementWidth * Math.floor((x / this._elementWidth) + 0.5);
-                y = this._elementHeight * Math.floor((y / this._elementHeight) + 0.5);
-                [x, y] = this.coordinatesLocalToGlobal(x, y);
-                return [x, y];
+                const a = this._elementWidth * Math.floor((x / this._elementWidth) + 0.5);
+                const b = this._elementHeight * Math.floor((y / this._elementHeight) + 0.5);
+                return this.coordinatesLocalToGlobal(a, b);
             } else {
                 return this.getGridLocalCoordinates(x, y);
             }
@@ -1140,7 +1139,7 @@ const DesktopGrid = class {
 
     gridInUse(x, y) {
         // returns if the local grid containing local coordinates x, y has a file assigned.
-        let [placeX, placeY] = this._getColumnRowFromLocal(x, y);
+        const [placeX, placeY] = this._getColumnRowFromLocal(x, y);
         return !this._isEmptyAt(placeX, placeY);
     }
 
@@ -1155,7 +1154,7 @@ const DesktopGrid = class {
         if (reverseHorizontal)
             cornerInversion[0] = !cornerInversion[0];
 
-        let [placeX, placeY] = this._getColumnRowFromLocal(x, y);
+        const [placeX, placeY] = this._getColumnRowFromLocal(x, y);
 
         if (this._isEmptyAt(placeX, placeY) && (coordinatesAction !== this.Enums.StoredCoordinates.ASSIGN))
             return [placeX, placeY];
@@ -1214,7 +1213,7 @@ const DesktopGrid = class {
         this._container.put(fileItem.container, localX, localY);
         this._setGridUse(column, row, fileItem);
         this._fileItems.set(fileItem, [localX, localY]);
-        let [X, Y] = this.coordinatesLocalToGlobal(localX, localY);
+        const [X, Y] = this.coordinatesLocalToGlobal(localX, localY);
         fileItem.setCoordinates(X,
             Y,
             this._elementWidth - 2 * elementSpacing,
@@ -1275,9 +1274,9 @@ const DesktopGrid = class {
     }
 
     addFileItemCloseTo(fileItem, X, Y, coordinatesAction) {
-        let addVolumesOpposite = this.Prefs.AddVolumesOpposite;
-        let [x, y] = this.coordinatesGlobalToLocal(X, Y);
-        let [column, row] = this._getEmptyPlaceClosestTo(
+        const addVolumesOpposite = this.Prefs.AddVolumesOpposite;
+        const [x, y] = this.coordinatesGlobalToLocal(X, Y);
+        const [column, row] = this._getEmptyPlaceClosestTo(
             x,
             y,
             coordinatesAction,
