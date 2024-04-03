@@ -335,8 +335,12 @@ class ManageWindow {
 
     _makeWindowTypeDesktop() {
         const desktopWindowTypeSetOnWindow = this._waylandClient.make_desktop_window(this._window);
-        if (!desktopWindowTypeSetOnWindow)
+        if (!desktopWindowTypeSetOnWindow) {
             this._emulateDesktopWindow();
+        } else {
+            const activateTopWindowOnWorkspace = true;
+            this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
+        }
     }
 
     _emulateDesktopWindow() {
