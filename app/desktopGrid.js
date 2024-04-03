@@ -1253,7 +1253,6 @@ const DesktopGrid = class {
             return;
 
         this._container.put(fileItem.container, x, y);
-        this._container.move(fileItem.container, x, y);
         this._fileItems.set(fileItem, [x, y]);
         fileItem.setCoordinates(X,
             Y,
