@@ -337,8 +337,6 @@ class ManageWindow {
         const desktopWindowTypeSetOnWindow = this._waylandClient.make_desktop_window(this._window);
         if (!desktopWindowTypeSetOnWindow)
             this._emulateDesktopWindow();
-        else
-            this._window.stick();
     }
 
     _emulateDesktopWindow() {
