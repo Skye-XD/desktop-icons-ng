@@ -21,8 +21,6 @@ import {_} from '../dependencies/gettext.js';
 
 export {DesktopGrid};
 
-var elementSpacing = 2;
-
 // eslint-disable-next-line no-unused-vars
 const DesktopGrid = class {
     constructor(desktopManager, desktopName, desktopDescription, asDesktop, premultiplied) {
@@ -32,6 +30,7 @@ const DesktopGrid = class {
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
         this.DBusUtils = this._desktopManager.DBusUtils;
         this.Enums = this._desktopManager.Enums;
+        this.elementSpacing = this.Enums.GRID_ELEMENT_SPACING;
         this._desktopName = desktopName;
         this._asDesktop = asDesktop;
         this._premultiplied = premultiplied;
@@ -244,8 +243,8 @@ const DesktopGrid = class {
         this._marginBottom = Math.floor(this._marginBottom / this._sizer);
         this._marginLeft = Math.floor(this._marginLeft / this._sizer);
         this._marginRight = Math.floor(this._marginRight / this._sizer);
-        this._maxColumns = Math.floor(this._width / (this.Prefs.DesiredWidth + 4 * elementSpacing));
-        this._maxRows =  Math.floor(this._height / (this.Prefs.DesiredHeight + 4 * elementSpacing));
+        this._maxColumns = Math.floor(this._width / (this.Prefs.DesiredWidth + 4 * this.elementSpacing));
+        this._maxRows =  Math.floor(this._height / (this.Prefs.DesiredHeight + 4 * this.elementSpacing));
         this._elementWidth = Math.floor(this._width / this._maxColumns);
         this._elementHeight = Math.floor(this._height / this._maxRows);
     }
@@ -1208,17 +1207,17 @@ const DesktopGrid = class {
             return;
 
         let [localX, localY] = this._getLocalCoordinatesForGrid(column, row);
-        localX += elementSpacing;
-        localY += elementSpacing;
+        localX += this.elementSpacing;
+        localY += this.elementSpacing;
         this._container.put(fileItem.container, localX, localY);
         this._setGridUse(column, row, fileItem);
         this._fileItems.set(fileItem, [localX, localY]);
         const [X, Y] = this.coordinatesLocalToGlobal(localX, localY);
         fileItem.setCoordinates(X,
             Y,
-            this._elementWidth - 2 * elementSpacing,
-            this._elementHeight - 2 * elementSpacing,
-            elementSpacing,
+            this._elementWidth - 2 * this.elementSpacing,
+            this._elementHeight - 2 * this.elementSpacing,
+            this.elementSpacing,
             this);
         /* If this file is new in the Desktop and hasn't yet
          * fixed coordinates, store the new possition to ensure
@@ -1256,9 +1255,9 @@ const DesktopGrid = class {
         this._fileItems.set(fileItem, [x, y]);
         fileItem.setCoordinates(X,
             Y,
-            this._elementWidth - 2 * elementSpacing,
-            this._elementHeight - 2 * elementSpacing,
-            elementSpacing,
+            this._elementWidth - 2 * this.elementSpacing,
+            this._elementHeight - 2 * this.elementSpacing,
+            this.elementSpacing,
             this);
         // set column row being used for all four vertices
         this._setUseColumnRowOverlappingThis(fileItem, column, row, X, Y);
