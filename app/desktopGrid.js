@@ -1,6 +1,6 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
- * Gtk4 Port Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com)
+ * Gtk4 Port Copyright (C) 2022, 2024 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
  * Based on code original (C) Carlos Soriano
  *
@@ -31,6 +31,7 @@ const DesktopGrid = class {
         this.DBusUtils = this._desktopManager.DBusUtils;
         this.Enums = this._desktopManager.Enums;
         this.elementSpacing = this.Enums.GRID_ELEMENT_SPACING;
+        this.gridPadding = this.Enums.GRID_PADDING;
         this._desktopName = desktopName;
         this._asDesktop = asDesktop;
         this._premultiplied = premultiplied;
@@ -211,22 +212,22 @@ const DesktopGrid = class {
         this._marginTopHiddenObject = false;
         this._marginBottomHiddenObject = false;
 
-        this._marginTop = this._desktopDescription.marginTop;
+        this._marginTop = this._desktopDescription.marginTop + this.gridPadding;
         if (this._marginTop > 1000) {
             this._marginTopHiddenObject = true;
             this._marginTop -= 1000;
         }
-        this._marginBottom = this._desktopDescription.marginBottom;
+        this._marginBottom = this._desktopDescription.marginBottom + this.gridPadding;
         if (this._marginBottom > 1000) {
             this._marginBottomHiddenObject = true;
             this._marginBottom -= 1000;
         }
-        this._marginLeft = this._desktopDescription.marginLeft;
+        this._marginLeft = this._desktopDescription.marginLeft + this.gridPadding;
         if (this._marginLeft > 1000) {
             this._marginLeftHiddenObject = true;
             this._marginLeft -= 1000;
         }
-        this._marginRight = this._desktopDescription.marginRight;
+        this._marginRight = this._desktopDescription.marginRight + this.gridPadding;
         if (this._marginRight > 1000) {
             this._marginRightHiddenObject = true;
             this._marginRight -= 1000;

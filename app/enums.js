@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
+ * Copyright (C) 2024 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
  * Based on code original (C) Carlos Soriano
  *
@@ -132,6 +133,7 @@ export const XDG_TERMINAL_DIR = 'xdg-terminals';
 export const SYSTEM_DATA_DIRS = ['/usr/local/share', '/usr/share'];
 export const XDG_TERMINAL_EXEC = 'xdg-terminal-exec';
 export const GRID_ELEMENT_SPACING = 2;
+export const GRID_PADDING = 0;
 export const UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit
     S_ISGID: 0o02000, // set-group-ID bit (see below)
