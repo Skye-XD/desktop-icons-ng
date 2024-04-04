@@ -2126,8 +2126,8 @@ const DesktopManager = class {
                 outOfDesktops.push(fileItem);
         }
 
-        // Now, assign icons that have lande in changed margins, belong to monitor
-        // and the window, however are no longer on the grid.
+        // Now, assign icons that have landed in changed margins, belong to monitor
+        // and the window, however no longer fit on the grid as they overlap margins.
 
         if (outOfDesktops.length) {
             const unassigned = [];
