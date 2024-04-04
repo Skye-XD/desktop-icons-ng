@@ -1,4 +1,14 @@
 # History of versions #
+* Gtk4 version 73 for Gnome 45, 46 - mostly bug fix.
+ * Update documentation
+ * Fix fileItemRectangleFitsGrid - had incorrect calculation. (Sundeep Mediratta)
+ * Completely refactor desktopgrid, make local and global methods, organize and comment the file, remove unneeded code. (Sundeep Mediratta)
+ * With above move elementSpacing to Enums, add optional padding in Enums that can be applied to the grid to postion the icons away from all edges and margins. (Sundeep Mediratta)
+ * Show all possible apps to open a folder, as only suggested apps often do not show apps that can also handle folders. (Sundeep Mediratta)
+ * Fix desktop window stealing and retaining focus on startup and on any workspace change with gestures. (Sundeep Mediratta)
+ * Further weblate translations. (Weblate Authors)
+ * Update History.md, Features.md, metadata.json. Version bump to 73.
+
 * Gtk4 version 72 for Gnome 45, 46
  * Free postion icon anywhere on the desktop. Behavior can be changed in preferences, changes the shape of the icons, as well as the drag and drop behavior. (Sundeep Mediratta)
  * Uses Gtk4 AlertDialog as he older dialogs are deprecitated. Allows a button to launch help URL for errors. (Sundeep Mediratta)

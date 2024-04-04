@@ -122,6 +122,10 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Uses new Gtk.AlertDialog for dialogs, can show a button to launch a URL for help and troubleshooting information.
 
+- [x] Show all available apps for opening inode/folder. Suggested apps would miss apps that can also operate on folders.
+
+- [x] Move elementspacing to Enums, add Enums.GRID_PADDING, this can be applied to the grid to add a padding to place icons away from all margins. Default is set to 0, howevers users and distributions can easily change this to personal preference.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -237,3 +241,7 @@ The application functionality and behavior is consistent with the two other very
 - [x] Grid resize improvement in repositioning of icons.
 
 - [x] Fix regression where console would not be launched as a fallback terminal if another one was configured incorrectly.
+
+- [x] Fix incorrect calculation of fileItemRectangleFitsGrid, this was putting icons out of place.
+
+- [x] Fix desktop stealing focus when mapped and with every workspace change.
