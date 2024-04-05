@@ -30,7 +30,7 @@ import {
     StackItem
 } from '../dependencies/localFiles.js';
 
-import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, GLib, GLibUnix} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopManager};
@@ -119,7 +119,7 @@ const DesktopManager = class {
 
         // setup gracefull termination
         if (this._asDesktop) {
-            this._sigtermID = GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, 15, () => {
+            this._sigtermID = GLibUnix.signal_add_full(GLib.PRIORITY_DEFAULT, 15, () => {
                 GLib.source_remove(this._sigtermID);
                 this.terminateProgram();
                 if (this._hold_active) {
