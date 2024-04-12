@@ -60,7 +60,7 @@ const AskRenamePopup = class {
             this._validate().catch(e => console.error(e));
         });
         this._textAreaActivateId = this._textArea.connect('activate', this._do_rename.bind(this));
-        this._popoverId = this._popover.connect('closed', this._cleanAll.bind(this));
+        this._popoverId = this._popover.connect('closed', this.close.bind(this));
         this._textArea.set_activates_default(true);
         this._popover.set_default_widget(this._textArea);
         this._button.get_style_context().add_class('suggested-action');
@@ -75,15 +75,6 @@ const AskRenamePopup = class {
         this._validate().catch(e => console.error(e));
         this._textArea.grab_focus_without_selecting();
         this._textArea.select_region(0, this.DesktopIconsUtil.getFileExtensionOffset(fileItem.fileName, {'isDirectory': fileItem.isDirectory}).offset);
-    }
-
-    _cleanAll() {
-        this._validateCancellable.cancel();
-        this._button.disconnect(this._buttonId);
-        this._textArea.disconnect(this._textAreaActivateId);
-        this._textArea.disconnect(this._textAreaChangedId);
-        this._popover.disconnect(this._popoverId);
-        this._closeCB();
     }
 
     async _validate() {
@@ -128,7 +119,15 @@ const AskRenamePopup = class {
     }
 
     close() {
+        this._validateCancellable.cancel();
+        this._button.disconnect(this._buttonId);
+        this._textArea.disconnect(this._textAreaActivateId);
+        this._textArea.disconnect(this._textAreaChangedId);
+        this._popover.disconnect(this._popoverId);
         this._popover.popdown();
+        this._popover.unparent();
+        this._popover = null;
+        this._closeCB();
     }
 
     popupat(fileItem) {
