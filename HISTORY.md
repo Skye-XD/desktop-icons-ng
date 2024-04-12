@@ -1,4 +1,12 @@
 # History of versions #
+* Gtk4 version 74 for Gnome 45, 46 - bug fix again.
+ * Fix keyboard app accelerator shortcut for making new folder hanging program. (Sundeep Mediratta)
+ * Fix for importing GLibUnix properly with recent namespace seperation from GLib.Unix_* (Sundeep Mediratta)
+ * Fix for unresolved promise error on right click fileItemMenu, code called was removed from desktopGrid. (Sundeep Mediratta)
+ * Move ignored keys to Enums, away from code. (Sundeep Mediratta)
+ * Weblate translations. (Weblate Authors)
+ * Update History.md, metadata.json. Version bump to 74.
+
 * Gtk4 version 73 for Gnome 45, 46 - mostly bug fix.
  * Update documentation
  * Fix fileItemRectangleFitsGrid - had incorrect calculation. (Sundeep Mediratta)
