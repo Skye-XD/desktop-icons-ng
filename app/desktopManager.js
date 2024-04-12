@@ -996,9 +996,18 @@ const DesktopManager = class {
         return data;
     }
 
+    closePopUps() {
+        if (this._renameWindow) {
+            this._renameWindow.close();
+            return true;
+        }
+        return false;
+    }
+
     async onPressButton(X, Y, x, y, button, shiftPressed, controlPressed, grid) {
         this._clickX = Math.floor(X);
         this._clickY = Math.floor(Y);
+
         if (button === 1) {
             if (!shiftPressed && !controlPressed) {
                 // clear selection
