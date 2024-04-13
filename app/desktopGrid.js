@@ -197,7 +197,7 @@ const DesktopGrid = class {
         this.windowGlobalRectangle.height = this._windowHeight;
     }
 
-    _resizeWindow() {
+    resizeWindow() {
         this._updateWindowGeometry();
         this._desktopName = `@!${this._x},${this._y};BDHF`;
         this._window.set_title(this._desktopName);
