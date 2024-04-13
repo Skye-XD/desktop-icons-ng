@@ -91,7 +91,7 @@ const DesktopManager = class {
         this._scriptsList = [];
         this._pendingDropFiles = {};
         this._pendingSelfCopyFiles = {};
-        this.ignoreKeys = this.Enums.IgnoreKeys.map(k => Gdk.k);
+        this.ignoreKeys = this.Enums.IgnoreKeys.map(_k => Gdk._k);
         // init methods
         this._initLocalCSSprovider();
         this._configureSelectionColor();
@@ -1219,6 +1219,7 @@ const DesktopManager = class {
     }
 
     findFiles(text) {
+        const activeWindow = this.mainApp.get_active_window();
         this._findFileWindow = new Gtk.Dialog({
             use_header_bar: true,
             resizable: false,
@@ -1229,6 +1230,7 @@ const DesktopManager = class {
         this._findFileWindow.set_modal(true);
         this._findFileWindow.set_title(_('Find Files on Desktop'));
         this.DesktopIconsUtil.windowHidePagerTaskbarModal(this._findFileWindow, true);
+        this._findFileWindow.set_transient_for(activeWindow);
         let contentArea = this._findFileWindow.get_content_area();
         this._findFileTextArea = new Gtk.Entry();
         this._findFileTextArea.set_margin_top(5);
