@@ -156,7 +156,7 @@ const FileItemMenu = class {
 
         let dorename = Gio.SimpleAction.new('dorename', null);
         dorename.connect('activate', () => {
-            this._desktopManager.doRename(this.activeFileItem, false);
+            this._desktopManager.doRename(this.activeFileItem, false).catch(e => logError(e));
         });
         this._mainApp.add_action(dorename);
         this._mainApp.set_accels_for_action('app.dorename', ['F2']);
@@ -276,6 +276,7 @@ const FileItemMenu = class {
     // eslint-disable-next-line no-unused-vars
     showMenu(fileItem, button = null, X = null, Y = null, x = null, y = null, shiftSelected = false, controlSelected = false) {
         this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
+        this._desktopManager.popupmenuopen = this.popupmenuopen = true;
         const selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
         const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
         const menulocation = X ? new Gdk.Rectangle({x, y, width: 1, height: 1}) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
@@ -468,12 +469,15 @@ const FileItemMenu = class {
         if (menuGtkPosition)
             this.popupmenu.set_position(menuGtkPosition);
 
-        fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
         this.popupmenu.connect('closed', async () => {
-            this._desktopManager.popupmenuopen = this.popupmenuopen = false;
             await this.DesktopIconsUtil.waitDelayMs(50);
             this.popupmenu.unparent();
+            this.popupmenu = null;
+            this._desktopManager.popupmenuopen = false;
+            this.popupmenuopen = false;
+            if (this._desktopManager.popupmenuclosed)
+                this._desktopManager.popupmenuclosed(true);
         });
     }
 

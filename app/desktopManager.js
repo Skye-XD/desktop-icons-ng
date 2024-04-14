@@ -1030,9 +1030,12 @@ const DesktopManager = class {
             this.popupmenuopen = true;
             this.popupmenu.popup();
             this.popupmenu.connect('closed', async () => {
-                this.popupmenuopen = false;
                 await this.DesktopIconsUtil.waitDelayMs(50);
                 this.popupmenu.unparent();
+                this.popupmenu = null;
+                this.popupmenuopen = false;
+                if (this.popupmenuclosed)
+                    this.popupmenuclosed(true);
             });
         }
     }
@@ -2066,7 +2069,7 @@ const DesktopManager = class {
                 if (this.newItemDoRename && this.newItemDoRename.has(f.fileName)) {
                     newItemDoRename = true;
                     f.setSelected();
-                    this.doRename(f, true);
+                    this.doRename(f, true).catch(e => logError(e));
                 }
             });
             if (!newItemDoRename) {
@@ -2486,7 +2489,13 @@ const DesktopManager = class {
         return count;
     }
 
-    doRename(fileItem, allowReturnOnSameName = false) {
+    menuclosed = () => {
+        return new Promise(resolve => {
+            this.popupmenuclosed = resolve;
+        });
+    };
+
+    async doRename(fileItem, allowReturnOnSameName = false) {
         let selection = this.getCurrentSelection(false);
         if (!(selection && (selection.length === 1)))
             return;
@@ -2504,6 +2513,8 @@ const DesktopManager = class {
                 this.newItemDoRename = new Set();
 
             this.newItemDoRename.add(fileItem.fileName);
+            if (this.popupmenuopen)
+                await this.menuclosed().catch(e => logError(e));
             this._renameWindow = new AskRenamePopup.AskRenamePopup(
                 fileItem,
                 allowReturnOnSameName,
