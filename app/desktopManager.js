@@ -1027,13 +1027,11 @@ const DesktopManager = class {
                 this.popupmenu.set_position(menuGtkPosition);
 
             this.popupmenu.set_has_arrow(true);
-            this.popupmenuopen = true;
             this.popupmenu.popup();
             this.popupmenu.connect('closed', async () => {
                 await this.DesktopIconsUtil.waitDelayMs(50);
                 this.popupmenu.unparent();
                 this.popupmenu = null;
-                this.popupmenuopen = false;
                 if (this.popupmenuclosed)
                     this.popupmenuclosed(true);
             });
@@ -1167,7 +1165,7 @@ const DesktopManager = class {
 
     onKeyPress(keyval, keycode, state, grid) {
         this.keyEventGrid = grid;
-        if (this.popupmenuopen)
+        if (this.popupmenu || this.fileItemMenu.popupmenu)
             return true;
 
         if (this.ignoreKeys.includes(keyval))
@@ -1310,8 +1308,8 @@ const DesktopManager = class {
         this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
         this.doPasteSimpleAction.connect('activate', async () => {
             try {
-                if (!this.popupmenuopen)
-                    await this._updateClipboard();
+                if (!(this.popupmenu || this.fileItemMenu.popupmenu))
+                    await this._updateClipboard().catch(e => logError(e));
 
                 this._doPaste();
             } catch (e) {
@@ -1417,7 +1415,7 @@ const DesktopManager = class {
 
         let previewAction = Gio.SimpleAction.new('previewAction', null);
         previewAction.connect('activate', () => {
-            if (this.popupmenuopen || !this.activeFileItem)
+            if (this.popupmenu || this.fileItemMenu.popupmenu || !this.activeFileItem)
                 return;
 
             this.DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
@@ -2059,7 +2057,7 @@ const DesktopManager = class {
     }
 
     _refreshMenus() {
-        if ((this.newItemDoRename && this.newItemDoRename.size) || this.fileItemMenu.popupmenuopen || this.activeFileItem) {
+        if ((this.newItemDoRename && this.newItemDoRename.size) || this.fileItemMenu.popupmenu || this.activeFileItem) {
             let activeItem = false;
             let newItemDoRename = false;
             this._fileList.forEach(f => {
@@ -2076,15 +2074,17 @@ const DesktopManager = class {
                 if (this._renameWindow)
                     this._renameWindow.close();
             }
-            if (activeItem && this.fileItemMenu.popupmenuopen) {
+            if (activeItem && this.fileItemMenu.popupmenu) {
                 this.fileItemMenu.popupmenu.popdown();
-                if (this.fileItemMenu.popupmenu)
+                if (this.fileItemMenu.popupmenu) {
                     this.fileItemMenu.popupmenu.unparent();
+                    this.fileItemMenu.popupmenu = null;
+                }
 
                 this.fileItemMenu.showMenu(this.activeFileItem);
                 return;
             }
-            if (this.fileItemMenu.popupmenuopen)
+            if (this.fileItemMenu.popupmenu)
                 this.fileItemMenu.popupmenu.popdown();
         }
     }
@@ -2513,7 +2513,7 @@ const DesktopManager = class {
                 this.newItemDoRename = new Set();
 
             this.newItemDoRename.add(fileItem.fileName);
-            if (this.popupmenuopen)
+            if (this.popupmenu || this.fileItemMenu.popupmenu)
                 await this.menuclosed().catch(e => logError(e));
             this._renameWindow = new AskRenamePopup.AskRenamePopup(
                 fileItem,

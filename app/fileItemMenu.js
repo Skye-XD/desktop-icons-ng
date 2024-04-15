@@ -276,7 +276,6 @@ const FileItemMenu = class {
     // eslint-disable-next-line no-unused-vars
     showMenu(fileItem, button = null, X = null, Y = null, x = null, y = null, shiftSelected = false, controlSelected = false) {
         this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
-        this._desktopManager.popupmenuopen = this.popupmenuopen = true;
         const selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
         const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
         const menulocation = X ? new Gdk.Rectangle({x, y, width: 1, height: 1}) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
@@ -474,8 +473,6 @@ const FileItemMenu = class {
             await this.DesktopIconsUtil.waitDelayMs(50);
             this.popupmenu.unparent();
             this.popupmenu = null;
-            this._desktopManager.popupmenuopen = false;
-            this.popupmenuopen = false;
             if (this._desktopManager.popupmenuclosed)
                 this._desktopManager.popupmenuclosed(true);
         });
@@ -484,7 +481,7 @@ const FileItemMenu = class {
     showToolTip(fileItem) {
         if (this._toolTipPopup)
             return;
-        if (this.popupmenuopen && (fileItem.uri === this.activeFileItem.uri))
+        if (this.popupmenu && (fileItem.uri === this.activeFileItem.uri))
             return;
         this._toolTipPopup = Gtk.Popover.new();
         this._toolTipPopup.set_pointing_to(fileItem.iconRectangle);
