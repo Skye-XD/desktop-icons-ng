@@ -2064,28 +2064,20 @@ const DesktopManager = class {
                 if (this.activeFileItem && (f.fileName === this.activeFileItem.fileName))
                     this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem = f;
 
-                if (this.newItemDoRename && this.newItemDoRename.has(f.fileName)) {
-                    newItemDoRename = true;
-                    f.setSelected();
-                    this.doRename(f, true).catch(e => logError(e));
-                }
+                if (this.newItemDoRename && this.newItemDoRename.has(f.fileName))
+                    newItemDoRename = f;
             });
-            if (!newItemDoRename) {
-                if (this._renameWindow)
-                    this._renameWindow.close();
+            if (this._renameWindow)
+                this._renameWindow.close();
+            if (newItemDoRename) {
+                newItemDoRename.setSelected();
+                const allowReturnOnSameName = true;
+                this.doRename(newItemDoRename, allowReturnOnSameName).catch(e => logError(e));
             }
-            if (activeItem && this.fileItemMenu.popupmenu) {
-                this.fileItemMenu.popupmenu.popdown();
-                if (this.fileItemMenu.popupmenu) {
-                    this.fileItemMenu.popupmenu.unparent();
-                    this.fileItemMenu.popupmenu = null;
-                }
-
-                this.fileItemMenu.showMenu(this.activeFileItem);
-                return;
+            if (this.fileItemMenu.popupmenu) {
+                if (!activeItem)
+                    this.fileItemMenu.popupmenu.popdown();
             }
-            if (this.fileItemMenu.popupmenu)
-                this.fileItemMenu.popupmenu.popdown();
         }
     }
 
@@ -2532,8 +2524,6 @@ const DesktopManager = class {
                     DBusUtils: this.DBusUtils,
                 }
             );
-        } else {
-            this._renameWindow.popupat(fileItem);
         }
     }
 
