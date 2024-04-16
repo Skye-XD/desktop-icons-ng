@@ -765,6 +765,7 @@ const DesktopManager = class {
     }
 
     askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = {desktopactions: true}) {
+        const window = this.mainApp.get_active_window();
         this._askWhatToDoWindow = new Gtk.Dialog({
             use_header_bar: false,
             resizable: false,
@@ -779,6 +780,7 @@ const DesktopManager = class {
         this._askWhatToDoWindow.set_modal(true);
         this._askWhatToDoWindow.set_title(_('Choose Action for Files'));
         this.DesktopIconsUtil.windowHidePagerTaskbarModal(this._askWhatToDoWindow, true);
+        this._askWhatToDoWindow.set_transient_for(window);
         this._askWhatToDoWindow.show();
         this.textEntryAccelsTurnOff();
         this._askWhatToDoWindow.connect('close', () => {
