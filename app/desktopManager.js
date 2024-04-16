@@ -772,17 +772,21 @@ const DesktopManager = class {
         const chooser = new Gtk.AlertDialog();
         chooser.set_message(_('Choose Action for Files'));
         chooser.buttons = [_('Move'), _('Copy'), _('Link'), _('Cancel')];
-        chooser.set_modal(true);
+        chooser.set_modal(false);
         chooser.set_cancel_button(3);
         chooser.set_default_button(3);
+        const cancellable = Gio.Cancellable.new();
+        if (this.dialogCancellable)
+            this.dialogCancellable.cancel();
+        this.dialogCancellable = cancellable;
         const showdialog = new Promise(resolve => {
-            chooser.choose(window, null, async (actor, choice) => {
+            chooser.choose(window, cancellable, async (actor, choice) => {
                 let retval;
                 const buttonpress = actor.choose_finish(choice);
                 switch (buttonpress) {
                 case 0:
+                    retval = Gdk.DragAction.MOVE;
                     try {
-                        retval = Gdk.DragAction.MOVE;
                         if (opts.desktopactions)
                             await this.clearFileCoordinates(fileList, [X, Y]);
 
@@ -812,7 +816,7 @@ const DesktopManager = class {
                         if (opts.desktopactions)
                             await this.makeLinks(fileList, destinationuri, X, Y);
                         else
-                            await this.makeFileSystemLinks(fileList, destinationuri);
+                            this.makeFileSystemLinks(fileList, destinationuri);
                     } catch {
                         console.error('Error making links');
                     }
@@ -824,6 +828,9 @@ const DesktopManager = class {
             });
         });
         const retval = await showdialog.catch(e => logError(e));
+        if (this.dialogCancellable)
+            this.dialogCancellable.cancel();
+        this.dialogCancellable = null;
         this.textEntryAccelsTurnOn();
         return retval;
     }
@@ -998,6 +1005,11 @@ const DesktopManager = class {
     closePopUps() {
         if (this._renameWindow) {
             this._renameWindow.close();
+            return true;
+        }
+        if (this.dialogCancellable) {
+            this.dialogCancellable.cancel();
+            this.dialogCancellable = null;
             return true;
         }
         return false;
