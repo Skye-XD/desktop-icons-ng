@@ -768,6 +768,10 @@ const DesktopGrid = class {
         this._desktopManager.onDragLeave();
     }
 
+    receiveLeave() {
+        this._receiveLeave();
+    }
+
     _receiveMotion(x, y, global) {
         let X;
         let Y;
@@ -823,7 +827,7 @@ const DesktopGrid = class {
     _startSpringLoadedTimer(fileItem) {
         if (!this.Prefs.openFolderOnDndHover || this.directoryOpenTimer)
             return;
-        if (this._desktopManager.dragItem.uri === fileItem.uri)
+        if (this._desktopManager.dragItem?.uri === fileItem.uri)
             return;
         this.directoryOpenTimer = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this.Enums.DND_HOVER_TIMEOUT, () => {
             const context = Gdk.Display.get_default().get_app_launch_context();
