@@ -156,7 +156,7 @@ const FileItemMenu = class {
 
         let dorename = Gio.SimpleAction.new('dorename', null);
         dorename.connect('activate', () => {
-            this._desktopManager.doRename(this.activeFileItem, false);
+            this._desktopManager.doRename(this.activeFileItem, false).catch(e => logError(e));
         });
         this._mainApp.add_action(dorename);
         this._mainApp.set_accels_for_action('app.dorename', ['F2']);
@@ -468,19 +468,20 @@ const FileItemMenu = class {
         if (menuGtkPosition)
             this.popupmenu.set_position(menuGtkPosition);
 
-        fileItem._desktopManager.popupmenuopen = this.popupmenuopen = true;
         this.popupmenu.popup();
         this.popupmenu.connect('closed', async () => {
-            this._desktopManager.popupmenuopen = this.popupmenuopen = false;
             await this.DesktopIconsUtil.waitDelayMs(50);
             this.popupmenu.unparent();
+            this.popupmenu = null;
+            if (this._desktopManager.popupmenuclosed)
+                this._desktopManager.popupmenuclosed(true);
         });
     }
 
     showToolTip(fileItem) {
         if (this._toolTipPopup)
             return;
-        if (this.popupmenuopen && (fileItem.uri === this.activeFileItem.uri))
+        if (this.popupmenu && (fileItem.uri === this.activeFileItem.uri))
             return;
         this._toolTipPopup = Gtk.Popover.new();
         this._toolTipPopup.set_pointing_to(fileItem.iconRectangle);
