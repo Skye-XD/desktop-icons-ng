@@ -429,11 +429,11 @@ const DesktopIconItem = class {
 
     unHighLightDropTarget() {
         if (this._hasToRouteDragToGrid()) {
-            this._grid.receiveLeave();
+            this._grid?.receiveLeave();
             return;
         }
         this.setUnHighLighted();
-        this._grid.unHighLightGrids();
+        this._grid?.unHighLightGrids();
     }
 
     setSelected() {
