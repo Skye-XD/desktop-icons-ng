@@ -1,4 +1,17 @@
 # History of versions #
+* Gtk4 version 75 for Gnome 45, 46 - bug fix again, code clean up and consolidationn.
+  * Multiple fixes for regression from desktopGrid.js refactoring. (Sundeep Mediratta)
+  * Fix Rename Window shortcut not working from right click menu and app accelerator. (Sundeep Mediratta)
+  * Fix regression for refreshmenu, new file while rename popup open would crash program. (Sundeep Mediratta)
+  * Use Gtk.AlertDialog for askwhattodoWindow for move/copy/link. Use async promises, automatically dismiss the dialog by any click outside the dialog. Dialog is now not modal and does not hold up the flow or lock the desktop. (Sundeep Mediratta)
+  * Move all code for handling X11 windows and setting skip_taskbar and Meta.WindowType.Desktop to emulateX11WindowType.js. Consolidate all window handling for Wayland and X11 windows in that file with analogous methods. (Sundeep Mediratta)
+  * Make all windows for appchooser, fileChooser, folderChooser dialogs transient for main app active window and make sure they hide from taskbar. (Sundeep Mediratta)
+  * Fix label being very close to the icon with rectangular icons on shape changes. (Sundeep Mediratta)
+  * Multiple small miscellenous fixes and code cleanup. (Sundeep Mediratta)
+  * Weblate translation. (Weblate Authors)
+  * Polish translation. (Piotr Strebski)
+  * Update History.md, metadata.json. Update pot file. Version bump to 75.
+
 * Gtk4 version 74 for Gnome 45, 46 - bug fix again.
  * Fix keyboard app accelerator shortcut for making new folder hanging program. (Sundeep Mediratta)
  * Fix for importing GLibUnix properly with recent namespace seperation from GLib.Unix_* (Sundeep Mediratta)
