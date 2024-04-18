@@ -156,20 +156,6 @@ const DesktopIconsUtil = class {
 
     /**
      *
-     * @param {integer} xid xid of window
-     */
-    setX11windowTypeDesktop(xid) {
-        const commandline = `xprop -id ${xid}` +
-            ' -f _NET_WM_WINDOW_TYPE 32a' +
-            ' -set _NET_WM_WINDOW_TYPE' +
-            ' _NET_WM_WINDOW_TYPE_DESKTOP';
-        console.log('Making X11 windowtype type Desktop');
-        const argv = GLib.shell_parse_argv(commandline)[1];
-        this.trySpawn(null, argv, null);
-    }
-
-    /**
-     *
      * @param {string} workdir working directory path
      * @param  {Array(String)} argv child's argument vector
      * @param {Array} environ child's environment, or <code>null</code> to inherit parent's
@@ -422,34 +408,6 @@ const DesktopIconsUtil = class {
                 GLib.PRIORITY_LOW,
                 cancellable);
         }
-    }
-
-
-    /**
-     *
-     * @param {Gtk.Window} window The X11 window
-     */
-    hideX11windowTaskbar(window) {
-        window.connect('realize', w => {
-            const gdkWindow = w.get_surface();
-            gdkWindow.set_skip_pager_hint(true);
-            gdkWindow.set_skip_taskbar_hint(true);
-        });
-    }
-
-    /**
-     *
-     * @param {Gtk.Window} window The X11 window
-     */
-    makeX11windowTaskbarHiddenDesktop(window) {
-        window.connect('realize', w => {
-            const gdkWindow = w.get_surface();
-            gdkWindow.set_skip_pager_hint(true);
-            gdkWindow.set_skip_taskbar_hint(true);
-            gdkWindow.set_utf8_property('_NET_WM_STATE', '_NET_WM_STATE_STICKY');
-            const xid = gdkWindow.get_xid();
-            this.setX11windowTypeDesktop(xid);
-        });
     }
 
     /**
