@@ -33,11 +33,13 @@ const AppChooserDialog = class {
         this._dbusUtils = dbusUtils;
         this._desktopIconsUtil = desktopIconsUtil;
         this.mimeType = activeFileItem.attributeContentType;
+        const appwindow = this._desktopIconsUtil.getApplicationID().get_active_window();
         let appChooserDialogUiPath = GLib.build_filenamev([codepath, 'app', 'resources', 'ui', 'ding-app-chooser.ui']);
         this.builderObject = Gtk.Builder.new_from_file(appChooserDialogUiPath);
         this.builderObject.set_translation_domain('gtk4-ding');
         this.appChooserDialog = this.builderObject.get_object('DingAppChooser');
-        this.appChooserDialog.set_name('DingAppChooser');
+        this.appChooserDialog.set_transient_for(appwindow);
+        this.appChooserDialog.set_title('DingAppChooser');
         const modal = true;
         this._desktopIconsUtil.windowHidePagerTaskbarModal(this.appChooserDialog, modal);
         this.appChooserBox = this.builderObject.get_object('app_chooser_widget_box');
