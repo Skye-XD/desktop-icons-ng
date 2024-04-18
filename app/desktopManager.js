@@ -1246,7 +1246,8 @@ const DesktopManager = class {
         this._findFileWindow.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
         this._findFileWindow.set_modal(true);
         this._findFileWindow.set_title(_('Find Files on Desktop'));
-        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this._findFileWindow, true);
+        const modal = true;
+        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this._findFileWindow, modal);
         this._findFileWindow.set_transient_for(activeWindow);
         let contentArea = this._findFileWindow.get_content_area();
         this._findFileTextArea = new Gtk.Entry();
@@ -1621,7 +1622,8 @@ const DesktopManager = class {
             this.preferencesWindow = null;
         });
         this.preferencesWindow.set_title(_('Settings'));
-        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, true);
+        const modal = true;
+        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, modal);
         this.preferencesWindow.show();
     }
 

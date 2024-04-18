@@ -38,7 +38,8 @@ const AppChooserDialog = class {
         this.builderObject.set_translation_domain('gtk4-ding');
         this.appChooserDialog = this.builderObject.get_object('DingAppChooser');
         this.appChooserDialog.set_name('DingAppChooser');
-        this._desktopIconsUtil.windowHidePagerTaskbarModal(this.appChooserDialog, true);
+        const modal = true;
+        this._desktopIconsUtil.windowHidePagerTaskbarModal(this.appChooserDialog, modal);
         this.appChooserBox = this.builderObject.get_object('app_chooser_widget_box');
         this.appChooserWidget = Gtk.AppChooserWidget.new(this.mimeType);
         this.appChooserWidget.set_show_default(true);

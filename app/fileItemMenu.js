@@ -648,7 +648,8 @@ const FileItemMenu = class {
             dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
             dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
             dialog.add_button(selectionText, Gtk.ResponseType.ACCEPT);
-            this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, true);
+            const modal = true;
+            this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, modal);
             this._desktopManager.textEntryAccelsTurnOff();
             dialog.show();
             dialog.present_with_time(Gdk.CURRENT_TIME);
