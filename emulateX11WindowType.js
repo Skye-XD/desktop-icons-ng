@@ -118,6 +118,12 @@ class ManageWindow {
         this._desktopWindow = false;
         let title = this._window.get_title();
 
+        if (!title && !!this._window.get_transient_for()) {
+            // Transient dialog window
+            // Does not have title, hide from windowlist
+            title = '@!H';
+        }
+
         if (title !== null) {
             if ((title.length > 0) && (title[title.length - 1] === ' ')) {
                 if ((title.length > 1) && (title[title.length - 2] === ' '))
@@ -405,6 +411,10 @@ var EmulateX11WindowType = class {
     enable() {
         this._idMap = global.window_manager.connect_after('map', (obj, windowActor) => {
             let window = windowActor.get_meta_window();
+
+            if (window.get_window_type() > Meta.WindowType.DIALOG)
+                return;
+
             if (this._waylandClient && this._waylandClient.query_window_belongs_to(window))
                 this._addWindowManagedCustomJS_ding(window, windowActor);
 
