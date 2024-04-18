@@ -781,55 +781,59 @@ const DesktopManager = class {
         this.dialogCancellable = cancellable;
         const showdialog = new Promise(resolve => {
             chooser.choose(window, cancellable, async (actor, choice) => {
-                let retval;
-                const buttonpress = actor.choose_finish(choice);
-                switch (buttonpress) {
-                case 0:
-                    retval = Gdk.DragAction.MOVE;
-                    try {
-                        if (opts.desktopactions)
-                            await this.clearFileCoordinates(fileList, [X, Y]);
+                let retval = Gtk.ResponseType.CANCEL;
+                try {
+                    const buttonpress = actor.choose_finish(choice);
+                    switch (buttonpress) {
+                    case 0:
+                        retval = Gdk.DragAction.MOVE;
+                        try {
+                            if (opts.desktopactions)
+                                await this.clearFileCoordinates(fileList, [X, Y]);
 
-                        let forceCopy = false;
-                        await this.copyOrMoveUris(fileList,
-                            destinationuri, event, {forceCopy});
-                    } catch {
-                        console.error('Error moving files');
-                    }
-                    break;
-                case 1:
-                    retval = Gdk.DragAction.COPY;
-                    try {
-                        if (opts.desktopactions)
-                            await this.clearFileCoordinates(fileList, [X, Y], {dopCopy: true});
+                            let forceCopy = false;
+                            await this.copyOrMoveUris(fileList,
+                                destinationuri, event, {forceCopy});
+                        } catch {
+                            console.error('Error moving files');
+                        }
+                        break;
+                    case 1:
+                        retval = Gdk.DragAction.COPY;
+                        try {
+                            if (opts.desktopactions)
+                                await this.clearFileCoordinates(fileList, [X, Y], {dopCopy: true});
 
-                        let forceCopy = true;
-                        await this.copyOrMoveUris(fileList,
-                            destinationuri, event, {forceCopy});
-                    } catch {
-                        console.error('Error copying files');
+                            let forceCopy = true;
+                            await this.copyOrMoveUris(fileList,
+                                destinationuri, event, {forceCopy});
+                        } catch {
+                            console.error('Error copying files');
+                        }
+                        break;
+                    case 2:
+                        retval = Gdk.DragAction.LINK;
+                        try {
+                            if (opts.desktopactions)
+                                await this.makeLinks(fileList, destinationuri, X, Y);
+                            else
+                                this.makeFileSystemLinks(fileList, destinationuri);
+                        } catch {
+                            console.error('Error making links');
+                        }
+                        break;
+                    default:
+                        retval = Gtk.ResponseType.CANCEL;
                     }
-                    break;
-                case 2:
-                    retval = Gdk.DragAction.LINK;
-                    try {
-                        if (opts.desktopactions)
-                            await this.makeLinks(fileList, destinationuri, X, Y);
-                        else
-                            this.makeFileSystemLinks(fileList, destinationuri);
-                    } catch {
-                        console.error('Error making links');
-                    }
-                    break;
-                default:
-                    retval = Gtk.ResponseType.CANCEL;
+                    resolve(retval);
+                } catch (e) {
+                    if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        console.error(e, `Error asking choosing what to do with Files ${e.message}`);
+                    resolve(retval);
                 }
-                resolve(retval);
             });
         });
         const retval = await showdialog.catch(e => logError(e));
-        if (this.dialogCancellable)
-            this.dialogCancellable.cancel();
         this.dialogCancellable = null;
         this.textEntryAccelsTurnOn();
         return retval;
