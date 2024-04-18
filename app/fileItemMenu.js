@@ -611,15 +611,16 @@ const FileItemMenu = class {
         return new Promise(resolve => {
             if (!dialogTitle)
                 dialogTitle =  _('Select Destination');
+            const window = this.DesktopIconsUtil.getApplicationID().get_active_window();
             if (!selectionText)
                 selectionText = _('Select');
             const dialog = new Gtk.FileDialog({
                 title: dialogTitle,
                 accept_label: selectionText,
-                modal: false,
+                modal: true,
                 initial_folder: this.DesktopIconsUtil.getDesktopDir(),
             });
-            dialog.select_folder(null, null, (actor, gioasyncresponse) => {
+            dialog.select_folder(window, null, (actor, gioasyncresponse) => {
                 let folder;
                 try {
                     folder = actor.select_folder_finish(gioasyncresponse);
@@ -642,13 +643,16 @@ const FileItemMenu = class {
             if (!selectionText)
                 selectionText = _('Select');
             let returnValue = null;
+            const window = this.DesktopIconsUtil.getApplicationID().get_active_window();
             const dialog = new Gtk.FileChooserDialog({title: dialogTitle});
             dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
             dialog.set_create_folders(true);
             dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
             dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
             dialog.add_button(selectionText, Gtk.ResponseType.ACCEPT);
+            dialog.set_transient_for(window);
             const modal = true;
+            dialog.set_modal(modal);
             this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, modal);
             this._desktopManager.textEntryAccelsTurnOff();
             dialog.show();
@@ -676,6 +680,7 @@ const FileItemMenu = class {
         try {
             result = await this.getSelectedFolderGioNewMethod(dialogTitle, selectionText);
         } catch (e) {
+            console.log('Reverting to old method of selecting');
             result = await this.getSelectedFolderGioOldMethod(dialogTitle, selectionText);
         }
         return result;
