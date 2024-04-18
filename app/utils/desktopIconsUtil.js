@@ -527,8 +527,6 @@ const DesktopIconsUtil = class {
             title += ' ';
 
         window.set_title(title);
-        if (this.usingX11())
-            this.hideX11windowTaskbar(window);
 
         if (modal) {
             window.set_modal(true);

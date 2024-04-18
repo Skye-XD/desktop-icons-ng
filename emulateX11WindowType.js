@@ -245,8 +245,33 @@ class ManageWindow {
     }
 
     _keepWindowHidden() {
-        if (!this._isX11 && this._waylandClient)
+        if (!this._isX11 && this._waylandClient) {
             this._waylandClient.hide_from_window_list(this._window);
+        } else {
+            const xid = this._window.xwindow;
+            this._setX11windowSkipTaskbar(xid);
+            this._setX11windowSkipPager(xid);
+        }
+    }
+
+    _setX11windowSkipTaskbar(xid) {
+        const commandline = `xprop -id ${xid}` +
+        ' -f _NET_WM_STATE 32a' +
+        ' -set _NET_WM_STATE' +
+        ' _NET_WM_STATE_SKIP_TASKBAR';
+        console.log('Making X11 windowtype type skip-taskbar');
+        const argv = GLib.shell_parse_argv(commandline)[1];
+        this._trySpawn(null, argv, null);
+    }
+
+    _setX11windowSkipPager(xid) {
+        const commandline = `xprop -id ${xid}` +
+        ' -f _NET_WM_STATE 32a' +
+        ' -set _NET_WM_STATE' +
+        ' _NET_WM_STATE_SKIP_TASKBAR';
+        console.log('Making X11 windowtype type skip-pager');
+        const argv = GLib.shell_parse_argv(commandline)[1];
+        this._trySpawn(null, argv, null);
     }
 
     _unhideWindow() {
@@ -340,12 +365,23 @@ class ManageWindow {
     }
 
     _makeWindowTypeDesktop() {
-        const desktopWindowTypeSetOnWindow = this._waylandClient.make_desktop_window(this._window);
-        if (!desktopWindowTypeSetOnWindow) {
-            this._emulateDesktopWindow();
+        if (!this._isX11 && this._waylandClient) {
+            const desktopWindowTypeSetOnWindow = this._waylandClient.make_desktop_window(this._window);
+            if (!desktopWindowTypeSetOnWindow) {
+                this._emulateDesktopWindow();
+            } else {
+                const activateTopWindowOnWorkspace = true;
+                this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
+            }
         } else {
-            const activateTopWindowOnWorkspace = true;
-            this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
+            const xid = this._window.xwindow;
+            const commandline = `xprop -id ${xid}` +
+                ' -f _NET_WM_WINDOW_TYPE 32a' +
+                ' -set _NET_WM_WINDOW_TYPE' +
+                ' _NET_WM_WINDOW_TYPE_DESKTOP';
+            console.log('Making X11 windowtype type Desktop');
+            const argv = GLib.shell_parse_argv(commandline)[1];
+            this._trySpawn(null, argv, null);
         }
     }
 
@@ -371,6 +407,59 @@ class ManageWindow {
         this._disconnetSignalsAndTimeouts();
         this._parseTitle();
         this._attachControllers();
+    }
+
+    /**
+     *
+     * @param {string} workdir working directory path
+     * @param  {Array(String)} argv child's argument vector
+     * @param {Array} environ child's environment, or <code>null</code> to inherit parent's
+     * @param {bool}  async or async execution
+     */
+    _trySpawn(workdir, argv, environ = null, async = true) {
+        /* The following code has been extracted from GNOME Shell's
+         * source code in Misc.Util.trySpawn function and modified to
+         * set the working directory.
+         *
+         * https://gitlab.gnome.org/GNOME/gnome-shell/blob/gnome-3-30/js/misc/util.js
+         */
+        var exec = async ? GLib.spawn_async : GLib.spawn_sync;
+        var flags = async ? GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD
+            : GLib.SpawnFlags.SEARCH_PATH;
+        var pid;
+        try {
+            pid = exec(workdir, argv, environ, flags,
+                () => {}).slice(1);
+        } catch (err) {
+            /* Rewrite the error in case of ENOENT */
+            if (err.matches(GLib.SpawnError, GLib.SpawnError.NOENT)) {
+                throw new GLib.SpawnError({
+                    code: GLib.SpawnError.NOENT,
+                    message: 'Command not found',
+                });
+            } else if (err instanceof GLib.Error) {
+                // The exception from gjs contains an error string like:
+                //   Error invoking GLib.spawn_command_line_async: Failed to
+                //   execute child process "foo" (No such file or directory)
+                // We are only interested in the part in the parentheses. (And
+                // we can't pattern match the text, since it gets localized.)
+                let message = err.message.replace(/.*\((.+)\)/, '$1');
+                throw new err.constructor({
+                    code: err.code,
+                    message,
+                });
+            } else {
+                throw err;
+            }
+        }
+
+        if (!async)
+            return;
+
+        // Dummy child watch; we don't want to double-fork internally
+        // because then we lose the parent-child relationship, which
+        // can break polkit.  See https://bugzilla.redhat.com//show_bug.cgi?id=819275
+        GLib.child_watch_add(GLib.PRIORITY_DEFAULT, pid, () => {});
     }
 
     get hideFromWindowList() {
