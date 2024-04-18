@@ -24,6 +24,7 @@ import Meta from 'gi://Meta';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as DND from 'resource:///org/gnome/shell/ui/dnd.js';
 import * as AppFavorites from 'resource:///org/gnome/shell/ui/appFavorites.js';
+import * as Utils from 'resource:///org/gnome/shell/misc/util.js';
 
 export {EmulateX11WindowType};
 class ManageWindow {
@@ -245,13 +246,21 @@ class ManageWindow {
     }
 
     _keepWindowHidden() {
-        if (!this._isX11 && this._waylandClient)
+        if (!this._isX11 && this._waylandClient) {
             this._waylandClient.hide_from_window_list(this._window);
+        } else {
+            const xid = this._window.xwindow;
+            this._setX11windowSkipTaskbar(xid);
+        }
     }
 
     _unhideWindow() {
-        if (!this._isX11 && this._waylandClient)
+        if (!this._isX11 && this._waylandClient) {
             this._waylandClient.show_in_window_list(this._window);
+        } else {
+            const xid = this._window.xwindow;
+            this._unSetX11windowSkipTaskbar(xid);
+        }
     }
 
     _keepWindowAtBottom() {
@@ -340,13 +349,24 @@ class ManageWindow {
     }
 
     _makeWindowTypeDesktop() {
-        const desktopWindowTypeSetOnWindow = this._waylandClient.make_desktop_window(this._window);
-        if (!desktopWindowTypeSetOnWindow) {
-            this._emulateDesktopWindow();
+        if (!this._isX11 && this._waylandClient) {
+            const desktopWindowTypeSetOnWindow = this._waylandClient.make_desktop_window(this._window);
+            if (!desktopWindowTypeSetOnWindow) {
+                this._emulateDesktopWindow();
+                return;
+            }
         } else {
-            const activateTopWindowOnWorkspace = true;
-            this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
+            const xid = this._window.xwindow;
+            try {
+                this._setX11windowTypeDesktop(xid);
+            } catch (e) {
+                logError(e);
+                this._emulateDesktopWindow();
+                return;
+            }
         }
+        const activateTopWindowOnWorkspace = true;
+        this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
     }
 
     _emulateDesktopWindow() {
@@ -365,6 +385,36 @@ class ManageWindow {
     _onIdleActivateTopWindowOnActiveWorkspace() {
         const activateTopWindowOnWorkspace = true;
         this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
+    }
+
+    _setX11windowSkipTaskbar(xid) {
+        // Unfortunately xprop can set only one of the properties in the state, not multiple
+        // Stick to setting only skip-taskbar, we can otherwirse also set the property for pager,
+        // _NET_WM_STATE_SKIP_PAGER
+        const commandline = `xprop -id ${xid}` +
+        ' -f _NET_WM_STATE 32a' +
+        ' -set _NET_WM_STATE' +
+        ' _NET_WM_STATE_SKIP_TASKBAR';
+        console.log('Making X11 windowtype type skip-taskbar');
+        Utils.spawnCommandLine(commandline);
+    }
+
+    _unSetX11windowSkipTaskbar(xid) {
+        const commandline = `xprop -id ${xid}` +
+        ' -f _NET_WM_STATE 32a' +
+        ' -remove _NET_WM_STATE' +
+        ' _NET_WM_STATE_SKIP_TASKBAR';
+        console.log('Making X11 windowtype type NOT skip-taskbar');
+        Utils.spawnCommandLine(commandline);
+    }
+
+    _setX11windowTypeDesktop(xid) {
+        const commandline = `xprop -id ${xid}` +
+            ' -f _NET_WM_WINDOW_TYPE 32a' +
+            ' -set _NET_WM_WINDOW_TYPE' +
+            ' _NET_WM_WINDOW_TYPE_DESKTOP';
+        console.log('Making X11 windowtype type Desktop');
+        Utils.trySpawnCommandLine(commandline);
     }
 
     refreshProperties() {
