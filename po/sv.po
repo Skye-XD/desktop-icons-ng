@@ -11,11 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:27-0400\n"
+"POT-Creation-Date: 2024-04-18 20:02-0400\n"
 "PO-Revision-Date: 2024-04-01 17:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,20 +307,20 @@ msgstr "Fel ändra standardapplikation"
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Fel när du ställer in {foo} som standardapplikation för {mimetype}"
 
-#: app/askRenamePopup.js:48
+#: app/askRenamePopup.js:49
 msgid "Folder name"
 msgstr "Mappnamn"
 
-#: app/askRenamePopup.js:48
+#: app/askRenamePopup.js:49
 msgid "File name"
 msgstr "Filnamn"
 
-#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1218
-#: app/fileItemMenu.js:799
+#: app/askRenamePopup.js:57 app/autoAr.js:294 app/desktopManager.js:1244
+#: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "OK"
 
-#: app/askRenamePopup.js:56
+#: app/askRenamePopup.js:57
 msgid "Rename"
 msgstr "Byt namn"
 
@@ -347,8 +347,8 @@ msgstr "Extrahera filer"
 msgid "Compressing files"
 msgstr "Komprimera filer."
 
-#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:779
-#: app/desktopManager.js:1220 app/fileItemMenu.js:649 app/fileItemMenu.js:799
+#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:774
+#: app/desktopManager.js:1246 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "Avbryt"
@@ -483,203 +483,203 @@ msgstr "Mindre arkiv men måste installeras på Windows och Mac."
 msgid "Desktop Icons"
 msgstr "Desktop Icons"
 
-#: app/desktopManager.js:141
+#: app/desktopManager.js:140
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME Filer som inte hittats"
 
-#: app/desktopManager.js:142
+#: app/desktopManager.js:141
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "GNOME Filer ansökan krävs av Gtk4 Desktop Icons NG."
 
-#: app/desktopManager.js:154
+#: app/desktopManager.js:153
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "Det finns ingen standard File Manager"
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:154
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Det finns ingen ansökan som hanterar mimetype \"inode/directory\""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:166
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome Files är inte registrerad som filhanterare"
 
-#: app/desktopManager.js:168
+#: app/desktopManager.js:167
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:776
-#, fuzzy
-msgid "Move"
-msgstr "Flytta"
-
-#: app/desktopManager.js:777 app/fileItemMenu.js:372
-msgid "Copy"
-msgstr "Kopiera"
-
-#: app/desktopManager.js:778
-#, fuzzy
-msgid "Link"
-msgstr "Länk"
-
-#: app/desktopManager.js:781
+#: app/desktopManager.js:773
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Välj åtgärd för filer"
 
-#: app/desktopManager.js:851 app/desktopManager.js:883
+#: app/desktopManager.js:774
+#, fuzzy
+msgid "Move"
+msgstr "Flytta"
+
+#: app/desktopManager.js:774 app/fileItemMenu.js:372
+msgid "Copy"
+msgstr "Kopiera"
+
+#: app/desktopManager.js:774
+#, fuzzy
+msgid "Link"
+msgstr "Länk"
+
+#: app/desktopManager.js:861 app/desktopManager.js:893
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Gör SymLink misslyckad"
 
-#: app/desktopManager.js:852 app/desktopManager.js:884
+#: app/desktopManager.js:862 app/desktopManager.js:894
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Kan inte skapa symbolisk länk"
 
-#: app/desktopManager.js:1179
+#: app/desktopManager.js:1204
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Rensa aktuellt val innan ny sökning"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1248
 msgid "Find Files on Desktop"
 msgstr "Hitta filer på skrivbordet"
 
-#: app/desktopManager.js:1477
+#: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
 msgstr "Namn"
 
-#: app/desktopManager.js:1478
+#: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Namn Z-A"
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1507
 #, fuzzy
 msgid "Modified Time"
 msgstr "Ändrad tid"
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1508
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopManager.js:1481
+#: app/desktopManager.js:1509
 #, fuzzy
 msgid "Size"
 msgstr "Storlek"
 
-#: app/desktopManager.js:1484
+#: app/desktopManager.js:1512
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Håll Arranged.."
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1516
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Håll fast vid typ.."
 
-#: app/desktopManager.js:1489
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sort Home/Drives/Trash.."
 
-#: app/desktopManager.js:1494 app/desktopManager.js:2546
+#: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
 msgstr "Ny mapp"
 
-#: app/desktopManager.js:1498
+#: app/desktopManager.js:1526
 msgid "New Document"
 msgstr "Nytt dokument"
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1530
 msgid "Paste"
 msgstr "Klistra in"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1531
 msgid "Undo"
 msgstr "Ångra"
 
-#: app/desktopManager.js:1504
+#: app/desktopManager.js:1532
 msgid "Redo"
 msgstr "Gör om"
 
-#: app/desktopManager.js:1509
+#: app/desktopManager.js:1537
 msgid "Select All"
 msgstr "Markera alla"
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1542
 msgid "Arrange Icons"
 msgstr "Arrangera ikonerna"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1546
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arrangera av.."
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1552
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Visa skrivbord i {0}"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1555
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Öppna i {0}"
 
-#: app/desktopManager.js:1533
+#: app/desktopManager.js:1561
 msgid "Change Background…"
 msgstr "Ändra bakgrund…"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Desktop Icon Inställningar"
 
-#: app/desktopManager.js:1539
+#: app/desktopManager.js:1567
 msgid "Display Settings"
 msgstr "Visningsinställningar"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Föreställningar fönster är öppet"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Detta fönster är öppet. Växla till det aktiva fönstret."
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1624
 msgid "Settings"
 msgstr "Inställningar"
 
-#: app/desktopManager.js:2569
+#: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Mamma skapelse misslyckades"
 
-#: app/desktopManager.js:2570
+#: app/desktopManager.js:2599
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Kunde inte skapa mapp."
 
-#: app/desktopManager.js:2613
+#: app/desktopManager.js:2642
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Mallar Skapelse Fel"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
 msgstr "Kunde inte skapa dokument"
@@ -1011,84 +1011,84 @@ msgstr "Flytta annullerad"
 msgid "Unable to move Files, no destination folder"
 msgstr "Kan flytta filer, ingen destination mapp"
 
-#: app/fileItemMenu.js:613 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:613 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
-#: app/fileItemMenu.js:615 app/fileItemMenu.js:643
+#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 msgid "Select"
 msgstr "Välj"
 
-#: app/fileItemMenu.js:687
+#: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Copy avbokad"
 
-#: app/fileItemMenu.js:688
+#: app/fileItemMenu.js:694
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Kan inte kopiera filer, ingen destination mapp"
 
-#: app/fileItemMenu.js:736 app/fileItemMenu.js:746 app/fileItemMenu.js:756
-#: app/fileItemMenu.js:783
+#: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
+#: app/fileItemMenu.js:789
 #, fuzzy
 msgid "Mail Error"
 msgstr "Mail fel"
 
-#: app/fileItemMenu.js:737
+#: app/fileItemMenu.js:743
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Kan inte hitta xdg-email, vänligen installera programmet"
 
-#: app/fileItemMenu.js:747
+#: app/fileItemMenu.js:753
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Det fanns ett fel i e-postfiler"
 
-#: app/fileItemMenu.js:757
+#: app/fileItemMenu.js:763
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Kan inte hitta zip kommandot, vänligen installera programmet"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:763
+#: app/fileItemMenu.js:769
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
-#: app/fileItemMenu.js:784
+#: app/fileItemMenu.js:790
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Det fanns ett fel i att skapa ett zip arkiv"
 
-#: app/fileItemMenu.js:797
+#: app/fileItemMenu.js:803
 msgid "Can not email a Directory"
 msgstr "Kan inte maila en katalog"
 
-#: app/fileItemMenu.js:798
+#: app/fileItemMenu.js:804
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Urvalet innehåller en katalog, komprimera till en .zip-fil först?"
 
-#: app/fileItemMenu.js:910
+#: app/fileItemMenu.js:916
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Kan öppnas i Gnome Console"
 
-#: app/fileItemMenu.js:911
+#: app/fileItemMenu.js:917
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Installera Gnome Console eller annat terminalprogram"
 
-#: app/fileItemMenu.js:918
+#: app/fileItemMenu.js:924
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Kan inte öppna {0}"
 
-#: app/fileItemMenu.js:919
+#: app/fileItemMenu.js:925
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Vänligen installera {0}"
@@ -1124,7 +1124,7 @@ msgstr ""
 "För att få den här funktionaliteten att fungera i skrivbordsikoner så måste "
 "du installera \"${programName}\" i ditt system."
 
-#: app/utils/desktopIconsUtil.js:197
+#: app/utils/desktopIconsUtil.js:183
 msgid "Command not found"
 msgstr "Kommandot hittades inte"
 
