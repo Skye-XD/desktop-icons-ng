@@ -11,11 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:27-0400\n"
+"POT-Creation-Date: 2024-04-18 20:02-0400\n"
 "PO-Revision-Date: 2024-04-01 17:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -290,20 +290,20 @@ msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 "{mimetype} のデフォルトアプリケーションとして {foo} を設定するときにエラー"
 
-#: app/askRenamePopup.js:48
+#: app/askRenamePopup.js:49
 msgid "Folder name"
 msgstr "フォルダー名"
 
-#: app/askRenamePopup.js:48
+#: app/askRenamePopup.js:49
 msgid "File name"
 msgstr "ファイル名"
 
-#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1218
-#: app/fileItemMenu.js:799
+#: app/askRenamePopup.js:57 app/autoAr.js:294 app/desktopManager.js:1244
+#: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "OK"
 
-#: app/askRenamePopup.js:56
+#: app/askRenamePopup.js:57
 msgid "Rename"
 msgstr "名前の変更"
 
@@ -331,8 +331,8 @@ msgstr "ファイルの抽出"
 msgid "Compressing files"
 msgstr "ファイル圧縮中..."
 
-#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:779
-#: app/desktopManager.js:1220 app/fileItemMenu.js:649 app/fileItemMenu.js:799
+#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:774
+#: app/desktopManager.js:1246 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "キャンセル"
@@ -466,209 +466,210 @@ msgstr "より小さなアーカイブは、WindowsとMacにインストール�
 msgid "Desktop Icons"
 msgstr "デスクトップアイコン"
 
-#: app/desktopManager.js:141
+#: app/desktopManager.js:140
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "グノーム 見つからないファイル"
 
-#: app/desktopManager.js:142
+#: app/desktopManager.js:141
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "グノーム Gtk4デスクトップアイコンNGでファイルアプリケーションが必要です."
+msgstr ""
+"グノーム Gtk4デスクトップアイコンNGでファイルアプリケーションが必要です."
 
-#: app/desktopManager.js:154
+#: app/desktopManager.js:153
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "デフォルトファイルマネージャはありません"
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:154
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Mimetype \"inode/directory\" を扱うアプリケーションはありません"
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:166
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome ファイルがファイルマネージャとして登録されていない"
 
-#: app/desktopManager.js:168
+#: app/desktopManager.js:167
 #, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Gnomeファイルアプリケーションはフォルダを開くためにプログラムされていません!"
-"\n"
+"Gnomeファイルアプリケーションはフォルダを開くためにプログラムされていませ"
+"ん!\n"
 "xdg-utilsのインストールを確認してください\n"
 "Gnomeファイルをチェック .desktop ファイルインストール"
 
-#: app/desktopManager.js:776
-#, fuzzy
-msgid "Move"
-msgstr "移動"
-
-#: app/desktopManager.js:777 app/fileItemMenu.js:372
-msgid "Copy"
-msgstr "コピー"
-
-#: app/desktopManager.js:778
-#, fuzzy
-msgid "Link"
-msgstr "リンク"
-
-#: app/desktopManager.js:781
+#: app/desktopManager.js:773
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "ファイルのためのアクションを選択"
 
-#: app/desktopManager.js:851 app/desktopManager.js:883
+#: app/desktopManager.js:774
+#, fuzzy
+msgid "Move"
+msgstr "移動"
+
+#: app/desktopManager.js:774 app/fileItemMenu.js:372
+msgid "Copy"
+msgstr "コピー"
+
+#: app/desktopManager.js:774
+#, fuzzy
+msgid "Link"
+msgstr "リンク"
+
+#: app/desktopManager.js:861 app/desktopManager.js:893
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "SymLink を失敗させる"
 
-#: app/desktopManager.js:852 app/desktopManager.js:884
+#: app/desktopManager.js:862 app/desktopManager.js:894
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "シンボリックリンクを作成できません"
 
-#: app/desktopManager.js:1179
+#: app/desktopManager.js:1204
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "新しく検索する前に現在の選択を解除してください"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1248
 msgid "Find Files on Desktop"
 msgstr "デスクトップ上のファイルを検索"
 
-#: app/desktopManager.js:1477
+#: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
 msgstr "名前"
 
-#: app/desktopManager.js:1478
+#: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
 msgstr "名称 Z-A"
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1507
 #, fuzzy
 msgid "Modified Time"
 msgstr "変更された時間"
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1508
 #, fuzzy
 msgid "Type"
 msgstr "種類"
 
-#: app/desktopManager.js:1481
+#: app/desktopManager.js:1509
 #, fuzzy
 msgid "Size"
 msgstr "サイズ"
 
-#: app/desktopManager.js:1484
+#: app/desktopManager.js:1512
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "アレンジを続け.."
 
 # デスクトップにあるファイルを疑似フォルダーにまとめる (グループ化する)
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1516
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "タイプでスタックし続ける.."
 
-#: app/desktopManager.js:1489
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Home/Drives/Trashをソートする.."
 
-#: app/desktopManager.js:1494 app/desktopManager.js:2546
+#: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
 msgstr "新しいフォルダー"
 
-#: app/desktopManager.js:1498
+#: app/desktopManager.js:1526
 msgid "New Document"
 msgstr "新しいドキュメント"
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1530
 msgid "Paste"
 msgstr "貼り付け"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1531
 msgid "Undo"
 msgstr "元に戻す"
 
-#: app/desktopManager.js:1504
+#: app/desktopManager.js:1532
 msgid "Redo"
 msgstr "やり直す"
 
-#: app/desktopManager.js:1509
+#: app/desktopManager.js:1537
 msgid "Select All"
 msgstr "すべて選択"
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1542
 msgid "Arrange Icons"
 msgstr "アイコンを整列"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1546
 #, fuzzy
 msgid "Arrange By…"
 msgstr "アレンジして.."
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1552
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "デスクトップを表示 {0}"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1555
 #, fuzzy
 msgid "Open In {0}"
 msgstr "で開く {0}"
 
-#: app/desktopManager.js:1533
+#: app/desktopManager.js:1561
 msgid "Change Background…"
 msgstr "背景を変更…"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "デスクトップアイコン設定"
 
-#: app/desktopManager.js:1539
+#: app/desktopManager.js:1567
 msgid "Display Settings"
 msgstr "ディスプレイの設定"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "設定ウィンドウが開きます"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "このウィンドウが開きます。 アクティブなウィンドウに切り替えてください."
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1624
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:2569
+#: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "フォルダ作成失敗"
 
-#: app/desktopManager.js:2570
+#: app/desktopManager.js:2599
 #, fuzzy
 msgid "Could not create folder"
 msgstr "フォルダーを作成できませんでした。"
 
-#: app/desktopManager.js:2613
+#: app/desktopManager.js:2642
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "テンプレート作成エラー"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
 msgstr "文書を作成できない"
@@ -725,7 +726,8 @@ msgstr "ファイルを開けませんでした"
 #: app/fileItem.js:341
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "\"{foo}\" ファイルを開くためのアプリケーションはインストールされていません."
+msgstr ""
+"\"{foo}\" ファイルを開くためのアプリケーションはインストールされていません."
 
 #: app/fileItem.js:370
 msgid "Broken Desktop File"
@@ -999,85 +1001,85 @@ msgstr "キャンセルされる移動"
 msgid "Unable to move Files, no destination folder"
 msgstr "ファイルを移動することができない、コピー先フォルダなし"
 
-#: app/fileItemMenu.js:613 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:613 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Select Destination"
 msgstr "目的地を選択"
 
-#: app/fileItemMenu.js:615 app/fileItemMenu.js:643
+#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 msgid "Select"
 msgstr "選択"
 
-#: app/fileItemMenu.js:687
+#: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "コピーキャンセル"
 
-#: app/fileItemMenu.js:688
+#: app/fileItemMenu.js:694
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "ファイル、コピー先フォルダをコピーできない"
 
-#: app/fileItemMenu.js:736 app/fileItemMenu.js:746 app/fileItemMenu.js:756
-#: app/fileItemMenu.js:783
+#: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
+#: app/fileItemMenu.js:789
 #, fuzzy
 msgid "Mail Error"
 msgstr "メールエラー"
 
-#: app/fileItemMenu.js:737
+#: app/fileItemMenu.js:743
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email が見つからない場合は、プログラムをインストールしてください"
 
-#: app/fileItemMenu.js:747
+#: app/fileItemMenu.js:753
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "電子メールファイルにはエラーがありました"
 
-#: app/fileItemMenu.js:757
+#: app/fileItemMenu.js:763
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Zipコマンドが見つからない場合は、プログラムをインストールしてください"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:763
+#: app/fileItemMenu.js:769
 #, fuzzy
 msgid "Archive.zip"
 msgstr "アーカイブ.zip"
 
-#: app/fileItemMenu.js:784
+#: app/fileItemMenu.js:790
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Zipアーカイブの作成にエラーがありました"
 
-#: app/fileItemMenu.js:797
+#: app/fileItemMenu.js:803
 msgid "Can not email a Directory"
 msgstr "ディレクトリをメールで送ることはできません"
 
-#: app/fileItemMenu.js:798
+#: app/fileItemMenu.js:804
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "選択には、まずディレクトリ、.zipファイルへの圧縮が含まれていますか?"
 
-#: app/fileItemMenu.js:910
+#: app/fileItemMenu.js:916
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome Consoleで開くことができません"
 
-#: app/fileItemMenu.js:911
+#: app/fileItemMenu.js:917
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 "Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
 
-#: app/fileItemMenu.js:918
+#: app/fileItemMenu.js:924
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "開くことが可能 お問い合わせ"
 
-#: app/fileItemMenu.js:919
+#: app/fileItemMenu.js:925
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "お問い合わせ お問い合わせ"
@@ -1113,7 +1115,7 @@ msgstr ""
 "この機能を Desktop Icons で動作させるには、システムに \"${programName}\" をイ"
 "ンストールする必要があります。"
 
-#: app/utils/desktopIconsUtil.js:197
+#: app/utils/desktopIconsUtil.js:183
 msgid "Command not found"
 msgstr "コマンドが見つかりません"
 
@@ -1297,7 +1299,8 @@ msgstr "アイコンはデスクトップ上のどこにでも配置できます
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr "アイコンは長方形の格子にはありませんが、格子とは独立した場所で延期することが"
+msgstr ""
+"アイコンは長方形の格子にはありませんが、格子とは独立した場所で延期することが"
 "できます"
 
 #, fuzzy

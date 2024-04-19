@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:27-0400\n"
+"POT-Creation-Date: 2024-04-18 20:02-0400\n"
 "PO-Revision-Date: 2024-04-01 17:02+0000\n"
 "Last-Translator: 0xarch <alanqa-ops@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -256,20 +256,20 @@ msgstr "更改默认应用程序时出错"
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "将 {foo} 设置为 {mimetype} 的默认应用程序时出错"
 
-#: app/askRenamePopup.js:48
+#: app/askRenamePopup.js:49
 msgid "Folder name"
 msgstr "文件夹名称"
 
-#: app/askRenamePopup.js:48
+#: app/askRenamePopup.js:49
 msgid "File name"
 msgstr "文件名称"
 
-#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1218
-#: app/fileItemMenu.js:799
+#: app/askRenamePopup.js:57 app/autoAr.js:294 app/desktopManager.js:1244
+#: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "确定"
 
-#: app/askRenamePopup.js:56
+#: app/askRenamePopup.js:57
 msgid "Rename"
 msgstr "重命名"
 
@@ -292,8 +292,8 @@ msgstr "提取文件"
 msgid "Compressing files"
 msgstr "正在压缩文件…"
 
-#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:779
-#: app/desktopManager.js:1220 app/fileItemMenu.js:649 app/fileItemMenu.js:799
+#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:774
+#: app/desktopManager.js:1246 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "取消"
@@ -423,33 +423,33 @@ msgstr "小型档案必须安装在Windows和Mac."
 msgid "Desktop Icons"
 msgstr "Desktop Icon"
 
-#: app/desktopManager.js:141
+#: app/desktopManager.js:140
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME 未找到的文件"
 
-#: app/desktopManager.js:142
+#: app/desktopManager.js:141
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "GNOME Gtk4桌面Icons NG要求申请档案."
 
-#: app/desktopManager.js:154
+#: app/desktopManager.js:153
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "没有缺席档案管理员"
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:154
 #, fuzzy
 #| msgid "There is no application installed to open \"{foo}\" type of files"
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "没有处理杂质类“诺德/直系”的申请"
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:166
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome文档没有登记为档案管理员"
 
-#: app/desktopManager.js:168
+#: app/desktopManager.js:167
 #, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
@@ -460,170 +460,170 @@ msgstr ""
 "检查贵重用途安装\n"
 "查阅Gnome文档。 档案安装"
 
-#: app/desktopManager.js:776
-#, fuzzy
-msgid "Move"
-msgstr "移动"
-
-#: app/desktopManager.js:777 app/fileItemMenu.js:372
-msgid "Copy"
-msgstr "复制"
-
-#: app/desktopManager.js:778
-#, fuzzy
-msgid "Link"
-msgstr "链接"
-
-#: app/desktopManager.js:781
+#: app/desktopManager.js:773
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "文档行动"
 
-#: app/desktopManager.js:851 app/desktopManager.js:883
+#: app/desktopManager.js:774
+#, fuzzy
+msgid "Move"
+msgstr "移动"
+
+#: app/desktopManager.js:774 app/fileItemMenu.js:372
+msgid "Copy"
+msgstr "复制"
+
+#: app/desktopManager.js:774
+#, fuzzy
+msgid "Link"
+msgstr "链接"
+
+#: app/desktopManager.js:861 app/desktopManager.js:893
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "• 举办座谈会"
 
-#: app/desktopManager.js:852 app/desktopManager.js:884
+#: app/desktopManager.js:862 app/desktopManager.js:894
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "不能建立象征性的联系"
 
-#: app/desktopManager.js:1179
+#: app/desktopManager.js:1204
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "在进行新的搜索之前清除当前选择"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1248
 msgid "Find Files on Desktop"
 msgstr "在桌面上发现文件"
 
-#: app/desktopManager.js:1477
+#: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
 msgstr "名称"
 
-#: app/desktopManager.js:1478
+#: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
 msgstr "姓名Z-A"
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1507
 #, fuzzy
 msgid "Modified Time"
 msgstr "修改时间"
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1508
 #, fuzzy
 msgid "Type"
 msgstr "类型"
 
-#: app/desktopManager.js:1481
+#: app/desktopManager.js:1509
 #, fuzzy
 msgid "Size"
 msgstr "大小"
 
-#: app/desktopManager.js:1484
+#: app/desktopManager.js:1512
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "安排..…"
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1516
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "按类型分类"
 
-#: app/desktopManager.js:1489
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "住宅/司机"
 
-#: app/desktopManager.js:1494 app/desktopManager.js:2546
+#: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
 msgstr "新建文件夹"
 
-#: app/desktopManager.js:1498
+#: app/desktopManager.js:1526
 msgid "New Document"
 msgstr "新建文档"
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1530
 msgid "Paste"
 msgstr "粘贴"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1531
 msgid "Undo"
 msgstr "复原"
 
-#: app/desktopManager.js:1504
+#: app/desktopManager.js:1532
 msgid "Redo"
 msgstr "重做"
 
-#: app/desktopManager.js:1509
+#: app/desktopManager.js:1537
 msgid "Select All"
 msgstr "全选"
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1542
 msgid "Arrange Icons"
 msgstr "图标排序"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1546
 msgid "Arrange By…"
 msgstr "排序方式"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1552
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "图3"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1555
 #, fuzzy
 msgid "Open In {0}"
 msgstr "开放式{0}"
 
-#: app/desktopManager.js:1533
+#: app/desktopManager.js:1561
 msgid "Change Background…"
 msgstr "更改背景…"
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "桌面一星座"
 
-#: app/desktopManager.js:1539
+#: app/desktopManager.js:1567
 msgid "Display Settings"
 msgstr "显示设置"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "开放窗口"
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1610
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "这一窗口已经开放。 请转至正窗口."
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1624
 msgid "Settings"
 msgstr "设置"
 
-#: app/desktopManager.js:2569
+#: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Folder Creat Failed"
 
-#: app/desktopManager.js:2570
+#: app/desktopManager.js:2599
 #, fuzzy
 msgid "Could not create folder"
 msgstr "无法创建文件夹"
 
-#: app/desktopManager.js:2613
+#: app/desktopManager.js:2642
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "温度生成"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
 msgstr "不要制定文件"
@@ -943,83 +943,83 @@ msgstr "移动已取消"
 msgid "Unable to move Files, no destination folder"
 msgstr "无法移动文件,没有目的地文件夹"
 
-#: app/fileItemMenu.js:613 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:613 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Select Destination"
 msgstr "选择目的地"
 
-#: app/fileItemMenu.js:615 app/fileItemMenu.js:643
+#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 msgid "Select"
 msgstr "选择"
 
-#: app/fileItemMenu.js:687
+#: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "复制已取消"
 
-#: app/fileItemMenu.js:688
+#: app/fileItemMenu.js:694
 msgid "Unable to copy Files, no destination folder"
 msgstr "无法复制文件，没有目标文件夹"
 
-#: app/fileItemMenu.js:736 app/fileItemMenu.js:746 app/fileItemMenu.js:756
-#: app/fileItemMenu.js:783
+#: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
+#: app/fileItemMenu.js:789
 #, fuzzy
 msgid "Mail Error"
 msgstr "邮递 Error"
 
-#: app/fileItemMenu.js:737
+#: app/fileItemMenu.js:743
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "无法找到xdg-email,请安装节目"
 
-#: app/fileItemMenu.js:747
+#: app/fileItemMenu.js:753
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "电子邮件文件有误"
 
-#: app/fileItemMenu.js:757
+#: app/fileItemMenu.js:763
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "无法找到警示,请安装方案"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:763
+#: app/fileItemMenu.js:769
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Corr.zip"
 
-#: app/fileItemMenu.js:784
+#: app/fileItemMenu.js:790
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "creating积档案的建立有误"
 
-#: app/fileItemMenu.js:797
+#: app/fileItemMenu.js:803
 msgid "Can not email a Directory"
 msgstr "文件夹不能邮件"
 
-#: app/fileItemMenu.js:798
+#: app/fileItemMenu.js:804
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "甄选包括一名名录,先压缩到一.三卷档案?"
 
-#: app/fileItemMenu.js:910
+#: app/fileItemMenu.js:916
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Unable to Open in Gnome Console"
 
-#: app/fileItemMenu.js:911
+#: app/fileItemMenu.js:917
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "请 Install Gnome Console或其他终端方案"
 
-#: app/fileItemMenu.js:918
+#: app/fileItemMenu.js:924
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "开放{0}"
 
-#: app/fileItemMenu.js:919
+#: app/fileItemMenu.js:925
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "请问{0}"
@@ -1055,7 +1055,7 @@ msgstr ""
 "为了使此功能能在 Desktop Icons 里运行，您必须在您的系统里安装 "
 "\"${programName}\" 。"
 
-#: app/utils/desktopIconsUtil.js:197
+#: app/utils/desktopIconsUtil.js:183
 msgid "Command not found"
 msgstr "命令无法找到"
 

@@ -8,12 +8,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 18:27-0400\n"
+"POT-Creation-Date: 2024-04-18 20:02-0400\n"
 "PO-Revision-Date: 2024-03-28 14:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Georgian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ka/>\n"
+"Language-Team: Georgian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -272,22 +272,22 @@ msgstr ""
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
-#: app/askRenamePopup.js:48
+#: app/askRenamePopup.js:49
 msgid "Folder name"
 msgstr ""
 
-#: app/askRenamePopup.js:48
+#: app/askRenamePopup.js:49
 #, fuzzy
 msgid "File name"
 msgstr "ფაილის სახელი:"
 
-#: app/askRenamePopup.js:56 app/autoAr.js:294 app/desktopManager.js:1218
-#: app/fileItemMenu.js:799
+#: app/askRenamePopup.js:57 app/autoAr.js:294 app/desktopManager.js:1244
+#: app/fileItemMenu.js:805
 #, fuzzy
 msgid "OK"
 msgstr "კარგი"
 
-#: app/askRenamePopup.js:56
+#: app/askRenamePopup.js:57
 #, fuzzy
 msgid "Rename"
 msgstr "გადარქმევა"
@@ -310,8 +310,8 @@ msgstr ""
 msgid "Compressing files"
 msgstr ""
 
-#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:779
-#: app/desktopManager.js:1220 app/fileItemMenu.js:649 app/fileItemMenu.js:799
+#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:774
+#: app/desktopManager.js:1246 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 #, fuzzy
 msgid "Cancel"
@@ -425,186 +425,186 @@ msgstr ""
 msgid "Desktop Icons"
 msgstr "სამუშაო მაგიდა"
 
-#: app/desktopManager.js:141
+#: app/desktopManager.js:140
 msgid "GNOME Files not found"
 msgstr ""
 
-#: app/desktopManager.js:142
+#: app/desktopManager.js:141
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
 
-#: app/desktopManager.js:154
+#: app/desktopManager.js:153
 msgid "There is no default File Manager"
 msgstr ""
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:154
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:166
 msgid "Gnome Files is not registered as a File Manager"
 msgstr ""
 
-#: app/desktopManager.js:168
+#: app/desktopManager.js:167
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:776
+#: app/desktopManager.js:773
+msgid "Choose Action for Files"
+msgstr ""
+
+#: app/desktopManager.js:774
 #, fuzzy
 msgid "Move"
 msgstr "გადატანა"
 
-#: app/desktopManager.js:777 app/fileItemMenu.js:372
+#: app/desktopManager.js:774 app/fileItemMenu.js:372
 #, fuzzy
 msgid "Copy"
 msgstr "კოპირება"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:774
 #, fuzzy
 msgid "Link"
 msgstr "ბმული"
 
-#: app/desktopManager.js:781
-msgid "Choose Action for Files"
-msgstr ""
-
-#: app/desktopManager.js:851 app/desktopManager.js:883
+#: app/desktopManager.js:861 app/desktopManager.js:893
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:852 app/desktopManager.js:884
+#: app/desktopManager.js:862 app/desktopManager.js:894
 msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/desktopManager.js:1179
+#: app/desktopManager.js:1204
 msgid "Clear current selection before new search"
 msgstr ""
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1248
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1477
+#: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
 msgstr "სახელი"
 
-#: app/desktopManager.js:1478
+#: app/desktopManager.js:1506
 msgid "Name Z-A"
 msgstr ""
 
-#: app/desktopManager.js:1479
+#: app/desktopManager.js:1507
 msgid "Modified Time"
 msgstr ""
 
-#: app/desktopManager.js:1480
+#: app/desktopManager.js:1508
 #, fuzzy
 msgid "Type"
 msgstr "ტიპი"
 
-#: app/desktopManager.js:1481
+#: app/desktopManager.js:1509
 #, fuzzy
 msgid "Size"
 msgstr "ზომა"
 
-#: app/desktopManager.js:1484
+#: app/desktopManager.js:1512
 msgid "Keep Arranged…"
 msgstr ""
 
-#: app/desktopManager.js:1488
+#: app/desktopManager.js:1516
 msgid "Keep Stacked by Type…"
 msgstr ""
 
-#: app/desktopManager.js:1489
+#: app/desktopManager.js:1517
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopManager.js:1494 app/desktopManager.js:2546
+#: app/desktopManager.js:1522 app/desktopManager.js:2575
 #, fuzzy
 msgid "New Folder"
 msgstr "ახალი საქაღალდე"
 
-#: app/desktopManager.js:1498
+#: app/desktopManager.js:1526
 msgid "New Document"
 msgstr ""
 
-#: app/desktopManager.js:1502
+#: app/desktopManager.js:1530
 #, fuzzy
 msgid "Paste"
 msgstr "ჩასმა"
 
-#: app/desktopManager.js:1503
+#: app/desktopManager.js:1531
 #, fuzzy
 msgid "Undo"
 msgstr "ბრძანების გაუქმება"
 
-#: app/desktopManager.js:1504
+#: app/desktopManager.js:1532
 #, fuzzy
 msgid "Redo"
 msgstr "გამეორება"
 
-#: app/desktopManager.js:1509
+#: app/desktopManager.js:1537
 #, fuzzy
 msgid "Select All"
 msgstr "ყველას მონიშვნა"
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1542
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1546
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1552
 msgid "Show Desktop In {0}"
 msgstr ""
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1555
 msgid "Open In {0}"
 msgstr ""
 
-#: app/desktopManager.js:1533
+#: app/desktopManager.js:1561
 msgid "Change Background…"
 msgstr ""
 
-#: app/desktopManager.js:1538
+#: app/desktopManager.js:1566
 msgid "Desktop Icon Settings"
 msgstr ""
 
-#: app/desktopManager.js:1539
+#: app/desktopManager.js:1567
 msgid "Display Settings"
 msgstr ""
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1610
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1610
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopManager.js:1596
+#: app/desktopManager.js:1624
 #, fuzzy
 msgid "Settings"
 msgstr "მორგება"
 
-#: app/desktopManager.js:2569
+#: app/desktopManager.js:2598
 msgid "Folder Creation Failed"
 msgstr ""
 
-#: app/desktopManager.js:2570
+#: app/desktopManager.js:2599
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2613
+#: app/desktopManager.js:2642
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2643
 msgid "Could not create document"
 msgstr ""
 
@@ -885,71 +885,71 @@ msgstr ""
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:613 app/fileItemMenu.js:641
+#: app/fileItemMenu.js:613 app/fileItemMenu.js:642
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
-#: app/fileItemMenu.js:615 app/fileItemMenu.js:643
+#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 #, fuzzy
 msgid "Select"
 msgstr "მონიშვნა"
 
-#: app/fileItemMenu.js:687
+#: app/fileItemMenu.js:693
 msgid "Copy Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:688
+#: app/fileItemMenu.js:694
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:736 app/fileItemMenu.js:746 app/fileItemMenu.js:756
-#: app/fileItemMenu.js:783
+#: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
+#: app/fileItemMenu.js:789
 msgid "Mail Error"
 msgstr ""
 
-#: app/fileItemMenu.js:737
+#: app/fileItemMenu.js:743
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 
-#: app/fileItemMenu.js:747
+#: app/fileItemMenu.js:753
 msgid "There was an error in emailing Files"
 msgstr ""
 
-#: app/fileItemMenu.js:757
+#: app/fileItemMenu.js:763
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:763
+#: app/fileItemMenu.js:769
 msgid "Archive.zip"
 msgstr ""
 
-#: app/fileItemMenu.js:784
+#: app/fileItemMenu.js:790
 msgid "There was an error in creating a zip archive"
 msgstr ""
 
-#: app/fileItemMenu.js:797
+#: app/fileItemMenu.js:803
 msgid "Can not email a Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:798
+#: app/fileItemMenu.js:804
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 
-#: app/fileItemMenu.js:910
+#: app/fileItemMenu.js:916
 msgid "Unable to Open in Gnome Console"
 msgstr ""
 
-#: app/fileItemMenu.js:911
+#: app/fileItemMenu.js:917
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
-#: app/fileItemMenu.js:918
+#: app/fileItemMenu.js:924
 msgid "Unable to Open {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:919
+#: app/fileItemMenu.js:925
 msgid "Please Install {0}"
 msgstr ""
 
@@ -982,7 +982,7 @@ msgid ""
 "\"${programName}\" in your system."
 msgstr ""
 
-#: app/utils/desktopIconsUtil.js:197
+#: app/utils/desktopIconsUtil.js:183
 #, fuzzy
 msgid "Command not found"
 msgstr "ბრძანება ვერ ვიპოვე: %1"
