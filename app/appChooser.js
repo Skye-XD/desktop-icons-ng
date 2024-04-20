@@ -40,6 +40,7 @@ const AppChooserDialog = class {
         this.appChooserDialog = this.builderObject.get_object('DingAppChooser');
         this.appChooserDialog.set_transient_for(appwindow);
         this.appChooserDialog.set_title('DingAppChooser');
+        this.appChooserDialog.set_name('DingAppChooser');
         const modal = true;
         this._desktopIconsUtil.windowHidePagerTaskbarModal(this.appChooserDialog, modal);
         this.appChooserBox = this.builderObject.get_object('app_chooser_widget_box');
