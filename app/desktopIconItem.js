@@ -163,6 +163,7 @@ const DesktopIconItem = class {
 
         if (!this.Prefs.freePositionIcons) {
             this._labelContainer.append(this._iconContainer);
+            this._label.add_css_class('file-label-vertical');
             this._labelContainer.append(this._label);
             this.container.append(this._labelContainer);
         } else {
