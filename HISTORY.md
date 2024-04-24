@@ -1,4 +1,10 @@
 # History of versions #
+* Gtk4 version 75 for Gnome 45, 46 - bug fix.
+  * Appchooser icons size regression, revert to bigger icons. (Sundeep Mediratta)
+  * Fix X11 gtk4-ding going fullscreen, hiding dash-to-panel. (Sundeep Mediratta)
+  * Weblate translation. (Weblate Authors)
+  * Update History.md, metadata.json. Version Bump 76.
+
 * Gtk4 version 75 for Gnome 45, 46 - bug fix again, code clean up and consolidationn.
   * Multiple fixes for regression from desktopGrid.js refactoring. (Sundeep Mediratta)
   * Fix Rename Window shortcut not working from right click menu and app accelerator. (Sundeep Mediratta)
