@@ -12,16 +12,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-01 17:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/it/>\n"
+"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -257,7 +258,7 @@ msgstr "Aiuta a tradurre nel tuo browser web"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Translate"
-msgstr "Traduci"
+msgstr "Traduzione"
 
 #: app/appChooser.js:53
 #, fuzzy
@@ -566,17 +567,17 @@ msgstr "Livello"
 #: app/desktopManager.js:1512
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Tenere d'accordo.."
+msgstr "Disposizione automatica…"
 
 #: app/desktopManager.js:1516
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Tenere premuto per tipo.."
+msgstr "Mantieni inpilato per tipo…"
 
 #: app/desktopManager.js:1517
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Ordinare Home/Drives/Trash.."
+msgstr "Ordina Home/Dispositivi/Cestino…"
 
 #: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
@@ -886,7 +887,7 @@ msgstr "Taglia"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Spostare a"
+msgstr "Sposta in..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
@@ -1095,7 +1096,7 @@ msgstr "Ulteriori informazioni"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Impila"
+msgstr "Stack"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

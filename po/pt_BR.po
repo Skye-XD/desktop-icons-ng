@@ -13,17 +13,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-01 17:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -553,7 +552,7 @@ msgstr "Nome"
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Compactando arquivos"
+msgstr "Nome (Z-A)"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -573,7 +572,7 @@ msgstr "Tamanho"
 #: app/desktopManager.js:1512
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Mantenha-se arranjado.."
+msgstr "Manter Ordenado…"
 
 #: app/desktopManager.js:1516
 #, fuzzy
@@ -583,7 +582,7 @@ msgstr "Mantenha empilhados por tipo.."
 #: app/desktopManager.js:1517
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Classificar Início/Drives/Trash.."
+msgstr "Ordenar Home/Drives/Lixeira…"
 
 #: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
