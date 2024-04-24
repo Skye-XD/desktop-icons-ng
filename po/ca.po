@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-03-28 14:01+0000\n"
-"Last-Translator: LibreTranslate <noreply-mt-libretranslate@weblate.org>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ca/>\n"
+"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -548,7 +548,7 @@ msgstr "Nom"
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Nom Z-A"
+msgstr "Nom (Z-A)"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -712,7 +712,7 @@ msgstr "Fitxer"
 #: app/fileItem.js:307
 #, fuzzy
 msgid "Broken Link"
-msgstr "Broken Link"
+msgstr "enllaç no vàlid"
 
 #: app/fileItem.js:308
 #, fuzzy
@@ -1087,7 +1087,7 @@ msgstr "Més informació"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "pila"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
