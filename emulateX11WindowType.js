@@ -293,6 +293,15 @@ class ManageWindow {
         this._window.lower();
     }
 
+    _keepWindowUnFullScreen() {
+        this._signalIDs.push(this._window.connect('notify::fullscreen', () => {
+            if (this._window.fullscreen)
+                this._window.unmake_fullscreen();
+        }));
+        if (this._window.fullscreen)
+            this._window.unmake_fullscreen();
+    }
+
     _activateDesktopWindow() {
         if (this._desktopWindow)
             this._window.activate(Meta.CURRENT_TIME);
@@ -365,6 +374,13 @@ class ManageWindow {
                 return;
             }
         }
+
+        // Window manager bug - it treats request to resize window
+        // to monitor size as a fullscreen window request as well and makes
+        // the window fullscreen, more so for legacy X11 apps.
+        // This makes intellihide for docks/panels hide from desktop window
+        this._keepWindowUnFullScreen();
+
         const activateTopWindowOnWorkspace = true;
         this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
     }
