@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"PO-Revision-Date: 2024-04-29 07:07+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.5.1\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -36,7 +36,7 @@ msgstr "Dateien"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "Optimierungen"
+msgstr "kleine Optimierungen"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -56,7 +56,7 @@ msgstr "Einstellungen für das Desktop-Programm"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumes"
+msgstr "Bände"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -105,7 +105,7 @@ msgstr "Ausrichtung der Arbeitsflächensymbole"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Top left corner"
-msgstr "Ecke links-oben"
+msgstr "Oben links"
 
 #: app/adwPreferencesWindow.js:241
 #, fuzzy
@@ -672,7 +672,7 @@ msgstr "Papierkorb"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Steuerung"
+msgstr "Fahren"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -778,7 +778,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Datei konnte nicht geöffnet werden"
+msgstr "Konnte Datei nicht öffnen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -856,12 +856,12 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschiebe zu..."
+msgstr "Verschieben auf..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopieren nach..."
+msgstr "Kopieren nach …"
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"
