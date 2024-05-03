@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-29 07:07+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-05-02 19:07+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5.1\n"
+"X-Generator: Weblate 5.5.3-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -41,7 +42,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "Düzenlemeler"
+msgstr "İnce Ayarlar"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -261,7 +262,7 @@ msgstr "Web tarayıcınızda çevirin Yardım"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Translate"
-msgstr "Çevir"
+msgstr "Çevirin"
 
 #: app/appChooser.js:53
 #, fuzzy
@@ -552,7 +553,7 @@ msgstr "Ad"
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Ad Z - A"
+msgstr "Name (Z-A)"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -796,7 +797,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosya açılamadı"
+msgstr "Dosyası açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
