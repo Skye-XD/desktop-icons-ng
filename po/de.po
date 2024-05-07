@@ -3,17 +3,18 @@
 # This file is distributed under the same license as the ding package.
 # Tim Hofstede <phokas@mail.de>, 2021.
 # Laurenz Bihlmayer <lrdarknesss@yahoo.de>, 2023.
-# Andreas Rohr <github@andreas-rohr.de>, 2023.
+# Andreas Rohr <github@andreas-rohr.de>, 2023, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# Moritz <moritzm@tutanota.de>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-05-02 19:07+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-05-07 05:07+0000\n"
+"Last-Translator: Moritz <moritzm@tutanota.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.3-dev\n"
+"X-Generator: Weblate 5.5.4-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -34,7 +35,6 @@ msgstr "Dateien"
 
 #: app/adwPreferencesWindow.js:185 app/adwPreferencesWindow.js:186
 #: app/adwPreferencesWindow.js:216
-#, fuzzy
 msgid "Tweaks"
 msgstr "Optimierungen"
 
@@ -54,9 +54,8 @@ msgid "Settings for the Desktop Program"
 msgstr "Einstellungen für das Desktop-Programm"
 
 #: app/adwPreferencesWindow.js:206
-#, fuzzy
 msgid "Volumes"
-msgstr "Bände"
+msgstr "Laufwerke"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -69,14 +68,12 @@ msgid "Files Settings"
 msgstr "Dateieinstellungen"
 
 #: app/adwPreferencesWindow.js:212
-#, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Einstellungen, die mit Gnome-Dateien geteilt werden"
+msgstr "Mit Gnome-Dateimanager geteilte Einstellungen"
 
 #: app/adwPreferencesWindow.js:217
-#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Verschiedenes Tweaks"
+msgstr "Verschiedene Anpassungen"
 
 #: app/adwPreferencesWindow.js:228
 msgid "Size for the desktop icons"
