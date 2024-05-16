@@ -75,19 +75,25 @@ export var DesktopIconsUsableAreaClass = class {
         this._extensionManager = Main.extensionManager;
         this._timedMarginsID = 0;
         this._margins = {};
-        this._emID = this._extensionManager.connect('extension-state-changed', (_obj, extension) => {
-            if (!extension)
-                return;
+        this._emID = this._extensionManager.connect('extension-state-changed',
+            (_obj, extension) => {
+                if (!extension)
+                    return;
 
-            // If an extension is being enabled and lacks the DesktopIconsUsableArea object, we can avoid launching a refresh
-            if (extension.state === ExtensionState.ENABLED) {
-                this._sendMarginsToExtension(extension);
-                return;
+                // If an extension is being enabled/activated, we can avoid
+                // launching a full refresh for every extension.git
+                if (extension.state === ExtensionState.ENABLED ||
+                    extension.state === ExtensionState.ACTIVE) {
+                    this._sendMarginsToExtension(extension);
+                    return;
+                }
+                // if the extension is being disabled, we must do a full refresh,
+                // because if there were other extensions originally
+                // loaded after that extension, those extensions will be
+                // disabled and enabled again without notification
+                this._changedMargins();
             }
-            // if the extension is being disabled, we must do a full refresh, because if there were other extensions originally
-            // loaded after that extension, those extensions will be disabled and enabled again without notification
-            this._changedMargins();
-        });
+        );
     }
 
     /**
@@ -141,11 +147,13 @@ export var DesktopIconsUsableAreaClass = class {
         if (this._timedMarginsID)
             GLib.source_remove(this._timedMarginsID);
 
-        this._timedMarginsID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
-            this._sendMarginsToAll();
-            this._timedMarginsID = 0;
-            return GLib.SOURCE_REMOVE;
-        });
+        this._timedMarginsID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100,
+            () => {
+                this._sendMarginsToAll();
+                this._timedMarginsID = 0;
+                return GLib.SOURCE_REMOVE;
+            }
+        );
     }
 
     _sendMarginsToAll() {
@@ -156,10 +164,8 @@ export var DesktopIconsUsableAreaClass = class {
     _sendMarginsToExtension(extension) {
         // check that the extension is an extension that has the logic to accept
         // working margins
-        if (extension?.state !== ExtensionState.ENABLED)
-            return;
-
         const usableArea = extension?.stateObj?.DesktopIconsUsableArea;
+
         if (usableArea?.uuid === IDENTIFIER_UUID)
             usableArea.setMarginsForExtension(this._myUUID, this._margins);
     }
