@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -131,12 +132,12 @@ msgstr "Voeg eerst nieuwe iconen toe aan secundaire Monitors"
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Toon de persoonlijke map op het bureau"
+msgstr "Toon de persoonlijke map op het bureaublad"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Toon het afval icoon op het bureau"
+msgstr "Toon het prullenbakpictogram op het bureaublad"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
@@ -316,7 +317,7 @@ msgstr "Oké"
 #: app/askRenamePopup.js:57
 #, fuzzy
 msgid "Rename"
-msgstr "Hernoemen"
+msgstr "Naam wijzigen"
 
 #: app/autoAr.js:66
 #, fuzzy
@@ -351,7 +352,7 @@ msgstr "Annuleren"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Voer hier een wachtwoord in"
+msgstr "Voer wacht­woord hier in"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -436,7 +437,7 @@ msgstr "Error tijdens de compressie"
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Create archief"
+msgstr "Een archief aanmaken"
 
 #: app/autoAr.js:566
 #, fuzzy
@@ -669,12 +670,12 @@ msgstr "Instellingen"
 #: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Folder Creation faalde"
+msgstr "Maken Orde is mislukt."
 
 #: app/desktopManager.js:2599
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Kan geen map aanmaken."
+msgstr "Map kon niet gemaakt worden."
 
 #: app/desktopManager.js:2642
 #, fuzzy
@@ -703,7 +704,7 @@ msgstr "Prullenbak"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Schijf"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -712,7 +713,7 @@ msgstr "Schijf"
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Folder"
+msgstr "Map"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -745,7 +746,7 @@ msgstr "Er is geen aanmelding geïnstalleerd om de dossiers te openen."
 #: app/fileItem.js:370
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Gebroken Desktop Fi"
+msgstr "Onjuiste .desktop-bestanden"
 
 #: app/fileItem.js:371
 msgid ""
@@ -891,7 +892,7 @@ msgstr "Knippen"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Verplaats naar..."
+msgstr "Verplaatsen naar ..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
@@ -963,7 +964,7 @@ msgstr "Ontkoppelen"
 #: app/fileItemMenu.js:438
 #, fuzzy
 msgid "Common Properties"
-msgstr "Common Properties"
+msgstr "Reactie-eigenschappen"
 
 #: app/fileItemMenu.js:439
 msgid "Properties"
@@ -1017,7 +1018,7 @@ msgstr "Selecteren"
 #: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Begrepen"
+msgstr "Kopiëren geannuleerd"
 
 #: app/fileItemMenu.js:694
 #, fuzzy
@@ -1103,7 +1104,7 @@ msgstr "Meer Informatie"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "Stapel"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1144,7 +1145,7 @@ msgstr "_Annuleren"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Openen"
+msgstr "_Open"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

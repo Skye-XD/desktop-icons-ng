@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -38,7 +39,7 @@ msgstr "Retocs"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Quant a"
+msgstr "Sobre"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -133,12 +134,12 @@ msgstr "Mostra la carpeta personal a l'escriptori"
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Mostra la icona de les escombraries a l'escriptori"
+msgstr "Mostra la icona de la paperera a l'escriptori"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Mostra unitats externes a l'escriptori"
+msgstr "Mostra les unitats externes a l'escriptori"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
@@ -148,7 +149,7 @@ msgstr "Mostra les unitats de xarxa a l'escriptori"
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Afegir noves unitats al costat oposat de l'escriptori"
+msgstr "Afegeix noves unitats al costat oposat de la pantalla"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -266,7 +267,7 @@ msgstr "<b>{foo}</b>"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "Articles oberts"
+msgstr "Abrir Elemento"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -423,7 +424,7 @@ msgstr "Error durant la compressió"
 #: app/autoAr.js:542
 #, fuzzy
 msgid "Create archive"
-msgstr "Crear un arxiu"
+msgstr "Creant fitxer comprimit"
 
 #: app/autoAr.js:566
 #, fuzzy
@@ -433,7 +434,7 @@ msgstr "Nom de l'arxiu"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Contrasenya"
+msgstr "Contrassenya"
 
 #: app/autoAr.js:612
 #, fuzzy
@@ -463,7 +464,7 @@ msgstr "Els arxius més petits, però s'han d'instal·lar a Windows i Mac."
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Icones d'escriptori"
+msgstr "Icona de l'escriptori"
 
 #: app/desktopManager.js:140
 #, fuzzy
@@ -661,7 +662,7 @@ msgstr "Creació de carpetes"
 #: app/desktopManager.js:2599
 #, fuzzy
 msgid "Could not create folder"
-msgstr "No s'ha pogut crear el directori."
+msgstr "Error en crear la carpeta"
 
 #: app/desktopManager.js:2642
 #, fuzzy
@@ -671,7 +672,7 @@ msgstr "Error de creació de plantilla"
 #: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
-msgstr "No es pot crear document"
+msgstr "No s'ha pogut suprimir el document"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -690,7 +691,7 @@ msgstr "Cistella"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Disc"
+msgstr "Lector"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -732,7 +733,7 @@ msgstr "No s'ha instal·lat cap aplicació per obrir fitxers \"{foo}\"."
 #: app/fileItem.js:370
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Arxiu d'escriptori trencat"
+msgstr "Fitxers .desktop trencats"
 
 #: app/fileItem.js:371
 msgid ""
@@ -795,7 +796,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "No s'ha pogut obrir el fitxer"
+msgstr "No s'han pogut obrir Fitxers"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -1127,7 +1128,7 @@ msgstr "_Cancel·la"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Obre"
+msgstr "_Obrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

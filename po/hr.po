@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
@@ -42,7 +42,7 @@ msgstr "Prilagodbe"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Informacije"
+msgstr "O nama"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -549,7 +549,7 @@ msgstr "Pronađite datoteke na radnoj površini"
 #: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
-msgstr "Ime"
+msgstr "Name"
 
 #: app/desktopManager.js:1506
 #, fuzzy
@@ -667,7 +667,7 @@ msgstr "Stvaranje mape nije uspjelo"
 #: app/desktopManager.js:2599
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Nije moguće stvoriti datoteku"
+msgstr "Nije moguće stvoriti mapu %s"
 
 #: app/desktopManager.js:2642
 #, fuzzy
@@ -696,7 +696,7 @@ msgstr "Smeće"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Vožnja"
+msgstr "Disk"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,

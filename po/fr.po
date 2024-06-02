@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -42,7 +42,7 @@ msgstr "Ajustements"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "À propos"
+msgstr "Au Sujet de"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -67,7 +67,7 @@ msgstr "Affichage des volumes de bureau"
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Files Settings"
-msgstr "Paramètres de fichiers"
+msgstr "Paramètres du Fichier"
 
 #: app/adwPreferencesWindow.js:212
 #, fuzzy
@@ -137,22 +137,22 @@ msgstr "Afficher le dossier personnel sur le bureau"
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Afficher l'icône de la poubelle sur le bureau"
+msgstr "Afficher la corbeille sur le bureau"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Montrer des disques externes sur le bureau"
+msgstr "Afficher les volumes de stockage externes sur le bureau"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Montrer des disques réseau sur le bureau"
+msgstr "Afficher les volumes réseau sur le bureau"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Ajouter de nouveaux disques sur le côté opposé du bureau"
+msgstr "Ajouter les nouveaux volumes de stockage sur le côté opposé de l’écran"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -239,7 +239,7 @@ msgstr "Questions relatives au rapport sur la question"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Signaler"
+msgstr "Rapport"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -342,7 +342,7 @@ msgstr "Annuler"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Entrez un mot de passe ici"
+msgstr "Entrez le mot de passe ici"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -470,7 +470,7 @@ msgstr ""
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Icônes de bureau"
+msgstr "Icône de bureau"
 
 #: app/desktopManager.js:140
 #, fuzzy
@@ -513,7 +513,7 @@ msgstr "Choisissez Action for Files"
 #: app/desktopManager.js:774
 #, fuzzy
 msgid "Move"
-msgstr "Bouger"
+msgstr "Déplacer"
 
 #: app/desktopManager.js:774 app/fileItemMenu.js:372
 msgid "Copy"
@@ -614,7 +614,7 @@ msgstr "Ordonner les icônes"
 #: app/desktopManager.js:1546
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Arranger par.."
+msgstr "Arrangé par :"
 
 #: app/desktopManager.js:1552
 #, fuzzy
@@ -634,7 +634,7 @@ msgstr "Changer l’arrière‑plan…"
 #: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Paramètres Icon de bureau"
+msgstr "Préférences des icônes du bureau"
 
 #: app/desktopManager.js:1567
 msgid "Display Settings"
@@ -657,7 +657,7 @@ msgstr "Paramètres"
 #: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Folder Creation Failed"
+msgstr "Impossible de créer la commande."
 
 #: app/desktopManager.js:2599
 #, fuzzy
@@ -672,7 +672,7 @@ msgstr "Template Creation Error"
 #: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
-msgstr "Impossible de créer un document"
+msgstr "Impossible de supprimer le document"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -700,7 +700,7 @@ msgstr "Drive"
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Dossier"
+msgstr "Répertoire"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -776,7 +776,8 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"Définir les permissions, dans \"Autres Accès\", \"Read Only\" ou \"None\""
+"<b>- définissez le droit d’accès dans les permissions pour « autres » à « "
+"lecture seule » ou « aucun » ;</b>"
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -788,7 +789,8 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"Activer l'option \"Allow Executing File as a Program\""
+"<b>- activez l’option, « Autoriser l’exécution du fichier comme un programme "
+"».</b>"
 
 #: app/fileItem.js:390
 #, fuzzy
@@ -817,7 +819,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Impossible d'ouvrir le fichier"
+msgstr "Impossible d’ouvrir les fichiers"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -838,7 +840,7 @@ msgstr "Ouvrir tout…"
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Run"
-msgstr "Exécuter"
+msgstr "Ouvrir"
 
 #: app/fileItemMenu.js:318
 #, fuzzy
@@ -1028,7 +1030,7 @@ msgstr "Impossible de copier des fichiers, aucun dossier de destination"
 #: app/fileItemMenu.js:789
 #, fuzzy
 msgid "Mail Error"
-msgstr "Erreur de courrier"
+msgstr "Erreur d’email"
 
 #: app/fileItemMenu.js:743
 #, fuzzy

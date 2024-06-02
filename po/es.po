@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -417,7 +417,7 @@ msgstr "Archivos más pequeños pero deben descomprimirse en Windows y Mac."
 #, fuzzy
 #| msgid "Desktop Icon Settings"
 msgid "Desktop Icons"
-msgstr "Iconos de escritorio"
+msgstr "Icono de Escritorio"
 
 #: app/desktopManager.js:140
 msgid "GNOME Files not found"
@@ -427,8 +427,7 @@ msgstr "No se encontró GNOME Files"
 #, fuzzy
 #| msgid "The GNOME Files application is required by Desktop Icons NG."
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"El GNOME La aplicación de archivos es necesaria por Gtk4 Desktop Icons NG."
+msgstr "Desktop Icons NG necesita la aplicación GNOME Files."
 
 #: app/desktopManager.js:153
 #, fuzzy
@@ -617,7 +616,7 @@ msgstr "Papelera"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Unidad/disco"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -699,7 +698,8 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"Establecer permisos, en \"Otros Acceso\", \"Read Only\" o \"None\""
+"<b>Cambiar los permisos, en \"Otros accesos\", a \"Sólo lectura\" o \"Ninguno"
+"\"</b>"
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -711,7 +711,7 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"Activar opción, \"Permitir ejecutar archivo como programa\""
+"<b>Activa la opción \"Permitir ejecutar el archivo como un programa\"</b>"
 
 #: app/fileItem.js:390
 #, fuzzy
@@ -935,7 +935,7 @@ msgstr "No se pueden copiar archivos, no hay carpeta de destino"
 #: app/fileItemMenu.js:789
 #, fuzzy
 msgid "Mail Error"
-msgstr "Error de correo"
+msgstr "Error de correo electrónico"
 
 #: app/fileItemMenu.js:743
 #, fuzzy
