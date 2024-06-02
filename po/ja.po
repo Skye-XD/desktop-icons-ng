@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -37,12 +37,12 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "拡張機能"
+msgstr "細かな設定"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "このアプリに関して"
+msgstr "概要"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -57,7 +57,7 @@ msgstr "デスクトッププログラムの設定"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "ボリューム"
+msgstr "巻数"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -131,17 +131,17 @@ msgstr "利用可能な場合は、最初のSecond Monitorsに新しいアイコ
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "デスクトップ上の個人フォルダを表示する"
+msgstr "デスクトップにホームフォルダーを表示する"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "デスクトップにゴミ箱アイコンを表示"
+msgstr "デスクトップにゴミ箱を表示する"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "デスクトップ上の外部ドライブを表示"
+msgstr "デスクトップに外付けドライブを表示する"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
@@ -151,7 +151,7 @@ msgstr "デスクトップにネットワークドライブを表示する"
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "デスクトップの反対側に新しいドライブを追加"
+msgstr "新しいドライブのアイコンは反対側に配置する"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -222,7 +222,7 @@ msgstr "ウェブサイト"
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
 msgid "Visit"
-msgstr "訪問"
+msgstr "ビジット"
 
 #: app/adwPreferencesWindow.js:324
 #, fuzzy
@@ -267,7 +267,7 @@ msgstr "<b>{foo}</b>を開くためのアプリケーションを選択"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "オープンアイテム"
+msgstr "アイテムを開く"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -340,7 +340,7 @@ msgstr "キャンセル"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "パスワードを入力してください"
+msgstr "パスワードをに入力"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -464,7 +464,7 @@ msgstr "より小さなアーカイブは、WindowsとMacにインストール�
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "デスクトップアイコン"
+msgstr "Desktopエントリーのアイコン"
 
 #: app/desktopManager.js:140
 #, fuzzy
@@ -545,7 +545,7 @@ msgstr "デスクトップ上のファイルを検索"
 #: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "チャンネル名"
 
 #: app/desktopManager.js:1506
 #, fuzzy
@@ -560,7 +560,7 @@ msgstr "変更された時間"
 #: app/desktopManager.js:1508
 #, fuzzy
 msgid "Type"
-msgstr "種類"
+msgstr "福祉施設種類"
 
 #: app/desktopManager.js:1509
 #, fuzzy
@@ -614,7 +614,7 @@ msgstr "アイコンを整列"
 #: app/desktopManager.js:1546
 #, fuzzy
 msgid "Arrange By…"
-msgstr "アレンジして.."
+msgstr "編曲:"
 
 #: app/desktopManager.js:1552
 #, fuzzy
@@ -634,7 +634,7 @@ msgstr "背景を変更…"
 #: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "デスクトップアイコン設定"
+msgstr "Desktop Icons の設定"
 
 #: app/desktopManager.js:1567
 msgid "Display Settings"
@@ -657,7 +657,7 @@ msgstr "設定"
 #: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "フォルダ作成失敗"
+msgstr "オーダー作成に失敗しました"
 
 #: app/desktopManager.js:2599
 #, fuzzy
@@ -672,7 +672,7 @@ msgstr "テンプレート作成エラー"
 #: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
-msgstr "文書を作成できない"
+msgstr "文書を削除できません"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -772,7 +772,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"許可の設定、 \"その他のアクセス\", \"読み取り専用\" または \"なし\""
+"<b>\"その他のアクセス権\" を \"読み取り専用\" または \"なし\" に設定する</b>"
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -784,7 +784,7 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"オプションを有効にします。, \"プログラムとしてファイルを実行する許可\""
+"<b>\"プログラムとして実行可能\" オプションを有効にする</b>"
 
 #: app/fileItem.js:390
 #, fuzzy
@@ -813,7 +813,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "ファイルが開けませんでした"
+msgstr "ファイルを開けませんでした"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -1013,7 +1013,7 @@ msgstr "選択"
 #: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "コピーキャンセル"
+msgstr "コピーはキャンセルされました"
 
 #: app/fileItemMenu.js:694
 #, fuzzy
@@ -1024,7 +1024,7 @@ msgstr "ファイル、コピー先フォルダをコピーできない"
 #: app/fileItemMenu.js:789
 #, fuzzy
 msgid "Mail Error"
-msgstr "メールエラー"
+msgstr "電子メールのエラー"
 
 #: app/fileItemMenu.js:743
 #, fuzzy

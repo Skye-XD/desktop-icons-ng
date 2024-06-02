@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-05-02 19:07+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
 "Language: ro\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.5.3-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -337,7 +338,7 @@ msgstr "Anulează"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Introduceți o parolă aici"
+msgstr "Introduceți parola aici"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -433,7 +434,7 @@ msgstr "Numele arhivei"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Parola"
+msgstr "Parolă"
 
 #: app/autoAr.js:612
 msgid "Create"
@@ -537,7 +538,7 @@ msgstr "Caută fișiere pe Desktop"
 #: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
-msgstr "Numele"
+msgstr "Nume"
 
 #: app/desktopManager.js:1506
 #, fuzzy
@@ -664,7 +665,7 @@ msgstr "Eroare la crearea șablonului"
 #: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
-msgstr "Documentul nu a putut fi creat"
+msgstr "Nu s-a putut șterge documentul"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -786,7 +787,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Fișierul nu poate fi deschis"
+msgstr "Nu s-a putut deschide fișierele"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -807,7 +808,7 @@ msgstr "Deschide tot..."
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Run"
-msgstr "Rulare"
+msgstr "Rulați"
 
 #: app/fileItemMenu.js:318
 #, fuzzy

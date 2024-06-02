@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-05-02 19:07+0000\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5.3-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -136,27 +136,27 @@ msgstr "İlk önce ikincil monitörlere yeni simgeler ekleyin, eğer mevcut olur
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Masaüstünde kişisel klasörü göster"
+msgstr "Kişisel klasörü masaüstünde göster"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Masaüstünde çöp ikonunu göster"
+msgstr "Çöp kutusunu masaüstünde göster"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Masaüstünde dış sürücüler göster"
+msgstr "Harici sürücüleri masaüstünde göster"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Show network drive on the masaüstü"
+msgstr "Ağ sürücülerini masaüstünde göster"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Masaüstünün tam tersine yeni sürücüler ekleyin"
+msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -272,7 +272,7 @@ msgstr "<b>{foo}</b>"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "Açık öğeler"
+msgstr "Öğeyi aç"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -344,7 +344,7 @@ msgstr "İptal"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Burada bir şifre girin"
+msgstr "Parolayı buraya giriniz"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -548,7 +548,7 @@ msgstr "Masaüstündeki Dosyaları Bul"
 #: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
-msgstr "Ad"
+msgstr "Isim"
 
 #: app/desktopManager.js:1506
 #, fuzzy
@@ -568,7 +568,7 @@ msgstr "Tür"
 #: app/desktopManager.js:1509
 #, fuzzy
 msgid "Size"
-msgstr "Size"
+msgstr "Boyut"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -616,7 +616,7 @@ msgstr "Simgeleri Sırala"
 #: app/desktopManager.js:1546
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Arrange By.."
+msgstr "Düzenleme:"
 
 #: app/desktopManager.js:1552
 #, fuzzy
@@ -636,7 +636,7 @@ msgstr "Arka Planı Değiştir…"
 #: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Masaüstü Icon Ayarlar"
+msgstr "Masaüstü Simgeleri Ayarları"
 
 #: app/desktopManager.js:1567
 msgid "Display Settings"
@@ -659,9 +659,7 @@ msgstr "Ayarlar"
 #: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr ""
-"Sıkıştırılmış dosyalarla çalışabilmek için, file-roller ve/veya z-1.2-gnome "
-"AutoAr"
+msgstr "Sipariş Oluşturma Başarısız"
 
 #: app/desktopManager.js:2599
 #, fuzzy
@@ -797,7 +795,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyası açılamadı"
+msgstr "Dosya açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -875,7 +873,7 @@ msgstr "Kes"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Buraya taşı..."
+msgstr "Taşı..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
@@ -997,7 +995,7 @@ msgstr "Seç"
 #: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Kopya Cancelled"
+msgstr "Kopya iptal edildi"
 
 #: app/fileItemMenu.js:694
 #, fuzzy
@@ -1008,7 +1006,7 @@ msgstr "Dosyalar kopyalamak için kullanılamaz, hedef klasörü yok"
 #: app/fileItemMenu.js:789
 #, fuzzy
 msgid "Mail Error"
-msgstr "Mail Hata"
+msgstr "E-posta Hatası"
 
 #: app/fileItemMenu.js:743
 #, fuzzy
@@ -1082,7 +1080,7 @@ msgstr "Daha Fazla Bilgi"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Yığın"
+msgstr "Stack"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

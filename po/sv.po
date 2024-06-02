@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -139,13 +139,13 @@ msgstr ""
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Visa den personliga mappen på skrivbordet"
+msgstr "Visa den personliga mappen på skrivbordet."
 
 # TODO: *ON* the desktop?
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Visa skräp ikonen på skrivbordet"
+msgstr "Visa papperskorgsikonen på skrivbordet."
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
@@ -160,7 +160,7 @@ msgstr "Visa nätverksenheter på skrivbordet"
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Lägg till nya enheter till den motsatta sidan av skrivbordet"
+msgstr "Lägg till nya enheter på motsatt sida av skärmen"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -175,7 +175,7 @@ msgstr "Highlight drop grid"
 #: app/adwPreferencesWindow.js:285
 #, fuzzy
 msgid "Add an emblem to soft links"
-msgstr "Lägg till ett emblem till mjuka länkar"
+msgstr "Lägg till ett emblem till länkar"
 
 #: app/adwPreferencesWindow.js:288
 #, fuzzy
@@ -260,7 +260,7 @@ msgstr "Rapportera"
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
 msgid "License"
-msgstr "Licens"
+msgstr "License"
 
 #: app/adwPreferencesWindow.js:333
 #, fuzzy
@@ -356,7 +356,7 @@ msgstr "Avbryt"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Ange ett lösenord här"
+msgstr "Ange lösenord här"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -532,7 +532,7 @@ msgstr "Kopiera"
 #: app/desktopManager.js:774
 #, fuzzy
 msgid "Link"
-msgstr "Länka"
+msgstr "Länk"
 
 #: app/desktopManager.js:861 app/desktopManager.js:893
 #, fuzzy
@@ -644,7 +644,7 @@ msgstr "Ändra bakgrund…"
 #: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Desktop Icon Inställningar"
+msgstr "Inställningar för Desktop Icons"
 
 #: app/desktopManager.js:1567
 msgid "Display Settings"
@@ -719,7 +719,7 @@ msgstr "Mapp"
 #, fuzzy
 #| msgid "Files"
 msgid "File"
-msgstr "Arkiv"
+msgstr "Fil"
 
 #: app/fileItem.js:307
 msgid "Broken Link"
@@ -781,7 +781,8 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"Ange behörigheter, i \"Övriga tillgångar\", \"Läs endast\" eller \"Ingen\""
+"<b>Ställ in rättigheter, i \"Andras åtkomst\", \"Endast läsbar\" eller "
+"\"Inget\"</b>"
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -793,7 +794,7 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"Aktivera alternativet \"Tillåt att köra fil som ett program\""
+"<b>Aktivera alternativet, \"Tillåt att filen körs som ett program\"</b>"
 
 #: app/fileItem.js:390
 #, fuzzy
@@ -1023,7 +1024,7 @@ msgstr "Välj"
 #: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Copy avbokad"
+msgstr "Kopiering avbröts"
 
 #: app/fileItemMenu.js:694
 #, fuzzy

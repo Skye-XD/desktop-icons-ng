@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -40,7 +41,7 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Om"
+msgstr "About"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -55,7 +56,7 @@ msgstr "Indstillinger for skrivebordet Program"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumer"
+msgstr "Volumen"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -84,7 +85,7 @@ msgstr "Størrelsen på skrivebordsikoner"
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Tiny"
-msgstr "Lille"
+msgstr "Mindre"
 
 #: app/adwPreferencesWindow.js:231
 msgid "Small"
@@ -136,7 +137,7 @@ msgstr "Vis den personlige mappe på skrivebordet"
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Vis papirkurven på skrivebordet"
+msgstr "Vis papirkurvsikonet på skrivebordet"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
@@ -276,7 +277,7 @@ msgstr "Vælg et program for at åbne <b>{foo}</b>"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "Åbne elementer"
+msgstr "Åbn element"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -745,7 +746,7 @@ msgstr "Der er ingen applikation installeret for at åbne \"{foo}\" filer."
 #: app/fileItem.js:370
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Broken Desktop File"
+msgstr "Ødelagte skrivebordsfiler"
 
 #: app/fileItem.js:371
 #, fuzzy
@@ -964,7 +965,7 @@ msgstr "Afmontér"
 #: app/fileItemMenu.js:438
 #, fuzzy
 msgid "Common Properties"
-msgstr "Fælles egenskaber"
+msgstr "Kommentar Egenskaber"
 
 #: app/fileItemMenu.js:439
 msgid "Properties"

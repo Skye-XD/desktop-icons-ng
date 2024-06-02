@@ -12,9 +12,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-24 13:07+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
@@ -22,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5.1-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -43,7 +42,7 @@ msgstr "Vylepšení"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "O aplikaci"
+msgstr "O programu"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -68,7 +67,7 @@ msgstr "Zobrazení objemů plochy"
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
 msgid "Files Settings"
-msgstr "Nastavení souborů"
+msgstr "Nastavení souboru"
 
 #: app/adwPreferencesWindow.js:212
 #, fuzzy
@@ -133,27 +132,27 @@ msgstr ""
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Zobrazit osobní složku na ploše"
+msgstr "Zobrazovat osobní složku na pracovní ploše"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Zobrazit ikonu koše na ploše"
+msgstr "Zobrazovat ikonu koše na pracovní ploše"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Zobrazit externí disky na ploše"
+msgstr "Zobrazovat disky připojené k počítači"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Zobrazit síťové disky na ploše"
+msgstr "Zobrazovat síťové disky připojené k počítači"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Přidejte nové disky na opačnou stranu plochy"
+msgstr "Dávat nové disky na opačnou stranu obrazovky"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -271,7 +270,7 @@ msgstr "Vyberte aplikaci pro otevření <b>{foo}</b>"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "Otevřené položky"
+msgstr "Otevřít Položku"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -343,7 +342,7 @@ msgstr "Zrušit"
 #: app/autoAr.js:306 app/autoAr.js:603
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Zadejte heslo zde"
+msgstr "Zde zadejte heslo"
 
 #: app/autoAr.js:349
 #, fuzzy
@@ -552,7 +551,7 @@ msgstr "Name"
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název (Z-A)"
+msgstr "Název Z - A"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -635,7 +634,7 @@ msgstr "Změnit pozadí…"
 #: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Nastavení ikony plochy"
+msgstr "Nastavení ikon na ploše"
 
 #: app/desktopManager.js:1567
 msgid "Display Settings"
@@ -673,7 +672,7 @@ msgstr "Chyba vytváření šablon"
 #: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
-msgstr "Nelze vytvořit dokument"
+msgstr "Nelze odstranit dokument"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -692,7 +691,7 @@ msgstr "Koš"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Odpálení"
+msgstr "Úložiště"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -735,7 +734,7 @@ msgstr ""
 #: app/fileItem.js:370
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Zlomené Desktop File"
+msgstr "Neplatné soubory .desktop"
 
 #: app/fileItem.js:371
 #, fuzzy
@@ -798,7 +797,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Soubor nelze otevřít"
+msgstr "Nelze otevřít soubory"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -820,7 +819,7 @@ msgstr "Otevřít vše..."
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Run"
-msgstr "Spustit"
+msgstr "Spuštění"
 
 #: app/fileItemMenu.js:318
 #, fuzzy
@@ -1004,7 +1003,7 @@ msgstr "Vybrat vše"
 #: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Zkopírujte Zrušit"
+msgstr "Kopírování zrušeno"
 
 #: app/fileItemMenu.js:694
 #, fuzzy
