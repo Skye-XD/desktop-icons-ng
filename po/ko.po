@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-01 17:01+0000\n"
+"PO-Revision-Date: 2024-06-03 23:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -41,7 +41,7 @@ msgstr "트윅"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "정보"
+msgstr "소개"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -130,27 +130,27 @@ msgstr "Secondary Monitors에 새로운 아이콘을 먼저 추가하면 사용 
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "바탕 화면에 개인 폴더보기"
+msgstr "바탕화면에 개인 폴더 표시"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "바탕 화면에 쓰레기 아이콘 표시"
+msgstr "바탕화면에 휴지통 표시"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "데스크톱에서 외부 드라이브보기"
+msgstr "바탕화면에 외장 드라이브 표시"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "데스크톱에서 네트워크 드라이브보기"
+msgstr "바탕화면에 네트워크 드라이브 표시"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "바탕 화면의 반대쪽에 새로운 드라이브를 추가"
+msgstr "새 드라이브를 스크린 반대편에 추가"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -241,7 +241,7 @@ msgstr "보고서"
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
 msgid "License"
-msgstr "라이선스"
+msgstr "라이센스"
 
 #: app/adwPreferencesWindow.js:333
 #, fuzzy
@@ -266,7 +266,7 @@ msgstr "<b>{foo}</b>를 열려면 응용 프로그램을 선택하십시오"
 #: app/appChooser.js:61
 #, fuzzy
 msgid "Open Items"
-msgstr "공지사항"
+msgstr "항목 열기"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -358,7 +358,7 @@ msgstr "파일 추출 '${outputPath} 이름 *"
 #: app/autoAr.js:430
 #, fuzzy
 msgid "Extraction completed"
-msgstr "적출 완료"
+msgstr "추출 완료"
 
 #: app/autoAr.js:431
 #, fuzzy
@@ -433,7 +433,7 @@ msgstr "Archive 이름"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "비밀 번호"
+msgstr "비밀번호"
 
 #: app/autoAr.js:612
 #, fuzzy
@@ -548,7 +548,7 @@ msgstr "이름"
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "이름 Z-A"
+msgstr "이름 (Z-A)"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -568,17 +568,17 @@ msgstr "크기"
 #: app/desktopManager.js:1512
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "계속 .."
+msgstr "정렬 유지…"
 
 #: app/desktopManager.js:1516
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "유형에 의해 스택 유지.."
+msgstr "유형별로 스택됨 유지…"
 
 #: app/desktopManager.js:1517
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "분류 홈/드라이브/트래시.."
+msgstr "집/드라이브/휴지통 정렬…"
 
 #: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
@@ -631,7 +631,7 @@ msgstr "배경화면 변경…"
 #: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "데스크탑 아이콘 설정"
+msgstr "바탕화면 아이콘 설정"
 
 #: app/desktopManager.js:1567
 msgid "Display Settings"
@@ -654,7 +654,7 @@ msgstr "설정"
 #: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Folder 창조 실패"
+msgstr "오더 구성을 실패했습니다."
 
 #: app/desktopManager.js:2599
 #, fuzzy
@@ -769,7 +769,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"\"기타 액세스\", \"Read Only\"또는 \"None\"에서 권한 설정"
+"<b>\"다른 접근\", \"읽기 전용\" 또는 \"없음\"에서 권한 설정</b>"
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -781,7 +781,7 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"Enable option, \"프로그램으로 파일을 실행\""
+"<b>활성화 옵션, \"파일을 프로그램으로 실행하기 허용\"</b>"
 
 #: app/fileItem.js:390
 #, fuzzy
@@ -1131,7 +1131,7 @@ msgstr "_취소"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "열기(_O)"
+msgstr "_열기"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

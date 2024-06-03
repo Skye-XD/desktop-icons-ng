@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-04-01 17:01+0000\n"
+"PO-Revision-Date: 2024-06-03 23:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -42,7 +42,7 @@ msgstr "Vyladenia"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "O nás"
+msgstr "O aplikácii"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -131,27 +131,27 @@ msgstr "Pridajte nové ikony na sekundárne monitory, ak je k dispozícii"
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Zobraziť osobnú zložku na pracovnej ploche"
+msgstr "Zobraziť osobný priečinok na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Zobraziť ikonu koša na pracovnej ploche"
+msgstr "Zobraziť ikonu Koša na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Zobraziť externé disky na pracovnej ploche"
+msgstr "Zobraziť externé jednotky na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:264
 #, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Zobraziť sieťové disky na pracovnej ploche"
+msgstr "Zobraziť sieťové jednotky na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Pridať nové disky na opačnú stranu pracovnej plochy"
+msgstr "Pridať nové jednotky na opačnú stranu obrazovky"
 
 #: app/adwPreferencesWindow.js:273
 #, fuzzy
@@ -244,7 +244,7 @@ msgstr "Prehľad"
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
 msgid "License"
-msgstr "Licencia"
+msgstr "Licence"
 
 #: app/adwPreferencesWindow.js:333
 #, fuzzy
@@ -548,7 +548,7 @@ msgstr "Názov"
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Meno Z-A"
+msgstr "Meno (Z-A)"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -568,7 +568,7 @@ msgstr "Veľkosť"
 #: app/desktopManager.js:1512
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "Udržujte Usporiadané.."
+msgstr "Udržiavať usporiadané…"
 
 #: app/desktopManager.js:1516
 #, fuzzy
@@ -578,7 +578,7 @@ msgstr "Udržujte zakladané podľa typu .."
 #: app/desktopManager.js:1517
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Triediť Home/Drives/Trash.."
+msgstr "Usporiadať Domov/jednotky/Kôš…"
 
 #: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
@@ -631,7 +631,7 @@ msgstr "Zmeniť pozadie…"
 #: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Nastavenie Desktop Icon"
+msgstr "Nastavenia ikon pracovnej plochy"
 
 #: app/desktopManager.js:1567
 msgid "Display Settings"
@@ -731,7 +731,7 @@ msgstr ""
 #: app/fileItem.js:370
 #, fuzzy
 msgid "Broken Desktop File"
-msgstr "Broken Desktop File"
+msgstr "Poškodené súbory plochy"
 
 #: app/fileItem.js:371
 #, fuzzy
@@ -822,7 +822,7 @@ msgstr "Otvoriť všetko..."
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Run"
-msgstr "Spustiť"
+msgstr "Spusti"
 
 #: app/fileItemMenu.js:318
 #, fuzzy
@@ -1005,7 +1005,7 @@ msgstr "Vybrať"
 #: app/fileItemMenu.js:693
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Kopírovanie"
+msgstr "Kopírování zrušeno"
 
 #: app/fileItemMenu.js:694
 #, fuzzy
@@ -1083,7 +1083,7 @@ msgstr "Konzola"
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "More Information"
-msgstr "Viac informácií"
+msgstr "Ďalšie informácie"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
