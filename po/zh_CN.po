@@ -14,8 +14,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-01 15:09+0000\n"
-"Last-Translator: 0xarch <alanqa-ops@outlook.com>\n"
+"PO-Revision-Date: 2024-06-03 23:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -133,7 +134,7 @@ msgstr "在桌面上显示网络驱动器"
 #: app/adwPreferencesWindow.js:268
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "在 desktop对面增加新的驱动力"
+msgstr "在屏幕对面展示新驱动器"
 
 #: app/adwPreferencesWindow.js:273
 msgid "Snap icons to grid"
@@ -418,7 +419,7 @@ msgstr "小型档案必须安装在Windows和Mac."
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Icon"
+msgstr "桌面图标"
 
 #: app/desktopManager.js:140
 #, fuzzy
@@ -503,7 +504,7 @@ msgstr "名称"
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "姓名Z-A"
+msgstr "文件名 (Z-A)"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -523,17 +524,17 @@ msgstr "大小"
 #: app/desktopManager.js:1512
 #, fuzzy
 msgid "Keep Arranged…"
-msgstr "安排..…"
+msgstr "保持安排…"
 
 #: app/desktopManager.js:1516
 #, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "按类型分类"
+msgstr "依据文件类型保持堆叠…"
 
 #: app/desktopManager.js:1517
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "住宅/司机"
+msgstr "排序主目录/驱动器/回收站…"
 
 #: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
@@ -585,7 +586,7 @@ msgstr "更改背景…"
 #: app/desktopManager.js:1566
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "桌面一星座"
+msgstr "桌面图标设置"
 
 #: app/desktopManager.js:1567
 msgid "Display Settings"
@@ -608,7 +609,7 @@ msgstr "设置"
 #: app/desktopManager.js:2598
 #, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Folder Creat Failed"
+msgstr "订单建立失败"
 
 #: app/desktopManager.js:2599
 #, fuzzy
@@ -623,7 +624,7 @@ msgstr "温度生成"
 #: app/desktopManager.js:2643
 #, fuzzy
 msgid "Could not create document"
-msgstr "不要制定文件"
+msgstr "无法删除文档"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -719,7 +720,7 @@ msgid ""
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"在“其他途径”、“仅”或“非”中设定许可"
+"<b>设置权限，在其他中，设置只读或者无</b>"
 
 #: app/fileItem.js:383
 #, fuzzy
@@ -731,7 +732,7 @@ msgid ""
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"可行方案,“执行档案方案”"
+"勾选<b>允许执行文件</b>"
 
 #: app/fileItem.js:390
 #, fuzzy
@@ -929,7 +930,7 @@ msgstr "提取已取消"
 #: app/fileItemMenu.js:568
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "不可提取 档案,无目的地夹"
+msgstr "无法复制文件，没有目标文件夹"
 
 #: app/fileItemMenu.js:600
 msgid "Move Cancelled"
@@ -938,7 +939,7 @@ msgstr "移动已取消"
 #: app/fileItemMenu.js:601
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "无法移动文件,没有目的地文件夹"
+msgstr "无法复制文件，没有目标文件夹"
 
 #: app/fileItemMenu.js:613 app/fileItemMenu.js:642
 #, fuzzy
@@ -962,7 +963,7 @@ msgstr "无法复制文件，没有目标文件夹"
 #: app/fileItemMenu.js:789
 #, fuzzy
 msgid "Mail Error"
-msgstr "邮递 Error"
+msgstr "电子邮件错误"
 
 #: app/fileItemMenu.js:743
 #, fuzzy
@@ -1036,7 +1037,7 @@ msgstr "更多信息"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "包捆"
+msgstr "堆叠"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
