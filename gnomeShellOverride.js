@@ -89,20 +89,27 @@ class DesktopLayout extends Clutter.LayoutManager {
     }
 
     vfunc_allocate(container, box) {
-        const monitor = Main.layoutManager.findIndexForActor(container);
-        const workArea = Main.layoutManager.getWorkAreaForMonitor(monitor);
-        const hscale = box.get_width() / workArea.width;
-        const vscale = box.get_height() / workArea.height;
+        const monitorIndex = Main.layoutManager.findIndexForActor(container);
+        const workArea = Main.layoutManager.getWorkAreaForMonitor(monitorIndex);
+        const monitor = Main.layoutManager.monitors[monitorIndex];
+        const hscale = box.get_width() / monitor.width;
+        const vscale = box.get_height() / monitor.height;
 
         for (const child of container) {
             const childBox = new Clutter.ActorBox();
             const frameRect = child.get_source()?.metaWindow.get_frame_rect();
-            childBox.set_size(
-                Math.round(Math.min(frameRect.width, workArea.width) * hscale),
-                Math.round(Math.min(frameRect.height, workArea.height) * vscale));
+            if (frameRect.width > workArea.width || frameRect.height > workArea.height) {
+                childBox.set_size(
+                    Math.round(Math.min(frameRect.width, monitor.width) * hscale),
+                    Math.round(Math.min(frameRect.height, monitor.height) * vscale));
+            } else {
+                childBox.set_size(
+                    Math.round(Math.min(frameRect.width, workArea.width) * hscale),
+                    Math.round(Math.min(frameRect.height, workArea.height) * vscale));
+            }
             childBox.set_origin(
-                Math.round(frameRect.x * hscale),
-                Math.round(frameRect.y * vscale));
+                Math.round((frameRect.x - monitor.x) * hscale),
+                Math.round((frameRect.y - monitor.y) * vscale));
             child.allocate(childBox);
         }
     }
