@@ -47,7 +47,8 @@ var GnomeShellOverride = class {
         return function (...args) {
             origninalMethod.call(this, ...args);
             const desktopWindows = global.get_window_actors().filter(a =>
-                a.meta_window.get_window_type() === Meta.WindowType.DESKTOP);
+                a.meta_window.get_window_type() === Meta.WindowType.DESKTOP &&
+                a.meta_window.get_monitor() === this._monitorIndex);
 
             if (desktopWindows.length) {
                 const desktopLayer = new Clutter.Actor({
