@@ -46,9 +46,16 @@ var GnomeShellOverride = class {
     _newBackgroundInit(origninalMethod) {
         return function (...args) {
             origninalMethod.call(this, ...args);
+
+            function _windowIsOnThisMonitor(metawindow, monitorIndex) {
+                const geometry = global.display.get_monitor_geometry(monitorIndex);
+                const [intersects] = metawindow.get_frame_rect().intersect(geometry);
+                return intersects;
+            }
+
             const desktopWindows = global.get_window_actors().filter(a =>
                 a.meta_window.get_window_type() === Meta.WindowType.DESKTOP &&
-                a.meta_window.get_monitor() === this._monitorIndex);
+                _windowIsOnThisMonitor(a.meta_window, this._monitorIndex));
 
             if (desktopWindows.length) {
                 const desktopLayer = new Clutter.Actor({
