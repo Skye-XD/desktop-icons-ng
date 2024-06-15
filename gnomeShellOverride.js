@@ -25,6 +25,7 @@ const {Meta, Clutter, GObject} = imports.gi;
 import {WorkspaceBackground} from 'resource:///org/gnome/shell/ui/workspace.js';
 import {InjectionManager} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as Util from 'resource:///org/gnome/shell/misc/util.js';
 
 export {GnomeShellOverride};
 
@@ -75,8 +76,13 @@ var GnomeShellOverride = class {
                     }, this);
                 }
 
-                const syncAll = Clutter.BindConstraint.new(this._bgManager.backgroundActor, Clutter.BindCoordinate.ALL, 0);
+                const offset = 0;
+                const syncAll = Clutter.BindConstraint.new(this._bgManager.backgroundActor, Clutter.BindCoordinate.ALL, offset);
                 desktopLayer.add_constraint(syncAll);
+                desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
+                this._stateAdjustment.connectObject('notify::value', () => {
+                    desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
+                }, this);
                 this._backgroundGroup.insert_child_above(desktopLayer, this._bgManager.backgroundActor);
             }
         };
