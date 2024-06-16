@@ -25,6 +25,7 @@ const {Meta, Clutter, GObject} = imports.gi;
 import {WorkspaceBackground} from 'resource:///org/gnome/shell/ui/workspace.js';
 import {InjectionManager} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as Util from 'resource:///org/gnome/shell/misc/util.js';
 
 export {GnomeShellOverride};
 
@@ -46,8 +47,16 @@ var GnomeShellOverride = class {
     _newBackgroundInit(origninalMethod) {
         return function (...args) {
             origninalMethod.call(this, ...args);
+
+            function _windowIsOnThisMonitor(metawindow, monitorIndex) {
+                const geometry = global.display.get_monitor_geometry(monitorIndex);
+                const [intersects] = metawindow.get_frame_rect().intersect(geometry);
+                return intersects;
+            }
+
             const desktopWindows = global.get_window_actors().filter(a =>
-                a.meta_window.get_window_type() === Meta.WindowType.DESKTOP);
+                a.meta_window.get_window_type() === Meta.WindowType.DESKTOP &&
+                _windowIsOnThisMonitor(a.meta_window, this._monitorIndex));
 
             if (desktopWindows.length) {
                 const desktopLayer = new Clutter.Actor({
@@ -67,8 +76,13 @@ var GnomeShellOverride = class {
                     }, this);
                 }
 
-                const syncAll = Clutter.BindConstraint.new(this._bgManager.backgroundActor, Clutter.BindCoordinate.ALL, 0);
+                const offset = 0;
+                const syncAll = Clutter.BindConstraint.new(this._bgManager.backgroundActor, Clutter.BindCoordinate.ALL, offset);
                 desktopLayer.add_constraint(syncAll);
+                desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
+                this._stateAdjustment.connectObject('notify::value', () => {
+                    desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
+                }, this);
                 this._backgroundGroup.insert_child_above(desktopLayer, this._bgManager.backgroundActor);
             }
         };
@@ -89,20 +103,20 @@ class DesktopLayout extends Clutter.LayoutManager {
     }
 
     vfunc_allocate(container, box) {
-        const monitor = Main.layoutManager.findIndexForActor(container);
-        const workArea = Main.layoutManager.getWorkAreaForMonitor(monitor);
-        const hscale = box.get_width() / workArea.width;
-        const vscale = box.get_height() / workArea.height;
+        const monitorIndex = Main.layoutManager.findIndexForActor(container);
+        const monitor = Main.layoutManager.monitors[monitorIndex];
+        const hscale = box.get_width() / monitor.width;
+        const vscale = box.get_height() / monitor.height;
 
         for (const child of container) {
             const childBox = new Clutter.ActorBox();
             const frameRect = child.get_source()?.metaWindow.get_frame_rect();
             childBox.set_size(
-                Math.round(Math.min(frameRect.width, workArea.width) * hscale),
-                Math.round(Math.min(frameRect.height, workArea.height) * vscale));
+                Math.round(Math.min(frameRect.width, monitor.width) * hscale),
+                Math.round(Math.min(frameRect.height, monitor.height) * vscale));
             childBox.set_origin(
-                Math.round(frameRect.x * hscale),
-                Math.round(frameRect.y * vscale));
+                Math.round((frameRect.x - monitor.x) * hscale),
+                Math.round((frameRect.y - monitor.y) * vscale));
             child.allocate(childBox);
         }
     }
