@@ -1,5 +1,11 @@
 # History of versions #
-* Gtk4 version 75 for Gnome 45, 46 - bug fix.
+* Gtk4 version 77 for Gnome 45, 46 - bug fix.
+  * Update desktopIconsIntegration for gnome shell 46. (Sundeep Mediratta)
+  * Fix overview on multiple monitors, fade icons to transparent, fix conky jumping. (Sundeep Mediratta)
+  * Weblate translation. (Weblate Authors)
+  * Update History.md, metadata.json. Version Bump 77
+
+* Gtk4 version 76 for Gnome 45, 46 - bug fix.
   * Appchooser icons size regression, revert to bigger icons. (Sundeep Mediratta)
   * Fix X11 gtk4-ding going fullscreen, hiding dash-to-panel. (Sundeep Mediratta)
   * Weblate translation. (Weblate Authors)
