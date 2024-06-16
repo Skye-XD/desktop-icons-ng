@@ -14,8 +14,8 @@ msgstr ""
 "POT-Creation-Date: 2023-08-20 21:57-0400\n"
 "PO-Revision-Date: 2024-06-12 18:10+0000\n"
 "Last-Translator: Josman Goncalves Bravo <josmangoncalvesbravo@hotmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -135,13 +135,11 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Añadir nuevas unidades en el lado opuesto del escritorio"
 
 #: app/adwPreferencesWindow.js:273
-#, fuzzy
 msgid "Snap icons to grid"
-msgstr "Ajustar iconos a la red"
+msgstr "Ajustar iconos a la cuadrícula"
 
 #: app/adwPreferencesWindow.js:278
 #, fuzzy
-#| msgid "Highlight the drop grid during Drag and Drop"
 msgid "Highlight the drop grid"
 msgstr "Destacar la rejilla de goteo"
 
@@ -205,9 +203,8 @@ msgid "Visit"
 msgstr "Visita"
 
 #: app/adwPreferencesWindow.js:324
-#, fuzzy
 msgid "Issues"
-msgstr "Cuestiones"
+msgstr "Problema"
 
 #: app/adwPreferencesWindow.js:325
 msgid "Report issues on issue tracker"
@@ -236,14 +233,12 @@ msgid "Translate"
 msgstr "Traducir"
 
 #: app/appChooser.js:53
-#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Elige una aplicación para abrir <b>{foo}</b>"
+msgstr "Elegir una aplicación para abrir <b>{foo}</b>"
 
 #: app/appChooser.js:61
-#, fuzzy
 msgid "Open Items"
-msgstr "@:account.creditlimit.openInvoices"
+msgstr "Elementos abiertos"
 
 #: app/appChooser.js:63
 #, fuzzy
@@ -261,10 +256,9 @@ msgid "Error changing default application"
 msgstr "Aplicación predeterminada de cambio de errores"
 
 #: app/appChooser.js:106
-#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
-"Error al establecer {foo} como aplicación predeterminada para {mimetipo}"
+"Error al establecer {foo} como aplicación predeterminada para {mimetype}"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -411,7 +405,6 @@ msgstr "Archivos más pequeños pero deben descomprimirse en Windows y Mac."
 
 #: app/desktopGrid.js:47
 #, fuzzy
-#| msgid "Desktop Icon Settings"
 msgid "Desktop Icons"
 msgstr "Icono de Escritorio"
 
@@ -421,7 +414,6 @@ msgstr "No se encontró GNOME Files"
 
 #: app/desktopManager.js:141
 #, fuzzy
-#| msgid "The GNOME Files application is required by Desktop Icons NG."
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "Desktop Icons NG necesita la aplicación GNOME Files."
 
@@ -545,13 +537,11 @@ msgstr "Organizar por…"
 
 #: app/desktopManager.js:1552
 #, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Mostrar el escritorio en {0}"
 
 #: app/desktopManager.js:1555
 #, fuzzy
-#| msgid "Open with {foo}"
 msgid "Open In {0}"
 msgstr "Abre"
 
@@ -602,7 +592,6 @@ msgstr "Carpeta personal"
 
 #: app/fileItem.js:155
 #, fuzzy
-#| msgid "Empty Trash"
 msgid "Trash"
 msgstr "Papelera"
 
@@ -619,7 +608,6 @@ msgstr "Drive"
 #. * it will say "Folder things"
 #: app/fileItem.js:171
 #, fuzzy
-#| msgid "New Folder"
 msgid "Folder"
 msgstr "Carpeta"
 
@@ -628,7 +616,6 @@ msgstr "Carpeta"
 #. * is selected, it will say "File my_picture.jpg"
 #: app/fileItem.js:178
 #, fuzzy
-#| msgid "Files"
 msgid "File"
 msgstr "Archivo"
 
@@ -641,7 +628,6 @@ msgid "Can not open this File because it is a Broken Symlink"
 msgstr "No se puede abrir este fichero porque es un enlace roto"
 
 #: app/fileItem.js:339
-#, fuzzy
 msgid "Opening File Failed"
 msgstr "Error al abrir el archivo"
 
@@ -656,11 +642,6 @@ msgstr "Fichero .desktop dañado"
 
 #: app/fileItem.js:371
 #, fuzzy
-#| msgid ""
-#| "This .desktop file has errors or points to a program without permissions. "
-#| "It can not be executed.\n"
-#| "\n"
-#| "\t<b>Edit the file to set the correct executable Program.</b>"
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -686,22 +667,16 @@ msgstr ""
 
 #: app/fileItem.js:380
 #, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>Cambiar los permisos, en \"Otros accesos\", a \"Sólo lectura\" o \"Ninguno"
-"\"</b>"
+"<b>Cambiar los permisos, en \"Otros accesos\", a \"Sólo lectura\" o "
+"\"Ninguno\"</b>"
 
 #: app/fileItem.js:383
 #, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
@@ -711,17 +686,11 @@ msgstr ""
 
 #: app/fileItem.js:390
 #, fuzzy
-#| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
 msgstr "Archivo de escritorio no confiable"
 
 #: app/fileItem.js:391
 #, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "<b>Enable \"Allow Launching\"</b>"
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -879,19 +848,16 @@ msgstr "Propiedades"
 
 #: app/fileItemMenu.js:442
 #, fuzzy
-#| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "Show All in {0}"
 
 #: app/fileItemMenu.js:443
 #, fuzzy
-#| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "# Show in {0}"
 
 #: app/fileItemMenu.js:448
 #, fuzzy
-#| msgid "Open with {foo}"
 msgid "Open in {0}"
 msgstr "Abre"
 
@@ -951,7 +917,6 @@ msgstr "Incapaz de encontrar el comando zip, por favor instale el programa"
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:769
 #, fuzzy
-#| msgid "Archive name"
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
@@ -966,8 +931,6 @@ msgstr "No se puede enviar un directorio"
 
 #: app/fileItemMenu.js:804
 #, fuzzy
-#| msgid ""
-#| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "La selección incluye un directorio, compress a un archivo .zip primero?"
