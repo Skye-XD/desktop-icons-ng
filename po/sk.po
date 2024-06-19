@@ -2,82 +2,71 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Dušan Kazik <prescott66@gmail.com>, 2020-2021.
+# Jozef Gaál <preklady@mayday.sk>, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Peter Michel <michel.peter95@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-09 16:09+0000\n"
-"Last-Translator: Peter Michel <michel.peter95@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
+"PO-Revision-Date: 2024-06-19 00:34+0200\n"
+"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
+"Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
-msgstr "Plocha"
+msgstr "Pracovná plocha"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#, fuzzy
 msgid "Files"
 msgstr "Súbory"
 
 #: app/adwPreferencesWindow.js:185 app/adwPreferencesWindow.js:186
 #: app/adwPreferencesWindow.js:216
-#, fuzzy
 msgid "Tweaks"
 msgstr "Vyladenia"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
-#, fuzzy
 msgid "About"
 msgstr "O aplikácii"
 
 #: app/adwPreferencesWindow.js:201
-#, fuzzy
 msgid "Desktop Settings"
-msgstr "Nastavenie Desktop"
+msgstr "Nastavenie plochy"
 
 #: app/adwPreferencesWindow.js:202
-#, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Nastavenie pre program Desktop"
+msgstr "Nastavenia pre program plochy"
 
 #: app/adwPreferencesWindow.js:206
-#, fuzzy
 msgid "Volumes"
 msgstr "Zväzky"
 
 #: app/adwPreferencesWindow.js:207
-#, fuzzy
 msgid "Desktop volumes display"
-msgstr "Zobrazenie objemov Desktop"
+msgstr "Zobrazenie zväzkov na ploche"
 
 #: app/adwPreferencesWindow.js:211
-#, fuzzy
 msgid "Files Settings"
 msgstr "Nastavenia súborov"
 
 #: app/adwPreferencesWindow.js:212
-#, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Nastavenia zdieľané s Gnome Files"
+msgstr "Nastavenia zdieľané s aplikáciou Súbory (Gnome Files)"
 
 #: app/adwPreferencesWindow.js:217
-#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Rôzne Tweaks"
+msgstr "Rôzne vyladenia"
 
 #: app/adwPreferencesWindow.js:228
 msgid "Size for the desktop icons"
@@ -104,79 +93,64 @@ msgid "New icons alignment"
 msgstr "Zarovnanie nových ikon"
 
 #: app/adwPreferencesWindow.js:240
-#, fuzzy
 msgid "Top left corner"
 msgstr "Ľavý horný roh"
 
 #: app/adwPreferencesWindow.js:241
-#, fuzzy
 msgid "Top right corner"
 msgstr "Pravý horný roh"
 
 #: app/adwPreferencesWindow.js:242
-#, fuzzy
 msgid "Bottom left corner"
 msgstr "Ľavý spodný roh"
 
 #: app/adwPreferencesWindow.js:243
-#, fuzzy
 msgid "Bottom right corner"
 msgstr "Pravý spodný roh"
 
 #: app/adwPreferencesWindow.js:248
-#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Pridajte nové ikony na sekundárne monitory, ak je k dispozícii"
+msgstr "Pridať nové ikony najprv na sekundárne monitory, ak je k dispozícii"
 
 #: app/adwPreferencesWindow.js:252
-#, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Zobraziť osobný priečinok na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:256
-#, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Zobraziť ikonu Koša na pracovnej ploche"
+msgstr "Zobraziť ikonu koša na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:260
-#, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Zobraziť externé jednotky na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:264
-#, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Zobraziť sieťové jednotky na pracovnej ploche"
 
 #: app/adwPreferencesWindow.js:268
-#, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Pridať nové jednotky na opačnú stranu obrazovky"
+msgstr "Pridať nové jednotky na opačnú stranu plochy"
 
 #: app/adwPreferencesWindow.js:273
-#, fuzzy
 msgid "Snap icons to grid"
-msgstr "Snap ikony na mriežky"
+msgstr "Pripnúť ikony na mriežku"
 
 #: app/adwPreferencesWindow.js:278
-#, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Zvýraznite mriežku"
+msgstr "Zvýrazniť mriežku pri pustení ikony"
 
 #: app/adwPreferencesWindow.js:285
-#, fuzzy
 msgid "Add an emblem to soft links"
-msgstr "Pridať znak mäkkých odkazov"
+msgstr "Pridať príznak na symbolické odkazy"
 
 #: app/adwPreferencesWindow.js:288
-#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Použite tmavý text v ikonových etikiet"
+msgstr "Použiť tmavý text na štítkoch ikon"
 
 #: app/adwPreferencesWindow.js:293
-#, fuzzy
 msgid "Action to Open Items"
-msgstr "Akcia pre otvorené položky"
+msgstr "Akcia pre otvorenie položiek"
 
 #: app/adwPreferencesWindow.js:295
 msgid "Single click"
@@ -195,9 +169,8 @@ msgid "Always"
 msgstr "Vždy"
 
 #: app/adwPreferencesWindow.js:303
-#, fuzzy
 msgid "On this computer only"
-msgstr "Na tomto počítači iba"
+msgstr "Iba na tomto počítači"
 
 #: app/adwPreferencesWindow.js:304
 msgid "Never"
@@ -212,84 +185,68 @@ msgid "Show hidden files"
 msgstr "Zobraziť skryté súbory"
 
 #: app/adwPreferencesWindow.js:316
-#, fuzzy
 msgid "Open folders on drag hover"
-msgstr "Otvorené priečinky na drag Hover"
+msgstr "Otvoriť priečinky pri ťahaní myšou"
 
 #: app/adwPreferencesWindow.js:319
-#, fuzzy
 msgid "Website"
-msgstr "Web stránka"
+msgstr "Webstránka"
 
 #: app/adwPreferencesWindow.js:321
-#, fuzzy
 msgid "Visit"
-msgstr "Návšteva"
+msgstr "Navštíviť"
 
 #: app/adwPreferencesWindow.js:324
-#, fuzzy
 msgid "Issues"
 msgstr "Problémy"
 
 #: app/adwPreferencesWindow.js:325
-#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr "Správa otázky týkajúce sa sledovača problémov"
+msgstr "Nahlásiť problémy v nástroji na sledovanie problémov"
 
 #: app/adwPreferencesWindow.js:326
-#, fuzzy
 msgid "Report"
-msgstr "Prehľad"
+msgstr "Nahlásiť chybu"
 
 #: app/adwPreferencesWindow.js:328
-#, fuzzy
 msgid "License"
-msgstr "Licence"
+msgstr "Licencia"
 
 #: app/adwPreferencesWindow.js:333
-#, fuzzy
 msgid "Translation"
 msgstr "Preklad"
 
 #: app/adwPreferencesWindow.js:334
-#, fuzzy
 msgid "Help translate in your web browser"
-msgstr "Pomoc preložiť vo vašom prehliadači"
+msgstr "Pomôžte preložiť vo svojom webovom prehliadači"
 
 #: app/adwPreferencesWindow.js:335
-#, fuzzy
 msgid "Translate"
-msgstr "Začať prekladať"
+msgstr "Preložiť"
 
 #: app/appChooser.js:53
-#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Vyberte aplikáciu na otvorenie <b>{foo}</b>"
 
 #: app/appChooser.js:61
-#, fuzzy
 msgid "Open Items"
-msgstr "Otvorené položky"
+msgstr "Otvoriť položky"
 
 #: app/appChooser.js:63
-#, fuzzy
 msgid "Open Folder"
 msgstr "Otvoriť priečinok"
 
 #: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
-#, fuzzy
 msgid "Open File"
 msgstr "Otvoriť súbor"
 
 #: app/appChooser.js:105
-#, fuzzy
 msgid "Error changing default application"
-msgstr "Chyba zmeny predvolené aplikácie"
+msgstr "Chyba pri zmene predvolenej aplikácie"
 
 #: app/appChooser.js:106
-#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Chyba pri nastavení {foo} ako predvolená aplikácia pre {mimetype}"
+msgstr "Chyba pri nastavení {foo} ako predvolenej aplikácie pre {mimetype}"
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
@@ -309,28 +266,24 @@ msgid "Rename"
 msgstr "Premenovať"
 
 #: app/autoAr.js:66
-#, fuzzy
 msgid "AutoAr is not installed"
-msgstr "Auto Ar nie je nainštalovaný"
+msgstr "AutoAr nie je nainštalovaný"
 
 #: app/autoAr.js:67
-#, fuzzy
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Ak chcete pracovať s komprimovanými súbormi, nainštalujte súbor-roller a/"
-"alebo gir-1.2-gnome Autonóm"
+"Ak chcete pracovať s komprimovanými súbormi, nainštalujte file-roller a/"
+"alebo gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:198
-#, fuzzy
 msgid "Extracting files"
-msgstr "Extrahovacie súbory"
+msgstr "Extrahovanie súborov"
 
 #: app/autoAr.js:215
-#, fuzzy
 msgid "Compressing files"
-msgstr "Stlačenie súborov"
+msgstr "Kompresia súborov"
 
 #: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:774
 #: app/desktopManager.js:1246 app/fileItemMenu.js:651 app/fileItemMenu.js:805
@@ -339,159 +292,127 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: app/autoAr.js:306 app/autoAr.js:603
-#, fuzzy
 msgid "Enter a password here"
-msgstr "Zadajte heslo tu"
+msgstr "Tu zadajte heslo"
 
 #: app/autoAr.js:349
-#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "Odstránenie čiastočného súboru '${ výstupFile} \""
+msgstr "Odstraňuje sa čiastkového súboru '${outputFile}'"
 
 #: app/autoAr.js:368
-#, fuzzy
 msgid "Creating destination folder"
-msgstr "Vytvorenie cieľovej zložky"
+msgstr "Vytváranie cieľovej zložky"
 
 #: app/autoAr.js:400
-#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Extrahovanie súborov do \"${ výstupPath} \""
+msgstr "Extrahovanie súborov do '${outputPath}'"
 
 #: app/autoAr.js:430
-#, fuzzy
 msgid "Extraction completed"
-msgstr "Výťažok dokončený"
+msgstr "Extrakcia dokončená"
 
 #: app/autoAr.js:431
-#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "Extrahovanie \"${fullPathFile}\" bolo dokončené."
+msgstr "Extrahovanie '${fullPathFile}'  bolo dokončené."
 
 #: app/autoAr.js:437
-#, fuzzy
 msgid "Extraction cancelled"
-msgstr "Výťažok zrušené"
+msgstr "Extrakcia zrušená"
 
 #: app/autoAr.js:438
-#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Extrahovanie \"${fullPathFile}\" bolo zrušené užívateľom."
+msgstr "Extrahovanie '${fullPathFile}'  bolo zrušené používateľom."
 
 #: app/autoAr.js:448
-#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Passphrase požadované pre ${filename}"
+msgstr "Vyžaduje sa heslo pre ${filename}"
 
 #: app/autoAr.js:451
-#, fuzzy
 msgid "Error during extraction"
 msgstr "Chyba počas extrakcie"
 
 #: app/autoAr.js:478
-#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "Stlačenie súborov do \"${ výstupFile} \""
+msgstr "Komprimovanie súborov do '${outputFile}'"
 
 #: app/autoAr.js:491
-#, fuzzy
 msgid "Compression completed"
 msgstr "Kompresia dokončená"
 
 #: app/autoAr.js:492
-#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Stlačenie súborov do \"${ výstupFile}\" bolo dokončené."
+msgstr "Komprimovanie súborov do '${outputFile}' bolo dokončené."
 
 #: app/autoAr.js:496 app/autoAr.js:503
-#, fuzzy
 msgid "Cancelled compression"
-msgstr "Zrušenie kompresie"
+msgstr "Zrušená kompresia"
 
 #: app/autoAr.js:497
-#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "Výstupný súbor \"${ výstupFile}\" už existuje."
+msgstr "Výstupný súbor \"${outputFile}\" už existuje."
 
 #: app/autoAr.js:504
-#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "Stlačenie súborov do \"${ výstupFile}\" bolo zrušené užívateľom."
+msgstr "Komprimovanie súborov do '${outputFile}' bolo zrušené používateľom."
 
 #: app/autoAr.js:507
-#, fuzzy
 msgid "Error during compression"
 msgstr "Chyba počas kompresie"
 
 #: app/autoAr.js:542
-#, fuzzy
 msgid "Create archive"
 msgstr "Vytvoriť archív"
 
 #: app/autoAr.js:566
-#, fuzzy
 msgid "Archive name"
 msgstr "Názov archívu"
 
 #: app/autoAr.js:599
-#, fuzzy
 msgid "Password"
 msgstr "Heslo"
 
 #: app/autoAr.js:612
-#, fuzzy
 msgid "Create"
-msgstr "Vytvor"
+msgstr "Vytvoriť"
 
 #: app/autoAr.js:683
-#, fuzzy
 msgid "Compatible with all operating systems."
 msgstr "Kompatibilný so všetkými operačnými systémami."
 
 #: app/autoAr.js:689
-#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Heslo chránené .zip, musí byť inštalovaný na Windows a Mac."
+msgstr "Heslom chránený .zip, musí byť nainštalovaný v systéme Windows a Mac."
 
 #: app/autoAr.js:695
-#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
 msgstr "Menšie archívy, ale len Linux a Mac."
 
 #: app/autoAr.js:701
-#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Malé archívy, ale musia byť inštalované na Windows a Mac."
+msgstr "Menšie archívy, ale musia byť inštalované na Windows a Mac."
 
 #: app/desktopGrid.js:47
-#, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Ikons"
+msgstr "Ikony plochy"
 
 #: app/desktopManager.js:140
-#, fuzzy
 msgid "GNOME Files not found"
-msgstr "GNOME Súbory neboli nájdené"
+msgstr "Aplikácia Súbory (Gnome Files) nebola nájdená"
 
 #: app/desktopManager.js:141
-#, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"GNOME Aplikácia súborov je potrebná spoločnosťou Gtk4 Desktop Icons NG."
+msgstr "Aplikácia Súbory (GNOME files) je potrebná pre Gtk4 Desktop Icons NG."
 
 #: app/desktopManager.js:153
-#, fuzzy
 msgid "There is no default File Manager"
-msgstr "Neexistuje žiadny predvolený File Manager"
+msgstr "Neexistuje žiadny predvolený správca súborov"
 
 #: app/desktopManager.js:154
-#, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
-"Neexistuje žiadna aplikácia, ktorá spracováva mimetype \"inode/directory\""
+"Neexistuje žiadna aplikácia, ktorá spravuje mimetype \"inode/directory\""
 
 #: app/desktopManager.js:166
-#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome Files nie je registrovaný ako správca súborov"
 
@@ -501,14 +422,16 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"Aplikácia Súbory (Gnome Files) nie je naprogramovaná na otváranie "
+"priečinkov!\n"
+"Skontrolujte svoju inštaláciu xdg-utils\n"
+"Skontrolujte inštaláciu aplikácie Gnome Files .desktop File"
 
 #: app/desktopManager.js:773
-#, fuzzy
 msgid "Choose Action for Files"
 msgstr "Vyberte akciu pre súbory"
 
 #: app/desktopManager.js:774
-#, fuzzy
 msgid "Move"
 msgstr "Presunúť"
 
@@ -517,22 +440,18 @@ msgid "Copy"
 msgstr "Kopírovať"
 
 #: app/desktopManager.js:774
-#, fuzzy
 msgid "Link"
 msgstr "Odkaz"
 
 #: app/desktopManager.js:861 app/desktopManager.js:893
-#, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Tvorba SymLink Failed"
+msgstr "Vytváranie symbolického odkazu zlyhalo"
 
 #: app/desktopManager.js:862 app/desktopManager.js:894
-#, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Nemohol vytvoriť symbolický odkaz"
+msgstr "Nepodarilo sa vytvoriť symbolický odkaz"
 
 #: app/desktopManager.js:1204
-#, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Pred novým hľadaním vymažte aktuálny výber"
 
@@ -541,44 +460,36 @@ msgid "Find Files on Desktop"
 msgstr "Nájdenie súborov na pracovnej ploche"
 
 #: app/desktopManager.js:1505
-#, fuzzy
 msgid "Name"
 msgstr "Názov"
 
 #: app/desktopManager.js:1506
-#, fuzzy
 msgid "Name Z-A"
-msgstr "Meno (Z-A)"
+msgstr "Názov (Z-A)"
 
 #: app/desktopManager.js:1507
-#, fuzzy
 msgid "Modified Time"
-msgstr "Upravené čas"
+msgstr "Čas úpravy"
 
 #: app/desktopManager.js:1508
-#, fuzzy
 msgid "Type"
 msgstr "Typ"
 
 #: app/desktopManager.js:1509
-#, fuzzy
 msgid "Size"
 msgstr "Veľkosť"
 
 #: app/desktopManager.js:1512
-#, fuzzy
 msgid "Keep Arranged…"
 msgstr "Udržiavať usporiadané…"
 
 #: app/desktopManager.js:1516
-#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Udržujte zakladané podľa typu .."
+msgstr "Udržiavať zoskupené podľa typu…"
 
 #: app/desktopManager.js:1517
-#, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Usporiadať Domov/jednotky/Kôš…"
+msgstr "Usporiadať Domov/Jednotky/Kôš…"
 
 #: app/desktopManager.js:1522 app/desktopManager.js:2575
 msgid "New Folder"
@@ -609,18 +520,14 @@ msgid "Arrange Icons"
 msgstr "Usporiadať ikony"
 
 #: app/desktopManager.js:1546
-#, fuzzy
 msgid "Arrange By…"
-msgstr "Usporiadať podľa.."
+msgstr "Usporiadať podľa…"
 
 #: app/desktopManager.js:1552
-#, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Zobraziť Desktop V {0}"
+msgstr "Zobraziť plochu v {0}"
 
 #: app/desktopManager.js:1555
-#, fuzzy
 msgid "Open In {0}"
 msgstr "Otvoriť v {0}"
 
@@ -629,7 +536,6 @@ msgid "Change Background…"
 msgstr "Zmeniť pozadie…"
 
 #: app/desktopManager.js:1566
-#, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Nastavenia ikon pracovnej plochy"
 
@@ -638,38 +544,32 @@ msgid "Display Settings"
 msgstr "Nastavenia displejov"
 
 #: app/desktopManager.js:1610
-#, fuzzy
 msgid "Preferences Window is Open"
-msgstr "Nastavenia Okno je otvorené"
+msgstr "Okno nastavení je otvorené"
 
 #: app/desktopManager.js:1610
-#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "Toto okno je otvorené. Prepnite na aktívne okno."
+msgstr "Toto okno je otvorené. Prepnite prosím na aktívne okno."
 
 #: app/desktopManager.js:1624
 msgid "Settings"
 msgstr "Nastavenia"
 
 #: app/desktopManager.js:2598
-#, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Skladanie Failed"
+msgstr "Vytvorenie priečinka zlyhalo"
 
 #: app/desktopManager.js:2599
-#, fuzzy
 msgid "Could not create folder"
-msgstr "Priečinok sa nepodarilo vytvoriť."
+msgstr "Priečinok sa nepodarilo vytvoriť"
 
 #: app/desktopManager.js:2642
-#, fuzzy
 msgid "Template Creation Error"
-msgstr "Chyba šablóny"
+msgstr "Chyba pri vytváraní šablóny"
 
 #: app/desktopManager.js:2643
-#, fuzzy
 msgid "Could not create document"
-msgstr "Nemohol vytvoriť dokument"
+msgstr "Nepodarilo sa vytvoriť dokument"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:140 app/fileItem.js:149
@@ -677,8 +577,6 @@ msgid "Home"
 msgstr "Domov"
 
 #: app/fileItem.js:155
-#, fuzzy
-#| msgid "Empty Trash"
 msgid "Trash"
 msgstr "Kôš"
 
@@ -686,7 +584,6 @@ msgstr "Kôš"
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:161
-#, fuzzy
 msgid "Drive"
 msgstr "Jednotka"
 
@@ -694,8 +591,6 @@ msgstr "Jednotka"
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
 #: app/fileItem.js:171
-#, fuzzy
-#| msgid "New Folder"
 msgid "Folder"
 msgstr "Priečinok"
 
@@ -703,108 +598,93 @@ msgstr "Priečinok"
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
 #: app/fileItem.js:178
-#, fuzzy
 msgid "File"
 msgstr "Súbor"
 
 #: app/fileItem.js:307
-#, fuzzy
 msgid "Broken Link"
-msgstr "Broken Link"
+msgstr "Nefunkčný odkaz"
 
 #: app/fileItem.js:308
-#, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "Nemožno otvoriť tento súbor, pretože je to Broken Symlink"
+msgstr ""
+"Nie je možné otvoriť tento súbor, pretože ide o nefunkčný symbolický odkaz"
 
 #: app/fileItem.js:339
-#, fuzzy
 msgid "Opening File Failed"
-msgstr "Otvorenie súboru Failed"
+msgstr "Otvorenie súboru zlyhalo"
 
 #: app/fileItem.js:341
-#, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr ""
-"Neexistuje žiadna aplikácia nainštalovaná na otvorenie \"{foo}\" súborov."
+msgstr "Nie je nainštalovaná žiadna aplikácia na otváranie súborov \"{foo}\"."
 
 #: app/fileItem.js:370
-#, fuzzy
 msgid "Broken Desktop File"
-msgstr "Poškodené súbory plochy"
+msgstr "Poškodený súbor plochy"
 
 #: app/fileItem.js:371
-#, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Tento súbor .desktop má chyby alebo body do programu bez povolenia. Nie je "
-"možné vykonať.\n"
+"Tento súbor .desktop obsahuje chyby alebo odkazuje na program bez oprávnení. "
+"Nie je možné ho spustiť.\n"
 "\n"
-"Upraviť súbor nastaviť správny spustiteľný program."
+"Upravte súbor a nastavte správny spustiteľný program."
 
 #: app/fileItem.js:377
-#, fuzzy
 msgid "Invalid Permissions on Desktop File"
-msgstr "Neplatné povolenia na Desktop File"
+msgstr "Neplatné oprávnenia na súbor plochy"
 
 #: app/fileItem.js:378
-#, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Tento .desktop Súbor má nesprávne povolenia. Kliknite pravým tlačidlom na "
-"úpravu vlastností, potom:\n"
+"Tento súbor .desktop má nesprávne oprávnenia. Kliknutím pravým tlačidlom "
+"myši upravte Vlastnosti a potom:\n"
 
 #: app/fileItem.js:380
-#, fuzzy
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"Nastaviť povolenia, v \"Ostatné prístup\", \"Prečítajte si iba\" alebo "
-"\"None\""
+"Nastavte oprávnenia v položke \"Prístup ostatní\", \"Len na čítanie\" alebo "
+"\"Žiadne\"."
 
 #: app/fileItem.js:383
-#, fuzzy
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"Povoliť možnosť, \"Allow Executing File ako program\""
+"Povoľte možnosť \"Povoliť spustenie súboru ako program\""
 
 #: app/fileItem.js:390
-#, fuzzy
 msgid "Untrusted Desktop File"
-msgstr "Nedôverovaný Desktop File"
+msgstr "Nedôveryhodný súbor pracovnej plochy"
 
 #: app/fileItem.js:391
-#, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
-"Tento súbor .desktop nie je dôveryhodný, nemožno spustiť. Ak chcete povoliť "
-"spustenie, pravým tlačidlom, potom:\n"
+"Tento súbor plochy .desktop nie je dôveryhodný, nie je možné ho spustiť. Ak "
+"chcete spúšťanie povoliť, kliknite pravým tlačidlom myši a potom:\n"
 "\n"
-"Enable \"Allow Launching\""
+"Povoľte \"Povoliť spúšťanie\"."
 
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
-#, fuzzy
 msgid "Could not open File"
-msgstr "Nemožno otvoriť súbor"
+msgstr "Nepodarilo sa otvoriť súbor"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
-#, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} nemôže otvoriť súbory tohto typu!"
 
@@ -820,14 +700,12 @@ msgid "Open All..."
 msgstr "Otvoriť všetko..."
 
 #: app/fileItemMenu.js:316
-#, fuzzy
 msgid "Run"
-msgstr "Spusti"
+msgstr "Spustiť"
 
 #: app/fileItemMenu.js:318
-#, fuzzy
 msgid "Open with {foo}"
-msgstr "Otvoriť s {foo}"
+msgstr "Otvoriť aplikáciou {foo}"
 
 #: app/fileItemMenu.js:320
 msgid "Open"
@@ -842,7 +720,6 @@ msgid "Extract To..."
 msgstr "Rozbaliť do…"
 
 #: app/fileItemMenu.js:340 app/fileItemMenu.js:343
-#, fuzzy
 msgid "Open With..."
 msgstr "Otvoriť pomocou..."
 
@@ -855,17 +732,14 @@ msgid "Launch using Dedicated Graphics Card"
 msgstr "Spustiť pomocou vyhradenej grafickej karty"
 
 #: app/fileItemMenu.js:353
-#, fuzzy
 msgid "Stack This Type"
-msgstr "Stack Tento typ"
+msgstr "Zoskupiť tento typ"
 
 #: app/fileItemMenu.js:353
-#, fuzzy
 msgid "Unstack This Type"
-msgstr "Unstack Tento typ"
+msgstr "Zrušiť zoskupenie tohto typu"
 
 #: app/fileItemMenu.js:364
-#, fuzzy
 msgid "Run as a Program"
 msgstr "Spustiť ako program"
 
@@ -878,47 +752,42 @@ msgid "Cut"
 msgstr "Vystrihnúť"
 
 #: app/fileItemMenu.js:376
-#, fuzzy
 msgid "Move to..."
-msgstr "Presunúť na..."
+msgstr "Presunúť do..."
 
 #: app/fileItemMenu.js:377
-#, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovať na..."
+msgstr "Kopírovať do..."
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"
 msgstr "Premenovať…"
 
 #: app/fileItemMenu.js:384
-#, fuzzy
 msgid "Create Link..."
 msgstr "Vytvoriť odkaz..."
 
 #: app/fileItemMenu.js:389
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] "Stlačenie {0} zložky"
-msgstr[2] "Stlačenie {0} priečinky"
+msgstr[0] "Komprimovať {0} priečinok"
+msgstr[1] "Komprimovať {0} priečinky"
+msgstr[2] "Komprimovať {0} priečinkov"
 
 #: app/fileItemMenu.js:396
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] "Skomprimovať {0} súborov"
-msgstr[1] "Skomprimovať {0} súbor"
-msgstr[2] "Skomprimovať {0} súbory"
+msgstr[0] "Komprimovať {0} súbor"
+msgstr[1] "Komprimovať {0} súbory"
+msgstr[2] "Komprimovať {0} súborov"
 
 #: app/fileItemMenu.js:402
-#, fuzzy
 msgid "Email to..."
-msgstr "E-mail na..."
+msgstr "Poslať e-mailom..."
 
 #: app/fileItemMenu.js:407
-#, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Poslať na mobilné zariadenia"
+msgstr "Odoslať na mobilné zariadenie"
 
 #: app/fileItemMenu.js:411
 msgid "Move to Trash"
@@ -957,178 +826,144 @@ msgid "Properties"
 msgstr "Vlastnosti"
 
 #: app/fileItemMenu.js:442
-#, fuzzy
-#| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "Zobraziť všetko v {0}"
 
 #: app/fileItemMenu.js:443
-#, fuzzy
-#| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "Zobraziť v {0}"
+msgstr "Zobraziť v aplikácii {0}"
 
 #: app/fileItemMenu.js:448
-#, fuzzy
 msgid "Open in {0}"
-msgstr "Otvorené v {0}"
+msgstr "Otvoriť v {0}"
 
 #: app/fileItemMenu.js:567
-#, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Výťažok Zrušiť"
+msgstr "Extrakcia zrušená"
 
 #: app/fileItemMenu.js:568
-#, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Nedá sa extrahovať Súbor, žiadny cieľový priečinok"
+msgstr "Nedá sa extrahovať súbor, žiadny cieľový priečinok"
 
 #: app/fileItemMenu.js:600
-#, fuzzy
 msgid "Move Cancelled"
-msgstr "Presunúť"
+msgstr "Presunutie zrušené"
 
 #: app/fileItemMenu.js:601
-#, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Nie je možné presunúť súbory, žiadny cieľový priečinok"
 
 #: app/fileItemMenu.js:613 app/fileItemMenu.js:642
-#, fuzzy
 msgid "Select Destination"
-msgstr "Vybrať cieľ"
+msgstr "Vyberte cieľ"
 
 #: app/fileItemMenu.js:616 app/fileItemMenu.js:644
 msgid "Select"
 msgstr "Vybrať"
 
 #: app/fileItemMenu.js:693
-#, fuzzy
 msgid "Copy Cancelled"
-msgstr "Kopírování zrušeno"
+msgstr "Kopírovanie zrušené"
 
 #: app/fileItemMenu.js:694
-#, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Nemožno kopírovať súbory, žiadny cieľový priečinok"
+msgstr "Nie je možné kopírovať súbory, nie je k dispozícii cieľový priečinok"
 
 #: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
 #: app/fileItemMenu.js:789
-#, fuzzy
 msgid "Mail Error"
 msgstr "Chyba pošty"
 
 #: app/fileItemMenu.js:743
-#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr "Nemožno nájsť xdg-email, prosím, nainštalujte program"
+msgstr "Nie je možné nájsť xdg-email, nainštalujte prosím program"
 
 #: app/fileItemMenu.js:753
-#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr "Tam bola chyba v e-mailových súboroch"
+msgstr "Pri odosielaní súborov e-mailom došlo k chybe"
 
 #: app/fileItemMenu.js:763
-#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr "Nemožno nájsť zips príkaz, nainštalujte program"
+msgstr "Nie je možné nájsť príkaz zips, nainštalujte prosím program"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:769
-#, fuzzy
 msgid "Archive.zip"
-msgstr "Archív.zip"
+msgstr "Archiv.zip"
 
 #: app/fileItemMenu.js:790
-#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr "Tam bola chyba pri vytváraní archívu zips"
+msgstr "Pri vytváraní archívu zip došlo k chybe"
 
 #: app/fileItemMenu.js:803
 msgid "Can not email a Directory"
 msgstr "Nedá sa odoslať adresár pomocou emailu"
 
 #: app/fileItemMenu.js:804
-#, fuzzy
-#| msgid ""
-#| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Výber obsahuje adresár, najprv kompresovať do súboru .zip?"
+msgstr "Výber obsahuje priečinok, komprimovať ho najprv do súboru .zip?"
 
 #: app/fileItemMenu.js:916
-#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr "Nemožno otvoriť v Gnome Console"
+msgstr "Nie je možné otvoriť v Gnome Console"
 
 #: app/fileItemMenu.js:917
-#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr "Nainštalujte Gnome Console alebo iný terminál program"
+msgstr "Nainštalujte prosím Gnome Console alebo inú aplikáciu terminálu"
 
 #: app/fileItemMenu.js:924
-#, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Nemožno otvoriť {0}"
+msgstr "Nie je možné otvoriť {0}"
 
 #: app/fileItemMenu.js:925
-#, fuzzy
 msgid "Please Install {0}"
-msgstr "Nainštalujte {0}"
+msgstr "Nainštalujte prosím {0}"
 
 #: app/preferences.js:417
-#, fuzzy
 msgid "Console"
 msgstr "Konzola"
 
 #: app/showErrorPopup.js:39
-#, fuzzy
 msgid "More Information"
-msgstr "Ďalšie informácie"
+msgstr "Viac informácií"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
-#, fuzzy
 msgid "Stack"
-msgstr "Naskladanie"
+msgstr "Zoskupiť"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
-#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
 msgstr "\"${programName}\" je potrebný pre Desktop Icons"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:57
-#, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Pre túto funkčnosť pracovať v Desktop Icons, musíte nainštalovať "
-"\"${programName}\" vo vašom systéme."
+"Aby táto funkcia fungovala v aplikácii Ikony na ploche, musíte do vášho "
+"systému nainštalovať \"${programName}\"."
 
 #: app/utils/desktopIconsUtil.js:183
 msgid "Command not found"
 msgstr "Príkaz sa nenašiel"
 
 #: app/resources/ui/ding-app-chooser.ui:47
-#, fuzzy
 msgid "Choose an app to open the selected files."
 msgstr "Vyberte aplikáciu pre otvorenie vybraných súborov."
 
 #: app/resources/ui/ding-app-chooser.ui:81
-#, fuzzy
 msgid "Always use for this file type"
-msgstr "Vždy použite tento typ súboru"
+msgstr "Vždy použiť pre tento typ súboru"
 
 #: app/resources/ui/ding-app-chooser.ui:104
-#, fuzzy
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
 #: app/resources/ui/ding-app-chooser.ui:110
-#, fuzzy
 msgid "_Open"
 msgstr "_Otvoriť"
 
@@ -1189,7 +1024,7 @@ msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
 msgstr ""
-"Pri pridaní jednotiek a zväzkov na pracovnú plochu, budú pridané na opačnú "
+"Pri pridávaní jednotiek a zväzkov na pracovnú plochu ich pridána opačnú "
 "stranu obrazovky."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
@@ -1201,8 +1036,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"Počas vykonávania operácie ťahania a pustenia sa označí miesto v mriežke, "
-"kde bude ikona umiestnená, polopriehladným obdĺžnikom."
+"Počas operácie Ťahaj a pusť označí miesto v mriežke, kam sa ikona umiestni, "
+"polopriehľadným obdĺžnikom."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
@@ -1213,8 +1048,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"Pri usporiadaní ikon na ploche, usporiadať a zmeniť pozíciu ikon pre Domov, "
-"Kôš a pripojených sieťových alebo externých jednotiek"
+"Pri usporiadaní ikon na pracovnej ploche, pri triedení a zmene polohy "
+"priečinka Domov, koša a pripojených sieťových alebo externých diskov"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1233,76 +1068,64 @@ msgid "Icons Arranged by this property"
 msgstr "Ikony budú zoradené podľa tejto vlastnosti"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-#, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Udržujte Ikony Stacked"
+msgstr "Udržovať ikony zoskupené"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-#, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Vždy držať Icons Stacked, Podobné typy sú zoskupené"
+msgstr "Vždy udržiavať ikony zoskupené, podobné typy sú združené"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
-#, fuzzy
 msgid "Type of Files to not Stack"
-msgstr "Typ súborov, ktoré nie sú Stack"
+msgstr "Typy súborov, ktoré nezoskupovať"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-#, fuzzy
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Polia typov reťazcov, nekladajte tieto typy súborov"
+msgstr "Pole typov reťazcov, nezoskupovať tieto typy súborov"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
 msgid "Add an emblem to links"
-msgstr "Pridať znak odkazy"
+msgstr "Pridať príznak na odkazy"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Pridať znak, ktorý umožňuje identifikovať mäkké odkazy."
+msgstr "Pridať príznak na identifikáciu symbolických odkazov."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
-#, fuzzy
 msgid "Use black for label text"
-msgstr "Použite čierny odkaz na štítok"
+msgstr "Použiť čiernu na text štítku"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-#, fuzzy
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"Maľovanie text štítku v čiernej namiesto bielej. Užitočné pri používaní "
-"svetelných pozadia."
+"Vykresliť text na štítku čiernou farbou namiesto bielej. Užitočné pri "
+"použití svetlého pozadia."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Zobraziť nové ikony na neprimárnom monitore, ak je pripojený"
+msgstr "Zobraziť nové ikony na sekundárnom monitore, ak je pripojený"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Ak je pripojený druhý monitor, nové ikony sú umiestnené na neprimárnom "
+"Ak je pripojený druhý monitor, nové ikony sú umiestnené na sekundárnom "
 "monitore"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Ikony môžu byť umiestnené kdekoľvek na ploche"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
-"Ikony nie sú na obdĺžnikovej mriežke, ale môžu byť postionované kdekoľvek "
-"nezávislé z mriežky"
+"Ikony nie sú na obdĺžnikovej mriežke, ale môžu byť umiestnené kdekoľvek "
+"nezávisle od mriežky"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"
