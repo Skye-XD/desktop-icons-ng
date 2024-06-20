@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"PO-Revision-Date: 2024-06-20 01:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/el/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -40,7 +40,7 @@ msgstr "Τροποποιήσεις"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Σχετικά"
+msgstr "Περί"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -192,7 +192,7 @@ msgstr "Single click"
 #: app/adwPreferencesWindow.js:296
 #, fuzzy
 msgid "Double click"
-msgstr "Διπλό πάτημα"
+msgstr "Διπλό κλικ"
 
 #: app/adwPreferencesWindow.js:300
 #, fuzzy
@@ -454,7 +454,7 @@ msgstr "Archive name"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Κωδικός Πρόσβασης"
+msgstr "Κωδικός πρόσβασης"
 
 #: app/autoAr.js:612
 #, fuzzy

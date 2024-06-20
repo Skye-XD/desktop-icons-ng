@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-02 20:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-06-20 01:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -454,7 +455,7 @@ msgstr "Arkivo nomo"
 #: app/autoAr.js:599
 #, fuzzy
 msgid "Password"
-msgstr "Pasvorto"
+msgstr "Elektu pasvorton"
 
 #: app/autoAr.js:612
 #, fuzzy
@@ -581,7 +582,7 @@ msgstr "Modifita Tempo"
 #: app/desktopManager.js:1508
 #, fuzzy
 msgid "Type"
-msgstr "Tipo"
+msgstr "Speco"
 
 #: app/desktopManager.js:1509
 #, fuzzy

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"PO-Revision-Date: 2024-06-20 01:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -41,7 +41,7 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "About"
+msgstr "Om"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -85,7 +85,7 @@ msgstr "Størrelsen på skrivebordsikoner"
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Tiny"
-msgstr "Mindre"
+msgstr "Lille"
 
 #: app/adwPreferencesWindow.js:231
 msgid "Small"
