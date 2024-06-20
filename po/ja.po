@@ -12,8 +12,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-02 20:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-06-20 01:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -37,12 +38,12 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "細かな設定"
+msgstr "拡張機能"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "概要"
+msgstr "About"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -57,7 +58,7 @@ msgstr "デスクトッププログラムの設定"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "巻数"
+msgstr "ボリューム"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -222,7 +223,7 @@ msgstr "ウェブサイト"
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
 msgid "Visit"
-msgstr "ビジット"
+msgstr "訪問"
 
 #: app/adwPreferencesWindow.js:324
 #, fuzzy
@@ -545,7 +546,7 @@ msgstr "デスクトップ上のファイルを検索"
 #: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
-msgstr "チャンネル名"
+msgstr "名前"
 
 #: app/desktopManager.js:1506
 #, fuzzy
@@ -560,7 +561,7 @@ msgstr "変更された時間"
 #: app/desktopManager.js:1508
 #, fuzzy
 msgid "Type"
-msgstr "福祉施設種類"
+msgstr "種類"
 
 #: app/desktopManager.js:1509
 #, fuzzy
@@ -813,7 +814,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "ファイルを開けませんでした"
+msgstr "ファイルが開けませんでした"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -896,7 +897,7 @@ msgstr "を移動..."
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピーする"
+msgstr "コピー..."
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"

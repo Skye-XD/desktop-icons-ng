@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"PO-Revision-Date: 2024-06-20 01:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -117,7 +117,7 @@ msgstr "Untere linke Ecke"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Unten rechts"
+msgstr "Ecko unten-rechts"
 
 #: app/adwPreferencesWindow.js:248
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -215,7 +215,7 @@ msgstr "Ordner auf Drag Hover öffnen"
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "Website"
-msgstr "Website"
+msgstr "Webseite"
 
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
@@ -667,7 +667,7 @@ msgstr "Papierkorb"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Steuerung"
+msgstr "Cloud-Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -773,7 +773,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dateien konnten nicht geöffnet werden"
+msgstr "Datei konnte nicht geöffnet werden"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -851,7 +851,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben auf..."
+msgstr "Verschiebe zu..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
@@ -1061,7 +1061,7 @@ msgstr "Weitere Informationen"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stapel"
+msgstr "Stapeln"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

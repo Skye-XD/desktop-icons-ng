@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-02 20:09+0000\n"
+"PO-Revision-Date: 2024-06-20 01:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -548,12 +548,12 @@ msgstr "Masaüstündeki Dosyaları Bul"
 #: app/desktopManager.js:1505
 #, fuzzy
 msgid "Name"
-msgstr "Isim"
+msgstr "Ad"
 
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Name (Z-A)"
+msgstr "Ad Z - A"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -568,7 +568,7 @@ msgstr "Tür"
 #: app/desktopManager.js:1509
 #, fuzzy
 msgid "Size"
-msgstr "Boyut"
+msgstr "Size"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -873,7 +873,7 @@ msgstr "Kes"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Taşı..."
+msgstr "Buraya taşı..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
@@ -1080,7 +1080,7 @@ msgstr "Daha Fazla Bilgi"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "Yığın"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
