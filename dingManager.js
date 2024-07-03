@@ -22,9 +22,11 @@ import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
+import Mtk from 'gi://Mtk';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as Config from 'resource:///org/gnome/shell/misc/config.js';
+import * as BoxPointer from 'resource:///org/gnome/shell/ui/boxpointer.js';
 
 import * as EmulateX11 from './emulateX11WindowType.js';
 import * as GnomeShellOverride from './gnomeShellOverride.js';
@@ -56,7 +58,8 @@ const ifaceXml = `
     </method>
     <method name="setDragCursor">
     <arg type="s" direction="in" name="Set Shell Cursor"/>
-</method>
+    </method>
+    <method name="showShellBackgroundMenu"/>
   </interface>
 </node>`;
 
@@ -680,6 +683,18 @@ var DingExtensionService = class {
 
     updateDesktopGeometry() {
         this.geometryUpdate();
+    }
+
+    showShellBackgroundMenu() {
+        const [X, Y] = global.get_pointer().slice(0, 2);
+        const rect = new Mtk.Rectangle({x: X, y: Y, width: 1, height: 1});
+        const monitorIndex = global.display.get_monitor_index_for_rect(rect);
+        const backgroundManager = Main.layoutManager._bgManagers[monitorIndex];
+        const backgroundMenu = backgroundManager?.backgroundActor?._backgroundMenu;
+        if (!backgroundMenu)
+            return;
+        Main.layoutManager.setDummyCursorGeometry(X, Y, 0, 0);
+        backgroundMenu.open(BoxPointer.PopupAnimation.FULL);
     }
 
     getDropTargetAppInfoDesktopFile([dropX, dropY]) {
