@@ -58,7 +58,6 @@ const DesktopManager = class {
 
         // Init and import Scripts and classes
         this.DesktopIconsUtil = Utils.DesktopIconsUtil;
-        this.PromiseUtils = Utils.PromiseUtils;
         this.FileUtils = Utils.FileUtils;
         this.Enums = Data.Enums;
         this.DBusUtils = Utils.DBusUtils;
@@ -1929,10 +1928,8 @@ const DesktopManager = class {
 
             const extraFoldersItems = this.DesktopIconsUtil.getExtraFolders().map(async ([newFolder, extras]) => {
                 try {
-                    if (imports.system.version < 17200) {
-                        this.PromiseUtils._promisify({},
-                            newFolder.constructor.prototype, 'query_info_async');
-                    }
+                    if (imports.system.version < 17200)
+                        Gio._promisify(newFolder.constructor.prototype, 'query_info_async');
                     const newFolderInfo = await newFolder.query_info_async(
                         this.Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE,
                         GLib.PRIORITY_DEFAULT, cancellable);
@@ -1981,10 +1978,8 @@ const DesktopManager = class {
 
             const mountsItems = this.DesktopIconsUtil.getMounts(this._volumeMonitor).map(async ([newFolder, extras, volume]) => {
                 try {
-                    if (imports.system.version < 17200) {
-                        this.PromiseUtils._promisify({},
-                            newFolder.constructor.prototype, 'query_info_async');
-                    }
+                    if (imports.system.version < 17200)
+                        Gio._promisify(newFolder.constructor.prototype, 'query_info_async');
                     const newFolderInfo = await newFolder.query_info_async(
                         this.Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE,
                         GLib.PRIORITY_DEFAULT, cancellable);

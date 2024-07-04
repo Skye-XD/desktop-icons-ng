@@ -27,7 +27,6 @@ import {
     DesktopIconsUtil,
     DesktopManager
 } from '../dependencies/localFiles.js';
-import * as PromiseUtils from '../utils/promiseUtils.js';
 import * as FileUtils from '../utils/fileUtils.js';
 
 let desktops = [];
@@ -181,27 +180,27 @@ parseCommandLine(ARGV);
 
 imports.searchPath.unshift(codePath);
 
-PromiseUtils._promisify({}, Gio.AppInfo, 'launch_default_for_uri_async');
-PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'close_async');
-PromiseUtils._promisify({}, Gio.FileEnumerator.prototype, 'next_files_async');
-PromiseUtils._promisify({}, Gio.Subprocess.prototype, 'wait_check_async');
+Gio._promisify(Gio.AppInfo, 'launch_default_for_uri_async');
+Gio._promisify(Gio.FileEnumerator.prototype, 'close_async');
+Gio._promisify(Gio.FileEnumerator.prototype, 'next_files_async');
+Gio._promisify(Gio.Subprocess.prototype, 'wait_check_async');
 
 const fileProto = imports.system.version >= 17200
     ? Gio.File.prototype : Gio._LocalFilePrototype;
 
-PromiseUtils._promisify({}, fileProto, 'delete_async');
-PromiseUtils._promisify({}, fileProto, 'enumerate_children_async');
-PromiseUtils._promisify({}, fileProto, 'load_bytes_async');
-PromiseUtils._promisify({}, fileProto, 'make_directory_async');
-PromiseUtils._promisify({}, fileProto, 'query_info_async');
-PromiseUtils._promisify({}, fileProto, 'set_attributes_async');
+Gio._promisify(fileProto, 'delete_async');
+Gio._promisify(fileProto, 'enumerate_children_async');
+Gio._promisify(fileProto, 'load_bytes_async');
+Gio._promisify(fileProto, 'make_directory_async');
+Gio._promisify(fileProto, 'query_info_async');
+Gio._promisify(fileProto, 'set_attributes_async');
 
 let localePath = GLib.build_filenamev([codePath, 'locale']);
 if (Gio.File.new_for_path(localePath).query_exists(null))
     Gettext.bindtextdomain('gtk4-ding', localePath);
 
 var desktopManager = null;
-var Utils = {FileUtils, PromiseUtils};
+var Utils = {FileUtils};
 var Data = {codePath, Enums, gnomeversion, programversion, uuid};
 
 if (asDesktop) {

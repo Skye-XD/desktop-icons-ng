@@ -33,7 +33,7 @@ const DEFAULT_QUERY_ATTRIBUTES = [
  */
 export async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DEFAULT,
     queryAttributes = DEFAULT_QUERY_ATTRIBUTES) {
-    const childrenEnumerator = await dir.enumerate_children_async_promise(queryAttributes,
+    const childrenEnumerator = await dir.enumerate_children_async(queryAttributes,
         Gio.FileQueryInfoFlags.NONE, priority, cancellable);
 
     try {
@@ -43,7 +43,7 @@ export async function enumerateDir(dir, cancellable = null, priority = GLib.PRIO
             // we can predict how many they will be, so using Promise.all
             // isn't an option here, thus we just need to await each batch
             // eslint-disable-next-line no-await-in-loop
-            const batch = await childrenEnumerator.next_files_async_promise(
+            const batch = await childrenEnumerator.next_files_async(
                 DEFAULT_ENUMERATE_BATCH_SIZE, priority, cancellable);
 
             if (!batch.length)
@@ -53,7 +53,7 @@ export async function enumerateDir(dir, cancellable = null, priority = GLib.PRIO
         }
     } finally {
         if (!childrenEnumerator.is_closed())
-            await childrenEnumerator.close_async_promise(priority, null);
+            await childrenEnumerator.close_async(priority, null);
     }
 }
 
@@ -73,7 +73,7 @@ export async function recursivelyDeleteDir(dir, deleteParent, cancellable = null
 
 
     if (deleteParent)
-        await dir.delete_async_promise(priority, cancellable);
+        await dir.delete_async(priority, cancellable);
 }
 
 /**
@@ -86,14 +86,14 @@ export async function recursivelyDeleteDir(dir, deleteParent, cancellable = null
 export async function deleteFile(file, info = null, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     if (!info) {
-        info = await file.query_info_async_promise(
+        info = await file.query_info_async(
             Gio.FILE_ATTRIBUTE_STANDARD_TYPE, Gio.FileQueryInfoFlags.NONE,
             priority, cancellable);
     }
 
     const type = info.get_file_type();
     if (type === Gio.FileType.REGULAR || type === Gio.FileType.SYMBOLIC_LINK) {
-        await file.delete_async_promise(priority, cancellable);
+        await file.delete_async(priority, cancellable);
     } else if (type === Gio.FileType.DIRECTORY) {
         await recursivelyDeleteDir(file, true, cancellable, priority);
     } else {
@@ -112,7 +112,7 @@ export async function deleteFile(file, info = null, cancellable = null,
 export async function queryExists(file, cancellable = null,
     priority = GLib.PRIORITY_DEFAULT) {
     try {
-        await file.query_info_async_promise(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
+        await file.query_info_async(Gio.FILE_ATTRIBUTE_STANDARD_TYPE,
             Gio.FileQueryInfoFlags.NONE, priority, cancellable);
         return true;
     } catch (e) {

@@ -11,7 +11,6 @@ export * as Enums from '../app/enums.js';
 export * as FileItem from '../app/fileItem.js';
 export * as FileItemMenu from '../app/fileItemMenu.js';
 export * as FileUtils from '../utils/fileUtils.js';
-export * as PromiseUtils from '../utils/promiseUtils.js';
 export * as Preferences from '../app/preferences.js';
 export * as GnomeShellDragDrop from '../app/gnomeShellDragDrop.js';
 export * as GsConnect from '../app/utils/gsConnect.js';

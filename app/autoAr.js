@@ -369,7 +369,7 @@ const progressDialog = class {
         this._processBar.pulse();
 
         try {
-            await folder.make_directory_async_promise(GLib.PRIORITY_DEFAULT, this._cancellable);
+            await folder.make_directory_async(GLib.PRIORITY_DEFAULT, this._cancellable);
 
             const info = new Gio.FileInfo();
             info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
