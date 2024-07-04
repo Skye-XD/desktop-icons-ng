@@ -1168,6 +1168,10 @@ class ExtensionControl {
         this.RemoteExtensionManager.proxy.updateDesktopGeometrySync();
     }
 
+    showShellBackgroundMenu() {
+        this.RemoteExtensionManager.proxy.showShellBackgroundMenuSync();
+    }
+
     async getDropTargetCoordinates() {
         let x = await this._getShellDevicePointer();
         return x ? x[0].slice(0, 2) : null;

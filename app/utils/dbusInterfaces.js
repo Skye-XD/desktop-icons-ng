@@ -237,6 +237,7 @@ const DBusInterfaces = {
       <method name="setDragCursor">
         <arg type="s" direction="in" name="Set Shell Cursor"/>
       </method>
+      <method name="showShellBackgroundMenu"/>
     </interface>
   </node>`,
 };

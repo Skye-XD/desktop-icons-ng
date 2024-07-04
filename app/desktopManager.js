@@ -1473,6 +1473,12 @@ const DesktopManager = class {
         });
         this.mainApp.add_action(menuKeyPressed);
         this.mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
+
+        let displayShellBackgroundMenu = Gio.SimpleAction.new('displayShellBackgroundMenu', null);
+        displayShellBackgroundMenu.connect('activate', () => {
+            this.DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
+        });
+        this.mainApp.add_action(displayShellBackgroundMenu);
     }
 
     textEntryAccelsTurnOn() {
@@ -1556,16 +1562,18 @@ const DesktopManager = class {
 
         this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
 
-        this.backgroundMenu = Gio.Menu.new();
-        this.backgroundMenu.append(_('Change Background…'), 'app.changeBackGround');
-
-        this.desktopBackgroundGioMenu.append_section(null, this.backgroundMenu);
-
         this.settingsMenu = Gio.Menu.new();
         this.settingsMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
-        this.settingsMenu.append(_('Display Settings'), 'app.changeDisplaySettings');
 
         this.desktopBackgroundGioMenu.append_section(null, this.settingsMenu);
+
+        this.backgroundMenu = Gio.Menu.new();
+        this.backgroundMenu.append(_('Shell Menu…'), 'app.displayShellBackgroundMenu');
+        // Following deprectiated, Shell Menu has these options anyway
+        // this.backgroundMenu.append(_('Change Background…'), 'app.changeBackGround');
+        // this.backgroundMenu.append(_('Display Settings'), 'app.changeDisplaySettings');
+
+        this.desktopBackgroundGioMenu.append_section(null, this.backgroundMenu);
     }
 
     _selectAll() {
