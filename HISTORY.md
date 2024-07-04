@@ -1,4 +1,10 @@
 # History of versions #
+* Gtk4 version 78 for Gnome 45, 46.
+  * Use Gio._promisify from upstream instead of our own promiseUtils.js. (Sundeep Mediratta)
+  * Add option in right click menu to show the GNOME shell background menu. (Sundeep Mediratta)
+  * Weblate translations and new languages. (Weblate Authors)
+  * Update History.md, Readme.md, Features.md, metadata.json. Version Bump 78
+
 * Gtk4 version 77 for Gnome 45, 46 - bug fix.
   * Update desktopIconsIntegration for gnome shell 46. (Sundeep Mediratta)
   * Fix overview on multiple monitors, fade icons to transparent, fix conky jumping. (Sundeep Mediratta)

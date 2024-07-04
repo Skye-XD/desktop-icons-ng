@@ -126,6 +126,10 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Move elementspacing to Enums, add Enums.GRID_PADDING, this can be applied to the grid to add a padding to place icons away from all margins. Default is set to 0, howevers users and distributions can easily change this to personal preference.
 
+- [x] Uses upstream  Gio._promisify, and removes locally maintained promiseUtils.js that did the same thing. Ustream async improvemnts will therefore flow seamlessly to this app and extension.
+
+- [x] Extensions can manipulate the stock shell background menu to add options, for example switching backgrounds etc. Gtk4-Ding replaces the background menu with its own right click custom menu, hiding the shell background menu and all its options. Now Gtk4 DING adds an item in the right click desktop menu to open the shell background menu, with all it's options, including the ones other extensions may add. All shell settings are now shown in this menu.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.

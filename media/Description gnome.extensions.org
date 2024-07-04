@@ -8,7 +8,8 @@ Updated and modified code base, uses Gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
-* New - Icons can be placed on any arbitrary position. Make a mess! - icons can overlap each other etc. Neat people can keep the default behavior and have the icons always snapped to a grid. Controlled in preferences, tweaks, 'Snap to grid'. Affects the shape of icons and drag and drop behavior as well. Free positioning has trapezoidal icons, drop only works with direct overlap. Grid positioning has rectangular icons, and drag and drop works on overlap with the grid holding the icon. This behavior is consistent with other desktop environments.
+* The stock gnome shell background menu can now be shown from the Gtk4 DING desktop right click menu. All shell settings can be accessed from that menu.
+* Icons can be placed on any arbitrary position. Make a mess! - icons can overlap each other etc. Neat people can keep the default behavior and have the icons always snapped to a grid. Controlled in preferences, tweaks, 'Snap to grid'. Affects the shape of icons and drag and drop behavior as well. Free positioning has trapezoidal icons, drop only works with direct overlap. Grid positioning has rectangular icons, and drag and drop works on overlap with the grid holding the icon. This behavior is consistent with other desktop environments.
 * Icons on background on overview, improved gesture switching icons appear to be on all work spaces on the background with workspace switching, with no flashing.
 * Support for dragging icons onto the dock - Drag icons from desktop to and drop over application icon to open them with the app. Works with Dash to Dock and Dash to Panel.
 * Support for dragging icons from desktop directly to Trash on Dash to Dock, or to mounted volumes on the dock, to copy them directly.

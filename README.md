@@ -13,11 +13,11 @@ Gtk4 Desktop Icons NG is an extension and a program together for the GNOME Shell
 
 Desktop Icons NG (DING) by Sergio Costas itself is a fork/rewrite of the official 'Desktop Icons' extension, originally by Carlos Soriano.
 
-This new Gtk4 extension was originally submitted upstream to the DING project as a merge request. It was not merged for quite some time with development continuing on both branches simultaneously. The branches started diverging significantly, and further, the new commit's in gtk3-DING branch were not easily adaptable to changes already made in the gtk4 branch. That has since made it very difficult to rebase and merge all the new changes to the Gtk3 branch. A mutual decision was therefore made to continue independent development of both branches. Important bug fixes from branches are still back ported and forward-ported between them. Therefore there are two extensions available, the classic Gtk3 DING and this newer, l Gtk4/libadwaita branch.
+This new Gtk4 extension was originally submitted upstream to the DING project as a merge request. It was not merged for quite some time with development continuing on both branches simultaneously. The branches started diverging significantly, and further, the new commit's in the original DING branch were not easily adaptable to changes already made in this gtk4 branch. That made it very difficult to rebase and merge all the new changes to the original branch. A mutual decision was therefore made to continue independent development of both branches. Important bug fixes from branches are still back ported and forward-ported between them. Therefore there are two extensions available, the classic DING that uses Gtk 3, and this newer fork based on Gtk 4 and libadwaita.
 
 This fork of DING is ported to use the Gtk4 toolkit, and now has been ported to libadwaita. This, and the original DING can both be installed together, but only one can be activated at a time in the extension Manager. They use different install directories and GSettings schemas, therefore preferences set in one will not carrry through to the other. This is to avoid trampling on the stable branch and isolate errors from this branch.
 
-Other than using the Gtk4 toolkit, and now libadwaita, it in addition it has several new features, fixes and enhancements.
+Other than using the Gtk4 toolkit, and now libadwaita, it has in addition, several new features, fixes and enhancements.
 
 ## Features and Fixes
 
@@ -50,13 +50,13 @@ All known important issues are listed in [ISSUES.md](https://gitlab.com/smedius/
 The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
 </p>
 
-This should work out of the box for <b><u>Debian, Fedora</b></u>
+This should work out of the box for <b><u>Debian, Fedora, SUSE</b></u>
 
 <p style="text-align: left;">
 For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng). Default install from extensions.gnome.org should also work.
 </p>
 <p style="text-align: left;">
-For <b><u>Manjaro</b></u>, a native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository available.
+<b><u>Manjaro</b></u> Gnome desktop has this as a default installed desktop icons extension. A native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository is available. Default install from extensions.gnome.org should also work.
 </p>
 
 For <b><u>Nix OS</b></u>, please see additional manual installation instructions in the section below.
@@ -69,19 +69,19 @@ For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddogl
 
 The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next sections.
 
-If there are special steps to build and install the extension and app on your repository, please submit an MR to this Readme.md to help other users on the same distribution. Some NIX Os users very very helpful in doing that. Also local_install.sh in the scripts directory does read /etc/lsb-release, and any variables set there are imported into the script. Any variations necessary to install the extension and app can then be easily coded based on those variables at the end of the script. (See the Ubuntu example there already). I will be happy to include all changes necessary for your distribution in that script. Please submit an MR for that.
+If there are special steps to build and install the extension and app on your distribution, please submit an MR to this Readme.md to help other users on the same distribution. Some NIX Os users were very helpful in doing that. Also, local_install.sh in the scripts directory does read /etc/lsb-release, and any variables set there are imported into the script. Any variations necessary to install the extension and app on a particular distribution can then be easily coded, based on those variables, at the end of the script (See the Ubuntu example there already). I will be happy to include all changes necessary for your distribution in that script. Please submit an MR for that.
 
 <b><u>Ubuntu</b></u>
 
-In Ubuntu Jammy and probably later, the Ubuntu session is locked and only the default Ubuntu extensions run. Ubuntu runs it's own Desktop Icon Extension. Therefore, installing the extension from extensions.gnome.org will not work directly. The install script provided in the repository bypasses this and installs this as a manually installed extension. The default Desktop Icons extension that ships with Ubuntu then needs to be deactivated, and the manually installed one activated.
+In Ubuntu Jammy and later, the Ubuntu session is locked and only the default Ubuntu extensions run. Ubuntu runs it's own Desktop Icon Extension which is based on the old Gtk3 branch. Therefore, installing the extension from extensions.gnome.org will not work directly. The install script provided in the repository bypasses this and installs this as a manually installed extension. The default Desktop Icons extension that ships with Ubuntu then needs to be deactivated, and this newly installed one activated. It shows up on top as a user installed extension in extension manager.
 
-The other way to update to the newest one in Ubuntu is to install the "gnome-session" package, to enable the use of a standard gnome shell session, and in that session install the following extensions from extensions.gnome.org:
+The other method to update to this newest version in Ubuntu is to install the "gnome-session" package using apt or other native tools. This enables the use of a standard, unlocked, non Ubuntu, gnome shell session. In that session install the following extensions from extensions.gnome.org:
 
 * This Extension
-* Dash to dock
-* Appindicator and KstatusNotifierItem support
+* Dash to dock extension
+* Appindicator and KstatusNotifierItem support extensions
 
-That will allow the experience similar to the original Ubuntu desktop, but with the most recent versions of the extensions, without the default Ubuntu Desktop Icons Extension.
+That will recreate a desktop experience similar to the original Ubuntu desktop, but with the most recent versions of the extensions, and without the default Ubuntu Desktop Icons Extension. The session is also unlocked for other non Ubuntu extensions, so any other extensions can be easily installed using extension manager.
 
 <b><u>Nix OS</b></u>
 
@@ -149,7 +149,7 @@ This will create the zip file `gtk4-ding@smedius.gitlab.com.zip` of the extensio
 
 ## Contributing
 
-Fixes are welcome. Please post fixes and new ideas with an MR at GitLab. All issues there as well. Posting issues at org.gnome.extensions review of the extension web site helps no one, those issues are not tracked, and unlikely fixed.
+Fixes are welcome. Please post fixes and new ideas with an MR at GitLab. Post all issues there as well. Posting issues at org.gnome.extensions, in the reviews of the extension helps no one, those issues are not tracked, and unlikely fixed.
 
 There are ESLint rules in the repository, if able, please run ESLint on all contributions so that they follow GJS/Gnome guidelines. The ESLint.json is in the repository. The eslint-gjs.yml and eslint-shell.yml files are in the lint folder of the repository.
 
@@ -159,7 +159,7 @@ The internal architechture and integration with other extensions, as well as deb
 
 **Translations**
 
-Translations are welcome, the project uses gettext/ngetext, there are PO/POT files in the repository. You can help translate Gtk4 Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/). Translations are only accepted from that web site, it is crowd sourced and translations need to be approved and voted on if anonymous, they are less likely to have mistakes. The site also uses machine translation engines. Also direct translations accepted to PO/POT files in the past have broken the app and extension, the Weblate web sites creates clean PO/POT files that don't break gtk4-ding.
+Translations are welcome, the project uses gettext/ngetext, there are PO/POT files in the repository. You can help translate Gtk4 Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/). Translations are only accepted from that web site, it is crowd sourced and translations need to be approved and voted on if anonymous, as they are less likely to have mistakes. It just takes two votes to accept the change. The site also uses machine translation engines. Also direct translations accepted to PO/POT files have broken the app and extension in the past and sometimes do not merge cleanly, the Weblate web sites creates clean PO/POT files that don't break gtk4-ding and merge without problems.
 <p style="text-align: center;">
 <a href="https://hosted.weblate.org/engage/gtk4-desktop-icons-ng/">
 <img src="https://hosted.weblate.org/widgets/gtk4-desktop-icons-ng/-/gtk4-ding-pot/horizontal-auto.svg" alt="Translation status" />
