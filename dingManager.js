@@ -29,25 +29,19 @@ import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 import * as EmulateX11 from './emulateX11WindowType.js';
 import * as GnomeShellOverride from './gnomeShellOverride.js';
 import * as VisibleArea from './visibleArea.js';
-import * as PromiseUtils from './utils/promiseUtils.js';
 import * as FileUtils from './utils/fileUtils.js';
 
 const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
 
-PromiseUtils._promisify({keepOriginal: true},
-    Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish_utf8');
-PromiseUtils._promisify({keepOriginal: true},
-    Gio.Subprocess.prototype, 'wait_async');
+Gio._promisify(Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish_utf8');
+Gio._promisify(Gio.Subprocess.prototype, 'wait_async');
 
 const fileProto = imports.system.version >= 17200
     ? Gio.File.prototype : Gio._LocalFilePrototype;
-
-PromiseUtils._promisify({keepOriginal: true},
-    fileProto, 'enumerate_children_async');
-PromiseUtils._promisify({keepOriginal: true},
-    Gio.FileEnumerator.prototype, 'close_async');
-PromiseUtils._promisify({keepOriginal: true},
-    Gio.FileEnumerator.prototype, 'next_files_async');
+Gio._promisify(fileProto, 'enumerate_children_async');
+Gio._promisify(Gio.FileEnumerator.prototype, 'close_async');
+Gio._promisify(Gio.FileEnumerator.prototype, 'next_files_async');
+Gio._promisify(fileProto, 'load_bytes_async');
 
 const ifaceXml = `
 <node>
@@ -413,7 +407,7 @@ const DingManager = class {
             const processUser = Gio.File.new_for_path(processPath);
 
             try {
-                const [binaryData] = await processUser.load_bytes_async_promise(null);
+                const [binaryData] = await processUser.load_bytes_async(null);
                 const readData = binaryData.get_data();
                 let contents = '';
 
@@ -428,7 +422,7 @@ const DingManager = class {
                     let proc = new Gio.Subprocess({argv: ['/bin/kill', filename]});
                     proc.init(null);
                     console.log(`Killing old DING process ${filename}`);
-                    await proc.wait_async_promise(null);
+                    await proc.wait_async(null);
                 }
             } catch (e) {
 
@@ -587,7 +581,7 @@ var LaunchSubprocess = class {
 
         try {
             this.process_running = true;
-            await this.subprocess.wait_async_promise(cancellable);
+            await this.subprocess.wait_async(cancellable);
         } finally {
             cancellable.cancel();
             this.process_running = false;
@@ -605,7 +599,7 @@ var LaunchSubprocess = class {
     async readOutput(dataInputStream, cancellable) {
         let textDecoder = new TextDecoder();
         try {
-            const [output, length] = await dataInputStream.read_line_async_promise(
+            const [output, length] = await dataInputStream.read_line_async(
                 GLib.PRIORITY_DEFAULT, cancellable);
             if (length)
                 console.log(`${this._processID}: ${textDecoder.decode(output)}`);

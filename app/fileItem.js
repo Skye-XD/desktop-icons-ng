@@ -29,7 +29,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     constructor(desktopManager, file, fileInfo, fileExtra, custom) {
         super(desktopManager, fileExtra);
         this.DBusUtils = desktopManager.DBusUtils;
-        this.PromiseUtils = desktopManager.PromiseUtils;
         this._fileInfo = fileInfo;
         this._custom = custom;
         this._isSpecial = this._fileExtra !== this.Enums.FileType.NONE;
@@ -40,15 +39,14 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (imports.system.version < 17200 &&
             this._file.constructor.prototype !== Gio._LocalFilePrototype) {
             /* Older gjs may need specific implementations for special files */
-            this.PromiseUtils._promisify({},
-                this._file.constructor.prototype, 'query_info_async');
+            Gio._promisify(this._file.constructor.prototype, 'query_info_async');
         }
 
         if (this._custom) {
             /* gjs doesn't handle some virtual implementations well*/
-            this.PromiseUtils._promisify({}, this._custom.constructor.prototype,
+            Gio._promisify(this._custom.constructor.prototype,
                 'eject_with_operation');
-            this.PromiseUtils._promisify({}, this._custom.constructor.prototype,
+            Gio._promisify(this._custom.constructor.prototype,
                 'unmount_with_operation');
         }
 
