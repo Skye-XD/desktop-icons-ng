@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 20:02-0400\n"
+"POT-Creation-Date: 2024-07-04 10:36-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -219,27 +219,27 @@ msgstr ""
 msgid "Translate"
 msgstr ""
 
-#: app/appChooser.js:53
+#: app/appChooser.js:54
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr ""
 
-#: app/appChooser.js:61
+#: app/appChooser.js:62
 msgid "Open Items"
 msgstr ""
 
-#: app/appChooser.js:63
+#: app/appChooser.js:64
 msgid "Open Folder"
 msgstr ""
 
-#: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 msgid "Open File"
 msgstr ""
 
-#: app/appChooser.js:105
+#: app/appChooser.js:106
 msgid "Error changing default application"
 msgstr ""
 
-#: app/appChooser.js:106
+#: app/appChooser.js:107
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
@@ -251,7 +251,7 @@ msgstr ""
 msgid "File name"
 msgstr ""
 
-#: app/askRenamePopup.js:57 app/autoAr.js:294 app/desktopManager.js:1244
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1243
 #: app/fileItemMenu.js:805
 msgid "OK"
 msgstr ""
@@ -260,127 +260,127 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: app/autoAr.js:66
+#: app/autoAr.js:71
 msgid "AutoAr is not installed"
 msgstr ""
 
-#: app/autoAr.js:67
+#: app/autoAr.js:72
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
 
-#: app/autoAr.js:198
+#: app/autoAr.js:203
 msgid "Extracting files"
 msgstr ""
 
-#: app/autoAr.js:215
+#: app/autoAr.js:220
 msgid "Compressing files"
 msgstr ""
 
-#: app/autoAr.js:286 app/autoAr.js:615 app/desktopManager.js:774
-#: app/desktopManager.js:1246 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:773
+#: app/desktopManager.js:1245 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr ""
 
-#: app/autoAr.js:306 app/autoAr.js:603
+#: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
 msgstr ""
 
-#: app/autoAr.js:349
+#: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
 msgstr ""
 
-#: app/autoAr.js:368
+#: app/autoAr.js:373
 msgid "Creating destination folder"
 msgstr ""
 
-#: app/autoAr.js:400
+#: app/autoAr.js:405
 msgid "Extracting files into '${outputPath}'"
 msgstr ""
 
-#: app/autoAr.js:430
+#: app/autoAr.js:435
 msgid "Extraction completed"
 msgstr ""
 
-#: app/autoAr.js:431
+#: app/autoAr.js:436
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr ""
 
-#: app/autoAr.js:437
+#: app/autoAr.js:442
 msgid "Extraction cancelled"
 msgstr ""
 
-#: app/autoAr.js:438
+#: app/autoAr.js:443
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr ""
 
-#: app/autoAr.js:448
+#: app/autoAr.js:453
 msgid "Passphrase required for ${filename}"
 msgstr ""
 
-#: app/autoAr.js:451
+#: app/autoAr.js:456
 msgid "Error during extraction"
 msgstr ""
 
-#: app/autoAr.js:478
+#: app/autoAr.js:483
 msgid "Compressing files into '${outputFile}'"
 msgstr ""
 
-#: app/autoAr.js:491
+#: app/autoAr.js:496
 msgid "Compression completed"
 msgstr ""
 
-#: app/autoAr.js:492
+#: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr ""
 
-#: app/autoAr.js:496 app/autoAr.js:503
+#: app/autoAr.js:501 app/autoAr.js:508
 msgid "Cancelled compression"
 msgstr ""
 
-#: app/autoAr.js:497
+#: app/autoAr.js:502
 msgid "The output file '${outputFile}' already exists."
 msgstr ""
 
-#: app/autoAr.js:504
+#: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr ""
 
-#: app/autoAr.js:507
+#: app/autoAr.js:512
 msgid "Error during compression"
 msgstr ""
 
-#: app/autoAr.js:542
+#: app/autoAr.js:547
 msgid "Create archive"
 msgstr ""
 
-#: app/autoAr.js:566
+#: app/autoAr.js:571
 msgid "Archive name"
 msgstr ""
 
-#: app/autoAr.js:599
+#: app/autoAr.js:604
 msgid "Password"
 msgstr ""
 
-#: app/autoAr.js:612
+#: app/autoAr.js:617
 msgid "Create"
 msgstr ""
 
-#: app/autoAr.js:683
+#: app/autoAr.js:688
 msgid "Compatible with all operating systems."
 msgstr ""
 
-#: app/autoAr.js:689
+#: app/autoAr.js:694
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr ""
 
-#: app/autoAr.js:695
+#: app/autoAr.js:700
 msgid "Smaller archives but Linux and Mac only."
 msgstr ""
 
-#: app/autoAr.js:701
+#: app/autoAr.js:706
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
 
@@ -388,228 +388,224 @@ msgstr ""
 msgid "Desktop Icons"
 msgstr ""
 
-#: app/desktopManager.js:140
+#: app/desktopManager.js:139
 msgid "GNOME Files not found"
 msgstr ""
 
-#: app/desktopManager.js:141
+#: app/desktopManager.js:140
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
 
-#: app/desktopManager.js:153
+#: app/desktopManager.js:152
 msgid "There is no default File Manager"
 msgstr ""
 
-#: app/desktopManager.js:154
+#: app/desktopManager.js:153
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 
-#: app/desktopManager.js:166
+#: app/desktopManager.js:165
 msgid "Gnome Files is not registered as a File Manager"
 msgstr ""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:166
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:773
+#: app/desktopManager.js:772
 msgid "Choose Action for Files"
 msgstr ""
 
-#: app/desktopManager.js:774
+#: app/desktopManager.js:773
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:774 app/fileItemMenu.js:372
+#: app/desktopManager.js:773 app/fileItemMenu.js:372
 msgid "Copy"
 msgstr ""
 
-#: app/desktopManager.js:774
+#: app/desktopManager.js:773
 msgid "Link"
 msgstr ""
 
-#: app/desktopManager.js:861 app/desktopManager.js:893
+#: app/desktopManager.js:860 app/desktopManager.js:892
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:862 app/desktopManager.js:894
+#: app/desktopManager.js:861 app/desktopManager.js:893
 msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/desktopManager.js:1204
+#: app/desktopManager.js:1203
 msgid "Clear current selection before new search"
 msgstr ""
 
-#: app/desktopManager.js:1248
+#: app/desktopManager.js:1247
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1505
+#: app/desktopManager.js:1510
 msgid "Name"
 msgstr ""
 
-#: app/desktopManager.js:1506
+#: app/desktopManager.js:1511
 msgid "Name Z-A"
 msgstr ""
 
-#: app/desktopManager.js:1507
+#: app/desktopManager.js:1512
 msgid "Modified Time"
 msgstr ""
 
-#: app/desktopManager.js:1508
+#: app/desktopManager.js:1513
 msgid "Type"
 msgstr ""
 
-#: app/desktopManager.js:1509
+#: app/desktopManager.js:1514
 msgid "Size"
 msgstr ""
 
-#: app/desktopManager.js:1512
+#: app/desktopManager.js:1517
 msgid "Keep Arranged…"
 msgstr ""
 
-#: app/desktopManager.js:1516
+#: app/desktopManager.js:1521
 msgid "Keep Stacked by Type…"
 msgstr ""
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1522
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopManager.js:1522 app/desktopManager.js:2575
+#: app/desktopManager.js:1527 app/desktopManager.js:2578
 msgid "New Folder"
 msgstr ""
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1531
 msgid "New Document"
 msgstr ""
 
-#: app/desktopManager.js:1530
+#: app/desktopManager.js:1535
 msgid "Paste"
 msgstr ""
 
-#: app/desktopManager.js:1531
+#: app/desktopManager.js:1536
 msgid "Undo"
 msgstr ""
 
-#: app/desktopManager.js:1532
+#: app/desktopManager.js:1537
 msgid "Redo"
 msgstr ""
 
-#: app/desktopManager.js:1537
+#: app/desktopManager.js:1542
 msgid "Select All"
 msgstr ""
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1547
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopManager.js:1546
+#: app/desktopManager.js:1551
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopManager.js:1552
+#: app/desktopManager.js:1557
 msgid "Show Desktop In {0}"
 msgstr ""
 
-#: app/desktopManager.js:1555
+#: app/desktopManager.js:1560
 msgid "Open In {0}"
-msgstr ""
-
-#: app/desktopManager.js:1561
-msgid "Change Background…"
 msgstr ""
 
 #: app/desktopManager.js:1566
 msgid "Desktop Icon Settings"
 msgstr ""
 
-#: app/desktopManager.js:1567
-msgid "Display Settings"
+#: app/desktopManager.js:1571
+msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1610
+#: app/desktopManager.js:1617
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopManager.js:1610
+#: app/desktopManager.js:1617
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopManager.js:1624
+#: app/desktopManager.js:1631
 msgid "Settings"
 msgstr ""
 
-#: app/desktopManager.js:2598
+#: app/desktopManager.js:2601
 msgid "Folder Creation Failed"
 msgstr ""
 
-#: app/desktopManager.js:2599
+#: app/desktopManager.js:2602
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2642
+#: app/desktopManager.js:2645
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2643
+#: app/desktopManager.js:2646
 msgid "Could not create document"
 msgstr ""
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:140 app/fileItem.js:149
+#: app/fileItem.js:138 app/fileItem.js:147
 msgid "Home"
 msgstr ""
 
-#: app/fileItem.js:155
+#: app/fileItem.js:153
 msgid "Trash"
 msgstr ""
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:161
+#: app/fileItem.js:159
 msgid "Drive"
 msgstr ""
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
-#: app/fileItem.js:171
+#: app/fileItem.js:169
 msgid "Folder"
 msgstr ""
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:178
+#: app/fileItem.js:176
 msgid "File"
 msgstr ""
 
-#: app/fileItem.js:307
+#: app/fileItem.js:305
 msgid "Broken Link"
 msgstr ""
 
-#: app/fileItem.js:308
+#: app/fileItem.js:306
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 
-#: app/fileItem.js:339
+#: app/fileItem.js:337
 msgid "Opening File Failed"
 msgstr ""
 
-#: app/fileItem.js:341
+#: app/fileItem.js:339
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr ""
 
-#: app/fileItem.js:370
+#: app/fileItem.js:368
 msgid "Broken Desktop File"
 msgstr ""
 
-#: app/fileItem.js:371
+#: app/fileItem.js:369
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -617,33 +613,33 @@ msgid ""
 "Edit the file to set the correct executable Program."
 msgstr ""
 
-#: app/fileItem.js:377
+#: app/fileItem.js:375
 msgid "Invalid Permissions on Desktop File"
 msgstr ""
 
-#: app/fileItem.js:378
+#: app/fileItem.js:376
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 
-#: app/fileItem.js:380
+#: app/fileItem.js:378
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 
-#: app/fileItem.js:383
+#: app/fileItem.js:381
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 
-#: app/fileItem.js:390
+#: app/fileItem.js:388
 msgid "Untrusted Desktop File"
 msgstr ""
 
-#: app/fileItem.js:391
+#: app/fileItem.js:389
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -651,12 +647,12 @@ msgid ""
 "Enable \"Allow Launching\""
 msgstr ""
 
-#: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 msgid "Could not open File"
 msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
 msgid "${appName} can not open files of this Type!"
 msgstr ""
 
