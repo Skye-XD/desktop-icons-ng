@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-20 01:09+0000\n"
+"PO-Revision-Date: 2024-07-04 05:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6-rc\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -109,7 +109,7 @@ msgstr "Novo alinhamento de ícones"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Top left corner"
-msgstr "Canto superior esquerdo"
+msgstr "Canto superior esquerdo."
 
 #: app/adwPreferencesWindow.js:241
 #, fuzzy
@@ -124,7 +124,7 @@ msgstr "Canto inferior esquerdo."
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Canto inferior direito"
+msgstr "Canto inferior direito."
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
@@ -712,7 +712,7 @@ msgstr "Lixo"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Disco"
+msgstr "'Drive'"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -813,7 +813,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não foi possível abrir ficheiro"
+msgstr "Não pôde abrir o ficheiro"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
@@ -947,7 +947,7 @@ msgstr "Mova para a lixeira"
 #: app/fileItemMenu.js:414
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Apagar permanentemente"
+msgstr "Eliminar permanentemente"
 
 #: app/fileItemMenu.js:419
 #, fuzzy
@@ -1116,7 +1116,7 @@ msgstr "Mais informações"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Empilhar"
+msgstr "Pilha"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1162,7 +1162,7 @@ msgstr "_Abrir"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "Tamanho do ícone"
+msgstr "Tamanho dos ícones"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy

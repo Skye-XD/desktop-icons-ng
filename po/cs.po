@@ -12,9 +12,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-20 01:09+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2024-07-04 05:09+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
@@ -22,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.6-rc\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -58,7 +57,7 @@ msgstr "Nastavení pro program Desktop"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Svazky"
+msgstr "Objemy"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -107,7 +106,7 @@ msgstr "Zarovnání nových ikon"
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "Top left corner"
-msgstr "Horní-levej roh"
+msgstr "Levý horní roh"
 
 #: app/adwPreferencesWindow.js:241
 #, fuzzy
@@ -122,7 +121,7 @@ msgstr "Spodní levý roh"
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Dolní-pravej roh"
+msgstr "Spodní pravý roh"
 
 #: app/adwPreferencesWindow.js:248
 #, fuzzy
@@ -552,7 +551,7 @@ msgstr "Name"
 #: app/desktopManager.js:1506
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název (Z-A)"
+msgstr "Název Z - A"
 
 #: app/desktopManager.js:1507
 #, fuzzy
@@ -692,7 +691,7 @@ msgstr "Koš"
 #: app/fileItem.js:161
 #, fuzzy
 msgid "Drive"
-msgstr "Úložiště"
+msgstr "Disk"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -878,12 +877,12 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesunout do .."
+msgstr "Přesuň k"
 
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovat do..."
+msgstr "Kopírovat do .."
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"

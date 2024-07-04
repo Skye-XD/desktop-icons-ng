@@ -10,9 +10,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-03 23:09+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2024-07-03 00:09+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -30,18 +29,18 @@ msgstr "桌上型電腦"
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #, fuzzy
 msgid "Files"
-msgstr "檔案"
+msgstr "文件"
 
 #: app/adwPreferencesWindow.js:185 app/adwPreferencesWindow.js:186
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "修改"
+msgstr "調整"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "關於"
+msgstr "關于"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -243,7 +242,7 @@ msgstr "報表"
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
 msgid "License"
-msgstr "License"
+msgstr "協議"
 
 #: app/adwPreferencesWindow.js:333
 #, fuzzy
@@ -438,7 +437,7 @@ msgstr "密碼"
 #: app/autoAr.js:612
 #, fuzzy
 msgid "Create"
-msgstr "製作"
+msgstr "建立"
 
 #: app/autoAr.js:683
 #, fuzzy
@@ -563,7 +562,7 @@ msgstr "類型"
 #: app/desktopManager.js:1509
 #, fuzzy
 msgid "Size"
-msgstr "大小"
+msgstr "大"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -795,7 +794,7 @@ msgstr ""
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "無法打開文件"
+msgstr "無法開啟檔案"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:403 app/gnomeShellDragDrop.js:240
