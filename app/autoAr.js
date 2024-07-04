@@ -18,6 +18,11 @@
 import {Gtk, GLib, Gio, GnomeAutoar} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
+
+const fileProto = imports.system.version >= 17200
+    ? Gio.File.prototype : Gio._LocalFilePrototype;
+Gio._promisify(fileProto, 'make_directory_async');
+
 const Signals = imports.signals;
 
 export {AutoAr};
