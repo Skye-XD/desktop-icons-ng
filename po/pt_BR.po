@@ -8,12 +8,13 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-20 01:09+0000\n"
+"PO-Revision-Date: 2024-07-04 05:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6-rc\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -30,7 +31,6 @@ msgid "Desktop"
 msgstr "Área de trabalho"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#, fuzzy
 msgid "Files"
 msgstr "Arquivos"
 
@@ -46,9 +46,8 @@ msgid "About"
 msgstr "Sobre"
 
 #: app/adwPreferencesWindow.js:201
-#, fuzzy
 msgid "Desktop Settings"
-msgstr "Configurações do Desktop"
+msgstr "Configurações da Área de Trabalho"
 
 #: app/adwPreferencesWindow.js:202
 #, fuzzy

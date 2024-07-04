@@ -12,8 +12,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 20:02-0400\n"
-"PO-Revision-Date: 2024-06-02 20:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-07-03 00:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -260,7 +261,7 @@ msgstr "Rapportera"
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
 msgid "License"
-msgstr "License"
+msgstr "Licens"
 
 #: app/adwPreferencesWindow.js:333
 #, fuzzy
@@ -295,7 +296,7 @@ msgstr "Öppna mapp"
 #: app/appChooser.js:65 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
-msgstr "Öppna fil"
+msgstr "Öppna filen"
 
 #: app/appChooser.js:105
 #, fuzzy
@@ -719,7 +720,7 @@ msgstr "Mapp"
 #, fuzzy
 #| msgid "Files"
 msgid "File"
-msgstr "Fil"
+msgstr "Arkiv"
 
 #: app/fileItem.js:307
 msgid "Broken Link"
