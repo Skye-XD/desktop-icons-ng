@@ -16,10 +16,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-04 05:09+0000\n"
+"PO-Revision-Date: 2024-07-05 15:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce Ayarlar"
+msgstr "Düzenlemeler"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -552,7 +552,7 @@ msgstr "Ad"
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Ad Z - A"
+msgstr "Name (Z-A)"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -790,7 +790,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyası açılamadı"
+msgstr "Dosya açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -868,7 +868,7 @@ msgstr "Kes"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Buraya taşı..."
+msgstr "Taşı..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
