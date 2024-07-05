@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-04 05:09+0000\n"
+"PO-Revision-Date: 2024-07-05 15:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +57,7 @@ msgstr "Nastavení pro program Desktop"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Objemy"
+msgstr "Svazky"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -551,7 +551,7 @@ msgstr "Name"
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název Z - A"
+msgstr "Název (Z-A)"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -687,7 +687,7 @@ msgstr "Koš"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Disk"
+msgstr "Úložiště"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -873,7 +873,7 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesuň k"
+msgstr "Přesunout do"
 
 #: app/fileItemMenu.js:377
 #, fuzzy

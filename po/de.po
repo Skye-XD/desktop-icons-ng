@@ -13,10 +13,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-04 05:09+0000\n"
+"PO-Revision-Date: 2024-07-05 15:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -662,7 +662,7 @@ msgstr "Papierkorb"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Steuerung"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -768,7 +768,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Konnte Datei nicht öffnen"
+msgstr "Datei konnte nicht geöffnet werden"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -851,7 +851,7 @@ msgstr "Verschieben auf..."
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopieren nach …"
+msgstr "Kopieren nach..."
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"
