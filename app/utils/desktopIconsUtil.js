@@ -147,7 +147,7 @@ const DesktopIconsUtil = class {
      */
     spawnCommandLine(commandLine, environ = null) {
         try {
-            let argv = GLib.shell_parse_argv(commandLine).slice(1);
+            const [, argv] = GLib.shell_parse_argv(commandLine);
             this.trySpawn(null, argv, environ);
         } catch (e) {
             console.error(e, `${commandLine} failed with ${e}`);
@@ -168,13 +168,13 @@ const DesktopIconsUtil = class {
          *
          * https://gitlab.gnome.org/GNOME/gnome-shell/blob/gnome-3-30/js/misc/util.js
          */
-        var exec = async ? GLib.spawn_async : GLib.spawn_sync;
-        var flags = async ? GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD
+        const exec = async ? GLib.spawn_async : GLib.spawn_sync;
+        const flags = async ? GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD
             : GLib.SpawnFlags.SEARCH_PATH;
         var pid;
         try {
-            pid = exec(workdir, argv, environ, flags,
-                () => {}).slice(1);
+            [, pid] = exec(workdir, argv, environ, flags,
+                () => {});
         } catch (err) {
             /* Rewrite the error in case of ENOENT */
             if (err.matches(GLib.SpawnError, GLib.SpawnError.NOENT)) {
