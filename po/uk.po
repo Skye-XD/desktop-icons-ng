@@ -5,22 +5,23 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# Yevhen Popok <xalt7x.service@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-06-20 01:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/uk/>\n"
+"PO-Revision-Date: 2024-07-20 19:09+0000\n"
+"Last-Translator: Yevhen Popok <xalt7x.service@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.6-rc\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -28,15 +29,13 @@ msgid "Desktop"
 msgstr "Настільний"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#, fuzzy
 msgid "Files"
 msgstr "Файли"
 
 #: app/adwPreferencesWindow.js:185 app/adwPreferencesWindow.js:186
 #: app/adwPreferencesWindow.js:216
-#, fuzzy
 msgid "Tweaks"
-msgstr "Коригування"
+msgstr "Налаштування"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -103,7 +102,6 @@ msgid "New icons alignment"
 msgstr "Вирівнювання для нових піктограм"
 
 #: app/adwPreferencesWindow.js:240
-#, fuzzy
 msgid "Top left corner"
 msgstr "Верхній лівий кут"
 
@@ -113,7 +111,6 @@ msgid "Top right corner"
 msgstr "Верхній лівий кут"
 
 #: app/adwPreferencesWindow.js:242
-#, fuzzy
 msgid "Bottom left corner"
 msgstr "Нижній лівий кут"
 
