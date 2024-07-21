@@ -6,13 +6,16 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# Autantpourmoi <luc.valigny@gmail.com>, 2024.
+# Ludovic <ludo.goulet@hotmail.com>, 2024.
+# Red Quarck <redquarck@proton.me>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-05 15:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-07-18 22:09+0000\n"
+"Last-Translator: Red Quarck <redquarck@proton.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -28,7 +31,6 @@ msgid "Desktop"
 msgstr "Ordinateur de bureau"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
-#, fuzzy
 msgid "Files"
 msgstr "Fichiers"
 
@@ -44,9 +46,8 @@ msgid "About"
 msgstr "À propos"
 
 #: app/adwPreferencesWindow.js:201
-#, fuzzy
 msgid "Desktop Settings"
-msgstr "Paramètres de bureau"
+msgstr "Paramètres du bureau"
 
 #: app/adwPreferencesWindow.js:202
 #, fuzzy
@@ -472,9 +473,8 @@ msgid "Desktop Icons"
 msgstr "Icône de bureau"
 
 #: app/desktopManager.js:139
-#, fuzzy
 msgid "GNOME Files not found"
-msgstr "GNOME Fichiers non trouvés"
+msgstr "Fichiers GNOME non trouvés"
 
 #: app/desktopManager.js:140
 #, fuzzy
@@ -510,9 +510,8 @@ msgid "Choose Action for Files"
 msgstr "Choisissez Action for Files"
 
 #: app/desktopManager.js:773
-#, fuzzy
 msgid "Move"
-msgstr "Move"
+msgstr "Déplacer"
 
 #: app/desktopManager.js:773 app/fileItemMenu.js:372
 msgid "Copy"
@@ -622,9 +621,8 @@ msgid "Show Desktop In {0}"
 msgstr "Show Desktop Dans {0}"
 
 #: app/desktopManager.js:1560
-#, fuzzy
 msgid "Open In {0}"
-msgstr "Ouvrez dans {0}"
+msgstr "Ouvrir dans {0}"
 
 #: app/desktopManager.js:1566
 #, fuzzy
@@ -675,10 +673,8 @@ msgid "Home"
 msgstr "Dossier personnel"
 
 #: app/fileItem.js:153
-#, fuzzy
-#| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Poubelle"
+msgstr "Corbeille"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
@@ -692,10 +688,8 @@ msgstr "Elan"
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
 #: app/fileItem.js:169
-#, fuzzy
-#| msgid "New Folder"
 msgid "Folder"
-msgstr "Répertoire"
+msgstr "Dossier"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -988,9 +982,8 @@ msgid "Extraction Cancelled"
 msgstr "Extraction annulée"
 
 #: app/fileItemMenu.js:568
-#, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Impossible à extraire Fichier, pas de dossier de destination"
+msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
 
 #: app/fileItemMenu.js:600
 #, fuzzy
@@ -1235,7 +1228,7 @@ msgstr "Conserver les icônes ordonnées"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "Conserver le dernier ordre de tri des icônes"
+msgstr "Toujours Conserver le dernier ordre de tri des icônes"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 msgid "Arrange Order"
@@ -1266,7 +1259,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Add an emblem to links"
-msgstr "Ajouter un emblème aux liens symboliques"
+msgstr "Ajouter un emblème aux liens"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Add an emblem to allow to identify soft links."
@@ -1299,18 +1292,16 @@ msgstr ""
 "le moniteur non primaire"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr "Icons peut être positionné n'importe où sur Desktop"
+msgstr "les icones peuvent être positionnées n'importe où sur le Bureau"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
 "Les icônes ne sont pas sur une grille rectangulaire mais peuvent être "
-"postées n'importe où indépendant de la grille"
+"positionnées n'importe où indépendament  de la grille"
 
 #~ msgid "Change Background…"
 #~ msgstr "Changer l’arrière‑plan…"
