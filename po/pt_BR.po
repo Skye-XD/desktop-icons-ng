@@ -9,15 +9,16 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2024.
+# Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-04 05:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"PO-Revision-Date: 2024-07-27 20:09+0000\n"
+"Last-Translator: Jhonny Rosa <jh0nny.rosa@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,24 +51,20 @@ msgid "Desktop Settings"
 msgstr "Configurações da Área de Trabalho"
 
 #: app/adwPreferencesWindow.js:202
-#, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Configurações para o Programa de Ambiente de Trabalho"
+msgstr "Configurações para o Programa de Área de Trabalho"
 
 #: app/adwPreferencesWindow.js:206
-#, fuzzy
 msgid "Volumes"
-msgstr "Volumes"
+msgstr "Discos"
 
 #: app/adwPreferencesWindow.js:207
-#, fuzzy
 msgid "Desktop volumes display"
-msgstr "Exibição de volumes de desktop"
+msgstr "Exibição de discos da Área de Trabalho"
 
 #: app/adwPreferencesWindow.js:211
-#, fuzzy
 msgid "Files Settings"
-msgstr "Configurações de arquivos"
+msgstr "Configurações de Arquivos"
 
 #: app/adwPreferencesWindow.js:212
 #, fuzzy
