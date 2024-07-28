@@ -1041,7 +1041,7 @@ const DesktopManager = class {
             if (menuGtkPosition)
                 this.popupmenu.set_position(menuGtkPosition);
 
-            this.popupmenu.set_has_arrow(true);
+            this.popupmenu.set_has_arrow(false);
             this.popupmenu.popup();
             this.popupmenu.connect('closed', async () => {
                 await this.DesktopIconsUtil.waitDelayMs(50);
