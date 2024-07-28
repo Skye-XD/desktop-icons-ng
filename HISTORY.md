@@ -1,4 +1,10 @@
 # History of versions #
+* Gtk4 version 79 for Gnome 45, 46
+  * Fix spawncommandline regression for executing file directly from desktop. (Sundeep Mediratta)
+  * Remove arrow pointer for desktop background menu to look like shell background menu. (Sundeep Mediratta)
+  * Weblate translations update. (Weblate Authors)
+  * Update History.md, metadata.json. Version Bump 79
+
 * Gtk4 version 78 for Gnome 45, 46.
   * Use Gio._promisify from upstream instead of our own promiseUtils.js. (Sundeep Mediratta)
   * Add option in right click menu to show the GNOME shell background menu. (Sundeep Mediratta)
