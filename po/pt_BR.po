@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-02 20:09+0000\n"
+"PO-Revision-Date: 2024-08-04 22:47+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -39,7 +39,7 @@ msgstr "Arquivos"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "Ajustes"
+msgstr "Forçados"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
