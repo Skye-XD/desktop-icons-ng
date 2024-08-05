@@ -540,7 +540,7 @@ msgstr "Ustawienia ikon pulpitu"
 
 #: app/desktopManager.js:1571
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Menu powłoki"
 
 #: app/desktopManager.js:1617
 msgid "Preferences Window is Open"
