@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-05 15:09+0000\n"
+"PO-Revision-Date: 2024-08-06 05:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
@@ -39,7 +39,7 @@ msgstr "Ajustes"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Acerca"
+msgstr "Sobre"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -451,7 +451,7 @@ msgstr "Nome do arquivo"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Palavra-passe"
+msgstr "Palavra-chave"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -533,7 +533,7 @@ msgstr "Copiar"
 #: app/desktopManager.js:773
 #, fuzzy
 msgid "Link"
-msgstr "Hiperligação"
+msgstr "Criar Hiperligação"
 
 #: app/desktopManager.js:860 app/desktopManager.js:892
 #, fuzzy
@@ -667,7 +667,7 @@ msgstr "Esta janela está aberta. Por favor, mude para a janela ativa."
 #: app/desktopManager.js:1631
 #, fuzzy
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Definições"
 
 #: app/desktopManager.js:2601
 #, fuzzy
@@ -706,7 +706,7 @@ msgstr "Lixo"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "'Drive'"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -807,7 +807,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir o ficheiro"
+msgstr "Não pôde abrir Ficheiros"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -1110,7 +1110,7 @@ msgstr "Mais informações"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Empilhar"
+msgstr "Pilha"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1151,7 +1151,7 @@ msgstr "_Cancelar"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Abrir"
+msgstr "Abrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy

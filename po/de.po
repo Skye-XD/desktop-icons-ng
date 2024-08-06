@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-04 22:47+0000\n"
+"PO-Revision-Date: 2024-08-06 05:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -257,7 +257,7 @@ msgstr "Wählen Sie eine Anwendung zum Öffnen <b>{foo}</b>"
 #: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
-msgstr "@:account.creditlimit.openInvoices"
+msgstr "Offene Posten"
 
 #: app/appChooser.js:64
 #, fuzzy
@@ -655,7 +655,7 @@ msgstr "Papierkorb"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Laufwerk"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -1049,7 +1049,7 @@ msgstr "Weitere Informationen"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stapeln"
+msgstr "Stapel"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

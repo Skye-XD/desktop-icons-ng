@@ -12,8 +12,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-05 15:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-08-06 05:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
@@ -42,7 +43,7 @@ msgstr "Vylepšení"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "O nás"
+msgstr "O programu"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -270,7 +271,7 @@ msgstr "Vyberte aplikaci pro otevření <b>{foo}</b>"
 #: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
-msgstr "Otevřít Položku"
+msgstr "Otevřené položky"
 
 #: app/appChooser.js:64
 #, fuzzy
@@ -551,7 +552,7 @@ msgstr "Name"
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název (Z-A)"
+msgstr "Název Z - A"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -687,7 +688,7 @@ msgstr "Koš"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Úložiště"
+msgstr "Mechanika výměnných médií"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -793,7 +794,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Soubor nelze otevřít"
+msgstr "Nelze otevřít soubory"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -873,7 +874,7 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesunout do"
+msgstr "Přesuň k"
 
 #: app/fileItemMenu.js:377
 #, fuzzy

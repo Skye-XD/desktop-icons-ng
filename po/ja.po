@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-05 15:09+0000\n"
+"PO-Revision-Date: 2024-08-06 05:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
@@ -26,7 +26,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
 msgid "Desktop"
-msgstr "デスクトップ"
+msgstr "デスクトップ向け"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 #, fuzzy
@@ -42,7 +42,7 @@ msgstr "微調整"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "About"
+msgstr "概要"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -545,7 +545,7 @@ msgstr "デスクトップ上のファイルを検索"
 #: app/desktopManager.js:1510
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "チャンネル名"
 
 #: app/desktopManager.js:1511
 #, fuzzy
@@ -560,7 +560,7 @@ msgstr "変更された時間"
 #: app/desktopManager.js:1513
 #, fuzzy
 msgid "Type"
-msgstr "種類"
+msgstr "福祉施設種類"
 
 #: app/desktopManager.js:1514
 #, fuzzy
@@ -809,7 +809,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "ファイルが開けませんでした"
+msgstr "ファイルを開けませんでした"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240

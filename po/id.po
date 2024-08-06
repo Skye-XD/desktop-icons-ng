@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-05 15:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-08-06 05:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
@@ -448,7 +449,7 @@ msgstr "Nama Arsip"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Kata sandi"
+msgstr "Sandi"
 
 #: app/autoAr.js:617
 msgid "Create"
@@ -1141,7 +1142,7 @@ msgstr "_Batal"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "B_uka"
+msgstr "_Buka"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
