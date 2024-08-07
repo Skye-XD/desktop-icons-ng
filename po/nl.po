@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-07-05 15:09+0000\n"
+"PO-Revision-Date: 2024-08-07 06:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
@@ -84,7 +84,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Tiny"
-msgstr "Erg klein"
+msgstr "Heel klein"
 
 #: app/adwPreferencesWindow.js:231
 msgid "Small"
@@ -576,7 +576,7 @@ msgstr "Type"
 #: app/desktopManager.js:1514
 #, fuzzy
 msgid "Size"
-msgstr "Omvang"
+msgstr "Grootte"
 
 #: app/desktopManager.js:1517
 #, fuzzy
@@ -670,7 +670,7 @@ msgstr "Maken Orde is mislukt."
 #: app/desktopManager.js:2602
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Kan geen map aanmaken."
+msgstr "Map kon niet gemaakt worden."
 
 #: app/desktopManager.js:2645
 #, fuzzy
@@ -680,7 +680,7 @@ msgstr "Vertaling:"
 #: app/desktopManager.js:2646
 #, fuzzy
 msgid "Could not create document"
-msgstr "Kon geen document maken"
+msgstr "Kon het document niet verwijderen"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:138 app/fileItem.js:147
@@ -699,7 +699,7 @@ msgstr "Prullenbak"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Autorit"
+msgstr "Schijf"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -804,7 +804,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kon bestand niet openen"
+msgstr "Kon Bestanden niet openen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -887,7 +887,7 @@ msgstr "Knippen"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Verplaats naar..."
+msgstr "Verplaatsen naar ..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
@@ -1140,7 +1140,7 @@ msgstr "_Annuleren"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Openen"
+msgstr "_Open"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
