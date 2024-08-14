@@ -9,13 +9,14 @@
 # yan <y191961946@gmail.com>, 2024.
 # 0xarch <alanqa-ops@outlook.com>, 2024.
 # 复予 <clonewith@qq.com>, 2024.
+# sans leaf <tiflew123@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-09 12:09+0000\n"
-"Last-Translator: Daniel Zhang <xiaozhangshiw@163.com>\n"
+"PO-Revision-Date: 2024-08-14 17:09+0000\n"
+"Last-Translator: sans leaf <tiflew123@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -229,9 +230,8 @@ msgid "Translate"
 msgstr "翻译"
 
 #: app/appChooser.js:54
-#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "选择开放<b>{foo}</b>的申请"
+msgstr "选择打开<b>{foo}</b>的应用"
 
 #: app/appChooser.js:62
 msgid "Open Items"
