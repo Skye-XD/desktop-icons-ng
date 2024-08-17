@@ -3216,6 +3216,13 @@ const DesktopManager = class {
         this._updateDesktop().catch(e => {
             console.log(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
         });
+        if (this.cssColorDefinitionChangeID)
+            GLib.source_remove(this.cssColorDefinitionChangeID)
+        this.cssColorDefinitionChangeID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+            this.onGtkThemeChange();
+            this.cssColorDefinitionChangeID = 0;
+            return GLib.SOURCE_REMOVE;
+        });
     }
 
     onGnomeFilesSettingsChanged() {
@@ -3266,6 +3273,6 @@ const DesktopManager = class {
 
     onGtkThemeChange() {
         Gtk.StyleContext.remove_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection);
-        this._setSelectionColor();
+        this._configureSelectionColor();
     }
 };

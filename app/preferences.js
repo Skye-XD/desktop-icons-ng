@@ -241,9 +241,9 @@ const Preferences = class {
             this._desktopManager.onGtkThemeChange();
         });
 
-        // Gnome Dark Mode Changes
+        // Gnome Dark Mode Changes and theme color changes
         this.schemaGnomeThemeSettings.connect('changed', (obj, key) => {
-            if ((key === 'color-scheme') || (key === 'gtk-theme') || (key === 'icon-theme')) {
+            if (key === 'color-scheme') {
                 this.darkMode = this.schemaGnomeThemeSettings.get_string('color-scheme') === 'prefer-dark';
                 this._desktopManager.onGtkThemeChange();
             }
