@@ -892,7 +892,7 @@ const DesktopGrid = class {
             red: this._desktopManager.selectColor.red,
             green: this._desktopManager.selectColor.green,
             blue: this._desktopManager.selectColor.blue,
-            alpha: 0.3,
+            alpha: 0.15,
         });
         const outlineColor = new Gdk.RGBA({
             red: this._desktopManager.selectColor.red,
