@@ -864,7 +864,7 @@ const DesktopGrid = class {
 
     _doDrawOnGrid(actor, cr) {
         this._doDrawRubberBand(actor, cr);
-        this._doDrawDropRectangles(actor, cr);
+        this._doDrawDropRectangles(actor, cr).catch(console.error);
     }
 
     queue_draw() {
@@ -928,9 +928,8 @@ const DesktopGrid = class {
         return new Promise(resolve => {
             cr.rectangle(x + 0.5, y + 0.5, width, height);
             Gdk.cairo_set_source_rgba(cr, fillColor);
-            cr.fill();
+            cr.fillPreserve();
             cr.setLineWidth(0.5);
-            cr.rectangle(x + 0.5, y + 0.5, width, height);
             Gdk.cairo_set_source_rgba(cr, outlineColor);
             cr.stroke();
             resolve(true);
