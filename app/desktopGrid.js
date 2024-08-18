@@ -864,7 +864,7 @@ const DesktopGrid = class {
 
     _doDrawOnGrid(actor, cr) {
         this._doDrawRubberBand(actor, cr);
-        this._doDrawDropRectangles(actor, cr);
+        this._doDrawDropRectangles(actor, cr).catch(console.error);
     }
 
     queue_draw() {
@@ -879,7 +879,7 @@ const DesktopGrid = class {
         this._drawArea.queue_draw();
     }
 
-    async _doDrawRubberBand(actor, cr) {
+    _doDrawRubberBand(actor, cr) {
         if (!this._desktopManager.rubberBand ||
             !this._desktopManager.selectionRectangle ||
             !this.gridGlobalRectangle.intersect(this._desktopManager.selectionRectangle)[0])
@@ -892,7 +892,7 @@ const DesktopGrid = class {
             red: this._desktopManager.selectColor.red,
             green: this._desktopManager.selectColor.green,
             blue: this._desktopManager.selectColor.blue,
-            alpha: 0.3,
+            alpha: 0.15,
         });
         const outlineColor = new Gdk.RGBA({
             red: this._desktopManager.selectColor.red,
@@ -900,7 +900,7 @@ const DesktopGrid = class {
             blue: this._desktopManager.selectColor.blue,
             alpha: 1.0,
         });
-        await this._rectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor).catch(console.error);
+        this._roundedRectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor);
     }
 
     async _doDrawDropRectangles(actor, cr) {
@@ -928,13 +928,28 @@ const DesktopGrid = class {
         return new Promise(resolve => {
             cr.rectangle(x + 0.5, y + 0.5, width, height);
             Gdk.cairo_set_source_rgba(cr, fillColor);
-            cr.fill();
+            cr.fillPreserve();
             cr.setLineWidth(0.5);
-            cr.rectangle(x + 0.5, y + 0.5, width, height);
             Gdk.cairo_set_source_rgba(cr, outlineColor);
             cr.stroke();
             resolve(true);
         });
+    }
+
+    _roundedRectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
+        const radius = 5;
+        const degrees = 3.14 / 180;
+        cr.newSubPath();
+        cr.arc(x + width - radius, y + radius, radius, -90 * degrees, 0 * degrees);
+        cr.arc(x + width - radius, y + height - radius, radius, 0 * degrees, 90 * degrees);
+        cr.arc(x + radius, y + height - radius, radius, 90 * degrees, 180 * degrees);
+        cr.arc(x + radius, y + radius, radius, 180 * degrees, 270 * degrees);
+        cr.closePath();
+        Gdk.cairo_set_source_rgba(cr, fillColor);
+        cr.fillPreserve();
+        cr.setLineWidth(1.0);
+        Gdk.cairo_set_source_rgba(cr, outlineColor);
+        cr.stroke();
     }
 
     // Functions for computing postion/Geometry
