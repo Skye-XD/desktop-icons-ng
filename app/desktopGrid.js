@@ -863,8 +863,9 @@ const DesktopGrid = class {
     }
 
     _doDrawOnGrid(actor, cr) {
-        this._doDrawRubberBand(actor, cr);
-        this._doDrawDropRectangles(actor, cr).catch(console.error);
+        this._doDrawRubberBand(cr);
+        this._doDrawDropRectangles(cr).catch(console.error);
+        cr.$dispose();
     }
 
     queue_draw() {
@@ -879,7 +880,7 @@ const DesktopGrid = class {
         this._drawArea.queue_draw();
     }
 
-    _doDrawRubberBand(actor, cr) {
+    _doDrawRubberBand(cr) {
         if (!this._desktopManager.rubberBand ||
             !this._desktopManager.selectionRectangle ||
             !this.gridGlobalRectangle.intersect(this._desktopManager.selectionRectangle)[0])
@@ -903,7 +904,7 @@ const DesktopGrid = class {
         this._roundedRectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor);
     }
 
-    async _doDrawDropRectangles(actor, cr) {
+    async _doDrawDropRectangles(cr) {
         if (!this.Prefs.showDropPlace || this._selectedList === null)
             return;
         const fillColor = new Gdk.RGBA({
