@@ -4,10 +4,11 @@ Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
 Icons can be positioned anywhere on desktop or are snapped to a grid. Can make links on the Desktop. GSconnect Integration, can send files to connected devices. Drag and Drop support on to Dock, Dash, or from Dock, Dash to the Desktop.
 
-Updated and modified code base, uses Gio menus, all translations on Weblate. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome  45 and higher.
+Updated and modified code base, uses Gio menus, all translations on Weblate. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome 45 and higher.
 
 Multiple fixes and new features-
 
+* Selection rectangle with rounded corners, similar to Gnome Files aesthetic.
 * The stock gnome shell background menu can now be shown from the Gtk4 DING desktop right click menu. All shell settings can be accessed from that menu.
 * Icons can be placed on any arbitrary position. Make a mess! - icons can overlap each other etc. Neat people can keep the default behavior and have the icons always snapped to a grid. Controlled in preferences, tweaks, 'Snap to grid'. Affects the shape of icons and drag and drop behavior as well. Free positioning has trapezoidal icons, drop only works with direct overlap. Grid positioning has rectangular icons, and drag and drop works on overlap with the grid holding the icon. This behavior is consistent with other desktop environments.
 * Icons on background on overview, improved gesture switching icons appear to be on all work spaces on the background with workspace switching, with no flashing.
