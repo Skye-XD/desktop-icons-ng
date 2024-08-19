@@ -3235,7 +3235,7 @@ const DesktopManager = class {
             console.log(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
         });
         if (this.cssColorDefinitionChangeID)
-            GLib.source_remove(this.cssColorDefinitionChangeID)
+            GLib.source_remove(this.cssColorDefinitionChangeID);
         this.cssColorDefinitionChangeID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
             this.onGtkThemeChange();
             this.cssColorDefinitionChangeID = 0;
