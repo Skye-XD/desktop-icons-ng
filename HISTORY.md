@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 80 for Gnome 45, 46
+  * Update selection rectangle to have rounded borders to look like the one in Gnome Files. (Sundeep Mediratta)
+  * Dispose the Cairo.Context correctly after the draw function is done drawing. (Sundeep Mediratta)
+  * Fix regression, selection colors would lag behind and reflect the prior theme after theme changes in Ubuntu. (Sundeep Mediratta)
+  * Weblate translations. (Weblate Authors)
+  * Update History.md, Features.md, metadata.json. Version Bump 80.
+
 * Gtk4 version 79 for Gnome 45, 46
   * Fix spawncommandline regression for executing file directly from desktop. (Sundeep Mediratta)
   * Remove arrow pointer for desktop background menu to look like shell background menu. (Sundeep Mediratta)

@@ -130,6 +130,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Extensions can manipulate the stock shell background menu to add options, for example switching backgrounds etc. Gtk4-Ding replaces the background menu with its own right click custom menu, hiding the shell background menu and all its options. Now Gtk4 DING adds an item in the right click desktop menu to open the shell background menu, with all it's options, including the ones other extensions may add. All shell settings are now shown in this menu.
 
+- [x] Make the selection rectangle / rubber band with rounded cornes, and a thicker margin, more translucent to look like the selection rectangle in Gnome Files.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -249,3 +251,7 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix incorrect calculation of fileItemRectangleFitsGrid, this was putting icons out of place.
 
 - [x] Fix desktop stealing focus when mapped and with every workspace change.
+
+- [x] Dispose of Cairo.Context correctly to prevent memory leaks after draw function is done drawing.
+
+- [x] Fix, selection colors would lag behind after theme changes on Ubuntu and still reflect the prior theme. Add a timeout and then interrogate the foreground and background colors to get the correct colors for the new theme.
