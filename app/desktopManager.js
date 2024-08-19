@@ -251,13 +251,21 @@ const DesktopManager = class {
     }
 
     _initLocalCSSprovider() {
-        let cssProvider = new Gtk.CssProvider();
-        cssProvider.load_from_file(Gio.File.new_for_path(GLib.build_filenamev([this._codePath, 'app', 'resources', 'stylesheet.css'])));
-        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        const cssProvider = new Gtk.CssProvider();
+        cssProvider.load_from_file(
+            Gio.File.new_for_path(
+                GLib.build_filenamev(
+                    [this._codePath, 'app', 'resources', 'stylesheet.css']
+                )));
+        Gtk.StyleContext.add_provider_for_display(
+            Gdk.Display.get_default(),
+            cssProvider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
     }
 
     _configureSelectionColor() {
-        let box = new Gtk.Label();
+        const box = new Gtk.Label();
         this._styleContext = box.get_style_context();
         this._styleContext.add_class('view');
         this._setSelectionColor();
@@ -287,16 +295,26 @@ const DesktopManager = class {
             });
         }
 
-        let cssColorDefinition = `@define-color desktop_icons_bg_color ${this.selectColor.to_string()};\n`;
-        cssColorDefinition += `@define-color desktop_icons_fg_color ${this.hoverColor.to_string()};`;
+        let cssColorDefinition =
+            `@define-color desktop_icons_bg_color ${this.selectColor.to_string()};\n`;
+        cssColorDefinition +=
+            `@define-color desktop_icons_fg_color ${this.hoverColor.to_string()};`;
         this._cssColorProviderSelection = new Gtk.CssProvider();
         // fix for api change Gtk 4.9
         try {
             this._cssColorProviderSelection.load_from_data(cssColorDefinition);
         } catch (e) {
-            this._cssColorProviderSelection.load_from_data(cssColorDefinition, -1);
+            const gsizeLength = -1; // NULL terminated string
+            this._cssColorProviderSelection.load_from_data(
+                cssColorDefinition,
+                gsizeLength
+            );
         }
-        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection, 600);
+        Gtk.StyleContext.add_provider_for_display(
+            Gdk.Display.get_default(),
+            this._cssColorProviderSelection,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
     }
 
     _monitorDesktopChanges() {
@@ -3216,6 +3234,13 @@ const DesktopManager = class {
         this._updateDesktop().catch(e => {
             console.log(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
         });
+        if (this.cssColorDefinitionChangeID)
+            GLib.source_remove(this.cssColorDefinitionChangeID)
+        this.cssColorDefinitionChangeID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+            this.onGtkThemeChange();
+            this.cssColorDefinitionChangeID = 0;
+            return GLib.SOURCE_REMOVE;
+        });
     }
 
     onGnomeFilesSettingsChanged() {
@@ -3266,6 +3291,6 @@ const DesktopManager = class {
 
     onGtkThemeChange() {
         Gtk.StyleContext.remove_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection);
-        this._setSelectionColor();
+        this._configureSelectionColor();
     }
 };
