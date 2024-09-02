@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-06 05:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-09-02 19:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -41,7 +42,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce ayarlar"
+msgstr "İnce Ayarlar"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -241,7 +242,7 @@ msgstr "Tartışma sorunları"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Bildir"
+msgstr "Rapor"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -547,12 +548,12 @@ msgstr "Masaüstündeki Dosyaları Bul"
 #: app/desktopManager.js:1510
 #, fuzzy
 msgid "Name"
-msgstr "Isim"
+msgstr "Ad"
 
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Name (Z-A)"
+msgstr "Ad (Z-A)"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -567,7 +568,7 @@ msgstr "Tür"
 #: app/desktopManager.js:1514
 #, fuzzy
 msgid "Size"
-msgstr "Boyut"
+msgstr "Size"
 
 #: app/desktopManager.js:1517
 #, fuzzy

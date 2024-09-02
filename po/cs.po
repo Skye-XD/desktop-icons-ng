@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-06 05:09+0000\n"
+"PO-Revision-Date: 2024-09-02 19:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -43,7 +43,7 @@ msgstr "Vylepšení"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "O programu"
+msgstr "O nás"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -58,7 +58,7 @@ msgstr "Nastavení pro program Desktop"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Svazky"
+msgstr "Objemy"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -221,7 +221,7 @@ msgstr "Otevřete složky na drag hover"
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "Website"
-msgstr "Webová stránka"
+msgstr "Stránka"
 
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
@@ -552,7 +552,7 @@ msgstr "Name"
 #: app/desktopManager.js:1511
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název Z - A"
+msgstr "Název (Z-A)"
 
 #: app/desktopManager.js:1512
 #, fuzzy
@@ -688,7 +688,7 @@ msgstr "Koš"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Mechanika výměnných médií"
+msgstr "Disk"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -794,7 +794,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nelze otevřít soubory"
+msgstr "Soubor nelze otevřít"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -879,7 +879,7 @@ msgstr "Přesuň k"
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovat do .."
+msgstr "Kopírovat do..."
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"
