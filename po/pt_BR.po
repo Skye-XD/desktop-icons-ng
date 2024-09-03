@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-06 05:09+0000\n"
+"PO-Revision-Date: 2024-09-02 19:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -243,7 +243,7 @@ msgstr "Denunciar"
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
 msgid "License"
-msgstr "License"
+msgstr "Licença"
 
 #: app/adwPreferencesWindow.js:333
 #, fuzzy
@@ -704,7 +704,7 @@ msgstr "Pasta"
 #: app/fileItem.js:176
 #, fuzzy
 msgid "File"
-msgstr "Arquivos"
+msgstr "Arquivo"
 
 #: app/fileItem.js:305
 #, fuzzy
@@ -789,7 +789,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir Arquivos"
+msgstr "Não pôde abrir o arquivo"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-04 22:47+0000\n"
+"PO-Revision-Date: 2024-09-02 19:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -41,7 +41,7 @@ msgstr "Τροποποιήσεις"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Σχετικά"
+msgstr "Περί"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -455,7 +455,7 @@ msgstr "Archive name"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Κωδικός Πρόσβασης"
+msgstr "Κωδικός πρόσβασης"
 
 #: app/autoAr.js:617
 #, fuzzy

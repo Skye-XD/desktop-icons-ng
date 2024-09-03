@@ -9,13 +9,14 @@
 # Autantpourmoi <luc.valigny@gmail.com>, 2024.
 # Ludovic <ludo.goulet@hotmail.com>, 2024.
 # Red Quarck <redquarck@proton.me>, 2024.
+# "Alexandre G. Raymond" <alex@ndre.gr>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-24 17:18+0000\n"
-"Last-Translator: Ludovic <ludo.goulet@hotmail.com>\n"
+"PO-Revision-Date: 2024-08-25 18:09+0000\n"
+"Last-Translator: \"Alexandre G. Raymond\" <alex@ndre.gr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -27,7 +28,7 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
-msgstr "Bureau"
+msgstr "Ordinateur de bureau"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 msgid "Files"
@@ -40,7 +41,6 @@ msgid "Tweaks"
 msgstr "Ajustements"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
-#, fuzzy
 msgid "About"
 msgstr "À propos"
 
@@ -49,34 +49,28 @@ msgid "Desktop Settings"
 msgstr "Paramètres du bureau"
 
 #: app/adwPreferencesWindow.js:202
-#, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Paramètres pour le programme Bureau"
+msgstr "Paramètres du programme Bureau"
 
 #: app/adwPreferencesWindow.js:206
-#, fuzzy
 msgid "Volumes"
 msgstr "Volumes"
 
 #: app/adwPreferencesWindow.js:207
-#, fuzzy
 msgid "Desktop volumes display"
-msgstr "Affichage des volumes de bureau"
+msgstr "Affichage des volumes sur le bureau"
 
 #: app/adwPreferencesWindow.js:211
-#, fuzzy
 msgid "Files Settings"
-msgstr "Paramètres du Fichier"
+msgstr "Paramètres des fichiers"
 
 #: app/adwPreferencesWindow.js:212
-#, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Paramètres partagés avec les fichiers Gnome"
+msgstr "Paramètres partagés avec Gnome Files"
 
 #: app/adwPreferencesWindow.js:217
-#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Divers Tweaks"
+msgstr "Réglages divers"
 
 #: app/adwPreferencesWindow.js:228
 msgid "Size for the desktop icons"
@@ -103,17 +97,14 @@ msgid "New icons alignment"
 msgstr "Nouvel alignement des icônes"
 
 #: app/adwPreferencesWindow.js:240
-#, fuzzy
 msgid "Top left corner"
 msgstr "Coin supérieur gauche"
 
 #: app/adwPreferencesWindow.js:241
-#, fuzzy
 msgid "Top right corner"
 msgstr "Coin supérieur droit"
 
 #: app/adwPreferencesWindow.js:242
-#, fuzzy
 msgid "Bottom left corner"
 msgstr "Coin inférieur gauche"
 
@@ -502,6 +493,9 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"L'application GNOME Files n'est pas programmée pour ouvrir Folders\n"
+"Vérifiez votre installation xdg-utils\n"
+"Vérifiez le fichier d'installation Gnome Files .desktop"
 
 #: app/desktopManager.js:772
 #, fuzzy
@@ -630,7 +624,7 @@ msgstr "Préférences des icônes du bureau"
 
 #: app/desktopManager.js:1571
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Menu Shell…"
 
 #: app/desktopManager.js:1617
 #, fuzzy
@@ -903,8 +897,8 @@ msgstr "Créer un lien..."
 #: app/fileItemMenu.js:389
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] "Comprenez les dossiers {0}"
+msgstr[0] "Compressez {0} dossier"
+msgstr[1] "Compressez {0} dossiers"
 
 #: app/fileItemMenu.js:396
 msgid "Compress {0} file"

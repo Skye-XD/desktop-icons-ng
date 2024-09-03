@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-06 05:09+0000\n"
+"PO-Revision-Date: 2024-09-02 19:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -39,7 +39,7 @@ msgstr "Ajustes"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Sobre"
+msgstr "Acerca"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -249,7 +249,7 @@ msgstr "Relatar problemas no rastreador de problemas"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Denunciar"
+msgstr "Submeter"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -451,7 +451,7 @@ msgstr "Nome do arquivo"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Palavra-chave"
+msgstr "Palavra-passe"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -667,7 +667,7 @@ msgstr "Esta janela está aberta. Por favor, mude para a janela ativa."
 #: app/desktopManager.js:1631
 #, fuzzy
 msgid "Settings"
-msgstr "Definições"
+msgstr "Configurações"
 
 #: app/desktopManager.js:2601
 #, fuzzy
@@ -706,7 +706,7 @@ msgstr "Lixo"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Dispositivo"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -807,7 +807,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir Ficheiros"
+msgstr "Não foi possível abrir ficheiro"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -941,7 +941,7 @@ msgstr "Mova para a lixeira"
 #: app/fileItemMenu.js:414
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Eliminar permanentemente"
+msgstr "Apagar permanentemente"
 
 #: app/fileItemMenu.js:419
 #, fuzzy
@@ -1110,7 +1110,7 @@ msgstr "Mais informações"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Pilha"
+msgstr "Empilhar"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1151,7 +1151,7 @@ msgstr "_Cancelar"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Abrir"
+msgstr "_Abrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
