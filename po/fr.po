@@ -10,13 +10,14 @@
 # Ludovic <ludo.goulet@hotmail.com>, 2024.
 # Red Quarck <redquarck@proton.me>, 2024.
 # "Alexandre G. Raymond" <alex@ndre.gr>, 2024.
+# fanfu <com-ubuntu@descamps.eu>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-04 10:36-0400\n"
-"PO-Revision-Date: 2024-08-25 18:09+0000\n"
-"Last-Translator: \"Alexandre G. Raymond\" <alex@ndre.gr>\n"
+"PO-Revision-Date: 2024-09-05 20:09+0000\n"
+"Last-Translator: Ludovic <ludo.goulet@hotmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -24,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -300,9 +301,8 @@ msgid "Rename"
 msgstr "Renommer"
 
 #: app/autoAr.js:71
-#, fuzzy
 msgid "AutoAr is not installed"
-msgstr "Auto Ar n'est pas installé"
+msgstr "AutoAr n'est pas installé"
 
 #: app/autoAr.js:72
 #, fuzzy
@@ -319,9 +319,8 @@ msgid "Extracting files"
 msgstr "Extraire des fichiers"
 
 #: app/autoAr.js:220
-#, fuzzy
 msgid "Compressing files"
-msgstr "Compression des fichiers."
+msgstr "Compression des fichiers"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:773
 #: app/desktopManager.js:1245 app/fileItemMenu.js:651 app/fileItemMenu.js:805
@@ -345,9 +344,8 @@ msgid "Creating destination folder"
 msgstr "Création du dossier de destination"
 
 #: app/autoAr.js:405
-#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "Extraire des fichiers dans '${outputPath} '"
+msgstr "Extraction des fichiers dans '${outputPath}'"
 
 #: app/autoAr.js:435
 #, fuzzy
@@ -375,9 +373,8 @@ msgid "Passphrase required for ${filename}"
 msgstr "Passphrase requis pour ${filename}"
 
 #: app/autoAr.js:456
-#, fuzzy
 msgid "Error during extraction"
-msgstr "Erreur lors de l ' extraction"
+msgstr "Erreur lors de l'extraction"
 
 #: app/autoAr.js:483
 #, fuzzy
@@ -405,14 +402,12 @@ msgid "The output file '${outputFile}' already exists."
 msgstr "Le fichier de sortie '${outputFile}' existe déjà."
 
 #: app/autoAr.js:509
-#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr ""
-"Les fichiers compresseurs dans '${outputFile}' ont été annulés par "
+"La compression des fichiers dans'${outputFile}' a été annulée par "
 "l'utilisateur."
 
 #: app/autoAr.js:512
-#, fuzzy
 msgid "Error during compression"
 msgstr "Erreur lors de la compression"
 
@@ -498,9 +493,8 @@ msgstr ""
 "Vérifiez le fichier d'installation Gnome Files .desktop"
 
 #: app/desktopManager.js:772
-#, fuzzy
 msgid "Choose Action for Files"
-msgstr "Choisissez Action for Files"
+msgstr "Choisir l'action pour les fichiers"
 
 #: app/desktopManager.js:773
 msgid "Move"
@@ -516,9 +510,8 @@ msgid "Link"
 msgstr "Lien"
 
 #: app/desktopManager.js:860 app/desktopManager.js:892
-#, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Faire Failed SymLink"
+msgstr "Échec de la création de SymLink"
 
 #: app/desktopManager.js:861 app/desktopManager.js:893
 #, fuzzy
@@ -570,9 +563,8 @@ msgid "Keep Stacked by Type…"
 msgstr "Conserver les icônes regoupées par type…"
 
 #: app/desktopManager.js:1522
-#, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Trier Dossier personnel, Corbeille et volumes…"
+msgstr "Trier Dossier personnel/Volumes/Corbeille"
 
 #: app/desktopManager.js:1527 app/desktopManager.js:2578
 msgid "New Folder"
@@ -603,15 +595,12 @@ msgid "Arrange Icons"
 msgstr "Ordonner les icônes"
 
 #: app/desktopManager.js:1551
-#, fuzzy
 msgid "Arrange By…"
-msgstr "Arrangé par :"
+msgstr "Trier par :"
 
 #: app/desktopManager.js:1557
-#, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Show Desktop Dans {0}"
+msgstr "Afficher le bureau dans {0}"
 
 #: app/desktopManager.js:1560
 msgid "Open In {0}"
@@ -641,9 +630,8 @@ msgid "Settings"
 msgstr "Paramètres"
 
 #: app/desktopManager.js:2601
-#, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Impossible de créer la commande."
+msgstr "Échec de la création du dossier"
 
 #: app/desktopManager.js:2602
 #, fuzzy
@@ -651,9 +639,8 @@ msgid "Could not create folder"
 msgstr "Impossible de créer un dossier"
 
 #: app/desktopManager.js:2645
-#, fuzzy
 msgid "Template Creation Error"
-msgstr "Template Creation Error"
+msgstr "Erreur de création d'un modèle"
 
 #: app/desktopManager.js:2646
 #, fuzzy
@@ -673,9 +660,8 @@ msgstr "Corbeille"
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
 #: app/fileItem.js:159
-#, fuzzy
 msgid "Drive"
-msgstr "Elan"
+msgstr "Volume"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -820,14 +806,12 @@ msgid "Open All..."
 msgstr "Ouvrir tout…"
 
 #: app/fileItemMenu.js:316
-#, fuzzy
 msgid "Run"
-msgstr "Ouvrir"
+msgstr "Exécuter"
 
 #: app/fileItemMenu.js:318
-#, fuzzy
 msgid "Open with {foo}"
-msgstr "Ouvrez avec {foo}"
+msgstr "Ouvrir avec {foo}"
 
 #: app/fileItemMenu.js:320
 msgid "Open"
@@ -912,9 +896,8 @@ msgid "Email to..."
 msgstr "Email à..."
 
 #: app/fileItemMenu.js:407
-#, fuzzy
 msgid "Send to Mobile Device"
-msgstr "Envoyer à Appareil mobile"
+msgstr "Envoyer à l'appareil mobile"
 
 #: app/fileItemMenu.js:411
 msgid "Move to Trash"
@@ -965,9 +948,8 @@ msgid "Show in {0}"
 msgstr "Montrer dans {0}"
 
 #: app/fileItemMenu.js:448
-#, fuzzy
 msgid "Open in {0}"
-msgstr "Ouvrez dans {0}"
+msgstr "Ouvrir dans {0}"
 
 #: app/fileItemMenu.js:567
 #, fuzzy
