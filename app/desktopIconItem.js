@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf, Poppler, Graphene} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopIconItem};
@@ -544,13 +544,17 @@ const DesktopIconItem = class {
             }
         }
 
+        const contentType = this._fileInfo.get_content_type();
+
         if (!iconSet &&
             this.Prefs.showImageThumbnails &&
-            this.fileSize < 5242880 &&
-            PIXBUF_CONTENT_TYPES.has(this._fileInfo.get_content_type())) {
+            this.fileSize < 5242880) {
             try {
-                iconSet = await this._loadImageAsIcon(
-                    Gio.File.new_for_uri(this.uri), cancellable);
+                const file = Gio.File.new_for_uri(this.uri);
+                if (PIXBUF_CONTENT_TYPES.has(contentType))
+                    iconSet = await this._loadImageAsIcon(file, cancellable);
+                else if (contentType === 'application/pdf' || contentType === 'x-pdf')
+                    iconSet = this._loadPdfAsIcon(file, cancellable);
             } catch (e) {
                 if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                     throw e;
@@ -584,6 +588,55 @@ const DesktopIconItem = class {
         return this._fileInfo.get_icon();
     }
 
+    _loadPdfAsIcon(imagefile, cancellable) {
+        try {
+            // Assume no password
+            const password = null;
+            const popplerDocument = Poppler.Document.new_from_gfile(imagefile, password, cancellable);
+            if (!popplerDocument)
+                return false;
+            const firstPage = popplerDocument.get_page(0);
+            if (!firstPage)
+                return false;
+            const [pagewidth, pageheight] = firstPage.get_size();
+            let iconPaintableSnapshot = Gtk.Snapshot.new();
+            const bounds = new Graphene.Rect();
+            bounds.init(0, 0, pagewidth, pageheight);
+            const ctx = iconPaintableSnapshot.append_cairo(bounds);
+            this._drawPdfOn(ctx, firstPage);
+            let width = this.Prefs.DesiredWidth - 8;
+            let height = this.Prefs.IconSize - 8;
+            const aspectRatio = pagewidth / pageheight;
+            if ((width / height) > aspectRatio)
+                width = height * aspectRatio;
+            else
+                height = width / aspectRatio;
+            const iconBounds = new Graphene.Rect();
+            iconBounds.init(0, 0, width, height);
+            let icon = iconPaintableSnapshot.to_paintable(iconBounds.size);
+            icon = this._addEmblemsToIconIfNeeded(icon);
+            this._icon.set_paintable(icon);
+
+            return true;
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                throw e;
+
+            console.error(e, `Error while loading ${imagefile.get_uri()} as icon`);
+            return false;
+        }
+    }
+
+    _drawPdfOn(ctx, firstPage) {
+        ctx.setSourceRGBA(1, 1, 1, 1);
+        ctx.save();
+        ctx.paint();
+        ctx.restore();
+        firstPage.render(ctx);
+        ctx.save();
+        ctx.$dispose();
+    }
+
     async _loadImageAsIcon(imageFile, cancellable) {
         try {
             const [thumbnailData] = await imageFile.load_bytes_async(cancellable);
@@ -606,7 +659,7 @@ const DesktopIconItem = class {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 throw e;
 
-            console.error(e, `Error while loading ${imageFile.get_uri()}`);
+            console.error(e, `Error while loading ${imageFile.get_uri()} as icon`);
             return false;
         }
     }

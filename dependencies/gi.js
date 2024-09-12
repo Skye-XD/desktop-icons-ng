@@ -22,9 +22,12 @@ import Graphene from 'gi://Graphene';
 import Gsk from 'gi://Gsk';
 import Gtk from 'gi://Gtk';
 import Pango from 'gi://Pango';
+import Poppler from 'gi://Poppler';
+import Cairo from 'gi://cairo';
 
 export {
     Adw,
+    Cairo,
     Gdk,
     GdkPixbuf,
     GdkX11,
@@ -38,5 +41,6 @@ export {
     Graphene,
     Gsk,
     Gtk,
-    Pango
+    Pango,
+    Poppler
 };
