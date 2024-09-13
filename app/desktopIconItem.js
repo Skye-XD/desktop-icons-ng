@@ -599,21 +599,22 @@ const DesktopIconItem = class {
             if (!firstPage)
                 return false;
             const [pagewidth, pageheight] = firstPage.get_size();
-            let iconPaintableSnapshot = Gtk.Snapshot.new();
+            let pdfSnapshot = Gtk.Snapshot.new();
             const bounds = new Graphene.Rect();
             bounds.init(0, 0, pagewidth, pageheight);
-            const ctx = iconPaintableSnapshot.append_cairo(bounds);
+            const ctx = pdfSnapshot.append_cairo(bounds);
             this._drawPdfOn(ctx, firstPage);
-            let width = this.Prefs.DesiredWidth - 8;
-            let height = this.Prefs.IconSize - 8;
+            let width = this.Prefs.DesiredWidth;
+            let height = this.Prefs.IconSize;
             const aspectRatio = pagewidth / pageheight;
             if ((width / height) > aspectRatio)
                 width = height * aspectRatio;
             else
                 height = width / aspectRatio;
-            const iconBounds = new Graphene.Rect();
-            iconBounds.init(0, 0, width, height);
-            let icon = iconPaintableSnapshot.to_paintable(iconBounds.size);
+            const paintable = pdfSnapshot.to_paintable(null);
+            const scaledIconSnapshot = Gtk.Snapshot.new();
+            paintable.snapshot(scaledIconSnapshot, width, height);
+            let icon = scaledIconSnapshot.to_paintable(null);
             icon = this._addEmblemsToIconIfNeeded(icon);
             this._icon.set_paintable(icon);
 
