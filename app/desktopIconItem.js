@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf, Poppler, Graphene} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf, Poppler, Cairo} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopIconItem};
@@ -599,11 +599,7 @@ const DesktopIconItem = class {
             if (!firstPage)
                 return false;
             const [pagewidth, pageheight] = firstPage.get_size();
-            let pdfSnapshot = Gtk.Snapshot.new();
-            const bounds = new Graphene.Rect();
-            bounds.init(0, 0, pagewidth, pageheight);
-            const ctx = pdfSnapshot.append_cairo(bounds);
-            this._drawPdfOn(ctx, firstPage);
+
             let width = this.Prefs.DesiredWidth;
             let height = this.Prefs.IconSize;
             const aspectRatio = pagewidth / pageheight;
@@ -611,10 +607,25 @@ const DesktopIconItem = class {
                 width = height * aspectRatio;
             else
                 height = width / aspectRatio;
-            const paintable = pdfSnapshot.to_paintable(null);
-            const scaledIconSnapshot = Gtk.Snapshot.new();
-            paintable.snapshot(scaledIconSnapshot, width, height);
-            let icon = scaledIconSnapshot.to_paintable(null);
+            const hScale = width / pagewidth;
+            const vScale = height / pageheight;
+
+            const imageSurface = new Cairo.ImageSurface(Cairo.Format.ARGB32, pagewidth, pageheight);
+            const ctx = new Cairo.Context(imageSurface);
+            this._drawPdfOn(ctx, firstPage);
+
+            const scaledSurface = new Cairo.ImageSurface(Cairo.Format.ARGB32, width, height);
+            const scaledCtx = new Cairo.Context(scaledSurface);
+            scaledCtx.scale(hScale, vScale);
+
+            scaledCtx.setSourceSurface(imageSurface, 0, 0);
+            scaledCtx.paint();
+
+            const pixbuf = Gdk.pixbuf_get_from_surface(scaledSurface, 0, 0, width, height);
+            ctx.$dispose();
+            scaledCtx.$dispose();
+
+            let icon = Gdk.Texture.new_for_pixbuf(pixbuf);
             icon = this._addEmblemsToIconIfNeeded(icon);
             this._icon.set_paintable(icon);
 
@@ -623,7 +634,7 @@ const DesktopIconItem = class {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 throw e;
 
-            console.error(e, `Error while loading ${imagefile.get_uri()} as icon`);
+            console.error(e, `Error while loading pdf ${imagefile.get_uri()} as icon`);
             return false;
         }
     }
@@ -635,7 +646,6 @@ const DesktopIconItem = class {
         ctx.restore();
         firstPage.render(ctx);
         ctx.save();
-        ctx.$dispose();
     }
 
     async _loadImageAsIcon(imageFile, cancellable) {
