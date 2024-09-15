@@ -68,6 +68,8 @@ const DesktopManager = class {
         this.autoAr = new AutoAr.AutoAr(this);
         this.appChooser = AppChooser;
         this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
+        this.thumbnailLoader = new Thumbnails.ThumbnailLoader(this._codePath,
+            this.FileUtils);
 
         // Init Variables
         this._selectedFiles = null;
@@ -109,7 +111,9 @@ const DesktopManager = class {
         this._intDBusSignalMonitoring();
         this._dbusAdvertiseUpdate();
 
-        this._initDbusThumbnailing();
+        this._updateDesktop().catch(e => {
+            console.log(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
+        });
 
         // Check if Gnome Files is available and executable, otherwise give warning
         // Check and make sure Gnome Files is registered with xdg-utils to handle inode/directory
@@ -187,13 +191,6 @@ const DesktopManager = class {
             _errorDialog.run();
 
         return _errorDialog;
-    }
-
-    _initDbusThumbnailing() {
-        this.thumbnailLoader = new Thumbnails.ThumbnailLoader(this._codePath, this.FileUtils);
-        this._updateDesktop().catch(e => {
-            console.log(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
-        });
     }
 
     terminateProgram() {
