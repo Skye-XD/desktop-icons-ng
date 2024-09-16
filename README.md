@@ -63,7 +63,7 @@ For <b><u>Nix OS</b></u>, please see additional manual installation instructions
 
 <b><u>Ubuntu</b></u> requires manual installation, see instructions below.
 
-For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddoglinux.ddns.net/linux/gnome/45.x/source/_extensions/gnome-shell-extension-desktop-icons-ng/). Default install from extensions.gnome.org should also work.
+For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddoglinux.ddns.net/linux/gnome/46.x/source/extensions/gnome-shell-extension-desktop-icons-ng/). Default install from extensions.gnome.org should also work.
 
 ## Manual installation
 
