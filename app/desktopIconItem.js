@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf, Poppler, Cairo} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopIconItem};
@@ -544,25 +544,6 @@ const DesktopIconItem = class {
             }
         }
 
-        const contentType = this._fileInfo.get_content_type();
-
-        if (!iconSet &&
-            this.Prefs.showImageThumbnails &&
-            this.fileSize < 5242880) {
-            try {
-                const file = Gio.File.new_for_uri(this.uri);
-                if (PIXBUF_CONTENT_TYPES.has(contentType))
-                    iconSet = await this._loadImageAsIcon(file, cancellable);
-                else if (contentType === 'application/pdf' || contentType === 'x-pdf')
-                    iconSet = this._loadPdfAsIcon(file, cancellable);
-            } catch (e) {
-                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                    throw e;
-
-                console.error(e, `Error while generating icon image: ${e.message}`);
-            }
-        }
-
         if (!iconSet) {
             let iconPaintable;
             if (this._isBrokenSymlink)
@@ -586,66 +567,6 @@ const DesktopIconItem = class {
             return this._custom.get_icon();
 
         return this._fileInfo.get_icon();
-    }
-
-    _loadPdfAsIcon(imagefile, cancellable) {
-        try {
-            // Assume no password
-            const password = null;
-            const popplerDocument = Poppler.Document.new_from_gfile(imagefile, password, cancellable);
-            if (!popplerDocument)
-                return false;
-            const firstPage = popplerDocument.get_page(0);
-            if (!firstPage)
-                return false;
-            const [pagewidth, pageheight] = firstPage.get_size();
-
-            let width = this.Prefs.DesiredWidth;
-            let height = this.Prefs.IconSize;
-            const aspectRatio = pagewidth / pageheight;
-            if ((width / height) > aspectRatio)
-                width = height * aspectRatio;
-            else
-                height = width / aspectRatio;
-            const hScale = width / pagewidth;
-            const vScale = height / pageheight;
-
-            const imageSurface = new Cairo.ImageSurface(Cairo.Format.ARGB32, pagewidth, pageheight);
-            const ctx = new Cairo.Context(imageSurface);
-            this._drawPdfOn(ctx, firstPage);
-
-            const scaledSurface = new Cairo.ImageSurface(Cairo.Format.ARGB32, width, height);
-            const scaledCtx = new Cairo.Context(scaledSurface);
-            scaledCtx.scale(hScale, vScale);
-
-            scaledCtx.setSourceSurface(imageSurface, 0, 0);
-            scaledCtx.paint();
-
-            const pixbuf = Gdk.pixbuf_get_from_surface(scaledSurface, 0, 0, width, height);
-            ctx.$dispose();
-            scaledCtx.$dispose();
-
-            let icon = Gdk.Texture.new_for_pixbuf(pixbuf);
-            icon = this._addEmblemsToIconIfNeeded(icon);
-            this._icon.set_paintable(icon);
-
-            return true;
-        } catch (e) {
-            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                throw e;
-
-            console.error(e, `Error while loading pdf ${imagefile.get_uri()} as icon`);
-            return false;
-        }
-    }
-
-    _drawPdfOn(ctx, firstPage) {
-        ctx.setSourceRGBA(1, 1, 1, 1);
-        ctx.save();
-        ctx.paint();
-        ctx.restore();
-        firstPage.render(ctx);
-        ctx.save();
     }
 
     async _loadImageAsIcon(imageFile, cancellable) {
