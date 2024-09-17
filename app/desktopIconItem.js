@@ -663,6 +663,8 @@ const DesktopIconItem = class {
             iconTexture.snapshot(iconPaintableSnapshot, Math.floor(width), Math.floor(height));
             let icon = iconPaintableSnapshot.to_paintable(null);
             icon = this._addEmblemsToIconIfNeeded(icon);
+            this._icon.margin_top = 4;
+            this._icon.margin_bottom = 4;
             this._icon.set_paintable(icon);
 
             return true;
