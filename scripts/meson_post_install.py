@@ -14,13 +14,13 @@ if prefix.startswith('/usr'):
         destination_path = os.environ['DESTDIR']
     else:
         destination_path = '/'
-    apparmor = os.path.join(source_path, 'apparmor', 'desktop-icons-ng.in')
+    apparmor = os.path.join(source_path, 'apparmor', 'gtk4-desktop-icons.in')
     with open(apparmor, 'r') as apparmor_file:
         data = apparmor_file.read()
     data = data.replace("@PREFIX@", prefix)
     destination_apparmor_path = os.path.join(destination_path, 'etc', 'apparmor.d')
     os.makedirs(destination_apparmor_path, exist_ok=True)
-    destination_apparmor = os.path.join(destination_apparmor_path, 'desktop-icons-ng')
+    destination_apparmor = os.path.join(destination_apparmor_path, 'gtk4-desktop-icons')
     with open(destination_apparmor, 'w') as apparmor_file:
         apparmor_file.write(data)
 
