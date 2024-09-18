@@ -46,12 +46,12 @@ function CreateThumbnail() {
 
 
     // now, generate the file
-    let thumbnailPixbuf = thumbnailFactory.generate_thumbnail(fileUri, fileInfo.get_content_type());
-    if (thumbnailPixbuf === null) {
-        thumbnailFactory.create_failed_thumbnail(fileUri, modifiedTime);
+    let thumbnailPixbuf = thumbnailFactory.generate_thumbnail(fileUri, fileInfo.get_content_type(), null);
+    if (thumbnailPixbuf == null) {
+        thumbnailFactory.create_failed_thumbnail(fileUri, modifiedTime, null);
         return 2;
     } else {
-        thumbnailFactory.save_thumbnail(thumbnailPixbuf, fileUri, modifiedTime);
+        thumbnailFactory.save_thumbnail(thumbnailPixbuf, fileUri, modifiedTime, null);
         return 0;
     }
 }
