@@ -1,7 +1,7 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
- * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com) port to work with
- * gnome desktop 3 or 4 so as to communicate over dbus.
+ * Copyright (C) 2022, 2024 Sundeep Mediratta (smedius@gmail.com) port to work with
+ * gnome desktop 4
  *
  * Code cherry picked from Marco Trevisan for async methods to generate icons.
  *
@@ -44,10 +44,9 @@ const WIDTH = 130;
 const HEIGHT = 130;
 
 const ThumbnailLoader = class {
-    constructor(codePath, FileUtils) {
+    constructor(FileUtils) {
         this.FileUtils = FileUtils;
         this._timeoutValue = 5000;
-        this._codePath = codePath;
         this._thumbnailFactory = GnomeDesktop.DesktopThumbnailFactory.new(GnomeDesktop.DesktopThumbnailSize.LARGE);
         this.standardThumbnailsFolder = GLib.build_filenamev([GLib.get_home_dir(), '.cache/thumbnails']);
         this.standardThumbnailSubFolders = ['large', 'normal'];
