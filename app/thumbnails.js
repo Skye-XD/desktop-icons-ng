@@ -309,6 +309,8 @@ const ThumbnailLoader = class {
             let thumbnail = this.hasThumbnail(file, cancellable);
             if (!thumbnail && this.canThumbnail(file))
                 thumbnail = await this._generateThumbnail(file, cancellable);
+            if (!thumbnail && await this._createFallBackThumbnailAsync(file, cancellable))
+                thumbnail =  this._thumbnailFactory.lookup(file.uri, file.modifiedTime);
             return thumbnail;
         } catch (error) {
             console.log(`Error when asking for a thumbnail for ${file.displayName}: ${error.message}\n${error.stack}`);
