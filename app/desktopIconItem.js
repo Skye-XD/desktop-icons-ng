@@ -544,21 +544,6 @@ const DesktopIconItem = class {
             }
         }
 
-        if (!iconSet &&
-            this.Prefs.showImageThumbnails &&
-            this.fileSize < 5242880 &&
-            PIXBUF_CONTENT_TYPES.has(this._fileInfo.get_content_type())) {
-            try {
-                iconSet = await this._loadImageAsIcon(
-                    Gio.File.new_for_uri(this.uri), cancellable);
-            } catch (e) {
-                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                    throw e;
-
-                console.error(e, `Error while generating icon image: ${e.message}`);
-            }
-        }
-
         if (!iconSet) {
             let iconPaintable;
             if (this._isBrokenSymlink)
@@ -599,6 +584,8 @@ const DesktopIconItem = class {
             iconTexture.snapshot(iconPaintableSnapshot, Math.floor(width), Math.floor(height));
             let icon = iconPaintableSnapshot.to_paintable(null);
             icon = this._addEmblemsToIconIfNeeded(icon);
+            this._icon.margin_top = 4;
+            this._icon.margin_bottom = 4;
             this._icon.set_paintable(icon);
 
             return true;
@@ -606,7 +593,7 @@ const DesktopIconItem = class {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 throw e;
 
-            console.error(e, `Error while loading ${imageFile.get_uri()}`);
+            console.error(e, `Error while loading ${imageFile.get_uri()} as icon`);
             return false;
         }
     }
