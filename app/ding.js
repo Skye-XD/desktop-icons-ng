@@ -25,7 +25,8 @@ import {
     Enums,
     DBusUtils,
     DesktopIconsUtil,
-    DesktopManager
+    DesktopManager,
+    Thumbnails
 } from '../dependencies/localFiles.js';
 import * as FileUtils from '../utils/fileUtils.js';
 
@@ -230,6 +231,7 @@ dingApp.connect('startup', () => {
     Utils.Preferences = new Preferences.Preferences(Data, AdwPreferencesWindow);
     Utils.DesktopIconsUtil = new DesktopIconsUtil.DesktopIconsUtil(Data, Utils);
     Utils.DBusUtils = new DBusUtils.DBusUtils(dingApp);
+    Utils.ThumbnailLoader = new Thumbnails.ThumbnailLoader(Utils.FileUtils);
 });
 
 dingApp.connect('activate', () => {

@@ -36,6 +36,7 @@ const DesktopIconItem = class {
         this.FileUtils = desktopManager.FileUtils;
         this.Prefs = desktopManager.Prefs;
         this.Enums = desktopManager.Enums;
+        this.ThumbnailLoader = desktopManager.ThumbnailLoader;
         this._fileExtra = fileExtra;
         this._queryFileInfoCancellable = null;
         this._grid = null;
@@ -530,7 +531,7 @@ const DesktopIconItem = class {
 
         if (this.Prefs.showImageThumbnails) {
             try {
-                const thumbnail = await this._desktopManager.thumbnailLoader.getThumbnail(
+                const thumbnail = await this.ThumbnailLoader.getThumbnail(
                     this, cancellable);
                 if (thumbnail !== null) {
                     let thumbnailFile = Gio.File.new_for_path(thumbnail);
