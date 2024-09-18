@@ -26,7 +26,6 @@ import {
     AutoAr,
     AppChooser,
     GnomeShellDragDrop,
-    Thumbnails,
     StackItem
 } from '../dependencies/localFiles.js';
 
@@ -68,8 +67,7 @@ const DesktopManager = class {
         this.autoAr = new AutoAr.AutoAr(this);
         this.appChooser = AppChooser;
         this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
-        this.thumbnailLoader = new Thumbnails.ThumbnailLoader(this._codePath,
-            this.FileUtils);
+        this.ThumbnailLoader = Utils.ThumbnailLoader;
 
         // Init Variables
         this._selectedFiles = null;
