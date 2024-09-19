@@ -14,9 +14,10 @@ fi
 # Local Distribution specefic methods can be coded here
 
 if  [ "$DISTRIB_ID" = "Ubuntu" ] && (($(bc <<< "$DISTRIB_RELEASE > 22"))); then
-    echo "Installing for Ubuntu Jammy...."
+    echo "Installing Locally for Ubuntu Jammy and later...."
     rm -rf ~/.local/share/gnome-shell/extensions/gtk4-dingubuntu@smedius.gitlab.com
     mv ~/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com ~/.local/share/gnome-shell/extensions/gtk4-dingubuntu@smedius.gitlab.com
     sed -i "s#gtk4-ding@smedius#gtk4-dingubuntu@smedius#" ~/.local/share/gnome-shell/extensions/gtk4-dingubuntu@smedius.gitlab.com/metadata.json
     echo "Completed"
+    echo "System install recommended for full functionality, please see AppArmor information on web site"
 fi

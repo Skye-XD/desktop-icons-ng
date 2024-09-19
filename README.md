@@ -37,6 +37,7 @@ All known important issues are listed in [ISSUES.md](https://gitlab.com/smedius/
 * File-roller >= 3.38 or Gnome AutoAr (including gir1.2 files)
 * Desktop folder already created
 * GJS (Nix OS specifically needs this installed separately)
+* GIR files for cairo and poppler are needed as well to render thumbnails locally. This should be available by default.
 * For X11 xprop should be installed and executable, will work even without it, however things will work better and be more seamless without emulation if it is available.
 
 ## Installation
@@ -67,13 +68,27 @@ For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddogl
 
 ## Manual installation
 
-The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next sections.
+The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next sections. It installs in the local home directory of the user.
+
+`scripts/system-install` is included for systemwide installation. It performs the meson setup and ninja build/install steps detailed in a following section. This will also install an AppArmor profile for the gtk4-ding in the system /usr location and restarts apparmor. Super user privilges will be required. This does allow userns for gtk4-ding, see ISSUES.md
 
 If there are special steps to build and install the extension and app on your distribution, please submit an MR to this Readme.md to help other users on the same distribution. Some NIX Os users were very helpful in doing that. Also, local_install.sh in the scripts directory does read /etc/lsb-release, and any variables set there are imported into the script. Any variations necessary to install the extension and app on a particular distribution can then be easily coded, based on those variables, at the end of the script (See the Ubuntu example there already). I will be happy to include all changes necessary for your distribution in that script. Please submit an MR for that.
 
 <b><u>Ubuntu</b></u>
 
-In Ubuntu Jammy and later, the Ubuntu session is locked and only the default Ubuntu extensions run. Ubuntu runs it's own Desktop Icon Extension which is based on the old Gtk3 branch. Therefore, installing the extension from extensions.gnome.org will not work directly. The install script provided in the repository bypasses this and installs this as a manually installed extension. The default Desktop Icons extension that ships with Ubuntu then needs to be deactivated, and this newly installed one activated. It shows up on top as a user installed extension in extension manager.
+By default, the apparmor rules in Ubuntu, do not allow gnome-desktop library thumbnailFacotry to make thumbnails. This logs errors. gtk4-ding bypasses this by creating thumbnails for common image formats and pdf files - dependencies include gdkpixbuf, cairo and poppler. However, other xdg-thumbnailers installed on the system, for example appimage, ffmpgeg, audio, files etc will not work to render thumbnails through the gnome-desktop library.
+
+Gtk4-ding will however, not write failure thumbnails, allowing other apps like Gnome Files to render thumbnails if the desktop is opened in Gnome Files. These thumbnails will be displayed by gtk4-ding, if available.
+
+See ISSUES.md for more information with app-armor.
+
+System wide install for all users recommended as Ubuntu has apparmor enabled by default. The system install will install a apparmor policy for gtk4-ding. This allows full functionality. See manual build and install with meson below. Apparmor issue is detailed in ISSUES.md.
+
+LOCAL INSTALL
+
+If you are not interested in displaying thumbnails, local install works. If you disable apparmor, local install works with full functionality.
+
+In Ubuntu Jammy and later, the Ubuntu session is locked and only the default Ubuntu extensions run. Ubuntu runs it's own Desktop Icon Extension which is based on the old Gtk3 branch. Therefore, locally installing the extension from extensions.gnome.org will not work directly. The local install script provided in the repository bypasses this and installs this as a manually installed local extension. The default Desktop Icons extension that ships with Ubuntu then needs to be deactivated, and this newly installed one activated. It shows up on top as a user installed extension in extension manager.
 
 The other method to update to this newest version in Ubuntu is to install the "gnome-session" package using apt or other native tools. This enables the use of a standard, unlocked, non Ubuntu, gnome shell session. In that session install the following extensions from extensions.gnome.org:
 
@@ -116,11 +131,20 @@ It's possible to read more information in the Meson docs to tweak the configurat
 For a regular use and local development these are the steps to build the project and install it:
 
 ```bash
-meson --prefix=$HOME/.local/ --localedir=share/gnome-shell/extensions/gtk4-ding@smedius.gilab.com/locale .build
+meson setup --prefix=$HOME/.local/ --localedir=share/gnome-shell/extensions/gtk4-ding@smedius.gilab.com/locale .build
 ninja -C .build install
 ```
 
 It is strongly recommended to delete the destination folder ($HOME/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com) before doing this, to ensure that no old data is kept. It is also recommended to delete the local .build folder after the build is finished to clean up.
+
+For system install:
+
+```bash
+meson setup --prefix=/user --localedir=share/locale .build
+ninja -C .build install
+```
+
+meson will prompt for superuser privileges for system install.
 
 ## Installing with Puppet
 

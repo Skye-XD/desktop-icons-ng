@@ -1,4 +1,14 @@
 # History of versions #
+* Gtk4 version 81 for Gnome 45, 46, 47
+  * Add AppArmor profile for gtk4-ding. Cherry picked from upstream and adapted. (Sergio Costas)
+  * Write system install script, so that secure system install with proper AppArmor profile can be performed. (Sundeep Mediratta)
+  * Use Cairo and Poppler to render pdf thumbails if gnome-thumbnailer fails. (Sundeep Mediratta)
+  * Remove sync methods from thumbnail code, clean up thumbnail code, don't write fail thumbnail if gnome-thumbnailer fails. Move all thumbnail code to thumbnail.js from desktopIconItem.js. Don't launch any subproccess for sync thumbnail, remove createThumbnail.js. (Sundeep Mediratta)
+  * Cache thumbnails that are created locally by gtk4-ding so that they can be used again and also by other programs. (Sundeep Mediratta)
+  * Update documentation, metadata.json for Gnome 47. Nathaniel Russel
+  * Weblate translations. (Weblate Authors)
+  * Update History.md, Issues.md, metadata.json. Version Bump 81.
+
 * Gtk4 version 80 for Gnome 45, 46
   * Update selection rectangle to have rounded borders to look like the one in Gnome Files. (Sundeep Mediratta)
   * Dispose the Cairo.Context correctly after the draw function is done drawing. (Sundeep Mediratta)
