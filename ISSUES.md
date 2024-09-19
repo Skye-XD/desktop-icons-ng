@@ -76,7 +76,7 @@ B. If there is a valid xdg-terminal-exec binary, just execute that as GLib calls
 
 Easiest way of setting the terminal is .confg/terminal.list - one line, the name of the .desktop file to be launched.
 
-Ding now monitors all files and folders that define the terminal to be used and will automatically show the correct terminal that will be launched in the right click menu.
+gtk4-ding now monitors all files and folders that define the terminal to be used and will automatically show the correct terminal that will be launched in the right click menu.
 
 ## DEFAULT APPLICATIONS, DEFAULT FILE MANAGER ISSUES
 
@@ -118,7 +118,7 @@ See No Application installed above...
 
 ## APPARMOR ISSUES
 
-gtk4-ding uses gnome-desktop-4.0 library to render thumbnails of images, pdf and other file formats which have xdg-thumbnailers installed and configured in the appropriate system folders. Internally gnome-desktop-4.0 uses bubblewrap, a binary for security to launch the thumbnailer executables.
+gtk4-ding uses gnome-desktop-4.0 library to render thumbnails of images, pdf and other file formats which have xdg-thumbnailers installed and configured in the appropriate system folders. Internally gnome-desktop-4.0 uses bubblewrap, the binary bwrap for security to launch the thumbnailer executables.
 
 bubblewrap uses userns  -user namespaces- privileges to make a container to sandbox the executables.
 
@@ -126,10 +126,10 @@ userns privilges are viewed as a security concern by app-armor, and the profile 
 
 The options available are-
 
-1. Disable thumbnailing option in preferences to stop all error messages in logs. :)
+1. Disable thumbnailing option in preferences to stop all error messages in logs.
 2. Ignore the error messages in logs, gtk4-ding will still render thumbnails of all common image types and pdf files. xdg-thumbnailers configured and installed on the system will not work to render thumbnails for special file types like appimage, mp4, ffmpeg etc. Generic icons for the format will be shown.
-3. Disable AppArmor if you so wish. :) It is after all, not enabled by default on Archlinux, Manjaro and many other distributions.
+3. Disable AppArmor if you so wish. It is after all, not enabled by default on Archlinux, Manjaro and many other distributions.
 4. If not concerned about the security implications of userns with bubblewrap, enable userns apparmor profile fow bwrap as [detailed here](https://etbe.coker.com.au/2024/04/24/ubuntu-24-04-bubblewrap/). The app-armor team actively discourages this.
-5. The AppArmor team  has a new bwrap profile that allows for userns for bwrap but not for any executed child, this is the best generic solution. The new bwrap profile can be found [here](https://gitlab.com/apparmor/apparmor/-/blob/ebeb89cbce9b0ff3df43d28df983545e7a85bfd3/profiles/apparmor/profiles/extras/bwrap-userns-restrict). This profile is currently available in the apparmor-profile packages in Ubuntu SRU.
-6. Install gtk4-ding in the system folders, /usr/share... etc., with the included AppArmor profile for gtk4-ding. AppArmor profile for $HOME folder local install was not written for possible security implications, but you can :) -
-7. Write a AppArmor profile based on above for the local install at .local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/app/ding.js. Just be careful that ding.js is not replaced by a malicius program downloaded from the internet that names itself ding.js in that location :-)
+5. The AppArmor team  has a new bwrap profile that allows for userns for bwrap but not for any executed child, this is the best generic solution. The new bwrap profile can be found [here](https://gitlab.com/apparmor/apparmor/-/blob/ebeb89cbce9b0ff3df43d28df983545e7a85bfd3/profiles/apparmor/profiles/extras/bwrap-userns-restrict). This profile is currently available in the apparmor-profile packages in Ubuntu SRU, noble proposed updated.
+6. Install gtk4-ding in the system folders, /usr/share... etc., with the included AppArmor profile for gtk4-ding. AppArmor profile for $HOME folder local install was not written for possible security implications, but you can-
+7. Write a AppArmor profile based on above for the local install at .local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/app/ding.js. Just be careful that ding.js is not replaced by a malicius program downloaded from the internet that names itself ding.js in that location - it will have userns priviliges.

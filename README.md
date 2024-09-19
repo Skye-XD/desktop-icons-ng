@@ -78,7 +78,9 @@ If there are special steps to build and install the extension and app on your di
 
 By default, the apparmor rules in Ubuntu, do not allow gnome-desktop library thumbnailFacotry to make thumbnails. This logs errors. gtk4-ding bypasses this by creating thumbnails for common image formats and pdf files - dependencies include gdkpixbuf, cairo and poppler. However, other xdg-thumbnailers installed on the system, for example appimage, ffmpgeg, audio, files etc will not work to render thumbnails through the gnome-desktop library.
 
-Gtk4-ding will however, not write failure thumbnails, allowing other apps like Gnome Files to render thumbnails if the desktop is opened in Gnome Files. These thumbnails will be displayed by gtk4-ding, if available.
+Gtk4-ding will however, not write failure thumbnails, allowing other apps with appropriate AppArmor permissions like Gnome Files to render thumbnails if the desktop is opened in Gnome Files. These thumbnails will be displayed by gtk4-ding, if available.
+
+A properly functioning version of apparmor-profiles that contains a new bwrap profile is still in the noble-proposed pocket. This should allow thumbnailing even for local installs. You can enable it by following the steps of this [wiki](https://wiki.ubuntu.com/Testing/EnableProposed).
 
 See ISSUES.md for more information with app-armor.
 
@@ -86,7 +88,7 @@ System wide install for all users recommended as Ubuntu has apparmor enabled by 
 
 LOCAL INSTALL
 
-If you are not interested in displaying thumbnails, local install works. If you disable apparmor, local install works with full functionality.
+If you are not interested in displaying thumbnails, local install works. If you disable apparmor, local install works with full functionality. A properly functioning version of apparmor-profiles that contains a new bwrap profile is still in the noble-proposed pocket. you can enable it by following the steps of this [wiki](https://wiki.ubuntu.com/Testing/EnableProposed).
 
 In Ubuntu Jammy and later, the Ubuntu session is locked and only the default Ubuntu extensions run. Ubuntu runs it's own Desktop Icon Extension which is based on the old Gtk3 branch. Therefore, locally installing the extension from extensions.gnome.org will not work directly. The local install script provided in the repository bypasses this and installs this as a manually installed local extension. The default Desktop Icons extension that ships with Ubuntu then needs to be deactivated, and this newly installed one activated. It shows up on top as a user installed extension in extension manager.
 
@@ -153,7 +155,6 @@ If you want to install it in several machines using puppet, you must first creat
 ```bash
 mkdir install_folder
 meson --prefix=`pwd`/install_folder --localedir=share/locale .build
-ninja -C .build
 ninja -C .build install
 rm -f install_folder/share/glib-2.0/schemas/gschemas.compiled
 rm -rf .build
