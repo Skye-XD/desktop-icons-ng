@@ -11,12 +11,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-04 10:36-0400\n"
+"POT-Creation-Date: 2024-09-18 23:57-0400\n"
 "PO-Revision-Date: 2024-08-06 05:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -300,7 +300,7 @@ msgstr "Nome della cartella"
 msgid "File name"
 msgstr "Nome del file"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1243
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
 #: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "Ok"
@@ -333,8 +333,8 @@ msgstr "Estrazione di file"
 msgid "Compressing files"
 msgstr "Comprimere i files."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:773
-#: app/desktopManager.js:1245 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
+#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "Annulla"
@@ -469,199 +469,199 @@ msgstr "Archivi più piccoli ma devono essere installati su Windows e Mac."
 msgid "Desktop Icons"
 msgstr "Icona Desktop"
 
-#: app/desktopManager.js:139
+#: app/desktopManager.js:141
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME File non trovati"
 
-#: app/desktopManager.js:140
+#: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "Il GNOME L'applicazione dei file è richiesta da Gtk4 Desktop Icons NG."
 
-#: app/desktopManager.js:152
+#: app/desktopManager.js:154
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "Non esiste File Manager predefinito"
 
-#: app/desktopManager.js:153
+#: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Non c'è applicazione che gestisce mimetype \"inode/directory\""
 
-#: app/desktopManager.js:165
+#: app/desktopManager.js:167
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome File non è registrato come File Manager"
 
-#: app/desktopManager.js:166
+#: app/desktopManager.js:168
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:785
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Scegliere Azione per i file"
 
-#: app/desktopManager.js:773
+#: app/desktopManager.js:786
 #, fuzzy
 msgid "Move"
 msgstr "Sposta"
 
-#: app/desktopManager.js:773 app/fileItemMenu.js:372
+#: app/desktopManager.js:786 app/fileItemMenu.js:372
 msgid "Copy"
 msgstr "Copia"
 
-#: app/desktopManager.js:773
+#: app/desktopManager.js:786
 #, fuzzy
 msgid "Link"
 msgstr "Collegamento"
 
-#: app/desktopManager.js:860 app/desktopManager.js:892
+#: app/desktopManager.js:873 app/desktopManager.js:905
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Rendere SymLink non riuscito"
 
-#: app/desktopManager.js:861 app/desktopManager.js:893
+#: app/desktopManager.js:874 app/desktopManager.js:906
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Non è possibile creare link simbolici"
 
-#: app/desktopManager.js:1203
+#: app/desktopManager.js:1216
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Cancella la selezione corrente prima di una nuova ricerca"
 
-#: app/desktopManager.js:1247
+#: app/desktopManager.js:1260
 msgid "Find Files on Desktop"
 msgstr "Trova i file sulla scrivania"
 
-#: app/desktopManager.js:1510
+#: app/desktopManager.js:1523
 #, fuzzy
 msgid "Name"
 msgstr "Nome"
 
-#: app/desktopManager.js:1511
+#: app/desktopManager.js:1524
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nome AZ"
 
-#: app/desktopManager.js:1512
+#: app/desktopManager.js:1525
 #, fuzzy
 msgid "Modified Time"
 msgstr "Tempo modificato"
 
-#: app/desktopManager.js:1513
+#: app/desktopManager.js:1526
 #, fuzzy
 msgid "Type"
 msgstr "Tipo"
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1527
 #, fuzzy
 msgid "Size"
 msgstr "Dimensione"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1530
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Disposizione automatica…"
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1534
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Mantieni inpilato per tipo…"
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1535
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordina Home/Dispositivi/Cestino…"
 
-#: app/desktopManager.js:1527 app/desktopManager.js:2578
+#: app/desktopManager.js:1540 app/desktopManager.js:2591
 msgid "New Folder"
 msgstr "Nuova cartella"
 
-#: app/desktopManager.js:1531
+#: app/desktopManager.js:1544
 msgid "New Document"
 msgstr "Nuovo documento"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1548
 msgid "Paste"
 msgstr "Incolla"
 
-#: app/desktopManager.js:1536
+#: app/desktopManager.js:1549
 msgid "Undo"
 msgstr "Annulla"
 
-#: app/desktopManager.js:1537
+#: app/desktopManager.js:1550
 msgid "Redo"
 msgstr "Ripeti"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1555
 msgid "Select All"
 msgstr "Seleziona tutto"
 
-#: app/desktopManager.js:1547
+#: app/desktopManager.js:1560
 msgid "Arrange Icons"
 msgstr "Disponi icone"
 
-#: app/desktopManager.js:1551
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Organizza.."
 
-#: app/desktopManager.js:1557
+#: app/desktopManager.js:1570
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Mostra Desktop In {0}"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Aprire in {0}"
 
-#: app/desktopManager.js:1566
+#: app/desktopManager.js:1579
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Impostazioni di Desktop Icons"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1584
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1630
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Preferenze Finestra è aperto"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1630
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Questa finestra è aperta. Si prega di passare alla finestra attiva."
 
-#: app/desktopManager.js:1631
+#: app/desktopManager.js:1644
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: app/desktopManager.js:2601
+#: app/desktopManager.js:2614
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Creazione di ordine non riuscita."
 
-#: app/desktopManager.js:2602
+#: app/desktopManager.js:2615
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Impossibile creare la cartella"
 
-#: app/desktopManager.js:2645
+#: app/desktopManager.js:2658
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Errore di creazione del modello"
 
-#: app/desktopManager.js:2646
+#: app/desktopManager.js:2659
 #, fuzzy
 msgid "Could not create document"
 msgstr "Impossibile eliminare documento"

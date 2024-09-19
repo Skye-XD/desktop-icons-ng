@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-04 10:36-0400\n"
+"POT-Creation-Date: 2024-09-18 23:57-0400\n"
 "PO-Revision-Date: 2023-12-03 22:08+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -275,7 +275,7 @@ msgstr "Gnûf non de cartele"
 msgid "File name"
 msgstr "Cambie non..."
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1243
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
 #: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "Va ben"
@@ -304,8 +304,8 @@ msgstr "Tire fûr ca"
 msgid "Compressing files"
 msgstr ""
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:773
-#: app/desktopManager.js:1245 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
+#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "Anule"
@@ -419,176 +419,176 @@ msgstr ""
 msgid "Desktop Icons"
 msgstr "Impostazions visôr"
 
-#: app/desktopManager.js:139
+#: app/desktopManager.js:141
 msgid "GNOME Files not found"
 msgstr ""
 
-#: app/desktopManager.js:140
+#: app/desktopManager.js:142
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
 
-#: app/desktopManager.js:152
+#: app/desktopManager.js:154
 msgid "There is no default File Manager"
 msgstr ""
 
-#: app/desktopManager.js:153
+#: app/desktopManager.js:155
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 
-#: app/desktopManager.js:165
+#: app/desktopManager.js:167
 msgid "Gnome Files is not registered as a File Manager"
 msgstr ""
 
-#: app/desktopManager.js:166
+#: app/desktopManager.js:168
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:785
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Mostre in File"
 
-#: app/desktopManager.js:773
+#: app/desktopManager.js:786
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:773 app/fileItemMenu.js:372
+#: app/desktopManager.js:786 app/fileItemMenu.js:372
 msgid "Copy"
 msgstr "Copie"
 
-#: app/desktopManager.js:773
+#: app/desktopManager.js:786
 msgid "Link"
 msgstr ""
 
-#: app/desktopManager.js:860 app/desktopManager.js:892
+#: app/desktopManager.js:873 app/desktopManager.js:905
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:861 app/desktopManager.js:893
+#: app/desktopManager.js:874 app/desktopManager.js:906
 msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/desktopManager.js:1203
+#: app/desktopManager.js:1216
 msgid "Clear current selection before new search"
 msgstr ""
 
-#: app/desktopManager.js:1247
+#: app/desktopManager.js:1260
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1510
+#: app/desktopManager.js:1523
 msgid "Name"
 msgstr ""
 
-#: app/desktopManager.js:1511
+#: app/desktopManager.js:1524
 msgid "Name Z-A"
 msgstr ""
 
-#: app/desktopManager.js:1512
+#: app/desktopManager.js:1525
 msgid "Modified Time"
 msgstr ""
 
-#: app/desktopManager.js:1513
+#: app/desktopManager.js:1526
 msgid "Type"
 msgstr ""
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1527
 msgid "Size"
 msgstr ""
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1530
 msgid "Keep Arranged…"
 msgstr ""
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1534
 msgid "Keep Stacked by Type…"
 msgstr ""
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1535
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopManager.js:1527 app/desktopManager.js:2578
+#: app/desktopManager.js:1540 app/desktopManager.js:2591
 msgid "New Folder"
 msgstr "Gnove cartele"
 
-#: app/desktopManager.js:1531
+#: app/desktopManager.js:1544
 msgid "New Document"
 msgstr "Gnûf Document"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1548
 msgid "Paste"
 msgstr "Tache"
 
-#: app/desktopManager.js:1536
+#: app/desktopManager.js:1549
 msgid "Undo"
 msgstr "Anule"
 
-#: app/desktopManager.js:1537
+#: app/desktopManager.js:1550
 msgid "Redo"
 msgstr "Torne fâ"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1555
 #, fuzzy
 msgid "Select All"
 msgstr "Selezione dut"
 
-#: app/desktopManager.js:1547
+#: app/desktopManager.js:1560
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopManager.js:1551
+#: app/desktopManager.js:1564
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopManager.js:1557
+#: app/desktopManager.js:1570
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Mostre Scritori in File"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1573
 msgid "Open In {0}"
 msgstr ""
 
-#: app/desktopManager.js:1566
+#: app/desktopManager.js:1579
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Impostazions visôr"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1584
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1630
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1630
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopManager.js:1631
+#: app/desktopManager.js:1644
 msgid "Settings"
 msgstr "Impostazions"
 
-#: app/desktopManager.js:2601
+#: app/desktopManager.js:2614
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Gnûf non de cartele"
 
-#: app/desktopManager.js:2602
+#: app/desktopManager.js:2615
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopManager.js:2645
+#: app/desktopManager.js:2658
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2646
+#: app/desktopManager.js:2659
 msgid "Could not create document"
 msgstr ""
 

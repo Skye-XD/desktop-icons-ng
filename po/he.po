@@ -9,12 +9,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-04 10:36-0400\n"
+"POT-Creation-Date: 2024-09-18 23:57-0400\n"
 "PO-Revision-Date: 2024-08-06 05:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -301,7 +301,7 @@ msgstr "שם התיקייה"
 msgid "File name"
 msgstr "שם הקובץ"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1243
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
 #: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "אישור"
@@ -334,8 +334,8 @@ msgstr "החלפת קבצים"
 msgid "Compressing files"
 msgstr "פרופיל קבצים"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:773
-#: app/desktopManager.js:1245 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
+#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "ביטול"
@@ -470,32 +470,32 @@ msgstr "ארכיונים קטנים יותר, אך יש להתקין אותם ב
 msgid "Desktop Icons"
 msgstr "אייקונים שולחניים"
 
-#: app/desktopManager.js:139
+#: app/desktopManager.js:141
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME קבצים שלא נמצאו"
 
-#: app/desktopManager.js:140
+#: app/desktopManager.js:142
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "GNOME יישום קבצים נדרש על ידי Gtk4 Desktop Icons NG."
 
-#: app/desktopManager.js:152
+#: app/desktopManager.js:154
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "אין מנהל קובץ ברירת מחדל"
 
-#: app/desktopManager.js:153
+#: app/desktopManager.js:155
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "אין יישום אשר מטפל mimetype \"inode/בימוי\""
 
-#: app/desktopManager.js:165
+#: app/desktopManager.js:167
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "קובץ Gnome אינו רשום כמנהל קבצים"
 
-#: app/desktopManager.js:166
+#: app/desktopManager.js:168
 #, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
@@ -506,169 +506,169 @@ msgstr ""
 "בדוק את ההתקנה xdg-utils\n"
 "עקבו אחרי Gnome Files .desktop התקנת"
 
-#: app/desktopManager.js:772
+#: app/desktopManager.js:785
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "בחר פעולה עבור קבצים"
 
-#: app/desktopManager.js:773
+#: app/desktopManager.js:786
 #, fuzzy
 msgid "Move"
 msgstr "העברה"
 
-#: app/desktopManager.js:773 app/fileItemMenu.js:372
+#: app/desktopManager.js:786 app/fileItemMenu.js:372
 msgid "Copy"
 msgstr "העתקה"
 
-#: app/desktopManager.js:773
+#: app/desktopManager.js:786
 #, fuzzy
 msgid "Link"
 msgstr "קישור"
 
-#: app/desktopManager.js:860 app/desktopManager.js:892
+#: app/desktopManager.js:873 app/desktopManager.js:905
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "ביצוע SymLink נכשל"
 
-#: app/desktopManager.js:861 app/desktopManager.js:893
+#: app/desktopManager.js:874 app/desktopManager.js:906
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "לא יכול ליצור קישור סמלי"
 
-#: app/desktopManager.js:1203
+#: app/desktopManager.js:1216
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "בחירה נוכחית ברורה לפני חיפוש חדש"
 
-#: app/desktopManager.js:1247
+#: app/desktopManager.js:1260
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "מצא קבצים על שולחן העבודה"
 
-#: app/desktopManager.js:1510
+#: app/desktopManager.js:1523
 #, fuzzy
 msgid "Name"
 msgstr "שם"
 
-#: app/desktopManager.js:1511
+#: app/desktopManager.js:1524
 #, fuzzy
 msgid "Name Z-A"
 msgstr "שם (ת-א)"
 
-#: app/desktopManager.js:1512
+#: app/desktopManager.js:1525
 #, fuzzy
 msgid "Modified Time"
 msgstr "זמן משתנה"
 
-#: app/desktopManager.js:1513
+#: app/desktopManager.js:1526
 #, fuzzy
 msgid "Type"
 msgstr "סוג"
 
-#: app/desktopManager.js:1514
+#: app/desktopManager.js:1527
 #, fuzzy
 msgid "Size"
 msgstr "גודל"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1530
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "תמשיך לסדר.."
 
-#: app/desktopManager.js:1521
+#: app/desktopManager.js:1534
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "עקבו אחרי Type.."
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1535
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "בית / נהגים / טרש"
 
-#: app/desktopManager.js:1527 app/desktopManager.js:2578
+#: app/desktopManager.js:1540 app/desktopManager.js:2591
 msgid "New Folder"
 msgstr "תיקיה חדשה"
 
-#: app/desktopManager.js:1531
+#: app/desktopManager.js:1544
 msgid "New Document"
 msgstr "מסמך חדש"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1548
 msgid "Paste"
 msgstr "הדבקה"
 
-#: app/desktopManager.js:1536
+#: app/desktopManager.js:1549
 msgid "Undo"
 msgstr "ביטול פעולה"
 
-#: app/desktopManager.js:1537
+#: app/desktopManager.js:1550
 msgid "Redo"
 msgstr "ביצוע חוזר"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1555
 #, fuzzy
 msgid "Select All"
 msgstr "בחר הכל"
 
-#: app/desktopManager.js:1547
+#: app/desktopManager.js:1560
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "איקונים מסודרים"
 
-#: app/desktopManager.js:1551
+#: app/desktopManager.js:1564
 #, fuzzy
 msgid "Arrange By…"
 msgstr "סידור על ידי.."
 
-#: app/desktopManager.js:1557
+#: app/desktopManager.js:1570
 #, fuzzy
 msgid "Show Desktop In {0}"
 msgstr "Show Desktop in {0}"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Open In {0}"
 msgstr "פתוח פנימה"
 
-#: app/desktopManager.js:1566
+#: app/desktopManager.js:1579
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "הגדרות אייקון שולחן העבודה"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1584
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1630
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "החלון פתוח"
 
-#: app/desktopManager.js:1617
+#: app/desktopManager.js:1630
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "החלון הזה פתוח. נא לעבור אל החלון הפעיל."
 
-#: app/desktopManager.js:1631
+#: app/desktopManager.js:1644
 msgid "Settings"
 msgstr "הגדרות"
 
-#: app/desktopManager.js:2601
+#: app/desktopManager.js:2614
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "יצירת פלאדר נכשלת"
 
-#: app/desktopManager.js:2602
+#: app/desktopManager.js:2615
 #, fuzzy
 msgid "Could not create folder"
 msgstr "לא ניתן ליצור תיקייה."
 
-#: app/desktopManager.js:2645
+#: app/desktopManager.js:2658
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "יצירת שגיאות"
 
-#: app/desktopManager.js:2646
+#: app/desktopManager.js:2659
 #, fuzzy
 msgid "Could not create document"
 msgstr "לא יכול ליצור מסמך"
