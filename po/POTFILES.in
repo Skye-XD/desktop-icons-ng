@@ -2,7 +2,6 @@ app/adwPreferencesWindow.js
 app/appChooser.js
 app/askRenamePopup.js
 app/autoAr.js
-app/createThumbnail.js
 app/desktopGrid.js
 app/desktopIconItem.js
 app/desktopManager.js
