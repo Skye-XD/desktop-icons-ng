@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-08-06 05:09+0000\n"
+"PO-Revision-Date: 2024-09-20 04:44+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -40,7 +40,7 @@ msgstr "تعديلات"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "عن"
+msgstr "عنْ التطبيق"
 
 #: app/adwPreferencesWindow.js:201
 msgid "Desktop Settings"
@@ -83,7 +83,7 @@ msgstr "ضئيل"
 #: app/adwPreferencesWindow.js:231
 #, fuzzy
 msgid "Small"
-msgstr "صغير"
+msgstr "مصغرة"
 
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
@@ -93,7 +93,7 @@ msgstr "قياسي"
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
 msgid "Large"
-msgstr "عريض"
+msgstr "واسعة"
 
 #: app/adwPreferencesWindow.js:238
 msgid "New icons alignment"
@@ -319,7 +319,7 @@ msgstr "ضغط الملفات."
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 #, fuzzy
 msgid "Cancel"
-msgstr "الغاء"
+msgstr "إلغاﺀ"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
@@ -400,7 +400,7 @@ msgstr ""
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "كلمة المرور"
+msgstr "كلمة السر"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -543,7 +543,7 @@ msgstr "لصق"
 #: app/desktopManager.js:1549
 #, fuzzy
 msgid "Undo"
-msgstr "إلغاء"
+msgstr "تراجع"
 
 #: app/desktopManager.js:1550
 #, fuzzy
@@ -713,7 +713,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "تعذر فتح الملفات"
+msgstr "لم أتمكن من فتح الملف"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -1016,7 +1016,7 @@ msgstr "ا_فتح"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "حجم الأيقونة"
+msgstr "حجم الايقونات"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."

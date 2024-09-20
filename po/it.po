@@ -12,17 +12,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-08-06 05:09+0000\n"
+"PO-Revision-Date: 2024-09-20 04:44+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -38,12 +38,12 @@ msgstr "File"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "Miglioramenti"
+msgstr "Regolazioni"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Informazioni"
+msgstr "Circa"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -238,7 +238,7 @@ msgstr "Segnala i problemi sul tracker di emissione"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Segnala"
+msgstr "Segnalazione"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -547,7 +547,7 @@ msgstr "Nome"
 #: app/desktopManager.js:1524
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Nome AZ"
+msgstr "Nome A-Z"
 
 #: app/desktopManager.js:1525
 #, fuzzy
@@ -807,7 +807,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Impossibile aprire File"
+msgstr "Impossibile aprire il file"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -1131,7 +1131,7 @@ msgstr "A_nnulla"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Apri"
+msgstr "_Apri"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
