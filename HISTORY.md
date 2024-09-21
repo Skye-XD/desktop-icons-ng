@@ -1,4 +1,8 @@
 # History of versions #
+* Gtk4 version 82 for Gnome 45, 46, 47
+  * Fix hard requirments for lib-poppler and cairo. Don't crash if not installed. (Sundeep Mediratta)
+  * Update History.md, Readme.md, metadata.json. Version Bump 82
+
 * Gtk4 version 81 for Gnome 45, 46, 47
   * Add AppArmor profile for gtk4-ding. Cherry picked from upstream and adapted. (Sergio Costas)
   * Write system install script, so that secure system install with proper AppArmor profile can be performed. (Sundeep Mediratta)
@@ -7,7 +11,7 @@
   * Cache thumbnails that are created locally by gtk4-ding so that they can be used again and also by other programs. (Sundeep Mediratta)
   * Update documentation, metadata.json for Gnome 47. Nathaniel Russel
   * Weblate translations. (Weblate Authors)
-  * Update History.md, Issues.md, metadata.json. Version Bump 81.
+  * Update History.md, Readme.md, Issues.md, metadata.json. Version Bump 81.
 
 * Gtk4 version 80 for Gnome 45, 46
   * Update selection rectangle to have rounded borders to look like the one in Gnome Files. (Sundeep Mediratta)

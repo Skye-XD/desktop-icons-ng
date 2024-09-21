@@ -142,7 +142,7 @@ It is strongly recommended to delete the destination folder ($HOME/.local/share/
 For system install:
 
 ```bash
-meson setup --prefix=/user --localedir=share/locale .build
+meson setup --prefix=/usr --localedir=share/locale .build
 ninja -C .build install
 ```
 
