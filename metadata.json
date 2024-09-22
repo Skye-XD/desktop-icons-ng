@@ -4,8 +4,8 @@
     "description": "Adds Gtk4 icons to the Gnome desktop. Gtk4 Fork of the original Desktop Icons extension, with several enhancements.",
     "shell-version": ["45", "46", "47"],
     "url": "https://gitlab.com/smedius/desktop-icons-ng",
-    "version": "85",
-    "version-name": "82",
+    "version": "86",
+    "version-name": "83",
     "session-modes": ["user", "unlock-dialog"],
     "settings-schema": "org.gnome.shell.extensions.gtk4-ding",
     "gettext-domain": "gtk4-ding"

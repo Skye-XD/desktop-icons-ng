@@ -1,4 +1,8 @@
 # History of versions #
+* Gtk4 version 83 for Gnome 45, 46, 47
+  * Update selection and rubber band colors with the new accent colors in Gnome 47. (Sundeep Mediratta)
+  * Update History.md, Issues.md, Readme.md, metadata.json. Version Bump 83.
+
 * Gtk4 version 82 for Gnome 45, 46, 47
   * Fix hard requirments for lib-poppler and cairo. Don't crash if not installed. (Sundeep Mediratta)
   * Update History.md, Readme.md, metadata.json. Version Bump 82

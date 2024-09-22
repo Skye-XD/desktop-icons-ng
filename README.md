@@ -70,13 +70,15 @@ For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddogl
 
 The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next sections. It installs in the local home directory of the user.
 
-`scripts/system-install` is included for systemwide installation. It performs the meson setup and ninja build/install steps detailed in a following section. This will also install an AppArmor profile for the gtk4-ding in the system /usr location and restarts apparmor. Super user privilges will be required. This does allow userns for gtk4-ding, see ISSUES.md
+`scripts/system-install.sh` is included for systemwide installation. Again, execute from base of the source directory. It performs the meson setup and ninja build/install steps detailed in a following section. This will also install an AppArmor profile for the gtk4-ding in the system /usr location and restarts apparmor. Super user privilges will be required. This does allow userns for gtk4-ding, see ISSUES.md
 
 If there are special steps to build and install the extension and app on your distribution, please submit an MR to this Readme.md to help other users on the same distribution. Some NIX Os users were very helpful in doing that. Also, local_install.sh in the scripts directory does read /etc/lsb-release, and any variables set there are imported into the script. Any variations necessary to install the extension and app on a particular distribution can then be easily coded, based on those variables, at the end of the script (See the Ubuntu example there already). I will be happy to include all changes necessary for your distribution in that script. Please submit an MR for that.
 
 <b><u>Ubuntu</b></u>
 
-By default, the apparmor rules in Ubuntu, do not allow gnome-desktop library thumbnailFacotry to make thumbnails. This logs errors. gtk4-ding bypasses this by creating thumbnails for common image formats and pdf files - dependencies include gdkpixbuf, cairo and poppler. However, other xdg-thumbnailers installed on the system, for example appimage, ffmpgeg, audio, files etc will not work to render thumbnails through the gnome-desktop library.
+SYSTEM INSTALL
+
+By default, Ubuntu does not allow userns privileges. Only apparmor rules in Ubuntu, can grant userns to specefied programs. These default rules are not defined for bwrap binary, Bubblewrap. This does not allow gnome-desktop library thumbnailFacotry to make thumbnails, and errors are logged. Gtk4-ding bypasses this by creating thumbnails for common image formats and pdf files - dependencies include gdkpixbuf, cairo and poppler. However, other xdg-thumbnailers installed on the system, for example appimage, ffmpgeg, audio, files etc will not work to render thumbnails through the gnome-desktop library.
 
 Gtk4-ding will however, not write failure thumbnails, allowing other apps with appropriate AppArmor permissions like Gnome Files to render thumbnails if the desktop is opened in Gnome Files. These thumbnails will be displayed by gtk4-ding, if available.
 
@@ -84,7 +86,7 @@ A properly functioning version of apparmor-profiles that contains a new bwrap pr
 
 See ISSUES.md for more information with app-armor.
 
-System wide install for all users recommended as Ubuntu has apparmor enabled by default. The system install will install a apparmor policy for gtk4-ding. This allows full functionality. See manual build and install with meson below. Apparmor issue is detailed in ISSUES.md.
+System wide install for all users recommended as detailed in Manual install above, as Ubuntu has apparmor and userns restrictions enabled by default. The system install will install a apparmor policy for gtk4-ding allowing userns. This allows full functionality. See manual build and install with meson below or manual install with `scripts/system-install.sh`. Apparmor issue is detailed in ISSUES.md.
 
 LOCAL INSTALL
 
