@@ -8,6 +8,7 @@ Updated and modified code base, uses Gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* For Gnome 47, change highlighting and rubber band selection colors with accent-colors in Gnome Settings.
 * Selection rectangle with rounded corners, similar to Gnome Files aesthetic.
 * The stock gnome shell background menu can now be shown from the Gtk4 DING desktop right click menu. All shell settings can be accessed from that menu.
 * Icons can be placed on any arbitrary position. Make a mess! - icons can overlap each other etc. Neat people can keep the default behavior and have the icons always snapped to a grid. Controlled in preferences, tweaks, 'Snap to grid'. Affects the shape of icons and drag and drop behavior as well. Free positioning has trapezoidal icons, drop only works with direct overlap. Grid positioning has rectangular icons, and drag and drop works on overlap with the grid holding the icon. This behavior is consistent with other desktop environments.
