@@ -247,6 +247,9 @@ const Preferences = class {
                 this.darkMode = this.schemaGnomeThemeSettings.get_string('color-scheme') === 'prefer-dark';
                 this._desktopManager.onGtkThemeChange();
             }
+            if (key === 'accent-color') {
+                this._desktopManager.onGtkIconThemeChange();
+            }
         });
 
         // Terminal settings Changes
