@@ -10,14 +10,15 @@
 # 0xarch <alanqa-ops@outlook.com>, 2024.
 # 复予 <clonewith@qq.com>, 2024.
 # sans leaf <tiflew123@gmail.com>, 2024.
+# Sun Zhang <cardidi@live.cn>, 2024.
+# RuofengX <i@ruofengx.cn>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-20 04:44+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2024-09-23 17:15+0000\n"
+"Last-Translator: RuofengX <i@ruofengx.cn>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -205,9 +206,8 @@ msgid "Issues"
 msgstr "问题"
 
 #: app/adwPreferencesWindow.js:325
-#, fuzzy
 msgid "Report issues on issue tracker"
-msgstr "报告问题"
+msgstr "在问题追踪器上报告问题"
 
 #: app/adwPreferencesWindow.js:326
 msgid "Report"
@@ -218,7 +218,6 @@ msgid "License"
 msgstr "协议"
 
 #: app/adwPreferencesWindow.js:333
-#, fuzzy
 msgid "Translation"
 msgstr "翻译"
 
@@ -286,9 +285,8 @@ msgid "Extracting files"
 msgstr "提取文件"
 
 #: app/autoAr.js:220
-#, fuzzy
 msgid "Compressing files"
-msgstr "正在压缩文件…"
+msgstr "压缩文件"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
 #: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
@@ -309,46 +307,40 @@ msgid "Creating destination folder"
 msgstr "创建目标文件夹"
 
 #: app/autoAr.js:405
-#, fuzzy
 msgid "Extracting files into '${outputPath}'"
-msgstr "将档案摘入“产出”。 页: 1"
+msgstr "将文件提取到“${outputPath}”"
 
 #: app/autoAr.js:435
 msgid "Extraction completed"
 msgstr "提取完成"
 
 #: app/autoAr.js:436
-#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "删除“ifullPathFile}”的工作已经完成."
+msgstr "提取“${fullPathFile}”已完成。"
 
 #: app/autoAr.js:442
 msgid "Extraction cancelled"
 msgstr "提取已取消"
 
 #: app/autoAr.js:443
-#, fuzzy
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "用户已经取消了“ifullPathFile}”的提取."
+msgstr "提取“${fullPathFile}”已被用户取消。"
 
 #: app/autoAr.js:453
 msgid "Passphrase required for ${filename}"
 msgstr "${filename} 需要密码"
 
 #: app/autoAr.js:456
-#, fuzzy
 msgid "Error during extraction"
-msgstr "提取过程中的错误"
+msgstr "提取时出错"
 
 #: app/autoAr.js:483
-#, fuzzy
 msgid "Compressing files into '${outputFile}'"
-msgstr "将档案压缩为“产出” 页: 1"
+msgstr "将文件压缩到“${outputFile}”"
 
 #: app/autoAr.js:496
-#, fuzzy
 msgid "Compression completed"
-msgstr "已完成的压缩"
+msgstr "压缩已完成"
 
 #: app/autoAr.js:497
 #, fuzzy
@@ -356,24 +348,20 @@ msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "将文件压缩为“ioutputFile}”."
 
 #: app/autoAr.js:501 app/autoAr.js:508
-#, fuzzy
 msgid "Cancelled compression"
-msgstr "缩略语"
+msgstr "已取消压缩"
 
 #: app/autoAr.js:502
-#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "产出文件“ioutputFile}”已经存在."
+msgstr "输出文件“${outputFile}”已经存在。"
 
 #: app/autoAr.js:509
-#, fuzzy
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "用户已取消将文档压缩为“ioutputFile}”."
+msgstr "用户已取消将文件压缩为 '${outputFile}'"
 
 #: app/autoAr.js:512
-#, fuzzy
 msgid "Error during compression"
-msgstr "压缩期间的误差"
+msgstr "压缩时出现错误"
 
 #: app/autoAr.js:547
 #, fuzzy
@@ -381,12 +369,10 @@ msgid "Create archive"
 msgstr "新建压缩包"
 
 #: app/autoAr.js:571
-#, fuzzy
 msgid "Archive name"
-msgstr "档案名称"
+msgstr "归档文件名称"
 
 #: app/autoAr.js:604
-#, fuzzy
 msgid "Password"
 msgstr "密码"
 
@@ -396,74 +382,60 @@ msgid "Create"
 msgstr "创建"
 
 #: app/autoAr.js:688
-#, fuzzy
 msgid "Compatible with all operating systems."
-msgstr "与所有操作系统兼容."
+msgstr "兼容所有操作系统。"
 
 #: app/autoAr.js:694
-#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "必须安装在Windows和Mac上."
+msgstr "受密码保护的 .zip，必须安装在 Windows 和 Mac 上。"
 
 #: app/autoAr.js:700
-#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "较小的档案,但只剩下短链氯化石蜡和麦克风."
+msgstr "较小的档案，但仅限 Linux 和 Mac。"
 
 #: app/autoAr.js:706
-#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "小型档案必须安装在Windows和Mac."
+msgstr "较小的存档，但必须安装在 Windows 和 Mac 上。"
 
 #: app/desktopGrid.js:47
-#, fuzzy
 msgid "Desktop Icons"
 msgstr "桌面图标"
 
 #: app/desktopManager.js:141
-#, fuzzy
 msgid "GNOME Files not found"
-msgstr "GNOME 未找到的文件"
+msgstr "找不到 GNOME 文件"
 
 #: app/desktopManager.js:142
-#, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME Gtk4桌面Icons NG要求申请档案."
+msgstr "Gtk4 Desktop Icons NG 需要 GNOME 文件应用。"
 
 #: app/desktopManager.js:154
-#, fuzzy
 msgid "There is no default File Manager"
-msgstr "没有缺席档案管理员"
+msgstr "没有默认文件管理器"
 
 #: app/desktopManager.js:155
-#, fuzzy
-#| msgid "There is no application installed to open \"{foo}\" type of files"
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "没有处理杂质类“诺德/直系”的申请"
+msgstr "没有用于处理 MIME 类型“inode/directory”的应用程序"
 
 #: app/desktopManager.js:167
-#, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "Gnome文档没有登记为档案管理员"
+msgstr "“Gnome 文件”未被注册为文件管理器"
 
 #: app/desktopManager.js:168
-#, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Gnome文档申请没有列入开放的Folders!\n"
-"检查贵重用途安装\n"
-"查阅Gnome文档。 档案安装"
+"“Gnome 文件”应用未被设置为打开文件夹！\n"
+"检查您的 xdg-utils 安装\n"
+"检查 Gnome 文件应用的 .desktop 文件安装"
 
 #: app/desktopManager.js:785
-#, fuzzy
 msgid "Choose Action for Files"
-msgstr "文档行动"
+msgstr "为文件选择操作"
 
 #: app/desktopManager.js:786
-#, fuzzy
 msgid "Move"
 msgstr "移动"
 
@@ -477,46 +449,38 @@ msgid "Link"
 msgstr "链接"
 
 #: app/desktopManager.js:873 app/desktopManager.js:905
-#, fuzzy
 msgid "Making SymLink Failed"
-msgstr "• 举办座谈会"
+msgstr "创建符号链接失败"
 
 #: app/desktopManager.js:874 app/desktopManager.js:906
-#, fuzzy
 msgid "Could not create symbolic link"
-msgstr "不能建立象征性的联系"
+msgstr "无法创建符号链接"
 
 #: app/desktopManager.js:1216
-#, fuzzy
 msgid "Clear current selection before new search"
-msgstr "在进行新的搜索之前清除当前选择"
+msgstr "在新搜索之前清除当前选择"
 
 #: app/desktopManager.js:1260
 msgid "Find Files on Desktop"
 msgstr "在桌面上发现文件"
 
 #: app/desktopManager.js:1523
-#, fuzzy
 msgid "Name"
 msgstr "名称"
 
 #: app/desktopManager.js:1524
-#, fuzzy
 msgid "Name Z-A"
-msgstr "名称（Z-A）"
+msgstr "名称 Z-A"
 
 #: app/desktopManager.js:1525
-#, fuzzy
 msgid "Modified Time"
 msgstr "修改时间"
 
 #: app/desktopManager.js:1526
-#, fuzzy
 msgid "Type"
 msgstr "类型"
 
 #: app/desktopManager.js:1527
-#, fuzzy
 msgid "Size"
 msgstr "大小"
 
@@ -531,9 +495,8 @@ msgid "Keep Stacked by Type…"
 msgstr "依据文件类型保持堆叠…"
 
 #: app/desktopManager.js:1535
-#, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "排序主目录/驱动器/回收站…"
+msgstr "整理主页/驱动器/回收站…"
 
 #: app/desktopManager.js:1540 app/desktopManager.js:2591
 msgid "New Folder"
@@ -568,15 +531,12 @@ msgid "Arrange By…"
 msgstr "排序方式"
 
 #: app/desktopManager.js:1570
-#, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "图3"
+msgstr "在 {0} 中显示桌面"
 
 #: app/desktopManager.js:1573
-#, fuzzy
 msgid "Open In {0}"
-msgstr "开放式{0}"
+msgstr "在 {0} 中打开"
 
 #: app/desktopManager.js:1579
 #, fuzzy
@@ -585,26 +545,23 @@ msgstr "桌面图标设置"
 
 #: app/desktopManager.js:1584
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Shell菜单…"
 
 #: app/desktopManager.js:1630
-#, fuzzy
 msgid "Preferences Window is Open"
-msgstr "开放窗口"
+msgstr "首选项窗口已打开"
 
 #: app/desktopManager.js:1630
-#, fuzzy
 msgid "This Window is open. Please switch to the active window."
-msgstr "这一窗口已经开放。 请转至正窗口."
+msgstr "这个窗口是打开的。请切换到活动窗口。"
 
 #: app/desktopManager.js:1644
 msgid "Settings"
 msgstr "设置"
 
 #: app/desktopManager.js:2614
-#, fuzzy
 msgid "Folder Creation Failed"
-msgstr "订单建立失败"
+msgstr "文件夹创建失败"
 
 #: app/desktopManager.js:2615
 #, fuzzy
@@ -612,9 +569,8 @@ msgid "Could not create folder"
 msgstr "无法创建文件夹"
 
 #: app/desktopManager.js:2658
-#, fuzzy
 msgid "Template Creation Error"
-msgstr "温度生成"
+msgstr "模板创建错误"
 
 #: app/desktopManager.js:2659
 #, fuzzy
@@ -627,10 +583,8 @@ msgid "Home"
 msgstr "主目录"
 
 #: app/fileItem.js:153
-#, fuzzy
-#| msgid "Empty Trash"
 msgid "Trash"
-msgstr "垃圾"
+msgstr "回收站"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
@@ -643,8 +597,6 @@ msgstr "驱动器"
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
 #: app/fileItem.js:169
-#, fuzzy
-#| msgid "New Folder"
 msgid "Folder"
 msgstr "文件夹"
 
@@ -652,7 +604,6 @@ msgstr "文件夹"
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
 #: app/fileItem.js:176
-#, fuzzy
 msgid "File"
 msgstr "文件"
 
@@ -669,22 +620,14 @@ msgid "Opening File Failed"
 msgstr "打开文件失败"
 
 #: app/fileItem.js:339
-#, fuzzy
-#| msgid "There is no application installed to open \"{foo}\" type of files"
 msgid "There is no application installed to open \"{foo}\" files."
-msgstr "没有安装用于公开“ifoo}”档案的申请."
+msgstr "没有安装用于打开“{foo}”文件的应用程序。"
 
 #: app/fileItem.js:368
 msgid "Broken Desktop File"
 msgstr "已损坏的桌面文件"
 
 #: app/fileItem.js:369
-#, fuzzy
-#| msgid ""
-#| "This .desktop file has errors or points to a program without permissions. "
-#| "It can not be executed.\n"
-#| "\n"
-#| "\t<b>Edit the file to set the correct executable Program.</b>"
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -693,7 +636,7 @@ msgid ""
 msgstr ""
 "此 .desktop 文件有错误或者是指向了一个不够权限运行的程序。它不能被运行。\n"
 "\n"
-"\t<b>编辑文件以设置正确的可执行程序。.</b>"
+"编辑文件以设置正确的可执行程序。"
 
 #: app/fileItem.js:375
 msgid "Invalid Permissions on Desktop File"
@@ -706,52 +649,36 @@ msgid ""
 msgstr "此 .desktop 文件有不正确的权限设置。右键点击属性，然后：\n"
 
 #: app/fileItem.js:378
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 "\n"
-"<b>设置权限，在其他中，设置只读或者无</b>"
+"设置权限，在“其他”中，设置为“只读”或者“无”"
 
 #: app/fileItem.js:381
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Enable option, \"Allow Executing File as a Program\"</b>"
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 "\n"
-"勾选<b>允许执行文件</b>"
+"勾选“允许执行文件”"
 
 #: app/fileItem.js:388
-#, fuzzy
-#| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
-msgstr "未委托的桌面档案"
+msgstr "不信任的桌面文件"
 
 #: app/fileItem.js:389
-#, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "<b>Enable \"Allow Launching\"</b>"
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
-"此 .desktop 文件是没有被信任的，它不能被执行。为使它能够被执行，右键点击属"
-"性，然后：\n"
+"此 .desktop "
+"文件是不受信任的，它不能被执行。为使它能够被执行，右键点击属性，然后：\n"
 "\n"
-"<b>勾选允许执行文件</b>"
+"勾选“允许执行文件”"
 
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
@@ -773,7 +700,6 @@ msgid "Open All..."
 msgstr "全部打开..."
 
 #: app/fileItemMenu.js:316
-#, fuzzy
 msgid "Run"
 msgstr "运行"
 
@@ -831,7 +757,6 @@ msgid "Move to..."
 msgstr "移动到..."
 
 #: app/fileItemMenu.js:377
-#, fuzzy
 msgid "Copy to..."
 msgstr "复制到..."
 
@@ -840,15 +765,13 @@ msgid "Rename…"
 msgstr "重命名……"
 
 #: app/fileItemMenu.js:384
-#, fuzzy
 msgid "Create Link..."
-msgstr "建立联系."
+msgstr "创建链接..."
 
 #: app/fileItemMenu.js:389
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Compress{0} 夹"
+msgstr[0] "压缩 {0} 个文件夹"
 
 #: app/fileItemMenu.js:396
 msgid "Compress {0} file"
@@ -856,14 +779,12 @@ msgid_plural "Compress {0} files"
 msgstr[0] "压缩{0}文件"
 
 #: app/fileItemMenu.js:402
-#, fuzzy
 msgid "Email to..."
-msgstr "Email to..."
+msgstr "发邮件给..."
 
 #: app/fileItemMenu.js:407
-#, fuzzy
 msgid "Send to Mobile Device"
-msgstr "移动电话"
+msgstr "发送到移动设备"
 
 #: app/fileItemMenu.js:411
 msgid "Move to Trash"
@@ -902,42 +823,34 @@ msgid "Properties"
 msgstr "属性"
 
 #: app/fileItemMenu.js:442
-#, fuzzy
-#| msgid "Show All in Files"
 msgid "Show All in {0}"
-msgstr "(0}"
+msgstr "在 {0} 中显示全部"
 
 #: app/fileItemMenu.js:443
-#, fuzzy
-#| msgid "Show in Files"
 msgid "Show in {0}"
-msgstr "图1"
+msgstr "在 {0} 中显示"
 
 #: app/fileItemMenu.js:448
-#, fuzzy
 msgid "Open in {0}"
-msgstr "开放式{0}"
+msgstr "在 {0} 中打开"
 
 #: app/fileItemMenu.js:567
 msgid "Extraction Cancelled"
 msgstr "提取已取消"
 
 #: app/fileItemMenu.js:568
-#, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "无法复制文件，没有目标文件夹"
+msgstr "无法提取文件，没有目标文件夹"
 
 #: app/fileItemMenu.js:600
 msgid "Move Cancelled"
 msgstr "移动已取消"
 
 #: app/fileItemMenu.js:601
-#, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "无法复制文件，没有目标文件夹"
+msgstr "无法移动文件，没有目标文件夹"
 
 #: app/fileItemMenu.js:613 app/fileItemMenu.js:642
-#, fuzzy
 msgid "Select Destination"
 msgstr "选择目的地"
 
@@ -946,7 +859,6 @@ msgid "Select"
 msgstr "选择"
 
 #: app/fileItemMenu.js:693
-#, fuzzy
 msgid "Copy Cancelled"
 msgstr "复制已取消"
 
@@ -956,81 +868,65 @@ msgstr "无法复制文件，没有目标文件夹"
 
 #: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
 #: app/fileItemMenu.js:789
-#, fuzzy
 msgid "Mail Error"
-msgstr "电子邮件错误"
+msgstr "邮件错误"
 
 #: app/fileItemMenu.js:743
-#, fuzzy
 msgid "Unable to find xdg-email, please install the program"
-msgstr "无法找到xdg-email,请安装节目"
+msgstr "找不到 xdg-email，请安装此程序"
 
 #: app/fileItemMenu.js:753
-#, fuzzy
 msgid "There was an error in emailing Files"
-msgstr "电子邮件文件有误"
+msgstr "通过邮件发送文件时出现错误"
 
 #: app/fileItemMenu.js:763
-#, fuzzy
 msgid "Unable to find zip command, please install the program"
-msgstr "无法找到警示,请安装方案"
+msgstr "无法找到 zip 命令，请先安装 zip 包"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:769
-#, fuzzy
 msgid "Archive.zip"
-msgstr "Corr.zip"
+msgstr "归档.zip"
 
 #: app/fileItemMenu.js:790
-#, fuzzy
 msgid "There was an error in creating a zip archive"
-msgstr "creating积档案的建立有误"
+msgstr "创建 .zip 压缩文件时出现错误"
 
 #: app/fileItemMenu.js:803
 msgid "Can not email a Directory"
 msgstr "文件夹不能邮件"
 
 #: app/fileItemMenu.js:804
-#, fuzzy
-#| msgid ""
-#| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "甄选包括一名名录,先压缩到一.三卷档案?"
+msgstr "选择部分包括了文件夹，首先压缩为一个 .zip 文件吗？"
 
 #: app/fileItemMenu.js:916
-#, fuzzy
 msgid "Unable to Open in Gnome Console"
-msgstr "Unable to Open in Gnome Console"
+msgstr "无法在 GNOME 终端中打开"
 
 #: app/fileItemMenu.js:917
-#, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr "请 Install Gnome Console或其他终端方案"
+msgstr "请安装 GNOME Console 或其他控制台应用"
 
 #: app/fileItemMenu.js:924
-#, fuzzy
 msgid "Unable to Open {0}"
-msgstr "开放{0}"
+msgstr "无法打开 {0}"
 
 #: app/fileItemMenu.js:925
-#, fuzzy
 msgid "Please Install {0}"
-msgstr "请问{0}"
+msgstr "请安装 {0}"
 
 #: app/preferences.js:417
-#, fuzzy
 msgid "Console"
-msgstr "控制台视图"
+msgstr "控制台"
 
 #: app/showErrorPopup.js:39
-#, fuzzy
 msgid "More Information"
 msgstr "更多信息"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
-#, fuzzy
 msgid "Stack"
 msgstr "堆叠"
 
@@ -1066,9 +962,8 @@ msgid "_Cancel"
 msgstr "取消(_C)"
 
 #: app/resources/ui/ding-app-chooser.ui:110
-#, fuzzy
 msgid "_Open"
-msgstr "打开(_O)"
+msgstr "_打开"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1211,16 +1106,14 @@ msgid ""
 msgstr "如果连接了第二台显示器，新图标将放置在非主显示器上"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, fuzzy
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr "Icons可以在桌面上站在任何地方"
+msgstr "图标可放置于在桌面任意位置"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, fuzzy
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr "Icons并不是一个直径网,而是可以在独立于电网的任何地方张贴"
+msgstr "图标不在矩形网格上，可放置在任何位置"
 
 #~ msgid "Change Background…"
 #~ msgstr "更改背景…"
