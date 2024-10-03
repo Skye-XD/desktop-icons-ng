@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-20 04:44+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-10-03 18:16+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
@@ -39,7 +40,7 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "বিস্তারিত"
+msgstr "সম্পর্কিত"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -348,7 +349,7 @@ msgstr "ফাইলগুলো কমপ্রেস হচ্ছে।"
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 #, fuzzy
 msgid "Cancel"
-msgstr "বাতিল করা"
+msgstr "বাতিল করুন"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 #, fuzzy
@@ -453,7 +454,7 @@ msgstr "পাসওয়ার্ড"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "বানান"
+msgstr "তৈরি করুন"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -523,7 +524,7 @@ msgstr "স্থানান্তর"
 #: app/desktopManager.js:786 app/fileItemMenu.js:372
 #, fuzzy
 msgid "Copy"
-msgstr "Copy"
+msgstr "নকল"
 
 #: app/desktopManager.js:786
 #, fuzzy
@@ -836,7 +837,7 @@ msgstr "{foo} দিয়ে খুলুন"
 #: app/fileItemMenu.js:320
 #, fuzzy
 msgid "Open"
-msgstr "Open"
+msgstr "খুলুন"
 
 #: app/fileItemMenu.js:329 app/fileItemMenu.js:333
 #, fuzzy
@@ -881,7 +882,7 @@ msgstr "একটি প্রোগ্রাম হিসাবে চালা
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Scripts"
-msgstr "স্ক্রিপ্ট (লেখার ধরণ)"
+msgstr "স্ক্রিপ্টস্"
 
 #: app/fileItemMenu.js:370
 #, fuzzy

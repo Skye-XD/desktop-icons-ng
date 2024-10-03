@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-20 04:44+0000\n"
+"PO-Revision-Date: 2024-10-03 18:16+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
@@ -222,12 +222,12 @@ msgstr "ウェブサイト"
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
 msgid "Visit"
-msgstr "訪問"
+msgstr "ビジット"
 
 #: app/adwPreferencesWindow.js:324
 #, fuzzy
 msgid "Issues"
-msgstr "課題"
+msgstr "問題"
 
 #: app/adwPreferencesWindow.js:325
 #, fuzzy
@@ -892,7 +892,7 @@ msgstr "を移動..."
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピー..."
+msgstr "コピーする"
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"
@@ -1088,7 +1088,7 @@ msgstr "コンソール"
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "More Information"
-msgstr "詳細情報"
+msgstr "その他の情報"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
