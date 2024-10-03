@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-20 04:44+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-10-03 18:16+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
@@ -192,7 +193,7 @@ msgstr "Single click"
 #: app/adwPreferencesWindow.js:296
 #, fuzzy
 msgid "Double click"
-msgstr "Διπλό πάτημα"
+msgstr "Διπλό κλικ"
 
 #: app/adwPreferencesWindow.js:300
 #, fuzzy
@@ -699,7 +700,7 @@ msgstr "Δεν θα μπορούσε να δημιουργήσει έγγραφ�
 #: app/fileItem.js:138 app/fileItem.js:147
 #, fuzzy
 msgid "Home"
-msgstr "Αρχική σελίδα"
+msgstr "Αρχική"
 
 #: app/fileItem.js:153
 #, fuzzy
@@ -889,7 +890,7 @@ msgstr "Εκτελέστε ως πρόγραμμα"
 #: app/fileItemMenu.js:367
 #, fuzzy
 msgid "Scripts"
-msgstr "Σενάρια"
+msgstr "Scripts"
 
 #: app/fileItemMenu.js:370
 #, fuzzy
