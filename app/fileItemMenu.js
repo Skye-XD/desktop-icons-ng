@@ -484,12 +484,12 @@ const FileItemMenu = class {
         if (this.popupmenu && (fileItem.uri === this.activeFileItem.uri))
             return;
         this._toolTipPopup = Gtk.Popover.new();
-        this._toolTipPopup.set_pointing_to(fileItem.iconRectangle);
+        this._toolTipPopup.set_pointing_to(fileItem.iconLocalWindowRectangle);
         this._toolTipPopup.set_autohide(false);
         this._toolTipLabel = Gtk.Label.new(fileItem._currentFileName);
         this._toolTipPopup.set_child(this._toolTipLabel);
         this._toolTipPopup.set_parent(fileItem._grid._window);
-        const popupLocation = new Gdk.Rectangle({x: fileItem.iconRectangle.x, y: fileItem.iconRectangle.y, width: 1, height: 1});
+        const popupLocation = new Gdk.Rectangle({x: fileItem.iconLocalWindowRectangle.x, y: fileItem.iconLocalWindowRectangle.y, width: 1, height: 1});
         const popupGtkPosition = fileItem._grid.getIntelligentPosition(popupLocation);
         if (popupGtkPosition)
             this._toolTipPopup.set_position(popupGtkPosition);
