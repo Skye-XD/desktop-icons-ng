@@ -12,13 +12,14 @@
 # sans leaf <tiflew123@gmail.com>, 2024.
 # Sun Zhang <cardidi@live.cn>, 2024.
 # RuofengX <i@ruofengx.cn>, 2024.
+# "Jiaxuan (William) Li" <lijiaxuan1811@163.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-23 17:15+0000\n"
-"Last-Translator: RuofengX <i@ruofengx.cn>\n"
+"PO-Revision-Date: 2024-10-10 23:53+0000\n"
+"Last-Translator: Daniel Zhang <xiaozhangshiw@163.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -343,9 +344,8 @@ msgid "Compression completed"
 msgstr "压缩已完成"
 
 #: app/autoAr.js:497
-#, fuzzy
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "将文件压缩为“ioutputFile}”."
+msgstr "成功将文件压缩为 '${outputFile}'。"
 
 #: app/autoAr.js:501 app/autoAr.js:508
 msgid "Cancelled compression"
@@ -364,9 +364,8 @@ msgid "Error during compression"
 msgstr "压缩时出现错误"
 
 #: app/autoAr.js:547
-#, fuzzy
 msgid "Create archive"
-msgstr "新建压缩包"
+msgstr "创建归档"
 
 #: app/autoAr.js:571
 msgid "Archive name"
@@ -444,7 +443,6 @@ msgid "Copy"
 msgstr "复制"
 
 #: app/desktopManager.js:786
-#, fuzzy
 msgid "Link"
 msgstr "链接"
 
@@ -485,14 +483,12 @@ msgid "Size"
 msgstr "大小"
 
 #: app/desktopManager.js:1530
-#, fuzzy
 msgid "Keep Arranged…"
-msgstr "保持安排…"
+msgstr "保持排序…"
 
 #: app/desktopManager.js:1534
-#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "依据文件类型保持堆叠…"
+msgstr "按类型堆叠…"
 
 #: app/desktopManager.js:1535
 msgid "Sort Home/Drives/Trash…"
@@ -573,9 +569,8 @@ msgid "Template Creation Error"
 msgstr "模板创建错误"
 
 #: app/desktopManager.js:2659
-#, fuzzy
 msgid "Could not create document"
-msgstr "无法删除文档"
+msgstr "无法创建文档"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:138 app/fileItem.js:147
@@ -957,9 +952,8 @@ msgid "Always use for this file type"
 msgstr "总是为此文件类型应用此设置"
 
 #: app/resources/ui/ding-app-chooser.ui:104
-#, fuzzy
 msgid "_Cancel"
-msgstr "取消(_C)"
+msgstr "_取消"
 
 #: app/resources/ui/ding-app-chooser.ui:110
 msgid "_Open"
