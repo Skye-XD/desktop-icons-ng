@@ -132,6 +132,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Make the selection rectangle / rubber band with rounded cornes, and a thicker margin, more translucent to look like the selection rectangle in Gnome Files.
 
+- [x] Update highlight and selection colors, rubber band colors with the new accent colors in Gnome 47.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -255,3 +257,5 @@ The application functionality and behavior is consistent with the two other very
 - [x] Dispose of Cairo.Context correctly to prevent memory leaks after draw function is done drawing.
 
 - [x] Fix, selection colors would lag behind after theme changes on Ubuntu and still reflect the prior theme. Add a timeout and then interrogate the foreground and background colors to get the correct colors for the new theme.
+
+- [x] Fix, tooltips showing away from icon in multimonitor setups.

@@ -1,4 +1,10 @@
 # History of versions #
+* Gtk4 version 84 for Gnome 45, 46, 47
+  * Update meson.build for apparmor file. Sergio Costas
+  * Fix regression, tooltip not showing at the correct postion in multimonitor setup. (Sundeep Mediratta)
+  * Weblate Translations. (Weblate Authors)
+  * Update History.md, FEATURES.md, metadata.json. Version Bump 84
+
 * Gtk4 version 83 for Gnome 45, 46, 47
   * Update selection and rubber band colors with the new accent colors in Gnome 47. (Sundeep Mediratta)
   * Update History.md, Issues.md, Readme.md, metadata.json. Version Bump 83.
