@@ -472,7 +472,7 @@ const DesktopGrid = class {
             }
             desktopDropZone = !fileItemDropZone;
 
-            this._receiveMotion(x, y, false);
+            this.receiveMotion(x, y, false);
 
             if (fileItemDropZone && !fileItem.dropCapable)
                 return false;
@@ -771,7 +771,7 @@ const DesktopGrid = class {
         this._receiveLeave();
     }
 
-    _receiveMotion(x, y, global) {
+    receiveMotion(x, y, global) {
         let X;
         let Y;
         if (!global) {
