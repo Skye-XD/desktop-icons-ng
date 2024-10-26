@@ -763,6 +763,7 @@ const DesktopGrid = class {
     }
 
     _receiveLeave() {
+        this._stopSpringLoadedTimer();
         this._window.queue_draw();
         this._desktopManager.onDragLeave();
     }
