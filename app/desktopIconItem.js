@@ -406,7 +406,7 @@ const DesktopIconItem = class {
             Gdk.drag_status(context, Gdk.DragAction.MOVE, time);
     }
 
-    setHightLighted() {
+    setHighLighted() {
         if (!this._iconContainer.get_css_classes().includes('desktop-icons-selected'))
             this._iconContainer.add_css_class('desktop-icons-selected');
         if (!this._labelContainer.get_css_classes().includes('desktop-icons-selected'))
@@ -425,7 +425,7 @@ const DesktopIconItem = class {
             this._grid.receiveMotion(this._x1, this._y1, true);
             return;
         }
-        this.setHightLighted();
+        this.setHighLighted();
         this._grid?.highLightGridAt(this._x1, this._y1);
     }
 
@@ -455,7 +455,7 @@ const DesktopIconItem = class {
 
     _setSelectedStatus() {
         if (this._isSelected) {
-            this.setHightLighted();
+            this.setHighLighted();
             this.container.grab_focus();
         }
         if (!this._isSelected)
