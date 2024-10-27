@@ -126,7 +126,7 @@ const DesktopIconItem = class {
 
         this._label = new Gtk.Label({
             halign: Gtk.Align.CENTER,
-            natural_wrap_mode: Gtk.NaturalWrapMode.NONE,
+            natural_wrap_mode: Gtk.NaturalWrapMode.WORD,
             ellipsize: Pango.EllipsizeMode.END,
             wrap: true,
             wrap_mode: Pango.WrapMode.WORD_CHAR,
