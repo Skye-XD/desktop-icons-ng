@@ -426,7 +426,7 @@ const DesktopIconItem = class {
             return;
         }
         this.setHightLighted();
-        this._grid.highLightGridAt(this._x1, this._y1);
+        this._grid?.highLightGridAt(this._x1, this._y1);
     }
 
     unHighLightDropTarget() {
