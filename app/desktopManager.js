@@ -646,6 +646,7 @@ const DesktopManager = class {
         for (let desktop of this._desktops)
             desktop.refreshDrag(this._dragList, X, Y);
         this._stopGnomeShellDrag();
+        this.dragItem.setHighLighted();
     }
 
     onDragLeave() {
