@@ -543,17 +543,20 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (this._destroyed)
             return;
 
+        const updateIcon = true;
         if (this._isDesktopFile)
-            this._refreshMetadataAsync(true).catch(e => console.error(e));
+            this._refreshMetadataAsync(updateIcon).catch(e => console.error(e));
     }
 
     updatedMetadata() {
-        this._refreshMetadataAsync(true).catch(e => console.error(e));
+        const updateIcon = true;
+        this._refreshMetadataAsync(updateIcon).catch(e => console.error(e));
     }
 
     onFileRenamed(file) {
         this._file = file;
-        this._refreshMetadataAsync(false).catch(e => console.error(e));
+        const updateIcon = false;
+        this._refreshMetadataAsync(updateIcon).catch(e => console.error(e));
     }
 
     async eject(atWidget) {
