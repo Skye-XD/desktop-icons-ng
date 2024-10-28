@@ -97,9 +97,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
 
-        if (this._queryTrashInfoCancellable)
-            this._queryTrashInfoCancellable.cancel();
-
         if (this._umountCancellable)
             this._umountCancellable.cancel();
 
@@ -112,10 +109,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (this._dropCoordinatesCancellable)
             this._dropCoordinatesCancellable.cancel();
 
-        if (this._scheduleTrashRefreshId) {
-            GLib.source_remove(this._scheduleTrashRefreshId);
-            this._scheduleTrashRefreshId = 0;
-        }
         /* Metadata */
         if (this._setMetadataTrustedCancellable)
             this._setMetadataTrustedCancellable.cancel();
@@ -291,10 +284,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this._symlinkFileMonitorId = this._symlinkFileMonitor.connect('changed', this._updateSymlinkIcon.bind(this));
     }
 
-    _updateSymlinkIcon() {
-        this._refreshMetadataAsync(true, null);
-    }
-
     async _doOpenContext(context, fileList) {
         if (!fileList)
             fileList = [];
@@ -412,39 +401,10 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     _monitorTrash() {
-        this._trashChanged = false;
-        this._queryTrashInfoCancellable = null;
-        this._scheduleTrashRefreshId = 0;
         this._monitorTrashDir = this._file.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._monitorTrashDir.set_rate_limit(1000);
         this._monitorTrashId = this._monitorTrashDir.connect('changed', (obj, file, otherFile, eventType) => {
-            switch (eventType) {
-            case Gio.FileMonitorEvent.DELETED:
-            case Gio.FileMonitorEvent.MOVED_OUT:
-            case Gio.FileMonitorEvent.CREATED:
-            case Gio.FileMonitorEvent.MOVED_IN:
-                if (this._queryTrashInfoCancellable || this._scheduleTrashRefreshId) {
-                    if (this._scheduleTrashRefreshId)
-                        GLib.source_remove(this._scheduleTrashRefreshId);
-
-                    if (this._queryTrashInfoCancellable) {
-                        this._queryTrashInfoCancellable.cancel();
-                        this._queryTrashInfoCancellable = null;
-                    }
-                    this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                        this._refreshTrashIcon().catch(e => console.error(e));
-                        this._scheduleTrashRefreshId = 0;
-                        return GLib.SOURCE_REMOVE;
-                    });
-                } else {
-                    this._refreshTrashIcon().catch(e => console.error(e));
-                    // after a refresh, don't allow more refreshes until 200ms after, to coalesce extra events
-                    this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                        this._scheduleTrashRefreshId = 0;
-                        return GLib.SOURCE_REMOVE;
-                    });
-                }
-                break;
-            }
+            this._refreshTrashIcon(eventType);
         });
     }
 
@@ -554,39 +514,24 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
      * Icon Rendering *
      ***********************/
 
-    async _refreshTrashIcon() {
-        if (this._queryTrashInfoCancellable) {
-            this._queryTrashInfoCancellable.cancel();
-            this._queryTrashInfoCancellable = null;
+    async _updateSymlinkIcon() {
+        const updateIcon = true;
+        await this._refreshMetadataAsync(updateIcon);
+        this._icon.queue_draw();
+    }
+
+    async _refreshTrashIcon(eventType) {
+        const updateIcon = true;
+
+        switch (eventType) {
+        case Gio.FileMonitorEvent.DELETED:
+        case Gio.FileMonitorEvent.MOVED_OUT:
+        case Gio.FileMonitorEvent.CREATED:
+        case Gio.FileMonitorEvent.MOVED_IN:
+            await this._refreshMetadataAsync(updateIcon);
+            break;
         }
-
-        const cancellable = new Gio.Cancellable();
-        this._queryTrashInfoCancellable = cancellable;
-
-        try {
-            this._fileInfo =
-                await this._file.query_info_async(this.Enums.DEFAULT_ATTRIBUTES,
-                    Gio.FileQueryInfoFlags.NONE,
-                    GLib.PRIORITY_DEFAULT,
-                    cancellable);
-            try {
-                await this._updateIcon(cancellable);
-            } catch (e) {
-                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                    throw e;
-                console.error(e, `Exception while updating the trash icon: ${e.message}`);
-            }
-        } catch (e) {
-            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                return false;
-
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                console.error(e, `Error getting the number of files in the trash: ${e.message}`);
-        } finally {
-            if (cancellable === this._queryTrashInfoCancellable)
-                this._queryTrashInfoCancellable = null;
-        }
-
+        this._icon.queue_draw();
         return false;
     }
 
