@@ -186,10 +186,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         return null;
     }
 
-    async _refreshMetadataAsync(rebuild, cancellable) {
+    async _refreshMetadataAsync(cancellable) {
         if (this._destroyed)
             return;
-
 
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
@@ -210,15 +209,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 this._setFileName(this.displayName);
 
             this._updateName();
-            if (rebuild) {
-                try {
-                    await this._updateIcon(cancellable);
-                } catch (e) {
-                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                        throw e;
-                    console.error(e, `Exception while updating the icon after a metadata update: ${e.message}`);
-                }
-            }
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 console.error(e, `Error getting file info: ${e.message}`);
@@ -514,16 +504,20 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
      * Icon Rendering *
      ***********************/
 
-    async updateIcon() {
-        const updateIcon = true;
-        await this._refreshMetadataAsync(updateIcon).catch(e => {
+    async updateIcon(cancellable) {
+        if (!cancellable)
+            cancellable = new Gio.Cancellable();
+        try {
+            await this._refreshMetadataAsync(cancellable);
+            await this._updateIcon(cancellable);
+            this._icon.queue_draw();
+        } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 console.error(e, `Exception while updating ${this._getVisibleName
-                    ? this._getVisibleName() : 'Refresh Metdata'}: ${e.message}`);
+                    ? this._getVisibleName() : 'updating icon'}: ${e.message}`);
                 throw e;
             }
-        });
-        this._icon.queue_draw();
+        }
     }
 
     async _updateSymlinkIcon() {
@@ -577,10 +571,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     onFileRenamed(file) {
         this._file = file;
-        const updateIcon = false;
-        this._refreshMetadataAsync(updateIcon).catch(e => {
+        this._refreshMetadataAsync().catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                console.error(e, `Exception while updating icon on File Renamed: ${e.message}`);
+                console.error(e, `Exception while updating icon name on File Renamed: ${e.message}`);
         });
     }
 
@@ -674,7 +667,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         console.log('Could not find discrete GPU data in switcheroo-control');
     }
 
-    async _setFileAttributes(fileInfo, cancellable = null, opts = {refresh: true}) {
+    async _setFileAttributes(fileInfo, cancellable = null, updateIcon = true) {
         await this._file.set_attributes_async(fileInfo,
             Gio.FileQueryInfoFlags.NONE,
             GLib.PRIORITY_LOW,
@@ -686,12 +679,11 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 'Operation was cancelled');
         }
 
-        if (opts.refresh) {
-            await this._refreshMetadataAsync(true, cancellable).catch(e => {
-                console.error('Error while refreshing metadata');
+        if (updateIcon) {
+            await this.updateIcon(cancellable).catch(e => {
+                console.error('Error while updating icon while setting attributes');
                 throw e;
             });
-            this._icon.queue_draw();
         }
     }
 
@@ -700,7 +692,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         info.set_attribute_string(`metadata::${name}`,
             `${coords ? coords.join(',') : ''}`);
 
-        await this._setFileAttributes(info, cancellable, {refresh: false});
+        const updateIcon = true;
+        await this._setFileAttributes(info, cancellable, !updateIcon);
     }
 
     writeSavedCoordinates(pos) {
