@@ -2113,6 +2113,8 @@ const DesktopManager = class {
                 if (!activeItem)
                     this.fileItemMenu.popupmenu.popdown();
             }
+            if (!activeItem)
+                this.fileItemMenu.activeFileItem = this.activeFileItem = null;
         }
     }
 
