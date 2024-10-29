@@ -94,11 +94,11 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             this._symlinkFileMonitorId = 0;
         }
 
+        if (this._updatingIconCancellable)
+            this._updatingIconCancellable.cancel();
+
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
-
-        if (this._queryTrashInfoCancellable)
-            this._queryTrashInfoCancellable.cancel();
 
         if (this._umountCancellable)
             this._umountCancellable.cancel();
@@ -112,10 +112,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (this._dropCoordinatesCancellable)
             this._dropCoordinatesCancellable.cancel();
 
-        if (this._scheduleTrashRefreshId) {
-            GLib.source_remove(this._scheduleTrashRefreshId);
-            this._scheduleTrashRefreshId = 0;
-        }
         /* Metadata */
         if (this._setMetadataTrustedCancellable)
             this._setMetadataTrustedCancellable.cancel();
@@ -193,16 +189,18 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         return null;
     }
 
-    async _refreshMetadataAsync(rebuild, cancellable) {
-        if (this._destroyed)
-            return;
-
+    async _refreshMetadataAsync(cancellable) {
+        if ((cancellable && cancellable.is_cancelled()) || this._destroyed) {
+            throw new GLib.Error(Gio.IOErrorEnum,
+                Gio.IOErrorEnum.CANCELLED,
+                'Operation was cancelled');
+        } else if (!cancellable) {
+            cancellable = new Gio.Cancellable();
+        }
 
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
 
-        if (!cancellable)
-            cancellable = new Gio.Cancellable();
         this._queryFileInfoCancellable = cancellable;
 
         try {
@@ -217,15 +215,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 this._setFileName(this.displayName);
 
             this._updateName();
-            if (rebuild) {
-                try {
-                    await this._updateIcon(cancellable);
-                } catch (e) {
-                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                        throw e;
-                    console.error(e, `Exception while updating the icon after a metadata update: ${e.message}`);
-                }
-            }
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 console.error(e, `Error getting file info: ${e.message}`);
@@ -289,10 +278,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this._symlinkFileMonitor = symlinkTargetGioFile.monitor(Gio.FileMonitorFlags.WATCH_MOVES, null);
         this._symlinkFileMonitor.set_rate_limit(1000);
         this._symlinkFileMonitorId = this._symlinkFileMonitor.connect('changed', this._updateSymlinkIcon.bind(this));
-    }
-
-    _updateSymlinkIcon() {
-        this._refreshMetadataAsync(true, null);
     }
 
     async _doOpenContext(context, fileList) {
@@ -412,39 +397,10 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     _monitorTrash() {
-        this._trashChanged = false;
-        this._queryTrashInfoCancellable = null;
-        this._scheduleTrashRefreshId = 0;
         this._monitorTrashDir = this._file.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._monitorTrashDir.set_rate_limit(1000);
         this._monitorTrashId = this._monitorTrashDir.connect('changed', (obj, file, otherFile, eventType) => {
-            switch (eventType) {
-            case Gio.FileMonitorEvent.DELETED:
-            case Gio.FileMonitorEvent.MOVED_OUT:
-            case Gio.FileMonitorEvent.CREATED:
-            case Gio.FileMonitorEvent.MOVED_IN:
-                if (this._queryTrashInfoCancellable || this._scheduleTrashRefreshId) {
-                    if (this._scheduleTrashRefreshId)
-                        GLib.source_remove(this._scheduleTrashRefreshId);
-
-                    if (this._queryTrashInfoCancellable) {
-                        this._queryTrashInfoCancellable.cancel();
-                        this._queryTrashInfoCancellable = null;
-                    }
-                    this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                        this._refreshTrashIcon().catch(e => console.error(e));
-                        this._scheduleTrashRefreshId = 0;
-                        return GLib.SOURCE_REMOVE;
-                    });
-                } else {
-                    this._refreshTrashIcon().catch(e => console.error(e));
-                    // after a refresh, don't allow more refreshes until 200ms after, to coalesce extra events
-                    this._scheduleTrashRefreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 200, () => {
-                        this._scheduleTrashRefreshId = 0;
-                        return GLib.SOURCE_REMOVE;
-                    });
-                }
-                break;
-            }
+            this._refreshTrashIcon(eventType);
         });
     }
 
@@ -554,37 +510,49 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
      * Icon Rendering *
      ***********************/
 
-    async _refreshTrashIcon() {
-        if (this._queryTrashInfoCancellable) {
-            this._queryTrashInfoCancellable.cancel();
-            this._queryTrashInfoCancellable = null;
-        }
-
-        const cancellable = new Gio.Cancellable();
-        this._queryTrashInfoCancellable = cancellable;
-
+    async updateIcon(cancellable) {
+        if (!cancellable)
+            cancellable = new Gio.Cancellable();
+        this._updatingIconCancellable = cancellable;
         try {
-            this._fileInfo =
-                await this._file.query_info_async(this.Enums.DEFAULT_ATTRIBUTES,
-                    Gio.FileQueryInfoFlags.NONE,
-                    GLib.PRIORITY_DEFAULT,
-                    cancellable);
-            try {
-                await this._updateIcon(cancellable);
-            } catch (e) {
-                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                    throw e;
-                console.error(e, `Exception while updating the trash icon: ${e.message}`);
-            }
+            await this._refreshMetadataAsync(cancellable);
+            await this._updateIcon(cancellable);
+            this._icon.queue_draw();
         } catch (e) {
-            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                return false;
-
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                console.error(e, `Error getting the number of files in the trash: ${e.message}`);
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                console.error(e, `Exception while updating ${this._getVisibleName
+                    ? this._getVisibleName() : 'updating icon'}: ${e.message}`);
+                throw e;
+            }
         } finally {
-            if (cancellable === this._queryTrashInfoCancellable)
-                this._queryTrashInfoCancellable = null;
+            if (this._updatingIconCancellable === cancellable)
+                this._updatingIconCancellable = null;
+        }
+    }
+
+    async _updateSymlinkIcon() {
+        await this.updateIcon().catch(e => {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                console.error(e, `Exception while updating ${this._getVisibleName
+                    ? this._getVisibleName() : 'a symlink icon'}: ${e.message}`);
+            }
+        });
+    }
+
+    async _refreshTrashIcon(eventType) {
+        switch (eventType) {
+        case Gio.FileMonitorEvent.DELETED:
+        case Gio.FileMonitorEvent.MOVED_OUT:
+        case Gio.FileMonitorEvent.CREATED:
+        case Gio.FileMonitorEvent.MOVED_IN:
+            await this.updateIcon().catch(e => {
+                if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                    console.error(e, `Exception while updating ${this._getVisibleName
+                        ? this._getVisibleName() : 'Trash icon'}: ${e.message}`);
+                }
+            });
+
+            break;
         }
 
         return false;
@@ -598,17 +566,25 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (this._destroyed)
             return;
 
-        if (this._isDesktopFile)
-            this._refreshMetadataAsync(true).catch(e => console.error(e));
+        this.updateIcon().catch(e =>  {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                console.error(e, `Exception while updating icon on Attribute Changed: ${e.message}`);
+        });
     }
 
     updatedMetadata() {
-        this._refreshMetadataAsync(true).catch(e => console.error(e));
+        this.updateIcon().catch(e =>  {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                console.error(e, `Exception while updating icon on Metadata Changed: ${e.message}`);
+        });
     }
 
     onFileRenamed(file) {
         this._file = file;
-        this._refreshMetadataAsync(false).catch(e => console.error(e));
+        this._refreshMetadataAsync().catch(e => {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                console.error(e, `Exception while updating icon name on File Renamed: ${e.message}`);
+        });
     }
 
     async eject(atWidget) {
@@ -701,7 +677,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         console.log('Could not find discrete GPU data in switcheroo-control');
     }
 
-    async _setFileAttributes(fileInfo, cancellable = null, opts = {refresh: true}) {
+    async _setFileAttributes(fileInfo, cancellable = null, updateIcon = true) {
         await this._file.set_attributes_async(fileInfo,
             Gio.FileQueryInfoFlags.NONE,
             GLib.PRIORITY_LOW,
@@ -713,8 +689,12 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 'Operation was cancelled');
         }
 
-        if (opts.refresh)
-            await this._refreshMetadataAsync(true, cancellable);
+        if (updateIcon) {
+            await this.updateIcon(cancellable).catch(e => {
+                console.error('Error while updating icon while setting attributes');
+                throw e;
+            });
+        }
     }
 
     async _storeCoordinates(name, coords, cancellable = null) {
@@ -722,7 +702,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         info.set_attribute_string(`metadata::${name}`,
             `${coords ? coords.join(',') : ''}`);
 
-        await this._setFileAttributes(info, cancellable, {refresh: false});
+        const updateIcon = true;
+        await this._setFileAttributes(info, cancellable, !updateIcon);
     }
 
     writeSavedCoordinates(pos) {
