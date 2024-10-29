@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-20 04:44+0000\n"
+"PO-Revision-Date: 2024-10-29 15:08+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8.2-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -40,7 +40,7 @@ msgstr "Паляпшэнні"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Звесткі пра прыкладанне"
+msgstr "Інфармацыя"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -300,7 +300,7 @@ msgstr "Імя файла"
 #: app/fileItemMenu.js:805
 #, fuzzy
 msgid "OK"
-msgstr "ОК"
+msgstr "Гарача"
 
 #: app/askRenamePopup.js:57
 msgid "Rename"
@@ -558,7 +558,7 @@ msgstr "Тып"
 #: app/desktopManager.js:1527
 #, fuzzy
 msgid "Size"
-msgstr "Памер"
+msgstr "Формат"
 
 #: app/desktopManager.js:1530
 #, fuzzy
@@ -690,7 +690,7 @@ msgstr "Дыск"
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Каталог"
+msgstr "Дырка"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
