@@ -638,7 +638,10 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             let info = new Gio.FileInfo();
             let newUnixMode = this._unixmode | this.Enums.UnixPermissions.S_IXUSR;
             info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, newUnixMode);
-            await this._setFileAttributes(info);
+            await this._setFileAttributes(info).catch(e => {
+                if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                    throw e;
+            });
         }
         this._updateName();
     }
