@@ -510,7 +510,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
      * Icon Rendering *
      ***********************/
 
-    async updateIcon(cancellable) {
+    async _reloadIcon(cancellable) {
         if (!cancellable)
             cancellable = new Gio.Cancellable();
         this._updatingIconCancellable = cancellable;
@@ -531,7 +531,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     async _updateSymlinkIcon() {
-        await this.updateIcon().catch(e => {
+        await this._reloadIcon().catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 console.error(e, `Exception while updating ${this._getVisibleName
                     ? this._getVisibleName() : 'a symlink icon'}: ${e.message}`);
@@ -545,7 +545,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         case Gio.FileMonitorEvent.MOVED_OUT:
         case Gio.FileMonitorEvent.CREATED:
         case Gio.FileMonitorEvent.MOVED_IN:
-            await this.updateIcon().catch(e => {
+            await this._reloadIcon().catch(e => {
                 if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                     console.error(e, `Exception while updating ${this._getVisibleName
                         ? this._getVisibleName() : 'Trash icon'}: ${e.message}`);
@@ -566,14 +566,14 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (this._destroyed)
             return;
 
-        this.updateIcon().catch(e =>  {
+        this._reloadIcon().catch(e =>  {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 console.error(e, `Exception while updating icon on Attribute Changed: ${e.message}`);
         });
     }
 
     updatedMetadata() {
-        this.updateIcon().catch(e =>  {
+        this._reloadIcon().catch(e =>  {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 console.error(e, `Exception while updating icon on Metadata Changed: ${e.message}`);
         });
@@ -693,7 +693,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         }
 
         if (updateIcon) {
-            await this.updateIcon(cancellable).catch(e => {
+            await this._reloadIcon(cancellable).catch(e => {
                 console.error('Error while updating icon while setting attributes');
                 throw e;
             });
