@@ -94,6 +94,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             this._symlinkFileMonitorId = 0;
         }
 
+        if (this._updatingIconCancellable)
+            this._updatingIconCancellable.cancel();
+
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
 
@@ -187,14 +190,17 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     async _refreshMetadataAsync(cancellable) {
-        if (this._destroyed)
-            return;
+        if ((cancellable && cancellable.is_cancelled()) || this._destroyed) {
+            throw new GLib.Error(Gio.IOErrorEnum,
+                Gio.IOErrorEnum.CANCELLED,
+                'Operation was cancelled');
+        } else if (!cancellable) {
+            cancellable = new Gio.Cancellable();
+        }
 
         if (this._queryFileInfoCancellable)
             this._queryFileInfoCancellable.cancel();
 
-        if (!cancellable)
-            cancellable = new Gio.Cancellable();
         this._queryFileInfoCancellable = cancellable;
 
         try {
@@ -507,6 +513,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     async updateIcon(cancellable) {
         if (!cancellable)
             cancellable = new Gio.Cancellable();
+        this._updatingIconCancellable = cancellable;
         try {
             await this._refreshMetadataAsync(cancellable);
             await this._updateIcon(cancellable);
@@ -517,6 +524,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                     ? this._getVisibleName() : 'updating icon'}: ${e.message}`);
                 throw e;
             }
+        } finally {
+            if (this._updatingIconCancellable === cancellable)
+                this._updatingIconCancellable = null;
         }
     }
 
