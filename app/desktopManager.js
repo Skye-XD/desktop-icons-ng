@@ -2853,7 +2853,7 @@ const DesktopManager = class {
             if (item.stackUnique)
                 stackTopMarkerFolderList.push(item);
 
-            item._updateIcon().catch(e => console.error(e, 'Error loading stackMarker icon'));
+            item.updateIcon().catch(e => console.error(e, 'Error loading stackMarker icon'));
         }
         otherFiles = [];
         this._sortByName(specialFiles);
