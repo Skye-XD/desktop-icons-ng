@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-10-03 18:16+0000\n"
+"PO-Revision-Date: 2024-10-29 15:08+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8.2-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -41,7 +41,7 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Om"
+msgstr "About"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -56,7 +56,7 @@ msgstr "Indstillinger for skrivebordet Program"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumen"
+msgstr "Volumen:"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -85,7 +85,7 @@ msgstr "Størrelsen på skrivebordsikoner"
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Tiny"
-msgstr "Lille"
+msgstr "Meget lille"
 
 #: app/adwPreferencesWindow.js:231
 msgid "Small"
@@ -227,7 +227,7 @@ msgstr "Åbne mapper på træk hover"
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "Website"
-msgstr "Webside"
+msgstr "Hjemmeside"
 
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
@@ -336,7 +336,7 @@ msgstr ""
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Uddrag af filer"
+msgstr "Udpak filer"
 
 #: app/autoAr.js:220
 #, fuzzy
