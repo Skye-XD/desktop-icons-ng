@@ -1,4 +1,17 @@
 # History of versions #
+* Gtk4 version 85 for Gnome 45, 46, 47
+  * Fix trash icon not updating (Sundeep Mediratta)
+  * Rewrite trash icon code (Sundeep Mediratta)
+  * Rewrite parts of fileItem code to make it cleaner (Sundeep Mediratta)
+  * Update activeFileItem to null on deletion, prevent enter shortcut from trying to open it in this case. (Sundeep Mediratta)
+  * Fix drag source getting unhighlighted during drag. (Sundeep Mediratta)
+  * Fix wrapped icon text appearing on one side of the icon. (Sundeep Mediratta)
+  * Fix - Stop opening of folder on drag hovering if drop completed prior to timeout. (Sundeep Mediratta)
+  * Fix recievemotion not a global function error on dragging icons on top of another while repositioning. (Sundeep Mediratta)
+  * Weblate translations. (Weblate Authors)
+  * Update History.md, metadata.json. Version Bump 85
+
+
 * Gtk4 version 84 for Gnome 45, 46, 47
   * Update meson.build for apparmor file. Sergio Costas
   * Fix regression, tooltip not showing at the correct postion in multimonitor setup. (Sundeep Mediratta)

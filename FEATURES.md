@@ -259,3 +259,9 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix, selection colors would lag behind after theme changes on Ubuntu and still reflect the prior theme. Add a timeout and then interrogate the foreground and background colors to get the correct colors for the new theme.
 
 - [x] Fix, tooltips showing away from icon in multimonitor setups.
+
+- [x] * Fix drag source getting unhighlighted during drag.
+  * Fix wrapped icon text appearing on one side of the icon.
+  * Fix - Stop opening of folder on drag hovering if drop completed prior to timeout
+  * Fix recievemotion not a global function error on dragging icons on top of another while repositioning
+  * Fix trash icon not updating
