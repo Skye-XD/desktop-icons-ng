@@ -14,8 +14,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-10-29 15:08+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -257,7 +258,7 @@ msgstr "Wählen Sie eine Anwendung zum Öffnen <b>{foo}</b>"
 #: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
-msgstr "Offene Posten"
+msgstr "@:account.creditlimit.openInvoices"
 
 #: app/appChooser.js:64
 #, fuzzy
@@ -528,7 +529,7 @@ msgstr "Name Z-A"
 #: app/desktopManager.js:1525
 #, fuzzy
 msgid "Modified Time"
-msgstr "Geänderte Zeit"
+msgstr "Uhrzeit der letzten Änderung"
 
 #: app/desktopManager.js:1526
 #, fuzzy
@@ -655,7 +656,7 @@ msgstr "Papierkorb"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Laufwerk"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -761,7 +762,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dateien konnten nicht geöffnet werden"
+msgstr "Datei kann nicht geöffnet werden"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -781,7 +782,7 @@ msgstr "Alle öffnen ..."
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Run"
-msgstr "Laufen"
+msgstr "Ausführen"
 
 #: app/fileItemMenu.js:318
 #, fuzzy
@@ -844,7 +845,7 @@ msgstr "Verschieben auf..."
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopieren nach …"
+msgstr "Kopieren nach..."
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"
@@ -1049,7 +1050,7 @@ msgstr "Weitere Informationen"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stapel"
+msgstr "Stapeln"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

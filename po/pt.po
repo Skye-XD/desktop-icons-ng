@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-10-03 18:16+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -209,7 +210,7 @@ msgstr "Neste computador apenas"
 #: app/adwPreferencesWindow.js:304
 #, fuzzy
 msgid "Never"
-msgstr "Nunca"
+msgstr "De jeito nenhum"
 
 #: app/adwPreferencesWindow.js:308
 #, fuzzy
@@ -578,7 +579,7 @@ msgstr "Tipo"
 #: app/desktopManager.js:1527
 #, fuzzy
 msgid "Size"
-msgstr "Tamanho"
+msgstr "Medida"
 
 #: app/desktopManager.js:1530
 #, fuzzy
@@ -706,7 +707,7 @@ msgstr "Lixo"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Conduzir"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -714,7 +715,7 @@ msgstr "Conduzir"
 #: app/fileItem.js:169
 #, fuzzy
 msgid "Folder"
-msgstr "Pasta"
+msgstr "Pasta de documentos"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -1110,7 +1111,7 @@ msgstr "Mais informações"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Empilhar"
+msgstr "Pilha"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
