@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-02 19:09+0000\n"
+"PO-Revision-Date: 2024-11-03 08:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
@@ -85,7 +85,7 @@ msgstr "Veličina ikona radne površine"
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Tiny"
-msgstr "Sitno"
+msgstr "Sićušno"
 
 #: app/adwPreferencesWindow.js:231
 msgid "Small"
@@ -206,7 +206,7 @@ msgstr "Samo na ovom računalu"
 #: app/adwPreferencesWindow.js:304
 #, fuzzy
 msgid "Never"
-msgstr "Nikada"
+msgstr "Nikada nikad"
 
 #: app/adwPreferencesWindow.js:308
 #, fuzzy
@@ -568,7 +568,7 @@ msgstr "Vrsta"
 #: app/desktopManager.js:1527
 #, fuzzy
 msgid "Size"
-msgstr "Veličina"
+msgstr "Obim"
 
 #: app/desktopManager.js:1530
 #, fuzzy
@@ -700,7 +700,7 @@ msgstr "Vožnja"
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Mapa"
+msgstr "Mapa==WEBLATE_PART==Folder==WEBLATE_PART==Direktorij"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"

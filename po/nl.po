@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-20 04:44+0000\n"
+"PO-Revision-Date: 2024-11-03 08:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -84,7 +84,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Tiny"
-msgstr "Kleinst"
+msgstr "Erg klein"
 
 #: app/adwPreferencesWindow.js:231
 msgid "Small"
@@ -186,7 +186,7 @@ msgstr "Single klik"
 #: app/adwPreferencesWindow.js:296
 #, fuzzy
 msgid "Double click"
-msgstr "Dubbelklikken"
+msgstr "Dubbelklik"
 
 #: app/adwPreferencesWindow.js:300
 #, fuzzy
@@ -196,7 +196,7 @@ msgstr "Toon beeld duimnails"
 #: app/adwPreferencesWindow.js:302
 #, fuzzy
 msgid "Always"
-msgstr "Altĳd"
+msgstr "Altijd"
 
 #: app/adwPreferencesWindow.js:303
 #, fuzzy
@@ -226,7 +226,7 @@ msgstr "Open folders van drag hover"
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "Website"
-msgstr "Website"
+msgstr "Website URL"
 
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
@@ -699,7 +699,7 @@ msgstr "Trash"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Schijf"
+msgstr "Station"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -887,7 +887,7 @@ msgstr "Knippen"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Verplaats naar..."
+msgstr "Verplaatsen naar ..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy

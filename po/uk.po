@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-10-29 15:08+0000\n"
+"PO-Revision-Date: 2024-11-03 08:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -40,7 +40,7 @@ msgstr "Налаштування"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Про..."
+msgstr "Про FreedomBox"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -542,7 +542,7 @@ msgstr "Пошук файлів на стільниці"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Name"
-msgstr "Назва"
+msgstr "Ім'я"
 
 #: app/desktopManager.js:1524
 #, fuzzy
@@ -557,7 +557,7 @@ msgstr "Число завантажень"
 #: app/desktopManager.js:1526
 #, fuzzy
 msgid "Type"
-msgstr "Вид взуття"
+msgstr "Тип"
 
 #: app/desktopManager.js:1527
 #, fuzzy
@@ -602,7 +602,7 @@ msgstr "Повторити"
 #: app/desktopManager.js:1555
 #, fuzzy
 msgid "Select All"
-msgstr "Виділити все"
+msgstr "Обрати все"
 
 #: app/desktopManager.js:1560
 msgid "Arrange Icons"
@@ -794,7 +794,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Не можу відкрити файли"
+msgstr "Не вдалося відкрити файл"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240

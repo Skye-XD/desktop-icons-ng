@@ -10,9 +10,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-20 04:44+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -36,7 +35,7 @@ msgstr "Berkas"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "Perubahan"
+msgstr "Oprekan"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -207,7 +206,7 @@ msgstr "Di komputer ini hanya"
 #: app/adwPreferencesWindow.js:304
 #, fuzzy
 msgid "Never"
-msgstr "Jangan pernah"
+msgstr "Jangan Pernah"
 
 #: app/adwPreferencesWindow.js:308
 #, fuzzy
@@ -319,7 +318,7 @@ msgstr "OK"
 #: app/askRenamePopup.js:57
 #, fuzzy
 msgid "Rename"
-msgstr "Ubah Nama"
+msgstr "Ganti Nama"
 
 #: app/autoAr.js:71
 #, fuzzy

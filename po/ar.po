@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-09-20 04:44+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ar/>\n"
 "Language: ar\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -180,7 +181,7 @@ msgstr "إظهار الصورة المصغرة"
 #: app/adwPreferencesWindow.js:302
 #, fuzzy
 msgid "Always"
-msgstr "دائمًا"
+msgstr "دائماً"
 
 #: app/adwPreferencesWindow.js:303
 msgid "On this computer only"
@@ -189,7 +190,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:304
 #, fuzzy
 msgid "Never"
-msgstr "ابدا"
+msgstr "أبدا"
 
 #: app/adwPreferencesWindow.js:308
 msgid "Show a context menu item to delete permanently"
@@ -405,7 +406,7 @@ msgstr "كلمة السر"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "صنع"
+msgstr "إنشاء"
 
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
