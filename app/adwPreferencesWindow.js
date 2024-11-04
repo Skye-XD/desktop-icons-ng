@@ -328,7 +328,7 @@ const AdwPreferencesWindow = class {
         aboutGroup.add(this.addActionRowButton(_('License'),
             'GNU GPLv3',
             'GNU GPLv3',
-            this.luanchLicense.bind(this)
+            this.launchLicense.bind(this)
         ));
         aboutGroup.add(this.addActionRowButton(_('Translation'),
             _('Help translate in your web browser'),
@@ -410,7 +410,7 @@ const AdwPreferencesWindow = class {
         this.launchUri(webSiteUri);
     }
 
-    luanchLicense() {
+    launchLicense() {
         const licenseUri =
         'https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/COPYING';
         this.launchUri(licenseUri);
