@@ -706,15 +706,16 @@ const DesktopManager = class {
 
     _positiveOffsetGridAim(xGlobalDestination, yGlobalDestination) {
         // Find the grid where the destination lies and aim towards the positive side, middle of grid to ensure drop in the grid
+        let xbias = 0;
+        let ybias = 0;
         for (let desktop of this._desktops) {
-            let grid = desktop.getCoordinatesOfGridContaining(xGlobalDestination, yGlobalDestination, true);
-            if (grid !== null) {
-                xGlobalDestination = grid[0] + desktop._elementWidth / 2;
-                yGlobalDestination = grid[1] + desktop._elementHeight / 2;
+            if (desktop.coordinatesBelongToThisGrid(xGlobalDestination, yGlobalDestination)) {
+                xbias = desktop._elementWidth / 2;
+                ybias = desktop._elementHeight / 2;
                 break;
             }
         }
-        return [xGlobalDestination, yGlobalDestination];
+        return [xGlobalDestination + xbias, yGlobalDestination + ybias];
     }
 
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, localDrop, event, dragItem) {
