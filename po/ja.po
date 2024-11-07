@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"PO-Revision-Date: 2024-11-07 19:00+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
@@ -38,12 +38,12 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "微調整"
+msgstr "細かな設定"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "About"
+msgstr "概要"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -223,7 +223,7 @@ msgstr "ウェブサイト"
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
 msgid "Visit"
-msgstr "ビジット"
+msgstr "訪問"
 
 #: app/adwPreferencesWindow.js:324
 #, fuzzy
@@ -546,7 +546,7 @@ msgstr "デスクトップ上のファイルを検索"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "チャンネル名"
 
 #: app/desktopManager.js:1524
 #, fuzzy
@@ -561,7 +561,7 @@ msgstr "変更された時間"
 #: app/desktopManager.js:1526
 #, fuzzy
 msgid "Type"
-msgstr "種類"
+msgstr "福祉施設種類"
 
 #: app/desktopManager.js:1527
 #, fuzzy
@@ -888,12 +888,12 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "を移動..."
+msgstr "移動..."
 
 #: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピーする"
+msgstr "コピー..."
 
 #: app/fileItemMenu.js:381
 msgid "Rename…"

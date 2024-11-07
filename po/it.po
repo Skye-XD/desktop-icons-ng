@@ -13,8 +13,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-11-03 08:00+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-11-07 19:00+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
@@ -237,7 +238,7 @@ msgstr "Segnala i problemi sul tracker di emissione"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Segnalazione"
+msgstr "Segnala"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -325,7 +326,7 @@ msgstr ""
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Estrazione di file"
+msgstr "Estrai i file"
 
 #: app/autoAr.js:220
 #, fuzzy
@@ -806,7 +807,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Non è stato possibile aprire il file"
+msgstr "Impossibile aprire File"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -883,7 +884,7 @@ msgstr "Taglia"
 #: app/fileItemMenu.js:376
 #, fuzzy
 msgid "Move to..."
-msgstr "Sposta in..."
+msgstr "Spostare a"
 
 #: app/fileItemMenu.js:377
 #, fuzzy
@@ -1130,7 +1131,7 @@ msgstr "A_nnulla"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Apri"
+msgstr "Apri"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

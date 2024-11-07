@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"PO-Revision-Date: 2024-11-07 19:00+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
@@ -538,7 +538,7 @@ msgstr "Caută fișiere pe Desktop"
 #: app/desktopManager.js:1523
 #, fuzzy
 msgid "Name"
-msgstr "Numele"
+msgstr "Nume"
 
 #: app/desktopManager.js:1524
 #, fuzzy
@@ -553,7 +553,7 @@ msgstr "Timp modificat"
 #: app/desktopManager.js:1526
 #, fuzzy
 msgid "Type"
-msgstr "Tip"
+msgstr "Tipul"
 
 #: app/desktopManager.js:1527
 #, fuzzy
@@ -783,7 +783,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Fișierul nu poate fi deschis"
+msgstr "Nu s-a putut deschide fișierele"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -804,7 +804,7 @@ msgstr "Deschide tot..."
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Run"
-msgstr "Execută"
+msgstr "Rulați"
 
 #: app/fileItemMenu.js:318
 #, fuzzy

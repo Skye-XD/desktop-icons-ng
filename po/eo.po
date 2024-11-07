@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"PO-Revision-Date: 2024-11-07 19:00+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/"
@@ -41,7 +41,7 @@ msgstr "Optimumigoj"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Pri-paĝo"
+msgstr "Pri"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -582,7 +582,7 @@ msgstr "Modifita Tempo"
 #: app/desktopManager.js:1526
 #, fuzzy
 msgid "Type"
-msgstr "Speco"
+msgstr "Tipo"
 
 #: app/desktopManager.js:1527
 #, fuzzy
