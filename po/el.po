@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"PO-Revision-Date: 2024-11-07 19:01+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/"
@@ -41,7 +41,7 @@ msgstr "Τροποποιήσεις"
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
 msgid "About"
-msgstr "Περί"
+msgstr "Σχετικά"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -455,7 +455,7 @@ msgstr "Archive name"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Κωδικός πρόσβασης"
+msgstr "Κωδικός Πρόσβασης"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -910,7 +910,7 @@ msgstr "Αντιγραφή στο..."
 #: app/fileItemMenu.js:381
 #, fuzzy
 msgid "Rename…"
-msgstr "Μετονομασία"
+msgstr "Μετονομάστηκε"
 
 #: app/fileItemMenu.js:384
 #, fuzzy

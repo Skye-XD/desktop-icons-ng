@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"PO-Revision-Date: 2024-11-07 19:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
@@ -35,7 +35,7 @@ msgstr "Bestanden"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "Trucs"
+msgstr "Aanpassingen"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -55,7 +55,7 @@ msgstr "Desktop Programma"
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
 msgid "Volumes"
-msgstr "Volumen"
+msgstr "Boekdeel"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
@@ -84,7 +84,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Tiny"
-msgstr "Erg klein"
+msgstr "Kleinst"
 
 #: app/adwPreferencesWindow.js:231
 msgid "Small"
@@ -186,7 +186,7 @@ msgstr "Single klik"
 #: app/adwPreferencesWindow.js:296
 #, fuzzy
 msgid "Double click"
-msgstr "Dubbelklik"
+msgstr "Dubbelklikken"
 
 #: app/adwPreferencesWindow.js:300
 #, fuzzy
@@ -335,7 +335,7 @@ msgstr ""
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Bestanden uittrekken"
+msgstr "Bestanden uitpakken"
 
 #: app/autoAr.js:220
 #, fuzzy
@@ -576,7 +576,7 @@ msgstr "Type"
 #: app/desktopManager.js:1527
 #, fuzzy
 msgid "Size"
-msgstr "Omvang"
+msgstr "Grootte"
 
 #: app/desktopManager.js:1530
 #, fuzzy
@@ -670,7 +670,7 @@ msgstr "Maken Orde is mislukt."
 #: app/desktopManager.js:2615
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Kan geen map aanmaken."
+msgstr "Map kon niet gemaakt worden."
 
 #: app/desktopManager.js:2658
 #, fuzzy
@@ -699,7 +699,7 @@ msgstr "Trash"
 #: app/fileItem.js:159
 #, fuzzy
 msgid "Drive"
-msgstr "Station"
+msgstr "Schijf"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -804,7 +804,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kan bestand niet openen"
+msgstr "Kon Bestanden niet openen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -1099,7 +1099,7 @@ msgstr "Meer Informatie"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stapel"
+msgstr "Stapelen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1140,7 +1140,7 @@ msgstr "_Annuleren"
 #: app/resources/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Openen"
+msgstr "_Open"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

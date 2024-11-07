@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: 2024-11-03 08:00+0000\n"
+"PO-Revision-Date: 2024-11-07 19:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
@@ -39,7 +39,7 @@ msgstr "Fichiers"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "Customisations"
+msgstr "Ajustements"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 msgid "About"
@@ -110,7 +110,6 @@ msgid "Bottom left corner"
 msgstr "Coin inférieur gauche"
 
 #: app/adwPreferencesWindow.js:243
-#, fuzzy
 msgid "Bottom right corner"
 msgstr "Coin inférieur droit"
 
@@ -121,14 +120,12 @@ msgstr ""
 "Ajouter d'abord de nouvelles icônes aux moniteurs secondaires, si disponible"
 
 #: app/adwPreferencesWindow.js:252
-#, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Afficher le dossier personnel sur le bureau"
 
 #: app/adwPreferencesWindow.js:256
-#, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Afficher la corbeille sur le bureau"
+msgstr "Afficher l'icône de la corbeille sur le bureau"
 
 #: app/adwPreferencesWindow.js:260
 #, fuzzy
@@ -316,7 +313,7 @@ msgstr ""
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Extraire des fichiers"
+msgstr "Extraire les fichiers"
 
 #: app/autoAr.js:220
 msgid "Compressing files"
@@ -787,7 +784,7 @@ msgstr ""
 #: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Impossible d’ouvrir le fichier"
+msgstr "Impossible d’ouvrir les fichiers"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
@@ -968,7 +965,7 @@ msgstr "Déplacement annulé"
 #: app/fileItemMenu.js:601
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
-msgstr "Impossible de déplacer des fichiers, aucun dossier de destination"
+msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
 
 #: app/fileItemMenu.js:613 app/fileItemMenu.js:642
 #, fuzzy
@@ -987,7 +984,7 @@ msgstr "Copie annulée"
 #: app/fileItemMenu.js:694
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Impossible de copier des fichiers, aucun dossier de destination"
+msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
 
 #: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
 #: app/fileItemMenu.js:789
