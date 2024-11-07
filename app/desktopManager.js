@@ -2177,7 +2177,7 @@ const DesktopManager = class {
                 let addedToDesktop = false;
                 let [itemX, itemY] = fileItem.savedCoordinates;
                 for (let desktop of this._desktops) {
-                    if (desktop.coordinatesBelongToThisGridWindow &&
+                    if (desktop.coordinatesBelongToThisGridWindow(itemX, itemY) &&
                             desktop.isAvailable()) {
                         addedToDesktop = true;
                         desktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
