@@ -588,25 +588,15 @@ const DesktopManager = class {
         }
 
         const fileItems = [];
-        for (let item of this._fileList) {
-            if (item.isSelected) {
-                if (keepArranged) {
-                    if (item.isSpecial) {
-                        fileItems.push(item);
-                        item.removeFromGrid({callOnDestroy: false});
-                        let [x, y] = item.getCoordinates().slice(0, 3);
-                        item.temporarySavedPosition = [x + deltaX, y + deltaY];
-                    } else {
-                        continue;
-                    }
-                } else {
-                    fileItems.push(item);
-                    item.removeFromGrid({callOnDestroy: false});
-                    let [x, y] = item.getCoordinates().slice(0, 3);
-                    item.temporarySavedPosition = [x + deltaX, y + deltaY];
-                }
+        this._fileList.filter(item => item.isSelected).forEach(item => {
+            if (!keepArranged || item.isSpecial) {
+                fileItems.push(item);
+                item.removeFromGrid({callOnDestroy: false});
+                let [x, y] = item.getCoordinates().slice(0, 3);
+                item.temporarySavedPosition = [x + deltaX, y + deltaY];
             }
-        }
+        });
+
         // force to store the new coordinates
         this._addFilesToDesktop(fileItems, this.Enums.StoredCoordinates.OVERWRITE);
         if (keepArranged) {
