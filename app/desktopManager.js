@@ -588,25 +588,15 @@ const DesktopManager = class {
         }
 
         const fileItems = [];
-        for (let item of this._fileList) {
-            if (item.isSelected) {
-                if (keepArranged) {
-                    if (item.isSpecial) {
-                        fileItems.push(item);
-                        item.removeFromGrid({callOnDestroy: false});
-                        let [x, y] = item.getCoordinates().slice(0, 3);
-                        item.temporarySavedPosition = [x + deltaX, y + deltaY];
-                    } else {
-                        continue;
-                    }
-                } else {
-                    fileItems.push(item);
-                    item.removeFromGrid({callOnDestroy: false});
-                    let [x, y] = item.getCoordinates().slice(0, 3);
-                    item.temporarySavedPosition = [x + deltaX, y + deltaY];
-                }
+        this._fileList.filter(item => item.isSelected).forEach(item => {
+            if (!keepArranged || item.isSpecial) {
+                fileItems.push(item);
+                item.removeFromGrid({callOnDestroy: false});
+                let [x, y] = item.getCoordinates().slice(0, 3);
+                item.temporarySavedPosition = [x + deltaX, y + deltaY];
             }
-        }
+        });
+
         // force to store the new coordinates
         this._addFilesToDesktop(fileItems, this.Enums.StoredCoordinates.OVERWRITE);
         if (keepArranged) {
@@ -706,15 +696,16 @@ const DesktopManager = class {
 
     _positiveOffsetGridAim(xGlobalDestination, yGlobalDestination) {
         // Find the grid where the destination lies and aim towards the positive side, middle of grid to ensure drop in the grid
+        let xbias = 0;
+        let ybias = 0;
         for (let desktop of this._desktops) {
-            let grid = desktop.getCoordinatesOfGridContaining(xGlobalDestination, yGlobalDestination, true);
-            if (grid !== null) {
-                xGlobalDestination = grid[0] + desktop._elementWidth / 2;
-                yGlobalDestination = grid[1] + desktop._elementHeight / 2;
+            if (desktop.coordinatesBelongToThisGrid(xGlobalDestination, yGlobalDestination)) {
+                xbias = desktop._elementWidth / 2;
+                ybias = desktop._elementHeight / 2;
                 break;
             }
         }
-        return [xGlobalDestination, yGlobalDestination];
+        return [xGlobalDestination + xbias, yGlobalDestination + ybias];
     }
 
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, localDrop, event, dragItem) {
