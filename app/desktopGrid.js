@@ -1116,7 +1116,7 @@ const DesktopGrid = class {
     }
 
     isAvailable() {
-        // Returns if the grid number is occupied.
+        // Returns true if a grid slot is available
         let isFree = false;
         for (const [, setOfFileItemsOnGridNumber] of this._gridStatus.entries()) {
             if (!setOfFileItemsOnGridNumber.size) {
