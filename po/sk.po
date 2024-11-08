@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 23:57-0400\n"
+"POT-Creation-Date: 2024-11-07 17:52-0500\n"
 "PO-Revision-Date: 2024-07-08 19:09+0000\n"
 "Last-Translator: Pedro <tongariro@azet.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -259,7 +259,7 @@ msgstr "Názov priečinku"
 msgid "File name"
 msgstr "Názov súboru"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
 #: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "OK"
@@ -288,8 +288,8 @@ msgstr "Extrahovanie súborov"
 msgid "Compressing files"
 msgstr "Kompresia súborov"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
-#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
+#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "Zrušiť"
@@ -430,198 +430,198 @@ msgstr ""
 "Skontrolujte svoju inštaláciu xdg-utils\n"
 "Skontrolujte inštaláciu aplikácie Gnome Files .desktop File"
 
-#: app/desktopManager.js:785
+#: app/desktopManager.js:777
 msgid "Choose Action for Files"
 msgstr "Vyberte akciu pre súbory"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 msgid "Move"
 msgstr "Presunúť"
 
-#: app/desktopManager.js:786 app/fileItemMenu.js:372
+#: app/desktopManager.js:778 app/fileItemMenu.js:372
 msgid "Copy"
 msgstr "Kopírovať"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 msgid "Link"
 msgstr "Odkaz"
 
-#: app/desktopManager.js:873 app/desktopManager.js:905
+#: app/desktopManager.js:865 app/desktopManager.js:897
 msgid "Making SymLink Failed"
 msgstr "Vytváranie symbolického odkazu zlyhalo"
 
-#: app/desktopManager.js:874 app/desktopManager.js:906
+#: app/desktopManager.js:866 app/desktopManager.js:898
 msgid "Could not create symbolic link"
 msgstr "Nepodarilo sa vytvoriť symbolický odkaz"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1208
 msgid "Clear current selection before new search"
 msgstr "Pred novým hľadaním vymažte aktuálny výber"
 
-#: app/desktopManager.js:1260
+#: app/desktopManager.js:1252
 msgid "Find Files on Desktop"
 msgstr "Nájdenie súborov na pracovnej ploche"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1515
 msgid "Name"
 msgstr "Názov"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1516
 msgid "Name Z-A"
 msgstr "Názov (Z-A)"
 
-#: app/desktopManager.js:1525
+#: app/desktopManager.js:1517
 msgid "Modified Time"
 msgstr "Čas úpravy"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1518
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1519
 msgid "Size"
 msgstr "Veľkosť"
 
-#: app/desktopManager.js:1530
+#: app/desktopManager.js:1522
 msgid "Keep Arranged…"
 msgstr "Udržiavať usporiadané…"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1526
 msgid "Keep Stacked by Type…"
 msgstr "Udržiavať zoskupené podľa typu…"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1527
 msgid "Sort Home/Drives/Trash…"
 msgstr "Usporiadať Domov/Jednotky/Kôš…"
 
-#: app/desktopManager.js:1540 app/desktopManager.js:2591
+#: app/desktopManager.js:1532 app/desktopManager.js:2585
 msgid "New Folder"
 msgstr "Nový priečinok"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1536
 msgid "New Document"
 msgstr "Nový dokument"
 
-#: app/desktopManager.js:1548
+#: app/desktopManager.js:1540
 msgid "Paste"
 msgstr "Vložiť"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1541
 msgid "Undo"
 msgstr "Vrátiť späť"
 
-#: app/desktopManager.js:1550
+#: app/desktopManager.js:1542
 msgid "Redo"
 msgstr "Zopakovať"
 
-#: app/desktopManager.js:1555
+#: app/desktopManager.js:1547
 msgid "Select All"
 msgstr "Vybrať všetko"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1552
 msgid "Arrange Icons"
 msgstr "Usporiadať ikony"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1556
 msgid "Arrange By…"
 msgstr "Usporiadať podľa…"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1562
 msgid "Show Desktop In {0}"
 msgstr "Zobraziť plochu v {0}"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1565
 msgid "Open In {0}"
 msgstr "Otvoriť v {0}"
 
-#: app/desktopManager.js:1579
+#: app/desktopManager.js:1571
 msgid "Desktop Icon Settings"
 msgstr "Nastavenia ikon pracovnej plochy"
 
-#: app/desktopManager.js:1584
+#: app/desktopManager.js:1576
 msgid "Shell Menu…"
 msgstr "Ponuka rozhrania…"
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 msgid "Preferences Window is Open"
 msgstr "Okno nastavení je otvorené"
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 msgid "This Window is open. Please switch to the active window."
 msgstr "Toto okno je otvorené. Prepnite prosím na aktívne okno."
 
-#: app/desktopManager.js:1644
+#: app/desktopManager.js:1636
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2608
 msgid "Folder Creation Failed"
 msgstr "Vytvorenie priečinka zlyhalo"
 
-#: app/desktopManager.js:2615
+#: app/desktopManager.js:2609
 msgid "Could not create folder"
 msgstr "Priečinok sa nepodarilo vytvoriť"
 
-#: app/desktopManager.js:2658
+#: app/desktopManager.js:2652
 msgid "Template Creation Error"
 msgstr "Chyba pri vytváraní šablóny"
 
-#: app/desktopManager.js:2659
+#: app/desktopManager.js:2653
 msgid "Could not create document"
 msgstr "Nepodarilo sa vytvoriť dokument"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:138 app/fileItem.js:147
+#: app/fileItem.js:134 app/fileItem.js:143
 msgid "Home"
 msgstr "Domov"
 
-#: app/fileItem.js:153
+#: app/fileItem.js:149
 msgid "Trash"
 msgstr "Kôš"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:159
+#: app/fileItem.js:155
 msgid "Drive"
 msgstr "Jednotka"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
-#: app/fileItem.js:169
+#: app/fileItem.js:165
 msgid "Folder"
 msgstr "Priečinok"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:176
+#: app/fileItem.js:172
 msgid "File"
 msgstr "Súbor"
 
-#: app/fileItem.js:305
+#: app/fileItem.js:290
 msgid "Broken Link"
 msgstr "Nefunkčný odkaz"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:291
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 "Nie je možné otvoriť tento súbor, pretože ide o nefunkčný symbolický odkaz"
 
-#: app/fileItem.js:337
+#: app/fileItem.js:322
 msgid "Opening File Failed"
 msgstr "Otvorenie súboru zlyhalo"
 
-#: app/fileItem.js:339
+#: app/fileItem.js:324
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr "Nie je nainštalovaná žiadna aplikácia na otváranie súborov \"{foo}\"."
 
-#: app/fileItem.js:368
+#: app/fileItem.js:353
 msgid "Broken Desktop File"
 msgstr "Poškodený súbor plochy"
 
-#: app/fileItem.js:369
+#: app/fileItem.js:354
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -633,11 +633,11 @@ msgstr ""
 "\n"
 "Upravte súbor a nastavte správny spustiteľný program."
 
-#: app/fileItem.js:375
+#: app/fileItem.js:360
 msgid "Invalid Permissions on Desktop File"
 msgstr "Neplatné oprávnenia na súbor plochy"
 
-#: app/fileItem.js:376
+#: app/fileItem.js:361
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -645,7 +645,7 @@ msgstr ""
 "Tento súbor .desktop má nesprávne oprávnenia. Kliknutím pravým tlačidlom "
 "myši upravte Vlastnosti a potom:\n"
 
-#: app/fileItem.js:378
+#: app/fileItem.js:363
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
@@ -654,7 +654,7 @@ msgstr ""
 "Nastavte oprávnenia v položke \"Prístup ostatní\", \"Len na čítanie\" alebo "
 "\"Žiadne\""
 
-#: app/fileItem.js:381
+#: app/fileItem.js:366
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
@@ -662,11 +662,11 @@ msgstr ""
 "\n"
 "Povoľte možnosť \"Povoliť spustenie súboru ako program\""
 
-#: app/fileItem.js:388
+#: app/fileItem.js:373
 msgid "Untrusted Desktop File"
 msgstr "Nedôveryhodný súbor pracovnej plochy"
 
-#: app/fileItem.js:389
+#: app/fileItem.js:374
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -678,12 +678,12 @@ msgstr ""
 "\n"
 "Povoľte \"Povoliť spúšťanie\""
 
-#: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
 msgid "Could not open File"
 msgstr "Nepodarilo sa otvoriť súbor"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} nemôže otvoriť súbory tohto typu!"
 
@@ -918,7 +918,7 @@ msgstr "Nie je možné otvoriť {0}"
 msgid "Please Install {0}"
 msgstr "Nainštalujte prosím {0}"
 
-#: app/preferences.js:417
+#: app/preferences.js:420
 msgid "Console"
 msgstr "Konzola"
 

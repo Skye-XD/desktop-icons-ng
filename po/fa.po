@@ -2,36 +2,45 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
 # Amir Mohammad Biuki <abiuki@ce.sharif.edu>, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 23:57-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2024-11-07 17:52-0500\n"
+"PO-Revision-Date: 2024-11-07 22:53+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.8.2\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#, fuzzy
 msgid "Desktop"
-msgstr ""
+msgstr "صفحه نمایش"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#, fuzzy
 msgid "Files"
-msgstr ""
+msgstr "پرونده‌ها"
 
 #: app/adwPreferencesWindow.js:185 app/adwPreferencesWindow.js:186
 #: app/adwPreferencesWindow.js:216
+#, fuzzy
 msgid "Tweaks"
-msgstr ""
+msgstr "اصلاحات"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
+#, fuzzy
 msgid "About"
-msgstr ""
+msgstr "درباره‌ی Psiphon"
 
 #: app/adwPreferencesWindow.js:201
 msgid "Desktop Settings"
@@ -42,16 +51,18 @@ msgid "Settings for the Desktop Program"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:206
+#, fuzzy
 msgid "Volumes"
-msgstr ""
+msgstr "حجم صدا"
 
 #: app/adwPreferencesWindow.js:207
 msgid "Desktop volumes display"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:211
+#, fuzzy
 msgid "Files Settings"
-msgstr ""
+msgstr "تنظیمات فایل"
 
 #: app/adwPreferencesWindow.js:212
 msgid "Settings shared with Gnome Files"
@@ -66,40 +77,48 @@ msgid "Size for the desktop icons"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:230
+#, fuzzy
 msgid "Tiny"
-msgstr ""
+msgstr "ریز"
 
 #: app/adwPreferencesWindow.js:231
+#, fuzzy
 msgid "Small"
-msgstr ""
+msgstr "کوچک"
 
 #: app/adwPreferencesWindow.js:232
+#, fuzzy
 msgid "Standard"
-msgstr ""
+msgstr "استاندارد"
 
 #: app/adwPreferencesWindow.js:233
+#, fuzzy
 msgid "Large"
-msgstr ""
+msgstr "بزرگ"
 
 #: app/adwPreferencesWindow.js:238
 msgid "New icons alignment"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:240
+#, fuzzy
 msgid "Top left corner"
-msgstr ""
+msgstr "گوشه چپ-بالا"
 
 #: app/adwPreferencesWindow.js:241
+#, fuzzy
 msgid "Top right corner"
-msgstr ""
+msgstr "گوشه راست-بالا"
 
 #: app/adwPreferencesWindow.js:242
+#, fuzzy
 msgid "Bottom left corner"
-msgstr ""
+msgstr "گوشه چپ-پایین"
 
 #: app/adwPreferencesWindow.js:243
+#, fuzzy
 msgid "Bottom right corner"
-msgstr ""
+msgstr "گوشه راست-پایین"
 
 #: app/adwPreferencesWindow.js:248
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -150,72 +169,83 @@ msgid "Single click"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:296
+#, fuzzy
 msgid "Double click"
-msgstr ""
+msgstr "دابل کلیک"
 
 #: app/adwPreferencesWindow.js:300
 msgid "Show image thumbnails"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:302
+#, fuzzy
 msgid "Always"
-msgstr ""
+msgstr "همیشه"
 
 #: app/adwPreferencesWindow.js:303
 msgid "On this computer only"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:304
+#, fuzzy
 msgid "Never"
-msgstr ""
+msgstr "هرگز"
 
 #: app/adwPreferencesWindow.js:308
 msgid "Show a context menu item to delete permanently"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:312
+#, fuzzy
 msgid "Show hidden files"
-msgstr ""
+msgstr "نمایش پرونده‌های پنهان"
 
 #: app/adwPreferencesWindow.js:316
 msgid "Open folders on drag hover"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:319
+#, fuzzy
 msgid "Website"
-msgstr ""
+msgstr "تارنما"
 
 #: app/adwPreferencesWindow.js:321
+#, fuzzy
 msgid "Visit"
-msgstr ""
+msgstr "بازدید"
 
 #: app/adwPreferencesWindow.js:324
+#, fuzzy
 msgid "Issues"
-msgstr ""
+msgstr "اشکال‌ها"
 
 #: app/adwPreferencesWindow.js:325
 msgid "Report issues on issue tracker"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:326
+#, fuzzy
 msgid "Report"
-msgstr ""
+msgstr "گزارش"
 
 #: app/adwPreferencesWindow.js:328
+#, fuzzy
 msgid "License"
-msgstr ""
+msgstr "پروانه"
 
 #: app/adwPreferencesWindow.js:333
+#, fuzzy
 msgid "Translation"
-msgstr ""
+msgstr "ترجمه"
 
 #: app/adwPreferencesWindow.js:334
 msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:335
+#, fuzzy
 msgid "Translate"
-msgstr ""
+msgstr "ترجمه"
 
 #: app/appChooser.js:54
 msgid "Choose an application to open <b>{foo}</b>"
@@ -226,12 +256,14 @@ msgid "Open Items"
 msgstr ""
 
 #: app/appChooser.js:64
+#, fuzzy
 msgid "Open Folder"
-msgstr ""
+msgstr "گشودن پوشه"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#, fuzzy
 msgid "Open File"
-msgstr ""
+msgstr "باز کردن فایل"
 
 #: app/appChooser.js:106
 msgid "Error changing default application"
@@ -242,21 +274,25 @@ msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
 #: app/askRenamePopup.js:49
+#, fuzzy
 msgid "Folder name"
-msgstr ""
+msgstr "نام پوشه"
 
 #: app/askRenamePopup.js:49
+#, fuzzy
 msgid "File name"
-msgstr ""
+msgstr "نام فایل"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
 #: app/fileItemMenu.js:805
+#, fuzzy
 msgid "OK"
-msgstr ""
+msgstr "باشه"
 
 #: app/askRenamePopup.js:57
+#, fuzzy
 msgid "Rename"
-msgstr ""
+msgstr "تغییر نام"
 
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
@@ -273,14 +309,16 @@ msgid "Extracting files"
 msgstr ""
 
 #: app/autoAr.js:220
+#, fuzzy
 msgid "Compressing files"
-msgstr ""
+msgstr "فشرده سازی فایل ها."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
-#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
+#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "لغو"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
@@ -359,12 +397,14 @@ msgid "Archive name"
 msgstr ""
 
 #: app/autoAr.js:604
+#, fuzzy
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 #: app/autoAr.js:617
+#, fuzzy
 msgid "Create"
-msgstr ""
+msgstr "ايجاد كردن"
 
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
@@ -413,197 +453,218 @@ msgid ""
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:785
+#: app/desktopManager.js:777
 msgid "Choose Action for Files"
 msgstr ""
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
+#, fuzzy
 msgid "Move"
-msgstr ""
+msgstr "انتقال"
 
-#: app/desktopManager.js:786 app/fileItemMenu.js:372
+#: app/desktopManager.js:778 app/fileItemMenu.js:372
+#, fuzzy
 msgid "Copy"
-msgstr ""
+msgstr "کپی"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
+#, fuzzy
 msgid "Link"
-msgstr ""
+msgstr "پیوند"
 
-#: app/desktopManager.js:873 app/desktopManager.js:905
+#: app/desktopManager.js:865 app/desktopManager.js:897
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:874 app/desktopManager.js:906
+#: app/desktopManager.js:866 app/desktopManager.js:898
 msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1208
 msgid "Clear current selection before new search"
 msgstr ""
 
-#: app/desktopManager.js:1260
+#: app/desktopManager.js:1252
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1515
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1516
+#, fuzzy
 msgid "Name Z-A"
-msgstr ""
+msgstr "نام (Z-A)"
 
-#: app/desktopManager.js:1525
+#: app/desktopManager.js:1517
 msgid "Modified Time"
 msgstr ""
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1518
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "نوع"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1519
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "اندازه‌"
 
-#: app/desktopManager.js:1530
+#: app/desktopManager.js:1522
 msgid "Keep Arranged…"
 msgstr ""
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1526
 msgid "Keep Stacked by Type…"
 msgstr ""
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1527
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopManager.js:1540 app/desktopManager.js:2591
+#: app/desktopManager.js:1532 app/desktopManager.js:2585
+#, fuzzy
 msgid "New Folder"
-msgstr ""
+msgstr "پوشه جدید"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1536
+#, fuzzy
 msgid "New Document"
-msgstr ""
+msgstr "داکیومنت جدید"
 
-#: app/desktopManager.js:1548
+#: app/desktopManager.js:1540
+#, fuzzy
 msgid "Paste"
-msgstr ""
+msgstr "جایگذاری"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1541
+#, fuzzy
 msgid "Undo"
-msgstr ""
+msgstr "برگردان"
 
-#: app/desktopManager.js:1550
+#: app/desktopManager.js:1542
+#, fuzzy
 msgid "Redo"
-msgstr ""
+msgstr "انجام مجدد"
 
-#: app/desktopManager.js:1555
+#: app/desktopManager.js:1547
+#, fuzzy
 msgid "Select All"
-msgstr ""
+msgstr "انتخاب همه"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1552
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1556
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1562
 msgid "Show Desktop In {0}"
 msgstr ""
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1565
 msgid "Open In {0}"
 msgstr ""
 
-#: app/desktopManager.js:1579
+#: app/desktopManager.js:1571
 msgid "Desktop Icon Settings"
 msgstr ""
 
-#: app/desktopManager.js:1584
+#: app/desktopManager.js:1576
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopManager.js:1644
+#: app/desktopManager.js:1636
+#, fuzzy
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2608
 msgid "Folder Creation Failed"
 msgstr ""
 
-#: app/desktopManager.js:2615
+#: app/desktopManager.js:2609
+#, fuzzy
 msgid "Could not create folder"
-msgstr ""
+msgstr "ناتوان در ساختن پوشه."
 
-#: app/desktopManager.js:2658
+#: app/desktopManager.js:2652
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopManager.js:2659
+#: app/desktopManager.js:2653
+#, fuzzy
 msgid "Could not create document"
-msgstr ""
+msgstr "سند حذف نشد"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:138 app/fileItem.js:147
+#: app/fileItem.js:134 app/fileItem.js:143
+#, fuzzy
 msgid "Home"
-msgstr ""
+msgstr "خانه"
 
-#: app/fileItem.js:153
+#: app/fileItem.js:149
+#, fuzzy
 msgid "Trash"
-msgstr ""
+msgstr "زباله‌دان"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:159
+#: app/fileItem.js:155
+#, fuzzy
 msgid "Drive"
-msgstr ""
+msgstr "درایو"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
-#: app/fileItem.js:169
+#: app/fileItem.js:165
+#, fuzzy
 msgid "Folder"
-msgstr ""
+msgstr "پوشه"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:176
+#: app/fileItem.js:172
+#, fuzzy
 msgid "File"
-msgstr ""
+msgstr "فایل"
 
-#: app/fileItem.js:305
+#: app/fileItem.js:290
 msgid "Broken Link"
 msgstr ""
 
-#: app/fileItem.js:306
+#: app/fileItem.js:291
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 
-#: app/fileItem.js:337
+#: app/fileItem.js:322
 msgid "Opening File Failed"
 msgstr ""
 
-#: app/fileItem.js:339
+#: app/fileItem.js:324
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr ""
 
-#: app/fileItem.js:368
+#: app/fileItem.js:353
 msgid "Broken Desktop File"
 msgstr ""
 
-#: app/fileItem.js:369
+#: app/fileItem.js:354
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -611,33 +672,33 @@ msgid ""
 "Edit the file to set the correct executable Program."
 msgstr ""
 
-#: app/fileItem.js:375
+#: app/fileItem.js:360
 msgid "Invalid Permissions on Desktop File"
 msgstr ""
 
-#: app/fileItem.js:376
+#: app/fileItem.js:361
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 
-#: app/fileItem.js:378
+#: app/fileItem.js:363
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 
-#: app/fileItem.js:381
+#: app/fileItem.js:366
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 
-#: app/fileItem.js:388
+#: app/fileItem.js:373
 msgid "Untrusted Desktop File"
 msgstr ""
 
-#: app/fileItem.js:389
+#: app/fileItem.js:374
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -645,12 +706,13 @@ msgid ""
 "Enable \"Allow Launching\""
 msgstr ""
 
-#: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
+#, fuzzy
 msgid "Could not open File"
-msgstr ""
+msgstr "فایل باز نشد"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
 msgid "${appName} can not open files of this Type!"
 msgstr ""
 
@@ -665,16 +727,18 @@ msgid "Open All..."
 msgstr ""
 
 #: app/fileItemMenu.js:316
+#, fuzzy
 msgid "Run"
-msgstr ""
+msgstr "اجرا"
 
 #: app/fileItemMenu.js:318
 msgid "Open with {foo}"
 msgstr ""
 
 #: app/fileItemMenu.js:320
+#, fuzzy
 msgid "Open"
-msgstr ""
+msgstr "باز کردن"
 
 #: app/fileItemMenu.js:329 app/fileItemMenu.js:333
 msgid "Extract Here"
@@ -709,12 +773,14 @@ msgid "Run as a Program"
 msgstr ""
 
 #: app/fileItemMenu.js:367
+#, fuzzy
 msgid "Scripts"
-msgstr ""
+msgstr "اسکریپت‌ها"
 
 #: app/fileItemMenu.js:370
+#, fuzzy
 msgid "Cut"
-msgstr ""
+msgstr "برش"
 
 #: app/fileItemMenu.js:376
 msgid "Move to..."
@@ -725,8 +791,9 @@ msgid "Copy to..."
 msgstr ""
 
 #: app/fileItemMenu.js:381
+#, fuzzy
 msgid "Rename…"
-msgstr ""
+msgstr "تغییر نام…"
 
 #: app/fileItemMenu.js:384
 msgid "Create Link..."
@@ -753,12 +820,14 @@ msgid "Send to Mobile Device"
 msgstr ""
 
 #: app/fileItemMenu.js:411
+#, fuzzy
 msgid "Move to Trash"
-msgstr ""
+msgstr "انتقال به سطل زباله"
 
 #: app/fileItemMenu.js:414
+#, fuzzy
 msgid "Delete permanently"
-msgstr ""
+msgstr "حذف فوري"
 
 #: app/fileItemMenu.js:419
 msgid "Don't Allow Launching"
@@ -769,12 +838,14 @@ msgid "Allow Launching"
 msgstr ""
 
 #: app/fileItemMenu.js:425
+#, fuzzy
 msgid "Empty Trash"
-msgstr ""
+msgstr "خالی کردن سطل زباله"
 
 #: app/fileItemMenu.js:431
+#, fuzzy
 msgid "Eject"
-msgstr ""
+msgstr "خروج"
 
 #: app/fileItemMenu.js:434
 msgid "Unmount"
@@ -785,8 +856,9 @@ msgid "Common Properties"
 msgstr ""
 
 #: app/fileItemMenu.js:439
+#, fuzzy
 msgid "Properties"
-msgstr ""
+msgstr "ویژگی ها"
 
 #: app/fileItemMenu.js:442
 msgid "Show All in {0}"
@@ -817,12 +889,14 @@ msgid "Unable to move Files, no destination folder"
 msgstr ""
 
 #: app/fileItemMenu.js:613 app/fileItemMenu.js:642
+#, fuzzy
 msgid "Select Destination"
-msgstr ""
+msgstr "انتخاب مقصد"
 
 #: app/fileItemMenu.js:616 app/fileItemMenu.js:644
+#, fuzzy
 msgid "Select"
-msgstr ""
+msgstr "یانتخاب"
 
 #: app/fileItemMenu.js:693
 msgid "Copy Cancelled"
@@ -882,13 +956,15 @@ msgstr ""
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/preferences.js:417
+#: app/preferences.js:420
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 #: app/showErrorPopup.js:39
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "اطّلاعات بیش‌تر"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
@@ -921,16 +997,19 @@ msgid "Always use for this file type"
 msgstr ""
 
 #: app/resources/ui/ding-app-chooser.ui:104
+#, fuzzy
 msgid "_Cancel"
-msgstr ""
+msgstr "_لغو"
 
 #: app/resources/ui/ding-app-chooser.ui:110
+#, fuzzy
 msgid "_Open"
-msgstr ""
+msgstr "_باز کردن"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
+#, fuzzy
 msgid "Icon size"
-msgstr ""
+msgstr "اندازه نگارک"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
@@ -945,8 +1024,9 @@ msgid "Show the personal folder in the desktop."
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+#, fuzzy
 msgid "Show trash icon"
-msgstr ""
+msgstr "نمایش دادن آیکون در حالت مخفی"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."

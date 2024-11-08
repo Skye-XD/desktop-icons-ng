@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 23:57-0400\n"
+"POT-Creation-Date: 2024-11-07 17:52-0500\n"
 "PO-Revision-Date: 2024-11-03 08:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtk4-"
+"desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -290,7 +290,7 @@ msgstr "Mappenavn"
 msgid "File name"
 msgstr "Filnavn"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
 #: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "OK"
@@ -319,8 +319,8 @@ msgstr "Pakker ut filer"
 msgid "Compressing files"
 msgstr "Pakker sammen filer"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
-#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
+#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "Avbryt"
@@ -467,164 +467,164 @@ msgid ""
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:785
+#: app/desktopManager.js:777
 msgid "Choose Action for Files"
 msgstr "Velg handling for filer"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 msgid "Move"
 msgstr "Flytt"
 
-#: app/desktopManager.js:786 app/fileItemMenu.js:372
+#: app/desktopManager.js:778 app/fileItemMenu.js:372
 msgid "Copy"
 msgstr "Kopier"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 #, fuzzy
 msgid "Link"
 msgstr "Link"
 
-#: app/desktopManager.js:873 app/desktopManager.js:905
+#: app/desktopManager.js:865 app/desktopManager.js:897
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Opprettelse av symbolsk lenke mislyktes"
 
-#: app/desktopManager.js:874 app/desktopManager.js:906
+#: app/desktopManager.js:866 app/desktopManager.js:898
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Kunne ikke opprette symbolsk kobling"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1208
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Tøm nåværende utvalg før nytt søk"
 
-#: app/desktopManager.js:1260
+#: app/desktopManager.js:1252
 msgid "Find Files on Desktop"
 msgstr "Finn filer på skrivebordet"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1515
 msgid "Name"
 msgstr "Navn"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1516
 msgid "Name Z-A"
 msgstr "Navn Å-A"
 
-#: app/desktopManager.js:1525
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Modified Time"
 msgstr "Endret tid"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1518
 msgid "Type"
 msgstr "Type"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1519
 msgid "Size"
 msgstr "Størrelse"
 
-#: app/desktopManager.js:1530
+#: app/desktopManager.js:1522
 msgid "Keep Arranged…"
 msgstr "Behold sortert …"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1526
 msgid "Keep Stacked by Type…"
 msgstr "Behold sortert etter type …"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1527
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sorter hjemmemappe/lagringsenheter/papirkurv …"
 
-#: app/desktopManager.js:1540 app/desktopManager.js:2591
+#: app/desktopManager.js:1532 app/desktopManager.js:2585
 msgid "New Folder"
 msgstr "Ny mappe"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1536
 msgid "New Document"
 msgstr "Nytt dokument"
 
-#: app/desktopManager.js:1548
+#: app/desktopManager.js:1540
 msgid "Paste"
 msgstr "Lim inn"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1541
 msgid "Undo"
 msgstr "Angre"
 
-#: app/desktopManager.js:1550
+#: app/desktopManager.js:1542
 msgid "Redo"
 msgstr "Gjenta"
 
-#: app/desktopManager.js:1555
+#: app/desktopManager.js:1547
 msgid "Select All"
 msgstr "Velg alle"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1552
 msgid "Arrange Icons"
 msgstr "Sorter ikoner"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1556
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Sorter etter …"
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1562
 #, fuzzy
 msgid "Show Desktop In {0}"
 msgstr "Vis skrivebord i GNOME-filer"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Åpne med {foo}"
 
-#: app/desktopManager.js:1579
+#: app/desktopManager.js:1571
 msgid "Desktop Icon Settings"
 msgstr "Innstillinger for skrivebordsikon"
 
-#: app/desktopManager.js:1584
+#: app/desktopManager.js:1576
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 msgid "Preferences Window is Open"
 msgstr "Innstillingsvinduet er åpent"
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 msgid "This Window is open. Please switch to the active window."
 msgstr "Dette vinduet er åpent. Bytt til det aktive vinduet."
 
-#: app/desktopManager.js:1644
+#: app/desktopManager.js:1636
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2608
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Mappeopprettelse mislyktes"
 
-#: app/desktopManager.js:2615
+#: app/desktopManager.js:2609
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Kunne ikke opprette mappe"
 
-#: app/desktopManager.js:2658
+#: app/desktopManager.js:2652
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Malopprettelse mislyktes"
 
-#: app/desktopManager.js:2659
+#: app/desktopManager.js:2653
 #, fuzzy
 msgid "Could not create document"
 msgstr "Klarte ikke å opprette socket."
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:138 app/fileItem.js:147
+#: app/fileItem.js:134 app/fileItem.js:143
 msgid "Home"
 msgstr "Hjem"
 
-#: app/fileItem.js:153
+#: app/fileItem.js:149
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
@@ -633,7 +633,7 @@ msgstr "Papirkurv"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:159
+#: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
 msgstr "Enhet"
@@ -641,7 +641,7 @@ msgstr "Enhet"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
-#: app/fileItem.js:169
+#: app/fileItem.js:165
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
@@ -650,34 +650,34 @@ msgstr "Mappe"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:176
+#: app/fileItem.js:172
 #, fuzzy
 msgid "File"
 msgstr "Fil"
 
-#: app/fileItem.js:305
+#: app/fileItem.js:290
 msgid "Broken Link"
 msgstr "Knekt lenke"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:291
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Kan ikke åpne denne filen fordi det er en ødelagt symbolsk lenke"
 
-#: app/fileItem.js:337
+#: app/fileItem.js:322
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "Åpning av fil mislyktes"
 
-#: app/fileItem.js:339
+#: app/fileItem.js:324
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr "Det er ingen applikasjon installert for å åpne \"{foo}\"-filer"
 
-#: app/fileItem.js:368
+#: app/fileItem.js:353
 msgid "Broken Desktop File"
 msgstr "Ødelagt skrivebordsfil"
 
-#: app/fileItem.js:369
+#: app/fileItem.js:354
 #, fuzzy
 #| msgid ""
 #| "This .desktop file has errors or points to a program without permissions. "
@@ -695,11 +695,11 @@ msgstr ""
 "\n"
 "\t<b>Rediger filen for å tillate kjøring av den som program.</b>"
 
-#: app/fileItem.js:375
+#: app/fileItem.js:360
 msgid "Invalid Permissions on Desktop File"
 msgstr "Ugyldige tilganger for skrivebordsfil"
 
-#: app/fileItem.js:376
+#: app/fileItem.js:361
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -708,7 +708,7 @@ msgstr ""
 "Denne .desktop-filen har uriktige tilganger. Høyreklikk for å redigere "
 "egenskaper, og så:\n"
 
-#: app/fileItem.js:378
+#: app/fileItem.js:363
 #, fuzzy
 msgid ""
 "\n"
@@ -717,7 +717,7 @@ msgstr ""
 "\n"
 "<b>Sett tilganger i «Andre Tilgang» «Skrivebeskyttet», eller «Ingen»</b>"
 
-#: app/fileItem.js:381
+#: app/fileItem.js:366
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -729,13 +729,13 @@ msgstr ""
 "\n"
 "<b>Skru på valget «Tillat kjøring av filen som program»</b>"
 
-#: app/fileItem.js:388
+#: app/fileItem.js:373
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
 msgstr "Ødelagt skrivebordsfil"
 
-#: app/fileItem.js:389
+#: app/fileItem.js:374
 #, fuzzy
 #| msgid ""
 #| "This .desktop file is not trusted, it can not be launched. To enable "
@@ -753,13 +753,13 @@ msgstr ""
 "\n"
 "<b>Skru på «Tillat kjøring»</b>"
 
-#: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
 msgstr "Klarte ikke å åpne fil"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} kan ikke åpne filer av denne typen!"
@@ -1014,7 +1014,7 @@ msgstr ""
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/preferences.js:417
+#: app/preferences.js:420
 #, fuzzy
 msgid "Console"
 msgstr "Konsoll"
