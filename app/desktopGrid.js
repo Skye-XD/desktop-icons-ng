@@ -957,7 +957,7 @@ const DesktopGrid = class {
     // Functions for computing postion/Geometry
 
     _getColumnRowFromLocal(x, y) {
-        // Teturns the column, row of the grid that holds the local x, y
+        // Returns the column, row of the grid that holds the local x, y
         let placeX = Math.floor(x / this._elementWidth);
         let placeY = Math.floor(y / this._elementHeight);
         placeX = this.DesktopIconsUtil.clamp(placeX, 0, this._maxColumns - 1);
@@ -966,7 +966,7 @@ const DesktopGrid = class {
     }
 
     _getGridLocalCoordinates(x, y) {
-        // returns the local grid coordinates of top left rectangle vertex of the grid that has local x,y
+        // Returns the local grid coordinates of top left rectangle vertex of the grid that has local x,y
         const [column, row] = this._getColumnRowFromLocal(x, y);
         return this._getLocalCoordinatesForGrid(column, row);
     }
@@ -1116,7 +1116,7 @@ const DesktopGrid = class {
     }
 
     isAvailable() {
-        // Returns if the grid number is occumpied.
+        // Returns if the grid number is occupied.
         let isFree = false;
         for (const [, setOfFileItemsOnGridNumber] of this._gridStatus.entries()) {
             if (!setOfFileItemsOnGridNumber.size) {
@@ -1217,7 +1217,7 @@ const DesktopGrid = class {
         }
 
         if (!found)
-            throw new Error('Not enough place at monitor');
+            throw new Error('No available space on the monitor');
 
 
         return [resColumn, resRow];
