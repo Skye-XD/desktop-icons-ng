@@ -12,12 +12,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 23:57-0400\n"
+"POT-Creation-Date: 2024-11-07 17:52-0500\n"
 "PO-Revision-Date: 2024-11-07 19:00+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -300,7 +300,7 @@ msgstr "Nome della cartella"
 msgid "File name"
 msgstr "Nome del file"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
 #: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "Ok"
@@ -333,8 +333,8 @@ msgstr "Estrai i file"
 msgid "Compressing files"
 msgstr "Comprimere i files."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
-#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
+#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "Annulla"
@@ -501,177 +501,177 @@ msgid ""
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:785
+#: app/desktopManager.js:777
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Scegliere Azione per i file"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 #, fuzzy
 msgid "Move"
 msgstr "Sposta"
 
-#: app/desktopManager.js:786 app/fileItemMenu.js:372
+#: app/desktopManager.js:778 app/fileItemMenu.js:372
 msgid "Copy"
 msgstr "Copia"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 #, fuzzy
 msgid "Link"
 msgstr "Collegamento"
 
-#: app/desktopManager.js:873 app/desktopManager.js:905
+#: app/desktopManager.js:865 app/desktopManager.js:897
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Rendere SymLink non riuscito"
 
-#: app/desktopManager.js:874 app/desktopManager.js:906
+#: app/desktopManager.js:866 app/desktopManager.js:898
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Non è possibile creare link simbolici"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1208
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Cancella la selezione corrente prima di una nuova ricerca"
 
-#: app/desktopManager.js:1260
+#: app/desktopManager.js:1252
 msgid "Find Files on Desktop"
 msgstr "Trova i file sulla scrivania"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1515
 #, fuzzy
 msgid "Name"
 msgstr "Nome"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1516
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nome A-Z"
 
-#: app/desktopManager.js:1525
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Modified Time"
 msgstr "Tempo modificato"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1518
 #, fuzzy
 msgid "Type"
 msgstr "Tipo"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1519
 #, fuzzy
 msgid "Size"
 msgstr "Dimensione"
 
-#: app/desktopManager.js:1530
+#: app/desktopManager.js:1522
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Disposizione automatica…"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1526
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Mantieni inpilato per tipo…"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1527
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordina Home/Dispositivi/Cestino…"
 
-#: app/desktopManager.js:1540 app/desktopManager.js:2591
+#: app/desktopManager.js:1532 app/desktopManager.js:2585
 msgid "New Folder"
 msgstr "Nuova cartella"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1536
 msgid "New Document"
 msgstr "Nuovo documento"
 
-#: app/desktopManager.js:1548
+#: app/desktopManager.js:1540
 msgid "Paste"
 msgstr "Incolla"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1541
 msgid "Undo"
 msgstr "Annulla"
 
-#: app/desktopManager.js:1550
+#: app/desktopManager.js:1542
 msgid "Redo"
 msgstr "Ripeti"
 
-#: app/desktopManager.js:1555
+#: app/desktopManager.js:1547
 msgid "Select All"
 msgstr "Seleziona tutto"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1552
 msgid "Arrange Icons"
 msgstr "Disponi icone"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1556
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Organizza.."
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1562
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Mostra Desktop In {0}"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Aprire in {0}"
 
-#: app/desktopManager.js:1579
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Impostazioni di Desktop Icons"
 
-#: app/desktopManager.js:1584
+#: app/desktopManager.js:1576
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Preferenze Finestra è aperto"
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Questa finestra è aperta. Si prega di passare alla finestra attiva."
 
-#: app/desktopManager.js:1644
+#: app/desktopManager.js:1636
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2608
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Creazione di ordine non riuscita."
 
-#: app/desktopManager.js:2615
+#: app/desktopManager.js:2609
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Impossibile creare la cartella"
 
-#: app/desktopManager.js:2658
+#: app/desktopManager.js:2652
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Errore di creazione del modello"
 
-#: app/desktopManager.js:2659
+#: app/desktopManager.js:2653
 #, fuzzy
 msgid "Could not create document"
 msgstr "Impossibile eliminare documento"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:138 app/fileItem.js:147
+#: app/fileItem.js:134 app/fileItem.js:143
 msgid "Home"
 msgstr "Home"
 
-#: app/fileItem.js:153
+#: app/fileItem.js:149
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
@@ -680,7 +680,7 @@ msgstr "Cestino"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:159
+#: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
 msgstr "Unità"
@@ -688,7 +688,7 @@ msgstr "Unità"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
-#: app/fileItem.js:169
+#: app/fileItem.js:165
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
@@ -697,34 +697,34 @@ msgstr "Cartella"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:176
+#: app/fileItem.js:172
 #, fuzzy
 msgid "File"
 msgstr "File"
 
-#: app/fileItem.js:305
+#: app/fileItem.js:290
 msgid "Broken Link"
 msgstr "Collegamento interrotto"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:291
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Non è possibile aprire questo file perché è un collegamento interrotto"
 
-#: app/fileItem.js:337
+#: app/fileItem.js:322
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "Apertura file fallita"
 
-#: app/fileItem.js:339
+#: app/fileItem.js:324
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr "Non esiste applicazione installata per aprire file \"{foo}\"."
 
-#: app/fileItem.js:368
+#: app/fileItem.js:353
 msgid "Broken Desktop File"
 msgstr "File corrotto in scrivania"
 
-#: app/fileItem.js:369
+#: app/fileItem.js:354
 #, fuzzy
 #| msgid ""
 #| "This .desktop file has errors or points to a program without permissions. "
@@ -742,11 +742,11 @@ msgstr ""
 "\n"
 "\t<b>Modificare il file per impostare il corretto eseguibile.</b>"
 
-#: app/fileItem.js:375
+#: app/fileItem.js:360
 msgid "Invalid Permissions on Desktop File"
 msgstr "Permessi non validi nel file in scrivania"
 
-#: app/fileItem.js:376
+#: app/fileItem.js:361
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -754,7 +754,7 @@ msgstr ""
 "Questo file .desktop non ha i permessi corretti. Click destro per modificare "
 "le Proprietà, e:\n"
 
-#: app/fileItem.js:378
+#: app/fileItem.js:363
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -767,7 +767,7 @@ msgstr ""
 "<b>Impostare i permessi in \"Leggere e scrivere\", \"Leggere soltanto\" o "
 "\"Nessuno\"</b>"
 
-#: app/fileItem.js:381
+#: app/fileItem.js:366
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -780,13 +780,13 @@ msgstr ""
 "<b>Abilitare l'opzione \"Consentire l'esecuzione del file come programma\"</"
 "b>"
 
-#: app/fileItem.js:388
+#: app/fileItem.js:373
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
 msgstr "File Desktop non fidato"
 
-#: app/fileItem.js:389
+#: app/fileItem.js:374
 #, fuzzy
 #| msgid ""
 #| "This .desktop file is not trusted, it can not be launched. To enable "
@@ -804,13 +804,13 @@ msgstr ""
 "\n"
 "<b>Abilitare \"Permetti l'esecuzione\"</b>"
 
-#: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
 msgstr "Impossibile aprire File"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} non può aprire i file di questo tipo!"
@@ -1078,7 +1078,7 @@ msgstr "Incapace di aprire Traduzione:"
 msgid "Please Install {0}"
 msgstr "Si prega di installare Si'"
 
-#: app/preferences.js:417
+#: app/preferences.js:420
 #, fuzzy
 msgid "Console"
 msgstr "Terminale"

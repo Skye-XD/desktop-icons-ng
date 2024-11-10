@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 23:57-0400\n"
+"POT-Creation-Date: 2024-11-07 17:52-0500\n"
 "PO-Revision-Date: 2024-11-03 08:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -297,7 +297,7 @@ msgstr "資料夾名稱"
 msgid "File name"
 msgstr "檔案名稱"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
 #: app/fileItemMenu.js:805
 msgid "OK"
 msgstr "確定"
@@ -328,8 +328,8 @@ msgstr "正在解壓文件…"
 msgid "Compressing files"
 msgstr "正在壓縮檔…"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
-#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
+#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "取消"
@@ -500,179 +500,179 @@ msgstr ""
 "检查贵重用途安装\n"
 "查阅Gnome文档。 档案安装"
 
-#: app/desktopManager.js:785
+#: app/desktopManager.js:777
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "文档行动"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 #, fuzzy
 msgid "Move"
 msgstr "移動"
 
-#: app/desktopManager.js:786 app/fileItemMenu.js:372
+#: app/desktopManager.js:778 app/fileItemMenu.js:372
 msgid "Copy"
 msgstr "複製"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 #, fuzzy
 msgid "Link"
 msgstr "連結"
 
-#: app/desktopManager.js:873 app/desktopManager.js:905
+#: app/desktopManager.js:865 app/desktopManager.js:897
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "• 举办座谈会"
 
-#: app/desktopManager.js:874 app/desktopManager.js:906
+#: app/desktopManager.js:866 app/desktopManager.js:898
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "不能建立象征性的联系"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1208
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "在新的搜索之前明确挑选现有人员"
 
-#: app/desktopManager.js:1260
+#: app/desktopManager.js:1252
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "桌面文件"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1515
 #, fuzzy
 msgid "Name"
 msgstr "名稱"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1516
 #, fuzzy
 msgid "Name Z-A"
 msgstr "名稱（Z-A）"
 
-#: app/desktopManager.js:1525
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Modified Time"
 msgstr "修改时间"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1518
 #, fuzzy
 msgid "Type"
 msgstr "類型"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1519
 #, fuzzy
 msgid "Size"
 msgstr "大"
 
-#: app/desktopManager.js:1530
+#: app/desktopManager.js:1522
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "安排..…"
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1526
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "按类型分类"
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1527
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "住宅/司机"
 
-#: app/desktopManager.js:1540 app/desktopManager.js:2591
+#: app/desktopManager.js:1532 app/desktopManager.js:2585
 msgid "New Folder"
 msgstr "新增資料夾"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1536
 msgid "New Document"
 msgstr "新增文件"
 
-#: app/desktopManager.js:1548
+#: app/desktopManager.js:1540
 msgid "Paste"
 msgstr "貼上"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1541
 msgid "Undo"
 msgstr "復原"
 
-#: app/desktopManager.js:1550
+#: app/desktopManager.js:1542
 msgid "Redo"
 msgstr "重做"
 
-#: app/desktopManager.js:1555
+#: app/desktopManager.js:1547
 #, fuzzy
 msgid "Select All"
 msgstr "全選"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1552
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "远距"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1556
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arrange By.."
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1562
 #, fuzzy
 msgid "Show Desktop In {0}"
 msgstr "图3"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Open In {0}"
 msgstr "开放式{0}"
 
-#: app/desktopManager.js:1579
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "桌面一星座"
 
-#: app/desktopManager.js:1584
+#: app/desktopManager.js:1576
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "开放窗口"
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "这一窗口已经开放。 请转至正窗口."
 
-#: app/desktopManager.js:1644
+#: app/desktopManager.js:1636
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2608
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Folder Creat Failed"
 
-#: app/desktopManager.js:2615
+#: app/desktopManager.js:2609
 #, fuzzy
 msgid "Could not create folder"
 msgstr "無法新增資料夾。"
 
-#: app/desktopManager.js:2658
+#: app/desktopManager.js:2652
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "温度生成"
 
-#: app/desktopManager.js:2659
+#: app/desktopManager.js:2653
 #, fuzzy
 msgid "Could not create document"
 msgstr "無法刪除文件"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:138 app/fileItem.js:147
+#: app/fileItem.js:134 app/fileItem.js:143
 msgid "Home"
 msgstr "家目錄"
 
-#: app/fileItem.js:153
+#: app/fileItem.js:149
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
@@ -681,7 +681,7 @@ msgstr "回收桶"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:159
+#: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
 msgstr "驅動"
@@ -689,7 +689,7 @@ msgstr "驅動"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
-#: app/fileItem.js:169
+#: app/fileItem.js:165
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
@@ -698,37 +698,37 @@ msgstr "資料夾"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:176
+#: app/fileItem.js:172
 #, fuzzy
 msgid "File"
 msgstr "檔案"
 
-#: app/fileItem.js:305
+#: app/fileItem.js:290
 #, fuzzy
 msgid "Broken Link"
 msgstr "BrokenLink"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:291
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "不能打开这一文件,因为它是个兄弟的同 Sym"
 
-#: app/fileItem.js:337
+#: app/fileItem.js:322
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "檔案開啟失敗"
 
-#: app/fileItem.js:339
+#: app/fileItem.js:324
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr "没有安装用于公开“ifoo}”档案的申请."
 
-#: app/fileItem.js:368
+#: app/fileItem.js:353
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "損毀的 .desktop 檔"
 
-#: app/fileItem.js:369
+#: app/fileItem.js:354
 #, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
@@ -740,19 +740,19 @@ msgstr ""
 "\n"
 "编写文件,确定正确的可执行方案."
 
-#: app/fileItem.js:375
+#: app/fileItem.js:360
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Desktop档案中的 Invalid Permissions"
 
-#: app/fileItem.js:376
+#: app/fileItem.js:361
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr "页: 1 档案有误。 • 房屋产权,然后:\n"
 
-#: app/fileItem.js:378
+#: app/fileItem.js:363
 #, fuzzy
 msgid ""
 "\n"
@@ -761,7 +761,7 @@ msgstr ""
 "\n"
 "在“其他途径”、“仅”或“非”中设定许可"
 
-#: app/fileItem.js:381
+#: app/fileItem.js:366
 #, fuzzy
 msgid ""
 "\n"
@@ -770,12 +770,12 @@ msgstr ""
 "\n"
 "可行方案,“执行档案方案”"
 
-#: app/fileItem.js:388
+#: app/fileItem.js:373
 #, fuzzy
 msgid "Untrusted Desktop File"
 msgstr "未委托的桌面档案"
 
-#: app/fileItem.js:389
+#: app/fileItem.js:374
 #, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
@@ -787,13 +787,13 @@ msgstr ""
 "\n"
 "“低发射”"
 
-#: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
 msgstr "無法開啟檔案"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "(1美元)!"
@@ -1062,7 +1062,7 @@ msgstr "开放{0}"
 msgid "Please Install {0}"
 msgstr "请问{0}"
 
-#: app/preferences.js:417
+#: app/preferences.js:420
 #, fuzzy
 msgid "Console"
 msgstr "主控臺"

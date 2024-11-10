@@ -9,12 +9,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 23:57-0400\n"
+"POT-Creation-Date: 2024-11-07 17:52-0500\n"
 "PO-Revision-Date: 2024-11-07 19:01+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/el/>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
+"ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -315,7 +315,7 @@ msgstr "Όνομα φακέλου"
 msgid "File name"
 msgstr "Όνομα αρχείου"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1256
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
 #: app/fileItemMenu.js:805
 #, fuzzy
 msgid "OK"
@@ -350,8 +350,8 @@ msgstr "Αποσυμπίεση αρχείων"
 msgid "Compressing files"
 msgstr "Συμπίεση αρχείων."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:786
-#: app/desktopManager.js:1258 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
+#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 #, fuzzy
 msgid "Cancel"
@@ -521,188 +521,188 @@ msgid ""
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:785
+#: app/desktopManager.js:777
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Επιλέξτε Δράση για αρχεία"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 #, fuzzy
 msgid "Move"
 msgstr "Κινήσου"
 
-#: app/desktopManager.js:786 app/fileItemMenu.js:372
+#: app/desktopManager.js:778 app/fileItemMenu.js:372
 #, fuzzy
 msgid "Copy"
 msgstr "Αντιγραφή"
 
-#: app/desktopManager.js:786
+#: app/desktopManager.js:778
 #, fuzzy
 msgid "Link"
 msgstr "Σύνδεσμος"
 
-#: app/desktopManager.js:873 app/desktopManager.js:905
+#: app/desktopManager.js:865 app/desktopManager.js:897
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Κάνοντας το SymLink Failed"
 
-#: app/desktopManager.js:874 app/desktopManager.js:906
+#: app/desktopManager.js:866 app/desktopManager.js:898
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Δεν θα μπορούσε να δημιουργήσει συμβολική σύνδεση"
 
-#: app/desktopManager.js:1216
+#: app/desktopManager.js:1208
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Σαφή τρέχουσα επιλογή πριν από νέα αναζήτηση"
 
-#: app/desktopManager.js:1260
+#: app/desktopManager.js:1252
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Βρείτε αρχεία στο Desktop"
 
-#: app/desktopManager.js:1523
+#: app/desktopManager.js:1515
 #, fuzzy
 msgid "Name"
 msgstr "Όνομα"
 
-#: app/desktopManager.js:1524
+#: app/desktopManager.js:1516
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Όνομα (Z-A)"
 
-#: app/desktopManager.js:1525
+#: app/desktopManager.js:1517
 #, fuzzy
 msgid "Modified Time"
 msgstr "Τροποποιημένος χρόνος"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1518
 #, fuzzy
 msgid "Type"
 msgstr "Τύπος"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1519
 #, fuzzy
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: app/desktopManager.js:1530
+#: app/desktopManager.js:1522
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Κρατήστε το Arranged.."
 
-#: app/desktopManager.js:1534
+#: app/desktopManager.js:1526
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Κρατήστε τοραγμένο από τον τύπο.."
 
-#: app/desktopManager.js:1535
+#: app/desktopManager.js:1527
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sort Home /Drives / Trash .."
 
-#: app/desktopManager.js:1540 app/desktopManager.js:2591
+#: app/desktopManager.js:1532 app/desktopManager.js:2585
 #, fuzzy
 msgid "New Folder"
 msgstr "Νέος Φάκέλος"
 
-#: app/desktopManager.js:1544
+#: app/desktopManager.js:1536
 #, fuzzy
 msgid "New Document"
 msgstr "Νέο έγγραφο"
 
-#: app/desktopManager.js:1548
+#: app/desktopManager.js:1540
 #, fuzzy
 msgid "Paste"
 msgstr "Επικόλληση"
 
-#: app/desktopManager.js:1549
+#: app/desktopManager.js:1541
 #, fuzzy
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: app/desktopManager.js:1550
+#: app/desktopManager.js:1542
 #, fuzzy
 msgid "Redo"
 msgstr "Επανάληψη"
 
-#: app/desktopManager.js:1555
+#: app/desktopManager.js:1547
 #, fuzzy
 msgid "Select All"
 msgstr "Επιλογή Όλων"
 
-#: app/desktopManager.js:1560
+#: app/desktopManager.js:1552
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Arrange Icons"
 
-#: app/desktopManager.js:1564
+#: app/desktopManager.js:1556
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arrange By.."
 
-#: app/desktopManager.js:1570
+#: app/desktopManager.js:1562
 #, fuzzy
 msgid "Show Desktop In {0}"
 msgstr "Show Desktop in {0}"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1565
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Ανοιχτό στο {0}"
 
-#: app/desktopManager.js:1579
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Desktop IconΡυθμίσεις"
 
-#: app/desktopManager.js:1584
+#: app/desktopManager.js:1576
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Το παράθυρο Preferences είναι ανοιχτό"
 
-#: app/desktopManager.js:1630
+#: app/desktopManager.js:1622
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 "Αυτό το παράθυρο είναι ανοιχτό. Παρακαλούμε μεταβείτε στο ενεργό παράθυρο."
 
-#: app/desktopManager.js:1644
+#: app/desktopManager.js:1636
 #, fuzzy
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: app/desktopManager.js:2614
+#: app/desktopManager.js:2608
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Δημιουργία Παραγγελίας απέτυχε."
 
-#: app/desktopManager.js:2615
+#: app/desktopManager.js:2609
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Αδύνατη η δημιουργία φακέλου."
 
-#: app/desktopManager.js:2658
+#: app/desktopManager.js:2652
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Πρότυπο Δημιουργία σφάλματος"
 
-#: app/desktopManager.js:2659
+#: app/desktopManager.js:2653
 #, fuzzy
 msgid "Could not create document"
 msgstr "Δεν θα μπορούσε να δημιουργήσει έγγραφο"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:138 app/fileItem.js:147
+#: app/fileItem.js:134 app/fileItem.js:143
 #, fuzzy
 msgid "Home"
 msgstr "Αρχική"
 
-#: app/fileItem.js:153
+#: app/fileItem.js:149
 #, fuzzy
 msgid "Trash"
 msgstr "Κάδος"
@@ -710,7 +710,7 @@ msgstr "Κάδος"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
 #. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:159
+#: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
 msgstr "Αποθηκευτικός Χώρος"
@@ -718,7 +718,7 @@ msgstr "Αποθηκευτικός Χώρος"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
 #. * it will say "Folder things"
-#: app/fileItem.js:169
+#: app/fileItem.js:165
 #, fuzzy
 msgid "Folder"
 msgstr "Φάκελος"
@@ -726,37 +726,37 @@ msgstr "Φάκελος"
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
 #. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:176
+#: app/fileItem.js:172
 #, fuzzy
 msgid "File"
 msgstr "Αρχείο"
 
-#: app/fileItem.js:305
+#: app/fileItem.js:290
 #, fuzzy
 msgid "Broken Link"
 msgstr "Broken Link"
 
-#: app/fileItem.js:306
+#: app/fileItem.js:291
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Δεν μπορεί να ανοίξει αυτό το αρχείο επειδή είναι ένα Broken Symlink"
 
-#: app/fileItem.js:337
+#: app/fileItem.js:322
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "Εγκαινιασμένο αρχείο"
 
-#: app/fileItem.js:339
+#: app/fileItem.js:324
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr "Δεν υπάρχει καμία εφαρμογή για να ανοίξει αρχεία \"{foo}."
 
-#: app/fileItem.js:368
+#: app/fileItem.js:353
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "Κατεστραμμένα αρχεία επιφάνειας εργασίας"
 
-#: app/fileItem.js:369
+#: app/fileItem.js:354
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -764,12 +764,12 @@ msgid ""
 "Edit the file to set the correct executable Program."
 msgstr ""
 
-#: app/fileItem.js:375
+#: app/fileItem.js:360
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Ακυρώσεις στο Desktop File"
 
-#: app/fileItem.js:376
+#: app/fileItem.js:361
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -778,7 +778,7 @@ msgstr ""
 "Αυτό .desktop Το αρχείο έχει λανθασμένες εκπομπές. Δικαίωμα Κάντε κλικ στην "
 "επεξεργασία των Ιδιοτήτων, στη συνέχεια:\n"
 
-#: app/fileItem.js:378
+#: app/fileItem.js:363
 #, fuzzy
 msgid ""
 "\n"
@@ -787,7 +787,7 @@ msgstr ""
 "\n"
 "Ρυθμίστε τις εκπτώσεις, στην \"Άλλο Πρόσβαση\", \"Read Only\" ή \"None\""
 
-#: app/fileItem.js:381
+#: app/fileItem.js:366
 #, fuzzy
 msgid ""
 "\n"
@@ -796,12 +796,12 @@ msgstr ""
 "\n"
 "Η δυνατότητα επιλογής, \"Allow Executing File as a Program\""
 
-#: app/fileItem.js:388
+#: app/fileItem.js:373
 #, fuzzy
 msgid "Untrusted Desktop File"
 msgstr "Untrusted Desktop File"
 
-#: app/fileItem.js:389
+#: app/fileItem.js:374
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -809,13 +809,13 @@ msgid ""
 "Enable \"Allow Launching\""
 msgstr ""
 
-#: app/fileItem.js:399 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
 msgstr "Αδυναμία ανοίγματος αρχείου"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:401 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "$ {appName} δεν μπορούν να ανοίξουν αρχεία αυτού του τύπου!"
@@ -1108,7 +1108,7 @@ msgstr "Δεν είναι σε θέση να ανοίξει {0}"
 msgid "Please Install {0}"
 msgstr "Παρακαλούμε Εγκαταστήστε την εγκατάσταση {0}"
 
-#: app/preferences.js:417
+#: app/preferences.js:420
 #, fuzzy
 msgid "Console"
 msgstr "Κονσόλας"
