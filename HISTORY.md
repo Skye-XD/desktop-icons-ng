@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 86 for Gnome 45, 46, 47
+  * Simplify and rewrite code in multiple places. (Sundeep Mediratta)
+  * Fix multiple typos and formatting. (Thomas Lavoie)
+  * Weblate Translations. (Weblate Authors)
+  * Fix icons disappearing to different monitor on drag to right edge or bottom edge. (Sundeep Mediratta)
+  * Update History.md, metadata.json. Version Bump 86
+
 * Gtk4 version 85 for Gnome 45, 46, 47
   * Fix trash icon not updating (Sundeep Mediratta)
   * Rewrite trash icon code (Sundeep Mediratta)
