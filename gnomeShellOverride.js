@@ -22,6 +22,10 @@
 
 const {Meta, Clutter, GObject} = imports.gi;
 
+// Show desktop windows on workspace thumbnails
+const SHOW_ON_WORKSPACE_THUMBNAILS = true;
+const ANIMATION_MULTIPLE = 1;
+
 import {WorkspaceBackground} from 'resource:///org/gnome/shell/ui/workspace.js';
 import {InjectionManager} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -54,6 +58,15 @@ var GnomeShellOverride = class {
                 return intersects;
             }
 
+            function _opacityAdjustment() {
+                const {initialState, finalState, } =
+                    Main.overview._overview._controls._stateAdjustment.getStateTransitionParams();
+                if (initialState == 0  || finalState == 0)
+                    return Util.lerp(255, 0,
+                        Math.min(ANIMATION_MULTIPLE * this._stateAdjustment.value, 1.0));
+                return 0;
+            }
+
             const desktopWindows = global.get_window_actors().filter(a =>
                 a.meta_window.get_window_type() === Meta.WindowType.DESKTOP &&
                 _windowIsOnThisMonitor(a.meta_window, this._monitorIndex));
@@ -81,7 +94,10 @@ var GnomeShellOverride = class {
                 desktopLayer.add_constraint(syncAll);
                 desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
                 this._stateAdjustment.connectObject('notify::value', () => {
-                    desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
+                    if (SHOW_ON_WORKSPACE_THUMBNAILS)
+                        desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
+                    else
+                        desktopLayer.opacity = _opacityAdjustment();
                 }, this);
                 this._backgroundGroup.insert_child_above(desktopLayer, this._bgManager.backgroundActor);
             }
