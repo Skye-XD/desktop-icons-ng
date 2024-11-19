@@ -370,7 +370,7 @@ const FileItemMenu = class {
         if (fileItem.isAllSelectable &&  !fileItem.isStackMarker) {
             if (fileItem.attributeCanExecute &&
                 !fileItem.isDirectory &&
-                !fileItem.isValidDesktopFile &&
+                !fileItem.isDesktopFile &&
                 fileItem.execLine &&
                 Gio.content_type_can_be_executable(fileItem.attributeContentType))
                 runAsProgram.append(_('Run as a Program'), 'app.runasaprogram');

@@ -823,6 +823,10 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         return this._fileExtra === this.Enums.FileType.NONE;
     }
 
+    get isDesktopFile() {
+        return this._isDesktopFile;
+    }
+
     get isDirectory() {
         return this._isDirectory;
     }
