@@ -322,6 +322,9 @@ const FileItemMenu = class {
                 if (!this.activeFileItem.isDesktopFile && app)
                     menuLabel = _('Open with {foo}');
 
+                if (!menuLabel)
+                    menuLabel = _('Open');
+
                 if (menuLabel)
                     openMenu.append(menuLabel.replace('{foo}', app), 'app.openOneFileAction');
             }
