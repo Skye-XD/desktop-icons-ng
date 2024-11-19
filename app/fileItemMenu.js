@@ -344,7 +344,7 @@ const FileItemMenu = class {
             }
         }
 
-        if (fileItem.isDirectory && selectedItemsNum === 1)
+        if (fileItem.isDirectory && selectedItemsNum === 1 && !fileItem.isDrive && !fileItem.isTrash)
             openMenu.append(_('Open With...'), 'app.doopenwith');
 
         if (!this.activeFileItem.isStackMarker && !fileItem.isDirectory) {
