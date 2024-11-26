@@ -918,6 +918,16 @@ const DesktopManager = class {
         return this._desktopFsId;
     }
 
+    async fileIsOnDesktopFileSystem(file) {
+        const fileSystemID = await this._getFsId(file);
+        if (fileSystemID.startsWith('trash'))
+            return true;
+        const desktopFileSystemID = await this.desktopFsId();
+        if (fileSystemID === desktopFileSystemID)
+            return true;
+        return false;
+    }
+
     async copyOrMoveUris(uriList, destinationUri, event, params = {}) {
         if (params.forceCopy) {
             this.DBusUtils.RemoteFileOperations.pushEvent(event);
@@ -929,7 +939,8 @@ const DesktopManager = class {
         const copyFiles = [];
         await Promise.all(uriList.map(async uri => {
             const f = Gio.File.new_for_uri(uri);
-            if (await this.desktopFsId() === await this._getFsId(f))
+            const localFile = await this.fileIsOnDesktopFileSystem(f);
+            if (localFile)
                 moveFiles.push(uri);
             else
                 copyFiles.push(uri);
