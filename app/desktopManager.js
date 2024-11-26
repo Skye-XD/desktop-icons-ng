@@ -675,8 +675,12 @@ const DesktopManager = class {
         } else if (acceptFormat === this.Enums.DndTargetInfo.DING_ICON_LIST) {
             fileList = dropData.get_files().map(f => f.get_uri());
         } else {
-            const spaceSlashParse = /\s\//;
-            fileList = dropData.slice(1).split(spaceSlashParse).map(f => `file:///${f}`);
+            fileList = dropData.split('\n').map(f => {
+                if (f.startsWith('trash:///'))
+                    return f;
+                else
+                    return `file://${f}`;
+            });
         }
 
         if (fileList && fileList.length)
