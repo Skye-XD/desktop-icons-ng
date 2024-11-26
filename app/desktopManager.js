@@ -676,10 +676,10 @@ const DesktopManager = class {
             fileList = dropData.get_files().map(f => f.get_uri());
         } else {
             fileList = dropData.split('\n').map(f => {
-                if (f.startsWith('trash:///'))
+                if (GLib.Uri.peek_scheme(f))
                     return f;
                 else
-                    return `file://${f}`;
+                    return GLib.filename_to_uri(f, null);
             });
         }
 
