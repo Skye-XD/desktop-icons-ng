@@ -914,7 +914,15 @@ const DesktopManager = class {
 
     async _getFsId(file) {
         const info = await file.query_info_async('id::filesystem',
-            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, null);
+            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, null).catch(
+            e => {
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                    return null;
+                throw e;
+            }
+        );
+        if (info == null)
+            return null;
         return info.get_attribute_string('id::filesystem');
     }
 
@@ -927,6 +935,8 @@ const DesktopManager = class {
 
     async fileIsOnDesktopFileSystem(file) {
         const fileSystemID = await this._getFsId(file);
+        if (fileSystemID == null)
+            return null;
         if (fileSystemID.startsWith('trash'))
             return true;
         const desktopFileSystemID = await this.desktopFsId();
@@ -946,7 +956,11 @@ const DesktopManager = class {
         const copyFiles = [];
         await Promise.all(uriList.map(async uri => {
             const f = Gio.File.new_for_uri(uri);
+            console.log(uri);
+            console.log(f);
             const localFile = await this.fileIsOnDesktopFileSystem(f);
+            if (localFile == null)
+                return;
             if (localFile)
                 moveFiles.push(uri);
             else
