@@ -683,6 +683,13 @@ const DesktopManager = class {
             });
         }
 
+        // filename_to_uri can return null
+        fileList = fileList.filter(f => {
+            if (!f)
+                return false;
+            return true;
+        });
+
         if (fileList && fileList.length)
             return fileList;
         else
