@@ -52,19 +52,30 @@ var GnomeShellOverride = class {
         return function (...args) {
             origninalMethod.call(this, ...args);
 
+            /** @enum {number} */
+            const ControlsState = {
+                HIDDEN: 0,
+                WINDOW_PICKER: 1,
+                APP_GRID: 2,
+            };
+
+            const opaque = 255;
+            const transparent = 0;
+
             function _windowIsOnThisMonitor(metawindow, monitorIndex) {
                 const geometry = global.display.get_monitor_geometry(monitorIndex);
                 const [intersects] = metawindow.get_frame_rect().intersect(geometry);
                 return intersects;
             }
 
-            function _opacityAdjustment() {
+            function _opacityAdjustment(value) {
                 const {initialState, finalState, } =
                     Main.overview._overview._controls._stateAdjustment.getStateTransitionParams();
-                if (initialState == 0  || finalState == 0)
-                    return Util.lerp(255, 0,
-                        Math.min(ANIMATION_MULTIPLE * this._stateAdjustment.value, 1.0));
-                return 0;
+                if ((initialState == ControlsState.HIDDEN || finalState == ControlsState.HIDDEN) &&
+                    (Math.abs(initialState - finalState) == 1))
+                    return Util.lerp(opaque, transparent,
+                        Math.min(ANIMATION_MULTIPLE * value, 1.0));
+                return transparent;
             }
 
             const desktopWindows = global.get_window_actors().filter(a =>
@@ -95,9 +106,9 @@ var GnomeShellOverride = class {
                 desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
                 this._stateAdjustment.connectObject('notify::value', () => {
                     if (SHOW_ON_WORKSPACE_THUMBNAILS)
-                        desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
+                        desktopLayer.opacity = Util.lerp(opaque, transparent, this._stateAdjustment.value);
                     else
-                        desktopLayer.opacity = _opacityAdjustment();
+                        desktopLayer.opacity = _opacityAdjustment(this._stateAdjustment.value);
                 }, this);
                 this._backgroundGroup.insert_child_above(desktopLayer, this._bgManager.backgroundActor);
             }
