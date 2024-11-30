@@ -662,7 +662,10 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     async onAllowDisallowLaunchingClicked() {
-        this.metadataTrusted = !this.trustedDesktopFile;
+        if (this._isDesktopFile)
+            this.metadataTrusted = !this.trustedDesktopFile;
+        else if (this._isAppImageFile)
+            this.metadataTrusted = !this.trustedAppImageFile;
 
         /*
          * we're marking as trusted, make the file executable too. Note that we
