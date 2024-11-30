@@ -322,7 +322,7 @@ const FileItemMenu = class {
                 if (!this.activeFileItem.isDesktopFile && app)
                     menuLabel = _('Open with {foo}');
 
-                if (!menuLabel)
+                if (!menuLabel || this.activeFileItem.isAppImageFile)
                     menuLabel = _('Open');
 
                 if (menuLabel)
