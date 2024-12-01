@@ -350,14 +350,14 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     _launchAppImageFile() {
-        let canOpenUri = false;
-        let appImageHandler = Gio.AppInfo.get_default_for_type(this.attributeContentType, canOpenUri);
+        const appImageHandler = Gio.AppInfo.get_recommended_for_type(this.attributeContentType);
 
-        if (appImageHandler) {
-            const success = appImageHandler.launch_uris([this.uri], null);
-            if (success)
-                return;
-        }
+        if (appImageHandler.some(app => {
+            if (app.get_name().toLowerCase().includes('appimagelauncher'))
+                return app.launch_uris([this.uri], null);
+            return false;
+        }))
+            return;
 
         if (this._writableByOthers || !this._attributeCanExecute) {
             const title = _('Invalid Permissions on AppImage File');
