@@ -136,7 +136,7 @@ const FileItemMenu = class {
 
         let runasaprogram = Gio.SimpleAction.new('runasaprogram', null);
         runasaprogram.connect('activate', () => {
-            this.DesktopIconsUtil.spawnCommandLine(`"${this.activeFileItem.execLine}"`);
+            this._runExecutableScript();
         });
         this._mainApp.add_action(runasaprogram);
 
@@ -305,20 +305,28 @@ const FileItemMenu = class {
                 openMenu.append(_('Open All...'), 'app.openMultipleFileAction');
             } else {
                 let app;
-                if (this.activeFileItem.attributeContentType === 'inode/directory' &&
-                    Gio.AppInfo.get_all_for_type('inode/directory').length > 1
-                )
-                    app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, false)?.get_name();
-                else
-                    app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, true)?.get_name();
                 let menuLabel;
-                if (this.activeFileItem.executableContentType && this.activeFileItem.isExecutable && !this.activeFileItem.fileContainsText)
-                    menuLabel = _('Run');
-                else if (app && !this.activeFileItem.isValidDesktopFile)
+
+                if (this.activeFileItem.executableContentType &&
+                    this.activeFileItem.isExecutable &&
+                    this.activeFileItem.trustedDesktopFile)
+                    menuLabel = _('Launch');
+
+                const canOpenUri = true;
+                app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, !canOpenUri)?.get_name();
+                if (!app)
+                    app = Gio.AppInfo.get_recommended_for_type(this.activeFileItem.attributeContentType)[0]?.get_name();
+                if (!app)
+                    app = Gio.AppInfo.get_default_for_type(this.activeFileItem.attributeContentType, canOpenUri)?.get_name();
+
+                if (!this.activeFileItem.isDesktopFile && app)
                     menuLabel = _('Open with {foo}');
-                else
+
+                if (!menuLabel)
                     menuLabel = _('Open');
-                openMenu.append(menuLabel.replace('{foo}', app), 'app.openOneFileAction');
+
+                if (menuLabel)
+                    openMenu.append(menuLabel.replace('{foo}', app), 'app.openOneFileAction');
             }
         }
 
@@ -336,7 +344,7 @@ const FileItemMenu = class {
             }
         }
 
-        if (fileItem.isDirectory && selectedItemsNum === 1)
+        if (fileItem.isDirectory && selectedItemsNum === 1 && !fileItem.isDrive && !fileItem.isTrash)
             openMenu.append(_('Open With...'), 'app.doopenwith');
 
         if (!this.activeFileItem.isStackMarker && !fileItem.isDirectory) {
@@ -360,7 +368,11 @@ const FileItemMenu = class {
         // fileExtra == NONE
 
         if (fileItem.isAllSelectable &&  !fileItem.isStackMarker) {
-            if (fileItem.attributeCanExecute && !fileItem.isDirectory && !fileItem.isValidDesktopFile && fileItem.execLine && Gio.content_type_can_be_executable(fileItem.attributeContentType))
+            if (fileItem.attributeCanExecute &&
+                !fileItem.isDirectory &&
+                !fileItem.isDesktopFile &&
+                fileItem.execLine &&
+                Gio.content_type_can_be_executable(fileItem.attributeContentType))
                 runAsProgram.append(_('Run as a Program'), 'app.runasaprogram');
 
             if (scriptsSubmenu !== null)
@@ -532,6 +544,14 @@ const FileItemMenu = class {
             fileItem.unsetSelected();
             fileItem.doOpen();
         }
+    }
+
+    _runExecutableScript() {
+        if (!this.activeFileItem)
+            return;
+
+        this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(),
+            [this.activeFileItem.path], null);
     }
 
     async _doOpenWith() {

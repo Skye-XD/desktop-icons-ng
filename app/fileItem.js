@@ -308,12 +308,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             return;
         }
 
-        if (this.isExecutable && this.executableContentType && !this.fileContainsText) {
-            this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(),
-                [this.path], null);
-            return;
-        }
-
         try {
             await Gio.AppInfo.launch_default_for_uri_async(this.file.get_uri(),
                 null, null);
@@ -827,6 +821,10 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     get isAllSelectable() {
         return this._fileExtra === this.Enums.FileType.NONE;
+    }
+
+    get isDesktopFile() {
+        return this._isDesktopFile;
     }
 
     get isDirectory() {
