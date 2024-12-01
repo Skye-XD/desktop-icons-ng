@@ -675,9 +675,20 @@ const DesktopManager = class {
         } else if (acceptFormat === this.Enums.DndTargetInfo.DING_ICON_LIST) {
             fileList = dropData.get_files().map(f => f.get_uri());
         } else {
-            const spaceSlashParse = /\s\//;
-            fileList = dropData.slice(1).split(spaceSlashParse).map(f => `file:///${f}`);
+            fileList = dropData.split('\n').map(f => {
+                if (GLib.Uri.peek_scheme(f))
+                    return f;
+                else
+                    return GLib.filename_to_uri(f, null);
+            });
         }
+
+        // filename_to_uri can return null
+        fileList = fileList.filter(f => {
+            if (!f)
+                return false;
+            return true;
+        });
 
         if (fileList && fileList.length)
             return fileList;
@@ -902,8 +913,22 @@ const DesktopManager = class {
     }
 
     async _getFsId(file) {
+        /**
+         * Returns filesystem id of file or null if file does not exist
+         *
+         * @param {file} Gio.File
+         * @returns {str} filesystem ID of file or null
+         */
         const info = await file.query_info_async('id::filesystem',
-            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, null);
+            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, null).catch(
+            e => {
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                    return null;
+                throw e;
+            }
+        );
+        if (info == null)
+            return null;
         return info.get_attribute_string('id::filesystem');
     }
 
@@ -912,6 +937,27 @@ const DesktopManager = class {
             this._desktopFsId = await this._getFsId(this._desktopDir);
 
         return this._desktopFsId;
+    }
+
+    async fileIsOnDesktopFileSystem(file) {
+        /**
+         * Checks to see if file is on the same filesystem as the Desktop Folder
+         * Consider trash:// URI to be in the same folder as the Desktop
+         * This forces a move from Trash instead of copy
+         *
+         * @param {file} Gio.File
+         * @returns {boolean} if the file is on the same filesystem as Desktop
+         * @returns {null} if the file does not exist
+         */
+        const fileSystemID = await this._getFsId(file);
+        if (fileSystemID == null)
+            return null;
+        if (fileSystemID.startsWith('trash'))
+            return true;
+        const desktopFileSystemID = await this.desktopFsId();
+        if (fileSystemID === desktopFileSystemID)
+            return true;
+        return false;
     }
 
     async copyOrMoveUris(uriList, destinationUri, event, params = {}) {
@@ -925,7 +971,17 @@ const DesktopManager = class {
         const copyFiles = [];
         await Promise.all(uriList.map(async uri => {
             const f = Gio.File.new_for_uri(uri);
-            if (await this.desktopFsId() === await this._getFsId(f))
+            const localFile = await this.fileIsOnDesktopFileSystem(f);
+            // localFile is null if it does not exist, false if on different
+            // fileystem, true if on the same filesystem as the Desktop Folder
+            if (localFile == null) {
+                console.error(`Cannot Copy/Move, ${uri} does not exist`);
+                const header = _('Copy/Move Failed');
+                const text = _('{0} Does not exist').replace('{0}', uri);
+                this.dbusManager.doNotify(header, text);
+                return;
+            }
+            if (localFile)
                 moveFiles.push(uri);
             else
                 copyFiles.push(uri);
