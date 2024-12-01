@@ -234,6 +234,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this._trusted = fileInfo.get_attribute_as_string('metadata::trusted') === 'true';
         this._attributeContentType = fileInfo.get_content_type();
         this._isDesktopFile = this._attributeContentType === 'application/x-desktop';
+        this._isAppImageFile = this._attributeContentType === 'application/vnd.appimage';
+
 
         if (this._isDesktopFile && this._writableByOthers)
             console.log(`desktop-icons: File ${this._displayName} is writable by others - will not allow launching`);
@@ -301,6 +303,11 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             return;
         }
 
+        if (this.isAppImageFile) {
+            this._launchAppImageFile();
+            return;
+        }
+
         if (!this.DBusUtils.GnomeArchiveManager.isAvailable &&
             this._fileType === Gio.FileType.REGULAR &&
             this._desktopManager.autoAr.fileIsCompressed(this.fileName)) {
@@ -340,6 +347,40 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             modal,
             helpURI
         );
+    }
+
+    _launchAppImageFile() {
+        if (this._writableByOthers || !this._attributeCanExecute) {
+            const title = _('Invalid Permissions on AppImage File');
+            let error = _('This AppImage File has incorrect Permissions. Right Click to edit Properties, then:\n');
+            if (this._writableByOthers)
+                error += _('\nSet Permissions, in "Others Access", "Read Only" or "None"');
+
+            if (!this._attributeCanExecute)
+                error += _('\nEnable option, "Allow Executing File as a Program"');
+
+            this._showerrorpopup(title, error);
+            return;
+        }
+
+        if (!this.trustedAppImageFile) {
+            const title = _('Untrusted AppImage File');
+            const error = _('This AppImage file is not trusted, it can not be launched. To enable launching, right-click, then:\n\nEnable "Allow Launching"');
+            this._showerrorpopup(title, error);
+            return;
+        }
+
+        const appImageHandler = Gio.AppInfo.get_all_for_type(this.attributeContentType);
+
+        if (appImageHandler.some(app => {
+            if (app.get_name().toLowerCase().includes('appimagelauncher'))
+                return app.launch_uris([this.uri], null);
+            return false;
+        }))
+            return;
+
+        this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(),
+            [this.path], null, false);
     }
 
     _launchDesktopFile(context, fileList) {
@@ -621,7 +662,10 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     async onAllowDisallowLaunchingClicked() {
-        this.metadataTrusted = !this.trustedDesktopFile;
+        if (this._isDesktopFile)
+            this.metadataTrusted = !this.trustedDesktopFile;
+        else if (this._isAppImageFile)
+            this.metadataTrusted = !this.trustedAppImageFile;
 
         /*
          * we're marking as trusted, make the file executable too. Note that we
@@ -823,6 +867,10 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         return this._fileExtra === this.Enums.FileType.NONE;
     }
 
+    get isAppImageFile() {
+        return this._isAppImageFile;
+    }
+
     get isDesktopFile() {
         return this._isDesktopFile;
     }
@@ -907,6 +955,14 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     get Y() {
         return this._savedCoordinates[1];
+    }
+
+    get trustedAppImageFile() {
+        return this._isAppImageFile &&
+        this._attributeCanExecute &&
+        this.metadataTrusted &&
+        !this._desktopManager.writableByOthers &&
+        !this._writableByOthers;
     }
 
     get trustedDesktopFile() {

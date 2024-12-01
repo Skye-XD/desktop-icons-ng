@@ -322,7 +322,7 @@ const FileItemMenu = class {
                 if (!this.activeFileItem.isDesktopFile && app)
                     menuLabel = _('Open with {foo}');
 
-                if (!menuLabel)
+                if (!menuLabel || this.activeFileItem.isAppImageFile)
                     menuLabel = _('Open');
 
                 if (menuLabel)
@@ -371,6 +371,7 @@ const FileItemMenu = class {
             if (fileItem.attributeCanExecute &&
                 !fileItem.isDirectory &&
                 !fileItem.isDesktopFile &&
+                !fileItem.isAppImageFile &&
                 fileItem.execLine &&
                 Gio.content_type_can_be_executable(fileItem.attributeContentType))
                 runAsProgram.append(_('Run as a Program'), 'app.runasaprogram');
@@ -427,8 +428,15 @@ const FileItemMenu = class {
                 this.deletePermanantly.set_enabled(!allowCutCopyTrash);
             }
 
-            if (fileItem.isValidDesktopFile && !this._desktopManager.writableByOthers && !fileItem.writableByOthers && (selectedItemsNum === 1))
-                allowLaunchingMenu.append(fileItem.trustedDesktopFile ? _("Don't Allow Launching") : _('Allow Launching'), 'app.allowdisallowlaunching');
+            if ((fileItem.isValidDesktopFile || fileItem.isAppImageFile) &&
+                !this._desktopManager.writableByOthers &&
+                !fileItem.writableByOthers &&
+                (selectedItemsNum === 1)) {
+                if (fileItem.isDesktopFile)
+                    allowLaunchingMenu.append(fileItem.trustedDesktopFile ? _("Don't Allow Launching") : _('Allow Launching'), 'app.allowdisallowlaunching');
+                else if (fileItem.isAppImageFile)
+                    allowLaunchingMenu.append(fileItem.trustedAppImageFile ? _("Don't Allow Launching") : _('Allow Launching'), 'app.allowdisallowlaunching');
+            }
         }
 
         // fileExtra == TRASH
