@@ -22,6 +22,10 @@
 
 const {Meta, Clutter, GObject} = imports.gi;
 
+// Show desktop windows on workspace thumbnails
+const SHOW_ON_WORKSPACE_THUMBNAILS = true;
+const ANIMATION_MULTIPLE = 1;
+
 import {WorkspaceBackground} from 'resource:///org/gnome/shell/ui/workspace.js';
 import {InjectionManager} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -48,10 +52,39 @@ var GnomeShellOverride = class {
         return function (...args) {
             origninalMethod.call(this, ...args);
 
+            /** @enum {number} */
+            const ControlsState = {
+                HIDDEN: 0,
+                WINDOW_PICKER: 1,
+                APP_GRID: 2,
+            };
+
+            const opaque = 255;
+            const transparent = 0;
+
+            const adjustment = Main.overview._overview._controls._stateAdjustment
+
             function _windowIsOnThisMonitor(metawindow, monitorIndex) {
                 const geometry = global.display.get_monitor_geometry(monitorIndex);
                 const [intersects] = metawindow.get_frame_rect().intersect(geometry);
                 return intersects;
+            }
+
+            function _modifyTransparency(value) {
+                const {initialState, finalState, } =
+                    adjustment.getStateTransitionParams();
+
+                if ((initialState == ControlsState.HIDDEN ||
+                    finalState == ControlsState.HIDDEN) &&
+                    (Math.abs(initialState - finalState) == 1))
+                    return _setTransparency(value);
+
+                return transparent;
+            }
+
+            function _setTransparency(value) {
+                return Util.lerp(opaque, transparent,
+                    Math.min(ANIMATION_MULTIPLE * value, 1.0));
             }
 
             const desktopWindows = global.get_window_actors().filter(a =>
@@ -77,13 +110,25 @@ var GnomeShellOverride = class {
                 }
 
                 const offset = 0;
-                const syncAll = Clutter.BindConstraint.new(this._bgManager.backgroundActor, Clutter.BindCoordinate.ALL, offset);
+                const syncAll = Clutter.BindConstraint.new(
+                    this._bgManager.backgroundActor,
+                    Clutter.BindCoordinate.ALL,
+                    offset);
                 desktopLayer.add_constraint(syncAll);
-                desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
-                this._stateAdjustment.connectObject('notify::value', () => {
-                    desktopLayer.opacity = Util.lerp(255, 0, this._stateAdjustment.value);
-                }, this);
-                this._backgroundGroup.insert_child_above(desktopLayer, this._bgManager.backgroundActor);
+                desktopLayer.opacity = _setTransparency(opaque);
+                this._stateAdjustment.connectObject('notify::value',
+                    (stAdjustment) => {
+                        if (SHOW_ON_WORKSPACE_THUMBNAILS)
+                            desktopLayer.opacity =
+                                _setTransparency(this._stateAdjustment.value);
+                        else
+                            desktopLayer.opacity =
+                                _modifyTransparency(stAdjustment.value);
+                    },
+                    this);
+                this._backgroundGroup.insert_child_above(
+                    desktopLayer,
+                    this._bgManager.backgroundActor);
             }
         };
     }
