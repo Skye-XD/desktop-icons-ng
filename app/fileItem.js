@@ -350,15 +350,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     _launchAppImageFile() {
-        const appImageHandler = Gio.AppInfo.get_recommended_for_type(this.attributeContentType);
-
-        if (appImageHandler.some(app => {
-            if (app.get_name().toLowerCase().includes('appimagelauncher'))
-                return app.launch_uris([this.uri], null);
-            return false;
-        }))
-            return;
-
         if (this._writableByOthers || !this._attributeCanExecute) {
             const title = _('Invalid Permissions on AppImage File');
             let error = _('This AppImage File has incorrect Permissions. Right Click to edit Properties, then:\n');
@@ -378,6 +369,15 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             this._showerrorpopup(title, error);
             return;
         }
+
+        const appImageHandler = Gio.AppInfo.get_all_for_type(this.attributeContentType);
+
+        if (appImageHandler.some(app => {
+            if (app.get_name().toLowerCase().includes('appimagelauncher'))
+                return app.launch_uris([this.uri], null);
+            return false;
+        }))
+            return;
 
         this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(),
             [this.path], null, false);
