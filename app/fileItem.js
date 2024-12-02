@@ -593,6 +593,25 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         return false;
     }
 
+    _addEmblemsToIconIfNeeded(iconPaintable) {
+        let emblem = null;
+
+        if (this._isDesktopFile && (!this._isValidDesktopFile || !this.trustedDesktopFile))
+            emblem = Gio.ThemedIcon.new('emblem-unreadable');
+
+        if (this.isAppImageFile && !this.trustedAppImageFile)
+            emblem = Gio.ThemedIcon.new('emblem-unreadable');
+
+        if (this._isSymlink && (this.Prefs.showLinkEmblem || this._isBrokenSymlink)) {
+            if (this._isBrokenSymlink)
+                emblem = Gio.ThemedIcon.new('emblem-unreadable');
+            else
+                emblem = Gio.ThemedIcon.new('emblem-symbolic-link');
+        }
+
+        return this._addEmblem(iconPaintable, emblem);
+    }
+
     /** *********************
      * Class Methods *
      ***********************/

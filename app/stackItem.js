@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import {_} from '../dependencies/gettext.js';
-import {Gtk} from '../dependencies/gi.js';
+import {Gtk, Gio} from '../dependencies/gi.js';
 import * as DesktopIconItem from './desktopIconItem.js';
 
 export {StackItem};
@@ -72,6 +72,15 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
 
     updateIcon() {
         this._createStackTopIcon();
+    }
+
+    _addEmblemsToIconIfNeeded(iconPaintable) {
+        let emblem = null;
+
+        if (this.isStackTop && !this.stackUnique)
+            emblem = Gio.ThemedIcon.new('list-add');
+
+        return this._addEmblem(iconPaintable, emblem);
     }
 
     keyboardSelected() {

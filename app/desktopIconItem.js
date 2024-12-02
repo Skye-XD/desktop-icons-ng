@@ -599,38 +599,24 @@ const DesktopIconItem = class {
         }
     }
 
-    _addEmblemsToIconIfNeeded(iconPaintable) {
-        let emblem = null;
-        if (this._isDesktopFile && (!this._isValidDesktopFile || !this.trustedDesktopFile))
-            emblem = Gio.ThemedIcon.new('emblem-unreadable');
-
-        if (this.isAppImageFile && !this.trustedAppImageFile)
-            emblem = Gio.ThemedIcon.new('emblem-unreadable');
-
-        if (this._isSymlink && (this.Prefs.showLinkEmblem || this._isBrokenSymlink)) {
-            if (this._isBrokenSymlink)
-                emblem = Gio.ThemedIcon.new('emblem-unreadable');
-            else
-                emblem = Gio.ThemedIcon.new('emblem-symbolic-link');
-        }
-
-        if (this.isStackTop && !this.stackUnique)
-            emblem = Gio.ThemedIcon.new('list-add');
-
-        if (emblem) {
-            const scale = this._icon.get_scale_factor();
-            let finalSize = Math.floor(this.Prefs.IconSize / 3) * scale;
-            let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-            let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
-            let emblemSnapshot = Gtk.Snapshot.new();
-            let iconPaintableSnapshot = Gtk.Snapshot.new();
-            emblemIcon.snapshot(emblemSnapshot, emblemIcon.get_intrinsic_width(), emblemIcon.get_intrinsic_height());
-            iconPaintable.snapshot(iconPaintableSnapshot, iconPaintable.get_intrinsic_width(), iconPaintable.get_intrinsic_height());
-            iconPaintableSnapshot.append_node(emblemSnapshot.to_node());
-            return iconPaintableSnapshot.to_paintable(null);
-        } else {
+    _addEmblem(iconPaintable, emblem = null) {
+        if (!emblem)
             return iconPaintable;
-        }
+
+        const scale = this._icon.get_scale_factor();
+        let finalSize = Math.floor(this.Prefs.IconSize / 3) * scale;
+        let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+        let emblemSnapshot = Gtk.Snapshot.new();
+        let iconPaintableSnapshot = Gtk.Snapshot.new();
+        emblemIcon.snapshot(emblemSnapshot, emblemIcon.get_intrinsic_width(), emblemIcon.get_intrinsic_height());
+        iconPaintable.snapshot(iconPaintableSnapshot, iconPaintable.get_intrinsic_width(), iconPaintable.get_intrinsic_height());
+        iconPaintableSnapshot.append_node(emblemSnapshot.to_node());
+        return iconPaintableSnapshot.to_paintable(null);
+    }
+
+    _addEmblemsToIconIfNeeded(iconPaintable) {
+        return this._addEmblem(iconPaintable);
     }
 
     _createEmblemedIcon(icon, iconName) {
