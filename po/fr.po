@@ -15,17 +15,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-07 17:52-0500\n"
-"PO-Revision-Date: 2024-11-07 19:00+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fr/>\n"
+"POT-Creation-Date: 2024-12-01 22:22-0500\n"
+"PO-Revision-Date: 2024-12-02 21:00+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -288,8 +289,8 @@ msgstr "Nom du dossier"
 msgid "File name"
 msgstr "Nom du fichier"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
-#: app/fileItemMenu.js:805
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1304
+#: app/fileItemMenu.js:833
 msgid "OK"
 msgstr "Valider"
 
@@ -319,8 +320,8 @@ msgstr "Extraire les fichiers"
 msgid "Compressing files"
 msgstr "Compression des fichiers"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
-#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:789
+#: app/desktopManager.js:1306 app/fileItemMenu.js:679 app/fileItemMenu.js:833
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "Annuler"
@@ -489,157 +490,166 @@ msgstr ""
 "Vérifiez votre installation xdg-utils\n"
 "Vérifiez le fichier d'installation Gnome Files .desktop"
 
-#: app/desktopManager.js:777
+#: app/desktopManager.js:788
 msgid "Choose Action for Files"
 msgstr "Choisir l'action pour les fichiers"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:789
 msgid "Move"
 msgstr "Déplacer"
 
-#: app/desktopManager.js:778 app/fileItemMenu.js:372
+#: app/desktopManager.js:789 app/fileItemMenu.js:385
 msgid "Copy"
 msgstr "Copier"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:789
 #, fuzzy
 msgid "Link"
 msgstr "Lien"
 
-#: app/desktopManager.js:865 app/desktopManager.js:897
+#: app/desktopManager.js:876 app/desktopManager.js:908
 msgid "Making SymLink Failed"
 msgstr "Échec de la création de SymLink"
 
-#: app/desktopManager.js:866 app/desktopManager.js:898
+#: app/desktopManager.js:877 app/desktopManager.js:909
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Impossible de créer un lien symbolique"
 
-#: app/desktopManager.js:1208
+#: app/desktopManager.js:979
+#, fuzzy
+msgid "Copy/Move Failed"
+msgstr "Déplacement annulé"
+
+#: app/desktopManager.js:980
+msgid "{0} Does not exist"
+msgstr ""
+
+#: app/desktopManager.js:1264
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Supprimer la sélection courante avant une nouvelle recherche"
 
-#: app/desktopManager.js:1252
+#: app/desktopManager.js:1308
 msgid "Find Files on Desktop"
 msgstr "Rechercher des fichiers sur le bureau"
 
-#: app/desktopManager.js:1515
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name"
 msgstr "Nom"
 
-#: app/desktopManager.js:1516
+#: app/desktopManager.js:1572
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nom Z-A"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Modified Time"
 msgstr "Temps modifié"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Type"
 msgstr "Type"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Size"
 msgstr "Taille"
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1578
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Conserver l’ordre…"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Conserver les icônes regoupées par type…"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1583
 msgid "Sort Home/Drives/Trash…"
 msgstr "Trier Dossier personnel/Volumes/Corbeille"
 
-#: app/desktopManager.js:1532 app/desktopManager.js:2585
+#: app/desktopManager.js:1588 app/desktopManager.js:2641
 msgid "New Folder"
 msgstr "Nouveau dossier"
 
-#: app/desktopManager.js:1536
+#: app/desktopManager.js:1592
 msgid "New Document"
 msgstr "Nouveau document"
 
-#: app/desktopManager.js:1540
+#: app/desktopManager.js:1596
 msgid "Paste"
 msgstr "Coller"
 
-#: app/desktopManager.js:1541
+#: app/desktopManager.js:1597
 msgid "Undo"
 msgstr "Annuler"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1598
 msgid "Redo"
 msgstr "Refaire"
 
-#: app/desktopManager.js:1547
+#: app/desktopManager.js:1603
 msgid "Select All"
 msgstr "Tout sélectionner"
 
-#: app/desktopManager.js:1552
+#: app/desktopManager.js:1608
 msgid "Arrange Icons"
 msgstr "Ordonner les icônes"
 
-#: app/desktopManager.js:1556
+#: app/desktopManager.js:1612
 msgid "Arrange By…"
 msgstr "Trier par :"
 
-#: app/desktopManager.js:1562
+#: app/desktopManager.js:1618
 msgid "Show Desktop In {0}"
 msgstr "Afficher le bureau dans {0}"
 
-#: app/desktopManager.js:1565
+#: app/desktopManager.js:1621
 msgid "Open In {0}"
 msgstr "Ouvrir dans {0}"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Préférences des icônes du bureau"
 
-#: app/desktopManager.js:1576
+#: app/desktopManager.js:1632
 msgid "Shell Menu…"
 msgstr "Menu Shell…"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1678
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Préférences La fenêtre est ouverte"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1678
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Cette fenêtre est ouverte. Veuillez passer à la fenêtre active."
 
-#: app/desktopManager.js:1636
+#: app/desktopManager.js:1692
 msgid "Settings"
 msgstr "Paramètres"
 
-#: app/desktopManager.js:2608
+#: app/desktopManager.js:2664
 msgid "Folder Creation Failed"
 msgstr "Échec de la création du dossier"
 
-#: app/desktopManager.js:2609
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Impossible de créer un dossier"
+msgstr "Impossible de créer le dossier"
 
-#: app/desktopManager.js:2652
+#: app/desktopManager.js:2708
 msgid "Template Creation Error"
 msgstr "Erreur de création d'un modèle"
 
-#: app/desktopManager.js:2653
+#: app/desktopManager.js:2709
 #, fuzzy
 msgid "Could not create document"
 msgstr "Impossible de supprimer le document"
@@ -675,32 +685,100 @@ msgstr "Dossier"
 msgid "File"
 msgstr "Fichier"
 
-#: app/fileItem.js:290
+#: app/fileItem.js:292
 msgid "Broken Link"
 msgstr "Lien brisé"
 
-#: app/fileItem.js:291
+#: app/fileItem.js:293
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 "Impossible d’ouvrir ce fichier car il s’agit d’un lien symbolique dont la "
 "cible n’existe plus"
 
-#: app/fileItem.js:322
+#: app/fileItem.js:323
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "L’ouverture du fichier a échoué"
 
-#: app/fileItem.js:324
+#: app/fileItem.js:325
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr ""
 "Il n'y a pas d'application installée pour ouvrir des fichiers \"{foo}\"."
 
-#: app/fileItem.js:353
+#: app/fileItem.js:354
+#, fuzzy
+#| msgid "Invalid Permissions on Desktop File"
+msgid "Invalid Permissions on AppImage File"
+msgstr "Permissions du fichier XDG Desktop incorrectes"
+
+#: app/fileItem.js:355
+#, fuzzy
+#| msgid ""
+#| "This .desktop File has incorrect Permissions. Right Click to edit "
+#| "Properties, then:\n"
+msgid ""
+"This AppImage File has incorrect Permissions. Right Click to edit "
+"Properties, then:\n"
+msgstr ""
+"Ce fichier XDG Desktop a des permissions incorrectes. Veuillez modifier ses "
+"propriétés en cliquant sur le bouton droit, puis :\n"
+
+#: app/fileItem.js:357 app/fileItem.js:398
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
+msgid ""
+"\n"
+"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
+msgstr ""
+"\n"
+"<b>- définissez le droit d’accès dans les permissions pour « autres » à "
+"« lecture seule » ou « aucun » ;</b>"
+
+#: app/fileItem.js:360 app/fileItem.js:401
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "<b>Enable option, \"Allow Executing File as a Program\"</b>"
+msgid ""
+"\n"
+"Enable option, \"Allow Executing File as a Program\""
+msgstr ""
+"\n"
+"<b>- activez l’option, « Autoriser l’exécution du fichier comme un "
+"programme ».</b>"
+
+#: app/fileItem.js:367
+#, fuzzy
+#| msgid "Broken Desktop File"
+msgid "Untrusted AppImage File"
+msgstr "Fichier de bureau non fiable"
+
+#: app/fileItem.js:368
+#, fuzzy
+#| msgid ""
+#| "This .desktop file is not trusted, it can not be launched. To enable "
+#| "launching, right-click, then:\n"
+#| "\n"
+#| "<b>Enable \"Allow Launching\"</b>"
+msgid ""
+"This AppImage file is not trusted, it can not be launched. To enable "
+"launching, right-click, then:\n"
+"\n"
+"Enable \"Allow Launching\""
+msgstr ""
+"Ce fichier XDG Desktop n’a pas l’autorisation d’être exécuté. Afin de le "
+"rendre exécutable, cliquez sur le bouton droit, puis :\n"
+"\n"
+"<b>Activez « Autoriser l’exécution »</b>"
+
+#: app/fileItem.js:388
 msgid "Broken Desktop File"
 msgstr "Fichier XDG Desktop incorrect"
 
-#: app/fileItem.js:354
+#: app/fileItem.js:389
 #, fuzzy
 #| msgid ""
 #| "This .desktop file has errors or points to a program without permissions. "
@@ -719,11 +797,11 @@ msgstr ""
 "\t<b>Veuillez corriger le nom et le chemin d’accès du programme à exécuter "
 "qui est indiqué dans ce fichier XDG Desktop.</b>"
 
-#: app/fileItem.js:360
+#: app/fileItem.js:395
 msgid "Invalid Permissions on Desktop File"
 msgstr "Permissions du fichier XDG Desktop incorrectes"
 
-#: app/fileItem.js:361
+#: app/fileItem.js:396
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -731,39 +809,13 @@ msgstr ""
 "Ce fichier XDG Desktop a des permissions incorrectes. Veuillez modifier ses "
 "propriétés en cliquant sur le bouton droit, puis :\n"
 
-#: app/fileItem.js:363
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
-msgid ""
-"\n"
-"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
-msgstr ""
-"\n"
-"<b>- définissez le droit d’accès dans les permissions pour « autres » à "
-"« lecture seule » ou « aucun » ;</b>"
-
-#: app/fileItem.js:366
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Enable option, \"Allow Executing File as a Program\"</b>"
-msgid ""
-"\n"
-"Enable option, \"Allow Executing File as a Program\""
-msgstr ""
-"\n"
-"<b>- activez l’option, « Autoriser l’exécution du fichier comme un "
-"programme ».</b>"
-
-#: app/fileItem.js:373
+#: app/fileItem.js:408
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
 msgstr "Fichier de bureau non fiable"
 
-#: app/fileItem.js:374
+#: app/fileItem.js:409
 #, fuzzy
 #| msgid ""
 #| "This .desktop file is not trusted, it can not be launched. To enable "
@@ -781,13 +833,13 @@ msgstr ""
 "\n"
 "<b>Activez « Autoriser l’exécution »</b>"
 
-#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:419 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Impossible d’ouvrir les fichiers"
+msgstr "Impossible d'ouvrir le fichier"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:421 app/gnomeShellDragDrop.js:240
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} ne peut pas ouvrir les fichiers de ce type!"
@@ -802,229 +854,230 @@ msgstr[1] "Nouveau dossier avec {0} éléments"
 msgid "Open All..."
 msgstr "Ouvrir tout…"
 
-#: app/fileItemMenu.js:316
-msgid "Run"
-msgstr "Exécuter"
+#: app/fileItemMenu.js:313
+#, fuzzy
+msgid "Launch"
+msgstr "Lancer"
 
-#: app/fileItemMenu.js:318
+#: app/fileItemMenu.js:323
 msgid "Open with {foo}"
 msgstr "Ouvrir avec {foo}"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:326
 msgid "Open"
 msgstr "Ouvrir"
 
-#: app/fileItemMenu.js:329 app/fileItemMenu.js:333
+#: app/fileItemMenu.js:337 app/fileItemMenu.js:341
 msgid "Extract Here"
 msgstr "Extraire ici"
 
-#: app/fileItemMenu.js:335
+#: app/fileItemMenu.js:343
 msgid "Extract To..."
 msgstr "Extraire vers…"
 
-#: app/fileItemMenu.js:340 app/fileItemMenu.js:343
+#: app/fileItemMenu.js:348 app/fileItemMenu.js:351
 #, fuzzy
 msgid "Open With..."
 msgstr "Ouvrir avec..."
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:351
 msgid "Open All With Other Application..."
 msgstr "Tout ouvrir avec une autre application…"
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:354
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Lancer avec la carte graphique dédiée"
 
-#: app/fileItemMenu.js:353
+#: app/fileItemMenu.js:361
 msgid "Stack This Type"
 msgstr "Regrouper ce type"
 
-#: app/fileItemMenu.js:353
+#: app/fileItemMenu.js:361
 msgid "Unstack This Type"
 msgstr "Dégrouper ce type"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Exécuter en tant que programme"
 
-#: app/fileItemMenu.js:367
+#: app/fileItemMenu.js:380
 msgid "Scripts"
 msgstr "Scripts"
 
-#: app/fileItemMenu.js:370
+#: app/fileItemMenu.js:383
 msgid "Cut"
 msgstr "Couper"
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:389
 #, fuzzy
 msgid "Move to..."
-msgstr "Déplacer vers..."
+msgstr "Déplacer vers…"
 
-#: app/fileItemMenu.js:377
+#: app/fileItemMenu.js:390
 #, fuzzy
 msgid "Copy to..."
 msgstr "Copier vers..."
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:394
 msgid "Rename…"
 msgstr "Renommer…"
 
-#: app/fileItemMenu.js:384
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Create Link..."
 msgstr "Créer un lien..."
 
-#: app/fileItemMenu.js:389
+#: app/fileItemMenu.js:402
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Compressez {0} dossier"
 msgstr[1] "Compressez {0} dossiers"
 
-#: app/fileItemMenu.js:396
+#: app/fileItemMenu.js:409
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Compresser {0} fichier"
 msgstr[1] "Compresser {0} fichiers"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:415
 #, fuzzy
 msgid "Email to..."
 msgstr "Email à..."
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:420
 msgid "Send to Mobile Device"
 msgstr "Envoyer à l'appareil mobile"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:424
 msgid "Move to Trash"
 msgstr "Mettre à la corbeille"
 
-#: app/fileItemMenu.js:414
+#: app/fileItemMenu.js:427
 msgid "Delete permanently"
 msgstr "Supprimer définitivement"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
 msgid "Don't Allow Launching"
 msgstr "Interdire l’exécution"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
 msgid "Allow Launching"
 msgstr "Autoriser l’exécution"
 
-#: app/fileItemMenu.js:425
+#: app/fileItemMenu.js:445
 msgid "Empty Trash"
 msgstr "Vider la corbeille"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:451
 msgid "Eject"
 msgstr "Éjecter"
 
-#: app/fileItemMenu.js:434
+#: app/fileItemMenu.js:454
 msgid "Unmount"
 msgstr "Démonter"
 
-#: app/fileItemMenu.js:438
+#: app/fileItemMenu.js:458
 msgid "Common Properties"
 msgstr "Préférences"
 
-#: app/fileItemMenu.js:439
+#: app/fileItemMenu.js:459
 msgid "Properties"
 msgstr "Propriétés"
 
-#: app/fileItemMenu.js:442
+#: app/fileItemMenu.js:462
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "Tout afficher dans {0}"
 
-#: app/fileItemMenu.js:443
+#: app/fileItemMenu.js:463
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "Montrer dans {0}"
 
-#: app/fileItemMenu.js:448
+#: app/fileItemMenu.js:468
 msgid "Open in {0}"
 msgstr "Ouvrir dans {0}"
 
-#: app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extraction annulée"
 
-#: app/fileItemMenu.js:568
+#: app/fileItemMenu.js:596
 msgid "Unable to extract File, no destination folder"
 msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
 
-#: app/fileItemMenu.js:600
+#: app/fileItemMenu.js:628
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Déplacement annulé"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:629
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
 
-#: app/fileItemMenu.js:613 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:641 app/fileItemMenu.js:670
 #, fuzzy
 msgid "Select Destination"
 msgstr "Sélectionnez la destination"
 
-#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
+#: app/fileItemMenu.js:644 app/fileItemMenu.js:672
 msgid "Select"
 msgstr "Sélectionner"
 
-#: app/fileItemMenu.js:693
+#: app/fileItemMenu.js:721
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Copie annulée"
 
-#: app/fileItemMenu.js:694
+#: app/fileItemMenu.js:722
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
 
-#: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
-#: app/fileItemMenu.js:789
+#: app/fileItemMenu.js:770 app/fileItemMenu.js:780 app/fileItemMenu.js:790
+#: app/fileItemMenu.js:817
 #, fuzzy
 msgid "Mail Error"
 msgstr "Erreur d’email"
 
-#: app/fileItemMenu.js:743
+#: app/fileItemMenu.js:771
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 "Impossible de trouver xdg-email, s'il vous plaît installer le programme"
 
-#: app/fileItemMenu.js:753
+#: app/fileItemMenu.js:781
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Il y a eu une erreur dans l'envoi de fichiers"
 
-#: app/fileItemMenu.js:763
+#: app/fileItemMenu.js:791
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 "Impossible de trouver la commande zip, s'il vous plaît installer le programme"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:769
+#: app/fileItemMenu.js:797
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
-#: app/fileItemMenu.js:790
+#: app/fileItemMenu.js:818
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Il y a eu une erreur dans la création d'une archive zip"
 
-#: app/fileItemMenu.js:803
+#: app/fileItemMenu.js:831
 msgid "Can not email a Directory"
 msgstr "Impossible d’envoyer un dossier par courriel"
 
-#: app/fileItemMenu.js:804
+#: app/fileItemMenu.js:832
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
@@ -1032,22 +1085,22 @@ msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "La sélection comprend un répertoire, compresser un fichier .zip d'abord?"
 
-#: app/fileItemMenu.js:916
+#: app/fileItemMenu.js:944
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Incapable d'ouvrir dans Gnome Console"
 
-#: app/fileItemMenu.js:917
+#: app/fileItemMenu.js:945
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "S'il vous plaît installer Gnome Console ou autre programme de terminal"
 
-#: app/fileItemMenu.js:924
+#: app/fileItemMenu.js:952
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Impossible à ouvrir {0}"
 
-#: app/fileItemMenu.js:925
+#: app/fileItemMenu.js:953
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "S'il vous plaît installer {0}"
@@ -1274,6 +1327,9 @@ msgid ""
 msgstr ""
 "Les icônes ne sont pas sur une grille rectangulaire mais peuvent être "
 "positionnées n'importe où indépendament  de la grille"
+
+#~ msgid "Run"
+#~ msgstr "Exécuter"
 
 #~ msgid "Change Background…"
 #~ msgstr "Changer l’arrière‑plan…"
