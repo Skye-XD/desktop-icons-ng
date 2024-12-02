@@ -17,9 +17,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-07 17:52-0500\n"
-"PO-Revision-Date: 2024-10-17 05:16+0000\n"
-"Last-Translator: 0xarch <alanqa-ops@outlook.com>\n"
+"POT-Creation-Date: 2024-12-01 22:22-0500\n"
+"PO-Revision-Date: 2024-12-02 21:00+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -27,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -262,8 +263,8 @@ msgstr "文件夹名称"
 msgid "File name"
 msgstr "文件名称"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
-#: app/fileItemMenu.js:805
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1304
+#: app/fileItemMenu.js:833
 msgid "OK"
 msgstr "确定"
 
@@ -289,8 +290,8 @@ msgstr "提取文件"
 msgid "Compressing files"
 msgstr "压缩文件"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
-#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:789
+#: app/desktopManager.js:1306 app/fileItemMenu.js:679 app/fileItemMenu.js:833
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "取消"
@@ -430,145 +431,155 @@ msgstr ""
 "检查您的 xdg-utils 安装\n"
 "检查 Gnome 文件应用的 .desktop 文件安装"
 
-#: app/desktopManager.js:777
+#: app/desktopManager.js:788
 msgid "Choose Action for Files"
 msgstr "为文件选择操作"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:789
 msgid "Move"
 msgstr "移动"
 
-#: app/desktopManager.js:778 app/fileItemMenu.js:372
+#: app/desktopManager.js:789 app/fileItemMenu.js:385
 msgid "Copy"
 msgstr "复制"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:789
 msgid "Link"
 msgstr "链接"
 
-#: app/desktopManager.js:865 app/desktopManager.js:897
+#: app/desktopManager.js:876 app/desktopManager.js:908
 msgid "Making SymLink Failed"
 msgstr "创建符号链接失败"
 
-#: app/desktopManager.js:866 app/desktopManager.js:898
+#: app/desktopManager.js:877 app/desktopManager.js:909
 msgid "Could not create symbolic link"
 msgstr "无法创建符号链接"
 
-#: app/desktopManager.js:1208
+#: app/desktopManager.js:979
+#, fuzzy
+#| msgid "Move Cancelled"
+msgid "Copy/Move Failed"
+msgstr "移动已取消"
+
+#: app/desktopManager.js:980
+msgid "{0} Does not exist"
+msgstr ""
+
+#: app/desktopManager.js:1264
 msgid "Clear current selection before new search"
 msgstr "在新搜索之前清除当前选择"
 
-#: app/desktopManager.js:1252
+#: app/desktopManager.js:1308
 msgid "Find Files on Desktop"
 msgstr "在桌面上发现文件"
 
-#: app/desktopManager.js:1515
+#: app/desktopManager.js:1571
 msgid "Name"
 msgstr "名称"
 
-#: app/desktopManager.js:1516
+#: app/desktopManager.js:1572
 msgid "Name Z-A"
 msgstr "名称 Z-A"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1573
 msgid "Modified Time"
 msgstr "修改时间"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1574
 msgid "Type"
 msgstr "类型"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1575
 msgid "Size"
 msgstr "大小"
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1578
 msgid "Keep Arranged…"
 msgstr "保持排序…"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1582
 msgid "Keep Stacked by Type…"
 msgstr "按类型堆叠…"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1583
 msgid "Sort Home/Drives/Trash…"
 msgstr "整理主页/驱动器/回收站…"
 
-#: app/desktopManager.js:1532 app/desktopManager.js:2585
+#: app/desktopManager.js:1588 app/desktopManager.js:2641
 msgid "New Folder"
 msgstr "新建文件夹"
 
-#: app/desktopManager.js:1536
+#: app/desktopManager.js:1592
 msgid "New Document"
 msgstr "新建文档"
 
-#: app/desktopManager.js:1540
+#: app/desktopManager.js:1596
 msgid "Paste"
 msgstr "粘贴"
 
-#: app/desktopManager.js:1541
+#: app/desktopManager.js:1597
 msgid "Undo"
 msgstr "复原"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1598
 msgid "Redo"
 msgstr "重做"
 
-#: app/desktopManager.js:1547
+#: app/desktopManager.js:1603
 msgid "Select All"
 msgstr "全选"
 
-#: app/desktopManager.js:1552
+#: app/desktopManager.js:1608
 msgid "Arrange Icons"
 msgstr "图标排序"
 
-#: app/desktopManager.js:1556
+#: app/desktopManager.js:1612
 msgid "Arrange By…"
 msgstr "排序方式"
 
-#: app/desktopManager.js:1562
+#: app/desktopManager.js:1618
 msgid "Show Desktop In {0}"
 msgstr "在 {0} 中显示桌面"
 
-#: app/desktopManager.js:1565
+#: app/desktopManager.js:1621
 msgid "Open In {0}"
 msgstr "在 {0} 中打开"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "桌面图标设置"
 
-#: app/desktopManager.js:1576
+#: app/desktopManager.js:1632
 msgid "Shell Menu…"
 msgstr "Shell菜单…"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1678
 msgid "Preferences Window is Open"
 msgstr "首选项窗口已打开"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1678
 msgid "This Window is open. Please switch to the active window."
 msgstr "这个窗口是打开的。请切换到活动窗口。"
 
-#: app/desktopManager.js:1636
+#: app/desktopManager.js:1692
 msgid "Settings"
 msgstr "设置"
 
-#: app/desktopManager.js:2608
+#: app/desktopManager.js:2664
 msgid "Folder Creation Failed"
 msgstr "文件夹创建失败"
 
-#: app/desktopManager.js:2609
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create folder"
 msgstr "无法创建文件夹"
 
-#: app/desktopManager.js:2652
+#: app/desktopManager.js:2708
 msgid "Template Creation Error"
 msgstr "模板创建错误"
 
-#: app/desktopManager.js:2653
+#: app/desktopManager.js:2709
 msgid "Could not create document"
 msgstr "无法创建文档"
 
@@ -602,27 +613,83 @@ msgstr "文件夹"
 msgid "File"
 msgstr "文件"
 
-#: app/fileItem.js:290
+#: app/fileItem.js:292
 msgid "Broken Link"
 msgstr "断开的符号链接"
 
-#: app/fileItem.js:291
+#: app/fileItem.js:293
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "无法打开此文件，因为它是一个断开的符号链接"
 
-#: app/fileItem.js:322
+#: app/fileItem.js:323
 msgid "Opening File Failed"
 msgstr "打开文件失败"
 
-#: app/fileItem.js:324
+#: app/fileItem.js:325
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr "没有安装用于打开“{foo}”文件的应用程序。"
 
-#: app/fileItem.js:353
+#: app/fileItem.js:354
+#, fuzzy
+#| msgid "Invalid Permissions on Desktop File"
+msgid "Invalid Permissions on AppImage File"
+msgstr "此桌面文件权限非法"
+
+#: app/fileItem.js:355
+#, fuzzy
+#| msgid ""
+#| "This .desktop File has incorrect Permissions. Right Click to edit "
+#| "Properties, then:\n"
+msgid ""
+"This AppImage File has incorrect Permissions. Right Click to edit "
+"Properties, then:\n"
+msgstr "此 .desktop 文件有不正确的权限设置。右键点击属性，然后：\n"
+
+#: app/fileItem.js:357 app/fileItem.js:398
+msgid ""
+"\n"
+"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
+msgstr ""
+"\n"
+"设置权限，在“其他”中，设置为“只读”或者“无”"
+
+#: app/fileItem.js:360 app/fileItem.js:401
+msgid ""
+"\n"
+"Enable option, \"Allow Executing File as a Program\""
+msgstr ""
+"\n"
+"勾选“允许执行文件”"
+
+#: app/fileItem.js:367
+#, fuzzy
+#| msgid "Untrusted Desktop File"
+msgid "Untrusted AppImage File"
+msgstr "不信任的桌面文件"
+
+#: app/fileItem.js:368
+#, fuzzy
+#| msgid ""
+#| "This .desktop file is not trusted, it can not be launched. To enable "
+#| "launching, right-click, then:\n"
+#| "\n"
+#| "Enable \"Allow Launching\""
+msgid ""
+"This AppImage file is not trusted, it can not be launched. To enable "
+"launching, right-click, then:\n"
+"\n"
+"Enable \"Allow Launching\""
+msgstr ""
+"此 .desktop 文件是不受信任的，它不能被执行。为使它能够被执行，右键点击属性，"
+"然后：\n"
+"\n"
+"勾选“允许执行文件”"
+
+#: app/fileItem.js:388
 msgid "Broken Desktop File"
 msgstr "已损坏的桌面文件"
 
-#: app/fileItem.js:354
+#: app/fileItem.js:389
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -633,37 +700,21 @@ msgstr ""
 "\n"
 "编辑文件以设置正确的可执行程序。"
 
-#: app/fileItem.js:360
+#: app/fileItem.js:395
 msgid "Invalid Permissions on Desktop File"
 msgstr "此桌面文件权限非法"
 
-#: app/fileItem.js:361
+#: app/fileItem.js:396
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr "此 .desktop 文件有不正确的权限设置。右键点击属性，然后：\n"
 
-#: app/fileItem.js:363
-msgid ""
-"\n"
-"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
-msgstr ""
-"\n"
-"设置权限，在“其他”中，设置为“只读”或者“无”"
-
-#: app/fileItem.js:366
-msgid ""
-"\n"
-"Enable option, \"Allow Executing File as a Program\""
-msgstr ""
-"\n"
-"勾选“允许执行文件”"
-
-#: app/fileItem.js:373
+#: app/fileItem.js:408
 msgid "Untrusted Desktop File"
 msgstr "不信任的桌面文件"
 
-#: app/fileItem.js:374
+#: app/fileItem.js:409
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -675,13 +726,13 @@ msgstr ""
 "\n"
 "勾选“允许执行文件”"
 
-#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:419 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
 msgstr "无法打开文件"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:421 app/gnomeShellDragDrop.js:240
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} 无法打开此类型的文件！"
 
@@ -694,220 +745,221 @@ msgstr[0] "带{0}项的新文件夹"
 msgid "Open All..."
 msgstr "全部打开..."
 
-#: app/fileItemMenu.js:316
-msgid "Run"
-msgstr "运行"
+#: app/fileItemMenu.js:313
+#, fuzzy
+msgid "Launch"
+msgstr "启动"
 
-#: app/fileItemMenu.js:318
+#: app/fileItemMenu.js:323
 msgid "Open with {foo}"
 msgstr "使用 {foo} 打开"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:326
 msgid "Open"
 msgstr "打开"
 
-#: app/fileItemMenu.js:329 app/fileItemMenu.js:333
+#: app/fileItemMenu.js:337 app/fileItemMenu.js:341
 msgid "Extract Here"
 msgstr "提取到此处"
 
-#: app/fileItemMenu.js:335
+#: app/fileItemMenu.js:343
 msgid "Extract To..."
 msgstr "提取到…"
 
-#: app/fileItemMenu.js:340 app/fileItemMenu.js:343
+#: app/fileItemMenu.js:348 app/fileItemMenu.js:351
 msgid "Open With..."
 msgstr "打开方式..."
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:351
 msgid "Open All With Other Application..."
 msgstr "用其他方式打开。"
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:354
 msgid "Launch using Dedicated Graphics Card"
 msgstr "使用独立显卡启动"
 
-#: app/fileItemMenu.js:353
+#: app/fileItemMenu.js:361
 msgid "Stack This Type"
 msgstr "堆叠此类型"
 
-#: app/fileItemMenu.js:353
+#: app/fileItemMenu.js:361
 msgid "Unstack This Type"
 msgstr "取消堆叠此类型"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Run as a Program"
 msgstr "作为程序运行"
 
-#: app/fileItemMenu.js:367
+#: app/fileItemMenu.js:380
 msgid "Scripts"
 msgstr "脚本"
 
-#: app/fileItemMenu.js:370
+#: app/fileItemMenu.js:383
 msgid "Cut"
 msgstr "剪切"
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:389
 msgid "Move to..."
 msgstr "移动到..."
 
-#: app/fileItemMenu.js:377
+#: app/fileItemMenu.js:390
 msgid "Copy to..."
 msgstr "复制到..."
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:394
 msgid "Rename…"
 msgstr "重命名……"
 
-#: app/fileItemMenu.js:384
+#: app/fileItemMenu.js:397
 msgid "Create Link..."
 msgstr "创建链接..."
 
-#: app/fileItemMenu.js:389
+#: app/fileItemMenu.js:402
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "压缩 {0} 个文件夹"
 
-#: app/fileItemMenu.js:396
+#: app/fileItemMenu.js:409
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "压缩{0}文件"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:415
 msgid "Email to..."
 msgstr "发邮件给..."
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:420
 msgid "Send to Mobile Device"
 msgstr "发送到移动设备"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:424
 msgid "Move to Trash"
 msgstr "放入回收站"
 
-#: app/fileItemMenu.js:414
+#: app/fileItemMenu.js:427
 msgid "Delete permanently"
 msgstr "永久删除"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
 msgid "Don't Allow Launching"
 msgstr "不允许运行"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
 msgid "Allow Launching"
 msgstr "允许运行"
 
-#: app/fileItemMenu.js:425
+#: app/fileItemMenu.js:445
 msgid "Empty Trash"
 msgstr "清空回收站"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:451
 msgid "Eject"
 msgstr "驱逐"
 
-#: app/fileItemMenu.js:434
+#: app/fileItemMenu.js:454
 msgid "Unmount"
 msgstr "弹出"
 
-#: app/fileItemMenu.js:438
+#: app/fileItemMenu.js:458
 msgid "Common Properties"
 msgstr "通用属性"
 
-#: app/fileItemMenu.js:439
+#: app/fileItemMenu.js:459
 msgid "Properties"
 msgstr "属性"
 
-#: app/fileItemMenu.js:442
+#: app/fileItemMenu.js:462
 msgid "Show All in {0}"
 msgstr "在 {0} 中显示全部"
 
-#: app/fileItemMenu.js:443
+#: app/fileItemMenu.js:463
 msgid "Show in {0}"
 msgstr "在 {0} 中显示"
 
-#: app/fileItemMenu.js:448
+#: app/fileItemMenu.js:468
 msgid "Open in {0}"
 msgstr "在 {0} 中打开"
 
-#: app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 msgid "Extraction Cancelled"
 msgstr "提取已取消"
 
-#: app/fileItemMenu.js:568
+#: app/fileItemMenu.js:596
 msgid "Unable to extract File, no destination folder"
 msgstr "无法提取文件，没有目标文件夹"
 
-#: app/fileItemMenu.js:600
+#: app/fileItemMenu.js:628
 msgid "Move Cancelled"
 msgstr "移动已取消"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:629
 msgid "Unable to move Files, no destination folder"
 msgstr "无法移动文件，没有目标文件夹"
 
-#: app/fileItemMenu.js:613 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:641 app/fileItemMenu.js:670
 msgid "Select Destination"
 msgstr "选择目的地"
 
-#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
+#: app/fileItemMenu.js:644 app/fileItemMenu.js:672
 msgid "Select"
 msgstr "选择"
 
-#: app/fileItemMenu.js:693
+#: app/fileItemMenu.js:721
 msgid "Copy Cancelled"
 msgstr "复制已取消"
 
-#: app/fileItemMenu.js:694
+#: app/fileItemMenu.js:722
 msgid "Unable to copy Files, no destination folder"
 msgstr "无法复制文件，没有目标文件夹"
 
-#: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
-#: app/fileItemMenu.js:789
+#: app/fileItemMenu.js:770 app/fileItemMenu.js:780 app/fileItemMenu.js:790
+#: app/fileItemMenu.js:817
 msgid "Mail Error"
 msgstr "邮件错误"
 
-#: app/fileItemMenu.js:743
+#: app/fileItemMenu.js:771
 msgid "Unable to find xdg-email, please install the program"
 msgstr "找不到 xdg-email，请安装此程序"
 
-#: app/fileItemMenu.js:753
+#: app/fileItemMenu.js:781
 msgid "There was an error in emailing Files"
 msgstr "通过邮件发送文件时出现错误"
 
-#: app/fileItemMenu.js:763
+#: app/fileItemMenu.js:791
 msgid "Unable to find zip command, please install the program"
 msgstr "无法找到 zip 命令，请先安装 zip 包"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:769
+#: app/fileItemMenu.js:797
 msgid "Archive.zip"
 msgstr "归档.zip"
 
-#: app/fileItemMenu.js:790
+#: app/fileItemMenu.js:818
 msgid "There was an error in creating a zip archive"
 msgstr "创建 .zip 压缩文件时出现错误"
 
-#: app/fileItemMenu.js:803
+#: app/fileItemMenu.js:831
 msgid "Can not email a Directory"
 msgstr "文件夹不能邮件"
 
-#: app/fileItemMenu.js:804
+#: app/fileItemMenu.js:832
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "选择部分包括了文件夹，首先压缩为一个 .zip 文件吗？"
 
-#: app/fileItemMenu.js:916
+#: app/fileItemMenu.js:944
 msgid "Unable to Open in Gnome Console"
 msgstr "无法在 GNOME 终端中打开"
 
-#: app/fileItemMenu.js:917
+#: app/fileItemMenu.js:945
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "请安装 GNOME Console 或其他控制台应用"
 
-#: app/fileItemMenu.js:924
+#: app/fileItemMenu.js:952
 msgid "Unable to Open {0}"
 msgstr "无法打开 {0}"
 
-#: app/fileItemMenu.js:925
+#: app/fileItemMenu.js:953
 msgid "Please Install {0}"
 msgstr "请安装 {0}"
 
@@ -1108,6 +1160,9 @@ msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr "图标不在矩形网格上，可放置在任何位置"
+
+#~ msgid "Run"
+#~ msgstr "运行"
 
 #~ msgid "Change Background…"
 #~ msgstr "更改背景…"

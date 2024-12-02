@@ -15,18 +15,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-07 17:52-0500\n"
-"PO-Revision-Date: 2024-11-07 19:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"POT-Creation-Date: 2024-12-01 22:22-0500\n"
+"PO-Revision-Date: 2024-12-02 21:00+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -42,7 +41,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce ayarlar"
+msgstr "İnce Ayarlar"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -242,7 +241,7 @@ msgstr "Tartışma sorunları"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Bildir"
+msgstr "Rapor"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -262,7 +261,7 @@ msgstr "Web tarayıcınızda çevirin Yardım"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Translate"
-msgstr "Çevirin"
+msgstr "Çevir"
 
 #: app/appChooser.js:54
 #, fuzzy
@@ -302,8 +301,8 @@ msgstr "Klasör adı"
 msgid "File name"
 msgstr "Dosya adı"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
-#: app/fileItemMenu.js:805
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1304
+#: app/fileItemMenu.js:833
 msgid "OK"
 msgstr "Tamam"
 
@@ -335,8 +334,8 @@ msgstr "Dosyalar çıkartılıyor…"
 msgid "Compressing files"
 msgstr "Dosyalar sıkıştırılıyor…"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
-#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:789
+#: app/desktopManager.js:1306 app/fileItemMenu.js:679 app/fileItemMenu.js:833
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "İptal"
@@ -507,170 +506,179 @@ msgstr ""
 "xdg-utils kurulumunuzu kontrol edin\n"
 "Gnome Files .desktop Dosya yükleme"
 
-#: app/desktopManager.js:777
+#: app/desktopManager.js:788
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Dosyalar için Eylem seçin"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:789
 #, fuzzy
 msgid "Move"
 msgstr "Taşı"
 
-#: app/desktopManager.js:778 app/fileItemMenu.js:372
+#: app/desktopManager.js:789 app/fileItemMenu.js:385
 msgid "Copy"
 msgstr "Kopyala"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:789
 #, fuzzy
 msgid "Link"
 msgstr "Bağlantı"
 
-#: app/desktopManager.js:865 app/desktopManager.js:897
+#: app/desktopManager.js:876 app/desktopManager.js:908
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "SymLink Başarısız Oldu"
 
-#: app/desktopManager.js:866 app/desktopManager.js:898
+#: app/desktopManager.js:877 app/desktopManager.js:909
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Sembolik bağlantı oluşturmayabilir"
 
-#: app/desktopManager.js:1208
+#: app/desktopManager.js:979
+#, fuzzy
+msgid "Copy/Move Failed"
+msgstr "Move Cancelled"
+
+#: app/desktopManager.js:980
+msgid "{0} Does not exist"
+msgstr ""
+
+#: app/desktopManager.js:1264
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Yeni Aramadan Önce Mevcut Seçimi Temizle"
 
-#: app/desktopManager.js:1252
+#: app/desktopManager.js:1308
 msgid "Find Files on Desktop"
 msgstr "Masaüstündeki Dosyaları Bul"
 
-#: app/desktopManager.js:1515
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name"
-msgstr "Isim"
+msgstr "Ad"
 
-#: app/desktopManager.js:1516
+#: app/desktopManager.js:1572
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Ad Z - A"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Modified Time"
 msgstr "Her zaman Icons Stacked kalır, Benzer türler gruplanır"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Type"
 msgstr "Tür"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Size"
-msgstr "Boyut"
+msgstr "Size"
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1578
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Düzenli Tut…"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Türe Göre Yığılı Tut…"
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1583
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Evi/Sürücüleri/Çöp Kutusunu Sırala…"
 
-#: app/desktopManager.js:1532 app/desktopManager.js:2585
+#: app/desktopManager.js:1588 app/desktopManager.js:2641
 msgid "New Folder"
 msgstr "Yeni Klasör"
 
-#: app/desktopManager.js:1536
+#: app/desktopManager.js:1592
 msgid "New Document"
 msgstr "Yeni Belge"
 
-#: app/desktopManager.js:1540
+#: app/desktopManager.js:1596
 msgid "Paste"
 msgstr "Yapıştır"
 
-#: app/desktopManager.js:1541
+#: app/desktopManager.js:1597
 msgid "Undo"
 msgstr "Geri Al"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1598
 msgid "Redo"
 msgstr "Yinele"
 
-#: app/desktopManager.js:1547
+#: app/desktopManager.js:1603
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: app/desktopManager.js:1552
+#: app/desktopManager.js:1608
 msgid "Arrange Icons"
 msgstr "Simgeleri Sırala"
 
-#: app/desktopManager.js:1556
+#: app/desktopManager.js:1612
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Düzenleme:"
 
-#: app/desktopManager.js:1562
+#: app/desktopManager.js:1618
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Show Desktop In {0}"
 
-#: app/desktopManager.js:1565
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Open In {0}"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Masaüstü Simgeleri Ayarları"
 
-#: app/desktopManager.js:1576
+#: app/desktopManager.js:1632
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1678
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Tercihler Pencere Açık"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1678
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Bu pencere açık. Lütfen aktif pencereye geçiş yapın."
 
-#: app/desktopManager.js:1636
+#: app/desktopManager.js:1692
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: app/desktopManager.js:2608
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Sipariş Oluşturma Başarısız"
 
-#: app/desktopManager.js:2609
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Klasör oluşturulamadı"
 
-#: app/desktopManager.js:2652
+#: app/desktopManager.js:2708
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Şablon oluşturma hatası"
 
-#: app/desktopManager.js:2653
+#: app/desktopManager.js:2709
 #, fuzzy
 msgid "Could not create document"
-msgstr "Belge oluşturmayabilir"
+msgstr "Belge silinemedi"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:134 app/fileItem.js:143
@@ -708,50 +716,40 @@ msgstr "Klasör"
 msgid "File"
 msgstr "Dosya"
 
-#: app/fileItem.js:290
+#: app/fileItem.js:292
 msgid "Broken Link"
 msgstr "Kırık Link"
 
-#: app/fileItem.js:291
+#: app/fileItem.js:293
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Bozuk bir Sembolik Bağlantı olduğu için bu Dosya açılamıyor"
 
-#: app/fileItem.js:322
+#: app/fileItem.js:323
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "Dosya açılamadı"
 
-#: app/fileItem.js:324
+#: app/fileItem.js:325
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr "\"{foo}\" dosyaları açmak için yüklü bir uygulama yoktur."
 
-#: app/fileItem.js:353
-msgid "Broken Desktop File"
-msgstr "Kırık Masaüstünü Dosyası"
-
 #: app/fileItem.js:354
-msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
-"\n"
-"Edit the file to set the correct executable Program."
-msgstr ""
-
-#: app/fileItem.js:360
-msgid "Invalid Permissions on Desktop File"
+#, fuzzy
+#| msgid "Invalid Permissions on Desktop File"
+msgid "Invalid Permissions on AppImage File"
 msgstr "Masaüstü Dosyası İzinleri Hatalı"
 
-#: app/fileItem.js:361
+#: app/fileItem.js:355
 #, fuzzy
 msgid ""
-"This .desktop File has incorrect Permissions. Right Click to edit "
+"This AppImage File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 "Bu .desktop Dosya yanlış izinlere sahiptir. Doğru Özellikler düzenlemek için "
 "tıklayın, sonra:\n"
 
-#: app/fileItem.js:363
+#: app/fileItem.js:357 app/fileItem.js:398
 #, fuzzy
 msgid ""
 "\n"
@@ -760,7 +758,7 @@ msgstr ""
 "\n"
 "Set Permissions, \"Diğerleri Erişim\", \"Sadece\" veya \"None\""
 
-#: app/fileItem.js:366
+#: app/fileItem.js:360 app/fileItem.js:401
 #, fuzzy
 msgid ""
 "\n"
@@ -769,13 +767,57 @@ msgstr ""
 "\n"
 "Enable seçenek, \"Allow Executing File as a Program\""
 
-#: app/fileItem.js:373
+#: app/fileItem.js:367
+#, fuzzy
+#| msgid "Broken Desktop File"
+msgid "Untrusted AppImage File"
+msgstr "Olmayan Masaüstü Dosyası"
+
+#: app/fileItem.js:368
+#, fuzzy
+msgid ""
+"This AppImage file is not trusted, it can not be launched. To enable "
+"launching, right-click, then:\n"
+"\n"
+"Enable \"Allow Launching\""
+msgstr ""
+"Bu .desktop dosyası güvenilir değildir, başlatılamaz. başlatmak için, doğru "
+"tıklama, sonra:\n"
+"\n"
+"Enable \"Allow Starting\""
+
+#: app/fileItem.js:388
+msgid "Broken Desktop File"
+msgstr "Kırık Masaüstünü Dosyası"
+
+#: app/fileItem.js:389
+msgid ""
+"This .desktop file has errors or points to a program without permissions. It "
+"can not be executed.\n"
+"\n"
+"Edit the file to set the correct executable Program."
+msgstr ""
+
+#: app/fileItem.js:395
+msgid "Invalid Permissions on Desktop File"
+msgstr "Masaüstü Dosyası İzinleri Hatalı"
+
+#: app/fileItem.js:396
+#, fuzzy
+msgid ""
+"This .desktop File has incorrect Permissions. Right Click to edit "
+"Properties, then:\n"
+msgstr ""
+"Bu .desktop Dosya yanlış izinlere sahiptir. Doğru Özellikler düzenlemek için "
+"tıklayın, sonra:\n"
+
+#: app/fileItem.js:408
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
 msgstr "Olmayan Masaüstü Dosyası"
 
-#: app/fileItem.js:374
+#: app/fileItem.js:409
 #, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
@@ -788,13 +830,13 @@ msgstr ""
 "\n"
 "Enable \"Allow Starting\""
 
-#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:419 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosya açılamadı"
+msgstr "Dosyası açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:421 app/gnomeShellDragDrop.js:240
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} bu Type dosyaları açamaz!"
@@ -808,255 +850,255 @@ msgstr[0] "{0} öge ile yeni klasör"
 msgid "Open All..."
 msgstr "Tümünü Aç..."
 
-#: app/fileItemMenu.js:316
+#: app/fileItemMenu.js:313
 #, fuzzy
-msgid "Run"
-msgstr "Çalıştır"
+msgid "Launch"
+msgstr "Başlat"
 
-#: app/fileItemMenu.js:318
+#: app/fileItemMenu.js:323
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Open with {foo}"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:326
 msgid "Open"
 msgstr "Aç"
 
-#: app/fileItemMenu.js:329 app/fileItemMenu.js:333
+#: app/fileItemMenu.js:337 app/fileItemMenu.js:341
 msgid "Extract Here"
 msgstr "Buraya Çıkar"
 
-#: app/fileItemMenu.js:335
+#: app/fileItemMenu.js:343
 msgid "Extract To..."
 msgstr "Şuraya Çıkar…"
 
-#: app/fileItemMenu.js:340 app/fileItemMenu.js:343
+#: app/fileItemMenu.js:348 app/fileItemMenu.js:351
 #, fuzzy
 msgid "Open With..."
 msgstr "Birlikte aç…"
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:351
 msgid "Open All With Other Application..."
 msgstr "Tümünü Başka Uygulamayla Aç..."
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:354
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Özel Grafik Kartı kullanarak başlatın"
 
-#: app/fileItemMenu.js:353
+#: app/fileItemMenu.js:361
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Bu Tür"
 
-#: app/fileItemMenu.js:353
+#: app/fileItemMenu.js:361
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Unstack This Type"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Program olarak çalıştır"
 
-#: app/fileItemMenu.js:367
+#: app/fileItemMenu.js:380
 msgid "Scripts"
 msgstr "Betikler"
 
-#: app/fileItemMenu.js:370
+#: app/fileItemMenu.js:383
 msgid "Cut"
 msgstr "Kes"
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:389
 #, fuzzy
 msgid "Move to..."
 msgstr "Buraya taşı..."
 
-#: app/fileItemMenu.js:377
+#: app/fileItemMenu.js:390
 #, fuzzy
 msgid "Copy to..."
 msgstr "Kopyala..."
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:394
 msgid "Rename…"
 msgstr "Yeniden Adlandır…"
 
-#: app/fileItemMenu.js:384
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Create Link..."
 msgstr "Create Link..."
 
-#: app/fileItemMenu.js:389
+#: app/fileItemMenu.js:402
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Compress {0} klasörler"
 
-#: app/fileItemMenu.js:396
+#: app/fileItemMenu.js:409
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "{0} dosyayı sıkıştır"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:415
 #, fuzzy
 msgid "Email to..."
 msgstr "E-posta..."
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:420
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Tamamlandı"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:424
 msgid "Move to Trash"
 msgstr "Çöpe Taşı"
 
-#: app/fileItemMenu.js:414
+#: app/fileItemMenu.js:427
 msgid "Delete permanently"
 msgstr "Tamamen Sil"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
 msgid "Don't Allow Launching"
 msgstr "Başlatmaya İzin Verme"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
 msgid "Allow Launching"
 msgstr "Başlatmaya İzin Ver"
 
-#: app/fileItemMenu.js:425
+#: app/fileItemMenu.js:445
 msgid "Empty Trash"
 msgstr "Çöpü Boşalt"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:451
 msgid "Eject"
 msgstr "Çıkar"
 
-#: app/fileItemMenu.js:434
+#: app/fileItemMenu.js:454
 msgid "Unmount"
 msgstr "Bağı Kaldır"
 
-#: app/fileItemMenu.js:438
+#: app/fileItemMenu.js:458
 msgid "Common Properties"
 msgstr "Ortak Özellikler"
 
-#: app/fileItemMenu.js:439
+#: app/fileItemMenu.js:459
 msgid "Properties"
 msgstr "Özellikler"
 
-#: app/fileItemMenu.js:442
+#: app/fileItemMenu.js:462
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "Hepsini göster {0}"
 
-#: app/fileItemMenu.js:443
+#: app/fileItemMenu.js:463
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "Show in {0}"
 
-#: app/fileItemMenu.js:448
+#: app/fileItemMenu.js:468
 #, fuzzy
 msgid "Open in {0}"
 msgstr "{0}"
 
-#: app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ekstraksiyon Cancelled"
 
-#: app/fileItemMenu.js:568
+#: app/fileItemMenu.js:596
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Çıkarılabilir Dosya, hedef klasörü yok"
 
-#: app/fileItemMenu.js:600
+#: app/fileItemMenu.js:628
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Move Cancelled"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:629
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Files'ı hareket etmek için kullanılamaz, hiçbir destinasyon klasörü"
 
-#: app/fileItemMenu.js:613 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:641 app/fileItemMenu.js:670
 #, fuzzy
 msgid "Select Destination"
 msgstr "Varış Noktası seç"
 
-#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
+#: app/fileItemMenu.js:644 app/fileItemMenu.js:672
 msgid "Select"
 msgstr "Seç"
 
-#: app/fileItemMenu.js:693
+#: app/fileItemMenu.js:721
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopya iptal edildi"
 
-#: app/fileItemMenu.js:694
+#: app/fileItemMenu.js:722
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Dosyalar kopyalamak için kullanılamaz, hedef klasörü yok"
 
-#: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
-#: app/fileItemMenu.js:789
+#: app/fileItemMenu.js:770 app/fileItemMenu.js:780 app/fileItemMenu.js:790
+#: app/fileItemMenu.js:817
 #, fuzzy
 msgid "Mail Error"
 msgstr "E-posta Hatası"
 
-#: app/fileItemMenu.js:743
+#: app/fileItemMenu.js:771
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email bulmak için, lütfen programı yükleyin"
 
-#: app/fileItemMenu.js:753
+#: app/fileItemMenu.js:781
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "E-posta dosyalarında bir hata vardı"
 
-#: app/fileItemMenu.js:763
+#: app/fileItemMenu.js:791
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Zip komutunu bulmak için, lütfen programı yükleyin"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:769
+#: app/fileItemMenu.js:797
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
-#: app/fileItemMenu.js:790
+#: app/fileItemMenu.js:818
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Bir zip arşivi oluşturmak için bir hata vardı"
 
-#: app/fileItemMenu.js:803
+#: app/fileItemMenu.js:831
 msgid "Can not email a Directory"
 msgstr "Bir dizine e-posta gönderilemez"
 
-#: app/fileItemMenu.js:804
+#: app/fileItemMenu.js:832
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Seçme bir Rehber içerir, ilk önce bir .zip dosyasına sıkıştırır mı?"
 
-#: app/fileItemMenu.js:916
+#: app/fileItemMenu.js:944
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome Console'da Açılabilir"
 
-#: app/fileItemMenu.js:917
+#: app/fileItemMenu.js:945
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Lütfen Gnome Console veya diğer Terminal Programını yükleyin"
 
-#: app/fileItemMenu.js:924
+#: app/fileItemMenu.js:952
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Açılabilir {0}"
 
-#: app/fileItemMenu.js:925
+#: app/fileItemMenu.js:953
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Lütfen yükleme {0}"
@@ -1286,6 +1328,10 @@ msgid ""
 msgstr ""
 "Icons, dikdörtgen bir ızgarada değildir, ancak gridden bağımsız olarak "
 "herhangi bir yere aktarılabilir"
+
+#, fuzzy
+#~ msgid "Run"
+#~ msgstr "Çalıştır"
 
 #~ msgid "Change Background…"
 #~ msgstr "Arka Planı Değiştir…"

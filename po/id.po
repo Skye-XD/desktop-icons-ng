@@ -9,18 +9,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-07 17:52-0500\n"
-"PO-Revision-Date: 2024-11-07 19:00+0000\n"
+"POT-Creation-Date: 2024-12-01 22:22-0500\n"
+"PO-Revision-Date: 2024-12-02 21:00+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 #, fuzzy
@@ -311,8 +311,8 @@ msgstr "Nama folder"
 msgid "File name"
 msgstr "Nama berkas"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1248
-#: app/fileItemMenu.js:805
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1304
+#: app/fileItemMenu.js:833
 msgid "OK"
 msgstr "OK"
 
@@ -345,8 +345,8 @@ msgstr "Ekstrak berkas"
 msgid "Compressing files"
 msgstr "Mengompresi berkas-berkas."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:778
-#: app/desktopManager.js:1250 app/fileItemMenu.js:651 app/fileItemMenu.js:805
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:789
+#: app/desktopManager.js:1306 app/fileItemMenu.js:679 app/fileItemMenu.js:833
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 msgid "Cancel"
 msgstr "Batal"
@@ -449,7 +449,7 @@ msgstr "Nama Arsip"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Sandi"
+msgstr "Kata sandi"
 
 #: app/autoAr.js:617
 msgid "Create"
@@ -516,170 +516,179 @@ msgstr ""
 "Periksa instalasi xdg-utils Anda\n"
 "Gnome File .desktop Instalasi file"
 
-#: app/desktopManager.js:777
+#: app/desktopManager.js:788
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Pilih Tindakan untuk File"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:789
 #, fuzzy
 msgid "Move"
 msgstr "Pindah"
 
-#: app/desktopManager.js:778 app/fileItemMenu.js:372
+#: app/desktopManager.js:789 app/fileItemMenu.js:385
 msgid "Copy"
 msgstr "Salin"
 
-#: app/desktopManager.js:778
+#: app/desktopManager.js:789
 #, fuzzy
 msgid "Link"
-msgstr "Tautan"
+msgstr "Link"
 
-#: app/desktopManager.js:865 app/desktopManager.js:897
+#: app/desktopManager.js:876 app/desktopManager.js:908
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Membuat SymLink Failed"
 
-#: app/desktopManager.js:866 app/desktopManager.js:898
+#: app/desktopManager.js:877 app/desktopManager.js:909
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Tidak bisa membuat tautan simbolik"
 
-#: app/desktopManager.js:1208
+#: app/desktopManager.js:979
+#, fuzzy
+msgid "Copy/Move Failed"
+msgstr "Pindah Batal"
+
+#: app/desktopManager.js:980
+msgid "{0} Does not exist"
+msgstr ""
+
+#: app/desktopManager.js:1264
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Seleksi arus yang jelas sebelum pencarian baru"
 
-#: app/desktopManager.js:1252
+#: app/desktopManager.js:1308
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Cari file di Desktop"
 
-#: app/desktopManager.js:1515
+#: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name"
 msgstr "Nama"
 
-#: app/desktopManager.js:1516
+#: app/desktopManager.js:1572
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nama (Z-A)"
 
-#: app/desktopManager.js:1517
+#: app/desktopManager.js:1573
 #, fuzzy
 msgid "Modified Time"
 msgstr "Waktu yang dimodifikasi"
 
-#: app/desktopManager.js:1518
+#: app/desktopManager.js:1574
 #, fuzzy
 msgid "Type"
 msgstr "Tipe"
 
-#: app/desktopManager.js:1519
+#: app/desktopManager.js:1575
 #, fuzzy
 msgid "Size"
 msgstr "Ukuran"
 
-#: app/desktopManager.js:1522
+#: app/desktopManager.js:1578
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Sitemap"
 
-#: app/desktopManager.js:1526
+#: app/desktopManager.js:1582
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Jauhkan Ditumpuk oleh Jenis.."
 
-#: app/desktopManager.js:1527
+#: app/desktopManager.js:1583
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Urutkan Rumah / Drive / Sampah .."
 
-#: app/desktopManager.js:1532 app/desktopManager.js:2585
+#: app/desktopManager.js:1588 app/desktopManager.js:2641
 msgid "New Folder"
 msgstr "Folder Baru"
 
-#: app/desktopManager.js:1536
+#: app/desktopManager.js:1592
 msgid "New Document"
 msgstr "Dokumen Baru"
 
-#: app/desktopManager.js:1540
+#: app/desktopManager.js:1596
 msgid "Paste"
 msgstr "Tempel"
 
-#: app/desktopManager.js:1541
+#: app/desktopManager.js:1597
 msgid "Undo"
 msgstr "Tak Jadi"
 
-#: app/desktopManager.js:1542
+#: app/desktopManager.js:1598
 msgid "Redo"
 msgstr "Jadi Lagi"
 
-#: app/desktopManager.js:1547
+#: app/desktopManager.js:1603
 #, fuzzy
 msgid "Select All"
 msgstr "Pilih Semuanya"
 
-#: app/desktopManager.js:1552
+#: app/desktopManager.js:1608
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Login"
 
-#: app/desktopManager.js:1556
+#: app/desktopManager.js:1612
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Login"
 
-#: app/desktopManager.js:1562
+#: app/desktopManager.js:1618
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Tampilkan Desktop Dalam {0}"
 
-#: app/desktopManager.js:1565
+#: app/desktopManager.js:1621
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Buka Dalam {0}"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1627
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Pengaturan Ikon Desktop"
 
-#: app/desktopManager.js:1576
+#: app/desktopManager.js:1632
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1678
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Jendela Preferensi Terbuka"
 
-#: app/desktopManager.js:1622
+#: app/desktopManager.js:1678
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Jendela ini terbuka. Silakan beralih ke jendela aktif."
 
-#: app/desktopManager.js:1636
+#: app/desktopManager.js:1692
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: app/desktopManager.js:2608
+#: app/desktopManager.js:2664
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Pembuatan Folder Kegagalan"
 
-#: app/desktopManager.js:2609
+#: app/desktopManager.js:2665
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Tidak dapat membuat folder."
 
-#: app/desktopManager.js:2652
+#: app/desktopManager.js:2708
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Template Membuat Kesalahan"
 
-#: app/desktopManager.js:2653
+#: app/desktopManager.js:2709
 #, fuzzy
 msgid "Could not create document"
 msgstr "Tidak bisa membuat dokumen"
@@ -693,7 +702,7 @@ msgstr "Rumah"
 #, fuzzy
 #| msgid "Empty Trash"
 msgid "Trash"
-msgstr "Sampah"
+msgstr "Tong sampah"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
@@ -720,32 +729,82 @@ msgstr "Folder"
 msgid "File"
 msgstr "Berkas"
 
-#: app/fileItem.js:290
+#: app/fileItem.js:292
 #, fuzzy
 msgid "Broken Link"
 msgstr "Tautan Rusak"
 
-#: app/fileItem.js:291
+#: app/fileItem.js:293
 #, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Tidak dapat membuka File ini karena itu adalah Symlink Rusak"
 
-#: app/fileItem.js:322
+#: app/fileItem.js:323
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "Gagal membuka file"
 
-#: app/fileItem.js:324
+#: app/fileItem.js:325
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr "Tidak ada aplikasi yang diinstal untuk membuka file \"{foo}\"."
 
-#: app/fileItem.js:353
+#: app/fileItem.js:354
+#, fuzzy
+msgid "Invalid Permissions on AppImage File"
+msgstr "Izin yang tidak valid pada File Desktop"
+
+#: app/fileItem.js:355
+#, fuzzy
+msgid ""
+"This AppImage File has incorrect Permissions. Right Click to edit "
+"Properties, then:\n"
+msgstr ""
+".desktop File memiliki Izin yang salah. Klik kanan untuk mengedit Properti, "
+"kemudian:\n"
+
+#: app/fileItem.js:357 app/fileItem.js:398
+#, fuzzy
+msgid ""
+"\n"
+"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
+msgstr ""
+"\n"
+"Mengatur Izin, di \"Others Access\", \"Read Only\" atau \"None\""
+
+#: app/fileItem.js:360 app/fileItem.js:401
+#, fuzzy
+msgid ""
+"\n"
+"Enable option, \"Allow Executing File as a Program\""
+msgstr ""
+"\n"
+"Opsi yang dapat diaktifkan, \"Allow Executing File sebagai Program\""
+
+#: app/fileItem.js:367
+#, fuzzy
+msgid "Untrusted AppImage File"
+msgstr "Untrusted Desktop File"
+
+#: app/fileItem.js:368
+#, fuzzy
+msgid ""
+"This AppImage file is not trusted, it can not be launched. To enable "
+"launching, right-click, then:\n"
+"\n"
+"Enable \"Allow Launching\""
+msgstr ""
+"File .desktop ini tidak dipercaya, tidak dapat diluncurkan. Untuk "
+"mengaktifkan peluncuran, klik kanan, kemudian:\n"
+"\n"
+"Diaktifkan \"Terjelalu Peluncuran\""
+
+#: app/fileItem.js:388
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "Berkas desktop yang rusak"
 
-#: app/fileItem.js:354
+#: app/fileItem.js:389
 #, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
@@ -758,12 +817,12 @@ msgstr ""
 "\n"
 "Edit file untuk mengatur program yang dapat dieksekusi."
 
-#: app/fileItem.js:360
+#: app/fileItem.js:395
 #, fuzzy
 msgid "Invalid Permissions on Desktop File"
 msgstr "Izin yang tidak valid pada File Desktop"
 
-#: app/fileItem.js:361
+#: app/fileItem.js:396
 #, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -772,30 +831,12 @@ msgstr ""
 ".desktop File memiliki Izin yang salah. Klik kanan untuk mengedit Properti, "
 "kemudian:\n"
 
-#: app/fileItem.js:363
-#, fuzzy
-msgid ""
-"\n"
-"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
-msgstr ""
-"\n"
-"Mengatur Izin, di \"Others Access\", \"Read Only\" atau \"None\""
-
-#: app/fileItem.js:366
-#, fuzzy
-msgid ""
-"\n"
-"Enable option, \"Allow Executing File as a Program\""
-msgstr ""
-"\n"
-"Opsi yang dapat diaktifkan, \"Allow Executing File sebagai Program\""
-
-#: app/fileItem.js:373
+#: app/fileItem.js:408
 #, fuzzy
 msgid "Untrusted Desktop File"
 msgstr "Untrusted Desktop File"
 
-#: app/fileItem.js:374
+#: app/fileItem.js:409
 #, fuzzy
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
@@ -808,13 +849,13 @@ msgstr ""
 "\n"
 "Diaktifkan \"Terjelalu Peluncuran\""
 
-#: app/fileItem.js:384 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:419 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
 msgstr "Tak dpaat membuka berkas"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:386 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:421 app/gnomeShellDragDrop.js:240
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} tidak dapat membuka file dari Jenis ini!"
@@ -830,259 +871,259 @@ msgstr[0] "Folder baru dengan item {0}"
 msgid "Open All..."
 msgstr "Sitemap."
 
-#: app/fileItemMenu.js:316
+#: app/fileItemMenu.js:313
 #, fuzzy
-msgid "Run"
-msgstr "Jalankan"
+msgid "Launch"
+msgstr "Luncur"
 
-#: app/fileItemMenu.js:318
+#: app/fileItemMenu.js:323
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Login"
 
-#: app/fileItemMenu.js:320
+#: app/fileItemMenu.js:326
 msgid "Open"
 msgstr "Buka"
 
-#: app/fileItemMenu.js:329 app/fileItemMenu.js:333
+#: app/fileItemMenu.js:337 app/fileItemMenu.js:341
 msgid "Extract Here"
 msgstr "Ekstrak Di Sini"
 
-#: app/fileItemMenu.js:335
+#: app/fileItemMenu.js:343
 msgid "Extract To..."
 msgstr "Ekstrak ke…"
 
-#: app/fileItemMenu.js:340 app/fileItemMenu.js:343
+#: app/fileItemMenu.js:348 app/fileItemMenu.js:351
 #, fuzzy
 msgid "Open With..."
 msgstr "Buka Dengan..."
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:351
 #, fuzzy
 msgid "Open All With Other Application..."
 msgstr "Buka Semua Dengan Aplikasi Lainnya..."
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Luncurkan menggunakan Kartu Grafik Khusus"
 
-#: app/fileItemMenu.js:353
+#: app/fileItemMenu.js:361
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Susun Jenis ini"
 
-#: app/fileItemMenu.js:353
+#: app/fileItemMenu.js:361
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Unstack Jenis ini"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:377
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Jalankan Program"
 
-#: app/fileItemMenu.js:367
+#: app/fileItemMenu.js:380
 #, fuzzy
 msgid "Scripts"
 msgstr "Skrip"
 
-#: app/fileItemMenu.js:370
+#: app/fileItemMenu.js:383
 msgid "Cut"
 msgstr "Potong"
 
-#: app/fileItemMenu.js:376
+#: app/fileItemMenu.js:389
 #, fuzzy
 msgid "Move to..."
 msgstr "Pindah ke..."
 
-#: app/fileItemMenu.js:377
+#: app/fileItemMenu.js:390
 #, fuzzy
 msgid "Copy to..."
 msgstr "Salin ke..."
 
-#: app/fileItemMenu.js:381
+#: app/fileItemMenu.js:394
 msgid "Rename…"
 msgstr "Ganti Nama…"
 
-#: app/fileItemMenu.js:384
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Create Link..."
 msgstr "Buat Tautan..."
 
-#: app/fileItemMenu.js:389
+#: app/fileItemMenu.js:402
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Kompres {0} folder"
 
-#: app/fileItemMenu.js:396
+#: app/fileItemMenu.js:409
 #, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Kompres {0} file"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:415
 #, fuzzy
 msgid "Email to..."
 msgstr "Sitemap."
 
-#: app/fileItemMenu.js:407
+#: app/fileItemMenu.js:420
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Kirim ke Perangkat Seluler"
 
-#: app/fileItemMenu.js:411
+#: app/fileItemMenu.js:424
 msgid "Move to Trash"
 msgstr "Pindahkan ke Tong Sampah"
 
-#: app/fileItemMenu.js:414
+#: app/fileItemMenu.js:427
 msgid "Delete permanently"
 msgstr "Hapus permanen"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
 #, fuzzy
 msgid "Don't Allow Launching"
 msgstr "Jangan Memungkinkan Peluncuran"
 
-#: app/fileItemMenu.js:419
+#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
 msgid "Allow Launching"
 msgstr "Izinkan Peluncuran"
 
-#: app/fileItemMenu.js:425
+#: app/fileItemMenu.js:445
 msgid "Empty Trash"
 msgstr "Kosongkan Tong Sampah"
 
-#: app/fileItemMenu.js:431
+#: app/fileItemMenu.js:451
 msgid "Eject"
 msgstr "Keluarkan Media"
 
-#: app/fileItemMenu.js:434
+#: app/fileItemMenu.js:454
 msgid "Unmount"
 msgstr "Lepas Kaitan"
 
-#: app/fileItemMenu.js:438
+#: app/fileItemMenu.js:458
 #, fuzzy
 msgid "Common Properties"
 msgstr "Properti Komentar"
 
-#: app/fileItemMenu.js:439
+#: app/fileItemMenu.js:459
 msgid "Properties"
 msgstr "Properti"
 
-#: app/fileItemMenu.js:442
+#: app/fileItemMenu.js:462
 #, fuzzy
 msgid "Show All in {0}"
 msgstr "Tampilkan Semua dalam {0}"
 
-#: app/fileItemMenu.js:443
+#: app/fileItemMenu.js:463
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "Tampilkan dalam {0}"
 
-#: app/fileItemMenu.js:448
+#: app/fileItemMenu.js:468
 #, fuzzy
 msgid "Open in {0}"
 msgstr "Buka {0}"
 
-#: app/fileItemMenu.js:567
+#: app/fileItemMenu.js:595
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ekstraksi Cancelled"
 
-#: app/fileItemMenu.js:568
+#: app/fileItemMenu.js:596
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Tidak dapat diekstrak File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:600
+#: app/fileItemMenu.js:628
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Pindah Batal"
 
-#: app/fileItemMenu.js:601
+#: app/fileItemMenu.js:629
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Tidak dapat memindahkan File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:613 app/fileItemMenu.js:642
+#: app/fileItemMenu.js:641 app/fileItemMenu.js:670
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
-#: app/fileItemMenu.js:616 app/fileItemMenu.js:644
+#: app/fileItemMenu.js:644 app/fileItemMenu.js:672
 msgid "Select"
 msgstr "Pilih"
 
-#: app/fileItemMenu.js:693
+#: app/fileItemMenu.js:721
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Salin dibatalkan"
 
-#: app/fileItemMenu.js:694
+#: app/fileItemMenu.js:722
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Tidak dapat menyalin File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:742 app/fileItemMenu.js:752 app/fileItemMenu.js:762
-#: app/fileItemMenu.js:789
+#: app/fileItemMenu.js:770 app/fileItemMenu.js:780 app/fileItemMenu.js:790
+#: app/fileItemMenu.js:817
 #, fuzzy
 msgid "Mail Error"
 msgstr "Login"
 
-#: app/fileItemMenu.js:743
+#: app/fileItemMenu.js:771
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Tidak dapat menemukan xdg-email, mohon instal program"
 
-#: app/fileItemMenu.js:753
+#: app/fileItemMenu.js:781
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Ada kesalahan dalam file email"
 
-#: app/fileItemMenu.js:763
+#: app/fileItemMenu.js:791
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Tidak dapat menemukan perintah zip, instal program"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:769
+#: app/fileItemMenu.js:797
 #, fuzzy
 msgid "Archive.zip"
 msgstr "WordPress.org"
 
-#: app/fileItemMenu.js:790
+#: app/fileItemMenu.js:818
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Ada kesalahan dalam membuat arsip zip"
 
-#: app/fileItemMenu.js:803
+#: app/fileItemMenu.js:831
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Tidak bisa email Direktori"
 
-#: app/fileItemMenu.js:804
+#: app/fileItemMenu.js:832
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Pemilihan termasuk Direktori, tekan ke file .zip pertama?"
 
-#: app/fileItemMenu.js:916
+#: app/fileItemMenu.js:944
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Tidak dapat dibuka di Konsol Gnome"
 
-#: app/fileItemMenu.js:917
+#: app/fileItemMenu.js:945
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Silakan Instal Konsol Gnome atau Program Terminal lainnya"
 
-#: app/fileItemMenu.js:924
+#: app/fileItemMenu.js:952
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Sitemap Sitemap"
 
-#: app/fileItemMenu.js:925
+#: app/fileItemMenu.js:953
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Login Sitemap"
@@ -1331,6 +1372,10 @@ msgid ""
 msgstr ""
 "Ikon tidak berada di grid persegi panjang tetapi dapat ditunda di mana saja "
 "independen grid"
+
+#, fuzzy
+#~ msgid "Run"
+#~ msgstr "Jalankan"
 
 #~ msgid "Change Background…"
 #~ msgstr "Ubah Latar Belakang…"
