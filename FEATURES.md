@@ -134,6 +134,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Update highlight and selection colors, rubber band colors with the new accent colors in Gnome 47.
 
+- [x] Work properly with appimage files, put emblems if not executable, warn user, treat like .desktop files.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -260,8 +262,19 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Fix, tooltips showing away from icon in multimonitor setups.
 
+- [x] Fix icons not showing on bottom row or right most column on multimonitor setup.
+
 - [x] * Fix drag source getting unhighlighted during drag.
   * Fix wrapped icon text appearing on one side of the icon.
   * Fix - Stop opening of folder on drag hovering if drop completed prior to timeout
   * Fix recievemotion not a global function error on dragging icons on top of another while repositioning
   * Fix trash icon not updating
+
+- [x] Fix drag from trash not working
+   * On setting executable on a file, set executable for others and group as well, this shows in Nautilus as executable.
+   * Use GLib functions to clean up dropped list on DING. Notify users of non existant drop files, general cleanup of drop list to prevent errors.
+   * Multiple right click menu fixes
+
+- [x] Do not launch scripts on double click, only right click. Otherwise open them for editing
+
+- [x] clean up base desktopIconItem class, and put special properties in derived classes.

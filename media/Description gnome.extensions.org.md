@@ -8,6 +8,7 @@ Updated and modified code base, uses Gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* Proper integration for AppImage files, treat them like .desktop files. Integration with AppImageLauncher. Prefer that to open AppImage files if available.
 * For Gnome 47, change highlighting and rubber band selection colors with accent-colors in Gnome Settings.
 * Selection rectangle with rounded corners, similar to Gnome Files aesthetic.
 * The stock gnome shell background menu can now be shown from the Gtk4 DING desktop right click menu. All shell settings can be accessed from that menu.
