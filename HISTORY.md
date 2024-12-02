@@ -1,4 +1,16 @@
 # History of versions #
+* Gtk4 version 87 for Gnome 45, 46, 47
+  * Fix drag from Trash to Desktop not working. (Sundeep Mediratta)
+  * Multiple fixes to right click menu on icons. (Sundeep Mediratta)
+  * Use GLib functions to clean up dropped list on DING. Notify users of non existant drop files, general cleanup of drop list to prevent errors. (Sundeep Mediratta)
+  * Proper AppImage integration, check for execution and trusted. (Sundeep Mediratta)
+  * AppImageLauncher integration. (Sundeep Mediratta)
+  * Hidden boolean setting to not show icons on workspace thumbnails. (Sundeep Mediratta)
+  * On setting executable on a file, set executable for others and group as well, this shows in Nautilus as executable. (Sundeep Mediratta)
+  * Fix base class desktopIconItem, move properties available only in derived classes to the derived classes. (Sundeep Mediratta)
+  * Weblate Translations. (Weblate Authors)
+  * Update History.md, metadata.json. Version Bump 87
+
 * Gtk4 version 86 for Gnome 45, 46, 47
   * Simplify and rewrite code in multiple places. (Sundeep Mediratta)
   * Fix multiple typos and formatting. (Thomas Lavoie)
