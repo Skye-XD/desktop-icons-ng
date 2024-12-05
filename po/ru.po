@@ -14,9 +14,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-01 22:22-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2024-12-05 21:44+0000\n"
+"Last-Translator: dinos <ecg-diagnostic@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -464,14 +463,12 @@ msgid "Could not create symbolic link"
 msgstr "Не удалось создать символическую ссылку"
 
 #: app/desktopManager.js:979
-#, fuzzy
-#| msgid "Move Cancelled"
 msgid "Copy/Move Failed"
-msgstr "Перемещение отменено"
+msgstr "Ошибка при Копировании/Перемещении"
 
 #: app/desktopManager.js:980
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "{0} не существует"
 
 #: app/desktopManager.js:1264
 msgid "Clear current selection before new search"
@@ -638,21 +635,15 @@ msgid "There is no application installed to open \"{foo}\" files."
 msgstr "Не установлено приложение для открытия файлов «{foo}»."
 
 #: app/fileItem.js:354
-#, fuzzy
-#| msgid "Invalid Permissions on Desktop File"
 msgid "Invalid Permissions on AppImage File"
-msgstr "Неверные права доступа к .desktop файлу"
+msgstr "Неверные права доступа к AppImage-файлу"
 
 #: app/fileItem.js:355
-#, fuzzy
-#| msgid ""
-#| "This .desktop File has incorrect Permissions. Right Click to edit "
-#| "Properties, then:\n"
 msgid ""
 "This AppImage File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Этот .desktop-файл имеет неправильные разрешения. Щёлкните правой кнопкой "
+"Этот AppImage-файл имеет неправильные разрешения. Щёлкните правой кнопкой "
 "мыши, чтобы изменить свойства, а затем:\n"
 
 #: app/fileItem.js:357 app/fileItem.js:398
@@ -672,25 +663,17 @@ msgstr ""
 "Включить параметр «Разрешить выполнение файла как программы»"
 
 #: app/fileItem.js:367
-#, fuzzy
-#| msgid "Untrusted Desktop File"
 msgid "Untrusted AppImage File"
-msgstr "Не вызывающий доверия .desktop файл"
+msgstr "Не вызывающий доверия AppImage-файл"
 
 #: app/fileItem.js:368
-#, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "Enable \"Allow Launching\""
 msgid ""
 "This AppImage file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
-"Этот .desktop файл не является доверенным, его нельзя запустить. Чтобы "
+"Этот AppImage-файл не является доверенным, его нельзя запустить. Чтобы "
 "разрешить запуск, щёлкните правой кнопкой мыши, а затем:\n"
 "\n"
 "Включите «Разрешить запуск»"
@@ -760,7 +743,6 @@ msgid "Open All..."
 msgstr "Открыть всё..."
 
 #: app/fileItemMenu.js:313
-#, fuzzy
 msgid "Launch"
 msgstr "Запустить"
 
