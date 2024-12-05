@@ -13,17 +13,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-01 22:22-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
+"PO-Revision-Date: 2024-12-05 01:00+0100\n"
+"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -114,7 +113,7 @@ msgstr "Pravý spodný roh"
 
 #: app/adwPreferencesWindow.js:248
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Pridať nové ikony najprv na sekundárne monitory, ak je k dispozícii"
+msgstr "Pridať nové ikony najprv na sekundárne monitory, ak sú k dispozícii"
 
 #: app/adwPreferencesWindow.js:252
 msgid "Show the personal folder on the desktop"
@@ -456,14 +455,12 @@ msgid "Could not create symbolic link"
 msgstr "Nepodarilo sa vytvoriť symbolický odkaz"
 
 #: app/desktopManager.js:979
-#, fuzzy
-#| msgid "Move Cancelled"
 msgid "Copy/Move Failed"
-msgstr "Presunutie zrušené"
+msgstr "Presunutie zlyhalo"
 
 #: app/desktopManager.js:980
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "{0} Neexistuje"
 
 #: app/desktopManager.js:1264
 msgid "Clear current selection before new search"
@@ -543,7 +540,7 @@ msgstr "Zobraziť plochu v {0}"
 
 #: app/desktopManager.js:1621
 msgid "Open In {0}"
-msgstr "Otvoriť v {0}"
+msgstr "Otvoriť v aplikácii {0}"
 
 #: app/desktopManager.js:1627
 msgid "Desktop Icon Settings"
@@ -629,21 +626,15 @@ msgid "There is no application installed to open \"{foo}\" files."
 msgstr "Nie je nainštalovaná žiadna aplikácia na otváranie súborov \"{foo}\"."
 
 #: app/fileItem.js:354
-#, fuzzy
-#| msgid "Invalid Permissions on Desktop File"
 msgid "Invalid Permissions on AppImage File"
-msgstr "Neplatné oprávnenia na súbor plochy"
+msgstr "Neplatné oprávnenia na súbor AppImage"
 
 #: app/fileItem.js:355
-#, fuzzy
-#| msgid ""
-#| "This .desktop File has incorrect Permissions. Right Click to edit "
-#| "Properties, then:\n"
 msgid ""
 "This AppImage File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Tento súbor .desktop má nesprávne oprávnenia. Kliknutím pravým tlačidlom "
+"Tento súbor AppImage má nesprávne oprávnenia. Kliknutím pravým tlačidlom "
 "myši upravte Vlastnosti a potom:\n"
 
 #: app/fileItem.js:357 app/fileItem.js:398
@@ -664,26 +655,18 @@ msgstr ""
 "Povoľte možnosť \"Povoliť spustenie súboru ako program\""
 
 #: app/fileItem.js:367
-#, fuzzy
-#| msgid "Untrusted Desktop File"
 msgid "Untrusted AppImage File"
-msgstr "Nedôveryhodný súbor pracovnej plochy"
+msgstr "Nedôveryhodný súbor AppImage"
 
 #: app/fileItem.js:368
-#, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "Enable \"Allow Launching\""
 msgid ""
 "This AppImage file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
-"Tento súbor plochy .desktop nie je dôveryhodný, nie je možné ho spustiť. Ak "
-"chcete spúšťanie povoliť, kliknite pravým tlačidlom myši a potom:\n"
+"Tento súbor AppImage nie je dôveryhodný, nie je možné ho spustiť. Ak chcete "
+"spúšťanie povoliť, kliknite pravým tlačidlom myši a potom:\n"
 "\n"
 "Povoľte \"Povoliť spúšťanie\""
 
@@ -752,7 +735,6 @@ msgid "Open All..."
 msgstr "Otvoriť všetko..."
 
 #: app/fileItemMenu.js:313
-#, fuzzy
 msgid "Launch"
 msgstr "Spustiť"
 
@@ -888,7 +870,7 @@ msgstr "Zobraziť v aplikácii {0}"
 
 #: app/fileItemMenu.js:468
 msgid "Open in {0}"
-msgstr "Otvoriť v {0}"
+msgstr "Otvoriť v aplikácii {0}"
 
 #: app/fileItemMenu.js:595
 msgid "Extraction Cancelled"
