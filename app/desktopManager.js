@@ -1048,22 +1048,40 @@ const DesktopManager = class {
             filename, dropCoordinates);
     }
 
-    fillDragDataGet(info) {
+    fillDragDataGet(target) {
         const fileList = this.getCurrentSelection();
-        if (fileList === null)
+        if (!fileList)
             return null;
 
-        let data = '';
-        for (let fileItem of fileList) {
-            data += fileItem.uri;
-            if (info === this.Enums.DndTargetInfo.GNOME_ICON_LIST) {
-                let coordinates = fileItem.getCoordinates();
-                if (coordinates !== null)
-                    data += `\r${coordinates[0]}:${coordinates[1]}:${coordinates[2] - coordinates[0] + 1}:${coordinates[3] - coordinates[1] + 1}`;
+        let uriList = '';
+        let pathList = '';
+
+        switch (target) {
+        case this.Enums.DndTargetInfo.GNOME_ICON_LIST:
+            for (let fileItem of fileList) {
+                uriList += fileItem.uri;
+                const coordinates = fileItem.getCoordinates();
+                if (coordinates !== null) {
+                    uriList += `\r
+                        ${coordinates[0]}:
+                        ${coordinates[1]}:
+                        ${coordinates[2] - coordinates[0] + 1}:
+                        ${coordinates[3] - coordinates[1] + 1}`;
+                }
+                uriList += '\r\n';
             }
-            data += '\r\n';
+            return uriList;
+        case this.Enums.DndTargetInfo.DING_ICON_LIST:
+        case this.Enums.DndTargetInfo.TEXT_URI_LIST:
+            uriList = fileList.map(f => f.uri).join('\r\n');
+            uriList += '\r\n';
+            return uriList;
+        case this.Enums.DndTargetInfo.TEXT_PLAIN:
+            pathList = fileList.map(f => f.path).join('n');
+            pathList += '\n';
+            return pathList;
         }
-        return data;
+        return null;
     }
 
     closePopUps() {

@@ -93,11 +93,12 @@ export const DndTargetInfo = {
     DING_ICON_LIST: 'x-special/ding-icon-list',
     GNOME_ICON_LIST: 'x-special/gnome-icon-list',
     URI_LIST: 'text/uri-list',
-    TEXT_PLAIN: 'text/plain;charset=utf-8',
+    TEXT_PLAIN: 'text/plain',
+    TEXT_PLAIN_UTF8: 'text/plain;charset=utf-8',
     GDKFILELIST: 'GdkFileList',
     GCHARARRAY: 'gchararray',
     GFILE: 'GFile',
-    MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain;charset=utf-8'],
+    MIME_TYPES: ['x-special/ding-icon-list', 'x-special/gnome-icon-list', 'text/uri-list', 'text/plain', 'text/plain;charset=utf-8'],
 };
 
 export const ShellDropCursor = {
