@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-01 22:22-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
+"PO-Revision-Date: 2024-12-05 21:44+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
@@ -41,7 +41,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:216
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce Ayarlar"
+msgstr "İnce ayarlar"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
 #, fuzzy
@@ -221,7 +221,7 @@ msgstr "Sürüklenme üzerine açık klasörler"
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "Website"
-msgstr "Web sitesi"
+msgstr "Site"
 
 #: app/adwPreferencesWindow.js:321
 #, fuzzy
@@ -241,7 +241,7 @@ msgstr "Tartışma sorunları"
 #: app/adwPreferencesWindow.js:326
 #, fuzzy
 msgid "Report"
-msgstr "Rapor"
+msgstr "Bildir"
 
 #: app/adwPreferencesWindow.js:328
 #, fuzzy
@@ -261,7 +261,7 @@ msgstr "Web tarayıcınızda çevirin Yardım"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Translate"
-msgstr "Çevir"
+msgstr "Çevirin"
 
 #: app/appChooser.js:54
 #, fuzzy
@@ -556,7 +556,7 @@ msgstr "Masaüstündeki Dosyaları Bul"
 #: app/desktopManager.js:1571
 #, fuzzy
 msgid "Name"
-msgstr "Ad"
+msgstr "Isim"
 
 #: app/desktopManager.js:1572
 #, fuzzy
@@ -576,7 +576,7 @@ msgstr "Tür"
 #: app/desktopManager.js:1575
 #, fuzzy
 msgid "Size"
-msgstr "Size"
+msgstr "Boyut"
 
 #: app/desktopManager.js:1578
 #, fuzzy
@@ -833,7 +833,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyası açılamadı"
+msgstr "Dosyalar açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:240
