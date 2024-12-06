@@ -10,13 +10,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2024.
 # Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024.
+# Allan Novaes Lima <lnapublicidade@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-01 22:22-0500\n"
-"PO-Revision-Date: 2024-12-05 21:44+0000\n"
-"Last-Translator: Jhonny Rosa <jh0nny.rosa@gmail.com>\n"
+"PO-Revision-Date: 2024-12-06 22:01+0000\n"
+"Last-Translator: Allan Novaes Lima <lnapublicidade@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -214,7 +215,6 @@ msgid "Open folders on drag hover"
 msgstr "Abrir pastas no mouse hover"
 
 #: app/adwPreferencesWindow.js:319
-#, fuzzy
 msgid "Website"
 msgstr "Website"
 
@@ -239,9 +239,8 @@ msgid "Report"
 msgstr "Reportar"
 
 #: app/adwPreferencesWindow.js:328
-#, fuzzy
 msgid "License"
-msgstr "License"
+msgstr "Licença"
 
 #: app/adwPreferencesWindow.js:333
 #, fuzzy
@@ -249,9 +248,8 @@ msgid "Translation"
 msgstr "Tradução"
 
 #: app/adwPreferencesWindow.js:334
-#, fuzzy
 msgid "Help translate in your web browser"
-msgstr "Ajudar a traduzir em seu navegador"
+msgstr "Ajude a traduzir em seu navegador"
 
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
@@ -279,9 +277,8 @@ msgid "Open File"
 msgstr "Abrir Arquivo"
 
 #: app/appChooser.js:106
-#, fuzzy
 msgid "Error changing default application"
-msgstr "Erro alterando o aplicativo padrão"
+msgstr "Erro ao alterar o aplicativo padrão"
 
 #: app/appChooser.js:107
 #, fuzzy
@@ -294,9 +291,8 @@ msgid "Folder name"
 msgstr "Nome da pasta"
 
 #: app/askRenamePopup.js:49
-#, fuzzy
 msgid "File name"
-msgstr "Nome do ficheiro"
+msgstr "Nome do arquivo"
 
 #: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1304
 #: app/fileItemMenu.js:833
@@ -323,9 +319,8 @@ msgstr ""
 "ou gir-1.2-gnome Automática"
 
 #: app/autoAr.js:203
-#, fuzzy
 msgid "Extracting files"
-msgstr "Extrair arquivos"
+msgstr "Extraindo arquivos"
 
 #: app/autoAr.js:220
 #, fuzzy
@@ -349,9 +344,8 @@ msgid "Removing partial file '${outputFile}'"
 msgstr "Removendo arquivo parcial '${outputFile} '"
 
 #: app/autoAr.js:373
-#, fuzzy
 msgid "Creating destination folder"
-msgstr "Criar pasta de destino"
+msgstr "Criando pasta de destino"
 
 #: app/autoAr.js:405
 #, fuzzy
@@ -379,9 +373,8 @@ msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "Extrair '${fullPathFile}' foi cancelado pelo usuário."
 
 #: app/autoAr.js:453
-#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Passphrase necessário para ${filename}"
+msgstr "Senha necessária para ${filename}"
 
 #: app/autoAr.js:456
 #, fuzzy
