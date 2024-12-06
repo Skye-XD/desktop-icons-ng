@@ -2463,37 +2463,45 @@ const DesktopManager = class {
 
     _manageCutCopy(action) {
         let clipboard = Gdk.Display.get_default().get_clipboard();
-        let content = '';
-        if (this.GnomeShellVersion < 40)
-            content = 'x-special/nautilus-clipboard\n';
+        const textCoder = new TextEncoder();
 
+        const uriList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_URI_LIST);
+        const pathList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
+        const encodedUriList = textCoder.encode(uriList);
+        const encodedPathList = textCoder.encode(pathList);
+
+        let content = '';
         if (action === 'doCut')
             content += 'cut\n';
         else
             content += 'copy\n';
 
-
-        let first = true;
-        if (!this.getCurrentSelectionAsUri())
+        if (this.GnomeShellVersion < 40) {
+            content = `x-special/nautilus-clipboard\n${content}${uriList}`.trim();
+            const contentProvider = Gdk.ContentProvider.new_for_bytes('text/plain',
+                textCoder.encode(content));
+            clipboard.set_content(contentProvider);
             return;
-
-        // eslint-disable-next-line no-unsafe-optional-chaining
-        for (let file of this.getCurrentSelectionAsUri()) {
-            if (!first)
-                content += '\n';
-
-            first = false;
-            content += file;
         }
 
-        let contentProvider;
-        let textCoder = new TextEncoder();
-        if (this.GnomeShellVersion < 40)
-            contentProvider = Gdk.ContentProvider.new_for_bytes('text/plain', textCoder.encode(content));
-        else
-            contentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files', textCoder.encode(content));
+        content += uriList.replaceAll('\r', '').trim();
 
-        clipboard.set_content(contentProvider);
+        const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files',
+            textCoder.encode(content));
+        const textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST,
+            encodedUriList);
+        const textListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN,
+            encodedPathList);
+        const textUtf8ListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
+            encodedPathList);
+
+        const clipboardContentProvider = Gdk.ContentProvider.new_union([
+            gnomeContentProvider,
+            textUriListContentProvider,
+            textListContentProvider,
+            textUtf8ListContentProvider,
+        ]);
+        clipboard.set_content(clipboardContentProvider);
     }
 
     doCopy() {
