@@ -2552,12 +2552,12 @@ const DesktopManager = class {
 
 
     getNumberOfSelectedItems() {
-        let count = 0;
-        for (let item of this._fileList) {
-            if (item.isSelected)
-                count++;
-        }
-        return count;
+        const count = this.getCurrentSelection();
+
+        if (count)
+            return count.length;
+
+        return 0;
     }
 
     menuclosed = () => {
