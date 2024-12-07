@@ -528,7 +528,7 @@ const DesktopManager = class {
         this._pendingDropFiles = {};
         this._pendingSelfCopyFiles = {};
 
-        this.getCurrentSelection().forEach(f => {
+        this.getCurrentSelection()?.forEach(f => {
             this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
         });
     }
@@ -620,7 +620,7 @@ const DesktopManager = class {
             return;
         }
         if (this._dragList === null) {
-            let itemList = this.getCurrentSelection(false);
+            const itemList = this.getCurrentSelection();
             if (!itemList)
                 return;
 
@@ -1049,7 +1049,7 @@ const DesktopManager = class {
     }
 
     fillDragDataGet(info) {
-        let fileList = this.getCurrentSelection(false);
+        const fileList = this.getCurrentSelection();
         if (fileList === null)
             return null;
 
@@ -1702,7 +1702,7 @@ const DesktopManager = class {
     _selectFileItemInDirection(symbol) {
         var index;
         var multiplier;
-        let selection = this.getCurrentSelection(false);
+        let selection = this.getCurrentSelection();
         if (!selection) {
             if (this.activeFileItem && this.activeFileItem.isStackMarker)
                 selection = [this.activeFileItem];
@@ -1780,7 +1780,7 @@ const DesktopManager = class {
     }
 
     _menuKeyPressed() {
-        let selection = this.getCurrentSelection(false);
+        const selection = this.getCurrentSelection();
         if (selection) {
             let fileItem = selection[0];
             let X = fileItem.iconRectangle.x + fileItem.iconRectangle.width / 2;
@@ -2109,7 +2109,7 @@ const DesktopManager = class {
     }
 
     async _drawDesktop(fileList) {
-        const selectedFiles = this.getCurrentSelection(true);
+        const selectedFiles = this.getCurrentSelection()?.map(f => f.uri);
 
         //* Update the Icon before placing on Desktop to prevent flickering Icons *//
         const updateUI = fileList.map(async fileItem => {
@@ -2456,10 +2456,11 @@ const DesktopManager = class {
 
 
         let first = true;
-        if (!this.getCurrentSelection(true))
+        if (!this.getCurrentSelection()?.map(f => f.uri))
             return;
 
-        for (let file of this.getCurrentSelection(true)) {
+        // eslint-disable-next-line no-unsafe-optional-chaining
+        for (let file of this.getCurrentSelection()?.map(f => f.uri)) {
             if (!first)
                 content += '\n';
 
@@ -2540,21 +2541,19 @@ const DesktopManager = class {
         return false;
     }
 
-    getCurrentSelection(getUri) {
-        let listToTrash = [];
+    getCurrentSelection() {
+        const selectedList = [];
         for (let fileItem of this._fileList) {
-            if (fileItem.isSelected) {
-                if (getUri)
-                    listToTrash.push(fileItem.file.get_uri());
-                else
-                    listToTrash.push(fileItem);
-            }
+            if (fileItem.isSelected)
+                selectedList.push(fileItem);
         }
-        if (listToTrash.length !== 0)
-            return listToTrash;
-        else
-            return null;
+
+        if (selectedList.length !== 0)
+            return selectedList;
+
+        return null;
     }
+
 
     getNumberOfSelectedItems() {
         let count = 0;
@@ -2572,7 +2571,7 @@ const DesktopManager = class {
     };
 
     async doRename(fileItem, allowReturnOnSameName = false) {
-        let selection = this.getCurrentSelection(false);
+        const selection = this.getCurrentSelection();
         if (!(selection && (selection.length === 1)))
             return;
 
