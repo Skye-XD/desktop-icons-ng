@@ -2542,13 +2542,9 @@ const DesktopManager = class {
     }
 
     getCurrentSelection() {
-        const selectedList = [];
-        for (let fileItem of this._fileList) {
-            if (fileItem.isSelected)
-                selectedList.push(fileItem);
-        }
+        const selectedList = this._fileList.filter(f => f.isSelected);
 
-        if (selectedList.length !== 0)
+        if (selectedList.length)
             return selectedList;
 
         return null;
