@@ -2109,7 +2109,7 @@ const DesktopManager = class {
     }
 
     async _drawDesktop(fileList) {
-        const selectedFiles = this.getCurrentSelection()?.map(f => f.uri);
+        const selectedFiles = this.getCurrentSelectionAsUri();
 
         //* Update the Icon before placing on Desktop to prevent flickering Icons *//
         const updateUI = fileList.map(async fileItem => {
@@ -2456,11 +2456,11 @@ const DesktopManager = class {
 
 
         let first = true;
-        if (!this.getCurrentSelection()?.map(f => f.uri))
+        if (!this.getCurrentSelectionAsUri())
             return;
 
         // eslint-disable-next-line no-unsafe-optional-chaining
-        for (let file of this.getCurrentSelection()?.map(f => f.uri)) {
+        for (let file of this.getCurrentSelectionAsUri()) {
             if (!first)
                 content += '\n';
 
@@ -2550,6 +2550,9 @@ const DesktopManager = class {
         return null;
     }
 
+    getCurrentSelectionAsUri() {
+        return this.getCurrentSelection()?.map(f => f.uri);
+    }
 
     getNumberOfSelectedItems() {
         const count = this.getCurrentSelection();

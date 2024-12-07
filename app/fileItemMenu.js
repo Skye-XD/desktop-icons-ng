@@ -526,13 +526,19 @@ const FileItemMenu = class {
     }
 
     _onPropertiesClicked() {
-        let propertiesFileList = this._desktopManager.getCurrentSelection()?.map(f => f.uri);
+        const propertiesFileList = this._desktopManager.getCurrentSelectionAsUri();
+        if (!propertiesFileList)
+            return;
+
         const timestamp = Gdk.CURRENT_TIME;
         this.DBusUtils.RemoteFileOperations.ShowItemPropertiesRemote(propertiesFileList, timestamp);
     }
 
     _onShowInFilesClicked() {
-        let showInFilesList = this._desktopManager.getCurrentSelection()?.map(f => f.uri);
+        const showInFilesList = this._desktopManager.getCurrentSelectionAsUri();
+        if (!showInFilesList)
+            return;
+
         if (this.Prefs.useNemo) {
             try {
                 for (let element of showInFilesList)
@@ -543,6 +549,7 @@ const FileItemMenu = class {
                 console.log(`Error trying to launch Nemo: ${err.message}\n${err}`);
             }
         }
+
         const timestamp = Gdk.CURRENT_TIME;
         this.DBusUtils.RemoteFileOperations.ShowItemsRemote(showInFilesList, timestamp);
     }
@@ -624,14 +631,21 @@ const FileItemMenu = class {
     async _bulkMove() {
         if (this._desktopManager.checkIfSpecialFilesAreSelected())
             return;
-        let moveList = this._desktopManager.getCurrentSelection()?.map(f => f.uri);
+
+        const moveList = this._desktopManager.getCurrentSelectionAsUri();
+        if (!moveList)
+            return;
+
+        const folder = await this.getSelectedFolderGio().catch(e => console.error(e));
+
+        if (folder) {
+            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(moveList, folder.get_uri());
+            return;
+        }
+
         const header = _('Move Cancelled');
         const text = _('Unable to move Files, no destination folder');
-        let folder = await this.getSelectedFolderGio().catch(e => console.error(e));
-        if (folder)
-            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(moveList, folder.get_uri());
-        else
-            this._desktopManager.dbusManager.doNotify(header, text);
+        this._desktopManager.dbusManager.doNotify(header, text);
     }
 
 
@@ -717,14 +731,21 @@ const FileItemMenu = class {
     async _bulkCopy() {
         if (this._desktopManager.checkIfSpecialFilesAreSelected())
             return;
-        let copyList = this._desktopManager.getCurrentSelection()?.map(f => f.uri);
+
+        const copyList = this._desktopManager.getCurrentSelectionAsUri();
+        if (!copyList)
+            return;
+
+        const folder = await this.getSelectedFolderGio().catch(e => console.error(e));
+
+        if (folder) {
+            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(copyList, folder.get_uri());
+            return;
+        }
+
         const header = _('Copy Cancelled');
         const text = _('Unable to copy Files, no destination folder');
-        let folder = await this.getSelectedFolderGio().catch(e => console.error(e));
-        if (folder)
-            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(copyList, folder.get_uri());
-        else
-            this._desktopManager.dbusManager.doNotify(header, text);
+        this._desktopManager.dbusManager.doNotify(header, text);
     }
 
     _getExtractableAutoAr() {
@@ -845,40 +866,50 @@ const FileItemMenu = class {
     }
 
     _doCompressFilesFromSelection() {
-        let desktopFolder = this.DesktopIconsUtil.getDesktopDir();
-        if (desktopFolder) {
-            if (this.DBusUtils.GnomeArchiveManager.isAvailable) {
-                const toCompress = this._desktopManager.getCurrentSelection()?.map(f => f.uri);
-                this.DBusUtils.RemoteFileOperations.CompressRemote(toCompress, desktopFolder.get_uri(), true);
-            } else {
-                const toCompress = this._desktopManager.getCurrentSelection();
-                this._desktopManager.autoAr.compressFileItems(toCompress, desktopFolder.get_path());
-            }
-        }
+        const desktopFolder = this.DesktopIconsUtil.getDesktopDir();
+        if (!desktopFolder)
+            return;
+
+        const toCompress = this._desktopManager.getCurrentSelection();
+        if (!toCompress)
+            return;
+        const uriListtoCompress = toCompress?.map(f => f.uri);
+
+        if (this.DBusUtils.GnomeArchiveManager.isAvailable)
+            this.DBusUtils.RemoteFileOperations.CompressRemote(uriListtoCompress, desktopFolder.get_uri(), true);
+        else
+            this._desktopManager.autoAr.compressFileItems(toCompress, desktopFolder.get_path());
+
         this._desktopManager.unselectAll();
     }
 
     async _doNewFolderFromSelection(assignedposition = null, clickedItem, event) {
         if (!clickedItem)
             return;
+        const newFolderFileItems = this._desktopManager.getCurrentSelectionAsUri();
+        if (!newFolderFileItems)
+            return;
 
-        let position = assignedposition ? assignedposition  : clickedItem.savedCoordinates;
-        let newFolderFileItems = this._desktopManager.getCurrentSelection()?.map(f => f.uri);
+        const position = assignedposition ? assignedposition : clickedItem.savedCoordinates;
+        const newFolder = await this._desktopManager.doNewFolder(position);
+
+        if (!newFolder)
+            return;
+
         this._desktopManager.unselectAll();
         clickedItem.removeFromGrid({callOnDestroy: false});
-        const newFolder = await this._desktopManager.doNewFolder(position);
-        if (newFolder) {
-            this.DBusUtils.RemoteFileOperations.pushEvent(event);
-            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(newFolderFileItems, newFolder);
-        }
+        this.DBusUtils.RemoteFileOperations.pushEvent(event);
+        this.DBusUtils.RemoteFileOperations.MoveURIsRemote(newFolderFileItems, newFolder);
     }
 
     _makeLinks() {
-        let desktopFolder = this.DesktopIconsUtil.getDesktopDir();
-        const toLink = this._desktopManager.getCurrentSelection()?.map(f => f.uri);
-        let [X, Y] = this.activeFileItem.getCoordinates().slice(0, 2);
-        if (!this._desktopManager.checkIfSpecialFilesAreSelected() && toLink.length)
-            this._desktopManager.makeLinks(toLink, desktopFolder.get_uri(), X, Y);
+        const toLink = this._desktopManager.getCurrentSelectionAsUri();
+        if (!toLink || this._desktopManager.checkIfSpecialFilesAreSelected())
+            return;
+
+        const desktopFolder = this.DesktopIconsUtil.getDesktopDir();
+        const [X, Y] = this.activeFileItem.getCoordinates().slice(0, 2);
+        this._desktopManager.makeLinks(toLink, desktopFolder.get_uri(), X, Y);
     }
 
     _onScriptClicked(menuItemPath) {

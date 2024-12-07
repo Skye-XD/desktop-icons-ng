@@ -30,7 +30,7 @@ const GnomeShellDrag = class {
         this._Enums = desktopManager.Enums;
         this._Prefs = desktopManager.Prefs;
         this._selectedFiles = desktopManager.getCurrentSelection();
-        this._selectedFilesURI = desktopManager.getCurrentSelection()?.map(f => f.uri);
+        this._selectedFilesURI = desktopManager.getCurrentSelectionAsUri();
         this._desktopDir = this._DesktopIconsUtil.getDesktopDir();
         this._dockSpringOpenFile = null;
         this._currentDesktopFileAppPath = null;
