@@ -493,7 +493,7 @@ const DesktopGrid = class {
                     if (this.Prefs.keepArranged || this.Prefs.keepStacked) {
                         if (this.Prefs.sortSpecialFolders)
                             return false;
-                        else if (this._desktopManager.getCurrentSelection().filter(f => !f.isSpecial).length >= 1)
+                        else if (this._desktopManager.getCurrentSelection()?.filter(f => !f.isSpecial).length >= 1)
                             return false;
                     }
                 }
@@ -714,7 +714,7 @@ const DesktopGrid = class {
 
     // The following code is translated from Nautilus C to Javascript to form the similar stack of items
     _createStackedDragIcon(draggedItem) {
-        const  selectionArray = this._desktopManager.getCurrentSelection(false);
+        const  selectionArray = this._desktopManager.getCurrentSelection();
         // eslint-disable-next-line no-nested-ternary
         selectionArray.sort((a, b) => a.uri === draggedItem.uri ? -1 : b.uri === draggedItem.uri ? 1 : 0);
         const dragIconArray = selectionArray.map(f => f._icon.get_paintable());
