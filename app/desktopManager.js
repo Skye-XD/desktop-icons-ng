@@ -2457,8 +2457,11 @@ const DesktopManager = class {
      * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
      * shared.
      *
-     * To maintain compatibility, we check the current Gnome Shell version and, based on that, we use the
-     * binary or the text clipboards.
+     * To maintain compatibility, in the past, we checked the current Gnome Shell version and, based on that,
+     * set the binary or the text clipboards.
+     *
+     * With the newer versions of gtk4-ding, we only set the binary version and add other composite providers for
+     * the plain text versions like the newer Nautilus/Files.
      */
 
     _manageCutCopy(action) {
@@ -2467,24 +2470,11 @@ const DesktopManager = class {
 
         const uriList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_URI_LIST);
         const pathList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
+        let content = action ? 'copy\n' : 'cut\n';
+        content += uriList.replaceAll('\r', '').trim();
+
         const encodedUriList = textCoder.encode(uriList);
         const encodedPathList = textCoder.encode(pathList);
-
-        let content = '';
-        if (action === 'doCut')
-            content += 'cut\n';
-        else
-            content += 'copy\n';
-
-        if (this.GnomeShellVersion < 40) {
-            content = `x-special/nautilus-clipboard\n${content}${uriList}`.trim();
-            const contentProvider = Gdk.ContentProvider.new_for_bytes('text/plain',
-                textCoder.encode(content));
-            clipboard.set_content(contentProvider);
-            return;
-        }
-
-        content += uriList.replaceAll('\r', '').trim();
 
         const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files',
             textCoder.encode(content));
@@ -2505,11 +2495,13 @@ const DesktopManager = class {
     }
 
     doCopy() {
-        this._manageCutCopy('doCopy');
+        const copy = true;
+        this._manageCutCopy(copy);
     }
 
     doCut() {
-        this._manageCutCopy('doCut');
+        const cut = false;
+        this._manageCutCopy(cut);
     }
 
     doTrash(localDrag = false, event = null) {
