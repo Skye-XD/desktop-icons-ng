@@ -1048,22 +1048,40 @@ const DesktopManager = class {
             filename, dropCoordinates);
     }
 
-    fillDragDataGet(info) {
+    fillDragDataGet(target) {
         const fileList = this.getCurrentSelection();
-        if (fileList === null)
+        if (!fileList)
             return null;
 
-        let data = '';
-        for (let fileItem of fileList) {
-            data += fileItem.uri;
-            if (info === this.Enums.DndTargetInfo.GNOME_ICON_LIST) {
-                let coordinates = fileItem.getCoordinates();
-                if (coordinates !== null)
-                    data += `\r${coordinates[0]}:${coordinates[1]}:${coordinates[2] - coordinates[0] + 1}:${coordinates[3] - coordinates[1] + 1}`;
+        let uriList = '';
+        let pathList = '';
+
+        switch (target) {
+        case this.Enums.DndTargetInfo.GNOME_ICON_LIST:
+            for (let fileItem of fileList) {
+                uriList += fileItem.uri;
+                const coordinates = fileItem.getCoordinates();
+                if (coordinates !== null) {
+                    uriList += `\r
+                        ${coordinates[0]}:
+                        ${coordinates[1]}:
+                        ${coordinates[2] - coordinates[0] + 1}:
+                        ${coordinates[3] - coordinates[1] + 1}`;
+                }
+                uriList += '\r\n';
             }
-            data += '\r\n';
+            return uriList;
+        case this.Enums.DndTargetInfo.DING_ICON_LIST:
+        case this.Enums.DndTargetInfo.TEXT_URI_LIST:
+            uriList = fileList.map(f => f.uri).join('\r\n');
+            uriList += '\r\n';
+            return uriList;
+        case this.Enums.DndTargetInfo.TEXT_PLAIN:
+            pathList = fileList.map(f => f.path).join('n');
+            pathList += '\n';
+            return pathList;
         }
-        return data;
+        return null;
     }
 
     closePopUps() {
@@ -2439,51 +2457,51 @@ const DesktopManager = class {
      * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
      * shared.
      *
-     * To maintain compatibility, we check the current Gnome Shell version and, based on that, we use the
-     * binary or the text clipboards.
+     * To maintain compatibility, in the past, we checked the current Gnome Shell version and, based on that,
+     * set the binary or the text clipboards.
+     *
+     * With the newer versions of gtk4-ding, we only set the binary version and add other composite providers for
+     * the plain text versions like the newer Nautilus/Files.
      */
 
     _manageCutCopy(action) {
         let clipboard = Gdk.Display.get_default().get_clipboard();
-        let content = '';
-        if (this.GnomeShellVersion < 40)
-            content = 'x-special/nautilus-clipboard\n';
+        const textCoder = new TextEncoder();
 
-        if (action === 'doCut')
-            content += 'cut\n';
-        else
-            content += 'copy\n';
+        const uriList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_URI_LIST);
+        const pathList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
+        let content = action ? 'copy\n' : 'cut\n';
+        content += uriList.replaceAll('\r', '').trim();
 
+        const encodedUriList = textCoder.encode(uriList);
+        const encodedPathList = textCoder.encode(pathList);
 
-        let first = true;
-        if (!this.getCurrentSelectionAsUri())
-            return;
+        const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files',
+            textCoder.encode(content));
+        const textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST,
+            encodedUriList);
+        const textListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN,
+            encodedPathList);
+        const textUtf8ListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
+            encodedPathList);
 
-        // eslint-disable-next-line no-unsafe-optional-chaining
-        for (let file of this.getCurrentSelectionAsUri()) {
-            if (!first)
-                content += '\n';
-
-            first = false;
-            content += file;
-        }
-
-        let contentProvider;
-        let textCoder = new TextEncoder();
-        if (this.GnomeShellVersion < 40)
-            contentProvider = Gdk.ContentProvider.new_for_bytes('text/plain', textCoder.encode(content));
-        else
-            contentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files', textCoder.encode(content));
-
-        clipboard.set_content(contentProvider);
+        const clipboardContentProvider = Gdk.ContentProvider.new_union([
+            gnomeContentProvider,
+            textUriListContentProvider,
+            textListContentProvider,
+            textUtf8ListContentProvider,
+        ]);
+        clipboard.set_content(clipboardContentProvider);
     }
 
     doCopy() {
-        this._manageCutCopy('doCopy');
+        const copy = true;
+        this._manageCutCopy(copy);
     }
 
     doCut() {
-        this._manageCutCopy('doCut');
+        const cut = false;
+        this._manageCutCopy(cut);
     }
 
     doTrash(localDrag = false, event = null) {

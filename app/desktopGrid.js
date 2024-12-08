@@ -695,21 +695,46 @@ const DesktopGrid = class {
         this.contentProvider = null;
         const textCoder = new TextEncoder();
 
-        const dingDragData = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.DING_ICON_LIST);
-        if (!dingDragData)
+        const uriList = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.DING_ICON_LIST);
+        if (!uriList)
             return;
 
-        let dingContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.DING_ICON_LIST, textCoder.encode(dingDragData));
+        const encodedUriList = textCoder.encode(uriList);
+
+        const dingContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.DING_ICON_LIST,
+            encodedUriList);
 
         if (this._desktopManager.checkIfSpecialFilesAreSelected()) {
             this.contentProvider = dingContentProvider;
-        } else {
-            const gnomeDragData = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.GNOME_ICON_LIST);
-            const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.GNOME_ICON_LIST, textCoder.encode(gnomeDragData));
-            const textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST, textCoder.encode(dingDragData));
-            const textlistContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN, textCoder.encode(dingDragData));
-            this.contentProvider = Gdk.ContentProvider.new_union([dingContentProvider, gnomeContentProvider, textUriListContentProvider, textlistContentProvider]);
+            return;
         }
+
+        const gnomeUriList = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.GNOME_ICON_LIST);
+        if (!gnomeUriList)
+            return;
+
+        const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.GNOME_ICON_LIST,
+            textCoder.encode(gnomeUriList));
+
+        const textPathList = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
+        if (!textPathList)
+            return;
+        const encodedPathList = textCoder.encode(textPathList);
+
+        const textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST,
+            encodedUriList);
+        const textListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN,
+            encodedPathList);
+        const textUtf8ListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
+            encodedPathList);
+
+        this.contentProvider = Gdk.ContentProvider.new_union([
+            dingContentProvider,
+            gnomeContentProvider,
+            textUriListContentProvider,
+            textListContentProvider,
+            textUtf8ListContentProvider,
+        ]);
     }
 
     // The following code is translated from Nautilus C to Javascript to form the similar stack of items
