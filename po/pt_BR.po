@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-01 22:22-0500\n"
-"PO-Revision-Date: 2024-12-06 22:01+0000\n"
+"PO-Revision-Date: 2024-12-09 15:04+0000\n"
 "Last-Translator: Allan Novaes Lima <lnapublicidade@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -68,9 +68,8 @@ msgid "Files Settings"
 msgstr "Configurações de Arquivos"
 
 #: app/adwPreferencesWindow.js:212
-#, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Configurações compartilhadas com arquivos Gnome"
+msgstr "Configurações compartilhadas com Gnome Files"
 
 #: app/adwPreferencesWindow.js:217
 msgid "Miscellaneous Tweaks"
@@ -122,9 +121,9 @@ msgid "Bottom right corner"
 msgstr "Canto inferior direito"
 
 #: app/adwPreferencesWindow.js:248
-#, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Mostrar a pasta pessoal na área de trabalho"
+msgstr ""
+"Adicionar novos ícones em Monitores Secundários primeiro, se disponíveis"
 
 #: app/adwPreferencesWindow.js:252
 #, fuzzy
@@ -147,19 +146,16 @@ msgid "Show network drives on the desktop"
 msgstr "Mostrar unidades de rede na área de trabalho"
 
 #: app/adwPreferencesWindow.js:268
-#, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Mostrar novos dispositivos no lado oposto da tela"
+msgstr "Adicionar novas unidades no lado oposto da área de trabalho"
 
 #: app/adwPreferencesWindow.js:273
-#, fuzzy
 msgid "Snap icons to grid"
-msgstr "Ícones de pressão para grade"
+msgstr "Alinhar ícones à grade"
 
 #: app/adwPreferencesWindow.js:278
-#, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Destaque a grade de gota"
+msgstr "Destacar local na grade ao mover"
 
 #: app/adwPreferencesWindow.js:285
 #, fuzzy
