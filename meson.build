@@ -3,6 +3,10 @@ project('gtk4-ding',
   license: 'GPL3'
 )
 
+app_id = 'com.desktop.ding'
+extension_id = 'gtk4-ding@smedius.gitlab.com'
+app_dir = 'app'
+
 gnome = import ('gnome')
 i18n = import('i18n')
 
@@ -10,7 +14,7 @@ prefix = get_option('prefix')
 datadir = join_paths (prefix, get_option('datadir'))
 schema_dir = join_paths(datadir, 'glib-2.0', 'schemas')
 
-extensions_dir = join_paths(prefix, 'share', 'gnome-shell', 'extensions', 'gtk4-ding@smedius.gitlab.com')
+extensions_dir = join_paths(prefix, 'share', 'gnome-shell', 'extensions', extension_id)
 
 install_data([
     'dingManager.js',
@@ -25,7 +29,9 @@ install_data([
 )
 
 install_subdir(
-  'app',  install_dir: extensions_dir
+  'app',
+  install_dir: join_paths(extensions_dir, app_dir),
+  strip_directory: true
 )
 
 install_subdir(
@@ -34,6 +40,10 @@ install_subdir(
 
 install_subdir(
   'dependencies',  install_dir: extensions_dir
+)
+
+subdir(
+  'data'
 )
 
 subdir(
