@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/desktop/ding">
+    <file compressed="true" alias='icons/symbolic/apps/prefs-desktop-symbolic.svg'>icons/prefs-desktop-symbolic.svg</file>
+    <file compressed="true" alias='icons/symbolic/apps/prefs-files-symbolic.svg'>icons/prefs-files-symbolic.svg</file>
+    <file compressed="true" alias='icons/symbolic/apps/prefs-files.svg'>icons/prefs-files.svg</file>
+    <file compressed="true" alias='icons/symbolic/apps/prefs-more-symbolic.svg'>icons/prefs-more-symbolic.svg</file>
+    <file compressed="true" alias='icons/symbolic/apps/prefs-desktop.svg'>icons/prefs-desktop.svg</file>
+    <file compressed="true" alias='icons/symbolic/apps/prefs-more.svg'>icons/prefs-more.svg</file>
+    <file compressed="true" alias='icons/symbolic/apps/prefs-tweaks-symbolic.svg'>icons/prefs-tweaks-symbolic.svg</file>
+    <file compressed="true">stylesheet.css</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/ding-app-chooser.ui</file>
+  </gresource>
+</gresources>
