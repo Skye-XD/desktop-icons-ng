@@ -4,13 +4,15 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # Yauhen Bugamol <3abac@3a.by>, 2024.
+# Yauhen <Bugomol@users.noreply.hosted.weblate.org>, 2024.
+# Ding User <dengus@users.noreply.hosted.weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-01 22:22-0500\n"
-"PO-Revision-Date: 2024-12-03 22:00+0000\n"
-"Last-Translator: Yauhen Bugamol <3abac@3a.by>\n"
+"PO-Revision-Date: 2024-12-11 06:17+0000\n"
+"Last-Translator: Ding User <dengus@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -22,9 +24,8 @@ msgstr ""
 "X-Generator: Weblate 5.9-dev\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
-#, fuzzy
 msgid "Desktop"
-msgstr "Камп'ютар"
+msgstr "Працоўны стол"
 
 #: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
 msgid "Files"
@@ -37,12 +38,10 @@ msgid "Tweaks"
 msgstr "Паляпшэнні"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
-#, fuzzy
 msgid "About"
 msgstr "Інфармацыя"
 
 #: app/adwPreferencesWindow.js:201
-#, fuzzy
 msgid "Desktop Settings"
 msgstr "Налады працоўнага стала"
 
@@ -52,14 +51,12 @@ msgid "Settings for the Desktop Program"
 msgstr "Налады праграмы для працоўнага стала"
 
 #: app/adwPreferencesWindow.js:206
-#, fuzzy
 msgid "Volumes"
-msgstr "Гучнасць"
+msgstr "Тамы"
 
 #: app/adwPreferencesWindow.js:207
-#, fuzzy
 msgid "Desktop volumes display"
-msgstr "Дысплей аб'ёмаў працоўнага стала"
+msgstr "Паказ тамоў на працоўным стале"
 
 #: app/adwPreferencesWindow.js:211
 #, fuzzy
@@ -101,22 +98,18 @@ msgid "New icons alignment"
 msgstr "Новае выраўноўванне значкоў"
 
 #: app/adwPreferencesWindow.js:240
-#, fuzzy
 msgid "Top left corner"
 msgstr "Верхні левы вугал"
 
 #: app/adwPreferencesWindow.js:241
-#, fuzzy
 msgid "Top right corner"
 msgstr "Верхні правы вугал"
 
 #: app/adwPreferencesWindow.js:242
-#, fuzzy
 msgid "Bottom left corner"
 msgstr "Ніжні левы вугал"
 
 #: app/adwPreferencesWindow.js:243
-#, fuzzy
 msgid "Bottom right corner"
 msgstr "Ніжні правы вугал"
 
@@ -127,29 +120,24 @@ msgstr ""
 "Спачатку дадайце новыя значкі на дадатковыя маніторы, калі такія маюцца"
 
 #: app/adwPreferencesWindow.js:252
-#, fuzzy
 msgid "Show the personal folder on the desktop"
-msgstr "Паказваць асабістую папку на працоўным стале"
+msgstr "Паказваць на працоўным стале асабістую папку"
 
 #: app/adwPreferencesWindow.js:256
-#, fuzzy
 msgid "Show the trash icon on the desktop"
-msgstr "Паказваць значок сметніцы на працоўным стале"
+msgstr "Паказваць на працоўным стале значок сметніцы"
 
 #: app/adwPreferencesWindow.js:260
-#, fuzzy
 msgid "Show external drives on the desktop"
-msgstr "Паказваць зменныя носьбіты на працоўным стале"
+msgstr "Паказваць на працоўным стале зменныя носьбіты"
 
 #: app/adwPreferencesWindow.js:264
-#, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Паказваць сеткавыя носьбіты на працоўным стале"
+msgstr "Паказваць на працоўным стале сеткавыя носьбіты"
 
 #: app/adwPreferencesWindow.js:268
-#, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Дадаць новыя носьбіты на супрацьлеглы бок экрану"
+msgstr "Дадаваць новыя дыскі на супрацьлеглы бок экрана"
 
 #: app/adwPreferencesWindow.js:273
 msgid "Snap icons to grid"
@@ -161,14 +149,12 @@ msgid "Highlight the drop grid"
 msgstr "Вылучыце сетку падзення падчас перацягвання"
 
 #: app/adwPreferencesWindow.js:285
-#, fuzzy
 msgid "Add an emblem to soft links"
-msgstr "Дадаць эмблему ў праграмныя спасылкі"
+msgstr "Дадаваць да спасылак праграм эмблему"
 
 #: app/adwPreferencesWindow.js:288
-#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Выкарыстоўвайце цёмны тэкст у этыкетках значкоў"
+msgstr "Выкарыстоўваць у подпісах значкоў цёмны тэкст"
 
 #: app/adwPreferencesWindow.js:293
 #, fuzzy
@@ -192,9 +178,8 @@ msgid "Always"
 msgstr "Заўжды"
 
 #: app/adwPreferencesWindow.js:303
-#, fuzzy
 msgid "On this computer only"
-msgstr "Толькі на гэтым кампутары"
+msgstr "Толькі на гэтым камп'ютары"
 
 #: app/adwPreferencesWindow.js:304
 msgid "Never"
@@ -224,9 +209,8 @@ msgid "Visit"
 msgstr "Наведванне"
 
 #: app/adwPreferencesWindow.js:324
-#, fuzzy
 msgid "Issues"
-msgstr "Пытанні"
+msgstr "Праблемы"
 
 #: app/adwPreferencesWindow.js:325
 msgid "Report issues on issue tracker"
@@ -267,9 +251,8 @@ msgid "Open Items"
 msgstr "Адкрытыя элементы"
 
 #: app/appChooser.js:64
-#, fuzzy
 msgid "Open Folder"
-msgstr "Адкрыць каталог"
+msgstr "Адкрыць папку"
 
 #: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
 #, fuzzy
@@ -391,9 +374,8 @@ msgid "Compressing files into '${outputFile}'"
 msgstr "Сцісканне файлаў у \"${outputFile}\""
 
 #: app/autoAr.js:496
-#, fuzzy
 msgid "Compression completed"
-msgstr "Сціск завершаны"
+msgstr "Сцісканне завершана"
 
 #: app/autoAr.js:497
 #, fuzzy
@@ -401,9 +383,8 @@ msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "Сцісканне файлаў у '${outputFile}' было завершана."
 
 #: app/autoAr.js:501 app/autoAr.js:508
-#, fuzzy
 msgid "Cancelled compression"
-msgstr "Адменена сціск"
+msgstr "Сцісканне скасавана"
 
 #: app/autoAr.js:502
 #, fuzzy
@@ -416,17 +397,14 @@ msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "Сцісканне файлаў у '${outputFile}' было адменена карыстальнікам."
 
 #: app/autoAr.js:512
-#, fuzzy
 msgid "Error during compression"
-msgstr "Памылка падчас сціску"
+msgstr "Падчас сціскання ўзнікла памылка"
 
 #: app/autoAr.js:547
-#, fuzzy
 msgid "Create archive"
 msgstr "Стварыць архіў"
 
 #: app/autoAr.js:571
-#, fuzzy
 msgid "Archive name"
 msgstr "Назва архіва"
 
@@ -451,14 +429,13 @@ msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "Абаронены паролем .zip, павінен быць усталяваны на Windows і Mac."
 
 #: app/autoAr.js:700
-#, fuzzy
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Меншыя архівы, але толькі для Linux і Mac."
+msgstr "Архівы меншага памеру, але падтрымліваюцца толькі ў Linux і Mac."
 
 #: app/autoAr.js:706
-#, fuzzy
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Архівы меншага памеру, але павінны быць устаноўлены на Windows і Mac."
+msgstr ""
+"Архівы меншага памеру, але на Windows і Mac патрабуецца ўсталяванне праграмы."
 
 #: app/desktopGrid.js:47
 #, fuzzy
@@ -471,9 +448,10 @@ msgid "GNOME Files not found"
 msgstr "Файлы GNOME не знойдзены"
 
 #: app/desktopManager.js:142
-#, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "Прыкладанне GNOME Files патрабуецца Desktop Icons NG."
+msgstr ""
+"Для працы Gtk4 Desktop Icons NG патрабуецца праграма «Файлы» з асяроддзя "
+"GNOME."
 
 #: app/desktopManager.js:154
 msgid "There is no default File Manager"
@@ -609,9 +587,8 @@ msgid "Select All"
 msgstr "Выбраць усё"
 
 #: app/desktopManager.js:1608
-#, fuzzy
 msgid "Arrange Icons"
-msgstr "Упарадкаваць абразкі"
+msgstr "Упарадкаваць значкі"
 
 #: app/desktopManager.js:1612
 #, fuzzy
@@ -630,9 +607,8 @@ msgid "Open In {0}"
 msgstr "Адкрыць з дапамогай {foo}"
 
 #: app/desktopManager.js:1627
-#, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Налады значкоў працоўнага стала"
+msgstr "Налады Desktop Icons"
 
 #: app/desktopManager.js:1632
 msgid "Shell Menu…"
@@ -906,7 +882,7 @@ msgstr "Скапіраваць у..."
 
 #: app/fileItemMenu.js:394
 msgid "Rename…"
-msgstr "Перайменаваць..."
+msgstr "Перайменаваць…"
 
 #: app/fileItemMenu.js:397
 #, fuzzy
@@ -1049,13 +1025,12 @@ msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:797
-#, fuzzy
 msgid "Archive.zip"
-msgstr "Назва архіва"
+msgstr "Архіў.zip"
 
 #: app/fileItemMenu.js:818
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "Падчас стварэння zip-архіва ўзнікла памылка"
 
 #: app/fileItemMenu.js:831
 msgid "Can not email a Directory"
@@ -1103,19 +1078,17 @@ msgstr "Стэк"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
-#, fuzzy
 msgid "\"${programName}\" is needed for Desktop Icons"
-msgstr "\"${programName}\" патрабуецца для значкоў працоўнага стала"
+msgstr "Для Desktop Icons патрабуецца «${programName}»"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:57
-#, fuzzy
 msgid ""
 "For this functionality to work in Desktop Icons, you must install "
 "\"${programName}\" in your system."
 msgstr ""
-"Каб гэтая функцыя працавала ў значках працоўнага стала, вы павінны "
-"ўсталяваць \"${programName}\" у вашай сістэме."
+"Каб гэта функцыя Desktop Icons працавала, вы павінны ўсталяваць "
+"«${programName}»."
 
 #: app/utils/desktopIconsUtil.js:183
 msgid "Command not found"
@@ -1143,7 +1116,7 @@ msgstr "_Адкрыць"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
-msgstr "Памер значка"
+msgstr "Памер значкоў"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
@@ -1191,7 +1164,7 @@ msgstr "Паказваць прымантаваныя сеткавыя тамы 
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
-msgstr "Дадаць новыя носьбіты на супрацьлеглы бок экрану"
+msgstr "Дадаваць новыя дыскі на супрацьлеглы бок экрана"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
@@ -1219,18 +1192,16 @@ msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Сартаванне спецыяльных тэчак - Галоўная / Сметніца."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-#, fuzzy
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"Пры размяшчэнні значкоў на працоўным стале, каб сартаваць і змяняць пазіцыю "
-"дома, сметніцы і падключаных сеткавых або знешніх дыскаў"
+"Пры сартаванні значкоў на працоўным стале, сартаваць і змяніць пазіцыю "
+"Хатняй папкі, Сметніцы і прымантаваных сеткавых або знешніх дыскаў"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
-#, fuzzy
 msgid "Keep Icons Arranged"
-msgstr "Трымайце абразкі ў парадку"
+msgstr "Захоўваць упарадкаванне"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 #, fuzzy
@@ -1243,19 +1214,16 @@ msgid "Arrange Order"
 msgstr "Арганізуйце парадак"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
-#, fuzzy
 msgid "Icons Arranged by this property"
-msgstr "Значкі, упарадкаваныя гэтай уласнасцю"
+msgstr "Значкі ўпарадкаваны паводле гэтай уласцівасці"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-#, fuzzy
 msgid "Keep Icons Stacked"
-msgstr "Трымайце абразкі ў стос"
+msgstr "Згрупоўванне значкоў"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-#, fuzzy
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Заўсёды захоўвайце значкі ў стосе, падобныя тыпы згрупаваны"
+msgstr "Значкі аднаго тыпу заўсёды згрупаваныя"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, fuzzy
@@ -1268,14 +1236,12 @@ msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "Масіў тыпаў радкоў, не складвайце гэтыя тыпы файлаў"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
 msgid "Add an emblem to links"
-msgstr "Дадаць эмблему да спасылак"
+msgstr "Дадаваць эмблему да спасылак"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, fuzzy
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Дадайце эмблему для ідэнтыфікацыі праграмных спасылак."
+msgstr "Дадаваць эмблему, каб вызначаць спасылкі праграм."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, fuzzy
@@ -1292,21 +1258,20 @@ msgstr ""
 "выкарыстанні светлага фону."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, fuzzy
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Паказаць новыя значкі на неасноўным маніторы, калі ён падключаны"
+msgstr "Паказваць новыя значкі не на асноўным маніторы, калі такі падключаны"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, fuzzy
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
-"Калі падлучаны другі манітор, новыя значкі змяшчаюцца на неасноўным маніторы"
+"Калі падключаны другі манітор, новыя значкі змяшчаюцца не на асноўным "
+"маніторы"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Значкі можна размяшчаць у любым месцы працоўнага стала"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 msgid ""
