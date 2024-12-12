@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, GLib, Gio, GObject, Adw} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, GLib, GObject, Adw} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {AdwPreferencesWindow};
@@ -149,16 +149,13 @@ const ComboRowWithKey = GObject.registerClass({
 });
 
 const AdwPreferencesWindow = class {
-    constructor(desktopSettings, nautilusSettings, gtkSettings, extensionPath,
-        version) {
+    constructor(desktopSettings, nautilusSettings, gtkSettings, version) {
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;
         this.gtkSettings = gtkSettings;
         this.iconTheme = Gtk.IconTheme.get_for_display(
             Gdk.Display.get_default());
-        this.iconPath = GLib.build_filenamev([extensionPath, 'app', 'resources',
-            'icons']);
-        this.iconTheme.add_search_path(this.iconPath);
+        this.iconTheme.add_resource_path('/com/desktop/ding/icons');
         this.version = version;
         this.defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(), 'Desktop']);
     }
