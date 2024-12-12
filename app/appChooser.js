@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, GLib, Adw} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, Adw} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {AppChooserDialog};
@@ -34,8 +34,7 @@ const AppChooserDialog = class {
         this._desktopIconsUtil = desktopIconsUtil;
         this.mimeType = activeFileItem.attributeContentType;
         const appwindow = this._desktopIconsUtil.getApplicationID().get_active_window();
-        let appChooserDialogUiPath = GLib.build_filenamev([codepath, 'app', 'resources', 'ui', 'ding-app-chooser.ui']);
-        this.builderObject = Gtk.Builder.new_from_file(appChooserDialogUiPath);
+        this.builderObject = Gtk.Builder.new_from_resource('/com/desktop/ding/ui/ding-app-chooser.ui');
         this.builderObject.set_translation_domain('gtk4-ding');
         this.appChooserDialog = this.builderObject.get_object('DingAppChooser');
         this.appChooserDialog.set_transient_for(appwindow);
@@ -51,7 +50,8 @@ const AppChooserDialog = class {
         this.appChooserBox.append(this.appChooserWidget);
         this.appChooserWidget.set_vexpand(true);
         if (this.fileName !== null) {
-            let description = _('Choose an application to open <b>{foo}</b>').replace('{foo}', this.fileName);
+            const description = _('Choose an application to open <b>{foo}</b>').replace(
+                '{foo}', this.fileName.replaceAll('&', '&amp;'));
             this.appChooserLabel = this.builderObject.get_object('label_description');
             this.appChooserLabel.set_markup(description);
         }
