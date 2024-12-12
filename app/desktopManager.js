@@ -280,11 +280,7 @@ const DesktopManager = class {
 
     _initLocalCSSprovider() {
         const cssProvider = new Gtk.CssProvider();
-        cssProvider.load_from_file(
-            Gio.File.new_for_path(
-                GLib.build_filenamev(
-                    [this._codePath, 'app', 'resources', 'stylesheet.css']
-                )));
+        cssProvider.load_from_resource('/com/desktop/ding/stylesheet.css');
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             cssProvider,
