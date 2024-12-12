@@ -6,13 +6,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Yevhen Popok <xalt7x.service@gmail.com>, 2024.
+# Andrij Zyniuk <zinukandrij@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-01 22:22-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-12-12 11:48+0000\n"
+"Last-Translator: Yevhen Popok <xalt7x.service@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -38,24 +39,20 @@ msgid "Tweaks"
 msgstr "Налаштування"
 
 #: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
-#, fuzzy
 msgid "About"
-msgstr "Про FreedomBox"
+msgstr "Про програму"
 
 #: app/adwPreferencesWindow.js:201
-#, fuzzy
 msgid "Desktop Settings"
 msgstr "Налаштування робочого столу"
 
 #: app/adwPreferencesWindow.js:202
-#, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Налаштування для настільної програми"
+msgstr "Налаштування робочого столу"
 
 #: app/adwPreferencesWindow.js:206
-#, fuzzy
 msgid "Volumes"
-msgstr "Томи"
+msgstr "Розділи"
 
 #: app/adwPreferencesWindow.js:207
 #, fuzzy
