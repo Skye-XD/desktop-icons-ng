@@ -232,6 +232,8 @@ dingApp.connect('startup', () => {
     Utils.DesktopIconsUtil = new DesktopIconsUtil.DesktopIconsUtil(Data, Utils);
     Utils.DBusUtils = new DBusUtils.DBusUtils(dingApp);
     Utils.ThumbnailLoader = new Thumbnails.ThumbnailLoader(Utils.FileUtils);
+    const resource = Gio.Resource.load(`${codePath}/app/com.desktop.ding.data.gresource`);
+    resource._register();
 });
 
 dingApp.connect('activate', () => {
