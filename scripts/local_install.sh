@@ -3,7 +3,7 @@
 rm -rf ~/.local/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/*
 rm -rf .build
 mkdir .build
-meson setup --prefix=$HOME/.local/ --localedir=share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/locale ./ .build
+meson setup --prefix=$HOME/.local/ ./ .build
 ninja -C .build install
 rm -rf .build
 
