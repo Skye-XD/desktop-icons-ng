@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-01 22:22-0500\n"
-"PO-Revision-Date: 2024-12-11 06:17+0000\n"
-"Last-Translator: Ding User <dengus@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2024-12-14 13:01+0000\n"
+"Last-Translator: Yauhen <Bugomol@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.9-rc\n"
 
 #: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
 msgid "Desktop"
@@ -95,7 +95,7 @@ msgstr "Вялікі"
 
 #: app/adwPreferencesWindow.js:238
 msgid "New icons alignment"
-msgstr "Новае выраўноўванне значкоў"
+msgstr "Выраўноўванне для новых значкоў"
 
 #: app/adwPreferencesWindow.js:240
 msgid "Top left corner"
@@ -163,11 +163,11 @@ msgstr "Дзеянне для адкрыцця элементаў"
 
 #: app/adwPreferencesWindow.js:295
 msgid "Single click"
-msgstr "Адзіночны клік"
+msgstr "Адзінарнае націсканне"
 
 #: app/adwPreferencesWindow.js:296
 msgid "Double click"
-msgstr "Двайны клік"
+msgstr "Падвойнае націсканне"
 
 #: app/adwPreferencesWindow.js:300
 msgid "Show image thumbnails"
@@ -187,7 +187,7 @@ msgstr "Ніколі"
 
 #: app/adwPreferencesWindow.js:308
 msgid "Show a context menu item to delete permanently"
-msgstr "Паказваць пункт \"выдаліць назаўжды\" у кантэкстным меню"
+msgstr "Паказваць у кантэкстным меню пункт «выдаліць незваротна»"
 
 #: app/adwPreferencesWindow.js:312
 msgid "Show hidden files"
@@ -818,9 +818,8 @@ msgid "Launch"
 msgstr "Запуск"
 
 #: app/fileItemMenu.js:323
-#, fuzzy
 msgid "Open with {foo}"
-msgstr "Адкрыць з дапамогай {foo}"
+msgstr "Адкрыць праз {foo}"
 
 #: app/fileItemMenu.js:326
 msgid "Open"
@@ -835,9 +834,8 @@ msgid "Extract To..."
 msgstr "Выняць у..."
 
 #: app/fileItemMenu.js:348 app/fileItemMenu.js:351
-#, fuzzy
 msgid "Open With..."
-msgstr "Адкрыць з..."
+msgstr "Адкрыць праз..."
 
 #: app/fileItemMenu.js:351
 msgid "Open All With Other Application..."
