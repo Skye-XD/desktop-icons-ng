@@ -58,4 +58,9 @@ subdir(
   'apparmor'
 )
 
-meson.add_install_script('scripts/meson_post_install.py')
+if prefix.startswith('/usr')
+    meson.add_install_script(
+        'scripts/reload-apparmor.sh',
+        skip_if_destdir: true
+    )
+endif
