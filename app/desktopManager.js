@@ -317,10 +317,19 @@ const DesktopManager = class {
     }
 
     _monitorDesktopChanges() {
-        this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        const cancellable = new Gio.Cancellable();
+        if (this._monitorDesktopCancellable)
+            this._monitorDesktopCancellable.cancel();
+        this._monitorDesktopCancellable = cancellable;
+        this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, cancellable);
         this._monitorDesktopDir.set_rate_limit(1000);
-        this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
+        const monitorID = this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
             this._updateDesktopIfChanged(file, otherFile, eventType).catch(e => console.error(e)));
+        cancellable.connect(() => {
+            this._monitorDesktopDir.disconnect(monitorID);
+            this._monitorDesktopDir = null;
+            this.monitorDesktopCancellable = null;
+        });
     }
 
     _metadataChanged(proxy, nameOwner, args) {
