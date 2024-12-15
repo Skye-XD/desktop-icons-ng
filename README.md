@@ -135,7 +135,7 @@ It's possible to read more information in the Meson docs to tweak the configurat
 For a regular use and local development these are the steps to build the project and install it:
 
 ```bash
-meson setup --prefix=$HOME/.local/ --localedir=share/gnome-shell/extensions/gtk4-ding@smedius.gilab.com/locale .build
+meson setup --prefix=$HOME/.local/ ./ .build
 ninja -C .build install
 ```
 
@@ -144,7 +144,7 @@ It is strongly recommended to delete the destination folder ($HOME/.local/share/
 For system install:
 
 ```bash
-meson setup --prefix=/usr --localedir=share/locale .build
+meson setup ./ .build
 ninja -C .build install
 ```
 
