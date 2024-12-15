@@ -97,6 +97,7 @@ const DesktopManager = class {
         this._startMonitoringTemplatesDir();
         this._createMenuActionGroup();
         this._updateWritableByOthers().catch(e => console.error(e));
+        this._monitorDesktopDirChanges();
         this._monitorDesktopChanges();
         this.Prefs.init(this);
         this._monitorVolumes();
@@ -314,6 +315,17 @@ const DesktopManager = class {
             this._cssColorProviderSelection,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
+    }
+
+    _monitorDesktopDirChanges() {
+        this._xdgUserDirs = this.DesktopIconsUtil.getXdgUserDirs();
+        this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._monitorXdgUserDirs.set_rate_limit(2000);
+        this._monitorXdgUserDirs.connect('changed', () => {
+            this.desktopDir = this.DesktopIconsUtil.getDesktopDir();
+            this._monitorDesktopChanges();
+            this._updateDesktop();
+        });
     }
 
     _monitorDesktopChanges() {

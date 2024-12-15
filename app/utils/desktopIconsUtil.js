@@ -47,10 +47,15 @@ const DesktopIconsUtil = class {
      * Returns the user desktop directory as a Gio.File
      */
     getDesktopDir() {
-        let desktopPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
+        const desktopPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
         return Gio.File.new_for_commandline_arg(desktopPath);
     }
 
+    getXdgUserDirs() {
+        const xdgUserDirspath = GLib.build_filenamev([GLib.get_user_config_dir(),
+            this.Enums.XDG_USER_DIRS]);
+        return Gio.File.new_for_commandline_arg(xdgUserDirspath);
+    }
 
     /**
      *
