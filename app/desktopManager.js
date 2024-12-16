@@ -119,15 +119,19 @@ const DesktopManager = class {
 
         // setup gracefull termination
         if (this._asDesktop) {
-            this._sigtermID = GLibUnix.signal_add_full(GLib.PRIORITY_DEFAULT, 15, () => {
-                GLib.source_remove(this._sigtermID);
-                this.terminateProgram();
-                if (this._hold_active) {
-                    this.mainApp.release();
-                    this._hold_active = false;
+            this._sigtermID = GLibUnix.signal_add_full(
+                GLib.PRIORITY_DEFAULT,
+                15,
+                () => {
+                    GLib.source_remove(this._sigtermID);
+                    this.terminateProgram();
+                    if (this._hold_active) {
+                        this.mainApp.release();
+                        this._hold_active = false;
+                    }
+                    return false;
                 }
-                return false;
-            });
+            );
         }
     }
 
