@@ -197,7 +197,19 @@ const DesktopManager = class {
     }
 
     terminateProgram() {
-        if (this._allFileList && (this._allFileList.length > 0)) {
+        this._monitorDesktopCancellable.cancel();
+
+        if (this._dbusConnectionGroupId)
+            this._connection.unexport_action_group(this._dbusConnectionGroupId);
+
+        if (this._dbusGeometryIface)
+            this._dbusGeometryIface.unexport();
+
+        this._forcedExit = true;
+        if (this._desktopEnumerateCancellable)
+            this._desktopEnumerateCancellable.cancel();
+
+        if (this._allFileList && this._allFileList.length) {
             this._fileList.forEach(f => {
                 if (f.isStackMarker)
                     f.onDestroy();
@@ -206,18 +218,12 @@ const DesktopManager = class {
         } else {
             this._fileList.forEach(f => f.onDestroy());
         }
+
         for (let desktop of this._desktops)
             desktop.destroy();
-
         this._desktops = [];
-        this._forcedExit = true;
-        if (this._desktopEnumerateCancellable)
-            this._desktopEnumerateCancellable.cancel();
 
         this.fileItemMenu.destroy();
-
-        if (this.thumbnailApp)
-            this.thumbnailApp.send_signal(15);
     }
 
     _startMonitoringTemplatesDir() {
@@ -410,8 +416,8 @@ const DesktopManager = class {
                     </signal>
                   </interface>
                 </node>`;
-            let geometryIface = Gio.DBusExportedObject.wrapJSObject(signalXml, this);
-            geometryIface.export(this._connection, `${this._busname}/geometrycontrol`);
+            this._dbusGeometryIface = Gio.DBusExportedObject.wrapJSObject(signalXml, this);
+            this._dbusGeometryIface.export(this._connection, `${this._busname}/geometrycontrol`);
             this._requestGeometryUpdate();
         }
     }

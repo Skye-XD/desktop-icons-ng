@@ -66,7 +66,8 @@ const FileItemMenu = class {
     }
 
     destroy() {
-        this.DBusUtils.RemoteFileOperations.gnomeArchiveManager.disconnect(this.archiveConnectionId);
+        if (this.archiveConnectionId)
+            this.DBusUtils.RemoteFileOperations.gnomeArchiveManager.disconnect(this.archiveConnectionId);
         this.archiveConnectionId = 0;
     }
 
