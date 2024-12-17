@@ -142,7 +142,7 @@ This is easily configurable to display any arbitrary user readable and writable 
 
 gtk4-ding uses the GLib call GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP) to set the desktop directory to display. On UNIX this is done using the XDG special user directories. For compatibility with existing practise, G_USER_DIRECTORY_DESKTOP falls back to $HOME/Desktop when XDG special user directories have not been set up - and that is why the default is always $HOME/Desktop.
 
-However most linux distributions have xdg-user-dirs installed, this runs a user service xdg-user-dirs-update.service on login that sets up the desktop directory. The system configuration for this is in /etc/xdg/user-dirs.defaults, and is overridden by the user configuration file in ~/.config/user/user-dirs.dirs. These files can be edited to show any arbitrary "Desktop" directory, or use the xdg-user-dirs-update command to set the "Desktop" folder. More information on [Archwiki](https://wiki.archlinux.org/title/XDG_user_directories).
+However most linux distributions have xdg-user-dirs installed, this runs a user service xdg-user-dirs-update.service on login that sets up the desktop directory. The system configuration for this is in /etc/xdg/user-dirs.defaults, and is overridden by the user configuration file in ~/.config/user-dirs.dirs. These files can be edited to show any arbitrary "Desktop" directory, or use the xdg-user-dirs-update command to set the "Desktop" folder. More information on [Archwiki](https://wiki.archlinux.org/title/XDG_user_directories).
 
 If xdg-user-dirs is installed, any changes made are picked up by GLib, and the GLib.get_user_special_dir(..) will now point to the new "Desktop" directory. gtk4-ding will pick this up on the next login.
 
