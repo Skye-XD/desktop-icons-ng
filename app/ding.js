@@ -243,6 +243,15 @@ dingApp.connect('activate', () => {
             asDesktop,
             primaryIndex
         );
+    } else {
+        desktopManager.terminateProgram();
+        desktopManager = new DesktopManager.DesktopManager(Data,
+            Utils,
+            desktops,
+            codePath,
+            asDesktop,
+            primaryIndex
+        );
     }
 });
 
