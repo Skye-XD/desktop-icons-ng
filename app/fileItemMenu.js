@@ -23,6 +23,7 @@ export {FileItemMenu};
 const FileItemMenu = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
+        this._desktopDir = desktopManager.desktopDir;
         this._codePath = this._desktopManager._codePath;
         this.appChooser = this._desktopManager.appChooser;
         this._mainApp = this._desktopManager.mainApp;
@@ -566,7 +567,7 @@ const FileItemMenu = class {
         if (!this.activeFileItem)
             return;
 
-        this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(),
+        this.DesktopIconsUtil.trySpawn(this._desktopDir.get_path(),
             [this.activeFileItem.path], null);
     }
 
@@ -661,7 +662,7 @@ const FileItemMenu = class {
                 title: dialogTitle,
                 accept_label: selectionText,
                 modal: true,
-                initial_folder: this.DesktopIconsUtil.getDesktopDir(),
+                initial_folder: this._desktopDir,
             });
             dialog.select_folder(window, null, (actor, gioasyncresponse) => {
                 let folder;
@@ -690,7 +691,7 @@ const FileItemMenu = class {
             const dialog = new Gtk.FileChooserDialog({title: dialogTitle});
             dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
             dialog.set_create_folders(true);
-            dialog.set_current_folder(this.DesktopIconsUtil.getDesktopDir());
+            dialog.set_current_folder(this._desktopDir);
             dialog.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
             dialog.add_button(selectionText, Gtk.ResponseType.ACCEPT);
             dialog.set_transient_for(window);
@@ -829,7 +830,7 @@ const FileItemMenu = class {
         try {
             const async = false;
             const env = null;
-            const workdir = this.DesktopIconsUtil.getDesktopDir().get_path();
+            const workdir = this._desktopDir.get_path();
             const relativePathArray = pathnameArray.map(f => GLib.path_get_basename(f));
             this.DesktopIconsUtil.trySpawn(workdir, args.concat(relativePathArray), env, async);
         } catch (e) {
@@ -867,7 +868,7 @@ const FileItemMenu = class {
     }
 
     _doCompressFilesFromSelection() {
-        const desktopFolder = this.DesktopIconsUtil.getDesktopDir();
+        const desktopFolder = this._desktopDir;
         if (!desktopFolder)
             return;
 
@@ -908,7 +909,7 @@ const FileItemMenu = class {
         if (!toLink || this._desktopManager.checkIfSpecialFilesAreSelected())
             return;
 
-        const desktopFolder = this.DesktopIconsUtil.getDesktopDir();
+        const desktopFolder = this._desktopDir;
         const [X, Y] = this.activeFileItem.getCoordinates().slice(0, 2);
         this._desktopManager.makeLinks(toLink, desktopFolder.get_uri(), X, Y);
     }
@@ -916,7 +917,7 @@ const FileItemMenu = class {
     _onScriptClicked(menuItemPath) {
         let pathList = 'NAUTILUS_SCRIPT_SELECTED_FILE_PATHS=';
         let uriList = 'NAUTILUS_SCRIPT_SELECTED_URIS=';
-        let currentUri = `NAUTILUS_SCRIPT_CURRENT_URI=${this.DesktopIconsUtil.getDesktopDir().get_uri()}`;
+        let currentUri = `NAUTILUS_SCRIPT_CURRENT_URI=${this._desktopDir.get_uri()}`;
         let params = [menuItemPath];
         for (let item of this._desktopManager.getCurrentSelection()) {
             if (!item.isSpecial) {
@@ -934,7 +935,7 @@ const FileItemMenu = class {
     }
 
     launchTerminal(fileItemPath = null, commandLine = null) {
-        let workingdir = fileItemPath ? fileItemPath : this.DesktopIconsUtil.getDesktopDir().get_path();
+        let workingdir = fileItemPath ? fileItemPath : this._desktopDir.get_path();
         const xdgTerminalExec = GLib.find_program_in_path(this._Enums.XDG_TERMINAL_EXEC);
         let success = false;
 

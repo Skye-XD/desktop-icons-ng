@@ -2687,7 +2687,7 @@ const DesktopManager = class {
         let newName = this.getDesktopUniqueFileName(baseName);
 
         if (newName) {
-            const dir = this.DesktopIconsUtil.getDesktopDir().get_child(newName);
+            const dir = this._desktopDir.get_child(newName);
             try {
                 await dir.make_directory_async(GLib.PRIORITY_DEFAULT, null);
 
@@ -2733,7 +2733,7 @@ const DesktopManager = class {
 
         const file = Gio.File.new_for_path(template);
         const finalName = this.getDesktopUniqueFileName(file.get_basename());
-        const destination = this.DesktopIconsUtil.getDesktopDir().get_child(finalName);
+        const destination = this._desktopDir.get_child(finalName);
 
         try {
             await file.copy(destination, Gio.FileCopyFlags.NONE, null, null);
@@ -3382,5 +3382,9 @@ const DesktopManager = class {
     onGtkThemeChange() {
         Gtk.StyleContext.remove_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection);
         this._configureSelectionColor();
+    }
+
+    get desktopDir() {
+        return this._desktopDir;
     }
 };
