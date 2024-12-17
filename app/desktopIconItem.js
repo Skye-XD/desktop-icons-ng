@@ -32,7 +32,6 @@ GdkPixbuf.Pixbuf.get_formats().forEach(f => PIXBUF_CONTENT_TYPES.add(...f.get_mi
 const DesktopIconItem = class {
     constructor(desktopManager, fileExtra) {
         this._desktopManager = desktopManager;
-        this._desktopDir = desktopManager.desktopDir;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
         this.FileUtils = desktopManager.FileUtils;
         this.Prefs = desktopManager.Prefs;
@@ -651,6 +650,10 @@ const DesktopIconItem = class {
     /** *********************
      * Getters and setters *
      ***********************/
+
+    get _desktopDir() {
+        return this._desktopManager.desktopDir;
+    }
 
     get state() {
         return this._state;

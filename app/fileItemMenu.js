@@ -23,7 +23,6 @@ export {FileItemMenu};
 const FileItemMenu = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
-        this._desktopDir = desktopManager.desktopDir;
         this._codePath = this._desktopManager._codePath;
         this.appChooser = this._desktopManager.appChooser;
         this._mainApp = this._desktopManager.mainApp;
@@ -991,5 +990,9 @@ const FileItemMenu = class {
 
     _textEntryAccelsTurnOn() {
         this._desktopManager.textEntryAccelsTurnOn();
+    }
+
+    get _desktopDir() {
+        return this._desktopManager.desktopDir;
     }
 };
