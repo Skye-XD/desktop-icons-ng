@@ -328,6 +328,9 @@ const DesktopManager = class {
         this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(Gio.FileMonitorFlags.WATCH_MOVES, null);
         this._monitorXdgUserDirs.set_rate_limit(2000);
         this._monitorXdgUserDirs.connect('changed', () => {
+            const newDesktopDir = this.DesktopIconsUtil.getDesktopDir();
+            if (newDesktopDir.get_path() === this._desktopDir.get_path())
+                return;
             this.mainApp.activate();
         });
     }
