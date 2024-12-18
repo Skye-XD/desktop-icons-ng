@@ -2750,7 +2750,10 @@ const DesktopManager = class {
                     console.error(e, `Failed to set attributes to ${dir.get_path()}`);
                 }
             } catch (e) {
-                console.error(e, `Failed to create folder ${e.message}`);
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                    this._performSanityChecks();
+                else
+                    console.error(e, `Failed to create folder ${e.message}`);
                 const header = _('Folder Creation Failed');
                 const text = _('Could not create folder');
                 this.dbusManager.doNotify(header, text);
@@ -2794,7 +2797,10 @@ const DesktopManager = class {
                 console.error(e, `Failed to set template metadata ${e.message}`);
             }
         } catch (e) {
-            console.error(e, `Failed to create template ${e.message}`);
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                this._performSanityChecks();
+            else
+                console.error(e, `Failed to create template ${e.message}`);
             const header = _('Template Creation Error');
             const text = _('Could not create document');
             this.dbusManager.doNotify(header, text);
