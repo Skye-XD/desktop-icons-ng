@@ -31,6 +31,7 @@ const DEFAULT_QUERY_ATTRIBUTES = [
  * @param priority
  * @param queryAttributes
  */
+// eslint-disable-next-line consistent-return
 export async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DEFAULT,
     queryAttributes = DEFAULT_QUERY_ATTRIBUTES) {
     let childrenEnumerator;

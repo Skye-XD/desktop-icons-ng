@@ -148,7 +148,7 @@ const DesktopManager = class {
             const dontShow = true;
             const errorWindow = this.showError(
                 _('Can Not Show the Desktop'),
-                _('The Desktop folder does not exist, or is not a Directory'),
+                _(`The Desktop folder ${this._desktopDir.get_path()} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder`),
                 modal,
                 helpURL,
                 dontShow
@@ -1495,7 +1495,7 @@ const DesktopManager = class {
         this.mainApp.set_accels_for_action('app.selectAll', ['<Control>A']);
 
         let showDesktopInFiles = Gio.SimpleAction.new('showDesktopInFiles', null);
-        showDesktopInFiles.connect('activate', this._onOpenDesktopInFilesClicked.bind(this));
+        showDesktopInFiles.connect('activate', () => this._onOpenDesktopInFilesClicked().catch(e => logError(e)));
         this.mainApp.add_action(showDesktopInFiles);
 
         let openInTerminal = Gio.SimpleAction.new('openInTerminal', null);
@@ -1728,6 +1728,12 @@ const DesktopManager = class {
             await Gio.AppInfo.launch_default_for_uri_async(
                 this._desktopDir.get_uri(), context, null);
         } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
+                const header = _('Unable to open Desktop in Gnome Files');
+                const text = _(`Desktop Folder ${this._desktopDir.get_path()} does not exist`);
+                this.dbusManager.doNotify(header, text);
+                return;
+            }
             console.error(e, `Error opening desktop in GNOME Files: ${e.message}`);
         }
     }

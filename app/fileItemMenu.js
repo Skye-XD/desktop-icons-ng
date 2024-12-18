@@ -935,6 +935,12 @@ const FileItemMenu = class {
 
     launchTerminal(fileItemPath = null, commandLine = null) {
         let workingdir = fileItemPath ? fileItemPath : this._desktopDir.get_path();
+        if (!GLib.file_test(workingdir, GLib.FileTest.EXISTS)) {
+            const header = _('Can Not open the Working Directory');
+            const text = _(`${workingdir} does not exist`);
+            this._desktopManager.dbusManager.doNotify(header, text);
+            return;
+        }
         const xdgTerminalExec = GLib.find_program_in_path(this._Enums.XDG_TERMINAL_EXEC);
         let success = false;
 
