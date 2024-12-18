@@ -170,6 +170,10 @@ const DesktopGrid = class {
         this._updateGridRectangle();
     }
 
+    setErrorState() {
+        this._window.set_name('errorstate');
+    }
+
     // Establish and update window geometry, establish and update grid for the desktop icons
 
     updateGridDescription(desktopDescription) {

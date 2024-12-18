@@ -154,6 +154,7 @@ const DesktopManager = class {
                 dontShow
             );
             await errorWindow.run();
+            this._desktops.forEach(d => d.setErrorState());
         }
 
         const inodeHandlers = Gio.AppInfo.get_all_for_type('inode/directory');

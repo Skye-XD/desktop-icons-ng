@@ -57,6 +57,11 @@ box > #file-item.desktop-icons-selected {
     border-radius: 0px;
 }
 
+#errorstate.background {
+    background-color: alpha(red, 0.3);
+    border-radius: 0px;
+}
+
 #testwindow.background{
     background-color: black;
     border-radius: 0px;
