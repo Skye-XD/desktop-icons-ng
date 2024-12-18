@@ -110,13 +110,15 @@ const DesktopManager = class {
         this._intDBusSignalMonitoring();
         this._dbusAdvertiseUpdate();
 
+        // Check and make sure that there is a 'Desktop' folder set and it exists
+        // Check if Gnome Files is available and executable, otherwise give warning
+        // Check and make sure Gnome Files is registered with xdg-utils to handle inode/directory
+        this._performSanityChecks().catch(e => logError(e));
+
         this._updateDesktop().catch(e => {
             console.log(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
         });
 
-        // Check if Gnome Files is available and executable, otherwise give warning
-        // Check and make sure Gnome Files is registered with xdg-utils to handle inode/directory
-        this._performSanityChecks();
 
         // setup gracefull termination
         if (this._asDesktop) {
@@ -137,6 +139,23 @@ const DesktopManager = class {
     }
 
     async _performSanityChecks() {
+        const isFolder = this._desktopDir.query_file_type(
+            Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+            null) === Gio.FileType.DIRECTORY;
+        if (!isFolder) {
+            const modal = true;
+            const helpURL = null;
+            const dontShow = true;
+            const errorWindow = this.showError(
+                _('Can Not Show the Desktop'),
+                _('The Desktop folder does not exist, or is not a Directory'),
+                modal,
+                helpURL,
+                dontShow
+            );
+            await errorWindow.run();
+        }
+
         const inodeHandlers = Gio.AppInfo.get_all_for_type('inode/directory');
         if (!GLib.find_program_in_path('nautilus')) {
             const modal = true;
@@ -151,6 +170,7 @@ const DesktopManager = class {
             );
             await errorWindow.run();
         }
+
         if (!inodeHandlers.length) {
             const modal = true;
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
@@ -164,6 +184,7 @@ const DesktopManager = class {
             );
             await errorWindow.run();
         }
+
         if (!inodeHandlers.map(a => a.get_id()).includes('org.gnome.Nautilus.desktop')) {
             const modal = true;
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
@@ -325,10 +346,16 @@ const DesktopManager = class {
 
     _monitorDesktopDirChanges() {
         this._xdgUserDirs = this.DesktopIconsUtil.getXdgUserDirs();
-        this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(
+            Gio.FileMonitorFlags.WATCH_MOVES, null);
         this._monitorXdgUserDirs.set_rate_limit(2000);
         this._monitorXdgUserDirs.connect('changed', () => {
             const newDesktopDir = this.DesktopIconsUtil.getDesktopDir();
+            const isFolder = newDesktopDir.query_file_type(
+                Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                null) === Gio.FileType.DIRECTORY;
+            if (!isFolder)
+                return;
             if (newDesktopDir.get_path() === this._desktopDir.get_path())
                 return;
             this.mainApp.activate();
@@ -2068,7 +2095,7 @@ const DesktopManager = class {
                 const childrenInfo = await this.FileUtils.enumerateDir(this._desktopDir,
                     cancellable, GLib.PRIORITY_DEFAULT, this.Enums.DEFAULT_ATTRIBUTES);
 
-                childrenInfo.forEach(info => {
+                childrenInfo?.forEach(info => {
                     const fileItem = new FileItem.FileItem(this,
                         this._desktopDir.get_child(info.get_name()),
                         info,
@@ -2414,18 +2441,26 @@ const DesktopManager = class {
     }
 
     async _updateWritableByOthers() {
-        const info = await this._desktopDir.query_info_async(Gio.FILE_ATTRIBUTE_UNIX_MODE,
-            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
-        this.unixMode = info.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
-        let writableByOthers = (this.unixMode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
-        if (writableByOthers !== this.writableByOthers) {
-            this.writableByOthers = writableByOthers;
-            if (this.writableByOthers)
-                console.log('desktop-icons: The desktop is writable by others. Not allowing launching any desktop files.');
+        try {
+            const info = await this._desktopDir.query_info_async(Gio.FILE_ATTRIBUTE_UNIX_MODE,
+                Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
+            this.unixMode = info.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
+            let writableByOthers = (this.unixMode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
+            if (writableByOthers !== this.writableByOthers) {
+                this.writableByOthers = writableByOthers;
+                if (this.writableByOthers)
+                    console.log('desktop-icons: The desktop is writable by others. Not allowing launching any desktop files.');
 
-            return true;
-        } else {
-            return false;
+                return true;
+            } else {
+                return false;
+            }
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
+                this.writableByOthers = true;
+                return true;
+            }
+            throw e;
         }
     }
 
