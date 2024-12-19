@@ -381,7 +381,11 @@ const DesktopManager = class {
                 const text = _('Switching to new Desktop...');
                 this.dbusManager.doNotify(header, text);
 
-                this.mainApp.activate();
+                this._desktopDir = newDesktopDir;
+                this._updateWritableByOthers().catch(e => console.error(e));
+                this._monitorDesktopChanges();
+                this._desktops.forEach(d => d.unsetErrorState());
+                this._updateDesktop().catch(e => console.error(e));
                 this._changingDesktopDirID = null;
                 return GLib.SOURCE_REMOVE;
             });
