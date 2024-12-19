@@ -350,16 +350,41 @@ const DesktopManager = class {
         this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(
             Gio.FileMonitorFlags.WATCH_MOVES, null);
         this._monitorXdgUserDirs.set_rate_limit(2000);
-        this._monitorXdgUserDirs.connect('changed', () => {
-            const newDesktopDir = this.DesktopIconsUtil.getDesktopDir();
-            const isFolder = newDesktopDir.query_file_type(
-                Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
-                null) === Gio.FileType.DIRECTORY;
-            if (!isFolder)
+        this._monitorXdgUserDirs.connect('changed', (obj, file, otherFile, event) => {
+            if (!(event === Gio.FileMonitorEvent.CHANGES_DONE_HINT ||
+                event === Gio.FileMonitorEvent.RENAMED))
                 return;
-            if (newDesktopDir.get_path() === this._desktopDir.get_path())
-                return;
-            this.mainApp.activate();
+
+            if (this._changingDesktopDirID)
+                GLib.source_remove(this._changingDesktopDirID);
+
+            this._changingDesktopDirID = GLib.timeout_add(GLib.PRIORITY_LOW, 500, () => {
+                const newDesktopDir = this.DesktopIconsUtil.getDesktopDir();
+                const isFolder = newDesktopDir.query_file_type(
+                    Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                    null) === Gio.FileType.DIRECTORY;
+
+                if (!isFolder) {
+                    const header = _('Desktop Folder Change Failed');
+                    const text = _('The new Desktop Folder does not exist!');
+                    this.dbusManager.doNotify(header, text);
+                    this._changingDesktopDirID = null;
+                    return GLib.SOURCE_REMOVE;
+                }
+
+                if (newDesktopDir.get_path() === this._desktopDir.get_path()) {
+                    this._changingDesktopDirID = null;
+                    return GLib.SOURCE_REMOVE;
+                }
+
+                const header = _('Desktop Folder Changed');
+                const text = _('Switching to new Desktop...');
+                this.dbusManager.doNotify(header, text);
+
+                this.mainApp.activate();
+                this._changingDesktopDirID = null;
+                return GLib.SOURCE_REMOVE;
+            });
         });
     }
 
