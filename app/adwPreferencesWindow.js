@@ -160,6 +160,7 @@ const AdwPreferencesWindow = class {
             'icons']);
         this.iconTheme.add_search_path(this.iconPath);
         this.version = version;
+        this.defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(), 'Desktop']);
     }
 
     getAdwPreferencesWindow(window = null) {
@@ -170,6 +171,7 @@ const AdwPreferencesWindow = class {
             prefsWindow = new Adw.PreferencesWindow();
         prefsWindow.set_can_navigate_back(true);
         prefsWindow.set_search_enabled(true);
+        this.prefsWindow = prefsWindow;
 
         const prefsFrame = new Adw.PreferencesPage();
         prefsFrame.set_name(_('Desktop'));
@@ -287,6 +289,18 @@ const AdwPreferencesWindow = class {
             'dark-text-in-labels',
             _('Use dark text in icon labels')
         ));
+        tweaksGroup.add(this.addActionRowButton(_('New Desktop Folder'),
+            _('Set a new folder for the desktop'),
+            _('Choose'),
+            this.chooseDesktopFolder.bind(this)
+        ));
+        this.defaultDesktopRow = this.addActionRowButton(_('Restore Default Desktop Folder'),
+            _('Set Desktop back to $HOME/Desktop'),
+            _('Restore'),
+            this.restoreDefaultDesktopFolder.bind(this)
+        );
+        tweaksGroup.add(this.defaultDesktopRow);
+        this.defaultDesktopRow.set_sensitive(!this.isDefault());
 
         filesGroup.add(this.addActionRowSelector(this.nautilusSettings,
             'click-policy',
@@ -420,6 +434,51 @@ const AdwPreferencesWindow = class {
         const translationUri =
         'https://hosted.weblate.org/engage/gtk4-desktop-icons-ng';
         this.launchUri(translationUri);
+    }
+
+    chooseDesktopFolder() {
+        const dialog = new Gtk.FileDialog();
+        dialog.set_title(_('Choose Desktop Folder'));
+        dialog.set_accept_label(_('Choose'));
+        dialog.set_modal(true);
+        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
+        dialog.select_folder(this.prefsWindow, null, this.finishChooseDesktopFolder.bind(this));
+    }
+
+    finishChooseDesktopFolder(dialog, asyncResult) {
+        const folder = dialog.select_folder_finish(asyncResult);
+        if (folder)
+            this.setDesktopFolder(folder.get_path());
+        this.defaultDesktopRow.set_sensitive(!this.isDefault());
+    }
+
+    setDesktopFolder(path) {
+        const command = 'xdg-user-dirs-update --set DESKTOP';
+        try {
+            GLib.spawn_command_line_async(
+                `${command} '${path}'`);
+        } catch (e) {
+            console.error(`Error setting desktop folder ${path}: ${e}`);
+        }
+    }
+
+    restoreDefaultDesktopFolder() {
+        this.setDesktopFolder(this.defaultDesktop);
+        this.defaultDesktopRow.set_sensitive(!this.isDefault());
+    }
+
+    isDefault() {
+        return this.getCurrentDesktopFolder() === this.defaultDesktop;
+    }
+
+    getCurrentDesktopFolder() {
+        const command = 'xdg-user-dir DESKTOP';
+        const decoder = new TextDecoder();
+        const [, out,, status] = GLib.spawn_command_line_sync(command);
+        if (status === 0)
+            return decoder.decode(out).trim();
+        else
+            return null;
     }
 };
 
