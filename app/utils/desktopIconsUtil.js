@@ -68,6 +68,27 @@ const DesktopIconsUtil = class {
         return Gio.File.new_for_commandline_arg(desktopPath);
     }
 
+    writeXdgUserDirsDesktopFile(path) {
+        const userDirsGioFile = this.getXdgUserDirs();
+        if (path.startsWith(GLib.get_home_dir()))
+            path = path.replace(GLib.get_home_dir(), '$HOME');
+        const newline = `XDG_DESKTOP_DIR="${path}"`;
+        try {
+            const decoder = new TextDecoder();
+            const contents = decoder.decode(GLib.file_get_contents(userDirsGioFile.get_path())[1]).trim();
+            const lineArray = contents.split('\n');
+            const newArray = lineArray.map(l => {
+                if (l.startsWith('XDG_DESKTOP_DIR='))
+                    return newline;
+                return l;
+            });
+            const newContents = newArray.join('\n');
+            this.replaceFileContentsAsync(userDirsGioFile, newContents, null);
+        } catch (e) {
+            console.error(e, `Failed to write XDG Desktop file with ${e}`);
+        }
+    }
+
     /**
      *
      * Returns the user config user-dirs.dirs as a Gio.File

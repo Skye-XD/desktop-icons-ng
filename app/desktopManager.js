@@ -3362,24 +3362,14 @@ const DesktopManager = class {
     _finishChooseDesktopFolder(dialog, asyncResult) {
         const folder = dialog.select_folder_finish(asyncResult);
         if (folder)
-            this._setDesktopFolder(folder.get_path());
+            this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(folder.get_path());
         this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
-    }
-
-    _setDesktopFolder(path) {
-        const command = 'xdg-user-dirs-update --set DESKTOP';
-        try {
-            GLib.spawn_command_line_async(
-                `${command} '${path}'`);
-        } catch (e) {
-            console.error(`Error setting desktop folder ${path}: ${e}`);
-        }
     }
 
     _restoreDefaultDesktop() {
         const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
             'Desktop']);
-        this._setDesktopFolder(defaultDesktop);
+        this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(defaultDesktop);
         this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
     }
 
