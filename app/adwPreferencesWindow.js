@@ -204,10 +204,13 @@ const AdwPreferencesWindow = class {
         desktopGroup.set_description(_('Settings for the Desktop Program'));
         prefsFrame.add(desktopGroup);
 
-        const volumesGroup = new Adw.PreferencesGroup();
-        volumesGroup.set_title(_('Volumes'));
-        volumesGroup.set_description(_('Desktop volumes display'));
-        prefsFrame.add(volumesGroup);
+        this.desktopFolderGroup = new Adw.PreferencesGroup();
+        this.desktopFolderGroup.set_title(_('Desktop Folder'));
+        this.FolderGroupDescription = _('Current Desktop: ');
+        this.desktopFolderGroup.set_description(
+            `${this.FolderGroupDescription} ${this.getCurrentDesktopFolder()}`
+        );
+        prefsFrame.add(this.desktopFolderGroup);
 
         const filesGroup = new Adw.PreferencesGroup();
         filesGroup.set_title(_('Files Settings'));
@@ -249,28 +252,7 @@ const AdwPreferencesWindow = class {
             'show-second-monitor',
             _('Add new icons to Secondary Monitors first, if available')));
 
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-home',
-            _('Show the personal folder on the desktop')
-        ));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-trash',
-            _('Show the trash icon on the desktop')
-        ));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-volumes',
-            _('Show external drives on the desktop')
-        ));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-network-volumes',
-            _('Show network drives on the desktop')
-        ));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'add-volumes-opposite',
-            _('Add new drives to the opposite side of the desktop')
-        ));
-
-        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+        desktopGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'free-position-icons',
             _('Snap icons to grid'),
             Gio.SettingsBindFlags.INVERT_BOOLEAN
@@ -281,15 +263,8 @@ const AdwPreferencesWindow = class {
         this.desktopSettings.bind('free-position-icons', dropPlaceRow,
             'sensitive',
             Gio.SettingsBindFlags.INVERT_BOOLEAN);
-        tweaksGroup.add(dropPlaceRow);
-        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-link-emblem',
-            _('Add an emblem to soft links')));
-        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'dark-text-in-labels',
-            _('Use dark text in icon labels')
-        ));
-        tweaksGroup.add(this.addActionRowButton(_('New Desktop Folder'),
+        desktopGroup.add(dropPlaceRow);
+        this.desktopFolderGroup.add(this.addActionRowButton(_('New Desktop Folder'),
             _('Set a new folder for the desktop'),
             _('Choose'),
             this.chooseDesktopFolder.bind(this)
@@ -299,8 +274,38 @@ const AdwPreferencesWindow = class {
             _('Restore'),
             this.restoreDefaultDesktopFolder.bind(this)
         );
-        tweaksGroup.add(this.defaultDesktopRow);
+        this.desktopFolderGroup.add(this.defaultDesktopRow);
         this.defaultDesktopRow.set_sensitive(!this.isDefault());
+
+
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-link-emblem',
+            _('Add an emblem to soft links')));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'dark-text-in-labels',
+            _('Use dark text in icon labels')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-home',
+            _('Show the personal folder on the desktop')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-trash',
+            _('Show the trash icon on the desktop')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-volumes',
+            _('Show external drives on the desktop')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-network-volumes',
+            _('Show network drives on the desktop')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'add-volumes-opposite',
+            _('Add new drives to the opposite side of the desktop')
+        ));
+
 
         filesGroup.add(this.addActionRowSelector(this.nautilusSettings,
             'click-policy',
@@ -349,6 +354,8 @@ const AdwPreferencesWindow = class {
             _('Translate'),
             this.launchWebTranslation.bind(this)
         ));
+
+        prefsWindow.set_default_size(600, 650);
 
         if (!window)
             return prefsWindow;
@@ -450,6 +457,9 @@ const AdwPreferencesWindow = class {
         if (folder)
             this.setDesktopFolder(folder.get_path());
         this.defaultDesktopRow.set_sensitive(!this.isDefault());
+        this.desktopFolderGroup.set_description(
+            `${this.FolderGroupDescription} ${folder.get_path()}`
+        );
     }
 
     setDesktopFolder(path) {
@@ -465,6 +475,9 @@ const AdwPreferencesWindow = class {
     restoreDefaultDesktopFolder() {
         this.setDesktopFolder(this.defaultDesktop);
         this.defaultDesktopRow.set_sensitive(!this.isDefault());
+        this.desktopFolderGroup.set_description(
+            `${this.FolderGroupDescription} ${this.defaultDesktop}`
+        );
     }
 
     isDefault() {
