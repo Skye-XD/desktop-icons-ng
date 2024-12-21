@@ -38,7 +38,11 @@ export default class dingPreferences extends ExtensionPreferences {
         else
             nautilusSettings = new Gio.Settings({settings_schema: schemaNautilus});
 
-        const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, this.path, version);
+        const resource = Gio.Resource.load(`${this.path}/app/com.desktop.ding.data.gresource`);
+        resource._register();
+        window.connect('close-request', resource._unregister.bind(this));
+
+        const preferencesWindow = new adwPreferencesWindow.AdwPreferencesWindow(desktopSettings, nautilusSettings, gtkSettings, version);
         preferencesWindow.getAdwPreferencesWindow(window);
     }
 }

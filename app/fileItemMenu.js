@@ -126,7 +126,9 @@ const FileItemMenu = class {
         this._mainApp.add_action(stackunstack);
 
         let doopenwith = Gio.SimpleAction.new('doopenwith', null);
-        doopenwith.connect('activate', this._doOpenWith.bind(this, null));
+        doopenwith.connect('activate', () => {
+            this._doOpenWith().catch(e => logError(e));
+        });
         this._mainApp.add_action(doopenwith);
 
         let graphicslaunch = Gio.SimpleAction.new('graphicslaunch', null);
