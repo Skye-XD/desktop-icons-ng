@@ -468,9 +468,32 @@ class DBusManager {
     doNotify(header, text) {
         /*
          * The notification interface in GLib.Application requires a .desktop file, which
-         * we can't have, so we must use directly the Notification DBus interface
+         * we do not have, so we must use the Notification DBus interface directly
          */
-        this._notifyProxy.NotifyRemote('', 0, '', header, text, [], {}, -1, () => {});
+
+        // From Adwaita icon theme, which should be available for Gnome by default
+        const displayImage = 'file:///usr/share/icons/Adwaita/scalable/devices/computer.svg';
+
+        const notifyHint =  {
+            'image-path': new GLib.Variant('s', displayImage),
+        };
+        const appName = 'Desktop Icons';
+        const notifictionID = 0;
+        // from freeDesktop icon theme specification which should be available for this interface
+        const appIcon = 'computer';
+        const actions = [];
+        const displayTime = 1000; // 1 second
+        this._notifyProxy.NotifyRemote(
+            appName,
+            notifictionID,
+            appIcon,
+            header,
+            text,
+            actions,
+            notifyHint,
+            displayTime,
+            () => {}
+        );
     }
 }
 Signals.addSignalMethods(DBusManager.prototype);
@@ -1023,7 +1046,6 @@ const DBusUtils = class {
         this.discreteGpuAvailable = false;
         this.dbusManagerObject = new DBusManager();
         const makeAsync = true;
-        const nocomplaint = true;
         const insSytembus = true;
         const insSessionBus = !insSytembus;
 
