@@ -18,10 +18,10 @@ app/thumbnails.js
 app/utils/dbusUtils.js
 app/utils/desktopIconsUtil.js
 app/utils/gsConnect.js
+data/ui/ding-app-chooser.ui
 desktopIconsIntegration.js
 emulateX11WindowType.js
 extension.js
 prefs.js
 visibleArea.js
-app/resources/ui/ding-app-chooser.ui
 schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml
