@@ -1647,6 +1647,18 @@ const DesktopManager = class {
             this.DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
         });
         this.mainApp.add_action(displayShellBackgroundMenu);
+
+        let changeDesktop = Gio.SimpleAction.new('changeDesktop', null);
+        changeDesktop.connect('activate', () => {
+            this._changeDesktop();
+        });
+        this.mainApp.add_action(changeDesktop);
+
+        this.restoreDefaultDesktopAction = Gio.SimpleAction.new('restoreDefaultDesktop', null);
+        this.restoreDefaultDesktopAction.connect('activate', () => {
+            this._restoreDefaultDesktop();
+        });
+        this.mainApp.add_action(this.restoreDefaultDesktopAction);
     }
 
     textEntryAccelsTurnOn() {
@@ -1690,6 +1702,13 @@ const DesktopManager = class {
         this.sortingSubMenu.append(_('Sort Home/Drives/Trash…'), 'app.sort-special-folders');
         this.sortingSubMenu.append_section(null, this.sortingRadioMenu);
 
+        this.settingSubMenu = Gio.Menu.new();
+        this.settingSubMenu.append(_('Change Desktop'), 'app.changeDesktop');
+        if (!this._isDefaultDesktopFolder())
+            this.settingSubMenu.append(_('Restore Default Desktop'), 'app.restoreDefaultDesktop');
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+        this.settingSubMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+
         this.desktopBackgroundGioMenu = Gio.Menu.new();
 
         this.desktopBackgroundGioMenu.append(_('New Folder'), 'app.doNewFolder');
@@ -1731,7 +1750,8 @@ const DesktopManager = class {
         this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
 
         this.settingsMenu = Gio.Menu.new();
-        this.settingsMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+        this.settingSubMenuItem = Gio.MenuItem.new_submenu(_('Settings'), this.settingSubMenu);
+        this.settingsMenu.append_item(this.settingSubMenuItem);
 
         this.desktopBackgroundGioMenu.append_section(null, this.settingsMenu);
 
@@ -3328,6 +3348,45 @@ const DesktopManager = class {
             this._fileList = newFileList;
 
         this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
+    }
+
+    _changeDesktop() {
+        const dialog = new Gtk.FileDialog();
+        dialog.set_title(_('Choose Desktop Folder'));
+        dialog.set_accept_label(_('Choose'));
+        dialog.set_modal(true);
+        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
+        dialog.select_folder(this.mainApp.get_active_window(), null, this._finishChooseDesktopFolder.bind(this));
+    }
+
+    _finishChooseDesktopFolder(dialog, asyncResult) {
+        const folder = dialog.select_folder_finish(asyncResult);
+        if (folder)
+            this._setDesktopFolder(folder.get_path());
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+    }
+
+    _setDesktopFolder(path) {
+        const command = 'xdg-user-dirs-update --set DESKTOP';
+        try {
+            GLib.spawn_command_line_async(
+                `${command} '${path}'`);
+        } catch (e) {
+            console.error(`Error setting desktop folder ${path}: ${e}`);
+        }
+    }
+
+    _restoreDefaultDesktop() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        this._setDesktopFolder(defaultDesktop);
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+    }
+
+    _isDefaultDesktopFolder() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        return this._desktopDir.get_path() === defaultDesktop;
     }
 
     doSorts(opts = {redisplay: false}) {
