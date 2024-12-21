@@ -160,6 +160,7 @@ const AdwPreferencesWindow = class {
             'icons']);
         this.iconTheme.add_search_path(this.iconPath);
         this.version = version;
+        this.defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(), 'Desktop']);
     }
 
     getAdwPreferencesWindow(window = null) {
@@ -170,6 +171,7 @@ const AdwPreferencesWindow = class {
             prefsWindow = new Adw.PreferencesWindow();
         prefsWindow.set_can_navigate_back(true);
         prefsWindow.set_search_enabled(true);
+        this.prefsWindow = prefsWindow;
 
         const prefsFrame = new Adw.PreferencesPage();
         prefsFrame.set_name(_('Desktop'));
@@ -202,10 +204,13 @@ const AdwPreferencesWindow = class {
         desktopGroup.set_description(_('Settings for the Desktop Program'));
         prefsFrame.add(desktopGroup);
 
-        const volumesGroup = new Adw.PreferencesGroup();
-        volumesGroup.set_title(_('Volumes'));
-        volumesGroup.set_description(_('Desktop volumes display'));
-        prefsFrame.add(volumesGroup);
+        this.desktopFolderGroup = new Adw.PreferencesGroup();
+        this.desktopFolderGroup.set_title(_('Desktop Folder'));
+        this.FolderGroupDescription = _('Current Desktop: ');
+        this.desktopFolderGroup.set_description(
+            `${this.FolderGroupDescription} ${this.getCurrentDesktopFolder()}`
+        );
+        prefsFrame.add(this.desktopFolderGroup);
 
         const filesGroup = new Adw.PreferencesGroup();
         filesGroup.set_title(_('Files Settings'));
@@ -247,28 +252,7 @@ const AdwPreferencesWindow = class {
             'show-second-monitor',
             _('Add new icons to Secondary Monitors first, if available')));
 
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-home',
-            _('Show the personal folder on the desktop')
-        ));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-trash',
-            _('Show the trash icon on the desktop')
-        ));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-volumes',
-            _('Show external drives on the desktop')
-        ));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'show-network-volumes',
-            _('Show network drives on the desktop')
-        ));
-        volumesGroup.add(this.addActionRowSwitch(this.desktopSettings,
-            'add-volumes-opposite',
-            _('Add new drives to the opposite side of the desktop')
-        ));
-
-        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+        desktopGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'free-position-icons',
             _('Snap icons to grid'),
             Gio.SettingsBindFlags.INVERT_BOOLEAN
@@ -279,7 +263,21 @@ const AdwPreferencesWindow = class {
         this.desktopSettings.bind('free-position-icons', dropPlaceRow,
             'sensitive',
             Gio.SettingsBindFlags.INVERT_BOOLEAN);
-        tweaksGroup.add(dropPlaceRow);
+        desktopGroup.add(dropPlaceRow);
+        this.desktopFolderGroup.add(this.addActionRowButton(_('New Desktop Folder'),
+            _('Set a new folder for the desktop'),
+            _('Choose'),
+            this.chooseDesktopFolder.bind(this)
+        ));
+        this.defaultDesktopRow = this.addActionRowButton(_('Restore Default Desktop Folder'),
+            _('Set Desktop back to $HOME/Desktop'),
+            _('Restore'),
+            this.restoreDefaultDesktopFolder.bind(this)
+        );
+        this.desktopFolderGroup.add(this.defaultDesktopRow);
+        this.defaultDesktopRow.set_sensitive(!this.isDefault());
+
+
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-link-emblem',
             _('Add an emblem to soft links')));
@@ -287,6 +285,27 @@ const AdwPreferencesWindow = class {
             'dark-text-in-labels',
             _('Use dark text in icon labels')
         ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-home',
+            _('Show the personal folder on the desktop')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-trash',
+            _('Show the trash icon on the desktop')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-volumes',
+            _('Show external drives on the desktop')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'show-network-volumes',
+            _('Show network drives on the desktop')
+        ));
+        tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
+            'add-volumes-opposite',
+            _('Add new drives to the opposite side of the desktop')
+        ));
+
 
         filesGroup.add(this.addActionRowSelector(this.nautilusSettings,
             'click-policy',
@@ -335,6 +354,8 @@ const AdwPreferencesWindow = class {
             _('Translate'),
             this.launchWebTranslation.bind(this)
         ));
+
+        prefsWindow.set_default_size(600, 650);
 
         if (!window)
             return prefsWindow;
@@ -420,6 +441,57 @@ const AdwPreferencesWindow = class {
         const translationUri =
         'https://hosted.weblate.org/engage/gtk4-desktop-icons-ng';
         this.launchUri(translationUri);
+    }
+
+    chooseDesktopFolder() {
+        const dialog = new Gtk.FileDialog();
+        dialog.set_title(_('Choose Desktop Folder'));
+        dialog.set_accept_label(_('Choose'));
+        dialog.set_modal(true);
+        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
+        dialog.select_folder(this.prefsWindow, null, this.finishChooseDesktopFolder.bind(this));
+    }
+
+    finishChooseDesktopFolder(dialog, asyncResult) {
+        const folder = dialog.select_folder_finish(asyncResult);
+        if (folder)
+            this.setDesktopFolder(folder.get_path());
+        this.defaultDesktopRow.set_sensitive(!this.isDefault());
+        this.desktopFolderGroup.set_description(
+            `${this.FolderGroupDescription} ${folder.get_path()}`
+        );
+    }
+
+    setDesktopFolder(path) {
+        const command = 'xdg-user-dirs-update --set DESKTOP';
+        try {
+            GLib.spawn_command_line_async(
+                `${command} '${path}'`);
+        } catch (e) {
+            console.error(`Error setting desktop folder ${path}: ${e}`);
+        }
+    }
+
+    restoreDefaultDesktopFolder() {
+        this.setDesktopFolder(this.defaultDesktop);
+        this.defaultDesktopRow.set_sensitive(!this.isDefault());
+        this.desktopFolderGroup.set_description(
+            `${this.FolderGroupDescription} ${this.defaultDesktop}`
+        );
+    }
+
+    isDefault() {
+        return this.getCurrentDesktopFolder() === this.defaultDesktop;
+    }
+
+    getCurrentDesktopFolder() {
+        const command = 'xdg-user-dir DESKTOP';
+        const decoder = new TextDecoder();
+        const [, out,, status] = GLib.spawn_command_line_sync(command);
+        if (status === 0)
+            return decoder.decode(out).trim();
+        else
+            return null;
     }
 };
 

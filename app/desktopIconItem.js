@@ -651,6 +651,10 @@ const DesktopIconItem = class {
      * Getters and setters *
      ***********************/
 
+    get _desktopDir() {
+        return this._desktopManager.desktopDir;
+    }
+
     get state() {
         return this._state;
     }

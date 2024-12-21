@@ -31,7 +31,6 @@ const GnomeShellDrag = class {
         this._Prefs = desktopManager.Prefs;
         this._selectedFiles = desktopManager.getCurrentSelection();
         this._selectedFilesURI = desktopManager.getCurrentSelectionAsUri();
-        this._desktopDir = this._DesktopIconsUtil.getDesktopDir();
         this._dockSpringOpenFile = null;
         this._currentDesktopFileAppPath = null;
         this._dockSpringOpenTime = GLib.get_monotonic_time();
@@ -241,5 +240,9 @@ const GnomeShellDrag = class {
         );
         errorDialog.timeoutClose(timeout);
         return false;
+    }
+
+    get _desktopDir() {
+        return this._desktopManager.desktopDir;
     }
 };

@@ -97,6 +97,7 @@ const DesktopManager = class {
         this._startMonitoringTemplatesDir();
         this._createMenuActionGroup();
         this._updateWritableByOthers().catch(e => console.error(e));
+        this._monitorDesktopDirChanges();
         this._monitorDesktopChanges();
         this.Prefs.init(this);
         this._monitorVolumes();
@@ -109,13 +110,15 @@ const DesktopManager = class {
         this._intDBusSignalMonitoring();
         this._dbusAdvertiseUpdate();
 
+        // Check and make sure that there is a 'Desktop' folder set and it exists
+        // Check if Gnome Files is available and executable, otherwise give warning
+        // Check and make sure Gnome Files is registered with xdg-utils to handle inode/directory
+        this._performSanityChecks().catch(e => logError(e));
+
         this._updateDesktop().catch(e => {
             console.log(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
         });
 
-        // Check if Gnome Files is available and executable, otherwise give warning
-        // Check and make sure Gnome Files is registered with xdg-utils to handle inode/directory
-        this._performSanityChecks();
 
         // setup gracefull termination
         if (this._asDesktop) {
@@ -136,6 +139,24 @@ const DesktopManager = class {
     }
 
     async _performSanityChecks() {
+        const isFolder = this._desktopDir.query_file_type(
+            Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+            null) === Gio.FileType.DIRECTORY;
+        if (!isFolder) {
+            const modal = true;
+            const helpURL = null;
+            const dontShow = true;
+            const errorWindow = this.showError(
+                _('Can Not Show the Desktop'),
+                _(`The Desktop folder ${this._desktopDir.get_path()} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder`),
+                modal,
+                helpURL,
+                dontShow
+            );
+            await errorWindow.run();
+            this._desktops.forEach(d => d.setErrorState());
+        }
+
         const inodeHandlers = Gio.AppInfo.get_all_for_type('inode/directory');
         if (!GLib.find_program_in_path('nautilus')) {
             const modal = true;
@@ -150,6 +171,7 @@ const DesktopManager = class {
             );
             await errorWindow.run();
         }
+
         if (!inodeHandlers.length) {
             const modal = true;
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
@@ -163,6 +185,7 @@ const DesktopManager = class {
             );
             await errorWindow.run();
         }
+
         if (!inodeHandlers.map(a => a.get_id()).includes('org.gnome.Nautilus.desktop')) {
             const modal = true;
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
@@ -196,7 +219,19 @@ const DesktopManager = class {
     }
 
     terminateProgram() {
-        if (this._allFileList && (this._allFileList.length > 0)) {
+        this._monitorDesktopCancellable.cancel();
+
+        if (this._dbusConnectionGroupId)
+            this._connection.unexport_action_group(this._dbusConnectionGroupId);
+
+        if (this._dbusGeometryIface)
+            this._dbusGeometryIface.unexport();
+
+        this._forcedExit = true;
+        if (this._desktopEnumerateCancellable)
+            this._desktopEnumerateCancellable.cancel();
+
+        if (this._allFileList && this._allFileList.length) {
             this._fileList.forEach(f => {
                 if (f.isStackMarker)
                     f.onDestroy();
@@ -205,18 +240,12 @@ const DesktopManager = class {
         } else {
             this._fileList.forEach(f => f.onDestroy());
         }
+
         for (let desktop of this._desktops)
             desktop.destroy();
-
         this._desktops = [];
-        this._forcedExit = true;
-        if (this._desktopEnumerateCancellable)
-            this._desktopEnumerateCancellable.cancel();
 
         this.fileItemMenu.destroy();
-
-        if (this.thumbnailApp)
-            this.thumbnailApp.send_signal(15);
     }
 
     _startMonitoringTemplatesDir() {
@@ -316,11 +345,67 @@ const DesktopManager = class {
         );
     }
 
+    _monitorDesktopDirChanges() {
+        this._xdgUserDirs = this.DesktopIconsUtil.getXdgUserDirs();
+        this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(
+            Gio.FileMonitorFlags.WATCH_MOVES, null);
+        this._monitorXdgUserDirs.set_rate_limit(2000);
+        this._monitorXdgUserDirs.connect('changed', (obj, file, otherFile, event) => {
+            if (!(event === Gio.FileMonitorEvent.CHANGES_DONE_HINT ||
+                event === Gio.FileMonitorEvent.RENAMED))
+                return;
+
+            if (this._changingDesktopDirID)
+                GLib.source_remove(this._changingDesktopDirID);
+
+            this._changingDesktopDirID = GLib.timeout_add(GLib.PRIORITY_LOW, 500, () => {
+                const newDesktopDir = this.DesktopIconsUtil.getDesktopDir();
+                const isFolder = newDesktopDir.query_file_type(
+                    Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                    null) === Gio.FileType.DIRECTORY;
+
+                if (!isFolder) {
+                    const header = _('Desktop Folder Change Failed');
+                    const text = _('The new Desktop Folder does not exist!');
+                    this.dbusManager.doNotify(header, text);
+                    this._changingDesktopDirID = null;
+                    return GLib.SOURCE_REMOVE;
+                }
+
+                if (newDesktopDir.get_path() === this._desktopDir.get_path()) {
+                    this._changingDesktopDirID = null;
+                    return GLib.SOURCE_REMOVE;
+                }
+
+                const header = _('Desktop Folder Changed');
+                const text = _('Switching to new Desktop...');
+                this.dbusManager.doNotify(header, text);
+
+                this._desktopDir = newDesktopDir;
+                this._updateWritableByOthers().catch(e => console.error(e));
+                this._monitorDesktopChanges();
+                this._desktops.forEach(d => d.unsetErrorState());
+                this._updateDesktop().catch(e => console.error(e));
+                this._changingDesktopDirID = null;
+                return GLib.SOURCE_REMOVE;
+            });
+        });
+    }
+
     _monitorDesktopChanges() {
-        this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
+        const cancellable = new Gio.Cancellable();
+        if (this._monitorDesktopCancellable)
+            this._monitorDesktopCancellable.cancel();
+        this._monitorDesktopCancellable = cancellable;
+        this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, cancellable);
         this._monitorDesktopDir.set_rate_limit(1000);
-        this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
+        const monitorID = this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
             this._updateDesktopIfChanged(file, otherFile, eventType).catch(e => console.error(e)));
+        cancellable.connect(() => {
+            this._monitorDesktopDir.disconnect(monitorID);
+            this._monitorDesktopDir = null;
+            this.monitorDesktopCancellable = null;
+        });
     }
 
     _metadataChanged(proxy, nameOwner, args) {
@@ -389,8 +474,8 @@ const DesktopManager = class {
                     </signal>
                   </interface>
                 </node>`;
-            let geometryIface = Gio.DBusExportedObject.wrapJSObject(signalXml, this);
-            geometryIface.export(this._connection, `${this._busname}/geometrycontrol`);
+            this._dbusGeometryIface = Gio.DBusExportedObject.wrapJSObject(signalXml, this);
+            this._dbusGeometryIface.export(this._connection, `${this._busname}/geometrycontrol`);
             this._requestGeometryUpdate();
         }
     }
@@ -1440,7 +1525,7 @@ const DesktopManager = class {
         this.mainApp.set_accels_for_action('app.selectAll', ['<Control>A']);
 
         let showDesktopInFiles = Gio.SimpleAction.new('showDesktopInFiles', null);
-        showDesktopInFiles.connect('activate', this._onOpenDesktopInFilesClicked.bind(this));
+        showDesktopInFiles.connect('activate', () => this._onOpenDesktopInFilesClicked().catch(e => logError(e)));
         this.mainApp.add_action(showDesktopInFiles);
 
         let openInTerminal = Gio.SimpleAction.new('openInTerminal', null);
@@ -1562,6 +1647,18 @@ const DesktopManager = class {
             this.DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
         });
         this.mainApp.add_action(displayShellBackgroundMenu);
+
+        let changeDesktop = Gio.SimpleAction.new('changeDesktop', null);
+        changeDesktop.connect('activate', () => {
+            this._changeDesktop();
+        });
+        this.mainApp.add_action(changeDesktop);
+
+        this.restoreDefaultDesktopAction = Gio.SimpleAction.new('restoreDefaultDesktop', null);
+        this.restoreDefaultDesktopAction.connect('activate', () => {
+            this._restoreDefaultDesktop();
+        });
+        this.mainApp.add_action(this.restoreDefaultDesktopAction);
     }
 
     textEntryAccelsTurnOn() {
@@ -1605,6 +1702,13 @@ const DesktopManager = class {
         this.sortingSubMenu.append(_('Sort Home/Drives/Trash…'), 'app.sort-special-folders');
         this.sortingSubMenu.append_section(null, this.sortingRadioMenu);
 
+        this.settingSubMenu = Gio.Menu.new();
+        this.settingSubMenu.append(_('Change Desktop'), 'app.changeDesktop');
+        if (!this._isDefaultDesktopFolder())
+            this.settingSubMenu.append(_('Restore Default Desktop'), 'app.restoreDefaultDesktop');
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+        this.settingSubMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+
         this.desktopBackgroundGioMenu = Gio.Menu.new();
 
         this.desktopBackgroundGioMenu.append(_('New Folder'), 'app.doNewFolder');
@@ -1646,7 +1750,8 @@ const DesktopManager = class {
         this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
 
         this.settingsMenu = Gio.Menu.new();
-        this.settingsMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+        this.settingSubMenuItem = Gio.MenuItem.new_submenu(_('Settings'), this.settingSubMenu);
+        this.settingsMenu.append_item(this.settingSubMenuItem);
 
         this.desktopBackgroundGioMenu.append_section(null, this.settingsMenu);
 
@@ -1673,6 +1778,12 @@ const DesktopManager = class {
             await Gio.AppInfo.launch_default_for_uri_async(
                 this._desktopDir.get_uri(), context, null);
         } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
+                const header = _('Unable to open Desktop in Gnome Files');
+                const text = _(`Desktop Folder ${this._desktopDir.get_path()} does not exist`);
+                this.dbusManager.doNotify(header, text);
+                return;
+            }
             console.error(e, `Error opening desktop in GNOME Files: ${e.message}`);
         }
     }
@@ -2040,7 +2151,7 @@ const DesktopManager = class {
                 const childrenInfo = await this.FileUtils.enumerateDir(this._desktopDir,
                     cancellable, GLib.PRIORITY_DEFAULT, this.Enums.DEFAULT_ATTRIBUTES);
 
-                childrenInfo.forEach(info => {
+                childrenInfo?.forEach(info => {
                     const fileItem = new FileItem.FileItem(this,
                         this._desktopDir.get_child(info.get_name()),
                         info,
@@ -2386,18 +2497,26 @@ const DesktopManager = class {
     }
 
     async _updateWritableByOthers() {
-        const info = await this._desktopDir.query_info_async(Gio.FILE_ATTRIBUTE_UNIX_MODE,
-            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
-        this.unixMode = info.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
-        let writableByOthers = (this.unixMode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
-        if (writableByOthers !== this.writableByOthers) {
-            this.writableByOthers = writableByOthers;
-            if (this.writableByOthers)
-                console.log('desktop-icons: The desktop is writable by others. Not allowing launching any desktop files.');
+        try {
+            const info = await this._desktopDir.query_info_async(Gio.FILE_ATTRIBUTE_UNIX_MODE,
+                Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
+            this.unixMode = info.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
+            let writableByOthers = (this.unixMode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
+            if (writableByOthers !== this.writableByOthers) {
+                this.writableByOthers = writableByOthers;
+                if (this.writableByOthers)
+                    console.log('desktop-icons: The desktop is writable by others. Not allowing launching any desktop files.');
 
-            return true;
-        } else {
-            return false;
+                return true;
+            } else {
+                return false;
+            }
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
+                this.writableByOthers = true;
+                return true;
+            }
+            throw e;
         }
     }
 
@@ -2662,7 +2781,7 @@ const DesktopManager = class {
         let newName = this.getDesktopUniqueFileName(baseName);
 
         if (newName) {
-            const dir = this.DesktopIconsUtil.getDesktopDir().get_child(newName);
+            const dir = this._desktopDir.get_child(newName);
             try {
                 await dir.make_directory_async(GLib.PRIORITY_DEFAULT, null);
 
@@ -2680,7 +2799,10 @@ const DesktopManager = class {
                     console.error(e, `Failed to set attributes to ${dir.get_path()}`);
                 }
             } catch (e) {
-                console.error(e, `Failed to create folder ${e.message}`);
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                    this._performSanityChecks();
+                else
+                    console.error(e, `Failed to create folder ${e.message}`);
                 const header = _('Folder Creation Failed');
                 const text = _('Could not create folder');
                 this.dbusManager.doNotify(header, text);
@@ -2708,7 +2830,7 @@ const DesktopManager = class {
 
         const file = Gio.File.new_for_path(template);
         const finalName = this.getDesktopUniqueFileName(file.get_basename());
-        const destination = this.DesktopIconsUtil.getDesktopDir().get_child(finalName);
+        const destination = this._desktopDir.get_child(finalName);
 
         try {
             await file.copy(destination, Gio.FileCopyFlags.NONE, null, null);
@@ -2724,7 +2846,10 @@ const DesktopManager = class {
                 console.error(e, `Failed to set template metadata ${e.message}`);
             }
         } catch (e) {
-            console.error(e, `Failed to create template ${e.message}`);
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                this._performSanityChecks();
+            else
+                console.error(e, `Failed to create template ${e.message}`);
             const header = _('Template Creation Error');
             const text = _('Could not create document');
             this.dbusManager.doNotify(header, text);
@@ -3225,6 +3350,35 @@ const DesktopManager = class {
         this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
     }
 
+    _changeDesktop() {
+        const dialog = new Gtk.FileDialog();
+        dialog.set_title(_('Choose Desktop Folder'));
+        dialog.set_accept_label(_('Choose'));
+        dialog.set_modal(true);
+        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
+        dialog.select_folder(this.mainApp.get_active_window(), null, this._finishChooseDesktopFolder.bind(this));
+    }
+
+    _finishChooseDesktopFolder(dialog, asyncResult) {
+        const folder = dialog.select_folder_finish(asyncResult);
+        if (folder)
+            this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(folder.get_path());
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+    }
+
+    _restoreDefaultDesktop() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(defaultDesktop);
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+    }
+
+    _isDefaultDesktopFolder() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        return this._desktopDir.get_path() === defaultDesktop;
+    }
+
     doSorts(opts = {redisplay: false}) {
         if (opts.redisplay)
             this._fileList.map(f => f.removeFromGrid());
@@ -3357,5 +3511,9 @@ const DesktopManager = class {
     onGtkThemeChange() {
         Gtk.StyleContext.remove_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection);
         this._configureSelectionColor();
+    }
+
+    get desktopDir() {
+        return this._desktopDir;
     }
 };

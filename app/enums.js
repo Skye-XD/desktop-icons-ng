@@ -135,6 +135,7 @@ export const SYSTEM_DATA_DIRS = ['/usr/local/share', '/usr/share'];
 export const XDG_TERMINAL_EXEC = 'xdg-terminal-exec';
 export const GRID_ELEMENT_SPACING = 2;
 export const GRID_PADDING = 0;
+export const XDG_USER_DIRS = 'user-dirs.dirs';
 export const UnixPermissions = {
     S_ISUID: 0o04000, // set-user-ID bit
     S_ISGID: 0o02000, // set-group-ID bit (see below)

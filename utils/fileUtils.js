@@ -31,12 +31,14 @@ const DEFAULT_QUERY_ATTRIBUTES = [
  * @param priority
  * @param queryAttributes
  */
+// eslint-disable-next-line consistent-return
 export async function enumerateDir(dir, cancellable = null, priority = GLib.PRIORITY_DEFAULT,
     queryAttributes = DEFAULT_QUERY_ATTRIBUTES) {
-    const childrenEnumerator = await dir.enumerate_children_async(queryAttributes,
-        Gio.FileQueryInfoFlags.NONE, priority, cancellable);
-
+    let childrenEnumerator;
     try {
+        childrenEnumerator = await dir.enumerate_children_async(queryAttributes,
+            Gio.FileQueryInfoFlags.NONE, priority, cancellable);
+
         const children = [];
         while (true) {
             // The enumerator doesn't support multiple async calls, nor
@@ -51,9 +53,14 @@ export async function enumerateDir(dir, cancellable = null, priority = GLib.PRIO
 
             children.push(...batch);
         }
+    } catch (e) {
+        if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
+            console.error('Desktop directory does not exist');
+            return [];
+        }
     } finally {
-        if (!childrenEnumerator.is_closed())
-            await childrenEnumerator.close_async(priority, null);
+        if (!childrenEnumerator?.is_closed())
+            await childrenEnumerator?.close_async(priority, null);
     }
 }
 

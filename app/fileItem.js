@@ -379,7 +379,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         }))
             return;
 
-        this.DesktopIconsUtil.trySpawn(this.DesktopIconsUtil.getDesktopDir().get_path(),
+        this.DesktopIconsUtil.trySpawn(this._desktopDir.get_path(),
             [this.path], null, false);
     }
 

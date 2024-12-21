@@ -45,12 +45,59 @@ const DesktopIconsUtil = class {
     /**
      *
      * Returns the user desktop directory as a Gio.File
+     *
+     * Deliberately using sync methods as this call is used in many places, including
+     * constructors
      */
     getDesktopDir() {
-        let desktopPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
+        const glibDesktopPath = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
+        let xdgDesktopPath = null;
+        try {
+            const userDirsGioFile = this.getXdgUserDirs();
+            if (!userDirsGioFile.query_exists(null))
+                throw new Error('User configuration file user-dirs.users does not exist');
+            const decoder = new TextDecoder();
+            const contents = decoder.decode(GLib.file_get_contents(userDirsGioFile.get_path())[1]).trim();
+            if (contents)
+                xdgDesktopPath = this.parseUserDirsFile(contents);
+        } catch (e) {
+            console.error(e, `XDG Desktop not set, ${e}`);
+        }
+
+        const desktopPath = xdgDesktopPath ? xdgDesktopPath : glibDesktopPath;
         return Gio.File.new_for_commandline_arg(desktopPath);
     }
 
+    writeXdgUserDirsDesktopFile(path) {
+        const userDirsGioFile = this.getXdgUserDirs();
+        if (path.startsWith(GLib.get_home_dir()))
+            path = path.replace(GLib.get_home_dir(), '$HOME');
+        const newline = `XDG_DESKTOP_DIR="${path}"`;
+        try {
+            const decoder = new TextDecoder();
+            const contents = decoder.decode(GLib.file_get_contents(userDirsGioFile.get_path())[1]).trim();
+            const lineArray = contents.split('\n');
+            const newArray = lineArray.map(l => {
+                if (l.startsWith('XDG_DESKTOP_DIR='))
+                    return newline;
+                return l;
+            });
+            const newContents = newArray.join('\n');
+            this.replaceFileContentsAsync(userDirsGioFile, newContents, null);
+        } catch (e) {
+            console.error(e, `Failed to write XDG Desktop file with ${e}`);
+        }
+    }
+
+    /**
+     *
+     * Returns the user config user-dirs.dirs as a Gio.File
+     */
+    getXdgUserDirs() {
+        const xdgUserDirspath = GLib.build_filenamev([GLib.get_user_config_dir(),
+            this.Enums.XDG_USER_DIRS]);
+        return Gio.File.new_for_commandline_arg(xdgUserDirspath);
+    }
 
     /**
      *
@@ -368,6 +415,23 @@ const DesktopIconsUtil = class {
             });
         }
         return terminalGioDesktopAppInfoArray;
+    }
+
+
+    /**
+     *
+     * @param {string} content text of the user-dirs.dirs file
+     * @returns {string} path of Desktop Directory
+     */
+    parseUserDirsFile(content) {
+        if (!content)
+            return null;
+        const lineArray = content.trim().split('\n');
+        const desktopline = lineArray.filter(l => l.startsWith('XDG_DESKTOP_DIR='))[0];
+        let xdgDesktopPath = desktopline.split('=')[1].trim();
+        xdgDesktopPath = xdgDesktopPath.replace(/^"|"$/g, '');
+        xdgDesktopPath = xdgDesktopPath.replace('$HOME', GLib.get_home_dir());
+        return xdgDesktopPath;
     }
 
     /**
