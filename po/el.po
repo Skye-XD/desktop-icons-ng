@@ -9,12 +9,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-01 22:22-0500\n"
+"POT-Creation-Date: 2024-12-21 18:55-0500\n"
 "PO-Revision-Date: 2024-12-05 21:44+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/el/>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
+"ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,260 +22,293 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.9-dev\n"
 
-#: app/adwPreferencesWindow.js:175 app/adwPreferencesWindow.js:176
+#: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Desktop"
 msgstr "Επιφάνεια Eργασίας"
 
-#: app/adwPreferencesWindow.js:180 app/adwPreferencesWindow.js:181
+#: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #, fuzzy
 msgid "Files"
 msgstr "Αρχεία"
 
-#: app/adwPreferencesWindow.js:185 app/adwPreferencesWindow.js:186
-#: app/adwPreferencesWindow.js:216
+#: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
+#: app/adwPreferencesWindow.js:218
 #, fuzzy
 msgid "Tweaks"
 msgstr "Τροποποιήσεις"
 
-#: app/adwPreferencesWindow.js:190 app/adwPreferencesWindow.js:191
+#: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
 msgstr "Σχετικά"
 
-#: app/adwPreferencesWindow.js:201
+#: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Ρυθμίσεις Desktop"
 
-#: app/adwPreferencesWindow.js:202
+#: app/adwPreferencesWindow.js:201
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Ρυθμίσεις για το Desktop Programme"
 
+#: app/adwPreferencesWindow.js:205
+#, fuzzy
+msgid "Desktop Folder"
+msgstr "Κατεστραμμένα αρχεία επιφάνειας εργασίας"
+
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
-msgid "Volumes"
-msgstr "Όγκος"
+msgid "Current Desktop: "
+msgstr "Κατεστραμμένα αρχεία επιφάνειας εργασίας"
 
-#: app/adwPreferencesWindow.js:207
-#, fuzzy
-msgid "Desktop volumes display"
-msgstr "Desktop όγκους οθόνης"
-
-#: app/adwPreferencesWindow.js:211
+#: app/adwPreferencesWindow.js:213
 #, fuzzy
 msgid "Files Settings"
 msgstr "Αρχεία Ρυθμίσεις"
 
-#: app/adwPreferencesWindow.js:212
+#: app/adwPreferencesWindow.js:214
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Οι ρυθμίσεις που μοιράζονται με αρχεία Gnome"
 
-#: app/adwPreferencesWindow.js:217
+#: app/adwPreferencesWindow.js:219
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Miscellous Tweaks"
 
-#: app/adwPreferencesWindow.js:228
+#: app/adwPreferencesWindow.js:230
 #, fuzzy
 msgid "Size for the desktop icons"
 msgstr "Μέγεθος για τα desktop icons"
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "Tiny"
 msgstr "Μικροσκοπικό"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:233
 #, fuzzy
 msgid "Small"
 msgstr "Μικρή"
 
-#: app/adwPreferencesWindow.js:232
+#: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Standard"
 msgstr "Τυπικό"
 
-#: app/adwPreferencesWindow.js:233
+#: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Large"
 msgstr "Μεγάλο"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:240
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Νέα εικονίδια ευθυγράμμιση"
 
-#: app/adwPreferencesWindow.js:240
+#: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Top left corner"
 msgstr "Πάνω-αριστερή γωνία"
 
-#: app/adwPreferencesWindow.js:241
+#: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Top right corner"
 msgstr "Top right γωνία"
 
-#: app/adwPreferencesWindow.js:242
+#: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Κατώτα αριστερά γωνία"
 
-#: app/adwPreferencesWindow.js:243
+#: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Κάτω δεξιά γωνία"
 
-#: app/adwPreferencesWindow.js:248
+#: app/adwPreferencesWindow.js:250
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Προσθέστε πρώτα νέα εικονίδια σε Δευτεροβάθμια Παρακολούθηση, αν είναι "
 "διαθέσιμα"
 
-#: app/adwPreferencesWindow.js:252
-#, fuzzy
-msgid "Show the personal folder on the desktop"
-msgstr "Δείξτε τον προσωπικό φάκελο στην επιφάνεια εργασίας"
-
-#: app/adwPreferencesWindow.js:256
-#, fuzzy
-msgid "Show the trash icon on the desktop"
-msgstr "Δείξτε το εικονίδιο σκουπιδιών στην επιφάνεια εργασίας"
-
-#: app/adwPreferencesWindow.js:260
-#, fuzzy
-msgid "Show external drives on the desktop"
-msgstr "Δείξτε εξωτερικές μονάδες στην επιφάνεια εργασίας"
-
-#: app/adwPreferencesWindow.js:264
-#, fuzzy
-msgid "Show network drives on the desktop"
-msgstr "Εκδηλώσεις δικτύου στην επιφάνεια εργασίας"
-
-#: app/adwPreferencesWindow.js:268
-#, fuzzy
-msgid "Add new drives to the opposite side of the desktop"
-msgstr "Προσθέστε νέες μονάδες στην αντίθετη πλευρά του desktop"
-
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:254
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Snap icons στο grid"
 
-#: app/adwPreferencesWindow.js:278
+#: app/adwPreferencesWindow.js:259
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Highlight the drop grid"
 
-#: app/adwPreferencesWindow.js:285
+#: app/adwPreferencesWindow.js:264
+#, fuzzy
+msgid "New Desktop Folder"
+msgstr "Νέος Φάκέλος"
+
+#: app/adwPreferencesWindow.js:265
+#, fuzzy
+msgid "Set a new folder for the desktop"
+msgstr "Δείξτε τον προσωπικό φάκελο στην επιφάνεια εργασίας"
+
+#: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
+#: app/desktopManager.js:3352
+msgid "Choose"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:269
+#, fuzzy
+msgid "Restore Default Desktop Folder"
+msgstr "Untrusted Desktop File"
+
+#: app/adwPreferencesWindow.js:270
+msgid "Set Desktop back to $HOME/Desktop"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:271
+msgid "Restore"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:280
 #, fuzzy
 msgid "Add an emblem to soft links"
 msgstr "Προσθέστε ένα έμβλημα σε μαλακούς συνδέσμους"
 
-#: app/adwPreferencesWindow.js:288
+#: app/adwPreferencesWindow.js:283
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Χρησιμοποιήστε σκούρο κείμενο σε ετικέτες εικόνων"
 
-#: app/adwPreferencesWindow.js:293
+#: app/adwPreferencesWindow.js:287
+#, fuzzy
+msgid "Show the personal folder on the desktop"
+msgstr "Δείξτε τον προσωπικό φάκελο στην επιφάνεια εργασίας"
+
+#: app/adwPreferencesWindow.js:291
+#, fuzzy
+msgid "Show the trash icon on the desktop"
+msgstr "Δείξτε το εικονίδιο σκουπιδιών στην επιφάνεια εργασίας"
+
+#: app/adwPreferencesWindow.js:295
+#, fuzzy
+msgid "Show external drives on the desktop"
+msgstr "Δείξτε εξωτερικές μονάδες στην επιφάνεια εργασίας"
+
+#: app/adwPreferencesWindow.js:299
+#, fuzzy
+msgid "Show network drives on the desktop"
+msgstr "Εκδηλώσεις δικτύου στην επιφάνεια εργασίας"
+
+#: app/adwPreferencesWindow.js:303
+#, fuzzy
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "Προσθέστε νέες μονάδες στην αντίθετη πλευρά του desktop"
+
+#: app/adwPreferencesWindow.js:309
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Δράση για τα Ανοιχτά Στοιχεία"
 
-#: app/adwPreferencesWindow.js:295
+#: app/adwPreferencesWindow.js:311
 #, fuzzy
 msgid "Single click"
 msgstr "Single click"
 
-#: app/adwPreferencesWindow.js:296
+#: app/adwPreferencesWindow.js:312
 #, fuzzy
 msgid "Double click"
 msgstr "Διπλό κλικ"
 
-#: app/adwPreferencesWindow.js:300
+#: app/adwPreferencesWindow.js:316
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Εμφάνιση μικρογραφιών"
 
-#: app/adwPreferencesWindow.js:302
+#: app/adwPreferencesWindow.js:318
 #, fuzzy
 msgid "Always"
 msgstr "Πάντα"
 
-#: app/adwPreferencesWindow.js:303
+#: app/adwPreferencesWindow.js:319
 #, fuzzy
 msgid "On this computer only"
 msgstr "Σε αυτόν τον υπολογιστή μόνο"
 
-#: app/adwPreferencesWindow.js:304
+#: app/adwPreferencesWindow.js:320
 #, fuzzy
 msgid "Never"
 msgstr "Ποτέ"
 
-#: app/adwPreferencesWindow.js:308
+#: app/adwPreferencesWindow.js:324
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Δείξτε ένα στοιχείο μενού πλαισίου για να διαγράψετε μόνιμα"
 
-#: app/adwPreferencesWindow.js:312
+#: app/adwPreferencesWindow.js:328
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Εμφάνιση κρυφών αρχείων"
 
-#: app/adwPreferencesWindow.js:316
+#: app/adwPreferencesWindow.js:332
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Ανοιχτοί φάκελοι στο drag hover"
 
-#: app/adwPreferencesWindow.js:319
+#: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Website"
 msgstr "Website"
 
-#: app/adwPreferencesWindow.js:321
+#: app/adwPreferencesWindow.js:337
 #, fuzzy
 msgid "Visit"
 msgstr "Επισκεφτείτε"
 
-#: app/adwPreferencesWindow.js:324
+#: app/adwPreferencesWindow.js:340
 #, fuzzy
 msgid "Issues"
 msgstr "Προβλήματα"
 
-#: app/adwPreferencesWindow.js:325
+#: app/adwPreferencesWindow.js:341
 #, fuzzy
 msgid "Report issues on issue tracker"
 msgstr "Θέματα έκθεσης σχετικά με το θέμα tracker"
 
-#: app/adwPreferencesWindow.js:326
+#: app/adwPreferencesWindow.js:342
 #, fuzzy
 msgid "Report"
 msgstr "Αναφορά"
 
-#: app/adwPreferencesWindow.js:328
+#: app/adwPreferencesWindow.js:344
 #, fuzzy
 msgid "License"
 msgstr "Άδεια"
 
-#: app/adwPreferencesWindow.js:333
+#: app/adwPreferencesWindow.js:349
 #, fuzzy
 msgid "Translation"
 msgstr "Μετάφραση"
 
-#: app/adwPreferencesWindow.js:334
+#: app/adwPreferencesWindow.js:350
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Βοήθεια μετάφραση στο web browser σας"
 
-#: app/adwPreferencesWindow.js:335
+#: app/adwPreferencesWindow.js:351
 #, fuzzy
 msgid "Translate"
 msgstr "Μετάφραση"
 
-#: app/appChooser.js:54
+#: app/adwPreferencesWindow.js:445 app/desktopManager.js:3351
+#, fuzzy
+msgid "Choose Desktop Folder"
+msgstr "Κατεστραμμένα αρχεία επιφάνειας εργασίας"
+
+#: app/appChooser.js:53
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Επιλέξτε μια εφαρμογή για να ανοίξετε <b>{foo}</b>"
@@ -290,7 +323,7 @@ msgstr "Ανοιχτά αντικείμενα"
 msgid "Open Folder"
 msgstr "Άνοιγμα φακέλου"
 
-#: app/appChooser.js:66 app/resources/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:66 data/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
 msgstr "Άνοιγμα Αρχείου"
@@ -315,8 +348,8 @@ msgstr "Όνομα φακέλου"
 msgid "File name"
 msgstr "Όνομα αρχείου"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1304
-#: app/fileItemMenu.js:833
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1407
+#: app/fileItemMenu.js:855
 #, fuzzy
 msgid "OK"
 msgstr "OK"
@@ -350,8 +383,8 @@ msgstr "Αποσυμπίεση αρχείων"
 msgid "Compressing files"
 msgstr "Συμπίεση αρχείων."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:789
-#: app/desktopManager.js:1306 app/fileItemMenu.js:679 app/fileItemMenu.js:833
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:874
+#: app/desktopManager.js:1409 app/fileItemMenu.js:696 app/fileItemMenu.js:855
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 #, fuzzy
 msgid "Cancel"
@@ -488,219 +521,254 @@ msgstr "Τα μικρότερα αρχεία, αλλά πρέπει να εγκ�
 msgid "Desktop Icons"
 msgstr "Desktop Icons"
 
-#: app/desktopManager.js:141
+#: app/desktopManager.js:150
+msgid "Can Not Show the Desktop"
+msgstr ""
+
+#: app/desktopManager.js:166
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME αρχεία που δεν βρέθηκαν"
 
-#: app/desktopManager.js:142
+#: app/desktopManager.js:167
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "Το GNOME Η εφαρμογή αρχείων απαιτείται από το Gtk4 Desktop Icons NG."
 
-#: app/desktopManager.js:154
+#: app/desktopManager.js:180
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "Δεν υπάρχει προεπιλεγμένο File Manager"
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:181
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 "Δεν υπάρχει εφαρμογή που να χειρίζεται το μιμούμενο \"inode/directory\""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:194
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Τα αρχεία Gnome δεν είναι καταχωρημένα ως διαχειριστής αρχείων"
 
-#: app/desktopManager.js:168
+#: app/desktopManager.js:195
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:788
+#: app/desktopManager.js:364
+#, fuzzy
+msgid "Desktop Folder Change Failed"
+msgstr "Δημιουργία Παραγγελίας απέτυχε."
+
+#: app/desktopManager.js:365
+msgid "The new Desktop Folder does not exist!"
+msgstr ""
+
+#: app/desktopManager.js:376
+msgid "Desktop Folder Changed"
+msgstr ""
+
+#: app/desktopManager.js:377
+msgid "Switching to new Desktop..."
+msgstr ""
+
+#: app/desktopManager.js:873
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "Επιλέξτε Δράση για αρχεία"
 
-#: app/desktopManager.js:789
+#: app/desktopManager.js:874
 #, fuzzy
 msgid "Move"
 msgstr "Κινήσου"
 
-#: app/desktopManager.js:789 app/fileItemMenu.js:385
+#: app/desktopManager.js:874 app/fileItemMenu.js:388
 #, fuzzy
 msgid "Copy"
 msgstr "Αντιγραφή"
 
-#: app/desktopManager.js:789
+#: app/desktopManager.js:874
 #, fuzzy
 msgid "Link"
 msgstr "Σύνδεσμος"
 
-#: app/desktopManager.js:876 app/desktopManager.js:908
+#: app/desktopManager.js:961 app/desktopManager.js:993
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "Κάνοντας το SymLink Failed"
 
-#: app/desktopManager.js:877 app/desktopManager.js:909
+#: app/desktopManager.js:962 app/desktopManager.js:994
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "Δεν θα μπορούσε να δημιουργήσει συμβολική σύνδεση"
 
-#: app/desktopManager.js:979
+#: app/desktopManager.js:1064
 #, fuzzy
 msgid "Copy/Move Failed"
 msgstr "Μετακυρώθηκε"
 
-#: app/desktopManager.js:980
+#: app/desktopManager.js:1065
 msgid "{0} Does not exist"
 msgstr ""
 
-#: app/desktopManager.js:1264
+#: app/desktopManager.js:1367
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Σαφή τρέχουσα επιλογή πριν από νέα αναζήτηση"
 
-#: app/desktopManager.js:1308
+#: app/desktopManager.js:1411
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "Βρείτε αρχεία στο Desktop"
 
-#: app/desktopManager.js:1571
+#: app/desktopManager.js:1686
 #, fuzzy
 msgid "Name"
 msgstr "Όνομα"
 
-#: app/desktopManager.js:1572
+#: app/desktopManager.js:1687
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Όνομα (Z-A)"
 
-#: app/desktopManager.js:1573
+#: app/desktopManager.js:1688
 #, fuzzy
 msgid "Modified Time"
 msgstr "Τροποποιημένος χρόνος"
 
-#: app/desktopManager.js:1574
+#: app/desktopManager.js:1689
 #, fuzzy
 msgid "Type"
 msgstr "Τύπος"
 
-#: app/desktopManager.js:1575
+#: app/desktopManager.js:1690
 #, fuzzy
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: app/desktopManager.js:1578
+#: app/desktopManager.js:1693
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Κρατήστε το Arranged.."
 
-#: app/desktopManager.js:1582
+#: app/desktopManager.js:1697
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Κρατήστε τοραγμένο από τον τύπο.."
 
-#: app/desktopManager.js:1583
+#: app/desktopManager.js:1698
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sort Home /Drives / Trash .."
 
-#: app/desktopManager.js:1588 app/desktopManager.js:2641
+#: app/desktopManager.js:1702
 #, fuzzy
-msgid "New Folder"
-msgstr "Νέος Φάκέλος"
+msgid "Change Desktop"
+msgstr "Επιφάνεια Eργασίας"
 
-#: app/desktopManager.js:1592
-#, fuzzy
-msgid "New Document"
-msgstr "Νέο έγγραφο"
+#: app/desktopManager.js:1704
+msgid "Restore Default Desktop"
+msgstr ""
 
-#: app/desktopManager.js:1596
-#, fuzzy
-msgid "Paste"
-msgstr "Επικόλληση"
-
-#: app/desktopManager.js:1597
-#, fuzzy
-msgid "Undo"
-msgstr "Αναίρεση"
-
-#: app/desktopManager.js:1598
-#, fuzzy
-msgid "Redo"
-msgstr "Επανάληψη"
-
-#: app/desktopManager.js:1603
-#, fuzzy
-msgid "Select All"
-msgstr "Επιλογή Όλων"
-
-#: app/desktopManager.js:1608
-#, fuzzy
-msgid "Arrange Icons"
-msgstr "Arrange Icons"
-
-#: app/desktopManager.js:1612
-#, fuzzy
-msgid "Arrange By…"
-msgstr "Arrange By.."
-
-#: app/desktopManager.js:1618
-#, fuzzy
-msgid "Show Desktop In {0}"
-msgstr "Show Desktop in {0}"
-
-#: app/desktopManager.js:1621
-#, fuzzy
-msgid "Open In {0}"
-msgstr "Ανοιχτό στο {0}"
-
-#: app/desktopManager.js:1627
+#: app/desktopManager.js:1706
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Desktop IconΡυθμίσεις"
 
-#: app/desktopManager.js:1632
+#: app/desktopManager.js:1710 app/desktopManager.js:2776
+#, fuzzy
+msgid "New Folder"
+msgstr "Νέος Φάκέλος"
+
+#: app/desktopManager.js:1714
+#, fuzzy
+msgid "New Document"
+msgstr "Νέο έγγραφο"
+
+#: app/desktopManager.js:1718
+#, fuzzy
+msgid "Paste"
+msgstr "Επικόλληση"
+
+#: app/desktopManager.js:1719
+#, fuzzy
+msgid "Undo"
+msgstr "Αναίρεση"
+
+#: app/desktopManager.js:1720
+#, fuzzy
+msgid "Redo"
+msgstr "Επανάληψη"
+
+#: app/desktopManager.js:1725
+#, fuzzy
+msgid "Select All"
+msgstr "Επιλογή Όλων"
+
+#: app/desktopManager.js:1730
+#, fuzzy
+msgid "Arrange Icons"
+msgstr "Arrange Icons"
+
+#: app/desktopManager.js:1734
+#, fuzzy
+msgid "Arrange By…"
+msgstr "Arrange By.."
+
+#: app/desktopManager.js:1740
+#, fuzzy
+msgid "Show Desktop In {0}"
+msgstr "Show Desktop in {0}"
+
+#: app/desktopManager.js:1743
+#, fuzzy
+msgid "Open In {0}"
+msgstr "Ανοιχτό στο {0}"
+
+#: app/desktopManager.js:1749 app/desktopManager.js:1821
+#, fuzzy
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: app/desktopManager.js:1755
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1678
+#: app/desktopManager.js:1778
+#, fuzzy
+msgid "Unable to open Desktop in Gnome Files"
+msgstr "Δεν είναι σε θέση να ανοίξει στο Gnome Console"
+
+#: app/desktopManager.js:1807
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Το παράθυρο Preferences είναι ανοιχτό"
 
-#: app/desktopManager.js:1678
+#: app/desktopManager.js:1807
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 "Αυτό το παράθυρο είναι ανοιχτό. Παρακαλούμε μεταβείτε στο ενεργό παράθυρο."
 
-#: app/desktopManager.js:1692
-#, fuzzy
-msgid "Settings"
-msgstr "Ρυθμίσεις"
-
-#: app/desktopManager.js:2664
+#: app/desktopManager.js:2802
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Δημιουργία Παραγγελίας απέτυχε."
 
-#: app/desktopManager.js:2665
+#: app/desktopManager.js:2803
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Αδύνατη η δημιουργία φακέλου."
 
-#: app/desktopManager.js:2708
+#: app/desktopManager.js:2849
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Πρότυπο Δημιουργία σφάλματος"
 
-#: app/desktopManager.js:2709
+#: app/desktopManager.js:2850
 #, fuzzy
 msgid "Could not create document"
 msgstr "Δεν θα μπορούσε να δημιουργήσει έγγραφο"
@@ -845,255 +913,255 @@ msgid ""
 "Enable \"Allow Launching\""
 msgstr ""
 
-#: app/fileItem.js:419 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
 msgstr "Αδυναμία ανοίγματος αρχείου"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:421 app/gnomeShellDragDrop.js:240
+#: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "$ {appName} δεν μπορούν να ανοίξουν αρχεία αυτού του τύπου!"
 
-#: app/fileItemMenu.js:298
+#: app/fileItemMenu.js:301
 #, fuzzy
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "New Folder με {0} στοιχείο"
 msgstr[1] "New Folder με στοιχεία {0}"
 
-#: app/fileItemMenu.js:305
+#: app/fileItemMenu.js:308
 #, fuzzy
 msgid "Open All..."
 msgstr "Ανοίξτε όλα..."
 
-#: app/fileItemMenu.js:313
+#: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Launch"
 msgstr "Εκκίνηση"
 
-#: app/fileItemMenu.js:323
+#: app/fileItemMenu.js:326
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "Ανοιχτό με {foo}"
 
-#: app/fileItemMenu.js:326
+#: app/fileItemMenu.js:329
 #, fuzzy
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: app/fileItemMenu.js:337 app/fileItemMenu.js:341
+#: app/fileItemMenu.js:340 app/fileItemMenu.js:344
 #, fuzzy
 msgid "Extract Here"
 msgstr "Εξαγωγή εδώ"
 
-#: app/fileItemMenu.js:343
+#: app/fileItemMenu.js:346
 #, fuzzy
 msgid "Extract To..."
 msgstr "Εξαγωγή σε..."
 
-#: app/fileItemMenu.js:348 app/fileItemMenu.js:351
+#: app/fileItemMenu.js:351 app/fileItemMenu.js:354
 #, fuzzy
 msgid "Open With..."
 msgstr "Άνοιγμα με..."
 
-#: app/fileItemMenu.js:351
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Open All With Other Application..."
 msgstr "Ανοίξτε όλα με άλλη εφαρμογή..."
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:357
 #, fuzzy
 msgid "Launch using Dedicated Graphics Card"
 msgstr "Ξεκίνησε χρησιμοποιώντας Dedicated Graphics Card"
 
-#: app/fileItemMenu.js:361
+#: app/fileItemMenu.js:364
 #, fuzzy
 msgid "Stack This Type"
 msgstr "Stack This Type"
 
-#: app/fileItemMenu.js:361
+#: app/fileItemMenu.js:364
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "Unstack This Type"
 
-#: app/fileItemMenu.js:377
+#: app/fileItemMenu.js:380
 #, fuzzy
 msgid "Run as a Program"
 msgstr "Εκτελέστε ως πρόγραμμα"
 
-#: app/fileItemMenu.js:380
+#: app/fileItemMenu.js:383
 #, fuzzy
 msgid "Scripts"
 msgstr "Scripts"
 
-#: app/fileItemMenu.js:383
+#: app/fileItemMenu.js:386
 #, fuzzy
 msgid "Cut"
 msgstr "Αποκοπή"
 
-#: app/fileItemMenu.js:389
+#: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
 msgstr "Μετακίνηση σε....."
 
-#: app/fileItemMenu.js:390
+#: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Copy to..."
 msgstr "Αντιγραφή στο..."
 
-#: app/fileItemMenu.js:394
+#: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Rename…"
 msgstr "Μετονομάστηκε"
 
-#: app/fileItemMenu.js:397
+#: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
 msgstr "Δημιουργήστε Link..."
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:405
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Φάκελος {0}"
 msgstr[1] "Βαθύ {0} φάκελοι"
 
-#: app/fileItemMenu.js:409
+#: app/fileItemMenu.js:412
 #, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Χαλαρώστε {0} αρχείο"
 msgstr[1] "Χαλαρώστε αρχεία {0}"
 
-#: app/fileItemMenu.js:415
+#: app/fileItemMenu.js:418
 #, fuzzy
 msgid "Email to..."
 msgstr "E-mail to..."
 
-#: app/fileItemMenu.js:420
+#: app/fileItemMenu.js:423
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "Στείλε σε Mobile Device"
 
-#: app/fileItemMenu.js:424
+#: app/fileItemMenu.js:427
 #, fuzzy
 msgid "Move to Trash"
 msgstr "Μετακίνηση σε Σκουπίδια"
 
-#: app/fileItemMenu.js:427
+#: app/fileItemMenu.js:430
 #, fuzzy
 msgid "Delete permanently"
 msgstr "Οριστική διαγραφή"
 
-#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
+#: app/fileItemMenu.js:439 app/fileItemMenu.js:441
 #, fuzzy
 msgid "Don't Allow Launching"
 msgstr "Μην επιτρέπετε την εκκίνηση"
 
-#: app/fileItemMenu.js:436 app/fileItemMenu.js:438
+#: app/fileItemMenu.js:439 app/fileItemMenu.js:441
 #, fuzzy
 msgid "Allow Launching"
 msgstr "Επιτρέπει την εκκίνηση"
 
-#: app/fileItemMenu.js:445
+#: app/fileItemMenu.js:448
 #, fuzzy
 msgid "Empty Trash"
 msgstr "Άδειασμα των απορριμμάτων"
 
-#: app/fileItemMenu.js:451
+#: app/fileItemMenu.js:454
 #, fuzzy
 msgid "Eject"
 msgstr "Εξαγωγή"
 
-#: app/fileItemMenu.js:454
+#: app/fileItemMenu.js:457
 #, fuzzy
 msgid "Unmount"
 msgstr "Αποπροσάρτηση"
 
-#: app/fileItemMenu.js:458
+#: app/fileItemMenu.js:461
 #, fuzzy
 msgid "Common Properties"
 msgstr "Κοινές Ιδεότητες"
 
-#: app/fileItemMenu.js:459
+#: app/fileItemMenu.js:462
 #, fuzzy
 msgid "Properties"
 msgstr "Ιδιότητες"
 
-#: app/fileItemMenu.js:462
+#: app/fileItemMenu.js:465
 #, fuzzy
 msgid "Show All in {0}"
 msgstr "Show All in {0}"
 
-#: app/fileItemMenu.js:463
+#: app/fileItemMenu.js:466
 #, fuzzy
 msgid "Show in {0}"
 msgstr "Show in {0}"
 
-#: app/fileItemMenu.js:468
+#: app/fileItemMenu.js:471
 #, fuzzy
 msgid "Open in {0}"
 msgstr "Ανοιχτό στο {0}"
 
-#: app/fileItemMenu.js:595
+#: app/fileItemMenu.js:605
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ακυρώσεις"
 
-#: app/fileItemMenu.js:596
+#: app/fileItemMenu.js:606
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Δεν είναι σε θέση να εξαγάγετε Αρχείο, φάκελο προορισμού"
 
-#: app/fileItemMenu.js:628
+#: app/fileItemMenu.js:649
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Μετακυρώθηκε"
 
-#: app/fileItemMenu.js:629
+#: app/fileItemMenu.js:650
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Δεν είναι σε θέση να μετακινήσετε αρχεία, κανένα φάκελο προορισμού"
 
-#: app/fileItemMenu.js:641 app/fileItemMenu.js:670
+#: app/fileItemMenu.js:658 app/fileItemMenu.js:687
 #, fuzzy
 msgid "Select Destination"
 msgstr "Επιλογή προορισμού"
 
-#: app/fileItemMenu.js:644 app/fileItemMenu.js:672
+#: app/fileItemMenu.js:661 app/fileItemMenu.js:689
 #, fuzzy
 msgid "Select"
 msgstr "Επιλογή"
 
-#: app/fileItemMenu.js:721
+#: app/fileItemMenu.js:749
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Αντιγραφή ακυρώθηκε"
 
-#: app/fileItemMenu.js:722
+#: app/fileItemMenu.js:750
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Δεν είναι σε θέση να αντιγράψει αρχεία, κανένα φάκελο προορισμού"
 
-#: app/fileItemMenu.js:770 app/fileItemMenu.js:780 app/fileItemMenu.js:790
-#: app/fileItemMenu.js:817
+#: app/fileItemMenu.js:792 app/fileItemMenu.js:802 app/fileItemMenu.js:812
+#: app/fileItemMenu.js:839
 #, fuzzy
 msgid "Mail Error"
 msgstr "Mail Error"
 
-#: app/fileItemMenu.js:771
+#: app/fileItemMenu.js:793
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Δεν μπορείτε να βρείτε Xdg-mail, παρακαλώ εγκαταστήσετε το πρόγραμμα"
 
-#: app/fileItemMenu.js:781
+#: app/fileItemMenu.js:803
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Υπήρχε ένα λάθος στα αρχεία ηλεκτρονικού ταχυδρομείου"
 
-#: app/fileItemMenu.js:791
+#: app/fileItemMenu.js:813
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr ""
@@ -1101,50 +1169,55 @@ msgstr ""
 "πρόγραμμα"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:797
+#: app/fileItemMenu.js:819
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Αρχείο.zip"
 
-#: app/fileItemMenu.js:818
+#: app/fileItemMenu.js:840
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Υπήρχε ένα λάθος στη δημιουργία ενός αρχείου zip"
 
-#: app/fileItemMenu.js:831
+#: app/fileItemMenu.js:853
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Δεν μπορείτε να στείλετε email σε μια λίστα"
 
-#: app/fileItemMenu.js:832
+#: app/fileItemMenu.js:854
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "Η επιλογή περιλαμβάνει ένα Directory, συμπίεση σε ένα αρχείο .zip πρώτα?"
 
-#: app/fileItemMenu.js:944
+#: app/fileItemMenu.js:941
+#, fuzzy
+msgid "Can Not open the Working Directory"
+msgstr "Δεν μπορείτε να στείλετε email σε μια λίστα"
+
+#: app/fileItemMenu.js:982
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Δεν είναι σε θέση να ανοίξει στο Gnome Console"
 
-#: app/fileItemMenu.js:945
+#: app/fileItemMenu.js:983
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 "Παρακαλούμε να εγκαταστήσετε το Gnome Console ή άλλο πρόγραμμα τερματικού "
 "τίτλου"
 
-#: app/fileItemMenu.js:952
+#: app/fileItemMenu.js:990
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Δεν είναι σε θέση να ανοίξει {0}"
 
-#: app/fileItemMenu.js:953
+#: app/fileItemMenu.js:991
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Παρακαλούμε Εγκαταστήστε την εγκατάσταση {0}"
 
-#: app/preferences.js:420
+#: app/preferences.js:419
 #, fuzzy
 msgid "Console"
 msgstr "Κονσόλας"
@@ -1177,27 +1250,27 @@ msgstr ""
 "Για αυτή τη λειτουργία για να εργαστείτε στο Desktop Icons, πρέπει να "
 "εγκαταστήσετε \" $ {programName} στο σύστημά σας."
 
-#: app/utils/desktopIconsUtil.js:183
+#: app/utils/desktopIconsUtil.js:230
 #, fuzzy
 msgid "Command not found"
 msgstr "Δεν βρέθηκε η εντολή!"
 
-#: app/resources/ui/ding-app-chooser.ui:47
+#: data/ui/ding-app-chooser.ui:47
 #, fuzzy
 msgid "Choose an app to open the selected files."
 msgstr "Επιλέξτε μια εφαρμογή για να ανοίξετε τα επιλεγμένα αρχεία."
 
-#: app/resources/ui/ding-app-chooser.ui:81
+#: data/ui/ding-app-chooser.ui:81
 #, fuzzy
 msgid "Always use for this file type"
 msgstr "Πάντα χρησιμοποιήστε για αυτό το τύπο αρχείου"
 
-#: app/resources/ui/ding-app-chooser.ui:104
+#: data/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
 msgstr "_Άκυρο"
 
-#: app/resources/ui/ding-app-chooser.ui:110
+#: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
 msgstr "_Άνοιγμα"
@@ -1396,6 +1469,14 @@ msgid ""
 msgstr ""
 "Τα Icons δεν είναι σε ένα ορθογώνιο πλέγμα, αλλά μπορούν να μεταδοθούν "
 "οπουδήποτε ανεξάρτητα από το grid"
+
+#, fuzzy
+#~ msgid "Volumes"
+#~ msgstr "Όγκος"
+
+#, fuzzy
+#~ msgid "Desktop volumes display"
+#~ msgstr "Desktop όγκους οθόνης"
 
 #, fuzzy
 #~ msgid "Run"
