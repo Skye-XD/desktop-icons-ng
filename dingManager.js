@@ -156,7 +156,7 @@ const DingManager = class {
             return;
         }
 
-        if (this.starupPrepareId) {
+        if (this.startupPrepareId) {
             Main.layoutManager.disconnect(this.startupPreparedId);
             this.startupPreparedId = null;
         }
