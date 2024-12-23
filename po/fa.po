@@ -9,16 +9,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fa/>\n"
+"PO-Revision-Date: 2024-12-23 05:55+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -28,7 +29,7 @@ msgstr "صفحه نمایش"
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #, fuzzy
 msgid "Files"
-msgstr "پرونده‌ها"
+msgstr "فايل‌ها"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #: app/adwPreferencesWindow.js:218
@@ -42,8 +43,9 @@ msgid "About"
 msgstr "درباره‌ی Psiphon"
 
 #: app/adwPreferencesWindow.js:200
+#, fuzzy
 msgid "Desktop Settings"
-msgstr ""
+msgstr "تنظیمات دسکتاپ"
 
 #: app/adwPreferencesWindow.js:201
 msgid "Settings for the Desktop Program"
@@ -52,7 +54,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Desktop Folder"
-msgstr "صفحه نمایش"
+msgstr "شاخهٔ میزکار"
 
 #: app/adwPreferencesWindow.js:206
 msgid "Current Desktop: "
@@ -142,8 +144,9 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
 #: app/desktopManager.js:3352
+#, fuzzy
 msgid "Choose"
-msgstr ""
+msgstr "انتخاب کنید"
 
 #: app/adwPreferencesWindow.js:269
 msgid "Restore Default Desktop Folder"
@@ -154,8 +157,9 @@ msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:271
+#, fuzzy
 msgid "Restore"
-msgstr ""
+msgstr "بازگردانی"
 
 #: app/adwPreferencesWindow.js:280
 msgid "Add an emblem to soft links"
@@ -232,7 +236,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Website"
-msgstr "تارنما"
+msgstr "وب‌سایت"
 
 #: app/adwPreferencesWindow.js:337
 #, fuzzy
@@ -433,7 +437,7 @@ msgstr "رمز عبور"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "ايجاد كردن"
+msgstr "ایجاد"
 
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
@@ -567,7 +571,7 @@ msgstr "نوع"
 #: app/desktopManager.js:1690
 #, fuzzy
 msgid "Size"
-msgstr "سایز"
+msgstr "اندازه"
 
 #: app/desktopManager.js:1693
 msgid "Keep Arranged…"
@@ -612,7 +616,7 @@ msgstr "جایگذاری"
 #: app/desktopManager.js:1719
 #, fuzzy
 msgid "Undo"
-msgstr "برگردان"
+msgstr "واگرد"
 
 #: app/desktopManager.js:1720
 #, fuzzy
@@ -712,7 +716,7 @@ msgstr "پوشه"
 #: app/fileItem.js:172
 #, fuzzy
 msgid "File"
-msgstr "فایل"
+msgstr "فايل"
 
 #: app/fileItem.js:292
 msgid "Broken Link"
@@ -937,7 +941,7 @@ msgstr "خالی کردن سطل زباله"
 #: app/fileItemMenu.js:454
 #, fuzzy
 msgid "Eject"
-msgstr "خروج"
+msgstr "خروج‌"
 
 #: app/fileItemMenu.js:457
 msgid "Unmount"
