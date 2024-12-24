@@ -16,8 +16,8 @@ msgstr ""
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
 "PO-Revision-Date: 2024-12-24 07:00+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -472,10 +472,8 @@ msgstr ""
 "Gnome"
 
 #: app/desktopManager.js:364
-#, fuzzy
-#| msgid "Folder Creation Failed"
 msgid "Desktop Folder Change Failed"
-msgstr "Ошибка создания папки"
+msgstr "Не удалось изменить папку рабочего стола"
 
 #: app/desktopManager.js:365
 msgid "The new Desktop Folder does not exist!"
