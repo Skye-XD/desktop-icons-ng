@@ -136,6 +136,10 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Work properly with appimage files, put emblems if not executable, warn user, treat like .desktop files.
 
+- [x] Bundle all resources, Icons, ui files, css files into a GReource.
+
+- [x] Allow changing the folder displayed in DING to any user folder, not just the $HOME/Desktop. Track changes to user.dirs-dirs from Xdg utilities, and write to it as well to set the users set 'Desktop' folder. Add ui to allow this.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -278,3 +282,9 @@ The application functionality and behavior is consistent with the two other very
 - [x] Do not launch scripts on double click, only right click. Otherwise open them for editing
 
 - [x] clean up base desktopIconItem class, and put special properties in derived classes.
+
+- [x] Set text mimetype buffers and text uri buffers on clipboard for selections.
+
+- [x] Fix drag data with correct lists in mime types.
+
+- [x] Change order of speech for accessibility for different fileItems- Ported from upstream,

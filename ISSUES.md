@@ -147,3 +147,5 @@ However most linux distributions have xdg-user-dirs installed, this runs a user 
 If xdg-user-dirs is installed, any changes made are picked up by GLib, and the GLib.get_user_special_dir(..) will now point to the new "Desktop" directory. gtk4-ding will pick this up on the next login.
 
 You can force the update immediately on my distribution to show the new "Desktop" folder. Simply kill the local ding.js process (you can use the kill script provided in the scripts folder, or any which way you want). The extension will immediately spawn a new ding.js process, and this new process will pick up the new "Desktop" from the GLib call (My distribution does not have these folders in ENV), and display the new folder as the Desktop.
+
+UPDATE: Since version 88, you can change to prefered the preferred displayed Dekstop directory in preferences for gtk4-Ding as will as through the right click menu. It respects xdg settings, updates and tracks .config/user-dirs.dirs. gtk4-Ding can now display tne newly set desktop without a restart, login/logout, it simply switches to displaying the new desktop.

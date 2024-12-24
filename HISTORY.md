@@ -1,4 +1,15 @@
 # History of versions #
+* Gtk4 version 88 for Gnome 45, 46, 47
+  * Allow change of the displayed desktop Folder in the running program. (Sundeep Mediratta)
+  * Compile all resources into a Gresouce, add a seperate Data folder. (Sundeep Mediratta)
+  * Set text mimetype buffers and text uri buffers on clipboard for selections. (Sundeep Mediratta)
+  * Fix drag data with correct lists in mime types. (Sundeep Mediratta)
+  * Multiple code fixes, Lint cleanups, remove code for older versions of Gnome. (Sundeep Mediratta)
+  * Change order of speech for accessibility for different fileItems- Ported from upstream, Sergio Costas
+  * Weblate Translations. (Weblate Authors)
+  * Update History.md, metadata.json. Version Bump 88
+
+
 * Gtk4 version 87 for Gnome 45, 46, 47
   * Fix drag from Trash to Desktop not working. (Sundeep Mediratta)
   * Multiple fixes to right click menu on icons. (Sundeep Mediratta)
