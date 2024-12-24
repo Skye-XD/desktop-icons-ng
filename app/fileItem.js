@@ -138,6 +138,11 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     _setAccesibilityName() {
         const visibleName = this._getVisibleName();
+        const driveName = _('Drive');
+        const stackName = _('Stack');
+        const folderName = _('Folder');
+        const fileName = _('File');
+        const trashName = _('Trash');
         switch (this._fileExtra) {
         case  this.Enums.FileType.USER_DIRECTORY_HOME:
             this.container.update_property([Gtk.AccessibleProperty.LABEL], [_('Home')]);
@@ -146,34 +151,35 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             /** TRANSLATORS: when using a screen reader,this is the text read when
              the trash folder is selected. */
             this.container.update_property([Gtk.AccessibleProperty.LABEL],
-                [_('Trash')]);
+                [`${trashName}`]);
             break;
-        case this.Enums.FileType.EXTERNAL_DRIVE: {
+        case this.Enums.FileType.EXTERNAL_DRIVE:
             /** TRANSLATORS: when using a screen reader, this is the text read when
              * an external drive is selected. Example: if a USB stick named "my_portable"
-             * is selected, it will say "Drive my_portable" */
-            const driveName = _('Drive');
+             * is selected, it will say "my_portable Drive" */
             this.container.update_property([Gtk.AccessibleProperty.LABEL],
-                [`${driveName} ${visibleName}}`]);
+                [`${visibleName} ${driveName}`]);
             break;
-        }
+        case this.Enums.FileType.STACK_TOP:
+            /** TRANSLATORS: when using a screen reader, this is the text read when a stack is
+                selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures" */
+            this.container.update_property([Gtk.AccessibleProperty.LABEL],
+                [`${visibleName} ${stackName}`]);
+            break;
         default:
             if (this._isDirectory) {
                 /** TRANSLATORS: when using a screen reader, this is the text read when
                  * a folder is selected. Example: if a folder named "things" is selected,
-                 * it will say "Folder things" */
-                const folderName = _('Folder');
+                 * it will say "things Folder" */
                 this.container.update_property([Gtk.AccessibleProperty.LABEL],
-                    [`${folderName} ${visibleName}`]);
+                    [`${visibleName} ${folderName}`]);
             } else {
                 /** TRANSLATORS: when using a screen reader, this is the text read when
                  * a normal file is selected. Example: if a file named "my_picture.jpg"
-                 * is selected, it will say "File my_picture.jpg" */
-                const fileName = _('File');
+                 * is selected, it will say "my_picture.jpg File" */
                 this.container.update_property([Gtk.AccessibleProperty.LABEL],
-                    [`${fileName} ${visibleName}`]);
+                    [`${visibleName} ${fileName}`]);
             }
-            break;
         }
     }
 
