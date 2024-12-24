@@ -16,16 +16,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-05 21:44+0000\n"
+"PO-Revision-Date: 2024-12-24 07:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -61,7 +61,7 @@ msgstr "Masaüstü Programı için ayarlar"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Desktop Folder"
-msgstr "Hedef Klasör Yok"
+msgstr "Masaüstü klasörü"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -155,8 +155,9 @@ msgstr "Kişisel klasörü masaüstünde göster"
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
 #: app/desktopManager.js:3352
+#, fuzzy
 msgid "Choose"
-msgstr ""
+msgstr "Seç"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -169,8 +170,9 @@ msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:271
+#, fuzzy
 msgid "Restore"
-msgstr ""
+msgstr "Geri yükle"
 
 #: app/adwPreferencesWindow.js:280
 msgid "Add an emblem to soft links"
@@ -251,7 +253,7 @@ msgstr "Sürüklenme üzerine açık klasörler"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Website"
-msgstr "Site"
+msgstr "Web sitesi"
 
 #: app/adwPreferencesWindow.js:337
 #, fuzzy

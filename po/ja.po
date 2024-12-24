@@ -12,17 +12,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"PO-Revision-Date: 2024-12-24 07:00+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -43,7 +42,7 @@ msgstr "微調整"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "About"
+msgstr "概要"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -58,7 +57,7 @@ msgstr "デスクトッププログラムの設定"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Desktop Folder"
-msgstr "宛先フォルダーがありません"
+msgstr "デスクトップフォルダー"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -152,8 +151,9 @@ msgstr "デスクトップにホームフォルダーを表示する"
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
 #: app/desktopManager.js:3352
+#, fuzzy
 msgid "Choose"
-msgstr ""
+msgstr "選択"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -166,8 +166,9 @@ msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:271
+#, fuzzy
 msgid "Restore"
-msgstr ""
+msgstr "復元"
 
 #: app/adwPreferencesWindow.js:280
 msgid "Add an emblem to soft links"
@@ -612,7 +613,7 @@ msgstr "デスクトップ上のファイルを検索"
 #: app/desktopManager.js:1686
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "チャンネル名"
 
 #: app/desktopManager.js:1687
 #, fuzzy
@@ -627,7 +628,7 @@ msgstr "変更された時間"
 #: app/desktopManager.js:1689
 #, fuzzy
 msgid "Type"
-msgstr "種類"
+msgstr "福祉施設種類"
 
 #: app/desktopManager.js:1690
 #, fuzzy
@@ -932,7 +933,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "ファイルが開けませんでした"
+msgstr "ファイルを開けませんでした"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
