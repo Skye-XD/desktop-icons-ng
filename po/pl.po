@@ -150,7 +150,7 @@ msgstr "Niezaufany plik pulpitu"
 
 #: app/adwPreferencesWindow.js:270
 msgid "Set Desktop back to $HOME/Desktop"
-msgstr ""
+msgstr "Ustaw ponownie domyślny katalog pulpitu na $HOME/Desktop"
 
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
@@ -443,7 +443,7 @@ msgstr "Ikony pulpitu"
 
 #: app/desktopManager.js:150
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "Nie można pokazać pulpitu"
 
 #: app/desktopManager.js:166
 msgid "GNOME Files not found"
@@ -483,15 +483,15 @@ msgstr "Utworzenie katalogu nie powiodło się"
 
 #: app/desktopManager.js:365
 msgid "The new Desktop Folder does not exist!"
-msgstr ""
+msgstr "Nowy katalog pulpitu nie istnieje"
 
 #: app/desktopManager.js:376
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "Zmieniono katalog pulpitu"
 
 #: app/desktopManager.js:377
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "Przełączanie na nowy pulpit..."
 
 #: app/desktopManager.js:873
 msgid "Choose Action for Files"
@@ -525,7 +525,7 @@ msgstr "Przenoszenie anulowane"
 
 #: app/desktopManager.js:1065
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "{0} nie istnieje"
 
 #: app/desktopManager.js:1367
 msgid "Clear current selection before new search"
@@ -575,7 +575,7 @@ msgstr "Pulpit"
 
 #: app/desktopManager.js:1704
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "Przywróć domyślny pulpit"
 
 #: app/desktopManager.js:1706
 msgid "Desktop Icon Settings"
