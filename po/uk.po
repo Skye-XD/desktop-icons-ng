@@ -12,22 +12,21 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-12 11:48+0000\n"
-"Last-Translator: Yevhen Popok <xalt7x.service@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/uk/>\n"
+"PO-Revision-Date: 2024-12-24 07:00+0000\n"
+"Last-Translator: Andrij Zyniuk <zinukandrij@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
-#, fuzzy
 msgid "Desktop"
-msgstr "Настільний"
+msgstr "Робочий стіл"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 msgid "Files"
@@ -53,7 +52,7 @@ msgstr "Налаштування робочого столу"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Desktop Folder"
-msgstr "Немає цільової папки"
+msgstr "Тека Стільниця"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -144,8 +143,9 @@ msgstr "Показувати особисту теку на стільниці"
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
 #: app/desktopManager.js:3352
+#, fuzzy
 msgid "Choose"
-msgstr ""
+msgstr "Вибрати"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -157,8 +157,9 @@ msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:271
+#, fuzzy
 msgid "Restore"
-msgstr ""
+msgstr "Відновити"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -266,7 +267,7 @@ msgstr "Звіт"
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
 msgid "License"
-msgstr "Ліцензія"
+msgstr "License"
 
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
@@ -454,7 +455,7 @@ msgstr "Помилка при стисканні"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "Створення архіву"
+msgstr "Створити архів"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -494,7 +495,7 @@ msgstr "Більші архіви, але повинні бути встанов
 #: app/desktopGrid.js:47
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Настільні іконки"
+msgstr "Значок робочого столу"
 
 #: app/desktopManager.js:150
 msgid "Can Not Show the Desktop"
@@ -561,7 +562,7 @@ msgstr "Виберіть дію для файлів"
 #: app/desktopManager.js:874
 #, fuzzy
 msgid "Move"
-msgstr "Перемістити"
+msgstr "рухатися"
 
 #: app/desktopManager.js:874 app/fileItemMenu.js:388
 msgid "Copy"
@@ -603,12 +604,12 @@ msgstr "Пошук файлів на стільниці"
 #: app/desktopManager.js:1686
 #, fuzzy
 msgid "Name"
-msgstr "Ім'я"
+msgstr "Назва"
 
 #: app/desktopManager.js:1687
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Назва (Z-A)"
+msgstr "Назва: Z-A"
 
 #: app/desktopManager.js:1688
 #, fuzzy
@@ -618,7 +619,7 @@ msgstr "Число завантажень"
 #: app/desktopManager.js:1689
 #, fuzzy
 msgid "Type"
-msgstr "Тип"
+msgstr "Вид взуття"
 
 #: app/desktopManager.js:1690
 #, fuzzy
@@ -677,7 +678,7 @@ msgstr "Повторити"
 #: app/desktopManager.js:1725
 #, fuzzy
 msgid "Select All"
-msgstr "Обрати все"
+msgstr "Виділити все"
 
 #: app/desktopManager.js:1730
 msgid "Arrange Icons"
@@ -901,7 +902,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Не вдалося відкрити файл"
+msgstr "Не можу відкрити файли"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
@@ -1185,19 +1186,19 @@ msgstr "Встановити {0} {0}"
 #: app/preferences.js:419
 #, fuzzy
 msgid "Console"
-msgstr "Console"
+msgstr "Консоль"
 
 #: app/showErrorPopup.js:39
 #, fuzzy
 msgid "More Information"
-msgstr "Докладніше"
+msgstr "Більше інформації"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Стек"
+msgstr "Стопка"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

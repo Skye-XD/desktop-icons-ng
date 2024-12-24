@@ -12,16 +12,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
+"PO-Revision-Date: 2024-12-24 07:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -42,7 +42,7 @@ msgstr "Vylepšení"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "O nás"
+msgstr "O programu"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -57,7 +57,7 @@ msgstr "Nastavení pro program Desktop"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Desktop Folder"
-msgstr "Žádná cílová složka"
+msgstr "Složka plochy"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -151,8 +151,9 @@ msgstr "Zobrazovat osobní složku na pracovní ploše"
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
 #: app/desktopManager.js:3352
+#, fuzzy
 msgid "Choose"
-msgstr ""
+msgstr "Zvolit"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -164,8 +165,9 @@ msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:271
+#, fuzzy
 msgid "Restore"
-msgstr ""
+msgstr "Obnovit"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -248,7 +250,7 @@ msgstr "Otevřete složky na drag hover"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Website"
-msgstr "Webové stránky"
+msgstr "Webová stránka"
 
 #: app/adwPreferencesWindow.js:337
 #, fuzzy
@@ -567,7 +569,7 @@ msgstr "Zvolte akci pro soubory"
 #: app/desktopManager.js:874
 #, fuzzy
 msgid "Move"
-msgstr "Přesunout"
+msgstr "Tah"
 
 #: app/desktopManager.js:874 app/fileItemMenu.js:388
 msgid "Copy"
@@ -609,12 +611,12 @@ msgstr "Najít soubory na Ploše"
 #: app/desktopManager.js:1686
 #, fuzzy
 msgid "Name"
-msgstr "Name"
+msgstr "Jméno"
 
 #: app/desktopManager.js:1687
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název Z - A"
+msgstr "Název (Z-A)"
 
 #: app/desktopManager.js:1688
 #, fuzzy
@@ -764,7 +766,7 @@ msgstr "Trash"
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
-msgstr "Jednotka"
+msgstr "Disk"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -897,7 +899,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Soubor se nedaří otevřít"
+msgstr "Nelze otevřít soubory"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
@@ -977,12 +979,12 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesunout do"
+msgstr "Přesuň k"
 
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovat do..."
+msgstr "Kopírovat do .."
 
 #: app/fileItemMenu.js:397
 msgid "Rename…"
