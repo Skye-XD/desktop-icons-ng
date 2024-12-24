@@ -8,6 +8,8 @@ Updated and modified code base, uses Gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* Allow setting any user folder as the Desktop folder following xdg-sepecifications and updating the xdg-files and vice versa in the running program.
+* Proper app icon, image and app name in Notifications.
 * Proper integration for AppImage files, treat them like .desktop files. Integration with AppImageLauncher. Prefer that to open AppImage files if available.
 * For Gnome 47, change highlighting and rubber band selection colors with accent-colors in Gnome Settings.
 * Selection rectangle with rounded corners, similar to Gnome Files aesthetic.

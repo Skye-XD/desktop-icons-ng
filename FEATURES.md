@@ -140,6 +140,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Allow changing the folder displayed in DING to any user folder, not just the $HOME/Desktop. Track changes to user.dirs-dirs from Xdg utilities, and write to it as well to set the users set 'Desktop' folder. Add ui to allow this.
 
+- [x] Set Icon and image in notifications, set name of the App as Desktop Icons
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
