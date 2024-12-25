@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
+"PO-Revision-Date: 2024-12-25 15:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
@@ -46,7 +46,7 @@ msgstr "Informacije"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Postavke radne površine"
+msgstr "Desktop Settings"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -150,8 +150,9 @@ msgstr "Prikaži osobnu mapu na radnoj površini"
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
 #: app/desktopManager.js:3352
+#, fuzzy
 msgid "Choose"
-msgstr ""
+msgstr "Odabir"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -163,8 +164,9 @@ msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:271
+#, fuzzy
 msgid "Restore"
-msgstr ""
+msgstr "Obnovi"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -254,7 +256,7 @@ msgstr "Otvorite mape pri povlačenju"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Website"
-msgstr "Web-stranica"
+msgstr "Website"
 
 #: app/adwPreferencesWindow.js:337
 #, fuzzy
@@ -568,7 +570,7 @@ msgstr "Odaberite Akcija za datoteke"
 #: app/desktopManager.js:874
 #, fuzzy
 msgid "Move"
-msgstr "Premjestiti"
+msgstr "Potez"
 
 #: app/desktopManager.js:874 app/fileItemMenu.js:388
 msgid "Copy"
@@ -970,7 +972,7 @@ msgstr "Pokreni kao program"
 #: app/fileItemMenu.js:383
 #, fuzzy
 msgid "Scripts"
-msgstr "Skripte"
+msgstr "Skripta"
 
 #: app/fileItemMenu.js:386
 msgid "Cut"
