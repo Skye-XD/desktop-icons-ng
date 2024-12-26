@@ -1560,6 +1560,14 @@ const DesktopManager = class {
         this.mainApp.add_action(this.Prefs.desktopSettings.create_action('keep-stacked'));
         this.mainApp.add_action(this.Prefs.desktopSettings.create_action('sort-special-folders'));
         this.mainApp.add_action(this.Prefs.desktopSettings.create_action('arrangeorder'));
+        const radioArrangeAction = Gio.SimpleAction.new_stateful(
+            'arrangeaction',
+            GLib.VariantType.new('s'),
+            GLib.Variant.new_string(this.Prefs.desktopSettings.get_string(
+                this.Enums.SortOrder.ORDER))
+        );
+        radioArrangeAction.connect('change-state', this.logActionState.bind(this));
+        this.mainApp.add_action(radioArrangeAction);
 
         let findFilesAction = Gio.SimpleAction.new('findFiles', null);
         findFilesAction.connect('activate', () => {
@@ -1657,6 +1665,11 @@ const DesktopManager = class {
         this.mainApp.add_action(this.restoreDefaultDesktopAction);
     }
 
+    logActionState(action, value) {
+        this.Prefs.desktopSettings.set_string('arrangeorder', value.deep_unpack());
+        action.set_state(value);
+    }
+
     textEntryAccelsTurnOn() {
         this.mainApp.set_accels_for_action('app.previewAction', ['space']);
         this.mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
@@ -1688,6 +1701,13 @@ const DesktopManager = class {
         this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeorder::MODIFIEDTIME');
         this.sortingRadioMenu.append(_('Type'), 'app.arrangeorder::KIND');
         this.sortingRadioMenu.append(_('Size'), 'app.arrangeorder::SIZE');
+
+        this.sortingRadioMenu.append(_('Name'), 'app.arrangeaction::NAME');
+        this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
+        this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
+        this.sortingRadioMenu.append(_('Type'), 'app.arrangeaction::KIND');
+        this.sortingRadioMenu.append(_('Size'), 'app.arrangeaction::SIZE');
+
 
         this.sortingSubMenu = Gio.Menu.new();
         this.keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
