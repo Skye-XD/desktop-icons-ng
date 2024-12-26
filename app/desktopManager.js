@@ -1559,7 +1559,6 @@ const DesktopManager = class {
         this.Prefs.desktopSettings.bind('keep-arranged', cleanUpIconsAction, 'enabled', 16);
         this.mainApp.add_action(this.Prefs.desktopSettings.create_action('keep-stacked'));
         this.mainApp.add_action(this.Prefs.desktopSettings.create_action('sort-special-folders'));
-        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('arrangeorder'));
         const radioArrangeAction = Gio.SimpleAction.new_stateful(
             'arrangeaction',
             GLib.VariantType.new('s'),
@@ -1692,12 +1691,6 @@ const DesktopManager = class {
 
     _createDesktopBackgroundGioMenu() {
         this.sortingRadioMenu = Gio.Menu.new();
-        this.sortingRadioMenu.append(_('Name'), 'app.arrangeorder::NAME');
-        this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeorder::DESCENDINGNAME');
-        this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeorder::MODIFIEDTIME');
-        this.sortingRadioMenu.append(_('Type'), 'app.arrangeorder::KIND');
-        this.sortingRadioMenu.append(_('Size'), 'app.arrangeorder::SIZE');
-
         this.sortingRadioMenu.append(_('Name'), 'app.arrangeaction::NAME');
         this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
         this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
