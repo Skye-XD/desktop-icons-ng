@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-02 21:00+0000\n"
+"PO-Revision-Date: 2024-12-25 23:31+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 msgid "Desktop"
@@ -44,7 +44,7 @@ msgstr "Acerca"
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "Configurações do Desktop"
+msgstr "Configurações da área de trabalho"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -54,7 +54,7 @@ msgstr "Configurações para o Programa de Ambiente de Trabalho"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Desktop Folder"
-msgstr "Ficheiros .desktop danificados"
+msgstr "Pasta da Área de trabalho"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -94,7 +94,7 @@ msgstr "Pequeno"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Standard"
-msgstr "Padrão"
+msgstr "Normal"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
@@ -153,8 +153,9 @@ msgstr "Mostrar a pasta pessoal na área de trabalho"
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
 #: app/desktopManager.js:3352
+#, fuzzy
 msgid "Choose"
-msgstr ""
+msgstr "Escolher"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -166,8 +167,9 @@ msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:271
+#, fuzzy
 msgid "Restore"
-msgstr ""
+msgstr "Restaurar"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -784,7 +786,7 @@ msgstr "Lixo"
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
-msgstr "'Drive'"
+msgstr "Dispositivo"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -1011,7 +1013,7 @@ msgstr "Copiar para..."
 #: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Rename…"
-msgstr "Renomear…"
+msgstr "Alterar nome…"
 
 #: app/fileItemMenu.js:400
 #, fuzzy
@@ -1268,7 +1270,7 @@ msgstr "_Abrir"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "Tamanho do ícone"
+msgstr "Tamanho do Ícone"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy

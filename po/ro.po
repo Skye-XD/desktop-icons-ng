@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-24 07:00+0000\n"
+"PO-Revision-Date: 2024-12-25 15:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
@@ -602,7 +602,7 @@ msgstr "Caută fișiere pe Desktop"
 #: app/desktopManager.js:1686
 #, fuzzy
 msgid "Name"
-msgstr "Nume"
+msgstr "Numele"
 
 #: app/desktopManager.js:1687
 #, fuzzy
@@ -617,7 +617,7 @@ msgstr "Timp modificat"
 #: app/desktopManager.js:1689
 #, fuzzy
 msgid "Type"
-msgstr "Tipul"
+msgstr "Tip"
 
 #: app/desktopManager.js:1690
 #, fuzzy
@@ -888,7 +888,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nu s-a putut deschide fișierele"
+msgstr "Fișierul nu poate fi deschis"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238

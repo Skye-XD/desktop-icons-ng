@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-24 07:00+0000\n"
+"PO-Revision-Date: 2024-12-25 15:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
@@ -1011,7 +1011,7 @@ msgstr "নকল করা..।"
 #: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Rename…"
-msgstr "নাম পরিবর্তন করা হয়েছে"
+msgstr "নাম পরিবর্তন করুন"
 
 #: app/fileItemMenu.js:400
 #, fuzzy
