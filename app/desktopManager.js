@@ -1559,7 +1559,15 @@ const DesktopManager = class {
         this.Prefs.desktopSettings.bind('keep-arranged', cleanUpIconsAction, 'enabled', 16);
         this.mainApp.add_action(this.Prefs.desktopSettings.create_action('keep-stacked'));
         this.mainApp.add_action(this.Prefs.desktopSettings.create_action('sort-special-folders'));
-        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('arrangeorder'));
+        const radioArrangeAction = Gio.SimpleAction.new_stateful(
+            'arrangeaction',
+            GLib.VariantType.new('s'),
+            GLib.Variant.new_string(this.Prefs.desktopSettings.get_string(
+                this.Enums.SortOrder.ORDER))
+        );
+        radioArrangeAction.connect('change-state', this._syncArrangeOrder.bind(this));
+        this.mainApp.add_action(radioArrangeAction);
+        this.arrangeAction = radioArrangeAction;
 
         let findFilesAction = Gio.SimpleAction.new('findFiles', null);
         findFilesAction.connect('activate', () => {
@@ -1683,11 +1691,12 @@ const DesktopManager = class {
 
     _createDesktopBackgroundGioMenu() {
         this.sortingRadioMenu = Gio.Menu.new();
-        this.sortingRadioMenu.append(_('Name'), 'app.arrangeorder::NAME');
-        this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeorder::DESCENDINGNAME');
-        this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeorder::MODIFIEDTIME');
-        this.sortingRadioMenu.append(_('Type'), 'app.arrangeorder::KIND');
-        this.sortingRadioMenu.append(_('Size'), 'app.arrangeorder::SIZE');
+        this.sortingRadioMenu.append(_('Name'), 'app.arrangeaction::NAME');
+        this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
+        this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
+        this.sortingRadioMenu.append(_('Type'), 'app.arrangeaction::KIND');
+        this.sortingRadioMenu.append(_('Size'), 'app.arrangeaction::SIZE');
+
 
         this.sortingSubMenu = Gio.Menu.new();
         this.keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
@@ -3486,6 +3495,28 @@ const DesktopManager = class {
             this._unstack();
         else
             this.doStacks({redisplay: true});
+    }
+
+    _syncArrangeOrder(action, newValue) {
+        if (!action.enabled)
+            return;
+
+        const currentSetting = this.Prefs.desktopSettings.get_string(
+            this.Enums.SortOrder.ORDER);
+        const newValueString = newValue.deep_unpack();
+
+        if (currentSetting !== newValueString) {
+            action.set_enabled(false);
+            this.Prefs.desktopSettings.set_string(
+                this.Enums.SortOrder.ORDER, newValueString);
+            action.set_enabled(true);
+        }
+
+        const currentState = action.get_state().deep_unpack();
+        if (currentState !== newValueString)
+            action.set_state(newValue);
+
+        this.onSortOrderChanged();
     }
 
     onSortOrderChanged() {
