@@ -183,7 +183,8 @@ const Preferences = class {
                 this.sortOrder = this.desktopSettings.get_enum(this._Enums.SortOrder.ORDER);
                 const value = GLib.Variant.new_string(
                     this.desktopSettings.get_string(this._Enums.SortOrder.ORDER));
-                this._desktopManager.syncArrangeOrder(this._desktopManager.arrangeAction, value);
+                const mainApp = this._desktopManager.mainApp;
+                mainApp.activate_action('arrangeaction', value);
                 return;
             }
             if (key === 'unstackedtypes') {

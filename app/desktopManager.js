@@ -1566,7 +1566,7 @@ const DesktopManager = class {
             GLib.Variant.new_string(this.Prefs.desktopSettings.get_string(
                 this.Enums.SortOrder.ORDER))
         );
-        radioArrangeAction.connect('change-state', this.syncArrangeOrder.bind(this));
+        radioArrangeAction.connect('change-state', this._syncArrangeOrder.bind(this));
         this.mainApp.add_action(radioArrangeAction);
         this.arrangeAction = radioArrangeAction;
 
@@ -3504,32 +3504,25 @@ const DesktopManager = class {
             this.doStacks({redisplay: true});
     }
 
-    syncArrangeOrder(action, newValue) {
+    _syncArrangeOrder(action, newValue) {
         if (!action.enabled)
             return;
+
         const currentSetting = this.Prefs.desktopSettings.get_string(
             this.Enums.SortOrder.ORDER);
         const newValueString = newValue.deep_unpack();
 
-        // Simple Action Change
         if (currentSetting !== newValueString) {
-            // Settings Change will call us again recursively and set the state
-            // as we cannot block the Gio.Settings signal. So we need to disable
-            // the action here to return at the top the recursive call.
             action.set_enabled(false);
             this.Prefs.desktopSettings.set_string(
                 this.Enums.SortOrder.ORDER, newValueString);
             action.set_enabled(true);
-            // Fall through to the Settings Change
         }
 
-        // Settings Change
         const currentState = action.get_state().deep_unpack();
         if (currentState !== newValueString)
             action.set_state(newValue);
 
-        // No change is settings or state, just a click on
-        // the current state radio button
         this.onSortOrderChanged();
     }
 
