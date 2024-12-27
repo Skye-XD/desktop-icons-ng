@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 15:00+0000\n"
+"PO-Revision-Date: 2024-12-27 02:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
@@ -686,7 +686,7 @@ msgstr "Trash"
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
-msgstr "Conducir"
+msgstr "Disco"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,

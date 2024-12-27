@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 15:00+0000\n"
+"PO-Revision-Date: 2024-12-27 02:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
@@ -35,7 +35,7 @@ msgstr "Bestanden"
 #: app/adwPreferencesWindow.js:218
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Afstellingen"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
@@ -216,7 +216,7 @@ msgstr "Single klik"
 #: app/adwPreferencesWindow.js:312
 #, fuzzy
 msgid "Double click"
-msgstr "Dubbelklikken"
+msgstr "Dubbelklik"
 
 #: app/adwPreferencesWindow.js:316
 #, fuzzy
@@ -915,7 +915,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kan bestand niet openen"
+msgstr "Kon bestand niet openen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
