@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 15:00+0000\n"
+"PO-Revision-Date: 2024-12-27 02:00+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
@@ -38,7 +38,7 @@ msgstr "File"
 #: app/adwPreferencesWindow.js:218
 #, fuzzy
 msgid "Tweaks"
-msgstr "Ritocchi"
+msgstr "Modifiche"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 msgid "About"
@@ -1007,7 +1007,7 @@ msgstr "Taglia"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Sposta in..."
+msgstr "Spostare a"
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -1222,7 +1222,7 @@ msgstr "Ulteriori informazioni"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "Impila"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
