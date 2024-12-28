@@ -22,7 +22,7 @@ import {_} from '../dependencies/gettext.js';
 export {ShowErrorPopup};
 
 const ShowErrorPopup = class {
-    constructor(text, secondaryText, modal, textEntryAccelsTurnOff, textEntryAccelsTurnOn, DesktopIconsUtil, helpURL = null) {
+    constructor(text, secondaryText, textEntryAccelsTurnOff, textEntryAccelsTurnOn, DesktopIconsUtil, helpURL = null) {
         this.DesktopIconsUtil = DesktopIconsUtil;
         this._applicationId = this.DesktopIconsUtil.getApplicationID();
         this._window = this._applicationId.get_active_window();
