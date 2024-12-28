@@ -1926,7 +1926,7 @@ const DesktopManager = class {
             this.fileItemMenu.showMenu(fileItem, 3, 0, 0, X, Y, false, false);
         } else {
             let grid = this._desktops.filter(f => f.coordinatesBelongToThisGrid(this.pointerX, this.pointerY));
-            this.onPressButton(null, null, this.pointerX, this.pointerY, 3, false, false, grid[0]);
+            this.onPressButton(null, null, this.pointerX, this.pointerY, 3, false, false, grid[0]).catch(e => console.error(e));
         }
     }
 

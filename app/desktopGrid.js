@@ -146,7 +146,7 @@ const DesktopGrid = class {
                     return;
                 }
             }
-            this._desktopManager.onPressButton(X, Y, x, y, button, isShift, isCtrl, this);
+            this._desktopManager.onPressButton(X, Y, x, y, button, isShift, isCtrl, this).catch(e => console.error(e));
         });
 
         this._buttonClick.connect('released', (actor, nPress, x, y) => {
