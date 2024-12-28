@@ -180,13 +180,11 @@ const ThumbnailLoader = class {
             thumbnailPixbuf = Gdk.pixbuf_get_from_surface(scaledSurface, 0, 0, width, height);
             ctx.$dispose();
             scaledCtx.$dispose();
-
-            return thumbnailPixbuf;
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 throw e;
-
-            console.error(e, `Error creating pdf thumbnail pixbuf ${file.uri}`);
+            if (!e.matches(Poppler.Error, Poppler.Error.ENCRYPTED))
+                console.error(e, `Error creating pdf thumbnail pixbuf ${file.uri}`);
         }
 
         return thumbnailPixbuf;
