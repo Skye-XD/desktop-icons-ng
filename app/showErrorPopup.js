@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio} from '../dependencies/gi.js';
+import {Adw, Gdk, Gio} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {ShowErrorPopup};
@@ -28,21 +28,27 @@ const ShowErrorPopup = class {
         this._window = this._applicationId.get_active_window();
         this._textEntryAccelsTurnOff = textEntryAccelsTurnOff;
         this._textEntryAccelsTurnOn = textEntryAccelsTurnOn;
-        this._dialog = new Gtk.AlertDialog();
+        this._dialog = new Adw.AlertDialog();
+        this._dialog.set_body_use_markup(true);
+        this._dialog.set_heading_use_markup(true);
         if (text)
-            this._dialog.set_message(text);
+            this._dialog.set_heading(text);
         if (secondaryText)
-            this._dialog.set_detail(secondaryText);
-        this._dialog.set_modal(modal);
+            this._dialog.set_body(secondaryText);
         if (helpURL) {
             this._helpURL = helpURL;
-            this._dialog.buttons = [_('Cancel'), _('More Information')];
-            this._dialog.set_cancel_button(0);
-            this._dialog.set_default_button(1);
+            this._dialog.add_response('0', _('Cancel'), null);
+            this._dialog.add_response('1', _('More Information'), null);
+            this._dialog.set_close_response('0');
+            this._dialog.set_default_response('1');
+            this._dialog.set_response_appearance('1', Adw.ResponseAppearance.SUGGESTED);
+            this._dialog.set_response_appearance('0', Adw.ResponseAppearance.DEFAULT);
+            this._dialog.set_prefer_wide_layout(true);
         } else {
-            this._dialog.buttons = [_('Cancel')];
-            this._dialog.set_cancel_button(0);
-            this._dialog.set_default_button(0);
+            this._dialog.add_response('0', _('Cancel'), null);
+            this._dialog.set_close_response('0');
+            this._dialog.set_default_response('0');
+            this._dialog.set_response_appearance('0', Adw.ResponseAppearance.DEFAULT);
         }
         this._cancellable = null;
 
@@ -51,7 +57,7 @@ const ShowErrorPopup = class {
                 this._dialog.choose(this._window, this._cancellable, (actor, choice) => {
                     try {
                         const buttonpress = actor.choose_finish(choice);
-                        if (buttonpress === 1) {
+                        if (buttonpress === '1') {
                             if (this._helpURL)
                                 this._launchUri(this._helpURL);
                         }
