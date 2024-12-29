@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 15:00+0000\n"
+"PO-Revision-Date: 2024-12-29 20:06+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/"
@@ -41,7 +41,7 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "Om"
+msgstr "About"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -801,7 +801,7 @@ msgstr "Fil"
 #: app/fileItem.js:292
 #, fuzzy
 msgid "Broken Link"
-msgstr "Broken Link"
+msgstr "Ugyldige links"
 
 #: app/fileItem.js:293
 #, fuzzy

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 23:31+0000\n"
+"PO-Revision-Date: 2024-12-29 20:06+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
@@ -39,7 +39,7 @@ msgstr "Ajustes"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "Acerca"
+msgstr "Sobre"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -486,7 +486,7 @@ msgstr "Nome do arquivo"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Palavra-passe"
+msgstr "Palavra-chave"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -643,7 +643,7 @@ msgstr "Tipo"
 #: app/desktopManager.js:1690
 #, fuzzy
 msgid "Size"
-msgstr "Medida"
+msgstr "Tamanho"
 
 #: app/desktopManager.js:1693
 #, fuzzy
@@ -703,7 +703,7 @@ msgstr "Refazer"
 #: app/desktopManager.js:1725
 #, fuzzy
 msgid "Select All"
-msgstr "Selecionar Todos"
+msgstr "Marcar Tudo"
 
 #: app/desktopManager.js:1730
 #, fuzzy
@@ -728,7 +728,7 @@ msgstr "Abrir em {0}"
 #: app/desktopManager.js:1749 app/desktopManager.js:1821
 #, fuzzy
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Definições"
 
 #: app/desktopManager.js:1755
 msgid "Shell Menu…"
@@ -786,7 +786,7 @@ msgstr "Lixo"
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
-msgstr "Dispositivo"
+msgstr "'Drive'"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -916,7 +916,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não foi possível abrir ficheiro"
+msgstr "Não pôde abrir Ficheiros"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
@@ -1265,12 +1265,12 @@ msgstr "_Cancelar"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Abrir"
+msgstr "Abrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "Tamanho do Ícone"
+msgstr "Tamanho dos ícones"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy

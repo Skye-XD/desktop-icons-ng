@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 15:00+0000\n"
+"PO-Revision-Date: 2024-12-29 20:06+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
@@ -613,7 +613,7 @@ msgstr "Pronađite datoteke na radnoj površini"
 #: app/desktopManager.js:1686
 #, fuzzy
 msgid "Name"
-msgstr "Ime"
+msgstr "Name"
 
 #: app/desktopManager.js:1687
 #, fuzzy
@@ -770,7 +770,7 @@ msgstr "Smeće"
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
-msgstr "Vožnja"
+msgstr "Disk"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,

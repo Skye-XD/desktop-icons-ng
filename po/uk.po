@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 23:31+0000\n"
+"PO-Revision-Date: 2024-12-29 20:06+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
@@ -267,7 +267,7 @@ msgstr "Звіт"
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
 msgid "License"
-msgstr "Ліцензія"
+msgstr "License"
 
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
@@ -619,7 +619,7 @@ msgstr "Число завантажень"
 #: app/desktopManager.js:1689
 #, fuzzy
 msgid "Type"
-msgstr "Тип"
+msgstr "Вид взуття"
 
 #: app/desktopManager.js:1690
 #, fuzzy
@@ -678,7 +678,7 @@ msgstr "Повторити"
 #: app/desktopManager.js:1725
 #, fuzzy
 msgid "Select All"
-msgstr "Обрати все"
+msgstr "Вибрати все"
 
 #: app/desktopManager.js:1730
 msgid "Arrange Icons"
@@ -731,7 +731,7 @@ msgstr "Складання папки"
 #: app/desktopManager.js:2803
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Не вдалося створити теку."
+msgstr "Не вдалося створити папку."
 
 #: app/desktopManager.js:2849
 #, fuzzy
@@ -902,7 +902,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Не вийшло відкрити файл"
+msgstr "Не можу відкрити файли"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
