@@ -14,8 +14,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 23:31+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2024-12-29 20:06+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -262,7 +263,7 @@ msgstr "Berichtsfragen zum Emissionstracker"
 #: app/adwPreferencesWindow.js:342
 #, fuzzy
 msgid "Report"
-msgstr "Bericht"
+msgstr "Melden"
 
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
@@ -875,7 +876,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Datei kann nicht geöffnet werden"
+msgstr "Dateien konnten nicht geöffnet werden"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
@@ -1169,7 +1170,7 @@ msgstr "Weitere Informationen"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stapel"
+msgstr "Stapeln"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 23:31+0000\n"
+"PO-Revision-Date: 2024-12-29 20:06+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
@@ -42,7 +42,7 @@ msgstr "Vylepšení"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "O nás"
+msgstr "O programu"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -616,7 +616,7 @@ msgstr "Jméno"
 #: app/desktopManager.js:1687
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název Z - A"
+msgstr "Název (Z-A)"
 
 #: app/desktopManager.js:1688
 #, fuzzy
@@ -766,7 +766,7 @@ msgstr "Trash"
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
-msgstr "Disk"
+msgstr "Jednotka"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -899,7 +899,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Soubor nelze otevřít"
+msgstr "Nelze otevřít soubory"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
@@ -979,12 +979,12 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesunout do"
+msgstr "Přesunout do .."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovat do..."
+msgstr "Kopírovat do .."
 
 #: app/fileItemMenu.js:397
 msgid "Rename…"
@@ -1196,7 +1196,7 @@ msgstr "Další informace"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Štos"
+msgstr "Skládat"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
