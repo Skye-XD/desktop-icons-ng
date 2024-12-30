@@ -391,10 +391,45 @@ const DesktopIconsUtil = class {
                     }
                 });
             } catch (e) {
-                reject(e);
+                reject(Error.new('Error reading file'));
             }
         });
     }
+
+    /**
+     *
+     * @param {Gio.File} file a file Gio
+     * @param {integer} bytes number of bytes to read
+     * @param {Gio.Cancellable} cancellable gio cancellable
+     */
+    readFileBytesAsync(file, bytes, cancellable = null) {
+        return new Promise((resolve, reject) => {
+            try {
+                file.read_async(GLib.PRIORITY_DEFAULT, cancellable, (actor, result) => {
+                    try {
+                        const inputstream = actor.read_finish(result);
+                        inputstream.read_bytes_async(bytes,
+                            GLib.PRIORITY_DEFAULT,
+                            cancellable,
+                            (sourceObject, res) => {
+                                const data = sourceObject.read_bytes_finish(res);
+                                if (data) {
+                                    inputstream.close(cancellable);
+                                    resolve(data);
+                                }
+                                reject(Error.new('Empty Bytes'));
+                            }
+                        );
+                    } catch (e) {
+                        reject(Error.new('Error reading file inputstream'));
+                    }
+                });
+            } catch (e) {
+                reject(Error.new('Error reading file'));
+            }
+        });
+    }
+
 
     /**
      *
