@@ -599,7 +599,7 @@ const DesktopIconItem = class {
         }
     }
 
-    _addEmblem(iconPaintable, emblem = null) {
+    _addEmblem(iconPaintable, emblem = null, position = 0) {
         if (!emblem)
             return iconPaintable;
 
@@ -615,7 +615,10 @@ const DesktopIconItem = class {
         const iconWidth =  iconPaintable.get_intrinsic_width();
         const iconHeight = iconPaintable.get_intrinsic_height();
         iconPaintable.snapshot(iconPaintableSnapshot, iconWidth, iconHeight);
-        iconPaintableSnapshot.translate(new Graphene.Point({x: iconWidth - emblemWidth, y: 0}));
+        iconPaintableSnapshot.translate(new Graphene.Point({
+            x: iconWidth - emblemWidth,
+            y: emblemHeight * position + Number(position) * 1,
+        }));
         iconPaintableSnapshot.append_node(emblemSnapshot.to_node());
         return iconPaintableSnapshot.to_paintable(null);
     }

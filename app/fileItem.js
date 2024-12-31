@@ -626,24 +626,40 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     _addEmblemsToIconIfNeeded(iconPaintable) {
         let emblem = null;
+        let newIconPaintable = iconPaintable;
+        let position = 0;
 
-        if (this._isDesktopFile && (!this._isValidDesktopFile || !this.trustedDesktopFile))
-            emblem = Gio.ThemedIcon.new('emblem-unreadable');
-
-        if (this.isAppImageFile && !this.trustedAppImageFile)
-            emblem = Gio.ThemedIcon.new('emblem-unreadable');
-
-        if (this._isSymlink && (this.Prefs.showLinkEmblem || this._isBrokenSymlink)) {
-            if (this._isBrokenSymlink)
-                emblem = Gio.ThemedIcon.new('emblem-unreadable');
-            else
-                emblem = Gio.ThemedIcon.new('emblem-symbolic-link');
+        if (this._isSymlink && this.Prefs.showLinkEmblem) {
+            emblem = Gio.ThemedIcon.new('emblem-symbolic-link');
+            newIconPaintable = this._addEmblem(newIconPaintable, emblem, position);
+            position += 1;
         }
 
-        if (this.isEncrypted)
-            emblem = Gio.ThemedIcon.new('emblem-locked');
+        if (this._isBrokenSymlink) {
+            emblem = Gio.ThemedIcon.new('emblem-unreadable');
+            newIconPaintable = this._addEmblem(newIconPaintable, emblem, position);
+            position += 1;
+        }
 
-        return this._addEmblem(iconPaintable, emblem);
+        if (this._isDesktopFile && (!this._isValidDesktopFile || !this.trustedDesktopFile)) {
+            emblem = Gio.ThemedIcon.new('emblem-unreadable');
+            newIconPaintable = this._addEmblem(newIconPaintable, emblem, position);
+            position += 1;
+        }
+
+        if (this.isAppImageFile && !this.trustedAppImageFile) {
+            emblem = Gio.ThemedIcon.new('emblem-unreadable');
+            newIconPaintable = this._addEmblem(newIconPaintable, emblem, position);
+            position += 1;
+        }
+
+        if (this.isEncrypted) {
+            emblem = Gio.ThemedIcon.new('emblem-locked');
+            newIconPaintable = this._addEmblem(newIconPaintable, emblem, position);
+            position += 1;
+        }
+
+        return newIconPaintable;
     }
 
     /** *********************
