@@ -497,6 +497,29 @@ const DesktopIconsUtil = class {
     }
 
     /**
+     * Check if a 7z file is encrypted
+     * @param {Gio.File} file a file Gio of 7z file
+     * @returns boolean
+     */
+    checkIf7zEncrypted(file) {
+        const command = `7z l -pBadPassword -slt '${file.get_path()}'`;
+        const decoder = new TextDecoder();
+        try {
+            const [, out, error] = GLib.spawn_command_line_sync(command);
+            const contents = decoder.decode(error) + decoder.decode(out);
+            return contents.trim().split('\n').some(l => {
+                return l.includes('Encrypted = +') ||
+                    l.includes('Wrong password?');
+            });
+        } catch (e) {
+            if (!e.matches(GLib.SpawnError, GLib.SpawnError.NOENT))
+                console.error(`Error determining encryption 7z file ${e}`);
+        }
+
+        return false;
+    }
+
+    /**
      *
      * @param {string} fileList text with list of Terminals, new line terminated
      * @returns {Array} an array of Gio.DesktopAppInfo for each desktop entry in file
