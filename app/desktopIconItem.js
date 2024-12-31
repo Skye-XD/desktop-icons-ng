@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, Graphene, GLib, Pango, GdkPixbuf} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopIconItem};
@@ -604,13 +604,18 @@ const DesktopIconItem = class {
             return iconPaintable;
 
         const scale = this._icon.get_scale_factor();
-        let finalSize = Math.floor(this.Prefs.IconSize / 3) * scale;
-        let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-        let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
-        let emblemSnapshot = Gtk.Snapshot.new();
-        let iconPaintableSnapshot = Gtk.Snapshot.new();
-        emblemIcon.snapshot(emblemSnapshot, emblemIcon.get_intrinsic_width(), emblemIcon.get_intrinsic_height());
-        iconPaintable.snapshot(iconPaintableSnapshot, iconPaintable.get_intrinsic_width(), iconPaintable.get_intrinsic_height());
+        const finalSize = Math.floor(this.Prefs.IconSize / 3) * scale;
+        const theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        const emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+        const emblemSnapshot = Gtk.Snapshot.new();
+        const iconPaintableSnapshot = Gtk.Snapshot.new();
+        const emblemWidth = emblemIcon.get_intrinsic_width();
+        const emblemHeight = emblemIcon.get_intrinsic_height();
+        emblemIcon.snapshot(emblemSnapshot, emblemWidth, emblemHeight);
+        const iconWidth =  iconPaintable.get_intrinsic_width();
+        const iconHeight = iconPaintable.get_intrinsic_height();
+        iconPaintable.snapshot(iconPaintableSnapshot, iconWidth, iconHeight);
+        iconPaintableSnapshot.translate(new Graphene.Point({x: iconWidth - emblemWidth, y: 0}));
         iconPaintableSnapshot.append_node(emblemSnapshot.to_node());
         return iconPaintableSnapshot.to_paintable(null);
     }
