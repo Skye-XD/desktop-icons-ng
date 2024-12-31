@@ -56,7 +56,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this._createIconActor();
 
         /* Set the metadata */
-        this._updateMetadataFromFileInfo(fileInfo);
+        this._updateMetadataFromFileInfo(fileInfo).catch(
+            e => console.error(`Error updating Metadata ${e}`));
 
         if (this._attributeCanExecute && !this._isValidDesktopFile)
             this._execLine = this.file.get_path();
@@ -216,7 +217,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                     GLib.PRIORITY_DEFAULT,
                     cancellable);
             let oldLabelText = this._currentFileName;
-            this._updateMetadataFromFileInfo(newFileInfo);
+            this._updateMetadataFromFileInfo(newFileInfo).catch(
+                e => console.error(`Error updating Metadata ${e}`));
             if (this.displayName !== oldLabelText)
                 this._setFileName(this.displayName);
 
@@ -230,7 +232,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         }
     }
 
-    _updateMetadataFromFileInfo(fileInfo) {
+    async _updateMetadataFromFileInfo(fileInfo) {
         this._fileInfo = fileInfo;
 
         this._displayName = this._getVisibleName();
@@ -278,6 +280,31 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this._isBrokenSymlink = this._isSymlink && this._fileType === Gio.FileType.SYMBOLIC_LINK;
         if (this._isSymlink && !this._symlinkFileMonitor)
             this._monitorSymlink();
+
+        await this._setEncryptionStatus();
+    }
+
+    async _setEncryptionStatus() {
+        if (this.isEncrypted)
+            return;
+        switch (this._attributeContentType) {
+        case 'application/x-7z-compressed':
+            this._isEncrypted = this.DesktopIconsUtil.checkIf7zEncrypted(this._file);
+            break;
+        case 'application/pdf':
+            this._isEncrypted = await this.DesktopIconsUtil.checkIfPdfEncrypted(this._file);
+            break;
+        case 'application/zip':
+            this._isEncrypted = await this.DesktopIconsUtil.checkIfZipEncrypted(this._file);
+            break;
+        case 'application/epub+zip':
+            this._isEncrypted = await this.DesktopIconsUtil.checkIfZipEncrypted(this._file);
+            break;
+        default:
+            this._isEncrypted = false;
+        }
+        this.updateIcon().catch(e =>
+            console.error(`Error updating after setting encryption status ${e}`));
     }
 
     _monitorSymlink() {

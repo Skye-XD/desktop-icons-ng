@@ -686,6 +686,12 @@ const DesktopIconItem = class {
         return this._dropCoordinates;
     }
 
+    get isEncrypted() {
+        if (this._isEncrypted === undefined)
+            return false;
+        return this._isEncrypted;
+    }
+
     set dropCoordinates(pos) {
         this._dropCoordinates = pos;
     }
