@@ -281,7 +281,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         if (this._isSymlink && !this._symlinkFileMonitor)
             this._monitorSymlink();
 
-        await this._setEncryptionStatus();
+        if (this.Prefs.showLinkEmblem)
+            await this._setEncryptionStatus();
     }
 
     async _setEncryptionStatus() {
@@ -653,7 +654,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             position += 1;
         }
 
-        if (this.isEncrypted) {
+        if (this.isEncrypted && this.Prefs.showLinkEmblem) {
             emblem = Gio.ThemedIcon.new('emblem-locked');
             newIconPaintable = this._addEmblem(newIconPaintable, emblem, position);
             position += 1;
