@@ -391,7 +391,7 @@ const DesktopIconsUtil = class {
                     }
                 });
             } catch (e) {
-                reject(Error.new('Error reading file'));
+                reject(new Error('Error reading file'));
             }
         });
     }
@@ -417,19 +417,84 @@ const DesktopIconsUtil = class {
                                     inputstream.close(cancellable);
                                     resolve(data);
                                 }
-                                reject(Error.new('Empty Bytes'));
+                                reject(new Error('Empty Bytes'));
                             }
                         );
                     } catch (e) {
-                        reject(Error.new('Error reading file inputstream'));
+                        reject(new Error('Error reading file inputstream'));
                     }
                 });
             } catch (e) {
-                reject(Error.new('Error reading file'));
+                reject(new Error('Error reading file'));
             }
         });
     }
 
+    /**
+     * Check if a pdf file is encrypted
+     * @param {Gio.File} file a file Gio of pdf file
+     * @param {Gio.Cancellable} cancellable gio cancellable
+     * @returns boolean
+     */
+    async checkIfPdfEncrypted(file, cancellable = null) {
+        const data = await this.readFileBytesAsync(
+            file,
+            1024,
+            cancellable
+        ).catch(e => logError(e));
+
+        if (!data)
+            return false;
+
+        const decoder = new TextDecoder();
+
+        return decoder.decode(data).includes('/Encrypt');
+    }
+
+    /**
+     * Check if a zip file is encrypted
+     * @param {Gio.File} file a file Gio of zip file
+     * @param {Gio.Cancellable} cancellable gio cancellable
+     * @returns boolean
+     */
+    async checkIfZipEncrypted(file, cancellable = null) {
+        const data = await this.readFileBytesAsync(
+            file,
+            1024,
+            cancellable
+        ).catch(e => logError(e));
+
+        if (!data)
+            return false;
+
+        // Zip Encryption single file archive
+        // Check if the 6th bit in the 7th byte (flag field) is set
+        const generalPurposeFlag = new Uint8Array([data.get_data()[6]]);
+        const zipEncrypted = (generalPurposeFlag & 0x01) === 0x01;
+        if (zipEncrypted)
+            return true;
+
+        // Multiple zip file archive- needs external checking
+        const command = `zipinfo -v '${file.get_path()}'`;
+        const decoder = new TextDecoder();
+        try {
+            const [, out,, status] = GLib.spawn_command_line_sync(command);
+
+            if (status !== 0)
+                return false;
+
+            const contents = decoder.decode(out);
+            return contents.trim().split('\n').some(l => {
+                return l.includes('file security status:') &&
+                    !l.includes('not encrypted');
+            });
+        } catch (e) {
+            if (!e.matches(GLib.SpawnError, GLib.SpawnError.NOENT))
+                console.error(`Error determining encryption Zip file ${e}`);
+        }
+
+        return false;
+    }
 
     /**
      *
