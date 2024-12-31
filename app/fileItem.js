@@ -640,6 +640,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 emblem = Gio.ThemedIcon.new('emblem-symbolic-link');
         }
 
+        if (this.isEncrypted)
+            emblem = Gio.ThemedIcon.new('emblem-locked');
+
         return this._addEmblem(iconPaintable, emblem);
     }
 
