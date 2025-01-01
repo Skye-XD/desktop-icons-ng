@@ -605,16 +605,51 @@ const DesktopIconItem = class {
 
         const scale = this._icon.get_scale_factor();
         const finalSize = Math.floor(this.Prefs.IconSize / 3) * scale;
-        const theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-        const emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
-        const emblemSnapshot = Gtk.Snapshot.new();
-        const iconPaintableSnapshot = Gtk.Snapshot.new();
-        const emblemWidth = emblemIcon.get_intrinsic_width();
-        const emblemHeight = emblemIcon.get_intrinsic_height();
-        emblemIcon.snapshot(emblemSnapshot, emblemWidth, emblemHeight);
         const iconWidth =  iconPaintable.get_intrinsic_width();
         const iconHeight = iconPaintable.get_intrinsic_height();
+
+        const theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        const emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+        const emblemWidth = emblemIcon.get_intrinsic_width();
+        const emblemHeight = emblemIcon.get_intrinsic_height();
+        const emblemSnapshot = Gtk.Snapshot.new();
+        emblemIcon.snapshot(emblemSnapshot, emblemWidth, emblemHeight);
+
+        const iconPaintableSnapshot = Gtk.Snapshot.new();
         iconPaintable.snapshot(iconPaintableSnapshot, iconWidth, iconHeight);
+
+        if (position === 0) {
+            const desiredWidth = this.Prefs.DesiredWidth - 8;
+            const estimatedWidth = iconWidth + 2 * emblemWidth;
+            const finalWidth = Math.min(desiredWidth, estimatedWidth);
+
+            const newIconPaintableSnapshot = Gtk.Snapshot.new();
+            const origin = new Graphene.Point({x: 0, y: 0});
+            const size = new Graphene.Size({width: finalWidth, height: iconHeight});
+            const rect = new Graphene.Rect({origin, size});
+            const color = new Gdk.RGBA();
+            color.parse('rgba(0, 0, 0, 0)');
+            newIconPaintableSnapshot.append_color(
+                color,
+                rect
+            );
+            newIconPaintableSnapshot.translate(
+                new Graphene.Point({
+                    x: Math.round((finalWidth - iconWidth) / 2),
+                    y: 0,
+                })
+            );
+            newIconPaintableSnapshot.append_node(iconPaintableSnapshot.to_node());
+
+            const emblemX = Math.round((iconWidth + finalWidth) / 2 - emblemWidth);
+            newIconPaintableSnapshot.translate(new Graphene.Point({
+                x: emblemX,
+                y: emblemHeight * position + Number(position) * 1,
+            }));
+            newIconPaintableSnapshot.append_node(emblemSnapshot.to_node());
+            return newIconPaintableSnapshot.to_paintable(null);
+        }
+
         iconPaintableSnapshot.translate(new Graphene.Point({
             x: iconWidth - emblemWidth,
             y: emblemHeight * position + Number(position) * 1,
