@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-21 18:55-0500\n"
+"POT-Creation-Date: 2025-01-01 17:42-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,7 +141,7 @@ msgid "Restore"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:280
-msgid "Add an emblem to soft links"
+msgid "Add information emblems for links, encryption"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:283
@@ -280,7 +280,7 @@ msgstr ""
 msgid "File name"
 msgstr ""
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1407
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1398
 #: app/fileItemMenu.js:855
 msgid "OK"
 msgstr ""
@@ -307,9 +307,9 @@ msgstr ""
 msgid "Compressing files"
 msgstr ""
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:874
-#: app/desktopManager.js:1409 app/fileItemMenu.js:696 app/fileItemMenu.js:855
-#: app/showErrorPopup.js:39 app/showErrorPopup.js:43
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:867
+#: app/desktopManager.js:1400 app/fileItemMenu.js:696 app/fileItemMenu.js:855
+#: app/showErrorPopup.js:40 app/showErrorPopup.js:48
 msgid "Cancel"
 msgstr ""
 
@@ -417,110 +417,110 @@ msgstr ""
 msgid "Desktop Icons"
 msgstr ""
 
-#: app/desktopManager.js:150
+#: app/desktopManager.js:149
 msgid "Can Not Show the Desktop"
 msgstr ""
 
-#: app/desktopManager.js:166
+#: app/desktopManager.js:163
 msgid "GNOME Files not found"
 msgstr ""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:164
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
 
-#: app/desktopManager.js:180
+#: app/desktopManager.js:175
 msgid "There is no default File Manager"
 msgstr ""
 
-#: app/desktopManager.js:181
+#: app/desktopManager.js:176
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 
-#: app/desktopManager.js:194
+#: app/desktopManager.js:188
 msgid "Gnome Files is not registered as a File Manager"
 msgstr ""
 
-#: app/desktopManager.js:195
+#: app/desktopManager.js:189
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:364
+#: app/desktopManager.js:357
 msgid "Desktop Folder Change Failed"
 msgstr ""
 
-#: app/desktopManager.js:365
+#: app/desktopManager.js:358
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopManager.js:376
+#: app/desktopManager.js:369
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopManager.js:377
+#: app/desktopManager.js:370
 msgid "Switching to new Desktop..."
 msgstr ""
 
-#: app/desktopManager.js:873
+#: app/desktopManager.js:866
 msgid "Choose Action for Files"
 msgstr ""
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:867
 msgid "Move"
 msgstr ""
 
-#: app/desktopManager.js:874 app/fileItemMenu.js:388
+#: app/desktopManager.js:867 app/fileItemMenu.js:388
 msgid "Copy"
 msgstr ""
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:867
 msgid "Link"
 msgstr ""
 
-#: app/desktopManager.js:961 app/desktopManager.js:993
+#: app/desktopManager.js:954 app/desktopManager.js:986
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/desktopManager.js:962 app/desktopManager.js:994
+#: app/desktopManager.js:955 app/desktopManager.js:987
 msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/desktopManager.js:1064
+#: app/desktopManager.js:1057
 msgid "Copy/Move Failed"
 msgstr ""
 
-#: app/desktopManager.js:1065
+#: app/desktopManager.js:1058
 msgid "{0} Does not exist"
 msgstr ""
 
-#: app/desktopManager.js:1367
+#: app/desktopManager.js:1359
 msgid "Clear current selection before new search"
 msgstr ""
 
-#: app/desktopManager.js:1411
+#: app/desktopManager.js:1402
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1686
+#: app/desktopManager.js:1685
 msgid "Name"
 msgstr ""
 
-#: app/desktopManager.js:1687
+#: app/desktopManager.js:1686
 msgid "Name Z-A"
 msgstr ""
 
-#: app/desktopManager.js:1688
+#: app/desktopManager.js:1687
 msgid "Modified Time"
 msgstr ""
 
-#: app/desktopManager.js:1689
+#: app/desktopManager.js:1688
 msgid "Type"
 msgstr ""
 
-#: app/desktopManager.js:1690
+#: app/desktopManager.js:1689
 msgid "Size"
 msgstr ""
 
@@ -625,78 +625,75 @@ msgid "Could not create document"
 msgstr ""
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:134 app/fileItem.js:143
+#: app/fileItem.js:135 app/fileItem.js:149
 msgid "Home"
 msgstr ""
 
-#: app/fileItem.js:149
-msgid "Trash"
-msgstr ""
-
-#. * TRANSLATORS: when using a screen reader, this is the text read when
-#. * an external drive is selected. Example: if a USB stick named "my_portable"
-#. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:155
+#: app/fileItem.js:142
 msgid "Drive"
 msgstr ""
 
-#. * TRANSLATORS: when using a screen reader, this is the text read when
-#. * a folder is selected. Example: if a folder named "things" is selected,
-#. * it will say "Folder things"
-#: app/fileItem.js:165
+#. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
+#. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
+#: app/fileItem.js:143 app/stackItem.js:44
+msgid "Stack"
+msgstr ""
+
+#: app/fileItem.js:144
 msgid "Folder"
 msgstr ""
 
-#. * TRANSLATORS: when using a screen reader, this is the text read when
-#. * a normal file is selected. Example: if a file named "my_picture.jpg"
-#. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:172
+#: app/fileItem.js:145
 msgid "File"
 msgstr ""
 
-#: app/fileItem.js:292
+#: app/fileItem.js:146
+msgid "Trash"
+msgstr ""
+
+#: app/fileItem.js:326
 msgid "Broken Link"
 msgstr ""
 
-#: app/fileItem.js:293
+#: app/fileItem.js:327
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 
-#: app/fileItem.js:323
+#: app/fileItem.js:357
 msgid "Opening File Failed"
 msgstr ""
 
-#: app/fileItem.js:325
+#: app/fileItem.js:359
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr ""
 
-#: app/fileItem.js:354
+#: app/fileItem.js:386
 msgid "Invalid Permissions on AppImage File"
 msgstr ""
 
-#: app/fileItem.js:355
+#: app/fileItem.js:387
 msgid ""
 "This AppImage File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 
-#: app/fileItem.js:357 app/fileItem.js:398
+#: app/fileItem.js:389 app/fileItem.js:430
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 
-#: app/fileItem.js:360 app/fileItem.js:401
+#: app/fileItem.js:392 app/fileItem.js:433
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
 msgstr ""
 
-#: app/fileItem.js:367
+#: app/fileItem.js:399
 msgid "Untrusted AppImage File"
 msgstr ""
 
-#: app/fileItem.js:368
+#: app/fileItem.js:400
 msgid ""
 "This AppImage file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -704,11 +701,11 @@ msgid ""
 "Enable \"Allow Launching\""
 msgstr ""
 
-#: app/fileItem.js:388
+#: app/fileItem.js:420
 msgid "Broken Desktop File"
 msgstr ""
 
-#: app/fileItem.js:389
+#: app/fileItem.js:421
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -716,21 +713,21 @@ msgid ""
 "Edit the file to set the correct executable Program."
 msgstr ""
 
-#: app/fileItem.js:395
+#: app/fileItem.js:427
 msgid "Invalid Permissions on Desktop File"
 msgstr ""
 
-#: app/fileItem.js:396
+#: app/fileItem.js:428
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 
-#: app/fileItem.js:408
+#: app/fileItem.js:440
 msgid "Untrusted Desktop File"
 msgstr ""
 
-#: app/fileItem.js:409
+#: app/fileItem.js:441
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -738,12 +735,12 @@ msgid ""
 "Enable \"Allow Launching\""
 msgstr ""
 
-#: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
+#: app/fileItem.js:451 app/gnomeShellDragDrop.js:236
 msgid "Could not open File"
 msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:453 app/gnomeShellDragDrop.js:238
 msgid "${appName} can not open files of this Type!"
 msgstr ""
 
@@ -979,18 +976,12 @@ msgstr ""
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/preferences.js:419
+#: app/preferences.js:422
 msgid "Console"
 msgstr ""
 
-#: app/showErrorPopup.js:39
+#: app/showErrorPopup.js:41
 msgid "More Information"
-msgstr ""
-
-#. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
-#. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
-#: app/stackItem.js:44
-msgid "Stack"
 msgstr ""
 
 #. eslint-disable-next-line no-template-curly-in-string

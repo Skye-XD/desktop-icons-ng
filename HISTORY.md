@@ -1,4 +1,14 @@
 # History of versions #
+* Gtk4 version 89 for Gnome 45, 46, 47
+  * Fix radio button menu for arrange icons to react to click even if the choice is selected. (Sundeep Mediratta)
+  * Miscellenous fixes to fix console errors. (Sundeep Mediratta)
+  * Move to Adw.AlertDialog - better display of error messages. (Sundeep Mediratta)
+  * Modernize emblems- allow multiple emblems, user newer Gnome Files theme. (Sundeep Mediratta)
+  * Show a lock emblem for encrypted pdf, zip, 7z files. (Sundeep Mediratta)
+  * Fix e-mailing multiple files of a selection. (Sundeep Mediratta)
+  * Weblate Translations. (Weblate Authors)
+  * Update History.md, metadata.json, Version Bump 89
+
 * Gtk4 version 88 for Gnome 45, 46, 47
   * Allow change of the displayed desktop Folder in the running program. (Sundeep Mediratta)
   * Compile all resources into a Gresouce, add a seperate Data folder. (Sundeep Mediratta)

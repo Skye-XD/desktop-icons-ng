@@ -140,7 +140,13 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Allow changing the folder displayed in DING to any user folder, not just the $HOME/Desktop. Track changes to user.dirs-dirs from Xdg utilities, and write to it as well to set the users set 'Desktop' folder. Add ui to allow this.
 
-- [x] Set Icon and image in notifications, set name of the App as Desktop Icons
+- [x] Set Icon and image in notifications, set name of the App as Desktop Icons.
+
+- [x] Move to Adw.AlertDialog - better display of error messages.
+
+- [x] Modernize emblems- allow multiple emblems, user newer Gnome Files theme.
+
+- [x] Show a lock emblem for encrypted pdf, zip, 7z files.
 
 **FIXES**
 
@@ -290,3 +296,5 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix drag data with correct lists in mime types.
 
 - [x] Change order of speech for accessibility for different fileItems- Ported from upstream,
+
+- [x] Fix radio button menu for arrange icons to react to click even if the choice is selected.
