@@ -346,11 +346,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     _showerrorpopup(title, error, helpURI = null) {
-        const modal = true;
         this._desktopManager.showError(
             title,
             error,
-            modal,
             helpURI
         );
     }

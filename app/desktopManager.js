@@ -143,13 +143,11 @@ const DesktopManager = class {
             Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
             null) === Gio.FileType.DIRECTORY;
         if (!isFolder) {
-            const modal = true;
             const helpURL = null;
             const dontShow = true;
             const errorWindow = this.showError(
                 _('Can Not Show the Desktop'),
                 _(`The Desktop folder ${this._desktopDir.get_path()} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder`),
-                modal,
                 helpURL,
                 dontShow
             );
@@ -159,13 +157,11 @@ const DesktopManager = class {
 
         const inodeHandlers = Gio.AppInfo.get_all_for_type('inode/directory');
         if (!GLib.find_program_in_path('nautilus')) {
-            const modal = true;
             const helpURL = null;
             const dontShow = true;
             const errorWindow = this.showError(
                 _('GNOME Files not found'),
                 _('The GNOME Files application is required by Gtk4 Desktop Icons NG.'),
-                modal,
                 helpURL,
                 dontShow
             );
@@ -173,13 +169,11 @@ const DesktopManager = class {
         }
 
         if (!inodeHandlers.length) {
-            const modal = true;
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
             const dontShow = true;
             const errorWindow = this.showError(
                 _('There is no default File Manager'),
                 _('There is no application that handles mimetype "inode/directory"'),
-                modal,
                 helpURL,
                 dontShow
             );
@@ -201,11 +195,10 @@ const DesktopManager = class {
         }
     }
 
-    showError(text, secondaryText, modal, helpURL = null, dontShow = false) {
+    showError(text, secondaryText, helpURL = null, dontShow = false) {
         const _errorDialog = new ShowErrorPopup.ShowErrorPopup(
             text,
             secondaryText,
-            modal,
             this.textEntryAccelsTurnOff.bind(this),
             this.textEntryAccelsTurnOn.bind(this),
             this.DesktopIconsUtil,
@@ -1361,12 +1354,10 @@ const DesktopManager = class {
             if (found) {
                 if ((this.getNumberOfSelectedItems() >= 1) && !this.keypressTimeoutID) {
                     const secondaryText = null;
-                    const modal = true;
                     const timoutClose = 2000; // In ms
                     const errorDialog = this.showError(
                         _('Clear current selection before new search'),
-                        secondaryText,
-                        modal
+                        secondaryText
                     );
                     errorDialog.timeoutClose(timoutClose);
                     return true;
