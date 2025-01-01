@@ -88,7 +88,10 @@ const ThumbnailLoader = class {
             const thumbnailPixbuf = await this._thumbnailFactory.generate_thumbnail_async(
                 file.uri, file.attributeContentType, cancellable);
             await this._thumbnailFactory.save_thumbnail_async(thumbnailPixbuf,
-                file.uri, file.modifiedTime, cancellable);
+                file.uri, file.modifiedTime, cancellable).catch(e => {
+                if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                    console.error(`Error saving thumbnail ${e}`);
+            });
             return true;
         } catch (e) {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
@@ -106,7 +109,10 @@ const ThumbnailLoader = class {
 
         if (thumbnailPixbuf !== null) {
             await this._thumbnailFactory.save_thumbnail_async(thumbnailPixbuf,
-                file.uri, file.modifiedTime, cancellable);
+                file.uri, file.modifiedTime, cancellable).catch(e => {
+                if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                    console.error(`Error saving thumbnail ${e}`);
+            });
             return true;
         }
 
@@ -180,13 +186,11 @@ const ThumbnailLoader = class {
             thumbnailPixbuf = Gdk.pixbuf_get_from_surface(scaledSurface, 0, 0, width, height);
             ctx.$dispose();
             scaledCtx.$dispose();
-
-            return thumbnailPixbuf;
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                 throw e;
-
-            console.error(e, `Error creating pdf thumbnail pixbuf ${file.uri}`);
+            if (!e.matches(Poppler.Error, Poppler.Error.ENCRYPTED))
+                console.error(e, `Error creating pdf thumbnail pixbuf ${file.uri}`);
         }
 
         return thumbnailPixbuf;

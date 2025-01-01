@@ -450,7 +450,15 @@ const AdwPreferencesWindow = class {
     }
 
     finishChooseDesktopFolder(dialog, asyncResult) {
-        const folder = dialog.select_folder_finish(asyncResult);
+        let folder = null;
+        try {
+            folder = dialog.select_folder_finish(asyncResult);
+        } catch (e) {
+            if (e.matches(Gtk.DialogError, Gtk.DialogError.CANCELLED) ||
+                e.matches(Gtk.DialogError, Gtk.DialogError.DISMISSED))
+                return;
+            console.error(e, `Error selecting folder: ${e.message}`);
+        }
         if (folder)
             this.setDesktopFolder(folder.get_path());
         this.defaultDesktopRow.set_sensitive(!this.isDefault());
