@@ -277,7 +277,7 @@ const AdwPreferencesWindow = class {
 
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-link-emblem',
-            _('Add an emblem to soft links')));
+            _('Add information emblems for links, encryption')));
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'dark-text-in-labels',
             _('Use dark text in icon labels')

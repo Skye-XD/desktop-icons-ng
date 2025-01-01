@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, Gio, GLib, Pango, GdkPixbuf} from '../dependencies/gi.js';
+import {Gtk, Gdk, Gio, Graphene, GLib, Pango, GdkPixbuf} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopIconItem};
@@ -599,18 +599,80 @@ const DesktopIconItem = class {
         }
     }
 
-    _addEmblem(iconPaintable, emblem = null) {
+    _addEmblem(iconPaintable, emblem = null, position = 0) {
         if (!emblem)
             return iconPaintable;
 
         const scale = this._icon.get_scale_factor();
-        let finalSize = Math.floor(this.Prefs.IconSize / 3) * scale;
-        let theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-        let emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
-        let emblemSnapshot = Gtk.Snapshot.new();
-        let iconPaintableSnapshot = Gtk.Snapshot.new();
-        emblemIcon.snapshot(emblemSnapshot, emblemIcon.get_intrinsic_width(), emblemIcon.get_intrinsic_height());
-        iconPaintable.snapshot(iconPaintableSnapshot, iconPaintable.get_intrinsic_width(), iconPaintable.get_intrinsic_height());
+        let ratio;
+        switch (this.Prefs.IconSize) {
+        case 36: ratio = 3;
+            break;
+        case 48: ratio = 3;
+            break;
+        case 64: ratio = 4;
+            break;
+        case 96: ratio = 5;
+        }
+        const finalSize = Math.floor(this.Prefs.IconSize / ratio) * scale;
+        const iconWidth =  iconPaintable.get_intrinsic_width();
+        const iconHeight = iconPaintable.get_intrinsic_height();
+
+        const theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        const emblemIcon = theme.lookup_by_gicon(emblem, finalSize / scale, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+        const emblemWidth = emblemIcon.get_intrinsic_width();
+        const emblemHeight = emblemIcon.get_intrinsic_height();
+        const emblemSnapshot = Gtk.Snapshot.new();
+        const origin = new Graphene.Point({x: 3, y: 3});
+        const size = new Graphene.Size({width: emblemWidth - 5, height: emblemHeight - 5});
+        const rect = new Graphene.Rect({origin, size});
+        const color = new Gdk.RGBA();
+        color.parse('rgba(255, 255, 255, 1.0)');
+        emblemSnapshot.append_color(
+            color,
+            rect
+        );
+        emblemIcon.snapshot(emblemSnapshot, emblemWidth, emblemHeight);
+
+        const iconPaintableSnapshot = Gtk.Snapshot.new();
+        iconPaintable.snapshot(iconPaintableSnapshot, iconWidth, iconHeight);
+
+        if (position === 0) {
+            const desiredWidth = this.Prefs.DesiredWidth - 8;
+            const estimatedWidth = iconWidth + 2 * emblemWidth;
+            const finalWidth = Math.min(desiredWidth, estimatedWidth);
+
+            const newIconPaintableSnapshot = Gtk.Snapshot.new();
+            const xorigin = new Graphene.Point({x: 0, y: 0});
+            const xsize = new Graphene.Size({width: finalWidth, height: iconHeight});
+            const xrect = new Graphene.Rect({origin: xorigin, size: xsize});
+            const xcolor = new Gdk.RGBA();
+            xcolor.parse('rgba(0, 0, 0, 0)');
+            newIconPaintableSnapshot.append_color(
+                xcolor,
+                xrect
+            );
+            newIconPaintableSnapshot.translate(
+                new Graphene.Point({
+                    x: Math.round((finalWidth - iconWidth) / 2),
+                    y: 0,
+                })
+            );
+            newIconPaintableSnapshot.append_node(iconPaintableSnapshot.to_node());
+
+            const emblemX = Math.round((iconWidth + finalWidth) / 2 - emblemWidth);
+            newIconPaintableSnapshot.translate(new Graphene.Point({
+                x: emblemX,
+                y: emblemHeight * position + Number(position) * 1,
+            }));
+            newIconPaintableSnapshot.append_node(emblemSnapshot.to_node());
+            return newIconPaintableSnapshot.to_paintable(null);
+        }
+
+        iconPaintableSnapshot.translate(new Graphene.Point({
+            x: iconWidth - emblemWidth,
+            y: emblemHeight * position + Number(position) * 1,
+        }));
         iconPaintableSnapshot.append_node(emblemSnapshot.to_node());
         return iconPaintableSnapshot.to_paintable(null);
     }
@@ -684,6 +746,12 @@ const DesktopIconItem = class {
 
     get dropCoordinates() {
         return this._dropCoordinates;
+    }
+
+    get isEncrypted() {
+        if (this._isEncrypted === undefined)
+            return false;
+        return this._isEncrypted;
     }
 
     set dropCoordinates(pos) {

@@ -391,9 +391,132 @@ const DesktopIconsUtil = class {
                     }
                 });
             } catch (e) {
-                reject(e);
+                reject(new Error('Error reading file'));
             }
         });
+    }
+
+    /**
+     *
+     * @param {Gio.File} file a file Gio
+     * @param {integer} bytes number of bytes to read
+     * @param {Gio.Cancellable} cancellable gio cancellable
+     */
+    readFileBytesAsync(file, bytes, cancellable = null) {
+        return new Promise((resolve, reject) => {
+            try {
+                file.read_async(GLib.PRIORITY_DEFAULT, cancellable, (actor, result) => {
+                    try {
+                        const inputstream = actor.read_finish(result);
+                        inputstream.read_bytes_async(bytes,
+                            GLib.PRIORITY_DEFAULT,
+                            cancellable,
+                            (sourceObject, res) => {
+                                const data = sourceObject.read_bytes_finish(res);
+                                if (data) {
+                                    inputstream.close(cancellable);
+                                    resolve(data);
+                                }
+                                reject(new Error('Empty Bytes'));
+                            }
+                        );
+                    } catch (e) {
+                        reject(new Error('Error reading file inputstream'));
+                    }
+                });
+            } catch (e) {
+                reject(new Error('Error reading file'));
+            }
+        });
+    }
+
+    /**
+     * Check if a pdf file is encrypted
+     * @param {Gio.File} file a file Gio of pdf file
+     * @param {Gio.Cancellable} cancellable gio cancellable
+     * @returns boolean
+     */
+    async checkIfPdfEncrypted(file, cancellable = null) {
+        const data = await this.readFileBytesAsync(
+            file,
+            1024,
+            cancellable
+        ).catch(e => logError(e));
+
+        if (!data)
+            return false;
+
+        const decoder = new TextDecoder();
+
+        return decoder.decode(data).includes('/Encrypt');
+    }
+
+    /**
+     * Check if a zip file is encrypted
+     * @param {Gio.File} file a file Gio of zip file
+     * @param {Gio.Cancellable} cancellable gio cancellable
+     * @returns boolean
+     */
+    async checkIfZipEncrypted(file, cancellable = null) {
+        const data = await this.readFileBytesAsync(
+            file,
+            1024,
+            cancellable
+        ).catch(e => logError(e));
+
+        if (!data)
+            return false;
+
+        // Zip Encryption single file archive
+        // Check if the 6th bit in the 7th byte (flag field) is set
+        const generalPurposeFlag = new Uint8Array([data.get_data()[6]]);
+        const zipEncrypted = (generalPurposeFlag & 0x01) === 0x01;
+        if (zipEncrypted)
+            return true;
+
+        // Multiple zip file archive- needs external checking
+        const command = `zipinfo -v '${file.get_path()}'`;
+        const decoder = new TextDecoder();
+        try {
+            const [, out,, status] = GLib.spawn_command_line_sync(command);
+
+            if (status !== 0)
+                return false;
+
+            const contents = decoder.decode(out);
+            return contents.trim().split('\n').some(l => {
+                return l.includes('file security status:') &&
+                    !l.includes('not encrypted');
+            });
+        } catch (e) {
+            if (!e.matches(GLib.SpawnError, GLib.SpawnError.NOENT))
+                console.error(`Error determining encryption Zip file ${e}`);
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if a 7z file is encrypted
+     * @param {Gio.File} file a file Gio of 7z file
+     * @returns boolean
+     */
+    checkIf7zEncrypted(file) {
+        const command = `7z l -pBadPassword -slt '${file.get_path()}'`;
+        const decoder = new TextDecoder();
+        try {
+            const [, out, error] = GLib.spawn_command_line_sync(command);
+            const contents = decoder.decode(error) + decoder.decode(out);
+            return contents.trim().split('\n').some(l => {
+                return l.includes('Encrypted = +') ||
+                    l.includes('Wrong password?');
+            });
+        } catch (e) {
+            if (!e.matches(GLib.SpawnError, GLib.SpawnError.NOENT))
+                console.error(`Error determining encryption 7z file ${e}`);
+        }
+
+        return false;
     }
 
     /**
