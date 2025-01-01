@@ -613,6 +613,15 @@ const DesktopIconItem = class {
         const emblemWidth = emblemIcon.get_intrinsic_width();
         const emblemHeight = emblemIcon.get_intrinsic_height();
         const emblemSnapshot = Gtk.Snapshot.new();
+        const origin = new Graphene.Point({x: 5, y: 5});
+        const size = new Graphene.Size({width: emblemWidth - 10, height: emblemHeight - 10});
+        const rect = new Graphene.Rect({origin, size});
+        const color = new Gdk.RGBA();
+        color.parse('rgba(255, 255, 255, 1.0)');
+        emblemSnapshot.append_color(
+            color,
+            rect
+        );
         emblemIcon.snapshot(emblemSnapshot, emblemWidth, emblemHeight);
 
         const iconPaintableSnapshot = Gtk.Snapshot.new();
@@ -624,14 +633,14 @@ const DesktopIconItem = class {
             const finalWidth = Math.min(desiredWidth, estimatedWidth);
 
             const newIconPaintableSnapshot = Gtk.Snapshot.new();
-            const origin = new Graphene.Point({x: 0, y: 0});
-            const size = new Graphene.Size({width: finalWidth, height: iconHeight});
-            const rect = new Graphene.Rect({origin, size});
-            const color = new Gdk.RGBA();
-            color.parse('rgba(0, 0, 0, 0)');
+            const xorigin = new Graphene.Point({x: 0, y: 0});
+            const xsize = new Graphene.Size({width: finalWidth, height: iconHeight});
+            const xrect = new Graphene.Rect({origin: xorigin, size: xsize});
+            const xcolor = new Gdk.RGBA();
+            xcolor.parse('rgba(0, 0, 0, 0)');
             newIconPaintableSnapshot.append_color(
-                color,
-                rect
+                xcolor,
+                xrect
             );
             newIconPaintableSnapshot.translate(
                 new Graphene.Point({
