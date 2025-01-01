@@ -794,9 +794,14 @@ const FileItemMenu = class {
             this.dbusManager.doNotify(header, text);
             return;
         }
-        const args = [xdgEmailCommand, this.Enums.XDG_EMAIL_CMD_OPTIONS];
+        const args = [xdgEmailCommand];
         try {
-            this.DesktopIconsUtil.trySpawn(null, args.concat(pathnameArray));
+            const newPathNameArray = [];
+            pathnameArray.forEach(f => {
+                newPathNameArray.push(this.Enums.XDG_EMAIL_CMD_OPTIONS);
+                newPathNameArray.push(f);
+            });
+            this.DesktopIconsUtil.trySpawn(null, args.concat(newPathNameArray));
         } catch (e) {
             console.log(`Error emailing Files, ${e}`);
             const header = _('Mail Error');
