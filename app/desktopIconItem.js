@@ -604,7 +604,17 @@ const DesktopIconItem = class {
             return iconPaintable;
 
         const scale = this._icon.get_scale_factor();
-        const finalSize = Math.floor(this.Prefs.IconSize / 3) * scale;
+        let ratio;
+        switch (this.Prefs.IconSize) {
+        case 36: ratio = 3;
+            break;
+        case 48: ratio = 3;
+            break;
+        case 64: ratio = 4;
+            break;
+        case 96: ratio = 5;
+        }
+        const finalSize = Math.floor(this.Prefs.IconSize / ratio) * scale;
         const iconWidth =  iconPaintable.get_intrinsic_width();
         const iconHeight = iconPaintable.get_intrinsic_height();
 
@@ -613,8 +623,8 @@ const DesktopIconItem = class {
         const emblemWidth = emblemIcon.get_intrinsic_width();
         const emblemHeight = emblemIcon.get_intrinsic_height();
         const emblemSnapshot = Gtk.Snapshot.new();
-        const origin = new Graphene.Point({x: 5, y: 5});
-        const size = new Graphene.Size({width: emblemWidth - 10, height: emblemHeight - 10});
+        const origin = new Graphene.Point({x: 3, y: 3});
+        const size = new Graphene.Size({width: emblemWidth - 5, height: emblemHeight - 5});
         const rect = new Graphene.Rect({origin, size});
         const color = new Gdk.RGBA();
         color.parse('rgba(255, 255, 255, 1.0)');
