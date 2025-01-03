@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the desktop-icons package.
 # JGJeong <jingimem@gmail.com>, 2021.
 # Junghee Lee <daemul72@gmail.com>, 2022.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 15:00+0000\n"
+"PO-Revision-Date: 2025-01-03 16:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
@@ -41,7 +41,7 @@ msgstr "트윅"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "개발자 정보"
+msgstr "소개"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -273,7 +273,7 @@ msgstr "보고"
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
 msgid "License"
-msgstr "라이선스"
+msgstr "라이센스"
 
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
@@ -376,7 +376,7 @@ msgstr "취소"
 #: app/autoAr.js:311 app/autoAr.js:608
 #, fuzzy
 msgid "Enter a password here"
-msgstr "비밀번호 입력"
+msgstr "여기에 비밀번호를 입력하세요"
 
 #: app/autoAr.js:354
 #, fuzzy
@@ -471,7 +471,7 @@ msgstr "Archive 이름"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "비밀 번호"
+msgstr "비밀번호"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -1257,7 +1257,7 @@ msgstr "_취소"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "열기(_O)"
+msgstr "_열기"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
 # Boris Arko <barko@generacija.si>, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 15:00+0000\n"
+"PO-Revision-Date: 2025-01-03 16:01+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/"
@@ -279,8 +279,9 @@ msgid "Choose an application to open <b>{foo}</b>"
 msgstr ""
 
 #: app/appChooser.js:62
+#, fuzzy
 msgid "Open Items"
-msgstr ""
+msgstr "Odpri predmet"
 
 #: app/appChooser.js:64
 #, fuzzy
@@ -427,7 +428,7 @@ msgstr "Ime arhiva"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Password"
+msgstr "Geslo"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -762,8 +763,9 @@ msgid ""
 msgstr ""
 
 #: app/fileItem.js:388
+#, fuzzy
 msgid "Broken Desktop File"
-msgstr ""
+msgstr "Okvarjene datoteke namizja"
 
 #: app/fileItem.js:389
 msgid ""
@@ -840,7 +842,7 @@ msgstr ""
 #: app/fileItemMenu.js:351 app/fileItemMenu.js:354
 #, fuzzy
 msgid "Open With..."
-msgstr "Odpri z ..."
+msgstr "Odpri z..."
 
 #: app/fileItemMenu.js:354
 msgid "Open All With Other Application..."
@@ -1120,8 +1122,9 @@ msgid "Show the personal folder in the desktop."
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
+#, fuzzy
 msgid "Show trash icon"
-msgstr ""
+msgstr "Pokaži ikono v pladnju"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
