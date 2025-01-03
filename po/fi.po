@@ -5,15 +5,15 @@
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2018.
 # Timo Jyrinki <timo.jyrinki+l10n@gmail.com>, 2021.
 # Tuomas Nurmi <tuomas.nurmi@opinsys.fi>, 2022.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-23 05:55+0000\n"
+"PO-Revision-Date: 2025-01-03 16:01+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/"
@@ -279,7 +279,7 @@ msgstr "Raportti"
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
 msgid "License"
-msgstr "Lisenssi"
+msgstr "Lisenssitiedot"
 
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
@@ -938,7 +938,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Tiedostoa ei voitu avata"
+msgstr "Tiedostoja ei voitu avata"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
