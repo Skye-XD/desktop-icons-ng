@@ -255,7 +255,9 @@ const Preferences = class {
         });
 
         // Terminal settings Changes
-        this.schemaTerminalSettings?.connect('changed', this._updateTerminalSettings.bind(this));
+        this.schemaTerminalSettings?.connect('changed', () => {
+            this._updateTerminalSettings().catch(e => logError(e));
+        });
 
         // Mutter settings
         this.mutterSettings.connect('changed', () => {
@@ -289,7 +291,7 @@ const Preferences = class {
         this._xdgSystemData = this._desktopIconsUtil.getSystemDataTerminalDirs();
 
         this._setupTerminalMonitors();
-        this._updateTerminalSettings();
+        this._updateTerminalSettings().catch(e => logError(e));
     }
 
     _updateTerminalDconfSettings() {
@@ -374,8 +376,10 @@ const Preferences = class {
         const c = this._updateTerminalDconfSettings();
         this._terminalGioDesktopAppInfoList = a.concat(b.concat(c));
 
-        if (this._terminalGioDesktopAppInfoList.length)
-            this._terminal = this._terminalGioDesktopAppInfoList[0];
+        if (!this._terminalGioDesktopAppInfoList.length)
+            return;
+
+        this._terminal = this._terminalGioDesktopAppInfoList[0];
         this._terminalExecString = this._terminal.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_SWITCH);
         if (!this._terminalExecString)
             this._terminalExecString = '-e';
