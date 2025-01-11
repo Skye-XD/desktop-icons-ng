@@ -969,7 +969,9 @@ const FileItemMenu = class {
 
         if (this.Prefs.Terminal) {
             this.Prefs.TerminalGioList.some(t => {
-                const exec = t.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_KEY);
+                let exec = t.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_KEY);
+                if (exec === 'ptyxis')
+                    exec = `${exec} --new-window -d ${workingdir}`;
                 let execswitch = t.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_SWITCH);
                 execswitch = execswitch ? execswitch : '-e';
                 commandLine = commandLine ? `${execswitch} ${commandLine}` : '';
