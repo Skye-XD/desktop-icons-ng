@@ -172,6 +172,11 @@ const TemplatesScriptsManager = class {
             }
 
             const isDir = info.get_file_type() === Gio.FileType.DIRECTORY;
+            const isSymlink = info.get_attribute_boolean(Gio.FILE_ATTRIBUTE_STANDARD_IS_SYMLINK);
+            if (isDir && isSymlink) {
+                console.warn('Folder Symlink in monitored templates/scripts folder...');
+                console.warn('This can lead to unlimited recursion.');
+            }
             const child = directory.get_child(info.get_name());
 
             fileList.push([
