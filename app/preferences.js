@@ -298,24 +298,26 @@ const Preferences = class {
         let defaultTerminal = null;
         if (this.schemaTerminalSettings)
             defaultTerminal = this.schemaTerminalSettings.get_string(this._Enums.DCONF_TERMINAL_EXEC_KEY);
+
         let terminal;
+        let terminalappinfo;
+
         switch (defaultTerminal) {
         case 'gnome-terminal':
             terminal = 'org.gnome.Terminal.desktop';
+            terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+            if (!terminalappinfo) {
+                terminal = 'org.gnome.Ptyxis.desktop';
+                terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+            }
             break;
         case 'gnome-console':
-            terminal = 'org.gnome.Console.desktop';
-            break;
         default:
             terminal = 'org.gnome.Console.desktop';
+            terminalappinfo = Gio.DesktopAppInfo.new(terminal);
         }
-        let terminalappinfo = Gio.DesktopAppInfo.new(terminal);
-        if (!terminalappinfo)
-            terminalappinfo = Gio.DesktopAppInfo.new('org.gnome.Console.desktop');
-        if (terminalappinfo)
-            return [terminalappinfo];
-        else
-            return [];
+
+        return  terminalappinfo ? [terminalappinfo] : [];
     }
 
     async _updateTerminalXdgConf() {
@@ -380,7 +382,7 @@ const Preferences = class {
             return;
 
         this._terminal = this._terminalGioDesktopAppInfoList[0];
-        this._terminalExecString = this._terminal.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_SWITCH);
+        this._terminalExecString = this._terminal?.get_string(this._Enums.DESKTOPFILE_TERMINAL_EXEC_SWITCH);
         if (!this._terminalExecString)
             this._terminalExecString = '-e';
     }
@@ -408,7 +410,7 @@ const Preferences = class {
     }
 
     get Terminal() {
-        return this._terminal;
+        return this._terminal ?? null;
     }
 
     get TerminalGioList() {
