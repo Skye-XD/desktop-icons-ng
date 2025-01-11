@@ -19,6 +19,9 @@ import {Gio, GLib} from '../dependencies/gi.js';
 
 export {TemplatesScriptsManager};
 
+const MAX_DIRS = 100;
+const MAX_MENUENTRIES = 50;
+
 const TemplatesScriptsManager = class {
     constructor(baseFolder, callback, selectionfilter, Data) {
         this._callback = callback;
@@ -111,6 +114,11 @@ const TemplatesScriptsManager = class {
                 continue;
             }
 
+            if (this._entriesDirMonitors.length > MAX_DIRS) {
+                console.log('Limiting the number of folders monitored in templates/scripts...');
+                continue;
+            }
+
             let monitorDir = file[1].monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
             monitorDir.set_rate_limit(1000);
             let monitorId = monitorDir.connect('changed', () => {
@@ -151,7 +159,10 @@ const TemplatesScriptsManager = class {
             const menuitemName = this._selectionFilter(info);
             if (!menuitemName)
                 return;
-
+            if (fileList.length > MAX_MENUENTRIES) {
+                console.log('Truncating menu entries in templates/scripts submenu...');
+                return;
+            }
 
             const isDir = info.get_file_type() === Gio.FileType.DIRECTORY;
             const child = directory.get_child(info.get_name());
