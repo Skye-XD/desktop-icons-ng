@@ -21,6 +21,7 @@ export {TemplatesScriptsManager};
 
 const MAX_DIRS = 100;
 const MAX_MENUENTRIES = 50;
+const MAX_MENU_DEPTH = 10;
 
 const TemplatesScriptsManager = class {
     constructor(baseFolder, callback, selectionfilter, Data) {
@@ -86,7 +87,8 @@ const TemplatesScriptsManager = class {
         [this._entries, this.gioMenu] = entriesList !== null ? entriesList : [null, null];
     }
 
-    async _processDirectory(directory, cancellable) {
+    async _processDirectory(directory, cancellable, recursionLevel = 0) {
+        const localRecursionLevel = recursionLevel += 1;
         var files = null;
         try {
             files = await this._readDirectory(directory, cancellable);
@@ -119,6 +121,11 @@ const TemplatesScriptsManager = class {
                 continue;
             }
 
+            if (localRecursionLevel > MAX_MENU_DEPTH) {
+                console.log('Limiting submenu depth of folders monitored in templates/scripts...');
+                continue;
+            }
+
             let monitorDir = file[1].monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, null);
             monitorDir.set_rate_limit(1000);
             let monitorId = monitorDir.connect('changed', () => {
@@ -129,7 +136,7 @@ const TemplatesScriptsManager = class {
             let submenu;
             let subentriesList;
             // eslint-disable-next-line no-await-in-loop
-            subentriesList = await this._processDirectory(file[1], cancellable);
+            subentriesList = await this._processDirectory(file[1], cancellable, localRecursionLevel);
             if (subentriesList === null)
                 return null;
 
