@@ -51,7 +51,7 @@ const ShowErrorPopup = class {
             this._dialog.set_response_appearance('0', Adw.ResponseAppearance.DEFAULT);
         }
         this._dialog.connect('response', this._callback.bind(this));
-        this._dialog.connect('closed', this._textEntryAccelsTurnOn.bind(this));
+        this._dialog.connect('unrealize', this._textEntryAccelsTurnOn.bind(this));
         this._dialog.connect('realize', this._textEntryAccelsTurnOff.bind(this));
     }
 
