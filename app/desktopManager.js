@@ -143,60 +143,46 @@ const DesktopManager = class {
             Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
             null) === Gio.FileType.DIRECTORY;
         if (!isFolder) {
-            const helpURL = null;
-            const dontShow = true;
-            const errorWindow = this.showError(
+            const errorDialog = this.showError(
                 _('Can Not Show the Desktop'),
-                _(`The Desktop folder ${this._desktopDir.get_path()} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder`),
-                helpURL,
-                dontShow
+                _(`The Desktop folder ${this._desktopDir.get_path()} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder`)
             );
-            await errorWindow.run();
+            await errorDialog.run();
             this._desktops.forEach(d => d.setErrorState());
         }
 
         const inodeHandlers = Gio.AppInfo.get_all_for_type('inode/directory');
         if (!GLib.find_program_in_path('nautilus')) {
-            const helpURL = null;
-            const dontShow = true;
-            const errorWindow = this.showError(
+            const errorDialog = this.showError(
                 _('GNOME Files not found'),
-                _('The GNOME Files application is required by Gtk4 Desktop Icons NG.'),
-                helpURL,
-                dontShow
+                _('The GNOME Files application is required by Gtk4 Desktop Icons NG.')
             );
-            await errorWindow.run();
+            await errorDialog.run();
         }
 
         if (!inodeHandlers.length) {
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
-            const dontShow = true;
-            const errorWindow = this.showError(
+            const errorDialog = this.showError(
                 _('There is no default File Manager'),
                 _('There is no application that handles mimetype "inode/directory"'),
-                helpURL,
-                dontShow
+                helpURL
             );
-            await errorWindow.run();
+            await errorDialog.run();
         }
 
         if (!inodeHandlers.map(a => a.get_id()).includes('org.gnome.Nautilus.desktop')) {
-            const modal = true;
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
-            const dontShow = true;
-            const errorWindow = this.showError(
+            const errorDialog = this.showError(
                 _('Gnome Files is not registered as a File Manager'),
                 _('The Gnome Files application is not programmed to open Folders!\nCheck your xdg-utils installation\nCheck Gnome Files .desktop File installation'),
-                modal,
-                helpURL,
-                dontShow
+                helpURL
             );
-            await errorWindow.run();
+            await errorDialog.run();
         }
     }
 
-    showError(text, secondaryText, helpURL = null, dontShow = false) {
-        const _errorDialog = new ShowErrorPopup.ShowErrorPopup(
+    showError(text, secondaryText, helpURL = null, timeout = 0) {
+        const errorDialog = new ShowErrorPopup.ShowErrorPopup(
             text,
             secondaryText,
             this.textEntryAccelsTurnOff.bind(this),
@@ -205,10 +191,10 @@ const DesktopManager = class {
             helpURL
         );
 
-        if (!dontShow)
-            _errorDialog.run();
+        if (timeout)
+            errorDialog.runAutoClose(timeout);
 
-        return _errorDialog;
+        return errorDialog;
     }
 
     terminateProgram() {
@@ -1354,12 +1340,14 @@ const DesktopManager = class {
             if (found) {
                 if ((this.getNumberOfSelectedItems() >= 1) && !this.keypressTimeoutID) {
                     const secondaryText = null;
-                    const timoutClose = 2000; // In ms
-                    const errorDialog = this.showError(
+                    const helpURL = null;
+                    const timeoutClose = 2000; // In ms
+                    this.showError(
                         _('Clear current selection before new search'),
-                        secondaryText
+                        secondaryText,
+                        helpURL,
+                        timeoutClose
                     );
-                    errorDialog.timeoutClose(timoutClose);
                     return true;
                 }
                 this.searchEventTime = GLib.get_monotonic_time();

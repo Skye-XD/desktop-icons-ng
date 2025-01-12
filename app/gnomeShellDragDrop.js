@@ -230,15 +230,14 @@ const GnomeShellDrag = class {
     }
 
     _showAppCannotOpenError(Appname) {
-        const modal = true;
         const timeout = 3000; // In ms
-        const errorDialog = this._desktopManager.showError(
+        this._desktopManager.showError(
             _('Could not open File'),
             // eslint-disable-next-line no-template-curly-in-string
             _('${appName} can not open files of this Type!').replace('${appName}', Appname),
-            modal
+            null,
+            timeout
         );
-        errorDialog.timeoutClose(timeout);
         return false;
     }
 

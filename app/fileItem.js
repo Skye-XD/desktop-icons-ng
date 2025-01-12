@@ -374,11 +374,12 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     _showerrorpopup(title, error, helpURI = null) {
-        this._desktopManager.showError(
+        const errorDialog = this._desktopManager.showError(
             title,
             error,
             helpURI
         );
+        errorDialog.show();
     }
 
     _launchAppImageFile() {

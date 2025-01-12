@@ -1,6 +1,6 @@
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
- * Copyright (C) 2022, 2024 Sundeep Mediratta (smedius@gmail.com) gtk4 port
+ * Copyright (C) 2022, 2025 Sundeep Mediratta (smedius@gmail.com) gtk4 port
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
  * Based on code original (C) Carlos Soriano
  *
@@ -37,68 +37,54 @@ const ShowErrorPopup = class {
             this._dialog.set_body(secondaryText);
         if (helpURL) {
             this._helpURL = helpURL;
-            this._dialog.add_response('0', _('Cancel'), null);
-            this._dialog.add_response('1', _('More Information'), null);
+            this._dialog.add_response('0', _('Cancel'));
+            this._dialog.add_response('1', _('More Information'));
             this._dialog.set_close_response('0');
             this._dialog.set_default_response('1');
             this._dialog.set_response_appearance('1', Adw.ResponseAppearance.SUGGESTED);
             this._dialog.set_response_appearance('0', Adw.ResponseAppearance.DEFAULT);
             this._dialog.set_prefer_wide_layout(true);
         } else {
-            this._dialog.add_response('0', _('Cancel'), null);
+            this._dialog.add_response('0', _('Cancel'));
             this._dialog.set_close_response('0');
             this._dialog.set_default_response('0');
             this._dialog.set_response_appearance('0', Adw.ResponseAppearance.DEFAULT);
         }
-        this._cancellable = null;
-
-        this._show = () => {
-            return new Promise((resolve, reject) => {
-                this._dialog.choose(this._window, this._cancellable, (actor, choice) => {
-                    try {
-                        const buttonpress = actor.choose_finish(choice);
-                        if (buttonpress === '1') {
-                            if (this._helpURL)
-                                this._launchUri(this._helpURL);
-                        }
-                        this._cancellable = null;
-                        this._textEntryAccelsTurnOn();
-                    } catch (e) {
-                        if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
-                            console.error('Error showing Alert Dialog');
-                            reject(e);
-                        }
-                    }
-                    resolve(true);
-                });
-            });
-        };
+        this._dialog.connect('response', this._callback.bind(this));
+        this._dialog.connect('closed', this._textEntryAccelsTurnOn.bind(this));
+        this._dialog.connect('realize', this._textEntryAccelsTurnOff.bind(this));
     }
 
-    async run() {
-        if (this._cancellable)
-            return;
-        this._cancellable = Gio.Cancellable.new();
-        await this._show().catch(e => logError(e));
+    show() {
+        this._dialog.present(this._window);
+    }
+
+    _callback(actor, response) {
+        if (response === '1' && this._helpURL)
+            this._launchUri(this._helpURL);
+    }
+
+    run() {
+        return new Promise(resolve => {
+            this._dialog.choose(this._window, null, (actor, asyncResult) => {
+                const response = actor.choose_finish(asyncResult);
+                resolve(response);
+            });
+        });
     }
 
     async runAutoClose(time) {
-        if (this._cancellable)
-            return;
-        this._cancellable = Gio.Cancellable.new();
-        this._show().catch(e => logError(e));
-        await this.timeoutClose(time);
+        this.show();
+        await this._timeoutClose(time);
     }
 
     close() {
-        if (this._cancellable)
-            this._cancellable.cancel();
-        this._cancellable = null;
-        this._textEntryAccelsTurnOn();
+        this._dialog.close();
     }
 
-    async timeoutClose(time) {
+    async _timeoutClose(time) {
         await this.DesktopIconsUtil.waitDelayMs(time);
+        this._dialog.set_response_enabled('0', false);
         this.close();
     }
 
