@@ -8,6 +8,7 @@ Updated and modified code base, uses Gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* Integrate ptyxis, replaces gnome-terminal on some distributions. Open ptyxis properly.
 * Modern emblems like Gnome Files, allow multiple emblems
 * Emblem for encrypted pdf, zip, 7z files
 * Allow setting any user folder as the Desktop folder following xdg-sepecifications and updating the xdg-files and vice versa in the running program.

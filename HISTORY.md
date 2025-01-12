@@ -1,4 +1,14 @@
 # History of versions #
+* Gtk4 version 90 for Gnome 45,46,47
+  * Bug Fix - show error popup with gnome shell drag and drop. (Sundeep Mediratta)
+  * Refactor and re-write showErrorPopup.js for better async code. (Sundeep Mediratta)
+  * Bug Fix - allow ptyxis to replace gnome terminal, fixes problem on Fedora, write scpecefic code to for opening ptyxis. (Sundeep Mediratta)
+  * Bug Fix - Set Terminal can be null. (Sundeep Mediratta)
+  * Bug Fix - Prevent resource exhausion because of symlink recursion in templates/scripts manager. (Sundeep Mediratta)
+  * Bug Fix - Add hard limits to resource use in templates/scripts manager. (Sundeep Mediratta)
+  * Weblate Translations. (Weblate Authors)
+  * Update History.md, metadata.json, Version Bump 90
+
 * Gtk4 version 89 for Gnome 45, 46, 47
   * Fix radio button menu for arrange icons to react to click even if the choice is selected. (Sundeep Mediratta)
   * Miscellenous fixes to fix console errors. (Sundeep Mediratta)

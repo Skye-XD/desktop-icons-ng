@@ -148,6 +148,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Show a lock emblem for encrypted pdf, zip, 7z files.
 
+- [x] Allow ptyxis to replace gnome-terminal, write specefic code to open ptyxis properly.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -298,3 +300,7 @@ The application functionality and behavior is consistent with the two other very
 - [x] Change order of speech for accessibility for different fileItems- Ported from upstream,
 
 - [x] Fix radio button menu for arrange icons to react to click even if the choice is selected.
+
+- [x] Bug Fix - prevent symlink recursion and resource exhaustion in templates/scripts manager.
+
+- [x] Bug Fix showErrorPopup.js and rewrite better async code.
