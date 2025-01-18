@@ -45,9 +45,12 @@ Gio._promisify(Gio.FileEnumerator.prototype, 'close_async');
 Gio._promisify(Gio.FileEnumerator.prototype, 'next_files_async');
 Gio._promisify(fileProto, 'load_bytes_async');
 
+const appID = 'com.desktop.ding';
+const appPath = '/com/desktop/ding';
+
 const ifaceXml = `
 <node>
-  <interface name="com.desktop.dingextension.service">
+  <interface name="${appID}extension.service">
     <method name="updateDesktopGeometry"/>
     <method name="getDropTargetAppInfoDesktopFile">
       <arg type="ad" direction="in" name="Global Drop Coordinates"/>
@@ -199,21 +202,21 @@ const DingManager = class {
 
         this.remoteDingActions = Gio.DBusActionGroup.get(
             Gio.DBus.session,
-            'com.desktop.ding',
-            '/com/desktop/ding/actions'
+            appID,
+            `${appPath}/actions`
         );
 
         this.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe(
-            'com.desktop.ding',
-            'com.desktop.ding.geometrycontrol',
+            appID,
+            `${appID}.geometrycontrol`,
             'updategeometry',
-            '/com/desktop/ding/geometrycontrol',
+            `${appPath}/geometrycontrol`,
             null,
             Gio.DBusSignalFlags.NONE,
             this._updateDesktopGeometry.bind(this)
         );
 
-        console.log('gtk4-DING enabled.');
+        console.log('Adw-DING enabled.');
     }
 
     /**
@@ -275,7 +278,7 @@ const DingManager = class {
     _acquireDBusName() {
         let ID = Gio.bus_own_name(
             Gio.BusType.SESSION,
-            'com.desktop.dingextension',
+            `${appID}extension`,
             Gio.BusNameOwnerFlags.NONE,
             this._onBusAcquired.bind(this),
             (connection, name) => {
@@ -401,7 +404,7 @@ const DingManager = class {
         const thisPath = `gjs ${GLib.build_filenamev([
             this.path,
             'app',
-            'ding.js',
+            'adw-ding.js',
         ])}`;
 
         const killPromises = processes.map(async info => {
@@ -461,25 +464,22 @@ const DingManager = class {
      * debug it.
      */
     async _launchDesktop() {
-        console.log('Launching Gtk4-DING process');
+        console.log('Launching Adw-DING process');
         let argv = [];
-        argv.push(GLib.build_filenamev([this.path, 'app', 'ding.js']));
+        argv.push(GLib.build_filenamev([this.path, 'app', 'adw-ding.js']));
         // Specify that it must work as true desktop
         argv.push('-E');
-        // The path. Allows the program to find translations, settings and modules.
-        argv.push('-P');
-        argv.push(this.path);
         // The current Gnome Shell Version for correct operation of clipboard with Gtk4.
         argv.push('-V');
         argv.push(`${this.GnomeShellVersion}`);
-        // The current version of the Extension
+        // The current version of the Extension to show in preferences
         argv.push('-v');
         argv.push(`${this.version}`);
-        // Give the uuid of the extension
+        // Give the uuid of the extension starting the app
         argv.push('-U');
         argv.push(`${this.uuid}`);
 
-        this.waylandClient = new LaunchSubprocess(0, 'Gtk4-DING');
+        this.waylandClient = new LaunchSubprocess(0, 'Adw-DING');
         this.waylandClient.set_cwd(GLib.get_home_dir());
         this.x11Manager.set_wayland_client(this.waylandClient);
 

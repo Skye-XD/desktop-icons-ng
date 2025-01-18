@@ -27,6 +27,9 @@ import * as AppFavorites from 'resource:///org/gnome/shell/ui/appFavorites.js';
 import * as Utils from 'resource:///org/gnome/shell/misc/util.js';
 
 export {EmulateX11WindowType};
+
+const appID = 'com.desktop.ding';
+const appPath = '/com/desktop/ding';
 class ManageWindow {
     /* This class is added to each managed window, and it's used to
        make it behave like an X11 Desktop window.
@@ -488,7 +491,7 @@ var EmulateX11WindowType = class {
                 let appid = window.get_gtk_application_id();
                 let windowpid = window.get_pid();
                 let mypid = parseInt(this._waylandClient.query_pid_of_program());
-                if ((appid === 'com.desktop.ding') && (windowpid === mypid))
+                if ((appid === appID) && (windowpid === mypid))
                     this._addWindowManagedCustomJS_ding(window, windowActor);
             }
         });
@@ -616,8 +619,8 @@ class HandleDragActors {
         this.windowActor = windowActor;
         this.remoteDingActions = Gio.DBusActionGroup.get(
             Gio.DBus.session,
-            'com.desktop.ding',
-            '/com/desktop/ding/actions'
+            appID,
+            `${appPath}/actions`
         );
     }
 
