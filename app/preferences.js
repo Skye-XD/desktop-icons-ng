@@ -76,7 +76,7 @@ const Preferences = class {
         this._cacheInitialSettings();
 
         this._adwPreferencesWindow = new AdwPreferencesWindow.AdwPreferencesWindow(this.desktopSettings,
-            this.nautilusSettings, this.gtkSettings, this._extensionPath, this._programVersion);
+            this.nautilusSettings, this.gtkSettings, this._programVersion);
     }
 
     _get_schema(schema) {
