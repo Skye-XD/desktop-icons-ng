@@ -60,6 +60,7 @@ const DesktopGrid = class {
             }
         } else {
             // Opaque black test window
+            this._window.set_name('testwindow');
             let headerBar = Adw.HeaderBar.new();
             let headerTitle = Adw.WindowTitle.new('DING Test Window', '');
             headerBar.set_title_widget(headerTitle);
@@ -67,6 +68,11 @@ const DesktopGrid = class {
             this.testbox = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0);
             this.testbox.append(headerBar);
         }
+        // Remove any other css classes, even if applied by other apps later
+        this._window.set_css_classes(['background']);
+        this._window.connect('notify::css_classes', () => {
+            this._window.set_css_classes(['background']);
+        });
         this._window.set_resizable(false);
         this._window.connect('close-request', () => {
             if (this._destroying)
