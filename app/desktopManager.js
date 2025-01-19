@@ -2572,14 +2572,16 @@ const DesktopManager = class {
      */
 
     _manageCutCopy(action) {
+        const uriList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_URI_LIST);
+        if (!uriList?.length)
+            return;
+        const pathList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
+
         let clipboard = Gdk.Display.get_default().get_clipboard();
         const textCoder = new TextEncoder();
 
-        const uriList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_URI_LIST);
-        const pathList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
         let content = action ? 'copy\n' : 'cut\n';
-        content += uriList.replaceAll('\r', '').trim();
-
+        content += uriList?.replaceAll('\r', '').trim();
         const encodedUriList = textCoder.encode(uriList);
         const encodedPathList = textCoder.encode(pathList);
 
