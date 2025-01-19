@@ -261,7 +261,7 @@ const DesktopManager = class {
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             cssProvider,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            Gtk.STYLE_PROVIDER_PRIORITY_USER
         );
     }
 
