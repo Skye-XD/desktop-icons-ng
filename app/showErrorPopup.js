@@ -22,12 +22,10 @@ import {_} from '../dependencies/gettext.js';
 export {ShowErrorPopup};
 
 const ShowErrorPopup = class {
-    constructor(text, secondaryText, textEntryAccelsTurnOff, textEntryAccelsTurnOn, DesktopIconsUtil, helpURL = null) {
-        this.DesktopIconsUtil = DesktopIconsUtil;
-        this._applicationId = this.DesktopIconsUtil.getApplicationID();
+    constructor(text, secondaryText, waitDelayMs, helpURL = null) {
+        this._waitDelayMs = waitDelayMs; // async function
+        this._applicationId = Gio.Application.get_default();
         this._window = this._applicationId.get_active_window();
-        this._textEntryAccelsTurnOff = textEntryAccelsTurnOff;
-        this._textEntryAccelsTurnOn = textEntryAccelsTurnOn;
         this._dialog = new Adw.AlertDialog();
         this._dialog.set_body_use_markup(true);
         this._dialog.set_heading_use_markup(true);
@@ -51,8 +49,6 @@ const ShowErrorPopup = class {
             this._dialog.set_response_appearance('0', Adw.ResponseAppearance.DEFAULT);
         }
         this._dialog.connect('response', this._callback.bind(this));
-        this._dialog.connect('unrealize', this._textEntryAccelsTurnOn.bind(this));
-        this._dialog.connect('realize', this._textEntryAccelsTurnOff.bind(this));
     }
 
     show() {
@@ -83,7 +79,7 @@ const ShowErrorPopup = class {
     }
 
     async _timeoutClose(time) {
-        await this.DesktopIconsUtil.waitDelayMs(time);
+        await this._waitDelayMs(time);
         this._dialog.set_response_enabled('0', false);
         this.close();
     }

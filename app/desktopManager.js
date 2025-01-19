@@ -185,9 +185,7 @@ const DesktopManager = class {
         const errorDialog = new ShowErrorPopup.ShowErrorPopup(
             text,
             secondaryText,
-            this.textEntryAccelsTurnOff.bind(this),
-            this.textEntryAccelsTurnOn.bind(this),
-            this.DesktopIconsUtil,
+            this.DesktopIconsUtil.waitDelayMs,
             helpURL
         );
 
