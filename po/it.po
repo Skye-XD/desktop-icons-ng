@@ -8,13 +8,14 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
 # albanobattistella <albano_battistella@hotmail.com>, 2024.
+# Fabian Esposito <fabian.esposito@outlook.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-01-03 16:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-01-04 19:01+0000\n"
+"Last-Translator: Fabian Esposito <fabian.esposito@outlook.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
@@ -25,9 +26,8 @@ msgstr ""
 "X-Generator: Weblate 5.10-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
-#, fuzzy
 msgid "Desktop"
-msgstr "Desktop"
+msgstr "Scrivania"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #, fuzzy

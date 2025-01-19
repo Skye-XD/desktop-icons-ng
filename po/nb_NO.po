@@ -3,15 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Allan Nordhøy <epost@anotheragency.no>, 2022, 2023, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-27 02:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-01-04 19:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -35,7 +34,7 @@ msgstr "Filer"
 #: app/adwPreferencesWindow.js:218
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tilpasninger"
+msgstr "Forbedringer"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
@@ -700,7 +699,7 @@ msgstr "Malopprettelse mislyktes"
 #: app/desktopManager.js:2850
 #, fuzzy
 msgid "Could not create document"
-msgstr "Klarte ikke å opprette socket."
+msgstr "Klarte ikke å slette dokumentet"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:134 app/fileItem.js:143
@@ -719,7 +718,7 @@ msgstr "Papirkurv"
 #: app/fileItem.js:155
 #, fuzzy
 msgid "Drive"
-msgstr "Kjøretur"
+msgstr "Stasjon"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a folder is selected. Example: if a folder named "things" is selected,
@@ -878,7 +877,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Klarte ikke å åpne fil"
+msgstr "Kunne ikke åpne fil"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238

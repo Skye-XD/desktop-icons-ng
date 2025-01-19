@@ -2,15 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
 # தமிழ்நேரம் <anishprabu.t@gmail.com>, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-29 20:06+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-01-04 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ta/>\n"
 "Language: ta\n"
@@ -76,8 +77,9 @@ msgid "Size for the desktop icons"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:232
+#, fuzzy
 msgid "Tiny"
-msgstr ""
+msgstr "சிறிய"
 
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
@@ -99,20 +101,23 @@ msgid "New icons alignment"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:242
+#, fuzzy
 msgid "Top left corner"
-msgstr ""
+msgstr "மேல்-இடது மூலையில்."
 
 #: app/adwPreferencesWindow.js:243
 msgid "Top right corner"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:244
+#, fuzzy
 msgid "Bottom left corner"
-msgstr ""
+msgstr "கீழ்-இடது மூலையில்."
 
 #: app/adwPreferencesWindow.js:245
+#, fuzzy
 msgid "Bottom right corner"
-msgstr ""
+msgstr "கீழ்-வலது மூலையில்."
 
 #: app/adwPreferencesWindow.js:250
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -283,7 +288,7 @@ msgstr ""
 #: app/appChooser.js:64
 #, fuzzy
 msgid "Open Folder"
-msgstr "திறந்த கோப்புறை"
+msgstr "_ ஃபோல்டர் திறக்கவும்"
 
 #: app/appChooser.js:66 data/ui/ding-app-chooser.ui:6
 #, fuzzy
@@ -1058,7 +1063,7 @@ msgstr ""
 #: app/preferences.js:419
 #, fuzzy
 msgid "Console"
-msgstr "முனையம்"
+msgstr "கன்சோல்"
 
 #: app/showErrorPopup.js:39
 #, fuzzy
