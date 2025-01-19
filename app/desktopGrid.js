@@ -1018,32 +1018,18 @@ const DesktopGrid = class {
         return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) + Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
     }
 
-    _coordinatesGlobalToLocal(X, Y) {
-        const [windowX, windowY] = this._coordinatesGlobalToWindow(X, Y);
-        const localX = windowX - this._marginLeft;
-        const localY = windowY - this._marginTop;
+    _coordinatesGlobalToLocal(X, Y, widget = null) {
+        const sourcePoint = new Graphene.Point({x: X, y: Y});
 
-        return [localX, localY];
+        if (!widget)
+            widget = this._container;
 
-        // *** FIX ME ****
-        // When the grids are resized, _getEmptyPlacesClosesTo returns incorrect
-        // coordinates of the grid to the left of the grid the icons should be on!
-        // It appears that coordinatesGlobalToLocal returns incorrect local coordinates
-        // instead of where they should be immediately after grid resizing,
-        // otherwise works normally! It appears that it keeps the last margin
-        // appllied to give the coordinates instead of the current one. So apply the margin
-        // twice to get the correct coordinates from localToGlobal. This is done in desktopManager
-        // on grid resize. Error is in GObject.compute_point();
+        const [found, targetPoint] = this._window.compute_point(widget, sourcePoint);
 
-        // const sourcePoint = new Graphene.Point({x: X, y: Y});
+        if (!found)
+            return [0, 0];
 
-        // if (!widget)
-        //     widget = this._container;
-
-        // let [found, targetPoint] = this._window.compute_point(widget, sourcePoint);
-        // if (!found)
-        //     return [0, 0];
-        // return [targetPoint.x, targetPoint.y];
+        return [targetPoint.x, targetPoint.y];
     }
 
     _coordinatesGlobalToWindow(X, Y) {
