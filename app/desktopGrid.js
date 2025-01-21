@@ -933,15 +933,15 @@ const DesktopGrid = class {
         const width = xFin - xInit;
         const height = yFin - yInit;
         const fillColor = new Gdk.RGBA({
-            red: this._desktopManager.selectColor.red,
-            green: this._desktopManager.selectColor.green,
-            blue: this._desktopManager.selectColor.blue,
+            red: this.Prefs.selectColor.red,
+            green: this.Prefs.selectColor.green,
+            blue: this.Prefs.selectColor.blue,
             alpha: 0.15,
         });
         const outlineColor = new Gdk.RGBA({
-            red: this._desktopManager.selectColor.red,
-            green: this._desktopManager.selectColor.green,
-            blue: this._desktopManager.selectColor.blue,
+            red: this.Prefs.selectColor.red,
+            green: this.Prefs.selectColor.green,
+            blue: this.Prefs.selectColor.blue,
             alpha: 1.0,
         });
         this._roundedRectangleDraw(xInit, yInit, width, height, cr, fillColor, outlineColor);
@@ -951,15 +951,15 @@ const DesktopGrid = class {
         if (!this.Prefs.showDropPlace || this._selectedList === null)
             return;
         const fillColor = new Gdk.RGBA({
-            red: 1.0 - this._desktopManager.selectColor.red,
-            green: 1.0 - this._desktopManager.selectColor.green,
-            blue: 1.0 - this._desktopManager.selectColor.blue,
+            red: 1.0 - this.Prefs.selectColor.red,
+            green: 1.0 - this.Prefs.selectColor.green,
+            blue: 1.0 - this.Prefs.selectColor.blue,
             alpha: 0.4,
         });
         const outlineColor = new Gdk.RGBA({
-            red: 1.0 - this._desktopManager.selectColor.red,
-            green: 1.0 - this._desktopManager.selectColor.green,
-            blue: 1.0 - this._desktopManager.selectColor.blue,
+            red: 1.0 - this.Prefs.selectColor.red,
+            green: 1.0 - this.Prefs.selectColor.green,
+            blue: 1.0 - this.Prefs.selectColor.blue,
             alpha: 1.0,
         });
         const dropRectanglePromises = this._selectedList.map(([x, y]) => {

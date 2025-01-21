@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {GLib, Gtk, Gio, Gdk} from '../dependencies/gi.js';
+import {Adw, GLib, Gtk, Gio, Gdk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {Preferences};
@@ -27,9 +27,14 @@ const Preferences = class {
     constructor(Data, AdwPreferencesWindow) {
         this._extensionPath = Data.codePath;
         this._programVersion = Data.programversion;
+        this._mainApp = Data.dingApp;
         this._Enums = Data.Enums;
         let schemaSource = GioSSS.get_default();
         this._desktopManager = null;
+
+        // Adw Style Manager
+        this._adwStyleManager =
+            Adw.StyleManager.get_default();
 
         // Gtk
         let schemaGtk = schemaSource.lookup(this._Enums.SCHEMA_GTK, true);
@@ -58,11 +63,6 @@ const Preferences = class {
         let schemaMutter = schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
         if (schemaMutter)
             this.mutterSettings = new Gio.Settings({settings_schema: schemaMutter});
-
-        // Gnome Dark Settings
-        let schemaGnomeSettings = schemaSource.lookup(this._Enums.SCHEMA_GNOME_SETTINGS, true);
-        if (schemaGnomeSettings)
-            this.schemaGnomeThemeSettings = new Gio.Settings({settings_schema: schemaGnomeSettings});
 
         // Depreciated Gnome Default Terminal Settings
         let schemaTerminalSettings = schemaSource.lookup(this._Enums.TERMINAL_SCHEMA, true);
@@ -118,7 +118,7 @@ const Preferences = class {
         this.CLICK_POLICY_SINGLE = this.nautilusSettings.get_string('click-policy') === 'single';
         this.openFolderOnDndHover = this.nautilusSettings.get_boolean('open-folder-on-dnd-hover');
         this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
-        this.darkMode = this.schemaGnomeThemeSettings.get_string('color-scheme') === 'prefer-dark';
+        this.darkmode = this._adwStyleManager.get_dark();
     }
 
     getAdwPreferencesWindow() {
@@ -138,6 +138,10 @@ const Preferences = class {
     init(desktopManager) {
         this._desktopManager = desktopManager;
         this._desktopIconsUtil = desktopManager.DesktopIconsUtil;
+        this._configureSelectionColor();
+        this._configureHoverColor();
+        this._setCSSColors();
+        this._initLocalCSSprovider();
         this._monitorDesktopSettings();
         this._monitorTerminalSettings();
     }
@@ -215,7 +219,7 @@ const Preferences = class {
         this.gtkSettings.connect('changed', (obj, key) => {
             if (key === 'show-hidden') {
                 this.showHidden = this.gtkSettings.get_boolean('show-hidden');
-                this._desktopManager.onGtkSettingsChanged();
+                this._desktopManager._updateDesktop();
             }
         });
 
@@ -235,23 +239,24 @@ const Preferences = class {
         // Icon Theme Changes
         this._gtkIconTheme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         this._gtkIconTheme.connect('changed', () => {
-            this._desktopManager.onGtkIconThemeChange();
+            this._refreshDesktopAndColors();
         });
 
         // Gtk Theme Changes
         this._gtkSettings = Gtk.Settings.get_for_display(Gdk.Display.get_default());
         this._gtkSettings.connect('notify::gtk-theme-name', () => {
-            this._desktopManager.onGtkThemeChange();
+            this._refreshDesktopAndColors();
         });
 
-        // Gnome Dark Mode Changes and theme color changes
-        this.schemaGnomeThemeSettings.connect('changed', (obj, key) => {
-            if (key === 'color-scheme') {
-                this.darkMode = this.schemaGnomeThemeSettings.get_string('color-scheme') === 'prefer-dark';
-                this._desktopManager.onGtkThemeChange();
-            }
-            if (key === 'accent-color')
-                this._desktopManager.onGtkIconThemeChange();
+        // Callback to handle accent color changes
+        this._adwStyleManager.connect('notify::accent-color', () => {
+            this._refreshBackgroundColor();
+        });
+
+        // Callback to handle theme (color scheme) changes
+        this._adwStyleManager.connect('notify::dark', () => {
+            this.darkmode = this._adwStyleManager.get_dark();
+            this._refreshBackgroundColor();
         });
 
         // Terminal settings Changes
@@ -263,6 +268,87 @@ const Preferences = class {
         this.mutterSettings.connect('changed', () => {
             this._desktopManager.onMutterSettingsChanged();
         });
+    }
+
+    _configureHoverColor() {
+        const box = new Gtk.Label();
+        const styleContext = box.get_style_context();
+        styleContext.add_class('view');
+        const [exists, color] = styleContext.lookup_color('accent_fg_color');
+        if (exists) {
+            this.hoverColor = color;
+        } else {
+            this.hoverColor =  new Gdk.RGBA({
+                red: 0.9,
+                green: 0.9,
+                blue: 0.9,
+                alpha: 1.0,
+            });
+        }
+    }
+
+    _configureSelectionColor() {
+        this.selectColor = this._adwStyleManager.get_accent_color_rgba();
+    }
+
+    _setCSSColors() {
+        const cssColorDefinition =
+        `@define-color desktop_icons_fg_color ${this.hoverColor.to_string()};
+        @define-color desktop_icons_bg_color ${this.selectColor.to_string()};`;
+        this._cssColorProviderSelection = new Gtk.CssProvider();
+
+        // fix for api change Gtk 4.9
+        try {
+            this._cssColorProviderSelection.load_from_data(cssColorDefinition);
+        } catch (e) {
+            const gsizeLength = -1; // NULL terminated string
+            this._cssColorProviderSelection.load_from_data(
+                cssColorDefinition,
+                gsizeLength
+            );
+        }
+
+        Gtk.StyleContext.add_provider_for_display(
+            Gdk.Display.get_default(),
+            this._cssColorProviderSelection,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+    }
+
+    _refreshColors() {
+        Gtk.StyleContext.remove_provider_for_display(
+            Gdk.Display.get_default(),
+            this._cssColorProviderSelection);
+        this._configureSelectionColor();
+        this._configureHoverColor();
+        this._setCSSColors();
+    }
+
+    _refreshBackgroundColor() {
+        Gtk.StyleContext.remove_provider_for_display(
+            Gdk.Display.get_default(),
+            this._cssColorProviderSelection);
+        this._configureSelectionColor();
+        this._setCSSColors();
+    }
+
+    _refreshDesktopAndColors() {
+        this._desktopManager._updateDesktop().catch(e => {
+            console.log(
+                `Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
+        });
+        this._refreshColors();
+    }
+
+    _initLocalCSSprovider() {
+        const cssProvider = new Gtk.CssProvider();
+        let resourcePath = this._mainApp.get_resource_base_path();
+        cssProvider.load_from_resource(`${resourcePath}/stylesheet.css`);
+        Gtk.StyleContext.add_provider_for_display(
+            Gdk.Display.get_default(),
+            cssProvider,
+            Gtk.STYLE_PROVIDER_PRIORITY_USER
+        );
     }
 
     _setupTerminalMonitors() {
@@ -388,6 +474,9 @@ const Preferences = class {
     }
 
     // Setters
+    /**
+     * @param {any} order
+     */
     set SortOrder(order) {
         this._sortOrder = order;
         this.desktopSettings.set_enum(this._Enums.SortOrder.ORDER, order);
