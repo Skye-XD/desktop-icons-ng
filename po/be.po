@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-01-20 22:00+0000\n"
-"Last-Translator: Drugi Sapog <copec33670@dfesc.com>\n"
+"PO-Revision-Date: 2025-01-23 10:01+0000\n"
+"Last-Translator: Ding User <dengus@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -135,9 +135,8 @@ msgstr "Задаць новую папку працоўнага стала"
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
 #: app/desktopManager.js:3352
-#, fuzzy
 msgid "Choose"
-msgstr "Выбар"
+msgstr "Выбраць"
 
 #: app/adwPreferencesWindow.js:269
 msgid "Restore Default Desktop Folder"
@@ -148,9 +147,8 @@ msgid "Set Desktop back to $HOME/Desktop"
 msgstr "Вярнуць папку працоўнага стала $HOME/Desktop"
 
 #: app/adwPreferencesWindow.js:271
-#, fuzzy
 msgid "Restore"
-msgstr "Аднаўленне"
+msgstr "Аднавіць"
 
 #: app/adwPreferencesWindow.js:280
 msgid "Add an emblem to soft links"
@@ -356,7 +354,6 @@ msgid "Extraction completed"
 msgstr "Выманне завершана"
 
 #: app/autoAr.js:436
-#, fuzzy
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "Выманне '${fullPathFile}' было завершана."
 
@@ -394,9 +391,8 @@ msgid "Cancelled compression"
 msgstr "Сцісканне скасавана"
 
 #: app/autoAr.js:502
-#, fuzzy
 msgid "The output file '${outputFile}' already exists."
-msgstr "Файл вываду \"${outputFile}\" ужо існуе."
+msgstr "Выхадны файл '${outputFile}' ужо існуе."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
@@ -427,9 +423,9 @@ msgid "Compatible with all operating systems."
 msgstr "Сумяшчальны з усімі аперацыйнымі сістэмамі."
 
 #: app/autoAr.js:694
-#, fuzzy
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Абаронены паролем .zip, павінен быць усталяваны на Windows і Mac."
+msgstr ""
+"Абаронены паролем .zip, на Windows і Mac патрабуецца ўсталяванне праграмы."
 
 #: app/autoAr.js:700
 msgid "Smaller archives but Linux and Mac only."
@@ -479,9 +475,8 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:364
-#, fuzzy
 msgid "Desktop Folder Change Failed"
-msgstr "Збой стварэння папкі"
+msgstr "Не ўдалося змяніць папку працоўнага стала"
 
 #: app/desktopManager.js:365
 msgid "The new Desktop Folder does not exist!"
@@ -513,14 +508,12 @@ msgid "Link"
 msgstr "Спасылка"
 
 #: app/desktopManager.js:961 app/desktopManager.js:993
-#, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Не атрымалася стварыць SymLink"
+msgstr "Не ўдалося стварыць SymLink"
 
 #: app/desktopManager.js:962 app/desktopManager.js:994
-#, fuzzy
 msgid "Could not create symbolic link"
-msgstr "Не атрымалася стварыць сімвалічную спасылку"
+msgstr "Не ўдалося стварыць сімвалічную спасылку"
 
 #: app/desktopManager.js:1064
 msgid "Copy/Move Failed"
@@ -544,9 +537,8 @@ msgid "Name"
 msgstr "Назва"
 
 #: app/desktopManager.js:1687
-#, fuzzy
 msgid "Name Z-A"
-msgstr "Імя (Я-А)"
+msgstr "Назва (Я-А)"
 
 #: app/desktopManager.js:1688
 msgid "Modified Time"
@@ -561,19 +553,16 @@ msgid "Size"
 msgstr "Памер"
 
 #: app/desktopManager.js:1693
-#, fuzzy
 msgid "Keep Arranged…"
-msgstr "Захоўвайце парадак…"
+msgstr "Захоўваць упарадкаванне…"
 
 #: app/desktopManager.js:1697
-#, fuzzy
 msgid "Keep Stacked by Type…"
-msgstr "Захоўваць стэк па тыпу…"
+msgstr "Згрупоўваць па тыпу…"
 
 #: app/desktopManager.js:1698
-#, fuzzy
 msgid "Sort Home/Drives/Trash…"
-msgstr "Сартаваць Галоўная/Дыскі/Сметніца…"
+msgstr "Сартаваць Дыскі/Сметніцу/Хатнюю папку…"
 
 #: app/desktopManager.js:1702
 msgid "Change Desktop"
@@ -641,34 +630,28 @@ msgid "Unable to open Desktop in Gnome Files"
 msgstr "Немагчыма скапіраваць файлы, няма папкі прызначэння"
 
 #: app/desktopManager.js:1807
-#, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Акно налад адкрыта"
 
 #: app/desktopManager.js:1807
-#, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Гэта акно адкрыта. Пераключыцеся ў актыўнае акно."
 
 #: app/desktopManager.js:2802
-#, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Збой стварэння папкі"
+msgstr "Не ўдалося стварыць папку"
 
 #: app/desktopManager.js:2803
-#, fuzzy
 msgid "Could not create folder"
-msgstr "Не атрымалася стварыць папку %s"
+msgstr "Не ўдалося стварыць папку"
 
 #: app/desktopManager.js:2849
-#, fuzzy
 msgid "Template Creation Error"
 msgstr "Памылка стварэння шаблона"
 
 #: app/desktopManager.js:2850
-#, fuzzy
 msgid "Could not create document"
-msgstr "Не атрымалася стварыць дакумент"
+msgstr "Не ўдалося стварыць дакумент"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
 #: app/fileItem.js:134 app/fileItem.js:143
@@ -701,15 +684,12 @@ msgid "File"
 msgstr "Файл"
 
 #: app/fileItem.js:292
-#, fuzzy
 msgid "Broken Link"
-msgstr "Непрацуючая спасылка"
+msgstr "Няспраўная спасылка"
 
 #: app/fileItem.js:293
-#, fuzzy
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
-"Немагчыма адкрыць гэты файл, таму што гэта непрацуючая сімвалічная спасылка"
+msgstr "Немагчыма адкрыць гэты файл, бо сімвалічная спасылка няспраўдная"
 
 #: app/fileItem.js:323
 msgid "Opening File Failed"
@@ -720,9 +700,8 @@ msgid "There is no application installed to open \"{foo}\" files."
 msgstr "Не ўсталявана праграма для адкрыцця файлаў тыпу «{foo}»."
 
 #: app/fileItem.js:354
-#, fuzzy
 msgid "Invalid Permissions on AppImage File"
-msgstr "Няправільныя правы доступу да файла працоўнага стала"
+msgstr "Няправільныя правы доступу да файла AppImage"
 
 #: app/fileItem.js:355
 msgid ""
@@ -750,9 +729,8 @@ msgstr ""
 "Уключыць параметр «Дазволіць выкананне файла як праграмы»"
 
 #: app/fileItem.js:367
-#, fuzzy
 msgid "Untrusted AppImage File"
-msgstr "Сапсаваныя файлы стальца"
+msgstr "Недавераны файл AppImage"
 
 #: app/fileItem.js:368
 msgid ""
@@ -761,11 +739,14 @@ msgid ""
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
+"Гэты файл AppImage не давераны, яго нельга выканаць. Каб змяніць дазвол, "
+"націсніце правай кнопкай мышы, а затым:\n"
+"\n"
+"Уключыце пункт «Дазволіць выкананне»"
 
 #: app/fileItem.js:388
-#, fuzzy
 msgid "Broken Desktop File"
-msgstr "Сапсаваныя файлы стальца"
+msgstr "Няспраўны файл .desktop"
 
 #: app/fileItem.js:389
 msgid ""
@@ -784,12 +765,11 @@ msgid "Invalid Permissions on Desktop File"
 msgstr "Няправільныя правы доступу да файла .desktop"
 
 #: app/fileItem.js:396
-#, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Гэты файл .desktop мае няправільныя дазволы. Пстрыкніце правай кнопкай мышы, "
+"Гэты файл .desktop мае няправільныя дазволы. Націсніце правай кнопкай мышы, "
 "каб змяніць Уласцівасці, затым:\n"
 
 #: app/fileItem.js:408
@@ -809,13 +789,11 @@ msgstr ""
 "Уключыце пункт «Дазволіць выкананне»"
 
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
-#, fuzzy
 msgid "Could not open File"
-msgstr "Не атрымалася адкрыць файл"
+msgstr "Не ўдалося адкрыць файл"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
-#, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName} не можа адкрываць файлы гэтага тыпу!"
 
@@ -924,7 +902,7 @@ msgstr "Адправіць на мабільную прыладу"
 
 #: app/fileItemMenu.js:427
 msgid "Move to Trash"
-msgstr "Выкінуць у сметніцу"
+msgstr "Перамясціць у сметніцу"
 
 #: app/fileItemMenu.js:430
 msgid "Delete permanently"
@@ -971,9 +949,8 @@ msgid "Open in {0}"
 msgstr "Адкрыць праз «{0}»"
 
 #: app/fileItemMenu.js:605
-#, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Выманне адменена"
+msgstr "Выманне скасавана"
 
 #: app/fileItemMenu.js:606
 #, fuzzy
@@ -997,9 +974,8 @@ msgid "Select"
 msgstr "Вылучыць"
 
 #: app/fileItemMenu.js:749
-#, fuzzy
 msgid "Copy Cancelled"
-msgstr "Капіраванне адменена"
+msgstr "Капіраванне скасавана"
 
 #: app/fileItemMenu.js:750
 #, fuzzy
@@ -1013,7 +989,7 @@ msgstr "Памылка пошты"
 
 #: app/fileItemMenu.js:793
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "Не ўдалося знайсці xdg-email, усталюйце праграму"
 
 #: app/fileItemMenu.js:803
 msgid "There was an error in emailing Files"
@@ -1021,7 +997,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:813
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "Не ўдалося знайсці каманду zip, усталюйце праграму"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:819
@@ -1037,17 +1013,12 @@ msgid "Can not email a Directory"
 msgstr "Немагчыма даслаць папку"
 
 #: app/fileItemMenu.js:854
-#, fuzzy
-#| msgid ""
-#| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Сярод вылучанага ёсць папка, спачатку сцісніце папку ў файл."
+msgstr "Сярод вылучанага ёсць каталог, спачатку сціснуць яго ў файл .zip?"
 
 #: app/fileItemMenu.js:941
-#, fuzzy
-#| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
-msgstr "Немагчыма даслаць папку"
+msgstr "Немагчыма адкрыць працоўны каталог"
 
 #: app/fileItemMenu.js:982
 msgid "Unable to Open in Gnome Console"
@@ -1070,9 +1041,8 @@ msgid "Console"
 msgstr "Кансоль"
 
 #: app/showErrorPopup.js:39
-#, fuzzy
 msgid "More Information"
-msgstr "Больш Інфармацыі"
+msgstr "Больш інфармацыі"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
 #. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
