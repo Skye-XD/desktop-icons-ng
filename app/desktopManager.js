@@ -92,8 +92,6 @@ const DesktopManager = class {
         this._pendingSelfCopyFiles = {};
         this.ignoreKeys = this.Enums.IgnoreKeys.map(_k => Gdk._k);
         // init methods
-        this._initLocalCSSprovider();
-        this._configureSelectionColor();
         this._startMonitoringTemplatesDir();
         this._createMenuActionGroup();
         this._updateWritableByOthers().catch(e => console.error(e));
@@ -253,74 +251,6 @@ const DesktopManager = class {
             this._syncUndoRedo();
 
         this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
-    }
-
-    _initLocalCSSprovider() {
-        const cssProvider = new Gtk.CssProvider();
-        let resourcePath = this.mainApp.get_resource_base_path();
-        if (!this._asDesktop) {
-            const regex = /test$/;
-            resourcePath = resourcePath.replace(regex, '');
-        }
-        cssProvider.load_from_resource(`${resourcePath}/stylesheet.css`);
-        Gtk.StyleContext.add_provider_for_display(
-            Gdk.Display.get_default(),
-            cssProvider,
-            Gtk.STYLE_PROVIDER_PRIORITY_USER
-        );
-    }
-
-    _configureSelectionColor() {
-        const box = new Gtk.Label();
-        this._styleContext = box.get_style_context();
-        this._styleContext.add_class('view');
-        this._setSelectionColor();
-    }
-
-    _setSelectionColor() {
-        let [exists, color] = this._styleContext.lookup_color('accent_bg_color');
-        if (exists) {
-            this.selectColor = color;
-        } else {
-            this.selectColor =  new Gdk.RGBA({
-                red: 0,
-                green: 0,
-                blue: 0.9,
-                alpha: 1.0,
-            });
-        }
-        [exists, color] = this._styleContext.lookup_color('accent_fg_color');
-        if (exists) {
-            this.hoverColor = color;
-        } else {
-            this.hoverColor =  new Gdk.RGBA({
-                red: 0.9,
-                green: 0.9,
-                blue: 0.9,
-                alpha: 1.0,
-            });
-        }
-
-        let cssColorDefinition =
-            `@define-color desktop_icons_bg_color ${this.selectColor.to_string()};\n`;
-        cssColorDefinition +=
-            `@define-color desktop_icons_fg_color ${this.hoverColor.to_string()};`;
-        this._cssColorProviderSelection = new Gtk.CssProvider();
-        // fix for api change Gtk 4.9
-        try {
-            this._cssColorProviderSelection.load_from_data(cssColorDefinition);
-        } catch (e) {
-            const gsizeLength = -1; // NULL terminated string
-            this._cssColorProviderSelection.load_from_data(
-                cssColorDefinition,
-                gsizeLength
-            );
-        }
-        Gtk.StyleContext.add_provider_for_display(
-            Gdk.Display.get_default(),
-            this._cssColorProviderSelection,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        );
     }
 
     _monitorDesktopDirChanges() {
@@ -3459,18 +3389,6 @@ const DesktopManager = class {
         });
     }
 
-    onGtkIconThemeChange() {
-        this._updateDesktop().catch(e => {
-            console.log(`Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
-        });
-        if (this.cssColorDefinitionChangeID)
-            GLib.source_remove(this.cssColorDefinitionChangeID);
-        this.cssColorDefinitionChangeID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
-            this.onGtkThemeChange();
-            this.cssColorDefinitionChangeID = 0;
-            return GLib.SOURCE_REMOVE;
-        });
-    }
 
     onGnomeFilesSettingsChanged() {
         this._updateDesktop().catch(e => {
@@ -3538,11 +3456,6 @@ const DesktopManager = class {
 
         this._fileList.forEach(x => x.updateIcon());
         this._placeAllFilesOnGrids({redisplay: true});
-    }
-
-    onGtkThemeChange() {
-        Gtk.StyleContext.remove_provider_for_display(Gdk.Display.get_default(), this._cssColorProviderSelection);
-        this._configureSelectionColor();
     }
 
     get desktopDir() {
