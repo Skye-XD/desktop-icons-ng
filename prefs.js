@@ -23,6 +23,7 @@ import * as Enums from './app/enums.js';
 import * as  adwPreferencesWindow from './app/adwPreferencesWindow.js';
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
+const appID = 'com.desktop.ding';
 export default class dingPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         const desktopSettings = this.getSettings();
@@ -38,7 +39,7 @@ export default class dingPreferences extends ExtensionPreferences {
         else
             nautilusSettings = new Gio.Settings({settings_schema: schemaNautilus});
 
-        const resource = Gio.Resource.load(`${this.path}/app/com.desktop.ding.data.gresource`);
+        const resource = Gio.Resource.load(`${this.path}/app/${appID}.data.gresource`);
         resource._register();
         window.connect('close-request', resource._unregister.bind(this));
 

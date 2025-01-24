@@ -257,7 +257,12 @@ const DesktopManager = class {
 
     _initLocalCSSprovider() {
         const cssProvider = new Gtk.CssProvider();
-        cssProvider.load_from_resource('/com/desktop/ding/stylesheet.css');
+        let resourcePath = this.mainApp.get_resource_base_path();
+        if (!this._asDesktop) {
+            const regex = /test$/;
+            resourcePath = resourcePath.replace(regex, '');
+        }
+        cssProvider.load_from_resource(`${resourcePath}/stylesheet.css`);
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             cssProvider,
@@ -404,7 +409,8 @@ const DesktopManager = class {
     }
 
     _templatesDirSelectionFilter(fileinfo) {
-        const name = this.DesktopIconsUtil.getFileExtensionOffset(fileinfo.get_name()).basename;
+        const name = this.DesktopIconsUtil.getFileExtensionOffset(
+            fileinfo.get_name()).basename;
         const hiddenfile = name.substring(0, 1) === '.';
 
         if (!this.Prefs.showHidden && hiddenfile)
@@ -431,24 +437,29 @@ const DesktopManager = class {
         let actionGroup = new Gio.SimpleActionGroup();
         actionGroup.add_action(updateGridWindows);
         actionGroup.add_action(createDesktopShortcut);
-        this._busname = this.mainApp.get_dbus_object_path();
+        const busName = this.mainApp.get_application_id();
+        const busObjectPath = this.mainApp.get_dbus_object_path();
         this._connection = Gio.DBus.session;
         this._dbusConnectionGroupId = this._connection.export_action_group(
-            `${this._busname}/actions`,
+            `${busObjectPath}/actions`,
             actionGroup
         );
         if (this._asDesktop) {
             const signalXml = `
                 <node>
-                  <interface name="com.desktop.ding.geometrycontrol">
+                  <interface name="${busName}.geometrycontrol">
                     <signal name="updategeometry">
                       <arg name="type" type="s"/>
                       <arg name="value" type="b"/>
                     </signal>
                   </interface>
                 </node>`;
-            this._dbusGeometryIface = Gio.DBusExportedObject.wrapJSObject(signalXml, this);
-            this._dbusGeometryIface.export(this._connection, `${this._busname}/geometrycontrol`);
+            this._dbusGeometryIface =
+                Gio.DBusExportedObject.wrapJSObject(signalXml, this);
+            this._dbusGeometryIface.export(
+                this._connection,
+                `${busObjectPath}/geometrycontrol`
+            );
             this._requestGeometryUpdate();
         }
     }
@@ -476,7 +487,14 @@ const DesktopManager = class {
 
     _requestGeometryUpdate() {
         let variant = new GLib.Variant('(sb)', ['updategeometry', true]);
-        this._connection.emit_signal(null, `${this._busname}/geometrycontrol`, 'com.desktop.ding.geometrycontrol', 'updategeometry', variant);
+        const busObjectPath = this.mainApp.get_dbus_object_path();
+        const busName = this.mainApp.get_application_id();
+        this._connection.emit_signal(
+            null,
+            `${busObjectPath}/geometrycontrol`,
+            `${busName}.geometrycontrol`, 'updategeometry',
+            variant
+        );
     }
 
     updateGridWindows(newdesktoplist) {
