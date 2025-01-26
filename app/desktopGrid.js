@@ -1277,8 +1277,13 @@ const DesktopGrid = class {
          * Also store the new possition if it has been moved by the user,
          * and not triggered by a screen change.
          */
-        if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
-            fileItem.savedCoordinates = [X, Y];
+        if ((fileItem.savedCoordinates === null) ||
+            (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE)) {
+            const [normalizedX, normalizedY] =
+                this.getNormalizedCoordinates(localX, localY);
+            const array = [X, Y, normalizedX, normalizedY, this._monitor];
+            fileItem.writeSavedCoordinates(array);
+        }
     }
 
     removeItem(fileItem) {
@@ -1319,8 +1324,13 @@ const DesktopGrid = class {
          * Also store the new possition if it has been moved by the user,
          * and not triggered by a screen change.
          */
-        if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
-            fileItem.writeSavedCoordinates([X, Y]);
+        if ((fileItem.savedCoordinates === null) ||
+            (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE)) {
+            const [normalizedX, normalizedY] =
+                this.getNormalizedCoordinates(x, y);
+            const array = [X, Y, normalizedX, normalizedY, this._monitor];
+            fileItem.writeSavedCoordinates(array);
+        }
     }
 
     addFileItemCloseTo(fileItem, X, Y, coordinatesAction) {
