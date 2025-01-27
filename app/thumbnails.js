@@ -124,7 +124,8 @@ const ThumbnailLoader = class {
             await this._thumbnailFactory.create_failed_thumbnail_async(file.uri,
                 file.modifiedTime, cancellable);
         } catch (e) {
-            console.error(e, `Error while creating failed thumbnail: ${e.message}`);
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                console.error(e, `Error while creating failed thumbnail: ${e.message}`);
         }
     }
 
