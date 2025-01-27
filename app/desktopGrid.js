@@ -230,6 +230,10 @@ const DesktopGrid = class {
         this._marginTopHiddenObject = false;
         this._marginBottomHiddenObject = false;
 
+        const oldMarginTop = this._marginTop > 0 ? this._marginTop : 0;
+        const oldMarginLeft = this._marginLeft > 0 ? this._marginLeft : 0;
+        const oldMarginRight = this._marginRight > 0 ? this._marginRight : 0;
+        const oldMarginBottom = this._marginBottom > 0 ? this._marginBottom : 0;
         this._marginTop = this._desktopDescription.marginTop + this.gridPadding;
         if (this._marginTop > 1000) {
             this._marginTopHiddenObject = true;
@@ -250,9 +254,14 @@ const DesktopGrid = class {
             this._marginRightHiddenObject = true;
             this._marginRight -= 1000;
         }
-
-        this._width = this._desktopDescription.width - this._marginLeft - this._marginRight;
-        this._height = this._desktopDescription.height - this._marginTop - this._marginBottom;
+        this.marginChangeTop =
+            this._marginTop + this._marginBottom - oldMarginTop - oldMarginBottom;
+        this.marginChangeLeft =
+            this._marginLeft + this._marginRight - oldMarginLeft - oldMarginRight;
+        this._width =
+            this._desktopDescription.width - this._marginLeft - this._marginRight;
+        this._height =
+            this._desktopDescription.height - this._marginTop - this._marginBottom;
     }
 
     _createGrids() {

@@ -2256,10 +2256,96 @@ const DesktopManager = class {
             this.doSorts(opts);
             return;
         }
-        if (opts.redisplay)
+        let storeMode = this.Enums.StoredCoordinates.PRESERVE;
+        if (opts.redisplay) {
             this._sortByCurrentPosition();
-        const storeMode = this.Enums.StoredCoordinates.PRESERVE;
+            this._recomputeWindowPositions();
+            // write the new recomputed positions to metadata
+            storeMode = this.Enums.StoredCoordinates.OVERWRITE;
+        } else if (opts.gridschanged) {
+            this._sortByCurrentPosition();
+            this._recomputeGridPositions();
+        }
         this._addFilesToDesktop(this._fileList, storeMode);
+    }
+
+    _recomputeGridPositions() {
+        this._fileList.forEach(fileItem => {
+            if (fileItem.savedCoordinates === null)
+                return;
+
+            if (!fileItem._monitorIndex)
+                return;
+
+            const index = fileItem._monitorIndex;
+            const [desktop] = this._desktops.filter(d => {
+                return d.monitorIndex === index;
+            });
+
+            if (!desktop)
+                return;
+
+            const x = fileItem.x;
+            const y = fileItem.y;
+            const localX = x + desktop.marginChangeTop;
+            const localY = y + desktop.marginChangeLeft;
+            const [newGlobalX, newGlobalY] =
+                desktop.coordinatesLocalToGlobal(localX, localY);
+
+            fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
+        });
+    }
+
+    _recomputeWindowPositions(fileList) {
+        if (!fileList)
+            fileList = this._fileList;
+
+        if (!this._desktops.length)
+            return;
+
+        fileList.forEach(fileItem => {
+            if (fileItem.savedCoordinates == null)
+                return;
+            if (fileItem._normalCoordinates == null) {
+                fileItem.savedCoordinates = null;
+                return;
+            }
+
+            let desktop;
+            let currentMonitorIndex = fileItem._monitorIndex;
+
+            // reassign to new monitor if available
+            if (currentMonitorIndex === this._priorPrimaryIndex &&
+                this._primaryIndex) {
+                [desktop] = this._desktops.filter(d => {
+                    return d.monitorIndex === this._primaryIndex;
+                });
+            }
+
+            if (!desktop &&
+                this._desktops.map(d => d.monitorIndex).includes(
+                    currentMonitorIndex) &&
+                !this.Prefs.showOnSecondaryMonitor) {
+                [desktop] = this._desktops.filter(d => {
+                    return d.monitorIndex === currentMonitorIndex;
+                });
+            }
+
+            if (!desktop)
+                desktop = this._getPreferredDisplayDesktop();
+
+            if (!desktop)
+                return;
+
+            // recompute coordinates for the new monitor
+            const x = fileItem._normalCoordinates[0];
+            const y = fileItem._normalCoordinates[1];
+            const [newlocalX, newlocalY] =
+                desktop.setNormalizedCoordinates(x, y);
+            const [newGlobalX, newGlobalY] =
+                desktop.coordinatesLocalToGlobal(newlocalX, newlocalY);
+            fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
+        });
     }
 
     _addFilesToDesktop(fileList, storeMode) {
