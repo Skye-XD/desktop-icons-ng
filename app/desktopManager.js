@@ -367,6 +367,7 @@ const DesktopManager = class {
         let actionGroup = new Gio.SimpleActionGroup();
         actionGroup.add_action(updateGridWindows);
         actionGroup.add_action(createDesktopShortcut);
+        this.mainApp.add_action(updateGridWindows);
         const busName = this.mainApp.get_application_id();
         const busObjectPath = this.mainApp.get_dbus_object_path();
         this._connection = Gio.DBus.session;

@@ -100,16 +100,23 @@ const adWDingApp = GObject.registerClass(
             }
 
             if (!this.errorFound && !this.showHelp) {
-                if (commandLine.get_is_remote())
+                if (commandLine.get_is_remote()) {
+                    this.desktops = [this.desktopsValue];
                     this.desktopManager.updateGridWindows(this.desktops);
                     // If testing Dbus activations, comment the above
                     // and uncomment the following -
-                    // this.remoteDingActions.activate_action(
-                    //    'updateGridWindows',
-                    //    new GLib.Variant('av', this.desktopVariants)
+                    // or get remote actions from the app and activate
+                    // this.desktopVariants = [this.desktopVariantsValue];
+                    // this.remoteDingActions.activate_action('updateGridWindows',
+                    //    new GLib.Variant('av', this.desktopVariants));
+                    // OR smiply activate the app action directly
+                    // app.activate_action(
+                    //     'updateGridWindows',
+                    //     new GLib.Variant('av', this.desktopVariants)
                     // );
-                else
+                } else {
                     app.activate();
+                }
                 commandLine.set_exit_status(0);
                 return 0;
             }
@@ -128,7 +135,6 @@ const adWDingApp = GObject.registerClass(
         }
 
         _finishStartUp(app) {
-            this.desktopManager = null;
             this.Data = {
                 'codePath': this.codePath,
                 Enums,
@@ -150,6 +156,7 @@ const adWDingApp = GObject.registerClass(
 
         _onActivate() {
             if (!this.desktopManager) {
+                this.desktops = [this.desktopsValue];
                 this.desktopManager = new DesktopManager.DesktopManager(
                     this.Data,
                     this.Utils,
@@ -340,8 +347,7 @@ const adWDingApp = GObject.registerClass(
 
             if (Object.values(dataObject).some(x => isNaN(x)))
                 throw new Error('Incorrect non numeric value in -D data \n');
-
-            this.desktops.push(dataObject);
+            this.desktopsValue = dataObject;
 
             const dataVariant = new GLib.Variant('a{sd}', {
                 x: parseInt(data[0]),
@@ -355,7 +361,7 @@ const adWDingApp = GObject.registerClass(
                 marginRight: parseInt(data[8]),
                 monitorIndex: parseInt(data[9]),
             });
-            this.desktopVariants.push(dataVariant);
+            this.desktopVariantsValue = dataVariant;
         }
 
         _initializeDesktopOptions() {
@@ -364,7 +370,7 @@ const adWDingApp = GObject.registerClass(
                  * like when launching the program in stand-alone mode,
                  * configure a 1280x720 desktop
                 */
-                this.desktops.push({
+                this.desktopsValue = {
                     x: 0,
                     y: 0,
                     width: 1280,
@@ -375,7 +381,7 @@ const adWDingApp = GObject.registerClass(
                     marginLeft: 0,
                     marginRight: 0,
                     monitorIndex: 0,
-                });
+                };
             }
 
             for (let desktop of this.desktops)
