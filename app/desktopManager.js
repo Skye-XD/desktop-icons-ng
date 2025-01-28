@@ -422,89 +422,114 @@ const DesktopManager = class {
     }
 
     updateGridWindows(newdesktoplist) {
-        let newPrimaryIndex;
-        let indexChanged = false;
-        if ((newdesktoplist.length > 0) && ('primaryMonitor' in newdesktoplist[0]))
-            newPrimaryIndex = newdesktoplist[0].primaryMonitor;
-        if (newPrimaryIndex !== this._primaryIndex)
-            indexChanged = true;
+        this._priorDesktopList = this._desktopList;
+        this._desktopList = newdesktoplist;
 
-        if (newdesktoplist.length !== this._desktopList.length) {
+        this._priorPrimaryIndex = this._primaryIndex ?? null;
+        let newPrimaryIndex;
+
+        if ((newdesktoplist.length > 0) &&
+            ('primaryMonitor' in newdesktoplist[0]))
+            newPrimaryIndex = newdesktoplist[0].primaryMonitor ?? null;
+
+        if (newPrimaryIndex !== this._priorPrimaryIndex)
+            this._primaryIndex = newPrimaryIndex;
+
+        this._priorPrimaryMonitorIndex = this._primaryMonitorIndex ?? 0;
+
+        // Find the new primary monitor
+        this._primaryScreen = this._desktopList[this._primaryIndex] ?? null;
+        this._primaryMonitorIndex = this._primaryScreen.monitorIndex ?? null;
+
+        const indexChanged = this._priorPrimaryMonitorIndex !==
+            this._primaryMonitorIndex;
+
+        // Allow initial startup if no desktops defined on initiation
+        // or if any new monitors plugged in or removed
+        // by creating new desktops
+        if (this._priorDesktopList.some(d =>
+            typeof d !== 'object' || d == null) ||
+            this._priorDesktopList.length !== this._desktopList.length) {
             this._fileList.forEach(x => x.removeFromGrid());
-            if (indexChanged)
-                this._primaryIndex = newPrimaryIndex;
-            this._desktopList = newdesktoplist;
-            if (this._primaryIndex < this._desktopList.length)
-                this._primaryScreen = this._desktopList[this._primaryIndex];
-            else
-                this._primaryScreen = null;
 
             this._createGridWindows();
             this._placeAllFilesOnGrids({redisplay: true});
             return;
         }
 
-        let monitorschanged = [];
-        let gridschanged = [];
-        for (let index = 0; index < newdesktoplist.length; index++) {
-            let area = newdesktoplist[index];
-            let area2 = this._desktopList[index];
+        // if no change in monitors, check if any change in monitor geometry
+        // or if any change in grid geometry
+
+        const monitorschangedList = [];
+        const gridschangedList = [];
+
+        this._desktopList.forEach((area, index) => {
+            const area2 = this._priorDesktopList[index];
             if ((area.x !== area2.x) ||
                 (area.y !== area2.y) ||
                 (area.width !== area2.width) ||
                 (area.height !== area2.height) ||
                 (area.zoom !== area2.zoom) ||
                 (area.monitorIndex !== area2.monitorIndex)) {
-                monitorschanged.push(index);
-                gridschanged.push(index);
-                continue;
+                monitorschangedList.push(index);
+                gridschangedList.push(index);
+                return;
             }
             if ((area.marginTop !== area2.marginTop) ||
                 (area.marginBottom !== area2.marginBottom) ||
                 (area.marginLeft !== area2.marginLeft) ||
                 (area.marginRight !== area2.marginRight)) {
-                if (!gridschanged.includes(index))
-                    gridschanged.push(index);
+                if (!gridschangedList.includes(index))
+                    gridschangedList.push(index);
             }
-        }
-        if (gridschanged.length || indexChanged) {
-            this._fileList.forEach(x => x.removeFromGrid());
-            if (gridschanged.length) {
-                for (let gridindex of gridschanged) {
-                    let desktop = this._desktops[gridindex];
-                    desktop.updateGridDescription(newdesktoplist[gridindex]);
-                    if (monitorschanged.includes(gridindex))
-                        desktop.resizeWindow();
+        });
 
+        const monitorschanged = !!monitorschangedList.length;
+        const gridschanged = gridschangedList.length
+            ? gridschangedList.some(i => !monitorschangedList.includes(i))
+            : false;
+        const redisplay = monitorschanged || indexChanged;
+
+        if (gridschanged || redisplay) {
+            this._fileList.forEach(x => x.removeFromGrid());
+            this._desktops.forEach((desktop, index) => {
+                desktop.updateGridDescription(this._desktopList[index]);
+                if (monitorschangedList.includes(index)) {
+                    desktop.resizeWindow();
+                    desktop.resizeGrid();
+                } else if (gridschangedList.includes(index)) {
                     desktop.resizeGrid();
                 }
-            }
-            if (indexChanged)
-                this._primaryIndex = newPrimaryIndex;
-            this._desktopList = newdesktoplist;
-            if (this._primaryIndex < this._desktopList.length)
-                this._primaryScreen = this._desktopList[this._primaryIndex];
-            else
-                this._primaryScreen = null;
-            this._placeAllFilesOnGrids({redisplay: true, gridschanged: true});
+            });
+            this._placeAllFilesOnGrids({redisplay, gridschanged});
         }
     }
 
     _createGridWindows() {
-        var desktopName;
-        for (let desktop of this._desktops)
-            desktop.destroy();
+        // Allow startup with no desktops
+        if (!this._desktopList.length ||
+            this._desktopList.some(d => typeof d !== 'object' || d == null))
+            return;
 
+        this._desktops.forEach(desktop => desktop.destroy());
         this._desktops = [];
-        for (let desktopIndex in this._desktopList) {
-            let desktop = this._desktopList[desktopIndex];
-            if (this._asDesktop)
-                desktopName = `@!${desktop.x},${desktop.y};BDHF`;
-            else
-                desktopName = `DING ${desktopIndex}`;
 
-            this._desktops.push(new DesktopGrid.DesktopGrid(this, desktopName, desktop, this._asDesktop, this._premultiplied));
-        }
+        this._desktopList.forEach((desktop, desktopIndex) => {
+            const desktopName =
+                this._asDesktop
+                    ? `@!${desktop.x},${desktop.y};BDHF`
+                    : `DING ${desktopIndex}`;
+
+            this._desktops.push(
+                new DesktopGrid.DesktopGrid(
+                    this,
+                    desktopName,
+                    desktop,
+                    this._asDesktop,
+                    this._premultiplied
+                )
+            );
+        });
     }
 
     _setPendingDropCoordinates(file, dropCoordinates) {
