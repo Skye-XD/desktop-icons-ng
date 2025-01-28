@@ -365,7 +365,7 @@ const adWDingApp = GObject.registerClass(
         }
 
         _initializeDesktopOptions() {
-            if ((this.desktops.length === 0) && !this.asDesktop) {
+            if (!this.desktopsValue && !this.asDesktop) {
                 /* if no desktop list is provided,
                  * like when launching the program in stand-alone mode,
                  * configure a 1280x720 desktop
