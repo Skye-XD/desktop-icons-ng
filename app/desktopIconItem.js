@@ -47,6 +47,8 @@ const DesktopIconItem = class {
         this._isSpecial = false;
         this._savedCoordinates = null;
         this._dropCoordinates = null;
+        this._normalCoordinates = null;
+        this._monitorIndex = null;
         this._destroyed = false;
         this.thumbnailFile = null;
     }
@@ -265,6 +267,57 @@ const DesktopIconItem = class {
         this._x2 = this._x1 + this.container.get_allocated_width() - 1;
         this._y2 = this._y1 + this.container.get_allocated_height() - 1;
         return [this._x1, this._y1, this._x2, this._y2, this._grid];
+    }
+
+    writeSavedCoordinates(pos) {
+        this._parseSavedCoordinates(pos);
+    }
+
+    writeDropCoordinates(pos) {
+        this._parseDropCoordinates(pos);
+    }
+
+    readSavedCoordinates() {
+        this._parseSavedCoordinates([]);
+    }
+
+    readDropCoordinates() {
+        this._parseDropCoordinates([]);
+    }
+
+    _parseDropCoordinates(pos) {
+        if (!Array.isArray(pos) || pos.some(e => isNaN(e))) {
+            this._dropCoordinates = null;
+            return;
+        }
+        pos = pos.map(e => Number(e));
+        if (pos?.length === 2)
+            this._dropCoordinates = pos;
+        else
+            this._dropCoordinates = null;
+    }
+
+    _parseSavedCoordinates(pos) {
+        if (!Array.isArray(pos) || pos.some(e => isNaN(e))) {
+            this._savedCoordinates = null;
+            this._normalCoordinates = null;
+            this._monitorIndex = null;
+            return;
+        }
+        pos = pos.map(e => Number(e));
+        if (pos?.length === 2) {
+            this._savedCoordinates = pos;
+            this._normalCoordinates = null;
+            this._monitorIndex = null;
+        } else if (pos?.length === 5) {
+            this._savedCoordinates = pos.slice(0, 2);
+            this._normalCoordinates = pos.slice(2, 4);
+            this._monitorIndex = pos[4];
+        } else {
+            this._savedCoordinates = null;
+            this._normalCoordinates = null;
+            this._monitorIndex = null;
+        }
     }
 
     _setLabelName(text) {
@@ -744,6 +797,10 @@ const DesktopIconItem = class {
         return this._isSpecial;
     }
 
+    get savedCoordinates() {
+        return this._savedCoordinates;
+    }
+
     get dropCoordinates() {
         return this._dropCoordinates;
     }
@@ -755,7 +812,11 @@ const DesktopIconItem = class {
     }
 
     set dropCoordinates(pos) {
-        this._dropCoordinates = pos;
+        this.writeDropCoordinates(pos);
+    }
+
+    set savedCoordinates(pos) {
+        this.writeSavedCoordinates(pos);
     }
 };
 Signals.addSignalMethods(DesktopIconItem.prototype);
