@@ -578,7 +578,7 @@ const DesktopManager = class {
             }
 
             let info = new Gio.FileInfo();
-            info.set_attribute_string('metadata::nautilus-icon-position', '');
+            info.set_attribute_string('metadata::desktop-icon-position', '');
             if (dropCoordinates !== null) {
                 if (!opts.doCopy) {
                     info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
@@ -922,7 +922,7 @@ const DesktopManager = class {
                 if (symlinkGio.make_symbolic_link(GLib.build_filenamev([fileGio.get_path()]), null)) {
                     let info = new Gio.FileInfo();
                     info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
-                    info.set_attribute_string('metadata::nautilus-icon-position', '');
+                    info.set_attribute_string('metadata::desktop-icon-position', '');
                     try {
                         await symlinkGio.set_attributes_async(info,
                             Gio.FileQueryInfoFlags.NONE,
@@ -2488,7 +2488,7 @@ const DesktopManager = class {
                  */
             try {
                 let info = new Gio.FileInfo();
-                info.set_attribute_string('metadata::nautilus-icon-position', '');
+                info.set_attribute_string('metadata::desktop-icon-position', '');
                 file.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
             } catch (e) {} // can happen if a file is created and deleted very fast
             break;
@@ -2738,7 +2738,7 @@ const DesktopManager = class {
 
                 const info = new Gio.FileInfo();
                 info.set_attribute_string('metadata::nautilus-drop-position', `${position.join(',')}`);
-                info.set_attribute_string('metadata::nautilus-icon-position', '');
+                info.set_attribute_string('metadata::desktop-icon-position', '');
                 info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
 
                 try {
@@ -2789,7 +2789,7 @@ const DesktopManager = class {
             try {
                 const info = new Gio.FileInfo();
                 info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
-                info.set_attribute_string('metadata::nautilus-icon-position', '');
+                info.set_attribute_string('metadata::desktop-icon-position', '');
                 info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
                 await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
                     GLib.PRIORITY_DEFAULT, null);

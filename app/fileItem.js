@@ -186,7 +186,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     readSavedCoordinates() {
         const array = this._readCoordinatesFromAttribute(this._fileInfo,
-            'metadata::nautilus-icon-position'
+            'metadata::desktop-icon-position'
         );
         this._parseSavedCoordinates(array);
     }
@@ -840,7 +840,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         const cancellable = new Gio.Cancellable();
         this._savedCoordinatesCancellable = cancellable;
 
-        this._storeCoordinates('nautilus-icon-position', pos, cancellable).catch(e => {
+        this._storeCoordinates('desktop-icon-position', pos, cancellable).catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 console.error(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
                 this._savedCoordinates = oldPos;
