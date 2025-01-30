@@ -93,7 +93,6 @@ const adWDingApp = GObject.registerClass(
                 // Parse options from the main arguments
                 this._parseOptions(argv);
                 this._initializeDesktopOptions();
-                this._finishStartUp(app);
             } catch (e) {
                 console.log(`Error parsing options: ${e.message}`);
                 this.errorFound = true;
@@ -101,12 +100,12 @@ const adWDingApp = GObject.registerClass(
 
             if (!this.errorFound && !this.showHelp) {
                 if (commandLine.get_is_remote()) {
-                    this.desktops = [this.desktopsValue];
+                    this.desktops = this.newdesktops;
                     this.desktopManager.updateGridWindows(this.desktops);
                     // If testing Dbus activations, comment the above
                     // and uncomment the following -
                     // or get remote actions from the app and activate
-                    // this.desktopVariants = [this.desktopVariantsValue];
+                    // this.desktopVariants = this.newDesktopsVariants;
                     // this.remoteDingActions.activate_action('updateGridWindows',
                     //    new GLib.Variant('av', this.desktopVariants));
                     // OR smiply activate the app action directly
@@ -115,6 +114,7 @@ const adWDingApp = GObject.registerClass(
                     //     new GLib.Variant('av', this.desktopVariants)
                     // );
                 } else {
+                    this._finishStartUp(app);
                     app.activate();
                 }
                 commandLine.set_exit_status(0);
@@ -156,7 +156,7 @@ const adWDingApp = GObject.registerClass(
 
         _onActivate() {
             if (!this.desktopManager) {
-                this.desktops = [this.desktopsValue];
+                this.desktops = this.newdesktops;
                 this.desktopManager = new DesktopManager.DesktopManager(
                     this.Data,
                     this.Utils,
@@ -169,6 +169,8 @@ const adWDingApp = GObject.registerClass(
         }
 
         _parseOptions(args) {
+            this.newdesktops = [];
+            this.newDesktopsVariants = [];
             // modified for GJS to work like passing optioncontext
             args.forEach((arg, index, array) => {
                 this.options.some(entry => {
@@ -223,7 +225,7 @@ const adWDingApp = GObject.registerClass(
             this.uuid = 'testing@gtk4-ding';
             this.desktops = [];
             this.desktopVariants = [];
-            this.data = null;
+            this.Data = {};
 
             // Code for checking Dbus actions and remote controlling the app
             // via DBus - see commented code in commanline invocation.
@@ -343,31 +345,15 @@ const adWDingApp = GObject.registerClass(
                 marginLeft: parseInt(data[7]),
                 marginRight: parseInt(data[8]),
                 monitorIndex: parseInt(data[9]),
-                primaryMonitor: parseInt(this.primaryIndex),
             };
 
             if (Object.values(dataObject).some(x => isNaN(x)))
                 throw new Error('Incorrect non numeric value in -D data \n');
-            this.desktopsValue = dataObject;
-
-            const dataVariant = new GLib.Variant('a{sd}', {
-                x: parseInt(data[0]),
-                y: parseInt(data[1]),
-                width: parseInt(data[2]),
-                height: parseInt(data[3]),
-                zoom: parseFloat(data[4]),
-                marginTop: parseInt(data[5]),
-                marginBottom: parseInt(data[6]),
-                marginLeft: parseInt(data[7]),
-                marginRight: parseInt(data[8]),
-                monitorIndex: parseInt(data[9]),
-                primaryMonitor: parseInt(this.primaryIndex),
-            });
-            this.desktopVariantsValue = dataVariant;
+            this.newdesktops.push(dataObject);
         }
 
         _initializeDesktopOptions() {
-            if (!this.desktopsValue && !this.asDesktop) {
+            if (!this.newdesktops.length && !this.asDesktop) {
                 /* if no desktop list is provided,
                  * like when launching the program in stand-alone mode,
                  * configure a 1280x720 desktop
@@ -375,6 +361,25 @@ const adWDingApp = GObject.registerClass(
                 const data = '0:0:1280:720:1:0:0:0:0:0';
                 this._parseDesktopData(data);
             }
+
+            this.newdesktops.forEach(d =>
+                (d.primaryMonitor = this.primaryIndex));
+
+            this.newDesktopsVariants = this.newdesktops.map(d => {
+                return new GLib.Variant('a{sd}', {
+                    x: d.x,
+                    y: d.y,
+                    width: d.width,
+                    height: d.height,
+                    zoom: d.zoom,
+                    marginTop: d.marginTop,
+                    marginBottom: d.marginBottom,
+                    marginLeft: d.marginLeft,
+                    marginRight: d.marginRight,
+                    monitorIndex: d.monitorIndex,
+                    primaryMonitor: d.primaryMonitor,
+                });
+            });
         }
     }
 );
