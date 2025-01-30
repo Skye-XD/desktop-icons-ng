@@ -343,6 +343,7 @@ const adWDingApp = GObject.registerClass(
                 marginLeft: parseInt(data[7]),
                 marginRight: parseInt(data[8]),
                 monitorIndex: parseInt(data[9]),
+                primaryMonitor: parseInt(this.primaryIndex),
             };
 
             if (Object.values(dataObject).some(x => isNaN(x)))
@@ -360,6 +361,7 @@ const adWDingApp = GObject.registerClass(
                 marginLeft: parseInt(data[7]),
                 marginRight: parseInt(data[8]),
                 monitorIndex: parseInt(data[9]),
+                primaryMonitor: parseInt(this.primaryIndex),
             });
             this.desktopVariantsValue = dataVariant;
         }
@@ -370,22 +372,9 @@ const adWDingApp = GObject.registerClass(
                  * like when launching the program in stand-alone mode,
                  * configure a 1280x720 desktop
                 */
-                this.desktopsValue = {
-                    x: 0,
-                    y: 0,
-                    width: 1280,
-                    height: 720,
-                    zoom: 1,
-                    marginTop: 0,
-                    marginBottom: 0,
-                    marginLeft: 0,
-                    marginRight: 0,
-                    monitorIndex: 0,
-                };
+                const data = '0:0:1280:720:1:0:0:0:0:0';
+                this._parseDesktopData(data);
             }
-
-            for (let desktop of this.desktops)
-                desktop.primaryMonitor = this.primaryIndex;
         }
     }
 );
