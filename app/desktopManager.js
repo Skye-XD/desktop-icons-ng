@@ -484,11 +484,20 @@ const DesktopManager = class {
             }
         });
 
-        const monitorschanged = !!monitorschangedList.length;
+        // indexchanged implies monitors have changed
+        // monitors changed or index changed implies grids have changed
+        // as there may be other actors on the new monitor edge
+        const monitorschanged = !!monitorschangedList.length || indexChanged;
+
+        // only the grids have changed, no monitor changes
         const gridschanged = gridschangedList.length
             ? gridschangedList.some(i => !monitorschangedList.includes(i))
             : false;
-        const redisplay = monitorschanged || indexChanged;
+
+        // redisplay is needed for sorting and stacking. Icons
+        // need to be redisplayed if anything changes - the actual fileList
+        // has not changed
+        const redisplay = monitorschanged || gridschanged;
 
         if (gridschanged || redisplay) {
             this._fileList.forEach(x => x.removeFromGrid());
@@ -501,12 +510,35 @@ const DesktopManager = class {
                     desktop.resizeGrid();
                 }
             });
-            this._placeAllFilesOnGrids({redisplay, gridschanged});
+            // There is a subtle difference here, all information is needed
+            //
+            // gridschanged implies prior grid information is available.
+            // Therefore write mode is 'PRESERVE', recomputed coordintes are not
+            // rewritten to disk, and icons can jump back to the prior 'snap to grid'
+            // postion when grid and margins change again - albeight by only small
+            // relative margin changes :), ie with small dock size or top bar changes,
+            // big changes will still make icons jump snap grid postion row/column.
+            //
+            // FIX ME- in future, as we use relative normalized coordingates,
+            // it may be better to write and save the new coordinates.
+            //
+            // monitors changed implies that all coordintes are rewritten to the
+            // new monitor relative coordinates with a write mode of 'OVERWRITE'
+            //
+            // redisplay re-arranges all the icons on the new desktop monitor,
+            // essential for proper sorting/stacking of icons and arranging of icons
+            // For keep arranged new coordinates are automatically written to
+            // grid. However for sorted co-ordinates- we will neeed to redo the
+            // old coordinates seperately in do stacks with nonitorschanged info
+            this._placeAllFilesOnGrids({redisplay, monitorschanged, gridschanged});
         }
     }
 
     _createGridWindows() {
-        // Allow startup with no desktops
+        // Allow startup with no desktops from desktopmanager constructor
+        // if no desktops are defined.
+        // desktops can be defined later from updateGridWindows(), dbus
+        // activation
         if (!this._desktopList.length ||
             this._desktopList.some(d => typeof d !== 'object' || d == null))
             return;
@@ -2257,7 +2289,7 @@ const DesktopManager = class {
             return;
         }
         let storeMode = this.Enums.StoredCoordinates.PRESERVE;
-        if (opts.redisplay) {
+        if (opts.monitorschanged) {
             this._sortByCurrentPosition();
             this._recomputeWindowPositions();
             // write the new recomputed positions to metadata
