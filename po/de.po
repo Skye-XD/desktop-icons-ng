@@ -4,8 +4,8 @@
 # Tim Hofstede <phokas@mail.de>, 2021.
 # Laurenz Bihlmayer <lrdarknesss@yahoo.de>, 2023, 2024.
 # Andreas Rohr <github@andreas-rohr.de>, 2023, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Moritz <moritzm@tutanota.de>, 2024.
 # Bingo <bingo90@outlook.at>, 2024.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-29 20:06+0000\n"
+"PO-Revision-Date: 2025-02-02 20:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
@@ -283,7 +283,7 @@ msgstr "Hilfe in Ihrem Webbrowser übersetzen"
 #: app/adwPreferencesWindow.js:351
 #, fuzzy
 msgid "Translate"
-msgstr "Übersetzen"
+msgstr "Übersetze"
 
 #: app/adwPreferencesWindow.js:445 app/desktopManager.js:3351
 #, fuzzy
@@ -299,7 +299,7 @@ msgstr "Wählen Sie eine Anwendung zum Öffnen <b>{foo}</b>"
 #: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
-msgstr "Offene Posten"
+msgstr "@:account.creditlimit.openInvoices"
 
 #: app/appChooser.js:64
 #, fuzzy
@@ -1170,7 +1170,7 @@ msgstr "Weitere Informationen"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Stapeln"
+msgstr "Stapel"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

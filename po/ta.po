@@ -9,9 +9,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-01-04 20:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-02 20:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ta/>\n"
 "Language: ta\n"
@@ -61,8 +60,9 @@ msgid "Current Desktop: "
 msgstr ""
 
 #: app/adwPreferencesWindow.js:213
+#, fuzzy
 msgid "Files Settings"
-msgstr ""
+msgstr "கோப்பு அமைப்புகள்"
 
 #: app/adwPreferencesWindow.js:214
 msgid "Settings shared with Gnome Files"
@@ -89,7 +89,7 @@ msgstr "சிறிய"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Standard"
-msgstr "தரநிலை"
+msgstr "வழக்கமான"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
@@ -106,8 +106,9 @@ msgid "Top left corner"
 msgstr "மேல்-இடது மூலையில்."
 
 #: app/adwPreferencesWindow.js:243
+#, fuzzy
 msgid "Top right corner"
-msgstr ""
+msgstr "மேல்-வலது மூலையில்."
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
@@ -143,7 +144,7 @@ msgstr ""
 #: app/desktopManager.js:3352
 #, fuzzy
 msgid "Choose"
-msgstr "தேர்ந்தெடுக்கவும்"
+msgstr "தேர்வு"
 
 #: app/adwPreferencesWindow.js:269
 msgid "Restore Default Desktop Folder"
@@ -197,7 +198,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:312
 #, fuzzy
 msgid "Double click"
-msgstr "இருமுறை சொடுக்கு செய்யவும்"
+msgstr "இரட்டை சொடுக்கு"
 
 #: app/adwPreferencesWindow.js:316
 msgid "Show image thumbnails"
@@ -288,7 +289,7 @@ msgstr ""
 #: app/appChooser.js:64
 #, fuzzy
 msgid "Open Folder"
-msgstr "_ ஃபோல்டர் திறக்கவும்"
+msgstr "திறந்த கோப்புறை"
 
 #: app/appChooser.js:66 data/ui/ding-app-chooser.ui:6
 #, fuzzy
@@ -349,11 +350,12 @@ msgstr "கோப்புகளை அமைக்கிறது…"
 #: app/showErrorPopup.js:39 app/showErrorPopup.js:43
 #, fuzzy
 msgid "Cancel"
-msgstr "ரத்து"
+msgstr "ரத்துசெய்"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "கடவுச்சொல்லை இங்கே உள்ளிடவும்"
 
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
@@ -426,13 +428,14 @@ msgid "Create archive"
 msgstr "காப்பகத்தை உருவாக்கவும்"
 
 #: app/autoAr.js:571
+#, fuzzy
 msgid "Archive name"
-msgstr ""
+msgstr "காப்பக பெயர்"
 
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "கடவுச்சொல்"
+msgstr "கடவுச்சொல்"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -557,7 +560,7 @@ msgstr "பெயர்"
 #: app/desktopManager.js:1687
 #, fuzzy
 msgid "Name Z-A"
-msgstr "பெயர்: Z-A."
+msgstr "பெயர் Z-A."
 
 #: app/desktopManager.js:1688
 msgid "Modified Time"
@@ -632,8 +635,9 @@ msgid "Arrange Icons"
 msgstr ""
 
 #: app/desktopManager.js:1734
+#, fuzzy
 msgid "Arrange By…"
-msgstr ""
+msgstr "வழங்கியவர்:"
 
 #: app/desktopManager.js:1740
 msgid "Show Desktop In {0}"
@@ -669,8 +673,9 @@ msgid "Folder Creation Failed"
 msgstr ""
 
 #: app/desktopManager.js:2803
+#, fuzzy
 msgid "Could not create folder"
-msgstr ""
+msgstr "கோப்புறையை உருவாக்க முடியவில்லை"
 
 #: app/desktopManager.js:2849
 msgid "Template Creation Error"
@@ -690,7 +695,7 @@ msgstr "வீடு"
 #: app/fileItem.js:149
 #, fuzzy
 msgid "Trash"
-msgstr "குப்பைத்தொட்டி"
+msgstr "குப்பை"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * an external drive is selected. Example: if a USB stick named "my_portable"
@@ -939,7 +944,7 @@ msgstr ""
 #: app/fileItemMenu.js:448
 #, fuzzy
 msgid "Empty Trash"
-msgstr "குப்பையை அழி"
+msgstr "வெற்று குப்பை"
 
 #: app/fileItemMenu.js:454
 #, fuzzy
@@ -952,8 +957,9 @@ msgid "Unmount"
 msgstr "உமிழ்தல்"
 
 #: app/fileItemMenu.js:461
+#, fuzzy
 msgid "Common Properties"
-msgstr ""
+msgstr "பொதுவான பண்புகள்"
 
 #: app/fileItemMenu.js:462
 #, fuzzy
@@ -999,8 +1005,9 @@ msgid "Select"
 msgstr "தேர்ந்தெடு"
 
 #: app/fileItemMenu.js:749
+#, fuzzy
 msgid "Copy Cancelled"
-msgstr ""
+msgstr "நகல் ரத்து செய்யப்பட்டது"
 
 #: app/fileItemMenu.js:750
 msgid "Unable to copy Files, no destination folder"
@@ -1008,8 +1015,9 @@ msgstr ""
 
 #: app/fileItemMenu.js:792 app/fileItemMenu.js:802 app/fileItemMenu.js:812
 #: app/fileItemMenu.js:839
+#, fuzzy
 msgid "Mail Error"
-msgstr ""
+msgstr "மின்னஞ்சல் பிழை"
 
 #: app/fileItemMenu.js:793
 msgid "Unable to find xdg-email, please install the program"
@@ -1090,8 +1098,9 @@ msgid ""
 msgstr ""
 
 #: app/utils/desktopIconsUtil.js:230
+#, fuzzy
 msgid "Command not found"
-msgstr ""
+msgstr "கருத்து கிடைக்கவில்லை"
 
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
@@ -1104,7 +1113,7 @@ msgstr ""
 #: data/ui/ding-app-chooser.ui:104
 #, fuzzy
 msgid "_Cancel"
-msgstr "ரத்துசெய் (_C)"
+msgstr "_ரத்துசெய்"
 
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
