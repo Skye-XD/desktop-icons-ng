@@ -2301,8 +2301,11 @@ const DesktopManager = class {
         this._addFilesToDesktop(this._fileList, storeMode);
     }
 
-    _recomputeGridPositions() {
-        this._fileList.forEach(fileItem => {
+    _recomputeGridPositions(fileList) {
+        if (!fileList)
+            fileList = this._fileList;
+
+        fileList.forEach(fileItem => {
             if (fileItem.savedCoordinates === null)
                 return;
 
@@ -2969,6 +2972,10 @@ const DesktopManager = class {
             opts.redisplay = false;
         }
 
+        if (opts.monitorschanged && this.stackInitialCoordinates)
+            this._transformSavedStackInitialCoordinates();
+
+
         this._sortAllFilesFromGridsByKindStacked(opts);
 
         this._reassignFilesToDesktop();
@@ -2991,22 +2998,40 @@ const DesktopManager = class {
             if (this.Prefs.keepArranged)
                 this.doSorts();
             else
-                this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
+                this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.OVERWRITE);
         }
     }
 
     _saveStackInitialCoordinates() {
         this.stackInitialCoordinates = [];
-        for (let fileItem of this._fileList)
-            this.stackInitialCoordinates.push([fileItem.fileName, fileItem.savedCoordinates]);
+        for (let fileItem of this._fileList) {
+            this.stackInitialCoordinates.push({
+                fileName: fileItem.fileName,
+                savedCoordinates: fileItem.savedCoordinates,
+                _normalCoordinates: fileItem._normalCoordinates,
+                _monitorIndex: fileItem._monitorIndex,
+            });
+        }
+    }
+
+    _transformSavedStackInitialCoordinates() {
+        if (!this.stackInitialCoordinates && this.stackInitialCoordinates.length)
+            return;
+
+        this._recomputeWindowPositions(this.stackInitialCoordinates);
+        this.stackInitialCoordinates.forEach(o =>
+            (o.savedCoordinates = o.temporarySavedPosition));
     }
 
     _restoreStackInitialCoordinates() {
-        if (this.stackInitialCoordinates && this.stackInitialCoordinates.length !== 0) {
+        if (this.stackInitialCoordinates && this.stackInitialCoordinates.length) {
             this._allFileList.forEach(fileItem => {
                 this.stackInitialCoordinates.forEach(savedItem => {
-                    if (savedItem[0] === fileItem.fileName)
-                        fileItem.savedCoordinates = savedItem[1];
+                    if (savedItem.fileName === fileItem.fileName) {
+                        fileItem.savedCoordinates = savedItem.savedCoordinates;
+                        fileItem._normalCoordinates = savedItem._normalCoordinates;
+                        fileItem._monitorIndex = savedItem._monitorIndex;
+                    }
                 });
             });
         }
