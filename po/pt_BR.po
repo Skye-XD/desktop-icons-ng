@@ -7,7 +7,7 @@
 # Diolinux <blogdiolinux@gmail.com>, 2021.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2024.
 # Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024.
 # Allan Novaes Lima <lnapublicidade@gmail.com>, 2024.
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-29 20:06+0000\n"
+"PO-Revision-Date: 2025-02-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -789,7 +789,7 @@ msgstr "Não é possível abrir este arquivo porque é um Broken Symlink"
 #: app/fileItem.js:323
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Arquivo de abertura Falhado"
+msgstr "Falha ao abrir arquivo"
 
 #: app/fileItem.js:325
 #, fuzzy
