@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-02-01 09:02+0000\n"
+"PO-Revision-Date: 2025-02-04 17:02+0000\n"
 "Last-Translator: Drugi Sapog <copec33670@dfesc.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
@@ -34,9 +34,8 @@ msgstr "Файлы"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #: app/adwPreferencesWindow.js:218
-#, fuzzy
 msgid "Tweaks"
-msgstr "Налады"
+msgstr "Іншае"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 msgid "About"
@@ -68,9 +67,8 @@ msgid "Settings shared with Gnome Files"
 msgstr "Налады абагулены з Gnome Files"
 
 #: app/adwPreferencesWindow.js:219
-#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Розныя налады"
+msgstr "Дадатковыя налады"
 
 #: app/adwPreferencesWindow.js:230
 msgid "Size for the desktop icons"
@@ -115,7 +113,7 @@ msgstr "Ніжні правы вугал"
 #: app/adwPreferencesWindow.js:250
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
-"Спачатку дадаваць новыя значкі на дадатковыя маніторы, калі такія маюцца"
+"Калі маюцца дадатковыя маніторы, у першую чаргу дадаваць новыя значкі на іх"
 
 #: app/adwPreferencesWindow.js:254
 msgid "Snap icons to grid"
@@ -234,11 +232,11 @@ msgstr "Праблемы"
 
 #: app/adwPreferencesWindow.js:341
 msgid "Report issues on issue tracker"
-msgstr ""
+msgstr "Паведаміць аб праблеме на старонцы баг-трэкера"
 
 #: app/adwPreferencesWindow.js:342
 msgid "Report"
-msgstr "Справаздача"
+msgstr "Паведаміць"
 
 #: app/adwPreferencesWindow.js:344
 msgid "License"
@@ -265,9 +263,8 @@ msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Выберыце праграму, каб адкрыць <b>{foo}</b>"
 
 #: app/appChooser.js:62
-#, fuzzy
 msgid "Open Items"
-msgstr "Адкрытыя элементы"
+msgstr "Адкрыць элементы"
 
 #: app/appChooser.js:64
 msgid "Open Folder"
@@ -332,9 +329,8 @@ msgid "Cancel"
 msgstr "Скасаваць"
 
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
 msgid "Enter a password here"
-msgstr "Увядзіце тут пароль"
+msgstr "Увядзіце пароль"
 
 #: app/autoAr.js:354
 #, fuzzy
@@ -491,9 +487,8 @@ msgid "Switching to new Desktop..."
 msgstr "Пераключэнне на новы працоўны стол..."
 
 #: app/desktopManager.js:873
-#, fuzzy
 msgid "Choose Action for Files"
-msgstr "Выберыце «Дзеянне для файлаў»."
+msgstr "Выберыце дзеянне для файлавага менеджара"
 
 #: app/desktopManager.js:874
 msgid "Move"
@@ -598,7 +593,7 @@ msgstr "Паўтарыць"
 
 #: app/desktopManager.js:1725
 msgid "Select All"
-msgstr "Выбраць усё"
+msgstr "Вылучыць усе"
 
 #: app/desktopManager.js:1730
 msgid "Arrange Icons"
@@ -863,7 +858,7 @@ msgstr "Выразаць"
 
 #: app/fileItemMenu.js:392
 msgid "Move to..."
-msgstr "Перайсці да..."
+msgstr "Перамясціць у..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -1099,7 +1094,7 @@ msgstr "Паказваць асабістую папку"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 msgid "Show the personal folder in the desktop."
-msgstr "Паказваць асабістую папку на працоўным стале."
+msgstr "Паказваць на працоўным стале асабістую папку."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
@@ -1107,7 +1102,7 @@ msgstr "Паказваць значок сметніцы"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
-msgstr "Паказваць значок сметніцы на працоўным стале."
+msgstr "Паказваць на працоўным стале значок сметніцы."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
@@ -1119,7 +1114,7 @@ msgstr "Наладзіць вугал з якога будзе пачынацц�
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
-msgstr "Паказваць зменныя носьбіты на працоўным стале"
+msgstr "Паказваць на працоўным стале зменныя носьбіты"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
@@ -1127,7 +1122,7 @@ msgstr "Паказваць зменныя носьбіты, падлучаныя
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
-msgstr "Паказваць сеткавыя носьбіты на працоўным стале"
+msgstr "Паказваць на працоўным стале сеткавыя носьбіты"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
@@ -1147,7 +1142,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr "Паказваць прамавугольнік у месцы перамяшчэння падчас DnD"
+msgstr "Паказваць падчас перацягвання прамавугольнік у месцы прызначэння"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""
@@ -1203,7 +1198,7 @@ msgstr "Масіў тэкставых радкоў з тыпамі файлаў,
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Add an emblem to links"
-msgstr "Дадаваць эмблему да спасылак"
+msgstr "Дадаваць да спасылак эмблему"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Add an emblem to allow to identify soft links."
