@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import {_} from '../dependencies/gettext.js';
-import {Gtk, Gio} from '../dependencies/gi.js';
+import {Gdk, Graphene, Gtk, Gsk, Gio} from '../dependencies/gi.js';
 import * as DesktopIconItem from './desktopIconItem.js';
 
 export {StackItem};
@@ -47,13 +47,53 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
         this._savedCoordinates = null;
     }
 
-    _createStackTopIcon() {
-        let iconPaintable;
-        let folder = 'folder';
-        if (this.Prefs.UnstackList.includes(this._attributeContentType))
-            folder = 'folder-open';
+    _createStackedAttributeContentTypeIcon()  {
+        const stackIcon = Gtk.Snapshot.new();
+        /* A shadow for the pile of icons gives a sense of floating. */
+        const stackShadow = {color: {red: 0, green: 0, blue: 0, alpha: 0.15}, dx: 2, dy: 0, radius: 1};
+        /* A slight shadow swhich makes each icon in the stack look separate. */
+        const iconShadow = {color: {red: 0, green: 0, blue: 0, alpha: 0.30}, dx: 1, dy: 0, radius: 1};
+        const numberOfIcons = 5;
+        let yOffset = 0;
+        let xOffset = 4;
+        const icon = Gio.content_type_get_icon(this._attributeContentType);
+        const theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+        const scale = this._icon.get_scale_factor();
+        let iconPaintable = null;
+        try {
+            iconPaintable = theme.lookup_by_gicon(icon, this.Prefs.IconSize, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+        } catch (e) {
+            iconPaintable = theme.lookup_icon('image-missing', [], this.Prefs.IconSize, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+        }
+        const stackIconArray = Array(numberOfIcons).fill(iconPaintable);
+        const w = iconPaintable.get_intrinsic_width();
+        const h = iconPaintable.get_intrinsic_height();
+        let X = xOffset * numberOfIcons;
+        let Y = yOffset;
 
-        iconPaintable = this._createEmblemedIcon(null, `${folder}`);
+        stackIcon.translate(new Graphene.Point({x: X, y: Y}));
+        stackIcon.push_shadow([new Gsk.Shadow(stackShadow)]);
+
+        stackIconArray.reverse().forEach(paintableWidget => {
+            // Position each widget from right to left
+            X =  -xOffset;
+            stackIcon.translate(new Graphene.Point({x: X, y: Y}));
+            stackIcon.push_shadow([new Gsk.Shadow(iconShadow)]);
+
+            // Render the paintable widget
+            paintableWidget.snapshot(stackIcon, w, h);
+
+            stackIcon.pop(); // Remove shadow effect for the next widget
+        });
+        // Remove the initial transformation & shadow
+        stackIcon.pop();
+
+        return stackIcon.to_paintable(null);
+    }
+
+    _createStackTopIcon() {
+        const stackIcon = this._createStackedAttributeContentTypeIcon();
+        const iconPaintable = this._addEmblemsToIconIfNeeded(stackIcon);
         this._icon.set_paintable(iconPaintable);
     }
 
