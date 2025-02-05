@@ -102,20 +102,11 @@ const DesktopManager = class {
 
         // create grid windows
         this._getPremultiplied();
-        this._createGridWindows();
 
         // Start Dbus Services
         this._intDBusSignalMonitoring();
         this._dbusAdvertiseUpdate();
 
-        // Check and make sure that there is a 'Desktop' folder set and it exists
-        // Check if Gnome Files is available and executable, otherwise give warning
-        // Check and make sure Gnome Files is registered with xdg-utils to handle inode/directory
-        this._performSanityChecks().catch(e => logError(e));
-
-        this._updateDesktop().catch(e => {
-            console.log(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
-        });
 
 
         // setup gracefull termination
@@ -134,6 +125,44 @@ const DesktopManager = class {
                 }
             );
         }
+        this._syncStartupDesktop().catch(e => logError(e));
+    }
+
+    async _syncStartupDesktop() {
+        // startup in a particular order
+        // First create and make sure windows are created
+        const windowscreated = new Promise(resolve => {
+            this.windowsPromiseResolve = resolve;
+            this._createGridWindows();
+            // If this desktop List is null, ask for a new one
+            this._requestGeometryUpdate();
+        });
+
+        // Monitor is attached, windows are created with proper geometry
+        await windowscreated.catch(e => logError(e));
+
+        // Now we can actually display errors, so check for them
+        // Check and make sure that there is a 'Desktop' folder set and it exists
+        // Check if Gnome Files is available and executable, otherwise give warning
+        // Check and make sure Gnome Files is registered with
+        // xdg-utils to handle inode/directory
+        this._performSanityChecks().catch(e => logError(e));
+
+        // The initialRead parameter insures tha grid positions are recalculated
+        // and recaculated postions of all fileItems will be re-written to
+        // disk with write mode 'OVERWRITE'
+        const initialRead = true;
+
+        // This is no longer needed, if true it block all updates.
+        this.windowsPromiseResolve = null;
+
+        // prior fileList, even if triggered through desktopdir changes
+        // will not be displayed as windows were not there.
+        this._updateDesktop({initialRead}).catch(e => logError(e));
+        // First intitiation complete, valid file read from
+        // desktopdir, even if a prior fileList was read, the
+        // forced new read will recalculate and resave new
+        // normalized coordinates and monitor information.
     }
 
     async _performSanityChecks() {
@@ -288,9 +317,15 @@ const DesktopManager = class {
 
                 this._desktopDir = newDesktopDir;
                 this._updateWritableByOthers().catch(e => console.error(e));
-                this._monitorDesktopChanges();
                 this._desktops.forEach(d => d.unsetErrorState());
-                this._updateDesktop().catch(e => console.error(e));
+
+                // The initialRead parameter insures tha grid positions are recalculated
+                // and recaculated postions of all fileItems will be re-written to
+                // disk as a new directory is being read
+                const initialRead = true;
+                this._updateDesktop({initialRead}).catch(e => console.error(e));
+
+                this._monitorDesktopChanges();
                 this._changingDesktopDirID = null;
                 return GLib.SOURCE_REMOVE;
             });
@@ -450,10 +485,18 @@ const DesktopManager = class {
         if (this._priorDesktopList.some(d =>
             typeof d !== 'object' || d == null) ||
             this._priorDesktopList.length !== this._desktopList.length) {
+            // First desktop list is created from a null list or a
+            // monitor has been plugged in or removed.
             this._fileList.forEach(x => x.removeFromGrid());
-
             this._createGridWindows();
-            this._placeAllFilesOnGrids({redisplay: true});
+
+            // If valid fileList is available, no change in fileList
+            // recompute postion of all icons for new geometry
+            this._placeAllFilesOnGrids({
+                redisplay: true,
+                monitorschanged: true,
+                gridschanged: true,
+            });
             return;
         }
 
@@ -528,7 +571,7 @@ const DesktopManager = class {
             // redisplay re-arranges all the icons on the new desktop monitor,
             // essential for proper sorting/stacking of icons and arranging of icons
             // For keep arranged new coordinates are automatically written to
-            // grid. However for sorted co-ordinates- we will neeed to redo the
+            // grid. However for stacked co-ordinates- we will neeed to redo the
             // old coordinates seperately in do stacks with nonitorschanged info
             this._placeAllFilesOnGrids({redisplay, monitorschanged, gridschanged});
         }
@@ -536,7 +579,7 @@ const DesktopManager = class {
 
     _createGridWindows() {
         // Allow startup with no desktops from desktopmanager constructor
-        // if no desktops are defined.
+        // even if no desktops are defined.
         // desktops can be defined later from updateGridWindows(), dbus
         // activation
         if (!this._desktopList.length ||
@@ -562,6 +605,8 @@ const DesktopManager = class {
                 )
             );
         });
+        if (this.windowsPromiseResolve)
+            this.windowsPromiseResolve(true);
     }
 
     _setPendingDropCoordinates(file, dropCoordinates) {
@@ -2046,7 +2091,10 @@ const DesktopManager = class {
         this._fileList = [];
     }
 
-    async _updateDesktop() {
+    async _updateDesktop(opts = {initialRead: false}) {
+        if (this.windowsPromiseResolve)
+            // There are no windows available, prevent all drawing operations
+            return;
         if (this._readingDesktopFiles) {
             // just notify that the files changed while being read from the disk.
             this._desktopFilesChanged = true;
@@ -2095,7 +2143,7 @@ const DesktopManager = class {
         }
         this._readingDesktopFiles = false;
         this._forceDraw = false;
-        this._drawDesktop(fileList).catch(e => console.error(e));
+        this._drawDesktop(fileList, opts).catch(e => console.error(e));
     }
 
     async _doReadAsync() {
@@ -2222,7 +2270,7 @@ const DesktopManager = class {
         }
     }
 
-    async _drawDesktop(fileList) {
+    async _drawDesktop(fileList, opts = {initialRead: false}) {
         const selectedFiles = this.getCurrentSelectionAsUri();
 
         //* Update the Icon before placing on Desktop to prevent flickering Icons *//
@@ -2238,7 +2286,7 @@ const DesktopManager = class {
         this._removeAllFilesFromGrids();
         this._fileList = fileList;
 
-        this._placeAllFilesOnGrids();
+        this._placeAllFilesOnGrids(opts);
 
         //* Detect all Icon sizes are allocated and Icons are now shown and placed on Grid *//
         //* Desktop draw/paint is now complete *//
@@ -2289,7 +2337,7 @@ const DesktopManager = class {
             return;
         }
         let storeMode = this.Enums.StoredCoordinates.PRESERVE;
-        if (opts.monitorschanged) {
+        if (opts.monitorschanged || opts.initialRead) {
             this._sortByCurrentPosition();
             this._recomputeWindowPositions();
             // write the new recomputed positions to metadata
@@ -2972,7 +3020,9 @@ const DesktopManager = class {
             opts.redisplay = false;
         }
 
-        if (opts.monitorschanged && this.stackInitialCoordinates)
+        if ((opts.monitorschanged ||
+            opts.initialRead) &&
+            this.stackInitialCoordinates)
             this._transformSavedStackInitialCoordinates();
 
 
