@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import {_} from '../dependencies/gettext.js';
-import {Gdk, Graphene, Gtk, Gsk, Gio} from '../dependencies/gi.js';
+import {Gdk, Gio, Graphene, Gtk, Gsk} from '../dependencies/gi.js';
 import * as DesktopIconItem from './desktopIconItem.js';
 
 export {StackItem};
@@ -39,20 +39,35 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
         this._createIconActor();
         this._createStackTopIcon();
         const stackName = this._file;
-        /** TRANSLATORS: when using a screen reader, this is the text read when a stack is
-        selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures" */
+        /** TRANSLATORS: when using a screen reader,
+         * this is the text read when a stack is
+         * selected. Example: if a stack named "pictures"
+         *  is selected, it will say "Stack pictures" */
         const accessibleName = _('Stack');
         this._setLabelName(stackName);
-        this.container.update_property([Gtk.AccessibleProperty.LABEL], [`${accessibleName} ${stackName}`]);
+        this.container.update_property(
+            [Gtk.AccessibleProperty.LABEL],
+            [`${accessibleName} ${stackName}`]
+        );
         this._savedCoordinates = null;
     }
 
     _createStackedAttributeContentTypeIcon()  {
         const stackIcon = Gtk.Snapshot.new();
         /* A shadow for the pile of icons gives a sense of floating. */
-        const stackShadow = {color: {red: 0, green: 0, blue: 0, alpha: 0.15}, dx: 2, dy: 0, radius: 1};
+        const stackShadow = {
+            color: {red: 0, green: 0, blue: 0, alpha: 0.15},
+            dx: 2,
+            dy: 0,
+            radius: 1,
+        };
         /* A slight shadow swhich makes each icon in the stack look separate. */
-        const iconShadow = {color: {red: 0, green: 0, blue: 0, alpha: 0.30}, dx: 1, dy: 0, radius: 1};
+        const iconShadow = {
+            color: {red: 0, green: 0, blue: 0, alpha: 0.30},
+            dx: 1,
+            dy: 0,
+            radius: 1,
+        };
         const numberOfIcons = 5;
         let yOffset = 0;
         let xOffset = 4;
@@ -61,9 +76,21 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
         const scale = this._icon.get_scale_factor();
         let iconPaintable = null;
         try {
-            iconPaintable = theme.lookup_by_gicon(icon, this.Prefs.IconSize, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            iconPaintable = theme.lookup_by_gicon(
+                icon,
+                this.Prefs.IconSize,
+                scale, Gtk.TextDirection.NONE,
+                Gtk.IconLookupFlags.FORCE_SIZE
+            );
         } catch (e) {
-            iconPaintable = theme.lookup_icon('image-missing', [], this.Prefs.IconSize, scale, Gtk.TextDirection.NONE, Gtk.IconLookupFlags.FORCE_SIZE);
+            iconPaintable = theme.lookup_icon(
+                'image-missing',
+                [],
+                this.Prefs.IconSize,
+                scale,
+                Gtk.TextDirection.NONE,
+                Gtk.IconLookupFlags.FORCE_SIZE
+            );
         }
         const stackIconArray = Array(numberOfIcons).fill(iconPaintable);
         const w = iconPaintable.get_intrinsic_width();
@@ -74,7 +101,7 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
         stackIcon.translate(new Graphene.Point({x: X, y: Y}));
         stackIcon.push_shadow([new Gsk.Shadow(stackShadow)]);
 
-        stackIconArray.reverse().forEach(paintableWidget => {
+        stackIconArray.forEach(paintableWidget => {
             // Position each widget from right to left
             X =  -xOffset;
             stackIcon.translate(new Graphene.Point({x: X, y: Y}));
@@ -99,7 +126,8 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
 
     // eslint-disable-next-line no-unused-vars
     _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
-        this._desktopManager.onToggleStackUnstackThisTypeClicked(this.attributeContentType);
+        this._desktopManager.onToggleStackUnstackThisTypeClicked(
+            this.attributeContentType);
     }
 
     setSelected() {
