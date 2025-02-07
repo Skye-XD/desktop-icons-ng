@@ -70,7 +70,7 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
         };
         const numberOfIcons = 5;
         let yOffset = 0;
-        let xOffset = 4;
+        let xOffset = this.unStacked ? 8 : 4;
         const icon = Gio.content_type_get_icon(this._attributeContentType);
         const theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
         const scale = this._icon.get_scale_factor();
@@ -211,6 +211,10 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
 
     get savedCoordinates() {
         return this._savedCoordinates;
+    }
+
+    get unStacked() {
+        return this.Prefs.UnstackList.includes(this._attributeContentType);
     }
 
     get x() {
