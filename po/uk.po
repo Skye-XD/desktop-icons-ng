@@ -5,15 +5,15 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Yevhen Popok <xalt7x.service@gmail.com>, 2024.
-# Andrij Zyniuk <zinukandrij@gmail.com>, 2024.
+# Yevhen Popok <xalt7x.service@gmail.com>, 2024, 2025.
+# Andrij Zyniuk <zinukandrij@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-29 20:06+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-02-06 10:02+0000\n"
+"Last-Translator: Andrij Zyniuk <zinukandrij@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -60,7 +60,6 @@ msgid "Current Desktop: "
 msgstr "Пошкоджені файли стільниці"
 
 #: app/adwPreferencesWindow.js:213
-#, fuzzy
 msgid "Files Settings"
 msgstr "Налаштування файлів"
 
@@ -70,9 +69,8 @@ msgid "Settings shared with Gnome Files"
 msgstr "Налаштування спільного з файлами Gnome"
 
 #: app/adwPreferencesWindow.js:219
-#, fuzzy
 msgid "Miscellaneous Tweaks"
-msgstr "Мінуси Твік"
+msgstr "Різні налаштування"
 
 #: app/adwPreferencesWindow.js:230
 msgid "Size for the desktop icons"
@@ -103,16 +101,14 @@ msgid "Top left corner"
 msgstr "Верхній лівий кут"
 
 #: app/adwPreferencesWindow.js:243
-#, fuzzy
 msgid "Top right corner"
-msgstr "Верхній лівий кут"
+msgstr "Верхній правий кут"
 
 #: app/adwPreferencesWindow.js:244
 msgid "Bottom left corner"
 msgstr "Нижній лівий кут"
 
 #: app/adwPreferencesWindow.js:245
-#, fuzzy
 msgid "Bottom right corner"
 msgstr "Нижній правий кут"
 
