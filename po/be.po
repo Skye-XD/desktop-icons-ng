@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-02-04 17:02+0000\n"
-"Last-Translator: Drugi Sapog <copec33670@dfesc.com>\n"
+"PO-Revision-Date: 2025-02-08 22:08+0000\n"
+"Last-Translator: Ding User <dengus@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -177,9 +177,8 @@ msgid "Add new drives to the opposite side of the desktop"
 msgstr "Дадаваць новыя дыскі на супрацьлеглы бок экрана"
 
 #: app/adwPreferencesWindow.js:309
-#, fuzzy
 msgid "Action to Open Items"
-msgstr "Дзеянне для адкрыцця элементаў"
+msgstr "Дзеянне, каб адкрыць элемент"
 
 #: app/adwPreferencesWindow.js:311
 msgid "Single click"
@@ -220,7 +219,7 @@ msgstr "Адкрываць папкі пры перацягванні"
 
 #: app/adwPreferencesWindow.js:335
 msgid "Website"
-msgstr "Сайт"
+msgstr "Вэб-сайт"
 
 #: app/adwPreferencesWindow.js:337
 msgid "Visit"
@@ -286,15 +285,14 @@ msgstr ""
 
 #: app/askRenamePopup.js:49
 msgid "Folder name"
-msgstr "Імя папкі"
+msgstr "Назва папкі"
 
 #: app/askRenamePopup.js:49
 msgid "File name"
-msgstr "Імя файла"
+msgstr "Назва файла"
 
 #: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1407
 #: app/fileItemMenu.js:855
-#, fuzzy
 msgid "OK"
 msgstr "ОК"
 
@@ -333,9 +331,8 @@ msgid "Enter a password here"
 msgstr "Увядзіце пароль"
 
 #: app/autoAr.js:354
-#, fuzzy
 msgid "Removing partial file '${outputFile}'"
-msgstr "Выдаленне часткі файла \"${outputFile}\""
+msgstr "Выдаленне частковага файла '${outputFile}'"
 
 #: app/autoAr.js:373
 msgid "Creating destination folder"
@@ -362,9 +359,8 @@ msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "Выманне '${fullPathFile}' было скасавана карыстальнікам."
 
 #: app/autoAr.js:453
-#, fuzzy
 msgid "Passphrase required for ${filename}"
-msgstr "Патрабуецца парольная фраза для ${filename}"
+msgstr "Патрабуецца пароль для ${filename}"
 
 #: app/autoAr.js:456
 msgid "Error during extraction"
@@ -441,9 +437,8 @@ msgid "Can Not Show the Desktop"
 msgstr "Немагчыма паказаць працоўны стол"
 
 #: app/desktopManager.js:166
-#, fuzzy
 msgid "GNOME Files not found"
-msgstr "Файлы GNOME не знойдзены"
+msgstr "Праграма «Файлы» асяроддзя GNOME не знойдзена"
 
 #: app/desktopManager.js:167
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
@@ -620,9 +615,8 @@ msgid "Shell Menu…"
 msgstr "Меню абалонкі…"
 
 #: app/desktopManager.js:1778
-#, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Немагчыма скапіраваць файлы, няма папкі прызначэння"
+msgstr "Немагчыма адкрыць працоўны стол у праграме «Файлы»"
 
 #: app/desktopManager.js:1807
 msgid "Preferences Window is Open"
@@ -634,7 +628,7 @@ msgstr "Гэта акно адкрыта. Пераключыцеся ў акты
 
 #: app/desktopManager.js:2802
 msgid "Folder Creation Failed"
-msgstr "Не ўдалося стварыць папку"
+msgstr "Збой стварэння папкі"
 
 #: app/desktopManager.js:2803
 msgid "Could not create folder"
@@ -801,12 +795,11 @@ msgstr[2] "Новая папка з {0} элементамі"
 
 #: app/fileItemMenu.js:308
 msgid "Open All..."
-msgstr "Адкрыць усё..."
+msgstr "Адкрыць усе..."
 
 #: app/fileItemMenu.js:316
-#, fuzzy
 msgid "Launch"
-msgstr "Запуск"
+msgstr "Запусціць"
 
 #: app/fileItemMenu.js:326
 msgid "Open with {foo}"
@@ -937,7 +930,7 @@ msgstr "Паказаць усё праз «{0}»"
 
 #: app/fileItemMenu.js:466
 msgid "Show in {0}"
-msgstr "Паказаць у праграме «{0}»"
+msgstr "Паказаць праз «{0}»"
 
 #: app/fileItemMenu.js:471
 msgid "Open in {0}"
@@ -948,9 +941,8 @@ msgid "Extraction Cancelled"
 msgstr "Выманне скасавана"
 
 #: app/fileItemMenu.js:606
-#, fuzzy
 msgid "Unable to extract File, no destination folder"
-msgstr "Немагчыма распакаваць файл, няма папкі прызначэння"
+msgstr "Немагчыма выняць файл, няма папкі прызначэння"
 
 #: app/fileItemMenu.js:649
 msgid "Move Cancelled"
@@ -1005,7 +997,7 @@ msgstr "Падчас стварэння zip-архіва ўзнікла памы
 
 #: app/fileItemMenu.js:853
 msgid "Can not email a Directory"
-msgstr "Немагчыма даслаць папку"
+msgstr "Нельга адправіць каталог па электроннай пошце"
 
 #: app/fileItemMenu.js:854
 msgid "Selection includes a Directory, compress to a .zip file first?"
@@ -1126,7 +1118,7 @@ msgstr "Паказваць на працоўным стале сеткавыя �
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
-msgstr "Паказваць прымантаваныя сеткавыя тамы на працоўным стале."
+msgstr "Паказваць на працоўным стале прымантаваныя сеткавыя тамы."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
