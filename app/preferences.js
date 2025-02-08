@@ -25,7 +25,7 @@ const GioSSS = Gio.SettingsSchemaSource;
 
 const Preferences = class {
     constructor(Data, AdwPreferencesWindow) {
-        this._extensionPath = Data.codePath;
+        this._extensionPath = Data.extensionPath;
         this._programVersion = Data.programversion;
         this._mainApp = Data.dingApp;
         this._Enums = Data.Enums;
@@ -94,8 +94,13 @@ const Preferences = class {
 
 
         let schemaObj = schemaSource.lookup(schema, true);
-        if (!schemaObj)
+        if (!schemaObj) {
+            console.log('schemaObj does not exist!');
+            console.log('Current extension path:', this._extensionPath);
+            console.log('Current schemaFile:', schemaFile.get_path());
+            console.log('Schema File exists:', schemaFile.query_exists(null));
             throw new Error(`Schema ${schema} could not be found for extension. Please check your installation.`);
+        }
 
         return new Gio.Settings({settings_schema: schemaObj});
     }

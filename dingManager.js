@@ -222,7 +222,7 @@ const DingManager = class {
     /**
      * Disables the extension. For Gnome > 42 the extension runs with the session mode 'unlock-dialog'.
      * This allows the extension to keep running when the lock screen comes on. The advantage is that
-     * the Gtk4 programs that are spawned by this extension keep running, rendering all the file icons
+     * programs spawned by this extension keep running, rendering all the file icons
      * on the desktop. When the user logs back in the desktop is already rendered and running, the
      * desktop program does not need to be first killed on the lock-screen and then launced again on
      * unlock.
@@ -268,7 +268,7 @@ const DingManager = class {
             Gio.DBus.session.signal_unsubscribe(this.remoteGeometryUpdateRequestedId);
             this.remoteGeometryUpdateRequestedId = 0;
         }
-        console.log('gtk4-DING disabled.');
+        console.log('Adw-DING disabled.');
     }
 
     /**

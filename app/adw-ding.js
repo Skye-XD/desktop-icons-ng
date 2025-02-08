@@ -72,8 +72,9 @@ const adWDingApp = GObject.registerClass(
 
         _onStartup() {
             this.codePath =
-                System.programPath.replace(/\/[^/]*$/, '');
-            const localePath = GLib.build_filenamev([this.codePath, 'locale']);
+                GLib.path_get_dirname(System.programPath);
+            this.extensionDir = GLib.path_get_dirname(this.codePath);
+            const localePath = GLib.build_filenamev([this.extensionDir, 'locale']);
             if (Gio.File.new_for_path(localePath).query_exists(null))
                 Gettext.bindtextdomain(getTextDomain, localePath);
 
@@ -137,6 +138,7 @@ const adWDingApp = GObject.registerClass(
         _finishStartUp(app) {
             this.Data = {
                 'codePath': this.codePath,
+                'extensionPath': this.extensionDir,
                 Enums,
                 'gnomeversion': this.gnomeversion,
                 'programversion': this.programversion,
