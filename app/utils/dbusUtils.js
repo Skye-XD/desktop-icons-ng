@@ -612,16 +612,16 @@ class DbusOperationsManager {
 
 
 class RemoteFileOperationsManager extends DbusOperationsManager {
-    constructor(fileOperationsManager, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager, applicationId) {
+    constructor(fileOperationsManager, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager, mainApp) {
         super(FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager);
-        this.applicationId = applicationId;
+        this.mainApp = mainApp;
         this.fileOperationsManager = fileOperationsManager;
         this._createPlatformData();
         this._eventsStack = [];
     }
 
     pushEvent(params = {}) {
-        const parentWindow = params.parentWindow ? params.parentWindow : this.applicationId.get_active_window();
+        const parentWindow = params.parentWindow ? params.parentWindow : this.mainApp.get_active_window();
         const currentEventTime = params.timestamp ? params.timestamp : Gdk.CURRENT_TIME;
         this._eventsStack.unshift({
             parentWindow,
@@ -648,7 +648,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
 
         this.platformData = this.fileOperationsManager.platformData = async () => {
             const eventParameters = this._eventsStack.pop() || {
-                'parentWindow': this.applicationId.get_active_window(),
+                'parentWindow': this.mainApp.get_active_window(),
                 'timestamp': Gdk.CURRENT_TIME,
             };
             const parentWindow = eventParameters.parentWindow;
@@ -1042,7 +1042,7 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
 // eslint-disable-next-line no-unused-vars
 const DBusUtils = class {
     constructor(mainApp) {
-        this.applicationId = mainApp;
+        this.mainApp = mainApp;
         this.discreteGpuAvailable = false;
         this.dbusManagerObject = new DBusManager();
         const makeAsync = true;
@@ -1139,7 +1139,7 @@ const DBusUtils = class {
                 this.FreeDesktopFileManager,
                 this.GnomeNautilusPreview,
                 this.GnomeArchiveManager,
-                this.applicationId
+                this.mainApp
             );
         } else {
             this.RemoteFileOperations = new LegacyRemoteFileOperationsManager(
@@ -1160,19 +1160,28 @@ const DBusUtils = class {
             makeAsync
         );
 
-        this.RemoteSendFileOperations = new GsConnect.GsConnectSendFileOperationsManager(this.GsConnectManager, this.applicationId);
+        this.RemoteSendFileOperations =
+            new GsConnect.GsConnectSendFileOperationsManager(
+                this.GsConnectManager,
+                this.mainApp
+            );
 
+        const appID = this.mainApp.get_application_id().replace(/test$/, '');
+        const extBusID = `${appID}extension`;
+        const extBusPath = GLib.build_filenamev(['/', ...extBusID.split('.')]);
+        const extBusInterface = extBusID;
         this.RemoteExtensionManager = new ProxyManager(
             this.dbusManagerObject,
-            'com.desktop.dingextension',
-            '/com/desktop/dingextension/service',
-            'com.desktop.dingextension.service',
+            extBusID,
+            extBusPath,
+            extBusInterface,
             insSessionBus,
             null,
             makeAsync
         );
 
-        this.RemoteExtensionControl = new ExtensionControl(this.RemoteExtensionManager);
+        this.RemoteExtensionControl =
+            new ExtensionControl(this.RemoteExtensionManager);
     }
 };
 

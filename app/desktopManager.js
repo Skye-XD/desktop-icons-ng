@@ -196,9 +196,6 @@ const DesktopManager = class {
     terminateProgram() {
         this._monitorDesktopCancellable.cancel();
 
-        if (this._dbusConnectionGroupId)
-            this._connection.unexport_action_group(this._dbusConnectionGroupId);
-
         if (this._dbusGeometryIface)
             this._dbusGeometryIface.unexport();
 
@@ -364,35 +361,28 @@ const DesktopManager = class {
         createDesktopShortcut.connect('activate', (action, parameter) => {
             this.createDesktopShortcut(parameter.recursiveUnpack());
         });
-        let actionGroup = new Gio.SimpleActionGroup();
-        actionGroup.add_action(updateGridWindows);
-        actionGroup.add_action(createDesktopShortcut);
         this.mainApp.add_action(updateGridWindows);
-        const busName = this.mainApp.get_application_id();
+        this.mainApp.add_action(createDesktopShortcut);
         const busObjectPath = this.mainApp.get_dbus_object_path();
-        this._connection = Gio.DBus.session;
-        this._dbusConnectionGroupId = this._connection.export_action_group(
-            `${busObjectPath}/actions`,
-            actionGroup
-        );
-        if (this._asDesktop) {
-            const signalXml = `
+        const busName = this.mainApp.get_application_id();
+        const connection = Gio.DBus.session;
+        const signalName = 'upateGeometry';
+        const signalXml = `
                 <node>
-                  <interface name="${busName}.geometrycontrol">
-                    <signal name="updategeometry">
+                  <interface name="${busName}">
+                    <signal name="${signalName}">
                       <arg name="type" type="s"/>
                       <arg name="value" type="b"/>
                     </signal>
                   </interface>
                 </node>`;
-            this._dbusGeometryIface =
+        this._dbusGeometryIface =
                 Gio.DBusExportedObject.wrapJSObject(signalXml, this);
-            this._dbusGeometryIface.export(
-                this._connection,
-                `${busObjectPath}/geometrycontrol`
-            );
-            this._requestGeometryUpdate();
-        }
+        this._dbusGeometryIface.export(
+            connection,
+            busObjectPath
+        );
+        this._requestGeometryUpdate();
     }
 
     async createDesktopShortcut(shortcutinfo) {
@@ -420,10 +410,13 @@ const DesktopManager = class {
         let variant = new GLib.Variant('(sb)', ['updategeometry', true]);
         const busObjectPath = this.mainApp.get_dbus_object_path();
         const busName = this.mainApp.get_application_id();
-        this._connection.emit_signal(
+        const connection = Gio.DBus.session;
+        const signalName = 'updategeometry';
+        connection.emit_signal(
             null,
-            `${busObjectPath}/geometrycontrol`,
-            `${busName}.geometrycontrol`, 'updategeometry',
+            busObjectPath,
+            busName,
+            signalName,
             variant
         );
     }

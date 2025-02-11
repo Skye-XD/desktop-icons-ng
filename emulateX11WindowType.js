@@ -29,7 +29,7 @@ import * as Utils from 'resource:///org/gnome/shell/misc/util.js';
 export {EmulateX11WindowType};
 
 const appID = 'com.desktop.ding';
-const appPath = '/com/desktop/ding';
+const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
 class ManageWindow {
     /* This class is added to each managed window, and it's used to
        make it behave like an X11 Desktop window.
@@ -620,7 +620,7 @@ class HandleDragActors {
         this.remoteDingActions = Gio.DBusActionGroup.get(
             Gio.DBus.session,
             appID,
-            `${appPath}/actions`
+            appPath
         );
     }
 
