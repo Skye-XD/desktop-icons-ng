@@ -1025,7 +1025,8 @@ const DesktopGrid = class {
     }
 
     _coordinatesGlobalToLocal(X, Y, widget = null) {
-        const sourcePoint = new Graphene.Point({x: X, y: Y});
+        const [windowX, windowY] = this._coordinatesGlobalToWindow(X, Y);
+        const sourcePoint = new Graphene.Point({x: windowX, y: windowY});
 
         if (!widget)
             widget = this._container;
