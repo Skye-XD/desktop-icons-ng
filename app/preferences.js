@@ -35,6 +35,15 @@ const Preferences = class {
         // Adw Style Manager
         this._adwStyleManager =
             Adw.StyleManager.get_default();
+        try {
+            if (this._adwStyleManager.get_system_supports_accent_colors()) {
+                console.log('System supports accent colors');
+                this.accentColorsAvailable = true;
+            }
+        } catch (e) {
+            console.log('System does not support accent colors');
+            this.accentColorsAvailable = false;
+        }
 
         // Gtk
         let schemaGtk = schemaSource.lookup(this._Enums.SCHEMA_GTK, true);
@@ -74,6 +83,11 @@ const Preferences = class {
         // Our Settings
         this.desktopSettings = this._get_schema(this._Enums.SCHEMA);
         this._cacheInitialSettings();
+
+        // Gnome Theme settings for fallback for older Adw and Gnome versions accent colors
+        const schemaGnomeSettings = schemaSource.lookup(this._Enums.SCHEMA_GNOME_SETTINGS, true);
+        if (schemaGnomeSettings)
+            this.schemaGnomeThemeSettings = new Gio.Settings({settings_schema: schemaGnomeSettings});
 
         this._adwPreferencesWindow = new AdwPreferencesWindow.AdwPreferencesWindow(this.desktopSettings,
             this.nautilusSettings, this.gtkSettings, this._programVersion);
@@ -273,6 +287,24 @@ const Preferences = class {
         this.mutterSettings.connect('changed', () => {
             this._desktopManager.onMutterSettingsChanged();
         });
+
+        if (this.accentColorsAvailable)
+            return;
+
+        // Gnome Theme Settings monitoring for older gnome and Adw versions
+        this.schemaGnomeThemeSettings?.connect('changed', (obj, key) => {
+            if (key === 'accent-color') {
+                // Color changes do not seem to be applied immediately, wait..
+                if (this.cssColorDefinitionChangeID)
+                    GLib.source_remove(this.cssColorDefinitionChangeID);
+                this.cssColorDefinitionChangeID =
+                    GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+                        this._refreshDesktopAndColors();
+                        this.cssColorDefinitionChangeID = 0;
+                        return GLib.SOURCE_REMOVE;
+                    });
+            }
+        });
     }
 
     _configureHoverColor() {
@@ -293,7 +325,29 @@ const Preferences = class {
     }
 
     _configureSelectionColor() {
-        this.selectColor = this._adwStyleManager.get_accent_color_rgba();
+        try {
+            if (this.accentColorsAvailable) {
+                this.selectColor = this._adwStyleManager.get_accent_color_rgba();
+            } else {
+                const box = new Gtk.Label();
+                const styleContext = box.get_style_context();
+                styleContext.add_class('view');
+                const [exists, color] = styleContext.lookup_color('accent_bg_color');
+                if (exists)
+                    this.selectColor = color;
+                else
+                    throw new Error('Style Context does not provide accent_bg_color');
+            }
+        } catch (e) {
+            console.log(e.message);
+            console.log('Setting default accent color to blue');
+            this.selectColor =  new Gdk.RGBA({
+                red: 0,
+                green: 0,
+                blue: 0.9,
+                alpha: 1.0,
+            });
+        }
     }
 
     _setCSSColors() {
