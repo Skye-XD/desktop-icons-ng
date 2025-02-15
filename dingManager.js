@@ -46,11 +46,11 @@ Gio._promisify(Gio.FileEnumerator.prototype, 'next_files_async');
 Gio._promisify(fileProto, 'load_bytes_async');
 
 const appID = 'com.desktop.ding';
-const appPath = '/com/desktop/ding';
+const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
 
 const ifaceXml = `
 <node>
-  <interface name="${appID}extension.service">
+  <interface name="${appID}extension">
     <method name="updateDesktopGeometry"/>
     <method name="getDropTargetAppInfoDesktopFile">
       <arg type="ad" direction="in" name="Global Drop Coordinates"/>
@@ -203,14 +203,14 @@ const DingManager = class {
         this.remoteDingActions = Gio.DBusActionGroup.get(
             Gio.DBus.session,
             appID,
-            `${appPath}/actions`
+            appPath
         );
 
         this.remoteGeometryUpdateRequestedId = Gio.DBus.session.signal_subscribe(
             appID,
-            `${appID}.geometrycontrol`,
+            appID,
             'updategeometry',
-            `${appPath}/geometrycontrol`,
+            appPath,
             null,
             Gio.DBusSignalFlags.NONE,
             this._updateDesktopGeometry.bind(this)
@@ -304,7 +304,7 @@ const DingManager = class {
         this.dingExtensionServiceInterface = Gio.DBusExportedObject.wrapJSObject(ifaceXml,
             this.dingExtensionServiceImplementation);
         this.dingExtensionServiceImplementation._impl = this.dingExtensionServiceInterface;
-        this.dingExtensionServiceInterface.export(connection, '/com/desktop/dingextension/service');
+        this.dingExtensionServiceInterface.export(connection, `${appPath}extension`);
     }
 
     _stopDbusService() {
@@ -343,8 +343,13 @@ const DingManager = class {
      * Sends updated geometry data to the DING desktop program over DBus
      */
     _updateDesktopGeometry() {
-        if (this.remoteDingActions && (Main.layoutManager.monitors.length !== 0))
-            this.remoteDingActions.activate_action('updateGridWindows', this._getDesktopGeometry());
+        if (this.remoteDingActions &&
+            (Main.layoutManager.monitors.length !== 0)) {
+            this.remoteDingActions.activate_action(
+                'updateGridWindows',
+                this._getDesktopGeometry()
+            );
+        }
     }
 
     /**
@@ -353,7 +358,9 @@ const DingManager = class {
     _getDesktopGeometry() {
         let desktopList = [];
         let ws = global.workspace_manager.get_workspace_by_index(0);
-        for (let monitorIndex = 0; monitorIndex < Main.layoutManager.monitors.length; monitorIndex++) {
+        for (let monitorIndex = 0;
+            monitorIndex < Main.layoutManager.monitors.length;
+            monitorIndex++) {
             let area = this.visibleArea.getMonitorGeometry(ws, monitorIndex);
             let desktopListElement = new GLib.Variant('a{sd}', {
                 'x': area.x,

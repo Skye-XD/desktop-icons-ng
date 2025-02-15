@@ -22,8 +22,8 @@ import {Gio, GLib} from '../../dependencies/gi.js';
 export {GsConnectSendFileOperationsManager};
 
 var GsConnectSendFileOperationsManager =  class {
-    constructor(GsConnectManager, applicationid) {
-        this._mainApp = applicationid;
+    constructor(GsConnectManager, mainApp) {
+        this._mainApp = mainApp;
         this.gsConnectDevices = {};
         this.devices = {};
         this.gsConnectServiceName = 'org.gnome.Shell.Extensions.GSConnect';
