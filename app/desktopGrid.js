@@ -1342,4 +1342,24 @@ const DesktopGrid = class {
         this._container.remove(fileItem.container);
         this._container.put(fileItem.container, x, y);
     }
+
+    get normalizedWidth() {
+        return this._width;
+    }
+
+    get normalizedHeight() {
+        return this._height;
+    }
+
+    get monitorIndex() {
+        return this._monitor;
+    }
+
+    getNormalizedCoordinates(x, y) {
+        return [x / this.normalizedWidth, y / this.normalizedHeight];
+    }
+
+    setNormalizedCoordinates(x, y) {
+        return [x * this.normalizedWidth, y * this.normalizedHeight];
+    }
 };
