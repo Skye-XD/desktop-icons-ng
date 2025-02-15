@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 92 for Gnome 45,46,47,48 - bug fix release to supercede version 91
+ * Fix accent colors- older versions of libadwaita do not support Adw.StyleManager.get_accent_color_rgba(). Fall back gracefully to older code. (Sundeep Mediratta)
+ * Fix incorrect coordinates on multiple monitor systems. (Stephan Stefanoff)
+ * Fix extension path for schemas when installed locally from extensions.gnome.org. (Sundeep Mediratta)
+ * Weblate translations. (Weblate Authors)
+ * Update History.md, metadata.json, version bump to 92
+
 * Gtk4 version 91 for Gnome 45,46,47,48
  * Port dingApp to Adw.Application GObject subclass - complete rewrite as a class instead of prior script. (Sundeep Mediratta)
  * Use Adw.StyleManager to monitor accent color changes, use that to get current colors. Clean up css color code and move colors into preferences instead of desktopManager.js. (Sundeep Mediratta)
@@ -7,7 +14,7 @@
  * Improve emblem for stacks with a new legible emblem, new 'stack of mime-type' icon for stacks. (Sundeep Mediratta)
  * Refactor and improve stackItem.js. (Sundeep Mediratta)
  * Revert to using Gtk.Object compute_point to get relative coordinates to other widgets - it seems to be working again without a problem - possibly some upstream fixes. (Sundeep Mediratta)
- * Text Accelerator shortcuts no longer need top disable/enabled again with show error, the new Adw.AlertDialog automatically tackes care of it. (Sundeep Mediratta)
+ * Text Accelerator shortcuts no longer need to be disable/enabled again with show error, the new Adw.AlertDialog automatically tackes care of it. (Sundeep Mediratta)
  * Monitor the desktop window for css style changes and revert them immediately to our style, remove all other styles. Apply our css at the highest user priority instead of application priority. Hopefully all this will prevent opaque windows from other themes and css styles - fixes white borders around desktop window margins. (Sundeep Mediratta)
  * Weblate Translations. (Weblate Authors)
  * Update History.md, metadata.json, add support for Gnome 48, Version Bump to 91
