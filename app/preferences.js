@@ -195,6 +195,11 @@ const Preferences = class {
             }
             if (key === 'show-second-monitor') {
                 this.showOnSecondaryMonitor = this.desktopSettings.get_boolean('show-second-monitor');
+                // The initialRead parameter insures tha grid positions are recalculated
+                // and remapped to new monitors. Recaculated postions of all fileItems will be
+                // re-written to disk with write mode 'OVERWRITE'
+                const initialRead = true;
+                this._desktopManager._updateDesktop({initialRead});
                 return;
             }
             if (key === 'icon-size') {
