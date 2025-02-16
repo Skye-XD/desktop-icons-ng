@@ -2274,7 +2274,7 @@ const DesktopManager = class {
             if (fileItem.savedCoordinates === null)
                 return;
 
-            if (!fileItem._monitorIndex)
+            if (fileItem._monitorIndex == null)
                 return;
 
             const index = fileItem._monitorIndex;
@@ -2310,30 +2310,39 @@ const DesktopManager = class {
                 fileItem.savedCoordinates = null;
                 return;
             }
+            if (fileItem._monitorIndex == null)
+                return;
 
+            const itemMonitorIndex = fileItem._monitorIndex;
             let desktop;
-            let currentMonitorIndex = fileItem._monitorIndex;
 
-            // reassign to new monitor if available
-            if (currentMonitorIndex === this._priorPrimaryIndex &&
-                this._primaryIndex) {
+            // reassign to monitors
+            // if on primary monitor, reassign to new primary
+            if (itemMonitorIndex === this._priorPrimaryMonitorIndex &&
+                this._primaryMonitorIndex != null) {
+                if (!this.Prefs.showOnSecondaryMonitor) {
+                    [desktop] = this._desktops.filter(d => {
+                        return d.monitorIndex === this._primaryMonitorIndex;
+                    });
+                } else {
+                    desktop = this._getPreferredDisplayDesktop();
+                }
+            }
+
+            // reassign not on primary monitor to prior monitor if
+            // if the prior monitor is still in index
+            if (!desktop) {
                 [desktop] = this._desktops.filter(d => {
-                    return d.monitorIndex === this._primaryIndex;
+                    return d.monitorIndex === itemMonitorIndex;
                 });
             }
 
-            if (!desktop &&
-                this._desktops.map(d => d.monitorIndex).includes(
-                    currentMonitorIndex) &&
-                !this.Prefs.showOnSecondaryMonitor) {
-                [desktop] = this._desktops.filter(d => {
-                    return d.monitorIndex === currentMonitorIndex;
-                });
-            }
-
+            // reassingn to new monitor, prior monitor not available
             if (!desktop)
                 desktop = this._getPreferredDisplayDesktop();
 
+            // if any error, leave unmapped to new monitor, placement algorithm
+            //  will find placement from the old global position
             if (!desktop)
                 return;
 
@@ -2507,19 +2516,24 @@ const DesktopManager = class {
         if (this._desktops.length === 1)
             return this._desktops[0];
 
-        if (!this.Prefs.showOnSecondaryMonitor) {
-            if (this._primaryScreen)
-                return this._desktops[this._primaryIndex];
-            else
-                return this._desktops[0];
+        if (!this.Prefs.showOnSecondaryMonitor &&
+            this._primaryMonitorIndex != null) {
+            return this._desktops.filter(d => {
+                return d.monitorIndex === this._primaryMonitorIndex;
+            })[0];
         }
 
+        const tempDesktops = this._desktops.filter((desktop, index) =>
+            index !== this._primaryMonitorIndex
+        );
+
         if (this._desktops.length > 1) {
-            if (!this._primaryScreen)
-                return this._desktops(this._desktops.length - 1);
-            let tempDesktops = this._desktops.filter((desktop, index) => index !== this._primaryIndex);
             if (tempDesktops.length === 1)
                 return tempDesktops[0];
+
+            // Positional algorithms here depending on new geomertry
+            // of the placed monitors, -FIX ME- currently rudimentary
+            // only going by position in the index, not by placement geometry.
 
             if (tempDesktops.length <= this._primaryIndex)
                 return tempDesktops[0];
