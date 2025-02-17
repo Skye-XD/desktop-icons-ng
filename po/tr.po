@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-02-02 20:02+0000\n"
+"PO-Revision-Date: 2025-02-17 16:41+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -984,7 +984,7 @@ msgstr "Kes"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Buraya taşı..."
+msgstr "Taşı..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
