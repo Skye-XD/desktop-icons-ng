@@ -8,15 +8,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Moritz <moritzm@tutanota.de>, 2024.
-# Bingo <bingo90@outlook.at>, 2024.
+# Bingo <bingo90@outlook.at>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-02-02 20:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-14 19:24+0000\n"
+"Last-Translator: Bingo <bingo90@outlook.at>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -24,11 +23,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 msgid "Desktop"
-msgstr "Desktop"
+msgstr "Schreibtisch"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #, fuzzy

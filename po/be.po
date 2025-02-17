@@ -7,13 +7,14 @@
 # Yauhen <Bugomol@users.noreply.hosted.weblate.org>, 2024.
 # Ding User <dengus@users.noreply.hosted.weblate.org>, 2024, 2025.
 # Drugi Sapog <copec33670@dfesc.com>, 2025.
+# Drugi Sapog <dindrugi@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-02-08 22:08+0000\n"
-"Last-Translator: Ding User <dengus@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-02-17 06:50+0000\n"
+"Last-Translator: Drugi Sapog <dindrugi@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 msgid "Desktop"
@@ -62,9 +63,8 @@ msgid "Files Settings"
 msgstr "Налады файлаў"
 
 #: app/adwPreferencesWindow.js:214
-#, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Налады абагулены з Gnome Files"
+msgstr "Налады агульныя для праграмы «Файлы» асяроддзя Gnome"
 
 #: app/adwPreferencesWindow.js:219
 msgid "Miscellaneous Tweaks"
@@ -166,15 +166,15 @@ msgstr "Паказваць на працоўным стале значок см�
 
 #: app/adwPreferencesWindow.js:295
 msgid "Show external drives on the desktop"
-msgstr "Паказваць на працоўным стале зменныя носьбіты"
+msgstr "Паказваць на працоўным стале знешнія дыскі"
 
 #: app/adwPreferencesWindow.js:299
 msgid "Show network drives on the desktop"
-msgstr "Паказваць на працоўным стале сеткавыя носьбіты"
+msgstr "Паказваць на працоўным стале сеткавыя дыскі"
 
 #: app/adwPreferencesWindow.js:303
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Дадаваць новыя дыскі на супрацьлеглы бок экрана"
+msgstr "Дадаваць новыя дыскі на супрацьлеглы бок працоўнага стала"
 
 #: app/adwPreferencesWindow.js:309
 msgid "Action to Open Items"
@@ -213,7 +213,6 @@ msgid "Show hidden files"
 msgstr "Паказваць схаваныя файлы"
 
 #: app/adwPreferencesWindow.js:332
-#, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Адкрываць папкі пры перацягванні"
 
@@ -464,6 +463,9 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"Праграма «Файлы» асяроддзя Gnome не зададзена для адкрыцця папак!\n"
+"Праверце ці ўсталяваны xdg-utils\n"
+"Праверце ці ўсталяваны .desktop-файл праграмы «Файлы»"
 
 #: app/desktopManager.js:364
 msgid "Desktop Folder Change Failed"
@@ -514,9 +516,8 @@ msgid "{0} Does not exist"
 msgstr "{0} не існуе"
 
 #: app/desktopManager.js:1367
-#, fuzzy
 msgid "Clear current selection before new search"
-msgstr "Ачысціць бягучы выбар перад новым пошукам"
+msgstr "Ачысціць бягучае вылучэнне перад новым пошукам"
 
 #: app/desktopManager.js:1411
 msgid "Find Files on Desktop"
@@ -604,7 +605,7 @@ msgstr "Паказаць працоўны стол праз {0}"
 
 #: app/desktopManager.js:1743
 msgid "Open In {0}"
-msgstr "Адкрыць праз {foo}"
+msgstr "Адкрыць праз «{0}»"
 
 #: app/desktopManager.js:1749 app/desktopManager.js:1821
 msgid "Settings"
@@ -744,8 +745,8 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Гэты файл .desktop змяшчае памылкі або спасылаецца на праграму без дазволаў. "
-"Яго нельга выканаць.\n"
+"Файл .desktop мае памылкі або спасылаецца на праграму без дазволаў. Яго "
+"нельга выканаць.\n"
 "\n"
 "Змяніце файл, каб задаць правільную выконвальную праграму."
 
@@ -835,7 +836,7 @@ msgstr "Згрупаваць гэты тып"
 
 #: app/fileItemMenu.js:364
 msgid "Unstack This Type"
-msgstr "Не групаваць гэты тып"
+msgstr "Разгрупаваць гэты тып"
 
 #: app/fileItemMenu.js:380
 msgid "Run as a Program"
@@ -854,9 +855,8 @@ msgid "Move to..."
 msgstr "Перамясціць у..."
 
 #: app/fileItemMenu.js:393
-#, fuzzy
 msgid "Copy to..."
-msgstr "Скапіраваць у..."
+msgstr "Скапіяваць у..."
 
 #: app/fileItemMenu.js:397
 msgid "Rename…"
@@ -926,7 +926,7 @@ msgstr "Уласцівасці"
 
 #: app/fileItemMenu.js:465
 msgid "Show All in {0}"
-msgstr "Паказаць усё праз «{0}»"
+msgstr "Паказаць усе праз «{0}»"
 
 #: app/fileItemMenu.js:466
 msgid "Show in {0}"
@@ -962,12 +962,11 @@ msgstr "Вылучыць"
 
 #: app/fileItemMenu.js:749
 msgid "Copy Cancelled"
-msgstr "Капіраванне скасавана"
+msgstr "Капіяванне скасавана"
 
 #: app/fileItemMenu.js:750
-#, fuzzy
 msgid "Unable to copy Files, no destination folder"
-msgstr "Немагчыма скапіраваць файлы, няма папкі прызначэння"
+msgstr "Немагчыма скапіяваць файлы, няма папкі прызначэння"
 
 #: app/fileItemMenu.js:792 app/fileItemMenu.js:802 app/fileItemMenu.js:812
 #: app/fileItemMenu.js:839
@@ -980,7 +979,7 @@ msgstr "Не ўдалося знайсці xdg-email, усталюйце пра�
 
 #: app/fileItemMenu.js:803
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "Памылка пры адпраўцы файлаў па электроннай пошце"
 
 #: app/fileItemMenu.js:813
 msgid "Unable to find zip command, please install the program"
@@ -1056,9 +1055,8 @@ msgid "Command not found"
 msgstr "Каманда не знойдзена"
 
 #: data/ui/ding-app-chooser.ui:47
-#, fuzzy
 msgid "Choose an app to open the selected files."
-msgstr "Выберыце праграму для адкрыцця выбраных файлаў."
+msgstr "Выберыце праграму, каб адкрываць выбраныя файлы."
 
 #: data/ui/ding-app-chooser.ui:81
 msgid "Always use for this file type"
@@ -1106,15 +1104,15 @@ msgstr "Наладзіць вугал з якога будзе пачынацц�
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
-msgstr "Паказваць на працоўным стале зменныя носьбіты"
+msgstr "Паказваць на працоўным стале знешнія дыскі"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
-msgstr "Паказваць зменныя носьбіты, падлучаныя да камп'ютара."
+msgstr "Паказваць падлучаныя да камп'ютара дыскі."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
-msgstr "Паказваць на працоўным стале сеткавыя носьбіты"
+msgstr "Паказваць на працоўным стале сеткавыя дыскі"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
