@@ -498,15 +498,6 @@ var EmulateX11WindowType = class {
                 this._addWindowManagedCustomJS_ding(window, windowActor);
         });
 
-        this._idDestroy = global.window_manager.connect_after('destroy', (wm, windowActor) => {
-            // if a window is closed, ensure that the desktop doesn't receive the focus
-            let window = windowActor.get_meta_window();
-            if (window && (window.get_window_type() >= Meta.WindowType.DROPDOWN_MENU))
-                return;
-
-            this.onIdleReStackActivteWindows({activateTopWindowOnWorkspace: true});
-        });
-
         /* But in Overview mode it is paramount to not change the workspace to emulate
            "stick", or the windows will appear
          */
