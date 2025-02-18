@@ -484,16 +484,18 @@ var EmulateX11WindowType = class {
             if (window.get_window_type() > Meta.WindowType.DIALOG)
                 return;
 
+            const appid = window.get_gtk_application_id();
+            if (appid !== appID)
+                return;
+
             if (this._waylandClient && this._waylandClient.query_window_belongs_to(window))
                 this._addWindowManagedCustomJS_ding(window, windowActor);
 
-            if (this._isX11) {
-                let appid = window.get_gtk_application_id();
-                let windowpid = window.get_pid();
-                let mypid = parseInt(this._waylandClient.query_pid_of_program());
-                if ((appid === appID) && (windowpid === mypid))
-                    this._addWindowManagedCustomJS_ding(window, windowActor);
-            }
+            const windowpid = window.get_pid();
+            const mypid = parseInt(this._waylandClient.query_pid_of_program());
+
+            if (this._isX11 && windowpid === mypid)
+                this._addWindowManagedCustomJS_ding(window, windowActor);
         });
 
         this._idDestroy = global.window_manager.connect_after('destroy', (wm, windowActor) => {
