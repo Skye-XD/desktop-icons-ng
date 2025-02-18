@@ -507,7 +507,6 @@ var EmulateX11WindowType = class {
 
         this._hidingId = Main.overview.connect('hiding', () => {
             this._overviewHiding = true;
-            this.onIdleReStackActivteWindows({activateTopWindowOnWorkspace: true});
         });
     }
 
