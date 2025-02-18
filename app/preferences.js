@@ -198,8 +198,13 @@ const Preferences = class {
                 // The initialRead parameter insures tha grid positions are recalculated
                 // and remapped to new monitors. Recaculated postions of all fileItems will be
                 // re-written to disk with write mode 'OVERWRITE'
-                const initialRead = true;
-                this._desktopManager._updateDesktop({initialRead});
+                if (this.showOnSecondaryMonitor) {
+                    const initialRead = true;
+                    this._desktopManager._updateDesktop({initialRead});
+                } else {
+                    const mainApp = this._desktopManager.mainApp;
+                    mainApp.lookup_action('cleanUpIcons').activate(null);
+                }
                 return;
             }
             if (key === 'icon-size') {
