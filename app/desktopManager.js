@@ -100,9 +100,6 @@ const DesktopManager = class {
         this.Prefs.init(this);
         this._monitorVolumes();
 
-        // create grid windows
-        this._getPremultiplied();
-
         // Start Dbus Services
         this._intDBusSignalMonitoring();
         this._dbusAdvertiseUpdate();
@@ -166,6 +163,23 @@ const DesktopManager = class {
     }
 
     async _performSanityChecks() {
+        // show error if monitor frame buffer scaling is not enabled first as windows may be awry
+        if (this._differentZooms &&
+            !this.Prefs.usingX11 &&
+            !this.fractionalScaling &&
+            !this._framebufferWarningDone) {
+            const header = _('Monitor Frame Buffer Scaling is not enabled');
+            const text = _('Multiple monitors with different zoom settings require per monitor framebuffer scaling.\n\nPlease enable in Mutter Dconf Settings');
+            // show notification as well as error dialog as windows may not be postioned correctly
+            this.dbusManager.doNotify(header, text);
+            const errorDialog = this.showError(
+                header,
+                text
+            );
+            await errorDialog.run();
+            this._framebufferWarningDone = true;
+        }
+
         const isFolder = this._desktopDir.query_file_type(
             Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
             null) === Gio.FileType.DIRECTORY;
@@ -428,19 +442,6 @@ const DesktopManager = class {
         await this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
     }
 
-    _getPremultiplied() {
-        this._premultiplied = false;
-        try {
-            for (let f of this.Prefs.mutterSettings.get_strv('experimental-features')) {
-                if (f === 'scale-monitor-framebuffer') {
-                    this._premultiplied = true;
-                    break;
-                }
-            }
-        } catch (e) {
-        }
-    }
-
     _requestGeometryUpdate() {
         let variant = new GLib.Variant('(sb)', ['updategeometry', true]);
         const busObjectPath = this.mainApp.get_dbus_object_path();
@@ -479,6 +480,27 @@ const DesktopManager = class {
         const indexChanged = this._priorPrimaryMonitorIndex !==
             this._primaryMonitorIndex;
 
+
+        this._differentZooms = this._desktopList.some((d, index) => {
+            const nextd = this._desktopList[index + 1];
+            if (nextd != null)
+                return d.zoom !== nextd.zoom;
+            return false;
+        });
+
+        this._maxZoom = 1;
+        if (this._differentZooms) {
+            this._desktopList.forEach(d => {
+                this._maxZoom = this._zoom > d.zoom
+                    ? this._zoom
+                    : d.zoom;
+            });
+        }
+
+        this._desktopList.forEach(d => {
+            d.maxZoom = this._maxZoom;
+        });
+
         // Allow initial startup if no desktops defined on initiation
         // or if any new monitors plugged in or removed
         // by creating new desktops
@@ -489,6 +511,7 @@ const DesktopManager = class {
             // monitor has been plugged in or removed.
             this._fileList.forEach(x => x.removeFromGrid());
             this._createGridWindows();
+            this._performSanityChecks();
 
             // If valid fileList is available, no change in fileList
             // recompute postion of all icons for new geometry
@@ -573,6 +596,7 @@ const DesktopManager = class {
             // For keep arranged new coordinates are automatically written to
             // grid. However for stacked co-ordinates- we will neeed to redo the
             // old coordinates seperately in do stacks with nonitorschanged info
+            this._performSanityChecks();
             this._placeAllFilesOnGrids({redisplay, monitorschanged, gridschanged});
         }
     }
@@ -600,8 +624,7 @@ const DesktopManager = class {
                     this,
                     desktopName,
                     desktop,
-                    this._asDesktop,
-                    this._premultiplied
+                    this._asDesktop
                 )
             );
         });
@@ -3686,5 +3709,13 @@ const DesktopManager = class {
 
     get desktopDir() {
         return this._desktopDir;
+    }
+
+    get fractionalScaling() {
+        return this.Prefs.fractionalScaling;
+    }
+
+    set fractionalScaling(boolean) {
+        this.Prefs.fractionalScaling = boolean;
     }
 };

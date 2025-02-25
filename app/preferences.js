@@ -69,7 +69,8 @@ const Preferences = class {
             this.nautilusCompression = new Gio.Settings({settings_schema: compressionSchema});
 
         // Mutter Settings
-        let schemaMutter = schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
+        this.usingX11 = Gdk.Display.get_default().constructor.$gtype.name === 'GdkX11Display';
+        const schemaMutter = schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
         if (schemaMutter)
             this.mutterSettings = new Gio.Settings({settings_schema: schemaMutter});
 
@@ -138,6 +139,7 @@ const Preferences = class {
         this.openFolderOnDndHover = this.nautilusSettings.get_boolean('open-folder-on-dnd-hover');
         this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
         this.darkmode = this._adwStyleManager.get_dark();
+        this._premultiplied = this._getPreMultiplied();
     }
 
     getAdwPreferencesWindow() {
@@ -295,7 +297,7 @@ const Preferences = class {
 
         // Mutter settings
         this.mutterSettings.connect('changed', () => {
-            this._desktopManager.onMutterSettingsChanged();
+            this._premultiplied = this._getPreMultiplied();
         });
 
         if (this.accentColorsAvailable)
@@ -542,6 +544,34 @@ const Preferences = class {
             this._terminalExecString = '-e';
     }
 
+    _getPreMultiplied() {
+        if (this.usingX11)
+            return false;
+        const scalingEnabled = 'scale-monitor-framebuffer';
+        try {
+            return this.mutterSettings.get_strv('experimental-features').includes(scalingEnabled);
+        } catch (e) {}
+        return false;
+    }
+
+    _setPreMultiplied(premultiplied) {
+        if (this.usingX11)
+            return;
+        const scalingEnabled = 'scale-monitor-framebuffer';
+        try {
+            const featurearray = this.mutterSettings.get_strv('experimental-features');
+            if (premultiplied && !featurearray.includes(scalingEnabled))
+                featurearray.push(scalingEnabled);
+            if (!premultiplied && featurearray.includes(scalingEnabled)) {
+                const index = featurearray.indexOf(scalingEnabled);
+                featurearray.splice(index, 1);
+            }
+            this.mutterSettings.set_strv('experimental-features', featurearray);
+        } catch (e) {
+            console.log('Error setting premultiplied:', e);
+        }
+    }
+
     // Setters
     /**
      * @param {any} order
@@ -554,6 +584,10 @@ const Preferences = class {
     set UnstackList(array) {
         this._UnstackList = array;
         this.desktopSettings.set_strv('unstackedtypes', array);
+    }
+
+    set fractionalScaling(boolean) {
+        this._setPreMultiplied(boolean);
     }
 
     // Getters
@@ -592,5 +626,11 @@ const Preferences = class {
 
     get showDropPlace() {
         return this._showDropPlace && !this.freePositionIcons;
+    }
+
+    get fractionalScaling() {
+        if (this.usingX11)
+            return false;
+        return this._premultiplied;
     }
 };
