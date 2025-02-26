@@ -3363,10 +3363,7 @@ const DesktopManager = class {
     }
 
     onMutterSettingsChanged() {
-        this._getPremultiplied();
-        for (let desktop of this._desktops)
-            desktop._premultiplied = this._premultiplied;
-        this._requestGeometryUpdate();
+        this.windowManager.requestGeometryUpdate();
     }
 
     onSettingsChanged() {

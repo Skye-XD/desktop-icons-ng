@@ -298,6 +298,12 @@ const WindowManager = class {
         this._desktops = [];
     }
 
+    onMutterSettingsChanged() {
+        for (let desktop of this._desktops)
+            desktop._premultiplied = this._premultiplied;
+        this.requestGeometryUpdate();
+    }
+
     get desktops() {
         return this._desktops;
     }

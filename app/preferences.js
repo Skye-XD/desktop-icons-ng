@@ -298,6 +298,7 @@ const Preferences = class {
         // Mutter settings
         this.mutterSettings.connect('changed', () => {
             this._premultiplied = this._getPreMultiplied();
+            this._desktopManager.onMutterSettingsChanged();
         });
 
         if (this.accentColorsAvailable)
