@@ -102,7 +102,8 @@ const adWDingApp = GObject.registerClass(
             if (!this.errorFound && !this.showHelp) {
                 if (commandLine.get_is_remote()) {
                     this.desktops = this.newdesktops;
-                    this.desktopManager.updateGridWindows(this.desktops);
+                    const windowManager = this.desktopManager.windowManager;
+                    windowManager.updateGridWindows(this.desktops);
                     // If testing Dbus activations, comment the above
                     // and uncomment the following -
                     // or get remote actions from the app and activate

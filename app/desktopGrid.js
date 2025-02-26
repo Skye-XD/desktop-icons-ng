@@ -198,14 +198,11 @@ const DesktopGrid = class {
         this._y = this._desktopDescription.y;
         this._monitor = this._desktopDescription.monitorIndex;
         this._sizer = this._zoom;
-        this._maxZoom = this._desktopDescription.maxZoom;
         if (this._asDesktop) {
             if (this._using_X11)
                 this._sizer = Math.ceil(this._zoom);
             else if (this.Prefs.fractionalScaling)
                 this._sizer = 1;
-            else
-                this._sizer = this._maxZoom;
         }
         this._windowWidth = Math.floor(this._desktopDescription.width / this._sizer);
         this._windowHeight = Math.floor(this._desktopDescription.height / this._sizer);
