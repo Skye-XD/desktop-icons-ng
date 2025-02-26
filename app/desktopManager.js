@@ -273,9 +273,7 @@ const DesktopManager = class {
             this._fileList.forEach(f => f.onDestroy());
         }
 
-        for (let desktop of this._desktops)
-            desktop.destroy();
-        this._desktops = [];
+        this.windowManager.destroyDesktops();
 
         this.fileItemMenu.destroy();
     }
@@ -2256,7 +2254,7 @@ const DesktopManager = class {
                         return d.monitorIndex === this._primaryMonitorIndex;
                     });
                 } else {
-                    desktop = this._getPreferredDisplayDesktop();
+                    desktop = this.preferredDisplayDesktop;
                 }
             }
 
@@ -2270,7 +2268,7 @@ const DesktopManager = class {
 
             // reassingn to new monitor, prior monitor not available
             if (!desktop)
-                desktop = this._getPreferredDisplayDesktop();
+                desktop = this.preferredDisplayDesktop;
 
             // if any error, leave unmapped to new monitor, placement algorithm
             //  will find placement from the old global position
@@ -2289,7 +2287,7 @@ const DesktopManager = class {
     }
 
     _addFilesToDesktop(fileList, storeMode) {
-        let preferredDesktop = this._getPreferredDisplayDesktop();
+        let preferredDesktop = this.preferredDisplayDesktop;
         if (!preferredDesktop)
             return;
         let outOfDesktops = [];
@@ -2438,42 +2436,6 @@ const DesktopManager = class {
                 console.log('Not enough space to add icons');
             }
         }
-    }
-
-    _getPreferredDisplayDesktop() {
-        if (!this._desktops.length)
-            return null;
-
-        if (this._desktops.length === 1)
-            return this._desktops[0];
-
-        if (!this.Prefs.showOnSecondaryMonitor &&
-            this._primaryMonitorIndex != null) {
-            return this._desktops.filter(d => {
-                return d.monitorIndex === this._primaryMonitorIndex;
-            })[0];
-        }
-
-        const tempDesktops = this._desktops.filter((desktop, index) =>
-            index !== this._primaryMonitorIndex
-        );
-
-        if (this._desktops.length > 1) {
-            if (tempDesktops.length === 1)
-                return tempDesktops[0];
-
-            // Positional algorithms here depending on new geomertry
-            // of the placed monitors, -FIX ME- currently rudimentary
-            // only going by position in the index, not by placement geometry.
-
-            if (tempDesktops.length <= this._primaryMonitorIndex)
-                return tempDesktops[0];
-            else
-                return tempDesktops[tempDesktops.length - 1];
-        }
-
-        // Catch All if everything fails
-        return this._desktops[0];
     }
 
     async _updateWritableByOthers() {
@@ -3554,5 +3516,9 @@ const DesktopManager = class {
 
     get _priorPrimaryMonitorIndex() {
         return this.windowManager.priorPrimaryMonitorIndex;
+    }
+
+    get preferredDisplayDesktop() {
+        return this.windowManager.preferredDisplayDesktop;
     }
 };

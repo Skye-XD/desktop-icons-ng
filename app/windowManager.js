@@ -27,6 +27,7 @@ export {WindowManager};
 const WindowManager = class {
     constructor(desktopManager, desktopList, asDesktop, primaryIndex) {
         this._desktopManager = desktopManager;
+        this._Prefs = desktopManager.Prefs;
         this.mainApp = desktopManager.mainApp;
         this._desktopList = desktopList;
         this._primaryIndex = primaryIndex;
@@ -224,6 +225,47 @@ const WindowManager = class {
             this._desktopManager.windowsPromiseResolve(true);
     }
 
+    _getPreferredDisplayDesktop() {
+        if (!this._desktops.length)
+            return null;
+
+        if (this._desktops.length === 1)
+            return this._desktops[0];
+
+        if (!this._Prefs.showOnSecondaryMonitor &&
+            this._primaryMonitorIndex !== null) {
+            return this._desktops.filter(d => {
+                return d.monitorIndex === this._primaryMonitorIndex;
+            })[0];
+        }
+
+        const tempDesktops = this._desktops.filter((desktop, index) =>
+            index !== this._primaryMonitorIndex
+        );
+
+        if (this._desktops.length > 1) {
+            if (tempDesktops.length === 1)
+                return tempDesktops[0];
+
+            // Positional algorithms here depending on new geomertry
+            // of the placed monitors, -FIX ME- currently rudimentary
+            // only going by position in the index, not by placement geometry.
+
+            if (tempDesktops.length <= this._primaryMonitorIndex)
+                return tempDesktops[0];
+            else
+                return tempDesktops[tempDesktops.length - 1];
+        }
+
+        // Catch All if everything fails
+        return this._desktops[0];
+    }
+
+    destroyDesktops() {
+        this._desktops.forEach(desktop => desktop.destroy());
+        this._desktops = [];
+    }
+
     get desktops() {
         return this._desktops;
     }
@@ -254,5 +296,9 @@ const WindowManager = class {
 
     get differentZooms() {
         return this._differentZooms;
+    }
+
+    get preferredDisplayDesktop() {
+        return this._getPreferredDisplayDesktop();
     }
 };
