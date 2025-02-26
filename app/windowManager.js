@@ -304,6 +304,24 @@ const WindowManager = class {
         this.requestGeometryUpdate();
     }
 
+    getClosestDesktop(itempositionX) {
+        let closestDesktop = null;
+        let closestDistance = 100000000000;
+
+        for (let desktop of this._desktops) {
+            if (!desktop.isAvailable())
+                continue;
+
+            const distance = desktop.getDistance(itempositionX);
+            if (distance < closestDistance) {
+                closestDesktop = desktop;
+                closestDistance = distance;
+            }
+        }
+
+        return closestDesktop;
+    }
+
     get desktops() {
         return this._desktops;
     }

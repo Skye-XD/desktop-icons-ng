@@ -2368,7 +2368,6 @@ const DesktopManager = class {
 
     _addFilesCloseToAssignedDesktop(fileList, storeMode, preferredDesktop) {
         for (let fileItem of fileList) {
-            let minDistance = -1;
             let desktopX;
             let x = desktopX = preferredDesktop.gridGlobalRectangle.x;
             let desktopY = preferredDesktop.gridGlobalRectangle.y;
@@ -2380,23 +2379,12 @@ const DesktopManager = class {
                 storeMode = this.Enums.StoredCoordinates.OVERWRITE;
             }
 
-            // Find the closest desktop to given position
-            let newDesktop = null;
-            for (let desktop of this._desktops) {
-                if (!desktop.isAvailable())
-                    continue;
-
-                let distance = desktop.getDistance(x);
-
-                if ((minDistance === -1) || (distance < minDistance)) {
-                    minDistance = distance;
-                    newDesktop = desktop;
-                    desktopX = newDesktop.gridGlobalRectangle.x;
-                    desktopY = newDesktop.gridGlobalRectangle.y;
-                }
-            }
+            // Find the closest desktop to given position, is null if not available
+            const newDesktop = this.windowManager.getClosestDesktop(x);
 
             if (newDesktop) {
+                desktopX = newDesktop.gridGlobalRectangle.x;
+                desktopY = newDesktop.gridGlobalRectangle.y;
                 if (fileItem.droppedCoordinates)
                     fileItem.droppedCoordinates = null;
                 newDesktop.addFileItemCloseTo(fileItem, desktopX, desktopY, storeMode);

@@ -1029,7 +1029,8 @@ const DesktopGrid = class {
 
     getDistance(x) {
         // Returns the distance to the middle point of this grid from X //
-        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) + Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
+        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) +
+            Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
     }
 
     _coordinatesGlobalToLocal(X, Y, widget = null) {
