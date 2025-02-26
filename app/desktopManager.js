@@ -99,8 +99,6 @@ const DesktopManager = class {
 
         // Start Dbus Services
         this._intDBusSignalMonitoring();
-        this._dbusAdvertiseUpdate();
-
 
 
         // setup gracefull termination
@@ -408,44 +406,6 @@ const DesktopManager = class {
             return null;
 
         return name;
-    }
-
-    _dbusAdvertiseUpdate() {
-        let updateGridWindows = new Gio.SimpleAction({
-            name: 'updateGridWindows',
-            parameter_type: new GLib.VariantType('av'),
-        });
-        updateGridWindows.connect('activate', (action, parameter) => {
-            this.updateGridWindows(parameter.recursiveUnpack());
-        });
-        let createDesktopShortcut = new Gio.SimpleAction({
-            name: 'createDesktopShortcut',
-            parameter_type: new GLib.VariantType('a{sv}'),
-        });
-        createDesktopShortcut.connect('activate', (action, parameter) => {
-            this.createDesktopShortcut(parameter.recursiveUnpack());
-        });
-        this.mainApp.add_action(updateGridWindows);
-        this.mainApp.add_action(createDesktopShortcut);
-        const busObjectPath = this.mainApp.get_dbus_object_path();
-        const busName = this.mainApp.get_application_id();
-        const connection = Gio.DBus.session;
-        const signalName = 'upateGeometry';
-        const signalXml = `
-                <node>
-                  <interface name="${busName}">
-                    <signal name="${signalName}">
-                      <arg name="type" type="s"/>
-                      <arg name="value" type="b"/>
-                    </signal>
-                  </interface>
-                </node>`;
-        this._dbusGeometryIface =
-                Gio.DBusExportedObject.wrapJSObject(signalXml, this);
-        this._dbusGeometryIface.export(
-            connection,
-            busObjectPath
-        );
     }
 
     async createDesktopShortcut(shortcutinfo) {
@@ -1531,6 +1491,14 @@ const DesktopManager = class {
             this._restoreDefaultDesktop();
         });
         this.mainApp.add_action(this.restoreDefaultDesktopAction);
+        let createDesktopShortcut = new Gio.SimpleAction({
+            name: 'createDesktopShortcut',
+            parameter_type: new GLib.VariantType('a{sv}'),
+        });
+        createDesktopShortcut.connect('activate', (action, parameter) => {
+            this.createDesktopShortcut(parameter.recursiveUnpack());
+        });
+        this.mainApp.add_action(createDesktopShortcut);
     }
 
     textEntryAccelsTurnOn() {

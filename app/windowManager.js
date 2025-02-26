@@ -45,6 +45,38 @@ const WindowManager = class {
         this._priorPrimaryMonitorIndex = null;
         this._primaryScreen = null;
         this._differentZooms = false;
+        this._dbusAdvertiseUpdate();
+    }
+
+    _dbusAdvertiseUpdate() {
+        let updateGridWindows = new Gio.SimpleAction({
+            name: 'updateGridWindows',
+            parameter_type: new GLib.VariantType('av'),
+        });
+        updateGridWindows.connect('activate', (action, parameter) => {
+            this.updateGridWindows(parameter.recursiveUnpack());
+        });
+        this.mainApp.add_action(updateGridWindows);
+
+        const busObjectPath = this.mainApp.get_dbus_object_path();
+        const busName = this.mainApp.get_application_id();
+        const connection = Gio.DBus.session;
+        const signalName = 'upateGeometry';
+        const signalXml = `
+                <node>
+                  <interface name="${busName}">
+                    <signal name="${signalName}">
+                      <arg name="type" type="s"/>
+                      <arg name="value" type="b"/>
+                    </signal>
+                  </interface>
+                </node>`;
+        this._dbusGeometryIface =
+                Gio.DBusExportedObject.wrapJSObject(signalXml, this);
+        this._dbusGeometryIface.export(
+            connection,
+            busObjectPath
+        );
     }
 
     requestGeometryUpdate() {
@@ -107,7 +139,7 @@ const WindowManager = class {
 
             // If valid fileList is available, no change in fileList
             // recompute postion of all icons for new geometry
-            this._desktopManager_placeAllFilesOnGrids({
+            this._desktopManager._placeAllFilesOnGrids({
                 redisplay: true,
                 monitorschanged: true,
                 gridschanged: true,
