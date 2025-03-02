@@ -8,6 +8,8 @@ Updated and modified code base, uses Gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* Improve multi-monitor support, saves monitor positon with icon position, allow to change fractional scaling in app if a second monitor connected at different zoom level.
+* Fix dd-term focus loss isssue.
 * App rewritten as Adw.Application GObject subclass, better css handling, use Adw.Stylemanager, better icons and emblems for stackTop items.
 * Integrate ptyxis, replaces gnome-terminal on some distributions. Open ptyxis properly.
 * Modern emblems like Gnome Files, allow multiple emblems

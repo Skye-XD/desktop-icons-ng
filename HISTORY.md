@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 93 for Gnome 47,48
+ * Use 5 postion array to store normalized as well as global coordinates for icons in our own namespace along with the monitor assigned. Better multimonitor display of icons using the above. (Sundeep Mediratta)
+ * Move all scaling and geometry and windows code from desktopManager to new class and file, windowManager.js. This greatly simplifies desktopManager. Move all monitoring and changes to Preferences.js. (Sundeep Mediratta)
+ * Fix dd-term focus loss issue. (Sundeep Mediratta)
+ * Weblate translatios. (Weblate Authors)
+ * Update History.md, metadata,json, Version bump to 93
+
 * Gtk4 version 92 for Gnome 45,46,47,48 - bug fix release to supercede version 91
  * Fix accent colors- older versions of libadwaita do not support Adw.StyleManager.get_accent_color_rgba(). Fall back gracefully to older code. (Sundeep Mediratta)
  * Fix incorrect coordinates on multiple monitor systems. (Stephan Stefanoff)
