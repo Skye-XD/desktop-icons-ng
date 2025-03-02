@@ -29,7 +29,7 @@ import {
     WindowManager
 } from '../dependencies/localFiles.js';
 
-import {Gtk, Gdk, Gio, GLib, GLibUnix} from '../dependencies/gi.js';
+import {Adw, Gtk, Gdk, Gio, GLib, GLibUnix} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopManager};
@@ -170,11 +170,31 @@ const DesktopManager = class {
             // show notification as well as error dialog as windows may not be postioned correctly
             this.dbusManager.doNotify(header, text);
             this._framebufferWarningDone = true;
-            const errorDialog = this.showError(
-                header,
-                text
-            );
-            await errorDialog.run();
+
+            const window = this.mainApp.get_active_window();
+            const dialog = new Adw.AlertDialog();
+            dialog.set_body_use_markup(true);
+            dialog.set_heading_use_markup(true);
+            dialog.set_heading(header);
+            const secondaryText = _('Multiple monitors with different zoom settings.\n\nEnable per monitor framebuffer scaling in Mutter Dconf Settings?');
+            dialog.set_body(secondaryText);
+            dialog.add_response('cancel', _('Cancel'));
+            dialog.add_response('enable', _('Enable'));
+            dialog.set_close_response('cancel');
+            dialog.set_default_response('enable');
+            dialog.set_response_appearance('enable', Adw.ResponseAppearance.SUGGESTED);
+            dialog.set_response_appearance('cancel', Adw.ResponseAppearance.DEFAULT);
+            dialog.set_prefer_wide_layout(true);
+            const runDialog = new Promise(resolve => {
+                dialog.choose(window, null, (actor, asyncResult) => {
+                    const response = actor.choose_finish(asyncResult);
+                    if (response === 'enable')
+                        this.Prefs.fractionalScaling = true;
+                    dialog.close();
+                    resolve(response);
+                });
+            });
+            await runDialog;
         }
 
         const isFolder = this._desktopDir.query_file_type(
