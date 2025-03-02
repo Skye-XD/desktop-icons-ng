@@ -2,14 +2,14 @@
 # Copyright (C) 2019 desktop-icons's COPYRIGHT HOLDER
 # This file is distributed under the same license as the desktop-icons package.
 # Olteanu Laurențiu <laur.olteanu@outlook.com>, 2021.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-29 20:06+0000\n"
+"PO-Revision-Date: 2025-03-02 05:32+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -164,7 +164,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "Restabilește"
+msgstr "Restabiliți"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -247,7 +247,7 @@ msgstr "Deschideți folderele prin glisare"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Website"
-msgstr "Site web"
+msgstr "website"
 
 #: app/adwPreferencesWindow.js:337
 #, fuzzy
@@ -266,7 +266,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:342
 #, fuzzy
 msgid "Report"
-msgstr "Raport"
+msgstr "Raportați"
 
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
@@ -602,7 +602,7 @@ msgstr "Caută fișiere pe Desktop"
 #: app/desktopManager.js:1686
 #, fuzzy
 msgid "Name"
-msgstr "Nume"
+msgstr "Numele"
 
 #: app/desktopManager.js:1687
 #, fuzzy
@@ -617,12 +617,12 @@ msgstr "Timp modificat"
 #: app/desktopManager.js:1689
 #, fuzzy
 msgid "Type"
-msgstr "Tipul"
+msgstr "Tip"
 
 #: app/desktopManager.js:1690
 #, fuzzy
 msgid "Size"
-msgstr "Grosime"
+msgstr "Dimensiune"
 
 #: app/desktopManager.js:1693
 #, fuzzy
@@ -888,7 +888,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nu s-a putut deschide fișierele"
+msgstr "Fișierul nu poate fi deschis"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
@@ -909,7 +909,7 @@ msgstr "Deschide tot..."
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Launch"
-msgstr "Lansare"
+msgstr "Lansează"
 
 #: app/fileItemMenu.js:326
 #, fuzzy

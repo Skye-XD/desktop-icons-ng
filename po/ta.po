@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-02-17 16:41+0000\n"
+"PO-Revision-Date: 2025-03-02 05:32+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ta/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -435,7 +435,7 @@ msgstr "காப்பக பெயர்"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "கடவுச்சொல்"
+msgstr "கடவுச்சொல்"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -810,7 +810,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "கோப்புகளைத் திறக்க முடியவில்லை"
+msgstr "கோப்பைத் திறக்க முடியவில்லை"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238

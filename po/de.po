@@ -14,8 +14,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-02-14 19:24+0000\n"
-"Last-Translator: Bingo <bingo90@outlook.at>\n"
+"PO-Revision-Date: 2025-03-02 05:32+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 msgid "Desktop"
@@ -32,7 +33,7 @@ msgstr "Schreibtisch"
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #, fuzzy
 msgid "Files"
-msgstr "Dateien"
+msgstr "Datein"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #: app/adwPreferencesWindow.js:218
@@ -242,7 +243,7 @@ msgstr "Ordner auf Drag Hover öffnen"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Website"
-msgstr "Website"
+msgstr "Webseite"
 
 #: app/adwPreferencesWindow.js:337
 #, fuzzy
@@ -252,7 +253,7 @@ msgstr "Besuchen"
 #: app/adwPreferencesWindow.js:340
 #, fuzzy
 msgid "Issues"
-msgstr "Probleme"
+msgstr "Ausgaben"
 
 #: app/adwPreferencesWindow.js:341
 #, fuzzy
@@ -262,7 +263,7 @@ msgstr "Berichtsfragen zum Emissionstracker"
 #: app/adwPreferencesWindow.js:342
 #, fuzzy
 msgid "Report"
-msgstr "Melden"
+msgstr "Bericht"
 
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
@@ -282,7 +283,7 @@ msgstr "Hilfe in Ihrem Webbrowser übersetzen"
 #: app/adwPreferencesWindow.js:351
 #, fuzzy
 msgid "Translate"
-msgstr "Übersetze"
+msgstr "Übersetzen"
 
 #: app/adwPreferencesWindow.js:445 app/desktopManager.js:3351
 #, fuzzy
@@ -298,7 +299,7 @@ msgstr "Wählen Sie eine Anwendung zum Öffnen <b>{foo}</b>"
 #: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
-msgstr "@:account.creditlimit.openInvoices"
+msgstr "Offene Posten"
 
 #: app/appChooser.js:64
 #, fuzzy
@@ -750,7 +751,7 @@ msgstr "Laufwerk"
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Verzeichnis"
+msgstr "Ordner"
 
 #. * TRANSLATORS: when using a screen reader, this is the text read when
 #. * a normal file is selected. Example: if a file named "my_picture.jpg"
@@ -875,7 +876,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dateien konnten nicht geöffnet werden"
+msgstr "Konnte Datei nicht öffnen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
@@ -953,7 +954,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben auf..."
+msgstr "Verschieben nach ..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy

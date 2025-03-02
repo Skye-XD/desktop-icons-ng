@@ -2,18 +2,19 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Stanisław Zadorozhnyi <zadorozhniy123@icloud.com>, 2021.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Yevhen Popok <xalt7x.service@gmail.com>, 2024, 2025.
 # Andrij Zyniuk <zinukandrij@gmail.com>, 2024, 2025.
+# Herbatka <viktor.beskorovainyi@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2025-02-06 10:02+0000\n"
-"Last-Translator: Andrij Zyniuk <zinukandrij@gmail.com>\n"
+"PO-Revision-Date: 2025-03-02 05:32+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 msgid "Desktop"
@@ -55,9 +56,8 @@ msgid "Desktop Folder"
 msgstr "Тека Стільниця"
 
 #: app/adwPreferencesWindow.js:206
-#, fuzzy
 msgid "Current Desktop: "
-msgstr "Пошкоджені файли стільниці"
+msgstr "Робочий стіл: "
 
 #: app/adwPreferencesWindow.js:213
 msgid "Files Settings"
@@ -141,7 +141,7 @@ msgstr "Показувати особисту теку на стільниці"
 #: app/desktopManager.js:3352
 #, fuzzy
 msgid "Choose"
-msgstr "Вибрати"
+msgstr "Виберіть"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -238,7 +238,7 @@ msgstr "Відкрийте папки на перетягування"
 #: app/adwPreferencesWindow.js:335
 #, fuzzy
 msgid "Website"
-msgstr "Вебсайт"
+msgstr "Веб-сайт"
 
 #: app/adwPreferencesWindow.js:337
 #, fuzzy
@@ -258,12 +258,12 @@ msgstr "Проблеми звіту про видачу"
 #: app/adwPreferencesWindow.js:342
 #, fuzzy
 msgid "Report"
-msgstr "Звіт"
+msgstr "Повідомити"
 
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
 msgid "License"
-msgstr "License"
+msgstr "Ліцензія"
 
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
@@ -558,7 +558,7 @@ msgstr "Виберіть дію для файлів"
 #: app/desktopManager.js:874
 #, fuzzy
 msgid "Move"
-msgstr "рухатися"
+msgstr "Пересунути"
 
 #: app/desktopManager.js:874 app/fileItemMenu.js:388
 msgid "Copy"
@@ -615,7 +615,7 @@ msgstr "Число завантажень"
 #: app/desktopManager.js:1689
 #, fuzzy
 msgid "Type"
-msgstr "Вид взуття"
+msgstr "Тип"
 
 #: app/desktopManager.js:1690
 #, fuzzy
@@ -674,7 +674,7 @@ msgstr "Повторити"
 #: app/desktopManager.js:1725
 #, fuzzy
 msgid "Select All"
-msgstr "Вибрати все"
+msgstr "Обрати все"
 
 #: app/desktopManager.js:1730
 msgid "Arrange Icons"
@@ -778,7 +778,7 @@ msgstr "Файл"
 #: app/fileItem.js:292
 #, fuzzy
 msgid "Broken Link"
-msgstr "Брокен посилання"
+msgstr "Непрацююче посилання"
 
 #: app/fileItem.js:293
 #, fuzzy
@@ -898,7 +898,7 @@ msgstr ""
 #: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
 #, fuzzy
 msgid "Could not open File"
-msgstr "Не можу відкрити файли"
+msgstr "Не вдалося відкрити файл"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
@@ -1194,7 +1194,7 @@ msgstr "Більше інформації"
 #: app/stackItem.js:44
 #, fuzzy
 msgid "Stack"
-msgstr "Стопка"
+msgstr "Стек"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55

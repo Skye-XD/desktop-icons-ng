@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # holer ryaar <nuqunedadosa@rungel.net>, 2023.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-21 18:55-0500\n"
-"PO-Revision-Date: 2024-12-25 15:00+0000\n"
+"PO-Revision-Date: 2025-03-02 05:32+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -39,7 +39,7 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "সম্পর্কে"
+msgstr "বিস্তারিত"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -168,7 +168,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "পুনরুদ্ধার করুন"
+msgstr "পুনরূদ্ধার করুন"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -238,7 +238,7 @@ msgstr "শুধুমাত্র এই কম্পিউটারে"
 #: app/adwPreferencesWindow.js:320
 #, fuzzy
 msgid "Never"
-msgstr "Never"
+msgstr "কখনোই না"
 
 #: app/adwPreferencesWindow.js:324
 #, fuzzy
@@ -483,7 +483,7 @@ msgstr "সংরক্ষণাগার নাম"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "পাসওয়ার্ড"
+msgstr "পাসওয়ার্ড"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -638,7 +638,7 @@ msgstr "Type"
 #: app/desktopManager.js:1690
 #, fuzzy
 msgid "Size"
-msgstr "Size"
+msgstr "আকার"
 
 #: app/desktopManager.js:1693
 #, fuzzy
@@ -1011,7 +1011,7 @@ msgstr "নকল করা..।"
 #: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Rename…"
-msgstr "নাম পরিবর্তন করুন"
+msgstr "পুনঃনামকরণ"
 
 #: app/fileItemMenu.js:400
 #, fuzzy
