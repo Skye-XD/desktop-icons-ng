@@ -484,25 +484,18 @@ var EmulateX11WindowType = class {
             if (window.get_window_type() > Meta.WindowType.DIALOG)
                 return;
 
+            const appid = window.get_gtk_application_id();
+            if (appid !== appID)
+                return;
+
             if (this._waylandClient && this._waylandClient.query_window_belongs_to(window))
                 this._addWindowManagedCustomJS_ding(window, windowActor);
 
-            if (this._isX11) {
-                let appid = window.get_gtk_application_id();
-                let windowpid = window.get_pid();
-                let mypid = parseInt(this._waylandClient.query_pid_of_program());
-                if ((appid === appID) && (windowpid === mypid))
-                    this._addWindowManagedCustomJS_ding(window, windowActor);
-            }
-        });
+            const windowpid = window.get_pid();
+            const mypid = parseInt(this._waylandClient.query_pid_of_program());
 
-        this._idDestroy = global.window_manager.connect_after('destroy', (wm, windowActor) => {
-            // if a window is closed, ensure that the desktop doesn't receive the focus
-            let window = windowActor.get_meta_window();
-            if (window && (window.get_window_type() >= Meta.WindowType.DROPDOWN_MENU))
-                return;
-
-            this.onIdleReStackActivteWindows({activateTopWindowOnWorkspace: true});
+            if (this._isX11 && windowpid === mypid)
+                this._addWindowManagedCustomJS_ding(window, windowActor);
         });
 
         /* But in Overview mode it is paramount to not change the workspace to emulate
@@ -514,7 +507,6 @@ var EmulateX11WindowType = class {
 
         this._hidingId = Main.overview.connect('hiding', () => {
             this._overviewHiding = true;
-            this.onIdleReStackActivteWindows({activateTopWindowOnWorkspace: true});
         });
     }
 
