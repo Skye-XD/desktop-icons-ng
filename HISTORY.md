@@ -1,5 +1,6 @@
 # History of versions #
-* Gtk4 version 93 for Gnome 47,48
+* Gtk4 version 93 for Gnome 47, 48
+ * Simplify exported and imported DBus objects and clean up, simplify DBusUtilities code. (Sundeep Mediratta)
  * Use 5 postion array to store normalized as well as global coordinates for icons in our own namespace along with the monitor assigned. Better multimonitor display of icons using the above. (Sundeep Mediratta)
  * Move all scaling and geometry and windows code from desktopManager to new class and file, windowManager.js. This greatly simplifies desktopManager. Move all monitoring and changes to Preferences.js. (Sundeep Mediratta)
  * Fix dd-term focus loss issue. (Sundeep Mediratta)
