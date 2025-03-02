@@ -50,8 +50,8 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 'unmount_with_operation');
         }
 
-        this._savedCoordinates = this._readCoordinatesFromAttribute(fileInfo, 'metadata::nautilus-icon-position');
-        this._dropCoordinates = this._readCoordinatesFromAttribute(fileInfo, 'metadata::nautilus-drop-position');
+        this.readSavedCoordinates();
+        this.readDropCoordinates();
 
         this._createIconActor();
 
@@ -184,15 +184,24 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         }
     }
 
+    readSavedCoordinates() {
+        const array = this._readCoordinatesFromAttribute(this._fileInfo,
+            'metadata::desktop-icon-position'
+        );
+        this._parseSavedCoordinates(array);
+    }
+
+    readDropCoordinates() {
+        const array = this._readCoordinatesFromAttribute(this._fileInfo,
+            'metadata::nautilus-drop-position'
+        );
+        this._parseDropCoordinates(array);
+    }
+
     _readCoordinatesFromAttribute(fileInfo, attribute) {
-        let savedCoordinates = fileInfo.get_attribute_as_string(attribute);
-        if ((savedCoordinates !== null) && (savedCoordinates !== '')) {
-            savedCoordinates = savedCoordinates.split(',');
-            if (savedCoordinates.length >= 2) {
-                if (!isNaN(savedCoordinates[0]) && !isNaN(savedCoordinates[1]))
-                    return [Number(savedCoordinates[0]), Number(savedCoordinates[1])];
-            }
-        }
+        const readCoordinates = fileInfo.get_attribute_as_string(attribute);
+        if (readCoordinates !== null && readCoordinates !== '')
+            return readCoordinates.split(',');
         return null;
     }
 
@@ -823,7 +832,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     writeSavedCoordinates(pos) {
         const oldPos = this._savedCoordinates;
-        this._savedCoordinates = pos;
+        this._parseSavedCoordinates(pos);
 
         if (this._savedCoordinatesCancellable)
             this._savedCoordinatesCancellable.cancel();
@@ -831,7 +840,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         const cancellable = new Gio.Cancellable();
         this._savedCoordinatesCancellable = cancellable;
 
-        this._storeCoordinates('nautilus-icon-position', pos, cancellable).catch(e => {
+        this._storeCoordinates('desktop-icon-position', pos, cancellable).catch(e => {
             if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
                 console.error(e, `Failed to store the desktop coordinates for ${this.uri}: ${e.message}`);
                 this._savedCoordinates = oldPos;
@@ -844,7 +853,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
     writeDroppedCoordinates(pos) {
         const oldPos = this._dropCoordinates;
-        this._dropCoordinates = pos;
+        this._parseDropCoordinates(pos);
 
         if (this._dropCoordinatesCancellable)
             this._dropCoordinatesCancellable.cancel();

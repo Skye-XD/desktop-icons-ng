@@ -230,6 +230,10 @@ const DesktopGrid = class {
         this._marginTopHiddenObject = false;
         this._marginBottomHiddenObject = false;
 
+        const oldMarginTop = this._marginTop > 0 ? this._marginTop : 0;
+        const oldMarginLeft = this._marginLeft > 0 ? this._marginLeft : 0;
+        const oldMarginRight = this._marginRight > 0 ? this._marginRight : 0;
+        const oldMarginBottom = this._marginBottom > 0 ? this._marginBottom : 0;
         this._marginTop = this._desktopDescription.marginTop + this.gridPadding;
         if (this._marginTop > 1000) {
             this._marginTopHiddenObject = true;
@@ -250,9 +254,14 @@ const DesktopGrid = class {
             this._marginRightHiddenObject = true;
             this._marginRight -= 1000;
         }
-
-        this._width = this._desktopDescription.width - this._marginLeft - this._marginRight;
-        this._height = this._desktopDescription.height - this._marginTop - this._marginBottom;
+        this.marginChangeTop =
+            this._marginTop + this._marginBottom - oldMarginTop - oldMarginBottom;
+        this.marginChangeLeft =
+            this._marginLeft + this._marginRight - oldMarginLeft - oldMarginRight;
+        this._width =
+            this._desktopDescription.width - this._marginLeft - this._marginRight;
+        this._height =
+            this._desktopDescription.height - this._marginTop - this._marginBottom;
     }
 
     _createGrids() {
@@ -1277,8 +1286,13 @@ const DesktopGrid = class {
          * Also store the new possition if it has been moved by the user,
          * and not triggered by a screen change.
          */
-        if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
-            fileItem.savedCoordinates = [X, Y];
+        if ((fileItem.savedCoordinates === null) ||
+            (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE)) {
+            const [normalizedX, normalizedY] =
+                this.getNormalizedCoordinates(localX, localY);
+            const array = [X, Y, normalizedX, normalizedY, this._monitor];
+            fileItem.writeSavedCoordinates(array);
+        }
     }
 
     removeItem(fileItem) {
@@ -1319,8 +1333,13 @@ const DesktopGrid = class {
          * Also store the new possition if it has been moved by the user,
          * and not triggered by a screen change.
          */
-        if ((fileItem.savedCoordinates === null) || (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE))
-            fileItem.writeSavedCoordinates([X, Y]);
+        if ((fileItem.savedCoordinates === null) ||
+            (coordinatesAction === this.Enums.StoredCoordinates.OVERWRITE)) {
+            const [normalizedX, normalizedY] =
+                this.getNormalizedCoordinates(x, y);
+            const array = [X, Y, normalizedX, normalizedY, this._monitor];
+            fileItem.writeSavedCoordinates(array);
+        }
     }
 
     addFileItemCloseTo(fileItem, X, Y, coordinatesAction) {
@@ -1341,5 +1360,25 @@ const DesktopGrid = class {
         const [x, y] = this._fileItems.get(fileItem);
         this._container.remove(fileItem.container);
         this._container.put(fileItem.container, x, y);
+    }
+
+    get normalizedWidth() {
+        return this._width;
+    }
+
+    get normalizedHeight() {
+        return this._height;
+    }
+
+    get monitorIndex() {
+        return this._monitor;
+    }
+
+    getNormalizedCoordinates(x, y) {
+        return [x / this.normalizedWidth, y / this.normalizedHeight];
+    }
+
+    setNormalizedCoordinates(x, y) {
+        return [x * this.normalizedWidth, y * this.normalizedHeight];
     }
 };

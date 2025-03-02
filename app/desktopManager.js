@@ -102,20 +102,11 @@ const DesktopManager = class {
 
         // create grid windows
         this._getPremultiplied();
-        this._createGridWindows();
 
         // Start Dbus Services
         this._intDBusSignalMonitoring();
         this._dbusAdvertiseUpdate();
 
-        // Check and make sure that there is a 'Desktop' folder set and it exists
-        // Check if Gnome Files is available and executable, otherwise give warning
-        // Check and make sure Gnome Files is registered with xdg-utils to handle inode/directory
-        this._performSanityChecks().catch(e => logError(e));
-
-        this._updateDesktop().catch(e => {
-            console.log(`Exception while initiating desktop: ${e.message}\n${e.stack}`);
-        });
 
 
         // setup gracefull termination
@@ -134,6 +125,44 @@ const DesktopManager = class {
                 }
             );
         }
+        this._syncStartupDesktop().catch(e => logError(e));
+    }
+
+    async _syncStartupDesktop() {
+        // startup in a particular order
+        // First create and make sure windows are created
+        const windowscreated = new Promise(resolve => {
+            this.windowsPromiseResolve = resolve;
+            this._createGridWindows();
+            // If this desktop List is null, ask for a new one
+            this._requestGeometryUpdate();
+        });
+
+        // Monitor is attached, windows are created with proper geometry
+        await windowscreated.catch(e => logError(e));
+
+        // Now we can actually display errors, so check for them
+        // Check and make sure that there is a 'Desktop' folder set and it exists
+        // Check if Gnome Files is available and executable, otherwise give warning
+        // Check and make sure Gnome Files is registered with
+        // xdg-utils to handle inode/directory
+        this._performSanityChecks().catch(e => logError(e));
+
+        // The initialRead parameter insures tha grid positions are recalculated
+        // and recaculated postions of all fileItems will be re-written to
+        // disk with write mode 'OVERWRITE'
+        const initialRead = true;
+
+        // This is no longer needed, if true it block all updates.
+        this.windowsPromiseResolve = null;
+
+        // prior fileList, even if triggered through desktopdir changes
+        // will not be displayed as windows were not there.
+        this._updateDesktop({initialRead}).catch(e => logError(e));
+        // First intitiation complete, valid file read from
+        // desktopdir, even if a prior fileList was read, the
+        // forced new read will recalculate and resave new
+        // normalized coordinates and monitor information.
     }
 
     async _performSanityChecks() {
@@ -288,9 +317,15 @@ const DesktopManager = class {
 
                 this._desktopDir = newDesktopDir;
                 this._updateWritableByOthers().catch(e => console.error(e));
-                this._monitorDesktopChanges();
                 this._desktops.forEach(d => d.unsetErrorState());
-                this._updateDesktop().catch(e => console.error(e));
+
+                // The initialRead parameter insures tha grid positions are recalculated
+                // and recaculated postions of all fileItems will be re-written to
+                // disk as a new directory is being read
+                const initialRead = true;
+                this._updateDesktop({initialRead}).catch(e => console.error(e));
+
+                this._monitorDesktopChanges();
                 this._changingDesktopDirID = null;
                 return GLib.SOURCE_REMOVE;
             });
@@ -422,89 +457,156 @@ const DesktopManager = class {
     }
 
     updateGridWindows(newdesktoplist) {
+        this._priorDesktopList = this._desktopList;
+        this._desktopList = newdesktoplist;
+
+        this._priorPrimaryIndex = this._primaryIndex ?? null;
         let newPrimaryIndex;
-        let indexChanged = false;
-        if ((newdesktoplist.length > 0) && ('primaryMonitor' in newdesktoplist[0]))
-            newPrimaryIndex = newdesktoplist[0].primaryMonitor;
-        if (newPrimaryIndex !== this._primaryIndex)
-            indexChanged = true;
 
-        if (newdesktoplist.length !== this._desktopList.length) {
+        if ((newdesktoplist.length > 0) &&
+            ('primaryMonitor' in newdesktoplist[0]))
+            newPrimaryIndex = newdesktoplist[0].primaryMonitor ?? null;
+
+        if (newPrimaryIndex !== this._priorPrimaryIndex)
+            this._primaryIndex = newPrimaryIndex;
+
+        this._priorPrimaryMonitorIndex = this._primaryMonitorIndex ?? 0;
+
+        // Find the new primary monitor
+        this._primaryScreen = this._desktopList[this._primaryIndex] ?? null;
+        this._primaryMonitorIndex = this._primaryScreen.monitorIndex ?? null;
+
+        const indexChanged = this._priorPrimaryMonitorIndex !==
+            this._primaryMonitorIndex;
+
+        // Allow initial startup if no desktops defined on initiation
+        // or if any new monitors plugged in or removed
+        // by creating new desktops
+        if (this._priorDesktopList.some(d =>
+            typeof d !== 'object' || d == null) ||
+            this._priorDesktopList.length !== this._desktopList.length) {
+            // First desktop list is created from a null list or a
+            // monitor has been plugged in or removed.
             this._fileList.forEach(x => x.removeFromGrid());
-            if (indexChanged)
-                this._primaryIndex = newPrimaryIndex;
-            this._desktopList = newdesktoplist;
-            if (this._primaryIndex < this._desktopList.length)
-                this._primaryScreen = this._desktopList[this._primaryIndex];
-            else
-                this._primaryScreen = null;
-
             this._createGridWindows();
-            this._placeAllFilesOnGrids({redisplay: true});
+
+            // If valid fileList is available, no change in fileList
+            // recompute postion of all icons for new geometry
+            this._placeAllFilesOnGrids({
+                redisplay: true,
+                monitorschanged: true,
+                gridschanged: true,
+            });
             return;
         }
 
-        let monitorschanged = [];
-        let gridschanged = [];
-        for (let index = 0; index < newdesktoplist.length; index++) {
-            let area = newdesktoplist[index];
-            let area2 = this._desktopList[index];
+        // if no change in monitors, check if any change in monitor geometry
+        // or if any change in grid geometry
+
+        const monitorschangedList = [];
+        const gridschangedList = [];
+
+        this._desktopList.forEach((area, index) => {
+            const area2 = this._priorDesktopList[index];
             if ((area.x !== area2.x) ||
                 (area.y !== area2.y) ||
                 (area.width !== area2.width) ||
                 (area.height !== area2.height) ||
                 (area.zoom !== area2.zoom) ||
                 (area.monitorIndex !== area2.monitorIndex)) {
-                monitorschanged.push(index);
-                gridschanged.push(index);
-                continue;
+                monitorschangedList.push(index);
+                gridschangedList.push(index);
+                return;
             }
             if ((area.marginTop !== area2.marginTop) ||
                 (area.marginBottom !== area2.marginBottom) ||
                 (area.marginLeft !== area2.marginLeft) ||
                 (area.marginRight !== area2.marginRight)) {
-                if (!gridschanged.includes(index))
-                    gridschanged.push(index);
+                if (!gridschangedList.includes(index))
+                    gridschangedList.push(index);
             }
-        }
-        if (gridschanged.length || indexChanged) {
-            this._fileList.forEach(x => x.removeFromGrid());
-            if (gridschanged.length) {
-                for (let gridindex of gridschanged) {
-                    let desktop = this._desktops[gridindex];
-                    desktop.updateGridDescription(newdesktoplist[gridindex]);
-                    if (monitorschanged.includes(gridindex))
-                        desktop.resizeWindow();
+        });
 
+        // indexchanged implies monitors have changed
+        // monitors changed or index changed implies grids have changed
+        // as there may be other actors on the new monitor edge
+        const monitorschanged = !!monitorschangedList.length || indexChanged;
+
+        // only the grids have changed, no monitor changes
+        const gridschanged = gridschangedList.length
+            ? gridschangedList.some(i => !monitorschangedList.includes(i))
+            : false;
+
+        // redisplay is needed for sorting and stacking. Icons
+        // need to be redisplayed if anything changes - the actual fileList
+        // has not changed
+        const redisplay = monitorschanged || gridschanged;
+
+        if (gridschanged || redisplay) {
+            this._fileList.forEach(x => x.removeFromGrid());
+            this._desktops.forEach((desktop, index) => {
+                desktop.updateGridDescription(this._desktopList[index]);
+                if (monitorschangedList.includes(index)) {
+                    desktop.resizeWindow();
+                    desktop.resizeGrid();
+                } else if (gridschangedList.includes(index)) {
                     desktop.resizeGrid();
                 }
-            }
-            if (indexChanged)
-                this._primaryIndex = newPrimaryIndex;
-            this._desktopList = newdesktoplist;
-            if (this._primaryIndex < this._desktopList.length)
-                this._primaryScreen = this._desktopList[this._primaryIndex];
-            else
-                this._primaryScreen = null;
-            this._placeAllFilesOnGrids({redisplay: true, gridschanged: true});
+            });
+            // There is a subtle difference here, all information is needed
+            //
+            // gridschanged implies prior grid information is available.
+            // Therefore write mode is 'PRESERVE', recomputed coordintes are not
+            // rewritten to disk, and icons can jump back to the prior 'snap to grid'
+            // postion when grid and margins change again - albeight by only small
+            // relative margin changes :), ie with small dock size or top bar changes,
+            // big changes will still make icons jump snap grid postion row/column.
+            //
+            // FIX ME- in future, as we use relative normalized coordingates,
+            // it may be better to write and save the new coordinates.
+            //
+            // monitors changed implies that all coordintes are rewritten to the
+            // new monitor relative coordinates with a write mode of 'OVERWRITE'
+            //
+            // redisplay re-arranges all the icons on the new desktop monitor,
+            // essential for proper sorting/stacking of icons and arranging of icons
+            // For keep arranged new coordinates are automatically written to
+            // grid. However for stacked co-ordinates- we will neeed to redo the
+            // old coordinates seperately in do stacks with nonitorschanged info
+            this._placeAllFilesOnGrids({redisplay, monitorschanged, gridschanged});
         }
     }
 
     _createGridWindows() {
-        var desktopName;
-        for (let desktop of this._desktops)
-            desktop.destroy();
+        // Allow startup with no desktops from desktopmanager constructor
+        // even if no desktops are defined.
+        // desktops can be defined later from updateGridWindows(), dbus
+        // activation
+        if (!this._desktopList.length ||
+            this._desktopList.some(d => typeof d !== 'object' || d == null))
+            return;
 
+        this._desktops.forEach(desktop => desktop.destroy());
         this._desktops = [];
-        for (let desktopIndex in this._desktopList) {
-            let desktop = this._desktopList[desktopIndex];
-            if (this._asDesktop)
-                desktopName = `@!${desktop.x},${desktop.y};BDHF`;
-            else
-                desktopName = `DING ${desktopIndex}`;
 
-            this._desktops.push(new DesktopGrid.DesktopGrid(this, desktopName, desktop, this._asDesktop, this._premultiplied));
-        }
+        this._desktopList.forEach((desktop, desktopIndex) => {
+            const desktopName =
+                this._asDesktop
+                    ? `@!${desktop.x},${desktop.y};BDHF`
+                    : `DING ${desktopIndex}`;
+
+            this._desktops.push(
+                new DesktopGrid.DesktopGrid(
+                    this,
+                    desktopName,
+                    desktop,
+                    this._asDesktop,
+                    this._premultiplied
+                )
+            );
+        });
+        if (this.windowsPromiseResolve)
+            this.windowsPromiseResolve(true);
     }
 
     _setPendingDropCoordinates(file, dropCoordinates) {
@@ -553,7 +655,7 @@ const DesktopManager = class {
             }
 
             let info = new Gio.FileInfo();
-            info.set_attribute_string('metadata::nautilus-icon-position', '');
+            info.set_attribute_string('metadata::desktop-icon-position', '');
             if (dropCoordinates !== null) {
                 if (!opts.doCopy) {
                     info.set_attribute_string('metadata::nautilus-drop-position', `${dropCoordinates[0]},${dropCoordinates[1]}`);
@@ -897,7 +999,7 @@ const DesktopManager = class {
                 if (symlinkGio.make_symbolic_link(GLib.build_filenamev([fileGio.get_path()]), null)) {
                     let info = new Gio.FileInfo();
                     info.set_attribute_string('metadata::nautilus-drop-position', `${X},${Y}`);
-                    info.set_attribute_string('metadata::nautilus-icon-position', '');
+                    info.set_attribute_string('metadata::desktop-icon-position', '');
                     try {
                         await symlinkGio.set_attributes_async(info,
                             Gio.FileQueryInfoFlags.NONE,
@@ -1989,7 +2091,10 @@ const DesktopManager = class {
         this._fileList = [];
     }
 
-    async _updateDesktop() {
+    async _updateDesktop(opts = {initialRead: false}) {
+        if (this.windowsPromiseResolve)
+            // There are no windows available, prevent all drawing operations
+            return;
         if (this._readingDesktopFiles) {
             // just notify that the files changed while being read from the disk.
             this._desktopFilesChanged = true;
@@ -2038,7 +2143,7 @@ const DesktopManager = class {
         }
         this._readingDesktopFiles = false;
         this._forceDraw = false;
-        this._drawDesktop(fileList).catch(e => console.error(e));
+        this._drawDesktop(fileList, opts).catch(e => console.error(e));
     }
 
     async _doReadAsync() {
@@ -2165,7 +2270,7 @@ const DesktopManager = class {
         }
     }
 
-    async _drawDesktop(fileList) {
+    async _drawDesktop(fileList, opts = {initialRead: false}) {
         const selectedFiles = this.getCurrentSelectionAsUri();
 
         //* Update the Icon before placing on Desktop to prevent flickering Icons *//
@@ -2181,7 +2286,7 @@ const DesktopManager = class {
         this._removeAllFilesFromGrids();
         this._fileList = fileList;
 
-        this._placeAllFilesOnGrids();
+        this._placeAllFilesOnGrids(opts);
 
         //* Detect all Icon sizes are allocated and Icons are now shown and placed on Grid *//
         //* Desktop draw/paint is now complete *//
@@ -2231,10 +2336,108 @@ const DesktopManager = class {
             this.doSorts(opts);
             return;
         }
-        if (opts.redisplay)
+        let storeMode = this.Enums.StoredCoordinates.PRESERVE;
+        if (opts.monitorschanged || opts.initialRead) {
             this._sortByCurrentPosition();
-        const storeMode = this.Enums.StoredCoordinates.PRESERVE;
+            this._recomputeWindowPositions();
+            // write the new recomputed positions to metadata
+            storeMode = this.Enums.StoredCoordinates.OVERWRITE;
+        } else if (opts.gridschanged) {
+            this._sortByCurrentPosition();
+            this._recomputeGridPositions();
+        }
         this._addFilesToDesktop(this._fileList, storeMode);
+    }
+
+    _recomputeGridPositions(fileList) {
+        if (!fileList)
+            fileList = this._fileList;
+
+        fileList.forEach(fileItem => {
+            if (fileItem.savedCoordinates === null)
+                return;
+
+            if (fileItem._monitorIndex == null)
+                return;
+
+            const index = fileItem._monitorIndex;
+            const [desktop] = this._desktops.filter(d => {
+                return d.monitorIndex === index;
+            });
+
+            if (!desktop)
+                return;
+
+            const x = fileItem.x;
+            const y = fileItem.y;
+            const localX = x + desktop.marginChangeTop;
+            const localY = y + desktop.marginChangeLeft;
+            const [newGlobalX, newGlobalY] =
+                desktop.coordinatesLocalToGlobal(localX, localY);
+
+            fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
+        });
+    }
+
+    _recomputeWindowPositions(fileList) {
+        if (!fileList)
+            fileList = this._fileList;
+
+        if (!this._desktops.length)
+            return;
+
+        fileList.forEach(fileItem => {
+            if (fileItem.savedCoordinates == null)
+                return;
+            if (fileItem._normalCoordinates == null) {
+                fileItem.savedCoordinates = null;
+                return;
+            }
+            if (fileItem._monitorIndex == null)
+                return;
+
+            const itemMonitorIndex = fileItem._monitorIndex;
+            let desktop;
+
+            // reassign to monitors
+            // if on primary monitor, reassign to new primary
+            if (itemMonitorIndex === this._priorPrimaryMonitorIndex &&
+                this._primaryMonitorIndex != null) {
+                if (!this.Prefs.showOnSecondaryMonitor) {
+                    [desktop] = this._desktops.filter(d => {
+                        return d.monitorIndex === this._primaryMonitorIndex;
+                    });
+                } else {
+                    desktop = this._getPreferredDisplayDesktop();
+                }
+            }
+
+            // reassign not on primary monitor to prior monitor if
+            // if the prior monitor is still in index
+            if (!desktop) {
+                [desktop] = this._desktops.filter(d => {
+                    return d.monitorIndex === itemMonitorIndex;
+                });
+            }
+
+            // reassingn to new monitor, prior monitor not available
+            if (!desktop)
+                desktop = this._getPreferredDisplayDesktop();
+
+            // if any error, leave unmapped to new monitor, placement algorithm
+            //  will find placement from the old global position
+            if (!desktop)
+                return;
+
+            // recompute coordinates for the new monitor
+            const x = fileItem._normalCoordinates[0];
+            const y = fileItem._normalCoordinates[1];
+            const [newlocalX, newlocalY] =
+                desktop.setNormalizedCoordinates(x, y);
+            const [newGlobalX, newGlobalY] =
+                desktop.coordinatesLocalToGlobal(newlocalX, newlocalY);
+            fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
+        });
     }
 
     _addFilesToDesktop(fileList, storeMode) {
@@ -2396,19 +2599,24 @@ const DesktopManager = class {
         if (this._desktops.length === 1)
             return this._desktops[0];
 
-        if (!this.Prefs.showOnSecondaryMonitor) {
-            if (this._primaryScreen)
-                return this._desktops[this._primaryIndex];
-            else
-                return this._desktops[0];
+        if (!this.Prefs.showOnSecondaryMonitor &&
+            this._primaryMonitorIndex != null) {
+            return this._desktops.filter(d => {
+                return d.monitorIndex === this._primaryMonitorIndex;
+            })[0];
         }
 
+        const tempDesktops = this._desktops.filter((desktop, index) =>
+            index !== this._primaryMonitorIndex
+        );
+
         if (this._desktops.length > 1) {
-            if (!this._primaryScreen)
-                return this._desktops(this._desktops.length - 1);
-            let tempDesktops = this._desktops.filter((desktop, index) => index !== this._primaryIndex);
             if (tempDesktops.length === 1)
                 return tempDesktops[0];
+
+            // Positional algorithms here depending on new geomertry
+            // of the placed monitors, -FIX ME- currently rudimentary
+            // only going by position in the index, not by placement geometry.
 
             if (tempDesktops.length <= this._primaryIndex)
                 return tempDesktops[0];
@@ -2463,7 +2671,7 @@ const DesktopManager = class {
                  */
             try {
                 let info = new Gio.FileInfo();
-                info.set_attribute_string('metadata::nautilus-icon-position', '');
+                info.set_attribute_string('metadata::desktop-icon-position', '');
                 file.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
             } catch (e) {} // can happen if a file is created and deleted very fast
             break;
@@ -2713,7 +2921,7 @@ const DesktopManager = class {
 
                 const info = new Gio.FileInfo();
                 info.set_attribute_string('metadata::nautilus-drop-position', `${position.join(',')}`);
-                info.set_attribute_string('metadata::nautilus-icon-position', '');
+                info.set_attribute_string('metadata::desktop-icon-position', '');
                 info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
 
                 try {
@@ -2764,7 +2972,7 @@ const DesktopManager = class {
             try {
                 const info = new Gio.FileInfo();
                 info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
-                info.set_attribute_string('metadata::nautilus-icon-position', '');
+                info.set_attribute_string('metadata::desktop-icon-position', '');
                 info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
                 await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
                     GLib.PRIORITY_DEFAULT, null);
@@ -2812,6 +3020,12 @@ const DesktopManager = class {
             opts.redisplay = false;
         }
 
+        if ((opts.monitorschanged ||
+            opts.initialRead) &&
+            this.stackInitialCoordinates)
+            this._transformSavedStackInitialCoordinates();
+
+
         this._sortAllFilesFromGridsByKindStacked(opts);
 
         this._reassignFilesToDesktop();
@@ -2834,22 +3048,40 @@ const DesktopManager = class {
             if (this.Prefs.keepArranged)
                 this.doSorts();
             else
-                this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.PRESERVE);
+                this._addFilesToDesktop(this._fileList, this.Enums.StoredCoordinates.OVERWRITE);
         }
     }
 
     _saveStackInitialCoordinates() {
         this.stackInitialCoordinates = [];
-        for (let fileItem of this._fileList)
-            this.stackInitialCoordinates.push([fileItem.fileName, fileItem.savedCoordinates]);
+        for (let fileItem of this._fileList) {
+            this.stackInitialCoordinates.push({
+                fileName: fileItem.fileName,
+                savedCoordinates: fileItem.savedCoordinates,
+                _normalCoordinates: fileItem._normalCoordinates,
+                _monitorIndex: fileItem._monitorIndex,
+            });
+        }
+    }
+
+    _transformSavedStackInitialCoordinates() {
+        if (!this.stackInitialCoordinates && this.stackInitialCoordinates.length)
+            return;
+
+        this._recomputeWindowPositions(this.stackInitialCoordinates);
+        this.stackInitialCoordinates.forEach(o =>
+            (o.savedCoordinates = o.temporarySavedPosition));
     }
 
     _restoreStackInitialCoordinates() {
-        if (this.stackInitialCoordinates && this.stackInitialCoordinates.length !== 0) {
+        if (this.stackInitialCoordinates && this.stackInitialCoordinates.length) {
             this._allFileList.forEach(fileItem => {
                 this.stackInitialCoordinates.forEach(savedItem => {
-                    if (savedItem[0] === fileItem.fileName)
-                        fileItem.savedCoordinates = savedItem[1];
+                    if (savedItem.fileName === fileItem.fileName) {
+                        fileItem.savedCoordinates = savedItem.savedCoordinates;
+                        fileItem._normalCoordinates = savedItem._normalCoordinates;
+                        fileItem._monitorIndex = savedItem._monitorIndex;
+                    }
                 });
             });
         }
