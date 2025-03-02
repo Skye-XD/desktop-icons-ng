@@ -18,7 +18,6 @@
  */
 import {
     FileItem,
-    DesktopGrid,
     AskRenamePopup,
     ShowErrorPopup,
     TemplatesScriptsManager,
@@ -26,10 +25,11 @@ import {
     AutoAr,
     AppChooser,
     GnomeShellDragDrop,
-    StackItem
+    StackItem,
+    WindowManager
 } from '../dependencies/localFiles.js';
 
-import {Gtk, Gdk, Gio, GLib, GLibUnix} from '../dependencies/gi.js';
+import {Adw, Gtk, Gdk, Gio, GLib, GLibUnix} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopManager};
@@ -44,12 +44,6 @@ const DesktopManager = class {
             this.mainApp.hold(); // Don't close the application if there are no desktops
             this._hold_active = true;
         }
-
-        this._primaryIndex = primaryIndex;
-        if (primaryIndex < desktopList.length)
-            this._primaryScreen = desktopList[primaryIndex];
-        else
-            this._primaryScreen = null;
 
         this.GnomeShellVersion = Data.gnomeversion;
 
@@ -68,6 +62,11 @@ const DesktopManager = class {
         this.appChooser = AppChooser;
         this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
         this.ThumbnailLoader = Utils.ThumbnailLoader;
+        this.windowManager = new WindowManager.WindowManager(this,
+            desktopList,
+            asDesktop,
+            primaryIndex
+        );
 
         // Init Variables
         this._selectedFiles = null;
@@ -77,8 +76,6 @@ const DesktopManager = class {
         this.pointerY = 0;
         this._dragList = null;
         this.dragItem = null;
-        this._desktopList = desktopList;
-        this._desktops = [];
         this._desktopFilesChanged = false;
         this._readingDesktopFiles = false;
         this._desktopDir = this.DesktopIconsUtil.getDesktopDir();
@@ -100,13 +97,8 @@ const DesktopManager = class {
         this.Prefs.init(this);
         this._monitorVolumes();
 
-        // create grid windows
-        this._getPremultiplied();
-
         // Start Dbus Services
         this._intDBusSignalMonitoring();
-        this._dbusAdvertiseUpdate();
-
 
 
         // setup gracefull termination
@@ -133,9 +125,9 @@ const DesktopManager = class {
         // First create and make sure windows are created
         const windowscreated = new Promise(resolve => {
             this.windowsPromiseResolve = resolve;
-            this._createGridWindows();
+            this.windowManager.createGridWindows();
             // If this desktop List is null, ask for a new one
-            this._requestGeometryUpdate();
+            this.windowManager.requestGeometryUpdate();
         });
 
         // Monitor is attached, windows are created with proper geometry
@@ -153,7 +145,7 @@ const DesktopManager = class {
         // disk with write mode 'OVERWRITE'
         const initialRead = true;
 
-        // This is no longer needed, if true it block all updates.
+        // This is no longer needed, if true it blocks all updates.
         this.windowsPromiseResolve = null;
 
         // prior fileList, even if triggered through desktopdir changes
@@ -166,6 +158,43 @@ const DesktopManager = class {
     }
 
     async _performSanityChecks() {
+        // show error if monitor frame buffer scaling is not enabled first as windows may be awry
+        if (this.windowManager.differentZooms &&
+            !this.Prefs.usingX11 &&
+            !this.fractionalScaling &&
+            !this._framebufferWarningDone) {
+            const header = _('Monitor Frame Buffer Scaling is not enabled');
+            const text = _('Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n\nPlease enable in Mutter Dconf Settings');
+            // show notification as well as error dialog as windows may not be postioned correctly
+            this.dbusManager.doNotify(header, text);
+            this._framebufferWarningDone = true;
+
+            const window = this.mainApp.get_active_window();
+            const dialog = new Adw.AlertDialog();
+            dialog.set_body_use_markup(true);
+            dialog.set_heading_use_markup(true);
+            dialog.set_heading(header);
+            const secondaryText = _('Multiple monitors with different zoom settings.\n\nEnable per monitor framebuffer scaling in Mutter Dconf Settings?');
+            dialog.set_body(secondaryText);
+            dialog.add_response('cancel', _('Cancel'));
+            dialog.add_response('enable', _('Enable'));
+            dialog.set_close_response('cancel');
+            dialog.set_default_response('enable');
+            dialog.set_response_appearance('enable', Adw.ResponseAppearance.SUGGESTED);
+            dialog.set_response_appearance('cancel', Adw.ResponseAppearance.DEFAULT);
+            dialog.set_prefer_wide_layout(true);
+            const runDialog = new Promise(resolve => {
+                dialog.choose(window, null, (actor, asyncResult) => {
+                    const response = actor.choose_finish(asyncResult);
+                    if (response === 'enable')
+                        this.Prefs.fractionalScaling = true;
+                    dialog.close();
+                    resolve(response);
+                });
+            });
+            await runDialog;
+        }
+
         const isFolder = this._desktopDir.query_file_type(
             Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
             null) === Gio.FileType.DIRECTORY;
@@ -242,9 +271,7 @@ const DesktopManager = class {
             this._fileList.forEach(f => f.onDestroy());
         }
 
-        for (let desktop of this._desktops)
-            desktop.destroy();
-        this._desktops = [];
+        this.windowManager.destroyDesktops();
 
         this.fileItemMenu.destroy();
     }
@@ -381,232 +408,12 @@ const DesktopManager = class {
         return name;
     }
 
-    _dbusAdvertiseUpdate() {
-        let updateGridWindows = new Gio.SimpleAction({
-            name: 'updateGridWindows',
-            parameter_type: new GLib.VariantType('av'),
-        });
-        updateGridWindows.connect('activate', (action, parameter) => {
-            this.updateGridWindows(parameter.recursiveUnpack());
-        });
-        let createDesktopShortcut = new Gio.SimpleAction({
-            name: 'createDesktopShortcut',
-            parameter_type: new GLib.VariantType('a{sv}'),
-        });
-        createDesktopShortcut.connect('activate', (action, parameter) => {
-            this.createDesktopShortcut(parameter.recursiveUnpack());
-        });
-        this.mainApp.add_action(updateGridWindows);
-        this.mainApp.add_action(createDesktopShortcut);
-        const busObjectPath = this.mainApp.get_dbus_object_path();
-        const busName = this.mainApp.get_application_id();
-        const connection = Gio.DBus.session;
-        const signalName = 'upateGeometry';
-        const signalXml = `
-                <node>
-                  <interface name="${busName}">
-                    <signal name="${signalName}">
-                      <arg name="type" type="s"/>
-                      <arg name="value" type="b"/>
-                    </signal>
-                  </interface>
-                </node>`;
-        this._dbusGeometryIface =
-                Gio.DBusExportedObject.wrapJSObject(signalXml, this);
-        this._dbusGeometryIface.export(
-            connection,
-            busObjectPath
-        );
-        this._requestGeometryUpdate();
-    }
-
     async createDesktopShortcut(shortcutinfo) {
         let fileList = [shortcutinfo.uri];
         let X = parseInt(shortcutinfo.X);
         let Y = parseInt(shortcutinfo.Y);
         await this.clearFileCoordinates(fileList, [X, Y], {doCopy: true});
         await this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
-    }
-
-    _getPremultiplied() {
-        this._premultiplied = false;
-        try {
-            for (let f of this.Prefs.mutterSettings.get_strv('experimental-features')) {
-                if (f === 'scale-monitor-framebuffer') {
-                    this._premultiplied = true;
-                    break;
-                }
-            }
-        } catch (e) {
-        }
-    }
-
-    _requestGeometryUpdate() {
-        let variant = new GLib.Variant('(sb)', ['updategeometry', true]);
-        const busObjectPath = this.mainApp.get_dbus_object_path();
-        const busName = this.mainApp.get_application_id();
-        const connection = Gio.DBus.session;
-        const signalName = 'updategeometry';
-        connection.emit_signal(
-            null,
-            busObjectPath,
-            busName,
-            signalName,
-            variant
-        );
-    }
-
-    updateGridWindows(newdesktoplist) {
-        this._priorDesktopList = this._desktopList;
-        this._desktopList = newdesktoplist;
-
-        this._priorPrimaryIndex = this._primaryIndex ?? null;
-        let newPrimaryIndex;
-
-        if ((newdesktoplist.length > 0) &&
-            ('primaryMonitor' in newdesktoplist[0]))
-            newPrimaryIndex = newdesktoplist[0].primaryMonitor ?? null;
-
-        if (newPrimaryIndex !== this._priorPrimaryIndex)
-            this._primaryIndex = newPrimaryIndex;
-
-        this._priorPrimaryMonitorIndex = this._primaryMonitorIndex ?? 0;
-
-        // Find the new primary monitor
-        this._primaryScreen = this._desktopList[this._primaryIndex] ?? null;
-        this._primaryMonitorIndex = this._primaryScreen.monitorIndex ?? null;
-
-        const indexChanged = this._priorPrimaryMonitorIndex !==
-            this._primaryMonitorIndex;
-
-        // Allow initial startup if no desktops defined on initiation
-        // or if any new monitors plugged in or removed
-        // by creating new desktops
-        if (this._priorDesktopList.some(d =>
-            typeof d !== 'object' || d == null) ||
-            this._priorDesktopList.length !== this._desktopList.length) {
-            // First desktop list is created from a null list or a
-            // monitor has been plugged in or removed.
-            this._fileList.forEach(x => x.removeFromGrid());
-            this._createGridWindows();
-
-            // If valid fileList is available, no change in fileList
-            // recompute postion of all icons for new geometry
-            this._placeAllFilesOnGrids({
-                redisplay: true,
-                monitorschanged: true,
-                gridschanged: true,
-            });
-            return;
-        }
-
-        // if no change in monitors, check if any change in monitor geometry
-        // or if any change in grid geometry
-
-        const monitorschangedList = [];
-        const gridschangedList = [];
-
-        this._desktopList.forEach((area, index) => {
-            const area2 = this._priorDesktopList[index];
-            if ((area.x !== area2.x) ||
-                (area.y !== area2.y) ||
-                (area.width !== area2.width) ||
-                (area.height !== area2.height) ||
-                (area.zoom !== area2.zoom) ||
-                (area.monitorIndex !== area2.monitorIndex)) {
-                monitorschangedList.push(index);
-                gridschangedList.push(index);
-                return;
-            }
-            if ((area.marginTop !== area2.marginTop) ||
-                (area.marginBottom !== area2.marginBottom) ||
-                (area.marginLeft !== area2.marginLeft) ||
-                (area.marginRight !== area2.marginRight)) {
-                if (!gridschangedList.includes(index))
-                    gridschangedList.push(index);
-            }
-        });
-
-        // indexchanged implies monitors have changed
-        // monitors changed or index changed implies grids have changed
-        // as there may be other actors on the new monitor edge
-        const monitorschanged = !!monitorschangedList.length || indexChanged;
-
-        // only the grids have changed, no monitor changes
-        const gridschanged = gridschangedList.length
-            ? gridschangedList.some(i => !monitorschangedList.includes(i))
-            : false;
-
-        // redisplay is needed for sorting and stacking. Icons
-        // need to be redisplayed if anything changes - the actual fileList
-        // has not changed
-        const redisplay = monitorschanged || gridschanged;
-
-        if (gridschanged || redisplay) {
-            this._fileList.forEach(x => x.removeFromGrid());
-            this._desktops.forEach((desktop, index) => {
-                desktop.updateGridDescription(this._desktopList[index]);
-                if (monitorschangedList.includes(index)) {
-                    desktop.resizeWindow();
-                    desktop.resizeGrid();
-                } else if (gridschangedList.includes(index)) {
-                    desktop.resizeGrid();
-                }
-            });
-            // There is a subtle difference here, all information is needed
-            //
-            // gridschanged implies prior grid information is available.
-            // Therefore write mode is 'PRESERVE', recomputed coordintes are not
-            // rewritten to disk, and icons can jump back to the prior 'snap to grid'
-            // postion when grid and margins change again - albeight by only small
-            // relative margin changes :), ie with small dock size or top bar changes,
-            // big changes will still make icons jump snap grid postion row/column.
-            //
-            // FIX ME- in future, as we use relative normalized coordingates,
-            // it may be better to write and save the new coordinates.
-            //
-            // monitors changed implies that all coordintes are rewritten to the
-            // new monitor relative coordinates with a write mode of 'OVERWRITE'
-            //
-            // redisplay re-arranges all the icons on the new desktop monitor,
-            // essential for proper sorting/stacking of icons and arranging of icons
-            // For keep arranged new coordinates are automatically written to
-            // grid. However for stacked co-ordinates- we will neeed to redo the
-            // old coordinates seperately in do stacks with nonitorschanged info
-            this._placeAllFilesOnGrids({redisplay, monitorschanged, gridschanged});
-        }
-    }
-
-    _createGridWindows() {
-        // Allow startup with no desktops from desktopmanager constructor
-        // even if no desktops are defined.
-        // desktops can be defined later from updateGridWindows(), dbus
-        // activation
-        if (!this._desktopList.length ||
-            this._desktopList.some(d => typeof d !== 'object' || d == null))
-            return;
-
-        this._desktops.forEach(desktop => desktop.destroy());
-        this._desktops = [];
-
-        this._desktopList.forEach((desktop, desktopIndex) => {
-            const desktopName =
-                this._asDesktop
-                    ? `@!${desktop.x},${desktop.y};BDHF`
-                    : `DING ${desktopIndex}`;
-
-            this._desktops.push(
-                new DesktopGrid.DesktopGrid(
-                    this,
-                    desktopName,
-                    desktop,
-                    this._asDesktop,
-                    this._premultiplied
-                )
-            );
-        });
-        if (this.windowsPromiseResolve)
-            this.windowsPromiseResolve(true);
     }
 
     _setPendingDropCoordinates(file, dropCoordinates) {
@@ -1684,6 +1491,14 @@ const DesktopManager = class {
             this._restoreDefaultDesktop();
         });
         this.mainApp.add_action(this.restoreDefaultDesktopAction);
+        let createDesktopShortcut = new Gio.SimpleAction({
+            name: 'createDesktopShortcut',
+            parameter_type: new GLib.VariantType('a{sv}'),
+        });
+        createDesktopShortcut.connect('activate', (action, parameter) => {
+            this.createDesktopShortcut(parameter.recursiveUnpack());
+        });
+        this.mainApp.add_action(createDesktopShortcut);
     }
 
     textEntryAccelsTurnOn() {
@@ -2093,7 +1908,6 @@ const DesktopManager = class {
 
     async _updateDesktop(opts = {initialRead: false}) {
         if (this.windowsPromiseResolve)
-            // There are no windows available, prevent all drawing operations
             return;
         if (this._readingDesktopFiles) {
             // just notify that the files changed while being read from the disk.
@@ -2408,7 +2222,7 @@ const DesktopManager = class {
                         return d.monitorIndex === this._primaryMonitorIndex;
                     });
                 } else {
-                    desktop = this._getPreferredDisplayDesktop();
+                    desktop = this.preferredDisplayDesktop;
                 }
             }
 
@@ -2422,7 +2236,7 @@ const DesktopManager = class {
 
             // reassingn to new monitor, prior monitor not available
             if (!desktop)
-                desktop = this._getPreferredDisplayDesktop();
+                desktop = this.preferredDisplayDesktop;
 
             // if any error, leave unmapped to new monitor, placement algorithm
             //  will find placement from the old global position
@@ -2441,7 +2255,7 @@ const DesktopManager = class {
     }
 
     _addFilesToDesktop(fileList, storeMode) {
-        let preferredDesktop = this._getPreferredDisplayDesktop();
+        let preferredDesktop = this.preferredDisplayDesktop;
         if (!preferredDesktop)
             return;
         let outOfDesktops = [];
@@ -2554,7 +2368,6 @@ const DesktopManager = class {
 
     _addFilesCloseToAssignedDesktop(fileList, storeMode, preferredDesktop) {
         for (let fileItem of fileList) {
-            let minDistance = -1;
             let desktopX;
             let x = desktopX = preferredDesktop.gridGlobalRectangle.x;
             let desktopY = preferredDesktop.gridGlobalRectangle.y;
@@ -2566,23 +2379,12 @@ const DesktopManager = class {
                 storeMode = this.Enums.StoredCoordinates.OVERWRITE;
             }
 
-            // Find the closest desktop to given position
-            let newDesktop = null;
-            for (let desktop of this._desktops) {
-                if (!desktop.isAvailable())
-                    continue;
-
-                let distance = desktop.getDistance(x);
-
-                if ((minDistance === -1) || (distance < minDistance)) {
-                    minDistance = distance;
-                    newDesktop = desktop;
-                    desktopX = newDesktop.gridGlobalRectangle.x;
-                    desktopY = newDesktop.gridGlobalRectangle.y;
-                }
-            }
+            // Find the closest desktop to given position, is null if not available
+            const newDesktop = this.windowManager.getClosestDesktop(x);
 
             if (newDesktop) {
+                desktopX = newDesktop.gridGlobalRectangle.x;
+                desktopY = newDesktop.gridGlobalRectangle.y;
                 if (fileItem.droppedCoordinates)
                     fileItem.droppedCoordinates = null;
                 newDesktop.addFileItemCloseTo(fileItem, desktopX, desktopY, storeMode);
@@ -2590,42 +2392,6 @@ const DesktopManager = class {
                 console.log('Not enough space to add icons');
             }
         }
-    }
-
-    _getPreferredDisplayDesktop() {
-        if (!this._desktops.length)
-            return null;
-
-        if (this._desktops.length === 1)
-            return this._desktops[0];
-
-        if (!this.Prefs.showOnSecondaryMonitor &&
-            this._primaryMonitorIndex != null) {
-            return this._desktops.filter(d => {
-                return d.monitorIndex === this._primaryMonitorIndex;
-            })[0];
-        }
-
-        const tempDesktops = this._desktops.filter((desktop, index) =>
-            index !== this._primaryMonitorIndex
-        );
-
-        if (this._desktops.length > 1) {
-            if (tempDesktops.length === 1)
-                return tempDesktops[0];
-
-            // Positional algorithms here depending on new geomertry
-            // of the placed monitors, -FIX ME- currently rudimentary
-            // only going by position in the index, not by placement geometry.
-
-            if (tempDesktops.length <= this._primaryIndex)
-                return tempDesktops[0];
-            else
-                return tempDesktops[tempDesktops.length - 1];
-        }
-
-        // Catch All if everything fails
-        return this._desktops[0];
     }
 
     async _updateWritableByOthers() {
@@ -3585,10 +3351,7 @@ const DesktopManager = class {
     }
 
     onMutterSettingsChanged() {
-        this._getPremultiplied();
-        for (let desktop of this._desktops)
-            desktop._premultiplied = this._premultiplied;
-        this._requestGeometryUpdate();
+        this.windowManager.requestGeometryUpdate();
     }
 
     onSettingsChanged() {
@@ -3686,5 +3449,29 @@ const DesktopManager = class {
 
     get desktopDir() {
         return this._desktopDir;
+    }
+
+    get fractionalScaling() {
+        return this.Prefs.fractionalScaling;
+    }
+
+    set fractionalScaling(boolean) {
+        this.Prefs.fractionalScaling = boolean;
+    }
+
+    get _desktops() {
+        return this.windowManager.desktops;
+    }
+
+    get _primaryMonitorIndex() {
+        return this.windowManager.primaryMonitorIndex;
+    }
+
+    get _priorPrimaryMonitorIndex() {
+        return this.windowManager.priorPrimaryMonitorIndex;
+    }
+
+    get preferredDisplayDesktop() {
+        return this.windowManager.preferredDisplayDesktop;
     }
 };

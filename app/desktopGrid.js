@@ -23,7 +23,7 @@ export {DesktopGrid};
 
 // eslint-disable-next-line no-unused-vars
 const DesktopGrid = class {
-    constructor(desktopManager, desktopName, desktopDescription, asDesktop, premultiplied) {
+    constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
         this._destroying = false;
         this._desktopManager = desktopManager;
         this.Prefs = this._desktopManager.Prefs;
@@ -34,7 +34,6 @@ const DesktopGrid = class {
         this.gridPadding = this.Enums.GRID_PADDING;
         this._desktopName = desktopName;
         this._asDesktop = asDesktop;
-        this._premultiplied = premultiplied;
         this._desktopDescription = desktopDescription;
         this._using_X11 = this.DesktopIconsUtil.usingX11();
         this.directoryOpenTimer = null;
@@ -202,7 +201,7 @@ const DesktopGrid = class {
         if (this._asDesktop) {
             if (this._using_X11)
                 this._sizer = Math.ceil(this._zoom);
-            else if (this._premultiplied)
+            else if (this.Prefs.fractionalScaling)
                 this._sizer = 1;
         }
         this._windowWidth = Math.floor(this._desktopDescription.width / this._sizer);
@@ -1030,7 +1029,8 @@ const DesktopGrid = class {
 
     getDistance(x) {
         // Returns the distance to the middle point of this grid from X //
-        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) + Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
+        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) +
+            Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
     }
 
     _coordinatesGlobalToLocal(X, Y, widget = null) {
