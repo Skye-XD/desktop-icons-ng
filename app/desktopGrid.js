@@ -254,9 +254,13 @@ const DesktopGrid = class {
             this._marginRight -= 1000;
         }
         this.marginChangeTop =
-            this._marginTop + this._marginBottom - oldMarginTop - oldMarginBottom;
+            this._marginTop - oldMarginTop;
         this.marginChangeLeft =
-            this._marginLeft + this._marginRight - oldMarginLeft - oldMarginRight;
+            this._marginLeft - oldMarginLeft;
+        this.marginChangeRight =
+            this._marginRight - oldMarginRight;
+        this.marginChangeBottom =
+            this._marginBottom - oldMarginBottom;
         this._width =
             this._desktopDescription.width - this._marginLeft - this._marginRight;
         this._height =

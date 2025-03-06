@@ -2182,12 +2182,10 @@ const DesktopManager = class {
             if (!desktop)
                 return;
 
-            const x = fileItem.x;
-            const y = fileItem.y;
-            const localX = x + desktop.marginChangeTop;
-            const localY = y + desktop.marginChangeLeft;
-            const [newGlobalX, newGlobalY] =
-                desktop.coordinatesLocalToGlobal(localX, localY);
+            const x = fileItem.X;
+            const y = fileItem.Y;
+            const newGlobalX = x + desktop.marginChangeLeft;
+            const newGlobalY = y + desktop.marginChangeTop;
 
             fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
         });
