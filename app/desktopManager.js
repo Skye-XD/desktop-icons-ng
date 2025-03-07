@@ -1944,7 +1944,7 @@ const DesktopManager = class {
                     break;
 
                 if (this._forceDraw) {
-                    this._drawDesktop(fileList).catch(e => console.error(e));
+                    this._drawDesktop(fileList, opts).catch(e => console.error(e));
                     this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
                 }
             }
