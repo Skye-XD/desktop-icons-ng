@@ -2151,14 +2151,23 @@ const DesktopManager = class {
             return;
         }
         let storeMode = this.Enums.StoredCoordinates.PRESERVE;
-        if (opts.monitorschanged || opts.initialRead) {
+        if (opts.redisplay || opts.initialRead) {
             this._sortByCurrentPosition();
-            this._recomputeWindowPositions();
-            // write the new recomputed positions to metadata
+
+            // write the new recomputed positions to metadata when assigned
             storeMode = this.Enums.StoredCoordinates.OVERWRITE;
-        } else if (opts.gridschanged) {
-            this._sortByCurrentPosition();
-            this._recomputeGridPositions();
+
+            if (this.Prefs.freePositionIcons) {
+                this._recomputeWindowPositions();
+            } else {
+            // if snap to grid, recompute margin changes and apply to fileItems
+            // so they end up in the same relative grid, otherwise they keep
+            // shifting postions. This keeps them in the same relative grid
+            // position.
+            // for snap to grid this will apply the new x,y of the grid assigned
+                this._recomputeWindowPositions();
+                this._recomputeGridPositions();
+            }
         }
         this._addFilesToDesktop(this._fileList, storeMode);
     }
@@ -2182,10 +2191,22 @@ const DesktopManager = class {
             if (!desktop)
                 return;
 
-            const x = fileItem.X;
-            const y = fileItem.Y;
-            const newGlobalX = x + desktop.marginChangeLeft;
-            const newGlobalY = y + desktop.marginChangeTop;
+            const [x, y] = fileItem.savedCoordinates;
+            const marginChangeLeft = desktop.marginChangeLeft;
+            const marginChangeTop = desktop.marginChangeTop;
+            const marginChangeRight = desktop.marginChangeRight;
+            const marginChangeBottom = desktop.marginChangeBottom;
+            const shiftLeft = marginChangeLeft - marginChangeRight;
+            const shiftUp = marginChangeTop - marginChangeBottom;
+
+            const newGlobalX =
+                shiftLeft < 0
+                    ? x - shiftLeft
+                    : x + shiftLeft;
+            const newGlobalY =
+                shiftUp < 0
+                    ? y - shiftUp
+                    : y + shiftUp;
 
             fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
         });
@@ -2240,6 +2261,8 @@ const DesktopManager = class {
             //  will find placement from the old global position
             if (!desktop)
                 return;
+
+            fileItem.temporaryMonitorIndex = desktop.monitorIndex;
 
             // recompute coordinates for the new monitor
             const x = fileItem._normalCoordinates[0];

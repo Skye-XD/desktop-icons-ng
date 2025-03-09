@@ -1017,10 +1017,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         this.writeSavedCoordinates(pos);
     }
 
-    set temporarySavedPosition(pos) {
-        this._savedCoordinates = pos;
-    }
-
     get x() {
         return this._x1;
     }
