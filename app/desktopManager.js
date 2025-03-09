@@ -1906,7 +1906,7 @@ const DesktopManager = class {
         this._fileList = [];
     }
 
-    async _updateDesktop(opts = {initialRead: false}) {
+    async _updateDesktop(opts = {initialRead: true}) {
         if (this.windowsPromiseResolve)
             return;
         if (this._readingDesktopFiles) {
