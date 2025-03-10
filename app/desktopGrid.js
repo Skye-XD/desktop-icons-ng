@@ -229,10 +229,10 @@ const DesktopGrid = class {
         this._marginTopHiddenObject = false;
         this._marginBottomHiddenObject = false;
 
-        const oldMarginTop = this._marginTop > 0 ? this._marginTop : 0;
-        const oldMarginLeft = this._marginLeft > 0 ? this._marginLeft : 0;
-        const oldMarginRight = this._marginRight > 0 ? this._marginRight : 0;
-        const oldMarginBottom = this._marginBottom > 0 ? this._marginBottom : 0;
+        this._oldMarginTop = this._marginTop > 0 ? this._marginTop : 0;
+        this._oldMarginLeft = this._marginLeft > 0 ? this._marginLeft : 0;
+        this._oldMarginRight = this._marginRight > 0 ? this._marginRight : 0;
+        this._oldMarginBottom = this._marginBottom > 0 ? this._marginBottom : 0;
         this._marginTop = this._desktopDescription.marginTop + this.gridPadding;
         if (this._marginTop > 1000) {
             this._marginTopHiddenObject = true;
@@ -253,14 +253,7 @@ const DesktopGrid = class {
             this._marginRightHiddenObject = true;
             this._marginRight -= 1000;
         }
-        this.marginChangeTop =
-            this._marginTop - oldMarginTop;
-        this.marginChangeLeft =
-            this._marginLeft - oldMarginLeft;
-        this.marginChangeRight =
-            this._marginRight - oldMarginRight;
-        this.marginChangeBottom =
-            this._marginBottom - oldMarginBottom;
+
         this._width =
             this._desktopDescription.width - this._marginLeft - this._marginRight;
         this._height =
@@ -278,6 +271,17 @@ const DesktopGrid = class {
         this._maxRows =  Math.floor(this._height / (this.Prefs.DesiredHeight + 4 * this.elementSpacing));
         this._elementWidth = Math.floor(this._width / this._maxColumns);
         this._elementHeight = Math.floor(this._height / this._maxRows);
+
+        this._marginChangeTop =
+            this._marginTop - this._oldMarginTop;
+        this._marginChangeLeft =
+            this._marginLeft - this._oldMarginLeft;
+        this._marginChangeRight =
+            this._marginRight - this._oldMarginRight;
+        this._marginChangeBottom =
+            this._marginBottom - this._oldMarginBottom;
+        this.shiftLeft = this._marginChangeLeft - this._marginChangeRight;
+        this.shiftUp = this._marginChangeTop - this._marginChangeBottom;
     }
 
     _updateGridRectangle() {
@@ -315,6 +319,19 @@ const DesktopGrid = class {
     destroy() {
         this._destroying = true;
         this._window.destroy();
+    }
+
+    recomputeGridPosition(x, y) {
+        const newGlobalX =
+            this.shiftLeft < 0
+                ? x - this.shiftLeft
+                : x + this.shiftLeft;
+        const newGlobalY =
+            this.shiftUp < 0
+                ? y - this.shiftUp
+                : y + this.shiftUp;
+
+        return [Math.max(newGlobalX), Math.max(newGlobalY)];
     }
 
     // Compute correct position for pop up menus relative to margins to prevent going under/over margins

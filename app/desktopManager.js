@@ -2192,21 +2192,9 @@ const DesktopManager = class {
                 return;
 
             const [x, y] = fileItem.savedCoordinates;
-            const marginChangeLeft = desktop.marginChangeLeft;
-            const marginChangeTop = desktop.marginChangeTop;
-            const marginChangeRight = desktop.marginChangeRight;
-            const marginChangeBottom = desktop.marginChangeBottom;
-            const shiftLeft = marginChangeLeft - marginChangeRight;
-            const shiftUp = marginChangeTop - marginChangeBottom;
 
-            const newGlobalX =
-                shiftLeft < 0
-                    ? x - shiftLeft
-                    : x + shiftLeft;
-            const newGlobalY =
-                shiftUp < 0
-                    ? y - shiftUp
-                    : y + shiftUp;
+            const [newGlobalX, newGlobalY] =
+                desktop.recomputeGridPosition(x, y);
 
             fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
         });
