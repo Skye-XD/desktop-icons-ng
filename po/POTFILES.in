@@ -5,7 +5,7 @@ app/autoAr.js
 app/desktopGrid.js
 app/desktopIconItem.js
 app/desktopManager.js
-app/ding.js
+app/adw-ding.js
 app/enums.js
 app/fileItem.js
 app/fileItemMenu.js
@@ -15,6 +15,7 @@ app/showErrorPopup.js
 app/stackItem.js
 app/templatesScriptsManager.js
 app/thumbnails.js
+app/windowManager.js
 app/utils/dbusUtils.js
 app/utils/desktopIconsUtil.js
 app/utils/gsConnect.js
