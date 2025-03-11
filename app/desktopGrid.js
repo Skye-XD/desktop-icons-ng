@@ -322,16 +322,34 @@ const DesktopGrid = class {
     }
 
     recomputeGridPosition(x, y) {
-        const newGlobalX =
+        let newGlobalX =
             this.shiftLeft < 0
                 ? x - this.shiftLeft
                 : x + this.shiftLeft;
-        const newGlobalY =
+        let newGlobalY =
             this.shiftUp < 0
                 ? y - this.shiftUp
                 : y + this.shiftUp;
 
-        return [Math.max(newGlobalX), Math.max(newGlobalY)];
+        newGlobalX =
+            newGlobalX > this.gridGlobalRectangle.x + this._width
+                ? this.gridGlobalRectangle.x + this._width - 1
+                : newGlobalX;
+        newGlobalY =
+            newGlobalY > this.gridGlobalRectangle.y + this._height
+                ? this.gridGlobalRectangle.y + this._height - 1
+                : newGlobalY;
+
+        newGlobalX =
+            newGlobalX < this.gridGlobalRectangle.x
+                ? this.gridGlobalRectangle.x + 1
+                : newGlobalX;
+        newGlobalY =
+            newGlobalY < this.gridGlobalRectangle.y
+                ? this.gridGlobalRectangle.y + 1
+                : newGlobalY;
+
+        return [newGlobalX, newGlobalY];
     }
 
     // Compute correct position for pop up menus relative to margins to prevent going under/over margins
@@ -1400,6 +1418,9 @@ const DesktopGrid = class {
     }
 
     setNormalizedCoordinates(x, y) {
-        return [x * this.normalizedWidth, y * this.normalizedHeight];
+        const newGlobalX = x * this.normalizedWidth;
+        const newGlobalY = y * this.normalizedHeight;
+
+        return [newGlobalX, newGlobalY];
     }
 };
