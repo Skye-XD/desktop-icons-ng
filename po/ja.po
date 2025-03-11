@@ -11,12 +11,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-21 18:55-0500\n"
+"POT-Creation-Date: 2025-03-09 21:22-0400\n"
 "PO-Revision-Date: 2025-03-02 05:32+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -151,7 +151,7 @@ msgid "Set a new folder for the desktop"
 msgstr "デスクトップにホームフォルダーを表示する"
 
 #: app/adwPreferencesWindow.js:266 app/adwPreferencesWindow.js:446
-#: app/desktopManager.js:3352
+#: app/desktopManager.js:3280
 #, fuzzy
 msgid "Choose"
 msgstr "選択"
@@ -172,8 +172,10 @@ msgid "Restore"
 msgstr "復元"
 
 #: app/adwPreferencesWindow.js:280
-msgid "Add an emblem to soft links"
-msgstr "ソフトリンクにエンブレムを追加する"
+#, fuzzy
+#| msgid "Add an emblem to links"
+msgid "Add information emblems for links, encryption"
+msgstr "リンクにエンブレムを追加する"
 
 #: app/adwPreferencesWindow.js:283
 msgid "Use dark text in icon labels"
@@ -292,7 +294,7 @@ msgstr "Webブラウザで翻訳する"
 msgid "Translate"
 msgstr "翻訳"
 
-#: app/adwPreferencesWindow.js:445 app/desktopManager.js:3351
+#: app/adwPreferencesWindow.js:445 app/desktopManager.js:3279
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Choose Desktop Folder"
@@ -337,8 +339,8 @@ msgstr "フォルダー名"
 msgid "File name"
 msgstr "ファイル名"
 
-#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1407
-#: app/fileItemMenu.js:855
+#: app/askRenamePopup.js:57 app/autoAr.js:299 app/desktopManager.js:1235
+#: app/fileItemMenu.js:860
 msgid "OK"
 msgstr "OK"
 
@@ -370,9 +372,9 @@ msgstr "ファイルを展開します"
 msgid "Compressing files"
 msgstr "ファイル圧縮中..."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:874
-#: app/desktopManager.js:1409 app/fileItemMenu.js:696 app/fileItemMenu.js:855
-#: app/showErrorPopup.js:39 app/showErrorPopup.js:43
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:179
+#: app/desktopManager.js:702 app/desktopManager.js:1237 app/fileItemMenu.js:696
+#: app/fileItemMenu.js:860 app/showErrorPopup.js:38 app/showErrorPopup.js:46
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -500,42 +502,65 @@ msgstr "小規模なアーカイブですが、Linux と Mac のみ."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "より小さなアーカイブは、WindowsとMacにインストールする必要があります."
 
-#: app/desktopGrid.js:47
+#: app/desktopGrid.js:46
 #, fuzzy
 msgid "Desktop Icons"
 msgstr "Desktopエントリーのアイコン"
 
-#: app/desktopManager.js:150
+#: app/desktopManager.js:166
+msgid "Monitor Frame Buffer Scaling is not enabled"
+msgstr ""
+
+#: app/desktopManager.js:167
+msgid ""
+"Multiple monitors with different zoom settings, recommend per monitor "
+"framebuffer scaling.\n"
+"\n"
+"Please enable in Mutter Dconf Settings"
+msgstr ""
+
+#: app/desktopManager.js:177
+msgid ""
+"Multiple monitors with different zoom settings.\n"
+"\n"
+"Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
+msgstr ""
+
+#: app/desktopManager.js:180
+msgid "Enable"
+msgstr ""
+
+#: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
 msgstr ""
 
-#: app/desktopManager.js:166
+#: app/desktopManager.js:213
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "グノーム 見つからないファイル"
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:214
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
 "グノーム Gtk4デスクトップアイコンNGでファイルアプリケーションが必要です."
 
-#: app/desktopManager.js:180
+#: app/desktopManager.js:222
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "デフォルトファイルマネージャはありません"
 
-#: app/desktopManager.js:181
+#: app/desktopManager.js:223
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Mimetype \"inode/directory\" を扱うアプリケーションはありません"
 
-#: app/desktopManager.js:194
+#: app/desktopManager.js:232
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome ファイルがファイルマネージャとして登録されていない"
 
-#: app/desktopManager.js:195
+#: app/desktopManager.js:233
 #, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
@@ -547,274 +572,274 @@ msgstr ""
 "xdg-utilsのインストールを確認してください\n"
 "Gnomeファイルをチェック .desktop ファイルインストール"
 
-#: app/desktopManager.js:364
+#: app/desktopManager.js:329
 #, fuzzy
 msgid "Desktop Folder Change Failed"
 msgstr "オーダー作成に失敗しました"
 
-#: app/desktopManager.js:365
+#: app/desktopManager.js:330
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopManager.js:376
+#: app/desktopManager.js:341
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopManager.js:377
+#: app/desktopManager.js:342
 msgid "Switching to new Desktop..."
 msgstr ""
 
-#: app/desktopManager.js:873
+#: app/desktopManager.js:701
 #, fuzzy
 msgid "Choose Action for Files"
 msgstr "ファイルのためのアクションを選択"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:702
 #, fuzzy
 msgid "Move"
 msgstr "移動"
 
-#: app/desktopManager.js:874 app/fileItemMenu.js:388
+#: app/desktopManager.js:702 app/fileItemMenu.js:388
 msgid "Copy"
 msgstr "コピー"
 
-#: app/desktopManager.js:874
+#: app/desktopManager.js:702
 #, fuzzy
 msgid "Link"
 msgstr "リンク"
 
-#: app/desktopManager.js:961 app/desktopManager.js:993
+#: app/desktopManager.js:789 app/desktopManager.js:821
 #, fuzzy
 msgid "Making SymLink Failed"
 msgstr "SymLink を失敗させる"
 
-#: app/desktopManager.js:962 app/desktopManager.js:994
+#: app/desktopManager.js:790 app/desktopManager.js:822
 #, fuzzy
 msgid "Could not create symbolic link"
 msgstr "シンボリックリンクを作成できません"
 
-#: app/desktopManager.js:1064
+#: app/desktopManager.js:892
 #, fuzzy
 msgid "Copy/Move Failed"
 msgstr "キャンセルされる移動"
 
-#: app/desktopManager.js:1065
+#: app/desktopManager.js:893
 msgid "{0} Does not exist"
 msgstr ""
 
-#: app/desktopManager.js:1367
+#: app/desktopManager.js:1195
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "新しく検索する前に現在の選択を解除してください"
 
-#: app/desktopManager.js:1411
+#: app/desktopManager.js:1239
 msgid "Find Files on Desktop"
 msgstr "デスクトップ上のファイルを検索"
 
-#: app/desktopManager.js:1686
+#: app/desktopManager.js:1530
 #, fuzzy
 msgid "Name"
 msgstr "名前"
 
-#: app/desktopManager.js:1687
+#: app/desktopManager.js:1531
 #, fuzzy
 msgid "Name Z-A"
 msgstr "名前 (ZからA)"
 
-#: app/desktopManager.js:1688
+#: app/desktopManager.js:1532
 #, fuzzy
 msgid "Modified Time"
 msgstr "変更された時間"
 
-#: app/desktopManager.js:1689
+#: app/desktopManager.js:1533
 #, fuzzy
 msgid "Type"
 msgstr "種類"
 
-#: app/desktopManager.js:1690
+#: app/desktopManager.js:1534
 #, fuzzy
 msgid "Size"
 msgstr "サイズ"
 
-#: app/desktopManager.js:1693
+#: app/desktopManager.js:1538
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "整列を維持…"
 
 # デスクトップにあるファイルを疑似フォルダーにまとめる (グループ化する)
-#: app/desktopManager.js:1697
+#: app/desktopManager.js:1542
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "種類ごとに束ねる…"
 
-#: app/desktopManager.js:1698
+#: app/desktopManager.js:1543
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "ホーム/ドライブ/ゴミ箱を並べ替え…"
 
-#: app/desktopManager.js:1702
+#: app/desktopManager.js:1547
 #, fuzzy
 msgid "Change Desktop"
 msgstr "デスクトップ向け"
 
-#: app/desktopManager.js:1704
+#: app/desktopManager.js:1549
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1706
+#: app/desktopManager.js:1551
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Desktop Icons の設定"
 
-#: app/desktopManager.js:1710 app/desktopManager.js:2776
+#: app/desktopManager.js:1555 app/desktopManager.js:2680
 msgid "New Folder"
 msgstr "新しいフォルダー"
 
-#: app/desktopManager.js:1714
+#: app/desktopManager.js:1559
 msgid "New Document"
 msgstr "新しいドキュメント"
 
-#: app/desktopManager.js:1718
+#: app/desktopManager.js:1563
 msgid "Paste"
 msgstr "貼り付け"
 
-#: app/desktopManager.js:1719
+#: app/desktopManager.js:1564
 msgid "Undo"
 msgstr "元に戻す"
 
-#: app/desktopManager.js:1720
+#: app/desktopManager.js:1565
 msgid "Redo"
 msgstr "やり直す"
 
-#: app/desktopManager.js:1725
+#: app/desktopManager.js:1570
 msgid "Select All"
 msgstr "すべて選択"
 
-#: app/desktopManager.js:1730
+#: app/desktopManager.js:1575
 msgid "Arrange Icons"
 msgstr "アイコンを整列"
 
-#: app/desktopManager.js:1734
+#: app/desktopManager.js:1579
 #, fuzzy
 msgid "Arrange By…"
 msgstr "編曲:"
 
-#: app/desktopManager.js:1740
+#: app/desktopManager.js:1585
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "デスクトップを表示 {0}"
 
-#: app/desktopManager.js:1743
+#: app/desktopManager.js:1588
 #, fuzzy
 msgid "Open In {0}"
 msgstr "で開く {0}"
 
-#: app/desktopManager.js:1749 app/desktopManager.js:1821
+#: app/desktopManager.js:1594 app/desktopManager.js:1666
 msgid "Settings"
 msgstr "設定"
 
-#: app/desktopManager.js:1755
+#: app/desktopManager.js:1600
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/desktopManager.js:1778
+#: app/desktopManager.js:1623
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Gnome Consoleで開くことができません"
 
-#: app/desktopManager.js:1807
+#: app/desktopManager.js:1652
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "設定ウィンドウが開きます"
 
-#: app/desktopManager.js:1807
+#: app/desktopManager.js:1652
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "このウィンドウが開きます。 アクティブなウィンドウに切り替えてください."
 
-#: app/desktopManager.js:2802
+#: app/desktopManager.js:2706
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "オーダー作成に失敗しました"
 
-#: app/desktopManager.js:2803
+#: app/desktopManager.js:2707
 #, fuzzy
 msgid "Could not create folder"
 msgstr "フォルダーを作成できませんでした。"
 
-#: app/desktopManager.js:2849
+#: app/desktopManager.js:2753
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "テンプレート作成エラー"
 
-#: app/desktopManager.js:2850
+#: app/desktopManager.js:2754
 #, fuzzy
 msgid "Could not create document"
 msgstr "文書を削除できません"
 
 #. TRANSLATORS: "Home" is the text that will be shown in the user's personal folder
-#: app/fileItem.js:134 app/fileItem.js:143
+#: app/fileItem.js:135 app/fileItem.js:149
 msgid "Home"
 msgstr "ホーム"
 
-#: app/fileItem.js:149
-#, fuzzy
-#| msgid "Empty Trash"
-msgid "Trash"
-msgstr "ごみ"
-
-#. * TRANSLATORS: when using a screen reader, this is the text read when
-#. * an external drive is selected. Example: if a USB stick named "my_portable"
-#. * is selected, it will say "Drive my_portable"
-#: app/fileItem.js:155
+#: app/fileItem.js:142
 #, fuzzy
 msgid "Drive"
 msgstr "ドライブ"
 
-#. * TRANSLATORS: when using a screen reader, this is the text read when
-#. * a folder is selected. Example: if a folder named "things" is selected,
-#. * it will say "Folder things"
-#: app/fileItem.js:165
+#. * TRANSLATORS: when using a screen reader,
+#. * this is the text read when a stack is
+#. * selected. Example: if a stack named "pictures"
+#. *  is selected, it will say "Stack pictures"
+#: app/fileItem.js:143 app/stackItem.js:46
+#, fuzzy
+msgid "Stack"
+msgstr "スタック"
+
+#: app/fileItem.js:144
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
 msgstr "フォルダー"
 
-#. * TRANSLATORS: when using a screen reader, this is the text read when
-#. * a normal file is selected. Example: if a file named "my_picture.jpg"
-#. * is selected, it will say "File my_picture.jpg"
-#: app/fileItem.js:172
+#: app/fileItem.js:145
 #, fuzzy
 msgid "File"
 msgstr "ファイル"
 
-#: app/fileItem.js:292
+#: app/fileItem.js:146
+#, fuzzy
+#| msgid "Empty Trash"
+msgid "Trash"
+msgstr "ごみ"
+
+#: app/fileItem.js:335
 msgid "Broken Link"
 msgstr "壊れたリンク"
 
-#: app/fileItem.js:293
+#: app/fileItem.js:336
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "シンボリックリンクのリンク先が存在しないためファイルを開けません"
 
-#: app/fileItem.js:323
+#: app/fileItem.js:366
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "ファイルを開けませんでした"
 
-#: app/fileItem.js:325
+#: app/fileItem.js:368
 #, fuzzy
 msgid "There is no application installed to open \"{foo}\" files."
 msgstr ""
 "\"{foo}\" ファイルを開くためのアプリケーションはインストールされていません."
 
-#: app/fileItem.js:354
+#: app/fileItem.js:396
 #, fuzzy
 #| msgid "Invalid Permissions on Desktop File"
 msgid "Invalid Permissions on AppImage File"
 msgstr "無効な権限のデスクトップファイル"
 
-#: app/fileItem.js:355
+#: app/fileItem.js:397
 #, fuzzy
 #| msgid ""
 #| "This .desktop File has incorrect Permissions. Right Click to edit "
@@ -826,7 +851,7 @@ msgstr ""
 "この .desktop ファイルの権限が正しくありません。右クリックしてプロパティを開"
 "き、次のように変更してください:\n"
 
-#: app/fileItem.js:357 app/fileItem.js:398
+#: app/fileItem.js:399 app/fileItem.js:440
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -838,7 +863,7 @@ msgstr ""
 "\n"
 "<b>\"その他のアクセス権\" を \"読み取り専用\" または \"なし\" に設定する</b>"
 
-#: app/fileItem.js:360 app/fileItem.js:401
+#: app/fileItem.js:402 app/fileItem.js:443
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -850,13 +875,13 @@ msgstr ""
 "\n"
 "<b>\"プログラムとして実行可能\" オプションを有効にする</b>"
 
-#: app/fileItem.js:367
+#: app/fileItem.js:409
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted AppImage File"
 msgstr "信頼できないデスクトップファイル"
 
-#: app/fileItem.js:368
+#: app/fileItem.js:410
 #, fuzzy
 #| msgid ""
 #| "This .desktop file is not trusted, it can not be launched. To enable "
@@ -874,11 +899,11 @@ msgstr ""
 "\n"
 "<b>\"起動を許可する\" を有効にする</b>"
 
-#: app/fileItem.js:388
+#: app/fileItem.js:430
 msgid "Broken Desktop File"
 msgstr "壊れたデスクトップファイル"
 
-#: app/fileItem.js:389
+#: app/fileItem.js:431
 #, fuzzy
 #| msgid ""
 #| "This .desktop file has errors or points to a program without permissions. "
@@ -895,11 +920,11 @@ msgstr ""
 "\n"
 "\t<b>ファイルを開いて正しい実行可能プログラムを設定してください。</b>"
 
-#: app/fileItem.js:395
+#: app/fileItem.js:437
 msgid "Invalid Permissions on Desktop File"
 msgstr "無効な権限のデスクトップファイル"
 
-#: app/fileItem.js:396
+#: app/fileItem.js:438
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -907,13 +932,13 @@ msgstr ""
 "この .desktop ファイルの権限が正しくありません。右クリックしてプロパティを開"
 "き、次のように変更してください:\n"
 
-#: app/fileItem.js:408
+#: app/fileItem.js:450
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
 msgstr "信頼できないデスクトップファイル"
 
-#: app/fileItem.js:409
+#: app/fileItem.js:451
 #, fuzzy
 #| msgid ""
 #| "This .desktop file is not trusted, it can not be launched. To enable "
@@ -931,13 +956,13 @@ msgstr ""
 "\n"
 "<b>\"起動を許可する\" を有効にする</b>"
 
-#: app/fileItem.js:419 app/gnomeShellDragDrop.js:236
+#: app/fileItem.js:461 app/gnomeShellDragDrop.js:235
 #, fuzzy
 msgid "Could not open File"
 msgstr "ファイルを開けませんでした"
 
 #. eslint-disable-next-line no-template-curly-in-string
-#: app/fileItem.js:421 app/gnomeShellDragDrop.js:238
+#: app/fileItem.js:463 app/gnomeShellDragDrop.js:237
 #, fuzzy
 msgid "${appName} can not open files of this Type!"
 msgstr "${appName}はこのタイプのファイルを開くことができません!"
@@ -1141,8 +1166,8 @@ msgstr "コピーはキャンセルされました"
 msgid "Unable to copy Files, no destination folder"
 msgstr "ファイル、コピー先フォルダをコピーできない"
 
-#: app/fileItemMenu.js:792 app/fileItemMenu.js:802 app/fileItemMenu.js:812
-#: app/fileItemMenu.js:839
+#: app/fileItemMenu.js:792 app/fileItemMenu.js:807 app/fileItemMenu.js:817
+#: app/fileItemMenu.js:844
 #, fuzzy
 msgid "Mail Error"
 msgstr "電子メールのエラー"
@@ -1152,66 +1177,66 @@ msgstr "電子メールのエラー"
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email が見つからない場合は、プログラムをインストールしてください"
 
-#: app/fileItemMenu.js:803
+#: app/fileItemMenu.js:808
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "電子メールファイルにはエラーがありました"
 
-#: app/fileItemMenu.js:813
+#: app/fileItemMenu.js:818
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Zipコマンドが見つからない場合は、プログラムをインストールしてください"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:819
+#: app/fileItemMenu.js:824
 #, fuzzy
 msgid "Archive.zip"
 msgstr "アーカイブ.zip"
 
-#: app/fileItemMenu.js:840
+#: app/fileItemMenu.js:845
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Zipアーカイブの作成にエラーがありました"
 
-#: app/fileItemMenu.js:853
+#: app/fileItemMenu.js:858
 msgid "Can not email a Directory"
 msgstr "ディレクトリをメールで送ることはできません"
 
-#: app/fileItemMenu.js:854
+#: app/fileItemMenu.js:859
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "選択には、まずディレクトリ、.zipファイルへの圧縮が含まれていますか?"
 
-#: app/fileItemMenu.js:941
+#: app/fileItemMenu.js:946
 #, fuzzy
 #| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
 msgstr "ディレクトリをメールで送ることはできません"
 
-#: app/fileItemMenu.js:982
+#: app/fileItemMenu.js:989
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome Consoleで開くことができません"
 
-#: app/fileItemMenu.js:983
+#: app/fileItemMenu.js:990
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 "Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
 
-#: app/fileItemMenu.js:990
+#: app/fileItemMenu.js:997
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "開くことが可能 お問い合わせ"
 
-#: app/fileItemMenu.js:991
+#: app/fileItemMenu.js:998
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "お問い合わせ お問い合わせ"
 
-#: app/preferences.js:419
+#: app/preferences.js:621
 #, fuzzy
 msgid "Console"
 msgstr "コンソール"
@@ -1220,13 +1245,6 @@ msgstr "コンソール"
 #, fuzzy
 msgid "More Information"
 msgstr "その他の情報"
-
-#. * TRANSLATORS: when using a screen reader, this is the text read when a stack is
-#. selected. Example: if a stack named "pictures" is selected, it will say "Stack pictures"
-#: app/stackItem.js:44
-#, fuzzy
-msgid "Stack"
-msgstr "スタック"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/utils/dbusUtils.js:55
@@ -1429,6 +1447,9 @@ msgid ""
 msgstr ""
 "アイコンは長方形の格子にはありませんが、格子とは独立した場所で延期することが"
 "できます"
+
+#~ msgid "Add an emblem to soft links"
+#~ msgstr "ソフトリンクにエンブレムを追加する"
 
 #, fuzzy
 #~ msgid "Volumes"
