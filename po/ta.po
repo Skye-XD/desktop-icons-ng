@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-02 05:32+0000\n"
+"PO-Revision-Date: 2025-03-12 12:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/ta/>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -482,8 +482,9 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:180
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "இயக்கு"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -539,7 +540,7 @@ msgstr ""
 #: app/desktopManager.js:702
 #, fuzzy
 msgid "Move"
-msgstr "நகர்த்தவும்"
+msgstr "நகர்த்து"
 
 #: app/desktopManager.js:702 app/fileItemMenu.js:388
 #, fuzzy
@@ -1094,7 +1095,7 @@ msgstr ""
 #: app/preferences.js:621
 #, fuzzy
 msgid "Console"
-msgstr "கன்சோல்"
+msgstr "முனையம்"
 
 #: app/showErrorPopup.js:39
 #, fuzzy
