@@ -124,12 +124,22 @@ const WindowManager = class {
         });
 
         // Allow initial startup if no desktops defined on initiation
-        // or if any new monitors plugged in or removed
+        const firstDesktop =
+            this._priorDesktopList.some(d => {
+                return typeof d !== 'object' || d == null;
+            }) || this._priorDesktopList.length === 0;
+
+        if (firstDesktop) {
+            this._desktopManager._fileList.forEach(x => x.removeFromGrid());
+            this.createGridWindows();
+            // sanity checks and icons placment on grid will be done by
+            // desktopManager in sync startup
+            return;
+        }
+
+        // If any new monitors plugged in or removed
         // by creating new desktops
-        if (this._priorDesktopList.some(d =>
-            typeof d !== 'object' || d == null) ||
-            this._priorDesktopList.length !== this._desktopList.length) {
-            // First desktop list is created from a null list or a
+        if (this._priorDesktopList.length !== this._desktopList.length) {
             // monitor has been plugged in or removed.
             this._desktopManager._fileList.forEach(x => x.removeFromGrid());
             this.createGridWindows();
@@ -187,7 +197,7 @@ const WindowManager = class {
         // has not changed
         const redisplay = monitorschanged || gridschanged;
 
-        if (gridschanged || redisplay) {
+        if (redisplay) {
             this._desktopManager._fileList.forEach(x => x.removeFromGrid());
             this._desktops.forEach((desktop, index) => {
                 desktop.updateGridDescription(this._desktopList[index]);
@@ -224,12 +234,14 @@ const WindowManager = class {
     }
 
     createGridWindows() {
-        // Allow startup with no desktops from desktopmanager constructor
-        // even if no desktops are defined.
+        // Allow startup with no desktops from constructor
+        // even if no desktops are defined when started by the extension
         // desktops can be defined later from updateGridWindows(), dbus
         // activation
         if (!this._desktopList.length ||
-            this._desktopList.some(d => typeof d !== 'object' || d == null))
+            this._desktopList.some(d => {
+                return typeof d !== 'object' || d == null;
+            }))
             return;
 
         this._desktops.forEach(desktop => desktop.destroy());

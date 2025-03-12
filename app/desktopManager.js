@@ -1906,7 +1906,7 @@ const DesktopManager = class {
         this._fileList = [];
     }
 
-    async _updateDesktop(opts = {initialRead: false}) {
+    async _updateDesktop(opts = {initialRead: true}) {
         if (this.windowsPromiseResolve)
             return;
         if (this._readingDesktopFiles) {
@@ -1944,7 +1944,7 @@ const DesktopManager = class {
                     break;
 
                 if (this._forceDraw) {
-                    this._drawDesktop(fileList).catch(e => console.error(e));
+                    this._drawDesktop(fileList, opts).catch(e => console.error(e));
                     this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
                 }
             }
@@ -2151,14 +2151,23 @@ const DesktopManager = class {
             return;
         }
         let storeMode = this.Enums.StoredCoordinates.PRESERVE;
-        if (opts.monitorschanged || opts.initialRead) {
+        if (opts.redisplay || opts.initialRead) {
             this._sortByCurrentPosition();
-            this._recomputeWindowPositions();
-            // write the new recomputed positions to metadata
+
+            // write the new recomputed positions to metadata when assigned
             storeMode = this.Enums.StoredCoordinates.OVERWRITE;
-        } else if (opts.gridschanged) {
-            this._sortByCurrentPosition();
-            this._recomputeGridPositions();
+
+            if (this.Prefs.freePositionIcons) {
+                this._recomputeWindowPositions();
+            } else {
+            // if snap to grid, recompute margin changes and apply to fileItems
+            // so they end up in the same relative grid, otherwise they keep
+            // shifting postions. This keeps them in the same relative grid
+            // position.
+            // for snap to grid this will apply the new x,y of the grid assigned
+                this._recomputeWindowPositions();
+                this._recomputeGridPositions();
+            }
         }
         this._addFilesToDesktop(this._fileList, storeMode);
     }
@@ -2182,12 +2191,10 @@ const DesktopManager = class {
             if (!desktop)
                 return;
 
-            const x = fileItem.x;
-            const y = fileItem.y;
-            const localX = x + desktop.marginChangeTop;
-            const localY = y + desktop.marginChangeLeft;
+            const [x, y] = fileItem.savedCoordinates;
+
             const [newGlobalX, newGlobalY] =
-                desktop.coordinatesLocalToGlobal(localX, localY);
+                desktop.recomputeGridPosition(x, y);
 
             fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
         });
@@ -2243,6 +2250,8 @@ const DesktopManager = class {
             if (!desktop)
                 return;
 
+            fileItem.temporaryMonitorIndex = desktop.monitorIndex;
+
             // recompute coordinates for the new monitor
             const x = fileItem._normalCoordinates[0];
             const y = fileItem._normalCoordinates[1];
@@ -2277,7 +2286,7 @@ const DesktopManager = class {
             let [itemX, itemY] = fileItem.savedCoordinates;
             let addedToDesktop = false;
             for (let desktop of this._desktops) {
-                if (desktop.fileItemRectangleFitsThisGrid(itemX, itemY) &&
+                if (desktop.coordinatesBelongToThisGridWindow(itemX, itemY) &&
                         desktop.isAvailable()) {
                     addedToDesktop = true;
                     desktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
@@ -2292,30 +2301,10 @@ const DesktopManager = class {
         // Now, assign icons that have landed in changed margins, belong to monitor
         // and the window, however no longer fit on the grid as they overlap margins.
 
-        if (outOfDesktops.length) {
-            const unassigned = [];
-            for (let fileItem of outOfDesktops) {
-                let addedToDesktop = false;
-                let [itemX, itemY] = fileItem.savedCoordinates;
-                for (let desktop of this._desktops) {
-                    if (desktop.coordinatesBelongToThisGridWindow(itemX, itemY) &&
-                            desktop.isAvailable()) {
-                        addedToDesktop = true;
-                        desktop.addFileItemCloseTo(fileItem, itemX, itemY, storeMode);
-                        break;
-                    }
-                }
+        if (outOfDesktops.length)
+            this._addFilesCloseToAssignedDesktop(outOfDesktops, storeMode, preferredDesktop);
 
-                if (!addedToDesktop)
-                    unassigned.push(fileItem);
-            }
-
-            // Now, assign those icons that are outside the all current monitors, or do not
-            // have space on current monitor, but have assigned saved coordinates
-            if (unassigned.length)
-                this._addFilesCloseToAssignedDesktop(unassigned, storeMode, preferredDesktop);
-            outOfDesktops = [];
-        }
+        outOfDesktops = [];
 
         // Now assign those icons that have dropped coordinates
         for (let fileItem of droppedFiles) {

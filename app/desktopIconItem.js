@@ -818,5 +818,13 @@ const DesktopIconItem = class {
     set savedCoordinates(pos) {
         this.writeSavedCoordinates(pos);
     }
+
+    set temporarySavedPosition(pos) {
+        this._savedCoordinates = pos;
+    }
+
+    set temporaryMonitorIndex(index) {
+        this._monitorIndex = index;
+    }
 };
 Signals.addSignalMethods(DesktopIconItem.prototype);

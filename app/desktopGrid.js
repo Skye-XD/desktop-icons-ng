@@ -229,10 +229,10 @@ const DesktopGrid = class {
         this._marginTopHiddenObject = false;
         this._marginBottomHiddenObject = false;
 
-        const oldMarginTop = this._marginTop > 0 ? this._marginTop : 0;
-        const oldMarginLeft = this._marginLeft > 0 ? this._marginLeft : 0;
-        const oldMarginRight = this._marginRight > 0 ? this._marginRight : 0;
-        const oldMarginBottom = this._marginBottom > 0 ? this._marginBottom : 0;
+        this._oldMarginTop = this._marginTop > 0 ? this._marginTop : 0;
+        this._oldMarginLeft = this._marginLeft > 0 ? this._marginLeft : 0;
+        this._oldMarginRight = this._marginRight > 0 ? this._marginRight : 0;
+        this._oldMarginBottom = this._marginBottom > 0 ? this._marginBottom : 0;
         this._marginTop = this._desktopDescription.marginTop + this.gridPadding;
         if (this._marginTop > 1000) {
             this._marginTopHiddenObject = true;
@@ -253,10 +253,7 @@ const DesktopGrid = class {
             this._marginRightHiddenObject = true;
             this._marginRight -= 1000;
         }
-        this.marginChangeTop =
-            this._marginTop + this._marginBottom - oldMarginTop - oldMarginBottom;
-        this.marginChangeLeft =
-            this._marginLeft + this._marginRight - oldMarginLeft - oldMarginRight;
+
         this._width =
             this._desktopDescription.width - this._marginLeft - this._marginRight;
         this._height =
@@ -274,6 +271,17 @@ const DesktopGrid = class {
         this._maxRows =  Math.floor(this._height / (this.Prefs.DesiredHeight + 4 * this.elementSpacing));
         this._elementWidth = Math.floor(this._width / this._maxColumns);
         this._elementHeight = Math.floor(this._height / this._maxRows);
+
+        this._marginChangeTop =
+            this._marginTop - this._oldMarginTop;
+        this._marginChangeLeft =
+            this._marginLeft - this._oldMarginLeft;
+        this._marginChangeRight =
+            this._marginRight - this._oldMarginRight;
+        this._marginChangeBottom =
+            this._marginBottom - this._oldMarginBottom;
+        this.shiftLeft = this._marginChangeLeft - this._marginChangeRight;
+        this.shiftUp = this._marginChangeTop - this._marginChangeBottom;
     }
 
     _updateGridRectangle() {
@@ -311,6 +319,37 @@ const DesktopGrid = class {
     destroy() {
         this._destroying = true;
         this._window.destroy();
+    }
+
+    recomputeGridPosition(x, y) {
+        let newGlobalX =
+            this.shiftLeft < 0
+                ? x - this.shiftLeft
+                : x + this.shiftLeft;
+        let newGlobalY =
+            this.shiftUp < 0
+                ? y - this.shiftUp
+                : y + this.shiftUp;
+
+        newGlobalX =
+            newGlobalX > this.gridGlobalRectangle.x + this._width
+                ? this.gridGlobalRectangle.x + this._width - 1
+                : newGlobalX;
+        newGlobalY =
+            newGlobalY > this.gridGlobalRectangle.y + this._height
+                ? this.gridGlobalRectangle.y + this._height - 1
+                : newGlobalY;
+
+        newGlobalX =
+            newGlobalX < this.gridGlobalRectangle.x
+                ? this.gridGlobalRectangle.x + 1
+                : newGlobalX;
+        newGlobalY =
+            newGlobalY < this.gridGlobalRectangle.y
+                ? this.gridGlobalRectangle.y + 1
+                : newGlobalY;
+
+        return [newGlobalX, newGlobalY];
     }
 
     // Compute correct position for pop up menus relative to margins to prevent going under/over margins
@@ -1379,6 +1418,9 @@ const DesktopGrid = class {
     }
 
     setNormalizedCoordinates(x, y) {
-        return [x * this.normalizedWidth, y * this.normalizedHeight];
+        const newGlobalX = x * this.normalizedWidth;
+        const newGlobalY = y * this.normalizedHeight;
+
+        return [newGlobalX, newGlobalY];
     }
 };
