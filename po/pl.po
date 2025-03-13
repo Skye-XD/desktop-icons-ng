@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2024-12-22 22:38+0000\n"
+"PO-Revision-Date: 2025-03-13 09:30+0100\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 msgid "Desktop"
@@ -48,7 +48,7 @@ msgstr "Ustawienia pulpitu"
 
 #: app/adwPreferencesWindow.js:201
 msgid "Settings for the Desktop Program"
-msgstr "Ustawienia dla programów na pulpicie"
+msgstr "Ustawienia programu pulpitu"
 
 #: app/adwPreferencesWindow.js:205
 msgid "Desktop Folder"
@@ -56,7 +56,7 @@ msgstr "Folder pulpitu"
 
 #: app/adwPreferencesWindow.js:206
 msgid "Current Desktop: "
-msgstr "Aktualny pulpit:"
+msgstr "Aktualny pulpit: "
 
 #: app/adwPreferencesWindow.js:213
 msgid "Files Settings"
@@ -64,7 +64,7 @@ msgstr "Ustawienia plików"
 
 #: app/adwPreferencesWindow.js:214
 msgid "Settings shared with Gnome Files"
-msgstr "Ustawienia dzielone z Plikami Gnome"
+msgstr "Ustawienia dzielone z Pliki GNOME"
 
 #: app/adwPreferencesWindow.js:219
 msgid "Miscellaneous Tweaks"
@@ -148,10 +148,8 @@ msgid "Restore"
 msgstr "Przywróć"
 
 #: app/adwPreferencesWindow.js:280
-#, fuzzy
-#| msgid "Add an emblem to links"
 msgid "Add information emblems for links, encryption"
-msgstr "Dodaj emblemat do odnośników"
+msgstr "Dodaj emblematy informacyjne dla odnośników i szyfrowania"
 
 #: app/adwPreferencesWindow.js:283
 msgid "Use dark text in icon labels"
@@ -163,7 +161,7 @@ msgstr "Pokaż Katalog domowy na pulpicie"
 
 #: app/adwPreferencesWindow.js:291
 msgid "Show the trash icon on the desktop"
-msgstr "Pokaż ikonę Kosza na pulpicie"
+msgstr "Pokaż Kosz na pulpicie"
 
 #: app/adwPreferencesWindow.js:295
 msgid "Show external drives on the desktop"
@@ -433,7 +431,7 @@ msgstr "Ikony pulpitu"
 
 #: app/desktopManager.js:166
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "Skalowanie bufora ramki monitora jest wyłączone"
 
 #: app/desktopManager.js:167
 msgid ""
@@ -442,6 +440,10 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"Wiele monitorów z różnymi ustawieniami powiększenia, zalecane skalowanie "
+"bufora ramek na monitor.\n"
+"\n"
+"Proszę włączyć w ustawieniach Dconf programu Mutter"
 
 #: app/desktopManager.js:177
 msgid ""
@@ -449,10 +451,14 @@ msgid ""
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"Wykryto wiele monitorów z różnymi ustawieniami powiększenia\n"
+"\n"
+"Włączyć skalowanie bufora ramek na monitor w ustawieniach Dconf programu "
+"Mutter?"
 
 #: app/desktopManager.js:180
 msgid "Enable"
-msgstr ""
+msgstr "Włącz"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -460,7 +466,7 @@ msgstr "Nie można pokazać pulpitu"
 
 #: app/desktopManager.js:213
 msgid "GNOME Files not found"
-msgstr "Nie odnaleziono Plików GNOME"
+msgstr "Nie odnaleziono Pliki GNOME"
 
 #: app/desktopManager.js:214
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
@@ -476,7 +482,7 @@ msgstr "Nie ma programu obsługującego typ MIME „inode/directory”"
 
 #: app/desktopManager.js:232
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "Pliki Gnome nie jest zarejestrowany jako menedżer plików"
+msgstr "Pliki GNOME nie jest zarejestrowany jako menedżer plików"
 
 #: app/desktopManager.js:233
 msgid ""
@@ -484,17 +490,17 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Program Pliki Gnome nie jest zaprogramowany do otwierania katalogów!\n"
+"Program Pliki GNOME nie jest zaprogramowany do otwierania katalogów!\n"
 "Sprawdź instalację xdg-utils\n"
-"Sprawdź instalację pliku .desktop Plików Gnome"
+"Sprawdź instalację pliku .desktop Pliki GNOME"
 
 #: app/desktopManager.js:329
 msgid "Desktop Folder Change Failed"
-msgstr "Błąð zmiany katalogu pulpitu"
+msgstr "Błąd zmiany katalogu pulpitu"
 
 #: app/desktopManager.js:330
 msgid "The new Desktop Folder does not exist!"
-msgstr "Nowy katalog pulpitu nie istnieje"
+msgstr "Nowy katalog pulpitu nie istnieje!"
 
 #: app/desktopManager.js:341
 msgid "Desktop Folder Changed"
@@ -530,7 +536,7 @@ msgstr "Nie można utworzyć dowiązania symbolicznego"
 
 #: app/desktopManager.js:892
 msgid "Copy/Move Failed"
-msgstr "Błąð kopiowania/przenoszenia"
+msgstr "Błąd kopiowania/przenoszenia"
 
 #: app/desktopManager.js:893
 msgid "{0} Does not exist"
@@ -542,7 +548,7 @@ msgstr "Usuń bieżący wybór przed nowym wyszukiwaniem"
 
 #: app/desktopManager.js:1239
 msgid "Find Files on Desktop"
-msgstr "Znajdź pliki na Pulpicie"
+msgstr "Znajdź pliki na pulpicie"
 
 #: app/desktopManager.js:1530
 msgid "Name"
@@ -634,11 +640,11 @@ msgstr "Ustawienia"
 
 #: app/desktopManager.js:1600
 msgid "Shell Menu…"
-msgstr "Menu powłoki"
+msgstr "Menu powłoki…"
 
 #: app/desktopManager.js:1623
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Nie można otworzyć pulpitu w Pliki Gnome"
+msgstr "Nie można otworzyć pulpitu w Pliki GNOME"
 
 #: app/desktopManager.js:1652
 msgid "Preferences Window is Open"
@@ -750,7 +756,7 @@ msgid ""
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
-"TTen plik AppImage nie jest zaufany, nie można uruchomić. Aby umożliwić "
+"Ten plik AppImage nie jest zaufany, nie można uruchomić. Aby umożliwić "
 "uruchamianie, kliknij prawym przyciskiem myszy, a następnie:\n"
 "\n"
 "Włącz \"Zezwalaj na uruchamianie\""
@@ -1029,11 +1035,11 @@ msgstr "Nie można otworzyć działającego katalogu"
 
 #: app/fileItemMenu.js:989
 msgid "Unable to Open in Gnome Console"
-msgstr "Nie można otworzyć w konsoli Gnome"
+msgstr "Nie można otworzyć w Konsola GNOME"
 
 #: app/fileItemMenu.js:990
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr "Zainstaluj konsolę Gnome lub inny program terminalowy"
+msgstr "Zainstaluj Konsola GNOME lub inny terminal"
 
 #: app/fileItemMenu.js:997
 msgid "Unable to Open {0}"
@@ -1107,7 +1113,7 @@ msgstr "Kosz"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
-msgstr "Wyświetla kosz na pulpicie."
+msgstr "Wyświetl kosz na pulpicie."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
@@ -1166,8 +1172,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"Kiedy porządkujesz Ikony na pulpicie, sortuj i zmień pozycję:Katalogu "
-"domowego, Kosza oraz Pamięci Sieciowych i Zewnętrznych"
+"Kiedy porządkujesz Ikony na pulpicie, sortuj i zmień pozycję Katalogu "
+"domowego, Kosza oraz Dysków sieciowych i Zewnętrznych"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
