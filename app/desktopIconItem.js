@@ -40,6 +40,8 @@ const DesktopIconItem = class {
         this._fileExtra = fileExtra;
         this._queryFileInfoCancellable = null;
         this._grid = null;
+        this._column = null;
+        this._row = null;
         this._lastClickTime = 0;
         this._lastClickButton = 0;
         this._clickCount = 0;
@@ -811,6 +813,21 @@ const DesktopIconItem = class {
         return this._isEncrypted;
     }
 
+    get column() {
+        return this._column;
+    }
+
+    get row() {
+        return this._row;
+    }
+
+    set column(num) {
+        this._column = num;
+    }
+
+    set row(num) {
+        this._row = num;
+    }
     set dropCoordinates(pos) {
         this.writeDropCoordinates(pos);
     }
