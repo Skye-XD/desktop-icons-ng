@@ -321,33 +321,18 @@ const DesktopGrid = class {
         this._window.destroy();
     }
 
-    recomputeGridPosition(x, y) {
-        let newGlobalX =
-            this.shiftLeft < 0
-                ? x - this.shiftLeft
-                : x + this.shiftLeft;
-        let newGlobalY =
-            this.shiftUp < 0
-                ? y - this.shiftUp
-                : y + this.shiftUp;
+    recomputeGridPosition(column, row) {
+        if (column > this._maxColumns)
+            return [this._x, this._y]
 
-        newGlobalX =
-            newGlobalX > this.gridGlobalRectangle.x + this._width
-                ? this.gridGlobalRectangle.x + this._width - 1
-                : newGlobalX;
-        newGlobalY =
-            newGlobalY > this.gridGlobalRectangle.y + this._height
-                ? this.gridGlobalRectangle.y + this._height - 1
-                : newGlobalY;
+        if (row > this._maxRows)
+            return [this._x, this._y]
 
-        newGlobalX =
-            newGlobalX < this.gridGlobalRectangle.x
-                ? this.gridGlobalRectangle.x + 1
-                : newGlobalX;
-        newGlobalY =
-            newGlobalY < this.gridGlobalRectangle.y
-                ? this.gridGlobalRectangle.y + 1
-                : newGlobalY;
+        const [localX, localY] =
+            this._getLocalCoordinatesForGrid(column, row);
+
+        const [newGlobalX, newGlobalY] =
+            this.coordinatesLocalToGlobal(localX, localY);
 
         return [newGlobalX, newGlobalY];
     }

@@ -2196,9 +2196,9 @@ const DesktopManager = class {
                 return;
 
             const [newGlobalX, newGlobalY] =
-                desktop.recomputeGridPosition(coloumn, row);
+                desktop.recomputeGridPosition(column, row);
 
-            fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
+            fileItem.temporarySavedPosition = [newGlobalX + 2, newGlobalY + 2];
         });
     }
 
