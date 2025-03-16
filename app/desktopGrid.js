@@ -1311,6 +1311,8 @@ const DesktopGrid = class {
         localY += this.elementSpacing;
         this._container.put(fileItem.container, localX, localY);
         this._setGridUse(column, row, fileItem);
+        fileItem.column = column;
+        fileItem.row = row;
         this._fileItems.set(fileItem, [localX, localY]);
         const [X, Y] = this.coordinatesLocalToGlobal(localX, localY);
         fileItem.setCoordinates(X,
@@ -1378,6 +1380,8 @@ const DesktopGrid = class {
                 this.getNormalizedCoordinates(x, y);
             const array = [X, Y, normalizedX, normalizedY, this._monitor];
             fileItem.writeSavedCoordinates(array);
+            fileItem.column = null;
+            fileItem.row = null;
         }
     }
 
