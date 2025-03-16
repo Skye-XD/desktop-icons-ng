@@ -1,4 +1,11 @@
 # History of versions #
+* Gtk4 version 94 for Gnome 47, 48
+  * Fix for snap to grid- icons systematically migrating left or right with sleep, lock, dock and margins changing. (Sundeep Mediratta)
+  * Fix for icons not in original position when waking from sleep. (Sundeep Mediratta)
+  * Weblate translations. (Weblate Authors)
+  * Update Polish translation. (Adam Lewicki)
+  * Update History.md, metadata.json, version bump to 94
+
 * Gtk4 version 93 for Gnome 47, 48
  * Simplify exported and imported DBus objects and clean up, simplify DBusUtilities code. (Sundeep Mediratta)
  * Use 5 postion array to store normalized as well as global coordinates for icons in our own namespace along with the monitor assigned. Better multimonitor display of icons using the above. (Sundeep Mediratta)
