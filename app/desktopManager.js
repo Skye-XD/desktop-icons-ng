@@ -2151,23 +2151,21 @@ const DesktopManager = class {
             return;
         }
         let storeMode = this.Enums.StoredCoordinates.PRESERVE;
-        if (opts.redisplay || opts.initialRead) {
-            this._sortByCurrentPosition();
-
+        if (opts.redisplay ||
+            opts.initialRead) {
             // write the new recomputed positions to metadata when assigned
             storeMode = this.Enums.StoredCoordinates.OVERWRITE;
-
-            if (this.Prefs.freePositionIcons) {
-                this._recomputeWindowPositions();
-            } else {
-            // if snap to grid, recompute margin changes and apply to fileItems
+            this._sortByCurrentPosition();
+            this._recomputeWindowPositions();
+        }
+        if (opts.gridschanged && !this.Prefs.freePositionIcons) {
+            // if snap to grid, recompute column, row for fileItems
             // so they end up in the same relative grid, otherwise they keep
             // shifting postions. This keeps them in the same relative grid
             // position.
-            // for snap to grid this will apply the new x,y of the grid assigned
-                this._recomputeWindowPositions();
+            // for snap to grid this will apply the new  global x,y of
+            // the grid assigned
                 this._recomputeGridPositions();
-            }
         }
         this._addFilesToDesktop(this._fileList, storeMode);
     }
@@ -2183,6 +2181,12 @@ const DesktopManager = class {
             if (fileItem._monitorIndex == null)
                 return;
 
+            const column = fileItem.column;
+            const row = fileItem.row;
+
+            if (column == null || row == null)
+                return;
+
             const index = fileItem._monitorIndex;
             const [desktop] = this._desktops.filter(d => {
                 return d.monitorIndex === index;
@@ -2191,10 +2195,8 @@ const DesktopManager = class {
             if (!desktop)
                 return;
 
-            const [x, y] = fileItem.savedCoordinates;
-
             const [newGlobalX, newGlobalY] =
-                desktop.recomputeGridPosition(x, y);
+                desktop.recomputeGridPosition(coloumn, row);
 
             fileItem.temporarySavedPosition = [newGlobalX, newGlobalY];
         });
