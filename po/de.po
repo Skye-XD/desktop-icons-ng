@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-12 12:09+0000\n"
+"PO-Revision-Date: 2025-03-18 02:30+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 msgid "Desktop"
@@ -757,7 +757,7 @@ msgstr "Persönlicher Ordner"
 #: app/fileItem.js:142
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Laufwerk"
 
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
@@ -920,7 +920,7 @@ msgstr "Alle öffnen ..."
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Launch"
-msgstr "Aufrufen"
+msgstr "Starten"
 
 #: app/fileItemMenu.js:326
 #, fuzzy
@@ -978,7 +978,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben nach …"
+msgstr "Verschieben auf..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -992,7 +992,7 @@ msgstr "Umbenennen …"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "Link erstellen..."
+msgstr "Link erstellen"
 
 #: app/fileItemMenu.js:405
 msgid "Compress {0} folder"

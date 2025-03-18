@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-12 12:09+0000\n"
+"PO-Revision-Date: 2025-03-18 02:30+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -36,7 +36,7 @@ msgstr "Αρχεία"
 #: app/adwPreferencesWindow.js:218
 #, fuzzy
 msgid "Tweaks"
-msgstr "Τροποποιήσεις"
+msgstr "Μικροδιορθώσεις"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
@@ -91,12 +91,12 @@ msgstr "Μικροσκοπικό"
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
 msgid "Small"
-msgstr "Μικρό/ή"
+msgstr "Μικρό"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Standard"
-msgstr "Τυπική"
+msgstr "Τυπικό"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
@@ -803,7 +803,7 @@ msgstr "Δεν θα μπορούσε να δημιουργήσει έγγραφ�
 #: app/fileItem.js:135 app/fileItem.js:149
 #, fuzzy
 msgid "Home"
-msgstr "Αρχή"
+msgstr "Αρχική"
 
 #: app/fileItem.js:142
 #, fuzzy
@@ -1045,7 +1045,7 @@ msgstr "Μετονομασία"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "Δημιουργήστε Link..."
+msgstr "Δημιουργία σύνδεσμου"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
@@ -1246,7 +1246,7 @@ msgstr "Παρακαλούμε Εγκαταστήστε την εγκατάστ�
 #: app/preferences.js:621
 #, fuzzy
 msgid "Console"
-msgstr "Κονσόλας"
+msgstr "Κονσόλα"
 
 #: app/showErrorPopup.js:39
 #, fuzzy

@@ -10,17 +10,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-01-03 16:01+0000\n"
+"PO-Revision-Date: 2025-03-18 10:25+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -85,7 +85,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "Tiny"
-msgstr "Minuscuul"
+msgstr "Heel klein"
 
 #: app/adwPreferencesWindow.js:233
 msgid "Small"
@@ -167,7 +167,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "Zet terug"
+msgstr "Herstellen"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -297,7 +297,7 @@ msgstr "Help vertalen in je web browser"
 #: app/adwPreferencesWindow.js:351
 #, fuzzy
 msgid "Translate"
-msgstr "Vertalen"
+msgstr "Vertaal"
 
 #: app/adwPreferencesWindow.js:445 app/desktopManager.js:3279
 #, fuzzy
@@ -352,7 +352,7 @@ msgstr "Oké"
 #: app/askRenamePopup.js:57
 #, fuzzy
 msgid "Rename"
-msgstr "Naam wijzigen"
+msgstr "Hernoemen"
 
 #: app/autoAr.js:71
 #, fuzzy
@@ -534,8 +534,9 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:180
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "Aan"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -665,7 +666,7 @@ msgstr "Type"
 #: app/desktopManager.js:1534
 #, fuzzy
 msgid "Size"
-msgstr "Grootte"
+msgstr "Omvang"
 
 #: app/desktopManager.js:1538
 #, fuzzy
@@ -773,7 +774,7 @@ msgstr "Maken Orde is mislukt."
 #: app/desktopManager.js:2707
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Map kon niet gemaakt worden."
+msgstr "Kan geen map aanmaken."
 
 #: app/desktopManager.js:2753
 #, fuzzy
@@ -793,7 +794,7 @@ msgstr "Persoonlijke map"
 #: app/fileItem.js:142
 #, fuzzy
 msgid "Drive"
-msgstr "Schijf"
+msgstr "Station"
 
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
@@ -939,7 +940,7 @@ msgstr ""
 #: app/fileItem.js:461 app/gnomeShellDragDrop.js:235
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kon Bestanden niet openen"
+msgstr "Kan bestand niet openen"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:463 app/gnomeShellDragDrop.js:237
@@ -957,7 +958,7 @@ msgstr[1] "Nieuwe Folder met"
 #: app/fileItemMenu.js:308
 #, fuzzy
 msgid "Open All..."
-msgstr "Open alle..."
+msgstr "Alles openen"
 
 #: app/fileItemMenu.js:316
 #, fuzzy
@@ -1022,7 +1023,7 @@ msgstr "Knippen"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Verplaats naar..."
+msgstr "Verplaatsen naar ..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
@@ -1036,7 +1037,7 @@ msgstr "Hernoemen…"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "Creëer Link..."
+msgstr "Link maken"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
@@ -1273,7 +1274,7 @@ msgstr "_Annuleren"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Open"
+msgstr "_Openen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
