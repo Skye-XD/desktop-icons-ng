@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-12 02:40+0000\n"
+"PO-Revision-Date: 2025-03-17 18:37+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -42,7 +42,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:218
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce ayarlar"
+msgstr "İnce Ayarlar"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
@@ -112,22 +112,22 @@ msgstr "Yeni simge hizalaması"
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Top left corner"
-msgstr "Sol üst köşe"
+msgstr "Üst sol köşe"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Top right corner"
-msgstr "Sağ üst köşe"
+msgstr "Üst sağ köşe"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Sol alt köşe"
+msgstr "Alt sol köşe"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Sağ alt köşe"
+msgstr "Alt sağ köşe"
 
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
@@ -173,7 +173,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "Önceki boyutuna döndür"
+msgstr "Geri yükle"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -647,7 +647,7 @@ msgstr "Ad"
 #: app/desktopManager.js:1531
 #, fuzzy
 msgid "Name Z-A"
-msgstr "İsim (Z-A)"
+msgstr "Ad (Z-A)"
 
 #: app/desktopManager.js:1532
 #, fuzzy
@@ -662,7 +662,7 @@ msgstr "Tür"
 #: app/desktopManager.js:1534
 #, fuzzy
 msgid "Size"
-msgstr "Size"
+msgstr "Boyut"
 
 #: app/desktopManager.js:1538
 #, fuzzy
@@ -724,7 +724,7 @@ msgstr "Simgeleri Sırala"
 #: app/desktopManager.js:1579
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Düzenleme:"
+msgstr "Sırala…"
 
 #: app/desktopManager.js:1585
 #, fuzzy
@@ -933,7 +933,7 @@ msgstr ""
 #: app/fileItem.js:461 app/gnomeShellDragDrop.js:235
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyası açılamadı"
+msgstr "Dosya açılamadı"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:463 app/gnomeShellDragDrop.js:237
@@ -1025,7 +1025,7 @@ msgstr "Yeniden Adlandır…"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "Create Link..."
+msgstr "Bağlantı Oluştur"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
