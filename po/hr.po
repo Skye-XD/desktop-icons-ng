@@ -2,24 +2,24 @@
 # Copyright (c) 2019 Rosetta Contributors and Canonical Ltd 2019
 # This file is distributed under the same license as the gnome-shell-extension-desktop-icons package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-01-03 16:01+0000\n"
+"PO-Revision-Date: 2025-03-18 02:30+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
@@ -56,7 +56,7 @@ msgstr "Postavke za desktop program"
 #: app/adwPreferencesWindow.js:205
 #, fuzzy
 msgid "Desktop Folder"
-msgstr "Nema odredišne mape"
+msgstr "Mapa radne površine"
 
 #: app/adwPreferencesWindow.js:206
 #, fuzzy
@@ -107,22 +107,22 @@ msgstr "Novo poravnanje ikona"
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Top left corner"
-msgstr "Gornji lijevi kut"
+msgstr "Gore lijevo"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Top right corner"
-msgstr "Gornji desni kut"
+msgstr "Gore desno"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Donji lijevi kut"
+msgstr "Dolje lijevo"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Donji desni kut"
+msgstr "Dolje desno"
 
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
@@ -166,7 +166,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "Obnovi"
+msgstr "Vrati u poč.stanje"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -236,7 +236,7 @@ msgstr "Samo na ovom računalu"
 #: app/adwPreferencesWindow.js:320
 #, fuzzy
 msgid "Never"
-msgstr "Nikada nikad"
+msgstr "nikad"
 
 #: app/adwPreferencesWindow.js:324
 #, fuzzy
@@ -531,8 +531,9 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:180
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "Omogući"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -636,7 +637,7 @@ msgstr "Pronađite datoteke na radnoj površini"
 #: app/desktopManager.js:1530
 #, fuzzy
 msgid "Name"
-msgstr "Name"
+msgstr "Ime"
 
 #: app/desktopManager.js:1531
 #, fuzzy
@@ -784,7 +785,7 @@ msgstr "Osobna mapa"
 #: app/fileItem.js:142
 #, fuzzy
 msgid "Drive"
-msgstr "Disk"
+msgstr "Vožnja"
 
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
@@ -799,7 +800,7 @@ msgstr "Složi"
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
-msgstr "Mapa==WEBLATE_PART==Folder==WEBLATE_PART==Direktorij"
+msgstr "Mapa"
 
 #: app/fileItem.js:145
 #, fuzzy
@@ -1004,12 +1005,12 @@ msgstr "Izreži"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Premjesti u …"
+msgstr "Premijesti u"
 
 #: app/fileItemMenu.js:393
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopiraj u..."
+msgstr "Kopiraj u"
 
 #: app/fileItemMenu.js:397
 msgid "Rename…"
@@ -1018,7 +1019,7 @@ msgstr "Preimenuj…"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "Stvori vezu..."
+msgstr "Napraviti vezu"
 
 #: app/fileItemMenu.js:405
 msgid "Compress {0} folder"

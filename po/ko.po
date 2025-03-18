@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-01-03 16:01+0000\n"
+"PO-Revision-Date: 2025-03-18 10:25+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -41,7 +41,7 @@ msgstr "트윅"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "소개"
+msgstr "개발자 정보"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -106,22 +106,22 @@ msgstr "새 아이콘 정렬 방식"
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Top left corner"
-msgstr "좌측 상단부터"
+msgstr "왼쪽 윗쪽 모서리"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Top right corner"
-msgstr "우측 상단부터"
+msgstr "오른쪽 윗쪽 모서리"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "좌측 하단부터"
+msgstr "왼쪽 아랫쪽 모서리"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "우측 하단부터"
+msgstr "오른쪽 아랫쪽 모서리"
 
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
@@ -270,7 +270,7 @@ msgstr "문제 추적기에 대한 문제"
 #: app/adwPreferencesWindow.js:342
 #, fuzzy
 msgid "Report"
-msgstr "보고"
+msgstr "보고서"
 
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
@@ -473,7 +473,7 @@ msgstr "Archive 이름"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "비밀번호"
+msgstr "비밀 번호"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -525,8 +525,9 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:180
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "켜기"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -718,7 +719,7 @@ msgstr "아이콘 정렬"
 #: app/desktopManager.js:1579
 #, fuzzy
 msgid "Arrange By…"
-msgstr "연락처"
+msgstr "정렬 기준…"
 
 #: app/desktopManager.js:1585
 #, fuzzy
@@ -1045,7 +1046,7 @@ msgstr "이름 바꾸기…"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "링크 생성..."
+msgstr "링크 만들기"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
@@ -1275,7 +1276,7 @@ msgstr "_취소"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_열기"
+msgstr "열기(_O)"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

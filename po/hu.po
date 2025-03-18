@@ -5,23 +5,23 @@
 # Meskó Balázs <mesko dot balazs at fsf dot hu>, 2021.
 # Balázs Úr <ur.balazs at fsf dot hu>, 2019.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2024-12-29 20:06+0000\n"
+"PO-Revision-Date: 2025-03-18 05:11+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -42,7 +42,7 @@ msgstr "Trükkök"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "Az alkalmazásról"
+msgstr "Rólunk"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -106,22 +106,22 @@ msgstr "Új ikonok elrendezése"
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Top left corner"
-msgstr "Bal-felső sarok"
+msgstr "Bal felső sarokban"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Top right corner"
-msgstr "Jobb-felső sarok"
+msgstr "Jobb felső sarokban"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Bal-alsó sarok"
+msgstr "Bal alsó sarokban"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Jobb-alsó sarok"
+msgstr "Jobb alsó sarokban"
 
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
@@ -166,7 +166,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "Helyreállítás"
+msgstr "Visszaállítás"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -269,12 +269,12 @@ msgstr "Jelentés kérdések a kérdéskövetővel kapcsolatban"
 #: app/adwPreferencesWindow.js:342
 #, fuzzy
 msgid "Report"
-msgstr "Riport"
+msgstr "Jelentés"
 
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
 msgid "License"
-msgstr "Licenc"
+msgstr "GPL Licensz"
 
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
@@ -477,7 +477,7 @@ msgstr "Jelszó"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Létrehozás"
+msgstr "Létrehoz"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -524,8 +524,9 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:180
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "Engedélyezve"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -588,7 +589,7 @@ msgstr "Válasszon Action for Files"
 #: app/desktopManager.js:702
 #, fuzzy
 msgid "Move"
-msgstr "Mozgatás"
+msgstr "Áthelyezés"
 
 #: app/desktopManager.js:702 app/fileItemMenu.js:388
 msgid "Copy"
@@ -925,7 +926,7 @@ msgstr ""
 #: app/fileItem.js:461 app/gnomeShellDragDrop.js:235
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nem sikerült a fájlokat megnyitni"
+msgstr "A fájl megnyitása nem sikerült"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:463 app/gnomeShellDragDrop.js:237
@@ -946,7 +947,7 @@ msgstr "Összes megnyitása…"
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Launch"
-msgstr "Megnyitás"
+msgstr "Indítás"
 
 #: app/fileItemMenu.js:326
 #, fuzzy
@@ -1018,7 +1019,7 @@ msgstr "Átnevezés…"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "Link létrehozása..."
+msgstr "Hivatkozás létrehozása"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
@@ -1209,7 +1210,7 @@ msgstr "Kérjük, telepítse {0}"
 #: app/preferences.js:621
 #, fuzzy
 msgid "Console"
-msgstr "Konzol"
+msgstr "Konsole"
 
 #: app/showErrorPopup.js:39
 #, fuzzy

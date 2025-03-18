@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-12 12:09+0000\n"
+"PO-Revision-Date: 2025-03-18 02:30+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -104,22 +104,22 @@ msgstr "Aliniere pictograme noi"
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Top left corner"
-msgstr "Colțul stânga-sus"
+msgstr "Colţul stânga sus"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Top right corner"
-msgstr "Colțul dreapta-sus"
+msgstr "Сolţul dreapta sus"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "Colțul stânga-jos"
+msgstr "Colţul stânga jos"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "Colțul dreapta-jos"
+msgstr "Сolţul dreapta jos"
 
 #: app/adwPreferencesWindow.js:250
 #, fuzzy
@@ -165,7 +165,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "Restabiliți"
+msgstr "Revenire"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -522,7 +522,7 @@ msgstr ""
 #: app/desktopManager.js:180
 #, fuzzy
 msgid "Enable"
-msgstr "Permite activarea"
+msgstr "Activeaza"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -709,7 +709,7 @@ msgstr "Aranjează pictogramele"
 #: app/desktopManager.js:1579
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Aranjeaza dupa…"
+msgstr "Aranjează după…"
 
 #: app/desktopManager.js:1585
 #, fuzzy
@@ -1006,7 +1006,7 @@ msgstr "Redenumește…"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "Creați link..."
+msgstr "Creează link"
 
 #: app/fileItemMenu.js:405
 #, fuzzy

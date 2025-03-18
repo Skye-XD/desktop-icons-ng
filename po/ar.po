@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-01-03 16:01+0000\n"
+"PO-Revision-Date: 2025-03-18 10:25+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
@@ -40,7 +40,7 @@ msgstr "تعديلات"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "عن"
+msgstr "عنْ التطبيق"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -85,17 +85,17 @@ msgstr "ضئيل"
 #: app/adwPreferencesWindow.js:233
 #, fuzzy
 msgid "Small"
-msgstr "مصغرة"
+msgstr "صغير"
 
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Standard"
-msgstr "قياسي"
+msgstr "عادي"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Large"
-msgstr "واسعة"
+msgstr "كبير"
 
 #: app/adwPreferencesWindow.js:240
 msgid "New icons alignment"
@@ -104,22 +104,22 @@ msgstr ""
 #: app/adwPreferencesWindow.js:242
 #, fuzzy
 msgid "Top left corner"
-msgstr "الزاوية اليسرى في الاعلى."
+msgstr "الزاوية العلوية اليسرى"
 
 #: app/adwPreferencesWindow.js:243
 #, fuzzy
 msgid "Top right corner"
-msgstr "الزاوية العليا اليمنى."
+msgstr "الزاوية اليمنى العليا"
 
 #: app/adwPreferencesWindow.js:244
 #, fuzzy
 msgid "Bottom left corner"
-msgstr "أسفل الزاوية اليسرى."
+msgstr "الزاوية السفلي اليسرى"
 
 #: app/adwPreferencesWindow.js:245
 #, fuzzy
 msgid "Bottom right corner"
-msgstr "الزاوية السفلية على اليمين."
+msgstr "اسفل الزاوية اليمنى"
 
 #: app/adwPreferencesWindow.js:250
 msgid "Add new icons to Secondary Monitors first, if available"
@@ -159,7 +159,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "استرجاع النسخ الاحتياطي"
+msgstr "إستعادة"
 
 #: app/adwPreferencesWindow.js:280
 msgid "Add information emblems for links, encryption"
@@ -266,7 +266,7 @@ msgstr "الترخيص"
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
 msgid "Translation"
-msgstr "ترجمة"
+msgstr "الترجمة"
 
 #: app/adwPreferencesWindow.js:350
 msgid "Help translate in your web browser"
@@ -328,7 +328,7 @@ msgstr "OK"
 #: app/askRenamePopup.js:57
 #, fuzzy
 msgid "Rename"
-msgstr "إعادة تسمية"
+msgstr "إعادة التسميه"
 
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
@@ -355,7 +355,7 @@ msgstr "ضغط الملفات."
 #: app/fileItemMenu.js:860 app/showErrorPopup.js:38 app/showErrorPopup.js:46
 #, fuzzy
 msgid "Cancel"
-msgstr "الغاء"
+msgstr "إلغاﺀ"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 #, fuzzy
@@ -431,18 +431,19 @@ msgid "Create archive"
 msgstr ""
 
 #: app/autoAr.js:571
+#, fuzzy
 msgid "Archive name"
-msgstr ""
+msgstr "اسم الأرشيف"
 
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "كلمة المرور"
+msgstr "كلمة السر"
 
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "صنع"
+msgstr "إنشاء"
 
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
@@ -484,8 +485,9 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:180
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "تفعيل"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -542,7 +544,7 @@ msgstr ""
 #: app/desktopManager.js:702
 #, fuzzy
 msgid "Move"
-msgstr "نقل"
+msgstr "تحريك"
 
 #: app/desktopManager.js:702 app/fileItemMenu.js:388
 #, fuzzy
@@ -837,7 +839,7 @@ msgstr ""
 #: app/fileItem.js:461 app/gnomeShellDragDrop.js:235
 #, fuzzy
 msgid "Could not open File"
-msgstr "تعذر فتح الملفات"
+msgstr "لم أتمكن من فتح الملف"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:463 app/gnomeShellDragDrop.js:237
@@ -879,7 +881,7 @@ msgstr ""
 #: app/fileItemMenu.js:351 app/fileItemMenu.js:354
 #, fuzzy
 msgid "Open With..."
-msgstr "فتح بواسطة"
+msgstr "افتح باستخدام..."
 
 #: app/fileItemMenu.js:354
 msgid "Open All With Other Application..."
@@ -904,7 +906,7 @@ msgstr ""
 #: app/fileItemMenu.js:383
 #, fuzzy
 msgid "Scripts"
-msgstr "النصوص البرمجية"
+msgstr "البرامج النصية"
 
 #: app/fileItemMenu.js:386
 #, fuzzy
@@ -912,12 +914,14 @@ msgid "Cut"
 msgstr "قص"
 
 #: app/fileItemMenu.js:392
+#, fuzzy
 msgid "Move to..."
-msgstr ""
+msgstr "نقل إلى"
 
 #: app/fileItemMenu.js:393
+#, fuzzy
 msgid "Copy to..."
-msgstr ""
+msgstr "نسخ إلى"
 
 #: app/fileItemMenu.js:397
 #, fuzzy
@@ -925,8 +929,9 @@ msgid "Rename…"
 msgstr "أعد التسمية…"
 
 #: app/fileItemMenu.js:400
+#, fuzzy
 msgid "Create Link..."
-msgstr ""
+msgstr "إنشاء رابط"
 
 #: app/fileItemMenu.js:405
 msgid "Compress {0} folder"
@@ -978,7 +983,7 @@ msgstr ""
 #: app/fileItemMenu.js:457
 #, fuzzy
 msgid "Unmount"
-msgstr "إلغاء التركيب"
+msgstr "الغاء الارتباط"
 
 #: app/fileItemMenu.js:461
 #, fuzzy
