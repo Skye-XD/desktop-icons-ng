@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-01-04 19:01+0000\n"
+"PO-Revision-Date: 2025-03-18 12:07+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -19,17 +19,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Desktop"
-msgstr "桌上型電腦"
+msgstr "桌面"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #, fuzzy
 msgid "Files"
-msgstr "檔案"
+msgstr "文件"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #: app/adwPreferencesWindow.js:218
@@ -40,7 +40,7 @@ msgstr "調教"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "關於"
+msgstr "關于"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -150,7 +150,7 @@ msgstr "在桌面顯示個人資料夾"
 #: app/desktopManager.js:3280
 #, fuzzy
 msgid "Choose"
-msgstr "選擇"
+msgstr "揀選"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -164,7 +164,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "復原"
+msgstr "還原"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -257,7 +257,7 @@ msgstr "造訪"
 #: app/adwPreferencesWindow.js:340
 #, fuzzy
 msgid "Issues"
-msgstr "出版"
+msgstr "期刊"
 
 #: app/adwPreferencesWindow.js:341
 #, fuzzy
@@ -272,7 +272,7 @@ msgstr "報表"
 #: app/adwPreferencesWindow.js:344
 #, fuzzy
 msgid "License"
-msgstr "License"
+msgstr "協議"
 
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
@@ -472,7 +472,7 @@ msgstr "密碼"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "製作"
+msgstr "建立"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -519,8 +519,9 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:180
+#, fuzzy
 msgid "Enable"
-msgstr ""
+msgstr "啟用"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -650,7 +651,7 @@ msgstr "類型"
 #: app/desktopManager.js:1534
 #, fuzzy
 msgid "Size"
-msgstr "大小"
+msgstr "大"
 
 #: app/desktopManager.js:1538
 #, fuzzy
@@ -921,7 +922,7 @@ msgstr ""
 #: app/fileItem.js:461 app/gnomeShellDragDrop.js:235
 #, fuzzy
 msgid "Could not open File"
-msgstr "無法打開文件"
+msgstr "無法開啟檔案"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:463 app/gnomeShellDragDrop.js:237
@@ -942,7 +943,7 @@ msgstr "開啟所有項目……"
 #: app/fileItemMenu.js:316
 #, fuzzy
 msgid "Launch"
-msgstr "啟動"
+msgstr "啓動"
 
 #: app/fileItemMenu.js:326
 #, fuzzy
@@ -1015,7 +1016,7 @@ msgstr "重新命名…"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "建立联系."
+msgstr "建立連結"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
