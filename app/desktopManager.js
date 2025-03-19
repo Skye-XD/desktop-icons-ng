@@ -142,21 +142,18 @@ const DesktopManager = class {
         // disk with write mode 'OVERWRITE'
         const initialRead = true;
 
-        // This is no longer needed, if true it blocks all updates.
-        this.windowsPromiseResolve = null;
-
         // prior fileList, even if triggered through desktopdir changes
         // will not be displayed as windows were not there.
-        await this._updateDesktop({initialRead}).catch(e => logError(e));
+        const fileList = await this.desktopMonitor.getFileList();
+
+        // This is no longer needed, if true it blocks _drawDesktop and all updates.
+        this.windowsPromiseResolve = null;
+
+        await this._drawDesktop(fileList, {initialRead}).catch(e => logError(e));
         // First intitiation complete, valid file read from
         // desktopdir, even if a prior fileList was read, the
         // forced new read will recalculate and resave new
         // normalized coordinates and monitor information.
-    }
-
-    async _updateDesktop(opts = {initialRead: false}) {
-        const fileList = await this.desktopMonitor.getFileList();
-        await this._drawDesktop(fileList, opts).catch(e => logError(e));
     }
 
     async _performSanityChecks() {
@@ -417,7 +414,7 @@ const DesktopManager = class {
         // force to store the new coordinates
         this._addFilesToDesktop(fileItems, this.Enums.StoredCoordinates.OVERWRITE);
         if (keepArranged) {
-            this._updateDesktop().catch(e => {
+            this.redrawDesktop().catch(e => {
                 console.log(`Exception while doing move with drag and drop and "Keep arranged…": ${e.message}\n${e.stack}`);
             });
         }
@@ -1309,8 +1306,8 @@ const DesktopManager = class {
         this.mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
 
         let updateDesktop = Gio.SimpleAction.new('updateDesktop', null);
-        updateDesktop.connect('activate', () => {
-            this._updateDesktop().catch(e => {
+        updateDesktop.connect('activate', async () => {
+            await this.reLoadDesktop().catch(e => {
                 console.log(`Exception while updating desktop after pressing "F5": ${e.message}\n${e.stack}`);
             });
         });
@@ -1810,9 +1807,53 @@ const DesktopManager = class {
         this._fileList = [];
     }
 
+    _clearAllFilesFromGrids() {
+        for (let fileItem of this._fileList)
+            fileItem.removeFromGrid({callOnDestroy: false});
+
+        this._fileList = [];
+    }
+
+    async redrawDesktop() {
+        // fileList is not changed, we just need to render the desktop again
+        // with changes in icon color, emblem, appearance, theme change etc.
+        const opts = {initialRead: false, redisplay: true};
+        const fileList = this.desktopMonitor.fileList;
+        await this._drawDesktop(fileList, opts).catch(e => {
+            console.error(`Error while redrawing desktop: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    async reLoadDesktop() {
+        await this.desktopMonitor.reLoadFileList();
+    }
+
+    async refreshDesktop() {
+        // fileList is changed, we need to render the desktop again
+        // with latest fileList from the desktopMonitor. The position of the
+        // icons is also recomputed from the normalized coordinates.
+        const opts = {initialRead: true};
+        const fileList = this.desktopMonitor.fileList;
+        await this._drawDesktop(fileList, opts).catch(e => {
+            console.error(`Error while refreshing desktop: ${e.message}`);
+        });
+    }
+
+    async reFrameDesktop(opts) {
+        // fileList is not changed, grids changed, monitor added, removed,
+        // monitor geometry, zoom, or index changed.
+        // We need to recompute the position of the icons
+        // from the normalized coordinates and redraw the desktop and reassign
+        // the icons to the correct grid and monitors
+        const fileList = this.desktopMonitor.fileList;
+        await this._drawDesktop(fileList, opts).catch(e => {
+            console.error(`Error while reframing desktop: ${e.message}`);
+        });
+    }
+
     async _drawDesktop(fileList, opts = {initialRead: false}) {
-        if (!fileList)
-            fileList = this.desktopMonitor.fileList;
+        if (this.windowsPromiseResolve || !fileList || !fileList.length)
+            return;
         const selectedFiles = this.getCurrentSelectionAsUri();
 
         //* Update the Icon before placing on Desktop to prevent flickering Icons *//
@@ -1825,7 +1866,12 @@ const DesktopManager = class {
         });
         await Promise.all([...updateUI]);
 
-        this._removeAllFilesFromGrids();
+        //* Remove all files from the grids just before placing new files to
+        // prevent flickering icons *//
+        if (opts.initialRead)
+            this._removeAllFilesFromGrids();
+        else
+            this._clearAllFilesFromGrids();
         this._fileList = fileList;
 
         this._placeAllFilesOnGrids(opts);
@@ -2960,26 +3006,9 @@ const DesktopManager = class {
         this.windowManager.requestGeometryUpdate();
     }
 
-    onSettingsChanged() {
-        this._updateDesktop().catch(e => {
-            console.log(`Exception while updating Desktop after the settings changed: ${e.message}\n${e.stack}`);
-        });
-    }
-
-    onShowLinkEmblemschanged() {
-        this._desktopManager._updateDesktop().catch(e => {
-            console.log(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
-        });
-    }
-
-    onGnomeFilesSettingsChanged() {
-        this._updateDesktop().catch(e => {
-            console.log(`Exception while updating Desktop after the GNOME Files settings changed: ${e.message}\n${e.stack}`);
-        });
-    }
-
-    onGtkSettingsChanged() {
-        this._updateDesktop().catch(e => {
+    async onGtkSettingsChanged() {
+        await this.desktopMonitor.getFileList();
+        await this.reLoadDesktop().catch(e => {
             console.log(`Exception while updating desktop after the hidden settings changed: ${e.message}\n${e.stack}`);
         });
         this.templatesMonitor.updateEntries();
@@ -3035,9 +3064,9 @@ const DesktopManager = class {
         this._fileList.forEach(x => x.removeFromGrid());
         for (let desktop of this._desktops)
             desktop.resizeGrid();
-
-        this._fileList.forEach(x => x.updateIcon());
-        this._placeAllFilesOnGrids({redisplay: true});
+        this.reLoadDesktop().catch(e => {
+            console.log(`Exception while reloading desktop after icon size change: ${e.message}\n${e.stack}`);
+        });
     }
 
     get desktopDir() {

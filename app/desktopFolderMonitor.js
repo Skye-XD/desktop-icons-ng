@@ -47,6 +47,7 @@ const DesktopMonitor = class {
         this._monitorDesktopChanges();
         this._monitorVolumes();
         this._startMonitoringTemplatesDir();
+        this._updateFileList().catch(e => console.error(e));
     }
 
     stopMonitoring() {
@@ -201,9 +202,6 @@ const DesktopMonitor = class {
 
         try {
             await this._updateFileList();
-            await this.desktopManager._drawDesktop(
-                this._fileList,
-                {initialRead: true});
         } catch (e) {
             console.error(e, `Exception while updating desktop from Directory Monitor: ${e.message}`);
         }
@@ -266,7 +264,7 @@ const DesktopMonitor = class {
         }
     }
 
-    async _updateFileList(opts = {initialRead: true}) {
+    async _updateFileList() {
         if (this._readingDesktopFiles) {
             // just notify that the files changed while being read from the disk.
             this._desktopFilesChanged = true;
@@ -303,7 +301,7 @@ const DesktopMonitor = class {
 
                 if (this._forceDraw) {
                     this._fileList = fileList;
-                    this.desktopManager._drawDesktop(fileList, opts).catch(e => console.error(e));
+                    this.desktopManager.refreshDesktop();
                     this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
                 }
             }
@@ -317,6 +315,7 @@ const DesktopMonitor = class {
         this._readingDesktopFiles = false;
         this._forceDraw = false;
         this._fileList = fileList;
+        this.desktopManager.refreshDesktop();
     }
 
     async _doReadAsync() {
@@ -337,7 +336,7 @@ const DesktopMonitor = class {
                     const newFolderInfo = await newFolder.query_info_async(
                         this.Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE,
                         GLib.PRIORITY_DEFAULT, cancellable);
-                    fileList.push(new FileItem.FileItem(this,
+                    fileList.push(new FileItem.FileItem(this.desktopManager,
                         newFolder,
                         newFolderInfo,
                         extras,
@@ -387,7 +386,7 @@ const DesktopMonitor = class {
                     const newFolderInfo = await newFolder.query_info_async(
                         this.Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE,
                         GLib.PRIORITY_DEFAULT, cancellable);
-                    fileList.push(new FileItem.FileItem(this,
+                    fileList.push(new FileItem.FileItem(this.desktopManager,
                         newFolder,
                         newFolderInfo,
                         extras,
@@ -477,7 +476,12 @@ const DesktopMonitor = class {
 
     async getFileList() {
         const fileList = await this._doReadAsync();
+        this._fileList = fileList;
         return fileList;
+    }
+
+    async reLoadFileList() {
+        await this._updateFileList().catch(e => logError(e));
     }
 
     get fileList() {

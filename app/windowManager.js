@@ -147,7 +147,7 @@ const WindowManager = class {
 
             // If valid fileList is available, no change in fileList
             // recompute postion of all icons for new geometry
-            this._desktopManager._placeAllFilesOnGrids({
+            this._desktopManager.reframeDesktop({
                 redisplay: true,
                 monitorschanged: true,
                 gridschanged: true,
@@ -229,7 +229,7 @@ const WindowManager = class {
             // grid. However for stacked co-ordinates- we will neeed to redo the
             // old coordinates seperately in do stacks with nonitorschanged info
             this._desktopManager._performSanityChecks();
-            this._desktopManager._placeAllFilesOnGrids({redisplay, monitorschanged, gridschanged});
+            this._desktopManager.reFrameDesktop({redisplay, monitorschanged, gridschanged});
         }
     }
 
