@@ -7,15 +7,16 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
-# albanobattistella <albano_battistella@hotmail.com>, 2024.
+# albanobattistella <albano_battistella@hotmail.com>, 2024, 2025.
 # Fabian Esposito <fabian.esposito@outlook.com>, 2025.
+# Jimmy Scionti <jimmy.scionti@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-18 05:11+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-03-20 20:11+0000\n"
+"Last-Translator: Jimmy Scionti <jimmy.scionti@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
@@ -30,24 +31,21 @@ msgid "Desktop"
 msgstr "Scrivania"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
-#, fuzzy
 msgid "Files"
 msgstr "File"
 
 #: app/adwPreferencesWindow.js:184 app/adwPreferencesWindow.js:185
 #: app/adwPreferencesWindow.js:218
-#, fuzzy
 msgid "Tweaks"
-msgstr "Ritocchi"
+msgstr "Personalizzazioni"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 msgid "About"
 msgstr "Informazioni"
 
 #: app/adwPreferencesWindow.js:200
-#, fuzzy
 msgid "Desktop Settings"
-msgstr "Impostazioni Desktop"
+msgstr "Impostazioni Scrivania"
 
 #: app/adwPreferencesWindow.js:201
 #, fuzzy
@@ -567,6 +565,9 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"L'applicazione Gnome File non è programmata per aprire le cartelle!\n"
+"Controlla l'installazione di xdg-utils\n"
+"Controlla l'installazione del file .desktop di Gnome File"
 
 #: app/desktopManager.js:329
 #, fuzzy
@@ -605,9 +606,8 @@ msgid "Link"
 msgstr "Collegamento"
 
 #: app/desktopManager.js:789 app/desktopManager.js:821
-#, fuzzy
 msgid "Making SymLink Failed"
-msgstr "Rendere SymLink non riuscito"
+msgstr "La creazione del collegamento simbolico è fallita"
 
 #: app/desktopManager.js:790 app/desktopManager.js:822
 #, fuzzy
