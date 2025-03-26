@@ -139,10 +139,6 @@ const DesktopIconItem = class {
             justify: Gtk.Justification.CENTER,
             lines: 2,
         });
-        if (this.Prefs.darkText)
-            this._label.add_css_class('file-label-dark');
-        else
-            this._label.add_css_class('file-label');
 
         this._labelContainer = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
@@ -551,6 +547,14 @@ const DesktopIconItem = class {
             this._updateIconCancellable.cancel();
 
         this._updateIconCancellable = cancellable;
+
+        if (this.Prefs.darkText) {
+            this._label.remove_css_class('file-label');
+            this._label.add_css_class('file-label-dark');
+        } else {
+            this._label.remove_css_class('file-label-dark');
+            this._label.add_css_class('file-label');
+        }
 
         try {
             let customIcon = this._fileInfo.get_attribute_as_string('metadata::custom-icon');
