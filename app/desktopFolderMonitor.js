@@ -472,7 +472,7 @@ const DesktopMonitor = class {
     }
 
     fileExistsOnDesktop(searchName) {
-        const listOfFileNamesOnDesktop = this._fileList().map(f => f.fileName);
+        const listOfFileNamesOnDesktop = this._fileList.map(f => f.fileName);
         if (listOfFileNamesOnDesktop.includes(searchName))
             return true;
         else

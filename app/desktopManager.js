@@ -677,7 +677,7 @@ const DesktopManager = class {
         let gioDestination = Gio.File.new_for_uri(destination);
         await Promise.all(fileList.map(async file => {
             const fileGio = Gio.File.new_for_uri(file);
-            const newSymlinkName = this.getDesktopUniqueFileName(fileGio.get_basename());
+            const newSymlinkName = this.desktopMonitor.getDesktopUniqueFileName(fileGio.get_basename());
             const symlinkGio = Gio.File.new_for_commandline_arg(GLib.build_filenamev([gioDestination.get_path(), newSymlinkName]));
             try {
                 if (symlinkGio.make_symbolic_link(GLib.build_filenamev([fileGio.get_path()]), null)) {
@@ -2323,26 +2323,6 @@ const DesktopManager = class {
         }
     }
 
-    fileExistsOnDesktop(searchName) {
-        const listOfFileNamesOnDesktop = this.currentWorkingList.map(f => f.fileName);
-        if (listOfFileNamesOnDesktop.includes(searchName))
-            return true;
-        else
-            return false;
-    }
-
-    getDesktopUniqueFileName(fileName) {
-        let fileParts = this.DesktopIconsUtil.getFileExtensionOffset(fileName);
-        let i = 0;
-        let newName = fileName;
-
-        while (this.fileExistsOnDesktop(newName)) {
-            i += 1;
-            newName = `${fileParts.basename} ${i}${fileParts.extension}`;
-        }
-        return newName;
-    }
-
     async doNewFolder(position = null, suggestedName = null, opts = {rename: true}) {
         this.unselectAll();
 
@@ -2351,7 +2331,7 @@ const DesktopManager = class {
 
 
         const baseName = suggestedName ? suggestedName :  _('New Folder');
-        let newName = this.getDesktopUniqueFileName(baseName);
+        let newName = this.desktopMonitor.getDesktopUniqueFileName(baseName);
 
         if (newName) {
             const dir = this._desktopDir.get_child(newName);
