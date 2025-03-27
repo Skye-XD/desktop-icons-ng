@@ -285,18 +285,6 @@ const DesktopManager = class {
             this._syncUndoRedo();
     }
 
-
-
-    updateFileList() {
-        let updateFileList;
-        if (this._compositeStackList && (this._compositeStackList.length > 0))
-            updateFileList = this._compositeStackList;
-        else
-            updateFileList = this._displayList;
-
-        return updateFileList;
-    }
-
     async createDesktopShortcut(shortcutinfo) {
         let fileList = [shortcutinfo.uri];
         let X = parseInt(shortcutinfo.X);
@@ -311,7 +299,7 @@ const DesktopManager = class {
         const basename = file.get_basename();
 
         let selfCopy = false;
-        this.updateFileList().forEach(fileItem => {
+        this.currentWorkingList.forEach(fileItem => {
             if (fileItem.fileName === basename) {
                 this._pendingDropFiles[`${basename}COPYEXPECTED`] = dropCoordinates;
                 this._pendingSelfCopyFiles[basename] = fileItem.savedCoordinates;
@@ -2336,7 +2324,7 @@ const DesktopManager = class {
     }
 
     fileExistsOnDesktop(searchName) {
-        const listOfFileNamesOnDesktop = this.updateFileList().map(f => f.fileName);
+        const listOfFileNamesOnDesktop = this.currentWorkingList.map(f => f.fileName);
         if (listOfFileNamesOnDesktop.includes(searchName))
             return true;
         else
@@ -3087,5 +3075,15 @@ const DesktopManager = class {
 
     get templatesMonitor() {
         return this.desktopMonitor.templatesMonitor;
+    }
+
+    get currentWorkingList() {
+        let currentCompleteList;
+        if (this._compositeStackList && (this._compositeStackList.length > 0))
+            currentCompleteList = this._compositeStackList;
+        else
+            currentCompleteList = this._displayList;
+
+        return currentCompleteList;
     }
 };
