@@ -130,7 +130,7 @@ const WindowManager = class {
             }) || this._priorDesktopList.length === 0;
 
         if (firstDesktop) {
-            this._desktopManager._fileList.forEach(x => x.removeFromGrid());
+            this._desktopManager._displayList.forEach(x => x.removeFromGrid());
             this.createGridWindows();
             // sanity checks and icons placment on grid will be done by
             // desktopManager in sync startup
@@ -141,7 +141,7 @@ const WindowManager = class {
         // by creating new desktops
         if (this._priorDesktopList.length !== this._desktopList.length) {
             // monitor has been plugged in or removed.
-            this._desktopManager._fileList.forEach(x => x.removeFromGrid());
+            this._desktopManager._displayList.forEach(x => x.removeFromGrid());
             this.createGridWindows();
             this._desktopManager._performSanityChecks();
 
@@ -198,7 +198,7 @@ const WindowManager = class {
         const redisplay = monitorschanged || gridschanged;
 
         if (redisplay) {
-            this._desktopManager._fileList.forEach(x => x.removeFromGrid());
+            this._desktopManager._displayList.forEach(x => x.removeFromGrid());
             this._desktops.forEach((desktop, index) => {
                 desktop.updateGridDescription(this._desktopList[index]);
                 if (monitorschangedList.includes(index)) {
