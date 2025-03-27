@@ -47,6 +47,11 @@ const DesktopMonitor = class {
         this._monitorDesktopChanges();
         this._monitorVolumes();
         this._startMonitoringTemplatesDir();
+        this.DBusUtils = this.desktopManager.DBusUtils;
+        this.DBusUtils.GtkVfsMetadata.connectSignalToProxy(
+            'AttributeChanged',
+            this._metadataChanged.bind(this)
+        );
         this._updateFileList().catch(e => console.error(e));
     }
 
@@ -437,6 +442,18 @@ const DesktopMonitor = class {
                         fileItem.dropCoordinates = this._pendingDropFiles[fileName];
                         delete this._pendingDropFiles[fileName];
                     }
+                }
+            }
+        }
+    }
+
+    _metadataChanged(proxy, nameOwner, args) {
+        let filepath = GLib.build_filenamev([GLib.get_home_dir(), args[1]]);
+        if (this._desktopDir.get_path() === GLib.path_get_dirname(filepath)) {
+            for (let fileItem of this._fileList) {
+                if (fileItem.path === filepath) {
+                    fileItem.updatedMetadata();
+                    break;
                 }
             }
         }

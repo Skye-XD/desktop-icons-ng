@@ -283,21 +283,9 @@ const DesktopManager = class {
 
         if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
             this._syncUndoRedo();
-
-        this.DBusUtils.GtkVfsMetadata.connectSignalToProxy('AttributeChanged', this._metadataChanged.bind(this));
     }
 
-    _metadataChanged(proxy, nameOwner, args) {
-        let filepath = GLib.build_filenamev([GLib.get_home_dir(), args[1]]);
-        if (this._desktopDir.get_path() === GLib.path_get_dirname(filepath)) {
-            for (let fileItem of this.updateFileList()) {
-                if (fileItem.path === filepath) {
-                    fileItem.updatedMetadata();
-                    break;
-                }
-            }
-        }
-    }
+
 
     updateFileList() {
         let updateFileList;
