@@ -323,10 +323,10 @@ const DesktopGrid = class {
 
     recomputeGridPosition(column, row) {
         if (column > this._maxColumns)
-            return [this._x, this._y]
+            return [this._x, this._y];
 
         if (row > this._maxRows)
-            return [this._x, this._y]
+            return [this._x, this._y];
 
         const [localX, localY] =
             this._getLocalCoordinatesForGrid(column, row);
