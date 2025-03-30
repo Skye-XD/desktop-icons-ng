@@ -1334,8 +1334,7 @@ const DesktopGrid = class {
             fileItem.savedCoordinates[1] === 0) ||
             !this.Prefs.freePositionIcons ||
             this.Prefs.keepArranged ||
-            this.Prefs.keepStacked ||
-            !this._fileItemFitsOnGrid(fileItem)) {
+            this.Prefs.keepStacked) {
             this._addFileItemToGrid(fileItem, column, row, coordinatesAction);
             return;
         }
