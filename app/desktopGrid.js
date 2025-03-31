@@ -271,17 +271,6 @@ const DesktopGrid = class {
         this._maxRows =  Math.floor(this._height / (this.Prefs.DesiredHeight + 4 * this.elementSpacing));
         this._elementWidth = Math.floor(this._width / this._maxColumns);
         this._elementHeight = Math.floor(this._height / this._maxRows);
-
-        this._marginChangeTop =
-            this._marginTop - this._oldMarginTop;
-        this._marginChangeLeft =
-            this._marginLeft - this._oldMarginLeft;
-        this._marginChangeRight =
-            this._marginRight - this._oldMarginRight;
-        this._marginChangeBottom =
-            this._marginBottom - this._oldMarginBottom;
-        this.shiftLeft = this._marginChangeLeft - this._marginChangeRight;
-        this.shiftUp = this._marginChangeTop - this._marginChangeBottom;
     }
 
     _updateGridRectangle() {
