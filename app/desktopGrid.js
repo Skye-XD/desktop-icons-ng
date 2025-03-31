@@ -1112,15 +1112,6 @@ const DesktopGrid = class {
         return this.windowGlobalRectangle.intersect(checkRectangle)[0];
     }
 
-    fileItemRectangleFitsThisGrid(X, Y) {
-        const topLeftVertex = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
-        const Xr = X + this._elementWidth - 2 * this.elementSpacing;
-        const Yr = Y + this._elementHeight - 2 * this.elementSpacing;
-        const bottomRightVertex = new Gdk.Rectangle({x: Xr, y: Yr, width: 1, height: 1});
-        return this.gridGlobalRectangle.intersect(topLeftVertex)[0] &&
-            this.gridGlobalRectangle.intersect(bottomRightVertex)[0];
-    }
-
     getGlobaltoLocalRectangle(gdkRectangle) {
         const [X, Y] = this._coordinatesGlobalToLocal(gdkRectangle.x, gdkRectangle.y);
         return new Gdk.Rectangle({x: X, y: Y, width: gdkRectangle.width, height: gdkRectangle.height});
@@ -1208,11 +1199,6 @@ const DesktopGrid = class {
         }
         if (bottomRightColumn !== column && bottomRightRow === row)
             this._setGridUse(bottomRightColumn, row, fileItem);
-    }
-
-    _fileItemFitsOnGrid(fileItem) {
-        const [X, Y] = fileItem.savedCoordinates;
-        return this.fileItemRectangleFitsThisGrid(X, Y);
     }
 
     _isEmptyAt(column, row) {
