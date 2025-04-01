@@ -8,13 +8,14 @@
 # Ding User <dengus@users.noreply.hosted.weblate.org>, 2024, 2025.
 # Drugi Sapog <copec33670@dfesc.com>, 2025.
 # Drugi Sapog <dindrugi@users.noreply.hosted.weblate.org>, 2025.
+# Yauhen <bugomol@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-20 12:20+0000\n"
-"Last-Translator: Ding User <dengus@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-03-29 12:01+0000\n"
+"Last-Translator: Yauhen <bugomol@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -149,10 +150,8 @@ msgid "Restore"
 msgstr "Аднавіць"
 
 #: app/adwPreferencesWindow.js:280
-#, fuzzy
-#| msgid "Add an emblem to links"
 msgid "Add information emblems for links, encryption"
-msgstr "Дадаваць да спасылак эмблему"
+msgstr "Дадаваць да спасылак і шыфраваных файлаў эмблему"
 
 #: app/adwPreferencesWindow.js:283
 msgid "Use dark text in icon labels"
@@ -453,9 +452,8 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:180
-#, fuzzy
 msgid "Enable"
-msgstr "Уключыць функцыю"
+msgstr "Уключыць"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
