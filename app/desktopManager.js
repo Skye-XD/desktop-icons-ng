@@ -2165,7 +2165,7 @@ const DesktopManager = class {
             // position.
             // for snap to grid this will apply the new  global x,y of
             // the grid assigned
-                this._recomputeGridPositions();
+            this._recomputeGridPositions();
         }
         this._addFilesToDesktop(this._fileList, storeMode);
     }

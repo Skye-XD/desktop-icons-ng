@@ -271,17 +271,6 @@ const DesktopGrid = class {
         this._maxRows =  Math.floor(this._height / (this.Prefs.DesiredHeight + 4 * this.elementSpacing));
         this._elementWidth = Math.floor(this._width / this._maxColumns);
         this._elementHeight = Math.floor(this._height / this._maxRows);
-
-        this._marginChangeTop =
-            this._marginTop - this._oldMarginTop;
-        this._marginChangeLeft =
-            this._marginLeft - this._oldMarginLeft;
-        this._marginChangeRight =
-            this._marginRight - this._oldMarginRight;
-        this._marginChangeBottom =
-            this._marginBottom - this._oldMarginBottom;
-        this.shiftLeft = this._marginChangeLeft - this._marginChangeRight;
-        this.shiftUp = this._marginChangeTop - this._marginChangeBottom;
     }
 
     _updateGridRectangle() {
@@ -323,10 +312,10 @@ const DesktopGrid = class {
 
     recomputeGridPosition(column, row) {
         if (column > this._maxColumns)
-            return [this._x, this._y]
+            return [this._x, this._y];
 
         if (row > this._maxRows)
-            return [this._x, this._y]
+            return [this._x, this._y];
 
         const [localX, localY] =
             this._getLocalCoordinatesForGrid(column, row);
@@ -1112,15 +1101,6 @@ const DesktopGrid = class {
         return this.windowGlobalRectangle.intersect(checkRectangle)[0];
     }
 
-    fileItemRectangleFitsThisGrid(X, Y) {
-        const topLeftVertex = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
-        const Xr = X + this._elementWidth - 2 * this.elementSpacing;
-        const Yr = Y + this._elementHeight - 2 * this.elementSpacing;
-        const bottomRightVertex = new Gdk.Rectangle({x: Xr, y: Yr, width: 1, height: 1});
-        return this.gridGlobalRectangle.intersect(topLeftVertex)[0] &&
-            this.gridGlobalRectangle.intersect(bottomRightVertex)[0];
-    }
-
     getGlobaltoLocalRectangle(gdkRectangle) {
         const [X, Y] = this._coordinatesGlobalToLocal(gdkRectangle.x, gdkRectangle.y);
         return new Gdk.Rectangle({x: X, y: Y, width: gdkRectangle.width, height: gdkRectangle.height});
@@ -1208,11 +1188,6 @@ const DesktopGrid = class {
         }
         if (bottomRightColumn !== column && bottomRightRow === row)
             this._setGridUse(bottomRightColumn, row, fileItem);
-    }
-
-    _fileItemFitsOnGrid(fileItem) {
-        const [X, Y] = fileItem.savedCoordinates;
-        return this.fileItemRectangleFitsThisGrid(X, Y);
     }
 
     _isEmptyAt(column, row) {
@@ -1334,8 +1309,7 @@ const DesktopGrid = class {
             fileItem.savedCoordinates[1] === 0) ||
             !this.Prefs.freePositionIcons ||
             this.Prefs.keepArranged ||
-            this.Prefs.keepStacked ||
-            !this._fileItemFitsOnGrid(fileItem)) {
+            this.Prefs.keepStacked) {
             this._addFileItemToGrid(fileItem, column, row, coordinatesAction);
             return;
         }

@@ -828,6 +828,7 @@ const DesktopIconItem = class {
     set row(num) {
         this._row = num;
     }
+
     set dropCoordinates(pos) {
         this.writeDropCoordinates(pos);
     }
