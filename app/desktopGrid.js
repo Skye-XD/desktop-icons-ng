@@ -1282,9 +1282,9 @@ const DesktopGrid = class {
             this.elementSpacing,
             this);
         /* If this file is new in the Desktop and hasn't yet
-         * fixed coordinates, store the new possition to ensure
-         * that the next time it will be shown in the same possition.
-         * Also store the new possition if it has been moved by the user,
+         * fixed coordinates, store the new position to ensure
+         * that the next time it will be shown in the same position.
+         * Also store the new position if it has been moved by the user,
          * and not triggered by a screen change.
          */
         if ((fileItem.savedCoordinates === null) ||
@@ -1303,20 +1303,22 @@ const DesktopGrid = class {
         this._container.remove(fileItem.container);
     }
 
-    _placeIntoPosition(fileItem, X, Y, x, y, column, row, coordinatesAction) {
+    _placeIntoPosition(fileItem, X, Y, x, y, emptycolumn, emptyrow, coordinatesAction) {
+        // For sanpping to grid
         if (fileItem.savedCoordinates == null ||
             (fileItem.savedCoordinates[0] === 0 &&
             fileItem.savedCoordinates[1] === 0) ||
             !this.Prefs.freePositionIcons ||
             this.Prefs.keepArranged ||
             this.Prefs.keepStacked) {
-            this._addFileItemToGrid(fileItem, column, row, coordinatesAction);
+            this._addFileItemToGrid(fileItem, emptycolumn, emptyrow, coordinatesAction);
             return;
         }
 
         if (this._destroying)
             return;
 
+        // For free placement
         this._container.put(fileItem.container, x, y);
         this._fileItems.set(fileItem, [x, y]);
         fileItem.setCoordinates(X,
@@ -1326,11 +1328,12 @@ const DesktopGrid = class {
             this.elementSpacing,
             this);
         // set column row being used for all four vertices
-        this._setUseColumnRowOverlappingThis(fileItem, column, row, X, Y);
+        const [currentColumn, currentRow] = this._getColumnRowFromLocal(x, y);
+        this._setUseColumnRowOverlappingThis(fileItem, currentColumn, currentRow, X, Y);
         /* If this file is new in the Desktop and hasn't yet
-         * fixed coordinates, store the new possition to ensure
-         * that the next time it will be shown in the same possition.
-         * Also store the new possition if it has been moved by the user,
+         * fixed coordinates, store the new position to ensure
+         * that the next time it will be shown in the same position.
+         * Also store the new position if it has been moved by the user,
          * and not triggered by a screen change.
          */
         if ((fileItem.savedCoordinates === null) ||
