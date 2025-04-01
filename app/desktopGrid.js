@@ -1319,6 +1319,30 @@ const DesktopGrid = class {
             return;
 
         // For free placement
+
+        // Make sure the icon lands inside the grid and does not protrude outside
+        const [currentColumn, currentRow] = this._getColumnRowFromLocal(x, y);
+        let translocated = false;
+        if (currentColumn === this._maxColumns - 1 && x + this._elementWidth > this._width) {
+            x = this._width - this._elementWidth;
+            translocated = true;
+        }
+        if (currentRow === this._maxRows - 1 && y + this._elementHeight > this._height) {
+            y = this._height - this._elementHeight;
+            translocated = true;
+        }
+        if (x < 0) {
+            x = 0;
+            translocated = true;
+        }
+        if (y < 0) {
+            y = 0;
+            translocated = true;
+        }
+        // recompute global coordinates from the translocatedd local coordinates
+        if (translocated)
+            [X, Y] = this.coordinatesLocalToGlobal(x, y);
+
         this._container.put(fileItem.container, x, y);
         this._fileItems.set(fileItem, [x, y]);
         fileItem.setCoordinates(X,
@@ -1327,9 +1351,10 @@ const DesktopGrid = class {
             this._elementHeight - 2 * this.elementSpacing,
             this.elementSpacing,
             this);
+
         // set column row being used for all four vertices
-        const [currentColumn, currentRow] = this._getColumnRowFromLocal(x, y);
         this._setUseColumnRowOverlappingThis(fileItem, currentColumn, currentRow, X, Y);
+
         /* If this file is new in the Desktop and hasn't yet
          * fixed coordinates, store the new position to ensure
          * that the next time it will be shown in the same position.
