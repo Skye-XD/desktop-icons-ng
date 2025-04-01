@@ -1,4 +1,10 @@
 # History of versions #
+* Gtk4 version 94 for Gnome 45, 46, 47, 48
+  * Fix icons not retaining postion after sleep when free position icons selected. (Sundeep Mediratta)
+  * Branch has been stable, allow running on Gnome 45, 46 as well.
+  * Weblate translations. (Weblate Authors)
+  * Update History.md, metadata.json, version bump to 95
+
 * Gtk4 version 94 for Gnome 47, 48
   * Fix for snap to grid- icons systematically migrating left or right with sleep, lock, dock and margins changing. (Sundeep Mediratta)
   * Fix for icons not in original position when waking from sleep. (Sundeep Mediratta)
