@@ -270,45 +270,8 @@ const DesktopManager = class {
         this.fileItemMenu.destroy();
     }
 
-    _intDBusSignalMonitoring() {
-        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
 
-        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
-            if (available)
-                this._syncUndoRedo();
-            else
-                this._syncUndoRedo(true);
-        });
-
-        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
-            this._syncUndoRedo();
-    }
-
-    async createDesktopShortcut(shortcutinfo) {
-        let fileList = [shortcutinfo.uri];
-        let X = parseInt(shortcutinfo.X);
-        let Y = parseInt(shortcutinfo.Y);
-        await this.clearFileCoordinates(fileList, [X, Y], {doCopy: true});
-        await this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
-    }
-
-    _setPendingDropCoordinates(file, dropCoordinates) {
-        if (!dropCoordinates)
-            return;
-        const basename = file.get_basename();
-
-        let selfCopy = false;
-        this.currentWorkingList.forEach(fileItem => {
-            if (fileItem.fileName === basename) {
-                this._pendingDropFiles[`${basename}COPYEXPECTED`] = dropCoordinates;
-                this._pendingSelfCopyFiles[basename] = fileItem.savedCoordinates;
-                selfCopy = true;
-            }
-        });
-
-        if (!selfCopy)
-            this._pendingDropFiles[basename] = dropCoordinates;
-    }
+    // Drag and Drop
 
     saveCurrentFileCoordinatesForUndo() {
         if (this.Prefs.keepArranged || this.Prefs.keepStacked)
@@ -441,16 +404,6 @@ const DesktopManager = class {
         this._stopGnomeShellDrag();
     }
 
-    _startGnomeShellDrag() {
-        if (!this._localDrag() && this.dragItem && !this.gnomeShellDrag)
-            this.gnomeShellDrag = new GnomeShellDragDrop.GnomeShellDrag(this);
-    }
-
-    _stopGnomeShellDrag() {
-        this.gnomeShellDrag?.destroy();
-        this.gnomeShellDrag = null;
-    }
-
     makeFileListFromSelection(dropData, acceptFormat) {
         if (!dropData)
             return null;
@@ -483,29 +436,6 @@ const DesktopManager = class {
             return fileList;
         else
             return null;
-    }
-
-    _localDrag() {
-        let localDrag = false;
-        this._desktops.forEach(d => {
-            if (d.localDrag)
-                localDrag = true;
-        });
-        return localDrag;
-    }
-
-    _positiveOffsetGridAim(xGlobalDestination, yGlobalDestination) {
-        // Find the grid where the destination lies and aim towards the positive side, middle of grid to ensure drop in the grid
-        let xbias = 0;
-        let ybias = 0;
-        for (let desktop of this._desktops) {
-            if (desktop.coordinatesBelongToThisGrid(xGlobalDestination, yGlobalDestination)) {
-                xbias = desktop._elementWidth / 2;
-                ybias = desktop._elementHeight / 2;
-                break;
-            }
-        }
-        return [xGlobalDestination + xbias, yGlobalDestination + ybias];
     }
 
     async onDragDataReceived(xGlobalDestination, yGlobalDestination, xlocalDestination, ylocalDestination, dropData, acceptFormat, gdkDropAction, localDrop, event, dragItem) {
@@ -701,26 +631,6 @@ const DesktopManager = class {
         }));
     }
 
-    async _getFsId(file) {
-        /**
-         * Returns filesystem id of file or null if file does not exist
-         *
-         * @param {file} Gio.File
-         * @returns {str} filesystem ID of file or null
-         */
-        const info = await file.query_info_async('id::filesystem',
-            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, null).catch(
-            e => {
-                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                    return null;
-                throw e;
-            }
-        );
-        if (info == null)
-            return null;
-        return info.get_attribute_string('id::filesystem');
-    }
-
     async desktopFsId() {
         if (this._desktopFsId === undefined)
             this._desktopFsId = await this._getFsId(this._desktopDir);
@@ -873,18 +783,175 @@ const DesktopManager = class {
         return null;
     }
 
-    closePopUps() {
-        if (this._renameWindow) {
-            this._renameWindow.close();
-            return true;
+
+    _setPendingDropCoordinates(file, dropCoordinates) {
+        if (!dropCoordinates)
+            return;
+        const basename = file.get_basename();
+
+        let selfCopy = false;
+        this.currentWorkingList.forEach(fileItem => {
+            if (fileItem.fileName === basename) {
+                this._pendingDropFiles[`${basename}COPYEXPECTED`] = dropCoordinates;
+                this._pendingSelfCopyFiles[basename] = fileItem.savedCoordinates;
+                selfCopy = true;
+            }
+        });
+
+        if (!selfCopy)
+            this._pendingDropFiles[basename] = dropCoordinates;
+    }
+
+    _startGnomeShellDrag() {
+        if (!this._localDrag() && this.dragItem && !this.gnomeShellDrag)
+            this.gnomeShellDrag = new GnomeShellDragDrop.GnomeShellDrag(this);
+    }
+
+    _stopGnomeShellDrag() {
+        this.gnomeShellDrag?.destroy();
+        this.gnomeShellDrag = null;
+    }
+
+    _localDrag() {
+        let localDrag = false;
+        this._desktops.forEach(d => {
+            if (d.localDrag)
+                localDrag = true;
+        });
+        return localDrag;
+    }
+
+    _positiveOffsetGridAim(xGlobalDestination, yGlobalDestination) {
+        // Find the grid where the destination lies and aim towards the positive side, middle of grid to ensure drop in the grid
+        let xbias = 0;
+        let ybias = 0;
+        for (let desktop of this._desktops) {
+            if (desktop.coordinatesBelongToThisGrid(xGlobalDestination, yGlobalDestination)) {
+                xbias = desktop._elementWidth / 2;
+                ybias = desktop._elementHeight / 2;
+                break;
+            }
         }
-        if (this.dialogCancellable) {
-            this.dialogCancellable.cancel();
-            this.dialogCancellable = null;
-            return true;
+        return [xGlobalDestination + xbias, yGlobalDestination + ybias];
+    }
+
+    async _getFsId(file) {
+        /**
+         * Returns filesystem id of file or null if file does not exist
+         *
+         * @param {file} Gio.File
+         * @returns {str} filesystem ID of file or null
+         */
+        const info = await file.query_info_async('id::filesystem',
+            Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, null).catch(
+            e => {
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                    return null;
+                throw e;
+            }
+        );
+        if (info == null)
+            return null;
+        return info.get_attribute_string('id::filesystem');
+    }
+
+    // Drag and Drop
+
+    drawSelectionRectangles() {
+        for (let grid of this._desktops)
+            grid.drawRubberBand();
+    }
+
+    onMotion(X, Y) {
+        this.pointerX = X;
+        this.pointerY = Y;
+        if (this.rubberBand) {
+            this.x1 = Math.min(X, this.rubberBandInitX);
+            this.x2 = Math.max(X, this.rubberBandInitX);
+            this.y1 = Math.min(Y, this.rubberBandInitY);
+            this.y2 = Math.max(Y, this.rubberBandInitY);
+            this.selectionRectangle = new Gdk.Rectangle({'x': this.x1, 'y': this.y1, 'width': this.x2 - this.x1, 'height': this.y2 - this.y1});
+            this.drawSelectionRectangles();
+            for (let item of this._displayList) {
+                let labelintersect = item.labelRectangle.intersect(this.selectionRectangle)[0];
+                let iconintersect = item.iconRectangle.intersect(this.selectionRectangle)[0];
+                if (labelintersect || iconintersect) {
+                    item.setSelected();
+                    item.touchedByRubberband = true;
+                } else if (item.touchedByRubberband) {
+                    item.unsetSelected();
+                }
+            }
         }
+    }
+
+    onReleaseButton() {
+        if (this.rubberBand) {
+            this.rubberBand = false;
+            this.selectionRectangle = null;
+        }
+        for (let grid of this._desktops)
+            grid.drawRubberBand();
+
         return false;
     }
+
+    _startRubberband(X, Y) {
+        this.rubberBandInitX = X;
+        this.rubberBandInitY = Y;
+        this.rubberBand = true;
+        for (let item of this._displayList)
+            item.touchedByRubberband = false;
+    }
+
+    unHighLightDropTarget() {
+        this._displayList.forEach(item => item.unHighLightDropTarget());
+    }
+
+    selected(fileItem, action) {
+        switch (action) {
+        case this.Enums.Selection.ALONE:
+            if (!fileItem.isSelected) {
+                for (let item of this._displayList) {
+                    if (item === fileItem)
+                        item.setSelected();
+                    else
+                        item.unsetSelected();
+                }
+            }
+            break;
+        case this.Enums.Selection.WITH_SHIFT:
+            fileItem.toggleSelected();
+            break;
+        case this.Enums.Selection.RIGHT_BUTTON:
+            if (!fileItem.isSelected) {
+                for (let item of this._displayList) {
+                    if (item === fileItem)
+                        item.setSelected();
+                    else
+                        item.unsetSelected();
+                }
+            }
+            break;
+        case this.Enums.Selection.ENTER:
+            if (this.rubberBand)
+                fileItem.setSelected();
+
+            break;
+        case this.Enums.Selection.RELEASE:
+            for (let item of this._displayList) {
+                if (item === fileItem) {
+                    if (item.isSelected)
+                        item.setSelected();
+                    else
+                        item.unsetSelected();
+                }
+            }
+            break;
+        }
+    }
+
+    // Keyboard and Mouse Events
 
     async onPressButton(X, Y, x, y, button, shiftPressed, controlPressed, grid) {
         this._clickX = Math.floor(X);
@@ -919,131 +986,6 @@ const DesktopManager = class {
                     this.popupmenuclosed(true);
             });
         }
-    }
-
-    _updateClipboard() {
-        return new Promise(resolve => {
-            let clipboard = Gdk.Display.get_default().get_clipboard();
-            this._isCut = false;
-            this._clipboardFiles = null;
-            /*
-             * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
-             * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
-             * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
-             *
-             *     x-special/nautilus-clipboard
-             *     OPERATION
-             *     FILE_URI
-             *     [FILE_URI]
-             *     [...]
-             *
-             * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
-             * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
-             * shared.
-             *
-             * To maintain compatibility, we first check if there's binary data in that atom, and if not, we check if
-             * there is text data in the old format.
-             */
-            let text = null;
-            let textDecoder = new TextDecoder();
-            if (clipboard.get_formats()) {
-                let mimetypes = clipboard.get_formats().to_string();
-                if (mimetypes.includes('x-special/gnome-copied-files')) {
-                    try {
-                        clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
-                            try {
-                                let success = actor.read_finish(result);
-                                let bytes = success[0].read_bytes(8192, null);
-                                text = textDecoder.decode(bytes.get_data());
-                                text = `x-special/nautilus-clipboard\n${text}\n`;
-                                this._setClipboardContent(text);
-                                resolve(true);
-                            } catch (e) {
-                                console.log(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
-                                this._setClipboardContent(text);
-                                resolve(false);
-                            }
-                        });
-                    } catch (e) {
-                        console.log(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${e.message}\n${e.stack}`);
-                        this._setClipboardContent(text);
-                        resolve(false);
-                    }
-                } else if (mimetypes.includes('text/plain')) {
-                    try {
-                        clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
-                            try {
-                                let success = actor.read_finish(result);
-                                let bytes = success[0].read_bytes(8192, null);
-                                text = textDecoder.decode(bytes.get_data());
-                                if (text && !text.endsWith('\n'))
-                                    text += '\n';
-
-                                this._setClipboardContent(text);
-                                resolve(true);
-                            } catch (e) {
-                                this._setClipboardContent(text);
-                                resolve(false);
-                            }
-                        });
-                    } catch (e) {
-                        console.log(`Exception while reading clipboard media-type "text/plain": ${e.message}\n${e.stack}`);
-                        this._setClipboardContent(text);
-                        resolve(false);
-                    }
-                } else {
-                    this._setClipboardContent(text);
-                    resolve(false);
-                }
-            } else {
-                this._setClipboardContent(text);
-                resolve(false);
-            }
-        });
-    }
-
-    _setClipboardContent(text) {
-        let [valid, isCut, files] = this._parseClipboardText(text);
-        if (valid) {
-            this._isCut = isCut;
-            this._clipboardFiles = files;
-        }
-        this.doPasteSimpleAction.set_enabled(valid);
-    }
-
-    _syncUndoRedo(hide = false) {
-        if (hide) {
-            this._undoMenuItem.hide();
-            this._redoMenuItem.hide();
-            return;
-        }
-        switch (this.DBusUtils.RemoteFileOperations.UndoStatus()) {
-        case this.Enums.UndoStatus.UNDO:
-            this.doUndoSimpleAction.set_enabled(true);
-            this.doRedoSimpleAction.set_enabled(false);
-            break;
-        case this.Enums.UndoStatus.REDO:
-            this.doUndoSimpleAction.set_enabled(false);
-            this.doRedoSimpleAction.set_enabled(true);
-            break;
-        default:
-            this.doUndoSimpleAction.set_enabled(false);
-            this.doRedoSimpleAction.set_enabled(false);
-            break;
-        }
-    }
-
-    _undoStatusChanged(proxy, properties) {
-        if ('UndoStatus' in properties.deep_unpack())
-            this._syncUndoRedo();
-    }
-
-    _doUndo() {
-        this.DBusUtils.RemoteFileOperations.UndoRemote();
-    }
-
-    _doRedo() {
-        this.DBusUtils.RemoteFileOperations.RedoRemote();
     }
 
     onKeyPress(keyval, keycode, state, grid) {
@@ -1097,89 +1039,23 @@ const DesktopManager = class {
         }
     }
 
-    unselectAll() {
-        this._displayList.map(f => f.unsetSelected());
-        this.activeFileItem = this.fileItemMenu.activeFileItem = null;
-    }
-
-    findFiles(text) {
-        const activeWindow = this.mainApp.get_active_window();
-        this._findFileWindow = new Gtk.Dialog({
-            use_header_bar: true,
-            resizable: false,
-        });
-        this._findFileButton = this._findFileWindow.add_button(_('OK'), Gtk.ResponseType.OK);
-        this._findFileButton.sensitive = false;
-        this._findFileWindow.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
-        this._findFileWindow.set_modal(true);
-        this._findFileWindow.set_title(_('Find Files on Desktop'));
-        const modal = true;
-        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this._findFileWindow, modal);
-        this._findFileWindow.set_transient_for(activeWindow);
-        let contentArea = this._findFileWindow.get_content_area();
-        this._findFileTextArea = new Gtk.Entry();
-        this._findFileTextArea.set_margin_top(5);
-        this._findFileTextArea.set_margin_bottom(5);
-        this._findFileTextArea.set_margin_start(5);
-        this._findFileTextArea.set_margin_end(5);
-        contentArea.append(this._findFileTextArea);
-        contentArea.set_homogeneous(true);
-        contentArea.set_baseline_position(Gtk.BaselinePosition.CENTER);
-        this._findFileTextArea.connect('activate', () => {
-            if (this._findFileButton.sensitive)
-                this._findFileWindow.response(Gtk.ResponseType.OK);
-        });
-        this._findFileTextArea.connect('changed', () => {
-            let context = this._findFileTextArea.get_style_context();
-            if (this.scanForFiles(this._findFileTextArea.text, true)) {
-                this._findFileButton.sensitive = true;
-                if (context.has_class('not-found'))
-                    context.remove_class('not-found');
-            } else {
-                this._findFileButton.sensitive = false;
-                this._findFileTextArea.error_bell();
-                if (!context.has_class('not-found'))
-                    context.add_class('not-found');
-            }
-            this.searchEventTime = GLib.get_monotonic_time();
-        });
-        this._findFileTextArea.grab_focus_without_selecting();
-        if (text) {
-            this._findFileTextArea.set_text(text);
-            this._findFileTextArea.set_position(text.length);
-        } else {
-            this.scanForFiles(null);
-        }
-        this._findFileWindow.show();
-        this.textEntryAccelsTurnOff();
-        this._findFileWindow.connect('close', () => {
-            this._findFileWindow.response(Gtk.ResponseType.CANCEL);
-        });
-        this._findFileWindow.connect('response', (actor, retval) => {
-            if (retval === Gtk.ResponseType.CANCEL)
-                this.unselectAll();
-
-            this.textEntryAccelsTurnOn();
-            this._findFileWindow.destroy();
-            this._findFileWindow = null;
-        });
-    }
-
-    scanForFiles(text, setselected) {
-        let found = [];
-        if (text && (text !== ''))
-            found = this._displayList.filter(f => f.fileName.toLowerCase().includes(text.toLowerCase()) || f._label.get_text().toLowerCase().includes(text.toLowerCase()));
-
-        if (found.length !== 0) {
-            if (setselected) {
-                this.unselectAll();
-                found.map(f => f.setSelected());
-            }
+    closePopUps() {
+        if (this._renameWindow) {
+            this._renameWindow.close();
             return true;
-        } else {
-            return false;
         }
+        if (this.dialogCancellable) {
+            this.dialogCancellable.cancel();
+            this.dialogCancellable = null;
+            return true;
+        }
+        return false;
     }
+
+    // Create the menu action group
+    // and add the actions to the main app
+    // and set the accelerators
+    // for the actions
 
     _createMenuActionGroup() {
         let newFolder = Gio.SimpleAction.new('doNewFolder', null);
@@ -1401,84 +1277,237 @@ const DesktopManager = class {
         this.mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
     }
 
-    _createDesktopBackgroundGioMenu() {
-        this.sortingRadioMenu = Gio.Menu.new();
-        this.sortingRadioMenu.append(_('Name'), 'app.arrangeaction::NAME');
-        this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
-        this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
-        this.sortingRadioMenu.append(_('Type'), 'app.arrangeaction::KIND');
-        this.sortingRadioMenu.append(_('Size'), 'app.arrangeaction::SIZE');
+
+    async doNewFolder(position = null, suggestedName = null, opts = {rename: true}) {
+        this.unselectAll();
+
+        if (!position)
+            position = [this._clickX, this._clickY];
 
 
-        this.sortingSubMenu = Gio.Menu.new();
-        this.keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
-        if (!this.Prefs.keepStacked)
-            this.sortingSubMenu.append_item(this.keepArrangedMenuItem);
+        const baseName = suggestedName ? suggestedName :  _('New Folder');
+        let newName = this.desktopMonitor.getDesktopUniqueFileName(baseName);
 
-        this.sortingSubMenu.append(_('Keep Stacked by Type…'), 'app.keep-stacked');
-        this.sortingSubMenu.append(_('Sort Home/Drives/Trash…'), 'app.sort-special-folders');
-        this.sortingSubMenu.append_section(null, this.sortingRadioMenu);
+        if (newName) {
+            const dir = this._desktopDir.get_child(newName);
+            try {
+                await dir.make_directory_async(GLib.PRIORITY_DEFAULT, null);
 
-        this.settingSubMenu = Gio.Menu.new();
-        this.settingSubMenu.append(_('Change Desktop'), 'app.changeDesktop');
-        if (!this._isDefaultDesktopFolder())
-            this.settingSubMenu.append(_('Restore Default Desktop'), 'app.restoreDefaultDesktop');
-        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
-        this.settingSubMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+                const info = new Gio.FileInfo();
+                info.set_attribute_string('metadata::nautilus-drop-position', `${position.join(',')}`);
+                info.set_attribute_string('metadata::desktop-icon-position', '');
+                info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
 
-        this.desktopBackgroundGioMenu = Gio.Menu.new();
+                try {
+                    await dir.set_attributes_async(info,
+                        Gio.FileQueryInfoFlags.NONE,
+                        GLib.PRIORITY_LOW,
+                        null);
+                } catch (e) {
+                    console.error(e, `Failed to set attributes to ${dir.get_path()}`);
+                }
+            } catch (e) {
+                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                    this._performSanityChecks();
+                else
+                    console.error(e, `Failed to create folder ${e.message}`);
+                const header = _('Folder Creation Failed');
+                const text = _('Could not create folder');
+                this.dbusManager.doNotify(header, text);
+                if (position || suggestedName)
+                    return null;
 
-        this.desktopBackgroundGioMenu.append(_('New Folder'), 'app.doNewFolder');
+                return null;
+            }
 
-        let templates = this.templatesMonitor.getGioMenu();
-        if (!(templates === null))
-            this.desktopBackgroundGioMenu.append_submenu(_('New Document'), templates);
+            if (opts.rename) {
+                if (!this.newItemDoRename)
+                    this.newItemDoRename = new Set();
 
+                this.newItemDoRename.add(newName);
+            }
+            if (position || suggestedName)
+                return dir.get_uri();
+        }
+        return null;
+    }
 
-        this.pasteUndoRedoMenu = Gio.Menu.new();
-        this.pasteUndoRedoMenu.append(_('Paste'), 'app.doPaste');
-        this.pasteUndoRedoMenu.append(_('Undo'), 'app.doUndo');
-        this.pasteUndoRedoMenu.append(_('Redo'), 'app.doRedo');
+    _updateClipboard() {
+        return new Promise(resolve => {
+            let clipboard = Gdk.Display.get_default().get_clipboard();
+            this._isCut = false;
+            this._clipboardFiles = null;
+            /*
+             * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
+             * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
+             * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
+             *
+             *     x-special/nautilus-clipboard
+             *     OPERATION
+             *     FILE_URI
+             *     [FILE_URI]
+             *     [...]
+             *
+             * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
+             * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
+             * shared.
+             *
+             * To maintain compatibility, we first check if there's binary data in that atom, and if not, we check if
+             * there is text data in the old format.
+             */
+            let text = null;
+            let textDecoder = new TextDecoder();
+            if (clipboard.get_formats()) {
+                let mimetypes = clipboard.get_formats().to_string();
+                if (mimetypes.includes('x-special/gnome-copied-files')) {
+                    try {
+                        clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
+                            try {
+                                let success = actor.read_finish(result);
+                                let bytes = success[0].read_bytes(8192, null);
+                                text = textDecoder.decode(bytes.get_data());
+                                text = `x-special/nautilus-clipboard\n${text}\n`;
+                                this._setClipboardContent(text);
+                                resolve(true);
+                            } catch (e) {
+                                console.log(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
+                                this._setClipboardContent(text);
+                                resolve(false);
+                            }
+                        });
+                    } catch (e) {
+                        console.log(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${e.message}\n${e.stack}`);
+                        this._setClipboardContent(text);
+                        resolve(false);
+                    }
+                } else if (mimetypes.includes('text/plain')) {
+                    try {
+                        clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
+                            try {
+                                let success = actor.read_finish(result);
+                                let bytes = success[0].read_bytes(8192, null);
+                                text = textDecoder.decode(bytes.get_data());
+                                if (text && !text.endsWith('\n'))
+                                    text += '\n';
 
-        this.desktopBackgroundGioMenu.append_section(null, this.pasteUndoRedoMenu);
+                                this._setClipboardContent(text);
+                                resolve(true);
+                            } catch (e) {
+                                this._setClipboardContent(text);
+                                resolve(false);
+                            }
+                        });
+                    } catch (e) {
+                        console.log(`Exception while reading clipboard media-type "text/plain": ${e.message}\n${e.stack}`);
+                        this._setClipboardContent(text);
+                        resolve(false);
+                    }
+                } else {
+                    this._setClipboardContent(text);
+                    resolve(false);
+                }
+            } else {
+                this._setClipboardContent(text);
+                resolve(false);
+            }
+        });
+    }
 
-        this.selectAllMenu = Gio.Menu.new();
-        this.selectAllMenu.append(_('Select All'), 'app.selectAll');
+    _intDBusSignalMonitoring() {
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
 
-        this.desktopBackgroundGioMenu.append_section(null, this.selectAllMenu);
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
+            if (available)
+                this._syncUndoRedo();
+            else
+                this._syncUndoRedo(true);
+        });
 
-        this.sortingMenu = Gio.Menu.new();
-        this.cleanUpMenuItem = Gio.MenuItem.new(_('Arrange Icons'), 'app.cleanUpIcons');
-        if (!this.Prefs.keepStacked)
-            this.sortingMenu.append_item(this.cleanUpMenuItem);
+        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
+            this._syncUndoRedo();
+    }
 
-        this.arrangeSubMenuItem = Gio.MenuItem.new_submenu(_('Arrange By…'), this.sortingSubMenu);
-        this.sortingMenu.append_item(this.arrangeSubMenuItem);
-        this.desktopBackgroundGioMenu.append_section(null, this.sortingMenu);
+    _setClipboardContent(text) {
+        let [valid, isCut, files] = this._parseClipboardText(text);
+        if (valid) {
+            this._isCut = isCut;
+            this._clipboardFiles = files;
+        }
+        this.doPasteSimpleAction.set_enabled(valid);
+    }
 
-        this.desktopTerminalMenu = Gio.Menu.new();
-        const nautilusName = this.Prefs.NautilusName;
-        this.desktopTerminalMenu.append(_('Show Desktop In {0}').replace('{0}', nautilusName),
-            'app.showDesktopInFiles');
-        const terminalString = this.Prefs.TerminalName;
-        this.desktopTerminalMenu.append(_('Open In {0}').replace('{0}', terminalString),
-            'app.openInTerminal');
+    _parseClipboardText(text) {
+        if (text === null)
+            return [false, false, null];
 
-        this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
+        let lines = text.split('\n');
+        let [mime, action, ...files] = lines;
 
-        this.settingsMenu = Gio.Menu.new();
-        this.settingSubMenuItem = Gio.MenuItem.new_submenu(_('Settings'), this.settingSubMenu);
-        this.settingsMenu.append_item(this.settingSubMenuItem);
+        if (mime !== 'x-special/nautilus-clipboard')
+            return [false, false, null];
+        if (!['copy', 'cut'].includes(action))
+            return [false, false, null];
+        let isCut = action === 'cut';
 
-        this.desktopBackgroundGioMenu.append_section(null, this.settingsMenu);
+        /* Last line is empty due to the split */
+        if (files.length <= 1)
+            return [false, false, null];
+        /* Remove last line */
+        files.pop();
 
-        this.backgroundMenu = Gio.Menu.new();
-        this.backgroundMenu.append(_('Shell Menu…'), 'app.displayShellBackgroundMenu');
-        // Following deprectiated, Shell Menu has these options anyway
-        // this.backgroundMenu.append(_('Change Background…'), 'app.changeBackGround');
-        // this.backgroundMenu.append(_('Display Settings'), 'app.changeDisplaySettings');
+        return [true, isCut, files];
+    }
 
-        this.desktopBackgroundGioMenu.append_section(null, this.backgroundMenu);
+    _syncUndoRedo(hide = false) {
+        if (hide) {
+            this._undoMenuItem.hide();
+            this._redoMenuItem.hide();
+            return;
+        }
+        switch (this.DBusUtils.RemoteFileOperations.UndoStatus()) {
+        case this.Enums.UndoStatus.UNDO:
+            this.doUndoSimpleAction.set_enabled(true);
+            this.doRedoSimpleAction.set_enabled(false);
+            break;
+        case this.Enums.UndoStatus.REDO:
+            this.doUndoSimpleAction.set_enabled(false);
+            this.doRedoSimpleAction.set_enabled(true);
+            break;
+        default:
+            this.doUndoSimpleAction.set_enabled(false);
+            this.doRedoSimpleAction.set_enabled(false);
+            break;
+        }
+    }
+
+    _undoStatusChanged(proxy, properties) {
+        if ('UndoStatus' in properties.deep_unpack())
+            this._syncUndoRedo();
+    }
+
+    _doUndo() {
+        this.DBusUtils.RemoteFileOperations.UndoRemote();
+    }
+
+    _doRedo() {
+        this.DBusUtils.RemoteFileOperations.RedoRemote();
+    }
+
+    _doPaste() {
+        if (this._clipboardFiles === null)
+            return;
+        if (!this._clickX && !this._clickY)
+            return;
+        let pasteCoordinates = [this._clickX, this._clickY];
+        let desktopDir = this._desktopDir.get_uri();
+
+        if (this._isCut) {
+            // This pops up GNOME Files error dialog, which is what we want.
+            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
+        } else {
+            this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, {doCopy: true});
+            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
+        }
     }
 
     _selectAll() {
@@ -1503,6 +1532,10 @@ const DesktopManager = class {
             }
             console.error(e, `Error opening desktop in GNOME Files: ${e.message}`);
         }
+    }
+
+    _onOpenTerminalClicked() {
+        this.fileItemMenu.launchTerminal(null, null);
     }
 
     _showPreferences() {
@@ -1545,8 +1578,179 @@ const DesktopManager = class {
         this.preferencesWindow.show();
     }
 
-    _onOpenTerminalClicked() {
-        this.fileItemMenu.launchTerminal(null, null);
+    _sortAllFilesFromGridsByPosition() {
+        if (this.Prefs.keepArranged)
+            return;
+        this._displayList.map(f => f.removeFromGrid({callOnDestroy: false}));
+        this._sortByCurrentPosition();
+        this._reassignFilesToDesktop();
+    }
+
+    _sortAllFilesFromGridsByModifiedTime() {
+        /**
+         * @param {integer} a fileItem file modified time
+         * @param {integer} b fileItem file modified time
+         */
+        function byTime(a, b) {
+            return  a._modifiedTime - b._modifiedTime;
+        }
+        this._displayList.sort(byTime);
+        this._reassignFilesToDesktop();
+    }
+
+    _sortAllFilesFromGridsBySize() {
+        /**
+         * @param {integer} a fileItem fileSize
+         * @param {integer} b fileItem fileSize
+         */
+        function bySize(a, b) {
+            return  a.fileSize - b.fileSize;
+        }
+        this._displayList.sort(bySize);
+        this._reassignFilesToDesktop();
+    }
+
+    _sortAllFilesFromGridsByKind() {
+        let specialFiles = [];
+        let directoryFiles = [];
+        let validDesktopFiles = [];
+        let otherFiles = [];
+        let newFileList = [];
+        for (let fileItem of this._displayList) {
+            if (fileItem._isSpecial) {
+                specialFiles.push(fileItem);
+                continue;
+            }
+            if (fileItem._isDirectory) {
+                directoryFiles.push(fileItem);
+                continue;
+            }
+            if (fileItem._isValidDesktopFile) {
+                validDesktopFiles.push(fileItem);
+                continue;
+            } else {
+                otherFiles.push(fileItem);
+                continue;
+            }
+        }
+        this._sortByName(specialFiles);
+        this._sortByName(directoryFiles);
+        this._sortByName(validDesktopFiles);
+        this._sortByKindByName(otherFiles);
+        newFileList.push(...specialFiles);
+        newFileList.push(...validDesktopFiles);
+        newFileList.push(...directoryFiles);
+        newFileList.push(...otherFiles);
+        if (this._displayList.length === newFileList.length)
+            this._displayList = newFileList;
+
+        this._reassignFilesToDesktop();
+    }
+
+    _syncArrangeOrder(action, newValue) {
+        if (!action.enabled)
+            return;
+
+        const currentSetting = this.Prefs.desktopSettings.get_string(
+            this.Enums.SortOrder.ORDER);
+        const newValueString = newValue.deep_unpack();
+
+        if (currentSetting !== newValueString) {
+            action.set_enabled(false);
+            this.Prefs.desktopSettings.set_string(
+                this.Enums.SortOrder.ORDER, newValueString);
+            action.set_enabled(true);
+        }
+
+        const currentState = action.get_state().deep_unpack();
+        if (currentState !== newValueString)
+            action.set_state(newValue);
+
+        this.onSortOrderChanged();
+    }
+
+    unselectAll() {
+        this._displayList.map(f => f.unsetSelected());
+        this.activeFileItem = this.fileItemMenu.activeFileItem = null;
+    }
+
+    findFiles(text) {
+        const activeWindow = this.mainApp.get_active_window();
+        this._findFileWindow = new Gtk.Dialog({
+            use_header_bar: true,
+            resizable: false,
+        });
+        this._findFileButton = this._findFileWindow.add_button(_('OK'), Gtk.ResponseType.OK);
+        this._findFileButton.sensitive = false;
+        this._findFileWindow.add_button(_('Cancel'), Gtk.ResponseType.CANCEL);
+        this._findFileWindow.set_modal(true);
+        this._findFileWindow.set_title(_('Find Files on Desktop'));
+        const modal = true;
+        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this._findFileWindow, modal);
+        this._findFileWindow.set_transient_for(activeWindow);
+        let contentArea = this._findFileWindow.get_content_area();
+        this._findFileTextArea = new Gtk.Entry();
+        this._findFileTextArea.set_margin_top(5);
+        this._findFileTextArea.set_margin_bottom(5);
+        this._findFileTextArea.set_margin_start(5);
+        this._findFileTextArea.set_margin_end(5);
+        contentArea.append(this._findFileTextArea);
+        contentArea.set_homogeneous(true);
+        contentArea.set_baseline_position(Gtk.BaselinePosition.CENTER);
+        this._findFileTextArea.connect('activate', () => {
+            if (this._findFileButton.sensitive)
+                this._findFileWindow.response(Gtk.ResponseType.OK);
+        });
+        this._findFileTextArea.connect('changed', () => {
+            let context = this._findFileTextArea.get_style_context();
+            if (this.scanForFiles(this._findFileTextArea.text, true)) {
+                this._findFileButton.sensitive = true;
+                if (context.has_class('not-found'))
+                    context.remove_class('not-found');
+            } else {
+                this._findFileButton.sensitive = false;
+                this._findFileTextArea.error_bell();
+                if (!context.has_class('not-found'))
+                    context.add_class('not-found');
+            }
+            this.searchEventTime = GLib.get_monotonic_time();
+        });
+        this._findFileTextArea.grab_focus_without_selecting();
+        if (text) {
+            this._findFileTextArea.set_text(text);
+            this._findFileTextArea.set_position(text.length);
+        } else {
+            this.scanForFiles(null);
+        }
+        this._findFileWindow.show();
+        this.textEntryAccelsTurnOff();
+        this._findFileWindow.connect('close', () => {
+            this._findFileWindow.response(Gtk.ResponseType.CANCEL);
+        });
+        this._findFileWindow.connect('response', (actor, retval) => {
+            if (retval === Gtk.ResponseType.CANCEL)
+                this.unselectAll();
+
+            this.textEntryAccelsTurnOn();
+            this._findFileWindow.destroy();
+            this._findFileWindow = null;
+        });
+    }
+
+    scanForFiles(text, setselected) {
+        let found = [];
+        if (text && (text !== ''))
+            found = this._displayList.filter(f => f.fileName.toLowerCase().includes(text.toLowerCase()) || f._label.get_text().toLowerCase().includes(text.toLowerCase()));
+
+        if (found.length !== 0) {
+            if (setselected) {
+                this.unselectAll();
+                found.map(f => f.setSelected());
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     _selectFileItemInDirection(symbol) {
@@ -1642,138 +1846,325 @@ const DesktopManager = class {
         }
     }
 
-    _doPaste() {
-        if (this._clipboardFiles === null)
-            return;
-        if (!this._clickX && !this._clickY)
-            return;
-        let pasteCoordinates = [this._clickX, this._clickY];
-        let desktopDir = this._desktopDir.get_uri();
+    _changeDesktop() {
+        const dialog = new Gtk.FileDialog();
+        dialog.set_title(_('Choose Desktop Folder'));
+        dialog.set_accept_label(_('Choose'));
+        dialog.set_modal(true);
+        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
+        dialog.select_folder(this.mainApp.get_active_window(), null, this._finishChooseDesktopFolder.bind(this));
+    }
 
-        if (this._isCut) {
-            // This pops up GNOME Files error dialog, which is what we want.
-            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
-        } else {
-            this.clearFileCoordinates(this._clipboardFiles, pasteCoordinates, {doCopy: true});
-            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
+    _finishChooseDesktopFolder(dialog, asyncResult) {
+        let folder = null;
+        try {
+            folder = dialog.select_folder_finish(asyncResult);
+        } catch (e) {
+            if (e.matches(Gtk.DialogError, Gtk.DialogError.CANCELLED) ||
+                e.matches(Gtk.DialogError, Gtk.DialogError.DISMISSED))
+                return;
+            console.error(e, `Error selecting folder: ${e.message}`);
         }
+        if (folder)
+            this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(folder.get_path());
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
     }
 
-    _parseClipboardText(text) {
-        if (text === null)
-            return [false, false, null];
-
-        let lines = text.split('\n');
-        let [mime, action, ...files] = lines;
-
-        if (mime !== 'x-special/nautilus-clipboard')
-            return [false, false, null];
-        if (!['copy', 'cut'].includes(action))
-            return [false, false, null];
-        let isCut = action === 'cut';
-
-        /* Last line is empty due to the split */
-        if (files.length <= 1)
-            return [false, false, null];
-        /* Remove last line */
-        files.pop();
-
-        return [true, isCut, files];
+    _restoreDefaultDesktop() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(defaultDesktop);
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
     }
 
-    drawSelectionRectangles() {
-        for (let grid of this._desktops)
-            grid.drawRubberBand();
+    _isDefaultDesktopFolder() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        return this._desktopDir.get_path() === defaultDesktop;
     }
 
-    onMotion(X, Y) {
-        this.pointerX = X;
-        this.pointerY = Y;
-        if (this.rubberBand) {
-            this.x1 = Math.min(X, this.rubberBandInitX);
-            this.x2 = Math.max(X, this.rubberBandInitX);
-            this.y1 = Math.min(Y, this.rubberBandInitY);
-            this.y2 = Math.max(Y, this.rubberBandInitY);
-            this.selectionRectangle = new Gdk.Rectangle({'x': this.x1, 'y': this.y1, 'width': this.x2 - this.x1, 'height': this.y2 - this.y1});
-            this.drawSelectionRectangles();
-            for (let item of this._displayList) {
-                let labelintersect = item.labelRectangle.intersect(this.selectionRectangle)[0];
-                let iconintersect = item.iconRectangle.intersect(this.selectionRectangle)[0];
-                if (labelintersect || iconintersect) {
-                    item.setSelected();
-                    item.touchedByRubberband = true;
-                } else if (item.touchedByRubberband) {
-                    item.unsetSelected();
-                }
-            }
+    async createDesktopShortcut(shortcutinfo) {
+        let fileList = [shortcutinfo.uri];
+        let X = parseInt(shortcutinfo.X);
+        let Y = parseInt(shortcutinfo.Y);
+        await this.clearFileCoordinates(fileList, [X, Y], {doCopy: true});
+        await this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
+    }
+
+    checkIfDirectoryIsSelected() {
+        for (let item of this._displayList) {
+            if (item.isSelected && item.isDirectory)
+                return true;
         }
-    }
-
-    onReleaseButton() {
-        if (this.rubberBand) {
-            this.rubberBand = false;
-            this.selectionRectangle = null;
-        }
-        for (let grid of this._desktops)
-            grid.drawRubberBand();
-
         return false;
     }
 
-    _startRubberband(X, Y) {
-        this.rubberBandInitX = X;
-        this.rubberBandInitY = Y;
-        this.rubberBand = true;
-        for (let item of this._displayList)
-            item.touchedByRubberband = false;
+    getCurrentSelection() {
+        const selectedList = this._displayList.filter(f => f.isSelected);
+
+        if (selectedList.length)
+            return selectedList;
+
+        return null;
     }
 
-    unHighLightDropTarget() {
-        this._displayList.forEach(item => item.unHighLightDropTarget());
+    getCurrentSelectionAsUri() {
+        return this.getCurrentSelection()?.map(f => f.uri);
     }
 
-    selected(fileItem, action) {
-        switch (action) {
-        case this.Enums.Selection.ALONE:
-            if (!fileItem.isSelected) {
-                for (let item of this._displayList) {
-                    if (item === fileItem)
-                        item.setSelected();
-                    else
-                        item.unsetSelected();
-                }
-            }
-            break;
-        case this.Enums.Selection.WITH_SHIFT:
-            fileItem.toggleSelected();
-            break;
-        case this.Enums.Selection.RIGHT_BUTTON:
-            if (!fileItem.isSelected) {
-                for (let item of this._displayList) {
-                    if (item === fileItem)
-                        item.setSelected();
-                    else
-                        item.unsetSelected();
-                }
-            }
-            break;
-        case this.Enums.Selection.ENTER:
-            if (this.rubberBand)
-                fileItem.setSelected();
+    getNumberOfSelectedItems() {
+        const count = this.getCurrentSelection();
 
-            break;
-        case this.Enums.Selection.RELEASE:
-            for (let item of this._displayList) {
-                if (item === fileItem) {
-                    if (item.isSelected)
-                        item.setSelected();
-                    else
-                        item.unsetSelected();
+        if (count)
+            return count.length;
+
+        return 0;
+    }
+
+    checkIfSpecialFilesAreSelected() {
+        for (let item of this._displayList) {
+            if (item.isSelected && item.isSpecial)
+                return true;
+        }
+        return false;
+    }
+
+    async doRename(fileItem, allowReturnOnSameName = false) {
+        const selection = this.getCurrentSelection();
+        if (!(selection && (selection.length === 1)))
+            return;
+
+        if (fileItem === null) {
+            fileItem = selection[0];
+            allowReturnOnSameName = false;
+        }
+        if (!fileItem.canRename)
+            return;
+
+        if (!this._renameWindow) {
+            this.textEntryAccelsTurnOff();
+            if (!this.newItemDoRename)
+                this.newItemDoRename = new Set();
+
+            this.newItemDoRename.add(fileItem.fileName);
+            if (this.popupmenu || this.fileItemMenu.popupmenu)
+                await this.menuclosed().catch(e => logError(e));
+            this._renameWindow = new AskRenamePopup.AskRenamePopup(
+                fileItem,
+                allowReturnOnSameName,
+                () => {
+                    this.mainApp.get_active_window().grab_focus();
+                    this.textEntryAccelsTurnOn();
+                    if (this.newItemDoRename)
+                        this.newItemDoRename.delete(fileItem.fileName);
+                    this._renameWindow = null;
+                },
+                this._setPendingDropCoordinates.bind(this),
+                {
+                    FileUtils: this.FileUtils,
+                    DesktopIconsUtil: this.DesktopIconsUtil,
+                    DBusUtils: this.DBusUtils,
                 }
-            }
-            break;
+            );
         }
     }
+
+    doTrash(localDrag = false, event = null) {
+        const selectionItems = this._displayList.filter(i => i.isSelected && !i.isSpecial);
+
+        if (!selectionItems.length)
+            return;
+
+        const selectionURIs = [];
+        if (!localDrag) {
+            this._pendingDropFiles = {};
+            this._pendingSelfCopyFiles = {};
+        }
+
+        selectionItems.forEach(f => {
+            selectionURIs.push(f.file.get_uri());
+            if (!localDrag)
+                this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
+        });
+        if (event)
+            this.DBusUtils.RemoteFileOperations.pushEvent(event);
+        this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
+    }
+
+    doDeletePermanently() {
+        const toDelete = this._displayList.filter(i => i.isSelected && !i.isSpecial).map(i =>
+            i.file.get_uri());
+
+        if (!toDelete.length) {
+            if (this._displayList.some(i => i.isSelected && i.isTrash))
+                this.doEmptyTrash();
+            return;
+        }
+
+        this.DBusUtils.RemoteFileOperations.DeleteURIsRemote(toDelete);
+    }
+
+    doEmptyTrash(askConfirmation = true) {
+        this.DBusUtils.RemoteFileOperations.EmptyTrashRemote(askConfirmation);
+    }
+
+    // Create the desktop background menu
+    /* ************************************************************************************************************** */
+
+    _createDesktopBackgroundGioMenu() {
+        this.sortingRadioMenu = Gio.Menu.new();
+        this.sortingRadioMenu.append(_('Name'), 'app.arrangeaction::NAME');
+        this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
+        this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
+        this.sortingRadioMenu.append(_('Type'), 'app.arrangeaction::KIND');
+        this.sortingRadioMenu.append(_('Size'), 'app.arrangeaction::SIZE');
+
+
+        this.sortingSubMenu = Gio.Menu.new();
+        this.keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
+        if (!this.Prefs.keepStacked)
+            this.sortingSubMenu.append_item(this.keepArrangedMenuItem);
+
+        this.sortingSubMenu.append(_('Keep Stacked by Type…'), 'app.keep-stacked');
+        this.sortingSubMenu.append(_('Sort Home/Drives/Trash…'), 'app.sort-special-folders');
+        this.sortingSubMenu.append_section(null, this.sortingRadioMenu);
+
+        this.settingSubMenu = Gio.Menu.new();
+        this.settingSubMenu.append(_('Change Desktop'), 'app.changeDesktop');
+        if (!this._isDefaultDesktopFolder())
+            this.settingSubMenu.append(_('Restore Default Desktop'), 'app.restoreDefaultDesktop');
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+        this.settingSubMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+
+        this.desktopBackgroundGioMenu = Gio.Menu.new();
+
+        this.desktopBackgroundGioMenu.append(_('New Folder'), 'app.doNewFolder');
+
+        let templates = this.templatesMonitor.getGioMenu();
+        if (!(templates === null))
+            this.desktopBackgroundGioMenu.append_submenu(_('New Document'), templates);
+
+
+        this.pasteUndoRedoMenu = Gio.Menu.new();
+        this.pasteUndoRedoMenu.append(_('Paste'), 'app.doPaste');
+        this.pasteUndoRedoMenu.append(_('Undo'), 'app.doUndo');
+        this.pasteUndoRedoMenu.append(_('Redo'), 'app.doRedo');
+
+        this.desktopBackgroundGioMenu.append_section(null, this.pasteUndoRedoMenu);
+
+        this.selectAllMenu = Gio.Menu.new();
+        this.selectAllMenu.append(_('Select All'), 'app.selectAll');
+
+        this.desktopBackgroundGioMenu.append_section(null, this.selectAllMenu);
+
+        this.sortingMenu = Gio.Menu.new();
+        this.cleanUpMenuItem = Gio.MenuItem.new(_('Arrange Icons'), 'app.cleanUpIcons');
+        if (!this.Prefs.keepStacked)
+            this.sortingMenu.append_item(this.cleanUpMenuItem);
+
+        this.arrangeSubMenuItem = Gio.MenuItem.new_submenu(_('Arrange By…'), this.sortingSubMenu);
+        this.sortingMenu.append_item(this.arrangeSubMenuItem);
+        this.desktopBackgroundGioMenu.append_section(null, this.sortingMenu);
+
+        this.desktopTerminalMenu = Gio.Menu.new();
+        const nautilusName = this.Prefs.NautilusName;
+        this.desktopTerminalMenu.append(_('Show Desktop In {0}').replace('{0}', nautilusName),
+            'app.showDesktopInFiles');
+        const terminalString = this.Prefs.TerminalName;
+        this.desktopTerminalMenu.append(_('Open In {0}').replace('{0}', terminalString),
+            'app.openInTerminal');
+
+        this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
+
+        this.settingsMenu = Gio.Menu.new();
+        this.settingSubMenuItem = Gio.MenuItem.new_submenu(_('Settings'), this.settingSubMenu);
+        this.settingsMenu.append_item(this.settingSubMenuItem);
+
+        this.desktopBackgroundGioMenu.append_section(null, this.settingsMenu);
+
+        this.backgroundMenu = Gio.Menu.new();
+        this.backgroundMenu.append(_('Shell Menu…'), 'app.displayShellBackgroundMenu');
+        // Following deprectiated, Shell Menu has these options anyway
+        // this.backgroundMenu.append(_('Change Background…'), 'app.changeBackGround');
+        // this.backgroundMenu.append(_('Display Settings'), 'app.changeDisplaySettings');
+
+        this.desktopBackgroundGioMenu.append_section(null, this.backgroundMenu);
+    }
+
+    menuclosed = () => {
+        return new Promise(resolve => {
+            this.popupmenuclosed = resolve;
+        });
+    };
+
+ // Clipboard management
+/************************************************************************************************************** */
+    /*
+     * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
+     * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
+     * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
+     *
+     *     x-special/nautilus-clipboard
+     *     OPERATION
+     *     FILE_URI
+     *     [FILE_URI]
+     *     [...]
+     *
+     * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
+     * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
+     * shared.
+     *
+     * To maintain compatibility, in the past, we checked the current Gnome Shell version and, based on that,
+     * set the binary or the text clipboards.
+     *
+     * With the newer versions of gtk4-ding, we only set the binary version and add other composite providers for
+     * the plain text versions like the newer Nautilus/Files.
+     */
+
+    _manageCutCopy(action) {
+        const uriList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_URI_LIST);
+        if (!uriList?.length)
+            return;
+        const pathList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
+
+        let clipboard = Gdk.Display.get_default().get_clipboard();
+        const textCoder = new TextEncoder();
+
+        let content = action ? 'copy\n' : 'cut\n';
+        content += uriList?.replaceAll('\r', '').trim();
+        const encodedUriList = textCoder.encode(uriList);
+        const encodedPathList = textCoder.encode(pathList);
+
+        const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files',
+            textCoder.encode(content));
+        const textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST,
+            encodedUriList);
+        const textListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN,
+            encodedPathList);
+        const textUtf8ListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
+            encodedPathList);
+
+        const clipboardContentProvider = Gdk.ContentProvider.new_union([
+            gnomeContentProvider,
+            textUriListContentProvider,
+            textListContentProvider,
+            textUtf8ListContentProvider,
+        ]);
+        clipboard.set_content(clipboardContentProvider);
+    }
+
+    doCopy() {
+        const copy = true;
+        this._manageCutCopy(copy);
+    }
+
+    doCut() {
+        const cut = false;
+        this._manageCutCopy(cut);
+    }
+
+    // Destktop Icon Placement and Display
+    /********************************************************************************************************** */
 
     _removeAllFilesFromGrids() {
         for (let fileItem of this._displayList)
@@ -1787,43 +2178,6 @@ const DesktopManager = class {
             fileItem.removeFromGrid({callOnDestroy: false});
 
         this._displayList = [];
-    }
-
-    async redrawDesktop() {
-        // fileList is not changed, we just need to render the desktop again
-        // with changes in icon color, emblem, appearance, theme change etc.
-        const opts = {initialRead: false, redisplay: true};
-        const fileList = this.desktopMonitor.fileList;
-        await this._drawDesktop(fileList, opts).catch(e => {
-            console.error(`Error while redrawing desktop: ${e.message}\n${e.stack}`);
-        });
-    }
-
-    async reLoadDesktop() {
-        await this.desktopMonitor.reLoadFileList();
-    }
-
-    async refreshDesktop() {
-        // fileList is changed, we need to render the desktop again
-        // with latest fileList from the desktopMonitor. The position of the
-        // icons is also recomputed from the normalized coordinates.
-        const opts = {initialRead: true};
-        const fileList = this.desktopMonitor.fileList;
-        await this._drawDesktop(fileList, opts).catch(e => {
-            console.error(`Error while refreshing desktop: ${e.message}`);
-        });
-    }
-
-    async reFrameDesktop(opts) {
-        // fileList is not changed, grids changed, monitor added, removed,
-        // monitor geometry, zoom, or index changed.
-        // We need to recompute the position of the icons
-        // from the normalized coordinates and redraw the desktop and reassign
-        // the icons to the correct grid and monitors
-        const fileList = this.desktopMonitor.fileList;
-        await this._drawDesktop(fileList, opts).catch(e => {
-            console.error(`Error while reframing desktop: ${e.message}`);
-        });
     }
 
     async _drawDesktop(fileList, opts = {initialRead: false}) {
@@ -2132,289 +2486,6 @@ const DesktopManager = class {
                 console.log('Not enough space to add icons');
             }
         }
-    }
-
-
-    /*
-     * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
-     * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
-     * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
-     *
-     *     x-special/nautilus-clipboard
-     *     OPERATION
-     *     FILE_URI
-     *     [FILE_URI]
-     *     [...]
-     *
-     * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
-     * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
-     * shared.
-     *
-     * To maintain compatibility, in the past, we checked the current Gnome Shell version and, based on that,
-     * set the binary or the text clipboards.
-     *
-     * With the newer versions of gtk4-ding, we only set the binary version and add other composite providers for
-     * the plain text versions like the newer Nautilus/Files.
-     */
-
-    _manageCutCopy(action) {
-        const uriList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_URI_LIST);
-        if (!uriList?.length)
-            return;
-        const pathList = this.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
-
-        let clipboard = Gdk.Display.get_default().get_clipboard();
-        const textCoder = new TextEncoder();
-
-        let content = action ? 'copy\n' : 'cut\n';
-        content += uriList?.replaceAll('\r', '').trim();
-        const encodedUriList = textCoder.encode(uriList);
-        const encodedPathList = textCoder.encode(pathList);
-
-        const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes('x-special/gnome-copied-files',
-            textCoder.encode(content));
-        const textUriListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.URI_LIST,
-            encodedUriList);
-        const textListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN,
-            encodedPathList);
-        const textUtf8ListContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
-            encodedPathList);
-
-        const clipboardContentProvider = Gdk.ContentProvider.new_union([
-            gnomeContentProvider,
-            textUriListContentProvider,
-            textListContentProvider,
-            textUtf8ListContentProvider,
-        ]);
-        clipboard.set_content(clipboardContentProvider);
-    }
-
-    doCopy() {
-        const copy = true;
-        this._manageCutCopy(copy);
-    }
-
-    doCut() {
-        const cut = false;
-        this._manageCutCopy(cut);
-    }
-
-    doTrash(localDrag = false, event = null) {
-        const selectionItems = this._displayList.filter(i => i.isSelected && !i.isSpecial);
-
-        if (!selectionItems.length)
-            return;
-
-        const selectionURIs = [];
-        if (!localDrag) {
-            this._pendingDropFiles = {};
-            this._pendingSelfCopyFiles = {};
-        }
-
-        selectionItems.forEach(f => {
-            selectionURIs.push(f.file.get_uri());
-            if (!localDrag)
-                this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
-        });
-        if (event)
-            this.DBusUtils.RemoteFileOperations.pushEvent(event);
-        this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
-    }
-
-    doDeletePermanently() {
-        const toDelete = this._displayList.filter(i => i.isSelected && !i.isSpecial).map(i =>
-            i.file.get_uri());
-
-        if (!toDelete.length) {
-            if (this._displayList.some(i => i.isSelected && i.isTrash))
-                this.doEmptyTrash();
-            return;
-        }
-
-        this.DBusUtils.RemoteFileOperations.DeleteURIsRemote(toDelete);
-    }
-
-    doEmptyTrash(askConfirmation = true) {
-        this.DBusUtils.RemoteFileOperations.EmptyTrashRemote(askConfirmation);
-    }
-
-    checkIfSpecialFilesAreSelected() {
-        for (let item of this._displayList) {
-            if (item.isSelected && item.isSpecial)
-                return true;
-        }
-        return false;
-    }
-
-    checkIfDirectoryIsSelected() {
-        for (let item of this._displayList) {
-            if (item.isSelected && item.isDirectory)
-                return true;
-        }
-        return false;
-    }
-
-    getCurrentSelection() {
-        const selectedList = this._displayList.filter(f => f.isSelected);
-
-        if (selectedList.length)
-            return selectedList;
-
-        return null;
-    }
-
-    getCurrentSelectionAsUri() {
-        return this.getCurrentSelection()?.map(f => f.uri);
-    }
-
-    getNumberOfSelectedItems() {
-        const count = this.getCurrentSelection();
-
-        if (count)
-            return count.length;
-
-        return 0;
-    }
-
-    menuclosed = () => {
-        return new Promise(resolve => {
-            this.popupmenuclosed = resolve;
-        });
-    };
-
-    async doRename(fileItem, allowReturnOnSameName = false) {
-        const selection = this.getCurrentSelection();
-        if (!(selection && (selection.length === 1)))
-            return;
-
-        if (fileItem === null) {
-            fileItem = selection[0];
-            allowReturnOnSameName = false;
-        }
-        if (!fileItem.canRename)
-            return;
-
-        if (!this._renameWindow) {
-            this.textEntryAccelsTurnOff();
-            if (!this.newItemDoRename)
-                this.newItemDoRename = new Set();
-
-            this.newItemDoRename.add(fileItem.fileName);
-            if (this.popupmenu || this.fileItemMenu.popupmenu)
-                await this.menuclosed().catch(e => logError(e));
-            this._renameWindow = new AskRenamePopup.AskRenamePopup(
-                fileItem,
-                allowReturnOnSameName,
-                () => {
-                    this.mainApp.get_active_window().grab_focus();
-                    this.textEntryAccelsTurnOn();
-                    if (this.newItemDoRename)
-                        this.newItemDoRename.delete(fileItem.fileName);
-                    this._renameWindow = null;
-                },
-                this._setPendingDropCoordinates.bind(this),
-                {
-                    FileUtils: this.FileUtils,
-                    DesktopIconsUtil: this.DesktopIconsUtil,
-                    DBusUtils: this.DBusUtils,
-                }
-            );
-        }
-    }
-
-    async doNewFolder(position = null, suggestedName = null, opts = {rename: true}) {
-        this.unselectAll();
-
-        if (!position)
-            position = [this._clickX, this._clickY];
-
-
-        const baseName = suggestedName ? suggestedName :  _('New Folder');
-        let newName = this.desktopMonitor.getDesktopUniqueFileName(baseName);
-
-        if (newName) {
-            const dir = this._desktopDir.get_child(newName);
-            try {
-                await dir.make_directory_async(GLib.PRIORITY_DEFAULT, null);
-
-                const info = new Gio.FileInfo();
-                info.set_attribute_string('metadata::nautilus-drop-position', `${position.join(',')}`);
-                info.set_attribute_string('metadata::desktop-icon-position', '');
-                info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o700);
-
-                try {
-                    await dir.set_attributes_async(info,
-                        Gio.FileQueryInfoFlags.NONE,
-                        GLib.PRIORITY_LOW,
-                        null);
-                } catch (e) {
-                    console.error(e, `Failed to set attributes to ${dir.get_path()}`);
-                }
-            } catch (e) {
-                if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
-                    this._performSanityChecks();
-                else
-                    console.error(e, `Failed to create folder ${e.message}`);
-                const header = _('Folder Creation Failed');
-                const text = _('Could not create folder');
-                this.dbusManager.doNotify(header, text);
-                if (position || suggestedName)
-                    return null;
-
-                return null;
-            }
-
-            if (opts.rename) {
-                if (!this.newItemDoRename)
-                    this.newItemDoRename = new Set();
-
-                this.newItemDoRename.add(newName);
-            }
-            if (position || suggestedName)
-                return dir.get_uri();
-        }
-        return null;
-    }
-
-    onToggleStackUnstackThisTypeClicked(type, typeInList = null, unstackList = null) {
-        if (!unstackList) {
-            unstackList = this.Prefs.UnstackList;
-            typeInList = unstackList.includes(type);
-        }
-        if (typeInList) {
-            let index = unstackList.indexOf(type);
-            unstackList.splice(index, 1);
-        } else {
-            unstackList.push(type);
-        }
-        this.Prefs.UnstackList = unstackList;
-    }
-
-    doStacks(opts = {redisplay: false}) {
-        if (opts.redisplay) {
-            for (let fileItem of this._displayList)
-                fileItem.removeFromGrid();
-        }
-
-        if (!this.stackInitialCoordinates && !this._compositeStackList) {
-            this._compositeStackList = [];
-            this._saveStackInitialCoordinates();
-            if (this.sortingSubMenu && this.sortingMenu) {
-                this.sortingSubMenu.remove(0);
-                this.sortingMenu.remove(0);
-            }
-            opts.redisplay = false;
-        }
-
-        if ((opts.monitorschanged ||
-            opts.initialRead) &&
-            this.stackInitialCoordinates)
-            this._transformSavedStackInitialCoordinates();
-
-
-        this._sortAllFilesFromGridsByKindStacked(opts);
-
-        this._reassignFilesToDesktop();
     }
 
     _unstack() {
@@ -2789,75 +2860,6 @@ const DesktopManager = class {
         }
     }
 
-    _sortAllFilesFromGridsByPosition() {
-        if (this.Prefs.keepArranged)
-            return;
-        this._displayList.map(f => f.removeFromGrid({callOnDestroy: false}));
-        this._sortByCurrentPosition();
-        this._reassignFilesToDesktop();
-    }
-
-    _sortAllFilesFromGridsByModifiedTime() {
-        /**
-         * @param {integer} a fileItem file modified time
-         * @param {integer} b fileItem file modified time
-         */
-        function byTime(a, b) {
-            return  a._modifiedTime - b._modifiedTime;
-        }
-        this._displayList.sort(byTime);
-        this._reassignFilesToDesktop();
-    }
-
-    _sortAllFilesFromGridsBySize() {
-        /**
-         * @param {integer} a fileItem fileSize
-         * @param {integer} b fileItem fileSize
-         */
-        function bySize(a, b) {
-            return  a.fileSize - b.fileSize;
-        }
-        this._displayList.sort(bySize);
-        this._reassignFilesToDesktop();
-    }
-
-    _sortAllFilesFromGridsByKind() {
-        let specialFiles = [];
-        let directoryFiles = [];
-        let validDesktopFiles = [];
-        let otherFiles = [];
-        let newFileList = [];
-        for (let fileItem of this._displayList) {
-            if (fileItem._isSpecial) {
-                specialFiles.push(fileItem);
-                continue;
-            }
-            if (fileItem._isDirectory) {
-                directoryFiles.push(fileItem);
-                continue;
-            }
-            if (fileItem._isValidDesktopFile) {
-                validDesktopFiles.push(fileItem);
-                continue;
-            } else {
-                otherFiles.push(fileItem);
-                continue;
-            }
-        }
-        this._sortByName(specialFiles);
-        this._sortByName(directoryFiles);
-        this._sortByName(validDesktopFiles);
-        this._sortByKindByName(otherFiles);
-        newFileList.push(...specialFiles);
-        newFileList.push(...validDesktopFiles);
-        newFileList.push(...directoryFiles);
-        newFileList.push(...otherFiles);
-        if (this._displayList.length === newFileList.length)
-            this._displayList = newFileList;
-
-        this._reassignFilesToDesktop();
-    }
-
     _reassignFilesToDesktop() {
         if (!this.Prefs.sortSpecialFolders) {
             this._reassignFilesToDesktopPreserveSpecialFiles();
@@ -2894,43 +2896,24 @@ const DesktopManager = class {
         this._addFilesToDesktop(this._displayList, this.Enums.StoredCoordinates.PRESERVE);
     }
 
-    _changeDesktop() {
-        const dialog = new Gtk.FileDialog();
-        dialog.set_title(_('Choose Desktop Folder'));
-        dialog.set_accept_label(_('Choose'));
-        dialog.set_modal(true);
-        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
-        dialog.select_folder(this.mainApp.get_active_window(), null, this._finishChooseDesktopFolder.bind(this));
-    }
+    // Desktop Manager Main methods
+    /********************************************************************************************************** */
 
-    _finishChooseDesktopFolder(dialog, asyncResult) {
-        let folder = null;
-        try {
-            folder = dialog.select_folder_finish(asyncResult);
-        } catch (e) {
-            if (e.matches(Gtk.DialogError, Gtk.DialogError.CANCELLED) ||
-                e.matches(Gtk.DialogError, Gtk.DialogError.DISMISSED))
-                return;
-            console.error(e, `Error selecting folder: ${e.message}`);
+    onToggleStackUnstackThisTypeClicked(type, typeInList = null, unstackList = null) {
+        if (!unstackList) {
+            unstackList = this.Prefs.UnstackList;
+            typeInList = unstackList.includes(type);
         }
-        if (folder)
-            this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(folder.get_path());
-        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+        if (typeInList) {
+            let index = unstackList.indexOf(type);
+            unstackList.splice(index, 1);
+        } else {
+            unstackList.push(type);
+        }
+        this.Prefs.UnstackList = unstackList;
     }
 
-    _restoreDefaultDesktop() {
-        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
-            'Desktop']);
-        this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(defaultDesktop);
-        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
-    }
-
-    _isDefaultDesktopFolder() {
-        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
-            'Desktop']);
-        return this._desktopDir.get_path() === defaultDesktop;
-    }
-
+    
     doSorts(opts = {redisplay: false}) {
         if (opts.redisplay)
             this._displayList.map(f => f.removeFromGrid());
@@ -2955,6 +2938,70 @@ const DesktopManager = class {
             this._addFilesToDesktop(this._displayList, this.Enums.StoredCoordinates.PRESERVE);
             break;
         }
+    }
+
+    doStacks(opts = {redisplay: false}) {
+        if (opts.redisplay) {
+            for (let fileItem of this._displayList)
+                fileItem.removeFromGrid();
+        }
+
+        if (!this.stackInitialCoordinates && !this._compositeStackList) {
+            this._compositeStackList = [];
+            this._saveStackInitialCoordinates();
+            if (this.sortingSubMenu && this.sortingMenu) {
+                this.sortingSubMenu.remove(0);
+                this.sortingMenu.remove(0);
+            }
+            opts.redisplay = false;
+        }
+
+        if ((opts.monitorschanged ||
+            opts.initialRead) &&
+            this.stackInitialCoordinates)
+            this._transformSavedStackInitialCoordinates();
+
+
+        this._sortAllFilesFromGridsByKindStacked(opts);
+
+        this._reassignFilesToDesktop();
+    }
+
+    async redrawDesktop() {
+        // fileList is not changed, we just need to render the desktop again
+        // with changes in icon color, emblem, appearance, theme change etc.
+        const opts = {initialRead: false, redisplay: true};
+        const fileList = this.desktopMonitor.fileList;
+        await this._drawDesktop(fileList, opts).catch(e => {
+            console.error(`Error while redrawing desktop: ${e.message}\n${e.stack}`);
+        });
+    }
+
+    async reLoadDesktop() {
+        await this.desktopMonitor.reLoadFileList();
+    }
+
+    async refreshDesktop() {
+        // fileList is changed, we need to render the desktop again
+        // with latest fileList from the desktopMonitor. The position of the
+        // icons is also recomputed from the normalized coordinates.
+        const opts = {initialRead: true};
+        const fileList = this.desktopMonitor.fileList;
+        await this._drawDesktop(fileList, opts).catch(e => {
+            console.error(`Error while refreshing desktop: ${e.message}`);
+        });
+    }
+
+    async reFrameDesktop(opts) {
+        // fileList is not changed, grids changed, monitor added, removed,
+        // monitor geometry, zoom, or index changed.
+        // We need to recompute the position of the icons
+        // from the normalized coordinates and redraw the desktop and reassign
+        // the icons to the correct grid and monitors
+        const fileList = this.desktopMonitor.fileList;
+        await this._drawDesktop(fileList, opts).catch(e => {
+            console.error(`Error while reframing desktop: ${e.message}`);
+        });
     }
 
     onMutterSettingsChanged() {
@@ -2984,28 +3031,6 @@ const DesktopManager = class {
             this._unstack();
         else
             this.doStacks({redisplay: true});
-    }
-
-    _syncArrangeOrder(action, newValue) {
-        if (!action.enabled)
-            return;
-
-        const currentSetting = this.Prefs.desktopSettings.get_string(
-            this.Enums.SortOrder.ORDER);
-        const newValueString = newValue.deep_unpack();
-
-        if (currentSetting !== newValueString) {
-            action.set_enabled(false);
-            this.Prefs.desktopSettings.set_string(
-                this.Enums.SortOrder.ORDER, newValueString);
-            action.set_enabled(true);
-        }
-
-        const currentState = action.get_state().deep_unpack();
-        if (currentState !== newValueString)
-            action.set_state(newValue);
-
-        this.onSortOrderChanged();
     }
 
     onSortOrderChanged() {
