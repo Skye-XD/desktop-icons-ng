@@ -10,9 +10,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-18 02:30+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-04-02 19:09+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
@@ -96,7 +95,7 @@ msgstr "Μικρό"
 #: app/adwPreferencesWindow.js:234
 #, fuzzy
 msgid "Standard"
-msgstr "Τυπικό"
+msgstr "Πρότυπο"
 
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
@@ -173,7 +172,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "Επαναφορά"
+msgstr "Επαναφέρω"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -233,7 +232,7 @@ msgstr "Εμφάνιση μικρογραφιών"
 #: app/adwPreferencesWindow.js:318
 #, fuzzy
 msgid "Always"
-msgstr "Πάντα"
+msgstr "Πάντοτε"
 
 #: app/adwPreferencesWindow.js:319
 #, fuzzy
@@ -268,7 +267,7 @@ msgstr "Website"
 #: app/adwPreferencesWindow.js:337
 #, fuzzy
 msgid "Visit"
-msgstr "Επίσκεψη"
+msgstr "Επισκεφτείτε"
 
 #: app/adwPreferencesWindow.js:340
 #, fuzzy
@@ -359,7 +358,7 @@ msgstr "OK"
 #: app/askRenamePopup.js:57
 #, fuzzy
 msgid "Rename"
-msgstr "Μετονομασία"
+msgstr "Μετονομάζω"
 
 #: app/autoAr.js:71
 #, fuzzy
@@ -495,7 +494,7 @@ msgstr "Κωδικός"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Δημιουργία"
+msgstr "Δημιουργώ"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -545,7 +544,7 @@ msgstr ""
 #: app/desktopManager.js:180
 #, fuzzy
 msgid "Enable"
-msgstr "Ενεργοποίηση"
+msgstr "Καθιστώ ικανό"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -609,7 +608,7 @@ msgstr "Επιλέξτε Δράση για αρχεία"
 #: app/desktopManager.js:702
 #, fuzzy
 msgid "Move"
-msgstr "Μετακίνηση"
+msgstr "Κίνηση"
 
 #: app/desktopManager.js:702 app/fileItemMenu.js:388
 #, fuzzy
@@ -803,7 +802,7 @@ msgstr "Δεν θα μπορούσε να δημιουργήσει έγγραφ�
 #: app/fileItem.js:135 app/fileItem.js:149
 #, fuzzy
 msgid "Home"
-msgstr "Αρχική"
+msgstr "Σπίτι"
 
 #: app/fileItem.js:142
 #, fuzzy
@@ -1104,7 +1103,7 @@ msgstr "Εξαγωγή"
 #: app/fileItemMenu.js:457
 #, fuzzy
 msgid "Unmount"
-msgstr "Αποπροσάρτηση"
+msgstr "Αποστέλλω"
 
 #: app/fileItemMenu.js:461
 #, fuzzy
@@ -1159,7 +1158,7 @@ msgstr "Επιλογή προορισμού"
 #: app/fileItemMenu.js:661 app/fileItemMenu.js:689
 #, fuzzy
 msgid "Select"
-msgstr "Επιλογή"
+msgstr "Επιλέγω"
 
 #: app/fileItemMenu.js:749
 #, fuzzy

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-18 10:25+0000\n"
+"PO-Revision-Date: 2025-04-02 19:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
@@ -25,7 +25,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:174 app/adwPreferencesWindow.js:175
 #, fuzzy
 msgid "Desktop"
-msgstr "Bureaucomputer"
+msgstr "Desktop"
 
 #: app/adwPreferencesWindow.js:179 app/adwPreferencesWindow.js:180
 #, fuzzy
@@ -36,7 +36,7 @@ msgstr "Bestanden"
 #: app/adwPreferencesWindow.js:218
 #, fuzzy
 msgid "Tweaks"
-msgstr "Afstellingen"
+msgstr "Trucs"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
@@ -85,7 +85,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:232
 #, fuzzy
 msgid "Tiny"
-msgstr "Heel klein"
+msgstr "Minuscuul"
 
 #: app/adwPreferencesWindow.js:233
 msgid "Small"
@@ -153,7 +153,7 @@ msgstr "Toon de persoonlijke map op het bureaublad"
 #: app/desktopManager.js:3280
 #, fuzzy
 msgid "Choose"
-msgstr "Kies"
+msgstr "Selecteer"
 
 #: app/adwPreferencesWindow.js:269
 #, fuzzy
@@ -536,7 +536,7 @@ msgstr ""
 #: app/desktopManager.js:180
 #, fuzzy
 msgid "Enable"
-msgstr "Aan"
+msgstr "Inschakelen"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
@@ -603,7 +603,7 @@ msgstr "Kies Actie voor Files"
 #: app/desktopManager.js:702
 #, fuzzy
 msgid "Move"
-msgstr "Verplaats"
+msgstr "Beweging"
 
 #: app/desktopManager.js:702 app/fileItemMenu.js:388
 msgid "Copy"
@@ -666,7 +666,7 @@ msgstr "Type"
 #: app/desktopManager.js:1534
 #, fuzzy
 msgid "Size"
-msgstr "Omvang"
+msgstr "Grootte"
 
 #: app/desktopManager.js:1538
 #, fuzzy
@@ -794,7 +794,7 @@ msgstr "Persoonlijke map"
 #: app/fileItem.js:142
 #, fuzzy
 msgid "Drive"
-msgstr "Station"
+msgstr "Drive"
 
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
@@ -940,7 +940,7 @@ msgstr ""
 #: app/fileItem.js:461 app/gnomeShellDragDrop.js:235
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kan bestand niet openen"
+msgstr "Het bestand kan niet worden geopend"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:463 app/gnomeShellDragDrop.js:237
@@ -1037,7 +1037,7 @@ msgstr "Hernoemen…"
 #: app/fileItemMenu.js:400
 #, fuzzy
 msgid "Create Link..."
-msgstr "Link maken"
+msgstr "Maak een koppeling"
 
 #: app/fileItemMenu.js:405
 #, fuzzy
@@ -1228,7 +1228,7 @@ msgstr "Install _"
 #: app/preferences.js:621
 #, fuzzy
 msgid "Console"
-msgstr "Console"
+msgstr "Troosten"
 
 #: app/showErrorPopup.js:39
 #, fuzzy

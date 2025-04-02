@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-18 02:30+0000\n"
+"PO-Revision-Date: 2025-04-02 19:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
@@ -155,7 +155,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:271
 #, fuzzy
 msgid "Restore"
-msgstr "Відновлення"
+msgstr "Відновити"
 
 #: app/adwPreferencesWindow.js:280
 #, fuzzy
@@ -582,7 +582,7 @@ msgstr "Виберіть дію для файлів"
 #: app/desktopManager.js:702
 #, fuzzy
 msgid "Move"
-msgstr "Переміщення"
+msgstr "Рухатися"
 
 #: app/desktopManager.js:702 app/fileItemMenu.js:388
 msgid "Copy"
@@ -1002,7 +1002,7 @@ msgstr "Вирізати"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Перейти до..."
+msgstr "Перемістити до..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy

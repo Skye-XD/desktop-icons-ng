@@ -12,8 +12,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-18 10:25+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-04-02 19:08+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -474,7 +475,7 @@ msgstr ""
 #: app/desktopManager.js:180
 #, fuzzy
 msgid "Enable"
-msgstr "Habilitar"
+msgstr "Permitir"
 
 #: app/desktopManager.js:203
 msgid "Can Not Show the Desktop"
