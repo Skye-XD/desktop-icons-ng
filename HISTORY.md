@@ -1,5 +1,12 @@
 # History of versions #
-* Gtk4 version 94 for Gnome 45, 46, 47, 48
+* Gtk4/Adw version 96 for Gnome 45, 46, 47, 48
+  * Fix mutter crash in Gnome-Shell/Mutter 48, when trying to set drag cursor with Gnome Shell Drag and Drop. (Sundeep Mediratta)
+  * Make sure icons are completely within the window and grid when free position is selected. This was a regression from earlier fix to icons not retaining position after sleep. (Sundeep Mediratta)
+  * Fix running out of space for icons when free postioning was selected, because of error setting the correct column, row. (Sundeep Mediratta)
+  * Weblate translations. (Weblate Authors)
+  * Update History.md, metadata.json, version bump to 96
+
+* Gtk4 version 95 for Gnome 45, 46, 47, 48
   * Fix icons not retaining postion after sleep when free position icons selected. (Sundeep Mediratta)
   * Branch has been stable, allow running on Gnome 45, 46 as well.
   * Weblate translations. (Weblate Authors)
