@@ -61,7 +61,7 @@ const FileItemMenu = class {
                 Enums: this._desktopManager.Enums,
             }
         );
-        this.activeFileItem = null;
+        this._activeFileItem = null;
         this._createFileItemMenuActions();
     }
 
@@ -278,7 +278,7 @@ const FileItemMenu = class {
 
     // eslint-disable-next-line no-unused-vars
     showMenu(fileItem, button = null, X = null, Y = null, x = null, y = null, shiftSelected = false, controlSelected = false) {
-        this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
+        this.activeFileItem = fileItem;
         const selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
         const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
         const menulocation = X ? new Gdk.Rectangle({x, y, width: 1, height: 1}) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
@@ -1000,14 +1000,22 @@ const FileItemMenu = class {
     }
 
     _textEntryAccelsTurnOff() {
-        this._desktopManager.textEntryAccelsTurnOff();
+        this._desktopManager.desktopActions.textEntryAccelsTurnOff();
     }
 
     _textEntryAccelsTurnOn() {
-        this._desktopManager.textEntryAccelsTurnOn();
+        this._desktopManager.desktopActions.textEntryAccelsTurnOn();
     }
 
     get _desktopDir() {
-        return this._desktopManager.desktopDir;
+        return this._desktopManager._desktopDir;
+    }
+
+    set activeFileItem(fileItem) {
+        this._activeFileItem = fileItem;
+    }
+
+    get activeFileItem() {
+        return this._activeFileItem;
     }
 };

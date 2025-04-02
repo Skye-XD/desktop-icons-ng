@@ -1,0 +1,768 @@
+/* DING: Desktop Icons New Generation for GNOME Shell
+ *
+ * Adw/Gtk4 Port Copyright (C) 2025 Sundeep Mediratta (smedius@gmail.com)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+import {Gdk, Gio, GLib, Gtk} from '../dependencies/gi.js';
+import {_} from '../dependencies/gettext.js';
+
+export {DesktopActions};
+
+const DesktopActions = class {
+    constructor(desktopManager) {
+        this._desktopManager = desktopManager;
+        this._Prefs = desktopManager.Prefs;
+        this.mainApp = desktopManager.mainApp;
+        this.DBusUtils = desktopManager.DBusUtils;
+        this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
+        this.fileItemMenu = desktopManager.fileItemMenu;
+        this.Prefs = desktopManager.Prefs;
+        this.Enums = desktopManager.Enums;
+        this._desktopMonitor = desktopManager.desktopMonitor;
+        this._isCut = false;
+        this._clipboardFiles = null;
+        this._intDBusSignalMonitoring();
+        this._createMenuActionGroup();
+    }
+
+    // Create the menu action group
+    // and add the actions to the main app
+    // and set the accelerators
+    // for the actions
+
+    _createMenuActionGroup() {
+        let newFolder = Gio.SimpleAction.new('doNewFolder', null);
+        newFolder.connect('activate', () => {
+            this._desktopManager.doNewFolder().catch(e => console.error(e));
+        });
+        this.mainApp.add_action(newFolder);
+        this.mainApp.set_accels_for_action('app.doNewFolder', ['<Control><Shift>N']);
+
+        this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
+        this.doPasteSimpleAction.connect(
+            'activate',
+            async () => {
+                try {
+                    if (!(this._desktopManager.popupmenu ||
+                        this._desktopManager.fileItemMenu.popupmenu))
+                        await this._updateClipboard().catch(e => logError(e));
+
+                    this._doPaste();
+                } catch (e) {
+                    console.error(e, 'Paste action failed');
+                }
+            }
+        );
+        this.mainApp.add_action(this.doPasteSimpleAction);
+        this.mainApp.set_accels_for_action('app.doPaste', ['<Control>V']);
+
+        this.doUndoSimpleAction = Gio.SimpleAction.new('doUndo', null);
+        this.doUndoSimpleAction.connect(
+            'activate',
+            () => this._doUndo()
+        );
+        this.mainApp.add_action(this.doUndoSimpleAction);
+        this.mainApp.set_accels_for_action('app.doUndo', ['<Control>Z']);
+
+        this.doRedoSimpleAction = Gio.SimpleAction.new('doRedo', null);
+        this.doRedoSimpleAction.connect(
+            'activate',
+            () => this._doRedo()
+        );
+        this.mainApp.add_action(this.doRedoSimpleAction);
+        this.mainApp.set_accels_for_action('app.doRedo', ['<Control><Shift>Z']);
+
+        let selectAll = Gio.SimpleAction.new('selectAll', null);
+        selectAll.connect(
+            'activate',
+            () => this._selectAll()
+        );
+        this.mainApp.add_action(selectAll);
+        this.mainApp.set_accels_for_action('app.selectAll', ['<Control>A']);
+
+        let showDesktopInFiles = Gio.SimpleAction.new('showDesktopInFiles', null);
+        showDesktopInFiles.connect(
+            'activate',
+            () => this._onOpenDesktopInFilesClicked().catch(e => logError(e))
+        );
+        this.mainApp.add_action(showDesktopInFiles);
+
+        let openInTerminal = Gio.SimpleAction.new('openInTerminal', null);
+        openInTerminal.connect(
+            'activate',
+            this._onOpenTerminalClicked.bind(this)
+        );
+        this.mainApp.add_action(openInTerminal);
+
+        let changeBackGround = Gio.SimpleAction.new('changeBackGround', null);
+        changeBackGround.connect(
+            'activate',
+            () => {
+                let desktopFile = Gio.DesktopAppInfo.new('gnome-background-panel.desktop');
+                const context = Gdk.Display.get_default().get_app_launch_context();
+                context.set_timestamp(Gdk.CURRENT_TIME);
+                desktopFile.launch([], context);
+            }
+        );
+        this.mainApp.add_action(changeBackGround);
+
+        let changeDisplaySettings = Gio.SimpleAction.new('changeDisplaySettings', null);
+        changeDisplaySettings.connect(
+            'activate',
+            () => {
+                let desktopFile = Gio.DesktopAppInfo.new('gnome-display-panel.desktop');
+                const context = Gdk.Display.get_default().get_app_launch_context();
+                context.set_timestamp(Gdk.CURRENT_TIME);
+                desktopFile.launch([], context);
+            }
+        );
+        this.mainApp.add_action(changeDisplaySettings);
+
+        let changeDesktopIconSettings = Gio.SimpleAction.new('changeDesktopIconSettings', null);
+        changeDesktopIconSettings.connect(
+            'activate',
+            this._showPreferences.bind(this)
+        );
+        this.mainApp.add_action(changeDesktopIconSettings);
+
+        let cleanUpIconsAction = Gio.SimpleAction.new('cleanUpIcons', null);
+        cleanUpIconsAction.connect(
+            'activate',
+            () => this._desktopManager.sortAllFilesFromGridsByPosition()
+        );
+        this.mainApp.add_action(cleanUpIconsAction);
+
+        let keepArrangedAction = this.Prefs.desktopSettings.create_action('keep-arranged');
+        this.mainApp.add_action(keepArrangedAction);
+        this.Prefs.desktopSettings.bind(
+            'keep-arranged',
+            cleanUpIconsAction,
+            'enabled',
+            16
+        );
+        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('keep-stacked'));
+        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('sort-special-folders'));
+        const radioArrangeAction = Gio.SimpleAction.new_stateful(
+            'arrangeaction',
+            GLib.VariantType.new('s'),
+            GLib.Variant.new_string(this.Prefs.desktopSettings.get_string(
+                this.Enums.SortOrder.ORDER))
+        );
+        radioArrangeAction.connect('change-state', this._syncArrangeOrder.bind(this));
+        this.mainApp.add_action(radioArrangeAction);
+        this.arrangeAction = radioArrangeAction;
+
+        let findFilesAction = Gio.SimpleAction.new('findFiles', null);
+        findFilesAction.connect(
+            'activate',
+            () =>  this._desktopManager.findFiles(null)
+        );
+        this.mainApp.add_action(findFilesAction);
+        this.mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
+
+        let updateDesktop = Gio.SimpleAction.new('updateDesktop', null);
+        updateDesktop.connect(
+            'activate',
+            async () => {
+                await this._desktopManager.reLoadDesktop().catch(e => {
+                    console.log(`Exception while updating desktop after pressing "F5": ${e.message}\n${e.stack}`);
+                });
+            }
+        );
+        this.mainApp.add_action(updateDesktop);
+        this.mainApp.set_accels_for_action('app.updateDesktop', ['F5']);
+
+        let showHideHiddenFiles = Gio.SimpleAction.new('showHideHiddenFiles', null);
+        showHideHiddenFiles.connect(
+            'activate',
+            () => {
+                this.Prefs.gtkSettings.set_boolean('show-hidden', !this.Prefs.showHidden);
+            }
+        );
+        this.mainApp.add_action(showHideHiddenFiles);
+        this.mainApp.set_accels_for_action('app.showHideHiddenFiles', ['<Control>H']);
+
+        let unselectAll = Gio.SimpleAction.new('unselectAll', null);
+        unselectAll.connect(
+            'activate',
+            () => {
+                this._desktopManager.unselectAll();
+                if (this.searchString)
+                    this.searchString = null;
+            }
+        );
+        this.mainApp.add_action(unselectAll);
+        this.mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
+
+        let previewAction = Gio.SimpleAction.new('previewAction', null);
+        previewAction.connect('activate', () => {
+            if (this._desktopManager.popupmenu ||
+                this._desktopManager.fileItemMenu.popupmenu ||
+                !this.activeFileItem)
+                return;
+
+            this.DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
+        });
+        this.mainApp.add_action(previewAction);
+        this.mainApp.set_accels_for_action('app.previewAction', ['space']);
+
+        let chooseIconLeft = Gio.SimpleAction.new('chooseIconLeft', null);
+        chooseIconLeft.connect('activate', () => {
+            this._selectFileItemInDirection(Gdk.KEY_Left);
+        });
+        this.mainApp.add_action(chooseIconLeft);
+        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
+
+        let chooseIconRight = Gio.SimpleAction.new('chooseIconRight', null);
+        chooseIconRight.connect('activate', () => {
+            this._selectFileItemInDirection(Gdk.KEY_Right);
+        });
+        this.mainApp.add_action(chooseIconRight);
+        this.mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
+
+        let chooseIconUp = Gio.SimpleAction.new('chooseIconUp', null);
+        chooseIconUp.connect('activate', () => {
+            this._selectFileItemInDirection(Gdk.KEY_Up);
+        });
+        this.mainApp.add_action(chooseIconUp);
+        this.mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
+
+        let chooseIconDown = Gio.SimpleAction.new('chooseIconDown', null);
+        chooseIconDown.connect('activate', () => {
+            this._selectFileItemInDirection(Gdk.KEY_Down);
+        });
+        this.mainApp.add_action(chooseIconDown);
+        this.mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
+
+        let menuKeyPressed = Gio.SimpleAction.new('menuKeyPressed', null);
+        menuKeyPressed.connect('activate', () => {
+            this._menuKeyPressed();
+        });
+        this.mainApp.add_action(menuKeyPressed);
+        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
+
+        let displayShellBackgroundMenu = Gio.SimpleAction.new('displayShellBackgroundMenu', null);
+        displayShellBackgroundMenu.connect('activate', () => {
+            this.DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
+        });
+        this.mainApp.add_action(displayShellBackgroundMenu);
+
+        let changeDesktop = Gio.SimpleAction.new('changeDesktop', null);
+        changeDesktop.connect('activate', () => {
+            this._changeDesktop();
+        });
+        this.mainApp.add_action(changeDesktop);
+
+        this.restoreDefaultDesktopAction = Gio.SimpleAction.new('restoreDefaultDesktop', null);
+        this.restoreDefaultDesktopAction.connect('activate', () => {
+            this._restoreDefaultDesktop();
+        });
+        this.mainApp.add_action(this.restoreDefaultDesktopAction);
+        let createDesktopShortcut = new Gio.SimpleAction({
+            name: 'createDesktopShortcut',
+            parameter_type: new GLib.VariantType('a{sv}'),
+        });
+        createDesktopShortcut.connect('activate', (action, parameter) => {
+            this.createDesktopShortcut(parameter.recursiveUnpack());
+        });
+        this.mainApp.add_action(createDesktopShortcut);
+        const textEntryAccelsTurnOn = Gio.SimpleAction.new('textEntryAccelsTurnOn', null);
+        textEntryAccelsTurnOn.connect('activate', () => {
+            this.textEntryAccelsTurnOn();
+        });
+        this.mainApp.add_action(textEntryAccelsTurnOn);
+        const textEntryAccelsTurnOff = Gio.SimpleAction.new('textEntryAccelsTurnOff', null);
+        textEntryAccelsTurnOff.connect('activate', () => {
+            this.textEntryAccelsTurnOff();
+        });
+        this.mainApp.add_action(textEntryAccelsTurnOff);
+    }
+
+    textEntryAccelsTurnOn() {
+        this.mainApp.set_accels_for_action('app.previewAction', ['space']);
+        this.mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
+        this.mainApp.set_accels_for_action('app.openOneFileAction', ['Return']);
+        this.mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
+        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
+        this.mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
+        this.mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
+        this.mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
+        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
+    }
+
+    textEntryAccelsTurnOff() {
+        this.mainApp.set_accels_for_action('app.previewAction', ['']);
+        this.mainApp.set_accels_for_action('app.unselectAll', ['']);
+        this.mainApp.set_accels_for_action('app.openOneFileAction', ['']);
+        this.mainApp.set_accels_for_action('app.movetotrash', ['']);
+        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['']);
+        this.mainApp.set_accels_for_action('app.chooseIconRight', ['']);
+        this.mainApp.set_accels_for_action('app.chooseIconUp', ['']);
+        this.mainApp.set_accels_for_action('app.chooseIconDown', ['']);
+        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
+    }
+
+    _updateClipboard() {
+        return new Promise(resolve => {
+            let clipboard = Gdk.Display.get_default().get_clipboard();
+            this._isCut = false;
+            this._clipboardFiles = null;
+            /*
+             * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
+             * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
+             * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
+             *
+             *     x-special/nautilus-clipboard
+             *     OPERATION
+             *     FILE_URI
+             *     [FILE_URI]
+             *     [...]
+             *
+             * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
+             * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
+             * shared.
+             *
+             * To maintain compatibility, we first check if there's binary data in that atom, and if not, we check if
+             * there is text data in the old format.
+             */
+            let text = null;
+            let textDecoder = new TextDecoder();
+            if (clipboard.get_formats()) {
+                let mimetypes = clipboard.get_formats().to_string();
+                if (mimetypes.includes('x-special/gnome-copied-files')) {
+                    try {
+                        clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
+                            try {
+                                let success = actor.read_finish(result);
+                                let bytes = success[0].read_bytes(8192, null);
+                                text = textDecoder.decode(bytes.get_data());
+                                text = `x-special/nautilus-clipboard\n${text}\n`;
+                                this._setClipboardContent(text);
+                                resolve(true);
+                            } catch (e) {
+                                console.log(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
+                                this._setClipboardContent(text);
+                                resolve(false);
+                            }
+                        });
+                    } catch (e) {
+                        console.log(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${e.message}\n${e.stack}`);
+                        this._setClipboardContent(text);
+                        resolve(false);
+                    }
+                } else if (mimetypes.includes('text/plain')) {
+                    try {
+                        clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
+                            try {
+                                let success = actor.read_finish(result);
+                                let bytes = success[0].read_bytes(8192, null);
+                                text = textDecoder.decode(bytes.get_data());
+                                if (text && !text.endsWith('\n'))
+                                    text += '\n';
+
+                                this._setClipboardContent(text);
+                                resolve(true);
+                            } catch (e) {
+                                this._setClipboardContent(text);
+                                resolve(false);
+                            }
+                        });
+                    } catch (e) {
+                        console.log(`Exception while reading clipboard media-type "text/plain": ${e.message}\n${e.stack}`);
+                        this._setClipboardContent(text);
+                        resolve(false);
+                    }
+                } else {
+                    this._setClipboardContent(text);
+                    resolve(false);
+                }
+            } else {
+                this._setClipboardContent(text);
+                resolve(false);
+            }
+        });
+    }
+
+    _intDBusSignalMonitoring() {
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
+
+        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
+            if (available)
+                this._syncUndoRedo();
+            else
+                this._syncUndoRedo(true);
+        });
+
+        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
+            this._syncUndoRedo();
+    }
+
+    _setClipboardContent(text) {
+        let [valid, isCut, files] = this._parseClipboardText(text);
+        if (valid) {
+            this._isCut = isCut;
+            this._clipboardFiles = files;
+        }
+        this.doPasteSimpleAction.set_enabled(valid);
+    }
+
+    _parseClipboardText(text) {
+        if (text === null)
+            return [false, false, null];
+
+        let lines = text.split('\n');
+        let [mime, action, ...files] = lines;
+
+        if (mime !== 'x-special/nautilus-clipboard')
+            return [false, false, null];
+        if (!['copy', 'cut'].includes(action))
+            return [false, false, null];
+        let isCut = action === 'cut';
+
+        /* Last line is empty due to the split */
+        if (files.length <= 1)
+            return [false, false, null];
+        /* Remove last line */
+        files.pop();
+
+        return [true, isCut, files];
+    }
+
+    _syncUndoRedo(hide = false) {
+        if (hide) {
+            this._undoMenuItem.hide();
+            this._redoMenuItem.hide();
+            return;
+        }
+        switch (this.DBusUtils.RemoteFileOperations.UndoStatus()) {
+        case this.Enums.UndoStatus.UNDO:
+            this.doUndoSimpleAction.set_enabled(true);
+            this.doRedoSimpleAction.set_enabled(false);
+            break;
+        case this.Enums.UndoStatus.REDO:
+            this.doUndoSimpleAction.set_enabled(false);
+            this.doRedoSimpleAction.set_enabled(true);
+            break;
+        default:
+            this.doUndoSimpleAction.set_enabled(false);
+            this.doRedoSimpleAction.set_enabled(false);
+            break;
+        }
+    }
+
+    _undoStatusChanged(proxy, properties) {
+        if ('UndoStatus' in properties.deep_unpack())
+            this._syncUndoRedo();
+    }
+
+    _doUndo() {
+        this.DBusUtils.RemoteFileOperations.UndoRemote();
+    }
+
+    _doRedo() {
+        this.DBusUtils.RemoteFileOperations.RedoRemote();
+    }
+
+    _doPaste() {
+        if (this._clipboardFiles === null)
+            return;
+        if (!this._clickX && !this._clickY)
+            return;
+        let pasteCoordinates = [this._clickX, this._clickY];
+        let desktopDir = this._desktopDir.get_uri();
+
+        if (this._isCut) {
+            // This pops up GNOME Files error dialog, which is what we want.
+            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
+        } else {
+            this._desktopManager.clearFileCoordinates(
+                this._clipboardFiles,
+                pasteCoordinates,
+                {doCopy: true}
+            );
+            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
+        }
+    }
+
+    _selectAll() {
+        for (let fileItem of this._displayList) {
+            if (fileItem.isAllSelectable)
+                fileItem.setSelected();
+        }
+    }
+
+    async _onOpenDesktopInFilesClicked() {
+        const context = Gdk.Display.get_default().get_app_launch_context();
+        context.set_timestamp(Gdk.CURRENT_TIME);
+        try {
+            await Gio.AppInfo.launch_default_for_uri_async(
+                this._desktopDir.get_uri(), context, null);
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
+                const header = _('Unable to open Desktop in Gnome Files');
+                const text = _(`Desktop Folder ${this._desktopDir.get_path()} does not exist`);
+                this.dbusManager.doNotify(header, text);
+                return;
+            }
+            console.error(e, `Error opening desktop in GNOME Files: ${e.message}`);
+        }
+    }
+
+    _onOpenTerminalClicked() {
+        this._desktopManager.fileItemMenu.launchTerminal(null, null);
+    }
+
+    _showPreferences() {
+        if (this.preferencesWindow)
+            return;
+
+        let success = false;
+        let completed = false;
+        let process;
+        let argv = ['/usr/bin/gnome-extensions', 'prefs', `${this.uuid}`];
+
+        try {
+            process = GLib.spawn_sync(null, argv, null,
+                GLib.SpawnFlags.DEFAULT,
+                () => {});
+            completed = GLib.spawn_check_exit_status(process[3]);
+            success = process[0];
+        } catch (e) {
+            let textDecoder = new TextDecoder();
+            let errortext = textDecoder.decode(process[2]);
+            let windowopen = errortext.includes('Already showing a prefs dialog');
+            if (windowopen) {
+                this.dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
+                return;
+            } else {
+                completed = false;
+            }
+        }
+
+        if (success && completed)
+            return;
+
+        this.preferencesWindow = this.Prefs.getAdwPreferencesWindow();
+        this.preferencesWindow.connect('close-request', () => {
+            this.preferencesWindow = null;
+        });
+        this.preferencesWindow.set_title(_('Settings'));
+        const modal = true;
+        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, modal);
+        this.preferencesWindow.show();
+    }
+
+    _syncArrangeOrder(action, newValue) {
+        if (!action.enabled)
+            return;
+
+        const currentSetting = this.Prefs.desktopSettings.get_string(
+            this.Enums.SortOrder.ORDER);
+        const newValueString = newValue.deep_unpack();
+
+        if (currentSetting !== newValueString) {
+            action.set_enabled(false);
+            this.Prefs.desktopSettings.set_string(
+                this.Enums.SortOrder.ORDER, newValueString);
+            action.set_enabled(true);
+        }
+
+        const currentState = action.get_state().deep_unpack();
+        if (currentState !== newValueString)
+            action.set_state(newValue);
+
+        this._desktopManager.onSortOrderChanged();
+    }
+
+    _selectFileItemInDirection(symbol) {
+        var index;
+        var multiplier;
+        let selection = this.currentSelection;
+        if (!selection) {
+            if (this.activeFileItem && this.activeFileItem.isStackMarker)
+                selection = [this.activeFileItem];
+            else
+                selection = this._displayList;
+        }
+        if (!selection)
+            return false;
+
+        let selected = selection[0];
+        let selectedCoordinates = selected.getCoordinates();
+        if (!this.isShift)
+            this._desktopManager.unselectAll();
+        if (selection.length > 1) {
+            for (let item of selection) {
+                let itemCoordinates = item.getCoordinates();
+                if (itemCoordinates[0] > selectedCoordinates[0])
+                    continue;
+
+                if (symbol === Gdk.KEY_Down || symbol === Gdk.KEY_Right) {
+                    if ((itemCoordinates[0] > selectedCoordinates[0]) ||
+                        (itemCoordinates[1] > selectedCoordinates[1])) {
+                        selected = item;
+                        selectedCoordinates = itemCoordinates;
+                        continue;
+                    }
+                } else if ((itemCoordinates[0] < selectedCoordinates[0]) ||
+                        (itemCoordinates[1] < selectedCoordinates[1])) {
+                    selected = item;
+                    selectedCoordinates = itemCoordinates;
+                    continue;
+                }
+            }
+        }
+        switch (symbol) {
+        case Gdk.KEY_Left:
+            index = 0;
+            multiplier = -1;
+            break;
+        case Gdk.KEY_Right:
+            index = 0;
+            multiplier = 1;
+            break;
+        case Gdk.KEY_Up:
+            index = 1;
+            multiplier = -1;
+            break;
+        case Gdk.KEY_Down:
+            index = 1;
+            multiplier = 1;
+            break;
+        }
+        let newDistance = null;
+        let newItem = null;
+        for (let item of this._displayList) {
+            let itemCoordinates = item.getCoordinates();
+            if ((selectedCoordinates[index] * multiplier) >= (itemCoordinates[index] * multiplier))
+                continue;
+
+            let distance = Math.pow(selectedCoordinates[0] - itemCoordinates[0], 2) + Math.pow(selectedCoordinates[1] - itemCoordinates[1], 2);
+            if ((newDistance === null) || (newDistance > distance)) {
+                newDistance = distance;
+                newItem = item;
+            }
+        }
+        if (newItem === null)
+            newItem = selected;
+
+        newItem.setSelected();
+        if (newItem.isStackMarker)
+            newItem.keyboardSelected();
+
+        this._desktopManager.fileItemMenu.activeFileItem = newItem;
+        this.activeFileItem = newItem;
+        return true;
+    }
+
+    _menuKeyPressed() {
+        const selection = this.currentSelection;
+        if (selection) {
+            let fileItem = selection[0];
+            let X = fileItem.iconRectangle.x + fileItem.iconRectangle.width / 2;
+            let Y = fileItem.iconRectangle.y + fileItem.iconRectangle.height / 2;
+            this.fileItemMenu.showMenu(fileItem, 3, 0, 0, X, Y, false, false);
+        } else {
+            let grid = this._desktops.filter(f => f.coordinatesBelongToThisGrid(this._clickX, this._clickY));
+            if (!grid)
+                return;
+            this._desktopManager.onPressButton(null, null, this._clickX, this._clickY, 3, false, false, grid[0]).catch(e => console.error(e));
+        }
+    }
+
+    _changeDesktop() {
+        const dialog = new Gtk.FileDialog();
+        dialog.set_title(_('Choose Desktop Folder'));
+        dialog.set_accept_label(_('Choose'));
+        dialog.set_modal(true);
+        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
+        dialog.select_folder(this.mainApp.get_active_window(), null, this._finishChooseDesktopFolder.bind(this));
+    }
+
+    _finishChooseDesktopFolder(dialog, asyncResult) {
+        let folder = null;
+        try {
+            folder = dialog.select_folder_finish(asyncResult);
+        } catch (e) {
+            if (e.matches(Gtk.DialogError, Gtk.DialogError.CANCELLED) ||
+                e.matches(Gtk.DialogError, Gtk.DialogError.DISMISSED))
+                return;
+            console.error(e, `Error selecting folder: ${e.message}`);
+        }
+        if (folder)
+            this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(folder.get_path());
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+    }
+
+    _restoreDefaultDesktop() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(defaultDesktop);
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+    }
+
+    _isDefaultDesktopFolder() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        return this._desktopDir.get_path() === defaultDesktop;
+    }
+
+    async createDesktopShortcut(shortcutinfo) {
+        let fileList = [shortcutinfo.uri];
+        let X = parseInt(shortcutinfo.X);
+        let Y = parseInt(shortcutinfo.Y);
+        await this._desktopManager.clearFileCoordinates(fileList, [X, Y], {doCopy: true});
+        await this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
+    }
+
+    async updateClipboard() {
+        await this._updateClipboard()
+            .catch(e => console.error(e, 'Error updating Clipboard'));
+    }
+
+    get isDefaultDesktopFolder() {
+        const isDefault = this._isDefaultDesktopFolder();
+        this.restoreDefaultDesktopAction.set_enabled(!isDefault);
+        return isDefault;
+    }
+
+    get currentSelection() {
+        return this._desktopManager.getCurrentSelection();
+    }
+
+    get activeFileItem() {
+        return this.fileItemMenu.activeFileItem;
+    }
+
+    set activeFileItem(fileItem) {
+        this.fileItemMenu.activeFileItem = fileItem;
+    }
+
+    get _displayList() {
+        return this._desktopManager._displayList;
+    }
+
+    get _clickX() {
+        return this._desktopManager._clickX;
+    }
+
+    get _clickY() {
+        return this._desktopManager._clickY;
+    }
+
+    get _desktopDir() {
+        return this._desktopMonitor.desktopDir;
+    }
+};
