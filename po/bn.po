@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-18 02:30+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-04-02 19:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
@@ -39,7 +40,7 @@ msgstr "Tweaks"
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
 msgid "About"
-msgstr "About"
+msgstr "বিস্তারিত"
 
 #: app/adwPreferencesWindow.js:200
 #, fuzzy
@@ -99,7 +100,7 @@ msgstr "মানসম্মত"
 #: app/adwPreferencesWindow.js:235
 #, fuzzy
 msgid "Large"
-msgstr "Large"
+msgstr "বড়"
 
 #: app/adwPreferencesWindow.js:240
 #, fuzzy
@@ -1035,7 +1036,7 @@ msgstr "নকল করা..।"
 #: app/fileItemMenu.js:397
 #, fuzzy
 msgid "Rename…"
-msgstr "পুনঃনামকরণ"
+msgstr "পুনঃনামকরণ করুন"
 
 #: app/fileItemMenu.js:400
 #, fuzzy

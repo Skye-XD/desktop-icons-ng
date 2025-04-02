@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-09 21:22-0400\n"
-"PO-Revision-Date: 2025-03-20 20:11+0000\n"
+"PO-Revision-Date: 2025-04-02 19:08+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -298,7 +298,7 @@ msgstr "Wählen Sie eine Anwendung zum Öffnen <b>{foo}</b>"
 #: app/appChooser.js:62
 #, fuzzy
 msgid "Open Items"
-msgstr "Offene Posten"
+msgstr "@:account.creditlimit.openInvoices"
 
 #: app/appChooser.js:64
 #, fuzzy
@@ -765,7 +765,7 @@ msgstr "Laufwerk"
 #: app/fileItem.js:143 app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stapeln"
+msgstr "Stapel"
 
 #: app/fileItem.js:144
 #, fuzzy
@@ -899,7 +899,7 @@ msgstr ""
 #: app/fileItem.js:461 app/gnomeShellDragDrop.js:235
 #, fuzzy
 msgid "Could not open File"
-msgstr "Konnte Datei nicht öffnen"
+msgstr "Datei konnte nicht geöffnet werden"
 
 #. eslint-disable-next-line no-template-curly-in-string
 #: app/fileItem.js:463 app/gnomeShellDragDrop.js:237
@@ -977,7 +977,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:392
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben auf..."
+msgstr "Verschiebe zu..."
 
 #: app/fileItemMenu.js:393
 #, fuzzy
