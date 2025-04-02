@@ -66,11 +66,16 @@ const ifaceXml = `
   </interface>
 </node>`;
 
+// Since Gnome Shell 48 the enumeration of the cursor is different
+// the name has changed, althugh the value is the same;
+// We use our own enumeration names to avoid problems with the version
+// of the Gnome Shell, the enumeration integer points to the correct
+// value in the Gnome Shell 48 and Meta 48 Enum and earlier.
 const ShellDropCursor = {
-    DEFAULT: 'default',
-    NODROP: 'dndNoDropCursor',
-    COPY: 'dndCopyCursor',
-    MOVE: 'dndMoveCursor',
+    DEFAULT: 2, // META_CURSOR_DEFAULT Meta.Cursor.DEFAULT
+    NODROP: 15, // META_CURSOR_NO_DROP Meta.Cursor.DND_UNSUPPORTED_TARGET
+    COPY: 13, // META_CURSOR_COPY Meta.Cursor.DND_COPY
+    MOVE: 14, // META_CURSOR_MOVE Meta.Cursor.DND_MOVE
 };
 
 export {DingManager};
@@ -744,17 +749,17 @@ var DingExtensionService = class {
 
     setDragCursor(cursor) {
         switch (cursor) {
-        case ShellDropCursor.MOVE:
-            global.display.set_cursor(Meta.Cursor.DND_MOVE);
+        case 'dndMoveCursor':
+            global.display.set_cursor(ShellDropCursor.MOVE);
             break;
-        case ShellDropCursor.COPY:
-            global.display.set_cursor(Meta.Cursor.DND_COPY);
+        case 'dndCopyCursor':
+            global.display.set_cursor(ShellDropCursor.COPY);
             break;
-        case ShellDropCursor.NODROP:
-            global.display.set_cursor(Meta.Cursor.DND_UNSUPPORTED_TARGET);
+        case 'dndNoDropCursor':
+            global.display.set_cursor(ShellDropCursor.NODROP);
             break;
         default:
-            global.display.set_cursor(Meta.Cursor.DEFAULT);
+            global.display.set_cursor(ShellDropCursor.DEFAULT);
         }
     }
 
