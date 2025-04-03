@@ -77,7 +77,6 @@ const DesktopManager = class {
         this.pointerY = 0;
         this._dragList = null;
         this.dragItem = null;
-        this._desktopDir = this.DesktopIconsUtil.getDesktopDir();
         this.rubberBand = false;
         this.localDragOffset = [0, 0];
         this._compositeStackList = null;
@@ -3025,8 +3024,10 @@ const DesktopManager = class {
         });
     }
 
-    get desktopDir() {
-        return this._desktopDir;
+    // Getters and Setters
+
+    get _desktopDir() {
+        return this.desktopMonitor.desktopDir;
     }
 
     get fractionalScaling() {

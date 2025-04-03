@@ -516,5 +516,9 @@ const DesktopMonitor = class {
     get _pendingSelfCopyFiles() {
         return this.desktopManager._pendingSelfCopyFiles;
     }
+
+    get desktopDir() {
+        return this._desktopDir;
+    }
 };
 
