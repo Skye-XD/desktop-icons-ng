@@ -2442,7 +2442,7 @@ const DesktopManager = class {
     }
 
     get templatesMonitor() {
-        return this.desktopMonitor.templatesMonitor;
+        return this.desktopActions.templatesMonitor;
     }
 
     get currentWorkingList() {

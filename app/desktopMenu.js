@@ -15,6 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import {
+    TemplatesScriptsManager
+} from '../dependencies/localFiles.js';
+
 import {Gdk, Gio, GLib, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
@@ -26,6 +30,8 @@ const DesktopActions = class {
         this._Prefs = desktopManager.Prefs;
         this.mainApp = desktopManager.mainApp;
         this.DBusUtils = desktopManager.DBusUtils;
+        this.dbusManager = desktopManager.dbusManager;
+        this.FileUtils = desktopManager.FileUtils;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
         this.fileItemMenu = desktopManager.fileItemMenu;
         this.Prefs = desktopManager.Prefs;
@@ -35,6 +41,7 @@ const DesktopActions = class {
         this._clipboardFiles = null;
         this._intDBusSignalMonitoring();
         this._createMenuActionGroup();
+        this._startMonitoringTemplatesDir();
     }
 
     // Create the menu action group
@@ -312,6 +319,31 @@ const DesktopActions = class {
         this.mainApp.set_accels_for_action('app.chooseIconUp', ['']);
         this.mainApp.set_accels_for_action('app.chooseIconDown', ['']);
         this.mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
+    }
+
+    _startMonitoringTemplatesDir() {
+        this.templatesMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
+            this.DesktopIconsUtil.getTemplatesDir(),
+            this._newDocument.bind(this),
+            this._templatesDirSelectionFilter.bind(this),
+            {
+                mainApp: this.mainApp,
+                appName: 'templateapp',
+                FileUtils: this.FileUtils,
+                Enums: this.Enums,
+            }
+        );
+    }
+
+    _templatesDirSelectionFilter(fileinfo) {
+        const name = this.DesktopIconsUtil.getFileExtensionOffset(
+            fileinfo.get_name()).basename;
+        const hiddenfile = name.substring(0, 1) === '.';
+
+        if (!this.Prefs.showHidden && hiddenfile)
+            return null;
+
+        return name;
     }
 
     _updateClipboard() {
@@ -717,6 +749,38 @@ const DesktopActions = class {
         const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
             'Desktop']);
         return this._desktopDir.get_path() === defaultDesktop;
+    }
+
+    async _newDocument(template) {
+        if (!template)
+            return;
+
+        const file = Gio.File.new_for_path(template);
+        const finalName = this._desktopMonitor.getDesktopUniqueFileName(file.get_basename());
+        const destination = this._desktopDir.get_child(finalName);
+
+        try {
+            await file.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+            try {
+                const info = new Gio.FileInfo();
+                info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
+                info.set_attribute_string('metadata::desktop-icon-position', '');
+                info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
+                await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
+                    GLib.PRIORITY_DEFAULT, null);
+            } catch (e) {
+                console.error(e, `Failed to set template metadata ${e.message}`);
+            }
+        } catch (e) {
+            if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
+                this._desktopManager._performSanityChecks();
+            else
+                console.error(e, `Failed to create template ${e.message}`);
+            const header = _('Template Creation Error');
+            const text = _('Could not create document');
+            this.dbusManager.doNotify(header, text);
+        }
     }
 
     async createDesktopShortcut(shortcutinfo) {
