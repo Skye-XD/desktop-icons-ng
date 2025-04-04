@@ -497,7 +497,7 @@ const DesktopManager = class {
 
     async askWhatToDoWithFiles(fileList, destinationuri, X, Y, x, y, event, opts = {desktopactions: true}) {
         const window = this.mainApp.get_active_window();
-        this.textEntryAccelsTurnOff();
+        this.mainApp.activate_action('textEntryAccelsTurnOff', null);
         const chooser = new Gtk.AlertDialog();
         chooser.set_message(_('Choose Action for Files'));
         chooser.buttons = [_('Move'), _('Copy'), _('Link'), _('Cancel')];
@@ -564,7 +564,7 @@ const DesktopManager = class {
         });
         const retval = await showdialog.catch(e => logError(e));
         this.dialogCancellable = null;
-        this.textEntryAccelsTurnOn();
+        this.mainApp.activate_action('textEntryAccelsTurnOn', null);
         return retval;
     }
 
@@ -1987,7 +1987,7 @@ const DesktopManager = class {
             this._scanForFiles(null);
         }
         this._findFileWindow.show();
-        this.desktopActions.textEntryAccelsTurnOff();
+        this.mainApp.activate_action('textEntryAccelsTurnOff', null);
         this._findFileWindow.connect('close', () => {
             this._findFileWindow.response(Gtk.ResponseType.CANCEL);
         });
@@ -1995,7 +1995,7 @@ const DesktopManager = class {
             if (retval === Gtk.ResponseType.CANCEL)
                 this.unselectAll();
 
-            this.desktopActions.textEntryAccelsTurnOn();
+            this.mainApp.activate_action('textEntryAccelsTurnOn', null);
             this._findFileWindow.destroy();
             this._findFileWindow = null;
         });
@@ -2209,7 +2209,7 @@ const DesktopManager = class {
             return;
 
         if (!this._renameWindow) {
-            this.textEntryAccelsTurnOff();
+            this.mainApp.activate_action('textEntryAccelsTurnOff', null);
             if (!this.newItemDoRename)
                 this.newItemDoRename = new Set();
 
@@ -2221,7 +2221,7 @@ const DesktopManager = class {
                 allowReturnOnSameName,
                 () => {
                     this.mainApp.get_active_window().grab_focus();
-                    this.textEntryAccelsTurnOn();
+                    this.mainApp.activate_action('textEntryAccelsTurnOn', null);
                     if (this.newItemDoRename)
                         this.newItemDoRename.delete(fileItem.fileName);
                     this._renameWindow = null;

@@ -581,7 +581,7 @@ const FileItemMenu = class {
             context.set_timestamp(Gdk.CURRENT_TIME);
             let chooser = new this.appChooser.AppChooserDialog(this._codePath, fileItems, this.activeFileItem, this._desktopManager.dbusManager,
                 this._desktopManager.DesktopIconsUtil);
-            this._desktopManager.textEntryAccelsTurnOff();
+            this._mainApp.activate_action('textEntryAccelsTurnOff', null);
             chooser.show();
             const appInfo = await chooser.getApplicationSelected().catch(e => console.error(e));
             if (appInfo) {
@@ -591,7 +591,7 @@ const FileItemMenu = class {
 
                 appInfo.launch(fileList, context);
             }
-            this._desktopManager.textEntryAccelsTurnOn();
+            this._mainApp.activate_action('textEntryAccelsTurnOn', null);
             chooser.hide();
             chooser.finalize();
             chooser = null;
@@ -699,7 +699,7 @@ const FileItemMenu = class {
             const modal = true;
             dialog.set_modal(modal);
             this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, modal);
-            this._desktopManager.textEntryAccelsTurnOff();
+            this._mainApp.activate_action('textEntryAccelsTurnOff', null);
             dialog.show();
             dialog.present_with_time(Gdk.CURRENT_TIME);
             dialog.connect('close', () => {
@@ -713,7 +713,7 @@ const FileItemMenu = class {
                     else
                         returnValue = false;
                 }
-                this._desktopManager.textEntryAccelsTurnOn();
+                this._mainApp.activate_action('textEntryAccelsTurnOn', null);
                 dialog.destroy();
                 resolve(returnValue);
             });
@@ -853,7 +853,7 @@ const FileItemMenu = class {
     }
 
     async _mailzippedFilesFromSelection(pathnameArray) {
-        this._textEntryAccelsTurnOff();
+        this._mainApp.activate_action('textEntryAccelsTurnOff', null);
         const chooser = new Gtk.AlertDialog();
         chooser.set_message(_('Can not email a Directory'));
         chooser.set_detail(_('Selection includes a Directory, compress to a .zip file first?'));
@@ -870,7 +870,7 @@ const FileItemMenu = class {
             }
             this._desktopManager.unselectAll();
         });
-        this._textEntryAccelsTurnOn();
+        this._mainApp.activate_action('textEntryAccelsTurnOn', null);
     }
 
     _doCompressFilesFromSelection() {
@@ -997,14 +997,6 @@ const FileItemMenu = class {
         const header = _('Unable to Open {0}').replace('{0}', this.Prefs.TerminalName);
         const text = _('Please Install {0}').replace('{0}', this.Prefs.TerminalName);
         this._desktopManager.dbusManager.doNotify(header, text);
-    }
-
-    _textEntryAccelsTurnOff() {
-        this._desktopManager.desktopActions.textEntryAccelsTurnOff();
-    }
-
-    _textEntryAccelsTurnOn() {
-        this._desktopManager.desktopActions.textEntryAccelsTurnOn();
     }
 
     get _desktopDir() {

@@ -374,14 +374,6 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
         }
     }
 
-    _textEntryAccelsTurnOff() {
-        this._desktopManager.textEntryAccelsTurnOff();
-    }
-
-    _textEntryAccelsTurnOn() {
-        this._desktopManager.textEntryAccelsTurnOn();
-    }
-
     _showerrorpopup(title, error, helpURI = null) {
         const errorDialog = this._desktopManager.showError(
             title,
