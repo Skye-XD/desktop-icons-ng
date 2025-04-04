@@ -25,14 +25,12 @@ const DesktopActions = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
         this._Prefs = desktopManager.Prefs;
-        this.mainApp = desktopManager.mainApp;
-        this.DBusUtils = desktopManager.DBusUtils;
-        this.dbusManager = desktopManager.dbusManager;
-        this.FileUtils = desktopManager.FileUtils;
-        this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
-        this.fileItemMenu = desktopManager.fileItemMenu;
-        this.Prefs = desktopManager.Prefs;
-        this.Enums = desktopManager.Enums;
+        this._mainApp = desktopManager.mainApp;
+        this._DBusUtils = desktopManager.DBusUtils;
+        this._dbusManager = desktopManager.dbusManager;
+        this._DesktopIconsUtil = desktopManager.DesktopIconsUtil;
+        this._fileItemMenu = desktopManager.fileItemMenu;
+        this._Enums = desktopManager.Enums;
         this._desktopMonitor = desktopManager.desktopMonitor;
         this._isCut = false;
         this._clipboardFiles = null;
@@ -46,12 +44,12 @@ const DesktopActions = class {
     // for the actions
 
     _createMenuActionGroup() {
-        let newFolder = Gio.SimpleAction.new('doNewFolder', null);
+        const newFolder = Gio.SimpleAction.new('doNewFolder', null);
         newFolder.connect('activate', () => {
             this._desktopManager.doNewFolder().catch(e => console.error(e));
         });
-        this.mainApp.add_action(newFolder);
-        this.mainApp.set_accels_for_action('app.doNewFolder', ['<Control><Shift>N']);
+        this._mainApp.add_action(newFolder);
+        this._mainApp.set_accels_for_action('app.doNewFolder', ['<Control><Shift>N']);
 
         this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
         this.doPasteSimpleAction.connect(
@@ -68,114 +66,114 @@ const DesktopActions = class {
                 }
             }
         );
-        this.mainApp.add_action(this.doPasteSimpleAction);
-        this.mainApp.set_accels_for_action('app.doPaste', ['<Control>V']);
+        this._mainApp.add_action(this.doPasteSimpleAction);
+        this._mainApp.set_accels_for_action('app.doPaste', ['<Control>V']);
 
         this.doUndoSimpleAction = Gio.SimpleAction.new('doUndo', null);
         this.doUndoSimpleAction.connect(
             'activate',
             () => this._doUndo()
         );
-        this.mainApp.add_action(this.doUndoSimpleAction);
-        this.mainApp.set_accels_for_action('app.doUndo', ['<Control>Z']);
+        this._mainApp.add_action(this.doUndoSimpleAction);
+        this._mainApp.set_accels_for_action('app.doUndo', ['<Control>Z']);
 
         this.doRedoSimpleAction = Gio.SimpleAction.new('doRedo', null);
         this.doRedoSimpleAction.connect(
             'activate',
             () => this._doRedo()
         );
-        this.mainApp.add_action(this.doRedoSimpleAction);
-        this.mainApp.set_accels_for_action('app.doRedo', ['<Control><Shift>Z']);
+        this._mainApp.add_action(this.doRedoSimpleAction);
+        this._mainApp.set_accels_for_action('app.doRedo', ['<Control><Shift>Z']);
 
-        let selectAll = Gio.SimpleAction.new('selectAll', null);
+        const selectAll = Gio.SimpleAction.new('selectAll', null);
         selectAll.connect(
             'activate',
             () => this._selectAll()
         );
-        this.mainApp.add_action(selectAll);
-        this.mainApp.set_accels_for_action('app.selectAll', ['<Control>A']);
+        this._mainApp.add_action(selectAll);
+        this._mainApp.set_accels_for_action('app.selectAll', ['<Control>A']);
 
-        let showDesktopInFiles = Gio.SimpleAction.new('showDesktopInFiles', null);
+        const showDesktopInFiles = Gio.SimpleAction.new('showDesktopInFiles', null);
         showDesktopInFiles.connect(
             'activate',
             () => this._onOpenDesktopInFilesClicked().catch(e => logError(e))
         );
-        this.mainApp.add_action(showDesktopInFiles);
+        this._mainApp.add_action(showDesktopInFiles);
 
-        let openInTerminal = Gio.SimpleAction.new('openInTerminal', null);
+        const openInTerminal = Gio.SimpleAction.new('openInTerminal', null);
         openInTerminal.connect(
             'activate',
             this._onOpenTerminalClicked.bind(this)
         );
-        this.mainApp.add_action(openInTerminal);
+        this._mainApp.add_action(openInTerminal);
 
-        let changeBackGround = Gio.SimpleAction.new('changeBackGround', null);
+        const changeBackGround = Gio.SimpleAction.new('changeBackGround', null);
         changeBackGround.connect(
             'activate',
             () => {
-                let desktopFile = Gio.DesktopAppInfo.new('gnome-background-panel.desktop');
+                const desktopFile = Gio.DesktopAppInfo.new('gnome-background-panel.desktop');
                 const context = Gdk.Display.get_default().get_app_launch_context();
                 context.set_timestamp(Gdk.CURRENT_TIME);
                 desktopFile.launch([], context);
             }
         );
-        this.mainApp.add_action(changeBackGround);
+        this._mainApp.add_action(changeBackGround);
 
-        let changeDisplaySettings = Gio.SimpleAction.new('changeDisplaySettings', null);
+        const changeDisplaySettings = Gio.SimpleAction.new('changeDisplaySettings', null);
         changeDisplaySettings.connect(
             'activate',
             () => {
-                let desktopFile = Gio.DesktopAppInfo.new('gnome-display-panel.desktop');
+                const desktopFile = Gio.DesktopAppInfo.new('gnome-display-panel.desktop');
                 const context = Gdk.Display.get_default().get_app_launch_context();
                 context.set_timestamp(Gdk.CURRENT_TIME);
                 desktopFile.launch([], context);
             }
         );
-        this.mainApp.add_action(changeDisplaySettings);
+        this._mainApp.add_action(changeDisplaySettings);
 
-        let changeDesktopIconSettings = Gio.SimpleAction.new('changeDesktopIconSettings', null);
+        const changeDesktopIconSettings = Gio.SimpleAction.new('changeDesktopIconSettings', null);
         changeDesktopIconSettings.connect(
             'activate',
             this._showPreferences.bind(this)
         );
-        this.mainApp.add_action(changeDesktopIconSettings);
+        this._mainApp.add_action(changeDesktopIconSettings);
 
-        let cleanUpIconsAction = Gio.SimpleAction.new('cleanUpIcons', null);
+        const cleanUpIconsAction = Gio.SimpleAction.new('cleanUpIcons', null);
         cleanUpIconsAction.connect(
             'activate',
             () => this._desktopManager.sortAllFilesFromGridsByPosition()
         );
-        this.mainApp.add_action(cleanUpIconsAction);
+        this._mainApp.add_action(cleanUpIconsAction);
 
-        let keepArrangedAction = this.Prefs.desktopSettings.create_action('keep-arranged');
-        this.mainApp.add_action(keepArrangedAction);
-        this.Prefs.desktopSettings.bind(
+        const keepArrangedAction = this._Prefs.desktopSettings.create_action('keep-arranged');
+        this._mainApp.add_action(keepArrangedAction);
+        this._Prefs.desktopSettings.bind(
             'keep-arranged',
             cleanUpIconsAction,
             'enabled',
             16
         );
-        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('keep-stacked'));
-        this.mainApp.add_action(this.Prefs.desktopSettings.create_action('sort-special-folders'));
+        this._mainApp.add_action(this._Prefs.desktopSettings.create_action('keep-stacked'));
+        this._mainApp.add_action(this._Prefs.desktopSettings.create_action('sort-special-folders'));
         const radioArrangeAction = Gio.SimpleAction.new_stateful(
             'arrangeaction',
             GLib.VariantType.new('s'),
-            GLib.Variant.new_string(this.Prefs.desktopSettings.get_string(
-                this.Enums.SortOrder.ORDER))
+            GLib.Variant.new_string(this._Prefs.desktopSettings.get_string(
+                this._Enums.SortOrder.ORDER))
         );
         radioArrangeAction.connect('change-state', this._syncArrangeOrder.bind(this));
-        this.mainApp.add_action(radioArrangeAction);
+        this._mainApp.add_action(radioArrangeAction);
         this.arrangeAction = radioArrangeAction;
 
-        let findFilesAction = Gio.SimpleAction.new('findFiles', null);
+        const findFilesAction = Gio.SimpleAction.new('findFiles', null);
         findFilesAction.connect(
             'activate',
             () =>  this._desktopManager.findFiles(null)
         );
-        this.mainApp.add_action(findFilesAction);
-        this.mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
+        this._mainApp.add_action(findFilesAction);
+        this._mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
 
-        let updateDesktop = Gio.SimpleAction.new('updateDesktop', null);
+        const updateDesktop = Gio.SimpleAction.new('updateDesktop', null);
         updateDesktop.connect(
             'activate',
             async () => {
@@ -184,20 +182,20 @@ const DesktopActions = class {
                 });
             }
         );
-        this.mainApp.add_action(updateDesktop);
-        this.mainApp.set_accels_for_action('app.updateDesktop', ['F5']);
+        this._mainApp.add_action(updateDesktop);
+        this._mainApp.set_accels_for_action('app.updateDesktop', ['F5']);
 
-        let showHideHiddenFiles = Gio.SimpleAction.new('showHideHiddenFiles', null);
+        const showHideHiddenFiles = Gio.SimpleAction.new('showHideHiddenFiles', null);
         showHideHiddenFiles.connect(
             'activate',
             () => {
-                this.Prefs.gtkSettings.set_boolean('show-hidden', !this.Prefs.showHidden);
+                this._Prefs.gtkSettings.set_boolean('show-hidden', !this._Prefs.showHidden);
             }
         );
-        this.mainApp.add_action(showHideHiddenFiles);
-        this.mainApp.set_accels_for_action('app.showHideHiddenFiles', ['<Control>H']);
+        this._mainApp.add_action(showHideHiddenFiles);
+        this._mainApp.set_accels_for_action('app.showHideHiddenFiles', ['<Control>H']);
 
-        let unselectAll = Gio.SimpleAction.new('unselectAll', null);
+        const unselectAll = Gio.SimpleAction.new('unselectAll', null);
         unselectAll.connect(
             'activate',
             () => {
@@ -206,113 +204,113 @@ const DesktopActions = class {
                     this.searchString = null;
             }
         );
-        this.mainApp.add_action(unselectAll);
-        this.mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
+        this._mainApp.add_action(unselectAll);
+        this._mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
 
-        let previewAction = Gio.SimpleAction.new('previewAction', null);
+        const previewAction = Gio.SimpleAction.new('previewAction', null);
         previewAction.connect('activate', () => {
             if (this._desktopManager.popupmenu ||
                 this._desktopManager.fileItemMenu.popupmenu ||
                 !this.activeFileItem)
                 return;
 
-            this.DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
+            this._DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
         });
-        this.mainApp.add_action(previewAction);
-        this.mainApp.set_accels_for_action('app.previewAction', ['space']);
+        this._mainApp.add_action(previewAction);
+        this._mainApp.set_accels_for_action('app.previewAction', ['space']);
 
-        let chooseIconLeft = Gio.SimpleAction.new('chooseIconLeft', null);
+        const chooseIconLeft = Gio.SimpleAction.new('chooseIconLeft', null);
         chooseIconLeft.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Left);
         });
-        this.mainApp.add_action(chooseIconLeft);
-        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
+        this._mainApp.add_action(chooseIconLeft);
+        this._mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
 
-        let chooseIconRight = Gio.SimpleAction.new('chooseIconRight', null);
+        const chooseIconRight = Gio.SimpleAction.new('chooseIconRight', null);
         chooseIconRight.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Right);
         });
-        this.mainApp.add_action(chooseIconRight);
-        this.mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
+        this._mainApp.add_action(chooseIconRight);
+        this._mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
 
-        let chooseIconUp = Gio.SimpleAction.new('chooseIconUp', null);
+        const chooseIconUp = Gio.SimpleAction.new('chooseIconUp', null);
         chooseIconUp.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Up);
         });
-        this.mainApp.add_action(chooseIconUp);
-        this.mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
+        this._mainApp.add_action(chooseIconUp);
+        this._mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
 
-        let chooseIconDown = Gio.SimpleAction.new('chooseIconDown', null);
+        const chooseIconDown = Gio.SimpleAction.new('chooseIconDown', null);
         chooseIconDown.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Down);
         });
-        this.mainApp.add_action(chooseIconDown);
-        this.mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
+        this._mainApp.add_action(chooseIconDown);
+        this._mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
 
-        let menuKeyPressed = Gio.SimpleAction.new('menuKeyPressed', null);
+        const menuKeyPressed = Gio.SimpleAction.new('menuKeyPressed', null);
         menuKeyPressed.connect('activate', () => {
             this._menuKeyPressed();
         });
-        this.mainApp.add_action(menuKeyPressed);
-        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
+        this._mainApp.add_action(menuKeyPressed);
+        this._mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
 
-        let displayShellBackgroundMenu = Gio.SimpleAction.new('displayShellBackgroundMenu', null);
+        const displayShellBackgroundMenu = Gio.SimpleAction.new('displayShellBackgroundMenu', null);
         displayShellBackgroundMenu.connect('activate', () => {
-            this.DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
+            this._DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
         });
-        this.mainApp.add_action(displayShellBackgroundMenu);
-        let createDesktopShortcut = new Gio.SimpleAction({
+        this._mainApp.add_action(displayShellBackgroundMenu);
+        const createDesktopShortcut = new Gio.SimpleAction({
             name: 'createDesktopShortcut',
             parameter_type: new GLib.VariantType('a{sv}'),
         });
         createDesktopShortcut.connect('activate', (action, parameter) => {
-            this.createDesktopShortcut(parameter.recursiveUnpack());
+            this._createDesktopShortcut(parameter.recursiveUnpack());
         });
-        this.mainApp.add_action(createDesktopShortcut);
+        this._mainApp.add_action(createDesktopShortcut);
         const textEntryAccelsTurnOn = Gio.SimpleAction.new('textEntryAccelsTurnOn', null);
         textEntryAccelsTurnOn.connect('activate', () => {
-            this.textEntryAccelsTurnOn();
+            this._textEntryAccelsTurnOn();
         });
-        this.mainApp.add_action(textEntryAccelsTurnOn);
+        this._mainApp.add_action(textEntryAccelsTurnOn);
         const textEntryAccelsTurnOff = Gio.SimpleAction.new('textEntryAccelsTurnOff', null);
         textEntryAccelsTurnOff.connect('activate', () => {
-            this.textEntryAccelsTurnOff();
+            this._textEntryAccelsTurnOff();
         });
-        this.mainApp.add_action(textEntryAccelsTurnOff);
+        this._mainApp.add_action(textEntryAccelsTurnOff);
         const newDocument = Gio.SimpleAction.new('newDocument', new GLib.VariantType('s'));
         newDocument.connect('activate', (action, parameter) => {
             this._newDocument(parameter.deep_unpack());
         });
-        this.mainApp.add_action(newDocument);
+        this._mainApp.add_action(newDocument);
     }
 
-    textEntryAccelsTurnOn() {
-        this.mainApp.set_accels_for_action('app.previewAction', ['space']);
-        this.mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
-        this.mainApp.set_accels_for_action('app.openOneFileAction', ['Return']);
-        this.mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
-        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
-        this.mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
-        this.mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
-        this.mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
-        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
+    _textEntryAccelsTurnOn() {
+        this._mainApp.set_accels_for_action('app.previewAction', ['space']);
+        this._mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
+        this._mainApp.set_accels_for_action('app.openOneFileAction', ['Return']);
+        this._mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
+        this._mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
+        this._mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
+        this._mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
+        this._mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
+        this._mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
     }
 
-    textEntryAccelsTurnOff() {
-        this.mainApp.set_accels_for_action('app.previewAction', ['']);
-        this.mainApp.set_accels_for_action('app.unselectAll', ['']);
-        this.mainApp.set_accels_for_action('app.openOneFileAction', ['']);
-        this.mainApp.set_accels_for_action('app.movetotrash', ['']);
-        this.mainApp.set_accels_for_action('app.chooseIconLeft', ['']);
-        this.mainApp.set_accels_for_action('app.chooseIconRight', ['']);
-        this.mainApp.set_accels_for_action('app.chooseIconUp', ['']);
-        this.mainApp.set_accels_for_action('app.chooseIconDown', ['']);
-        this.mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
+    _textEntryAccelsTurnOff() {
+        this._mainApp.set_accels_for_action('app.previewAction', ['']);
+        this._mainApp.set_accels_for_action('app.unselectAll', ['']);
+        this._mainApp.set_accels_for_action('app.openOneFileAction', ['']);
+        this._mainApp.set_accels_for_action('app.movetotrash', ['']);
+        this._mainApp.set_accels_for_action('app.chooseIconLeft', ['']);
+        this._mainApp.set_accels_for_action('app.chooseIconRight', ['']);
+        this._mainApp.set_accels_for_action('app.chooseIconUp', ['']);
+        this._mainApp.set_accels_for_action('app.chooseIconDown', ['']);
+        this._mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
     }
 
     _updateClipboard() {
         return new Promise(resolve => {
-            let clipboard = Gdk.Display.get_default().get_clipboard();
+            const clipboard = Gdk.Display.get_default().get_clipboard();
             this._isCut = false;
             this._clipboardFiles = null;
             /*
@@ -334,15 +332,15 @@ const DesktopActions = class {
              * there is text data in the old format.
              */
             let text = null;
-            let textDecoder = new TextDecoder();
+            const textDecoder = new TextDecoder();
             if (clipboard.get_formats()) {
-                let mimetypes = clipboard.get_formats().to_string();
+                const mimetypes = clipboard.get_formats().to_string();
                 if (mimetypes.includes('x-special/gnome-copied-files')) {
                     try {
                         clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
                             try {
-                                let success = actor.read_finish(result);
-                                let bytes = success[0].read_bytes(8192, null);
+                                const success = actor.read_finish(result);
+                                const bytes = success[0].read_bytes(8192, null);
                                 text = textDecoder.decode(bytes.get_data());
                                 text = `x-special/nautilus-clipboard\n${text}\n`;
                                 this._setClipboardContent(text);
@@ -362,8 +360,8 @@ const DesktopActions = class {
                     try {
                         clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
                             try {
-                                let success = actor.read_finish(result);
-                                let bytes = success[0].read_bytes(8192, null);
+                                const success = actor.read_finish(result);
+                                const bytes = success[0].read_bytes(8192, null);
                                 text = textDecoder.decode(bytes.get_data());
                                 if (text && !text.endsWith('\n'))
                                     text += '\n';
@@ -392,21 +390,21 @@ const DesktopActions = class {
     }
 
     _intDBusSignalMonitoring() {
-        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
+        this._DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
 
-        this.DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
+        this._DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
             if (available)
                 this._syncUndoRedo();
             else
                 this._syncUndoRedo(true);
         });
 
-        if (this.DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
+        if (this._DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
             this._syncUndoRedo();
     }
 
     _setClipboardContent(text) {
-        let [valid, isCut, files] = this._parseClipboardText(text);
+        const [valid, isCut, files] = this._parseClipboardText(text);
         if (valid) {
             this._isCut = isCut;
             this._clipboardFiles = files;
@@ -418,14 +416,14 @@ const DesktopActions = class {
         if (text === null)
             return [false, false, null];
 
-        let lines = text.split('\n');
-        let [mime, action, ...files] = lines;
+        const lines = text.split('\n');
+        const [mime, action, ...files] = lines;
 
         if (mime !== 'x-special/nautilus-clipboard')
             return [false, false, null];
         if (!['copy', 'cut'].includes(action))
             return [false, false, null];
-        let isCut = action === 'cut';
+        const isCut = action === 'cut';
 
         /* Last line is empty due to the split */
         if (files.length <= 1)
@@ -442,12 +440,12 @@ const DesktopActions = class {
             this.doRedoSimpleAction.set_enabled(false);
             return;
         }
-        switch (this.DBusUtils.RemoteFileOperations.UndoStatus()) {
-        case this.Enums.UndoStatus.UNDO:
+        switch (this._DBusUtils.RemoteFileOperations.UndoStatus()) {
+        case this._Enums.UndoStatus.UNDO:
             this.doUndoSimpleAction.set_enabled(true);
             this.doRedoSimpleAction.set_enabled(false);
             break;
-        case this.Enums.UndoStatus.REDO:
+        case this._Enums.UndoStatus.REDO:
             this.doUndoSimpleAction.set_enabled(false);
             this.doRedoSimpleAction.set_enabled(true);
             break;
@@ -464,11 +462,11 @@ const DesktopActions = class {
     }
 
     _doUndo() {
-        this.DBusUtils.RemoteFileOperations.UndoRemote();
+        this._DBusUtils.RemoteFileOperations.UndoRemote();
     }
 
     _doRedo() {
-        this.DBusUtils.RemoteFileOperations.RedoRemote();
+        this._DBusUtils.RemoteFileOperations.RedoRemote();
     }
 
     _doPaste() {
@@ -476,19 +474,19 @@ const DesktopActions = class {
             return;
         if (!this._clickX && !this._clickY)
             return;
-        let pasteCoordinates = [this._clickX, this._clickY];
-        let desktopDir = this._desktopDir.get_uri();
+        const pasteCoordinates = [this._clickX, this._clickY];
+        const desktopDir = this._desktopDir.get_uri();
 
         if (this._isCut) {
             // This pops up GNOME Files error dialog, which is what we want.
-            this.DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
+            this._DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
             this._desktopManager.clearFileCoordinates(
                 this._clipboardFiles,
                 pasteCoordinates,
                 {doCopy: true}
             );
-            this.DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
+            this._DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
         }
     }
 
@@ -509,7 +507,7 @@ const DesktopActions = class {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
                 const header = _('Unable to open Desktop in Gnome Files');
                 const text = _(`Desktop Folder ${this._desktopDir.get_path()} does not exist`);
-                this.dbusManager.doNotify(header, text);
+                this._dbusManager.doNotify(header, text);
                 return;
             }
             console.error(e, `Error opening desktop in GNOME Files: ${e.message}`);
@@ -527,7 +525,7 @@ const DesktopActions = class {
         let success = false;
         let completed = false;
         let process;
-        let argv = ['/usr/bin/gnome-extensions', 'prefs', `${this.uuid}`];
+        const argv = ['/usr/bin/gnome-extensions', 'prefs', `${this.uuid}`];
 
         try {
             process = GLib.spawn_sync(null, argv, null,
@@ -536,11 +534,11 @@ const DesktopActions = class {
             completed = GLib.spawn_check_exit_status(process[3]);
             success = process[0];
         } catch (e) {
-            let textDecoder = new TextDecoder();
-            let errortext = textDecoder.decode(process[2]);
-            let windowopen = errortext.includes('Already showing a prefs dialog');
+            const textDecoder = new TextDecoder();
+            const errortext = textDecoder.decode(process[2]);
+            const windowopen = errortext.includes('Already showing a prefs dialog');
             if (windowopen) {
-                this.dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
+                this._dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
                 return;
             } else {
                 completed = false;
@@ -550,13 +548,13 @@ const DesktopActions = class {
         if (success && completed)
             return;
 
-        this.preferencesWindow = this.Prefs.getAdwPreferencesWindow();
+        this.preferencesWindow = this._Prefs.getAdwPreferencesWindow();
         this.preferencesWindow.connect('close-request', () => {
             this.preferencesWindow = null;
         });
         this.preferencesWindow.set_title(_('Settings'));
         const modal = true;
-        this.DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, modal);
+        this._DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, modal);
         this.preferencesWindow.show();
     }
 
@@ -564,14 +562,14 @@ const DesktopActions = class {
         if (!action.enabled)
             return;
 
-        const currentSetting = this.Prefs.desktopSettings.get_string(
-            this.Enums.SortOrder.ORDER);
+        const currentSetting = this._Prefs.desktopSettings.get_string(
+            this._Enums.SortOrder.ORDER);
         const newValueString = newValue.deep_unpack();
 
         if (currentSetting !== newValueString) {
             action.set_enabled(false);
-            this.Prefs.desktopSettings.set_string(
-                this.Enums.SortOrder.ORDER, newValueString);
+            this._Prefs.desktopSettings.set_string(
+                this._Enums.SortOrder.ORDER, newValueString);
             action.set_enabled(true);
         }
 
@@ -666,12 +664,12 @@ const DesktopActions = class {
     _menuKeyPressed() {
         const selection = this.currentSelection;
         if (selection) {
-            let fileItem = selection[0];
-            let X = fileItem.iconRectangle.x + fileItem.iconRectangle.width / 2;
-            let Y = fileItem.iconRectangle.y + fileItem.iconRectangle.height / 2;
-            this.fileItemMenu.showMenu(fileItem, 3, 0, 0, X, Y, false, false);
+            const fileItem = selection[0];
+            const X = fileItem.iconRectangle.x + fileItem.iconRectangle.width / 2;
+            const Y = fileItem.iconRectangle.y + fileItem.iconRectangle.height / 2;
+            this._fileItemMenu.showMenu(fileItem, 3, 0, 0, X, Y, false, false);
         } else {
-            let grid = this._desktops.filter(f => f.coordinatesBelongToThisGrid(this._clickX, this._clickY));
+            const grid = this._desktops.filter(f => f.coordinatesBelongToThisGrid(this._clickX, this._clickY));
             if (!grid)
                 return;
             this._desktopManager.onPressButton(null, null, this._clickX, this._clickY, 3, false, false, grid[0]).catch(e => console.error(e));
@@ -707,16 +705,16 @@ const DesktopActions = class {
                 console.error(e, `Failed to create template ${e.message}`);
             const header = _('Template Creation Error');
             const text = _('Could not create document');
-            this.dbusManager.doNotify(header, text);
+            this._dbusManager.doNotify(header, text);
         }
     }
 
-    async createDesktopShortcut(shortcutinfo) {
-        let fileList = [shortcutinfo.uri];
-        let X = parseInt(shortcutinfo.X);
-        let Y = parseInt(shortcutinfo.Y);
+    async _createDesktopShortcut(shortcutinfo) {
+        const fileList = [shortcutinfo.uri];
+        const X = parseInt(shortcutinfo.X);
+        const Y = parseInt(shortcutinfo.Y);
         await this._desktopManager.clearFileCoordinates(fileList, [X, Y], {doCopy: true});
-        await this.DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
+        await this._DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
     }
 
     async updateClipboard() {
@@ -729,11 +727,11 @@ const DesktopActions = class {
     }
 
     get activeFileItem() {
-        return this.fileItemMenu.activeFileItem;
+        return this._fileItemMenu.activeFileItem;
     }
 
     set activeFileItem(fileItem) {
-        this.fileItemMenu.activeFileItem = fileItem;
+        this._fileItemMenu.activeFileItem = fileItem;
     }
 
     get _displayList() {
@@ -821,7 +819,7 @@ const DesktopBackgroundMenu = class {
 
         this.desktopBackgroundGioMenu.append(_('New Folder'), 'app.doNewFolder');
 
-        let templatesmenu = this._templatesMonitor.getGioMenu();
+        const templatesmenu = this._templatesMonitor.getGioMenu();
         if (!(templatesmenu === null))
             this.desktopBackgroundGioMenu.append_submenu(_('New Document'), templatesmenu);
 
