@@ -496,10 +496,17 @@ const FileItemMenu = class {
             await this.DesktopIconsUtil.waitDelayMs(50);
             this.popupmenu.unparent();
             this.popupmenu = null;
-            if (this._desktopManager.popupmenuclosed)
-                this._desktopManager.popupmenuclosed(true);
+            if (this.popupmenuclosed)
+                this.popupmenuclosed(true);
+            this.popupmenuclosed = null;
         });
     }
+
+    menuclosed = () => {
+        return new Promise(resolve => {
+            this.popupmenuclosed = resolve;
+        });
+    };
 
     showToolTip(fileItem) {
         if (this._toolTipPopup)

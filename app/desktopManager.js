@@ -17,16 +17,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import {
-    AskRenamePopup,
-    DesktopMonitor,
-    DesktopActions,
-    ShowErrorPopup,
-    TemplatesScriptsManager,
-    FileItemMenu,
-    AutoAr,
     AppChooser,
+    AskRenamePopup,
+    AutoAr,
+    DesktopMenu,
+    DesktopMonitor,
+    FileItemMenu,
     GnomeShellDragDrop,
+    ShowErrorPopup,
     StackItem,
+    TemplatesScriptsManager,
     WindowManager
 } from '../dependencies/localFiles.js';
 
@@ -89,7 +89,8 @@ const DesktopManager = class {
 
         // init methods
 
-        this.desktopActions = new DesktopActions.DesktopActions(this);
+        this.desktopActions = new DesktopMenu.DesktopActions(this);
+        this.desktopMenuManager = new DesktopMenu.DesktopBackgroundMenu(this);
         this.Prefs.init(this);
 
         // setup gracefull termination
@@ -952,6 +953,7 @@ const DesktopManager = class {
         this._clickX = Math.floor(X);
         this._clickY = Math.floor(Y);
 
+        // Left Click
         if (button === 1) {
             if (!shiftPressed && !controlPressed) {
                 // clear selection
@@ -960,27 +962,9 @@ const DesktopManager = class {
             this._startRubberband(X, Y);
         }
 
-        if (button === 3) {
-            await this.desktopActions.updateClipboard();
-            this._createDesktopBackgroundGioMenu();
-            this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
-            this.popupmenu.set_parent(grid._container);
-            const menuLocation = new Gdk.Rectangle({x, y, width: 1, height: 1});
-            this.popupmenu.set_pointing_to(menuLocation);
-            const menuGtkPosition = grid.getIntelligentPosition(menuLocation);
-            if (menuGtkPosition)
-                this.popupmenu.set_position(menuGtkPosition);
-
-            this.popupmenu.set_has_arrow(false);
-            this.popupmenu.popup();
-            this.popupmenu.connect('closed', async () => {
-                await this.DesktopIconsUtil.waitDelayMs(50);
-                this.popupmenu.unparent();
-                this.popupmenu = null;
-                if (this.popupmenuclosed)
-                    this.popupmenuclosed(true);
-            });
-        }
+        // Right Click
+        if (button === 3)
+            await this.desktopMenuManager.showDesktopMenu(x, y, grid).catch(e => logError(e));
     }
 
     onKeyPress(keyval, keycode, state, grid) {
@@ -1046,95 +1030,6 @@ const DesktopManager = class {
         }
         return false;
     }
-
-    // Create the desktop background menu
-    /* ************************************************************************************************************** */
-
-    _createDesktopBackgroundGioMenu() {
-        this.sortingRadioMenu = Gio.Menu.new();
-        this.sortingRadioMenu.append(_('Name'), 'app.arrangeaction::NAME');
-        this.sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
-        this.sortingRadioMenu.append(_('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
-        this.sortingRadioMenu.append(_('Type'), 'app.arrangeaction::KIND');
-        this.sortingRadioMenu.append(_('Size'), 'app.arrangeaction::SIZE');
-
-
-        this.sortingSubMenu = Gio.Menu.new();
-        this.keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
-        if (!this.Prefs.keepStacked)
-            this.sortingSubMenu.append_item(this.keepArrangedMenuItem);
-
-        this.sortingSubMenu.append(_('Keep Stacked by Type…'), 'app.keep-stacked');
-        this.sortingSubMenu.append(_('Sort Home/Drives/Trash…'), 'app.sort-special-folders');
-        this.sortingSubMenu.append_section(null, this.sortingRadioMenu);
-
-        this.settingSubMenu = Gio.Menu.new();
-        this.settingSubMenu.append(_('Change Desktop'), 'app.changeDesktop');
-        const restoreDefaultDesktop = this.mainApp.lookup_action('restoreDefaultDesktop');
-        if (restoreDefaultDesktop.get_enabled())
-            this.settingSubMenu.append(_('Restore Default Desktop'), 'app.restoreDefaultDesktop');
-        this.settingSubMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
-
-        this.desktopBackgroundGioMenu = Gio.Menu.new();
-
-        this.desktopBackgroundGioMenu.append(_('New Folder'), 'app.doNewFolder');
-
-        let templates = this.templatesMonitor.getGioMenu();
-        if (!(templates === null))
-            this.desktopBackgroundGioMenu.append_submenu(_('New Document'), templates);
-
-
-        this.pasteUndoRedoMenu = Gio.Menu.new();
-        this.pasteUndoRedoMenu.append(_('Paste'), 'app.doPaste');
-        this.pasteUndoRedoMenu.append(_('Undo'), 'app.doUndo');
-        this.pasteUndoRedoMenu.append(_('Redo'), 'app.doRedo');
-
-        this.desktopBackgroundGioMenu.append_section(null, this.pasteUndoRedoMenu);
-
-        this.selectAllMenu = Gio.Menu.new();
-        this.selectAllMenu.append(_('Select All'), 'app.selectAll');
-
-        this.desktopBackgroundGioMenu.append_section(null, this.selectAllMenu);
-
-        this.sortingMenu = Gio.Menu.new();
-        this.cleanUpMenuItem = Gio.MenuItem.new(_('Arrange Icons'), 'app.cleanUpIcons');
-        if (!this.Prefs.keepStacked)
-            this.sortingMenu.append_item(this.cleanUpMenuItem);
-
-        this.arrangeSubMenuItem = Gio.MenuItem.new_submenu(_('Arrange By…'), this.sortingSubMenu);
-        this.sortingMenu.append_item(this.arrangeSubMenuItem);
-        this.desktopBackgroundGioMenu.append_section(null, this.sortingMenu);
-
-        this.desktopTerminalMenu = Gio.Menu.new();
-        const nautilusName = this.Prefs.NautilusName;
-        this.desktopTerminalMenu.append(_('Show Desktop In {0}').replace('{0}', nautilusName),
-            'app.showDesktopInFiles');
-        const terminalString = this.Prefs.TerminalName;
-        this.desktopTerminalMenu.append(_('Open In {0}').replace('{0}', terminalString),
-            'app.openInTerminal');
-
-        this.desktopBackgroundGioMenu.append_section(null, this.desktopTerminalMenu);
-
-        this.settingsMenu = Gio.Menu.new();
-        this.settingSubMenuItem = Gio.MenuItem.new_submenu(_('Settings'), this.settingSubMenu);
-        this.settingsMenu.append_item(this.settingSubMenuItem);
-
-        this.desktopBackgroundGioMenu.append_section(null, this.settingsMenu);
-
-        this.backgroundMenu = Gio.Menu.new();
-        this.backgroundMenu.append(_('Shell Menu…'), 'app.displayShellBackgroundMenu');
-        // Following deprectiated, Shell Menu has these options anyway
-        // this.backgroundMenu.append(_('Change Background…'), 'app.changeBackGround');
-        // this.backgroundMenu.append(_('Display Settings'), 'app.changeDisplaySettings');
-
-        this.desktopBackgroundGioMenu.append_section(null, this.backgroundMenu);
-    }
-
-    menuclosed = () => {
-        return new Promise(resolve => {
-            this.popupmenuclosed = resolve;
-        });
-    };
 
     // Clipboard management
     // ************************************************************************ */
@@ -1262,7 +1157,7 @@ const DesktopManager = class {
             let newItemDoRename = false;
             this._displayList.forEach(f => {
                 if (this.activeFileItem && (f.fileName === this.activeFileItem.fileName))
-                    this.fileItemMenu.activeFileItem = this.activeFileItem = activeItem = f;
+                    this.activeFileItem = activeItem = f;
 
                 if (this.newItemDoRename && this.newItemDoRename.has(f.fileName))
                     newItemDoRename = f;
@@ -1279,7 +1174,7 @@ const DesktopManager = class {
                     this.fileItemMenu.popupmenu.popdown();
             }
             if (!activeItem)
-                this.fileItemMenu.activeFileItem = null;
+                this.activeFileItem = null;
         }
     }
 
@@ -2215,8 +2110,10 @@ const DesktopManager = class {
                 this.newItemDoRename = new Set();
 
             this.newItemDoRename.add(fileItem.fileName);
-            if (this.popupmenu || this.fileItemMenu.popupmenu)
-                await this.menuclosed().catch(e => logError(e));
+            if (this.desktopMenuManager.popupmenu)
+                await this.desktopMenuManager.menuclosed().catch(e => logError(e));
+            if (this.fileItemMenu.popupmenu)
+                await this.fileItemMenu.menuclosed().catch(e => logError(e));
             this._renameWindow = new AskRenamePopup.AskRenamePopup(
                 fileItem,
                 allowReturnOnSameName,

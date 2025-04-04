@@ -900,6 +900,7 @@ const DesktopBackgroundMenu = class {
             this.popupmenu = null;
             if (this.popupmenuclosed)
                 this.popupmenuclosed(true);
+            this.popupmenuclosed = null;
         });
     }
 };
