@@ -1070,7 +1070,8 @@ const DesktopManager = class {
 
         this.settingSubMenu = Gio.Menu.new();
         this.settingSubMenu.append(_('Change Desktop'), 'app.changeDesktop');
-        if (!this.isDefaultDesktopFolder)
+        const restoreDefaultDesktop = this.mainApp.lookup_action('restoreDefaultDesktop');
+        if (restoreDefaultDesktop.get_enabled())
             this.settingSubMenu.append(_('Restore Default Desktop'), 'app.restoreDefaultDesktop');
         this.settingSubMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
 
@@ -2453,10 +2454,6 @@ const DesktopManager = class {
             currentCompleteList = this._displayList;
 
         return currentCompleteList;
-    }
-
-    get isDefaultDesktopFolder() {
-        return this.desktopActions.isDefaultDesktopFolder;
     }
 
     get activeFileItem() {

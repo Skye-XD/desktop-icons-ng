@@ -19,7 +19,7 @@ import {
     FileItem
 } from '../dependencies/localFiles.js';
 
-import {Gio, GLib} from '../dependencies/gi.js';
+import {Gio, GLib, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopMonitor};
@@ -43,6 +43,7 @@ const DesktopMonitor = class {
         this._forcedExit = false;
 
         this._updateWritableByOthers().catch(e => console.error(e));
+        this._createDesktopChangeActions();
         this._monitorDesktopDirChanges();
         this._monitorDesktopChanges();
         this._monitorVolumes();
@@ -54,6 +55,21 @@ const DesktopMonitor = class {
         );
 
         this._updateFileList().catch(e => console.error(e));
+    }
+
+    _createDesktopChangeActions() {
+        let changeDesktop = Gio.SimpleAction.new('changeDesktop', null);
+        changeDesktop.connect('activate', () => {
+            this._changeDesktop();
+        });
+        this.mainApp.add_action(changeDesktop);
+
+        this.restoreDefaultDesktopAction = Gio.SimpleAction.new('restoreDefaultDesktop', null);
+        this.restoreDefaultDesktopAction.connect('activate', () => {
+            this._restoreDefaultDesktop();
+        });
+        this.mainApp.add_action(this.restoreDefaultDesktopAction);
+        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
     }
 
     stopMonitoring() {
@@ -587,6 +603,41 @@ const DesktopMonitor = class {
         }
     }
 
+    _changeDesktop() {
+        const dialog = new Gtk.FileDialog();
+        dialog.set_title(_('Choose Desktop Folder'));
+        dialog.set_accept_label(_('Choose'));
+        dialog.set_modal(true);
+        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
+        dialog.select_folder(this.mainApp.get_active_window(), null, this._finishChooseDesktopFolder.bind(this));
+    }
+
+    _finishChooseDesktopFolder(dialog, asyncResult) {
+        let folder = null;
+        try {
+            folder = dialog.select_folder_finish(asyncResult);
+        } catch (e) {
+            if (e.matches(Gtk.DialogError, Gtk.DialogError.CANCELLED) ||
+                e.matches(Gtk.DialogError, Gtk.DialogError.DISMISSED))
+                return;
+            console.error(e, `Error selecting folder: ${e.message}`);
+        }
+        if (folder)
+            this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(folder.get_path());
+    }
+
+    _restoreDefaultDesktop() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(defaultDesktop);
+    }
+
+    _isDefaultDesktopFolder() {
+        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
+            'Desktop']);
+        return this._desktopDir.get_path() === defaultDesktop;
+    }
+
     onMountAdded() {
         this._updateFileList().catch(e => {
             console.log(
@@ -654,6 +705,10 @@ const DesktopMonitor = class {
 
     get desktopDir() {
         return this._desktopDir;
+    }
+
+    get isDefaultDesktopFolder() {
+        return this._isDefaultDesktopFolder();
     }
 };
 

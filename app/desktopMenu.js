@@ -19,7 +19,7 @@ import {
     TemplatesScriptsManager
 } from '../dependencies/localFiles.js';
 
-import {Gdk, Gio, GLib, Gtk} from '../dependencies/gi.js';
+import {Gdk, Gio, GLib} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopActions};
@@ -265,18 +265,6 @@ const DesktopActions = class {
             this.DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
         });
         this.mainApp.add_action(displayShellBackgroundMenu);
-
-        let changeDesktop = Gio.SimpleAction.new('changeDesktop', null);
-        changeDesktop.connect('activate', () => {
-            this._changeDesktop();
-        });
-        this.mainApp.add_action(changeDesktop);
-
-        this.restoreDefaultDesktopAction = Gio.SimpleAction.new('restoreDefaultDesktop', null);
-        this.restoreDefaultDesktopAction.connect('activate', () => {
-            this._restoreDefaultDesktop();
-        });
-        this.mainApp.add_action(this.restoreDefaultDesktopAction);
         let createDesktopShortcut = new Gio.SimpleAction({
             name: 'createDesktopShortcut',
             parameter_type: new GLib.VariantType('a{sv}'),
@@ -714,42 +702,6 @@ const DesktopActions = class {
         }
     }
 
-    _changeDesktop() {
-        const dialog = new Gtk.FileDialog();
-        dialog.set_title(_('Choose Desktop Folder'));
-        dialog.set_accept_label(_('Choose'));
-        dialog.set_modal(true);
-        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
-        dialog.select_folder(this.mainApp.get_active_window(), null, this._finishChooseDesktopFolder.bind(this));
-    }
-
-    _finishChooseDesktopFolder(dialog, asyncResult) {
-        let folder = null;
-        try {
-            folder = dialog.select_folder_finish(asyncResult);
-        } catch (e) {
-            if (e.matches(Gtk.DialogError, Gtk.DialogError.CANCELLED) ||
-                e.matches(Gtk.DialogError, Gtk.DialogError.DISMISSED))
-                return;
-            console.error(e, `Error selecting folder: ${e.message}`);
-        }
-        if (folder)
-            this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(folder.get_path());
-        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
-    }
-
-    _restoreDefaultDesktop() {
-        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
-            'Desktop']);
-        this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(defaultDesktop);
-        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
-    }
-
-    _isDefaultDesktopFolder() {
-        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
-            'Desktop']);
-        return this._desktopDir.get_path() === defaultDesktop;
-    }
 
     async _newDocument(template) {
         if (!template)
@@ -794,12 +746,6 @@ const DesktopActions = class {
     async updateClipboard() {
         await this._updateClipboard()
             .catch(e => console.error(e, 'Error updating Clipboard'));
-    }
-
-    get isDefaultDesktopFolder() {
-        const isDefault = this._isDefaultDesktopFolder();
-        this.restoreDefaultDesktopAction.set_enabled(!isDefault);
-        return isDefault;
     }
 
     get currentSelection() {
