@@ -52,11 +52,9 @@ const FileItemMenu = class {
 
         this.scriptsMonitor = new this._templatesScriptsManager.TemplatesScriptsManager(
             this.DesktopIconsUtil.getScriptsDir(),
-            this._onScriptClicked.bind(this),
             this._scriptsDirSelectionFilter.bind(this),
             {
-                mainApp: this._mainApp,
-                appName: 'scriptapp',
+                appName: 'app.onScriptClicked',
                 FileUtils: this._desktopManager.FileUtils,
                 Enums: this._desktopManager.Enums,
             }
@@ -272,6 +270,11 @@ const FileItemMenu = class {
             this._bulkMove();
         });
         this._mainApp.add_action(bulkMove);
+        const onScriptClicked = Gio.SimpleAction.new('onScriptClicked', GLib.VariantType.new('s'));
+        onScriptClicked.connect('activate', (action, parameter) => {
+            this._onScriptClicked(parameter.unpack());
+        });
+        this._mainApp.add_action(onScriptClicked);
     }
 
     /* Shows all possible values that can be assigned to this function */
