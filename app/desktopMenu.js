@@ -19,10 +19,11 @@ import {
     TemplatesScriptsManager
 } from '../dependencies/localFiles.js';
 
-import {Gdk, Gio, GLib} from '../dependencies/gi.js';
+import {Gdk, Gio, GLib, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopActions};
+export {DesktopBackgroundMenu};
 
 const DesktopActions = class {
     constructor(desktopManager) {
@@ -462,8 +463,8 @@ const DesktopActions = class {
 
     _syncUndoRedo(hide = false) {
         if (hide) {
-            this._undoMenuItem.hide();
-            this._redoMenuItem.hide();
+            this.doUndoSimpleAction.set_enabled(false);
+            this.doRedoSimpleAction.set_enabled(false);
             return;
         }
         switch (this.DBusUtils.RemoteFileOperations.UndoStatus()) {
@@ -774,5 +775,131 @@ const DesktopActions = class {
 
     get _desktopDir() {
         return this._desktopMonitor.desktopDir;
+    }
+};
+
+
+const DesktopBackgroundMenu = class {
+    constructor(desktopManager) {
+        this._desktopManager = desktopManager;
+        this._mainApp = desktopManager.mainApp;
+        this._Prefs = desktopManager.Prefs;
+        this._desktopActions = desktopManager.desktopActions;
+        this._waitDelayMs = desktopManager.DesktopIconsUtil.waitDelayMs;
+        this.templatesMonitor = desktopManager.desktopActions.templatesMonitor;
+    }
+
+    _createDesktopBackgroundGioMenu() {
+        this.desktopBackgroundGioMenu = Gio.Menu.new();
+
+        const sortingRadioMenu = Gio.Menu.new();
+        sortingRadioMenu.append(_('Name'), 'app.arrangeaction::NAME');
+        sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
+        sortingRadioMenu.append(_('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
+        sortingRadioMenu.append(_('Type'), 'app.arrangeaction::KIND');
+        sortingRadioMenu.append(_('Size'), 'app.arrangeaction::SIZE');
+
+
+        const sortingSubMenu = Gio.Menu.new();
+        this._keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
+        if (!this._Prefs.keepStacked)
+            sortingSubMenu.append_item(this._keepArrangedMenuItem);
+
+        sortingSubMenu.append(_('Keep Stacked by Type…'), 'app.keep-stacked');
+        sortingSubMenu.append(_('Sort Home/Drives/Trash…'), 'app.sort-special-folders');
+        sortingSubMenu.append_section(null, sortingRadioMenu);
+
+        const settingSubMenu = Gio.Menu.new();
+        settingSubMenu.append(_('Change Desktop'), 'app.changeDesktop');
+        const restoreDefaultDesktop = this._mainApp.lookup_action('restoreDefaultDesktop');
+        if (restoreDefaultDesktop.get_enabled())
+            settingSubMenu.append(_('Restore Default Desktop'), 'app.restoreDefaultDesktop');
+        settingSubMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+
+        this.desktopBackgroundGioMenu.append(_('New Folder'), 'app.doNewFolder');
+
+        let templates = this.templatesMonitor.getGioMenu();
+        if (!(templates === null))
+            this.desktopBackgroundGioMenu.append_submenu(_('New Document'), templates);
+
+
+        const pasteUndoRedoMenu = Gio.Menu.new();
+        if (this._mainApp.lookup_action('doPaste').get_enabled())
+            pasteUndoRedoMenu.append(_('Paste'), 'app.doPaste');
+        if (this._mainApp.lookup_action('doUndo').get_enabled())
+            pasteUndoRedoMenu.append(_('Undo'), 'app.doUndo');
+        if (this._mainApp.lookup_action('doRedo').get_enabled())
+            pasteUndoRedoMenu.append(_('Redo'), 'app.doRedo');
+
+        if (pasteUndoRedoMenu.get_n_items())
+            this.desktopBackgroundGioMenu.append_section(null, pasteUndoRedoMenu);
+
+        const selectAllMenu = Gio.Menu.new();
+        selectAllMenu.append(_('Select All'), 'app.selectAll');
+
+        this.desktopBackgroundGioMenu.append_section(null, selectAllMenu);
+
+        const sortingMenu = Gio.Menu.new();
+        if (!this._Prefs.keepStacked) {
+            const cleanUpMenuItem = Gio.MenuItem.new(_('Arrange Icons'), 'app.cleanUpIcons');
+            sortingMenu.append_item(cleanUpMenuItem);
+        }
+        const arrangeSubMenuItem = Gio.MenuItem.new_submenu(_('Arrange By…'), sortingSubMenu);
+        sortingMenu.append_item(arrangeSubMenuItem);
+
+        this.desktopBackgroundGioMenu.append_section(null, sortingMenu);
+
+        const desktopTerminalMenu = Gio.Menu.new();
+        const nautilusName = this._Prefs.NautilusName;
+        desktopTerminalMenu.append(_('Show Desktop In {0}').replace('{0}', nautilusName),
+            'app.showDesktopInFiles');
+        const terminalString = this._Prefs.TerminalName;
+        desktopTerminalMenu.append(_('Open In {0}').replace('{0}', terminalString),
+            'app.openInTerminal');
+
+        this.desktopBackgroundGioMenu.append_section(null, desktopTerminalMenu);
+
+        const settingsMenu = Gio.Menu.new();
+        const settingSubMenuItem = Gio.MenuItem.new_submenu(_('Settings'), settingSubMenu);
+        settingsMenu.append_item(settingSubMenuItem);
+
+        this.desktopBackgroundGioMenu.append_section(null, settingsMenu);
+
+        const backgroundMenu = Gio.Menu.new();
+        backgroundMenu.append(_('Shell Menu…'), 'app.displayShellBackgroundMenu');
+
+        // Following deprectiated, Shell Menu has these options anyway
+        // this.backgroundMenu.append(_('Change Background…'), 'app.changeBackGround');
+        // this.backgroundMenu.append(_('Display Settings'), 'app.changeDisplaySettings');
+
+        this.desktopBackgroundGioMenu.append_section(null, backgroundMenu);
+    }
+
+    menuclosed = () => {
+        return new Promise(resolve => {
+            this.popupmenuclosed = resolve;
+        });
+    };
+
+    async showDesktopMenu(x, y, grid) {
+        await this._desktopActions.updateClipboard().catch(e => console.error(e, 'Error updating clipboard'));
+        this._createDesktopBackgroundGioMenu();
+        this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
+        this.popupmenu.set_parent(grid._container);
+        const menuLocation = new Gdk.Rectangle({x, y, width: 1, height: 1});
+        this.popupmenu.set_pointing_to(menuLocation);
+        const menuGtkPosition = grid.getIntelligentPosition(menuLocation);
+        if (menuGtkPosition)
+            this.popupmenu.set_position(menuGtkPosition);
+
+        this.popupmenu.set_has_arrow(false);
+        this.popupmenu.popup();
+        this.popupmenu.connect('closed', async () => {
+            await this._waitDelayMs(50);
+            this.popupmenu.unparent();
+            this.popupmenu = null;
+            if (this.popupmenuclosed)
+                this.popupmenuclosed(true);
+        });
     }
 };
