@@ -19,6 +19,7 @@ import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
 import {_, Gettext} from '../dependencies/gettext.js';
 
 export {FileItemMenu};
+export {FileItemActions};
 
 const FileItemMenu = class {
     constructor(desktopManager) {
@@ -1019,5 +1020,262 @@ const FileItemMenu = class {
 
     get activeFileItem() {
         return this._activeFileItem;
+    }
+};
+
+
+const FileItemActions = class {
+    constructor(desktopManager) {
+        this._desktopManager = desktopManager;
+        this._mainApp = this._desktopManager._mainApp;
+        this._desktopDir = this._desktopManager._desktopDir;
+        this._codePath = this._desktopManager._codePath;
+        this._Prefs = this._desktopManager.Prefs;
+        this._DBusUtils = this._desktopManager.DBusUtils;
+        this._DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
+        this._appChooser = this._desktopManager.appChooser;
+        this._createFileItemMenuActions();
+    }
+
+    _createFileItemMenuActions() {
+        const openMultipleFileAction =
+            Gio.SimpleAction.new('openMultipleFileAction', null);
+        openMultipleFileAction.connect(
+            'activate',
+            () => {
+                this._doMultiOpen();
+            }
+        );
+        this._mainApp.add_action(openMultipleFileAction);
+
+        const openOneFileAction = Gio.SimpleAction.new('openOneFileAction', null);
+        openOneFileAction.connect(
+            'activate',
+            () => {
+                if (this.activeFileItem) {
+                    if (this.activeFileItem.isStackMarker) {
+                        this._desktopManager.onToggleStackUnstackThisTypeClicked(
+                            this.activeFileItem.attributeContentType);
+                    } else {
+                        this.activeFileItem.doOpen();
+                    }
+                }
+            }
+        );
+        this._mainApp.add_action(openOneFileAction);
+        this._mainApp.set_accels_for_action('app.openOneFileAction', ['Return']);
+
+        const stackunstack =
+            Gio.SimpleAction.new('stackunstack', GLib.VariantType.new('s'));
+        stackunstack.connect(
+            'activate',
+            (action, paramenter) => {
+                this._desktopManager.onToggleStackUnstackThisTypeClicked(
+                    paramenter.unpack());
+            });
+        this._mainApp.add_action(stackunstack);
+
+        const doopenwith = Gio.SimpleAction.new('doopenwith', null);
+        doopenwith.connect('activate', () => {
+            this._doOpenWith().catch(e => logError(e));
+        });
+        this._mainApp.add_action(doopenwith);
+
+        const graphicslaunch = Gio.SimpleAction.new('graphicslaunch', null);
+        graphicslaunch.connect('activate', () => {
+            this.activeFileItem._doDiscreteGpu();
+        });
+        this._mainApp.add_action(graphicslaunch);
+
+        const runasaprogram = Gio.SimpleAction.new('runasaprogram', null);
+        runasaprogram.connect('activate', () => {
+            this._runExecutableScript();
+        });
+        this._mainApp.add_action(runasaprogram);
+
+        this._docut = Gio.SimpleAction.new('docut', null);
+        this._docut.connect('activate', () => {
+            this._desktopManager.doCut();
+        });
+        this._mainApp.add_action(this._docut);
+        this._mainApp.set_accels_for_action('app.docut', ['<Control>X']);
+
+        this._docopy = Gio.SimpleAction.new('docopy', null);
+        this._docopy.connect('activate',  () => {
+            this._desktopManager.doCopy();
+        });
+        this._mainApp.add_action(this._docopy);
+        this._mainApp.set_accels_for_action('app.docopy', ['<Control>C']);
+
+        const dorename = Gio.SimpleAction.new('dorename', null);
+        dorename.connect('activate', () => {
+            this._desktopManager.doRename(
+                this.activeFileItem, false).catch(e => logError(e));
+        });
+        this._mainApp.add_action(dorename);
+        this._mainApp.set_accels_for_action('app.dorename', ['F2']);
+
+        this.moveToTrash = Gio.SimpleAction.new('movetotrash', null);
+        this.moveToTrash.connect('activate', () => {
+            this._desktopManager.doTrash();
+        });
+        this._mainApp.add_action(this.moveToTrash);
+        this._mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
+
+        this.deletePermanantly = Gio.SimpleAction.new('deletepermanantly', null);
+        this.deletePermanantly.connect('activate', () => {
+            this._desktopManager.doDeletePermanently();
+        });
+        this._mainApp.add_action(this.deletePermanantly);
+        this._mainApp.set_accels_for_action(
+            'app.deletepermanantly', ['<Shift>Delete']);
+
+        const emptytrash = Gio.SimpleAction.new('emptytrash', null);
+        emptytrash.connect('activate', () => {
+            this._desktopManager.doEmptyTrash();
+        });
+        this._mainApp.add_action(emptytrash);
+
+        const allowdisallowlaunching = Gio.SimpleAction.new(
+            'allowdisallowlaunching', null);
+        allowdisallowlaunching.connect('activate', () => {
+            this.activeFileItem.onAllowDisallowLaunchingClicked()
+                .catch(e => console.error(e));
+        });
+        this._mainApp.add_action(allowdisallowlaunching);
+
+        const eject = Gio.SimpleAction.new('eject', null);
+        eject.connect('activate', () => {
+            this.activeFileItem.eject().catch(e => console.error(e));
+        });
+        this._mainApp.add_action(eject);
+
+        const unmount = Gio.SimpleAction.new('unmount', null);
+        unmount.connect('activate', () => {
+            this.activeFileItem.unmount().catch(e => console.error(e));
+        });
+        this._mainApp.add_action(unmount);
+
+        const extractautoar = Gio.SimpleAction.new('extractautoar', null);
+        extractautoar.connect(
+            'activate',
+            () => {
+                this._desktopManager.getCurrentSelection()
+                ?.forEach(
+                    f => this._desktopManager.autoAr.extractFile(f.fileName));
+            }
+        );
+        this._mainApp.add_action(extractautoar);
+
+        const extracthere = Gio.SimpleAction.new('extracthere', null);
+        extracthere.connect(
+            'activate',
+            () => {
+                this._extractFileFromSelection(true);
+            }
+        );
+        this._mainApp.add_action(extracthere);
+
+        const extractto = Gio.SimpleAction.new('extractto', null);
+        extractto.connect(
+            'activate',
+            () => {
+                this._extractFileFromSelection(false);
+            }
+        );
+        this._mainApp.add_action(extractto);
+
+        const sendto = Gio.SimpleAction.new('sendto', null);
+        sendto.connect(
+            'activate',
+            this._mailFilesFromSelection.bind(this, null)
+        );
+        this._mainApp.add_action(sendto);
+
+        const compressfiles = Gio.SimpleAction.new('compressfiles', null);
+        compressfiles.connect(
+            'activate',
+            this._doCompressFilesFromSelection.bind(this, null)
+        );
+        this._mainApp.add_action(compressfiles);
+
+        const newfolderfromselection =
+            Gio.SimpleAction.new('newfolderfromselection', null);
+        newfolderfromselection.connect(
+            'activate',
+            () => {
+                const event = {
+                    'parentWindow': this.activeFileItem._grid._window,
+                    'timestamp': Gdk.CURRENT_TIME,
+                };
+                this._doNewFolderFromSelection(
+                    this.activeFileItem.savedCoordinates,
+                    this.activeFileItem,
+                    event)
+                    .catch(e => console.error(e));
+            });
+        this._mainApp.add_action(newfolderfromselection);
+
+        const properties = Gio.SimpleAction.new('properties', null);
+        properties.connect('activate', () => {
+            this._onPropertiesClicked();
+        });
+        this._mainApp.add_action(properties);
+        this._mainApp.set_accels_for_action(
+            'app.properties', ['<Control>I', '<Alt>Return']);
+
+        const showinfiles = Gio.SimpleAction.new('showinfiles', null);
+        showinfiles.connect(
+            'activate',
+            this._onShowInFilesClicked.bind(this, null)
+        );
+        this._mainApp.add_action(showinfiles);
+
+        const openinterminal = Gio.SimpleAction.new('openinterminal', null);
+        openinterminal.connect(
+            'activate',
+            () => {
+                this.launchTerminal(this.activeFileItem.path, null);
+            }
+        );
+        this._mainApp.add_action(openinterminal);
+
+        const makeLinks = Gio.SimpleAction.new('makeLinks', null);
+        makeLinks.connect(
+            'activate',
+            () => {
+                this._makeLinks();
+            }
+        );
+        this._mainApp.add_action(makeLinks);
+        this._mainApp.set_accels_for_action(
+            'app.makeLinks', ['<Shift><Control>M']);
+
+        const bulkCopy = Gio.SimpleAction.new('bulkCopy', null);
+        bulkCopy.connect(
+            'activate',
+            () => {
+                this._bulkCopy();
+            }
+        );
+        this._mainApp.add_action(bulkCopy);
+
+        const bulkMove = Gio.SimpleAction.new('bulkMove', null);
+        bulkMove.connect(
+            'activate',
+            () => {
+                this._bulkMove();
+            }
+        );
+        this._mainApp.add_action(bulkMove);
+        const onScriptClicked =
+            Gio.SimpleAction.new('onScriptClicked', GLib.VariantType.new('s'));
+        onScriptClicked.connect(
+            'activate',
+            (action, parameter) => {
+                this._onScriptClicked(parameter.unpack());
+            }
+        );
+        this._mainApp.add_action(onScriptClicked);
     }
 };
