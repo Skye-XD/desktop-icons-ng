@@ -49,7 +49,8 @@ const DesktopActions = class {
             this._desktopManager.doNewFolder().catch(e => console.error(e));
         });
         this._mainApp.add_action(newFolder);
-        this._mainApp.set_accels_for_action('app.doNewFolder', ['<Control><Shift>N']);
+        this._mainApp.set_accels_for_action('app.doNewFolder',
+            ['<Control><Shift>N']);
 
         this.doPasteSimpleAction = Gio.SimpleAction.new('doPaste', null);
         this.doPasteSimpleAction.connect(
@@ -83,7 +84,8 @@ const DesktopActions = class {
             () => this._doRedo()
         );
         this._mainApp.add_action(this.doRedoSimpleAction);
-        this._mainApp.set_accels_for_action('app.doRedo', ['<Control><Shift>Z']);
+        this._mainApp.set_accels_for_action('app.doRedo',
+            ['<Control><Shift>Z']);
 
         const selectAll = Gio.SimpleAction.new('selectAll', null);
         selectAll.connect(
@@ -93,7 +95,8 @@ const DesktopActions = class {
         this._mainApp.add_action(selectAll);
         this._mainApp.set_accels_for_action('app.selectAll', ['<Control>A']);
 
-        const showDesktopInFiles = Gio.SimpleAction.new('showDesktopInFiles', null);
+        const showDesktopInFiles =
+            Gio.SimpleAction.new('showDesktopInFiles', null);
         showDesktopInFiles.connect(
             'activate',
             () => this._onOpenDesktopInFilesClicked().catch(e => logError(e))
@@ -111,41 +114,49 @@ const DesktopActions = class {
         changeBackGround.connect(
             'activate',
             () => {
-                const desktopFile = Gio.DesktopAppInfo.new('gnome-background-panel.desktop');
-                const context = Gdk.Display.get_default().get_app_launch_context();
+                const desktopFile =
+                    Gio.DesktopAppInfo.new('gnome-background-panel.desktop');
+                const context =
+                    Gdk.Display.get_default().get_app_launch_context();
                 context.set_timestamp(Gdk.CURRENT_TIME);
                 desktopFile.launch([], context);
             }
         );
         this._mainApp.add_action(changeBackGround);
 
-        const changeDisplaySettings = Gio.SimpleAction.new('changeDisplaySettings', null);
+        const changeDisplaySettings =
+            Gio.SimpleAction.new('changeDisplaySettings', null);
         changeDisplaySettings.connect(
             'activate',
             () => {
-                const desktopFile = Gio.DesktopAppInfo.new('gnome-display-panel.desktop');
-                const context = Gdk.Display.get_default().get_app_launch_context();
+                const desktopFile =
+                    Gio.DesktopAppInfo.new('gnome-display-panel.desktop');
+                const context =
+                    Gdk.Display.get_default().get_app_launch_context();
                 context.set_timestamp(Gdk.CURRENT_TIME);
                 desktopFile.launch([], context);
             }
         );
         this._mainApp.add_action(changeDisplaySettings);
 
-        const changeDesktopIconSettings = Gio.SimpleAction.new('changeDesktopIconSettings', null);
+        const changeDesktopIconSettings =
+            Gio.SimpleAction.new('changeDesktopIconSettings', null);
         changeDesktopIconSettings.connect(
             'activate',
             this._showPreferences.bind(this)
         );
         this._mainApp.add_action(changeDesktopIconSettings);
 
-        const cleanUpIconsAction = Gio.SimpleAction.new('cleanUpIcons', null);
+        const cleanUpIconsAction =
+            Gio.SimpleAction.new('cleanUpIcons', null);
         cleanUpIconsAction.connect(
             'activate',
             () => this._desktopManager.sortAllFilesFromGridsByPosition()
         );
         this._mainApp.add_action(cleanUpIconsAction);
 
-        const keepArrangedAction = this._Prefs.desktopSettings.create_action('keep-arranged');
+        const keepArrangedAction =
+            this._Prefs.desktopSettings.create_action('keep-arranged');
         this._mainApp.add_action(keepArrangedAction);
         this._Prefs.desktopSettings.bind(
             'keep-arranged',
@@ -153,15 +164,18 @@ const DesktopActions = class {
             'enabled',
             16
         );
-        this._mainApp.add_action(this._Prefs.desktopSettings.create_action('keep-stacked'));
-        this._mainApp.add_action(this._Prefs.desktopSettings.create_action('sort-special-folders'));
+        this._mainApp.add_action(
+            this._Prefs.desktopSettings.create_action('keep-stacked'));
+        this._mainApp.add_action(
+            this._Prefs.desktopSettings.create_action('sort-special-folders'));
         const radioArrangeAction = Gio.SimpleAction.new_stateful(
             'arrangeaction',
             GLib.VariantType.new('s'),
             GLib.Variant.new_string(this._Prefs.desktopSettings.get_string(
                 this._Enums.SortOrder.ORDER))
         );
-        radioArrangeAction.connect('change-state', this._syncArrangeOrder.bind(this));
+        radioArrangeAction.connect('change-state',
+            this._syncArrangeOrder.bind(this));
         this._mainApp.add_action(radioArrangeAction);
         this.arrangeAction = radioArrangeAction;
 
@@ -178,22 +192,27 @@ const DesktopActions = class {
             'activate',
             async () => {
                 await this._desktopManager.reLoadDesktop().catch(e => {
-                    console.log(`Exception while updating desktop after pressing "F5": ${e.message}\n${e.stack}`);
+                    console.log(
+                        `Exception while updating desktop after pressing "F5":
+                        ${e.message}\n${e.stack}`);
                 });
             }
         );
         this._mainApp.add_action(updateDesktop);
         this._mainApp.set_accels_for_action('app.updateDesktop', ['F5']);
 
-        const showHideHiddenFiles = Gio.SimpleAction.new('showHideHiddenFiles', null);
+        const showHideHiddenFiles =
+            Gio.SimpleAction.new('showHideHiddenFiles', null);
         showHideHiddenFiles.connect(
             'activate',
             () => {
-                this._Prefs.gtkSettings.set_boolean('show-hidden', !this._Prefs.showHidden);
+                this._Prefs.gtkSettings.set_boolean('show-hidden',
+                    !this._Prefs.showHidden);
             }
         );
         this._mainApp.add_action(showHideHiddenFiles);
-        this._mainApp.set_accels_for_action('app.showHideHiddenFiles', ['<Control>H']);
+        this._mainApp.set_accels_for_action('app.showHideHiddenFiles',
+            ['<Control>H']);
 
         const unselectAll = Gio.SimpleAction.new('unselectAll', null);
         unselectAll.connect(
@@ -213,8 +232,9 @@ const DesktopActions = class {
                 this._desktopManager.fileItemMenu.popupmenu ||
                 !this.activeFileItem)
                 return;
-
-            this._DBusUtils.RemoteFileOperations.ShowFileRemote(this.activeFileItem.uri, 0, true);
+            const RemoteOperation =
+                this._DBusUtils.RemoteFileOperations;
+            RemoteOperation.ShowFileRemote(this.activeFileItem.uri, 0, true);
         });
         this._mainApp.add_action(previewAction);
         this._mainApp.set_accels_for_action('app.previewAction', ['space']);
@@ -254,7 +274,8 @@ const DesktopActions = class {
         this._mainApp.add_action(menuKeyPressed);
         this._mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
 
-        const displayShellBackgroundMenu = Gio.SimpleAction.new('displayShellBackgroundMenu', null);
+        const displayShellBackgroundMenu =
+            Gio.SimpleAction.new('displayShellBackgroundMenu', null);
         displayShellBackgroundMenu.connect('activate', () => {
             this._DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
         });
@@ -267,17 +288,20 @@ const DesktopActions = class {
             this._createDesktopShortcut(parameter.recursiveUnpack());
         });
         this._mainApp.add_action(createDesktopShortcut);
-        const textEntryAccelsTurnOn = Gio.SimpleAction.new('textEntryAccelsTurnOn', null);
+        const textEntryAccelsTurnOn =
+            Gio.SimpleAction.new('textEntryAccelsTurnOn', null);
         textEntryAccelsTurnOn.connect('activate', () => {
             this._textEntryAccelsTurnOn();
         });
         this._mainApp.add_action(textEntryAccelsTurnOn);
-        const textEntryAccelsTurnOff = Gio.SimpleAction.new('textEntryAccelsTurnOff', null);
+        const textEntryAccelsTurnOff =
+            Gio.SimpleAction.new('textEntryAccelsTurnOff', null);
         textEntryAccelsTurnOff.connect('activate', () => {
             this._textEntryAccelsTurnOff();
         });
         this._mainApp.add_action(textEntryAccelsTurnOff);
-        const newDocument = Gio.SimpleAction.new('newDocument', new GLib.VariantType('s'));
+        const newDocument =
+            Gio.SimpleAction.new('newDocument', new GLib.VariantType('s'));
         newDocument.connect('activate', (action, parameter) => {
             this._newDocument(parameter.deep_unpack());
         });
@@ -314,9 +338,11 @@ const DesktopActions = class {
             this._isCut = false;
             this._clipboardFiles = null;
             /*
-             * Before Gnome Shell 40, St API couldn't access binary data in the clipboard, only text data. Also, the
-             * original Desktop Icons was a pure extension, so it was limited to what Clutter and St offered. That was
-             * the reason why Nautilus accepted a text format for CUT and COPY operations in the form
+             * Before Gnome Shell 40, St API couldn't access binary data in the
+             * clipboard, only text data. Also, the original Desktop Icons was a
+             * pure extension, so it was limited to what Clutter and St offered.
+             * That was the reason why Nautilus accepted a text format for CUT
+             *  and COPY operations in the form
              *
              *     x-special/nautilus-clipboard
              *     OPERATION
@@ -324,12 +350,14 @@ const DesktopActions = class {
              *     [FILE_URI]
              *     [...]
              *
-             * In Gnome Shell 40, St was enhanced and now it supports binary data; that's why Nautilus migrated to a
-             * binary format identified by the atom 'x-special/gnome-copied-files', where the CUT or COPY operation is
-             * shared.
+             * In Gnome Shell 40, St was enhanced and now it supports binary
+             * data; that's why Nautilus migrated to a binary format identified
+             * by the atom 'x-special/gnome-copied-files', where the CUT or COPY
+             *  operation is shared.
              *
-             * To maintain compatibility, we first check if there's binary data in that atom, and if not, we check if
-             * there is text data in the old format.
+             * To maintain compatibility, we first check if there's binary data
+             * in that atom, and if not, we check if there is text data in the
+             *  old format.
              */
             let text = null;
             const textDecoder = new TextDecoder();
@@ -337,44 +365,55 @@ const DesktopActions = class {
                 const mimetypes = clipboard.get_formats().to_string();
                 if (mimetypes.includes('x-special/gnome-copied-files')) {
                     try {
-                        clipboard.read_async(['x-special/gnome-copied-files'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
-                            try {
-                                const success = actor.read_finish(result);
-                                const bytes = success[0].read_bytes(8192, null);
-                                text = textDecoder.decode(bytes.get_data());
-                                text = `x-special/nautilus-clipboard\n${text}\n`;
-                                this._setClipboardContent(text);
-                                resolve(true);
-                            } catch (e) {
-                                console.log(`Exception while reading clipboard: ${e.message}\n${e.stack}`);
-                                this._setClipboardContent(text);
-                                resolve(false);
-                            }
-                        });
+                        clipboard.read_async(['x-special/gnome-copied-files'],
+                            GLib.PRIORITY_DEFAULT,
+                            null, (actor, result) => {
+                                try {
+                                    const success = actor.read_finish(result);
+                                    const bytes = success[0].read_bytes(8192, null);
+                                    text = textDecoder.decode(bytes.get_data());
+                                    text = `x-special/nautilus-clipboard\n${text}\n`;
+                                    this._setClipboardContent(text);
+                                    resolve(true);
+                                } catch (e) {
+                                    console.log(`Exception while reading clipboard:
+                                        ${e.message}\n${e.stack}`);
+                                    this._setClipboardContent(text);
+                                    resolve(false);
+                                }
+                            });
                     } catch (e) {
-                        console.log(`Exception while reading clipboard mimetype x-special/gnome-copied-files: ${e.message}\n${e.stack}`);
+                        console.log(
+                            `Exception while reading clipboard mimetype
+                            x-special/gnome-copied-files:
+                            ${e.message}\n${e.stack}`);
                         this._setClipboardContent(text);
                         resolve(false);
                     }
                 } else if (mimetypes.includes('text/plain')) {
                     try {
-                        clipboard.read_async(['text/plain'], GLib.PRIORITY_DEFAULT, null, (actor, result) => {
-                            try {
-                                const success = actor.read_finish(result);
-                                const bytes = success[0].read_bytes(8192, null);
-                                text = textDecoder.decode(bytes.get_data());
-                                if (text && !text.endsWith('\n'))
-                                    text += '\n';
+                        clipboard.read_async(['text/plain'],
+                            GLib.PRIORITY_DEFAULT,
+                            null,
+                            (actor, result) => {
+                                try {
+                                    const success = actor.read_finish(result);
+                                    const bytes = success[0].read_bytes(8192, null);
+                                    text = textDecoder.decode(bytes.get_data());
+                                    if (text && !text.endsWith('\n'))
+                                        text += '\n';
 
-                                this._setClipboardContent(text);
-                                resolve(true);
-                            } catch (e) {
-                                this._setClipboardContent(text);
-                                resolve(false);
-                            }
-                        });
+                                    this._setClipboardContent(text);
+                                    resolve(true);
+                                } catch (e) {
+                                    this._setClipboardContent(text);
+                                    resolve(false);
+                                }
+                            });
                     } catch (e) {
-                        console.log(`Exception while reading clipboard media-type "text/plain": ${e.message}\n${e.stack}`);
+                        console.log(
+                            `Exception while reading clipboard media-type "text/plain":
+                            ${e.message}\n${e.stack}`);
                         this._setClipboardContent(text);
                         resolve(false);
                     }
@@ -390,16 +429,24 @@ const DesktopActions = class {
     }
 
     _intDBusSignalMonitoring() {
-        this._DBusUtils.RemoteFileOperations.fileOperationsManager.connectToProxy('g-properties-changed', this._undoStatusChanged.bind(this));
+        const fileOperationsManager =
+            this._DBusUtils.RemoteFileOperations.fileOperationsManager;
 
-        this._DBusUtils.RemoteFileOperations.fileOperationsManager.connect('changed-status', (actor, available) => {
-            if (available)
-                this._syncUndoRedo();
-            else
-                this._syncUndoRedo(true);
-        });
+        fileOperationsManager.connectToProxy(
+            'g-properties-changed',
+            this._undoStatusChanged.bind(this)
+        );
 
-        if (this._DBusUtils.RemoteFileOperations.fileOperationsManager.isAvailable)
+        fileOperationsManager.connect('changed-status',
+            (actor, available) => {
+                if (available)
+                    this._syncUndoRedo();
+                else
+                    this._syncUndoRedo(true);
+            }
+        );
+
+        if (fileOperationsManager.isAvailable)
             this._syncUndoRedo();
     }
 
@@ -476,17 +523,18 @@ const DesktopActions = class {
             return;
         const pasteCoordinates = [this._clickX, this._clickY];
         const desktopDir = this._desktopDir.get_uri();
+        const remoteOperations = this._DBusUtils.RemoteFileOperations;
 
         if (this._isCut) {
             // This pops up GNOME Files error dialog, which is what we want.
-            this._DBusUtils.RemoteFileOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
+            remoteOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
             this._desktopManager.clearFileCoordinates(
                 this._clipboardFiles,
                 pasteCoordinates,
                 {doCopy: true}
             );
-            this._DBusUtils.RemoteFileOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
+            remoteOperations.CopyURIsRemote(this._clipboardFiles, desktopDir);
         }
     }
 
@@ -505,12 +553,16 @@ const DesktopActions = class {
                 this._desktopDir.get_uri(), context, null);
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
-                const header = _('Unable to open Desktop in Gnome Files');
-                const text = _(`Desktop Folder ${this._desktopDir.get_path()} does not exist`);
+                const header =
+                    _('Unable to open Desktop in Gnome Files');
+                const text =
+            _(`Desktop Folder ${this._desktopDir.get_path()} does not exist`);
                 this._dbusManager.doNotify(header, text);
                 return;
             }
-            console.error(e, `Error opening desktop in GNOME Files: ${e.message}`);
+            console.error(
+                e, `Error opening desktop in GNOME Files: ${e.message}`
+            );
         }
     }
 
@@ -536,9 +588,13 @@ const DesktopActions = class {
         } catch (e) {
             const textDecoder = new TextDecoder();
             const errortext = textDecoder.decode(process[2]);
-            const windowopen = errortext.includes('Already showing a prefs dialog');
+            const windowopen =
+                errortext.includes('Already showing a prefs dialog');
             if (windowopen) {
-                this._dbusManager.doNotify(_('Preferences Window is Open'), _('This Window is open. Please switch to the active window.'));
+                this._dbusManager.doNotify(
+                    _('Preferences Window is Open'),
+                    _('This Window is open. Please switch to the active window.')
+                );
                 return;
             } else {
                 completed = false;
@@ -554,7 +610,8 @@ const DesktopActions = class {
         });
         this.preferencesWindow.set_title(_('Settings'));
         const modal = true;
-        this._DesktopIconsUtil.windowHidePagerTaskbarModal(this.preferencesWindow, modal);
+        this._DesktopIconsUtil.windowHidePagerTaskbarModal(
+            this.preferencesWindow, modal);
         this.preferencesWindow.show();
     }
 
@@ -640,10 +697,16 @@ const DesktopActions = class {
         let newItem = null;
         for (let item of this._displayList) {
             let itemCoordinates = item.getCoordinates();
-            if ((selectedCoordinates[index] * multiplier) >= (itemCoordinates[index] * multiplier))
+            if ((selectedCoordinates[index] * multiplier) >=
+                (itemCoordinates[index] * multiplier))
                 continue;
 
-            let distance = Math.pow(selectedCoordinates[0] - itemCoordinates[0], 2) + Math.pow(selectedCoordinates[1] - itemCoordinates[1], 2);
+            let distance =
+                Math.pow(
+                    selectedCoordinates[0] - itemCoordinates[0], 2) +
+                Math.pow(
+                    selectedCoordinates[1] -  itemCoordinates[1], 2);
+
             if ((newDistance === null) || (newDistance > distance)) {
                 newDistance = distance;
                 newItem = item;
@@ -665,14 +728,26 @@ const DesktopActions = class {
         const selection = this.currentSelection;
         if (selection) {
             const fileItem = selection[0];
-            const X = fileItem.iconRectangle.x + fileItem.iconRectangle.width / 2;
-            const Y = fileItem.iconRectangle.y + fileItem.iconRectangle.height / 2;
+            const X =
+                fileItem.iconRectangle.x + fileItem.iconRectangle.width / 2;
+            const Y =
+                fileItem.iconRectangle.y + fileItem.iconRectangle.height / 2;
             this._fileItemMenu.showMenu(fileItem, 3, 0, 0, X, Y, false, false);
         } else {
-            const grid = this._desktops.filter(f => f.coordinatesBelongToThisGrid(this._clickX, this._clickY));
+            const grid = this._desktops.filter(f =>
+                f.coordinatesBelongToThisGrid(this._clickX, this._clickY));
             if (!grid)
                 return;
-            this._desktopManager.onPressButton(null, null, this._clickX, this._clickY, 3, false, false, grid[0]).catch(e => console.error(e));
+            this._desktopManager.onPressButton(
+                null,
+                null,
+                this._clickX,
+                this._clickY,
+                3,
+                false,
+                false,
+                grid[0]
+            ).catch(e => console.error(e));
         }
     }
 
@@ -682,7 +757,8 @@ const DesktopActions = class {
             return;
 
         const file = Gio.File.new_for_path(template);
-        const finalName = this._desktopMonitor.getDesktopUniqueFileName(file.get_basename());
+        const finalName =
+            this._desktopMonitor.getDesktopUniqueFileName(file.get_basename());
         const destination = this._desktopDir.get_child(finalName);
 
         try {
@@ -690,13 +766,23 @@ const DesktopActions = class {
 
             try {
                 const info = new Gio.FileInfo();
-                info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
-                info.set_attribute_string('metadata::desktop-icon-position', '');
+                info.set_attribute_string(
+                    'metadata::nautilus-drop-position',
+                    `${this._clickX},${this._clickY}`
+                );
+                info.set_attribute_string(
+                    'metadata::desktop-icon-position', ''
+                );
                 info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
-                await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
-                    GLib.PRIORITY_DEFAULT, null);
+                await destination.set_attributes_async(
+                    info,
+                    Gio.FileQueryInfoFlags.NONE,
+                    GLib.PRIORITY_DEFAULT,
+                    null
+                );
             } catch (e) {
-                console.error(e, `Failed to set template metadata ${e.message}`);
+                console.error(
+                    e, `Failed to set template metadata ${e.message}`);
             }
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
@@ -713,8 +799,14 @@ const DesktopActions = class {
         const fileList = [shortcutinfo.uri];
         const X = parseInt(shortcutinfo.X);
         const Y = parseInt(shortcutinfo.Y);
-        await this._desktopManager.clearFileCoordinates(fileList, [X, Y], {doCopy: true});
-        await this._DesktopIconsUtil.copyDesktopFileToDesktop(shortcutinfo.uri, [X, Y]);
+        await this._desktopManager.clearFileCoordinates(
+            fileList, [X, Y],
+            {doCopy: true}
+        );
+        await this._DesktopIconsUtil.copyDesktopFileToDesktop(
+            shortcutinfo.uri,
+            [X, Y]
+        );
     }
 
     async updateClipboard() {
@@ -749,6 +841,10 @@ const DesktopActions = class {
     get _desktopDir() {
         return this._desktopMonitor.desktopDir;
     }
+
+    get _desktops() {
+        return this._desktopManager._desktops;
+    }
 };
 
 
@@ -768,15 +864,16 @@ const DesktopBackgroundMenu = class {
     }
 
     _startMonitoringTemplatesDir() {
-        this._templatesMonitor = new this._templatesScriptsManager.TemplatesScriptsManager(
-            this._desktopIconsUtil.getTemplatesDir(),
-            this._templatesDirSelectionFilter.bind(this),
-            {
-                appName: 'app.newDocument',
-                FileUtils: this._FileUtils,
-                Enums: this._Enums,
-            }
-        );
+        this._templatesMonitor =
+            new this._templatesScriptsManager.TemplatesScriptsManager(
+                this._desktopIconsUtil.getTemplatesDir(),
+                this._templatesDirSelectionFilter.bind(this),
+                {
+                    appName: 'app.newDocument',
+                    FileUtils: this._FileUtils,
+                    Enums: this._Enums,
+                }
+            );
     }
 
     _templatesDirSelectionFilter(fileinfo) {
@@ -794,35 +891,51 @@ const DesktopBackgroundMenu = class {
         this.desktopBackgroundGioMenu = Gio.Menu.new();
 
         const sortingRadioMenu = Gio.Menu.new();
-        sortingRadioMenu.append(_('Name'), 'app.arrangeaction::NAME');
-        sortingRadioMenu.append(_('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
-        sortingRadioMenu.append(_('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
-        sortingRadioMenu.append(_('Type'), 'app.arrangeaction::KIND');
-        sortingRadioMenu.append(_('Size'), 'app.arrangeaction::SIZE');
+        sortingRadioMenu.append(
+            _('Name'), 'app.arrangeaction::NAME');
+        sortingRadioMenu.append(
+            _('Name Z-A'), 'app.arrangeaction::DESCENDINGNAME');
+        sortingRadioMenu.append(
+            _('Modified Time'), 'app.arrangeaction::MODIFIEDTIME');
+        sortingRadioMenu.append(
+            _('Type'), 'app.arrangeaction::KIND');
+        sortingRadioMenu.append(
+            _('Size'), 'app.arrangeaction::SIZE');
 
 
         const sortingSubMenu = Gio.Menu.new();
-        this._keepArrangedMenuItem = Gio.MenuItem.new(_('Keep Arranged…'), 'app.keep-arranged');
+        this._keepArrangedMenuItem = Gio.MenuItem.new(
+            _('Keep Arranged…'), 'app.keep-arranged');
         if (!this._Prefs.keepStacked)
             sortingSubMenu.append_item(this._keepArrangedMenuItem);
 
-        sortingSubMenu.append(_('Keep Stacked by Type…'), 'app.keep-stacked');
-        sortingSubMenu.append(_('Sort Home/Drives/Trash…'), 'app.sort-special-folders');
+        sortingSubMenu.append(
+            _('Keep Stacked by Type…'), 'app.keep-stacked');
+        sortingSubMenu.append(
+            _('Sort Home/Drives/Trash…'), 'app.sort-special-folders');
         sortingSubMenu.append_section(null, sortingRadioMenu);
 
         const settingSubMenu = Gio.Menu.new();
-        settingSubMenu.append(_('Change Desktop'), 'app.changeDesktop');
-        const restoreDefaultDesktop = this._mainApp.lookup_action('restoreDefaultDesktop');
-        if (restoreDefaultDesktop.get_enabled())
-            settingSubMenu.append(_('Restore Default Desktop'), 'app.restoreDefaultDesktop');
-        settingSubMenu.append(_('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+        settingSubMenu.append(
+            _('Change Desktop'), 'app.changeDesktop');
+        const restoreDefaultDesktop =
+            this._mainApp.lookup_action('restoreDefaultDesktop');
+        if (restoreDefaultDesktop.get_enabled()) {
+            settingSubMenu.append(
+                _('Restore Default Desktop'), 'app.restoreDefaultDesktop'
+            );
+        }
+        settingSubMenu.append(
+            _('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
 
-        this.desktopBackgroundGioMenu.append(_('New Folder'), 'app.doNewFolder');
+        this.desktopBackgroundGioMenu.append(
+            _('New Folder'), 'app.doNewFolder');
 
         const templatesmenu = this._templatesMonitor.getGioMenu();
-        if (!(templatesmenu === null))
-            this.desktopBackgroundGioMenu.append_submenu(_('New Document'), templatesmenu);
-
+        if (!(templatesmenu === null)) {
+            this.desktopBackgroundGioMenu.append_submenu(
+                _('New Document'), templatesmenu);
+        }
 
         const pasteUndoRedoMenu = Gio.Menu.new();
         if (this._mainApp.lookup_action('doPaste').get_enabled())
@@ -842,36 +955,47 @@ const DesktopBackgroundMenu = class {
 
         const sortingMenu = Gio.Menu.new();
         if (!this._Prefs.keepStacked) {
-            const cleanUpMenuItem = Gio.MenuItem.new(_('Arrange Icons'), 'app.cleanUpIcons');
+            const cleanUpMenuItem = Gio.MenuItem.new(
+                _('Arrange Icons'), 'app.cleanUpIcons');
             sortingMenu.append_item(cleanUpMenuItem);
         }
-        const arrangeSubMenuItem = Gio.MenuItem.new_submenu(_('Arrange By…'), sortingSubMenu);
+        const arrangeSubMenuItem = Gio.MenuItem.new_submenu(
+            _('Arrange By…'), sortingSubMenu);
         sortingMenu.append_item(arrangeSubMenuItem);
 
         this.desktopBackgroundGioMenu.append_section(null, sortingMenu);
 
         const desktopTerminalMenu = Gio.Menu.new();
         const nautilusName = this._Prefs.NautilusName;
-        desktopTerminalMenu.append(_('Show Desktop In {0}').replace('{0}', nautilusName),
-            'app.showDesktopInFiles');
+        desktopTerminalMenu.append(
+            _('Show Desktop In {0}').replace('{0}', nautilusName),
+            'app.showDesktopInFiles'
+        );
         const terminalString = this._Prefs.TerminalName;
-        desktopTerminalMenu.append(_('Open In {0}').replace('{0}', terminalString),
-            'app.openInTerminal');
+        desktopTerminalMenu.append(
+            _('Open In {0}').replace('{0}', terminalString),
+            'app.openInTerminal'
+        );
 
-        this.desktopBackgroundGioMenu.append_section(null, desktopTerminalMenu);
+        this.desktopBackgroundGioMenu.append_section(
+            null, desktopTerminalMenu);
 
         const settingsMenu = Gio.Menu.new();
-        const settingSubMenuItem = Gio.MenuItem.new_submenu(_('Settings'), settingSubMenu);
+        const settingSubMenuItem = Gio.MenuItem.new_submenu(
+            _('Settings'), settingSubMenu);
         settingsMenu.append_item(settingSubMenuItem);
 
         this.desktopBackgroundGioMenu.append_section(null, settingsMenu);
 
         const backgroundMenu = Gio.Menu.new();
-        backgroundMenu.append(_('Shell Menu…'), 'app.displayShellBackgroundMenu');
+        backgroundMenu.append(
+            _('Shell Menu…'), 'app.displayShellBackgroundMenu');
 
         // Following deprectiated, Shell Menu has these options anyway
-        // this.backgroundMenu.append(_('Change Background…'), 'app.changeBackGround');
-        // this.backgroundMenu.append(_('Display Settings'), 'app.changeDisplaySettings');
+        // this.backgroundMenu.append(
+        //       _('Change Background…'), 'app.changeBackGround');
+        // this.backgroundMenu.append(
+        //      _('Display Settings'), 'app.changeDisplaySettings');
 
         this.desktopBackgroundGioMenu.append_section(null, backgroundMenu);
     }
@@ -887,9 +1011,11 @@ const DesktopBackgroundMenu = class {
     };
 
     async showDesktopMenu(x, y, grid) {
-        await this._desktopActions.updateClipboard().catch(e => console.error(e, 'Error updating clipboard'));
+        await this._desktopActions.updateClipboard()
+            .catch(e => console.error(e, 'Error updating clipboard'));
         this._createDesktopBackgroundGioMenu();
-        this.popupmenu = Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
+        this.popupmenu =
+            Gtk.PopoverMenu.new_from_model(this.desktopBackgroundGioMenu);
         this.popupmenu.set_parent(grid._container);
         const menuLocation = new Gdk.Rectangle({x, y, width: 1, height: 1});
         this.popupmenu.set_pointing_to(menuLocation);
