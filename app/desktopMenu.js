@@ -597,7 +597,9 @@ const DesktopActions = class {
     }
 
     _onOpenTerminalClicked() {
-        this._desktopManager.fileItemMenu.launchTerminal(null, null);
+        const desktopDir = this._desktopDir.get_path();
+        const param = GLib.Variant.new_string(desktopDir);
+        this._mainApp.activate_action('openinterminal', param);
     }
 
     _showPreferences() {

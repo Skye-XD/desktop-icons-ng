@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import {_} from '../dependencies/gettext.js';
-import {Gdk, Gio, Graphene, Gtk, Gsk} from '../dependencies/gi.js';
+import {Gdk, Gio, Graphene, Gtk, Gsk, GLib} from '../dependencies/gi.js';
 import * as DesktopIconItem from './desktopIconItem.js';
 
 export {StackItem};
@@ -126,8 +126,11 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
 
     // eslint-disable-next-line no-unused-vars
     _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
-        this._desktopManager.onToggleStackUnstackThisTypeClicked(
-            this.attributeContentType);
+        const variant = GLib.Variant.new('s', this.attributeContentType);
+        this._desktopManager.mainApp.activate_action(
+            'stackunstack',
+            variant
+        );
     }
 
     setSelected() {
