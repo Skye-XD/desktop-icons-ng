@@ -59,16 +59,22 @@ const DesktopManager = class {
         this.Prefs = Utils.Preferences;
         this.showErrorPopup = ShowErrorPopup;
         this.templatesScriptsManager = TemplatesScriptsManager;
-        this.autoAr = new AutoAr.AutoAr(this);
         this.appChooser = AppChooser;
-        this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
         this.ThumbnailLoader = Utils.ThumbnailLoader;
+
+        // init methods
         this.windowManager = new WindowManager.WindowManager(this,
             desktopList,
             asDesktop,
             primaryIndex
         );
         this.desktopMonitor = new DesktopMonitor.DesktopMonitor(this);
+        this.autoAr = new AutoAr.AutoAr(this);
+        this.fileItemMenu = new FileItemMenu.FileItemMenu(this);
+        this.fileItemActions = new FileItemMenu.FileItemActions(this);
+        this.desktopActions = new DesktopMenu.DesktopActions(this);
+        this.desktopMenuManager = new DesktopMenu.DesktopBackgroundMenu(this);
+        this.Prefs.init(this);
 
         // Init Variables
         this._selectedFiles = null;
@@ -86,12 +92,6 @@ const DesktopManager = class {
         this._pendingDropFiles = {};
         this._pendingSelfCopyFiles = {};
         this.ignoreKeys = this.Enums.IgnoreKeys.map(_k => Gdk._k);
-
-        // init methods
-
-        this.desktopActions = new DesktopMenu.DesktopActions(this);
-        this.desktopMenuManager = new DesktopMenu.DesktopBackgroundMenu(this);
-        this.Prefs.init(this);
 
         // setup gracefull termination
         if (this._asDesktop) {
