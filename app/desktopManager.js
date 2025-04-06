@@ -59,6 +59,7 @@ const DesktopManager = class {
         this.Prefs = Utils.Preferences;
         this.showErrorPopup = ShowErrorPopup;
         this.templatesScriptsManager = TemplatesScriptsManager;
+        this.GnomeShellDragDrop = GnomeShellDragDrop;
         this.appChooser = AppChooser;
         this.ThumbnailLoader = Utils.ThumbnailLoader;
 
@@ -88,9 +89,6 @@ const DesktopManager = class {
         this.localDragOffset = [0, 0];
         this._compositeStackList = null;
         this._displayList = [];
-        this._scriptsList = [];
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
         this.ignoreKeys = this.Enums.IgnoreKeys.map(_k => Gdk._k);
 
         // setup gracefull termination
@@ -270,15 +268,7 @@ const DesktopManager = class {
     // Drag and Drop
 
     saveCurrentFileCoordinatesForUndo() {
-        if (this.Prefs.keepArranged || this.Prefs.keepStacked)
-            return;
-
-        this._pendingDropFiles = {};
-        this._pendingSelfCopyFiles = {};
-
-        this.getCurrentSelection()?.forEach(f => {
-            this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
-        });
+        this.dragManager._saveCurrentFileCoordinatesForUndo();
     }
 
     async clearFileCoordinates(fileList, dropCoordinates, opts = {doCopy: false}) {
@@ -2063,14 +2053,14 @@ const DesktopManager = class {
 
         const selectionURIs = [];
         if (!localDrag) {
-            this._pendingDropFiles = {};
-            this._pendingSelfCopyFiles = {};
+            this.pendingDropFiles = {};
+            this.pendingSelfCopyFiles = {};
         }
 
         selectionItems.forEach(f => {
             selectionURIs.push(f.file.get_uri());
             if (!localDrag)
-                this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
+                this.pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
         });
         if (event)
             this.DBusUtils.RemoteFileOperations.pushEvent(event);
@@ -2280,5 +2270,21 @@ const DesktopManager = class {
 
     set activeFileItem(fileItem) {
         this.fileItemMenu.activeFileItem = fileItem;
+    }
+
+    get pendingDropFiles() {
+        return this.dragManager.pendingDropFiles;
+    }
+
+    set pendingDropFiles(object) {
+        this.dragManager.pendingDropFiles = object;
+    }
+
+    get pendingSelfCopyFiles() {
+        return this.dragManager.pendingSelfCopyFiles;
+    }
+
+    set pendingSelfCopyFiles(object) {
+        this.dragManager.pendingSelfCopyFiles = object;
     }
 };
