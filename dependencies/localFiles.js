@@ -21,3 +21,4 @@ export * as TemplatesScriptsManager from '../app/templatesScriptsManager.js';
 export * as Thumbnails from '../app/thumbnails.js';
 export * as WindowManager from '../app/windowManager.js';
 export * as DesktopMenu from '../app/desktopMenu.js';
+export * as DragManager from '../app/dragManager.js';
