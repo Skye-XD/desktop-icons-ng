@@ -32,6 +32,7 @@ const DesktopActions = class {
         this._mainApp = desktopManager.mainApp;
         this._DBusUtils = desktopManager.DBusUtils;
         this._dbusManager = desktopManager.dbusManager;
+        this._dragManager = desktopManager.dragManager;
         this._DesktopIconsUtil = desktopManager.DesktopIconsUtil;
         this._fileItemMenu = desktopManager.fileItemMenu;
         this._Enums = desktopManager.Enums;
@@ -551,7 +552,7 @@ const DesktopActions = class {
             // This pops up GNOME Files error dialog, which is what we want.
             remoteOperations.MoveURIsRemote(this._clipboardFiles, desktopDir);
         } else {
-            this._desktopManager.clearFileCoordinates(
+            this._dragManager.clearFileCoordinates(
                 this._clipboardFiles,
                 pasteCoordinates,
                 {doCopy: true}

@@ -495,7 +495,16 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
      * Drag and Drop *
      ***********************/
 
-    async receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, dragItem) {
+    async receiveDrop(
+        X, Y,
+        x, y,
+        dropData,
+        acceptFormat,
+        gdkDropAction,
+        localDrop,
+        event,
+        dragItem
+    ) {
         if (!this.dropCapable)
             return false;
 
@@ -504,14 +513,15 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
             acceptFormat !== this.Enums.DndTargetInfo.URI_LIST)
             return false;
 
-        const fileList = this._desktopManager.makeFileListFromSelection(dropData, acceptFormat);
+        const fileList =
+            this._dragManager.makeFileListFromSelection(dropData, acceptFormat);
         if (!fileList)
             return false;
 
         if (dragItem && (dragItem.uri === this._file.get_uri() ||
             !(this._isValidDesktopFile || this.isDirectory))) {
-            // Dragging a file/folder over itself or over another file will do nothing,
-            // allow drag to directory or valid desktop file
+            // Dragging a file/folder over itself or over another file will
+            // do nothing, allow drag to directory or valid desktop file
             return false;
         }
 
@@ -540,9 +550,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
         if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
             if (localDrop)
-                this._desktopManager.saveCurrentFileCoordinatesForUndo(fileList);
+                this._dragManager.saveCurrentFileCoordinatesForUndo(fileList);
             try {
-                returnAction = await this._desktopManager.copyOrMoveUris(fileList,
+                returnAction = await this._dragManager.copyOrMoveUris(fileList,
                     this._file.get_uri(), event, {forceCopy});
             } catch (e) {
                 console.error(e);
@@ -553,7 +563,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
                 returnAction = Gdk.DragAction.LINK;
             else
                 returnAction = Gdk.DragAction.COPY;
-            this._desktopManager.askWhatToDoWithFiles(fileList, this._file.get_uri(),
+            this._dragManager.askWhatToDoWithFiles(fileList, this._file.get_uri(),
                 X, Y, x, y, event, {desktopActions: false});
         }
 
@@ -561,7 +571,9 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     _hasToRouteDragToGrid() {
-        return this._isSelected && this._desktopManager.dragItem && (this._desktopManager.dragItem.uri !== this._file.get_uri());
+        return this._isSelected &&
+            this._dragManager.dragItem &&
+            (this._dragManager.dragItem.uri !== this._file.get_uri());
     }
 
     _dropCapable() {

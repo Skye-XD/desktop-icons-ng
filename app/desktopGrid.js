@@ -26,6 +26,7 @@ const DesktopGrid = class {
     constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
         this._destroying = false;
         this._desktopManager = desktopManager;
+        this._dragManager = desktopManager.dragManager;
         this.Prefs = this._desktopManager.Prefs;
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
         this.DBusUtils = this._desktopManager.DBusUtils;
@@ -125,10 +126,10 @@ const DesktopGrid = class {
             this._desktopManager.onKeyPress(keyval, keycode, state, this);
         });
         this._eventMotion.connect('motion', (actor, x, y) => {
-            if (!this._desktopManager.rubberBand)
+            if (!this._dragManager.rubberBand)
                 return false;
             const [X, Y] = this.coordinatesLocalToGlobal(x, y);
-            this._desktopManager.onMotion(X, Y);
+            this._dragManager.onMotion(X, Y);
             return false;
         });
         this._buttonClick = Gtk.GestureClick.new();
@@ -160,14 +161,14 @@ const DesktopGrid = class {
             const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
             const [X, Y] = this.coordinatesLocalToGlobal(x, y);
             const clickItem = this._fileAt(x, y);
-            if (clickItem && !this._desktopManager.rubberBand) {
+            if (clickItem && !this._dragManager.rubberBand) {
                 const clickRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (clickRectangle.intersect(clickItem.iconRectangle)[0] || clickRectangle.intersect(clickItem.labelRectangle)[0]) {
                     clickItem._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
                     return;
                 }
             }
-            this._desktopManager.onReleaseButton(this);
+            this._dragManager.onReleaseButton(this);
         });
         this._setDropDestination(this._container);
         this._setDragSource(this._container);
@@ -600,8 +601,8 @@ const DesktopGrid = class {
             let gdkReturnAction = Gdk.DragAction.COPY;
 
             if (desktopMove && desktopDropZone && (gdkDropAction === Gdk.DragAction.MOVE)) {
-                let [xOrigin, yOrigin] = this._desktopManager.dragItem.getCoordinates().slice(0, 3);
-                this._desktopManager.doMoveWithDragAndDrop(xOrigin, yOrigin, X, Y);
+                let [xOrigin, yOrigin] = this._dragManager.dragItem.getCoordinates().slice(0, 3);
+                this._dragManager.doMoveWithDragAndDrop(xOrigin, yOrigin, X, Y);
                 this._receiveLeave();
                 drop.finish(gdkDropAction);
                 return true;
@@ -619,7 +620,7 @@ const DesktopGrid = class {
 
                     if (dropData && textDrop) {
                         gdkReturnAction = Gdk.DragAction.COPY;
-                        this._desktopManager.onTextDrop(dropData, [X, Y]);
+                        this._dragManager.onTextDrop(dropData, [X, Y]);
                         drop.finish(gdkReturnAction);
                         this._receiveLeave();
                         return true;
@@ -653,7 +654,7 @@ const DesktopGrid = class {
                 const [X, Y] = this.coordinatesLocalToGlobal(x, y);
                 const pointerRectangle = new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
                 if (fileItem && fileItem.dropCapable) {
-                    this._desktopManager.unHighLightDropTarget();
+                    this._dragManager.unHighLightDropTarget();
                     if (!this.Prefs.freePositionIcons)
                         fileItem.highLightDropTarget();
                     else if (pointerRectangle.intersect(fileItem.iconRectangle)[0] || pointerRectangle.intersect(fileItem.labelRectangle)[0])
@@ -662,7 +663,7 @@ const DesktopGrid = class {
                 if (fileItem && (fileItem.isDirectory || fileItem.isDrive))
                     this._startSpringLoadedTimer(fileItem);
             } else {
-                this._desktopManager.unHighLightDropTarget();
+                this._dragManager.unHighLightDropTarget();
                 this._stopSpringLoadedTimer();
             }
         });
@@ -674,12 +675,12 @@ const DesktopGrid = class {
         let returnAction = Gdk.DragAction.COPY;
         const localDrop = !!drop.get_drag();
         if (fileItemDropZone && (desktopMove || filesMove)) {
-            returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => console.error(e));
+            returnAction = await fileItem.receiveDrop(X, Y, x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._dragManager.dragItem).catch(e => console.error(e));
             return returnAction;
         }
 
         if (desktopDropZone && (desktopMove || filesMove)) {
-            returnAction = await this._receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._desktopManager.dragItem).catch(e => console.error(e));
+            returnAction = await this._receiveDrop(x, y, dropData, acceptFormat, gdkDropAction, localDrop, event, this._dragManager.dragItem).catch(e => console.error(e));
             return returnAction;
         }
 
@@ -695,10 +696,10 @@ const DesktopGrid = class {
         // eslint-disable-next-line consistent-return
         widgetDragController.connect('prepare', (actor, x, y) => {
             let draggedItem = this._fileAt(x, y);
-            if (draggedItem && !this._desktopManager.rubberBand) {
+            if (draggedItem && !this._dragManager.rubberBand) {
                 clickItem = draggedItem;
                 let [a, b] = this._coordinatesWidgetToWidget(x, y, this._container, clickItem._icon).map(f => Math.floor(Math.max(f)));
-                this._desktopManager.localDragOffset = [a, b];
+                this._dragManager.localDragOffset = [a, b];
                 let dragIcon = this._createStackedDragIcon(clickItem);
                 widgetDragController.set_icon(dragIcon, a, b);
                 clickItem.dragSourceOffset = [a, b];
@@ -708,12 +709,12 @@ const DesktopGrid = class {
             }
         });
         widgetDragController.connect('drag-begin', () => {
-            this._desktopManager.onReleaseButton(this);
-            this._desktopManager.onDragBegin(clickItem);
+            this._dragManager.onReleaseButton(this);
+            this._dragManager.onDragBegin(clickItem);
         });
         widgetDragController.connect('drag-cancel', async (actor, drag, reason) => {
             if (reason === Gdk.DragCancelReason.NO_TARGET || reason === Gdk.DragCancelReason.ERROR) {
-                const gnomedropDetected = await this._desktopManager.gnomeShellDrag?.completeGnomeShellDrop().catch(e => console.error(e));
+                const gnomedropDetected = await this._dragManager.gnomeShellDrag?.completeGnomeShellDrop().catch(e => console.error(e));
                 if (gnomedropDetected)
                     return true;
                 else
@@ -723,8 +724,8 @@ const DesktopGrid = class {
             }
         });
         widgetDragController.connect('drag-end', () => {
-            this._desktopManager.onDragEnd();
-            this._desktopManager.selected(clickItem, this.Enums.Selection.RELEASE);
+            this._dragManager.onDragEnd();
+            this._dragManager.selected(clickItem, this.Enums.Selection.RELEASE);
         });
         widget.add_controller(widgetDragController);
     }
@@ -733,7 +734,7 @@ const DesktopGrid = class {
         this.contentProvider = null;
         const textCoder = new TextEncoder();
 
-        const uriList = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.DING_ICON_LIST);
+        const uriList = this._dragManager.fillDragDataGet(this.Enums.DndTargetInfo.DING_ICON_LIST);
         if (!uriList)
             return;
 
@@ -747,14 +748,14 @@ const DesktopGrid = class {
             return;
         }
 
-        const gnomeUriList = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.GNOME_ICON_LIST);
+        const gnomeUriList = this._dragManager.fillDragDataGet(this.Enums.DndTargetInfo.GNOME_ICON_LIST);
         if (!gnomeUriList)
             return;
 
         const gnomeContentProvider = Gdk.ContentProvider.new_for_bytes(this.Enums.DndTargetInfo.GNOME_ICON_LIST,
             textCoder.encode(gnomeUriList));
 
-        const textPathList = this._desktopManager.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
+        const textPathList = this._dragManager.fillDragDataGet(this.Enums.DndTargetInfo.TEXT_PLAIN);
         if (!textPathList)
             return;
         const encodedPathList = textCoder.encode(textPathList);
@@ -828,7 +829,7 @@ const DesktopGrid = class {
     _receiveLeave() {
         this._stopSpringLoadedTimer();
         this._window.queue_draw();
-        this._desktopManager.onDragLeave();
+        this._dragManager.onDragLeave();
     }
 
     receiveLeave() {
@@ -843,14 +844,14 @@ const DesktopGrid = class {
             y = this._elementHeight * Math.floor(y / this._elementHeight);
             [X, Y] = this.coordinatesLocalToGlobal(x, y);
         }
-        this._desktopManager.onDragMotion(X, Y);
+        this._dragManager.onDragMotion(X, Y);
     }
 
     async _receiveDrop(x, y, selection, info, gdkDropAction, localDrop, event, dragItem) {
         x = this._elementWidth * Math.floor(x / this._elementWidth);
         y = this._elementHeight * Math.floor(y / this._elementHeight);
         let [X, Y] = this.coordinatesLocalToGlobal(x, y);
-        let returnAction = await this._desktopManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, localDrop, event, dragItem).catch(e => console.error(e));
+        let returnAction = await this._dragManager.onDragDataReceived(X, Y, x, y, selection, info, gdkDropAction, localDrop, event, dragItem).catch(e => console.error(e));
         return returnAction;
     }
 
@@ -890,7 +891,7 @@ const DesktopGrid = class {
     _startSpringLoadedTimer(fileItem) {
         if (!this.Prefs.openFolderOnDndHover || this.directoryOpenTimer)
             return;
-        if (this._desktopManager.dragItem?.uri === fileItem.uri)
+        if (this._dragManager.dragItem?.uri === fileItem.uri)
             return;
         this.directoryOpenTimer = GLib.timeout_add(GLib.PRIORITY_DEFAULT, this.Enums.DND_HOVER_TIMEOUT, () => {
             const context = Gdk.Display.get_default().get_app_launch_context();
@@ -945,12 +946,12 @@ const DesktopGrid = class {
     }
 
     _doDrawRubberBand(cr) {
-        if (!this._desktopManager.rubberBand ||
-            !this._desktopManager.selectionRectangle ||
-            !this.gridGlobalRectangle.intersect(this._desktopManager.selectionRectangle)[0])
+        if (!this._dragManager.rubberBand ||
+            !this._dragManager.selectionRectangle ||
+            !this.gridGlobalRectangle.intersect(this._dragManager.selectionRectangle)[0])
             return;
-        const [xInit, yInit] = this._coordinatesGlobalToLocal(this._desktopManager.x1, this._desktopManager.y1);
-        const [xFin, yFin] = this._coordinatesGlobalToLocal(this._desktopManager.x2, this._desktopManager.y2);
+        const [xInit, yInit] = this._coordinatesGlobalToLocal(this._dragManager.x1, this._dragManager.y1);
+        const [xFin, yFin] = this._coordinatesGlobalToLocal(this._dragManager.x2, this._dragManager.y2);
         const width = xFin - xInit;
         const height = yFin - yInit;
         const fillColor = new Gdk.RGBA({

@@ -25,7 +25,8 @@ const GnomeShellDrag = class {
         if (!this._DBusUtils.RemoteExtensionControl.isAvailable)
             return;
         this._desktopManager = desktopManager;
-        this._dragItem = desktopManager.dragItem;
+        this._dragManager = desktopManager.dragManager;
+        this._dragItem = this._dragManager.dragItem;
         this._DesktopIconsUtil = desktopManager.DesktopIconsUtil;
         this._Enums = desktopManager.Enums;
         this._Prefs = desktopManager.Prefs;
@@ -234,6 +235,6 @@ const GnomeShellDrag = class {
     }
 
     get _desktopDir() {
-        return this._desktopManager.desktopDir;
+        return this._desktopManager._desktopDir;
     }
 };
