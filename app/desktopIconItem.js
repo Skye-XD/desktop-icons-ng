@@ -808,6 +808,14 @@ const DesktopIconItem = class {
         return this._savedCoordinates;
     }
 
+    get normalCoordinates() {
+        return this._normalCoordinates;
+    }
+
+    get monitorIndex() {
+        return this._monitorIndex;
+    }
+
     get dropCoordinates() {
         return this._dropCoordinates;
     }

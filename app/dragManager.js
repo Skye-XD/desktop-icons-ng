@@ -57,7 +57,12 @@ const DragManager = class {
             return;
 
         fileList.forEach(f => {
-            this._pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
+            const savedCoordinates = [
+                ...f.savedCoordinates,
+                ...f.normalCoordinates,
+                f.monitorIndex,
+            ];
+            this._pendingSelfCopyFiles[f.fileName] = savedCoordinates;
         });
     }
 
