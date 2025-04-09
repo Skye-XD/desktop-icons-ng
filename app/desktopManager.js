@@ -2273,7 +2273,7 @@ const DesktopManager = class {
         await this.reLoadDesktop().catch(e => {
             console.log(`Exception while updating desktop after the hidden settings changed: ${e.message}\n${e.stack}`);
         });
-        this.templatesMonitor.updateEntries();
+        this.desktopMenuManager.updateTemplates();
     }
 
     onKeepArrangedChanged() {

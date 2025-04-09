@@ -878,6 +878,10 @@ const DesktopBackgroundMenu = class {
         this.desktopBackgroundGioMenu.append_section(null, backgroundMenu);
     }
 
+    updateTemplates() {
+        this._templatesMonitor.updateEntries();
+    }
+
     menuclosed = () => {
         return new Promise(resolve => {
             this.popupmenuclosed = resolve;
