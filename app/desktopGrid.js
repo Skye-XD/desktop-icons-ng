@@ -1416,3 +1416,858 @@ const DesktopGrid = class {
         return [newGlobalX, newGlobalY];
     }
 };
+
+
+export {DragDropGrid};
+
+const DragDropGrid = class extends DesktopGrid {
+    constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
+        super(desktopManager, desktopName, desktopDescription, asDesktop);
+        this._addDragControllers();
+    }
+
+    _addDragControllers() {
+        this._eventKey = Gtk.EventControllerKey.new();
+        this._window.add_controller(this._eventKey);
+
+        this._eventKey.connect(
+            'key-pressed',
+            (actor, keyval, keycode, state) => {
+                this._desktopManager.onKeyPress(keyval, keycode, state, this);
+            }
+        );
+
+        this._eventMotion = Gtk.EventControllerMotion.new();
+        this._eventMotion.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
+        this._container.add_controller(this._eventMotion);
+
+        this._eventMotion.connect(
+            'motion',
+            (actor, x, y) => {
+                if (!this._dragManager.rubberBand)
+                    return false;
+
+                const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+                this._dragManager.onMotion(X, Y);
+                return false;
+            }
+        );
+
+        this._buttonClick = Gtk.GestureClick.new();
+        this._buttonClick.set_button(0);
+        this._buttonClick.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
+        this._container.add_controller(this._buttonClick);
+
+        this._buttonClick.connect(
+            'pressed',
+            (actor, nPress, x, y) => {
+                if (this._desktopManager.closePopUps())
+                    return;
+
+                const button = actor.get_current_button();
+                const state = this._buttonClick.get_current_event_state();
+                const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+                const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+                const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+
+                const clickItem = this._fileAt(x, y);
+
+                if (clickItem) {
+                    const clickRectangle =
+                        new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+
+                    if (clickRectangle.intersect(clickItem.iconRectangle)[0] ||
+                        clickRectangle.intersect(clickItem.labelRectangle)[0]) {
+                        clickItem._onPressButton(
+                            actor,
+                            X, Y,
+                            x, y,
+                            isShift,
+                            isCtrl
+                        );
+                        return;
+                    }
+                }
+
+                this._desktopManager
+                .onPressButton(X, Y,
+                    x, y,
+                    button,
+                    isShift,
+                    isCtrl,
+                    this)
+                .catch(e => console.error(e));
+            }
+        );
+
+        this._buttonClick.connect(
+            'released',
+            (actor, nPress, x, y) => {
+                const state = this._buttonClick.get_current_event_state();
+                const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+                const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+                const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+
+                const clickItem = this._fileAt(x, y);
+
+                if (clickItem && !this._dragManager.rubberBand) {
+                    const clickRectangle =
+                        new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+
+                    if (clickRectangle.intersect(clickItem.iconRectangle)[0] ||
+                        clickRectangle.intersect(clickItem.labelRectangle)[0]) {
+                        clickItem
+                        ._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
+                        return;
+                    }
+                }
+
+                this._dragManager.onReleaseButton(this);
+            }
+        );
+
+        this._setDropDestination(this._container);
+        this._setDragSource(this._container);
+    }
+
+    _setDropDestination(widget) {
+        this.gridDropController = new Gtk.DropTargetAsync();
+        this.gridDropController.set_actions(
+            Gdk.DragAction.MOVE |
+            Gdk.DragAction.COPY |
+            Gdk.DragAction.ASK
+        );
+        const desktopAcceptFormats =
+            Gdk.ContentFormats.new(this.Enums.DndTargetInfo.MIME_TYPES);
+        const fileItemAcceptFormats =
+            Gdk.ContentFormats.new([
+                this.Enums.DndTargetInfo.GNOME_ICON_LIST,
+                this.Enums.DndTargetInfo.URI_LIST,
+            ]);
+        const desktopMoveIconsFormat =
+            Gdk.ContentFormats.new([this.Enums.DndTargetInfo.DING_ICON_LIST]);
+        const textDropFormat =
+            Gdk.ContentFormats.new([this.Enums.DndTargetInfo.TEXT_PLAIN]);
+        const oldNautilusDropFormat =
+            Gdk.ContentFormats.new([this.Enums.DndTargetInfo.GNOME_ICON_LIST]);
+        this.gridDropController.set_formats(desktopAcceptFormats);
+
+        let acceptFormat = null;
+        let dropData = null;
+
+        this.gridDropController.connect(
+            'accept',
+            (actor, drop) => {
+                if (drop.get_formats().match(desktopAcceptFormats))
+                    return true;
+                else
+                    return false;
+            }
+        );
+
+        this.gridDropController.connect(
+            'drag-enter',
+            (actor, drop) => {
+                this.localDrag = true;
+                drop.status(
+                    Gdk.DragAction.COPY |
+                        Gdk.DragAction.MOVE |
+                        Gdk.DragAction.LINK,
+                    Gdk.DragAction.MOVE
+                );
+
+                return Gdk.DragAction.MOVE;
+            }
+        );
+
+        this.gridDropController.connect(
+            'drag-motion',
+            (actor, drop, x, y) => {
+                let desktopDropZone = false;
+                let fileItemDropZone = false;
+                const fileItem = this._fileAt(x, y);
+                const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+                const dropRectangle =
+                    new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+                const desktopMove =
+                    drop.get_formats().match(desktopMoveIconsFormat);
+                const filesMove =
+                    drop.get_formats().match(fileItemAcceptFormats);
+
+                if (fileItem) {
+                    if (!this.Prefs.freePositionIcons)
+                        fileItemDropZone = true;
+
+                    else if (dropRectangle
+                            .intersect(fileItem.iconRectangle)[0] ||
+                        dropRectangle
+                        .intersect(fileItem.labelRectangle)[0])
+                        fileItemDropZone = true;
+
+                    if (desktopMove && fileItem._hasToRouteDragToGrid())
+                        fileItemDropZone = false;
+                }
+
+                desktopDropZone = !fileItemDropZone;
+
+                this.receiveMotion(x, y, false);
+
+                if (fileItemDropZone && !fileItem.dropCapable)
+                    return false;
+
+                if (fileItemDropZone && fileItem.dropCapable) {
+                    if (!filesMove)
+                        return false;
+
+                    if (fileItem._fileExtra !==
+                        this.Enums.FileType.EXTERNAL_DRIVE)
+                        return Gdk.DragAction.MOVE;
+
+                    if (fileItem._fileExtra ===
+                        this.Enums.FileType.EXTERNAL_DRIVE)
+                        return Gdk.DragAction.COPY;
+                }
+
+                if (desktopDropZone) {
+                    if (desktopMove) {
+                        if (this.Prefs.keepArranged ||
+                            this.Prefs.keepStacked) {
+                            if (this.Prefs.sortSpecialFolders)
+                                return false;
+                            else if (this._desktopManager
+                                .getCurrentSelection()
+                                ?.filter(f => !f.isSpecial).length >= 1)
+                                return false;
+                        }
+                    }
+
+                    return Gdk.DragAction.MOVE;
+                }
+
+                return false;
+            });
+
+        this.gridDropController.connect('drag-leave', () => {
+            this.localDrag = false;
+            this._receiveLeave();
+        });
+
+        this.gridDropController.connect('drop', (actor, drop, x, y) => {
+            const event = {
+                'parentWindow': this._window,
+                'timestamp': Gdk.CURRENT_TIME,
+            };
+
+            let desktopDropZone = false;
+            let fileItemDropZone = false;
+            const fileItem = this._fileAt(x, y);
+            const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+            const dropRectangle =
+                new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+            const desktopMove =
+                drop.get_formats().match(desktopMoveIconsFormat);
+            const filesMove =
+                drop.get_formats().match(fileItemAcceptFormats);
+            const oldNautilusMove =
+                drop.get_formats().match(oldNautilusDropFormat);
+            let readFormat = Gdk.FileList.$gtype;
+
+            if (fileItem) {
+                if (!this.Prefs.freePositionIcons)
+                    fileItemDropZone = true;
+                else if (dropRectangle.intersect(fileItem.iconRectangle)[0] ||
+                    dropRectangle.intersect(fileItem.labelRectangle)[0])
+                    fileItemDropZone = true;
+                if (desktopMove && fileItem._hasToRouteDragToGrid())
+                    fileItemDropZone = false;
+            }
+
+            desktopDropZone = !fileItemDropZone;
+
+            const textDrop =
+                drop.get_formats().match(textDropFormat) &&
+                    !desktopMove &&
+                    !filesMove;
+
+            if (textDrop) {
+                acceptFormat = this.Enums.DndTargetInfo.TEXT_PLAIN;
+                readFormat = String.$gtype;
+            }
+
+            if (desktopMove)
+                acceptFormat = this.Enums.DndTargetInfo.DING_ICON_LIST;
+
+            if (filesMove && !desktopMove) {
+                if (oldNautilusMove) {
+                    acceptFormat = this.Enums.DndTargetInfo.GNOME_ICON_LIST;
+                    readFormat = String.$gtype;
+                } else {
+                    acceptFormat = this.Enums.DndTargetInfo.URI_LIST;
+                    readFormat = String.$gtype;
+                }
+            }
+
+            let gdkDropAction = drop.get_actions();
+
+            if (!Gdk.DragAction.is_unique(gdkDropAction)) {
+                if (this._using_X11 &&
+                    (gdkDropAction >=
+                            (Gdk.DragAction.COPY | Gdk.DragAction.MOVE)))
+                    gdkDropAction = Gdk.DragAction.MOVE;
+
+                else if (gdkDropAction >
+                        (Gdk.DragAction.COPY | Gdk.DragAction.MOVE))
+                    gdkDropAction = Gdk.DragAction.ASK;
+            }
+
+            let gdkReturnAction = Gdk.DragAction.COPY;
+
+            if (desktopMove &&
+                desktopDropZone &&
+                (gdkDropAction === Gdk.DragAction.MOVE)
+            ) {
+                let [xOrigin, yOrigin] =
+                    this._dragManager.dragItem.getCoordinates()
+                    .slice(0, 3);
+
+                this._dragManager.doMoveWithDragAndDrop(xOrigin, yOrigin, X, Y);
+
+                this._receiveLeave();
+                drop.finish(gdkDropAction);
+
+                return true;
+            }
+
+            try {
+                drop.read_value_async(
+                    readFormat,
+                    GLib.PRIORITY_DEFAULT,
+                    null,
+                    async (dropactor, result) => {
+                        dropData = dropactor.read_value_finish(result);
+
+                        if (!dropData || !acceptFormat) {
+                            drop.finish(0);
+                            this._receiveLeave();
+                            return false;
+                        }
+
+                        if (dropData && textDrop) {
+                            gdkReturnAction = Gdk.DragAction.COPY;
+                            this._dragManager.onTextDrop(dropData, [X, Y]);
+                            drop.finish(gdkReturnAction);
+                            this._receiveLeave();
+                            return true;
+                        }
+
+                        gdkReturnAction =
+                            await this._completeDrop(
+                                X, Y,
+                                x, y,
+                                drop,
+                                dropData,
+                                gdkDropAction,
+                                fileItem,
+                                acceptFormat,
+                                fileItemDropZone,
+                                desktopDropZone,
+                                desktopMove,
+                                filesMove,
+                                textDrop,
+                                event
+                            ).catch(e => console.error(e));
+
+                        if (gdkReturnAction) {
+                            drop.finish(gdkReturnAction);
+                            this._receiveLeave();
+                            return true;
+                        } else {
+                            drop.finish(0);
+                            this._receiveLeave();
+                            return false;
+                        }
+                    }
+                );
+            } catch (e) {
+                console.error(e);
+                drop.finish(0);
+                this._receiveLeave();
+            }
+            return false;
+        });
+
+        widget.add_controller(this.gridDropController);
+
+        this.gridDropControllerMotion = new Gtk.DropControllerMotion();
+
+        this.gridDropControllerMotion.connect(
+            'motion',
+            (actor, x, y) => {
+                if (!this.gridDropControllerMotion.is_pointer) {
+                    const fileItem = this._fileAt(x, y);
+                    const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+                    const pointerRectangle =
+                        new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+
+                    if (fileItem && fileItem.dropCapable) {
+                        this._dragManager.unHighLightDropTarget();
+
+                        if (!this.Prefs.freePositionIcons)
+                            fileItem.highLightDropTarget();
+
+                        else if (
+                            pointerRectangle
+                            .intersect(fileItem.iconRectangle)[0] ||
+                            pointerRectangle
+                            .intersect(fileItem.labelRectangle)[0])
+                            fileItem.highLightDropTarget();
+                    }
+
+                    if (fileItem && (fileItem.isDirectory || fileItem.isDrive))
+                        this._startSpringLoadedTimer(fileItem);
+                } else {
+                    this._dragManager.unHighLightDropTarget();
+                    this._stopSpringLoadedTimer();
+                }
+            });
+
+        widget.add_controller(this.gridDropControllerMotion);
+    }
+
+    async _completeDrop(
+        X, Y,
+        x, y,
+        drop,
+        dropData,
+        gdkDropAction,
+        fileItem,
+        acceptFormat,
+        fileItemDropZone,
+        desktopDropZone,
+        desktopMove,
+        filesMove,
+        textDrop,
+        event
+    ) {
+        let returnAction = Gdk.DragAction.COPY;
+        const localDrop = !!drop.get_drag();
+
+        if (fileItemDropZone && (desktopMove || filesMove)) {
+            returnAction =
+                await fileItem.receiveDrop(
+                    X, Y,
+                    x, y,
+                    dropData,
+                    acceptFormat,
+                    gdkDropAction,
+                    localDrop,
+                    event,
+                    this._dragManager.dragItem
+                ).catch(e => console.error(e));
+
+            return returnAction;
+        }
+
+        if (desktopDropZone && (desktopMove || filesMove)) {
+            returnAction = await this._receiveDrop(
+                x, y,
+                dropData,
+                acceptFormat,
+                gdkDropAction,
+                localDrop,
+                event,
+                this._dragManager.dragItem
+            ).catch(e => console.error(e));
+
+            return returnAction;
+        }
+
+        // Finally if all above does not work, catchall-
+        return false;
+    }
+
+
+    _setDragSource(widget) {
+        const widgetDragController = Gtk.DragSource.new();
+        let clickItem;
+
+        widgetDragController.set_actions(
+            Gdk.DragAction.MOVE | Gdk.DragAction.COPY | Gdk.DragAction.ASK);
+
+        widgetDragController.connect(
+            'prepare',
+            // eslint-disable-next-line consistent-return
+            (actor, x, y) => {
+                const draggedItem = this._fileAt(x, y);
+
+                if (draggedItem && !this._dragManager.rubberBand) {
+                    clickItem = draggedItem;
+                    const [a, b] =
+                        this._coordinatesWidgetToWidget(
+                            x, y,
+                            this._container,
+                            clickItem._icon
+                        )
+                        .map(f => Math.floor(Math.max(f)));
+
+                    this._dragManager.localDragOffset = [a, b];
+
+                    const dragIcon = this._createStackedDragIcon(clickItem);
+
+                    widgetDragController.set_icon(dragIcon, a, b);
+                    clickItem.dragSourceOffset = [a, b];
+
+                    this._loadDragData();
+
+                    if (this.contentProvider)
+                        return this.contentProvider;
+                }
+            }
+        );
+
+        widgetDragController.connect('drag-begin', () => {
+            this._dragManager.onReleaseButton(this);
+            this._dragManager.onDragBegin(clickItem);
+        });
+
+        widgetDragController.connect(
+            'drag-cancel',
+            async (actor, drag, reason) => {
+                if (reason === Gdk.DragCancelReason.NO_TARGET ||
+                    reason === Gdk.DragCancelReason.ERROR) {
+                    const gnomedropDetected =
+                        await this._dragManager.gnomeShellDrag
+                        ?.completeGnomeShellDrop()
+                        .catch(e => console.error(e));
+
+                    if (gnomedropDetected)
+                        return true;
+                    else
+                        return false;
+                } else {
+                    return false;
+                }
+            }
+        );
+
+        widgetDragController.connect('drag-end', () => {
+            this._dragManager.onDragEnd();
+            this._dragManager.selected(clickItem, this.Enums.Selection.RELEASE);
+        });
+
+        widget.add_controller(widgetDragController);
+    }
+
+    _loadDragData() {
+        this.contentProvider = null;
+        const textCoder = new TextEncoder();
+
+        const uriList =
+            this._dragManager.fillDragDataGet(
+                this.Enums.DndTargetInfo.DING_ICON_LIST);
+
+        if (!uriList)
+            return;
+
+        const encodedUriList = textCoder.encode(uriList);
+
+        const dingContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this.Enums.DndTargetInfo.DING_ICON_LIST,
+                encodedUriList
+            );
+
+        if (this._desktopManager.checkIfSpecialFilesAreSelected()) {
+            this.contentProvider = dingContentProvider;
+            return;
+        }
+
+        const gnomeUriList =
+            this._dragManager.fillDragDataGet(
+                this.Enums.DndTargetInfo.GNOME_ICON_LIST);
+
+        if (!gnomeUriList)
+            return;
+
+        const gnomeContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this.Enums.DndTargetInfo.GNOME_ICON_LIST,
+                textCoder.encode(gnomeUriList)
+            );
+
+        const textPathList =
+            this._dragManager.fillDragDataGet(
+                this.Enums.DndTargetInfo.TEXT_PLAIN
+            );
+
+        if (!textPathList)
+            return;
+
+        const encodedPathList = textCoder.encode(textPathList);
+
+        const textUriListContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this.Enums.DndTargetInfo.URI_LIST,
+                encodedUriList
+            );
+
+        const textListContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this.Enums.DndTargetInfo.TEXT_PLAIN,
+                encodedPathList
+            );
+
+        const textUtf8ListContentProvider =
+            Gdk.ContentProvider.new_for_bytes(
+                this.Enums.DndTargetInfo.TEXT_PLAIN_UTF8,
+                encodedPathList
+            );
+
+        this.contentProvider = Gdk.ContentProvider.new_union([
+            dingContentProvider,
+            gnomeContentProvider,
+            textUriListContentProvider,
+            textListContentProvider,
+            textUtf8ListContentProvider,
+        ]);
+    }
+
+    // The following code is translated from Nautilus C to Javascript
+    //  to form the similar stack of items
+
+    _createStackedDragIcon(draggedItem) {
+        const  selectionArray = this._desktopManager.getCurrentSelection();
+        selectionArray.sort(
+            // eslint-disable-next-line no-nested-ternary
+            (a, b) => a.uri === draggedItem.uri
+                ? -1
+                : b.uri === draggedItem.uri
+                    ? 1
+                    : 0
+        );
+
+        const dragIconArray = selectionArray.map(f => f._icon.get_paintable());
+        const numberOfIcons = dragIconArray.length;
+
+        const dragIcon = Gtk.Snapshot.new();
+
+        /* A wide shadow for the pile of icons gives a sense of floating. */
+        const stackShadow =
+            {
+                color: {red: 0, green: 0, blue: 0, alpha: 0.15},
+                dx: 0,
+                dy: 2,
+                radius: 10,
+            };
+
+        /* A slight shadow swhich makes each icon in the stack look separate. */
+        const iconShadow =
+            {
+                color: {red: 0, green: 0, blue: 0, alpha: 0.30},
+                dx: 0,
+                dy: 1,
+                radius: 1,
+            };
+
+        let xOffset = numberOfIcons % 2 === 1 ? 6 : -6;
+        let yOffset;
+
+        switch (numberOfIcons) {
+        case 1:
+            yOffset = 0;
+            break;
+        case 2:
+            yOffset = 10;
+            break;
+        case 3:
+            yOffset = 6;
+            break;
+        default:
+            yOffset = 4;
+        }
+
+        dragIcon.translate(
+            new Graphene.Point(
+                {
+                    x: 10 + (xOffset / 2),
+                    y: yOffset * numberOfIcons,
+                }
+            )
+        );
+
+        const shadow = new Gsk.Shadow(stackShadow);
+        dragIcon.push_shadow([shadow]);
+
+        dragIconArray.reverse().forEach(
+            paintableWidget => {
+                const w = paintableWidget.get_intrinsic_width();
+                const h = paintableWidget.get_intrinsic_height();
+                const X = Math.floor((this.Prefs.IconSize - w) / 2);
+                const Y = Math.floor((this.Prefs.IconSize - h) / 2);
+
+                dragIcon.translate(
+                    new Graphene.Point(
+                        {
+                            x: -xOffset,
+                            y: -yOffset,
+                        }
+                    )
+                );
+
+                xOffset = -xOffset;
+
+                dragIcon.translate(new Graphene.Point({x: X, y: Y}));
+                dragIcon.push_shadow([new Gsk.Shadow(iconShadow)]);
+
+                paintableWidget.snapshot(dragIcon, w, h);
+
+                dragIcon.pop();
+
+                dragIcon.translate(new Graphene.Point({x: -X, y: -Y}));
+            }
+        );
+        dragIcon.pop();
+
+        return dragIcon.to_paintable(null);
+    }
+
+    _receiveLeave() {
+        this._stopSpringLoadedTimer();
+        this._window.queue_draw();
+        this._dragManager.onDragLeave();
+    }
+
+    receiveLeave() {
+        this._receiveLeave();
+    }
+
+    receiveMotion(x, y, global) {
+        let X;
+        let Y;
+        if (!global) {
+            x = this._elementWidth * Math.floor(x / this._elementWidth);
+            y = this._elementHeight * Math.floor(y / this._elementHeight);
+            [X, Y] = this.coordinatesLocalToGlobal(x, y);
+        }
+        this._dragManager.onDragMotion(X, Y);
+    }
+
+    async _receiveDrop(
+        x, y,
+        selection,
+        info,
+        gdkDropAction,
+        localDrop,
+        event,
+        dragItem
+    ) {
+        x = this._elementWidth * Math.floor(x / this._elementWidth);
+        y = this._elementHeight * Math.floor(y / this._elementHeight);
+        const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+        const returnAction =
+            await this._dragManager
+                .onDragDataReceived(
+                    X, Y,
+                    x, y,
+                    selection,
+                    info,
+                    gdkDropAction,
+                    localDrop,
+                    event,
+                    dragItem
+                )
+                .catch(e => console.error(e));
+        return returnAction;
+    }
+
+    refreshDrag(selectedList, ox, oy) {
+        if (!this.Prefs.showDropPlace)
+            return;
+
+        if (selectedList === null) {
+            this._selectedList = null;
+            this._drawDropRectangles();
+
+            return;
+        }
+
+        let newSelectedList = [];
+
+        for (let [x, y] of selectedList) {
+            x += this._elementWidth / 2;
+            y += this._elementHeight / 2;
+            x += ox;
+            y += oy;
+
+            const r = this.getCoordinatesOfGridContaining(x, y);
+
+            if (r &&
+                !isNaN(r[0]) &&
+                !isNaN(r[1]) &&
+                (!this._gridInUse(r[0], r[1]) ||
+                this._fileAt(r[0], r[1])?.isSelected)
+            )
+                newSelectedList.push(r);
+        }
+
+        if (newSelectedList.length === 0) {
+            if (this._selectedList !== null) {
+                this._selectedList = null;
+                this._drawDropRectangles();
+            }
+
+            return;
+        }
+
+        if (this._selectedList !== null) {
+            if ((newSelectedList[0][0] === this._selectedList[0][0]) &&
+                (newSelectedList[0][1] === this._selectedList[0][1])
+            )
+                return;
+        }
+
+        this._selectedList = newSelectedList;
+        this._drawDropRectangles();
+    }
+
+    _startSpringLoadedTimer(fileItem) {
+        if (!this.Prefs.openFolderOnDndHover || this.directoryOpenTimer)
+            return;
+
+        if (this._dragManager.dragItem?.uri === fileItem.uri)
+            return;
+
+        this.directoryOpenTimer =
+            GLib.timeout_add(
+                GLib.PRIORITY_DEFAULT,
+                this.Enums.DND_HOVER_TIMEOUT,
+                () => {
+                    const context =
+                        Gdk.Display.get_default()
+                        .get_app_launch_context();
+
+                    context.set_timestamp(Gdk.CURRENT_TIME);
+
+                    try {
+                        Gio.AppInfo.launch_default_for_uri(
+                            fileItem.uri,
+                            context
+                        );
+                    } catch (e) {
+                        console.error(e, `Error opening ${fileItem.uri}` +
+                            ` in GNOME Files: ${e.message}`);
+                    }
+
+                    this.directoryOpenTimer = 0;
+                    return GLib.SOURCE_REMOVE;
+                }
+            );
+    }
+
+    _stopSpringLoadedTimer() {
+        if (this.directoryOpenTimer)
+            GLib.Source.remove(this.directoryOpenTimer);
+
+        this.directoryOpenTimer = 0;
+    }
+};
