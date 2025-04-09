@@ -1373,19 +1373,18 @@ const DesktopManager = class {
         if (!selectionItems.length)
             return;
 
+        if (!localDrag)
+            this.dragManager.saveCurrentFileCoordinatesForUndo(selectionItems);
+
         const selectionURIs = [];
-        if (!localDrag) {
-            this.pendingDropFiles = {};
-            this.pendingSelfCopyFiles = {};
-        }
 
         selectionItems.forEach(f => {
             selectionURIs.push(f.file.get_uri());
-            if (!localDrag)
-                this.pendingSelfCopyFiles[f.fileName] = f.savedCoordinates;
         });
+
         if (event)
             this.DBusUtils.RemoteFileOperations.pushEvent(event);
+
         this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
     }
 
