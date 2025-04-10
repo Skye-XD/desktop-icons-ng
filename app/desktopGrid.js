@@ -22,7 +22,7 @@ import {_} from '../dependencies/gettext.js';
 export {DesktopGrid};
 
 // eslint-disable-next-line no-unused-vars
-const DrawGrid = class {
+const DisplayGrid = class {
     constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
         this._destroying = false;
         this._desktopManager = desktopManager;
@@ -135,14 +135,6 @@ const DrawGrid = class {
 
         this._window.show();
         this._window.set_size_request(this._windowWidth, this._windowHeight);
-
-        this._drawArea = new Gtk.DrawingArea();
-        this._drawArea.set_content_height(this._windowHeight);
-        this._drawArea.set_content_width(this._windowWidth);
-        this._sizeContainer(this._drawArea);
-        this._drawArea.set_draw_func(this._doDrawOnGrid.bind(this));
-        this._overlay.add_overlay(this._drawArea);
-        this._drawArea.set_can_target(false);
 
         this._updateGridRectangle();
     }
@@ -504,180 +496,6 @@ const DrawGrid = class {
         }
 
         return returnvalue;
-    }
-
-    // Functions for drawing on the grid
-
-    highLightGridAt(x, y) {
-        const globalCoordinates = false;
-        const selected = this.getCoordinatesOfGridContaining(x, y, globalCoordinates);
-        this._selectedList = [selected];
-        this._drawDropRectangles();
-    }
-
-    unHighLightGrids() {
-        this._selectedList = null;
-        this._drawDropRectangles();
-    }
-
-    _doDrawOnGrid(actor, cr) {
-        this._doDrawRubberBand(cr);
-        this._doDrawDropRectangles(cr).catch(console.error);
-        cr.$dispose();
-    }
-
-    queue_draw() {
-        this._drawArea.queue_draw();
-    }
-
-    _drawDropRectangles() {
-        this._drawArea.queue_draw();
-    }
-
-    drawRubberBand() {
-        this._drawArea.queue_draw();
-    }
-
-    _doDrawRubberBand(cr) {
-        if (!this._dragManager.rubberBand ||
-            !this._dragManager.selectionRectangle ||
-            !this.gridGlobalRectangle
-            .intersect(this._dragManager.selectionRectangle)[0]
-        )
-            return;
-
-        const [xInit, yInit] =
-            this._coordinatesGlobalToLocal(
-                this._dragManager.x1,
-                this._dragManager.y1
-            );
-
-        const [xFin, yFin] =
-            this._coordinatesGlobalToLocal(
-                this._dragManager.x2,
-                this._dragManager.y2
-            );
-
-        const width = xFin - xInit;
-        const height = yFin - yInit;
-
-        const fillColor = new Gdk.RGBA({
-            red: this.Prefs.selectColor.red,
-            green: this.Prefs.selectColor.green,
-            blue: this.Prefs.selectColor.blue,
-            alpha: 0.15,
-        });
-
-        const outlineColor = new Gdk.RGBA({
-            red: this.Prefs.selectColor.red,
-            green: this.Prefs.selectColor.green,
-            blue: this.Prefs.selectColor.blue,
-            alpha: 1.0,
-        });
-
-        this._roundedRectangleDraw(
-            xInit,
-            yInit,
-            width,
-            height,
-            cr,
-            fillColor,
-            outlineColor
-        );
-    }
-
-    async _doDrawDropRectangles(cr) {
-        if (!this.Prefs.showDropPlace || this._selectedList === null)
-            return;
-
-        const fillColor = new Gdk.RGBA({
-            red: 1.0 - this.Prefs.selectColor.red,
-            green: 1.0 - this.Prefs.selectColor.green,
-            blue: 1.0 - this.Prefs.selectColor.blue,
-            alpha: 0.4,
-        });
-
-        const outlineColor = new Gdk.RGBA({
-            red: 1.0 - this.Prefs.selectColor.red,
-            green: 1.0 - this.Prefs.selectColor.green,
-            blue: 1.0 - this.Prefs.selectColor.blue,
-            alpha: 1.0,
-        });
-
-        const dropRectanglePromises =
-            this._selectedList.map(
-                ([x, y]) => {
-                    return this._rectangleDraw(
-                        x, y,
-                        this._elementWidth,
-                        this._elementHeight,
-                        cr,
-                        fillColor,
-                        outlineColor
-                    );
-                }
-            );
-
-        await Promise.all(dropRectanglePromises).catch(console.error);
-    }
-
-    _rectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
-        return new Promise(resolve => {
-            cr.rectangle(x + 0.5, y + 0.5, width, height);
-            Gdk.cairo_set_source_rgba(cr, fillColor);
-            cr.fillPreserve();
-            cr.setLineWidth(0.5);
-            Gdk.cairo_set_source_rgba(cr, outlineColor);
-            cr.stroke();
-            resolve(true);
-        });
-    }
-
-    _roundedRectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
-        const radius = 5;
-        const degrees = 3.14 / 180;
-
-        cr.newSubPath();
-
-        cr.arc(
-            x + width - radius,
-            y + radius, radius,
-            -90 * degrees,
-            0 * degrees
-        );
-
-        cr.arc(
-            x + width - radius,
-            y + height - radius,
-            radius, 0 * degrees,
-            90 * degrees
-        );
-
-        cr.arc(
-            x + radius,
-            y + height - radius,
-            radius,
-            90 * degrees,
-            180 * degrees
-        );
-
-        cr.arc(
-            x + radius,
-            y + radius,
-            radius,
-            180 * degrees,
-            270 * degrees
-        );
-
-        cr.closePath();
-
-        Gdk.cairo_set_source_rgba(cr, fillColor);
-        cr.fillPreserve();
-
-        cr.setLineWidth(1.0);
-        Gdk.cairo_set_source_rgba(cr, outlineColor);
-
-        cr.stroke();
     }
 
     // Functions for computing postion/Geometry
@@ -1205,6 +1023,17 @@ const DrawGrid = class {
         this._container.put(fileItem.container, x, y);
     }
 
+    getNormalizedCoordinates(x, y) {
+        return [x / this.normalizedWidth, y / this.normalizedHeight];
+    }
+
+    setNormalizedCoordinates(x, y) {
+        const newGlobalX = x * this.normalizedWidth;
+        const newGlobalY = y * this.normalizedHeight;
+
+        return [newGlobalX, newGlobalY];
+    }
+
     get normalizedWidth() {
         return this._width;
     }
@@ -1216,16 +1045,194 @@ const DrawGrid = class {
     get monitorIndex() {
         return this._monitor;
     }
+};
 
-    getNormalizedCoordinates(x, y) {
-        return [x / this.normalizedWidth, y / this.normalizedHeight];
+
+const DrawGrid =  class extends DisplayGrid {
+    constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
+        super(desktopManager, desktopName, desktopDescription, asDesktop);
+
+        this._drawArea = new Gtk.DrawingArea();
+        this._drawArea.set_content_height(this._windowHeight);
+        this._drawArea.set_content_width(this._windowWidth);
+        this._sizeContainer(this._drawArea);
+        this._drawArea.set_draw_func(this._doDrawOnGrid.bind(this));
+        this._overlay.add_overlay(this._drawArea);
+        this._drawArea.set_can_target(false);
     }
 
-    setNormalizedCoordinates(x, y) {
-        const newGlobalX = x * this.normalizedWidth;
-        const newGlobalY = y * this.normalizedHeight;
+    // Functions for drawing on the grid
 
-        return [newGlobalX, newGlobalY];
+    queue_draw() {
+        this._drawArea.queue_draw();
+    }
+
+    highLightGridAt(x, y) {
+        const globalCoordinates = false;
+        const selected = this.getCoordinatesOfGridContaining(x, y, globalCoordinates);
+        this._selectedList = [selected];
+        this._drawDropRectangles();
+    }
+
+    unHighLightGrids() {
+        this._selectedList = null;
+        this._drawDropRectangles();
+    }
+
+    drawRubberBand() {
+        this._drawArea.queue_draw();
+    }
+
+    _doDrawOnGrid(actor, cr) {
+        this._doDrawRubberBand(cr);
+        this._doDrawDropRectangles(cr).catch(console.error);
+        cr.$dispose();
+    }
+
+    _drawDropRectangles() {
+        this._drawArea.queue_draw();
+    }
+
+    _doDrawRubberBand(cr) {
+        if (!this._dragManager.rubberBand ||
+            !this._dragManager.selectionRectangle ||
+            !this.gridGlobalRectangle
+            .intersect(this._dragManager.selectionRectangle)[0]
+        )
+            return;
+
+        const [xInit, yInit] =
+            this._coordinatesGlobalToLocal(
+                this._dragManager.x1,
+                this._dragManager.y1
+            );
+
+        const [xFin, yFin] =
+            this._coordinatesGlobalToLocal(
+                this._dragManager.x2,
+                this._dragManager.y2
+            );
+
+        const width = xFin - xInit;
+        const height = yFin - yInit;
+
+        const fillColor = new Gdk.RGBA({
+            red: this.Prefs.selectColor.red,
+            green: this.Prefs.selectColor.green,
+            blue: this.Prefs.selectColor.blue,
+            alpha: 0.15,
+        });
+
+        const outlineColor = new Gdk.RGBA({
+            red: this.Prefs.selectColor.red,
+            green: this.Prefs.selectColor.green,
+            blue: this.Prefs.selectColor.blue,
+            alpha: 1.0,
+        });
+
+        this._roundedRectangleDraw(
+            xInit,
+            yInit,
+            width,
+            height,
+            cr,
+            fillColor,
+            outlineColor
+        );
+    }
+
+    async _doDrawDropRectangles(cr) {
+        if (!this.Prefs.showDropPlace || this._selectedList === null)
+            return;
+
+        const fillColor = new Gdk.RGBA({
+            red: 1.0 - this.Prefs.selectColor.red,
+            green: 1.0 - this.Prefs.selectColor.green,
+            blue: 1.0 - this.Prefs.selectColor.blue,
+            alpha: 0.4,
+        });
+
+        const outlineColor = new Gdk.RGBA({
+            red: 1.0 - this.Prefs.selectColor.red,
+            green: 1.0 - this.Prefs.selectColor.green,
+            blue: 1.0 - this.Prefs.selectColor.blue,
+            alpha: 1.0,
+        });
+
+        const dropRectanglePromises =
+            this._selectedList.map(
+                ([x, y]) => {
+                    return this._rectangleDraw(
+                        x, y,
+                        this._elementWidth,
+                        this._elementHeight,
+                        cr,
+                        fillColor,
+                        outlineColor
+                    );
+                }
+            );
+
+        await Promise.all(dropRectanglePromises).catch(console.error);
+    }
+
+    _rectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
+        return new Promise(resolve => {
+            cr.rectangle(x + 0.5, y + 0.5, width, height);
+            Gdk.cairo_set_source_rgba(cr, fillColor);
+            cr.fillPreserve();
+            cr.setLineWidth(0.5);
+            Gdk.cairo_set_source_rgba(cr, outlineColor);
+            cr.stroke();
+            resolve(true);
+        });
+    }
+
+    _roundedRectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
+        const radius = 5;
+        const degrees = 3.14 / 180;
+
+        cr.newSubPath();
+
+        cr.arc(
+            x + width - radius,
+            y + radius, radius,
+            -90 * degrees,
+            0 * degrees
+        );
+
+        cr.arc(
+            x + width - radius,
+            y + height - radius,
+            radius, 0 * degrees,
+            90 * degrees
+        );
+
+        cr.arc(
+            x + radius,
+            y + height - radius,
+            radius,
+            90 * degrees,
+            180 * degrees
+        );
+
+        cr.arc(
+            x + radius,
+            y + radius,
+            radius,
+            180 * degrees,
+            270 * degrees
+        );
+
+        cr.closePath();
+
+        Gdk.cairo_set_source_rgba(cr, fillColor);
+        cr.fillPreserve();
+
+        cr.setLineWidth(1.0);
+        Gdk.cairo_set_source_rgba(cr, outlineColor);
+
+        cr.stroke();
     }
 };
 
