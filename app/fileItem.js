@@ -550,7 +550,7 @@ const FileItem = class extends DesktopIconItem.DesktopIconItem {
 
         if (gdkDropAction === Gdk.DragAction.MOVE || gdkDropAction === Gdk.DragAction.COPY) {
             if (localDrop)
-                this._dragManager.saveCurrentFileCoordinatesForUndo(fileList);
+                this._dragManager.saveCurrentFileCoordinatesForUndo();
             try {
                 returnAction = await this._dragManager.copyOrMoveUris(fileList,
                     this._file.get_uri(), event, {forceCopy});
