@@ -20,7 +20,6 @@
 import {Gtk, Gdk, Gio, GLib} from '../dependencies/gi.js';
 import * as DesktopIconItem from './desktopIconItem.js';
 
-
 import {_} from '../dependencies/gettext.js';
 
 export {SpecialFolderIcon};

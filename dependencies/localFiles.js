@@ -24,9 +24,9 @@ export * as DragManager from '../app/dragManager.js';
 export {IconCreator} from '../app/desktopIconFactory.js';
 export {FileItemIcon} from '../app/fileItemIcon.js';
 export {DesktopIconItem} from '../app/desktopIconItem.js';
+export {VolumeIcon} from '../app/volumeIcon.js';
 export {
     SpecialFolderIcon,
-    VolumeIcon,
     SymLinkIcon,
     DesktopFileIcon,
     AppImageFileIcon
