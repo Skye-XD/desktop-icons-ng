@@ -27,7 +27,5 @@ export {DesktopIconItem} from '../app/desktopIconItem.js';
 export {VolumeIcon} from '../app/volumeIcon.js';
 export {DesktopFileIcon} from '../app/desktopFileIcon.js';
 export {AppImageFileIcon} from '../app/appImageFileItem.js';
-export {
-    SpecialFolderIcon,
-    SymLinkIcon
-} from '../app/specialFolderIcon.js';
+export {SymLinkIcon} from '../app/symLinkIcon.js';
+export {SpecialFolderIcon} from '../app/specialFolderIcon.js';
