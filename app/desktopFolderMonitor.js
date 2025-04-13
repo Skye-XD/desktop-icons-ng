@@ -18,6 +18,7 @@
 import {
     FileItem
 } from '../dependencies/localFiles.js';
+import {IconCreator} from './desktopIconFactory.js';
 
 import {Gio, GLib, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
@@ -418,7 +419,7 @@ const DesktopMonitor = class {
                                 );
 
                             fileList.push(
-                                new FileItem.FileItem(
+                                new IconCreator(
                                     this.desktopManager,
                                     newFolder,
                                     newFolderInfo,
@@ -453,7 +454,7 @@ const DesktopMonitor = class {
 
                     childrenInfo?.forEach(info => {
                         const fileItem =
-                            new FileItem.FileItem(
+                            new IconCreator(
                                 this.desktopManager,
                                 this._desktopDir.get_child(info.get_name()),
                                 info,
@@ -512,7 +513,7 @@ const DesktopMonitor = class {
                                 );
 
                             fileList.push(
-                                new FileItem.FileItem(
+                                new IconCreator(
                                     this.desktopManager,
                                     newFolder,
                                     newFolderInfo,
