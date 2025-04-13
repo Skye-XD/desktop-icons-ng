@@ -22,11 +22,12 @@ export * as WindowManager from '../app/windowManager.js';
 export * as DesktopMenu from '../app/desktopMenu.js';
 export * as DragManager from '../app/dragManager.js';
 export {IconCreator} from '../app/desktopIconFactory.js';
+export {FileItemIcon} from '../app/fileItemIcon.js';
+export {DesktopIconItem} from '../app/desktopIconItem.js';
 export {
     SpecialFolderIcon,
     VolumeIcon,
     SymLinkIcon,
     DesktopFileIcon,
-    AppImageFileIcon,
-    FileItemIcon
+    AppImageFileIcon
 } from '../app/specialFolderIcon.js';
