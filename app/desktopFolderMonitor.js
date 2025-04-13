@@ -15,10 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {
-    FileItem
-} from '../dependencies/localFiles.js';
-import {IconCreator} from './desktopIconFactory.js';
+import {IconCreator} from '../dependencies/localFiles.js';
 
 import {Gio, GLib, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';

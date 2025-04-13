@@ -9,7 +9,6 @@ export * as DesktopIconsUtil from '../app/utils/desktopIconsUtil.js';
 export * as DesktopManager from '../app/desktopManager.js';
 export * as DesktopMonitor from '../app/desktopFolderMonitor.js';
 export * as Enums from '../app/enums.js';
-export * as FileItem from '../app/fileItem.js';
 export * as FileItemMenu from '../app/fileItemMenu.js';
 export * as FileUtils from '../utils/fileUtils.js';
 export * as Preferences from '../app/preferences.js';
@@ -22,7 +21,7 @@ export * as Thumbnails from '../app/thumbnails.js';
 export * as WindowManager from '../app/windowManager.js';
 export * as DesktopMenu from '../app/desktopMenu.js';
 export * as DragManager from '../app/dragManager.js';
-export * as DesktopIconFactory from '../app/desktopIconFactory.js';
+export {IconCreator} from '../app/desktopIconFactory.js';
 export {
     SpecialFolderIcon,
     VolumeIcon,
