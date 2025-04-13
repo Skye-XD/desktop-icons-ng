@@ -48,10 +48,12 @@ const DesktopMonitor = class {
         this._monitorVolumes();
         this._startMonitoringTemplatesDir();
         this.DBusUtils = this.desktopManager.DBusUtils;
+
         this.DBusUtils.GtkVfsMetadata.connectSignalToProxy(
             'AttributeChanged',
             this._metadataChanged.bind(this)
         );
+
         this._updateFileList().catch(e => console.error(e));
     }
 
@@ -66,63 +68,99 @@ const DesktopMonitor = class {
 
     _monitorDesktopDirChanges() {
         this._xdgUserDirs = this.DesktopIconsUtil.getXdgUserDirs();
+
         this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(
             Gio.FileMonitorFlags.WATCH_MOVES, null);
+
         this._monitorXdgUserDirs.set_rate_limit(2000);
-        this._monitorXdgUserDirs.connect('changed', (obj, file, otherFile, event) => {
-            if (!(event === Gio.FileMonitorEvent.CHANGES_DONE_HINT ||
-                event === Gio.FileMonitorEvent.RENAMED))
-                return;
 
-            if (this._changingDesktopDirID)
-                GLib.source_remove(this._changingDesktopDirID);
+        this._monitorXdgUserDirs.connect(
+            'changed',
+            (obj, file, otherFile, event) => {
+                if (!(event === Gio.FileMonitorEvent.CHANGES_DONE_HINT ||
+                    event === Gio.FileMonitorEvent.RENAMED))
+                    return;
 
-            this._changingDesktopDirID = GLib.timeout_add(GLib.PRIORITY_LOW, 500, () => {
-                const newDesktopDir = this.DesktopIconsUtil.getDesktopDir();
-                const isFolder = newDesktopDir.query_file_type(
-                    Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
-                    null) === Gio.FileType.DIRECTORY;
+                if (this._changingDesktopDirID)
+                    GLib.source_remove(this._changingDesktopDirID);
 
-                if (!isFolder) {
-                    const header = _('Desktop Folder Change Failed');
-                    const text = _('The new Desktop Folder does not exist!');
-                    this.dbusManager.doNotify(header, text);
-                    this._changingDesktopDirID = null;
-                    return GLib.SOURCE_REMOVE;
-                }
+                this._changingDesktopDirID =
+                    GLib.timeout_add(GLib.PRIORITY_LOW, 500, () => {
+                        const newDesktopDir =
+                            this.DesktopIconsUtil.getDesktopDir();
 
-                if (newDesktopDir.get_path() === this._desktopDir.get_path()) {
-                    this._changingDesktopDirID = null;
-                    return GLib.SOURCE_REMOVE;
-                }
+                        const isFolder =
+                            newDesktopDir.query_file_type(
+                                Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                                null
+                            ) === Gio.FileType.DIRECTORY;
 
-                const header = _('Desktop Folder Changed');
-                const text = _('Switching to new Desktop...');
-                this.dbusManager.doNotify(header, text);
+                        if (!isFolder) {
+                            const header =
+                                _('Desktop Folder Change Failed');
 
-                this._desktopDir = newDesktopDir;
-                this._updateWritableByOthers().catch(e => console.error(e));
-                this._desktops.forEach(d => d.unsetErrorState());
+                            const text =
+                                _('The new Desktop Folder does not exist!');
 
-                this._updateFileList().catch(e => console.error(e));
+                            this.dbusManager.doNotify(header, text);
+                            this._changingDesktopDirID = null;
 
-                this._monitorDesktopChanges();
-                this._changingDesktopDirID = null;
-                return GLib.SOURCE_REMOVE;
+                            return GLib.SOURCE_REMOVE;
+                        }
+
+                        if (newDesktopDir.get_path() ===
+                            this._desktopDir.get_path()
+                        ) {
+                            this._changingDesktopDirID = null;
+
+                            return GLib.SOURCE_REMOVE;
+                        }
+
+                        const header = _('Desktop Folder Changed');
+                        const text = _('Switching to new Desktop...');
+                        this.dbusManager.doNotify(header, text);
+
+                        this._desktopDir = newDesktopDir;
+
+                        this._updateWritableByOthers()
+                            .catch(e => console.error(e));
+
+                        this._desktops.forEach(d => d.unsetErrorState());
+
+                        this._updateFileList().catch(e => console.error(e));
+
+                        this._monitorDesktopChanges();
+                        this._changingDesktopDirID = null;
+
+                        return GLib.SOURCE_REMOVE;
+                    });
             });
-        });
     }
 
     async _updateWritableByOthers() {
         try {
-            const info = await this._desktopDir.query_info_async(Gio.FILE_ATTRIBUTE_UNIX_MODE,
-                Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
-            this.unixMode = info.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
-            let writableByOthers = (this.unixMode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
+            const info =
+                await this._desktopDir.query_info_async(
+                    Gio.FILE_ATTRIBUTE_UNIX_MODE,
+                    Gio.FileQueryInfoFlags.NONE,
+                    GLib.PRIORITY_LOW,
+                    null
+                );
+
+            this.unixMode =
+                info.get_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE);
+
+            let writableByOthers =
+                (this.unixMode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
+
             if (writableByOthers !== this.writableByOthers) {
                 this.writableByOthers = writableByOthers;
-                if (this.writableByOthers)
-                    console.log('desktop-icons: The desktop is writable by others. Not allowing launching any desktop files.');
+
+                if (this.writableByOthers) {
+                    console.log('desktop-icons: The desktop is writable by' +
+                        ' others. Not allowing launching any desktop files.'
+                    );
+                }
 
                 return true;
             } else {
@@ -131,6 +169,7 @@ const DesktopMonitor = class {
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
                 this.writableByOthers = true;
+
                 return true;
             }
             throw e;
@@ -139,32 +178,61 @@ const DesktopMonitor = class {
 
     _monitorDesktopChanges() {
         const cancellable = new Gio.Cancellable();
+
         if (this._monitorDesktopCancellable)
             this._monitorDesktopCancellable.cancel();
+
         this._monitorDesktopCancellable = cancellable;
-        this._monitorDesktopDir = this._desktopDir.monitor_directory(Gio.FileMonitorFlags.WATCH_MOVES, cancellable);
+
+        this._monitorDesktopDir =
+            this._desktopDir.monitor_directory(
+                Gio.FileMonitorFlags.WATCH_MOVES,
+                cancellable
+            );
+
         this._monitorDesktopDir.set_rate_limit(1000);
-        const monitorID = this._monitorDesktopDir.connect('changed', (obj, file, otherFile, eventType) =>
-            this._updateFileListIfChanged(file, otherFile, eventType).catch(e => console.error(e)));
-        cancellable.connect(() => {
-            this._monitorDesktopDir.disconnect(monitorID);
-            this._monitorDesktopDir = null;
-            this.monitorDesktopCancellable = null;
-        });
+
+        const monitorID = this._monitorDesktopDir.connect(
+            'changed',
+            (obj, file, otherFile, eventType) => {
+                this._updateFileListIfChanged(file, otherFile, eventType)
+                .catch(e => console.error(e));
+            }
+        );
+
+        cancellable.connect(
+            () => {
+                this._monitorDesktopDir.disconnect(monitorID);
+                this._monitorDesktopDir = null;
+                this.monitorDesktopCancellable = null;
+            }
+        );
     }
 
 
     _monitorVolumes() {
         this._volumeMonitor = Gio.VolumeMonitor.get();
-        this._volumeMonitor.connect('mount-added', () => {
-            this.onMountAdded();
-        });
-        this._volumeMonitor.connect('mount-removed', () => {
-            GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
-                this.onMountRemoved();
-                return GLib.SOURCE_REMOVE;
-            });
-        });
+
+        this._volumeMonitor.connect(
+            'mount-added',
+            () => {
+                this.onMountAdded();
+            }
+        );
+
+        this._volumeMonitor.connect(
+            'mount-removed',
+            () => {
+                GLib.timeout_add(
+                    GLib.PRIORITY_DEFAULT,
+                    500,
+                    () => {
+                        this.onMountRemoved();
+                        return GLib.SOURCE_REMOVE;
+                    }
+                );
+            }
+        );
     }
 
     async _updateFileListIfChanged(file, otherFile, eventType) {
@@ -172,23 +240,36 @@ const DesktopMonitor = class {
             // use only CHANGES_DONE_HINT
             return;
         }
+
         if (!this.Prefs.showHidden && (file.get_basename()[0] === '.')) {
             // If the file is not visible, we don't need to refresh the desktop
             // Unless it is a hidden file being renamed to visible
             if (!otherFile || (otherFile.get_basename()[0] === '.'))
                 return;
         }
+
         switch (eventType) {
         case Gio.FileMonitorEvent.MOVED_IN:
         case Gio.FileMonitorEvent.MOVED_CREATED:
-            /* Remove the coordinates that could exist to avoid conflicts between
-                   files that are already in the desktop and the new one
-                 */
+            /* Remove the coordinates that could exist to avoid conflicts
+            between files that are already in the desktop and the new one
+            */
             try {
-                let info = new Gio.FileInfo();
-                info.set_attribute_string('metadata::desktop-icon-position', '');
-                file.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_LOW, null);
-            } catch (e) {} // can happen if a file is created and deleted very fast
+                const info = new Gio.FileInfo();
+
+                info.set_attribute_string(
+                    'metadata::desktop-icon-position', ''
+                );
+
+                file.set_attributes_async(
+                    info,
+                    Gio.FileQueryInfoFlags.NONE,
+                    GLib.PRIORITY_LOW,
+                    null
+                );
+            } catch (e) {
+                // can happen if a file is created and deleted very fast
+            }
             break;
         case Gio.FileMonitorEvent.ATTRIBUTE_CHANGED:
             /* The desktop is what changed, and not a file inside it */
@@ -197,7 +278,11 @@ const DesktopMonitor = class {
                     try {
                         await this._updateFileList();
                     } catch (e) {
-                        console.error(e, `Exception while updating desktop from Directory Monitor attribute change: ${e.message}`);
+                        console.error(
+                            e,
+                            'Exception while updating desktop from' +
+                            ` Directory Monitor attribute change: ${e.message}`
+                        );
                     }
                 }
                 return;
@@ -208,27 +293,35 @@ const DesktopMonitor = class {
         try {
             await this._updateFileList();
         } catch (e) {
-            console.error(e, `Exception while updating desktop from Directory Monitor: ${e.message}`);
+            console.error(
+                e,
+                'Exception while updating desktop from Directory Monitor: ' +
+                `${e.message}`
+            );
         }
     }
 
     _startMonitoringTemplatesDir() {
-        this.templatesMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
-            this.DesktopIconsUtil.getTemplatesDir(),
-            this._newDocument.bind(this),
-            this._templatesDirSelectionFilter.bind(this),
-            {
-                mainApp: this.mainApp,
-                appName: 'templateapp',
-                FileUtils: this.FileUtils,
-                Enums: this.Enums,
-            }
-        );
+        this.templatesMonitor =
+            new TemplatesScriptsManager.TemplatesScriptsManager(
+                this.DesktopIconsUtil.getTemplatesDir(),
+                this._newDocument.bind(this),
+                this._templatesDirSelectionFilter.bind(this),
+                {
+                    mainApp: this.mainApp,
+                    appName: 'templateapp',
+                    FileUtils: this.FileUtils,
+                    Enums: this.Enums,
+                }
+            );
     }
 
     _templatesDirSelectionFilter(fileinfo) {
-        const name = this.DesktopIconsUtil.getFileExtensionOffset(
-            fileinfo.get_name()).basename;
+        const name =
+            this.DesktopIconsUtil.getFileExtensionOffset(
+                fileinfo.get_name()
+            ).basename;
+
         const hiddenfile = name.substring(0, 1) === '.';
 
         if (!this.Prefs.showHidden && hiddenfile)
@@ -250,21 +343,37 @@ const DesktopMonitor = class {
 
             try {
                 const info = new Gio.FileInfo();
-                info.set_attribute_string('metadata::nautilus-drop-position', `${this._clickX},${this._clickY}`);
-                info.set_attribute_string('metadata::desktop-icon-position', '');
+
+                info.set_attribute_string(
+                    'metadata::nautilus-drop-position',
+                    `${this._clickX},${this._clickY}`
+                );
+
+                info.set_attribute_string(
+                    'metadata::desktop-icon-position',
+                    ''
+                );
+
                 info.set_attribute_uint32(Gio.FILE_ATTRIBUTE_UNIX_MODE, 0o600);
-                await destination.set_attributes_async(info, Gio.FileQueryInfoFlags.NONE,
-                    GLib.PRIORITY_DEFAULT, null);
+
+                await destination.set_attributes_async(
+                    info,
+                    Gio.FileQueryInfoFlags.NONE,
+                    GLib.PRIORITY_DEFAULT,
+                    null
+                );
             } catch (e) {
-                console.error(e, `Failed to set template metadata ${e.message}`);
+                console.error(e, `Error setting template metadata ${e.message}`);
             }
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
                 this.desktopManager._performSanityChecks();
             else
                 console.error(e, `Failed to create template ${e.message}`);
+
             const header = _('Template Creation Error');
             const text = _('Could not create document');
+
             this.dbusManager.doNotify(header, text);
         }
     }
@@ -273,10 +382,12 @@ const DesktopMonitor = class {
         if (this._readingDesktopFiles) {
             // just notify that the files changed while being read from the disk.
             this._desktopFilesChanged = true;
+
             if (this._desktopEnumerateCancellable && !this._forceDraw) {
                 this._desktopEnumerateCancellable.cancel();
                 this._desktopEnumerateCancellable = null;
             }
+
             return;
         }
 
@@ -284,6 +395,7 @@ const DesktopMonitor = class {
         this._forceDraw = false;
         this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
         let fileList;
+
         while (true) {
             this._desktopFilesChanged = false;
             try {
@@ -297,6 +409,7 @@ const DesktopMonitor = class {
 
                 throw e;
             }
+
             if (this._forcedExit)
                 return;
 
@@ -310,13 +423,19 @@ const DesktopMonitor = class {
                     this._lastDesktopUpdateRequest = GLib.get_monotonic_time();
                 }
             }
+
             // eslint-disable-next-line no-await-in-loop
             await this.DesktopIconsUtil.waitDelayMs(500);
-            if ((GLib.get_monotonic_time() - this._lastDesktopUpdateRequest) > 1000000)
+
+            if (
+                (GLib.get_monotonic_time() - this._lastDesktopUpdateRequest) >
+                1000000
+            )
                 this._forceDraw = true;
             else
                 this._forceDraw = false;
         }
+
         this._readingDesktopFiles = false;
         this._forceDraw = false;
         this._fileList = fileList;
@@ -334,84 +453,162 @@ const DesktopMonitor = class {
         try {
             const fileList = [];
 
-            const extraFoldersItems = this.DesktopIconsUtil.getExtraFolders().map(async ([newFolder, extras]) => {
-                try {
-                    if (imports.system.version < 17200)
-                        Gio._promisify(newFolder.constructor.prototype, 'query_info_async');
-                    const newFolderInfo = await newFolder.query_info_async(
-                        this.Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE,
-                        GLib.PRIORITY_DEFAULT, cancellable);
-                    fileList.push(new FileItem.FileItem(this.desktopManager,
-                        newFolder,
-                        newFolderInfo,
-                        extras,
-                        null));
-                } catch (e) {
-                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                        throw e;
-                    console.error(e, `Failed with ${e.message} while adding extra folder ${newFolder.get_uri()}`);
-                }
-            });
+            const extraFoldersItems =
+                this.DesktopIconsUtil.getExtraFolders().map(
+                    async ([newFolder, extras]) => {
+                        try {
+                            if (imports.system.version < 17200) {
+                                Gio._promisify(
+                                    newFolder.constructor.prototype,
+                                    'query_info_async'
+                                );
+                            }
 
-            const getLocalFilesInfos = async () => {
-                const childrenInfo = await this.FileUtils.enumerateDir(this._desktopDir,
-                    cancellable, GLib.PRIORITY_DEFAULT, this.Enums.DEFAULT_ATTRIBUTES);
+                            const newFolderInfo =
+                                await newFolder.query_info_async(
+                                    this.Enums.DEFAULT_ATTRIBUTES,
+                                    Gio.FileQueryInfoFlags.NONE,
+                                    GLib.PRIORITY_DEFAULT,
+                                    cancellable
+                                );
 
-                childrenInfo?.forEach(info => {
-                    const fileItem = new FileItem.FileItem(this.desktopManager,
-                        this._desktopDir.get_child(info.get_name()),
-                        info,
-                        this.Enums.FileType.NONE,
-                        null);
-                    if (fileItem.isHidden && !this.Prefs.showHidden) {
-                        /* if there are hidden files in the desktop and the user doesn't want to
-                            show them, remove the coordinates. This ensures that if the user enables
-                            showing them, they won't fight with other icons for the same place
-                        */
-                        if (fileItem.savedCoordinates) {
-                            // only overwrite them if needed
-                            fileItem.savedCoordinates = null;
+                            fileList.push(
+                                new FileItem.FileItem(
+                                    this.desktopManager,
+                                    newFolder,
+                                    newFolderInfo,
+                                    extras,
+                                    null
+                                )
+                            );
+                        } catch (e) {
+                            if (e.matches(
+                                Gio.IOErrorEnum,
+                                Gio.IOErrorEnum.CANCELLED)
+                            )
+                                throw e;
+
+                            console.error(e,
+                                `Failed with ${e.message} while adding` +
+                                ` extra folder ${newFolder.get_uri()}`
+                            );
                         }
-                        return;
                     }
-                    fileItem.savedCoordinates = fileItem.savedCoordinates ?? null;
-                    fileItem.dropCoordinates = fileItem.dropCoordinates ?? null;
-                    if (fileItem.savedCoordinates === null || fileItem.dropCoordinates === null) {
-                        const basename = fileItem.file.get_basename();
-                        this._checkBasenameInPending(fileItem, basename);
-                    }
-                    fileList.push(fileItem);
-                });
-            };
+                );
 
-            const mountsItems = this.DesktopIconsUtil.getMounts(this._volumeMonitor).map(async ([newFolder, extras, volume]) => {
-                try {
-                    if (imports.system.version < 17200)
-                        Gio._promisify(newFolder.constructor.prototype, 'query_info_async');
-                    const newFolderInfo = await newFolder.query_info_async(
-                        this.Enums.DEFAULT_ATTRIBUTES, Gio.FileQueryInfoFlags.NONE,
-                        GLib.PRIORITY_DEFAULT, cancellable);
-                    fileList.push(new FileItem.FileItem(this.desktopManager,
-                        newFolder,
-                        newFolderInfo,
-                        extras,
-                        volume));
-                } catch (e) {
-                    if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                        throw e;
-                    console.error(e, `Failed with ${e.message} while adding volume ${newFolder}`);
-                }
-            });
+            const getLocalFilesInfos =
+                async () => {
+                    const childrenInfo =
+                        await this.FileUtils.enumerateDir(
+                            this._desktopDir,
+                            cancellable,
+                            GLib.PRIORITY_DEFAULT,
+                            this.Enums.DEFAULT_ATTRIBUTES
+                        );
 
-            await Promise.all([getLocalFilesInfos(), ...extraFoldersItems, ...mountsItems]);
+                    childrenInfo?.forEach(info => {
+                        const fileItem =
+                            new FileItem.FileItem(
+                                this.desktopManager,
+                                this._desktopDir.get_child(info.get_name()),
+                                info,
+                                this.Enums.FileType.NONE,
+                                null
+                            );
+
+                        if (fileItem.isHidden && !this.Prefs.showHidden) {
+                            /* if there are hidden files in the desktop and the
+                            user doesn't want to show them, remove the
+                            coordinates. This ensures that if the user enables
+                            showing them, they won't fight with other icons
+                            for the same place
+                            */
+                            if (fileItem.savedCoordinates) {
+                                // only overwrite them if needed
+                                fileItem.savedCoordinates = null;
+                            }
+                            return;
+                        }
+
+                        fileItem.savedCoordinates =
+                            fileItem.savedCoordinates ?? null;
+
+                        fileItem.dropCoordinates =
+                            fileItem.dropCoordinates ?? null;
+
+                        if (fileItem.savedCoordinates === null ||
+                            fileItem.dropCoordinates === null
+                        ) {
+                            const basename = fileItem.file.get_basename();
+                            this._checkBasenameInPending(fileItem, basename);
+                        }
+
+                        fileList.push(fileItem);
+                    });
+                };
+
+            const mountsItems =
+                this.DesktopIconsUtil.getMounts(this._volumeMonitor).map(
+                    async ([newFolder, extras, volume]) => {
+                        try {
+                            if (imports.system.version < 17200) {
+                                Gio._promisify(
+                                    newFolder.constructor.prototype,
+                                    'query_info_async'
+                                );
+                            }
+
+                            const newFolderInfo =
+                                await newFolder.query_info_async(
+                                    this.Enums.DEFAULT_ATTRIBUTES,
+                                    Gio.FileQueryInfoFlags.NONE,
+                                    GLib.PRIORITY_DEFAULT,
+                                    cancellable
+                                );
+
+                            fileList.push(
+                                new FileItem.FileItem(
+                                    this.desktopManager,
+                                    newFolder,
+                                    newFolderInfo,
+                                    extras,
+                                    volume
+                                )
+                            );
+                        } catch (e) {
+                            if (e.matches(
+                                Gio.IOErrorEnum,
+                                Gio.IOErrorEnum.CANCELLED)
+                            )
+                                throw e;
+
+                            console.error(e,
+                                `Failed with ${e.message} while ` +
+                                `adding volume ${newFolder}`
+                            );
+                        }
+                    });
+
+            await Promise.all(
+                [
+                    getLocalFilesInfos(),
+                    ...extraFoldersItems,
+                    ...mountsItems,
+                ]
+            );
 
             if (this._desktopFilesChanged && !this._forceDraw)
                 return null;
 
             return fileList;
         } catch (e) {
-            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
-                console.error(e, `Failed to read contents of ${this._desktopDir.get_path()}`);
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED)) {
+                console.error(e,
+                    'Failed to read contents of' +
+                    `${this._desktopDir.get_path()}`
+                );
+            }
+
             return null;
         } finally {
             if (cancellable === this._desktopEnumerateCancellable)
@@ -421,25 +618,33 @@ const DesktopMonitor = class {
 
     _checkBasenameInPending(fileItem, basename) {
         if (basename in this._pendingSelfCopyFiles) {
-            if (fileItem.savedCoordinates === null)
-                fileItem.savedCoordinates = this._pendingSelfCopyFiles[basename];
+            if (fileItem.savedCoordinates === null) {
+                fileItem.savedCoordinates =
+                    this._pendingSelfCopyFiles[basename];
+            }
+
             delete this._pendingSelfCopyFiles[basename];
             return;
         }
+
         if (basename in this._pendingDropFiles) {
             fileItem.dropCoordinates = this._pendingDropFiles[basename];
             delete this._pendingDropFiles[basename];
             return;
         }
+
         const regex = /\(.*\)[^()]*$/;
         let basenameStart;
-        let lastParenthesisPosition = basename.search(regex);
+        const lastParenthesisPosition = basename.search(regex);
+
         if (lastParenthesisPosition > 1) {
             basenameStart = basename.slice(0, lastParenthesisPosition - 1);
             if (basenameStart) {
                 for (let fileName of Object.keys(this._pendingDropFiles)) {
                     if (fileName.startsWith(basenameStart)) {
-                        fileItem.dropCoordinates = this._pendingDropFiles[fileName];
+                        fileItem.dropCoordinates =
+                            this._pendingDropFiles[fileName];
+
                         delete this._pendingDropFiles[fileName];
                     }
                 }
@@ -448,7 +653,8 @@ const DesktopMonitor = class {
     }
 
     _metadataChanged(proxy, nameOwner, args) {
-        let filepath = GLib.build_filenamev([GLib.get_home_dir(), args[1]]);
+        const filepath = GLib.build_filenamev([GLib.get_home_dir(), args[1]]);
+
         if (this._desktopDir.get_path() === GLib.path_get_dirname(filepath)) {
             for (let fileItem of this._fileList) {
                 if (fileItem.path === filepath) {
@@ -461,18 +667,25 @@ const DesktopMonitor = class {
 
     onMountAdded() {
         this._updateFileList().catch(e => {
-            console.log(`Exception while updating Desktop after a mount was added: ${e.message}\n${e.stack}`);
+            console.log(
+                'Exception while updating Desktop after a' +
+                ` mount was added: ${e.message}\n${e.stack}`
+            );
         });
     }
 
     onMountRemoved() {
         this._updateFileList().catch(e => {
-            console.log(`Exception while updating Desktop after a mount was removed: ${e.message}\n${e.stack}`);
+            console.log(
+                'Exception while updating Desktop after a ' +
+                `mount was removed: ${e.message}\n${e.stack}`
+            );
         });
     }
 
     fileExistsOnDesktop(searchName) {
         const listOfFileNamesOnDesktop = this._fileList.map(f => f.fileName);
+
         if (listOfFileNamesOnDesktop.includes(searchName))
             return true;
         else
