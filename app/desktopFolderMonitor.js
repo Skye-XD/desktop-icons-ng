@@ -703,11 +703,11 @@ const DesktopMonitor = class {
     }
 
     get _pendingDropFiles() {
-        return this.desktopManager._pendingDropFiles;
+        return this.desktopManager.pendingDropFiles;
     }
 
     get _pendingSelfCopyFiles() {
-        return this.desktopManager._pendingSelfCopyFiles;
+        return this.desktopManager.pendingSelfCopyFiles;
     }
 
     get desktopDir() {

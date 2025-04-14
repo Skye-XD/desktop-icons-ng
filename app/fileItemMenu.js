@@ -32,6 +32,7 @@ const FileItemMenu = class {
         this._DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
         this._DBusUtils = desktopManager.DBusUtils;
         this._Enums = desktopManager.Enums;
+        this._dragManager = desktopManager.dragManager;
 
         this._gnomeArchiveManager =
             this._DBusUtils.RemoteFileOperations.gnomeArchiveManager;
@@ -556,6 +557,7 @@ const FileItemActions = class {
         this._Enums = this._desktopManager.Enums;
         this._appChooser = this._desktopManager.appChooser;
         this._dbusManager = this._desktopManager.dbusManager;
+        this._dragManager = this._desktopManager.dragManager;
         this._createFileItemMenuActions();
     }
 
@@ -1287,7 +1289,8 @@ const FileItemActions = class {
 
         const desktopFolderUri = this._desktopDir.get_uri();
         const [X, Y] = this.activeFileItem.getCoordinates().slice(0, 2);
-        this._desktopManager.makeLinks(toLink, desktopFolderUri, X, Y);
+        this._dragManager.makeLinks(toLink, desktopFolderUri, X, Y)
+        .catch(e => logError(e));
     }
 
     _doCopy() {
@@ -1398,14 +1401,14 @@ const FileItemActions = class {
 
     _manageCutCopy(action) {
         const uriList =
-            this._desktopManager
+            this._dragManager
             .fillDragDataGet(this._Enums.DndTargetInfo.TEXT_URI_LIST);
 
         if (!uriList?.length)
             return;
 
         const pathList =
-            this._desktopManager
+            this._dragManager
             .fillDragDataGet(this._Enums.DndTargetInfo.TEXT_PLAIN);
 
         const clipboard = Gdk.Display.get_default().get_clipboard();

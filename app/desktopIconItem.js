@@ -32,6 +32,7 @@ GdkPixbuf.Pixbuf.get_formats().forEach(f => PIXBUF_CONTENT_TYPES.add(...f.get_mi
 const DesktopIconItem = class {
     constructor(desktopManager, fileExtra) {
         this._desktopManager = desktopManager;
+        this._dragManager = desktopManager.dragManager;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
         this.FileUtils = desktopManager.FileUtils;
         this.Prefs = desktopManager.Prefs;
@@ -381,7 +382,7 @@ const DesktopIconItem = class {
 
     _doButtonThreePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         if (!this._isSelected)
-            this._desktopManager.selected(this, this.Enums.Selection.RIGHT_BUTTON);
+            this._dragManager.selected(this, this.Enums.Selection.RIGHT_BUTTON);
         this._destroyToolTip();
         this._desktopManager.fileItemMenu.showMenu(this, button, X, Y, x, y, shiftPressed, controlPressed);
     }
@@ -389,9 +390,9 @@ const DesktopIconItem = class {
     _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
         if (this.getClickCount() === 1) {
             if (shiftPressed || controlPressed)
-                this._desktopManager.selected(this, this.Enums.Selection.WITH_SHIFT);
+                this._dragManager.selected(this, this.Enums.Selection.WITH_SHIFT);
             else
-                this._desktopManager.selected(this, this.Enums.Selection.ALONE);
+                this._dragManager.selected(this, this.Enums.Selection.ALONE);
         }
     }
 
@@ -805,6 +806,14 @@ const DesktopIconItem = class {
 
     get savedCoordinates() {
         return this._savedCoordinates;
+    }
+
+    get normalCoordinates() {
+        return this._normalCoordinates;
+    }
+
+    get monitorIndex() {
+        return this._monitorIndex;
     }
 
     get dropCoordinates() {
