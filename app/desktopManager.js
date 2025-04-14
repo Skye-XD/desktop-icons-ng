@@ -1539,47 +1539,6 @@ const DesktopManager = class {
         }
     }
 
-    doTrash(localDrag = false, event = null) {
-        const selectionItems =
-            this._displayList.filter(i => i.isSelected && !i.isSpecial);
-
-        if (!selectionItems.length)
-            return;
-
-        if (!localDrag)
-            this.dragManager.saveCurrentFileCoordinatesForUndo(selectionItems);
-
-        const selectionURIs = [];
-
-        selectionItems.forEach(f => {
-            selectionURIs.push(f.file.get_uri());
-        });
-
-        if (event)
-            this.DBusUtils.RemoteFileOperations.pushEvent(event);
-
-        this.DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
-    }
-
-    doDeletePermanently() {
-        const toDelete =
-            this._displayList
-            .filter(i => i.isSelected && !i.isSpecial)
-            .map(i => i.file.get_uri());
-
-        if (!toDelete.length) {
-            if (this._displayList.some(i => i.isSelected && i.isTrash))
-                this.doEmptyTrash();
-            return;
-        }
-
-        this.DBusUtils.RemoteFileOperations.DeleteURIsRemote(toDelete);
-    }
-
-    doEmptyTrash(askConfirmation = true) {
-        this.DBusUtils.RemoteFileOperations.EmptyTrashRemote(askConfirmation);
-    }
-
     async doNewFolder(
         position = null,
         suggestedName = null,
