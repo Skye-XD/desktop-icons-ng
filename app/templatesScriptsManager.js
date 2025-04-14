@@ -24,11 +24,9 @@ const MAX_MENUENTRIES = 50;
 const MAX_MENU_DEPTH = 10;
 
 const TemplatesScriptsManager = class {
-    constructor(baseFolder, callback, selectionfilter, Data) {
-        this._callback = callback;
+    constructor(baseFolder, selectionfilter, Data) {
         this._selectionFilter = selectionfilter;
-        this._mainApp = Data.mainApp;
-        this.scriptManagerActionName = Data.appName;
+        this._actionName = Data.appName;
         this.FileUtils = Data.FileUtils;
         this.Enums = Data.Enums;
         this._entries = [];
@@ -36,9 +34,6 @@ const TemplatesScriptsManager = class {
         this._entriesDir = baseFolder;
         this._entriesDirMonitors = [];
         this.gioMenu = null;
-        this.menuSimpleAction = Gio.SimpleAction.new(`${this.scriptManagerActionName}`, GLib.VariantType.new('s'));
-        this.menuSimpleAction.connect('activate', (action, parameter) => this._callback(parameter.recursiveUnpack()));
-        this._mainApp.add_action(this.menuSimpleAction);
 
         if (this._entriesDir === GLib.get_home_dir())
             this._entriesDir = null;
@@ -116,7 +111,7 @@ const TemplatesScriptsManager = class {
                     continue;
                 this._menuEntries.add(menuItemPath);
                 let menuItem = Gio.MenuItem.new(`${menuItemName}`, null);
-                menuItem.set_action_and_target_value(`app.${this.scriptManagerActionName}`, GLib.Variant.new('s', `${menuItemPath}`));
+                menuItem.set_action_and_target_value(this._actionName, GLib.Variant.new('s', `${menuItemPath}`));
                 menu.append_item(menuItem);
                 menuhasentries = true;
                 continue;

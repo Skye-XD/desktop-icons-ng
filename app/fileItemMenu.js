@@ -52,16 +52,14 @@ const FileItemMenu = class {
 
         this.scriptsMonitor = new this._templatesScriptsManager.TemplatesScriptsManager(
             this.DesktopIconsUtil.getScriptsDir(),
-            this._onScriptClicked.bind(this),
             this._scriptsDirSelectionFilter.bind(this),
             {
-                mainApp: this._mainApp,
-                appName: 'scriptapp',
+                appName: 'app.onScriptClicked',
                 FileUtils: this._desktopManager.FileUtils,
                 Enums: this._desktopManager.Enums,
             }
         );
-        this.activeFileItem = null;
+        this._activeFileItem = null;
         this._createFileItemMenuActions();
     }
 
@@ -272,13 +270,18 @@ const FileItemMenu = class {
             this._bulkMove();
         });
         this._mainApp.add_action(bulkMove);
+        const onScriptClicked = Gio.SimpleAction.new('onScriptClicked', GLib.VariantType.new('s'));
+        onScriptClicked.connect('activate', (action, parameter) => {
+            this._onScriptClicked(parameter.unpack());
+        });
+        this._mainApp.add_action(onScriptClicked);
     }
 
     /* Shows all possible values that can be assigned to this function */
 
     // eslint-disable-next-line no-unused-vars
     showMenu(fileItem, button = null, X = null, Y = null, x = null, y = null, shiftSelected = false, controlSelected = false) {
-        this.activeFileItem = this._desktopManager.activeFileItem = fileItem;
+        this.activeFileItem = fileItem;
         const selectedItemsNum = this._desktopManager.getNumberOfSelectedItems();
         const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
         const menulocation = X ? new Gdk.Rectangle({x, y, width: 1, height: 1}) : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
@@ -496,10 +499,17 @@ const FileItemMenu = class {
             await this.DesktopIconsUtil.waitDelayMs(50);
             this.popupmenu.unparent();
             this.popupmenu = null;
-            if (this._desktopManager.popupmenuclosed)
-                this._desktopManager.popupmenuclosed(true);
+            if (this.popupmenuclosed)
+                this.popupmenuclosed(true);
+            this.popupmenuclosed = null;
         });
     }
+
+    menuclosed = () => {
+        return new Promise(resolve => {
+            this.popupmenuclosed = resolve;
+        });
+    };
 
     showToolTip(fileItem) {
         if (this._toolTipPopup)
@@ -581,7 +591,7 @@ const FileItemMenu = class {
             context.set_timestamp(Gdk.CURRENT_TIME);
             let chooser = new this.appChooser.AppChooserDialog(this._codePath, fileItems, this.activeFileItem, this._desktopManager.dbusManager,
                 this._desktopManager.DesktopIconsUtil);
-            this._desktopManager.textEntryAccelsTurnOff();
+            this._mainApp.activate_action('textEntryAccelsTurnOff', null);
             chooser.show();
             const appInfo = await chooser.getApplicationSelected().catch(e => console.error(e));
             if (appInfo) {
@@ -591,7 +601,7 @@ const FileItemMenu = class {
 
                 appInfo.launch(fileList, context);
             }
-            this._desktopManager.textEntryAccelsTurnOn();
+            this._mainApp.activate_action('textEntryAccelsTurnOn', null);
             chooser.hide();
             chooser.finalize();
             chooser = null;
@@ -699,7 +709,7 @@ const FileItemMenu = class {
             const modal = true;
             dialog.set_modal(modal);
             this.DesktopIconsUtil.windowHidePagerTaskbarModal(dialog, modal);
-            this._desktopManager.textEntryAccelsTurnOff();
+            this._mainApp.activate_action('textEntryAccelsTurnOff', null);
             dialog.show();
             dialog.present_with_time(Gdk.CURRENT_TIME);
             dialog.connect('close', () => {
@@ -713,7 +723,7 @@ const FileItemMenu = class {
                     else
                         returnValue = false;
                 }
-                this._desktopManager.textEntryAccelsTurnOn();
+                this._mainApp.activate_action('textEntryAccelsTurnOn', null);
                 dialog.destroy();
                 resolve(returnValue);
             });
@@ -853,7 +863,7 @@ const FileItemMenu = class {
     }
 
     async _mailzippedFilesFromSelection(pathnameArray) {
-        this._textEntryAccelsTurnOff();
+        this._mainApp.activate_action('textEntryAccelsTurnOff', null);
         const chooser = new Gtk.AlertDialog();
         chooser.set_message(_('Can not email a Directory'));
         chooser.set_detail(_('Selection includes a Directory, compress to a .zip file first?'));
@@ -870,7 +880,7 @@ const FileItemMenu = class {
             }
             this._desktopManager.unselectAll();
         });
-        this._textEntryAccelsTurnOn();
+        this._mainApp.activate_action('textEntryAccelsTurnOn', null);
     }
 
     _doCompressFilesFromSelection() {
@@ -999,15 +1009,15 @@ const FileItemMenu = class {
         this._desktopManager.dbusManager.doNotify(header, text);
     }
 
-    _textEntryAccelsTurnOff() {
-        this._desktopManager.textEntryAccelsTurnOff();
-    }
-
-    _textEntryAccelsTurnOn() {
-        this._desktopManager.textEntryAccelsTurnOn();
-    }
-
     get _desktopDir() {
-        return this._desktopManager.desktopDir;
+        return this._desktopManager._desktopDir;
+    }
+
+    set activeFileItem(fileItem) {
+        this._activeFileItem = fileItem;
+    }
+
+    get activeFileItem() {
+        return this._activeFileItem;
     }
 };

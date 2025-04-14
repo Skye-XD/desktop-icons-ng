@@ -221,14 +221,6 @@ const GnomeShellDrag = class {
         return false;
     }
 
-    _textEntryAccelsTurnOff() {
-        this._desktopManager.textEntryAccelsTurnOff();
-    }
-
-    _textEntryAccelsTurnOn() {
-        this._desktopManager.textEntryAccelsTurnOn();
-    }
-
     _showAppCannotOpenError(Appname) {
         const timeout = 3000; // In ms
         this._desktopManager.showError(
