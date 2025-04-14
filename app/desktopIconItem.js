@@ -747,9 +747,6 @@ const DesktopIconItem = class {
     }
 
     _getDefaultIcon() {
-        if (this._fileTypeEnum === this.Enums.FileType.EXTERNAL_DRIVE)
-            return this._custom.get_icon();
-
         return this._fileInfo.get_icon();
     }
 

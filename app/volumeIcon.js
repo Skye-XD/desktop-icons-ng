@@ -69,6 +69,14 @@ const VolumeIcon = class extends FileItemIcon {
         }
     }
 
+    _getDefaultIcon() {
+        if (this._fileTypeEnum === this.Enums.FileType.EXTERNAL_DRIVE)
+            return this._gioMount.get_icon();
+
+        return super._getDefaultIcon();
+    }
+
+
     async eject(atWidget) {
         if (!this._gioMount || this._ejectCancellable)
             return;
