@@ -20,7 +20,7 @@ import {_} from '../dependencies/gettext.js';
 export {AppChooserDialog};
 
 const AppChooserDialog = class {
-    constructor(codepath, fileItems, activeFileItem = null, dbusUtils, desktopIconsUtil) {
+    constructor(fileItems, activeFileItem = null, dbusUtils, desktopIconsUtil) {
         if (!activeFileItem)
             activeFileItem = fileItems[0];
         if (fileItems.length === 1) {

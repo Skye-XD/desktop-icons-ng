@@ -25,7 +25,6 @@ const FileItemMenu = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
         this._codePath = this._desktopManager.codePath;
-        this._appChooser = this._desktopManager.appChooser;
         this._mainApp = this._desktopManager.mainApp;
         this._Prefs = this._desktopManager.Prefs;
         this._Enums = this._desktopManager.Enums;
@@ -831,7 +830,6 @@ const FileItemActions = class {
             context.set_timestamp(Gdk.CURRENT_TIME);
             let chooser =
                 new this._appChooser.AppChooserDialog(
-                    this._codePath,
                     fileItems,
                     this.activeFileItem,
                     this._dbusManager,
