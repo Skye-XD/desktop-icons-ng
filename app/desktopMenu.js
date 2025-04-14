@@ -40,7 +40,6 @@ const DesktopActions = class {
         this._clipboardFiles = null;
         this._intDBusSignalMonitoring();
         this._createMenuActionGroup();
-        this._startMonitoringTemplatesDir();
     }
 
     // Create the menu action group
@@ -337,31 +336,6 @@ const DesktopActions = class {
         this._mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
     }
 
-    _startMonitoringTemplatesDir() {
-        this.templatesMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
-            this.DesktopIconsUtil.getTemplatesDir(),
-            this._newDocument.bind(this),
-            this._templatesDirSelectionFilter.bind(this),
-            {
-                mainApp: this.mainApp,
-                appName: 'templateapp',
-                FileUtils: this.FileUtils,
-                Enums: this.Enums,
-            }
-        );
-    }
-
-    _templatesDirSelectionFilter(fileinfo) {
-        const name = this.DesktopIconsUtil.getFileExtensionOffset(
-            fileinfo.get_name()).basename;
-        const hiddenfile = name.substring(0, 1) === '.';
-
-        if (!this.Prefs.showHidden && hiddenfile)
-            return null;
-
-        return name;
-    }
-
     _updateClipboard() {
         return new Promise(resolve => {
             const clipboard = Gdk.Display.get_default().get_clipboard();
@@ -400,14 +374,24 @@ const DesktopActions = class {
                             null, (actor, result) => {
                                 try {
                                     const success = actor.read_finish(result);
-                                    const bytes = success[0].read_bytes(8192, null);
+
+                                    const bytes =
+                                        success[0].read_bytes(8192, null);
+
                                     text = textDecoder.decode(bytes.get_data());
-                                    text = `x-special/nautilus-clipboard\n${text}\n`;
+
+                                    text =
+                                        'x-special/nautilus-clipboard\n' +
+                                        `${text}\n`;
+
                                     this._setClipboardContent(text);
                                     resolve(true);
                                 } catch (e) {
-                                    console.log(`Exception while reading clipboard:
-                                        ${e.message}\n${e.stack}`);
+                                    console.log(
+                                        'Exception while reading clipboard:' +
+                                        `${e.message}\n${e.stack}`
+                                    );
+
                                     this._setClipboardContent(text);
                                     resolve(false);
                                 }
@@ -416,7 +400,9 @@ const DesktopActions = class {
                         console.log(
                             `Exception while reading clipboard mimetype
                             x-special/gnome-copied-files:
-                            ${e.message}\n${e.stack}`);
+                            ${e.message}\n${e.stack}`
+                        );
+
                         this._setClipboardContent(text);
                         resolve(false);
                     }
@@ -428,8 +414,12 @@ const DesktopActions = class {
                             (actor, result) => {
                                 try {
                                     const success = actor.read_finish(result);
-                                    const bytes = success[0].read_bytes(8192, null);
+
+                                    const bytes =
+                                        success[0].read_bytes(8192, null);
+
                                     text = textDecoder.decode(bytes.get_data());
+
                                     if (text && !text.endsWith('\n'))
                                         text += '\n';
 
@@ -442,8 +432,10 @@ const DesktopActions = class {
                             });
                     } catch (e) {
                         console.log(
-                            `Exception while reading clipboard media-type "text/plain":
-                            ${e.message}\n${e.stack}`);
+                            'Exception while reading clipboard media-type ' +
+                            `"text/plain": ${e.message}\n${e.stack}`
+                        );
+
                         this._setClipboardContent(text);
                         resolve(false);
                     }
