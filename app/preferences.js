@@ -175,14 +175,14 @@ const Preferences = class {
         this.desktopSettings.connect('changed', (obj, key) => {
             if (key === 'dark-text-in-labels')  {
                 this.darkText = this.desktopSettings.get_boolean('dark-text-in-labels');
-                this._desktopManager._updateDesktop().catch(e => {
+                this._desktopManager.redrawDesktop().catch(e => {
                     console.log(`Exception while updating desktop after "Dark Text" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
             }
             if (key === 'show-link-emblem') {
                 this.showLinkEmblem = this.desktopSettings.get_boolean('show-link-emblem');
-                this._desktopManager._updateDesktop().catch(e => {
+                this._desktopManager.redrawDesktop().catch(e => {
                     console.log(`Exception while updating desktop after "Show Emblems" changed: ${e.message}\n${e.stack}`);
                 });
                 return;
@@ -201,8 +201,7 @@ const Preferences = class {
                 // and remapped to new monitors. Recaculated postions of all fileItems will be
                 // re-written to disk with write mode 'OVERWRITE'
                 if (this.showOnSecondaryMonitor) {
-                    const initialRead = true;
-                    this._desktopManager._updateDesktop({initialRead});
+                    this._desktopManager.refreshDesktop();
                 } else {
                     const mainApp = this._desktopManager.mainApp;
                     mainApp.lookup_action('cleanUpIcons').activate(null);
@@ -237,20 +236,28 @@ const Preferences = class {
                 this._desktopManager.onKeepArrangedChanged();
                 return;
             }
-            if (key === 'show-drop-place')
+            if (key === 'show-drop-place') {
                 this._showDropPlace = this.desktopSettings.get_boolean('show-drop-place');
+                return;
+            }
+            if (key === 'start-corner') {
+                this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
+                return;
+            }
             if (key === 'free-position-icons')
                 this.freePositionIcons = this.desktopSettings.get_boolean('free-position-icons');
-            if (key === 'start-corner')
-                this._StartCorner = this._Enums.START_CORNER[this.desktopSettings.get_string('start-corner')];
-            this._desktopManager.onSettingsChanged();
+            this._desktopManager.reLoadDesktop().catch(e => {
+                console.log(`Exception while updating Desktop after the settings changed: ${e.message}\n${e.stack}`);
+            });
         });
 
         // Gtk Settings
         this.gtkSettings.connect('changed', (obj, key) => {
             if (key === 'show-hidden') {
                 this.showHidden = this.gtkSettings.get_boolean('show-hidden');
-                this._desktopManager._updateDesktop();
+                this._desktopManager.onGtkSettingsChanged().catch(e => {
+                    console.log(`Exception while updating desktop after "Show Hidden" changed: ${e.message}\n${e.stack}`);
+                });
             }
         });
 
@@ -258,7 +265,9 @@ const Preferences = class {
         this.nautilusSettings.connect('changed', (obj, key) => {
             if (key === 'show-image-thumbnails') {
                 this.showImageThumbnails = this.nautilusSettings.get_string('show-image-thumbnails') !== 'never';
-                this._desktopManager.onGnomeFilesSettingsChanged();
+                this._desktopManager.redrawDesktop().catch(e => {
+                    console.log(`Exception while updating Desktop after the GNOME Files settings changed: ${e.message}\n${e.stack}`);
+                });
                 return;
             }
             if (key === 'click-policy')
@@ -405,11 +414,11 @@ const Preferences = class {
     }
 
     _refreshDesktopAndColors() {
-        this._desktopManager._updateDesktop().catch(e => {
+        this._refreshColors();
+        this._desktopManager.redrawDesktop().catch(e => {
             console.log(
                 `Exception while updating desktop after an GTK icon-theme change: ${e.message}\n${e.stack}`);
         });
-        this._refreshColors();
     }
 
     _initLocalCSSprovider() {

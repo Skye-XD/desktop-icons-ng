@@ -7,6 +7,7 @@ export * as DBusUtils from '../app/utils/dbusUtils.js';
 export * as DesktopGrid from '../app/desktopGrid.js';
 export * as DesktopIconsUtil from '../app/utils/desktopIconsUtil.js';
 export * as DesktopManager from '../app/desktopManager.js';
+export * as DesktopMonitor from '../app/desktopFolderMonitor.js';
 export * as Enums from '../app/enums.js';
 export * as FileItem from '../app/fileItem.js';
 export * as FileItemMenu from '../app/fileItemMenu.js';
