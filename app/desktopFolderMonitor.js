@@ -58,18 +58,25 @@ const DesktopMonitor = class {
     }
 
     _createDesktopChangeActions() {
-        let changeDesktop = Gio.SimpleAction.new('changeDesktop', null);
+        const changeDesktop = Gio.SimpleAction.new('changeDesktop', null);
+
         changeDesktop.connect('activate', () => {
             this._changeDesktop();
         });
+
         this.mainApp.add_action(changeDesktop);
 
-        this.restoreDefaultDesktopAction = Gio.SimpleAction.new('restoreDefaultDesktop', null);
+        this.restoreDefaultDesktopAction =
+            Gio.SimpleAction.new('restoreDefaultDesktop', null);
+
         this.restoreDefaultDesktopAction.connect('activate', () => {
             this._restoreDefaultDesktop();
         });
+
         this.mainApp.add_action(this.restoreDefaultDesktopAction);
-        this.restoreDefaultDesktopAction.set_enabled(!this._isDefaultDesktopFolder());
+
+        this.restoreDefaultDesktopAction
+            .set_enabled(!this._isDefaultDesktopFolder());
     }
 
     stopMonitoring() {
