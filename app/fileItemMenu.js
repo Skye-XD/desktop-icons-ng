@@ -646,7 +646,7 @@ const FileItemActions = class {
         this.moveToTrash = Gio.SimpleAction.new('movetotrash', null);
         this.moveToTrash.connect(
             'activate',
-            () => this._desktopManager.doTrash()
+            () => this.doTrash()
         );
         this._mainApp.add_action(this.moveToTrash);
         this._mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
@@ -655,7 +655,7 @@ const FileItemActions = class {
             Gio.SimpleAction.new('deletepermanantly', null);
         this.deletePermanantly.connect(
             'activate',
-            () => this._desktopManager.doDeletePermanently()
+            () => this.doDeletePermanently()
         );
         this._mainApp.add_action(this.deletePermanantly);
         this._mainApp.set_accels_for_action(
@@ -664,7 +664,7 @@ const FileItemActions = class {
         const emptytrash = Gio.SimpleAction.new('emptytrash', null);
         emptytrash.connect(
             'activate',
-            () => this._desktopManager.doEmptyTrash()
+            () => this.doEmptyTrash()
         );
         this._mainApp.add_action(emptytrash);
 
@@ -1325,7 +1325,6 @@ const FileItemActions = class {
         this._dbusManager.doNotify(header, text);
     }
 
-
     async _bulkMove() {
         if (this._desktopManager.checkIfSpecialFilesAreSelected())
             return;
@@ -1348,6 +1347,51 @@ const FileItemActions = class {
         const header = _('Move Cancelled');
         const text = _('Unable to move Files, no destination folder');
         this._dbusManager.doNotify(header, text);
+    }
+
+    doTrash(localDrag = false, event = null) {
+        const selectionItems =
+            this._desktopManager.getCurrentSelection()
+            .filter(i => !i.isSpecial);
+
+        if (!selectionItems.length)
+            return;
+
+        if (!localDrag)
+            this._dragManager.saveCurrentFileCoordinatesForUndo(selectionItems);
+
+        const selectionURIs = [];
+
+        selectionItems.forEach(f => {
+            selectionURIs.push(f.file.get_uri());
+        });
+
+        if (event)
+            this._DBusUtils.RemoteFileOperations.pushEvent(event);
+
+        this._DBusUtils.RemoteFileOperations.TrashURIsRemote(selectionURIs);
+    }
+
+    doDeletePermanently() {
+        const toDelete =
+            this._desktopManager.getCurrentSelection()
+            .filter(i => !i.isSpecial)
+            .map(i => i.file.get_uri());
+
+        if (!toDelete.length) {
+            if (this._desktopManager.getCurrentSelection()
+                .some(i => i.isTrash)
+            )
+                this.doEmptyTrash();
+
+            return;
+        }
+
+        this._DBusUtils.RemoteFileOperations.DeleteURIsRemote(toDelete);
+    }
+
+    doEmptyTrash(askConfirmation = true) {
+        this._DBusUtils.RemoteFileOperations.EmptyTrashRemote(askConfirmation);
     }
 
     _onScriptClicked(menuItemPath) {

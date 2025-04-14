@@ -212,7 +212,7 @@ const GnomeShellDrag = class {
             }
         }
         if (this._currentDesktopFileAppPath === 'trash:///') {
-            this._desktopManager.doTrash();
+            this._desktopManager.mainApp.activate_action('movetotrash', null);
             return true;
         }
         if (this._currentDesktopFileAppPath.startsWith('file:///') || this._currentDesktopFileAppPath.startsWith('davs://')) {

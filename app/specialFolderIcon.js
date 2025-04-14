@@ -25,8 +25,8 @@ import {_} from '../dependencies/gettext.js';
 export {SpecialFolderIcon};
 
 const SpecialFolderIcon = class extends FileItemIcon {
-    constructor(desktopMnager, file, fileInfo, fileExtra, custom) {
-        super(desktopMnager, file, fileInfo, fileExtra, custom);
+    constructor(desktopManager, file, fileInfo, fileExtra, custom) {
+        super(desktopManager, file, fileInfo, fileExtra, custom);
 
         this._isTrash =
             this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH;
@@ -142,7 +142,9 @@ const SpecialFolderIcon = class extends FileItemIcon {
 
         if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
             if (localDrop) {
-                this._desktopManager.doTrash(localDrop, event);
+                this._desktopManager
+                .fileItemActions
+                .doTrash(localDrop, event);
             } else {
                 this.DBusUtils.RemoteFileOperations.pushEvent(event);
                 this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
