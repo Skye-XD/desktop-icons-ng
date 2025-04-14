@@ -35,7 +35,7 @@ GdkPixbuf.Pixbuf
 .forEach(f => PIXBUF_CONTENT_TYPES.add(...f.get_mime_types()));
 
 const DesktopIconItem = class {
-    constructor(desktopManager, fileExtra) {
+    constructor(desktopManager, fileTypeEnum) {
         this._desktopManager = desktopManager;
         this._dragManager = desktopManager.dragManager;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
@@ -43,7 +43,7 @@ const DesktopIconItem = class {
         this.Prefs = desktopManager.Prefs;
         this.Enums = desktopManager.Enums;
         this.ThumbnailLoader = desktopManager.ThumbnailLoader;
-        this._fileExtra = fileExtra;
+        this._fileTypeEnum = fileTypeEnum;
         this._queryFileInfoCancellable = null;
         this._grid = null;
         this._column = null;
@@ -683,7 +683,7 @@ const DesktopIconItem = class {
             console.error(error, `Error while updating icon: ${error.message}`);
         }
 
-        if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
+        if (this._fileTypeEnum === this.Enums.FileType.USER_DIRECTORY_TRASH) {
             let pixbuf =
                 this._createEmblemedIcon(this._fileInfo.get_icon(), null);
 
@@ -747,7 +747,7 @@ const DesktopIconItem = class {
     }
 
     _getDefaultIcon() {
-        if (this._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE)
+        if (this._fileTypeEnum === this.Enums.FileType.EXTERNAL_DRIVE)
             return this._custom.get_icon();
 
         return this._fileInfo.get_icon();
@@ -984,7 +984,7 @@ const DesktopIconItem = class {
     }
 
     get isDrive() {
-        return this._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE;
+        return this._fileTypeEnum === this.Enums.FileType.EXTERNAL_DRIVE;
     }
 
     get isSelected() {

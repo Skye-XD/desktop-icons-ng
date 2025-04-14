@@ -22,16 +22,23 @@ import {_} from '../dependencies/gettext.js';
 export {SymLinkIcon};
 
 const SymLinkIcon = class {
-    constructor(Basetype, ddesktopManager, ffile, ffileInfo, ffileExtra, ccustom) {
+    constructor(
+        Basetype,
+        ddesktopManager,
+        ffile,
+        ffileInfo,
+        ffileTypeEnum,
+        ggioMount
+    ) {
         const SymLinkSuperClass = class extends Basetype {
             constructor(
                 desktopManager,
                 file,
                 fileInfo,
-                fileExtra,
-                custom
+                fileTypeEnum,
+                gioMount
             ) {
-                super(desktopManager, file, fileInfo, fileExtra, custom);
+                super(desktopManager, file, fileInfo, fileTypeEnum, gioMount);
 
                 this._isSymlink = fileInfo.get_attribute_boolean(
                     Gio.FILE_ATTRIBUTE_STANDARD_IS_SYMLINK
@@ -164,8 +171,8 @@ const SymLinkIcon = class {
             ddesktopManager,
             ffile,
             ffileInfo,
-            ffileExtra,
-            ccustom
+            ffileTypeEnum,
+            ggioMount
         );
     }
 };

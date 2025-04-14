@@ -32,13 +32,13 @@ import {
 export {IconCreator};
 
 const IconCreator = class {
-    constructor(desktopManager, file, fileInfo, fileExtra, custom) {
+    constructor(desktopManager, file, fileInfo, fileTypeEnum, gioMount) {
         const isSymLink = fileInfo.get_attribute_boolean(
             Gio.FILE_ATTRIBUTE_STANDARD_IS_SYMLINK);
 
-        let BaseType;
-
         const attributeContentType = fileInfo.get_content_type();
+
+        let BaseType;
 
         switch (attributeContentType) {
         case 'application/x-desktop':
@@ -51,12 +51,12 @@ const IconCreator = class {
             BaseType = FileItemIcon;
         }
 
-        if (fileExtra === Enums.FileType.USER_DIRECTORY_HOME ||
-            fileExtra === Enums.FileType.USER_DIRECTORY_TRASH)
+        if (fileTypeEnum === Enums.FileType.USER_DIRECTORY_HOME ||
+            fileTypeEnum === Enums.FileType.USER_DIRECTORY_TRASH)
             BaseType = SpecialFolderIcon;
 
 
-        if (fileExtra === Enums.FileType.EXTERNAL_DRIVE)
+        if (fileTypeEnum === Enums.FileType.EXTERNAL_DRIVE)
             BaseType = VolumeIcon;
 
         if (!isSymLink) {
@@ -64,8 +64,8 @@ const IconCreator = class {
                 desktopManager,
                 file,
                 fileInfo,
-                fileExtra,
-                custom
+                fileTypeEnum,
+                gioMount
             );
         } else {
             return new SymLinkIcon(
@@ -73,8 +73,8 @@ const IconCreator = class {
                 desktopManager,
                 file,
                 fileInfo,
-                fileExtra,
-                custom
+                fileTypeEnum,
+                gioMount
             );
         }
     }
