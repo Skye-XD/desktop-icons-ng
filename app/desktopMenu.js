@@ -15,10 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {
-    TemplatesScriptsManager
-} from '../dependencies/localFiles.js';
-
 import {Gdk, Gio, GLib, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
