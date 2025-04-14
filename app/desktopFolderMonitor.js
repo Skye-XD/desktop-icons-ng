@@ -613,8 +613,16 @@ const DesktopMonitor = class {
         dialog.set_title(_('Choose Desktop Folder'));
         dialog.set_accept_label(_('Choose'));
         dialog.set_modal(true);
-        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
-        dialog.select_folder(this.mainApp.get_active_window(), null, this._finishChooseDesktopFolder.bind(this));
+
+        dialog.set_initial_folder(
+            Gio.File.new_for_commandline_arg(GLib.get_home_dir())
+        );
+
+        dialog.select_folder(
+            this.mainApp.get_active_window(),
+            null,
+            this._finishChooseDesktopFolder.bind(this)
+        );
     }
 
     _finishChooseDesktopFolder(dialog, asyncResult) {
