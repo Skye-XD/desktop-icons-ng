@@ -15,6 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import {
+    TemplatesScriptsManager
+} from '../dependencies/localFiles.js';
+
 import {Gdk, Gio, GLib, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
@@ -36,6 +40,7 @@ const DesktopActions = class {
         this._clipboardFiles = null;
         this._intDBusSignalMonitoring();
         this._createMenuActionGroup();
+        this._startMonitoringTemplatesDir();
     }
 
     // Create the menu action group
@@ -332,6 +337,31 @@ const DesktopActions = class {
         this._mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
     }
 
+    _startMonitoringTemplatesDir() {
+        this.templatesMonitor = new TemplatesScriptsManager.TemplatesScriptsManager(
+            this.DesktopIconsUtil.getTemplatesDir(),
+            this._newDocument.bind(this),
+            this._templatesDirSelectionFilter.bind(this),
+            {
+                mainApp: this.mainApp,
+                appName: 'templateapp',
+                FileUtils: this.FileUtils,
+                Enums: this.Enums,
+            }
+        );
+    }
+
+    _templatesDirSelectionFilter(fileinfo) {
+        const name = this.DesktopIconsUtil.getFileExtensionOffset(
+            fileinfo.get_name()).basename;
+        const hiddenfile = name.substring(0, 1) === '.';
+
+        if (!this.Prefs.showHidden && hiddenfile)
+            return null;
+
+        return name;
+    }
+
     _updateClipboard() {
         return new Promise(resolve => {
             const clipboard = Gdk.Display.get_default().get_clipboard();
@@ -567,7 +597,9 @@ const DesktopActions = class {
     }
 
     _onOpenTerminalClicked() {
-        this._desktopManager.fileItemMenu.launchTerminal(null, null);
+        const desktopDir = this._desktopDir.get_path();
+        const param = GLib.Variant.new_string(desktopDir);
+        this._mainApp.activate_action('openinterminal', param);
     }
 
     _showPreferences() {
