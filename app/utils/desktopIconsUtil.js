@@ -301,12 +301,12 @@ const DesktopIconsUtil = class {
 
         let result = [];
         let uris = [];
-        for (let mount of mountedFileSystems) {
+        for (let gioMount of mountedFileSystems) {
             try {
-                let isDrive = (mount.get_drive() !== null) || (mount.get_volume() !== null);
-                let uri = mount.get_default_location().get_uri();
+                let isDrive = (gioMount.get_drive() !== null) || (gioMount.get_volume() !== null);
+                let uri = gioMount.get_default_location().get_uri();
                 if (((isDrive && showVolumes) || (!isDrive && showNetwork)) && !uris.includes(uri)) {
-                    result.push([mount.get_default_location(), this.Enums.FileType.EXTERNAL_DRIVE, mount]);
+                    result.push([gioMount.get_default_location(), this.Enums.FileType.EXTERNAL_DRIVE, gioMount]);
                     uris.push(uri);
                 }
             } catch (e) {

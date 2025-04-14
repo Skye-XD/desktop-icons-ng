@@ -398,7 +398,7 @@ const DesktopMonitor = class {
 
             const extraFoldersItems =
                 this.DesktopIconsUtil.getExtraFolders().map(
-                    async ([newFolder, extras]) => {
+                    async ([newFolder, fileTypeEnum]) => {
                         try {
                             if (imports.system.version < 17200) {
                                 Gio._promisify(
@@ -420,7 +420,7 @@ const DesktopMonitor = class {
                                     this.desktopManager,
                                     newFolder,
                                     newFolderInfo,
-                                    extras,
+                                    fileTypeEnum,
                                     null
                                 )
                             );
@@ -492,7 +492,7 @@ const DesktopMonitor = class {
 
             const mountsItems =
                 this.DesktopIconsUtil.getMounts(this._volumeMonitor).map(
-                    async ([newFolder, extras, volume]) => {
+                    async ([newFolder, fileTypeEnum, gioMount]) => {
                         try {
                             if (imports.system.version < 17200) {
                                 Gio._promisify(
@@ -514,8 +514,8 @@ const DesktopMonitor = class {
                                     this.desktopManager,
                                     newFolder,
                                     newFolderInfo,
-                                    extras,
-                                    volume
+                                    fileTypeEnum,
+                                    gioMount
                                 )
                             );
                         } catch (e) {
