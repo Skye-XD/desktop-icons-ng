@@ -27,11 +27,11 @@ export {FileItemIcon};
 const Signals = imports.signals;
 
 const FileItemIcon = class extends DesktopIconItem {
-    constructor(desktopManager, file, fileInfo, fileExtra, custom) {
-        super(desktopManager, fileExtra);
+    constructor(desktopManager, file, fileInfo, fileTypeEnum, gioMount) {
+        super(desktopManager, fileTypeEnum);
         this.DBusUtils = desktopManager.DBusUtils;
         this._fileInfo = fileInfo;
-        this._custom = custom;
+        this._gioMount = gioMount;
         this._file = file;
         this.isStackTop = false;
         this.stackUnique = false;
@@ -199,7 +199,7 @@ const FileItemIcon = class extends DesktopIconItem {
         this._attributeContentType = fileInfo.get_content_type();
         this._fileType = fileInfo.get_file_type();
         this._isDirectory = this._fileType === Gio.FileType.DIRECTORY;
-        this._isSpecial = this._fileExtra !== this.Enums.FileType.NONE;
+        this._isSpecial = this._fileTypeEnum !== this.Enums.FileType.NONE;
 
         this._isHidden =
             fileInfo.get_attribute_boolean(
@@ -695,7 +695,7 @@ const FileItemIcon = class extends DesktopIconItem {
 
     get canRename() {
         return !this.trustedDesktopFile &&
-            (this._fileExtra === this.Enums.FileType.NONE);
+            (this._fileTypeEnum === this.Enums.FileType.NONE);
     }
 
     get displayName() {
@@ -737,7 +737,7 @@ const FileItemIcon = class extends DesktopIconItem {
     }
 
     get isAllSelectable() {
-        return this._fileExtra === this.Enums.FileType.NONE;
+        return this._fileTypeEnum === this.Enums.FileType.NONE;
     }
 
     get isDirectory() {

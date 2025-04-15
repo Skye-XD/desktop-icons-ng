@@ -24,14 +24,14 @@ import {_} from '../dependencies/gettext.js';
 export {VolumeIcon};
 
 const VolumeIcon = class extends FileItemIcon {
-    constructor(desktopManager, file, fileInfo, fileExtra, custom) {
-        super(desktopManager, file, fileInfo, fileExtra, custom);
+    constructor(desktopManager, file, fileInfo, fileExtra, gioMount) {
+        super(desktopManager, file, fileInfo, fileExtra, gioMount);
 
-        if (this._custom) {
+        if (this._gioMount) {
             /* gjs doesn't handle some virtual implementations well*/
-            Gio._promisify(this._custom.constructor.prototype,
+            Gio._promisify(this._gioMount.constructor.prototype,
                 'eject_with_operation');
-            Gio._promisify(this._custom.constructor.prototype,
+            Gio._promisify(this._gioMount.constructor.prototype,
                 'unmount_with_operation');
         }
     }
@@ -47,8 +47,8 @@ const VolumeIcon = class extends FileItemIcon {
     }
 
     _getVisibleName() {
-        if (this._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE)
-            return this._custom.get_name();
+        if (this._fileTypeEnum === this.Enums.FileType.EXTERNAL_DRIVE)
+            return this._gioMount.get_name();
 
         return super._getVisibleName();
     }
@@ -57,7 +57,7 @@ const VolumeIcon = class extends FileItemIcon {
         const visibleName = this._getVisibleName();
         const driveName = _('Drive');
 
-        if (this._fileExtra === this.Enums.FileType.EXTERNAL_DRIVE) {
+        if (this._fileTypeEnum === this.Enums.FileType.EXTERNAL_DRIVE) {
         /** TRANSLATORS: when using a screen reader, this is the text
          * read when an external drive is selected.
          * Example: if a USB stick named "my_portable"
@@ -69,8 +69,16 @@ const VolumeIcon = class extends FileItemIcon {
         }
     }
 
+    _getDefaultIcon() {
+        if (this._fileTypeEnum === this.Enums.FileType.EXTERNAL_DRIVE)
+            return this._gioMount.get_icon();
+
+        return super._getDefaultIcon();
+    }
+
+
     async eject(atWidget) {
-        if (!this._custom || this._ejectCancellable)
+        if (!this._gioMount || this._ejectCancellable)
             return;
 
         const parentWidget =  atWidget ?? this._grid._window;
@@ -79,7 +87,7 @@ const VolumeIcon = class extends FileItemIcon {
         this._ejectCancellable = new Gio.Cancellable();
 
         try {
-            await this._custom.eject_with_operation(
+            await this._gioMount.eject_with_operation(
                 Gio.MountUnmountFlags.NONE,
                 mountOp,
                 this._ejectCancellable
@@ -104,7 +112,7 @@ const VolumeIcon = class extends FileItemIcon {
     }
 
     async unmount(atWidget) {
-        if (!this._custom || this._umountCancellable)
+        if (!this._gioMount || this._umountCancellable)
             return;
 
         const parentWidget = atWidget ?? this._grid._window;
@@ -113,7 +121,7 @@ const VolumeIcon = class extends FileItemIcon {
         this._umountCancellable = new Gio.Cancellable();
 
         try {
-            await this._custom.unmount_with_operation(
+            await this._gioMount.unmount_with_operation(
                 Gio.MountUnmountFlags.NONE,
                 mountOp,
                 this._umountCancellable
@@ -138,15 +146,15 @@ const VolumeIcon = class extends FileItemIcon {
     }
 
     get canEject() {
-        if (this._custom)
-            return this._custom.can_eject();
+        if (this._gioMount)
+            return this._gioMount.can_eject();
         else
             return false;
     }
 
     get canUnmount() {
-        if (this._custom)
-            return this._custom.can_unmount();
+        if (this._gioMount)
+            return this._gioMount.can_unmount();
         else
             return false;
     }

@@ -27,8 +27,8 @@ export {StackItem};
 const Signals = imports.signals;
 
 const StackItem = class extends DesktopIconItem.DesktopIconItem {
-    constructor(desktopManager, file, attributeContentType, fileExtra) {
-        super(desktopManager, fileExtra);
+    constructor(desktopManager, file, attributeContentType, fileTypeEnum) {
+        super(desktopManager, fileTypeEnum);
         this._isSpecial = false;
         this._file = file;
         this.isStackTop = true;

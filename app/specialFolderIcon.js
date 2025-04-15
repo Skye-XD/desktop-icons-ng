@@ -25,11 +25,11 @@ import {_} from '../dependencies/gettext.js';
 export {SpecialFolderIcon};
 
 const SpecialFolderIcon = class extends FileItemIcon {
-    constructor(desktopManager, file, fileInfo, fileExtra, custom) {
-        super(desktopManager, file, fileInfo, fileExtra, custom);
+    constructor(desktopManager, file, fileInfo, fileTypeEnum, gioMount) {
+        super(desktopManager, file, fileInfo, fileTypeEnum, gioMount);
 
         this._isTrash =
-            this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH;
+            this._fileTypeEnum === this.Enums.FileType.USER_DIRECTORY_TRASH;
 
         if (this.isTrash) {
             // if this icon is the trash, monitor the state of the
@@ -51,7 +51,7 @@ const SpecialFolderIcon = class extends FileItemIcon {
     }
 
     _setFileName(text) {
-        if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_HOME) {
+        if (this._fileTypeEnum === this.Enums.FileType.USER_DIRECTORY_HOME) {
             // TRANSLATORS: "Home" is the text that will be shown in
             //  the user's personal folder
             text = _('Home');
@@ -62,7 +62,7 @@ const SpecialFolderIcon = class extends FileItemIcon {
     _setAccesibilityName() {
         const trashName = _('Trash');
 
-        switch (this._fileExtra) {
+        switch (this._fileTypeEnum) {
         case  this.Enums.FileType.USER_DIRECTORY_HOME:
             this.container.update_property(
                 [Gtk.AccessibleProperty.LABEL],
@@ -85,7 +85,7 @@ const SpecialFolderIcon = class extends FileItemIcon {
         await super._updateMetadataFromFileInfo(fileInfo);
 
         this._isTrash =
-            this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH;
+            this._fileTypeEnum === this.Enums.FileType.USER_DIRECTORY_TRASH;
     }
 
     _monitorTrash() {
@@ -140,7 +140,7 @@ const SpecialFolderIcon = class extends FileItemIcon {
     ) {
         const forceCopy = gdkDropAction === Gdk.DragAction.COPY;
 
-        if (this._fileExtra === this.Enums.FileType.USER_DIRECTORY_TRASH) {
+        if (this._fileTypeEnum === this.Enums.FileType.USER_DIRECTORY_TRASH) {
             if (localDrop) {
                 this._desktopManager
                 .fileItemActions
@@ -149,6 +149,7 @@ const SpecialFolderIcon = class extends FileItemIcon {
                 this.DBusUtils.RemoteFileOperations.pushEvent(event);
                 this.DBusUtils.RemoteFileOperations.TrashURIsRemote(fileList);
             }
+
             if (forceCopy)
                 return Gdk.DragAction.COPY;
             else
