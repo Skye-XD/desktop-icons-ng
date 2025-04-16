@@ -16,20 +16,20 @@ if (!GLibUnix) {
     };
 }
 import GnomeDesktop from 'gi://GnomeDesktop?version=4.0';
-const GnomeAutoar = await import('gi://GnomeAutoar').
-    then(module => module.default).
-    catch(e => console.error(e));
+const GnomeAutoar = await import('gi://GnomeAutoar')
+    .then(module => module.default)
+    .catch(e => console.error(e));
 import GObject from 'gi://GObject';
 import Graphene from 'gi://Graphene';
 import Gsk from 'gi://Gsk';
 import Gtk from 'gi://Gtk';
 import Pango from 'gi://Pango';
-const Poppler = await import('gi://Poppler').
-    then(module => module.default).
-    catch(e => console.error(`Install Poppler for proper fallback pdf thumbnailing \n ${e}`));
-const Cairo = await import('gi://cairo').
-    then(module => module.default).
-    catch(e => console.error(`Install Cairo for proper fallback pdf thumbnailing \n ${e}`))
+const Poppler = await import('gi://Poppler')
+    .then(module => module.default)
+    .catch(e => console.error(`Install Poppler for proper fallback pdf thumbnailing \n ${e}`));
+const Cairo = await import('gi://cairo')
+    .then(module => module.default)
+    .catch(e => console.error(`Install Cairo for proper fallback pdf thumbnailing \n ${e}`));
 
 export {
     Adw,
