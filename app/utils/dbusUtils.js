@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
@@ -25,19 +26,29 @@ const Signals = imports.signals;
 export {DBusUtils};
 class ProxyManager {
     /*
-    * This class manages a DBus object through a DBusProxy. Any access to the proxy when the
-    * object isn't available results in a notification specifying that an specific program
-    * is needed to run that option.
-    *
-    * The proxy itself is accessed through the 'proxy' property (read-only). Any access to
-    * it will check the availability and show the notification if it isn't available. To get
-    * access to it without triggering this, it is possible to use the 'proxyNoCheck' property.
-    *
-    * Whether the object is or not available can be checked with the 'isAvailable' property.
-    * Also, every time the availability changes, the signal 'changed-status' is emitted.
+    This class manages a DBus object through a DBusProxy. Any access to the
+    proxy when the object isn't available results in a notification specifying
+    that an specific program is needed to run that option.
+
+    The proxy itself is accessed through the 'proxy' property (read-only).
+    Any access to it will check the availability and show the notification if
+    it isn't available. To get access to it without triggering this, it is
+    possible to use the 'proxyNoCheck' property.
+
+    Whether the object is or not available can be checked with the
+    'isAvailable' property. Also, every time the availability changes,
+    the signal 'changed-status' is emitted.
     */
-    constructor(dbusManager, serviceName, objectName, interfaceName, inSystemBus,
-        programNeeded, makeAsync = true, nocomplaint = false) {
+    constructor(
+        dbusManager,
+        serviceName,
+        objectName,
+        interfaceName,
+        inSystemBus,
+        programNeeded,
+        makeAsync = true,
+        nocomplaint = false
+    ) {
         this._dbusManager = dbusManager;
         this._serviceName = serviceName;
         this._objectName = objectName;
@@ -48,29 +59,47 @@ class ProxyManager {
         this._signalsIDs = {};
         this._connectSignals = {};
         this._connectSignalsIDs = {};
+
         if (typeof programNeeded === 'string') {
-            // if 'programNeeded' is a string, create a generic message for the notification.
+            // if 'programNeeded' is a string, create a generic message
+            // for the notification.
             this._programNeeded = [
-                // eslint-disable-next-line no-template-curly-in-string
-                _('"${programName}" is needed for Desktop Icons').replace('${programName}', programNeeded),
-                // eslint-disable-next-line no-template-curly-in-string
-                _('For this functionality to work in Desktop Icons, you must install "${programName}" in your system.').replace('${programName}', programNeeded),
+                _('"${programName}" is needed for Desktop Icons')
+                .replace('${programName}', programNeeded),
+                _(
+                    'For this functionality to work in Desktop Icons, you ' +
+                    'must install "${programName}" in your system.'
+                )
+                .replace('${programName}', programNeeded),
             ];
         } else {
-            // instead, if it's not, it is presumed to be an array with two sentences, one for the notification title and another for the main text.
+            // instead, if it's not, it is presumed to be an array with two
+            // sentences, one for the notification title and another for
+            // the main text.
             this._programNeeded = programNeeded;
         }
+
         this._timeout = 0;
         this._available = false;
         this._proxy = null;
-        dbusManager.connect(inSystemBus ? 'changed-availability-system' : 'changed-availability-local', () => {
-            this._makeProxy(makeAsync);
-        });
+
+        dbusManager.connect(
+            inSystemBus
+                ? 'changed-availability-system'
+                : 'changed-availability-local',
+            () => {
+                this._makeProxy(makeAsync);
+            }
+        );
+
         this._makeProxy(makeAsync);
     }
 
     async _makeProxy(makeAsync) {
-        const newAvailability = this._dbusManager.checkIsAvailable(this._serviceName, this._inSystemBus);
+        const newAvailability =
+            this._dbusManager
+            .checkIsAvailable(this._serviceName, this._inSystemBus);
+
         if (newAvailability !== this._available) {
             if (newAvailability) {
                 if (makeAsync)
@@ -81,18 +110,23 @@ class ProxyManager {
                 this._available = false;
                 this._proxy = null;
             }
+
             this.emit('changed-status', this._available);
         }
     }
 
     connectSignalToProxy(signal, cb) {
         this._connectSignals[signal] = cb;
-        if (this._proxy)
-            this._connectSignalsIDs[signal] = this._proxy.connectSignal(signal, cb);
+
+        if (this._proxy) {
+            this._connectSignalsIDs[signal] =
+            this._proxy.connectSignal(signal, cb);
+        }
     }
 
     connectToProxy(signal, cb) {
         this._signals[signal] = cb;
+
         if (this._proxy)
             this._signalsIDs[signal] = this._proxy.connect(signal, cb);
     }
@@ -118,9 +152,20 @@ class ProxyManager {
     }
 
     makeNewProxySync() {
-        const interfaceXML = this._dbusManager.getInterface(this._serviceName, this._objectName, this._interfaceName, this._inSystemBus, false);
+        const interfaceXML =
+            this._dbusManager
+            .getInterface(
+                this._serviceName,
+                this._objectName,
+                this._interfaceName,
+                this._inSystemBus,
+                false
+            );
+
         if (interfaceXML) {
-            const targetproxy = new Gio.DBusProxy.makeProxyWrapper(interfaceXML);
+            const targetproxy =
+                new Gio.DBusProxy.makeProxyWrapper(interfaceXML);
+
             try {
                 this._proxy = new targetproxy(
                     this._inSystemBus ? Gio.DBus.system : Gio.DBus.session,
@@ -128,20 +173,34 @@ class ProxyManager {
                     this._objectName,
                     null
                 );
-                for (let signal in this._signals)
-                    this._signalsIDs[signal] = this._proxy.connect(signal, this._signals[signal]);
 
-                for (let signal in this._connectSignals)
-                    this._connectSignalsIDs[signal] = this._proxy.connectSignal(signal, this._connectSignals[signal]);
+                for (let signal in this._signals) {
+                    this._signalsIDs[signal] =
+                        this._proxy.connect(signal, this._signals[signal]);
+                }
+
+                for (let signal in this._connectSignals) {
+                    this._connectSignalsIDs[signal] =
+                        this._proxy.connectSignal(
+                            signal,
+                            this._connectSignals[signal]
+                        );
+                }
 
                 this._available = true;
+
                 return true;
             } catch (e) {
                 this._available = false;
                 this._proxy = null;
                 this._signalIDs = {};
                 this._connectSignalsIDs = {};
-                console.log(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
+
+                console.log(
+                    `Error creating proxy, ${this._programNeeded[0]}:` +
+                    ` ${e.message}\n${e.stack}`
+                );
+
                 return false;
             }
         } else {
@@ -149,15 +208,27 @@ class ProxyManager {
             this._proxy = null;
             this._signalIDs = {};
             this._connectSignalsIDs = {};
+
             return false;
         }
     }
 
     makeNewProxyAsync(cancellable = null, flags = Gio.DBusProxyFlags.NONE) {
         return new Promise(resolve => {
-            const interfaceXML = this._dbusManager.getInterface(this._serviceName, this._objectName, this._interfaceName, this._inSystemBus, false);
+            const interfaceXML =
+                this._dbusManager
+                .getInterface(
+                    this._serviceName,
+                    this._objectName,
+                    this._interfaceName,
+                    this._inSystemBus,
+                    false
+                );
+
             if (interfaceXML) {
-                const targetproxy = new Gio.DBusProxy.makeProxyWrapper(interfaceXML);
+                const targetproxy =
+                    new Gio.DBusProxy.makeProxyWrapper(interfaceXML);
+
                 try {
                     new targetproxy(
                         this._inSystemBus ? Gio.DBus.system : Gio.DBus.session,
@@ -165,18 +236,30 @@ class ProxyManager {
                         this._objectName,
                         (proxy, error) => {
                             if (error === null) {
-                                for (let signal in this._signals)
-                                    this._signalsIDs[signal] = proxy.connect(signal, this._signals[signal]);
+                                for (let signal in this._signals) {
+                                    this._signalsIDs[signal] =
+                                        proxy.connect(
+                                            signal,
+                                            this._signals[signal]
+                                        );
+                                }
 
-                                for (let signal in this._connectSignals)
-                                    this._connectSignalsIDs[signal] = proxy.connectSignal(signal, this._connectSignals[signal]);
+                                for (let signal in this._connectSignals) {
+                                    this._connectSignalsIDs[signal] =
+                                        proxy.connectSignal(
+                                            signal,
+                                            this._connectSignals[signal]
+                                        );
+                                }
 
                                 this._available = true;
                                 this._proxy = proxy;
+
                                 resolve(true);
                             } else {
                                 this._available = false;
                                 this._proxy = null;
+
                                 resolve(false);
                             }
                         },
@@ -186,7 +269,11 @@ class ProxyManager {
                 } catch (e) {
                     this._available = false;
                     this._proxy = null;
-                    console.log(`Error creating proxy, ${this._programNeeded[0]}: ${e.message}\n${e.stack}`);
+                    console.log(
+                        `Error creating proxy, ${this._programNeeded[0]}:` +
+                        ` ${e.message}\n${e.stack}`
+                    );
+
                     resolve(false);
                 }
             } else {
@@ -204,9 +291,12 @@ class ProxyManager {
     notifyUnavailable() {
         if (!this._programNeeded)
             return;
+
         console.log(this._programNeeded[0]);
         console.log(this._programNeeded[1]);
-        this._dbusManager.doNotify(this._programNeeded[0], this._programNeeded[1]);
+
+        this._dbusManager
+        .doNotify(this._programNeeded[0], this._programNeeded[1]);
     }
 
     get isAvailable() {
@@ -221,6 +311,7 @@ class ProxyManager {
         if (!this._available || !this._proxy) {
             if (this._nocomplaint)
                 return false;
+
             if (this._timeout === 0) {
                 this.notifyUnavailable();
                 this._timeout = GLib.timeout_add(
@@ -233,6 +324,7 @@ class ProxyManager {
                 );
             }
         }
+
         return this._proxy;
     }
 }
@@ -241,15 +333,19 @@ Signals.addSignalMethods(ProxyManager.prototype);
 
 class DBusManager {
     /*
-    * This class manages all the DBus operations. A ProxyManager() class can subscribe to this to be notified
-    * whenever a change in the bus has occurred (like a server has been added or removed). It also can ask
-    * for a DBus interface, either getting it from the dbusInterfaces.js file or using DBus Introspection (which
-    * allows to get the currently available interface and, that way, know if an object implements an specific
-    * method, property or signal).
-    *
-    * ProxyManager() classes subscribe to the 'changed-availability-system' or 'changed-availability-local' signals,
-    * which are emitted every time a change in the bus or in the configuration files happen. Then, it can use
-    * checkIsAvailable() to determine if the desired service is available in the system or not.
+    This class manages all the DBus operations. A ProxyManager() class can
+    subscribe to this to be notified whenever a change in the bus has occurred
+    (like a server has been added or removed). It also can ask
+    for a DBus interface, either getting it from the dbusInterfaces.js file
+    or using DBus Introspection (which allows to get the currently available
+    interface and, that way, know if an object implements an specific
+    method, property or signal).
+
+    ProxyManager() classes subscribe to the 'changed-availability-system'
+    or 'changed-availability-local' signals, which are emitted every time a
+    change in the bus or in the configuration files happen. Then, it can use
+    checkIsAvailable() to determine if the desired service is available
+    in the system or not.
     */
     constructor() {
         this._availableInSystemBus = [];
@@ -258,51 +354,69 @@ class DBusManager {
         this._pendingSystemSignal = false;
         this._signalTimerID = 0;
 
-        let interfaceXML = this.getInterface(
-            'org.freedesktop.DBus',
-            '/org/freedesktop/DBus',
-            'org.freedesktop.DBus',
-            true, // system bus
-            true); // use DBus Introspection
-        this._dbusSystemProxy = new Gio.DBusProxy.makeProxyWrapper(interfaceXML)(
-            Gio.DBus.system,
-            'org.freedesktop.DBus',
-            '/org/freedesktop/DBus',
-            null
-        );
-        let ASCinSystemBus = interfaceXML.includes('ActivatableServicesChanged');
+        let interfaceXML =
+            this.getInterface(
+                'org.freedesktop.DBus',
+                '/org/freedesktop/DBus',
+                'org.freedesktop.DBus',
+                true, // system bus
+                true
+            ); // use DBus Introspection
 
-        // Don't presume that both system and local have the same interface (just in case)
+        this._dbusSystemProxy =
+            new Gio.DBusProxy.makeProxyWrapper(interfaceXML)(
+                Gio.DBus.system,
+                'org.freedesktop.DBus',
+                '/org/freedesktop/DBus',
+                null
+            );
+
+        let ASCinSystemBus =
+            interfaceXML.includes('ActivatableServicesChanged');
+
+        // Don't presume that both system and local have the same
+        // interface (just in case)
         interfaceXML = this.getInterface(
             'org.freedesktop.DBus',
             '/org/freedesktop/DBus',
             'org.freedesktop.DBus',
             false, // local bus
             true); // use DBus Introspection
+
         this._dbusLocalProxy = new Gio.DBusProxy.makeProxyWrapper(interfaceXML)(
             Gio.DBus.session,
             'org.freedesktop.DBus',
             '/org/freedesktop/DBus',
             null
         );
+
         let ASCinLocalBus = interfaceXML.includes('ActivatableServicesChanged');
 
         this._updateAllAvailabilities();
+
         this._dbusLocalProxy.connectSignal('NameOwnerChanged', () => {
             this._emitChangedSignal(true);
         });
+
         if (ASCinLocalBus) {
-            this._dbusLocalProxy.connectSignal('ActivatableServicesChanged', () => {
-                this._emitChangedSignal(true);
-            });
+            this._dbusLocalProxy.connectSignal(
+                'ActivatableServicesChanged',
+                () => {
+                    this._emitChangedSignal(true);
+                }
+            );
         }
         this._dbusSystemProxy.connectSignal('NameOwnerChanged', () => {
             this._emitChangedSignal(false);
         });
+
         if (ASCinSystemBus) {
-            this._dbusSystemProxy.connectSignal('ActivatableServicesChanged', () => {
-                this._emitChangedSignal(false);
-            });
+            this._dbusSystemProxy.connectSignal(
+                'ActivatableServicesChanged',
+                () => {
+                    this._emitChangedSignal(false);
+                }
+            );
         }
 
         interfaceXML = this.getInterface(
@@ -311,12 +425,14 @@ class DBusManager {
             'org.freedesktop.Notifications',
             false, // local bus
             false); // get interface from local code
-        this._notifyProxy = new Gio.DBusProxy.makeProxyWrapper(interfaceXML)(
-            Gio.DBus.session,
-            'org.freedesktop.Notifications',
-            '/org/freedesktop/Notifications',
-            null
-        );
+
+        this._notifyProxy =
+            new Gio.DBusProxy.makeProxyWrapper(interfaceXML)(
+                Gio.DBus.session,
+                'org.freedesktop.Notifications',
+                '/org/freedesktop/Notifications',
+                null
+            );
     }
 
     _emitChangedSignal(localDBus) {
@@ -328,19 +444,26 @@ class DBusManager {
         if (this._signalTimerID)
             GLib.source_remove(this._signalTimerID);
 
-        this._signalTimerID = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
-            this._signalTimerID = 0;
-            this._updateAllAvailabilities();
-            if (this._pendingLocalSignal)
-                this.emit('changed-availability-local');
+        this._signalTimerID =
+            GLib.timeout_add(
+                GLib.PRIORITY_DEFAULT,
+                1000,
+                () => {
+                    this._signalTimerID = 0;
+                    this._updateAllAvailabilities();
 
-            if (this._pendingSystemSignal)
-                this.emit('changed-availability-system');
+                    if (this._pendingLocalSignal)
+                        this.emit('changed-availability-local');
 
-            this._pendingLocalSignal = false;
-            this._pendingSystemSignal = false;
-            return false;
-        });
+                    if (this._pendingSystemSignal)
+                        this.emit('changed-availability-system');
+
+                    this._pendingLocalSignal = false;
+                    this._pendingSystemSignal = false;
+
+                    return false;
+                }
+            );
     }
 
     checkIsAvailable(serviceName, inSystemBus) {
@@ -351,17 +474,21 @@ class DBusManager {
     }
 
     _updateAllAvailabilities() {
-        this._availableInLocalBus = this._updateAvailability(this._dbusLocalProxy);
-        this._availableInSystemBus = this._updateAvailability(this._dbusSystemProxy);
+        this._availableInLocalBus =
+            this._updateAvailability(this._dbusLocalProxy);
+
+        this._availableInSystemBus =
+            this._updateAvailability(this._dbusSystemProxy);
     }
 
     _updateAvailability(proxy) {
-        // We read both the well-known names actually running and those available as activatables,
-        // and generate a single list with both. Thus a service will be "enabled" if it is running
+        // We read both the well-known names actually running and those
+        // available as activatables, and generate a single list with both.
+        // Thus a service will be "enabled" if it is running
         // or if it is activatable.
-
         let availableNames = [];
         let names = proxy.ListNamesSync();
+
         for (let n of names[0]) {
             if (n.startsWith(':'))
                 continue;
@@ -369,7 +496,9 @@ class DBusManager {
             if (!(n in availableNames))
                 availableNames.push(n);
         }
+
         let names2 = proxy.ListActivatableNamesSync();
+
         for (let n of names2[0]) {
             if (n.startsWith(':'))
                 continue;
@@ -377,34 +506,41 @@ class DBusManager {
             if (!(n in availableNames))
                 availableNames.push(n);
         }
+
         return availableNames;
     }
 
     _getNextTag() {
         this._xmlIndex++;
         let pos = this._xmlData.indexOf('<', this._xmlIndex);
+
         if (pos === -1)
             return null;
 
         let pos2 = this._xmlData.indexOf('>', pos);
+
         if (pos2 === -1)
             return null;
 
         this._xmlIndex = pos;
+
         return this._xmlData.substring(pos + 1, pos2).trim();
     }
 
     /*
-     * Extracts the XML definition for an interface from the raw data returned by DBus Introspection.
-     * This is needed because DBus Introspection returns a single XML file with all the interfaces
-     * supported by an object, while DBusProxyWrapper requires an XML with only the desired interface.
+    Extracts the XML definition for an interface from the raw data
+    returned by DBus Introspection. This is needed because DBus Introspection
+    returns a single XML file with all the interfaces supported by an object,
+    while DBusProxyWrapper requires an XML with only the desired interface.
      */
     _parseXML(data, interfaceName) {
         this._xmlIndex = -1;
         this._xmlData = data;
         let tag;
+
         while (true) {
             tag = this._getNextTag();
+
             if (tag === null)
                 return null;
 
@@ -414,9 +550,12 @@ class DBusManager {
             if (tag.includes(interfaceName))
                 break;
         }
-        let start = this._xmlIndex;
+
+        const start = this._xmlIndex;
+
         while (true) {
             tag = this._getNextTag();
+
             if (tag === null)
                 return null;
 
@@ -425,14 +564,31 @@ class DBusManager {
 
             break;
         }
-        return `<node>\n  ${data.substring(start, 1 + data.indexOf('>', this._xmlIndex))}\n</node>`;
+
+        const end = 1 + data.indexOf('>', this._xmlIndex);
+
+        return (
+            `<node>
+             ${data.substring(start, end)}
+            </node>`
+        );
     }
 
-    getInterface(serviceName, objectName, interfaceName, inSystemBus, forceIntrospection) {
-        if ((interfaceName in DBusInterfaces.DBusInterfaces) && !forceIntrospection) {
+    getInterface(
+        serviceName,
+        objectName,
+        interfaceName,
+        inSystemBus,
+        forceIntrospection
+    ) {
+        if ((interfaceName in DBusInterfaces.DBusInterfaces) &&
+            !forceIntrospection
+        ) {
             return DBusInterfaces.DBusInterfaces[interfaceName];
         } else {
-            let data = this.getIntrospectionData(serviceName, objectName, inSystemBus);
+            let data =
+                this.getIntrospectionData(serviceName, objectName, inSystemBus);
+
             if (data === null)
                 return null;
             else
@@ -442,20 +598,34 @@ class DBusManager {
 
     getIntrospectionData(serviceName, objectName, inSystemBus) {
         let data = null;
+
         try {
-            let wraper = new Gio.DBusProxy.makeProxyWrapper(DBusInterfaces.DBusInterfaces['org.freedesktop.DBus.Introspectable'])(
-                inSystemBus ? Gio.DBus.system : Gio.DBus.session,
-                serviceName,
-                objectName,
-                null
-            );
+            let wraper =
+                new Gio.DBusProxy
+                .makeProxyWrapper(
+                    DBusInterfaces
+                    .DBusInterfaces['org.freedesktop.DBus.Introspectable']
+                )(
+                    inSystemBus ? Gio.DBus.system : Gio.DBus.session,
+                    serviceName,
+                    objectName,
+                    null
+                );
+
             data = wraper.IntrospectSync()[0];
         } catch (e) {
             let message = e.message;
-            if (!message.includes('org.gnome.Shell.Extensions.GSConnect'))
-                console.log(`Error getting introspection data over Dbus: ${e.message}\n${e.stack}`);
+
+            if (!message.includes('org.gnome.Shell.Extensions.GSConnect')) {
+                console.log(
+                    'Error getting introspection data over Dbus: ' +
+                    `${e.message}\n${e.stack}`
+                );
+            }
+
             return null;
         }
+
         if (data === null)
             return null;
 
@@ -467,22 +637,26 @@ class DBusManager {
 
     doNotify(header, text) {
         /*
-         * The notification interface in GLib.Application requires a .desktop file, which
-         * we do not have, so we must use the Notification DBus interface directly
-         */
-
-        // From Adwaita icon theme, which should be available for Gnome by default
-        const displayImage = 'file:///usr/share/icons/Adwaita/scalable/devices/computer.svg';
+        The notification interface in GLib.Application requires a
+        .desktop file, which we do not have, so we must use the Notification
+        DBus interface directly From Adwaita icon theme, which should be
+        available for Gnome by default
+        */
+        const displayImage =
+            'file:///usr/share/icons/Adwaita/scalable/devices/computer.svg';
 
         const notifyHint =  {
             'image-path': new GLib.Variant('s', displayImage),
         };
+
         const appName = 'Desktop Icons';
         const notifictionID = 0;
-        // from freeDesktop icon theme specification which should be available for this interface
+        // from freeDesktop icon theme specification which should be available
+        // for this interface
         const appIcon = 'computer';
         const actions = [];
         const displayTime = 1000; // 1 second
+
         this._notifyProxy.NotifyRemote(
             appName,
             notifictionID,
@@ -500,7 +674,11 @@ Signals.addSignalMethods(DBusManager.prototype);
 
 
 class DbusOperationsManager {
-    constructor(FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager) {
+    constructor(
+        FreeDesktopFileManager,
+        GnomeNautilusPreview,
+        GnomeArchiveManager
+    ) {
         this.freeDesktopFileManager = FreeDesktopFileManager;
         this.gnomeNautilusPreviewManager = GnomeNautilusPreview;
         this.gnomeArchiveManager = GnomeArchiveManager;
@@ -520,7 +698,9 @@ class DbusOperationsManager {
             this._sendNoProxyError(callback);
             return;
         }
-        this.freeDesktopFileManager.proxy.ShowItemPropertiesRemote(selection,
+
+        this.freeDesktopFileManager.proxy.ShowItemPropertiesRemote(
+            selection,
             this._getStartupId(selection, timestamp),
             (result, error) => {
                 if (callback)
@@ -535,16 +715,22 @@ class DbusOperationsManager {
     ShowItemsRemote(showInFilesList, timestamp, callback = null) {
         if (!this.freeDesktopFileManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
-        this.freeDesktopFileManager.proxy.ShowItemsRemote(showInFilesList,
+
+        this.freeDesktopFileManager.proxy.ShowItemsRemote(
+            showInFilesList,
             this._getStartupId(showInFilesList, timestamp),
             (result, error) => {
                 if (callback)
                     callback(result, error);
 
-                if (error)
-                    console.log(`Error showing file on desktop: ${error.message}`);
+                if (error) {
+                    console.log(
+                        `Error showing file on desktop: ${error.message}`
+                    );
+                }
             }
         );
     }
@@ -552,9 +738,14 @@ class DbusOperationsManager {
     ShowFileRemote(uri, integer, boolean, callback = null) {
         if (!this.gnomeNautilusPreviewManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
-        this.gnomeNautilusPreviewManager.proxy.ShowFileRemote(uri, integer, boolean,
+
+        this.gnomeNautilusPreviewManager.proxy.ShowFileRemote(
+            uri,
+            integer,
+            boolean,
             (result, error) => {
                 if (callback)
                     callback(result, error);
@@ -567,9 +758,14 @@ class DbusOperationsManager {
     ExtractRemote(extractFileItem, folder, boolean, callback = null) {
         if (!this.gnomeArchiveManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
-        this.gnomeArchiveManager.proxy.ExtractRemote(extractFileItem, folder, true,
+
+        this.gnomeArchiveManager.proxy.ExtractRemote(
+            extractFileItem,
+            folder,
+            true,
             (result, error) => {
                 if (callback)
                     callback(result, error);
@@ -582,9 +778,14 @@ class DbusOperationsManager {
     CompressRemote(compressFileItems, folder, boolean, callback = null) {
         if (!this.gnomeArchiveManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
-        this.gnomeArchiveManager.proxy.CompressRemote(compressFileItems, folder, boolean,
+
+        this.gnomeArchiveManager.proxy.CompressRemote(
+            compressFileItems,
+            folder,
+            boolean,
             (result, error) => {
                 if (callback)
                     callback(result, error);
@@ -602,18 +803,37 @@ class DbusOperationsManager {
         const context = Gdk.Screen.get_default().get_app_launch_context();
         context.set_timestamp(timestamp);
 
-        if (!this._fileManager)
-            this._fileManager = Gio.File.new_for_path('/').query_default_handler(null);
+        if (!this._fileManager) {
+            this._fileManager =
+                Gio.File.new_for_path('/')
+                .query_default_handler(null);
+        }
 
-        return context.get_startup_notify_id(this._fileManager,
-            fileUris.map(uri => Gio.File.new_for_uri(uri)));
+        return (
+            context
+            .get_startup_notify_id(
+                this._fileManager,
+                fileUris.map(uri => Gio.File.new_for_uri(uri))
+            )
+        );
     }
 }
 
 
 class RemoteFileOperationsManager extends DbusOperationsManager {
-    constructor(fileOperationsManager, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager, mainApp) {
-        super(FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager);
+    constructor(
+        fileOperationsManager,
+        FreeDesktopFileManager,
+        GnomeNautilusPreview,
+        GnomeArchiveManager,
+        mainApp
+    ) {
+        super(
+            FreeDesktopFileManager,
+            GnomeNautilusPreview,
+            GnomeArchiveManager
+        );
+
         this.mainApp = mainApp;
         this.fileOperationsManager = fileOperationsManager;
         this._createPlatformData();
@@ -621,84 +841,121 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
     }
 
     pushEvent(params = {}) {
-        const parentWindow = params.parentWindow ? params.parentWindow : this.mainApp.get_active_window();
-        const currentEventTime = params.timestamp ? params.timestamp : Gdk.CURRENT_TIME;
-        this._eventsStack.unshift({
+        const parentWindow =
+            params.parentWindow
+                ? params.parentWindow
+                : this.mainApp.get_active_window();
+
+        const currentEventTime =
+            params.timestamp
+                ? params.timestamp
+                : Gdk.CURRENT_TIME;
+
+        this._eventsStack
+        .unshift({
             parentWindow,
             'timestamp': currentEventTime,
         });
     }
 
     _createPlatformData() {
-        this.getWaylandParentHandle = this.fileOperationsManager.getWaylandParentHandle = topLevel => {
-            return new Promise(resolve => {
-                try {
-                    topLevel.export_handle((actor, handle) => {
-                        if (handle)
-                            resolve(handle);
-                        else
-                            resolve(false);
-                    });
-                } catch (e) {
-                    console.log(`Failed with "${e.message}" while getting wayland parent handle, WaylandHandle`);
-                    resolve(false);
-                }
-            });
-        };
+        this.getWaylandParentHandle =
+            this.fileOperationsManager.getWaylandParentHandle = topLevel => {
+                return new Promise(resolve => {
+                    try {
+                        topLevel.export_handle((actor, handle) => {
+                            if (handle)
+                                resolve(handle);
+                            else
+                                resolve(false);
+                        });
+                    } catch (e) {
+                        console.log(
+                            `Failed with "${e.message}" while getting` +
+                            ' wayland parent handle, WaylandHandle'
+                        );
 
-        this.platformData = this.fileOperationsManager.platformData = async () => {
-            const eventParameters = this._eventsStack.pop() || {
-                'parentWindow': this.mainApp.get_active_window(),
-                'timestamp': Gdk.CURRENT_TIME,
-            };
-            const parentWindow = eventParameters.parentWindow;
-            const topLevel = parentWindow.get_surface();
-            const windowPosition = 'center';
-            const timestamp = eventParameters.timestamp;
-            let parentHandle = '';
-            let freePlatformData = () => {};
-
-            if (parentWindow) {
-                try {
-                    if (topLevel.constructor.$gtype === GdkWayland.WaylandToplevel.$gtype) {
-                        let handle = await this.getWaylandParentHandle(topLevel);
-                        if (handle)
-                            parentHandle = `wayland:${handle}`;
-
-
-                        freePlatformData = () => {
-                            if (topLevel.constructor.$gtype === GdkWayland.WaylandToplevel.$gtype)
-                                topLevel.unexport_handle();
-                        };
+                        resolve(false);
                     }
-
-                    if (topLevel.constructor.$gtype === GdkX11.X11Surface.$gtype) {
-                        const xid = GdkX11.X11Window.prototype.get_xid.call(topLevel);
-                        parentHandle = `x11:${xid}`;
-                    }
-                } catch (e) {
-                    console.error(e, 'Impossible to determine the parent window');
-                }
-            }
-
-            return {
-                'data': {
-                    'parent-handle': new GLib.Variant('s', parentHandle),
-                    'timestamp': new GLib.Variant('u', timestamp),
-                    'window-position': new GLib.Variant('s', windowPosition),
-                },
-                freePlatformData,
+                });
             };
-        };
+
+        this.platformData =
+            this.fileOperationsManager.platformData = async () => {
+                const eventParameters =
+                    this._eventsStack.pop() ||
+                    {
+                        'parentWindow': this.mainApp.get_active_window(),
+                        'timestamp': Gdk.CURRENT_TIME,
+                    };
+
+                const parentWindow = eventParameters.parentWindow;
+                const topLevel = parentWindow.get_surface();
+                const windowPosition = 'center';
+                const timestamp = eventParameters.timestamp;
+
+                let parentHandle = '';
+                let freePlatformData = () => {};
+
+                if (parentWindow) {
+                    try {
+                        if (
+                            topLevel.constructor.$gtype ===
+                            GdkWayland.WaylandToplevel.$gtype
+                        ) {
+                            let handle =
+                                await this.getWaylandParentHandle(topLevel);
+
+                            if (handle)
+                                parentHandle = `wayland:${handle}`;
+
+
+                            freePlatformData = () => {
+                                if (
+                                    topLevel.constructor.$gtype ===
+                                    GdkWayland.WaylandToplevel.$gtype
+                                )
+                                    topLevel.unexport_handle();
+                            };
+                        }
+
+                        if (topLevel.constructor.$gtype ===
+                            GdkX11.X11Surface.$gtype
+                        ) {
+                            const xid =
+                                GdkX11.X11Window.prototype.get_xid
+                                .call(topLevel);
+
+                            parentHandle = `x11:${xid}`;
+                        }
+                    } catch (e) {
+                        console.error(e,
+                            'Impossible to determine the parent window'
+                        );
+                    }
+                }
+
+                return {
+                    'data': {
+                        'parent-handle': new GLib.Variant('s', parentHandle),
+                        'timestamp': new GLib.Variant('u', timestamp),
+                        'window-position': new GLib.Variant('s', windowPosition),
+                    },
+                    freePlatformData,
+                };
+            };
     }
 
     async MoveURIsRemote(fileList, uri, callback) {
         try {
             if (!this.fileOperationsManager.proxy) {
                 this._sendNoProxyError(callback);
+
                 return;
             }
+
             let platformData = await this.platformData();
+
             this.fileOperationsManager.proxy.MoveURIsRemote(
                 fileList,
                 uri,
@@ -721,9 +978,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         try {
             if (!this.fileOperationsManager.proxy) {
                 this._sendNoProxyError(callback);
+
                 return;
             }
+
             let platformData = await this.platformData();
+
             this.fileOperationsManager.proxy.CopyURIsRemote(
                 fileList,
                 uri,
@@ -746,9 +1006,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         try {
             if (!this.fileOperationsManager.proxy) {
                 this._sendNoProxyError(callback);
+
                 return;
             }
+
             let platformData = await this.platformData();
+
             this.fileOperationsManager.proxy.RenameURIRemote(
                 fileList,
                 uri,
@@ -771,9 +1034,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         try {
             if (!this.fileOperationsManager.proxy) {
                 this._sendNoProxyError(callback);
+
                 return;
             }
+
             let platformData = await this.platformData();
+
             this.fileOperationsManager.proxy.TrashURIsRemote(
                 fileList,
                 platformData.data,
@@ -795,9 +1061,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         try {
             if (!this.fileOperationsManager.proxy) {
                 this._sendNoProxyError(callback);
+
                 return;
             }
+
             let platformData = await this.platformData();
+
             this.fileOperationsManager.proxy.DeleteURIsRemote(
                 fileList,
                 platformData.data,
@@ -806,8 +1075,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                     if (callback)
                         callback(source, error);
 
-                    if (error)
-                        console.log(`Error deleting files on the desktop: ${error.message}`);
+                    if (error) {
+                        console.log(
+                            'Error deleting files on the desktop:' +
+                            ` ${error.message}`
+                        );
+                    }
                 }
             );
         } catch (e) {
@@ -819,9 +1092,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         try {
             if (!this.fileOperationsManager.proxy) {
                 this._sendNoProxyError(callback);
+
                 return;
             }
+
             let platformData = await this.platformData();
+
             this.fileOperationsManager.proxy.EmptyTrashRemote(
                 askConfirmation,
                 platformData.data,
@@ -830,8 +1106,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                     if (callback)
                         callback(source, error);
 
-                    if (error)
-                        console.log(`Error trashing files on the desktop: ${error.message}`);
+                    if (error) {
+                        console.log(
+                            'Error trashing files on the desktop: ' +
+                            `${error.message}`
+                        );
+                    }
                 }
             );
         } catch (e) {
@@ -843,8 +1123,10 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         try {
             if (!this.fileOperationsManager.proxy) {
                 this._sendNoProxyError(callback);
+
                 return;
             }
+
             let platformData = await this.platformData();
             this.fileOperationsManager.proxy.UndoRemote(
                 platformData.data,
@@ -866,9 +1148,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
         try {
             if (!this.fileOperationsManager.proxy) {
                 this._sendNoProxyError(callback);
+
                 return;
             }
+
             let platformData = await this.platformData();
+
             this.fileOperationsManager.proxy.RedoRemote(
                 platformData.data,
                 (result, error) => {
@@ -892,16 +1177,25 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
 
 
 class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
-    constructor(fileOperationsManager, FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager) {
-        super(FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager);
+    constructor(fileOperationsManager,
+        FreeDesktopFileManager,
+        GnomeNautilusPreview,
+        GnomeArchiveManager
+    ) {
+        super(
+            FreeDesktopFileManager, GnomeNautilusPreview, GnomeArchiveManager
+        );
+
         this.fileOperationsManager = fileOperationsManager;
     }
 
     MoveURIsRemote(fileList, uri, callback) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
+
         this.fileOperationsManager.proxy.MoveURIsRemote(
             fileList,
             uri,
@@ -918,8 +1212,10 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     CopyURIsRemote(fileList, uri, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
+
         this.fileOperationsManager.proxy.CopyURIsRemote(
             fileList,
             uri,
@@ -936,8 +1232,10 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     RenameURIRemote(fileList, uri, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
+
         this.fileOperationsManager.proxy.RenameFileRemote(
             fileList,
             uri,
@@ -954,8 +1252,10 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     TrashURIsRemote(fileList, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
+
         this.fileOperationsManager.proxy.TrashFilesRemote(
             fileList,
             (result, error) => {
@@ -971,8 +1271,10 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     DeleteURIsRemote(fileList, callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
+
         this.fileOperationsManager.proxy.TrashFilesRemote(
             fileList,
             (source, error) => {
@@ -989,8 +1291,10 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     EmptyTrashRemote(callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
+
         this.fileOperationsManager.proxy.EmptyTrashRemote(
             (source, error) => {
                 if (callback)
@@ -1005,8 +1309,10 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     UndoRemote(callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
+
         this.fileOperationsManager.proxy.UndoRemote(
             (result, error) => {
                 if (callback)
@@ -1021,8 +1327,10 @@ class LegacyRemoteFileOperationsManager extends DbusOperationsManager {
     RedoRemote(callback = null) {
         if (!this.fileOperationsManager.proxy) {
             this._sendNoProxyError(callback);
+
             return;
         }
+
         this.fileOperationsManager.proxy.RedoRemote(
             (result, error) => {
                 if (callback)
@@ -1066,7 +1374,10 @@ const DBusUtils = class {
                 makeAsync
             );
         } else {
-            console.log('Emulating NautilusFileOperations2 with the old NautilusFileOperations interface');
+            console.log(
+                'Emulating NautilusFileOperations2 with the old ' +
+                'NautilusFileOperations interface'
+            );
             // Emulate NautilusFileOperations2 with the old interface
             this.NautilusFileOperations2 = new ProxyManager(
                 this.dbusManagerObject,
@@ -1170,6 +1481,7 @@ const DBusUtils = class {
         const extBusID = `${appID}extension`;
         const extBusPath = GLib.build_filenamev(['/', ...extBusID.split('.')]);
         const extBusInterface = extBusID;
+
         this.RemoteExtensionManager = new ProxyManager(
             this.dbusManagerObject,
             extBusID,
@@ -1191,7 +1503,7 @@ class ExtensionControl {
     }
 
     async getState() {
-        let x = await this._getShellDevicePointer();
+        const x = await this._getShellDevicePointer();
         return x ? x[0].slice(2) : null;
     }
 
@@ -1204,17 +1516,21 @@ class ExtensionControl {
     }
 
     async getDropTargetCoordinates() {
-        let x = await this._getShellDevicePointer();
+        const x = await this._getShellDevicePointer();
         return x ? x[0].slice(0, 2) : null;
     }
 
     _getShellDevicePointer() {
         return new Promise(resolve => {
             try {
-                this.RemoteExtensionManager.proxy.getShellGlobalCoordinatesRemote(
+                this.RemoteExtensionManager.proxy
+                .getShellGlobalCoordinatesRemote(
                     (coords, error) => {
                         if (error) {
-                            console.error(error, 'Unable to get global Coordinates');
+                            console.error(error,
+                                'Unable to get global Coordinates'
+                            );
+
                             resolve(null);
                         } else {
                             resolve(coords);
@@ -1232,11 +1548,14 @@ class ExtensionControl {
             try {
                 let dropX = dropCoordinates[0];
                 let dropY = dropCoordinates[1];
-                this.RemoteExtensionManager.proxy.getDropTargetAppInfoDesktopFileRemote(
+
+                this.RemoteExtensionManager.proxy
+                .getDropTargetAppInfoDesktopFileRemote(
                     [dropX, dropY],
                     (desktopFileAppPath, error) => {
                         if (error) {
                             console.error(error, 'Unable to get .desktop file');
+
                             resolve(null);
                         // eslint-disable-next-line eqeqeq
                         } else if (desktopFileAppPath == 'null') {
