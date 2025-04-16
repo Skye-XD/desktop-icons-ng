@@ -141,6 +141,7 @@ const ComboRowWithKey = GObject.registerClass({
             return;
 
         this._indexkey = value;
+
         if (this.get_selected !== this.enumExpression[value])
             this.set_selected(this.enumExpression[value]);
 
@@ -153,39 +154,50 @@ const AdwPreferencesWindow = class {
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;
         this.gtkSettings = gtkSettings;
-        this.iconTheme = Gtk.IconTheme.get_for_display(
-            Gdk.Display.get_default());
+
+        this.iconTheme =
+            Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+
         this.iconTheme.add_resource_path('/com/desktop/ding/icons');
         this.version = version;
-        this.defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(), 'Desktop']);
+
+        this.defaultDesktop =
+            GLib.build_filenamev([GLib.get_home_dir(), 'Desktop']);
     }
 
     getAdwPreferencesWindow(window = null) {
         var prefsWindow;
+
         if (window)
             prefsWindow = window;
         else
             prefsWindow = new Adw.PreferencesWindow();
+
         prefsWindow.set_can_navigate_back(true);
         prefsWindow.set_search_enabled(true);
+
         this.prefsWindow = prefsWindow;
 
         const prefsFrame = new Adw.PreferencesPage();
+
         prefsFrame.set_name(_('Desktop'));
         prefsFrame.set_title(_('Desktop'));
         prefsFrame.set_icon_name('prefs-desktop-symbolic');
 
         const filesPrefsFrame = new Adw.PreferencesPage();
+
         filesPrefsFrame.set_name(_('Files'));
         filesPrefsFrame.set_title(_('Files'));
         filesPrefsFrame.set_icon_name('prefs-files-symbolic');
 
         const tweaksFrame = new Adw.PreferencesPage();
+
         tweaksFrame.set_name(_('Tweaks'));
         tweaksFrame.set_title(_('Tweaks'));
         tweaksFrame.set_icon_name('prefs-tweaks-symbolic');
 
         const aboutFrame = new Adw.PreferencesPage();
+
         aboutFrame.set_name(_('About'));
         aboutFrame.set_title(_('About'));
         aboutFrame.set_icon_name('prefs-more-symbolic');
@@ -197,32 +209,41 @@ const AdwPreferencesWindow = class {
         prefsWindow.set_visible(prefsFrame);
 
         const desktopGroup = new Adw.PreferencesGroup();
+
         desktopGroup.set_title(_('Desktop Settings'));
         desktopGroup.set_description(_('Settings for the Desktop Program'));
+
         prefsFrame.add(desktopGroup);
 
         this.desktopFolderGroup = new Adw.PreferencesGroup();
+
         this.desktopFolderGroup.set_title(_('Desktop Folder'));
         this.FolderGroupDescription = _('Current Desktop: ');
         this.desktopFolderGroup.set_description(
             `${this.FolderGroupDescription} ${this.getCurrentDesktopFolder()}`
         );
+
         prefsFrame.add(this.desktopFolderGroup);
 
         const filesGroup = new Adw.PreferencesGroup();
+
         filesGroup.set_title(_('Files Settings'));
         filesGroup.set_description(_('Settings shared with Gnome Files'));
+
         filesPrefsFrame.add(filesGroup);
 
         const tweaksGroup = new Adw.PreferencesGroup();
+
         tweaksGroup.set_title(_('Tweaks'));
         tweaksGroup.set_description(_('Miscellaneous Tweaks'));
         tweaksFrame.add(tweaksGroup);
 
         const aboutGroup = new Adw.PreferencesGroup();
+
         aboutGroup.set_title('Gtk4 Desktop Icons NG');
         let versiontitle = _(`Version ${this.version}`);
         aboutGroup.set_description(versiontitle);
+
         aboutFrame.add(aboutGroup);
 
         desktopGroup.add(this.addActionRowSelector(this.desktopSettings,
@@ -235,6 +256,7 @@ const AdwPreferencesWindow = class {
                 'large': _('Large'),
             }
         ));
+
         desktopGroup.add(this.addActionRowSelector(this.desktopSettings,
             'start-corner',
             _('New icons alignment'),
@@ -245,6 +267,7 @@ const AdwPreferencesWindow = class {
                 'bottom-right': _('Bottom right corner'),
             }
         ));
+
         desktopGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-second-monitor',
             _('Add new icons to Secondary Monitors first, if available')));
@@ -254,23 +277,31 @@ const AdwPreferencesWindow = class {
             _('Snap icons to grid'),
             Gio.SettingsBindFlags.INVERT_BOOLEAN
         ));
+
         const dropPlaceRow = this.addActionRowSwitch(this.desktopSettings,
             'show-drop-place',
             _('Highlight the drop grid'));
+
         this.desktopSettings.bind('free-position-icons', dropPlaceRow,
             'sensitive',
             Gio.SettingsBindFlags.INVERT_BOOLEAN);
+
         desktopGroup.add(dropPlaceRow);
-        this.desktopFolderGroup.add(this.addActionRowButton(_('New Desktop Folder'),
-            _('Set a new folder for the desktop'),
-            _('Choose'),
-            this.chooseDesktopFolder.bind(this)
-        ));
-        this.defaultDesktopRow = this.addActionRowButton(_('Restore Default Desktop Folder'),
-            _('Set Desktop back to $HOME/Desktop'),
-            _('Restore'),
-            this.restoreDefaultDesktopFolder.bind(this)
-        );
+
+        this.desktopFolderGroup
+            .add(this.addActionRowButton(_('New Desktop Folder'),
+                _('Set a new folder for the desktop'),
+                _('Choose'),
+                this.chooseDesktopFolder.bind(this)
+            ));
+
+        this.defaultDesktopRow =
+            this.addActionRowButton(_('Restore Default Desktop Folder'),
+                _('Set Desktop back to $HOME/Desktop'),
+                _('Restore'),
+                this.restoreDefaultDesktopFolder.bind(this)
+            );
+
         this.desktopFolderGroup.add(this.defaultDesktopRow);
         this.defaultDesktopRow.set_sensitive(!this.isDefault());
 
@@ -278,26 +309,32 @@ const AdwPreferencesWindow = class {
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-link-emblem',
             _('Add information emblems for links, encryption')));
+
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'dark-text-in-labels',
             _('Use dark text in icon labels')
         ));
+
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-home',
             _('Show the personal folder on the desktop')
         ));
+
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-trash',
             _('Show the trash icon on the desktop')
         ));
+
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-volumes',
             _('Show external drives on the desktop')
         ));
+
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-network-volumes',
             _('Show network drives on the desktop')
         ));
+
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'add-volumes-opposite',
             _('Add new drives to the opposite side of the desktop')
@@ -311,6 +348,7 @@ const AdwPreferencesWindow = class {
                 'single': _('Single click'),
                 'double': _('Double click'),
             }));
+
         filesGroup.add(this.addActionRowSelector(this.nautilusSettings,
             'show-image-thumbnails',
             _('Show image thumbnails'),
@@ -319,14 +357,17 @@ const AdwPreferencesWindow = class {
                 'local-only': _('On this computer only'),
                 'never': _('Never'),
             }));
+
         filesGroup.add(this.addActionRowSwitch(this.nautilusSettings,
             'show-delete-permanently',
             _('Show a context menu item to delete permanently')
         ));
+
         filesGroup.add(this.addActionRowSwitch(this.gtkSettings,
             'show-hidden',
             _('Show hidden files')
         ));
+
         filesGroup.add(this.addActionRowSwitch(this.nautilusSettings,
             'open-folder-on-dnd-hover',
             _('Open folders on drag hover')
@@ -337,15 +378,18 @@ const AdwPreferencesWindow = class {
             _('Visit'),
             this.launchWebsite.bind(this)
         ));
+
         aboutGroup.add(this.addActionRowButton(_('Issues'),
             _('Report issues on issue tracker'),
             _('Report'), this.launchIssueTracker.bind(this)
         ));
+
         aboutGroup.add(this.addActionRowButton(_('License'),
             'GNU GPLv3',
             'GNU GPLv3',
             this.launchLicense.bind(this)
         ));
+
         aboutGroup.add(this.addActionRowButton(_('Translation'),
             _('Help translate in your web browser'),
             _('Translate'),
@@ -363,14 +407,17 @@ const AdwPreferencesWindow = class {
     addActionRowSwitch(settings, key, labelText, bindFlags = null) {
         const actionRow = Adw.ActionRow.new();
         const switcher = new Gtk.Switch({active: settings.get_boolean(key)});
+
         switcher.set_halign(Gtk.Align.END);
         switcher.set_valign(Gtk.Align.CENTER);
         switcher.set_hexpand(false);
         switcher.set_vexpand(false);
         actionRow.set_title(labelText);
         actionRow.add_suffix(switcher);
+
         if (!bindFlags)
             bindFlags = Gio.SettingsBindFlags.DEFAULT;
+
         settings.bind(key, switcher, 'active', bindFlags);
         actionRow.set_activatable_widget(switcher);
 
@@ -379,10 +426,12 @@ const AdwPreferencesWindow = class {
 
     addActionRowSelector(settings, key, labelText, elements) {
         const actionRow = new ComboRowWithKey();
+
         actionRow.set_title(labelText);
         actionRow.set_use_subtitle(false);
         actionRow.makeEnumn(elements);
         actionRow.set_selected(settings.get_enum(key));
+
         settings.bind(key, actionRow, 'indexkey',
             Gio.SettingsBindFlags.DEFAULT);
 
@@ -391,20 +440,25 @@ const AdwPreferencesWindow = class {
 
     addActionRowButton(title, subtitle, buttonLabel, action) {
         const actionRow = Adw.ActionRow.new();
+
         actionRow.set_title(title);
+
         if (subtitle) {
             actionRow.set_subtitle(subtitle);
             if (Adw.get_minor_version() > 2)
                 actionRow.set_subtitle_selectable(true);
         }
+
         if (buttonLabel && action) {
             const button = Gtk.Button.new_with_label(buttonLabel);
+
             button.set_size_request(120, -1);
             button.set_halign(Gtk.Align.END);
             button.set_valign(Gtk.Align.CENTER);
             button.set_hexpand(true);
             button.set_vexpand(false);
             button.connect('clicked', action.bind(this));
+
             actionRow.add_suffix(button);
             actionRow.set_activatable_widget(button);
         }
@@ -415,6 +469,7 @@ const AdwPreferencesWindow = class {
     launchUri(uri) {
         const context = Gdk.Display.get_default().get_app_launch_context();
         context.set_timestamp(Gdk.CURRENT_TIME);
+
         Gio.AppInfo.launch_default_for_uri(uri, context);
     }
 
@@ -442,15 +497,25 @@ const AdwPreferencesWindow = class {
 
     chooseDesktopFolder() {
         const dialog = new Gtk.FileDialog();
+
         dialog.set_title(_('Choose Desktop Folder'));
         dialog.set_accept_label(_('Choose'));
         dialog.set_modal(true);
-        dialog.set_initial_folder(Gio.File.new_for_commandline_arg(GLib.get_home_dir()));
-        dialog.select_folder(this.prefsWindow, null, this.finishChooseDesktopFolder.bind(this));
+
+        dialog.set_initial_folder(
+            Gio.File.new_for_commandline_arg(GLib.get_home_dir())
+        );
+
+        dialog.select_folder(
+            this.prefsWindow,
+            null,
+            this.finishChooseDesktopFolder.bind(this)
+        );
     }
 
     finishChooseDesktopFolder(dialog, asyncResult) {
         let folder = null;
+
         try {
             folder = dialog.select_folder_finish(asyncResult);
         } catch (e) {
@@ -459,9 +524,12 @@ const AdwPreferencesWindow = class {
                 return;
             console.error(e, `Error selecting folder: ${e.message}`);
         }
+
         if (folder)
             this.setDesktopFolder(folder.get_path());
+
         this.defaultDesktopRow.set_sensitive(!this.isDefault());
+
         this.desktopFolderGroup.set_description(
             `${this.FolderGroupDescription} ${folder.get_path()}`
         );
@@ -469,6 +537,7 @@ const AdwPreferencesWindow = class {
 
     setDesktopFolder(path) {
         const command = 'xdg-user-dirs-update --set DESKTOP';
+
         try {
             GLib.spawn_command_line_async(
                 `${command} '${path}'`);
@@ -480,6 +549,7 @@ const AdwPreferencesWindow = class {
     restoreDefaultDesktopFolder() {
         this.setDesktopFolder(this.defaultDesktop);
         this.defaultDesktopRow.set_sensitive(!this.isDefault());
+
         this.desktopFolderGroup.set_description(
             `${this.FolderGroupDescription} ${this.defaultDesktop}`
         );
@@ -493,6 +563,7 @@ const AdwPreferencesWindow = class {
         const command = 'xdg-user-dir DESKTOP';
         const decoder = new TextDecoder();
         const [, out,, status] = GLib.spawn_command_line_sync(command);
+
         if (status === 0)
             return decoder.decode(out).trim();
         else
