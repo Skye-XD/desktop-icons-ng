@@ -602,6 +602,19 @@ var EmulateX11WindowType = class {
     }
 };
 
+
+// Since Gnome Shell 48 the enumeration of the cursor is different
+// the name has changed, althugh the value is the same;
+// We use our own enumeration names to avoid problems with the version
+// of the Gnome Shell, the enumeration integer points to the correct
+// value in the Gnome Shell 48 and Meta 48 Enum and earlier.
+// Using the wrong Enum Name seems to crash mutter
+const ShellDropCursor = {
+    DEFAULT: 2, // META_CURSOR_DEFAULT Meta.Cursor.DEFAULT
+    NODROP: 15, // META_CURSOR_NO_DROP Meta.Cursor.DND_UNSUPPORTED_TARGET
+    COPY: 13, // META_CURSOR_COPY Meta.Cursor.DND_COPY
+    MOVE: 14, // META_CURSOR_MOVE Meta.Cursor.DND_MOVE
+};
 class HandleDragActors {
     /* This class is added to each managed windowActor, and it's used to
        make it behave like a shell Actor that can accept drops from Gnome Shell dnd.
@@ -628,11 +641,11 @@ class HandleDragActors {
             return DND.DragMotionResult.NO_DROP;
         this._getModifierKeys();
         if (this.isShift) {
-            global.display.set_cursor(Meta.Cursor.DND_COPY);
+            global.display.set_cursor(ShellDropCursor.COPY);
             return DND.DragMotionResult.COPY_DROP;
         }
         if (this.isControl) {
-            global.display.set_cursor(Meta.Cursor.DND_MOVE);
+            global.display.set_cursor(ShellDropCursor.MOVE);
             return DND.DragMotionResult.MOVE_DROP;
         }
         return DND.DragMotionResult.CONTINUE;
