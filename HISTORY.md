@@ -1,4 +1,9 @@
 # History of versions #
+* Gtk4/Adw version 97 for Gnome 45, 46, 47, 48
+  * Fix mutter crash when dragging a dock icon to make a .desktop file on the desktop. (Sundeep Mediratta)
+  * Weblate translations. (Weblate Authors)
+  * Update History.md, metadata.json, version bump to 97.
+
 * Gtk4/Adw version 96 for Gnome 45, 46, 47, 48
   * Fix mutter crash in Gnome-Shell/Mutter 48, when trying to set drag cursor with Gnome Shell Drag and Drop. (Sundeep Mediratta)
   * Make sure icons are completely within the window and grid when free position is selected. This was a regression from earlier fix to icons not retaining position after sleep. (Sundeep Mediratta)
