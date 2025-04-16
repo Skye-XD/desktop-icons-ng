@@ -820,10 +820,13 @@ const DesktopActions = class {
         const fileList = [shortcutinfo.uri];
         const X = parseInt(shortcutinfo.X);
         const Y = parseInt(shortcutinfo.Y);
-        await this._desktopManager.clearFileCoordinates(
-            fileList, [X, Y],
+
+        await this._dragManager.clearFileCoordinates(
+            fileList,
+            [X, Y],
             {doCopy: true}
         );
+
         await this._DesktopIconsUtil.copyDesktopFileToDesktop(
             shortcutinfo.uri,
             [X, Y]
