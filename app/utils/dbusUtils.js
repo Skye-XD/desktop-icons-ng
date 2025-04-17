@@ -682,6 +682,62 @@ class DbusOperationsManager {
         this.freeDesktopFileManager = FreeDesktopFileManager;
         this.gnomeNautilusPreviewManager = GnomeNautilusPreview;
         this.gnomeArchiveManager = GnomeArchiveManager;
+
+        this._monitorExtractionSupportedTypes();
+    }
+
+    _monitorExtractionSupportedTypes() {
+        this.decompressibleTypes = [];
+
+        this.archiveConnectionId =
+            this.gnomeArchiveManager.connect(
+                'changed-status',
+                (_actor, available) => {
+                    if (available) {
+                        // wait a second to ensure that everything has settled
+                        GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
+                            try {
+                                this._getExtractionSupportedTypes();
+                            } catch (e) {}
+                            return false;
+                        });
+                    } else {
+                        this.decompressibleTypes = [];
+                    }
+                }
+            );
+
+        if (this.gnomeArchiveManager.isAvailable)
+            this._getExtractionSupportedTypes();
+    }
+
+    _getExtractionSupportedTypes() {
+        this.decompressibleTypes = [];
+        const archiveProxy = this.gnomeArchiveManager.proxy;
+
+        try {
+            archiveProxy?.GetSupportedTypesRemote(
+                'extract',
+                (result, error) => {
+                    if (error) {
+                        console.log(
+                            'Can not get the extractable types:' +
+                            ` ${error.message}.` +
+                            `\nEnsure that File-Roller is installed.\n${error}.`
+                        );
+                        return;
+                    }
+                    for (let key of result.values()) {
+                        for (let type of key.values()) {
+                            this.decompressibleTypes
+                                .push(Object.values(type)[0]);
+                        }
+                    }
+                }
+            );
+        } catch (e) {
+            console.log(e.message, e.stack);
+        }
     }
 
     _sendNoProxyError(callback) {
