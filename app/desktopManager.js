@@ -260,8 +260,6 @@ const DesktopManager = class {
         }
 
         this.windowManager.destroyDesktops();
-
-        this.fileItemMenu.destroy();
     }
 
     // Keyboard and Mouse Events

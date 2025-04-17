@@ -33,73 +33,11 @@ const FileItemMenu = class {
         this._Enums = desktopManager.Enums;
         this._dragManager = desktopManager.dragManager;
 
-        this._gnomeArchiveManager =
-            this._DBusUtils.RemoteFileOperations.gnomeArchiveManager;
-        this._decompressibleTypes = [];
-        this._monitorExtractionSupportedTypes();
-
         this._templatesScriptsManager =
             this._desktopManager.templatesScriptsManager;
+
         this._monitorScripts();
-
         this._activeFileItem = null;
-    }
-
-    destroy() {
-        if (this.archiveConnectionId) {
-            this._gnomeArchiveManager.disconnect(this.archiveConnectionId);
-            this.archiveConnectionId = 0;
-        }
-    }
-
-    _monitorExtractionSupportedTypes() {
-        this.archiveConnectionId =
-            this._gnomeArchiveManager.connect(
-                'changed-status',
-                (_actor, available) => {
-                    if (available) {
-                        // wait a second to ensure that everything has settled
-                        GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
-                            try {
-                                this._getExtractionSupportedTypes();
-                            } catch (e) {}
-                            return false;
-                        });
-                    } else {
-                        this._decompressibleTypes = [];
-                    }
-                }
-            );
-        if (this._gnomeArchiveManager.isAvailable)
-            this._getExtractionSupportedTypes();
-    }
-
-    _getExtractionSupportedTypes() {
-        this._decompressibleTypes = [];
-        const archiveProxy = this._DBusUtils.GnomeArchiveManager.proxy;
-        try {
-            archiveProxy?.GetSupportedTypesRemote(
-                'extract',
-                (result, error) => {
-                    if (error) {
-                        console.log(
-                            'Can not get the extractable types:' +
-                            ` ${error.message}.` +
-                            `\nEnsure that File-Roller is installed.\n${error}.`
-                        );
-                        return;
-                    }
-                    for (let key of result.values()) {
-                        for (let type of key.values()) {
-                            this._decompressibleTypes
-                                .push(Object.values(type)[0]);
-                        }
-                    }
-                }
-            );
-        } catch (e) {
-            console.log(e.message, e.stack);
-        }
     }
 
     _monitorScripts() {
@@ -528,11 +466,16 @@ const FileItemMenu = class {
 
     _getExtractable() {
         const item = this._desktopManager.getCurrentSelection()[0];
-        const contentType = item.attributeContentType;
-        if (item)
-            return this._decompressibleTypes.includes(contentType);
-        else
+
+        if (!item)
             return false;
+
+        const contentType = item.attributeContentType;
+
+        const decompressibleTypes =
+            this._DBusUtils.RemoteFileOperations.decompressibleTypes;
+
+        return decompressibleTypes.includes(contentType);
     }
 
     set activeFileItem(fileItem) {
