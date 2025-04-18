@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 18:16-0400\n"
+"POT-Creation-Date: 2025-04-17 07:05-0400\n"
 "PO-Revision-Date: 2025-03-18 12:07+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -344,8 +344,8 @@ msgstr "Ime mape"
 msgid "File name"
 msgstr "Ime datoteke"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1220
-#: app/fileItemMenu.js:1017
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
+#: app/fileItemMenu.js:960
 #, fuzzy
 msgid "OK"
 msgstr "V redu"
@@ -375,8 +375,8 @@ msgid "Compressing files"
 msgstr "Stiskanje datotek."
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1222 app/dragManager.js:783 app/fileItemMenu.js:964
-#: app/fileItemMenu.js:1017 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
+#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 #, fuzzy
 msgid "Cancel"
 msgstr "Zrušiť"
@@ -603,24 +603,24 @@ msgid ""
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:319
+#: app/desktopManager.js:317
 msgid "Clear current selection before new search"
 msgstr ""
 
-#: app/desktopManager.js:1224
+#: app/desktopManager.js:1222
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1553 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:956
 #, fuzzy
 msgid "New Folder"
 msgstr "Nova mapa"
 
-#: app/desktopManager.js:1587
+#: app/desktopManager.js:1585
 msgid "Folder Creation Failed"
 msgstr ""
 
-#: app/desktopManager.js:1588
+#: app/desktopManager.js:1586
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Mape ni mogoče ustvariti."
@@ -768,7 +768,7 @@ msgstr ""
 msgid "Move"
 msgstr "Premik"
 
-#: app/dragManager.js:783 app/fileItemMenu.js:302
+#: app/dragManager.js:783 app/fileItemMenu.js:240
 #, fuzzy
 msgid "Copy"
 msgstr "Kopiranje"
@@ -796,251 +796,251 @@ msgstr ""
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr ""
 
-#: app/fileItemMenu.js:166
+#: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: app/fileItemMenu.js:176
+#: app/fileItemMenu.js:114
 msgid "Open All..."
 msgstr ""
 
-#: app/fileItemMenu.js:184
+#: app/fileItemMenu.js:122
 #, fuzzy
 msgid "Launch"
 msgstr "Zaženi"
 
-#: app/fileItemMenu.js:197
+#: app/fileItemMenu.js:135
 msgid "Open with {foo}"
 msgstr ""
 
-#: app/fileItemMenu.js:200
+#: app/fileItemMenu.js:138
 #, fuzzy
 msgid "Open"
 msgstr "Odpri"
 
-#: app/fileItemMenu.js:218 app/fileItemMenu.js:222
+#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 msgid "Extract Here"
 msgstr ""
 
-#: app/fileItemMenu.js:224
+#: app/fileItemMenu.js:162
 msgid "Extract To..."
 msgstr ""
 
-#: app/fileItemMenu.js:232 app/fileItemMenu.js:239
+#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 #, fuzzy
 msgid "Open With..."
 msgstr "Odpri z..."
 
-#: app/fileItemMenu.js:238
+#: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
 msgstr ""
 
-#: app/fileItemMenu.js:246
+#: app/fileItemMenu.js:184
 msgid "Launch using Integrated Graphics Card"
 msgstr ""
 
-#: app/fileItemMenu.js:268
+#: app/fileItemMenu.js:206
 msgid "Stack This Type"
 msgstr ""
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:207
 msgid "Unstack This Type"
 msgstr ""
 
-#: app/fileItemMenu.js:293
+#: app/fileItemMenu.js:231
 msgid "Run as a Program"
 msgstr ""
 
-#: app/fileItemMenu.js:296
+#: app/fileItemMenu.js:234
 #, fuzzy
 msgid "Scripts"
 msgstr "Skripti"
 
-#: app/fileItemMenu.js:301
+#: app/fileItemMenu.js:239
 #, fuzzy
 msgid "Cut"
 msgstr "Izreži"
 
-#: app/fileItemMenu.js:306
+#: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
 msgstr "Premakni v"
 
-#: app/fileItemMenu.js:307
+#: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
 msgstr "Kopiraj v"
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:249
 #, fuzzy
 msgid "Rename…"
 msgstr "Preimenuj"
 
-#: app/fileItemMenu.js:316
+#: app/fileItemMenu.js:254
 msgid "Create Link..."
 msgstr ""
 
-#: app/fileItemMenu.js:323
+#: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:276
 msgid "Email to..."
 msgstr ""
 
-#: app/fileItemMenu.js:348
+#: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
 msgstr ""
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:294
 #, fuzzy
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:302
 #, fuzzy
 msgid "Delete permanently"
 msgstr "Trajno izbriši"
 
-#: app/fileItemMenu.js:377 app/fileItemMenu.js:383
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
 msgid "Don't Allow Launching"
 msgstr ""
 
-#: app/fileItemMenu.js:378 app/fileItemMenu.js:384
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
 msgid "Allow Launching"
 msgstr ""
 
-#: app/fileItemMenu.js:393
+#: app/fileItemMenu.js:331
 #, fuzzy
 msgid "Empty Trash"
 msgstr "Izprazni koš"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:337
 #, fuzzy
 msgid "Eject"
 msgstr "izvrzi"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:340
 #, fuzzy
 msgid "Unmount"
 msgstr "odklopi [▲]"
 
-#: app/fileItemMenu.js:408
+#: app/fileItemMenu.js:346
 msgid "Common Properties"
 msgstr ""
 
-#: app/fileItemMenu.js:409
+#: app/fileItemMenu.js:347
 #, fuzzy
 msgid "Properties"
 msgstr "Lastnosti"
 
-#: app/fileItemMenu.js:416
+#: app/fileItemMenu.js:354
 msgid "Show All in {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:355
 msgid "Show in {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:428
+#: app/fileItemMenu.js:366
 msgid "Open in {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:869
+#: app/fileItemMenu.js:812
 msgid "Extraction Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:870
+#: app/fileItemMenu.js:813
 msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:926 app/fileItemMenu.js:955
+#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
 #, fuzzy
 msgid "Select Destination"
 msgstr "Izbor cilja"
 
-#: app/fileItemMenu.js:929 app/fileItemMenu.js:957
+#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
 #, fuzzy
 msgid "Select"
 msgstr "Izberite"
 
-#: app/fileItemMenu.js:1013
+#: app/fileItemMenu.js:956
 msgid "Can not email a Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:1015
+#: app/fileItemMenu.js:958
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 
-#: app/fileItemMenu.js:1041 app/fileItemMenu.js:1072 app/fileItemMenu.js:1089
-#: app/fileItemMenu.js:1108
+#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1051
 msgid "Mail Error"
 msgstr ""
 
-#: app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:986
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1049
+#: app/fileItemMenu.js:992
 msgid "Archive.zip"
 msgstr ""
 
-#: app/fileItemMenu.js:1073
+#: app/fileItemMenu.js:1016
 msgid "There was an error in creating a zip archive"
 msgstr ""
 
-#: app/fileItemMenu.js:1091
+#: app/fileItemMenu.js:1034
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 
-#: app/fileItemMenu.js:1109
+#: app/fileItemMenu.js:1052
 msgid "There was an error in emailing Files"
 msgstr ""
 
-#: app/fileItemMenu.js:1216
+#: app/fileItemMenu.js:1159
 msgid "Can Not open the Working Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1210
 msgid "Unable to Open in Gnome Console"
 msgstr ""
 
-#: app/fileItemMenu.js:1269
+#: app/fileItemMenu.js:1212
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
-#: app/fileItemMenu.js:1277
+#: app/fileItemMenu.js:1220
 msgid "Unable to Open {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1279
+#: app/fileItemMenu.js:1222
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1323
+#: app/fileItemMenu.js:1266
 msgid "Copy Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:1324
+#: app/fileItemMenu.js:1267
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:1347
+#: app/fileItemMenu.js:1290
 msgid "Move Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:1348
+#: app/fileItemMenu.js:1291
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 

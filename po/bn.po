@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 18:16-0400\n"
+"POT-Creation-Date: 2025-04-17 07:05-0400\n"
 "PO-Revision-Date: 2025-04-02 19:09+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -393,8 +393,8 @@ msgstr "ফোল্ডারের নাম"
 msgid "File name"
 msgstr "ফাইলের নাম"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1220
-#: app/fileItemMenu.js:1017
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
+#: app/fileItemMenu.js:960
 #, fuzzy
 msgid "OK"
 msgstr "ঠিক আছে"
@@ -429,8 +429,8 @@ msgid "Compressing files"
 msgstr "ফাইলগুলো কমপ্রেস হচ্ছে।"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1222 app/dragManager.js:783 app/fileItemMenu.js:964
-#: app/fileItemMenu.js:1017 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
+#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 #, fuzzy
 msgid "Cancel"
 msgstr "বাতিল"
@@ -694,27 +694,27 @@ msgid ""
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:319
+#: app/desktopManager.js:317
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "নতুন অনুসন্ধানের আগে বর্তমান নির্বাচন সাফ করুন"
 
-#: app/desktopManager.js:1224
+#: app/desktopManager.js:1222
 #, fuzzy
 msgid "Find Files on Desktop"
 msgstr "ডেস্কটপে ফাইল খুঁজুন"
 
-#: app/desktopManager.js:1553 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:956
 #, fuzzy
 msgid "New Folder"
 msgstr "নতুন ফোল্ডার"
 
-#: app/desktopManager.js:1587
+#: app/desktopManager.js:1585
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "ফোল্ডার তৈরি করা ব্যর্থ হয়েছে৷"
 
-#: app/desktopManager.js:1588
+#: app/desktopManager.js:1586
 #, fuzzy
 msgid "Could not create folder"
 msgstr "ফোল্ডার তৈরী করা সম্ভব হয়নি।"
@@ -881,7 +881,7 @@ msgstr "ফাইলের জন্য অ্যাকশন নির্বা
 msgid "Move"
 msgstr "স্থানান্তর"
 
-#: app/dragManager.js:783 app/fileItemMenu.js:302
+#: app/dragManager.js:783 app/fileItemMenu.js:240
 #, fuzzy
 msgid "Copy"
 msgstr "নকল"
@@ -911,280 +911,280 @@ msgstr "ফাইল খুলতে ব্যর্থ হয়েছে"
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "\"{foo}\" ধরনের ফাইল খোলার জন্য কোনো অ্যাপ্লিকেশন ইনস্টল করা নেই"
 
-#: app/fileItemMenu.js:166
+#: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] ""
 msgstr[1] "{0}টি আইটেম সহ নতুন ফোল্ডার৷"
 
-#: app/fileItemMenu.js:176
+#: app/fileItemMenu.js:114
 #, fuzzy
 msgid "Open All..."
 msgstr "সব খোলো..।"
 
-#: app/fileItemMenu.js:184
+#: app/fileItemMenu.js:122
 #, fuzzy
 msgid "Launch"
 msgstr "শুরু করা"
 
-#: app/fileItemMenu.js:197
+#: app/fileItemMenu.js:135
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "{foo} দিয়ে খুলুন"
 
-#: app/fileItemMenu.js:200
+#: app/fileItemMenu.js:138
 #, fuzzy
 msgid "Open"
 msgstr "চালু করুন"
 
-#: app/fileItemMenu.js:218 app/fileItemMenu.js:222
+#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 #, fuzzy
 msgid "Extract Here"
 msgstr "এখানে নির্যাস"
 
-#: app/fileItemMenu.js:224
+#: app/fileItemMenu.js:162
 #, fuzzy
 msgid "Extract To..."
 msgstr "এতে এক্সট্র্যাক্ট করুন..।"
 
-#: app/fileItemMenu.js:232 app/fileItemMenu.js:239
+#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 #, fuzzy
 msgid "Open With..."
 msgstr "সঙ্গে খোলা..।"
 
-#: app/fileItemMenu.js:238
+#: app/fileItemMenu.js:176
 #, fuzzy
 msgid "Open All With Other Application..."
 msgstr "অন্য অ্যাপ্লিকেশন দিয়ে সব খুলুন..।"
 
-#: app/fileItemMenu.js:246
+#: app/fileItemMenu.js:184
 #, fuzzy
 msgid "Launch using Integrated Graphics Card"
 msgstr "ডেডিকেটেড গ্রাফিক্স কার্ড ব্যবহার করে লঞ্চ করুন"
 
-#: app/fileItemMenu.js:268
+#: app/fileItemMenu.js:206
 #, fuzzy
 msgid "Stack This Type"
 msgstr "এই ধরনের স্ট্যাক"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:207
 #, fuzzy
 msgid "Unstack This Type"
 msgstr "এই টাইপ আনস্ট্যাক করুন"
 
-#: app/fileItemMenu.js:293
+#: app/fileItemMenu.js:231
 #, fuzzy
 msgid "Run as a Program"
 msgstr "একটি প্রোগ্রাম হিসাবে চালান"
 
-#: app/fileItemMenu.js:296
+#: app/fileItemMenu.js:234
 #, fuzzy
 msgid "Scripts"
 msgstr "স্ক্রিপ্টস্"
 
-#: app/fileItemMenu.js:301
+#: app/fileItemMenu.js:239
 #, fuzzy
 msgid "Cut"
 msgstr "কাটুন"
 
-#: app/fileItemMenu.js:306
+#: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
 msgstr "চলো..।"
 
-#: app/fileItemMenu.js:307
+#: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
 msgstr "নকল করা..।"
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:249
 #, fuzzy
 msgid "Rename…"
 msgstr "পুনঃনামকরণ করুন"
 
-#: app/fileItemMenu.js:316
+#: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
 msgstr "লিঙ্ক তৈরি করুন..।"
 
-#: app/fileItemMenu.js:323
+#: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] ""
 msgstr[1] "{0}টি ফোল্ডার কম্প্রেস করুন"
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] ""
 msgstr[1] "{0}টি ফাইল কম্প্রেস করুন"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:276
 #, fuzzy
 msgid "Email to..."
 msgstr "ইমেইল..।"
 
-#: app/fileItemMenu.js:348
+#: app/fileItemMenu.js:286
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "মোবাইল ডিভাইসে পাঠান"
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:294
 #, fuzzy
 msgid "Move to Trash"
 msgstr "ট্র্যাশে পাঠান"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:302
 #, fuzzy
 msgid "Delete permanently"
 msgstr "চিরতরে মুছে দাও"
 
-#: app/fileItemMenu.js:377 app/fileItemMenu.js:383
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
 #, fuzzy
 msgid "Don't Allow Launching"
 msgstr "লঞ্চ করার অনুমতি দেবেন না"
 
-#: app/fileItemMenu.js:378 app/fileItemMenu.js:384
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
 #, fuzzy
 msgid "Allow Launching"
 msgstr "লঞ্চ করার অনুমতি দিন"
 
-#: app/fileItemMenu.js:393
+#: app/fileItemMenu.js:331
 #, fuzzy
 msgid "Empty Trash"
 msgstr "ট্র্যাশ খালি"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:337
 #, fuzzy
 msgid "Eject"
 msgstr "বের করে দাও"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:340
 #, fuzzy
 msgid "Unmount"
 msgstr "আনমাউন্ট করুন"
 
-#: app/fileItemMenu.js:408
+#: app/fileItemMenu.js:346
 #, fuzzy
 msgid "Common Properties"
 msgstr "সাধারণ বৈশিষ্ট্য"
 
-#: app/fileItemMenu.js:409
+#: app/fileItemMenu.js:347
 #, fuzzy
 msgid "Properties"
 msgstr "বৈশিষ্ট্যাবলী"
 
-#: app/fileItemMenu.js:416
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Show All in {0}"
 msgstr "ফাইলে সব দেখান"
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:355
 #, fuzzy
 msgid "Show in {0}"
 msgstr "ফাইলে দেখান"
 
-#: app/fileItemMenu.js:428
+#: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Open in {0}"
 msgstr "{foo} দিয়ে খুলুন"
 
-#: app/fileItemMenu.js:869
+#: app/fileItemMenu.js:812
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "নিষ্কাশন বাতিল করা হয়েছে"
 
-#: app/fileItemMenu.js:870
+#: app/fileItemMenu.js:813
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "ফাইল এক্সট্র্যাক্ট করতে অক্ষম, কোনো গন্তব্য ফোল্ডার নেই৷"
 
-#: app/fileItemMenu.js:926 app/fileItemMenu.js:955
+#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select destination"
 
-#: app/fileItemMenu.js:929 app/fileItemMenu.js:957
+#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
 #, fuzzy
 msgid "Select"
 msgstr "Select"
 
-#: app/fileItemMenu.js:1013
+#: app/fileItemMenu.js:956
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "একটি ডিরেক্টরি ইমেল করতে পারবেন না"
 
-#: app/fileItemMenu.js:1015
+#: app/fileItemMenu.js:958
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "নির্বাচনের মধ্যে একটি ডিরেক্টরি অন্তর্ভুক্ত রয়েছে, প্রথমে একটি ফাইলে ডিরেক্টরিটি "
 "সংকুচিত করুন।"
 
-#: app/fileItemMenu.js:1041 app/fileItemMenu.js:1072 app/fileItemMenu.js:1089
-#: app/fileItemMenu.js:1108
+#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1051
 msgid "Mail Error"
 msgstr ""
 
-#: app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:986
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1049
+#: app/fileItemMenu.js:992
 #, fuzzy
 msgid "Archive.zip"
 msgstr "সংরক্ষণাগার নাম"
 
-#: app/fileItemMenu.js:1073
+#: app/fileItemMenu.js:1016
 msgid "There was an error in creating a zip archive"
 msgstr ""
 
-#: app/fileItemMenu.js:1091
+#: app/fileItemMenu.js:1034
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 
-#: app/fileItemMenu.js:1109
+#: app/fileItemMenu.js:1052
 msgid "There was an error in emailing Files"
 msgstr ""
 
-#: app/fileItemMenu.js:1216
+#: app/fileItemMenu.js:1159
 #, fuzzy
 msgid "Can Not open the Working Directory"
 msgstr "একটি ডিরেক্টরি ইমেল করতে পারবেন না"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1210
 msgid "Unable to Open in Gnome Console"
 msgstr ""
 
-#: app/fileItemMenu.js:1269
+#: app/fileItemMenu.js:1212
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
-#: app/fileItemMenu.js:1277
+#: app/fileItemMenu.js:1220
 msgid "Unable to Open {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1279
+#: app/fileItemMenu.js:1222
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1323
+#: app/fileItemMenu.js:1266
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "কপি বাতিল"
 
-#: app/fileItemMenu.js:1324
+#: app/fileItemMenu.js:1267
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "ফাইল কপি করতে অক্ষম, কোনো গন্তব্য ফোল্ডার নেই৷"
 
-#: app/fileItemMenu.js:1347
+#: app/fileItemMenu.js:1290
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "সরানো বাতিল"
 
-#: app/fileItemMenu.js:1348
+#: app/fileItemMenu.js:1291
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "ফাইলগুলি সরাতে অক্ষম, কোনও গন্তব্য ফোল্ডার নেই৷"
