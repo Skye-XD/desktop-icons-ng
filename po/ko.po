@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 18:16-0400\n"
+"POT-Creation-Date: 2025-04-17 07:05-0400\n"
 "PO-Revision-Date: 2025-03-18 10:25+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -402,8 +402,8 @@ msgstr "폴더 이름"
 msgid "File name"
 msgstr "파일 이름"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1220
-#: app/fileItemMenu.js:1017
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
+#: app/fileItemMenu.js:960
 msgid "OK"
 msgstr "확인"
 
@@ -436,8 +436,8 @@ msgid "Compressing files"
 msgstr "파일들을 압축하기."
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1222 app/dragManager.js:783 app/fileItemMenu.js:964
-#: app/fileItemMenu.js:1017 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
+#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "취소"
 
@@ -721,25 +721,25 @@ msgstr ""
 "xdg-utils 설치 확인\n"
 "Gnome 파일 확인 .desktop 파일 설치"
 
-#: app/desktopManager.js:319
+#: app/desktopManager.js:317
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "새 검색 전에 현재 선택 지우기"
 
-#: app/desktopManager.js:1224
+#: app/desktopManager.js:1222
 msgid "Find Files on Desktop"
 msgstr "데스크탑에서 파일 찾기"
 
-#: app/desktopManager.js:1553 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:956
 msgid "New Folder"
 msgstr "새 폴더"
 
-#: app/desktopManager.js:1587
+#: app/desktopManager.js:1585
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "오더 구성을 실패했습니다."
 
-#: app/desktopManager.js:1588
+#: app/desktopManager.js:1586
 #, fuzzy
 msgid "Could not create folder"
 msgstr "폴더를 만들 수 없습니다."
@@ -900,7 +900,7 @@ msgstr "파일에 대한 작업 선택"
 msgid "Move"
 msgstr "이동"
 
-#: app/dragManager.js:783 app/fileItemMenu.js:302
+#: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "복사하기"
 
@@ -930,270 +930,270 @@ msgstr "파일을 열지 못했습니다"
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "\"{foo}\"파일을 엽니다."
 
-#: app/fileItemMenu.js:166
+#: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "{0}개 파일 새 폴더로 이동"
 
-#: app/fileItemMenu.js:176
+#: app/fileItemMenu.js:114
 msgid "Open All..."
 msgstr "모두 열기…"
 
-#: app/fileItemMenu.js:184
+#: app/fileItemMenu.js:122
 #, fuzzy
 msgid "Launch"
 msgstr "실행"
 
-#: app/fileItemMenu.js:197
+#: app/fileItemMenu.js:135
 #, fuzzy
 msgid "Open with {foo}"
 msgstr "{foo}로 열기"
 
-#: app/fileItemMenu.js:200
+#: app/fileItemMenu.js:138
 msgid "Open"
 msgstr "열기"
 
-#: app/fileItemMenu.js:218 app/fileItemMenu.js:222
+#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 msgid "Extract Here"
 msgstr "여기 풀기"
 
-#: app/fileItemMenu.js:224
+#: app/fileItemMenu.js:162
 msgid "Extract To..."
 msgstr "다른 위치에 풀기…"
 
-#: app/fileItemMenu.js:232 app/fileItemMenu.js:239
+#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 #, fuzzy
 msgid "Open With..."
 msgstr "다음으로 열기..."
 
-#: app/fileItemMenu.js:238
+#: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
 msgstr "다른 프로그램으로 모두 열기…"
 
-#: app/fileItemMenu.js:246
+#: app/fileItemMenu.js:184
 #, fuzzy
 #| msgid "Launch using Dedicated Graphics Card"
 msgid "Launch using Integrated Graphics Card"
 msgstr "전용 그래픽 카드를 사용하여 실행"
 
-#: app/fileItemMenu.js:268
+#: app/fileItemMenu.js:206
 msgid "Stack This Type"
 msgstr "이 유형 스택"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:207
 msgid "Unstack This Type"
 msgstr "이 유형 스택 해제"
 
-#: app/fileItemMenu.js:293
+#: app/fileItemMenu.js:231
 #, fuzzy
 msgid "Run as a Program"
 msgstr "프로그램으로 실행"
 
-#: app/fileItemMenu.js:296
+#: app/fileItemMenu.js:234
 msgid "Scripts"
 msgstr "스크립트"
 
-#: app/fileItemMenu.js:301
+#: app/fileItemMenu.js:239
 msgid "Cut"
 msgstr "잘라내기"
 
-#: app/fileItemMenu.js:306
+#: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
 msgstr "다음으로 이동 ..."
 
-#: app/fileItemMenu.js:307
+#: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
 msgstr "복사..."
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:249
 msgid "Rename…"
 msgstr "이름 바꾸기…"
 
-#: app/fileItemMenu.js:316
+#: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
 msgstr "링크 만들기"
 
-#: app/fileItemMenu.js:323
+#: app/fileItemMenu.js:261
 #, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "압축 {0} 폴더"
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "{0}개 파일 압축하기"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:276
 #, fuzzy
 msgid "Email to..."
 msgstr "이메일 ..."
 
-#: app/fileItemMenu.js:348
+#: app/fileItemMenu.js:286
 #, fuzzy
 msgid "Send to Mobile Device"
 msgstr "모바일 장치에 전송"
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:294
 msgid "Move to Trash"
 msgstr "휴지통으로 옮기기"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:302
 msgid "Delete permanently"
 msgstr "영구 삭제"
 
-#: app/fileItemMenu.js:377 app/fileItemMenu.js:383
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
 msgid "Don't Allow Launching"
 msgstr "실행을 허용하지 않음"
 
-#: app/fileItemMenu.js:378 app/fileItemMenu.js:384
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
 msgid "Allow Launching"
 msgstr "실행 허용"
 
-#: app/fileItemMenu.js:393
+#: app/fileItemMenu.js:331
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:337
 msgid "Eject"
 msgstr "꺼내기"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:340
 msgid "Unmount"
 msgstr "마운트 해제"
 
-#: app/fileItemMenu.js:408
+#: app/fileItemMenu.js:346
 msgid "Common Properties"
 msgstr "공통 속성"
 
-#: app/fileItemMenu.js:409
+#: app/fileItemMenu.js:347
 msgid "Properties"
 msgstr "속성"
 
-#: app/fileItemMenu.js:416
+#: app/fileItemMenu.js:354
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "모두보기 {0}"
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:355
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "{0}에 표시"
 
-#: app/fileItemMenu.js:428
+#: app/fileItemMenu.js:366
 #, fuzzy
 msgid "Open in {0}"
 msgstr "{0}에서 열기"
 
-#: app/fileItemMenu.js:869
+#: app/fileItemMenu.js:812
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "추출 취소"
 
-#: app/fileItemMenu.js:870
+#: app/fileItemMenu.js:813
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "추출 가능 파일, 대상 폴더 없음"
 
-#: app/fileItemMenu.js:926 app/fileItemMenu.js:955
+#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
 #, fuzzy
 msgid "Select Destination"
 msgstr "도착지 선택"
 
-#: app/fileItemMenu.js:929 app/fileItemMenu.js:957
+#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
 msgid "Select"
 msgstr "선택"
 
-#: app/fileItemMenu.js:1013
+#: app/fileItemMenu.js:956
 msgid "Can not email a Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
-#: app/fileItemMenu.js:1015
+#: app/fileItemMenu.js:958
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "선택은 디렉토리를 포함, .zip 파일에 압축 먼저?"
 
-#: app/fileItemMenu.js:1041 app/fileItemMenu.js:1072 app/fileItemMenu.js:1089
-#: app/fileItemMenu.js:1108
+#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1051
 #, fuzzy
 msgid "Mail Error"
 msgstr "메일 오류"
 
-#: app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:986
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Zip 명령을 찾을 수 없으므로 프로그램을 설치하십시오"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1049
+#: app/fileItemMenu.js:992
 #, fuzzy
 msgid "Archive.zip"
 msgstr "아카이브"
 
-#: app/fileItemMenu.js:1073
+#: app/fileItemMenu.js:1016
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Zip 아카이브를 만드는 오류가 있었습니다"
 
-#: app/fileItemMenu.js:1091
+#: app/fileItemMenu.js:1034
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email을 찾을 수 없습니다. 프로그램을 설치하십시오"
 
-#: app/fileItemMenu.js:1109
+#: app/fileItemMenu.js:1052
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "이메일 파일에 오류가 있었습니다"
 
-#: app/fileItemMenu.js:1216
+#: app/fileItemMenu.js:1159
 #, fuzzy
 #| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1210
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome 콘솔에서 열기"
 
-#: app/fileItemMenu.js:1269
+#: app/fileItemMenu.js:1212
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Gnome 콘솔 또는 기타 터미널 프로그램 설치"
 
-#: app/fileItemMenu.js:1277
+#: app/fileItemMenu.js:1220
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "자주 묻는 질문 이름 *"
 
-#: app/fileItemMenu.js:1279
+#: app/fileItemMenu.js:1222
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "설치하기 이름 *"
 
-#: app/fileItemMenu.js:1323
+#: app/fileItemMenu.js:1266
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "복사가 취소되었습니다"
 
-#: app/fileItemMenu.js:1324
+#: app/fileItemMenu.js:1267
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "파일 복사, 대상 폴더 없음"
 
-#: app/fileItemMenu.js:1347
+#: app/fileItemMenu.js:1290
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "이동 취소"
 
-#: app/fileItemMenu.js:1348
+#: app/fileItemMenu.js:1291
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "파일 이동 불가, 대상 폴더 없음"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 18:16-0400\n"
+"POT-Creation-Date: 2025-04-17 07:05-0400\n"
 "PO-Revision-Date: 2025-03-13 09:30+0100\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -331,8 +331,8 @@ msgstr "Nazwa katalogu"
 msgid "File name"
 msgstr "Nazwa pliku"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1220
-#: app/fileItemMenu.js:1017
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
+#: app/fileItemMenu.js:960
 msgid "OK"
 msgstr "OK"
 
@@ -361,8 +361,8 @@ msgid "Compressing files"
 msgstr "Kompresowanie plików"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1222 app/dragManager.js:783 app/fileItemMenu.js:964
-#: app/fileItemMenu.js:1017 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
+#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -608,23 +608,23 @@ msgstr ""
 "Sprawdź instalację xdg-utils\n"
 "Sprawdź instalację pliku .desktop Pliki GNOME"
 
-#: app/desktopManager.js:319
+#: app/desktopManager.js:317
 msgid "Clear current selection before new search"
 msgstr "Usuń bieżący wybór przed nowym wyszukiwaniem"
 
-#: app/desktopManager.js:1224
+#: app/desktopManager.js:1222
 msgid "Find Files on Desktop"
 msgstr "Znajdź pliki na pulpicie"
 
-#: app/desktopManager.js:1553 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:956
 msgid "New Folder"
 msgstr "Nowy katalog"
 
-#: app/desktopManager.js:1587
+#: app/desktopManager.js:1585
 msgid "Folder Creation Failed"
 msgstr "Utworzenie katalogu nie powiodło się"
 
-#: app/desktopManager.js:1588
+#: app/desktopManager.js:1586
 msgid "Could not create folder"
 msgstr "Nie można utworzyć katalogu"
 
@@ -760,7 +760,7 @@ msgstr "Wybierz działanie dla plików"
 msgid "Move"
 msgstr "Przenieś"
 
-#: app/dragManager.js:783 app/fileItemMenu.js:302
+#: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "Skopiuj"
 
@@ -786,240 +786,240 @@ msgstr "Otwarcie pliku się nie powiodło"
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Nie ma zainstalowanego programu do otwierania plików \"{foo}\"."
 
-#: app/fileItemMenu.js:166
+#: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Nowy katalog zawierający {0} element"
 msgstr[1] "Nowy katalog zawierający {0} elementy"
 msgstr[2] "Nowy katalog zawierający {0} elementów"
 
-#: app/fileItemMenu.js:176
+#: app/fileItemMenu.js:114
 msgid "Open All..."
 msgstr "Otwórz wiele..."
 
-#: app/fileItemMenu.js:184
+#: app/fileItemMenu.js:122
 msgid "Launch"
 msgstr "Uruchom"
 
-#: app/fileItemMenu.js:197
+#: app/fileItemMenu.js:135
 msgid "Open with {foo}"
 msgstr "Otwórz za pomocą {foo}"
 
-#: app/fileItemMenu.js:200
+#: app/fileItemMenu.js:138
 msgid "Open"
 msgstr "Otwórz"
 
-#: app/fileItemMenu.js:218 app/fileItemMenu.js:222
+#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 msgid "Extract Here"
 msgstr "Rozpakuj tutaj"
 
-#: app/fileItemMenu.js:224
+#: app/fileItemMenu.js:162
 msgid "Extract To..."
 msgstr "Rozpakuj do…"
 
-#: app/fileItemMenu.js:232 app/fileItemMenu.js:239
+#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 msgid "Open With..."
 msgstr "Otwórz za pomocą..."
 
-#: app/fileItemMenu.js:238
+#: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
 msgstr "Otwórz za pomocą innego programu..."
 
-#: app/fileItemMenu.js:246
+#: app/fileItemMenu.js:184
 #, fuzzy
 #| msgid "Launch using Dedicated Graphics Card"
 msgid "Launch using Integrated Graphics Card"
 msgstr "Uruchom za pomocą dedykowanej karty graficznej"
 
-#: app/fileItemMenu.js:268
+#: app/fileItemMenu.js:206
 msgid "Stack This Type"
 msgstr "Grupuj ten typ"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:207
 msgid "Unstack This Type"
 msgstr "Nie grupuj tego typ"
 
-#: app/fileItemMenu.js:293
+#: app/fileItemMenu.js:231
 msgid "Run as a Program"
 msgstr "Uruchom jako program"
 
-#: app/fileItemMenu.js:296
+#: app/fileItemMenu.js:234
 msgid "Scripts"
 msgstr "Skrypty"
 
-#: app/fileItemMenu.js:301
+#: app/fileItemMenu.js:239
 msgid "Cut"
 msgstr "Wytnij"
 
-#: app/fileItemMenu.js:306
+#: app/fileItemMenu.js:244
 msgid "Move to..."
 msgstr "Przenieś do..."
 
-#: app/fileItemMenu.js:307
+#: app/fileItemMenu.js:245
 msgid "Copy to..."
 msgstr "Kopiuj do..."
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:249
 msgid "Rename…"
 msgstr "Zmień nazwę…"
 
-#: app/fileItemMenu.js:316
+#: app/fileItemMenu.js:254
 msgid "Create Link..."
 msgstr "Utwórz odnośnik..."
 
-#: app/fileItemMenu.js:323
+#: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Skompresuj {0} katalog"
 msgstr[1] "Skompresuj {0} katalogi"
 msgstr[2] "Skompresuj {0} katalogów"
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Kompresuj {0} plik"
 msgstr[1] "Kompresuj {0} pliki"
 msgstr[2] "Kompresuj {0} plików"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:276
 msgid "Email to..."
 msgstr "Prześlij poprzez e-mail do..."
 
-#: app/fileItemMenu.js:348
+#: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
 msgstr "Wyślij do urządzenia mobilnego"
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:294
 msgid "Move to Trash"
 msgstr "Przenieś do kosza"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:302
 msgid "Delete permanently"
 msgstr "Usuń trwale"
 
-#: app/fileItemMenu.js:377 app/fileItemMenu.js:383
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
 msgid "Don't Allow Launching"
 msgstr "Nie zezwalaj na uruchamianie"
 
-#: app/fileItemMenu.js:378 app/fileItemMenu.js:384
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
 msgid "Allow Launching"
 msgstr "Zezwól na uruchamianie"
 
-#: app/fileItemMenu.js:393
+#: app/fileItemMenu.js:331
 msgid "Empty Trash"
 msgstr "Opróżnij kosz"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:337
 msgid "Eject"
 msgstr "Wysuń"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:340
 msgid "Unmount"
 msgstr "Odmontuj"
 
-#: app/fileItemMenu.js:408
+#: app/fileItemMenu.js:346
 msgid "Common Properties"
 msgstr "Wspólne właściwości"
 
-#: app/fileItemMenu.js:409
+#: app/fileItemMenu.js:347
 msgid "Properties"
 msgstr "Właściwości"
 
-#: app/fileItemMenu.js:416
+#: app/fileItemMenu.js:354
 msgid "Show All in {0}"
 msgstr "Pokaż wszystko w {0}"
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:355
 msgid "Show in {0}"
 msgstr "Pokaż w {0}"
 
-#: app/fileItemMenu.js:428
+#: app/fileItemMenu.js:366
 msgid "Open in {0}"
 msgstr "Otwórz w {0}"
 
-#: app/fileItemMenu.js:869
+#: app/fileItemMenu.js:812
 msgid "Extraction Cancelled"
 msgstr "Rozpakowywanie anulowane"
 
-#: app/fileItemMenu.js:870
+#: app/fileItemMenu.js:813
 msgid "Unable to extract File, no destination folder"
 msgstr "Nie można rozpakować archiwum, nie ma katalogu docelowego"
 
-#: app/fileItemMenu.js:926 app/fileItemMenu.js:955
+#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
 msgid "Select Destination"
 msgstr "Wybierz miejsce docelowe"
 
-#: app/fileItemMenu.js:929 app/fileItemMenu.js:957
+#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
 msgid "Select"
 msgstr "Wybierz"
 
-#: app/fileItemMenu.js:1013
+#: app/fileItemMenu.js:956
 msgid "Can not email a Directory"
 msgstr "Nie można wysłać Katalogu"
 
-#: app/fileItemMenu.js:1015
+#: app/fileItemMenu.js:958
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Wybór obejmuje katalog. Skompresować go najpierw do pliku .zip?"
 
-#: app/fileItemMenu.js:1041 app/fileItemMenu.js:1072 app/fileItemMenu.js:1089
-#: app/fileItemMenu.js:1108
+#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1051
 msgid "Mail Error"
 msgstr "Błąd e-mail"
 
-#: app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:986
 msgid "Unable to find zip command, please install the program"
 msgstr "Nie można znaleźć polecenia zip. Zainstaluj program"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1049
+#: app/fileItemMenu.js:992
 msgid "Archive.zip"
 msgstr "Archiwum.zip"
 
-#: app/fileItemMenu.js:1073
+#: app/fileItemMenu.js:1016
 msgid "There was an error in creating a zip archive"
 msgstr "Pojawiły się błędy w tworzeniu archiwum zip"
 
-#: app/fileItemMenu.js:1091
+#: app/fileItemMenu.js:1034
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Nie można znaleźć xdg-email. Zainstaluj program"
 
-#: app/fileItemMenu.js:1109
+#: app/fileItemMenu.js:1052
 msgid "There was an error in emailing Files"
 msgstr "Wystąpił błąd podczas wysyłania plików e-mailem"
 
-#: app/fileItemMenu.js:1216
+#: app/fileItemMenu.js:1159
 msgid "Can Not open the Working Directory"
 msgstr "Nie można otworzyć działającego katalogu"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1210
 msgid "Unable to Open in Gnome Console"
 msgstr "Nie można otworzyć w Konsola GNOME"
 
-#: app/fileItemMenu.js:1269
+#: app/fileItemMenu.js:1212
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Zainstaluj Konsola GNOME lub inny terminal"
 
-#: app/fileItemMenu.js:1277
+#: app/fileItemMenu.js:1220
 msgid "Unable to Open {0}"
 msgstr "Nie udało się otworzyć {0}"
 
-#: app/fileItemMenu.js:1279
+#: app/fileItemMenu.js:1222
 msgid "Please Install {0}"
 msgstr "Proszę zainstalować {0}"
 
-#: app/fileItemMenu.js:1323
+#: app/fileItemMenu.js:1266
 msgid "Copy Cancelled"
 msgstr "Kopiowanie anulowane"
 
-#: app/fileItemMenu.js:1324
+#: app/fileItemMenu.js:1267
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nie można skopiować plików, nie ma katalogu docelowego"
 
-#: app/fileItemMenu.js:1347
+#: app/fileItemMenu.js:1290
 msgid "Move Cancelled"
 msgstr "Przenoszenie anulowane"
 
-#: app/fileItemMenu.js:1348
+#: app/fileItemMenu.js:1291
 msgid "Unable to move Files, no destination folder"
 msgstr "Nie można przenieść plików, nie ma katalogu docelowego"
 

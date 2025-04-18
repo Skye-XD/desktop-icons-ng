@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 18:16-0400\n"
+"POT-Creation-Date: 2025-04-17 07:05-0400\n"
 "PO-Revision-Date: 2025-03-19 02:12+0100\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
@@ -330,8 +330,8 @@ msgstr "Názov priečinku"
 msgid "File name"
 msgstr "Názov súboru"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1220
-#: app/fileItemMenu.js:1017
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
+#: app/fileItemMenu.js:960
 msgid "OK"
 msgstr "OK"
 
@@ -360,8 +360,8 @@ msgid "Compressing files"
 msgstr "Kompresia súborov"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1222 app/dragManager.js:783 app/fileItemMenu.js:964
-#: app/fileItemMenu.js:1017 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
+#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -606,23 +606,23 @@ msgstr ""
 "Skontrolujte svoju inštaláciu xdg-utils\n"
 "Skontrolujte inštaláciu aplikácie Gnome Files .desktop File"
 
-#: app/desktopManager.js:319
+#: app/desktopManager.js:317
 msgid "Clear current selection before new search"
 msgstr "Pred novým hľadaním vymažte aktuálny výber"
 
-#: app/desktopManager.js:1224
+#: app/desktopManager.js:1222
 msgid "Find Files on Desktop"
 msgstr "Nájdenie súborov na pracovnej ploche"
 
-#: app/desktopManager.js:1553 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:956
 msgid "New Folder"
 msgstr "Nový priečinok"
 
-#: app/desktopManager.js:1587
+#: app/desktopManager.js:1585
 msgid "Folder Creation Failed"
 msgstr "Vytvorenie priečinka zlyhalo"
 
-#: app/desktopManager.js:1588
+#: app/desktopManager.js:1586
 msgid "Could not create folder"
 msgstr "Priečinok sa nepodarilo vytvoriť"
 
@@ -758,7 +758,7 @@ msgstr "Vyberte akciu pre súbory"
 msgid "Move"
 msgstr "Presunúť"
 
-#: app/dragManager.js:783 app/fileItemMenu.js:302
+#: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "Kopírovať"
 
@@ -784,240 +784,240 @@ msgstr "Otvorenie súboru zlyhalo"
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Nie je nainštalovaná žiadna aplikácia na otváranie súborov \"{foo}\"."
 
-#: app/fileItemMenu.js:166
+#: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Nový priečinok s {0} položkami"
 msgstr[1] "Nový priečinok s {0} položkou"
 msgstr[2] "Nový priečinok s {0} položkami"
 
-#: app/fileItemMenu.js:176
+#: app/fileItemMenu.js:114
 msgid "Open All..."
 msgstr "Otvoriť všetko..."
 
-#: app/fileItemMenu.js:184
+#: app/fileItemMenu.js:122
 msgid "Launch"
 msgstr "Spustiť"
 
-#: app/fileItemMenu.js:197
+#: app/fileItemMenu.js:135
 msgid "Open with {foo}"
 msgstr "Otvoriť aplikáciou {foo}"
 
-#: app/fileItemMenu.js:200
+#: app/fileItemMenu.js:138
 msgid "Open"
 msgstr "Otvoriť"
 
-#: app/fileItemMenu.js:218 app/fileItemMenu.js:222
+#: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 msgid "Extract Here"
 msgstr "Rozbaliť sem"
 
-#: app/fileItemMenu.js:224
+#: app/fileItemMenu.js:162
 msgid "Extract To..."
 msgstr "Rozbaliť do…"
 
-#: app/fileItemMenu.js:232 app/fileItemMenu.js:239
+#: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 msgid "Open With..."
 msgstr "Otvoriť pomocou..."
 
-#: app/fileItemMenu.js:238
+#: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
 msgstr "Otvoriť všetko inou aplikáciou..."
 
-#: app/fileItemMenu.js:246
+#: app/fileItemMenu.js:184
 #, fuzzy
 #| msgid "Launch using Dedicated Graphics Card"
 msgid "Launch using Integrated Graphics Card"
 msgstr "Spustiť pomocou vyhradenej grafickej karty"
 
-#: app/fileItemMenu.js:268
+#: app/fileItemMenu.js:206
 msgid "Stack This Type"
 msgstr "Zoskupiť tento typ"
 
-#: app/fileItemMenu.js:269
+#: app/fileItemMenu.js:207
 msgid "Unstack This Type"
 msgstr "Zrušiť zoskupenie tohto typu"
 
-#: app/fileItemMenu.js:293
+#: app/fileItemMenu.js:231
 msgid "Run as a Program"
 msgstr "Spustiť ako program"
 
-#: app/fileItemMenu.js:296
+#: app/fileItemMenu.js:234
 msgid "Scripts"
 msgstr "Skripty"
 
-#: app/fileItemMenu.js:301
+#: app/fileItemMenu.js:239
 msgid "Cut"
 msgstr "Vystrihnúť"
 
-#: app/fileItemMenu.js:306
+#: app/fileItemMenu.js:244
 msgid "Move to..."
 msgstr "Presunúť do..."
 
-#: app/fileItemMenu.js:307
+#: app/fileItemMenu.js:245
 msgid "Copy to..."
 msgstr "Kopírovať do..."
 
-#: app/fileItemMenu.js:311
+#: app/fileItemMenu.js:249
 msgid "Rename…"
 msgstr "Premenovať…"
 
-#: app/fileItemMenu.js:316
+#: app/fileItemMenu.js:254
 msgid "Create Link..."
 msgstr "Vytvoriť odkaz..."
 
-#: app/fileItemMenu.js:323
+#: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Komprimovať {0} priečinok"
 msgstr[1] "Komprimovať {0} priečinky"
 msgstr[2] "Komprimovať {0} priečinkov"
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Komprimovať {0} súbor"
 msgstr[1] "Komprimovať {0} súbory"
 msgstr[2] "Komprimovať {0} súborov"
 
-#: app/fileItemMenu.js:338
+#: app/fileItemMenu.js:276
 msgid "Email to..."
 msgstr "Poslať e-mailom..."
 
-#: app/fileItemMenu.js:348
+#: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
 msgstr "Odoslať na mobilné zariadenie"
 
-#: app/fileItemMenu.js:356
+#: app/fileItemMenu.js:294
 msgid "Move to Trash"
 msgstr "Presunúť do Koša"
 
-#: app/fileItemMenu.js:364
+#: app/fileItemMenu.js:302
 msgid "Delete permanently"
 msgstr "Odstrániť natrvalo"
 
-#: app/fileItemMenu.js:377 app/fileItemMenu.js:383
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
 msgid "Don't Allow Launching"
 msgstr "Neumožniť spustenie"
 
-#: app/fileItemMenu.js:378 app/fileItemMenu.js:384
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
 msgid "Allow Launching"
 msgstr "Umožniť spúšťanie"
 
-#: app/fileItemMenu.js:393
+#: app/fileItemMenu.js:331
 msgid "Empty Trash"
 msgstr "Vyprázdniť Kôš"
 
-#: app/fileItemMenu.js:399
+#: app/fileItemMenu.js:337
 msgid "Eject"
 msgstr "Vysunúť"
 
-#: app/fileItemMenu.js:402
+#: app/fileItemMenu.js:340
 msgid "Unmount"
 msgstr "Odpojiť"
 
-#: app/fileItemMenu.js:408
+#: app/fileItemMenu.js:346
 msgid "Common Properties"
 msgstr "Spoločné vlastnosti"
 
-#: app/fileItemMenu.js:409
+#: app/fileItemMenu.js:347
 msgid "Properties"
 msgstr "Vlastnosti"
 
-#: app/fileItemMenu.js:416
+#: app/fileItemMenu.js:354
 msgid "Show All in {0}"
 msgstr "Zobraziť všetko v {0}"
 
-#: app/fileItemMenu.js:417
+#: app/fileItemMenu.js:355
 msgid "Show in {0}"
 msgstr "Zobraziť v aplikácii {0}"
 
-#: app/fileItemMenu.js:428
+#: app/fileItemMenu.js:366
 msgid "Open in {0}"
 msgstr "Otvoriť v aplikácii {0}"
 
-#: app/fileItemMenu.js:869
+#: app/fileItemMenu.js:812
 msgid "Extraction Cancelled"
 msgstr "Extrakcia zrušená"
 
-#: app/fileItemMenu.js:870
+#: app/fileItemMenu.js:813
 msgid "Unable to extract File, no destination folder"
 msgstr "Nedá sa extrahovať súbor, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:926 app/fileItemMenu.js:955
+#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
 msgid "Select Destination"
 msgstr "Vyberte cieľ"
 
-#: app/fileItemMenu.js:929 app/fileItemMenu.js:957
+#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
 msgid "Select"
 msgstr "Vybrať"
 
-#: app/fileItemMenu.js:1013
+#: app/fileItemMenu.js:956
 msgid "Can not email a Directory"
 msgstr "Nedá sa odoslať adresár pomocou emailu"
 
-#: app/fileItemMenu.js:1015
+#: app/fileItemMenu.js:958
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Výber obsahuje priečinok, komprimovať ho najprv do súboru .zip?"
 
-#: app/fileItemMenu.js:1041 app/fileItemMenu.js:1072 app/fileItemMenu.js:1089
-#: app/fileItemMenu.js:1108
+#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1051
 msgid "Mail Error"
 msgstr "Chyba pošty"
 
-#: app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:986
 msgid "Unable to find zip command, please install the program"
 msgstr "Nie je možné nájsť príkaz zips, nainštalujte prosím program"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1049
+#: app/fileItemMenu.js:992
 msgid "Archive.zip"
 msgstr "Archiv.zip"
 
-#: app/fileItemMenu.js:1073
+#: app/fileItemMenu.js:1016
 msgid "There was an error in creating a zip archive"
 msgstr "Pri vytváraní archívu zip došlo k chybe"
 
-#: app/fileItemMenu.js:1091
+#: app/fileItemMenu.js:1034
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Nie je možné nájsť xdg-email, nainštalujte prosím program"
 
-#: app/fileItemMenu.js:1109
+#: app/fileItemMenu.js:1052
 msgid "There was an error in emailing Files"
 msgstr "Pri odosielaní súborov e-mailom došlo k chybe"
 
-#: app/fileItemMenu.js:1216
+#: app/fileItemMenu.js:1159
 msgid "Can Not open the Working Directory"
 msgstr "Nie je možné otvoriť pracovný priečinok"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1210
 msgid "Unable to Open in Gnome Console"
 msgstr "Nie je možné otvoriť v Gnome Console"
 
-#: app/fileItemMenu.js:1269
+#: app/fileItemMenu.js:1212
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Nainštalujte prosím Gnome Console alebo inú aplikáciu terminálu"
 
-#: app/fileItemMenu.js:1277
+#: app/fileItemMenu.js:1220
 msgid "Unable to Open {0}"
 msgstr "Nie je možné otvoriť {0}"
 
-#: app/fileItemMenu.js:1279
+#: app/fileItemMenu.js:1222
 msgid "Please Install {0}"
 msgstr "Nainštalujte prosím {0}"
 
-#: app/fileItemMenu.js:1323
+#: app/fileItemMenu.js:1266
 msgid "Copy Cancelled"
 msgstr "Kopírovanie zrušené"
 
-#: app/fileItemMenu.js:1324
+#: app/fileItemMenu.js:1267
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nie je možné kopírovať súbory, nie je k dispozícii cieľový priečinok"
 
-#: app/fileItemMenu.js:1347
+#: app/fileItemMenu.js:1290
 msgid "Move Cancelled"
 msgstr "Presunutie zrušené"
 
-#: app/fileItemMenu.js:1348
+#: app/fileItemMenu.js:1291
 msgid "Unable to move Files, no destination folder"
 msgstr "Nie je možné presunúť súbory, žiadny cieľový priečinok"
 
