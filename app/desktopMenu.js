@@ -1147,6 +1147,8 @@ const DesktopBackgroundMenu = class {
         }
         settingSubMenu.append(
             _('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+        settingSubMenu.append(
+            _('Show Shortcuts'), 'app.showShortcutViewer');
 
         this.desktopBackgroundGioMenu.append(
             _('New Folder'), 'app.doNewFolder');
