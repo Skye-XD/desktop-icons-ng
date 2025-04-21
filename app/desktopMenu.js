@@ -185,7 +185,10 @@ const DesktopActions = class {
                 }
             }
         );
-        this.doPasteSimpleAction.set_state_hint(GLib.Variant.new('s', _('Do Paste')));
+
+        this.doPasteSimpleAction
+        .set_state_hint(GLib.Variant.new('s', _('Do Paste')));
+
         this._mainApp.add_action(this.doPasteSimpleAction);
         this._mainApp.set_accels_for_action('app.doPaste', ['<Control>V']);
 
@@ -194,7 +197,10 @@ const DesktopActions = class {
             'activate',
             () => this._doUndo()
         );
-        this.doUndoSimpleAction.set_state_hint(GLib.Variant.new('s', _('Undo')));
+
+        this.doUndoSimpleAction
+        .set_state_hint(GLib.Variant.new('s', _('Undo')));
+
         this._mainApp.add_action(this.doUndoSimpleAction);
         this._mainApp.set_accels_for_action('app.doUndo', ['<Control>Z']);
 
@@ -203,7 +209,10 @@ const DesktopActions = class {
             'activate',
             () => this._doRedo()
         );
-        this.doRedoSimpleAction.set_state_hint(GLib.Variant.new('s', _('Redo')));
+
+        this.doRedoSimpleAction
+        .set_state_hint(GLib.Variant.new('s', _('Redo')));
+
         this._mainApp.add_action(this.doRedoSimpleAction);
         this._mainApp.set_accels_for_action('app.doRedo',
             ['<Control><Shift>Z']);
