@@ -15,11 +15,127 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gdk, Gio, GLib, Gtk} from '../dependencies/gi.js';
+import {Adw, Gdk, Gio, GLib, GObject, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopActions};
 export {DesktopBackgroundMenu};
+export {ShortcutViewer};
+
+const ShortcutViewer = GObject.registerClass(
+class ShortcutViewer extends Gtk.Box {
+    _init(params = {}) {
+        super._init(
+            {orientation: Gtk.Orientation.VERTICAL, spacing: 12, ...params}
+        );
+
+        this._actionMap = null;
+        this._descriptions = {};
+
+        const headerBar = Adw.HeaderBar.new();
+        const headerTitle = Adw.WindowTitle.new(_('Keyboard Short Cuts'), '');
+        headerBar.set_title_widget(headerTitle);
+        headerBar.set_show_end_title_buttons(true);
+        this.append(headerBar);
+
+        const scrolled = new Gtk.ScrolledWindow({hexpand: true, vexpand: true});
+
+        this._listbox =
+            new Gtk.ListBox({selection_mode: Gtk.SelectionMode.NONE});
+
+        scrolled.set_child(this._listbox);
+        this.append(scrolled);
+    }
+
+    set_action_map(actionMap) {
+        this._actionMap = actionMap;
+        this._refresh();
+    }
+
+    set_descriptions(descriptionMap) {
+        this._descriptions = descriptionMap;
+        this._refresh();
+    }
+
+    _refresh() {
+        if (!this._actionMap)
+            return;
+
+        this._listbox.remove_all();
+
+        const actions =
+            this._actionMap.list_actions()
+            .sort((a, b) => {
+                return a
+                .localeCompare(
+                    b,
+                    {
+                        sensitivity: 'accent',
+                        numeric: 'true',
+                        localeMatcher: 'lookup',
+                    }
+                );
+            });
+
+        for (const actionName of actions) {
+            const accels =
+                this._actionMap.get_accels_for_action(`app.${actionName}`);
+
+            if (accels.length === 0)
+                continue;
+
+            const actionObj = this._actionMap.lookup_action(actionName);
+
+            let title;
+
+            if (actionObj && actionObj.get_state_hint) {
+                const hint = actionObj.get_state_hint();
+                title = hint ? hint.get_string()[0] : null;
+            }
+
+            title = title ?? this._descriptions?.[actionName];
+
+            const description = title || this._prettify(actionName);
+            const accelText = accels.toString();
+
+            const row = new Gtk.Box({
+                orientation: Gtk.Orientation.HORIZONTAL,
+                spacing: 12,
+                margin_top: 6,
+                margin_bottom: 6,
+                margin_start: 12,
+                margin_end: 12,
+            });
+
+            const label = new Gtk.Label({
+                label: description,
+                xalign: 0,
+                hexpand: true,
+            });
+
+            const accelLabel = new Gtk.Label({
+                label: accelText,
+                xalign: 1,
+                css_classes: ['monospace'],
+            });
+
+            row.append(label);
+            row.append(accelLabel);
+            this._listbox.append(row);
+        }
+
+        this._listbox.show();
+    }
+
+    _prettify(name) {
+        const prettyName =
+            name.charAt(0).toUpperCase() +
+            name.slice(1).replace(/[-_]/g, ' ');
+
+        return prettyName;
+    }
+}
+);
 
 const DesktopActions = class {
     constructor(desktopManager) {
@@ -49,6 +165,7 @@ const DesktopActions = class {
         newFolder.connect('activate', () => {
             this._desktopManager.doNewFolder().catch(e => console.error(e));
         });
+        newFolder.set_state_hint(GLib.Variant.new('s', _('New Folder')));
         this._mainApp.add_action(newFolder);
         this._mainApp.set_accels_for_action('app.doNewFolder',
             ['<Control><Shift>N']);
@@ -68,6 +185,10 @@ const DesktopActions = class {
                 }
             }
         );
+
+        this.doPasteSimpleAction
+        .set_state_hint(GLib.Variant.new('s', _('Do Paste')));
+
         this._mainApp.add_action(this.doPasteSimpleAction);
         this._mainApp.set_accels_for_action('app.doPaste', ['<Control>V']);
 
@@ -76,6 +197,10 @@ const DesktopActions = class {
             'activate',
             () => this._doUndo()
         );
+
+        this.doUndoSimpleAction
+        .set_state_hint(GLib.Variant.new('s', _('Undo')));
+
         this._mainApp.add_action(this.doUndoSimpleAction);
         this._mainApp.set_accels_for_action('app.doUndo', ['<Control>Z']);
 
@@ -84,6 +209,10 @@ const DesktopActions = class {
             'activate',
             () => this._doRedo()
         );
+
+        this.doRedoSimpleAction
+        .set_state_hint(GLib.Variant.new('s', _('Redo')));
+
         this._mainApp.add_action(this.doRedoSimpleAction);
         this._mainApp.set_accels_for_action('app.doRedo',
             ['<Control><Shift>Z']);
@@ -93,6 +222,7 @@ const DesktopActions = class {
             'activate',
             () => this._selectAll()
         );
+        selectAll.set_state_hint(GLib.Variant.new('s', _('Select All')));
         this._mainApp.add_action(selectAll);
         this._mainApp.set_accels_for_action('app.selectAll', ['<Control>A']);
 
@@ -165,10 +295,13 @@ const DesktopActions = class {
             'enabled',
             16
         );
+
         this._mainApp.add_action(
             this._Prefs.desktopSettings.create_action('keep-stacked'));
+
         this._mainApp.add_action(
             this._Prefs.desktopSettings.create_action('sort-special-folders'));
+
         const radioArrangeAction = Gio.SimpleAction.new_stateful(
             'arrangeaction',
             GLib.VariantType.new('s'),
@@ -185,6 +318,7 @@ const DesktopActions = class {
             'activate',
             () =>  this._desktopManager.findFiles(null)
         );
+        findFilesAction.set_state_hint(GLib.Variant.new('s', _('Find Files')));
         this._mainApp.add_action(findFilesAction);
         this._mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
 
@@ -199,6 +333,10 @@ const DesktopActions = class {
                 });
             }
         );
+
+        updateDesktop
+        .set_state_hint(GLib.Variant.new('s', _('Update Desktop')));
+
         this._mainApp.add_action(updateDesktop);
         this._mainApp.set_accels_for_action('app.updateDesktop', ['F5']);
 
@@ -211,6 +349,10 @@ const DesktopActions = class {
                     !this._Prefs.showHidden);
             }
         );
+
+        showHideHiddenFiles
+        .set_state_hint(GLib.Variant.new('s', _('Show Hidden Files')));
+
         this._mainApp.add_action(showHideHiddenFiles);
         this._mainApp.set_accels_for_action('app.showHideHiddenFiles',
             ['<Control>H']);
@@ -224,6 +366,7 @@ const DesktopActions = class {
                     this.searchString = null;
             }
         );
+        unselectAll.set_state_hint(GLib.Variant.new('s', _('Unselect All')));
         this._mainApp.add_action(unselectAll);
         this._mainApp.set_accels_for_action('app.unselectAll', ['Escape']);
 
@@ -237,6 +380,7 @@ const DesktopActions = class {
                 this._DBusUtils.RemoteFileOperations;
             RemoteOperation.ShowFileRemote(this.activeFileItem.uri, 0, true);
         });
+        previewAction.set_state_hint(GLib.Variant.new('s', _('Preview')));
         this._mainApp.add_action(previewAction);
         this._mainApp.set_accels_for_action('app.previewAction', ['space']);
 
@@ -244,6 +388,10 @@ const DesktopActions = class {
         chooseIconLeft.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Left);
         });
+
+        chooseIconLeft
+        .set_state_hint(GLib.Variant.new('s', _('Choose Icon Left')));
+
         this._mainApp.add_action(chooseIconLeft);
         this._mainApp.set_accels_for_action('app.chooseIconLeft', ['Left']);
 
@@ -251,6 +399,10 @@ const DesktopActions = class {
         chooseIconRight.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Right);
         });
+
+        chooseIconRight
+        .set_state_hint(GLib.Variant.new('s', _('Choose Icon Right')));
+
         this._mainApp.add_action(chooseIconRight);
         this._mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
 
@@ -258,6 +410,7 @@ const DesktopActions = class {
         chooseIconUp.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Up);
         });
+        chooseIconUp.set_state_hint(GLib.Variant.new('s', _('Choose Icon Up')));
         this._mainApp.add_action(chooseIconUp);
         this._mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
 
@@ -265,6 +418,10 @@ const DesktopActions = class {
         chooseIconDown.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Down);
         });
+
+        chooseIconDown
+        .set_state_hint(GLib.Variant.new('s', _('Choose Icon Down')));
+
         this._mainApp.add_action(chooseIconDown);
         this._mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
 
@@ -272,6 +429,7 @@ const DesktopActions = class {
         menuKeyPressed.connect('activate', () => {
             this._menuKeyPressed();
         });
+        menuKeyPressed.set_state_hint(GLib.Variant.new('s', _('Show Menu')));
         this._mainApp.add_action(menuKeyPressed);
         this._mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
 
@@ -281,6 +439,7 @@ const DesktopActions = class {
             this._DBusUtils.RemoteExtensionControl.showShellBackgroundMenu();
         });
         this._mainApp.add_action(displayShellBackgroundMenu);
+
         const createDesktopShortcut = new Gio.SimpleAction({
             name: 'createDesktopShortcut',
             parameter_type: new GLib.VariantType('a{sv}'),
@@ -289,24 +448,39 @@ const DesktopActions = class {
             this._createDesktopShortcut(parameter.recursiveUnpack());
         });
         this._mainApp.add_action(createDesktopShortcut);
+
         const textEntryAccelsTurnOn =
             Gio.SimpleAction.new('textEntryAccelsTurnOn', null);
         textEntryAccelsTurnOn.connect('activate', () => {
             this._textEntryAccelsTurnOn();
         });
         this._mainApp.add_action(textEntryAccelsTurnOn);
+
         const textEntryAccelsTurnOff =
             Gio.SimpleAction.new('textEntryAccelsTurnOff', null);
         textEntryAccelsTurnOff.connect('activate', () => {
             this._textEntryAccelsTurnOff();
         });
         this._mainApp.add_action(textEntryAccelsTurnOff);
+
         const newDocument =
             Gio.SimpleAction.new('newDocument', new GLib.VariantType('s'));
         newDocument.connect('activate', (action, parameter) => {
             this._newDocument(parameter.deep_unpack());
         });
         this._mainApp.add_action(newDocument);
+
+        const showShortcutViewer =
+            Gio.SimpleAction.new('showShortcutViewer', null);
+        showShortcutViewer.connect('activate', () => {
+            this._showShortcutViewer();
+        });
+
+        showShortcutViewer
+        .set_state_hint(GLib.Variant.new('s', _('Show Shortcuts')));
+
+        this._mainApp.add_action(showShortcutViewer);
+        this._mainApp.set_accels_for_action('app.showShortcutViewer', ['F1']);
     }
 
     _textEntryAccelsTurnOn() {
@@ -833,6 +1007,28 @@ const DesktopActions = class {
         );
     }
 
+    _showShortcutViewer() {
+        const shortcutViewer = new ShortcutViewer();
+        shortcutViewer.set_action_map(this._mainApp);
+        let shortcutsWindow = new Adw.ApplicationWindow();
+        shortcutsWindow.set_default_size(400, 600);
+        shortcutsWindow.set_decorated(true);
+        shortcutsWindow.set_deletable(true);
+
+        shortcutsWindow.connect('close-request', () => {
+            shortcutsWindow = null;
+        });
+
+        shortcutsWindow.set_name('shortcutsWindow');
+
+        const modal = true;
+        this._DesktopIconsUtil.windowHidePagerTaskbarModal(
+            shortcutsWindow, modal);
+
+        shortcutsWindow.set_content(shortcutViewer);
+        shortcutsWindow.show();
+    }
+
     async updateClipboard() {
         await this._updateClipboard()
             .catch(e => console.error(e, 'Error updating Clipboard'));
@@ -951,6 +1147,8 @@ const DesktopBackgroundMenu = class {
         }
         settingSubMenu.append(
             _('Desktop Icon Settings'), 'app.changeDesktopIconSettings');
+        settingSubMenu.append(
+            _('Show Shortcuts'), 'app.showShortcutViewer');
 
         this.desktopBackgroundGioMenu.append(
             _('New Folder'), 'app.doNewFolder');
@@ -1059,3 +1257,4 @@ const DesktopBackgroundMenu = class {
         });
     }
 };
+
