@@ -63,7 +63,21 @@ class ShortcutViewer extends Gtk.Box {
 
         this._listbox.remove_all();
 
-        for (const actionName of this._actionMap.list_actions()) {
+        const actions =
+            this._actionMap.list_actions()
+            .sort((a, b) => {
+                return a
+                .localeCompare(
+                    b,
+                    {
+                        sensitivity: 'accent',
+                        numeric: 'true',
+                        localeMatcher: 'lookup',
+                    }
+                );
+            });
+
+        for (const actionName of actions) {
             const accels =
                 this._actionMap.get_accels_for_action(`app.${actionName}`);
 
