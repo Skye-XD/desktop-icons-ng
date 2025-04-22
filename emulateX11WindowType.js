@@ -565,9 +565,9 @@ var EmulateX11WindowType = class {
             global.window_manager.connect_after(
                 'map',
                 (obj, windowActor) => {
-                    let window = windowActor.get_meta_window();
+                    const window = windowActor.get_meta_window();
 
-                    if (window.get_window_type() > Meta.WindowType.DIALOG)
+                    if (window.get_window_type() > Meta.WindowType.MODAL_DIALOG)
                         return;
 
                     const appid = window.get_gtk_application_id();
