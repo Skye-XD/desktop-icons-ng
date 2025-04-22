@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-17 07:05-0400\n"
+"POT-Creation-Date: 2025-04-21 23:31-0400\n"
 "PO-Revision-Date: 2025-03-29 12:01+0000\n"
 "Last-Translator: Yauhen <bugomol@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -337,7 +337,7 @@ msgid "File name"
 msgstr "Назва файла"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:960
+#: app/fileItemMenu.js:976
 msgid "OK"
 msgstr "ОК"
 
@@ -366,8 +366,8 @@ msgid "Compressing files"
 msgstr "Сцісканне файлаў"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
-#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
+#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Скасаваць"
 
@@ -614,7 +614,7 @@ msgstr "Ачысціць бягучае вылучэнне перад новым
 msgid "Find Files on Desktop"
 msgstr "Пошук файлаў на працоўным стале"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
 msgid "New Folder"
 msgstr "Новая папка"
 
@@ -626,111 +626,183 @@ msgstr "Збой стварэння папкі"
 msgid "Could not create folder"
 msgstr "Не ўдалося стварыць папку"
 
-#: app/desktopMenu.js:576
-msgid "Unable to open Desktop in Gnome Files"
-msgstr "Немагчыма адкрыць працоўны стол у праграме «Файлы»"
+#: app/desktopMenu.js:36
+msgid "Keyboard Short Cuts"
+msgstr ""
 
-#: app/desktopMenu.js:616
-msgid "Preferences Window is Open"
-msgstr "Акно налад адкрыта"
-
-#: app/desktopMenu.js:617
-msgid "This Window is open. Please switch to the active window."
-msgstr "Гэта акно адкрыта. Пераключыцеся ў актыўнае акно."
-
-#: app/desktopMenu.js:632 app/desktopMenu.js:1009
-msgid "Settings"
-msgstr "Налады"
-
-#: app/desktopMenu.js:813
-msgid "Template Creation Error"
-msgstr "Памылка стварэння шаблона"
-
-#: app/desktopMenu.js:814
-msgid "Could not create document"
-msgstr "Не ўдалося стварыць дакумент"
-
-#: app/desktopMenu.js:919
-msgid "Name"
-msgstr "Назва"
-
-#: app/desktopMenu.js:921
-msgid "Name Z-A"
-msgstr "Назва (Я-А)"
-
-#: app/desktopMenu.js:923
-msgid "Modified Time"
-msgstr "Час змянення"
-
-#: app/desktopMenu.js:925
-msgid "Type"
-msgstr "Тып"
-
-#: app/desktopMenu.js:927
-msgid "Size"
-msgstr "Памер"
-
-#: app/desktopMenu.js:932
-msgid "Keep Arranged…"
-msgstr "Захоўваць упарадкаванне…"
-
-#: app/desktopMenu.js:937
-msgid "Keep Stacked by Type…"
-msgstr "Згрупоўваць па тыпу…"
-
-#: app/desktopMenu.js:939
-msgid "Sort Home/Drives/Trash…"
-msgstr "Сартаваць Дыскі/Сметніцу/Хатнюю папку…"
-
-#: app/desktopMenu.js:944
-msgid "Change Desktop"
-msgstr "Змяніць працоўны стол"
-
-#: app/desktopMenu.js:949
-msgid "Restore Default Desktop"
-msgstr "Вярнуць прадвызначаны працоўны стол"
-
-#: app/desktopMenu.js:953
-msgid "Desktop Icon Settings"
-msgstr "Налады Desktop Icons"
-
-#: app/desktopMenu.js:961
-msgid "New Document"
-msgstr "Новы дакумент"
-
-#: app/desktopMenu.js:966
-msgid "Paste"
+#: app/desktopMenu.js:190
+#, fuzzy
+#| msgid "Paste"
+msgid "Do Paste"
 msgstr "Уставіць"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:202 app/desktopMenu.js:1166
 msgid "Undo"
 msgstr "Адрабіць"
 
-#: app/desktopMenu.js:970
+#: app/desktopMenu.js:214 app/desktopMenu.js:1168
 msgid "Redo"
 msgstr "Паўтарыць"
 
-#: app/desktopMenu.js:976
+#: app/desktopMenu.js:225 app/desktopMenu.js:1174
 msgid "Select All"
 msgstr "Вылучыць усе"
 
-#: app/desktopMenu.js:983
+#: app/desktopMenu.js:321
+#, fuzzy
+#| msgid "Files"
+msgid "Find Files"
+msgstr "Файлы"
+
+#: app/desktopMenu.js:338
+#, fuzzy
+#| msgid "Change Desktop"
+msgid "Update Desktop"
+msgstr "Змяніць працоўны стол"
+
+#: app/desktopMenu.js:354
+#, fuzzy
+#| msgid "Show hidden files"
+msgid "Show Hidden Files"
+msgstr "Паказваць схаваныя файлы"
+
+#: app/desktopMenu.js:369
+#, fuzzy
+#| msgid "Select All"
+msgid "Unselect All"
+msgstr "Вылучыць усе"
+
+#: app/desktopMenu.js:383
+msgid "Preview"
+msgstr ""
+
+#: app/desktopMenu.js:393
+#, fuzzy
+#| msgid "Choose Action for Files"
+msgid "Choose Icon Left"
+msgstr "Выберыце дзеянне для файлавага менеджара"
+
+#: app/desktopMenu.js:404
+#, fuzzy
+#| msgid "Choose Action for Files"
+msgid "Choose Icon Right"
+msgstr "Выберыце дзеянне для файлавага менеджара"
+
+#: app/desktopMenu.js:413
+#, fuzzy
+#| msgid "Choose"
+msgid "Choose Icon Up"
+msgstr "Выбраць"
+
+#: app/desktopMenu.js:423
+#, fuzzy
+#| msgid "Choose Action for Files"
+msgid "Choose Icon Down"
+msgstr "Выберыце дзеянне для файлавага менеджара"
+
+#: app/desktopMenu.js:432
+#, fuzzy
+#| msgid "Shell Menu…"
+msgid "Show Menu"
+msgstr "Меню абалонкі…"
+
+#: app/desktopMenu.js:480 app/desktopMenu.js:1151
+msgid "Show Shortcuts"
+msgstr ""
+
+#: app/desktopMenu.js:750
+msgid "Unable to open Desktop in Gnome Files"
+msgstr "Немагчыма адкрыць працоўны стол у праграме «Файлы»"
+
+#: app/desktopMenu.js:790
+msgid "Preferences Window is Open"
+msgstr "Акно налад адкрыта"
+
+#: app/desktopMenu.js:791
+msgid "This Window is open. Please switch to the active window."
+msgstr "Гэта акно адкрыта. Пераключыцеся ў актыўнае акно."
+
+#: app/desktopMenu.js:806 app/desktopMenu.js:1207
+msgid "Settings"
+msgstr "Налады"
+
+#: app/desktopMenu.js:987
+msgid "Template Creation Error"
+msgstr "Памылка стварэння шаблона"
+
+#: app/desktopMenu.js:988
+msgid "Could not create document"
+msgstr "Не ўдалося стварыць дакумент"
+
+#: app/desktopMenu.js:1115
+msgid "Name"
+msgstr "Назва"
+
+#: app/desktopMenu.js:1117
+msgid "Name Z-A"
+msgstr "Назва (Я-А)"
+
+#: app/desktopMenu.js:1119
+msgid "Modified Time"
+msgstr "Час змянення"
+
+#: app/desktopMenu.js:1121
+msgid "Type"
+msgstr "Тып"
+
+#: app/desktopMenu.js:1123
+msgid "Size"
+msgstr "Памер"
+
+#: app/desktopMenu.js:1128
+msgid "Keep Arranged…"
+msgstr "Захоўваць упарадкаванне…"
+
+#: app/desktopMenu.js:1133
+msgid "Keep Stacked by Type…"
+msgstr "Згрупоўваць па тыпу…"
+
+#: app/desktopMenu.js:1135
+msgid "Sort Home/Drives/Trash…"
+msgstr "Сартаваць Дыскі/Сметніцу/Хатнюю папку…"
+
+#: app/desktopMenu.js:1140
+msgid "Change Desktop"
+msgstr "Змяніць працоўны стол"
+
+#: app/desktopMenu.js:1145
+msgid "Restore Default Desktop"
+msgstr "Вярнуць прадвызначаны працоўны стол"
+
+#: app/desktopMenu.js:1149
+msgid "Desktop Icon Settings"
+msgstr "Налады Desktop Icons"
+
+#: app/desktopMenu.js:1159
+msgid "New Document"
+msgstr "Новы дакумент"
+
+#: app/desktopMenu.js:1164
+msgid "Paste"
+msgstr "Уставіць"
+
+#: app/desktopMenu.js:1181
 msgid "Arrange Icons"
 msgstr "Упарадкаваць значкі"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:1185
 msgid "Arrange By…"
 msgstr "Упарадкаваць па…"
 
-#: app/desktopMenu.js:995
+#: app/desktopMenu.js:1193
 msgid "Show Desktop In {0}"
 msgstr "Паказаць працоўны стол праз {0}"
 
-#: app/desktopMenu.js:1000
+#: app/desktopMenu.js:1198
 msgid "Open In {0}"
 msgstr "Адкрыць праз «{0}»"
 
-#: app/desktopMenu.js:1016
+#: app/desktopMenu.js:1214
 msgid "Shell Menu…"
 msgstr "Меню абалонкі…"
 
@@ -887,7 +959,7 @@ msgstr "Адправіць па электроннай пошце..."
 msgid "Send to Mobile Device"
 msgstr "Адправіць на мабільную прыладу"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
 msgid "Move to Trash"
 msgstr "Перамясціць у сметніцу"
 
@@ -935,89 +1007,129 @@ msgstr "Паказаць праз «{0}»"
 msgid "Open in {0}"
 msgstr "Адкрыць праз «{0}»"
 
-#: app/fileItemMenu.js:812
+#: app/fileItemMenu.js:530
+#, fuzzy
+#| msgid "Open Items"
+msgid "Open Item"
+msgstr "Адкрыць элементы"
+
+#: app/fileItemMenu.js:570
+msgid "Cut Item"
+msgstr ""
+
+#: app/fileItemMenu.js:579
+#, fuzzy
+#| msgid "Open Items"
+msgid "Copy Item"
+msgstr "Адкрыць элементы"
+
+#: app/fileItemMenu.js:589
+#, fuzzy
+#| msgid "Rename"
+msgid "Rename Item"
+msgstr "Перайменаваць"
+
+#: app/fileItemMenu.js:612
+#, fuzzy
+#| msgid "Delete permanently"
+msgid "Delete Permanently"
+msgstr "Выдаліць незваротна"
+
+#: app/fileItemMenu.js:701
+#, fuzzy
+#| msgid "Properties"
+msgid "Show Properties"
+msgstr "Уласцівасці"
+
+#: app/fileItemMenu.js:730
+#, fuzzy
+#| msgid "Create Link..."
+msgid "Create Link to Item"
+msgstr "Стварыць спасылку..."
+
+#: app/fileItemMenu.js:828
 msgid "Extraction Cancelled"
 msgstr "Выманне скасавана"
 
-#: app/fileItemMenu.js:813
+#: app/fileItemMenu.js:829
 msgid "Unable to extract File, no destination folder"
 msgstr "Немагчыма выняць файл, няма папкі прызначэння"
 
-#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
+#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
 msgid "Select Destination"
 msgstr "Выберыце месца прызначэння"
 
-#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
+#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
 msgid "Select"
 msgstr "Вылучыць"
 
-#: app/fileItemMenu.js:956
+#: app/fileItemMenu.js:972
 msgid "Can not email a Directory"
 msgstr "Нельга адправіць каталог па электроннай пошце"
 
-#: app/fileItemMenu.js:958
+#: app/fileItemMenu.js:974
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Сярод вылучанага ёсць каталог, спачатку сціснуць яго ў файл .zip?"
 
-#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
-#: app/fileItemMenu.js:1051
+#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
+#: app/fileItemMenu.js:1067
 msgid "Mail Error"
 msgstr "Памылка пошты"
 
-#: app/fileItemMenu.js:986
+#: app/fileItemMenu.js:1002
 msgid "Unable to find zip command, please install the program"
 msgstr "Не ўдалося знайсці каманду zip, усталюйце праграму"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:992
+#: app/fileItemMenu.js:1008
 msgid "Archive.zip"
 msgstr "Архіў.zip"
 
-#: app/fileItemMenu.js:1016
+#: app/fileItemMenu.js:1032
 msgid "There was an error in creating a zip archive"
 msgstr "Падчас стварэння zip-архіва ўзнікла памылка"
 
-#: app/fileItemMenu.js:1034
+#: app/fileItemMenu.js:1050
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Не ўдалося знайсці xdg-email, усталюйце праграму"
 
-#: app/fileItemMenu.js:1052
+#: app/fileItemMenu.js:1068
 msgid "There was an error in emailing Files"
 msgstr "Памылка пры адпраўцы файлаў па электроннай пошце"
 
-#: app/fileItemMenu.js:1159
+#: app/fileItemMenu.js:1175
 msgid "Can Not open the Working Directory"
 msgstr "Немагчыма адкрыць працоўны каталог"
 
-#: app/fileItemMenu.js:1210
+#: app/fileItemMenu.js:1226
 msgid "Unable to Open in Gnome Console"
 msgstr "Немагчыма адкрыць кансоль Gnome"
 
-#: app/fileItemMenu.js:1212
+#: app/fileItemMenu.js:1228
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Усталюйце кансоль Gnome або іншы эмулятар тэрмінала"
 
-#: app/fileItemMenu.js:1220
+#: app/fileItemMenu.js:1236
 msgid "Unable to Open {0}"
 msgstr "Немагчыма адкрыць {0}"
 
-#: app/fileItemMenu.js:1222
+#: app/fileItemMenu.js:1238
 msgid "Please Install {0}"
 msgstr "Усталюйце «{0}»"
 
-#: app/fileItemMenu.js:1266
+#: app/fileItemMenu.js:1282
 msgid "Copy Cancelled"
 msgstr "Капіяванне скасавана"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1283
 msgid "Unable to copy Files, no destination folder"
 msgstr "Немагчыма скапіяваць файлы, няма папкі прызначэння"
 
-#: app/fileItemMenu.js:1290
+#: app/fileItemMenu.js:1306
 msgid "Move Cancelled"
 msgstr "Перамяшчэнне скасавана"
 
-#: app/fileItemMenu.js:1291
+#: app/fileItemMenu.js:1307
 msgid "Unable to move Files, no destination folder"
 msgstr "Немагчыма перамясціць файлы, няма папкі прызначэння"
 

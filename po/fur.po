@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-17 07:05-0400\n"
+"POT-Creation-Date: 2025-04-21 23:31-0400\n"
 "PO-Revision-Date: 2023-12-03 22:08+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -347,7 +347,7 @@ msgid "File name"
 msgstr "Cambie non..."
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:960
+#: app/fileItemMenu.js:976
 msgid "OK"
 msgstr "Va ben"
 
@@ -376,8 +376,8 @@ msgid "Compressing files"
 msgstr ""
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
-#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
+#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Anule"
 
@@ -613,7 +613,7 @@ msgstr ""
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
 msgid "New Folder"
 msgstr "Gnove cartele"
 
@@ -626,115 +626,179 @@ msgstr "Gnûf non de cartele"
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopMenu.js:576
-msgid "Unable to open Desktop in Gnome Files"
+#: app/desktopMenu.js:36
+msgid "Keyboard Short Cuts"
 msgstr ""
 
-#: app/desktopMenu.js:616
-msgid "Preferences Window is Open"
-msgstr ""
-
-#: app/desktopMenu.js:617
-msgid "This Window is open. Please switch to the active window."
-msgstr ""
-
-#: app/desktopMenu.js:632 app/desktopMenu.js:1009
-msgid "Settings"
-msgstr "Impostazions"
-
-#: app/desktopMenu.js:813
-msgid "Template Creation Error"
-msgstr ""
-
-#: app/desktopMenu.js:814
-msgid "Could not create document"
-msgstr ""
-
-#: app/desktopMenu.js:919
-msgid "Name"
-msgstr ""
-
-#: app/desktopMenu.js:921
-msgid "Name Z-A"
-msgstr ""
-
-#: app/desktopMenu.js:923
-msgid "Modified Time"
-msgstr ""
-
-#: app/desktopMenu.js:925
-msgid "Type"
-msgstr ""
-
-#: app/desktopMenu.js:927
-msgid "Size"
-msgstr ""
-
-#: app/desktopMenu.js:932
-msgid "Keep Arranged…"
-msgstr ""
-
-#: app/desktopMenu.js:937
-msgid "Keep Stacked by Type…"
-msgstr ""
-
-#: app/desktopMenu.js:939
-msgid "Sort Home/Drives/Trash…"
-msgstr ""
-
-#: app/desktopMenu.js:944
-msgid "Change Desktop"
-msgstr ""
-
-#: app/desktopMenu.js:949
-msgid "Restore Default Desktop"
-msgstr ""
-
-#: app/desktopMenu.js:953
+#: app/desktopMenu.js:190
 #, fuzzy
-msgid "Desktop Icon Settings"
-msgstr "Impostazions visôr"
-
-#: app/desktopMenu.js:961
-msgid "New Document"
-msgstr "Gnûf Document"
-
-#: app/desktopMenu.js:966
-msgid "Paste"
+#| msgid "Paste"
+msgid "Do Paste"
 msgstr "Tache"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:202 app/desktopMenu.js:1166
 msgid "Undo"
 msgstr "Anule"
 
-#: app/desktopMenu.js:970
+#: app/desktopMenu.js:214 app/desktopMenu.js:1168
 msgid "Redo"
 msgstr "Torne fâ"
 
-#: app/desktopMenu.js:976
+#: app/desktopMenu.js:225 app/desktopMenu.js:1174
 #, fuzzy
 msgid "Select All"
 msgstr "Selezione dut"
 
-#: app/desktopMenu.js:983
+#: app/desktopMenu.js:321
+#, fuzzy
+#| msgid "Open"
+msgid "Find Files"
+msgstr "Vierç"
+
+#: app/desktopMenu.js:338
+#, fuzzy
+msgid "Update Desktop"
+msgstr "Mostre Scritori in File"
+
+#: app/desktopMenu.js:354
+#, fuzzy
+msgid "Show Hidden Files"
+msgstr "Mostre in File"
+
+#: app/desktopMenu.js:369
+#, fuzzy
+msgid "Unselect All"
+msgstr "Selezione dut"
+
+#: app/desktopMenu.js:383
+msgid "Preview"
+msgstr ""
+
+#: app/desktopMenu.js:393
+#, fuzzy
+msgid "Choose Icon Left"
+msgstr "Mostre in File"
+
+#: app/desktopMenu.js:404
+#, fuzzy
+msgid "Choose Icon Right"
+msgstr "Mostre in File"
+
+#: app/desktopMenu.js:413
+msgid "Choose Icon Up"
+msgstr ""
+
+#: app/desktopMenu.js:423
+#, fuzzy
+msgid "Choose Icon Down"
+msgstr "Mostre in File"
+
+#: app/desktopMenu.js:432
+#, fuzzy
+#| msgid "Show in Files"
+msgid "Show Menu"
+msgstr "Mostre in File"
+
+#: app/desktopMenu.js:480 app/desktopMenu.js:1151
+msgid "Show Shortcuts"
+msgstr ""
+
+#: app/desktopMenu.js:750
+msgid "Unable to open Desktop in Gnome Files"
+msgstr ""
+
+#: app/desktopMenu.js:790
+msgid "Preferences Window is Open"
+msgstr ""
+
+#: app/desktopMenu.js:791
+msgid "This Window is open. Please switch to the active window."
+msgstr ""
+
+#: app/desktopMenu.js:806 app/desktopMenu.js:1207
+msgid "Settings"
+msgstr "Impostazions"
+
+#: app/desktopMenu.js:987
+msgid "Template Creation Error"
+msgstr ""
+
+#: app/desktopMenu.js:988
+msgid "Could not create document"
+msgstr ""
+
+#: app/desktopMenu.js:1115
+msgid "Name"
+msgstr ""
+
+#: app/desktopMenu.js:1117
+msgid "Name Z-A"
+msgstr ""
+
+#: app/desktopMenu.js:1119
+msgid "Modified Time"
+msgstr ""
+
+#: app/desktopMenu.js:1121
+msgid "Type"
+msgstr ""
+
+#: app/desktopMenu.js:1123
+msgid "Size"
+msgstr ""
+
+#: app/desktopMenu.js:1128
+msgid "Keep Arranged…"
+msgstr ""
+
+#: app/desktopMenu.js:1133
+msgid "Keep Stacked by Type…"
+msgstr ""
+
+#: app/desktopMenu.js:1135
+msgid "Sort Home/Drives/Trash…"
+msgstr ""
+
+#: app/desktopMenu.js:1140
+msgid "Change Desktop"
+msgstr ""
+
+#: app/desktopMenu.js:1145
+msgid "Restore Default Desktop"
+msgstr ""
+
+#: app/desktopMenu.js:1149
+#, fuzzy
+msgid "Desktop Icon Settings"
+msgstr "Impostazions visôr"
+
+#: app/desktopMenu.js:1159
+msgid "New Document"
+msgstr "Gnûf Document"
+
+#: app/desktopMenu.js:1164
+msgid "Paste"
+msgstr "Tache"
+
+#: app/desktopMenu.js:1181
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:1185
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopMenu.js:995
+#: app/desktopMenu.js:1193
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Mostre Scritori in File"
 
-#: app/desktopMenu.js:1000
+#: app/desktopMenu.js:1198
 msgid "Open In {0}"
 msgstr ""
 
-#: app/desktopMenu.js:1016
+#: app/desktopMenu.js:1214
 msgid "Shell Menu…"
 msgstr ""
 
@@ -900,7 +964,7 @@ msgstr ""
 msgid "Send to Mobile Device"
 msgstr ""
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
 msgid "Move to Trash"
 msgstr "Sposte te scovacere"
 
@@ -955,95 +1019,132 @@ msgstr "Mostre in File"
 msgid "Open in {0}"
 msgstr "Vierç"
 
-#: app/fileItemMenu.js:812
+#: app/fileItemMenu.js:530
+#, fuzzy
+msgid "Open Item"
+msgstr "Vierç in Terminâl"
+
+#: app/fileItemMenu.js:570
+msgid "Cut Item"
+msgstr ""
+
+#: app/fileItemMenu.js:579
+#, fuzzy
+msgid "Copy Item"
+msgstr "Vierç in Terminâl"
+
+#: app/fileItemMenu.js:589
+#, fuzzy
+msgid "Rename Item"
+msgstr "Cambie non..."
+
+#: app/fileItemMenu.js:612
+#, fuzzy
+#| msgid "Delete permanently"
+msgid "Delete Permanently"
+msgstr "Elimine par simpri"
+
+#: app/fileItemMenu.js:701
+#, fuzzy
+#| msgid "Properties"
+msgid "Show Properties"
+msgstr "Propietâts"
+
+#: app/fileItemMenu.js:730
+#, fuzzy
+#| msgid "Create"
+msgid "Create Link to Item"
+msgstr "Cree"
+
+#: app/fileItemMenu.js:828
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Tire fûr ca"
 
-#: app/fileItemMenu.js:813
+#: app/fileItemMenu.js:829
 msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
+#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
 msgid "Select Destination"
 msgstr ""
 
-#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
+#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
 msgid "Select"
 msgstr "Selezione"
 
-#: app/fileItemMenu.js:956
+#: app/fileItemMenu.js:972
 msgid "Can not email a Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:958
+#: app/fileItemMenu.js:974
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 
-#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
-#: app/fileItemMenu.js:1051
+#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
+#: app/fileItemMenu.js:1067
 msgid "Mail Error"
 msgstr ""
 
-#: app/fileItemMenu.js:986
+#: app/fileItemMenu.js:1002
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:992
+#: app/fileItemMenu.js:1008
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Cambie non..."
 
-#: app/fileItemMenu.js:1016
+#: app/fileItemMenu.js:1032
 msgid "There was an error in creating a zip archive"
 msgstr ""
 
-#: app/fileItemMenu.js:1034
+#: app/fileItemMenu.js:1050
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 
-#: app/fileItemMenu.js:1052
+#: app/fileItemMenu.js:1068
 msgid "There was an error in emailing Files"
 msgstr ""
 
-#: app/fileItemMenu.js:1159
+#: app/fileItemMenu.js:1175
 msgid "Can Not open the Working Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:1210
+#: app/fileItemMenu.js:1226
 msgid "Unable to Open in Gnome Console"
 msgstr ""
 
-#: app/fileItemMenu.js:1212
+#: app/fileItemMenu.js:1228
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
-#: app/fileItemMenu.js:1220
+#: app/fileItemMenu.js:1236
 msgid "Unable to Open {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1222
+#: app/fileItemMenu.js:1238
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1266
+#: app/fileItemMenu.js:1282
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Anule"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1283
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:1290
+#: app/fileItemMenu.js:1306
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Anule"
 
-#: app/fileItemMenu.js:1291
+#: app/fileItemMenu.js:1307
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
