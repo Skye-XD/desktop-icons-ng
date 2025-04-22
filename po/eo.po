@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-17 07:05-0400\n"
+"POT-Creation-Date: 2025-04-21 23:31-0400\n"
 "PO-Revision-Date: 2025-03-18 02:30+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -398,7 +398,7 @@ msgid "File name"
 msgstr "Dosiernomo"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:960
+#: app/fileItemMenu.js:976
 #, fuzzy
 msgid "OK"
 msgstr "Bone"
@@ -433,8 +433,8 @@ msgid "Compressing files"
 msgstr "Kunpremaj dosieroj"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
-#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
+#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 #, fuzzy
 msgid "Cancel"
 msgstr "Nuligi"
@@ -718,7 +718,7 @@ msgstr "Klara aktuala selektado antaŭ nova serĉo"
 msgid "Find Files on Desktop"
 msgstr "Trovi Dosierojn sur Desktop"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
 #, fuzzy
 msgid "New Folder"
 msgstr "Nova dosierujo"
@@ -733,136 +733,198 @@ msgstr "Folder Creation Failed"
 msgid "Could not create folder"
 msgstr "Ne povis krei dosierujon."
 
-#: app/desktopMenu.js:576
-#, fuzzy
-msgid "Unable to open Desktop in Gnome Files"
-msgstr "Nekapabla malfermiĝi en Gnome Console"
-
-#: app/desktopMenu.js:616
-#, fuzzy
-msgid "Preferences Window is Open"
-msgstr "Prefera fenestro estas malfermita"
-
-#: app/desktopMenu.js:617
-#, fuzzy
-msgid "This Window is open. Please switch to the active window."
-msgstr "Tiu fenestro estas malfermita. Bonvolu ŝanĝi al la aktiva fenestro."
-
-#: app/desktopMenu.js:632 app/desktopMenu.js:1009
-#, fuzzy
-msgid "Settings"
-msgstr "Agordoj"
-
-#: app/desktopMenu.js:813
-#, fuzzy
-msgid "Template Creation Error"
-msgstr "Kreado Eraro"
-
-#: app/desktopMenu.js:814
-#, fuzzy
-msgid "Could not create document"
-msgstr "Ne povas krei dokumenton"
-
-#: app/desktopMenu.js:919
-#, fuzzy
-msgid "Name"
-msgstr "Nomo"
-
-#: app/desktopMenu.js:921
-#, fuzzy
-msgid "Name Z-A"
-msgstr "Nomo (Z-A)"
-
-#: app/desktopMenu.js:923
-#, fuzzy
-msgid "Modified Time"
-msgstr "Modifita Tempo"
-
-#: app/desktopMenu.js:925
-#, fuzzy
-msgid "Type"
-msgstr "Speco"
-
-#: app/desktopMenu.js:927
-#, fuzzy
-msgid "Size"
-msgstr "Grando"
-
-#: app/desktopMenu.js:932
-#, fuzzy
-msgid "Keep Arranged…"
-msgstr "Konservu .."
-
-#: app/desktopMenu.js:937
-#, fuzzy
-msgid "Keep Stacked by Type…"
-msgstr "Tenita per Tipo.."
-
-#: app/desktopMenu.js:939
-#, fuzzy
-msgid "Sort Home/Drives/Trash…"
-msgstr "Sort Home/Drives/Trash"
-
-#: app/desktopMenu.js:944
-#, fuzzy
-msgid "Change Desktop"
-msgstr "Labortabla komputilo"
-
-#: app/desktopMenu.js:949
-msgid "Restore Default Desktop"
+#: app/desktopMenu.js:36
+msgid "Keyboard Short Cuts"
 msgstr ""
 
-#: app/desktopMenu.js:953
+#: app/desktopMenu.js:190
 #, fuzzy
-msgid "Desktop Icon Settings"
-msgstr "Desktop Icon Settings"
-
-#: app/desktopMenu.js:961
-#, fuzzy
-msgid "New Document"
-msgstr "Nova dokumento"
-
-#: app/desktopMenu.js:966
-#, fuzzy
-msgid "Paste"
+msgid "Do Paste"
 msgstr "Alglui"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:202 app/desktopMenu.js:1166
 #, fuzzy
 msgid "Undo"
 msgstr "Malfari"
 
-#: app/desktopMenu.js:970
+#: app/desktopMenu.js:214 app/desktopMenu.js:1168
 #, fuzzy
 msgid "Redo"
 msgstr "Refari"
 
-#: app/desktopMenu.js:976
+#: app/desktopMenu.js:225 app/desktopMenu.js:1174
 #, fuzzy
 msgid "Select All"
 msgstr "Elekti ĉion"
 
-#: app/desktopMenu.js:983
+#: app/desktopMenu.js:321
+#, fuzzy
+msgid "Find Files"
+msgstr "Dosieroj"
+
+#: app/desktopMenu.js:338
+#, fuzzy
+msgid "Update Desktop"
+msgstr "Labortabla komputilo"
+
+#: app/desktopMenu.js:354
+#, fuzzy
+msgid "Show Hidden Files"
+msgstr "Montri kaŝitajn dosierojn"
+
+#: app/desktopMenu.js:369
+#, fuzzy
+msgid "Unselect All"
+msgstr "Elekti ĉion"
+
+#: app/desktopMenu.js:383
+msgid "Preview"
+msgstr ""
+
+#: app/desktopMenu.js:393
+#, fuzzy
+msgid "Choose Icon Left"
+msgstr "Elekti Agon por Dosieroj"
+
+#: app/desktopMenu.js:404
+#, fuzzy
+msgid "Choose Icon Right"
+msgstr "Elekti Agon por Dosieroj"
+
+#: app/desktopMenu.js:413
+#, fuzzy
+msgid "Choose Icon Up"
+msgstr "Elekti"
+
+#: app/desktopMenu.js:423
+#, fuzzy
+msgid "Choose Icon Down"
+msgstr "Elekti Agon por Dosieroj"
+
+#: app/desktopMenu.js:432
+#, fuzzy
+msgid "Show Menu"
+msgstr "Montri en {0}"
+
+#: app/desktopMenu.js:480 app/desktopMenu.js:1151
+msgid "Show Shortcuts"
+msgstr ""
+
+#: app/desktopMenu.js:750
+#, fuzzy
+msgid "Unable to open Desktop in Gnome Files"
+msgstr "Nekapabla malfermiĝi en Gnome Console"
+
+#: app/desktopMenu.js:790
+#, fuzzy
+msgid "Preferences Window is Open"
+msgstr "Prefera fenestro estas malfermita"
+
+#: app/desktopMenu.js:791
+#, fuzzy
+msgid "This Window is open. Please switch to the active window."
+msgstr "Tiu fenestro estas malfermita. Bonvolu ŝanĝi al la aktiva fenestro."
+
+#: app/desktopMenu.js:806 app/desktopMenu.js:1207
+#, fuzzy
+msgid "Settings"
+msgstr "Agordoj"
+
+#: app/desktopMenu.js:987
+#, fuzzy
+msgid "Template Creation Error"
+msgstr "Kreado Eraro"
+
+#: app/desktopMenu.js:988
+#, fuzzy
+msgid "Could not create document"
+msgstr "Ne povas krei dokumenton"
+
+#: app/desktopMenu.js:1115
+#, fuzzy
+msgid "Name"
+msgstr "Nomo"
+
+#: app/desktopMenu.js:1117
+#, fuzzy
+msgid "Name Z-A"
+msgstr "Nomo (Z-A)"
+
+#: app/desktopMenu.js:1119
+#, fuzzy
+msgid "Modified Time"
+msgstr "Modifita Tempo"
+
+#: app/desktopMenu.js:1121
+#, fuzzy
+msgid "Type"
+msgstr "Speco"
+
+#: app/desktopMenu.js:1123
+#, fuzzy
+msgid "Size"
+msgstr "Grando"
+
+#: app/desktopMenu.js:1128
+#, fuzzy
+msgid "Keep Arranged…"
+msgstr "Konservu .."
+
+#: app/desktopMenu.js:1133
+#, fuzzy
+msgid "Keep Stacked by Type…"
+msgstr "Tenita per Tipo.."
+
+#: app/desktopMenu.js:1135
+#, fuzzy
+msgid "Sort Home/Drives/Trash…"
+msgstr "Sort Home/Drives/Trash"
+
+#: app/desktopMenu.js:1140
+#, fuzzy
+msgid "Change Desktop"
+msgstr "Labortabla komputilo"
+
+#: app/desktopMenu.js:1145
+msgid "Restore Default Desktop"
+msgstr ""
+
+#: app/desktopMenu.js:1149
+#, fuzzy
+msgid "Desktop Icon Settings"
+msgstr "Desktop Icon Settings"
+
+#: app/desktopMenu.js:1159
+#, fuzzy
+msgid "New Document"
+msgstr "Nova dokumento"
+
+#: app/desktopMenu.js:1164
+#, fuzzy
+msgid "Paste"
+msgstr "Alglui"
+
+#: app/desktopMenu.js:1181
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Arrange Icons"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:1185
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arrange By.."
 
-#: app/desktopMenu.js:995
+#: app/desktopMenu.js:1193
 #, fuzzy
 msgid "Show Desktop In {0}"
 msgstr "Montras en {0}"
 
-#: app/desktopMenu.js:1000
+#: app/desktopMenu.js:1198
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Malfermu en {0}"
 
-#: app/desktopMenu.js:1016
+#: app/desktopMenu.js:1214
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1046,7 +1108,7 @@ msgstr "Retpoŝto al..."
 msgid "Send to Mobile Device"
 msgstr "Sendu al Poŝtelefono Device"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
 #, fuzzy
 msgid "Move to Trash"
 msgstr "&Movi rubujen"
@@ -1106,109 +1168,143 @@ msgstr "Montri en {0}"
 msgid "Open in {0}"
 msgstr "Malfermite en {0}"
 
-#: app/fileItemMenu.js:812
+#: app/fileItemMenu.js:530
+#, fuzzy
+msgid "Open Item"
+msgstr "Malfermu ĝin"
+
+#: app/fileItemMenu.js:570
+msgid "Cut Item"
+msgstr ""
+
+#: app/fileItemMenu.js:579
+#, fuzzy
+msgid "Copy Item"
+msgstr "Malfermu ĝin"
+
+#: app/fileItemMenu.js:589
+#, fuzzy
+msgid "Rename Item"
+msgstr "Ŝanĝi nomon"
+
+#: app/fileItemMenu.js:612
+#, fuzzy
+msgid "Delete Permanently"
+msgstr "Permanence forigi"
+
+#: app/fileItemMenu.js:701
+#, fuzzy
+msgid "Show Properties"
+msgstr "Atributoj"
+
+#: app/fileItemMenu.js:730
+#, fuzzy
+msgid "Create Link to Item"
+msgstr "Krei kun..."
+
+#: app/fileItemMenu.js:828
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ekstraktado povas okazi"
 
-#: app/fileItemMenu.js:813
+#: app/fileItemMenu.js:829
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Nekapabla eltiri Dosiero, neniu destino falĉilo"
 
-#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
+#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
-#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
+#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
 #, fuzzy
 msgid "Select"
 msgstr "Elekti"
 
-#: app/fileItemMenu.js:956
+#: app/fileItemMenu.js:972
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Ne povas sendi Adresaron"
 
-#: app/fileItemMenu.js:958
+#: app/fileItemMenu.js:974
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Selektado inkludas Adresaron, kunpremi al .zip-dosiero unue?"
 
-#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
-#: app/fileItemMenu.js:1051
+#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
+#: app/fileItemMenu.js:1067
 #, fuzzy
 msgid "Mail Error"
 msgstr "Antaŭa eraro"
 
-#: app/fileItemMenu.js:986
+#: app/fileItemMenu.js:1002
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Nekapabla trovi poŝtkomandon, bonvolu instali la programon"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:992
+#: app/fileItemMenu.js:1008
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Arkivo.zip"
 
-#: app/fileItemMenu.js:1016
+#: app/fileItemMenu.js:1032
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Ekzistis eraro en kreado de poŝtarkivo"
 
-#: app/fileItemMenu.js:1034
+#: app/fileItemMenu.js:1050
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Nekapabla trovi xdg-email, bonvolu instali la programon"
 
-#: app/fileItemMenu.js:1052
+#: app/fileItemMenu.js:1068
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Estis eraro en retpoŝtoj Dosieroj"
 
-#: app/fileItemMenu.js:1159
+#: app/fileItemMenu.js:1175
 #, fuzzy
 msgid "Can Not open the Working Directory"
 msgstr "Ne povas sendi Adresaron"
 
-#: app/fileItemMenu.js:1210
+#: app/fileItemMenu.js:1226
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Nekapabla malfermiĝi en Gnome Console"
 
-#: app/fileItemMenu.js:1212
+#: app/fileItemMenu.js:1228
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Bonvolu Instali Gnome Console aŭ alia Terminalo Programo"
 
-#: app/fileItemMenu.js:1220
+#: app/fileItemMenu.js:1236
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Nekapabla malfermi {0}"
 
-#: app/fileItemMenu.js:1222
+#: app/fileItemMenu.js:1238
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Bonvolu instali {0}"
 
-#: app/fileItemMenu.js:1266
+#: app/fileItemMenu.js:1282
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopio povas"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1283
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nekapabla kopii Dosierojn, neniu cellokfalinto"
 
-#: app/fileItemMenu.js:1290
+#: app/fileItemMenu.js:1306
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Movo povas esti"
 
-#: app/fileItemMenu.js:1291
+#: app/fileItemMenu.js:1307
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Nekapabla movi Dosierojn, neniu cellokfalinto"

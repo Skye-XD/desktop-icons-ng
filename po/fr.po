@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-17 07:05-0400\n"
+"POT-Creation-Date: 2025-04-21 23:31-0400\n"
 "PO-Revision-Date: 2025-04-02 19:08+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -401,7 +401,7 @@ msgid "File name"
 msgstr "Nom du fichier"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:960
+#: app/fileItemMenu.js:976
 msgid "OK"
 msgstr "Valider"
 
@@ -432,8 +432,8 @@ msgid "Compressing files"
 msgstr "Compression des fichiers"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
-#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
+#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -725,7 +725,7 @@ msgstr "Supprimer la sélection courante avant une nouvelle recherche"
 msgid "Find Files on Desktop"
 msgstr "Rechercher des fichiers sur le bureau"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
 msgid "New Folder"
 msgstr "Nouveau dossier"
 
@@ -738,125 +738,196 @@ msgstr "Échec de la création du dossier"
 msgid "Could not create folder"
 msgstr "Impossible de créer le dossier"
 
-#: app/desktopMenu.js:576
+#: app/desktopMenu.js:36
+msgid "Keyboard Short Cuts"
+msgstr ""
+
+#: app/desktopMenu.js:190
+#, fuzzy
+#| msgid "Paste"
+msgid "Do Paste"
+msgstr "Coller"
+
+#: app/desktopMenu.js:202 app/desktopMenu.js:1166
+msgid "Undo"
+msgstr "Annuler"
+
+#: app/desktopMenu.js:214 app/desktopMenu.js:1168
+msgid "Redo"
+msgstr "Refaire"
+
+#: app/desktopMenu.js:225 app/desktopMenu.js:1174
+msgid "Select All"
+msgstr "Tout sélectionner"
+
+#: app/desktopMenu.js:321
+#, fuzzy
+#| msgid "Files"
+msgid "Find Files"
+msgstr "Fichiers"
+
+#: app/desktopMenu.js:338
+#, fuzzy
+#| msgid "Desktop"
+msgid "Update Desktop"
+msgstr "Ordinateur de bureau"
+
+#: app/desktopMenu.js:354
+#, fuzzy
+#| msgid "Show hidden files"
+msgid "Show Hidden Files"
+msgstr "Afficher les fichiers cachés"
+
+#: app/desktopMenu.js:369
+#, fuzzy
+#| msgid "Select All"
+msgid "Unselect All"
+msgstr "Tout sélectionner"
+
+#: app/desktopMenu.js:383
+msgid "Preview"
+msgstr ""
+
+#: app/desktopMenu.js:393
+#, fuzzy
+#| msgid "Choose Action for Files"
+msgid "Choose Icon Left"
+msgstr "Choisir l'action pour les fichiers"
+
+#: app/desktopMenu.js:404
+#, fuzzy
+#| msgid "Choose Action for Files"
+msgid "Choose Icon Right"
+msgstr "Choisir l'action pour les fichiers"
+
+#: app/desktopMenu.js:413
+#, fuzzy
+msgid "Choose Icon Up"
+msgstr "Choisir"
+
+#: app/desktopMenu.js:423
+#, fuzzy
+#| msgid "Choose Action for Files"
+msgid "Choose Icon Down"
+msgstr "Choisir l'action pour les fichiers"
+
+#: app/desktopMenu.js:432
+#, fuzzy
+#| msgid "Shell Menu…"
+msgid "Show Menu"
+msgstr "Menu Shell…"
+
+#: app/desktopMenu.js:480 app/desktopMenu.js:1151
+msgid "Show Shortcuts"
+msgstr ""
+
+#: app/desktopMenu.js:750
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Incapable d'ouvrir dans Gnome Console"
 
-#: app/desktopMenu.js:616
+#: app/desktopMenu.js:790
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Préférences La fenêtre est ouverte"
 
-#: app/desktopMenu.js:617
+#: app/desktopMenu.js:791
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Cette fenêtre est ouverte. Veuillez passer à la fenêtre active."
 
-#: app/desktopMenu.js:632 app/desktopMenu.js:1009
+#: app/desktopMenu.js:806 app/desktopMenu.js:1207
 msgid "Settings"
 msgstr "Paramètres"
 
-#: app/desktopMenu.js:813
+#: app/desktopMenu.js:987
 msgid "Template Creation Error"
 msgstr "Erreur de création d'un modèle"
 
-#: app/desktopMenu.js:814
+#: app/desktopMenu.js:988
 #, fuzzy
 msgid "Could not create document"
 msgstr "Impossible de supprimer le document"
 
-#: app/desktopMenu.js:919
+#: app/desktopMenu.js:1115
 #, fuzzy
 msgid "Name"
 msgstr "Nom"
 
-#: app/desktopMenu.js:921
+#: app/desktopMenu.js:1117
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nom Z-A"
 
-#: app/desktopMenu.js:923
+#: app/desktopMenu.js:1119
 #, fuzzy
 msgid "Modified Time"
 msgstr "Temps modifié"
 
-#: app/desktopMenu.js:925
+#: app/desktopMenu.js:1121
 #, fuzzy
 msgid "Type"
 msgstr "Type"
 
-#: app/desktopMenu.js:927
+#: app/desktopMenu.js:1123
 #, fuzzy
 msgid "Size"
 msgstr "Taille"
 
-#: app/desktopMenu.js:932
+#: app/desktopMenu.js:1128
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Conserver l’ordre…"
 
-#: app/desktopMenu.js:937
+#: app/desktopMenu.js:1133
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Conserver les icônes regoupées par type…"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:1135
 msgid "Sort Home/Drives/Trash…"
 msgstr "Trier Dossier personnel/Volumes/Corbeille"
 
-#: app/desktopMenu.js:944
+#: app/desktopMenu.js:1140
 #, fuzzy
 #| msgid "Desktop"
 msgid "Change Desktop"
 msgstr "Ordinateur de bureau"
 
-#: app/desktopMenu.js:949
+#: app/desktopMenu.js:1145
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:953
+#: app/desktopMenu.js:1149
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Préférences des icônes du bureau"
 
-#: app/desktopMenu.js:961
+#: app/desktopMenu.js:1159
 msgid "New Document"
 msgstr "Nouveau document"
 
-#: app/desktopMenu.js:966
+#: app/desktopMenu.js:1164
 msgid "Paste"
 msgstr "Coller"
 
-#: app/desktopMenu.js:968
-msgid "Undo"
-msgstr "Annuler"
-
-#: app/desktopMenu.js:970
-msgid "Redo"
-msgstr "Refaire"
-
-#: app/desktopMenu.js:976
-msgid "Select All"
-msgstr "Tout sélectionner"
-
-#: app/desktopMenu.js:983
+#: app/desktopMenu.js:1181
 msgid "Arrange Icons"
 msgstr "Ordonner les icônes"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:1185
 msgid "Arrange By…"
 msgstr "Trier par :"
 
-#: app/desktopMenu.js:995
+#: app/desktopMenu.js:1193
 msgid "Show Desktop In {0}"
 msgstr "Afficher le bureau dans {0}"
 
-#: app/desktopMenu.js:1000
+#: app/desktopMenu.js:1198
 msgid "Open In {0}"
 msgstr "Ouvrir dans {0}"
 
-#: app/desktopMenu.js:1016
+#: app/desktopMenu.js:1214
 msgid "Shell Menu…"
 msgstr "Menu Shell…"
 
@@ -1022,7 +1093,7 @@ msgstr "Email à..."
 msgid "Send to Mobile Device"
 msgstr "Envoyer à l'appareil mobile"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
 msgid "Move to Trash"
 msgstr "Mettre à la corbeille"
 
@@ -1074,29 +1145,66 @@ msgstr "Montrer dans {0}"
 msgid "Open in {0}"
 msgstr "Ouvrir dans {0}"
 
-#: app/fileItemMenu.js:812
+#: app/fileItemMenu.js:530
+#, fuzzy
+msgid "Open Item"
+msgstr "@:account.invoiceList.invoiceTypes.openitem"
+
+#: app/fileItemMenu.js:570
+msgid "Cut Item"
+msgstr ""
+
+#: app/fileItemMenu.js:579
+#, fuzzy
+msgid "Copy Item"
+msgstr "@:account.invoiceList.invoiceTypes.openitem"
+
+#: app/fileItemMenu.js:589
+#, fuzzy
+#| msgid "Rename"
+msgid "Rename Item"
+msgstr "Renommer"
+
+#: app/fileItemMenu.js:612
+#, fuzzy
+#| msgid "Delete permanently"
+msgid "Delete Permanently"
+msgstr "Supprimer définitivement"
+
+#: app/fileItemMenu.js:701
+#, fuzzy
+#| msgid "Properties"
+msgid "Show Properties"
+msgstr "Propriétés"
+
+#: app/fileItemMenu.js:730
+#, fuzzy
+msgid "Create Link to Item"
+msgstr "Créer un lien"
+
+#: app/fileItemMenu.js:828
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extraction annulée"
 
-#: app/fileItemMenu.js:813
+#: app/fileItemMenu.js:829
 msgid "Unable to extract File, no destination folder"
 msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
 
-#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
+#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
 #, fuzzy
 msgid "Select Destination"
 msgstr "Sélectionnez la destination"
 
-#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
+#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
 msgid "Select"
 msgstr "Sélectionner"
 
-#: app/fileItemMenu.js:956
+#: app/fileItemMenu.js:972
 msgid "Can not email a Directory"
 msgstr "Impossible d’envoyer un dossier par courriel"
 
-#: app/fileItemMenu.js:958
+#: app/fileItemMenu.js:974
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
@@ -1104,82 +1212,82 @@ msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "La sélection comprend un répertoire, compresser un fichier .zip d'abord?"
 
-#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
-#: app/fileItemMenu.js:1051
+#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
+#: app/fileItemMenu.js:1067
 #, fuzzy
 msgid "Mail Error"
 msgstr "Erreur d’email"
 
-#: app/fileItemMenu.js:986
+#: app/fileItemMenu.js:1002
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 "Impossible de trouver la commande zip, s'il vous plaît installer le programme"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:992
+#: app/fileItemMenu.js:1008
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
-#: app/fileItemMenu.js:1016
+#: app/fileItemMenu.js:1032
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Il y a eu une erreur dans la création d'une archive zip"
 
-#: app/fileItemMenu.js:1034
+#: app/fileItemMenu.js:1050
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 "Impossible de trouver xdg-email, s'il vous plaît installer le programme"
 
-#: app/fileItemMenu.js:1052
+#: app/fileItemMenu.js:1068
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Il y a eu une erreur dans l'envoi de fichiers"
 
-#: app/fileItemMenu.js:1159
+#: app/fileItemMenu.js:1175
 #, fuzzy
 #| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
 msgstr "Impossible d’envoyer un dossier par courriel"
 
-#: app/fileItemMenu.js:1210
+#: app/fileItemMenu.js:1226
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Incapable d'ouvrir dans Gnome Console"
 
-#: app/fileItemMenu.js:1212
+#: app/fileItemMenu.js:1228
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "S'il vous plaît installer Gnome Console ou autre programme de terminal"
 
-#: app/fileItemMenu.js:1220
+#: app/fileItemMenu.js:1236
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Impossible à ouvrir {0}"
 
-#: app/fileItemMenu.js:1222
+#: app/fileItemMenu.js:1238
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "S'il vous plaît installer {0}"
 
-#: app/fileItemMenu.js:1266
+#: app/fileItemMenu.js:1282
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Copie annulée"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1283
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Impossible d'extraire le fichier, pas de dossier de destination"
 
-#: app/fileItemMenu.js:1290
+#: app/fileItemMenu.js:1306
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Déplacement annulé"
 
-#: app/fileItemMenu.js:1291
+#: app/fileItemMenu.js:1307
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Impossible d'extraire le fichier, pas de dossier de destination"

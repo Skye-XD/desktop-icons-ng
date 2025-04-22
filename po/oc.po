@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-17 07:05-0400\n"
+"POT-Creation-Date: 2025-04-21 23:31-0400\n"
 "PO-Revision-Date: 2025-03-18 02:30+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -406,7 +406,7 @@ msgid "File name"
 msgstr "Nom de fichièr"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:960
+#: app/fileItemMenu.js:976
 msgid "OK"
 msgstr "D’acordi"
 
@@ -435,8 +435,8 @@ msgid "Compressing files"
 msgstr "Compressar {0} fichièr"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
-#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
+#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Anullar"
 
@@ -700,7 +700,7 @@ msgstr "Escafar la seleccion actuala abans una recèrca novèla"
 msgid "Find Files on Desktop"
 msgstr "Recercar de fichièrs al burèu"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
 msgid "New Folder"
 msgstr "Dorsièr novèl"
 
@@ -713,124 +713,190 @@ msgstr "Nom del dorsièr"
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopMenu.js:576
+#: app/desktopMenu.js:36
+msgid "Keyboard Short Cuts"
+msgstr ""
+
+#: app/desktopMenu.js:190
+#, fuzzy
+#| msgid "Paste"
+msgid "Do Paste"
+msgstr "Pegar"
+
+#: app/desktopMenu.js:202 app/desktopMenu.js:1166
+msgid "Undo"
+msgstr "Desfar"
+
+#: app/desktopMenu.js:214 app/desktopMenu.js:1168
+msgid "Redo"
+msgstr "Refar"
+
+#: app/desktopMenu.js:225 app/desktopMenu.js:1174
+msgid "Select All"
+msgstr "Tot seleccionar"
+
+#: app/desktopMenu.js:321
+#, fuzzy
+msgid "Find Files"
+msgstr "Fichièrs"
+
+#: app/desktopMenu.js:338
+#, fuzzy
+msgid "Update Desktop"
+msgstr "Burèu"
+
+#: app/desktopMenu.js:354
+#, fuzzy
+#| msgid "Show hidden files"
+msgid "Show Hidden Files"
+msgstr "Visualizar los fichièrs amagats"
+
+#: app/desktopMenu.js:369
+#, fuzzy
+#| msgid "Select All"
+msgid "Unselect All"
+msgstr "Tot seleccionar"
+
+#: app/desktopMenu.js:383
+msgid "Preview"
+msgstr ""
+
+#: app/desktopMenu.js:393
+#, fuzzy
+msgid "Choose Icon Left"
+msgstr "Mostrar dins Fichièrs"
+
+#: app/desktopMenu.js:404
+#, fuzzy
+msgid "Choose Icon Right"
+msgstr "Mostrar dins Fichièrs"
+
+#: app/desktopMenu.js:413
+#, fuzzy
+msgid "Choose Icon Up"
+msgstr "Causir"
+
+#: app/desktopMenu.js:423
+#, fuzzy
+msgid "Choose Icon Down"
+msgstr "Mostrar dins Fichièrs"
+
+#: app/desktopMenu.js:432
+#, fuzzy
+#| msgid "Show"
+msgid "Show Menu"
+msgstr "Visualizar"
+
+#: app/desktopMenu.js:480 app/desktopMenu.js:1151
+msgid "Show Shortcuts"
+msgstr ""
+
+#: app/desktopMenu.js:750
 msgid "Unable to open Desktop in Gnome Files"
 msgstr ""
 
-#: app/desktopMenu.js:616
+#: app/desktopMenu.js:790
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopMenu.js:617
+#: app/desktopMenu.js:791
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopMenu.js:632 app/desktopMenu.js:1009
+#: app/desktopMenu.js:806 app/desktopMenu.js:1207
 msgid "Settings"
 msgstr "Paramètres"
 
-#: app/desktopMenu.js:813
+#: app/desktopMenu.js:987
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopMenu.js:814
+#: app/desktopMenu.js:988
 msgid "Could not create document"
 msgstr ""
 
-#: app/desktopMenu.js:919
+#: app/desktopMenu.js:1115
 #, fuzzy
 msgid "Name"
 msgstr "Nom"
 
-#: app/desktopMenu.js:921
+#: app/desktopMenu.js:1117
 msgid "Name Z-A"
 msgstr ""
 
-#: app/desktopMenu.js:923
+#: app/desktopMenu.js:1119
 #, fuzzy
 #| msgid "Sort by Modified Time"
 msgid "Modified Time"
 msgstr "Triar per data de modificacion"
 
-#: app/desktopMenu.js:925
+#: app/desktopMenu.js:1121
 #, fuzzy
 msgid "Type"
 msgstr "Tipe"
 
-#: app/desktopMenu.js:927
+#: app/desktopMenu.js:1123
 #, fuzzy
 msgid "Size"
 msgstr "Talha"
 
-#: app/desktopMenu.js:932
+#: app/desktopMenu.js:1128
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Gardar arrengat…"
 
-#: app/desktopMenu.js:937
+#: app/desktopMenu.js:1133
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Gardar l’empilament per tipe…"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:1135
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Triar Repertòri personal/disques/escobilhièr…"
 
-#: app/desktopMenu.js:944
+#: app/desktopMenu.js:1140
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Burèu"
 
-#: app/desktopMenu.js:949
+#: app/desktopMenu.js:1145
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:953
+#: app/desktopMenu.js:1149
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Paramètres icònas de burèu"
 
-#: app/desktopMenu.js:961
+#: app/desktopMenu.js:1159
 msgid "New Document"
 msgstr "Document novèl"
 
-#: app/desktopMenu.js:966
+#: app/desktopMenu.js:1164
 msgid "Paste"
 msgstr "Pegar"
 
-#: app/desktopMenu.js:968
-msgid "Undo"
-msgstr "Desfar"
-
-#: app/desktopMenu.js:970
-msgid "Redo"
-msgstr "Refar"
-
-#: app/desktopMenu.js:976
-msgid "Select All"
-msgstr "Tot seleccionar"
-
-#: app/desktopMenu.js:983
+#: app/desktopMenu.js:1181
 msgid "Arrange Icons"
 msgstr "Arrengar las icònas"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:1185
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arrengar per…"
 
-#: app/desktopMenu.js:995
+#: app/desktopMenu.js:1193
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
-#: app/desktopMenu.js:1000
+#: app/desktopMenu.js:1198
 msgid "Open In {0}"
 msgstr ""
 
-#: app/desktopMenu.js:1016
+#: app/desktopMenu.js:1214
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1001,7 +1067,7 @@ msgstr ""
 msgid "Send to Mobile Device"
 msgstr ""
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
 msgid "Move to Trash"
 msgstr "Desplaçar dins l'escobilhièr"
 
@@ -1055,30 +1121,66 @@ msgstr "Mostrar dins Fichièrs"
 msgid "Open in {0}"
 msgstr "Dobrir un fichièr"
 
-#: app/fileItemMenu.js:812
+#: app/fileItemMenu.js:530
+#, fuzzy
+msgid "Open Item"
+msgstr "Dobrir dins un terminal"
+
+#: app/fileItemMenu.js:570
+msgid "Cut Item"
+msgstr ""
+
+#: app/fileItemMenu.js:579
+#, fuzzy
+msgid "Copy Item"
+msgstr "Dobrir dins un terminal"
+
+#: app/fileItemMenu.js:589
+#, fuzzy
+#| msgid "Rename"
+msgid "Rename Item"
+msgstr "Renomenar"
+
+#: app/fileItemMenu.js:612
+#, fuzzy
+#| msgid "Delete permanently"
+msgid "Delete Permanently"
+msgstr "Suprimir definitivament"
+
+#: app/fileItemMenu.js:701
+#, fuzzy
+#| msgid "Properties"
+msgid "Show Properties"
+msgstr "Proprietats"
+
+#: app/fileItemMenu.js:730
+msgid "Create Link to Item"
+msgstr ""
+
+#: app/fileItemMenu.js:828
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Traire aicí"
 
-#: app/fileItemMenu.js:813
+#: app/fileItemMenu.js:829
 msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
+#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
 #, fuzzy
 #| msgid "Select Extract Destination"
 msgid "Select Destination"
 msgstr "Chausir la destinacion"
 
-#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
+#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
 msgid "Select"
 msgstr "Causir"
 
-#: app/fileItemMenu.js:956
+#: app/fileItemMenu.js:972
 msgid "Can not email a Directory"
 msgstr "Impossible d’enviar un email a un Repertòri"
 
-#: app/fileItemMenu.js:958
+#: app/fileItemMenu.js:974
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
@@ -1086,72 +1188,72 @@ msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "La seleccion inclutz un repertòri, compressatz lo repertòri d'en primièr."
 
-#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
-#: app/fileItemMenu.js:1051
+#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
+#: app/fileItemMenu.js:1067
 msgid "Mail Error"
 msgstr ""
 
-#: app/fileItemMenu.js:986
+#: app/fileItemMenu.js:1002
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:992
+#: app/fileItemMenu.js:1008
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Nom de fichièr"
 
-#: app/fileItemMenu.js:1016
+#: app/fileItemMenu.js:1032
 msgid "There was an error in creating a zip archive"
 msgstr ""
 
-#: app/fileItemMenu.js:1034
+#: app/fileItemMenu.js:1050
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 
-#: app/fileItemMenu.js:1052
+#: app/fileItemMenu.js:1068
 msgid "There was an error in emailing Files"
 msgstr ""
 
-#: app/fileItemMenu.js:1159
+#: app/fileItemMenu.js:1175
 #, fuzzy
 #| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
 msgstr "Impossible d’enviar un email a un Repertòri"
 
-#: app/fileItemMenu.js:1210
+#: app/fileItemMenu.js:1226
 msgid "Unable to Open in Gnome Console"
 msgstr ""
 
-#: app/fileItemMenu.js:1212
+#: app/fileItemMenu.js:1228
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
-#: app/fileItemMenu.js:1220
+#: app/fileItemMenu.js:1236
 msgid "Unable to Open {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1222
+#: app/fileItemMenu.js:1238
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1266
+#: app/fileItemMenu.js:1282
 #, fuzzy
 #| msgid "Cancel"
 msgid "Copy Cancelled"
 msgstr "Anullar"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1283
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:1290
+#: app/fileItemMenu.js:1306
 #, fuzzy
 #| msgid "Cancel"
 msgid "Move Cancelled"
 msgstr "Anullar"
 
-#: app/fileItemMenu.js:1291
+#: app/fileItemMenu.js:1307
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
@@ -1496,9 +1598,6 @@ msgstr ""
 
 #~ msgid "Execute in a terminal"
 #~ msgstr "Executar dins un terminal"
-
-#~ msgid "Show"
-#~ msgstr "Visualizar"
 
 #~ msgid "Execute"
 #~ msgstr "Executar"

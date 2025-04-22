@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-17 07:05-0400\n"
+"POT-Creation-Date: 2025-04-21 23:31-0400\n"
 "PO-Revision-Date: 2025-04-02 19:08+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
@@ -381,7 +381,7 @@ msgid "File name"
 msgstr "Přejmenovat soubor"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:960
+#: app/fileItemMenu.js:976
 msgid "OK"
 msgstr "Budiž"
 
@@ -414,8 +414,8 @@ msgid "Compressing files"
 msgstr "Probíhá komprese souborů."
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:907
-#: app/fileItemMenu.js:960 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
+#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -694,7 +694,7 @@ msgstr "Vymazat aktuální výběr před novým hledáním"
 msgid "Find Files on Desktop"
 msgstr "Najít soubory na Ploše"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:956
+#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
 msgid "New Folder"
 msgstr "Nová složka"
 
@@ -708,130 +708,196 @@ msgstr "Vytvoření složky Failed"
 msgid "Could not create folder"
 msgstr "Nelze vytvořit složku."
 
-#: app/desktopMenu.js:576
+#: app/desktopMenu.js:36
+msgid "Keyboard Short Cuts"
+msgstr ""
+
+#: app/desktopMenu.js:190
+#, fuzzy
+#| msgid "Paste"
+msgid "Do Paste"
+msgstr "Vložit"
+
+#: app/desktopMenu.js:202 app/desktopMenu.js:1166
+msgid "Undo"
+msgstr "Zpět"
+
+#: app/desktopMenu.js:214 app/desktopMenu.js:1168
+msgid "Redo"
+msgstr "Znovu"
+
+#: app/desktopMenu.js:225 app/desktopMenu.js:1174
+msgid "Select All"
+msgstr "Vybrat vše"
+
+#: app/desktopMenu.js:321
+#, fuzzy
+msgid "Find Files"
+msgstr "Soubory"
+
+#: app/desktopMenu.js:338
+#, fuzzy
+msgid "Update Desktop"
+msgstr "Stolní počítač"
+
+#: app/desktopMenu.js:354
+#, fuzzy
+#| msgid "Show hidden files"
+msgid "Show Hidden Files"
+msgstr "Zobrazit skryté soubory"
+
+#: app/desktopMenu.js:369
+#, fuzzy
+#| msgid "Select All"
+msgid "Unselect All"
+msgstr "Vybrat vše"
+
+#: app/desktopMenu.js:383
+msgid "Preview"
+msgstr ""
+
+#: app/desktopMenu.js:393
+#, fuzzy
+msgid "Choose Icon Left"
+msgstr "Zvolte akci pro soubory"
+
+#: app/desktopMenu.js:404
+#, fuzzy
+msgid "Choose Icon Right"
+msgstr "Zvolte akci pro soubory"
+
+#: app/desktopMenu.js:413
+#, fuzzy
+msgid "Choose Icon Up"
+msgstr "Zvolit"
+
+#: app/desktopMenu.js:423
+#, fuzzy
+msgid "Choose Icon Down"
+msgstr "Zvolte akci pro soubory"
+
+#: app/desktopMenu.js:432
+#, fuzzy
+#| msgid "Show"
+msgid "Show Menu"
+msgstr "Zobrazit"
+
+#: app/desktopMenu.js:480 app/desktopMenu.js:1151
+msgid "Show Shortcuts"
+msgstr ""
+
+#: app/desktopMenu.js:750
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Nelze otevřít v Gnome konzoli"
 
-#: app/desktopMenu.js:616
+#: app/desktopMenu.js:790
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Předvolby Okno je otevřeno"
 
-#: app/desktopMenu.js:617
+#: app/desktopMenu.js:791
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Toto okno je otevřeno. Přepněte na aktivní okno."
 
-#: app/desktopMenu.js:632 app/desktopMenu.js:1009
+#: app/desktopMenu.js:806 app/desktopMenu.js:1207
 msgid "Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopMenu.js:813
+#: app/desktopMenu.js:987
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba vytváření šablon"
 
-#: app/desktopMenu.js:814
+#: app/desktopMenu.js:988
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nelze odstranit dokument"
 
-#: app/desktopMenu.js:919
+#: app/desktopMenu.js:1115
 #, fuzzy
 msgid "Name"
 msgstr "Jméno"
 
-#: app/desktopMenu.js:921
+#: app/desktopMenu.js:1117
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Název (Z-A)"
 
-#: app/desktopMenu.js:923
+#: app/desktopMenu.js:1119
 #, fuzzy
 msgid "Modified Time"
 msgstr "Upravený čas"
 
-#: app/desktopMenu.js:925
+#: app/desktopMenu.js:1121
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopMenu.js:927
+#: app/desktopMenu.js:1123
 #, fuzzy
 msgid "Size"
 msgstr "Velikost"
 
-#: app/desktopMenu.js:932
+#: app/desktopMenu.js:1128
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Nechat uspořádané…"
 
-#: app/desktopMenu.js:937
+#: app/desktopMenu.js:1133
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Udržujte stohování podle typu .."
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:1135
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Seřadit Domovská složka/Jednotky/Koš…"
 
-#: app/desktopMenu.js:944
+#: app/desktopMenu.js:1140
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Stolní počítač"
 
-#: app/desktopMenu.js:949
+#: app/desktopMenu.js:1145
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:953
+#: app/desktopMenu.js:1149
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopMenu.js:961
+#: app/desktopMenu.js:1159
 msgid "New Document"
 msgstr "Nový Dokument"
 
-#: app/desktopMenu.js:966
+#: app/desktopMenu.js:1164
 msgid "Paste"
 msgstr "Vložit"
 
-#: app/desktopMenu.js:968
-msgid "Undo"
-msgstr "Zpět"
-
-#: app/desktopMenu.js:970
-msgid "Redo"
-msgstr "Znovu"
-
-#: app/desktopMenu.js:976
-msgid "Select All"
-msgstr "Vybrat vše"
-
-#: app/desktopMenu.js:983
+#: app/desktopMenu.js:1181
 msgid "Arrange Icons"
 msgstr "Uspořádat Ikony"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:1185
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Uspořádat podle…"
 
-#: app/desktopMenu.js:995
+#: app/desktopMenu.js:1193
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Zobrazit plochu v {0}"
 
-#: app/desktopMenu.js:1000
+#: app/desktopMenu.js:1198
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Otevřete v {0}"
 
-#: app/desktopMenu.js:1016
+#: app/desktopMenu.js:1214
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1010,7 +1076,7 @@ msgstr "E-mail na ..."
 msgid "Send to Mobile Device"
 msgstr "Odeslat do mobilního zařízení"
 
-#: app/fileItemMenu.js:294
+#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
 msgid "Move to Trash"
 msgstr "Přesunout do koše"
 
@@ -1063,110 +1129,147 @@ msgstr "Zobrazit v {0}"
 msgid "Open in {0}"
 msgstr "Otevřete v {0}"
 
-#: app/fileItemMenu.js:812
+#: app/fileItemMenu.js:530
+#, fuzzy
+msgid "Open Item"
+msgstr "Otevřené položky"
+
+#: app/fileItemMenu.js:570
+msgid "Cut Item"
+msgstr ""
+
+#: app/fileItemMenu.js:579
+#, fuzzy
+msgid "Copy Item"
+msgstr "Otevřené položky"
+
+#: app/fileItemMenu.js:589
+#, fuzzy
+#| msgid "Rename"
+msgid "Rename Item"
+msgstr "Přejmenovat"
+
+#: app/fileItemMenu.js:612
+#, fuzzy
+#| msgid "Delete permanently"
+msgid "Delete Permanently"
+msgstr "Odstranit nadobro"
+
+#: app/fileItemMenu.js:701
+#, fuzzy
+#| msgid "Properties"
+msgid "Show Properties"
+msgstr "Vlastnosti"
+
+#: app/fileItemMenu.js:730
+#, fuzzy
+msgid "Create Link to Item"
+msgstr "Vytvořit odkaz"
+
+#: app/fileItemMenu.js:828
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extrakce Storno"
 
-#: app/fileItemMenu.js:813
+#: app/fileItemMenu.js:829
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Nelze extrahovat Soubor, bez cílové složky"
 
-#: app/fileItemMenu.js:869 app/fileItemMenu.js:898
+#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
 #, fuzzy
 msgid "Select Destination"
 msgstr "Vybrat cíl"
 
-#: app/fileItemMenu.js:872 app/fileItemMenu.js:900
+#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
 msgid "Select"
 msgstr "Vybrat vše"
 
-#: app/fileItemMenu.js:956
+#: app/fileItemMenu.js:972
 msgid "Can not email a Directory"
 msgstr "Nemůžete poslat složku emailem"
 
-#: app/fileItemMenu.js:958
+#: app/fileItemMenu.js:974
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Výběr obsahuje adresář, komprimovat do souboru .zip první?"
 
-#: app/fileItemMenu.js:984 app/fileItemMenu.js:1015 app/fileItemMenu.js:1032
-#: app/fileItemMenu.js:1051
+#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
+#: app/fileItemMenu.js:1067
 #, fuzzy
 msgid "Mail Error"
 msgstr "Chyba pošty"
 
-#: app/fileItemMenu.js:986
+#: app/fileItemMenu.js:1002
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Nelze najít příkaz zip, nainstalovat program"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:992
+#: app/fileItemMenu.js:1008
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archiv.zip"
 
-#: app/fileItemMenu.js:1016
+#: app/fileItemMenu.js:1032
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Byla chyba při vytváření archivu zipu"
 
-#: app/fileItemMenu.js:1034
+#: app/fileItemMenu.js:1050
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Nelze najít xdg-email, prosím nainstalujte program"
 
-#: app/fileItemMenu.js:1052
+#: app/fileItemMenu.js:1068
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Byla chyba v e-mailových souborech"
 
-#: app/fileItemMenu.js:1159
+#: app/fileItemMenu.js:1175
 #, fuzzy
 #| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
 msgstr "Nemůžete poslat složku emailem"
 
-#: app/fileItemMenu.js:1210
+#: app/fileItemMenu.js:1226
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Nelze otevřít v Gnome konzoli"
 
-#: app/fileItemMenu.js:1212
+#: app/fileItemMenu.js:1228
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Nainstalujte konzoli Gnome nebo jiný terminálový program"
 
-#: app/fileItemMenu.js:1220
+#: app/fileItemMenu.js:1236
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Nelze otevřít {0}"
 
-#: app/fileItemMenu.js:1222
+#: app/fileItemMenu.js:1238
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Chci nainstalovat {0}"
 
-#: app/fileItemMenu.js:1266
+#: app/fileItemMenu.js:1282
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopírování zrušeno"
 
-#: app/fileItemMenu.js:1267
+#: app/fileItemMenu.js:1283
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nelze kopírovat soubory, bez cílové složky"
 
-#: app/fileItemMenu.js:1290
+#: app/fileItemMenu.js:1306
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Přesun Zrušit"
 
-#: app/fileItemMenu.js:1291
+#: app/fileItemMenu.js:1307
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Nelze přesunout soubory, bez cílové složky"
@@ -1538,9 +1641,6 @@ msgstr ""
 
 #~ msgid "Execute in a terminal"
 #~ msgstr "Spustit v terminálu"
-
-#~ msgid "Show"
-#~ msgstr "Zobrazit"
 
 #~ msgid "Execute"
 #~ msgstr "Spustit"
