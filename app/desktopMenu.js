@@ -1026,7 +1026,7 @@ const DesktopActions = class {
         this._shortCutsWindow = shortcutsWindow;
 
         shortcutsWindow.connect('close-request', () => {
-            this._shortcutsWindow = null;
+            this._shortCutsWindow = null;
         });
 
         shortcutsWindow.show();
