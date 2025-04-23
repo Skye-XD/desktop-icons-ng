@@ -664,7 +664,7 @@ var EmulateX11WindowType = class {
 
         window.customJS_ding.unmanagedID =
             window.connect(
-                'unmanaged',
+                'unmanaging',
                 win => {
                     this._clearWindow(win);
                     this._windowList.delete(window);
