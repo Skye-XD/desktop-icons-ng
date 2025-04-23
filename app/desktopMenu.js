@@ -1008,24 +1008,32 @@ const DesktopActions = class {
     }
 
     _showShortcutViewer() {
+        if (this._shortCutsWindow)
+            return;
+
         const shortcutViewer = new ShortcutViewer();
         shortcutViewer.set_action_map(this._mainApp);
-        let shortcutsWindow = new Adw.ApplicationWindow();
+
+        const shortcutsWindow = new Adw.ApplicationWindow();
+
         shortcutsWindow.set_default_size(400, 600);
         shortcutsWindow.set_decorated(true);
         shortcutsWindow.set_deletable(true);
-
-        shortcutsWindow.connect('close-request', () => {
-            shortcutsWindow = null;
-        });
-
         shortcutsWindow.set_name('shortcutsWindow');
 
         const modal = true;
+
         this._DesktopIconsUtil.windowHidePagerTaskbarModal(
             shortcutsWindow, modal);
 
         shortcutsWindow.set_content(shortcutViewer);
+
+        this._shortCutsWindow = shortcutsWindow;
+
+        shortcutsWindow.connect('close-request', () => {
+            this._shortcutsWindow = null;
+        });
+
         shortcutsWindow.show();
     }
 
