@@ -10,10 +10,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-22 17:28+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/da/>\n"
+"PO-Revision-Date: 2025-04-23 01:17+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -750,7 +751,7 @@ msgstr "Vælg alt"
 #: app/desktopMenu.js:321
 #, fuzzy
 msgid "Find Files"
-msgstr "Filer"
+msgstr "Find filer"
 
 #: app/desktopMenu.js:338
 #, fuzzy
@@ -765,11 +766,12 @@ msgstr "Vis skjulte filer"
 #: app/desktopMenu.js:369
 #, fuzzy
 msgid "Unselect All"
-msgstr "Vælg alt"
+msgstr "Fravælg alle"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "Forhåndsvisning"
 
 #: app/desktopMenu.js:393
 #, fuzzy
@@ -795,11 +797,12 @@ msgstr "Vælg Handling for filer"
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show Menu"
-msgstr "Vis i {0}"
+msgstr "Vis menu"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Vis genveje"
 
 #: app/desktopMenu.js:750
 #, fuzzy
@@ -838,7 +841,7 @@ msgstr "Navn"
 #: app/desktopMenu.js:1117
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Navn Z - A"
+msgstr "Navn (Å-A)"
 
 #: app/desktopMenu.js:1119
 #, fuzzy
