@@ -29,10 +29,12 @@ const WindowManager = class {
         this.mainApp = desktopManager.mainApp;
         this._desktopList = desktopList;
         this._primaryIndex = primaryIndex;
+
         if (primaryIndex < desktopList.length)
             this._primaryScreen = desktopList[primaryIndex];
         else
             this._primaryScreen = null;
+
         this._priorDesktopList = [];
         this._desktops = [];
         this._asDesktop = asDesktop;
@@ -43,23 +45,27 @@ const WindowManager = class {
         this._priorPrimaryMonitorIndex = null;
         this._primaryScreen = null;
         this._differentZooms = false;
+
         this._dbusAdvertiseUpdate();
     }
 
     _dbusAdvertiseUpdate() {
-        let updateGridWindows = new Gio.SimpleAction({
+        const updateGridWindows = new Gio.SimpleAction({
             name: 'updateGridWindows',
             parameter_type: new GLib.VariantType('av'),
         });
+
         updateGridWindows.connect('activate', (action, parameter) => {
             this.updateGridWindows(parameter.recursiveUnpack());
         });
+
         this.mainApp.add_action(updateGridWindows);
 
         const busObjectPath = this.mainApp.get_dbus_object_path();
         const busName = this.mainApp.get_application_id();
         const connection = Gio.DBus.session;
         const signalName = 'upateGeometry';
+
         const signalXml = `
                 <node>
                   <interface name="${busName}">
@@ -69,8 +75,10 @@ const WindowManager = class {
                     </signal>
                   </interface>
                 </node>`;
+
         this._dbusGeometryIface =
                 Gio.DBusExportedObject.wrapJSObject(signalXml, this);
+
         this._dbusGeometryIface.export(
             connection,
             busObjectPath
@@ -78,11 +86,12 @@ const WindowManager = class {
     }
 
     requestGeometryUpdate() {
-        let variant = new GLib.Variant('(sb)', ['updategeometry', true]);
+        const variant = new GLib.Variant('(sb)', ['updategeometry', true]);
         const busObjectPath = this.mainApp.get_dbus_object_path();
         const busName = this.mainApp.get_application_id();
         const connection = Gio.DBus.session;
         const signalName = 'updategeometry';
+
         connection.emit_signal(
             null,
             busObjectPath,
@@ -97,10 +106,12 @@ const WindowManager = class {
         this._desktopList = newdesktoplist;
 
         this._priorPrimaryIndex = this._primaryIndex ?? null;
+
         let newPrimaryIndex;
 
         if ((newdesktoplist.length > 0) &&
-            ('primaryMonitor' in newdesktoplist[0]))
+            ('primaryMonitor' in newdesktoplist[0])
+        )
             newPrimaryIndex = newdesktoplist[0].primaryMonitor ?? null;
 
         if (newPrimaryIndex !== this._priorPrimaryIndex)
@@ -118,20 +129,26 @@ const WindowManager = class {
         // See if there are different zooms in the desktops
         this._differentZooms = this._desktopList.some((d, index) => {
             const nextd = this._desktopList[index + 1];
+
             if (nextd != null)
                 return d.zoom !== nextd.zoom;
+
             return false;
         });
 
         // Allow initial startup if no desktops defined on initiation
         const firstDesktop =
-            this._priorDesktopList.some(d => {
-                return typeof d !== 'object' || d == null;
-            }) || this._priorDesktopList.length === 0;
+            this._priorDesktopList.some(
+                d => {
+                    return typeof d !== 'object' || d == null;
+                }
+            ) ||
+            this._priorDesktopList.length === 0;
 
         if (firstDesktop) {
             this._desktopManager._displayList.forEach(x => x.removeFromGrid());
             this.createGridWindows();
+
             // sanity checks and icons placment on grid will be done by
             // desktopManager in sync startup
             return;
@@ -152,6 +169,7 @@ const WindowManager = class {
                 monitorschanged: true,
                 gridschanged: true,
             });
+
             return;
         }
 
@@ -168,15 +186,19 @@ const WindowManager = class {
                 (area.width !== area2.width) ||
                 (area.height !== area2.height) ||
                 (area.zoom !== area2.zoom) ||
-                (area.monitorIndex !== area2.monitorIndex)) {
+                (area.monitorIndex !== area2.monitorIndex)
+            ) {
                 monitorschangedList.push(index);
                 gridschangedList.push(index);
+
                 return;
             }
+
             if ((area.marginTop !== area2.marginTop) ||
                 (area.marginBottom !== area2.marginBottom) ||
                 (area.marginLeft !== area2.marginLeft) ||
-                (area.marginRight !== area2.marginRight)) {
+                (area.marginRight !== area2.marginRight)
+            ) {
                 if (!gridschangedList.includes(index))
                     gridschangedList.push(index);
             }
@@ -199,8 +221,10 @@ const WindowManager = class {
 
         if (redisplay) {
             this._desktopManager._displayList.forEach(x => x.removeFromGrid());
+
             this._desktops.forEach((desktop, index) => {
                 desktop.updateGridDescription(this._desktopList[index]);
+
                 if (monitorschangedList.includes(index)) {
                     desktop.resizeWindow();
                     desktop.resizeGrid();
@@ -208,28 +232,26 @@ const WindowManager = class {
                     desktop.resizeGrid();
                 }
             });
+
             // There is a subtle difference here, all information is needed
             //
             // gridschanged implies prior grid information is available.
-            // Therefore write mode is 'PRESERVE', recomputed coordintes are not
-            // rewritten to disk, and icons can jump back to the prior 'snap to grid'
-            // postion when grid and margins change again - albeight by only small
-            // relative margin changes :), ie with small dock size or top bar changes,
-            // big changes will still make icons jump snap grid postion row/column.
-            //
-            // FIX ME- in future, as we use relative normalized coordingates,
-            // it may be better to write and save the new coordinates.
+            // Therefore write mode is 'PRESERVE' initially
             //
             // monitors changed implies that all coordintes are rewritten to the
             // new monitor relative coordinates with a write mode of 'OVERWRITE'
             //
             // redisplay re-arranges all the icons on the new desktop monitor,
-            // essential for proper sorting/stacking of icons and arranging of icons
+            // essential for proper sorting/stacking of icons and arranging of
+            // icons
+            //
             // For keep arranged new coordinates are automatically written to
             // grid. However for stacked co-ordinates- we will neeed to redo the
             // old coordinates seperately in do stacks with nonitorschanged info
             this._desktopManager._performSanityChecks();
-            this._desktopManager.reFrameDesktop({redisplay, monitorschanged, gridschanged});
+
+            this._desktopManager
+            .reFrameDesktop({redisplay, monitorschanged, gridschanged});
         }
     }
 
@@ -311,6 +333,7 @@ const WindowManager = class {
     onMutterSettingsChanged() {
         for (let desktop of this._desktops)
             desktop._premultiplied = this._premultiplied;
+
         this.requestGeometryUpdate();
     }
 
@@ -323,6 +346,7 @@ const WindowManager = class {
                 continue;
 
             const distance = desktop.getDistance(itempositionX);
+
             if (distance < closestDistance) {
                 closestDesktop = desktop;
                 closestDistance = distance;
