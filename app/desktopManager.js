@@ -39,7 +39,7 @@ export {DesktopManager};
 const DesktopManager = class {
     constructor(Data, Utils, desktopList, codePath, asDesktop, primaryIndex) {
         // Inherit
-        this.mainApp = Data.dingApp;
+        this.mainApp = Data.mainApp;
         this.codePath = codePath;
         this._asDesktop = asDesktop;
         if (asDesktop) {

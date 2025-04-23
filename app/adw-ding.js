@@ -144,7 +144,7 @@ const adWDingApp = GObject.registerClass(
                 'gnomeversion': this.gnomeversion,
                 'programversion': this.programversion,
                 'uuid': this.uuid,
-                'dingApp': app,
+                'mainApp': app,
             };
             this.Utils = {FileUtils};
             this.Utils.DBusUtils =

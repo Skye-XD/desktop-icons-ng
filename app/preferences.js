@@ -27,7 +27,7 @@ const Preferences = class {
     constructor(Data, AdwPreferencesWindow) {
         this._extensionPath = Data.extensionPath;
         this._programVersion = Data.programversion;
-        this._mainApp = Data.dingApp;
+        this._mainApp = Data.mainApp;
         this._Enums = Data.Enums;
         let schemaSource = GioSSS.get_default();
         this._desktopManager = null;
