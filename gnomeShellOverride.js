@@ -27,7 +27,10 @@ const SHOW_ON_WORKSPACE_THUMBNAILS = true;
 const ANIMATION_MULTIPLE = 1;
 
 import {WorkspaceBackground} from 'resource:///org/gnome/shell/ui/workspace.js';
-import {InjectionManager} from 'resource:///org/gnome/shell/extensions/extension.js';
+
+import {InjectionManager} from
+    'resource:///org/gnome/shell/extensions/extension.js';
+
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as Util from 'resource:///org/gnome/shell/misc/util.js';
 
@@ -62,11 +65,16 @@ var GnomeShellOverride = class {
             const opaque = 255;
             const transparent = 0;
 
-            const adjustment = Main.overview._overview._controls._stateAdjustment
+            const adjustment =
+                Main.overview._overview._controls._stateAdjustment
 
             function _windowIsOnThisMonitor(metawindow, monitorIndex) {
-                const geometry = global.display.get_monitor_geometry(monitorIndex);
-                const [intersects] = metawindow.get_frame_rect().intersect(geometry);
+                const geometry =
+                    global.display.get_monitor_geometry(monitorIndex);
+
+                const [intersects] =
+                    metawindow.get_frame_rect().intersect(geometry);
+                
                 return intersects;
             }
 
@@ -110,12 +118,15 @@ var GnomeShellOverride = class {
                 }
 
                 const offset = 0;
+
                 const syncAll = Clutter.BindConstraint.new(
                     this._bgManager.backgroundActor,
                     Clutter.BindCoordinate.ALL,
                     offset);
+
                 desktopLayer.add_constraint(syncAll);
                 desktopLayer.opacity = _setTransparency(opaque);
+    
                 this._stateAdjustment.connectObject('notify::value',
                     (stAdjustment) => {
                         if (SHOW_ON_WORKSPACE_THUMBNAILS)
@@ -125,10 +136,13 @@ var GnomeShellOverride = class {
                             desktopLayer.opacity =
                                 _modifyTransparency(stAdjustment.value);
                     },
-                    this);
+                    this
+                );
+
                 this._backgroundGroup.insert_child_above(
                     desktopLayer,
-                    this._bgManager.backgroundActor);
+                    this._bgManager.backgroundActor
+                );
             }
         };
     }
@@ -156,12 +170,17 @@ class DesktopLayout extends Clutter.LayoutManager {
         for (const child of container) {
             const childBox = new Clutter.ActorBox();
             const frameRect = child.get_source()?.metaWindow.get_frame_rect();
+
             childBox.set_size(
                 Math.round(Math.min(frameRect.width, monitor.width) * hscale),
-                Math.round(Math.min(frameRect.height, monitor.height) * vscale));
+                Math.round(Math.min(frameRect.height, monitor.height) * vscale)
+            );
+
             childBox.set_origin(
                 Math.round((frameRect.x - monitor.x) * hscale),
-                Math.round((frameRect.y - monitor.y) * vscale));
+                Math.round((frameRect.y - monitor.y) * vscale)
+            );
+
             child.allocate(childBox);
         }
     }
