@@ -475,12 +475,7 @@ const DesktopActions = class {
         showShortcutViewer.connect('activate', () => {
             this._showShortcutViewer();
         });
-
-        showShortcutViewer
-        .set_state_hint(GLib.Variant.new('s', _('Show Shortcuts')));
-
         this._mainApp.add_action(showShortcutViewer);
-        this._mainApp.set_accels_for_action('app.showShortcutViewer', ['F1']);
     }
 
     _textEntryAccelsTurnOn() {
@@ -1008,24 +1003,32 @@ const DesktopActions = class {
     }
 
     _showShortcutViewer() {
+        if (this._shortCutsWindow)
+            return;
+
         const shortcutViewer = new ShortcutViewer();
         shortcutViewer.set_action_map(this._mainApp);
-        let shortcutsWindow = new Adw.ApplicationWindow();
+
+        const shortcutsWindow = new Adw.ApplicationWindow();
+
         shortcutsWindow.set_default_size(400, 600);
         shortcutsWindow.set_decorated(true);
         shortcutsWindow.set_deletable(true);
-
-        shortcutsWindow.connect('close-request', () => {
-            shortcutsWindow = null;
-        });
-
         shortcutsWindow.set_name('shortcutsWindow');
 
         const modal = true;
+
         this._DesktopIconsUtil.windowHidePagerTaskbarModal(
             shortcutsWindow, modal);
 
         shortcutsWindow.set_content(shortcutViewer);
+
+        this._shortCutsWindow = shortcutsWindow;
+
+        shortcutsWindow.connect('close-request', () => {
+            this._shortcutsWindow = null;
+        });
+
         shortcutsWindow.show();
     }
 
