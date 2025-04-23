@@ -23,7 +23,7 @@ export {DesktopIconsUtil};
 
 const DesktopIconsUtil = class {
     constructor(Data, Utils) {
-        this.mainApp = Data.dingApp;
+        this.mainApp = Data.mainApp;
         this.Enums = Data.Enums;
         this.FileUtils = Utils.FileUtils;
         this.Prefs = Utils.Preferences;
