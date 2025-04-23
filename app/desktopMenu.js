@@ -475,12 +475,7 @@ const DesktopActions = class {
         showShortcutViewer.connect('activate', () => {
             this._showShortcutViewer();
         });
-
-        showShortcutViewer
-        .set_state_hint(GLib.Variant.new('s', _('Show Shortcuts')));
-
         this._mainApp.add_action(showShortcutViewer);
-        this._mainApp.set_accels_for_action('app.showShortcutViewer', ['F1']);
     }
 
     _textEntryAccelsTurnOn() {
