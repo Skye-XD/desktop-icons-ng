@@ -38,7 +38,7 @@ const AppChooserDialog = class {
         this.mimeTypeIsDirectory = this.mimeType === 'inode/directory';
 
         const appwindow =
-            this._desktopIconsUtil.getApplicationID().get_active_window();
+            this._desktopIconsUtil.getMainApp().get_active_window();
 
         this.builderObject =
             Gtk.Builder

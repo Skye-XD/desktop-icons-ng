@@ -23,7 +23,7 @@ export {DesktopIconsUtil};
 
 const DesktopIconsUtil = class {
     constructor(Data, Utils) {
-        this.applicationid = Data.dingApp;
+        this.mainApp = Data.dingApp;
         this.Enums = Data.Enums;
         this.FileUtils = Utils.FileUtils;
         this.Prefs = Utils.Preferences;
@@ -33,8 +33,8 @@ const DesktopIconsUtil = class {
     /**
      * Returs the Gtk Application ID
      */
-    getApplicationID() {
-        return this.applicationid;
+    getMainApp() {
+        return this.mainApp;
     }
 
 
@@ -839,7 +839,7 @@ const DesktopIconsUtil = class {
      * @param {boolean} modal If the window should be modal
      */
     windowHidePagerTaskbarModal(window, modal) {
-        window.set_application(this.applicationid);
+        window.set_application(this.mainApp);
         let title = window.get_title();
         if (title === null)
             title = '';
