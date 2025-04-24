@@ -142,6 +142,9 @@ const DesktopMonitor = class {
 
                         this._desktopDir = newDesktopDir;
 
+                        this.restoreDefaultDesktopAction
+                        .set_enabled(!this._isDefaultDesktopFolder());
+
                         this._updateWritableByOthers()
                             .catch(e => console.error(e));
 
