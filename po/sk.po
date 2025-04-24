@@ -4,22 +4,23 @@
 # Dušan Kazik <prescott66@gmail.com>, 2020-2021.
 # Jozef Gaal <preklady@mayday.sk>, 2024, 2025.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-03-19 02:12+0100\n"
-"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
-"Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
+"PO-Revision-Date: 2025-04-24 02:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -670,11 +671,12 @@ msgstr "Zobraziť skryté súbory"
 #, fuzzy
 #| msgid "Select All"
 msgid "Unselect All"
-msgstr "Vybrať všetko"
+msgstr "Zrušit veškerý výběr"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "Ukážka"
 
 #: app/desktopMenu.js:393
 #, fuzzy
@@ -704,11 +706,12 @@ msgstr "Vyberte akciu pre súbory"
 #, fuzzy
 #| msgid "Shell Menu…"
 msgid "Show Menu"
-msgstr "Ponuka rozhrania…"
+msgstr "Zobraziť menu"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Zobrazenie klávesových skratiek"
 
 #: app/desktopMenu.js:750
 msgid "Unable to open Desktop in Gnome Files"
@@ -1021,7 +1024,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Open Items"
 msgid "Copy Item"
-msgstr "Otvoriť položky"
+msgstr "Kopírovať položku"
 
 #: app/fileItemMenu.js:589
 #, fuzzy

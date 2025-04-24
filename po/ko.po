@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-03-18 10:25+0000\n"
+"PO-Revision-Date: 2025-04-24 02:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 #, fuzzy
@@ -769,7 +769,7 @@ msgstr "모두 선택"
 #: app/desktopMenu.js:321
 #, fuzzy
 msgid "Find Files"
-msgstr "파일"
+msgstr "파일 찾기"
 
 #: app/desktopMenu.js:338
 #, fuzzy
@@ -780,17 +780,18 @@ msgstr "데스크탑"
 #, fuzzy
 #| msgid "Show hidden files"
 msgid "Show Hidden Files"
-msgstr "숨김 파일 표시"
+msgstr "숨김 파일을 표시"
 
 #: app/desktopMenu.js:369
 #, fuzzy
 #| msgid "Select All"
 msgid "Unselect All"
-msgstr "모두 선택"
+msgstr "모두 선택 해제"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "미리보기"
 
 #: app/desktopMenu.js:393
 #, fuzzy
@@ -816,11 +817,12 @@ msgstr "파일에 대한 작업 선택"
 #, fuzzy
 #| msgid "Show"
 msgid "Show Menu"
-msgstr "보기"
+msgstr "메뉴 보기"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "단축키 보기"
 
 #: app/desktopMenu.js:750
 #, fuzzy
@@ -1174,19 +1176,19 @@ msgstr "항목 열기"
 #, fuzzy
 #| msgid "Rename"
 msgid "Rename Item"
-msgstr "이름 바꾸기"
+msgstr "항목 이름 바꾸기"
 
 #: app/fileItemMenu.js:612
 #, fuzzy
 #| msgid "Delete permanently"
 msgid "Delete Permanently"
-msgstr "영구 삭제"
+msgstr "영구히 삭제"
 
 #: app/fileItemMenu.js:701
 #, fuzzy
 #| msgid "Properties"
 msgid "Show Properties"
-msgstr "속성"
+msgstr "속성 표시"
 
 #: app/fileItemMenu.js:730
 #, fuzzy

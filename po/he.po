@@ -10,18 +10,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-02 19:08+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/he/>\n"
+"PO-Revision-Date: 2025-04-24 02:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 #, fuzzy
@@ -741,7 +740,7 @@ msgstr "בחר הכל"
 #: app/desktopMenu.js:321
 #, fuzzy
 msgid "Find Files"
-msgstr "קבצים"
+msgstr "איתור קבצים"
 
 #: app/desktopMenu.js:338
 #, fuzzy
@@ -757,11 +756,12 @@ msgstr "הצגת קבצים מוסתרים"
 #: app/desktopMenu.js:369
 #, fuzzy
 msgid "Unselect All"
-msgstr "בחר הכל"
+msgstr "לבטל בחירה"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "תצוגה מקדימה"
 
 #: app/desktopMenu.js:393
 #, fuzzy
@@ -787,11 +787,12 @@ msgstr "בחר פעולה עבור קבצים"
 #, fuzzy
 #| msgid "Show"
 msgid "Show Menu"
-msgstr "הצגה"
+msgstr "הצגת תפריט"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "הראה קיצורים"
 
 #: app/desktopMenu.js:750
 #, fuzzy

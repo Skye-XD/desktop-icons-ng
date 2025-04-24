@@ -13,16 +13,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-02 19:08+0000\n"
+"PO-Revision-Date: 2025-04-24 02:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 "X-Launchpad-Export-Date: 2021-04-08 06:16+0000\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
@@ -787,17 +787,18 @@ msgstr "Työpöytä"
 #, fuzzy
 #| msgid "Show hidden files"
 msgid "Show Hidden Files"
-msgstr "Näytä piilotiedostot"
+msgstr "Näytä piilotetut tiedostot"
 
 #: app/desktopMenu.js:369
 #, fuzzy
 #| msgid "Select All"
 msgid "Unselect All"
-msgstr "Valitse kaikki"
+msgstr "Poista kaikkien valinta"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "Esikatsele"
 
 #: app/desktopMenu.js:393
 #, fuzzy
@@ -823,11 +824,12 @@ msgstr "Valitse tiedostojen toiminta"
 #, fuzzy
 #| msgid "Show"
 msgid "Show Menu"
-msgstr "Näytä"
+msgstr "Näytä valikko"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Näytä pikanäppäimet"
 
 #: app/desktopMenu.js:750
 #, fuzzy
@@ -1178,13 +1180,13 @@ msgstr ""
 #: app/fileItemMenu.js:579
 #, fuzzy
 msgid "Copy Item"
-msgstr "Avaa kohde"
+msgstr "Kopioi kohde"
 
 #: app/fileItemMenu.js:589
 #, fuzzy
 #| msgid "Rename"
 msgid "Rename Item"
-msgstr "Nimeä uudelleen"
+msgstr "Nimeä osa uudellen"
 
 #: app/fileItemMenu.js:612
 #, fuzzy
@@ -1196,7 +1198,7 @@ msgstr "Poista pysyvästi"
 #, fuzzy
 #| msgid "Properties"
 msgid "Show Properties"
-msgstr "Ominaisuudet"
+msgstr "Näytä ominaisuudet"
 
 #: app/fileItemMenu.js:730
 #, fuzzy

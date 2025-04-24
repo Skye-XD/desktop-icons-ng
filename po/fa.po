@@ -9,17 +9,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-02 19:09+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fa/>\n"
+"PO-Revision-Date: 2025-04-24 02:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 #, fuzzy
@@ -159,7 +158,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:301
 #, fuzzy
 msgid "Restore"
-msgstr "بازگرداندن"
+msgstr "بازیابی"
 
 #: app/adwPreferencesWindow.js:311
 msgid "Add information emblems for links, encryption"
@@ -236,7 +235,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:376
 #, fuzzy
 msgid "Website"
-msgstr "وب‌سایت"
+msgstr "وبگاه"
 
 #: app/adwPreferencesWindow.js:378
 #, fuzzy
@@ -260,7 +259,7 @@ msgstr "گزارش"
 #: app/adwPreferencesWindow.js:387
 #, fuzzy
 msgid "License"
-msgstr "مجوز"
+msgstr "پروانه"
 
 #: app/adwPreferencesWindow.js:393
 #, fuzzy
@@ -641,7 +640,7 @@ msgstr "جایگذاری"
 #: app/desktopMenu.js:202 app/desktopMenu.js:1166
 #, fuzzy
 msgid "Undo"
-msgstr "واگرد"
+msgstr "بازگرداندن"
 
 #: app/desktopMenu.js:214 app/desktopMenu.js:1168
 #, fuzzy
@@ -666,16 +665,17 @@ msgstr "صفحه نمایش"
 #: app/desktopMenu.js:354
 #, fuzzy
 msgid "Show Hidden Files"
-msgstr "نمایش پرونده‌های پنهان"
+msgstr "نمایش فایل های پنهان"
 
 #: app/desktopMenu.js:369
 #, fuzzy
 msgid "Unselect All"
-msgstr "انتخاب همه"
+msgstr "لغو انتخاب همه"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "پیش نمایش"
 
 #: app/desktopMenu.js:393
 msgid "Choose Icon Left"
@@ -695,12 +695,14 @@ msgid "Choose Icon Down"
 msgstr ""
 
 #: app/desktopMenu.js:432
+#, fuzzy
 msgid "Show Menu"
-msgstr ""
+msgstr "نمایش منو"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "نمایش میان‌برها"
 
 #: app/desktopMenu.js:750
 msgid "Unable to open Desktop in Gnome Files"
@@ -736,7 +738,7 @@ msgstr "نام"
 #: app/desktopMenu.js:1117
 #, fuzzy
 msgid "Name Z-A"
-msgstr "نام (Z-A)"
+msgstr "نام-ی تا الف"
 
 #: app/desktopMenu.js:1119
 msgid "Modified Time"
@@ -835,7 +837,7 @@ msgstr "حرکت"
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 #, fuzzy
 msgid "Copy"
-msgstr "کپی کردن"
+msgstr "رونوشت"
 
 #: app/dragManager.js:783
 #, fuzzy
@@ -1038,12 +1040,12 @@ msgstr "رونوشت به"
 #: app/fileItemMenu.js:589
 #, fuzzy
 msgid "Rename Item"
-msgstr "نام بردن"
+msgstr "بازنامگذاری مورد"
 
 #: app/fileItemMenu.js:612
 #, fuzzy
 msgid "Delete Permanently"
-msgstr "حذف فوري"
+msgstr "پاک کردن‌ برای همیشه"
 
 #: app/fileItemMenu.js:701
 #, fuzzy
@@ -1071,7 +1073,7 @@ msgstr "انتخاب مقصد"
 #: app/fileItemMenu.js:888 app/fileItemMenu.js:916
 #, fuzzy
 msgid "Select"
-msgstr "انتخاب کردن"
+msgstr "انتخاب"
 
 #: app/fileItemMenu.js:972
 msgid "Can not email a Directory"

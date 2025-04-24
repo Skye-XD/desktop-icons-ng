@@ -10,17 +10,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-02 19:09+0000\n"
+"PO-Revision-Date: 2025-04-24 02:01+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 #, fuzzy
@@ -36,7 +36,7 @@ msgstr "Bestanden"
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Tweaks"
-msgstr "Trucs"
+msgstr "Afstellingen"
 
 #: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
 #, fuzzy
@@ -85,7 +85,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:253
 #, fuzzy
 msgid "Tiny"
-msgstr "Minuscuul"
+msgstr "Klein"
 
 #: app/adwPreferencesWindow.js:254
 msgid "Small"
@@ -153,7 +153,7 @@ msgstr "Toon de persoonlijke map op het bureaublad"
 #: app/desktopFolderMonitor.js:614
 #, fuzzy
 msgid "Choose"
-msgstr "Selecteer"
+msgstr "Kies"
 
 #: app/adwPreferencesWindow.js:299
 #, fuzzy
@@ -167,7 +167,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:301
 #, fuzzy
 msgid "Restore"
-msgstr "Herstellen"
+msgstr "Herstel"
 
 #: app/adwPreferencesWindow.js:311
 #, fuzzy
@@ -745,12 +745,12 @@ msgstr "Opnieuw"
 #: app/desktopMenu.js:225 app/desktopMenu.js:1174
 #, fuzzy
 msgid "Select All"
-msgstr "Alles selecteren"
+msgstr "Selecteer alles"
 
 #: app/desktopMenu.js:321
 #, fuzzy
 msgid "Find Files"
-msgstr "Bestanden"
+msgstr "Bestanden zoeken"
 
 #: app/desktopMenu.js:338
 #, fuzzy
@@ -760,16 +760,17 @@ msgstr "Bureaucomputer"
 #: app/desktopMenu.js:354
 #, fuzzy
 msgid "Show Hidden Files"
-msgstr "Toon verborgen bestanden"
+msgstr "Verborgen bestanden weergeven"
 
 #: app/desktopMenu.js:369
 #, fuzzy
 msgid "Unselect All"
-msgstr "Alles selecteren"
+msgstr "Alles deselecteren"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "Voorbeeld"
 
 #: app/desktopMenu.js:393
 #, fuzzy
@@ -795,11 +796,12 @@ msgstr "Kies Actie voor Files"
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show Menu"
-msgstr "Kom binnen"
+msgstr "Menu weergeven"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Sneltoetsen tonen"
 
 #: app/desktopMenu.js:750
 #, fuzzy
@@ -944,7 +946,7 @@ msgstr "Kies Actie voor Files"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "Beweging"
+msgstr "Verplaats"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -991,7 +993,7 @@ msgstr "Alles openen"
 #: app/fileItemMenu.js:122
 #, fuzzy
 msgid "Launch"
-msgstr "Open"
+msgstr "Starten"
 
 #: app/fileItemMenu.js:135
 #, fuzzy
@@ -1065,7 +1067,7 @@ msgstr "Hernoemen…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "Maak een koppeling"
+msgstr "Link maken"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1148,7 +1150,7 @@ msgstr "Open in 0"
 #: app/fileItemMenu.js:530
 #, fuzzy
 msgid "Open Item"
-msgstr "@:account.openItems.heading"
+msgstr "Item Openen"
 
 #: app/fileItemMenu.js:570
 msgid "Cut Item"
@@ -1162,19 +1164,19 @@ msgstr "@:account.openItems.heading"
 #: app/fileItemMenu.js:589
 #, fuzzy
 msgid "Rename Item"
-msgstr "Hernoemen"
+msgstr "Rename Item"
 
 #: app/fileItemMenu.js:612
 #, fuzzy
 #| msgid "Delete permanently"
 msgid "Delete Permanently"
-msgstr "Definitief verwijderen"
+msgstr "Permanent verwijderen"
 
 #: app/fileItemMenu.js:701
 #, fuzzy
 #| msgid "Properties"
 msgid "Show Properties"
-msgstr "Eigenschappen"
+msgstr "Eigenschappen tonen"
 
 #: app/fileItemMenu.js:730
 #, fuzzy
@@ -1338,7 +1340,7 @@ msgstr "Kan dit dossier niet openen omdat het een Broken Symlink is"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Schijf"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy

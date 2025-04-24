@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-03-18 12:07+0000\n"
+"PO-Revision-Date: 2025-04-24 02:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 #, fuzzy
 msgid "Desktop"
-msgstr "桌面"
+msgstr "桌面版"
 
 #: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
 #, fuzzy
@@ -733,7 +733,7 @@ msgstr "全選"
 #: app/desktopMenu.js:321
 #, fuzzy
 msgid "Find Files"
-msgstr "文件"
+msgstr "搜尋檔案"
 
 #: app/desktopMenu.js:338
 #, fuzzy
@@ -744,16 +744,17 @@ msgstr "桌上型電腦"
 #, fuzzy
 #| msgid "Show hidden files"
 msgid "Show Hidden Files"
-msgstr "顯示隱藏檔"
+msgstr "顯示隱藏檔案"
 
 #: app/desktopMenu.js:369
 #, fuzzy
 msgid "Unselect All"
-msgstr "全選"
+msgstr "取消全選"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "上一頁"
 
 #: app/desktopMenu.js:393
 #, fuzzy
@@ -779,11 +780,12 @@ msgstr "文档行动"
 #, fuzzy
 #| msgid "Show"
 msgid "Show Menu"
-msgstr "顯示"
+msgstr "顯示選單"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "顯示快捷鍵"
 
 #: app/desktopMenu.js:750
 #, fuzzy
@@ -1139,7 +1141,7 @@ msgstr "開啟項目"
 #, fuzzy
 #| msgid "Rename"
 msgid "Rename Item"
-msgstr "重新命名"
+msgstr "重新令名項目"
 
 #: app/fileItemMenu.js:612
 #, fuzzy

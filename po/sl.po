@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-03-18 12:07+0000\n"
+"PO-Revision-Date: 2025-04-24 02:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sl/>\n"
+"Language-Team: Slovenian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 #, fuzzy
@@ -39,7 +39,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
 #, fuzzy
 msgid "About"
-msgstr "Informacije o OpenPLi sliki"
+msgstr "Približno"
 
 #: app/adwPreferencesWindow.js:213
 msgid "Desktop Settings"
@@ -87,12 +87,12 @@ msgstr "Majhno"
 #: app/adwPreferencesWindow.js:255
 #, fuzzy
 msgid "Standard"
-msgstr "Standard"
+msgstr "Standardno"
 
 #: app/adwPreferencesWindow.js:256
 #, fuzzy
 msgid "Large"
-msgstr "Velika"
+msgstr "Veliko"
 
 #: app/adwPreferencesWindow.js:262
 msgid "New icons alignment"
@@ -152,7 +152,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:301
 #, fuzzy
 msgid "Restore"
-msgstr "Povrnitev prejšnjega stanja"
+msgstr "Obnoviti"
 
 #: app/adwPreferencesWindow.js:311
 msgid "Add information emblems for links, encryption"
@@ -211,7 +211,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:358
 #, fuzzy
 msgid "Never"
-msgstr "nikoli"
+msgstr "Nikoli"
 
 #: app/adwPreferencesWindow.js:363
 msgid "Show a context menu item to delete permanently"
@@ -258,7 +258,7 @@ msgstr "Dovoljenje"
 #: app/adwPreferencesWindow.js:393
 #, fuzzy
 msgid "Translation"
-msgstr "Naslov povezave, ki usmerja na storitev za prevod te aplikacije"
+msgstr "Prevod"
 
 #: app/adwPreferencesWindow.js:394
 msgid "Help translate in your web browser"
@@ -466,7 +466,7 @@ msgstr "Geslo"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Ustvarite"
+msgstr "Ustvari"
 
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
@@ -570,7 +570,7 @@ msgstr ""
 #: app/desktopManager.js:170
 #, fuzzy
 msgid "Enable"
-msgstr "omogoči"
+msgstr "Omogoči"
 
 #: app/desktopManager.js:195
 msgid "Can Not Show the Desktop"
@@ -662,16 +662,17 @@ msgstr "Namizje"
 #: app/desktopMenu.js:354
 #, fuzzy
 msgid "Show Hidden Files"
-msgstr "Pokaži &skrite datoteke"
+msgstr "Prikaži skrite datoteke"
 
 #: app/desktopMenu.js:369
 #, fuzzy
 msgid "Unselect All"
-msgstr "Izberi vse"
+msgstr "Počisti izbor"
 
 #: app/desktopMenu.js:383
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "Predogled"
 
 #: app/desktopMenu.js:393
 msgid "Choose Icon Left"
@@ -691,12 +692,14 @@ msgid "Choose Icon Down"
 msgstr ""
 
 #: app/desktopMenu.js:432
+#, fuzzy
 msgid "Show Menu"
-msgstr ""
+msgstr "Pokaži meni"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
+#, fuzzy
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Prikaži bližnjice"
 
 #: app/desktopMenu.js:750
 msgid "Unable to open Desktop in Gnome Files"
@@ -739,7 +742,7 @@ msgstr ""
 #: app/desktopMenu.js:1121
 #, fuzzy
 msgid "Type"
-msgstr "Vrsta"
+msgstr "Tip"
 
 #: app/desktopMenu.js:1123
 #, fuzzy
@@ -824,12 +827,12 @@ msgstr ""
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "Premik"
+msgstr "Premaknite se"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 #, fuzzy
 msgid "Copy"
-msgstr "Kopiranje"
+msgstr "Kopijo"
 
 #: app/dragManager.js:783
 #, fuzzy
@@ -844,7 +847,7 @@ msgstr "Mapa"
 #: app/fileItemIcon.js:97
 #, fuzzy
 msgid "File"
-msgstr "Datoteka"
+msgstr "Datoteko"
 
 #: app/fileItemIcon.js:274
 msgid "Opening File Failed"
@@ -991,7 +994,7 @@ msgstr "izvrzi"
 #: app/fileItemMenu.js:340
 #, fuzzy
 msgid "Unmount"
-msgstr "odklopi [▲]"
+msgstr "Odklepanje"
 
 #: app/fileItemMenu.js:346
 msgid "Common Properties"
@@ -1154,7 +1157,7 @@ msgstr "Več informacij"
 #: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
 #, fuzzy
 msgid "Home"
-msgstr "Domov"
+msgstr "Doma"
 
 #: app/specialFolderIcon.js:63
 #, fuzzy
