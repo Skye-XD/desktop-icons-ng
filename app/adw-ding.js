@@ -47,6 +47,8 @@ Gio._promisify(fileProto, 'load_bytes_async');
 Gio._promisify(fileProto, 'make_directory_async');
 Gio._promisify(fileProto, 'query_info_async');
 Gio._promisify(fileProto, 'set_attributes_async');
+Gio._promisify(fileProto, 'replace_contents_async');
+Gio._promisify(fileProto, 'load_contents_async');
 
 const getTextDomain = 'gtk4-ding';
 const appID = 'com.desktop.ding';
@@ -68,22 +70,47 @@ const adWDingApp = GObject.registerClass(
             this.connect('startup', this._onStartup.bind(this));
             this.connect('command-line', this._onCommandLine.bind(this));
             this.connect('activate', this._onActivate.bind(this));
+            this.connect('shutdown', this._onShutdown.bind(this));
         }
 
         _onStartup() {
             this.codePath =
                 GLib.path_get_dirname(System.programPath);
+
+            this.systemInstall = this.codePath.startsWith('/usr');
+
             this.extensionDir = GLib.path_get_dirname(this.codePath);
-            const localePath = GLib.build_filenamev([this.extensionDir, 'locale']);
+
+            const localePath = GLib.build_filenamev(
+                [this.extensionDir, 'locale']
+            );
+
             if (Gio.File.new_for_path(localePath).query_exists(null))
                 Gettext.bindtextdomain(getTextDomain, localePath);
 
             const resourcePath = GLib.build_filenamev(
                 [this.codePath, `${appID}.data.gresource`]);
+
             const resource = Gio.Resource.load(resourcePath);
             resource._register();
 
             this._initializeOptions();
+
+            if (!this.systemInstall) {
+                console.log('Local install detected, updating icon cache...');
+                this._updateIconCache().catch(e => logError(e));
+                this._updateAppInfoCache().catch(e => logError(e));
+            }
+        }
+
+        _onShutdown() {
+            if (this.systemInstall)
+                return;
+
+            if (this.appIcon)
+                this._removeFile(this.appIcon);
+            if (this.appDesktopFile)
+                this._removeFile(this.appDesktopFile);
         }
 
         // eslint-disable-next-line consistent-return
@@ -383,6 +410,155 @@ const adWDingApp = GObject.registerClass(
                     primaryMonitor: d.primaryMonitor,
                 });
             });
+        }
+
+        async _installFile(resourcePath, destinationPath) {
+            const resourceFile = Gio.File.new_for_uri(resourcePath);
+            const destinationFile = Gio.File.new_for_path(destinationPath);
+
+            const [contents] =
+                await resourceFile.load_contents_async(null);
+
+            if (!contents)
+                return false;
+
+            if (destinationFile.query_exists(null)) {
+                const [existingContents] =
+                    await destinationFile.load_contents_async(null);
+
+                if (this._memcmp(contents, existingContents)) {
+                    console.log(
+                        'Already up-to-date: ' +
+                        `${GLib.path_get_basename(destinationPath)}`
+                    );
+
+                    return false;
+                }
+            }
+
+            try {
+                await destinationFile.replace_contents_async(
+                    contents,
+                    null,
+                    false,
+                    Gio.FileCreateFlags.REPLACE_DESTINATION,
+                    null
+                );
+
+                console.log(
+                    `Updated: ${GLib.path_get_basename(destinationPath)}`
+                );
+            } catch (e) {
+                if (e.matches(
+                    Gio.IOErrorEnum,
+                    Gio.IOErrorEnum.NOT_EMPTY
+                )) {
+                    GLib.mkdir_with_parents(
+                        GLib.path_get_dirname(destinationPath),
+                        0o700
+                    );
+
+                    const retval = await this._installFile(
+                        resourcePath,
+                        destinationPath
+                    );
+
+                    return retval;
+                }
+
+                return false;
+            }
+
+            return true;
+        }
+
+        _removeFile(destinationPath) {
+            const destinationFile = Gio.File.new_for_path(destinationPath);
+
+            try {
+                if (destinationFile.query_exists(null))
+                    destinationFile.delete(null);
+
+                console.log(
+                    'Cleaning up, removed: ' +
+                    `${GLib.path_get_basename(destinationPath)}`
+                );
+            } catch (e) {
+                logError(e);
+            }
+        }
+
+        async _updateIconCache() {
+            const appPath = `/${appID.split('.').join('/')}`;
+            const iconPath = '/icons/hicolor/scalable/apps';
+            const iconResrc = `resource://${appPath}${iconPath}/${appID}.svg`;
+
+            const appIcon = GLib.build_filenamev([
+                GLib.get_user_data_dir(),
+                `${iconPath}`,
+                `${appID}.svg`,
+            ]);
+
+            const written = await this._installFile(iconResrc, appIcon);
+
+            if (written) {
+                this.appIcon = appIcon;
+
+                const iconCachePath = GLib.build_filenamev([
+                    GLib.get_user_data_dir(),
+                    'icons',
+                    'hicolor',
+                ]);
+
+                const updated = await GLib.spawn_command_line_async(
+                    'gtk-update-icon-cache ' +
+                    '-q -t -f ' +
+                    `${iconCachePath}`
+                );
+
+                if (updated)
+                    console.log('Updated icon cache');
+            }
+        }
+
+        async _updateAppInfoCache() {
+            const appPath = `/${appID.split('.').join('/')}`;
+            const appResource = `resource://${appPath}/${appID}.desktop`;
+
+            const appDesktopFile = GLib.build_filenamev([
+                GLib.get_user_data_dir(),
+                'applications',
+                `${appID}.desktop`,
+            ]);
+
+            const written =
+                await this._installFile(appResource, appDesktopFile);
+
+            if (written) {
+                this.appDesktopFile = appDesktopFile;
+
+                // Gnome will update the app info cache automatically
+                // However it takes a long time to update the cache
+                // and we need to do it manually for the app to be
+                // available sooner
+                const updated = await GLib.spawn_command_line_async(
+                    'update-desktop-database -q ' +
+                    `${GLib.path_get_dirname(appDesktopFile)}`
+                );
+
+                if (updated)
+                    console.log('Updated desktop database');
+            }
+        }
+
+        _memcmp(a, b) {
+            if (a.length !== b.length)
+                return false;
+
+            if (a.some((x, i) => x !== b[i]))
+                return false;
+
+            return true;
         }
     }
 );
