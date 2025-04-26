@@ -14,9 +14,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-23 01:17+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-04-24 02:01+0000\n"
+"Last-Translator: Drugi Sapog <dindrugi@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -523,10 +522,8 @@ msgid "Could not open File"
 msgstr "Не ўдалося адкрыць файл"
 
 #: app/desktopFileIcon.js:157
-#, fuzzy
-#| msgid "${appName} can not open files of this Type!"
 msgid "{appName} can not open files of this Type!"
-msgstr "${appName} не можа адкрываць файлы гэтага тыпу!"
+msgstr "{appName} не можа адкрываць файлы гэтага тыпу!"
 
 #: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Change Failed"
@@ -854,10 +851,8 @@ msgid "Opening File Failed"
 msgstr "Не ўдалося адкрыць файл"
 
 #: app/fileItemIcon.js:280
-#, fuzzy
-#| msgid "There is no application installed to open \"{foo}\" files."
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr "Не ўсталявана праграма для адкрыцця файлаў тыпу «{foo}»."
+msgstr "Не ўсталявана праграма для адкрыцця файлаў тыпу «{fo}»."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -899,8 +894,6 @@ msgid "Open All With Other Application..."
 msgstr "Адкрыць усе праз іншую праграму..."
 
 #: app/fileItemMenu.js:184
-#, fuzzy
-#| msgid "Launch using Dedicated Graphics Card"
 msgid "Launch using Integrated Graphics Card"
 msgstr "Запусціць з дапамогай дыскрэтнай відэакарты"
 
@@ -1137,10 +1130,8 @@ msgid "Unable to move Files, no destination folder"
 msgstr "Немагчыма перамясціць файлы, няма папкі прызначэння"
 
 #: app/gnomeShellDragDrop.js:356
-#, fuzzy
-#| msgid "${appName} can not open files of this Type!"
 msgid "$appName$ can not open files of this Type!"
-msgstr "${appName} не можа адкрываць файлы гэтага тыпу!"
+msgstr "$appName$ не можа адкрываць файлы гэтага тыпу!"
 
 #: app/preferences.js:892
 msgid "Console"
@@ -1174,7 +1165,7 @@ msgstr "Няспраўная спасылка"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "Немагчыма адкрыць гэты файл, бо сімвалічная спасылка няспраўдная"
+msgstr "Немагчыма адкрыць гэты файл, бо сімвалічная спасылка няспраўная"
 
 #: app/volumeIcon.js:58
 msgid "Drive"
