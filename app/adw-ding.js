@@ -131,17 +131,17 @@ const adWDingApp = GObject.registerClass(
                     this.desktops = this.newdesktops;
                     const windowManager = this.desktopManager.windowManager;
                     windowManager.updateGridWindows(this.desktops);
-                    // If testing Dbus activations, comment the above
-                    // and uncomment the following -
-                    // or get remote actions from the app and activate
-                    // this.desktopVariants = this.newDesktopsVariants;
-                    // this.remoteDingActions.activate_action('updateGridWindows',
-                    //    new GLib.Variant('av', this.desktopVariants));
-                    // OR smiply activate the app action directly
-                    // app.activate_action(
-                    //     'updateGridWindows',
-                    //     new GLib.Variant('av', this.desktopVariants)
-                    // );
+                // If testing Dbus activations, comment the above
+                // and uncomment the following -
+                // or get remote actions from the app and activate
+                // this.desktopVariants = this.newDesktopsVariants;
+                // this.remoteDingActions.activate_action('updateGridWindows',
+                //    new GLib.Variant('av', this.desktopVariants));
+                // OR smiply activate the app action directly
+                // app.activate_action(
+                //     'updateGridWindows',
+                //     new GLib.Variant('av', this.desktopVariants)
+                // );
                 } else {
                     this._finishStartUp(app);
                     app.activate();
@@ -174,12 +174,16 @@ const adWDingApp = GObject.registerClass(
                 'mainApp': app,
             };
             this.Utils = {FileUtils};
+
             this.Utils.DBusUtils =
                 new DBusUtils.DBusUtils(app);
+
             this.Utils.ThumbnailLoader =
                 new Thumbnails.ThumbnailLoader(this.Utils.FileUtils);
+
             this.Utils.Preferences =
                 new Preferences.Preferences(this.Data, AdwPreferencesWindow);
+
             this.Utils.DesktopIconsUtil =
                 new DesktopIconsUtil.DesktopIconsUtil(this.Data, this.Utils);
         }
@@ -201,25 +205,30 @@ const adWDingApp = GObject.registerClass(
         _parseOptions(args) {
             this.newdesktops = [];
             this.newDesktopsVariants = [];
+
             // modified for GJS to work like passing optioncontext
             args.forEach((arg, index, array) => {
                 this.options.some(entry => {
                     const longname = arg === `--${entry.long_name}`;
                     const shortname = arg === `-${entry.short_name}`;
+
                     if (longname || shortname) {
-                        let assignFunction = entry.arg_data;
+                        const assignFunction = entry.arg_data;
+
                         if (entry.arg === GLib.OptionArg.NONE) {
                             assignFunction();
                             return true;
                         }
 
                         let value;
+
                         if (longname && entry.long_name.includes('='))
                             value = entry.split('=')[1];
                         else
                             value = array[index += 1] ?? null;
 
                         assignFunction(value);
+
                         return true;
                     }
                     return false;
@@ -232,11 +241,14 @@ const adWDingApp = GObject.registerClass(
             // const helptext = this.optionsContext.get_help(false, null);
             let helpMessage =
                 'Usage: gjs -m adw-ding.js [OPTIONS]\n\nOptions:\n';
+
             this.options.forEach(entry => {
                 const shortOption = entry.short_name
                     ? `-${entry.short_name}` : '';
+
                 const argDescription = entry.arg_description
                     ? ` ${entry.arg_description}` : '';
+
                 helpMessage += `  ${shortOption},  --${entry.long_name}` +
                     `   ${argDescription}\n\n`;
 
@@ -279,7 +291,8 @@ const adWDingApp = GObject.registerClass(
                     flags: 0,
                     arg: GLib.OptionArg.NONE,
                     arg_data: () => (this.asDesktop = true),
-                    description: 'run as desktop (with transparent window, reacting to data from the extension...',
+                    description: 'run as desktop (with transparent window, ' +
+                        'reacting to data from the extension...',
                     arg_description: 'as desktop flag',
                 },
                 {
@@ -297,7 +310,8 @@ const adWDingApp = GObject.registerClass(
                     flags: 0,
                     arg: GLib.OptionArg.STRING,
                     arg_data: value => (this.gnomeversion = value),
-                    description: 'pass the gnome version to the DING application',
+                    description:
+                        'pass the gnome version to the DING application',
                     arg_description: 'gnome shell version',
                 },
                 {
@@ -306,7 +320,8 @@ const adWDingApp = GObject.registerClass(
                     flags: 0,
                     arg: GLib.OptionArg.STRING,
                     arg_data: value => (this.programversion = value),
-                    description: 'pass the version-name of the program to display in extension/DING preferences',
+                    description: 'pass the version-name of the program to ' +
+                        'display in extension/DING preferences',
                     arg_description: 'application/extension version',
                 },
                 {
@@ -324,7 +339,8 @@ const adWDingApp = GObject.registerClass(
                     flags: 0,
                     arg: GLib.OptionArg.STRING,
                     arg_data: value => (this.uuid = value),
-                    description: 'pass the uuid of the extension to use in the DING application',
+                    description: 'pass the uuid of the extension to use in ' +
+                        'the DING application',
                     arg_description: 'extension uuid',
                 },
                 {
@@ -348,16 +364,23 @@ const adWDingApp = GObject.registerClass(
         i: monitor index (0, 1...)
 
     multiple "-D" options can be set for multi monitor setup`,
-                    arg_description: 'x:y:w:h:z:t:b:l:r:i -string with monitor dimensions',
+                    arg_description:
+                        'x:y:w:h:z:t:b:l:r:i -string with monitor dimensions',
                 },
             ];
-            // This does not work in GJS - constructor cannot be called - alternative implemented
-            // this.optionsContext = new GLib.OptionContext('Adw Desktop Icons Application');
+
+            // This does not work in GJS - constructor cannot be called -
+            // therefore alternative implementation for the following
+            //
+            // this.optionsContext =
+            //      new GLib.OptionContext('Adw Desktop Icons Application');
+            //
             // this.optionsContext.add_main_entries(options, getTextDomain);
         }
 
         _parseDesktopData(data) {
             data = data.split(':');
+
             if (data.length !== 10)
                 throw new Error('Incorrect number of parameters for -D\n');
 
@@ -379,6 +402,7 @@ const adWDingApp = GObject.registerClass(
 
             if (Object.values(dataObject).some(x => isNaN(x)))
                 throw new Error('Incorrect non numeric value in -D data \n');
+
             this.newdesktops.push(dataObject);
         }
 
