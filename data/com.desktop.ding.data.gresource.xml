@@ -12,6 +12,7 @@
     <file compressed="true" alias='icons/symbolic/apps/icon-emblem-symbolic-link.svg'>icons/emblem-symbolic-link-symbolic.svg</file>
     <file compressed="true" alias='icons/symbolic/apps/icon-emblem-unreadable.svg'>icons/emblem-unwriteable-symbolic.svg</file>
     <file compressed="true" alias='icons/symbolic/apps/icon-emblem-stack.svg'>icons/stack.svg</file>
+    <file compressed="true" alias='icons/hicolor/scalable/apps/com.desktop.ding.svg'>icons/com.desktop.ding.svg</file>
     <file compressed="true">stylesheet.css</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/ding-app-chooser.ui</file>
   </gresource>
