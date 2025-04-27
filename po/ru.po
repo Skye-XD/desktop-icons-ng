@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-23 01:17+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-04-27 01:10+0000\n"
+"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 msgid "Desktop"
@@ -657,31 +657,22 @@ msgid "Select All"
 msgstr "Выделить всё"
 
 #: app/desktopMenu.js:321
-#, fuzzy
-#| msgid "Files"
 msgid "Find Files"
 msgstr "Найти файлы"
 
 #: app/desktopMenu.js:338
-#, fuzzy
-#| msgid "Change Desktop"
 msgid "Update Desktop"
-msgstr "Сменить рабочий стол"
+msgstr "Обновить рабочий стол"
 
 #: app/desktopMenu.js:354
-#, fuzzy
-#| msgid "Show hidden files"
 msgid "Show Hidden Files"
 msgstr "Показывать скрытые файлы"
 
 #: app/desktopMenu.js:369
-#, fuzzy
-#| msgid "Select All"
 msgid "Unselect All"
-msgstr "Снять выделение"
+msgstr "Снять выделение со всех"
 
 #: app/desktopMenu.js:383
-#, fuzzy
 msgid "Preview"
 msgstr "Предпросмотр"
 
@@ -710,13 +701,10 @@ msgid "Choose Icon Down"
 msgstr "Выбрать действие для файлового менеджера"
 
 #: app/desktopMenu.js:432
-#, fuzzy
-#| msgid "Shell Menu…"
 msgid "Show Menu"
 msgstr "Показать меню"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
-#, fuzzy
 msgid "Show Shortcuts"
 msgstr "Показать комбинации клавиш"
 
@@ -1014,44 +1002,32 @@ msgid "Open in {0}"
 msgstr "Открыть в приложении «{0}»"
 
 #: app/fileItemMenu.js:530
-#, fuzzy
-#| msgid "Open Items"
 msgid "Open Item"
 msgstr "Открыть элемент"
 
 #: app/fileItemMenu.js:570
 msgid "Cut Item"
-msgstr ""
+msgstr "Вырезать элемент"
 
 #: app/fileItemMenu.js:579
-#, fuzzy
-#| msgid "Open Items"
 msgid "Copy Item"
-msgstr "Открыть элементы"
+msgstr "Копировать элемент"
 
 #: app/fileItemMenu.js:589
-#, fuzzy
-#| msgid "Rename"
 msgid "Rename Item"
 msgstr "Переименовать элемент"
 
 #: app/fileItemMenu.js:612
-#, fuzzy
-#| msgid "Delete permanently"
 msgid "Delete Permanently"
 msgstr "Удалить безвозвратно"
 
 #: app/fileItemMenu.js:701
-#, fuzzy
-#| msgid "Properties"
 msgid "Show Properties"
 msgstr "Показать свойства"
 
 #: app/fileItemMenu.js:730
-#, fuzzy
-#| msgid "Create Link..."
 msgid "Create Link to Item"
-msgstr "Создать ссылку..."
+msgstr "Создать ссылку на элемент"
 
 #: app/fileItemMenu.js:828
 msgid "Extraction Cancelled"
