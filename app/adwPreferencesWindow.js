@@ -168,11 +168,15 @@ const AdwPreferencesWindow = class {
     getAdwPreferencesWindow(window = null) {
         var prefsWindow;
 
-        if (window)
+        if (window) {
             prefsWindow = window;
-        else
+        } else {
             prefsWindow = new Adw.PreferencesWindow();
+            const app = Gtk.Application.get_default();
 
+            if (app)
+                prefsWindow.set_application(app);
+        }
         prefsWindow.set_can_navigate_back(true);
         prefsWindow.set_search_enabled(true);
 
