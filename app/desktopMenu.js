@@ -149,6 +149,7 @@ const DesktopActions = class {
         this._fileItemMenu = desktopManager.fileItemMenu;
         this._Enums = desktopManager.Enums;
         this._desktopMonitor = desktopManager.desktopMonitor;
+        this._windowManager = desktopManager.windowManager;
         this._isCut = false;
         this._clipboardFiles = null;
         this._intDBusSignalMonitoring();
@@ -476,6 +477,13 @@ const DesktopActions = class {
             this._showShortcutViewer();
         });
         this._mainApp.add_action(showShortcutViewer);
+
+        const toggleVisibility =
+            Gio.SimpleAction.new('toggleVisibility', null);
+        toggleVisibility.connect('activate', () => {
+            this._windowManager.toggleVisibility();
+        });
+        this._mainApp.add_action(toggleVisibility);
     }
 
     _textEntryAccelsTurnOn() {
