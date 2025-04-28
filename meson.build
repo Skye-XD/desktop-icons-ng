@@ -12,9 +12,8 @@ i18n = import('i18n')
 
 prefix = get_option('prefix')
 datadir = join_paths (prefix, get_option('datadir'))
-schema_dir = join_paths(datadir, 'glib-2.0', 'schemas')
 
-extensions_dir = join_paths(prefix, 'share', 'gnome-shell', 'extensions', extension_id)
+extensions_dir = join_paths(prefix, datadir, 'gnome-shell', 'extensions', extension_id)
 
 install_data([
     'dingManager.js',

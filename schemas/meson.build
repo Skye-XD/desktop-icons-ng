@@ -1,3 +1,5 @@
+schema_dir = join_paths(datadir, 'glib-2.0', 'schemas')
+
 gnome.compile_schemas()
 
 install_data(
