@@ -27,6 +27,33 @@ The extension also sets the skip_taskbar property separately on the window to hi
 
 In addition, both the window, and the application expose DBus interfaces and actions to each other to detect, track and allow drag and drop between limited, chosen shell actors to support drag and drop to and fro to the Dock.
 
+UPATE 2024
+
+There is upstream support in Wayland now to make the window Meta.WindowType.DESKTOP. Once marked as such, mutter takes over maintaining the window at the bottom and all the above are not necessary.
+
+We still have to make it type DESKTOP for X11, use xporp to make windowType Desktop and skip Taskbar.
+
+UPDATE 2025
+
+Complete Rewrite, restructuring and reorganization of the apllication-
+
+  * Break up desktopManager into different classes to simplify and for long term maintainance. WindowManager- manages all windows. DesktopFolderMonitor just monitors the desktop folder and the templates folder and maintains an updated list of files. DesktopBackgroundMenu and DesktopAction classes just manage those things. The DesktopBackgroundMenu calls a base class TemplatesScriptsManager to construct the right click templates menu. A new DragManager just manages drag and drop related functionality. DesktopManager just initiliazes all these classes correctly in the right order and controls rendering and placing of the icons on desktop.
+
+  * Break up desktopGrid into three simplified classes, base class DisplayGrid just manages geometry and placement of icons. DrawGrid extends the base class and adds methods for drawing on the grid. Finall DesktopGrid extends that class to add drag and drop functionality. A DesktopGrid is initiated for each window by the WindowManager, which in turn is managed by the DesktopManager.
+
+  * FileItemMenu is now broken into two classes, FileItemActions that isolates codes for all file right click actions, FileItemMenu just maintains and generates a right click menu that use the FileItemActions and DesktopAction classes. All code dealing with compression decompression in FileItemMenu is moved to DBusUtils class as it leverages DBus fileRoller remotely. FileItemMenu still uses the base class TemplatesScriptsManager to manage and construct the right click scripts menu.
+
+  * FileItem is now simplified, and is extended by new classes for extra functionality. A new DesktopIconFactory file has an IconCreator class initializes all these specialized classes and gives them to the DesktopFolderMonitor to actually create the icons. A new SymLinkIcon class extends FileItem for just symlinks, a new SpecialFolderIcon class extends FileItem for special folders - the home folder and the trashcan. AppImageIcon class extends fileItem with all appImage functionality for icons. A DesktopFileIcon class extends the base FileItem, and manages all .desktop icons and related functionality, has all the code needed to deal with them. A VolumeIcon class extends FileItem to just deal with mounted volumes and network-mounts. In future further classes can be added for special functionality for other icons.
+
+   * Refactor all files in program and all classes and files that make up the extension to 80 chars and add extra vertical whitespace for complex/compund constructs. Removing all unused code, better commenting, more logical flow and renaming. Move all signal and other monitoring code that trigger actions and changes to Preferences class.
+
+  * FileItem parameters have been renamed to better names fileTypeEnum instead of fileExtra, and gioMount instead of custom, representative of the underlying parameter and avoid confusion.
+
+  * Confusing codepath removed, not needed anymore.
+
+  * Confusing naming of mainApp Gtk.Objet and interchanging it with the application ID, using interchangebaly with dingApp remooved. New naming with representative naming with names representing the underlying parameter. 
+
+
 ## Integrating with other extensions
 
 <b>Margins</b>
