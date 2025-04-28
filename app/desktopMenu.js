@@ -769,47 +769,24 @@ const DesktopActions = class {
     }
 
     _showPreferences() {
-        if (this.preferencesWindow)
+        if (this.preferencesWindow) {
+            this._dbusManager.doNotify(
+                _('Preferences Window is Open'),
+                _('This Window is open. Please switch to the active window.')
+            );
             return;
-
-        let success = false;
-        let completed = false;
-        let process;
-        const argv = ['/usr/bin/gnome-extensions', 'prefs', `${this.uuid}`];
-
-        try {
-            process = GLib.spawn_sync(null, argv, null,
-                GLib.SpawnFlags.DEFAULT,
-                () => {});
-            completed = GLib.spawn_check_exit_status(process[3]);
-            success = process[0];
-        } catch (e) {
-            const textDecoder = new TextDecoder();
-            const errortext = textDecoder.decode(process[2]);
-            const windowopen =
-                errortext.includes('Already showing a prefs dialog');
-            if (windowopen) {
-                this._dbusManager.doNotify(
-                    _('Preferences Window is Open'),
-                    _('This Window is open. Please switch to the active window.')
-                );
-                return;
-            } else {
-                completed = false;
-            }
         }
-
-        if (success && completed)
-            return;
 
         this.preferencesWindow = this._Prefs.getAdwPreferencesWindow();
         this.preferencesWindow.connect('close-request', () => {
             this.preferencesWindow = null;
         });
         this.preferencesWindow.set_title(_('Settings'));
-        const modal = true;
-        this._DesktopIconsUtil.windowHidePagerTaskbarModal(
-            this.preferencesWindow, modal);
+        // Do not make modal or skip-taskbar as we have a .desktop icon
+        // showing up in the dock for the window to assist navigation.
+        // const modal = true;
+        // this._DesktopIconsUtil.windowHidePagerTaskbarModal(
+        //     this.preferencesWindow, modal);
         this.preferencesWindow.show();
     }
 
