@@ -995,16 +995,18 @@ const DesktopActions = class {
         shortcutViewer.set_action_map(this._mainApp);
 
         const shortcutsWindow = new Adw.ApplicationWindow();
+        shortcutsWindow.set_application(this._mainApp);
 
         shortcutsWindow.set_default_size(400, 600);
         shortcutsWindow.set_decorated(true);
         shortcutsWindow.set_deletable(true);
         shortcutsWindow.set_name('shortcutsWindow');
 
-        const modal = true;
-
-        this._DesktopIconsUtil.windowHidePagerTaskbarModal(
-            shortcutsWindow, modal);
+        // Do not make modal or skip-taskbar as we have a .desktop icon
+        // showing up in the dock for the window to assist navigation.
+        // const modal = true;
+        // this._DesktopIconsUtil.windowHidePagerTaskbarModal(
+        //     shortcutsWindow, modal);
 
         shortcutsWindow.set_content(shortcutViewer);
 
