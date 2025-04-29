@@ -23,7 +23,7 @@ export {DesktopGrid};
 
 // eslint-disable-next-line no-unused-vars
 const DisplayGrid = class {
-    constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
+    constructor(desktopManager, desktopName, desktopDescription, asDesktop, hidden = false) {
         this._destroying = false;
         this._desktopManager = desktopManager;
         this._dragManager = desktopManager.dragManager;
@@ -133,7 +133,11 @@ const DisplayGrid = class {
 
         this._setGridStatus();
 
-        this._window.show();
+        if (!hidden)
+            this._window.show();
+        else
+            this._window.hide();
+
         this._window.set_size_request(this._windowWidth, this._windowHeight);
 
         this._updateGridRectangle();
@@ -148,6 +152,16 @@ const DisplayGrid = class {
             this._window.set_name('desktopwindow');
         else
             this._window.set_name('testwindow');
+    }
+
+    hide() {
+        this._window.hide();
+        this._hidden = true;
+    }
+
+    show() {
+        this._window.present();
+        this._hidden = false;
     }
 
     // Establish and update window geometry, establish and update

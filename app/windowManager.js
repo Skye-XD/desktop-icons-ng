@@ -45,6 +45,7 @@ const WindowManager = class {
         this._priorPrimaryMonitorIndex = null;
         this._primaryScreen = null;
         this._differentZooms = false;
+        this._hidden = false;
 
         this._dbusAdvertiseUpdate();
     }
@@ -280,13 +281,31 @@ const WindowManager = class {
                     this._desktopManager,
                     desktopName,
                     desktop,
-                    this._asDesktop
+                    this._asDesktop,
+                    this._hidden
                 )
             );
         });
 
         if (this._desktopManager.windowsPromiseResolve)
             this._desktopManager.windowsPromiseResolve(true);
+    }
+
+    hide() {
+        this._desktops.forEach(desktop => desktop.hide());
+        this._hidden = true;
+    }
+
+    show() {
+        this._desktops.forEach(desktop => desktop.show());
+        this._hidden = false;
+    }
+
+    toggleVisibility() {
+        if (this._hidden)
+            this.show();
+        else
+            this.hide();
     }
 
     _getPreferredDisplayDesktop() {
