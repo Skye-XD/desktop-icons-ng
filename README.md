@@ -19,6 +19,10 @@ This fork of DING is ported to use the Gtk4 toolkit, and now has been ported to 
 
 Other than using the Gtk4 toolkit, and now libadwaita, it has in addition, several new features, fixes and enhancements.
 
+UPDATE April 2025
+
+Application was rewritten, cleaned up and restructured completely and several new classes added for cleaner mantainance.
+
 ## Features and Fixes
 
 New Features and fixes are listed in [FEATURES.md](https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/FEATURES.md?ref_type=heads) in this folder.

@@ -1,4 +1,28 @@
 # History of versions #
+* Gtk4/Adw version 98 for Gnome 45, 46, 47, 48
+  MAJOR UPDATE
+
+  New Features-
+  * Add a .desktop file and icon for the application on system or local install. For downloads and install from EGO, install the icon and .desktop on enabling, remove on disabling. (Sundeep Mediratta)
+  * Show a shortcuts window with all available shortcuts through right click menu.Show icon running in dock when open for navigation (Sundeep Mediratta)
+  * Show a native preferences window, which shows our icon and running app in the dock, so users can navigate back to it. (Sundeep Mediratta)
+  * Update gtk4.pot file with all major refactoring below, Weblate Translations. (Weblate Authors)
+  * Update History.md, ReadMe.md and metadata.json, version bump to 98.
+
+  Fixes -
+  * Fix mutter crash on setting the cursor- use our own Enums and the Enums names have changed with the new version of mutter. This maintains compatibility with the same code with old versions of mutter. (Sundeep Mediratta)
+  * Fix multiple regressions over years with code added- modal dialogs not being set skipTaskbar, gnomeShellDrop regressions, drag-drop Cursor not being set correctly, GSConnect regressions, Restore defaultDesktop not working properly regression, do undo, do redo menus now show correctly only if the action is available. (Sundeep Mediratta)
+
+  Complete Rewrite, restructuring and reorganization of the apllication-
+  * Break up desktopManager into different classes to simplify and for long term maintainance. WindowManager- manages all windows. DesktopFolderMonitor just monitors the desktop folder and the templates folder and maintains an updated list of files. DesktopBackgroundMenu and DesktopAction classes just manage those things. The DesktopBackgroundMenu calls a base class TemplatesScriptsManager to construct the right click templates menu. A new DragManager just manages drag and drop related functionality. DesktopManager just initiliazes all these classes correctly in the right order and controls rendering and placing of the icons on desktop. (Sundeep Mediratta)
+  * Break up desktopGrid into three simplified classes, base class DisplayGrid just manages geometry and placement of icons. DrawGrid extends the base class and adds methods for drawing on the grid. Finall DesktopGrid extends that class to add drag and drop functionality. A DesktopGrid is initiated for each window by the WindowManager, which in turn is managed by the DesktopManager. (Sundeep Mediratta)
+  * FileItemMenu is now broken into two classes, FileItemActions that isolates codes for all file right click actions, FileItemMenu just maintains and generates a right click menu that use the FileItemActions and DesktopAction classes. All code dealing with compression decompression in FileItemMenu is moved to DBusUtils class as it leverages DBus fileRoller remotely. FileItemMenu still uses the base class TemplatesScriptsManager to manage and construct the right click scripts menu.
+  * FileItem is now simplified, and is extended by new classes for extra functionality. A new DesktopIconFactory file has an IconCreator class initializes all these specialized classes and gives them to the DesktopFolderMonitor to actually create the icons. A new SymLinkIcon class extends FileItem for just symlinks, a new SpecialFolderIcon class extends FileItem for special folders - the home folder and the trashcan. AppImageIcon class extends fileItem with all appImage functionality for icons. A DesktopFileIcon class extends the base FileItem, and manages all .desktop icons and related functionality, has all the code needed to deal with them. A VolumeIcon class extends FileItem to just deal with mounted volumes and network-mounts. In future further classes can be added for special functionality for other icons.(Sundeep Mediratta)
+   * Refactor all files in program and all classes and files that make up the extension to 80 chars and add extra vertical whitespace for complex/compund constructs. Removing all unused code, better commenting, more logical flow and renaming. Move all signal and other monitoring code that trigger actions and changes to Preferences class. (Sundeep Mediratta)
+  * FileItem parameters have been renamed to better names fileTypeEnum instead of fileExtra, and gioMount instead of custom, representative of the underlying parameter and avoid confusion.
+  * Confusing codepath removed, not needed anymore. (Sundeep Mediratta)
+  * Confusing naming of mainApp Gtk.Objet and interchanging it with the application ID, using interchangebaly with dingApp remooved. New naming with representative naming with names representing the underlying parameter. (Sundeep Mediratta)
+
 * Gtk4/Adw version 97 for Gnome 45, 46, 47, 48
   * Fix mutter crash when dragging a dock icon to make a .desktop file on the desktop. (Sundeep Mediratta)
   * Weblate translations. (Weblate Authors)

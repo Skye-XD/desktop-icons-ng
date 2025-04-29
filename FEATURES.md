@@ -150,6 +150,16 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Allow ptyxis to replace gnome-terminal, write specefic code to open ptyxis properly.
 
+- [x] Use our own namespace to save icon postions- 5 element array, Global coordinates, Normalized local Coordinates to window/monitor size and the monitor number. This allows better control and consistency in postioning on multi monotor systems and when monitors are plugged in and removed. Save column row information when running snap to grid (only in the running app, not on disc)
+
+- [x] Monitor for css changes and immediately revert them. Make CSS more specefic to apply only to the app.
+
+- [x] Show a shortcuts window with all available shortcuts.
+
+- [x] Add a .desktop file and icon for the application on system or local install, for EGO, install and remove on enabling disabling. This allow us to set an icon on our windows and all notifications/dialogs.
+
+
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -304,3 +314,12 @@ The application functionality and behavior is consistent with the two other very
 - [x] Bug Fix - prevent symlink recursion and resource exhaustion in templates/scripts manager.
 
 - [x] Bug Fix showErrorPopup.js and rewrite better async code.
+
+- [x] Fix mutter crash on setting the cursor- use our own Enums and the Enums names have changed with the new version of mutter. This maintains compatibility with the same code with old versions of mutter.
+
+- [x]  Bug Fix - Prevent resource exhausion because of symlink recursion in templates/scripts manager. (Sundeep Mediratta)
+  Bug Fix - Add hard limits to resource use in templates/scripts manager.
+
+- [x] Fix ddterm focus loss issue.
+
+- [x] Fix multiple regressions over years with code added- modal dialogs not being set skipTaskbar, gnomeShellDrop regressions, drag-drop Cursor not being set correctly, GSConnect regressions, Restore defaultDesktop not working properly regression, do undo, do redo menus now show only if the action is available.
