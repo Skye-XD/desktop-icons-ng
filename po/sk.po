@@ -11,16 +11,15 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-24 02:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
+"PO-Revision-Date: 2025-04-29 02:53+0200\n"
+"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
+"Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -515,10 +514,8 @@ msgid "Could not open File"
 msgstr "Nepodarilo sa otvoriť súbor"
 
 #: app/desktopFileIcon.js:157
-#, fuzzy
-#| msgid "${appName} can not open files of this Type!"
 msgid "{appName} can not open files of this Type!"
-msgstr "${appName} nemôže otvoriť súbory tohto typu!"
+msgstr "{appName} nemôže otvoriť súbory tohto typu!"
 
 #: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Change Failed"
@@ -594,7 +591,7 @@ msgstr ""
 
 #: app/desktopManager.js:224
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "Gnome Files nie je registrovaný ako správca súborov"
+msgstr "Aplikácia Súbory (Gnome Files) nie je registrovaná ako správca súborov"
 
 #: app/desktopManager.js:225
 msgid ""
@@ -629,11 +626,9 @@ msgstr "Priečinok sa nepodarilo vytvoriť"
 
 #: app/desktopMenu.js:36
 msgid "Keyboard Short Cuts"
-msgstr ""
+msgstr "Klávesové skratky"
 
 #: app/desktopMenu.js:190
-#, fuzzy
-#| msgid "Paste"
 msgid "Do Paste"
 msgstr "Vložiť"
 
@@ -650,72 +645,52 @@ msgid "Select All"
 msgstr "Vybrať všetko"
 
 #: app/desktopMenu.js:321
-#, fuzzy
-#| msgid "Files"
 msgid "Find Files"
-msgstr "Súbory"
+msgstr "Hľadať súbory"
 
 #: app/desktopMenu.js:338
-#, fuzzy
-#| msgid "Change Desktop"
 msgid "Update Desktop"
-msgstr "Zmeniť pracovnú plochu"
+msgstr "Aktualizovať pracovnú plochu"
 
 #: app/desktopMenu.js:354
-#, fuzzy
-#| msgid "Show hidden files"
 msgid "Show Hidden Files"
 msgstr "Zobraziť skryté súbory"
 
 #: app/desktopMenu.js:369
-#, fuzzy
-#| msgid "Select All"
 msgid "Unselect All"
-msgstr "Zrušit veškerý výběr"
+msgstr "Odznačiť všetko"
 
 #: app/desktopMenu.js:383
-#, fuzzy
 msgid "Preview"
-msgstr "Ukážka"
+msgstr "Náhľad"
 
 #: app/desktopMenu.js:393
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Left"
-msgstr "Vyberte akciu pre súbory"
+msgstr "Vybrať ikonu vľavo"
 
 #: app/desktopMenu.js:404
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Right"
-msgstr "Vyberte akciu pre súbory"
+msgstr "Vybrať ikonu vpravo"
 
 #: app/desktopMenu.js:413
-#, fuzzy
-#| msgid "Choose"
 msgid "Choose Icon Up"
-msgstr "Vybrať"
+msgstr "Vybrať ikonu hore"
 
 #: app/desktopMenu.js:423
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Down"
-msgstr "Vyberte akciu pre súbory"
+msgstr "Vybrať ikonu dole"
 
 #: app/desktopMenu.js:432
-#, fuzzy
-#| msgid "Shell Menu…"
 msgid "Show Menu"
-msgstr "Zobraziť menu"
+msgstr "Zobraziť ponuku"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
-#, fuzzy
 msgid "Show Shortcuts"
-msgstr "Zobrazenie klávesových skratiek"
+msgstr "Zobraziť klávesové skratky"
 
 #: app/desktopMenu.js:750
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Nie je možné otvoriť pracovnú plochu v aplikácii Súbory Gnome"
+msgstr "Nie je možné otvoriť pracovnú plochu v aplikácii Súbory (Gnome files)"
 
 #: app/desktopMenu.js:790
 msgid "Preferences Window is Open"
@@ -819,7 +794,7 @@ msgstr "Nepodarilo sa vytvoriť symbolický odkaz"
 
 #: app/dragManager.js:739
 msgid "Copy/Move Failed"
-msgstr "Presunutie zlyhalo"
+msgstr "Kopírovanie/Presunutie zlyhalo"
 
 #: app/dragManager.js:740
 msgid "{0} Does not exist"
@@ -854,10 +829,8 @@ msgid "Opening File Failed"
 msgstr "Otvorenie súboru zlyhalo"
 
 #: app/fileItemIcon.js:280
-#, fuzzy
-#| msgid "There is no application installed to open \"{foo}\" files."
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr "Nie je nainštalovaná žiadna aplikácia na otváranie súborov \"{foo}\"."
+msgstr "Nie je nainštalovaná žiadna aplikácia na otváranie súborov \"{fo}\"."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -899,10 +872,8 @@ msgid "Open All With Other Application..."
 msgstr "Otvoriť všetko inou aplikáciou..."
 
 #: app/fileItemMenu.js:184
-#, fuzzy
-#| msgid "Launch using Dedicated Graphics Card"
 msgid "Launch using Integrated Graphics Card"
-msgstr "Spustiť pomocou vyhradenej grafickej karty"
+msgstr "Spustiť pomocou integrovanej grafickej karty"
 
 #: app/fileItemMenu.js:206
 msgid "Stack This Type"
@@ -1011,44 +982,32 @@ msgid "Open in {0}"
 msgstr "Otvoriť v aplikácii {0}"
 
 #: app/fileItemMenu.js:530
-#, fuzzy
-#| msgid "Open Items"
 msgid "Open Item"
-msgstr "Otvoriť položky"
+msgstr "Otvoriť položku"
 
 #: app/fileItemMenu.js:570
 msgid "Cut Item"
-msgstr ""
+msgstr "Vystrihnúť položku"
 
 #: app/fileItemMenu.js:579
-#, fuzzy
-#| msgid "Open Items"
 msgid "Copy Item"
 msgstr "Kopírovať položku"
 
 #: app/fileItemMenu.js:589
-#, fuzzy
-#| msgid "Rename"
 msgid "Rename Item"
-msgstr "Premenovať"
+msgstr "Premenovať položku"
 
 #: app/fileItemMenu.js:612
-#, fuzzy
-#| msgid "Delete permanently"
 msgid "Delete Permanently"
 msgstr "Odstrániť natrvalo"
 
 #: app/fileItemMenu.js:701
-#, fuzzy
-#| msgid "Properties"
 msgid "Show Properties"
-msgstr "Vlastnosti"
+msgstr "Zobraziť vlastnosti"
 
 #: app/fileItemMenu.js:730
-#, fuzzy
-#| msgid "Create Link..."
 msgid "Create Link to Item"
-msgstr "Vytvoriť odkaz..."
+msgstr "Vytvoriť odkaz na položku"
 
 #: app/fileItemMenu.js:828
 msgid "Extraction Cancelled"
@@ -1137,10 +1096,8 @@ msgid "Unable to move Files, no destination folder"
 msgstr "Nie je možné presunúť súbory, žiadny cieľový priečinok"
 
 #: app/gnomeShellDragDrop.js:356
-#, fuzzy
-#| msgid "${appName} can not open files of this Type!"
 msgid "$appName$ can not open files of this Type!"
-msgstr "${appName} nemôže otvoriť súbory tohto typu!"
+msgstr "$appName$ nemôže otvoriť súbory tohto typu!"
 
 #: app/preferences.js:892
 msgid "Console"
@@ -1187,8 +1144,8 @@ msgstr "\"${programName}\" je potrebný pre Desktop Icons"
 
 #: app/utils/dbusUtils.js:70
 msgid ""
-"For this functionality to work in Desktop Icons, you must install "
-"\"${programName}\" in your system."
+"For this functionality to work in Desktop Icons, you must install \"$"
+"{programName}\" in your system."
 msgstr ""
 "Aby táto funkcia fungovala v aplikácii Ikony na ploche, musíte do vášho "
 "systému nainštalovať \"${programName}\"."
@@ -1231,11 +1188,11 @@ msgstr "Zobrazí osobný priečinok na pracovnej ploche."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
-msgstr "Zobraziť ikonu Koša"
+msgstr "Zobraziť ikonu koša"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
-msgstr "Zobrazí ikonu Koša na pracovnej ploche."
+msgstr "Zobrazí ikonu koša na pracovnej ploche."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
@@ -1287,7 +1244,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Usporiadať špeciálne priečinky - Domov/Kôš, jednotky."
+msgstr "Usporiadať špeciálne priečinky - Domov/Kôš, Jednotky."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 msgid ""
@@ -1400,15 +1357,15 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Use Nemo to open folders"
-#~ msgstr "Použite Nemo na otvorené priečinky"
+#~ msgstr "Použiť Nemo na otvorenie priečinkov"
 
 #, fuzzy
 #~ msgid "Use Nemo instead of Nautilus to open folders."
-#~ msgstr "Použite Nemo namiesto Nautilus pre otvorené zložky."
+#~ msgstr "Použiť Nemo namiesto Nautilus pre otvorenie priečinkov."
 
 #, fuzzy
 #~ msgid "Show Desktop In GNOME Files"
-#~ msgstr "Zobraziť Desktop V súboroch GNOME"
+#~ msgstr "Zobraziť Plochu v aplikácii Súbory GNOME"
 
 #, fuzzy
 #~ msgid "Open In Terminal"
