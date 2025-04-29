@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-23 01:17+0000\n"
+"PO-Revision-Date: 2025-04-29 11:37+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 #, fuzzy
@@ -42,7 +42,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Tweaks"
-msgstr "Düzenlemeler"
+msgstr "İnce ayarlar"
 
 #: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
 #, fuzzy
@@ -531,7 +531,7 @@ msgstr "Arşiv adı"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Parola"
+msgstr "Şifre"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -605,7 +605,7 @@ msgstr ""
 #: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyası açılamadı"
+msgstr "Dosya açılamadı"
 
 #: app/desktopFileIcon.js:157
 #, fuzzy
@@ -833,12 +833,12 @@ msgstr "Belge silinemedi"
 #: app/desktopMenu.js:1115
 #, fuzzy
 msgid "Name"
-msgstr "Ad"
+msgstr "Isim"
 
 #: app/desktopMenu.js:1117
 #, fuzzy
 msgid "Name Z-A"
-msgstr "İsim (Z-A)"
+msgstr "Ad (Z-A)"
 
 #: app/desktopMenu.js:1119
 #, fuzzy
@@ -1062,7 +1062,7 @@ msgstr "Yeniden Adlandır…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "Bağlantı Oluştur"
+msgstr "Bağlantı oluştur"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1162,7 +1162,7 @@ msgstr "Ögeyi Yeniden Adlandır"
 #, fuzzy
 #| msgid "Delete permanently"
 msgid "Delete Permanently"
-msgstr "Kalıcı olarak sil"
+msgstr "Tamamen Sil"
 
 #: app/fileItemMenu.js:701
 #, fuzzy
@@ -1317,7 +1317,7 @@ msgstr "Çöp kutusu"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "Yığın"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
