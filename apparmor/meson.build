@@ -1,4 +1,3 @@
-prefix = get_option('prefix')
 
 if prefix.startswith('/usr')
     apparmor_file = configure_file(input: 'gtk4-desktop-icons.in',

@@ -1,0 +1,36 @@
+[Desktop Entry]
+
+Type=Application
+Name=Desktop Icons
+GenericName=Desktop Icons
+Comment=Display Icons on the Gnome Desktop
+Terminal=false
+Categories=Utility
+MimeType=application/x-desktop
+TryExec=/usr/bin/gdbus
+Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.EnableExtension gtk4-ding@smedius.gitlab.com
+Icon=com.desktop.ding
+SingleMainWindow=1
+StartupNotify=0
+Actions=togglevisibility;enable;showshortcuts;preferences;disable;
+OnlyShowIn=GNOME;
+
+[Desktop Action togglevisibility]
+Name=Show<>Hide
+Exec= gapplication action com.desktop.ding toggleVisibility
+
+[Desktop Action enable]
+Name=Enable
+Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.EnableExtension gtk4-ding@smedius.gitlab.com
+
+[Desktop Action showshortcuts]
+Name=Shortcuts
+Exec=gapplication action com.desktop.ding showShortcutViewer
+
+[Desktop Action preferences]
+Name=Preferences
+Exec=gapplication action com.desktop.ding changeDesktopIconSettings
+
+[Desktop Action disable]
+Name=Disable
+Exec=gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.DisableExtension gtk4-ding@smedius.gitlab.com

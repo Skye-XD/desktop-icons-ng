@@ -1,5 +1,5 @@
-stystem_localedir = join_paths(prefix, 'share/locale')
-user_localedir = join_paths(prefix, 'share', 'gnome-shell', 'extensions', extension_id, 'locale')
+stystem_localedir = join_paths(datadir, 'locale')
+user_localedir = join_paths(extensions_dir, 'locale')
 
 localedir = prefix.startswith('/usr') ? stystem_localedir : user_localedir
 
