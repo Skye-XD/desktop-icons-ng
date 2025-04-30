@@ -432,7 +432,10 @@ const DesktopActions = class {
         });
         menuKeyPressed.set_state_hint(GLib.Variant.new('s', _('Show Menu')));
         this._mainApp.add_action(menuKeyPressed);
-        this._mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
+        this._mainApp.set_accels_for_action(
+            'app.menuKeyPressed',
+            ['Menu', '<Shift>F10']
+        );
 
         const displayShellBackgroundMenu =
             Gio.SimpleAction.new('displayShellBackgroundMenu', null);
@@ -495,7 +498,7 @@ const DesktopActions = class {
         this._mainApp.set_accels_for_action('app.chooseIconRight', ['Right']);
         this._mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
         this._mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
-        this._mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
+        this._mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu', '<Shift>F10']);
         this._mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
     }
 
