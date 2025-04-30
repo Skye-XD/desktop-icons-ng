@@ -1209,6 +1209,11 @@ const DesktopManager = class {
 
 
     findFiles(text) {
+        if (this._findFileWindow) {
+            this._findFileWindow.present();
+            return;
+        }
+
         const activeWindow = this.mainApp.get_active_window();
         this._findFileWindow = new Gtk.Dialog({
             use_header_bar: true,
