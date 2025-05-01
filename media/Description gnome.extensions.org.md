@@ -8,6 +8,9 @@ Updated and modified code base, uses Gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* Complet rewrite of the app, major clean up and restructuring.
+* Add a .desktop icon with actions for app, can be displayed in dock for windows, launcher, menus etc with right click actions, including hiding all windows
+* Show a shortcuts window for the application to list all available shortcuts.
 * Improve multi-monitor support, saves monitor positon with icon position, allow to change fractional scaling in app if a second monitor connected at different zoom level.
 * Fix dd-term focus loss isssue.
 * App rewritten as Adw.Application GObject subclass, better css handling, use Adw.Stylemanager, better icons and emblems for stackTop items.
