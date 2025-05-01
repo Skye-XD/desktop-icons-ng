@@ -496,6 +496,7 @@ const DesktopActions = class {
         this._mainApp.set_accels_for_action('app.chooseIconUp', ['Up']);
         this._mainApp.set_accels_for_action('app.chooseIconDown', ['Down']);
         this._mainApp.set_accels_for_action('app.menuKeyPressed', ['Menu']);
+        this._mainApp.set_accels_for_action('app.findFiles', ['<Control>F']);
     }
 
     _textEntryAccelsTurnOff() {
@@ -508,6 +509,7 @@ const DesktopActions = class {
         this._mainApp.set_accels_for_action('app.chooseIconUp', ['']);
         this._mainApp.set_accels_for_action('app.chooseIconDown', ['']);
         this._mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
+        this._mainApp.set_accels_for_action('app.findFiles', ['']);
     }
 
     _updateClipboard() {
