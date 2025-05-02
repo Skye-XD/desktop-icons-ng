@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-29 18:57+0000\n"
+"PO-Revision-Date: 2025-05-01 22:55+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -298,7 +298,7 @@ msgstr "Wählen Sie eine Anwendung zum Öffnen <b>{foo}</b>"
 #: app/appChooser.js:85
 #, fuzzy
 msgid "Open Items"
-msgstr "Offene Posten"
+msgstr "@:account.creditlimit.openInvoices"
 
 #: app/appChooser.js:87
 #, fuzzy
@@ -577,7 +577,7 @@ msgstr ""
 #: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Datei konnte nicht geöffnet werden"
+msgstr "Konnte Datei nicht öffnen"
 
 #: app/desktopFileIcon.js:157
 #, fuzzy
@@ -1015,7 +1015,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben nach …"
+msgstr "Verschieben auf..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1302,7 +1302,7 @@ msgstr "Kann diese Datei nicht öffnen, weil es ein Broken Symlink ist"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Fahren"
+msgstr "Steuerung"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is needed for Desktop Icons"
