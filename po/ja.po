@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-23 01:17+0000\n"
+"PO-Revision-Date: 2025-05-02 19:23+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 #, fuzzy
@@ -38,7 +38,7 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Tweaks"
-msgstr "微調整"
+msgstr "詳細設定"
 
 #: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
 #, fuzzy
@@ -48,7 +48,7 @@ msgstr "About"
 #: app/adwPreferencesWindow.js:213
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "デスクトップの設定"
+msgstr "デスクトップ設定"
 
 #: app/adwPreferencesWindow.js:214
 #, fuzzy
@@ -257,7 +257,7 @@ msgstr "ウェブサイト"
 #: app/adwPreferencesWindow.js:378
 #, fuzzy
 msgid "Visit"
-msgstr "ビジット"
+msgstr "訪問"
 
 #: app/adwPreferencesWindow.js:382
 #, fuzzy
@@ -628,7 +628,7 @@ msgstr ""
 #: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "ファイルが開けませんでした"
+msgstr "ファイルを開けませんでした"
 
 #: app/desktopFileIcon.js:157
 #, fuzzy
@@ -873,7 +873,7 @@ msgstr "変更された時間"
 #: app/desktopMenu.js:1121
 #, fuzzy
 msgid "Type"
-msgstr "種類"
+msgstr "ギャンブルの種類"
 
 #: app/desktopMenu.js:1123
 #, fuzzy
@@ -1079,7 +1079,7 @@ msgstr "を移動..."
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピーする"
+msgstr "コピー..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1088,7 +1088,7 @@ msgstr "名前を変更…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "リンクを生成する"
+msgstr "リンクを作成"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1182,7 +1182,7 @@ msgstr "アイテムを開く"
 #, fuzzy
 #| msgid "Rename"
 msgid "Rename Item"
-msgstr "アイテム名を変更"
+msgstr "アイテムの名前を変更"
 
 #: app/fileItemMenu.js:612
 #, fuzzy

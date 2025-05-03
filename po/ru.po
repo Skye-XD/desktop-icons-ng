@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-27 01:10+0000\n"
+"PO-Revision-Date: 2025-05-02 19:23+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
@@ -636,11 +636,9 @@ msgstr "Не удалось создать папку"
 
 #: app/desktopMenu.js:36
 msgid "Keyboard Short Cuts"
-msgstr ""
+msgstr "Комбинации клавиш"
 
 #: app/desktopMenu.js:190
-#, fuzzy
-#| msgid "Paste"
 msgid "Do Paste"
 msgstr "Вставить"
 
@@ -677,28 +675,20 @@ msgid "Preview"
 msgstr "Предпросмотр"
 
 #: app/desktopMenu.js:393
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Left"
-msgstr "Выбрать действие для файлового менеджера"
+msgstr "Выбрать значок слева"
 
 #: app/desktopMenu.js:404
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Right"
-msgstr "Выбрать действие для файлового менеджера"
+msgstr "Выбрать значок справа"
 
 #: app/desktopMenu.js:413
-#, fuzzy
-#| msgid "Choose"
 msgid "Choose Icon Up"
-msgstr "Выбрать"
+msgstr "Выбрать значок сверху"
 
 #: app/desktopMenu.js:423
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Down"
-msgstr "Выбрать действие для файлового менеджера"
+msgstr "Выбрать значок снизу"
 
 #: app/desktopMenu.js:432
 msgid "Show Menu"
