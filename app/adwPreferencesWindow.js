@@ -344,6 +344,31 @@ const AdwPreferencesWindow = class {
             _('Add new drives to the opposite side of the desktop')
         ));
 
+        const shortcutGroup = Adw.PreferencesGroup.new();
+        shortcutGroup.set_title(_('Global Shortcut'));
+
+        let currentToggleVisibility =
+            this.desktopSettings.get_strv('togglevisibility');
+
+        currentToggleVisibility = currentToggleVisibility.length
+            ? currentToggleVisibility
+            : _('None');
+
+        const subtitlestring = _('Current shortcut:');
+
+        const hideShortcutRow =
+            this.addActionRowButton(
+                _('Show Or Hide Desktop Icons'),
+                `${subtitlestring} ${currentToggleVisibility[0]}`,
+                _('Edit'),
+                this.setShortcutrow.bind(this),
+                'togglevisibility'
+            );
+
+        const icon = Gtk.Image.new_from_icon_name('document-edit');
+        hideShortcutRow.add_prefix(icon);
+        shortcutGroup.add(hideShortcutRow);
+        tweaksFrame.add(shortcutGroup);
 
         filesGroup.add(this.addActionRowSelector(this.nautilusSettings,
             'click-policy',
@@ -442,12 +467,13 @@ const AdwPreferencesWindow = class {
         return actionRow;
     }
 
-    addActionRowButton(title, subtitle, buttonLabel, action) {
+    addActionRowButton(title, subtitle, buttonLabel, action, key = null) {
         const actionRow = Adw.ActionRow.new();
 
         actionRow.set_title(title);
 
         if (subtitle) {
+            actionRow.use_markup = false;
             actionRow.set_subtitle(subtitle);
             if (Adw.get_minor_version() > 2)
                 actionRow.set_subtitle_selectable(true);
@@ -461,13 +487,112 @@ const AdwPreferencesWindow = class {
             button.set_valign(Gtk.Align.CENTER);
             button.set_hexpand(true);
             button.set_vexpand(false);
-            button.connect('clicked', action.bind(this));
+            button.connect('clicked', action.bind(this, actionRow, button, key));
 
             actionRow.add_suffix(button);
             actionRow.set_activatable_widget(button);
         }
 
         return actionRow;
+    }
+
+    setShortcutrow(actionrow, button, key) {
+        if (!key)
+            return;
+
+        if (this.changingKey)
+            return;
+
+        this.changingKey = true;
+        const oldlabel = button.get_label();
+        button.set_label(_('Type new...'));
+        actionrow.set_subtitle(_('Press Enter or Return to clear...'));
+
+        const shortcutEditor = new Gtk.Entry({
+            editable: false,
+            hexpand: false,
+            vexpand: false,
+            halign: Gtk.Align.END,
+            valign: Gtk.Align.CENTER,
+            xalign: 0,  // Right-align
+            placeholder_text:
+                _('Modifier + Key (e.g. Ctrl + Alt + D)'),
+            width_chars: 30,
+            can_focus: true,
+            has_frame: true,
+        });
+
+        const keyController = new Gtk.EventControllerKey();
+        shortcutEditor.add_controller(keyController);
+
+        let popover = new Gtk.Popover({
+            has_arrow: false,
+            autohide: true,
+            child: shortcutEditor,
+        });
+        popover.set_parent(button);
+        popover.set_position(Gtk.PositionType.BOTTOM);
+        popover.popup();
+
+        shortcutEditor.grab_focus_without_selecting();
+
+        const finishEditing = () => {
+            button.set_label(oldlabel);
+            actionrow.set_subtitle(
+                // eslint-disable-next-line prefer-template
+                _('Current shortcut: ') +
+                `${this.desktopSettings.get_strv(key)[0] || _('None')}`
+            );
+            this.changingKey = false;
+        };
+
+        shortcutEditor.connect('activate', () => {
+            const newaccelstring = '';
+            shortcutEditor.set_text('');
+            this.desktopSettings.set_strv(key, [newaccelstring]);
+            popover.popdown();
+        }); // on Enter
+
+        // On popover close (via outside click)
+        popover.connect('hide', () => {
+            finishEditing();
+            popover.unparent();
+            popover = null;
+        });
+
+        keyController.connect('key-pressed', (actor, keyval, keycode, state) => {
+            if (keyval === Gdk.KEY_Escape)
+                popover.hide();
+
+            if (state &&
+                keyval !== Gdk.KEY_Shift_L &&
+                keyval !== Gdk.KEY_Shift_R &&
+                keyval !== Gdk.KEY_Control_L &&
+                keyval !== Gdk.KEY_Control_R &&
+                keyval !== Gdk.KEY_Alt_L &&
+                keyval !== Gdk.KEY_Alt_R &&
+                keyval !== Gdk.KEY_Meta_L &&
+                keyval !== Gdk.KEY_Meta_R &&
+                keyval !== Gdk.KEY_Super_L &&
+                keyval !== Gdk.KEY_Super_R &&
+                keyval !== Gdk.KEY_Caps_Lock &&
+                keyval !== Gdk.KEY_Num_Lock &&
+                keyval !== Gdk.KEY_AltGr_L &&
+                keyval !== Gdk.KEY_AltGr_R &&
+                keyval !== Gdk.KEY_ISO_Level3_Shift &&
+                keyval !== Gdk.KEY_ISO_Level3_Lock &&
+                keyval !== Gdk.KEY_ISO_Level5_Shift &&
+                keyval !== Gdk.KEY_ISO_Level5_Lock
+            ) {
+                const mask = state & Gtk.accelerator_get_default_mod_mask();
+                const accelstring = Gtk.accelerator_name(keyval, mask);
+                shortcutEditor.set_text(accelstring);
+                this.desktopSettings.set_strv(key, [accelstring]);
+                popover.hide();
+            }
+
+            return true;
+        });
     }
 
     launchUri(uri) {
