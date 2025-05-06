@@ -8,22 +8,23 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Xtremo3 <a.lewicki95@gmail.com>, 2025.
+# Adam Lewicki <a.lewick95@gmail.com>, 2025.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-24 02:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/pl/>\n"
+"PO-Revision-Date: 2025-05-05 18:43+0200\n"
+"Last-Translator: Adam Lewicki <a.lewick95@gmail.com>\n"
+"Language-Team: Polish\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Gtranslator 48.0\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 msgid "Desktop"
@@ -518,8 +519,6 @@ msgid "Could not open File"
 msgstr "Nie można otworzyć pliku"
 
 #: app/desktopFileIcon.js:157
-#, fuzzy
-#| msgid "${appName} can not open files of this Type!"
 msgid "{appName} can not open files of this Type!"
 msgstr "${appName} nie może otwierać plików tego typu!"
 
@@ -630,11 +629,9 @@ msgstr "Nie można utworzyć katalogu"
 
 #: app/desktopMenu.js:36
 msgid "Keyboard Short Cuts"
-msgstr ""
+msgstr "Skróty klawiszowe"
 
 #: app/desktopMenu.js:190
-#, fuzzy
-#| msgid "Paste"
 msgid "Do Paste"
 msgstr "Wklej"
 
@@ -651,66 +648,46 @@ msgid "Select All"
 msgstr "Zaznacz wszystko"
 
 #: app/desktopMenu.js:321
-#, fuzzy
-#| msgid "Files"
 msgid "Find Files"
 msgstr "Znajdź pliki"
 
 #: app/desktopMenu.js:338
-#, fuzzy
-#| msgid "Change Desktop"
 msgid "Update Desktop"
-msgstr "Zmień pulpit"
+msgstr "Zaktualizuj pulpit"
 
 #: app/desktopMenu.js:354
-#, fuzzy
-#| msgid "Show hidden files"
 msgid "Show Hidden Files"
 msgstr "Wyświetl ukryte pliki"
 
 #: app/desktopMenu.js:369
-#, fuzzy
-#| msgid "Select All"
 msgid "Unselect All"
 msgstr "Odznacz wszystkie"
 
 #: app/desktopMenu.js:383
-#, fuzzy
 msgid "Preview"
 msgstr "Pogdląd"
 
 #: app/desktopMenu.js:393
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Left"
-msgstr "Wybierz działanie dla plików"
+msgstr "Wybierz lewą ikonę"
 
 #: app/desktopMenu.js:404
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Right"
-msgstr "Wybierz działanie dla plików"
+msgstr "Wybierz prawą ikonę"
 
 #: app/desktopMenu.js:413
-#, fuzzy
-#| msgid "Choose"
 msgid "Choose Icon Up"
-msgstr "Wybierz"
+msgstr "Wybierz ikonę u góry"
 
 #: app/desktopMenu.js:423
-#, fuzzy
-#| msgid "Choose Action for Files"
 msgid "Choose Icon Down"
-msgstr "Wybierz działanie dla plików"
+msgstr "Wybierz ikonę u dołu"
 
 #: app/desktopMenu.js:432
-#, fuzzy
-#| msgid "Shell Menu…"
 msgid "Show Menu"
 msgstr "Pokaż menu"
 
 #: app/desktopMenu.js:480 app/desktopMenu.js:1151
-#, fuzzy
 msgid "Show Shortcuts"
 msgstr "Pokaż skróty klawiszowe"
 
@@ -855,10 +832,8 @@ msgid "Opening File Failed"
 msgstr "Otwarcie pliku się nie powiodło"
 
 #: app/fileItemIcon.js:280
-#, fuzzy
-#| msgid "There is no application installed to open \"{foo}\" files."
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr "Nie ma zainstalowanego programu do otwierania plików \"{foo}\"."
+msgstr "Nie ma zainstalowanego programu do otwierania plików \"{fo}\"."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -900,10 +875,8 @@ msgid "Open All With Other Application..."
 msgstr "Otwórz za pomocą innego programu..."
 
 #: app/fileItemMenu.js:184
-#, fuzzy
-#| msgid "Launch using Dedicated Graphics Card"
 msgid "Launch using Integrated Graphics Card"
-msgstr "Uruchom za pomocą dedykowanej karty graficznej"
+msgstr "Uruchom za pomocą zintegrowanej karty graficznej"
 
 #: app/fileItemMenu.js:206
 msgid "Stack This Type"
@@ -1012,44 +985,32 @@ msgid "Open in {0}"
 msgstr "Otwórz w {0}"
 
 #: app/fileItemMenu.js:530
-#, fuzzy
-#| msgid "Open Items"
 msgid "Open Item"
 msgstr "Otwórz element"
 
 #: app/fileItemMenu.js:570
 msgid "Cut Item"
-msgstr ""
+msgstr "Wytnij element"
 
 #: app/fileItemMenu.js:579
-#, fuzzy
-#| msgid "Open Items"
 msgid "Copy Item"
 msgstr "Skopiuj element"
 
 #: app/fileItemMenu.js:589
-#, fuzzy
-#| msgid "Rename"
 msgid "Rename Item"
 msgstr "Zmień nazwę elementu"
 
 #: app/fileItemMenu.js:612
-#, fuzzy
-#| msgid "Delete permanently"
 msgid "Delete Permanently"
 msgstr "Usuń trwale"
 
 #: app/fileItemMenu.js:701
-#, fuzzy
-#| msgid "Properties"
 msgid "Show Properties"
 msgstr "Pokaż właściwości"
 
 #: app/fileItemMenu.js:730
-#, fuzzy
-#| msgid "Create Link..."
 msgid "Create Link to Item"
-msgstr "Utwórz odnośnik..."
+msgstr "Utwórz odnośnik do elementu"
 
 #: app/fileItemMenu.js:828
 msgid "Extraction Cancelled"
@@ -1138,10 +1099,8 @@ msgid "Unable to move Files, no destination folder"
 msgstr "Nie można przenieść plików, nie ma katalogu docelowego"
 
 #: app/gnomeShellDragDrop.js:356
-#, fuzzy
-#| msgid "${appName} can not open files of this Type!"
 msgid "$appName$ can not open files of this Type!"
-msgstr "${appName} nie może otwierać plików tego typu!"
+msgstr "$appName$ nie może otwierać plików tego typu!"
 
 #: app/preferences.js:892
 msgid "Console"
