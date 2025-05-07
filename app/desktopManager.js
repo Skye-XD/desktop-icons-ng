@@ -79,6 +79,7 @@ const DesktopManager = class {
         this.desktopActions = new DesktopMenu.DesktopActions(this);
         this.desktopMenuManager = new DesktopMenu.DesktopBackgroundMenu(this);
         this.Prefs.init(this);
+        this.shortcutManager = new DesktopMenu.ShortcutManager(this);
 
         // Init Variables
         this._clickX = null;
