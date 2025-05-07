@@ -1766,4 +1766,8 @@ const DesktopManager = class {
     set pendingSelfCopyFiles(object) {
         this.dragManager.pendingSelfCopyFiles = object;
     }
+
+    get writableByOthers() {
+        return this.desktopMonitor._writableByOthers;
+    }
 };
