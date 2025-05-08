@@ -162,13 +162,8 @@ const FileItemIcon = class extends DesktopIconItem {
                     cancellable
                 );
 
-            const oldLabelText = this._currentFileName;
-
             this._updateMetadataFromFileInfo(newFileInfo)
             .catch(e => console.error(`Error updating Metadata ${e}`));
-
-            if (this.displayName !== oldLabelText)
-                this._setFileName(this.displayName);
 
             this._updateName();
         } catch (e) {
