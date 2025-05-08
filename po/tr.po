@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-05-01 22:55+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-05-08 00:03+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -172,7 +173,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:301
 #, fuzzy
 msgid "Restore"
-msgstr "Geri Yükle"
+msgstr "Önceki boyutuna döndür"
 
 #: app/adwPreferencesWindow.js:311
 #, fuzzy
@@ -255,7 +256,7 @@ msgstr "Sürüklenme üzerine açık klasörler"
 #: app/adwPreferencesWindow.js:376
 #, fuzzy
 msgid "Website"
-msgstr "Web Sitesi"
+msgstr "İnternet Sitesi"
 
 #: app/adwPreferencesWindow.js:378
 #, fuzzy
@@ -275,7 +276,7 @@ msgstr "Sorun izleyiciye sorunları bildir"
 #: app/adwPreferencesWindow.js:384
 #, fuzzy
 msgid "Report"
-msgstr "Rapor"
+msgstr "Bildir"
 
 #: app/adwPreferencesWindow.js:387
 #, fuzzy
@@ -295,7 +296,7 @@ msgstr "Web tarayıcıda çeviriye yardımcı ol"
 #: app/adwPreferencesWindow.js:395
 #, fuzzy
 msgid "Translate"
-msgstr "Çevir"
+msgstr "Çevirin"
 
 #: app/adwPreferencesWindow.js:501 app/desktopFolderMonitor.js:613
 #, fuzzy
@@ -530,7 +531,7 @@ msgstr "Arşiv adı"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Şifre"
+msgstr "Parola"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -604,7 +605,7 @@ msgstr ""
 #: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosya açılamadı"
+msgstr "Dosyalar açılamadı"
 
 #: app/desktopFileIcon.js:157
 #, fuzzy
@@ -655,7 +656,7 @@ msgstr ""
 #: app/desktopManager.js:170
 #, fuzzy
 msgid "Enable"
-msgstr "Etkin"
+msgstr "Etkinleştir"
 
 #: app/desktopManager.js:195
 msgid "Can Not Show the Desktop"
@@ -721,8 +722,9 @@ msgid "Could not create folder"
 msgstr "Klasör oluşturulamadı"
 
 #: app/desktopMenu.js:36
+#, fuzzy
 msgid "Keyboard Short Cuts"
-msgstr ""
+msgstr "Klavye Kısayolları"
 
 #: app/desktopMenu.js:190
 #, fuzzy
@@ -767,7 +769,7 @@ msgstr "Tümünü Seçme"
 #: app/desktopMenu.js:383
 #, fuzzy
 msgid "Preview"
-msgstr "Ön izleme"
+msgstr "Önizleme"
 
 #: app/desktopMenu.js:393
 #, fuzzy
@@ -782,7 +784,7 @@ msgstr "Dosyalar için Eylem seçin"
 #: app/desktopMenu.js:413
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "Seç"
+msgstr "Simge seç"
 
 #: app/desktopMenu.js:423
 #, fuzzy
@@ -832,12 +834,12 @@ msgstr "Belge silinemedi"
 #: app/desktopMenu.js:1115
 #, fuzzy
 msgid "Name"
-msgstr "Isim"
+msgstr "İsim"
 
 #: app/desktopMenu.js:1117
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Ad Z - A"
+msgstr "Ad (Z-A)"
 
 #: app/desktopMenu.js:1119
 #, fuzzy
@@ -898,7 +900,7 @@ msgstr "Simgeleri Sırala"
 #: app/desktopMenu.js:1185
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Sırala…"
+msgstr "Düzenleme:"
 
 #: app/desktopMenu.js:1193
 #, fuzzy
