@@ -239,6 +239,9 @@ const FileItemIcon = class extends DesktopIconItem {
             this._isEncrypted = false;
         }
 
+        if (!this._isEncrypted)
+            return;
+
         this.updateIcon()
         .catch(e =>
             console.error(`Error updating after setting encryption status ${e}`)
