@@ -24,8 +24,8 @@ import {_} from '../dependencies/gettext.js';
 export {DesktopFileIcon};
 
 const DesktopFileIcon = class extends FileItemIcon {
-    async _updateMetadataFromFileInfo(fileInfo) {
-        await super._updateMetadataFromFileInfo(fileInfo);
+    _updateMetadataFromFileInfo(fileInfo) {
+        super._updateMetadataFromFileInfo(fileInfo);
 
         this._isDesktopFile =
             this._attributeContentType === 'application/x-desktop';

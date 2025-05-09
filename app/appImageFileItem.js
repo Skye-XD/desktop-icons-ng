@@ -23,8 +23,8 @@ import {_} from '../dependencies/gettext.js';
 export {AppImageFileIcon};
 
 const AppImageFileIcon = class extends FileItemIcon {
-    async _updateMetadataFromFileInfo(fileInfo) {
-        await super._updateMetadataFromFileInfo(fileInfo);
+    _updateMetadataFromFileInfo(fileInfo) {
+        super._updateMetadataFromFileInfo(fileInfo);
 
         this._isAppImageFile =
             this._attributeContentType === 'application/vnd.appimage';
