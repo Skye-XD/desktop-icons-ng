@@ -29,3 +29,4 @@ export {DesktopFileIcon} from '../app/desktopFileIcon.js';
 export {AppImageFileIcon} from '../app/appImageFileItem.js';
 export {SymLinkIcon} from '../app/symLinkIcon.js';
 export {SpecialFolderIcon} from '../app/specialFolderIcon.js';
+export {ShortcutManager} from '../app/shortcutManager.js';
