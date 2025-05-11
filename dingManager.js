@@ -106,6 +106,7 @@ const DingManager = class {
 
         this.GnomeShellOverride = null;
         this.GnomeShellVersion = GnomeShellVersion;
+        this.ShortcutManager = null;
 
         /* The constructor of the EmulateX11 class only initializes some
          * internal properties, but nothing else. In fact, it has its own
@@ -260,6 +261,9 @@ const DingManager = class {
                 this._updateDesktopGeometry.bind(this)
             );
 
+        if (!this.ShortcutManager)
+            this.ShortcutManager = new ShortcutManager(this);
+
         console.log('Adw-DING enabled.');
     }
 
@@ -284,6 +288,7 @@ const DingManager = class {
         this.GnomeShellOverride.disable();
         this.x11Manager.disable();
         this.visibleArea.disable();
+        this.ShortcutManager.disable();
 
         if (this.startupProcessKillWaitId) {
             GLib.source_remove(this.startupProcessKillWaitId);
@@ -962,5 +967,17 @@ var SynthesizeHover = class {
                     return false;
                 }
             );
+    }
+};
+
+/** This class sets global keyboard acclelerators for our application
+ */
+var ShortcutManager = class {
+    constructor(dingManager) {
+        this._settings = dingManager.settings;
+    }
+
+    disable() {
+        this._settings = null;
     }
 };
