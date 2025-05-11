@@ -23,6 +23,7 @@ import GLib from 'gi://GLib';
 import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
 import Mtk from 'gi://Mtk';
+import Shell from 'gi://Shell';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as Config from 'resource:///org/gnome/shell/misc/config.js';
@@ -974,10 +975,75 @@ var SynthesizeHover = class {
  */
 var ShortcutManager = class {
     constructor(dingManager) {
+        // Define default keybindings with their corresponding action
+        this.keyBindings = {
+            'togglevisibility': {
+                shortcut: '<Super>Left',
+                action: 'toggleVisibility',
+            },
+        };
         this._settings = dingManager.settings;
+        this._remoteAction = dingManager.remoteDingActions;
+        this._windowManager = Main.wm;
+        this._enableShortcuts();
+        this._monitorShortcuts();
     }
 
     disable() {
-        this._settings = null;
+        this._settings.disconnect(this._monitorID);
+        this._monitorID = 0;
+        this._disableShortcuts();
+    }
+
+    _enableShortcuts() {
+        for (let name in this.keyBindings)
+            this._addKeyBinding(name);
+    }
+
+    _disableShortcuts() {
+        for (let name in this.keyBindings)
+            this._windowManager.removeKeybinding(name);
+    }
+
+    _addKeyBinding(name) {
+        try {
+            Main.wm.addKeybinding(
+                name,
+                this._settings,
+                Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
+                Shell.ActionMode.NORMAL,
+                () => {
+                    this._activateRemoteAction(this.keyBindings[name].action);
+                }
+            );
+        } catch (e) {
+            log(`Error adding keybinding for ${name}: ${e}`);
+        }
+    }
+
+    _activateRemoteAction(action) {
+        if (this._remoteAction &&
+            (Main.layoutManager.monitors.length !== 0)
+        ) {
+            this._remoteAction.activate_action(
+                action,
+                null
+            );
+        }
+    }
+
+    _monitorShortcuts() {
+        this._monitorID = this._settings.connect(
+            'changed',
+            (obj, key) => {
+                if (key in this.keyBindings)
+                    this._updatebinding(key);
+            }
+        );
+    }
+
+    _updatebinding(key) {
+        this._windowManager.removeKeybinding(key);
+        this._addKeyBinding(key);
     }
 };
