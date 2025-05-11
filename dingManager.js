@@ -84,10 +84,12 @@ const ShellDropCursor = {
 export {DingManager};
 
 const DingManager = class {
-    constructor(extensionpath, version, uuid) {
-        this.path = extensionpath;
-        this.version = version;
-        this.uuid = uuid;
+    constructor(extensionObject) {
+        this.settings = extensionObject.getSettings();
+        this.path = extensionObject.path;
+        this.metadata = extensionObject.metadata;
+        this.version = this.metadata['version-name'];
+        this.uuid = this.metadata.uuid;
         this._init();
     }
 
