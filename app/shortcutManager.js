@@ -29,7 +29,6 @@ class ShortcutViewer extends Gtk.Box {
         );
 
         this._actionMap = null;
-        this._descriptions = {};
 
         const headerBar = Adw.HeaderBar.new();
         const headerTitle = Adw.WindowTitle.new(_('Keyboard Short Cuts'), '');
@@ -48,13 +47,10 @@ class ShortcutViewer extends Gtk.Box {
 
     set_action_map(actionMap) {
         this._actionMap = actionMap;
+        this._descriptions = DefaultShortcuts;
         this._refresh();
     }
 
-    set_descriptions(descriptionMap) {
-        this._descriptions = descriptionMap;
-        this._refresh();
-    }
 
     _refresh() {
         if (!this._actionMap)
@@ -86,12 +82,12 @@ class ShortcutViewer extends Gtk.Box {
 
             let title;
 
-            if (actionObj && actionObj.get_state_hint) {
+            if (actionObj && actionObj.get_state_hint()) {
                 const hint = actionObj.get_state_hint();
                 title = hint ? hint.get_string()[0] : null;
             }
 
-            title = title ?? this._descriptions?.[actionName];
+            title = title ?? this._descriptions[actionName].Hint;
 
             const description = title || this._prettify(actionName);
             const accelText = accels.toString().replace(',', ', ');
