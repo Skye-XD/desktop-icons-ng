@@ -33,6 +33,7 @@ import * as EmulateX11 from './emulateX11WindowType.js';
 import * as GnomeShellOverride from './gnomeShellOverride.js';
 import * as VisibleArea from './visibleArea.js';
 import * as FileUtils from './utils/fileUtils.js';
+import {GlobalShortcuts} from './dependencies/localFiles.js';
 
 const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
 
@@ -976,12 +977,7 @@ var SynthesizeHover = class {
 var ShortcutManager = class {
     constructor(dingManager) {
         // Define default keybindings with their corresponding action
-        this.keyBindings = {
-            'togglevisibility': {
-                shortcut: '<Super>Left',
-                action: 'toggleVisibility',
-            },
-        };
+        this.keyBindings = GlobalShortcuts;
         this._settings = dingManager.settings;
         this._remoteAction = dingManager.remoteDingActions;
         this._windowManager = Main.wm;
@@ -1002,18 +998,18 @@ var ShortcutManager = class {
 
     _disableShortcuts() {
         for (let name in this.keyBindings)
-            this._windowManager.removeKeybinding(name);
+            this._windowManager.removeKeybinding(name.toLowerCase());
     }
 
     _addKeyBinding(name) {
         try {
             Main.wm.addKeybinding(
-                name,
+                name.toLowerCase(),
                 this._settings,
                 Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
                 Shell.ActionMode.NORMAL,
                 () => {
-                    this._activateRemoteAction(this.keyBindings[name].action);
+                    this._activateRemoteAction(name);
                 }
             );
         } catch (e) {
@@ -1036,14 +1032,18 @@ var ShortcutManager = class {
         this._monitorID = this._settings.connect(
             'changed',
             (obj, key) => {
-                if (key in this.keyBindings)
-                    this._updatebinding(key);
+                for (const actionName in this.keyBindings) {
+                    if (actionName.toLowerCase() === key) {
+                        this._updatebinding(actionName);
+                        break;
+                    }
+                }
             }
         );
     }
 
     _updatebinding(key) {
-        this._windowManager.removeKeybinding(key);
+        this._windowManager.removeKeybinding(key.toLowerCase());
         this._addKeyBinding(key);
     }
 };
