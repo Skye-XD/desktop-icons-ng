@@ -158,6 +158,7 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Add a .desktop file and icon for the application on system or local install, for EGO, install and remove on enabling disabling. This allow us to set an icon on our windows and all notifications/dialogs.
 
+- [x] Add a new shortcutsManager class to display, edit and manage all keyboard shortcuts. Add a shortcuts.js file as a simple text editable object to describe all accelerators, keyboard bindings, and the hints that is used by the ShortcutsManager.
 
 
 **FIXES**
@@ -323,3 +324,11 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix ddterm focus loss issue.
 
 - [x] Fix multiple regressions over years with code added- modal dialogs not being set skipTaskbar, gnomeShellDrop regressions, drag-drop Cursor not being set correctly, GSConnect regressions, Restore defaultDesktop not working properly regression, do undo, do redo menus now show only if the action is available.
+
+- [x] Fix errors from async race conditions for updateMetadata from file info showing incorrect name for .desktop files.
+
+- [x] Fix spurious errors from delete shortcuts if there is no selection.
+
+- [x] Do not remove/overwrite user installed .desktop files and icons for the app.
+
+- [x] Fix detection of writable by others for the displayed desktop folder.

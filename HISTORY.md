@@ -1,4 +1,16 @@
 # History of versions #
+* Gtk4/Adw version 99 for Gnome 45, 46, 47, 48
+ * Add a application-id to notifications for the notification server. (Sundeep Mediratta)
+ * Fix error and logging when using delete shortcuts with no selection. (Sundeep Mediratta)
+ * Don't update/overwrite, and thus prevent removal, of user installed .desktop files and icons for the app, just log they exist. (Sundeep Mediratta)
+ * Fix detection of writable by others of the displayed desktop folder to prevent launching of .desktop files. Show appropriate error dialog. (Sundeep Mediratta)
+ * Make updateMetadataFromFileInfo sync, prevent race errors where the .desktop file name was being shown instead of the application name. (Sundeep Mediratta)
+ * Add a new ShortcutsManager class to edit, display all keyboard shortcuts. Use Adw.Widgets in the show shortcuts window. (Sundeep Mediratta)
+ * Describe all shortcuts with the hints and accelerators as an object in an editable shortcuts.js file that is used by the ShortCutsManager and the extension to set and display all keyboard shortcuts. (Sundeep Mediratta)
+ * Update gtk4-ding.pot, Weblate Translations. (Weblate Authors)
+ * Update HISTORY.md, FEATURES.md, metadata.json, version bump to 99
+
+
 * Gtk4/Adw version 98 for Gnome 45, 46, 47, 48
   MAJOR UPDATE
 

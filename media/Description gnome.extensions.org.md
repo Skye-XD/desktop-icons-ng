@@ -8,6 +8,8 @@ Updated and modified code base, uses Gio menus, all translations on Weblate. All
 
 Multiple fixes and new features-
 
+* Added global hotkey accelerator to display or hide desktop icons.
+* New ShortCutsManager that displays Adw.Window and widgets for shortcuts.
 * Complet rewrite of the app, major clean up and restructuring.
 * Add a .desktop icon with actions for app, can be displayed in dock for windows, launcher, menus etc with right click actions, including hiding all windows
 * Show a shortcuts window for the application to list all available shortcuts.
