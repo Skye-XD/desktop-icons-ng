@@ -638,10 +638,9 @@ class DBusManager {
 
     doNotify(header, text) {
         /*
-        The notification interface in GLib.Application requires a
-        .desktop file, which we do not have, so we must use the Notification
-        DBus interface directly From Adwaita icon theme, which should be
-        available for Gnome by default
+            The freedesktop specificaton specifies these common icons by name
+            be available in compatible themes, including displayImange and
+            appIcon
         */
         const displayImage =
             'file:///usr/share/icons/Adwaita/scalable/devices/computer.svg';
