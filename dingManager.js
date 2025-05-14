@@ -23,6 +23,7 @@ import GLib from 'gi://GLib';
 import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
 import Mtk from 'gi://Mtk';
+import Shell from 'gi://Shell';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as Config from 'resource:///org/gnome/shell/misc/config.js';
@@ -32,6 +33,7 @@ import * as EmulateX11 from './emulateX11WindowType.js';
 import * as GnomeShellOverride from './gnomeShellOverride.js';
 import * as VisibleArea from './visibleArea.js';
 import * as FileUtils from './utils/fileUtils.js';
+import {GlobalShortcuts} from './dependencies/localFiles.js';
 
 const GnomeShellVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
 
@@ -84,10 +86,12 @@ const ShellDropCursor = {
 export {DingManager};
 
 const DingManager = class {
-    constructor(extensionpath, version, uuid) {
-        this.path = extensionpath;
-        this.version = version;
-        this.uuid = uuid;
+    constructor(extensionObject) {
+        this.settings = extensionObject.getSettings();
+        this.path = extensionObject.path;
+        this.metadata = extensionObject.metadata;
+        this.version = this.metadata['version-name'];
+        this.uuid = this.metadata.uuid;
         this._init();
     }
 
@@ -104,6 +108,7 @@ const DingManager = class {
 
         this.GnomeShellOverride = null;
         this.GnomeShellVersion = GnomeShellVersion;
+        this.ShortcutManager = null;
 
         /* The constructor of the EmulateX11 class only initializes some
          * internal properties, but nothing else. In fact, it has its own
@@ -258,6 +263,9 @@ const DingManager = class {
                 this._updateDesktopGeometry.bind(this)
             );
 
+        if (!this.ShortcutManager)
+            this.ShortcutManager = new ShortcutManager(this);
+
         console.log('Adw-DING enabled.');
     }
 
@@ -282,6 +290,7 @@ const DingManager = class {
         this.GnomeShellOverride.disable();
         this.x11Manager.disable();
         this.visibleArea.disable();
+        this.ShortcutManager.disable();
 
         if (this.startupProcessKillWaitId) {
             GLib.source_remove(this.startupProcessKillWaitId);
@@ -960,5 +969,81 @@ var SynthesizeHover = class {
                     return false;
                 }
             );
+    }
+};
+
+/** This class sets global keyboard acclelerators for our application
+ */
+var ShortcutManager = class {
+    constructor(dingManager) {
+        // Define default keybindings with their corresponding action
+        this.keyBindings = GlobalShortcuts;
+        this._settings = dingManager.settings;
+        this._remoteAction = dingManager.remoteDingActions;
+        this._windowManager = Main.wm;
+        this._enableShortcuts();
+        this._monitorShortcuts();
+    }
+
+    disable() {
+        this._settings.disconnect(this._monitorID);
+        this._monitorID = 0;
+        this._disableShortcuts();
+    }
+
+    _enableShortcuts() {
+        for (let name in this.keyBindings)
+            this._addKeyBinding(name);
+    }
+
+    _disableShortcuts() {
+        for (let name in this.keyBindings)
+            this._windowManager.removeKeybinding(name.toLowerCase());
+    }
+
+    _addKeyBinding(name) {
+        try {
+            Main.wm.addKeybinding(
+                name.toLowerCase(),
+                this._settings,
+                Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
+                Shell.ActionMode.NORMAL,
+                () => {
+                    this._activateRemoteAction(name);
+                }
+            );
+        } catch (e) {
+            log(`Error adding keybinding for ${name}: ${e}`);
+        }
+    }
+
+    _activateRemoteAction(action) {
+        if (this._remoteAction &&
+            (Main.layoutManager.monitors.length !== 0)
+        ) {
+            this._remoteAction.activate_action(
+                action,
+                null
+            );
+        }
+    }
+
+    _monitorShortcuts() {
+        this._monitorID = this._settings.connect(
+            'changed',
+            (obj, key) => {
+                for (const actionName in this.keyBindings) {
+                    if (actionName.toLowerCase() === key) {
+                        this._updatebinding(actionName);
+                        break;
+                    }
+                }
+            }
+        );
+    }
+
+    _updatebinding(key) {
+        this._windowManager.removeKeybinding(key.toLowerCase());
+        this._addKeyBinding(key);
     }
 };

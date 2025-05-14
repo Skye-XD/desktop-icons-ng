@@ -105,5 +105,10 @@
         <summary>Icons can be positioned anywhere on Desktop</summary>
         <description>Icons are not on a rectangular grid but can be postioned anywhere independent of grid</description>
     </key>
+        <key type="as" name="togglevisibility">
+        <default>[]</default>
+        <summary>Hide/Show all desktop windows</summary>
+        <description>Show the icons on the desktop, or hide them all</description>
+    </key>
     </schema>
 </schemalist>

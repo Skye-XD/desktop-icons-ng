@@ -25,6 +25,7 @@ import {
     DragManager,
     FileItemMenu,
     GnomeShellDragDrop,
+    ShortcutManager,
     ShowErrorPopup,
     StackItem,
     TemplatesScriptsManager,
@@ -79,6 +80,7 @@ const DesktopManager = class {
         this.desktopActions = new DesktopMenu.DesktopActions(this);
         this.desktopMenuManager = new DesktopMenu.DesktopBackgroundMenu(this);
         this.Prefs.init(this);
+        this.shortcutManager = new ShortcutManager(this);
 
         // Init Variables
         this._clickX = null;

@@ -29,3 +29,6 @@ export {DesktopFileIcon} from '../app/desktopFileIcon.js';
 export {AppImageFileIcon} from '../app/appImageFileItem.js';
 export {SymLinkIcon} from '../app/symLinkIcon.js';
 export {SpecialFolderIcon} from '../app/specialFolderIcon.js';
+export {ShortcutManager} from '../app/shortcutManager.js';
+export {DefaultShortcuts} from '../app/shortcuts.js';
+export {GlobalShortcuts} from '../app/shortcuts.js';

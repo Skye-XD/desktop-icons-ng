@@ -529,8 +529,6 @@ const FileItemActions = class {
         );
         openOneFileAction.set_state_hint(GLib.Variant.new('s', _('Open Item')));
         this._mainApp.add_action(openOneFileAction);
-        this._mainApp.set_accels_for_action(
-            'app.openOneFileAction', ['Return']);
 
         const stackunstack =
             Gio.SimpleAction.new('stackunstack', GLib.VariantType.new('s'));
@@ -567,18 +565,14 @@ const FileItemActions = class {
             'activate',
             this._doCut.bind(this)
         );
-        this._docut.set_state_hint(GLib.Variant.new('s', _('Cut Item')));
         this._mainApp.add_action(this._docut);
-        this._mainApp.set_accels_for_action('app.docut', ['<Control>X']);
 
         this._docopy = Gio.SimpleAction.new('docopy', null);
         this._docopy.connect(
             'activate',
             this._doCopy.bind(this)
         );
-        this._docopy.set_state_hint(GLib.Variant.new('s', _('Copy Item')));
         this._mainApp.add_action(this._docopy);
-        this._mainApp.set_accels_for_action('app.docopy', ['<Control>C']);
 
         const dorename = Gio.SimpleAction.new('dorename', null);
         dorename.connect('activate', () => {
@@ -586,9 +580,7 @@ const FileItemActions = class {
                 .doRename(this.activeFileItem, false)
                 .catch(e => logError(e));
         });
-        dorename.set_state_hint(GLib.Variant.new('s', _('Rename Item')));
         this._mainApp.add_action(dorename);
-        this._mainApp.set_accels_for_action('app.dorename', ['F2']);
 
         this.moveToTrash = Gio.SimpleAction.new('movetotrash', null);
         this.moveToTrash.connect(
@@ -596,11 +588,7 @@ const FileItemActions = class {
             () => this.doTrash()
         );
 
-        this.moveToTrash
-        .set_state_hint(GLib.Variant.new('s', _('Move to Trash')));
-
         this._mainApp.add_action(this.moveToTrash);
-        this._mainApp.set_accels_for_action('app.movetotrash', ['Delete']);
 
         this.deletePermanantly =
             Gio.SimpleAction.new('deletepermanantly', null);
@@ -608,12 +596,8 @@ const FileItemActions = class {
             'activate',
             () => this.doDeletePermanently()
         );
-        this.deletePermanantly
-        .set_state_hint(GLib.Variant.new('s', _('Delete Permanently')));
 
         this._mainApp.add_action(this.deletePermanantly);
-        this._mainApp.set_accels_for_action(
-            'app.deletepermanantly', ['<Shift>Delete']);
 
         const emptytrash = Gio.SimpleAction.new('emptytrash', null);
         emptytrash.connect(
@@ -698,10 +682,7 @@ const FileItemActions = class {
             'activate',
             this._onPropertiesClicked.bind(this)
         );
-        properties.set_state_hint(GLib.Variant.new('s', _('Show Properties')));
         this._mainApp.add_action(properties);
-        this._mainApp.set_accels_for_action(
-            'app.properties', ['<Control>I', '<Alt>Return']);
 
         const showinfiles = Gio.SimpleAction.new('showinfiles', null);
         showinfiles.connect(
@@ -726,12 +707,7 @@ const FileItemActions = class {
             this._makeLinks.bind(this)
         );
 
-        makeLinks
-        .set_state_hint(GLib.Variant.new('s', _('Create Link to Item')));
-
         this._mainApp.add_action(makeLinks);
-        this._mainApp.set_accels_for_action(
-            'app.makeLinks', ['<Shift><Control>M']);
 
         const bulkCopy = Gio.SimpleAction.new('bulkCopy', null);
         bulkCopy.connect(
