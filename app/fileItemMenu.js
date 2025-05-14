@@ -1309,11 +1309,14 @@ const FileItemActions = class {
     }
 
     doTrash(localDrag = false, event = null) {
-        const selectionItems =
-            this._desktopManager.getCurrentSelection()
-            .filter(i => !i.isSpecial);
+        const currentSelection = this._desktopManager.getCurrentSelection();
 
-        if (!selectionItems.length)
+        if (!currentSelection)
+            return;
+
+        const selectionItems = currentSelection.filter(i => !i.isSpecial);
+
+        if (!selectionItems || !selectionItems.length)
             return;
 
         if (!localDrag)
@@ -1332,12 +1335,17 @@ const FileItemActions = class {
     }
 
     doDeletePermanently() {
+        const currentSelection = this._desktopManager.getCurrentSelection();
+
+        if (!currentSelection)
+            return;
+
         const toDelete =
-            this._desktopManager.getCurrentSelection()
+            currentSelection
             .filter(i => !i.isSpecial)
             .map(i => i.file.get_uri());
 
-        if (!toDelete.length) {
+        if (!toDelete || !toDelete.length) {
             if (this._desktopManager.getCurrentSelection()
                 .some(i => i.isTrash)
             )
