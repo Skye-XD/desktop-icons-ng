@@ -17,6 +17,8 @@ app/fileItemIcon.js
 app/fileItemMenu.js
 app/gnomeShellDragDrop.js
 app/preferences.js
+app/shortcutManager.js
+app/shortcuts.js
 app/showErrorPopup.js
 app/specialFolderIcon.js
 app/stackItem.js
