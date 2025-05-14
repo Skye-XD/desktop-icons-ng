@@ -58,7 +58,7 @@ const SymLinkIcon = class {
                     this._monitorSymlink();
             }
 
-            async _updateMetadataFromFileInfo(fileInfo) {
+            _updateMetadataFromFileInfo(fileInfo) {
                 this._isSymlink = fileInfo.get_attribute_boolean(
                     Gio.FILE_ATTRIBUTE_STANDARD_IS_SYMLINK
                 );
@@ -73,7 +73,7 @@ const SymLinkIcon = class {
                     this._isSymlink &&
                     this._fileType === Gio.FileType.SYMBOLIC_LINK;
 
-                await super._updateMetadataFromFileInfo(fileInfo);
+                super._updateMetadataFromFileInfo(fileInfo);
             }
 
             _destroy() {

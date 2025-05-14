@@ -24,8 +24,8 @@ import {_} from '../dependencies/gettext.js';
 export {DesktopFileIcon};
 
 const DesktopFileIcon = class extends FileItemIcon {
-    async _updateMetadataFromFileInfo(fileInfo) {
-        await super._updateMetadataFromFileInfo(fileInfo);
+    _updateMetadataFromFileInfo(fileInfo) {
+        super._updateMetadataFromFileInfo(fileInfo);
 
         this._isDesktopFile =
             this._attributeContentType === 'application/x-desktop';
@@ -80,6 +80,19 @@ const DesktopFileIcon = class extends FileItemIcon {
     }
 
     _launchDesktopFile(context, fileList) {
+        if (this._desktopManager.writableByOthers) {
+            const title = _('The Displayed Desktop is writable by others');
+            const error =
+                _(
+                    '.deskop files cannot be launched from this Desktop' +
+                    ' as the Desktop Folder is writable by other users.\n\n' +
+                    'Please check the permissions of this Desktop Folder,' +
+                    ' and make sure it is not writable by others.'
+                );
+
+            this._showerrorpopup(title, error);
+            return;
+        }
         if (!this._isValidDesktopFile) {
             const title = _('Broken Desktop File');
             const error =

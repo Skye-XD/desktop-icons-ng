@@ -42,8 +42,7 @@ const FileItemIcon = class extends DesktopIconItem {
         this._createIconActor();
 
         /* Set the metadata */
-        this._updateMetadataFromFileInfo(fileInfo).catch(
-            e => console.error(`Error updating Metadata ${e}`));
+        this._updateMetadataFromFileInfo(fileInfo);
 
         if (this._attributeCanExecute)
             this._execLine = this.file.get_path();
@@ -162,13 +161,7 @@ const FileItemIcon = class extends DesktopIconItem {
                     cancellable
                 );
 
-            const oldLabelText = this._currentFileName;
-
-            this._updateMetadataFromFileInfo(newFileInfo)
-            .catch(e => console.error(`Error updating Metadata ${e}`));
-
-            if (this.displayName !== oldLabelText)
-                this._setFileName(this.displayName);
+            this._updateMetadataFromFileInfo(newFileInfo);
 
             this._updateName();
         } catch (e) {
@@ -180,7 +173,7 @@ const FileItemIcon = class extends DesktopIconItem {
         }
     }
 
-    async _updateMetadataFromFileInfo(fileInfo) {
+    _updateMetadataFromFileInfo(fileInfo) {
         this._fileInfo = fileInfo;
 
         this._displayName = this._getVisibleName();
@@ -212,7 +205,7 @@ const FileItemIcon = class extends DesktopIconItem {
         );
 
         if (this.Prefs.showLinkEmblem)
-            await this._setEncryptionStatus();
+            this._setEncryptionStatus();
     }
 
     async _setEncryptionStatus() {
@@ -243,6 +236,9 @@ const FileItemIcon = class extends DesktopIconItem {
         default:
             this._isEncrypted = false;
         }
+
+        if (!this._isEncrypted)
+            return;
 
         this.updateIcon()
         .catch(e =>

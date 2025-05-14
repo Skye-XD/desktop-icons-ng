@@ -81,8 +81,8 @@ const SpecialFolderIcon = class extends FileItemIcon {
         }
     }
 
-    async _updateMetadataFromFileInfo(fileInfo) {
-        await super._updateMetadataFromFileInfo(fileInfo);
+    _updateMetadataFromFileInfo(fileInfo) {
+        super._updateMetadataFromFileInfo(fileInfo);
 
         this._isTrash =
             this._fileTypeEnum === this.Enums.FileType.USER_DIRECTORY_TRASH;

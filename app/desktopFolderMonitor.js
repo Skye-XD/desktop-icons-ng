@@ -39,6 +39,7 @@ const DesktopMonitor = class {
         this._desktopDir = this.DesktopIconsUtil.getDesktopDir();
         this._fileList = [];
         this._forcedExit = false;
+        this._writableByOthers = false;
 
         this._updateWritableByOthers().catch(e => console.error(e));
         this._createDesktopChangeActions();
@@ -176,10 +177,10 @@ const DesktopMonitor = class {
             let writableByOthers =
                 (this.unixMode & this.Enums.UnixPermissions.S_IWOTH) !== 0;
 
-            if (writableByOthers !== this.writableByOthers) {
-                this.writableByOthers = writableByOthers;
+            if (writableByOthers !== this._writableByOthers) {
+                this._writableByOthers = writableByOthers;
 
-                if (this.writableByOthers) {
+                if (this._writableByOthers) {
                     console.log('desktop-icons: The desktop is writable by' +
                         ' others. Not allowing launching any desktop files.'
                     );
@@ -191,7 +192,7 @@ const DesktopMonitor = class {
             }
         } catch (e) {
             if (e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND)) {
-                this.writableByOthers = true;
+                this._writableByOthers = true;
 
                 return true;
             }
