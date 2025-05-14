@@ -347,7 +347,8 @@ class DBusManager {
     checkIsAvailable() to determine if the desired service is available
     in the system or not.
     */
-    constructor() {
+    constructor(mainApp) {
+        this._mainApp = mainApp;
         this._availableInSystemBus = [];
         this._availableInLocalBus = [];
         this._pendingLocalSignal = false;
@@ -637,16 +638,18 @@ class DBusManager {
 
     doNotify(header, text) {
         /*
-        The notification interface in GLib.Application requires a
-        .desktop file, which we do not have, so we must use the Notification
-        DBus interface directly From Adwaita icon theme, which should be
-        available for Gnome by default
+            The freedesktop specificaton specifies these common icons by name
+            be available in compatible themes, including displayImange and
+            appIcon
         */
         const displayImage =
             'file:///usr/share/icons/Adwaita/scalable/devices/computer.svg';
 
+        const appID = this._mainApp.get_application_id();
+
         const notifyHint =  {
             'image-path': new GLib.Variant('s', displayImage),
+            'desktop-entry': new GLib.Variant('s', appID),
         };
 
         const appName = 'Desktop Icons';
@@ -1408,7 +1411,7 @@ const DBusUtils = class {
     constructor(mainApp) {
         this.mainApp = mainApp;
         this.discreteGpuAvailable = false;
-        this.dbusManagerObject = new DBusManager();
+        this.dbusManagerObject = new DBusManager(mainApp);
         const makeAsync = true;
         const insSytembus = true;
         const insSessionBus = !insSytembus;
