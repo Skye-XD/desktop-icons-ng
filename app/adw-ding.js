@@ -450,14 +450,14 @@ const adWDingApp = GObject.registerClass(
                 const [existingContents] =
                     await destinationFile.load_contents_async(null);
 
-                if (this._memcmp(contents, existingContents)) {
-                    console.log(
-                        'Already up-to-date: ' +
-                        `${GLib.path_get_basename(destinationPath)}`
-                    );
+                const fileName = GLib.path_get_basename(destinationPath);
 
-                    return false;
-                }
+                if (this._memcmp(contents, existingContents))
+                    console.log(`Already up-to-date: ${fileName}`);
+                else
+                    console.log(`User installed file ${fileName} exists`);
+
+                return false;
             }
 
             try {
