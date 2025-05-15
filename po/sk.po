@@ -8,10 +8,10 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk4-ding\n"
+"Project-Id-Version: gtk4-ding v99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-29 02:53+0200\n"
+"POT-Creation-Date: 2025-05-14 07:32-0400\n"
+"PO-Revision-Date: 2025-05-15 19:06+0200\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
 "Language: sk\n"
@@ -19,237 +19,275 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
+#: app/adwPreferencesWindow.js:187 app/adwPreferencesWindow.js:188
 msgid "Desktop"
 msgstr "Pracovná plocha"
 
-#: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:193 app/adwPreferencesWindow.js:194
 msgid "Files"
 msgstr "Súbory"
 
-#: app/adwPreferencesWindow.js:195 app/adwPreferencesWindow.js:196
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:199 app/adwPreferencesWindow.js:200
+#: app/adwPreferencesWindow.js:241
 msgid "Tweaks"
 msgstr "Vyladenia"
 
-#: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
+#: app/adwPreferencesWindow.js:205 app/adwPreferencesWindow.js:206
 msgid "About"
 msgstr "O aplikácii"
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:217
 msgid "Desktop Settings"
 msgstr "Nastavenie plochy"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:218
 msgid "Settings for the Desktop Program"
 msgstr "Nastavenia pre program plochy"
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:224
 msgid "Desktop Folder"
 msgstr "Priečinok pracovnej plochy"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:225
 msgid "Current Desktop: "
 msgstr "Aktuálna pracovná plocha: "
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:234
 msgid "Files Settings"
 msgstr "Nastavenia súborov"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:235
 msgid "Settings shared with Gnome Files"
 msgstr "Nastavenia zdieľané s aplikáciou Súbory (Gnome Files)"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:242
 msgid "Miscellaneous Tweaks"
 msgstr "Rôzne vyladenia"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:255
 msgid "Size for the desktop icons"
 msgstr "Veľkosť ikon pracovnej plochy"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:257
 msgid "Tiny"
 msgstr "Najmenšie"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:258
 msgid "Small"
 msgstr "Malé"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:259
 msgid "Standard"
 msgstr "Štandardné"
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:260
 msgid "Large"
 msgstr "Veľké"
 
-#: app/adwPreferencesWindow.js:262
+#: app/adwPreferencesWindow.js:266
 msgid "New icons alignment"
 msgstr "Zarovnanie nových ikon"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:268
 msgid "Top left corner"
 msgstr "Ľavý horný roh"
 
-#: app/adwPreferencesWindow.js:265
+#: app/adwPreferencesWindow.js:269
 msgid "Top right corner"
 msgstr "Pravý horný roh"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:270
 msgid "Bottom left corner"
 msgstr "Ľavý spodný roh"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:271
 msgid "Bottom right corner"
 msgstr "Pravý spodný roh"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:277
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Pridať nové ikony najprv na sekundárne monitory, ak sú k dispozícii"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:281
 msgid "Snap icons to grid"
 msgstr "Pripnúť ikony na mriežku"
 
-#: app/adwPreferencesWindow.js:283
+#: app/adwPreferencesWindow.js:287
 msgid "Highlight the drop grid"
 msgstr "Zvýrazniť mriežku pri pustení ikony"
 
-#: app/adwPreferencesWindow.js:292
+#: app/adwPreferencesWindow.js:296
 msgid "New Desktop Folder"
 msgstr "Nový priečinok pracovnej plochy"
 
-#: app/adwPreferencesWindow.js:293
+#: app/adwPreferencesWindow.js:297
 msgid "Set a new folder for the desktop"
 msgstr "Nastaviť nový priečinok pre pracovnú plochu"
 
-#: app/adwPreferencesWindow.js:294 app/adwPreferencesWindow.js:502
-#: app/desktopFolderMonitor.js:614
+#: app/adwPreferencesWindow.js:298 app/adwPreferencesWindow.js:631
+#: app/desktopFolderMonitor.js:618
 msgid "Choose"
 msgstr "Vybrať"
 
-#: app/adwPreferencesWindow.js:299
+#: app/adwPreferencesWindow.js:303
 msgid "Restore Default Desktop Folder"
 msgstr "Obnoviť predvolený priečinok pracovnej plochy"
 
-#: app/adwPreferencesWindow.js:300
+#: app/adwPreferencesWindow.js:304
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr "Nastaviť plochu späť na $HOME/Desktop"
 
-#: app/adwPreferencesWindow.js:301
+#: app/adwPreferencesWindow.js:305
 msgid "Restore"
 msgstr "Obnoviť"
 
-#: app/adwPreferencesWindow.js:311
+#: app/adwPreferencesWindow.js:315
 msgid "Add information emblems for links, encryption"
 msgstr "Pridať informačné príznaky pre odkazy, šifrovanie"
 
-#: app/adwPreferencesWindow.js:315
+#: app/adwPreferencesWindow.js:319
 msgid "Use dark text in icon labels"
 msgstr "Použiť tmavý text na štítkoch ikon"
 
-#: app/adwPreferencesWindow.js:320
+#: app/adwPreferencesWindow.js:324
 msgid "Show the personal folder on the desktop"
 msgstr "Zobraziť osobný priečinok na pracovnej ploche"
 
-#: app/adwPreferencesWindow.js:325
+#: app/adwPreferencesWindow.js:329
 msgid "Show the trash icon on the desktop"
 msgstr "Zobraziť ikonu koša na pracovnej ploche"
 
-#: app/adwPreferencesWindow.js:330
+#: app/adwPreferencesWindow.js:334
 msgid "Show external drives on the desktop"
 msgstr "Zobraziť externé jednotky na pracovnej ploche"
 
-#: app/adwPreferencesWindow.js:335
+#: app/adwPreferencesWindow.js:339
 msgid "Show network drives on the desktop"
 msgstr "Zobraziť sieťové jednotky na pracovnej ploche"
 
-#: app/adwPreferencesWindow.js:340
+#: app/adwPreferencesWindow.js:344
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Pridať nové jednotky na opačnú stranu plochy"
 
-#: app/adwPreferencesWindow.js:346
+#: app/adwPreferencesWindow.js:348
+msgid "Global Shortcut"
+msgstr "Globálna skratka"
+
+#: app/adwPreferencesWindow.js:355 app/adwPreferencesWindow.js:544
+#: app/shortcutManager.js:122 app/shortcutManager.js:217
+msgid "None"
+msgstr "Žiadna"
+
+#: app/adwPreferencesWindow.js:357 app/shortcutManager.js:124
+msgid "Current shortcut:"
+msgstr "Aktuálna skratka:"
+
+#: app/adwPreferencesWindow.js:361 app/shortcuts.js:41
+msgid "Show Or Hide Desktop Icons"
+msgstr "Zobraziť alebo skryť ikony na pracovnej ploche"
+
+#: app/adwPreferencesWindow.js:363 app/shortcutManager.js:129
+msgid "Edit"
+msgstr "Upraviť"
+
+#: app/adwPreferencesWindow.js:375
 msgid "Action to Open Items"
 msgstr "Akcia pre otvorenie položiek"
 
-#: app/adwPreferencesWindow.js:348
+#: app/adwPreferencesWindow.js:377
 msgid "Single click"
 msgstr "Jednoduché kliknutie"
 
-#: app/adwPreferencesWindow.js:349
+#: app/adwPreferencesWindow.js:378
 msgid "Double click"
 msgstr "Dvojité kliknutie"
 
-#: app/adwPreferencesWindow.js:354
+#: app/adwPreferencesWindow.js:383
 msgid "Show image thumbnails"
 msgstr "Zobraziť miniatúry obrázkov"
 
-#: app/adwPreferencesWindow.js:356
+#: app/adwPreferencesWindow.js:385
 msgid "Always"
 msgstr "Vždy"
 
-#: app/adwPreferencesWindow.js:357
+#: app/adwPreferencesWindow.js:386
 msgid "On this computer only"
 msgstr "Iba na tomto počítači"
 
-#: app/adwPreferencesWindow.js:358
+#: app/adwPreferencesWindow.js:387
 msgid "Never"
 msgstr "Nikdy"
 
-#: app/adwPreferencesWindow.js:363
+#: app/adwPreferencesWindow.js:392
 msgid "Show a context menu item to delete permanently"
 msgstr "Zobraziť kontextovú ponuku položky na trvalé odstránenie"
 
-#: app/adwPreferencesWindow.js:368
+#: app/adwPreferencesWindow.js:397
 msgid "Show hidden files"
 msgstr "Zobraziť skryté súbory"
 
-#: app/adwPreferencesWindow.js:373
+#: app/adwPreferencesWindow.js:402
 msgid "Open folders on drag hover"
 msgstr "Otvoriť priečinky pri ťahaní myšou"
 
-#: app/adwPreferencesWindow.js:376
+#: app/adwPreferencesWindow.js:405
 msgid "Website"
 msgstr "Webstránka"
 
-#: app/adwPreferencesWindow.js:378
+#: app/adwPreferencesWindow.js:407
 msgid "Visit"
 msgstr "Navštíviť"
 
-#: app/adwPreferencesWindow.js:382
+#: app/adwPreferencesWindow.js:411
 msgid "Issues"
 msgstr "Problémy"
 
-#: app/adwPreferencesWindow.js:383
+#: app/adwPreferencesWindow.js:412
 msgid "Report issues on issue tracker"
 msgstr "Nahlásiť problémy v nástroji na sledovanie problémov"
 
-#: app/adwPreferencesWindow.js:384
+#: app/adwPreferencesWindow.js:413
 msgid "Report"
 msgstr "Nahlásiť chybu"
 
-#: app/adwPreferencesWindow.js:387
+#: app/adwPreferencesWindow.js:416
 msgid "License"
 msgstr "Licencia"
 
-#: app/adwPreferencesWindow.js:393
+#: app/adwPreferencesWindow.js:422
 msgid "Translation"
 msgstr "Preklad"
 
-#: app/adwPreferencesWindow.js:394
+#: app/adwPreferencesWindow.js:423
 msgid "Help translate in your web browser"
 msgstr "Pomôžte preložiť vo svojom webovom prehliadači"
 
-#: app/adwPreferencesWindow.js:395
+#: app/adwPreferencesWindow.js:424
 msgid "Translate"
 msgstr "Preložiť"
 
-#: app/adwPreferencesWindow.js:501 app/desktopFolderMonitor.js:613
+#: app/adwPreferencesWindow.js:508 app/shortcutManager.js:183
+msgid "Type new..."
+msgstr "Zadajte novú..."
+
+#: app/adwPreferencesWindow.js:509 app/shortcutManager.js:184
+msgid "Press Enter or Return to clear..."
+msgstr "Stlačte Enter alebo Return pre zrušenie..."
+
+#: app/adwPreferencesWindow.js:519 app/shortcutManager.js:194
+msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
+msgstr "Modifikátor + kláves (napr. Ctrl + Alt + D)"
+
+#. eslint-disable-next-line prefer-template
+#: app/adwPreferencesWindow.js:543 app/shortcutManager.js:220
+msgid "Current shortcut: "
+msgstr "Aktuálna skratka: "
+
+#: app/adwPreferencesWindow.js:630 app/desktopFolderMonitor.js:617
 msgid "Choose Desktop Folder"
 msgstr "Vyberte priečinok pracovnej plochy"
 
@@ -289,7 +327,7 @@ msgstr ""
 "Tento súbor AppImage má nesprávne oprávnenia. Kliknutím pravým tlačidlom "
 "myši upravte Vlastnosti a potom:\n"
 
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:107
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:120
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
@@ -298,7 +336,7 @@ msgstr ""
 "Nastavte oprávnenia v položke \"Prístup ostatní\", \"Len na čítanie\" alebo "
 "\"Žiadne\""
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:115
+#: app/appImageFileItem.js:74 app/desktopFileIcon.js:128
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
@@ -330,8 +368,8 @@ msgstr "Názov priečinku"
 msgid "File name"
 msgstr "Názov súboru"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:976
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
+#: app/fileItemMenu.js:952
 msgid "OK"
 msgstr "OK"
 
@@ -359,9 +397,9 @@ msgstr "Extrahovanie súborov"
 msgid "Compressing files"
 msgstr "Kompresia súborov"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
-#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
+#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:899
+#: app/fileItemMenu.js:952 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -466,10 +504,28 @@ msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Menšie archívy, ale musia byť inštalované na Windows a Mac."
 
 #: app/desktopFileIcon.js:84
+msgid "The Displayed Desktop is writable by others"
+msgstr "Na zobrazenú plochu môžu zapisovať iní používatelia"
+
+#: app/desktopFileIcon.js:87
+msgid ""
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
+"\n"
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
+msgstr ""
+"Súbory .deskop nie je možné spustiť z tejto pracovnej plochy, pretože do "
+"priečinka pracovnej plochy môžu zapisovať iní používatelia.\n"
+"\n"
+"Skontrolujte oprávnenia tohto priečinku Plochy a uistite sa, aby doň nemohli "
+"zapisovať iní používatelia."
+
+#: app/desktopFileIcon.js:97
 msgid "Broken Desktop File"
 msgstr "Poškodený súbor plochy"
 
-#: app/desktopFileIcon.js:87
+#: app/desktopFileIcon.js:100
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -481,11 +537,11 @@ msgstr ""
 "\n"
 "Upravte súbor a nastavte správny spustiteľný program."
 
-#: app/desktopFileIcon.js:97
+#: app/desktopFileIcon.js:110
 msgid "Invalid Permissions on Desktop File"
 msgstr "Neplatné oprávnenia na súbor plochy"
 
-#: app/desktopFileIcon.js:100
+#: app/desktopFileIcon.js:113
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -493,11 +549,11 @@ msgstr ""
 "Tento súbor .desktop má nesprávne oprávnenia. Kliknutím pravým tlačidlom "
 "myši upravte Vlastnosti a potom:\n"
 
-#: app/desktopFileIcon.js:124
+#: app/desktopFileIcon.js:137
 msgid "Untrusted Desktop File"
 msgstr "Nedôveryhodný súbor pracovnej plochy"
 
-#: app/desktopFileIcon.js:127
+#: app/desktopFileIcon.js:140
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -509,27 +565,27 @@ msgstr ""
 "\n"
 "Povoľte \"Povoliť spúšťanie\""
 
-#: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:168 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
 msgstr "Nepodarilo sa otvoriť súbor"
 
-#: app/desktopFileIcon.js:157
+#: app/desktopFileIcon.js:170
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} nemôže otvoriť súbory tohto typu!"
 
-#: app/desktopFolderMonitor.js:120
+#: app/desktopFolderMonitor.js:121
 msgid "Desktop Folder Change Failed"
 msgstr "Zmena priečinka pracovnej plochy sa nepodarila"
 
-#: app/desktopFolderMonitor.js:123
+#: app/desktopFolderMonitor.js:124
 msgid "The new Desktop Folder does not exist!"
 msgstr "Nový priečinok pracovnej plochy neexistuje!"
 
-#: app/desktopFolderMonitor.js:139
+#: app/desktopFolderMonitor.js:140
 msgid "Desktop Folder Changed"
 msgstr "Priečinok pracovnej plochy bol zmenený"
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:141
 msgid "Switching to new Desktop..."
 msgstr "Prechod na novú pracovnú plochu..."
 
@@ -537,11 +593,11 @@ msgstr "Prechod na novú pracovnú plochu..."
 msgid "Desktop Icons"
 msgstr "Ikony plochy"
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "Zmena rozsahu Frame Buffer monitora nie je povolená"
 
-#: app/desktopManager.js:156
+#: app/desktopManager.js:158
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -553,7 +609,7 @@ msgstr ""
 "\n"
 "Prosím, povoľte to v nastaveniach Mutter Dconf"
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:169
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -564,36 +620,36 @@ msgstr ""
 "Povoliť zmenu rozsahu framebuffer pre jednotlivé monitory v nastaveniach "
 "Mutter Dconf?"
 
-#: app/desktopManager.js:170
+#: app/desktopManager.js:172
 msgid "Enable"
 msgstr "Zapnúť"
 
-#: app/desktopManager.js:195
+#: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
 msgstr "Nie je možné zobraziť pracovnú plochu"
 
-#: app/desktopManager.js:205
+#: app/desktopManager.js:207
 msgid "GNOME Files not found"
 msgstr "Aplikácia Súbory (Gnome Files) nebola nájdená"
 
-#: app/desktopManager.js:206
+#: app/desktopManager.js:208
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "Aplikácia Súbory (GNOME files) je potrebná pre Gtk4 Desktop Icons NG."
 
-#: app/desktopManager.js:214
+#: app/desktopManager.js:216
 msgid "There is no default File Manager"
 msgstr "Neexistuje žiadny predvolený správca súborov"
 
-#: app/desktopManager.js:215
+#: app/desktopManager.js:217
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 "Neexistuje žiadna aplikácia, ktorá spravuje mimetype \"inode/directory\""
 
-#: app/desktopManager.js:224
+#: app/desktopManager.js:226
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Aplikácia Súbory (Gnome Files) nie je registrovaná ako správca súborov"
 
-#: app/desktopManager.js:225
+#: app/desktopManager.js:227
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -604,183 +660,135 @@ msgstr ""
 "Skontrolujte svoju inštaláciu xdg-utils\n"
 "Skontrolujte inštaláciu aplikácie Gnome Files .desktop File"
 
-#: app/desktopManager.js:317
+#: app/desktopManager.js:319
 msgid "Clear current selection before new search"
 msgstr "Pred novým hľadaním vymažte aktuálny výber"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1229
 msgid "Find Files on Desktop"
 msgstr "Nájdenie súborov na pracovnej ploche"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
+#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Nový priečinok"
 
-#: app/desktopManager.js:1585
+#: app/desktopManager.js:1592
 msgid "Folder Creation Failed"
 msgstr "Vytvorenie priečinka zlyhalo"
 
-#: app/desktopManager.js:1586
+#: app/desktopManager.js:1593
 msgid "Could not create folder"
 msgstr "Priečinok sa nepodarilo vytvoriť"
 
-#: app/desktopMenu.js:36
-msgid "Keyboard Short Cuts"
-msgstr "Klávesové skratky"
-
-#: app/desktopMenu.js:190
-msgid "Do Paste"
-msgstr "Vložiť"
-
-#: app/desktopMenu.js:202 app/desktopMenu.js:1166
-msgid "Undo"
-msgstr "Vrátiť späť"
-
-#: app/desktopMenu.js:214 app/desktopMenu.js:1168
-msgid "Redo"
-msgstr "Zopakovať"
-
-#: app/desktopMenu.js:225 app/desktopMenu.js:1174
-msgid "Select All"
-msgstr "Vybrať všetko"
-
-#: app/desktopMenu.js:321
-msgid "Find Files"
-msgstr "Hľadať súbory"
-
-#: app/desktopMenu.js:338
-msgid "Update Desktop"
-msgstr "Aktualizovať pracovnú plochu"
-
-#: app/desktopMenu.js:354
-msgid "Show Hidden Files"
-msgstr "Zobraziť skryté súbory"
-
-#: app/desktopMenu.js:369
-msgid "Unselect All"
-msgstr "Odznačiť všetko"
-
-#: app/desktopMenu.js:383
-msgid "Preview"
-msgstr "Náhľad"
-
-#: app/desktopMenu.js:393
-msgid "Choose Icon Left"
-msgstr "Vybrať ikonu vľavo"
-
-#: app/desktopMenu.js:404
-msgid "Choose Icon Right"
-msgstr "Vybrať ikonu vpravo"
-
-#: app/desktopMenu.js:413
-msgid "Choose Icon Up"
-msgstr "Vybrať ikonu hore"
-
-#: app/desktopMenu.js:423
-msgid "Choose Icon Down"
-msgstr "Vybrať ikonu dole"
-
-#: app/desktopMenu.js:432
-msgid "Show Menu"
-msgstr "Zobraziť ponuku"
-
-#: app/desktopMenu.js:480 app/desktopMenu.js:1151
-msgid "Show Shortcuts"
-msgstr "Zobraziť klávesové skratky"
-
-#: app/desktopMenu.js:750
+#: app/desktopMenu.js:549
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Nie je možné otvoriť pracovnú plochu v aplikácii Súbory (Gnome files)"
 
-#: app/desktopMenu.js:790
+#: app/desktopMenu.js:570
 msgid "Preferences Window is Open"
 msgstr "Okno nastavení je otvorené"
 
-#: app/desktopMenu.js:791
+#: app/desktopMenu.js:571
 msgid "This Window is open. Please switch to the active window."
 msgstr "Toto okno je otvorené. Prepnite prosím na aktívne okno."
 
-#: app/desktopMenu.js:806 app/desktopMenu.js:1207
+#: app/desktopMenu.js:580 app/desktopMenu.js:961
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:763
 msgid "Template Creation Error"
 msgstr "Chyba pri vytváraní šablóny"
 
-#: app/desktopMenu.js:988
+#: app/desktopMenu.js:764
 msgid "Could not create document"
 msgstr "Nepodarilo sa vytvoriť dokument"
 
-#: app/desktopMenu.js:1115
+#: app/desktopMenu.js:869
 msgid "Name"
 msgstr "Názov"
 
-#: app/desktopMenu.js:1117
+#: app/desktopMenu.js:871
 msgid "Name Z-A"
 msgstr "Názov (Z-A)"
 
-#: app/desktopMenu.js:1119
+#: app/desktopMenu.js:873
 msgid "Modified Time"
 msgstr "Čas úpravy"
 
-#: app/desktopMenu.js:1121
+#: app/desktopMenu.js:875
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopMenu.js:1123
+#: app/desktopMenu.js:877
 msgid "Size"
 msgstr "Veľkosť"
 
-#: app/desktopMenu.js:1128
+#: app/desktopMenu.js:882
 msgid "Keep Arranged…"
 msgstr "Udržiavať usporiadané…"
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:887
 msgid "Keep Stacked by Type…"
 msgstr "Udržiavať zoskupené podľa typu…"
 
-#: app/desktopMenu.js:1135
+#: app/desktopMenu.js:889
 msgid "Sort Home/Drives/Trash…"
 msgstr "Usporiadať Domov/Jednotky/Kôš…"
 
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:894
 msgid "Change Desktop"
 msgstr "Zmeniť pracovnú plochu"
 
-#: app/desktopMenu.js:1145
+#: app/desktopMenu.js:899
 msgid "Restore Default Desktop"
 msgstr "Obnoviť predvolenú pracovnú plochu"
 
-#: app/desktopMenu.js:1149
+#: app/desktopMenu.js:903
 msgid "Desktop Icon Settings"
 msgstr "Nastavenia ikon pracovnej plochy"
 
-#: app/desktopMenu.js:1159
+#: app/desktopMenu.js:905
+msgid "Show Shortcuts"
+msgstr "Zobraziť klávesové skratky"
+
+#: app/desktopMenu.js:913 app/shortcuts.js:39
 msgid "New Document"
 msgstr "Nový dokument"
 
-#: app/desktopMenu.js:1164
+#: app/desktopMenu.js:918 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Vložiť"
 
-#: app/desktopMenu.js:1181
+#: app/desktopMenu.js:920 app/shortcuts.js:12
+msgid "Undo"
+msgstr "Vrátiť späť"
+
+#: app/desktopMenu.js:922 app/shortcuts.js:13
+msgid "Redo"
+msgstr "Zopakovať"
+
+#: app/desktopMenu.js:928 app/shortcuts.js:14
+msgid "Select All"
+msgstr "Vybrať všetko"
+
+#: app/desktopMenu.js:935 app/shortcuts.js:24
 msgid "Arrange Icons"
 msgstr "Usporiadať ikony"
 
-#: app/desktopMenu.js:1185
+#: app/desktopMenu.js:939
 msgid "Arrange By…"
 msgstr "Usporiadať podľa…"
 
-#: app/desktopMenu.js:1193
+#: app/desktopMenu.js:947
 msgid "Show Desktop In {0}"
 msgstr "Zobraziť plochu v {0}"
 
-#: app/desktopMenu.js:1198
+#: app/desktopMenu.js:952
 msgid "Open In {0}"
 msgstr "Otvoriť v aplikácii {0}"
 
-#: app/desktopMenu.js:1214
+#: app/desktopMenu.js:968
 msgid "Shell Menu…"
 msgstr "Ponuka rozhrania…"
 
@@ -816,19 +824,19 @@ msgstr "Kopírovať"
 msgid "Link"
 msgstr "Odkaz"
 
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:95
 msgid "Folder"
 msgstr "Priečinok"
 
-#: app/fileItemIcon.js:97
+#: app/fileItemIcon.js:96
 msgid "File"
 msgstr "Súbor"
 
-#: app/fileItemIcon.js:274
+#: app/fileItemIcon.js:270
 msgid "Opening File Failed"
 msgstr "Otvorenie súboru zlyhalo"
 
-#: app/fileItemIcon.js:280
+#: app/fileItemIcon.js:276
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Nie je nainštalovaná žiadna aplikácia na otváranie súborov \"{fo}\"."
 
@@ -933,7 +941,7 @@ msgstr "Poslať e-mailom..."
 msgid "Send to Mobile Device"
 msgstr "Odoslať na mobilné zariadenie"
 
-#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:294
 msgid "Move to Trash"
 msgstr "Presunúť do Koša"
 
@@ -985,113 +993,89 @@ msgstr "Otvoriť v aplikácii {0}"
 msgid "Open Item"
 msgstr "Otvoriť položku"
 
-#: app/fileItemMenu.js:570
-msgid "Cut Item"
-msgstr "Vystrihnúť položku"
-
-#: app/fileItemMenu.js:579
-msgid "Copy Item"
-msgstr "Kopírovať položku"
-
-#: app/fileItemMenu.js:589
-msgid "Rename Item"
-msgstr "Premenovať položku"
-
-#: app/fileItemMenu.js:612
-msgid "Delete Permanently"
-msgstr "Odstrániť natrvalo"
-
-#: app/fileItemMenu.js:701
-msgid "Show Properties"
-msgstr "Zobraziť vlastnosti"
-
-#: app/fileItemMenu.js:730
-msgid "Create Link to Item"
-msgstr "Vytvoriť odkaz na položku"
-
-#: app/fileItemMenu.js:828
+#: app/fileItemMenu.js:804
 msgid "Extraction Cancelled"
 msgstr "Extrakcia zrušená"
 
-#: app/fileItemMenu.js:829
+#: app/fileItemMenu.js:805
 msgid "Unable to extract File, no destination folder"
 msgstr "Nedá sa extrahovať súbor, žiadny cieľový priečinok"
 
-#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
+#: app/fileItemMenu.js:861 app/fileItemMenu.js:890
 msgid "Select Destination"
 msgstr "Vyberte cieľ"
 
-#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
+#: app/fileItemMenu.js:864 app/fileItemMenu.js:892
 msgid "Select"
 msgstr "Vybrať"
 
-#: app/fileItemMenu.js:972
+#: app/fileItemMenu.js:948
 msgid "Can not email a Directory"
 msgstr "Nedá sa odoslať adresár pomocou emailu"
 
-#: app/fileItemMenu.js:974
+#: app/fileItemMenu.js:950
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Výber obsahuje priečinok, komprimovať ho najprv do súboru .zip?"
 
-#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
-#: app/fileItemMenu.js:1067
+#: app/fileItemMenu.js:976 app/fileItemMenu.js:1007 app/fileItemMenu.js:1024
+#: app/fileItemMenu.js:1043
 msgid "Mail Error"
 msgstr "Chyba pošty"
 
-#: app/fileItemMenu.js:1002
+#: app/fileItemMenu.js:978
 msgid "Unable to find zip command, please install the program"
 msgstr "Nie je možné nájsť príkaz zips, nainštalujte prosím program"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1008
+#: app/fileItemMenu.js:984
 msgid "Archive.zip"
 msgstr "Archiv.zip"
 
-#: app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1008
 msgid "There was an error in creating a zip archive"
 msgstr "Pri vytváraní archívu zip došlo k chybe"
 
-#: app/fileItemMenu.js:1050
+#: app/fileItemMenu.js:1026
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Nie je možné nájsť xdg-email, nainštalujte prosím program"
 
-#: app/fileItemMenu.js:1068
+#: app/fileItemMenu.js:1044
 msgid "There was an error in emailing Files"
 msgstr "Pri odosielaní súborov e-mailom došlo k chybe"
 
-#: app/fileItemMenu.js:1175
+#: app/fileItemMenu.js:1151
 msgid "Can Not open the Working Directory"
 msgstr "Nie je možné otvoriť pracovný priečinok"
 
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1202
 msgid "Unable to Open in Gnome Console"
 msgstr "Nie je možné otvoriť v Gnome Console"
 
-#: app/fileItemMenu.js:1228
+#: app/fileItemMenu.js:1204
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Nainštalujte prosím Gnome Console alebo inú aplikáciu terminálu"
 
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1212
 msgid "Unable to Open {0}"
 msgstr "Nie je možné otvoriť {0}"
 
-#: app/fileItemMenu.js:1238
+#: app/fileItemMenu.js:1214
 msgid "Please Install {0}"
 msgstr "Nainštalujte prosím {0}"
 
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1258
 msgid "Copy Cancelled"
 msgstr "Kopírovanie zrušené"
 
-#: app/fileItemMenu.js:1283
+#: app/fileItemMenu.js:1259
 msgid "Unable to copy Files, no destination folder"
 msgstr "Nie je možné kopírovať súbory, nie je k dispozícii cieľový priečinok"
 
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1282
 msgid "Move Cancelled"
 msgstr "Presunutie zrušené"
 
-#: app/fileItemMenu.js:1307
+#: app/fileItemMenu.js:1283
 msgid "Unable to move Files, no destination folder"
 msgstr "Nie je možné presunúť súbory, žiadny cieľový priečinok"
 
@@ -1102,6 +1086,122 @@ msgstr "$appName$ nemôže otvoriť súbory tohto typu!"
 #: app/preferences.js:892
 msgid "Console"
 msgstr "Konzola"
+
+#: app/shortcutManager.js:30
+msgid "Local Shortcuts"
+msgstr "Lokálne klávesové skratky"
+
+#: app/shortcutManager.js:31
+msgid "Application Keyboard Shortcuts"
+msgstr "Klávesové skratky aplikácie"
+
+#: app/shortcutManager.js:108
+msgid "Global Shortcuts"
+msgstr "Globálne skratky"
+
+#: app/shortcutManager.js:109
+msgid "Sytem Keyboard Shortcuts"
+msgstr "Systémové klávesové skratky"
+
+#: app/shortcutManager.js:421
+msgid "Keyboard Shortcuts"
+msgstr "Klávesové skratky"
+
+#: app/shortcuts.js:15
+msgid "Show Desktop in Files"
+msgstr "Zobraziť Plochu v aplikácii Súbory GNOME"
+
+#: app/shortcuts.js:16
+msgid "Open in Terminal"
+msgstr "Otvoriť v termináli"
+
+#: app/shortcuts.js:17
+msgid "Change Background"
+msgstr "Zmeniť pozadie"
+
+#: app/shortcuts.js:18
+msgid "Change Display Settings"
+msgstr "Zmeniť nastavenia displeja"
+
+#: app/shortcuts.js:19
+msgid "Change Desktop Icon Settings"
+msgstr "Zmeniť nastavenia ikony na pracovnej ploche"
+
+#: app/shortcuts.js:20
+msgid "Clean Up Icons"
+msgstr "Vyčistiť ikony"
+
+#: app/shortcuts.js:21
+msgid "Keep Arranged"
+msgstr "Udržiavať usporiadané"
+
+#: app/shortcuts.js:22
+msgid "Keep Stacked"
+msgstr "Udržovať ikony zoskupené"
+
+#: app/shortcuts.js:23
+msgid "Sort Special Folders"
+msgstr "Usporiadať špeciálne priečinky"
+
+#: app/shortcuts.js:25
+msgid "Find Files"
+msgstr "Hľadať súbory"
+
+#: app/shortcuts.js:26
+msgid "Update Desktop"
+msgstr "Aktualizovať pracovnú plochu"
+
+#: app/shortcuts.js:27
+msgid "Show Hidden Files"
+msgstr "Zobraziť skryté súbory"
+
+#: app/shortcuts.js:28
+msgid "Unselect All"
+msgstr "Odznačiť všetko"
+
+#: app/shortcuts.js:29
+msgid "Preview"
+msgstr "Náhľad"
+
+#: app/shortcuts.js:30
+msgid "Choose Icon Left"
+msgstr "Vybrať ikonu vľavo"
+
+#: app/shortcuts.js:31
+msgid "Choose Icon Right"
+msgstr "Vybrať ikonu vpravo"
+
+#: app/shortcuts.js:32
+msgid "Choose Icon Up"
+msgstr "Vybrať ikonu hore"
+
+#: app/shortcuts.js:33
+msgid "Choose Icon Down"
+msgstr "Vybrať ikonu dole"
+
+#: app/shortcuts.js:34
+msgid "Show Menu"
+msgstr "Zobraziť ponuku"
+
+#: app/shortcuts.js:35
+msgid "Display Shell Background Menu"
+msgstr "Zobraziť ponuku rozhrania pozadia"
+
+#: app/shortcuts.js:36
+msgid "Create Desktop Shortcut"
+msgstr "Vytvoriť skratku na ploche"
+
+#: app/shortcuts.js:37
+msgid "Text Entry Accels Turn On"
+msgstr "Zapnúť akcelerátory zadávania textu"
+
+#: app/shortcuts.js:38
+msgid "Text Entry Accels Turn Off"
+msgstr "Vypnúť akcelerátory zadávania textu"
+
+#: app/shortcuts.js:40
+msgid "Show Shortcut Viewer"
+msgstr "Zobraziť prehliadač skratiek"
 
 #: app/showErrorPopup.js:42
 msgid "More Information"
@@ -1330,6 +1430,35 @@ msgstr ""
 "Ikony nie sú na obdĺžnikovej mriežke, ale môžu byť umiestnené kdekoľvek "
 "nezávisle od mriežky"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+msgid "Hide/Show all desktop windows"
+msgstr "Skryť/zobraziť všetky okná pracovnej plochy"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+msgid "Show the icons on the desktop, or hide them all"
+msgstr "Zobraziť ikony na ploche alebo ich všetky skryť"
+
+#~ msgid "Do Paste"
+#~ msgstr "Vložiť"
+
+#~ msgid "Cut Item"
+#~ msgstr "Vystrihnúť položku"
+
+#~ msgid "Copy Item"
+#~ msgstr "Kopírovať položku"
+
+#~ msgid "Rename Item"
+#~ msgstr "Premenovať položku"
+
+#~ msgid "Delete Permanently"
+#~ msgstr "Odstrániť natrvalo"
+
+#~ msgid "Show Properties"
+#~ msgstr "Zobraziť vlastnosti"
+
+#~ msgid "Create Link to Item"
+#~ msgstr "Vytvoriť odkaz na položku"
+
 #~ msgid "Add an emblem to soft links"
 #~ msgstr "Pridať príznak na symbolické odkazy"
 
@@ -1341,12 +1470,6 @@ msgstr ""
 
 #~ msgid "Run"
 #~ msgstr "Spustiť"
-
-#~ msgid "Change Background…"
-#~ msgstr "Zmeniť pozadie…"
-
-#~ msgid "Display Settings"
-#~ msgstr "Nastavenia displejov"
 
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"
@@ -1364,14 +1487,7 @@ msgstr ""
 #~ msgstr "Použiť Nemo namiesto Nautilus pre otvorenie priečinkov."
 
 #, fuzzy
-#~ msgid "Show Desktop In GNOME Files"
-#~ msgstr "Zobraziť Plochu v aplikácii Súbory GNOME"
-
-#, fuzzy
 #~ msgid "Open In Terminal"
-#~ msgstr "Otvoriť v termináli"
-
-#~ msgid "Open in Terminal"
 #~ msgstr "Otvoriť v termináli"
 
 #, fuzzy
