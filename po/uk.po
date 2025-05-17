@@ -13,9 +13,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-04-23 01:17+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-05-17 02:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -24,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
 msgid "Desktop"
@@ -54,7 +53,7 @@ msgstr "Налаштування робочого столу"
 #: app/adwPreferencesWindow.js:220
 #, fuzzy
 msgid "Desktop Folder"
-msgstr "Тека Стільниця"
+msgstr "Тека стільниці"
 
 #: app/adwPreferencesWindow.js:221
 msgid "Current Desktop: "
@@ -1309,7 +1308,7 @@ msgstr "Смітник"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Стек"
+msgstr "Стопка"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
