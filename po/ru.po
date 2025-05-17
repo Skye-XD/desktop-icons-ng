@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-05-02 19:23+0000\n"
+"PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
@@ -488,7 +488,7 @@ msgstr ""
 
 #: app/desktopFileIcon.js:97
 msgid "Invalid Permissions on Desktop File"
-msgstr "Неверные права доступа к .desktop файлу"
+msgstr "Неверные права доступа для .desktop-файла"
 
 #: app/desktopFileIcon.js:100
 msgid ""
@@ -1258,7 +1258,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Сортировать специальный папки - Домашняя папка/Корзина/Диски."
+msgstr "Сортировать специальные папки - Домашняя папка/Корзина/Диски."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 msgid ""
@@ -1334,15 +1334,15 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr "Иконы могут быть размещены в любом месте на рабочем столе"
+msgstr "Значки могут быть размещены в любом месте на рабочем столе"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
-"Иконы не на прямоугольной сетке, но могут быть размещены в любом месте "
-"независимо от сетки"
+"Значки не на прямоугольной сетке, но могут быть размещены в любом месте без "
+"привязки к сетке"
 
 #~ msgid "Add an emblem to soft links"
 #~ msgstr "Добавить эмблему к символическим ссылкам"

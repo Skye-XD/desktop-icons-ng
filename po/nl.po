@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-05-02 19:23+0000\n"
+"PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
@@ -35,7 +35,7 @@ msgstr "Bestanden"
 #: app/adwPreferencesWindow.js:237
 #, fuzzy
 msgid "Tweaks"
-msgstr "Afstellingen"
+msgstr "Trucs"
 
 #: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
 #, fuzzy
@@ -84,7 +84,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:253
 #, fuzzy
 msgid "Tiny"
-msgstr "Heel klein"
+msgstr "Klein"
 
 #: app/adwPreferencesWindow.js:254
 msgid "Small"
@@ -216,7 +216,7 @@ msgstr "Single klik"
 #: app/adwPreferencesWindow.js:349
 #, fuzzy
 msgid "Double click"
-msgstr "Dubbelklik"
+msgstr "Dubbelklikken"
 
 #: app/adwPreferencesWindow.js:354
 #, fuzzy
@@ -1169,13 +1169,13 @@ msgstr "Rename Item"
 #, fuzzy
 #| msgid "Delete permanently"
 msgid "Delete Permanently"
-msgstr "Permanent verwijderen"
+msgstr "Permanent verwijderd"
 
 #: app/fileItemMenu.js:701
 #, fuzzy
 #| msgid "Properties"
 msgid "Show Properties"
-msgstr "Eigenschappen tonen"
+msgstr "Eigenschappen weergeven"
 
 #: app/fileItemMenu.js:730
 #, fuzzy
@@ -1339,7 +1339,7 @@ msgstr "Kan dit dossier niet openen omdat het een Broken Symlink is"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Station"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy

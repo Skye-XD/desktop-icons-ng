@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-21 23:31-0400\n"
-"PO-Revision-Date: 2025-05-02 19:23+0000\n"
+"PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
@@ -1037,7 +1037,7 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesunout do"
+msgstr "Přesuň k"
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1155,7 +1155,7 @@ msgstr "Přejmenovat položku"
 #, fuzzy
 #| msgid "Delete permanently"
 msgid "Delete Permanently"
-msgstr "Navždy smazat"
+msgstr "Odstranit natrvalo"
 
 #: app/fileItemMenu.js:701
 #, fuzzy
