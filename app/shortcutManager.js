@@ -30,7 +30,7 @@ const DisplayShortcutRow = GObject.registerClass(
             this.actionMap = actionmap;
             this.readaccel = readaccel;
 
-            this._descriptions = DefaultShortcuts;
+            this._defaultShortcuts = DefaultShortcuts;
             this.accelLabel = new Gtk.Label({
                 label: '',
                 xalign: 1,
@@ -50,7 +50,7 @@ const DisplayShortcutRow = GObject.registerClass(
             this.accelLabel.set_label(this.accelText);
 
             this.description =
-                this._descriptions[this.actionNamed].Hint ||
+                this._defaultShortcuts[this.actionNamed].Hint ||
                 this._prettify(this.actionNamed);
 
             this.set_title(this.description);
@@ -81,7 +81,7 @@ const EditableShortcutRow = GObject.registerClass(
         updateRow() {
             super.updateRow();
             this.use_markup = false;
-            this.defaultAccel = this._descriptions[this.actionNamed].Accel;
+            this.defaultAccel = this._defaultShortcuts[this.actionNamed].Accel;
             const subtitlestring = _('Default Shortcut:');
             const subtitle = this.defaultAccel ? this.defaultAccel : _('None');
             this.set_subtitle(`${subtitlestring} ${subtitle}`);
@@ -234,12 +234,12 @@ class ShortcutViewer extends Adw.PreferencesGroup {
         super({});
         this._shortcutManager = params.manager;
         this._actionMap = this._shortcutManager._mainApp;
+        this._localShortcuts = this._shortcutManager._localShortcuts;
 
         this.readaccel =
             this._shortcutManager.readActionShortcut
             .bind(this._shortcutManager);
 
-        this._descriptions = DefaultShortcuts;
         this.set_title(_('System Shortcuts'));
         this.set_description(_('Common System Defined Keyboard Shortcuts'));
         this._addLocalShortcuts();
@@ -264,9 +264,9 @@ class ShortcutViewer extends Adw.PreferencesGroup {
             });
 
         for (const action of actions) {
-            if (this._descriptions[action]?.Edit ||
-                this._descriptions[action]?.Global ||
-                !this._descriptions[action]?.Accel
+            if (this._localShortcuts[action]?.Edit ||
+                this._localShortcuts[action]?.Global ||
+                !this._localShortcuts[action]?.Accel
             )
                 continue;
 
@@ -288,6 +288,8 @@ class LocalShortcutEditor extends Adw.PreferencesGroup {
         super({});
         this._shortcutManager = params.manager;
         this._actionMap = this._shortcutManager._mainApp;
+        this._localShortcuts = this._shortcutManager._localShortcuts;
+        this._rows = [];
 
         this.readaccel =
             this._shortcutManager.readActionShortcut
@@ -297,7 +299,6 @@ class LocalShortcutEditor extends Adw.PreferencesGroup {
             this._shortcutManager.writeActionShortcut
             .bind(this._shortcutManager);
 
-        this._descriptions = DefaultShortcuts;
         this.set_title(_('Local Shortcuts'));
         this.set_description(_('Application Keyboard Shortcuts'));
         this._addLocalShortcuts();
@@ -322,7 +323,7 @@ class LocalShortcutEditor extends Adw.PreferencesGroup {
             });
 
         for (const action of actions) {
-            if (!this._descriptions[action]?.Edit)
+            if (!this._localShortcuts[action]?.Edit)
                 continue;
 
             const actionRow =
@@ -334,7 +335,12 @@ class LocalShortcutEditor extends Adw.PreferencesGroup {
                 });
 
             this.add(actionRow);
+            this._rows.push(actionRow);
         }
+    }
+
+    update() {
+        this._rows.forEach(row => row.updateRow());
     }
 });
 
@@ -344,6 +350,8 @@ const GlobalShortcutEditor = GObject.registerClass(
             super({});
             this._shortcutManager = params.manager;
             this._actionMap = this._shortcutManager._mainApp;
+            this._globalShortcuts = this._shortcutManager._globalShortcuts;
+            this._rows = [];
 
             this.readaccel =
                 this._shortcutManager.readGlobalActionShortcut
@@ -353,7 +361,6 @@ const GlobalShortcutEditor = GObject.registerClass(
                 this._shortcutManager.writeGlobalActionShortcut
                 .bind(this._shortcutManager);
 
-            this._descriptions = GlobalShortcuts;
             this.set_title(_('Global Shortcuts'));
             this.set_description(_('System Keyboard Shortcuts'));
             this._addGlobalShortcuts();
@@ -378,7 +385,7 @@ const GlobalShortcutEditor = GObject.registerClass(
                 });
 
             for (const action of actions) {
-                if (!this._descriptions[action]?.Global)
+                if (!this._globalShortcuts[action]?.Global)
                     continue;
 
                 const actionRow =
@@ -390,7 +397,12 @@ const GlobalShortcutEditor = GObject.registerClass(
                     });
 
                 this.add(actionRow);
+                this._rows.push(actionRow);
             }
+        }
+
+        update() {
+            this._rows.forEach(row => row.updateRow());
         }
     }
 );
@@ -400,6 +412,8 @@ const ShortcutManager = class {
         this._desktopManager = desktopManager;
         this._desktopSettings = desktopManager.Prefs.desktopSettings;
         this._mainApp = desktopManager.mainApp;
+        this._globalShortcuts = GlobalShortcuts;
+        this._localShortcuts = DefaultShortcuts;
         this._overRideMap = new Map();
         this._initializeOurShortcuts();
         this._monitorUserShortcuts();
@@ -411,8 +425,11 @@ const ShortcutManager = class {
     // this function is not used, but is another way of setting action
     // descriptions.
     _setStateHints() {
-        for (const [actionName, {Hint}] of Object.entries(DefaultShortcuts)) {
+        for (const [actionName, {Hint}] of
+            Object.entries(this._localShortcuts)
+        ) {
             const action = this._mainApp.lookup_action(actionName);
+
             if (action) {
                 action.set_state_hint(
                     GLib.Variant.new_string(Hint)
@@ -451,7 +468,7 @@ const ShortcutManager = class {
     }
 
     _setAllAccels() {
-        for (const actionName of Object.keys(DefaultShortcuts))
+        for (const actionName of Object.keys(this._localShortcuts))
             this._setAccel(actionName);
     }
 
@@ -470,7 +487,7 @@ const ShortcutManager = class {
     }
 
     _readOverRideActionShortcut(actionName) {
-        const defaultShortCut = DefaultShortcuts[actionName].Accel ?? '';
+        const defaultShortCut = this._localShortcuts[actionName].Accel ?? '';
         const userShortcut = this._overRideMap.get(actionName);
 
         const overrideShortCut = this._overRideMap.has(actionName)
@@ -544,43 +561,43 @@ const ShortcutManager = class {
     _textEntryAccelsTurnOn() {
         this._mainApp.set_accels_for_action(
             'app.previewAction',
-            DefaultShortcuts.previewAction.Accel.split(',')
+            this._localShortcuts.previewAction.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.unselectAll',
-            DefaultShortcuts.unselectAll.Accel.split(',')
+            this._localShortcuts.unselectAll.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.openOneFileAction',
-            DefaultShortcuts.openOneFileAction.Accel.split(',')
+            this._localShortcuts.openOneFileAction.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.movetotrash',
-            DefaultShortcuts.movetotrash.Accel.split(',')
+            this._localShortcuts.movetotrash.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.chooseIconLeft',
-            DefaultShortcuts.chooseIconLeft.Accel.split(',')
+            this._localShortcuts.chooseIconLeft.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.chooseIconRight',
-            DefaultShortcuts.chooseIconRight.Accel.split(',')
+            this._localShortcuts.chooseIconRight.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.chooseIconUp',
-            DefaultShortcuts.chooseIconUp.Accel.split(',')
+            this._localShortcuts.chooseIconUp.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.chooseIconDown',
-            DefaultShortcuts.chooseIconDown.Accel.split(',')
+            this._localShortcuts.chooseIconDown.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.menuKeyPressed',
-            DefaultShortcuts.menuKeyPressed.Accel.split(',')
+            this._localShortcuts.menuKeyPressed.Accel.split(',')
         );
         this._mainApp.set_accels_for_action(
             'app.findFiles',
-            DefaultShortcuts.findFiles.Accel.split(',')
+            this._localShortcuts.findFiles.Accel.split(',')
         );
     }
 
@@ -597,8 +614,25 @@ const ShortcutManager = class {
         this._mainApp.set_accels_for_action('app.findFiles', ['']);
     }
 
+    _resetGlobalShortcuts() {
+        Object.keys(this._globalShortcuts).forEach(actionKey => {
+            const defaultAccel = this._globalShortcuts[actionKey]?.Accel;
+            this.writeGlobalActionShortcut(actionKey, defaultAccel);
+        });
+        this.globalShortcutGroup?.update();
+    }
+
+    _resetLocalShortcuts() {
+        this._overRideMap = new Map();
+        this._writeUserShortcuts();
+        this._refreshUserShortcuts();
+        this.localShortcutGroup?.update();
+    }
+
     _resetAllShortcuts() {
-        console.log('All Reset!');
+        this._resetGlobalShortcuts();
+        this._resetLocalShortcuts();
+        console.log('All Shortcuts reset to Defaults!');
     }
 
     _showShortcutViewer() {
@@ -616,6 +650,7 @@ const ShortcutManager = class {
         shortcutsWindow.set_name('shortcutsWindow');
         shortcutsWindow.set_title('Shortcuts');
         shortcutsWindow.set_default_size(600, 650);
+
         // Do not make modal or skip-taskbar as we have a .desktop icon
         // showing up in the dock for the window to assist navigation.
         // const modal = true;
@@ -628,11 +663,11 @@ const ShortcutManager = class {
         const systemShortcutGroup = new ShortcutViewer({manager: this});
         shortcutsFrame.add(systemShortcutGroup);
 
-        const globalShortcutGroup = new GlobalShortcutEditor({manager: this});
-        shortcutsFrame.add(globalShortcutGroup);
+        this.globalShortcutGroup = new GlobalShortcutEditor({manager: this});
+        shortcutsFrame.add(this.globalShortcutGroup);
 
-        const localShortcutGroup = new LocalShortcutEditor({manager: this});
-        shortcutsFrame.add(localShortcutGroup);
+        this.localShortcutGroup = new LocalShortcutEditor({manager: this});
+        shortcutsFrame.add(this.localShortcutGroup);
 
         const resetGroup = new Adw.PreferencesGroup({
             title: _('Reset Shortcuts'),
@@ -653,6 +688,8 @@ const ShortcutManager = class {
 
         shortcutsWindow.connect('close-request', () => {
             this._shortCutsWindow = null;
+            this.globalShortcutGroup = null;
+            this.localShortcutGroup = null;
         });
 
         shortcutsWindow.show();
