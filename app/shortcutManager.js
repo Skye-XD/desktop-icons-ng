@@ -233,17 +233,23 @@ const EditableShortcutRow = GObject.registerClass(
 const ShortcutViewer = GObject.registerClass(
 class ShortcutViewer extends Adw.PreferencesGroup {
     constructor(params = {}) {
-        super({...params});
+        super({});
+        this._shortcutManager = params.manager;
+        this._actionMap = this._shortcutManager._mainApp;
+
+        this.readaccel =
+            this._shortcutManager.readActionShortcut
+            .bind(this._shortcutManager);
+
+        this.writeaccel =
+            this._shortcutManager.writeActionShortcut
+            .bind(this._shortcutManager);
+
+        this._descriptions = DefaultShortcuts;
         this.set_title(_('Local Shortcuts'));
         this.set_description(_('Application Keyboard Shortcuts'));
-    }
-
-    set_action_map(actionMap) {
-        this._actionMap = actionMap;
-        this._descriptions = DefaultShortcuts;
         this._addLocalShortcuts();
     }
-
 
     _addLocalShortcuts() {
         if (!this._actionMap)
@@ -264,9 +270,7 @@ class ShortcutViewer extends Adw.PreferencesGroup {
             });
 
         for (const action of actions) {
-            const accels = this.readaccel(action);
-
-            if (accels.length === 0)
+            if (!this._descriptions[action]?.Edit)
                 continue;
 
             const actionRow =
@@ -279,15 +283,6 @@ class ShortcutViewer extends Adw.PreferencesGroup {
 
             this.add(actionRow);
         }
-    }
-
-    readaccel(actionName) {
-        return this._actionMap.get_accels_for_action(`app.${actionName}`);
-    }
-
-    writeaccel(actionName, accelText) {
-        this._actionMap
-        .set_accels_for_action(`app.${actionName}`, [accelText]);
     }
 });
 
@@ -508,6 +503,12 @@ const ShortcutManager = class {
         }
     }
 
+    readActionShortcut(actionName) {
+    }
+
+    writeActionShortcut(actionName, accelText) {
+    }
+
     _initializeOurShortcuts() {
         const showShortcutViewer =
             Gio.SimpleAction.new('showShortcutViewer', null);
@@ -616,8 +617,7 @@ const ShortcutManager = class {
 
         shortcutsFrame.add(globalShortcutGroup);
 
-        const localShortcutGroup = new ShortcutViewer();
-        localShortcutGroup.set_action_map(this._mainApp);
+        const localShortcutGroup = new ShortcutViewer({manager: this});
         shortcutsFrame.add(localShortcutGroup);
 
         shortcutsWindow.add(shortcutsFrame);
