@@ -24,10 +24,12 @@ export {ShortcutManager};
 
 const DisplayShortcutRow = GObject.registerClass(
     class DisplayShortcutRow extends Adw.ActionRow {
-        constructor({actionname, actionmap}) {
+        constructor({actionname, actionmap, readaccel}) {
             super({});
             this.actionNamed = actionname;
             this.actionMap = actionmap;
+            this.readaccel = readaccel;
+
             this._descriptions = DefaultShortcuts;
             this.accelLabel = new Gtk.Label({
                 label: '',
@@ -39,8 +41,7 @@ const DisplayShortcutRow = GObject.registerClass(
         }
 
         updateRow() {
-            const accels =
-                this.actionMap.get_accels_for_action(`app.${this.actionNamed}`);
+            const accels = this.readaccel(this.actionNamed);
 
             this.accelText = _('None');
             if (accels && accels.length)
@@ -68,9 +69,8 @@ const DisplayShortcutRow = GObject.registerClass(
 const EditableShortcutRow = GObject.registerClass(
     class EditableShortcutRow extends DisplayShortcutRow {
         constructor({actionname, actionmap, readaccel, writeaccel}) {
-            super({actionname, actionmap});
+            super({actionname, actionmap, readaccel});
             this.writeaccel = writeaccel;
-            this.readaccel = readaccel;
 
             if (Adw.get_minor_version() > 2)
                 this.set_subtitle_selectable(false);
@@ -475,9 +475,10 @@ const ShortcutManager = class {
         this._desktopManager = desktopManager;
         this._desktopSettings = desktopManager.Prefs.desktopSettings;
         this._mainApp = desktopManager.mainApp;
+        this._overRideMap = new Map();
         this._initializeOurShortcuts();
-        // this._setStateHints();
-        this._setAccels();
+        this._monitorUserShortcuts();
+        this._refreshUserShortcuts();
     }
 
     _setStateHints() {
@@ -491,22 +492,79 @@ const ShortcutManager = class {
         }
     }
 
-    _setAccels() {
-        for (const [actionName, {Accel}] of Object.entries(DefaultShortcuts)) {
-            const action = this._mainApp.lookup_action(actionName);
-            if (action) {
-                const accelarray = Accel.length ? Accel.split(',') : [];
-                this._mainApp.set_accels_for_action(
-                    `app.${actionName}`, accelarray
-                );
+    _monitorUserShortcuts() {
+        this._userShortcutMonitor = this._desktopSettings.connect(
+            'changed',
+            (obj, key) => {
+                if (key === 'shortcutoverrides')
+                    this._refreshUserShortcuts();
             }
-        }
+        );
+    }
+
+    _refreshUserShortcuts() {
+        this._readUserShortcuts();
+        this._setAllAccels();
+    }
+
+    _readUserShortcuts() {
+        const value =
+            this._desktopSettings.get_value('shortcutoverrides')
+            .deep_unpack();
+
+        this._overRideMap = new Map(Object.entries(value));
+    }
+
+    _writeUserShortcuts() {
+        const value = Object.fromEntries(this._overRideMap);
+        const variant = new GLib.Variant('a{ss}', value);
+        this._desktopSettings.set_value('shortcutoverrides', variant);
+    }
+
+    _setAllAccels() {
+        for (const actionName of Object.keys(DefaultShortcuts))
+            this._setAccel(actionName);
+    }
+
+    _setAccel(actionName) {
+        const action = this._mainApp.lookup_action(actionName);
+
+        if (!action)
+            return;
+
+        const accel = this._readOverRideActionShortcut(actionName);
+        const accelarray = accel.length ? accel.split(',') : [];
+
+        this._mainApp.set_accels_for_action(
+            `app.${actionName}`, accelarray
+        );
+    }
+
+    _readOverRideActionShortcut(actionName) {
+        const defaultShortCut = DefaultShortcuts[actionName].Accel ?? '';
+        const userShortcut = this._overRideMap.get(actionName);
+
+        const overrideShortCut = this._overRideMap.has(actionName)
+            ? userShortcut
+            : defaultShortCut;
+
+        return overrideShortCut;
     }
 
     readActionShortcut(actionName) {
+        return this._mainApp.get_accels_for_action(`app.${actionName}`);
     }
 
-    writeActionShortcut(actionName, accelText) {
+    writeActionShortcut(actionName, accel) {
+        if (accel.length || accel === '')
+            this._overRideMap.set(actionName, accel);
+        else
+            this._overRideMap.delete(actionName);
+
+        this._desktopSettings.block_signal_handler(this._userShortcutMonitor);
+        this._writeUserShortcuts();
+        this._setAccel(actionName);
+        this._desktopSettings.unblock_signal_handler(this._userShortcutMonitor);
     }
 
     _initializeOurShortcuts() {
