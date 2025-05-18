@@ -288,184 +288,57 @@ class ShortcutViewer extends Adw.PreferencesGroup {
 
 const GlobalShortcutEditor = GObject.registerClass(
     class GlobalShortcutEditor extends Adw.PreferencesGroup {
-        constructor(settings, params = {}) {
-            super(params);
-            this._desktopSettings = settings;
+        constructor(params = {}) {
+            super({});
+            this._shortcutManager = params.manager;
+            this._actionMap = this._shortcutManager._mainApp;
+
+            this.readaccel =
+                this._shortcutManager.readGlobalActionShortcut
+                .bind(this._shortcutManager);
+
+            this.writeaccel =
+                this._shortcutManager.writeGlobalActionShortcut
+                .bind(this._shortcutManager);
+
+            this._descriptions = GlobalShortcuts;
             this.set_title(_('Global Shortcuts'));
-            this.set_description(_('Sytem Keyboard Shortcuts'));
-            this._description = GlobalShortcuts;
+            this.set_description(_('System Keyboard Shortcuts'));
             this._addGlobalShortcuts();
         }
 
         _addGlobalShortcuts() {
-            for (const actionName in this._description) {
-                const key = actionName.toLowerCase();
+            if (!this._actionMap)
+                return;
 
-                let currentAccel =
-                    this._desktopSettings.get_strv(key);
-
-                currentAccel = currentAccel[0]
-                    ? currentAccel[0] : _('None');
-
-                const subtitlestring = _('Current shortcut:');
-                const actionRow =
-                    this.addActionRowButton(
-                        this._description[actionName].Hint,
-                        `${subtitlestring} ${currentAccel}`,
-                        _('Edit'),
-                        this.setShortcutrow.bind(this),
-                        actionName
+            const actions =
+                this._actionMap.list_actions()
+                .sort((a, b) => {
+                    return a
+                    .localeCompare(
+                        b,
+                        {
+                            sensitivity: 'accent',
+                            numeric: 'true',
+                            localeMatcher: 'lookup',
+                        }
                     );
+                });
+
+            for (const action of actions) {
+                if (!this._descriptions[action]?.Global)
+                    continue;
+
+                const actionRow =
+                    new EditableShortcutRow({
+                        'actionname': action,
+                        'actionmap': this._actionMap,
+                        'readaccel': this.readaccel.bind(this),
+                        'writeaccel': this.writeaccel.bind(this),
+                    });
 
                 this.add(actionRow);
             }
-        }
-
-        addActionRowButton(
-            title, subtitle, buttonLabel, action, actionName = null
-        ) {
-            const actionRow = Adw.ActionRow.new();
-
-            actionRow.set_title(title);
-
-            if (subtitle) {
-                actionRow.use_markup = false;
-                actionRow.set_subtitle(subtitle);
-                if (Adw.get_minor_version() > 2)
-                    actionRow.set_subtitle_selectable(true);
-            }
-
-            if (buttonLabel && action) {
-                const button = Gtk.Button.new_with_label(buttonLabel);
-
-                button.set_size_request(120, -1);
-                button.set_halign(Gtk.Align.END);
-                button.set_valign(Gtk.Align.CENTER);
-                button.set_hexpand(true);
-                button.set_vexpand(false);
-                button.connect(
-                    'clicked',
-                    action.bind(this, actionRow, button, actionName)
-                );
-
-                actionRow.add_suffix(button);
-                actionRow.set_activatable_widget(button);
-                const icon = Gtk.Image.new_from_icon_name('document-edit');
-                actionRow.add_prefix(icon);
-            }
-
-            return actionRow;
-        }
-
-        setShortcutrow(actionrow, button, key) {
-            if (!key)
-                return;
-
-            if (this.changingKey)
-                return;
-
-            this.changingKey = true;
-            const oldlabel = button.get_label();
-            button.set_label(_('Type new...'));
-            actionrow.set_subtitle(_('Press Enter or Return to clear...'));
-
-            const shortcutEditor = new Gtk.Entry({
-                editable: false,
-                hexpand: false,
-                vexpand: false,
-                halign: Gtk.Align.END,
-                valign: Gtk.Align.CENTER,
-                xalign: 0,  // Right-align
-                placeholder_text:
-                    _('Modifier + Key (e.g. Ctrl + Alt + D)'),
-                width_chars: 30,
-                can_focus: true,
-                has_frame: true,
-            });
-
-            const keyController = new Gtk.EventControllerKey();
-            shortcutEditor.add_controller(keyController);
-
-            let popover = new Gtk.Popover({
-                has_arrow: false,
-                autohide: true,
-                child: shortcutEditor,
-            });
-            popover.set_parent(button);
-            popover.set_position(Gtk.PositionType.BOTTOM);
-            popover.popup();
-
-            shortcutEditor.grab_focus_without_selecting();
-
-            const finishEditing = () => {
-                button.set_label(oldlabel);
-                const accel = this._desktopSettings.get_strv(key.toLowerCase());
-                const string = accel[0] ? accel[0] : _('None');
-                actionrow.set_subtitle(
-                    // eslint-disable-next-line prefer-template
-                    _('Current shortcut: ') + string
-                );
-                this.changingKey = false;
-            };
-
-            shortcutEditor.connect('activate', () => {
-                const newaccelstring = '';
-                shortcutEditor.set_text('');
-                this._desktopSettings.set_strv(
-                    key.toLowerCase(),
-                    [newaccelstring]
-                );
-                popover.popdown();
-            }); // on Enter
-
-            // On popover close (via outside click)
-            popover.connect('hide', () => {
-                finishEditing();
-                popover.unparent();
-                popover = null;
-            });
-
-            keyController.connect(
-                'key-pressed', (actor, keyval, keycode, state) => {
-                    if (keyval === Gdk.KEY_Escape)
-                        popover.popdown();
-
-                    if (state &&
-                    keyval !== Gdk.KEY_Shift_L &&
-                    keyval !== Gdk.KEY_Shift_R &&
-                    keyval !== Gdk.KEY_Control_L &&
-                    keyval !== Gdk.KEY_Control_R &&
-                    keyval !== Gdk.KEY_Alt_L &&
-                    keyval !== Gdk.KEY_Alt_R &&
-                    keyval !== Gdk.KEY_Meta_L &&
-                    keyval !== Gdk.KEY_Meta_R &&
-                    keyval !== Gdk.KEY_Super_L &&
-                    keyval !== Gdk.KEY_Super_R &&
-                    keyval !== Gdk.KEY_Caps_Lock &&
-                    keyval !== Gdk.KEY_Num_Lock &&
-                    keyval !== Gdk.KEY_AltGr_L &&
-                    keyval !== Gdk.KEY_AltGr_R &&
-                    keyval !== Gdk.KEY_ISO_Level3_Shift &&
-                    keyval !== Gdk.KEY_ISO_Level3_Lock &&
-                    keyval !== Gdk.KEY_ISO_Level5_Shift &&
-                    keyval !== Gdk.KEY_ISO_Level5_Lock
-                    ) {
-                        const mask =
-                            state & Gtk.accelerator_get_default_mod_mask();
-
-                        const accelstring = Gtk.accelerator_name(keyval, mask);
-                        shortcutEditor.set_text(accelstring);
-
-                        this._desktopSettings.set_strv(
-                            key.toLowerCase(),
-                            [accelstring]
-                        );
-
-                        popover.hide();
-                    }
-
-                    return true;
-                });
         }
     }
 );
@@ -479,8 +352,12 @@ const ShortcutManager = class {
         this._initializeOurShortcuts();
         this._monitorUserShortcuts();
         this._refreshUserShortcuts();
+        // Global shortcuts are automatically monitored and set by the
+        // extension from settings
     }
 
+    // this function is not used, but is another way of setting action
+    // descriptions.
     _setStateHints() {
         for (const [actionName, {Hint}] of Object.entries(DefaultShortcuts)) {
             const action = this._mainApp.lookup_action(actionName);
@@ -565,6 +442,28 @@ const ShortcutManager = class {
         this._writeUserShortcuts();
         this._setAccel(actionName);
         this._desktopSettings.unblock_signal_handler(this._userShortcutMonitor);
+    }
+
+    readGlobalActionShortcut(actionName) {
+        let userShortcut =
+            this._desktopSettings.get_strv(actionName.toLowerCase());
+
+        userShortcut = userShortcut.length
+            ? userShortcut.toString().replace(',', ', ')
+            : _('None');
+
+        return userShortcut;
+    }
+
+    writeGlobalActionShortcut(actionName, accel) {
+        let accelArray = [];
+
+        if (accel.isArray)
+            accelArray = accel;
+        else if (accel.length)
+            accelArray = accel.split(',');
+
+        this._desktopSettings.set_strv(actionName.toLowerCase(), accelArray);
     }
 
     _initializeOurShortcuts() {
@@ -671,7 +570,7 @@ const ShortcutManager = class {
         shortcutsFrame.set_name(_('Keyboard Shortcuts'));
 
         const globalShortcutGroup =
-            new GlobalShortcutEditor(this._desktopSettings);
+            new GlobalShortcutEditor({manager: this});
 
         shortcutsFrame.add(globalShortcutGroup);
 
