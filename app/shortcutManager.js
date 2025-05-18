@@ -228,7 +228,59 @@ const EditableShortcutRow = GObject.registerClass(
     }
 );
 
+const ShortcutViewer = GObject.registerClass(
+class ShortcutViewer extends Adw.PreferencesGroup {
+    constructor(params = {}) {
+        super({});
+        this._shortcutManager = params.manager;
+        this._actionMap = this._shortcutManager._mainApp;
 
+        this.readaccel =
+            this._shortcutManager.readActionShortcut
+            .bind(this._shortcutManager);
+
+        this._descriptions = DefaultShortcuts;
+        this.set_title(_('System Shortcuts'));
+        this.set_description(_('Common System Defined Keyboard Shortcuts'));
+        this._addLocalShortcuts();
+    }
+
+    _addLocalShortcuts() {
+        if (!this._actionMap)
+            return;
+
+        const actions =
+            this._actionMap.list_actions()
+            .sort((a, b) => {
+                return a
+                .localeCompare(
+                    b,
+                    {
+                        sensitivity: 'accent',
+                        numeric: 'true',
+                        localeMatcher: 'lookup',
+                    }
+                );
+            });
+
+        for (const action of actions) {
+            if (this._descriptions[action]?.Edit ||
+                this._descriptions[action]?.Global ||
+                !this._descriptions[action]?.Accel
+            )
+                continue;
+
+            const actionRow =
+                new DisplayShortcutRow({
+                    'actionname': action,
+                    'actionmap': this._actionMap,
+                    'readaccel': this.readaccel.bind(this),
+                });
+
+            this.add(actionRow);
+        }
+    }
+});
 
 const LocalShortcutEditor = GObject.registerClass(
 class LocalShortcutEditor extends Adw.PreferencesGroup {
@@ -568,6 +620,11 @@ const ShortcutManager = class {
 
         const shortcutsFrame = Adw.PreferencesPage.new();
         shortcutsFrame.set_name(_('Keyboard Shortcuts'));
+
+        const systemShortcutGroup =
+            new ShortcutViewer({manager: this});
+
+        shortcutsFrame.add(systemShortcutGroup);
 
         const globalShortcutGroup =
             new GlobalShortcutEditor({manager: this});
