@@ -230,8 +230,8 @@ const EditableShortcutRow = GObject.registerClass(
 
 
 
-const ShortcutViewer = GObject.registerClass(
-class ShortcutViewer extends Adw.PreferencesGroup {
+const LocalShortcutEditor = GObject.registerClass(
+class LocalShortcutEditor extends Adw.PreferencesGroup {
     constructor(params = {}) {
         super({});
         this._shortcutManager = params.manager;
@@ -574,7 +574,7 @@ const ShortcutManager = class {
 
         shortcutsFrame.add(globalShortcutGroup);
 
-        const localShortcutGroup = new ShortcutViewer({manager: this});
+        const localShortcutGroup = new LocalShortcutEditor({manager: this});
         shortcutsFrame.add(localShortcutGroup);
 
         shortcutsWindow.add(shortcutsFrame);
