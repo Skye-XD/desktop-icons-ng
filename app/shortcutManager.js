@@ -597,6 +597,10 @@ const ShortcutManager = class {
         this._mainApp.set_accels_for_action('app.findFiles', ['']);
     }
 
+    _resetAllShortcuts() {
+        console.log('All Reset!');
+    }
+
     _showShortcutViewer() {
         if (this._shortCutsWindow)
             return;
@@ -621,18 +625,27 @@ const ShortcutManager = class {
         const shortcutsFrame = Adw.PreferencesPage.new();
         shortcutsFrame.set_name(_('Keyboard Shortcuts'));
 
-        const systemShortcutGroup =
-            new ShortcutViewer({manager: this});
-
+        const systemShortcutGroup = new ShortcutViewer({manager: this});
         shortcutsFrame.add(systemShortcutGroup);
 
-        const globalShortcutGroup =
-            new GlobalShortcutEditor({manager: this});
-
+        const globalShortcutGroup = new GlobalShortcutEditor({manager: this});
         shortcutsFrame.add(globalShortcutGroup);
 
         const localShortcutGroup = new LocalShortcutEditor({manager: this});
         shortcutsFrame.add(localShortcutGroup);
+
+        const resetGroup = new Adw.PreferencesGroup({
+            title: _('Reset Shortcuts'),
+            description: _('Reset all shortcuts to Defaults'),
+        });
+        const resetButton = new Adw.ButtonRow({
+            title: _('Reset Defaults'),
+            'end-icon-name': 'revert',
+        });
+        resetButton.connect('activated', this._resetAllShortcuts.bind(this));
+        resetGroup.add(resetButton);
+        resetButton.get_style_context().add_class('destructive-action');
+        shortcutsFrame.add(resetGroup);
 
         shortcutsWindow.add(shortcutsFrame);
 
