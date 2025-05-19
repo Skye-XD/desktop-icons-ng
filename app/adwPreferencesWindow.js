@@ -20,6 +20,9 @@ import {_} from '../dependencies/gettext.js';
 
 export {AdwPreferencesWindow};
 
+const appID = 'com.desktop.ding';
+const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
+
 const ListObject = GObject.registerClass({
     GTypeName: 'peferences-list',
     Properties: {
@@ -111,11 +114,11 @@ const ComboRowWithKey = GObject.registerClass({
         this.set_model(listStore);
 
         const listFactory = new Gtk.SignalListItemFactory();
-        listFactory.connect('setup', (actor, listitem) => {
+        listFactory.connect('setup', (_actor, listitem) => {
             let label = new Gtk.Label();
             listitem.set_child(label);
         });
-        listFactory.connect('bind', (actor, listitem) => {
+        listFactory.connect('bind', (_actor, listitem) => {
             let label = listitem.get_child();
             let item = listitem.get_item();
             label.set_text(item.description);
@@ -150,10 +153,21 @@ const ComboRowWithKey = GObject.registerClass({
 });
 
 const AdwPreferencesWindow = class {
-    constructor(desktopSettings, nautilusSettings, gtkSettings, version) {
+    constructor(
+        desktopSettings,
+        nautilusSettings,
+        gtkSettings,
+        version,
+        actiongroup = null
+    ) {
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;
         this.gtkSettings = gtkSettings;
+
+        if (!actiongroup)
+            this.getRemoteActions();
+        else
+            this.remoteActions = actiongroup;
 
         this.iconTheme =
             Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
@@ -163,6 +177,28 @@ const AdwPreferencesWindow = class {
 
         this.defaultDesktop =
             GLib.build_filenamev([GLib.get_home_dir(), 'Desktop']);
+    }
+
+    getRemoteActions() {
+        Gio.DBus.watch_name(
+            Gio.BusType.SESSION,
+            appID,
+            Gio.BusNameWatcherFlags.NONE,
+            (_conn, _name, _nameOwner) => {
+                try {
+                    this.remoteActions = Gio.DBusActionGroup.get(
+                        Gio.DBus.session,
+                        appID,
+                        appPath
+                    );
+                } catch (e) {
+                    logError(e, 'Error getting action group');
+                }
+            },
+            (_conn, _name) => {
+                this.remoteActions = null;
+            }
+        );
     }
 
     getAdwPreferencesWindow(window = null) {
@@ -560,7 +596,7 @@ const AdwPreferencesWindow = class {
             popover = null;
         });
 
-        keyController.connect('key-pressed', (actor, keyval, keycode, state) => {
+        keyController.connect('key-pressed', (_actor, keyval, _keycode, state) => {
             if (keyval === Gdk.KEY_Escape)
                 popover.hide();
 
