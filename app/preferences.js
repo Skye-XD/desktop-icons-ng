@@ -123,7 +123,8 @@ const Preferences = class {
                 this.desktopSettings,
                 this.nautilusSettings,
                 this.gtkSettings,
-                this._programVersion
+                this._programVersion,
+                this._mainApp
             );
     }
 
