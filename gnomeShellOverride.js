@@ -24,6 +24,7 @@ const {Meta, Clutter, GObject} = imports.gi;
 
 // Show desktop windows on workspace thumbnails
 const SHOW_ON_WORKSPACE_THUMBNAILS = true;
+const SHOW_ICONS_ON_OVERVIEW = false;
 const ANIMATION_MULTIPLE = 1;
 
 import {WorkspaceBackground} from 'resource:///org/gnome/shell/ui/workspace.js';
@@ -91,6 +92,8 @@ var GnomeShellOverride = class {
             }
 
             function _setTransparency(value) {
+                if (SHOW_ICONS_ON_OVERVIEW)
+                    return opaque;
                 return Util.lerp(opaque, transparent,
                     Math.min(ANIMATION_MULTIPLE * value, 1.0));
             }
