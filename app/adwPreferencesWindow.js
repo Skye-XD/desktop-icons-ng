@@ -186,6 +186,106 @@ class ShortcutGroup extends Adw.PreferencesGroup {
     }
 });
 
+const aboutApp = class AboutDialog {
+    constructor(params = {}) {
+        this.version = params.version;
+        this.appID = appID;
+        const aboutDialog = Adw.AboutDialog.new();
+        this.init(aboutDialog);
+        return aboutDialog;
+    }
+
+    init(aboutDialog) {
+        aboutDialog.modal = true;
+        aboutDialog.set_application_icon(this.appID);
+        aboutDialog.set_application_name('Adw. Desktop Icons');
+
+        aboutDialog.set_comments(
+            'An application to show Icons on the Gnome Desktop'
+        );
+
+        aboutDialog.set_copyright('© 2025 Sundeep Mediratta');
+        aboutDialog.set_developer_name('Sundeep Mediratta');
+
+        aboutDialog.set_comments(
+            'Adw. Desktop Icons is an extension and a program together for ' +
+            'the GNOME Shell that renders icons on the desktop. It is a fork ' +
+            'from Desktop Icons NG (DING), by Sergio Costas, which itself ' +
+            'is a fork/rewrite of the official "Desktop Icons" extension, ' +
+            'originally by Carlos Soriano.' +
+            '\n\n' +
+            'All these came into existence when Nautilus and Gnome decided ' +
+            'to drop showing a "Desktop" with Icons!' +
+            '\n\n' +
+            'Many thanks to the original developers of Desktop Icons NG, ' +
+            'specially Sergio Costas for his work on ' +
+            'Meta.WaylandClient that makes this privileged window possible in' +
+            'the first place and to Florian Müllner for implementing ' +
+            'Meta.Windotype.DESKTOP through Meta.WaylandClient, which makes ' +
+            'this so much easier!'
+        );
+
+        aboutDialog.add_credit_section(
+            'Originally developed by',
+            [
+                'Sergio Costas',
+                'Carlos Soriano',
+            ]
+        );
+
+        aboutDialog.add_acknowledgement_section(
+            'For coding Meta.WaylandClient in mutter',
+            ['Sergio Costas']
+        );
+
+        aboutDialog.add_acknowledgement_section(
+            'Enabling Meta.Windowtype.DESKTOP\nthrough Meta.Waylandclient',
+            ['Florian Müllner']
+        );
+
+        aboutDialog.add_acknowledgement_section(
+            'Async code contribution',
+            ['Marco Trevisan']
+        );
+
+        aboutDialog.add_acknowledgement_section(
+            'Gnome Extensions Matrix Channel support',
+            [
+                'Andy Holmes',
+                'Just Perfection',
+                'And Others..',
+            ]
+        );
+
+        aboutDialog.add_acknowledgement_section(
+            'GJS Maintainers for GJS\n@ptomato for answering',
+            ['@ptomato']
+        );
+
+        aboutDialog.set_license_type(Gtk.License.GPL_3_0);
+
+        aboutDialog.set_issue_url(
+            'https://gitlab.com/smedius/desktop-icons-ng/-/issues'
+        );
+
+        aboutDialog.set_support_url(
+            'https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/ISSUES.md?ref_type=heads'
+        );
+
+        aboutDialog.set_translator_credits(
+            'Weblate Translators, See History.MD on website.'
+        );
+
+        aboutDialog.set_version(this.version);
+        aboutDialog.set_website('https://gitlab.com/smedius/desktop-icons-ng');
+
+        aboutDialog.add_link(
+            _('Help translate in your web browser'),
+            'https://hosted.weblate.org/engage/gtk4-desktop-icons-ng'
+        );
+    }
+};
+
 const AdwPreferencesWindow = class {
     constructor(
         desktopSettings,
@@ -281,8 +381,8 @@ const AdwPreferencesWindow = class {
 
         const aboutFrame = new Adw.PreferencesPage();
 
-        aboutFrame.set_name(_('About'));
-        aboutFrame.set_title(_('About'));
+        aboutFrame.set_name(_('More'));
+        aboutFrame.set_title(_('More'));
         aboutFrame.set_icon_name('prefs-more-symbolic');
 
         prefsWindow.add(prefsFrame);
@@ -321,9 +421,14 @@ const AdwPreferencesWindow = class {
         tweaksGroup.set_description(_('Miscellaneous Tweaks'));
         tweaksFrame.add(tweaksGroup);
 
+        this.shortcutGroup =
+            new ShortcutGroup({remoteActions: this.remoteActions});
+
+        aboutFrame.add(this.shortcutGroup);
+
         const aboutGroup = new Adw.PreferencesGroup();
 
-        aboutGroup.set_title('Gtk4 Desktop Icons NG');
+        aboutGroup.set_title('About Adw. Desktop Icons');
         let versiontitle = _(`Version ${this.version}`);
         aboutGroup.set_description(versiontitle);
 
@@ -423,11 +528,6 @@ const AdwPreferencesWindow = class {
             _('Add new drives to the opposite side of the desktop')
         ));
 
-        this.shortcutGroup =
-            new ShortcutGroup({remoteActions: this.remoteActions});
-
-        tweaksFrame.add(this.shortcutGroup);
-
         filesGroup.add(this.addActionRowSelector(this.nautilusSettings,
             'click-policy',
             _('Action to Open Items'),
@@ -460,24 +560,24 @@ const AdwPreferencesWindow = class {
             _('Open folders on drag hover')
         ));
 
-        aboutGroup.add(this.addActionRowButton(_('Website'),
-            'https://gitlab.com/smedius/desktop-icons-ng',
-            _('Visit'),
-            this.launchWebsite.bind(this)
-        ));
+        const aboutButton = new Adw.ButtonRow();
+        aboutButton.set_title('About...');
 
-        aboutGroup.add(this.addActionRowButton(_('Issues'),
-            _('Report issues on issue tracker'),
-            _('Report'), this.launchIssueTracker.bind(this)
-        ));
+        aboutButton.connect('activated', () => {
+            const aboutDialog = new aboutApp({version: this.version});
+            aboutDialog.present(prefsWindow);
+        });
 
-        aboutGroup.add(this.addActionRowButton(_('License'),
-            'GNU GPLv3',
-            'GNU GPLv3',
-            this.launchLicense.bind(this)
-        ));
+        aboutGroup.add(aboutButton);
 
-        aboutGroup.add(this.addActionRowButton(_('Translation'),
+        const tranlationGroup = new Adw.PreferencesGroup({
+            title: _('Translations'),
+            description: _('All tranlations on Weblate..'),
+        });
+
+        aboutFrame.add(tranlationGroup);
+
+        tranlationGroup.add(this.addActionRowButton(_('Translations'),
             _('Help translate in your web browser'),
             _('Translate'),
             this.launchWebTranslation.bind(this)
@@ -559,22 +659,6 @@ const AdwPreferencesWindow = class {
         context.set_timestamp(Gdk.CURRENT_TIME);
 
         Gio.AppInfo.launch_default_for_uri(uri, context);
-    }
-
-    launchIssueTracker() {
-        const issueUri = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues';
-        this.launchUri(issueUri);
-    }
-
-    launchWebsite() {
-        const webSiteUri = 'https://gitlab.com/smedius/desktop-icons-ng';
-        this.launchUri(webSiteUri);
-    }
-
-    launchLicense() {
-        const licenseUri =
-        'https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/COPYING';
-        this.launchUri(licenseUri);
     }
 
     launchWebTranslation() {
