@@ -305,6 +305,6 @@ const DesktopFileIcon = class extends FileItemIcon {
     }
 
     get hasActions() {
-        return this.actionMap.size > 0;
+        return this.trustedDesktopFile && this.actionMap.size > 0;
     }
 };
