@@ -65,6 +65,47 @@ const DesktopFileIcon = class extends FileItemIcon {
 
         this._trusted =
             fileInfo.get_attribute_as_string('metadata::trusted') === 'true';
+
+        this._getActions();
+    }
+
+    _getActions() {
+        if (!this.trustedDesktopFile)
+            return;
+
+        this.desktopAppInfo =
+            Gio.DesktopAppInfo.new_from_filename(this.path);
+
+        this.actionMap = new Map();
+
+        const actions = this.desktopAppInfo.list_actions();
+
+        actions.forEach(action => {
+            const actionName =
+                this.desktopAppInfo.get_action_name(action);
+
+            this.actionMap.set(actionName, action);
+        });
+    }
+
+    _makeActionMenu() {
+        this._actionmenu = Gio.Menu.new();
+        for (const [actionName, action] of this.actionMap) {
+            const variant =
+                new GLib.Variant('as', [this.path, actionName, action]);
+
+            const menuItem = Gio.MenuItem.new(actionName, null);
+            menuItem.set_action_and_target_value('app.desktopAction', variant);
+            this._actionmenu.append_item(menuItem);
+        }
+    }
+
+    getMenu() {
+        if (!this.hasActions)
+            return null;
+
+        this._makeActionMenu();
+        return this._actionmenu;
     }
 
     async _doOpenContext(context, fileList = []) {
@@ -261,5 +302,9 @@ const DesktopFileIcon = class extends FileItemIcon {
 
     get isValidDesktopFile() {
         return this._isValidDesktopFile;
+    }
+
+    get hasActions() {
+        return this.trustedDesktopFile && this.actionMap.size > 0;
     }
 };
