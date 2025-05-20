@@ -110,5 +110,10 @@
         <summary>Hide/Show all desktop windows</summary>
         <description>Show the icons on the desktop, or hide them all</description>
     </key>
+        <key type="a{ss}" name="shortcutoverrides">
+        <default>{}</default>
+        <summary>User Application Shortcuts</summary>
+        <description>Override for default application shortcuts set by the User</description>
+    </key>
     </schema>
 </schemalist>

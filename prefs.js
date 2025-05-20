@@ -51,8 +51,6 @@ export default class dingPreferences extends ExtensionPreferences {
 
         resource._register();
 
-        window.connect('close-request', resource._unregister.bind(this));
-
         const preferencesWindow =
             new adwPreferencesWindow.AdwPreferencesWindow(
                 desktopSettings,
@@ -60,6 +58,14 @@ export default class dingPreferences extends ExtensionPreferences {
                 gtkSettings,
                 version
             );
+
+        window.connect(
+            'close-request',
+            () => {
+                resource._unregister();
+                preferencesWindow.destroy();
+            }
+        );
 
         preferencesWindow.getAdwPreferencesWindow(window);
     }
