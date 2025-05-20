@@ -246,7 +246,7 @@ const FileItemIcon = class extends DesktopIconItem {
         );
     }
 
-    async _doOpenContext(context, fileList) {
+    async _doOpenContext(context = null, fileList) {
         if (!fileList)
             fileList = [];
 
@@ -262,7 +262,7 @@ const FileItemIcon = class extends DesktopIconItem {
         try {
             await Gio.AppInfo.launch_default_for_uri_async(
                 this.file.get_uri(),
-                null,
+                context,
                 null
             );
         } catch (e) {
