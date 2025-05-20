@@ -315,6 +315,14 @@ const FileItemMenu = class {
                             ? _("Don't Allow Launching")
                             : _('Allow Launching'),
                         'app.allowdisallowlaunching');
+                    if (fileItem.hasActions) {
+                        const actionItem =
+                            Gio.MenuItem.new_section(
+                                null,
+                                fileItem.getMenu()
+                            );
+                        allowLaunchingMenu.append_item(actionItem);
+                    }
                 } else if (fileItem.isAppImageFile) {
                     allowLaunchingMenu.append(
                         fileItem.trustedAppImageFile
@@ -732,6 +740,17 @@ const FileItemActions = class {
             }
         );
         this._mainApp.add_action(onScriptClicked);
+
+        const desktopAction =
+            Gio.SimpleAction.new('desktopAction', GLib.VariantType.new('as'));
+        desktopAction.connect(
+            'activate',
+            (_action, parameter) => {
+                const [path, actionName, action] = parameter.deepUnpack();
+                this._desktopFileAction(path, actionName, action);
+            }
+        );
+        this._mainApp.add_action(desktopAction);
     }
 
     _doMultiOpen() {
@@ -1282,6 +1301,18 @@ const FileItemActions = class {
         const header = _('Move Cancelled');
         const text = _('Unable to move Files, no destination folder');
         this._dbusManager.doNotify(header, text);
+    }
+
+    _desktopFileAction(path, actionName, action) {
+        if (!this.activeFileItem)
+            return;
+
+        if (path === this.activeFileItem.path &&
+            this.activeFileItem.actionMap.has(actionName)
+        ) {
+            let context = new Gio.AppLaunchContext();
+            this.activeFileItem.desktopAppInfo.launch_action(action, context);
+        }
     }
 
     doTrash(localDrag = false, event = null) {
