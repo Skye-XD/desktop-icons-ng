@@ -15,6 +15,7 @@
     <file compressed="true" alias='icons/symbolic/apps/ding-edit-delete-symbolic.svg'>icons/edit-delete-symbolic.svg</file>
     <file compressed="true" alias='icons/symbolic/apps/edit-undo-symbolic.svg'>icons/edit-undo-symbolic.svg</file>
     <file compressed="true" alias='icons/symbolic/apps/xapp-edit-symbolic.svg'>icons/xapp-edit-symbolic.svg</file>
+    <file compressed="true" alias='icons/hicolor/scalable/apps/window-pop-out-symbolic'>icons/window-pop-out-symbolic.svg</file>
     <file compressed="true" alias='icons/hicolor/scalable/apps/com.desktop.ding.svg'>icons/com.desktop.ding.svg</file>
     <file compressed="true">stylesheet.css</file>
     <file compressed="true">com.desktop.ding.desktop</file>

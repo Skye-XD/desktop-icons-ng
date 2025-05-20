@@ -160,6 +160,7 @@ class ShortcutGroup extends Adw.PreferencesGroup {
 
         this.shorcutButton = new Adw.ButtonRow({
             title: _('Edit Shortcuts...'),
+            start_icon_name: 'window-pop-out-symbolic',
         });
 
         this.shorcutButton.connect('activated', this.showShortcuts.bind(this));
@@ -561,7 +562,8 @@ const AdwPreferencesWindow = class {
         ));
 
         const aboutButton = new Adw.ButtonRow();
-        aboutButton.set_title('About...');
+        aboutButton.set_title(_('About...'));
+        aboutButton.set_start_icon_name('window-pop-out-symbolic');
 
         aboutButton.connect('activated', () => {
             const aboutDialog = new aboutApp({version: this.version});
