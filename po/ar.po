@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 23:31-0400\n"
+"POT-Creation-Date: 2025-05-20 19:53-0400\n"
 "PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,251 +21,250 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
-#: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
+#: app/adwPreferencesWindow.js:159
+#, fuzzy
+msgid "Shortcuts"
+msgstr "عرض الاختصارات"
+
+#: app/adwPreferencesWindow.js:162
+#, fuzzy
+msgid "Edit Shortcuts..."
+msgstr "عرض الاختصارات"
+
+#: app/adwPreferencesWindow.js:175
+msgid "Edit Application Shortcuts"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180
+msgid "Shortcuts Editable only when Extension Enabled..."
+msgstr ""
+
+#: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
+msgid "Help translate in your web browser"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:367 app/adwPreferencesWindow.js:368
 msgid "Desktop"
 msgstr "سطح المكتب"
 
-#: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:373 app/adwPreferencesWindow.js:374
 msgid "Files"
 msgstr "الملفات"
 
-#: app/adwPreferencesWindow.js:195 app/adwPreferencesWindow.js:196
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:379 app/adwPreferencesWindow.js:380
+#: app/adwPreferencesWindow.js:421
 msgid "Tweaks"
 msgstr "تعديلات"
 
-#: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
-msgid "About"
-msgstr "عن"
+#: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+msgid "More"
+msgstr ""
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:397
 msgid "Desktop Settings"
 msgstr "اعدادات سطح المكتب"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:398
 msgid "Settings for the Desktop Program"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:404
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "مجلَّد سطح مكتب"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:405
 #, fuzzy
 msgid "Current Desktop: "
 msgstr "ملفات سطح المكتب غير الصحيحة"
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:414
 msgid "Files Settings"
 msgstr "إعدادات الملفات"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:415
 msgid "Settings shared with Gnome Files"
 msgstr "الإعدادات المشتركة مع ملفات جنوم"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:422
 msgid "Miscellaneous Tweaks"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:440
 msgid "Size for the desktop icons"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:442
 msgid "Tiny"
 msgstr "صغير جداً"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:443
 msgid "Small"
 msgstr "صغير"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:444
 #, fuzzy
 msgid "Standard"
 msgstr "معيار"
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:445
 msgid "Large"
 msgstr "كبير"
 
-#: app/adwPreferencesWindow.js:262
+#: app/adwPreferencesWindow.js:451
 msgid "New icons alignment"
 msgstr "محاذاة الأيقونات الجديدة"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:453
 msgid "Top left corner"
 msgstr "الزاوية العلوية اليسرى"
 
-#: app/adwPreferencesWindow.js:265
+#: app/adwPreferencesWindow.js:454
 msgid "Top right corner"
 msgstr "الزاوية العلوية اليمنى"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:455
 msgid "Bottom left corner"
 msgstr "الزاوية السفلية اليسرى"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:456
 msgid "Bottom right corner"
 msgstr "الزاوية السفلية اليمنى"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:462
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:466
 msgid "Snap icons to grid"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:283
+#: app/adwPreferencesWindow.js:472
 msgid "Highlight the drop grid"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:292
+#: app/adwPreferencesWindow.js:481
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "مجلد جديد"
 
-#: app/adwPreferencesWindow.js:293
+#: app/adwPreferencesWindow.js:482
 msgid "Set a new folder for the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:294 app/adwPreferencesWindow.js:502
-#: app/desktopFolderMonitor.js:614
+#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:676
+#: app/desktopFolderMonitor.js:618
 #, fuzzy
 msgid "Choose"
 msgstr "إختيار"
 
-#: app/adwPreferencesWindow.js:299
+#: app/adwPreferencesWindow.js:488
 msgid "Restore Default Desktop Folder"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:300
+#: app/adwPreferencesWindow.js:489
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:301
+#: app/adwPreferencesWindow.js:490
 #, fuzzy
 msgid "Restore"
 msgstr "يعيد"
 
-#: app/adwPreferencesWindow.js:311
+#: app/adwPreferencesWindow.js:500
 msgid "Add information emblems for links, encryption"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:315
+#: app/adwPreferencesWindow.js:504
 msgid "Use dark text in icon labels"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:320
+#: app/adwPreferencesWindow.js:509
 msgid "Show the personal folder on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:325
+#: app/adwPreferencesWindow.js:514
 msgid "Show the trash icon on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:330
+#: app/adwPreferencesWindow.js:519
 msgid "Show external drives on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:335
+#: app/adwPreferencesWindow.js:524
 msgid "Show network drives on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:340
+#: app/adwPreferencesWindow.js:529
 msgid "Add new drives to the opposite side of the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:346
+#: app/adwPreferencesWindow.js:534
 msgid "Action to Open Items"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:348
+#: app/adwPreferencesWindow.js:536
 msgid "Single click"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:349
+#: app/adwPreferencesWindow.js:537
 #, fuzzy
 msgid "Double click"
 msgstr "نقرتين متتاليتين"
 
-#: app/adwPreferencesWindow.js:354
+#: app/adwPreferencesWindow.js:542
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "إظهار الصورة المصغرة"
 
-#: app/adwPreferencesWindow.js:356
+#: app/adwPreferencesWindow.js:544
 #, fuzzy
 msgid "Always"
 msgstr "دائماً"
 
-#: app/adwPreferencesWindow.js:357
+#: app/adwPreferencesWindow.js:545
 msgid "On this computer only"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:358
+#: app/adwPreferencesWindow.js:546
 #, fuzzy
 msgid "Never"
 msgstr "أبدًا"
 
-#: app/adwPreferencesWindow.js:363
+#: app/adwPreferencesWindow.js:551
 msgid "Show a context menu item to delete permanently"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:368
+#: app/adwPreferencesWindow.js:556
 #, fuzzy
 msgid "Show hidden files"
 msgstr "اعرض الملفات المخفيّة"
 
-#: app/adwPreferencesWindow.js:373
+#: app/adwPreferencesWindow.js:561
 msgid "Open folders on drag hover"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:376
+#: app/adwPreferencesWindow.js:565
 #, fuzzy
-msgid "Website"
-msgstr "الموقع الإلكتروني"
+#| msgid "About"
+msgid "About..."
+msgstr "عن"
 
-#: app/adwPreferencesWindow.js:378
+#: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
 #, fuzzy
-msgid "Visit"
-msgstr "زيارة"
-
-#: app/adwPreferencesWindow.js:382
-#, fuzzy
-msgid "Issues"
-msgstr "الأخطاء"
-
-#: app/adwPreferencesWindow.js:383
-msgid "Report issues on issue tracker"
-msgstr ""
-
-#: app/adwPreferencesWindow.js:384
-#, fuzzy
-msgid "Report"
-msgstr "تقرير"
-
-#: app/adwPreferencesWindow.js:387
-#, fuzzy
-msgid "License"
-msgstr "الترخيص"
-
-#: app/adwPreferencesWindow.js:393
-#, fuzzy
-msgid "Translation"
+msgid "Translations"
 msgstr "ترجمة"
 
-#: app/adwPreferencesWindow.js:394
-msgid "Help translate in your web browser"
+#: app/adwPreferencesWindow.js:577
+msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:395
+#: app/adwPreferencesWindow.js:584
 #, fuzzy
 msgid "Translate"
 msgstr "ترجمة"
 
-#: app/adwPreferencesWindow.js:501 app/desktopFolderMonitor.js:613
+#: app/adwPreferencesWindow.js:675 app/desktopFolderMonitor.js:617
 #, fuzzy
 msgid "Choose Desktop Folder"
 msgstr "ملفات سطح المكتب غير الصحيحة"
@@ -307,13 +306,13 @@ msgid ""
 "Properties, then:\n"
 msgstr ""
 
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:107
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
 msgstr ""
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:115
+#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
@@ -341,8 +340,8 @@ msgstr "اسم المجلد"
 msgid "File name"
 msgstr "اسم الملف"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:976
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
+#: app/fileItemMenu.js:971
 #, fuzzy
 msgid "OK"
 msgstr "OK"
@@ -372,9 +371,9 @@ msgstr "إستخراج الملفات"
 msgid "Compressing files"
 msgstr "ضغط الملفات."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
-#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
+#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:918
+#: app/fileItemMenu.js:971 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 #, fuzzy
 msgid "Cancel"
 msgstr "إلغاﺀ"
@@ -483,12 +482,25 @@ msgstr ""
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
 
-#: app/desktopFileIcon.js:84
+#: app/desktopFileIcon.js:125
+msgid "The Displayed Desktop is writable by others"
+msgstr ""
+
+#: app/desktopFileIcon.js:128
+msgid ""
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
+"\n"
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
+msgstr ""
+
+#: app/desktopFileIcon.js:138
 #, fuzzy
 msgid "Broken Desktop File"
 msgstr "ملفات سطح المكتب غير الصحيحة"
 
-#: app/desktopFileIcon.js:87
+#: app/desktopFileIcon.js:141
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -496,21 +508,21 @@ msgid ""
 "Edit the file to set the correct executable Program."
 msgstr ""
 
-#: app/desktopFileIcon.js:97
+#: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
 msgstr ""
 
-#: app/desktopFileIcon.js:100
+#: app/desktopFileIcon.js:154
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
 
-#: app/desktopFileIcon.js:124
+#: app/desktopFileIcon.js:178
 msgid "Untrusted Desktop File"
 msgstr ""
 
-#: app/desktopFileIcon.js:127
+#: app/desktopFileIcon.js:181
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -518,29 +530,29 @@ msgid ""
 "Enable \"Allow Launching\""
 msgstr ""
 
-#: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
 msgstr "لم أتمكن من فتح الملف"
 
-#: app/desktopFileIcon.js:157
+#: app/desktopFileIcon.js:211
 msgid "{appName} can not open files of this Type!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:120
+#: app/desktopFolderMonitor.js:121
 #, fuzzy
 msgid "Desktop Folder Change Failed"
 msgstr "لم يتم إنشاء الطلب"
 
-#: app/desktopFolderMonitor.js:123
+#: app/desktopFolderMonitor.js:124
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:139
+#: app/desktopFolderMonitor.js:140
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:141
 msgid "Switching to new Desktop..."
 msgstr ""
 
@@ -548,11 +560,11 @@ msgstr ""
 msgid "Desktop Icons"
 msgstr ""
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr ""
 
-#: app/desktopManager.js:156
+#: app/desktopManager.js:158
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -560,251 +572,194 @@ msgid ""
 "Please enable in Mutter Dconf Settings"
 msgstr ""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:169
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
 
-#: app/desktopManager.js:170
+#: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
 msgstr "يُمكَِن"
 
-#: app/desktopManager.js:195
+#: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
 msgstr ""
 
-#: app/desktopManager.js:205
+#: app/desktopManager.js:207
 msgid "GNOME Files not found"
 msgstr ""
 
-#: app/desktopManager.js:206
+#: app/desktopManager.js:208
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
 
-#: app/desktopManager.js:214
+#: app/desktopManager.js:216
 msgid "There is no default File Manager"
 msgstr ""
 
-#: app/desktopManager.js:215
+#: app/desktopManager.js:217
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 
-#: app/desktopManager.js:224
+#: app/desktopManager.js:226
 msgid "Gnome Files is not registered as a File Manager"
 msgstr ""
 
-#: app/desktopManager.js:225
+#: app/desktopManager.js:227
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:317
+#: app/desktopManager.js:319
 msgid "Clear current selection before new search"
 msgstr ""
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1229
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
+#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
 #, fuzzy
 msgid "New Folder"
 msgstr "مجلد جديد"
 
-#: app/desktopManager.js:1585
+#: app/desktopManager.js:1592
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "لم يتم إنشاء الطلب"
 
-#: app/desktopManager.js:1586
+#: app/desktopManager.js:1593
 #, fuzzy
 msgid "Could not create folder"
 msgstr "لا يمكن إنشاء المجلد"
 
-#: app/desktopMenu.js:36
-msgid "Keyboard Short Cuts"
-msgstr ""
-
-#: app/desktopMenu.js:190
-#, fuzzy
-msgid "Do Paste"
-msgstr "لصق"
-
-#: app/desktopMenu.js:202 app/desktopMenu.js:1166
-#, fuzzy
-msgid "Undo"
-msgstr "تراجع"
-
-#: app/desktopMenu.js:214 app/desktopMenu.js:1168
-#, fuzzy
-msgid "Redo"
-msgstr "إعادة"
-
-#: app/desktopMenu.js:225 app/desktopMenu.js:1174
-#, fuzzy
-msgid "Select All"
-msgstr "تحديد الكل"
-
-#: app/desktopMenu.js:321
-#, fuzzy
-#| msgid "Files"
-msgid "Find Files"
-msgstr "الملفات"
-
-#: app/desktopMenu.js:338
-#, fuzzy
-msgid "Update Desktop"
-msgstr "سطح المكتب"
-
-#: app/desktopMenu.js:354
-#, fuzzy
-msgid "Show Hidden Files"
-msgstr "عرض الملفات المخفية"
-
-#: app/desktopMenu.js:369
-#, fuzzy
-msgid "Unselect All"
-msgstr "ألغ تحديد لكل"
-
-#: app/desktopMenu.js:383
-#, fuzzy
-msgid "Preview"
-msgstr "معاينة"
-
-#: app/desktopMenu.js:393
-msgid "Choose Icon Left"
-msgstr ""
-
-#: app/desktopMenu.js:404
-msgid "Choose Icon Right"
-msgstr ""
-
-#: app/desktopMenu.js:413
-#, fuzzy
-msgid "Choose Icon Up"
-msgstr "إختيار"
-
-#: app/desktopMenu.js:423
-msgid "Choose Icon Down"
-msgstr ""
-
-#: app/desktopMenu.js:432
-#, fuzzy
-msgid "Show Menu"
-msgstr "عرض القائمة"
-
-#: app/desktopMenu.js:480 app/desktopMenu.js:1151
-#, fuzzy
-msgid "Show Shortcuts"
-msgstr "عرض الاختصارات"
-
-#: app/desktopMenu.js:750
+#: app/desktopMenu.js:549
 msgid "Unable to open Desktop in Gnome Files"
 msgstr ""
 
-#: app/desktopMenu.js:790
+#: app/desktopMenu.js:570
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopMenu.js:791
+#: app/desktopMenu.js:571
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopMenu.js:806 app/desktopMenu.js:1207
+#: app/desktopMenu.js:580 app/desktopMenu.js:961
 #, fuzzy
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:763
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopMenu.js:988
+#: app/desktopMenu.js:764
 #, fuzzy
 msgid "Could not create document"
 msgstr "تعذر حذف المستند"
 
-#: app/desktopMenu.js:1115
+#: app/desktopMenu.js:869
 #, fuzzy
 msgid "Name"
 msgstr "الاسم"
 
-#: app/desktopMenu.js:1117
+#: app/desktopMenu.js:871
 #, fuzzy
 msgid "Name Z-A"
 msgstr "الاسم: Z-A"
 
-#: app/desktopMenu.js:1119
+#: app/desktopMenu.js:873
 msgid "Modified Time"
 msgstr ""
 
-#: app/desktopMenu.js:1121
+#: app/desktopMenu.js:875
 #, fuzzy
 msgid "Type"
 msgstr "النوع"
 
-#: app/desktopMenu.js:1123
+#: app/desktopMenu.js:877
 #, fuzzy
 msgid "Size"
 msgstr "مقاس"
 
-#: app/desktopMenu.js:1128
+#: app/desktopMenu.js:882
 msgid "Keep Arranged…"
 msgstr ""
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:887
 msgid "Keep Stacked by Type…"
 msgstr ""
 
-#: app/desktopMenu.js:1135
+#: app/desktopMenu.js:889
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:894
 #, fuzzy
 msgid "Change Desktop"
 msgstr "سطح المكتب"
 
-#: app/desktopMenu.js:1145
+#: app/desktopMenu.js:899
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:1149
+#: app/desktopMenu.js:903
 msgid "Desktop Icon Settings"
 msgstr ""
 
-#: app/desktopMenu.js:1159
+#: app/desktopMenu.js:905
+#, fuzzy
+msgid "Show Shortcuts"
+msgstr "عرض الاختصارات"
+
+#: app/desktopMenu.js:913 app/shortcuts.js:39
 #, fuzzy
 msgid "New Document"
 msgstr "مستند جديد"
 
-#: app/desktopMenu.js:1164
+#: app/desktopMenu.js:918 app/shortcuts.js:11
 #, fuzzy
 msgid "Paste"
 msgstr "لصق"
 
-#: app/desktopMenu.js:1181
+#: app/desktopMenu.js:920 app/shortcuts.js:12
+#, fuzzy
+msgid "Undo"
+msgstr "تراجع"
+
+#: app/desktopMenu.js:922 app/shortcuts.js:13
+#, fuzzy
+msgid "Redo"
+msgstr "إعادة"
+
+#: app/desktopMenu.js:928 app/shortcuts.js:14
+#, fuzzy
+msgid "Select All"
+msgstr "تحديد الكل"
+
+#: app/desktopMenu.js:935 app/shortcuts.js:24
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopMenu.js:1185
+#: app/desktopMenu.js:939
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopMenu.js:1193
+#: app/desktopMenu.js:947
 msgid "Show Desktop In {0}"
 msgstr ""
 
-#: app/desktopMenu.js:1198
+#: app/desktopMenu.js:952
 msgid "Open In {0}"
 msgstr ""
 
-#: app/desktopMenu.js:1214
+#: app/desktopMenu.js:968
 msgid "Shell Menu…"
 msgstr ""
 
@@ -843,22 +798,22 @@ msgstr "انسخ"
 msgid "Link"
 msgstr "الرابط"
 
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:95
 #, fuzzy
 msgid "Folder"
 msgstr "مجلد"
 
-#: app/fileItemIcon.js:97
+#: app/fileItemIcon.js:96
 #, fuzzy
 msgid "File"
 msgstr "ملف"
 
-#: app/fileItemIcon.js:274
+#: app/fileItemIcon.js:270
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "فشل فتح الملف"
 
-#: app/fileItemIcon.js:280
+#: app/fileItemIcon.js:276
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr ""
 
@@ -969,7 +924,7 @@ msgstr ""
 msgid "Send to Mobile Device"
 msgstr ""
 
-#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:294
 #, fuzzy
 msgid "Move to Trash"
 msgstr "احذف لسلَّة المهملات"
@@ -979,169 +934,140 @@ msgstr "احذف لسلَّة المهملات"
 msgid "Delete permanently"
 msgstr "الحذف بشكل نهائي"
 
-#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
 msgstr ""
 
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
 msgstr ""
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:339
 #, fuzzy
 msgid "Empty Trash"
 msgstr "إفراغ سلة المهملات"
 
-#: app/fileItemMenu.js:337
+#: app/fileItemMenu.js:345
 msgid "Eject"
 msgstr ""
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:348
 #, fuzzy
 msgid "Unmount"
 msgstr "unmount"
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:354
 #, fuzzy
 msgid "Common Properties"
 msgstr "خصائص التعليق"
 
-#: app/fileItemMenu.js:347
+#: app/fileItemMenu.js:355
 #, fuzzy
 msgid "Properties"
 msgstr "خاصيات"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:362
 msgid "Show All in {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:355
+#: app/fileItemMenu.js:363
 msgid "Show in {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:366
+#: app/fileItemMenu.js:374
 msgid "Open in {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:530
+#: app/fileItemMenu.js:538
 #, fuzzy
 msgid "Open Item"
 msgstr "البنود المفتوحة"
 
-#: app/fileItemMenu.js:570
-msgid "Cut Item"
-msgstr ""
-
-#: app/fileItemMenu.js:579
-#, fuzzy
-msgid "Copy Item"
-msgstr "البنود المفتوحة"
-
-#: app/fileItemMenu.js:589
-#, fuzzy
-msgid "Rename Item"
-msgstr "إعادة تسمية العنصر"
-
-#: app/fileItemMenu.js:612
-#, fuzzy
-msgid "Delete Permanently"
-msgstr "الحذف بشكل نهائي"
-
-#: app/fileItemMenu.js:701
-#, fuzzy
-msgid "Show Properties"
-msgstr "اعرض الخصائص"
-
-#: app/fileItemMenu.js:730
-#, fuzzy
-msgid "Create Link to Item"
-msgstr "إنشاء رابط"
-
-#: app/fileItemMenu.js:828
+#: app/fileItemMenu.js:823
 msgid "Extraction Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:829
+#: app/fileItemMenu.js:824
 msgid "Unable to extract File, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
+#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
 #, fuzzy
 msgid "Select Destination"
 msgstr "حدد الوجهة"
 
-#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
+#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
 #, fuzzy
 msgid "Select"
 msgstr "حدِّد"
 
-#: app/fileItemMenu.js:972
+#: app/fileItemMenu.js:967
 msgid "Can not email a Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:974
+#: app/fileItemMenu.js:969
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 
-#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
-#: app/fileItemMenu.js:1067
+#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:1062
 msgid "Mail Error"
 msgstr ""
 
-#: app/fileItemMenu.js:1002
+#: app/fileItemMenu.js:997
 msgid "Unable to find zip command, please install the program"
 msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1008
+#: app/fileItemMenu.js:1003
 msgid "Archive.zip"
 msgstr ""
 
-#: app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1027
 msgid "There was an error in creating a zip archive"
 msgstr ""
 
-#: app/fileItemMenu.js:1050
+#: app/fileItemMenu.js:1045
 msgid "Unable to find xdg-email, please install the program"
 msgstr ""
 
-#: app/fileItemMenu.js:1068
+#: app/fileItemMenu.js:1063
 msgid "There was an error in emailing Files"
 msgstr ""
 
-#: app/fileItemMenu.js:1175
+#: app/fileItemMenu.js:1170
 msgid "Can Not open the Working Directory"
 msgstr ""
 
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1221
 msgid "Unable to Open in Gnome Console"
 msgstr ""
 
-#: app/fileItemMenu.js:1228
+#: app/fileItemMenu.js:1223
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1231
 msgid "Unable to Open {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1238
+#: app/fileItemMenu.js:1233
 msgid "Please Install {0}"
 msgstr ""
 
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1277
 msgid "Copy Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:1283
+#: app/fileItemMenu.js:1278
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1301
 msgid "Move Cancelled"
 msgstr ""
 
-#: app/fileItemMenu.js:1307
+#: app/fileItemMenu.js:1302
 msgid "Unable to move Files, no destination folder"
 msgstr ""
 
@@ -1149,10 +1075,197 @@ msgstr ""
 msgid "$appName$ can not open files of this Type!"
 msgstr ""
 
-#: app/preferences.js:892
+#: app/preferences.js:893
 #, fuzzy
 msgid "Console"
 msgstr "وحدة التحكم"
+
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+msgid "None"
+msgstr ""
+
+#: app/shortcutManager.js:85
+msgid "Default Shortcut:"
+msgstr ""
+
+#: app/shortcutManager.js:109
+msgid "Type new..."
+msgstr ""
+
+#: app/shortcutManager.js:125
+msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
+msgstr ""
+
+#: app/shortcutManager.js:130
+msgid "Reset to Default"
+msgstr ""
+
+#: app/shortcutManager.js:134
+msgid "No Accelerator"
+msgstr ""
+
+#: app/shortcutManager.js:243
+#, fuzzy
+msgid "System Shortcuts"
+msgstr "عرض الاختصارات"
+
+#: app/shortcutManager.js:244
+msgid "Common System Defined Keyboard Shortcuts"
+msgstr ""
+
+#: app/shortcutManager.js:302
+#, fuzzy
+msgid "Local Shortcuts"
+msgstr "عرض الاختصارات"
+
+#: app/shortcutManager.js:303
+msgid "Application Keyboard Shortcuts"
+msgstr ""
+
+#: app/shortcutManager.js:364
+#, fuzzy
+msgid "Global Shortcuts"
+msgstr "عرض الاختصارات"
+
+#: app/shortcutManager.js:365
+#, fuzzy
+msgid "System Keyboard Shortcuts"
+msgstr "عرض الاختصارات"
+
+#: app/shortcutManager.js:661
+#, fuzzy
+msgid "Keyboard Shortcuts"
+msgstr "عرض الاختصارات"
+
+#: app/shortcutManager.js:673
+#, fuzzy
+msgid "Reset Shortcuts"
+msgstr "عرض الاختصارات"
+
+#: app/shortcutManager.js:674
+msgid "Reset all shortcuts to Defaults"
+msgstr ""
+
+#: app/shortcutManager.js:677
+#, fuzzy
+msgid "Reset All..."
+msgstr "تحديد الكل"
+
+#: app/shortcuts.js:15
+#, fuzzy
+msgid "Show Desktop in Files"
+msgstr "ملفات سطح المكتب غير الصحيحة"
+
+#: app/shortcuts.js:16
+msgid "Open in Terminal"
+msgstr ""
+
+#: app/shortcuts.js:17
+msgid "Change Background"
+msgstr ""
+
+#: app/shortcuts.js:18
+#, fuzzy
+#| msgid "Desktop Settings"
+msgid "Change Display Settings"
+msgstr "اعدادات سطح المكتب"
+
+#: app/shortcuts.js:19
+#, fuzzy
+#| msgid "Desktop Settings"
+msgid "Change Desktop Icon Settings"
+msgstr "اعدادات سطح المكتب"
+
+#: app/shortcuts.js:20
+msgid "Clean Up Icons"
+msgstr ""
+
+#: app/shortcuts.js:21
+msgid "Keep Arranged"
+msgstr ""
+
+#: app/shortcuts.js:22
+msgid "Keep Stacked"
+msgstr ""
+
+#: app/shortcuts.js:23
+msgid "Sort Special Folders"
+msgstr ""
+
+#: app/shortcuts.js:25
+#, fuzzy
+#| msgid "Files"
+msgid "Find Files"
+msgstr "الملفات"
+
+#: app/shortcuts.js:26
+#, fuzzy
+msgid "Update Desktop"
+msgstr "سطح المكتب"
+
+#: app/shortcuts.js:27
+#, fuzzy
+msgid "Show Hidden Files"
+msgstr "عرض الملفات المخفية"
+
+#: app/shortcuts.js:28
+#, fuzzy
+msgid "Unselect All"
+msgstr "ألغ تحديد لكل"
+
+#: app/shortcuts.js:29
+#, fuzzy
+msgid "Preview"
+msgstr "معاينة"
+
+#: app/shortcuts.js:30
+msgid "Choose Icon Left"
+msgstr ""
+
+#: app/shortcuts.js:31
+msgid "Choose Icon Right"
+msgstr ""
+
+#: app/shortcuts.js:32
+#, fuzzy
+msgid "Choose Icon Up"
+msgstr "إختيار"
+
+#: app/shortcuts.js:33
+msgid "Choose Icon Down"
+msgstr ""
+
+#: app/shortcuts.js:34
+#, fuzzy
+msgid "Show Menu"
+msgstr "عرض القائمة"
+
+#: app/shortcuts.js:35
+msgid "Display Shell Background Menu"
+msgstr ""
+
+#: app/shortcuts.js:36
+#, fuzzy
+msgid "Create Desktop Shortcut"
+msgstr "ملفات سطح المكتب غير الصحيحة"
+
+#: app/shortcuts.js:37
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:38
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:40
+#, fuzzy
+msgid "Show Shortcut Viewer"
+msgstr "عرض الاختصارات"
+
+#: app/shortcuts.js:41
+msgid "Show Or Hide Desktop Icons"
+msgstr ""
 
 #: app/showErrorPopup.js:42
 #, fuzzy
@@ -1374,6 +1487,66 @@ msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+msgid "Hide/Show all desktop windows"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+msgid "Show the icons on the desktop, or hide them all"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+msgid "User Application Shortcuts"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+msgid "Override for default application shortcuts set by the User"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Website"
+#~ msgstr "الموقع الإلكتروني"
+
+#, fuzzy
+#~ msgid "Visit"
+#~ msgstr "زيارة"
+
+#, fuzzy
+#~ msgid "Issues"
+#~ msgstr "الأخطاء"
+
+#, fuzzy
+#~ msgid "Report"
+#~ msgstr "تقرير"
+
+#, fuzzy
+#~ msgid "License"
+#~ msgstr "الترخيص"
+
+#, fuzzy
+#~ msgid "Do Paste"
+#~ msgstr "لصق"
+
+#, fuzzy
+#~ msgid "Copy Item"
+#~ msgstr "البنود المفتوحة"
+
+#, fuzzy
+#~ msgid "Rename Item"
+#~ msgstr "إعادة تسمية العنصر"
+
+#, fuzzy
+#~ msgid "Delete Permanently"
+#~ msgstr "الحذف بشكل نهائي"
+
+#, fuzzy
+#~ msgid "Show Properties"
+#~ msgstr "اعرض الخصائص"
+
+#, fuzzy
+#~ msgid "Create Link to Item"
+#~ msgstr "إنشاء رابط"
 
 #, fuzzy
 #~ msgid "Volumes"

@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 23:31-0400\n"
+"POT-Creation-Date: 2025-05-20 19:53-0400\n"
 "PO-Revision-Date: 2025-04-24 02:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,279 +25,275 @@ msgstr ""
 "X-Generator: Weblate 5.11.1-dev\n"
 "X-Launchpad-Export-Date: 2021-04-08 06:16+0000\n"
 
-#: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
+#: app/adwPreferencesWindow.js:159
+#, fuzzy
+msgid "Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: app/adwPreferencesWindow.js:162
+#, fuzzy
+msgid "Edit Shortcuts..."
+msgstr "Näytä pikanäppäimet"
+
+#: app/adwPreferencesWindow.js:175
+msgid "Edit Application Shortcuts"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180
+msgid "Shortcuts Editable only when Extension Enabled..."
+msgstr ""
+
+#: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
+#, fuzzy
+msgid "Help translate in your web browser"
+msgstr "Auta kääntämään verkkoselaimesi"
+
+#: app/adwPreferencesWindow.js:367 app/adwPreferencesWindow.js:368
 #, fuzzy
 msgid "Desktop"
 msgstr "Työpöytä"
 
-#: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:373 app/adwPreferencesWindow.js:374
 #, fuzzy
 msgid "Files"
 msgstr "Tiedostot"
 
-#: app/adwPreferencesWindow.js:195 app/adwPreferencesWindow.js:196
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:379 app/adwPreferencesWindow.js:380
+#: app/adwPreferencesWindow.js:421
 #, fuzzy
 msgid "Tweaks"
 msgstr "Säädöt"
 
-#: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
-#, fuzzy
-msgid "About"
-msgstr "Tietoja"
+#: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+msgid "More"
+msgstr ""
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:397
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Työpöytä asetukset"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:398
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Asetukset työpöytäohjelmaan"
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:404
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "Työpöytäkansio"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:405
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Current Desktop: "
 msgstr "Rikkinäinen työpöytätiedosto"
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:414
 #, fuzzy
 msgid "Files Settings"
 msgstr "Asetukset Files"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:415
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Asetukset jaettu Gnome Files"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:422
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Väärä Tweet"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:440
 msgid "Size for the desktop icons"
 msgstr "Työpöytäkuvakkeiden koko"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:442
 msgid "Tiny"
 msgstr "Erittäin pieni"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:443
 msgid "Small"
 msgstr "Pieni"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:444
 msgid "Standard"
 msgstr "Tavallinen"
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:445
 msgid "Large"
 msgstr "Suuri"
 
-#: app/adwPreferencesWindow.js:262
+#: app/adwPreferencesWindow.js:451
 msgid "New icons alignment"
 msgstr "Uusien kuvakkeiden asettelu"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:453
 #, fuzzy
 msgid "Top left corner"
 msgstr "Vasen yläkulma"
 
-#: app/adwPreferencesWindow.js:265
+#: app/adwPreferencesWindow.js:454
 #, fuzzy
 msgid "Top right corner"
 msgstr "Oikea yläkulma"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:455
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Vasen alakulma"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:456
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Oikea alakulma"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:462
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Lisätään uudet kuvakkeet ensin toissijaisiin monitoreihin, jos niitä on "
 "saatavilla"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:466
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Snap ikonit verkkoon"
 
-#: app/adwPreferencesWindow.js:283
+#: app/adwPreferencesWindow.js:472
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Kohota pisaraverkko"
 
-#: app/adwPreferencesWindow.js:292
+#: app/adwPreferencesWindow.js:481
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Ei kohdekansiota"
 
-#: app/adwPreferencesWindow.js:293
+#: app/adwPreferencesWindow.js:482
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "Näytä kotikansio työpöydällä"
 
-#: app/adwPreferencesWindow.js:294 app/adwPreferencesWindow.js:502
-#: app/desktopFolderMonitor.js:614
+#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:676
+#: app/desktopFolderMonitor.js:618
 #, fuzzy
 msgid "Choose"
 msgstr "Valitse"
 
-#: app/adwPreferencesWindow.js:299
+#: app/adwPreferencesWindow.js:488
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Restore Default Desktop Folder"
 msgstr "Luottamaton työpöytätiedosto"
 
-#: app/adwPreferencesWindow.js:300
+#: app/adwPreferencesWindow.js:489
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:301
+#: app/adwPreferencesWindow.js:490
 #, fuzzy
 msgid "Restore"
 msgstr "Palauttaa"
 
-#: app/adwPreferencesWindow.js:311
+#: app/adwPreferencesWindow.js:500
 #, fuzzy
 #| msgid "Add an emblem to links"
 msgid "Add information emblems for links, encryption"
 msgstr "Merkitse tiedostolinkit symbolilla"
 
-#: app/adwPreferencesWindow.js:315
+#: app/adwPreferencesWindow.js:504
 msgid "Use dark text in icon labels"
 msgstr "Käytä tummaa tekstiä kuvakkeiden selitteissä"
 
-#: app/adwPreferencesWindow.js:320
+#: app/adwPreferencesWindow.js:509
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Näytä kotikansio työpöydällä"
 
-#: app/adwPreferencesWindow.js:325
+#: app/adwPreferencesWindow.js:514
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Näytä roskakorin kuvake työpöydällä"
 
-#: app/adwPreferencesWindow.js:330
+#: app/adwPreferencesWindow.js:519
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Näytä erilliset tallennusvälineet työpöydällä"
 
-#: app/adwPreferencesWindow.js:335
+#: app/adwPreferencesWindow.js:524
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Näytä verkkoasemat työpöydällä"
 
-#: app/adwPreferencesWindow.js:340
+#: app/adwPreferencesWindow.js:529
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Lisää uudet tallennusvälineet näytön toiselle puolelle"
 
-#: app/adwPreferencesWindow.js:346
+#: app/adwPreferencesWindow.js:534
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Toiminta avoimiin kohteisiin"
 
-#: app/adwPreferencesWindow.js:348
+#: app/adwPreferencesWindow.js:536
 msgid "Single click"
 msgstr "Yksi napsautus"
 
-#: app/adwPreferencesWindow.js:349
+#: app/adwPreferencesWindow.js:537
 msgid "Double click"
 msgstr "Kaksoisnapsautus"
 
-#: app/adwPreferencesWindow.js:354
+#: app/adwPreferencesWindow.js:542
 msgid "Show image thumbnails"
 msgstr "Näytä pienoiskuvat"
 
-#: app/adwPreferencesWindow.js:356
+#: app/adwPreferencesWindow.js:544
 msgid "Always"
 msgstr "Aina"
 
-#: app/adwPreferencesWindow.js:357
+#: app/adwPreferencesWindow.js:545
 #, fuzzy
 msgid "On this computer only"
 msgstr "Vain tällä tietokoneella"
 
-#: app/adwPreferencesWindow.js:358
+#: app/adwPreferencesWindow.js:546
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: app/adwPreferencesWindow.js:363
+#: app/adwPreferencesWindow.js:551
 msgid "Show a context menu item to delete permanently"
 msgstr "Näytä valikkokohde pysyvästi poistamiselle"
 
-#: app/adwPreferencesWindow.js:368
+#: app/adwPreferencesWindow.js:556
 msgid "Show hidden files"
 msgstr "Näytä piilotiedostot"
 
-#: app/adwPreferencesWindow.js:373
+#: app/adwPreferencesWindow.js:561
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Avoimet kansiot drag hoverissa"
 
-#: app/adwPreferencesWindow.js:376
+#: app/adwPreferencesWindow.js:565
 #, fuzzy
-msgid "Website"
-msgstr "Website"
+msgid "About..."
+msgstr "Tietoja"
 
-#: app/adwPreferencesWindow.js:378
+#: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
 #, fuzzy
-msgid "Visit"
-msgstr "Vieraile"
-
-#: app/adwPreferencesWindow.js:382
-#, fuzzy
-msgid "Issues"
-msgstr "Ongelmat"
-
-#: app/adwPreferencesWindow.js:383
-#, fuzzy
-msgid "Report issues on issue tracker"
-msgstr "Raportti aiheista seuraaja"
-
-#: app/adwPreferencesWindow.js:384
-#, fuzzy
-msgid "Report"
-msgstr "Raportoi"
-
-#: app/adwPreferencesWindow.js:387
-#, fuzzy
-msgid "License"
-msgstr "Lisenssi"
-
-#: app/adwPreferencesWindow.js:393
-#, fuzzy
-msgid "Translation"
+msgid "Translations"
 msgstr "Käännös"
 
-#: app/adwPreferencesWindow.js:394
-#, fuzzy
-msgid "Help translate in your web browser"
-msgstr "Auta kääntämään verkkoselaimesi"
+#: app/adwPreferencesWindow.js:577
+msgid "All tranlations on Weblate.."
+msgstr ""
 
-#: app/adwPreferencesWindow.js:395
+#: app/adwPreferencesWindow.js:584
 #, fuzzy
 msgid "Translate"
 msgstr "Käännä"
 
-#: app/adwPreferencesWindow.js:501 app/desktopFolderMonitor.js:613
+#: app/adwPreferencesWindow.js:675 app/desktopFolderMonitor.js:617
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Choose Desktop Folder"
@@ -351,7 +347,7 @@ msgstr ""
 "Tällä .desktop-tiedostolla on väärät oikeudet. Naksauta oikealla hiiren "
 "napilla ja valitse Ominaisuudet, sitten:\n"
 
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:107
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -364,7 +360,7 @@ msgstr ""
 "<b>Aseta oikeudet kohdassa \"Muut oikeudet\", joko \"Vain luku\" tai \"Ei "
 "mikään\"</b>"
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:115
+#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -408,8 +404,8 @@ msgstr "Kansion nimi"
 msgid "File name"
 msgstr "Tiedoston nimi"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:976
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
+#: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "OK"
 
@@ -441,9 +437,9 @@ msgstr "Pura tiedostoja"
 msgid "Compressing files"
 msgstr "Pakataan tiedostoja."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
-#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
+#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:918
+#: app/fileItemMenu.js:971 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Peru"
 
@@ -573,11 +569,24 @@ msgstr "Pienempiä arkistoja, mutta vain Linux ja Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Pienempiä arkistoja, mutta ne on asennettava Windowsiin ja Maciin."
 
-#: app/desktopFileIcon.js:84
+#: app/desktopFileIcon.js:125
+msgid "The Displayed Desktop is writable by others"
+msgstr ""
+
+#: app/desktopFileIcon.js:128
+msgid ""
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
+"\n"
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
+msgstr ""
+
+#: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
 msgstr "Rikkinäinen työpöytätiedosto"
 
-#: app/desktopFileIcon.js:87
+#: app/desktopFileIcon.js:141
 #, fuzzy
 #| msgid ""
 #| "This .desktop file has errors or points to a program without permissions. "
@@ -595,11 +604,11 @@ msgstr ""
 "\n"
 "\t<b>Muokkaa tiedostoa asettaaksesi oikea suoritettava ohjelma.<b>"
 
-#: app/desktopFileIcon.js:97
+#: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
 msgstr "Vialliset oikeudet työpöytätiedostossa"
 
-#: app/desktopFileIcon.js:100
+#: app/desktopFileIcon.js:154
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -607,13 +616,13 @@ msgstr ""
 "Tällä .desktop-tiedostolla on väärät oikeudet. Naksauta oikealla hiiren "
 "napilla ja valitse Ominaisuudet, sitten:\n"
 
-#: app/desktopFileIcon.js:124
+#: app/desktopFileIcon.js:178
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
 msgstr "Luottamaton työpöytätiedosto"
 
-#: app/desktopFileIcon.js:127
+#: app/desktopFileIcon.js:181
 #, fuzzy
 #| msgid ""
 #| "This .desktop file is not trusted, it can not be launched. To enable "
@@ -631,30 +640,30 @@ msgstr ""
 "\n"
 "<b>Valitse \"Salli käynnistäminen\"</b>"
 
-#: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
 msgstr "Tiedostoa ei voitu avata"
 
-#: app/desktopFileIcon.js:157
+#: app/desktopFileIcon.js:211
 #, fuzzy
 msgid "{appName} can not open files of this Type!"
 msgstr "tiedostoja ei voi avata tämän tyypin tiedostoja!"
 
-#: app/desktopFolderMonitor.js:120
+#: app/desktopFolderMonitor.js:121
 #, fuzzy
 msgid "Desktop Folder Change Failed"
 msgstr "Folder Creation epäonnistui"
 
-#: app/desktopFolderMonitor.js:123
+#: app/desktopFolderMonitor.js:124
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:139
+#: app/desktopFolderMonitor.js:140
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:141
 msgid "Switching to new Desktop..."
 msgstr ""
 
@@ -663,11 +672,11 @@ msgstr ""
 msgid "Desktop Icons"
 msgstr "Työpöytä Icons"
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr ""
 
-#: app/desktopManager.js:156
+#: app/desktopManager.js:158
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -675,49 +684,49 @@ msgid ""
 "Please enable in Mutter Dconf Settings"
 msgstr ""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:169
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
 
-#: app/desktopManager.js:170
+#: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
 msgstr "Ottaa käyttöön"
 
-#: app/desktopManager.js:195
+#: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
 msgstr ""
 
-#: app/desktopManager.js:205
+#: app/desktopManager.js:207
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME Tiedostoja ei löytynyt"
 
-#: app/desktopManager.js:206
+#: app/desktopManager.js:208
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "GNOME Tiedostojen käyttö edellyttää Gtk4 Desktop Icons NG."
 
-#: app/desktopManager.js:214
+#: app/desktopManager.js:216
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "Epäonnistunutta tiedostopäällikköä ei ole"
 
-#: app/desktopManager.js:215
+#: app/desktopManager.js:217
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 "Ei ole olemassa hakemusta, joka käsittelee mimetypiaa \"inode/directory\""
 
-#: app/desktopManager.js:224
+#: app/desktopManager.js:226
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome Files ei ole rekisteröity tiedostojen johtajaksi"
 
-#: app/desktopManager.js:225
+#: app/desktopManager.js:227
 #, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
@@ -728,221 +737,158 @@ msgstr ""
 "Tarkista xdg-käyttöjärjestelmäsi asennus\n"
 "Katso Gnome Files.desktop Tiedoston asennus"
 
-#: app/desktopManager.js:317
+#: app/desktopManager.js:319
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Tyhjennä nykyinen valinta ennen uutta hakua"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1229
 msgid "Find Files on Desktop"
 msgstr "Etsi tiedostoja työpöydällä"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
+#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Uusi kansio"
 
-#: app/desktopManager.js:1585
+#: app/desktopManager.js:1592
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Folder Creation epäonnistui"
 
-#: app/desktopManager.js:1586
+#: app/desktopManager.js:1593
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Ei voitu luoda kansiota"
 
-#: app/desktopMenu.js:36
-msgid "Keyboard Short Cuts"
-msgstr ""
-
-#: app/desktopMenu.js:190
-#, fuzzy
-#| msgid "Paste"
-msgid "Do Paste"
-msgstr "Liitä"
-
-#: app/desktopMenu.js:202 app/desktopMenu.js:1166
-msgid "Undo"
-msgstr "Kumoa"
-
-#: app/desktopMenu.js:214 app/desktopMenu.js:1168
-msgid "Redo"
-msgstr "Tee uudelleen"
-
-#: app/desktopMenu.js:225 app/desktopMenu.js:1174
-msgid "Select All"
-msgstr "Valitse kaikki"
-
-#: app/desktopMenu.js:321
-#, fuzzy
-msgid "Find Files"
-msgstr "Tiedostot"
-
-#: app/desktopMenu.js:338
-#, fuzzy
-msgid "Update Desktop"
-msgstr "Työpöytä"
-
-#: app/desktopMenu.js:354
-#, fuzzy
-#| msgid "Show hidden files"
-msgid "Show Hidden Files"
-msgstr "Näytä piilotetut tiedostot"
-
-#: app/desktopMenu.js:369
-#, fuzzy
-#| msgid "Select All"
-msgid "Unselect All"
-msgstr "Poista kaikkien valinta"
-
-#: app/desktopMenu.js:383
-#, fuzzy
-msgid "Preview"
-msgstr "Esikatsele"
-
-#: app/desktopMenu.js:393
-#, fuzzy
-msgid "Choose Icon Left"
-msgstr "Valitse tiedostojen toiminta"
-
-#: app/desktopMenu.js:404
-#, fuzzy
-msgid "Choose Icon Right"
-msgstr "Valitse tiedostojen toiminta"
-
-#: app/desktopMenu.js:413
-#, fuzzy
-msgid "Choose Icon Up"
-msgstr "Valitse"
-
-#: app/desktopMenu.js:423
-#, fuzzy
-msgid "Choose Icon Down"
-msgstr "Valitse tiedostojen toiminta"
-
-#: app/desktopMenu.js:432
-#, fuzzy
-#| msgid "Show"
-msgid "Show Menu"
-msgstr "Näytä valikko"
-
-#: app/desktopMenu.js:480 app/desktopMenu.js:1151
-#, fuzzy
-msgid "Show Shortcuts"
-msgstr "Näytä pikanäppäimet"
-
-#: app/desktopMenu.js:750
+#: app/desktopMenu.js:549
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Et voi avata Gnome Consolessa"
 
-#: app/desktopMenu.js:790
+#: app/desktopMenu.js:570
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Ikkuna on auki"
 
-#: app/desktopMenu.js:791
+#: app/desktopMenu.js:571
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Tämä ikkuna on auki. Siirry aktiiviseen ikkunaan."
 
-#: app/desktopMenu.js:806 app/desktopMenu.js:1207
+#: app/desktopMenu.js:580 app/desktopMenu.js:961
 msgid "Settings"
 msgstr "Asetukset"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:763
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Templata Creation Error"
 
-#: app/desktopMenu.js:988
+#: app/desktopMenu.js:764
 #, fuzzy
 msgid "Could not create document"
 msgstr "Dokumenttia ei voitu poistaa"
 
-#: app/desktopMenu.js:1115
+#: app/desktopMenu.js:869
 #, fuzzy
 msgid "Name"
 msgstr "Nimi"
 
-#: app/desktopMenu.js:1117
+#: app/desktopMenu.js:871
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nimi (Z-A)"
 
-#: app/desktopMenu.js:1119
+#: app/desktopMenu.js:873
 #, fuzzy
 msgid "Modified Time"
 msgstr "Muutettu aika"
 
-#: app/desktopMenu.js:1121
+#: app/desktopMenu.js:875
 #, fuzzy
 msgid "Type"
 msgstr "Tyyppi"
 
-#: app/desktopMenu.js:1123
+#: app/desktopMenu.js:877
 #, fuzzy
 msgid "Size"
 msgstr "Koko"
 
-#: app/desktopMenu.js:1128
+#: app/desktopMenu.js:882
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Pidä järjestettynä…"
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:887
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Pidä pinottuna tyypin mukaan…"
 
-#: app/desktopMenu.js:1135
+#: app/desktopMenu.js:889
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Järjestä koti/asemat/roskakori…"
 
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:894
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Työpöytä"
 
-#: app/desktopMenu.js:1145
+#: app/desktopMenu.js:899
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:1149
+#: app/desktopMenu.js:903
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Työpöytäkuvakkeiden asetukset"
 
-#: app/desktopMenu.js:1159
+#: app/desktopMenu.js:905
+#, fuzzy
+msgid "Show Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: app/desktopMenu.js:913 app/shortcuts.js:39
 msgid "New Document"
 msgstr "Uusi asiakirja"
 
-#: app/desktopMenu.js:1164
+#: app/desktopMenu.js:918 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Liitä"
 
-#: app/desktopMenu.js:1181
+#: app/desktopMenu.js:920 app/shortcuts.js:12
+msgid "Undo"
+msgstr "Kumoa"
+
+#: app/desktopMenu.js:922 app/shortcuts.js:13
+msgid "Redo"
+msgstr "Tee uudelleen"
+
+#: app/desktopMenu.js:928 app/shortcuts.js:14
+msgid "Select All"
+msgstr "Valitse kaikki"
+
+#: app/desktopMenu.js:935 app/shortcuts.js:24
 msgid "Arrange Icons"
 msgstr "Järjestä kuvakkeet"
 
-#: app/desktopMenu.js:1185
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Järjestä…"
 
-#: app/desktopMenu.js:1193
+#: app/desktopMenu.js:947
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Näytä työpöytä {0}"
 
-#: app/desktopMenu.js:1198
+#: app/desktopMenu.js:952
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Avoinna {0}"
 
-#: app/desktopMenu.js:1214
+#: app/desktopMenu.js:968
 msgid "Shell Menu…"
 msgstr ""
 
@@ -984,23 +930,23 @@ msgstr "Kopioi"
 msgid "Link"
 msgstr "Linkki"
 
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:95
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
 msgstr "Kansio"
 
-#: app/fileItemIcon.js:97
+#: app/fileItemIcon.js:96
 #, fuzzy
 msgid "File"
 msgstr "Tiedosto"
 
-#: app/fileItemIcon.js:274
+#: app/fileItemIcon.js:270
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "Tiedoston avaaminen epäonnistui"
 
-#: app/fileItemIcon.js:280
+#: app/fileItemIcon.js:276
 #, fuzzy
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Mitään sovellusta ei ole asennettu avaamaan tiedostoja."
@@ -1115,7 +1061,7 @@ msgstr "Sähköpostia..."
 msgid "Send to Mobile Device"
 msgstr "Lähetä mobiililaitteet"
 
-#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:294
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
 
@@ -1123,192 +1069,160 @@ msgstr "Siirrä roskakoriin"
 msgid "Delete permanently"
 msgstr "Poista pysyvästi"
 
-#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
 msgstr "Älä salli käynnistämistä"
 
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
 msgstr "Salli käynnistäminen"
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:339
 msgid "Empty Trash"
 msgstr "Tyhjennä roskakori"
 
-#: app/fileItemMenu.js:337
+#: app/fileItemMenu.js:345
 msgid "Eject"
 msgstr "Irrota"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:348
 msgid "Unmount"
 msgstr "Irrota osio"
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:354
 msgid "Common Properties"
 msgstr "Yhteiset ominaisuudet"
 
-#: app/fileItemMenu.js:347
+#: app/fileItemMenu.js:355
 msgid "Properties"
 msgstr "Ominaisuudet"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:362
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "Näytä kaikki"
 
-#: app/fileItemMenu.js:355
+#: app/fileItemMenu.js:363
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "Näyttely {0}"
 
-#: app/fileItemMenu.js:366
+#: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Open in {0}"
 msgstr "Avoinna {0}"
 
-#: app/fileItemMenu.js:530
+#: app/fileItemMenu.js:538
 #, fuzzy
 msgid "Open Item"
 msgstr "Avaa kohde"
 
-#: app/fileItemMenu.js:570
-msgid "Cut Item"
-msgstr ""
-
-#: app/fileItemMenu.js:579
-#, fuzzy
-msgid "Copy Item"
-msgstr "Kopioi kohde"
-
-#: app/fileItemMenu.js:589
-#, fuzzy
-#| msgid "Rename"
-msgid "Rename Item"
-msgstr "Nimeä osa uudellen"
-
-#: app/fileItemMenu.js:612
-#, fuzzy
-#| msgid "Delete permanently"
-msgid "Delete Permanently"
-msgstr "Poista pysyvästi"
-
-#: app/fileItemMenu.js:701
-#, fuzzy
-#| msgid "Properties"
-msgid "Show Properties"
-msgstr "Näytä ominaisuudet"
-
-#: app/fileItemMenu.js:730
-#, fuzzy
-msgid "Create Link to Item"
-msgstr "Luo linkki"
-
-#: app/fileItemMenu.js:828
+#: app/fileItemMenu.js:823
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ylimääräinen peruttu"
 
-#: app/fileItemMenu.js:829
+#: app/fileItemMenu.js:824
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Et voi ottaa File, Ei Kohteen kansiota"
 
-#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
+#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
-#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
+#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
 msgid "Select"
 msgstr "Valitse"
 
-#: app/fileItemMenu.js:972
+#: app/fileItemMenu.js:967
 msgid "Can not email a Directory"
 msgstr "Kansiota ei voi lähettää sähköpostitse"
 
-#: app/fileItemMenu.js:974
+#: app/fileItemMenu.js:969
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Valinta sisältää hakemiston, pakkaa .zip-tiedostoon ensin?"
 
-#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
-#: app/fileItemMenu.js:1067
+#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:1062
 #, fuzzy
 msgid "Mail Error"
 msgstr "Sähkövirhe"
 
-#: app/fileItemMenu.js:1002
+#: app/fileItemMenu.js:997
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Et löydä zip-komentoa, asenna ohjelma"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1008
+#: app/fileItemMenu.js:1003
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
-#: app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1027
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Epäonnistuneita zip-arkistossa"
 
-#: app/fileItemMenu.js:1050
+#: app/fileItemMenu.js:1045
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Et löydä xdg-sähköpostia, asenna ohjelma"
 
-#: app/fileItemMenu.js:1068
+#: app/fileItemMenu.js:1063
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Sähköpostiviesteissä oli virhe"
 
-#: app/fileItemMenu.js:1175
+#: app/fileItemMenu.js:1170
 #, fuzzy
 #| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
 msgstr "Kansiota ei voi lähettää sähköpostitse"
 
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1221
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Et voi avata Gnome Consolessa"
 
-#: app/fileItemMenu.js:1228
+#: app/fileItemMenu.js:1223
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Asenna Gnome Console tai muu terminaali"
 
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1231
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Ei voi avata {0}"
 
-#: app/fileItemMenu.js:1238
+#: app/fileItemMenu.js:1233
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Ole hyvä ja asenna {0}"
 
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1277
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopiointi peruutettu"
 
-#: app/fileItemMenu.js:1283
+#: app/fileItemMenu.js:1278
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Et voi kopioida tiedostoja, ei kohdekansiota"
 
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1301
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Siirtyminen peruutettu"
 
-#: app/fileItemMenu.js:1307
+#: app/fileItemMenu.js:1302
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Et voi siirtää tiedostoja, ei kohdekansiota"
@@ -1318,10 +1232,211 @@ msgstr "Et voi siirtää tiedostoja, ei kohdekansiota"
 msgid "$appName$ can not open files of this Type!"
 msgstr "tiedostoja ei voi avata tämän tyypin tiedostoja!"
 
-#: app/preferences.js:892
+#: app/preferences.js:893
 #, fuzzy
 msgid "Console"
 msgstr "Konsoli"
+
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+msgid "None"
+msgstr ""
+
+#: app/shortcutManager.js:85
+msgid "Default Shortcut:"
+msgstr ""
+
+#: app/shortcutManager.js:109
+msgid "Type new..."
+msgstr ""
+
+#: app/shortcutManager.js:125
+msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
+msgstr ""
+
+#: app/shortcutManager.js:130
+msgid "Reset to Default"
+msgstr ""
+
+#: app/shortcutManager.js:134
+msgid "No Accelerator"
+msgstr ""
+
+#: app/shortcutManager.js:243
+#, fuzzy
+msgid "System Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: app/shortcutManager.js:244
+msgid "Common System Defined Keyboard Shortcuts"
+msgstr ""
+
+#: app/shortcutManager.js:302
+#, fuzzy
+msgid "Local Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: app/shortcutManager.js:303
+msgid "Application Keyboard Shortcuts"
+msgstr ""
+
+#: app/shortcutManager.js:364
+#, fuzzy
+msgid "Global Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: app/shortcutManager.js:365
+#, fuzzy
+msgid "System Keyboard Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: app/shortcutManager.js:661
+#, fuzzy
+msgid "Keyboard Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: app/shortcutManager.js:673
+#, fuzzy
+msgid "Reset Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: app/shortcutManager.js:674
+msgid "Reset all shortcuts to Defaults"
+msgstr ""
+
+#: app/shortcutManager.js:677
+#, fuzzy
+#| msgid "Open All..."
+msgid "Reset All..."
+msgstr "Avaa kaikki..."
+
+#: app/shortcuts.js:15
+#, fuzzy
+msgid "Show Desktop in Files"
+msgstr "Näytä työpöytä GNOME-tiedostot"
+
+#: app/shortcuts.js:16
+msgid "Open in Terminal"
+msgstr "Avaa päätteessä"
+
+#: app/shortcuts.js:17
+#, fuzzy
+#| msgid "Change Background…"
+msgid "Change Background"
+msgstr "Vaihda taustakuvaa…"
+
+#: app/shortcuts.js:18
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Change Display Settings"
+msgstr "Näytön asetukset"
+
+#: app/shortcuts.js:19
+#, fuzzy
+msgid "Change Desktop Icon Settings"
+msgstr "Työpöytäkuvakkeiden asetukset"
+
+#: app/shortcuts.js:20
+msgid "Clean Up Icons"
+msgstr ""
+
+#: app/shortcuts.js:21
+#, fuzzy
+msgid "Keep Arranged"
+msgstr "Pidä järjestettynä…"
+
+#: app/shortcuts.js:22
+#, fuzzy
+#| msgid "Keep Icons Stacked"
+msgid "Keep Stacked"
+msgstr "Pidä kuvakkeet pinottuina"
+
+#: app/shortcuts.js:23
+#, fuzzy
+#| msgid "Sort Special Folders - Home/Trash Drives."
+msgid "Sort Special Folders"
+msgstr "Järjestä erikoishakemistot - Koti/Roskakori/Asemat."
+
+#: app/shortcuts.js:25
+#, fuzzy
+msgid "Find Files"
+msgstr "Tiedostot"
+
+#: app/shortcuts.js:26
+#, fuzzy
+msgid "Update Desktop"
+msgstr "Työpöytä"
+
+#: app/shortcuts.js:27
+#, fuzzy
+#| msgid "Show hidden files"
+msgid "Show Hidden Files"
+msgstr "Näytä piilotetut tiedostot"
+
+#: app/shortcuts.js:28
+#, fuzzy
+#| msgid "Select All"
+msgid "Unselect All"
+msgstr "Poista kaikkien valinta"
+
+#: app/shortcuts.js:29
+#, fuzzy
+msgid "Preview"
+msgstr "Esikatsele"
+
+#: app/shortcuts.js:30
+#, fuzzy
+msgid "Choose Icon Left"
+msgstr "Valitse tiedostojen toiminta"
+
+#: app/shortcuts.js:31
+#, fuzzy
+msgid "Choose Icon Right"
+msgstr "Valitse tiedostojen toiminta"
+
+#: app/shortcuts.js:32
+#, fuzzy
+msgid "Choose Icon Up"
+msgstr "Valitse"
+
+#: app/shortcuts.js:33
+#, fuzzy
+msgid "Choose Icon Down"
+msgstr "Valitse tiedostojen toiminta"
+
+#: app/shortcuts.js:34
+#, fuzzy
+#| msgid "Show"
+msgid "Show Menu"
+msgstr "Näytä valikko"
+
+#: app/shortcuts.js:35
+msgid "Display Shell Background Menu"
+msgstr ""
+
+#: app/shortcuts.js:36
+#, fuzzy
+#| msgid "Broken Desktop File"
+msgid "Create Desktop Shortcut"
+msgstr "Rikkinäinen työpöytätiedosto"
+
+#: app/shortcuts.js:37
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:38
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:40
+#, fuzzy
+msgid "Show Shortcut Viewer"
+msgstr "Näytä pikanäppäimet"
+
+#: app/shortcuts.js:41
+#, fuzzy
+msgid "Show Or Hide Desktop Icons"
+msgstr "Työpöytä Icons"
 
 #: app/showErrorPopup.js:42
 #, fuzzy
@@ -1561,6 +1676,75 @@ msgstr ""
 "Ikonit eivät ole suorakulmaisessa verkossa, mutta ne voidaan siirtää missä "
 "tahansa verkkoverkosta riippumatta"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+msgid "Hide/Show all desktop windows"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+#, fuzzy
+msgid "Show the icons on the desktop, or hide them all"
+msgstr "Näytä roskakorin kuvake työpöydällä"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+msgid "User Application Shortcuts"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+msgid "Override for default application shortcuts set by the User"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Website"
+#~ msgstr "Website"
+
+#, fuzzy
+#~ msgid "Visit"
+#~ msgstr "Vieraile"
+
+#, fuzzy
+#~ msgid "Issues"
+#~ msgstr "Ongelmat"
+
+#, fuzzy
+#~ msgid "Report issues on issue tracker"
+#~ msgstr "Raportti aiheista seuraaja"
+
+#, fuzzy
+#~ msgid "Report"
+#~ msgstr "Raportoi"
+
+#, fuzzy
+#~ msgid "License"
+#~ msgstr "Lisenssi"
+
+#, fuzzy
+#~| msgid "Paste"
+#~ msgid "Do Paste"
+#~ msgstr "Liitä"
+
+#, fuzzy
+#~ msgid "Copy Item"
+#~ msgstr "Kopioi kohde"
+
+#, fuzzy
+#~| msgid "Rename"
+#~ msgid "Rename Item"
+#~ msgstr "Nimeä osa uudellen"
+
+#, fuzzy
+#~| msgid "Delete permanently"
+#~ msgid "Delete Permanently"
+#~ msgstr "Poista pysyvästi"
+
+#, fuzzy
+#~| msgid "Properties"
+#~ msgid "Show Properties"
+#~ msgstr "Näytä ominaisuudet"
+
+#, fuzzy
+#~ msgid "Create Link to Item"
+#~ msgstr "Luo linkki"
+
 #~ msgid "Add an emblem to soft links"
 #~ msgstr "Merkitse linkit tiedostoihin symbolilla"
 
@@ -1576,12 +1760,6 @@ msgstr ""
 #~ msgid "Run"
 #~ msgstr "Suorita"
 
-#~ msgid "Change Background…"
-#~ msgstr "Vaihda taustakuvaa…"
-
-#~ msgid "Display Settings"
-#~ msgstr "Näytön asetukset"
-
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"
 #~ msgstr "Rectangular icons with drop grid highlighting Näytä tarkat tiedot"
@@ -1596,14 +1774,7 @@ msgstr ""
 #~ msgstr "Käytä Nemoa Nautiluksen sijaan kansioiden avaamiseen."
 
 #, fuzzy
-#~ msgid "Show Desktop In GNOME Files"
-#~ msgstr "Näytä työpöytä GNOME-tiedostot"
-
-#, fuzzy
 #~ msgid "Open In Terminal"
-#~ msgstr "Avaa päätteessä"
-
-#~ msgid "Open in Terminal"
 #~ msgstr "Avaa päätteessä"
 
 #, fuzzy
