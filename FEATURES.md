@@ -160,6 +160,10 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Add a new shortcutsManager class to display, edit and manage all keyboard shortcuts. Add a shortcuts.js file as a simple text editable object to describe all accelerators, keyboard bindings, and the hints that is used by the ShortcutsManager.
 
+- [x] Feature complete shortcut manager that can add keybindings to all actions.
+
+- [x] Right click context menu for .desktop files that can launch actions.
+
 
 **FIXES**
 
@@ -332,3 +336,5 @@ The application functionality and behavior is consistent with the two other very
 - [x] Do not remove/overwrite user installed .desktop files and icons for the app.
 
 - [x] Fix detection of writable by others for the displayed desktop folder.
+
+- [x] Fix switheroo control.

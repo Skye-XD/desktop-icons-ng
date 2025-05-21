@@ -284,6 +284,21 @@ const aboutApp = class AboutDialog {
             _('Help translate in your web browser'),
             'https://hosted.weblate.org/engage/gtk4-desktop-icons-ng'
         );
+
+        aboutDialog.set_release_notes(
+            `<p>* Adw version 100 for Gnome 45, 46, 47, 48</p>
+<p>Yay! Version 100!
+Actually version 1.0, started with 0.01, but got tired of writing a 0 before every version.
+I believe mostly feature complete, except DBus Activation and packaging as a GJS app.
+Change Name to Adw. Desktop Icons :)
+</p>
+<ul><li> Add a complete shortcut manager with editable local and global shortcuts.</li>
+<li> Add Adw.AboutDialog for the application with proper credits and acknowledgements.</li>
+<li> Add more actions, to arrange icons directly, that can then have proper keybindings in the shortcut manager.</li>
+<li> Redesign the preferences to open the shortcut manger. When opened through gnome extensions settings, shortcut manager is activated over DBus, and only works if the extension/app is enabled. </li>
+<li> Add an easily editable boolean constant to gnome shell override so Users wanting to show icons on window picker overview or on thumbnails can choose to do so.</li>
+<li> .desktop files on the desktop now show their actions in the right click context menus. All these actions are shown and can be activated if the file is trusted.</li></ul>`
+        );
     }
 };
 
