@@ -158,23 +158,25 @@ class ShortcutGroup extends Adw.PreferencesGroup {
         super({});
         this.set_title(_('Shortcuts'));
 
-        this.shorcutButton = new Adw.ButtonRow({
+        this.shortcutButton = new Adw.ActionRow({
             title: _('Edit Shortcuts...'),
-            start_icon_name: 'window-pop-out-symbolic',
         });
+        const icon = Gtk.Image.new_from_icon_name('window-pop-out-symbolic');
+        this.shortcutButton.add_suffix(icon);
+        this.shortcutButton.set_activatable_widget(icon);
 
-        this.shorcutButton.connect('activated', this.showShortcuts.bind(this));
-        this.add(this.shorcutButton);
+        this.shortcutButton.connect('activated', this.showShortcuts.bind(this));
+        this.add(this.shortcutButton);
         this.update(params.remoteActions);
     }
 
     update(remoteActions) {
         this.remoteActions = remoteActions;
         if (this.remoteActions?.list_actions()) {
-            this.shorcutButton.set_sensitive(true);
+            this.shortcutButton.set_sensitive(true);
             this.set_description(_('Edit Application Shortcuts'));
         } else {
-            this.shorcutButton.set_sensitive(false);
+            this.shortcutButton.set_sensitive(false);
 
             this.set_description(
                 _('Shortcuts Editable only when Extension Enabled...')
@@ -576,9 +578,11 @@ const AdwPreferencesWindow = class {
             _('Open folders on drag hover')
         ));
 
-        const aboutButton = new Adw.ButtonRow();
+        const aboutButton = new Adw.ActionRow();
         aboutButton.set_title(_('About...'));
-        aboutButton.set_start_icon_name('window-pop-out-symbolic');
+        const icon = Gtk.Image.new_from_icon_name('window-pop-out-symbolic');
+        aboutButton.add_suffix(icon);
+        aboutButton.set_activatable_widget(icon);
 
         aboutButton.connect('activated', () => {
             const aboutDialog = new aboutApp({version: this.version});

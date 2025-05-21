@@ -673,13 +673,15 @@ const ShortcutManager = class {
             title: _('Reset Shortcuts'),
             description: _('Reset all shortcuts to Defaults'),
         });
-        const resetButton = new Adw.ButtonRow({
+        const resetButton = new Adw.ActionRow({
             title: _('Reset All...'),
-            'start-icon-name': 'edit-undo-symbolic',
         });
+        const icon = Gtk.Image.new_from_icon_name('edit-undo-symbolic');
+        resetButton.add_suffix(icon);
+        resetButton.set_activatable_widget(icon);
         resetButton.connect('activated', this._resetAllShortcuts.bind(this));
-        resetGroup.add(resetButton);
         resetButton.get_style_context().add_class('destructive-action');
+        resetGroup.add(resetButton);
         shortcutsFrame.add(resetGroup);
 
         shortcutsWindow.add(shortcutsFrame);
