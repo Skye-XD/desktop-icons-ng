@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 23:31-0400\n"
+"POT-Creation-Date: 2025-05-20 19:53-0400\n"
 "PO-Revision-Date: 2025-05-13 14:02+0000\n"
 "Last-Translator: Yauhen <bugomol@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,234 +26,242 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.12-dev\n"
 
-#: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
+#: app/adwPreferencesWindow.js:159
+#, fuzzy
+#| msgid "Show Shortcuts"
+msgid "Shortcuts"
+msgstr "Паказаць спалучэнні клавіш"
+
+#: app/adwPreferencesWindow.js:162
+#, fuzzy
+#| msgid "Show Shortcuts"
+msgid "Edit Shortcuts..."
+msgstr "Паказаць спалучэнні клавіш"
+
+#: app/adwPreferencesWindow.js:175
+msgid "Edit Application Shortcuts"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180
+msgid "Shortcuts Editable only when Extension Enabled..."
+msgstr ""
+
+#: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
+msgid "Help translate in your web browser"
+msgstr "Дапамагчы з перакладам праз вэб-браўзер"
+
+#: app/adwPreferencesWindow.js:367 app/adwPreferencesWindow.js:368
 msgid "Desktop"
 msgstr "Працоўны стол"
 
-#: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:373 app/adwPreferencesWindow.js:374
 msgid "Files"
 msgstr "Файлы"
 
-#: app/adwPreferencesWindow.js:195 app/adwPreferencesWindow.js:196
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:379 app/adwPreferencesWindow.js:380
+#: app/adwPreferencesWindow.js:421
 msgid "Tweaks"
 msgstr "Іншае"
 
-#: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
-msgid "About"
-msgstr "Інфармацыя"
+#: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+msgid "More"
+msgstr ""
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:397
 msgid "Desktop Settings"
 msgstr "Налады працоўнага стала"
 
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:398
 msgid "Settings for the Desktop Program"
 msgstr "Налады праграмы для працоўнага стала"
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:404
 msgid "Desktop Folder"
 msgstr "Папка працоўнага стала"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:405
 msgid "Current Desktop: "
 msgstr "Бягучы працоўны стол: "
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:414
 msgid "Files Settings"
 msgstr "Налады файлаў"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:415
 msgid "Settings shared with Gnome Files"
 msgstr "Налады агульныя для праграмы «Файлы» асяроддзя Gnome"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:422
 msgid "Miscellaneous Tweaks"
 msgstr "Дадатковыя налады"
 
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:440
 msgid "Size for the desktop icons"
 msgstr "Памер значкоў працоўнага стала"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:442
 msgid "Tiny"
 msgstr "Маленькі"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:443
 msgid "Small"
 msgstr "Малы"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:444
 msgid "Standard"
 msgstr "Стандартны"
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:445
 msgid "Large"
 msgstr "Вялікі"
 
-#: app/adwPreferencesWindow.js:262
+#: app/adwPreferencesWindow.js:451
 msgid "New icons alignment"
 msgstr "Выраўноўванне для новых значкоў"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:453
 msgid "Top left corner"
 msgstr "Верхні левы вугал"
 
-#: app/adwPreferencesWindow.js:265
+#: app/adwPreferencesWindow.js:454
 msgid "Top right corner"
 msgstr "Верхні правы вугал"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:455
 msgid "Bottom left corner"
 msgstr "Ніжні левы вугал"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:456
 msgid "Bottom right corner"
 msgstr "Ніжні правы вугал"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:462
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Калі маюцца дадатковыя маніторы, у першую чаргу дадаваць новыя значкі на іх"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:466
 msgid "Snap icons to grid"
 msgstr "Выраўноўванне значкоў па сетцы"
 
-#: app/adwPreferencesWindow.js:283
+#: app/adwPreferencesWindow.js:472
 msgid "Highlight the drop grid"
 msgstr "Пазначаць сетку пры перацягванні"
 
-#: app/adwPreferencesWindow.js:292
+#: app/adwPreferencesWindow.js:481
 msgid "New Desktop Folder"
 msgstr "Новая папка працоўнага стала"
 
-#: app/adwPreferencesWindow.js:293
+#: app/adwPreferencesWindow.js:482
 msgid "Set a new folder for the desktop"
 msgstr "Задаць новую папку працоўнага стала"
 
-#: app/adwPreferencesWindow.js:294 app/adwPreferencesWindow.js:502
-#: app/desktopFolderMonitor.js:614
+#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:676
+#: app/desktopFolderMonitor.js:618
 msgid "Choose"
 msgstr "Выбраць"
 
-#: app/adwPreferencesWindow.js:299
+#: app/adwPreferencesWindow.js:488
 msgid "Restore Default Desktop Folder"
 msgstr "Вярнуць прадвызначаную папку працоўнага стала"
 
-#: app/adwPreferencesWindow.js:300
+#: app/adwPreferencesWindow.js:489
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr "Вярнуць папку працоўнага стала $HOME/Desktop"
 
-#: app/adwPreferencesWindow.js:301
+#: app/adwPreferencesWindow.js:490
 msgid "Restore"
 msgstr "Аднавіць"
 
-#: app/adwPreferencesWindow.js:311
+#: app/adwPreferencesWindow.js:500
 msgid "Add information emblems for links, encryption"
 msgstr "Дадаваць да спасылак і шыфраваных файлаў эмблему"
 
-#: app/adwPreferencesWindow.js:315
+#: app/adwPreferencesWindow.js:504
 msgid "Use dark text in icon labels"
 msgstr "Выкарыстоўваць у подпісах значкоў цёмны тэкст"
 
-#: app/adwPreferencesWindow.js:320
+#: app/adwPreferencesWindow.js:509
 msgid "Show the personal folder on the desktop"
 msgstr "Паказваць на працоўным стале асабістую папку"
 
-#: app/adwPreferencesWindow.js:325
+#: app/adwPreferencesWindow.js:514
 msgid "Show the trash icon on the desktop"
 msgstr "Паказваць на працоўным стале значок сметніцы"
 
-#: app/adwPreferencesWindow.js:330
+#: app/adwPreferencesWindow.js:519
 msgid "Show external drives on the desktop"
 msgstr "Паказваць на працоўным стале знешнія дыскі"
 
-#: app/adwPreferencesWindow.js:335
+#: app/adwPreferencesWindow.js:524
 msgid "Show network drives on the desktop"
 msgstr "Паказваць на працоўным стале сеткавыя дыскі"
 
-#: app/adwPreferencesWindow.js:340
+#: app/adwPreferencesWindow.js:529
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Дадаваць новыя дыскі на супрацьлеглы бок працоўнага стала"
 
-#: app/adwPreferencesWindow.js:346
+#: app/adwPreferencesWindow.js:534
 msgid "Action to Open Items"
 msgstr "Дзеянне, каб адкрыць элемент"
 
-#: app/adwPreferencesWindow.js:348
+#: app/adwPreferencesWindow.js:536
 msgid "Single click"
 msgstr "Адзінарнае націсканне"
 
-#: app/adwPreferencesWindow.js:349
+#: app/adwPreferencesWindow.js:537
 msgid "Double click"
 msgstr "Падвойнае націсканне"
 
-#: app/adwPreferencesWindow.js:354
+#: app/adwPreferencesWindow.js:542
 msgid "Show image thumbnails"
 msgstr "Паказваць мініяцюры"
 
-#: app/adwPreferencesWindow.js:356
+#: app/adwPreferencesWindow.js:544
 msgid "Always"
 msgstr "Заўсёды"
 
-#: app/adwPreferencesWindow.js:357
+#: app/adwPreferencesWindow.js:545
 msgid "On this computer only"
 msgstr "Толькі на гэтым камп'ютары"
 
-#: app/adwPreferencesWindow.js:358
+#: app/adwPreferencesWindow.js:546
 msgid "Never"
 msgstr "Ніколі"
 
-#: app/adwPreferencesWindow.js:363
+#: app/adwPreferencesWindow.js:551
 msgid "Show a context menu item to delete permanently"
 msgstr "Паказваць у кантэкстным меню пункт «выдаліць незваротна»"
 
-#: app/adwPreferencesWindow.js:368
+#: app/adwPreferencesWindow.js:556
 msgid "Show hidden files"
 msgstr "Паказваць схаваныя файлы"
 
-#: app/adwPreferencesWindow.js:373
+#: app/adwPreferencesWindow.js:561
 msgid "Open folders on drag hover"
 msgstr "Адкрываць папкі пры перацягванні"
 
-#: app/adwPreferencesWindow.js:376
-msgid "Website"
-msgstr "Вэб-сайт"
+#: app/adwPreferencesWindow.js:565
+#, fuzzy
+#| msgid "About"
+msgid "About..."
+msgstr "Інфармацыя"
 
-#: app/adwPreferencesWindow.js:378
-msgid "Visit"
-msgstr "Наведаць"
-
-#: app/adwPreferencesWindow.js:382
-msgid "Issues"
-msgstr "Праблемы"
-
-#: app/adwPreferencesWindow.js:383
-msgid "Report issues on issue tracker"
-msgstr "Паведаміць аб праблеме на старонцы баг-трэкера"
-
-#: app/adwPreferencesWindow.js:384
-msgid "Report"
-msgstr "Паведаміць"
-
-#: app/adwPreferencesWindow.js:387
-msgid "License"
-msgstr "Ліцэнзія"
-
-#: app/adwPreferencesWindow.js:393
-msgid "Translation"
+#: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
+#, fuzzy
+#| msgid "Translation"
+msgid "Translations"
 msgstr "Пераклад"
 
-#: app/adwPreferencesWindow.js:394
-msgid "Help translate in your web browser"
-msgstr "Дапамагчы з перакладам праз вэб-браўзер"
+#: app/adwPreferencesWindow.js:577
+msgid "All tranlations on Weblate.."
+msgstr ""
 
-#: app/adwPreferencesWindow.js:395
+#: app/adwPreferencesWindow.js:584
 msgid "Translate"
 msgstr "Перакласці"
 
-#: app/adwPreferencesWindow.js:501 app/desktopFolderMonitor.js:613
+#: app/adwPreferencesWindow.js:675 app/desktopFolderMonitor.js:617
 msgid "Choose Desktop Folder"
 msgstr "Выберыце папку працоўнага стала"
 
@@ -295,7 +303,7 @@ msgstr ""
 "Гэты файл AppImage мае няправільныя дазволы. Націсніце правай кнопкай мышы, "
 "каб змяніць Уласцівасці, затым:\n"
 
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:107
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 msgid ""
 "\n"
 "Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
@@ -304,7 +312,7 @@ msgstr ""
 "Задайце дазвол у раздзеле «Астатнія» на значэнні «Толькі чытанне» або "
 "«Нічога»"
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:115
+#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
 msgid ""
 "\n"
 "Enable option, \"Allow Executing File as a Program\""
@@ -336,8 +344,8 @@ msgstr "Назва папкі"
 msgid "File name"
 msgstr "Назва файла"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:976
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
+#: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "ОК"
 
@@ -365,9 +373,9 @@ msgstr "Выманне файлаў"
 msgid "Compressing files"
 msgstr "Сцісканне файлаў"
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
-#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
+#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:918
+#: app/fileItemMenu.js:971 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Скасаваць"
 
@@ -473,11 +481,24 @@ msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
 "Архівы меншага памеру, але на Windows і Mac патрабуецца ўсталяванне праграмы."
 
-#: app/desktopFileIcon.js:84
+#: app/desktopFileIcon.js:125
+msgid "The Displayed Desktop is writable by others"
+msgstr ""
+
+#: app/desktopFileIcon.js:128
+msgid ""
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
+"\n"
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
+msgstr ""
+
+#: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
 msgstr "Няспраўны файл .desktop"
 
-#: app/desktopFileIcon.js:87
+#: app/desktopFileIcon.js:141
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -489,11 +510,11 @@ msgstr ""
 "\n"
 "Змяніце файл, каб задаць правільную выконвальную праграму."
 
-#: app/desktopFileIcon.js:97
+#: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
 msgstr "Няправільныя правы доступу да файла .desktop"
 
-#: app/desktopFileIcon.js:100
+#: app/desktopFileIcon.js:154
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -501,11 +522,11 @@ msgstr ""
 "Гэты файл .desktop мае няправільныя дазволы. Націсніце правай кнопкай мышы, "
 "каб змяніць Уласцівасці, затым:\n"
 
-#: app/desktopFileIcon.js:124
+#: app/desktopFileIcon.js:178
 msgid "Untrusted Desktop File"
 msgstr "Недавераны файл .desktop"
 
-#: app/desktopFileIcon.js:127
+#: app/desktopFileIcon.js:181
 msgid ""
 "This .desktop file is not trusted, it can not be launched. To enable "
 "launching, right-click, then:\n"
@@ -517,27 +538,27 @@ msgstr ""
 "\n"
 "Уключыце пункт «Дазволіць выкананне»"
 
-#: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
 msgstr "Не ўдалося адкрыць файл"
 
-#: app/desktopFileIcon.js:157
+#: app/desktopFileIcon.js:211
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} не можа адкрываць файлы гэтага тыпу!"
 
-#: app/desktopFolderMonitor.js:120
+#: app/desktopFolderMonitor.js:121
 msgid "Desktop Folder Change Failed"
 msgstr "Не ўдалося змяніць папку працоўнага стала"
 
-#: app/desktopFolderMonitor.js:123
+#: app/desktopFolderMonitor.js:124
 msgid "The new Desktop Folder does not exist!"
 msgstr "Новая папка працоўнага стала не існуе"
 
-#: app/desktopFolderMonitor.js:139
+#: app/desktopFolderMonitor.js:140
 msgid "Desktop Folder Changed"
 msgstr "Папка працоўнага стала зменена"
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:141
 msgid "Switching to new Desktop..."
 msgstr "Пераключэнне на новы працоўны стол..."
 
@@ -545,11 +566,11 @@ msgstr "Пераключэнне на новы працоўны стол..."
 msgid "Desktop Icons"
 msgstr "Значкі працоўнага стала"
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr ""
 
-#: app/desktopManager.js:156
+#: app/desktopManager.js:158
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -557,44 +578,44 @@ msgid ""
 "Please enable in Mutter Dconf Settings"
 msgstr ""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:169
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
 
-#: app/desktopManager.js:170
+#: app/desktopManager.js:172
 msgid "Enable"
 msgstr "Уключыць"
 
-#: app/desktopManager.js:195
+#: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
 msgstr "Немагчыма паказаць працоўны стол"
 
-#: app/desktopManager.js:205
+#: app/desktopManager.js:207
 msgid "GNOME Files not found"
 msgstr "Праграма «Файлы» асяроддзя GNOME не знойдзена"
 
-#: app/desktopManager.js:206
+#: app/desktopManager.js:208
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
 "Для працы Gtk4 Desktop Icons NG патрабуецца праграма «Файлы» з асяроддзя "
 "GNOME."
 
-#: app/desktopManager.js:214
+#: app/desktopManager.js:216
 msgid "There is no default File Manager"
 msgstr "Няма прадвызначанага файлавага менеджара"
 
-#: app/desktopManager.js:215
+#: app/desktopManager.js:217
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Не прызначана праграмы для mime-тыпу «inode/directory»"
 
-#: app/desktopManager.js:224
+#: app/desktopManager.js:226
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Праграма «Файлы» асяроддзя Gnome не зарэгістравана як файлавы менеджар"
 
-#: app/desktopManager.js:225
+#: app/desktopManager.js:227
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -604,183 +625,135 @@ msgstr ""
 "Праверце ці ўсталяваны xdg-utils\n"
 "Праверце ці ўсталяваны .desktop-файл праграмы «Файлы»"
 
-#: app/desktopManager.js:317
+#: app/desktopManager.js:319
 msgid "Clear current selection before new search"
 msgstr "Ачысціць бягучае вылучэнне перад новым пошукам"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1229
 msgid "Find Files on Desktop"
 msgstr "Пошук файлаў на працоўным стале"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
+#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Новая папка"
 
-#: app/desktopManager.js:1585
+#: app/desktopManager.js:1592
 msgid "Folder Creation Failed"
 msgstr "Збой стварэння папкі"
 
-#: app/desktopManager.js:1586
+#: app/desktopManager.js:1593
 msgid "Could not create folder"
 msgstr "Не ўдалося стварыць папку"
 
-#: app/desktopMenu.js:36
-msgid "Keyboard Short Cuts"
-msgstr "Спалучэнні клавіш"
-
-#: app/desktopMenu.js:190
-msgid "Do Paste"
-msgstr "Уставіць"
-
-#: app/desktopMenu.js:202 app/desktopMenu.js:1166
-msgid "Undo"
-msgstr "Адрабіць"
-
-#: app/desktopMenu.js:214 app/desktopMenu.js:1168
-msgid "Redo"
-msgstr "Паўтарыць"
-
-#: app/desktopMenu.js:225 app/desktopMenu.js:1174
-msgid "Select All"
-msgstr "Вылучыць усе"
-
-#: app/desktopMenu.js:321
-msgid "Find Files"
-msgstr "Знайсці файлы"
-
-#: app/desktopMenu.js:338
-msgid "Update Desktop"
-msgstr "Абнавіць працоўны стол"
-
-#: app/desktopMenu.js:354
-msgid "Show Hidden Files"
-msgstr "Паказваць схаваныя файлы"
-
-#: app/desktopMenu.js:369
-msgid "Unselect All"
-msgstr "Зняць вылучэнне"
-
-#: app/desktopMenu.js:383
-msgid "Preview"
-msgstr "Перадпрагляд"
-
-#: app/desktopMenu.js:393
-msgid "Choose Icon Left"
-msgstr "Выбраць значок злева"
-
-#: app/desktopMenu.js:404
-msgid "Choose Icon Right"
-msgstr "Выбраць значок справа"
-
-#: app/desktopMenu.js:413
-msgid "Choose Icon Up"
-msgstr "Выбраць значок зверху"
-
-#: app/desktopMenu.js:423
-msgid "Choose Icon Down"
-msgstr "Выбраць значок знізу"
-
-#: app/desktopMenu.js:432
-msgid "Show Menu"
-msgstr "Паказаць меню"
-
-#: app/desktopMenu.js:480 app/desktopMenu.js:1151
-msgid "Show Shortcuts"
-msgstr "Паказаць спалучэнні клавіш"
-
-#: app/desktopMenu.js:750
+#: app/desktopMenu.js:549
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Немагчыма адкрыць працоўны стол у праграме «Файлы»"
 
-#: app/desktopMenu.js:790
+#: app/desktopMenu.js:570
 msgid "Preferences Window is Open"
 msgstr "Акно налад адкрыта"
 
-#: app/desktopMenu.js:791
+#: app/desktopMenu.js:571
 msgid "This Window is open. Please switch to the active window."
 msgstr "Гэта акно адкрыта. Пераключыцеся ў актыўнае акно."
 
-#: app/desktopMenu.js:806 app/desktopMenu.js:1207
+#: app/desktopMenu.js:580 app/desktopMenu.js:961
 msgid "Settings"
 msgstr "Налады"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:763
 msgid "Template Creation Error"
 msgstr "Памылка стварэння шаблона"
 
-#: app/desktopMenu.js:988
+#: app/desktopMenu.js:764
 msgid "Could not create document"
 msgstr "Не ўдалося стварыць дакумент"
 
-#: app/desktopMenu.js:1115
+#: app/desktopMenu.js:869
 msgid "Name"
 msgstr "Назва"
 
-#: app/desktopMenu.js:1117
+#: app/desktopMenu.js:871
 msgid "Name Z-A"
 msgstr "Назва (Я-А)"
 
-#: app/desktopMenu.js:1119
+#: app/desktopMenu.js:873
 msgid "Modified Time"
 msgstr "Час змянення"
 
-#: app/desktopMenu.js:1121
+#: app/desktopMenu.js:875
 msgid "Type"
 msgstr "Тып"
 
-#: app/desktopMenu.js:1123
+#: app/desktopMenu.js:877
 msgid "Size"
 msgstr "Памер"
 
-#: app/desktopMenu.js:1128
+#: app/desktopMenu.js:882
 msgid "Keep Arranged…"
 msgstr "Захоўваць упарадкаванне…"
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:887
 msgid "Keep Stacked by Type…"
 msgstr "Згрупоўваць па тыпу…"
 
-#: app/desktopMenu.js:1135
+#: app/desktopMenu.js:889
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сартаваць Дыскі/Сметніцу/Хатнюю папку…"
 
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:894
 msgid "Change Desktop"
 msgstr "Змяніць працоўны стол"
 
-#: app/desktopMenu.js:1145
+#: app/desktopMenu.js:899
 msgid "Restore Default Desktop"
 msgstr "Вярнуць прадвызначаны працоўны стол"
 
-#: app/desktopMenu.js:1149
+#: app/desktopMenu.js:903
 msgid "Desktop Icon Settings"
 msgstr "Налады Desktop Icons"
 
-#: app/desktopMenu.js:1159
+#: app/desktopMenu.js:905
+msgid "Show Shortcuts"
+msgstr "Паказаць спалучэнні клавіш"
+
+#: app/desktopMenu.js:913 app/shortcuts.js:39
 msgid "New Document"
 msgstr "Новы дакумент"
 
-#: app/desktopMenu.js:1164
+#: app/desktopMenu.js:918 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Уставіць"
 
-#: app/desktopMenu.js:1181
+#: app/desktopMenu.js:920 app/shortcuts.js:12
+msgid "Undo"
+msgstr "Адрабіць"
+
+#: app/desktopMenu.js:922 app/shortcuts.js:13
+msgid "Redo"
+msgstr "Паўтарыць"
+
+#: app/desktopMenu.js:928 app/shortcuts.js:14
+msgid "Select All"
+msgstr "Вылучыць усе"
+
+#: app/desktopMenu.js:935 app/shortcuts.js:24
 msgid "Arrange Icons"
 msgstr "Упарадкаваць значкі"
 
-#: app/desktopMenu.js:1185
+#: app/desktopMenu.js:939
 msgid "Arrange By…"
 msgstr "Упарадкаваць па…"
 
-#: app/desktopMenu.js:1193
+#: app/desktopMenu.js:947
 msgid "Show Desktop In {0}"
 msgstr "Паказаць працоўны стол праз {0}"
 
-#: app/desktopMenu.js:1198
+#: app/desktopMenu.js:952
 msgid "Open In {0}"
 msgstr "Адкрыць праз «{0}»"
 
-#: app/desktopMenu.js:1214
+#: app/desktopMenu.js:968
 msgid "Shell Menu…"
 msgstr "Меню абалонкі…"
 
@@ -816,19 +789,19 @@ msgstr "Скапіяваць"
 msgid "Link"
 msgstr "Спасылка"
 
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:95
 msgid "Folder"
 msgstr "Папка"
 
-#: app/fileItemIcon.js:97
+#: app/fileItemIcon.js:96
 msgid "File"
 msgstr "Файл"
 
-#: app/fileItemIcon.js:274
+#: app/fileItemIcon.js:270
 msgid "Opening File Failed"
 msgstr "Не ўдалося адкрыць файл"
 
-#: app/fileItemIcon.js:280
+#: app/fileItemIcon.js:276
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Не ўсталявана праграма для адкрыцця файлаў тыпу «{fo}»."
 
@@ -933,7 +906,7 @@ msgstr "Адправіць па электроннай пошце..."
 msgid "Send to Mobile Device"
 msgstr "Адправіць на мабільную прыладу"
 
-#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:294
 msgid "Move to Trash"
 msgstr "Перамясціць у сметніцу"
 
@@ -941,157 +914,133 @@ msgstr "Перамясціць у сметніцу"
 msgid "Delete permanently"
 msgstr "Выдаліць незваротна"
 
-#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
 msgstr "Не дазваляць выкананне"
 
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
 msgstr "Дазволіць выкананне"
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:339
 msgid "Empty Trash"
 msgstr "Ачысціць сметніцу"
 
-#: app/fileItemMenu.js:337
+#: app/fileItemMenu.js:345
 msgid "Eject"
 msgstr "Выняць"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:348
 msgid "Unmount"
 msgstr "Адмантаваць"
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:354
 msgid "Common Properties"
 msgstr "Агульныя ўласцівасці"
 
-#: app/fileItemMenu.js:347
+#: app/fileItemMenu.js:355
 msgid "Properties"
 msgstr "Уласцівасці"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:362
 msgid "Show All in {0}"
 msgstr "Паказаць усе праз «{0}»"
 
-#: app/fileItemMenu.js:355
+#: app/fileItemMenu.js:363
 msgid "Show in {0}"
 msgstr "Паказаць праз «{0}»"
 
-#: app/fileItemMenu.js:366
+#: app/fileItemMenu.js:374
 msgid "Open in {0}"
 msgstr "Адкрыць праз «{0}»"
 
-#: app/fileItemMenu.js:530
+#: app/fileItemMenu.js:538
 msgid "Open Item"
 msgstr "Адкрыць элемент"
 
-#: app/fileItemMenu.js:570
-msgid "Cut Item"
-msgstr "Выразаць элемент"
-
-#: app/fileItemMenu.js:579
-msgid "Copy Item"
-msgstr "Скапіяваць элемент"
-
-#: app/fileItemMenu.js:589
-msgid "Rename Item"
-msgstr "Перайменаваць элемент"
-
-#: app/fileItemMenu.js:612
-msgid "Delete Permanently"
-msgstr "Выдаліць незваротна"
-
-#: app/fileItemMenu.js:701
-msgid "Show Properties"
-msgstr "Паказаць уласцівасці"
-
-#: app/fileItemMenu.js:730
-msgid "Create Link to Item"
-msgstr "Стварыць спасылку на элемент"
-
-#: app/fileItemMenu.js:828
+#: app/fileItemMenu.js:823
 msgid "Extraction Cancelled"
 msgstr "Выманне скасавана"
 
-#: app/fileItemMenu.js:829
+#: app/fileItemMenu.js:824
 msgid "Unable to extract File, no destination folder"
 msgstr "Немагчыма выняць файл, няма папкі прызначэння"
 
-#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
+#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
 msgid "Select Destination"
 msgstr "Выберыце месца прызначэння"
 
-#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
+#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
 msgid "Select"
 msgstr "Вылучыць"
 
-#: app/fileItemMenu.js:972
+#: app/fileItemMenu.js:967
 msgid "Can not email a Directory"
 msgstr "Нельга адправіць каталог па электроннай пошце"
 
-#: app/fileItemMenu.js:974
+#: app/fileItemMenu.js:969
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Сярод вылучанага ёсць каталог, спачатку сціснуць яго ў файл .zip?"
 
-#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
-#: app/fileItemMenu.js:1067
+#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:1062
 msgid "Mail Error"
 msgstr "Памылка пошты"
 
-#: app/fileItemMenu.js:1002
+#: app/fileItemMenu.js:997
 msgid "Unable to find zip command, please install the program"
 msgstr "Не ўдалося знайсці каманду zip, усталюйце праграму"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1008
+#: app/fileItemMenu.js:1003
 msgid "Archive.zip"
 msgstr "Архіў.zip"
 
-#: app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1027
 msgid "There was an error in creating a zip archive"
 msgstr "Падчас стварэння zip-архіва ўзнікла памылка"
 
-#: app/fileItemMenu.js:1050
+#: app/fileItemMenu.js:1045
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Не ўдалося знайсці xdg-email, усталюйце праграму"
 
-#: app/fileItemMenu.js:1068
+#: app/fileItemMenu.js:1063
 msgid "There was an error in emailing Files"
 msgstr "Памылка пры адпраўцы файлаў па электроннай пошце"
 
-#: app/fileItemMenu.js:1175
+#: app/fileItemMenu.js:1170
 msgid "Can Not open the Working Directory"
 msgstr "Немагчыма адкрыць працоўны каталог"
 
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1221
 msgid "Unable to Open in Gnome Console"
 msgstr "Немагчыма адкрыць кансоль Gnome"
 
-#: app/fileItemMenu.js:1228
+#: app/fileItemMenu.js:1223
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Усталюйце кансоль Gnome або іншы эмулятар тэрмінала"
 
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1231
 msgid "Unable to Open {0}"
 msgstr "Немагчыма адкрыць {0}"
 
-#: app/fileItemMenu.js:1238
+#: app/fileItemMenu.js:1233
 msgid "Please Install {0}"
 msgstr "Усталюйце «{0}»"
 
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1277
 msgid "Copy Cancelled"
 msgstr "Капіяванне скасавана"
 
-#: app/fileItemMenu.js:1283
+#: app/fileItemMenu.js:1278
 msgid "Unable to copy Files, no destination folder"
 msgstr "Немагчыма скапіяваць файлы, няма папкі прызначэння"
 
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1301
 msgid "Move Cancelled"
 msgstr "Перамяшчэнне скасавана"
 
-#: app/fileItemMenu.js:1307
+#: app/fileItemMenu.js:1302
 msgid "Unable to move Files, no destination folder"
 msgstr "Немагчыма перамясціць файлы, няма папкі прызначэння"
 
@@ -1099,9 +1048,211 @@ msgstr "Немагчыма перамясціць файлы, няма папк�
 msgid "$appName$ can not open files of this Type!"
 msgstr "$appName$ не можа адкрываць файлы гэтага тыпу!"
 
-#: app/preferences.js:892
+#: app/preferences.js:893
 msgid "Console"
 msgstr "Кансоль"
+
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+msgid "None"
+msgstr ""
+
+#: app/shortcutManager.js:85
+msgid "Default Shortcut:"
+msgstr ""
+
+#: app/shortcutManager.js:109
+msgid "Type new..."
+msgstr ""
+
+#: app/shortcutManager.js:125
+msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
+msgstr ""
+
+#: app/shortcutManager.js:130
+#, fuzzy
+#| msgid "Restore Default Desktop"
+msgid "Reset to Default"
+msgstr "Вярнуць прадвызначаны працоўны стол"
+
+#: app/shortcutManager.js:134
+msgid "No Accelerator"
+msgstr ""
+
+#: app/shortcutManager.js:243
+#, fuzzy
+#| msgid "Show Shortcuts"
+msgid "System Shortcuts"
+msgstr "Паказаць спалучэнні клавіш"
+
+#: app/shortcutManager.js:244
+msgid "Common System Defined Keyboard Shortcuts"
+msgstr ""
+
+#: app/shortcutManager.js:302
+#, fuzzy
+#| msgid "Show Shortcuts"
+msgid "Local Shortcuts"
+msgstr "Паказаць спалучэнні клавіш"
+
+#: app/shortcutManager.js:303
+#, fuzzy
+#| msgid "Keyboard Short Cuts"
+msgid "Application Keyboard Shortcuts"
+msgstr "Спалучэнні клавіш"
+
+#: app/shortcutManager.js:364
+#, fuzzy
+#| msgid "Show Shortcuts"
+msgid "Global Shortcuts"
+msgstr "Паказаць спалучэнні клавіш"
+
+#: app/shortcutManager.js:365
+#, fuzzy
+#| msgid "Keyboard Short Cuts"
+msgid "System Keyboard Shortcuts"
+msgstr "Спалучэнні клавіш"
+
+#: app/shortcutManager.js:661
+#, fuzzy
+#| msgid "Keyboard Short Cuts"
+msgid "Keyboard Shortcuts"
+msgstr "Спалучэнні клавіш"
+
+#: app/shortcutManager.js:673
+#, fuzzy
+#| msgid "Show Shortcuts"
+msgid "Reset Shortcuts"
+msgstr "Паказаць спалучэнні клавіш"
+
+#: app/shortcutManager.js:674
+msgid "Reset all shortcuts to Defaults"
+msgstr ""
+
+#: app/shortcutManager.js:677
+#, fuzzy
+#| msgid "Open All..."
+msgid "Reset All..."
+msgstr "Адкрыць усе..."
+
+#: app/shortcuts.js:15
+#, fuzzy
+msgid "Show Desktop in Files"
+msgstr "Паказаць працоўны стол у файлах GNOME"
+
+#: app/shortcuts.js:16
+msgid "Open in Terminal"
+msgstr "Адкрыць у Тэрмінале"
+
+#: app/shortcuts.js:17
+#, fuzzy
+#| msgid "Change Background…"
+msgid "Change Background"
+msgstr "Змяніць фон..."
+
+#: app/shortcuts.js:18
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Change Display Settings"
+msgstr "Настройкі дісплэя"
+
+#: app/shortcuts.js:19
+#, fuzzy
+#| msgid "Desktop Icon Settings"
+msgid "Change Desktop Icon Settings"
+msgstr "Налады Desktop Icons"
+
+#: app/shortcuts.js:20
+msgid "Clean Up Icons"
+msgstr ""
+
+#: app/shortcuts.js:21
+#, fuzzy
+#| msgid "Keep Arranged…"
+msgid "Keep Arranged"
+msgstr "Захоўваць упарадкаванне…"
+
+#: app/shortcuts.js:22
+#, fuzzy
+#| msgid "Keep Icons Stacked"
+msgid "Keep Stacked"
+msgstr "Згрупоўванне значкоў"
+
+#: app/shortcuts.js:23
+#, fuzzy
+#| msgid "Sort Special Folders - Home/Trash Drives."
+msgid "Sort Special Folders"
+msgstr "Сартаваць спецыяльныя папкі - Дыскі/Сметніцу/Хатнюю папку."
+
+#: app/shortcuts.js:25
+msgid "Find Files"
+msgstr "Знайсці файлы"
+
+#: app/shortcuts.js:26
+msgid "Update Desktop"
+msgstr "Абнавіць працоўны стол"
+
+#: app/shortcuts.js:27
+msgid "Show Hidden Files"
+msgstr "Паказваць схаваныя файлы"
+
+#: app/shortcuts.js:28
+msgid "Unselect All"
+msgstr "Зняць вылучэнне"
+
+#: app/shortcuts.js:29
+msgid "Preview"
+msgstr "Перадпрагляд"
+
+#: app/shortcuts.js:30
+msgid "Choose Icon Left"
+msgstr "Выбраць значок злева"
+
+#: app/shortcuts.js:31
+msgid "Choose Icon Right"
+msgstr "Выбраць значок справа"
+
+#: app/shortcuts.js:32
+msgid "Choose Icon Up"
+msgstr "Выбраць значок зверху"
+
+#: app/shortcuts.js:33
+msgid "Choose Icon Down"
+msgstr "Выбраць значок знізу"
+
+#: app/shortcuts.js:34
+msgid "Show Menu"
+msgstr "Паказаць меню"
+
+#: app/shortcuts.js:35
+msgid "Display Shell Background Menu"
+msgstr ""
+
+#: app/shortcuts.js:36
+#, fuzzy
+#| msgid "Current Desktop: "
+msgid "Create Desktop Shortcut"
+msgstr "Бягучы працоўны стол: "
+
+#: app/shortcuts.js:37
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:38
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:40
+#, fuzzy
+#| msgid "Show Shortcuts"
+msgid "Show Shortcut Viewer"
+msgstr "Паказаць спалучэнні клавіш"
+
+#: app/shortcuts.js:41
+#, fuzzy
+#| msgid "Desktop Icons"
+msgid "Show Or Hide Desktop Icons"
+msgstr "Значкі працоўнага стала"
 
 #: app/showErrorPopup.js:42
 msgid "More Information"
@@ -1327,6 +1478,63 @@ msgid ""
 "independent of grid"
 msgstr ""
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+msgid "Hide/Show all desktop windows"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+#, fuzzy
+#| msgid "Show the trash icon on the desktop"
+msgid "Show the icons on the desktop, or hide them all"
+msgstr "Паказваць на працоўным стале значок сметніцы"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+msgid "User Application Shortcuts"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+msgid "Override for default application shortcuts set by the User"
+msgstr ""
+
+#~ msgid "Website"
+#~ msgstr "Вэб-сайт"
+
+#~ msgid "Visit"
+#~ msgstr "Наведаць"
+
+#~ msgid "Issues"
+#~ msgstr "Праблемы"
+
+#~ msgid "Report issues on issue tracker"
+#~ msgstr "Паведаміць аб праблеме на старонцы баг-трэкера"
+
+#~ msgid "Report"
+#~ msgstr "Паведаміць"
+
+#~ msgid "License"
+#~ msgstr "Ліцэнзія"
+
+#~ msgid "Do Paste"
+#~ msgstr "Уставіць"
+
+#~ msgid "Cut Item"
+#~ msgstr "Выразаць элемент"
+
+#~ msgid "Copy Item"
+#~ msgstr "Скапіяваць элемент"
+
+#~ msgid "Rename Item"
+#~ msgstr "Перайменаваць элемент"
+
+#~ msgid "Delete Permanently"
+#~ msgstr "Выдаліць незваротна"
+
+#~ msgid "Show Properties"
+#~ msgstr "Паказаць уласцівасці"
+
+#~ msgid "Create Link to Item"
+#~ msgstr "Стварыць спасылку на элемент"
+
 #~ msgid "Add an emblem to soft links"
 #~ msgstr "Дадаваць да спасылак праграм эмблему"
 
@@ -1339,12 +1547,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Run"
 #~ msgstr "Запуск"
-
-#~ msgid "Change Background…"
-#~ msgstr "Змяніць фон..."
-
-#~ msgid "Display Settings"
-#~ msgstr "Настройкі дісплэя"
 
 #, fuzzy
 #~ msgid "Close"
@@ -1359,14 +1561,7 @@ msgstr ""
 #~ msgstr "Каб адкрываць тэчкі, выкарыстоўвайце Nemo замест Nautilus."
 
 #, fuzzy
-#~ msgid "Show Desktop In GNOME Files"
-#~ msgstr "Паказаць працоўны стол у файлах GNOME"
-
-#, fuzzy
 #~ msgid "Open In Terminal"
-#~ msgstr "Адкрыць у Тэрмінале"
-
-#~ msgid "Open in Terminal"
 #~ msgstr "Адкрыць у Тэрмінале"
 
 #, fuzzy

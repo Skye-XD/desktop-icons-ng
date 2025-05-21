@@ -11,12 +11,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 23:31-0400\n"
+"POT-Creation-Date: 2025-05-20 19:53-0400\n"
 "PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,295 +24,291 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
-#: app/adwPreferencesWindow.js:183 app/adwPreferencesWindow.js:184
+#: app/adwPreferencesWindow.js:159
+#, fuzzy
+msgid "Shortcuts"
+msgstr "Visa genvägar"
+
+#: app/adwPreferencesWindow.js:162
+#, fuzzy
+msgid "Edit Shortcuts..."
+msgstr "Visa genvägar"
+
+#: app/adwPreferencesWindow.js:175
+msgid "Edit Application Shortcuts"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180
+msgid "Shortcuts Editable only when Extension Enabled..."
+msgstr ""
+
+#: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
+#, fuzzy
+msgid "Help translate in your web browser"
+msgstr "Hjälp översätta i din webbläsare"
+
+#: app/adwPreferencesWindow.js:367 app/adwPreferencesWindow.js:368
 msgid "Desktop"
 msgstr "Skrivbord"
 
-#: app/adwPreferencesWindow.js:189 app/adwPreferencesWindow.js:190
+#: app/adwPreferencesWindow.js:373 app/adwPreferencesWindow.js:374
 msgid "Files"
 msgstr "Filer"
 
-#: app/adwPreferencesWindow.js:195 app/adwPreferencesWindow.js:196
-#: app/adwPreferencesWindow.js:237
+#: app/adwPreferencesWindow.js:379 app/adwPreferencesWindow.js:380
+#: app/adwPreferencesWindow.js:421
 #, fuzzy
 msgid "Tweaks"
 msgstr "Tweaks"
 
-#: app/adwPreferencesWindow.js:201 app/adwPreferencesWindow.js:202
-#, fuzzy
-msgid "About"
-msgstr "Om"
+#: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+msgid "More"
+msgstr ""
 
-#: app/adwPreferencesWindow.js:213
+#: app/adwPreferencesWindow.js:397
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Desktop-inställningar"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:214
+#: app/adwPreferencesWindow.js:398
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Inställningar för skrivbordsprogrammet"
 
-#: app/adwPreferencesWindow.js:220
+#: app/adwPreferencesWindow.js:404
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "Skrivbordskatalog:"
 
-#: app/adwPreferencesWindow.js:221
+#: app/adwPreferencesWindow.js:405
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Current Desktop: "
 msgstr "Trasig skrivbordsfil"
 
-#: app/adwPreferencesWindow.js:230
+#: app/adwPreferencesWindow.js:414
 #, fuzzy
 msgid "Files Settings"
 msgstr "Filer Inställningar"
 
-#: app/adwPreferencesWindow.js:231
+#: app/adwPreferencesWindow.js:415
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Inställningar som delas med Gnome Files"
 
-#: app/adwPreferencesWindow.js:238
+#: app/adwPreferencesWindow.js:422
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Miscellan Tweaks"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:251
+#: app/adwPreferencesWindow.js:440
 #, fuzzy
 msgid "Size for the desktop icons"
 msgstr "Storlek för desktop ikonerna"
 
-#: app/adwPreferencesWindow.js:253
+#: app/adwPreferencesWindow.js:442
 #, fuzzy
 msgid "Tiny"
 msgstr "Små"
 
-#: app/adwPreferencesWindow.js:254
+#: app/adwPreferencesWindow.js:443
 #, fuzzy
 msgid "Small"
 msgstr "Små"
 
-#: app/adwPreferencesWindow.js:255
+#: app/adwPreferencesWindow.js:444
 #, fuzzy
 msgid "Standard"
 msgstr "Standard"
 
-#: app/adwPreferencesWindow.js:256
+#: app/adwPreferencesWindow.js:445
 #, fuzzy
 msgid "Large"
 msgstr "Stor"
 
-#: app/adwPreferencesWindow.js:262
+#: app/adwPreferencesWindow.js:451
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Nya ikoner anpassning"
 
-#: app/adwPreferencesWindow.js:264
+#: app/adwPreferencesWindow.js:453
 #, fuzzy
 msgid "Top left corner"
 msgstr "Övre vänstra hörnet"
 
-#: app/adwPreferencesWindow.js:265
+#: app/adwPreferencesWindow.js:454
 #, fuzzy
 msgid "Top right corner"
 msgstr "Övre högra hörnet"
 
-#: app/adwPreferencesWindow.js:266
+#: app/adwPreferencesWindow.js:455
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Nedre vänstra hörnet"
 
-#: app/adwPreferencesWindow.js:267
+#: app/adwPreferencesWindow.js:456
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Nedre högra hörnet"
 
-#: app/adwPreferencesWindow.js:273
+#: app/adwPreferencesWindow.js:462
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Lägg till nya ikoner till sekundära övervakare först, om de är tillgängliga"
 
-#: app/adwPreferencesWindow.js:277
+#: app/adwPreferencesWindow.js:466
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Snap ikoner att rutnät"
 
-#: app/adwPreferencesWindow.js:283
+#: app/adwPreferencesWindow.js:472
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Highlight drop grid"
 
-#: app/adwPreferencesWindow.js:292
+#: app/adwPreferencesWindow.js:481
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Ingen destinationsmapp"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:293
+#: app/adwPreferencesWindow.js:482
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "Visa den personliga mappen på skrivbordet."
 
-#: app/adwPreferencesWindow.js:294 app/adwPreferencesWindow.js:502
-#: app/desktopFolderMonitor.js:614
+#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:676
+#: app/desktopFolderMonitor.js:618
 #, fuzzy
 msgid "Choose"
 msgstr "Välj"
 
-#: app/adwPreferencesWindow.js:299
+#: app/adwPreferencesWindow.js:488
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Restore Default Desktop Folder"
 msgstr "Untrusted Desktop File"
 
-#: app/adwPreferencesWindow.js:300
+#: app/adwPreferencesWindow.js:489
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:301
+#: app/adwPreferencesWindow.js:490
 #, fuzzy
 msgid "Restore"
 msgstr "Återställa"
 
-#: app/adwPreferencesWindow.js:311
+#: app/adwPreferencesWindow.js:500
 #, fuzzy
 #| msgid "Add an emblem to links"
 msgid "Add information emblems for links, encryption"
 msgstr "Lägg till ett emblem till länkar"
 
-#: app/adwPreferencesWindow.js:315
+#: app/adwPreferencesWindow.js:504
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Använd mörk text i ikonetiketter"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:320
+#: app/adwPreferencesWindow.js:509
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Visa den personliga mappen på skrivbordet."
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:325
+#: app/adwPreferencesWindow.js:514
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Visa papperskorgsikonen på skrivbordet."
 
-#: app/adwPreferencesWindow.js:330
+#: app/adwPreferencesWindow.js:519
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Visa externa enheter på skrivbordet"
 
-#: app/adwPreferencesWindow.js:335
+#: app/adwPreferencesWindow.js:524
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Visa nätverksenheter på skrivbordet"
 
-#: app/adwPreferencesWindow.js:340
+#: app/adwPreferencesWindow.js:529
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Lägg till nya enheter på motsatt sida av skärmen"
 
-#: app/adwPreferencesWindow.js:346
+#: app/adwPreferencesWindow.js:534
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Åtgärder för att öppna objekt"
 
-#: app/adwPreferencesWindow.js:348
+#: app/adwPreferencesWindow.js:536
 #, fuzzy
 msgid "Single click"
 msgstr "Single Click"
 
-#: app/adwPreferencesWindow.js:349
+#: app/adwPreferencesWindow.js:537
 #, fuzzy
 msgid "Double click"
 msgstr "Dubbelklicka"
 
-#: app/adwPreferencesWindow.js:354
+#: app/adwPreferencesWindow.js:542
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Visa bild miniatyrer"
 
-#: app/adwPreferencesWindow.js:356
+#: app/adwPreferencesWindow.js:544
 #, fuzzy
 msgid "Always"
 msgstr "Alltid"
 
-#: app/adwPreferencesWindow.js:357
+#: app/adwPreferencesWindow.js:545
 #, fuzzy
 msgid "On this computer only"
 msgstr "På denna dator endast"
 
-#: app/adwPreferencesWindow.js:358
+#: app/adwPreferencesWindow.js:546
 #, fuzzy
 msgid "Never"
 msgstr "Aldrig"
 
-#: app/adwPreferencesWindow.js:363
+#: app/adwPreferencesWindow.js:551
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Visa ett kontextmenyalternativ för att radera permanent"
 
-#: app/adwPreferencesWindow.js:368
+#: app/adwPreferencesWindow.js:556
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Visa dolda filer"
 
-#: app/adwPreferencesWindow.js:373
+#: app/adwPreferencesWindow.js:561
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Öppna mappar på drag hover"
 
-#: app/adwPreferencesWindow.js:376
+#: app/adwPreferencesWindow.js:565
 #, fuzzy
-msgid "Website"
-msgstr "Webbplats"
+msgid "About..."
+msgstr "Om"
 
-#: app/adwPreferencesWindow.js:378
+#: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
 #, fuzzy
-msgid "Visit"
-msgstr "Besök"
-
-#: app/adwPreferencesWindow.js:382
-#, fuzzy
-msgid "Issues"
-msgstr "Ärenden"
-
-#: app/adwPreferencesWindow.js:383
-#, fuzzy
-msgid "Report issues on issue tracker"
-msgstr "Rapportera frågor om emission tracker"
-
-#: app/adwPreferencesWindow.js:384
-#, fuzzy
-msgid "Report"
-msgstr "Rapportera"
-
-#: app/adwPreferencesWindow.js:387
-#, fuzzy
-msgid "License"
-msgstr "Licens"
-
-#: app/adwPreferencesWindow.js:393
-#, fuzzy
-msgid "Translation"
+msgid "Translations"
 msgstr "Översättning"
 
-#: app/adwPreferencesWindow.js:394
-#, fuzzy
-msgid "Help translate in your web browser"
-msgstr "Hjälp översätta i din webbläsare"
+#: app/adwPreferencesWindow.js:577
+msgid "All tranlations on Weblate.."
+msgstr ""
 
-#: app/adwPreferencesWindow.js:395
+#: app/adwPreferencesWindow.js:584
 #, fuzzy
 msgid "Translate"
 msgstr "Översätta"
 
-#: app/adwPreferencesWindow.js:501 app/desktopFolderMonitor.js:613
+#: app/adwPreferencesWindow.js:675 app/desktopFolderMonitor.js:617
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Choose Desktop Folder"
@@ -366,7 +362,7 @@ msgstr ""
 "Den här .desktop-filen har inte korrekta rättigheter. Högerklicka för att "
 "redigera Egenskaper, sen:\n"
 
-#: app/appImageFileItem.js:67 app/desktopFileIcon.js:107
+#: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -379,7 +375,7 @@ msgstr ""
 "<b>Ställ in rättigheter, i \"Andras åtkomst\", \"Endast läsbar\" eller "
 "\"Inget\"</b>"
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:115
+#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -423,8 +419,8 @@ msgstr "Mappnamn"
 msgid "File name"
 msgstr "Filnamn"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1218
-#: app/fileItemMenu.js:976
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
+#: app/fileItemMenu.js:971
 msgid "OK"
 msgstr "OK"
 
@@ -455,9 +451,9 @@ msgstr "Extrahera filer"
 msgid "Compressing files"
 msgstr "Komprimera filer."
 
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:169
-#: app/desktopManager.js:1220 app/dragManager.js:783 app/fileItemMenu.js:923
-#: app/fileItemMenu.js:976 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
+#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:918
+#: app/fileItemMenu.js:971 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -586,11 +582,24 @@ msgstr "Mindre arkiv men bara Linux och Mac."
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Mindre arkiv men måste installeras på Windows och Mac."
 
-#: app/desktopFileIcon.js:84
+#: app/desktopFileIcon.js:125
+msgid "The Displayed Desktop is writable by others"
+msgstr ""
+
+#: app/desktopFileIcon.js:128
+msgid ""
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
+"\n"
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
+msgstr ""
+
+#: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
 msgstr "Trasig skrivbordsfil"
 
-#: app/desktopFileIcon.js:87
+#: app/desktopFileIcon.js:141
 #, fuzzy
 #| msgid ""
 #| "This .desktop file has errors or points to a program without permissions. "
@@ -606,11 +615,11 @@ msgstr ""
 "Den här .desktop-filen har fel eller pekar till ett program utan "
 "rättigheter. Den kan inte köras."
 
-#: app/desktopFileIcon.js:97
+#: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
 msgstr "Felatiga rättigheter i skrivbordsfilen"
 
-#: app/desktopFileIcon.js:100
+#: app/desktopFileIcon.js:154
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
@@ -618,13 +627,13 @@ msgstr ""
 "Den här .desktop-filen har inte korrekta rättigheter. Högerklicka för att "
 "redigera Egenskaper, sen:\n"
 
-#: app/desktopFileIcon.js:124
+#: app/desktopFileIcon.js:178
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Untrusted Desktop File"
 msgstr "Untrusted Desktop File"
 
-#: app/desktopFileIcon.js:127
+#: app/desktopFileIcon.js:181
 #, fuzzy
 #| msgid ""
 #| "This .desktop file is not trusted, it can not be launched. To enable "
@@ -642,30 +651,30 @@ msgstr ""
 "\n"
 "<b>Aktivera \"Tillåt start\"</b>"
 
-#: app/desktopFileIcon.js:155 app/gnomeShellDragDrop.js:355
+#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
 msgstr "Kunde inte öppna filen"
 
-#: app/desktopFileIcon.js:157
+#: app/desktopFileIcon.js:211
 #, fuzzy
 msgid "{appName} can not open files of this Type!"
 msgstr "${appName} kan inte öppna filer av denna typ!"
 
-#: app/desktopFolderMonitor.js:120
+#: app/desktopFolderMonitor.js:121
 #, fuzzy
 msgid "Desktop Folder Change Failed"
 msgstr "Mamma skapelse misslyckades"
 
-#: app/desktopFolderMonitor.js:123
+#: app/desktopFolderMonitor.js:124
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:139
+#: app/desktopFolderMonitor.js:140
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:141
 msgid "Switching to new Desktop..."
 msgstr ""
 
@@ -674,11 +683,11 @@ msgstr ""
 msgid "Desktop Icons"
 msgstr "Desktop Icons"
 
-#: app/desktopManager.js:155
+#: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr ""
 
-#: app/desktopManager.js:156
+#: app/desktopManager.js:158
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -686,271 +695,207 @@ msgid ""
 "Please enable in Mutter Dconf Settings"
 msgstr ""
 
-#: app/desktopManager.js:167
+#: app/desktopManager.js:169
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
 
-#: app/desktopManager.js:170
+#: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
 msgstr "Aktivera"
 
-#: app/desktopManager.js:195
+#: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
 msgstr ""
 
-#: app/desktopManager.js:205
+#: app/desktopManager.js:207
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME Filer som inte hittats"
 
-#: app/desktopManager.js:206
+#: app/desktopManager.js:208
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "GNOME Filer ansökan krävs av Gtk4 Desktop Icons NG."
 
-#: app/desktopManager.js:214
+#: app/desktopManager.js:216
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "Det finns ingen standard File Manager"
 
-#: app/desktopManager.js:215
+#: app/desktopManager.js:217
 #, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Det finns ingen ansökan som hanterar mimetype \"inode/directory\""
 
-#: app/desktopManager.js:224
+#: app/desktopManager.js:226
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome Files är inte registrerad som filhanterare"
 
-#: app/desktopManager.js:225
+#: app/desktopManager.js:227
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:317
+#: app/desktopManager.js:319
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Rensa aktuellt val innan ny sökning"
 
-#: app/desktopManager.js:1222
+#: app/desktopManager.js:1229
 msgid "Find Files on Desktop"
 msgstr "Hitta filer på skrivbordet"
 
-#: app/desktopManager.js:1551 app/desktopMenu.js:168 app/desktopMenu.js:1154
+#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Ny mapp"
 
-#: app/desktopManager.js:1585
+#: app/desktopManager.js:1592
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Mamma skapelse misslyckades"
 
-#: app/desktopManager.js:1586
+#: app/desktopManager.js:1593
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Kunde inte skapa mapp."
 
-#: app/desktopMenu.js:36
-msgid "Keyboard Short Cuts"
-msgstr ""
-
-#: app/desktopMenu.js:190
-#, fuzzy
-#| msgid "Paste"
-msgid "Do Paste"
-msgstr "Klistra in"
-
-#: app/desktopMenu.js:202 app/desktopMenu.js:1166
-msgid "Undo"
-msgstr "Ångra"
-
-#: app/desktopMenu.js:214 app/desktopMenu.js:1168
-msgid "Redo"
-msgstr "Gör om"
-
-#: app/desktopMenu.js:225 app/desktopMenu.js:1174
-msgid "Select All"
-msgstr "Markera alla"
-
-#: app/desktopMenu.js:321
-#, fuzzy
-#| msgid "Files"
-msgid "Find Files"
-msgstr "Hitta filer"
-
-#: app/desktopMenu.js:338
-#, fuzzy
-#| msgid "Desktop"
-msgid "Update Desktop"
-msgstr "Skrivbord"
-
-#: app/desktopMenu.js:354
-#, fuzzy
-msgid "Show Hidden Files"
-msgstr "Visa dolda filer"
-
-#: app/desktopMenu.js:369
-#, fuzzy
-#| msgid "Select All"
-msgid "Unselect All"
-msgstr "Avmarkera allt"
-
-#: app/desktopMenu.js:383
-#, fuzzy
-msgid "Preview"
-msgstr "Förhandsgranskning"
-
-#: app/desktopMenu.js:393
-#, fuzzy
-msgid "Choose Icon Left"
-msgstr "Välj åtgärd för filer"
-
-#: app/desktopMenu.js:404
-#, fuzzy
-msgid "Choose Icon Right"
-msgstr "Välj åtgärd för filer"
-
-#: app/desktopMenu.js:413
-#, fuzzy
-msgid "Choose Icon Up"
-msgstr "Välj"
-
-#: app/desktopMenu.js:423
-#, fuzzy
-msgid "Choose Icon Down"
-msgstr "Välj åtgärd för filer"
-
-#: app/desktopMenu.js:432
-#, fuzzy
-#| msgid "Show in Files"
-msgid "Show Menu"
-msgstr "Visa meny"
-
-#: app/desktopMenu.js:480 app/desktopMenu.js:1151
-#, fuzzy
-msgid "Show Shortcuts"
-msgstr "Visa genvägar"
-
-#: app/desktopMenu.js:750
+#: app/desktopMenu.js:549
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Kan öppnas i Gnome Console"
 
-#: app/desktopMenu.js:790
+#: app/desktopMenu.js:570
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Föreställningar fönster är öppet"
 
-#: app/desktopMenu.js:791
+#: app/desktopMenu.js:571
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Detta fönster är öppet. Växla till det aktiva fönstret."
 
-#: app/desktopMenu.js:806 app/desktopMenu.js:1207
+#: app/desktopMenu.js:580 app/desktopMenu.js:961
 msgid "Settings"
 msgstr "Inställningar"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:763
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Mallar Skapelse Fel"
 
-#: app/desktopMenu.js:988
+#: app/desktopMenu.js:764
 #, fuzzy
 msgid "Could not create document"
 msgstr "Kunde inte skapa dokument"
 
-#: app/desktopMenu.js:1115
+#: app/desktopMenu.js:869
 #, fuzzy
 msgid "Name"
 msgstr "Namn"
 
-#: app/desktopMenu.js:1117
+#: app/desktopMenu.js:871
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Namn Ö - A"
 
-#: app/desktopMenu.js:1119
+#: app/desktopMenu.js:873
 #, fuzzy
 msgid "Modified Time"
 msgstr "Ändrad tid"
 
-#: app/desktopMenu.js:1121
+#: app/desktopMenu.js:875
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopMenu.js:1123
+#: app/desktopMenu.js:877
 #, fuzzy
 msgid "Size"
 msgstr "Storlek"
 
-#: app/desktopMenu.js:1128
+#: app/desktopMenu.js:882
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Behåll arrangerade…"
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:887
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Behåll arrangerade efter typ…"
 
-#: app/desktopMenu.js:1135
+#: app/desktopMenu.js:889
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortera Hem/Diskar/Papperskorg…"
 
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:894
 #, fuzzy
 #| msgid "Desktop"
 msgid "Change Desktop"
 msgstr "Skrivbord"
 
-#: app/desktopMenu.js:1145
+#: app/desktopMenu.js:899
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:1149
+#: app/desktopMenu.js:903
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Inställningar för Desktop Icons"
 
-#: app/desktopMenu.js:1159
+#: app/desktopMenu.js:905
+#, fuzzy
+msgid "Show Shortcuts"
+msgstr "Visa genvägar"
+
+#: app/desktopMenu.js:913 app/shortcuts.js:39
 msgid "New Document"
 msgstr "Nytt dokument"
 
-#: app/desktopMenu.js:1164
+#: app/desktopMenu.js:918 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Klistra in"
 
-#: app/desktopMenu.js:1181
+#: app/desktopMenu.js:920 app/shortcuts.js:12
+msgid "Undo"
+msgstr "Ångra"
+
+#: app/desktopMenu.js:922 app/shortcuts.js:13
+msgid "Redo"
+msgstr "Gör om"
+
+#: app/desktopMenu.js:928 app/shortcuts.js:14
+msgid "Select All"
+msgstr "Markera alla"
+
+#: app/desktopMenu.js:935 app/shortcuts.js:24
 msgid "Arrange Icons"
 msgstr "Arrangera ikonerna"
 
-#: app/desktopMenu.js:1185
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arrangera efter…"
 
-#: app/desktopMenu.js:1193
+#: app/desktopMenu.js:947
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Visa skrivbord i {0}"
 
-#: app/desktopMenu.js:1198
+#: app/desktopMenu.js:952
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Öppna i {0}"
 
-#: app/desktopMenu.js:1214
+#: app/desktopMenu.js:968
 msgid "Shell Menu…"
 msgstr ""
 
@@ -992,24 +937,24 @@ msgstr "Kopiera"
 msgid "Link"
 msgstr "Länk"
 
-#: app/fileItemIcon.js:96
+#: app/fileItemIcon.js:95
 #, fuzzy
 #| msgid "New Folder"
 msgid "Folder"
 msgstr "Katalog"
 
-#: app/fileItemIcon.js:97
+#: app/fileItemIcon.js:96
 #, fuzzy
 #| msgid "Files"
 msgid "File"
 msgstr "Fil"
 
-#: app/fileItemIcon.js:274
+#: app/fileItemIcon.js:270
 #, fuzzy
 msgid "Opening File Failed"
 msgstr "Öppningsfil misslyckades"
 
-#: app/fileItemIcon.js:280
+#: app/fileItemIcon.js:276
 #, fuzzy
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Det finns ingen applikation installerad för att öppna \"{foo}\" filer."
@@ -1124,7 +1069,7 @@ msgstr "Email till..."
 msgid "Send to Mobile Device"
 msgstr "Skicka till Mobile Device"
 
-#: app/fileItemMenu.js:294 app/fileItemMenu.js:600
+#: app/fileItemMenu.js:294
 msgid "Move to Trash"
 msgstr "Flytta till papperskorgen"
 
@@ -1132,192 +1077,160 @@ msgstr "Flytta till papperskorgen"
 msgid "Delete permanently"
 msgstr "Ta bort permanent"
 
-#: app/fileItemMenu.js:315 app/fileItemMenu.js:321
+#: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
 msgstr "Tillåt ej programstart"
 
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:322
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
 msgstr "Tillåt programstart"
 
-#: app/fileItemMenu.js:331
+#: app/fileItemMenu.js:339
 msgid "Empty Trash"
 msgstr "Töm papperskorgen"
 
-#: app/fileItemMenu.js:337
+#: app/fileItemMenu.js:345
 msgid "Eject"
 msgstr "Mata ut"
 
-#: app/fileItemMenu.js:340
+#: app/fileItemMenu.js:348
 msgid "Unmount"
 msgstr "Avmontera"
 
-#: app/fileItemMenu.js:346
+#: app/fileItemMenu.js:354
 msgid "Common Properties"
 msgstr "Gemensamma egenskaper"
 
-#: app/fileItemMenu.js:347
+#: app/fileItemMenu.js:355
 msgid "Properties"
 msgstr "Egenskaper"
 
-#: app/fileItemMenu.js:354
+#: app/fileItemMenu.js:362
 #, fuzzy
 #| msgid "Show All in Files"
 msgid "Show All in {0}"
 msgstr "Visa allt i {0}"
 
-#: app/fileItemMenu.js:355
+#: app/fileItemMenu.js:363
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show in {0}"
 msgstr "Visa i {0}"
 
-#: app/fileItemMenu.js:366
+#: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Open in {0}"
 msgstr "Öppna i {0}"
 
-#: app/fileItemMenu.js:530
+#: app/fileItemMenu.js:538
 #, fuzzy
 msgid "Open Item"
 msgstr "Öppna objekt"
 
-#: app/fileItemMenu.js:570
-msgid "Cut Item"
-msgstr ""
-
-#: app/fileItemMenu.js:579
-#, fuzzy
-msgid "Copy Item"
-msgstr "Öppna objekt"
-
-#: app/fileItemMenu.js:589
-#, fuzzy
-#| msgid "Rename"
-msgid "Rename Item"
-msgstr "Byt namn på objekt"
-
-#: app/fileItemMenu.js:612
-#, fuzzy
-#| msgid "Delete permanently"
-msgid "Delete Permanently"
-msgstr "Ta bort permanent"
-
-#: app/fileItemMenu.js:701
-#, fuzzy
-#| msgid "Properties"
-msgid "Show Properties"
-msgstr "Visa egenskaper"
-
-#: app/fileItemMenu.js:730
-#, fuzzy
-msgid "Create Link to Item"
-msgstr "Skapa länk..."
-
-#: app/fileItemMenu.js:828
+#: app/fileItemMenu.js:823
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Extraktion annullerad"
 
-#: app/fileItemMenu.js:829
+#: app/fileItemMenu.js:824
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Kan inte extrahera Fil, ingen destination mapp"
 
-#: app/fileItemMenu.js:885 app/fileItemMenu.js:914
+#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
-#: app/fileItemMenu.js:888 app/fileItemMenu.js:916
+#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
 msgid "Select"
 msgstr "Välj"
 
-#: app/fileItemMenu.js:972
+#: app/fileItemMenu.js:967
 msgid "Can not email a Directory"
 msgstr "Kan inte maila en katalog"
 
-#: app/fileItemMenu.js:974
+#: app/fileItemMenu.js:969
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Urvalet innehåller en katalog, komprimera till en .zip-fil först?"
 
-#: app/fileItemMenu.js:1000 app/fileItemMenu.js:1031 app/fileItemMenu.js:1048
-#: app/fileItemMenu.js:1067
+#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
+#: app/fileItemMenu.js:1062
 #, fuzzy
 msgid "Mail Error"
 msgstr "Mail fel"
 
-#: app/fileItemMenu.js:1002
+#: app/fileItemMenu.js:997
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Kan inte hitta zip kommandot, vänligen installera programmet"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1008
+#: app/fileItemMenu.js:1003
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
-#: app/fileItemMenu.js:1032
+#: app/fileItemMenu.js:1027
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Det fanns ett fel i att skapa ett zip arkiv"
 
-#: app/fileItemMenu.js:1050
+#: app/fileItemMenu.js:1045
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Kan inte hitta xdg-email, vänligen installera programmet"
 
-#: app/fileItemMenu.js:1068
+#: app/fileItemMenu.js:1063
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Det fanns ett fel i e-postfiler"
 
-#: app/fileItemMenu.js:1175
+#: app/fileItemMenu.js:1170
 #, fuzzy
 #| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
 msgstr "Kan inte maila en katalog"
 
-#: app/fileItemMenu.js:1226
+#: app/fileItemMenu.js:1221
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Kan öppnas i Gnome Console"
 
-#: app/fileItemMenu.js:1228
+#: app/fileItemMenu.js:1223
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Installera Gnome Console eller annat terminalprogram"
 
-#: app/fileItemMenu.js:1236
+#: app/fileItemMenu.js:1231
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Kan inte öppna {0}"
 
-#: app/fileItemMenu.js:1238
+#: app/fileItemMenu.js:1233
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Vänligen installera {0}"
 
-#: app/fileItemMenu.js:1282
+#: app/fileItemMenu.js:1277
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopiering avbröts"
 
-#: app/fileItemMenu.js:1283
+#: app/fileItemMenu.js:1278
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Kan inte kopiera filer, ingen destination mapp"
 
-#: app/fileItemMenu.js:1306
+#: app/fileItemMenu.js:1301
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Flytta annullerad"
 
-#: app/fileItemMenu.js:1307
+#: app/fileItemMenu.js:1302
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Kan flytta filer, ingen destination mapp"
@@ -1327,10 +1240,212 @@ msgstr "Kan flytta filer, ingen destination mapp"
 msgid "$appName$ can not open files of this Type!"
 msgstr "${appName} kan inte öppna filer av denna typ!"
 
-#: app/preferences.js:892
+#: app/preferences.js:893
 #, fuzzy
 msgid "Console"
 msgstr "Trösta"
+
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+msgid "None"
+msgstr ""
+
+#: app/shortcutManager.js:85
+msgid "Default Shortcut:"
+msgstr ""
+
+#: app/shortcutManager.js:109
+msgid "Type new..."
+msgstr ""
+
+#: app/shortcutManager.js:125
+msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
+msgstr ""
+
+#: app/shortcutManager.js:130
+msgid "Reset to Default"
+msgstr ""
+
+#: app/shortcutManager.js:134
+msgid "No Accelerator"
+msgstr ""
+
+#: app/shortcutManager.js:243
+#, fuzzy
+msgid "System Shortcuts"
+msgstr "Visa genvägar"
+
+#: app/shortcutManager.js:244
+msgid "Common System Defined Keyboard Shortcuts"
+msgstr ""
+
+#: app/shortcutManager.js:302
+#, fuzzy
+msgid "Local Shortcuts"
+msgstr "Visa genvägar"
+
+#: app/shortcutManager.js:303
+msgid "Application Keyboard Shortcuts"
+msgstr ""
+
+#: app/shortcutManager.js:364
+#, fuzzy
+msgid "Global Shortcuts"
+msgstr "Visa genvägar"
+
+#: app/shortcutManager.js:365
+#, fuzzy
+msgid "System Keyboard Shortcuts"
+msgstr "Visa genvägar"
+
+#: app/shortcutManager.js:661
+#, fuzzy
+msgid "Keyboard Shortcuts"
+msgstr "Visa genvägar"
+
+#: app/shortcutManager.js:673
+#, fuzzy
+msgid "Reset Shortcuts"
+msgstr "Visa genvägar"
+
+#: app/shortcutManager.js:674
+msgid "Reset all shortcuts to Defaults"
+msgstr ""
+
+#: app/shortcutManager.js:677
+#, fuzzy
+#| msgid "Open All..."
+msgid "Reset All..."
+msgstr "Öppna alla…"
+
+#: app/shortcuts.js:15
+#, fuzzy
+msgid "Show Desktop in Files"
+msgstr "Show Desktop I GNOME-filer"
+
+#: app/shortcuts.js:16
+msgid "Open in Terminal"
+msgstr "Öppna i terminal"
+
+#: app/shortcuts.js:17
+#, fuzzy
+#| msgid "Change Background…"
+msgid "Change Background"
+msgstr "Ändra bakgrund…"
+
+#: app/shortcuts.js:18
+#, fuzzy
+#| msgid "Display Settings"
+msgid "Change Display Settings"
+msgstr "Visningsinställningar"
+
+#: app/shortcuts.js:19
+#, fuzzy
+msgid "Change Desktop Icon Settings"
+msgstr "Inställningar för Desktop Icons"
+
+#: app/shortcuts.js:20
+msgid "Clean Up Icons"
+msgstr ""
+
+#: app/shortcuts.js:21
+#, fuzzy
+msgid "Keep Arranged"
+msgstr "Behåll arrangerade…"
+
+#: app/shortcuts.js:22
+#, fuzzy
+#| msgid "Keep Icons Stacked"
+msgid "Keep Stacked"
+msgstr "Behåll ikonerna arrangerade"
+
+#: app/shortcuts.js:23
+#, fuzzy
+#| msgid "Sort Special Folders - Home/Trash Drives."
+msgid "Sort Special Folders"
+msgstr "Sortera särskilda kataloger - Hem/Papperskorg Diskar."
+
+#: app/shortcuts.js:25
+#, fuzzy
+#| msgid "Files"
+msgid "Find Files"
+msgstr "Hitta filer"
+
+#: app/shortcuts.js:26
+#, fuzzy
+#| msgid "Desktop"
+msgid "Update Desktop"
+msgstr "Skrivbord"
+
+#: app/shortcuts.js:27
+#, fuzzy
+msgid "Show Hidden Files"
+msgstr "Visa dolda filer"
+
+#: app/shortcuts.js:28
+#, fuzzy
+#| msgid "Select All"
+msgid "Unselect All"
+msgstr "Avmarkera allt"
+
+#: app/shortcuts.js:29
+#, fuzzy
+msgid "Preview"
+msgstr "Förhandsgranskning"
+
+#: app/shortcuts.js:30
+#, fuzzy
+msgid "Choose Icon Left"
+msgstr "Välj åtgärd för filer"
+
+#: app/shortcuts.js:31
+#, fuzzy
+msgid "Choose Icon Right"
+msgstr "Välj åtgärd för filer"
+
+#: app/shortcuts.js:32
+#, fuzzy
+msgid "Choose Icon Up"
+msgstr "Välj"
+
+#: app/shortcuts.js:33
+#, fuzzy
+msgid "Choose Icon Down"
+msgstr "Välj åtgärd för filer"
+
+#: app/shortcuts.js:34
+#, fuzzy
+#| msgid "Show in Files"
+msgid "Show Menu"
+msgstr "Visa meny"
+
+#: app/shortcuts.js:35
+msgid "Display Shell Background Menu"
+msgstr ""
+
+#: app/shortcuts.js:36
+#, fuzzy
+#| msgid "Broken Desktop File"
+msgid "Create Desktop Shortcut"
+msgstr "Trasig skrivbordsfil"
+
+#: app/shortcuts.js:37
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:38
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:40
+#, fuzzy
+msgid "Show Shortcut Viewer"
+msgstr "Visa genvägar"
+
+#: app/shortcuts.js:41
+#, fuzzy
+msgid "Show Or Hide Desktop Icons"
+msgstr "Desktop Icons"
 
 #: app/showErrorPopup.js:42
 #, fuzzy
@@ -1576,6 +1691,76 @@ msgstr ""
 "Ikoner är inte på ett rektangulärt rutnät men kan postioneras var som helst "
 "oberoende av rutnät"
 
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+msgid "Hide/Show all desktop windows"
+msgstr ""
+
+# TODO: *ON* the desktop?
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+#, fuzzy
+msgid "Show the icons on the desktop, or hide them all"
+msgstr "Visa papperskorgsikonen på skrivbordet."
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+msgid "User Application Shortcuts"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+msgid "Override for default application shortcuts set by the User"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Website"
+#~ msgstr "Webbplats"
+
+#, fuzzy
+#~ msgid "Visit"
+#~ msgstr "Besök"
+
+#, fuzzy
+#~ msgid "Issues"
+#~ msgstr "Ärenden"
+
+#, fuzzy
+#~ msgid "Report issues on issue tracker"
+#~ msgstr "Rapportera frågor om emission tracker"
+
+#, fuzzy
+#~ msgid "Report"
+#~ msgstr "Rapportera"
+
+#, fuzzy
+#~ msgid "License"
+#~ msgstr "Licens"
+
+#, fuzzy
+#~| msgid "Paste"
+#~ msgid "Do Paste"
+#~ msgstr "Klistra in"
+
+#, fuzzy
+#~ msgid "Copy Item"
+#~ msgstr "Öppna objekt"
+
+#, fuzzy
+#~| msgid "Rename"
+#~ msgid "Rename Item"
+#~ msgstr "Byt namn på objekt"
+
+#, fuzzy
+#~| msgid "Delete permanently"
+#~ msgid "Delete Permanently"
+#~ msgstr "Ta bort permanent"
+
+#, fuzzy
+#~| msgid "Properties"
+#~ msgid "Show Properties"
+#~ msgstr "Visa egenskaper"
+
+#, fuzzy
+#~ msgid "Create Link to Item"
+#~ msgstr "Skapa länk..."
+
 #, fuzzy
 #~ msgid "Add an emblem to soft links"
 #~ msgstr "Lägg till ett emblem till länkar"
@@ -1592,12 +1777,6 @@ msgstr ""
 #~ msgid "Run"
 #~ msgstr "Kör"
 
-#~ msgid "Change Background…"
-#~ msgstr "Ändra bakgrund…"
-
-#~ msgid "Display Settings"
-#~ msgstr "Visningsinställningar"
-
 #, fuzzy
 #~ msgid "Rectangular icons with drop grid highlighting"
 #~ msgstr "Rektangulära ikoner med drop grid highlighting"
@@ -1612,14 +1791,7 @@ msgstr ""
 #~ msgstr "Använd Nemo istället för Nautilus för att öppna kataloger."
 
 #, fuzzy
-#~ msgid "Show Desktop In GNOME Files"
-#~ msgstr "Show Desktop I GNOME-filer"
-
-#, fuzzy
 #~ msgid "Open In Terminal"
-#~ msgstr "Öppna i terminal"
-
-#~ msgid "Open in Terminal"
 #~ msgstr "Öppna i terminal"
 
 #, fuzzy
