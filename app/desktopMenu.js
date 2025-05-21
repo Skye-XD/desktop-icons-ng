@@ -177,6 +177,58 @@ const DesktopActions = class {
         this._mainApp.add_action(radioArrangeAction);
         this.arrangeAction = radioArrangeAction;
 
+        const arrangeByName = Gio.SimpleAction.new('arrangeByName', null);
+        arrangeByName.connect(
+            'activate',
+            () => this._mainApp.activate_action(
+                'arrangeaction',
+                new GLib.Variant('s', 'NAME')
+            )
+        );
+        this._mainApp.add_action(arrangeByName);
+
+        const arrangeByDescendingName =
+            Gio.SimpleAction.new('arrangeByDescendingName', null);
+        arrangeByDescendingName.connect(
+            'activate',
+            () => this._mainApp.activate_action(
+                'arrangeaction',
+                new GLib.Variant('s', 'DESCENDINGNAME')
+            )
+        );
+        this._mainApp.add_action(arrangeByDescendingName);
+
+        const arrangeByModifiedTime =
+            Gio.SimpleAction.new('arrangeByModifiedTime', null);
+        arrangeByModifiedTime.connect(
+            'activate',
+            () => this._mainApp.activate_action(
+                'arrangeaction',
+                new GLib.Variant('s', 'MODIFIEDTIME')
+            )
+        );
+        this._mainApp.add_action(arrangeByModifiedTime);
+
+        const arrangeByKind = Gio.SimpleAction.new('arrangeByKind', null);
+        arrangeByKind.connect(
+            'activate',
+            () => this._mainApp.activate_action(
+                'arrangeaction',
+                new GLib.Variant('s', 'KIND')
+            )
+        );
+        this._mainApp.add_action(arrangeByKind);
+
+        const arrangeBySize = Gio.SimpleAction.new('arrangeBySize', null);
+        arrangeBySize.connect(
+            'activate',
+            () => this._mainApp.activate_action(
+                'arrangeaction',
+                new GLib.Variant('s', 'SIZE')
+            )
+        );
+        this._mainApp.add_action(arrangeBySize);
+
         const findFilesAction = Gio.SimpleAction.new('findFiles', null);
         findFilesAction.connect(
             'activate',
