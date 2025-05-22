@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 19:53-0400\n"
-"PO-Revision-Date: 2025-05-17 02:02+0000\n"
+"POT-Creation-Date: 2025-05-21 06:01-0400\n"
+"PO-Revision-Date: 2025-05-22 01:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -29,12 +29,12 @@ msgstr ""
 #: app/adwPreferencesWindow.js:159
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Tastenkürzel anzeigen"
+msgstr "Verknüpfungen"
 
 #: app/adwPreferencesWindow.js:162
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Tastenkürzel anzeigen"
+msgstr "Tastenkürzel bearbeiten"
 
 #: app/adwPreferencesWindow.js:175
 msgid "Edit Application Shortcuts"
@@ -64,8 +64,9 @@ msgid "Tweaks"
 msgstr "Optimierungen"
 
 #: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Mehr"
 
 #: app/adwPreferencesWindow.js:397
 #, fuzzy
@@ -267,12 +268,12 @@ msgstr "Ordner auf Drag Hover öffnen"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "Über"
+msgstr "Über..."
 
 #: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "Translations"
-msgstr "Übersetzung"
+msgstr "Übersetzungen"
 
 #: app/adwPreferencesWindow.js:577
 msgid "All tranlations on Weblate.."
@@ -689,7 +690,7 @@ msgstr "Aktuelle Auswahl vor einer neuen Suche löschen"
 msgid "Find Files on Desktop"
 msgstr "Dateien auf dem Schreibtisch finden"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Neuer Ordner"
 
@@ -702,133 +703,133 @@ msgstr "Auftragserstellung fehlgeschlagen."
 msgid "Could not create folder"
 msgstr "Ordner konnte nicht erstellt werden"
 
-#: app/desktopMenu.js:549
+#: app/desktopMenu.js:601
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Unable to Open in Gnome Console"
 
-#: app/desktopMenu.js:570
+#: app/desktopMenu.js:622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Vorlieben Fenster ist offen"
 
-#: app/desktopMenu.js:571
+#: app/desktopMenu.js:623
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Dieses Fenster ist offen. Bitte wechseln Sie in das aktive Fenster."
 
-#: app/desktopMenu.js:580 app/desktopMenu.js:961
+#: app/desktopMenu.js:632 app/desktopMenu.js:1013
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: app/desktopMenu.js:763
+#: app/desktopMenu.js:815
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Fehler bei der Vorlagenerstellung"
 
-#: app/desktopMenu.js:764
+#: app/desktopMenu.js:816
 msgid "Could not create document"
 msgstr "Dokument konnte nicht erstellt werden"
 
-#: app/desktopMenu.js:869
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name"
 msgstr "Name"
 
-#: app/desktopMenu.js:871
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Name Z-A"
 
-#: app/desktopMenu.js:873
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
 msgstr "Uhrzeit der letzten Änderung"
 
-#: app/desktopMenu.js:875
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopMenu.js:877
+#: app/desktopMenu.js:929
 #, fuzzy
 msgid "Size"
 msgstr "Größe"
 
-#: app/desktopMenu.js:882
+#: app/desktopMenu.js:934
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Angeordnet lassen…"
 
-#: app/desktopMenu.js:887
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Nach Typ gestapelt.."
 
-#: app/desktopMenu.js:889
+#: app/desktopMenu.js:941
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sortiere Home/Laufwerke/Papierkorb…"
 
-#: app/desktopMenu.js:894
+#: app/desktopMenu.js:946
 #, fuzzy
 #| msgid "Desktop"
 msgid "Change Desktop"
 msgstr "Desktop"
 
-#: app/desktopMenu.js:899
+#: app/desktopMenu.js:951
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:903
+#: app/desktopMenu.js:955
 msgid "Desktop Icon Settings"
 msgstr "Desktop-Icon-Einstellungen"
 
-#: app/desktopMenu.js:905
+#: app/desktopMenu.js:957
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "Tastenkürzel anzeigen"
 
-#: app/desktopMenu.js:913 app/shortcuts.js:39
+#: app/desktopMenu.js:965 app/shortcuts.js:43
 msgid "New Document"
 msgstr "Neues Dokument"
 
-#: app/desktopMenu.js:918 app/shortcuts.js:11
+#: app/desktopMenu.js:970 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Einfügen"
 
-#: app/desktopMenu.js:920 app/shortcuts.js:12
+#: app/desktopMenu.js:972 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: app/desktopMenu.js:922 app/shortcuts.js:13
+#: app/desktopMenu.js:974 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Wiederholen"
 
-#: app/desktopMenu.js:928 app/shortcuts.js:14
+#: app/desktopMenu.js:980 app/shortcuts.js:14
 msgid "Select All"
 msgstr "Alles auswählen"
 
-#: app/desktopMenu.js:935 app/shortcuts.js:24
+#: app/desktopMenu.js:987
 msgid "Arrange Icons"
 msgstr "Symbole anordnen"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:991
 msgid "Arrange By…"
 msgstr "Anordnen nach…"
 
-#: app/desktopMenu.js:947
+#: app/desktopMenu.js:999
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Desktop anzeigen in {0}"
 
-#: app/desktopMenu.js:952
+#: app/desktopMenu.js:1004
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Öffnen Sie in {0}"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:1020
 msgid "Shell Menu…"
 msgstr ""
 
@@ -963,7 +964,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben auf..."
+msgstr "Verschieben nach …"
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1182,8 +1183,9 @@ msgstr "Konsole"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1198,8 +1200,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "Auf Standardwerte zurücksetzen"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1226,7 +1229,7 @@ msgstr ""
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "Tastenkürzel anzeigen"
+msgstr "Globale Tastenkürzel"
 
 #: app/shortcutManager.js:365
 #, fuzzy
@@ -1236,7 +1239,7 @@ msgstr "Tastenkürzel anzeigen"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Tastenkürzel anzeigen"
+msgstr "Tastaturkurzbefehle"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1244,19 +1247,20 @@ msgid "Reset Shortcuts"
 msgstr "Tastenkürzel anzeigen"
 
 #: app/shortcutManager.js:674
+#, fuzzy
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Tastenkombinationen auf Standard zurücksetzen"
 
 #: app/shortcutManager.js:677
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Alle öffnen ..."
+msgstr "Alles zurücksetzen"
 
 #: app/shortcuts.js:15
 #, fuzzy
 msgid "Show Desktop in Files"
-msgstr "Desktop anzeigen In GNOME-Dateien"
+msgstr "Schreibtisch in Dateien anzeigen"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
@@ -1266,7 +1270,7 @@ msgstr "Im Terminal öffnen"
 #, fuzzy
 #| msgid "Change Background…"
 msgid "Change Background"
-msgstr "Hintergrund ändern …"
+msgstr "Hintergrundbild ändern"
 
 #: app/shortcuts.js:18
 #, fuzzy
@@ -1287,7 +1291,7 @@ msgstr ""
 #: app/shortcuts.js:21
 #, fuzzy
 msgid "Keep Arranged"
-msgstr "Angeordnet lassen…"
+msgstr "Angeordnet lassen..."
 
 #: app/shortcuts.js:22
 #, fuzzy
@@ -1300,84 +1304,111 @@ msgstr "Icons Stacked"
 msgid "Sort Special Folders"
 msgstr "Sortieren besonderer Ordner - Home/Papierkorb"
 
+#: app/shortcuts.js:24
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons by Name"
+msgstr "Symbole anordnen"
+
 #: app/shortcuts.js:25
+msgid "Arrange Icons By Descending Name"
+msgstr ""
+
+#: app/shortcuts.js:26
+#, fuzzy
+msgid "Arrange Icons By Modified Time"
+msgstr "Uhrzeit der letzten Änderung"
+
+#: app/shortcuts.js:27
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons By Kind"
+msgstr "Symbole anordnen"
+
+#: app/shortcuts.js:28
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons By Size"
+msgstr "Symbole anordnen"
+
+#: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
 msgstr "Dateisuche"
 
-#: app/shortcuts.js:26
+#: app/shortcuts.js:30
 #, fuzzy
 #| msgid "Desktop"
 msgid "Update Desktop"
 msgstr "Desktop"
 
-#: app/shortcuts.js:27
+#: app/shortcuts.js:31
 #, fuzzy
 #| msgid "Show hidden files"
 msgid "Show Hidden Files"
 msgstr "Versteckte Dateien anzeigen"
 
-#: app/shortcuts.js:28
+#: app/shortcuts.js:32
 #, fuzzy
 #| msgid "Select All"
 msgid "Unselect All"
 msgstr "Alles abwählen"
 
-#: app/shortcuts.js:29
+#: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
 msgstr "Vorschau"
 
-#: app/shortcuts.js:30
+#: app/shortcuts.js:34
 #, fuzzy
 msgid "Choose Icon Left"
 msgstr "Wählen Sie Aktion für Dateien"
 
-#: app/shortcuts.js:31
+#: app/shortcuts.js:35
 #, fuzzy
 msgid "Choose Icon Right"
 msgstr "Wählen Sie Aktion für Dateien"
 
-#: app/shortcuts.js:32
+#: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
 msgstr "Wählen"
 
-#: app/shortcuts.js:33
+#: app/shortcuts.js:37
 #, fuzzy
 msgid "Choose Icon Down"
 msgstr "Wählen Sie Aktion für Dateien"
 
-#: app/shortcuts.js:34
+#: app/shortcuts.js:38
 #, fuzzy
 #| msgid "Show"
 msgid "Show Menu"
 msgstr "Menü anzeigen"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
-msgstr ""
-
-#: app/shortcuts.js:36
-#, fuzzy
-#| msgid "Broken Desktop File"
-msgid "Create Desktop Shortcut"
-msgstr "Defekte Desktop-Datei"
-
-#: app/shortcuts.js:37
-msgid "Text Entry Accels Turn On"
-msgstr ""
-
-#: app/shortcuts.js:38
-msgid "Text Entry Accels Turn Off"
 msgstr ""
 
 #: app/shortcuts.js:40
 #, fuzzy
+#| msgid "Broken Desktop File"
+msgid "Create Desktop Shortcut"
+msgstr "Desktop-Verknüpfung erstellen"
+
+#: app/shortcuts.js:41
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:42
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:44
+#, fuzzy
 msgid "Show Shortcut Viewer"
 msgstr "Tastenkürzel anzeigen"
 
-#: app/shortcuts.js:41
+#: app/shortcuts.js:45
 #, fuzzy
 #| msgid "Desktop Icon Settings"
 msgid "Show Or Hide Desktop Icons"
@@ -1407,7 +1438,7 @@ msgstr "Papierkorb"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stapeln"
+msgstr "Stapel"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"

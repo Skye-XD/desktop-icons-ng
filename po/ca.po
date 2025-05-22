@@ -7,10 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 19:53-0400\n"
-"PO-Revision-Date: 2025-05-02 19:23+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"POT-Creation-Date: 2025-05-21 06:01-0400\n"
+"PO-Revision-Date: 2025-05-22 01:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
@@ -23,12 +22,12 @@ msgstr ""
 #: app/adwPreferencesWindow.js:159
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Mostra les dreceres"
+msgstr "Dreceres"
 
 #: app/adwPreferencesWindow.js:162
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Mostra les dreceres"
+msgstr "Edit Shortcuts"
 
 #: app/adwPreferencesWindow.js:175
 msgid "Edit Application Shortcuts"
@@ -60,8 +59,9 @@ msgid "Tweaks"
 msgstr "Retocs"
 
 #: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Més"
 
 #: app/adwPreferencesWindow.js:397
 #, fuzzy
@@ -269,12 +269,12 @@ msgstr "Obriu les carpetes en l'horitzonta d'arrossegament"
 #: app/adwPreferencesWindow.js:565
 #, fuzzy
 msgid "About..."
-msgstr "Quant a"
+msgstr "Quant a…"
 
 #: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "Translations"
-msgstr "Traducció"
+msgstr "Traduccions"
 
 #: app/adwPreferencesWindow.js:577
 msgid "All tranlations on Weblate.."
@@ -706,7 +706,7 @@ msgstr "Esborrar la selecció actual abans de la nova cerca"
 msgid "Find Files on Desktop"
 msgstr "Trobar fitxers a l'escriptori"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Carpeta nova"
 
@@ -720,137 +720,137 @@ msgstr "Creació de carpetes"
 msgid "Could not create folder"
 msgstr "Error en crear la carpeta"
 
-#: app/desktopMenu.js:549
+#: app/desktopMenu.js:601
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "No es pot obrir a la consola Gnome"
 
-#: app/desktopMenu.js:570
+#: app/desktopMenu.js:622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Preferències Finestra oberta"
 
-#: app/desktopMenu.js:571
+#: app/desktopMenu.js:623
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Aquesta finestra està oberta. Canvieu la finestra activa."
 
-#: app/desktopMenu.js:580 app/desktopMenu.js:961
+#: app/desktopMenu.js:632 app/desktopMenu.js:1013
 msgid "Settings"
 msgstr "Paràmetres"
 
-#: app/desktopMenu.js:763
+#: app/desktopMenu.js:815
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Error de creació de plantilla"
 
-#: app/desktopMenu.js:764
+#: app/desktopMenu.js:816
 #, fuzzy
 msgid "Could not create document"
 msgstr "No s'ha pogut suprimir el document"
 
-#: app/desktopMenu.js:869
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name"
 msgstr "Nom"
 
-#: app/desktopMenu.js:871
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nom (Z-A)"
 
-#: app/desktopMenu.js:873
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
 msgstr "Temps Modificat"
 
-#: app/desktopMenu.js:875
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Type"
 msgstr "Tipus"
 
-#: app/desktopMenu.js:877
+#: app/desktopMenu.js:929
 #, fuzzy
 msgid "Size"
 msgstr "Mida"
 
-#: app/desktopMenu.js:882
+#: app/desktopMenu.js:934
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Segueix organitzat.."
 
-#: app/desktopMenu.js:887
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Segueix apilat per Tipus.."
 
-#: app/desktopMenu.js:889
+#: app/desktopMenu.js:941
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sort Home/Drives/Trash.."
 
-#: app/desktopMenu.js:894
+#: app/desktopMenu.js:946
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Escriptori"
 
-#: app/desktopMenu.js:899
+#: app/desktopMenu.js:951
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:903
+#: app/desktopMenu.js:955
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Configuració d'icones d'escriptori"
 
-#: app/desktopMenu.js:905
+#: app/desktopMenu.js:957
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "Mostra les dreceres"
 
-#: app/desktopMenu.js:913 app/shortcuts.js:39
+#: app/desktopMenu.js:965 app/shortcuts.js:43
 msgid "New Document"
 msgstr "Document nou"
 
-#: app/desktopMenu.js:918 app/shortcuts.js:11
+#: app/desktopMenu.js:970 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Enganxa"
 
-#: app/desktopMenu.js:920 app/shortcuts.js:12
+#: app/desktopMenu.js:972 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Desfés"
 
-#: app/desktopMenu.js:922 app/shortcuts.js:13
+#: app/desktopMenu.js:974 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Refés"
 
-#: app/desktopMenu.js:928 app/shortcuts.js:14
+#: app/desktopMenu.js:980 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
 msgstr "Selecciona-ho tot"
 
-#: app/desktopMenu.js:935 app/shortcuts.js:24
+#: app/desktopMenu.js:987
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Organitzar Icones"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:991
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Organitzar Per.."
 
-#: app/desktopMenu.js:947
+#: app/desktopMenu.js:999
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Mostra l'escriptori a {0}"
 
-#: app/desktopMenu.js:952
+#: app/desktopMenu.js:1004
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Obrir {0}"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:1020
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1207,8 +1207,9 @@ msgstr "Consola"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Cap"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1223,8 +1224,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "Restableix els ajustaments predefinits"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1251,7 +1253,7 @@ msgstr ""
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "Mostra les dreceres"
+msgstr "Dreceres globals"
 
 #: app/shortcutManager.js:365
 #, fuzzy
@@ -1261,7 +1263,7 @@ msgstr "Mostra les dreceres"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Mostra les dreceres"
+msgstr "Dreceres de teclat"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1276,12 +1278,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Obre-ho tot..."
+msgstr "Reinicia-ho tot"
 
 #: app/shortcuts.js:15
 #, fuzzy
 msgid "Show Desktop in Files"
-msgstr "Escriptori d'espectacle En GNOM Arxiva"
+msgstr "Mostra l'escriptori al Fitxers"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
@@ -1291,7 +1293,7 @@ msgstr "Obre al Terminal"
 #, fuzzy
 #| msgid "Change Background…"
 msgid "Change Background"
-msgstr "Canvia el fons de l'escriptori…"
+msgstr "Canvia el fons"
 
 #: app/shortcuts.js:18
 #, fuzzy
@@ -1323,81 +1325,105 @@ msgstr "Mantingui les icones apilades"
 msgid "Sort Special Folders"
 msgstr "Preguntes Freqüents - FAQ."
 
+#: app/shortcuts.js:24
+#, fuzzy
+msgid "Arrange Icons by Name"
+msgstr "Organitzar Icones"
+
 #: app/shortcuts.js:25
+msgid "Arrange Icons By Descending Name"
+msgstr ""
+
+#: app/shortcuts.js:26
+#, fuzzy
+msgid "Arrange Icons By Modified Time"
+msgstr "Temps Modificat"
+
+#: app/shortcuts.js:27
+#, fuzzy
+msgid "Arrange Icons By Kind"
+msgstr "Organitzar Icones"
+
+#: app/shortcuts.js:28
+#, fuzzy
+msgid "Arrange Icons By Size"
+msgstr "Organitzar Icones"
+
+#: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
 msgstr "Fitxers"
 
-#: app/shortcuts.js:26
+#: app/shortcuts.js:30
 #, fuzzy
 msgid "Update Desktop"
 msgstr "Escriptori"
 
-#: app/shortcuts.js:27
+#: app/shortcuts.js:31
 #, fuzzy
 #| msgid "Show hidden files"
 msgid "Show Hidden Files"
 msgstr "Mostra els fitxers ocults"
 
-#: app/shortcuts.js:28
+#: app/shortcuts.js:32
 #, fuzzy
 msgid "Unselect All"
 msgstr "Deseleccionar tots"
 
-#: app/shortcuts.js:29
+#: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
 msgstr "Previsualitzar"
 
-#: app/shortcuts.js:30
+#: app/shortcuts.js:34
 #, fuzzy
 msgid "Choose Icon Left"
 msgstr "Trieu l'acció dels fitxers"
 
-#: app/shortcuts.js:31
+#: app/shortcuts.js:35
 #, fuzzy
 msgid "Choose Icon Right"
 msgstr "Trieu l'acció dels fitxers"
 
-#: app/shortcuts.js:32
+#: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
 msgstr "Trieu"
 
-#: app/shortcuts.js:33
+#: app/shortcuts.js:37
 #, fuzzy
 msgid "Choose Icon Down"
 msgstr "Trieu l'acció dels fitxers"
 
-#: app/shortcuts.js:34
+#: app/shortcuts.js:38
 #, fuzzy
 #| msgid "Show"
 msgid "Show Menu"
 msgstr "Mostra el menú"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
-msgstr ""
-
-#: app/shortcuts.js:36
-#, fuzzy
-msgid "Create Desktop Shortcut"
-msgstr "Fitxers .desktop trencats"
-
-#: app/shortcuts.js:37
-msgid "Text Entry Accels Turn On"
-msgstr ""
-
-#: app/shortcuts.js:38
-msgid "Text Entry Accels Turn Off"
 msgstr ""
 
 #: app/shortcuts.js:40
 #, fuzzy
+msgid "Create Desktop Shortcut"
+msgstr "Fitxers .desktop trencats"
+
+#: app/shortcuts.js:41
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:42
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:44
+#, fuzzy
 msgid "Show Shortcut Viewer"
 msgstr "Mostra les dreceres"
 
-#: app/shortcuts.js:41
+#: app/shortcuts.js:45
 #, fuzzy
 msgid "Show Or Hide Desktop Icons"
 msgstr "Icona de l'escriptori"
