@@ -98,12 +98,12 @@ const DesktopActions = class {
         );
         this._mainApp.add_action(showDesktopInFiles);
 
-        const openInTerminal = Gio.SimpleAction.new('openInTerminal', null);
-        openInTerminal.connect(
+        const openDesktopInTerminal = Gio.SimpleAction.new('openDesktopInTerminal', null);
+        openDesktopInTerminal.connect(
             'activate',
             this._onOpenTerminalClicked.bind(this)
         );
-        this._mainApp.add_action(openInTerminal);
+        this._mainApp.add_action(openDesktopInTerminal);
 
         const changeBackGround = Gio.SimpleAction.new('changeBackGround', null);
         changeBackGround.connect(
@@ -1002,7 +1002,7 @@ const DesktopBackgroundMenu = class {
         const terminalString = this._Prefs.TerminalName;
         desktopTerminalMenu.append(
             _('Open In {0}').replace('{0}', terminalString),
-            'app.openInTerminal'
+            'app.openDesktopInTerminal'
         );
 
         this.desktopBackgroundGioMenu.append_section(
