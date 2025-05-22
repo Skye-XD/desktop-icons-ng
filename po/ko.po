@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 19:53-0400\n"
+"POT-Creation-Date: 2025-05-21 06:01-0400\n"
 "PO-Revision-Date: 2025-05-02 19:23+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -739,7 +739,7 @@ msgstr "새 검색 전에 현재 선택 지우기"
 msgid "Find Files on Desktop"
 msgstr "데스크탑에서 파일 찾기"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "새 폴더"
 
@@ -753,135 +753,135 @@ msgstr "오더 구성을 실패했습니다."
 msgid "Could not create folder"
 msgstr "폴더를 만들 수 없습니다."
 
-#: app/desktopMenu.js:549
+#: app/desktopMenu.js:601
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Gnome 콘솔에서 열기"
 
-#: app/desktopMenu.js:570
+#: app/desktopMenu.js:622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "설정 창이 오픈"
 
-#: app/desktopMenu.js:571
+#: app/desktopMenu.js:623
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "이 창은 열려 있습니다. 활성 창으로 전환하십시오."
 
-#: app/desktopMenu.js:580 app/desktopMenu.js:961
+#: app/desktopMenu.js:632 app/desktopMenu.js:1013
 msgid "Settings"
 msgstr "설정"
 
-#: app/desktopMenu.js:763
+#: app/desktopMenu.js:815
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "템플릿 생성 오류"
 
-#: app/desktopMenu.js:764
+#: app/desktopMenu.js:816
 #, fuzzy
 msgid "Could not create document"
 msgstr "문서 작성"
 
-#: app/desktopMenu.js:869
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name"
 msgstr "이름"
 
-#: app/desktopMenu.js:871
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Name Z-A"
 msgstr "이름 (Z-A)"
 
-#: app/desktopMenu.js:873
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
 msgstr "수정 시간"
 
-#: app/desktopMenu.js:875
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Type"
 msgstr "형식"
 
-#: app/desktopMenu.js:877
+#: app/desktopMenu.js:929
 #, fuzzy
 msgid "Size"
 msgstr "크기"
 
-#: app/desktopMenu.js:882
+#: app/desktopMenu.js:934
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "정렬 유지…"
 
-#: app/desktopMenu.js:887
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "유형별로 스택됨 유지…"
 
-#: app/desktopMenu.js:889
+#: app/desktopMenu.js:941
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "집/드라이브/휴지통 정렬…"
 
-#: app/desktopMenu.js:894
+#: app/desktopMenu.js:946
 #, fuzzy
 msgid "Change Desktop"
 msgstr "데스크탑"
 
-#: app/desktopMenu.js:899
+#: app/desktopMenu.js:951
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:903
+#: app/desktopMenu.js:955
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "바탕화면 아이콘 설정"
 
-#: app/desktopMenu.js:905
+#: app/desktopMenu.js:957
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "단축키 보기"
 
-#: app/desktopMenu.js:913 app/shortcuts.js:39
+#: app/desktopMenu.js:965 app/shortcuts.js:43
 msgid "New Document"
 msgstr "새 문서"
 
-#: app/desktopMenu.js:918 app/shortcuts.js:11
+#: app/desktopMenu.js:970 app/shortcuts.js:11
 msgid "Paste"
 msgstr "붙여넣기"
 
-#: app/desktopMenu.js:920 app/shortcuts.js:12
+#: app/desktopMenu.js:972 app/shortcuts.js:12
 msgid "Undo"
 msgstr "실행 취소"
 
-#: app/desktopMenu.js:922 app/shortcuts.js:13
+#: app/desktopMenu.js:974 app/shortcuts.js:13
 msgid "Redo"
 msgstr "다시 실행"
 
-#: app/desktopMenu.js:928 app/shortcuts.js:14
+#: app/desktopMenu.js:980 app/shortcuts.js:14
 msgid "Select All"
 msgstr "모두 선택"
 
-#: app/desktopMenu.js:935 app/shortcuts.js:24
+#: app/desktopMenu.js:987
 msgid "Arrange Icons"
 msgstr "아이콘 정렬"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:991
 #, fuzzy
 msgid "Arrange By…"
 msgstr "정렬 기준…"
 
-#: app/desktopMenu.js:947
+#: app/desktopMenu.js:999
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "바탕 화면보기 {0}"
 
-#: app/desktopMenu.js:952
+#: app/desktopMenu.js:1004
 #, fuzzy
 msgid "Open In {0}"
 msgstr "{0}에서 열기"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:1020
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1347,83 +1347,110 @@ msgstr "아이콘 스택됨 유지"
 msgid "Sort Special Folders"
 msgstr "특수 폴더 정렬 - 홈/휴지통 드라이브 입니다."
 
+#: app/shortcuts.js:24
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons by Name"
+msgstr "아이콘 정렬"
+
 #: app/shortcuts.js:25
+msgid "Arrange Icons By Descending Name"
+msgstr ""
+
+#: app/shortcuts.js:26
+#, fuzzy
+msgid "Arrange Icons By Modified Time"
+msgstr "수정 시간"
+
+#: app/shortcuts.js:27
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons By Kind"
+msgstr "아이콘 정렬"
+
+#: app/shortcuts.js:28
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons By Size"
+msgstr "아이콘 정렬"
+
+#: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
 msgstr "파일 찾기"
 
-#: app/shortcuts.js:26
+#: app/shortcuts.js:30
 #, fuzzy
 msgid "Update Desktop"
 msgstr "데스크탑"
 
-#: app/shortcuts.js:27
+#: app/shortcuts.js:31
 #, fuzzy
 #| msgid "Show hidden files"
 msgid "Show Hidden Files"
 msgstr "숨김 파일을 표시"
 
-#: app/shortcuts.js:28
+#: app/shortcuts.js:32
 #, fuzzy
 #| msgid "Select All"
 msgid "Unselect All"
 msgstr "모두 선택 해제"
 
-#: app/shortcuts.js:29
+#: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
 msgstr "미리보기"
 
-#: app/shortcuts.js:30
+#: app/shortcuts.js:34
 #, fuzzy
 msgid "Choose Icon Left"
 msgstr "파일에 대한 작업 선택"
 
-#: app/shortcuts.js:31
+#: app/shortcuts.js:35
 #, fuzzy
 msgid "Choose Icon Right"
 msgstr "파일에 대한 작업 선택"
 
-#: app/shortcuts.js:32
+#: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
 msgstr "선택하세요"
 
-#: app/shortcuts.js:33
+#: app/shortcuts.js:37
 #, fuzzy
 msgid "Choose Icon Down"
 msgstr "파일에 대한 작업 선택"
 
-#: app/shortcuts.js:34
+#: app/shortcuts.js:38
 #, fuzzy
 #| msgid "Show"
 msgid "Show Menu"
 msgstr "메뉴 보기"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
 msgstr ""
 
-#: app/shortcuts.js:36
+#: app/shortcuts.js:40
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Create Desktop Shortcut"
 msgstr "깨진 바탕화면 파일"
 
-#: app/shortcuts.js:37
+#: app/shortcuts.js:41
 msgid "Text Entry Accels Turn On"
 msgstr ""
 
-#: app/shortcuts.js:38
+#: app/shortcuts.js:42
 msgid "Text Entry Accels Turn Off"
 msgstr ""
 
-#: app/shortcuts.js:40
+#: app/shortcuts.js:44
 #, fuzzy
 msgid "Show Shortcut Viewer"
 msgstr "단축키 보기"
 
-#: app/shortcuts.js:41
+#: app/shortcuts.js:45
 #, fuzzy
 msgid "Show Or Hide Desktop Icons"
 msgstr "데스크탑 아이콘"

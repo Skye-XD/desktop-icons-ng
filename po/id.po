@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 19:53-0400\n"
+"POT-Creation-Date: 2025-05-21 06:01-0400\n"
 "PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -724,7 +724,7 @@ msgstr "Seleksi arus yang jelas sebelum pencarian baru"
 msgid "Find Files on Desktop"
 msgstr "Cari file di Desktop"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Folder Baru"
 
@@ -738,137 +738,137 @@ msgstr "Pembuatan Folder Kegagalan"
 msgid "Could not create folder"
 msgstr "Tidak dapat membuat folder."
 
-#: app/desktopMenu.js:549
+#: app/desktopMenu.js:601
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Tidak dapat dibuka di Konsol Gnome"
 
-#: app/desktopMenu.js:570
+#: app/desktopMenu.js:622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Jendela Preferensi Terbuka"
 
-#: app/desktopMenu.js:571
+#: app/desktopMenu.js:623
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Jendela ini terbuka. Silakan beralih ke jendela aktif."
 
-#: app/desktopMenu.js:580 app/desktopMenu.js:961
+#: app/desktopMenu.js:632 app/desktopMenu.js:1013
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: app/desktopMenu.js:763
+#: app/desktopMenu.js:815
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Template Membuat Kesalahan"
 
-#: app/desktopMenu.js:764
+#: app/desktopMenu.js:816
 #, fuzzy
 msgid "Could not create document"
 msgstr "Tidak bisa membuat dokumen"
 
-#: app/desktopMenu.js:869
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name"
 msgstr "Nama"
 
-#: app/desktopMenu.js:871
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nama Z - A"
 
-#: app/desktopMenu.js:873
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
 msgstr "Waktu yang dimodifikasi"
 
-#: app/desktopMenu.js:875
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Type"
 msgstr "Tipe"
 
-#: app/desktopMenu.js:877
+#: app/desktopMenu.js:929
 #, fuzzy
 msgid "Size"
 msgstr "Ukuran"
 
-#: app/desktopMenu.js:882
+#: app/desktopMenu.js:934
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Sitemap"
 
-#: app/desktopMenu.js:887
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Jauhkan Ditumpuk oleh Jenis.."
 
-#: app/desktopMenu.js:889
+#: app/desktopMenu.js:941
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Urutkan Rumah / Drive / Sampah .."
 
-#: app/desktopMenu.js:894
+#: app/desktopMenu.js:946
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Desktop"
 
-#: app/desktopMenu.js:899
+#: app/desktopMenu.js:951
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:903
+#: app/desktopMenu.js:955
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Pengaturan Ikon Desktop"
 
-#: app/desktopMenu.js:905
+#: app/desktopMenu.js:957
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "Tampilkan Pintasan"
 
-#: app/desktopMenu.js:913 app/shortcuts.js:39
+#: app/desktopMenu.js:965 app/shortcuts.js:43
 msgid "New Document"
 msgstr "Dokumen Baru"
 
-#: app/desktopMenu.js:918 app/shortcuts.js:11
+#: app/desktopMenu.js:970 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Tempel"
 
-#: app/desktopMenu.js:920 app/shortcuts.js:12
+#: app/desktopMenu.js:972 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Tak Jadi"
 
-#: app/desktopMenu.js:922 app/shortcuts.js:13
+#: app/desktopMenu.js:974 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Jadi Lagi"
 
-#: app/desktopMenu.js:928 app/shortcuts.js:14
+#: app/desktopMenu.js:980 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
 msgstr "Pilih Semua"
 
-#: app/desktopMenu.js:935 app/shortcuts.js:24
+#: app/desktopMenu.js:987
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Login"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:991
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Login"
 
-#: app/desktopMenu.js:947
+#: app/desktopMenu.js:999
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Tampilkan Desktop Dalam {0}"
 
-#: app/desktopMenu.js:952
+#: app/desktopMenu.js:1004
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Buka Dalam {0}"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:1020
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1336,80 +1336,104 @@ msgstr "Jauhkan ikon ditumpuk"
 msgid "Sort Special Folders"
 msgstr "Urutkan Folder Khusus - Rumah / Sampah Drive."
 
+#: app/shortcuts.js:24
+#, fuzzy
+msgid "Arrange Icons by Name"
+msgstr "Login"
+
 #: app/shortcuts.js:25
+msgid "Arrange Icons By Descending Name"
+msgstr ""
+
+#: app/shortcuts.js:26
+#, fuzzy
+msgid "Arrange Icons By Modified Time"
+msgstr "Waktu yang dimodifikasi"
+
+#: app/shortcuts.js:27
+#, fuzzy
+msgid "Arrange Icons By Kind"
+msgstr "Login"
+
+#: app/shortcuts.js:28
+#, fuzzy
+msgid "Arrange Icons By Size"
+msgstr "Login"
+
+#: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
 msgstr "Berkas"
 
-#: app/shortcuts.js:26
+#: app/shortcuts.js:30
 #, fuzzy
 msgid "Update Desktop"
 msgstr "Desktop"
 
-#: app/shortcuts.js:27
+#: app/shortcuts.js:31
 #, fuzzy
 msgid "Show Hidden Files"
 msgstr "Tampilkan Berkas Tersembunyi"
 
-#: app/shortcuts.js:28
+#: app/shortcuts.js:32
 #, fuzzy
 msgid "Unselect All"
 msgstr "Batalkan semua"
 
-#: app/shortcuts.js:29
+#: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
 msgstr "Pratinjau"
 
-#: app/shortcuts.js:30
+#: app/shortcuts.js:34
 #, fuzzy
 msgid "Choose Icon Left"
 msgstr "Pilih Tindakan untuk File"
 
-#: app/shortcuts.js:31
+#: app/shortcuts.js:35
 #, fuzzy
 msgid "Choose Icon Right"
 msgstr "Pilih Tindakan untuk File"
 
-#: app/shortcuts.js:32
+#: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
 msgstr "Memilih"
 
-#: app/shortcuts.js:33
+#: app/shortcuts.js:37
 #, fuzzy
 msgid "Choose Icon Down"
 msgstr "Pilih Tindakan untuk File"
 
-#: app/shortcuts.js:34
+#: app/shortcuts.js:38
 #, fuzzy
 #| msgid "Show in Files"
 msgid "Show Menu"
 msgstr "Tampilkan Menu"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
-msgstr ""
-
-#: app/shortcuts.js:36
-#, fuzzy
-msgid "Create Desktop Shortcut"
-msgstr "Berkas desktop yang rusak"
-
-#: app/shortcuts.js:37
-msgid "Text Entry Accels Turn On"
-msgstr ""
-
-#: app/shortcuts.js:38
-msgid "Text Entry Accels Turn Off"
 msgstr ""
 
 #: app/shortcuts.js:40
 #, fuzzy
+msgid "Create Desktop Shortcut"
+msgstr "Berkas desktop yang rusak"
+
+#: app/shortcuts.js:41
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:42
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:44
+#, fuzzy
 msgid "Show Shortcut Viewer"
 msgstr "Tampilkan Pintasan"
 
-#: app/shortcuts.js:41
+#: app/shortcuts.js:45
 #, fuzzy
 msgid "Show Or Hide Desktop Icons"
 msgstr "Ikon Desktop"

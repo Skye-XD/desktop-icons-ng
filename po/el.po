@@ -9,10 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 19:53-0400\n"
-"PO-Revision-Date: 2025-04-23 01:17+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"POT-Creation-Date: 2025-05-21 06:01-0400\n"
+"PO-Revision-Date: 2025-05-22 01:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
@@ -20,17 +19,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: app/adwPreferencesWindow.js:159
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Εμφάνιση Συντομεύσεων"
+msgstr "Συντομεύσεις"
 
 #: app/adwPreferencesWindow.js:162
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Εμφάνιση Συντομεύσεων"
+msgstr "Επεξεργασία Συντομεύσεων"
 
 #: app/adwPreferencesWindow.js:175
 msgid "Edit Application Shortcuts"
@@ -62,8 +61,9 @@ msgid "Tweaks"
 msgstr "Μικροδιορθώσεις"
 
 #: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Περισσότερα"
 
 #: app/adwPreferencesWindow.js:397
 #, fuzzy
@@ -285,12 +285,12 @@ msgstr "Ανοιχτοί φάκελοι στο drag hover"
 #: app/adwPreferencesWindow.js:565
 #, fuzzy
 msgid "About..."
-msgstr "Σχετικά με"
+msgstr "Περί..."
 
 #: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "Translations"
-msgstr "Μετάφραση"
+msgstr "Μεταφράσεις"
 
 #: app/adwPreferencesWindow.js:577
 msgid "All tranlations on Weblate.."
@@ -715,7 +715,7 @@ msgstr "Σαφή τρέχουσα επιλογή πριν από νέα αναζ
 msgid "Find Files on Desktop"
 msgstr "Βρείτε αρχεία στο Desktop"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
 #, fuzzy
 msgid "New Folder"
 msgstr "Νέος Φάκέλος"
@@ -730,142 +730,142 @@ msgstr "Δημιουργία Παραγγελίας απέτυχε."
 msgid "Could not create folder"
 msgstr "Αδύνατη η δημιουργία φακέλου."
 
-#: app/desktopMenu.js:549
+#: app/desktopMenu.js:601
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Δεν είναι σε θέση να ανοίξει στο Gnome Console"
 
-#: app/desktopMenu.js:570
+#: app/desktopMenu.js:622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Το παράθυρο Preferences είναι ανοιχτό"
 
-#: app/desktopMenu.js:571
+#: app/desktopMenu.js:623
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 "Αυτό το παράθυρο είναι ανοιχτό. Παρακαλούμε μεταβείτε στο ενεργό παράθυρο."
 
-#: app/desktopMenu.js:580 app/desktopMenu.js:961
+#: app/desktopMenu.js:632 app/desktopMenu.js:1013
 #, fuzzy
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: app/desktopMenu.js:763
+#: app/desktopMenu.js:815
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Πρότυπο Δημιουργία σφάλματος"
 
-#: app/desktopMenu.js:764
+#: app/desktopMenu.js:816
 #, fuzzy
 msgid "Could not create document"
 msgstr "Δεν θα μπορούσε να δημιουργήσει έγγραφο"
 
-#: app/desktopMenu.js:869
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name"
 msgstr "Όνομα"
 
-#: app/desktopMenu.js:871
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Όνομα (Z-A)"
 
-#: app/desktopMenu.js:873
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
 msgstr "Τροποποιημένος χρόνος"
 
-#: app/desktopMenu.js:875
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Type"
 msgstr "Τύπος"
 
-#: app/desktopMenu.js:877
+#: app/desktopMenu.js:929
 #, fuzzy
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: app/desktopMenu.js:882
+#: app/desktopMenu.js:934
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Κρατήστε το Arranged.."
 
-#: app/desktopMenu.js:887
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Κρατήστε τοραγμένο από τον τύπο.."
 
-#: app/desktopMenu.js:889
+#: app/desktopMenu.js:941
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sort Home /Drives / Trash .."
 
-#: app/desktopMenu.js:894
+#: app/desktopMenu.js:946
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Επιφάνεια Eργασίας"
 
-#: app/desktopMenu.js:899
+#: app/desktopMenu.js:951
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:903
+#: app/desktopMenu.js:955
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Desktop IconΡυθμίσεις"
 
-#: app/desktopMenu.js:905
+#: app/desktopMenu.js:957
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "Εμφάνιση Συντομεύσεων"
 
-#: app/desktopMenu.js:913 app/shortcuts.js:39
+#: app/desktopMenu.js:965 app/shortcuts.js:43
 #, fuzzy
 msgid "New Document"
 msgstr "Νέο έγγραφο"
 
-#: app/desktopMenu.js:918 app/shortcuts.js:11
+#: app/desktopMenu.js:970 app/shortcuts.js:11
 #, fuzzy
 msgid "Paste"
 msgstr "Επικόλληση"
 
-#: app/desktopMenu.js:920 app/shortcuts.js:12
+#: app/desktopMenu.js:972 app/shortcuts.js:12
 #, fuzzy
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: app/desktopMenu.js:922 app/shortcuts.js:13
+#: app/desktopMenu.js:974 app/shortcuts.js:13
 #, fuzzy
 msgid "Redo"
 msgstr "Επανάληψη"
 
-#: app/desktopMenu.js:928 app/shortcuts.js:14
+#: app/desktopMenu.js:980 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
 msgstr "Επιλογή Όλων"
 
-#: app/desktopMenu.js:935 app/shortcuts.js:24
+#: app/desktopMenu.js:987
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Arrange Icons"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:991
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Arrange By.."
 
-#: app/desktopMenu.js:947
+#: app/desktopMenu.js:999
 #, fuzzy
 msgid "Show Desktop In {0}"
 msgstr "Show Desktop in {0}"
 
-#: app/desktopMenu.js:952
+#: app/desktopMenu.js:1004
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Ανοιχτό στο {0}"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:1020
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1238,8 +1238,9 @@ msgstr "Κονσόλα"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Κανένα"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1254,8 +1255,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "Επαναφορά Προεπιλογών"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1282,7 +1284,7 @@ msgstr ""
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "Εμφάνιση Συντομεύσεων"
+msgstr "Γενικές συντομεύσεις"
 
 #: app/shortcutManager.js:365
 #, fuzzy
@@ -1292,7 +1294,7 @@ msgstr "Εμφάνιση Συντομεύσεων"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Εμφάνιση Συντομεύσεων"
+msgstr "Συντομεύσεις Πληκτρολογίου"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1306,7 +1308,7 @@ msgstr ""
 #: app/shortcutManager.js:677
 #, fuzzy
 msgid "Reset All..."
-msgstr "Ανοίξτε όλα..."
+msgstr "Αρχικοποίηση Όλων"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1320,7 +1322,7 @@ msgstr ""
 #: app/shortcuts.js:17
 #, fuzzy
 msgid "Change Background"
-msgstr "Αλλαγή φόντου"
+msgstr "Αλλαγή παρασκηνίου"
 
 #: app/shortcuts.js:18
 #, fuzzy
@@ -1351,79 +1353,103 @@ msgstr "Κρατήστε το Icons Stacked"
 msgid "Sort Special Folders"
 msgstr "Sort Special Folders - Home / Trash Drives."
 
+#: app/shortcuts.js:24
+#, fuzzy
+msgid "Arrange Icons by Name"
+msgstr "Arrange Icons"
+
 #: app/shortcuts.js:25
+msgid "Arrange Icons By Descending Name"
+msgstr ""
+
+#: app/shortcuts.js:26
+#, fuzzy
+msgid "Arrange Icons By Modified Time"
+msgstr "Τροποποιημένος χρόνος"
+
+#: app/shortcuts.js:27
+#, fuzzy
+msgid "Arrange Icons By Kind"
+msgstr "Arrange Icons"
+
+#: app/shortcuts.js:28
+#, fuzzy
+msgid "Arrange Icons By Size"
+msgstr "Arrange Icons"
+
+#: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
 msgstr "Αναζήτηση αρχείων"
 
-#: app/shortcuts.js:26
+#: app/shortcuts.js:30
 #, fuzzy
 msgid "Update Desktop"
 msgstr "Επιφάνεια Eργασίας"
 
-#: app/shortcuts.js:27
+#: app/shortcuts.js:31
 #, fuzzy
 msgid "Show Hidden Files"
 msgstr "Εμφάνιση Κρυφών Αρχείων"
 
-#: app/shortcuts.js:28
+#: app/shortcuts.js:32
 #, fuzzy
 msgid "Unselect All"
 msgstr "Αποεπιλογή όλων"
 
-#: app/shortcuts.js:29
+#: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
 msgstr "Προεπισκόπηση"
 
-#: app/shortcuts.js:30
+#: app/shortcuts.js:34
 #, fuzzy
 msgid "Choose Icon Left"
 msgstr "Επιλέξτε Δράση για αρχεία"
 
-#: app/shortcuts.js:31
+#: app/shortcuts.js:35
 #, fuzzy
 msgid "Choose Icon Right"
 msgstr "Επιλέξτε Δράση για αρχεία"
 
-#: app/shortcuts.js:32
+#: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
 msgstr "Επιλέξτε"
 
-#: app/shortcuts.js:33
+#: app/shortcuts.js:37
 #, fuzzy
 msgid "Choose Icon Down"
 msgstr "Επιλέξτε Δράση για αρχεία"
 
-#: app/shortcuts.js:34
+#: app/shortcuts.js:38
 #, fuzzy
 msgid "Show Menu"
 msgstr "Εμφάνιση μενού"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
-msgstr ""
-
-#: app/shortcuts.js:36
-#, fuzzy
-msgid "Create Desktop Shortcut"
-msgstr "Κατεστραμμένα αρχεία επιφάνειας εργασίας"
-
-#: app/shortcuts.js:37
-msgid "Text Entry Accels Turn On"
-msgstr ""
-
-#: app/shortcuts.js:38
-msgid "Text Entry Accels Turn Off"
 msgstr ""
 
 #: app/shortcuts.js:40
 #, fuzzy
+msgid "Create Desktop Shortcut"
+msgstr "Κατεστραμμένα αρχεία επιφάνειας εργασίας"
+
+#: app/shortcuts.js:41
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:42
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:44
+#, fuzzy
 msgid "Show Shortcut Viewer"
 msgstr "Εμφάνιση Συντομεύσεων"
 
-#: app/shortcuts.js:41
+#: app/shortcuts.js:45
 #, fuzzy
 msgid "Show Or Hide Desktop Icons"
 msgstr "Desktop Icons"

@@ -11,9 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-20 19:53-0400\n"
-"PO-Revision-Date: 2025-05-17 02:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"POT-Creation-Date: 2025-05-21 06:01-0400\n"
+"PO-Revision-Date: 2025-05-22 01:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
@@ -26,12 +27,12 @@ msgstr ""
 #: app/adwPreferencesWindow.js:159
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Zobrazit klávesové zkratky"
+msgstr "Zkratky"
 
 #: app/adwPreferencesWindow.js:162
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Zobrazit klávesové zkratky"
+msgstr "Upravit zkratky"
 
 #: app/adwPreferencesWindow.js:175
 msgid "Edit Application Shortcuts"
@@ -63,8 +64,9 @@ msgid "Tweaks"
 msgstr "Vylepšení"
 
 #: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Více"
 
 #: app/adwPreferencesWindow.js:397
 #, fuzzy
@@ -272,12 +274,12 @@ msgstr "Otevřete složky na drag hover"
 #: app/adwPreferencesWindow.js:565
 #, fuzzy
 msgid "About..."
-msgstr "O nás"
+msgstr "O aplikaci..."
 
 #: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "Translations"
-msgstr "Překlad"
+msgstr "Překlady"
 
 #: app/adwPreferencesWindow.js:577
 msgid "All tranlations on Weblate.."
@@ -703,7 +705,7 @@ msgstr "Vymazat aktuální výběr před novým hledáním"
 msgid "Find Files on Desktop"
 msgstr "Najít soubory na Ploše"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:908 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Nová složka"
 
@@ -717,135 +719,135 @@ msgstr "Vytvoření složky Failed"
 msgid "Could not create folder"
 msgstr "Nelze vytvořit složku."
 
-#: app/desktopMenu.js:549
+#: app/desktopMenu.js:601
 #, fuzzy
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Nelze otevřít v Gnome konzoli"
 
-#: app/desktopMenu.js:570
+#: app/desktopMenu.js:622
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Předvolby Okno je otevřeno"
 
-#: app/desktopMenu.js:571
+#: app/desktopMenu.js:623
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Toto okno je otevřeno. Přepněte na aktivní okno."
 
-#: app/desktopMenu.js:580 app/desktopMenu.js:961
+#: app/desktopMenu.js:632 app/desktopMenu.js:1013
 msgid "Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopMenu.js:763
+#: app/desktopMenu.js:815
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Chyba vytváření šablon"
 
-#: app/desktopMenu.js:764
+#: app/desktopMenu.js:816
 #, fuzzy
 msgid "Could not create document"
 msgstr "Nelze odstranit dokument"
 
-#: app/desktopMenu.js:869
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name"
 msgstr "Jméno"
 
-#: app/desktopMenu.js:871
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název (Z-A)"
+msgstr "Název Z - A"
 
-#: app/desktopMenu.js:873
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
 msgstr "Upravený čas"
 
-#: app/desktopMenu.js:875
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#: app/desktopMenu.js:877
+#: app/desktopMenu.js:929
 #, fuzzy
 msgid "Size"
 msgstr "Velikost"
 
-#: app/desktopMenu.js:882
+#: app/desktopMenu.js:934
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Nechat uspořádané…"
 
-#: app/desktopMenu.js:887
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Udržujte stohování podle typu .."
 
-#: app/desktopMenu.js:889
+#: app/desktopMenu.js:941
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Seřadit Domovská složka/Jednotky/Koš…"
 
-#: app/desktopMenu.js:894
+#: app/desktopMenu.js:946
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Stolní počítač"
 
-#: app/desktopMenu.js:899
+#: app/desktopMenu.js:951
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:903
+#: app/desktopMenu.js:955
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Nastavení ikon na ploše"
 
-#: app/desktopMenu.js:905
+#: app/desktopMenu.js:957
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "Zobrazit klávesové zkratky"
 
-#: app/desktopMenu.js:913 app/shortcuts.js:39
+#: app/desktopMenu.js:965 app/shortcuts.js:43
 msgid "New Document"
 msgstr "Nový Dokument"
 
-#: app/desktopMenu.js:918 app/shortcuts.js:11
+#: app/desktopMenu.js:970 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Vložit"
 
-#: app/desktopMenu.js:920 app/shortcuts.js:12
+#: app/desktopMenu.js:972 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Zpět"
 
-#: app/desktopMenu.js:922 app/shortcuts.js:13
+#: app/desktopMenu.js:974 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Znovu"
 
-#: app/desktopMenu.js:928 app/shortcuts.js:14
+#: app/desktopMenu.js:980 app/shortcuts.js:14
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: app/desktopMenu.js:935 app/shortcuts.js:24
+#: app/desktopMenu.js:987
 msgid "Arrange Icons"
 msgstr "Uspořádat Ikony"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:991
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Uspořádat podle…"
 
-#: app/desktopMenu.js:947
+#: app/desktopMenu.js:999
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Zobrazit plochu v {0}"
 
-#: app/desktopMenu.js:952
+#: app/desktopMenu.js:1004
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Otevřete v {0}"
 
-#: app/desktopMenu.js:968
+#: app/desktopMenu.js:1020
 msgid "Shell Menu…"
 msgstr ""
 
@@ -983,12 +985,12 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesuň k"
+msgstr "Přesunout do..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovat do .."
+msgstr "Kopírovat do..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1202,8 +1204,9 @@ msgstr "Utěšit"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Žádné"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1218,8 +1221,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "Obnovení výchozího nastavení"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1256,7 +1260,7 @@ msgstr "Zobrazit klávesové zkratky"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Zobrazit klávesové zkratky"
+msgstr "Klávesové zkratky"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1271,12 +1275,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Otevřít vše..."
+msgstr "Obnovit vše"
 
 #: app/shortcuts.js:15
 #, fuzzy
 msgid "Show Desktop in Files"
-msgstr "Zobrazit plochu V souborech GNOME"
+msgstr "Zobrazit plochu v Souborech"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
@@ -1286,7 +1290,7 @@ msgstr "Otevřít v terminálu"
 #, fuzzy
 #| msgid "Change Background…"
 msgid "Change Background"
-msgstr "Změnit pozadí…"
+msgstr "Změnit pozadí"
 
 #: app/shortcuts.js:18
 #, fuzzy
@@ -1306,7 +1310,7 @@ msgstr ""
 #: app/shortcuts.js:21
 #, fuzzy
 msgid "Keep Arranged"
-msgstr "Nechat uspořádané…"
+msgstr "Nechat uspořádané..."
 
 #: app/shortcuts.js:22
 #, fuzzy
@@ -1319,82 +1323,109 @@ msgstr "Udržujte Ikony stohování"
 msgid "Sort Special Folders"
 msgstr "Seřadit speciální složky - Domovská složka/Jednotky/Koš."
 
+#: app/shortcuts.js:24
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons by Name"
+msgstr "Uspořádat Ikony"
+
 #: app/shortcuts.js:25
+msgid "Arrange Icons By Descending Name"
+msgstr ""
+
+#: app/shortcuts.js:26
+#, fuzzy
+msgid "Arrange Icons By Modified Time"
+msgstr "Upravený čas"
+
+#: app/shortcuts.js:27
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons By Kind"
+msgstr "Uspořádat Ikony"
+
+#: app/shortcuts.js:28
+#, fuzzy
+#| msgid "Arrange Icons"
+msgid "Arrange Icons By Size"
+msgstr "Uspořádat Ikony"
+
+#: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
 msgstr "Soubory"
 
-#: app/shortcuts.js:26
+#: app/shortcuts.js:30
 #, fuzzy
 msgid "Update Desktop"
 msgstr "Stolní počítač"
 
-#: app/shortcuts.js:27
+#: app/shortcuts.js:31
 #, fuzzy
 #| msgid "Show hidden files"
 msgid "Show Hidden Files"
 msgstr "Zobrazit skryté soubory"
 
-#: app/shortcuts.js:28
+#: app/shortcuts.js:32
 #, fuzzy
 #| msgid "Select All"
 msgid "Unselect All"
 msgstr "Zrušit veškerý výběr"
 
-#: app/shortcuts.js:29
+#: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
 msgstr "Náhled"
 
-#: app/shortcuts.js:30
+#: app/shortcuts.js:34
 #, fuzzy
 msgid "Choose Icon Left"
 msgstr "Zvolte akci pro soubory"
 
-#: app/shortcuts.js:31
+#: app/shortcuts.js:35
 #, fuzzy
 msgid "Choose Icon Right"
 msgstr "Zvolte akci pro soubory"
 
-#: app/shortcuts.js:32
+#: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
 msgstr "Zvolit"
 
-#: app/shortcuts.js:33
+#: app/shortcuts.js:37
 #, fuzzy
 msgid "Choose Icon Down"
 msgstr "Zvolte akci pro soubory"
 
-#: app/shortcuts.js:34
+#: app/shortcuts.js:38
 #, fuzzy
 #| msgid "Show"
 msgid "Show Menu"
 msgstr "Zobrazit nabídku"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
-msgstr ""
-
-#: app/shortcuts.js:36
-#, fuzzy
-msgid "Create Desktop Shortcut"
-msgstr "Nefunkční soubory .desktop"
-
-#: app/shortcuts.js:37
-msgid "Text Entry Accels Turn On"
-msgstr ""
-
-#: app/shortcuts.js:38
-msgid "Text Entry Accels Turn Off"
 msgstr ""
 
 #: app/shortcuts.js:40
 #, fuzzy
+msgid "Create Desktop Shortcut"
+msgstr "Nefunkční soubory .desktop"
+
+#: app/shortcuts.js:41
+msgid "Text Entry Accels Turn On"
+msgstr ""
+
+#: app/shortcuts.js:42
+msgid "Text Entry Accels Turn Off"
+msgstr ""
+
+#: app/shortcuts.js:44
+#, fuzzy
 msgid "Show Shortcut Viewer"
 msgstr "Zobrazit klávesové zkratky"
 
-#: app/shortcuts.js:41
+#: app/shortcuts.js:45
 #, fuzzy
 msgid "Show Or Hide Desktop Icons"
 msgstr "Stolní ikony"
@@ -1438,7 +1469,7 @@ msgstr "Nelze otevřít tento soubor, protože je to Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Disk"
+msgstr "Jednotka"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
