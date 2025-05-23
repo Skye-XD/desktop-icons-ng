@@ -8,10 +8,10 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk4-ding v99\n"
+"Project-Id-Version: gtk4-ding v100\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 06:01-0400\n"
-"PO-Revision-Date: 2025-05-15 19:06+0200\n"
+"PO-Revision-Date: 2025-05-23 00:03+0200\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
 "Language: sk\n"
@@ -24,26 +24,20 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: app/adwPreferencesWindow.js:159
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Shortcuts"
-msgstr "Zobraziť klávesové skratky"
+msgstr "Klávesové skratky"
 
 #: app/adwPreferencesWindow.js:162
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Edit Shortcuts..."
-msgstr "Zobraziť klávesové skratky"
+msgstr "Upraviť skratky..."
 
 #: app/adwPreferencesWindow.js:175
-#, fuzzy
-#| msgid "Application Keyboard Shortcuts"
 msgid "Edit Application Shortcuts"
-msgstr "Klávesové skratky aplikácie"
+msgstr "Upraviť klávesové skratky aplikácie"
 
 #: app/adwPreferencesWindow.js:180
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "Skratky sú upraviteľné len pri zapnutom rozšírení..."
 
 #: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
 msgid "Help translate in your web browser"
@@ -64,7 +58,7 @@ msgstr "Vyladenia"
 
 #: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
 msgid "More"
-msgstr ""
+msgstr "Viac"
 
 #: app/adwPreferencesWindow.js:397
 msgid "Desktop Settings"
@@ -240,20 +234,16 @@ msgid "Open folders on drag hover"
 msgstr "Otvoriť priečinky pri ťahaní myšou"
 
 #: app/adwPreferencesWindow.js:565
-#, fuzzy
-#| msgid "About"
 msgid "About..."
-msgstr "O aplikácii"
+msgstr "O aplikácii..."
 
 #: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
-#, fuzzy
-#| msgid "Translation"
 msgid "Translations"
-msgstr "Preklad"
+msgstr "Preklady"
 
 #: app/adwPreferencesWindow.js:577
 msgid "All tranlations on Weblate.."
-msgstr ""
+msgstr "Všetky preklady sú na Weblate."
 
 #: app/adwPreferencesWindow.js:584
 msgid "Translate"
@@ -1065,10 +1055,8 @@ msgid "None"
 msgstr "Žiadna"
 
 #: app/shortcutManager.js:85
-#, fuzzy
-#| msgid "Global Shortcut"
 msgid "Default Shortcut:"
-msgstr "Globálna skratka"
+msgstr "Predvolená skratka:"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
@@ -1079,26 +1067,20 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr "Modifikátor + kláves (napr. Ctrl + Alt + D)"
 
 #: app/shortcutManager.js:130
-#, fuzzy
-#| msgid "Restore Default Desktop"
 msgid "Reset to Default"
-msgstr "Obnoviť predvolenú pracovnú plochu"
+msgstr "Obnoviť na predvolenú"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
-msgstr ""
+msgstr "Žiadny akcelerátor"
 
 #: app/shortcutManager.js:243
-#, fuzzy
-#| msgid "Sytem Keyboard Shortcuts"
 msgid "System Shortcuts"
-msgstr "Systémové klávesové skratky"
+msgstr "Systémové skratky"
 
 #: app/shortcutManager.js:244
-#, fuzzy
-#| msgid "Sytem Keyboard Shortcuts"
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr "Systémové klávesové skratky"
+msgstr "Bežné systémové klávesové skratky"
 
 #: app/shortcutManager.js:302
 msgid "Local Shortcuts"
@@ -1113,8 +1095,6 @@ msgid "Global Shortcuts"
 msgstr "Globálne skratky"
 
 #: app/shortcutManager.js:365
-#, fuzzy
-#| msgid "Sytem Keyboard Shortcuts"
 msgid "System Keyboard Shortcuts"
 msgstr "Systémové klávesové skratky"
 
@@ -1123,20 +1103,16 @@ msgid "Keyboard Shortcuts"
 msgstr "Klávesové skratky"
 
 #: app/shortcutManager.js:673
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Reset Shortcuts"
-msgstr "Zobraziť klávesové skratky"
+msgstr "Obnoviť klávesové skratky"
 
 #: app/shortcutManager.js:674
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Obnoviť všetky skratky na predvolené"
 
 #: app/shortcutManager.js:677
-#, fuzzy
-#| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Otvoriť všetko..."
+msgstr "Obnoviť všetky…"
 
 #: app/shortcuts.js:15
 msgid "Show Desktop in Files"
@@ -1175,32 +1151,24 @@ msgid "Sort Special Folders"
 msgstr "Usporiadať špeciálne priečinky"
 
 #: app/shortcuts.js:24
-#, fuzzy
-#| msgid "Arrange Icons"
 msgid "Arrange Icons by Name"
-msgstr "Usporiadať ikony"
+msgstr "Usporiadať ikony podľa názvu"
 
 #: app/shortcuts.js:25
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "Usporiadať ikony podľa zostupného názvu"
 
 #: app/shortcuts.js:26
-#, fuzzy
-#| msgid "Modified Time"
 msgid "Arrange Icons By Modified Time"
-msgstr "Čas úpravy"
+msgstr "Usporiadať ikony podľa času úpravy"
 
 #: app/shortcuts.js:27
-#, fuzzy
-#| msgid "Arrange Icons"
 msgid "Arrange Icons By Kind"
-msgstr "Usporiadať ikony"
+msgstr "Usporiadať ikony podľa druhu"
 
 #: app/shortcuts.js:28
-#, fuzzy
-#| msgid "Arrange Icons"
 msgid "Arrange Icons By Size"
-msgstr "Usporiadať ikony"
+msgstr "Usporiadať ikony podľa veľkosti"
 
 #: app/shortcuts.js:29
 msgid "Find Files"
@@ -1307,8 +1275,8 @@ msgstr "\"${programName}\" je potrebný pre Desktop Icons"
 
 #: app/utils/dbusUtils.js:70
 msgid ""
-"For this functionality to work in Desktop Icons, you must install "
-"\"${programName}\" in your system."
+"For this functionality to work in Desktop Icons, you must install \"$"
+"{programName}\" in your system."
 msgstr ""
 "Aby táto funkcia fungovala v aplikácii Ikony na ploche, musíte do vášho "
 "systému nainštalovať \"${programName}\"."
@@ -1502,14 +1470,12 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr "Zobraziť ikony na ploche alebo ich všetky skryť"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, fuzzy
-#| msgid "Application Keyboard Shortcuts"
 msgid "User Application Shortcuts"
-msgstr "Klávesové skratky aplikácie"
+msgstr "Používateľské skratky aplikácií"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
+msgstr "Prepísať predvolené skratky aplikácií nastavené používateľom"
 
 #~ msgid "Current shortcut:"
 #~ msgstr "Aktuálna skratka:"
