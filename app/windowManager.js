@@ -165,7 +165,7 @@ const WindowManager = class {
 
             // If valid fileList is available, no change in fileList
             // recompute postion of all icons for new geometry
-            this._desktopManager.reframeDesktop({
+            this._desktopManager.reFrameDesktop({
                 redisplay: true,
                 monitorschanged: true,
                 gridschanged: true,
