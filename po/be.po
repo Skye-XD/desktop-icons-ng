@@ -14,10 +14,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 06:01-0400\n"
-"PO-Revision-Date: 2025-05-22 01:01+0000\n"
+"PO-Revision-Date: 2025-05-25 01:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,24 +27,20 @@ msgstr ""
 "X-Generator: Weblate 5.12-dev\n"
 
 #: app/adwPreferencesWindow.js:159
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Shortcuts"
-msgstr "Скарачэнні адменены"
+msgstr "Спалучэнні клавіш"
 
 #: app/adwPreferencesWindow.js:162
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Edit Shortcuts..."
-msgstr "Рэдагаваць cпалучэнні клавішаў"
+msgstr "Рэдагаваць cпалучэнні клавіш..."
 
 #: app/adwPreferencesWindow.js:175
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "Рэдагаваць cпалучэнні клавіш праграмы"
 
 #: app/adwPreferencesWindow.js:180
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "Спалучэнні клавіш можна рэдагаваць, толькі калі пашырэнне ўключана..."
 
 #: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
 msgid "Help translate in your web browser"
@@ -64,9 +60,8 @@ msgid "Tweaks"
 msgstr "Іншае"
 
 #: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
-#, fuzzy
 msgid "More"
-msgstr "Болей"
+msgstr "Звесткі"
 
 #: app/adwPreferencesWindow.js:397
 msgid "Desktop Settings"
@@ -243,14 +238,10 @@ msgid "Open folders on drag hover"
 msgstr "Адкрываць папкі пры перацягванні"
 
 #: app/adwPreferencesWindow.js:565
-#, fuzzy
-#| msgid "About"
 msgid "About..."
-msgstr "Інфармацыя"
+msgstr "Пра пашырэнне..."
 
 #: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
-#, fuzzy
-#| msgid "Translation"
 msgid "Translations"
 msgstr "Пераклады"
 
@@ -569,7 +560,7 @@ msgstr "Значкі працоўнага стала"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "Маштабаванне кадравага буфера манітора не ўключана"
 
 #: app/desktopManager.js:158
 msgid ""
@@ -1055,90 +1046,70 @@ msgstr "Кансоль"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
-#, fuzzy
 msgid "None"
 msgstr "Няма"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "Прадвызначанае спалучэнне:"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
-msgstr ""
+msgstr "Увядзіце новае..."
 
 #: app/shortcutManager.js:125
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr ""
+msgstr "Клавіша-мадыфікатар + Клавіша (напр. Ctrl + Alt + D)"
 
 #: app/shortcutManager.js:130
-#, fuzzy
-#| msgid "Restore Default Desktop"
 msgid "Reset to Default"
-msgstr "Вярнуць прадвызначаныя"
+msgstr "Вярнуць прадвызначанае спалучэнне"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
-msgstr ""
+msgstr "Без гарачых клавіш"
 
 #: app/shortcutManager.js:243
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "System Shortcuts"
-msgstr "Паказаць спалучэнні клавіш"
+msgstr "Сістэмныя спалучэнні клавіш"
 
 #: app/shortcutManager.js:244
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr ""
+msgstr "Агульныя спалучэнні клавіш вызначаныя сістэмай"
 
 #: app/shortcutManager.js:302
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Local Shortcuts"
-msgstr "Паказаць спалучэнні клавіш"
+msgstr "Лакальныя спалучэнні клавіш"
 
 #: app/shortcutManager.js:303
-#, fuzzy
-#| msgid "Keyboard Short Cuts"
 msgid "Application Keyboard Shortcuts"
-msgstr "Спалучэнні клавіш"
+msgstr "Спалучэнні клавіш праграмы"
 
 #: app/shortcutManager.js:364
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Global Shortcuts"
-msgstr "Паказаць спалучэнні клавіш"
+msgstr "Глабальныя спалучэнні клавіш"
 
 #: app/shortcutManager.js:365
-#, fuzzy
-#| msgid "Keyboard Short Cuts"
 msgid "System Keyboard Shortcuts"
-msgstr "Спалучэнні клавіш"
+msgstr "Сістэмныя спалучэнні клавіш"
 
 #: app/shortcutManager.js:661
-#, fuzzy
-#| msgid "Keyboard Short Cuts"
 msgid "Keyboard Shortcuts"
 msgstr "Спалучэнні клавіш"
 
 #: app/shortcutManager.js:673
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Reset Shortcuts"
-msgstr "Паказаць спалучэнні клавіш"
+msgstr "Скінуць спалучэнні клавіш"
 
 #: app/shortcutManager.js:674
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Вярнуць прадвызначаныя спалучэнні клавіш"
 
 #: app/shortcutManager.js:677
-#, fuzzy
-#| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Скінуць усе"
+msgstr "Скінуць усе..."
 
 #: app/shortcuts.js:15
-#, fuzzy
 msgid "Show Desktop in Files"
 msgstr "Паказаць Стол у файлавым менеджары"
 
@@ -1147,72 +1118,54 @@ msgid "Open in Terminal"
 msgstr "Адкрыць у Тэрмінале"
 
 #: app/shortcuts.js:17
-#, fuzzy
-#| msgid "Change Background…"
 msgid "Change Background"
-msgstr "Змяніць фон…"
+msgstr "Змяніць фон"
 
 #: app/shortcuts.js:18
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Настройкі дісплэя"
+msgstr "Налады дысплэя"
 
 #: app/shortcuts.js:19
-#, fuzzy
-#| msgid "Desktop Icon Settings"
 msgid "Change Desktop Icon Settings"
-msgstr "Налады Desktop Icons"
+msgstr "Змяніць налады Desktop Icons"
 
 #: app/shortcuts.js:20
 msgid "Clean Up Icons"
 msgstr ""
 
 #: app/shortcuts.js:21
-#, fuzzy
-#| msgid "Keep Arranged…"
 msgid "Keep Arranged"
-msgstr "Захоўваць упарадкаванне…"
+msgstr "Захоўваць упарадкаванне"
 
 #: app/shortcuts.js:22
-#, fuzzy
-#| msgid "Keep Icons Stacked"
 msgid "Keep Stacked"
 msgstr "Згрупоўванне значкоў"
 
 #: app/shortcuts.js:23
-#, fuzzy
-#| msgid "Sort Special Folders - Home/Trash Drives."
 msgid "Sort Special Folders"
-msgstr "Сартаваць спецыяльныя папкі - Дыскі/Сметніцу/Хатнюю папку."
+msgstr "Сартаваць спецыяльныя папкі"
 
 #: app/shortcuts.js:24
-#, fuzzy
-#| msgid "Arrange Icons"
 msgid "Arrange Icons by Name"
-msgstr "Упарадкаваць значкі"
+msgstr "Упарадкаваць значкі па назве"
 
 #: app/shortcuts.js:25
 msgid "Arrange Icons By Descending Name"
 msgstr ""
 
 #: app/shortcuts.js:26
-#, fuzzy
-#| msgid "Modified Time"
 msgid "Arrange Icons By Modified Time"
-msgstr "Час змянення"
+msgstr "Упарадкаваць значкі па часу змянення"
 
 #: app/shortcuts.js:27
-#, fuzzy
-#| msgid "Arrange Icons"
 msgid "Arrange Icons By Kind"
-msgstr "Упарадкаваць значкі"
+msgstr "Упарадкаваць значкі па тыпу"
 
 #: app/shortcuts.js:28
-#, fuzzy
-#| msgid "Arrange Icons"
 msgid "Arrange Icons By Size"
-msgstr "Упарадкаваць значкі"
+msgstr "Упарадкаваць значкі па памеры"
 
 #: app/shortcuts.js:29
 msgid "Find Files"
@@ -1256,13 +1209,11 @@ msgstr "Паказаць меню"
 
 #: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "Паказаць меню фону з абалонкі"
 
 #: app/shortcuts.js:40
-#, fuzzy
-#| msgid "Current Desktop: "
 msgid "Create Desktop Shortcut"
-msgstr "Бягучы працоўны стол: "
+msgstr "Стварыць ярлык на працоўным стале"
 
 #: app/shortcuts.js:41
 msgid "Text Entry Accels Turn On"
@@ -1273,16 +1224,12 @@ msgid "Text Entry Accels Turn Off"
 msgstr ""
 
 #: app/shortcuts.js:44
-#, fuzzy
-#| msgid "Show Shortcuts"
 msgid "Show Shortcut Viewer"
-msgstr "Паказаць спалучэнні клавіш"
+msgstr "Паказаць акно са спалучэннямі клавіш"
 
 #: app/shortcuts.js:45
-#, fuzzy
-#| msgid "Desktop Icons"
 msgid "Show Or Hide Desktop Icons"
-msgstr "Значкі працоўнага стала"
+msgstr "Схаваць або паказаць значкі працоўнага стала"
 
 #: app/showErrorPopup.js:42
 msgid "More Information"
@@ -1510,17 +1457,15 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Hide/Show all desktop windows"
-msgstr ""
+msgstr "Схаваць або паказаць усе вокны працоўнага стала"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, fuzzy
-#| msgid "Show the trash icon on the desktop"
 msgid "Show the icons on the desktop, or hide them all"
-msgstr "Паказваць на працоўным стале значок сметніцы"
+msgstr "Схаваць або паказаць усе значкі на працоўным стале"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "Карыстальніцкія спалучэнні клавіш праграмы"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"

@@ -16,10 +16,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 06:01-0400\n"
-"PO-Revision-Date: 2025-05-22 01:02+0000\n"
+"PO-Revision-Date: 2025-05-23 20:33+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
-"desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,7 +160,7 @@ msgstr "Destacar local na grade ao mover"
 #: app/adwPreferencesWindow.js:481
 #, fuzzy
 msgid "New Desktop Folder"
-msgstr "Nenhuma Pasta de Destino"
+msgstr "Pasta da Área de trabalho"
 
 #: app/adwPreferencesWindow.js:482
 #, fuzzy
@@ -381,7 +381,7 @@ msgstr "OK"
 #: app/askRenamePopup.js:75
 #, fuzzy
 msgid "Rename"
-msgstr "Rebatizar"
+msgstr "Renomear"
 
 #: app/autoAr.js:71
 #, fuzzy
@@ -444,7 +444,7 @@ msgstr "Extrair '${fullPathFile}' foi concluído."
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Extração cancelada"
+msgstr "Extração de OMOD Cancelada"
 
 #: app/autoAr.js:443
 #, fuzzy
@@ -498,7 +498,7 @@ msgstr "Erro durante a compressão"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "Criar arquivo"
+msgstr "Criar um novo arquivo"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -592,7 +592,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir o arquivo"
+msgstr "Não pôde abrir Arquivos"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -621,7 +621,7 @@ msgstr ""
 #: app/desktopGrid.js:56
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Ícones de desktop"
+msgstr "Tamanho dos ícones da área de trabalho"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -645,7 +645,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Habilitar"
+msgstr "Ativar"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -751,7 +751,7 @@ msgstr "Nome: Z-A"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
-msgstr "Tempo modificado"
+msgstr "Data da Última Modificação"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -790,7 +790,7 @@ msgstr ""
 #: app/desktopMenu.js:955
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Configurações de ícone de desktop"
+msgstr "Configurações da Área de Trabalho"
 
 #: app/desktopMenu.js:957
 #, fuzzy
@@ -816,7 +816,7 @@ msgstr "Refazer"
 #: app/desktopMenu.js:980 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Selecionar Tudo"
+msgstr "Marque tudo"
 
 #: app/desktopMenu.js:987
 msgid "Arrange Icons"
@@ -858,8 +858,9 @@ msgid "Copy/Move Failed"
 msgstr "Movimento cancelado"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "Não existe"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -869,7 +870,7 @@ msgstr "Diversos Fracas"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "Mover"
+msgstr "Mova"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -889,7 +890,7 @@ msgstr "Pasta"
 #: app/fileItemIcon.js:96
 #, fuzzy
 msgid "File"
-msgstr "Arquivo"
+msgstr "Arquivos"
 
 #: app/fileItemIcon.js:270
 #, fuzzy
@@ -941,7 +942,7 @@ msgstr "Abrir com..."
 #: app/fileItemMenu.js:176
 #, fuzzy
 msgid "Open All With Other Application..."
-msgstr "Abra tudo com outra aplicação..."
+msgstr "Abrir com outro aplicativo"
 
 #: app/fileItemMenu.js:184
 #, fuzzy
@@ -1024,7 +1025,7 @@ msgstr "Excluir permanentemente"
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 #, fuzzy
 msgid "Don't Allow Launching"
-msgstr "Não permitir o lançamento"
+msgstr "Permitir iniciar"
 
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
@@ -1075,7 +1076,7 @@ msgstr "Abrir item"
 #: app/fileItemMenu.js:823
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Cancelamento de Extração"
+msgstr "Extração de OMOD Cancelada"
 
 #: app/fileItemMenu.js:824
 #, fuzzy
@@ -1101,13 +1102,14 @@ msgstr "Não é possível enviar um diretório por email"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Seleção inclui um Diretório, comprimir para um arquivo .zip primeiro?"
+msgstr ""
+"Seleção inclui um diretório, comprima o diretório em um arquivo primeiro"
 
 #: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
 #: app/fileItemMenu.js:1062
 #, fuzzy
 msgid "Mail Error"
-msgstr "Erro de correio"
+msgstr "Erro de E-mail"
 
 #: app/fileItemMenu.js:997
 #, fuzzy
@@ -1118,7 +1120,7 @@ msgstr "Incapaz de encontrar o comando zip, instale o programa"
 #: app/fileItemMenu.js:1003
 #, fuzzy
 msgid "Archive.zip"
-msgstr "Arquivos"
+msgstr "Arquivo.."
 
 #: app/fileItemMenu.js:1027
 #, fuzzy
@@ -1154,7 +1156,7 @@ msgstr "Instale o Console do Gnome ou outro programa terminal"
 #: app/fileItemMenu.js:1231
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Incapaz de abrir Não"
+msgstr "Impossível abrir"
 
 #: app/fileItemMenu.js:1233
 #, fuzzy
@@ -1212,11 +1214,12 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "Redefinir para o Padrão"
+msgstr "Redefina para o padrão"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "Acelerador"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1244,7 +1247,7 @@ msgstr "Atalhos Globais"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Mostrar atalhos"
+msgstr "Atalhos do teclado"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1254,7 +1257,7 @@ msgstr "Atalhos de Teclado"
 #: app/shortcutManager.js:673
 #, fuzzy
 msgid "Reset Shortcuts"
-msgstr "Mostrar atalhos"
+msgstr "Redefinir Todos os Atalhos"
 
 #: app/shortcutManager.js:674
 msgid "Reset all shortcuts to Defaults"
@@ -1378,7 +1381,7 @@ msgstr "Diversos Fracas"
 #: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "Escolher"
+msgstr "Escolha o ícone"
 
 #: app/shortcuts.js:37
 #, fuzzy

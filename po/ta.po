@@ -9,11 +9,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 06:01-0400\n"
-"PO-Revision-Date: 2025-05-22 01:02+0000\n"
+"PO-Revision-Date: 2025-05-23 20:33+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/ta/>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,8 +32,9 @@ msgid "Edit Shortcuts..."
 msgstr "குறுக்குவழிகளைத் திருத்தவும்"
 
 #: app/adwPreferencesWindow.js:175
+#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "பயன்பாட்டு குறுக்குவழிகள்"
 
 #: app/adwPreferencesWindow.js:180
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -473,7 +474,7 @@ msgstr "காப்பக பெயர்"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "கடவுச்சொல்"
+msgstr "கடவுச்சொல்"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -547,7 +548,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "கோப்பைத் திறக்க முடியவில்லை"
+msgstr "கோப்புகளைத் திறக்க முடியவில்லை"
 
 #: app/desktopFileIcon.js:211
 msgid "{appName} can not open files of this Type!"
@@ -724,7 +725,7 @@ msgstr ""
 #: app/desktopMenu.js:955
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "டெச்க்டாப் அமைப்புகள்"
+msgstr "டெஸ்க்டாப் அமைப்புகள்"
 
 #: app/desktopMenu.js:957
 #, fuzzy
@@ -1127,8 +1128,9 @@ msgid "Reset to Default"
 msgstr "இயல்புநிலைக்கு மீட்டமைக்கவும்"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "முடுக்கி"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1145,18 +1147,19 @@ msgid "Local Shortcuts"
 msgstr "குறுக்குவழிகளைக் காட்டு"
 
 #: app/shortcutManager.js:303
+#, fuzzy
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "பயன்பாட்டு குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "குறுக்குவழிகளைக் காட்டு"
+msgstr "உலகளாவிய குறுகிய வெட்டுக்கள்"
 
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "குறுக்குவழிகளைக் காட்டு"
+msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1166,7 +1169,7 @@ msgstr "விசைப்பலகை குறுக்குவழிகள�
 #: app/shortcutManager.js:673
 #, fuzzy
 msgid "Reset Shortcuts"
-msgstr "குறுக்குவழிகளைக் காட்டு"
+msgstr "அனைத்து குறுக்குவழிகளையும் மீட்டமைக்கவும்"
 
 #: app/shortcutManager.js:674
 msgid "Reset all shortcuts to Defaults"
@@ -1195,7 +1198,7 @@ msgstr "பின்னணியை மாற்றவும்"
 #: app/shortcuts.js:18
 #, fuzzy
 msgid "Change Display Settings"
-msgstr "டெச்க்டாப் அமைப்புகள்"
+msgstr "அமைப்புகளைக் காண்பி"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1241,7 +1244,7 @@ msgstr ""
 #: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
-msgstr "கோப்புகள்"
+msgstr "கோப்புகளில் காணலாம்"
 
 #: app/shortcuts.js:30
 #, fuzzy
@@ -1274,7 +1277,7 @@ msgstr ""
 #: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "தேர்வு"
+msgstr "ஐகானைத் தேர்வுசெய்க"
 
 #: app/shortcuts.js:37
 msgid "Choose Icon Down"
@@ -1542,8 +1545,9 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "பயன்பாட்டு குறுக்குவழிகள்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"

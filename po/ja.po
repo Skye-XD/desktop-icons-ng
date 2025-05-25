@@ -12,11 +12,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 06:01-0400\n"
-"PO-Revision-Date: 2025-05-22 01:02+0000\n"
+"PO-Revision-Date: 2025-05-25 01:01+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,8 +35,9 @@ msgid "Edit Shortcuts..."
 msgstr "ショートカットキーを編集"
 
 #: app/adwPreferencesWindow.js:175
+#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "アプリケーションのショートカット"
 
 #: app/adwPreferencesWindow.js:180
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -61,7 +62,7 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:421
 #, fuzzy
 msgid "Tweaks"
-msgstr "微調整"
+msgstr "詳細設定"
 
 #: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
 #, fuzzy
@@ -71,7 +72,7 @@ msgstr "さらに表示"
 #: app/adwPreferencesWindow.js:397
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "デスクトップ設定"
+msgstr "デスクトップの設定"
 
 #: app/adwPreferencesWindow.js:398
 #, fuzzy
@@ -156,7 +157,7 @@ msgstr "利用可能な場合は、最初のSecond Monitorsに新しいアイコ
 #: app/adwPreferencesWindow.js:466
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "グリッドにスナップアイコン"
+msgstr "グリッドにスナップします"
 
 #: app/adwPreferencesWindow.js:472
 #, fuzzy
@@ -166,7 +167,7 @@ msgstr "ドロップグリッドをハイライト"
 #: app/adwPreferencesWindow.js:481
 #, fuzzy
 msgid "New Desktop Folder"
-msgstr "宛先フォルダーがありません"
+msgstr "デスクトップフォルダー"
 
 #: app/adwPreferencesWindow.js:482
 #, fuzzy
@@ -253,7 +254,7 @@ msgstr "常に"
 #: app/adwPreferencesWindow.js:545
 #, fuzzy
 msgid "On this computer only"
-msgstr "このコンピューターのみ"
+msgstr "このコンピューター"
 
 #: app/adwPreferencesWindow.js:546
 msgid "Never"
@@ -275,7 +276,7 @@ msgstr "ドラッグホバーのフォルダを開く"
 #: app/adwPreferencesWindow.js:565
 #, fuzzy
 msgid "About..."
-msgstr "これについて..."
+msgstr "バージョン情報..."
 
 #: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
 #, fuzzy
@@ -474,7 +475,7 @@ msgstr "'${fullPathFile}' の抽出が完了しました."
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "抽出のキャンセル"
+msgstr "OMOD解凍がキャンセルされました"
 
 #: app/autoAr.js:443
 #, fuzzy
@@ -529,7 +530,7 @@ msgstr "圧縮時のエラー"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "アーカイブの作成"
+msgstr "新しいアーカイブを作成します"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -788,7 +789,7 @@ msgstr "文書を削除できません"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "チャンネル名"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -798,12 +799,12 @@ msgstr "名前 (ZからA)"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
-msgstr "変更された時間"
+msgstr "最終更新時刻"
 
 #: app/desktopMenu.js:927
 #, fuzzy
 msgid "Type"
-msgstr "ギャンブルの種類"
+msgstr "衣服の種類"
 
 #: app/desktopMenu.js:929
 #, fuzzy
@@ -872,7 +873,7 @@ msgstr "アイコンを整列"
 #: app/desktopMenu.js:991
 #, fuzzy
 msgid "Arrange By…"
-msgstr "指定して整列…"
+msgstr "編曲:"
 
 #: app/desktopMenu.js:999
 #, fuzzy
@@ -905,8 +906,9 @@ msgid "Copy/Move Failed"
 msgstr "キャンセルされる移動"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "存在しません"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1021,7 +1023,7 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "を移動..."
+msgstr "移動..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1035,7 +1037,7 @@ msgstr "名前を変更…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "リンクを作成"
+msgstr "リンクを発行する"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1119,7 +1121,7 @@ msgstr "アイテムを開く"
 #: app/fileItemMenu.js:823
 #, fuzzy
 msgid "Extraction Cancelled"
-msgstr "抽出の取消される"
+msgstr "OMOD解凍がキャンセルされました"
 
 #: app/fileItemMenu.js:824
 #, fuzzy
@@ -1144,7 +1146,7 @@ msgstr "ディレクトリをメールで送ることはできません"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "選択には、まずディレクトリ、.zipファイルへの圧縮が含まれていますか?"
+msgstr "ディレクトリが選択されています。ディレクトリはファイルに圧縮してください。"
 
 #: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
 #: app/fileItemMenu.js:1062
@@ -1198,7 +1200,7 @@ msgstr ""
 #: app/fileItemMenu.js:1231
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "開くことが可能 お問い合わせ"
+msgstr "開けません"
 
 #: app/fileItemMenu.js:1233
 #, fuzzy
@@ -1239,7 +1241,7 @@ msgstr "コンソール"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "無し"
+msgstr "なし"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1259,8 +1261,9 @@ msgid "Reset to Default"
 msgstr "デフォルトにリセット"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "アクセラレータ"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1277,8 +1280,9 @@ msgid "Local Shortcuts"
 msgstr "ショートカット一覧を表示する"
 
 #: app/shortcutManager.js:303
+#, fuzzy
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "アプリケーションのショートカット"
 
 #: app/shortcutManager.js:364
 #, fuzzy
@@ -1288,7 +1292,7 @@ msgstr "一般のショートカットキー"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "ショートカット一覧を表示する"
+msgstr "キーボードショートカット"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1329,7 +1333,7 @@ msgstr "背景を変更"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "ディスプレイの設定"
+msgstr "表示設定"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1409,7 +1413,7 @@ msgstr "すべて選択解除"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "プレビュー表示"
+msgstr "プレビュー"
 
 #: app/shortcuts.js:34
 #, fuzzy
@@ -1714,8 +1718,9 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr "デスクトップにゴミ箱を表示する"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "アプリケーションのショートカット"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"
