@@ -10,11 +10,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 06:01-0400\n"
-"PO-Revision-Date: 2025-05-22 01:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/eo/>\n"
+"PO-Revision-Date: 2025-05-23 23:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,7 +158,7 @@ msgstr "Aldonu novajn ikonojn al Sekundaraj ekranoj unue, se havebla"
 #: app/adwPreferencesWindow.js:466
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Snap ikonoj al krado"
+msgstr "Kapti per krado"
 
 #: app/adwPreferencesWindow.js:472
 #, fuzzy
@@ -169,7 +168,7 @@ msgstr "Plenigu la guton"
 #: app/adwPreferencesWindow.js:481
 #, fuzzy
 msgid "New Desktop Folder"
-msgstr "Neniu Destina Dosierujo"
+msgstr "Labortablo"
 
 #: app/adwPreferencesWindow.js:482
 #, fuzzy
@@ -249,7 +248,7 @@ msgstr "Duobla alklako"
 #: app/adwPreferencesWindow.js:542
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Montri bildon dikfingronajil"
+msgstr "Montri bildetojn"
 
 #: app/adwPreferencesWindow.js:544
 #, fuzzy
@@ -259,7 +258,7 @@ msgstr "Ĉiam"
 #: app/adwPreferencesWindow.js:545
 #, fuzzy
 msgid "On this computer only"
-msgstr "En ĉi tiu komputilo nur"
+msgstr "Sur ĉi tiu komputilo"
 
 #: app/adwPreferencesWindow.js:546
 #, fuzzy
@@ -440,7 +439,7 @@ msgstr "Nuligi"
 #: app/autoAr.js:311 app/autoAr.js:608
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Trovi pasvorton ĉi tie"
+msgstr "Tajpu pasvorton"
 
 #: app/autoAr.js:354
 #, fuzzy
@@ -653,7 +652,7 @@ msgstr ""
 #: app/desktopGrid.js:56
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Icons"
+msgstr "labortabla piktogramo"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -787,7 +786,7 @@ msgstr "Nomo (Z-A)"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Modified Time"
-msgstr "Modifita Tempo"
+msgstr "Tempo de lasta modifo"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -898,8 +897,9 @@ msgid "Copy/Move Failed"
 msgstr "Movo povas esti"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "ne ekzistas"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1049,8 +1049,8 @@ msgstr[1] "Compress { 0} falduloj"
 #, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] "Compress { 0} dosiero"
-msgstr[1] "Compress { 0} dosieroj"
+msgstr[0] "Densigu dosieron"
+msgstr[1] ""
 
 #: app/fileItemMenu.js:276
 #, fuzzy
@@ -1207,7 +1207,7 @@ msgstr "Bonvolu Instali Gnome Console aŭ alia Terminalo Programo"
 #: app/fileItemMenu.js:1231
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Nekapabla malfermi {0}"
+msgstr "Ne eblas malfermi"
 
 #: app/fileItemMenu.js:1233
 #, fuzzy
@@ -1268,8 +1268,9 @@ msgid "Reset to Default"
 msgstr "Defaŭltigu"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "Akcelilo"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1292,12 +1293,12 @@ msgstr ""
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "Montri fulmoklavojn"
+msgstr "Ŝalti mallokajn fulmoklavojn"
 
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Montri fulmoklavojn"
+msgstr "Fulmoklavoj"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1331,12 +1332,12 @@ msgstr "Malfermi per termina&lo"
 #: app/shortcuts.js:17
 #, fuzzy
 msgid "Change Background"
-msgstr "Ŝanĝo Fono .."
+msgstr "Ŝanĝi fonan koloron"
 
 #: app/shortcuts.js:18
 #, fuzzy
 msgid "Change Display Settings"
-msgstr "Montroagordaro"
+msgstr "Ekran-agordoj"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1521,7 +1522,7 @@ msgstr ""
 #: app/utils/desktopIconsUtil.js:292
 #, fuzzy
 msgid "Command not found"
-msgstr "Ne trovita"
+msgstr "Trovitaj komandoj"
 
 #: data/ui/ding-app-chooser.ui:47
 #, fuzzy

@@ -7,15 +7,16 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
+# Josman Goncalves Bravo <josmangoncalvesbravo@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-21 06:01-0400\n"
-"PO-Revision-Date: 2025-05-17 02:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/es/>\n"
+"PO-Revision-Date: 2025-05-25 01:01+0000\n"
+"Last-Translator: Josman Goncalves Bravo <josmangoncalvesbravo@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -147,9 +148,8 @@ msgid "Snap icons to grid"
 msgstr "Ajustar iconos a la cuadrícula"
 
 #: app/adwPreferencesWindow.js:472
-#, fuzzy
 msgid "Highlight the drop grid"
-msgstr "Destacar la rejilla de goteo"
+msgstr "Destacar la rejilla de suelte"
 
 #: app/adwPreferencesWindow.js:481
 #, fuzzy
