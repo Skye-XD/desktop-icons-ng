@@ -375,10 +375,9 @@ const FileItemMenu = class {
                 null
             );
 
-            const variant = GLib.Variant.new('s', this.activeFileItem.path);
             menuitem.set_action_and_target_value(
                 'app.openinterminal',
-                variant
+                null
             );
 
             openInTerminalMenu.append_item(menuitem);
@@ -699,13 +698,10 @@ const FileItemActions = class {
         );
         this._mainApp.add_action(showinfiles);
 
-        const openinterminal = Gio.SimpleAction.new(
-            'openinterminal',
-            GLib.VariantType.new('s')
-        );
+        const openinterminal = Gio.SimpleAction.new('openinterminal', null);
         openinterminal.connect(
             'activate',
-            (_a, param) => this._launchTerminal(param.unpack(), null)
+            this._openInTerminal.bind(this)
         );
         this._mainApp.add_action(openinterminal);
 
@@ -1162,7 +1158,15 @@ const FileItemActions = class {
             );
     }
 
-    _launchTerminal(fileItemPath = null, commandLine = null) {
+    _openInTerminal() {
+        if (!this.activeFileItem || !this.activeFileItem.isDirectory)
+            return;
+
+        this.launchTerminal(this.activeFileItem.path, null);
+    }
+
+
+    launchTerminal(fileItemPath = null, commandLine = null) {
         let workingdir =
             fileItemPath ? fileItemPath : this._desktopDir.get_path();
 
