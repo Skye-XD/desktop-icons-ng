@@ -15,12 +15,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 06:01-0400\n"
+"POT-Creation-Date: 2025-05-25 18:40-0400\n"
 "PO-Revision-Date: 2025-05-23 20:33+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,265 +38,265 @@ msgstr "Kısayollar"
 msgid "Edit Shortcuts..."
 msgstr "Kestirmeleri Düzenle"
 
-#: app/adwPreferencesWindow.js:175
+#: app/adwPreferencesWindow.js:177
 #, fuzzy
 msgid "Edit Application Shortcuts"
 msgstr "Uygulama Kısa Yolları"
 
-#: app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:182
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
+#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Web tarayıcıda çeviriye yardımcı ol"
 
-#: app/adwPreferencesWindow.js:367 app/adwPreferencesWindow.js:368
+#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
 #, fuzzy
 msgid "Desktop"
 msgstr "Bilgisayar"
 
-#: app/adwPreferencesWindow.js:373 app/adwPreferencesWindow.js:374
+#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
 #, fuzzy
 msgid "Files"
 msgstr "Dosyalar"
 
-#: app/adwPreferencesWindow.js:379 app/adwPreferencesWindow.js:380
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
+#: app/adwPreferencesWindow.js:438
 #, fuzzy
 msgid "Tweaks"
 msgstr "İnce ayarlar"
 
-#: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
 #, fuzzy
 msgid "More"
 msgstr "Daha fazla"
 
-#: app/adwPreferencesWindow.js:397
+#: app/adwPreferencesWindow.js:414
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Masaüstü Ayarları"
 
-#: app/adwPreferencesWindow.js:398
+#: app/adwPreferencesWindow.js:415
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Masaüstü Programı için ayarlar"
 
-#: app/adwPreferencesWindow.js:404
+#: app/adwPreferencesWindow.js:421
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "Masaüstü klasörü"
 
-#: app/adwPreferencesWindow.js:405
+#: app/adwPreferencesWindow.js:422
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Current Desktop: "
 msgstr "Kırık Masaüstünü Dosyası"
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:431
 #, fuzzy
 msgid "Files Settings"
 msgstr "Dosyalar Ayarlar"
 
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:432
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Open File"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:439
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Miscellaneous Tweaks"
 
-#: app/adwPreferencesWindow.js:440
+#: app/adwPreferencesWindow.js:457
 msgid "Size for the desktop icons"
 msgstr "Masaüstü simgeleri boyutu"
 
-#: app/adwPreferencesWindow.js:442
+#: app/adwPreferencesWindow.js:459
 msgid "Tiny"
 msgstr "Minik"
 
-#: app/adwPreferencesWindow.js:443
+#: app/adwPreferencesWindow.js:460
 msgid "Small"
 msgstr "Küçük"
 
-#: app/adwPreferencesWindow.js:444
+#: app/adwPreferencesWindow.js:461
 msgid "Standard"
 msgstr "Standart"
 
-#: app/adwPreferencesWindow.js:445
+#: app/adwPreferencesWindow.js:462
 msgid "Large"
 msgstr "Büyük"
 
-#: app/adwPreferencesWindow.js:451
+#: app/adwPreferencesWindow.js:468
 msgid "New icons alignment"
 msgstr "Yeni simge hizalaması"
 
-#: app/adwPreferencesWindow.js:453
+#: app/adwPreferencesWindow.js:470
 #, fuzzy
 msgid "Top left corner"
 msgstr "Üst sol köşe"
 
-#: app/adwPreferencesWindow.js:454
+#: app/adwPreferencesWindow.js:471
 #, fuzzy
 msgid "Top right corner"
 msgstr "Üst sağ köşe"
 
-#: app/adwPreferencesWindow.js:455
+#: app/adwPreferencesWindow.js:472
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Alt sol köşe"
 
-#: app/adwPreferencesWindow.js:456
+#: app/adwPreferencesWindow.js:473
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Alt sağ köşe"
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:479
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "İlk önce ikincil monitörlere yeni simgeler ekleyin, eğer mevcut olursa"
 
-#: app/adwPreferencesWindow.js:466
+#: app/adwPreferencesWindow.js:483
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Kılavuza uydur"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:489
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Yüksek ışık damla ızgara"
 
-#: app/adwPreferencesWindow.js:481
+#: app/adwPreferencesWindow.js:498
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Masaüstü klasörü"
 
-#: app/adwPreferencesWindow.js:482
+#: app/adwPreferencesWindow.js:499
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "Kişisel klasörü masaüstünde göster"
 
-#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:676
+#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
 #: app/desktopFolderMonitor.js:618
 #, fuzzy
 msgid "Choose"
 msgstr "Seç"
 
-#: app/adwPreferencesWindow.js:488
+#: app/adwPreferencesWindow.js:505
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Restore Default Desktop Folder"
 msgstr "Olmayan Masaüstü Dosyası"
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:506
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:490
+#: app/adwPreferencesWindow.js:507
 #, fuzzy
 msgid "Restore"
 msgstr "Önceki boyutuna döndür"
 
-#: app/adwPreferencesWindow.js:500
+#: app/adwPreferencesWindow.js:517
 #, fuzzy
 #| msgid "Add an emblem to links"
 msgid "Add information emblems for links, encryption"
 msgstr "Bağlantılara amblem ekle"
 
-#: app/adwPreferencesWindow.js:504
+#: app/adwPreferencesWindow.js:521
 msgid "Use dark text in icon labels"
 msgstr "Simge etiketlerinde koyu metin kullan"
 
-#: app/adwPreferencesWindow.js:509
+#: app/adwPreferencesWindow.js:526
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Kişisel klasörü masaüstünde göster"
 
-#: app/adwPreferencesWindow.js:514
+#: app/adwPreferencesWindow.js:531
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Çöp kutusunu masaüstünde göster"
 
-#: app/adwPreferencesWindow.js:519
+#: app/adwPreferencesWindow.js:536
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Harici sürücüleri masaüstünde göster"
 
-#: app/adwPreferencesWindow.js:524
+#: app/adwPreferencesWindow.js:541
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Ağ sürücülerini masaüstünde göster"
 
-#: app/adwPreferencesWindow.js:529
+#: app/adwPreferencesWindow.js:546
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
 
-#: app/adwPreferencesWindow.js:534
+#: app/adwPreferencesWindow.js:551
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Open Materials"
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:553
 msgid "Single click"
 msgstr "Tek tıklama"
 
-#: app/adwPreferencesWindow.js:537
+#: app/adwPreferencesWindow.js:554
 msgid "Double click"
 msgstr "Çift tıklama"
 
-#: app/adwPreferencesWindow.js:542
+#: app/adwPreferencesWindow.js:559
 msgid "Show image thumbnails"
 msgstr "Resim önizlemelerini göster"
 
-#: app/adwPreferencesWindow.js:544
+#: app/adwPreferencesWindow.js:561
 msgid "Always"
 msgstr "Her zaman"
 
-#: app/adwPreferencesWindow.js:545
+#: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "On this computer only"
 msgstr "Bu bilgisayarda"
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:563
 msgid "Never"
 msgstr "Asla"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:568
 msgid "Show a context menu item to delete permanently"
 msgstr "Tamamen silmek için sağ tıkta seçenek göster"
 
-#: app/adwPreferencesWindow.js:556
+#: app/adwPreferencesWindow.js:573
 msgid "Show hidden files"
 msgstr "Gizli dosyaları göster"
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:578
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Sürüklenme üzerine açık klasörler"
 
-#: app/adwPreferencesWindow.js:565
+#: app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "About..."
 msgstr "Hakkında..."
 
-#: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
 #, fuzzy
 msgid "Translations"
 msgstr "Çeviriler"
 
-#: app/adwPreferencesWindow.js:577
+#: app/adwPreferencesWindow.js:596
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:584
+#: app/adwPreferencesWindow.js:603
 #, fuzzy
 msgid "Translate"
 msgstr "Çevirin"
 
-#: app/adwPreferencesWindow.js:675 app/desktopFolderMonitor.js:617
+#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Choose Desktop Folder"
@@ -393,7 +393,7 @@ msgid "File name"
 msgstr "Dosya adı"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
-#: app/fileItemMenu.js:971
+#: app/fileItemMenu.js:967
 msgid "OK"
 msgstr "Tamam"
 
@@ -426,8 +426,8 @@ msgid "Compressing files"
 msgstr "Dosyalar sıkıştırılıyor…"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
-#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:918
-#: app/fileItemMenu.js:971 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:914
+#: app/fileItemMenu.js:967 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "İptal"
 
@@ -718,7 +718,7 @@ msgstr "Yeni Aramadan Önce Mevcut Seçimi Temizle"
 msgid "Find Files on Desktop"
 msgstr "Masaüstündeki Dosyaları Bul"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Yeni Klasör"
 
@@ -737,130 +737,130 @@ msgstr "Klasör oluşturulamadı"
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Gnome Console'da Açılabilir"
 
-#: app/desktopMenu.js:622
+#: app/desktopMenu.js:620
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Tercihler Pencere Açık"
 
-#: app/desktopMenu.js:623
+#: app/desktopMenu.js:621
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Bu pencere açık. Lütfen aktif pencereye geçiş yapın."
 
-#: app/desktopMenu.js:632 app/desktopMenu.js:1013
+#: app/desktopMenu.js:630 app/desktopMenu.js:1011
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: app/desktopMenu.js:815
+#: app/desktopMenu.js:813
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Şablon oluşturma hatası"
 
-#: app/desktopMenu.js:816
+#: app/desktopMenu.js:814
 #, fuzzy
 msgid "Could not create document"
 msgstr "Belge silinemedi"
 
-#: app/desktopMenu.js:921
+#: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
 msgstr "İsim"
 
-#: app/desktopMenu.js:923
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Ad Z - A"
 
-#: app/desktopMenu.js:925
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Modified Time"
 msgstr "Son değiştirilen zaman"
 
-#: app/desktopMenu.js:927
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
 msgstr "Tür"
 
-#: app/desktopMenu.js:929
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Size"
 msgstr "Boyut"
 
-#: app/desktopMenu.js:934
+#: app/desktopMenu.js:932
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Düzenli Tut…"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:937
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Türe Göre Yığılı Tut…"
 
-#: app/desktopMenu.js:941
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Evi/Sürücüleri/Çöp Kutusunu Sırala…"
 
-#: app/desktopMenu.js:946
+#: app/desktopMenu.js:944
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Masaüstü"
 
-#: app/desktopMenu.js:951
+#: app/desktopMenu.js:949
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:955
+#: app/desktopMenu.js:953
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Masaüstü Simgeleri Ayarları"
 
-#: app/desktopMenu.js:957
+#: app/desktopMenu.js:955
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "Kısayolları Göster"
 
-#: app/desktopMenu.js:965 app/shortcuts.js:43
+#: app/desktopMenu.js:963 app/shortcuts.js:43
 msgid "New Document"
 msgstr "Yeni Belge"
 
-#: app/desktopMenu.js:970 app/shortcuts.js:11
+#: app/desktopMenu.js:968 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Yapıştır"
 
-#: app/desktopMenu.js:972 app/shortcuts.js:12
+#: app/desktopMenu.js:970 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Geri Al"
 
-#: app/desktopMenu.js:974 app/shortcuts.js:13
+#: app/desktopMenu.js:972 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Yinele"
 
-#: app/desktopMenu.js:980 app/shortcuts.js:14
+#: app/desktopMenu.js:978 app/shortcuts.js:14
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:985
 msgid "Arrange Icons"
 msgstr "Simgeleri Sırala"
 
-#: app/desktopMenu.js:991
+#: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Düzenleme:"
 
-#: app/desktopMenu.js:999
+#: app/desktopMenu.js:997
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Show Desktop In {0}"
 
-#: app/desktopMenu.js:1004
+#: app/desktopMenu.js:1002
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Open In {0}"
 
-#: app/desktopMenu.js:1020
+#: app/desktopMenu.js:1018
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1086,115 +1086,115 @@ msgstr "Show in {0}"
 msgid "Open in {0}"
 msgstr "{0}"
 
-#: app/fileItemMenu.js:538
+#: app/fileItemMenu.js:537
 #, fuzzy
 msgid "Open Item"
 msgstr "Öğeyi aç"
 
-#: app/fileItemMenu.js:823
+#: app/fileItemMenu.js:819
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ekstraksiyon Cancelled"
 
-#: app/fileItemMenu.js:824
+#: app/fileItemMenu.js:820
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Çıkarılabilir Dosya, hedef klasörü yok"
 
-#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
+#: app/fileItemMenu.js:876 app/fileItemMenu.js:905
 #, fuzzy
 msgid "Select Destination"
 msgstr "Varış Noktası seç"
 
-#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
+#: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 msgid "Select"
 msgstr "Seç"
 
-#: app/fileItemMenu.js:967
+#: app/fileItemMenu.js:963
 msgid "Can not email a Directory"
 msgstr "Bir dizine e-posta gönderilemez"
 
-#: app/fileItemMenu.js:969
+#: app/fileItemMenu.js:965
 #, fuzzy
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Seçim bir Dizin içeriyor, önce dizini bir dosyaya sıkıştırın."
 
-#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
-#: app/fileItemMenu.js:1062
+#: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
+#: app/fileItemMenu.js:1058
 #, fuzzy
 msgid "Mail Error"
 msgstr "E-posta Hatası"
 
-#: app/fileItemMenu.js:997
+#: app/fileItemMenu.js:993
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Zip komutunu bulmak için, lütfen programı yükleyin"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1003
+#: app/fileItemMenu.js:999
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
-#: app/fileItemMenu.js:1027
+#: app/fileItemMenu.js:1023
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Bir zip arşivi oluşturmak için bir hata vardı"
 
-#: app/fileItemMenu.js:1045
+#: app/fileItemMenu.js:1041
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email bulmak için, lütfen programı yükleyin"
 
-#: app/fileItemMenu.js:1063
+#: app/fileItemMenu.js:1059
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "E-posta dosyalarında bir hata vardı"
 
-#: app/fileItemMenu.js:1170
+#: app/fileItemMenu.js:1174
 #, fuzzy
 #| msgid "Can not email a Directory"
 msgid "Can Not open the Working Directory"
 msgstr "Bir dizine e-posta gönderilemez"
 
-#: app/fileItemMenu.js:1221
+#: app/fileItemMenu.js:1225
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome Console'da Açılabilir"
 
-#: app/fileItemMenu.js:1223
+#: app/fileItemMenu.js:1227
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Lütfen Gnome Console veya diğer Terminal Programını yükleyin"
 
-#: app/fileItemMenu.js:1231
+#: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Açılamadı"
 
-#: app/fileItemMenu.js:1233
+#: app/fileItemMenu.js:1237
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Lütfen yükleme {0}"
 
-#: app/fileItemMenu.js:1277
+#: app/fileItemMenu.js:1281
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Kopya iptal edildi"
 
-#: app/fileItemMenu.js:1278
+#: app/fileItemMenu.js:1282
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Dosyalar kopyalamak için kullanılamaz, hedef klasörü yok"
 
-#: app/fileItemMenu.js:1301
+#: app/fileItemMenu.js:1305
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Move Cancelled"
 
-#: app/fileItemMenu.js:1302
+#: app/fileItemMenu.js:1306
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Files'ı hareket etmek için kullanılamaz, hiçbir destinasyon klasörü"

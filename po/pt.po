@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 06:01-0400\n"
+"POT-Creation-Date: 2025-05-25 18:40-0400\n"
 "PO-Revision-Date: 2025-05-23 02:03+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,273 +32,273 @@ msgstr "Atalhos de teclado"
 msgid "Edit Shortcuts..."
 msgstr "Editar atalhos"
 
-#: app/adwPreferencesWindow.js:175
+#: app/adwPreferencesWindow.js:177
 msgid "Edit Application Shortcuts"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:182
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
+#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Ajudar a traduzir em seu navegador"
 
-#: app/adwPreferencesWindow.js:367 app/adwPreferencesWindow.js:368
+#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
 msgid "Desktop"
 msgstr "Área de Trabalho"
 
-#: app/adwPreferencesWindow.js:373 app/adwPreferencesWindow.js:374
+#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
 msgid "Files"
 msgstr "Arquivos"
 
-#: app/adwPreferencesWindow.js:379 app/adwPreferencesWindow.js:380
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
+#: app/adwPreferencesWindow.js:438
 #, fuzzy
 msgid "Tweaks"
 msgstr "Ajustes"
 
-#: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
 #, fuzzy
 msgid "More"
 msgstr "Mais"
 
-#: app/adwPreferencesWindow.js:397
+#: app/adwPreferencesWindow.js:414
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Configurações da área de trabalho"
 
-#: app/adwPreferencesWindow.js:398
+#: app/adwPreferencesWindow.js:415
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Configurações para o Programa de Ambiente de Trabalho"
 
-#: app/adwPreferencesWindow.js:404
+#: app/adwPreferencesWindow.js:421
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "Pasta da Área de trabalho"
 
-#: app/adwPreferencesWindow.js:405
+#: app/adwPreferencesWindow.js:422
 #, fuzzy
 msgid "Current Desktop: "
 msgstr "Ficheiros .desktop danificados"
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:431
 #, fuzzy
 msgid "Files Settings"
 msgstr "Configurações de arquivos"
 
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:432
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Configurações compartilhadas com arquivos Gnome"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:439
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Diversos Fracas"
 
-#: app/adwPreferencesWindow.js:440
+#: app/adwPreferencesWindow.js:457
 #, fuzzy
 msgid "Size for the desktop icons"
 msgstr "Tamanho para os ícones de desktop"
 
-#: app/adwPreferencesWindow.js:442
+#: app/adwPreferencesWindow.js:459
 #, fuzzy
 msgid "Tiny"
 msgstr "Minúsculo"
 
-#: app/adwPreferencesWindow.js:443
+#: app/adwPreferencesWindow.js:460
 #, fuzzy
 msgid "Small"
 msgstr "Pequeno"
 
-#: app/adwPreferencesWindow.js:444
+#: app/adwPreferencesWindow.js:461
 #, fuzzy
 msgid "Standard"
 msgstr "Padrão"
 
-#: app/adwPreferencesWindow.js:445
+#: app/adwPreferencesWindow.js:462
 #, fuzzy
 msgid "Large"
 msgstr "Largo"
 
-#: app/adwPreferencesWindow.js:451
+#: app/adwPreferencesWindow.js:468
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Novo alinhamento de ícones"
 
-#: app/adwPreferencesWindow.js:453
+#: app/adwPreferencesWindow.js:470
 #, fuzzy
 msgid "Top left corner"
 msgstr "Canto superior esquerdo."
 
-#: app/adwPreferencesWindow.js:454
+#: app/adwPreferencesWindow.js:471
 #, fuzzy
 msgid "Top right corner"
 msgstr "Canto superior direito."
 
-#: app/adwPreferencesWindow.js:455
+#: app/adwPreferencesWindow.js:472
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Canto inferior esquerdo."
 
-#: app/adwPreferencesWindow.js:456
+#: app/adwPreferencesWindow.js:473
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Canto inferior direito."
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:479
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Mostrar a pasta pessoal na área de trabalho"
 
-#: app/adwPreferencesWindow.js:466
+#: app/adwPreferencesWindow.js:483
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Ícones de pressão para grade"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:489
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Destaque a grade de gota"
 
-#: app/adwPreferencesWindow.js:481
+#: app/adwPreferencesWindow.js:498
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Nova pasta"
 
-#: app/adwPreferencesWindow.js:482
+#: app/adwPreferencesWindow.js:499
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "Mostrar a pasta pessoal na área de trabalho"
 
-#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:676
+#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
 #: app/desktopFolderMonitor.js:618
 #, fuzzy
 msgid "Choose"
 msgstr "Escolher"
 
-#: app/adwPreferencesWindow.js:488
+#: app/adwPreferencesWindow.js:505
 #, fuzzy
 msgid "Restore Default Desktop Folder"
 msgstr "Arquivos de desktop não confiáveis"
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:506
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:490
+#: app/adwPreferencesWindow.js:507
 #, fuzzy
 msgid "Restore"
 msgstr "Restaurar"
 
-#: app/adwPreferencesWindow.js:500
+#: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Add information emblems for links, encryption"
 msgstr "Adicionar um emblema a links"
 
-#: app/adwPreferencesWindow.js:504
+#: app/adwPreferencesWindow.js:521
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Use texto escuro em etiquetas de ícones"
 
-#: app/adwPreferencesWindow.js:509
+#: app/adwPreferencesWindow.js:526
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Mostrar a pasta pessoal na área de trabalho"
 
-#: app/adwPreferencesWindow.js:514
+#: app/adwPreferencesWindow.js:531
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Mostrar o ícone de lixo na área de trabalho"
 
-#: app/adwPreferencesWindow.js:519
+#: app/adwPreferencesWindow.js:536
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Mostrar unidades externas na área de trabalho"
 
-#: app/adwPreferencesWindow.js:524
+#: app/adwPreferencesWindow.js:541
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Mostrar unidades de rede na área de trabalho"
 
-#: app/adwPreferencesWindow.js:529
+#: app/adwPreferencesWindow.js:546
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Adicionar novas unidades ao lado oposto do desktop"
 
-#: app/adwPreferencesWindow.js:534
+#: app/adwPreferencesWindow.js:551
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Ação para Itens Abertos"
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:553
 #, fuzzy
 msgid "Single click"
 msgstr "Um único clique"
 
-#: app/adwPreferencesWindow.js:537
+#: app/adwPreferencesWindow.js:554
 #, fuzzy
 msgid "Double click"
 msgstr "Duplo clique"
 
-#: app/adwPreferencesWindow.js:542
+#: app/adwPreferencesWindow.js:559
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Mostrar miniaturas de imagens"
 
-#: app/adwPreferencesWindow.js:544
+#: app/adwPreferencesWindow.js:561
 #, fuzzy
 msgid "Always"
 msgstr "Sempre"
 
-#: app/adwPreferencesWindow.js:545
+#: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "On this computer only"
 msgstr "Neste computador apenas"
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:563
 #, fuzzy
 msgid "Never"
 msgstr "Nunca"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:568
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Mostrar um item de menu de contexto para excluir permanentemente"
 
-#: app/adwPreferencesWindow.js:556
+#: app/adwPreferencesWindow.js:573
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Exibir ficheiros ocultos"
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:578
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Abrir pastas no mouse hover"
 
-#: app/adwPreferencesWindow.js:565
+#: app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "About..."
 msgstr "Acerca de..."
 
-#: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
 #, fuzzy
 msgid "Translations"
 msgstr "Traduções"
 
-#: app/adwPreferencesWindow.js:577
+#: app/adwPreferencesWindow.js:596
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:584
+#: app/adwPreferencesWindow.js:603
 #, fuzzy
 msgid "Translate"
 msgstr "Traduzir"
 
-#: app/adwPreferencesWindow.js:675 app/desktopFolderMonitor.js:617
+#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
 #, fuzzy
 msgid "Choose Desktop Folder"
 msgstr "Ficheiros .desktop danificados"
@@ -391,7 +391,7 @@ msgid "File name"
 msgstr "Nome do ficheiro"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
-#: app/fileItemMenu.js:971
+#: app/fileItemMenu.js:967
 #, fuzzy
 msgid "OK"
 msgstr "Ok"
@@ -426,8 +426,8 @@ msgid "Compressing files"
 msgstr "Comprimindo arquivos."
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
-#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:918
-#: app/fileItemMenu.js:971 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:914
+#: app/fileItemMenu.js:967 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 #, fuzzy
 msgid "Cancel"
 msgstr "Cancelar"
@@ -714,7 +714,7 @@ msgstr "Seleção de corrente clara antes de nova pesquisa"
 msgid "Find Files on Desktop"
 msgstr "Encontre arquivos no Desktop"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:958 app/shortcuts.js:10
 #, fuzzy
 msgid "New Folder"
 msgstr "Nova pasta"
@@ -734,137 +734,137 @@ msgstr "Não consegui criar pasta."
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Incapaz de abrir no console do Gnome"
 
-#: app/desktopMenu.js:622
+#: app/desktopMenu.js:620
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "A janela de preferências está aberta"
 
-#: app/desktopMenu.js:623
+#: app/desktopMenu.js:621
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Esta janela está aberta. Por favor, mude para a janela ativa."
 
-#: app/desktopMenu.js:632 app/desktopMenu.js:1013
+#: app/desktopMenu.js:630 app/desktopMenu.js:1011
 #, fuzzy
 msgid "Settings"
 msgstr "Configurações"
 
-#: app/desktopMenu.js:815
+#: app/desktopMenu.js:813
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Erro de Criação de Modelo"
 
-#: app/desktopMenu.js:816
+#: app/desktopMenu.js:814
 #, fuzzy
 msgid "Could not create document"
 msgstr "Não pôde deletar documento"
 
-#: app/desktopMenu.js:921
+#: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
 msgstr "Nome"
 
-#: app/desktopMenu.js:923
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nome Z-A"
 
-#: app/desktopMenu.js:925
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Modified Time"
 msgstr "Tempo modificado"
 
-#: app/desktopMenu.js:927
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
 msgstr "Tipo"
 
-#: app/desktopMenu.js:929
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Size"
 msgstr "Tamanho"
 
-#: app/desktopMenu.js:934
+#: app/desktopMenu.js:932
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Mantenha-se arranjado.."
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:937
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Mantenha empilhados por tipo.."
 
-#: app/desktopMenu.js:941
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Classificar Início/Drives/Trash.."
 
-#: app/desktopMenu.js:946
+#: app/desktopMenu.js:944
 #, fuzzy
 #| msgid "Desktop"
 msgid "Change Desktop"
 msgstr "Área de Trabalho"
 
-#: app/desktopMenu.js:951
+#: app/desktopMenu.js:949
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:955
+#: app/desktopMenu.js:953
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Configurações de ícone de desktop"
 
-#: app/desktopMenu.js:957
+#: app/desktopMenu.js:955
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "Mostrar Atalhos"
 
-#: app/desktopMenu.js:965 app/shortcuts.js:43
+#: app/desktopMenu.js:963 app/shortcuts.js:43
 #, fuzzy
 msgid "New Document"
 msgstr "Novo Documento"
 
-#: app/desktopMenu.js:970 app/shortcuts.js:11
+#: app/desktopMenu.js:968 app/shortcuts.js:11
 #, fuzzy
 msgid "Paste"
 msgstr "Cole"
 
-#: app/desktopMenu.js:972 app/shortcuts.js:12
+#: app/desktopMenu.js:970 app/shortcuts.js:12
 #, fuzzy
 msgid "Undo"
 msgstr "Desfazer"
 
-#: app/desktopMenu.js:974 app/shortcuts.js:13
+#: app/desktopMenu.js:972 app/shortcuts.js:13
 #, fuzzy
 msgid "Redo"
 msgstr "Refazer"
 
-#: app/desktopMenu.js:980 app/shortcuts.js:14
+#: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
 msgstr "Selecionar Todos"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:985
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Organizar ícones"
 
-#: app/desktopMenu.js:991
+#: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Organizar por.."
 
-#: app/desktopMenu.js:999
+#: app/desktopMenu.js:997
 #, fuzzy
 msgid "Show Desktop In {0}"
 msgstr "Mostrar Desktop In {0}"
 
-#: app/desktopMenu.js:1004
+#: app/desktopMenu.js:1002
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Abrir em {0}"
 
-#: app/desktopMenu.js:1020
+#: app/desktopMenu.js:1018
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1105,114 +1105,114 @@ msgstr "Mostrar em"
 msgid "Open in {0}"
 msgstr "Abrir em {0}"
 
-#: app/fileItemMenu.js:538
+#: app/fileItemMenu.js:537
 #, fuzzy
 msgid "Open Item"
 msgstr "Itens abertos"
 
-#: app/fileItemMenu.js:823
+#: app/fileItemMenu.js:819
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Cancelamento de Extração"
 
-#: app/fileItemMenu.js:824
+#: app/fileItemMenu.js:820
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Incapaz de extrair Arquivo, nenhuma pasta de destino"
 
-#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
+#: app/fileItemMenu.js:876 app/fileItemMenu.js:905
 #, fuzzy
 msgid "Select Destination"
 msgstr "Selecionar destino"
 
-#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
+#: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 #, fuzzy
 msgid "Select"
 msgstr "Selecionar"
 
-#: app/fileItemMenu.js:967
+#: app/fileItemMenu.js:963
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Não pode enviar um e-mail"
 
-#: app/fileItemMenu.js:969
+#: app/fileItemMenu.js:965
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Seleção inclui um Diretório, comprimir para um arquivo .zip primeiro?"
 
-#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
-#: app/fileItemMenu.js:1062
+#: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
+#: app/fileItemMenu.js:1058
 #, fuzzy
 msgid "Mail Error"
 msgstr "Erro de correio"
 
-#: app/fileItemMenu.js:997
+#: app/fileItemMenu.js:993
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Incapaz de encontrar o comando zip, instale o programa"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1003
+#: app/fileItemMenu.js:999
 #, fuzzy
 msgid "Archive.zip"
 msgstr "Arquivos"
 
-#: app/fileItemMenu.js:1027
+#: app/fileItemMenu.js:1023
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Houve um erro na criação de um arquivo zip"
 
-#: app/fileItemMenu.js:1045
+#: app/fileItemMenu.js:1041
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Incapaz de encontrar xdg-email, instale o programa"
 
-#: app/fileItemMenu.js:1063
+#: app/fileItemMenu.js:1059
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Houve um erro no emailing Files"
 
-#: app/fileItemMenu.js:1170
+#: app/fileItemMenu.js:1174
 #, fuzzy
 msgid "Can Not open the Working Directory"
 msgstr "Não pode enviar um e-mail"
 
-#: app/fileItemMenu.js:1221
+#: app/fileItemMenu.js:1225
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Incapaz de abrir no console do Gnome"
 
-#: app/fileItemMenu.js:1223
+#: app/fileItemMenu.js:1227
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Instale o Console do Gnome ou outro programa terminal"
 
-#: app/fileItemMenu.js:1231
+#: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Incapaz de abrir Não"
 
-#: app/fileItemMenu.js:1233
+#: app/fileItemMenu.js:1237
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Incapaz de copiar arquivos, sem pasta de destino"
 
-#: app/fileItemMenu.js:1277
+#: app/fileItemMenu.js:1281
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Cópia cancelada"
 
-#: app/fileItemMenu.js:1278
+#: app/fileItemMenu.js:1282
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Incapaz de copiar arquivos, sem pasta de destino"
 
-#: app/fileItemMenu.js:1301
+#: app/fileItemMenu.js:1305
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Movimento cancelado"
 
-#: app/fileItemMenu.js:1302
+#: app/fileItemMenu.js:1306
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Incapaz de mover arquivos, sem pasta de destino"
