@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 06:01-0400\n"
+"POT-Creation-Date: 2025-05-25 18:40-0400\n"
 "PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -31,270 +31,270 @@ msgstr "Tampilkan Pintasan"
 msgid "Edit Shortcuts..."
 msgstr "Tampilkan Pintasan"
 
-#: app/adwPreferencesWindow.js:175
+#: app/adwPreferencesWindow.js:177
 msgid "Edit Application Shortcuts"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:180
+#: app/adwPreferencesWindow.js:182
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:284 app/adwPreferencesWindow.js:583
+#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Membantu menerjemahkan di browser web Anda"
 
-#: app/adwPreferencesWindow.js:367 app/adwPreferencesWindow.js:368
+#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
 #, fuzzy
 msgid "Desktop"
 msgstr "Desktop"
 
-#: app/adwPreferencesWindow.js:373 app/adwPreferencesWindow.js:374
+#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
 #, fuzzy
 msgid "Files"
 msgstr "Berkas"
 
-#: app/adwPreferencesWindow.js:379 app/adwPreferencesWindow.js:380
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
+#: app/adwPreferencesWindow.js:438
 #, fuzzy
 msgid "Tweaks"
 msgstr "Perubahan"
 
-#: app/adwPreferencesWindow.js:385 app/adwPreferencesWindow.js:386
+#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
 msgid "More"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:397
+#: app/adwPreferencesWindow.js:414
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Desktop Settings"
 
-#: app/adwPreferencesWindow.js:398
+#: app/adwPreferencesWindow.js:415
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Pengaturan untuk Program Desktop"
 
-#: app/adwPreferencesWindow.js:404
+#: app/adwPreferencesWindow.js:421
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "Folder desktop"
 
-#: app/adwPreferencesWindow.js:405
+#: app/adwPreferencesWindow.js:422
 #, fuzzy
 msgid "Current Desktop: "
 msgstr "Berkas desktop yang rusak"
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:431
 #, fuzzy
 msgid "Files Settings"
 msgstr "Pengaturan File"
 
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:432
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Pengaturan bersama dengan file Gnome"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:439
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Login Login"
 
-#: app/adwPreferencesWindow.js:440
+#: app/adwPreferencesWindow.js:457
 msgid "Size for the desktop icons"
 msgstr "Ukuran untuk ikon destop"
 
-#: app/adwPreferencesWindow.js:442
+#: app/adwPreferencesWindow.js:459
 #, fuzzy
 msgid "Tiny"
 msgstr "Mungil"
 
-#: app/adwPreferencesWindow.js:443
+#: app/adwPreferencesWindow.js:460
 msgid "Small"
 msgstr "Kecil"
 
-#: app/adwPreferencesWindow.js:444
+#: app/adwPreferencesWindow.js:461
 msgid "Standard"
 msgstr "Standar"
 
-#: app/adwPreferencesWindow.js:445
+#: app/adwPreferencesWindow.js:462
 msgid "Large"
 msgstr "Besar"
 
-#: app/adwPreferencesWindow.js:451
+#: app/adwPreferencesWindow.js:468
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Penyelarasan ikon baru"
 
-#: app/adwPreferencesWindow.js:453
+#: app/adwPreferencesWindow.js:470
 #, fuzzy
 msgid "Top left corner"
 msgstr "Sudut kiri atas"
 
-#: app/adwPreferencesWindow.js:454
+#: app/adwPreferencesWindow.js:471
 #, fuzzy
 msgid "Top right corner"
 msgstr "Sudut kanan atas"
 
-#: app/adwPreferencesWindow.js:455
+#: app/adwPreferencesWindow.js:472
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Sudut kiri bawah"
 
-#: app/adwPreferencesWindow.js:456
+#: app/adwPreferencesWindow.js:473
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Sudut kanan bawah"
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:479
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Tambahkan ikon baru ke Monitor Sekunder terlebih dahulu, jika tersedia"
 
-#: app/adwPreferencesWindow.js:466
+#: app/adwPreferencesWindow.js:483
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Snap ikon ke grid"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:489
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Menyiapkan grid drop"
 
-#: app/adwPreferencesWindow.js:481
+#: app/adwPreferencesWindow.js:498
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Tidak Ada Folder Tujuan"
 
-#: app/adwPreferencesWindow.js:482
+#: app/adwPreferencesWindow.js:499
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "Tampilkan folder pribadi di destop"
 
-#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:676
+#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
 #: app/desktopFolderMonitor.js:618
 #, fuzzy
 msgid "Choose"
 msgstr "Memilih"
 
-#: app/adwPreferencesWindow.js:488
+#: app/adwPreferencesWindow.js:505
 #, fuzzy
 msgid "Restore Default Desktop Folder"
 msgstr "Untrusted Desktop File"
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:506
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:490
+#: app/adwPreferencesWindow.js:507
 #, fuzzy
 msgid "Restore"
 msgstr "Memulihkan"
 
-#: app/adwPreferencesWindow.js:500
+#: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Add information emblems for links, encryption"
 msgstr "Tambahkan emblem ke tautan"
 
-#: app/adwPreferencesWindow.js:504
+#: app/adwPreferencesWindow.js:521
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Gunakan teks gelap dalam label ikon"
 
-#: app/adwPreferencesWindow.js:509
+#: app/adwPreferencesWindow.js:526
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Tampilkan folder pribadi di destop"
 
-#: app/adwPreferencesWindow.js:514
+#: app/adwPreferencesWindow.js:531
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Tampilkan ikon tong sampah di destop"
 
-#: app/adwPreferencesWindow.js:519
+#: app/adwPreferencesWindow.js:536
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Tampilkan drive eksternal di desktop"
 
-#: app/adwPreferencesWindow.js:524
+#: app/adwPreferencesWindow.js:541
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Tampilkan drive jaringan di desktop"
 
-#: app/adwPreferencesWindow.js:529
+#: app/adwPreferencesWindow.js:546
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Tambahkan drive baru ke sisi berlawanan dari desktop"
 
-#: app/adwPreferencesWindow.js:534
+#: app/adwPreferencesWindow.js:551
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Tindakan untuk Buka Barang"
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:553
 #, fuzzy
 msgid "Single click"
 msgstr "Klik"
 
-#: app/adwPreferencesWindow.js:537
+#: app/adwPreferencesWindow.js:554
 #, fuzzy
 msgid "Double click"
 msgstr "Klik ganda"
 
-#: app/adwPreferencesWindow.js:542
+#: app/adwPreferencesWindow.js:559
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Tampilkan gambar thumbnails"
 
-#: app/adwPreferencesWindow.js:544
+#: app/adwPreferencesWindow.js:561
 #, fuzzy
 msgid "Always"
 msgstr "Selalu"
 
-#: app/adwPreferencesWindow.js:545
+#: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "On this computer only"
 msgstr "Di komputer ini hanya"
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:563
 #, fuzzy
 msgid "Never"
 msgstr "Tidak pernah"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:568
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Tampilkan item menu konteks untuk menghapus secara permanen"
 
-#: app/adwPreferencesWindow.js:556
+#: app/adwPreferencesWindow.js:573
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Tampilkan &file tersembunyi"
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:578
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Buka folder pada drag hover"
 
-#: app/adwPreferencesWindow.js:565
+#: app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "About..."
 msgstr "Tentang"
 
-#: app/adwPreferencesWindow.js:576 app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
 #, fuzzy
 msgid "Translations"
 msgstr "Terjemahan"
 
-#: app/adwPreferencesWindow.js:577
+#: app/adwPreferencesWindow.js:596
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:584
+#: app/adwPreferencesWindow.js:603
 #, fuzzy
 msgid "Translate"
 msgstr "Terjemah"
 
-#: app/adwPreferencesWindow.js:675 app/desktopFolderMonitor.js:617
+#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
 #, fuzzy
 msgid "Choose Desktop Folder"
 msgstr "Berkas desktop yang rusak"
@@ -392,7 +392,7 @@ msgid "File name"
 msgstr "Nama berkas"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
-#: app/fileItemMenu.js:971
+#: app/fileItemMenu.js:967
 msgid "OK"
 msgstr "OK"
 
@@ -426,8 +426,8 @@ msgid "Compressing files"
 msgstr "Mengompresi berkas-berkas."
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
-#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:918
-#: app/fileItemMenu.js:971 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:914
+#: app/fileItemMenu.js:967 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Batal"
 
@@ -724,7 +724,7 @@ msgstr "Seleksi arus yang jelas sebelum pencarian baru"
 msgid "Find Files on Desktop"
 msgstr "Cari file di Desktop"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:960 app/shortcuts.js:10
+#: app/desktopManager.js:1558 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Folder Baru"
 
@@ -743,132 +743,132 @@ msgstr "Tidak dapat membuat folder."
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Tidak dapat dibuka di Konsol Gnome"
 
-#: app/desktopMenu.js:622
+#: app/desktopMenu.js:620
 #, fuzzy
 msgid "Preferences Window is Open"
 msgstr "Jendela Preferensi Terbuka"
 
-#: app/desktopMenu.js:623
+#: app/desktopMenu.js:621
 #, fuzzy
 msgid "This Window is open. Please switch to the active window."
 msgstr "Jendela ini terbuka. Silakan beralih ke jendela aktif."
 
-#: app/desktopMenu.js:632 app/desktopMenu.js:1013
+#: app/desktopMenu.js:630 app/desktopMenu.js:1011
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: app/desktopMenu.js:815
+#: app/desktopMenu.js:813
 #, fuzzy
 msgid "Template Creation Error"
 msgstr "Template Membuat Kesalahan"
 
-#: app/desktopMenu.js:816
+#: app/desktopMenu.js:814
 #, fuzzy
 msgid "Could not create document"
 msgstr "Tidak bisa membuat dokumen"
 
-#: app/desktopMenu.js:921
+#: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
 msgstr "Nama"
 
-#: app/desktopMenu.js:923
+#: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
 msgstr "Nama Z - A"
 
-#: app/desktopMenu.js:925
+#: app/desktopMenu.js:923
 #, fuzzy
 msgid "Modified Time"
 msgstr "Waktu yang dimodifikasi"
 
-#: app/desktopMenu.js:927
+#: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
 msgstr "Tipe"
 
-#: app/desktopMenu.js:929
+#: app/desktopMenu.js:927
 #, fuzzy
 msgid "Size"
 msgstr "Ukuran"
 
-#: app/desktopMenu.js:934
+#: app/desktopMenu.js:932
 #, fuzzy
 msgid "Keep Arranged…"
 msgstr "Sitemap"
 
-#: app/desktopMenu.js:939
+#: app/desktopMenu.js:937
 #, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Jauhkan Ditumpuk oleh Jenis.."
 
-#: app/desktopMenu.js:941
+#: app/desktopMenu.js:939
 #, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Urutkan Rumah / Drive / Sampah .."
 
-#: app/desktopMenu.js:946
+#: app/desktopMenu.js:944
 #, fuzzy
 msgid "Change Desktop"
 msgstr "Desktop"
 
-#: app/desktopMenu.js:951
+#: app/desktopMenu.js:949
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:955
+#: app/desktopMenu.js:953
 #, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Pengaturan Ikon Desktop"
 
-#: app/desktopMenu.js:957
+#: app/desktopMenu.js:955
 #, fuzzy
 msgid "Show Shortcuts"
 msgstr "Tampilkan Pintasan"
 
-#: app/desktopMenu.js:965 app/shortcuts.js:43
+#: app/desktopMenu.js:963 app/shortcuts.js:43
 msgid "New Document"
 msgstr "Dokumen Baru"
 
-#: app/desktopMenu.js:970 app/shortcuts.js:11
+#: app/desktopMenu.js:968 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Tempel"
 
-#: app/desktopMenu.js:972 app/shortcuts.js:12
+#: app/desktopMenu.js:970 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Tak Jadi"
 
-#: app/desktopMenu.js:974 app/shortcuts.js:13
+#: app/desktopMenu.js:972 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Jadi Lagi"
 
-#: app/desktopMenu.js:980 app/shortcuts.js:14
+#: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
 msgstr "Pilih Semua"
 
-#: app/desktopMenu.js:987
+#: app/desktopMenu.js:985
 #, fuzzy
 msgid "Arrange Icons"
 msgstr "Login"
 
-#: app/desktopMenu.js:991
+#: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
 msgstr "Login"
 
-#: app/desktopMenu.js:999
+#: app/desktopMenu.js:997
 #, fuzzy
 #| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
 msgstr "Tampilkan Desktop Dalam {0}"
 
-#: app/desktopMenu.js:1004
+#: app/desktopMenu.js:1002
 #, fuzzy
 msgid "Open In {0}"
 msgstr "Buka Dalam {0}"
 
-#: app/desktopMenu.js:1020
+#: app/desktopMenu.js:1018
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1098,113 +1098,113 @@ msgstr "Tampilkan dalam {0}"
 msgid "Open in {0}"
 msgstr "Buka {0}"
 
-#: app/fileItemMenu.js:538
+#: app/fileItemMenu.js:537
 #, fuzzy
 msgid "Open Item"
 msgstr "Artikel"
 
-#: app/fileItemMenu.js:823
+#: app/fileItemMenu.js:819
 #, fuzzy
 msgid "Extraction Cancelled"
 msgstr "Ekstraksi Cancelled"
 
-#: app/fileItemMenu.js:824
+#: app/fileItemMenu.js:820
 #, fuzzy
 msgid "Unable to extract File, no destination folder"
 msgstr "Tidak dapat diekstrak File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:880 app/fileItemMenu.js:909
+#: app/fileItemMenu.js:876 app/fileItemMenu.js:905
 #, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
-#: app/fileItemMenu.js:883 app/fileItemMenu.js:911
+#: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 msgid "Select"
 msgstr "Pilih"
 
-#: app/fileItemMenu.js:967
+#: app/fileItemMenu.js:963
 #, fuzzy
 msgid "Can not email a Directory"
 msgstr "Tidak bisa email Direktori"
 
-#: app/fileItemMenu.js:969
+#: app/fileItemMenu.js:965
 #, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Pemilihan termasuk Direktori, tekan ke file .zip pertama?"
 
-#: app/fileItemMenu.js:995 app/fileItemMenu.js:1026 app/fileItemMenu.js:1043
-#: app/fileItemMenu.js:1062
+#: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
+#: app/fileItemMenu.js:1058
 #, fuzzy
 msgid "Mail Error"
 msgstr "Login"
 
-#: app/fileItemMenu.js:997
+#: app/fileItemMenu.js:993
 #, fuzzy
 msgid "Unable to find zip command, please install the program"
 msgstr "Tidak dapat menemukan perintah zip, instal program"
 
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:1003
+#: app/fileItemMenu.js:999
 #, fuzzy
 msgid "Archive.zip"
 msgstr "WordPress.org"
 
-#: app/fileItemMenu.js:1027
+#: app/fileItemMenu.js:1023
 #, fuzzy
 msgid "There was an error in creating a zip archive"
 msgstr "Ada kesalahan dalam membuat arsip zip"
 
-#: app/fileItemMenu.js:1045
+#: app/fileItemMenu.js:1041
 #, fuzzy
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Tidak dapat menemukan xdg-email, mohon instal program"
 
-#: app/fileItemMenu.js:1063
+#: app/fileItemMenu.js:1059
 #, fuzzy
 msgid "There was an error in emailing Files"
 msgstr "Ada kesalahan dalam file email"
 
-#: app/fileItemMenu.js:1170
+#: app/fileItemMenu.js:1174
 #, fuzzy
 msgid "Can Not open the Working Directory"
 msgstr "Tidak bisa email Direktori"
 
-#: app/fileItemMenu.js:1221
+#: app/fileItemMenu.js:1225
 #, fuzzy
 msgid "Unable to Open in Gnome Console"
 msgstr "Tidak dapat dibuka di Konsol Gnome"
 
-#: app/fileItemMenu.js:1223
+#: app/fileItemMenu.js:1227
 #, fuzzy
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Silakan Instal Konsol Gnome atau Program Terminal lainnya"
 
-#: app/fileItemMenu.js:1231
+#: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Sitemap Sitemap"
 
-#: app/fileItemMenu.js:1233
+#: app/fileItemMenu.js:1237
 #, fuzzy
 msgid "Please Install {0}"
 msgstr "Login Sitemap"
 
-#: app/fileItemMenu.js:1277
+#: app/fileItemMenu.js:1281
 #, fuzzy
 msgid "Copy Cancelled"
 msgstr "Salin dibatalkan"
 
-#: app/fileItemMenu.js:1278
+#: app/fileItemMenu.js:1282
 #, fuzzy
 msgid "Unable to copy Files, no destination folder"
 msgstr "Tidak dapat menyalin File, tidak ada folder tujuan"
 
-#: app/fileItemMenu.js:1301
+#: app/fileItemMenu.js:1305
 #, fuzzy
 msgid "Move Cancelled"
 msgstr "Pindah Batal"
 
-#: app/fileItemMenu.js:1302
+#: app/fileItemMenu.js:1306
 #, fuzzy
 msgid "Unable to move Files, no destination folder"
 msgstr "Tidak dapat memindahkan File, tidak ada folder tujuan"
