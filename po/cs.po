@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 18:40-0400\n"
-"PO-Revision-Date: 2025-05-23 02:03+0000\n"
+"PO-Revision-Date: 2025-05-28 02:03+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -755,7 +755,7 @@ msgstr "Jméno"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název (Z-A)"
+msgstr "Název Z - A"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -984,7 +984,7 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesuň k"
+msgstr "Přesunout do"
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1468,7 +1468,7 @@ msgstr "Nelze otevřít tento soubor, protože je to Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Úložiště"
+msgstr "Odpálení"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy

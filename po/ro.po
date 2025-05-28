@@ -9,11 +9,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 18:40-0400\n"
-"PO-Revision-Date: 2025-05-23 23:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ro/>\n"
+"PO-Revision-Date: 2025-05-28 02:03+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -596,7 +595,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nu s-a putut deschide fișierele"
+msgstr "Fișierul nu poate fi deschis"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -647,7 +646,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Activează"
+msgstr "Permite"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -741,7 +740,7 @@ msgstr "Nu s-a putut șterge documentul"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "Nume"
+msgstr "Numele"
 
 #: app/desktopMenu.js:921
 #, fuzzy
@@ -756,7 +755,7 @@ msgstr "Timp modificat"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "Tipul"
+msgstr "Tip"
 
 #: app/desktopMenu.js:927
 #, fuzzy
