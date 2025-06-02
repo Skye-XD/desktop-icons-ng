@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 18:40-0400\n"
-"PO-Revision-Date: 2025-05-28 02:03+0000\n"
+"PO-Revision-Date: 2025-06-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
@@ -282,7 +282,7 @@ msgstr "Abrir pastas no mouse hover"
 #: app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "About..."
-msgstr "Acerca de..."
+msgstr "Sobre..."
 
 #: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
 #, fuzzy
@@ -1488,7 +1488,7 @@ msgstr "Não é possível abrir este arquivo porque é um Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Dispositivo"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1532,7 +1532,7 @@ msgstr "_Abrir"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
 msgid "Icon size"
-msgstr "Tamanho do Ícone"
+msgstr "Tamanho do ícone"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy

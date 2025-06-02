@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 18:40-0400\n"
-"PO-Revision-Date: 2025-05-28 02:03+0000\n"
+"PO-Revision-Date: 2025-06-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
@@ -65,7 +65,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:438
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce Ayarlar"
+msgstr "İnce ayarlar"
 
 #: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
 #, fuzzy
@@ -768,7 +768,7 @@ msgstr "Isim"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Ad Z - A"
+msgstr "İsim (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -995,7 +995,7 @@ msgstr "Kes"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Taşı..."
+msgstr "Buraya taşı..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1284,7 +1284,7 @@ msgstr "Tüm Kısayolları Varsayılan Değerlerine Sıfırla"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Tümünü Sıfırla"
+msgstr "Hepsini sıfırla"
 
 #: app/shortcuts.js:15
 #, fuzzy
