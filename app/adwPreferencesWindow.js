@@ -306,6 +306,87 @@ Change Name to Adw. Desktop Icons :)
     }
 };
 
+
+const DingPreferencesWindow = class extends DesktopFolderUtils {
+    constructor(params) {
+        super(params);
+        this.iconTheme =
+            Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+
+        this.iconTheme.add_resource_path(`${appPath}/icons`);
+    }
+
+    addActionRowSwitch(settings, key, labelText, bindFlags = null) {
+        const actionRow = Adw.ActionRow.new();
+        const switcher = new Gtk.Switch({active: settings.get_boolean(key)});
+
+        switcher.set_halign(Gtk.Align.END);
+        switcher.set_valign(Gtk.Align.CENTER);
+        switcher.set_hexpand(false);
+        switcher.set_vexpand(false);
+        actionRow.set_title(labelText);
+        actionRow.add_suffix(switcher);
+
+        if (!bindFlags)
+            bindFlags = Gio.SettingsBindFlags.DEFAULT;
+
+        settings.bind(key, switcher, 'active', bindFlags);
+        actionRow.set_activatable_widget(switcher);
+
+        return actionRow;
+    }
+
+    addActionRowSelector(settings, key, labelText, elements) {
+        const actionRow = new ComboRowWithKey();
+
+        actionRow.set_title(labelText);
+        actionRow.set_use_subtitle(false);
+        actionRow.makeEnumn(elements);
+        actionRow.set_selected(settings.get_enum(key));
+
+        settings.bind(key, actionRow, 'indexkey',
+            Gio.SettingsBindFlags.DEFAULT);
+
+        return actionRow;
+    }
+
+    addActionRowButton(title, subtitle, buttonLabel, action, key = null) {
+        const actionRow = Adw.ActionRow.new();
+
+        actionRow.set_title(title);
+
+        if (subtitle) {
+            actionRow.use_markup = false;
+            actionRow.set_subtitle(subtitle);
+            if (Adw.get_minor_version() > 2)
+                actionRow.set_subtitle_selectable(true);
+        }
+
+        if (buttonLabel && action) {
+            const button = Gtk.Button.new_with_label(buttonLabel);
+
+            button.set_size_request(120, -1);
+            button.set_halign(Gtk.Align.END);
+            button.set_valign(Gtk.Align.CENTER);
+            button.set_hexpand(true);
+            button.set_vexpand(false);
+            button.connect('clicked', action.bind(this, actionRow, button, key));
+
+            actionRow.add_suffix(button);
+            actionRow.set_activatable_widget(button);
+        }
+
+        return actionRow;
+    }
+
+    launchUri(uri) {
+        const context = Gdk.Display.get_default().get_app_launch_context();
+        context.set_timestamp(Gdk.CURRENT_TIME);
+
+        Gio.AppInfo.launch_default_for_uri(uri, context);
+    }
+};
+
 const AdwPreferencesWindow = class {
     constructor(
         desktopSettings,
