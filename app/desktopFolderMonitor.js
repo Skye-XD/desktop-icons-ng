@@ -16,14 +16,16 @@
  */
 
 import {IconCreator} from '../dependencies/localFiles.js';
+import {DesktopFolderUtils} from '../dependencies/localFiles.js';
 
-import {Gio, GLib, Gtk} from '../dependencies/gi.js';
+import {Gio, GLib} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopMonitor};
 
-const DesktopMonitor = class {
+const DesktopMonitor = class extends DesktopFolderUtils {
     constructor(desktopManager) {
+        super();
         this.desktopManager = desktopManager;
         this.mainApp = desktopManager.mainApp;
         this.DesktopIconsUtil = desktopManager.DesktopIconsUtil;
@@ -36,7 +38,6 @@ const DesktopMonitor = class {
 
         this._desktopFilesChanged = false;
         this._readingDesktopFiles = false;
-        this._desktopDir = this.DesktopIconsUtil.getDesktopDir();
         this._fileList = [];
         this._forcedExit = false;
         this._writableByOthers = false;
@@ -60,7 +61,7 @@ const DesktopMonitor = class {
         const changeDesktop = Gio.SimpleAction.new('changeDesktop', null);
 
         changeDesktop.connect('activate', () => {
-            this._changeDesktop();
+            this.changeDesktop();
         });
 
         this.mainApp.add_action(changeDesktop);
@@ -69,13 +70,13 @@ const DesktopMonitor = class {
             Gio.SimpleAction.new('restoreDefaultDesktop', null);
 
         this.restoreDefaultDesktopAction.connect('activate', () => {
-            this._restoreDefaultDesktop();
+            this.restoreDefaultDesktop();
         });
 
         this.mainApp.add_action(this.restoreDefaultDesktopAction);
 
         this.restoreDefaultDesktopAction
-            .set_enabled(!this._isDefaultDesktopFolder());
+            .set_enabled(!this.isDefaultDesktop);
     }
 
     stopMonitoring() {
@@ -85,80 +86,50 @@ const DesktopMonitor = class {
         this._forcedExit = true;
         if (this._desktopEnumerateCancellable)
             this._desktopEnumerateCancellable.cancel();
+
+        super._stopMonitoring();
     }
 
-    _monitorDesktopDirChanges() {
-        this._xdgUserDirs = this.DesktopIconsUtil.getXdgUserDirs();
+    onDesktopFolderChanged(newDesktopDir) {
+        const isFolder =
+            newDesktopDir.query_file_type(
+                Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                null
+            ) === Gio.FileType.DIRECTORY;
 
-        this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(
-            Gio.FileMonitorFlags.WATCH_MOVES, null);
+        if (!isFolder) {
+            const header =
+                _('Desktop Folder Change Failed');
 
-        this._monitorXdgUserDirs.set_rate_limit(2000);
+            const text =
+                _('The new Desktop Folder does not exist!');
 
-        this._monitorXdgUserDirs.connect(
-            'changed',
-            (obj, file, otherFile, event) => {
-                if (!(event === Gio.FileMonitorEvent.CHANGES_DONE_HINT ||
-                    event === Gio.FileMonitorEvent.RENAMED))
-                    return;
+            this.dbusManager.doNotify(header, text);
+            return;
+        }
 
-                if (this._changingDesktopDirID)
-                    GLib.source_remove(this._changingDesktopDirID);
+        if (newDesktopDir.get_path() ===
+            this._desktopDir.get_path()
+        )
+            return;
 
-                this._changingDesktopDirID =
-                    GLib.timeout_add(GLib.PRIORITY_LOW, 500, () => {
-                        const newDesktopDir =
-                            this.DesktopIconsUtil.getDesktopDir();
+        const header = _('Desktop Folder Changed');
+        const text = _('Switching to new Desktop...');
+        this.dbusManager.doNotify(header, text);
 
-                        const isFolder =
-                            newDesktopDir.query_file_type(
-                                Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
-                                null
-                            ) === Gio.FileType.DIRECTORY;
+        this._desktopDir = newDesktopDir;
 
-                        if (!isFolder) {
-                            const header =
-                                _('Desktop Folder Change Failed');
+        this.restoreDefaultDesktopAction
+        .set_enabled(!this.isDefaultDesktop);
 
-                            const text =
-                                _('The new Desktop Folder does not exist!');
+        this._updateWritableByOthers()
+            .catch(e => console.error(e));
 
-                            this.dbusManager.doNotify(header, text);
-                            this._changingDesktopDirID = null;
+        this._desktops.forEach(d => d.unsetErrorState());
 
-                            return GLib.SOURCE_REMOVE;
-                        }
+        this._updateFileList().catch(e => console.error(e));
 
-                        if (newDesktopDir.get_path() ===
-                            this._desktopDir.get_path()
-                        ) {
-                            this._changingDesktopDirID = null;
-
-                            return GLib.SOURCE_REMOVE;
-                        }
-
-                        const header = _('Desktop Folder Changed');
-                        const text = _('Switching to new Desktop...');
-                        this.dbusManager.doNotify(header, text);
-
-                        this._desktopDir = newDesktopDir;
-
-                        this.restoreDefaultDesktopAction
-                        .set_enabled(!this._isDefaultDesktopFolder());
-
-                        this._updateWritableByOthers()
-                            .catch(e => console.error(e));
-
-                        this._desktops.forEach(d => d.unsetErrorState());
-
-                        this._updateFileList().catch(e => console.error(e));
-
-                        this._monitorDesktopChanges();
-                        this._changingDesktopDirID = null;
-
-                        return GLib.SOURCE_REMOVE;
-                    });
-            });
+        this._monitorDesktopChanges();
     }
 
     async _updateWritableByOthers() {
@@ -227,6 +198,7 @@ const DesktopMonitor = class {
         cancellable.connect(
             () => {
                 this._monitorDesktopDir.disconnect(monitorID);
+                this._monitorDesktopDir.cancel();
                 this._monitorDesktopDir = null;
                 this.monitorDesktopCancellable = null;
             }
@@ -612,49 +584,6 @@ const DesktopMonitor = class {
         }
     }
 
-    _changeDesktop() {
-        const dialog = new Gtk.FileDialog();
-        dialog.set_title(_('Choose Desktop Folder'));
-        dialog.set_accept_label(_('Choose'));
-        dialog.set_modal(true);
-
-        dialog.set_initial_folder(
-            Gio.File.new_for_commandline_arg(GLib.get_home_dir())
-        );
-
-        dialog.select_folder(
-            this.mainApp.get_active_window(),
-            null,
-            this._finishChooseDesktopFolder.bind(this)
-        );
-    }
-
-    _finishChooseDesktopFolder(dialog, asyncResult) {
-        let folder = null;
-        try {
-            folder = dialog.select_folder_finish(asyncResult);
-        } catch (e) {
-            if (e.matches(Gtk.DialogError, Gtk.DialogError.CANCELLED) ||
-                e.matches(Gtk.DialogError, Gtk.DialogError.DISMISSED))
-                return;
-            console.error(e, `Error selecting folder: ${e.message}`);
-        }
-        if (folder)
-            this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(folder.get_path());
-    }
-
-    _restoreDefaultDesktop() {
-        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
-            'Desktop']);
-        this.DesktopIconsUtil.writeXdgUserDirsDesktopFile(defaultDesktop);
-    }
-
-    _isDefaultDesktopFolder() {
-        const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
-            'Desktop']);
-        return this._desktopDir.get_path() === defaultDesktop;
-    }
-
     onMountAdded() {
         this._updateFileList().catch(e => {
             console.log(
@@ -722,10 +651,6 @@ const DesktopMonitor = class {
 
     get desktopDir() {
         return this._desktopDir;
-    }
-
-    get isDefaultDesktopFolder() {
-        return this._isDefaultDesktopFolder();
     }
 };
 
