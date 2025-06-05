@@ -28,6 +28,55 @@ const DesktopFolderUtils = class {
         this._desktopDir = this.getDesktopDir();
     }
 
+    _monitorDesktopDirChanges() {
+        this._xdgUserDirs = this._getXdgUserDirs();
+
+        this._monitorXdgUserDirs = this._xdgUserDirs.monitor_file(
+            Gio.FileMonitorFlags.WATCH_MOVES, null);
+
+        this._monitorXdgUserDirs.set_rate_limit(2000);
+
+        this._connectMonitor();
+    }
+
+    _connectMonitor() {
+        this._monitorID = this._monitorXdgUserDirs.connect(
+            'changed',
+            (obj, file, otherFile, event) => {
+                if (!(event === Gio.FileMonitorEvent.CHANGES_DONE_HINT ||
+                    event === Gio.FileMonitorEvent.RENAMED))
+                    return;
+
+                if (this._changingDesktopDirID)
+                    GLib.source_remove(this._changingDesktopDirID);
+
+                this._changingDesktopDirID =
+                    GLib.timeout_add(GLib.PRIORITY_LOW, 500, () => {
+                        const newDesktopDir =
+                            this.getDesktopDir();
+                        this.onDesktopFolderChanged(newDesktopDir);
+                        this._changingDesktopDirID = null;
+                        return GLib.SOURCE_REMOVE;
+                    });
+            }
+        );
+    }
+
+    _disconnectMonitor() {
+        if (this._monitorID)
+            this._monitorXdgUserDirs.disconnect(this._monitorID);
+        this._monitorID = 0;
+    }
+
+    _stopMonitoring() {
+        this._disconnectMonitor();
+        this._monitorXdgUserDirs?.cancel();
+    }
+
+    onDesktopFolderChanged(newDesktopDir) {
+        this._desktopDir = newDesktopDir;
+    }
+
     changeDesktop() {
         const dialog = new Gtk.FileDialog();
         dialog.set_title(_('Choose Desktop Folder'));
@@ -48,13 +97,9 @@ const DesktopFolderUtils = class {
     restoreDefaultDesktop() {
         const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
             'Desktop']);
-        this.setDesktopFolder(defaultDesktop);
-    }
 
-    async setDesktopFolder(path) {
-        await this._writeXdgUserDirsDesktopFile(path);
-        this._desktopDir = this.getDesktopDir();
-        this.onDesktopFolderChanged();
+        const desktopFolder = Gio.File.new_for_path(defaultDesktop);
+        this._setDesktopFolder(desktopFolder);
     }
 
     getDesktopDir() {
@@ -90,7 +135,6 @@ const DesktopFolderUtils = class {
         return Gio.File.new_for_commandline_arg(desktopPath);
     }
 
-    onDesktopFolderChanged() {}
 
     async _finishChooseDesktopFolder(dialog, asyncResult) {
         let newFolder = null;
@@ -107,6 +151,10 @@ const DesktopFolderUtils = class {
         if (!newFolder)
             return;
 
+        await this._setDesktopFolder(newFolder);
+    }
+
+    async _setDesktopFolder(newFolder) {
         const isFolder =
             newFolder.query_file_type(
                 Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
@@ -119,7 +167,7 @@ const DesktopFolderUtils = class {
         if (newFolder.get_path() === this._desktopDir.get_path())
             return;
 
-        await this.setDesktopFolder(newFolder.get_path());
+        await this._writeXdgUserDirsDesktopFile(newFolder.get_path());
     }
 
     _isDefaultDesktopFolder() {
