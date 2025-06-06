@@ -17,6 +17,7 @@
  */
 import {Gtk, Gdk, Gio, GLib, GObject, Adw} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
+import {DesktopFolderUtils} from '../dependencies/localFiles.js';
 
 export {AdwPreferencesWindow};
 
@@ -305,7 +306,88 @@ Change Name to Adw. Desktop Icons :)
     }
 };
 
-const AdwPreferencesWindow = class {
+
+const DingPreferencesWindow = class extends DesktopFolderUtils {
+    constructor(params) {
+        super(params);
+        this.iconTheme =
+            Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
+
+        this.iconTheme.add_resource_path(`${appPath}/icons`);
+    }
+
+    addActionRowSwitch(settings, key, labelText, bindFlags = null) {
+        const actionRow = Adw.ActionRow.new();
+        const switcher = new Gtk.Switch({active: settings.get_boolean(key)});
+
+        switcher.set_halign(Gtk.Align.END);
+        switcher.set_valign(Gtk.Align.CENTER);
+        switcher.set_hexpand(false);
+        switcher.set_vexpand(false);
+        actionRow.set_title(labelText);
+        actionRow.add_suffix(switcher);
+
+        if (!bindFlags)
+            bindFlags = Gio.SettingsBindFlags.DEFAULT;
+
+        settings.bind(key, switcher, 'active', bindFlags);
+        actionRow.set_activatable_widget(switcher);
+
+        return actionRow;
+    }
+
+    addActionRowSelector(settings, key, labelText, elements) {
+        const actionRow = new ComboRowWithKey();
+
+        actionRow.set_title(labelText);
+        actionRow.set_use_subtitle(false);
+        actionRow.makeEnumn(elements);
+        actionRow.set_selected(settings.get_enum(key));
+
+        settings.bind(key, actionRow, 'indexkey',
+            Gio.SettingsBindFlags.DEFAULT);
+
+        return actionRow;
+    }
+
+    addActionRowButton(title, subtitle, buttonLabel, action, key = null) {
+        const actionRow = Adw.ActionRow.new();
+
+        actionRow.set_title(title);
+
+        if (subtitle) {
+            actionRow.use_markup = false;
+            actionRow.set_subtitle(subtitle);
+            if (Adw.get_minor_version() > 2)
+                actionRow.set_subtitle_selectable(true);
+        }
+
+        if (buttonLabel && action) {
+            const button = Gtk.Button.new_with_label(buttonLabel);
+
+            button.set_size_request(120, -1);
+            button.set_halign(Gtk.Align.END);
+            button.set_valign(Gtk.Align.CENTER);
+            button.set_hexpand(true);
+            button.set_vexpand(false);
+            button.connect('clicked', action.bind(this, actionRow, button, key));
+
+            actionRow.add_suffix(button);
+            actionRow.set_activatable_widget(button);
+        }
+
+        return actionRow;
+    }
+
+    launchUri(uri) {
+        const context = Gdk.Display.get_default().get_app_launch_context();
+        context.set_timestamp(Gdk.CURRENT_TIME);
+
+        Gio.AppInfo.launch_default_for_uri(uri, context);
+    }
+};
+
+const AdwPreferencesWindow = class extends DingPreferencesWindow {
     constructor(
         desktopSettings,
         nautilusSettings,
@@ -313,6 +395,7 @@ const AdwPreferencesWindow = class {
         version,
         actiongroup = null
     ) {
+        super();
         this.desktopSettings = desktopSettings;
         this.nautilusSettings = nautilusSettings;
         this.gtkSettings = gtkSettings;
@@ -322,14 +405,7 @@ const AdwPreferencesWindow = class {
         else
             this.remoteActions = actiongroup;
 
-        this.iconTheme =
-            Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
-
-        this.iconTheme.add_resource_path('/com/desktop/ding/icons');
         this.version = version;
-
-        this.defaultDesktop =
-            GLib.build_filenamev([GLib.get_home_dir(), 'Desktop']);
     }
 
     destroy() {
@@ -379,6 +455,7 @@ const AdwPreferencesWindow = class {
         prefsWindow.set_search_enabled(true);
 
         this.prefsWindow = prefsWindow;
+        this.activeWindow = prefsWindow;
 
         const prefsFrame = new Adw.PreferencesPage();
 
@@ -421,8 +498,9 @@ const AdwPreferencesWindow = class {
 
         this.desktopFolderGroup.set_title(_('Desktop Folder'));
         this.FolderGroupDescription = _('Current Desktop: ');
+        const desktoPath = this.getDesktopDir().get_path();
         this.desktopFolderGroup.set_description(
-            `${this.FolderGroupDescription} ${this.getCurrentDesktopFolder()}`
+            `${this.FolderGroupDescription} ${desktoPath}`
         );
 
         prefsFrame.add(this.desktopFolderGroup);
@@ -499,18 +577,18 @@ const AdwPreferencesWindow = class {
             .add(this.addActionRowButton(_('New Desktop Folder'),
                 _('Set a new folder for the desktop'),
                 _('Choose'),
-                this.chooseDesktopFolder.bind(this)
+                this.changeDesktop.bind(this)
             ));
 
         this.defaultDesktopRow =
             this.addActionRowButton(_('Restore Default Desktop Folder'),
                 _('Set Desktop back to $HOME/Desktop'),
                 _('Restore'),
-                this.restoreDefaultDesktopFolder.bind(this)
+                this.restoreDefaultDesktop.bind(this)
             );
 
         this.desktopFolderGroup.add(this.defaultDesktopRow);
-        this.defaultDesktopRow.set_sensitive(!this.isDefault());
+        this.defaultDesktopRow.set_sensitive(!this.isDefaultDesktop);
 
 
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
@@ -607,161 +685,36 @@ const AdwPreferencesWindow = class {
 
         prefsWindow.set_default_size(600, 650);
 
+        this._monitorDesktopDirChanges();
+
+        prefsWindow.connect(
+            'close-request',
+            () => {
+                this._stopMonitoring();
+                this.activeWindow = null;
+            }
+        );
+
         if (!window)
             return prefsWindow;
         else
             return true;
     }
 
-    addActionRowSwitch(settings, key, labelText, bindFlags = null) {
-        const actionRow = Adw.ActionRow.new();
-        const switcher = new Gtk.Switch({active: settings.get_boolean(key)});
+    onDesktopFolderChanged(newDesktopDir) {
+        super.onDesktopFolderChanged(newDesktopDir);
+        const desktopPath = this._desktopDir.get_path();
+        this.desktopFolderGroup.set_description(
+            `${this.FolderGroupDescription} ${desktopPath}`
+        );
 
-        switcher.set_halign(Gtk.Align.END);
-        switcher.set_valign(Gtk.Align.CENTER);
-        switcher.set_hexpand(false);
-        switcher.set_vexpand(false);
-        actionRow.set_title(labelText);
-        actionRow.add_suffix(switcher);
-
-        if (!bindFlags)
-            bindFlags = Gio.SettingsBindFlags.DEFAULT;
-
-        settings.bind(key, switcher, 'active', bindFlags);
-        actionRow.set_activatable_widget(switcher);
-
-        return actionRow;
-    }
-
-    addActionRowSelector(settings, key, labelText, elements) {
-        const actionRow = new ComboRowWithKey();
-
-        actionRow.set_title(labelText);
-        actionRow.set_use_subtitle(false);
-        actionRow.makeEnumn(elements);
-        actionRow.set_selected(settings.get_enum(key));
-
-        settings.bind(key, actionRow, 'indexkey',
-            Gio.SettingsBindFlags.DEFAULT);
-
-        return actionRow;
-    }
-
-    addActionRowButton(title, subtitle, buttonLabel, action, key = null) {
-        const actionRow = Adw.ActionRow.new();
-
-        actionRow.set_title(title);
-
-        if (subtitle) {
-            actionRow.use_markup = false;
-            actionRow.set_subtitle(subtitle);
-            if (Adw.get_minor_version() > 2)
-                actionRow.set_subtitle_selectable(true);
-        }
-
-        if (buttonLabel && action) {
-            const button = Gtk.Button.new_with_label(buttonLabel);
-
-            button.set_size_request(120, -1);
-            button.set_halign(Gtk.Align.END);
-            button.set_valign(Gtk.Align.CENTER);
-            button.set_hexpand(true);
-            button.set_vexpand(false);
-            button.connect('clicked', action.bind(this, actionRow, button, key));
-
-            actionRow.add_suffix(button);
-            actionRow.set_activatable_widget(button);
-        }
-
-        return actionRow;
-    }
-
-    launchUri(uri) {
-        const context = Gdk.Display.get_default().get_app_launch_context();
-        context.set_timestamp(Gdk.CURRENT_TIME);
-
-        Gio.AppInfo.launch_default_for_uri(uri, context);
+        this.defaultDesktopRow.set_sensitive(!this.isDefaultDesktop);
     }
 
     launchWebTranslation() {
         const translationUri =
         'https://hosted.weblate.org/engage/gtk4-desktop-icons-ng';
         this.launchUri(translationUri);
-    }
-
-    chooseDesktopFolder() {
-        const dialog = new Gtk.FileDialog();
-
-        dialog.set_title(_('Choose Desktop Folder'));
-        dialog.set_accept_label(_('Choose'));
-        dialog.set_modal(true);
-
-        dialog.set_initial_folder(
-            Gio.File.new_for_commandline_arg(GLib.get_home_dir())
-        );
-
-        dialog.select_folder(
-            this.prefsWindow,
-            null,
-            this.finishChooseDesktopFolder.bind(this)
-        );
-    }
-
-    finishChooseDesktopFolder(dialog, asyncResult) {
-        let folder = null;
-
-        try {
-            folder = dialog.select_folder_finish(asyncResult);
-        } catch (e) {
-            if (e.matches(Gtk.DialogError, Gtk.DialogError.CANCELLED) ||
-                e.matches(Gtk.DialogError, Gtk.DialogError.DISMISSED))
-                return;
-            console.error(e, `Error selecting folder: ${e.message}`);
-        }
-
-        if (folder)
-            this.setDesktopFolder(folder.get_path());
-
-        this.defaultDesktopRow.set_sensitive(!this.isDefault());
-
-        this.desktopFolderGroup.set_description(
-            `${this.FolderGroupDescription} ${folder.get_path()}`
-        );
-    }
-
-    setDesktopFolder(path) {
-        const command = 'xdg-user-dirs-update --set DESKTOP';
-
-        try {
-            GLib.spawn_command_line_async(
-                `${command} '${path}'`);
-        } catch (e) {
-            console.error(`Error setting desktop folder ${path}: ${e}`);
-        }
-    }
-
-    restoreDefaultDesktopFolder() {
-        this.setDesktopFolder(this.defaultDesktop);
-        this.defaultDesktopRow.set_sensitive(!this.isDefault());
-
-        this.desktopFolderGroup.set_description(
-            `${this.FolderGroupDescription} ${this.defaultDesktop}`
-        );
-    }
-
-    isDefault() {
-        return this.getCurrentDesktopFolder() === this.defaultDesktop;
-    }
-
-    getCurrentDesktopFolder() {
-        const command = 'xdg-user-dir DESKTOP';
-        const decoder = new TextDecoder();
-        const [, out,, status] = GLib.spawn_command_line_sync(command);
-
-        if (status === 0)
-            return decoder.decode(out).trim();
-        else
-            return null;
     }
 };
 

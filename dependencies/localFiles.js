@@ -1,3 +1,4 @@
+export {DesktopFolderUtils} from '../app/utils/desktopFolderUtils.js';
 export * as AdwPreferencesWindow from '../app/adwPreferencesWindow.js';
 export * as AppChooser from '../app/appChooser.js';
 export * as AskRenamePopup from '../app/askRenamePopup.js';

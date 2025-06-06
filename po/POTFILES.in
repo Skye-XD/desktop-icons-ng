@@ -28,6 +28,7 @@ app/thumbnails.js
 app/volumeIcon.js
 app/windowManager.js
 app/utils/dbusUtils.js
+app/utils/desktopFolderUtils.js
 app/utils/desktopIconsUtil.js
 app/utils/gsConnect.js
 data/ui/ding-app-chooser.ui
