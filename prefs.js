@@ -25,6 +25,10 @@ import * as  adwPreferencesWindow from './app/adwPreferencesWindow.js';
 import {ExtensionPreferences, gettext as _} from
     'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
+const fileProto = imports.system.version >= 17200
+    ? Gio.File.prototype : Gio._LocalFilePrototype;
+Gio._promisify(fileProto, 'replace_contents_async');
+
 const appID = 'com.desktop.ding';
 
 export default class dingPreferences extends ExtensionPreferences {
