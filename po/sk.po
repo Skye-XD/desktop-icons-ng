@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding v100\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 18:40-0400\n"
+"POT-Creation-Date: 2025-06-05 18:11-0400\n"
 "PO-Revision-Date: 2025-05-23 00:03+0200\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
@@ -23,235 +23,230 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: app/adwPreferencesWindow.js:159
+#: app/adwPreferencesWindow.js:160
 msgid "Shortcuts"
 msgstr "Klávesové skratky"
 
-#: app/adwPreferencesWindow.js:162
+#: app/adwPreferencesWindow.js:163
 msgid "Edit Shortcuts..."
 msgstr "Upraviť skratky..."
 
-#: app/adwPreferencesWindow.js:177
+#: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
 msgstr "Upraviť klávesové skratky aplikácie"
 
-#: app/adwPreferencesWindow.js:182
+#: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr "Skratky sú upraviteľné len pri zapnutom rozšírení..."
 
-#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
+#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:681
 msgid "Help translate in your web browser"
 msgstr "Pomôžte preložiť vo svojom webovom prehliadači"
 
-#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
+#: app/adwPreferencesWindow.js:462 app/adwPreferencesWindow.js:463
 msgid "Desktop"
 msgstr "Pracovná plocha"
 
-#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
+#: app/adwPreferencesWindow.js:468 app/adwPreferencesWindow.js:469
 msgid "Files"
 msgstr "Súbory"
 
-#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
-#: app/adwPreferencesWindow.js:438
+#: app/adwPreferencesWindow.js:474 app/adwPreferencesWindow.js:475
+#: app/adwPreferencesWindow.js:517
 msgid "Tweaks"
 msgstr "Vyladenia"
 
-#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
+#: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 msgid "More"
 msgstr "Viac"
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:492
 msgid "Desktop Settings"
 msgstr "Nastavenie plochy"
 
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:493
 msgid "Settings for the Desktop Program"
 msgstr "Nastavenia pre program plochy"
 
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:499
 msgid "Desktop Folder"
 msgstr "Priečinok pracovnej plochy"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:500
 msgid "Current Desktop: "
 msgstr "Aktuálna pracovná plocha: "
 
-#: app/adwPreferencesWindow.js:431
+#: app/adwPreferencesWindow.js:510
 msgid "Files Settings"
 msgstr "Nastavenia súborov"
 
-#: app/adwPreferencesWindow.js:432
+#: app/adwPreferencesWindow.js:511
 msgid "Settings shared with Gnome Files"
 msgstr "Nastavenia zdieľané s aplikáciou Súbory (Gnome Files)"
 
-#: app/adwPreferencesWindow.js:439
+#: app/adwPreferencesWindow.js:518
 msgid "Miscellaneous Tweaks"
 msgstr "Rôzne vyladenia"
 
-#: app/adwPreferencesWindow.js:457
+#: app/adwPreferencesWindow.js:536
 msgid "Size for the desktop icons"
 msgstr "Veľkosť ikon pracovnej plochy"
 
-#: app/adwPreferencesWindow.js:459
+#: app/adwPreferencesWindow.js:538
 msgid "Tiny"
 msgstr "Najmenšie"
 
-#: app/adwPreferencesWindow.js:460
+#: app/adwPreferencesWindow.js:539
 msgid "Small"
 msgstr "Malé"
 
-#: app/adwPreferencesWindow.js:461
+#: app/adwPreferencesWindow.js:540
 msgid "Standard"
 msgstr "Štandardné"
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:541
 msgid "Large"
 msgstr "Veľké"
 
-#: app/adwPreferencesWindow.js:468
+#: app/adwPreferencesWindow.js:547
 msgid "New icons alignment"
 msgstr "Zarovnanie nových ikon"
 
-#: app/adwPreferencesWindow.js:470
+#: app/adwPreferencesWindow.js:549
 msgid "Top left corner"
 msgstr "Ľavý horný roh"
 
-#: app/adwPreferencesWindow.js:471
+#: app/adwPreferencesWindow.js:550
 msgid "Top right corner"
 msgstr "Pravý horný roh"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:551
 msgid "Bottom left corner"
 msgstr "Ľavý spodný roh"
 
-#: app/adwPreferencesWindow.js:473
+#: app/adwPreferencesWindow.js:552
 msgid "Bottom right corner"
 msgstr "Pravý spodný roh"
 
-#: app/adwPreferencesWindow.js:479
+#: app/adwPreferencesWindow.js:558
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Pridať nové ikony najprv na sekundárne monitory, ak sú k dispozícii"
 
-#: app/adwPreferencesWindow.js:483
+#: app/adwPreferencesWindow.js:562
 msgid "Snap icons to grid"
 msgstr "Pripnúť ikony na mriežku"
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:568
 msgid "Highlight the drop grid"
 msgstr "Zvýrazniť mriežku pri pustení ikony"
 
-#: app/adwPreferencesWindow.js:498
+#: app/adwPreferencesWindow.js:577
 msgid "New Desktop Folder"
 msgstr "Nový priečinok pracovnej plochy"
 
-#: app/adwPreferencesWindow.js:499
+#: app/adwPreferencesWindow.js:578
 msgid "Set a new folder for the desktop"
 msgstr "Nastaviť nový priečinok pre pracovnú plochu"
 
-#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
-#: app/desktopFolderMonitor.js:618
+#: app/adwPreferencesWindow.js:579 app/utils/desktopFolderUtils.js:84
 msgid "Choose"
 msgstr "Vybrať"
 
-#: app/adwPreferencesWindow.js:505
+#: app/adwPreferencesWindow.js:584
 msgid "Restore Default Desktop Folder"
 msgstr "Obnoviť predvolený priečinok pracovnej plochy"
 
-#: app/adwPreferencesWindow.js:506
+#: app/adwPreferencesWindow.js:585
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr "Nastaviť plochu späť na $HOME/Desktop"
 
-#: app/adwPreferencesWindow.js:507
+#: app/adwPreferencesWindow.js:586
 msgid "Restore"
 msgstr "Obnoviť"
 
-#: app/adwPreferencesWindow.js:517
+#: app/adwPreferencesWindow.js:596
 msgid "Add information emblems for links, encryption"
 msgstr "Pridať informačné príznaky pre odkazy, šifrovanie"
 
-#: app/adwPreferencesWindow.js:521
+#: app/adwPreferencesWindow.js:600
 msgid "Use dark text in icon labels"
 msgstr "Použiť tmavý text na štítkoch ikon"
 
-#: app/adwPreferencesWindow.js:526
+#: app/adwPreferencesWindow.js:605
 msgid "Show the personal folder on the desktop"
 msgstr "Zobraziť osobný priečinok na pracovnej ploche"
 
-#: app/adwPreferencesWindow.js:531
+#: app/adwPreferencesWindow.js:610
 msgid "Show the trash icon on the desktop"
 msgstr "Zobraziť ikonu koša na pracovnej ploche"
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:615
 msgid "Show external drives on the desktop"
 msgstr "Zobraziť externé jednotky na pracovnej ploche"
 
-#: app/adwPreferencesWindow.js:541
+#: app/adwPreferencesWindow.js:620
 msgid "Show network drives on the desktop"
 msgstr "Zobraziť sieťové jednotky na pracovnej ploche"
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:625
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Pridať nové jednotky na opačnú stranu plochy"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:630
 msgid "Action to Open Items"
 msgstr "Akcia pre otvorenie položiek"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:632
 msgid "Single click"
 msgstr "Jednoduché kliknutie"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:633
 msgid "Double click"
 msgstr "Dvojité kliknutie"
 
-#: app/adwPreferencesWindow.js:559
+#: app/adwPreferencesWindow.js:638
 msgid "Show image thumbnails"
 msgstr "Zobraziť miniatúry obrázkov"
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:640
 msgid "Always"
 msgstr "Vždy"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:641
 msgid "On this computer only"
 msgstr "Iba na tomto počítači"
 
-#: app/adwPreferencesWindow.js:563
+#: app/adwPreferencesWindow.js:642
 msgid "Never"
 msgstr "Nikdy"
 
-#: app/adwPreferencesWindow.js:568
+#: app/adwPreferencesWindow.js:647
 msgid "Show a context menu item to delete permanently"
 msgstr "Zobraziť kontextovú ponuku položky na trvalé odstránenie"
 
-#: app/adwPreferencesWindow.js:573
+#: app/adwPreferencesWindow.js:652
 msgid "Show hidden files"
 msgstr "Zobraziť skryté súbory"
 
-#: app/adwPreferencesWindow.js:578
+#: app/adwPreferencesWindow.js:657
 msgid "Open folders on drag hover"
 msgstr "Otvoriť priečinky pri ťahaní myšou"
 
-#: app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:661
 msgid "About..."
 msgstr "O aplikácii..."
 
-#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
+#: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 msgid "Translations"
 msgstr "Preklady"
 
-#: app/adwPreferencesWindow.js:596
+#: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
 msgstr "Všetky preklady sú na Weblate."
 
-#: app/adwPreferencesWindow.js:603
+#: app/adwPreferencesWindow.js:682
 msgid "Translate"
 msgstr "Preložiť"
-
-#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
-msgid "Choose Desktop Folder"
-msgstr "Vyberte priečinok pracovnej plochy"
 
 #: app/appChooser.js:73
 msgid "Choose an application to open <b>{foo}</b>"
@@ -535,19 +530,19 @@ msgstr "Nepodarilo sa otvoriť súbor"
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} nemôže otvoriť súbory tohto typu!"
 
-#: app/desktopFolderMonitor.js:121
+#: app/desktopFolderMonitor.js:102
 msgid "Desktop Folder Change Failed"
 msgstr "Zmena priečinka pracovnej plochy sa nepodarila"
 
-#: app/desktopFolderMonitor.js:124
+#: app/desktopFolderMonitor.js:105
 msgid "The new Desktop Folder does not exist!"
 msgstr "Nový priečinok pracovnej plochy neexistuje!"
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:116
 msgid "Desktop Folder Changed"
 msgstr "Priečinok pracovnej plochy bol zmenený"
 
-#: app/desktopFolderMonitor.js:141
+#: app/desktopFolderMonitor.js:117
 msgid "Switching to new Desktop..."
 msgstr "Prechod na novú pracovnú plochu..."
 
@@ -1281,7 +1276,11 @@ msgstr ""
 "Aby táto funkcia fungovala v aplikácii Ikony na ploche, musíte do vášho "
 "systému nainštalovať \"${programName}\"."
 
-#: app/utils/desktopIconsUtil.js:292
+#: app/utils/desktopFolderUtils.js:83
+msgid "Choose Desktop Folder"
+msgstr "Vyberte priečinok pracovnej plochy"
+
+#: app/utils/desktopIconsUtil.js:208
 msgid "Command not found"
 msgstr "Príkaz sa nenašiel"
 

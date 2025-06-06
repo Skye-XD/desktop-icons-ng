@@ -11,11 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 18:40-0400\n"
+"POT-Creation-Date: 2025-06-05 18:11-0400\n"
 "PO-Revision-Date: 2025-06-02 20:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,275 +23,269 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
-#: app/adwPreferencesWindow.js:159
+#: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
 msgstr "Gyorsbillentyűk"
 
-#: app/adwPreferencesWindow.js:162
+#: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
 msgstr "Gyorsbillentyűk szerkesztése"
 
-#: app/adwPreferencesWindow.js:177
+#: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:182
+#: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
+#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:681
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Segítség fordítás a webböngészőben"
 
-#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
+#: app/adwPreferencesWindow.js:462 app/adwPreferencesWindow.js:463
 #, fuzzy
 msgid "Desktop"
 msgstr "Asztal"
 
-#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
+#: app/adwPreferencesWindow.js:468 app/adwPreferencesWindow.js:469
 #, fuzzy
 msgid "Files"
 msgstr "Fájlok"
 
-#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
-#: app/adwPreferencesWindow.js:438
+#: app/adwPreferencesWindow.js:474 app/adwPreferencesWindow.js:475
+#: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Tweaks"
 msgstr "Trükkök"
 
-#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
+#: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 #, fuzzy
 msgid "More"
 msgstr "Tovább"
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:492
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Asztali beállítások"
 
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:493
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Beállítások az asztali programhoz"
 
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:499
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "Asztali mappa"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:500
 #, fuzzy
 msgid "Current Desktop: "
 msgstr "Hibás asztali fájlok"
 
-#: app/adwPreferencesWindow.js:431
+#: app/adwPreferencesWindow.js:510
 #, fuzzy
 msgid "Files Settings"
 msgstr "Files Settings"
 
-#: app/adwPreferencesWindow.js:432
+#: app/adwPreferencesWindow.js:511
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Beállítások megosztott Gnome Files"
 
-#: app/adwPreferencesWindow.js:439
+#: app/adwPreferencesWindow.js:518
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Miscellanous Tweaks"
 
-#: app/adwPreferencesWindow.js:457
+#: app/adwPreferencesWindow.js:536
 msgid "Size for the desktop icons"
 msgstr "Az asztali ikonok mérete"
 
-#: app/adwPreferencesWindow.js:459
+#: app/adwPreferencesWindow.js:538
 msgid "Tiny"
 msgstr "Apró"
 
-#: app/adwPreferencesWindow.js:460
+#: app/adwPreferencesWindow.js:539
 msgid "Small"
 msgstr "Kicsi"
 
-#: app/adwPreferencesWindow.js:461
+#: app/adwPreferencesWindow.js:540
 msgid "Standard"
 msgstr "Szokásos"
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:541
 msgid "Large"
 msgstr "Nagy"
 
-#: app/adwPreferencesWindow.js:468
+#: app/adwPreferencesWindow.js:547
 msgid "New icons alignment"
 msgstr "Új ikonok elrendezése"
 
-#: app/adwPreferencesWindow.js:470
+#: app/adwPreferencesWindow.js:549
 #, fuzzy
 msgid "Top left corner"
 msgstr "Bal felső sarokban"
 
-#: app/adwPreferencesWindow.js:471
+#: app/adwPreferencesWindow.js:550
 #, fuzzy
 msgid "Top right corner"
 msgstr "Jobb felső sarokban"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:551
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Bal alsó sarokban"
 
-#: app/adwPreferencesWindow.js:473
+#: app/adwPreferencesWindow.js:552
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Jobb alsó sarokban"
 
-#: app/adwPreferencesWindow.js:479
+#: app/adwPreferencesWindow.js:558
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Adjon hozzá új ikonokat a Másodlagos Monitorokhoz, ha elérhető"
 
-#: app/adwPreferencesWindow.js:483
+#: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Snap ikonok a rácshoz"
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:568
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Kiemeli a csepp rácsot"
 
-#: app/adwPreferencesWindow.js:498
+#: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Nincs célmappa"
 
-#: app/adwPreferencesWindow.js:499
+#: app/adwPreferencesWindow.js:578
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "A személyes mappa megjelenítése az asztalon"
 
-#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
-#: app/desktopFolderMonitor.js:618
+#: app/adwPreferencesWindow.js:579 app/utils/desktopFolderUtils.js:84
 #, fuzzy
 msgid "Choose"
 msgstr "Válassz"
 
-#: app/adwPreferencesWindow.js:505
+#: app/adwPreferencesWindow.js:584
 #, fuzzy
 msgid "Restore Default Desktop Folder"
 msgstr "Untrusted Desktop File"
 
-#: app/adwPreferencesWindow.js:506
+#: app/adwPreferencesWindow.js:585
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:507
+#: app/adwPreferencesWindow.js:586
 #, fuzzy
 msgid "Restore"
 msgstr "Visszaállítás"
 
-#: app/adwPreferencesWindow.js:517
+#: app/adwPreferencesWindow.js:596
 #, fuzzy
 msgid "Add information emblems for links, encryption"
 msgstr "Adjon egy emblemát a linkekhez"
 
-#: app/adwPreferencesWindow.js:521
+#: app/adwPreferencesWindow.js:600
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Használjon sötét szöveget az ikon címkéiben"
 
-#: app/adwPreferencesWindow.js:526
+#: app/adwPreferencesWindow.js:605
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "A személyes mappa megjelenítése az asztalon"
 
-#: app/adwPreferencesWindow.js:531
+#: app/adwPreferencesWindow.js:610
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "A kuka ikon megjelenítése az asztalon"
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:615
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "A külső meghajtók megjelenítése az asztalon"
 
-#: app/adwPreferencesWindow.js:541
+#: app/adwPreferencesWindow.js:620
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "A hálózati meghajtók megjelenítése az asztalon."
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:625
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Új meghajtók hozzáadása a képernyő ellentétes oldalán"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:630
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Akció az Open Items-hez"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:632
 msgid "Single click"
 msgstr "Egyszeres kattintás"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:633
 msgid "Double click"
 msgstr "Dupla kattintás"
 
-#: app/adwPreferencesWindow.js:559
+#: app/adwPreferencesWindow.js:638
 msgid "Show image thumbnails"
 msgstr "Bélyegképek megjelenítése"
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:640
 msgid "Always"
 msgstr "Mindig"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:641
 #, fuzzy
 msgid "On this computer only"
 msgstr "Ezen a számítógépen csak"
 
-#: app/adwPreferencesWindow.js:563
+#: app/adwPreferencesWindow.js:642
 msgid "Never"
 msgstr "Soha"
 
-#: app/adwPreferencesWindow.js:568
+#: app/adwPreferencesWindow.js:647
 msgid "Show a context menu item to delete permanently"
 msgstr "Helyi menü-elem megjelenítése a végleges törléshez"
 
-#: app/adwPreferencesWindow.js:573
+#: app/adwPreferencesWindow.js:652
 msgid "Show hidden files"
 msgstr "Rejtett fájlok megjelenítése"
 
-#: app/adwPreferencesWindow.js:578
+#: app/adwPreferencesWindow.js:657
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Nyílt mappák a drag hover"
 
-#: app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
 msgstr "A programról..."
 
-#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
+#: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
 msgid "Translations"
 msgstr "Fordítások"
 
-#: app/adwPreferencesWindow.js:596
+#: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:603
+#: app/adwPreferencesWindow.js:682
 #, fuzzy
 msgid "Translate"
 msgstr "Lefordítás"
-
-#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
-#, fuzzy
-msgid "Choose Desktop Folder"
-msgstr "Hibás asztali fájlok"
 
 #: app/appChooser.js:73
 #, fuzzy
@@ -614,20 +608,20 @@ msgstr "A fájl megnyitása nem sikerült"
 msgid "{appName} can not open files of this Type!"
 msgstr "$ {appName} nem tudja megnyitni az ilyen típusú fájlokat!"
 
-#: app/desktopFolderMonitor.js:121
+#: app/desktopFolderMonitor.js:102
 #, fuzzy
 msgid "Desktop Folder Change Failed"
 msgstr "Folder Teremtés Hibás"
 
-#: app/desktopFolderMonitor.js:124
+#: app/desktopFolderMonitor.js:105
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:116
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:141
+#: app/desktopFolderMonitor.js:117
 msgid "Switching to new Desktop..."
 msgstr ""
 
@@ -1481,7 +1475,12 @@ msgstr ""
 "Ehhez a funkcionalitáshoz, hogy dolgozzon az asztali ikonokban, telepítenie "
 "kell a \"$ {programName}-t a rendszerében."
 
-#: app/utils/desktopIconsUtil.js:292
+#: app/utils/desktopFolderUtils.js:83
+#, fuzzy
+msgid "Choose Desktop Folder"
+msgstr "Hibás asztali fájlok"
+
+#: app/utils/desktopIconsUtil.js:208
 msgid "Command not found"
 msgstr "A parancs nem található"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 18:40-0400\n"
+"POT-Creation-Date: 2025-06-05 18:11-0400\n"
 "PO-Revision-Date: 2025-05-02 19:23+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -20,261 +20,256 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
-#: app/adwPreferencesWindow.js:159
+#: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
 msgstr "نمایش میان‌برها"
 
-#: app/adwPreferencesWindow.js:162
+#: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
 msgstr "نمایش میان‌برها"
 
-#: app/adwPreferencesWindow.js:177
+#: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:182
+#: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
+#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:681
 msgid "Help translate in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
+#: app/adwPreferencesWindow.js:462 app/adwPreferencesWindow.js:463
 #, fuzzy
 msgid "Desktop"
 msgstr "صفحه نمایش"
 
-#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
+#: app/adwPreferencesWindow.js:468 app/adwPreferencesWindow.js:469
 #, fuzzy
 msgid "Files"
 msgstr "فايل‌ها"
 
-#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
-#: app/adwPreferencesWindow.js:438
+#: app/adwPreferencesWindow.js:474 app/adwPreferencesWindow.js:475
+#: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Tweaks"
 msgstr "سیخونک‌ها"
 
-#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
+#: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 msgid "More"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:492
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "تنظیمات دسکتاپ"
 
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:493
 msgid "Settings for the Desktop Program"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:499
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "شاخهٔ میزکار"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:500
 msgid "Current Desktop: "
 msgstr ""
 
-#: app/adwPreferencesWindow.js:431
+#: app/adwPreferencesWindow.js:510
 #, fuzzy
 msgid "Files Settings"
 msgstr "تنظیمات فایل"
 
-#: app/adwPreferencesWindow.js:432
+#: app/adwPreferencesWindow.js:511
 msgid "Settings shared with Gnome Files"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:439
+#: app/adwPreferencesWindow.js:518
 msgid "Miscellaneous Tweaks"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:457
+#: app/adwPreferencesWindow.js:536
 msgid "Size for the desktop icons"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:459
+#: app/adwPreferencesWindow.js:538
 #, fuzzy
 msgid "Tiny"
 msgstr "ریز"
 
-#: app/adwPreferencesWindow.js:460
+#: app/adwPreferencesWindow.js:539
 #, fuzzy
 msgid "Small"
 msgstr "کوچک"
 
-#: app/adwPreferencesWindow.js:461
+#: app/adwPreferencesWindow.js:540
 #, fuzzy
 msgid "Standard"
 msgstr "استاندارد"
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:541
 #, fuzzy
 msgid "Large"
 msgstr "بزرگ"
 
-#: app/adwPreferencesWindow.js:468
+#: app/adwPreferencesWindow.js:547
 msgid "New icons alignment"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:470
+#: app/adwPreferencesWindow.js:549
 #, fuzzy
 msgid "Top left corner"
 msgstr "بالا گوشه چپ"
 
-#: app/adwPreferencesWindow.js:471
+#: app/adwPreferencesWindow.js:550
 #, fuzzy
 msgid "Top right corner"
 msgstr "بالا گوشه راست"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:551
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "پایین گوشه چپ"
 
-#: app/adwPreferencesWindow.js:473
+#: app/adwPreferencesWindow.js:552
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "پایین گوشه راست"
 
-#: app/adwPreferencesWindow.js:479
+#: app/adwPreferencesWindow.js:558
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:483
+#: app/adwPreferencesWindow.js:562
 msgid "Snap icons to grid"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:568
 msgid "Highlight the drop grid"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:498
+#: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "پوشه جدید"
 
-#: app/adwPreferencesWindow.js:499
+#: app/adwPreferencesWindow.js:578
 msgid "Set a new folder for the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
-#: app/desktopFolderMonitor.js:618
+#: app/adwPreferencesWindow.js:579 app/utils/desktopFolderUtils.js:84
 #, fuzzy
 msgid "Choose"
 msgstr "انتخاب کنید"
 
-#: app/adwPreferencesWindow.js:505
+#: app/adwPreferencesWindow.js:584
 msgid "Restore Default Desktop Folder"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:506
+#: app/adwPreferencesWindow.js:585
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:507
+#: app/adwPreferencesWindow.js:586
 #, fuzzy
 msgid "Restore"
 msgstr "بازیابی"
 
-#: app/adwPreferencesWindow.js:517
+#: app/adwPreferencesWindow.js:596
 msgid "Add information emblems for links, encryption"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:521
+#: app/adwPreferencesWindow.js:600
 msgid "Use dark text in icon labels"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:526
+#: app/adwPreferencesWindow.js:605
 msgid "Show the personal folder on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:531
+#: app/adwPreferencesWindow.js:610
 msgid "Show the trash icon on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:615
 msgid "Show external drives on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:541
+#: app/adwPreferencesWindow.js:620
 msgid "Show network drives on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:625
 msgid "Add new drives to the opposite side of the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:630
 msgid "Action to Open Items"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:632
 msgid "Single click"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:633
 #, fuzzy
 msgid "Double click"
 msgstr "دابل کلیک"
 
-#: app/adwPreferencesWindow.js:559
+#: app/adwPreferencesWindow.js:638
 msgid "Show image thumbnails"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:640
 #, fuzzy
 msgid "Always"
 msgstr "همیشه"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:641
 msgid "On this computer only"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:563
+#: app/adwPreferencesWindow.js:642
 #, fuzzy
 msgid "Never"
 msgstr "هرگز"
 
-#: app/adwPreferencesWindow.js:568
+#: app/adwPreferencesWindow.js:647
 msgid "Show a context menu item to delete permanently"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:573
+#: app/adwPreferencesWindow.js:652
 #, fuzzy
 msgid "Show hidden files"
 msgstr "نمایش پرونده‌های پنهان"
 
-#: app/adwPreferencesWindow.js:578
+#: app/adwPreferencesWindow.js:657
 msgid "Open folders on drag hover"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
 msgstr "درباره‌ی Psiphon"
 
-#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
+#: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
 msgid "Translations"
 msgstr "ترجمه"
 
-#: app/adwPreferencesWindow.js:596
+#: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:603
+#: app/adwPreferencesWindow.js:682
 #, fuzzy
 msgid "Translate"
 msgstr "ترجمه"
-
-#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
-msgid "Choose Desktop Folder"
-msgstr ""
 
 #: app/appChooser.js:73
 msgid "Choose an application to open <b>{foo}</b>"
@@ -541,19 +536,19 @@ msgstr "ناتوان در گشودن پرونده"
 msgid "{appName} can not open files of this Type!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:121
+#: app/desktopFolderMonitor.js:102
 msgid "Desktop Folder Change Failed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:124
+#: app/desktopFolderMonitor.js:105
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:116
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:141
+#: app/desktopFolderMonitor.js:117
 msgid "Switching to new Desktop..."
 msgstr ""
 
@@ -1330,7 +1325,11 @@ msgid ""
 "\"${programName}\" in your system."
 msgstr ""
 
-#: app/utils/desktopIconsUtil.js:292
+#: app/utils/desktopFolderUtils.js:83
+msgid "Choose Desktop Folder"
+msgstr ""
+
+#: app/utils/desktopIconsUtil.js:208
 msgid "Command not found"
 msgstr ""
 

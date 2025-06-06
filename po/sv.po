@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 18:40-0400\n"
+"POT-Creation-Date: 2025-06-05 18:11-0400\n"
 "PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -24,295 +24,288 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
-#: app/adwPreferencesWindow.js:159
+#: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
 msgstr "Visa genvägar"
 
-#: app/adwPreferencesWindow.js:162
+#: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
 msgstr "Visa genvägar"
 
-#: app/adwPreferencesWindow.js:177
+#: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:182
+#: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
+#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:681
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Hjälp översätta i din webbläsare"
 
-#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
+#: app/adwPreferencesWindow.js:462 app/adwPreferencesWindow.js:463
 msgid "Desktop"
 msgstr "Skrivbord"
 
-#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
+#: app/adwPreferencesWindow.js:468 app/adwPreferencesWindow.js:469
 msgid "Files"
 msgstr "Filer"
 
-#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
-#: app/adwPreferencesWindow.js:438
+#: app/adwPreferencesWindow.js:474 app/adwPreferencesWindow.js:475
+#: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Tweaks"
 msgstr "Tweaks"
 
-#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
+#: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 msgid "More"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:492
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Desktop-inställningar"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:493
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Inställningar för skrivbordsprogrammet"
 
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:499
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "Skrivbordskatalog:"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:500
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Current Desktop: "
 msgstr "Trasig skrivbordsfil"
 
-#: app/adwPreferencesWindow.js:431
+#: app/adwPreferencesWindow.js:510
 #, fuzzy
 msgid "Files Settings"
 msgstr "Filer Inställningar"
 
-#: app/adwPreferencesWindow.js:432
+#: app/adwPreferencesWindow.js:511
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Inställningar som delas med Gnome Files"
 
-#: app/adwPreferencesWindow.js:439
+#: app/adwPreferencesWindow.js:518
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Miscellan Tweaks"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:457
+#: app/adwPreferencesWindow.js:536
 #, fuzzy
 msgid "Size for the desktop icons"
 msgstr "Storlek för desktop ikonerna"
 
-#: app/adwPreferencesWindow.js:459
+#: app/adwPreferencesWindow.js:538
 #, fuzzy
 msgid "Tiny"
 msgstr "Små"
 
-#: app/adwPreferencesWindow.js:460
+#: app/adwPreferencesWindow.js:539
 #, fuzzy
 msgid "Small"
 msgstr "Små"
 
-#: app/adwPreferencesWindow.js:461
+#: app/adwPreferencesWindow.js:540
 #, fuzzy
 msgid "Standard"
 msgstr "Standard"
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:541
 #, fuzzy
 msgid "Large"
 msgstr "Stor"
 
-#: app/adwPreferencesWindow.js:468
+#: app/adwPreferencesWindow.js:547
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Nya ikoner anpassning"
 
-#: app/adwPreferencesWindow.js:470
+#: app/adwPreferencesWindow.js:549
 #, fuzzy
 msgid "Top left corner"
 msgstr "Övre vänstra hörnet"
 
-#: app/adwPreferencesWindow.js:471
+#: app/adwPreferencesWindow.js:550
 #, fuzzy
 msgid "Top right corner"
 msgstr "Övre högra hörnet"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:551
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Nedre vänstra hörnet"
 
-#: app/adwPreferencesWindow.js:473
+#: app/adwPreferencesWindow.js:552
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Nedre högra hörnet"
 
-#: app/adwPreferencesWindow.js:479
+#: app/adwPreferencesWindow.js:558
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 "Lägg till nya ikoner till sekundära övervakare först, om de är tillgängliga"
 
-#: app/adwPreferencesWindow.js:483
+#: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Snap ikoner att rutnät"
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:568
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Highlight drop grid"
 
-#: app/adwPreferencesWindow.js:498
+#: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Ingen destinationsmapp"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:499
+#: app/adwPreferencesWindow.js:578
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "Visa den personliga mappen på skrivbordet."
 
-#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
-#: app/desktopFolderMonitor.js:618
+#: app/adwPreferencesWindow.js:579 app/utils/desktopFolderUtils.js:84
 #, fuzzy
 msgid "Choose"
 msgstr "Välj"
 
-#: app/adwPreferencesWindow.js:505
+#: app/adwPreferencesWindow.js:584
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Restore Default Desktop Folder"
 msgstr "Untrusted Desktop File"
 
-#: app/adwPreferencesWindow.js:506
+#: app/adwPreferencesWindow.js:585
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:507
+#: app/adwPreferencesWindow.js:586
 #, fuzzy
 msgid "Restore"
 msgstr "Återställa"
 
-#: app/adwPreferencesWindow.js:517
+#: app/adwPreferencesWindow.js:596
 #, fuzzy
 #| msgid "Add an emblem to links"
 msgid "Add information emblems for links, encryption"
 msgstr "Lägg till ett emblem till länkar"
 
-#: app/adwPreferencesWindow.js:521
+#: app/adwPreferencesWindow.js:600
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Använd mörk text i ikonetiketter"
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:526
+#: app/adwPreferencesWindow.js:605
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Visa den personliga mappen på skrivbordet."
 
 # TODO: *ON* the desktop?
-#: app/adwPreferencesWindow.js:531
+#: app/adwPreferencesWindow.js:610
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Visa papperskorgsikonen på skrivbordet."
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:615
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Visa externa enheter på skrivbordet"
 
-#: app/adwPreferencesWindow.js:541
+#: app/adwPreferencesWindow.js:620
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Visa nätverksenheter på skrivbordet"
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:625
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Lägg till nya enheter på motsatt sida av skärmen"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:630
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Åtgärder för att öppna objekt"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:632
 #, fuzzy
 msgid "Single click"
 msgstr "Single Click"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:633
 #, fuzzy
 msgid "Double click"
 msgstr "Dubbelklicka"
 
-#: app/adwPreferencesWindow.js:559
+#: app/adwPreferencesWindow.js:638
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Visa bild miniatyrer"
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:640
 #, fuzzy
 msgid "Always"
 msgstr "Alltid"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:641
 #, fuzzy
 msgid "On this computer only"
 msgstr "På denna dator endast"
 
-#: app/adwPreferencesWindow.js:563
+#: app/adwPreferencesWindow.js:642
 #, fuzzy
 msgid "Never"
 msgstr "Aldrig"
 
-#: app/adwPreferencesWindow.js:568
+#: app/adwPreferencesWindow.js:647
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Visa ett kontextmenyalternativ för att radera permanent"
 
-#: app/adwPreferencesWindow.js:573
+#: app/adwPreferencesWindow.js:652
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Visa dolda filer"
 
-#: app/adwPreferencesWindow.js:578
+#: app/adwPreferencesWindow.js:657
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Öppna mappar på drag hover"
 
-#: app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
 msgstr "Om"
 
-#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
+#: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
 msgid "Translations"
 msgstr "Översättning"
 
-#: app/adwPreferencesWindow.js:596
+#: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:603
+#: app/adwPreferencesWindow.js:682
 #, fuzzy
 msgid "Translate"
 msgstr "Översätta"
-
-#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
-#, fuzzy
-#| msgid "Broken Desktop File"
-msgid "Choose Desktop Folder"
-msgstr "Trasig skrivbordsfil"
 
 #: app/appChooser.js:73
 #, fuzzy
@@ -661,20 +654,20 @@ msgstr "Kunde inte öppna filen"
 msgid "{appName} can not open files of this Type!"
 msgstr "${appName} kan inte öppna filer av denna typ!"
 
-#: app/desktopFolderMonitor.js:121
+#: app/desktopFolderMonitor.js:102
 #, fuzzy
 msgid "Desktop Folder Change Failed"
 msgstr "Mamma skapelse misslyckades"
 
-#: app/desktopFolderMonitor.js:124
+#: app/desktopFolderMonitor.js:105
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:116
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:141
+#: app/desktopFolderMonitor.js:117
 msgid "Switching to new Desktop..."
 msgstr ""
 
@@ -1525,7 +1518,13 @@ msgstr ""
 "För att få den här funktionaliteten att fungera i skrivbordsikoner så måste "
 "du installera \"${programName}\" i ditt system."
 
-#: app/utils/desktopIconsUtil.js:292
+#: app/utils/desktopFolderUtils.js:83
+#, fuzzy
+#| msgid "Broken Desktop File"
+msgid "Choose Desktop Folder"
+msgstr "Trasig skrivbordsfil"
+
+#: app/utils/desktopIconsUtil.js:208
 msgid "Command not found"
 msgstr "Kommandot hittades inte"
 
