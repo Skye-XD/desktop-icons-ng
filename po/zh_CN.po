@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 18:40-0400\n"
+"POT-Creation-Date: 2025-06-05 18:11-0400\n"
 "PO-Revision-Date: 2025-05-17 02:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -29,255 +29,248 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.12-dev\n"
 
-#: app/adwPreferencesWindow.js:159
+#: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
 msgstr "显示快捷方式"
 
-#: app/adwPreferencesWindow.js:162
+#: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
 msgstr "显示快捷方式"
 
-#: app/adwPreferencesWindow.js:177
+#: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:182
+#: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
+#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:681
 msgid "Help translate in your web browser"
 msgstr "在浏览器中帮助翻译这款软件"
 
-#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
+#: app/adwPreferencesWindow.js:462 app/adwPreferencesWindow.js:463
 msgid "Desktop"
 msgstr "桌面"
 
-#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
+#: app/adwPreferencesWindow.js:468 app/adwPreferencesWindow.js:469
 msgid "Files"
 msgstr "文件"
 
-#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
-#: app/adwPreferencesWindow.js:438
+#: app/adwPreferencesWindow.js:474 app/adwPreferencesWindow.js:475
+#: app/adwPreferencesWindow.js:517
 msgid "Tweaks"
 msgstr "优化"
 
-#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
+#: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 msgid "More"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:492
 msgid "Desktop Settings"
 msgstr "桌面设置"
 
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:493
 msgid "Settings for the Desktop Program"
 msgstr "桌面程序的设置"
 
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:499
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "桌面文件夹"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:500
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Current Desktop: "
 msgstr "已损坏的桌面文件"
 
-#: app/adwPreferencesWindow.js:431
+#: app/adwPreferencesWindow.js:510
 msgid "Files Settings"
 msgstr "文件设置"
 
-#: app/adwPreferencesWindow.js:432
+#: app/adwPreferencesWindow.js:511
 msgid "Settings shared with Gnome Files"
 msgstr "与 Gnome Files 共享的设置"
 
-#: app/adwPreferencesWindow.js:439
+#: app/adwPreferencesWindow.js:518
 msgid "Miscellaneous Tweaks"
 msgstr "杂项调整"
 
-#: app/adwPreferencesWindow.js:457
+#: app/adwPreferencesWindow.js:536
 msgid "Size for the desktop icons"
 msgstr "桌面图标大小"
 
-#: app/adwPreferencesWindow.js:459
+#: app/adwPreferencesWindow.js:538
 msgid "Tiny"
 msgstr "微"
 
-#: app/adwPreferencesWindow.js:460
+#: app/adwPreferencesWindow.js:539
 msgid "Small"
 msgstr "小"
 
-#: app/adwPreferencesWindow.js:461
+#: app/adwPreferencesWindow.js:540
 msgid "Standard"
 msgstr "中"
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:541
 msgid "Large"
 msgstr "大"
 
-#: app/adwPreferencesWindow.js:468
+#: app/adwPreferencesWindow.js:547
 msgid "New icons alignment"
 msgstr "新图标排列"
 
-#: app/adwPreferencesWindow.js:470
+#: app/adwPreferencesWindow.js:549
 msgid "Top left corner"
 msgstr "左上角"
 
-#: app/adwPreferencesWindow.js:471
+#: app/adwPreferencesWindow.js:550
 msgid "Top right corner"
 msgstr "右上角"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:551
 msgid "Bottom left corner"
 msgstr "左下角"
 
-#: app/adwPreferencesWindow.js:473
+#: app/adwPreferencesWindow.js:552
 msgid "Bottom right corner"
 msgstr "右下角"
 
-#: app/adwPreferencesWindow.js:479
+#: app/adwPreferencesWindow.js:558
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "优先将新图标添加至第二块显示器(如果存在)"
 
-#: app/adwPreferencesWindow.js:483
+#: app/adwPreferencesWindow.js:562
 msgid "Snap icons to grid"
 msgstr "将图标与网格对齐"
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:568
 msgid "Highlight the drop grid"
 msgstr "高亮显示放置网格"
 
-#: app/adwPreferencesWindow.js:498
+#: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "没有目标文件夹"
 
-#: app/adwPreferencesWindow.js:499
+#: app/adwPreferencesWindow.js:578
 #, fuzzy
 #| msgid "Show the personal folder on the desktop"
 msgid "Set a new folder for the desktop"
 msgstr "在桌面上显示个人文件夹"
 
-#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
-#: app/desktopFolderMonitor.js:618
+#: app/adwPreferencesWindow.js:579 app/utils/desktopFolderUtils.js:84
 #, fuzzy
 msgid "Choose"
 msgstr "选择"
 
-#: app/adwPreferencesWindow.js:505
+#: app/adwPreferencesWindow.js:584
 #, fuzzy
 #| msgid "Untrusted Desktop File"
 msgid "Restore Default Desktop Folder"
 msgstr "不信任的桌面文件"
 
-#: app/adwPreferencesWindow.js:506
+#: app/adwPreferencesWindow.js:585
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:507
+#: app/adwPreferencesWindow.js:586
 #, fuzzy
 msgid "Restore"
 msgstr "恢复"
 
-#: app/adwPreferencesWindow.js:517
+#: app/adwPreferencesWindow.js:596
 #, fuzzy
 #| msgid "Add an emblem to links"
 msgid "Add information emblems for links, encryption"
 msgstr "添加一个标记点以连接"
 
-#: app/adwPreferencesWindow.js:521
+#: app/adwPreferencesWindow.js:600
 msgid "Use dark text in icon labels"
 msgstr "在标签文本中使用黑色字体"
 
-#: app/adwPreferencesWindow.js:526
+#: app/adwPreferencesWindow.js:605
 msgid "Show the personal folder on the desktop"
 msgstr "在桌面上显示个人文件夹"
 
-#: app/adwPreferencesWindow.js:531
+#: app/adwPreferencesWindow.js:610
 msgid "Show the trash icon on the desktop"
 msgstr "在桌面上显示回收站图标"
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:615
 msgid "Show external drives on the desktop"
 msgstr "在桌面上显示外部驱动器"
 
-#: app/adwPreferencesWindow.js:541
+#: app/adwPreferencesWindow.js:620
 msgid "Show network drives on the desktop"
 msgstr "在桌面上显示网络驱动器"
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:625
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "将新驱动器添加到桌面的另一侧"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:630
 msgid "Action to Open Items"
 msgstr "打开项目的操作"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:632
 msgid "Single click"
 msgstr "单击"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:633
 msgid "Double click"
 msgstr "双击"
 
-#: app/adwPreferencesWindow.js:559
+#: app/adwPreferencesWindow.js:638
 msgid "Show image thumbnails"
 msgstr "显示图片缩略图"
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:640
 msgid "Always"
 msgstr "始终"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:641
 msgid "On this computer only"
 msgstr "仅在这台电脑上"
 
-#: app/adwPreferencesWindow.js:563
+#: app/adwPreferencesWindow.js:642
 msgid "Never"
 msgstr "从不"
 
-#: app/adwPreferencesWindow.js:568
+#: app/adwPreferencesWindow.js:647
 msgid "Show a context menu item to delete permanently"
 msgstr "永久删除时展示确认菜单项目"
 
-#: app/adwPreferencesWindow.js:573
+#: app/adwPreferencesWindow.js:652
 msgid "Show hidden files"
 msgstr "显示隐藏文件"
 
-#: app/adwPreferencesWindow.js:578
+#: app/adwPreferencesWindow.js:657
 msgid "Open folders on drag hover"
 msgstr "拖动鼠标悬停时打开文件夹"
 
-#: app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:661
 #, fuzzy
 #| msgid "About"
 msgid "About..."
 msgstr "关于"
 
-#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
+#: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
 #| msgid "Translation"
 msgid "Translations"
 msgstr "翻译"
 
-#: app/adwPreferencesWindow.js:596
+#: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:603
+#: app/adwPreferencesWindow.js:682
 msgid "Translate"
 msgstr "翻译"
-
-#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
-#, fuzzy
-#| msgid "Broken Desktop File"
-msgid "Choose Desktop Folder"
-msgstr "已损坏的桌面文件"
 
 #: app/appChooser.js:73
 msgid "Choose an application to open <b>{foo}</b>"
@@ -566,21 +559,21 @@ msgstr "无法打开文件"
 msgid "{appName} can not open files of this Type!"
 msgstr "${appName} 无法打开此类型的文件！"
 
-#: app/desktopFolderMonitor.js:121
+#: app/desktopFolderMonitor.js:102
 #, fuzzy
 #| msgid "Folder Creation Failed"
 msgid "Desktop Folder Change Failed"
 msgstr "文件夹创建失败"
 
-#: app/desktopFolderMonitor.js:124
+#: app/desktopFolderMonitor.js:105
 msgid "The new Desktop Folder does not exist!"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:116
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:141
+#: app/desktopFolderMonitor.js:117
 msgid "Switching to new Desktop..."
 msgstr ""
 
@@ -1370,7 +1363,13 @@ msgstr ""
 "为了使此功能能在 Desktop Icons 里运行，您必须在您的系统里安装 "
 "\"${programName}\" 。"
 
-#: app/utils/desktopIconsUtil.js:292
+#: app/utils/desktopFolderUtils.js:83
+#, fuzzy
+#| msgid "Broken Desktop File"
+msgid "Choose Desktop Folder"
+msgstr "已损坏的桌面文件"
+
+#: app/utils/desktopIconsUtil.js:208
 msgid "Command not found"
 msgstr "命令无法找到"
 

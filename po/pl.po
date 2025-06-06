@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 18:40-0400\n"
+"POT-Creation-Date: 2025-06-05 18:11-0400\n"
 "PO-Revision-Date: 2025-05-21 20:49+0200\n"
 "Last-Translator: Adam Lewicki <a.lewick95@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -26,235 +26,230 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: app/adwPreferencesWindow.js:159
+#: app/adwPreferencesWindow.js:160
 msgid "Shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: app/adwPreferencesWindow.js:162
+#: app/adwPreferencesWindow.js:163
 msgid "Edit Shortcuts..."
 msgstr "Edytuj skróty klawiszowe..."
 
-#: app/adwPreferencesWindow.js:177
+#: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
 msgstr "Edytuj skróty klawiszowe programu"
 
-#: app/adwPreferencesWindow.js:182
+#: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr "Możliwa zmiana skrótów klawiszowych tylko po włączeniu rozszerzenia..."
 
-#: app/adwPreferencesWindow.js:286 app/adwPreferencesWindow.js:602
+#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:681
 msgid "Help translate in your web browser"
 msgstr "Pomóż w tłumaczeniu poprzez swoją przeglądarkę internetową"
 
-#: app/adwPreferencesWindow.js:384 app/adwPreferencesWindow.js:385
+#: app/adwPreferencesWindow.js:462 app/adwPreferencesWindow.js:463
 msgid "Desktop"
 msgstr "Pulpit"
 
-#: app/adwPreferencesWindow.js:390 app/adwPreferencesWindow.js:391
+#: app/adwPreferencesWindow.js:468 app/adwPreferencesWindow.js:469
 msgid "Files"
 msgstr "Pliki"
 
-#: app/adwPreferencesWindow.js:396 app/adwPreferencesWindow.js:397
-#: app/adwPreferencesWindow.js:438
+#: app/adwPreferencesWindow.js:474 app/adwPreferencesWindow.js:475
+#: app/adwPreferencesWindow.js:517
 msgid "Tweaks"
 msgstr "Dostrajanie"
 
-#: app/adwPreferencesWindow.js:402 app/adwPreferencesWindow.js:403
+#: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 msgid "More"
 msgstr "Więcej"
 
-#: app/adwPreferencesWindow.js:414
+#: app/adwPreferencesWindow.js:492
 msgid "Desktop Settings"
 msgstr "Ustawienia pulpitu"
 
-#: app/adwPreferencesWindow.js:415
+#: app/adwPreferencesWindow.js:493
 msgid "Settings for the Desktop Program"
 msgstr "Ustawienia programu pulpitu"
 
-#: app/adwPreferencesWindow.js:421
+#: app/adwPreferencesWindow.js:499
 msgid "Desktop Folder"
 msgstr "Katalog pulpitu"
 
-#: app/adwPreferencesWindow.js:422
+#: app/adwPreferencesWindow.js:500
 msgid "Current Desktop: "
 msgstr "Aktualny pulpit: "
 
-#: app/adwPreferencesWindow.js:431
+#: app/adwPreferencesWindow.js:510
 msgid "Files Settings"
 msgstr "Ustawienia plików"
 
-#: app/adwPreferencesWindow.js:432
+#: app/adwPreferencesWindow.js:511
 msgid "Settings shared with Gnome Files"
 msgstr "Ustawienia dzielone z Pliki GNOME"
 
-#: app/adwPreferencesWindow.js:439
+#: app/adwPreferencesWindow.js:518
 msgid "Miscellaneous Tweaks"
 msgstr "Różne usprawnienia"
 
-#: app/adwPreferencesWindow.js:457
+#: app/adwPreferencesWindow.js:536
 msgid "Size for the desktop icons"
 msgstr "Rozmiar ikon na pulpicie"
 
-#: app/adwPreferencesWindow.js:459
+#: app/adwPreferencesWindow.js:538
 msgid "Tiny"
 msgstr "Malutki"
 
-#: app/adwPreferencesWindow.js:460
+#: app/adwPreferencesWindow.js:539
 msgid "Small"
 msgstr "Mały"
 
-#: app/adwPreferencesWindow.js:461
+#: app/adwPreferencesWindow.js:540
 msgid "Standard"
 msgstr "Standardowy"
 
-#: app/adwPreferencesWindow.js:462
+#: app/adwPreferencesWindow.js:541
 msgid "Large"
 msgstr "Duży"
 
-#: app/adwPreferencesWindow.js:468
+#: app/adwPreferencesWindow.js:547
 msgid "New icons alignment"
 msgstr "Wyrównanie nowych ikon"
 
-#: app/adwPreferencesWindow.js:470
+#: app/adwPreferencesWindow.js:549
 msgid "Top left corner"
 msgstr "Do lewego górnego rogu"
 
-#: app/adwPreferencesWindow.js:471
+#: app/adwPreferencesWindow.js:550
 msgid "Top right corner"
 msgstr "Do prawego górnego rogu"
 
-#: app/adwPreferencesWindow.js:472
+#: app/adwPreferencesWindow.js:551
 msgid "Bottom left corner"
 msgstr "Do lewego dolnego rogu"
 
-#: app/adwPreferencesWindow.js:473
+#: app/adwPreferencesWindow.js:552
 msgid "Bottom right corner"
 msgstr "Do prawego dolnego rogu"
 
-#: app/adwPreferencesWindow.js:479
+#: app/adwPreferencesWindow.js:558
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Najpierw dodaj nowe ikony do monitorów dodatkowych, jeśli są dostępne"
 
-#: app/adwPreferencesWindow.js:483
+#: app/adwPreferencesWindow.js:562
 msgid "Snap icons to grid"
 msgstr "Przyciągaj ikony do siatki"
 
-#: app/adwPreferencesWindow.js:489
+#: app/adwPreferencesWindow.js:568
 msgid "Highlight the drop grid"
 msgstr "Podświetl siatkę upuszczeń"
 
-#: app/adwPreferencesWindow.js:498
+#: app/adwPreferencesWindow.js:577
 msgid "New Desktop Folder"
 msgstr "Brak katalogu docelowego"
 
-#: app/adwPreferencesWindow.js:499
+#: app/adwPreferencesWindow.js:578
 msgid "Set a new folder for the desktop"
 msgstr "Ustaw nowy katalog pulpitu"
 
-#: app/adwPreferencesWindow.js:500 app/adwPreferencesWindow.js:695
-#: app/desktopFolderMonitor.js:618
+#: app/adwPreferencesWindow.js:579 app/utils/desktopFolderUtils.js:84
 msgid "Choose"
 msgstr "Wybierz"
 
-#: app/adwPreferencesWindow.js:505
+#: app/adwPreferencesWindow.js:584
 msgid "Restore Default Desktop Folder"
 msgstr "Przywróć domyślny katalog pulpitu"
 
-#: app/adwPreferencesWindow.js:506
+#: app/adwPreferencesWindow.js:585
 msgid "Set Desktop back to $HOME/Desktop"
 msgstr "Ustaw ponownie domyślny katalog pulpitu na $HOME/Desktop"
 
-#: app/adwPreferencesWindow.js:507
+#: app/adwPreferencesWindow.js:586
 msgid "Restore"
 msgstr "Przywróć"
 
-#: app/adwPreferencesWindow.js:517
+#: app/adwPreferencesWindow.js:596
 msgid "Add information emblems for links, encryption"
 msgstr "Dodaj emblematy informacyjne dla odnośników, szyfrowania"
 
-#: app/adwPreferencesWindow.js:521
+#: app/adwPreferencesWindow.js:600
 msgid "Use dark text in icon labels"
 msgstr "Używaj ciemnego tekstu w etykietach ikon"
 
-#: app/adwPreferencesWindow.js:526
+#: app/adwPreferencesWindow.js:605
 msgid "Show the personal folder on the desktop"
 msgstr "Pokaż Katalog domowy na pulpicie"
 
-#: app/adwPreferencesWindow.js:531
+#: app/adwPreferencesWindow.js:610
 msgid "Show the trash icon on the desktop"
 msgstr "Pokaż Kosz na pulpicie"
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:615
 msgid "Show external drives on the desktop"
 msgstr "Pokaż napędy zewnętrzne na pulpicie"
 
-#: app/adwPreferencesWindow.js:541
+#: app/adwPreferencesWindow.js:620
 msgid "Show network drives on the desktop"
 msgstr "Pokaż napędy sieciowe na pulpicie"
 
-#: app/adwPreferencesWindow.js:546
+#: app/adwPreferencesWindow.js:625
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Dodaj nowe dyski po przeciwnej stronie pulpitu"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:630
 msgid "Action to Open Items"
 msgstr "Działanie otwierania elementów"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:632
 msgid "Single click"
 msgstr "Pojedyncze kliknięcie"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:633
 msgid "Double click"
 msgstr "Podwójne kliknięcie"
 
-#: app/adwPreferencesWindow.js:559
+#: app/adwPreferencesWindow.js:638
 msgid "Show image thumbnails"
 msgstr "Pokaż podglądy obrazów"
 
-#: app/adwPreferencesWindow.js:561
+#: app/adwPreferencesWindow.js:640
 msgid "Always"
 msgstr "Zawsze"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:641
 msgid "On this computer only"
 msgstr "Tylko na tym komputerze"
 
-#: app/adwPreferencesWindow.js:563
+#: app/adwPreferencesWindow.js:642
 msgid "Never"
 msgstr "Nigdy"
 
-#: app/adwPreferencesWindow.js:568
+#: app/adwPreferencesWindow.js:647
 msgid "Show a context menu item to delete permanently"
 msgstr "Pokaż w menu kontekstowym element usuń trwale"
 
-#: app/adwPreferencesWindow.js:573
+#: app/adwPreferencesWindow.js:652
 msgid "Show hidden files"
 msgstr "Pokaż ukryte pliki"
 
-#: app/adwPreferencesWindow.js:578
+#: app/adwPreferencesWindow.js:657
 msgid "Open folders on drag hover"
 msgstr "Otwórz katalogi po najechaniu kursorem"
 
-#: app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:661
 msgid "About..."
 msgstr "O programie"
 
-#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:601
+#: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 msgid "Translations"
 msgstr "Tłumaczenie"
 
-#: app/adwPreferencesWindow.js:596
+#: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
 msgstr "Tłumaczenia na Weblate.."
 
-#: app/adwPreferencesWindow.js:603
+#: app/adwPreferencesWindow.js:682
 msgid "Translate"
 msgstr "Tłumacz"
-
-#: app/adwPreferencesWindow.js:694 app/desktopFolderMonitor.js:617
-msgid "Choose Desktop Folder"
-msgstr "Wybierz katalog pulpitu"
 
 #: app/appChooser.js:73
 msgid "Choose an application to open <b>{foo}</b>"
@@ -539,19 +534,19 @@ msgstr "Nie można otworzyć pliku"
 msgid "{appName} can not open files of this Type!"
 msgstr "${appName} nie może otwierać plików tego typu!"
 
-#: app/desktopFolderMonitor.js:121
+#: app/desktopFolderMonitor.js:102
 msgid "Desktop Folder Change Failed"
 msgstr "Błąd zmiany katalogu pulpitu"
 
-#: app/desktopFolderMonitor.js:124
+#: app/desktopFolderMonitor.js:105
 msgid "The new Desktop Folder does not exist!"
 msgstr "Nowy katalog pulpitu nie istnieje!"
 
-#: app/desktopFolderMonitor.js:140
+#: app/desktopFolderMonitor.js:116
 msgid "Desktop Folder Changed"
 msgstr "Zmieniono katalog pulpitu"
 
-#: app/desktopFolderMonitor.js:141
+#: app/desktopFolderMonitor.js:117
 msgid "Switching to new Desktop..."
 msgstr "Przełączanie na nowy pulpit..."
 
@@ -1284,7 +1279,11 @@ msgstr ""
 "Dla tej funkcjonalności musisz zainstalować \"${programName}\" w swoim "
 "systemie."
 
-#: app/utils/desktopIconsUtil.js:292
+#: app/utils/desktopFolderUtils.js:83
+msgid "Choose Desktop Folder"
+msgstr "Wybierz katalog pulpitu"
+
+#: app/utils/desktopIconsUtil.js:208
 msgid "Command not found"
 msgstr "Nie odnaleziono polecenia"
 
