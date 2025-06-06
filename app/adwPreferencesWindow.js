@@ -289,7 +289,9 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.1 for Gnome 45, 46, 47, 48</p>
+            `<p>* Adw version 100.2 for Gnome 45, 46, 47, 48</p>
+<ul><li>Remove dependency on xdg-user-dirs</li></ul>
+            <p>* Adw version 100.1 for Gnome 45, 46, 47, 48</p>
 <p>Minor bug fixes to run on older Adw 1.5, errors on connecting second monitor, fix open terminal shortcut</p>
 <p>Yay! Version 100!
 Actually version 1.0, started with 0.01, but got tired of writing a 0 before every version.

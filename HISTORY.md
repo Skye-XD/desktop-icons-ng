@@ -1,4 +1,9 @@
 # History of versions #
+* Adw version 100.2 for Gnome 45, 46, 47, 48
+ * Remove dependency on xdg-user-dirs in the Preferences Window, use GLib and Gio to manipulate file. (Sundeep Mediratta)
+ * Update History.MD, update app release notes, metadata.json
+
+
 * Adw version 100.1 for Gnome 45, 46, 47, 48
  * Bug fix version
  * Fix spelling error in method called when adding monitor. (Sundeep Mediratta)
