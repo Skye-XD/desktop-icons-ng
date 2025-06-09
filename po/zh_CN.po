@@ -18,8 +18,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-05-17 02:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-06-08 13:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -32,12 +33,12 @@ msgstr ""
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
-msgstr "显示快捷方式"
+msgstr "快捷访问"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "显示快捷方式"
+msgstr "编辑快捷键"
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
@@ -65,8 +66,9 @@ msgid "Tweaks"
 msgstr "优化"
 
 #: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 #: app/adwPreferencesWindow.js:492
 msgid "Desktop Settings"
@@ -256,7 +258,7 @@ msgstr "拖动鼠标悬停时打开文件夹"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "关于"
+msgstr "关于..."
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
@@ -1083,8 +1085,9 @@ msgstr "控制台"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1099,8 +1102,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "重置为默认值"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1127,7 +1131,7 @@ msgstr ""
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "显示快捷方式"
+msgstr "全局快捷键"
 
 #: app/shortcutManager.js:365
 #, fuzzy
@@ -1137,7 +1141,7 @@ msgstr "显示快捷方式"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "显示快捷方式"
+msgstr "键盘快捷键"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1145,19 +1149,20 @@ msgid "Reset Shortcuts"
 msgstr "显示快捷方式"
 
 #: app/shortcutManager.js:674
+#, fuzzy
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "重置快捷键"
 
 #: app/shortcutManager.js:677
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "全部打开..."
+msgstr "重置所有"
 
 #: app/shortcuts.js:15
 #, fuzzy
 msgid "Show Desktop in Files"
-msgstr "图表 In GNOME files"
+msgstr "在文件管理器中打开桌面"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
@@ -1167,7 +1172,7 @@ msgstr "在终端中打开"
 #, fuzzy
 #| msgid "Change Background…"
 msgid "Change Background"
-msgstr "更改背景…"
+msgstr "改变背景"
 
 #: app/shortcuts.js:18
 #, fuzzy
@@ -1296,7 +1301,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Create Desktop Shortcut"
-msgstr "已损坏的桌面文件"
+msgstr "创建桌面快捷方式"
 
 #: app/shortcuts.js:41
 msgid "Text Entry Accels Turn On"

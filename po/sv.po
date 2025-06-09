@@ -12,11 +12,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-05-17 02:02+0000\n"
+"PO-Revision-Date: 2025-06-08 13:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,12 +27,12 @@ msgstr ""
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Visa genvägar"
+msgstr "Genvägar"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Visa genvägar"
+msgstr "Redigera Genvägar"
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
@@ -62,8 +62,9 @@ msgid "Tweaks"
 msgstr "Tweaks"
 
 #: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Mer"
 
 #: app/adwPreferencesWindow.js:492
 #, fuzzy
@@ -291,12 +292,12 @@ msgstr "Öppna mappar på drag hover"
 #: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
-msgstr "Om"
+msgstr "Om..."
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
 msgid "Translations"
-msgstr "Översättning"
+msgstr "Översättningar"
 
 #: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
@@ -796,7 +797,7 @@ msgstr "Namn"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Namn Ö - A"
+msgstr "Namn (Ö–A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -1240,8 +1241,9 @@ msgstr "Trösta"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1256,8 +1258,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "Återställ till standard"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1284,7 +1287,7 @@ msgstr ""
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "Visa genvägar"
+msgstr "Globala genvägar"
 
 #: app/shortcutManager.js:365
 #, fuzzy
@@ -1294,7 +1297,7 @@ msgstr "Visa genvägar"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Visa genvägar"
+msgstr "Tangentbordsgenvägar"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1309,12 +1312,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Öppna alla…"
+msgstr "Återställ"
 
 #: app/shortcuts.js:15
 #, fuzzy
 msgid "Show Desktop in Files"
-msgstr "Show Desktop I GNOME-filer"
+msgstr "Visa skrivbord i Filer"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
@@ -1324,7 +1327,7 @@ msgstr "Öppna i terminal"
 #, fuzzy
 #| msgid "Change Background…"
 msgid "Change Background"
-msgstr "Ändra bakgrund…"
+msgstr "Ändra bakgrund"
 
 #: app/shortcuts.js:18
 #, fuzzy
@@ -1344,7 +1347,7 @@ msgstr ""
 #: app/shortcuts.js:21
 #, fuzzy
 msgid "Keep Arranged"
-msgstr "Behåll arrangerade…"
+msgstr "Behåll arrangerade..."
 
 #: app/shortcuts.js:22
 #, fuzzy

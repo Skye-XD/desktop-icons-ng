@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-05-17 02:02+0000\n"
+"PO-Revision-Date: 2025-06-08 13:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -25,12 +25,12 @@ msgstr ""
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
-msgstr "顯示快捷鍵"
+msgstr "快捷鍵"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "顯示快捷鍵"
+msgstr "編輯快捷鍵"
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
@@ -59,11 +59,12 @@ msgstr "文件"
 #: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Tweaks"
-msgstr "調教"
+msgstr "調整"
 
 #: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 #: app/adwPreferencesWindow.js:492
 #, fuzzy
@@ -269,7 +270,7 @@ msgstr "拖拉 的开放夹"
 #: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
-msgstr "關于"
+msgstr "關於..."
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
@@ -1190,8 +1191,9 @@ msgstr "主控臺"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "無"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1206,8 +1208,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "重設為預設值"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1244,7 +1247,7 @@ msgstr "顯示快捷鍵"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "顯示快捷鍵"
+msgstr "鍵盤快捷鍵"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1259,7 +1262,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "開啟所有項目……"
+msgstr "重置全部"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1389,7 +1392,7 @@ msgstr ""
 #: app/shortcuts.js:40
 #, fuzzy
 msgid "Create Desktop Shortcut"
-msgstr "損毀的 .desktop 檔"
+msgstr "創建 桌面 捷徑"
 
 #: app/shortcuts.js:41
 msgid "Text Entry Accels Turn On"

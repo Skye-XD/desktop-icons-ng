@@ -13,27 +13,28 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-04-24 02:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fi/>\n"
+"PO-Revision-Date: 2025-06-08 13:01+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 "X-Launchpad-Export-Date: 2021-04-08 06:16+0000\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Näytä pikanäppäimet"
+msgstr "Pikanäppäimet"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Näytä pikanäppäimet"
+msgstr "Muokkauksen pikanäppäimet"
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
@@ -65,8 +66,9 @@ msgid "Tweaks"
 msgstr "Säädöt"
 
 #: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Lisää"
 
 #: app/adwPreferencesWindow.js:492
 #, fuzzy
@@ -276,12 +278,12 @@ msgstr "Avoimet kansiot drag hoverissa"
 #: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
-msgstr "Tietoja"
+msgstr "Tietoja..."
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
 msgid "Translations"
-msgstr "Käännös"
+msgstr "Käännökset"
 
 #: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
@@ -1232,8 +1234,9 @@ msgstr "Konsoli"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Ei ole"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1248,8 +1251,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "Palauta Oletusarvot"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1286,7 +1290,7 @@ msgstr "Näytä pikanäppäimet"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Näytä pikanäppäimet"
+msgstr "näppäimistön pikavalinnat"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1301,12 +1305,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Avaa kaikki..."
+msgstr "Nollaa kaikki"
 
 #: app/shortcuts.js:15
 #, fuzzy
 msgid "Show Desktop in Files"
-msgstr "Näytä työpöytä GNOME-tiedostot"
+msgstr "Näytä työpöytä tiedostonhallinnassa"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
@@ -1316,7 +1320,7 @@ msgstr "Avaa päätteessä"
 #, fuzzy
 #| msgid "Change Background…"
 msgid "Change Background"
-msgstr "Vaihda taustakuvaa…"
+msgstr "Päivitä taustakuva"
 
 #: app/shortcuts.js:18
 #, fuzzy
@@ -1336,7 +1340,7 @@ msgstr ""
 #: app/shortcuts.js:21
 #, fuzzy
 msgid "Keep Arranged"
-msgstr "Pidä järjestettynä…"
+msgstr "Pidä järjestettynä..."
 
 #: app/shortcuts.js:22
 #, fuzzy
@@ -1495,7 +1499,7 @@ msgstr "Tiedostoa ei voitu avata, sillä se on rikkinäinen linkki"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Ajaminen"
+msgstr "Ajuri"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is needed for Desktop Icons"
