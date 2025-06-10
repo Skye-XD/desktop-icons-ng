@@ -10,16 +10,16 @@
 # albanobattistella <albano_battistella@hotmail.com>, 2024, 2025.
 # Fabian Esposito <fabian.esposito@outlook.com>, 2025.
 # Jimmy Scionti <jimmy.scionti@gmail.com>, 2025.
+# dev0null <dev0null@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-05-28 02:03+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/it/>\n"
+"PO-Revision-Date: 2025-06-09 21:08+0000\n"
+"Last-Translator: dev0null <dev0null@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "Scorciatoie"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Edita Scorciatoie"
+msgstr "Modifica le Scorciatoie"
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
@@ -274,7 +274,7 @@ msgstr "Apri cartelle su drag hover"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "Informazioni.."
+msgstr "A Proposito Di…"
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
@@ -650,7 +650,7 @@ msgstr "Creazione di ordine non riuscita."
 
 #: app/desktopFolderMonitor.js:105
 msgid "The new Desktop Folder does not exist!"
-msgstr ""
+msgstr "La nuova cartella Scrivania non esiste!"
 
 #: app/desktopFolderMonitor.js:116
 msgid "Desktop Folder Changed"
@@ -691,7 +691,7 @@ msgstr "Abilitato"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "Impossibile mostrare la scrivania"
 
 #: app/desktopManager.js:207
 #, fuzzy
@@ -709,9 +709,9 @@ msgid "There is no default File Manager"
 msgstr "Non esiste File Manager predefinito"
 
 #: app/desktopManager.js:217
-#, fuzzy
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "Non c'è applicazione che gestisce mimetype \"inode/directory\""
+msgstr ""
+"Non c'è nessuna applicazione per gestire il mimetype \"inode/directory\""
 
 #: app/desktopManager.js:226
 #, fuzzy
@@ -788,7 +788,7 @@ msgstr "Nome"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Nome dalla Z alla A"
+msgstr "Nome A-Z"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -827,7 +827,7 @@ msgstr "Desktop"
 
 #: app/desktopMenu.js:949
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "Ripristina il Desktop di default"
 
 #: app/desktopMenu.js:953
 #, fuzzy
@@ -1012,7 +1012,7 @@ msgstr "Taglia"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Sposta in..."
+msgstr "Spostare a"
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1301,7 +1301,7 @@ msgstr "Ripristina tutte le scorciatoie ai valori predefiniti"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Ripristina tutto"
+msgstr "Resettare Tutto"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1483,7 +1483,7 @@ msgstr "Spazzatura"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "Pila"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1496,7 +1496,7 @@ msgstr "Non è possibile aprire questo file perché è un collegamento interrott
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Unità"
+msgstr "Drive"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is needed for Desktop Icons"

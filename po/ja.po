@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-02 20:02+0000\n"
+"PO-Revision-Date: 2025-06-08 13:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Tweaks"
-msgstr "微調整"
+msgstr "詳細設定"
 
 #: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 #, fuzzy
@@ -71,7 +71,7 @@ msgstr "さらに表示"
 #: app/adwPreferencesWindow.js:492
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "デスクトップ設定"
+msgstr "デスクトップの設定"
 
 #: app/adwPreferencesWindow.js:493
 #, fuzzy
@@ -1015,12 +1015,12 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "を移動..."
+msgstr "を移動."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピー..."
+msgstr "コピーする"
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1029,7 +1029,7 @@ msgstr "名前を変更…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "リンクを発行する"
+msgstr "リンクを作成"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1305,7 +1305,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "全てをリセット"
+msgstr "すべてリセット"
 
 #: app/shortcuts.js:15
 #, fuzzy

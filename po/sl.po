@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-05-02 19:23+0000\n"
+"PO-Revision-Date: 2025-06-08 13:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sl/>\n"
+"Language-Team: Slovenian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Prikaži bližnjice"
+msgstr "Bližnjice"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
@@ -59,8 +59,9 @@ msgid "Tweaks"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Več"
 
 #: app/adwPreferencesWindow.js:492
 msgid "Desktop Settings"
@@ -249,12 +250,12 @@ msgstr ""
 #: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
-msgstr "Približno"
+msgstr "O ..."
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
 msgid "Translations"
-msgstr "Prevod"
+msgstr "Prevodi"
 
 #: app/adwPreferencesWindow.js:675
 msgid "All tranlations on Weblate.."
@@ -1070,8 +1071,9 @@ msgstr "Konzola"
 
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Prazno"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1086,8 +1088,9 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
+#, fuzzy
 msgid "Reset to Default"
-msgstr ""
+msgstr "Ponastavi na privzeto"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"
@@ -1124,7 +1127,7 @@ msgstr "Prikaži bližnjice"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Prikaži bližnjice"
+msgstr "Bližnjice na tipkovnici"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1138,7 +1141,7 @@ msgstr ""
 #: app/shortcutManager.js:677
 #, fuzzy
 msgid "Reset All..."
-msgstr "Izberi vse"
+msgstr "Ponastavi vse"
 
 #: app/shortcuts.js:15
 #, fuzzy
