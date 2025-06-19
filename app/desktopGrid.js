@@ -1203,42 +1203,52 @@ const DrawGrid =  class extends DisplayGrid {
     }
 
     _roundedRectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
-        const radius = 5;
+        const cornerRadius = 5;
         const degrees = 3.14 / 180;
+
+        const isSquare = width === height;
+        const tooLarge = cornerRadius * 2 > Math.min(width, height);
 
         cr.newSubPath();
 
-        cr.arc(
-            x + width - radius,
-            y + radius, radius,
-            -90 * degrees,
-            0 * degrees
-        );
+        if (cornerRadius <= 0 || tooLarge || isSquare) {
+            // Just draw a plain rectangle
+            cr.rectangle(x, y, width, height);
+        } else {
+            const radius = Math.min(cornerRadius, width / 2, height / 2);
 
-        cr.arc(
-            x + width - radius,
-            y + height - radius,
-            radius, 0 * degrees,
-            90 * degrees
-        );
+            cr.arc(
+                x + width - radius,
+                y + radius, radius,
+                -90 * degrees,
+                0 * degrees
+            );
 
-        cr.arc(
-            x + radius,
-            y + height - radius,
-            radius,
-            90 * degrees,
-            180 * degrees
-        );
+            cr.arc(
+                x + width - radius,
+                y + height - radius,
+                radius, 0 * degrees,
+                90 * degrees
+            );
 
-        cr.arc(
-            x + radius,
-            y + radius,
-            radius,
-            180 * degrees,
-            270 * degrees
-        );
+            cr.arc(
+                x + radius,
+                y + height - radius,
+                radius,
+                90 * degrees,
+                180 * degrees
+            );
 
-        cr.closePath();
+            cr.arc(
+                x + radius,
+                y + radius,
+                radius,
+                180 * degrees,
+                270 * degrees
+            );
+
+            cr.closePath();
+        }
 
         Gdk.cairo_set_source_rgba(cr, fillColor);
         cr.fillPreserve();
