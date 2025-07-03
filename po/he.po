@@ -10,18 +10,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-05-22 01:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/he/>\n"
+"PO-Revision-Date: 2025-07-03 22:07+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -31,7 +30,7 @@ msgstr "קיצורי דרך"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "ערוץ קיצורים"
+msgstr "ערוך קיצור דרך"
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
@@ -155,7 +154,7 @@ msgstr "הוסף סמלים חדשים ל-IIary Monitor ראשון, אם זמי�
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Snap icons to net"
+msgstr "הצמד לרשת"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -250,7 +249,7 @@ msgstr "תמיד"
 #: app/adwPreferencesWindow.js:641
 #, fuzzy
 msgid "On this computer only"
-msgstr "במחשב רק"
+msgstr "במחשב זה"
 
 #: app/adwPreferencesWindow.js:642
 msgid "Never"
@@ -437,7 +436,7 @@ msgstr "הסרת קבצים לתוך \"$\" \"\""
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "הפקה הושלמה"
+msgstr "פעולה הושלמה."
 
 #: app/autoAr.js:436
 #, fuzzy
@@ -502,7 +501,7 @@ msgstr "טעות במהלך דחיסה"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "יצירת ארכיון"
+msgstr "יצירת ארכיון חדש"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -512,7 +511,7 @@ msgstr "שם הארכיון"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "ססמה"
+msgstr "סיסמה"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -761,7 +760,7 @@ msgstr "שם (ת-א)"
 #: app/desktopMenu.js:923
 #, fuzzy
 msgid "Modified Time"
-msgstr "זמן משתנה"
+msgstr "מועד השינוי האחרון"
 
 #: app/desktopMenu.js:925
 #, fuzzy
@@ -868,8 +867,9 @@ msgid "Copy/Move Failed"
 msgstr "ביטול"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "לא קיים"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1167,7 +1167,7 @@ msgstr "אנא התקנת Gnome Console או תוכנית טרמינל אחרת"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "בלתי אפשרי לפתוח 0"
+msgstr "לא ניתן לפתוח"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1228,8 +1228,9 @@ msgid "Reset to Default"
 msgstr "אפס לברירת מחדל"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "מאיץ"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1252,12 +1253,12 @@ msgstr ""
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "הראה קיצורים"
+msgstr "קיצור־דרך כללי"
 
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "הראה קיצורים"
+msgstr "צירופי מקשים"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1518,7 +1519,7 @@ msgstr "גודל הסמלים"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, fuzzy
 msgid "Set the size for the desktop icons."
-msgstr "הגדר את הגודל עבור אייקונים שולחניים."
+msgstr "גודל הסמלים בשולחן העבודה"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
 msgid "Show personal folder"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
+"PO-Revision-Date: 2025-07-03 22:07+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -33,8 +33,9 @@ msgid "Edit Shortcuts..."
 msgstr "Edit Shortcuts"
 
 #: app/adwPreferencesWindow.js:178
+#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "Application Shortcuts"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -135,7 +136,7 @@ msgstr "Sudut kiri atas"
 #: app/adwPreferencesWindow.js:550
 #, fuzzy
 msgid "Top right corner"
-msgstr "Sudut kanan atas"
+msgstr "Pojok Kanan Bar Atas"
 
 #: app/adwPreferencesWindow.js:551
 #, fuzzy
@@ -155,7 +156,7 @@ msgstr "Tambahkan ikon baru ke Monitor Sekunder terlebih dahulu, jika tersedia"
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Snap ikon ke grid"
+msgstr "Lekatkan kepada kisi"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -165,7 +166,7 @@ msgstr "Menyiapkan grid drop"
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
-msgstr "Tidak Ada Folder Tujuan"
+msgstr "Folder desktop"
 
 #: app/adwPreferencesWindow.js:578
 #, fuzzy
@@ -244,7 +245,7 @@ msgstr "Klik ganda"
 #: app/adwPreferencesWindow.js:638
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Tampilkan gambar thumbnails"
+msgstr "Tampilkan thumbnail"
 
 #: app/adwPreferencesWindow.js:640
 #, fuzzy
@@ -259,7 +260,7 @@ msgstr "Di komputer ini hanya"
 #: app/adwPreferencesWindow.js:642
 #, fuzzy
 msgid "Never"
-msgstr "Tidak pernah"
+msgstr "tidak pernah"
 
 #: app/adwPreferencesWindow.js:647
 #, fuzzy
@@ -430,7 +431,7 @@ msgstr "Batal"
 #: app/autoAr.js:311 app/autoAr.js:608
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Masukkan kata sandi di sini"
+msgstr "Masukkan kata sandi"
 
 #: app/autoAr.js:354
 #, fuzzy
@@ -525,7 +526,7 @@ msgstr "Nama Arsip"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Kata sandi"
+msgstr "Sandi"
 
 #: app/autoAr.js:617
 msgid "Create"
@@ -668,7 +669,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Memungkinkan"
+msgstr "Aktifkan"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -771,7 +772,7 @@ msgstr "Nama"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Nama Z - A"
+msgstr "Nama (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -815,7 +816,7 @@ msgstr ""
 #: app/desktopMenu.js:953
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Pengaturan Ikon Desktop"
+msgstr "Desktop Settings"
 
 #: app/desktopMenu.js:955
 #, fuzzy
@@ -884,8 +885,9 @@ msgid "Copy/Move Failed"
 msgstr "Pindah Batal"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "Tidak ada"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -968,7 +970,7 @@ msgstr "Buka Dengan..."
 #: app/fileItemMenu.js:176
 #, fuzzy
 msgid "Open All With Other Application..."
-msgstr "Buka Semua Dengan Aplikasi Lainnya..."
+msgstr "Buka Dengan Aplikasi Lain"
 
 #: app/fileItemMenu.js:184
 #, fuzzy
@@ -1051,7 +1053,7 @@ msgstr "Hapus permanen"
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 #, fuzzy
 msgid "Don't Allow Launching"
-msgstr "Jangan Memungkinkan Peluncuran"
+msgstr "Izinkan Peluncuran"
 
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
@@ -1239,8 +1241,9 @@ msgid "Reset to Default"
 msgstr "Setel Ulang ke Bawaan"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "Akselerator"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1257,8 +1260,9 @@ msgid "Local Shortcuts"
 msgstr "Tampilkan Pintasan"
 
 #: app/shortcutManager.js:303
+#, fuzzy
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "Application Shortcuts"
 
 #: app/shortcutManager.js:364
 #, fuzzy
@@ -1268,7 +1272,7 @@ msgstr "Tampilkan Pintasan"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Tampilkan Pintasan"
+msgstr "Pintasan Papan Ketik"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1361,7 +1365,7 @@ msgstr "Login"
 #: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
-msgstr "Berkas"
+msgstr "Cari dalam Berkas"
 
 #: app/shortcuts.js:30
 #, fuzzy
@@ -1718,8 +1722,9 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr "Tampilkan ikon tong sampah di destop"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "Application Shortcuts"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"

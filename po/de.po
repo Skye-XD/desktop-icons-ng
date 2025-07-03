@@ -14,8 +14,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-07-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -23,12 +24,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Verknüpfungen"
+msgstr "Shortcut"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
@@ -56,7 +57,7 @@ msgstr "Schreibtisch"
 #: app/adwPreferencesWindow.js:468 app/adwPreferencesWindow.js:469
 #, fuzzy
 msgid "Files"
-msgstr "Datein"
+msgstr "Dateien"
 
 #: app/adwPreferencesWindow.js:474 app/adwPreferencesWindow.js:475
 #: app/adwPreferencesWindow.js:517
@@ -149,7 +150,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Am Gitter anordnen"
+msgstr "Zu Gitter anbinden"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -267,7 +268,7 @@ msgstr "Ordner auf Drag Hover öffnen"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "Über..."
+msgstr "Über …"
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
@@ -281,7 +282,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:682
 #, fuzzy
 msgid "Translate"
-msgstr "Übersetzen"
+msgstr "Übersetze"
 
 #: app/appChooser.js:73
 #, fuzzy
@@ -432,7 +433,7 @@ msgstr "Dateien in '${outputPath} extrahieren '"
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Entpacken abgeschlossen"
+msgstr "Extraktion abgeschlossen"
 
 #: app/autoAr.js:436
 #, fuzzy
@@ -583,7 +584,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Konnte Datei nicht öffnen"
+msgstr "Dateien konnten nicht geöffnet werden"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -843,7 +844,7 @@ msgstr "Zurückgenommen"
 #: app/dragManager.js:740
 #, fuzzy
 msgid "{0} Does not exist"
-msgstr "Existiert nicht"
+msgstr "nicht vorhanden"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1197,7 +1198,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "Auf Standardwerte zurücksetzen"
+msgstr "Rücksetzen auf Standardeinstellung"
 
 #: app/shortcutManager.js:134
 #, fuzzy
@@ -1231,12 +1232,12 @@ msgstr "Globale Tastenkürzel"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Tastenkombinationen anzeigen"
+msgstr "Tastenkürzel"
 
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Tastaturkurzbefehle"
+msgstr "Tastaturkürzel"
 
 #: app/shortcutManager.js:673
 #, fuzzy

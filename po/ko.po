@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
+"PO-Revision-Date: 2025-07-03 22:07+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -34,8 +34,9 @@ msgid "Edit Shortcuts..."
 msgstr "단축키 수정"
 
 #: app/adwPreferencesWindow.js:178
+#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "애플리케이션 단축키"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -155,7 +156,7 @@ msgstr "Secondary Monitors에 새로운 아이콘을 먼저 추가하면 사용 
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Snap 아이콘을 그리드"
+msgstr "그리드에 맞추기"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -165,7 +166,7 @@ msgstr "높은 조명 드롭 그리드"
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
-msgstr "대상 폴더 없음"
+msgstr "바탕 화면 폴더"
 
 #: app/adwPreferencesWindow.js:578
 #, fuzzy
@@ -419,7 +420,7 @@ msgstr ""
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "파일 추출"
+msgstr "'%s' 파일을 추출하는 중."
 
 #: app/autoAr.js:220
 #, fuzzy
@@ -530,7 +531,7 @@ msgstr "압축파일 이름"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "비밀 번호"
+msgstr "비밀번호"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -682,7 +683,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "켜기"
+msgstr "활성화"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -790,12 +791,12 @@ msgstr "이름 (Z-A)"
 #: app/desktopMenu.js:923
 #, fuzzy
 msgid "Modified Time"
-msgstr "수정 시간"
+msgstr "마지막 수정 시간"
 
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "형식"
+msgstr "유형"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -896,8 +897,9 @@ msgid "Copy/Move Failed"
 msgstr "이동 취소"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "존재하지 않음"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1132,7 +1134,7 @@ msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "선택은 디렉토리를 포함, .zip 파일에 압축 먼저?"
+msgstr "선택 파일 중 디렉터리가 포함되어 있어, 먼저 파일로 압축이 필요합니다."
 
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
@@ -1185,7 +1187,7 @@ msgstr "Gnome 콘솔 또는 기타 터미널 프로그램 설치"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "자주 묻는 질문 이름 *"
+msgstr "열 수 없습니다"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1246,8 +1248,9 @@ msgid "Reset to Default"
 msgstr "기본값으로 재설정"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "가속기"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1264,18 +1267,19 @@ msgid "Local Shortcuts"
 msgstr "단축키 보기"
 
 #: app/shortcutManager.js:303
+#, fuzzy
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "애플리케이션 단축키"
 
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "전역"
+msgstr "전역 바로가기"
 
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "단축키 보기"
+msgstr "키보드 단축키 보기"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1411,7 +1415,7 @@ msgstr "파일에 대한 작업 선택"
 #: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "선택하세요"
+msgstr "아이콘 선택"
 
 #: app/shortcuts.js:37
 #, fuzzy
@@ -1531,7 +1535,7 @@ msgstr "_취소"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "열기(_O)"
+msgstr "_열기"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1703,8 +1707,9 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr "바탕화면에 휴지통 표시"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "애플리케이션 단축키"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"

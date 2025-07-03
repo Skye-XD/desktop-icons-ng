@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
+"PO-Revision-Date: 2025-07-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -145,7 +145,7 @@ msgstr "Додайте нові іконки до вторинних моніт�
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Вирівняти по сітці"
+msgstr "Прив’язка до сітки"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -187,9 +187,8 @@ msgid "Add information emblems for links, encryption"
 msgstr "Додати емблему до посилань"
 
 #: app/adwPreferencesWindow.js:600
-#, fuzzy
 msgid "Use dark text in icon labels"
-msgstr "Використовуйте темний текст у знаках іконок"
+msgstr "Використати темний текст на підписах до піктограм"
 
 #: app/adwPreferencesWindow.js:605
 #, fuzzy
@@ -263,7 +262,7 @@ msgstr "Відкрийте папки на перетягування"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "О програмі"
+msgstr "Про програму ..."
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
@@ -598,7 +597,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Не вдалося відкрити файл"
+msgstr "Не можу відкрити файли"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -649,7 +648,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Ввімкнути"
+msgstr "Увімкнути"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -761,7 +760,7 @@ msgstr "Час останньої зміни"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "Тип"
+msgstr "Вид взуття"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -821,7 +820,7 @@ msgstr "Повторити"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Обрати все"
+msgstr "Вибрати все"
 
 #: app/desktopMenu.js:985
 msgid "Arrange Icons"
@@ -875,7 +874,7 @@ msgstr "Виберіть дію для файлів"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "Рухатися"
+msgstr "Переміщення"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -981,7 +980,7 @@ msgstr "Вирізати"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Перемістити до..."
+msgstr "Перейти до..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1201,7 +1200,7 @@ msgstr "Консоль"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Жоден"
+msgstr "Немає"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1252,7 +1251,7 @@ msgstr "Глобальні ярлики"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Гарячі клавіші"
+msgstr "Комбінації клавіш"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1293,7 +1292,7 @@ msgstr "Змінити тло"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Параметри показу"
+msgstr "Налаштування дисплея"
 
 #: app/shortcuts.js:19
 #, fuzzy

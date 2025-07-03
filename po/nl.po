@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
+"PO-Revision-Date: 2025-07-03 22:07+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -33,8 +33,9 @@ msgid "Edit Shortcuts..."
 msgstr "Bewerk snelkoppelingen"
 
 #: app/adwPreferencesWindow.js:178
+#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "Applicatiesnelkoppelingen"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -89,7 +90,7 @@ msgstr "Onjuiste .desktop-bestanden"
 #: app/adwPreferencesWindow.js:510
 #, fuzzy
 msgid "Files Settings"
-msgstr "Verklaringen"
+msgstr "Bestandsinstellingen"
 
 #: app/adwPreferencesWindow.js:511
 #, fuzzy
@@ -108,7 +109,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:538
 #, fuzzy
 msgid "Tiny"
-msgstr "Klein"
+msgstr "Kleinst"
 
 #: app/adwPreferencesWindow.js:539
 msgid "Small"
@@ -155,7 +156,7 @@ msgstr "Voeg eerst nieuwe iconen toe aan secundaire Monitors"
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Snap iconen tot grid"
+msgstr "Kleef aan raster"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -165,7 +166,7 @@ msgstr "Verlicht de daling"
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
-msgstr "Geen bestemmingsmap"
+msgstr "Bureaublad­map"
 
 #: app/adwPreferencesWindow.js:578
 #, fuzzy
@@ -189,7 +190,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:586
 #, fuzzy
 msgid "Restore"
-msgstr "Herstel"
+msgstr "Herstellen"
 
 #: app/adwPreferencesWindow.js:596
 #, fuzzy
@@ -234,7 +235,7 @@ msgstr "Actie aan Open Item"
 #: app/adwPreferencesWindow.js:632
 #, fuzzy
 msgid "Single click"
-msgstr "Single klik"
+msgstr "Enkele klik"
 
 #: app/adwPreferencesWindow.js:633
 #, fuzzy
@@ -244,7 +245,7 @@ msgstr "Dubbelklikken"
 #: app/adwPreferencesWindow.js:638
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Toon beeld duimnails"
+msgstr "Miniaturen tonen"
 
 #: app/adwPreferencesWindow.js:640
 #, fuzzy
@@ -254,7 +255,7 @@ msgstr "Altijd"
 #: app/adwPreferencesWindow.js:641
 #, fuzzy
 msgid "On this computer only"
-msgstr "Alleen op deze computer"
+msgstr "Op deze computer"
 
 #: app/adwPreferencesWindow.js:642
 #, fuzzy
@@ -279,7 +280,7 @@ msgstr "Open folders van drag hover"
 #: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
-msgstr "Over..."
+msgstr "Over…"
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
@@ -393,7 +394,7 @@ msgstr "Oké"
 #: app/askRenamePopup.js:75
 #, fuzzy
 msgid "Rename"
-msgstr "Hernoemen"
+msgstr "Hernoeming"
 
 #: app/autoAr.js:71
 #, fuzzy
@@ -448,7 +449,7 @@ msgstr "Bestanden uittrekken in 'Path'. '"
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Uitlevering voltooid"
+msgstr "Actie voltooid"
 
 #: app/autoAr.js:436
 #, fuzzy
@@ -483,7 +484,7 @@ msgstr "Compressieve bestanden in 'outputFile' '"
 #: app/autoAr.js:496
 #, fuzzy
 msgid "Compression completed"
-msgstr "Compressie voltooid"
+msgstr "Afgelopen"
 
 #: app/autoAr.js:497
 #, fuzzy
@@ -611,7 +612,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kan bestand niet openen"
+msgstr "Kon Bestanden niet openen"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -638,7 +639,7 @@ msgstr ""
 #: app/desktopGrid.js:56
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Icon"
+msgstr "Bureaubladpictogrammen"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -770,7 +771,7 @@ msgstr "Naam Z-A"
 #: app/desktopMenu.js:923
 #, fuzzy
 msgid "Modified Time"
-msgstr "Gemodificeerde Tijd"
+msgstr "Laatst gewijzigde tijd"
 
 #: app/desktopMenu.js:925
 #, fuzzy
@@ -809,7 +810,7 @@ msgstr ""
 #: app/desktopMenu.js:953
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Desktop Icon Settings"
+msgstr "Desktop-instellingen"
 
 #: app/desktopMenu.js:955
 #, fuzzy
@@ -835,7 +836,7 @@ msgstr "Opnieuw"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Selecteer alles"
+msgstr "Alles selecteren"
 
 #: app/desktopMenu.js:985
 #, fuzzy
@@ -856,7 +857,7 @@ msgstr "Laat Desktop zien"
 #: app/desktopMenu.js:1002
 #, fuzzy
 msgid "Open In {0}"
-msgstr "Open in 0"
+msgstr "Open {0}"
 
 #: app/desktopMenu.js:1018
 msgid "Shell Menu…"
@@ -878,8 +879,9 @@ msgid "Copy/Move Failed"
 msgstr "Verplaats Cancell"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "Bestaat niet"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -898,7 +900,7 @@ msgstr "Kopiëren"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Link"
-msgstr "Link"
+msgstr "Koppeling"
 
 #: app/fileItemIcon.js:95
 #, fuzzy
@@ -963,7 +965,7 @@ msgstr "Openen met..."
 #: app/fileItemMenu.js:176
 #, fuzzy
 msgid "Open All With Other Application..."
-msgstr "Open All With Ande Application..."
+msgstr "Met andere toepassing openen"
 
 #: app/fileItemMenu.js:184
 #, fuzzy
@@ -1010,7 +1012,7 @@ msgstr "Hernoemen…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "Link maken"
+msgstr "Maak een koppeling"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1023,8 +1025,8 @@ msgstr[1] "Compress"
 #, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] "Compress"
-msgstr[1] "Vertaling:"
+msgstr[0] "Bestand comprimeren"
+msgstr[1] ""
 
 #: app/fileItemMenu.js:276
 #, fuzzy
@@ -1047,7 +1049,7 @@ msgstr "Definitief verwijderen"
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 #, fuzzy
 msgid "Don't Allow Launching"
-msgstr "Vertaling:"
+msgstr "Toepassingen starten toestaan"
 
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
@@ -1088,7 +1090,7 @@ msgstr "Kom binnen"
 #: app/fileItemMenu.js:374
 #, fuzzy
 msgid "Open in {0}"
-msgstr "Open in 0"
+msgstr "Open {0}"
 
 #: app/fileItemMenu.js:537
 #, fuzzy
@@ -1176,7 +1178,7 @@ msgstr "Vertaling:"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Niet in staat om te openen _"
+msgstr "Openen mislukt"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1237,8 +1239,9 @@ msgid "Reset to Default"
 msgstr "Terugzetten naar standaard"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "Versneller"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1255,13 +1258,14 @@ msgid "Local Shortcuts"
 msgstr "Sneltoetsen tonen"
 
 #: app/shortcutManager.js:303
+#, fuzzy
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "Applicatiesnelkoppelingen"
 
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "Sneltoetsen tonen"
+msgstr "Algemene sneltoets"
 
 #: app/shortcutManager.js:365
 #, fuzzy
@@ -1276,7 +1280,7 @@ msgstr "Sneltoetsen"
 #: app/shortcutManager.js:673
 #, fuzzy
 msgid "Reset Shortcuts"
-msgstr "Sneltoetsen tonen"
+msgstr "Alle sneltoetsen opnieuw instellen"
 
 #: app/shortcutManager.js:674
 msgid "Reset all shortcuts to Defaults"
@@ -1285,7 +1289,7 @@ msgstr ""
 #: app/shortcutManager.js:677
 #, fuzzy
 msgid "Reset All..."
-msgstr "Alles herstellen"
+msgstr "Reset Alles"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1306,7 +1310,7 @@ msgstr "Achtergrond veranderen"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Scherminstellingen"
+msgstr "Weergave-instellingen"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1330,7 +1334,7 @@ msgstr "Hou Icons neer"
 #: app/shortcuts.js:23
 #, fuzzy
 msgid "Sort Special Folders"
-msgstr "Sort Speciale Folders, Home/Trash Drives."
+msgstr "Speciale mappen"
 
 #: app/shortcuts.js:24
 #, fuzzy
@@ -1517,7 +1521,7 @@ msgstr "_Annuleren"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Openen"
+msgstr "_Open"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1717,8 +1721,9 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr "Toon het prullenbakpictogram op het bureaublad"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "Applicatiesnelkoppelingen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"

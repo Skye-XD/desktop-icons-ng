@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-07-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -65,7 +66,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce ayarlar"
+msgstr "İnce Ayarlar"
 
 #: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 #, fuzzy
@@ -96,7 +97,7 @@ msgstr "Kırık Masaüstünü Dosyası"
 #: app/adwPreferencesWindow.js:510
 #, fuzzy
 msgid "Files Settings"
-msgstr "Dosyalar Ayarlar"
+msgstr "Dosya ayarları"
 
 #: app/adwPreferencesWindow.js:511
 #, fuzzy
@@ -292,7 +293,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:682
 #, fuzzy
 msgid "Translate"
-msgstr "Çevir"
+msgstr "Çevirin"
 
 #: app/appChooser.js:73
 #, fuzzy
@@ -521,7 +522,7 @@ msgstr "Arşiv adı"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Şifre"
+msgstr "Parola"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -608,7 +609,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosya açılamadı"
+msgstr "Dosyalar açılamadı"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -659,7 +660,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Etkin"
+msgstr "Etkinleştir"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -756,12 +757,12 @@ msgstr "Belge silinemedi"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "Isim"
+msgstr "İsim"
 
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Ad Z - A"
+msgstr "İsim (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -839,7 +840,7 @@ msgstr "Simgeleri Sırala"
 #: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Sırala…"
+msgstr "Düzenleme:"
 
 #: app/desktopMenu.js:997
 #, fuzzy
@@ -988,7 +989,7 @@ msgstr "Kes"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Taşı..."
+msgstr "Buraya taşı..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1164,7 +1165,7 @@ msgstr "Lütfen Gnome Console veya diğer Terminal Programını yükleyin"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Açılamadı"
+msgstr "Açılamıyor"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1174,7 +1175,7 @@ msgstr "Lütfen yükleme {0}"
 #: app/fileItemMenu.js:1281
 #, fuzzy
 msgid "Copy Cancelled"
-msgstr "Kopya iptal edildi"
+msgstr "Kopyalamadan vazgeçildi"
 
 #: app/fileItemMenu.js:1282
 #, fuzzy
@@ -1256,7 +1257,7 @@ msgstr "Genel Kısayol"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Klavye Kısayolarını Göster"
+msgstr "Klavye Kısayolları"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1277,7 +1278,7 @@ msgstr "Tüm Kısayolları Varsayılan Değerlerine Sıfırla"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Hepsini Sıfırla"
+msgstr "Tümünü Sıfırla"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1298,7 +1299,7 @@ msgstr "Arkaplanı Değiştir"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Görüntü ayarları"
+msgstr "Ekran Ayarları"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1377,7 +1378,7 @@ msgstr "Tümünü Seçme"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "Ön izleme"
+msgstr "Önizleme"
 
 #: app/shortcuts.js:34
 #, fuzzy
