@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
+"PO-Revision-Date: 2025-07-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -34,8 +34,9 @@ msgid "Edit Shortcuts..."
 msgstr "Gyorsbillentyűk szerkesztése"
 
 #: app/adwPreferencesWindow.js:178
+#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "Gyorsbillentyűk"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -154,7 +155,7 @@ msgstr "Adjon hozzá új ikonokat a Másodlagos Monitorokhoz, ha elérhető"
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Snap ikonok a rácshoz"
+msgstr "Rácshoz illesztés"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -164,7 +165,7 @@ msgstr "Kiemeli a csepp rácsot"
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
-msgstr "Nincs célmappa"
+msgstr "Asztali mappa"
 
 #: app/adwPreferencesWindow.js:578
 #, fuzzy
@@ -285,7 +286,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:682
 #, fuzzy
 msgid "Translate"
-msgstr "Lefordítás"
+msgstr "Fordítás"
 
 #: app/appChooser.js:73
 #, fuzzy
@@ -473,7 +474,7 @@ msgstr "A fájlok \"$ {outputFile} \"...\""
 #: app/autoAr.js:496
 #, fuzzy
 msgid "Compression completed"
-msgstr "A kompresszió befejeződött"
+msgstr "A munkamenet befejeződött"
 
 #: app/autoAr.js:497
 #, fuzzy
@@ -503,7 +504,7 @@ msgstr "Hiba a kompresszió során"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "Készíts archívumot"
+msgstr "Új archívum létrehozása"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -518,7 +519,7 @@ msgstr "Jelszó"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Teremt"
+msgstr "Létrehozás"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -601,7 +602,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "A fájl megnyitása nem sikerült"
+msgstr "Nem sikerült a fájlokat megnyitni"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -628,7 +629,7 @@ msgstr ""
 #: app/desktopGrid.js:56
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Icons"
+msgstr "program ikonja"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -795,7 +796,7 @@ msgstr ""
 #: app/desktopMenu.js:953
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Desktop Icon beállítások"
+msgstr "Asztali beállítások"
 
 #: app/desktopMenu.js:955
 #, fuzzy
@@ -821,7 +822,7 @@ msgstr "Újra"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Összes kiválasztása"
+msgstr "Összes kijelölése"
 
 #: app/desktopMenu.js:985
 #, fuzzy
@@ -864,8 +865,9 @@ msgid "Copy/Move Failed"
 msgstr "Move törölve"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "Nem létezik"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1106,8 +1108,7 @@ msgstr "Könyvtár nem küldhető el e-mailben"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
-"A kiválasztás magában foglalja a könyvtárat, először tömörítse a .zip fájlt?"
+msgstr "A kijelölés könyvtárat tartalmaz, előbb tömörítse egy fájlba."
 
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
@@ -1160,7 +1161,7 @@ msgstr "Kérjük, telepítse a Gnome Console vagy más terminál programot"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Képtelen megnyitni {0}"
+msgstr "Megnyitás sikertelen"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1201,7 +1202,7 @@ msgstr "Konzol"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Egyik sem"
+msgstr "Nincs"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1221,8 +1222,9 @@ msgid "Reset to Default"
 msgstr "Visszaállítás alapértelmezettre"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "Gyorsbillentyű"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1239,8 +1241,9 @@ msgid "Local Shortcuts"
 msgstr "Gyorsbillentyűk megjelenítése"
 
 #: app/shortcutManager.js:303
+#, fuzzy
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "Gyorsbillentyűk"
 
 #: app/shortcutManager.js:364
 #, fuzzy
@@ -1250,7 +1253,7 @@ msgstr "Globális gyorsbillentyűk"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Gyorsbillentyűk megjelenítése"
+msgstr "Billentyűparancsok"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1291,7 +1294,7 @@ msgstr "Háttér módosítása"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Megjelenítés beállításai"
+msgstr "Képernyő beállítások"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1344,7 +1347,7 @@ msgstr "Rendező Icons"
 #: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
-msgstr "Fájlok"
+msgstr "Keresés a fájlokban"
 
 #: app/shortcuts.js:30
 #, fuzzy
@@ -1449,7 +1452,7 @@ msgstr "Halmozás"
 #: app/symLinkIcon.js:100
 #, fuzzy
 msgid "Broken Link"
-msgstr "Broken Link"
+msgstr "Hibás hivatkozások"
 
 #: app/symLinkIcon.js:102
 #, fuzzy
@@ -1693,8 +1696,9 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr "A kuka ikon megjelenítése az asztalon"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "Gyorsbillentyűk"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"

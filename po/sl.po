@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
+"PO-Revision-Date: 2025-07-03 22:07+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/sl/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -141,8 +141,9 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:562
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Pripni na mrežo"
 
 #: app/adwPreferencesWindow.js:568
 msgid "Highlight the drop grid"
@@ -217,8 +218,9 @@ msgid "Double click"
 msgstr "Dvojni klik"
 
 #: app/adwPreferencesWindow.js:638
+#, fuzzy
 msgid "Show image thumbnails"
-msgstr ""
+msgstr "Prikaži sličice"
 
 #: app/adwPreferencesWindow.js:640
 #, fuzzy
@@ -375,8 +377,9 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "Vnesi geslo"
 
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
@@ -443,8 +446,9 @@ msgid "Error during compression"
 msgstr ""
 
 #: app/autoAr.js:547
+#, fuzzy
 msgid "Create archive"
-msgstr ""
+msgstr "Ustvari ZIP arhiv"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -454,7 +458,7 @@ msgstr "Ime arhiva"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Geslo"
+msgstr "Password"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -551,8 +555,9 @@ msgid "Switching to new Desktop..."
 msgstr ""
 
 #: app/desktopGrid.js:56
+#, fuzzy
 msgid "Desktop Icons"
-msgstr ""
+msgstr "Namizna ikona"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -767,8 +772,9 @@ msgid "Copy/Move Failed"
 msgstr ""
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "ne obstaja"
 
 #: app/dragManager.js:782
 msgid "Choose Action for Files"
@@ -1037,8 +1043,9 @@ msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
 #: app/fileItemMenu.js:1235
+#, fuzzy
 msgid "Unable to Open {0}"
-msgstr ""
+msgstr "Nemogoče odpreti"
 
 #: app/fileItemMenu.js:1237
 msgid "Please Install {0}"
@@ -1093,8 +1100,9 @@ msgid "Reset to Default"
 msgstr "Ponastavi na privzeto"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "pospeševalnik"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1122,7 +1130,7 @@ msgstr "Prikaži bližnjice"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Prikaži bližnjice"
+msgstr "Bližnjice na tipkovnici"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1153,13 +1161,14 @@ msgid "Open in Terminal"
 msgstr ""
 
 #: app/shortcuts.js:17
+#, fuzzy
 msgid "Change Background"
-msgstr ""
+msgstr "Spremeni barvo ozadja"
 
 #: app/shortcuts.js:18
 #, fuzzy
 msgid "Change Display Settings"
-msgstr "Nastavitve prikazovanja"
+msgstr "Nastavitve zaslona"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1301,8 +1310,9 @@ msgid "Stack"
 msgstr "Naslaga"
 
 #: app/symLinkIcon.js:100
+#, fuzzy
 msgid "Broken Link"
-msgstr ""
+msgstr "Pokvarjene povezave"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"

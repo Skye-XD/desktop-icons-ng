@@ -13,8 +13,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
-"Last-Translator: Vicente Matheus <vincmpimenta@proton.me>\n"
+"PO-Revision-Date: 2025-07-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
@@ -22,12 +23,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Atalhos de teclado"
+msgstr "Atalhos"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
@@ -35,8 +36,9 @@ msgid "Edit Shortcuts..."
 msgstr "Editar atalhos"
 
 #: app/adwPreferencesWindow.js:178
+#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "Atalhos do Aplicativo"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -157,7 +159,7 @@ msgstr "Mostrar a pasta pessoal na área de trabalho"
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Ícones de pressão para grade"
+msgstr "Ajustar à grade"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -167,7 +169,7 @@ msgstr "Destaque a grade de gota"
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "New Desktop Folder"
-msgstr "Nova pasta"
+msgstr "Pasta da Área de trabalho"
 
 #: app/adwPreferencesWindow.js:578
 #, fuzzy
@@ -246,7 +248,7 @@ msgstr "Duplo clique"
 #: app/adwPreferencesWindow.js:638
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Mostrar miniaturas de imagens"
+msgstr "Mostrar miniatura da imagem"
 
 #: app/adwPreferencesWindow.js:640
 #, fuzzy
@@ -256,7 +258,7 @@ msgstr "Sempre"
 #: app/adwPreferencesWindow.js:641
 #, fuzzy
 msgid "On this computer only"
-msgstr "Neste computador apenas"
+msgstr "Neste computador"
 
 #: app/adwPreferencesWindow.js:642
 #, fuzzy
@@ -281,7 +283,7 @@ msgstr "Abrir pastas no mouse hover"
 #: app/adwPreferencesWindow.js:661
 #, fuzzy
 msgid "About..."
-msgstr "Sobre..."
+msgstr "Acerca de..."
 
 #: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
 #, fuzzy
@@ -412,7 +414,7 @@ msgstr ""
 #: app/autoAr.js:203
 #, fuzzy
 msgid "Extracting files"
-msgstr "Extraindo arquivos"
+msgstr "A Extrair ficheiro '%s'."
 
 #: app/autoAr.js:220
 #, fuzzy
@@ -429,7 +431,7 @@ msgstr "Cancelar"
 #: app/autoAr.js:311 app/autoAr.js:608
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Digite uma senha aqui"
+msgstr "Introduza a palavra-passe"
 
 #: app/autoAr.js:354
 #, fuzzy
@@ -484,7 +486,7 @@ msgstr "Compactando arquivos em '${outputFile} '"
 #: app/autoAr.js:496
 #, fuzzy
 msgid "Compression completed"
-msgstr "Compressão concluída"
+msgstr "Sessão concluída"
 
 #: app/autoAr.js:497
 #, fuzzy
@@ -609,7 +611,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Falha ao abrir o ficheiro"
+msgstr "Não pôde abrir Ficheiros"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -660,7 +662,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Habilitar"
+msgstr "Ativar"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -741,7 +743,7 @@ msgstr "Esta janela está aberta. Por favor, mude para a janela ativa."
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 #, fuzzy
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Definições"
 
 #: app/desktopMenu.js:813
 #, fuzzy
@@ -766,7 +768,7 @@ msgstr "Nome Z-A"
 #: app/desktopMenu.js:923
 #, fuzzy
 msgid "Modified Time"
-msgstr "Tempo modificado"
+msgstr "Data da Última Modificação"
 
 #: app/desktopMenu.js:925
 #, fuzzy
@@ -806,7 +808,7 @@ msgstr ""
 #: app/desktopMenu.js:953
 #, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "Configurações de ícone de desktop"
+msgstr "Configurações da área de trabalho"
 
 #: app/desktopMenu.js:955
 #, fuzzy
@@ -821,7 +823,7 @@ msgstr "Novo Documento"
 #: app/desktopMenu.js:968 app/shortcuts.js:11
 #, fuzzy
 msgid "Paste"
-msgstr "Cole"
+msgstr "Colar"
 
 #: app/desktopMenu.js:970 app/shortcuts.js:12
 #, fuzzy
@@ -836,7 +838,7 @@ msgstr "Refazer"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Selecionar Todos"
+msgstr "Marcar Tudo"
 
 #: app/desktopMenu.js:985
 #, fuzzy
@@ -878,8 +880,9 @@ msgid "Copy/Move Failed"
 msgstr "Movimento cancelado"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "Não existe"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -914,7 +917,7 @@ msgstr "Ficheiro"
 #: app/fileItemIcon.js:270
 #, fuzzy
 msgid "Opening File Failed"
-msgstr "Arquivo de abertura Falhado"
+msgstr "Falha ao abrir ficheiro"
 
 #: app/fileItemIcon.js:276
 #, fuzzy
@@ -1010,7 +1013,7 @@ msgstr "Copiar para..."
 #: app/fileItemMenu.js:249
 #, fuzzy
 msgid "Rename…"
-msgstr "Renomear…"
+msgstr "Alterar nome…"
 
 #: app/fileItemMenu.js:254
 #, fuzzy
@@ -1122,7 +1125,7 @@ msgstr "Selecionar destino"
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 #, fuzzy
 msgid "Select"
-msgstr "Selecionar"
+msgstr "Seleccionar"
 
 #: app/fileItemMenu.js:963
 #, fuzzy
@@ -1184,7 +1187,7 @@ msgstr "Instale o Console do Gnome ou outro programa terminal"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Incapaz de abrir Não"
+msgstr "Impossível abrir"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1245,8 +1248,9 @@ msgid "Reset to Default"
 msgstr "Repôr Valor por Defeito"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "Tecla rápida"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1263,8 +1267,9 @@ msgid "Local Shortcuts"
 msgstr "Mostrar Atalhos"
 
 #: app/shortcutManager.js:303
+#, fuzzy
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "Atalhos do Aplicativo"
 
 #: app/shortcutManager.js:364
 #, fuzzy
@@ -1274,7 +1279,7 @@ msgstr "Atalhos Globais"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Mostrar Atalhos"
+msgstr "Atalhos do Teclado"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1294,7 +1299,7 @@ msgstr "Redefinir Atalhos para os Padrões"
 #: app/shortcutManager.js:677
 #, fuzzy
 msgid "Reset All..."
-msgstr "Reiniciar tudo"
+msgstr "Apagar todos"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1314,7 +1319,7 @@ msgstr "Mudar imagem do fundo"
 #: app/shortcuts.js:18
 #, fuzzy
 msgid "Change Display Settings"
-msgstr "Configurações de Visualização"
+msgstr "Definições de visualização"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1338,7 +1343,7 @@ msgstr "Mantenha ícones empilhados"
 #: app/shortcuts.js:23
 #, fuzzy
 msgid "Sort Special Folders"
-msgstr "Classificar pastas especiais - Início/Trash Drives."
+msgstr "Pastas especiais"
 
 #: app/shortcuts.js:24
 #, fuzzy
@@ -1404,7 +1409,7 @@ msgstr "Diversos Fracas"
 #: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "Escolher"
+msgstr "Escolher ícone"
 
 #: app/shortcuts.js:37
 #, fuzzy
@@ -1472,7 +1477,7 @@ msgstr "Empilhar"
 #: app/symLinkIcon.js:100
 #, fuzzy
 msgid "Broken Link"
-msgstr "Link quebrado"
+msgstr "Links Quebrados"
 
 #: app/symLinkIcon.js:102
 #, fuzzy
@@ -1501,7 +1506,7 @@ msgstr ""
 #: app/utils/desktopFolderUtils.js:83
 #, fuzzy
 msgid "Choose Desktop Folder"
-msgstr "Ficheiros .desktop danificados"
+msgstr "Pasta da Área de trabalho"
 
 #: app/utils/desktopIconsUtil.js:208
 #, fuzzy
@@ -1526,7 +1531,7 @@ msgstr "_Cancelar"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Abrir"
+msgstr "Abrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
@@ -1551,7 +1556,7 @@ msgstr "Mostrar a pasta pessoal na área de trabalho."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 #, fuzzy
 msgid "Show trash icon"
-msgstr "Mostrar ícone na bandeja do sistema"
+msgstr "Mostrar ícone na bandeja"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 #, fuzzy
@@ -1732,8 +1737,9 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr "Mostrar o ícone de lixo na área de trabalho"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "Atalhos do Aplicativo"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"

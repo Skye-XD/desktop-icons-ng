@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
+"PO-Revision-Date: 2025-07-03 22:07+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -35,8 +35,9 @@ msgid "Edit Shortcuts..."
 msgstr "Redigera Genvägar"
 
 #: app/adwPreferencesWindow.js:178
+#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "Programgenvägar"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -107,7 +108,7 @@ msgstr "Miscellan Tweaks"
 #: app/adwPreferencesWindow.js:536
 #, fuzzy
 msgid "Size for the desktop icons"
-msgstr "Storlek för desktop ikonerna"
+msgstr "Ställ in storleken för skrivbordsikonerna."
 
 #: app/adwPreferencesWindow.js:538
 #, fuzzy
@@ -163,7 +164,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Snap ikoner att rutnät"
+msgstr "Fäst vid rutnät"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -257,7 +258,7 @@ msgstr "Dubbelklicka"
 #: app/adwPreferencesWindow.js:638
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Visa bild miniatyrer"
+msgstr "Visa miniatyrbilder"
 
 #: app/adwPreferencesWindow.js:640
 #, fuzzy
@@ -267,12 +268,12 @@ msgstr "Alltid"
 #: app/adwPreferencesWindow.js:641
 #, fuzzy
 msgid "On this computer only"
-msgstr "På denna dator endast"
+msgstr "På den här datorn"
 
 #: app/adwPreferencesWindow.js:642
 #, fuzzy
 msgid "Never"
-msgstr "Aldrig"
+msgstr "aldrig"
 
 #: app/adwPreferencesWindow.js:647
 #, fuzzy
@@ -474,7 +475,7 @@ msgstr "Extrahera filer till \"${outputPath} \""
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Extraktion färdig"
+msgstr "Åtgärden slutfördes."
 
 #: app/autoAr.js:436
 #, fuzzy
@@ -484,7 +485,7 @@ msgstr "Extrahera '${fullPathFile}' har slutförts."
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Extraktion inställd"
+msgstr "Åtgärden avbröts."
 
 #: app/autoAr.js:443
 #, fuzzy
@@ -675,7 +676,7 @@ msgstr ""
 #: app/desktopGrid.js:56
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "Desktop Icons"
+msgstr "skrivbordsikon"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -802,7 +803,7 @@ msgstr "Namn (Ö–A)"
 #: app/desktopMenu.js:923
 #, fuzzy
 msgid "Modified Time"
-msgstr "Ändrad tid"
+msgstr "Senast modifierad tid"
 
 #: app/desktopMenu.js:925
 #, fuzzy
@@ -909,8 +910,9 @@ msgid "Copy/Move Failed"
 msgstr "Flytta annullerad"
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "Finns inte"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1149,7 +1151,7 @@ msgstr "Kan inte maila en katalog"
 #| msgid ""
 #| "Selection includes a Directory, compress the directory to a file first."
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Urvalet innehåller en katalog, komprimera till en .zip-fil först?"
+msgstr "Valet innehåller en katalog,  komprimera katalogen till en fil först."
 
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
@@ -1202,7 +1204,7 @@ msgstr "Installera Gnome Console eller annat terminalprogram"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Kan inte öppna {0}"
+msgstr "Det går inte att öppna"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1263,8 +1265,9 @@ msgid "Reset to Default"
 msgstr "Återställ till standard"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "Snabbtangent"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1281,8 +1284,9 @@ msgid "Local Shortcuts"
 msgstr "Visa genvägar"
 
 #: app/shortcutManager.js:303
+#, fuzzy
 msgid "Application Keyboard Shortcuts"
-msgstr ""
+msgstr "Programgenvägar"
 
 #: app/shortcutManager.js:364
 #, fuzzy
@@ -1292,7 +1296,7 @@ msgstr "Globala genvägar"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Visa genvägar"
+msgstr "Tangentbordsgenvägar"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1302,7 +1306,7 @@ msgstr "Tangentbordsgenvägar"
 #: app/shortcutManager.js:673
 #, fuzzy
 msgid "Reset Shortcuts"
-msgstr "Visa genvägar"
+msgstr "Återställ alla genvägar"
 
 #: app/shortcutManager.js:674
 msgid "Reset all shortcuts to Defaults"
@@ -1731,8 +1735,9 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr "Visa papperskorgsikonen på skrivbordet."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, fuzzy
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "Programgenvägar"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"

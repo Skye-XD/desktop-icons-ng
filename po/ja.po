@@ -12,8 +12,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-07-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -31,7 +32,7 @@ msgstr "ショートカット"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "ショートカットを編集"
+msgstr "ショートカットキーを編集"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -61,7 +62,7 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:517
 #, fuzzy
 msgid "Tweaks"
-msgstr "詳細設定"
+msgstr "拡張機能"
 
 #: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
 #, fuzzy
@@ -71,7 +72,7 @@ msgstr "さらに表示"
 #: app/adwPreferencesWindow.js:492
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "デスクトップの設定"
+msgstr "デスクトップ設定"
 
 #: app/adwPreferencesWindow.js:493
 #, fuzzy
@@ -156,7 +157,7 @@ msgstr "利用可能な場合は、最初のSecond Monitorsに新しいアイコ
 #: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "グリッドにスナップします"
+msgstr "グリッドにスナップ(吸着)"
 
 #: app/adwPreferencesWindow.js:568
 #, fuzzy
@@ -631,7 +632,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "ファイルが開けませんでした"
+msgstr "ファイルを開けませんでした"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -781,12 +782,12 @@ msgstr "文書を削除できません"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "チャンネル名"
 
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "名前 (ZからA)"
+msgstr "名前 (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -796,7 +797,7 @@ msgstr "最終更新時刻"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "ギャンブルの種類"
+msgstr "衣服の種類"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -865,7 +866,7 @@ msgstr "アイコンを整列"
 #: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
-msgstr "指定して整列…"
+msgstr "編曲:"
 
 #: app/desktopMenu.js:997
 #, fuzzy
@@ -1015,7 +1016,7 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "を移動."
+msgstr "別のフォルダーへ移動"
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1234,7 +1235,7 @@ msgstr "コンソール"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "無し"
+msgstr "なし"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1285,7 +1286,7 @@ msgstr "一般のショートカットキー"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "キーボードショートカット"
+msgstr "キーボード ショートカット"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1406,7 +1407,7 @@ msgstr "すべて選択解除"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "プレビュー表示"
+msgstr "プレビュー"
 
 #: app/shortcuts.js:34
 #, fuzzy

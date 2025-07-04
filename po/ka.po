@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-08 13:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-07-03 22:07+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ka/>\n"
 "Language: ka\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -28,7 +29,7 @@ msgstr "მალსახმობები"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "მალსახმობების ჩვენება"
+msgstr "მალსახმობის ჩასწორება: %s"
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
@@ -146,8 +147,9 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:562
+#, fuzzy
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "ბადეზე მიბმა"
 
 #: app/adwPreferencesWindow.js:568
 msgid "Highlight the drop grid"
@@ -377,8 +379,9 @@ msgid "Cancel"
 msgstr "გაუქმება"
 
 #: app/autoAr.js:311 app/autoAr.js:608
+#, fuzzy
 msgid "Enter a password here"
-msgstr ""
+msgstr "შეიყვანეთ პაროლი"
 
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
@@ -527,8 +530,9 @@ msgid ""
 msgstr ""
 
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
+#, fuzzy
 msgid "Could not open File"
-msgstr ""
+msgstr "ფაილის (\"%s\") გახსნა შეუძლებელია."
 
 #: app/desktopFileIcon.js:211
 msgid "{appName} can not open files of this Type!"
@@ -553,7 +557,7 @@ msgstr ""
 #: app/desktopGrid.js:56
 #, fuzzy
 msgid "Desktop Icons"
-msgstr "სამუშაო მაგიდა"
+msgstr "სამუშაო დაფის ხატულა"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -628,8 +632,9 @@ msgid "Folder Creation Failed"
 msgstr ""
 
 #: app/desktopManager.js:1593
+#, fuzzy
 msgid "Could not create folder"
-msgstr ""
+msgstr "ვერ შევქმენი საქაღალდე: %s"
 
 #: app/desktopMenu.js:601
 msgid "Unable to open Desktop in Gnome Files"
@@ -766,8 +771,9 @@ msgid "Copy/Move Failed"
 msgstr ""
 
 #: app/dragManager.js:740
+#, fuzzy
 msgid "{0} Does not exist"
-msgstr ""
+msgstr "არ არსებობს"
 
 #: app/dragManager.js:782
 msgid "Choose Action for Files"
@@ -918,8 +924,9 @@ msgid "Move to Trash"
 msgstr "%1 ფაილის ნაგავში გადატანა"
 
 #: app/fileItemMenu.js:302
+#, fuzzy
 msgid "Delete permanently"
-msgstr ""
+msgstr "წავშალო ფაილი სამუდამოდ?"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
@@ -1089,8 +1096,9 @@ msgid "Reset to Default"
 msgstr "ნაგულისხმებ მნიშვნელობაზე დაბრუნება"
 
 #: app/shortcutManager.js:134
+#, fuzzy
 msgid "No Accelerator"
-msgstr ""
+msgstr "ამაჩქარებელი"
 
 #: app/shortcutManager.js:243
 #, fuzzy
@@ -1118,7 +1126,7 @@ msgstr "მალსახმობების ჩვენება"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "მალსახმობების ჩვენება"
+msgstr "კლავიატურის ბმულები"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1149,8 +1157,9 @@ msgid "Open in Terminal"
 msgstr ""
 
 #: app/shortcuts.js:17
+#, fuzzy
 msgid "Change Background"
-msgstr ""
+msgstr "ფონის ფერის შეცვლა"
 
 #: app/shortcuts.js:18
 msgid "Change Display Settings"
@@ -1200,7 +1209,7 @@ msgstr ""
 #: app/shortcuts.js:29
 #, fuzzy
 msgid "Find Files"
-msgstr "ფაილები"
+msgstr "ფაილებში ძებნა"
 
 #: app/shortcuts.js:30
 #, fuzzy
