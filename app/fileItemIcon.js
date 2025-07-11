@@ -205,7 +205,7 @@ const FileItemIcon = class extends DesktopIconItem {
         );
 
         if (this.Prefs.showLinkEmblem)
-            this._setEncryptionStatus();
+            this._setEncryptionStatus().catch(logError);
     }
 
     async _setEncryptionStatus() {
