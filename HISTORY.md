@@ -1,4 +1,10 @@
 # History of versions #
+* Adw version 100.3 for Gnome 45, 46, 47, 48
+ * Give a proper error message if checkig encryption promise fails. (Sundeep Mediratta)
+ * Draw proper rectangles when x, y approaches rounding corner radius in selection rectangle. (Sundeep Mediratta)
+ * Weblate Translations (Weblate Authors)
+ * Update History.MD, update app release note, metadata.json
+
 * Adw version 100.2 for Gnome 45, 46, 47, 48
  * Remove dependency on xdg-user-dirs in the Preferences Window, use GLib and Gio to manipulate file. (Sundeep Mediratta)
  * Update History.MD, update app release notes, metadata.json
