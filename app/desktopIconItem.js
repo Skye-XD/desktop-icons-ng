@@ -757,8 +757,8 @@ const DesktopIconItem = class {
             const iconTexture =
                 Gdk.Texture.new_from_bytes(thumbnailData);
 
-            let width = this.Prefs.DesiredWidth - 8;
-            let height = this.Prefs.IconSize - 8;
+            let width = this.Prefs.DesiredWidth;
+            let height = this.Prefs.IconSize;
 
             const aspectRatio = iconTexture.width / iconTexture.height;
 
@@ -775,11 +775,7 @@ const DesktopIconItem = class {
             );
 
             let icon = iconPaintableSnapshot.to_paintable(null);
-
             icon = this._addEmblemsToIconIfNeeded(icon);
-
-            this._icon.margin_top = 4;
-            this._icon.margin_bottom = 4;
 
             this._icon.set_paintable(icon);
 
