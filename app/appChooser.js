@@ -60,6 +60,9 @@ const AppChooserDialog = class {
 
         this.appChooserBox =
             this.builderObject.get_object('app_chooser_widget_box');
+        this.appChooserBox.set_hexpand(true);
+        this.appChooserBox.set_halign(Gtk.Align.FILL);
+
 
         this.appChooserWidget = Gtk.AppChooserWidget.new(this.mimeType);
         this.appChooserWidget.set_show_default(true);
@@ -67,6 +70,8 @@ const AppChooserDialog = class {
         this.appChooserWidget.set_show_other(true);
         this.appChooserBox.append(this.appChooserWidget);
         this.appChooserWidget.set_vexpand(true);
+        this.appChooserWidget.set_halign(Gtk.Align.Fill);
+        this.appChooserWidget.set_hexpand(true);
 
         if (this.fileName !== null) {
             const description =
