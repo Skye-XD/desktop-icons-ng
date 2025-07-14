@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-06-28 10:22+0000\n"
+"PO-Revision-Date: 2025-07-14 13:01+0000\n"
 "Last-Translator: Ding User <dengus@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
@@ -480,6 +480,11 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
+"Немагчыма запусціць файлы .desktop з гэтага працоўнага стала, бо папка "
+"працоўнага даступна для запісу іншым карыстальнікам.\n"
+"\n"
+"Праверце правы доступу да гэтай папкі працоўнага стала і пераканайцеся, што "
+"ў іншых карыстальнікаў няма права на запіс."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
@@ -564,6 +569,10 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"Маецца некалькі манітораў з рознымі наладамі маштабавання, рэкамендавана "
+"маштабаванне кадравага буфера манітора .\n"
+"\n"
+"Уключыце яго ў наладах Dconf для Mutter"
 
 #: app/desktopManager.js:169
 msgid ""
@@ -571,6 +580,9 @@ msgid ""
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"Маецца некалькі манітораў з рознымі наладамі маштабавання.\n"
+"\n"
+"Уключыць маштабаванне кадравага буфера манітора ў наладах Dconf для Mutter?"
 
 #: app/desktopManager.js:172
 msgid "Enable"
@@ -614,7 +626,7 @@ msgstr ""
 
 #: app/desktopManager.js:319
 msgid "Clear current selection before new search"
-msgstr "Ачысціць бягучае вылучэнне перад новым пошукам"
+msgstr "Каб выканаць новы пошук, ачысціце бягучае вылучэнне"
 
 #: app/desktopManager.js:1229
 msgid "Find Files on Desktop"
@@ -1451,6 +1463,8 @@ msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"Значкі не прывязваюцца да сеткі, іх можна размяшчаць у любым месцы "
+"працоўнага стала"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Hide/Show all desktop windows"
