@@ -1,4 +1,11 @@
 # History of versions #
+* Adw version 100.4 for Gnome 45, 46, 47, 48
+ * Resizable open-with dialog app chooser widgwet. (Sundeep Mediratta)
+ * Fix custom icons smaller in size than regular icons. (Sundeep Mediratta)
+ * Fix About dialog missing symbolic icons in Gresource. (Sundeep Mediratta)
+ * Weblate Translations (Weblate Authors)
+ * Update History.MD, update app release note, metadata.json
+
 * Adw version 100.3 for Gnome 45, 46, 47, 48
  * Give a proper error message if checkig encryption promise fails. (Sundeep Mediratta)
  * Draw proper rectangles when x, y approaches rounding corner radius in selection rectangle. (Sundeep Mediratta)
