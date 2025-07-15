@@ -8,13 +8,15 @@
 # Yevhen Popok <xalt7x.service@gmail.com>, 2024, 2025.
 # Andrij Zyniuk <zinukandrij@gmail.com>, 2024, 2025.
 # Herbatka <viktor.beskorovainyi@gmail.com>, 2025.
+# "Іван Мах (Ivanet_)" <ivannamber31@gmail.com>, 2025.
+# Василь Мариняк <mariniack@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-07-02 20:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-07-14 13:01+0000\n"
+"Last-Translator: Василь Мариняк <mariniack@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -31,14 +33,12 @@ msgid "Shortcuts"
 msgstr "Ярлики"
 
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Клавіатурні скорочення редагування"
+msgstr "Редагувати гарячі клавіші..."
 
 #: app/adwPreferencesWindow.js:178
-#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr "Ярлики програм"
+msgstr "Редагувати ярлики програм"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
