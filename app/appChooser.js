@@ -70,7 +70,7 @@ const AppChooserDialog = class {
         this.appChooserWidget.set_show_other(true);
         this.appChooserBox.append(this.appChooserWidget);
         this.appChooserWidget.set_vexpand(true);
-        this.appChooserWidget.set_halign(Gtk.Align.Fill);
+        this.appChooserWidget.set_halign(Gtk.Align.FILL);
         this.appChooserWidget.set_hexpand(true);
 
         if (this.fileName !== null) {
