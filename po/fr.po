@@ -7,7 +7,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Autantpourmoi <luc.valigny@gmail.com>, 2024.
-# Ludovic <ludo.goulet@hotmail.com>, 2024.
+# Ludovic <ludo.goulet@hotmail.com>, 2024, 2025.
 # Red Quarck <redquarck@proton.me>, 2024.
 # "Alexandre G. Raymond" <alex@ndre.gr>, 2024.
 # fanfu <com-ubuntu@descamps.eu>, 2024.
@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-05 18:11-0400\n"
-"PO-Revision-Date: 2025-07-03 22:07+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-07-21 02:03+0000\n"
+"Last-Translator: Ludovic <ludo.goulet@hotmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -47,9 +47,8 @@ msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
 #: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:681
-#, fuzzy
 msgid "Help translate in your web browser"
-msgstr "Aidez à la traduction via votre navigateur"
+msgstr "Aidez à traduire dans votre navigateur web"
 
 #: app/adwPreferencesWindow.js:462 app/adwPreferencesWindow.js:463
 msgid "Desktop"
