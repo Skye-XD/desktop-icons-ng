@@ -30,6 +30,7 @@ const Poppler = await import('gi://Poppler')
 const Cairo = await import('gi://cairo')
     .then(module => module.default)
     .catch(e => console.error(`Install Cairo for proper fallback pdf thumbnailing \n ${e}`));
+import gettext from 'gettext';
 
 export {
     Adw,
@@ -38,6 +39,7 @@ export {
     GdkPixbuf,
     GdkX11,
     GdkWayland,
+    gettext,
     GLib,
     GLibUnix,
     GnomeDesktop,

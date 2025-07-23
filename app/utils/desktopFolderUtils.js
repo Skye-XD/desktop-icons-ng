@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gio, GLib, Gtk} from '../../dependencies/gi.js';
+import {gettext, Gio, GLib, Gtk} from '../../dependencies/gi.js';
 import {_} from '../../dependencies/gettext.js';
 import {Enums} from '../../dependencies/localFiles.js';
 
@@ -26,6 +26,8 @@ const DesktopFolderUtils = class {
         this._activeWindow = window;
         this.Enums = Enums;
         this._desktopDir = this.getDesktopDir();
+        // Bind xdg-user-dirs translation domain
+        gettext.bindtextdomain('xdg-user-dirs', '/usr/share/locale');
     }
 
     _monitorDesktopDirChanges() {
@@ -95,10 +97,21 @@ const DesktopFolderUtils = class {
     }
 
     restoreDefaultDesktop() {
+        const localizedDesktopName = this.getSystemLocalizedDesktopDir();
         const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
-            'Desktop']);
+            localizedDesktopName]);
 
         const desktopFolder = Gio.File.new_for_path(defaultDesktop);
+
+        try {
+            if (!desktopFolder.query_exists(null))
+                GLib.mkdir_with_parents(desktopFolder.get_path(), 0o755);
+        } catch (e) {
+            console.error(
+                `Unable to create Folder ${defaultDesktop}: ${e.message}`
+            );
+        }
+
         this._setDesktopFolder(desktopFolder);
     }
 
@@ -133,6 +146,41 @@ const DesktopFolderUtils = class {
         const desktopPath = xdgDesktopPath ? xdgDesktopPath : glibDesktopPath;
 
         return Gio.File.new_for_commandline_arg(desktopPath);
+    }
+
+    getSystemLocalizedDesktopDir() {
+        const systemDesktopDirName =
+            this._getSystemDesktopDir() ?? this.Enums.DEFAULT_DESKTOP_NAME;
+        const localizedDesktopName =
+            gettext.dgettext('xdg-user-dirs', systemDesktopDirName);
+
+        return localizedDesktopName ?? systemDesktopDirName;
+    }
+
+    _getSystemDesktopDir() {
+        const systemDirsGioFile = this._getXdgSystemDirs();
+
+        if (!systemDirsGioFile) {
+            console.error('No system xdg user-dirs.default file');
+            return null;
+        }
+
+        let xdgSystemDesktopPath = null;
+        const decoder = new TextDecoder();
+
+        try {
+            const contents =
+                decoder
+                .decode(GLib.file_get_contents(systemDirsGioFile.get_path())[1])
+                .trim();
+
+            if (contents)
+                xdgSystemDesktopPath = this._parseUserDirsFile(contents);
+        } catch (e) {
+            console.error(e, `XDG Desktop not set in user-dirs.default, ${e}`);
+        }
+
+        return xdgSystemDesktopPath;
     }
 
 
@@ -171,8 +219,10 @@ const DesktopFolderUtils = class {
     }
 
     _isDefaultDesktopFolder() {
+        const localizedDesktopName = this.getSystemLocalizedDesktopDir();
         const defaultDesktop = GLib.build_filenamev([GLib.get_home_dir(),
-            'Desktop']);
+            localizedDesktopName]);
+
         return this._desktopDir.get_path() === defaultDesktop;
     }
 
@@ -260,6 +310,23 @@ const DesktopFolderUtils = class {
             );
 
         return Gio.File.new_for_commandline_arg(xdgUserDirspath);
+    }
+
+    _getXdgSystemDirs() {
+        const xdgSystemDirsArray = GLib.get_system_config_dirs();
+
+        for (let dir of xdgSystemDirsArray) {
+            const xdgSystemDirspath = GLib.build_filenamev(
+                [dir, this.Enums.XDG_SYSTEM_DIRS]
+            );
+
+            const xdgSystemdir = Gio.File.new_for_path(xdgSystemDirspath);
+
+            if (xdgSystemdir.query_exists(null))
+                return xdgSystemdir;
+        }
+
+        return null;
     }
 
     get activeWindow() {
