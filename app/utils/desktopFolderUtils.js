@@ -174,8 +174,12 @@ const DesktopFolderUtils = class {
                 .decode(GLib.file_get_contents(systemDirsGioFile.get_path())[1])
                 .trim();
 
-            if (contents)
-                xdgSystemDesktopPath = this._parseUserDirsFile(contents);
+            if (contents) {
+                const parseSystemconfig = true;
+
+                xdgSystemDesktopPath =
+                    this._parseUserDirsFile(contents, parseSystemconfig);
+            }
         } catch (e) {
             console.error(e, `XDG Desktop not set in user-dirs.default, ${e}`);
         }
@@ -226,14 +230,16 @@ const DesktopFolderUtils = class {
         return this._desktopDir.get_path() === defaultDesktop;
     }
 
-    _parseUserDirsFile(content) {
+    _parseUserDirsFile(content, systemconfig = null) {
         if (!content)
             return null;
+
+        const serarchstring = systemconfig ? 'DESKTOP=' : 'XDG_DESKTOP_DIR=';
 
         const lineArray = content.trim().split('\n');
 
         const desktopline =
-            lineArray.filter(l => l.startsWith('XDG_DESKTOP_DIR='))[0];
+            lineArray.filter(l => l.startsWith(serarchstring))[0];
 
         let xdgDesktopPath = desktopline.split('=')[1].trim();
         xdgDesktopPath = xdgDesktopPath.replace(/^"|"$/g, '');
