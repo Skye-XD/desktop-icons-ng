@@ -584,9 +584,11 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
                 this.changeDesktop.bind(this)
             ));
 
+        const defaultDesktopPath = this.getSystemLocalizedDesktopDir();
+        const secondarytext = _('Set Desktop back to ~/');
         this.defaultDesktopRow =
             this.addActionRowButton(_('Restore Default Desktop Folder'),
-                _('Set Desktop back to $HOME/Desktop'),
+                `${secondarytext}${defaultDesktopPath}`,
                 _('Restore'),
                 this.restoreDefaultDesktop.bind(this)
             );
