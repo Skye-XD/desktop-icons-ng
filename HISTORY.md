@@ -1,4 +1,10 @@
 # History of versions #
+* Adw version 100.5 for Gnome 45, 46, 47, 48
+  * Revert back to default desktop to the localized Desktop folder name. (Sundeep Mediratta)
+  * Misc. Fixes
+  * Weblate Translations. (Weblate Authours)
+  * Update History.MD, update app release note, metadata.json.
+
 * Adw version 100.4 for Gnome 45, 46, 47, 48
  * Resizable open-with dialog app chooser widgwet. (Sundeep Mediratta)
  * Fix custom icons smaller in size than regular icons. (Sundeep Mediratta)

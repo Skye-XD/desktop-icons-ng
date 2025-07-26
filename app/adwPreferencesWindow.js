@@ -289,7 +289,12 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.3 for Gnome 45, 46, 47, 48</p>
+            `<p>* Adw version 100.5 for Gnome 45, 46, 47, 48</p>
+<ul><li>Set localized default desktop name</li></ul>
+<ul><li>Resizable open with dialog</li></ul>
+<ul><li>Fix custom icons size</li></ul>
+<ul><li>Update to more direct error message</li></ul>
+            <p>* Adw version 100.3 for Gnome 45, 46, 47, 48</p>
 <ul><li>Draw proper selection rectangle at small sizes</li></ul>
             <p>* Adw version 100.2 for Gnome 45, 46, 47, 48</p>
 <ul><li>Remove dependency on xdg-user-dirs</li></ul>

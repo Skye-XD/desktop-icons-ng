@@ -7,7 +7,10 @@ Icons can be positioned anywhere on desktop or are snapped to a grid. Can make l
 Updated and modified code base, uses Gio menus, all translations on Weblate. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome 45 and higher.
 
 Multiple fixes and new features-
-
+* Set localized default desktop name
+* Resizable open with dialog
+* Fix custom icons size
+* Update to more direct error message
 * Change name to Adw. Desktop Icons, version 100 :)
 * Feature complete shortcut manager with editable keybindings for app actions.
 * New About dialog and redesigned preferences. Proper credits and acknowledgements
