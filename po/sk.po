@@ -8,10 +8,10 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk4-ding v100\n"
+"Project-Id-Version: gtk4-ding v100.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-05-23 00:03+0200\n"
+"PO-Revision-Date: 2025-07-26 13:32+0200\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
 "Language: sk\n"
@@ -153,10 +153,8 @@ msgid "Choose"
 msgstr "Vybrať"
 
 #: app/adwPreferencesWindow.js:588
-#, fuzzy
-#| msgid "Set Desktop back to $HOME/Desktop"
 msgid "Set Desktop back to ~/"
-msgstr "Nastaviť plochu späť na $HOME/Desktop"
+msgstr "Nastaviť plochu späť na ~/"
 
 #: app/adwPreferencesWindow.js:590
 msgid "Restore Default Desktop Folder"
@@ -1267,15 +1265,15 @@ msgid "Drive"
 msgstr "Jednotka"
 
 #: app/utils/dbusUtils.js:67
-#, fuzzy
-#| msgid "\"${programName}\" is needed for Desktop Icons"
 msgid "\"${programName}\" is not available"
-msgstr "\"${programName}\" je potrebný pre Desktop Icons"
+msgstr "\"${programName}\" nie je dostupný"
 
 #: app/utils/dbusUtils.js:70
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
+"Nainštalujte „${programName}“, aby ikony na ploche mohli vykonávať tieto "
+"akcie."
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
@@ -1478,8 +1476,8 @@ msgid "Override for default application shortcuts set by the User"
 msgstr "Prepísať predvolené skratky aplikácií nastavené používateľom"
 
 #~ msgid ""
-#~ "For this functionality to work in Desktop Icons, you must install "
-#~ "\"${programName}\" in your system."
+#~ "For this functionality to work in Desktop Icons, you must install \"$"
+#~ "{programName}\" in your system."
 #~ msgstr ""
 #~ "Aby táto funkcia fungovala v aplikácii Ikony na ploche, musíte do vášho "
 #~ "systému nainštalovať \"${programName}\"."
