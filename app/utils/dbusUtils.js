@@ -64,11 +64,11 @@ class ProxyManager {
             // if 'programNeeded' is a string, create a generic message
             // for the notification.
             this._programNeeded = [
-                _('"${programName}" is needed for Desktop Icons')
+                _('"${programName}" is not available')
                 .replace('${programName}', programNeeded),
                 _(
-                    'For this functionality to work in Desktop Icons, you ' +
-                    'must install "${programName}" in your system.'
+                    'Install "${programName}" to enable ' +
+                    'Desktop Icons to perform these actions.'
                 )
                 .replace('${programName}', programNeeded),
             ];
