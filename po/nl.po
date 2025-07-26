@@ -9,12 +9,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-05 18:11-0400\n"
+"POT-Creation-Date: 2025-07-26 06:48-0400\n"
 "PO-Revision-Date: 2025-07-03 22:07+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
+"ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,287 +41,287 @@ msgstr "Applicatiesnelkoppelingen"
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:687
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Help vertalen in je web browser"
 
-#: app/adwPreferencesWindow.js:462 app/adwPreferencesWindow.js:463
+#: app/adwPreferencesWindow.js:466 app/adwPreferencesWindow.js:467
 #, fuzzy
 msgid "Desktop"
 msgstr "Desktop"
 
-#: app/adwPreferencesWindow.js:468 app/adwPreferencesWindow.js:469
+#: app/adwPreferencesWindow.js:472 app/adwPreferencesWindow.js:473
 #, fuzzy
 msgid "Files"
 msgstr "Bestanden"
 
-#: app/adwPreferencesWindow.js:474 app/adwPreferencesWindow.js:475
-#: app/adwPreferencesWindow.js:517
+#: app/adwPreferencesWindow.js:478 app/adwPreferencesWindow.js:479
+#: app/adwPreferencesWindow.js:521
 #, fuzzy
 msgid "Tweaks"
 msgstr "Trucs"
 
-#: app/adwPreferencesWindow.js:480 app/adwPreferencesWindow.js:481
+#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
 #, fuzzy
 msgid "More"
 msgstr "Meer"
 
-#: app/adwPreferencesWindow.js:492
+#: app/adwPreferencesWindow.js:496
 #, fuzzy
 msgid "Desktop Settings"
 msgstr "Desktop-instellingen"
 
-#: app/adwPreferencesWindow.js:493
+#: app/adwPreferencesWindow.js:497
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Desktop Programma"
 
-#: app/adwPreferencesWindow.js:499
+#: app/adwPreferencesWindow.js:503
 #, fuzzy
 msgid "Desktop Folder"
 msgstr "Bureaublad­map"
 
-#: app/adwPreferencesWindow.js:500
+#: app/adwPreferencesWindow.js:504
 #, fuzzy
 msgid "Current Desktop: "
 msgstr "Onjuiste .desktop-bestanden"
 
-#: app/adwPreferencesWindow.js:510
+#: app/adwPreferencesWindow.js:514
 #, fuzzy
 msgid "Files Settings"
 msgstr "Bestandsinstellingen"
 
-#: app/adwPreferencesWindow.js:511
+#: app/adwPreferencesWindow.js:515
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Vertaling:"
 
-#: app/adwPreferencesWindow.js:518
+#: app/adwPreferencesWindow.js:522
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Miscellane Tweaks"
 
-#: app/adwPreferencesWindow.js:536
+#: app/adwPreferencesWindow.js:540
 msgid "Size for the desktop icons"
 msgstr "Grootte van bureaubladpictogrammen"
 
-#: app/adwPreferencesWindow.js:538
+#: app/adwPreferencesWindow.js:542
 #, fuzzy
 msgid "Tiny"
 msgstr "Kleinst"
 
-#: app/adwPreferencesWindow.js:539
+#: app/adwPreferencesWindow.js:543
 msgid "Small"
 msgstr "Klein"
 
-#: app/adwPreferencesWindow.js:540
+#: app/adwPreferencesWindow.js:544
 msgid "Standard"
 msgstr "Standaard"
 
-#: app/adwPreferencesWindow.js:541
+#: app/adwPreferencesWindow.js:545
 msgid "Large"
 msgstr "Groot"
 
-#: app/adwPreferencesWindow.js:547
+#: app/adwPreferencesWindow.js:551
 #, fuzzy
 msgid "New icons alignment"
 msgstr "Nieuwe iconen"
 
-#: app/adwPreferencesWindow.js:549
+#: app/adwPreferencesWindow.js:553
 #, fuzzy
 msgid "Top left corner"
 msgstr "Linker­bovenhoek."
 
-#: app/adwPreferencesWindow.js:550
+#: app/adwPreferencesWindow.js:554
 #, fuzzy
 msgid "Top right corner"
 msgstr "Rechter­bovenhoek."
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:555
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Linker­onderhoek."
 
-#: app/adwPreferencesWindow.js:552
+#: app/adwPreferencesWindow.js:556
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Rechter­onderhoek."
 
-#: app/adwPreferencesWindow.js:558
+#: app/adwPreferencesWindow.js:562
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Voeg eerst nieuwe iconen toe aan secundaire Monitors"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:566
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Kleef aan raster"
 
-#: app/adwPreferencesWindow.js:568
+#: app/adwPreferencesWindow.js:572
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Verlicht de daling"
 
-#: app/adwPreferencesWindow.js:577
+#: app/adwPreferencesWindow.js:581
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Bureaublad­map"
 
-#: app/adwPreferencesWindow.js:578
+#: app/adwPreferencesWindow.js:582
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "Toon de persoonlijke map op het bureaublad"
 
-#: app/adwPreferencesWindow.js:579 app/utils/desktopFolderUtils.js:84
+#: app/adwPreferencesWindow.js:583 app/utils/desktopFolderUtils.js:85
 #, fuzzy
 msgid "Choose"
 msgstr "Kies"
 
-#: app/adwPreferencesWindow.js:584
+#: app/adwPreferencesWindow.js:588
+msgid "Set Desktop back to ~/"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:590
 #, fuzzy
 msgid "Restore Default Desktop Folder"
 msgstr "Niet vertrouwd Desktop File"
 
-#: app/adwPreferencesWindow.js:585
-msgid "Set Desktop back to $HOME/Desktop"
-msgstr ""
-
-#: app/adwPreferencesWindow.js:586
+#: app/adwPreferencesWindow.js:592
 #, fuzzy
 msgid "Restore"
 msgstr "Herstellen"
 
-#: app/adwPreferencesWindow.js:596
+#: app/adwPreferencesWindow.js:602
 #, fuzzy
 msgid "Add information emblems for links, encryption"
 msgstr "Voeg een embleem toe aan verbanden"
 
-#: app/adwPreferencesWindow.js:600
+#: app/adwPreferencesWindow.js:606
 #, fuzzy
 msgid "Use dark text in icon labels"
 msgstr "Gebruik donkere tekst in icon labels"
 
-#: app/adwPreferencesWindow.js:605
+#: app/adwPreferencesWindow.js:611
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Toon de persoonlijke map op het bureaublad"
 
-#: app/adwPreferencesWindow.js:610
+#: app/adwPreferencesWindow.js:616
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Toon het prullenbakpictogram op het bureaublad"
 
-#: app/adwPreferencesWindow.js:615
+#: app/adwPreferencesWindow.js:621
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Laat externe drives zien op de desktop"
 
-#: app/adwPreferencesWindow.js:620
+#: app/adwPreferencesWindow.js:626
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Show netwerk drives on the desktop"
 
-#: app/adwPreferencesWindow.js:625
+#: app/adwPreferencesWindow.js:631
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Voeg nieuwe schijven aan de andere kant van de desktop"
 
-#: app/adwPreferencesWindow.js:630
+#: app/adwPreferencesWindow.js:636
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Actie aan Open Item"
 
-#: app/adwPreferencesWindow.js:632
+#: app/adwPreferencesWindow.js:638
 #, fuzzy
 msgid "Single click"
 msgstr "Enkele klik"
 
-#: app/adwPreferencesWindow.js:633
+#: app/adwPreferencesWindow.js:639
 #, fuzzy
 msgid "Double click"
 msgstr "Dubbelklikken"
 
-#: app/adwPreferencesWindow.js:638
+#: app/adwPreferencesWindow.js:644
 #, fuzzy
 msgid "Show image thumbnails"
 msgstr "Miniaturen tonen"
 
-#: app/adwPreferencesWindow.js:640
+#: app/adwPreferencesWindow.js:646
 #, fuzzy
 msgid "Always"
 msgstr "Altijd"
 
-#: app/adwPreferencesWindow.js:641
+#: app/adwPreferencesWindow.js:647
 #, fuzzy
 msgid "On this computer only"
 msgstr "Op deze computer"
 
-#: app/adwPreferencesWindow.js:642
+#: app/adwPreferencesWindow.js:648
 #, fuzzy
 msgid "Never"
 msgstr "Nooit"
 
-#: app/adwPreferencesWindow.js:647
+#: app/adwPreferencesWindow.js:653
 #, fuzzy
 msgid "Show a context menu item to delete permanently"
 msgstr "Toon een context menu item om permanent te verwijderen"
 
-#: app/adwPreferencesWindow.js:652
+#: app/adwPreferencesWindow.js:658
 #, fuzzy
 msgid "Show hidden files"
 msgstr "Toon verborgen bestanden"
 
-#: app/adwPreferencesWindow.js:657
+#: app/adwPreferencesWindow.js:663
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Open folders van drag hover"
 
-#: app/adwPreferencesWindow.js:661
+#: app/adwPreferencesWindow.js:667
 #, fuzzy
 msgid "About..."
 msgstr "Over…"
 
-#: app/adwPreferencesWindow.js:674 app/adwPreferencesWindow.js:680
+#: app/adwPreferencesWindow.js:680 app/adwPreferencesWindow.js:686
 #, fuzzy
 msgid "Translations"
 msgstr "Vertalingen"
 
-#: app/adwPreferencesWindow.js:675
+#: app/adwPreferencesWindow.js:681
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:682
+#: app/adwPreferencesWindow.js:688
 #, fuzzy
 msgid "Translate"
 msgstr "Vertaal"
 
-#: app/appChooser.js:73
+#: app/appChooser.js:78
 #, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Kies een aanvraag om te openen"
 
-#: app/appChooser.js:85
+#: app/appChooser.js:90
 #, fuzzy
 msgid "Open Items"
 msgstr "@:account.openItems.heading"
 
-#: app/appChooser.js:87
+#: app/appChooser.js:92
 #, fuzzy
 msgid "Open Folder"
 msgstr "Map openen"
 
-#: app/appChooser.js:89 data/ui/ding-app-chooser.ui:6
+#: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
 #, fuzzy
 msgid "Open File"
 msgstr "Open Bestand"
 
-#: app/appChooser.js:160
+#: app/appChooser.js:165
 #, fuzzy
 msgid "Error changing default application"
 msgstr "Verandering van defecte aanvragen"
 
-#: app/appChooser.js:163
+#: app/appChooser.js:168
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr "Error terwijl hij zich aanmeldt als defecte aanvraag voor mimetype"
@@ -1481,19 +1481,15 @@ msgstr "Schijf"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
-msgid "\"${programName}\" is needed for Desktop Icons"
+msgid "\"${programName}\" is not available"
 msgstr "Desktop Icons"
 
 #: app/utils/dbusUtils.js:70
-#, fuzzy
 msgid ""
-"For this functionality to work in Desktop Icons, you must install "
-"\"${programName}\" in your system."
+"Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
-"Voor deze functionaliteit om Desktop Icons te werken, moet je \"programm "
-"Naame\" in je systeem zetten."
 
-#: app/utils/desktopFolderUtils.js:83
+#: app/utils/desktopFolderUtils.js:84
 #, fuzzy
 msgid "Choose Desktop Folder"
 msgstr "Onjuiste .desktop-bestanden"
@@ -1728,6 +1724,14 @@ msgstr "Applicatiesnelkoppelingen"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"
 msgstr ""
+
+#, fuzzy
+#~ msgid ""
+#~ "For this functionality to work in Desktop Icons, you must install "
+#~ "\"${programName}\" in your system."
+#~ msgstr ""
+#~ "Voor deze functionaliteit om Desktop Icons te werken, moet je \"programm "
+#~ "Naame\" in je systeem zetten."
 
 #, fuzzy
 #~ msgid "Website"
