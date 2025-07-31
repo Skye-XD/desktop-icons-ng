@@ -12,11 +12,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-02 20:02+0000\n"
+"PO-Revision-Date: 2025-07-29 13:05+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +62,7 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:521
 #, fuzzy
 msgid "Tweaks"
-msgstr "拡張機能"
+msgstr "カスタマイズ"
 
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
 #, fuzzy
@@ -72,7 +72,7 @@ msgstr "さらに表示"
 #: app/adwPreferencesWindow.js:496
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "デスクトップ設定"
+msgstr "デスクトップの設定"
 
 #: app/adwPreferencesWindow.js:497
 #, fuzzy
@@ -782,12 +782,12 @@ msgstr "文書を削除できません"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "チャンネル名"
+msgstr "名前"
 
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "名前 (Z-A)"
+msgstr "名前 (ZからA)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -797,7 +797,7 @@ msgstr "最終更新時刻"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "衣服の種類"
+msgstr "ギャンブルの種類"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -866,7 +866,7 @@ msgstr "アイコンを整列"
 #: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
-msgstr "編曲:"
+msgstr "指定して整列…"
 
 #: app/desktopMenu.js:997
 #, fuzzy
@@ -1021,7 +1021,7 @@ msgstr "別のフォルダーへ移動"
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピーする"
+msgstr "コピー..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1235,7 +1235,7 @@ msgstr "コンソール"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "なし"
+msgstr "無し"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1407,7 +1407,7 @@ msgstr "すべて選択解除"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "プレビュー"
+msgstr "プレビュー表示"
 
 #: app/shortcuts.js:34
 #, fuzzy

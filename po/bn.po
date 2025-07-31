@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-02 20:02+0000\n"
+"PO-Revision-Date: 2025-07-28 12:23+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1236,7 +1236,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "পূর্বনির্ধারিত মানে পূনঃনির্ধারন কর"
+msgstr "ডিফল্টে রিসেট করুন"
 
 #: app/shortcutManager.js:134
 msgid "No Accelerator"

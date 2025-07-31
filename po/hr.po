@@ -9,11 +9,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-02 20:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hr/>\n"
+"PO-Revision-Date: 2025-07-29 13:05+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -653,7 +652,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Omogući"
+msgstr "Omogućiti"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -1452,7 +1451,7 @@ msgstr "Ne mogu otvoriti ovu datoteku jer je neispravna simbolička veza"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Disk"
+msgstr "Vožnja"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
