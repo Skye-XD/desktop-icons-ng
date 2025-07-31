@@ -13,11 +13,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-02 20:02+0000\n"
+"PO-Revision-Date: 2025-07-29 13:05+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,7 +248,7 @@ msgstr "Duplo clique"
 #: app/adwPreferencesWindow.js:644
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Mostrar miniatura da imagem"
+msgstr "Mostrar miniaturas de imagens"
 
 #: app/adwPreferencesWindow.js:646
 #, fuzzy
@@ -611,7 +611,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir Ficheiros"
+msgstr "Falha ao abrir o ficheiro"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -662,7 +662,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Ativar"
+msgstr "Habilitar"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -743,7 +743,7 @@ msgstr "Esta janela está aberta. Por favor, mude para a janela ativa."
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 #, fuzzy
 msgid "Settings"
-msgstr "Definições"
+msgstr "Configurações"
 
 #: app/desktopMenu.js:813
 #, fuzzy
@@ -823,7 +823,7 @@ msgstr "Novo Documento"
 #: app/desktopMenu.js:968 app/shortcuts.js:11
 #, fuzzy
 msgid "Paste"
-msgstr "Colar"
+msgstr "Cole"
 
 #: app/desktopMenu.js:970 app/shortcuts.js:12
 #, fuzzy
@@ -838,7 +838,7 @@ msgstr "Refazer"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Marcar Tudo"
+msgstr "Selecionar Todos"
 
 #: app/desktopMenu.js:985
 #, fuzzy
@@ -1018,7 +1018,7 @@ msgstr "Alterar nome…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "Criar link"
+msgstr "Criar ligação"
 
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
@@ -1125,7 +1125,7 @@ msgstr "Selecionar destino"
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 #, fuzzy
 msgid "Select"
-msgstr "Seleccionar"
+msgstr "Selecionar"
 
 #: app/fileItemMenu.js:963
 #, fuzzy
@@ -1487,7 +1487,7 @@ msgstr "Não é possível abrir este arquivo porque é um Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Conduzir"
+msgstr "'Drive'"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1527,7 +1527,7 @@ msgstr "_Cancelar"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Abrir"
+msgstr "_Abrir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy

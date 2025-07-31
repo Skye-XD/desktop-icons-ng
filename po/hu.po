@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-02 20:02+0000\n"
+"PO-Revision-Date: 2025-07-29 13:05+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -519,7 +519,7 @@ msgstr "Jelszó"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Létrehozás"
+msgstr "Teremt"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -602,7 +602,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nem sikerült a fájlokat megnyitni"
+msgstr "A fájl megnyitása nem sikerült"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -822,7 +822,7 @@ msgstr "Újra"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Összes kijelölése"
+msgstr "Összes kiválasztása"
 
 #: app/desktopMenu.js:985
 #, fuzzy
@@ -1202,7 +1202,7 @@ msgstr "Konzol"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Nincs"
+msgstr "Egyik sem"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1462,7 +1462,7 @@ msgstr "Nem tudja megnyitni ezt a fájlt, mert ez egy Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "meghajtó"
+msgstr "Meghajtó"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy

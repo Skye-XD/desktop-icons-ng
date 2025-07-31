@@ -13,10 +13,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-03 22:07+0000\n"
+"PO-Revision-Date: 2025-07-29 13:05+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -542,7 +542,7 @@ msgstr "Salasana"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Luo"
+msgstr "Luoda"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -638,7 +638,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Tiedostoja ei voitu avata"
+msgstr "Tiedostoa ei voitu avata"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -689,7 +689,7 @@ msgstr ""
 #: app/desktopManager.js:172
 #, fuzzy
 msgid "Enable"
-msgstr "Ota käyttöön"
+msgstr "Ottaa käyttöön"
 
 #: app/desktopManager.js:197
 msgid "Can Not Show the Desktop"
@@ -1237,7 +1237,7 @@ msgstr "Konsoli"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Ei mitään"
+msgstr "Ei ole"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1293,7 +1293,7 @@ msgstr "Komennot/näppäinyhdistelmät"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "näppäimistön pikavalinnat"
+msgstr "Pikanäppäimet"
 
 #: app/shortcutManager.js:673
 #, fuzzy

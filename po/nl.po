@@ -10,11 +10,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-03 22:07+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/nl/>\n"
+"PO-Revision-Date: 2025-07-29 13:05+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +59,7 @@ msgstr "Bestanden"
 #: app/adwPreferencesWindow.js:521
 #, fuzzy
 msgid "Tweaks"
-msgstr "Trucs"
+msgstr "Afstellingen"
 
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
 #, fuzzy
@@ -109,7 +108,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:542
 #, fuzzy
 msgid "Tiny"
-msgstr "Kleinst"
+msgstr "Heel klein"
 
 #: app/adwPreferencesWindow.js:543
 msgid "Small"
@@ -190,7 +189,7 @@ msgstr "Niet vertrouwd Desktop File"
 #: app/adwPreferencesWindow.js:592
 #, fuzzy
 msgid "Restore"
-msgstr "Herstellen"
+msgstr "Herstel"
 
 #: app/adwPreferencesWindow.js:602
 #, fuzzy
@@ -394,7 +393,7 @@ msgstr "Oké"
 #: app/askRenamePopup.js:75
 #, fuzzy
 msgid "Rename"
-msgstr "Hernoeming"
+msgstr "Hernoemen"
 
 #: app/autoAr.js:71
 #, fuzzy
@@ -612,7 +611,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kon Bestanden niet openen"
+msgstr "Kan bestand niet openen"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -900,7 +899,7 @@ msgstr "Kopiëren"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Link"
-msgstr "Koppeling"
+msgstr "Link"
 
 #: app/fileItemIcon.js:95
 #, fuzzy
@@ -1012,7 +1011,7 @@ msgstr "Hernoemen…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "Maak een koppeling"
+msgstr "Link maken"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1477,7 +1476,7 @@ msgstr "Kan dit dossier niet openen omdat het een Broken Symlink is"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Schijf"
+msgstr "Drive"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1517,7 +1516,7 @@ msgstr "_Annuleren"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Open"
+msgstr "_Openen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

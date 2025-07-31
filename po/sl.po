@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-03 22:07+0000\n"
+"PO-Revision-Date: 2025-07-29 13:05+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sl/>\n"
+"Language-Team: Slovenian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,7 +99,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:542
 #, fuzzy
 msgid "Tiny"
-msgstr "drobno"
+msgstr "Zelo majhno"
 
 #: app/adwPreferencesWindow.js:543
 #, fuzzy
@@ -458,7 +458,7 @@ msgstr "Ime arhiva"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Password"
+msgstr "Geslo"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -896,8 +896,9 @@ msgid "Rename…"
 msgstr "Preimenuj"
 
 #: app/fileItemMenu.js:254
+#, fuzzy
 msgid "Create Link..."
-msgstr ""
+msgstr "Ustvari povezavo"
 
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
