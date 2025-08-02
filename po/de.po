@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-29 13:05+0000\n"
+"PO-Revision-Date: 2025-08-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -583,7 +583,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Konnte Datei nicht öffnen"
+msgstr "Datei konnte nicht geöffnet werden"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -1435,7 +1435,7 @@ msgstr "Papierkorb"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stapel"
+msgstr "Stack"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"

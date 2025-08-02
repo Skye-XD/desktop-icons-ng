@@ -15,8 +15,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-29 13:05+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-08-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -30,7 +31,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Ярлики"
+msgstr "Скорочення"
 
 #: app/adwPreferencesWindow.js:163
 msgid "Edit Shortcuts..."
@@ -262,7 +263,7 @@ msgstr "Відкрийте папки на перетягування"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "Про програму…"
+msgstr "Про програму ..."
 
 #: app/adwPreferencesWindow.js:680 app/adwPreferencesWindow.js:686
 #, fuzzy
@@ -711,7 +712,7 @@ msgstr "Складання папки"
 #: app/desktopManager.js:1593
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Не вдалося створити папку."
+msgstr "Не вдалося створити теку."
 
 #: app/desktopMenu.js:601
 #, fuzzy
