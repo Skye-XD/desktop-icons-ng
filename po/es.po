@@ -8,13 +8,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
 # Josman Goncalves Bravo <josmangoncalvesbravo@hotmail.com>, 2025.
+# Mayco Emanuel Portillo <maycoemanuelportillo@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-29 13:05+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-08-03 23:02+0000\n"
+"Last-Translator: Mayco Emanuel Portillo <maycoemanuelportillo@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -31,10 +32,8 @@ msgid "Shortcuts"
 msgstr "Atajos"
 
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
-#| msgid "Show network mounts"
 msgid "Edit Shortcuts..."
-msgstr "Editar atajos de teclado"
+msgstr "Editar accesos directos..."
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
