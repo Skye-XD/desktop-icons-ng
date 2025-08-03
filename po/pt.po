@@ -13,9 +13,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-29 13:05+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-08-02 20:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
@@ -611,7 +610,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Falha ao abrir o ficheiro"
+msgstr "Não foi possível abrir o ficheiro"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -1013,7 +1012,7 @@ msgstr "Copiar para..."
 #: app/fileItemMenu.js:249
 #, fuzzy
 msgid "Rename…"
-msgstr "Alterar nome…"
+msgstr "Renomear…"
 
 #: app/fileItemMenu.js:254
 #, fuzzy
@@ -1299,7 +1298,7 @@ msgstr "Redefinir Atalhos para os Padrões"
 #: app/shortcutManager.js:677
 #, fuzzy
 msgid "Reset All..."
-msgstr "Apagar todos"
+msgstr "Redefinir tudo"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1472,7 +1471,7 @@ msgstr "Lixo"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Empilhar"
+msgstr "Pilha"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
@@ -1487,7 +1486,7 @@ msgstr "Não é possível abrir este arquivo porque é um Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "'Drive'"
+msgstr "Unidade"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
