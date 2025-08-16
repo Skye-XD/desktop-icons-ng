@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-02 20:02+0000\n"
+"PO-Revision-Date: 2025-08-15 20:29+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -291,7 +291,7 @@ msgstr "Wählen Sie eine Anwendung zum Öffnen <b>{foo}</b>"
 #: app/appChooser.js:90
 #, fuzzy
 msgid "Open Items"
-msgstr "@:account.creditlimit.openInvoices"
+msgstr "Offene Posten"
 
 #: app/appChooser.js:92
 #, fuzzy
@@ -958,7 +958,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben auf..."
+msgstr "Verschieben nach ..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1252,7 +1252,7 @@ msgstr "Tastenkombinationen auf Standard zurücksetzen"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Alles zurücksetzen"
+msgstr "Zurücksetzen"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1435,7 +1435,7 @@ msgstr "Papierkorb"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "Stapel"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1449,7 +1449,7 @@ msgstr "Kann diese Datei nicht öffnen, weil es ein Broken Symlink ist"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Laufwerk"
+msgstr "Steuerung"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
