@@ -249,7 +249,11 @@ class ManageWindow {
         this._signalIDs.push(
             this._window.connect('notify::maximized-vertically',
                 () => {
-                    if (!this._window.maximized_vertically)
+                    if (this._window.is_maximized &&
+                        !this._window.is_maximized()
+                    )
+                        this._window.maximize();
+                    else if (!this._window.maximized_vertically)
                         this._window.maximize(Meta.MaximizeFlags.VERTICAL);
                     this._moveIntoPlace();
                 }
@@ -259,7 +263,11 @@ class ManageWindow {
         this._signalIDs.push(
             this._window.connect('notify::maximized-horizontally',
                 () => {
-                    if (!this._window.maximized_horizontally)
+                    if (this._window.is_maximized &&
+                        !this._window.is_maximized()
+                    )
+                        this._window.maximize();
+                    else if (!this._window.maximized_horizontally)
                         this._window.maximize(Meta.MaximizeFlags.HORIZONTAL);
                     this._moveIntoPlace();
                 }
