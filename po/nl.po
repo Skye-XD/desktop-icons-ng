@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-29 13:05+0000\n"
+"PO-Revision-Date: 2025-08-16 21:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -108,7 +108,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:542
 #, fuzzy
 msgid "Tiny"
-msgstr "Heel klein"
+msgstr "Klein"
 
 #: app/adwPreferencesWindow.js:543
 msgid "Small"
@@ -1461,7 +1461,7 @@ msgstr "Trash"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stapel"
+msgstr "Op  elkaar"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
@@ -1476,7 +1476,7 @@ msgstr "Kan dit dossier niet openen omdat het een Broken Symlink is"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Schijf"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy

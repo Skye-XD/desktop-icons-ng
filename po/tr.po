@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-02 20:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-08-15 20:29+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -35,7 +36,7 @@ msgstr "Kısayollar"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Kısayolları düzenle"
+msgstr "Kestirmeleri Düzenle"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -65,7 +66,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:521
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce ayarlar"
+msgstr "Düzenlemeler"
 
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
 #, fuzzy
@@ -761,7 +762,7 @@ msgstr "Isim"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Ad Z - A"
+msgstr "İsim (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -904,7 +905,7 @@ msgstr "Klasör"
 #: app/fileItemIcon.js:96
 #, fuzzy
 msgid "File"
-msgstr "Dosya"
+msgstr "Format,Harita"
 
 #: app/fileItemIcon.js:270
 #, fuzzy
@@ -1277,7 +1278,7 @@ msgstr "Tüm Kısayolları Varsayılan Değerlerine Sıfırla"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Tümünü sıfırla"
+msgstr "Tümünü Sıfırla"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1457,7 +1458,7 @@ msgstr "Çöp kutusu"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Yığın"
+msgstr "Üst üste"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
