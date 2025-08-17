@@ -656,31 +656,52 @@ var LaunchSubprocess = class {
                     Gio.SubprocessFlags.STDERR_MERGE,
             });
 
-        if (Meta.is_wayland_compositor()) {
+        this.subprocess = null;
+        this.process_running = false;
+    }
+
+    makeWaylandClientSubprocess(argv) {
+        if (!Meta.is_wayland_compositor())
+            throw new Error('X11, Cannot make Wayland client subprocess');
+
+        let subprocess;
+
+        // New API introduced in
+        // https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/4491
+        if (Meta.WaylandClient.new_subprocess) {
+            this._waylandClient =
+                Meta.WaylandClient.new_subprocess(
+                    global.context, this._launcher, argv
+                );
+            subprocess = this._waylandClient.get_subprocess();
+        } else {
+            // Old APIs
             try {
-                this._waylandClient = Meta.WaylandClient.new(this._launcher);
-            } catch (e) {
+                // Previous API
                 this._waylandClient =
                     Meta.WaylandClient.new(global.context, this._launcher);
+            } catch (e) {
+                // Oldest API
+                this._waylandClient = Meta.WaylandClient.new(this._launcher);
             }
 
             if (Config.PACKAGE_VERSION === '3.38.0') {
                 // workaround for bug in 3.38.0
                 this._launcher.ref();
             }
+
+            subprocess = this._waylandClient.spawnv(global.display, argv);
         }
-        this.subprocess = null;
-        this.process_running = false;
+
+        return subprocess;
     }
 
     async spawnv(argv) {
         try {
-            if (Meta.is_wayland_compositor()) {
-                this.subprocess =
-                    this._waylandClient.spawnv(global.display, argv);
-            } else {
+            if (Meta.is_wayland_compositor())
+                this.subprocess = this.makeWaylandClientSubprocess(argv);
+            else
                 this.subprocess = this._launcher.spawnv(argv);
-            }
         } catch (e) {
             this.subprocess = null;
             throw e;
