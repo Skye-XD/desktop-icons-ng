@@ -668,7 +668,7 @@ var LaunchSubprocess = class {
 
         // New API introduced in
         // https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/4491
-        if (Meta.WaylandClient.new_subprocess) {
+        if (typeof Meta.WaylandClient.prototype.new_subprocess === 'function') {
             this._waylandClient =
                 Meta.WaylandClient.new_subprocess(
                     global.context, this._launcher, argv
@@ -802,7 +802,7 @@ var LaunchSubprocess = class {
         if (!Meta.is_wayland_compositor() || !this.process_running)
             return;
 
-        if (window.show_in_window_list)
+        if (typeof window.show_in_window_list === 'function')
             // New Gnome 49 API
             window.show_in_window_list();
         else
@@ -813,7 +813,7 @@ var LaunchSubprocess = class {
         if (!Meta.is_wayland_compositor() || !this.process_running)
             return;
 
-        if (window.hide_from_window_list)
+        if (typeof window.hide_from_window_list === 'function')
             // New Gnome 49 API
             window.hide_from_window_list();
         else
@@ -828,7 +828,7 @@ var LaunchSubprocess = class {
             return false;
 
         try {
-            if (window.set_type)
+            if (typeof window.set_type === 'function')
                 window.set_type(Meta.WindowType.DESKTOP);
             else
                 this._waylandClient.make_desktop(window);
