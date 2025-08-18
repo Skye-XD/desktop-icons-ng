@@ -249,7 +249,7 @@ class ManageWindow {
         this._signalIDs.push(
             this._window.connect('notify::maximized-vertically',
                 () => {
-                    if (this._window.is_maximized &&
+                    if (typeof this._window.is_maximized === 'function' &&
                         !this._window.is_maximized()
                     )
                         this._window.maximize();
@@ -263,7 +263,7 @@ class ManageWindow {
         this._signalIDs.push(
             this._window.connect('notify::maximized-horizontally',
                 () => {
-                    if (this._window.is_maximized &&
+                    if (typeof this._window.is_maximized === 'function' &&
                         !this._window.is_maximized()
                     )
                         this._window.maximize();
