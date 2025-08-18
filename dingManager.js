@@ -799,30 +799,46 @@ var LaunchSubprocess = class {
     }
 
     show_in_window_list(window) {
-        if (Meta.is_wayland_compositor() && this.process_running)
-            this._waylandClient.show_in_window_list(window);
+        if (!Meta.is_wayland_compositor() || !this.process_running)
+            return;
+
+        if (window.show_in_window_list)
+            // New Gnome 49 API
+            window.show_in_window_list();
+        else
+            this._waylandClient?.show_in_window_list(window);
     }
 
     hide_from_window_list(window) {
-        if (Meta.is_wayland_compositor() && this.process_running)
-            this._waylandClient.hide_from_window_list(window);
+        if (!Meta.is_wayland_compositor() || !this.process_running)
+            return;
+
+        if (window.hide_from_window_list)
+            // New Gnome 49 API
+            window.hide_from_window_list();
+        else
+            this._waylandClient?.hide_from_window_list(window);
     }
 
     make_desktop_window(window) {
         if (window.window_type === Meta.WindowType.DESKTOP)
             return true;
 
-        if (Meta.is_wayland_compositor() && this.process_running) {
-            try {
-                this._waylandClient.make_desktop(window);
-                console.log('Making Wayland window type Desktop');
+        if (!Meta.is_wayland_compositor() || !this.process_running)
+            return false;
 
-                return true;
-            } catch (e) {
-                console.log(
-                    'Meta.WaylandClient make_desktop() method not available!'
-                );
-            }
+        try {
+            if (window.set_type)
+                window.set_type(Meta.WindowType.DESKTOP);
+            else
+                this._waylandClient.make_desktop(window);
+
+            console.log('Making Wayland window type Desktop');
+            return true;
+        } catch (e) {
+            console.log(
+                'No Wayland API to make window type Desktop available!'
+            );
         }
 
         return false;
