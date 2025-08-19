@@ -828,16 +828,15 @@ var LaunchSubprocess = class {
             return false;
 
         try {
-            if (typeof window.set_type === 'function')
-                window.set_type(Meta.WindowType.DESKTOP);
-            else
-                this._waylandClient.make_desktop(window);
+            this._waylandClient.make_desktop(window);
+            console.log(
+                'Making Wayland window type Desktop with Meta.WaylandClient API'
+            );
 
-            console.log('Making Wayland window type Desktop');
             return true;
         } catch (e) {
             console.log(
-                'No Wayland API to make window type Desktop available!'
+                'No API to make window type Desktop available!'
             );
         }
 

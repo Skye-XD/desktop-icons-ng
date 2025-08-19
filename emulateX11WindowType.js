@@ -219,8 +219,16 @@ class ManageWindow {
         else if (this._window.on_all_workspaces)
             this._window.unstick();
 
-        if (this._desktopWindow)
-            this._makeWindowTypeDesktop();
+        if (this._desktopWindow) {
+            if (typeof this._window.set_type === 'function') {
+                this._window.set_type(Meta.WindowType.DESKTOP);
+                console.log('Setting window type to desktop with Gnome 49 API');
+                // In future, Meta.WaylandClient.make_desktop(window) will not
+                // be necessary.
+            } else {
+                this._makeWindowTypeDesktop();
+            }
+        }
     }
 
     _keepFixedWindowPosition() {
