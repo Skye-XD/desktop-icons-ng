@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-08-19 21:02+0000\n"
+"Last-Translator: Abdullah Albaroty <albaroty@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ar/>\n"
 "Language: ar\n"
@@ -363,9 +363,8 @@ msgid "Extracting files"
 msgstr "إستخراج الملفات"
 
 #: app/autoAr.js:220
-#, fuzzy
 msgid "Compressing files"
-msgstr "ضغط الملفات."
+msgstr "ضغط الملفات"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
 #: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:914
