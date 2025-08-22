@@ -1,4 +1,10 @@
 # History of versions #
+* Adw version 100.6 for Gnome 45, 46, 47, 48
+  * Update to Gnome 49 Meta.WaylandClient & MetaWindow API. (Sundeep Mediratta)
+  * Fix missing app icon, correct IOErrorEnum error preventing parent folder creation. (Sundeep Mediratta)
+  * Weblate translations (Weblate Authors)
+  * Update History.MD, update app release note, metadata.json.
+
 * Adw version 100.5 for Gnome 45, 46, 47, 48
   * Revert back to default desktop to the localized Desktop folder name. (Sundeep Mediratta)
   * Misc. Fixes
