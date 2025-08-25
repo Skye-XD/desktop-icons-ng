@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-08-25 08:02+0000\n"
+"Last-Translator: Василь Мариняк <mariniack@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
@@ -34,7 +34,7 @@ msgstr "Скорочення"
 
 #: app/adwPreferencesWindow.js:163
 msgid "Edit Shortcuts..."
-msgstr "Редагувати гарячі клавіші..."
+msgstr "Редагувати клавіатурні скорочення..."
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
