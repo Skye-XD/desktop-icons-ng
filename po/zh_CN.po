@@ -13,13 +13,14 @@
 # Sun Zhang <cardidi@live.cn>, 2024.
 # RuofengX <i@ruofengx.cn>, 2024.
 # "Jiaxuan (William) Li" <lijiaxuan1811@163.com>, 2024, 2025.
+# "Adam C." <adam701212@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-08-25 23:26+0000\n"
+"Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -30,14 +31,12 @@ msgstr ""
 "X-Generator: Weblate 5.13\n"
 
 #: app/adwPreferencesWindow.js:160
-#, fuzzy
 msgid "Shortcuts"
-msgstr "快捷访问"
+msgstr "快捷方式"
 
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "编辑快捷键"
+msgstr "编辑快捷方式"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
