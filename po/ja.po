@@ -12,8 +12,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -31,7 +32,7 @@ msgstr "ショートカット"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "ショートカットを編集"
+msgstr "ショートカットキーを編集"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -50,7 +51,7 @@ msgstr "Webブラウザで翻訳する"
 #: app/adwPreferencesWindow.js:466 app/adwPreferencesWindow.js:467
 #, fuzzy
 msgid "Desktop"
-msgstr "デスクトップ"
+msgstr "デスクトップ向け"
 
 #: app/adwPreferencesWindow.js:472 app/adwPreferencesWindow.js:473
 #, fuzzy
@@ -1015,12 +1016,12 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "移動して..."
+msgstr "を移動."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピーする"
+msgstr "コピー..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1029,7 +1030,7 @@ msgstr "名前を変更…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "リンクを発行する"
+msgstr "リンクを生成する"
 
 #: app/fileItemMenu.js:261
 #, fuzzy

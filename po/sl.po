@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/sl/>\n"
 "Language: sl\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -996,7 +997,7 @@ msgstr "Izbor cilja"
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 #, fuzzy
 msgid "Select"
-msgstr "Izberite"
+msgstr "Izberi"
 
 #: app/fileItemMenu.js:963
 msgid "Can not email a Directory"
@@ -1082,7 +1083,7 @@ msgstr "Konzola"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Prazno"
+msgstr "Nobenega"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1339,8 +1340,9 @@ msgid "Choose Desktop Folder"
 msgstr ""
 
 #: app/utils/desktopIconsUtil.js:208
+#, fuzzy
 msgid "Command not found"
-msgstr ""
+msgstr "ukaza ni mogoče najti"
 
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."

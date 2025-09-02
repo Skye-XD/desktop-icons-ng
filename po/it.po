@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
+"PO-Revision-Date: 2025-09-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -1014,7 +1014,7 @@ msgstr "Taglia"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Spostare a"
+msgstr "Sposta in..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1280,7 +1280,7 @@ msgstr "Scorciatoie applicazione"
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "Scorciatoia globale"
+msgstr "Scorciatoie Globali"
 
 #: app/shortcutManager.js:365
 #, fuzzy
@@ -1306,7 +1306,7 @@ msgstr "Ripristina tutte le scorciatoie ai valori predefiniti"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Ripristina tutto"
+msgstr "Reimposta tutte"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1488,7 +1488,7 @@ msgstr "Spazzatura"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Cascata"
+msgstr "Impila"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"

@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-07-03 22:07+0000\n"
+"PO-Revision-Date: 2025-09-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Friulian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fur/>\n"
+"Language-Team: Friulian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fur/>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -660,8 +660,9 @@ msgid "Could not create document"
 msgstr ""
 
 #: app/desktopMenu.js:919
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Non"
 
 #: app/desktopMenu.js:921
 msgid "Name Z-A"
@@ -672,8 +673,9 @@ msgid "Modified Time"
 msgstr ""
 
 #: app/desktopMenu.js:925
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "Gjenar"
 
 #: app/desktopMenu.js:927
 msgid "Size"
@@ -1334,8 +1336,9 @@ msgid "Choose Desktop Folder"
 msgstr "Mostre Scritori in File"
 
 #: app/utils/desktopIconsUtil.js:208
+#, fuzzy
 msgid "Command not found"
-msgstr ""
+msgstr "comant no cjatât"
 
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
