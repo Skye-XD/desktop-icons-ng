@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
+"PO-Revision-Date: 2025-09-02 20:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/cs/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -596,7 +596,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Soubor nelze otevřít"
+msgstr "Nepodařilo se otevřít soubor"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -985,7 +985,7 @@ msgstr "Přesunout do"
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovat do .."
+msgstr "Kopírovat do..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1272,7 +1272,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Resetovat vše"
+msgstr "Obnovit vše"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1451,7 +1451,7 @@ msgstr "Trash"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Kaskádově"
+msgstr "Zásobník"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
@@ -1466,7 +1466,7 @@ msgstr "Nelze otevřít tento soubor, protože je to Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Disk"
+msgstr "Úložiště"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy

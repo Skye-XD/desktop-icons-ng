@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
+"PO-Revision-Date: 2025-09-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -108,7 +108,7 @@ msgstr "Grootte van bureaubladpictogrammen"
 #: app/adwPreferencesWindow.js:542
 #, fuzzy
 msgid "Tiny"
-msgstr "Klein"
+msgstr "Minuscuul"
 
 #: app/adwPreferencesWindow.js:543
 msgid "Small"
@@ -239,7 +239,7 @@ msgstr "Enkele klik"
 #: app/adwPreferencesWindow.js:639
 #, fuzzy
 msgid "Double click"
-msgstr "Dubbelklikken"
+msgstr "Dubbelklik"
 
 #: app/adwPreferencesWindow.js:644
 #, fuzzy
@@ -279,7 +279,7 @@ msgstr "Open folders van drag hover"
 #: app/adwPreferencesWindow.js:667
 #, fuzzy
 msgid "About..."
-msgstr "Over…"
+msgstr "Over..."
 
 #: app/adwPreferencesWindow.js:680 app/adwPreferencesWindow.js:686
 #, fuzzy
@@ -611,7 +611,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kan bestand niet openen"
+msgstr "Kon bestand niet openen"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -997,7 +997,7 @@ msgstr "Knippen"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Verplaatsen naar ..."
+msgstr "Verplaats naar..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1011,7 +1011,7 @@ msgstr "Hernoemen…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "Link maken"
+msgstr "Maak een koppeling"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1461,7 +1461,7 @@ msgstr "Trash"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Op  elkaar"
+msgstr "Stack"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
@@ -1476,7 +1476,7 @@ msgstr "Kan dit dossier niet openen omdat het een Broken Symlink is"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Schijf"
+msgstr "Autorit"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy

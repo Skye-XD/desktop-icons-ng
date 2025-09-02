@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-19 21:02+0000\n"
-"Last-Translator: Abdullah Albaroty <albaroty@gmail.com>\n"
+"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ar/>\n"
 "Language: ar\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -1306,7 +1307,7 @@ msgstr "للمزيد من المعلومات"
 #: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
 #, fuzzy
 msgid "Home"
-msgstr "Home"
+msgstr "الرئيسية"
 
 #: app/specialFolderIcon.js:63
 #, fuzzy

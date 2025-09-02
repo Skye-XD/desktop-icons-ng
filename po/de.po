@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-15 20:29+0000\n"
+"PO-Revision-Date: 2025-09-02 20:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -583,7 +583,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Datei konnte nicht geöffnet werden"
+msgstr "Konnte Datei nicht öffnen"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -958,7 +958,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben nach ..."
+msgstr "Verschieben auf..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1252,7 +1252,7 @@ msgstr "Tastenkombinationen auf Standard zurücksetzen"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Zurücksetzen"
+msgstr "Alles zurücksetzen"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1449,7 +1449,7 @@ msgstr "Kann diese Datei nicht öffnen, weil es ein Broken Symlink ist"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Steuerung"
+msgstr "Antrieb"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
