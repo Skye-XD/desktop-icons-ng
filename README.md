@@ -115,8 +115,10 @@ Install gjs-
 ```
 environment.systemPackages = with pkgs; [
   gjs
+  gdk-pixbuf 
+  imagemagick # For converting jpg to png 
 ];
-``````
+```
 Expose schema of nautilus-
 
 
@@ -126,8 +128,52 @@ services.xserver.desktopManager.gnome.extraGSettingsOverridePackages = with pkgs
   #gnome.mutter # should not be needed
   #gtk4 # should not be needed
 ];
-``````
+```
 
+To create a thumbnailer for odt, unpack it using unzip. These files are just zip files with a special structure. The thumbnail should always be in the same directory and  have the same filename.
+
+``` 
+  (
+  pkgs.writeTextFile {
+    # For the Thumbnailer use unzip!
+    # The name can be anything, it's just the name of the derivation in the nix store
+      name = "odt-thumbnailer";
+    # This is the important part, the path under which this will be installed
+      destination = "/share/thumbnailers/odt.thumbnailer";
+    # The contents of your thumbnailer, don't forget to specify the full path to executables
+      text = ''
+          [Thumbnailer Entry]
+          Exec=sh -c "${pkgs.unzip}/bin/unzip -p %i Thumbnails/thumbnail.png > %o"
+          MimeType=application/vnd.oasis.opendocument.text;
+      '';
+    }
+  )
+
+``` 
+The same goes for docx files, only they only provide a jpg so you must convert to png8. In this solution, imagemagick does the trick.
+
+``` 
+  (
+  pkgs.writeTextFile {
+    # For the Thumbnailer use unzip!
+    # The name can be anything, it's just the name of the derivation in the nix store
+      name = "docx-thumb";
+    # This is the important part, the path under which this will be installed
+      destination = "/share/thumbnailers/doc.thumbnailer";
+    # The contents of your thumbnailer, don't forget to specify the full path to executables
+      text = ''
+          [Thumbnailer Entry]
+          Exec=sh -c "${pkgs.unzip}/bin/unzip -p %i word/media/image1.jpeg | magick - -thumbnail x%s png8:- > %o "
+          MimeType=application/vnd.openxmlformats-officedocument.wordprocessingml.document;
+      '';
+    }
+  )
+  ```
+  
+You may need to clear your thumbnail cache before proceeding! 
+
+$ rm -rf ~/.cache/thumbnails/
+  
 Logout and log back in. Enable the extension manually. For some reason, home-manager configs cannot enable the extension using dconf.settings.
 
 ## Build with Meson
