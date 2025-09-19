@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-09-06 02:16+0000\n"
+"PO-Revision-Date: 2025-09-17 16:01+0000\n"
 "Last-Translator: Visconte di Carmagnola "
 "<carmagnola@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.1-rc\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -80,9 +80,8 @@ msgid "Settings for the Desktop Program"
 msgstr "Impostazioni per il programma Desktop"
 
 #: app/adwPreferencesWindow.js:503
-#, fuzzy
 msgid "Desktop Folder"
-msgstr "Cartella sul desktop"
+msgstr "Cartella Scrivania"
 
 #: app/adwPreferencesWindow.js:504
 #, fuzzy
