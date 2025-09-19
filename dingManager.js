@@ -668,7 +668,7 @@ var LaunchSubprocess = class {
 
         // New API introduced in
         // https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/4491
-        if (typeof Meta.WaylandClient.prototype.new_subprocess === 'function') {
+        if (typeof Meta.WaylandClient.new_subprocess === 'function') {
             this._waylandClient =
                 Meta.WaylandClient.new_subprocess(
                     global.context, this._launcher, argv
