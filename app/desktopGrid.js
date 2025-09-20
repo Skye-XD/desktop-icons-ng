@@ -2243,4 +2243,302 @@ const OffsetPicture = GObject.registerClass({
     }
 });
 
-const DesktopGrid =  ControlGrid;
+const DesktopGrid = class extends ControlGrid {
+    constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
+        super(desktopManager, desktopName, desktopDescription, asDesktop);
+        this._snapshotPic = new OffsetPicture();
+        this._oldMargins = null;
+        this._animationInProgress = false;
+        this._freezeDesktop = false;
+        this._pendingMargins = null;
+        this._newMargins = null;
+        this._tweenDelta = null;
+        this._reverse = 0.33; // single tuning knob for spring snappiness
+        // in ms
+        this._duration =  Math.max(350, this.Enums.TRANSITIONDURATION ?? 0);
+        this._setupAnimations();
+    }
+
+    destroy() {
+        if (this._relayoutCoalesceSource) {
+            GLib.source_remove(this._relayoutCoalesceSource);
+            this._relayoutCoalesceSource = 0;
+        }
+        super.destroy();
+    }
+
+    _setupAnimations() {
+        this._setupSpringAnimation();
+        this._setupOffsetAnimation();
+    }
+
+    _captureSnapshotPaintable(widget) {
+        return new Promise(resolve => {
+            const width = widget.get_width();
+            const height = widget.get_height();
+            const size = new Graphene.Size({width, height});
+            try {
+                const snap = Gtk.Snapshot.new();
+                widget.vfunc_snapshot(snap);
+                resolve(snap.to_paintable(size));
+            } catch (e) {
+                logError(e);
+                GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+                    try {
+                        const snap = Gtk.Snapshot.new();
+                        widget.vfunc_snapshot(snap);
+                        resolve(snap.to_paintable(size));
+                    } catch (ee) {
+                        logError(ee);
+                        const gdkpic =
+                            Gtk.WidgetPaintable.new(widget).get_current_image();
+                        resolve(gdkpic);
+                    }
+                    return GLib.SOURCE_REMOVE;
+                });
+            }
+        });
+    }
+
+    async displaySnapshot() {
+        if (this._freezeDesktop)
+            return;
+
+        this._freezeDesktop = true;
+        const snapshot = await this._captureSnapshotPaintable(this._window);
+        this._resetAll();
+        this._snapshotPic.set_paintable(snapshot);
+
+        this._oldMargins = this._getCurrentMargins();
+
+        this._overlay.add_overlay(this._snapshotPic);
+
+        this._snapshotPic.opacity = 1;
+        this._overlay.queue_draw();
+        this._container.opacity = 0;
+        this._container.queue_draw();
+    }
+
+    _getCurrentMargins() {
+        const margin = {
+            left: this._marginLeft ?? 0,
+            top:  this._marginTop  ?? 0,
+            right: this._marginRight ?? 0,
+            bottom: this._marginBottom ?? 0,
+        };
+        const contentRectangle = this._computeContentRectangle(margin);
+        margin.contentRectangle = contentRectangle;
+        return margin;
+    }
+
+    _computeContentRectangle(margins) {
+        const contentRectangle = new Gdk.Rectangle({
+            x: margins.left,
+            y: margins.top,
+            width: this._windowWidth - margins.left - margins.right,
+            height: this._windowHeight - margins.top - margins.bottom,
+        });
+        return contentRectangle;
+    }
+
+    _setLiveOffset(dx, dy) {
+        this._snapshotPic.tx = Math.round(dx);
+        this._snapshotPic.ty = Math.round(dy);
+    }
+
+    _setLiveTransform(scale, pivotx, pivoty) {
+        this._snapshotPic.scale = Number(scale);
+        this._snapshotPic.pivot_x = Math.round(pivotx);
+        this._snapshotPic.pivot_y = Math.round(pivoty);
+    }
+
+    _resetLiveTransform() {
+        this._setLiveTransform(1.0, 0, 0);
+    }
+
+    _resetLiveOffset() {
+        this._setLiveOffset(0, 0);
+    }
+
+    _resetAll() {
+        this._resetLiveOffset();
+        this._resetLiveTransform();
+    }
+
+    _clearOverlay(widget) {
+        if (widget?.get_parent() === this._overlay)
+            this._overlay.remove_overlay(widget);
+    }
+
+    _displayLive() {
+        this._container.opacity = 1.0;
+        this._snapshotPic.opacity = 0;
+        this._container.queue_draw();
+        this._resetAll();
+        this._clearOverlay(this._snapshotPic);
+        this._animationInProgress = false;
+        this._freezeDesktop = false;
+    }
+
+    _computeTweenDelta(Old, New) {
+        const sameShape =
+            Old.contentRectangle.width === New.contentRectangle.width &&
+            Old.contentRectangle.height === New.contentRectangle.height;
+
+        if (sameShape) {
+            // If the content rectangles are the same shape, we can just tween
+            // the top left corner of the content rectangle as the anchor
+            // for pixel perfect alignment of the content rectangle.
+            const anchor = 'topleft';
+            const dx = Old.left - New.left;
+            const dy = Old.top - New.top;
+            const pivotx = Old.contentRectangle.x;
+            const pivoty = Old.contentRectangle.y;
+
+            return {sameShape, anchor, dx, dy, pivotx, pivoty};
+        }
+
+        // If the content rectangles are not the same shape, or if the
+        // or both axis changed size, then we cannot just tween the
+        // top left corner of the content rectangle as the anchor.
+        // Instead, we need to tween the center, to account for the
+        // difference in aspect ratio.
+        const ocx = Old.contentRectangle.x + Old.contentRectangle.width  / 2;
+        const ocy = Old.contentRectangle.y + Old.contentRectangle.height / 2;
+        const ncx = New.contentRectangle.x + New.contentRectangle.width  / 2;
+        const ncy = New.contentRectangle.y + New.contentRectangle.height / 2;
+        const anchor = 'center';
+        const dx = ocx - ncx;
+        const dy = ocy - ncy;
+        const pivotx = ncx;
+        const pivoty = ncy;
+
+        return {sameShape, anchor, dx, dy, pivotx, pivoty};
+    }
+
+    requestAnimatedRelayout() {
+        if (this._relayoutCoalesceSource) {
+            GLib.source_remove(this._relayoutCoalesceSource);
+            this._relayoutCoalesceSource = 0;
+        }
+        const relayoutBurstMs = this._duration + 50;
+
+        this._pendingMargins = this._getCurrentMargins();
+
+        this._relayoutCoalesceSource = GLib.timeout_add(
+            GLib.PRIORITY_DEFAULT, relayoutBurstMs, () => {
+                this._playRelayoutTransition(this._pendingMargins);
+                this._relayoutCoalesceSource = 0;
+                this._pendingMargins = null;
+                return GLib.SOURCE_REMOVE;
+            }
+        );
+    }
+
+    _setupSpringAnimation() {
+        const dampingRatio = 0.58; // < 1 => underdamped (dip then settle)
+        const stiffness   = 250 + Math.round((1 - this._reverse) * 350);
+        const mass        = 1.0;
+
+        const springParams =
+            Adw.SpringParams.new(dampingRatio, mass, stiffness);
+
+        const springTarget = Adw.CallbackAnimationTarget.new(v => {
+            const s = Number(v); // animates around 1.0 due to initial_velocity
+            this._setLiveTransform(
+                s, this._tweenDelta.pivotx, this._tweenDelta.pivoty
+            );
+        });
+
+        this._springAnimation = new Adw.SpringAnimation({
+            widget: this._overlay,
+            value_from: 1.0,
+            value_to:   1.0,
+            spring_params: springParams,
+            initial_velocity: -3.0, // negative => dip “away”, then return
+            epsilon: 0.001,
+            clamp: false,
+            target: springTarget,
+        });
+    }
+
+    _setupOffsetAnimation() {
+        const target = Adw.CallbackAnimationTarget.new(value => {
+            const t = Number(value); // 0.0 to 1.0
+            const x = Math.round(-this._tweenDelta.dx * t);
+            const y = Math.round(-this._tweenDelta.dy * t);
+            this._setLiveOffset(x, y);
+            this._snapshotPic.opacity = 1 - t;
+
+            // Fade in the NEW container only near the end
+            if (t > 0.8)
+                this._container.opacity = t;
+        });
+
+        this._offsetAnim = new Adw.TimedAnimation({
+            widget: this._overlay,
+            value_from: 0.0,
+            value_to: 1.0,
+            duration: this._duration,
+            easing: Adw.Easing.EASE_OUT_CUBIC,
+            target,
+        });
+
+        this._offsetAnim.connect('done', () => {
+            this._setLiveOffset(-this._tweenDelta.dx, -this._tweenDelta.dy);
+            // Ensure we end exactly at identity scale
+            if (this._moveAway) {
+                this._setLiveTransform(
+                    1.0, this._tweenDelta.pivotx, this._tweenDelta.pivoty
+                );
+            }
+            this._displayLive();
+        });
+    }
+
+    _playRelayoutTransition(pendingMargins = null) {
+        if (!this.animationsEnabled || !this._freezeDesktop) {
+            this._displayLive();
+            return;
+        }
+
+        if (this._animationInProgress) {
+            this._offsetAnim.pause();
+            this._springAnimation.pause();
+        }
+
+        this._animationInProgress = true;
+        this._newMargins = pendingMargins ?? this._getCurrentMargins();
+
+        this._tweenDelta =
+            this._computeTweenDelta(this._oldMargins, this._newMargins);
+
+        const noshift = this._tweenDelta.dx === 0 && this._tweenDelta.dy === 0;
+        this._moveAway = !this._tweenDelta.sameShape;
+        if (noshift && !this._moveAway) {
+            // No visible change, so just end the animation
+            this._displayLive();
+            return;
+        }
+        // Initialize transform for the OLD snapshot we are animating
+        // - translation starts at the old position
+        // - scale is 1.0 (no depth change yet)
+        // - pivot is from tweenDelta (center for shape change, topleft otherwise)
+        this._setLiveOffset(0, 0);
+        this._setLiveTransform(1.0,
+            this._tweenDelta.pivotx,
+            this._tweenDelta.pivoty
+        );
+
+        this._offsetAnim.play();
+        if (this._moveAway)
+            this._springAnimation.play();
+    }
+
+    get animationsEnabled() {
+        const enabled = Gtk.Settings.get_default().gtk_enable_animations ??
+            false;
+
+        return enabled;
+    }
+};
