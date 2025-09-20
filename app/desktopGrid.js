@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gtk, Gdk, GLib, Gio, Graphene, Gsk, Adw} from '../dependencies/gi.js';
+import {GObject, Gtk, Gdk, GLib, Gio, Graphene, Gsk, Adw} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {DesktopGrid};
@@ -2113,4 +2113,134 @@ const ControlGrid = class extends DrawGrid {
     }
 };
 
-const DesktopGrid = ControlGrid;
+/* A Picture that can translate itself at paint time (render-only) */
+const OffsetPicture = GObject.registerClass({
+    Properties: {
+        'tx': GObject.ParamSpec.double('tx', 'tx', 'translate x',
+            GObject.ParamFlags.READWRITE | GObject.ParamFlags.EXPLICIT_NOTIFY,
+            -1e6, 1e6, 0.0),
+        'ty': GObject.ParamSpec.double('ty', 'ty', 'translate y',
+            GObject.ParamFlags.READWRITE | GObject.ParamFlags.EXPLICIT_NOTIFY,
+            -1e6, 1e6, 0.0),
+        'scale':  GObject.ParamSpec.double('scale', '', '',
+            GObject.ParamFlags.READWRITE, 0.5, 2.0, 1.0),
+        'pivot-x': GObject.ParamSpec.double('pivot-x', '', '',
+            GObject.ParamFlags.READWRITE, -1e6, 1e6, 0),
+        'pivot-y': GObject.ParamSpec.double('pivot-y', '', '',
+            GObject.ParamFlags.READWRITE, -1e6, 1e6, 0),
+    },
+}, class OffsetPicture extends Gtk.Picture {
+    constructor(props = {}) {
+        super(
+            Object.assign({
+                hexpand: false,
+                vexpand: false,
+                halign: Gtk.Align.START,
+                valign: Gtk.Align.START,
+                can_target: false,
+            },
+            props)
+        );
+        this._tx = 0.0;
+        this._ty = 0.0;
+        this._scale = 1.0;
+        this._pivot_x = 0.0;
+        this._pivot_y = 0.0;
+    }
+
+    get tx() {
+        return this._tx;
+    }
+
+    set tx(v) {
+        v = Number(v);
+        if (v !== this._tx) {
+            this._tx = v;
+            this.notify('tx');
+            this.queue_draw();
+        }
+    }
+
+    get ty() {
+        return this._ty;
+    }
+
+    set ty(v) {
+        v = Number(v);
+        if (v !== this._ty) {
+            this._ty = v;
+            this.notify('ty');
+            this.queue_draw();
+        }
+    }
+
+    get scale() {
+        return this._scale;
+    }
+
+    set scale(v) {
+        v = Number(v);
+        if (v !== this._scale) {
+            this._scale = v;
+            this.notify('scale');
+            this.queue_draw();
+        }
+    }
+
+    get pivot_x() {
+        return this._pivot_x;
+    }
+
+    set pivot_x(v) {
+        v = Number(v);
+        if (v !== this._pivot_x) {
+            this._pivot_x = v;
+            this.notify('pivot-x');
+            this.queue_draw();
+        }
+    }
+
+    get pivot_y() {
+        return this._pivot_y;
+    }
+
+    set pivot_y(v) {
+        v = Number(v);
+        if (v !== this._pivot_y) {
+            this._pivot_y = v;
+            this.notify('pivot-y');
+            this.queue_draw();
+        }
+    }
+
+    // eslint-disable-next-line no-unused-vars
+    vfunc_snapshot(snapshot) {
+        const a = this.get_allocation();
+        if (a.width <= 0 || a.height <= 0)
+            return;
+
+        snapshot.save();
+        try {
+            const rect = new Graphene.Rect();
+            rect.init(0, 0, a.width, a.height);
+            snapshot.push_clip(rect);
+            try {
+                snapshot.translate(
+                    new Graphene.Point({x: this._tx, y: this._ty}));
+                snapshot.translate(
+                    new Graphene.Point({x: this.pivot_x, y: this.pivot_y}));
+                snapshot.scale(this.scale, this.scale);
+                snapshot.translate(
+                    new Graphene.Point({x: -this.pivot_x, y: -this.pivot_y}));
+
+                super.vfunc_snapshot(snapshot);
+            } finally {
+                snapshot.pop();
+            }
+        } finally {
+            snapshot.restore();
+        }
+    }
+});
+
+const DesktopGrid =  ControlGrid;
