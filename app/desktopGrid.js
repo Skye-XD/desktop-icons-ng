@@ -1261,7 +1261,7 @@ const DrawGrid =  class extends DisplayGrid {
 };
 
 
-const DesktopGrid = class extends DrawGrid {
+const ControlGrid = class extends DrawGrid {
     constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
         super(desktopManager, desktopName, desktopDescription, asDesktop);
         this._addDragControllers();
@@ -2112,3 +2112,5 @@ const DesktopGrid = class extends DrawGrid {
         this.directoryOpenTimer = 0;
     }
 };
+
+const DesktopGrid = ControlGrid;
