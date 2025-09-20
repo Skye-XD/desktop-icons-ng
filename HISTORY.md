@@ -1,4 +1,10 @@
 # History of versions #
+* Adw version 100.7 for Gnome 45, 46, 47, 48
+ * Fix error and crash when on Gnome 49. (Sundeep Mediratta)
+ * Fix xdg-terminals.list, read correct files in data dirs. (Sundeep Mediratta)
+  * Weblate translations (Weblate Authors)
+  * Update History.MD, update app release note, metadata.json.
+  
 * Adw version 100.6 for Gnome 45, 46, 47, 48
   * Update to Gnome 49 Meta.WaylandClient & MetaWindow API. (Sundeep Mediratta)
   * Fix missing app icon, correct IOErrorEnum error preventing parent folder creation. (Sundeep Mediratta)
