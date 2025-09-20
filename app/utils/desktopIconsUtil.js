@@ -574,7 +574,7 @@ const DesktopIconsUtil = class {
      * entry in file
      */
     parseTerminalList(fileList) {
-        const regexpattern = /^[/\\*#]/;
+        const regexpattern = /^[/\\*#-]/;
         const terminalGioDesktopAppInfoArray = [];
 
         if (fileList.endsWith('\n'))
@@ -585,7 +585,7 @@ const DesktopIconsUtil = class {
 
         if (fileListArray.length) {
             fileListArray.forEach(f => {
-                const appinfo = DesktopAppInfo.new(f);
+                const appinfo = DesktopAppInfo.new(f.replace('+', ''));
                 if (appinfo)
                     terminalGioDesktopAppInfoArray.push(appinfo);
             });
