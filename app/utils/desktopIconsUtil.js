@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gio, GLib, Gdk} from '../../dependencies/gi.js';
+import {Gio, GLib, Gdk, DesktopAppInfo} from '../../dependencies/gi.js';
 import {_} from '../../dependencies/gettext.js';
 
 export {DesktopIconsUtil};
@@ -577,7 +577,7 @@ const DesktopIconsUtil = class {
 
         if (fileListArray.length) {
             fileListArray.forEach(f => {
-                const appinfo = Gio.DesktopAppInfo.new(f);
+                const appinfo = DesktopAppInfo.new(f);
                 if (appinfo)
                     terminalGioDesktopAppInfoArray.push(appinfo);
             });

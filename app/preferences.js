@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Adw, GLib, Gtk, Gio, Gdk} from '../dependencies/gi.js';
+import {Adw, GLib, Gtk, Gio, Gdk, DesktopAppInfo} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {Preferences};
@@ -64,7 +64,7 @@ const Preferences = class {
         }
 
         this._gnomeFilesAppInfo =
-            Gio.DesktopAppInfo.new('org.gnome.Nautilus.desktop');
+            DesktopAppInfo.new('org.gnome.Nautilus.desktop');
 
 
         // Compression
@@ -680,17 +680,17 @@ const Preferences = class {
         switch (defaultTerminal) {
         case 'gnome-terminal':
             terminal = 'org.gnome.Terminal.desktop';
-            terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+            terminalappinfo = DesktopAppInfo.new(terminal);
             if (!terminalappinfo) {
                 terminal = 'org.gnome.Ptyxis.desktop';
-                terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+                terminalappinfo = DesktopAppInfo.new(terminal);
             }
 
             break;
         case 'gnome-console':
         default:
             terminal = 'org.gnome.Console.desktop';
-            terminalappinfo = Gio.DesktopAppInfo.new(terminal);
+            terminalappinfo = DesktopAppInfo.new(terminal);
         }
 
         return  terminalappinfo ? [terminalappinfo] : [];
@@ -765,7 +765,7 @@ const Preferences = class {
                         GLib.build_filenamev([f.get_path(), fileName]);
 
                     const appinfo =
-                        Gio.DesktopAppInfo.new_from_filename(fpath);
+                        DesktopAppInfo.new_from_filename(fpath);
 
                     if (appinfo)
                         xdgDataFiles.push(appinfo);
