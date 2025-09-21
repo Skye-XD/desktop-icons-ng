@@ -1346,7 +1346,7 @@ const ControlGrid = class extends DrawGrid {
 
         if (clickItem && this._clickItemClickable(clickItem, X, Y)) {
             clickItem
-                ._onPressButton(actor, X, Y, x, y, isShift, isCtrl);
+                ._onPressButton(actor, nPress, X, Y, x, y, isShift, isCtrl);
             return;
         }
 
@@ -1365,7 +1365,8 @@ const ControlGrid = class extends DrawGrid {
         const clickItemClickable = this._clickItemClickable(clickItem, X, Y);
 
         if (clickItemClickable && !this._dragManager.rubberBand) {
-            clickItem._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
+            clickItem._onReleaseButton(
+                actor, nPress, X, Y, x, y, isShift, isCtrl);
             return;
         }
 

@@ -361,35 +361,8 @@ const DesktopIconItem = class {
             return false;
     }
 
-    _updateClickState(button, eventtime) {
-        const settings = Gtk.Settings.get_default();
-        let doubleClickTime = settings.gtk_double_click_time;
-
-        // Workaround for X11
-        if (this.DesktopIconsUtil.usingX11) {
-            eventtime = GLib.get_monotonic_time();
-            doubleClickTime *= 1000;
-        }
-
-        if ((button === this._lastClickButton) &&
-            ((eventtime - this._lastClickTime) < doubleClickTime))
-            this._clickCount++;
-        else
-            this._clickCount = 1;
-
-        this._lastClickTime = eventtime;
-        this._lastClickButton = button;
-    }
-
-    getClickCount() {
-        return this._clickCount;
-    }
-
-    _onPressButton(actor, X, Y, x, y, shiftPressed, controlPressed) {
+    _onPressButton(actor, nPress, X, Y, x, y, shiftPressed, controlPressed) {
         const button = actor.get_current_button();
-        const eventtime = actor.get_current_event_time();
-
-        this._updateClickState(button, eventtime);
 
         this._buttonPressInitialX = x - this._x1;
         this._buttonPressInitialY = y - this._y1;
@@ -399,6 +372,7 @@ const DesktopIconItem = class {
         if (button === 3) {
             this._doButtonThreePressed(
                 button,
+                nPress,
                 X, Y,
                 x, y,
                 shiftPressed,
@@ -407,6 +381,7 @@ const DesktopIconItem = class {
         } else if (button === 1) {
             this._doButtonOnePressed(
                 button,
+                nPress,
                 X, Y,
                 x, y,
                 shiftPressed,
@@ -435,7 +410,9 @@ const DesktopIconItem = class {
         }
     }
 
-    _doButtonThreePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
+    _doButtonThreePressed(
+        button, nPress, X, Y, x, y, shiftPressed, controlPressed
+    ) {
         if (!this._isSelected)
             this._dragManager.selected(this, this.Enums.Selection.RIGHT_BUTTON);
 
@@ -451,8 +428,10 @@ const DesktopIconItem = class {
         );
     }
 
-    _doButtonOnePressed(button, X, Y, x, y, shiftPressed, controlPressed) {
-        if (this.getClickCount() === 1) {
+    _doButtonOnePressed(
+        button, nPress, X, Y, x, y, shiftPressed, controlPressed
+    ) {
+        if (nPress === 1) {
             if (shiftPressed || controlPressed) {
                 this._dragManager.selected(
                     this,
@@ -467,8 +446,9 @@ const DesktopIconItem = class {
         }
     }
 
-    // eslint-disable-next-line no-unused-vars
-    _doButtonOneReleased(button, X, Y, x, y, shiftPressed, controlPressed) {
+    _doButtonOneReleased(
+        // eslint-disable-next-line no-unused-vars
+        button, nPressX, Y, x, y, shiftPressed, controlPressed) {
     }
 
     /** *********************
