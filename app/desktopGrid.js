@@ -2421,7 +2421,9 @@ const DesktopGrid = class extends ControlGrid {
             GLib.source_remove(this._relayoutCoalesceSource);
             this._relayoutCoalesceSource = 0;
         }
-        const relayoutBurstMs = this._duration + 50;
+
+        // coalesce multiple relayouts within this time
+        const relayoutBurstMs = 100;
 
         this._pendingMargins = this._getCurrentMargins();
 
@@ -2536,9 +2538,6 @@ const DesktopGrid = class extends ControlGrid {
     }
 
     get animationsEnabled() {
-        const enabled = Gtk.Settings.get_default().gtk_enable_animations ??
-            false;
-
-        return enabled;
+        return this.Prefs.globalAnimations;
     }
 };
