@@ -1298,77 +1298,113 @@ const ControlGrid = class extends DrawGrid {
         this._buttonClick.set_button(0);
         this._buttonClick.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
         this._container.add_controller(this._buttonClick);
+        this._buttonLongClick = Gtk.GestureLongPress.new();
+        this._buttonLongClick.set_button(0);
+        this._buttonLongClick.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
+        this._container.add_controller(this._buttonLongClick);
 
-        this._buttonClick.connect(
-            'pressed',
-            (actor, nPress, x, y) => {
-                if (this._desktopManager.closePopUps())
-                    return;
+        this._buttonClick.set_exclusive(true);
+        this._buttonLongClick.set_exclusive(true);
+        this._buttonClick.group(this._buttonLongClick);
+        this._longHandled = false;
 
-                const button = actor.get_current_button();
-                const state = this._buttonClick.get_current_event_state();
-                const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
-                const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
-                const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+        this._buttonLongClick.connect('pressed', (actor, x, y) => {
+            this._longHandled = true;
+            this._doGestureLongPress(actor, x, y);
+        });
 
-                const clickItem = this._fileAt(x, y);
+        this._buttonLongClick.connect('cancelled', _actor => {
+            this._longHandled = false;
+        });
 
-                if (clickItem) {
-                    const clickRectangle =
-                        new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+        this._buttonClick.connect('pressed', (actor, nPress, x, y) => {
+            this._doGesturePress(actor, nPress, x, y);
+        });
 
-                    if (clickRectangle.intersect(clickItem.iconRectangle)[0] ||
-                        clickRectangle.intersect(clickItem.labelRectangle)[0]) {
-                        clickItem._onPressButton(
-                            actor,
-                            X, Y,
-                            x, y,
-                            isShift,
-                            isCtrl
-                        );
-                        return;
-                    }
-                }
+        this._buttonClick.connect('released', (actor, nPress, x, y) => {
+            if (this._longHandled)
+                this._longHandled = false;
 
-                this._desktopManager
-                .onPressButton(X, Y,
-                    x, y,
-                    button,
-                    isShift,
-                    isCtrl,
-                    this)
-                .catch(e => console.error(e));
-            }
-        );
-
-        this._buttonClick.connect(
-            'released',
-            (actor, nPress, x, y) => {
-                const state = this._buttonClick.get_current_event_state();
-                const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
-                const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
-                const [X, Y] = this.coordinatesLocalToGlobal(x, y);
-
-                const clickItem = this._fileAt(x, y);
-
-                if (clickItem && !this._dragManager.rubberBand) {
-                    const clickRectangle =
-                        new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
-
-                    if (clickRectangle.intersect(clickItem.iconRectangle)[0] ||
-                        clickRectangle.intersect(clickItem.labelRectangle)[0]) {
-                        clickItem
-                        ._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
-                        return;
-                    }
-                }
-
-                this._dragManager.onReleaseButton(this);
-            }
-        );
+            this._doGestureRelease(actor, nPress, x, y, this);
+        });
 
         this._setDropDestination(this._container);
         this._setDragSource(this._container);
+    }
+
+    _doGesturePress(actor, nPress, x, y) {
+        if (this._desktopManager.closePopUps())
+            return;
+
+        const button = actor.get_current_button();
+        const state = this._buttonClick.get_current_event_state();
+        const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+        const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+        const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+
+        const clickItem = this._fileAt(x, y);
+
+        if (clickItem && this._clickItemClickable(clickItem, X, Y)) {
+            clickItem
+                ._onPressButton(actor, X, Y, x, y, isShift, isCtrl);
+            return;
+        }
+
+        this._desktopManager
+            .onPressButton(X, Y, x, y, button, isShift, isCtrl, this);
+    }
+
+    async _doGestureRelease(actor, nPress, x, y, grid) {
+        const button = actor.get_current_button();
+        const state = this._buttonClick.get_current_event_state();
+        const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+        const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+        const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+
+        const clickItem = this._fileAt(x, y);
+        const clickItemClickable = this._clickItemClickable(clickItem, X, Y);
+
+        if (clickItemClickable && !this._dragManager.rubberBand) {
+            clickItem._onReleaseButton(actor, X, Y, x, y, isShift, isCtrl);
+            return;
+        }
+
+        this._dragManager.onReleaseButton(this);
+
+        await this._desktopManager
+            .onReleaseButton(X, Y, x, y, button, isShift, isCtrl, grid)
+            .catch(logError);
+    }
+
+    _doGestureLongPress(actor, x, y) {
+        const button = actor.get_current_button();
+        const state = this._buttonClick.get_current_event_state();
+        const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+        const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+        const [X, Y] = this.coordinatesLocalToGlobal(x, y);
+
+        const clickItem = this._fileAt(x, y);
+        const clickItemClickable = this._clickItemClickable(clickItem, X, Y);
+
+        if (clickItemClickable) {
+            clickItem
+            ._onLongPressButton(actor, X, Y, x, y, isShift, isCtrl);
+            return;
+        }
+
+        this._desktopManager
+            .onLongPressButton(X, Y, x, y, button, isShift, isCtrl, this);
+    }
+
+    _clickItemClickable(clickedItem, X, Y) {
+        if (!clickedItem)
+            return false;
+
+        const clickRectangle =
+            new Gdk.Rectangle({x: X, y: Y, width: 1, height: 1});
+
+        return clickRectangle.intersect(clickedItem.iconRectangle)[0] ||
+            clickRectangle.intersect(clickedItem.labelRectangle)[0];
     }
 
     _setDropDestination(widget) {
