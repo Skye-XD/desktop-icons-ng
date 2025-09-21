@@ -415,6 +415,11 @@ const DesktopIconItem = class {
         }
     }
 
+    _onLongPressButton(
+        _actor, _X, _Y, _x, _y, _button, _shiftPressed, _controlPressed) {
+        // Handle long press events here if needed
+    }
+
     _onReleaseButton(actor, X, Y, x, y, shiftPressed, controlPressed) {
         let button = actor.get_current_button();
         this._grid?.makeTopLayerOnGrid(this);
