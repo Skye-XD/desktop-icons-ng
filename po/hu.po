@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-08-29 16:17+0000\n"
+"PO-Revision-Date: 2025-09-23 18:01+0000\n"
 "Last-Translator: Hunor János <hunorjani17@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 msgid "Shortcuts"
@@ -59,7 +59,7 @@ msgstr "Fájlok"
 #: app/adwPreferencesWindow.js:478 app/adwPreferencesWindow.js:479
 #: app/adwPreferencesWindow.js:521
 msgid "Tweaks"
-msgstr "Testreszabás"
+msgstr "Hangolás"
 
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
 msgid "More"
@@ -75,7 +75,7 @@ msgstr "Beállítások az asztali programhoz"
 
 #: app/adwPreferencesWindow.js:503
 msgid "Desktop Folder"
-msgstr "Asztal mappája"
+msgstr "Az asztal mappája"
 
 #: app/adwPreferencesWindow.js:504
 msgid "Current Desktop: "
@@ -83,11 +83,11 @@ msgstr "Jelenlegi asztal: "
 
 #: app/adwPreferencesWindow.js:514
 msgid "Files Settings"
-msgstr "Fájlkezelő beállítások"
+msgstr "Fájlkezelői beállítások"
 
 #: app/adwPreferencesWindow.js:515
 msgid "Settings shared with Gnome Files"
-msgstr "Beállítások megosztása a fájlkezelővel"
+msgstr "A fájlkezelőre vonatkozó beállítások"
 
 #: app/adwPreferencesWindow.js:522
 msgid "Miscellaneous Tweaks"
@@ -155,11 +155,11 @@ msgstr "Új mappa beállítása az asztalnak"
 
 #: app/adwPreferencesWindow.js:583 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
-msgstr "Válassz"
+msgstr "Választás"
 
 #: app/adwPreferencesWindow.js:588
 msgid "Set Desktop back to ~/"
-msgstr "Asztal visszaállítása a ~/-ra"
+msgstr "Asztal visszaállítása ide: ~/"
 
 #: app/adwPreferencesWindow.js:590
 msgid "Restore Default Desktop Folder"
@@ -227,7 +227,7 @@ msgstr "Soha"
 
 #: app/adwPreferencesWindow.js:653
 msgid "Show a context menu item to delete permanently"
-msgstr "Helyi menü-elem megjelenítése a végleges törléshez"
+msgstr "Menüelem megjelenítése a végleges törléshez"
 
 #: app/adwPreferencesWindow.js:658
 msgid "Show hidden files"
@@ -596,7 +596,7 @@ msgstr "A GNOME fájlkezelő nem található"
 
 #: app/desktopManager.js:208
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "A GNOME Fájlkezelő szükséges a Gtk4 Desktop Icons NG-hez."
+msgstr "A GNOME Fájlkezelő szükséges a Gtk4 asztali ikonokhoz."
 
 #: app/desktopManager.js:216
 msgid "There is no default File Manager"
@@ -674,7 +674,7 @@ msgstr "Név Z-A"
 
 #: app/desktopMenu.js:923
 msgid "Modified Time"
-msgstr "Módosított idő"
+msgstr "Módosítási idő"
 
 #: app/desktopMenu.js:925
 msgid "Type"
@@ -706,7 +706,7 @@ msgstr "Alapértelmezett asztal visszaállítása"
 
 #: app/desktopMenu.js:953
 msgid "Desktop Icon Settings"
-msgstr "Asztali ikon beállításai"
+msgstr "Az asztali ikonok beállításai"
 
 #: app/desktopMenu.js:955
 msgid "Show Shortcuts"
@@ -746,7 +746,7 @@ msgstr "Mutasd az asztalt ebben: {0}"
 
 #: app/desktopMenu.js:1002
 msgid "Open In {0}"
-msgstr "Megnyitás ezzel: {0}"
+msgstr "Megnyitás ebben: {0}"
 
 #: app/desktopMenu.js:1018
 msgid "Shell Menu…"
@@ -944,7 +944,7 @@ msgstr "Megjelenítés itt: {0}"
 
 #: app/fileItemMenu.js:374
 msgid "Open in {0}"
-msgstr "Megnyitás ezzel: {0}"
+msgstr "Megnyitás ebben: {0}"
 
 #: app/fileItemMenu.js:537
 msgid "Open Item"
@@ -968,7 +968,7 @@ msgstr "Kiválasztás"
 
 #: app/fileItemMenu.js:963
 msgid "Can not email a Directory"
-msgstr "Könyvtár nem küldhető el e-mailben"
+msgstr "Mappa nem küldhető el e-mailben"
 
 #: app/fileItemMenu.js:965
 msgid "Selection includes a Directory, compress to a .zip file first?"
@@ -1051,7 +1051,7 @@ msgstr "Egyik sem"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
-msgstr "Alapértelmezett parancsikon:"
+msgstr "Alapértelmezett gyorsbillentyű:"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
@@ -1227,7 +1227,7 @@ msgstr "Gyorsbillentyűk megjelenítése"
 
 #: app/shortcuts.js:45
 msgid "Show Or Hide Desktop Icons"
-msgstr "Asztali ikonok megjelenítése/eltüntetése"
+msgstr "Az asztali ikonok megjelenítése/eltüntetése"
 
 #: app/showErrorPopup.js:42
 msgid "More Information"
