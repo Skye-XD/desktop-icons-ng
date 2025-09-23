@@ -8,16 +8,17 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Autantpourmoi <luc.valigny@gmail.com>, 2024.
 # Ludovic <ludo.goulet@hotmail.com>, 2024, 2025.
-# Red Quarck <redquarck@proton.me>, 2024.
+# Red Quarck <redquarck@proton.me>, 2024, 2025.
 # "Alexandre G. Raymond" <alex@ndre.gr>, 2024.
 # fanfu <com-ubuntu@descamps.eu>, 2024, 2025.
+# French Fries <sikaxor989@euleina.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 06:48-0400\n"
-"PO-Revision-Date: 2025-09-02 20:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-09-20 13:02+0000\n"
+"Last-Translator: Red Quarck <redquarck@proton.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160
 #, fuzzy
@@ -33,9 +34,8 @@ msgid "Shortcuts"
 msgstr "Raccourcis"
 
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Modifier les raccourcis"
+msgstr "Modifier les raccourcis..."
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -44,7 +44,7 @@ msgstr "Raccourcis de l'application"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "Les raccourcis ne sont modifiables que si l'extension est activée..."
 
 #: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:687
 msgid "Help translate in your web browser"
@@ -64,7 +64,6 @@ msgid "Tweaks"
 msgstr "Ajustements"
 
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
-#, fuzzy
 msgid "More"
 msgstr "Plus"
 
@@ -77,7 +76,6 @@ msgid "Settings for the Desktop Program"
 msgstr "Paramètres du programme Bureau"
 
 #: app/adwPreferencesWindow.js:503
-#, fuzzy
 msgid "Desktop Folder"
 msgstr "Dossier du bureau"
 
@@ -211,9 +209,8 @@ msgid "Show external drives on the desktop"
 msgstr "Afficher les volumes de stockage externes sur le bureau"
 
 #: app/adwPreferencesWindow.js:626
-#, fuzzy
 msgid "Show network drives on the desktop"
-msgstr "Afficher les volumes réseau sur le bureau"
+msgstr "Afficher les lecteurs réseau sur le bureau"
 
 #: app/adwPreferencesWindow.js:631
 #, fuzzy
