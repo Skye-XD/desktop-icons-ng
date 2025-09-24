@@ -266,13 +266,7 @@ const DesktopManager = class {
 
     // Keyboard and Mouse Events
 
-    async onPressButton(X, Y,
-        x, y,
-        button,
-        shiftPressed,
-        controlPressed,
-        grid
-    ) {
+    onPressButton(X, Y, x, y, button, shiftPressed, controlPressed) {
         this._clickX = Math.floor(X);
         this._clickY = Math.floor(Y);
 
@@ -284,13 +278,20 @@ const DesktopManager = class {
             }
             this.dragManager.startRubberband(X, Y);
         }
+    }
 
+    async onReleaseButton(X, Y, x, y, button, isShift, isCtrl, grid) {
         // Right Click
         if (button === 3) {
             await this.desktopMenuManager
                 .showDesktopMenu(x, y, grid)
                 .catch(e => logError(e));
         }
+    }
+
+    onLongPressButton(_X, _Y, _x, _y, button, _isShift, _isCtrl, _grid) {
+        if (button === 3)
+            this.mainApp.activate_action('displayShellBackgroundMenu', null);
     }
 
     onKeyPress(keyval, keycode, state, grid) {
