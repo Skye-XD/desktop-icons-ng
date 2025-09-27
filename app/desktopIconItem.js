@@ -915,6 +915,10 @@ const DesktopIconItem = class {
         this._state = state;
     }
 
+    set opacity(number) {
+        this.container.set_opacity(number);
+    }
+
     get dropCapable() {
         return this._dropCapable();
     }
