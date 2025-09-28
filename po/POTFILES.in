@@ -32,6 +32,7 @@ app/utils/desktopFolderUtils.js
 app/utils/desktopIconsUtil.js
 app/utils/gsConnect.js
 data/ui/ding-app-chooser.ui
+data/com.desktop.ding.desktop.in
 desktopIconsIntegration.js
 emulateX11WindowType.js
 extension.js
