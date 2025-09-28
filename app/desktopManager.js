@@ -1288,6 +1288,7 @@ const DesktopManager = class {
                 this.unselectAll();
 
             this.mainApp.activate_action('textEntryAccelsTurnOn', null);
+            this._displayList.forEach(f => (f.opacity = 1));
             this._findFileWindow.destroy();
             this._findFileWindow = null;
         });
@@ -1315,10 +1316,18 @@ const DesktopManager = class {
         if (found.length !== 0) {
             if (setselected) {
                 this.unselectAll();
-                found.map(f => f.setSelected());
+                const notfound = this._displayList.filter(
+                    f => !found.includes(f)
+                );
+                found.forEach(f => {
+                    f.setSelected();
+                    f.opacity = 1;
+                });
+                notfound.forEach(f => (f.opacity = 0.2));
             }
             return true;
         } else {
+            this.unselectAll();
             return false;
         }
     }
@@ -1451,7 +1460,10 @@ const DesktopManager = class {
     }
 
     unselectAll() {
-        this._displayList.map(f => f.unsetSelected());
+        this._displayList.forEach(f => {
+            f.unsetSelected();
+            f.opacity = 1;
+        });
         this.fileItemMenu.activeFileItem = null;
     }
 
