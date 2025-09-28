@@ -189,10 +189,17 @@ const DesktopManager = class {
             await runDialog;
         }
 
-        const isFolder = this._desktopDir.query_file_type(
+        const fileType = this._desktopDir.query_file_type(
             Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
-            null) === Gio.FileType.DIRECTORY;
-        if (!isFolder) {
+            null);
+        if (fileType === Gio.FileType.SYMBOLIC_LINK) {
+            const errorDialog = this.showError(
+                _('Can Not Show the Desktop'),
+                _(`The Desktop folder ${this._desktopDir.get_path()} is a Symbolic Link\n\nPlease set the Desktop Folder to a real Folder`)
+            );
+            await errorDialog.run();
+            this._desktops.forEach(d => d.setErrorState());
+        } else if (fileType !== Gio.FileType.DIRECTORY) {
             const errorDialog = this.showError(
                 _('Can Not Show the Desktop'),
                 _(`The Desktop folder ${this._desktopDir.get_path()} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder`)
