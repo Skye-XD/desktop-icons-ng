@@ -193,16 +193,22 @@ const DesktopManager = class {
             Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
             null);
         if (fileType === Gio.FileType.SYMBOLIC_LINK) {
+            const header = _('Can Not Show the Desktop');
+            // TRANSLATORS: {desktop} folder path automatically inserted
+            const text = _('The Desktop folder {desktop} is a Symbolic Link\n\nPlease set the Desktop Folder to a real Folder');
             const errorDialog = this.showError(
-                _('Can Not Show the Desktop'),
-                _(`The Desktop folder ${this._desktopDir.get_path()} is a Symbolic Link\n\nPlease set the Desktop Folder to a real Folder`)
+                header,
+                text.replace('{desktop}', this._desktopDir.get_path())
             );
             await errorDialog.run();
             this._desktops.forEach(d => d.setErrorState());
         } else if (fileType !== Gio.FileType.DIRECTORY) {
+            const header = _('Can Not Show the Desktop');
+            // TRANSLATORS: {desktop} folder path automatically inserted
+            const text = _('The Desktop folder {desktop} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder');
             const errorDialog = this.showError(
-                _('Can Not Show the Desktop'),
-                _(`The Desktop folder ${this._desktopDir.get_path()} does not exist, or is not a Directory\n\nCheck your xdg-utils installation and set the correct Desktop Folder`)
+                header,
+                text.replace('{desktop}', this._desktopDir.get_path())
             );
             await errorDialog.run();
             this._desktops.forEach(d => d.setErrorState());
@@ -210,30 +216,25 @@ const DesktopManager = class {
 
         const inodeHandlers = Gio.AppInfo.get_all_for_type('inode/directory');
         if (!GLib.find_program_in_path('nautilus')) {
-            const errorDialog = this.showError(
-                _('GNOME Files not found'),
-                _('The GNOME Files application is required by Gtk4 Desktop Icons NG.')
-            );
+            const header = _('GNOME Files not found');
+            const text = _('The GNOME Files application is required by Gtk4 Desktop Icons NG.');
+            const errorDialog = this.showError(header, text);
             await errorDialog.run();
         }
 
         if (!inodeHandlers.length) {
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
-            const errorDialog = this.showError(
-                _('There is no default File Manager'),
-                _('There is no application that handles mimetype "inode/directory"'),
-                helpURL
-            );
+            const header = _('There is no default File Manager');
+            const text = _('There is no application that handles mimetype "inode/directory"');
+            const errorDialog = this.showError(header, text, helpURL);
             await errorDialog.run();
         }
 
         if (!inodeHandlers.map(a => a.get_id()).includes('org.gnome.Nautilus.desktop')) {
             const helpURL = 'https://gitlab.com/smedius/desktop-icons-ng/-/issues/73';
-            const errorDialog = this.showError(
-                _('Gnome Files is not registered as a File Manager'),
-                _('The Gnome Files application is not programmed to open Folders!\nCheck your xdg-utils installation\nCheck Gnome Files .desktop File installation'),
-                helpURL
-            );
+            const header = _('Gnome Files is not registered as a File Manager');
+            const text = _('The Gnome Files application is not programmed to open Folders!\nCheck your xdg-utils installation\nCheck Gnome Files .desktop File installation');
+            const errorDialog = this.showError(header, text, helpURL);
             await errorDialog.run();
         }
     }
