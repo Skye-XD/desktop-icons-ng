@@ -16,12 +16,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-26 06:48-0400\n"
+"POT-Creation-Date: 2025-09-28 17:15-0400\n"
 "PO-Revision-Date: 2025-09-17 16:01+0000\n"
-"Last-Translator: Visconte di Carmagnola "
-"<carmagnola@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/it/>\n"
+"Last-Translator: Visconte di Carmagnola <carmagnola@users.noreply.hosted."
+"weblate.org>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.14-dev\n"
 
-#: app/adwPreferencesWindow.js:160
+#: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
 msgid "Shortcuts"
 msgstr "Scorciatoie"
@@ -48,245 +48,245 @@ msgstr "Scorciatoie applicazione"
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:687
+#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:698
 #, fuzzy
 msgid "Help translate in your web browser"
 msgstr "Aiuta a tradurre dal tuo browser"
 
-#: app/adwPreferencesWindow.js:466 app/adwPreferencesWindow.js:467
+#: app/adwPreferencesWindow.js:477 app/adwPreferencesWindow.js:478
 msgid "Desktop"
 msgstr "Scrivania"
 
-#: app/adwPreferencesWindow.js:472 app/adwPreferencesWindow.js:473
+#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:484
 msgid "Files"
 msgstr "File"
 
-#: app/adwPreferencesWindow.js:478 app/adwPreferencesWindow.js:479
-#: app/adwPreferencesWindow.js:521
+#: app/adwPreferencesWindow.js:489 app/adwPreferencesWindow.js:490
+#: app/adwPreferencesWindow.js:532
 msgid "Tweaks"
 msgstr "Personalizzazioni"
 
-#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
+#: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
 msgid "More"
 msgstr "Altro"
 
-#: app/adwPreferencesWindow.js:496
+#: app/adwPreferencesWindow.js:507
 msgid "Desktop Settings"
 msgstr "Impostazioni Scrivania"
 
-#: app/adwPreferencesWindow.js:497
+#: app/adwPreferencesWindow.js:508
 #, fuzzy
 msgid "Settings for the Desktop Program"
 msgstr "Impostazioni per il programma Desktop"
 
-#: app/adwPreferencesWindow.js:503
+#: app/adwPreferencesWindow.js:514
 msgid "Desktop Folder"
 msgstr "Cartella Scrivania"
 
-#: app/adwPreferencesWindow.js:504
+#: app/adwPreferencesWindow.js:515
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Current Desktop: "
 msgstr "File corrotto in scrivania"
 
-#: app/adwPreferencesWindow.js:514
+#: app/adwPreferencesWindow.js:525
 #, fuzzy
 msgid "Files Settings"
 msgstr "Impostazioni del File"
 
-#: app/adwPreferencesWindow.js:515
+#: app/adwPreferencesWindow.js:526
 #, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Impostazioni condivise con i file Gnome"
 
-#: app/adwPreferencesWindow.js:522
+#: app/adwPreferencesWindow.js:533
 #, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Varie Tweaks"
 
-#: app/adwPreferencesWindow.js:540
+#: app/adwPreferencesWindow.js:551
 msgid "Size for the desktop icons"
 msgstr "Dimensione delle icone della scrivania"
 
-#: app/adwPreferencesWindow.js:542
+#: app/adwPreferencesWindow.js:553
 msgid "Tiny"
 msgstr "Minuscola"
 
-#: app/adwPreferencesWindow.js:543
+#: app/adwPreferencesWindow.js:554
 msgid "Small"
 msgstr "Piccola"
 
-#: app/adwPreferencesWindow.js:544
+#: app/adwPreferencesWindow.js:555
 msgid "Standard"
 msgstr "Normale"
 
-#: app/adwPreferencesWindow.js:545
+#: app/adwPreferencesWindow.js:556
 msgid "Large"
 msgstr "Grande"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:562
 msgid "New icons alignment"
 msgstr "Allineamento delle nuove icone"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:564
 #, fuzzy
 msgid "Top left corner"
 msgstr "Angolo in alto a sinistra"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:565
 #, fuzzy
 msgid "Top right corner"
 msgstr "Angolo in alto a destra"
 
-#: app/adwPreferencesWindow.js:555
+#: app/adwPreferencesWindow.js:566
 #, fuzzy
 msgid "Bottom left corner"
 msgstr "Angolo in basso a sinistra"
 
-#: app/adwPreferencesWindow.js:556
+#: app/adwPreferencesWindow.js:567
 #, fuzzy
 msgid "Bottom right corner"
 msgstr "Angolo in basso a destra"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:573
 #, fuzzy
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Aggiungere prima nuove icone ai monitor secondari, se disponibili"
 
-#: app/adwPreferencesWindow.js:566
+#: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "Snap icons to grid"
 msgstr "Calamita alla griglia"
 
-#: app/adwPreferencesWindow.js:572
+#: app/adwPreferencesWindow.js:583
 #, fuzzy
 msgid "Highlight the drop grid"
 msgstr "Evidenzia la griglia di goccia"
 
-#: app/adwPreferencesWindow.js:581
+#: app/adwPreferencesWindow.js:592
 #, fuzzy
 msgid "New Desktop Folder"
 msgstr "Cartella sul desktop"
 
-#: app/adwPreferencesWindow.js:582
+#: app/adwPreferencesWindow.js:593
 #, fuzzy
 msgid "Set a new folder for the desktop"
 msgstr "Mostra la cartella personale sulla scrivania"
 
-#: app/adwPreferencesWindow.js:583 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:594 app/utils/desktopFolderUtils.js:85
 #, fuzzy
 msgid "Choose"
 msgstr "Scegli"
 
-#: app/adwPreferencesWindow.js:588
+#: app/adwPreferencesWindow.js:599
 msgid "Set Desktop back to ~/"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:590
+#: app/adwPreferencesWindow.js:601
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Restore Default Desktop Folder"
 msgstr "Ripristina il Desktop di default"
 
-#: app/adwPreferencesWindow.js:592
+#: app/adwPreferencesWindow.js:603
 #, fuzzy
 msgid "Restore"
 msgstr "Ripristina"
 
-#: app/adwPreferencesWindow.js:602
+#: app/adwPreferencesWindow.js:613
 #, fuzzy
 #| msgid "Add an emblem to links"
 msgid "Add information emblems for links, encryption"
 msgstr "Aggiungere un'icona ai collegamenti"
 
-#: app/adwPreferencesWindow.js:606
+#: app/adwPreferencesWindow.js:617
 msgid "Use dark text in icon labels"
 msgstr "Usa testo scuro nelle etichette delle icone"
 
-#: app/adwPreferencesWindow.js:611
+#: app/adwPreferencesWindow.js:622
 #, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Mostra la cartella personale sulla scrivania"
 
-#: app/adwPreferencesWindow.js:616
+#: app/adwPreferencesWindow.js:627
 #, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Mostra il cestino sulla scrivania"
 
-#: app/adwPreferencesWindow.js:621
+#: app/adwPreferencesWindow.js:632
 #, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Mostra le periferiche esterne sulla scrivania"
 
-#: app/adwPreferencesWindow.js:626
+#: app/adwPreferencesWindow.js:637
 #, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Mostra le periferiche di rete sulla scrivania"
 
-#: app/adwPreferencesWindow.js:631
+#: app/adwPreferencesWindow.js:642
 #, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Aggiungi le nuove periferiche sul lato opposto dello schermo"
 
-#: app/adwPreferencesWindow.js:636
+#: app/adwPreferencesWindow.js:647
 #, fuzzy
 msgid "Action to Open Items"
 msgstr "Azione per gli articoli aperti"
 
-#: app/adwPreferencesWindow.js:638
+#: app/adwPreferencesWindow.js:649
 msgid "Single click"
 msgstr "Click singolo"
 
-#: app/adwPreferencesWindow.js:639
+#: app/adwPreferencesWindow.js:650
 msgid "Double click"
 msgstr "Doppio click"
 
-#: app/adwPreferencesWindow.js:644
+#: app/adwPreferencesWindow.js:655
 msgid "Show image thumbnails"
 msgstr "Mostra le anteprime delle immagini"
 
-#: app/adwPreferencesWindow.js:646
+#: app/adwPreferencesWindow.js:657
 msgid "Always"
 msgstr "Sempre"
 
-#: app/adwPreferencesWindow.js:647
+#: app/adwPreferencesWindow.js:658
 #, fuzzy
 msgid "On this computer only"
 msgstr "Su questo computer"
 
-#: app/adwPreferencesWindow.js:648
+#: app/adwPreferencesWindow.js:659
 msgid "Never"
 msgstr "Mai"
 
-#: app/adwPreferencesWindow.js:653
+#: app/adwPreferencesWindow.js:664
 msgid "Show a context menu item to delete permanently"
 msgstr "Mostra un elemento del menù contestuale per eliminare definitivamente"
 
-#: app/adwPreferencesWindow.js:658
+#: app/adwPreferencesWindow.js:669
 msgid "Show hidden files"
 msgstr "Mostra i file nascosti"
 
-#: app/adwPreferencesWindow.js:663
+#: app/adwPreferencesWindow.js:674
 #, fuzzy
 msgid "Open folders on drag hover"
 msgstr "Apri cartelle su drag hover"
 
-#: app/adwPreferencesWindow.js:667
+#: app/adwPreferencesWindow.js:678
 #, fuzzy
 #| msgid "About"
 msgid "About..."
 msgstr "Informazioni…"
 
-#: app/adwPreferencesWindow.js:680 app/adwPreferencesWindow.js:686
+#: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
 msgid "Translations"
 msgstr "Traduzioni"
 
-#: app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:692
 msgid "All tranlations on Weblate.."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:688
+#: app/adwPreferencesWindow.js:699
 #, fuzzy
 msgid "Translate"
 msgstr "Traduci"
@@ -399,7 +399,7 @@ msgstr "Nome della cartella"
 msgid "File name"
 msgstr "Nome del file"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1225
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1234
 #: app/fileItemMenu.js:967
 msgid "OK"
 msgstr "Ok"
@@ -433,7 +433,7 @@ msgid "Compressing files"
 msgstr "Comprimere i files."
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
-#: app/desktopManager.js:1227 app/dragManager.js:783 app/fileItemMenu.js:914
+#: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
 #: app/fileItemMenu.js:967 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Annulla"
@@ -644,24 +644,33 @@ msgstr "Impossibile aprire il file"
 msgid "{appName} can not open files of this Type!"
 msgstr "${appName} non può aprire i file di questo tipo!"
 
-#: app/desktopFolderMonitor.js:102
+#: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
 #, fuzzy
 msgid "Desktop Folder Change Failed"
 msgstr "Creazione di ordine non riuscita."
 
-#: app/desktopFolderMonitor.js:105
-msgid "The new Desktop Folder does not exist!"
+#: app/desktopFolderMonitor.js:102
+#, fuzzy
+#| msgid "The new Desktop Folder does not exist!"
+msgid "The new Desktop Folder is a Symbolic Link"
 msgstr "La nuova cartella Scrivania non esiste!"
 
-#: app/desktopFolderMonitor.js:116
+#: app/desktopFolderMonitor.js:109
+#, fuzzy
+#| msgid "The new Desktop Folder does not exist!"
+msgid "The new Desktop Folder does not exist or is not a Folder!"
+msgstr "La nuova cartella Scrivania non esiste!"
+
+#: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Changed"
 msgstr ""
 
-#: app/desktopFolderMonitor.js:117
+#: app/desktopFolderMonitor.js:121
 msgid "Switching to new Desktop..."
 msgstr ""
 
-#: app/desktopGrid.js:56
+#: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
+#: data/com.desktop.ding.desktop.in:4
 #, fuzzy
 msgid "Desktop Icons"
 msgstr "Icona Desktop"
@@ -685,41 +694,57 @@ msgid ""
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
 
-#: app/desktopManager.js:172
+#: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
 msgstr "Abilitato"
 
-#: app/desktopManager.js:197
+#: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
 msgstr "Impossibile mostrare la scrivania"
 
-#: app/desktopManager.js:207
+#. TRANSLATORS: {desktop} folder path automatically inserted
+#: app/desktopManager.js:198
+msgid ""
+"The Desktop folder {desktop} is a Symbolic Link\n"
+"\n"
+"Please set the Desktop Folder to a real Folder"
+msgstr ""
+
+#. TRANSLATORS: {desktop} folder path automatically inserted
+#: app/desktopManager.js:208
+msgid ""
+"The Desktop folder {desktop} does not exist, or is not a Directory\n"
+"\n"
+"Check your xdg-utils installation and set the correct Desktop Folder"
+msgstr ""
+
+#: app/desktopManager.js:219
 #, fuzzy
 msgid "GNOME Files not found"
 msgstr "GNOME File non trovati"
 
-#: app/desktopManager.js:208
+#: app/desktopManager.js:220
 #, fuzzy
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "Il GNOME L'applicazione dei file è richiesta da Gtk4 Desktop Icons NG."
 
-#: app/desktopManager.js:216
+#: app/desktopManager.js:227
 #, fuzzy
 msgid "There is no default File Manager"
 msgstr "Non esiste File Manager predefinito"
 
-#: app/desktopManager.js:217
+#: app/desktopManager.js:228
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 "Non c'è nessuna applicazione per gestire il mimetype \"inode/directory\""
 
-#: app/desktopManager.js:226
+#: app/desktopManager.js:235
 #, fuzzy
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome File non è registrato come File Manager"
 
-#: app/desktopManager.js:227
+#: app/desktopManager.js:236
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -729,25 +754,25 @@ msgstr ""
 "Controlla l'installazione di xdg-utils\n"
 "Controlla l'installazione del file .desktop di Gnome File"
 
-#: app/desktopManager.js:319
+#: app/desktopManager.js:328
 #, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Cancella la selezione corrente prima di una nuova ricerca"
 
-#: app/desktopManager.js:1229
+#: app/desktopManager.js:1238
 msgid "Find Files on Desktop"
 msgstr "Trova i file sulla scrivania"
 
-#: app/desktopManager.js:1558 app/desktopMenu.js:958 app/shortcuts.js:10
+#: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Nuova cartella"
 
-#: app/desktopManager.js:1592
+#: app/desktopManager.js:1613
 #, fuzzy
 msgid "Folder Creation Failed"
 msgstr "Creazione di ordine non riuscita."
 
-#: app/desktopManager.js:1593
+#: app/desktopManager.js:1614
 #, fuzzy
 msgid "Could not create folder"
 msgstr "Impossibile creare la cartella"
@@ -1225,7 +1250,7 @@ msgstr "Non è possibile spostare file, nessuna cartella di destinazione"
 msgid "$appName$ can not open files of this Type!"
 msgstr "${appName} non può aprire i file di questo tipo!"
 
-#: app/preferences.js:893
+#: app/preferences.js:885
 #, fuzzy
 msgid "Console"
 msgstr "Console"
@@ -1520,7 +1545,7 @@ msgstr ""
 msgid "Choose Desktop Folder"
 msgstr "File corrotto in scrivania"
 
-#: app/utils/desktopIconsUtil.js:208
+#: app/utils/desktopIconsUtil.js:216
 msgid "Command not found"
 msgstr "Comando non trovato"
 
@@ -1543,6 +1568,29 @@ msgstr "A_nnulla"
 #, fuzzy
 msgid "_Open"
 msgstr "_Apri"
+
+#: data/com.desktop.ding.desktop.in:5
+#, fuzzy
+msgid "Display icons on the GNOME desktop"
+msgstr "Mostra il cestino sulla scrivania"
+
+#: data/com.desktop.ding.desktop.in:6
+msgid ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+
+#: data/com.desktop.ding.desktop.in:21
+msgid "Show<>Hide"
+msgstr ""
+
+#: data/com.desktop.ding.desktop.in:33
+msgid "Preferences"
+msgstr ""
+
+#: data/com.desktop.ding.desktop.in:37
+#, fuzzy
+msgid "Disable"
+msgstr "Abilitato"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
