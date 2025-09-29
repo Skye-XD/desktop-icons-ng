@@ -8,10 +8,10 @@
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk4-ding v100.4\n"
+"Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-07-26 13:32+0200\n"
+"PO-Revision-Date: 2025-09-29 10:42+0200\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
 "Language: sk\n"
@@ -535,16 +535,12 @@ msgid "Desktop Folder Change Failed"
 msgstr "Zmena priečinka pracovnej plochy sa nepodarila"
 
 #: app/desktopFolderMonitor.js:102
-#, fuzzy
-#| msgid "The new Desktop Folder does not exist!"
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr "Nový priečinok pracovnej plochy neexistuje!"
+msgstr "Nový priečinok Plocha je symbolický odkaz"
 
 #: app/desktopFolderMonitor.js:109
-#, fuzzy
-#| msgid "The new Desktop Folder does not exist!"
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr "Nový priečinok pracovnej plochy neexistuje!"
+msgstr "Nový priečinok Plocha neexistuje alebo nie je priečinkom!"
 
 #: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Changed"
@@ -601,6 +597,9 @@ msgid ""
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"Priečinok Plocha {desktop} je symbolický odkaz\n"
+"\n"
+"Prosím, nastavte priečinok Plocha na skutočný priečinok"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
@@ -609,6 +608,9 @@ msgid ""
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
+"Priečinok Plocha {desktop} neexistuje alebo nie je priečinkom.\n"
+"\n"
+"Skontrolujte inštaláciu xdg-utils a nastavte správny priečinok plochy"
 
 #: app/desktopManager.js:219
 msgid "GNOME Files not found"
@@ -1325,29 +1327,26 @@ msgid "_Open"
 msgstr "_Otvoriť"
 
 #: data/com.desktop.ding.desktop.in:5
-#, fuzzy
-#| msgid "Show the trash icon on the desktop"
 msgid "Display icons on the GNOME desktop"
-msgstr "Zobraziť ikonu koša na pracovnej ploche"
+msgstr "Zobraziť ikony na pracovnej ploche GNOME"
 
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
+"plocha;ikony;súbory; "
+"priečinky;správca;usporiadať;skryť;zobraziť;spúšťač;skratky;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Zobraziť<>Skryť"
 
 #: data/com.desktop.ding.desktop.in:33
 msgid "Preferences"
-msgstr ""
+msgstr "Predvoľby"
 
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
-#| msgid "Enable"
 msgid "Disable"
-msgstr "Zapnúť"
+msgstr "Vypnúť"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1526,8 +1525,8 @@ msgid "Override for default application shortcuts set by the User"
 msgstr "Prepísať predvolené skratky aplikácií nastavené používateľom"
 
 #~ msgid ""
-#~ "For this functionality to work in Desktop Icons, you must install "
-#~ "\"${programName}\" in your system."
+#~ "For this functionality to work in Desktop Icons, you must install \"$"
+#~ "{programName}\" in your system."
 #~ msgstr ""
 #~ "Aby táto funkcia fungovala v aplikácii Ikony na ploche, musíte do vášho "
 #~ "systému nainštalovať \"${programName}\"."
