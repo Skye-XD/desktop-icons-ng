@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-08-02 20:02+0000\n"
+"PO-Revision-Date: 2025-09-29 11:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/el/>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
@@ -390,7 +390,7 @@ msgstr "Όνομα αρχείου"
 #: app/fileItemMenu.js:967
 #, fuzzy
 msgid "OK"
-msgstr "OK"
+msgstr "Εντάξει"
 
 #: app/askRenamePopup.js:75
 #, fuzzy
@@ -431,7 +431,7 @@ msgstr "Άκυρο"
 #: app/autoAr.js:311 app/autoAr.js:608
 #, fuzzy
 msgid "Enter a password here"
-msgstr "Εισάγετε τον κωδικό πρόσβασης"
+msgstr "Εναλλαγή Κρυπτογραφημένου"
 
 #: app/autoAr.js:354
 #, fuzzy
@@ -526,12 +526,12 @@ msgstr "Archive name"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Κωδικός"
+msgstr "Κωδικός πρόσβασης"
 
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Δημιουργώ"
+msgstr "Δημιουργία"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -666,7 +666,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Καθιστώ ικανό"
+msgstr "Ενεργοποίηση"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -970,7 +970,7 @@ msgstr "Ανοιχτό με {foo}"
 #: app/fileItemMenu.js:138
 #, fuzzy
 msgid "Open"
-msgstr "Άνοιγμα"
+msgstr "Ανοιχτό"
 
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 #, fuzzy
@@ -1025,7 +1025,7 @@ msgstr "Αποκοπή"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Μετακίνηση σε....."
+msgstr "Μετακινήστε σε..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1566,17 +1566,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Εμφάνιση/Απόκρυψη"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Προτιμήσεις"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Καθιστώ ικανό"
+msgstr "Απενεργοποίηση"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy

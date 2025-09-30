@@ -15,18 +15,18 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"PO-Revision-Date: 2025-09-30 15:05+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
@@ -263,7 +263,7 @@ msgstr "Відкрийте папки на перетягування"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "Про програму…"
+msgstr "Про програму ..."
 
 #: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
@@ -598,7 +598,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Не вийшло відкрити файл"
+msgstr "Не можу відкрити файли"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -733,7 +733,7 @@ msgstr "Складання папки"
 #: app/desktopManager.js:1614
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Не вдалося створити теку."
+msgstr "Не вдалося створити папку."
 
 #: app/desktopMenu.js:601
 #, fuzzy
@@ -782,7 +782,7 @@ msgstr "Час останньої зміни"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "Тип"
+msgstr "Вид взуття"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -842,7 +842,7 @@ msgstr "Повторити"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Обрати все"
+msgstr "Вибрати все"
 
 #: app/desktopMenu.js:985
 msgid "Arrange Icons"
@@ -896,7 +896,7 @@ msgstr "Виберіть дію для файлів"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "Рухатися"
+msgstr "Переміщення"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -1002,7 +1002,7 @@ msgstr "Вирізати"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Перейти до..."
+msgstr "Перемістити до..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1222,11 +1222,12 @@ msgstr "Консоль"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Жоден"
+msgstr "Немає"
 
 #: app/shortcutManager.js:85
+#, fuzzy
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "Стандартні комбінації клавіш"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
@@ -1273,7 +1274,7 @@ msgstr "Глобальні ярлики"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Комбінації клавіш"
+msgstr "Клавіатурні скорочення"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1286,8 +1287,9 @@ msgid "Reset Shortcuts"
 msgstr "Показати комбінації"
 
 #: app/shortcutManager.js:674
+#, fuzzy
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Встановити всі комбінації клавіш за замовчуванням"
 
 #: app/shortcutManager.js:677
 #, fuzzy
@@ -1408,7 +1410,7 @@ msgstr "Виберіть дію для файлів"
 #: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "Вибрати піктограму"
+msgstr "Виберіть значок"
 
 #: app/shortcuts.js:37
 #, fuzzy
@@ -1429,7 +1431,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Current Desktop: "
 msgid "Create Desktop Shortcut"
-msgstr "Робочий стіл: "
+msgstr "Створити ярлик на робочому столі"
 
 #: app/shortcuts.js:41
 msgid "Text Entry Accels Turn On"
@@ -1473,7 +1475,7 @@ msgstr "Смітник"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Стопка"
+msgstr "Стік"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
@@ -1540,17 +1542,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Показати/сховати"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Властивості"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Увімкнути"
+msgstr "Вимкнути"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
