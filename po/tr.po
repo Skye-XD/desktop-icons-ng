@@ -16,16 +16,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"PO-Revision-Date: 2025-09-29 22:30+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
@@ -35,7 +35,7 @@ msgstr "Kısayollar"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Kısayolları düzenle"
+msgstr "Kestirmeleri Düzenle"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -65,7 +65,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:532
 #, fuzzy
 msgid "Tweaks"
-msgstr "İnce ayarlar"
+msgstr "İnce Ayarlar"
 
 #: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
 #, fuzzy
@@ -195,7 +195,7 @@ msgstr "Olmayan Masaüstü Dosyası"
 #: app/adwPreferencesWindow.js:603
 #, fuzzy
 msgid "Restore"
-msgstr "Eski haline getirmek"
+msgstr "Geri Yükle"
 
 #: app/adwPreferencesWindow.js:613
 #, fuzzy
@@ -292,7 +292,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:699
 #, fuzzy
 msgid "Translate"
-msgstr "Çevir"
+msgstr "Çevirin"
 
 #: app/appChooser.js:78
 #, fuzzy
@@ -446,7 +446,7 @@ msgstr "Dosyaları '${PaPath} ‘ ‘ ‘"
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Ekstraksiyon tamamlandı tamamlandı"
+msgstr "İşlem tamamlandı"
 
 #: app/autoAr.js:436
 #, fuzzy
@@ -456,7 +456,7 @@ msgstr "\"${fullPathFile\" tamamlandı."
 #: app/autoAr.js:442
 #, fuzzy
 msgid "Extraction cancelled"
-msgstr "Çıkarma iptal edildi"
+msgstr "İşlem iptal edildi."
 
 #: app/autoAr.js:443
 #, fuzzy
@@ -511,7 +511,7 @@ msgstr "Frekans sırasında hata"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "Arşiv oluştur"
+msgstr "Arşivle"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -521,7 +521,7 @@ msgstr "Arşiv Adı"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Şifre"
+msgstr "Parola"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -608,7 +608,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyası açılamadı"
+msgstr "Dosyalar açılamadı"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -664,7 +664,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Etkin"
+msgstr "Etkinleştir"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -777,12 +777,12 @@ msgstr "Belge silinemedi"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "Isim"
+msgstr "İsim"
 
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "İsim (Z-A)"
+msgstr "Ad (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -860,7 +860,7 @@ msgstr "Simgeleri Sırala"
 #: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Sırala…"
+msgstr "Düzenleme:"
 
 #: app/desktopMenu.js:997
 #, fuzzy
@@ -925,7 +925,7 @@ msgstr "Klasör"
 #: app/fileItemIcon.js:96
 #, fuzzy
 msgid "File"
-msgstr "Format,Harita"
+msgstr "Dosya"
 
 #: app/fileItemIcon.js:270
 #, fuzzy
@@ -1185,7 +1185,7 @@ msgstr "Lütfen Gnome Console veya diğer Terminal Programını yükleyin"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "Açılamıyor"
+msgstr "Açılamadı"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1298,7 +1298,7 @@ msgstr "Tüm Kısayolları Varsayılan Değerlerine Sıfırla"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Tümünü Sıfırla"
+msgstr "Hepsini sıfırla"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1319,7 +1319,7 @@ msgstr "Arkaplanı Değiştir"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Ekran Ayarları"
+msgstr "Görüntüleme ayarları"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1398,7 +1398,7 @@ msgstr "Tümünü Seçme"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "Ön izleme"
+msgstr "Önizleme"
 
 #: app/shortcuts.js:34
 #, fuzzy
@@ -1413,7 +1413,7 @@ msgstr "Dosyalar için Eylem seçin"
 #: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "Simge seç"
+msgstr "Simge seçin"
 
 #: app/shortcuts.js:37
 #, fuzzy
@@ -1544,17 +1544,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Göster/Gizle"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Tercihler"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Etkin"
+msgstr "Devre dışı bırak"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

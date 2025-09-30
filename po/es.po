@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"PO-Revision-Date: 2025-09-30 15:05+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -247,7 +247,7 @@ msgstr "Carpetas abiertas en el arrastre"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "Acerca de..."
+msgstr "Sobre..."
 
 #: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
@@ -563,7 +563,7 @@ msgstr "¡${appName} no puede abrir archivos de este tipo!"
 #, fuzzy
 #| msgid "Folder Creation Failed"
 msgid "Desktop Folder Change Failed"
-msgstr "Error al crear la carpeta"
+msgstr "Carpeta Escritorio cambiada"
 
 #: app/desktopFolderMonitor.js:102
 msgid "The new Desktop Folder is a Symbolic Link"
@@ -574,12 +574,14 @@ msgid "The new Desktop Folder does not exist or is not a Folder!"
 msgstr ""
 
 #: app/desktopFolderMonitor.js:120
+#, fuzzy
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "Carpeta Escritorio cambiada"
 
 #: app/desktopFolderMonitor.js:121
+#, fuzzy
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "Cambiando al nuevo Escritorio..."
 
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
@@ -592,24 +594,34 @@ msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr ""
 
 #: app/desktopManager.js:158
+#, fuzzy
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"Monitores múltiples con diferentes configuraciones de zoom.\n"
+"\n"
+"¿Activar el escalado del búfer de imagen por monitor en la configuración "
+"Dconf de Mutter?"
 
 #: app/desktopManager.js:169
+#, fuzzy
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"Monitores múltiples con diferentes configuraciones de zoom.\n"
+"\n"
+"¿Activar el escalado del búfer de imagen por monitor en la configuración "
+"Dconf de Mutter?"
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Habilitar"
+msgstr "Activar"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -1090,7 +1102,7 @@ msgstr "Por favor, instale Gnome Console u otro programa terminal"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "No se pudo abrir"
+msgstr "No se puede abrir"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1131,8 +1143,9 @@ msgid "None"
 msgstr "Ninguno"
 
 #: app/shortcutManager.js:85
+#, fuzzy
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "Atajos predeterminados"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
@@ -1145,7 +1158,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "Restablecer valores predeterminados"
+msgstr "Restablecer ajustes predeterminados"
 
 #: app/shortcutManager.js:134
 #, fuzzy
@@ -1183,7 +1196,7 @@ msgstr "Atajos globales"
 #, fuzzy
 #| msgid "Show network mounts"
 msgid "System Keyboard Shortcuts"
-msgstr "Atajos del Teclado"
+msgstr "Atajos del teclado"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1206,7 +1219,7 @@ msgstr "Restablecer Todos los Atajos a los Predeterminados"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Restablecar todo"
+msgstr "Restablecer Todo"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1228,7 +1241,7 @@ msgstr "Cambiar fondo"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Mostrar configuración"
+msgstr "Ajustes de pantalla"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1308,7 +1321,7 @@ msgstr "Mostrar archivos ocultos"
 #, fuzzy
 #| msgid "Select All"
 msgid "Unselect All"
-msgstr "Eliminar selección"
+msgstr "Deseleccionar todo"
 
 #: app/shortcuts.js:33
 #, fuzzy
@@ -1409,7 +1422,7 @@ msgstr "No se puede abrir este fichero porque es un enlace roto"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Unidad/disco"
+msgstr "Conducir"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1426,7 +1439,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Broken Desktop File"
 msgid "Choose Desktop Folder"
-msgstr "Fichero .desktop dañado"
+msgstr "Carpeta Escritorio"
 
 #: app/utils/desktopIconsUtil.js:216
 msgid "Command not found"
@@ -1464,17 +1477,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Mostrar/ocultar"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Preferencias"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Habilitar"
+msgstr "Deshabilitar"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

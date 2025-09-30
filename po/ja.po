@@ -12,17 +12,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"PO-Revision-Date: 2025-09-30 15:05+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
@@ -32,7 +32,7 @@ msgstr "ショートカット"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "ショートカットキーを編集"
+msgstr "ショートカットを編集"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -62,7 +62,7 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:532
 #, fuzzy
 msgid "Tweaks"
-msgstr "微調整"
+msgstr "カスタマイズ"
 
 #: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
 #, fuzzy
@@ -72,7 +72,7 @@ msgstr "さらに表示"
 #: app/adwPreferencesWindow.js:507
 #, fuzzy
 msgid "Desktop Settings"
-msgstr "デスクトップ設定"
+msgstr "デスクトップの設定"
 
 #: app/adwPreferencesWindow.js:508
 #, fuzzy
@@ -157,7 +157,7 @@ msgstr "利用可能な場合は、最初のSecond Monitorsに新しいアイコ
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "グリッドにスナップ(吸着)"
+msgstr "グリッド"
 
 #: app/adwPreferencesWindow.js:583
 #, fuzzy
@@ -275,7 +275,7 @@ msgstr "ドラッグホバーのフォルダを開く"
 #: app/adwPreferencesWindow.js:678
 #, fuzzy
 msgid "About..."
-msgstr "バージョン情報..."
+msgstr "について..."
 
 #: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
@@ -523,7 +523,7 @@ msgstr "圧縮時のエラー"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "新しいアーカイブを作成します"
+msgstr "アーカイブを作成"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -632,7 +632,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "ファイルが開けませんでした"
+msgstr "ファイルを開けませんでした"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -803,7 +803,7 @@ msgstr "文書を削除できません"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "チャンネル名"
 
 #: app/desktopMenu.js:921
 #, fuzzy
@@ -818,7 +818,7 @@ msgstr "最終更新時刻"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "ギャンブルの種類"
+msgstr "衣服の種類"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -887,7 +887,7 @@ msgstr "アイコンを整列"
 #: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
-msgstr "指定して整列…"
+msgstr "編曲:"
 
 #: app/desktopMenu.js:997
 #, fuzzy
@@ -922,7 +922,7 @@ msgstr "キャンセルされる移動"
 #: app/dragManager.js:740
 #, fuzzy
 msgid "{0} Does not exist"
-msgstr "存在しません"
+msgstr "は存在しません"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1037,7 +1037,7 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "を移動."
+msgstr "移動先..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1051,7 +1051,7 @@ msgstr "名前を変更…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "リンクを生成する"
+msgstr "リンクを作成"
 
 #: app/fileItemMenu.js:261
 #, fuzzy
@@ -1256,11 +1256,12 @@ msgstr "コンソール"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "無し"
+msgstr "なし"
 
 #: app/shortcutManager.js:85
+#, fuzzy
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "デフォルトのショートカットキー"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
@@ -1273,7 +1274,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "デフォルトにリセット"
+msgstr "デフォルト値にリセット"
 
 #: app/shortcutManager.js:134
 #, fuzzy
@@ -1317,17 +1318,18 @@ msgstr "キーボードショートカット"
 #: app/shortcutManager.js:673
 #, fuzzy
 msgid "Reset Shortcuts"
-msgstr "ショートカット一覧を表示する"
+msgstr "すべてのショートカットをリセット"
 
 #: app/shortcutManager.js:674
+#, fuzzy
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "すべてのショートカットをデフォルトに戻す"
 
 #: app/shortcutManager.js:677
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "すべてリセット"
+msgstr "全てをリセット"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1428,7 +1430,7 @@ msgstr "すべて選択解除"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "プレビュー表示"
+msgstr "プレビュー"
 
 #: app/shortcuts.js:34
 #, fuzzy
@@ -1575,17 +1577,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "表示/非表示"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "設定"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "有効化"
+msgstr "無効化"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

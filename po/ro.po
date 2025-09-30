@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"PO-Revision-Date: 2025-09-29 22:30+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ro/>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
@@ -497,7 +497,7 @@ msgstr "Eroare la compresie"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "Creează o nouă arhivă"
+msgstr "Creează o arhivă"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -507,7 +507,7 @@ msgstr "Numele arhivei"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Parola"
+msgstr "Parolă"
 
 #: app/autoAr.js:617
 msgid "Create"
@@ -589,7 +589,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nu pot să deschid fișierul"
+msgstr "Nu s-a putut deschide fișierele"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -645,7 +645,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Permite"
+msgstr "Activează"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -755,7 +755,7 @@ msgstr "Nu s-a putut șterge documentul"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "Numele"
+msgstr "Nume"
 
 #: app/desktopMenu.js:921
 #, fuzzy
@@ -770,7 +770,7 @@ msgstr "Timp modificat"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "Tip"
+msgstr "Tipul"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -990,7 +990,7 @@ msgstr "Taie"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Mutare la..."
+msgstr "Mută la..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1204,8 +1204,9 @@ msgid "None"
 msgstr "Nimic"
 
 #: app/shortcutManager.js:85
+#, fuzzy
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "Scurtături implicite"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
@@ -1247,12 +1248,12 @@ msgstr "Scurtăturile Aplicației"
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "Afișați comenzile rapide"
+msgstr "Taste de comenzi rapide"
 
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Taste rapide"
+msgstr "Scurtături de la tastatură"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1265,8 +1266,9 @@ msgid "Reset Shortcuts"
 msgstr "Afișați comenzile rapide"
 
 #: app/shortcutManager.js:674
+#, fuzzy
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Setează toate scurtăturile la valorile implicite"
 
 #: app/shortcutManager.js:677
 #, fuzzy
@@ -1293,7 +1295,7 @@ msgstr "Schimbă fundalul..."
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Display Settings"
+msgstr "Setări afișaj"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1519,17 +1521,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Arată/Ascunde"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Preferințe"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Permite"
+msgstr "Dezactivare"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
