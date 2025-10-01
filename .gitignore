@@ -2,3 +2,5 @@
 .vscode/settings.json
 *.gresource
 *gschemas.compiled
+
+debian/*

@@ -55,7 +55,7 @@ All known important issues are listed in [ISSUES.md](https://gitlab.com/smedius/
 The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
 </p>
 
-This should work out of the box for <b><u>Debian, Fedora, SUSE</b></u>
+This should work out of the box for <b><u>Debian, Fedora, SUSE and most other distributions</b></u>
 
 <p style="text-align: left;">
 For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng). Default install from extensions.gnome.org should also work.
@@ -66,7 +66,9 @@ For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is avai
 
 For <b><u>Nix OS</b></u>, please see additional manual installation instructions in the section below.
 
-<b><u>Ubuntu</b></u> requires manual installation, see instructions below.
+<b><u>Debian</b></u> - a prebuild deb packages are available in binaries subdirectory for download and direct install. This will install the extension in the sytem folders for all users. A manual local or system install from a git clone is also possible. Install from extensions.gnome.org is probably the simplest way- this only does a local install for the user.
+
+<b><u>Ubuntu</b></u> See Debian for prebuilt deb package. Otherwise requires manual installation, see instructions, a system installation is preferred to render thumbnails properly. Direct download from gnome extensions is unlikely to work properly.
 
 For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddoglinux.ddns.net/linux/gnome/46.x/source/extensions/gnome-shell-extension-desktop-icons-ng/). Default install from extensions.gnome.org should also work.
 
@@ -214,7 +216,7 @@ rm -rf .build
 
 The content of the `install_folder` needs to be copied to the destination computers at /usr install folder. After doing that, run `sudo glib-compile-schemas /usr/share/glib-2.0/schemas` in each of the installed computers to update the schemas for that system.
 
-## Export extension ZIP file for extensions.gnome.org
+## Export extension ZIP file for extensions.gnome.org or manual install of the extension folder
 
 To create a ZIP file with the extension, just run:
 
