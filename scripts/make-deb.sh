@@ -65,7 +65,7 @@ EOS
 find "$ROOT" -type d -exec chmod 0755 {} +
 find "$ROOT/DEBIAN" -type f -exec chmod 0755 {} +
 find "$DESTDIR$PREFIX" -type f ! -name "adw-ding.js" -exec chmod 0644 {} +
-find "$DESTDIR$PREFIX" -type f -name "adw-ding.js" -exec chmod 0744 {} +
+find "$DESTDIR$PREFIX" -type f -name "adw-ding.js" -exec chmod 0774 {} +
 
 # Build .deb
 OUT="$(pwd)/${PKG_NAME}_${VERSION}-${STAMP}_${ARCH}.deb"

@@ -68,7 +68,7 @@ For <b><u>Nix OS</b></u>, please see additional manual installation instructions
 
 <b><u>Debian</b></u> - a prebuild deb packages are available in binaries subdirectory for download and direct install. This will install the extension in the sytem folders for all users. A manual local or system install from a git clone is also possible. Install from extensions.gnome.org is probably the simplest way- this only does a local install for the user.
 
-<b><u>Ubuntu</b></u> See Debian for prebuilt deb package. Otherwise requires manual installation, see instructions, a system installation is preferred to render thumbnails properly. Direct download from gnome extensions is unlikely to work properly.
+<b><u>Ubuntu</b></u> See Debian for prebuilt deb package, works for Ubuntu as well. Otherwise requires manual installation, see instructions, a system installation is preferred to render thumbnails properly. Direct download from gnome extensions is unlikely to work properly.
 
 For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddoglinux.ddns.net/linux/gnome/46.x/source/extensions/gnome-shell-extension-desktop-icons-ng/). Default install from extensions.gnome.org should also work.
 
