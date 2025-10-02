@@ -4,7 +4,7 @@
 abi <abi/4.0>,
 include <tunables/global>
 
-profile gtk4-ding @PREFIX@/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/app/ding.js flags=(unconfined) {
+profile gtk4-ding @PREFIX@/share/gnome-shell/extensions/gtk4-ding@smedius.gitlab.com/app/adw-ding.js flags=(unconfined) {
   userns,
 
   # Site-specific additions and overrides. See local/README for details.
