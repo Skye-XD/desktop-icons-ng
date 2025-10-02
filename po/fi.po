@@ -13,16 +13,16 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-02 20:02+0000\n"
+"PO-Revision-Date: 2025-10-01 16:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 "X-Launchpad-Export-Date: 2021-04-08 06:16+0000\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
@@ -160,7 +160,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Sovita ruudukkoon"
+msgstr "Tartu ruudukkoon"
 
 #: app/adwPreferencesWindow.js:583
 #, fuzzy
@@ -542,7 +542,7 @@ msgstr "Salasana"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Luoda"
+msgstr "Luo"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -638,7 +638,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Tiedostoa ei voitu avata"
+msgstr "Tiedostoja ei voitu avata"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -694,7 +694,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Ottaa käyttöön"
+msgstr "Ota käyttöön"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -1044,7 +1044,7 @@ msgstr "Siirrä kohteeseen"
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopioi kohteeseen"
+msgstr "Kopioi tänne"
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1217,7 +1217,7 @@ msgstr "Asenna Gnome Console tai muu terminaali"
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "qTox ei pysty avaamaan tiedostoa"
+msgstr "Ei voi avata"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1258,7 +1258,7 @@ msgstr "Konsoli"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Ei ole"
+msgstr "Ei mitään"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1309,7 +1309,7 @@ msgstr "Laajamittainen pikanäppäin"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Komennot/näppäinyhdistelmät"
+msgstr "Pikanäppäimet"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1350,7 +1350,7 @@ msgstr "Päivitä taustakuva"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Näyttöasetukset"
+msgstr "Näytön asetukset"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1523,7 +1523,7 @@ msgstr "Tiedostoa ei voitu avata, sillä se on rikkinäinen linkki"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Ajuri"
+msgstr "Asema"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1577,17 +1577,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Näytä/piilota"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Asetukset"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Ottaa käyttöön"
+msgstr "Poista käytöstä"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
