@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-29 11:09+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/el/>\n"
@@ -245,7 +245,7 @@ msgstr "Single click"
 #: app/adwPreferencesWindow.js:650
 #, fuzzy
 msgid "Double click"
-msgstr "Διπλό κλικ"
+msgstr "Διπλό πάτημα"
 
 #: app/adwPreferencesWindow.js:655
 #, fuzzy
@@ -390,7 +390,7 @@ msgstr "Όνομα αρχείου"
 #: app/fileItemMenu.js:967
 #, fuzzy
 msgid "OK"
-msgstr "Εντάξει"
+msgstr "Ok"
 
 #: app/askRenamePopup.js:75
 #, fuzzy
@@ -526,12 +526,12 @@ msgstr "Archive name"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Κωδικός πρόσβασης"
+msgstr "Κωδικός"
 
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Δημιουργία"
+msgstr "Δημιουργώ"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -666,7 +666,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Ενεργοποίηση"
+msgstr "Καθιστώ ικανό"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -970,7 +970,7 @@ msgstr "Ανοιχτό με {foo}"
 #: app/fileItemMenu.js:138
 #, fuzzy
 msgid "Open"
-msgstr "Ανοιχτό"
+msgstr "Άνοιγμα"
 
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 #, fuzzy
@@ -1578,7 +1578,7 @@ msgstr "Προτιμήσεις"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Απενεργοποίηση"
+msgstr "Καθιστώ ανίκανο"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy

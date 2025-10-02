@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-29 22:30+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -195,7 +196,7 @@ msgstr "Olmayan Masaüstü Dosyası"
 #: app/adwPreferencesWindow.js:603
 #, fuzzy
 msgid "Restore"
-msgstr "Geri Yükle"
+msgstr "Eski haline getirmek"
 
 #: app/adwPreferencesWindow.js:613
 #, fuzzy
@@ -292,7 +293,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:699
 #, fuzzy
 msgid "Translate"
-msgstr "Çevirin"
+msgstr "Çevir"
 
 #: app/appChooser.js:78
 #, fuzzy
@@ -511,7 +512,7 @@ msgstr "Frekans sırasında hata"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "Arşivle"
+msgstr "Arşiv oluştur"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -521,7 +522,7 @@ msgstr "Arşiv Adı"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Parola"
+msgstr "Şifre"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -608,7 +609,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dosyalar açılamadı"
+msgstr "Dosya açılamadı"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -664,7 +665,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Etkinleştir"
+msgstr "Etkin"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -777,12 +778,12 @@ msgstr "Belge silinemedi"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "İsim"
+msgstr "Isim"
 
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Ad (Z-A)"
+msgstr "İsim (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -860,7 +861,7 @@ msgstr "Simgeleri Sırala"
 #: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
-msgstr "Düzenleme:"
+msgstr "Sırala…"
 
 #: app/desktopMenu.js:997
 #, fuzzy
@@ -925,7 +926,7 @@ msgstr "Klasör"
 #: app/fileItemIcon.js:96
 #, fuzzy
 msgid "File"
-msgstr "Dosya"
+msgstr "Format,Harita"
 
 #: app/fileItemIcon.js:270
 #, fuzzy
@@ -1298,7 +1299,7 @@ msgstr "Tüm Kısayolları Varsayılan Değerlerine Sıfırla"
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Hepsini sıfırla"
+msgstr "Tümünü sıfırla"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1398,7 +1399,7 @@ msgstr "Tümünü Seçme"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "Önizleme"
+msgstr "Ön izleme"
 
 #: app/shortcuts.js:34
 #, fuzzy
@@ -1551,12 +1552,12 @@ msgstr "Göster/Gizle"
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
 msgid "Preferences"
-msgstr "Tercihler"
+msgstr "Ayarlar"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Devre dışı bırak"
+msgstr "Kapat"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

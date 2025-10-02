@@ -13,9 +13,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
@@ -248,7 +247,7 @@ msgstr "Duplo clique"
 #: app/adwPreferencesWindow.js:655
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Mostrar miniatura da imagem"
+msgstr "Mostrar miniaturas de imagens"
 
 #: app/adwPreferencesWindow.js:657
 #, fuzzy
@@ -611,7 +610,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir Ficheiros"
+msgstr "Não foi possível abrir ficheiro"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -764,7 +763,7 @@ msgstr "Esta janela está aberta. Por favor, mude para a janela ativa."
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 #, fuzzy
 msgid "Settings"
-msgstr "Definições"
+msgstr "Configurações"
 
 #: app/desktopMenu.js:813
 #, fuzzy
@@ -844,7 +843,7 @@ msgstr "Novo Documento"
 #: app/desktopMenu.js:968 app/shortcuts.js:11
 #, fuzzy
 msgid "Paste"
-msgstr "Colar"
+msgstr "Cole"
 
 #: app/desktopMenu.js:970 app/shortcuts.js:12
 #, fuzzy
@@ -859,7 +858,7 @@ msgstr "Refazer"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Marcar Tudo"
+msgstr "Selecionar Todos"
 
 #: app/desktopMenu.js:985
 #, fuzzy
@@ -1039,7 +1038,7 @@ msgstr "Renomear…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "Criar ligação"
+msgstr "Criar link"
 
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
@@ -1071,7 +1070,7 @@ msgstr "Mova para a lixeira"
 #: app/fileItemMenu.js:302
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Apagar permanentemente"
+msgstr "Eliminar permanentemente"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 #, fuzzy
@@ -1146,7 +1145,7 @@ msgstr "Selecionar destino"
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 #, fuzzy
 msgid "Select"
-msgstr "Seleccionar"
+msgstr "Selecionar"
 
 #: app/fileItemMenu.js:963
 #, fuzzy
@@ -1508,7 +1507,7 @@ msgstr "Não é possível abrir este arquivo porque é um Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "'Drive'"
+msgstr "Unidade"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1548,7 +1547,7 @@ msgstr "_Cancelar"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "Abrir"
+msgstr "_Abrir"
 
 #: data/com.desktop.ding.desktop.in:5
 #, fuzzy
@@ -1563,7 +1562,7 @@ msgstr ""
 #: data/com.desktop.ding.desktop.in:21
 #, fuzzy
 msgid "Show<>Hide"
-msgstr "Mostrar/Ocultar"
+msgstr "Mostrar/Esconder"
 
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy

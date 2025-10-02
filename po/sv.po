@@ -12,16 +12,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-02 20:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/sv/>\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.1-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
@@ -31,7 +32,7 @@ msgstr "Genvägar"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Redigera genvägar"
+msgstr "Redigera Genvägar"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -59,7 +60,7 @@ msgstr "Filer"
 #: app/adwPreferencesWindow.js:532
 #, fuzzy
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "Anpassningar"
 
 #: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
 #, fuzzy
@@ -648,7 +649,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kan inte öppna fil"
+msgstr "Kunde inte öppna filen"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -818,7 +819,7 @@ msgstr "Namn"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Namn (Ö–A)"
+msgstr "Namn Ö - A"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -1316,7 +1317,7 @@ msgstr "Globala genvägar"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Tangentbordsgenvägar"
+msgstr "Kortkommandon"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1357,7 +1358,7 @@ msgstr "Ändra bakgrund"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Visningsinställningar"
+msgstr "Utseende"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1453,7 +1454,7 @@ msgstr "Välj åtgärd för filer"
 #: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "Välj"
+msgstr "Välj ikon"
 
 #: app/shortcuts.js:37
 #, fuzzy
@@ -1518,7 +1519,7 @@ msgstr "Papperskorg"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "Stapla"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1586,17 +1587,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "Visa/dölj"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Inställningar"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Aktivera"
+msgstr "Inaktivera"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

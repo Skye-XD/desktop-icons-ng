@@ -19,8 +19,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-08-25 23:26+0000\n"
-"Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -28,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -1113,8 +1114,9 @@ msgid "None"
 msgstr "无"
 
 #: app/shortcutManager.js:85
+#, fuzzy
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "默认快捷键"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
@@ -1430,17 +1432,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "显示/隐藏"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "首选项"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "启用"
+msgstr "禁用"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

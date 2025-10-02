@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
@@ -30,7 +30,7 @@ msgstr "קיצורי דרך"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "ערוך קיצור דרך"
+msgstr "ערוץ קיצורים"
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
@@ -511,7 +511,7 @@ msgstr "שם הארכיון"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "סיסמה"
+msgstr "ססמה"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -1552,7 +1552,7 @@ msgstr "העדפות"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "השבת"
+msgstr "השבתת"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

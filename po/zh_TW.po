@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-08-16 21:02+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
@@ -59,7 +59,7 @@ msgstr "文件"
 #: app/adwPreferencesWindow.js:532
 #, fuzzy
 msgid "Tweaks"
-msgstr "調整"
+msgstr "調教"
 
 #: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
 #, fuzzy
@@ -466,7 +466,7 @@ msgstr "将档案压缩为“产出” 页: 1"
 #: app/autoAr.js:496
 #, fuzzy
 msgid "Compression completed"
-msgstr "已完成的压缩"
+msgstr "賽程已完成"
 
 #: app/autoAr.js:497
 #, fuzzy
@@ -496,7 +496,7 @@ msgstr "压缩期间的误差"
 #: app/autoAr.js:547
 #, fuzzy
 msgid "Create archive"
-msgstr "建立新的封存檔"
+msgstr "建立壓縮檔案"
 
 #: app/autoAr.js:571
 #, fuzzy
@@ -1218,8 +1218,9 @@ msgid "None"
 msgstr "無"
 
 #: app/shortcutManager.js:85
+#, fuzzy
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "預設快捷鍵"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
@@ -1266,7 +1267,7 @@ msgstr "全域快捷鍵"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "鍵盤快速鍵"
+msgstr "鍵盤快捷鍵"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1279,14 +1280,15 @@ msgid "Reset Shortcuts"
 msgstr "顯示快捷鍵"
 
 #: app/shortcutManager.js:674
+#, fuzzy
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "將所有快捷鍵重設為預設值"
 
 #: app/shortcutManager.js:677
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "全部重設"
+msgstr "重置全部"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1527,17 +1529,19 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
+#, fuzzy
 msgid "Show<>Hide"
-msgstr ""
+msgstr "顯示/隱藏"
 
 #: data/com.desktop.ding.desktop.in:33
+#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "設定"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "啟用"
+msgstr "停用"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

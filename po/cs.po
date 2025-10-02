@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/"
@@ -274,7 +274,7 @@ msgstr "Otevřete složky na drag hover"
 #: app/adwPreferencesWindow.js:678
 #, fuzzy
 msgid "About..."
-msgstr "O aplikaci..."
+msgstr "O nás."
 
 #: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
@@ -597,7 +597,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nelze otevřít soubory"
+msgstr "Soubor nelze otevřít"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -653,7 +653,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Povolit"
+msgstr "Umožnit"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -772,7 +772,7 @@ msgstr "Jméno"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Název Z - A"
+msgstr "Název (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -1002,12 +1002,12 @@ msgstr "Vyjmout"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Přesunout do..."
+msgstr "Přesunout do"
 
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopírovat do .."
+msgstr "Kopírovat do..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1473,7 +1473,7 @@ msgstr "Trash"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Štos"
+msgstr "Kaskádově"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
@@ -1488,7 +1488,7 @@ msgstr "Nelze otevřít tento soubor, protože je to Broken Symlink"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Disk"
+msgstr "Jednotka"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1547,12 +1547,12 @@ msgstr "Zobrazit/Skrýt"
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
 msgid "Preferences"
-msgstr "Možnosti"
+msgstr "Nastavení"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Zakázat"
+msgstr "Deaktivovat"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

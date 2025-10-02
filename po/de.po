@@ -16,8 +16,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-29 22:30+0000\n"
-"Last-Translator: Mirco Krause <mirco.krause@live.de>\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -30,7 +31,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Shortcut"
+msgstr "Verknüpfungen"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
@@ -282,7 +283,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:699
 #, fuzzy
 msgid "Translate"
-msgstr "Übersetze"
+msgstr "Übersetzen"
 
 #: app/appChooser.js:78
 #, fuzzy
@@ -292,7 +293,7 @@ msgstr "Wählen Sie eine Anwendung zum Öffnen <b>{foo}</b>"
 #: app/appChooser.js:90
 #, fuzzy
 msgid "Open Items"
-msgstr "@:account.creditlimit.openInvoices"
+msgstr "Offene Posten"
 
 #: app/appChooser.js:92
 #, fuzzy
@@ -433,7 +434,7 @@ msgstr "Dateien in '${outputPath} extrahieren '"
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Extraktion abgeschlossen"
+msgstr "Entpacken abgeschlossen"
 
 #: app/autoAr.js:436
 #, fuzzy
@@ -584,7 +585,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Dateien konnten nicht geöffnet werden"
+msgstr "Datei konnte nicht geöffnet werden"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -980,7 +981,7 @@ msgstr "Ausschneiden"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Verschieben auf..."
+msgstr "Verschieben nach …"
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1220,7 +1221,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "Rücksetzen auf Standardeinstellung"
+msgstr "Auf Standardwerte zurücksetzen"
 
 #: app/shortcutManager.js:134
 #, fuzzy
@@ -1259,7 +1260,7 @@ msgstr "Tastaturkürzel"
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Tastaturkürzel"
+msgstr "Tastaturkurzbefehle"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1458,7 +1459,7 @@ msgstr "Papierkorb"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stapel"
+msgstr "Stapeln"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1472,7 +1473,7 @@ msgstr "Kann diese Datei nicht öffnen, weil es ein Broken Symlink ist"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Drive"
+msgstr "Laufwerk"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1529,7 +1530,7 @@ msgstr ""
 #: data/com.desktop.ding.desktop.in:21
 #, fuzzy
 msgid "Show<>Hide"
-msgstr "Zeigen/Ausblenden"
+msgstr "Ein-/ausblenden"
 
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
