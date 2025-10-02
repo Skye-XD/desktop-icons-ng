@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-01 16:02+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
@@ -1584,12 +1584,12 @@ msgstr "Näytä/piilota"
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
 msgid "Preferences"
-msgstr "Asetukset"
+msgstr "Mieltymykset"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Poista käytöstä"
+msgstr "Poistaa käytöstä"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-29 22:30+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ta/>\n"
 "Language: ta\n"
@@ -228,7 +229,7 @@ msgstr "இரட்டை சொடுக்கு"
 #: app/adwPreferencesWindow.js:655
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "பட சிறுபடத்தைக் காட்டு"
+msgstr "பட சிறுபடங்களைக் காட்டு"
 
 #: app/adwPreferencesWindow.js:657
 #, fuzzy
@@ -469,7 +470,7 @@ msgstr "காப்பக பெயர்"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "கடவுச்சொல்"
+msgstr "கடவுச்சொல்"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -543,7 +544,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "கோப்புகளைத் திறக்க முடியவில்லை"
+msgstr "கோப்பைத் திறக்க முடியவில்லை"
 
 #: app/desktopFileIcon.js:211
 msgid "{appName} can not open files of this Type!"
@@ -885,7 +886,7 @@ msgstr ""
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 #, fuzzy
 msgid "Open With..."
-msgstr "இதனுடன் திற…"
+msgstr "உடன் திறந்திருக்கும் ..."
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-01 16:02+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/"
@@ -32,7 +32,7 @@ msgstr "Genvägar"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Redigera genvägar"
+msgstr "Redigera Genvägar"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -60,7 +60,7 @@ msgstr "Filer"
 #: app/adwPreferencesWindow.js:532
 #, fuzzy
 msgid "Tweaks"
-msgstr "Justeringar"
+msgstr "Anpassningar"
 
 #: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
 #, fuzzy
@@ -649,7 +649,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Kan inte öppna fil"
+msgstr "Kunde inte öppna filen"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -819,7 +819,7 @@ msgstr "Namn"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Namn (Ö–A)"
+msgstr "Namn Ö - A"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -1519,7 +1519,7 @@ msgstr "Papperskorg"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stack"
+msgstr "Stapla"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1599,7 +1599,7 @@ msgstr "Inställningar"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Avaktivera"
+msgstr "Inaktivera"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

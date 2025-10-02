@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-01 16:02+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/"
@@ -1032,7 +1032,7 @@ msgstr "잘라내기"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "다음으로 이동 ..."
+msgstr "이동..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1320,7 +1320,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "모두재설정"
+msgstr "모두 초기화"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1575,12 +1575,12 @@ msgstr "표시/숨기기"
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
 msgid "Preferences"
-msgstr "환경설정"
+msgstr "설정"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "비활성화"
+msgstr "끄기"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

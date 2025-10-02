@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
@@ -598,7 +598,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Не можу відкрити файли"
+msgstr "Не вийшло відкрити файл"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -782,7 +782,7 @@ msgstr "Час останньої зміни"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "Вид взуття"
+msgstr "Тип"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -842,7 +842,7 @@ msgstr "Повторити"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Вибрати все"
+msgstr "Обрати все"
 
 #: app/desktopMenu.js:985
 msgid "Arrange Icons"
@@ -896,7 +896,7 @@ msgstr "Виберіть дію для файлів"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "Переміщення"
+msgstr "Рухатися"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -1222,7 +1222,7 @@ msgstr "Консоль"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Немає"
+msgstr "Жоден"
 
 #: app/shortcutManager.js:85
 #, fuzzy
@@ -1475,7 +1475,7 @@ msgstr "Смітник"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Стік"
+msgstr "Стопка"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
@@ -1549,7 +1549,7 @@ msgstr "Показати/сховати"
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
 msgid "Preferences"
-msgstr "Властивості"
+msgstr "Налаштування"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy

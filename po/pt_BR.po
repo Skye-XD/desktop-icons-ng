@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-29 22:30+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
@@ -375,7 +375,7 @@ msgstr "OK"
 #: app/askRenamePopup.js:75
 #, fuzzy
 msgid "Rename"
-msgstr "Renomear"
+msgstr "Rebatizar"
 
 #: app/autoAr.js:71
 #, fuzzy
@@ -586,7 +586,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não pôde abrir Arquivos"
+msgstr "Não pôde abrir o arquivo"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -644,7 +644,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Ativar"
+msgstr "Habilitar"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -831,7 +831,7 @@ msgstr "Refazer"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Marque tudo"
+msgstr "Selecionar Tudo"
 
 #: app/desktopMenu.js:985
 msgid "Arrange Icons"
@@ -885,7 +885,7 @@ msgstr "Diversos Fracas"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "Relocalizar"
+msgstr "Mover"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -905,7 +905,7 @@ msgstr "Pasta"
 #: app/fileItemIcon.js:96
 #, fuzzy
 msgid "File"
-msgstr "Arquivos"
+msgstr "Arquivo"
 
 #: app/fileItemIcon.js:270
 #, fuzzy
@@ -1230,7 +1230,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "Redefina para o padrão"
+msgstr "Redefinir para o Padrão"
 
 #: app/shortcutManager.js:134
 #, fuzzy
@@ -1462,7 +1462,7 @@ msgstr "Lixeira"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Pilha"
+msgstr "Empilhar"
 
 #: app/symLinkIcon.js:100
 #, fuzzy
@@ -1531,7 +1531,7 @@ msgstr ""
 #: data/com.desktop.ding.desktop.in:21
 #, fuzzy
 msgid "Show<>Hide"
-msgstr "Mostrar/Esconder"
+msgstr "Exibir/Ocultar"
 
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
@@ -1541,7 +1541,7 @@ msgstr "Preferências"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Desabilitar"
+msgstr "Desativar"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

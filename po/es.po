@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
@@ -247,7 +247,7 @@ msgstr "Carpetas abiertas en el arrastre"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "Sobre..."
+msgstr "Acerca de..."
 
 #: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
@@ -621,7 +621,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Activar"
+msgstr "Habilitar"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -1158,7 +1158,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "Restablecer ajustes predeterminados"
+msgstr "Restablecer valores predeterminados"
 
 #: app/shortcutManager.js:134
 #, fuzzy
@@ -1422,7 +1422,7 @@ msgstr "No se puede abrir este fichero porque es un enlace roto"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Conducir"
+msgstr "Drive"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1479,7 +1479,7 @@ msgstr ""
 #: data/com.desktop.ding.desktop.in:21
 #, fuzzy
 msgid "Show<>Hide"
-msgstr "Mostrar/ocultar"
+msgstr "Mostrar/Esconder"
 
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
@@ -1489,7 +1489,7 @@ msgstr "Preferencias"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Deshabilitar"
+msgstr "Desactivar"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

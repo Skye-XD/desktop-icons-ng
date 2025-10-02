@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
+"PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
@@ -29,7 +29,7 @@ msgstr "Pintasan"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Sunting Pintasan"
+msgstr "Sunting pintasan"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -108,7 +108,7 @@ msgstr "Ukuran untuk ikon destop"
 #: app/adwPreferencesWindow.js:553
 #, fuzzy
 msgid "Tiny"
-msgstr "Kecil"
+msgstr "Mungil"
 
 #: app/adwPreferencesWindow.js:554
 msgid "Small"
@@ -259,7 +259,7 @@ msgstr "Di komputer ini hanya"
 #: app/adwPreferencesWindow.js:659
 #, fuzzy
 msgid "Never"
-msgstr "tidak pernah"
+msgstr "Tidak pernah"
 
 #: app/adwPreferencesWindow.js:664
 #, fuzzy
@@ -525,7 +525,7 @@ msgstr "Nama Arsip"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Sandi"
+msgstr "Kata sandi"
 
 #: app/autoAr.js:617
 msgid "Create"
@@ -673,7 +673,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Aktifkan"
+msgstr "Memungkinkan"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -792,7 +792,7 @@ msgstr "Nama"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "Nama Z - A"
+msgstr "Nama (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -1553,7 +1553,7 @@ msgstr ""
 #: data/com.desktop.ding.desktop.in:21
 #, fuzzy
 msgid "Show<>Hide"
-msgstr "Tampilkan/Sembunyikan"
+msgstr "Tampil/Sembunyikan"
 
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
@@ -1563,7 +1563,7 @@ msgstr "Preferensi"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Nonaktif"
+msgstr "Cacat"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
