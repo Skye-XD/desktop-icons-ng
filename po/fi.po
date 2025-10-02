@@ -542,7 +542,7 @@ msgstr "Salasana"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Luoda"
+msgstr "Luo"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -638,7 +638,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Tiedostoa ei voitu avata"
+msgstr "Tiedostoja ei voitu avata"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -694,7 +694,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Ottaa käyttöön"
+msgstr "Ota käyttöön"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -1044,7 +1044,7 @@ msgstr "Siirrä kohteeseen"
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "Kopioi kohteeseen"
+msgstr "Kopioi tänne"
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1258,7 +1258,7 @@ msgstr "Konsoli"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Ei ole"
+msgstr "Ei mitään"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
@@ -1523,7 +1523,7 @@ msgstr "Tiedostoa ei voitu avata, sillä se on rikkinäinen linkki"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Ajuri"
+msgstr "Asema"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy

@@ -656,7 +656,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Aktiver"
+msgstr "Skru på"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -1260,7 +1260,7 @@ msgstr "Tilbakestill alle snarveier til forvalg"
 #: app/shortcutManager.js:677
 #, fuzzy
 msgid "Reset All..."
-msgstr "Tilbakestill alt"
+msgstr "Tilbakestill alle"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1356,7 +1356,7 @@ msgstr "Vis skjulte filer"
 #, fuzzy
 #| msgid "Select All"
 msgid "Unselect All"
-msgstr "Velg ingen"
+msgstr "Avmarker alle"
 
 #: app/shortcuts.js:33
 #, fuzzy

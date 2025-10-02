@@ -255,7 +255,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:678
 #, fuzzy
 msgid "About..."
-msgstr "O ..."
+msgstr "O programu"
 
 #: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
@@ -461,7 +461,7 @@ msgstr "Ime arhiva"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Geslo"
+msgstr "Password"
 
 #: app/autoAr.js:617
 #, fuzzy

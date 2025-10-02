@@ -274,7 +274,7 @@ msgstr "드래그 hover에 폴더 열기"
 #: app/adwPreferencesWindow.js:678
 #, fuzzy
 msgid "About..."
-msgstr "정보..."
+msgstr "조향보조설명..."
 
 #: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
@@ -531,7 +531,7 @@ msgstr "압축파일 이름"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "비밀 번호"
+msgstr "비밀번호"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -688,7 +688,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "켜기"
+msgstr "활성화"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -930,7 +930,7 @@ msgstr "파일에 대한 작업 선택"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "움직이세요"
+msgstr "이동"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -1295,7 +1295,7 @@ msgstr "애플리케이션 단축키"
 #: app/shortcutManager.js:364
 #, fuzzy
 msgid "Global Shortcuts"
-msgstr "전역"
+msgstr "전역 바로가기"
 
 #: app/shortcutManager.js:365
 #, fuzzy
@@ -1514,7 +1514,7 @@ msgstr "이 파일은 손상된 심볼릭링크이므로 열 수 없습니다"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "드라이브"
+msgstr "구동"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1555,7 +1555,7 @@ msgstr "_취소"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "열기(_O)"
+msgstr "_열기"
 
 #: data/com.desktop.ding.desktop.in:5
 #, fuzzy

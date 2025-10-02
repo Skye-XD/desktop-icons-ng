@@ -184,7 +184,7 @@ msgstr "不信任的桌面文件"
 #: app/adwPreferencesWindow.js:603
 #, fuzzy
 msgid "Restore"
-msgstr "恢复"
+msgstr "还原"
 
 #: app/adwPreferencesWindow.js:613
 #, fuzzy

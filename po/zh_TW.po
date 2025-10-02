@@ -53,7 +53,7 @@ msgstr "桌面版"
 #: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:484
 #, fuzzy
 msgid "Files"
-msgstr "文件"
+msgstr "檔案"
 
 #: app/adwPreferencesWindow.js:489 app/adwPreferencesWindow.js:490
 #: app/adwPreferencesWindow.js:532
@@ -187,7 +187,7 @@ msgstr "未委托的桌面档案"
 #: app/adwPreferencesWindow.js:603
 #, fuzzy
 msgid "Restore"
-msgstr "還原"
+msgstr "重置"
 
 #: app/adwPreferencesWindow.js:613
 #, fuzzy
@@ -511,7 +511,7 @@ msgstr "密碼"
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "建立"
+msgstr "製作"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -595,7 +595,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "無法開啟檔案"
+msgstr "無法打開文件"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -770,7 +770,7 @@ msgstr "名稱"
 #: app/desktopMenu.js:921
 #, fuzzy
 msgid "Name Z-A"
-msgstr "名稱（Z-A）"
+msgstr "名稱 (Z-A)"
 
 #: app/desktopMenu.js:923
 #, fuzzy
@@ -785,7 +785,7 @@ msgstr "類型"
 #: app/desktopMenu.js:927
 #, fuzzy
 msgid "Size"
-msgstr "大"
+msgstr "大小"
 
 #: app/desktopMenu.js:932
 #, fuzzy
@@ -1233,7 +1233,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "重設為預設值"
+msgstr "重置為預設值"
 
 #: app/shortcutManager.js:134
 #, fuzzy

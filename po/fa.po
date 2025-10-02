@@ -464,7 +464,7 @@ msgstr ""
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "رمز عبور"
+msgstr "Password"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -537,7 +537,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "ناتوان در گشودن پرونده"
+msgstr "فایل باز نشد"
 
 #: app/desktopFileIcon.js:211
 msgid "{appName} can not open files of this Type!"
@@ -591,7 +591,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "فعال کردن"
+msgstr "فعال"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -705,7 +705,7 @@ msgstr ""
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "نوع"
+msgstr "گونه"
 
 #: app/desktopMenu.js:927
 #, fuzzy

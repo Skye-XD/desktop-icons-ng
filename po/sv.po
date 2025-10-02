@@ -273,7 +273,7 @@ msgstr "På den här datorn"
 #: app/adwPreferencesWindow.js:659
 #, fuzzy
 msgid "Never"
-msgstr "Aldrig"
+msgstr "aldrig"
 
 #: app/adwPreferencesWindow.js:664
 #, fuzzy
