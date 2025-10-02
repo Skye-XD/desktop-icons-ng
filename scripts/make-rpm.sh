@@ -12,9 +12,7 @@ PREFIX="${PREFIX:-/usr}"
 NOARCH="${NOARCH:-1}"
 LOCALE_DOMAIN="${LOCALE_DOMAIN:-gtk4-ding}"
 
-REQUIRES="${REQUIRES:-typelib(GnomeAutoar) = 0.1, \
-         typelib(GnomeDesktop-3.0), \
-         gnome-shell >= 45, \
+REQUIRES="${REQUIRES:-gnome-shell >= 45, \
          gnome-shell < 50, \
          gjs, \
          nautilus >= 3.38, \
