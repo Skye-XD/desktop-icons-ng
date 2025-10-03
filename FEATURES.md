@@ -164,6 +164,13 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Right click context menu for .desktop files that can launch actions.
 
+- [x] Right long click- launches shell background menu directly
+
+- [x] Animate margin changes with Adw.Animation. Respects global Gtk4/Gnome allow/disallow animation settings
+
+- [x] Packaging- add scripts to build debian deb, and Fedora rpm files.
+
+- [x] Improve search UI, files found containing the text in label are selected, non-selected files lose opacity an are dimmed so that found files are evident to the eye on a desktop with a large bunch of icons.
 
 **FIXES**
 
@@ -338,3 +345,9 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix detection of writable by others for the displayed desktop folder.
 
 - [x] Fix switheroo control.
+
+- [x] More accurate error messages when a symlink is used to set the Desktop Folder
+
+- [x] Improve icon and emblem rendering code- simplify
+
+- [x] Add .desktop file template to properly to generate translated .desktop file on meson install

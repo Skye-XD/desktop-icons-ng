@@ -66,9 +66,9 @@ For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is avai
 
 For <b><u>Nix OS</b></u>, please see additional manual installation instructions in the section below.
 
-<b><u>Fedora</b></u> - a prebuilt rpm is in the binaries subdir for system install. Manual system and local installs with meson should work as well. The script make-rpm.sh in the scripts subdirectory will generate the spec and new rpm from source, edit script for VERSION or set it in the enviorenment.
+<b><u>Fedora</b></u> - a prebuilt rpm is in the Downloads subdir for system install. Manual system and local installs with meson should work as well. The script make-rpm.sh in the scripts subdirectory will generate the spec and new rpm from source, edit script for VERSION or set it in the enviorenment.
 
-<b><u>Debian</b></u> - a prebuild deb packages are available in binaries subdirectory for download and direct install. This will install the extension in the sytem folders for all users. A manual local or system install from a git clone with meson is also possible. Install from extensions.gnome.org is probably the simplest way- this only does a local install for the user. make-deb.sh script in the scripts folder will generate a dpkg from current source, edit VERSION in script or set in enviornment.
+<b><u>Debian</b></u> - a prebuild deb packages are available in Downloads subdirectory for download and direct install. This will install the extension in the sytem folders for all users. A manual local or system install from a git clone with meson is also possible. Install from extensions.gnome.org is probably the simplest way- this only does a local install for the user. make-deb.sh script in the scripts folder will generate a dpkg from current source, edit VERSION in script or set in enviornment.
 
 <b><u>Ubuntu</b></u> See Debian for prebuilt deb package, works for Ubuntu as well. Otherwise requires manual installation, see instructions, a system installation is preferred to render thumbnails properly. Direct download from gnome extensions is unlikely to work properly.
 
