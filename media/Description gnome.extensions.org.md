@@ -7,6 +7,9 @@ Icons can be positioned anywhere on desktop or are snapped to a grid. Can make l
 Updated and modified code base, uses Gio menus, all translations on Weblate. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome 45 and higher.
 
 Multiple fixes and new features-
+ * Right long click- launches shell background menu directly. (Sundeep Mediratta)
+ * Animate margin changes with Adw.Animation. Respects global Gtk4/Gnome allow/disallow animation settings. (Sundeep Mediratta)
+ * Improve search UI, files found containing the text in label are selected, non-selected files lose opacity an are dimmed so that found files are evident to the eye on a desktop with a large bunch of icons.. (Sundeep Mediratta)
 * Enable Gnome 49, use new API
 * Fixes, read xdg-terminals.list from correct system conf dirs.
 * Set localized default desktop name
