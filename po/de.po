@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"PO-Revision-Date: 2025-10-03 23:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
@@ -31,7 +31,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, fuzzy
 msgid "Shortcuts"
-msgstr "Verknüpfungen"
+msgstr "Shortcut"
 
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
@@ -151,7 +151,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Am Gitter anordnen"
+msgstr "An Raster ausrichten"
 
 #: app/adwPreferencesWindow.js:583
 #, fuzzy
@@ -283,7 +283,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:699
 #, fuzzy
 msgid "Translate"
-msgstr "Übersetzen"
+msgstr "Übersetze"
 
 #: app/appChooser.js:78
 #, fuzzy
@@ -434,7 +434,7 @@ msgstr "Dateien in '${outputPath} extrahieren '"
 #: app/autoAr.js:435
 #, fuzzy
 msgid "Extraction completed"
-msgstr "Entpacken abgeschlossen"
+msgstr "Extraktion abgeschlossen"
 
 #: app/autoAr.js:436
 #, fuzzy
@@ -585,7 +585,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Datei konnte nicht geöffnet werden"
+msgstr "Dateien konnten nicht geöffnet werden"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -866,7 +866,7 @@ msgstr "Zurückgenommen"
 #: app/dragManager.js:740
 #, fuzzy
 msgid "{0} Does not exist"
-msgstr "nicht vorhanden"
+msgstr "Existiert nicht"
 
 #: app/dragManager.js:782
 #, fuzzy
@@ -1221,7 +1221,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "Auf Standardwerte zurücksetzen"
+msgstr "Rücksetzen auf Standardeinstellung"
 
 #: app/shortcutManager.js:134
 #, fuzzy
@@ -1255,12 +1255,12 @@ msgstr "Globale Tastenkürzel"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Tastaturkürzel"
+msgstr "Tastenkombinationen"
 
 #: app/shortcutManager.js:661
 #, fuzzy
 msgid "Keyboard Shortcuts"
-msgstr "Tastaturkurzbefehle"
+msgstr "Tastaturkürzel"
 
 #: app/shortcutManager.js:673
 #, fuzzy
@@ -1393,7 +1393,7 @@ msgstr "Wählen Sie Aktion für Dateien"
 #: app/shortcuts.js:36
 #, fuzzy
 msgid "Choose Icon Up"
-msgstr "Wähle Icon"
+msgstr "Symbol auswählen"
 
 #: app/shortcuts.js:37
 #, fuzzy
@@ -1459,7 +1459,7 @@ msgstr "Papierkorb"
 #: app/stackItem.js:46
 #, fuzzy
 msgid "Stack"
-msgstr "Stapeln"
+msgstr "Stapel"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1473,7 +1473,7 @@ msgstr "Kann diese Datei nicht öffnen, weil es ein Broken Symlink ist"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Laufwerk"
+msgstr "Steuerung"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1530,7 +1530,7 @@ msgstr ""
 #: data/com.desktop.ding.desktop.in:21
 #, fuzzy
 msgid "Show<>Hide"
-msgstr "Ein-/ausblenden"
+msgstr "Zeigen/Ausblenden"
 
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy

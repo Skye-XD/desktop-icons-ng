@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"PO-Revision-Date: 2025-10-03 23:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
@@ -32,7 +32,7 @@ msgstr "ショートカット"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "ショートカットキーを編集"
+msgstr "ショートカットを編集"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -62,7 +62,7 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:532
 #, fuzzy
 msgid "Tweaks"
-msgstr "詳細設定"
+msgstr "拡張機能"
 
 #: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
 #, fuzzy
@@ -157,7 +157,7 @@ msgstr "利用可能な場合は、最初のSecond Monitorsに新しいアイコ
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "グリッド"
+msgstr "グリッドにあわせる"
 
 #: app/adwPreferencesWindow.js:583
 #, fuzzy
@@ -803,7 +803,7 @@ msgstr "文書を削除できません"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "名前"
+msgstr "チャンネル名"
 
 #: app/desktopMenu.js:921
 #, fuzzy
@@ -818,7 +818,7 @@ msgstr "最終更新時刻"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "ギャンブルの種類"
+msgstr "衣服の種類"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -887,7 +887,7 @@ msgstr "アイコンを整列"
 #: app/desktopMenu.js:989
 #, fuzzy
 msgid "Arrange By…"
-msgstr "指定して整列…"
+msgstr "編曲:"
 
 #: app/desktopMenu.js:997
 #, fuzzy
@@ -1037,12 +1037,12 @@ msgstr "切り取り"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "別のフォルダーへ移動"
+msgstr "を移動..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
 msgid "Copy to..."
-msgstr "コピー..."
+msgstr "コピーする"
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1256,7 +1256,7 @@ msgstr "コンソール"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "無し"
+msgstr "なし"
 
 #: app/shortcutManager.js:85
 #, fuzzy
@@ -1274,7 +1274,7 @@ msgstr ""
 #: app/shortcutManager.js:130
 #, fuzzy
 msgid "Reset to Default"
-msgstr "デフォルトにリセット"
+msgstr "デフォルト値にリセット"
 
 #: app/shortcutManager.js:134
 #, fuzzy
@@ -1308,7 +1308,7 @@ msgstr "一般のショートカットキー"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "キーボード ショートカット"
+msgstr "キーボードショートカット"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1430,7 +1430,7 @@ msgstr "すべて選択解除"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "プレビュー表示"
+msgstr "プレビュー"
 
 #: app/shortcuts.js:34
 #, fuzzy

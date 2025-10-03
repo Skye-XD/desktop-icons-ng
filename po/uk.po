@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"PO-Revision-Date: 2025-10-03 23:02+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
@@ -24,8 +24,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural="
+"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
+"1 : 2);\n"
 "X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
@@ -240,7 +241,7 @@ msgstr "Завжди"
 #: app/adwPreferencesWindow.js:658
 #, fuzzy
 msgid "On this computer only"
-msgstr "На цьому комп’ютері"
+msgstr "На цьому комп'ютері"
 
 #: app/adwPreferencesWindow.js:659
 msgid "Never"
@@ -263,7 +264,7 @@ msgstr "Відкрийте папки на перетягування"
 #, fuzzy
 #| msgid "About"
 msgid "About..."
-msgstr "Про програму ..."
+msgstr "Про нас..."
 
 #: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
 #, fuzzy
@@ -598,7 +599,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Не вийшло відкрити файл"
+msgstr "Не можу відкрити файли"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -733,7 +734,7 @@ msgstr "Складання папки"
 #: app/desktopManager.js:1614
 #, fuzzy
 msgid "Could not create folder"
-msgstr "Не вдалося створити папку."
+msgstr "Не вдалося створити теку."
 
 #: app/desktopMenu.js:601
 #, fuzzy
@@ -782,7 +783,7 @@ msgstr "Час останньої зміни"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "Тип"
+msgstr "Вид взуття"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -842,7 +843,7 @@ msgstr "Повторити"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Обрати все"
+msgstr "Вибрати все"
 
 #: app/desktopMenu.js:985
 msgid "Arrange Icons"
@@ -896,7 +897,7 @@ msgstr "Виберіть дію для файлів"
 #: app/dragManager.js:783
 #, fuzzy
 msgid "Move"
-msgstr "Рухатися"
+msgstr "Переміщення"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -1002,7 +1003,7 @@ msgstr "Вирізати"
 #: app/fileItemMenu.js:244
 #, fuzzy
 msgid "Move to..."
-msgstr "Перемістити до..."
+msgstr "Перейти до..."
 
 #: app/fileItemMenu.js:245
 #, fuzzy
@@ -1222,7 +1223,7 @@ msgstr "Консоль"
 #: app/shortcutManager.js:522
 #, fuzzy
 msgid "None"
-msgstr "Жоден"
+msgstr "Немає"
 
 #: app/shortcutManager.js:85
 #, fuzzy
@@ -1274,7 +1275,7 @@ msgstr "Глобальні ярлики"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Клавіатурні скорочення"
+msgstr "Комбінації клавіш"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1544,12 +1545,12 @@ msgstr ""
 #: data/com.desktop.ding.desktop.in:21
 #, fuzzy
 msgid "Show<>Hide"
-msgstr "Показати/сховати"
+msgstr "Показати/Приховати"
 
 #: data/com.desktop.ding.desktop.in:33
 #, fuzzy
 msgid "Preferences"
-msgstr "Налаштування"
+msgstr "Властивості"
 
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy

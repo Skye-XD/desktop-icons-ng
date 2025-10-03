@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"PO-Revision-Date: 2025-10-03 23:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt/>\n"
@@ -247,7 +247,7 @@ msgstr "Duplo clique"
 #: app/adwPreferencesWindow.js:655
 #, fuzzy
 msgid "Show image thumbnails"
-msgstr "Mostrar miniaturas de imagens"
+msgstr "Mostrar miniatura da imagem"
 
 #: app/adwPreferencesWindow.js:657
 #, fuzzy
@@ -610,7 +610,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Não foi possível abrir ficheiro"
+msgstr "Não pôde abrir Ficheiros"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -763,7 +763,7 @@ msgstr "Esta janela está aberta. Por favor, mude para a janela ativa."
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 #, fuzzy
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Definições"
 
 #: app/desktopMenu.js:813
 #, fuzzy
@@ -843,7 +843,7 @@ msgstr "Novo Documento"
 #: app/desktopMenu.js:968 app/shortcuts.js:11
 #, fuzzy
 msgid "Paste"
-msgstr "Cole"
+msgstr "Colar"
 
 #: app/desktopMenu.js:970 app/shortcuts.js:12
 #, fuzzy
@@ -858,7 +858,7 @@ msgstr "Refazer"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, fuzzy
 msgid "Select All"
-msgstr "Selecionar Todos"
+msgstr "Marcar Tudo"
 
 #: app/desktopMenu.js:985
 #, fuzzy
@@ -1038,7 +1038,7 @@ msgstr "Renomear…"
 #: app/fileItemMenu.js:254
 #, fuzzy
 msgid "Create Link..."
-msgstr "Criar link"
+msgstr "Criar ligação"
 
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
@@ -1070,7 +1070,7 @@ msgstr "Mova para a lixeira"
 #: app/fileItemMenu.js:302
 #, fuzzy
 msgid "Delete permanently"
-msgstr "Eliminar permanentemente"
+msgstr "Apagar permanentemente"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 #, fuzzy
@@ -1145,7 +1145,7 @@ msgstr "Selecionar destino"
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 #, fuzzy
 msgid "Select"
-msgstr "Selecionar"
+msgstr "Seleccionar"
 
 #: app/fileItemMenu.js:963
 #, fuzzy
@@ -1299,7 +1299,7 @@ msgstr "Atalhos Globais"
 #: app/shortcutManager.js:365
 #, fuzzy
 msgid "System Keyboard Shortcuts"
-msgstr "Atalhos de teclado"
+msgstr "Atalhos do Teclado"
 
 #: app/shortcutManager.js:661
 #, fuzzy
@@ -1339,7 +1339,7 @@ msgstr "Mudar imagem do fundo"
 #: app/shortcuts.js:18
 #, fuzzy
 msgid "Change Display Settings"
-msgstr "Configurações de exibição"
+msgstr "Definições de visualização"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1547,7 +1547,7 @@ msgstr "_Cancelar"
 #: data/ui/ding-app-chooser.ui:110
 #, fuzzy
 msgid "_Open"
-msgstr "_Abrir"
+msgstr "Abrir"
 
 #: data/com.desktop.ding.desktop.in:5
 #, fuzzy

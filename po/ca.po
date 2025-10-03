@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"PO-Revision-Date: 2025-10-03 23:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
@@ -27,7 +27,7 @@ msgstr "Dreceres"
 #: app/adwPreferencesWindow.js:163
 #, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Edita les dreceres"
+msgstr "Editor de dreceres"
 
 #: app/adwPreferencesWindow.js:178
 #, fuzzy
@@ -57,7 +57,7 @@ msgstr "Fitxers"
 #: app/adwPreferencesWindow.js:532
 #, fuzzy
 msgid "Tweaks"
-msgstr "Ajustaments"
+msgstr "Retocs"
 
 #: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
 #, fuzzy
@@ -152,7 +152,7 @@ msgstr ""
 #: app/adwPreferencesWindow.js:577
 #, fuzzy
 msgid "Snap icons to grid"
-msgstr "Ajusta a la graella"
+msgstr "Alinea a la graella"
 
 #: app/adwPreferencesWindow.js:583
 #, fuzzy
@@ -510,7 +510,7 @@ msgstr "Nom de l'arxiu"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Contrasenya"
+msgstr "Contrassenya"
 
 #: app/autoAr.js:617
 #, fuzzy
@@ -598,7 +598,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "No s'ha pogut obrir el fitxer"
+msgstr "No s'han pogut obrir Fitxers"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -654,7 +654,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Capacitar"
+msgstr "Activa"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -1186,7 +1186,7 @@ msgstr ""
 #: app/fileItemMenu.js:1235
 #, fuzzy
 msgid "Unable to Open {0}"
-msgstr "No es pot obrir"
+msgstr "No s'ha pogut obrir"
 
 #: app/fileItemMenu.js:1237
 #, fuzzy
@@ -1298,7 +1298,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Open All..."
 msgid "Reset All..."
-msgstr "Reinicia-ho tot"
+msgstr "Restableix-ho tot"
 
 #: app/shortcuts.js:15
 #, fuzzy
@@ -1319,7 +1319,7 @@ msgstr "Canvia el fons"
 #, fuzzy
 #| msgid "Display Settings"
 msgid "Change Display Settings"
-msgstr "Paràmetres de la pantalla"
+msgstr "Mostra la configuració"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1393,7 +1393,7 @@ msgstr "Deseleccionar tots"
 #: app/shortcuts.js:33
 #, fuzzy
 msgid "Preview"
-msgstr "Previsualitzar"
+msgstr "Vista prèvia"
 
 #: app/shortcuts.js:34
 #, fuzzy
@@ -1487,7 +1487,7 @@ msgstr "No es pot obrir aquest fitxer perquè és un enllaç trencat"
 #: app/volumeIcon.js:58
 #, fuzzy
 msgid "Drive"
-msgstr "Unitat"
+msgstr "Càrrega"
 
 #: app/utils/dbusUtils.js:67
 #, fuzzy
@@ -1551,7 +1551,7 @@ msgstr "Preferències"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Dragar"
+msgstr "Deshabilita"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
