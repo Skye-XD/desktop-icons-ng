@@ -1,4 +1,14 @@
 # History of versions #
+ * Adw version 100.8 for Gnome 45, 46, 47, 48. (Sundeep Mediratta)
+ * More accurate error messages when a symlink is used to set the Desktop Folder. (Sundeep Mediratta)
+ * Improve icon and emblem rendering code- simplify. (Sundeep Mediratta)
+ * Right long click- launches shell background menu directly. (Sundeep Mediratta)
+ * Animate margin changes with Adw.Animation. Respects global Gtk4/Gnome allow/disallow animation settings. (Sundeep Mediratta)
+ * Packaging- add scripts to build debian deb, and Fedora rpm files.. (Sundeep Mediratta)
+ * Improve search UI, files found containing the text in label are selected, non-selected files lose opacity an are dimmed so that found files are evident to the eye on a desktop with a large bunch of icons.. (Sundeep Mediratta)
+  * Weblate translations (Weblate Authors)
+  * Update History.MD, update app release note, metadata.json.
+
 * Adw version 100.7 for Gnome 45, 46, 47, 48
  * Fix error and crash when on Gnome 49. (Sundeep Mediratta)
  * Fix xdg-terminals.list, read correct files in data dirs. (Sundeep Mediratta)

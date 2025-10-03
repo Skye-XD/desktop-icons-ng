@@ -120,3 +120,4 @@ rpmbuild -bb "$SPECFILE" \
   --define "LOCALE_DOMAIN $LOCALE_DOMAIN"
 
 echo "RPMS => $TOPDIR/RPMS/*/*.rpm"
+mv $TOPDIR/RPMS/*/*.rpm $PWD
