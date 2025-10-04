@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"PO-Revision-Date: 2025-10-03 23:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ro/>\n"
@@ -589,7 +589,7 @@ msgstr ""
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
 msgid "Could not open File"
-msgstr "Nu pot să deschid fișierul"
+msgstr "Nu s-a putut deschide fișierele"
 
 #: app/desktopFileIcon.js:211
 #, fuzzy
@@ -645,7 +645,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Permite"
+msgstr "Activează"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -755,7 +755,7 @@ msgstr "Nu s-a putut șterge documentul"
 #: app/desktopMenu.js:919
 #, fuzzy
 msgid "Name"
-msgstr "Numele"
+msgstr "Nume"
 
 #: app/desktopMenu.js:921
 #, fuzzy
@@ -770,7 +770,7 @@ msgstr "Timp modificat"
 #: app/desktopMenu.js:925
 #, fuzzy
 msgid "Type"
-msgstr "Tip"
+msgstr "Tipul"
 
 #: app/desktopMenu.js:927
 #, fuzzy
@@ -1533,7 +1533,7 @@ msgstr "Preferințe"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Dezactiva"
+msgstr "Dezactivare"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"

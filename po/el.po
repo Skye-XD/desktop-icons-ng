@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"PO-Revision-Date: 2025-10-03 23:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/el/>\n"
@@ -390,7 +390,7 @@ msgstr "Όνομα αρχείου"
 #: app/fileItemMenu.js:967
 #, fuzzy
 msgid "OK"
-msgstr "Ok"
+msgstr "Εντάξει"
 
 #: app/askRenamePopup.js:75
 #, fuzzy
@@ -526,12 +526,12 @@ msgstr "Archive name"
 #: app/autoAr.js:604
 #, fuzzy
 msgid "Password"
-msgstr "Κωδικός"
+msgstr "Κωδικός πρόσβασης"
 
 #: app/autoAr.js:617
 #, fuzzy
 msgid "Create"
-msgstr "Δημιουργώ"
+msgstr "Δημιουργία"
 
 #: app/autoAr.js:688
 #, fuzzy
@@ -666,7 +666,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
 msgid "Enable"
-msgstr "Καθιστώ ικανό"
+msgstr "Ενεργοποίηση"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -970,7 +970,7 @@ msgstr "Ανοιχτό με {foo}"
 #: app/fileItemMenu.js:138
 #, fuzzy
 msgid "Open"
-msgstr "Άνοιγμα"
+msgstr "Ανοιχτό"
 
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 #, fuzzy
@@ -1347,7 +1347,7 @@ msgstr "Αλλαγή παρασκηνίου"
 #: app/shortcuts.js:18
 #, fuzzy
 msgid "Change Display Settings"
-msgstr "Ρυθμίσεις εμφάνισης"
+msgstr "Ρυθμίσεις οθόνης ενδείξεων"
 
 #: app/shortcuts.js:19
 #, fuzzy
@@ -1445,7 +1445,7 @@ msgstr "Επιλέξτε Δράση για αρχεία"
 #: app/shortcuts.js:38
 #, fuzzy
 msgid "Show Menu"
-msgstr "Εμφάνιση μενού"
+msgstr "Εμφάνιση επιλογών"
 
 #: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
@@ -1578,7 +1578,7 @@ msgstr "Προτιμήσεις"
 #: data/com.desktop.ding.desktop.in:37
 #, fuzzy
 msgid "Disable"
-msgstr "Καθιστώ ανίκανο"
+msgstr "Απενεργοποίηση"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 #, fuzzy
@@ -1603,7 +1603,7 @@ msgstr "Δείξτε τον προσωπικό φάκελο στην επιφά�
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 #, fuzzy
 msgid "Show trash icon"
-msgstr "Εμφάνιση εικονιδίου tray"
+msgstr "Εμφάνιση εικονιδίου συστήματος"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 #, fuzzy
