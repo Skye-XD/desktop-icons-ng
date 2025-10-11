@@ -289,7 +289,9 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.8 for Gnome 45, 46, 47, 48 49</p>
+            `<p>* Adw version 100.8-2 for Gnome 45, 46, 47, 48 49</p>
+<ul><li>Bug fix for older gnome versions with no GioUnix namespace</li></ul>
+            <p>* Adw version 100.8 for Gnome 45, 46, 47, 48 49</p>
 <ul><li>Animate margin changes. Respects global Gtk4/Gnome animation settings</li></ul>
 <ul><li>Right long-click brings up gnome shell background menu directly</li></ul>
 <ul><li>Improve search UI, unselected items are now properly dimmed to highlight the selected</li></ul>

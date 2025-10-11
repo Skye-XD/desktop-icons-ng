@@ -3,7 +3,7 @@
 
 <p style="text-align: center;">
     <a href="https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/" style="margin-left: 20px">
-        <img src="/media/Screenshot.png" width="800px"/>
+        <img src="media/Screenshot.png" width="800px"/>
     </a>
 </p>
 
@@ -48,20 +48,20 @@ All known important issues are listed in [ISSUES.md](https://gitlab.com/smedius/
 
 <p style="text-align: left;">
     <a href="https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/" style="margin-left: 20px">
-        <img src="/media/svg/Gnome_logo.svg" width="120px"/>
+        <img src="media/svg/Gnome_logo.svg" width="120px"/>
     </a>
 </p>
 <p style="text-align: left;">
 The extension can be installed from [extensions.gnome.org](https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/).
 </p>
 
-This should work out of the box for <b><u>Debian, Fedora, SUSE and most other distributions</b></u>
+This should work out of the box for <b><u>Debian, Fedora, SUSE, Arch, Manjaro and most other distributions</b></u>
 
 <p style="text-align: left;">
-For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng). Default install from extensions.gnome.org should also work.
+For <b><u>Arch Linux</b></u>, (and if needed, <b><u>Manjaro</b></u>), it is available in AUR [here](https://aur.archlinux.org/packages/gnome-shell-extension-gtk4-desktop-icons-ng). A pre-built package is available in downloads. Default install from extensions.gnome.org should also work.
 </p>
 <p style="text-align: left;">
-<b><u>Manjaro</b></u> Gnome desktop has this as a default installed desktop icons extension. A native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository is available. Default install from extensions.gnome.org should also work.
+<b><u>Manjaro</b></u> Gnome desktop has this as a default installed desktop icons extension. A native maintained build is available in the Manjaro Repository that can be installed directly with pacman and other tools. [Download](https://software.manjaro.org/package/gnome-shell-extension-gtk4-desktop-icons-ng) from Manjaro Community Repository is available. Default install from extensions.gnome.org should also work as well. There is a pre-buil package in Downloads.
 </p>
 
 For <b><u>Nix OS</b></u>, please see additional manual installation instructions in the section below.
@@ -76,15 +76,21 @@ For <b><u>Slackware Linux</b></u>, it is available in GFS [here](https://reddogl
 
 ## Manual installation
 
-The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next sections. It installs in the local home directory of the user.
+A prebuilt zip file is available in Downloads, unzip in .local/share/gnome-shell/extensions.
 
-`scripts/system-install.sh` is included for systemwide installation. Again, execute from base of the source directory. It performs the meson setup and ninja build/install steps detailed in a following section. This will also install an AppArmor profile for the gtk4-ding in the system /usr location and restarts apparmor. Super user privilges will be required. This does allow userns for gtk4-ding, see ISSUES.md
+SORCE LOCAL INSTALL
+
+The easiest way of installing DING is to run the `scripts/local_install.sh` script from the source directory (after changing directory to the source directory). The script assumes that it is being called from the base of the source directory. It performs the build steps specified in the next sections. It installs in the local home directory of the user.
 
 If there are special steps to build and install the extension and app on your distribution, please submit an MR to this Readme.md to help other users on the same distribution. Some NIX Os users were very helpful in doing that. Also, local_install.sh in the scripts directory does read /etc/lsb-release, and any variables set there are imported into the script. Any variations necessary to install the extension and app on a particular distribution can then be easily coded, based on those variables, at the end of the script (See the Ubuntu example there already). I will be happy to include all changes necessary for your distribution in that script. Please submit an MR for that.
 
+SOURCE SYSTEM INSTALL
+
+`scripts/system-install.sh` is included for system wide installation. Again, execute from base of the source directory. It performs the meson setup and ninja build/install steps detailed in a following section. This will also install an AppArmor profile for the gtk4-ding in the system /usr location and restarts apparmor. Super user privilges will be required. This does allow userns for gtk4-ding, see ISSUES.md
+
 <b><u>Ubuntu</b></u>
 
-SYSTEM INSTALL
+UBUNTU SYSTEM INSTALL
 
 By default, Ubuntu does not allow userns privileges. Only apparmor rules in Ubuntu, can grant userns to specefied programs. These default rules are not defined for bwrap binary, Bubblewrap. This does not allow gnome-desktop library thumbnailFacotry to make thumbnails, and errors are logged. Gtk4-ding bypasses this by creating thumbnails for common image formats and pdf files - dependencies include gdkpixbuf, cairo and poppler. However, other xdg-thumbnailers installed on the system, for example appimage, ffmpgeg, audio, files etc will not work to render thumbnails through the gnome-desktop library.
 
@@ -96,7 +102,7 @@ See ISSUES.md for more information with app-armor.
 
 System wide install for all users recommended as detailed in Manual install above, as Ubuntu has apparmor and userns restrictions enabled by default. The system install will install a apparmor policy for gtk4-ding allowing userns. This allows full functionality. See manual build and install with meson below or manual install with `scripts/system-install.sh`. Apparmor issue is detailed in ISSUES.md.
 
-LOCAL INSTALL
+UBUNTU LOCAL INSTALL
 
 If you are not interested in displaying thumbnails, local install works. If you disable apparmor, local install works with full functionality. A properly functioning version of apparmor-profiles that contains a new bwrap profile is still in the noble-proposed pocket. you can enable it by following the steps of this [wiki](https://wiki.ubuntu.com/Testing/EnableProposed).
 
@@ -226,7 +232,7 @@ To create a ZIP file with the extension, just run:
 ./scripts/export-zip.sh
 ```
 
-This will create the zip file `gtk4-ding@smedius.gitlab.com.zip` of the extension, following the publishing rules at extensions.gnome.org.
+This will create the zip file `gtk4-ding@smedius.gitlab.com.zip` of the extension, following the publishing rules at extensions.gnome.org. A pre-built zip is available in Downloads, unzip in ~/.local/share/gnome-shell/extensions to just install manually.
 
 ## Contributing
 

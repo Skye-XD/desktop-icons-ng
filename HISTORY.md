@@ -1,5 +1,10 @@
 # History of versions #
- * Adw version 100.8 for Gnome 45, 46, 47, 48. (Sundeep Mediratta)
+ * Adw version 100.8-2 for Gnome 45, 46, 47, 48.
+  * Bug fix for GioUnix not available on older versions. (Sundeep Mediratta)
+  * Weblate translations (Weblate Authors)
+  * Update History.MD, update app release note, metadata.json.
+
+ * Adw version 100.8 for Gnome 45, 46, 47, 48.
  * More accurate error messages when a symlink is used to set the Desktop Folder. (Sundeep Mediratta)
  * Improve icon and emblem rendering code- simplify. (Sundeep Mediratta)
  * Right long click- launches shell background menu directly. (Sundeep Mediratta)
