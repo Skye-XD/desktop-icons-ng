@@ -11,13 +11,14 @@
 # Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2024.
 # Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024.
 # Allan Novaes Lima <lnapublicidade@gmail.com>, 2024.
+# Lúcia <lucia.hates.proton@proton.me>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-03 23:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-10-14 20:09+0000\n"
+"Last-Translator: Lúcia <lucia.hates.proton@proton.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -554,6 +555,10 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
+"Este arquivo .desktop possui erros ou aponta para um programa sem "
+"permissões. O arquivo não pode ser executado.\n"
+"\n"
+"Edite o arquivo para definir o programa executável correto."
 
 #: app/desktopFileIcon.js:151
 #, fuzzy
