@@ -6,19 +6,22 @@
 # Andreas Rohr <github@andreas-rohr.de>, 2023, 2024.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2025.
 # Moritz <moritzm@tutanota.de>, 2024.
 # Bingo <bingo90@outlook.at>, 2024, 2025.
 # Camorrista <ekici_abdullah@hotmail.de>, 2025.
 # Mirco Krause <mirco.krause@live.de>, 2025.
+# Captain Falcon <percy@eris23.de>, 2025.
+# Hidden Name <hidden.e-mail@posteo.me>, 2025.
+# Bohdan <yarovoibohdan@gmail.com>, 2025.
+# Deleted User <noreply+83894@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-28 17:15-0400\n"
-"PO-Revision-Date: 2025-10-03 23:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-10-14 20:42+0000\n"
+"Last-Translator: Camorrista <ekici_abdullah@hotmail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -29,28 +32,24 @@ msgstr ""
 "X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
 msgid "Shortcuts"
-msgstr "Shortcut"
+msgstr "Tastenkürzel"
 
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Tastenkürzel bearbeiten"
+msgstr "Tastenkürzel bearbeiten…"
 
 #: app/adwPreferencesWindow.js:178
-#, fuzzy
 msgid "Edit Application Shortcuts"
-msgstr "App-Verknüpfungen"
+msgstr "App-Verknüpfungen bearbeiten"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr "Verknüpfungen sind nur mit aktivierter Erweiterung bearbeitbar"
+msgstr "Tastenkürzel nur bearbeitbar, wenn Erweiterung aktiv ist…"
 
 #: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:698
-#, fuzzy
 msgid "Help translate in your web browser"
-msgstr "Hilfe in Ihrem Webbrowser übersetzen"
+msgstr "Hilf mit, zu übersetzen (im Webbrowser)"
 
 #: app/adwPreferencesWindow.js:477 app/adwPreferencesWindow.js:478
 msgid "Desktop"
@@ -71,9 +70,8 @@ msgid "More"
 msgstr "Mehr"
 
 #: app/adwPreferencesWindow.js:507
-#, fuzzy
 msgid "Desktop Settings"
-msgstr "Desktop-Einstellungen"
+msgstr "Einstellungen des Schreibtischs"
 
 #: app/adwPreferencesWindow.js:508
 #, fuzzy
@@ -81,25 +79,25 @@ msgid "Settings for the Desktop Program"
 msgstr "Einstellungen für das Desktop-Programm"
 
 #: app/adwPreferencesWindow.js:514
-#, fuzzy
 msgid "Desktop Folder"
-msgstr "Schreibtisch Ordner"
+msgstr "Schreibtisch-Ordner"
 
 #: app/adwPreferencesWindow.js:515
-#, fuzzy
-#| msgid "Broken Desktop File"
 msgid "Current Desktop: "
-msgstr "Defekte Desktop-Datei"
+msgstr "Aktuelle Arbeitsfläche: "
 
 #: app/adwPreferencesWindow.js:525
+#, fuzzy
 msgid "Files Settings"
-msgstr "Dateieinstellungen"
+msgstr "Datei-Einstellungen"
 
 #: app/adwPreferencesWindow.js:526
+#, fuzzy
 msgid "Settings shared with Gnome Files"
 msgstr "Mit Gnome-Dateimanager geteilte Einstellungen"
 
 #: app/adwPreferencesWindow.js:533
+#, fuzzy
 msgid "Miscellaneous Tweaks"
 msgstr "Verschiedene Anpassungen"
 
@@ -159,9 +157,8 @@ msgid "Highlight the drop grid"
 msgstr "Das Drop Grid markieren"
 
 #: app/adwPreferencesWindow.js:592
-#, fuzzy
 msgid "New Desktop Folder"
-msgstr "Schreibtisch Ordner"
+msgstr "Neuer Schreibtisch-Ordner"
 
 #: app/adwPreferencesWindow.js:593
 #, fuzzy
@@ -176,7 +173,7 @@ msgstr "Wählen"
 
 #: app/adwPreferencesWindow.js:599
 msgid "Set Desktop back to ~/"
-msgstr ""
+msgstr "Schreibtisch auf ~/ zurücksetzen"
 
 #: app/adwPreferencesWindow.js:601
 #, fuzzy
@@ -278,12 +275,11 @@ msgstr "Übersetzungen"
 
 #: app/adwPreferencesWindow.js:692
 msgid "All tranlations on Weblate.."
-msgstr ""
+msgstr "Alle Übersetzungen auf Weblate..."
 
 #: app/adwPreferencesWindow.js:699
-#, fuzzy
 msgid "Translate"
-msgstr "Übersetze"
+msgstr "Übersetzen"
 
 #: app/appChooser.js:78
 #, fuzzy
@@ -367,6 +363,10 @@ msgid ""
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
+"Diese Appimage Datei ist nicht vertrauenswürdig und kann nicht gestartet "
+"werden. Um das Starten zu ermöglichen müssen Sie rechtsklicken,\n"
+"\n"
+"\"Starten erlauben\" aktivieren"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -531,7 +531,7 @@ msgstr "Kleinere Archive müssen aber unter Windows und Mac installiert werden."
 
 #: app/desktopFileIcon.js:125
 msgid "The Displayed Desktop is writable by others"
-msgstr ""
+msgstr "Das angezeigte Desktop ist von anderen beschreibbar"
 
 #: app/desktopFileIcon.js:128
 msgid ""
@@ -541,6 +541,11 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
+".desktop Dateien können nicht von diesem Desktop gestartet werden, da er "
+"schreibbar für andere Nutzer ist.\n"
+"\n"
+"Bitte überprüfen Sie die Berechtigungen des Desktop-Ordners und stellen Sie "
+"sicher, dass dieser nicht für andere Nutzer schreibbar ist."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
@@ -553,6 +558,10 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
+"Diese .desktop-Datei hat Fehler oder zeigt auf ein Programm ohne "
+"Berechtigungen. Es kann nicht ausgeführt werden.\n"
+"\n"
+"Bearbeiten Sie die Datei, um das korrekte ausführbare Programm einzustellen."
 
 #: app/desktopFileIcon.js:151
 #, fuzzy
@@ -560,13 +569,12 @@ msgid "Invalid Permissions on Desktop File"
 msgstr "Ungültige Berechtigungen auf Desktop-Datei"
 
 #: app/desktopFileIcon.js:154
-#, fuzzy
 msgid ""
 "This .desktop File has incorrect Permissions. Right Click to edit "
 "Properties, then:\n"
 msgstr ""
-"Diese .desktop Die Datei hat falsche Berechtigungen. Rechts Klicken Sie, um "
-"Eigenschaften zu bearbeiten, dann:\n"
+"Diese .desktop Datei hat falsche Berechtigungen. Klicken Sie auf die rechte "
+"Maustaste, um die Eigentschaften zu bearbeiten und dann:\n"
 
 #: app/desktopFileIcon.js:178
 #, fuzzy
@@ -581,6 +589,10 @@ msgid ""
 "\n"
 "Enable \"Allow Launching\""
 msgstr ""
+"Diese .desktop-Datei ist nicht vertrauenswürdig, sie kann nicht gestartet "
+"werden. Um sie startbar zu machen, rechtsklicke, und dann:\n"
+"\n"
+"Aktiviere \"Starten erlauben\""
 
 #: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
 #, fuzzy
@@ -600,19 +612,19 @@ msgstr "Auftragserstellung fehlgeschlagen."
 
 #: app/desktopFolderMonitor.js:102
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr ""
+msgstr "Der neue Schreibtisch-Ordner ist eine symbolische Verknüpfung"
 
 #: app/desktopFolderMonitor.js:109
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
+msgstr "Der neue Schreibtisch-Ordner existiert nicht oder ist kein Ordner!"
 
 #: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "Schreibtisch-Ordner geändert"
 
 #: app/desktopFolderMonitor.js:121
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "Wechsle zu neuem Schreibtisch-Ordner…"
 
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
@@ -623,7 +635,7 @@ msgstr "Desktop-Symbol"
 
 #: app/desktopManager.js:157
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "Die Skalierung des Monitor-Frame-Buffers ist nicht aktiviert"
 
 #: app/desktopManager.js:158
 msgid ""
@@ -632,6 +644,10 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"Mehrere Monitore mit unterschiedlichen Zoomeinstellungen, es wird eine "
+"Framebufferskalierung pro Monitor empfohlen.\n"
+"\n"
+"Bitte aktivieren Sie dies in den Mutter Dconf-Einstellungen."
 
 #: app/desktopManager.js:169
 msgid ""
@@ -639,6 +655,10 @@ msgid ""
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"Mehrere Monitore mit unterschiedlichen Zoomeinstellungen.\n"
+"\n"
+"Soll die Framebufferskalierung pro Monitor in den Mutter Dconf-Einstellungen "
+"aktiviert werden?"
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, fuzzy
@@ -647,7 +667,7 @@ msgstr "Aktivieren"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "Der Desktop kann nicht angezeigt werden"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
@@ -656,6 +676,9 @@ msgid ""
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"Der Schreibtisch-Ordner {desktop} ist eine symbolische Verknüpfung\n"
+"\n"
+"Bitte wählen Sie einen realen Ordner als Schreibtisch-Ordner"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
@@ -664,6 +687,10 @@ msgid ""
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
+"Der Schreibtisch-Ordner {desktop} existiert nicht oder ist kein Verzeichnis\n"
+"\n"
+"Überprüfen Sie die Installation der xdg-utils und setzen Sie den korrekten "
+"Schreibtisch-Ordner"
 
 #: app/desktopManager.js:219
 #, fuzzy
@@ -697,6 +724,9 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"Der Gnome-Dateimanager ist nicht konfiguriert Ordner zu öffnen!\n"
+"Überprüfe  die xdg-utils Installation\n"
+"Überprüfe die Gnome-Dateimanager .desktop Datei"
 
 #: app/desktopManager.js:328
 msgid "Clear current selection before new search"
@@ -795,7 +825,7 @@ msgstr "Desktop"
 
 #: app/desktopMenu.js:949
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "Standard Desktop wiederherstellen"
 
 #: app/desktopMenu.js:953
 msgid "Desktop Icon Settings"
@@ -835,10 +865,8 @@ msgid "Arrange By…"
 msgstr "Anordnen nach…"
 
 #: app/desktopMenu.js:997
-#, fuzzy
-#| msgid "Show Desktop in Files"
 msgid "Show Desktop In {0}"
-msgstr "Desktop anzeigen in {0}"
+msgstr "Desktop in {0} anzeigen"
 
 #: app/desktopMenu.js:1002
 #, fuzzy
@@ -847,7 +875,7 @@ msgstr "Öffnen Sie in {0}"
 
 #: app/desktopMenu.js:1018
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Shell Menü…"
 
 #: app/dragManager.js:101 app/dragManager.js:926
 #, fuzzy
@@ -1212,11 +1240,11 @@ msgstr "Standardtastenkürzel"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
-msgstr ""
+msgstr "Neu festlegen…"
 
 #: app/shortcutManager.js:125
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr ""
+msgstr "Zusatztaste + Taste (z.B. Strg + Alt + D)"
 
 #: app/shortcutManager.js:130
 #, fuzzy
@@ -1235,7 +1263,7 @@ msgstr "Tastenkürzel anzeigen"
 
 #: app/shortcutManager.js:244
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr ""
+msgstr "Allgemeine systemweite Tastenkombinationen"
 
 #: app/shortcutManager.js:302
 #, fuzzy
@@ -1307,7 +1335,7 @@ msgstr "Desktop-Icon-Einstellungen"
 
 #: app/shortcuts.js:20
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "Symbole aufräumen"
 
 #: app/shortcuts.js:21
 #, fuzzy
@@ -1333,7 +1361,7 @@ msgstr "Symbole anordnen"
 
 #: app/shortcuts.js:25
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "Symbole nach absteigendem Namen anordnen"
 
 #: app/shortcuts.js:26
 #, fuzzy
@@ -1408,7 +1436,7 @@ msgstr "Menü anzeigen"
 
 #: app/shortcuts.js:39
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "Shell-Hintergrundmenü anzeigen"
 
 #: app/shortcuts.js:40
 #, fuzzy
@@ -1418,11 +1446,11 @@ msgstr "Desktop-Verknüpfung erstellen"
 
 #: app/shortcuts.js:41
 msgid "Text Entry Accels Turn On"
-msgstr ""
+msgstr "Texteingabe-Beschleunigung aktivieren"
 
 #: app/shortcuts.js:42
 msgid "Text Entry Accels Turn Off"
-msgstr ""
+msgstr "Texteingabe-Beschleunigung deaktivieren"
 
 #: app/shortcuts.js:44
 #, fuzzy
@@ -1485,6 +1513,8 @@ msgstr "\"${programName}\" wird für Desktop-Icons benötigt"
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
+"Installieren Sie \"${programName}\", damit Desktop Icons diese Aktion "
+"ausführen kann."
 
 #: app/utils/desktopFolderUtils.js:84
 #, fuzzy
@@ -1717,7 +1747,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Hide/Show all desktop windows"
-msgstr ""
+msgstr "Verberge/Zeige alle Desktop Fenster"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 #, fuzzy
@@ -1733,6 +1763,7 @@ msgstr "App-Verknüpfungen"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"
 msgstr ""
+"Überschreiben der vom Benutzer festgelegten Standardanwendungsverknüpfungen"
 
 #, fuzzy
 #~ msgid ""
