@@ -23,6 +23,10 @@ UPDATE April 2025
 
 Application was rewritten, cleaned up and restructured completely and several new classes added for cleaner mantainance.
 
+UPDATE October 2025
+
+Uses Libretranslate to automatically translate into multiple languages.
+
 ## Features and Fixes
 
 New Features and fixes are listed in [FEATURES.md](https://gitlab.com/smedius/desktop-icons-ng/-/blob/main/FEATURES.md?ref_type=heads) in this folder.
@@ -246,7 +250,15 @@ The internal architechture and integration with other extensions, as well as deb
 
 **Translations**
 
-Translations are welcome, the project uses gettext/ngetext, there are PO/POT files in the repository. You can help translate Gtk4 Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/). Translations are only accepted from that web site, it is crowd sourced and translations need to be approved and voted on if anonymous, as they are less likely to have mistakes. It just takes two votes to accept the change. The site also uses machine translation engines. Also direct translations accepted to PO/POT files have broken the app and extension in the past and sometimes do not merge cleanly, the Weblate web sites creates clean PO/POT files that don't break gtk4-ding and merge without problems.
+It is 2025, Machine Translation(MT) and LLM's are pretty good at translating. I have decided to leverage MT to translate all strings in the program into as many languages as supported by free tools to make the app useful to users in multiple languages.  The project uses gettext/ngetext, there are PO/POT files in the repository.
+
+The project uses [LibreTranslate](https://libretranslate.org) to translate into all supported languages. Libretranslate is installed as a git sub-repository. The script po-autofill.js does the main job. The script generate-po.sh starts a docker container running libretranslate and then calls po-autofill.js, the docker container is killed at the end of the run. The script will not touch manually translated, confirmed strings, it only operates on fuzzy or manual-translation flagged strings.
+
+The upside is most strings should be translated, needing less time and effort from users to complete than manual translation process. Most translation strings should appear, there should be a very few marked fuzzy.
+
+The downside is that a lot of strings may have machine translation errors...
+
+Corrections and new translations are welcome,you can help translate Gtk4 Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/). Translations are only accepted from that web site, it is crowd sourced. Also direct translations accepted to PO/POT files have broken the app and extension in the past and sometimes do not merge cleanly, the Weblate web sites creates clean PO/POT files that don't break gtk4-ding and merge without problems. If manually translating, remove both the manual translation "MT: Libretranslate" comment, as well as the machine-translated flag, otherwise the script will autogenerate the flag if the comment is present. This is because msmerge removes the manual-translation flag and marks strings fuzzy as it does not recognize the flag, in which case translations may not show up.
 <p style="text-align: center;">
 <a href="https://hosted.weblate.org/engage/gtk4-desktop-icons-ng/">
 <img src="https://hosted.weblate.org/widgets/gtk4-desktop-icons-ng/-/gtk4-ding-pot/horizontal-auto.svg" alt="Translation status" />

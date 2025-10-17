@@ -277,7 +277,8 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_translator_credits(
-            'Weblate Translators, See History.MD on website.'
+            `Weblate Translators, See History.MD on website. Translated using machine translation with LibreTranslate. Unverified strings, translation may contain errors. Corrections, verification and additional translation can be done on Weblate.
+            Translations available in- ar,az,be,bg,bn,ca,cs,da,de,el,eo,es,et,eu,fa,fi,fr,fur,ga,gl,he,hi,hr,hu,id,it,ja,ka,ko,ky,lv,lt,ms,nb,nb_NO,nl,oc,pl,pt_BR,pt,ro,ru,sk,sl,sq,sv,ta,tl,tr,th,uk,ur,zh-Hans,zh-Hant,zh_CN,zh_TW.`
         );
 
         aboutDialog.set_version(this.version);
@@ -694,14 +695,14 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
         aboutGroup.add(aboutButton);
 
         const tranlationGroup = new Adw.PreferencesGroup({
-            title: _('Translations'),
-            description: _('All tranlations on Weblate..'),
+            title: _('Translation'),
+            description: _('Machine translated using LibreTranslate. User verified and edited on Weblate.'),
         });
 
         aboutFrame.add(tranlationGroup);
 
-        tranlationGroup.add(this.addActionRowButton(_('Translations'),
-            _('Help translate in your web browser'),
+        tranlationGroup.add(this.addActionRowButton(_('Edit Translations'),
+            _('Verify, add or correct translation in your web browser'),
             _('Translate'),
             this.launchWebTranslation.bind(this)
         ));
