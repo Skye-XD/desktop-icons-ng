@@ -1,0 +1,3 @@
+[submodule "subprojects/libretranslate"]
+	path = subprojects/libretranslate
+	url = https://github.com/LibreTranslate/LibreTranslate.git
