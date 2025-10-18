@@ -17,12 +17,14 @@ msgstr ""
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-09-29 22:30+0000\n"
 "Last-Translator: Сергей <asvmail.as@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
@@ -39,7 +41,8 @@ msgstr "Редактировать комбинации клавиш прило�
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr "Комбинации клавиш можно редактировать только при включённом расширении..."
+msgstr ""
+"Комбинации клавиш можно редактировать только при включённом расширении..."
 
 #: app/adwPreferencesWindow.js:288
 msgid "Help translate in your web browser"
@@ -132,7 +135,8 @@ msgstr "Нижний правый угол"
 
 #: app/adwPreferencesWindow.js:580
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Сначала добавлять новые значки на вторичные мониторы, если они доступны"
+msgstr ""
+"Сначала добавлять новые значки на вторичные мониторы, если они доступны"
 
 #: app/adwPreferencesWindow.js:584
 msgid "Snap icons to grid"
@@ -240,25 +244,24 @@ msgstr "О расширении..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
-#, machine-translated
 msgid "Translation"
 msgstr "Перевод"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, machine-translated
-msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr "Машина переводится с помощью LibreTranslate. Пользователь проверяется и редактируется на Weblate."
+msgid ""
+"Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr ""
+"Машина переводится с помощью LibreTranslate. Пользователь проверяется и "
+"редактируется на Weblate."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:704
-#, machine-translated
 msgid "Edit Translations"
 msgstr "Редактировать переводы"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
-#, machine-translated
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Проверьте, добавьте или исправьте перевод в вашем веб-браузере"
 
@@ -288,7 +291,9 @@ msgstr "Ошибка при изменении приложения по умо�
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Произошла ошибка при установке {foo} в качестве приложения по умолчанию для {mimetype}"
+msgstr ""
+"Произошла ошибка при установке {foo} в качестве приложения по умолчанию для "
+"{mimetype}"
 
 #: app/appImageFileItem.js:57
 msgid "Invalid Permissions on AppImage File"
@@ -296,37 +301,31 @@ msgstr "Неверные права доступа к AppImage-файлу"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
-#, machine-translated
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Этот файл AppImage имеет неправильные разрешения."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
-#, machine-translated
 msgid "Right Click to edit Properties, then:"
 msgstr "Правильный клик для редактирования свойств, затем:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
-#, machine-translated
 msgid "Set Permissions, in"
 msgstr "Установить разрешения, в"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
-#, machine-translated
 msgid "Others Access"
 msgstr "Другие Доступ"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
-#, machine-translated
 msgid "Read Only"
 msgstr "Читать только"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, machine-translated
 msgid "or"
 msgstr "или"
 
@@ -338,13 +337,11 @@ msgstr "Ничего"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, machine-translated
 msgid "Enable option"
 msgstr "Включить опцию"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, machine-translated
 msgid "Allow Executing File as a Program"
 msgstr "Разрешить выполнение файла как программы"
 
@@ -354,19 +351,16 @@ msgstr "Не вызывающий доверия AppImage-файл"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
-#, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Это приложение Файлу изображения не доверяют, его нельзя запустить."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
-#, machine-translated
 msgid "To enable launching, right-click, then:"
 msgstr "Чтобы включить запуск, щелкните правой кнопкой мыши, затем:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, machine-translated
 msgid "enable"
 msgstr "обеспечивать"
 
@@ -397,8 +391,12 @@ msgid "AutoAr is not installed"
 msgstr "AutoAr не установлен"
 
 #: app/autoAr.js:72
-msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
-msgstr "Для возможности работы со сжатыми файлами установите file-roller и/или gir-1.2-gnomeAutoAr"
+msgid ""
+"To be able to work with compressed files, install file-roller and/or gir-1.2-"
+"gnomeAutoAr"
+msgstr ""
+"Для возможности работы со сжатыми файлами установите file-roller и/или "
+"gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 msgid "Extracting files"
@@ -520,13 +518,17 @@ msgstr "Показанный рабочий стол доступен для з�
 
 #: app/desktopFileIcon.js:128
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
 msgstr ""
-".deskop-файлы не могут быть запущены с этого рабочего стола, так как папка «Рабочий стол» доступна для записи другим пользователям.\n"
+".deskop-файлы не могут быть запущены с этого рабочего стола, так как папка "
+"«Рабочий стол» доступна для записи другим пользователям.\n"
 "\n"
-"Пожалуйста, проверьте права доступа к этой папке и убедитесь, что она недоступна для записи другим пользователям."
+"Пожалуйста, проверьте права доступа к этой папке и убедитесь, что она "
+"недоступна для записи другим пользователям."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
@@ -534,11 +536,13 @@ msgstr "Нерабочий .desktop-файл"
 
 #: app/desktopFileIcon.js:141
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It "
+"can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Этот .desktop файл содержит ошибки или указывает на программу без необходимых разрешений. Его нельзя выполнить.\n"
+"Этот .desktop файл содержит ошибки или указывает на программу без "
+"необходимых разрешений. Его нельзя выполнить.\n"
 "\n"
 "Отредактируйте файл так, чтобы он указывал на необходимую программу."
 
@@ -548,7 +552,6 @@ msgstr "Неверные права доступа для .desktop-файла"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
-#, machine-translated
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Этот файл рабочего стола имеет неправильные разрешения."
 
@@ -558,7 +561,6 @@ msgstr "Не вызывающий доверия .desktop файл"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
-#, machine-translated
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Этому файлу Desktop не доверяют, его нельзя запустить."
 
@@ -601,11 +603,13 @@ msgstr "Масштабирование буфера кадров монитор�
 
 #: app/desktopManager.js:158
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor "
+"framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"При наличии нескольких мониторов с разными настройками масштабирования рекомендуется масштабировать буфер кадров для каждого монитора.\n"
+"При наличии нескольких мониторов с разными настройками масштабирования "
+"рекомендуется масштабировать буфер кадров для каждого монитора.\n"
 "\n"
 "Включите соответствующие настройки в Dconf для оконного менеджера Mutter"
 
@@ -617,7 +621,8 @@ msgid ""
 msgstr ""
 "Обнаружено несколько мониторов с разными настройками масштабирования.\n"
 "\n"
-"Включить масштабирование буфера кадров для каждого монитора в настройках Dconf для оконного менеджера Mutter?"
+"Включить масштабирование буфера кадров для каждого монитора в настройках "
+"Dconf для оконного менеджера Mutter?"
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
@@ -655,7 +660,9 @@ msgstr "Файловый менеджер GNOME не найден"
 
 #: app/desktopManager.js:220
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "Для «Gtk4 Desktop Icons NG» требуется приложение «Файлы» рабочего стола CNOME."
+msgstr ""
+"Для «Gtk4 Desktop Icons NG» требуется приложение «Файлы» рабочего стола "
+"CNOME."
 
 #: app/desktopManager.js:227
 msgid "There is no default File Manager"
@@ -663,11 +670,14 @@ msgstr "Нет файлового менеджера, установленног
 
 #: app/desktopManager.js:228
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "Не существует приложения, которое обрабатывает mimetype «inode/directory»"
+msgstr ""
+"Не существует приложения, которое обрабатывает mimetype «inode/directory»"
 
 #: app/desktopManager.js:235
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "Приложение «Файлы» среды рабочего стола Gnome не зарегистрировано в качестве файлового менеджера"
+msgstr ""
+"Приложение «Файлы» среды рабочего стола Gnome не зарегистрировано в качестве "
+"файлового менеджера"
 
 #: app/desktopManager.js:236
 msgid ""
@@ -675,9 +685,11 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Приложение «Файлы» для рабочего стола Gnome не запрограммировано на открытие папок!\n"
+"Приложение «Файлы» для рабочего стола Gnome не запрограммировано на открытие "
+"папок!\n"
 "Проверьте установку xdg-utils\n"
-"Проверьте установку .desktop-файла приложения «Файлы» для рабочего стола Gnome"
+"Проверьте установку .desktop-файла приложения «Файлы» для рабочего стола "
+"Gnome"
 
 #: app/desktopManager.js:328
 msgid "Clear current selection before new search"
@@ -1030,7 +1042,9 @@ msgstr "Невозможно отправить каталог по электр
 
 #: app/fileItemMenu.js:965
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Выборка включает в себя каталог. Сжать его первым, чтобы добавить к .zip-файлу?"
+msgstr ""
+"Выборка включает в себя каталог. Сжать его первым, чтобы добавить к .zip-"
+"файлу?"
 
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
@@ -1068,7 +1082,8 @@ msgstr "Не удалось открыть в Console для Gnome"
 
 #: app/fileItemMenu.js:1227
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr "Пожалуйста, установите Console для Gnome или любой другой эмулятор терминала"
+msgstr ""
+"Пожалуйста, установите Console для Gnome или любой другой эмулятор терминала"
 
 #: app/fileItemMenu.js:1235
 msgid "Unable to Open {0}"
@@ -1310,7 +1325,9 @@ msgstr "Нерабочая ссылка"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "Невозможно открыть этот файл, потому что это неработающая символическая ссылка"
+msgstr ""
+"Невозможно открыть этот файл, потому что это неработающая символическая "
+"ссылка"
 
 #: app/volumeIcon.js:58
 msgid "Drive"
@@ -1321,8 +1338,11 @@ msgid "\"${programName}\" is not available"
 msgstr "«${programName}» - недоступно"
 
 #: app/utils/dbusUtils.js:70
-msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr "Установите «${programName}», чтобы разрешить «Desktop Icons» выполнять эти действия."
+msgid ""
+"Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr ""
+"Установите «${programName}», чтобы разрешить «Desktop Icons» выполнять эти "
+"действия."
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
@@ -1353,8 +1373,11 @@ msgid "Display icons on the GNOME desktop"
 msgstr "Показывать значки на рабочем столе GNOME"
 
 #: data/com.desktop.ding.desktop.in:6
-msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;рабочий стол;файлы;значки;комбинации клавиш;папки;"
+msgid ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+"рабочий стол;файлы;значки;комбинации клавиш;папки;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
@@ -1421,24 +1444,36 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "Добавлять новые диски на противоположную сторону экрана"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
-msgstr "Когда добавляются диски и тома на рабочий стол, располагать их на противоположной стороне экрана."
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"Когда добавляются диски и тома на рабочий стол, располагать их на "
+"противоположной стороне экрана."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Показывать прямоугольник в месте назначения во время перемещения"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
-msgstr "При выполнении операции Drag'n'Drop отмечается место в сетке полупрозрачным прямоугольником, куда будет помещён значок."
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"При выполнении операции Drag'n'Drop отмечается место в сетке полупрозрачным "
+"прямоугольником, куда будет помещён значок."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Сортировать специальные папки - Домашняя папка/Корзина/Диски."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
-msgstr "При размещении значков на рабочем столе, для сортировки и изменения положения Домашней папки, Корзины и подключенных сетевых или внешних дисков"
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"При размещении значков на рабочем столе, для сортировки и изменения "
+"положения Домашней папки, Корзины и подключенных сетевых или внешних дисков"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1485,24 +1520,36 @@ msgid "Use black for label text"
 msgstr "Использовать чёрный цвет для текста в подписях"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
-msgstr "Окрашивать текст подписи чёрным цветом вместо белого. Полезно при использовании светлого фона."
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+"Окрашивать текст подписи чёрным цветом вместо белого. Полезно при "
+"использовании светлого фона."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
 msgstr "Показывать новые значки на неосновном мониторе, если он подключён"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
-msgstr "Если подключён второй монитор, новые значки размещаются на неосновном мониторе"
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+"Если подключён второй монитор, новые значки размещаются на неосновном "
+"мониторе"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Значки могут быть размещены в любом месте на рабочем столе"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
-msgstr "Значки не на прямоугольной сетке, но могут быть размещены в любом месте без привязки к сетке"
+msgid ""
+"Icons are not on a rectangular grid but can be postioned anywhere "
+"independent of grid"
+msgstr ""
+"Значки не на прямоугольной сетке, но могут быть размещены в любом месте без "
+"привязки к сетке"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Hide/Show all desktop windows"
@@ -1518,4 +1565,6 @@ msgstr "Пользовательские комбинации клавиш пр�
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Override for default application shortcuts set by the User"
-msgstr "Переопределение для комбинаций клавиш приложения, установленных пользователем по умолчанию"
+msgstr ""
+"Переопределение для комбинаций клавиш приложения, установленных "
+"пользователем по умолчанию"

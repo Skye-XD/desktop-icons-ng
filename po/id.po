@@ -12,7 +12,8 @@ msgstr ""
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,98 +23,82 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, machine-translated
 msgid "Shortcuts"
 msgstr "Pintas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
-#, machine-translated
 msgid "Edit Shortcuts..."
 msgstr "Sunting Jalan Pintas..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
-#, machine-translated
 msgid "Edit Application Shortcuts"
 msgstr "Sunting Jalan Pintas Aplikasi"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
-#, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr "Pintas Dapat disunting hanya ketika Ekstensi Diaktifkan..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:288
-#, machine-translated
 msgid "Help translate in your web browser"
 msgstr "Bantuan menerjemahkan dalam peramban web Anda"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
-#, machine-translated
 msgid "Desktop"
 msgstr "Desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
-#, machine-translated
 msgid "Files"
 msgstr "Berkas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
 #: app/adwPreferencesWindow.js:539
-#, machine-translated
 msgid "Tweaks"
 msgstr "Dua"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
-#, machine-translated
 msgid "More"
 msgstr "Lebih"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:514
-#, machine-translated
 msgid "Desktop Settings"
 msgstr "Pengaturan Desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:515
-#, machine-translated
 msgid "Settings for the Desktop Program"
 msgstr "Pengaturan untuk Program Desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:521
-#, machine-translated
 msgid "Desktop Folder"
 msgstr "Folder Desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:522
-#, machine-translated
 msgid "Current Desktop: "
 msgstr "Desktop Saat ini:"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:532
-#, machine-translated
 msgid "Files Settings"
 msgstr "Pengaturan Berkas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:533
-#, machine-translated
 msgid "Settings shared with Gnome Files"
 msgstr "Pengaturan terbagi dengan Berkas Gnome"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:540
-#, machine-translated
 msgid "Miscellaneous Tweaks"
 msgstr "Lain-lain Dua"
 
@@ -123,7 +108,6 @@ msgstr "Ukuran untuk ikon destop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:560
-#, machine-translated
 msgid "Tiny"
 msgstr "Kecil"
 
@@ -141,300 +125,253 @@ msgstr "Besar"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:569
-#, machine-translated
 msgid "New icons alignment"
 msgstr "Perataan ikon baru"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:571
-#, machine-translated
 msgid "Top left corner"
 msgstr "Sudut kiri atas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:572
-#, machine-translated
 msgid "Top right corner"
 msgstr "Pojok kanan atas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
-#, machine-translated
 msgid "Bottom left corner"
 msgstr "Sudut kiri bawah"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:574
-#, machine-translated
 msgid "Bottom right corner"
 msgstr "Sudut kanan bawah"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:580
-#, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Tambahkan ikon baru ke Monitor Second pertama, jika tersedia"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:584
-#, machine-translated
 msgid "Snap icons to grid"
 msgstr "Kaitkan ikon ke kisi"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:590
-#, machine-translated
 msgid "Highlight the drop grid"
 msgstr "Tandai kisi drop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599
-#, machine-translated
 msgid "New Desktop Folder"
 msgstr "Folder Desktop Baru"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:600
-#, machine-translated
 msgid "Set a new folder for the desktop"
 msgstr "Mengatur folder baru bagi desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
-#, machine-translated
 msgid "Choose"
 msgstr "Pilih"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:606
-#, machine-translated
 msgid "Set Desktop back to ~/"
 msgstr "Atur Desktop kembali ke ~ /"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:608
-#, machine-translated
 msgid "Restore Default Desktop Folder"
 msgstr "Kembalikan Folder Desktop Baku"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:610
-#, machine-translated
 msgid "Restore"
 msgstr "Pulihkan"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:620
-#, machine-translated
 msgid "Add information emblems for links, encryption"
 msgstr "Tambahkan emblem informasi untuk link, enkripsi"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:624
-#, machine-translated
 msgid "Use dark text in icon labels"
 msgstr "Gunakan teks gelap di label ikon"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:629
-#, machine-translated
 msgid "Show the personal folder on the desktop"
 msgstr "Tampilkan folder pribadi pada desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:634
-#, machine-translated
 msgid "Show the trash icon on the desktop"
 msgstr "Tampilkan ikon tempat sampah pada desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:639
-#, machine-translated
 msgid "Show external drives on the desktop"
 msgstr "Tampilkan drive eksternal di desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:644
-#, machine-translated
 msgid "Show network drives on the desktop"
 msgstr "Tampilkan drive jaringan pada desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:649
-#, machine-translated
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Tambahkan drive baru ke sisi lain desktop"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:654
-#, machine-translated
 msgid "Action to Open Items"
 msgstr "Aksi untuk Membuka Objek"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:656
-#, machine-translated
 msgid "Single click"
 msgstr "Klik tunggal"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:657
-#, machine-translated
 msgid "Double click"
 msgstr "Klik ganda"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:662
-#, machine-translated
 msgid "Show image thumbnails"
 msgstr "Tampilkan gambar mini"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:664
-#, machine-translated
 msgid "Always"
 msgstr "Selalu"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:665
-#, machine-translated
 msgid "On this computer only"
 msgstr "Di komputer ini saja"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:666
-#, machine-translated
 msgid "Never"
 msgstr "Tidak pernah"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:671
-#, machine-translated
 msgid "Show a context menu item to delete permanently"
 msgstr "Tampilkan butir menu konteks untuk dihapus permanen"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:676
-#, machine-translated
 msgid "Show hidden files"
 msgstr "Tampilkan berkas tersembunyi"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:681
-#, machine-translated
 msgid "Open folders on drag hover"
 msgstr "Buka folder saat seret hover"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:685
-#, machine-translated
 msgid "About..."
 msgstr "Tentang..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
-#, machine-translated
 msgid "Translation"
 msgstr "Terjemahan"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, machine-translated
-msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr "Mesin diterjemahkan menggunakan LibreTranslate. Pengguna diverifikasi dan diedit pada Weblate."
+msgid ""
+"Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr ""
+"Mesin diterjemahkan menggunakan LibreTranslate. Pengguna diverifikasi dan "
+"diedit pada Weblate."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:704
-#, machine-translated
 msgid "Edit Translations"
 msgstr "Sunting Terjemahan"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
-#, machine-translated
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Verifikasi, tambahkan atau benar terjemahan dalam peramban web Anda"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:706
-#, machine-translated
 msgid "Translate"
 msgstr "Terjemahkan"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Pilih aplikasi untuk dibuka <b> {foo} < / b >"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
-#, machine-translated
 msgid "Open Items"
 msgstr "Buka Item"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
-#, machine-translated
 msgid "Open Folder"
 msgstr "Buka Folder"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, machine-translated
 msgid "Open File"
 msgstr "Buka Berkas"
 
 # MT: LibreTranslate
 #: app/appChooser.js:165
-#, machine-translated
 msgid "Error changing default application"
 msgstr "Galat mengubah aplikasi baku"
 
 #: app/appChooser.js:168
-#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
-#, machine-translated
 msgid "Invalid Permissions on AppImage File"
 msgstr "Hak Akses Tak Valid di Berkas Aplikasi"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
-#, machine-translated
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Berkas AppImage ini memiliki Hak Akses yang salah."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
-#, machine-translated
 msgid "Right Click to edit Properties, then:"
 msgstr "Klik Kanan untuk menyunting Properti, kemudian:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
-#, machine-translated
 msgid "Set Permissions, in"
 msgstr "Set Hak, di"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
-#, machine-translated
 msgid "Others Access"
 msgstr "Akses Lainnya"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
-#, machine-translated
 msgid "Read Only"
 msgstr "Hanya Baca"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, machine-translated
 msgid "or"
 msgstr "atau"
 
@@ -442,43 +379,36 @@ msgstr "atau"
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
-#, machine-translated
 msgid "None"
 msgstr "Nihil"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, machine-translated
 msgid "Enable option"
 msgstr "Aktifkan opsi"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, machine-translated
 msgid "Allow Executing File as a Program"
 msgstr "Ijinkan Menjalankan Berkas sebagai Program"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:79
-#, machine-translated
 msgid "Untrusted AppImage File"
 msgstr "Berkas AppImage Tak Dipercaya"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
-#, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "App ini Berkas gambar tak terpercaya, tak dapat diluncurkan."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
-#, machine-translated
 msgid "To enable launching, right-click, then:"
 msgstr "Untuk mengaktifkan peluncuran, klik kanan, lalu:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, machine-translated
 msgid "enable"
 msgstr "aktifkan"
 
@@ -489,13 +419,11 @@ msgstr "Izinkan Peluncuran"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, machine-translated
 msgid "Folder name"
 msgstr "Nama folder"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, machine-translated
 msgid "File name"
 msgstr "Nama berkas"
 
@@ -506,31 +434,30 @@ msgstr "OK"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:75
-#, machine-translated
 msgid "Rename"
 msgstr "Ganti Nama"
 
 # MT: LibreTranslate
 #: app/autoAr.js:71
-#, machine-translated
 msgid "AutoAr is not installed"
 msgstr "Otomatis Ar belum terpasang"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
-#, machine-translated
-msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
-msgstr "Untuk dapat bekerja dengan berkas terkompresi, pasang file- roller dan / atau gir- 1.2-gnome AutoAr"
+msgid ""
+"To be able to work with compressed files, install file-roller and/or gir-1.2-"
+"gnomeAutoAr"
+msgstr ""
+"Untuk dapat bekerja dengan berkas terkompresi, pasang file- roller dan / "
+"atau gir- 1.2-gnome AutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
-#, machine-translated
 msgid "Extracting files"
 msgstr "Mengekstrak berkas"
 
 # MT: LibreTranslate
 #: app/autoAr.js:220
-#, machine-translated
 msgid "Compressing files"
 msgstr "Kompres berkas"
 
@@ -542,121 +469,101 @@ msgstr "Batal"
 
 # MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, machine-translated
 msgid "Enter a password here"
 msgstr "Masukkan sandi di sini"
 
 # MT: LibreTranslate
 #: app/autoAr.js:354
-#, machine-translated
 msgid "Removing partial file '${outputFile}'"
 msgstr "Menghapus sebagian berkas '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:373
-#, machine-translated
 msgid "Creating destination folder"
 msgstr "Membuat folder tujuan"
 
 # MT: LibreTranslate
 #: app/autoAr.js:405
-#, machine-translated
 msgid "Extracting files into '${outputPath}'"
 msgstr "Mengekstrak berkas ke '${outputPath}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:435
-#, machine-translated
 msgid "Extraction completed"
 msgstr "Ekstraksi selesai"
 
 # MT: LibreTranslate
 #: app/autoAr.js:436
-#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "Mengekstrak '${fullPathFile}' telah selesai."
 
 # MT: LibreTranslate
 #: app/autoAr.js:442
-#, machine-translated
 msgid "Extraction cancelled"
 msgstr "Ekstraksi dibatalkan"
 
 # MT: LibreTranslate
 #: app/autoAr.js:443
-#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "Mengekstrak '${fullPathFile}' telah dibatalkan oleh pengguna."
 
 # MT: LibreTranslate
 #: app/autoAr.js:453
-#, machine-translated
 msgid "Passphrase required for ${filename}"
 msgstr "Frasa sandi diperlukan untuk ${filename}"
 
 # MT: LibreTranslate
 #: app/autoAr.js:456
-#, machine-translated
 msgid "Error during extraction"
 msgstr "Galat selama ekstraksi"
 
 # MT: LibreTranslate
 #: app/autoAr.js:483
-#, machine-translated
 msgid "Compressing files into '${outputFile}'"
 msgstr "Kompres berkas ke '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:496
-#, machine-translated
 msgid "Compression completed"
 msgstr "Kompresi selesai"
 
 # MT: LibreTranslate
 #: app/autoAr.js:497
-#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "Kompres berkas ke '${outputFile}' telah selesai."
 
 # MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
-#, machine-translated
 msgid "Cancelled compression"
 msgstr "Kompresi dibatalkan"
 
 # MT: LibreTranslate
 #: app/autoAr.js:502
-#, machine-translated
 msgid "The output file '${outputFile}' already exists."
 msgstr "Berkas keluaran '${outputFile}' sudah ada."
 
 # MT: LibreTranslate
 #: app/autoAr.js:509
-#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "Kompres berkas ke '${outputFile}' telah dibatalkan oleh pengguna."
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
-#, machine-translated
 msgid "Error during compression"
 msgstr "Galat selama kompresi"
 
 # MT: LibreTranslate
 #: app/autoAr.js:547
-#, machine-translated
 msgid "Create archive"
 msgstr "Buat arsip"
 
 # MT: LibreTranslate
 #: app/autoAr.js:571
-#, machine-translated
 msgid "Archive name"
 msgstr "Nama archive"
 
 # MT: LibreTranslate
 #: app/autoAr.js:604
-#, machine-translated
 msgid "Password"
 msgstr "Sandi"
 
@@ -666,158 +573,143 @@ msgstr "Buat"
 
 # MT: LibreTranslate
 #: app/autoAr.js:688
-#, machine-translated
 msgid "Compatible with all operating systems."
 msgstr "Cocok dengan semua sistem operasi."
 
 # MT: LibreTranslate
 #: app/autoAr.js:694
-#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "Sandi terproteksi .zip, harus dipasang pada Windows dan Mac."
 
 # MT: LibreTranslate
 #: app/autoAr.js:700
-#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
 msgstr "Arsip kecil tapi Linux dan Mac saja."
 
 # MT: LibreTranslate
 #: app/autoAr.js:706
-#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Arsip kecil tetapi harus diinstal pada Windows dan Mac."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125
-#, machine-translated
 msgid "The Displayed Desktop is writable by others"
 msgstr "Desktop Yang Ditampilkan dapat ditulisi oleh orang lain"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:128
-#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
 msgstr ""
-".deskop berkas tidak dapat diluncurkan dari Desktop ini sebagai Folder Desktop dapat ditulisi oleh pengguna lain.\n"
+".deskop berkas tidak dapat diluncurkan dari Desktop ini sebagai Folder "
+"Desktop dapat ditulisi oleh pengguna lain.\n"
 "\n"
-"Periksa hak akses Folder Desktop ini, dan pastikan tidak dapat ditulisi oleh orang lain."
+"Periksa hak akses Folder Desktop ini, dan pastikan tidak dapat ditulisi oleh "
+"orang lain."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:138
-#, machine-translated
 msgid "Broken Desktop File"
 msgstr "Berkas Desktop Rusak"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:141
-#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It "
+"can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Berkas .desktop ini memiliki kesalahan atau titik ke suatu program tanpa izin. Hal ini tidak dapat dieksekusi.\n"
+"Berkas .desktop ini memiliki kesalahan atau titik ke suatu program tanpa "
+"izin. Hal ini tidak dapat dieksekusi.\n"
 "\n"
 "Sunting berkas untuk menata Program Executable yang benar."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:151
-#, machine-translated
 msgid "Invalid Permissions on Desktop File"
 msgstr "Hak Akses Tak Valid di Berkas Desktop"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
-#, machine-translated
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Berkas Desktop ini memiliki Hak Akses yang salah."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:173
-#, machine-translated
 msgid "Untrusted Desktop File"
 msgstr "Berkas Desktop Tak Dipercaya"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
-#, machine-translated
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Berkas Desktop ini tak dipercaya, tak dapat diluncurkan."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
-#, machine-translated
 msgid "Could not open File"
 msgstr "Tidak dapat membuka Berkas"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:206
-#, machine-translated
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} tidak dapat membuka berkas dari Tipe ini!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, machine-translated
 msgid "Desktop Folder Change Failed"
 msgstr "Folder Desktop Perubahan Gagal"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
-#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
 msgstr "Folder Desktop Baru adalah Taut Simbolik"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
-#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
 msgstr "Folder Desktop Baru tidak ada atau bukan Folder!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
-#, machine-translated
 msgid "Desktop Folder Changed"
 msgstr "Folder Desktop Diubah"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
-#, machine-translated
 msgid "Switching to new Desktop..."
 msgstr "Berpindah ke Desktop baru..."
 
 # MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, machine-translated
 msgid "Desktop Icons"
 msgstr "Ikon Desktop"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:157
-#, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "Penyangga Bingkai Monitor Skala tak diaktifkan"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:158
-#, machine-translated
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor "
+"framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"Beberapa monitor dengan zoom setting yang berbeda, merekomendasikan skala framebuffer per monitor.\n"
+"Beberapa monitor dengan zoom setting yang berbeda, merekomendasikan skala "
+"framebuffer per monitor.\n"
 "\n"
 "Harap aktifkan dalam Pengaturan Dconf Mutter"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:169
-#, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -829,20 +721,17 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, machine-translated
 msgid "Enable"
 msgstr "Aktifkan"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
-#, machine-translated
 msgid "Can Not Show the Desktop"
 msgstr "Tak Bisa Tampilkan Desktop"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
-#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -855,7 +744,6 @@ msgstr ""
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
-#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -867,37 +755,31 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/desktopManager.js:219
-#, machine-translated
 msgid "GNOME Files not found"
 msgstr "GNOME Berkas tak ditemukan"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:220
-#, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "GNOME Aplikasi berkas diperlukan oleh Ikon Desktop Gtk4 NG."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:227
-#, machine-translated
 msgid "There is no default File Manager"
 msgstr "Tidak ada Manajer Berkas baku"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:228
-#, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Tidak ada aplikasi yang menangani mimetype \"inode / directory\""
 
 # MT: LibreTranslate
 #: app/desktopManager.js:235
-#, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Berkas Gnome tidak terdaftar sebagai Manajer Berkas"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:236
-#, machine-translated
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -909,13 +791,11 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/desktopManager.js:328
-#, machine-translated
 msgid "Clear current selection before new search"
 msgstr "Bersihkan pilihan kini sebelum pencarian baru"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1238
-#, machine-translated
 msgid "Find Files on Desktop"
 msgstr "Cari Berkas di Desktop"
 
@@ -925,31 +805,26 @@ msgstr "Folder Baru"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1613
-#, machine-translated
 msgid "Folder Creation Failed"
 msgstr "Pembuatan Folder Gagal"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1614
-#, machine-translated
 msgid "Could not create folder"
 msgstr "Tidak dapat membuat folder"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:601
-#, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Tak bisa membuka Desktop dalam Berkas Gnome"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:620
-#, machine-translated
 msgid "Preferences Window is Open"
 msgstr "Jendela Preferensi Terbuka"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:621
-#, machine-translated
 msgid "This Window is open. Please switch to the active window."
 msgstr "Jendela ini terbuka. Harap beralih ke jendela aktif."
 
@@ -959,85 +834,71 @@ msgstr "Pengaturan"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:813
-#, machine-translated
 msgid "Template Creation Error"
 msgstr "Galat Penciptaan Templat"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:814
-#, machine-translated
 msgid "Could not create document"
 msgstr "Tak bisa membuat dokumen"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:919
-#, machine-translated
 msgid "Name"
 msgstr "Nama"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:921
-#, machine-translated
 msgid "Name Z-A"
 msgstr "Nama ZA"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:923
-#, machine-translated
 msgid "Modified Time"
 msgstr "Waktu Diubah"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:925
-#, machine-translated
 msgid "Type"
 msgstr "Tipe"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:927
-#, machine-translated
 msgid "Size"
 msgstr "Ukuran"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:932
-#, machine-translated
 msgid "Keep Arranged…"
 msgstr "Tetap atur.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:937
-#, machine-translated
 msgid "Keep Stacked by Type…"
 msgstr "Keep Stacked by Type.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:939
-#, machine-translated
 msgid "Sort Home/Drives/Trash…"
 msgstr "Urutkan Home / Drives / Tong Sampah.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:944
-#, machine-translated
 msgid "Change Desktop"
 msgstr "Ubah Desktop"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:949
-#, machine-translated
 msgid "Restore Default Desktop"
 msgstr "Kembalikan Desktop Baku"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:953
-#, machine-translated
 msgid "Desktop Icon Settings"
 msgstr "Pengaturan Ikon Desktop"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:955
-#, machine-translated
 msgid "Show Shortcuts"
 msgstr "Tampilkan Jalan Pintas"
 
@@ -1059,73 +920,61 @@ msgstr "Jadi Lagi"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:978 app/shortcuts.js:14
-#, machine-translated
 msgid "Select All"
 msgstr "Pilih Semua"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:985
-#, machine-translated
 msgid "Arrange Icons"
 msgstr "Atur Ikon"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:989
-#, machine-translated
 msgid "Arrange By…"
 msgstr "Arrange By.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:997
-#, machine-translated
 msgid "Show Desktop In {0}"
 msgstr "Tampilkan Desktop Dalam {0}"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1002
-#, machine-translated
 msgid "Open In {0}"
 msgstr "Buka Dalam {0}"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1018
-#, machine-translated
 msgid "Shell Menu…"
 msgstr "Shell Menu.."
 
 # MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
-#, machine-translated
 msgid "Making SymLink Failed"
 msgstr "Membuat SymLink Gagal"
 
 # MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
-#, machine-translated
 msgid "Could not create symbolic link"
 msgstr "Tak bisa membuat taut simbolik"
 
 # MT: LibreTranslate
 #: app/dragManager.js:739
-#, machine-translated
 msgid "Copy/Move Failed"
 msgstr "Salin / pindahkan Gagal"
 
 # MT: LibreTranslate
 #: app/dragManager.js:740
-#, machine-translated
 msgid "{0} Does not exist"
 msgstr "{0} Tidak ada"
 
 # MT: LibreTranslate
 #: app/dragManager.js:782
-#, machine-translated
 msgid "Choose Action for Files"
 msgstr "Pilih Aksi untuk Berkas"
 
 # MT: LibreTranslate
 #: app/dragManager.js:783
-#, machine-translated
 msgid "Move"
 msgstr "Pindah"
 
@@ -1135,56 +984,47 @@ msgstr "Salin"
 
 # MT: LibreTranslate
 #: app/dragManager.js:783
-#, machine-translated
 msgid "Link"
 msgstr "Taut"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, machine-translated
 msgid "Folder"
 msgstr "Folder"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, machine-translated
 msgid "File"
 msgstr "Berkas"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:270
-#, machine-translated
 msgid "Opening File Failed"
 msgstr "Gagal Membuka Berkas"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:276
-#, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Tidak ada aplikasi yang terpasang untuk membuka \"{fo}\" berkas."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:104
-#, machine-translated
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Folder Baru dengan {0} butir"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:114
-#, machine-translated
 msgid "Open All..."
 msgstr "Buka Semua..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, machine-translated
 msgid "Launch"
 msgstr "Luncurkan"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:135
-#, machine-translated
 msgid "Open with {foo}"
 msgstr "Buka dengan {foo}"
 
@@ -1202,43 +1042,36 @@ msgstr "Ekstrak ke…"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, machine-translated
 msgid "Open With..."
 msgstr "Buka Dengan..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:176
-#, machine-translated
 msgid "Open All With Other Application..."
 msgstr "Buka Semua Dengan Aplikasi Lain..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:184
-#, machine-translated
 msgid "Launch using Integrated Graphics Card"
 msgstr "Luncurkan menggunakan Kartu Grafik Terpadu"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:206
-#, machine-translated
 msgid "Stack This Type"
 msgstr "Stack Tipe Ini"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:207
-#, machine-translated
 msgid "Unstack This Type"
 msgstr "Hapus Tipe Ini"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:231
-#, machine-translated
 msgid "Run as a Program"
 msgstr "Jalankan sebagai Program"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:234
-#, machine-translated
 msgid "Scripts"
 msgstr "Skrip"
 
@@ -1248,13 +1081,11 @@ msgstr "Potong"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, machine-translated
 msgid "Move to..."
 msgstr "Pindah ke..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, machine-translated
 msgid "Copy to..."
 msgstr "Salin ke..."
 
@@ -1264,33 +1095,28 @@ msgstr "Ganti Nama…"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, machine-translated
 msgid "Create Link..."
 msgstr "Buat Tautan..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:261
-#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Kompres folder {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:269
-#, machine-translated
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Kompres {0} berkas"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:276
-#, machine-translated
 msgid "Email to..."
 msgstr "Email ke..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:286
-#, machine-translated
 msgid "Send to Mobile Device"
 msgstr "Kirim ke Perangkat Seluler"
 
@@ -1304,7 +1130,6 @@ msgstr "Hapus permanen"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
-#, machine-translated
 msgid "Don't Allow Launching"
 msgstr "Jangan Izinkan Peluncuran"
 
@@ -1322,7 +1147,6 @@ msgstr "Lepas Kaitan"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:354
-#, machine-translated
 msgid "Common Properties"
 msgstr "Properti Umum"
 
@@ -1332,43 +1156,36 @@ msgstr "Properti"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:362
-#, machine-translated
 msgid "Show All in {0}"
 msgstr "Tampilkan Semua di {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:363
-#, machine-translated
 msgid "Show in {0}"
 msgstr "Tampilkan di {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:374
-#, machine-translated
 msgid "Open in {0}"
 msgstr "Buka dalam {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:537
-#, machine-translated
 msgid "Open Item"
 msgstr "Butir Terbuka"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:819
-#, machine-translated
 msgid "Extraction Cancelled"
 msgstr "Ekstraksi Dibatalkan"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:820
-#, machine-translated
 msgid "Unable to extract File, no destination folder"
 msgstr "Tak bisa mengekstrak Berkas, tak ada folder tujuan"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, machine-translated
 msgid "Select Destination"
 msgstr "Pilih Tujuan"
 
@@ -1378,213 +1195,178 @@ msgstr "Pilih"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:963
-#, machine-translated
 msgid "Can not email a Directory"
 msgstr "Tidak dapat email direktori"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:965
-#, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Pilihan termasuk Direktori, kompres ke berkas .zip pertama?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
-#, machine-translated
 msgid "Mail Error"
 msgstr "Kesalahan Surat"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:993
-#, machine-translated
 msgid "Unable to find zip command, please install the program"
 msgstr "Tak bisa temukan perintah zip, silakan pasang program"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
-#, machine-translated
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1023
-#, machine-translated
 msgid "There was an error in creating a zip archive"
 msgstr "Ada kesalahan dalam membuat sebuah arsip zip"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1041
-#, machine-translated
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Tidak dapat menemukan xdg-email, silakan instal program"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1059
-#, machine-translated
 msgid "There was an error in emailing Files"
 msgstr "Terjadi galat pada berkas surel"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1174
-#, machine-translated
 msgid "Can Not open the Working Directory"
 msgstr "Tidak dapat membuka Direktori Kerja"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1225
-#, machine-translated
 msgid "Unable to Open in Gnome Console"
 msgstr "Tidak dapat membuka dalam Konsol Gnome"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1227
-#, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Silakan Pasang Konsol Gnome atau Program Terminal lainnya"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1235
-#, machine-translated
 msgid "Unable to Open {0}"
 msgstr "Tidak dapat membuka {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1237
-#, machine-translated
 msgid "Please Install {0}"
 msgstr "Silakan Pasang {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1281
-#, machine-translated
 msgid "Copy Cancelled"
 msgstr "Salin Dibatalkan"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1282
-#, machine-translated
 msgid "Unable to copy Files, no destination folder"
 msgstr "Tak bisa menyalin Berkas, tak ada folder tujuan"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1305
-#, machine-translated
 msgid "Move Cancelled"
 msgstr "Pindah Dibatalkan"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1306
-#, machine-translated
 msgid "Unable to move Files, no destination folder"
 msgstr "Tak bisa memindah Berkas, tak ada folder tujuan"
 
 # MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
-#, machine-translated
 msgid "$appName$ can not open files of this Type!"
 msgstr "$appName $tidak dapat membuka berkas dari Tipe ini!"
 
 # MT: LibreTranslate
 #: app/preferences.js:885
-#, machine-translated
 msgid "Console"
 msgstr "Konsol"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:85
-#, machine-translated
 msgid "Default Shortcut:"
 msgstr "Pintas Baku:"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:109
-#, machine-translated
 msgid "Type new..."
 msgstr "Tipe baru..."
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:125
-#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr "Modifier + Key (mis. Ctrl + Alt + D)"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, machine-translated
 msgid "Reset to Default"
 msgstr "Reset ke Baku"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, machine-translated
 msgid "No Accelerator"
 msgstr "Tanpa Akselerator"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, machine-translated
 msgid "System Shortcuts"
 msgstr "Jalan Pintas Sistem"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:244
-#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
 msgstr "Jalan Pintas Papan Ketik Definisi Biasa"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, machine-translated
 msgid "Local Shortcuts"
 msgstr "Jalan Pintas Lokal"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, machine-translated
 msgid "Application Keyboard Shortcuts"
 msgstr "Pintas Papan Ketik Aplikasi"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, machine-translated
 msgid "Global Shortcuts"
 msgstr "Jalan Pintas Global"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, machine-translated
 msgid "System Keyboard Shortcuts"
 msgstr "Jalan Pintas Papan Ketik Sistem"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:661
-#, machine-translated
 msgid "Keyboard Shortcuts"
 msgstr "Jalan Pintas Papan Ketik"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:673
-#, machine-translated
 msgid "Reset Shortcuts"
 msgstr "Reset Jalan Pintas"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:674
-#, machine-translated
 msgid "Reset all shortcuts to Defaults"
 msgstr "Reset semua jalan pintas ke Baku"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:677
-#, machine-translated
 msgid "Reset All..."
 msgstr "Reset Semua..."
 
 # MT: LibreTranslate
 #: app/shortcuts.js:15
-#, machine-translated
 msgid "Show Desktop in Files"
 msgstr "Tampilkan Desktop dalam Berkas"
 
@@ -1594,175 +1376,146 @@ msgstr "Buka dalam Terminal"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:17
-#, machine-translated
 msgid "Change Background"
 msgstr "Ubah Latar Belakang"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:18
-#, machine-translated
 msgid "Change Display Settings"
 msgstr "Ubah Pengaturan Tampilan"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:19
-#, machine-translated
 msgid "Change Desktop Icon Settings"
 msgstr "Ubah Pengaturan Ikon Desktop"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:20
-#, machine-translated
 msgid "Clean Up Icons"
 msgstr "Bersihkan Ikon"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:21
-#, machine-translated
 msgid "Keep Arranged"
 msgstr "Tetap Atur"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:22
-#, machine-translated
 msgid "Keep Stacked"
 msgstr "Terus Stack"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:23
-#, machine-translated
 msgid "Sort Special Folders"
 msgstr "Urutkan Folder Khusus"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:24
-#, machine-translated
 msgid "Arrange Icons by Name"
 msgstr "Atur Ikon menurut Nama"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:25
-#, machine-translated
 msgid "Arrange Icons By Descending Name"
 msgstr "Atur Ikon Dengan Nama Turun"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:26
-#, machine-translated
 msgid "Arrange Icons By Modified Time"
 msgstr "Atur Ikon Dengan Waktu Yang Diubah"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:27
-#, machine-translated
 msgid "Arrange Icons By Kind"
 msgstr "Atur Ikon Dengan Jenis"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:28
-#, machine-translated
 msgid "Arrange Icons By Size"
 msgstr "Atur Ikon Berdasarkan Ukuran"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:29
-#, machine-translated
 msgid "Find Files"
 msgstr "Cari Berkas"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:30
-#, machine-translated
 msgid "Update Desktop"
 msgstr "Mutakhirkan Desktop"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:31
-#, machine-translated
 msgid "Show Hidden Files"
 msgstr "Tampilkan Berkas Tersembunyi"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:32
-#, machine-translated
 msgid "Unselect All"
 msgstr "Tak Pilih Semua"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:33
-#, machine-translated
 msgid "Preview"
 msgstr "Pratilik"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:34
-#, machine-translated
 msgid "Choose Icon Left"
 msgstr "Pilih Ikon Kiri"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:35
-#, machine-translated
 msgid "Choose Icon Right"
 msgstr "Pilih Ikon Kanan"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:36
-#, machine-translated
 msgid "Choose Icon Up"
 msgstr "Pilih Ikon Naik"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:37
-#, machine-translated
 msgid "Choose Icon Down"
 msgstr "Pilih Ikon Turun"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:38
-#, machine-translated
 msgid "Show Menu"
 msgstr "Tampilkan Menu"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:39
-#, machine-translated
 msgid "Display Shell Background Menu"
 msgstr "Tampilkan Menu Latar Belakang Shell"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:40
-#, machine-translated
 msgid "Create Desktop Shortcut"
 msgstr "Buat Jalan Pintas Desktop"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:41
-#, machine-translated
 msgid "Text Entry Accels Turn On"
 msgstr "Penutup Aktif Teks"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:42
-#, machine-translated
 msgid "Text Entry Accels Turn Off"
 msgstr "Penuduh Entri Teks Matikan"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:44
-#, machine-translated
 msgid "Show Shortcut Viewer"
 msgstr "Tampilkan Jalan Pintas Penilik"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:45
-#, machine-translated
 msgid "Show Or Hide Desktop Icons"
 msgstr "Tampilkan Atau Sembunyikan Ikon Desktop"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, machine-translated
 msgid "More Information"
 msgstr "Informasi Lebih"
 
@@ -1774,7 +1527,6 @@ msgstr "Rumah"
 
 # MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, machine-translated
 msgid "Trash"
 msgstr "Tempat Sampah"
 
@@ -1784,43 +1536,39 @@ msgstr "Tempat Sampah"
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, machine-translated
 msgid "Stack"
 msgstr "Stack"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:100
-#, machine-translated
 msgid "Broken Link"
 msgstr "Tautan Rusak"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:102
-#, machine-translated
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Tidak dapat membuka berkas ini karena ini adalah Symlink Broken"
 
 # MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, machine-translated
 msgid "Drive"
 msgstr "Kandar"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
-#, machine-translated
 msgid "\"${programName}\" is not available"
 msgstr "\"${programName}\" tidak tersedia"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-#, machine-translated
-msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr "Pasang \"${programName}\" untuk mengaktifkan Ikon Desktop untuk melakukan aksi ini."
+msgid ""
+"Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr ""
+"Pasang \"${programName}\" untuk mengaktifkan Ikon Desktop untuk melakukan "
+"aksi ini."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
-#, machine-translated
 msgid "Choose Desktop Folder"
 msgstr "Pilih Folder Desktop"
 
@@ -1830,55 +1578,49 @@ msgstr "Perintah tidak ditemukan"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
-#, machine-translated
 msgid "Choose an app to open the selected files."
 msgstr "Pilih aplikasi untuk membuka berkas yang dipilih."
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
-#, machine-translated
 msgid "Always use for this file type"
 msgstr "Selalu gunakan untuk tipe berkas ini"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, machine-translated
 msgid "_Cancel"
 msgstr "_ Batal"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, machine-translated
 msgid "_Open"
 msgstr "_ Buka"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, machine-translated
 msgid "Display icons on the GNOME desktop"
 msgstr "Tampilkan ikon pada desktop GNOME"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-#, machine-translated
-msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop; ikon; berkas; folder; manajer; atur; sembunyikan; tampilkan; peluncur; jalan pintas;"
+msgid ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"desktop; ikon; berkas; folder; manajer; atur; sembunyikan; tampilkan; "
+"peluncur; jalan pintas;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, machine-translated
 msgid "Show<>Hide"
 msgstr "Tampilkan < > Sembunyikan"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, machine-translated
 msgid "Preferences"
 msgstr "Preferensi"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, machine-translated
 msgid "Disable"
 msgstr "Matikan"
 
@@ -1908,192 +1650,185 @@ msgstr "Tampilkan ikon tong sampah di destop."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
-#, machine-translated
 msgid "New icons start corner"
 msgstr "Sudut awal ikon baru"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
-#, machine-translated
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "Atur sudut dari mana ikon akan mulai ditempatkan."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-#, machine-translated
 msgid "Show external drives in the desktop"
 msgstr "Tampilkan drive eksternal di desktop"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
-#, machine-translated
 msgid "Show the disk drives connected to the computer."
 msgstr "Tampilkan disk drive yang terhubung ke komputer."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-#, machine-translated
 msgid "Show network drives in the desktop"
 msgstr "Tampilkan drive jaringan di desktop"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
-#, machine-translated
 msgid "Show mounted network volumes in the desktop."
 msgstr "Tampilkan volume jaringan terpasang di desktop."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-#, machine-translated
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Tambahkan kandar baru ke sisi berlawanan layar"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-#, machine-translated
-msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
-msgstr "Ketika menambahkan drive dan volume ke desktop, tambahkan mereka ke sisi berlawanan layar."
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"Ketika menambahkan drive dan volume ke desktop, tambahkan mereka ke sisi "
+"berlawanan layar."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
-#, machine-translated
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Tampilkan persegi panjang di tempat tujuan selama DND"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-#, machine-translated
-msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
-msgstr "Ketika melakukan operasi Drag 'n' Drop, tandai tempat di grid di mana ikon akan diletakkan dengan persegi panjang semitransent."
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"Ketika melakukan operasi Drag 'n' Drop, tandai tempat di grid di mana ikon "
+"akan diletakkan dengan persegi panjang semitransent."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
-#, machine-translated
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Urutkan Folder Khusus - Home / Trash Drives."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-#, machine-translated
-msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
-msgstr "Ketika mengurutkan ikon pada desktop, untuk mengurutkan dan mengubah posisi Home, Trash dan mount Network atau Drives Eksternal"
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"Ketika mengurutkan ikon pada desktop, untuk mengurutkan dan mengubah posisi "
+"Home, Trash dan mount Network atau Drives Eksternal"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
-#, machine-translated
 msgid "Keep Icons Arranged"
 msgstr "Pertahankan Ikon Diatur"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
-#, machine-translated
 msgid "Always keep Icons Arranged by the last arranged order"
 msgstr "Selalu simpan Ikon Diatur dengan urutan terakhir yang diatur"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
-#, machine-translated
 msgid "Arrange Order"
 msgstr "Urutan Atur"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
-#, machine-translated
 msgid "Icons Arranged by this property"
 msgstr "Ikon Diatur oleh properti ini"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-#, machine-translated
 msgid "Keep Icons Stacked"
 msgstr "Jauhkan Ikon Stacked"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-#, machine-translated
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr "Selalu jaga Ikon Stack, tipe serupa dikelompokkan"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
-#, machine-translated
 msgid "Type of Files to not Stack"
 msgstr "Tipe Berkas untuk tak Stack"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-#, machine-translated
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "Jenis array string, Jangan Stack jenis berkas"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, machine-translated
 msgid "Add an emblem to links"
 msgstr "Tambahkan lambang ke taut"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, machine-translated
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Tambahkan sebuah lambang untuk memungkinkan untuk mengidentifikasi link lunak."
+msgstr ""
+"Tambahkan sebuah lambang untuk memungkinkan untuk mengidentifikasi link "
+"lunak."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
-#, machine-translated
 msgid "Use black for label text"
 msgstr "Gunakan hitam untuk teks label"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-#, machine-translated
-msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
-msgstr "Cat teks label dalam warna hitam bukan putih. Berguna ketika menggunakan latar belakang cahaya."
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+"Cat teks label dalam warna hitam bukan putih. Berguna ketika menggunakan "
+"latar belakang cahaya."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
 msgstr "Tampilkan ikon baru pada monitor bukan primer bila tersambung"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, machine-translated
-msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
-msgstr "Bila monitor kedua tersambung, ikon baru ditempatkan pada monitor non primer"
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+"Bila monitor kedua tersambung, ikon baru ditempatkan pada monitor non primer"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Ikon dapat diletakkan dimana saja di Desktop"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, machine-translated
-msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
-msgstr "Ikon tidak pada kisi persegi panjang tetapi dapat ditempatkan di mana saja independen dari kisi"
+msgid ""
+"Icons are not on a rectangular grid but can be postioned anywhere "
+"independent of grid"
+msgstr ""
+"Ikon tidak pada kisi persegi panjang tetapi dapat ditempatkan di mana saja "
+"independen dari kisi"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, machine-translated
 msgid "Hide/Show all desktop windows"
 msgstr "Sembunyikan / Tampilkan semua jendela desktop"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, machine-translated
 msgid "Show the icons on the desktop, or hide them all"
 msgstr "Tampilkan ikon pada desktop, atau sembunyikan semuanya"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, machine-translated
 msgid "User Application Shortcuts"
 msgstr "Jalan Pintas Aplikasi Pengguna"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
-#, machine-translated
 msgid "Override for default application shortcuts set by the User"
 msgstr "Timpa jalan pintas aplikasi bawaan yang ditata oleh Pengguna"

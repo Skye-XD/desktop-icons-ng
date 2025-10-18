@@ -1539,7 +1539,8 @@ msgid "Display icons on the GNOME desktop"
 msgstr "Prikaži mapu smeća na radnoj površini"
 
 #: data/com.desktop.ding.desktop.in:6
-msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgid ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
@@ -1770,11 +1771,11 @@ msgstr ""
 
 #, fuzzy
 #~ msgid ""
-#~ "For this functionality to work in Desktop Icons, you must install \"$"
-#~ "{programName}\" in your system."
+#~ "For this functionality to work in Desktop Icons, you must install "
+#~ "\"${programName}\" in your system."
 #~ msgstr ""
-#~ "Da bi ova funkcija radila u ikonama radne površine, morate instalirati \"$"
-#~ "{programName}\" u svoj sustav."
+#~ "Da bi ova funkcija radila u ikonama radne površine, morate instalirati "
+#~ "\"${programName}\" u svoj sustav."
 
 #, fuzzy
 #~ msgid "Website"

@@ -10,7 +10,8 @@ msgstr ""
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-03 23:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/ca/>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,100 +21,86 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, machine-translated
 msgid "Shortcuts"
 msgstr "Dreceres"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
-#, machine-translated
 msgid "Edit Shortcuts..."
 msgstr "Edita dreceres..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
-#, machine-translated
 msgid "Edit Application Shortcuts"
 msgstr "Edita dreceres d' aplicació"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
-#, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr "Dreceres Només es pot editar quan s' hagi habilitat l' extensió..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:288
-#, machine-translated
 msgid "Help translate in your web browser"
 msgstr "Ajuda a traduir al vostre navegador web"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
-#, machine-translated
 msgid "Desktop"
 msgstr "Escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
-#, machine-translated
 msgid "Files"
 msgstr "Fitxers"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
 #: app/adwPreferencesWindow.js:539
-#, machine-translated
 msgid "Tweaks"
 msgstr "TweaksCity name (optional, probably does not need a translation)"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
-#, machine-translated
 msgid "More"
 msgstr "Més"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:514
-#, machine-translated
 msgid "Desktop Settings"
 msgstr "Arranjament de l' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:515
-#, machine-translated
 msgid "Settings for the Desktop Program"
 msgstr "Arranjament del programa d' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:521
-#, machine-translated
 msgid "Desktop Folder"
 msgstr "Carpeta d' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:522
-#, machine-translated
 msgid "Current Desktop: "
 msgstr "Escriptori actual:"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:532
-#, machine-translated
 msgid "Files Settings"
 msgstr "Arranjament dels fitxers"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:533
-#, machine-translated
 msgid "Settings shared with Gnome Files"
 msgstr "Arranjament compartida amb fitxers GNOME"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:540
-#, machine-translated
 msgid "Miscellaneous Tweaks"
-msgstr "Miscel· lània TweaksCity name (optional, probably does not need a translation)"
+msgstr ""
+"Miscel· lània TweaksCity name (optional, probably does not need a "
+"translation)"
 
 #: app/adwPreferencesWindow.js:558
 msgid "Size for the desktop icons"
@@ -141,127 +128,107 @@ msgstr "Alineació de les icones noves"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:571
-#, machine-translated
 msgid "Top left corner"
 msgstr "Cantonada superior esquerra"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:572
-#, machine-translated
 msgid "Top right corner"
 msgstr "Cantonada superior dreta"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
-#, machine-translated
 msgid "Bottom left corner"
 msgstr "Cantonada inferior esquerra"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:574
-#, machine-translated
 msgid "Bottom right corner"
 msgstr "Cantonada inferior dreta"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:580
-#, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Primer afegiu noves icones als monitors secundària, si estan disponibles"
+msgstr ""
+"Primer afegiu noves icones als monitors secundària, si estan disponibles"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:584
-#, machine-translated
 msgid "Snap icons to grid"
 msgstr "Ajusta les icones a la graella"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:590
-#, machine-translated
 msgid "Highlight the drop grid"
 msgstr "Ressalta la graella desplegable"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599
-#, machine-translated
 msgid "New Desktop Folder"
 msgstr "Nova carpeta d' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:600
-#, machine-translated
 msgid "Set a new folder for the desktop"
 msgstr "Estableix una nova carpeta per a l' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
-#, machine-translated
 msgid "Choose"
 msgstr "Tria"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:606
-#, machine-translated
 msgid "Set Desktop back to ~/"
 msgstr "Torna a ~"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:608
-#, machine-translated
 msgid "Restore Default Desktop Folder"
 msgstr "Restaura la carpeta de l' escriptori predeterminat"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:610
-#, machine-translated
 msgid "Restore"
 msgstr "Restaura"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:620
-#, machine-translated
 msgid "Add information emblems for links, encryption"
 msgstr "Afegeix abreviacions d' informació per als enllaços, xifrat"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:624
-#, machine-translated
 msgid "Use dark text in icon labels"
 msgstr "Usa text fosc en etiquetes d' icona"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:629
-#, machine-translated
 msgid "Show the personal folder on the desktop"
 msgstr "Mostra la carpeta personal de l' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:634
-#, machine-translated
 msgid "Show the trash icon on the desktop"
 msgstr "Mostra la icona de la paperera a l' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:639
-#, machine-translated
 msgid "Show external drives on the desktop"
 msgstr "Mostra les unitats externes a l' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:644
-#, machine-translated
 msgid "Show network drives on the desktop"
 msgstr "Mostra els dispositius de xarxa a l' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:649
-#, machine-translated
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Afegeix nous dispositius al costat oposat de l' escriptori"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:654
-#, machine-translated
 msgid "Action to Open Items"
 msgstr "Acció per obrir elements"
 
@@ -283,7 +250,6 @@ msgstr "Sempre"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:665
-#, machine-translated
 msgid "On this computer only"
 msgstr "Només en aquest ordinador"
 
@@ -301,120 +267,103 @@ msgstr "Mostra els fitxers ocults"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:681
-#, machine-translated
 msgid "Open folders on drag hover"
 msgstr "Obre les carpetes en passar per sobre"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:685
-#, machine-translated
 msgid "About..."
 msgstr "Sobre..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
-#, machine-translated
 msgid "Translation"
 msgstr "Traducció"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, machine-translated
-msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr "Màquina traduïda usant Libretrape. L' usuari verificat i editat a Weblate."
+msgid ""
+"Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr ""
+"Màquina traduïda usant Libretrape. L' usuari verificat i editat a Weblate."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:704
-#, machine-translated
 msgid "Edit Translations"
 msgstr "Edita traduccions"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
-#, machine-translated
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Verifica, afegeix o correcte traducció al vostre navegador web"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:706
-#, machine-translated
 msgid "Translate"
 msgstr "Tradueix"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy,machine-translated
+#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Escolliu una aplicació per obrir <b> {foo} </ b>"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
-#, machine-translated
 msgid "Open Items"
 msgstr "Obre elements"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
-#, machine-translated
 msgid "Open Folder"
 msgstr "Obre carpeta"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, machine-translated
 msgid "Open File"
 msgstr "Obre fitxer"
 
 # MT: LibreTranslate
 #: app/appChooser.js:165
-#, machine-translated
 msgid "Error changing default application"
 msgstr "Error en canviar l' aplicació per omissió"
 
 #: app/appChooser.js:168
-#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
-#, machine-translated
 msgid "Invalid Permissions on AppImage File"
 msgstr "Permisos no vàlids al fitxer AppImage"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
-#, machine-translated
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Aquest fitxer d' AppImage té permisos incorrectes."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
-#, machine-translated
 msgid "Right Click to edit Properties, then:"
 msgstr "Cliqueu amb el botó dret per editar les propietats, llavors:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
-#, machine-translated
 msgid "Set Permissions, in"
 msgstr "Estableix permisos, in"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
-#, machine-translated
 msgid "Others Access"
 msgstr "Altres accessos"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
-#, machine-translated
 msgid "Read Only"
 msgstr "Només lectura"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, machine-translated
 msgid "or"
 msgstr "o"
 
@@ -422,43 +371,36 @@ msgstr "o"
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
-#, machine-translated
 msgid "None"
 msgstr "Cap"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, machine-translated
 msgid "Enable option"
 msgstr "Habilita l' opció"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, machine-translated
 msgid "Allow Executing File as a Program"
 msgstr "Permet l' execució de fitxer com a programa"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:79
-#, machine-translated
 msgid "Untrusted AppImage File"
 msgstr "Fitxer d' AppImage no fiable"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
-#, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Aquesta aplicació No es pot executar el fitxer d' imatge."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
-#, machine-translated
 msgid "To enable launching, right-click, then:"
 msgstr "Per habilitar l' execució, clic dret i després:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, machine-translated
 msgid "enable"
 msgstr "habilita"
 
@@ -486,25 +428,25 @@ msgstr "Canvia el nom"
 
 # MT: LibreTranslate
 #: app/autoAr.js:71
-#, machine-translated
 msgid "AutoAr is not installed"
 msgstr "Auto L' Ar no està instal· lat"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
-#, machine-translated
-msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
-msgstr "Per poder treballar amb fitxers comprimits, instal· lar fitxers-roller i/o gir-1. 2- gnòme AutoAr"
+msgid ""
+"To be able to work with compressed files, install file-roller and/or gir-1.2-"
+"gnomeAutoAr"
+msgstr ""
+"Per poder treballar amb fitxers comprimits, instal· lar fitxers-roller i/o "
+"gir-1. 2- gnòme AutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
-#, machine-translated
 msgid "Extracting files"
 msgstr "S' estan extraient fitxers"
 
 # MT: LibreTranslate
 #: app/autoAr.js:220
-#, machine-translated
 msgid "Compressing files"
 msgstr "Comprimeixnt fitxers"
 
@@ -516,284 +458,249 @@ msgstr "Cancel·la"
 
 # MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, machine-translated
 msgid "Enter a password here"
 msgstr "Introduïu aquí una contrasenya"
 
 # MT: LibreTranslate
 #: app/autoAr.js:354
-#, machine-translated
 msgid "Removing partial file '${outputFile}'"
 msgstr "Esborrant el fitxer parcial '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:373
-#, machine-translated
 msgid "Creating destination folder"
 msgstr "S' està creant la carpeta de destí"
 
 # MT: LibreTranslate
 #: app/autoAr.js:405
-#, machine-translated
 msgid "Extracting files into '${outputPath}'"
 msgstr "S' estan extraient fitxers a '${outputPath}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:435
-#, machine-translated
 msgid "Extraction completed"
 msgstr "S' ha completat l' extracció"
 
 # MT: LibreTranslate
 #: app/autoAr.js:436
-#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "S' ha completat l' extracció '${fullPathFile}'."
 
 # MT: LibreTranslate
 #: app/autoAr.js:442
-#, machine-translated
 msgid "Extraction cancelled"
 msgstr "S' ha cancel· lat l' extracció"
 
 # MT: LibreTranslate
 #: app/autoAr.js:443
-#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "S' ha cancel· lat l' extracció '${fullPathFile}' per l' usuari."
 
 # MT: LibreTranslate
 #: app/autoAr.js:453
-#, machine-translated
 msgid "Passphrase required for ${filename}"
 msgstr "La frase de contrasenya requerida per ${filename}"
 
 # MT: LibreTranslate
 #: app/autoAr.js:456
-#, machine-translated
 msgid "Error during extraction"
 msgstr "Error durant l' extracció"
 
 # MT: LibreTranslate
 #: app/autoAr.js:483
-#, machine-translated
 msgid "Compressing files into '${outputFile}'"
 msgstr "Comprimeixnt fitxers a '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:496
-#, machine-translated
 msgid "Compression completed"
 msgstr "S' ha completat el compressió"
 
 # MT: LibreTranslate
 #: app/autoAr.js:497
-#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "S' ha completat la compressió de fitxers en '${outputFile}'."
 
 # MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
-#, machine-translated
 msgid "Cancelled compression"
 msgstr "Compressió cancel· lada"
 
 # MT: LibreTranslate
 #: app/autoAr.js:502
-#, machine-translated
 msgid "The output file '${outputFile}' already exists."
 msgstr "El fitxer de sortida '${outputFile}' ja existeix."
 
 # MT: LibreTranslate
 #: app/autoAr.js:509
-#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "S' han cancel· lat els fitxers dins '${outputFile}' per l' usuari."
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
-#, machine-translated
 msgid "Error during compression"
 msgstr "Error durant la compressió"
 
 # MT: LibreTranslate
 #: app/autoAr.js:547
-#, machine-translated
 msgid "Create archive"
 msgstr "Crea un arxiu"
 
 # MT: LibreTranslate
 #: app/autoAr.js:571
-#, machine-translated
 msgid "Archive name"
 msgstr "Nom de l' arxiu"
 
 # MT: LibreTranslate
 #: app/autoAr.js:604
-#, machine-translated
 msgid "Password"
 msgstr "Contrasenya"
 
 # MT: LibreTranslate
 #: app/autoAr.js:617
-#, machine-translated
 msgid "Create"
 msgstr "Crea"
 
 # MT: LibreTranslate
 #: app/autoAr.js:688
-#, machine-translated
 msgid "Compatible with all operating systems."
 msgstr "Competible amb tots els sistemes operatius."
 
 # MT: LibreTranslate
 #: app/autoAr.js:694
-#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "La contrasenya està protegida. gzip, s' ha d' instal· lar a Windows i Mac."
+msgstr ""
+"La contrasenya està protegida. gzip, s' ha d' instal· lar a Windows i Mac."
 
 # MT: LibreTranslate
 #: app/autoAr.js:700
-#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
 msgstr "Els arxius petits però el Linux i el Mac només."
 
 # MT: LibreTranslate
 #: app/autoAr.js:706
-#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Els arxius petits però s'han d'instal·lar en Windows i Mac."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125
-#, machine-translated
 msgid "The Displayed Desktop is writable by others"
 msgstr "L' escriptori mostrat és d' escriptura per altresName"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:128
-#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
 msgstr ""
-"No s' han pogut executar fitxers. deskop des d' aquest escriptori ja que la carpeta d' escriptori és d' escriptura per altres usuaris.\n"
+"No s' han pogut executar fitxers. deskop des d' aquest escriptori ja que la "
+"carpeta d' escriptori és d' escriptura per altres usuaris.\n"
 "\n"
-"Si us plau, comproveu els permisos d' aquesta carpeta d' escriptori, i assegureu- vos que no es pot escriure en els altres."
+"Si us plau, comproveu els permisos d' aquesta carpeta d' escriptori, i "
+"assegureu- vos que no es pot escriure en els altres."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:138
-#, machine-translated
 msgid "Broken Desktop File"
 msgstr "Fitxer d' escriptori trencat"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:141
-#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It "
+"can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Aquest fitxer .desktop té errors o punts a un programa sense permisos. No es pot executar.\n"
+"Aquest fitxer .desktop té errors o punts a un programa sense permisos. No es "
+"pot executar.\n"
 "\n"
 "Edita el fitxer per establir el programa executable correcte."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:151
-#, machine-translated
 msgid "Invalid Permissions on Desktop File"
 msgstr "Permisos no vàlids al fitxer d' escriptori"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
-#, machine-translated
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Aquest fitxer d' escriptori té permisos incorrectes."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:173
-#, machine-translated
 msgid "Untrusted Desktop File"
 msgstr "Fitxer d' escriptori no fiable"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
-#, machine-translated
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Aquest fitxer d' escriptori no és de confiança, no es pot executar."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
-#, machine-translated
 msgid "Could not open File"
 msgstr "No s' ha pogut obrir Fitxer"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:206
-#, machine-translated
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} no pot obrir fitxers d' aquest tipus!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, machine-translated
 msgid "Desktop Folder Change Failed"
 msgstr "Carpeta d' escriptori Ha fallat el canvi"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
-#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
 msgstr "La nova carpeta d' escriptori és un enllaç simbòlic"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
-#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
 msgstr "La nova carpeta d' escriptori no existeix o no és una carpeta!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
-#, machine-translated
 msgid "Desktop Folder Changed"
 msgstr "S' ha canviat la carpeta de l' escriptori"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
-#, machine-translated
 msgid "Switching to new Desktop..."
 msgstr "S' està canviant a un escriptori nou..."
 
 # MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, machine-translated
 msgid "Desktop Icons"
 msgstr "Icones de l' escriptori"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:157
-#, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "Monitor Buffer No està habilitat l' escalat"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:158
-#, machine-translated
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor "
+"framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"Múltiples monitors amb paràmetres de zoom diferents, recomanada per escalat del \" framebuffer .\"\n"
+"Múltiples monitors amb paràmetres de zoom diferents, recomanada per escalat "
+"del \" framebuffer .\"\n"
 "\n"
 "Si us plau, habiliteu a l' arranjament del Mutt Dconf"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:169
-#, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -805,20 +712,17 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, machine-translated
 msgid "Enable"
 msgstr "Habilita"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
-#, machine-translated
 msgid "Can Not Show the Desktop"
 msgstr "No es pot mostrar l' escriptori"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
-#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -831,7 +735,6 @@ msgstr ""
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
-#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -839,41 +742,39 @@ msgid ""
 msgstr ""
 "La carpeta Escriptori {desktop} no existeix, o no és un directori\n"
 "\n"
-"Comproveu la instal· lació de l' eix X i establiu la carpeta correcta de l' escriptori"
+"Comproveu la instal· lació de l' eix X i establiu la carpeta correcta de l' "
+"escriptori"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:219
-#, machine-translated
 msgid "GNOME Files not found"
 msgstr "GNOME No s' han trobat fitxers"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:220
-#, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "El GNOME Es requereix una aplicació de fitxers per a les icones d' escriptori Gtk4 NG."
+msgstr ""
+"El GNOME Es requereix una aplicació de fitxers per a les icones d' "
+"escriptori Gtk4 NG."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:227
-#, machine-translated
 msgid "There is no default File Manager"
 msgstr "No hi ha cap gestor de fitxers per omissió"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:228
-#, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "No hi ha cap aplicació que pugui manipular el tipus MIME \"inode/ directory\""
+msgstr ""
+"No hi ha cap aplicació que pugui manipular el tipus MIME \"inode/ directory\""
 
 # MT: LibreTranslate
 #: app/desktopManager.js:235
-#, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "No s' han registrat fitxers GNOME com a gestor de fitxers"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:236
-#, machine-translated
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -885,13 +786,11 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/desktopManager.js:328
-#, machine-translated
 msgid "Clear current selection before new search"
 msgstr "Neteja la selecció actual abans de la cerca nova"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1238
-#, machine-translated
 msgid "Find Files on Desktop"
 msgstr "Cerca fitxers a l' escriptori"
 
@@ -901,33 +800,29 @@ msgstr "Carpeta nova"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1613
-#, machine-translated
 msgid "Folder Creation Failed"
 msgstr "La creació de la carpeta ha fallat"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1614
-#, machine-translated
 msgid "Could not create folder"
 msgstr "No s' ha pogut crear la carpeta"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:601
-#, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "No s' ha pogut obrir l' escriptori en fitxers GNOME"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:620
-#, machine-translated
 msgid "Preferences Window is Open"
 msgstr "La finestra de preferències és oberta"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:621
-#, machine-translated
 msgid "This Window is open. Please switch to the active window."
-msgstr "Aquesta finestra està oberta. Si us plau, canvieu a la finestra activa."
+msgstr ""
+"Aquesta finestra està oberta. Si us plau, canvieu a la finestra activa."
 
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 msgid "Settings"
@@ -935,85 +830,71 @@ msgstr "Paràmetres"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:813
-#, machine-translated
 msgid "Template Creation Error"
 msgstr "Error de creació de la plantilla"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:814
-#, machine-translated
 msgid "Could not create document"
 msgstr "No s' ha pogut crear el document"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:919
-#, machine-translated
 msgid "Name"
 msgstr "Nom"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:921
-#, machine-translated
 msgid "Name Z-A"
 msgstr "Nom Z- A"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:923
-#, machine-translated
 msgid "Modified Time"
 msgstr "Temps modificat"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:925
-#, machine-translated
 msgid "Type"
 msgstr "Tipus"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:927
-#, machine-translated
 msgid "Size"
 msgstr "Mida"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:932
-#, machine-translated
 msgid "Keep Arranged…"
 msgstr "Mantén les possibilitats.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:937
-#, machine-translated
 msgid "Keep Stacked by Type…"
 msgstr "Mantén apilat per tipus.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:939
-#, machine-translated
 msgid "Sort Home/Drives/Trash…"
 msgstr "Ordena l' inici/Dris/ Trash.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:944
-#, machine-translated
 msgid "Change Desktop"
 msgstr "Canvia l' escriptori"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:949
-#, machine-translated
 msgid "Restore Default Desktop"
 msgstr "Restaura l' escriptori predeterminat"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:953
-#, machine-translated
 msgid "Desktop Icon Settings"
 msgstr "Arranjament de la icona de l' escriptori"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:955
-#, machine-translated
 msgid "Show Shortcuts"
 msgstr "Mostra les dreceres"
 
@@ -1035,73 +916,61 @@ msgstr "Refés"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:978 app/shortcuts.js:14
-#, machine-translated
 msgid "Select All"
 msgstr "Selecciona- ho tot"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:985
-#, machine-translated
 msgid "Arrange Icons"
 msgstr "Organitza les icones"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:989
-#, machine-translated
 msgid "Arrange By…"
 msgstr "Organitza per.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:997
-#, machine-translated
 msgid "Show Desktop In {0}"
 msgstr "Mostra l' escriptori en {0}"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1002
-#, machine-translated
 msgid "Open In {0}"
 msgstr "Obre en {0}"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1018
-#, machine-translated
 msgid "Shell Menu…"
 msgstr "Menú Shell.."
 
 # MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
-#, machine-translated
 msgid "Making SymLink Failed"
 msgstr "Ha fallat en fer el SymLink"
 
 # MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
-#, machine-translated
 msgid "Could not create symbolic link"
 msgstr "No s' ha pogut crear l' enllaç simbòlic"
 
 # MT: LibreTranslate
 #: app/dragManager.js:739
-#, machine-translated
 msgid "Copy/Move Failed"
 msgstr "Ha fallat en copiar/ moure"
 
 # MT: LibreTranslate
 #: app/dragManager.js:740
-#, machine-translated
 msgid "{0} Does not exist"
 msgstr "{0} No existeix"
 
 # MT: LibreTranslate
 #: app/dragManager.js:782
-#, machine-translated
 msgid "Choose Action for Files"
 msgstr "Escolliu l' acció per als fitxers"
 
 # MT: LibreTranslate
 #: app/dragManager.js:783
-#, machine-translated
 msgid "Move"
 msgstr "Mou"
 
@@ -1111,31 +980,26 @@ msgstr "Copia"
 
 # MT: LibreTranslate
 #: app/dragManager.js:783
-#, machine-translated
 msgid "Link"
 msgstr "Enllaç"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, machine-translated
 msgid "Folder"
 msgstr "Carpeta"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, machine-translated
 msgid "File"
 msgstr "Fitxer"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:270
-#, machine-translated
 msgid "Opening File Failed"
 msgstr "Ha fallat l' obertura del fitxer"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:276
-#, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "No hi ha cap aplicació instal· lada per obrir fitxers \"{fo}\"."
 
@@ -1151,13 +1015,11 @@ msgstr "Obre-ho tot..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, machine-translated
 msgid "Launch"
 msgstr "Engega"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:135
-#, machine-translated
 msgid "Open with {foo}"
 msgstr "Obre amb {foo}"
 
@@ -1175,7 +1037,6 @@ msgstr "Extreu a..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, machine-translated
 msgid "Open With..."
 msgstr "Obre amb..."
 
@@ -1185,25 +1046,21 @@ msgstr "Obre amb una altra aplicació..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:184
-#, machine-translated
 msgid "Launch using Integrated Graphics Card"
 msgstr "Engega usant la targeta gràfica integrat"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:206
-#, machine-translated
 msgid "Stack This Type"
 msgstr "Pila d' aquest tipus"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:207
-#, machine-translated
 msgid "Unstack This Type"
 msgstr "Desmarca aquest tipus"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:231
-#, machine-translated
 msgid "Run as a Program"
 msgstr "Executa com a programa"
 
@@ -1217,13 +1074,11 @@ msgstr "Retalla"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, machine-translated
 msgid "Move to..."
 msgstr "Mou a..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, machine-translated
 msgid "Copy to..."
 msgstr "Copia a..."
 
@@ -1233,13 +1088,11 @@ msgstr "Canvia el nom…"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, machine-translated
 msgid "Create Link..."
 msgstr "Crea enllaç..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:261
-#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Comprimeix {0} carpeta"
@@ -1253,13 +1106,11 @@ msgstr[1] "Comprimeix {0} fitxers"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:276
-#, machine-translated
 msgid "Email to..."
 msgstr "Correu a..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:286
-#, machine-translated
 msgid "Send to Mobile Device"
 msgstr "Envia al dispositiu mòbil"
 
@@ -1297,49 +1148,41 @@ msgstr "Propietats"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:362
-#, machine-translated
 msgid "Show All in {0}"
 msgstr "Mostra tot en {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:363
-#, machine-translated
 msgid "Show in {0}"
 msgstr "Mostra a {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:374
-#, machine-translated
 msgid "Open in {0}"
 msgstr "Obre a {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:537
-#, machine-translated
 msgid "Open Item"
 msgstr "Obre element"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:819
-#, machine-translated
 msgid "Extraction Cancelled"
 msgstr "S' ha cancel· lat l' extracció"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:820
-#, machine-translated
 msgid "Unable to extract File, no destination folder"
 msgstr "No s' ha pogut extreure Fitxer, no hi ha carpeta de destí"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, machine-translated
 msgid "Select Destination"
 msgstr "Selecciona el destí"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
-#, machine-translated
 msgid "Select"
 msgstr "Selecciona"
 
@@ -1349,207 +1192,174 @@ msgstr "No es pot enviar un directori per correu electrònic"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:965
-#, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "La selecció inclou un directori, comprimit en un fitxer. gz primer?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
-#, machine-translated
 msgid "Mail Error"
 msgstr "Error de correu"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:993
-#, machine-translated
 msgid "Unable to find zip command, please install the program"
 msgstr "No s' ha pogut trobar l' ordre zip, instal· leu el programa"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
-#, machine-translated
 msgid "Archive.zip"
 msgstr "Arxiu. gzip"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1023
-#, machine-translated
 msgid "There was an error in creating a zip archive"
 msgstr "Hi ha hagut un error en crear un arxiu zip"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1041
-#, machine-translated
 msgid "Unable to find xdg-email, please install the program"
-msgstr "No s' ha pogut trobar el correu Xdg, si us plau instal· leu el programa"
+msgstr ""
+"No s' ha pogut trobar el correu Xdg, si us plau instal· leu el programa"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1059
-#, machine-translated
 msgid "There was an error in emailing Files"
 msgstr "Hi ha hagut un error en enviar fitxers de correu electrònic"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1174
-#, machine-translated
 msgid "Can Not open the Working Directory"
 msgstr "No es pot obrir el directori de treball"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1225
-#, machine-translated
 msgid "Unable to Open in Gnome Console"
 msgstr "No s' ha pogut obrir a la consola GNOME"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1227
-#, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Instal· leu la consola GNOME o un altre programa de terminalName"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1235
-#, machine-translated
 msgid "Unable to Open {0}"
 msgstr "No s' ha pogut obrir {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1237
-#, machine-translated
 msgid "Please Install {0}"
 msgstr "Instal· leu {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1281
-#, machine-translated
 msgid "Copy Cancelled"
 msgstr "Copia la cancel· lada"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1282
-#, machine-translated
 msgid "Unable to copy Files, no destination folder"
 msgstr "No s' han pogut copiar els fitxers, cap carpeta de destí"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1305
-#, machine-translated
 msgid "Move Cancelled"
 msgstr "S' ha cancel· lat el moviment"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1306
-#, machine-translated
 msgid "Unable to move Files, no destination folder"
 msgstr "No es poden moure fitxers, cap carpeta de destí"
 
 # MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
-#, machine-translated
 msgid "$appName$ can not open files of this Type!"
 msgstr "$appName$ no pot obrir fitxers d' aquest tipus!"
 
 # MT: LibreTranslate
 #: app/preferences.js:885
-#, machine-translated
 msgid "Console"
 msgstr "Consola"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:85
-#, machine-translated
 msgid "Default Shortcut:"
 msgstr "Drecera per omissió:"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:109
-#, machine-translated
 msgid "Type new..."
 msgstr "Tipus nou..."
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:125
-#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr "Modificador + Tecla (p. ex. Ctrl + Alt + D)"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, machine-translated
 msgid "Reset to Default"
 msgstr "Reinicialitza a predeterminat"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, machine-translated
 msgid "No Accelerator"
 msgstr "Sense accelerador"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, machine-translated
 msgid "System Shortcuts"
 msgstr "Dreceres del sistema"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:244
-#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
 msgstr "Dreceres de teclat comuns del sistema"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, machine-translated
 msgid "Local Shortcuts"
 msgstr "Dreceres locals"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, machine-translated
 msgid "Application Keyboard Shortcuts"
 msgstr "Dreceres de teclat d' aplicacions"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, machine-translated
 msgid "Global Shortcuts"
 msgstr "Dreceres globals"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, machine-translated
 msgid "System Keyboard Shortcuts"
 msgstr "Dreceres de teclat del sistema"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:661
-#, machine-translated
 msgid "Keyboard Shortcuts"
 msgstr "Dreceres de teclat"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:673
-#, machine-translated
 msgid "Reset Shortcuts"
 msgstr "Inicialitza les dreceres"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:674
-#, machine-translated
 msgid "Reset all shortcuts to Defaults"
 msgstr "Reinicia totes les dreceres per defecte"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:677
-#, machine-translated
 msgid "Reset All..."
 msgstr "Inicialitza- ho tot..."
 
 # MT: LibreTranslate
 #: app/shortcuts.js:15
-#, machine-translated
 msgid "Show Desktop in Files"
 msgstr "Mostra l' escriptori als fitxers"
 
@@ -1559,175 +1369,146 @@ msgstr "Obre al Terminal"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:17
-#, machine-translated
 msgid "Change Background"
 msgstr "Canvia el fons"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:18
-#, machine-translated
 msgid "Change Display Settings"
 msgstr "Canvia els paràmetres de visualització"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:19
-#, machine-translated
 msgid "Change Desktop Icon Settings"
 msgstr "Canvia l' arranjament de la icona de l' escriptori"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:20
-#, machine-translated
 msgid "Clean Up Icons"
 msgstr "Neteja les icones"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:21
-#, machine-translated
 msgid "Keep Arranged"
 msgstr "Conserva les possibilitats"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:22
-#, machine-translated
 msgid "Keep Stacked"
 msgstr "Mantén apilat"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:23
-#, machine-translated
 msgid "Sort Special Folders"
 msgstr "Ordena les carpetes especials"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:24
-#, machine-translated
 msgid "Arrange Icons by Name"
 msgstr "Organitza les icones per nom"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:25
-#, machine-translated
 msgid "Arrange Icons By Descending Name"
 msgstr "Organitza les icones per nom de Descendent"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:26
-#, machine-translated
 msgid "Arrange Icons By Modified Time"
 msgstr "Organitza les icones per temps modificat"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:27
-#, machine-translated
 msgid "Arrange Icons By Kind"
 msgstr "Organitza les icones Per cortesia"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:28
-#, machine-translated
 msgid "Arrange Icons By Size"
 msgstr "Organitza les icones per mida"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:29
-#, machine-translated
 msgid "Find Files"
 msgstr "Cerca fitxers"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:30
-#, machine-translated
 msgid "Update Desktop"
 msgstr "Actualitza l' escriptori"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:31
-#, machine-translated
 msgid "Show Hidden Files"
 msgstr "Mostra els fitxers ocults"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:32
-#, machine-translated
 msgid "Unselect All"
 msgstr "Desselecciona- ho tot"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:33
-#, machine-translated
 msgid "Preview"
 msgstr "Vista prèvia"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:34
-#, machine-translated
 msgid "Choose Icon Left"
 msgstr "Escolliu icona a l' esquerra"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:35
-#, machine-translated
 msgid "Choose Icon Right"
 msgstr "Escolliu la icona a la dreta"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:36
-#, machine-translated
 msgid "Choose Icon Up"
 msgstr "Escolliu icona amunt"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:37
-#, machine-translated
 msgid "Choose Icon Down"
 msgstr "Escolliu icona avall"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:38
-#, machine-translated
 msgid "Show Menu"
 msgstr "Mostra el menú"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:39
-#, machine-translated
 msgid "Display Shell Background Menu"
 msgstr "Mostra el menú shell"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:40
-#, machine-translated
 msgid "Create Desktop Shortcut"
 msgstr "Crea una drecera d' escriptori"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:41
-#, machine-translated
 msgid "Text Entry Accels Turn On"
 msgstr "Entrada de text Activa"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:42
-#, machine-translated
 msgid "Text Entry Accels Turn Off"
 msgstr "Es desactiva l' entrada de text"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:44
-#, machine-translated
 msgid "Show Shortcut Viewer"
 msgstr "Mostra la drecera Visor"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:45
-#, machine-translated
 msgid "Show Or Hide Desktop Icons"
 msgstr "Mostra o oculta les icones de l' escriptori"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, machine-translated
 msgid "More Information"
 msgstr "Més informació"
 
@@ -1739,7 +1520,6 @@ msgstr "Inici"
 
 # MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, machine-translated
 msgid "Trash"
 msgstr "Paperera"
 
@@ -1749,43 +1529,39 @@ msgstr "Paperera"
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, machine-translated
 msgid "Stack"
 msgstr "Pila"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:100
-#, machine-translated
 msgid "Broken Link"
 msgstr "Enllaç trencat"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:102
-#, machine-translated
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "No es pot obrir aquest fitxer perquè és un enllaç trencat"
 
 # MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, machine-translated
 msgid "Drive"
 msgstr "Unitat"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
-#, machine-translated
 msgid "\"${programName}\" is not available"
 msgstr "\"${programName}\" no està disponible"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-#, machine-translated
-msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr "Instal· la \"${programName}\" per habilitar les icones de l' escriptori per a realitzar aquestes accions."
+msgid ""
+"Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr ""
+"Instal· la \"${programName}\" per habilitar les icones de l' escriptori per "
+"a realitzar aquestes accions."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
-#, machine-translated
 msgid "Choose Desktop Folder"
 msgstr "Escolliu la carpeta d' escriptori"
 
@@ -1795,55 +1571,49 @@ msgstr "No s'ha trobat l'ordre"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
-#, machine-translated
 msgid "Choose an app to open the selected files."
 msgstr "Escolliu una aplicació per obrir els fitxers seleccionats."
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
-#, machine-translated
 msgid "Always use for this file type"
 msgstr "Usa sempre per aquest tipus de fitxer"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, machine-translated
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, machine-translated
 msgid "_Open"
 msgstr "_ Obre"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, machine-translated
 msgid "Display icons on the GNOME desktop"
 msgstr "Mostra icones a l'escriptori GNOME"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-#, machine-translated
-msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop; icons; files; folders;manager; adevinament; show;launcher; shortcuts;"
+msgid ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"desktop; icons; files; folders;manager; adevinament; show;launcher; "
+"shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, machine-translated
 msgid "Show<>Hide"
 msgstr "Mostra <> Amaga"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, machine-translated
 msgid "Preferences"
 msgstr "Preferències"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, machine-translated
 msgid "Disable"
 msgstr "Deshabilita"
 
@@ -1900,145 +1670,148 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "Afegeix noves unitats al costat oposat de la pantalla"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
-msgstr "Quan s'afegeixin unitats i volums a l'escriptori, afegiu-los a la part oposada de la pantalla."
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"Quan s'afegeixin unitats i volums a l'escriptori, afegiu-los a la part "
+"oposada de la pantalla."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Mostra un rectangle al lloc de destinació durant el DnD"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
-msgstr "En fer una operació d'arrossegar i deixar anar, marca el lloc a la graella on la icona es posarà amb un rectangle semitransparent."
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"En fer una operació d'arrossegar i deixar anar, marca el lloc a la graella "
+"on la icona es posarà amb un rectangle semitransparent."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
-#, machine-translated
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Ordena les carpetes especials - Drivecions d' inici/ Trash."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-#, machine-translated
-msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
-msgstr "En organitzar icones a l' escriptori, ordenar i canviar la posició de la Inici, Paperera i muntada Xarxa o unitats externes"
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"En organitzar icones a l' escriptori, ordenar i canviar la posició de la "
+"Inici, Paperera i muntada Xarxa o unitats externes"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
-#, machine-translated
 msgid "Keep Icons Arranged"
 msgstr "Mantén les icones ordenades"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
-#, machine-translated
 msgid "Always keep Icons Arranged by the last arranged order"
 msgstr "Mantén sempre les icones Ordenat per l' últim ordre concertat"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
-#, machine-translated
 msgid "Arrange Order"
 msgstr "Ordre d' ordenació"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
-#, machine-translated
 msgid "Icons Arranged by this property"
 msgstr "Icones ordenades per aquesta propietat"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-#, machine-translated
 msgid "Keep Icons Stacked"
 msgstr "Mantén les icones enpilades"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-#, machine-translated
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr "Mantén sempre les icones en pila, els tipus similars s' agrupen"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
-#, machine-translated
 msgid "Type of Files to not Stack"
 msgstr "Tipus de fitxer a no apilar"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-#, machine-translated
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "Una matriu de tipus de cadenes, no desplegueu aquests tipus de fitxers"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, machine-translated
 msgid "Add an emblem to links"
 msgstr "Afegeix un emblema als enllaços"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, machine-translated
 msgid "Add an emblem to allow to identify soft links."
 msgstr "Afegeix un abreviament per a permetre identificar enllaços tous."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
-#, machine-translated
 msgid "Use black for label text"
 msgstr "Usa negre per al text d' etiqueta"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-#, machine-translated
-msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
-msgstr "Pinta el text de l' etiqueta en blanc enlloc de blanc. És útil quan s' usen fons clars."
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+"Pinta el text de l' etiqueta en blanc enlloc de blanc. És útil quan s' usen "
+"fons clars."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
 msgstr "Mostra les noves icones al monitor primari si està connectat"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, machine-translated
-msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
-msgstr "Si un segon monitor està connectat, es col· locaran noves icones al monitor no primari"
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+"Si un segon monitor està connectat, es col· locaran noves icones al monitor "
+"no primari"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Les icones es poden posicionar a qualsevol lloc de l' escriptori"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, machine-translated
-msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
-msgstr "Les icones no estan en una graella rectangular però es poden postionar enlloc independent de la graella"
+msgid ""
+"Icons are not on a rectangular grid but can be postioned anywhere "
+"independent of grid"
+msgstr ""
+"Les icones no estan en una graella rectangular però es poden postionar "
+"enlloc independent de la graella"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, machine-translated
 msgid "Hide/Show all desktop windows"
 msgstr "Oculta/Mostra totes les finestres d' escriptori"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, machine-translated
 msgid "Show the icons on the desktop, or hide them all"
 msgstr "Mostra les icones de l' escriptori, o oculta' les totes"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, machine-translated
 msgid "User Application Shortcuts"
 msgstr "Dreceres d' aplicació d' usuari"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
-#, machine-translated
 msgid "Override for default application shortcuts set by the User"
-msgstr "Sobreescriu per omissió les dreceres d' aplicació establertes per l' usuari"
+msgstr ""
+"Sobreescriu per omissió les dreceres d' aplicació establertes per l' usuari"

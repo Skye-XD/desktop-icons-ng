@@ -16,8 +16,10 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-03 23:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/hu/>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
+"icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +41,9 @@ msgstr "Alkalmazás gyorsbillentyűinek szerkesztése"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr "A gyorsbillentyűket csak akkor lehet szerkeszteni, ha a kiegészítő engedélyezve van..."
+msgstr ""
+"A gyorsbillentyűket csak akkor lehet szerkeszteni, ha a kiegészítő "
+"engedélyezve van..."
 
 #: app/adwPreferencesWindow.js:288
 msgid "Help translate in your web browser"
@@ -240,25 +244,24 @@ msgstr "Névjegy..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
-#, machine-translated
 msgid "Translation"
 msgstr "Fordítás"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, machine-translated
-msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr "Gépi fordítás LibreTranslate. A felhasználó ellenőrizte és szerkesztette a Weblate."
+msgid ""
+"Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr ""
+"Gépi fordítás LibreTranslate. A felhasználó ellenőrizte és szerkesztette a "
+"Weblate."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:704
-#, machine-translated
 msgid "Edit Translations"
 msgstr "Fordítások szerkesztése"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
-#, machine-translated
 msgid "Verify, add or correct translation in your web browser"
 msgstr "A fordítás ellenőrzése, hozzáadása vagy javítása a böngészőben"
 
@@ -288,7 +291,9 @@ msgstr "Nem sikerült az alapértelmezett alkalmazás megváltoztatása"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Hiba a(z) {foo} beállítása közben alapértelmezettként, a(z) {mimetype} fájltípushoz"
+msgstr ""
+"Hiba a(z) {foo} beállítása közben alapértelmezettként, a(z) {mimetype} "
+"fájltípushoz"
 
 #: app/appImageFileItem.js:57
 msgid "Invalid Permissions on AppImage File"
@@ -296,37 +301,31 @@ msgstr "Érvénytelen engedélyek az AppImage fájlon"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
-#, machine-translated
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Ez az appImage fájl hibás jogosultságokat tartalmaz."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
-#, machine-translated
 msgid "Right Click to edit Properties, then:"
 msgstr "Jobb Click a tulajdonságok szerkesztéséhez, majd:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
-#, machine-translated
 msgid "Set Permissions, in"
 msgstr "Engedélyek beállítása"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
-#, machine-translated
 msgid "Others Access"
 msgstr "Egyéb hozzáférés"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
-#, machine-translated
 msgid "Read Only"
 msgstr "Csak olvasható"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, machine-translated
 msgid "or"
 msgstr "vagy"
 
@@ -338,13 +337,11 @@ msgstr "Egyik sem"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, machine-translated
 msgid "Enable option"
 msgstr "Beállítások engedélyezése"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, machine-translated
 msgid "Allow Executing File as a Program"
 msgstr "A fájl letöltésének engedélyezése programként"
 
@@ -354,19 +351,16 @@ msgstr "Nem megbízható AppImage fájl"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
-#, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Ez az alkalmazás A képfájl nem megbízható, nem lehet elindítani."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
-#, machine-translated
 msgid "To enable launching, right-click, then:"
 msgstr "A kilövés engedélyezéséhez kattintson jobbra, majd:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, machine-translated
 msgid "enable"
 msgstr "engedélyezése"
 
@@ -397,8 +391,12 @@ msgid "AutoAr is not installed"
 msgstr "Az AutoAr nincs telepítve"
 
 #: app/autoAr.js:72
-msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
-msgstr "A tömörített fájlokkal való munkavégzéshez telepítsd a file-rollert és/vagy a gir-1.2-gnomeAutoAr-t"
+msgid ""
+"To be able to work with compressed files, install file-roller and/or gir-1.2-"
+"gnomeAutoAr"
+msgstr ""
+"A tömörített fájlokkal való munkavégzéshez telepítsd a file-rollert és/vagy "
+"a gir-1.2-gnomeAutoAr-t"
 
 #: app/autoAr.js:203
 msgid "Extracting files"
@@ -476,7 +474,8 @@ msgstr "A fájl '${outputFile}' már létezik."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "A fájlok tömörítését ide: '${outputFile}', megszakította a felhasználó."
+msgstr ""
+"A fájlok tömörítését ide: '${outputFile}', megszakította a felhasználó."
 
 #: app/autoAr.js:512
 msgid "Error during compression"
@@ -520,11 +519,14 @@ msgstr "A megjelenített asztal szerkeszthető mások által is"
 
 #: app/desktopFileIcon.js:128
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
 msgstr ""
-".desktop fájlok nem indíthatók erről az asztalról, mert az asztal mappája mások által is szerkeszthető.\n"
+".desktop fájlok nem indíthatók erről az asztalról, mert az asztal mappája "
+"mások által is szerkeszthető.\n"
 "\n"
 "Ellenőrizd le a mappa engedélyeit, hogy nem szerkeszthető-e mások által."
 
@@ -534,11 +536,13 @@ msgstr "Hibás asztali fájl"
 
 #: app/desktopFileIcon.js:141
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It "
+"can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Ez a .desktop fájl hibás, vagy egy olyan programra mutat, amire nincs engedélye. Nem lehet futtatni.\n"
+"Ez a .desktop fájl hibás, vagy egy olyan programra mutat, amire nincs "
+"engedélye. Nem lehet futtatni.\n"
 "\n"
 "Szerkeszd a fájlt, hogy a megfelelő programra mutasson."
 
@@ -548,7 +552,6 @@ msgstr "Érvénytelen engedélyek az asztali fájlon"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
-#, machine-translated
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Ez az asztali fájl nem megfelelő."
 
@@ -558,7 +561,6 @@ msgstr "Nem megbízható asztali fájl"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
-#, machine-translated
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Ez az Asztalfájl nem megbízható, nem lehet elindítani."
 
@@ -576,13 +578,11 @@ msgstr "Az asztal mappájának cseréje nem sikerült"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
-#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
 msgstr "Az új asztali mappa egy szimbolikus link"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
-#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
 msgstr "Az új Asztali mappa nem létezik vagy nem mappa!"
 
@@ -605,11 +605,13 @@ msgstr "A monitor Frame Buffer skálázása nincs engedélyezve"
 
 #: app/desktopManager.js:158
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor "
+"framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"Több monitor más nagyítási beállításokkal, ajánlott a monitoronkénti Frame Buffer skálázás.\n"
+"Több monitor más nagyítási beállításokkal, ajánlott a monitoronkénti Frame "
+"Buffer skálázás.\n"
 "\n"
 "Engedélyezd a Mutter Dconf beállításaiban"
 
@@ -621,7 +623,8 @@ msgid ""
 msgstr ""
 "Több monitor más nagyítási beállításokkal.\n"
 "\n"
-"Engedélyezed a monitoronkénti Frame Buffer skálázást a Mutter Dconf beállításaiban?"
+"Engedélyezed a monitoronkénti Frame Buffer skálázást a Mutter Dconf "
+"beállításaiban?"
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
@@ -634,7 +637,6 @@ msgstr "Az asztal nem jeleníthető meg"
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
-#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -647,7 +649,6 @@ msgstr ""
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
-#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -1326,8 +1327,10 @@ msgid "\"${programName}\" is not available"
 msgstr "\"${programName}\" nem elérhető"
 
 #: app/utils/dbusUtils.js:70
-msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr "Telepítsd a(z) \"${programName}\" programot az ilyen műveletek elvégzéséhez."
+msgid ""
+"Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr ""
+"Telepítsd a(z) \"${programName}\" programot az ilyen műveletek elvégzéséhez."
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
@@ -1355,31 +1358,29 @@ msgstr "M_egnyitás"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, machine-translated
 msgid "Display icons on the GNOME desktop"
 msgstr "Ikonok megjelenítése a GNOME asztalon"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-#, machine-translated
-msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "asztali, ikonok, akták, mappák, kezelők, szervezők, bújócskák, bemutatók, kilövők, rövidítések;"
+msgid ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"asztali, ikonok, akták, mappák, kezelők, szervezők, bújócskák, bemutatók, "
+"kilövők, rövidítések;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, machine-translated
 msgid "Show<>Hide"
 msgstr "< > Elrejtés"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, machine-translated
 msgid "Preferences"
 msgstr "Előirányzatok"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, machine-translated
 msgid "Disable"
 msgstr "Kikapcsolás"
 
@@ -1436,24 +1437,36 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "Új meghajtók hozzáadása a képernyő ellentétes oldalán"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
-msgstr "Ha lemezeket és köteteket ad az asztalhoz, akkor a képernyő ellentétes oldalán teszi."
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"Ha lemezeket és köteteket ad az asztalhoz, akkor a képernyő ellentétes "
+"oldalán teszi."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Egy négyzetet jelenít meg a célhelyen fogd és vidd művelet esetén"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
-msgstr "Amikor fogd és vidd művelet végez, akkor a rácshelyen egy ikont fog megjeleníteni egy félig áttetsző négyzetben."
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"Amikor fogd és vidd művelet végez, akkor a rácshelyen egy ikont fog "
+"megjeleníteni egy félig áttetsző négyzetben."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Speciális mappák rendezése - Otthon/Lomtár meghajtók."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
-msgstr "Asztali ikonok rendezésekor a Könyvtár, Lomtár és csatlakoztatott hálózati vagy külső meghajtók sorrendjének és helyzetének módosítása"
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"Asztali ikonok rendezésekor a Könyvtár, Lomtár és csatlakoztatott hálózati "
+"vagy külső meghajtók sorrendjének és helyzetének módosítása"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1477,7 +1490,9 @@ msgstr "Az ikonok maradjanak csoportosítva"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Mindig tartsa az ikonokat csoportosítva, hasonló típusok egy csoportba kerülnek"
+msgstr ""
+"Mindig tartsa az ikonokat csoportosítva, hasonló típusok egy csoportba "
+"kerülnek"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 msgid "Type of Files to not Stack"
@@ -1485,7 +1500,8 @@ msgstr "A fájlok típusa, amik ne legyenek csoportosítva"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Egy string típusú array, az ilyen típusú fájlok ne legyenek csoportosítva"
+msgstr ""
+"Egy string típusú array, az ilyen típusú fájlok ne legyenek csoportosítva"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Add an emblem to links"
@@ -1500,24 +1516,36 @@ msgid "Use black for label text"
 msgstr "Címkék szövegcíme legyen fekete"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
-msgstr "Legyen a címkék szövege fekete, fehér helyett. Hasznos fehér hátterek használatakor."
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+"Legyen a címkék szövege fekete, fehér helyett. Hasznos fehér hátterek "
+"használatakor."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Az új ikonok a nem elsődleges monitoron jelenjenek meg, ha csatlakoztatva van"
+msgstr ""
+"Az új ikonok a nem elsődleges monitoron jelenjenek meg, ha csatlakoztatva van"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
-msgstr "Hogyha csatlakoztatva van egy második monitor, az új ikonok ott fognak megjelenni"
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+"Hogyha csatlakoztatva van egy második monitor, az új ikonok ott fognak "
+"megjelenni"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Az ikonok bárhol elhelyezhetők az asztalon"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
-msgstr "Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni őket"
+msgid ""
+"Icons are not on a rectangular grid but can be postioned anywhere "
+"independent of grid"
+msgstr ""
+"Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni őket"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Hide/Show all desktop windows"
