@@ -9,380 +9,494 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-28 17:15-0400\n"
+"POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-02 20:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
+#, machine-translated
 msgid "Shortcuts"
-msgstr "Snel­toetsen"
+msgstr "Sneltoetsen"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
+#, machine-translated
 msgid "Edit Shortcuts..."
-msgstr "Bewerk snelkoppelingen"
+msgstr "Sneltoetsen bewerken..."
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
-#, fuzzy
+#, machine-translated
 msgid "Edit Application Shortcuts"
-msgstr "Applicatiesnelkoppelingen"
+msgstr "Toepassing Sneltoetsen bewerken"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
+#, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "Sneltoetsen Alleen bewerken bij inschakelen van extensie..."
 
-#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:698
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:288
+#, machine-translated
 msgid "Help translate in your web browser"
-msgstr "Help vertalen in je web browser"
+msgstr "Help vertalen in uw webbrowser"
 
-#: app/adwPreferencesWindow.js:477 app/adwPreferencesWindow.js:478
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
+#, machine-translated
 msgid "Desktop"
-msgstr "Desktop"
+msgstr "Bureaublad"
 
-#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:484
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
+#, machine-translated
 msgid "Files"
 msgstr "Bestanden"
 
-#: app/adwPreferencesWindow.js:489 app/adwPreferencesWindow.js:490
-#: app/adwPreferencesWindow.js:532
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
+#: app/adwPreferencesWindow.js:539
+#, machine-translated
 msgid "Tweaks"
-msgstr "Afstellingen"
+msgstr "Tweaks"
 
-#: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
+#, machine-translated
 msgid "More"
 msgstr "Meer"
 
-#: app/adwPreferencesWindow.js:507
-#, fuzzy
-msgid "Desktop Settings"
-msgstr "Desktop-instellingen"
-
-#: app/adwPreferencesWindow.js:508
-#, fuzzy
-msgid "Settings for the Desktop Program"
-msgstr "Desktop Programma"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:514
-#, fuzzy
-msgid "Desktop Folder"
-msgstr "Bureaublad­map"
+#, machine-translated
+msgid "Desktop Settings"
+msgstr "Bureaubladinstellingen"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:515
-#, fuzzy
+#, machine-translated
+msgid "Settings for the Desktop Program"
+msgstr "Instellingen voor het bureaubladprogramma"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:521
+#, machine-translated
+msgid "Desktop Folder"
+msgstr "Bureaubladmap"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:522
+#, machine-translated
 msgid "Current Desktop: "
-msgstr "Onjuiste .desktop-bestanden"
+msgstr "Huidig bureaublad:"
 
-#: app/adwPreferencesWindow.js:525
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:532
+#, machine-translated
 msgid "Files Settings"
-msgstr "Bestandsinstellingen"
+msgstr "Instellingen voor bestanden"
 
-#: app/adwPreferencesWindow.js:526
-#, fuzzy
-msgid "Settings shared with Gnome Files"
-msgstr "Vertaling:"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:533
-#, fuzzy
-msgid "Miscellaneous Tweaks"
-msgstr "Miscellane Tweaks"
+#, machine-translated
+msgid "Settings shared with Gnome Files"
+msgstr "Instellingen gedeeld met Gnome-bestanden"
 
-#: app/adwPreferencesWindow.js:551
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:540
+#, machine-translated
+msgid "Miscellaneous Tweaks"
+msgstr "Diversen Tweaks"
+
+#: app/adwPreferencesWindow.js:558
 msgid "Size for the desktop icons"
 msgstr "Grootte van bureaubladpictogrammen"
 
-#: app/adwPreferencesWindow.js:553
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:560
+#, machine-translated
 msgid "Tiny"
-msgstr "Heel klein"
+msgstr "Klein"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:561
 msgid "Small"
 msgstr "Klein"
 
-#: app/adwPreferencesWindow.js:555
+#: app/adwPreferencesWindow.js:562
 msgid "Standard"
 msgstr "Standaard"
 
-#: app/adwPreferencesWindow.js:556
+#: app/adwPreferencesWindow.js:563
 msgid "Large"
 msgstr "Groot"
 
-#: app/adwPreferencesWindow.js:562
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:569
+#, machine-translated
 msgid "New icons alignment"
-msgstr "Nieuwe iconen"
+msgstr "Nieuwe pictogramuitlijning"
 
-#: app/adwPreferencesWindow.js:564
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:571
+#, machine-translated
 msgid "Top left corner"
-msgstr "Linker­bovenhoek."
+msgstr "Linkerbovenhoek"
 
-#: app/adwPreferencesWindow.js:565
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:572
+#, machine-translated
 msgid "Top right corner"
-msgstr "Rechter­bovenhoek."
+msgstr "Rechterbovenhoek"
 
-#: app/adwPreferencesWindow.js:566
-#, fuzzy
-msgid "Bottom left corner"
-msgstr "Linker­onderhoek."
-
-#: app/adwPreferencesWindow.js:567
-#, fuzzy
-msgid "Bottom right corner"
-msgstr "Rechter­onderhoek."
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
-#, fuzzy
+#, machine-translated
+msgid "Bottom left corner"
+msgstr "Linkeronderhoek"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:574
+#, machine-translated
+msgid "Bottom right corner"
+msgstr "Rechteronderhoek"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:580
+#, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "Voeg eerst nieuwe iconen toe aan secundaire Monitors"
+msgstr "Voeg eerst nieuwe pictogrammen toe aan secundaire monitoren, indien beschikbaar"
 
-#: app/adwPreferencesWindow.js:577
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:584
+#, machine-translated
 msgid "Snap icons to grid"
-msgstr "Kleef aan raster"
+msgstr "Pictogrammen aan raster koppelen"
 
-#: app/adwPreferencesWindow.js:583
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:590
+#, machine-translated
 msgid "Highlight the drop grid"
-msgstr "Verlicht de daling"
+msgstr "Het dropraster markeren"
 
-#: app/adwPreferencesWindow.js:592
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:599
+#, machine-translated
 msgid "New Desktop Folder"
-msgstr "Bureaublad­map"
+msgstr "Nieuwe bureaubladmap"
 
-#: app/adwPreferencesWindow.js:593
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:600
+#, machine-translated
 msgid "Set a new folder for the desktop"
-msgstr "Toon de persoonlijke map op het bureaublad"
+msgstr "Een nieuwe map voor het bureaublad instellen"
 
-#: app/adwPreferencesWindow.js:594 app/utils/desktopFolderUtils.js:85
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
+#, machine-translated
 msgid "Choose"
 msgstr "Kies"
 
-#: app/adwPreferencesWindow.js:599
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:606
+#, machine-translated
 msgid "Set Desktop back to ~/"
-msgstr ""
+msgstr "Bureaublad terugzetten naar ~/"
 
-#: app/adwPreferencesWindow.js:601
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:608
+#, machine-translated
 msgid "Restore Default Desktop Folder"
-msgstr "Niet vertrouwd Desktop File"
+msgstr "Standaard bureaubladmap herstellen"
 
-#: app/adwPreferencesWindow.js:603
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:610
+#, machine-translated
 msgid "Restore"
-msgstr "Herstel"
+msgstr "Herstellen"
 
-#: app/adwPreferencesWindow.js:613
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:620
+#, machine-translated
 msgid "Add information emblems for links, encryption"
-msgstr "Voeg een embleem toe aan verbanden"
+msgstr "Informatie emblemen toevoegen voor links, encryptie"
 
-#: app/adwPreferencesWindow.js:617
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:624
+#, machine-translated
 msgid "Use dark text in icon labels"
-msgstr "Gebruik donkere tekst in icon labels"
+msgstr "Gebruik donkere tekst in pictogramlabels"
 
-#: app/adwPreferencesWindow.js:622
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:629
+#, machine-translated
 msgid "Show the personal folder on the desktop"
-msgstr "Toon de persoonlijke map op het bureaublad"
+msgstr "Persoonlijke map op het bureaublad tonen"
 
-#: app/adwPreferencesWindow.js:627
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:634
+#, machine-translated
 msgid "Show the trash icon on the desktop"
-msgstr "Toon het prullenbakpictogram op het bureaublad"
+msgstr "Het prullenbakpictogram op het bureaublad tonen"
 
-#: app/adwPreferencesWindow.js:632
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:639
+#, machine-translated
 msgid "Show external drives on the desktop"
-msgstr "Laat externe drives zien op de desktop"
+msgstr "Externe schijven op het bureaublad tonen"
 
-#: app/adwPreferencesWindow.js:637
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:644
+#, machine-translated
 msgid "Show network drives on the desktop"
-msgstr "Show netwerk drives on the desktop"
+msgstr "Netwerkstations op het bureaublad tonen"
 
-#: app/adwPreferencesWindow.js:642
-#, fuzzy
-msgid "Add new drives to the opposite side of the desktop"
-msgstr "Voeg nieuwe schijven aan de andere kant van de desktop"
-
-#: app/adwPreferencesWindow.js:647
-#, fuzzy
-msgid "Action to Open Items"
-msgstr "Actie aan Open Item"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:649
-#, fuzzy
+#, machine-translated
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "Nieuwe schijven aan de andere kant van het bureaublad toevoegen"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:654
+#, machine-translated
+msgid "Action to Open Items"
+msgstr "Actie om items te openen"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:656
+#, machine-translated
 msgid "Single click"
-msgstr "Enkele klik"
+msgstr "Eén klik"
 
-#: app/adwPreferencesWindow.js:650
-#, fuzzy
-msgid "Double click"
-msgstr "Dubbelklikken"
-
-#: app/adwPreferencesWindow.js:655
-#, fuzzy
-msgid "Show image thumbnails"
-msgstr "Miniaturen weergeven"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:657
-#, fuzzy
+#, machine-translated
+msgid "Double click"
+msgstr "Dubbelklik"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:662
+#, machine-translated
+msgid "Show image thumbnails"
+msgstr "Afbeeldingsminimaturen tonen"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:664
+#, machine-translated
 msgid "Always"
 msgstr "Altijd"
 
-#: app/adwPreferencesWindow.js:658
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:665
+#, machine-translated
 msgid "On this computer only"
-msgstr "Op deze computer"
+msgstr "Alleen op deze computer"
 
-#: app/adwPreferencesWindow.js:659
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:666
+#, machine-translated
 msgid "Never"
 msgstr "Nooit"
 
-#: app/adwPreferencesWindow.js:664
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:671
+#, machine-translated
 msgid "Show a context menu item to delete permanently"
-msgstr "Toon een context menu item om permanent te verwijderen"
+msgstr "Een contextmenu-item tonen om permanent te verwijderen"
 
-#: app/adwPreferencesWindow.js:669
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:676
+#, machine-translated
 msgid "Show hidden files"
-msgstr "Toon verborgen bestanden"
+msgstr "Verborgen bestanden tonen"
 
-#: app/adwPreferencesWindow.js:674
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:681
+#, machine-translated
 msgid "Open folders on drag hover"
-msgstr "Open folders van drag hover"
+msgstr "Mappen openen bij drag hover"
 
-#: app/adwPreferencesWindow.js:678
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:685
+#, machine-translated
 msgid "About..."
 msgstr "Over..."
 
-#: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
-#, fuzzy
-msgid "Translations"
-msgstr "Vertalingen"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:698
+#, machine-translated
+msgid "Translation"
+msgstr "Vertaling"
 
-#: app/adwPreferencesWindow.js:692
-msgid "All tranlations on Weblate.."
-msgstr ""
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, fuzzy
+#, machine-translated
+msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr "Machine vertaald met LibreTranslate. Gebruiker geverifieerd en bewerkt op Weblate."
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:704
+#, machine-translated
+msgid "Edit Translations"
+msgstr "Vertalingen bewerken"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:705
+#, machine-translated
+msgid "Verify, add or correct translation in your web browser"
+msgstr "Controleren, toevoegen of correcte vertaling in uw webbrowser"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:706
+#, machine-translated
 msgid "Translate"
-msgstr "Vertaal"
+msgstr "Vertalen"
 
+# MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy
+#, machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Kies een aanvraag om te openen"
+msgstr "Kies een toepassing om <b>{foo}</b> te openen"
 
+# MT: LibreTranslate
 #: app/appChooser.js:90
-#, fuzzy
+#, machine-translated
 msgid "Open Items"
-msgstr "@:account.openItems.heading"
+msgstr "Items openen"
 
+# MT: LibreTranslate
 #: app/appChooser.js:92
-#, fuzzy
+#, machine-translated
 msgid "Open Folder"
 msgstr "Map openen"
 
+# MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
+#, machine-translated
 msgid "Open File"
-msgstr "Open Bestand"
+msgstr "Bestand openen"
 
+# MT: LibreTranslate
 #: app/appChooser.js:165
-#, fuzzy
+#, machine-translated
 msgid "Error changing default application"
-msgstr "Verandering van defecte aanvragen"
+msgstr "Fout bij wijzigen standaardtoepassing"
 
+# MT: LibreTranslate
 #: app/appChooser.js:168
-#, fuzzy
+#, machine-translated
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Error terwijl hij zich aanmeldt als defecte aanvraag voor mimetype"
+msgstr "Fout bij het instellen van {foo} als standaardtoepassing voor {mimetype}"
 
+# MT: LibreTranslate
 #: app/appImageFileItem.js:57
-#, fuzzy
+#, machine-translated
 msgid "Invalid Permissions on AppImage File"
-msgstr "Invalid Permissie over Desktop File"
+msgstr "Ongeldige machtigingen op AppImage-bestand"
 
-#: app/appImageFileItem.js:60
-#, fuzzy
-msgid ""
-"This AppImage File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-"Dit. Het dossier heeft onjuiste toestemmingen. Rechts Click to redit "
-"Properties, dan:\n"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:58
+#, machine-translated
+msgid "This AppImage File has incorrect Permissions."
+msgstr "Dit AppAfbeeldingsbestand heeft onjuiste machtigingen."
 
+# MT: LibreTranslate
+#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#, machine-translated
+msgid "Right Click to edit Properties, then:"
+msgstr "Klik met de rechtermuisknop om Eigenschappen te bewerken, dan:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#, machine-translated
+msgid "Set Permissions, in"
+msgstr "Toestemmingen instellen, in"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#, machine-translated
+msgid "Others Access"
+msgstr "Andere Toegang"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#, machine-translated
+msgid "Read Only"
+msgstr "Alleen lezen"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#, machine-translated
+msgid "or"
+msgstr "of"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+#, machine-translated
+msgid "None"
+msgstr "Geen"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#, machine-translated
+msgid "Enable option"
+msgstr "Optie inschakelen"
+
+# MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, fuzzy
-msgid ""
-"\n"
-"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
-msgstr ""
-"\n"
-"Vertaling:"
+#, machine-translated
+msgid "Allow Executing File as a Program"
+msgstr "Bestand als programma laten uitvoeren"
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
-#, fuzzy
-msgid ""
-"\n"
-"Enable option, \"Allow Executing File as a Program\""
-msgstr ""
-"\n"
-"Een goede optie, 'Allow Executing File als Programma'"
-
-#: app/appImageFileItem.js:82
-#, fuzzy
+# MT: LibreTranslate
+#: app/appImageFileItem.js:79
+#, machine-translated
 msgid "Untrusted AppImage File"
-msgstr "Niet vertrouwd Desktop File"
+msgstr "Ongetrouwd AppImage-bestand"
 
-#: app/appImageFileItem.js:85
-#, fuzzy
-msgid ""
-"This AppImage file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
-"Dit desktop dossier is niet vertrouwd, het kan niet gelanceerd worden. Om in "
-"staat te lanceren, rechts, dan:\n"
-"\n"
-"\"Allow Launching\""
+# MT: LibreTranslate
+#: app/appImageFileItem.js:81
+#, machine-translated
+msgid "This AppImage file is not trusted, it can not be launched."
+msgstr "Deze app Afbeeldingsbestand is niet vertrouwd, het kan niet worden gestart."
 
+# MT: LibreTranslate
+#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#, machine-translated
+msgid "To enable launching, right-click, then:"
+msgstr "Om te starten, met de rechtermuisknop, vervolgens:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#, machine-translated
+msgid "enable"
+msgstr "inschakelen"
+
+#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+msgid "Allow Launching"
+msgstr "Toepassingen starten toestaan"
+
+# MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, fuzzy
+#, machine-translated
 msgid "Folder name"
 msgstr "Mapnaam"
 
+# MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, fuzzy
+#, machine-translated
 msgid "File name"
 msgstr "Bestandsnaam"
 
@@ -391,34 +505,35 @@ msgstr "Bestandsnaam"
 msgid "OK"
 msgstr "Oké"
 
+# MT: LibreTranslate
 #: app/askRenamePopup.js:75
-#, fuzzy
+#, machine-translated
 msgid "Rename"
 msgstr "Hernoemen"
 
+# MT: LibreTranslate
 #: app/autoAr.js:71
-#, fuzzy
+#, machine-translated
 msgid "AutoAr is not installed"
-msgstr "Auto Ar is niet geïnstalleerd"
+msgstr "Automatisch Ar is niet geïnstalleerd"
 
+# MT: LibreTranslate
 #: app/autoAr.js:72
-#, fuzzy
-msgid ""
-"To be able to work with compressed files, install file-roller and/or gir-1.2-"
-"gnomeAutoAr"
-msgstr ""
-"Om te kunnen werken met gecomprimeerde bestanden, bestanden en/of gir 1,2-"
-"gnome Auto"
+#, machine-translated
+msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgstr "Om te kunnen werken met gecomprimeerde bestanden, installeer file-roller en/of gir-1.2-gnome AutoAr"
 
+# MT: LibreTranslate
 #: app/autoAr.js:203
-#, fuzzy
+#, machine-translated
 msgid "Extracting files"
 msgstr "Bestanden uitpakken"
 
+# MT: LibreTranslate
 #: app/autoAr.js:220
-#, fuzzy
+#, machine-translated
 msgid "Compressing files"
-msgstr "Bezig met comprimeren van bestanden."
+msgstr "Bestanden comprimeren"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
 #: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
@@ -426,103 +541,123 @@ msgstr "Bezig met comprimeren van bestanden."
 msgid "Cancel"
 msgstr "Annuleren"
 
+# MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
+#, machine-translated
 msgid "Enter a password here"
-msgstr "Voer wacht­woord hier in"
+msgstr "Voer hier een wachtwoord in"
 
+# MT: LibreTranslate
 #: app/autoAr.js:354
-#, fuzzy
+#, machine-translated
 msgid "Removing partial file '${outputFile}'"
-msgstr "Verwijder gedeeltelijk dossier. '"
+msgstr "Gedeeltelijk bestand verwijderen '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:373
-#, fuzzy
+#, machine-translated
 msgid "Creating destination folder"
-msgstr "Bestemmingsvouwen creëren"
+msgstr "Doelmap aanmaken"
 
+# MT: LibreTranslate
 #: app/autoAr.js:405
-#, fuzzy
+#, machine-translated
 msgid "Extracting files into '${outputPath}'"
-msgstr "Bestanden uittrekken in 'Path'. '"
+msgstr "Bestanden uitpakken in '${outputPath}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:435
-#, fuzzy
+#, machine-translated
 msgid "Extraction completed"
-msgstr "Actie voltooid"
+msgstr "Extractie voltooid"
 
+# MT: LibreTranslate
 #: app/autoAr.js:436
-#, fuzzy
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "Het verwijderen van 'File' is voltooid."
+msgstr "Uitpakken '${fullPathFile}' is voltooid."
 
+# MT: LibreTranslate
 #: app/autoAr.js:442
-#, fuzzy
+#, machine-translated
 msgid "Extraction cancelled"
-msgstr "Verwijdering geannuleerd"
+msgstr "Extractie geannuleerd"
 
+# MT: LibreTranslate
 #: app/autoAr.js:443
-#, fuzzy
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Het uittrekken van 'File' is geannuleerd door de gebruiker."
+msgstr "Het uitpakken '${fullPathFile}' is door de gebruiker geannuleerd."
 
+# MT: LibreTranslate
 #: app/autoAr.js:453
-#, fuzzy
+#, machine-translated
 msgid "Passphrase required for ${filename}"
-msgstr "Passphrase vereist voor de naam"
+msgstr "Wachtwoord vereist voor ${filename}"
 
+# MT: LibreTranslate
 #: app/autoAr.js:456
-#, fuzzy
+#, machine-translated
 msgid "Error during extraction"
-msgstr "Error tijdens extractie"
+msgstr "Fout tijdens extractie"
 
+# MT: LibreTranslate
 #: app/autoAr.js:483
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}'"
-msgstr "Compressieve bestanden in 'outputFile' '"
+msgstr "Bestanden comprimeren naar '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:496
-#, fuzzy
+#, machine-translated
 msgid "Compression completed"
-msgstr "Afgelopen"
+msgstr "Compressie voltooid"
 
+# MT: LibreTranslate
 #: app/autoAr.js:497
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Compressieve bestanden in 't gebied zijn voltooid."
+msgstr "Het comprimeren van bestanden in '${outputFile}' is voltooid."
 
+# MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
-#, fuzzy
+#, machine-translated
 msgid "Cancelled compression"
-msgstr "Vertaling:"
+msgstr "Geannuleerde compressie"
 
+# MT: LibreTranslate
 #: app/autoAr.js:502
-#, fuzzy
+#, machine-translated
 msgid "The output file '${outputFile}' already exists."
-msgstr "De uitvoering bestaat al."
+msgstr "Het uitvoerbestand '${outputFile}' bestaat al."
 
+# MT: LibreTranslate
 #: app/autoAr.js:509
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "Compressieve bestanden zijn geannuleerd door de gebruiker."
+msgstr "Het comprimeren van bestanden in '${outputFile}' is door de gebruiker geannuleerd."
 
+# MT: LibreTranslate
 #: app/autoAr.js:512
-#, fuzzy
+#, machine-translated
 msgid "Error during compression"
-msgstr "Error tijdens de compressie"
+msgstr "Fout tijdens compressie"
 
+# MT: LibreTranslate
 #: app/autoAr.js:547
-#, fuzzy
+#, machine-translated
 msgid "Create archive"
-msgstr "Archiefbestand maken"
+msgstr "Archief maken"
 
+# MT: LibreTranslate
 #: app/autoAr.js:571
-#, fuzzy
+#, machine-translated
 msgid "Archive name"
-msgstr "Pakketbronnaam"
+msgstr "Archiefnaam"
 
+# MT: LibreTranslate
 #: app/autoAr.js:604
-#, fuzzy
+#, machine-translated
 msgid "Password"
 msgstr "Wachtwoord"
 
@@ -530,311 +665,380 @@ msgstr "Wachtwoord"
 msgid "Create"
 msgstr "Aanmaken"
 
+# MT: LibreTranslate
 #: app/autoAr.js:688
-#, fuzzy
+#, machine-translated
 msgid "Compatible with all operating systems."
-msgstr "Vergelijkbaar met alle besturingssystemen."
+msgstr "Compatibel met alle besturingssystemen."
 
+# MT: LibreTranslate
 #: app/autoAr.js:694
-#, fuzzy
+#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Het wachtwoord beschermd."
+msgstr "Wachtwoord beveiligd .zip, moet worden geïnstalleerd op Windows en Mac."
 
+# MT: LibreTranslate
 #: app/autoAr.js:700
-#, fuzzy
+#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Kleinere archieven, maar alleen Linux en Mac."
+msgstr "Kleinere archieven maar alleen Linux en Mac."
 
+# MT: LibreTranslate
 #: app/autoAr.js:706
-#, fuzzy
+#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
-"Kleinere archieven, maar moeten geïnstalleerd worden op Windows en Mac."
+msgstr "Kleinere archieven maar moeten worden geïnstalleerd op Windows en Mac."
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:125
+#, machine-translated
 msgid "The Displayed Desktop is writable by others"
-msgstr ""
+msgstr "De weergegeven bureaublad is beschrijfbaar door anderen"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:128
+#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is "
-"writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not "
-"writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
+".deskop-bestanden kunnen niet vanaf dit bureaublad worden gestart omdat de bureaubladmap door andere gebruikers beschrijfbaar is.\n"
+"\n"
+"Controleer de rechten van deze bureaubladmap, en zorg ervoor dat het niet beschrijfbaar is door anderen."
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:138
-#, fuzzy
+#, machine-translated
 msgid "Broken Desktop File"
-msgstr "Onjuiste .desktop-bestanden"
+msgstr "Bureaubladbestand gebroken"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:141
+#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
+"Dit .desktop bestand heeft fouten of wijst naar een programma zonder toestemming. Het kan niet uitgevoerd worden.\n"
+"\n"
+"Bewerk het bestand om het juiste uitvoerbare programma in te stellen."
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:151
-#, fuzzy
+#, machine-translated
 msgid "Invalid Permissions on Desktop File"
-msgstr "Invalid Permissie over Desktop File"
+msgstr "Ongeldige machtigingen op bureaubladbestand"
 
-#: app/desktopFileIcon.js:154
-#, fuzzy
-msgid ""
-"This .desktop File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-"Dit. Het dossier heeft onjuiste toestemmingen. Rechts Click to redit "
-"Properties, dan:\n"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:152
+#, machine-translated
+msgid "This Desktop File has incorrect Permissions."
+msgstr "Dit bureaubladbestand heeft onjuiste machtigingen."
 
-#: app/desktopFileIcon.js:178
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:173
+#, machine-translated
 msgid "Untrusted Desktop File"
-msgstr "Niet vertrouwd Desktop File"
+msgstr "Ongetrouwd bureaubladbestand"
 
-#: app/desktopFileIcon.js:181
-#, fuzzy
-msgid ""
-"This .desktop file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
-"Dit desktop dossier is niet vertrouwd, het kan niet gelanceerd worden. Om in "
-"staat te lanceren, rechts, dan:\n"
-"\n"
-"\"Allow Launching\""
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:175
+#, machine-translated
+msgid "This Desktop file is not trusted, it can not be launched."
+msgstr "Dit bureaubladbestand is niet vertrouwd, het kan niet worden gestart."
 
-#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#, machine-translated
 msgid "Could not open File"
-msgstr "Kon bestand niet openen"
+msgstr "Kon niet openen Bestand"
 
-#: app/desktopFileIcon.js:211
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:206
+#, machine-translated
 msgid "{appName} can not open files of this Type!"
-msgstr "Ik kan geen dossiers van deze Type openen!"
+msgstr "{appName} kan geen bestanden van dit type openen!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, fuzzy
+#, machine-translated
 msgid "Desktop Folder Change Failed"
-msgstr "Maken Orde is mislukt."
+msgstr "Bureaubladmap Wijziging mislukt"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
+#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr ""
+msgstr "De nieuwe bureaubladmap is een symbolische koppeling"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
+#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
+msgstr "De nieuwe bureaubladmap bestaat niet of is geen map!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
+#, machine-translated
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "Bureaubladmap gewijzigd"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
+#, machine-translated
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "Overschakelen naar nieuw bureaublad..."
 
+# MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icons"
 msgstr "Bureaubladpictogrammen"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:157
+#, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "Beeldschermbuffer Schalen is niet ingeschakeld"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:158
+#, machine-translated
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor "
-"framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"Meerdere monitoren met verschillende zoominstellingen, raden per monitor framebuffer schalen.\n"
+"\n"
+"Schakel in Mutter Dconf Instellingen"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:169
+#, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"Meerdere monitoren met verschillende zoominstellingen.\n"
+"\n"
+"Per monitor framebuffer schalen inschakelen in Mutter Dconf-instellingen?"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
+#, machine-translated
 msgid "Enable"
 msgstr "Inschakelen"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
+#, machine-translated
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "Kan het bureaublad niet tonen"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"De bureaubladmap {desktop} is een symbolische koppeling\n"
+"\n"
+"Stel de bureaubladmap in op een echte map"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
+"De bureaubladmap {desktop} bestaat niet of is geen map\n"
+"\n"
+"Controleer uw xdg-utils installatie en stel de juiste bureaubladmap in"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:219
-#, fuzzy
+#, machine-translated
 msgid "GNOME Files not found"
 msgstr "GNOME Bestanden niet gevonden"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:220
-#, fuzzy
+#, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "The GNOME De dossiers worden vereist door Gtk4 Desktop Icons NG."
+msgstr "Het Gnome Bestandentoepassing is vereist door Gtk4 Desktop pictogrammen NG."
 
+# MT: LibreTranslate
 #: app/desktopManager.js:227
-#, fuzzy
+#, machine-translated
 msgid "There is no default File Manager"
-msgstr "Er is geen default File Manager"
+msgstr "Er is geen standaard bestandsbeheer"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:228
-#, fuzzy
+#, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "Er is geen sollicitatie die mimetype 'inode/directory' behandelt"
+msgstr "Er is geen toepassing die mimetype \"inode/directory\" behandelt"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:235
-#, fuzzy
+#, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "Gnome Files is niet geregistreerd als een File Manager"
+msgstr "Gnome-bestanden zijn niet geregistreerd als bestandsbeheer"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:236
-#, fuzzy
+#, machine-translated
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"De Gnome Files aanvraag is niet geprogrammeerd om Folders te openen!\n"
-"Controleer je xdg-utils installatie\n"
-"Controleer Gnome Files. File installatie"
+"De Gnome Files-applicatie is niet geprogrammeerd om Mappen te openen!\n"
+"Controleer uw xdg-utils installatie\n"
+"Controleer Gnome-bestanden .desktop Bestandsinstallatie"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:328
-#, fuzzy
+#, machine-translated
 msgid "Clear current selection before new search"
-msgstr "De huidige selectie voor nieuwe zoektocht"
+msgstr "Huidige selectie wissen voor nieuwe zoekopdracht"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1238
-#, fuzzy
+#, machine-translated
 msgid "Find Files on Desktop"
-msgstr "Zoek Files op Desktop"
+msgstr "Bestanden zoeken op het bureaublad"
 
 #: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Nieuwe map"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1613
-#, fuzzy
+#, machine-translated
 msgid "Folder Creation Failed"
-msgstr "Maken Orde is mislukt."
+msgstr "Map aanmaken mislukt"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1614
-#, fuzzy
+#, machine-translated
 msgid "Could not create folder"
-msgstr "Kan geen map aanmaken."
+msgstr "Kon map niet aanmaken"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:601
-#, fuzzy
+#, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Niet in staat om te openen in Gnome Console"
+msgstr "Kan bureaublad in Gnome-bestanden niet openen"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:620
-#, fuzzy
+#, machine-translated
 msgid "Preferences Window is Open"
-msgstr "Prefering Window is open"
+msgstr "Voorkeuren Venster is geopend"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:621
-#, fuzzy
+#, machine-translated
 msgid "This Window is open. Please switch to the active window."
-msgstr "Deze Window is open. Verander alsjeblieft naar het actieve raam."
+msgstr "Dit raam is open. Ga naar het actieve venster."
 
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 msgid "Settings"
 msgstr "Instellingen"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:813
-#, fuzzy
+#, machine-translated
 msgid "Template Creation Error"
-msgstr "Vertaling:"
+msgstr "Sjabloonaanmaakfout"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:814
-#, fuzzy
+#, machine-translated
 msgid "Could not create document"
-msgstr "Kon het document niet verwijderen"
+msgstr "Kon document niet aanmaken"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:919
-#, fuzzy
+#, machine-translated
 msgid "Name"
 msgstr "Naam"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:921
-#, fuzzy
+#, machine-translated
 msgid "Name Z-A"
 msgstr "Naam Z-A"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:923
-#, fuzzy
+#, machine-translated
 msgid "Modified Time"
-msgstr "Laatst gewijzigde tijd"
+msgstr "Gewijzigde tijd"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:925
-#, fuzzy
+#, machine-translated
 msgid "Type"
 msgstr "Type"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:927
-#, fuzzy
+#, machine-translated
 msgid "Size"
 msgstr "Grootte"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:932
-#, fuzzy
+#, machine-translated
 msgid "Keep Arranged…"
-msgstr "Hou Arranged.."
+msgstr "Gearrangeerd blijven.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:937
-#, fuzzy
+#, machine-translated
 msgid "Keep Stacked by Type…"
-msgstr "Hou Stacked door Type.."
+msgstr "Stacked houden door Type.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:939
-#, fuzzy
+#, machine-translated
 msgid "Sort Home/Drives/Trash…"
-msgstr "Sort Home/Drives/Trash.."
+msgstr "Sorteer Home/Drives/Trash.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:944
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop"
-msgstr "Bureaucomputer"
+msgstr "Bureaublad wijzigen"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:949
+#, machine-translated
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "Standaard bureaublad herstellen"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:953
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icon Settings"
-msgstr "Desktop-instellingen"
+msgstr "Instellingen voor bureaubladpictogram"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:955
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcuts"
 msgstr "Sneltoetsen tonen"
 
@@ -854,117 +1058,137 @@ msgstr "Ongedaan maken"
 msgid "Redo"
 msgstr "Opnieuw"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:978 app/shortcuts.js:14
-#, fuzzy
+#, machine-translated
 msgid "Select All"
 msgstr "Alles selecteren"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:985
-#, fuzzy
+#, machine-translated
 msgid "Arrange Icons"
-msgstr "Arrange Icons"
+msgstr "Pictogrammen ordenen"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:989
-#, fuzzy
+#, machine-translated
 msgid "Arrange By…"
 msgstr "Arrange By.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:997
-#, fuzzy
-#| msgid "Show Desktop in Files"
+#, machine-translated
 msgid "Show Desktop In {0}"
-msgstr "Laat Desktop zien"
+msgstr "Bureaublad tonen in {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1002
-#, fuzzy
+#, machine-translated
 msgid "Open In {0}"
-msgstr "Open {0}"
+msgstr "Openen in {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1018
+#, machine-translated
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Schelpmenu.."
 
+# MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
-#, fuzzy
+#, machine-translated
 msgid "Making SymLink Failed"
-msgstr "SymLink laten vallen"
+msgstr "SymLink maken mislukt"
 
+# MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
-#, fuzzy
+#, machine-translated
 msgid "Could not create symbolic link"
-msgstr "Kon geen symbolische link maken"
+msgstr "Kon symbolische verwijzing niet aanmaken"
 
+# MT: LibreTranslate
 #: app/dragManager.js:739
-#, fuzzy
+#, machine-translated
 msgid "Copy/Move Failed"
-msgstr "Verplaats Cancell"
+msgstr "Kopiëren/verplaatsen is mislukt"
 
+# MT: LibreTranslate
 #: app/dragManager.js:740
-#, fuzzy
+#, machine-translated
 msgid "{0} Does not exist"
-msgstr "Bestaat niet"
+msgstr "{0} Bestaat niet"
 
+# MT: LibreTranslate
 #: app/dragManager.js:782
-#, fuzzy
+#, machine-translated
 msgid "Choose Action for Files"
-msgstr "Kies Actie voor Files"
+msgstr "Kies actie voor bestanden"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Move"
-msgstr "Verplaats"
+msgstr "Verplaatsen"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "Kopiëren"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Link"
-msgstr "Link"
+msgstr "Verband"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, fuzzy
-#| msgid "New Folder"
+#, machine-translated
 msgid "Folder"
 msgstr "Map"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, fuzzy
+#, machine-translated
 msgid "File"
 msgstr "Bestand"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:270
-#, fuzzy
+#, machine-translated
 msgid "Opening File Failed"
-msgstr "Bestand openen mislukt"
+msgstr "Openen van bestand mislukt"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:276
-#, fuzzy
+#, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr "Er is geen aanmelding geïnstalleerd om de dossiers te openen."
+msgstr "Er is geen toepassing geïnstalleerd om \"{fo}\" bestanden te openen."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:104
-#, fuzzy
+#, machine-translated
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] "New Folder met"
-msgstr[1] "Nieuwe Folder met"
+msgstr[0] "Nieuwe map met {0} item"
+msgstr[1] "Nieuwe map met {0} item"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:114
-#, fuzzy
+#, machine-translated
 msgid "Open All..."
-msgstr "Alles openen"
+msgstr "Alles openen..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, fuzzy
+#, machine-translated
 msgid "Launch"
 msgstr "Starten"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:135
-#, fuzzy
+#, machine-translated
 msgid "Open with {foo}"
-msgstr "Open met foo"
+msgstr "Openen met {foo}"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
@@ -978,35 +1202,41 @@ msgstr "Hier uitpakken"
 msgid "Extract To..."
 msgstr "Uitpakken naar…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, fuzzy
+#, machine-translated
 msgid "Open With..."
 msgstr "Openen met..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:176
-#, fuzzy
+#, machine-translated
 msgid "Open All With Other Application..."
-msgstr "Met andere toepassing openen"
+msgstr "Alles openen met een andere toepassing..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:184
-#, fuzzy
+#, machine-translated
 msgid "Launch using Integrated Graphics Card"
-msgstr "Launch gebruikt toegewijde Graphics Card"
+msgstr "Starten met geïntegreerde grafische kaart"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:206
-#, fuzzy
+#, machine-translated
 msgid "Stack This Type"
-msgstr "Stop dit Type"
+msgstr "Stack dit type"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:207
-#, fuzzy
+#, machine-translated
 msgid "Unstack This Type"
-msgstr "Vernietig deze Type"
+msgstr "Dit type losmaken"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:231
-#, fuzzy
+#, machine-translated
 msgid "Run as a Program"
-msgstr "Ren als Programma"
+msgstr "Als programma uitvoeren"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
@@ -1016,13 +1246,15 @@ msgstr "Scripts"
 msgid "Cut"
 msgstr "Knippen"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, fuzzy
+#, machine-translated
 msgid "Move to..."
-msgstr "Verplaatsen naar ..."
+msgstr "Naar..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, fuzzy
+#, machine-translated
 msgid "Copy to..."
 msgstr "Kopiëren naar..."
 
@@ -1030,34 +1262,39 @@ msgstr "Kopiëren naar..."
 msgid "Rename…"
 msgstr "Hernoemen…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, fuzzy
+#, machine-translated
 msgid "Create Link..."
-msgstr "Link maken"
+msgstr "Link aanmaken..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:261
-#, fuzzy
+#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Compress"
-msgstr[1] "Compress"
+msgstr[0] "{0}-map comprimeren"
+msgstr[1] "{0}-map comprimeren"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:269
-#, fuzzy
+#, machine-translated
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] "Bestand comprimeren"
-msgstr[1] ""
+msgstr[0] "Comprimeren {0} bestand"
+msgstr[1] "Comprimeren {0} bestand"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:276
-#, fuzzy
+#, machine-translated
 msgid "Email to..."
 msgstr "E-mail naar..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:286
-#, fuzzy
+#, machine-translated
 msgid "Send to Mobile Device"
-msgstr "Stuur naar Mobile Device"
+msgstr "Naar mobiel apparaat verzenden"
 
 #: app/fileItemMenu.js:294
 msgid "Move to Trash"
@@ -1067,14 +1304,11 @@ msgstr "Verplaatsen naar prullenbak"
 msgid "Delete permanently"
 msgstr "Definitief verwijderen"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
-#, fuzzy
+#, machine-translated
 msgid "Don't Allow Launching"
-msgstr "Toepassingen starten toestaan"
-
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
-msgid "Allow Launching"
-msgstr "Toepassingen starten toestaan"
+msgstr "Lanceren niet toestaan"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
@@ -1088,48 +1322,55 @@ msgstr "Uitwerpen"
 msgid "Unmount"
 msgstr "Ontkoppelen"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:354
-#, fuzzy
+#, machine-translated
 msgid "Common Properties"
-msgstr "Reactie-eigenschappen"
+msgstr "Gemeenschappelijke eigenschappen"
 
 #: app/fileItemMenu.js:355
 msgid "Properties"
 msgstr "Eigenschappen"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:362
-#, fuzzy
+#, machine-translated
 msgid "Show All in {0}"
-msgstr "Toon alles in"
+msgstr "Alles tonen in {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:363
-#, fuzzy
-#| msgid "Show in Files"
+#, machine-translated
 msgid "Show in {0}"
-msgstr "Kom binnen"
+msgstr "Tonen in {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:374
-#, fuzzy
+#, machine-translated
 msgid "Open in {0}"
-msgstr "Open {0}"
+msgstr "Openen in {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:537
-#, fuzzy
+#, machine-translated
 msgid "Open Item"
-msgstr "Item Openen"
+msgstr "Item openen"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:819
-#, fuzzy
+#, machine-translated
 msgid "Extraction Cancelled"
-msgstr "Verwijderingskanker"
+msgstr "Extractie geannuleerd"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:820
-#, fuzzy
+#, machine-translated
 msgid "Unable to extract File, no destination folder"
-msgstr "Niet in staat om uit te trekken Geen bestemmingsvogel"
+msgstr "Kan niet uitpakken Bestand, geen doelmap"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, fuzzy
+#, machine-translated
 msgid "Select Destination"
 msgstr "Bestemming selecteren"
 
@@ -1137,332 +1378,395 @@ msgstr "Bestemming selecteren"
 msgid "Select"
 msgstr "Selecteren"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:963
-#, fuzzy
+#, machine-translated
 msgid "Can not email a Directory"
-msgstr "Kan een directeur niet e-mailen"
+msgstr "Kan geen map e-mailen"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:965
-#, fuzzy
+#, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Selectie inclusief een Directory, compressie voor een rits?"
+msgstr "Selectie omvat een directory, comprimeren naar een .zip-bestand eerst?"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
-#, fuzzy
+#, machine-translated
 msgid "Mail Error"
-msgstr "Post Error"
+msgstr "E-mailfout"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:993
-#, fuzzy
+#, machine-translated
 msgid "Unable to find zip command, please install the program"
-msgstr ""
-"Niet in staat om zip commando te vinden, installeer alsjeblieft het programma"
+msgstr "Kan zip-opdracht niet vinden, installeer het programma"
 
+# MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
-#, fuzzy
+#, machine-translated
 msgid "Archive.zip"
-msgstr "Archief"
+msgstr "Archief.zip"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1023
-#, fuzzy
+#, machine-translated
 msgid "There was an error in creating a zip archive"
-msgstr "Er was een fout in het creëren van een zip archief"
+msgstr "Er is een fout opgetreden bij het aanmaken van een zip-archief"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1041
-#, fuzzy
+#, machine-translated
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
-"Niet in staat om xdg-email te vinden, installeer alsjeblieft het programma"
+msgstr "Kan xdg-email niet vinden, installeer het programma"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1059
-#, fuzzy
+#, machine-translated
 msgid "There was an error in emailing Files"
-msgstr "Er was een fout in het e-mailen van Files"
+msgstr "Er is een fout opgetreden bij het e-mailen van bestanden"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1174
-#, fuzzy
+#, machine-translated
 msgid "Can Not open the Working Directory"
-msgstr "Kan een directeur niet e-mailen"
+msgstr "Kan de werkmap niet openen"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1225
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open in Gnome Console"
-msgstr "Niet in staat om te openen in Gnome Console"
+msgstr "Kan niet openen in Gnome Console"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1227
-#, fuzzy
+#, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr "Vertaling:"
+msgstr "Installeer Gnome Console of een ander terminalprogramma"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1235
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open {0}"
-msgstr "Openen mislukt"
+msgstr "Kan niet openen {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1237
-#, fuzzy
+#, machine-translated
 msgid "Please Install {0}"
-msgstr "Install _"
+msgstr "Installeer {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1281
-#, fuzzy
+#, machine-translated
 msgid "Copy Cancelled"
-msgstr "Kopiëren geannuleerd"
+msgstr "Geannuleerd kopiëren"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1282
-#, fuzzy
+#, machine-translated
 msgid "Unable to copy Files, no destination folder"
-msgstr "Niet in staat om Files te kopiëren, geen bestemmingsvogel"
+msgstr "Kon bestanden niet kopiëren, geen doelmap"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1305
-#, fuzzy
+#, machine-translated
 msgid "Move Cancelled"
-msgstr "Verplaats Cancell"
+msgstr "Verplaatsen geannuleerd"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1306
-#, fuzzy
+#, machine-translated
 msgid "Unable to move Files, no destination folder"
-msgstr "Niet in staat om Files te verplaatsen, geen bestemmingsvogel"
+msgstr "Kan bestanden niet verplaatsen, geen doelmap"
 
+# MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
-#, fuzzy
+#, machine-translated
 msgid "$appName$ can not open files of this Type!"
-msgstr "Ik kan geen dossiers van deze Type openen!"
+msgstr "$appName$ kan geen bestanden van dit type openen!"
 
+# MT: LibreTranslate
 #: app/preferences.js:885
-#, fuzzy
+#, machine-translated
 msgid "Console"
-msgstr "Troosten"
+msgstr "Console"
 
-#: app/shortcutManager.js:46 app/shortcutManager.js:86
-#: app/shortcutManager.js:522
-#, fuzzy
-msgid "None"
-msgstr "Geen"
-
+# MT: LibreTranslate
 #: app/shortcutManager.js:85
+#, machine-translated
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "Standaard sneltoets:"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:109
+#, machine-translated
 msgid "Type new..."
-msgstr ""
+msgstr "Typ nieuw..."
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:125
+#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr ""
+msgstr "Modifier + sleutel (bv. Ctrl + Alt + D)"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, fuzzy
+#, machine-translated
 msgid "Reset to Default"
 msgstr "Terugzetten naar standaard"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, fuzzy
+#, machine-translated
 msgid "No Accelerator"
-msgstr "Versneller"
+msgstr "Geen versnelling"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, fuzzy
+#, machine-translated
 msgid "System Shortcuts"
-msgstr "Sneltoetsen tonen"
+msgstr "Systeemsneltoetsen"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:244
+#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr ""
+msgstr "Sneltoetsen voor het gemeenschappelijk systeem"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, fuzzy
+#, machine-translated
 msgid "Local Shortcuts"
-msgstr "Sneltoetsen tonen"
+msgstr "Lokale sneltoetsen"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, fuzzy
+#, machine-translated
 msgid "Application Keyboard Shortcuts"
-msgstr "Applicatiesnelkoppelingen"
+msgstr "Sneltoetsen voor toepassingen"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, fuzzy
+#, machine-translated
 msgid "Global Shortcuts"
-msgstr "Algemene sneltoets"
+msgstr "Globale sneltoetsen"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, fuzzy
+#, machine-translated
 msgid "System Keyboard Shortcuts"
-msgstr "Sneltoetsen"
+msgstr "Systeemtoetsensneltoetsen"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:661
-#, fuzzy
+#, machine-translated
 msgid "Keyboard Shortcuts"
 msgstr "Sneltoetsen"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:673
-#, fuzzy
+#, machine-translated
 msgid "Reset Shortcuts"
-msgstr "Alle sneltoetsen opnieuw instellen"
+msgstr "Sneltoetsen resetten"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:674
+#, machine-translated
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Alle sneltoetsen terugzetten naar standaardinstellingen"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:677
-#, fuzzy
+#, machine-translated
 msgid "Reset All..."
-msgstr "Reset Alles"
+msgstr "Alles resetten..."
 
+# MT: LibreTranslate
 #: app/shortcuts.js:15
-#, fuzzy
+#, machine-translated
 msgid "Show Desktop in Files"
-msgstr "Bureaublad tonen in Bestanden"
+msgstr "Bureaublad in bestanden tonen"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
 msgstr "Openen in terminalvenster"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:17
-#, fuzzy
-#| msgid "Change Background…"
+#, machine-translated
 msgid "Change Background"
-msgstr "Achtergrond veranderen"
+msgstr "Achtergrond wijzigen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:18
-#, fuzzy
-#| msgid "Display Settings"
+#, machine-translated
 msgid "Change Display Settings"
-msgstr "Scherminstellingen"
+msgstr "Weergaveinstellingen wijzigen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:19
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop Icon Settings"
-msgstr "Desktop Icon Settings"
+msgstr "Bureaubladpictograminstellingen wijzigen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:20
+#, machine-translated
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "Pictogrammen opruimen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:21
-#, fuzzy
+#, machine-translated
 msgid "Keep Arranged"
-msgstr "Hou Arranged.."
+msgstr "Gearrangeerd houden"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:22
-#, fuzzy
+#, machine-translated
 msgid "Keep Stacked"
-msgstr "Hou Icons neer"
+msgstr "Stacked houden"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:23
-#, fuzzy
+#, machine-translated
 msgid "Sort Special Folders"
-msgstr "Speciale mappen"
+msgstr "Speciale mappen sorteren"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:24
-#, fuzzy
+#, machine-translated
 msgid "Arrange Icons by Name"
-msgstr "Arrange Icons"
+msgstr "Pictogrammen op naam sorteren"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:25
+#, machine-translated
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "Pictogrammen sorteren op aflopende naam"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:26
-#, fuzzy
+#, machine-translated
 msgid "Arrange Icons By Modified Time"
-msgstr "Gemodificeerde Tijd"
+msgstr "Pictogrammen sorteren op gewijzigde tijd"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:27
-#, fuzzy
+#, machine-translated
 msgid "Arrange Icons By Kind"
-msgstr "Arrange Icons"
+msgstr "Pictogrammen ordenen Op aard"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:28
-#, fuzzy
+#, machine-translated
 msgid "Arrange Icons By Size"
-msgstr "Arrange Icons"
+msgstr "Pictogrammen sorteren op grootte"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:29
-#, fuzzy
+#, machine-translated
 msgid "Find Files"
 msgstr "Bestanden zoeken"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:30
-#, fuzzy
+#, machine-translated
 msgid "Update Desktop"
-msgstr "Bureaucomputer"
+msgstr "Bureaublad bijwerken"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:31
-#, fuzzy
+#, machine-translated
 msgid "Show Hidden Files"
-msgstr "Verborgen bestanden weergeven"
+msgstr "Verborgen bestanden tonen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:32
-#, fuzzy
+#, machine-translated
 msgid "Unselect All"
-msgstr "Alles Deselecteren"
+msgstr "Alles deselecteren"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:33
-#, fuzzy
+#, machine-translated
 msgid "Preview"
 msgstr "Voorbeeld"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:34
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Left"
-msgstr "Kies Actie voor Files"
+msgstr "Pictogram links kiezen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:35
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Right"
-msgstr "Kies Actie voor Files"
+msgstr "Pictogram rechts kiezen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:36
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Up"
-msgstr "Selecteer"
+msgstr "Pictogram omhoog kiezen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:37
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Down"
-msgstr "Kies Actie voor Files"
+msgstr "Pictogram omlaag kiezen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:38
-#, fuzzy
-#| msgid "Show in Files"
+#, machine-translated
 msgid "Show Menu"
-msgstr "Menu weergeven"
+msgstr "Menu tonen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:39
+#, machine-translated
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "Menu Shell-achtergrond tonen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:40
-#, fuzzy
+#, machine-translated
 msgid "Create Desktop Shortcut"
-msgstr "Onjuiste .desktop-bestanden"
+msgstr "Bureaubladsneltoets aanmaken"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:41
+#, machine-translated
 msgid "Text Entry Accels Turn On"
-msgstr ""
+msgstr "Tekstinvoer Accelers ingeschakeld"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:42
+#, machine-translated
 msgid "Text Entry Accels Turn Off"
-msgstr ""
+msgstr "Tekstinvoer Accels uitschakelen"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:44
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcut Viewer"
-msgstr "Sneltoetsen tonen"
+msgstr "Sneltoets tonen Viewer"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:45
-#, fuzzy
+#, machine-translated
 msgid "Show Or Hide Desktop Icons"
-msgstr "Desktop Icon"
+msgstr "Bureaubladpictogrammen tonen of verbergen"
 
+# MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, fuzzy
+#, machine-translated
 msgid "More Information"
-msgstr "Meer Informatie"
+msgstr "Meer informatie"
 
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
@@ -1470,98 +1774,115 @@ msgstr "Meer Informatie"
 msgid "Home"
 msgstr "Persoonlijke map"
 
+# MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, fuzzy
-#| msgid "Empty Trash"
+#, machine-translated
 msgid "Trash"
-msgstr "Trash"
+msgstr "Prullenbak"
 
+# MT: LibreTranslate
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, fuzzy
+#, machine-translated
 msgid "Stack"
 msgstr "Stack"
 
+# MT: LibreTranslate
 #: app/symLinkIcon.js:100
-#, fuzzy
+#, machine-translated
 msgid "Broken Link"
-msgstr "Gebroken Links"
+msgstr "Gebroken koppeling"
 
+# MT: LibreTranslate
 #: app/symLinkIcon.js:102
-#, fuzzy
+#, machine-translated
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "Kan dit dossier niet openen omdat het een Broken Symlink is"
+msgstr "Kan dit bestand niet openen omdat het een gebroken Symlink is"
 
+# MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, fuzzy
+#, machine-translated
 msgid "Drive"
-msgstr "Schijf"
+msgstr "Rijden"
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
-#, fuzzy
+#, machine-translated
 msgid "\"${programName}\" is not available"
-msgstr "Desktop Icons"
+msgstr "\"${programName}\" is niet beschikbaar"
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-msgid ""
-"Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr ""
+#, machine-translated
+msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr "Installeer \"${programName}\" om Bureaubladpictogrammen in staat te stellen deze acties uit te voeren."
 
+# MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
-#, fuzzy
+#, machine-translated
 msgid "Choose Desktop Folder"
-msgstr "Onjuiste .desktop-bestanden"
+msgstr "Bureaubladmap kiezen"
 
+# MT: LibreTranslate
 #: app/utils/desktopIconsUtil.js:216
-#, fuzzy
+#, machine-translated
 msgid "Command not found"
-msgstr "Commando niet gevonden"
+msgstr "Opdracht niet gevonden"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
-#, fuzzy
+#, machine-translated
 msgid "Choose an app to open the selected files."
-msgstr "Kies een app om de geselecteerde dossiers te openen."
+msgstr "Kies een app om de geselecteerde bestanden te openen."
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
-#, fuzzy
+#, machine-translated
 msgid "Always use for this file type"
-msgstr "Altijd gebruik van dit dossiertype"
+msgstr "Altijd gebruiken voor dit bestandstype"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
+#, machine-translated
 msgid "_Cancel"
 msgstr "_Annuleren"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
+#, machine-translated
 msgid "_Open"
 msgstr "_Openen"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, fuzzy
+#, machine-translated
 msgid "Display icons on the GNOME desktop"
-msgstr "Toon het prullenbakpictogram op het bureaublad"
+msgstr "Pictogrammen op het GNOME-bureaublad tonen"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
+#, machine-translated
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, fuzzy
+#, machine-translated
 msgid "Show<>Hide"
-msgstr "Tonen/Verbergen"
+msgstr "Toon <>Verbergen"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
+#, machine-translated
 msgid "Preferences"
-msgstr "Voorkeursinstellingen"
+msgstr "Voorkeuren"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
+#, machine-translated
 msgid "Disable"
 msgstr "Uitschakelen"
 
@@ -1589,367 +1910,194 @@ msgstr "Prullenbakpictogram tonen"
 msgid "Show the trash icon in the desktop."
 msgstr "Toon het prullenbakpictogram op het bureaublad."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
-#, fuzzy
+#, machine-translated
 msgid "New icons start corner"
-msgstr "Nieuwe iconen beginnen in de hoek"
+msgstr "Nieuwe pictogrammen beginnen hoek"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
-#, fuzzy
+#, machine-translated
 msgid "Set the corner from where the icons will start to be placed."
-msgstr "Zet de hoek van waar de iconen worden geplaatst."
+msgstr "Stel de hoek van waar de pictogrammen zullen worden geplaatst."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-#, fuzzy
+#, machine-translated
 msgid "Show external drives in the desktop"
-msgstr "Toon externe drives in de desktop"
+msgstr "Externe schijven op het bureaublad tonen"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
-#, fuzzy
+#, machine-translated
 msgid "Show the disk drives connected to the computer."
-msgstr "Toon de disk drives verbonden aan de computer."
+msgstr "Toon de schijven verbonden met de computer."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-#, fuzzy
+#, machine-translated
 msgid "Show network drives in the desktop"
-msgstr "Show netwerk drives in the desktop"
+msgstr "Netwerkstations op het bureaublad tonen"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
-#, fuzzy
+#, machine-translated
 msgid "Show mounted network volumes in the desktop."
-msgstr "Toon netwerk volumes in de desktop."
+msgstr "Aangekoppelde netwerkvolumes op het bureaublad tonen."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-#, fuzzy
+#, machine-translated
 msgid "Add new drives to the opposite side of the screen"
-msgstr "Voeg nieuwe schijven aan de andere kant van het scherm"
+msgstr "Nieuwe schijven aan de andere kant van het scherm toevoegen"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-#, fuzzy
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
-"Als het toevoegen en volumes toevoegen aan de desktop, voeg ze dan aan de "
-"andere kant van het scherm."
+#, machine-translated
+msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
+msgstr "Bij het toevoegen van stations en volumes aan het bureaublad, voeg ze toe aan de andere kant van het scherm."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
-#, fuzzy
+#, machine-translated
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr "Toont een rechthoek in de bestemming tijdens DnD"
+msgstr "Toont een rechthoek in de bestemming plaats tijdens DnD"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-#, fuzzy
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"Als je een Drag'n'Drop operatie doet, markeert de plaats in het netel waar "
-"het icoon wordt gelegd met een semitransparante rechthoek."
+#, machine-translated
+msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
+msgstr "Bij het uitvoeren van een Drag'n'Drop operatie, markeert u de plaats in het raster waar het pictogram zal worden geplaatst met een semitransparante rechthoek."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
-#, fuzzy
+#, machine-translated
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Sort Speciale Folders, Home/Trash Drives."
+msgstr "Speciale mappen sorteren - Home/Trash Drives."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-#, fuzzy
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"Als Icons op desktop staan om de positie van het huis te veranderen, Trash "
-"en Network of Externe Drives"
+#, machine-translated
+msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
+msgstr "Bij het regelen van pictogrammen op het bureaublad, sorteren en wijzigen van de positie van de thuis, prullenbak en gemount Netwerk of externe schijven"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
-#, fuzzy
+#, machine-translated
 msgid "Keep Icons Arranged"
-msgstr "Houd Icon Arrange"
+msgstr "Pictogrammen sorteren"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
-#, fuzzy
+#, machine-translated
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "Houdt Icon altijd Gearrangeerd door de laatste regeling"
+msgstr "Pictogrammen altijd behouden Gearrangeerd door de laatste orde"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
-#, fuzzy
+#, machine-translated
 msgid "Arrange Order"
-msgstr "Arrange Order"
+msgstr "Regelvolgorde"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
-#, fuzzy
+#, machine-translated
 msgid "Icons Arranged by this property"
-msgstr "Vertaling:"
+msgstr "Pictogrammen ingesteld door deze eigenschap"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-#, fuzzy
+#, machine-translated
 msgid "Keep Icons Stacked"
-msgstr "Hou Icons neer"
+msgstr "Pictogrammen gestapeld houden"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-#, fuzzy
+#, machine-translated
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "Hou Icons altijd in de gaten, Similaire types zijn gegroepeerd"
+msgstr "Altijd Pictogrammen Stacked houden, Soortgelijke types zijn gegroepeerd"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
-#, fuzzy
+#, machine-translated
 msgid "Type of Files to not Stack"
-msgstr "Type Files om niet te stoppen"
+msgstr "Type bestanden om niet te stapelen"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-#, fuzzy
+#, machine-translated
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Een stralingstypes, steek deze dossiers niet in"
+msgstr "Een Array van strings types, Stack dit soort bestanden niet"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, fuzzy
+#, machine-translated
 msgid "Add an emblem to links"
-msgstr "Voeg een embleem toe aan verbanden"
+msgstr "Een embleem toevoegen aan links"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, fuzzy
+#, machine-translated
 msgid "Add an emblem to allow to identify soft links."
-msgstr "Voeg een embleem toe om zachte schakels te identificeren."
+msgstr "Voeg een embleem toe om zachte links te identificeren."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
-#, fuzzy
+#, machine-translated
 msgid "Use black for label text"
-msgstr "Gebruik zwart voor etiket"
+msgstr "Zwart gebruiken voor labeltekst"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-#, fuzzy
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-"Verf het label in het zwart in plaats van wit. Gebruikelijk als je lichte "
-"achtergronden gebruikt."
+#, machine-translated
+msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgstr "Schilder de tekst in zwart in plaats van wit. Handig bij het gebruik van lichtachtergronden."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, fuzzy
+#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Laat nieuwe iconen zien op geen primaire monitor als er verband is"
+msgstr "Nieuwe pictogrammen op niet primaire monitor tonen indien verbonden"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, fuzzy
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
-"Als een tweede monitor verbonden is, worden er nieuwe icoons geplaatst op de "
-"niet primaire monitor"
+#, machine-translated
+msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
+msgstr "Als een tweede monitor is aangesloten, worden nieuwe pictogrammen geplaatst op de niet primaire monitor"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, fuzzy
+#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr "Icons kunnen overal op Desktop"
+msgstr "Pictogrammen kunnen overal op bureaublad worden geplaatst"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, fuzzy
-msgid ""
-"Icons are not on a rectangular grid but can be postioned anywhere "
-"independent of grid"
-msgstr ""
-"Icons zijn niet op een rechthoekig netwerk, maar kunnen overal onafhankelijk "
-"van grid"
+#, machine-translated
+msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgstr "Pictogrammen zijn niet op een rechthoekig raster, maar kunnen overal worden gepostioneerd onafhankelijk van raster"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+#, machine-translated
 msgid "Hide/Show all desktop windows"
-msgstr ""
+msgstr "Alle bureaubladvensters verbergen/tonen"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, fuzzy
+#, machine-translated
 msgid "Show the icons on the desktop, or hide them all"
-msgstr "Toon het prullenbakpictogram op het bureaublad"
+msgstr "Pictogrammen op het bureaublad tonen of verbergen"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, fuzzy
+#, machine-translated
 msgid "User Application Shortcuts"
-msgstr "Applicatiesnelkoppelingen"
+msgstr "Sneltoetsen voor gebruikerstoepassingen"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+#, machine-translated
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-
-#, fuzzy
-#~ msgid ""
-#~ "For this functionality to work in Desktop Icons, you must install "
-#~ "\"${programName}\" in your system."
-#~ msgstr ""
-#~ "Voor deze functionaliteit om Desktop Icons te werken, moet je \"programm "
-#~ "Naame\" in je systeem zetten."
-
-#, fuzzy
-#~ msgid "Website"
-#~ msgstr "Website"
-
-#, fuzzy
-#~ msgid "Visit"
-#~ msgstr "Bezoek"
-
-#, fuzzy
-#~ msgid "Issues"
-#~ msgstr "Problemen"
-
-#, fuzzy
-#~ msgid "Report issues on issue tracker"
-#~ msgstr "Rapportproblemen over de zoeker"
-
-#, fuzzy
-#~ msgid "Report"
-#~ msgstr "Meld"
-
-#, fuzzy
-#~ msgid "License"
-#~ msgstr "Licentie"
-
-#, fuzzy
-#~| msgid "Paste"
-#~ msgid "Do Paste"
-#~ msgstr "Plakken"
-
-#, fuzzy
-#~ msgid "Copy Item"
-#~ msgstr "@:account.openItems.heading"
-
-#, fuzzy
-#~ msgid "Rename Item"
-#~ msgstr "Rename Item"
-
-#, fuzzy
-#~| msgid "Delete permanently"
-#~ msgid "Delete Permanently"
-#~ msgstr "Permanent verwijderd"
-
-#, fuzzy
-#~| msgid "Properties"
-#~ msgid "Show Properties"
-#~ msgstr "Eigenschappen weergeven"
-
-#, fuzzy
-#~ msgid "Create Link to Item"
-#~ msgstr "Maak een koppeling"
-
-#, fuzzy
-#~ msgid "Add an emblem to soft links"
-#~ msgstr "Voeg een embleem toe aan zachte schakels"
-
-#, fuzzy
-#~ msgid "Volumes"
-#~ msgstr "Volumen"
-
-#, fuzzy
-#~ msgid "Desktop volumes display"
-#~ msgstr "Desktop volumes"
-
-#, fuzzy
-#~ msgid "Run"
-#~ msgstr "Uitvoeren"
-
-#, fuzzy
-#~ msgid "Rectangular icons with drop grid highlighting"
-#~ msgstr "Rectangular iconen met drop grid highlight"
-
-#, fuzzy
-#~ msgid "Close"
-#~ msgstr "Sluit"
-
-#, fuzzy
-#~ msgid "Use Nemo to open folders"
-#~ msgstr "Gebruik Nemo om folders te openen"
-
-#, fuzzy
-#~ msgid "Use Nemo instead of Nautilus to open folders."
-#~ msgstr "Gebruik Nemo in plaats van Nautilus om folders te openen."
-
-#, fuzzy
-#~ msgid "Open In Terminal"
-#~ msgstr "Openen in terminalvenster"
-
-#, fuzzy
-#~ msgid "No Extraction Folder"
-#~ msgstr "Geen extractiemap"
-
-#, fuzzy
-#~ msgid "Select Extract Destination"
-#~ msgstr "Selecteer Uittrekbestemming"
-
-#~ msgid "Open With Other Application"
-#~ msgstr "Met andere toepassing openen"
-
-#, fuzzy
-#~ msgid "Click type for open files"
-#~ msgstr "Klik op type voor geopende bestanden"
-
-#, fuzzy
-#~ msgid "Action to do when launching a program from the desktop"
-#~ msgstr "Actie bij het starten van een programma vanaf het bureaublad"
-
-#, fuzzy
-#~ msgid "Display the content of the file"
-#~ msgstr "Geef de inhoud van het bestand weer"
-
-#, fuzzy
-#~ msgid "Launch the file"
-#~ msgstr "Start het bestand"
-
-#, fuzzy
-#~ msgid "Ask what to do"
-#~ msgstr "Vraag wat te doen"
-
-#, fuzzy
-#~ msgid "Local files only"
-#~ msgstr "Alleen lokale bestanden"
-
-#~ msgid "Do you want to run “{0}”, or display its contents?"
-#~ msgstr "Wilt u ‘{0}‘ uitvoeren of de inhoud ervan bekijken?"
-
-#~ msgid "“{0}” is an executable text file."
-#~ msgstr "‘{0}‘ is een uitvoerbaar tekstbestand."
-
-#, fuzzy
-#~ msgid "Execute in a terminal"
-#~ msgstr "Openen in terminalvenster"
-
-#, fuzzy
-#~ msgid "New folder"
-#~ msgstr "Nieuwe map"
-
-#~ msgid "Delete"
-#~ msgstr "Verwijderen"
-
-#~ msgid "If you delete an item, it will be permanently lost."
-#~ msgstr "Als u een item verwijdert, zal het definitief verloren gaan."
-
-#, fuzzy
-#~ msgid "Show the external drives"
-#~ msgstr "Toon de persoonlijke map op het bureaublad"
-
-#, fuzzy
-#~ msgid "Show network volumes"
-#~ msgstr "Tonen in Bestanden"
-
-#~ msgid "Enter file name…"
-#~ msgstr "Voer bestandsnaam in…"
-
-#~ msgid "Folder names cannot contain “/”."
-#~ msgstr "Mapnamen kunnen geen ‘/’ bevatten."
-
-#~ msgid "A folder cannot be called “.”."
-#~ msgstr "Een map kan niet ‘.’ worden genoemd."
-
-#~ msgid "A folder cannot be called “..”."
-#~ msgstr "Een map kan niet ‘..’ worden genoemd."
-
-#~ msgid "Folders with “.” at the beginning of their name are hidden."
-#~ msgstr "Mappen waarvan de naam begint met ‘.’ zijn verborgen."
-
-#~ msgid "There is already a file or folder with that name."
-#~ msgstr "Er bestaat al een bestand of map met die naam."
-
-#, fuzzy
-#~ msgid "Desktop Icons Settings"
-#~ msgstr "Scherminstellingen"
-
-#~ msgid "Error while deleting files"
-#~ msgstr "Fout tijdens het verwijderen"
+msgstr "Overschrijven voor standaard toepassing sneltoetsen ingesteld door de gebruiker"

@@ -8,1627 +8,2163 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-28 17:15-0400\n"
+"POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/fa/>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
+#, machine-translated
 msgid "Shortcuts"
-msgstr "شورتکات ها"
+msgstr "میانبرها"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
+#, machine-translated
 msgid "Edit Shortcuts..."
-msgstr "ویرایش میانبرها"
+msgstr "دانلود بازی Edit Shortcuts."
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
-#, fuzzy
+#, machine-translated
 msgid "Edit Application Shortcuts"
-msgstr "میانبرهای برنامه"
+msgstr "دانلود بازی Edit Application Shortcuts"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
+#, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "میانبرها قابل ویرایش تنها زمانی که افزونه فعال ..."
 
-#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:698
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:288
+#, machine-translated
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "کمک به ترجمه در مرورگر وب شما"
 
-#: app/adwPreferencesWindow.js:477 app/adwPreferencesWindow.js:478
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
+#, machine-translated
 msgid "Desktop"
-msgstr "دسکتاپ"
+msgstr "Desktop"
 
-#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:484
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
+#, machine-translated
 msgid "Files"
-msgstr "پرونده‌ها"
+msgstr "فایل"
 
-#: app/adwPreferencesWindow.js:489 app/adwPreferencesWindow.js:490
-#: app/adwPreferencesWindow.js:532
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
+#: app/adwPreferencesWindow.js:539
+#, machine-translated
 msgid "Tweaks"
-msgstr "سیخونک‌ها"
+msgstr "ضعف ها"
 
-#: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
+#, machine-translated
 msgid "More"
-msgstr "بیش‌تر"
+msgstr "بیشتر"
 
-#: app/adwPreferencesWindow.js:507
-#, fuzzy
-msgid "Desktop Settings"
-msgstr "تنظیمات دسکتاپ"
-
-#: app/adwPreferencesWindow.js:508
-msgid "Settings for the Desktop Program"
-msgstr ""
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:514
-#, fuzzy
-msgid "Desktop Folder"
-msgstr "شاخهٔ میزکار"
+#, machine-translated
+msgid "Desktop Settings"
+msgstr "تنظیمات Desktop"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:515
+#, machine-translated
+msgid "Settings for the Desktop Program"
+msgstr "تنظیمات برای برنامه دسکتاپ"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:521
+#, machine-translated
+msgid "Desktop Folder"
+msgstr "Desktop Folder"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:522
+#, machine-translated
 msgid "Current Desktop: "
-msgstr ""
+msgstr "Current Desktop:"
 
-#: app/adwPreferencesWindow.js:525
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:532
+#, machine-translated
 msgid "Files Settings"
-msgstr "تنظیمات فایل"
+msgstr "تنظیمات فایل ها"
 
-#: app/adwPreferencesWindow.js:526
-msgid "Settings shared with Gnome Files"
-msgstr ""
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:533
+#, machine-translated
+msgid "Settings shared with Gnome Files"
+msgstr "تنظیمات مشترک با فایل های Gnome"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:540
+#, machine-translated
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "متنوع ضعف ها"
 
-#: app/adwPreferencesWindow.js:551
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:558
+#, machine-translated
 msgid "Size for the desktop icons"
-msgstr ""
+msgstr "اندازه برای آیکون های دسکتاپ"
 
-#: app/adwPreferencesWindow.js:553
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:560
+#, machine-translated
 msgid "Tiny"
-msgstr "ریز"
+msgstr "کوچک"
 
-#: app/adwPreferencesWindow.js:554
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:561
+#, machine-translated
 msgid "Small"
 msgstr "کوچک"
 
-#: app/adwPreferencesWindow.js:555
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:562
+#, machine-translated
 msgid "Standard"
 msgstr "استاندارد"
 
-#: app/adwPreferencesWindow.js:556
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:563
+#, machine-translated
 msgid "Large"
 msgstr "بزرگ"
 
-#: app/adwPreferencesWindow.js:562
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:569
+#, machine-translated
 msgid "New icons alignment"
-msgstr ""
+msgstr "آیکون های جدید"
 
-#: app/adwPreferencesWindow.js:564
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:571
+#, machine-translated
 msgid "Top left corner"
-msgstr "بالا گوشه چپ"
+msgstr "بالا سمت چپ"
 
-#: app/adwPreferencesWindow.js:565
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:572
+#, machine-translated
 msgid "Top right corner"
-msgstr "بالا گوشه راست"
+msgstr "سمت راست بالا"
 
-#: app/adwPreferencesWindow.js:566
-#, fuzzy
-msgid "Bottom left corner"
-msgstr "پایین گوشه چپ"
-
-#: app/adwPreferencesWindow.js:567
-#, fuzzy
-msgid "Bottom right corner"
-msgstr "پایین گوشه راست"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
+#, machine-translated
+msgid "Bottom left corner"
+msgstr "سمت چپ"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:574
+#, machine-translated
+msgid "Bottom right corner"
+msgstr "سمت راست"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:580
+#, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
+msgstr "اضافه کردن آیکون های جدید به مانیتورهای ثانویه اول، در صورت امکان"
 
-#: app/adwPreferencesWindow.js:577
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:584
+#, machine-translated
 msgid "Snap icons to grid"
-msgstr "ترازبندی به شبکه"
+msgstr "Snap آیکون ها به شبکه"
 
-#: app/adwPreferencesWindow.js:583
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:590
+#, machine-translated
 msgid "Highlight the drop grid"
-msgstr ""
+msgstr "بالا بردن شبکه قطره"
 
-#: app/adwPreferencesWindow.js:592
-#, fuzzy
-msgid "New Desktop Folder"
-msgstr "شاخهٔ میزکار"
-
-#: app/adwPreferencesWindow.js:593
-msgid "Set a new folder for the desktop"
-msgstr ""
-
-#: app/adwPreferencesWindow.js:594 app/utils/desktopFolderUtils.js:85
-#, fuzzy
-msgid "Choose"
-msgstr "انتخاب کنید"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599
+#, machine-translated
+msgid "New Desktop Folder"
+msgstr "جدید Desktop Folder"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:600
+#, machine-translated
+msgid "Set a new folder for the desktop"
+msgstr "یک پوشه جدید برای دسکتاپ تنظیم کنید"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
+#, machine-translated
+msgid "Choose"
+msgstr "انتخاب"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:606
+#, machine-translated
 msgid "Set Desktop back to ~/"
-msgstr ""
+msgstr "گزینه Desktop back to ~/"
 
-#: app/adwPreferencesWindow.js:601
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:608
+#, machine-translated
 msgid "Restore Default Desktop Folder"
-msgstr ""
+msgstr "بازگشت خطای Desktop Folder"
 
-#: app/adwPreferencesWindow.js:603
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:610
+#, machine-translated
 msgid "Restore"
-msgstr "بازیابی"
+msgstr "بازگشت"
 
-#: app/adwPreferencesWindow.js:613
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:620
+#, machine-translated
 msgid "Add information emblems for links, encryption"
-msgstr ""
+msgstr "اضافه کردن نماد اطلاعات برای لینک ها، رمزگذاری"
 
-#: app/adwPreferencesWindow.js:617
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:624
+#, machine-translated
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "استفاده از متن تاریک در برچسب های آیکون"
 
-#: app/adwPreferencesWindow.js:622
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:629
+#, machine-translated
 msgid "Show the personal folder on the desktop"
-msgstr ""
+msgstr "نشان دادن پوشه شخصی در دسکتاپ"
 
-#: app/adwPreferencesWindow.js:627
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:634
+#, machine-translated
 msgid "Show the trash icon on the desktop"
-msgstr ""
+msgstr "نشان دادن آیکون زباله در دسکتاپ"
 
-#: app/adwPreferencesWindow.js:632
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:639
+#, machine-translated
 msgid "Show external drives on the desktop"
-msgstr ""
+msgstr "نشان دادن درایوهای خارجی بر روی دسکتاپ"
 
-#: app/adwPreferencesWindow.js:637
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:644
+#, machine-translated
 msgid "Show network drives on the desktop"
-msgstr ""
+msgstr "نشان دادن درایو شبکه در دسکتاپ"
 
-#: app/adwPreferencesWindow.js:642
-msgid "Add new drives to the opposite side of the desktop"
-msgstr ""
-
-#: app/adwPreferencesWindow.js:647
-msgid "Action to Open Items"
-msgstr ""
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:649
+#, machine-translated
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "اضافه کردن درایو های جدید به سمت مخالف دسکتاپ"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:654
+#, machine-translated
+msgid "Action to Open Items"
+msgstr "اقدام برای باز کردن آیتم ها"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:656
+#, machine-translated
 msgid "Single click"
-msgstr ""
+msgstr "تک تک کلیک"
 
-#: app/adwPreferencesWindow.js:650
-#, fuzzy
-msgid "Double click"
-msgstr "دابل کلیک"
-
-#: app/adwPreferencesWindow.js:655
-#, fuzzy
-msgid "Show image thumbnails"
-msgstr "نمایش ریزعکس ها"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:657
-#, fuzzy
+#, machine-translated
+msgid "Double click"
+msgstr "DoubleClick"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:662
+#, machine-translated
+msgid "Show image thumbnails"
+msgstr "نشان دادن عکس های کوچک"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:664
+#, machine-translated
 msgid "Always"
 msgstr "همیشه"
 
-#: app/adwPreferencesWindow.js:658
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:665
+#, machine-translated
 msgid "On this computer only"
-msgstr "روی این کامپیوتر"
+msgstr "در این کامپیوتر فقط"
 
-#: app/adwPreferencesWindow.js:659
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:666
+#, machine-translated
 msgid "Never"
 msgstr "هرگز"
 
-#: app/adwPreferencesWindow.js:664
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:671
+#, machine-translated
 msgid "Show a context menu item to delete permanently"
-msgstr ""
+msgstr "نشان دادن یک آیتم منوی زمینه برای حذف دائمی"
 
-#: app/adwPreferencesWindow.js:669
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:676
+#, machine-translated
 msgid "Show hidden files"
-msgstr "نمایش پرونده‌های پنهان"
+msgstr "نمایش فایل های پنهان"
 
-#: app/adwPreferencesWindow.js:674
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:681
+#, machine-translated
 msgid "Open folders on drag hover"
-msgstr ""
+msgstr "باز کردن پوشه ها در Push"
 
-#: app/adwPreferencesWindow.js:678
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:685
+#, machine-translated
 msgid "About..."
-msgstr "...درباره"
+msgstr "درباره ..."
 
-#: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
-#, fuzzy
-msgid "Translations"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:698
+#, machine-translated
+msgid "Translation"
 msgstr "ترجمه"
 
-#: app/adwPreferencesWindow.js:692
-msgid "All tranlations on Weblate.."
-msgstr ""
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, fuzzy
+#, machine-translated
+msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr "ماشین ترجمه شده با استفاده از LibreTranslate کاربر تایید و ویرایش در Weblate."
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:704
+#, machine-translated
+msgid "Edit Translations"
+msgstr "ترجمه های ادی"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:705
+#, machine-translated
+msgid "Verify, add or correct translation in your web browser"
+msgstr "بررسی، اضافه کردن یا ترجمه صحیح در مرورگر وب خود"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:706
+#, machine-translated
 msgid "Translate"
 msgstr "ترجمه"
 
+# MT: LibreTranslate
 #: app/appChooser.js:78
+#, fuzzy,machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
+msgstr "out {foo}"
 
+# MT: LibreTranslate
 #: app/appChooser.js:90
+#, machine-translated
 msgid "Open Items"
-msgstr ""
+msgstr "آیتم های باز"
 
+# MT: LibreTranslate
 #: app/appChooser.js:92
-#, fuzzy
+#, machine-translated
 msgid "Open Folder"
-msgstr "گشودن پوشه"
+msgstr "Open Folder"
 
+# MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
+#, machine-translated
 msgid "Open File"
-msgstr "باز کردن فایل"
+msgstr "Open File"
 
+# MT: LibreTranslate
 #: app/appChooser.js:165
+#, machine-translated
 msgid "Error changing default application"
-msgstr ""
+msgstr "خطای تغییر برنامه پیش فرض"
 
 #: app/appChooser.js:168
+#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
+# MT: LibreTranslate
 #: app/appImageFileItem.js:57
+#, machine-translated
 msgid "Invalid Permissions on AppImage File"
-msgstr ""
+msgstr "مجوزهای Invalid در فایل AppImage"
 
-#: app/appImageFileItem.js:60
-msgid ""
-"This AppImage File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
+# MT: LibreTranslate
+#: app/appImageFileItem.js:58
+#, machine-translated
+msgid "This AppImage File has incorrect Permissions."
+msgstr "این فایل AppImage مجوزهای نادرستی دارد."
 
+# MT: LibreTranslate
+#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#, machine-translated
+msgid "Right Click to edit Properties, then:"
+msgstr "گزینه ی مناسب برای ویرایش Properties، سپس:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#, machine-translated
+msgid "Set Permissions, in"
+msgstr "اجازه ها را در"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#, machine-translated
+msgid "Others Access"
+msgstr "دسترسی دیگران"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#, machine-translated
+msgid "Read Only"
+msgstr "فقط بخوانید"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#, machine-translated
+msgid "or"
+msgstr "یا"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+#, machine-translated
+msgid "None"
+msgstr "هیچ"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#, machine-translated
+msgid "Enable option"
+msgstr "گزینه Enable"
+
+# MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-msgid ""
-"\n"
-"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
-msgstr ""
+#, machine-translated
+msgid "Allow Executing File as a Program"
+msgstr "اجازه دهید فایل را به عنوان یک برنامه حذف کنید"
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
-msgid ""
-"\n"
-"Enable option, \"Allow Executing File as a Program\""
-msgstr ""
-
-#: app/appImageFileItem.js:82
+# MT: LibreTranslate
+#: app/appImageFileItem.js:79
+#, machine-translated
 msgid "Untrusted AppImage File"
-msgstr ""
+msgstr "Untrusted AppImage File"
 
-#: app/appImageFileItem.js:85
-msgid ""
-"This AppImage file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
+# MT: LibreTranslate
+#: app/appImageFileItem.js:81
+#, machine-translated
+msgid "This AppImage file is not trusted, it can not be launched."
+msgstr "این برنامه فایل تصویر قابل اعتماد نیست، نمی تواند راه اندازی شود."
 
+# MT: LibreTranslate
+#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#, machine-translated
+msgid "To enable launching, right-click, then:"
+msgstr "برای فعال کردن راه اندازی، راست کلیک، سپس:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#, machine-translated
+msgid "enable"
+msgstr "فعال کردن"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+#, machine-translated
+msgid "Allow Launching"
+msgstr "امکان پرتاب"
+
+# MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, fuzzy
+#, machine-translated
 msgid "Folder name"
-msgstr "نام پوشه"
+msgstr "نام Folder"
 
+# MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, fuzzy
+#, machine-translated
 msgid "File name"
-msgstr "نام پرونده"
+msgstr "نام فایل"
 
+# MT: LibreTranslate
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1234
 #: app/fileItemMenu.js:967
-#, fuzzy
+#, machine-translated
 msgid "OK"
-msgstr "تأیید"
+msgstr "OK"
 
+# MT: LibreTranslate
 #: app/askRenamePopup.js:75
-#, fuzzy
+#, machine-translated
 msgid "Rename"
-msgstr "نام بردن"
+msgstr "Rename"
 
+# MT: LibreTranslate
 #: app/autoAr.js:71
+#, machine-translated
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "Auto آر نصب نشده است"
 
+# MT: LibreTranslate
 #: app/autoAr.js:72
-msgid ""
-"To be able to work with compressed files, install file-roller and/or gir-1.2-"
-"gnomeAutoAr"
-msgstr ""
+#, machine-translated
+msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgstr "برای قادر به کار با فایل های فشرده، نصب فایل-roller و / یا gir-1.2-gnome AutoAr"
 
+# MT: LibreTranslate
 #: app/autoAr.js:203
+#, machine-translated
 msgid "Extracting files"
-msgstr ""
+msgstr "استخراج فایل ها"
 
+# MT: LibreTranslate
 #: app/autoAr.js:220
-#, fuzzy
+#, machine-translated
 msgid "Compressing files"
-msgstr "فشرده سازی فایل ها."
+msgstr "فشرده سازی فایل ها"
 
+# MT: LibreTranslate
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
 #: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
 #: app/fileItemMenu.js:967 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#, fuzzy
+#, machine-translated
 msgid "Cancel"
 msgstr "لغو"
 
+# MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
+#, machine-translated
 msgid "Enter a password here"
-msgstr "یک گذرواژه وارد کنید"
+msgstr "وارد یک رمز عبور در اینجا"
 
+# MT: LibreTranslate
 #: app/autoAr.js:354
+#, machine-translated
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "حذف فایل های جزئی '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:373
+#, machine-translated
 msgid "Creating destination folder"
-msgstr ""
+msgstr "ایجاد پوشه مقصد"
 
+# MT: LibreTranslate
 #: app/autoAr.js:405
+#, machine-translated
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "استفاده از فایل ها '${outputPath}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:435
+#, machine-translated
 msgid "Extraction completed"
-msgstr ""
+msgstr "استخراج تکمیل شده"
 
+# MT: LibreTranslate
 #: app/autoAr.js:436
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "out '${fullPathFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:442
+#, machine-translated
 msgid "Extraction cancelled"
-msgstr ""
+msgstr "استخراج مجدد"
 
+# MT: LibreTranslate
 #: app/autoAr.js:443
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "out '${fullPathFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:453
+#, machine-translated
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "پس از آن لازم است که ${filename}"
 
+# MT: LibreTranslate
 #: app/autoAr.js:456
+#, machine-translated
 msgid "Error during extraction"
-msgstr ""
+msgstr "خطا در هنگام استخراج"
 
+# MT: LibreTranslate
 #: app/autoAr.js:483
+#, machine-translated
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "استفاده از فایل ها '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:496
+#, machine-translated
 msgid "Compression completed"
-msgstr ""
+msgstr "فشرده سازی تکمیل شده"
 
+# MT: LibreTranslate
 #: app/autoAr.js:497
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "فایل های فشرده شده در '${outputFile}' تکمیل شده است."
 
+# MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
+#, machine-translated
 msgid "Cancelled compression"
-msgstr ""
+msgstr "لغو فشرده سازی"
 
+# MT: LibreTranslate
 #: app/autoAr.js:502
+#, machine-translated
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "فایل خروجی '${outputFile}' در حال حاضر وجود دارد."
 
+# MT: LibreTranslate
 #: app/autoAr.js:509
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "فایل های فشرده شده در '${outputFile}' توسط کاربر لغو شده است."
 
+# MT: LibreTranslate
 #: app/autoAr.js:512
+#, machine-translated
 msgid "Error during compression"
-msgstr ""
+msgstr "خطا در هنگام فشرده سازی"
 
+# MT: LibreTranslate
 #: app/autoAr.js:547
-#, fuzzy
+#, machine-translated
 msgid "Create archive"
-msgstr "ایجاد بایگانی"
+msgstr "ایجاد آرشیو"
 
+# MT: LibreTranslate
 #: app/autoAr.js:571
+#, machine-translated
 msgid "Archive name"
-msgstr ""
+msgstr "نام Archive"
 
+# MT: LibreTranslate
 #: app/autoAr.js:604
-#, fuzzy
+#, machine-translated
 msgid "Password"
 msgstr "Password"
 
+# MT: LibreTranslate
 #: app/autoAr.js:617
-#, fuzzy
+#, machine-translated
 msgid "Create"
-msgstr "ایجاد کنید"
+msgstr "ایجاد آفرینش"
 
+# MT: LibreTranslate
 #: app/autoAr.js:688
+#, machine-translated
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "سازگار با تمام سیستم های عامل."
 
+# MT: LibreTranslate
 #: app/autoAr.js:694
+#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
+msgstr "Password Protection.zip باید روی ویندوز و مک نصب شود."
 
+# MT: LibreTranslate
 #: app/autoAr.js:700
+#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "آرشیو های کوچکتر اما لینوکس و مک."
 
+# MT: LibreTranslate
 #: app/autoAr.js:706
+#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
+msgstr "آرشیو های کوچکتر اما باید بر روی ویندوز و مک نصب شوند."
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:125
+#, machine-translated
 msgid "The Displayed Desktop is writable by others"
-msgstr ""
+msgstr "دسکتاپ نمایش داده شده توسط دیگران قابل توجه است"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:128
+#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is "
-"writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not "
-"writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
+"فایل های .deskop را نمی توان از این دسکتاپ راه اندازی کرد زیرا Desktop Folder توسط کاربران دیگر قابل استفاده است.\n"
+"\n"
+"لطفا اجازه های این Desktop Folder را بررسی کنید و مطمئن شوید که توسط دیگران قابل توجه نیست."
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:138
+#, machine-translated
 msgid "Broken Desktop File"
-msgstr ""
+msgstr "فایل دسکتاپ شکسته"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:141
+#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-
-#: app/desktopFileIcon.js:151
-msgid "Invalid Permissions on Desktop File"
-msgstr ""
-
-#: app/desktopFileIcon.js:154
-msgid ""
-"This .desktop File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-
-#: app/desktopFileIcon.js:178
-msgid "Untrusted Desktop File"
-msgstr ""
-
-#: app/desktopFileIcon.js:181
-msgid ""
-"This .desktop file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
+"این فایل .desktop دارای خطا یا امتیاز به یک برنامه بدون مجوز است. نمی تواند اعدام شود.\n"
 "\n"
-"Enable \"Allow Launching\""
-msgstr ""
+"فایل را ویرایش کنید تا برنامه اجرایی صحیح را تنظیم کنید."
 
-#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:151
+#, machine-translated
+msgid "Invalid Permissions on Desktop File"
+msgstr "مجوزهای Invalid در Desktop File"
+
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:152
+#, machine-translated
+msgid "This Desktop File has incorrect Permissions."
+msgstr "این فایل دسکتاپ مجوزهای نادرستی دارد."
+
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:173
+#, machine-translated
+msgid "Untrusted Desktop File"
+msgstr "Untrusted Desktop File"
+
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:175
+#, machine-translated
+msgid "This Desktop file is not trusted, it can not be launched."
+msgstr "این فایل دسکتاپ قابل اعتماد نیست، نمی تواند راه اندازی شود."
+
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#, machine-translated
 msgid "Could not open File"
-msgstr "فایل باز نشد"
+msgstr "نمی تواند باز شود File File"
 
-#: app/desktopFileIcon.js:211
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:206
+#, machine-translated
 msgid "{appName} can not open files of this Type!"
-msgstr ""
+msgstr "{appName} نمی تواند فایل های این نوع را باز کند!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
+#, machine-translated
 msgid "Desktop Folder Change Failed"
-msgstr ""
+msgstr "Desktop Folder تغییر شکست خورده"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
+#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr ""
+msgstr "Desktop Folder جدید یک لینک نمادین است"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
+#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
+msgstr "Desktop Folder جدید وجود ندارد و یا یک پوشه نیست!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
+#, machine-translated
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "Desktop Folder تغییر کرد"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
+#, machine-translated
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "تغییر به دسکتاپ جدید ..."
 
+# MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icons"
-msgstr "آیکون دسکتاپ"
+msgstr "Desktop Icons"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:157
+#, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "مانیتور Frame Buffer مقیاس پذیری فعال نمی شود"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:158
+#, machine-translated
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor "
-"framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"مانیتورهای متعدد با تنظیمات زوم مختلف، توصیه به هر اندازه اندازه گیری فریمبوفر مانیتور.\n"
+"\n"
+"لطفا در تنظیمات Mutter Dconf فعال شوید"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:169
+#, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"چندین مانیتور با تنظیمات زوم مختلف\n"
+"\n"
+"فعال سازی در تنظیمات Mutter Dconf?"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
+#, machine-translated
 msgid "Enable"
-msgstr "فعال"
+msgstr "گزینه Enable"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
+#, machine-translated
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "نمی تواند دسکتاپ را نشان دهد"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"صفحه اصلی {desktop}\n"
+"\n"
+"لطفاً Desktop Folder را به یک پوشه واقعی تنظیم کنید"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
-msgstr ""
+msgstr "out {desktop}"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:219
+#, machine-translated
 msgid "GNOME Files not found"
-msgstr ""
+msgstr "GNOME فایل هایی که پیدا نشده اند"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:220
+#, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
+msgstr "GNOME درخواست فایل ها توسط Gtk4 Desktop Icons NG مورد نیاز است."
 
+# MT: LibreTranslate
 #: app/desktopManager.js:227
+#, machine-translated
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "هیچ مدیر فایل پیش فرض وجود ندارد"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:228
+#, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr ""
+msgstr "هیچ برنامه ای وجود ندارد که mimetype “inode/directory” را مدیریت کند"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:235
+#, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "فایل های Gnome به عنوان یک File Manager ثبت نشده اند"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:236
+#, machine-translated
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"اپلیکیشن فایل های Gnome برای باز کردن پوشه ها برنامه ریزی نشده است!\n"
+"نصب xdg-utils را بررسی کنید\n"
+"فایل های Gnome را بررسی کنید.desktop فایل نصب"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:328
+#, machine-translated
 msgid "Clear current selection before new search"
-msgstr ""
+msgstr "انتخاب فعلی شفاف قبل از جستجوی جدید"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1238
+#, machine-translated
 msgid "Find Files on Desktop"
-msgstr ""
+msgstr "پیدا کردن فایل در دسکتاپ"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
-#, fuzzy
+#, machine-translated
 msgid "New Folder"
-msgstr "پوشه جدید"
+msgstr "جدید Folder"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1613
+#, machine-translated
 msgid "Folder Creation Failed"
-msgstr ""
+msgstr "دانلود زیرنویس فارسی فیلم The شکست خورد"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1614
-#, fuzzy
+#, machine-translated
 msgid "Could not create folder"
-msgstr "ناتوان در ساختن پوشه."
+msgstr "نمی تواند پوشه ایجاد کند"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:601
+#, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
-msgstr ""
+msgstr "امکان باز کردن دسکتاپ در فایل های Gnome"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:620
+#, machine-translated
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "پنجره تنظیمات باز است"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:621
+#, machine-translated
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "این پنجره باز است. لطفا به پنجره فعال تغییر دهید."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
-#, fuzzy
+#, machine-translated
 msgid "Settings"
 msgstr "تنظیمات"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:813
+#, machine-translated
 msgid "Template Creation Error"
-msgstr ""
+msgstr "خطای ایجاد الگو"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:814
-#, fuzzy
+#, machine-translated
 msgid "Could not create document"
-msgstr "سند حذف نشد"
+msgstr "نمی تواند سند ایجاد کند"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:919
-#, fuzzy
+#, machine-translated
 msgid "Name"
 msgstr "نام"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:921
-#, fuzzy
+#, machine-translated
 msgid "Name Z-A"
-msgstr "نام (Z-A)"
+msgstr "نام Z-A"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:923
+#, machine-translated
 msgid "Modified Time"
-msgstr ""
+msgstr "زمان اصلاح شده"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:925
-#, fuzzy
+#, machine-translated
 msgid "Type"
-msgstr "گونه"
+msgstr "نوع"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:927
-#, fuzzy
+#, machine-translated
 msgid "Size"
 msgstr "اندازه"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:932
+#, machine-translated
 msgid "Keep Arranged…"
-msgstr ""
+msgstr "ادامه دهید .."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:937
+#, machine-translated
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "نگه دارید توسط نوع .."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:939
+#, machine-translated
 msgid "Sort Home/Drives/Trash…"
-msgstr ""
+msgstr "Home / Drives / Trash را .."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:944
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop"
-msgstr "صفحه نمایش"
+msgstr "تغییر Desktop"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:949
+#, machine-translated
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "بازگشت خطای Desktop"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:953
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icon Settings"
-msgstr "تنظیمات دسکتاپ"
+msgstr "تنظیمات Desktop Icon Settings"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:955
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcuts"
-msgstr "نمایش میان‌برها"
+msgstr "نشان دادن میانبر"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:963 app/shortcuts.js:43
-#, fuzzy
+#, machine-translated
 msgid "New Document"
-msgstr "داکیومنت جدید"
+msgstr "New Document"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:968 app/shortcuts.js:11
-#, fuzzy
+#, machine-translated
 msgid "Paste"
-msgstr "جایگذاری"
+msgstr "پاستور"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:970 app/shortcuts.js:12
-#, fuzzy
+#, machine-translated
 msgid "Undo"
-msgstr "بازگرداندن"
+msgstr "Undo"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:972 app/shortcuts.js:13
-#, fuzzy
+#, machine-translated
 msgid "Redo"
-msgstr "انجام مجدد"
+msgstr "Redo"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:978 app/shortcuts.js:14
-#, fuzzy
+#, machine-translated
 msgid "Select All"
 msgstr "انتخاب همه"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:985
+#, machine-translated
 msgid "Arrange Icons"
-msgstr ""
+msgstr "Icons"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:989
+#, machine-translated
 msgid "Arrange By…"
-msgstr ""
+msgstr "با .."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:997
+#, machine-translated
 msgid "Show Desktop In {0}"
-msgstr ""
+msgstr "نمایش دسکتاپ در {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1002
+#, machine-translated
 msgid "Open In {0}"
-msgstr ""
+msgstr "باز در {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1018
+#, machine-translated
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Shell menu"
 
+# MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
+#, machine-translated
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "بازی SymLink شکست خورد"
 
+# MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
+#, machine-translated
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "نمی تواند لینک نمادین ایجاد کند"
 
+# MT: LibreTranslate
 #: app/dragManager.js:739
+#, machine-translated
 msgid "Copy/Move Failed"
-msgstr ""
+msgstr "کپی/Move شکست خورد"
 
+# MT: LibreTranslate
 #: app/dragManager.js:740
-#, fuzzy
+#, machine-translated
 msgid "{0} Does not exist"
-msgstr "نیست"
+msgstr "{0} وجود ندارد"
 
+# MT: LibreTranslate
 #: app/dragManager.js:782
+#, machine-translated
 msgid "Choose Action for Files"
-msgstr ""
+msgstr "گزینه Action for Files"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Move"
 msgstr "حرکت"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783 app/fileItemMenu.js:240
-#, fuzzy
+#, machine-translated
 msgid "Copy"
-msgstr "رونوشت"
+msgstr "کپی رایت"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Link"
-msgstr "پیوند"
+msgstr "لینک Link"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, fuzzy
+#, machine-translated
 msgid "Folder"
-msgstr "پوشه"
+msgstr "Folder"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, fuzzy
+#, machine-translated
 msgid "File"
-msgstr "پرونده"
+msgstr "File"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:270
+#, machine-translated
 msgid "Opening File Failed"
-msgstr ""
+msgstr "باز کردن فایل شکست خورده"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:276
+#, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
+msgstr "out \"{fo}\""
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:104
+#, machine-translated
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "با استفاده از {0} آیتم"
+msgstr[1] "با استفاده از {0} آیتم"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:114
+#, machine-translated
 msgid "Open All..."
-msgstr ""
+msgstr "باز همه ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, fuzzy
+#, machine-translated
 msgid "Launch"
-msgstr "راه اندازی برنامه"
+msgstr "راه اندازی"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:135
+#, machine-translated
 msgid "Open with {foo}"
-msgstr ""
+msgstr "باز هم با {foo}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:138
-#, fuzzy
+#, machine-translated
 msgid "Open"
-msgstr "باز کردن"
+msgstr "Open"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
+#, machine-translated
 msgid "Extract Here"
-msgstr ""
+msgstr "اینجا"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:162
-#, fuzzy
+#, machine-translated
 msgid "Extract To..."
-msgstr "استخراج در..."
+msgstr "استخراج برای ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, fuzzy
+#, machine-translated
 msgid "Open With..."
-msgstr "باز کردن با..."
+msgstr "باز با ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:176
+#, machine-translated
 msgid "Open All With Other Application..."
-msgstr ""
+msgstr "باز کردن همه با درخواست های دیگر ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:184
+#, machine-translated
 msgid "Launch using Integrated Graphics Card"
-msgstr ""
+msgstr "راه اندازی با استفاده از کارت گرافیک یکپارچه"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:206
+#, machine-translated
 msgid "Stack This Type"
-msgstr ""
+msgstr "این نوع"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:207
+#, machine-translated
 msgid "Unstack This Type"
-msgstr ""
+msgstr "معرفی این نوع"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:231
+#, machine-translated
 msgid "Run as a Program"
-msgstr ""
+msgstr "دویدن به عنوان یک برنامه"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:234
-#, fuzzy
+#, machine-translated
 msgid "Scripts"
-msgstr "اسکریپت‌ها"
+msgstr "Scripts"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:239
-#, fuzzy
+#, machine-translated
 msgid "Cut"
-msgstr "برش"
+msgstr "Cut"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, fuzzy
+#, machine-translated
 msgid "Move to..."
-msgstr "جابه‌جایی به"
+msgstr "حرکت به ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, fuzzy
+#, machine-translated
 msgid "Copy to..."
-msgstr "رونوشت به"
+msgstr "کپی برداری برای ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:249
-#, fuzzy
+#, machine-translated
 msgid "Rename…"
-msgstr "تغییر نام…"
+msgstr "نام .."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, fuzzy
+#, machine-translated
 msgid "Create Link..."
-msgstr "ایجاد لینک"
+msgstr "ایجاد لینک ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:261
+#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "out {0}"
+msgstr[1] "out {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:269
+#, machine-translated
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "فایل فشرده {0}"
+msgstr[1] "فایل فشرده {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:276
+#, machine-translated
 msgid "Email to..."
-msgstr ""
+msgstr "ایمیل برای ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:286
+#, machine-translated
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "ارسال به Mobile Device"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:294
-#, fuzzy
+#, machine-translated
 msgid "Move to Trash"
-msgstr "انتقال به سطل زباله"
+msgstr "حرکت به Trash"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:302
-#, fuzzy
+#, machine-translated
 msgid "Delete permanently"
 msgstr "حذف دائمی"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
+#, machine-translated
 msgid "Don't Allow Launching"
-msgstr ""
+msgstr "اجازه راه اندازی را ندهید"
 
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
-msgid "Allow Launching"
-msgstr ""
-
+# MT: LibreTranslate
 #: app/fileItemMenu.js:339
-#, fuzzy
+#, machine-translated
 msgid "Empty Trash"
-msgstr "خالی کردن سطل زباله"
+msgstr "خالی ترشو"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:345
-#, fuzzy
+#, machine-translated
 msgid "Eject"
-msgstr "خروج‌"
+msgstr "Eject"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:348
-#, fuzzy
+#, machine-translated
 msgid "Unmount"
-msgstr "از بین بردن"
+msgstr "Unmount"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:354
+#, machine-translated
 msgid "Common Properties"
-msgstr ""
+msgstr "املاک مشترک"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:355
-#, fuzzy
+#, machine-translated
 msgid "Properties"
-msgstr "ویژگی ها"
+msgstr "املاک"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:362
+#, machine-translated
 msgid "Show All in {0}"
-msgstr ""
+msgstr "نمایش همه چیز در {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:363
+#, machine-translated
 msgid "Show in {0}"
-msgstr ""
+msgstr "نمایش در {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:374
+#, machine-translated
 msgid "Open in {0}"
-msgstr ""
+msgstr "باز می شود {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:537
-#, fuzzy
+#, machine-translated
 msgid "Open Item"
-msgstr "باز کردن فایل"
+msgstr "متن باز"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:819
+#, machine-translated
 msgid "Extraction Cancelled"
-msgstr ""
+msgstr "استخراج"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:820
+#, machine-translated
 msgid "Unable to extract File, no destination folder"
-msgstr ""
+msgstr "غیر قابل انکار برای استخراج فایل، هیچ پوشه مقصد"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, fuzzy
+#, machine-translated
 msgid "Select Destination"
 msgstr "انتخاب مقصد"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
-#, fuzzy
+#, machine-translated
 msgid "Select"
-msgstr "انتخاب"
+msgstr "گزینه Select"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:963
+#, machine-translated
 msgid "Can not email a Directory"
-msgstr ""
+msgstr "نمی تواند یک دایرکتوری را ارسال کند"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:965
+#, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
+msgstr "انتخاب شامل یک دایرکتوری، فشرده به یک فایل .zip اول است؟?"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
+#, machine-translated
 msgid "Mail Error"
-msgstr ""
+msgstr "خطای ایمیل"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:993
+#, machine-translated
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "برای پیدا کردن دستور پستی، لطفا برنامه را نصب کنید"
 
+# MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
+#, machine-translated
 msgid "Archive.zip"
-msgstr ""
+msgstr "Archive.zip"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1023
+#, machine-translated
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "خطایی در ایجاد یک آرشیو پستی وجود داشت"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1041
+#, machine-translated
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "برای پیدا کردن xdg-mail، لطفا برنامه را نصب کنید"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1059
+#, machine-translated
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "خطایی در فایل های ایمیل وجود داشت"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1174
+#, machine-translated
 msgid "Can Not open the Working Directory"
-msgstr ""
+msgstr "نمی تواند دایرکتوری کاری را باز کند"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1225
+#, machine-translated
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "امکان باز شدن در کنسول Gnome"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1227
+#, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "کنسول Gnome یا دیگر برنامه ترمینال نصب کنید"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1235
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open {0}"
-msgstr "نتوانست باز کند"
+msgstr "out {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1237
+#, machine-translated
 msgid "Please Install {0}"
-msgstr ""
+msgstr "نصب {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1281
+#, machine-translated
 msgid "Copy Cancelled"
-msgstr ""
+msgstr "لغو کپی"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1282
+#, machine-translated
 msgid "Unable to copy Files, no destination folder"
-msgstr ""
+msgstr "غیر قابل کپی کردن فایل ها، هیچ پوشه مقصد"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1305
+#, machine-translated
 msgid "Move Cancelled"
-msgstr ""
+msgstr "لغو شد"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1306
+#, machine-translated
 msgid "Unable to move Files, no destination folder"
-msgstr ""
+msgstr "غیر قابل اجرا برای انتقال فایل ها، هیچ پوشه مقصد"
 
+# MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
+#, machine-translated
 msgid "$appName$ can not open files of this Type!"
-msgstr ""
+msgstr "$appName$ نمی تواند فایل های این نوع را باز کند!"
 
+# MT: LibreTranslate
 #: app/preferences.js:885
-#, fuzzy
+#, machine-translated
 msgid "Console"
-msgstr "کنسول"
+msgstr "کنسول Console"
 
-#: app/shortcutManager.js:46 app/shortcutManager.js:86
-#: app/shortcutManager.js:522
-#, fuzzy
-msgid "None"
-msgstr "هیچ"
-
+# MT: LibreTranslate
 #: app/shortcutManager.js:85
-#, fuzzy
+#, machine-translated
 msgid "Default Shortcut:"
-msgstr "میانبُرهای پیش‌فرض،"
+msgstr "شکست کوتاه:"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:109
+#, machine-translated
 msgid "Type new..."
-msgstr ""
+msgstr "نوع جدید ..."
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:125
+#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr ""
+msgstr "مودفیر + کلید (به عنوان مثال Ctrl + Alt + D"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, fuzzy
+#, machine-translated
 msgid "Reset to Default"
-msgstr "بازنشانی به حالت پیش فرض"
+msgstr "تنظیم مجدد برای شکست"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, fuzzy
+#, machine-translated
 msgid "No Accelerator"
-msgstr "شتاب دهنده"
+msgstr "هیچ شتاب دهنده ای"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, fuzzy
+#, machine-translated
 msgid "System Shortcuts"
-msgstr "نمایش میان‌برها"
+msgstr "سیستم میانبر"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:244
+#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr ""
+msgstr "سیستم مشترک تعریف شده صفحه کلید میانبر"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, fuzzy
+#, machine-translated
 msgid "Local Shortcuts"
-msgstr "نمایش میان‌برها"
+msgstr "میانبرهای محلی"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, fuzzy
+#, machine-translated
 msgid "Application Keyboard Shortcuts"
-msgstr "میانبرهای برنامه"
+msgstr "صفحه کلید میانبر"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, fuzzy
+#, machine-translated
 msgid "Global Shortcuts"
-msgstr "نمایش میان‌برها"
+msgstr "میانبرهای جهانی"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, fuzzy
+#, machine-translated
 msgid "System Keyboard Shortcuts"
-msgstr "میان‌برهای صفحه‌کلید"
+msgstr "سیستم صفحه کلید میانبر"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:661
-#, fuzzy
+#, machine-translated
 msgid "Keyboard Shortcuts"
-msgstr "میان‌برهای صفحه‌کلید"
+msgstr "صفحه کلید میانبر"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:673
-#, fuzzy
+#, machine-translated
 msgid "Reset Shortcuts"
-msgstr "نمایش میان‌برها"
+msgstr "Redirect Shortcuts"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:674
+#, machine-translated
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "تنظیم همه میانبرها به شکست"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:677
-#, fuzzy
+#, machine-translated
 msgid "Reset All..."
-msgstr "بازنشانی همه"
+msgstr "تنظیم همه ..."
 
+# MT: LibreTranslate
 #: app/shortcuts.js:15
-#, fuzzy
+#, machine-translated
 msgid "Show Desktop in Files"
-msgstr "نمایش فایل های پنهان"
+msgstr "نمایش Desktop در Files"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:16
-#, fuzzy
+#, machine-translated
 msgid "Open in Terminal"
-msgstr "باز کردن در ترمینال"
+msgstr "باز در ترمینال"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:17
-#, fuzzy
+#, machine-translated
 msgid "Change Background"
-msgstr "تغییر پیش‌زمینه"
+msgstr "تغییر پس زمینه"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:18
-#, fuzzy
+#, machine-translated
 msgid "Change Display Settings"
-msgstr "تنظیمات نمایش"
+msgstr "Change Display Settings"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:19
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop Icon Settings"
-msgstr "تنظیمات دسکتاپ"
+msgstr "تنظیمات Desktop Icon Settings"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:20
+#, machine-translated
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "تمیز کردن Icons"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:21
+#, machine-translated
 msgid "Keep Arranged"
-msgstr ""
+msgstr "Keepd"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:22
+#, machine-translated
 msgid "Keep Stacked"
-msgstr ""
+msgstr "Keeped"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:23
+#, machine-translated
 msgid "Sort Special Folders"
-msgstr ""
+msgstr "دسته بندی ویژه"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:24
+#, machine-translated
 msgid "Arrange Icons by Name"
-msgstr ""
+msgstr "Icons با نام"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:25
+#, machine-translated
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "نام بازی Icons By Descending Name"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:26
+#, machine-translated
 msgid "Arrange Icons By Modified Time"
-msgstr ""
+msgstr "Icons by Modified Time"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:27
+#, machine-translated
 msgid "Arrange Icons By Kind"
-msgstr ""
+msgstr "Icons خداحافظ"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:28
+#, machine-translated
 msgid "Arrange Icons By Size"
-msgstr ""
+msgstr "Icons با اندازه"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:29
-#, fuzzy
+#, machine-translated
 msgid "Find Files"
-msgstr "یافتن در پرونده‌ها"
+msgstr "پیدا کردن فایل ها"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:30
-#, fuzzy
+#, machine-translated
 msgid "Update Desktop"
-msgstr "صفحه نمایش"
+msgstr "به روز رسانی Desktop"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:31
-#, fuzzy
+#, machine-translated
 msgid "Show Hidden Files"
 msgstr "نمایش فایل های پنهان"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:32
-#, fuzzy
+#, machine-translated
 msgid "Unselect All"
-msgstr "لغو انتخاب همه"
+msgstr "انتخاب همه"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:33
-#, fuzzy
+#, machine-translated
 msgid "Preview"
-msgstr "پیش نمایش"
+msgstr "Preview"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:34
+#, machine-translated
 msgid "Choose Icon Left"
-msgstr ""
+msgstr "گزینه Icon Left"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:35
+#, machine-translated
 msgid "Choose Icon Right"
-msgstr ""
+msgstr "Icon Right را انتخاب کنید"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:36
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Up"
-msgstr "انتخاب کنید"
+msgstr "انتخاب Icon Up"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:37
+#, machine-translated
 msgid "Choose Icon Down"
-msgstr ""
+msgstr "گزینه Icon Down"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:38
-#, fuzzy
+#, machine-translated
 msgid "Show Menu"
-msgstr "نمایش منو"
+msgstr "Show menu"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:39
+#, machine-translated
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "Display Shell background menu"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:40
+#, machine-translated
 msgid "Create Desktop Shortcut"
-msgstr ""
+msgstr "ساخت Desktop Shortcut"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:41
+#, machine-translated
 msgid "Text Entry Accels Turn On"
-msgstr ""
+msgstr "Text Entry Accels Turn On"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:42
+#, machine-translated
 msgid "Text Entry Accels Turn Off"
-msgstr ""
+msgstr "Text Entry Accels خاموش می شود"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:44
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcut Viewer"
-msgstr "نمایش میان‌برها"
+msgstr "نمایش میانبر بینندگان"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:45
+#, machine-translated
 msgid "Show Or Hide Desktop Icons"
-msgstr ""
+msgstr "نمایش یا Hide Desktop Icons"
 
+# MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, fuzzy
+#, machine-translated
 msgid "More Information"
 msgstr "اطلاعات بیشتر"
 
+# MT: LibreTranslate
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
 #: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
-#, fuzzy
+#, machine-translated
 msgid "Home"
-msgstr "خانه"
+msgstr "خانه Home Home"
 
+# MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, fuzzy
+#, machine-translated
 msgid "Trash"
-msgstr "زباله‌دان"
+msgstr "Trash"
 
+# MT: LibreTranslate
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, fuzzy
+#, machine-translated
 msgid "Stack"
-msgstr "پشته‌ای"
+msgstr "Stack"
 
+# MT: LibreTranslate
 #: app/symLinkIcon.js:100
+#, machine-translated
 msgid "Broken Link"
-msgstr ""
+msgstr "لینک های شکسته"
 
+# MT: LibreTranslate
 #: app/symLinkIcon.js:102
+#, machine-translated
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "نمی تواند این فایل را باز کند زیرا یک لینک شکسته است"
 
+# MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, fuzzy
+#, machine-translated
 msgid "Drive"
-msgstr "درایو"
+msgstr "رانندگی"
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
+#, machine-translated
 msgid "\"${programName}\" is not available"
-msgstr ""
+msgstr "out \"${programName}\""
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-msgid ""
-"Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr ""
+#, machine-translated
+msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr "نصب \"${programName}\" برای فعال کردن دسکتاپ Icons برای انجام این اقدامات."
 
+# MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
+#, machine-translated
 msgid "Choose Desktop Folder"
-msgstr ""
+msgstr "انتخاب Desktop Folder"
 
+# MT: LibreTranslate
 #: app/utils/desktopIconsUtil.js:216
+#, machine-translated
 msgid "Command not found"
-msgstr ""
+msgstr "فرماندهی پیدا نشد"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
+#, machine-translated
 msgid "Choose an app to open the selected files."
-msgstr ""
+msgstr "یک برنامه برای باز کردن فایل های انتخاب شده انتخاب کنید."
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
+#, machine-translated
 msgid "Always use for this file type"
-msgstr ""
+msgstr "همیشه برای این نوع فایل استفاده کنید"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
+#, machine-translated
 msgid "_Cancel"
-msgstr "_لغو"
+msgstr "*Cancel"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
+#, machine-translated
 msgid "_Open"
-msgstr "_باز کردن"
+msgstr "باز کردن"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
+#, machine-translated
 msgid "Display icons on the GNOME desktop"
-msgstr ""
+msgstr "نمایش آیکون ها در دسکتاپ GNOME"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
+#, machine-translated
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "دانلود بازی های رومیزی؛ فایل ها؛ پوشه ها؛manager;arrange;coat;show; launcher;"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
+#, machine-translated
 msgid "Show<>Hide"
-msgstr ""
+msgstr "<Hide"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
+#, machine-translated
 msgid "Preferences"
 msgstr "ترجیحات"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
+#, machine-translated
 msgid "Disable"
-msgstr "غیرفعال کردن"
+msgstr "Disable"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
-#, fuzzy
+#, machine-translated
 msgid "Icon size"
-msgstr "اندازه آیکون"
+msgstr "اندازه Icon"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
+#, machine-translated
 msgid "Set the size for the desktop icons."
-msgstr ""
+msgstr "اندازه را برای آیکون های دسکتاپ تنظیم کنید."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
+#, machine-translated
 msgid "Show personal folder"
-msgstr ""
+msgstr "نشان دادن پوشه شخصی"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
+#, machine-translated
 msgid "Show the personal folder in the desktop."
-msgstr ""
+msgstr "پوشه شخصی را در دسکتاپ نشان دهید."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
-#, fuzzy
+#, machine-translated
 msgid "Show trash icon"
-msgstr "نمایش آیکون در سینی"
+msgstr "نشان دادن آیکون زباله"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
+#, machine-translated
 msgid "Show the trash icon in the desktop."
-msgstr ""
+msgstr "نماد زباله را در دسکتاپ نشان دهید."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
+#, machine-translated
 msgid "New icons start corner"
-msgstr ""
+msgstr "آیکون های جدید شروع می کنند"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
+#, machine-translated
 msgid "Set the corner from where the icons will start to be placed."
-msgstr ""
+msgstr "گوشه را از جایی که آیکون ها شروع به قرار دادن می کنند، تنظیم کنید."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
+#, machine-translated
 msgid "Show external drives in the desktop"
-msgstr ""
+msgstr "نشان دادن درایوهای خارجی در دسکتاپ"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
+#, machine-translated
 msgid "Show the disk drives connected to the computer."
-msgstr ""
+msgstr "دیسک های متصل به کامپیوتر را نشان دهید."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
+#, machine-translated
 msgid "Show network drives in the desktop"
-msgstr ""
+msgstr "نشان دادن درایو شبکه در دسکتاپ"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
+#, machine-translated
 msgid "Show mounted network volumes in the desktop."
-msgstr ""
+msgstr "نشان دادن حجم شبکه نصب شده در دسکتاپ."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
+#, machine-translated
 msgid "Add new drives to the opposite side of the screen"
-msgstr ""
+msgstr "اضافه کردن درایو های جدید به سمت مخالف صفحه نمایش"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
+#, machine-translated
+msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
+msgstr "هنگام اضافه کردن درایو و حجم به دسکتاپ، آنها را به سمت مخالف صفحه اضافه کنید."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
+#, machine-translated
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr ""
+msgstr "نشان دادن یک مستطیل در محل مقصد در طول DnD"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
+#, machine-translated
+msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
+msgstr "هنگام انجام یک عملیات دامین، مکان را در شبکه نشان می دهد که در آن آیکون با یک مستطیل نیمه روشن قرار می گیرد."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
+#, machine-translated
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr ""
+msgstr "پوشه های ویژه – Home/Trash Drives."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
+#, machine-translated
+msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
+msgstr "هنگامی که Icons را بر روی دسکتاپ تنظیم می کنید، مرتب سازی و تغییر موقعیت خانه، Trash و نصب شبکه یا درایو خارجی"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
+#, machine-translated
 msgid "Keep Icons Arranged"
-msgstr ""
+msgstr "Icons Plan"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
+#, machine-translated
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr ""
+msgstr "همیشه Icons را نگه دارید سفارش نهایی"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
+#, machine-translated
 msgid "Arrange Order"
-msgstr ""
+msgstr "دستور"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
+#, machine-translated
 msgid "Icons Arranged by this property"
-msgstr ""
+msgstr "توافق توسط این ملک"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
+#, machine-translated
 msgid "Keep Icons Stacked"
-msgstr ""
+msgstr "Keep Icons Stacked"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
+#, machine-translated
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
+msgstr "همیشه Icons Stacked را نگه دارید، انواع مشابه گروه بندی می شوند"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
+#, machine-translated
 msgid "Type of Files to not Stack"
-msgstr ""
+msgstr "انواع فایل ها برای Not Stack"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
+#, machine-translated
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
+msgstr "مجموعه ای از انواع رشته ها، این نوع فایل ها را مشخص نکنید"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
+#, machine-translated
 msgid "Add an emblem to links"
-msgstr ""
+msgstr "اضافه کردن یک نماد به لینک"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
+#, machine-translated
 msgid "Add an emblem to allow to identify soft links."
-msgstr ""
+msgstr "یک نماد برای شناسایی لینک های نرم اضافه کنید."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
+#, machine-translated
 msgid "Use black for label text"
-msgstr ""
+msgstr "استفاده از سیاه برای برچسب متن"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
+#, machine-translated
+msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgstr "متن برچسب را در سیاه به جای سفید رنگ کنید. هنگام استفاده از پس زمینه های نور مفید است."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
+msgstr "نشان دادن آیکون های جدید در مانیتور غیر اولیه اگر متصل"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
+#, machine-translated
+msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
+msgstr "اگر مانیتور دوم متصل باشد، آیکون های جدید بر روی مانیتور غیر اولیه قرار می گیرند"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "Icons می تواند در هر نقطه در دسکتاپ قرار گیرد"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-msgid ""
-"Icons are not on a rectangular grid but can be postioned anywhere "
-"independent of grid"
-msgstr ""
+#, machine-translated
+msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgstr "Icons در یک شبکه مستطیلی نیست، اما می تواند در هر نقطه مستقل از شبکه ارسال شود"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+#, machine-translated
 msgid "Hide/Show all desktop windows"
-msgstr ""
+msgstr "Hide/show همه پنجره های رومیزی"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+#, machine-translated
 msgid "Show the icons on the desktop, or hide them all"
-msgstr ""
+msgstr "آیکون ها را روی دسکتاپ نشان دهید یا همه آنها را پنهان کنید"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, fuzzy
+#, machine-translated
 msgid "User Application Shortcuts"
-msgstr "میانبرهای برنامه"
+msgstr "User Application Shortcuts"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+#, machine-translated
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Website"
-#~ msgstr "وبگاه"
-
-#, fuzzy
-#~ msgid "Visit"
-#~ msgstr "بازدید"
-
-#, fuzzy
-#~ msgid "Issues"
-#~ msgstr "اشکال‌ها"
-
-#, fuzzy
-#~ msgid "Report"
-#~ msgstr "گزارش"
-
-#, fuzzy
-#~ msgid "License"
-#~ msgstr "پروانه"
-
-#, fuzzy
-#~ msgid "Do Paste"
-#~ msgstr "جایگذاری"
-
-#, fuzzy
-#~ msgid "Copy Item"
-#~ msgstr "رونوشت به"
-
-#, fuzzy
-#~ msgid "Rename Item"
-#~ msgstr "بازنامگذاری مورد"
-
-#, fuzzy
-#~ msgid "Delete Permanently"
-#~ msgstr "پاک کردن‌ برای همیشه"
-
-#, fuzzy
-#~ msgid "Show Properties"
-#~ msgstr "ویژگی ها"
-
-#, fuzzy
-#~ msgid "Create Link to Item"
-#~ msgstr "ایجاد لینک"
-
-#, fuzzy
-#~ msgid "Volumes"
-#~ msgstr "حجم صدا"
-
-#, fuzzy
-#~ msgid "Run"
-#~ msgstr "اجرا"
+msgstr "Override for پیش فرض Application shortcuts تنظیم شده توسط کاربر"

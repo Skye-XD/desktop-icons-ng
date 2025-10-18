@@ -10,381 +10,464 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-28 17:15-0400\n"
+"POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-02 20:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
+#, machine-translated
 msgid "Shortcuts"
-msgstr "단축키"
+msgstr "바로가기"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
+#, machine-translated
 msgid "Edit Shortcuts..."
-msgstr "단축키 수정"
+msgstr "Shortcuts 편집 ..."
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
-#, fuzzy
+#, machine-translated
 msgid "Edit Application Shortcuts"
-msgstr "애플리케이션 단축키"
+msgstr "앱 바로가기"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
+#, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "바로가기 Extension Enabled 만 편집 가능 ..."
 
-#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:698
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:288
+#, machine-translated
 msgid "Help translate in your web browser"
 msgstr "웹 브라우저에서 번역하는 데 도움이"
 
-#: app/adwPreferencesWindow.js:477 app/adwPreferencesWindow.js:478
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
+#, machine-translated
 msgid "Desktop"
-msgstr "데스크톱"
+msgstr "제품 정보"
 
-#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:484
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
+#, machine-translated
 msgid "Files"
-msgstr "파일"
+msgstr "파일 형식"
 
-#: app/adwPreferencesWindow.js:489 app/adwPreferencesWindow.js:490
-#: app/adwPreferencesWindow.js:532
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
+#: app/adwPreferencesWindow.js:539
+#, machine-translated
 msgid "Tweaks"
-msgstr "트윅"
+msgstr "스낵 바"
 
-#: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
+#, machine-translated
 msgid "More"
 msgstr "더 보기"
 
-#: app/adwPreferencesWindow.js:507
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:514
+#, machine-translated
 msgid "Desktop Settings"
-msgstr "데스크톱 설정"
+msgstr "데스크탑 설정"
 
-#: app/adwPreferencesWindow.js:508
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:515
+#, machine-translated
 msgid "Settings for the Desktop Program"
 msgstr "데스크탑 프로그램 설정"
 
-#: app/adwPreferencesWindow.js:514
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:521
+#, machine-translated
 msgid "Desktop Folder"
-msgstr "바탕 화면 폴더"
+msgstr "데스크탑 폴더"
 
-#: app/adwPreferencesWindow.js:515
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:522
+#, machine-translated
 msgid "Current Desktop: "
-msgstr "깨진 바탕화면 파일"
+msgstr "현재 데스크탑:"
 
-#: app/adwPreferencesWindow.js:525
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:532
+#, machine-translated
 msgid "Files Settings"
 msgstr "파일 설정"
 
-#: app/adwPreferencesWindow.js:526
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:533
+#, machine-translated
 msgid "Settings shared with Gnome Files"
 msgstr "Gnome 파일로 공유된 설정"
 
-#: app/adwPreferencesWindow.js:533
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:540
+#, machine-translated
 msgid "Miscellaneous Tweaks"
 msgstr "기타 제품 스낵 바"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:558
 msgid "Size for the desktop icons"
 msgstr "바탕화면 아이콘 크기"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:560
 msgid "Tiny"
 msgstr "매우 작은 아이콘"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:561
 msgid "Small"
 msgstr "작은 아이콘"
 
-#: app/adwPreferencesWindow.js:555
+#: app/adwPreferencesWindow.js:562
 msgid "Standard"
 msgstr "중간 아이콘"
 
-#: app/adwPreferencesWindow.js:556
+#: app/adwPreferencesWindow.js:563
 msgid "Large"
 msgstr "큰 아이콘"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:569
 msgid "New icons alignment"
 msgstr "새 아이콘 정렬 방식"
 
-#: app/adwPreferencesWindow.js:564
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:571
+#, machine-translated
 msgid "Top left corner"
-msgstr "좌측 상단 모서리"
+msgstr "왼쪽 코너"
 
-#: app/adwPreferencesWindow.js:565
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:572
+#, machine-translated
 msgid "Top right corner"
-msgstr "우측 상단 모서리"
+msgstr "맨 위로"
 
-#: app/adwPreferencesWindow.js:566
-#, fuzzy
-msgid "Bottom left corner"
-msgstr "좌측 하단 모서리"
-
-#: app/adwPreferencesWindow.js:567
-#, fuzzy
-msgid "Bottom right corner"
-msgstr "우측 하단 모서리"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
-#, fuzzy
+#, machine-translated
+msgid "Bottom left corner"
+msgstr "바닥 왼쪽 코너"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:574
+#, machine-translated
+msgid "Bottom right corner"
+msgstr "바닥 오른쪽 코너"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:580
+#, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Secondary Monitors에 새로운 아이콘을 먼저 추가하면 사용 가능"
 
-#: app/adwPreferencesWindow.js:577
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:584
+#, machine-translated
 msgid "Snap icons to grid"
-msgstr "그리드에 맞추기"
+msgstr "Snap 아이콘을 그리드"
 
-#: app/adwPreferencesWindow.js:583
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:590
+#, machine-translated
 msgid "Highlight the drop grid"
 msgstr "높은 조명 드롭 그리드"
 
-#: app/adwPreferencesWindow.js:592
-#, fuzzy
-msgid "New Desktop Folder"
-msgstr "바탕 화면 폴더"
-
-#: app/adwPreferencesWindow.js:593
-#, fuzzy
-msgid "Set a new folder for the desktop"
-msgstr "바탕화면에 개인 폴더 표시"
-
-#: app/adwPreferencesWindow.js:594 app/utils/desktopFolderUtils.js:85
-#, fuzzy
-msgid "Choose"
-msgstr "선택하세요"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599
+#, machine-translated
+msgid "New Desktop Folder"
+msgstr "새로운 데스크탑 폴더"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:600
+#, machine-translated
+msgid "Set a new folder for the desktop"
+msgstr "데스크탑의 새로운 폴더 설정"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
+#, machine-translated
+msgid "Choose"
+msgstr "제품 정보"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:606
+#, machine-translated
 msgid "Set Desktop back to ~/"
-msgstr ""
+msgstr "바탕 화면을 ~/로 설정"
 
-#: app/adwPreferencesWindow.js:601
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:608
+#, machine-translated
 msgid "Restore Default Desktop Folder"
-msgstr "Untrusted 데스크탑 파일"
+msgstr "복원 기본 데스크탑 폴더"
 
-#: app/adwPreferencesWindow.js:603
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:610
+#, machine-translated
 msgid "Restore"
-msgstr "복원"
+msgstr "관련 상품"
 
-#: app/adwPreferencesWindow.js:613
-#, fuzzy
-#| msgid "Add an emblem to links"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:620
+#, machine-translated
 msgid "Add information emblems for links, encryption"
-msgstr "링크에 엠블럼 추가"
+msgstr "링크, 암호화에 대한 정보 emblems 추가"
 
-#: app/adwPreferencesWindow.js:617
+#: app/adwPreferencesWindow.js:624
 msgid "Use dark text in icon labels"
 msgstr "아이콘 레이블에 어두운 텍스트 사용"
 
-#: app/adwPreferencesWindow.js:622
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:629
+#, machine-translated
 msgid "Show the personal folder on the desktop"
-msgstr "바탕화면에 개인 폴더 표시"
+msgstr "바탕 화면에 개인 폴더보기"
 
-#: app/adwPreferencesWindow.js:627
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:634
+#, machine-translated
 msgid "Show the trash icon on the desktop"
-msgstr "바탕화면에 휴지통 표시"
+msgstr "바탕 화면에 쓰레기 아이콘 표시"
 
-#: app/adwPreferencesWindow.js:632
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:639
+#, machine-translated
 msgid "Show external drives on the desktop"
-msgstr "바탕화면에 외장 드라이브 표시"
+msgstr "데스크톱에서 외부 드라이브보기"
 
-#: app/adwPreferencesWindow.js:637
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:644
+#, machine-translated
 msgid "Show network drives on the desktop"
-msgstr "바탕화면에 네트워크 드라이브 표시"
+msgstr "데스크톱에서 네트워크 드라이브보기"
 
-#: app/adwPreferencesWindow.js:642
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:649
+#, machine-translated
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "새 드라이브를 스크린 반대편에 추가"
+msgstr "바탕 화면의 반대쪽에 새로운 드라이브를 추가"
 
-#: app/adwPreferencesWindow.js:647
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:654
+#, machine-translated
 msgid "Action to Open Items"
 msgstr "본문 바로가기"
 
-#: app/adwPreferencesWindow.js:649
+#: app/adwPreferencesWindow.js:656
 msgid "Single click"
 msgstr "한 번 클릭"
 
-#: app/adwPreferencesWindow.js:650
+#: app/adwPreferencesWindow.js:657
 msgid "Double click"
 msgstr "두 번 클릭"
 
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:662
 msgid "Show image thumbnails"
 msgstr "이미지 마중그림 표시"
 
-#: app/adwPreferencesWindow.js:657
+#: app/adwPreferencesWindow.js:664
 msgid "Always"
 msgstr "항상"
 
-#: app/adwPreferencesWindow.js:658
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:665
+#, machine-translated
 msgid "On this computer only"
 msgstr "이 컴퓨터에서만"
 
-#: app/adwPreferencesWindow.js:659
+#: app/adwPreferencesWindow.js:666
 msgid "Never"
 msgstr "보지 않음"
 
-#: app/adwPreferencesWindow.js:664
+#: app/adwPreferencesWindow.js:671
 msgid "Show a context menu item to delete permanently"
 msgstr "영구적으로 삭제할 컨텍스트 메뉴 항목 표시"
 
-#: app/adwPreferencesWindow.js:669
+#: app/adwPreferencesWindow.js:676
 msgid "Show hidden files"
 msgstr "숨김 파일 표시"
 
-#: app/adwPreferencesWindow.js:674
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:681
+#, machine-translated
 msgid "Open folders on drag hover"
 msgstr "드래그 hover에 폴더 열기"
 
-#: app/adwPreferencesWindow.js:678
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:685
+#, machine-translated
 msgid "About..."
-msgstr "조향보조설명..."
+msgstr "...에."
 
-#: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
-#, fuzzy
-msgid "Translations"
-msgstr "번역"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:698
+#, machine-translated
+msgid "Translation"
+msgstr "번역하기"
 
-#: app/adwPreferencesWindow.js:692
-msgid "All tranlations on Weblate.."
-msgstr ""
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, fuzzy
+#, machine-translated
+msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr "LibreTranslate를 이용하여 번역된 기계. Weblate에 검증된 사용자."
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:704
+#, machine-translated
+msgid "Edit Translations"
+msgstr "번역 편집"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:705
+#, machine-translated
+msgid "Verify, add or correct translation in your web browser"
+msgstr "웹 브라우저에서, 추가 또는 올바른 번역"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:706
+#, machine-translated
 msgid "Translate"
-msgstr "번역"
+msgstr "이름 *"
 
+# MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy
+#, machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "<b>{foo}</b>를 열려면 응용 프로그램을 선택하십시오"
+msgstr "<b>]{foo}]</b>를 엽니다"
 
+# MT: LibreTranslate
 #: app/appChooser.js:90
-#, fuzzy
+#, machine-translated
 msgid "Open Items"
-msgstr "항목 열기"
+msgstr "공지사항"
 
+# MT: LibreTranslate
 #: app/appChooser.js:92
-#, fuzzy
+#, machine-translated
 msgid "Open Folder"
-msgstr "폴더 열기"
+msgstr "오픈 폴더"
 
+# MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
+#, machine-translated
 msgid "Open File"
 msgstr "파일 열기"
 
+# MT: LibreTranslate
 #: app/appChooser.js:165
-#, fuzzy
+#, machine-translated
 msgid "Error changing default application"
 msgstr "오류 변경 기본 응용"
 
+# MT: LibreTranslate
 #: app/appChooser.js:168
-#, fuzzy
+#, machine-translated
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "{foo}를 {mimetype에 대한 기본 응용 프로그램으로 설정하는 동안 오류}"
+msgstr "{foo}]를 설정하는 동안 오류 {mimetype}"
 
+# MT: LibreTranslate
 #: app/appImageFileItem.js:57
-#, fuzzy
-#| msgid "Invalid Permissions on Desktop File"
+#, machine-translated
 msgid "Invalid Permissions on AppImage File"
-msgstr "바탕화면 파일에 대한 잘못된 권한"
+msgstr "AppImage 파일에 잘못된 권한"
 
-#: app/appImageFileItem.js:60
-#, fuzzy
-#| msgid ""
-#| "This .desktop File has incorrect Permissions. Right Click to edit "
-#| "Properties, then:\n"
-msgid ""
-"This AppImage File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-"이 .desktop 파일에 잘못된 권한이 있습니다. 마우스 오른쪽 버튼을 클릭하여 속성"
-"을 편집 한 다음:\n"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:58
+#, machine-translated
+msgid "This AppImage File has incorrect Permissions."
+msgstr "이 AppImage 파일은 잘못된 권한이 있습니다."
 
+# MT: LibreTranslate
+#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#, machine-translated
+msgid "Right Click to edit Properties, then:"
+msgstr "속성을 편집하려면 오른쪽 클릭, 다음:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#, machine-translated
+msgid "Set Permissions, in"
+msgstr "권한 설정, 에서"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#, machine-translated
+msgid "Others Access"
+msgstr "기타 액세스"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#, machine-translated
+msgid "Read Only"
+msgstr "자세히보기"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#, machine-translated
+msgid "or"
+msgstr "또는"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+#, machine-translated
+msgid "None"
+msgstr "이름 *"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#, machine-translated
+msgid "Enable option"
+msgstr "옵션 정보"
+
+# MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
-msgid ""
-"\n"
-"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
-msgstr ""
-"\n"
-"<b>\"다른 접근\", \"읽기 전용\" 또는 \"없음\"에서 권한 설정</b>"
+#, machine-translated
+msgid "Allow Executing File as a Program"
+msgstr "실행파일을 프로그램으로 허용"
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Enable option, \"Allow Executing File as a Program\"</b>"
-msgid ""
-"\n"
-"Enable option, \"Allow Executing File as a Program\""
-msgstr ""
-"\n"
-"<b>활성화 옵션, \"파일을 프로그램으로 실행하기 허용\"</b>"
-
-#: app/appImageFileItem.js:82
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:79
+#, machine-translated
 msgid "Untrusted AppImage File"
-msgstr "Untrusted 데스크탑 파일"
+msgstr "AppImage 파일"
 
-#: app/appImageFileItem.js:85
-#, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "<b>Enable \"Allow Launching\"</b>"
-msgid ""
-"This AppImage file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
-"이 .desktop 파일은 신뢰할 수 없으며 실행할 수 없습니다. 시작을 활성화하려면 "
-"마우스 오른쪽 버튼을 클릭하고 다음을 수행합니다.\n"
-"\n"
-"<b>\"시작하기 허용\" 활성화</b>"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:81
+#, machine-translated
+msgid "This AppImage file is not trusted, it can not be launched."
+msgstr "이 앱 이미지 파일은 신뢰할 수 없습니다, 그것은 출시 될 수 없습니다."
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#, machine-translated
+msgid "To enable launching, right-click, then:"
+msgstr "실행, 마우스 오른쪽 클릭, 다음을 활성화:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#, machine-translated
+msgid "enable"
+msgstr "지원하다"
+
+#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+msgid "Allow Launching"
+msgstr "실행 허용"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -403,29 +486,29 @@ msgstr "확인"
 msgid "Rename"
 msgstr "이름 바꾸기"
 
+# MT: LibreTranslate
 #: app/autoAr.js:71
-#, fuzzy
+#, machine-translated
 msgid "AutoAr is not installed"
 msgstr "제품정보 Ar는 설치되지 않습니다"
 
+# MT: LibreTranslate
 #: app/autoAr.js:72
-#, fuzzy
-msgid ""
-"To be able to work with compressed files, install file-roller and/or gir-1.2-"
-"gnomeAutoAr"
-msgstr ""
-"압축 파일과 함께 작동 할 수 있도록, 파일 롤러 및 / 또는 gir-1.2-gnome을 설치 "
-"자동차"
+#, machine-translated
+msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgstr "압축 파일과 함께 작동 할 수 있도록, 파일 롤러 및 / 또는 gir-1.2-gnome을 설치 자동차"
 
+# MT: LibreTranslate
 #: app/autoAr.js:203
-#, fuzzy
+#, machine-translated
 msgid "Extracting files"
-msgstr "'%s' 파일을 추출하는 중."
+msgstr "파일 추출"
 
+# MT: LibreTranslate
 #: app/autoAr.js:220
-#, fuzzy
+#, machine-translated
 msgid "Compressing files"
-msgstr "파일들을 압축하기."
+msgstr "파일 압축"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
 #: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
@@ -433,311 +516,362 @@ msgstr "파일들을 압축하기."
 msgid "Cancel"
 msgstr "취소"
 
+# MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
+#, machine-translated
 msgid "Enter a password here"
-msgstr "여기에 비밀번호를 입력하세요"
+msgstr "비밀번호 입력"
 
+# MT: LibreTranslate
 #: app/autoAr.js:354
-#, fuzzy
+#, machine-translated
 msgid "Removing partial file '${outputFile}'"
-msgstr "부분 파일 제거 '${outputFile} 이름 *"
+msgstr "부분 파일 제거 '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:373
-#, fuzzy
+#, machine-translated
 msgid "Creating destination folder"
 msgstr "대상 폴더 만들기"
 
+# MT: LibreTranslate
 #: app/autoAr.js:405
-#, fuzzy
+#, machine-translated
 msgid "Extracting files into '${outputPath}'"
-msgstr "파일 추출 '${outputPath} 이름 *"
+msgstr "파일 추출 '${outputPath}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:435
-#, fuzzy
+#, machine-translated
 msgid "Extraction completed"
-msgstr "추출 완료"
+msgstr "적출 완료"
 
+# MT: LibreTranslate
 #: app/autoAr.js:436
-#, fuzzy
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "'${fullPathFile}'를 추출한 것은 완료되었습니다."
+msgstr "'${fullPathFile}' 추출 완료 되었습니다."
 
+# MT: LibreTranslate
 #: app/autoAr.js:442
-#, fuzzy
+#, machine-translated
 msgid "Extraction cancelled"
 msgstr "관련 상품"
 
+# MT: LibreTranslate
 #: app/autoAr.js:443
-#, fuzzy
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "'${fullPathFile}' 을 추출하여 사용자에 의해 취소되었습니다."
+msgstr "'${fullPathFile}'를 추출하여 사용자가 취소되었습니다."
 
+# MT: LibreTranslate
 #: app/autoAr.js:453
-#, fuzzy
+#, machine-translated
 msgid "Passphrase required for ${filename}"
 msgstr "${filename}에 필요한 Passphrase"
 
+# MT: LibreTranslate
 #: app/autoAr.js:456
-#, fuzzy
+#, machine-translated
 msgid "Error during extraction"
 msgstr "추출 중 오류"
 
+# MT: LibreTranslate
 #: app/autoAr.js:483
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}'"
-msgstr "파일을 '${outputFile}로 압축 이름 *"
+msgstr "파일 압축 '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:496
-#, fuzzy
+#, machine-translated
 msgid "Compression completed"
 msgstr "압축 완료"
 
+# MT: LibreTranslate
 #: app/autoAr.js:497
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "'${outputFile}'로 파일을 압축하면 완료되었습니다."
+msgstr "파일 압축 '${outputFile}' 완료되었습니다."
 
+# MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
-#, fuzzy
+#, machine-translated
 msgid "Cancelled compression"
 msgstr "압축 해제"
 
+# MT: LibreTranslate
 #: app/autoAr.js:502
-#, fuzzy
+#, machine-translated
 msgid "The output file '${outputFile}' already exists."
-msgstr "Output file '${outputFile}' 이미 존재합니다."
+msgstr "출력 파일 '${outputFile}' 이미 존재한다."
 
+# MT: LibreTranslate
 #: app/autoAr.js:509
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "'${outputFile}'으로 파일을 압축하면 사용자가 취소됩니다."
+msgstr "파일 압축 '${outputFile}'은 사용자가 취소되었습니다."
 
+# MT: LibreTranslate
 #: app/autoAr.js:512
-#, fuzzy
+#, machine-translated
 msgid "Error during compression"
 msgstr "압축 중 오류"
 
+# MT: LibreTranslate
 #: app/autoAr.js:547
-#, fuzzy
+#, machine-translated
 msgid "Create archive"
-msgstr "압축 파일 만들기"
+msgstr "아카이브"
 
+# MT: LibreTranslate
 #: app/autoAr.js:571
-#, fuzzy
+#, machine-translated
 msgid "Archive name"
-msgstr "압축파일 이름"
+msgstr "Archive 이름"
 
+# MT: LibreTranslate
 #: app/autoAr.js:604
-#, fuzzy
+#, machine-translated
 msgid "Password"
 msgstr "비밀번호"
 
+# MT: LibreTranslate
 #: app/autoAr.js:617
-#, fuzzy
+#, machine-translated
 msgid "Create"
-msgstr "생성"
+msgstr "이름 *"
 
+# MT: LibreTranslate
 #: app/autoAr.js:688
-#, fuzzy
+#, machine-translated
 msgid "Compatible with all operating systems."
 msgstr "모든 운영 체계와 호환이 되는."
 
+# MT: LibreTranslate
 #: app/autoAr.js:694
-#, fuzzy
+#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "비밀번호 보호 .zip, Windows 및 Mac에 설치해야합니다."
 
+# MT: LibreTranslate
 #: app/autoAr.js:700
-#, fuzzy
+#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
 msgstr "작은 아카이브하지만 리눅스와 Mac 만."
 
+# MT: LibreTranslate
 #: app/autoAr.js:706
-#, fuzzy
+#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "작은 아카이브하지만 Windows 및 Mac에 설치해야합니다."
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:125
+#, machine-translated
 msgid "The Displayed Desktop is writable by others"
-msgstr ""
+msgstr "표시된 데스크탑은 다른 사람에 의해 writable 입니다"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:128
+#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is "
-"writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not "
-"writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
+".deskop 파일은 데스크톱 폴더로이 데스크탑에서 다른 사용자에 의해 writable 시작할 수 없습니다.\n"
+"\n"
+"이 데스크탑 폴더의 권한을 확인하고 다른 사람이 쓸 수 없다는 것을 확인합니다."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
 msgstr "깨진 바탕화면 파일"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:141
-#, fuzzy
-#| msgid ""
-#| "This .desktop file has errors or points to a program without permissions. "
-#| "It can not be executed.\n"
-#| "\n"
-#| "\t<b>Edit the file to set the correct executable Program.</b>"
+#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"이 .desktop 파일에 오류가 있거나 권한이 없는 프로그램이 있습니다. 실행할 수 "
-"없습니다.\n"
+"이 .desktop 파일은 오류가 발생하거나 권한없이 프로그램에 포인트가 있습니다. 실행할 수 없습니다.\n"
 "\n"
-"<b>파일을 편집하여 올바른 실행 프로그램을 설정합니다.</b>"
+"올바른 실행 가능한 프로그램을 설정하는 파일을 편집합니다."
 
 #: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
 msgstr "바탕화면 파일에 대한 잘못된 권한"
 
-#: app/desktopFileIcon.js:154
-msgid ""
-"This .desktop File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-"이 .desktop 파일에 잘못된 권한이 있습니다. 마우스 오른쪽 버튼을 클릭하여 속성"
-"을 편집 한 다음:\n"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:152
+#, machine-translated
+msgid "This Desktop File has incorrect Permissions."
+msgstr "이 데스크탑 파일에는 잘못된 권한이 있습니다."
 
-#: app/desktopFileIcon.js:178
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:173
+#, machine-translated
 msgid "Untrusted Desktop File"
 msgstr "Untrusted 데스크탑 파일"
 
-#: app/desktopFileIcon.js:181
-#, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "<b>Enable \"Allow Launching\"</b>"
-msgid ""
-"This .desktop file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
-"이 .desktop 파일은 신뢰할 수 없으며 실행할 수 없습니다. 시작을 활성화하려면 "
-"마우스 오른쪽 버튼을 클릭하고 다음을 수행합니다.\n"
-"\n"
-"<b>\"시작하기 허용\" 활성화</b>"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:175
+#, machine-translated
+msgid "This Desktop file is not trusted, it can not be launched."
+msgstr "이 데스크탑 파일은 신뢰할 수 없습니다, 그것은 출시 될 수 없습니다."
 
-#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#, machine-translated
 msgid "Could not open File"
-msgstr "파일을 열 수 없음"
+msgstr "열 수 없습니다 파일 형식"
 
-#: app/desktopFileIcon.js:211
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:206
+#, machine-translated
 msgid "{appName} can not open files of this Type!"
-msgstr "${appName} 이 유형의 파일을 열 수 없습니다!"
+msgstr "{appName}] 이 유형의 파일을 열 수 없습니다!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, fuzzy
+#, machine-translated
 msgid "Desktop Folder Change Failed"
-msgstr "오더 구성을 실패했습니다."
+msgstr "데스크탑 폴더 변화 실패"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
+#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr ""
+msgstr "새로운 데스크톱 폴더는 Symbolic Link입니다"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
+#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
+msgstr "새로운 데스크탑 폴더가 존재하지 않거나 폴더가 없습니다!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
+#, machine-translated
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "데스크탑 폴더 변경"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
+#, machine-translated
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "새로운 데스크탑으로 전환 ..."
 
+# MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icons"
 msgstr "데스크탑 아이콘"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:157
+#, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "감시자 구조 완충기 확장은 활성화되지 않습니다"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:158
+#, machine-translated
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor "
-"framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"다른 급상승 조정을 가진 다수 감시자는, 감시자 framebuffer 사기 당 추천합니다.\n"
+"\n"
+"Mutter Dconf 설정 활성화"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:169
+#, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"다른 급상승 조정을 가진 다수 감시자.\n"
+"\n"
+"Mutter Dconf 설정에서 Framebuffer 스케일링을 모니터링 할 수 있습니까?"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
+#, machine-translated
 msgid "Enable"
-msgstr "활성화"
+msgstr "이름 *"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
+#, machine-translated
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "데스크탑을 표시 할 수 없습니다"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"데스크톱 폴더 {desktop}은 Symbolic Link입니다.\n"
+"\n"
+"데스크탑 폴더를 실제 폴더로 설정하십시오"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
+"Desktop 폴더 {desktop}는 존재하지 않습니다. 또는 디렉토리가 아닙니다.\n"
+"\n"
+"xdg-utils 설치를 확인하고 올바른 데스크탑 폴더를 설정하십시오"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:219
-#, fuzzy
+#, machine-translated
 msgid "GNOME Files not found"
 msgstr "사이트맵 찾을 수 없음"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:220
-#, fuzzy
+#, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"GNOME 소개 파일 응용 프로그램은 Gtk4 데스크탑 아이콘 NG에 의해 요구됩니다."
+msgstr "GNOME 소개 파일 응용 프로그램은 Gtk4 데스크탑 아이콘 NG에 의해 요구됩니다."
 
+# MT: LibreTranslate
 #: app/desktopManager.js:227
-#, fuzzy
+#, machine-translated
 msgid "There is no default File Manager"
 msgstr "기본 파일 관리자가 없습니다"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:228
-#, fuzzy
+#, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Mimetype \"inode/directory\"를 처리하는 응용 프로그램이 없습니다"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:235
-#, fuzzy
+#, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome Files는 파일 관리자로 등록되지 않습니다"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:236
-#, fuzzy
+#, machine-translated
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -747,10 +881,11 @@ msgstr ""
 "xdg-utils 설치 확인\n"
 "Gnome 파일 확인 .desktop 파일 설치"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:328
-#, fuzzy
+#, machine-translated
 msgid "Clear current selection before new search"
-msgstr "새 검색 전에 현재 선택 지우기"
+msgstr "새로운 검색 전에 명확한 현재 선택"
 
 #: app/desktopManager.js:1238
 msgid "Find Files on Desktop"
@@ -760,28 +895,33 @@ msgstr "데스크탑에서 파일 찾기"
 msgid "New Folder"
 msgstr "새 폴더"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1613
-#, fuzzy
+#, machine-translated
 msgid "Folder Creation Failed"
-msgstr "오더 구성을 실패했습니다."
+msgstr "Folder 창조 실패"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1614
-#, fuzzy
+#, machine-translated
 msgid "Could not create folder"
-msgstr "폴더를 만들 수 없습니다."
+msgstr "폴더를 만들 수 없습니다"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:601
-#, fuzzy
+#, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Gnome 콘솔에서 열기"
+msgstr "Gnome 파일에서 데스크톱을 열 수 없습니다"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:620
-#, fuzzy
+#, machine-translated
 msgid "Preferences Window is Open"
 msgstr "설정 창이 오픈"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:621
-#, fuzzy
+#, machine-translated
 msgid "This Window is open. Please switch to the active window."
 msgstr "이 창은 열려 있습니다. 활성 창으로 전환하십시오."
 
@@ -789,74 +929,89 @@ msgstr "이 창은 열려 있습니다. 활성 창으로 전환하십시오."
 msgid "Settings"
 msgstr "설정"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:813
-#, fuzzy
+#, machine-translated
 msgid "Template Creation Error"
 msgstr "템플릿 생성 오류"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:814
-#, fuzzy
+#, machine-translated
 msgid "Could not create document"
-msgstr "문서를 삭제할 수 없음"
+msgstr "문서 작성"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:919
-#, fuzzy
+#, machine-translated
 msgid "Name"
-msgstr "이름"
+msgstr "이름 *"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:921
-#, fuzzy
+#, machine-translated
 msgid "Name Z-A"
-msgstr "이름 (Z-A)"
+msgstr "이름 Z-A"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:923
-#, fuzzy
+#, machine-translated
 msgid "Modified Time"
-msgstr "마지막 수정 시간"
+msgstr "수정 시간"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:925
-#, fuzzy
+#, machine-translated
 msgid "Type"
-msgstr "형식"
+msgstr "제품정보"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:927
-#, fuzzy
+#, machine-translated
 msgid "Size"
-msgstr "크기"
+msgstr "크기 (mm)"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:932
-#, fuzzy
+#, machine-translated
 msgid "Keep Arranged…"
-msgstr "정렬 유지…"
+msgstr "계속 .."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:937
-#, fuzzy
+#, machine-translated
 msgid "Keep Stacked by Type…"
-msgstr "유형별로 스택됨 유지…"
+msgstr "유형에 의해 스택 유지.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:939
-#, fuzzy
+#, machine-translated
 msgid "Sort Home/Drives/Trash…"
-msgstr "집/드라이브/휴지통 정렬…"
+msgstr "분류 홈/드라이브/트래시.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:944
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop"
 msgstr "데스크탑"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:949
+#, machine-translated
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "기본 데스크톱 복원"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:953
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icon Settings"
-msgstr "바탕화면 아이콘 설정"
+msgstr "데스크탑 아이콘 설정"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:955
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcuts"
-msgstr "단축키 보기"
+msgstr "쇼 바로가기"
 
 #: app/desktopMenu.js:963 app/shortcuts.js:43
 msgid "New Document"
@@ -882,85 +1037,99 @@ msgstr "모두 선택"
 msgid "Arrange Icons"
 msgstr "아이콘 정렬"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:989
-#, fuzzy
+#, machine-translated
 msgid "Arrange By…"
-msgstr "정렬 기준…"
+msgstr "연락처"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:997
-#, fuzzy
-#| msgid "Show Desktop in Files"
+#, machine-translated
 msgid "Show Desktop In {0}"
-msgstr "바탕 화면보기 {0}"
+msgstr "데스크톱 표시 {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1002
-#, fuzzy
+#, machine-translated
 msgid "Open In {0}"
 msgstr "{0}에서 열기"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1018
+#, machine-translated
 msgid "Shell Menu…"
-msgstr ""
+msgstr "쉘 메뉴 .."
 
+# MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
-#, fuzzy
+#, machine-translated
 msgid "Making SymLink Failed"
 msgstr "SymLink 실패"
 
+# MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
-#, fuzzy
+#, machine-translated
 msgid "Could not create symbolic link"
 msgstr "Symbolic 링크를 만들 수 없습니다"
 
+# MT: LibreTranslate
 #: app/dragManager.js:739
-#, fuzzy
+#, machine-translated
 msgid "Copy/Move Failed"
-msgstr "이동 취소"
+msgstr "복사/모브 실패"
 
+# MT: LibreTranslate
 #: app/dragManager.js:740
-#, fuzzy
+#, machine-translated
 msgid "{0} Does not exist"
-msgstr "존재하지 않음"
+msgstr "{0} 없습니다"
 
+# MT: LibreTranslate
 #: app/dragManager.js:782
-#, fuzzy
+#, machine-translated
 msgid "Choose Action for Files"
 msgstr "파일에 대한 작업 선택"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Move"
-msgstr "이동"
+msgstr "기타"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "복사하기"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Link"
-msgstr "링크"
+msgstr "팟캐스트"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, fuzzy
-#| msgid "New Folder"
+#, machine-translated
 msgid "Folder"
-msgstr "폴더"
+msgstr "한국어"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, fuzzy
+#, machine-translated
 msgid "File"
-msgstr "파일"
+msgstr "파일 형식"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:270
-#, fuzzy
+#, machine-translated
 msgid "Opening File Failed"
-msgstr "파일을 열지 못했습니다"
+msgstr "파일 열기 실패"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:276
-#, fuzzy
+#, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr "\"{foo}\"파일을 엽니다."
+msgstr "\"{fo}\"] 파일을 열 수 있도록 설치된 응용 프로그램이 없습니다."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -971,15 +1140,17 @@ msgstr[0] "{0}개 파일 새 폴더로 이동"
 msgid "Open All..."
 msgstr "모두 열기…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, fuzzy
+#, machine-translated
 msgid "Launch"
-msgstr "실행"
+msgstr "시작"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:135
-#, fuzzy
+#, machine-translated
 msgid "Open with {foo}"
-msgstr "{foo}로 열기"
+msgstr "{foo}로 오픈"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
@@ -993,20 +1164,21 @@ msgstr "여기 풀기"
 msgid "Extract To..."
 msgstr "다른 위치에 풀기…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, fuzzy
+#, machine-translated
 msgid "Open With..."
-msgstr "다음으로 열기..."
+msgstr "오픈 ..."
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
 msgstr "다른 프로그램으로 모두 열기…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:184
-#, fuzzy
-#| msgid "Launch using Dedicated Graphics Card"
+#, machine-translated
 msgid "Launch using Integrated Graphics Card"
-msgstr "전용 그래픽 카드를 사용하여 실행"
+msgstr "통합 그래픽 카드를 사용하여 시작"
 
 #: app/fileItemMenu.js:206
 msgid "Stack This Type"
@@ -1016,10 +1188,11 @@ msgstr "이 유형 스택"
 msgid "Unstack This Type"
 msgstr "이 유형 스택 해제"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:231
-#, fuzzy
+#, machine-translated
 msgid "Run as a Program"
-msgstr "프로그램으로 실행"
+msgstr "프로그램"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
@@ -1029,27 +1202,31 @@ msgstr "스크립트"
 msgid "Cut"
 msgstr "잘라내기"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, fuzzy
+#, machine-translated
 msgid "Move to..."
-msgstr "이동..."
+msgstr "이동 ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, fuzzy
+#, machine-translated
 msgid "Copy to..."
-msgstr "복사..."
+msgstr "관련 기사."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
 msgstr "이름 바꾸기…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, fuzzy
+#, machine-translated
 msgid "Create Link..."
-msgstr "링크 만들기"
+msgstr "링크 생성..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:261
-#, fuzzy
+#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "압축 {0} 폴더"
@@ -1059,13 +1236,15 @@ msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "{0}개 파일 압축하기"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:276
-#, fuzzy
+#, machine-translated
 msgid "Email to..."
 msgstr "이메일 ..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:286
-#, fuzzy
+#, machine-translated
 msgid "Send to Mobile Device"
 msgstr "모바일 장치에 전송"
 
@@ -1080,10 +1259,6 @@ msgstr "영구 삭제"
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
 msgstr "실행을 허용하지 않음"
-
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
-msgid "Allow Launching"
-msgstr "실행 허용"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
@@ -1105,42 +1280,47 @@ msgstr "공통 속성"
 msgid "Properties"
 msgstr "속성"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:362
-#, fuzzy
-#| msgid "Show All in Files"
+#, machine-translated
 msgid "Show All in {0}"
 msgstr "모두보기 {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:363
-#, fuzzy
-#| msgid "Show in Files"
+#, machine-translated
 msgid "Show in {0}"
-msgstr "{0}에 표시"
+msgstr "{0}에 있는 쇼"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:374
-#, fuzzy
+#, machine-translated
 msgid "Open in {0}"
 msgstr "{0}에서 열기"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:537
-#, fuzzy
+#, machine-translated
 msgid "Open Item"
-msgstr "항목 열기"
+msgstr "연락처"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:819
-#, fuzzy
+#, machine-translated
 msgid "Extraction Cancelled"
 msgstr "추출 취소"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:820
-#, fuzzy
+#, machine-translated
 msgid "Unable to extract File, no destination folder"
 msgstr "추출 가능 파일, 대상 폴더 없음"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, fuzzy
+#, machine-translated
 msgid "Select Destination"
-msgstr "도착지 선택"
+msgstr "자주 묻는 질문"
 
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 msgid "Select"
@@ -1150,337 +1330,389 @@ msgstr "선택"
 msgid "Can not email a Directory"
 msgstr "디렉터리는 이메일로 보낼 수 없습니다"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:965
-#, fuzzy
-#| msgid ""
-#| "Selection includes a Directory, compress the directory to a file first."
+#, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "선택 파일 중 디렉터리가 포함되어 있어, 먼저 파일로 압축이 필요합니다."
+msgstr "선택은 디렉토리를 포함, .zip 파일에 압축 먼저?"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
-#, fuzzy
+#, machine-translated
 msgid "Mail Error"
 msgstr "메일 오류"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:993
-#, fuzzy
+#, machine-translated
 msgid "Unable to find zip command, please install the program"
 msgstr "Zip 명령을 찾을 수 없으므로 프로그램을 설치하십시오"
 
+# MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
-#, fuzzy
+#, machine-translated
 msgid "Archive.zip"
 msgstr "아카이브"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1023
-#, fuzzy
+#, machine-translated
 msgid "There was an error in creating a zip archive"
 msgstr "Zip 아카이브를 만드는 오류가 있었습니다"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1041
-#, fuzzy
+#, machine-translated
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email을 찾을 수 없습니다. 프로그램을 설치하십시오"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1059
-#, fuzzy
+#, machine-translated
 msgid "There was an error in emailing Files"
 msgstr "이메일 파일에 오류가 있었습니다"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1174
-#, fuzzy
-#| msgid "Can not email a Directory"
+#, machine-translated
 msgid "Can Not open the Working Directory"
-msgstr "디렉터리는 이메일로 보낼 수 없습니다"
+msgstr "작업 디렉토리를 열 수 없습니다"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1225
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome 콘솔에서 열기"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1227
-#, fuzzy
+#, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Gnome 콘솔 또는 기타 터미널 프로그램 설치"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1235
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open {0}"
-msgstr "열 수 없습니다"
+msgstr "{0}을 여는 것은"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1237
-#, fuzzy
+#, machine-translated
 msgid "Please Install {0}"
-msgstr "설치하기 이름 *"
+msgstr "{0} 설치"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1281
-#, fuzzy
+#, machine-translated
 msgid "Copy Cancelled"
-msgstr "복사가 취소되었습니다"
+msgstr "복사 취소"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1282
-#, fuzzy
+#, machine-translated
 msgid "Unable to copy Files, no destination folder"
 msgstr "파일 복사, 대상 폴더 없음"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1305
-#, fuzzy
+#, machine-translated
 msgid "Move Cancelled"
 msgstr "이동 취소"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1306
-#, fuzzy
+#, machine-translated
 msgid "Unable to move Files, no destination folder"
 msgstr "파일 이동 불가, 대상 폴더 없음"
 
+# MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
-#, fuzzy
+#, machine-translated
 msgid "$appName$ can not open files of this Type!"
-msgstr "${appName} 이 유형의 파일을 열 수 없습니다!"
+msgstr "$appName$ 이 유형의 파일을 열 수 없습니다!"
 
+# MT: LibreTranslate
 #: app/preferences.js:885
-#, fuzzy
+#, machine-translated
 msgid "Console"
-msgstr "콘솔"
+msgstr "관련 기사"
 
-#: app/shortcutManager.js:46 app/shortcutManager.js:86
-#: app/shortcutManager.js:522
-#, fuzzy
-msgid "None"
-msgstr "없음"
-
+# MT: LibreTranslate
 #: app/shortcutManager.js:85
+#, machine-translated
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "기본 단축키:"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:109
+#, machine-translated
 msgid "Type new..."
-msgstr ""
+msgstr "새로운 유형 ..."
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:125
+#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr ""
+msgstr "Modifier + 키 (예 : Ctrl + ₢ 킹"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, fuzzy
+#, machine-translated
 msgid "Reset to Default"
 msgstr "기본값으로 재설정"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, fuzzy
+#, machine-translated
 msgid "No Accelerator"
-msgstr "가속기"
+msgstr "없음 Accelerator"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, fuzzy
+#, machine-translated
 msgid "System Shortcuts"
-msgstr "단축키 보기"
+msgstr "시스템 단축키"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:244
+#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr ""
+msgstr "일반 시스템 정의 키보드 단축키"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, fuzzy
+#, machine-translated
 msgid "Local Shortcuts"
-msgstr "단축키 보기"
+msgstr "지역 단축키"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, fuzzy
+#, machine-translated
 msgid "Application Keyboard Shortcuts"
-msgstr "애플리케이션 단축키"
+msgstr "신청 키보드 단축키"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, fuzzy
+#, machine-translated
 msgid "Global Shortcuts"
-msgstr "전역 바로가기"
+msgstr "글로벌 단축키"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, fuzzy
+#, machine-translated
 msgid "System Keyboard Shortcuts"
-msgstr "키보드 단축키"
+msgstr "시스템 키보드 단축키"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:661
-#, fuzzy
+#, machine-translated
 msgid "Keyboard Shortcuts"
 msgstr "키보드 단축키"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:673
-#, fuzzy
+#, machine-translated
 msgid "Reset Shortcuts"
-msgstr "단축키 보기"
+msgstr "단축키 재설정"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:674
+#, machine-translated
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "기본값으로 모든 단축키 재설정"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:677
-#, fuzzy
-#| msgid "Open All..."
+#, machine-translated
 msgid "Reset All..."
-msgstr "모두 초기화"
+msgstr "모두 재설정 ..."
 
+# MT: LibreTranslate
 #: app/shortcuts.js:15
-#, fuzzy
+#, machine-translated
 msgid "Show Desktop in Files"
-msgstr "파일에 바탕화면 표시"
+msgstr "파일에서 데스크톱보기"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
 msgstr "터미널로 열기"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:17
-#, fuzzy
-#| msgid "Change Background…"
+#, machine-translated
 msgid "Change Background"
-msgstr "배경 변경"
+msgstr "공지사항"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:18
-#, fuzzy
-#| msgid "Display Settings"
+#, machine-translated
 msgid "Change Display Settings"
-msgstr "디스플레이 설정"
+msgstr "변경 표시 설정"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:19
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop Icon Settings"
-msgstr "바탕화면 아이콘 설정"
+msgstr "데스크탑 아이콘 설정 변경"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:20
+#, machine-translated
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "연락처"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:21
-#, fuzzy
+#, machine-translated
 msgid "Keep Arranged"
-msgstr "정렬 유지..."
+msgstr "연락처"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:22
-#, fuzzy
-#| msgid "Keep Icons Stacked"
+#, machine-translated
 msgid "Keep Stacked"
-msgstr "아이콘 스택됨 유지"
+msgstr "관련 기사"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:23
-#, fuzzy
-#| msgid "Sort Special Folders - Home/Trash Drives."
+#, machine-translated
 msgid "Sort Special Folders"
-msgstr "특수 폴더 정렬 - 홈/휴지통 드라이브 입니다."
+msgstr "종류 스페셜 폴더"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:24
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons by Name"
-msgstr "아이콘 정렬"
+msgstr "이름 별 Icons"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:25
+#, machine-translated
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "Arrange 아이콘 Descending 이름"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:26
-#, fuzzy
+#, machine-translated
 msgid "Arrange Icons By Modified Time"
-msgstr "수정 시간"
+msgstr "Arrange Icons 로 변경된 시간"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:27
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons By Kind"
-msgstr "아이콘 정렬"
+msgstr "연락처 로그인"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:28
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons By Size"
-msgstr "아이콘 정렬"
+msgstr "크기로 Arrange 아이콘"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:29
-#, fuzzy
+#, machine-translated
 msgid "Find Files"
 msgstr "파일 찾기"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:30
-#, fuzzy
+#, machine-translated
 msgid "Update Desktop"
 msgstr "데스크탑"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:31
-#, fuzzy
-#| msgid "Show hidden files"
+#, machine-translated
 msgid "Show Hidden Files"
-msgstr "숨김 파일을 표시"
+msgstr "숨겨진 파일 표시"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:32
-#, fuzzy
-#| msgid "Select All"
+#, machine-translated
 msgid "Unselect All"
-msgstr "모두 선택 해제"
+msgstr "모두 선택"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:33
-#, fuzzy
+#, machine-translated
 msgid "Preview"
-msgstr "미리보기"
+msgstr "다운로드"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:34
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Left"
-msgstr "파일에 대한 작업 선택"
+msgstr "아이콘 선택"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:35
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Right"
-msgstr "파일에 대한 작업 선택"
+msgstr "아이콘 선택"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:36
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Up"
 msgstr "아이콘 선택"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:37
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Down"
-msgstr "파일에 대한 작업 선택"
+msgstr "아래 아이콘을 선택하십시오"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:38
-#, fuzzy
-#| msgid "Show"
+#, machine-translated
 msgid "Show Menu"
-msgstr "메뉴 보기"
+msgstr "쇼 메뉴"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:39
+#, machine-translated
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "전시 포탄 배경 메뉴"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:40
-#, fuzzy
-#| msgid "Broken Desktop File"
+#, machine-translated
 msgid "Create Desktop Shortcut"
-msgstr "깨진 바탕화면 파일"
+msgstr "데스크탑 바로가기"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:41
+#, machine-translated
 msgid "Text Entry Accels Turn On"
-msgstr ""
+msgstr "텍스트 입력 Accels Turn On"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:42
+#, machine-translated
 msgid "Text Entry Accels Turn Off"
-msgstr ""
+msgstr "텍스트 입력 Accels Turn Off"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:44
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcut Viewer"
-msgstr "단축키 보기"
+msgstr "쇼 바로가기 더 보기"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:45
-#, fuzzy
+#, machine-translated
 msgid "Show Or Hide Desktop Icons"
-msgstr "데스크탑 아이콘"
+msgstr "표시 또는 숨기기 데스크탑 아이콘"
 
+# MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, fuzzy
+#, machine-translated
 msgid "More Information"
-msgstr "자세한 정보"
+msgstr "더 많은 정보"
 
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
@@ -1488,20 +1720,21 @@ msgstr "자세한 정보"
 msgid "Home"
 msgstr "홈"
 
+# MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, fuzzy
-#| msgid "Empty Trash"
+#, machine-translated
 msgid "Trash"
-msgstr "휴지통"
+msgstr "정보 수집"
 
+# MT: LibreTranslate
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, fuzzy
+#, machine-translated
 msgid "Stack"
-msgstr "계단 모양"
+msgstr "뚱 베어"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1511,76 +1744,87 @@ msgstr "깨진 링크"
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "이 파일은 손상된 심볼릭링크이므로 열 수 없습니다"
 
+# MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, fuzzy
+#, machine-translated
 msgid "Drive"
-msgstr "구동"
+msgstr "지원하다"
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
-#, fuzzy
-#| msgid "\"${programName}\" is needed for Desktop Icons"
+#, machine-translated
 msgid "\"${programName}\" is not available"
-msgstr "\"${programName}\"은(는) 바탕 화면 아이콘에 필요합니다"
+msgstr "\"${programName}\"은 사용할 수 없습니다"
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-msgid ""
-"Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr ""
+#, machine-translated
+msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr "\"${programName}\"]를 설치하여 데스크탑 아이콘을 활성화하여 이러한 작업을 수행합니다."
 
+# MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
-#, fuzzy
-#| msgid "Broken Desktop File"
+#, machine-translated
 msgid "Choose Desktop Folder"
-msgstr "깨진 바탕화면 파일"
+msgstr "데스크탑 폴더 선택"
 
 #: app/utils/desktopIconsUtil.js:216
 msgid "Command not found"
 msgstr "명령을 찾을 수 없습니다"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
-#, fuzzy
+#, machine-translated
 msgid "Choose an app to open the selected files."
 msgstr "선택한 파일을 열려면 앱을 선택하십시오."
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
-#, fuzzy
+#, machine-translated
 msgid "Always use for this file type"
 msgstr "이 파일 형식의 항상 사용"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
+#, machine-translated
 msgid "_Cancel"
-msgstr "_취소"
+msgstr "_캔셀"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
+#, machine-translated
 msgid "_Open"
-msgstr "_열기"
+msgstr "_영업"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, fuzzy
+#, machine-translated
 msgid "Display icons on the GNOME desktop"
-msgstr "바탕화면에 휴지통 표시"
+msgstr "GNOME 데스크톱에서 아이콘 표시"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
+#, machine-translated
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "데스크탑; 아이콘; 파일; 폴더; 관리자; 배열; 숨기기; 쇼; 런처; 단축키;"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, fuzzy
+#, machine-translated
 msgid "Show<>Hide"
-msgstr "표시/숨기기"
+msgstr "쇼<>머리"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
+#, machine-translated
 msgid "Preferences"
-msgstr "설정"
+msgstr "옵션 정보"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
+#, machine-translated
 msgid "Disable"
-msgstr "끄기"
+msgstr "기타 제품"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1635,9 +1879,7 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "새 드라이브를 스크린 반대편에 추가"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
+msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
 msgstr "바탕화면에 드라이브 및 볼륨을 추가할 때 화면의 반대쪽에 추가합니다."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
@@ -1645,24 +1887,16 @@ msgid "Shows a rectangle in the destination place during DnD"
 msgstr "끌어서 놓는 동안 대상 위치에 사격형 표시"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"끌어서 놓기 작업을 수행할 때, 격자에서 아이콘이 배치될 위치를 반투명 사각형"
-"을 표시합니다."
+msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
+msgstr "끌어서 놓기 작업을 수행할 때, 격자에서 아이콘이 배치될 위치를 반투명 사각형을 표시합니다."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "특수 폴더 정렬 - 홈/휴지통 드라이브 입니다."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"바탕화면에 아이콘을 정렬할 때 홈, 휴지통 및 마운트된 네트워크 또는 외장 드라"
-"이브의 위치를 정렬하고 변경합니다"
+msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
+msgstr "바탕화면에 아이콘을 정렬할 때 홈, 휴지통 및 마운트된 네트워크 또는 외장 드라이브의 위치를 정렬하고 변경합니다"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1709,240 +1943,53 @@ msgid "Use black for label text"
 msgstr "레이블 텍스트에 검정색 사용"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-"레이블 텍스트를 흰색 대신 검정색으로 칠합니다. 밝은 배경을 사용할 때 유용합니"
-"다."
+msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgstr "레이블 텍스트를 흰색 대신 검정색으로 칠합니다. 밝은 배경을 사용할 때 유용합니다."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, fuzzy
+#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
 msgstr "연결된 경우 non primary monitor에 새로운 아이콘을 표시하십시오"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, fuzzy
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
+#, machine-translated
+msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
 msgstr "두 번째 모니터가 연결되면 새로운 아이콘이 비주얼 모니터에 배치됩니다"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, fuzzy
+#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "아이콘은 데스크탑에서 어디에서나 배치할 수 있습니다"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, fuzzy
-msgid ""
-"Icons are not on a rectangular grid but can be postioned anywhere "
-"independent of grid"
-msgstr ""
-"아이콘은 직사각형 그리드에 있지 않지만 그리드의 독립적 인 곳에서 게시 할 수 "
-"있습니다"
+#, machine-translated
+msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgstr "아이콘은 직사각형 그리드에 있지 않지만 그리드의 독립적 인 곳에서 게시 할 수 있습니다"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+#, machine-translated
 msgid "Hide/Show all desktop windows"
-msgstr ""
+msgstr "모든 데스크탑 창을 숨기기"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, fuzzy
+#, machine-translated
 msgid "Show the icons on the desktop, or hide them all"
-msgstr "바탕화면에 휴지통 표시"
+msgstr "바탕 화면에 아이콘을 표시하거나 모든 것을 숨기십시오"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, fuzzy
+#, machine-translated
 msgid "User Application Shortcuts"
-msgstr "애플리케이션 단축키"
+msgstr "사용자 신청 Shortcuts"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+#, machine-translated
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-
-#~ msgid ""
-#~ "For this functionality to work in Desktop Icons, you must install "
-#~ "\"${programName}\" in your system."
-#~ msgstr ""
-#~ "이 기능이 바탕 화면 아이콘에서 작동하려면 시스템에 \"${programName}\"을"
-#~ "(를) 설치해야 합니다."
-
-#, fuzzy
-#~ msgid "Website"
-#~ msgstr "웹사이트"
-
-#, fuzzy
-#~ msgid "Visit"
-#~ msgstr "방문"
-
-#, fuzzy
-#~ msgid "Issues"
-#~ msgstr "이슈"
-
-#, fuzzy
-#~ msgid "Report issues on issue tracker"
-#~ msgstr "문제 추적기에 대한 문제"
-
-#, fuzzy
-#~ msgid "Report"
-#~ msgstr "보고서"
-
-#, fuzzy
-#~ msgid "License"
-#~ msgstr "라이센스"
-
-#, fuzzy
-#~| msgid "Paste"
-#~ msgid "Do Paste"
-#~ msgstr "붙여넣기"
-
-#, fuzzy
-#~ msgid "Copy Item"
-#~ msgstr "항목 열기"
-
-#, fuzzy
-#~| msgid "Rename"
-#~ msgid "Rename Item"
-#~ msgstr "항목 이름 바꾸기"
-
-#, fuzzy
-#~| msgid "Delete permanently"
-#~ msgid "Delete Permanently"
-#~ msgstr "영구히 삭제"
-
-#, fuzzy
-#~| msgid "Properties"
-#~ msgid "Show Properties"
-#~ msgstr "속성 표시"
-
-#, fuzzy
-#~ msgid "Create Link to Item"
-#~ msgstr "링크 만들기"
-
-#~ msgid "Add an emblem to soft links"
-#~ msgstr "소프트 링크에 엠블럼 추가"
-
-#, fuzzy
-#~ msgid "Volumes"
-#~ msgstr "볼륨"
-
-#, fuzzy
-#~ msgid "Desktop volumes display"
-#~ msgstr "데스크탑 볼륨 디스플레이"
-
-#, fuzzy
-#~ msgid "Run"
-#~ msgstr "실행하기"
-
-#, fuzzy
-#~ msgid "Rectangular icons with drop grid highlighting"
-#~ msgstr "드롭 그리드 강조와 직사각형 아이콘"
-
-#~ msgid "Close"
-#~ msgstr "닫기"
-
-#~ msgid "Use Nemo to open folders"
-#~ msgstr "폴더를 여는 Nemo 사용"
-
-#~ msgid "Use Nemo instead of Nautilus to open folders."
-#~ msgstr "노틸러스 대신 Nemo를 사용하여 폴더를 엽니다."
-
-#, fuzzy
-#~ msgid "Open In Terminal"
-#~ msgstr "터미널로 열기"
-
-#, fuzzy
-#~ msgid "No Extraction Folder"
-#~ msgstr "추출 폴더 없음"
-
-#~ msgid "Select Extract Destination"
-#~ msgstr "대상 압축풀기 선택"
-
-#~ msgid "Open With Other Application"
-#~ msgstr "다른 프로그램으로 열기"
-
-#~ msgid "Click type for open files"
-#~ msgstr "파일 열기 시 클릭 유형"
-
-#~ msgid "Action to do when launching a program from the desktop"
-#~ msgstr "바탕화면에서 프로그램을 실행할 때 수행할 작업"
-
-#~ msgid "Display the content of the file"
-#~ msgstr "파일의 내용 표시"
-
-#~ msgid "Launch the file"
-#~ msgstr "파일 실행"
-
-#~ msgid "Ask what to do"
-#~ msgstr "어떤 작업 수행할 지 선택"
-
-#~ msgid "Local files only"
-#~ msgstr "로컬 파일만"
-
-#~ msgid ""
-#~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
-#~ msgstr "노틸러스 파일 관리자는 Desktop Icons NG로 작업하는 데 필수입니다."
-
-#~ msgid "Sort by Name"
-#~ msgstr "이름순으로 정렬"
-
-#~ msgid "Sort by Name Descending"
-#~ msgstr "이름 내림차순으로 정렬"
-
-#~ msgid "Sort by Type"
-#~ msgstr "유형순으로 정렬"
-
-#~ msgid "Sort by Size"
-#~ msgstr "크기순으로 정렬"
-
-#~ msgid ""
-#~ "To configure Desktop Icons NG, do right-click in the desktop and choose "
-#~ "the last item: 'Desktop Icons settings'"
-#~ msgstr ""
-#~ "Desktop Icons NG 설정을 보려면 바탕화면에서 우클릭하여 마지막 아이템 '바탕"
-#~ "화면 아이콘 설정'을 선택하세요."
-
-#~ msgid "Do you want to run “{0}”, or display its contents?"
-#~ msgstr "“{0}”을 실행하시겠습니까? 혹은 내용을 표시하겠습니까?"
-
-#~ msgid "“{0}” is an executable text file."
-#~ msgstr "“{0}”는 실행가능한 텍스트 파일입니다."
-
-#~ msgid "Execute in a terminal"
-#~ msgstr "터미널로 실행"
-
-#~ msgid "Execute"
-#~ msgstr "실행"
-
-#~ msgid "New folder"
-#~ msgstr "새 폴더"
-
-#~ msgid "Delete"
-#~ msgstr "삭제"
-
-#~ msgid "Are you sure you want to permanently delete these items?"
-#~ msgstr "파일들을 영구 삭제하시겠습니까?"
-
-#~ msgid "If you delete an item, it will be permanently lost."
-#~ msgstr "파일을 삭제하면, 영구적으로 잃게 될 것입니다."
-
-#~ msgid "Desktop Icons Settings"
-#~ msgstr "바탕화면 아이콘 설정"
-
-#~ msgid "Arrange By..."
-#~ msgstr "정렬 기준..."
-
-#~ msgid "Keep Arranged..."
-#~ msgstr "정렬 유지..."
-
-#~ msgid "Keep Stacked by type..."
-#~ msgstr "유형별로 스택됨 유지..."
-
-#~ msgid "Sort Home/Drives/Trash..."
-#~ msgstr "집/드라이브/휴지통 정렬..."
-
-#~ msgid "Run as a program"
-#~ msgstr "프로그램으로 실행"
-
-#~ msgid "Error while deleting files"
-#~ msgstr "파일 삭제 중 오류가 발생하였습니다."
+msgstr "사용자가 설정한 기본 애플리케이션 단축키를 위한 Override"

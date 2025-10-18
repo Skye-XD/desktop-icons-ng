@@ -12,384 +12,465 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-28 17:15-0400\n"
+"POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-02 20:02+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
 "X-Launchpad-Export-Date: 2021-04-08 06:16+0000\n"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
+#, machine-translated
 msgid "Shortcuts"
 msgstr "Pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
+#, machine-translated
 msgid "Edit Shortcuts..."
-msgstr "Muokkauksen pikanäppäimet"
+msgstr "Muokkaa pikanäppäyksiä..."
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
-#, fuzzy
+#, machine-translated
 msgid "Edit Application Shortcuts"
-msgstr "Sovelluksen pikanäppäimet"
+msgstr "Muokkaa sovelluksen pikanäppäimiä"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
+#, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "Pikanäppäimet Muokattava vain, kun laajennus käytössä..."
 
-#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:698
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:288
+#, machine-translated
 msgid "Help translate in your web browser"
-msgstr "Auta kääntämään verkkoselaimesi"
+msgstr "Auta kääntämään selaimessasi"
 
-#: app/adwPreferencesWindow.js:477 app/adwPreferencesWindow.js:478
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
+#, machine-translated
 msgid "Desktop"
 msgstr "Työpöytä"
 
-#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:484
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
+#, machine-translated
 msgid "Files"
 msgstr "Tiedostot"
 
-#: app/adwPreferencesWindow.js:489 app/adwPreferencesWindow.js:490
-#: app/adwPreferencesWindow.js:532
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
+#: app/adwPreferencesWindow.js:539
+#, machine-translated
 msgid "Tweaks"
-msgstr "Säädöt"
+msgstr "Sweaks"
 
-#: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
+#, machine-translated
 msgid "More"
 msgstr "Lisää"
 
-#: app/adwPreferencesWindow.js:507
-#, fuzzy
-msgid "Desktop Settings"
-msgstr "Työpöytä asetukset"
-
-#: app/adwPreferencesWindow.js:508
-#, fuzzy
-msgid "Settings for the Desktop Program"
-msgstr "Asetukset työpöytäohjelmaan"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:514
-#, fuzzy
+#, machine-translated
+msgid "Desktop Settings"
+msgstr "Työpöydän asetukset"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:515
+#, machine-translated
+msgid "Settings for the Desktop Program"
+msgstr "Työpöytäohjelman asetukset"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:521
+#, machine-translated
 msgid "Desktop Folder"
 msgstr "Työpöytäkansio"
 
-#: app/adwPreferencesWindow.js:515
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:522
+#, machine-translated
 msgid "Current Desktop: "
-msgstr "Rikkinäinen työpöytätiedosto"
+msgstr "Nykyinen työpöytä:"
 
-#: app/adwPreferencesWindow.js:525
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:532
+#, machine-translated
 msgid "Files Settings"
-msgstr "Asetukset Files"
+msgstr "Tiedostojen asetukset"
 
-#: app/adwPreferencesWindow.js:526
-#, fuzzy
-msgid "Settings shared with Gnome Files"
-msgstr "Asetukset jaettu Gnome Files"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:533
-#, fuzzy
-msgid "Miscellaneous Tweaks"
-msgstr "Väärä Tweet"
+#, machine-translated
+msgid "Settings shared with Gnome Files"
+msgstr "Gnome-tiedostojen kanssa jaetut asetukset"
 
-#: app/adwPreferencesWindow.js:551
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:540
+#, machine-translated
+msgid "Miscellaneous Tweaks"
+msgstr "Muut Sweaks"
+
+#: app/adwPreferencesWindow.js:558
 msgid "Size for the desktop icons"
 msgstr "Työpöytäkuvakkeiden koko"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:560
 msgid "Tiny"
 msgstr "Erittäin pieni"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:561
 msgid "Small"
 msgstr "Pieni"
 
-#: app/adwPreferencesWindow.js:555
+#: app/adwPreferencesWindow.js:562
 msgid "Standard"
 msgstr "Tavallinen"
 
-#: app/adwPreferencesWindow.js:556
+#: app/adwPreferencesWindow.js:563
 msgid "Large"
 msgstr "Suuri"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:569
 msgid "New icons alignment"
 msgstr "Uusien kuvakkeiden asettelu"
 
-#: app/adwPreferencesWindow.js:564
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:571
+#, machine-translated
 msgid "Top left corner"
 msgstr "Vasen yläkulma"
 
-#: app/adwPreferencesWindow.js:565
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:572
+#, machine-translated
 msgid "Top right corner"
 msgstr "Oikea yläkulma"
 
-#: app/adwPreferencesWindow.js:566
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:573
+#, machine-translated
 msgid "Bottom left corner"
 msgstr "Vasen alakulma"
 
-#: app/adwPreferencesWindow.js:567
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:574
+#, machine-translated
 msgid "Bottom right corner"
 msgstr "Oikea alakulma"
 
-#: app/adwPreferencesWindow.js:573
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:580
+#, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Lisätään uudet kuvakkeet ensin toissijaisiin monitoreihin, jos niitä on "
-"saatavilla"
+msgstr "Lisää uudet kuvakkeet Sekundaarisiin Monitoreihin ensin, jos saatavilla"
 
-#: app/adwPreferencesWindow.js:577
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:584
+#, machine-translated
 msgid "Snap icons to grid"
-msgstr "Tartu ruudukkoon"
+msgstr "Napsauta kuvakkeet ruudulle"
 
-#: app/adwPreferencesWindow.js:583
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:590
+#, machine-translated
 msgid "Highlight the drop grid"
-msgstr "Kohota pisaraverkko"
+msgstr "Korosta pudotusruutu"
 
-#: app/adwPreferencesWindow.js:592
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:599
+#, machine-translated
 msgid "New Desktop Folder"
-msgstr "Työpöytäkansio"
+msgstr "Uusi työpöytäkansio"
 
-#: app/adwPreferencesWindow.js:593
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:600
+#, machine-translated
 msgid "Set a new folder for the desktop"
-msgstr "Näytä kotikansio työpöydällä"
+msgstr "Aseta uusi kansio työpöydälle"
 
-#: app/adwPreferencesWindow.js:594 app/utils/desktopFolderUtils.js:85
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
+#, machine-translated
 msgid "Choose"
 msgstr "Valitse"
 
-#: app/adwPreferencesWindow.js:599
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:606
+#, machine-translated
 msgid "Set Desktop back to ~/"
-msgstr ""
+msgstr "Aseta työpöytä takaisin ~ /"
 
-#: app/adwPreferencesWindow.js:601
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:608
+#, machine-translated
 msgid "Restore Default Desktop Folder"
-msgstr "Luottamaton työpöytätiedosto"
+msgstr "Palauta työpöytäkansio"
 
-#: app/adwPreferencesWindow.js:603
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:610
+#, machine-translated
 msgid "Restore"
-msgstr "Palauttaa"
+msgstr "Palauta"
 
-#: app/adwPreferencesWindow.js:613
-#, fuzzy
-#| msgid "Add an emblem to links"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:620
+#, machine-translated
 msgid "Add information emblems for links, encryption"
-msgstr "Merkitse tiedostolinkit symbolilla"
+msgstr "Lisää linkkien tietotunnukset, salaus"
 
-#: app/adwPreferencesWindow.js:617
+#: app/adwPreferencesWindow.js:624
 msgid "Use dark text in icon labels"
 msgstr "Käytä tummaa tekstiä kuvakkeiden selitteissä"
 
-#: app/adwPreferencesWindow.js:622
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:629
+#, machine-translated
 msgid "Show the personal folder on the desktop"
-msgstr "Näytä kotikansio työpöydällä"
+msgstr "Näytä henkilökohtainen kansio työpöydällä"
 
-#: app/adwPreferencesWindow.js:627
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:634
+#, machine-translated
 msgid "Show the trash icon on the desktop"
 msgstr "Näytä roskakorin kuvake työpöydällä"
 
-#: app/adwPreferencesWindow.js:632
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:639
+#, machine-translated
 msgid "Show external drives on the desktop"
-msgstr "Näytä erilliset tallennusvälineet työpöydällä"
+msgstr "Näytä ulkoiset asemat työpöydällä"
 
-#: app/adwPreferencesWindow.js:637
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:644
+#, machine-translated
 msgid "Show network drives on the desktop"
 msgstr "Näytä verkkoasemat työpöydällä"
 
-#: app/adwPreferencesWindow.js:642
-#, fuzzy
-msgid "Add new drives to the opposite side of the desktop"
-msgstr "Lisää uudet tallennusvälineet näytön toiselle puolelle"
-
-#: app/adwPreferencesWindow.js:647
-#, fuzzy
-msgid "Action to Open Items"
-msgstr "Toiminta avoimiin kohteisiin"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:649
+#, machine-translated
+msgid "Add new drives to the opposite side of the desktop"
+msgstr "Lisää uudet asemat työpöydän vastakkaiselle puolelle"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:654
+#, machine-translated
+msgid "Action to Open Items"
+msgstr "Avattavia kohteita koskevat toimet"
+
+#: app/adwPreferencesWindow.js:656
 msgid "Single click"
 msgstr "Yksi napsautus"
 
-#: app/adwPreferencesWindow.js:650
+#: app/adwPreferencesWindow.js:657
 msgid "Double click"
 msgstr "Kaksoisnapsautus"
 
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:662
 msgid "Show image thumbnails"
 msgstr "Näytä pienoiskuvat"
 
-#: app/adwPreferencesWindow.js:657
+#: app/adwPreferencesWindow.js:664
 msgid "Always"
 msgstr "Aina"
 
-#: app/adwPreferencesWindow.js:658
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:665
+#, machine-translated
 msgid "On this computer only"
 msgstr "Vain tällä tietokoneella"
 
-#: app/adwPreferencesWindow.js:659
+#: app/adwPreferencesWindow.js:666
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: app/adwPreferencesWindow.js:664
+#: app/adwPreferencesWindow.js:671
 msgid "Show a context menu item to delete permanently"
 msgstr "Näytä valikkokohde pysyvästi poistamiselle"
 
-#: app/adwPreferencesWindow.js:669
+#: app/adwPreferencesWindow.js:676
 msgid "Show hidden files"
 msgstr "Näytä piilotiedostot"
 
-#: app/adwPreferencesWindow.js:674
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:681
+#, machine-translated
 msgid "Open folders on drag hover"
-msgstr "Avoimet kansiot drag hoverissa"
+msgstr "Avaa kansiot drag leaverissa"
 
-#: app/adwPreferencesWindow.js:678
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:685
+#, machine-translated
 msgid "About..."
-msgstr "Tietoja..."
+msgstr "Siitä..."
 
-#: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
-#, fuzzy
-msgid "Translations"
-msgstr "Käännökset"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:698
+#, machine-translated
+msgid "Translation"
+msgstr "Käännös"
 
-#: app/adwPreferencesWindow.js:692
-msgid "All tranlations on Weblate.."
-msgstr ""
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, fuzzy
+#, machine-translated
+msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr "Kone käännetty LibreKäännä. Käyttäjä todennettu ja editoitu Weblate."
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:704
+#, machine-translated
+msgid "Edit Translations"
+msgstr "Muokkaa käännökset"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:705
+#, machine-translated
+msgid "Verify, add or correct translation in your web browser"
+msgstr "Varmista, lisää tai korjaa käännös selaimessasi"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:706
+#, machine-translated
 msgid "Translate"
 msgstr "Käännä"
 
+# MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy
+#, machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Valitse hakemus avataksesi <b> </b>"
+msgstr "Valitse sovellus avattavaksi <b>{foo} </b>"
 
+# MT: LibreTranslate
 #: app/appChooser.js:90
-#, fuzzy
+#, machine-translated
 msgid "Open Items"
-msgstr "Avaa kohde"
+msgstr "Avoimet kohdat"
 
+# MT: LibreTranslate
 #: app/appChooser.js:92
-#, fuzzy
+#, machine-translated
 msgid "Open Folder"
 msgstr "Avaa kansio"
 
+# MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
+#, machine-translated
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
+# MT: LibreTranslate
 #: app/appChooser.js:165
-#, fuzzy
+#, machine-translated
 msgid "Error changing default application"
-msgstr "Väärin muuttuva oletussovellus"
+msgstr "Virhe oletussovelluksen muuttamisessa"
 
+# MT: LibreTranslate
 #: app/appChooser.js:168
-#, fuzzy
+#, machine-translated
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Virhe asettamalla {foo} oletussovelluksena {mimetype}"
+msgstr "Virhe asetettaessa {foo} oletussovellukseksi {mimetype}"
 
+# MT: LibreTranslate
 #: app/appImageFileItem.js:57
-#, fuzzy
-#| msgid "Invalid Permissions on Desktop File"
+#, machine-translated
 msgid "Invalid Permissions on AppImage File"
-msgstr "Vialliset oikeudet työpöytätiedostossa"
+msgstr "Virheelliset luvat sovelluskuvatiedostossa"
 
-#: app/appImageFileItem.js:60
-#, fuzzy
-#| msgid ""
-#| "This .desktop File has incorrect Permissions. Right Click to edit "
-#| "Properties, then:\n"
-msgid ""
-"This AppImage File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-"Tällä .desktop-tiedostolla on väärät oikeudet. Naksauta oikealla hiiren "
-"napilla ja valitse Ominaisuudet, sitten:\n"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:58
+#, machine-translated
+msgid "This AppImage File has incorrect Permissions."
+msgstr "Tämä sovelluskuvatiedosto on virheellinen Käyttöoikeudet."
 
+# MT: LibreTranslate
+#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#, machine-translated
+msgid "Right Click to edit Properties, then:"
+msgstr "Oikea Napsauta muokataksesi ominaisuuksia:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#, machine-translated
+msgid "Set Permissions, in"
+msgstr "Aseta luvat"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#, machine-translated
+msgid "Others Access"
+msgstr "Muut"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#, machine-translated
+msgid "Read Only"
+msgstr "Lue vain"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#, machine-translated
+msgid "or"
+msgstr "tai"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+#, machine-translated
+msgid "None"
+msgstr "Ei ole"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#, machine-translated
+msgid "Enable option"
+msgstr "Käytä vaihtoehtoa"
+
+# MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Set Permissions, in \"Others Access\", \"Read Only\" or \"None\"</b>"
-msgid ""
-"\n"
-"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
-msgstr ""
-"\n"
-"<b>Aseta oikeudet kohdassa \"Muut oikeudet\", joko \"Vain luku\" tai \"Ei "
-"mikään\"</b>"
+#, machine-translated
+msgid "Allow Executing File as a Program"
+msgstr "Salli tiedoston suorittaminen ohjelmana"
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "<b>Enable option, \"Allow Executing File as a Program\"</b>"
-msgid ""
-"\n"
-"Enable option, \"Allow Executing File as a Program\""
-msgstr ""
-"\n"
-"<b>Kytke päälle valinta \"Salli tiedoston suoritus ohjelmana\"</b>"
-
-#: app/appImageFileItem.js:82
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:79
+#, machine-translated
 msgid "Untrusted AppImage File"
-msgstr "Luottamaton työpöytätiedosto"
+msgstr "Luottamaton sovelluskuvatiedosto"
 
-#: app/appImageFileItem.js:85
-#, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "<b>Enable \"Allow Launching\"</b>"
-msgid ""
-"This AppImage file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
-"Tämä .desktop-tiedosto ei ole luotettu, ja sitä ei voi käynnistää. "
-"Salliakseksi käynnistämisen naksauta hiiren oikealla napilla, sitten:\n"
-"\n"
-"<b>Valitse \"Salli käynnistäminen\"</b>"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:81
+#, machine-translated
+msgid "This AppImage file is not trusted, it can not be launched."
+msgstr "Tämä sovellus Kuvatiedosto ei ole luotettava, sitä ei voi käynnistää."
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#, machine-translated
+msgid "To enable launching, right-click, then:"
+msgstr "Käynnistyksen mahdollistamiseksi napsauta hiiren oikealla napsautuksella:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#, machine-translated
+msgid "enable"
+msgstr "käytössä"
+
+#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+msgid "Allow Launching"
+msgstr "Salli käynnistäminen"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -408,29 +489,29 @@ msgstr "OK"
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
+# MT: LibreTranslate
 #: app/autoAr.js:71
-#, fuzzy
+#, machine-translated
 msgid "AutoAr is not installed"
-msgstr "Auto Auto Auto Auto Auto Auto Auto Auto A ei ole asennettu"
+msgstr "Automaattinen Ar ei ole asennettu"
 
+# MT: LibreTranslate
 #: app/autoAr.js:72
-#, fuzzy
-msgid ""
-"To be able to work with compressed files, install file-roller and/or gir-1.2-"
-"gnomeAutoAr"
-msgstr ""
-"Jotta voit työskennellä pakattujen tiedostojen kanssa, asenna tiedostorulla "
-"ja/tai gir-1.2-gnome Auto"
+#, machine-translated
+msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgstr "Jotta voit työskennellä pakattujen tiedostojen kanssa, asenna tiedostorulla ja/tai gir-1.2-gnome Automaattinen"
 
+# MT: LibreTranslate
 #: app/autoAr.js:203
-#, fuzzy
+#, machine-translated
 msgid "Extracting files"
-msgstr "Pura tiedostoja"
+msgstr "Poistetaan tiedostoja"
 
+# MT: LibreTranslate
 #: app/autoAr.js:220
-#, fuzzy
+#, machine-translated
 msgid "Compressing files"
-msgstr "Pakataan tiedostoja."
+msgstr "Pakataan tiedostoja"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
 #: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
@@ -438,323 +519,374 @@ msgstr "Pakataan tiedostoja."
 msgid "Cancel"
 msgstr "Peru"
 
+# MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
+#, machine-translated
 msgid "Enter a password here"
-msgstr "Kirjoita salasana tähän"
+msgstr "Syötä salasana tähän"
 
+# MT: LibreTranslate
 #: app/autoAr.js:354
-#, fuzzy
+#, machine-translated
 msgid "Removing partial file '${outputFile}'"
-msgstr "Poista osittainen tiedosto \"outputfiili\" \"\"\""
+msgstr "Poistetaan osittainen tiedosto '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:373
-#, fuzzy
+#, machine-translated
 msgid "Creating destination folder"
-msgstr "Kohdekansion luominen"
+msgstr "Luodaan kohdekansiota"
 
+# MT: LibreTranslate
 #: app/autoAr.js:405
-#, fuzzy
+#, machine-translated
 msgid "Extracting files into '${outputPath}'"
-msgstr "Tiedostojen uudistaminen \"OutputPath\" \"\"\""
+msgstr "Tiedostojen poistaminen '${outputPath}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:435
-#, fuzzy
+#, machine-translated
 msgid "Extraction completed"
-msgstr "Loppusijoitus"
+msgstr "Ulosotto suoritettu"
 
+# MT: LibreTranslate
 #: app/autoAr.js:436
-#, fuzzy
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "\"Täydelliset lyhenteet\" on saatu valmiiksi."
+msgstr "Poisto '${fullPathFile}' on valmis."
 
+# MT: LibreTranslate
 #: app/autoAr.js:442
-#, fuzzy
+#, machine-translated
 msgid "Extraction cancelled"
-msgstr "Poikkeaminen peruttu"
+msgstr "Poisto peruttu"
 
+# MT: LibreTranslate
 #: app/autoAr.js:443
-#, fuzzy
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Käyttäjä on perunut \"fullPathFile\" uudistamisen."
+msgstr "Käyttäjä on peruuttanut poiston '${fullPathFile}'."
 
+# MT: LibreTranslate
 #: app/autoAr.js:453
-#, fuzzy
+#, machine-translated
 msgid "Passphrase required for ${filename}"
-msgstr "Passfraasi, joka tarvitaan filename"
+msgstr "${filename}"
 
+# MT: LibreTranslate
 #: app/autoAr.js:456
-#, fuzzy
+#, machine-translated
 msgid "Error during extraction"
-msgstr "Virheet poikkeuksen aikana"
+msgstr "Virhe noudon aikana"
 
+# MT: LibreTranslate
 #: app/autoAr.js:483
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}'"
-msgstr "Tiedostojen painaminen \"outputfiiliin\" \"\"\""
+msgstr "Pakataan tiedostoja '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:496
-#, fuzzy
+#, machine-translated
 msgid "Compression completed"
-msgstr "Istunto on valmis"
+msgstr "Pakkaus valmis"
 
+# MT: LibreTranslate
 #: app/autoAr.js:497
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Tiedostojen pakkaaminen \"outputfiiliin\" on päättynyt."
+msgstr "Tiedostojen painaminen '${outputFile}' on valmis."
 
+# MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
-#, fuzzy
+#, machine-translated
 msgid "Cancelled compression"
-msgstr "Peruutettu puristus"
+msgstr "Peruttu puristus"
 
+# MT: LibreTranslate
 #: app/autoAr.js:502
-#, fuzzy
+#, machine-translated
 msgid "The output file '${outputFile}' already exists."
-msgstr "Tuotetiedosto \"outputfiili\" on jo olemassa."
+msgstr "Tulostiedosto '${outputFile}' on jo olemassa."
 
+# MT: LibreTranslate
 #: app/autoAr.js:509
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"Tiedostojen painaminen \"outputfiiliin\" on peruutettu käyttäjän toimesta."
+msgstr "Käyttäjä on peruuttanut tiedostojen painamisen '${outputFile}'."
 
+# MT: LibreTranslate
 #: app/autoAr.js:512
-#, fuzzy
+#, machine-translated
 msgid "Error during compression"
-msgstr "Virhe kompression aikana"
+msgstr "Virhe pakkausten aikana"
 
+# MT: LibreTranslate
 #: app/autoAr.js:547
-#, fuzzy
+#, machine-translated
 msgid "Create archive"
 msgstr "Luo arkisto"
 
+# MT: LibreTranslate
 #: app/autoAr.js:571
-#, fuzzy
+#, machine-translated
 msgid "Archive name"
-msgstr "Arkiston nimi"
+msgstr "Arkistonimi"
 
+# MT: LibreTranslate
 #: app/autoAr.js:604
-#, fuzzy
+#, machine-translated
 msgid "Password"
 msgstr "Salasana"
 
+# MT: LibreTranslate
 #: app/autoAr.js:617
-#, fuzzy
+#, machine-translated
 msgid "Create"
 msgstr "Luo"
 
+# MT: LibreTranslate
 #: app/autoAr.js:688
-#, fuzzy
+#, machine-translated
 msgid "Compatible with all operating systems."
 msgstr "Yhteensopiva kaikkien käyttöjärjestelmien kanssa."
 
+# MT: LibreTranslate
 #: app/autoAr.js:694
-#, fuzzy
+#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Password protected .zip on asennettava Windowsiin ja Maciin."
+msgstr "Salasana suojattu .zip, on asennettava Windows ja Mac."
 
+# MT: LibreTranslate
 #: app/autoAr.js:700
-#, fuzzy
+#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Pienempiä arkistoja, mutta vain Linux ja Mac."
+msgstr "Pienemmät arkistot, mutta vain Linux ja Mac."
 
+# MT: LibreTranslate
 #: app/autoAr.js:706
-#, fuzzy
+#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Pienempiä arkistoja, mutta ne on asennettava Windowsiin ja Maciin."
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:125
+#, machine-translated
 msgid "The Displayed Desktop is writable by others"
-msgstr ""
+msgstr "Näytetty työpöytä on kirjoitettava muiden toimesta"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:128
+#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is "
-"writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not "
-"writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
+".deskop-tiedostoja ei voi käynnistää tältä työpöydältä, koska työpöytäkansio on kirjoitettava muiden käyttäjien toimesta.\n"
+"\n"
+"Tarkista tämän työpöytäkansion käyttöoikeudet ja varmista, että muut eivät kirjoita sitä."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
 msgstr "Rikkinäinen työpöytätiedosto"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:141
-#, fuzzy
-#| msgid ""
-#| "This .desktop file has errors or points to a program without permissions. "
-#| "It can not be executed.\n"
-#| "\n"
-#| "\t<b>Edit the file to set the correct executable Program.</b>"
+#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Tässä .desktop-tiedostossa on virheitä, tai se osoittaa ohjelmaan, jolla on "
-"puutteelliset oikeudet. Sitä ei voi suorittaa.\n"
+"Tässä .desktop-tiedostossa on virheitä tai viitteitä ohjelmaan ilman oikeuksia. Sitä ei voi teloittaa.\n"
 "\n"
-"\t<b>Muokkaa tiedostoa asettaaksesi oikea suoritettava ohjelma.<b>"
+"Muokkaa tiedostoa, jonka avulla valittu ohjelma on oikea."
 
 #: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
 msgstr "Vialliset oikeudet työpöytätiedostossa"
 
-#: app/desktopFileIcon.js:154
-msgid ""
-"This .desktop File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-"Tällä .desktop-tiedostolla on väärät oikeudet. Naksauta oikealla hiiren "
-"napilla ja valitse Ominaisuudet, sitten:\n"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:152
+#, machine-translated
+msgid "This Desktop File has incorrect Permissions."
+msgstr "Tässä työpöytätiedostossa on virheelliset luvat."
 
-#: app/desktopFileIcon.js:178
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:173
+#, machine-translated
 msgid "Untrusted Desktop File"
 msgstr "Luottamaton työpöytätiedosto"
 
-#: app/desktopFileIcon.js:181
-#, fuzzy
-#| msgid ""
-#| "This .desktop file is not trusted, it can not be launched. To enable "
-#| "launching, right-click, then:\n"
-#| "\n"
-#| "<b>Enable \"Allow Launching\"</b>"
-msgid ""
-"This .desktop file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
-"Tämä .desktop-tiedosto ei ole luotettu, ja sitä ei voi käynnistää. "
-"Salliakseksi käynnistämisen naksauta hiiren oikealla napilla, sitten:\n"
-"\n"
-"<b>Valitse \"Salli käynnistäminen\"</b>"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:175
+#, machine-translated
+msgid "This Desktop file is not trusted, it can not be launched."
+msgstr "Tämä työpöytätiedosto ei ole luotettava, sitä ei voi käynnistää."
 
-#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#, machine-translated
 msgid "Could not open File"
-msgstr "Tiedostoja ei voitu avata"
+msgstr "Ei voitu avata Tiedosto"
 
-#: app/desktopFileIcon.js:211
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:206
+#, machine-translated
 msgid "{appName} can not open files of this Type!"
-msgstr "tiedostoja ei voi avata tämän tyypin tiedostoja!"
+msgstr "{appName} ei voi avata tiedostoja tämän tyypin!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, fuzzy
+#, machine-translated
 msgid "Desktop Folder Change Failed"
-msgstr "Folder Creation epäonnistui"
+msgstr "Työpöytäkansio Muutos epäonnistui"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
+#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr ""
+msgstr "Uusi työpöytäkansio on symbolinen linkki"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
+#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
+msgstr "Uusi työpöytäkansio ei ole olemassa tai ei ole kansio!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
+#, machine-translated
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "Työpöytäkansio vaihtui"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
+#, machine-translated
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "Vaihdetaan uuteen työpöytään..."
 
+# MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icons"
-msgstr "työpöytäkuvake"
+msgstr "Työpöydän kuvakkeet"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:157
+#, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "Näytä kehyspuskuri Skaalaus ei ole käytössä"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:158
+#, machine-translated
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor "
-"framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"Useat monitorit, joissa on eri zoom-asetukset, suosittelevat näytön runkopuskurin skaalausta.\n"
+"\n"
+"Ota käyttöön Mutter Dconf -asetuksissa"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:169
+#, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"Useat monitorit eri zoom-asetuksissa.\n"
+"\n"
+"Käytäkö näytön runkopuskurin skaalaus Mutter Dconf Settings?"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
+#, machine-translated
 msgid "Enable"
-msgstr "Ota käyttöön"
+msgstr "Käytä"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
+#, machine-translated
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "Työpöytää ei voi näyttää"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"Työpöytäkansio {desktop} on symbolinen linkki\n"
+"\n"
+"Aseta työpöydän kansio oikeaan kansioon"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
+"Työpöytäkansiota {desktop} ei ole olemassa tai se ei ole kansio\n"
+"\n"
+"Tarkista xdg-utils-asennus ja aseta oikea työpöytäkansio"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:219
-#, fuzzy
+#, machine-translated
 msgid "GNOME Files not found"
-msgstr "GNOME Tiedostoja ei löytynyt"
+msgstr "Gnome Tiedostoja ei löytynyt"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:220
-#, fuzzy
+#, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME Tiedostojen käyttö edellyttää Gtk4 Desktop Icons NG."
+msgstr "Gnome Tiedostosovellus vaaditaan Gtk4 Desktop Icons NG."
 
+# MT: LibreTranslate
 #: app/desktopManager.js:227
-#, fuzzy
+#, machine-translated
 msgid "There is no default File Manager"
-msgstr "Epäonnistunutta tiedostopäällikköä ei ole"
+msgstr "Tiedoston oletushallintaa ei ole"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:228
-#, fuzzy
+#, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr ""
-"Ei ole olemassa hakemusta, joka käsittelee mimetypiaa \"inode/directory\""
+msgstr "Ei ole sovellusta, joka käsittelee mimetype \"inode/kansio\""
 
+# MT: LibreTranslate
 #: app/desktopManager.js:235
-#, fuzzy
+#, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "Gnome Files ei ole rekisteröity tiedostojen johtajaksi"
+msgstr "Gnome-tiedostoja ei ole rekisteröity tiedostojenhallintaan"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:236
-#, fuzzy
+#, machine-translated
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Gnome Files -sovellusta ei ole ohjelmoitu avaamaan kansioita.\n"
-"Tarkista xdg-käyttöjärjestelmäsi asennus\n"
-"Katso Gnome Files.desktop Tiedoston asennus"
+"Gnome Files -sovellusta ei ole ohjelmoitu avaamaan kansioita!\n"
+"Tarkista xdg-utilsin asennus\n"
+"Tarkista Gnome-tiedostot . desktop Tiedoston asennus"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:328
-#, fuzzy
+#, machine-translated
 msgid "Clear current selection before new search"
 msgstr "Tyhjennä nykyinen valinta ennen uutta hakua"
 
@@ -766,101 +898,121 @@ msgstr "Etsi tiedostoja työpöydällä"
 msgid "New Folder"
 msgstr "Uusi kansio"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1613
-#, fuzzy
+#, machine-translated
 msgid "Folder Creation Failed"
-msgstr "Folder Creation epäonnistui"
+msgstr "Kansion luominen epäonnistui"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1614
-#, fuzzy
+#, machine-translated
 msgid "Could not create folder"
-msgstr "Ei voitu luoda kansiota"
+msgstr "Kansiota ei voitu luoda"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:601
-#, fuzzy
+#, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Et voi avata Gnome Consolessa"
+msgstr "Työpöytää ei voitu avata Gnome-tiedostoissa"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:620
-#, fuzzy
+#, machine-translated
 msgid "Preferences Window is Open"
-msgstr "Ikkuna on auki"
+msgstr "Asetukset Ikkuna on auki"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:621
-#, fuzzy
+#, machine-translated
 msgid "This Window is open. Please switch to the active window."
-msgstr "Tämä ikkuna on auki. Siirry aktiiviseen ikkunaan."
+msgstr "Tämä ikkuna on auki. Vaihda aktiiviseen ikkunaan."
 
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 msgid "Settings"
 msgstr "Asetukset"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:813
-#, fuzzy
+#, machine-translated
 msgid "Template Creation Error"
-msgstr "Templata Creation Error"
+msgstr "Mallin luomisvirhe"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:814
-#, fuzzy
+#, machine-translated
 msgid "Could not create document"
-msgstr "Dokumenttia ei voitu poistaa"
+msgstr "Asiakirjaa ei voitu luoda"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:919
-#, fuzzy
+#, machine-translated
 msgid "Name"
 msgstr "Nimi"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:921
-#, fuzzy
+#, machine-translated
 msgid "Name Z-A"
-msgstr "Nimi (Z-A)"
+msgstr "Nimi Z-A"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:923
-#, fuzzy
+#, machine-translated
 msgid "Modified Time"
-msgstr "Muutettu aika"
+msgstr "Muokattu aika"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:925
-#, fuzzy
+#, machine-translated
 msgid "Type"
 msgstr "Tyyppi"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:927
-#, fuzzy
+#, machine-translated
 msgid "Size"
 msgstr "Koko"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:932
-#, fuzzy
+#, machine-translated
 msgid "Keep Arranged…"
-msgstr "Pidä järjestettynä…"
+msgstr "Järjestä.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:937
-#, fuzzy
+#, machine-translated
 msgid "Keep Stacked by Type…"
-msgstr "Pidä pinottuna tyypin mukaan…"
+msgstr "Pidä pinottuna tyyppi.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:939
-#, fuzzy
+#, machine-translated
 msgid "Sort Home/Drives/Trash…"
-msgstr "Järjestä koti/asemat/roskakori…"
+msgstr "Lajittele koti/kuljettajat/roskat.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:944
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop"
-msgstr "Työpöytä"
+msgstr "Vaihda työpöytää"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:949
+#, machine-translated
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "Palauta oletustyöpöytä"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:953
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icon Settings"
-msgstr "Työpöytäkuvakkeiden asetukset"
+msgstr "Työpöydän kuvakkeen asetukset"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:955
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcuts"
 msgstr "Näytä pikanäppäimet"
 
@@ -888,85 +1040,99 @@ msgstr "Valitse kaikki"
 msgid "Arrange Icons"
 msgstr "Järjestä kuvakkeet"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:989
-#, fuzzy
+#, machine-translated
 msgid "Arrange By…"
-msgstr "Järjestä…"
+msgstr "Järjestä.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:997
-#, fuzzy
-#| msgid "Show Desktop in Files"
+#, machine-translated
 msgid "Show Desktop In {0}"
 msgstr "Näytä työpöytä {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1002
-#, fuzzy
+#, machine-translated
 msgid "Open In {0}"
-msgstr "Avoinna {0}"
+msgstr "Avaa {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1018
+#, machine-translated
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Shell Menu.."
 
+# MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
-#, fuzzy
+#, machine-translated
 msgid "Making SymLink Failed"
-msgstr "SymLink epäonnistui"
+msgstr "SymLinkin tekeminen epäonnistui"
 
+# MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
-#, fuzzy
+#, machine-translated
 msgid "Could not create symbolic link"
-msgstr "Ei voi luoda symbolista linkkiä"
+msgstr "Symbolinen linkki ei voitu luoda"
 
+# MT: LibreTranslate
 #: app/dragManager.js:739
-#, fuzzy
+#, machine-translated
 msgid "Copy/Move Failed"
-msgstr "Siirtyminen peruutettu"
+msgstr "Kopioi tai siirrä epäonnistui"
 
+# MT: LibreTranslate
 #: app/dragManager.js:740
-#, fuzzy
+#, machine-translated
 msgid "{0} Does not exist"
-msgstr "Ei ole olemassa"
+msgstr "{0} Ei ole olemassa"
 
+# MT: LibreTranslate
 #: app/dragManager.js:782
-#, fuzzy
+#, machine-translated
 msgid "Choose Action for Files"
-msgstr "Valitse tiedostojen toiminta"
+msgstr "Valitse tiedostojen toiminto"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Move"
-msgstr "Liikkua"
+msgstr "Siirrä"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "Kopioi"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Link"
-msgstr "Linkki"
+msgstr "Yhteystiedot"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, fuzzy
-#| msgid "New Folder"
+#, machine-translated
 msgid "Folder"
 msgstr "Kansio"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, fuzzy
+#, machine-translated
 msgid "File"
 msgstr "Tiedosto"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:270
-#, fuzzy
+#, machine-translated
 msgid "Opening File Failed"
 msgstr "Tiedoston avaaminen epäonnistui"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:276
-#, fuzzy
+#, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr "Mitään sovellusta ei ole asennettu avaamaan tiedostoja."
+msgstr "\"{fo}\"-tiedostojen avaamiseen ei ole asennettu sovellusta."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -978,15 +1144,17 @@ msgstr[1] "Uusi kansio jossa {0} kohdetta"
 msgid "Open All..."
 msgstr "Avaa kaikki..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, fuzzy
+#, machine-translated
 msgid "Launch"
 msgstr "Käynnistä"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:135
-#, fuzzy
+#, machine-translated
 msgid "Open with {foo}"
-msgstr "Avoinna {foo}"
+msgstr "Avaa {foo}"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
@@ -1000,20 +1168,21 @@ msgstr "Pura tänne"
 msgid "Extract To..."
 msgstr "Pura…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, fuzzy
+#, machine-translated
 msgid "Open With..."
-msgstr "Avaa sovelluksella..."
+msgstr "Avaa..."
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
 msgstr "Avaa kaikki toisella sovelluksella..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:184
-#, fuzzy
-#| msgid "Launch using Dedicated Graphics Card"
+#, machine-translated
 msgid "Launch using Integrated Graphics Card"
-msgstr "Käynnistä erillisnäytönohjainta käyttäen"
+msgstr "Käynnistä integroidun grafiikkakortin avulla"
 
 #: app/fileItemMenu.js:206
 msgid "Stack This Type"
@@ -1023,8 +1192,9 @@ msgstr "Pinoa tämäntyyppiset"
 msgid "Unstack This Type"
 msgstr "Älä pinoa tämäntyyppisiä"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:231
-#, fuzzy
+#, machine-translated
 msgid "Run as a Program"
 msgstr "Suorita ohjelmana"
 
@@ -1036,31 +1206,35 @@ msgstr "Komentosarjat"
 msgid "Cut"
 msgstr "Leikkaa"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, fuzzy
+#, machine-translated
 msgid "Move to..."
-msgstr "Siirrä kohteeseen"
+msgstr "Siirry..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, fuzzy
+#, machine-translated
 msgid "Copy to..."
-msgstr "Kopioi tänne"
+msgstr "Selvä."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
 msgstr "Nimeä uudelleen…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, fuzzy
+#, machine-translated
 msgid "Create Link..."
-msgstr "Luo linkki"
+msgstr "Luo linkki..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:261
-#, fuzzy
+#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Komennus {0}"
-msgstr[1] "Kompressoi kansiot"
+msgstr[0] "Compress {0} kansio"
+msgstr[1] "Compress {0} kansio"
 
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
@@ -1068,15 +1242,17 @@ msgid_plural "Compress {0} files"
 msgstr[0] "Pakkaa {0} tiedosto"
 msgstr[1] "Pakkaa {0} tiedostoa"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:276
-#, fuzzy
+#, machine-translated
 msgid "Email to..."
-msgstr "Sähköpostia..."
+msgstr "Sähköposti osoitteeseen..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:286
-#, fuzzy
+#, machine-translated
 msgid "Send to Mobile Device"
-msgstr "Lähetä mobiililaitteet"
+msgstr "Lähetä mobiililaitteeseen"
 
 #: app/fileItemMenu.js:294
 msgid "Move to Trash"
@@ -1089,10 +1265,6 @@ msgstr "Poista pysyvästi"
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
 msgstr "Älä salli käynnistämistä"
-
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
-msgid "Allow Launching"
-msgstr "Salli käynnistäminen"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
@@ -1114,42 +1286,47 @@ msgstr "Yhteiset ominaisuudet"
 msgid "Properties"
 msgstr "Ominaisuudet"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:362
-#, fuzzy
-#| msgid "Show All in Files"
+#, machine-translated
 msgid "Show All in {0}"
-msgstr "Näytä kaikki"
+msgstr "Näytä kaikki {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:363
-#, fuzzy
-#| msgid "Show in Files"
+#, machine-translated
 msgid "Show in {0}"
-msgstr "Näyttely {0}"
+msgstr "Näytä {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:374
-#, fuzzy
+#, machine-translated
 msgid "Open in {0}"
-msgstr "Avoinna {0}"
+msgstr "Avaa {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:537
-#, fuzzy
+#, machine-translated
 msgid "Open Item"
 msgstr "Avaa kohde"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:819
-#, fuzzy
+#, machine-translated
 msgid "Extraction Cancelled"
-msgstr "Ylimääräinen peruttu"
+msgstr "Uutto peruttu"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:820
-#, fuzzy
+#, machine-translated
 msgid "Unable to extract File, no destination folder"
-msgstr "Et voi ottaa File, Ei Kohteen kansiota"
+msgstr "Ei voitu poimia Tiedosto, ei kohdekansiota"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, fuzzy
+#, machine-translated
 msgid "Select Destination"
-msgstr "Select Destination"
+msgstr "Valitse kohde"
 
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 msgid "Select"
@@ -1159,335 +1336,387 @@ msgstr "Valitse"
 msgid "Can not email a Directory"
 msgstr "Kansiota ei voi lähettää sähköpostitse"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:965
-#, fuzzy
-#| msgid ""
-#| "Selection includes a Directory, compress the directory to a file first."
+#, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Valinta sisältää kansion, pakkaa kansio tiedostoksi ensin."
+msgstr "Valinta sisältää kansion, pakata .zip tiedosto ensin?"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
-#, fuzzy
+#, machine-translated
 msgid "Mail Error"
-msgstr "Sähkövirhe"
+msgstr "Sähköpostivirhe"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:993
-#, fuzzy
+#, machine-translated
 msgid "Unable to find zip command, please install the program"
-msgstr "Et löydä zip-komentoa, asenna ohjelma"
+msgstr "Zip-komentoa ei löydy, asenna ohjelma"
 
+# MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
-#, fuzzy
+#, machine-translated
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1023
-#, fuzzy
+#, machine-translated
 msgid "There was an error in creating a zip archive"
-msgstr "Epäonnistuneita zip-arkistossa"
+msgstr "Zip-arkiston luonnissa oli virhe"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1041
-#, fuzzy
+#, machine-translated
 msgid "Unable to find xdg-email, please install the program"
-msgstr "Et löydä xdg-sähköpostia, asenna ohjelma"
+msgstr "Xdg- sähköpostia ei löydy, asenna ohjelma"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1059
-#, fuzzy
+#, machine-translated
 msgid "There was an error in emailing Files"
-msgstr "Sähköpostiviesteissä oli virhe"
+msgstr "Tiedostojen lähettämisessä oli virhe"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1174
-#, fuzzy
-#| msgid "Can not email a Directory"
+#, machine-translated
 msgid "Can Not open the Working Directory"
-msgstr "Kansiota ei voi lähettää sähköpostitse"
+msgstr "Työhakemistoa ei voi avata"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1225
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open in Gnome Console"
-msgstr "Et voi avata Gnome Consolessa"
+msgstr "Ei voitu avata Gnome-konsolissa"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1227
-#, fuzzy
+#, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr "Asenna Gnome Console tai muu terminaali"
+msgstr "Asenna Gnome Console tai muu pääteohjelma"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1235
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open {0}"
-msgstr "Ei voi avata"
+msgstr "Ei voitu avata {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1237
-#, fuzzy
+#, machine-translated
 msgid "Please Install {0}"
-msgstr "Ole hyvä ja asenna {0}"
+msgstr "Asenna {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1281
-#, fuzzy
+#, machine-translated
 msgid "Copy Cancelled"
-msgstr "Kopiointi peruutettu"
+msgstr "Kopioi peruttu"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1282
-#, fuzzy
+#, machine-translated
 msgid "Unable to copy Files, no destination folder"
-msgstr "Et voi kopioida tiedostoja, ei kohdekansiota"
+msgstr "Tiedostoja ei voi kopioida, ei kohdekansiota"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1305
-#, fuzzy
+#, machine-translated
 msgid "Move Cancelled"
-msgstr "Siirtyminen peruutettu"
+msgstr "Siirrä peruttu"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1306
-#, fuzzy
+#, machine-translated
 msgid "Unable to move Files, no destination folder"
-msgstr "Et voi siirtää tiedostoja, ei kohdekansiota"
+msgstr "Tiedostoja ei voitu siirtää, ei kohdekansiota"
 
+# MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
-#, fuzzy
+#, machine-translated
 msgid "$appName$ can not open files of this Type!"
-msgstr "tiedostoja ei voi avata tämän tyypin tiedostoja!"
+msgstr "$appName$ ei voi avata tiedostoja tästä tyypistä!"
 
+# MT: LibreTranslate
 #: app/preferences.js:885
-#, fuzzy
+#, machine-translated
 msgid "Console"
 msgstr "Konsoli"
 
-#: app/shortcutManager.js:46 app/shortcutManager.js:86
-#: app/shortcutManager.js:522
-#, fuzzy
-msgid "None"
-msgstr "Ei mitään"
-
+# MT: LibreTranslate
 #: app/shortcutManager.js:85
+#, machine-translated
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "Pikanäppäin:"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:109
+#, machine-translated
 msgid "Type new..."
-msgstr ""
+msgstr "Kirjoita uusi..."
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:125
+#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr ""
+msgstr "Muokkain + avain (esim. Ctrl + Alt + D)"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, fuzzy
+#, machine-translated
 msgid "Reset to Default"
-msgstr "Palauta Oletusarvot"
+msgstr "Nollaa oletus"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, fuzzy
+#, machine-translated
 msgid "No Accelerator"
-msgstr "Kiihdytin"
+msgstr "Ei kiihdytintä"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, fuzzy
+#, machine-translated
 msgid "System Shortcuts"
-msgstr "Näytä pikanäppäimet"
+msgstr "Järjestelmän pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:244
+#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr ""
+msgstr "Yhteinen järjestelmä Määritelty näppäimistön pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, fuzzy
+#, machine-translated
 msgid "Local Shortcuts"
-msgstr "Näytä pikanäppäimet"
+msgstr "Paikalliset pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, fuzzy
+#, machine-translated
 msgid "Application Keyboard Shortcuts"
-msgstr "Sovelluksen pikanäppäimet"
+msgstr "Sovellusnäppäimistön pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, fuzzy
+#, machine-translated
 msgid "Global Shortcuts"
-msgstr "Laajamittainen pikanäppäin"
+msgstr "Pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, fuzzy
+#, machine-translated
 msgid "System Keyboard Shortcuts"
-msgstr "Pikanäppäimet"
+msgstr "Järjestelmän näppäimistön pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:661
-#, fuzzy
+#, machine-translated
 msgid "Keyboard Shortcuts"
-msgstr "Pikanäppäimet"
+msgstr "Näppäimistön pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:673
-#, fuzzy
+#, machine-translated
 msgid "Reset Shortcuts"
-msgstr "Näytä pikanäppäimet"
+msgstr "Nollaa pikanäppäimet"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:674
+#, machine-translated
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "Nollaa kaikki pikanäppäimet oletuksiin"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:677
-#, fuzzy
-#| msgid "Open All..."
+#, machine-translated
 msgid "Reset All..."
-msgstr "Nollaa kaikki"
+msgstr "Nollaa kaikki..."
 
+# MT: LibreTranslate
 #: app/shortcuts.js:15
-#, fuzzy
+#, machine-translated
 msgid "Show Desktop in Files"
-msgstr "Näytä työpöytä tiedostonhallinnassa"
+msgstr "Näytä työpöytä tiedostoissa"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
 msgstr "Avaa päätteessä"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:17
-#, fuzzy
-#| msgid "Change Background…"
+#, machine-translated
 msgid "Change Background"
-msgstr "Päivitä taustakuva"
+msgstr "Muuta taustaa"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:18
-#, fuzzy
-#| msgid "Display Settings"
+#, machine-translated
 msgid "Change Display Settings"
-msgstr "Näytön asetukset"
+msgstr "Muuta näytön asetuksia"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:19
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop Icon Settings"
-msgstr "Työpöytäkuvakkeiden asetukset"
+msgstr "Vaihda työpöydän kuvakkeen asetuksia"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:20
+#, machine-translated
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "Siivoa kuvakkeet"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:21
-#, fuzzy
+#, machine-translated
 msgid "Keep Arranged"
-msgstr "Pidä järjestettynä..."
+msgstr "Pidä järjestetty"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:22
-#, fuzzy
-#| msgid "Keep Icons Stacked"
+#, machine-translated
 msgid "Keep Stacked"
-msgstr "Pidä kuvakkeet pinottuina"
+msgstr "Pinoa"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:23
-#, fuzzy
-#| msgid "Sort Special Folders - Home/Trash Drives."
+#, machine-translated
 msgid "Sort Special Folders"
-msgstr "Järjestä erikoishakemistot - Koti/Roskakori/Asemat."
+msgstr "Järjestä erikoiskansiot"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:24
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons by Name"
-msgstr "Järjestä kuvakkeet"
+msgstr "Järjestä kuvakkeet nimen mukaan"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:25
+#, machine-translated
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "Järjestä kuvakkeet laskevalla nimellä"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:26
-#, fuzzy
+#, machine-translated
 msgid "Arrange Icons By Modified Time"
-msgstr "Muutettu aika"
+msgstr "Järjestä kuvakkeet muokatulla ajalla"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:27
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons By Kind"
-msgstr "Järjestä kuvakkeet"
+msgstr "Järjestä kuvakkeet Lajin mukaan"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:28
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons By Size"
-msgstr "Järjestä kuvakkeet"
+msgstr "Järjestä kuvakkeet koon mukaan"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:29
-#, fuzzy
+#, machine-translated
 msgid "Find Files"
-msgstr "Etsi tiedostoista"
+msgstr "Etsi tiedostoja"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:30
-#, fuzzy
+#, machine-translated
 msgid "Update Desktop"
-msgstr "Työpöytä"
+msgstr "Päivitä työpöytä"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:31
-#, fuzzy
-#| msgid "Show hidden files"
+#, machine-translated
 msgid "Show Hidden Files"
 msgstr "Näytä piilotetut tiedostot"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:32
-#, fuzzy
-#| msgid "Select All"
+#, machine-translated
 msgid "Unselect All"
-msgstr "Poista kaikkien valinta"
+msgstr "Poista kaikki"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:33
-#, fuzzy
+#, machine-translated
 msgid "Preview"
-msgstr "Esikatsele"
+msgstr "Esikatselu"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:34
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Left"
-msgstr "Valitse tiedostojen toiminta"
+msgstr "Valitse kuvake vasemmalle"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:35
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Right"
-msgstr "Valitse tiedostojen toiminta"
+msgstr "Valitse kuvake oikea"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:36
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Up"
-msgstr "Valitse"
+msgstr "Valitse kuvake ylös"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:37
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Down"
-msgstr "Valitse tiedostojen toiminta"
+msgstr "Valitse kuvake alas"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:38
-#, fuzzy
-#| msgid "Show"
+#, machine-translated
 msgid "Show Menu"
 msgstr "Näytä valikko"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:39
+#, machine-translated
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "Näytä kansion taustavalikko"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:40
-#, fuzzy
-#| msgid "Broken Desktop File"
+#, machine-translated
 msgid "Create Desktop Shortcut"
-msgstr "Rikkinäinen työpöytätiedosto"
+msgstr "Luo työpöydän pikanäppäin"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:41
+#, machine-translated
 msgid "Text Entry Accels Turn On"
-msgstr ""
+msgstr "Tekstitietue aktivoituu"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:42
+#, machine-translated
 msgid "Text Entry Accels Turn Off"
-msgstr ""
+msgstr "Text Entry Accels Sammuta"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:44
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcut Viewer"
-msgstr "Näytä pikanäppäimet"
+msgstr "Näytä pikavalinta Näytä"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:45
-#, fuzzy
+#, machine-translated
 msgid "Show Or Hide Desktop Icons"
-msgstr "Työpöytä Icons"
+msgstr "Näytä tai piilota työpöydän kuvakkeet"
 
+# MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, fuzzy
+#, machine-translated
 msgid "More Information"
 msgstr "Lisätietoja"
 
@@ -1497,18 +1726,19 @@ msgstr "Lisätietoja"
 msgid "Home"
 msgstr "Koti"
 
+# MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, fuzzy
-#| msgid "Empty Trash"
+#, machine-translated
 msgid "Trash"
-msgstr "Roskakori"
+msgstr "Roskat"
 
+# MT: LibreTranslate
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, fuzzy
+#, machine-translated
 msgid "Stack"
 msgstr "Pino"
 
@@ -1520,76 +1750,87 @@ msgstr "Rikkinäinen linkki"
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Tiedostoa ei voitu avata, sillä se on rikkinäinen linkki"
 
+# MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, fuzzy
+#, machine-translated
 msgid "Drive"
 msgstr "Asema"
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
-#, fuzzy
-#| msgid "\"${programName}\" is needed for Desktop Icons"
+#, machine-translated
 msgid "\"${programName}\" is not available"
-msgstr "\"${programName}\" tarvitaan työpöytäkuvakkeisiin"
+msgstr "\"${programName}\" ei ole saatavilla"
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-msgid ""
-"Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr ""
+#, machine-translated
+msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr "Asenna \"${programName}\", jotta Työpöydän kuvakkeet voivat suorittaa nämä toiminnot."
 
+# MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
-#, fuzzy
-#| msgid "Broken Desktop File"
+#, machine-translated
 msgid "Choose Desktop Folder"
-msgstr "Rikkinäinen työpöytätiedosto"
+msgstr "Valitse työpöytäkansio"
 
 #: app/utils/desktopIconsUtil.js:216
 msgid "Command not found"
 msgstr "Komentoa ei löydy"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
-#, fuzzy
+#, machine-translated
 msgid "Choose an app to open the selected files."
-msgstr "Valitse sovellus valittujen tiedostojen avaamiseksi."
+msgstr "Valitse valittujen tiedostojen avaamiseen tarkoitettu sovellus."
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
-#, fuzzy
+#, machine-translated
 msgid "Always use for this file type"
-msgstr "Käytä aina tätä tiedostotyyppiä"
+msgstr "Käytä tätä tiedostotyyppiä aina"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
+#, machine-translated
 msgid "_Cancel"
-msgstr "__Peruuta"
+msgstr "_Peru"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
+#, machine-translated
 msgid "_Open"
 msgstr "_Avaa"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, fuzzy
+#, machine-translated
 msgid "Display icons on the GNOME desktop"
-msgstr "Näytä roskakorin kuvake työpöydällä"
+msgstr "Näytä kuvakkeet Gnomen työpöydällä"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
+#, machine-translated
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "työpöytä; ikonit; tiedostot; kansiot; manager;arrange;piilota;show;laukaisin; oikosulut;"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, fuzzy
+#, machine-translated
 msgid "Show<>Hide"
-msgstr "Näytä/piilota"
+msgstr "Näytä <> Piilota"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
+#, machine-translated
 msgid "Preferences"
-msgstr "Mieltymykset"
+msgstr "Asetukset"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
+#, machine-translated
 msgid "Disable"
-msgstr "Poistaa käytöstä"
+msgstr "Poista käytöstä"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1644,35 +1885,24 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "Lisää uudet tallennusvälineet näytön toiselle puolelle"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
-"Näytä lisätyt tallennusvälineet ja asemat työpöydän vastakkaisella puolella."
+msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
+msgstr "Näytä lisätyt tallennusvälineet ja asemat työpöydän vastakkaisella puolella."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Näyttää suorakulmio kohteen kohdalla vetämisen ja pudottamisen aikana"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"Merkitsee kuvakkeen tulevan paikan ruudukossa osittain läpinäkyvällä "
-"suorakulmiolla vetämisen ja pudottamisen aikana."
+msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
+msgstr "Merkitsee kuvakkeen tulevan paikan ruudukossa osittain läpinäkyvällä suorakulmiolla vetämisen ja pudottamisen aikana."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Järjestä erikoishakemistot - Koti/Roskakori/Asemat."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"Kodin, Roskakorin ja liitettyjen verkko- ja ulkoisten asemien sijainnin "
-"muuttamiseksi järjestäessä kuvakkeita työpöydällä"
+msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
+msgstr "Kodin, Roskakorin ja liitettyjen verkko- ja ulkoisten asemien sijainnin muuttamiseksi järjestäessä kuvakkeita työpöydällä"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1719,244 +1949,53 @@ msgid "Use black for label text"
 msgstr "Käytä mustaa seliteteksteissä"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-"Piirrä seliteteksti mustalla valkoisen sijaan. Hyödyllinen vaaleita "
-"taustakuvia käyttäessä."
+msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgstr "Piirrä seliteteksti mustalla valkoisen sijaan. Hyödyllinen vaaleita taustakuvia käyttäessä."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, fuzzy
+#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
-msgstr "Näytä uudet kuvakkeet ei-ensisijainen näyttö, jos kytketty"
+msgstr "Näytä uudet kuvakkeet ei-ensisijaisella monitorilla, jos ne on liitetty"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, fuzzy
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
-"Jos toinen näyttö on kytketty toiseen näyttöön, uudet ikonit asetetaan ei-"
-"ensisijaiseen näyttöön"
+#, machine-translated
+msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
+msgstr "Jos toinen monitori on kytketty, uudet kuvakkeet sijoitetaan ei-ensisijaiseen monitoriin"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, fuzzy
+#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr "Ikonit voidaan sijoittaa missä tahansa työpöydällä"
+msgstr "Kuvakkeet voidaan sijoittaa mihin tahansa työpöydälle"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, fuzzy
-msgid ""
-"Icons are not on a rectangular grid but can be postioned anywhere "
-"independent of grid"
-msgstr ""
-"Ikonit eivät ole suorakulmaisessa verkossa, mutta ne voidaan siirtää missä "
-"tahansa verkkoverkosta riippumatta"
+#, machine-translated
+msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgstr "Kuvakkeet eivät ole suorakulmaisessa ruudukossa, vaan ne voidaan sijoittaa mihin tahansa ruudusta riippumatta"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+#, machine-translated
 msgid "Hide/Show all desktop windows"
-msgstr ""
+msgstr "Piilota tai näytä kaikki työpöytäikkunat"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, fuzzy
+#, machine-translated
 msgid "Show the icons on the desktop, or hide them all"
-msgstr "Näytä roskakorin kuvake työpöydällä"
+msgstr "Näytä kuvakkeet työpöydällä tai piilota ne kaikki"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, fuzzy
+#, machine-translated
 msgid "User Application Shortcuts"
-msgstr "Sovelluksen pikanäppäimet"
+msgstr "Käyttäjän sovelluksen pikanäppäimet"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+#, machine-translated
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-
-#~ msgid ""
-#~ "For this functionality to work in Desktop Icons, you must install "
-#~ "\"${programName}\" in your system."
-#~ msgstr ""
-#~ "Tämä työpöytäkuvakkeiden toiminnallisuus vaatii "
-#~ "ohjelman\"${programName}\" asentamisen järjestelmään."
-
-#, fuzzy
-#~ msgid "Website"
-#~ msgstr "Website"
-
-#, fuzzy
-#~ msgid "Visit"
-#~ msgstr "Vieraile"
-
-#, fuzzy
-#~ msgid "Issues"
-#~ msgstr "Ongelmat"
-
-#, fuzzy
-#~ msgid "Report issues on issue tracker"
-#~ msgstr "Raportti aiheista seuraaja"
-
-#, fuzzy
-#~ msgid "Report"
-#~ msgstr "Raportoi"
-
-#, fuzzy
-#~ msgid "License"
-#~ msgstr "Lisenssi"
-
-#, fuzzy
-#~| msgid "Paste"
-#~ msgid "Do Paste"
-#~ msgstr "Liitä"
-
-#, fuzzy
-#~ msgid "Copy Item"
-#~ msgstr "Kopioi kohde"
-
-#, fuzzy
-#~| msgid "Rename"
-#~ msgid "Rename Item"
-#~ msgstr "Nimeä osa uudellen"
-
-#, fuzzy
-#~| msgid "Delete permanently"
-#~ msgid "Delete Permanently"
-#~ msgstr "Poista pysyvästi"
-
-#, fuzzy
-#~| msgid "Properties"
-#~ msgid "Show Properties"
-#~ msgstr "Näytä ominaisuudet"
-
-#, fuzzy
-#~ msgid "Create Link to Item"
-#~ msgstr "Luo linkki"
-
-#~ msgid "Add an emblem to soft links"
-#~ msgstr "Merkitse linkit tiedostoihin symbolilla"
-
-#, fuzzy
-#~ msgid "Volumes"
-#~ msgstr "Taltiot"
-
-#, fuzzy
-#~ msgid "Desktop volumes display"
-#~ msgstr "Työpöydän tilavuusnäytöt"
-
-#, fuzzy
-#~ msgid "Run"
-#~ msgstr "Suorita"
-
-#, fuzzy
-#~ msgid "Rectangular icons with drop grid highlighting"
-#~ msgstr "Rectangular icons with drop grid highlighting Näytä tarkat tiedot"
-
-#~ msgid "Close"
-#~ msgstr "Sulje"
-
-#~ msgid "Use Nemo to open folders"
-#~ msgstr "Käytä Nemoa kansioiden avaamiseen"
-
-#~ msgid "Use Nemo instead of Nautilus to open folders."
-#~ msgstr "Käytä Nemoa Nautiluksen sijaan kansioiden avaamiseen."
-
-#, fuzzy
-#~ msgid "Open In Terminal"
-#~ msgstr "Avaa päätteessä"
-
-#, fuzzy
-#~ msgid "No Extraction Folder"
-#~ msgstr "Ei purkukansiota"
-
-#~ msgid "Select Extract Destination"
-#~ msgstr "Valitse purkamiskohde"
-
-#~ msgid "Open With Other Application"
-#~ msgstr "Avaa toisella sovelluksella"
-
-#~ msgid "Click type for open files"
-#~ msgstr "Napsautustapa tiedostojen avaamiselle"
-
-#~ msgid "Action to do when launching a program from the desktop"
-#~ msgstr "Toiminta käynnistettäessä ohjelmaa työpöydältä"
-
-#~ msgid "Display the content of the file"
-#~ msgstr "Näytä tiedoston sisältö"
-
-#~ msgid "Launch the file"
-#~ msgstr "Käynnistä tiedosto"
-
-#~ msgid "Ask what to do"
-#~ msgstr "Kysy mitä tehdään"
-
-#~ msgid "Local files only"
-#~ msgstr "Vain paikalliset tiedostot"
-
-#~ msgid ""
-#~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
-#~ msgstr ""
-#~ "Nautilus-tiedostonhallinta vaaditaan tämän laajennuksen käyttämiseen."
-
-#~ msgid "Sort by Name"
-#~ msgstr "Järjestä nimen mukaan"
-
-#~ msgid "Sort by Name Descending"
-#~ msgstr "Järjestä nimen mukaan laskevasti"
-
-#~ msgid "Sort by Type"
-#~ msgstr "Järjestä tyypin mukaan"
-
-#~ msgid "Sort by Size"
-#~ msgstr "Järjestä koon mukaan"
-
-#~ msgid ""
-#~ "To configure Desktop Icons NG, do right-click in the desktop and choose "
-#~ "the last item: 'Desktop Icons settings'"
-#~ msgstr ""
-#~ "Muuttaaksesi työpöytäkuvakkeiden asetuksia, napsauta työpöytää hiiren "
-#~ "oikealla painikkeella ja valitse viimeinen kohde ”Työpöytäkuvakkeiden "
-#~ "asetukset”"
-
-#~ msgid "Do you want to run “{0}”, or display its contents?"
-#~ msgstr "Haluatko suorittaa tiedoston “{0}” vai näyttää sen sisällön?"
-
-#~ msgid "“{0}” is an executable text file."
-#~ msgstr "“{0}” on suoritettava oleva tekstitiedosto."
-
-#~ msgid "Execute in a terminal"
-#~ msgstr "Suorita päätteessä"
-
-#~ msgid "Execute"
-#~ msgstr "Suorita"
-
-#~ msgid "New folder"
-#~ msgstr "Uusi kansio"
-
-#~ msgid "Delete"
-#~ msgstr "Poista"
-
-#~ msgid "Are you sure you want to permanently delete these items?"
-#~ msgstr "Haluatko varmasti poistaa nämä kohteet pysyvästi?"
-
-#~ msgid "If you delete an item, it will be permanently lost."
-#~ msgstr "Jos poistat kohteen, se häviää pysyvästi."
-
-#~ msgid "Desktop Icons Settings"
-#~ msgstr "Työpöytäkuvakkeiden asetukset"
-
-#~ msgid "Arrange By..."
-#~ msgstr "Järjestä..."
-
-#~ msgid "Keep Arranged..."
-#~ msgstr "Pidä järjestettynä..."
-
-#~ msgid "Keep Stacked by type..."
-#~ msgstr "Pidä pinottuna tyypin mukaan..."
-
-#~ msgid "Sort Home/Drives/Trash..."
-#~ msgstr "Järjestä koti/asemat/roskakori..."
-
-#~ msgid "Run as a program"
-#~ msgstr "Suorita ohjelmana"
-
-#~ msgid "Error while deleting files"
-#~ msgstr "Virhe poistettaessa tiedostoja"
+msgstr "Ohita oletussovelluksen pikanäppäimet"
