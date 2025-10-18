@@ -68,6 +68,9 @@ find "$DESTDIR$PREFIX" -type f ! -name "adw-ding.js" -exec chmod 0644 {} +
 find "$DESTDIR$PREFIX" -type f -name "adw-ding.js" -exec chmod 0774 {} +
 
 # Build .deb
-OUT="$(pwd)/${PKG_NAME}_${VERSION}-${STAMP}_${ARCH}.deb"
+package="${PKG_NAME}_${VERSION}-${STAMP}_${ARCH}.deb"
+OUT="$(pwd)/$package"
 dpkg-deb --build --root-owner-group "$ROOT" "$OUT"
 echo "Built: $OUT"
+rm Downloads/*.deb
+mv "$package" Downloads/

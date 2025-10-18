@@ -16,365 +16,461 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-28 17:15-0400\n"
+"POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-14 20:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
 msgstr "Kısayollar"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
+#, machine-translated
 msgid "Edit Shortcuts..."
-msgstr "Kısayolları düzenle"
+msgstr "Edit Shortcuts..."
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
-#, fuzzy
+#, machine-translated
 msgid "Edit Application Shortcuts"
-msgstr "Uygulama Kısa Yolları"
+msgstr "Edit Application Shortcuts"
 
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
+#, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "Kısayollar Sadece hazırlandığında anlaşılabilir..."
 
-#: app/adwPreferencesWindow.js:287 app/adwPreferencesWindow.js:698
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:288
+#, machine-translated
 msgid "Help translate in your web browser"
-msgstr "Web tarayıcıda çeviriye yardımcı ol"
+msgstr "Web tarayıcınızda çevirin Yardım"
 
-#: app/adwPreferencesWindow.js:477 app/adwPreferencesWindow.js:478
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
+#, machine-translated
 msgid "Desktop"
-msgstr "Bilgisayar"
+msgstr "Masaüstü"
 
-#: app/adwPreferencesWindow.js:483 app/adwPreferencesWindow.js:484
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
+#, machine-translated
 msgid "Files"
 msgstr "Dosyalar"
 
-#: app/adwPreferencesWindow.js:489 app/adwPreferencesWindow.js:490
-#: app/adwPreferencesWindow.js:532
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
+#: app/adwPreferencesWindow.js:539
+#, machine-translated
 msgid "Tweaks"
-msgstr "İnce Ayarlar"
+msgstr "Tweaks"
 
-#: app/adwPreferencesWindow.js:495 app/adwPreferencesWindow.js:496
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
+#, machine-translated
 msgid "More"
 msgstr "Daha fazla"
 
-#: app/adwPreferencesWindow.js:507
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:514
+#, machine-translated
 msgid "Desktop Settings"
 msgstr "Masaüstü Ayarları"
 
-#: app/adwPreferencesWindow.js:508
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:515
+#, machine-translated
 msgid "Settings for the Desktop Program"
 msgstr "Masaüstü Programı için ayarlar"
 
-#: app/adwPreferencesWindow.js:514
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:521
+#, machine-translated
 msgid "Desktop Folder"
-msgstr "Masaüstü klasörü"
+msgstr "Masaüstü Folder"
 
-#: app/adwPreferencesWindow.js:515
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:522
+#, machine-translated
 msgid "Current Desktop: "
-msgstr "Kırık Masaüstünü Dosyası"
+msgstr "Şimdiki Masaüstü:"
 
-#: app/adwPreferencesWindow.js:525
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:532
+#, machine-translated
 msgid "Files Settings"
-msgstr "Dosya ayarları"
+msgstr "Dosyalar Ayarlar"
 
-#: app/adwPreferencesWindow.js:526
-#, fuzzy
-msgid "Settings shared with Gnome Files"
-msgstr "Open File"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:533
-#, fuzzy
+#, machine-translated
+msgid "Settings shared with Gnome Files"
+msgstr "Gnome Files ile paylaşılan platformlar"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:540
+#, machine-translated
 msgid "Miscellaneous Tweaks"
 msgstr "Miscellaneous Tweaks"
 
-#: app/adwPreferencesWindow.js:551
+#: app/adwPreferencesWindow.js:558
 msgid "Size for the desktop icons"
 msgstr "Masaüstü simgeleri boyutu"
 
-#: app/adwPreferencesWindow.js:553
+#: app/adwPreferencesWindow.js:560
 msgid "Tiny"
 msgstr "Minik"
 
-#: app/adwPreferencesWindow.js:554
+#: app/adwPreferencesWindow.js:561
 msgid "Small"
 msgstr "Küçük"
 
-#: app/adwPreferencesWindow.js:555
+#: app/adwPreferencesWindow.js:562
 msgid "Standard"
 msgstr "Standart"
 
-#: app/adwPreferencesWindow.js:556
+#: app/adwPreferencesWindow.js:563
 msgid "Large"
 msgstr "Büyük"
 
-#: app/adwPreferencesWindow.js:562
+#: app/adwPreferencesWindow.js:569
 msgid "New icons alignment"
 msgstr "Yeni simge hizalaması"
 
-#: app/adwPreferencesWindow.js:564
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:571
+#, machine-translated
 msgid "Top left corner"
-msgstr "Üst sol köşe"
+msgstr "Top left Corner"
 
-#: app/adwPreferencesWindow.js:565
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:572
+#, machine-translated
 msgid "Top right corner"
-msgstr "Üst sağ köşe"
+msgstr "Top right köşe"
 
-#: app/adwPreferencesWindow.js:566
-#, fuzzy
-msgid "Bottom left corner"
-msgstr "Alt sol köşe"
-
-#: app/adwPreferencesWindow.js:567
-#, fuzzy
-msgid "Bottom right corner"
-msgstr "Alt sağ köşe"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
-#, fuzzy
+#, machine-translated
+msgid "Bottom left corner"
+msgstr "Arka köşe"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:574
+#, machine-translated
+msgid "Bottom right corner"
+msgstr "Doğru köşe"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:580
+#, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "İlk önce ikincil monitörlere yeni simgeler ekleyin, eğer mevcut olursa"
 
-#: app/adwPreferencesWindow.js:577
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:584
+#, machine-translated
 msgid "Snap icons to grid"
-msgstr "Kılavuza uydur"
+msgstr "Snap icons to grid"
 
-#: app/adwPreferencesWindow.js:583
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:590
+#, machine-translated
 msgid "Highlight the drop grid"
 msgstr "Yüksek ışık damla ızgara"
 
-#: app/adwPreferencesWindow.js:592
-#, fuzzy
-msgid "New Desktop Folder"
-msgstr "Masaüstü klasörü"
-
-#: app/adwPreferencesWindow.js:593
-#, fuzzy
-msgid "Set a new folder for the desktop"
-msgstr "Kişisel klasörü masaüstünde göster"
-
-#: app/adwPreferencesWindow.js:594 app/utils/desktopFolderUtils.js:85
-#, fuzzy
-msgid "Choose"
-msgstr "Seç"
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599
+#, machine-translated
+msgid "New Desktop Folder"
+msgstr "Yeni Masaüstü Folder"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:600
+#, machine-translated
+msgid "Set a new folder for the desktop"
+msgstr "Masaüstü için yeni bir klasör ayarlayın"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
+#, machine-translated
+msgid "Choose"
+msgstr "Seçin"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:606
+#, machine-translated
 msgid "Set Desktop back to ~/"
-msgstr ""
+msgstr "Set Desktop geri - /"
 
-#: app/adwPreferencesWindow.js:601
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:608
+#, machine-translated
 msgid "Restore Default Desktop Folder"
-msgstr "Olmayan Masaüstü Dosyası"
+msgstr "Varsayılan Masaüstü Folder"
 
-#: app/adwPreferencesWindow.js:603
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:610
+#, machine-translated
 msgid "Restore"
-msgstr "Geri Yükle"
+msgstr "Geri yükleme geri yükleme"
 
-#: app/adwPreferencesWindow.js:613
-#, fuzzy
-#| msgid "Add an emblem to links"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:620
+#, machine-translated
 msgid "Add information emblems for links, encryption"
-msgstr "Bağlantılara amblem ekle"
+msgstr "Bağlantılar için bilgi elçileri ekleyin, şifreleme"
 
-#: app/adwPreferencesWindow.js:617
+#: app/adwPreferencesWindow.js:624
 msgid "Use dark text in icon labels"
 msgstr "Simge etiketlerinde koyu metin kullan"
 
-#: app/adwPreferencesWindow.js:622
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:629
+#, machine-translated
 msgid "Show the personal folder on the desktop"
-msgstr "Kişisel klasörü masaüstünde göster"
+msgstr "Masaüstünde kişisel klasörü göster"
 
-#: app/adwPreferencesWindow.js:627
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:634
+#, machine-translated
 msgid "Show the trash icon on the desktop"
-msgstr "Çöp kutusunu masaüstünde göster"
+msgstr "Masaüstünde çöp ikonunu göster"
 
-#: app/adwPreferencesWindow.js:632
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:639
+#, machine-translated
 msgid "Show external drives on the desktop"
-msgstr "Harici sürücüleri masaüstünde göster"
+msgstr "Masaüstünde dış sürücüler göster"
 
-#: app/adwPreferencesWindow.js:637
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:644
+#, machine-translated
 msgid "Show network drives on the desktop"
-msgstr "Ağ sürücülerini masaüstünde göster"
+msgstr "Show network drive on the masaüstü"
 
-#: app/adwPreferencesWindow.js:642
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:649
+#, machine-translated
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
+msgstr "Masaüstünün tam tersine yeni sürücüler ekleyin"
 
-#: app/adwPreferencesWindow.js:647
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:654
+#, machine-translated
 msgid "Action to Open Items"
 msgstr "Open Materials"
 
-#: app/adwPreferencesWindow.js:649
+#: app/adwPreferencesWindow.js:656
 msgid "Single click"
 msgstr "Tek tıklama"
 
-#: app/adwPreferencesWindow.js:650
+#: app/adwPreferencesWindow.js:657
 msgid "Double click"
 msgstr "Çift tıklama"
 
-#: app/adwPreferencesWindow.js:655
+#: app/adwPreferencesWindow.js:662
 msgid "Show image thumbnails"
 msgstr "Resim önizlemelerini göster"
 
-#: app/adwPreferencesWindow.js:657
+#: app/adwPreferencesWindow.js:664
 msgid "Always"
 msgstr "Her zaman"
 
-#: app/adwPreferencesWindow.js:658
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:665
+#, machine-translated
 msgid "On this computer only"
-msgstr "Bu bilgisayarda"
+msgstr "Bu bilgisayarda sadece"
 
-#: app/adwPreferencesWindow.js:659
+#: app/adwPreferencesWindow.js:666
 msgid "Never"
 msgstr "Asla"
 
-#: app/adwPreferencesWindow.js:664
+#: app/adwPreferencesWindow.js:671
 msgid "Show a context menu item to delete permanently"
 msgstr "Tamamen silmek için sağ tıkta seçenek göster"
 
-#: app/adwPreferencesWindow.js:669
+#: app/adwPreferencesWindow.js:676
 msgid "Show hidden files"
 msgstr "Gizli dosyaları göster"
 
-#: app/adwPreferencesWindow.js:674
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:681
+#, machine-translated
 msgid "Open folders on drag hover"
 msgstr "Sürüklenme üzerine açık klasörler"
 
-#: app/adwPreferencesWindow.js:678
-#, fuzzy
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:685
+#, machine-translated
 msgid "About..."
 msgstr "Hakkında..."
 
-#: app/adwPreferencesWindow.js:691 app/adwPreferencesWindow.js:697
-#, fuzzy
-msgid "Translations"
-msgstr "Çeviriler"
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:698
+#, machine-translated
+msgid "Translation"
+msgstr "Çeviri çevirisi"
 
-#: app/adwPreferencesWindow.js:692
-msgid "All tranlations on Weblate.."
-msgstr ""
-
+# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-#, fuzzy
+#, machine-translated
+msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr "Machine LibreTranslate kullanarak tercüme edilmiştir. Kullanıcı Weblate'de doğrulandı ve düzenledi."
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:704
+#, machine-translated
+msgid "Edit Translations"
+msgstr "Edit Translations"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:705
+#, machine-translated
+msgid "Verify, add or correct translation in your web browser"
+msgstr "Doğrulama, web tarayıcınızda eklemek veya doğru çeviri eklemek"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:706
+#, machine-translated
 msgid "Translate"
-msgstr "Çevirin"
+msgstr "Çeviri çevirisi"
 
+# MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy
+#, fuzzy,machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "<b>{foo}</b>"
+msgstr "out {foo}"
 
+# MT: LibreTranslate
 #: app/appChooser.js:90
-#, fuzzy
+#, machine-translated
 msgid "Open Items"
-msgstr "Öğeyi aç"
+msgstr "Açık öğeler"
 
+# MT: LibreTranslate
 #: app/appChooser.js:92
-#, fuzzy
+#, machine-translated
 msgid "Open Folder"
-msgstr "Klasör Aç"
+msgstr "Open Folder"
 
+# MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
+#, machine-translated
 msgid "Open File"
-msgstr "Dosya Aç"
+msgstr "Open File"
 
+# MT: LibreTranslate
 #: app/appChooser.js:165
-#, fuzzy
+#, machine-translated
 msgid "Error changing default application"
-msgstr "Hedef seçin"
+msgstr "Hata değişen varsayılan uygulama"
 
 #: app/appChooser.js:168
 #, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Hata, {foo} varsayılan uygulama olarak {mimetype}"
+msgstr ""
 
+# MT: LibreTranslate
 #: app/appImageFileItem.js:57
-#, fuzzy
-#| msgid "Invalid Permissions on Desktop File"
+#, machine-translated
 msgid "Invalid Permissions on AppImage File"
-msgstr "Masaüstü Dosyası İzinleri Hatalı"
+msgstr "Invalid Permissions on AppImage File"
 
-#: app/appImageFileItem.js:60
-#, fuzzy
-msgid ""
-"This AppImage File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-"Bu .desktop Dosya yanlış izinlere sahiptir. Doğru Özellikler düzenlemek için "
-"tıklayın, sonra:\n"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:58
+#, machine-translated
+msgid "This AppImage File has incorrect Permissions."
+msgstr "Bu AppImage File yanlış izinlere sahiptir."
 
+# MT: LibreTranslate
+#: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#, machine-translated
+msgid "Right Click to edit Properties, then:"
+msgstr "Doğru Özellikler düzenlemek için tıklayın, sonra:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#, machine-translated
+msgid "Set Permissions, in"
+msgstr "Set Permissions, in in in"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#, machine-translated
+msgid "Others Access"
+msgstr "Diğerleri Access Access"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#, machine-translated
+msgid "Read Only"
+msgstr "Sadece okuyun"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#, machine-translated
+msgid "or"
+msgstr "veya"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
+#: app/shortcutManager.js:46 app/shortcutManager.js:86
+#: app/shortcutManager.js:522
+#, machine-translated
+msgid "None"
+msgstr "Hiçbir şey yok"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#, machine-translated
+msgid "Enable option"
+msgstr "Enable seçenek"
+
+# MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, fuzzy
-msgid ""
-"\n"
-"Set Permissions, in \"Others Access\", \"Read Only\" or \"None\""
-msgstr ""
-"\n"
-"Set Permissions, \"Diğerleri Erişim\", \"Sadece\" veya \"None\""
+#, machine-translated
+msgid "Allow Executing File as a Program"
+msgstr "Dosyayı bir program olarak yürütmeye izin verin"
 
-#: app/appImageFileItem.js:74 app/desktopFileIcon.js:169
-#, fuzzy
-msgid ""
-"\n"
-"Enable option, \"Allow Executing File as a Program\""
-msgstr ""
-"\n"
-"Enable seçenek, \"Allow Executing File as a Program\""
-
-#: app/appImageFileItem.js:82
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/appImageFileItem.js:79
+#, machine-translated
 msgid "Untrusted AppImage File"
-msgstr "Olmayan Masaüstü Dosyası"
+msgstr "Yeminsiz AppImage File"
 
-#: app/appImageFileItem.js:85
-#, fuzzy
-msgid ""
-"This AppImage file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
-"Bu .desktop dosyası güvenilir değildir, başlatılamaz. başlatmak için, doğru "
-"tıklama, sonra:\n"
-"\n"
-"Enable \"Allow Starting\""
+# MT: LibreTranslate
+#: app/appImageFileItem.js:81
+#, machine-translated
+msgid "This AppImage file is not trusted, it can not be launched."
+msgstr "Bu App Resim dosyası güvenilir değildir, başlatılamaz."
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#, machine-translated
+msgid "To enable launching, right-click, then:"
+msgstr "Başlatmak için, doğru tıklama, sonra:"
+
+# MT: LibreTranslate
+#: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#, machine-translated
+msgid "enable"
+msgstr "enable"
+
+#: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
+#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
+msgid "Allow Launching"
+msgstr "Başlatmaya İzin Ver"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -393,29 +489,29 @@ msgstr "Tamam"
 msgid "Rename"
 msgstr "Yeniden Adlandır"
 
+# MT: LibreTranslate
 #: app/autoAr.js:71
-#, fuzzy
+#, machine-translated
 msgid "AutoAr is not installed"
 msgstr "Auto Auto Auto Auto Ar yüklü değil"
 
+# MT: LibreTranslate
 #: app/autoAr.js:72
-#, fuzzy
-msgid ""
-"To be able to work with compressed files, install file-roller and/or gir-1.2-"
-"gnomeAutoAr"
-msgstr ""
-"Sıkıştırılmış dosyalarla çalışabilmek için, file-roller ve/veya z-1.2-gnome "
-"AutoAr"
+#, machine-translated
+msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgstr "Sıkıştırılmış dosyalarla çalışabilmek için, file-roller ve/veya z-1.2-gnome AutoAr"
 
+# MT: LibreTranslate
 #: app/autoAr.js:203
-#, fuzzy
+#, machine-translated
 msgid "Extracting files"
-msgstr "Dosyalar çıkartılıyor…"
+msgstr "Dosyalar"
 
+# MT: LibreTranslate
 #: app/autoAr.js:220
-#, fuzzy
+#, machine-translated
 msgid "Compressing files"
-msgstr "Dosyalar sıkıştırılıyor…"
+msgstr "Açıklama dosyaları"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
 #: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
@@ -423,296 +519,356 @@ msgstr "Dosyalar sıkıştırılıyor…"
 msgid "Cancel"
 msgstr "İptal"
 
+# MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
+#, machine-translated
 msgid "Enter a password here"
-msgstr "Parolayı buraya giriniz"
+msgstr "Burada bir şifre girin"
 
+# MT: LibreTranslate
 #: app/autoAr.js:354
-#, fuzzy
+#, machine-translated
 msgid "Removing partial file '${outputFile}'"
-msgstr "Kısmi dosyasının kaldırılması \"${outputFile} ‘ ‘ ‘"
+msgstr "out '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:373
-#, fuzzy
+#, machine-translated
 msgid "Creating destination folder"
 msgstr "Hedef klasörü oluşturmak"
 
+# MT: LibreTranslate
 #: app/autoAr.js:405
-#, fuzzy
+#, machine-translated
 msgid "Extracting files into '${outputPath}'"
-msgstr "Dosyaları '${PaPath} ‘ ‘ ‘"
+msgstr "out '${outputPath}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:435
-#, fuzzy
+#, machine-translated
 msgid "Extraction completed"
-msgstr "İşlem tamamlandı"
+msgstr "Ekstraksiyon tamamlandı tamamlandı"
 
+# MT: LibreTranslate
 #: app/autoAr.js:436
-#, fuzzy
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "\"${fullPathFile\" tamamlandı."
+msgstr "out '${fullPathFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:442
-#, fuzzy
+#, machine-translated
 msgid "Extraction cancelled"
-msgstr "İşlem iptal edildi."
+msgstr "Ekstraksiyon iptali iptali iptal iptal iptali iptal iptal iptali iptal iptal iptal iptali iptali iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptali iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptali iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptali iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptali iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal"
 
+# MT: LibreTranslate
 #: app/autoAr.js:443
-#, fuzzy
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "Bu Tür"
+msgstr "out '${fullPathFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:453
-#, fuzzy
+#, machine-translated
 msgid "Passphrase required for ${filename}"
-msgstr "Passphrase ${filename}"
+msgstr "out ${filename}"
 
+# MT: LibreTranslate
 #: app/autoAr.js:456
-#, fuzzy
+#, machine-translated
 msgid "Error during extraction"
 msgstr "Ekstraksiyon sırasında hata"
 
+# MT: LibreTranslate
 #: app/autoAr.js:483
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}'"
-msgstr "Dosyaları '${outputFile} ‘ ‘ ‘"
+msgstr "out '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:496
-#, fuzzy
+#, machine-translated
 msgid "Compression completed"
-msgstr "Oturum tamamlandı"
+msgstr "Tamamlandı"
 
+# MT: LibreTranslate
 #: app/autoAr.js:497
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "Dosyaları ‘${outputFile} tamamlandı."
+msgstr "out '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
-#, fuzzy
+#, machine-translated
 msgid "Cancelled compression"
 msgstr "İptal Edildi"
 
+# MT: LibreTranslate
 #: app/autoAr.js:502
-#, fuzzy
+#, machine-translated
 msgid "The output file '${outputFile}' already exists."
-msgstr "Çıktı dosyası ‘${outputFile} zaten var."
+msgstr "out '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:509
-#, fuzzy
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "Dosyaları ‘${outputFile} kullanıcı tarafından iptal edildi."
+msgstr "out '${outputFile}'"
 
+# MT: LibreTranslate
 #: app/autoAr.js:512
-#, fuzzy
+#, machine-translated
 msgid "Error during compression"
 msgstr "Frekans sırasında hata"
 
+# MT: LibreTranslate
 #: app/autoAr.js:547
-#, fuzzy
+#, machine-translated
 msgid "Create archive"
-msgstr "Arşivle"
+msgstr "Create archive archive"
 
+# MT: LibreTranslate
 #: app/autoAr.js:571
-#, fuzzy
+#, machine-translated
 msgid "Archive name"
-msgstr "Arşiv Adı"
+msgstr "Arşiv adı"
 
+# MT: LibreTranslate
 #: app/autoAr.js:604
-#, fuzzy
+#, machine-translated
 msgid "Password"
-msgstr "Parola"
+msgstr "Şifre"
 
+# MT: LibreTranslate
 #: app/autoAr.js:617
-#, fuzzy
+#, machine-translated
 msgid "Create"
-msgstr "Oluştur"
+msgstr "Create"
 
+# MT: LibreTranslate
 #: app/autoAr.js:688
-#, fuzzy
+#, machine-translated
 msgid "Compatible with all operating systems."
 msgstr "Tüm işletim sistemleri ile uyumlu."
 
+# MT: LibreTranslate
 #: app/autoAr.js:694
-#, fuzzy
+#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "Şifre korumalı .zip, Windows ve Mac üzerinde kurulmalıdır."
 
+# MT: LibreTranslate
 #: app/autoAr.js:700
-#, fuzzy
+#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
 msgstr "Küçük arşivler ama Linux ve Mac sadece."
 
+# MT: LibreTranslate
 #: app/autoAr.js:706
-#, fuzzy
+#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "Küçük arşivler ancak Windows ve Mac üzerinde kurulmalıdır."
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:125
+#, machine-translated
 msgid "The Displayed Desktop is writable by others"
-msgstr ""
+msgstr "Ekranlı Masaüstü başkaları tarafından takdir edilebilir"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:128
+#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is "
-"writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not "
-"writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
+".deskop dosyaları bu Masaüstü Folder'in diğer kullanıcılar tarafından takdir edilebilir olduğu gibi başlatılamaz.\n"
+"\n"
+"Lütfen bu Masaüstü Folder'in izinlerini kontrol edin ve başkaları tarafından takdir edilemez olduğundan emin olun."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
 msgstr "Kırık Masaüstünü Dosyası"
 
+# MT: LibreTranslate
 #: app/desktopFileIcon.js:141
+#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
+"Bu .desktop dosyası izinsiz bir programa hataları veya puanları vardır. Bu idam edilemez.\n"
+"\n"
+"Doğru executable programı ayarlamak için dosyayı analiz edin."
 
 #: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
 msgstr "Masaüstü Dosyası İzinleri Hatalı"
 
-#: app/desktopFileIcon.js:154
-#, fuzzy
-msgid ""
-"This .desktop File has incorrect Permissions. Right Click to edit "
-"Properties, then:\n"
-msgstr ""
-"Bu .desktop Dosya yanlış izinlere sahiptir. Doğru Özellikler düzenlemek için "
-"tıklayın, sonra:\n"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:152
+#, machine-translated
+msgid "This Desktop File has incorrect Permissions."
+msgstr "Bu Masaüstü Dosyası yanlış İzinlere sahiptir."
 
-#: app/desktopFileIcon.js:178
-#, fuzzy
-#| msgid "Broken Desktop File"
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:173
+#, machine-translated
 msgid "Untrusted Desktop File"
 msgstr "Olmayan Masaüstü Dosyası"
 
-#: app/desktopFileIcon.js:181
-#, fuzzy
-msgid ""
-"This .desktop file is not trusted, it can not be launched. To enable "
-"launching, right-click, then:\n"
-"\n"
-"Enable \"Allow Launching\""
-msgstr ""
-"Bu .desktop dosyası güvenilir değildir, başlatılamaz. başlatmak için, doğru "
-"tıklama, sonra:\n"
-"\n"
-"Enable \"Allow Starting\""
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:175
+#, machine-translated
+msgid "This Desktop file is not trusted, it can not be launched."
+msgstr "Bu Masaüstü dosyası güvenilir değildir, başlatılamaz."
 
-#: app/desktopFileIcon.js:209 app/gnomeShellDragDrop.js:355
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#, machine-translated
 msgid "Could not open File"
-msgstr "Dosyalar açılamadı"
+msgstr "Açıklanamaz Dosya"
 
-#: app/desktopFileIcon.js:211
-#, fuzzy
+# MT: LibreTranslate
+#: app/desktopFileIcon.js:206
+#, machine-translated
 msgid "{appName} can not open files of this Type!"
-msgstr "${appName} bu Type dosyaları açamaz!"
+msgstr "{appName} Bu Tip dosyaları açamaz!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, fuzzy
+#, machine-translated
 msgid "Desktop Folder Change Failed"
-msgstr "Sipariş Oluşturma Başarısız"
+msgstr "Masaüstü Folder Değişim Başarısız Oldu"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
+#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr ""
+msgstr "Yeni Masaüstü Folder bir Sembolik Link"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
+#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
+msgstr "Yeni Masaüstü Folder mevcut değil veya bir Folder değil!"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
+#, machine-translated
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "Masaüstü Folder Değişir"
 
+# MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
+#, machine-translated
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "Yeni Masaüstü'ye geçiş yapın..."
 
+# MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icons"
-msgstr "masaüstü simgesi"
+msgstr "Masaüstü Icons"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:157
+#, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "Monitor Buffer Scaling etkinleştirilmedi"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:158
+#, machine-translated
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor "
-"framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"Farklı zoom ayarları ile çoklu monitörler, çerçevebuffer ölçeklendirmeyi tavsiye eder.\n"
+"\n"
+"Lütfen Mutter Dconf Ayarlarında etkinleştirin"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:169
+#, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"Farklı zoom ayarları ile çoklu monitörler.\n"
+"\n"
+"Mutter Dconf Ayarları'nda değiştirilebilir mi?"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
+#, machine-translated
 msgid "Enable"
-msgstr "Etkinleştir"
+msgstr "Enable"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
+#, machine-translated
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "Masaüstü göstermeyebilir"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
 "Please set the Desktop Folder to a real Folder"
-msgstr ""
+msgstr "out {desktop}"
 
+# MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
-msgstr ""
+msgstr "out {desktop}"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:219
-#, fuzzy
+#, machine-translated
 msgid "GNOME Files not found"
 msgstr "GNOME Dosyalar bulunamadı"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:220
-#, fuzzy
+#, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "GNOME Dosyalar uygulama Gtk4 Desktop Icons NG tarafından gereklidir."
 
+# MT: LibreTranslate
 #: app/desktopManager.js:227
-#, fuzzy
+#, machine-translated
 msgid "There is no default File Manager"
 msgstr "Varsayılan File Manager yok"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:228
-#, fuzzy
+#, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Mimetype \"inode/yön\" ile uğraşan bir uygulama yoktur"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:235
-#, fuzzy
+#, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome Files bir File Manager olarak kaydedilmiyor"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:236
-#, fuzzy
+#, machine-translated
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -722,10 +878,11 @@ msgstr ""
 "xdg-utils kurulumunuzu kontrol edin\n"
 "Gnome Files .desktop Dosya yükleme"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:328
-#, fuzzy
+#, machine-translated
 msgid "Clear current selection before new search"
-msgstr "Yeni Aramadan Önce Mevcut Seçimi Temizle"
+msgstr "Yeni aramadan önce mevcut seçim"
 
 #: app/desktopManager.js:1238
 msgid "Find Files on Desktop"
@@ -735,28 +892,33 @@ msgstr "Masaüstündeki Dosyaları Bul"
 msgid "New Folder"
 msgstr "Yeni Klasör"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1613
-#, fuzzy
+#, machine-translated
 msgid "Folder Creation Failed"
-msgstr "Sipariş Oluşturma Başarısız"
+msgstr "Kater Yaratılış Başarısız"
 
+# MT: LibreTranslate
 #: app/desktopManager.js:1614
-#, fuzzy
+#, machine-translated
 msgid "Could not create folder"
-msgstr "Klasör oluşturulamadı"
+msgstr "Klasörü oluşturamaz"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:601
-#, fuzzy
+#, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Gnome Console'da Açılabilir"
+msgstr "Gnome Files'da Masaüstü açmak için kullanılamaz"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:620
-#, fuzzy
+#, machine-translated
 msgid "Preferences Window is Open"
 msgstr "Tercihler Pencere Açık"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:621
-#, fuzzy
+#, machine-translated
 msgid "This Window is open. Please switch to the active window."
 msgstr "Bu pencere açık. Lütfen aktif pencereye geçiş yapın."
 
@@ -764,74 +926,89 @@ msgstr "Bu pencere açık. Lütfen aktif pencereye geçiş yapın."
 msgid "Settings"
 msgstr "Ayarlar"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:813
-#, fuzzy
+#, machine-translated
 msgid "Template Creation Error"
 msgstr "Şablon oluşturma hatası"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:814
-#, fuzzy
+#, machine-translated
 msgid "Could not create document"
-msgstr "Belge silinemedi"
+msgstr "Belge oluşturmayabilir"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:919
-#, fuzzy
+#, machine-translated
 msgid "Name"
-msgstr "İsim"
+msgstr "Name"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:921
-#, fuzzy
+#, machine-translated
 msgid "Name Z-A"
-msgstr "Ad Z - A"
+msgstr "Ad Z-A"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:923
-#, fuzzy
+#, machine-translated
 msgid "Modified Time"
-msgstr "Son değiştirilen zaman"
+msgstr "Değiştirilmiş Zaman"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:925
-#, fuzzy
+#, machine-translated
 msgid "Type"
-msgstr "Tür"
+msgstr "Tipi"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:927
-#, fuzzy
+#, machine-translated
 msgid "Size"
-msgstr "Boyut"
+msgstr "Boyut Boyutu"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:932
-#, fuzzy
+#, machine-translated
 msgid "Keep Arranged…"
-msgstr "Düzenli Tut…"
+msgstr "Arranged'ı tut.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:937
-#, fuzzy
+#, machine-translated
 msgid "Keep Stacked by Type…"
-msgstr "Türe Göre Yığılı Tut…"
+msgstr "Tip tarafından takılmış olun.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:939
-#, fuzzy
+#, machine-translated
 msgid "Sort Home/Drives/Trash…"
-msgstr "Evi/Sürücüleri/Çöp Kutusunu Sırala…"
+msgstr "Sort Home/Drives /Trash.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:944
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop"
-msgstr "Masaüstü"
+msgstr "Change Desktop"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:949
+#, machine-translated
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "Geri Döndürme Masaüstü"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:953
-#, fuzzy
+#, machine-translated
 msgid "Desktop Icon Settings"
-msgstr "Masaüstü Simgeleri Ayarları"
+msgstr "Masaüstü Icon Ayarlar"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:955
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcuts"
-msgstr "Kısayolları Göster"
+msgstr "Show Shortcuts"
 
 #: app/desktopMenu.js:963 app/shortcuts.js:43
 msgid "New Document"
@@ -857,85 +1034,99 @@ msgstr "Tümünü Seç"
 msgid "Arrange Icons"
 msgstr "Simgeleri Sırala"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:989
-#, fuzzy
+#, machine-translated
 msgid "Arrange By…"
-msgstr "Düzenleme:"
+msgstr "Arrange By.."
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:997
-#, fuzzy
-#| msgid "Show Desktop in Files"
+#, machine-translated
 msgid "Show Desktop In {0}"
-msgstr "Show Desktop In {0}"
+msgstr "out {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1002
-#, fuzzy
+#, machine-translated
 msgid "Open In {0}"
-msgstr "Open In {0}"
+msgstr "out {0}"
 
+# MT: LibreTranslate
 #: app/desktopMenu.js:1018
+#, machine-translated
 msgid "Shell Menu…"
-msgstr ""
+msgstr "Shell Menu.."
 
+# MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
-#, fuzzy
+#, machine-translated
 msgid "Making SymLink Failed"
 msgstr "SymLink Başarısız Oldu"
 
+# MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
-#, fuzzy
+#, machine-translated
 msgid "Could not create symbolic link"
 msgstr "Sembolik bağlantı oluşturmayabilir"
 
+# MT: LibreTranslate
 #: app/dragManager.js:739
-#, fuzzy
+#, machine-translated
 msgid "Copy/Move Failed"
-msgstr "Move Cancelled"
+msgstr "Copy/Move Failed"
 
+# MT: LibreTranslate
 #: app/dragManager.js:740
-#, fuzzy
+#, machine-translated
 msgid "{0} Does not exist"
-msgstr "Mevcut değil"
+msgstr "{0} Mevcut değil"
 
+# MT: LibreTranslate
 #: app/dragManager.js:782
-#, fuzzy
+#, machine-translated
 msgid "Choose Action for Files"
 msgstr "Dosyalar için Eylem seçin"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Move"
-msgstr "Taşınmak"
+msgstr "Move"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "Kopyala"
 
+# MT: LibreTranslate
 #: app/dragManager.js:783
-#, fuzzy
+#, machine-translated
 msgid "Link"
-msgstr "Bağlantı"
+msgstr "Link"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, fuzzy
-#| msgid "New Folder"
+#, machine-translated
 msgid "Folder"
-msgstr "Klasör"
+msgstr "Folder"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, fuzzy
+#, machine-translated
 msgid "File"
 msgstr "Dosya"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:270
-#, fuzzy
+#, machine-translated
 msgid "Opening File Failed"
-msgstr "Dosya açılamadı"
+msgstr "Açılış Dosyası Başarısız"
 
+# MT: LibreTranslate
 #: app/fileItemIcon.js:276
-#, fuzzy
+#, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr "\"{foo}\" dosyaları açmak için yüklü bir uygulama yoktur."
+msgstr "out \"{fo}\""
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -946,15 +1137,17 @@ msgstr[0] "{0} öge ile yeni klasör"
 msgid "Open All..."
 msgstr "Tümünü Aç..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, fuzzy
+#, machine-translated
 msgid "Launch"
-msgstr "Aç"
+msgstr "Lans"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:135
-#, fuzzy
+#, machine-translated
 msgid "Open with {foo}"
-msgstr "Open with {foo}"
+msgstr "out {foo}"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
@@ -968,35 +1161,39 @@ msgstr "Buraya Çıkar"
 msgid "Extract To..."
 msgstr "Şuraya Çıkar…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, fuzzy
+#, machine-translated
 msgid "Open With..."
-msgstr "Birlikte aç…"
+msgstr "Open With..."
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
 msgstr "Tümünü Başka Uygulamayla Aç..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:184
-#, fuzzy
-#| msgid "Launch using Dedicated Graphics Card"
+#, machine-translated
 msgid "Launch using Integrated Graphics Card"
-msgstr "Özel Grafik Kartı kullanarak başlatın"
+msgstr "Entegre Grafik Kartı kullanmaya başlayın"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:206
-#, fuzzy
+#, machine-translated
 msgid "Stack This Type"
 msgstr "Bu Tür"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:207
-#, fuzzy
+#, machine-translated
 msgid "Unstack This Type"
 msgstr "Unstack This Type"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:231
-#, fuzzy
+#, machine-translated
 msgid "Run as a Program"
-msgstr "Program olarak çalıştır"
+msgstr "Bir Program Olarak Run"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
@@ -1006,13 +1203,15 @@ msgstr "Betikler"
 msgid "Cut"
 msgstr "Kes"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, fuzzy
+#, machine-translated
 msgid "Move to..."
-msgstr "Buraya taşı..."
+msgstr "Move to..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, fuzzy
+#, machine-translated
 msgid "Copy to..."
 msgstr "Kopyala..."
 
@@ -1020,31 +1219,35 @@ msgstr "Kopyala..."
 msgid "Rename…"
 msgstr "Yeniden Adlandır…"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, fuzzy
+#, machine-translated
 msgid "Create Link..."
-msgstr "Bağlantı Oluştur"
+msgstr "Create Link..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:261
-#, fuzzy
+#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Compress {0} klasörler"
+msgstr[0] "out {0}"
 
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "{0} dosyayı sıkıştır"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:276
-#, fuzzy
+#, machine-translated
 msgid "Email to..."
 msgstr "E-posta..."
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:286
-#, fuzzy
+#, machine-translated
 msgid "Send to Mobile Device"
-msgstr "Tamamlandı"
+msgstr "Mobile Device'a gönder"
 
 #: app/fileItemMenu.js:294
 msgid "Move to Trash"
@@ -1057,10 +1260,6 @@ msgstr "Tamamen Sil"
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
 msgstr "Başlatmaya İzin Verme"
-
-#: app/fileItemMenu.js:316 app/fileItemMenu.js:330
-msgid "Allow Launching"
-msgstr "Başlatmaya İzin Ver"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
@@ -1082,42 +1281,47 @@ msgstr "Ortak Özellikler"
 msgid "Properties"
 msgstr "Özellikler"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:362
-#, fuzzy
-#| msgid "Show All in Files"
+#, machine-translated
 msgid "Show All in {0}"
-msgstr "Hepsini göster {0}"
+msgstr "out {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:363
-#, fuzzy
-#| msgid "Show in Files"
+#, machine-translated
 msgid "Show in {0}"
-msgstr "Show in {0}"
+msgstr "out {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:374
-#, fuzzy
+#, machine-translated
 msgid "Open in {0}"
-msgstr "{0}"
+msgstr "out {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:537
-#, fuzzy
+#, machine-translated
 msgid "Open Item"
-msgstr "Öğeyi aç"
+msgstr "Open Item"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:819
-#, fuzzy
+#, machine-translated
 msgid "Extraction Cancelled"
 msgstr "Ekstraksiyon Cancelled"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:820
-#, fuzzy
+#, machine-translated
 msgid "Unable to extract File, no destination folder"
 msgstr "Çıkarılabilir Dosya, hedef klasörü yok"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, fuzzy
+#, machine-translated
 msgid "Select Destination"
-msgstr "Varış Noktası seç"
+msgstr "Hedef seçin"
 
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 msgid "Select"
@@ -1127,335 +1331,387 @@ msgstr "Seç"
 msgid "Can not email a Directory"
 msgstr "Bir dizine e-posta gönderilemez"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:965
-#, fuzzy
-#| msgid ""
-#| "Selection includes a Directory, compress the directory to a file first."
+#, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "Seçim bir Dizin içeriyor, önce dizini bir dosyaya sıkıştırın."
+msgstr "Seçme bir Rehber içerir, ilk önce bir .zip dosyasına sıkıştırır mı?"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
-#, fuzzy
+#, machine-translated
 msgid "Mail Error"
-msgstr "E-posta Hatası"
+msgstr "Mail Hata"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:993
-#, fuzzy
+#, machine-translated
 msgid "Unable to find zip command, please install the program"
 msgstr "Zip komutunu bulmak için, lütfen programı yükleyin"
 
+# MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
-#, fuzzy
+#, machine-translated
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1023
-#, fuzzy
+#, machine-translated
 msgid "There was an error in creating a zip archive"
 msgstr "Bir zip arşivi oluşturmak için bir hata vardı"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1041
-#, fuzzy
+#, machine-translated
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email bulmak için, lütfen programı yükleyin"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1059
-#, fuzzy
+#, machine-translated
 msgid "There was an error in emailing Files"
 msgstr "E-posta dosyalarında bir hata vardı"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1174
-#, fuzzy
-#| msgid "Can not email a Directory"
+#, machine-translated
 msgid "Can Not open the Working Directory"
-msgstr "Bir dizine e-posta gönderilemez"
+msgstr "Çalışma Kılavuzunu Açamaz"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1225
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome Console'da Açılabilir"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1227
-#, fuzzy
+#, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Lütfen Gnome Console veya diğer Terminal Programını yükleyin"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1235
-#, fuzzy
+#, machine-translated
 msgid "Unable to Open {0}"
-msgstr "Açılamıyor"
+msgstr "out {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1237
-#, fuzzy
+#, machine-translated
 msgid "Please Install {0}"
-msgstr "Lütfen yükleme {0}"
+msgstr "out {0}"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1281
-#, fuzzy
+#, machine-translated
 msgid "Copy Cancelled"
-msgstr "Kopyalamadan vazgeçildi"
+msgstr "Kopya Cancelled"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1282
-#, fuzzy
+#, machine-translated
 msgid "Unable to copy Files, no destination folder"
 msgstr "Dosyalar kopyalamak için kullanılamaz, hedef klasörü yok"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1305
-#, fuzzy
+#, machine-translated
 msgid "Move Cancelled"
 msgstr "Move Cancelled"
 
+# MT: LibreTranslate
 #: app/fileItemMenu.js:1306
-#, fuzzy
+#, machine-translated
 msgid "Unable to move Files, no destination folder"
 msgstr "Files'ı hareket etmek için kullanılamaz, hiçbir destinasyon klasörü"
 
+# MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
-#, fuzzy
+#, machine-translated
 msgid "$appName$ can not open files of this Type!"
-msgstr "${appName} bu Type dosyaları açamaz!"
+msgstr "$ $ bu Type dosyaları açamaz!"
 
+# MT: LibreTranslate
 #: app/preferences.js:885
-#, fuzzy
+#, machine-translated
 msgid "Console"
 msgstr "Konsol"
 
-#: app/shortcutManager.js:46 app/shortcutManager.js:86
-#: app/shortcutManager.js:522
-#, fuzzy
-msgid "None"
-msgstr "Hiçbiri"
-
+# MT: LibreTranslate
 #: app/shortcutManager.js:85
+#, machine-translated
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "Varsayılan Kısa:"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:109
+#, machine-translated
 msgid "Type new..."
-msgstr ""
+msgstr "Type new..."
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:125
+#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr ""
+msgstr "Modifier + Key (e.g. Alt + D)"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, fuzzy
+#, machine-translated
 msgid "Reset to Default"
-msgstr "Öntanımlı Değere Sıfırla"
+msgstr "Varsayılan olarak"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, fuzzy
+#, machine-translated
 msgid "No Accelerator"
-msgstr "Hızlandırıcı"
+msgstr "Hiçbir Hızlandırıcı"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, fuzzy
+#, machine-translated
 msgid "System Shortcuts"
-msgstr "Kısayolları Göster"
+msgstr "System Shortcuts"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:244
+#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr ""
+msgstr "Common System Defined Finger Shortcuts"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, fuzzy
+#, machine-translated
 msgid "Local Shortcuts"
-msgstr "Kısayolları Göster"
+msgstr "Local Shortcuts"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, fuzzy
+#, machine-translated
 msgid "Application Keyboard Shortcuts"
-msgstr "Uygulama Kısa Yolları"
+msgstr "Uygulama Klavye Kısakes"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, fuzzy
+#, machine-translated
 msgid "Global Shortcuts"
-msgstr "Genel Kısayol"
+msgstr "Global Shortcuts"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, fuzzy
+#, machine-translated
 msgid "System Keyboard Shortcuts"
-msgstr "Klavye Kısayolları"
+msgstr "System Finger Shortcuts"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:661
-#, fuzzy
+#, machine-translated
 msgid "Keyboard Shortcuts"
-msgstr "Klavye Kısayolları"
+msgstr "Finger Shortcuts"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:673
-#, fuzzy
+#, machine-translated
 msgid "Reset Shortcuts"
-msgstr "Tüm Kısayolları Sıfırla"
+msgstr "Kısa kesimler"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:674
-#, fuzzy
+#, machine-translated
 msgid "Reset all shortcuts to Defaults"
-msgstr "Tüm Kısayolları Varsayılan Değerlerine Sıfırla"
+msgstr "Tüm kısayolları Temsillere Getirin"
 
+# MT: LibreTranslate
 #: app/shortcutManager.js:677
-#, fuzzy
-#| msgid "Open All..."
+#, machine-translated
 msgid "Reset All..."
-msgstr "Tümünü sıfırla"
+msgstr "Bütün..."
 
+# MT: LibreTranslate
 #: app/shortcuts.js:15
-#, fuzzy
+#, machine-translated
 msgid "Show Desktop in Files"
-msgstr "Masaüstünü Dosyalarʼda Göster"
+msgstr "Show Desktop in Files"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
 msgstr "Uçbirimde Aç"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:17
-#, fuzzy
-#| msgid "Change Background…"
+#, machine-translated
 msgid "Change Background"
-msgstr "Arkaplanı Değiştir"
+msgstr "Değişim Planı"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:18
-#, fuzzy
-#| msgid "Display Settings"
+#, machine-translated
 msgid "Change Display Settings"
-msgstr "Görüntüleme ayarları"
+msgstr "Change Display Ayarlar"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:19
-#, fuzzy
+#, machine-translated
 msgid "Change Desktop Icon Settings"
-msgstr "Masaüstü Simgeleri Ayarları"
+msgstr "Change Desktop Icon Ayarları"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:20
+#, machine-translated
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "Temiz Up Icons"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:21
-#, fuzzy
+#, machine-translated
 msgid "Keep Arranged"
-msgstr "Düzenli Tut..."
+msgstr "Keep Arranged"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:22
-#, fuzzy
+#, machine-translated
 msgid "Keep Stacked"
-msgstr "Icons Stacked"
+msgstr "Keep Stacked"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:23
-#, fuzzy
-#| msgid "Sort Special Folders - Home/Trash Drives."
+#, machine-translated
 msgid "Sort Special Folders"
-msgstr "Özel Klasörleri Sırala - Ev/Çöp Sürücüler."
+msgstr "Sort Special Folders"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:24
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons by Name"
-msgstr "Simgeleri Sırala"
+msgstr "Ad"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:25
+#, machine-translated
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "Arange Icons By Descending Name"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:26
-#, fuzzy
+#, machine-translated
 msgid "Arrange Icons By Modified Time"
-msgstr "Son değiştirilen zaman"
+msgstr "Değiştirilmiş Zaman Tarafından Arrange Icons By Modified Time"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:27
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons By Kind"
-msgstr "Simgeleri Sırala"
+msgstr "Arrange Icons Yemin olsun"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:28
-#, fuzzy
-#| msgid "Arrange Icons"
+#, machine-translated
 msgid "Arrange Icons By Size"
-msgstr "Simgeleri Sırala"
+msgstr "Arrange Icons Tarafından Boyut"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:29
-#, fuzzy
+#, machine-translated
 msgid "Find Files"
-msgstr "Dosya bul"
+msgstr "Dosyaları bulun"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:30
-#, fuzzy
+#, machine-translated
 msgid "Update Desktop"
-msgstr "Masaüstü"
+msgstr "Update Desktop"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:31
-#, fuzzy
-#| msgid "Show hidden files"
+#, machine-translated
 msgid "Show Hidden Files"
-msgstr "Gizli Dosyaları Göster"
+msgstr "Show Hidden Files"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:32
-#, fuzzy
-#| msgid "Select All"
+#, machine-translated
 msgid "Unselect All"
-msgstr "Tümünü Seçme"
+msgstr "Unselect All"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:33
-#, fuzzy
+#, machine-translated
 msgid "Preview"
-msgstr "Önizleme"
+msgstr "Öfke"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:34
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Left"
-msgstr "Dosyalar için Eylem seçin"
+msgstr "Icon Left"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:35
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Right"
-msgstr "Dosyalar için Eylem seçin"
+msgstr "Icon Right"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:36
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Up"
-msgstr "Simge seç"
+msgstr "Icon Up"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:37
-#, fuzzy
+#, machine-translated
 msgid "Choose Icon Down"
-msgstr "Dosyalar için Eylem seçin"
+msgstr "Icon Down"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:38
-#, fuzzy
-#| msgid "Show in Files"
+#, machine-translated
 msgid "Show Menu"
-msgstr "Menüyü Göster"
+msgstr "Show Menu"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:39
+#, machine-translated
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "Ekran Shell Arka Plan Menü"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:40
-#, fuzzy
-#| msgid "Broken Desktop File"
+#, machine-translated
 msgid "Create Desktop Shortcut"
-msgstr "Kırık Masaüstünü Dosyası"
+msgstr "Create Desktop Shortcut"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:41
+#, machine-translated
 msgid "Text Entry Accels Turn On"
-msgstr ""
+msgstr "Text entry Accels Turn On"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:42
+#, machine-translated
 msgid "Text Entry Accels Turn Off"
-msgstr ""
+msgstr "Text entry Accels Turn Off Off"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:44
-#, fuzzy
+#, machine-translated
 msgid "Show Shortcut Viewer"
-msgstr "Kısayolları Göster"
+msgstr "Show Shortcut Viewer"
 
+# MT: LibreTranslate
 #: app/shortcuts.js:45
-#, fuzzy
+#, machine-translated
 msgid "Show Or Hide Desktop Icons"
-msgstr "masaüstü simgesi"
+msgstr "Show Or Hide Desktop Icons"
 
+# MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, fuzzy
+#, machine-translated
 msgid "More Information"
 msgstr "Daha Fazla Bilgi"
 
@@ -1465,20 +1721,21 @@ msgstr "Daha Fazla Bilgi"
 msgid "Home"
 msgstr "Ev"
 
+# MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, fuzzy
-#| msgid "Empty Trash"
+#, machine-translated
 msgid "Trash"
-msgstr "Çöp kutusu"
+msgstr "Trash"
 
+# MT: LibreTranslate
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, fuzzy
+#, machine-translated
 msgid "Stack"
-msgstr "Yığın"
+msgstr "Stack"
 
 #: app/symLinkIcon.js:100
 msgid "Broken Link"
@@ -1488,75 +1745,87 @@ msgstr "Kırık Link"
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Bozuk bir Sembolik Bağlantı olduğu için bu Dosya açılamıyor"
 
+# MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, fuzzy
+#, machine-translated
 msgid "Drive"
-msgstr "Sürücü"
+msgstr "Drive"
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
-#, fuzzy
+#, machine-translated
 msgid "\"${programName}\" is not available"
-msgstr "\"${programName}\" Masaüstü Icons için gereklidir"
+msgstr "\"${programName}\""
 
+# MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-msgid ""
-"Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr ""
+#, machine-translated
+msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr "out \"${programName}\""
 
+# MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
-#, fuzzy
-#| msgid "Broken Desktop File"
+#, machine-translated
 msgid "Choose Desktop Folder"
-msgstr "Kırık Masaüstünü Dosyası"
+msgstr "Masaüstü Folder seçin"
 
 #: app/utils/desktopIconsUtil.js:216
 msgid "Command not found"
 msgstr "Komut Bulunamadı"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
-#, fuzzy
+#, machine-translated
 msgid "Choose an app to open the selected files."
 msgstr "Seçilen dosyaları açmak için bir uygulama seçin."
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
-#, fuzzy
+#, machine-translated
 msgid "Always use for this file type"
-msgstr "Olmayan Masaüstü Dosyası"
+msgstr "Her zaman bu dosya türü için kullanın"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
+#, machine-translated
 msgid "_Cancel"
-msgstr "_İptal"
+msgstr "_Cancel"
 
+# MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
+#, machine-translated
 msgid "_Open"
-msgstr "_Aç"
+msgstr "_Open"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, fuzzy
+#, machine-translated
 msgid "Display icons on the GNOME desktop"
-msgstr "Çöp kutusunu masaüstünde göster"
+msgstr "GNOME masaüstü ikonları"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
+#, machine-translated
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "masaüstü;icons;files;folders;manager;arrange;hide;show; başlatıcı; linecuts;"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, fuzzy
+#, machine-translated
 msgid "Show<>Hide"
-msgstr "Göster/Gizle"
+msgstr "Show<>Hide"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
+#, machine-translated
 msgid "Preferences"
 msgstr "Tercihler"
 
+# MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
+#, machine-translated
 msgid "Disable"
-msgstr "Devre dışı bırak"
+msgstr "Engelliler"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1611,36 +1880,24 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "Ekranın karşı tarafına yeni sürücüler ekle"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
-"Masaüstüne sürücüler ve birimler eklerken, bunları ekranın karşı tarafına "
-"ekle."
+msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
+msgstr "Masaüstüne sürücüler ve birimler eklerken, bunları ekranın karşı tarafına ekle."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "DND sırasında hedef yerde bir dikdörtgen gösterir"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"Bir Sürükle Bırak işlemi yaparken, simgenin yarı saydam bir dikdörtgenle "
-"yerleştirileceği ızgaradaki yeri işaretler."
+msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
+msgstr "Bir Sürükle Bırak işlemi yaparken, simgenin yarı saydam bir dikdörtgenle yerleştirileceği ızgaradaki yeri işaretler."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Özel Klasörleri Sırala - Ev/Çöp Sürücüler."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"Masaüstündeki simgeleri düzenlerken, Ev, Çöp Kutusu ve takılı Ağ veya Harici "
-"Sürücülerin konumunu sıralamak ve değiştirmek için"
+msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
+msgstr "Masaüstündeki simgeleri düzenlerken, Ev, Çöp Kutusu ve takılı Ağ veya Harici Sürücülerin konumunu sıralamak ve değiştirmek için"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1658,13 +1915,15 @@ msgstr "Sıralama Düzeni"
 msgid "Icons Arranged by this property"
 msgstr "Simgeler bu düzene göre sıralandı"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-#, fuzzy
+#, machine-translated
 msgid "Keep Icons Stacked"
 msgstr "Icons Stacked"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-#, fuzzy
+#, machine-translated
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr "Her zaman Icons Stacked kalır, Benzer türler gruplanır"
 
@@ -1672,8 +1931,9 @@ msgstr "Her zaman Icons Stacked kalır, Benzer türler gruplanır"
 msgid "Type of Files to not Stack"
 msgstr "Yığılı tutulmayacak dosyaların türü"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-#, fuzzy
+#, machine-translated
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "Bir dizi dize türü, bu tür dosyaları yüklemeyin"
 
@@ -1681,8 +1941,9 @@ msgstr "Bir dizi dize türü, bu tür dosyaları yüklemeyin"
 msgid "Add an emblem to links"
 msgstr "Bağlantılara amblem ekle"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, fuzzy
+#, machine-translated
 msgid "Add an emblem to allow to identify soft links."
 msgstr "Yumuşak bağlantıları tanımlamak için bir amblem ekleyin."
 
@@ -1690,211 +1951,56 @@ msgstr "Yumuşak bağlantıları tanımlamak için bir amblem ekleyin."
 msgid "Use black for label text"
 msgstr "Etiket metni için siyah kullan"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-#, fuzzy
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-"Beyaz yerine etiket metni kara renkte. Işık arka planlarını kullanırken "
-"kullanışlı."
+#, machine-translated
+msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgstr "Beyaz yerine etiket metni kara renkte. Işık arka planlarını kullanırken kullanışlı."
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, fuzzy
+#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
 msgstr "Bağlantıya bağlı olarak yeni simgeler göster"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, fuzzy
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
-"İkinci bir monitör bağlanırsa, yeni simgeler birincil monitörlere "
-"yerleştirilir"
+#, machine-translated
+msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
+msgstr "İkinci bir monitör bağlanırsa, yeni simgeler birincil monitörlere yerleştirilir"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, fuzzy
+#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Icons, herhangi bir yerde masaüstünde konumlandırılabilir"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, fuzzy
-msgid ""
-"Icons are not on a rectangular grid but can be postioned anywhere "
-"independent of grid"
-msgstr ""
-"Icons, dikdörtgen bir ızgarada değildir, ancak gridden bağımsız olarak "
-"herhangi bir yere aktarılabilir"
+#, machine-translated
+msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgstr "Icons, dikdörtgen bir ızgarada değildir, ancak gridden bağımsız olarak herhangi bir yere aktarılabilir"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+#, machine-translated
 msgid "Hide/Show all desktop windows"
-msgstr ""
+msgstr "Gizle/ Tüm masaüstü pencerelerini göster"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, fuzzy
+#, machine-translated
 msgid "Show the icons on the desktop, or hide them all"
-msgstr "Çöp kutusunu masaüstünde göster"
+msgstr "Masaüstündeki ikonları göster veya hepsini gizleyin"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, fuzzy
+#, machine-translated
 msgid "User Application Shortcuts"
-msgstr "Uygulama Kısa Yolları"
+msgstr "User Application Shortcuts"
 
+# MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+#, machine-translated
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-
-#, fuzzy
-#~ msgid ""
-#~ "For this functionality to work in Desktop Icons, you must install "
-#~ "\"${programName}\" in your system."
-#~ msgstr ""
-#~ "Masaüstü Icons'ta çalışmak için, sisteminizde \"${programName} yüklemeniz "
-#~ "gerekir."
-
-#, fuzzy
-#~ msgid "Website"
-#~ msgstr "Web Sitesi"
-
-#, fuzzy
-#~ msgid "Visit"
-#~ msgstr "Ziyaret"
-
-#, fuzzy
-#~ msgid "Issues"
-#~ msgstr "Sorunlar"
-
-#, fuzzy
-#~ msgid "Report issues on issue tracker"
-#~ msgstr "Sorun izleyiciye sorunları bildir"
-
-#, fuzzy
-#~ msgid "Report"
-#~ msgstr "Rapor"
-
-#, fuzzy
-#~ msgid "License"
-#~ msgstr "Lisans"
-
-#, fuzzy
-#~| msgid "Paste"
-#~ msgid "Do Paste"
-#~ msgstr "Yapıştır"
-
-#, fuzzy
-#~ msgid "Copy Item"
-#~ msgstr "Öğeyi aç"
-
-#, fuzzy
-#~| msgid "Rename"
-#~ msgid "Rename Item"
-#~ msgstr "Ögeyi Yeniden Adlandır"
-
-#, fuzzy
-#~| msgid "Delete permanently"
-#~ msgid "Delete Permanently"
-#~ msgstr "Tamamen Sil"
-
-#, fuzzy
-#~| msgid "Properties"
-#~ msgid "Show Properties"
-#~ msgstr "Özellikleri göster"
-
-#, fuzzy
-#~ msgid "Create Link to Item"
-#~ msgstr "Bağlantı Oluştur"
-
-#~ msgid "Add an emblem to soft links"
-#~ msgstr "Yumuşak linklere amblem ekle"
-
-#, fuzzy
-#~ msgid "Volumes"
-#~ msgstr "Ciltler"
-
-#, fuzzy
-#~ msgid "Desktop volumes display"
-#~ msgstr "Masaüstü hacimleri Ekran"
-
-#, fuzzy
-#~ msgid "Run"
-#~ msgstr "Çalıştır"
-
-#, fuzzy
-#~ msgid "Rectangular icons with drop grid highlighting"
-#~ msgstr "Hata değişen varsayılan uygulama"
-
-#~ msgid "Close"
-#~ msgstr "Kapat"
-
-#~ msgid "Use Nemo to open folders"
-#~ msgstr "Klasörleri açmak için Nemo kullan"
-
-#~ msgid "Use Nemo instead of Nautilus to open folders."
-#~ msgstr "Klasörleri açmak için Nautilus yerine Nemo kullan."
-
-#, fuzzy
-#~ msgid "Open In Terminal"
-#~ msgstr "Uçbirimde Aç"
-
-#, fuzzy
-#~ msgid "No Extraction Folder"
-#~ msgstr "Çıkarma Klasörü Yok"
-
-#~ msgid "Select Extract Destination"
-#~ msgstr "Çıkarma Hedefini Seç"
-
-#~ msgid "Open With Other Application"
-#~ msgstr "Başka Uygulamayla Aç"
-
-#~ msgid "Click type for open files"
-#~ msgstr "Dosyaları açma türü"
-
-#~ msgid "Action to do when launching a program from the desktop"
-#~ msgstr "Masaüstünden program çalıştırırken ne yapılsın"
-
-#~ msgid "Display the content of the file"
-#~ msgstr "İçeriği göster"
-
-#~ msgid "Launch the file"
-#~ msgstr "Çalıştır"
-
-#~ msgid "Ask what to do"
-#~ msgstr "Ne yapılacağını sor"
-
-#~ msgid "Local files only"
-#~ msgstr "Yalnızca yerel dosyalar"
-
-#~ msgid ""
-#~ "The Nautilus File Manager is mandatory to work with Desktop Icons NG."
-#~ msgstr "Nautilus dosya yöneticisi olmadan bu eklenti bir işe yaramaz"
-
-#~ msgid "Sort by Name"
-#~ msgstr "Ada Göre Sırala"
-
-#~ msgid "Sort by Name Descending"
-#~ msgstr "Azalan Şekilde Ada Göre Sırala"
-
-#~ msgid "Sort by Type"
-#~ msgstr "Türe Göre Sırala"
-
-#~ msgid "Sort by Size"
-#~ msgstr "Boyuta Göre Sırala"
-
-#~ msgid "Desktop Icons Settings"
-#~ msgstr "Masaüstü Simgeleri Ayarları"
-
-#~ msgid "Arrange By..."
-#~ msgstr "Sırala..."
-
-#~ msgid "Keep Arranged..."
-#~ msgstr "Düzenli Tut..."
-
-#~ msgid "Keep Stacked by type..."
-#~ msgstr "Türe Göre Yığılı Tut..."
-
-#~ msgid "Sort Home/Drives/Trash..."
-#~ msgstr "Evi/Sürücüleri/Çöp Kutusunu Sırala..."
-
-#~ msgid "Run as a program"
-#~ msgstr "Program olarak çalıştır"
+msgstr "Kullanıcı tarafından belirlenen varsayılan uygulama kısayolları için Override"
