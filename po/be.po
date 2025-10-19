@@ -1364,10 +1364,11 @@ msgid "Display icons on the GNOME desktop"
 msgstr "Паказваць значкі на працоўным стале GNOME"
 
 #: data/com.desktop.ding.desktop.in:6
-msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgid ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;працоўны "
-"стол;файлы;папкі;ярлыкі;значкі;лаўнчар;"
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+"працоўны стол;файлы;папкі;ярлыкі;значкі;лаўнчар;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
@@ -1569,11 +1570,11 @@ msgstr "Замяняе прадвызначаныя спалучэнні кла�
 #~ "«Нічога»"
 
 #~ msgid ""
-#~ "For this functionality to work in Desktop Icons, you must install \"$"
-#~ "{programName}\" in your system."
+#~ "For this functionality to work in Desktop Icons, you must install "
+#~ "\"${programName}\" in your system."
 #~ msgstr ""
-#~ "Каб гэта функцыя Desktop Icons працавала, вы павінны ўсталяваць «$"
-#~ "{programName}»."
+#~ "Каб гэта функцыя Desktop Icons працавала, вы павінны ўсталяваць "
+#~ "«${programName}»."
 
 #~ msgid "Website"
 #~ msgstr "Вэб-сайт"

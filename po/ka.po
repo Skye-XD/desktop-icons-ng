@@ -1406,7 +1406,8 @@ msgid "Display icons on the GNOME desktop"
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:6
-msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgid ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
