@@ -48,7 +48,7 @@ cd "${LOCAL_PREFIX}" || exit
 cp -r "${SCHEMADIR}" .
 cp -r "${EXTENSIONS_DIR}"/* .
 zip -qr "${UUID}.zip" ./*.js ./*.json ./locale ./schemas ./app ./utils ./dependencies
-mv -f "${UUID}.zip" "${REPO_DIR}/"
+mv -f "${UUID}.zip" "${REPO_DIR}/Downloads"
 cd "${REPO_DIR}" || exit
 
 # Clean
