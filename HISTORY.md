@@ -1,4 +1,9 @@
 # History of versions #
+* Adw Version 100.9 Gor Gnome 45, 46, 47, 48.
+  * Add Libretranslate translations to automatically fill all po files with machine translation in all supported languages. (Sundeep Mediratta)
+  * Improve scripting with new scripts, and improve meson workflow.
+  * Update History.MD, update metadata.json, app release note.
+
  * Adw version 100.8-2 for Gnome 45, 46, 47, 48.
   * Bug fix for GioUnix not available on older versions. (Sundeep Mediratta)
   * Weblate translations (Weblate Authors)
