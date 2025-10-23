@@ -47,18 +47,13 @@ function processPoFile(poPath, targetLang) {
                 const hasMachineTranslatedcomment = it.comments.includes('MT: LibreTranslate');
                 const hasMachineTranslatedFlag = !!it.flags['machine-translated'];
 
-                // const needsFilling = hasEmpty || isFuzzy;
-                const needsFlagRestore = hasMachineTranslatedcomment && !hasMachineTranslatedFlag;
-                const needsCommentRestore = hasMachineTranslatedFlag && !hasMachineTranslatedcomment;
+                const needsCommentRemove = hasMachineTranslatedcomment && !hasMachineTranslatedFlag;
 
-                if (!needsFlagRestore && !needsCommentRestore)
+                if (!needsCommentRemove)
                     continue;
 
-                // Just restore the flag if missing from gettext msgmerge runs
-                if (!hasMachineTranslatedFlag)
-                    it.flags['machine-translated'] = true;
-                if (needsCommentRestore)
-                    it.comments.push('MT: LibreTranslate');
+                it.flags['machine-translated'] = false;
+                it.comments = it.comments.filter(c => c !== 'MT: LibreTranslate');
                 changed++;
             }
 
