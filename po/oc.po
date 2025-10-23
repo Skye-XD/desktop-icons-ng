@@ -8,11 +8,10 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Occitan <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/oc/>\n"
+"PO-Revision-Date: 2025-10-21 18:13+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +20,6 @@ msgstr ""
 "X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
 msgid "Shortcuts"
 msgstr "Acorchis"
 
@@ -43,28 +41,23 @@ msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
-#, fuzzy
 msgid "Desktop"
 msgstr "Burèu"
 
 #: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
-#, fuzzy
 msgid "Files"
 msgstr "Fichièrs"
 
 #: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
 #: app/adwPreferencesWindow.js:539
-#, fuzzy
 msgid "Tweaks"
 msgstr "Ajustaments"
 
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
-#, fuzzy
 msgid "More"
 msgstr "Mei"
 
 #: app/adwPreferencesWindow.js:514
-#, fuzzy
 msgid "Desktop Settings"
 msgstr "Paramètres icònas de burèu"
 
@@ -74,7 +67,6 @@ msgid "Settings for the Desktop Program"
 msgstr "Definir la talha de las icònas burèu."
 
 #: app/adwPreferencesWindow.js:521
-#, fuzzy
 msgid "Desktop Folder"
 msgstr "Dossièr del burèu"
 
@@ -122,22 +114,18 @@ msgid "New icons alignment"
 msgstr "Alinhament de las icònas novèlas"
 
 #: app/adwPreferencesWindow.js:571
-#, fuzzy
 msgid "Top left corner"
 msgstr "Caire en naut a esquèrra"
 
 #: app/adwPreferencesWindow.js:572
-#, fuzzy
 msgid "Top right corner"
 msgstr "Caire en naut a drecha"
 
 #: app/adwPreferencesWindow.js:573
-#, fuzzy
 msgid "Bottom left corner"
 msgstr "Caire en bas a esquèrra"
 
 #: app/adwPreferencesWindow.js:574
-#, fuzzy
 msgid "Bottom right corner"
 msgstr "Caire en bas a drecha"
 
@@ -155,7 +143,6 @@ msgid "Highlight the drop grid"
 msgstr "Enlusir la zòna de depaus pendent un lisar-depausar"
 
 #: app/adwPreferencesWindow.js:599
-#, fuzzy
 msgid "New Desktop Folder"
 msgstr "Dossièr del burèu"
 
@@ -165,7 +152,6 @@ msgid "Set a new folder for the desktop"
 msgstr "Mostrar lo dorsièr personal pel burèu"
 
 #: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
-#, fuzzy
 msgid "Choose"
 msgstr "Causir"
 
@@ -179,7 +165,6 @@ msgid "Restore Default Desktop Folder"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
 #: app/adwPreferencesWindow.js:610
-#, fuzzy
 msgid "Restore"
 msgstr "Restaurar"
 
@@ -193,27 +178,22 @@ msgid "Use dark text in icon labels"
 msgstr "Utilizar un tèxte escur pels labèls d’icòna"
 
 #: app/adwPreferencesWindow.js:629
-#, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Mostrar lo dorsièr personal pel burèu"
 
 #: app/adwPreferencesWindow.js:634
-#, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Mostrar l'icòna de l'escobilhièr pel burèu"
 
 #: app/adwPreferencesWindow.js:639
-#, fuzzy
 msgid "Show external drives on the desktop"
 msgstr "Mostrar los lector extèrns montats pel burèu"
 
 #: app/adwPreferencesWindow.js:644
-#, fuzzy
 msgid "Show network drives on the desktop"
 msgstr "Mostrar los lectors ret montats pel burèu"
 
 #: app/adwPreferencesWindow.js:649
-#, fuzzy
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Apondre los lectors novèls al costat opausat de l’ecran"
 
@@ -258,14 +238,12 @@ msgid "Open folders on drag hover"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:685
-#, fuzzy
 msgid "About..."
 msgstr "A prepaus..."
 
 #: app/adwPreferencesWindow.js:698
-#, fuzzy
 msgid "Translation"
-msgstr "Traduccions"
+msgstr "Translation"
 
 #: app/adwPreferencesWindow.js:699
 msgid ""
@@ -273,7 +251,6 @@ msgid ""
 msgstr ""
 
 #: app/adwPreferencesWindow.js:704
-#, fuzzy
 msgid "Edit Translations"
 msgstr "Traduccions"
 
@@ -282,7 +259,6 @@ msgid "Verify, add or correct translation in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:706
-#, fuzzy
 msgid "Translate"
 msgstr "Traduire"
 
@@ -296,12 +272,10 @@ msgid "Open Items"
 msgstr "Dobrir dins un terminal"
 
 #: app/appChooser.js:92
-#, fuzzy
 msgid "Open Folder"
 msgstr "Dobrir un dorsièr"
 
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
 msgid "Open File"
 msgstr "Dobrir un fichièr"
 
@@ -342,17 +316,15 @@ msgstr ""
 
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
-msgstr ""
+msgstr "En lectura sola"
 
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, fuzzy
 msgid "or"
-msgstr "Mei"
+msgstr "or"
 
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
-#, fuzzy
 msgid "None"
 msgstr "Cap"
 
@@ -387,9 +359,8 @@ msgid "To enable launching, right-click, then:"
 msgstr ""
 
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, fuzzy
 msgid "enable"
-msgstr "Activar"
+msgstr "activar"
 
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
@@ -440,7 +411,6 @@ msgid "Cancel"
 msgstr "Anullar"
 
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
 msgid "Enter a password here"
 msgstr "Picatz un senhal"
 
@@ -520,12 +490,10 @@ msgid "Archive name"
 msgstr "Nom de fichièr"
 
 #: app/autoAr.js:604
-#, fuzzy
 msgid "Password"
 msgstr "Causissètz un senhal"
 
 #: app/autoAr.js:617
-#, fuzzy
 msgid "Create"
 msgstr "Crear"
 
@@ -601,7 +569,6 @@ msgstr ""
 "<b>Activar « Autorizar lo lançament »</b>"
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
-#, fuzzy
 msgid "Could not open File"
 msgstr "Impossible de dobrir lo fichièr : {0}"
 
@@ -656,7 +623,6 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
 msgid "Enable"
 msgstr "Activar"
 
@@ -709,7 +675,6 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:328
-#, fuzzy
 msgid "Clear current selection before new search"
 msgstr "Escafar la seleccion actuala abans una recèrca novèla"
 
@@ -727,7 +692,6 @@ msgid "Folder Creation Failed"
 msgstr "Nom del dorsièr"
 
 #: app/desktopManager.js:1614
-#, fuzzy
 msgid "Could not create folder"
 msgstr "Fracàs de la creacion de la sesilha SFTP : %s"
 
@@ -756,7 +720,6 @@ msgid "Could not create document"
 msgstr ""
 
 #: app/desktopMenu.js:919
-#, fuzzy
 msgid "Name"
 msgstr "Nom"
 
@@ -770,27 +733,22 @@ msgid "Modified Time"
 msgstr "Triar per data de modificacion"
 
 #: app/desktopMenu.js:925
-#, fuzzy
 msgid "Type"
 msgstr "Tipe"
 
 #: app/desktopMenu.js:927
-#, fuzzy
 msgid "Size"
 msgstr "Talha"
 
 #: app/desktopMenu.js:932
-#, fuzzy
 msgid "Keep Arranged…"
 msgstr "Gardar arrengat…"
 
 #: app/desktopMenu.js:937
-#, fuzzy
 msgid "Keep Stacked by Type…"
 msgstr "Gardar l’empilament per tipe…"
 
 #: app/desktopMenu.js:939
-#, fuzzy
 msgid "Sort Home/Drives/Trash…"
 msgstr "Triar Repertòri personal/disques/escobilhièr…"
 
@@ -804,12 +762,10 @@ msgid "Restore Default Desktop"
 msgstr ""
 
 #: app/desktopMenu.js:953
-#, fuzzy
 msgid "Desktop Icon Settings"
 msgstr "Paramètres icònas de burèu"
 
 #: app/desktopMenu.js:955
-#, fuzzy
 msgid "Show Shortcuts"
 msgstr "Afichar los acorchis"
 
@@ -838,7 +794,6 @@ msgid "Arrange Icons"
 msgstr "Arrengar las icònas"
 
 #: app/desktopMenu.js:989
-#, fuzzy
 msgid "Arrange By…"
 msgstr "Arrengar per…"
 
@@ -869,7 +824,6 @@ msgid "Copy/Move Failed"
 msgstr "Anullar"
 
 #: app/dragManager.js:740
-#, fuzzy
 msgid "{0} Does not exist"
 msgstr "Se tròba pas"
 
@@ -879,7 +833,6 @@ msgid "Choose Action for Files"
 msgstr "Mostrar dins Fichièrs"
 
 #: app/dragManager.js:783
-#, fuzzy
 msgid "Move"
 msgstr "Desplaçar"
 
@@ -888,17 +841,14 @@ msgid "Copy"
 msgstr "Copiar"
 
 #: app/dragManager.js:783
-#, fuzzy
 msgid "Link"
 msgstr "Ligam"
 
 #: app/fileItemIcon.js:95
-#, fuzzy
 msgid "Folder"
 msgstr "Folder"
 
 #: app/fileItemIcon.js:96
-#, fuzzy
 msgid "File"
 msgstr "Fichièr"
 
@@ -922,7 +872,6 @@ msgid "Open All..."
 msgstr "Dobrir tot..."
 
 #: app/fileItemMenu.js:122
-#, fuzzy
 msgid "Launch"
 msgstr "Aviar"
 
@@ -952,7 +901,6 @@ msgid "Open All With Other Application..."
 msgstr "Dobrir tot amb una autra aplicacion..."
 
 #: app/fileItemMenu.js:184
-#, fuzzy
 msgid "Launch using Integrated Graphics Card"
 msgstr "Aviar en utilizant la carta grafica dedicada"
 
@@ -965,7 +913,6 @@ msgid "Unstack This Type"
 msgstr "Desplegar aqueste tipe"
 
 #: app/fileItemMenu.js:231
-#, fuzzy
 msgid "Run as a Program"
 msgstr "Executar coma un programa"
 
@@ -983,7 +930,6 @@ msgid "Move to..."
 msgstr "Mandar a..."
 
 #: app/fileItemMenu.js:245
-#, fuzzy
 msgid "Copy to..."
 msgstr "Copiar vèrs"
 
@@ -1078,7 +1024,6 @@ msgid "Unable to extract File, no destination folder"
 msgstr ""
 
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, fuzzy
 msgid "Select Destination"
 msgstr "Chausir la destinacion"
 
@@ -1091,7 +1036,6 @@ msgid "Can not email a Directory"
 msgstr "Impossible d’enviar un email a un Repertòri"
 
 #: app/fileItemMenu.js:965
-#, fuzzy
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
 "La seleccion inclutz un repertòri, compressatz lo repertòri d'en primièr."
@@ -1167,7 +1111,6 @@ msgid "$appName$ can not open files of this Type!"
 msgstr ""
 
 #: app/preferences.js:885
-#, fuzzy
 msgid "Console"
 msgstr "Console"
 
@@ -1184,7 +1127,6 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
-#, fuzzy
 msgid "Reset to Default"
 msgstr "Restablir las valors per defaut"
 
@@ -1216,12 +1158,10 @@ msgid "Global Shortcuts"
 msgstr "Afichar los acorchis"
 
 #: app/shortcutManager.js:365
-#, fuzzy
 msgid "System Keyboard Shortcuts"
 msgstr "Acorchis de clavièr"
 
 #: app/shortcutManager.js:661
-#, fuzzy
 msgid "Keyboard Shortcuts"
 msgstr "Acorchis de clavièr"
 
@@ -1235,12 +1175,10 @@ msgid "Reset all shortcuts to Defaults"
 msgstr ""
 
 #: app/shortcutManager.js:677
-#, fuzzy
 msgid "Reset All..."
 msgstr "Tot reïnicializar"
 
 #: app/shortcuts.js:15
-#, fuzzy
 msgid "Show Desktop in Files"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
@@ -1249,17 +1187,14 @@ msgid "Open in Terminal"
 msgstr "Dobrir dins un terminal"
 
 #: app/shortcuts.js:17
-#, fuzzy
 msgid "Change Background"
 msgstr "Modificar lo rèireplan…"
 
 #: app/shortcuts.js:18
-#, fuzzy
 msgid "Change Display Settings"
 msgstr "Paramètres d'afichatge"
 
 #: app/shortcuts.js:19
-#, fuzzy
 msgid "Change Desktop Icon Settings"
 msgstr "Paramètres icònas de burèu"
 
@@ -1268,12 +1203,10 @@ msgid "Clean Up Icons"
 msgstr ""
 
 #: app/shortcuts.js:21
-#, fuzzy
 msgid "Keep Arranged"
 msgstr "Gardar arrengat..."
 
 #: app/shortcuts.js:22
-#, fuzzy
 msgid "Keep Stacked"
 msgstr "Gardar las icònas arrengadas"
 
@@ -1317,17 +1250,14 @@ msgid "Update Desktop"
 msgstr "Burèu"
 
 #: app/shortcuts.js:31
-#, fuzzy
 msgid "Show Hidden Files"
 msgstr "Afichar los fichièrs amagats"
 
 #: app/shortcuts.js:32
-#, fuzzy
 msgid "Unselect All"
 msgstr "Unselect all"
 
 #: app/shortcuts.js:33
-#, fuzzy
 msgid "Preview"
 msgstr "Apercebut"
 
@@ -1352,7 +1282,6 @@ msgid "Choose Icon Down"
 msgstr "Mostrar dins Fichièrs"
 
 #: app/shortcuts.js:38
-#, fuzzy
 msgid "Show Menu"
 msgstr "Mostrar lo menú"
 
@@ -1384,7 +1313,6 @@ msgid "Show Or Hide Desktop Icons"
 msgstr "Paramètres icònas de burèu"
 
 #: app/showErrorPopup.js:42
-#, fuzzy
 msgid "More Information"
 msgstr "Mai d'informacions"
 
@@ -1448,12 +1376,10 @@ msgid "Always use for this file type"
 msgstr ""
 
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
 msgid "_Cancel"
 msgstr "_Anullar"
 
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
 msgid "_Open"
 msgstr "_Dobrir"
 
@@ -1468,17 +1394,14 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
-#, fuzzy
 msgid "Show<>Hide"
 msgstr "Afichar/Amagar"
 
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
 msgid "Preferences"
 msgstr "Preferéncias"
 
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
 msgid "Disable"
 msgstr "Disable"
 

@@ -9,26 +9,26 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-03 23:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/hr/>\n"
+"PO-Revision-Date: 2025-10-21 18:09+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural="
+"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
+"1 : 2);\n"
 "X-Generator: Weblate 5.14-dev\n"
 "X-Launchpad-Export-Date: 2019-03-27 09:36+0000\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
 msgid "Shortcuts"
 msgstr "Prečice"
 
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
 msgid "Edit Shortcuts..."
 msgstr "Uredi prečace"
 
@@ -46,28 +46,23 @@ msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
-#, fuzzy
 msgid "Desktop"
 msgstr "Stolno računalo"
 
 #: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
-#, fuzzy
 msgid "Files"
 msgstr "Datoteke"
 
 #: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
 #: app/adwPreferencesWindow.js:539
-#, fuzzy
 msgid "Tweaks"
 msgstr "Podešavanja"
 
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
-#, fuzzy
 msgid "More"
 msgstr "Više"
 
 #: app/adwPreferencesWindow.js:514
-#, fuzzy
 msgid "Desktop Settings"
 msgstr "Postavke radne površine"
 
@@ -77,7 +72,6 @@ msgid "Settings for the Desktop Program"
 msgstr "Postavke za desktop program"
 
 #: app/adwPreferencesWindow.js:521
-#, fuzzy
 msgid "Desktop Folder"
 msgstr "Mapa radne površine"
 
@@ -106,7 +100,6 @@ msgid "Size for the desktop icons"
 msgstr "Veličina ikona radne površine"
 
 #: app/adwPreferencesWindow.js:560
-#, fuzzy
 msgid "Tiny"
 msgstr "Sićušno"
 
@@ -128,22 +121,18 @@ msgid "New icons alignment"
 msgstr "Novo poravnanje ikona"
 
 #: app/adwPreferencesWindow.js:571
-#, fuzzy
 msgid "Top left corner"
 msgstr "Gore lijevo"
 
 #: app/adwPreferencesWindow.js:572
-#, fuzzy
 msgid "Top right corner"
 msgstr "Gore desno"
 
 #: app/adwPreferencesWindow.js:573
-#, fuzzy
 msgid "Bottom left corner"
 msgstr "Dolje lijevo"
 
 #: app/adwPreferencesWindow.js:574
-#, fuzzy
 msgid "Bottom right corner"
 msgstr "Dolje desno"
 
@@ -153,7 +142,6 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Prvo dodajte nove ikone na sekundarne monitore, ako su dostupne"
 
 #: app/adwPreferencesWindow.js:584
-#, fuzzy
 msgid "Snap icons to grid"
 msgstr "Poravnaj s mrežom"
 
@@ -163,7 +151,6 @@ msgid "Highlight the drop grid"
 msgstr "Označite ispuštenu rešetku tijekom povlačenja i ispuštanja"
 
 #: app/adwPreferencesWindow.js:599
-#, fuzzy
 msgid "New Desktop Folder"
 msgstr "Mapa radne površine"
 
@@ -173,7 +160,6 @@ msgid "Set a new folder for the desktop"
 msgstr "Prikaži osobnu mapu na radnoj površini"
 
 #: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
-#, fuzzy
 msgid "Choose"
 msgstr "Odabir"
 
@@ -187,7 +173,6 @@ msgid "Restore Default Desktop Folder"
 msgstr "Slomljene datoteke radne površine"
 
 #: app/adwPreferencesWindow.js:610
-#, fuzzy
 msgid "Restore"
 msgstr "Vratiti"
 
@@ -202,12 +187,10 @@ msgid "Use dark text in icon labels"
 msgstr "Koristite tamni tekst u oznakama ikona"
 
 #: app/adwPreferencesWindow.js:629
-#, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Prikaži osobnu mapu na radnoj površini"
 
 #: app/adwPreferencesWindow.js:634
-#, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Prikaži mapu smeća na radnoj površini"
 
@@ -237,7 +220,6 @@ msgid "Single click"
 msgstr "Jedan klik"
 
 #: app/adwPreferencesWindow.js:657
-#, fuzzy
 msgid "Double click"
 msgstr "Pritisni dvaput"
 
@@ -247,17 +229,14 @@ msgid "Show image thumbnails"
 msgstr "Prikaži sličice slika"
 
 #: app/adwPreferencesWindow.js:664
-#, fuzzy
 msgid "Always"
 msgstr "Uvijek"
 
 #: app/adwPreferencesWindow.js:665
-#, fuzzy
 msgid "On this computer only"
 msgstr "Na ovom računalu"
 
 #: app/adwPreferencesWindow.js:666
-#, fuzzy
 msgid "Never"
 msgstr "Nikada"
 
@@ -267,7 +246,6 @@ msgid "Show a context menu item to delete permanently"
 msgstr "Prikažite stavku kontekstnog izbornika za trajno brisanje"
 
 #: app/adwPreferencesWindow.js:676
-#, fuzzy
 msgid "Show hidden files"
 msgstr "Prikaži skrivene datoteke"
 
@@ -277,14 +255,12 @@ msgid "Open folders on drag hover"
 msgstr "Otvorite mape pri povlačenju"
 
 #: app/adwPreferencesWindow.js:685
-#, fuzzy
 msgid "About..."
 msgstr "Oko..."
 
 #: app/adwPreferencesWindow.js:698
-#, fuzzy
 msgid "Translation"
-msgstr "Prijevodi"
+msgstr "Prijevod"
 
 #: app/adwPreferencesWindow.js:699
 msgid ""
@@ -292,16 +268,14 @@ msgid ""
 msgstr ""
 
 #: app/adwPreferencesWindow.js:704
-#, fuzzy
 msgid "Edit Translations"
-msgstr "Prijevodi"
+msgstr "Uredi Tranzicije..."
 
 #: app/adwPreferencesWindow.js:705
 msgid "Verify, add or correct translation in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:706
-#, fuzzy
 msgid "Translate"
 msgstr "Prevedi"
 
@@ -316,12 +290,10 @@ msgid "Open Items"
 msgstr "Otvorene stavke"
 
 #: app/appChooser.js:92
-#, fuzzy
 msgid "Open Folder"
 msgstr "Otvori mapu"
 
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
 msgid "Open File"
 msgstr "Otvori datoteku"
 
@@ -365,17 +337,15 @@ msgstr ""
 
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
-msgstr ""
+msgstr "Samo-čitanje"
 
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, fuzzy
 msgid "or"
-msgstr "Više"
+msgstr "ili"
 
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
-#, fuzzy
 msgid "None"
 msgstr "Ništa"
 
@@ -405,9 +375,8 @@ msgid "To enable launching, right-click, then:"
 msgstr ""
 
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, fuzzy
 msgid "enable"
-msgstr "Omogući"
+msgstr "aktiviraj"
 
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
@@ -415,12 +384,10 @@ msgid "Allow Launching"
 msgstr "Dopusti pokretanje"
 
 #: app/askRenamePopup.js:61
-#, fuzzy
 msgid "Folder name"
 msgstr "Ime mape"
 
 #: app/askRenamePopup.js:61
-#, fuzzy
 msgid "File name"
 msgstr "Ime datoteke"
 
@@ -430,7 +397,6 @@ msgid "OK"
 msgstr "U redu"
 
 #: app/askRenamePopup.js:75
-#, fuzzy
 msgid "Rename"
 msgstr "Preimenovati"
 
@@ -449,12 +415,10 @@ msgstr ""
 "ili gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
-#, fuzzy
 msgid "Extracting files"
 msgstr "Raspakiraj datoteke"
 
 #: app/autoAr.js:220
-#, fuzzy
 msgid "Compressing files"
 msgstr "Komprimiranje datoteka."
 
@@ -465,7 +429,6 @@ msgid "Cancel"
 msgstr "Odustani"
 
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
 msgid "Enter a password here"
 msgstr "Unesite lozinku"
 
@@ -550,17 +513,14 @@ msgid "Error during compression"
 msgstr "Pogreška tijekom kompresije"
 
 #: app/autoAr.js:547
-#, fuzzy
 msgid "Create archive"
 msgstr "Stvori arhiv"
 
 #: app/autoAr.js:571
-#, fuzzy
 msgid "Archive name"
 msgstr "Ime arhive"
 
 #: app/autoAr.js:604
-#, fuzzy
 msgid "Password"
 msgstr "Lozinka"
 
@@ -602,7 +562,6 @@ msgid ""
 msgstr ""
 
 #: app/desktopFileIcon.js:138
-#, fuzzy
 msgid "Broken Desktop File"
 msgstr "Slomljene datoteke radne površine"
 
@@ -636,7 +595,6 @@ msgid "This Desktop file is not trusted, it can not be launched."
 msgstr ""
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
-#, fuzzy
 msgid "Could not open File"
 msgstr "Nije bilo moguće otvoriti datoteku"
 
@@ -668,7 +626,6 @@ msgstr ""
 
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, fuzzy
 msgid "Desktop Icons"
 msgstr "ikona na radnoj površini"
 
@@ -692,7 +649,6 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
 msgid "Enable"
 msgstr "Omogući"
 
@@ -766,7 +722,6 @@ msgid "Folder Creation Failed"
 msgstr "Stvaranje mape nije uspjelo"
 
 #: app/desktopManager.js:1614
-#, fuzzy
 msgid "Could not create folder"
 msgstr "Nije moguće stvoriti mapu %s"
 
@@ -800,7 +755,6 @@ msgid "Could not create document"
 msgstr "Neuspjelo stvaranje priključnice."
 
 #: app/desktopMenu.js:919
-#, fuzzy
 msgid "Name"
 msgstr "Ime"
 
@@ -815,12 +769,10 @@ msgid "Modified Time"
 msgstr "Modificirano vrijeme"
 
 #: app/desktopMenu.js:925
-#, fuzzy
 msgid "Type"
 msgstr "Vrsta"
 
 #: app/desktopMenu.js:927
-#, fuzzy
 msgid "Size"
 msgstr "Veličina"
 
@@ -854,7 +806,6 @@ msgid "Desktop Icon Settings"
 msgstr "Desktop Settings"
 
 #: app/desktopMenu.js:955
-#, fuzzy
 msgid "Show Shortcuts"
 msgstr "Pokaži prečace"
 
@@ -875,7 +826,6 @@ msgid "Redo"
 msgstr "Ponovi"
 
 #: app/desktopMenu.js:978 app/shortcuts.js:14
-#, fuzzy
 msgid "Select All"
 msgstr "Označi sve"
 
@@ -919,7 +869,6 @@ msgid "Copy/Move Failed"
 msgstr "Premještanje otkazano"
 
 #: app/dragManager.js:740
-#, fuzzy
 msgid "{0} Does not exist"
 msgstr "Ne postoji"
 
@@ -929,7 +878,6 @@ msgid "Choose Action for Files"
 msgstr "Odaberite Akcija za datoteke"
 
 #: app/dragManager.js:783
-#, fuzzy
 msgid "Move"
 msgstr "Potez"
 
@@ -938,17 +886,14 @@ msgid "Copy"
 msgstr "Kopiraj"
 
 #: app/dragManager.js:783
-#, fuzzy
 msgid "Link"
 msgstr "Poveznica"
 
 #: app/fileItemIcon.js:95
-#, fuzzy
 msgid "Folder"
 msgstr "Mapa"
 
 #: app/fileItemIcon.js:96
-#, fuzzy
 msgid "File"
 msgstr "Datoteka"
 
@@ -975,7 +920,6 @@ msgid "Open All..."
 msgstr "Otvori sve..."
 
 #: app/fileItemMenu.js:122
-#, fuzzy
 msgid "Launch"
 msgstr "Pokreni"
 
@@ -997,12 +941,10 @@ msgid "Extract To..."
 msgstr "Raspakiraj u…"
 
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, fuzzy
 msgid "Open With..."
 msgstr "Otvori sa …"
 
 #: app/fileItemMenu.js:176
-#, fuzzy
 msgid "Open All With Other Application..."
 msgstr "Otvori s drugom aplikacijom"
 
@@ -1027,7 +969,6 @@ msgid "Run as a Program"
 msgstr "Pokreni kao program"
 
 #: app/fileItemMenu.js:234
-#, fuzzy
 msgid "Scripts"
 msgstr "Skripta"
 
@@ -1036,12 +977,10 @@ msgid "Cut"
 msgstr "Izreži"
 
 #: app/fileItemMenu.js:244
-#, fuzzy
 msgid "Move to..."
 msgstr "Premjesti u"
 
 #: app/fileItemMenu.js:245
-#, fuzzy
 msgid "Copy to..."
 msgstr "Kopiraj u"
 
@@ -1050,7 +989,6 @@ msgid "Rename…"
 msgstr "Preimenuj…"
 
 #: app/fileItemMenu.js:254
-#, fuzzy
 msgid "Create Link..."
 msgstr "Napraviti vezu"
 
@@ -1087,7 +1025,6 @@ msgid "Delete permanently"
 msgstr "Obriši trajno"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
-#, fuzzy
 msgid "Don't Allow Launching"
 msgstr "Dopusti pokretanje"
 
@@ -1143,7 +1080,6 @@ msgid "Unable to extract File, no destination folder"
 msgstr "Nije moguće izdvojiti datoteku, nema odredišne mape"
 
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
@@ -1202,7 +1138,6 @@ msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
 #: app/fileItemMenu.js:1235
-#, fuzzy
 msgid "Unable to Open {0}"
 msgstr "Nije moguće otvoriti"
 
@@ -1236,7 +1171,6 @@ msgid "$appName$ can not open files of this Type!"
 msgstr "${appName} ne može otvoriti datoteke ove vrste!"
 
 #: app/preferences.js:885
-#, fuzzy
 msgid "Console"
 msgstr "Konzola"
 
@@ -1253,12 +1187,10 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
-#, fuzzy
 msgid "Reset to Default"
 msgstr "Resetiraj na standardne vrijednosti"
 
 #: app/shortcutManager.js:134
-#, fuzzy
 msgid "No Accelerator"
 msgstr "Prečac"
 
@@ -1282,17 +1214,14 @@ msgid "Application Keyboard Shortcuts"
 msgstr "Application Shortcuts"
 
 #: app/shortcutManager.js:364
-#, fuzzy
 msgid "Global Shortcuts"
 msgstr "Globalni prečac"
 
 #: app/shortcutManager.js:365
-#, fuzzy
 msgid "System Keyboard Shortcuts"
 msgstr "Tipkovni prečaci"
 
 #: app/shortcutManager.js:661
-#, fuzzy
 msgid "Keyboard Shortcuts"
 msgstr "Tipkovni prečaci"
 
@@ -1306,12 +1235,10 @@ msgid "Reset all shortcuts to Defaults"
 msgstr ""
 
 #: app/shortcutManager.js:677
-#, fuzzy
 msgid "Reset All..."
 msgstr "Resetiraj sve"
 
 #: app/shortcuts.js:15
-#, fuzzy
 msgid "Show Desktop in Files"
 msgstr "Prikaži radnu površinu u Datotekama"
 
@@ -1320,12 +1247,10 @@ msgid "Open in Terminal"
 msgstr "Otvori u Terminalu"
 
 #: app/shortcuts.js:17
-#, fuzzy
 msgid "Change Background"
 msgstr "Promijeni pozadinu"
 
 #: app/shortcuts.js:18
-#, fuzzy
 msgid "Change Display Settings"
 msgstr "Postavke zaslona"
 
@@ -1388,17 +1313,14 @@ msgid "Update Desktop"
 msgstr "Stolno računalo"
 
 #: app/shortcuts.js:31
-#, fuzzy
 msgid "Show Hidden Files"
 msgstr "Prikaži skrivene datoteke"
 
 #: app/shortcuts.js:32
-#, fuzzy
 msgid "Unselect All"
 msgstr "Oduzmi sve oznake"
 
 #: app/shortcuts.js:33
-#, fuzzy
 msgid "Preview"
 msgstr "Pregled"
 
@@ -1423,7 +1345,6 @@ msgid "Choose Icon Down"
 msgstr "Odaberite Akcija za datoteke"
 
 #: app/shortcuts.js:38
-#, fuzzy
 msgid "Show Menu"
 msgstr "Prikaži izbornik"
 
@@ -1455,7 +1376,6 @@ msgid "Show Or Hide Desktop Icons"
 msgstr "Postavke ikona radne površine"
 
 #: app/showErrorPopup.js:42
-#, fuzzy
 msgid "More Information"
 msgstr "Daljnje informacije"
 
@@ -1466,7 +1386,6 @@ msgid "Home"
 msgstr "Osobna mapa"
 
 #: app/specialFolderIcon.js:63
-#, fuzzy
 msgid "Trash"
 msgstr "Smeće"
 
@@ -1475,12 +1394,10 @@ msgstr "Smeće"
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, fuzzy
 msgid "Stack"
 msgstr "Složi"
 
 #: app/symLinkIcon.js:100
-#, fuzzy
 msgid "Broken Link"
 msgstr "Pokidane veze"
 
@@ -1490,7 +1407,6 @@ msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Ne mogu otvoriti ovu datoteku jer je neispravna simbolička veza"
 
 #: app/volumeIcon.js:58
-#, fuzzy
 msgid "Drive"
 msgstr "Disk"
 
@@ -1524,12 +1440,10 @@ msgid "Always use for this file type"
 msgstr "Uvijek koristite za ovu vrstu datoteke"
 
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
 msgid "_Cancel"
 msgstr "_Odustani"
 
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
 msgid "_Open"
 msgstr "_Otvori"
 
@@ -1544,17 +1458,14 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
-#, fuzzy
 msgid "Show<>Hide"
 msgstr "Prikaži / Sakrij"
 
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
 msgid "Preferences"
 msgstr "Postavke"
 
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
 msgid "Disable"
 msgstr "Deaktiviraj"
 

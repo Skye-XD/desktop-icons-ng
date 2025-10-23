@@ -11,21 +11,22 @@ msgstr ""
 "Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-09-29 10:42+0200\n"
+"PO-Revision-Date: 2025-10-23 12:03+0000\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
-"Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Poedit 3.6; LibreTranslate (auto-fill)\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
-msgstr "Klávesové skratky"
+msgstr "Skratky"
 
 #: app/adwPreferencesWindow.js:163
 msgid "Edit Shortcuts..."
@@ -62,7 +63,7 @@ msgstr "Viac"
 
 #: app/adwPreferencesWindow.js:514
 msgid "Desktop Settings"
-msgstr "Nastavenie plochy"
+msgstr "Nastavenia plochy"
 
 #: app/adwPreferencesWindow.js:515
 msgid "Settings for the Desktop Program"
@@ -170,7 +171,7 @@ msgstr "Pridať informačné príznaky pre odkazy, šifrovanie"
 
 #: app/adwPreferencesWindow.js:624
 msgid "Use dark text in icon labels"
-msgstr "Použiť tmavý text na štítkoch ikon"
+msgstr "Použiť tmavý text na menovkách ikon"
 
 #: app/adwPreferencesWindow.js:629
 msgid "Show the personal folder on the desktop"
@@ -246,7 +247,8 @@ msgstr "Preklad"
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
-"Stroj preložený pomocou LibreTranslate. Užívateľ overil a upravil na Weblate."
+"Preložené strojovo pomocou LibreTranslate. Overené a upravené používateľom "
+"na Weblate."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:704
@@ -256,7 +258,7 @@ msgstr "Upraviť preklady"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
 msgid "Verify, add or correct translation in your web browser"
-msgstr "Overiť, pridať alebo opraviť preklad vo vašom webovom prehliadači"
+msgstr "Overte, pridajte alebo opravte preklad vo vašom webovom prehliadači"
 
 #: app/adwPreferencesWindow.js:706
 msgid "Translate"
@@ -293,27 +295,27 @@ msgstr "Neplatné oprávnenia na súbor AppImage"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
 msgid "This AppImage File has incorrect Permissions."
-msgstr "Tento súbor AppImage má nesprávne práva."
+msgstr "Tento súbor AppImage má nesprávne oprávnenia."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
 msgid "Right Click to edit Properties, then:"
-msgstr "Kliknite pravým tlačidlom myši pre úpravu vlastností, potom:"
+msgstr "Kliknite pravým tlačidlom na tlačidlo Upraviť vlastnosti a potom:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
 msgid "Set Permissions, in"
-msgstr "Nastaviť práva"
+msgstr "Nastaviť oprávnenia, v"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
 msgid "Others Access"
-msgstr "Iný prístup"
+msgstr "Prístup ostatných používateľov"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
-msgstr "Len pre čítanie"
+msgstr "Iba na čítanie"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
@@ -329,7 +331,7 @@ msgstr "Žiadna"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
 msgid "Enable option"
-msgstr "Povoliť možnosť"
+msgstr "Povoľte možnosť"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
@@ -343,12 +345,12 @@ msgstr "Nedôveryhodný súbor AppImage"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr "Táto aplikácia Obrázok súbor nie je dôveryhodný, nie je možné spustiť."
+msgstr "Tento súbor AppImage nie je dôveryhodný, nie je možné ho spustiť."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
-msgstr "Ak chcete povoliť spustenie, kliknite pravým tlačidlom myši, potom:"
+msgstr "Ak chcete povoliť spustenie, kliknite pravým tlačidlom myši a potom:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
@@ -409,11 +411,11 @@ msgstr "Tu zadajte heslo"
 
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
-msgstr "Odstraňuje sa čiastkového súboru '${outputFile}'"
+msgstr "Odstraňuje sa čiastočný súbor '${outputFile}'"
 
 #: app/autoAr.js:373
 msgid "Creating destination folder"
-msgstr "Vytváranie cieľovej zložky"
+msgstr "Vytvorenie cieľového priečinka"
 
 #: app/autoAr.js:405
 msgid "Extracting files into '${outputPath}'"
@@ -437,7 +439,7 @@ msgstr "Extrahovanie '${fullPathFile}' bolo zrušené používateľom."
 
 #: app/autoAr.js:453
 msgid "Passphrase required for ${filename}"
-msgstr "Vyžaduje sa heslo pre ${filename}"
+msgstr "Vyžaduje sa prístupová fráza pre ${filename}"
 
 #: app/autoAr.js:456
 msgid "Error during extraction"
@@ -461,7 +463,7 @@ msgstr "Zrušená kompresia"
 
 #: app/autoAr.js:502
 msgid "The output file '${outputFile}' already exists."
-msgstr "Výstupný súbor \"${outputFile}\" už existuje."
+msgstr "Výstupný súbor '${outputFile}' už existuje."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
@@ -515,8 +517,8 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-"Súbory .deskop nie je možné spustiť z tejto pracovnej plochy, pretože do "
-"priečinka pracovnej plochy môžu zapisovať iní používatelia.\n"
+"Súbory .deskop nie je možné spustiť z tejto plochy, pretože do priečinka "
+"plochy môžu zapisovať iní používatelia.\n"
 "\n"
 "Skontrolujte oprávnenia tohto priečinku Plochy a uistite sa, aby doň nemohli "
 "zapisovať iní používatelia."
@@ -544,7 +546,7 @@ msgstr "Neplatné oprávnenia na súbor plochy"
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
 msgid "This Desktop File has incorrect Permissions."
-msgstr "Tento súbor plochy má nesprávne práva."
+msgstr "Tento súbor plochy má nesprávne oprávnenia."
 
 #: app/desktopFileIcon.js:173
 msgid "Untrusted Desktop File"
@@ -553,7 +555,7 @@ msgstr "Nedôveryhodný súbor pracovnej plochy"
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
 msgid "This Desktop file is not trusted, it can not be launched."
-msgstr "Tento súbor plochy nie je dôveryhodný, nedá sa spustiť."
+msgstr "Tento súbor plochy nie je dôveryhodný, nie je možné ho spustiť."
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
@@ -672,10 +674,10 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Aplikácia Súbory (Gnome Files) nie je naprogramovaná na otváranie "
-"priečinkov!\n"
+"Aplikácia Súbory (Gnome Files) nie je naprogramovaná na otváranie priečinkov!"
+"\n"
 "Skontrolujte svoju inštaláciu xdg-utils\n"
-"Skontrolujte inštaláciu aplikácie Gnome Files .desktop File"
+"Skontrolujte inštaláciu súboru .desktop aplikácie Gnome Files"
 
 #: app/desktopManager.js:328
 msgid "Clear current selection before new search"
@@ -703,7 +705,7 @@ msgstr "Nie je možné otvoriť pracovnú plochu v aplikácii Súbory (Gnome fil
 
 #: app/desktopMenu.js:620
 msgid "Preferences Window is Open"
-msgstr "Okno nastavení je otvorené"
+msgstr "Okno predvolieb je otvorené"
 
 #: app/desktopMenu.js:621
 msgid "This Window is open. Please switch to the active window."
@@ -1037,7 +1039,7 @@ msgstr "Chyba pošty"
 
 #: app/fileItemMenu.js:993
 msgid "Unable to find zip command, please install the program"
-msgstr "Nie je možné nájsť príkaz zips, nainštalujte prosím program"
+msgstr "Nie je možné nájsť príkaz zip, nainštalujte prosím program"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
@@ -1308,8 +1310,7 @@ msgstr "Nefunkčný odkaz"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
-"Nie je možné otvoriť tento súbor, pretože ide o nefunkčný symbolický odkaz"
+msgstr "Tento súbor nie je možné otvoriť, pretože je poškodený symbolický odkaz"
 
 #: app/volumeIcon.js:58
 msgid "Drive"
@@ -1317,7 +1318,7 @@ msgstr "Jednotka"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"
-msgstr "\"${programName}\" nie je dostupný"
+msgstr "„${programName}“ nie je dostupný"
 
 #: app/utils/dbusUtils.js:70
 msgid ""
@@ -1499,7 +1500,7 @@ msgstr "Pridať príznak na identifikáciu symbolických odkazov."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 msgid "Use black for label text"
-msgstr "Použiť čiernu na text štítku"
+msgstr "Použiť čiernu farbu na text štítku"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 msgid ""
