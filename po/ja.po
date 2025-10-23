@@ -13,10 +13,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-03 23:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/ja/>\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,82 +24,98 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
+#, machine-translated
 msgid "Shortcuts"
 msgstr "ショートカット"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
+#, machine-translated
 msgid "Edit Shortcuts..."
 msgstr "ショートカットを編集..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
+#, machine-translated
 msgid "Edit Application Shortcuts"
 msgstr "アプリケーションショートカットの編集"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
+#, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr "ショートカット 拡張機能を有効にすると編集可能..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:288
+#, machine-translated
 msgid "Help translate in your web browser"
 msgstr "Webブラウザで翻訳する"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
+#, machine-translated
 msgid "Desktop"
 msgstr "デスクトップ"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
+#, machine-translated
 msgid "Files"
 msgstr "ファイル"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
 #: app/adwPreferencesWindow.js:539
+#, machine-translated
 msgid "Tweaks"
 msgstr "ツイート"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
+#, machine-translated
 msgid "More"
 msgstr "ニュース"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:514
+#, machine-translated
 msgid "Desktop Settings"
 msgstr "デスクトップ設定"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:515
+#, machine-translated
 msgid "Settings for the Desktop Program"
 msgstr "デスクトッププログラムの設定"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:521
+#, machine-translated
 msgid "Desktop Folder"
 msgstr "デスクトップフォルダ"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:522
+#, machine-translated
 msgid "Current Desktop: "
 msgstr "現在のデスクトップ:"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:532
+#, machine-translated
 msgid "Files Settings"
 msgstr "ファイル設定"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:533
+#, machine-translated
 msgid "Settings shared with Gnome Files"
 msgstr "Gnomeファイルと共有設定"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:540
+#, machine-translated
 msgid "Miscellaneous Tweaks"
 msgstr "アクセサリー ツイート"
 
@@ -131,71 +145,85 @@ msgstr "新しいアイコンの配置位置"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:571
+#, machine-translated
 msgid "Top left corner"
 msgstr "トップ左角"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:572
+#, machine-translated
 msgid "Top right corner"
 msgstr "右上の角"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
+#, machine-translated
 msgid "Bottom left corner"
 msgstr "最下左角"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:574
+#, machine-translated
 msgid "Bottom right corner"
 msgstr "ボトム右角"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:580
+#, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "利用可能な場合は、最初のSecond Monitorsに新しいアイコンを追加します"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:584
+#, machine-translated
 msgid "Snap icons to grid"
 msgstr "グリッドにスナップアイコン"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:590
+#, machine-translated
 msgid "Highlight the drop grid"
 msgstr "ドロップグリッドをハイライト"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599
+#, machine-translated
 msgid "New Desktop Folder"
 msgstr "新しいデスクトップフォルダ"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:600
+#, machine-translated
 msgid "Set a new folder for the desktop"
 msgstr "デスクトップ用の新しいフォルダを設定する"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
+#, machine-translated
 msgid "Choose"
 msgstr "お問い合わせ"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:606
+#, machine-translated
 msgid "Set Desktop back to ~/"
 msgstr "デスクトップを ~/ に設定する"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:608
+#, machine-translated
 msgid "Restore Default Desktop Folder"
 msgstr "デフォルトのデスクトップフォルダを復元する"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:610
+#, machine-translated
 msgid "Restore"
 msgstr "リストア"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:620
+#, machine-translated
 msgid "Add information emblems for links, encryption"
 msgstr "リンク、暗号化のための情報エンブレムを追加"
 
@@ -205,31 +233,37 @@ msgstr "アイコンのラベルの文字を暗くする"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:629
+#, machine-translated
 msgid "Show the personal folder on the desktop"
 msgstr "デスクトップ上の個人フォルダを表示する"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:634
+#, machine-translated
 msgid "Show the trash icon on the desktop"
 msgstr "デスクトップにゴミ箱アイコンを表示"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:639
+#, machine-translated
 msgid "Show external drives on the desktop"
 msgstr "デスクトップ上の外部ドライブを表示"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:644
+#, machine-translated
 msgid "Show network drives on the desktop"
 msgstr "デスクトップにネットワークドライブを表示する"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:649
+#, machine-translated
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "デスクトップの反対側に新しいドライブを追加"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:654
+#, machine-translated
 msgid "Action to Open Items"
 msgstr "アイテムを開くアクション"
 
@@ -251,6 +285,7 @@ msgstr "常に"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:665
+#, machine-translated
 msgid "On this computer only"
 msgstr "このコンピューターのみ"
 
@@ -268,63 +303,73 @@ msgstr "隠しファイルを表示する"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:681
+#, machine-translated
 msgid "Open folders on drag hover"
 msgstr "ドラッグホバーのフォルダを開く"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:685
+#, machine-translated
 msgid "About..."
 msgstr "お問い合わせ."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
+#, machine-translated
 msgid "Translation"
 msgstr "コンテンツ"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-msgid ""
-"Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr ""
-"LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
+#, machine-translated
+msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr "LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:704
+#, machine-translated
 msgid "Edit Translations"
 msgstr "翻訳の編集"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
+#, machine-translated
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Webブラウザで確認、追加、修正"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:706
+#, machine-translated
 msgid "Translate"
 msgstr "ログイン"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
+#, machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "[<b>{foo}]></b>を開くためのアプリケーションを選択"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
+#, machine-translated
 msgid "Open Items"
 msgstr "オープンアイテム"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
+#, machine-translated
 msgid "Open Folder"
 msgstr "フォルダを開く"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
+#, machine-translated
 msgid "Open File"
 msgstr "ファイルを開く"
 
 # MT: LibreTranslate
 #: app/appChooser.js:165
+#, machine-translated
 msgid "Error changing default application"
 msgstr "デフォルトのアプリケーションを変更するエラー"
 
@@ -334,36 +379,43 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
+#, machine-translated
 msgid "Invalid Permissions on AppImage File"
 msgstr "AppImage ファイルの無効な権限"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
+#, machine-translated
 msgid "This AppImage File has incorrect Permissions."
 msgstr "この AppImage ファイルには、権限が不正確です."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#, machine-translated
 msgid "Right Click to edit Properties, then:"
 msgstr "右クリックして、プロパティを編集します"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#, machine-translated
 msgid "Set Permissions, in"
 msgstr "許可の設定、"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#, machine-translated
 msgid "Others Access"
 msgstr "その他のアクセス"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#, machine-translated
 msgid "Read Only"
 msgstr "閲覧のみ"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#, machine-translated
 msgid "or"
 msgstr "または"
 
@@ -371,36 +423,43 @@ msgstr "または"
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
+#, machine-translated
 msgid "None"
 msgstr "なし"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#, machine-translated
 msgid "Enable option"
 msgstr "オプションを有効にする"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
+#, machine-translated
 msgid "Allow Executing File as a Program"
 msgstr "プログラムとしてファイルを実行する"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:79
+#, machine-translated
 msgid "Untrusted AppImage File"
 msgstr "信頼できないAppImageファイル"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
+#, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "このアプリ 画像ファイルは信頼できません。起動できません."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#, machine-translated
 msgid "To enable launching, right-click, then:"
 msgstr "起動を有効にするには、右クリックし、次へ:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#, machine-translated
 msgid "enable"
 msgstr "有効活用"
 
@@ -428,25 +487,25 @@ msgstr "名前の変更"
 
 # MT: LibreTranslate
 #: app/autoAr.js:71
+#, machine-translated
 msgid "AutoAr is not installed"
 msgstr "オートマチック インストールされていない"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
-msgid ""
-"To be able to work with compressed files, install file-roller and/or gir-1.2-"
-"gnomeAutoAr"
-msgstr ""
-"圧縮ファイルで作業できるようにするには、ファイルローラーと/またはgir-1.2-"
-"gnomeをインストールします。 オートアー"
+#, machine-translated
+msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgstr "圧縮ファイルで作業できるようにするには、ファイルローラーと/またはgir-1.2-gnomeをインストールします。 オートアー"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
+#, machine-translated
 msgid "Extracting files"
 msgstr "ファイルの抽出"
 
 # MT: LibreTranslate
 #: app/autoAr.js:220
+#, machine-translated
 msgid "Compressing files"
 msgstr "ファイルの圧縮"
 
@@ -458,101 +517,121 @@ msgstr "キャンセル"
 
 # MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
+#, machine-translated
 msgid "Enter a password here"
 msgstr "パスワードを入力してください"
 
 # MT: LibreTranslate
 #: app/autoAr.js:354
+#, machine-translated
 msgid "Removing partial file '${outputFile}'"
 msgstr "部分ファイルの削除 ['${outputFile}']"
 
 # MT: LibreTranslate
 #: app/autoAr.js:373
+#, machine-translated
 msgid "Creating destination folder"
 msgstr "宛先フォルダを作成する"
 
 # MT: LibreTranslate
 #: app/autoAr.js:405
+#, machine-translated
 msgid "Extracting files into '${outputPath}'"
 msgstr "'${outputPath}'にファイルを抽出する"
 
 # MT: LibreTranslate
 #: app/autoAr.js:435
+#, machine-translated
 msgid "Extraction completed"
 msgstr "抽出完了"
 
 # MT: LibreTranslate
 #: app/autoAr.js:436
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "'${fullPathFile}'の抽出が完了しました."
 
 # MT: LibreTranslate
 #: app/autoAr.js:442
+#, machine-translated
 msgid "Extraction cancelled"
 msgstr "抽出のキャンセル"
 
 # MT: LibreTranslate
 #: app/autoAr.js:443
+#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "'${fullPathFile}'をユーザが取り消してしまいました."
 
 # MT: LibreTranslate
 #: app/autoAr.js:453
+#, machine-translated
 msgid "Passphrase required for ${filename}"
 msgstr "[${filename}のパスフレーズ"
 
 # MT: LibreTranslate
 #: app/autoAr.js:456
+#, machine-translated
 msgid "Error during extraction"
 msgstr "抽出時のエラー"
 
 # MT: LibreTranslate
 #: app/autoAr.js:483
+#, machine-translated
 msgid "Compressing files into '${outputFile}'"
 msgstr "'${outputFile}'にファイルを圧縮する"
 
 # MT: LibreTranslate
 #: app/autoAr.js:496
+#, machine-translated
 msgid "Compression completed"
 msgstr "圧縮完了"
 
 # MT: LibreTranslate
 #: app/autoAr.js:497
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "['${outputFile}'にファイルを圧縮しました."
 
 # MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
+#, machine-translated
 msgid "Cancelled compression"
 msgstr "キャンセルされた圧縮"
 
 # MT: LibreTranslate
 #: app/autoAr.js:502
+#, machine-translated
 msgid "The output file '${outputFile}' already exists."
 msgstr "出力ファイル['${outputFile}']は既に存在しています."
 
 # MT: LibreTranslate
 #: app/autoAr.js:509
+#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "'${outputFile}'にファイルを圧縮すると、ユーザがキャンセルした."
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
+#, machine-translated
 msgid "Error during compression"
 msgstr "圧縮時のエラー"
 
 # MT: LibreTranslate
 #: app/autoAr.js:547
+#, machine-translated
 msgid "Create archive"
 msgstr "アーカイブの作成"
 
 # MT: LibreTranslate
 #: app/autoAr.js:571
+#, machine-translated
 msgid "Archive name"
 msgstr "アーカイブ名"
 
 # MT: LibreTranslate
 #: app/autoAr.js:604
+#, machine-translated
 msgid "Password"
 msgstr "パスワード"
 
@@ -562,43 +641,45 @@ msgstr "作成"
 
 # MT: LibreTranslate
 #: app/autoAr.js:688
+#, machine-translated
 msgid "Compatible with all operating systems."
 msgstr "すべてのオペレーティング システムと互換性がある."
 
 # MT: LibreTranslate
 #: app/autoAr.js:694
+#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "パスワードは、WindowsとMacにインストールする必要があります."
 
 # MT: LibreTranslate
 #: app/autoAr.js:700
+#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
 msgstr "小規模なアーカイブですが、Linux と Mac のみ."
 
 # MT: LibreTranslate
 #: app/autoAr.js:706
+#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "より小さなアーカイブは、WindowsとMacにインストールする必要があります."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125
+#, machine-translated
 msgid "The Displayed Desktop is writable by others"
 msgstr "表示されたデスクトップは、他の人に書き込み可能"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:128
+#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is "
-"writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not "
-"writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
-".deskopファイルはデスクトップフォルダが他のユーザーによって書き込み可能である"
-"ため、このデスクトップから起動できません。\n"
+".deskopファイルはデスクトップフォルダが他のユーザーによって書き込み可能であるため、このデスクトップから起動できません。\n"
 "\n"
-"このデスクトップフォルダのパーミッションを確認し、他の人に書き込みできないこ"
-"とを確認してください."
+"このデスクトップフォルダのパーミッションを確認し、他の人に書き込みできないことを確認してください."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
@@ -606,14 +687,13 @@ msgstr "壊れたデスクトップファイル"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:141
+#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"この .desktop ファイルには、許可なくプログラムにエラーやポイントがあります。 "
-"実行できません。\n"
+"この .desktop ファイルには、許可なくプログラムにエラーやポイントがあります。 実行できません。\n"
 "\n"
 "ファイルを編集して、正しい実行プログラムを設定します."
 
@@ -623,80 +703,92 @@ msgstr "無効な権限のデスクトップファイル"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
+#, machine-translated
 msgid "This Desktop File has incorrect Permissions."
 msgstr "このデスクトップファイルには、権限が不正確です."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:173
+#, machine-translated
 msgid "Untrusted Desktop File"
 msgstr "信頼できないデスクトップファイル"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
+#, machine-translated
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "このデスクトップファイルは信頼できません。起動できません."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
+#, machine-translated
 msgid "Could not open File"
 msgstr "開けない ファイル"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:206
+#, machine-translated
 msgid "{appName} can not open files of this Type!"
 msgstr "[{appName}]はこのタイプのファイルを開くことができません!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
+#, machine-translated
 msgid "Desktop Folder Change Failed"
 msgstr "デスクトップフォルダ 失敗した変更"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
+#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
 msgstr "新しいデスクトップフォルダは、象徴的なリンクです"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
+#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
 msgstr "新しいデスクトップフォルダは存在しませんか、フォルダではありません!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
+#, machine-translated
 msgid "Desktop Folder Changed"
 msgstr "デスクトップフォルダ変更"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
+#, machine-translated
 msgid "Switching to new Desktop..."
 msgstr "新しいデスクトップへの切り替え..."
 
 # MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
+#, machine-translated
 msgid "Desktop Icons"
 msgstr "デスクトップアイコン"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:157
+#, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "モニターフレームバッファ スケーリングは有効ではありません"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:158
+#, machine-translated
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor "
-"framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"異なるズーム設定で複数のモニター、モニターフレームバッファスケーリングごとに"
-"推奨します。\n"
+"異なるズーム設定で複数のモニター、モニターフレームバッファスケーリングごとに推奨します。\n"
 "\n"
 "Mutter Dconf設定を有効にしてください"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:169
+#, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -708,17 +800,20 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
+#, machine-translated
 msgid "Enable"
 msgstr "アクセス"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
+#, machine-translated
 msgid "Can Not Show the Desktop"
 msgstr "デスクトップを表示できません"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:198
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -731,56 +826,61 @@ msgstr ""
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:208
+#, machine-translated
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
-"デスクトップフォルダ[{desktop}]は存在しません。またはディレクトリではありませ"
-"ん。\n"
+"デスクトップフォルダ[{desktop}]は存在しません。またはディレクトリではありません。\n"
 "\n"
 "xdg-utilsのインストールを確認し、正しいデスクトップフォルダを設定する"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:219
+#, machine-translated
 msgid "GNOME Files not found"
 msgstr "グノーム 見つからないファイル"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:220
+#, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"グノーム Gtk4デスクトップアイコンNGでファイルアプリケーションが必要です."
+msgstr "グノーム Gtk4デスクトップアイコンNGでファイルアプリケーションが必要です."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:227
+#, machine-translated
 msgid "There is no default File Manager"
 msgstr "デフォルトファイルマネージャはありません"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:228
+#, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Mimetype \"inode/directory\" を扱うアプリケーションはありません"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:235
+#, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Gnome ファイルがファイルマネージャとして登録されていない"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:236
+#, machine-translated
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Gnomeファイルアプリケーションはフォルダを開くためにプログラムされていませ"
-"ん!\n"
+"Gnomeファイルアプリケーションはフォルダを開くためにプログラムされていません!\n"
 "xdg-utilsのインストールを確認してください\n"
 "Gnomeファイルをチェック .desktop ファイルインストール"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:328
+#, machine-translated
 msgid "Clear current selection before new search"
 msgstr "新しい検索の前に現在の選択をクリア"
 
@@ -794,26 +894,31 @@ msgstr "新しいフォルダー"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1613
+#, machine-translated
 msgid "Folder Creation Failed"
 msgstr "フォルダ作成失敗"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1614
+#, machine-translated
 msgid "Could not create folder"
 msgstr "フォルダを作成できません"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:601
+#, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Gnomeファイルでデスクトップを開くことができない"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:620
+#, machine-translated
 msgid "Preferences Window is Open"
 msgstr "設定ウィンドウが開きます"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:621
+#, machine-translated
 msgid "This Window is open. Please switch to the active window."
 msgstr "このウィンドウが開きます。 アクティブなウィンドウに切り替えてください."
 
@@ -823,72 +928,86 @@ msgstr "設定"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:813
+#, machine-translated
 msgid "Template Creation Error"
 msgstr "テンプレート作成エラー"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:814
+#, machine-translated
 msgid "Could not create document"
 msgstr "文書を作成できない"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:919
+#, machine-translated
 msgid "Name"
 msgstr "お名前 (必須)"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:921
+#, machine-translated
 msgid "Name Z-A"
 msgstr "名称 Z-A"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:923
+#, machine-translated
 msgid "Modified Time"
 msgstr "変更された時間"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:925
+#, machine-translated
 msgid "Type"
 msgstr "タイプ:"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:927
+#, machine-translated
 msgid "Size"
 msgstr "サイズ:"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:932
+#, machine-translated
 msgid "Keep Arranged…"
 msgstr "アレンジを続け.."
 
 # デスクトップにあるファイルを疑似フォルダーにまとめる (グループ化する)
 # MT: LibreTranslate
 #: app/desktopMenu.js:937
+#, machine-translated
 msgid "Keep Stacked by Type…"
 msgstr "タイプでスタックし続ける.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:939
+#, machine-translated
 msgid "Sort Home/Drives/Trash…"
 msgstr "Home/Drives/Trashをソートする.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:944
+#, machine-translated
 msgid "Change Desktop"
 msgstr "デスクトップの変更"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:949
+#, machine-translated
 msgid "Restore Default Desktop"
 msgstr "デフォルトデスクトップを復元する"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:953
+#, machine-translated
 msgid "Desktop Icon Settings"
 msgstr "デスクトップアイコン設定"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:955
+#, machine-translated
 msgid "Show Shortcuts"
 msgstr "ショートカットを表示する"
 
@@ -918,51 +1037,61 @@ msgstr "アイコンを整列"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:989
+#, machine-translated
 msgid "Arrange By…"
 msgstr "アレンジして.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:997
+#, machine-translated
 msgid "Show Desktop In {0}"
 msgstr "{0}でデスクトップを表示する]"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1002
+#, machine-translated
 msgid "Open In {0}"
 msgstr "{0} で開く]"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1018
+#, machine-translated
 msgid "Shell Menu…"
 msgstr "シェルメニュー.."
 
 # MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
+#, machine-translated
 msgid "Making SymLink Failed"
 msgstr "SymLink を失敗させる"
 
 # MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
+#, machine-translated
 msgid "Could not create symbolic link"
 msgstr "シンボリックリンクを作成できません"
 
 # MT: LibreTranslate
 #: app/dragManager.js:739
+#, machine-translated
 msgid "Copy/Move Failed"
 msgstr "コピー/移動失敗"
 
 # MT: LibreTranslate
 #: app/dragManager.js:740
+#, machine-translated
 msgid "{0} Does not exist"
 msgstr "{0}] 存在しない"
 
 # MT: LibreTranslate
 #: app/dragManager.js:782
+#, machine-translated
 msgid "Choose Action for Files"
 msgstr "ファイルのためのアクションを選択"
 
 # MT: LibreTranslate
 #: app/dragManager.js:783
+#, machine-translated
 msgid "Move"
 msgstr "ミッション"
 
@@ -972,29 +1101,33 @@ msgstr "コピー"
 
 # MT: LibreTranslate
 #: app/dragManager.js:783
+#, machine-translated
 msgid "Link"
 msgstr "サイトマップ"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:95
+#, machine-translated
 msgid "Folder"
 msgstr "フォルダ"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:96
+#, machine-translated
 msgid "File"
 msgstr "ファイル"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:270
+#, machine-translated
 msgid "Opening File Failed"
 msgstr "ファイルを開く 失敗"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:276
+#, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
+msgstr "[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -1007,11 +1140,13 @@ msgstr "すべて開く..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:122
+#, machine-translated
 msgid "Launch"
 msgstr "リリース"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:135
+#, machine-translated
 msgid "Open with {foo}"
 msgstr "{foo} で開く"
 
@@ -1029,6 +1164,7 @@ msgstr "展開先..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
+#, machine-translated
 msgid "Open With..."
 msgstr "オープン..."
 
@@ -1038,6 +1174,7 @@ msgstr "別のアプリケーションですべて開く..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:184
+#, machine-translated
 msgid "Launch using Integrated Graphics Card"
 msgstr "統合グラフィックスカードで起動"
 
@@ -1053,6 +1190,7 @@ msgstr "この種類を並べる"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:231
+#, machine-translated
 msgid "Run as a Program"
 msgstr "プログラムとして実行する"
 
@@ -1066,11 +1204,13 @@ msgstr "切り取り"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:244
+#, machine-translated
 msgid "Move to..."
 msgstr "移動する..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:245
+#, machine-translated
 msgid "Copy to..."
 msgstr "コピーする..."
 
@@ -1080,11 +1220,13 @@ msgstr "名前を変更…"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:254
+#, machine-translated
 msgid "Create Link..."
 msgstr "リンクを作成する..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:261
+#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "圧縮{0}フォルダ"
@@ -1096,11 +1238,13 @@ msgstr[0] "{0} 個のファイルを圧縮"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:276
+#, machine-translated
 msgid "Email to..."
 msgstr "電子メール."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:286
+#, machine-translated
 msgid "Send to Mobile Device"
 msgstr "モバイルデバイスへの送信"
 
@@ -1138,36 +1282,43 @@ msgstr "プロパティ"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:362
+#, machine-translated
 msgid "Show All in {0}"
 msgstr "すべて表示 {0}]"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:363
+#, machine-translated
 msgid "Show in {0}"
 msgstr "{0}で表示]"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:374
+#, machine-translated
 msgid "Open in {0}"
 msgstr "{0} で開く]"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:537
+#, machine-translated
 msgid "Open Item"
 msgstr "オープンアイテム"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:819
+#, machine-translated
 msgid "Extraction Cancelled"
 msgstr "抽出の取消される"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:820
+#, machine-translated
 msgid "Unable to extract File, no destination folder"
 msgstr "抽出できない ファイル、宛先フォルダなし"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
+#, machine-translated
 msgid "Select Destination"
 msgstr "目的地を選択"
 
@@ -1181,174 +1332,207 @@ msgstr "ディレクトリをメールで送ることはできません"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:965
+#, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "選択には、まずディレクトリ、.zipファイルへの圧縮が含まれていますか?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
+#, machine-translated
 msgid "Mail Error"
 msgstr "メールエラー"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:993
+#, machine-translated
 msgid "Unable to find zip command, please install the program"
 msgstr "Zipコマンドが見つからない場合は、プログラムをインストールしてください"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
+#, machine-translated
 msgid "Archive.zip"
 msgstr "アーカイブ.zip"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1023
+#, machine-translated
 msgid "There was an error in creating a zip archive"
 msgstr "Zipアーカイブの作成にエラーがありました"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1041
+#, machine-translated
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Xdg-email が見つからない場合は、プログラムをインストールしてください"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1059
+#, machine-translated
 msgid "There was an error in emailing Files"
 msgstr "電子メールファイルにはエラーがありました"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1174
+#, machine-translated
 msgid "Can Not open the Working Directory"
 msgstr "作業ディレクトリを開くことができません"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1225
+#, machine-translated
 msgid "Unable to Open in Gnome Console"
 msgstr "Gnome Consoleで開くことができません"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1227
+#, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
-"Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
+msgstr "Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1235
+#, machine-translated
 msgid "Unable to Open {0}"
 msgstr "{0}を開くことができない"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1237
+#, machine-translated
 msgid "Please Install {0}"
 msgstr "インストールしてください {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1281
+#, machine-translated
 msgid "Copy Cancelled"
 msgstr "コピーキャンセル"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1282
+#, machine-translated
 msgid "Unable to copy Files, no destination folder"
 msgstr "ファイル、コピー先フォルダをコピーできない"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1305
+#, machine-translated
 msgid "Move Cancelled"
 msgstr "キャンセルされる移動"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1306
+#, machine-translated
 msgid "Unable to move Files, no destination folder"
 msgstr "ファイルを移動することができない、コピー先フォルダなし"
 
 # MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
+#, machine-translated
 msgid "$appName$ can not open files of this Type!"
 msgstr "$appName$はこのタイプのファイルを開くことができません!"
 
 # MT: LibreTranslate
 #: app/preferences.js:885
+#, machine-translated
 msgid "Console"
 msgstr "コンソール"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:85
+#, machine-translated
 msgid "Default Shortcut:"
 msgstr "デフォルトショートカット:"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:109
+#, machine-translated
 msgid "Type new..."
 msgstr "新規登録."
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:125
+#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr "修飾子 + キー (例: Ctrl + アルト + D"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:130
+#, machine-translated
 msgid "Reset to Default"
 msgstr "デフォルトへのリセット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:134
+#, machine-translated
 msgid "No Accelerator"
 msgstr "アクセラレータなし"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:243
+#, machine-translated
 msgid "System Shortcuts"
 msgstr "システムショートカット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:244
+#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
 msgstr "共通システム定義されたキーボードショートカット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:302
+#, machine-translated
 msgid "Local Shortcuts"
 msgstr "ローカルショートカット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:303
+#, machine-translated
 msgid "Application Keyboard Shortcuts"
 msgstr "アプリケーション キーボードのショートカット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:364
+#, machine-translated
 msgid "Global Shortcuts"
 msgstr "グローバルショートカット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:365
+#, machine-translated
 msgid "System Keyboard Shortcuts"
 msgstr "システム キーボードのショートカット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:661
+#, machine-translated
 msgid "Keyboard Shortcuts"
 msgstr "キーボードショートカット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:673
+#, machine-translated
 msgid "Reset Shortcuts"
 msgstr "ショートカットのリセット"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:674
+#, machine-translated
 msgid "Reset all shortcuts to Defaults"
 msgstr "すべてのショートカットをデフォルトにリセットする"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:677
+#, machine-translated
 msgid "Reset All..."
 msgstr "すべてのリセット..."
 
 # MT: LibreTranslate
 #: app/shortcuts.js:15
+#, machine-translated
 msgid "Show Desktop in Files"
 msgstr "デスクトップファイルの表示"
 
@@ -1358,146 +1542,175 @@ msgstr "端末で開く"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:17
+#, machine-translated
 msgid "Change Background"
 msgstr "背景の変更"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:18
+#, machine-translated
 msgid "Change Display Settings"
 msgstr "変更表示設定"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:19
+#, machine-translated
 msgid "Change Desktop Icon Settings"
 msgstr "デスクトップアイコンの設定を変更する"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:20
+#, machine-translated
 msgid "Clean Up Icons"
 msgstr "アイコンをクリーンアップ"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:21
+#, machine-translated
 msgid "Keep Arranged"
 msgstr "アレンジし続ける"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:22
+#, machine-translated
 msgid "Keep Stacked"
 msgstr "スタックし続ける"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:23
+#, machine-translated
 msgid "Sort Special Folders"
 msgstr "特別なフォルダをソートする"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:24
+#, machine-translated
 msgid "Arrange Icons by Name"
 msgstr "名前でアイコンを配列する"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:25
+#, machine-translated
 msgid "Arrange Icons By Descending Name"
 msgstr "絶え間ない名前でアイコンを配列する"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:26
+#, machine-translated
 msgid "Arrange Icons By Modified Time"
 msgstr "変更された時間によってアイコンを整理して下さい"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:27
+#, machine-translated
 msgid "Arrange Icons By Kind"
 msgstr "アレンジアイコン 種類別"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:28
+#, machine-translated
 msgid "Arrange Icons By Size"
 msgstr "サイズでアイコンを配置"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:29
+#, machine-translated
 msgid "Find Files"
 msgstr "ファイルを探す"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:30
+#, machine-translated
 msgid "Update Desktop"
 msgstr "デスクトップ更新"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:31
+#, machine-translated
 msgid "Show Hidden Files"
 msgstr "隠しファイルを表示する"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:32
+#, machine-translated
 msgid "Unselect All"
 msgstr "選択解除 すべて"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:33
+#, machine-translated
 msgid "Preview"
 msgstr "プレビュー"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:34
+#, machine-translated
 msgid "Choose Icon Left"
 msgstr "左アイコンを選択"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:35
+#, machine-translated
 msgid "Choose Icon Right"
 msgstr "アイコンを選択"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:36
+#, machine-translated
 msgid "Choose Icon Up"
 msgstr "アイコンを選択"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:37
+#, machine-translated
 msgid "Choose Icon Down"
 msgstr "アイコンを選択"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:38
+#, machine-translated
 msgid "Show Menu"
 msgstr "メニューを表示"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:39
+#, machine-translated
 msgid "Display Shell Background Menu"
 msgstr "シェルの背景メニューを表示"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:40
+#, machine-translated
 msgid "Create Desktop Shortcut"
 msgstr "デスクトップのショートカットを作成する"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:41
+#, machine-translated
 msgid "Text Entry Accels Turn On"
 msgstr "テキスト入力が加速する"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:42
+#, machine-translated
 msgid "Text Entry Accels Turn Off"
 msgstr "テキストの記入項目は消えます加速します"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:44
+#, machine-translated
 msgid "Show Shortcut Viewer"
 msgstr "ショートカットを表示する ビューア"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:45
+#, machine-translated
 msgid "Show Or Hide Desktop Icons"
 msgstr "デスクトップアイコンを表示または非表示"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:42
+#, machine-translated
 msgid "More Information"
 msgstr "詳細情報"
 
@@ -1509,6 +1722,7 @@ msgstr "ホーム"
 
 # MT: LibreTranslate
 #: app/specialFolderIcon.js:63
+#, machine-translated
 msgid "Trash"
 msgstr "トラッシュ"
 
@@ -1518,6 +1732,7 @@ msgstr "トラッシュ"
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
+#, machine-translated
 msgid "Stack"
 msgstr "スタック"
 
@@ -1531,24 +1746,25 @@ msgstr "シンボリックリンクのリンク先が存在しないためファ
 
 # MT: LibreTranslate
 #: app/volumeIcon.js:58
+#, machine-translated
 msgid "Drive"
 msgstr "ドライブ"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
+#, machine-translated
 msgid "\"${programName}\" is not available"
 msgstr "[\"${programName}\"]は利用できません"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-msgid ""
-"Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr ""
-"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールし"
-"て、これらのアクションを実行します."
+#, machine-translated
+msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr "デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールして、これらのアクションを実行します."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
+#, machine-translated
 msgid "Choose Desktop Folder"
 msgstr "デスクトップフォルダの選択"
 
@@ -1558,49 +1774,55 @@ msgstr "コマンドが見つかりません"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
+#, machine-translated
 msgid "Choose an app to open the selected files."
 msgstr "選択したファイルを開きます."
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
+#, machine-translated
 msgid "Always use for this file type"
 msgstr "このファイルタイプを常に使用"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
+#, machine-translated
 msgid "_Cancel"
 msgstr "_キャンセル"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
+#, machine-translated
 msgid "_Open"
 msgstr "_オープン"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
+#, machine-translated
 msgid "Display icons on the GNOME desktop"
 msgstr "GNOMEデスクトップにアイコンを表示"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
-"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表示;ショー;ラン"
-"チャー;ショートカット;"
+#, machine-translated
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表示;ショー;ランチャー;ショートカット;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
+#, machine-translated
 msgid "Show<>Hide"
 msgstr "ショー<>"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
+#, machine-translated
 msgid "Preferences"
 msgstr "リファレンス"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
+#, machine-translated
 msgid "Disable"
 msgstr "免責事項"
 
@@ -1657,36 +1879,24 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "新しいドライブのアイコンは反対側に配置する"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
-"ドライブやボリュームのアイコンをデスクトップに追加する場合、通常の配置位置の"
-"反対側に追加します。"
+msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
+msgstr "ドライブやボリュームのアイコンをデスクトップに追加する場合、通常の配置位置の反対側に追加します。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "ドラッグアンドドロップ中にドロップ先を枠で囲って強調する"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"ドラッグアンドドロップするときに、アイコンが配置されるドロップ先の場所を半透"
-"明の四角形で強調表示します。"
+msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
+msgstr "ドラッグアンドドロップするときに、アイコンが配置されるドロップ先の場所を半透明の四角形で強調表示します。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "ホームフォルダー/ゴミ箱/外付けドライブなどの特殊なフォルダーを並べ替え"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"デスクトップ上のアイコンを整列するときに、ホームフォルダー、ゴミ箱、マウント"
-"されたネットワーク/外付けドライブのアイコンも整列の対象にします。"
+msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
+msgstr "デスクトップ上のアイコンを整列するときに、ホームフォルダー、ゴミ箱、マウントされたネットワーク/外付けドライブのアイコンも整列の対象にします。"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1733,58 +1943,53 @@ msgid "Use black for label text"
 msgstr "ラベルのテキストの色に黒を使用する"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-"ラベルのテキストを白色の代わりに黒色で描画します。明るい背景を使用している場"
-"合に有用です。"
+msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgstr "ラベルのテキストを白色の代わりに黒色で描画します。明るい背景を使用している場合に有用です。"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
+#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
 msgstr "接続されていないプライマリモニターで新しいアイコンを表示"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
-"2番目のモニターが接続されている場合は、非プライマリモニターに新しいアイコンが"
-"配置されます"
+#, machine-translated
+msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
+msgstr "2番目のモニターが接続されている場合は、非プライマリモニターに新しいアイコンが配置されます"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
+#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "アイコンはデスクトップ上のどこにでも配置できます"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-msgid ""
-"Icons are not on a rectangular grid but can be postioned anywhere "
-"independent of grid"
-msgstr ""
-"アイコンは長方形の格子にはありませんが、格子とは独立した場所で延期することが"
-"できます"
+#, machine-translated
+msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgstr "アイコンは長方形の格子にはありませんが、格子とは独立した場所で延期することができます"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
+#, machine-translated
 msgid "Hide/Show all desktop windows"
 msgstr "すべてのデスクトップウィンドウを非表示/表示"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+#, machine-translated
 msgid "Show the icons on the desktop, or hide them all"
 msgstr "デスクトップ上のアイコンを表示したり、すべてのアイコンを非表示にします"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
+#, machine-translated
 msgid "User Application Shortcuts"
 msgstr "ユーザーアプリケーションショートカット"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
+#, machine-translated
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-"ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"
+msgstr "ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"

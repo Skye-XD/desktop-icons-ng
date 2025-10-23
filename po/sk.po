@@ -13,8 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-23 12:03+0000\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/"
-"gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -237,25 +236,18 @@ msgstr "Otvoriť priečinky pri ťahaní myšou"
 msgid "About..."
 msgstr "O aplikácii..."
 
-# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
 msgid "Translation"
 msgstr "Preklad"
 
-# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-msgid ""
-"Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr ""
-"Preložené strojovo pomocou LibreTranslate. Overené a upravené používateľom "
-"na Weblate."
+msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr "Preložené strojovo pomocou LibreTranslate. Overené a upravené používateľom na Weblate."
 
-# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:704
 msgid "Edit Translations"
 msgstr "Upraviť preklady"
 
-# MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Overte, pridajte alebo opravte preklad vo vašom webovom prehliadači"
@@ -292,32 +284,26 @@ msgstr "Chyba pri nastavení {foo} ako predvolenej aplikácie pre {mimetype}"
 msgid "Invalid Permissions on AppImage File"
 msgstr "Neplatné oprávnenia na súbor AppImage"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:58
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Tento súbor AppImage má nesprávne oprávnenia."
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
 msgid "Right Click to edit Properties, then:"
 msgstr "Kliknite pravým tlačidlom na tlačidlo Upraviť vlastnosti a potom:"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
 msgid "Set Permissions, in"
 msgstr "Nastaviť oprávnenia, v"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
 msgid "Others Access"
 msgstr "Prístup ostatných používateľov"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
 msgstr "Iba na čítanie"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
 msgid "or"
 msgstr "alebo"
@@ -328,12 +314,10 @@ msgstr "alebo"
 msgid "None"
 msgstr "Žiadna"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
 msgid "Enable option"
 msgstr "Povoľte možnosť"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 msgid "Allow Executing File as a Program"
 msgstr "Povoliť spustenie súboru ako programu"
@@ -342,17 +326,14 @@ msgstr "Povoliť spustenie súboru ako programu"
 msgid "Untrusted AppImage File"
 msgstr "Nedôveryhodný súbor AppImage"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:81
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Tento súbor AppImage nie je dôveryhodný, nie je možné ho spustiť."
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
 msgstr "Ak chcete povoliť spustenie, kliknite pravým tlačidlom myši a potom:"
 
-# MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
 msgid "enable"
 msgstr "povoliť"
@@ -384,12 +365,8 @@ msgid "AutoAr is not installed"
 msgstr "AutoAr nie je nainštalovaný"
 
 #: app/autoAr.js:72
-msgid ""
-"To be able to work with compressed files, install file-roller and/or gir-1.2-"
-"gnomeAutoAr"
-msgstr ""
-"Ak chcete pracovať s komprimovanými súbormi, nainštalujte file-roller a/"
-"alebo gir-1.2-gnomeAutoAr"
+msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgstr "Ak chcete pracovať s komprimovanými súbormi, nainštalujte file-roller a/alebo gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 msgid "Extracting files"
@@ -511,17 +488,13 @@ msgstr "Na zobrazenú plochu môžu zapisovať iní používatelia"
 
 #: app/desktopFileIcon.js:128
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is "
-"writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not "
-"writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
-"Súbory .deskop nie je možné spustiť z tejto plochy, pretože do priečinka "
-"plochy môžu zapisovať iní používatelia.\n"
+"Súbory .deskop nie je možné spustiť z tejto plochy, pretože do priečinka plochy môžu zapisovať iní používatelia.\n"
 "\n"
-"Skontrolujte oprávnenia tohto priečinku Plochy a uistite sa, aby doň nemohli "
-"zapisovať iní používatelia."
+"Skontrolujte oprávnenia tohto priečinku Plochy a uistite sa, aby doň nemohli zapisovať iní používatelia."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
@@ -529,13 +502,11 @@ msgstr "Poškodený súbor plochy"
 
 #: app/desktopFileIcon.js:141
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Tento súbor .desktop obsahuje chyby alebo odkazuje na program bez oprávnení. "
-"Nie je možné ho spustiť.\n"
+"Tento súbor .desktop obsahuje chyby alebo odkazuje na program bez oprávnení. Nie je možné ho spustiť.\n"
 "\n"
 "Upravte súbor a nastavte správny spustiteľný program."
 
@@ -543,7 +514,6 @@ msgstr ""
 msgid "Invalid Permissions on Desktop File"
 msgstr "Neplatné oprávnenia na súbor plochy"
 
-# MT: LibreTranslate
 #: app/desktopFileIcon.js:152
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Tento súbor plochy má nesprávne oprávnenia."
@@ -552,7 +522,6 @@ msgstr "Tento súbor plochy má nesprávne oprávnenia."
 msgid "Untrusted Desktop File"
 msgstr "Nedôveryhodný súbor pracovnej plochy"
 
-# MT: LibreTranslate
 #: app/desktopFileIcon.js:175
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Tento súbor plochy nie je dôveryhodný, nie je možné ho spustiť."
@@ -596,13 +565,11 @@ msgstr "Zmena rozsahu Frame Buffer monitora nie je povolená"
 
 #: app/desktopManager.js:158
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor "
-"framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"Viacero monitorov s rôznymi nastaveniami priblíženia, odporúčame zmenu "
-"rozsahu framebuffer pre jednotlivé monitory.\n"
+"Viacero monitorov s rôznymi nastaveniami priblíženia, odporúčame zmenu rozsahu framebuffer pre jednotlivé monitory.\n"
 "\n"
 "Prosím, povoľte to v nastaveniach Mutter Dconf"
 
@@ -614,8 +581,7 @@ msgid ""
 msgstr ""
 "Viacero monitorov s rôznymi nastaveniami priblíženia.\n"
 "\n"
-"Povoliť zmenu rozsahu framebuffer pre jednotlivé monitory v nastaveniach "
-"Mutter Dconf?"
+"Povoliť zmenu rozsahu framebuffer pre jednotlivé monitory v nastaveniach Mutter Dconf?"
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
@@ -661,8 +627,7 @@ msgstr "Neexistuje žiadny predvolený správca súborov"
 
 #: app/desktopManager.js:228
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr ""
-"Neexistuje žiadna aplikácia, ktorá spravuje mimetype \"inode/directory\""
+msgstr "Neexistuje žiadna aplikácia, ktorá spravuje mimetype \"inode/directory\""
 
 #: app/desktopManager.js:235
 msgid "Gnome Files is not registered as a File Manager"
@@ -674,8 +639,7 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Aplikácia Súbory (Gnome Files) nie je naprogramovaná na otváranie priečinkov!"
-"\n"
+"Aplikácia Súbory (Gnome Files) nie je naprogramovaná na otváranie priečinkov!\n"
 "Skontrolujte svoju inštaláciu xdg-utils\n"
 "Skontrolujte inštaláciu súboru .desktop aplikácie Gnome Files"
 
@@ -1321,11 +1285,8 @@ msgid "\"${programName}\" is not available"
 msgstr "„${programName}“ nie je dostupný"
 
 #: app/utils/dbusUtils.js:70
-msgid ""
-"Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr ""
-"Nainštalujte „${programName}“, aby ikony na ploche mohli vykonávať tieto "
-"akcie."
+msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr "Nainštalujte „${programName}“, aby ikony na ploche mohli vykonávať tieto akcie."
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
@@ -1356,11 +1317,8 @@ msgid "Display icons on the GNOME desktop"
 msgstr "Zobraziť ikony na pracovnej ploche GNOME"
 
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
-"plocha;ikony;súbory; priečinky;správca;usporiadať;skryť;zobraziť;spúšťač;"
-"skratky;"
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "plocha;ikony;súbory; priečinky;správca;usporiadať;skryť;zobraziť;spúšťač;skratky;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
@@ -1427,36 +1385,24 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "Pridať nové jednotky na opačnú stranu obrazovky"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
-"Pri pridávaní jednotiek a zväzkov na pracovnú plochu ich pridána opačnú "
-"stranu obrazovky."
+msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
+msgstr "Pri pridávaní jednotiek a zväzkov na pracovnú plochu ich pridána opačnú stranu obrazovky."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Zobrazí obdĺžnik v cieľovom umiestnení počas ťahania a pustenia"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"Počas operácie Ťahaj a pusť označí miesto v mriežke, kam sa ikona umiestni, "
-"polopriehľadným obdĺžnikom."
+msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
+msgstr "Počas operácie Ťahaj a pusť označí miesto v mriežke, kam sa ikona umiestni, polopriehľadným obdĺžnikom."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Usporiadať špeciálne priečinky - Domov/Kôš, Jednotky."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"Pri usporiadaní ikon na pracovnej ploche, pri triedení a zmene polohy "
-"priečinka Domov, koša a pripojených sieťových alebo externých diskov"
+msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
+msgstr "Pri usporiadaní ikon na pracovnej ploche, pri triedení a zmene polohy priečinka Domov, koša a pripojených sieťových alebo externých diskov"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1503,36 +1449,24 @@ msgid "Use black for label text"
 msgstr "Použiť čiernu farbu na text štítku"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-"Vykresliť text na štítku čiernou farbou namiesto bielej. Užitočné pri "
-"použití svetlého pozadia."
+msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgstr "Vykresliť text na štítku čiernou farbou namiesto bielej. Užitočné pri použití svetlého pozadia."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
 msgstr "Zobraziť nové ikony na sekundárnom monitore, ak je pripojený"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
-"Ak je pripojený druhý monitor, nové ikony sú umiestnené na sekundárnom "
-"monitore"
+msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
+msgstr "Ak je pripojený druhý monitor, nové ikony sú umiestnené na sekundárnom monitore"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Ikony môžu byť umiestnené kdekoľvek na ploche"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-msgid ""
-"Icons are not on a rectangular grid but can be postioned anywhere "
-"independent of grid"
-msgstr ""
-"Ikony nie sú na obdĺžnikovej mriežke, ale môžu byť umiestnené kdekoľvek "
-"nezávisle od mriežky"
+msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgstr "Ikony nie sú na obdĺžnikovej mriežke, ale môžu byť umiestnené kdekoľvek nezávisle od mriežky"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Hide/Show all desktop windows"

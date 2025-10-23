@@ -17,14 +17,12 @@ msgstr ""
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
 "PO-Revision-Date: 2025-10-09 18:07+0000\n"
 "Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
@@ -242,27 +240,27 @@ msgstr "O programie"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
+#, machine-translated
 msgid "Translation"
 msgstr "Tłumaczenie"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:699
-msgid ""
-"Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr ""
-"Maszyna przetłumaczona za pomocą LibreTranslate. Użytkownik zweryfikowany i "
-"edytowany na Weblate."
+#, machine-translated
+msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr "Maszyna przetłumaczona za pomocą LibreTranslate. Użytkownik zweryfikowany i edytowany na Weblate."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:704
+#, machine-translated
 msgid "Edit Translations"
 msgstr "Edytuj tłumaczenia"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
+#, machine-translated
 msgid "Verify, add or correct translation in your web browser"
-msgstr ""
-"Weryfikacja, dodawanie lub poprawne tłumaczenie w przeglądarce internetowej"
+msgstr "Weryfikacja, dodawanie lub poprawne tłumaczenie w przeglądarce internetowej"
 
 #: app/adwPreferencesWindow.js:706
 msgid "Translate"
@@ -298,32 +296,37 @@ msgstr "Nieprawidłowe uprawnienia pliku AppImage"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
+#, machine-translated
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Ten plik AppImage ma nieprawidłowe uprawnienia."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
+#, machine-translated
 msgid "Right Click to edit Properties, then:"
-msgstr ""
-"Kliknij prawym przyciskiem myszy, aby edytować właściwości, a następnie:"
+msgstr "Kliknij prawym przyciskiem myszy, aby edytować właściwości, a następnie:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
+#, machine-translated
 msgid "Set Permissions, in"
 msgstr "Ustaw uprawnienia"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
+#, machine-translated
 msgid "Others Access"
 msgstr "Inne Dostęp"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
+#, machine-translated
 msgid "Read Only"
 msgstr "Tylko do odczytu"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
+#, machine-translated
 msgid "or"
 msgstr "lub"
 
@@ -335,11 +338,13 @@ msgstr "Brak"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
+#, machine-translated
 msgid "Enable option"
 msgstr "Włącz opcję"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
+#, machine-translated
 msgid "Allow Executing File as a Program"
 msgstr "Pozwól na wykonanie pliku jako programu"
 
@@ -349,16 +354,19 @@ msgstr "Niezaufany plik AppImage"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
+#, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Ta aplikacja Plik nie jest zaufany, nie można go uruchomić."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
+#, machine-translated
 msgid "To enable launching, right-click, then:"
 msgstr "Aby włączyć start, kliknij prawym przyciskiem myszy, a następnie:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
+#, machine-translated
 msgid "enable"
 msgstr "włącz"
 
@@ -389,12 +397,8 @@ msgid "AutoAr is not installed"
 msgstr "AutoAr nie jest instalowany"
 
 #: app/autoAr.js:72
-msgid ""
-"To be able to work with compressed files, install file-roller and/or gir-1.2-"
-"gnomeAutoAr"
-msgstr ""
-"Aby móc pracować ze skompresowanymi plikami, zainstaluj file-roller i/lub "
-"gir-1.2-gnomeAutoAr"
+msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgstr "Aby móc pracować ze skompresowanymi plikami, zainstaluj file-roller i/lub gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 msgid "Extracting files"
@@ -472,8 +476,7 @@ msgstr "Plik wyjściowy '${outputFile}' już istnieje."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"Kompresja plików do '${outputFile}' została anulowana przez użytkownika."
+msgstr "Kompresja plików do '${outputFile}' została anulowana przez użytkownika."
 
 #: app/autoAr.js:512
 msgid "Error during compression"
@@ -501,9 +504,7 @@ msgstr "Kompatybilny ze wszystkimi systemami operacyjnymi."
 
 #: app/autoAr.js:694
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
-"Chroniony hasłem plik .zip, musi być zainstalowany na systemach Windows i "
-"Mac."
+msgstr "Chroniony hasłem plik .zip, musi być zainstalowany na systemach Windows i Mac."
 
 #: app/autoAr.js:700
 msgid "Smaller archives but Linux and Mac only."
@@ -519,16 +520,12 @@ msgstr "Możliwa edycja tego pulpitu przez wszystkich"
 
 #: app/desktopFileIcon.js:128
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is "
-"writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not "
-"writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
-"Plików .desktop nie można uruchomić z tego pulpitu, ponieważ inni "
-"użytkownicy mają dostęp do zapisu tego katalogu pulpitu.\n"
-"Sprawdź uprawnienia tego katalogu pulpitu i upewnij się, że inni nie mają "
-"dostępu do zapisu."
+"Plików .desktop nie można uruchomić z tego pulpitu, ponieważ inni użytkownicy mają dostęp do zapisu tego katalogu pulpitu.\n"
+"Sprawdź uprawnienia tego katalogu pulpitu i upewnij się, że inni nie mają dostępu do zapisu."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
@@ -536,13 +533,11 @@ msgstr "Uszkodzony plik pulpitu"
 
 #: app/desktopFileIcon.js:141
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It "
-"can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Ten plik .desktop zawiera błędy lub wskazuje na program bez uprawnień. Nie "
-"da się go wykonać.\n"
+"Ten plik .desktop zawiera błędy lub wskazuje na program bez uprawnień. Nie da się go wykonać.\n"
 "\n"
 "Edytuj plik, aby ustawić poprawny program wykonywalny."
 
@@ -552,6 +547,7 @@ msgstr "Nieprawidłowe uprawnienia do pliku pulpitu"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
+#, machine-translated
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Ten plik pulpitu ma nieprawidłowe uprawnienia."
 
@@ -561,6 +557,7 @@ msgstr "Niezaufany plik pulpitu"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
+#, machine-translated
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Ten plik pulpitu nie jest zaufany, nie może być uruchomiony."
 
@@ -582,9 +579,7 @@ msgstr "Nowy katalog Pulpit jest dowiązaniem symbolicznym"
 
 #: app/desktopFolderMonitor.js:109
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
-"Nowy katalog pulpitu nie istnieje!Nowy katalog Pulpit nie istnieje lub nie "
-"jest katalogiem!"
+msgstr "Nowy katalog pulpitu nie istnieje!Nowy katalog Pulpit nie istnieje lub nie jest katalogiem!"
 
 #: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Changed"
@@ -605,13 +600,11 @@ msgstr "Skalowanie bufora ramki monitora jest wyłączone"
 
 #: app/desktopManager.js:158
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor "
-"framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"Wiele monitorów z różnymi ustawieniami powiększenia, zalecane skalowanie "
-"bufora ramek na monitor.\n"
+"Wiele monitorów z różnymi ustawieniami powiększenia, zalecane skalowanie bufora ramek na monitor.\n"
 "\n"
 "Proszę włączyć w ustawieniach Dconf programu Mutter"
 
@@ -623,8 +616,7 @@ msgid ""
 msgstr ""
 "Wykryto wiele monitorów z różnymi ustawieniami powiększenia\n"
 "\n"
-"Włączyć skalowanie bufora ramek na monitor w ustawieniach Dconf programu "
-"Mutter?"
+"Włączyć skalowanie bufora ramek na monitor w ustawieniach Dconf programu Mutter?"
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
@@ -1317,9 +1309,7 @@ msgstr "Uszkodzony odnośnik"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
-"Nie można otworzyć tego pliku ponieważ jest to uszkodzone dowiązanie "
-"symboliczne"
+msgstr "Nie można otworzyć tego pliku ponieważ jest to uszkodzone dowiązanie symboliczne"
 
 #: app/volumeIcon.js:58
 msgid "Drive"
@@ -1330,11 +1320,8 @@ msgid "\"${programName}\" is not available"
 msgstr "\"${programName}\" nie jest dostępny"
 
 #: app/utils/dbusUtils.js:70
-msgid ""
-"Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr ""
-"Zainstaluj \"${programName}\", aby włączyć ikony pulpitu i korzystać z "
-"funkcji."
+msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr "Zainstaluj \"${programName}\", aby włączyć ikony pulpitu i korzystać z funkcji."
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
@@ -1365,10 +1352,8 @@ msgid "Display icons on the GNOME desktop"
 msgstr "Wyświetlaj ikony na pulpicie GNOME"
 
 #: data/com.desktop.ding.desktop.in:6
-msgid ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr ""
-"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
@@ -1435,36 +1420,24 @@ msgid "Add new drives to the opposite side of the screen"
 msgstr "Dodaj nowe dyski po przeciwnej stronie ekranu"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-msgid ""
-"When adding drives and volumes to the desktop, add them to the opposite side "
-"of the screen."
-msgstr ""
-"Dodając dyski i woluminy do pulpitu, dodaj je po przeciwnej stronie ekranu."
+msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
+msgstr "Dodając dyski i woluminy do pulpitu, dodaj je po przeciwnej stronie ekranu."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr ""
-"Pokarz prostokąt w miejscu docelowym podczas Przeciągania i Upuszczania"
+msgstr "Pokarz prostokąt w miejscu docelowym podczas Przeciągania i Upuszczania"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-msgid ""
-"When doing a Drag'n'Drop operation, marks the place in the grid where the "
-"icon will be put with a semitransparent rectangle."
-msgstr ""
-"Wykonując operację przeciągnij i upuść, zaznacza miejsce w siatce, w którym "
-"ikona zostanie umieszczona, za pomocą półprzezroczystego prostokąta."
+msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
+msgstr "Wykonując operację przeciągnij i upuść, zaznacza miejsce w siatce, w którym ikona zostanie umieszczona, za pomocą półprzezroczystego prostokąta."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Sortowanie katalogów specjalnych - Katalog domowy/Kosz/Dyski."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-msgid ""
-"When arranging Icons on desktop, to sort and change the position of the "
-"Home, Trash and mounted Network or External Drives"
-msgstr ""
-"Kiedy porządkujesz Ikony na pulpicie, sortuj i zmień pozycję Katalogu "
-"domowego, Kosza oraz Dysków sieciowych i Zewnętrznych"
+msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
+msgstr "Kiedy porządkujesz Ikony na pulpicie, sortuj i zmień pozycję Katalogu domowego, Kosza oraz Dysków sieciowych i Zewnętrznych"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1511,36 +1484,24 @@ msgid "Use black for label text"
 msgstr "Użyj koloru czarnego w tekście etykiety"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-msgid ""
-"Paint the label text in black instead of white. Useful when using light "
-"backgrounds."
-msgstr ""
-"Pomaluj tekst etykiety na czarno zamiast na biało. Przydatne w przypadku "
-"jasnego tła."
+msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgstr "Pomaluj tekst etykiety na czarno zamiast na biało. Przydatne w przypadku jasnego tła."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
 msgstr "Pokaż nowe ikony na monitorze innym niż główny, jeśli jest podłączony"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-msgid ""
-"If a second monitor is connected, new icons are placed on the non primary "
-"monitor"
-msgstr ""
-"Jeśli podłączony jest drugi monitor, na monitorze innym niż główny zostaną "
-"umieszczone nowe ikony"
+msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
+msgstr "Jeśli podłączony jest drugi monitor, na monitorze innym niż główny zostaną umieszczone nowe ikony"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Ikony można umieszczać w dowolnym miejscu na pulpicie"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-msgid ""
-"Icons are not on a rectangular grid but can be postioned anywhere "
-"independent of grid"
-msgstr ""
-"Ikony nie znajdują się na prostokątnej siatce, ale można je umieścić w "
-"dowolnym miejscu, niezależnie od siatki"
+msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgstr "Ikony nie znajdują się na prostokątnej siatce, ale można je umieścić w dowolnym miejscu, niezależnie od siatki"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Hide/Show all desktop windows"
