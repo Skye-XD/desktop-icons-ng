@@ -14,16 +14,17 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-16 22:07+0000\n"
-"Last-Translator: Yauhen <bugomol@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/be/>\n"
+"PO-Revision-Date: 2025-10-21 18:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural="
+"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
+"1 : 2);\n"
 "X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
@@ -241,9 +242,8 @@ msgid "About..."
 msgstr "Пра пашырэнне..."
 
 #: app/adwPreferencesWindow.js:698
-#, fuzzy
 msgid "Translation"
-msgstr "Пераклады"
+msgstr "Пераклад"
 
 #: app/adwPreferencesWindow.js:699
 msgid ""
@@ -251,7 +251,6 @@ msgid ""
 msgstr ""
 
 #: app/adwPreferencesWindow.js:704
-#, fuzzy
 msgid "Edit Translations"
 msgstr "Пераклады"
 
@@ -318,12 +317,11 @@ msgstr ""
 
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
-msgstr ""
+msgstr "Толькі чытанне"
 
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, fuzzy
 msgid "or"
-msgstr "Звесткі"
+msgstr "або"
 
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
@@ -361,9 +359,8 @@ msgid "To enable launching, right-click, then:"
 msgstr ""
 
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, fuzzy
 msgid "enable"
-msgstr "Уключыць"
+msgstr "уключыць"
 
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330

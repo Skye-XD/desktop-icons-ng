@@ -9,10 +9,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Friulian <https://hosted.weblate.org/projects/gtk4-desktop-"
-"icons-ng/gtk4-ding-pot/fur/>\n"
+"PO-Revision-Date: 2025-10-21 18:04+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
+"Language-Team: Friulian <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/fur/>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,6 @@ msgstr ""
 "X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
 msgid "Shortcuts"
 msgstr "Scurtis"
 
@@ -180,12 +180,10 @@ msgid "Use dark text in icon labels"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:629
-#, fuzzy
 msgid "Show the personal folder on the desktop"
 msgstr "Mostre la cartele personâl intal scritori"
 
 #: app/adwPreferencesWindow.js:634
-#, fuzzy
 msgid "Show the trash icon on the desktop"
 msgstr "Mostre la icone de scovacere intal scritori"
 
@@ -250,9 +248,8 @@ msgid "About..."
 msgstr "Informazions su"
 
 #: app/adwPreferencesWindow.js:698
-#, fuzzy
 msgid "Translation"
-msgstr "tradûs"
+msgstr "Traduzion sucessive"
 
 #: app/adwPreferencesWindow.js:699
 msgid ""
@@ -269,7 +266,6 @@ msgid "Verify, add or correct translation in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:706
-#, fuzzy
 msgid "Translate"
 msgstr "tradûs"
 
@@ -331,7 +327,6 @@ msgstr ""
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
-#, fuzzy
 msgid "None"
 msgstr "No stâ centrâ"
 
@@ -358,9 +353,8 @@ msgid "To enable launching, right-click, then:"
 msgstr ""
 
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, fuzzy
 msgid "enable"
-msgstr "Abilitât"
+msgstr "Abilite"
 
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
@@ -383,7 +377,6 @@ msgid "OK"
 msgstr "Va ben"
 
 #: app/askRenamePopup.js:75
-#, fuzzy
 msgid "Rename"
 msgstr "Cambie non..."
 
@@ -494,7 +487,7 @@ msgstr "Cambie non..."
 
 #: app/autoAr.js:604
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 #: app/autoAr.js:617
 msgid "Create"
@@ -614,9 +607,8 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
 msgid "Enable"
-msgstr "Abilitât"
+msgstr "Abilite"
 
 #: app/desktopManager.js:196 app/desktopManager.js:206
 msgid "Can Not Show the Desktop"
@@ -711,7 +703,6 @@ msgid "Could not create document"
 msgstr ""
 
 #: app/desktopMenu.js:919
-#, fuzzy
 msgid "Name"
 msgstr "Non"
 
@@ -724,7 +715,6 @@ msgid "Modified Time"
 msgstr ""
 
 #: app/desktopMenu.js:925
-#, fuzzy
 msgid "Type"
 msgstr "Gjenar"
 
@@ -891,7 +881,6 @@ msgid "Open With..."
 msgstr ""
 
 #: app/fileItemMenu.js:176
-#, fuzzy
 msgid "Open All With Other Application..."
 msgstr "Vierç cuntune altre aplicazion"
 
@@ -967,7 +956,6 @@ msgid "Delete permanently"
 msgstr "Elimine par simpri"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
-#, fuzzy
 msgid "Don't Allow Launching"
 msgstr "Permet inviament"
 
@@ -1123,7 +1111,6 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
-#, fuzzy
 msgid "Reset to Default"
 msgstr "Ripristine lis impostazions predefinidis"
 
@@ -1152,12 +1139,10 @@ msgid "Global Shortcuts"
 msgstr ""
 
 #: app/shortcutManager.js:365
-#, fuzzy
 msgid "System Keyboard Shortcuts"
 msgstr "Scurtis di tastiere"
 
 #: app/shortcutManager.js:661
-#, fuzzy
 msgid "Keyboard Shortcuts"
 msgstr "Scurtis di tastiere"
 
@@ -1175,7 +1160,6 @@ msgid "Reset All..."
 msgstr "Selezione dut"
 
 #: app/shortcuts.js:15
-#, fuzzy
 msgid "Show Desktop in Files"
 msgstr "Mostre Scritori in File"
 
@@ -1184,12 +1168,10 @@ msgid "Open in Terminal"
 msgstr "Vierç in Terminâl"
 
 #: app/shortcuts.js:17
-#, fuzzy
 msgid "Change Background"
 msgstr "Cambie sfont…"
 
 #: app/shortcuts.js:18
-#, fuzzy
 msgid "Change Display Settings"
 msgstr "Impostazions visôr"
 
@@ -1359,9 +1341,8 @@ msgid "Choose Desktop Folder"
 msgstr "Mostre Scritori in File"
 
 #: app/utils/desktopIconsUtil.js:216
-#, fuzzy
 msgid "Command not found"
-msgstr "comant no cjatât"
+msgstr "Comant no cjatât"
 
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
@@ -1372,12 +1353,10 @@ msgid "Always use for this file type"
 msgstr ""
 
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
 msgid "_Cancel"
 msgstr "Anule"
 
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
 msgid "_Open"
 msgstr "Vierç"
 
@@ -1396,12 +1375,10 @@ msgid "Show<>Hide"
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
 msgid "Preferences"
 msgstr "Preferencis"
 
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
 msgid "Disable"
 msgstr "Disabilitât"
 

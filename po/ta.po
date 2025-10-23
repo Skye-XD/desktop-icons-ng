@@ -9,11 +9,11 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-03 23:02+0000\n"
+"PO-Revision-Date: 2025-10-21 18:29+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
-"ng/gtk4-ding-pot/ta/>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,17 +22,14 @@ msgstr ""
 "X-Generator: Weblate 5.14-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, fuzzy
 msgid "Shortcuts"
 msgstr "குறுக்குவழிகள்"
 
 #: app/adwPreferencesWindow.js:163
-#, fuzzy
 msgid "Edit Shortcuts..."
 msgstr "குறுக்குவழிகளைத் திருத்தவும்"
 
 #: app/adwPreferencesWindow.js:178
-#, fuzzy
 msgid "Edit Application Shortcuts"
 msgstr "பயன்பாட்டு குறுக்குவழிகள்"
 
@@ -45,28 +42,23 @@ msgid "Help translate in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
-#, fuzzy
 msgid "Desktop"
 msgstr "டெச்க்டாப்"
 
 #: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
-#, fuzzy
 msgid "Files"
 msgstr "கோப்புகள்"
 
 #: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
 #: app/adwPreferencesWindow.js:539
-#, fuzzy
 msgid "Tweaks"
 msgstr "மாற்றங்கள்"
 
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
-#, fuzzy
 msgid "More"
 msgstr "மேலும்"
 
 #: app/adwPreferencesWindow.js:514
-#, fuzzy
 msgid "Desktop Settings"
 msgstr "டெச்க்டாப் அமைப்புகள்"
 
@@ -75,7 +67,6 @@ msgid "Settings for the Desktop Program"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:521
-#, fuzzy
 msgid "Desktop Folder"
 msgstr "மேசை கோப்புறை"
 
@@ -84,7 +75,6 @@ msgid "Current Desktop: "
 msgstr ""
 
 #: app/adwPreferencesWindow.js:532
-#, fuzzy
 msgid "Files Settings"
 msgstr "கோப்பு அமைப்புகள்"
 
@@ -101,22 +91,18 @@ msgid "Size for the desktop icons"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:560
-#, fuzzy
 msgid "Tiny"
 msgstr "சிறிய"
 
 #: app/adwPreferencesWindow.js:561
-#, fuzzy
 msgid "Small"
 msgstr "சிறிய"
 
 #: app/adwPreferencesWindow.js:562
-#, fuzzy
 msgid "Standard"
 msgstr "தரநிலை"
 
 #: app/adwPreferencesWindow.js:563
-#, fuzzy
 msgid "Large"
 msgstr "பெரிய"
 
@@ -125,22 +111,18 @@ msgid "New icons alignment"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:571
-#, fuzzy
 msgid "Top left corner"
 msgstr "மேல்-இடது மூலையில்."
 
 #: app/adwPreferencesWindow.js:572
-#, fuzzy
 msgid "Top right corner"
 msgstr "மேல்-வலது மூலையில்."
 
 #: app/adwPreferencesWindow.js:573
-#, fuzzy
 msgid "Bottom left corner"
 msgstr "கீழ்-இடது மூலையில்."
 
 #: app/adwPreferencesWindow.js:574
-#, fuzzy
 msgid "Bottom right corner"
 msgstr "கீழ்-வலது மூலையில்."
 
@@ -149,7 +131,6 @@ msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:584
-#, fuzzy
 msgid "Snap icons to grid"
 msgstr "கட்டத்திற்கு ச்னாப்"
 
@@ -158,7 +139,6 @@ msgid "Highlight the drop grid"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:599
-#, fuzzy
 msgid "New Desktop Folder"
 msgstr "மேசை கோப்புறை"
 
@@ -167,7 +147,6 @@ msgid "Set a new folder for the desktop"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
-#, fuzzy
 msgid "Choose"
 msgstr "தேர்வு"
 
@@ -180,7 +159,6 @@ msgid "Restore Default Desktop Folder"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:610
-#, fuzzy
 msgid "Restore"
 msgstr "மீட்டமை"
 
@@ -217,22 +195,18 @@ msgid "Action to Open Items"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:656
-#, fuzzy
 msgid "Single click"
 msgstr "ஒற்றை சொடுக்கு"
 
 #: app/adwPreferencesWindow.js:657
-#, fuzzy
 msgid "Double click"
 msgstr "இரட்டை சொடுக்கு"
 
 #: app/adwPreferencesWindow.js:662
-#, fuzzy
 msgid "Show image thumbnails"
-msgstr "பட சிறுபடத்தைக் காட்டு"
+msgstr "பட சிறுபடங்களைக் காட்டு"
 
 #: app/adwPreferencesWindow.js:664
-#, fuzzy
 msgid "Always"
 msgstr "எப்போதும்"
 
@@ -241,7 +215,6 @@ msgid "On this computer only"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:666
-#, fuzzy
 msgid "Never"
 msgstr "ஒருபோதும்"
 
@@ -250,7 +223,6 @@ msgid "Show a context menu item to delete permanently"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:676
-#, fuzzy
 msgid "Show hidden files"
 msgstr "மறைக்கப்பட்ட கோப்புகளைக் காட்டு"
 
@@ -259,14 +231,12 @@ msgid "Open folders on drag hover"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:685
-#, fuzzy
 msgid "About..."
 msgstr "பற்றி ..."
 
 #: app/adwPreferencesWindow.js:698
-#, fuzzy
 msgid "Translation"
-msgstr "மொழிபெயர்ப்புகள்"
+msgstr "மொழிபெயர்ப்பு"
 
 #: app/adwPreferencesWindow.js:699
 msgid ""
@@ -274,16 +244,14 @@ msgid ""
 msgstr ""
 
 #: app/adwPreferencesWindow.js:704
-#, fuzzy
 msgid "Edit Translations"
-msgstr "மொழிபெயர்ப்புகள்"
+msgstr "மாற்றங்களைத் திருத்தவும்"
 
 #: app/adwPreferencesWindow.js:705
 msgid "Verify, add or correct translation in your web browser"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:706
-#, fuzzy
 msgid "Translate"
 msgstr "மொழிபெயர்த்திடு"
 
@@ -296,12 +264,10 @@ msgid "Open Items"
 msgstr ""
 
 #: app/appChooser.js:92
-#, fuzzy
 msgid "Open Folder"
 msgstr "திறந்த கோப்புறை"
 
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, fuzzy
 msgid "Open File"
 msgstr "கோப்பை திற"
 
@@ -327,7 +293,7 @@ msgstr ""
 
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
 msgid "Set Permissions, in"
-msgstr ""
+msgstr "அனுமதிகளை அமைக்கவும்:"
 
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
 msgid "Others Access"
@@ -335,24 +301,21 @@ msgstr ""
 
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
-msgstr ""
+msgstr "படிக்கவும்"
 
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, fuzzy
 msgid "or"
-msgstr "மேலும்"
+msgstr "அல்லது"
 
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
 #: app/shortcutManager.js:522
-#, fuzzy
 msgid "None"
 msgstr "எதுவுமில்லை"
 
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, fuzzy
 msgid "Enable option"
-msgstr "இயக்கு"
+msgstr "இயக்கப்பட்ட விருப்பங்கள்"
 
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 msgid "Allow Executing File as a Program"
@@ -371,7 +334,6 @@ msgid "To enable launching, right-click, then:"
 msgstr ""
 
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, fuzzy
 msgid "enable"
 msgstr "இயக்கு"
 
@@ -381,23 +343,19 @@ msgid "Allow Launching"
 msgstr ""
 
 #: app/askRenamePopup.js:61
-#, fuzzy
 msgid "Folder name"
 msgstr "கோப்புறை பெயர்"
 
 #: app/askRenamePopup.js:61
-#, fuzzy
 msgid "File name"
 msgstr "கோப்பு பெயர்"
 
 #: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1234
 #: app/fileItemMenu.js:967
-#, fuzzy
 msgid "OK"
 msgstr "சரி"
 
 #: app/askRenamePopup.js:75
-#, fuzzy
 msgid "Rename"
 msgstr "மறுபெயரிடுங்கள்"
 
@@ -412,24 +370,20 @@ msgid ""
 msgstr ""
 
 #: app/autoAr.js:203
-#, fuzzy
 msgid "Extracting files"
 msgstr "கோப்புகளை பிரித்தெடுக்கும்…"
 
 #: app/autoAr.js:220
-#, fuzzy
 msgid "Compressing files"
 msgstr "கோப்புகளை அமைக்கிறது…"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
 #: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
 #: app/fileItemMenu.js:967 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#, fuzzy
 msgid "Cancel"
 msgstr "ரத்துசெய்"
 
 #: app/autoAr.js:311 app/autoAr.js:608
-#, fuzzy
 msgid "Enter a password here"
 msgstr "கடவுச்சொல்லை இங்கே உள்ளிடவும்"
 
@@ -446,7 +400,6 @@ msgid "Extracting files into '${outputPath}'"
 msgstr ""
 
 #: app/autoAr.js:435
-#, fuzzy
 msgid "Extraction completed"
 msgstr "பிரித்தெடுத்தல் முடிந்தது"
 
@@ -455,7 +408,6 @@ msgid "Extracting '${fullPathFile}' has been completed."
 msgstr ""
 
 #: app/autoAr.js:442
-#, fuzzy
 msgid "Extraction cancelled"
 msgstr "OMOD பிரித்தெடுத்தல் ரத்து செய்யப்பட்டது"
 
@@ -476,7 +428,6 @@ msgid "Compressing files into '${outputFile}'"
 msgstr ""
 
 #: app/autoAr.js:496
-#, fuzzy
 msgid "Compression completed"
 msgstr "அமர்வு முடிந்தது"
 
@@ -501,22 +452,18 @@ msgid "Error during compression"
 msgstr ""
 
 #: app/autoAr.js:547
-#, fuzzy
 msgid "Create archive"
 msgstr "காப்பகத்தை உருவாக்கவும்"
 
 #: app/autoAr.js:571
-#, fuzzy
 msgid "Archive name"
 msgstr "காப்பக பெயர்"
 
 #: app/autoAr.js:604
-#, fuzzy
 msgid "Password"
-msgstr "கடவுச்சொல்"
+msgstr "கடவுச்சொல்"
 
 #: app/autoAr.js:617
-#, fuzzy
 msgid "Create"
 msgstr "உருவாக்கு"
 
@@ -550,7 +497,6 @@ msgid ""
 msgstr ""
 
 #: app/desktopFileIcon.js:138
-#, fuzzy
 msgid "Broken Desktop File"
 msgstr "பழுதடைந்த திரைப்பலக கோப்புகள்"
 
@@ -579,9 +525,8 @@ msgid "This Desktop file is not trusted, it can not be launched."
 msgstr ""
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
-#, fuzzy
 msgid "Could not open File"
-msgstr "கோப்புகளைத் திறக்க முடியவில்லை"
+msgstr "கோப்பைத் திறக்க முடியவில்லை"
 
 #: app/desktopFileIcon.js:206
 msgid "{appName} can not open files of this Type!"
@@ -609,7 +554,6 @@ msgstr ""
 
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, fuzzy
 msgid "Desktop Icons"
 msgstr "டெச்க்டாப் சின்னங்கள் அளவு"
 
@@ -633,7 +577,6 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, fuzzy
 msgid "Enable"
 msgstr "இயக்கு"
 
@@ -693,7 +636,6 @@ msgid "Find Files on Desktop"
 msgstr ""
 
 #: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
-#, fuzzy
 msgid "New Folder"
 msgstr "புதிய கோப்புறை"
 
@@ -702,7 +644,6 @@ msgid "Folder Creation Failed"
 msgstr ""
 
 #: app/desktopManager.js:1614
-#, fuzzy
 msgid "Could not create folder"
 msgstr "கோப்புறையை உருவாக்க முடியவில்லை"
 
@@ -719,7 +660,6 @@ msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
-#, fuzzy
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
@@ -728,17 +668,14 @@ msgid "Template Creation Error"
 msgstr ""
 
 #: app/desktopMenu.js:814
-#, fuzzy
 msgid "Could not create document"
 msgstr "ஆவணத்தை நீக்க முடியவில்லை"
 
 #: app/desktopMenu.js:919
-#, fuzzy
 msgid "Name"
 msgstr "பெயர்"
 
 #: app/desktopMenu.js:921
-#, fuzzy
 msgid "Name Z-A"
 msgstr "பெயர் ஔ-அ"
 
@@ -747,12 +684,10 @@ msgid "Modified Time"
 msgstr ""
 
 #: app/desktopMenu.js:925
-#, fuzzy
 msgid "Type"
 msgstr "வகை"
 
 #: app/desktopMenu.js:927
-#, fuzzy
 msgid "Size"
 msgstr "அளவு"
 
@@ -777,37 +712,30 @@ msgid "Restore Default Desktop"
 msgstr ""
 
 #: app/desktopMenu.js:953
-#, fuzzy
 msgid "Desktop Icon Settings"
-msgstr "டெஸ்க்டாப் அமைப்புகள்"
+msgstr "டெச்க்டாப் அமைப்புகள்"
 
 #: app/desktopMenu.js:955
-#, fuzzy
 msgid "Show Shortcuts"
 msgstr "குறுக்குவழிகளைக் காட்டு"
 
 #: app/desktopMenu.js:963 app/shortcuts.js:43
-#, fuzzy
 msgid "New Document"
 msgstr "புதிய ஆவணம்"
 
 #: app/desktopMenu.js:968 app/shortcuts.js:11
-#, fuzzy
 msgid "Paste"
 msgstr "ஒட்டு"
 
 #: app/desktopMenu.js:970 app/shortcuts.js:12
-#, fuzzy
 msgid "Undo"
 msgstr "செயல்தவிர்"
 
 #: app/desktopMenu.js:972 app/shortcuts.js:13
-#, fuzzy
 msgid "Redo"
 msgstr "மீண்டும்செய்"
 
 #: app/desktopMenu.js:978 app/shortcuts.js:14
-#, fuzzy
 msgid "Select All"
 msgstr "அனைத்தையும் தெரிவுசெய்"
 
@@ -816,7 +744,6 @@ msgid "Arrange Icons"
 msgstr ""
 
 #: app/desktopMenu.js:989
-#, fuzzy
 msgid "Arrange By…"
 msgstr "வழங்கியவர்:"
 
@@ -845,7 +772,6 @@ msgid "Copy/Move Failed"
 msgstr ""
 
 #: app/dragManager.js:740
-#, fuzzy
 msgid "{0} Does not exist"
 msgstr "இல்லை"
 
@@ -854,32 +780,26 @@ msgid "Choose Action for Files"
 msgstr ""
 
 #: app/dragManager.js:783
-#, fuzzy
 msgid "Move"
 msgstr "நகர்த்தவும்"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
-#, fuzzy
 msgid "Copy"
 msgstr "நகலெடு"
 
 #: app/dragManager.js:783
-#, fuzzy
 msgid "Link"
 msgstr "இணைப்பு"
 
 #: app/fileItemIcon.js:95
-#, fuzzy
 msgid "Folder"
 msgstr "கோப்புறை"
 
 #: app/fileItemIcon.js:96
-#, fuzzy
 msgid "File"
 msgstr "கோப்பு"
 
 #: app/fileItemIcon.js:270
-#, fuzzy
 msgid "Opening File Failed"
 msgstr "கோப்பைத் திறப்பதில் தோல்வி"
 
@@ -894,12 +814,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: app/fileItemMenu.js:114
-#, fuzzy
 msgid "Open All..."
 msgstr "அனைத்தையும் திற"
 
 #: app/fileItemMenu.js:122
-#, fuzzy
 msgid "Launch"
 msgstr "ஏவுதல்"
 
@@ -908,7 +826,6 @@ msgid "Open with {foo}"
 msgstr ""
 
 #: app/fileItemMenu.js:138
-#, fuzzy
 msgid "Open"
 msgstr "திற"
 
@@ -921,7 +838,6 @@ msgid "Extract To..."
 msgstr ""
 
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, fuzzy
 msgid "Open With..."
 msgstr "இதனுடன் திற…"
 
@@ -946,32 +862,26 @@ msgid "Run as a Program"
 msgstr ""
 
 #: app/fileItemMenu.js:234
-#, fuzzy
 msgid "Scripts"
 msgstr "ச்கிரிப்ட்கள்"
 
 #: app/fileItemMenu.js:239
-#, fuzzy
 msgid "Cut"
 msgstr "வெட்டு"
 
 #: app/fileItemMenu.js:244
-#, fuzzy
 msgid "Move to..."
 msgstr "செல்லுங்கள் ..."
 
 #: app/fileItemMenu.js:245
-#, fuzzy
 msgid "Copy to..."
 msgstr "நகலெடு .."
 
 #: app/fileItemMenu.js:249
-#, fuzzy
 msgid "Rename…"
 msgstr "மறுபெயரிடுங்கள்…"
 
 #: app/fileItemMenu.js:254
-#, fuzzy
 msgid "Create Link..."
 msgstr "இணைப்பை உருவாக்கவும்"
 
@@ -982,7 +892,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: app/fileItemMenu.js:269
-#, fuzzy
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "கோப்புகளை சுருக்கவும்"
@@ -997,12 +906,10 @@ msgid "Send to Mobile Device"
 msgstr ""
 
 #: app/fileItemMenu.js:294
-#, fuzzy
 msgid "Move to Trash"
 msgstr "குப்பைக்கு நகர்த்தவும்"
 
 #: app/fileItemMenu.js:302
-#, fuzzy
 msgid "Delete permanently"
 msgstr "நிரந்தரமாக நீக்கு"
 
@@ -1011,27 +918,22 @@ msgid "Don't Allow Launching"
 msgstr ""
 
 #: app/fileItemMenu.js:339
-#, fuzzy
 msgid "Empty Trash"
 msgstr "வெற்று குப்பை"
 
 #: app/fileItemMenu.js:345
-#, fuzzy
 msgid "Eject"
 msgstr "வெளியேற்ற"
 
 #: app/fileItemMenu.js:348
-#, fuzzy
 msgid "Unmount"
 msgstr "உமிழ்தல்"
 
 #: app/fileItemMenu.js:354
-#, fuzzy
 msgid "Common Properties"
 msgstr "பொதுவான பண்புகள்"
 
 #: app/fileItemMenu.js:355
-#, fuzzy
 msgid "Properties"
 msgstr "பண்புகள்"
 
@@ -1053,7 +955,6 @@ msgid "Open Item"
 msgstr "கோப்பை திற"
 
 #: app/fileItemMenu.js:819
-#, fuzzy
 msgid "Extraction Cancelled"
 msgstr "OMOD பிரித்தெடுத்தல் ரத்து செய்யப்பட்டது"
 
@@ -1062,12 +963,10 @@ msgid "Unable to extract File, no destination folder"
 msgstr ""
 
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, fuzzy
 msgid "Select Destination"
 msgstr "Select Destination"
 
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
-#, fuzzy
 msgid "Select"
 msgstr "தேர்ந்தெடு"
 
@@ -1081,7 +980,6 @@ msgstr ""
 
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
-#, fuzzy
 msgid "Mail Error"
 msgstr "மின்னஞ்சல் பிழை"
 
@@ -1091,7 +989,6 @@ msgstr ""
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
-#, fuzzy
 msgid "Archive.zip"
 msgstr "காப்பகம் .."
 
@@ -1120,7 +1017,6 @@ msgid "Please Install Gnome Console or other Terminal Program"
 msgstr ""
 
 #: app/fileItemMenu.js:1235
-#, fuzzy
 msgid "Unable to Open {0}"
 msgstr "திறக்க இயலவில்லை"
 
@@ -1129,7 +1025,6 @@ msgid "Please Install {0}"
 msgstr ""
 
 #: app/fileItemMenu.js:1281
-#, fuzzy
 msgid "Copy Cancelled"
 msgstr "நகல் ரத்து செய்யப்பட்டது"
 
@@ -1150,7 +1045,6 @@ msgid "$appName$ can not open files of this Type!"
 msgstr ""
 
 #: app/preferences.js:885
-#, fuzzy
 msgid "Console"
 msgstr "கன்சோல்"
 
@@ -1167,12 +1061,10 @@ msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
 #: app/shortcutManager.js:130
-#, fuzzy
 msgid "Reset to Default"
 msgstr "இயல்புநிலைக்கு மீட்டமைக்கவும்"
 
 #: app/shortcutManager.js:134
-#, fuzzy
 msgid "No Accelerator"
 msgstr "முடுக்கி"
 
@@ -1191,27 +1083,22 @@ msgid "Local Shortcuts"
 msgstr "குறுக்குவழிகளைக் காட்டு"
 
 #: app/shortcutManager.js:303
-#, fuzzy
 msgid "Application Keyboard Shortcuts"
 msgstr "பயன்பாட்டு குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:364
-#, fuzzy
 msgid "Global Shortcuts"
 msgstr "உலகளாவிய குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:365
-#, fuzzy
 msgid "System Keyboard Shortcuts"
 msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:661
-#, fuzzy
 msgid "Keyboard Shortcuts"
 msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:673
-#, fuzzy
 msgid "Reset Shortcuts"
 msgstr "அனைத்து குறுக்குவழிகளையும் மீட்டமைக்கவும்"
 
@@ -1220,7 +1107,6 @@ msgid "Reset all shortcuts to Defaults"
 msgstr ""
 
 #: app/shortcutManager.js:677
-#, fuzzy
 msgid "Reset All..."
 msgstr "அனைத்தையும் மீட்டமைக்கவும்"
 
@@ -1230,17 +1116,14 @@ msgid "Show Desktop in Files"
 msgstr "பழுதடைந்த திரைப்பலக கோப்புகள்"
 
 #: app/shortcuts.js:16
-#, fuzzy
 msgid "Open in Terminal"
 msgstr "முனையத்தில் திறந்திருக்கும்"
 
 #: app/shortcuts.js:17
-#, fuzzy
 msgid "Change Background"
 msgstr "பின்னணியை மாற்றவும்"
 
 #: app/shortcuts.js:18
-#, fuzzy
 msgid "Change Display Settings"
 msgstr "அமைப்புகளைக் காண்பி"
 
@@ -1286,7 +1169,6 @@ msgid "Arrange Icons By Size"
 msgstr ""
 
 #: app/shortcuts.js:29
-#, fuzzy
 msgid "Find Files"
 msgstr "கோப்புகளைக் கண்டறியவும்"
 
@@ -1296,17 +1178,14 @@ msgid "Update Desktop"
 msgstr "டெச்க்டாப்"
 
 #: app/shortcuts.js:31
-#, fuzzy
 msgid "Show Hidden Files"
 msgstr "மறைக்கப்பட்ட கோப்புகளைக் காட்டு"
 
 #: app/shortcuts.js:32
-#, fuzzy
 msgid "Unselect All"
 msgstr "அனைத்தையும் தேர்வு செய்யுங்கள்"
 
 #: app/shortcuts.js:33
-#, fuzzy
 msgid "Preview"
 msgstr "முன்னோட்டம்"
 
@@ -1319,7 +1198,6 @@ msgid "Choose Icon Right"
 msgstr ""
 
 #: app/shortcuts.js:36
-#, fuzzy
 msgid "Choose Icon Up"
 msgstr "ஐகானைத் தேர்வுசெய்க"
 
@@ -1328,7 +1206,6 @@ msgid "Choose Icon Down"
 msgstr ""
 
 #: app/shortcuts.js:38
-#, fuzzy
 msgid "Show Menu"
 msgstr "மெனுவைக் காட்டு"
 
@@ -1359,19 +1236,16 @@ msgid "Show Or Hide Desktop Icons"
 msgstr "டெச்க்டாப் சின்னங்கள் அளவு"
 
 #: app/showErrorPopup.js:42
-#, fuzzy
 msgid "More Information"
 msgstr "மேலும் செய்தி"
 
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
 #: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
-#, fuzzy
 msgid "Home"
 msgstr "வீடு"
 
 #: app/specialFolderIcon.js:63
-#, fuzzy
 msgid "Trash"
 msgstr "குப்பை"
 
@@ -1380,12 +1254,10 @@ msgstr "குப்பை"
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, fuzzy
 msgid "Stack"
 msgstr "அடுக்கு"
 
 #: app/symLinkIcon.js:100
-#, fuzzy
 msgid "Broken Link"
 msgstr "உடைந்த இணைப்பு"
 
@@ -1394,7 +1266,6 @@ msgid "Can not open this File because it is a Broken Symlink"
 msgstr ""
 
 #: app/volumeIcon.js:58
-#, fuzzy
 msgid "Drive"
 msgstr "ஓட்டு"
 
@@ -1409,10 +1280,9 @@ msgstr ""
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
-msgstr ""
+msgstr "மேசை கோப்புறை"
 
 #: app/utils/desktopIconsUtil.js:216
-#, fuzzy
 msgid "Command not found"
 msgstr "கட்டளை கிடைக்கவில்லை: %1"
 
@@ -1425,12 +1295,10 @@ msgid "Always use for this file type"
 msgstr ""
 
 #: data/ui/ding-app-chooser.ui:104
-#, fuzzy
 msgid "_Cancel"
 msgstr "_ரத்துசெய்"
 
 #: data/ui/ding-app-chooser.ui:110
-#, fuzzy
 msgid "_Open"
 msgstr "_OPEN"
 
@@ -1444,22 +1312,18 @@ msgid ""
 msgstr ""
 
 #: data/com.desktop.ding.desktop.in:21
-#, fuzzy
 msgid "Show<>Hide"
 msgstr "காட்டு/மறைக்க"
 
 #: data/com.desktop.ding.desktop.in:33
-#, fuzzy
 msgid "Preferences"
 msgstr "விருப்பத்தேர்வுகள்"
 
 #: data/com.desktop.ding.desktop.in:37
-#, fuzzy
 msgid "Disable"
 msgstr "முடக்கு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
-#, fuzzy
 msgid "Icon size"
 msgstr "படவுரு அளவு"
 
@@ -1476,7 +1340,6 @@ msgid "Show the personal folder in the desktop."
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
-#, fuzzy
 msgid "Show trash icon"
 msgstr "தட்டு ஐகானைக் காட்டு"
 
@@ -1617,7 +1480,6 @@ msgid "Show the icons on the desktop, or hide them all"
 msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, fuzzy
 msgid "User Application Shortcuts"
 msgstr "பயன்பாட்டு குறுக்குவழிகள்"
 
