@@ -567,18 +567,32 @@ const DesktopIconsUtil = class {
      * @returns boolean
      */
     async checkIfPdfEncrypted(file, cancellable = null) {
+        const fromTail = true;
         const data = await this.readFileBytesAsync(
             file,
             1024,
-            cancellable
+            cancellable,
+            fromTail
         ).catch(e => logError(e));
 
         if (!data)
             return false;
 
-        const decoder = new TextDecoder();
+        const decoder = new TextDecoder('latin1');
 
-        return decoder.decode(data).includes('/Encrypt');
+        const trailerText = decoder.decode(data);
+
+        const hasEncrypt = trailerText.includes('/Encrypt');
+        if (!hasEncrypt)
+            return false;
+
+        const looksLikeClassicTrailer = trailerText.includes('trailer');
+        const looksLikeXrefStream =
+            trailerText.includes('/Type') && trailerText.includes('/XRef');
+
+        const encrypted = looksLikeClassicTrailer || looksLikeXrefStream;
+
+        return encrypted;
     }
 
     /**
