@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-22 09:26+0000\n"
+"PO-Revision-Date: 2025-10-25 00:03+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/ka/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -261,7 +261,7 @@ msgstr ""
 
 #: app/appChooser.js:90
 msgid "Open Items"
-msgstr ""
+msgstr "ელემენტის გახსნა"
 
 #: app/appChooser.js:92
 msgid "Open Folder"
@@ -713,7 +713,7 @@ msgstr ""
 
 #: app/desktopMenu.js:953
 msgid "Desktop Icon Settings"
-msgstr ""
+msgstr "სამუშაო მაგიდის მორგება"
 
 #: app/desktopMenu.js:955
 msgid "Show Shortcuts"
@@ -1272,7 +1272,7 @@ msgstr ""
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
-msgstr ""
+msgstr "სამუშაო მაგიდის საქაღალდე"
 
 #: app/utils/desktopIconsUtil.js:216
 msgid "Command not found"

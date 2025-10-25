@@ -12,20 +12,22 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
 # Emin Demir <y2zziwlf@anonaddy.me>, 2025.
+# Hasan Kalaman <hasankalaman@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-14 20:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
+"PO-Revision-Date: 2025-10-25 00:03+0000\n"
+"Last-Translator: Hasan Kalaman <hasankalaman@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -35,13 +37,13 @@ msgstr "Kısayollar"
 #: app/adwPreferencesWindow.js:163
 #, machine-translated
 msgid "Edit Shortcuts..."
-msgstr "Edit Shortcuts..."
+msgstr "Kısayolları düzenle..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
 #, machine-translated
 msgid "Edit Application Shortcuts"
-msgstr "Edit Application Shortcuts"
+msgstr "Uygulama Kısayollarını düzenle"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
@@ -53,7 +55,7 @@ msgstr "Kısayollar Sadece hazırlandığında anlaşılabilir..."
 #: app/adwPreferencesWindow.js:288
 #, machine-translated
 msgid "Help translate in your web browser"
-msgstr "Web tarayıcınızda çevirin Yardım"
+msgstr "Web tarayıcınızda çeviriye yardımcı olun"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
@@ -72,7 +74,7 @@ msgstr "Dosyalar"
 #: app/adwPreferencesWindow.js:539
 #, machine-translated
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "İnce Ayarlar"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
@@ -96,13 +98,13 @@ msgstr "Masaüstü Programı için ayarlar"
 #: app/adwPreferencesWindow.js:521
 #, machine-translated
 msgid "Desktop Folder"
-msgstr "Masaüstü Folder"
+msgstr "Masaüstü Klasörü"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:522
 #, machine-translated
 msgid "Current Desktop: "
-msgstr "Şimdiki Masaüstü:"
+msgstr "Şimdiki Masaüstü: "
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:532
@@ -114,13 +116,13 @@ msgstr "Dosyalar Ayarlar"
 #: app/adwPreferencesWindow.js:533
 #, machine-translated
 msgid "Settings shared with Gnome Files"
-msgstr "Gnome Files ile paylaşılan platformlar"
+msgstr "Gnome Dosyaları ile paylaşılan ayarlar"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:540
 #, machine-translated
 msgid "Miscellaneous Tweaks"
-msgstr "Miscellaneous Tweaks"
+msgstr "Çeşitli İnce Ayarlar"
 
 #: app/adwPreferencesWindow.js:558
 msgid "Size for the desktop icons"
@@ -150,49 +152,49 @@ msgstr "Yeni simge hizalaması"
 #: app/adwPreferencesWindow.js:571
 #, machine-translated
 msgid "Top left corner"
-msgstr "Top left Corner"
+msgstr "Sol üst köşe"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:572
 #, machine-translated
 msgid "Top right corner"
-msgstr "Top right köşe"
+msgstr "Sağ üst köşe"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
 #, machine-translated
 msgid "Bottom left corner"
-msgstr "Arka köşe"
+msgstr "Sol alt köşe"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:574
 #, machine-translated
 msgid "Bottom right corner"
-msgstr "Doğru köşe"
+msgstr "Sağ alt köşe"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:580
 #, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "İlk önce ikincil monitörlere yeni simgeler ekleyin, eğer mevcut olursa"
+msgstr "Varsa, önce ikincil monitörlere yeni simgeler ekleyin"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:584
 #, machine-translated
 msgid "Snap icons to grid"
-msgstr "Snap icons to grid"
+msgstr "Simgeleri ızgaraya yerleştir"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:590
 #, machine-translated
 msgid "Highlight the drop grid"
-msgstr "Yüksek ışık damla ızgara"
+msgstr "Düşme ızgarasını vurgulayın"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599
 #, machine-translated
 msgid "New Desktop Folder"
-msgstr "Yeni Masaüstü Folder"
+msgstr "Yeni Masaüstü Klasörü"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:600
@@ -210,25 +212,25 @@ msgstr "Seçin"
 #: app/adwPreferencesWindow.js:606
 #, machine-translated
 msgid "Set Desktop back to ~/"
-msgstr "Set Desktop geri - /"
+msgstr "Masaüstünü ~/ olarak geri ayarla"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:608
 #, machine-translated
 msgid "Restore Default Desktop Folder"
-msgstr "Varsayılan Masaüstü Folder"
+msgstr "Varsayılan Masaüstü Klasörünü Geri Yükle"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:610
 #, machine-translated
 msgid "Restore"
-msgstr "Geri yükleme geri yükleme"
+msgstr "Geri yükleme"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:620
 #, machine-translated
 msgid "Add information emblems for links, encryption"
-msgstr "Bağlantılar için bilgi elçileri ekleyin, şifreleme"
+msgstr "Bağlantılar için bilgi amblemleri ekleyin, şifreleme"
 
 #: app/adwPreferencesWindow.js:624
 msgid "Use dark text in icon labels"
@@ -244,31 +246,31 @@ msgstr "Masaüstünde kişisel klasörü göster"
 #: app/adwPreferencesWindow.js:634
 #, machine-translated
 msgid "Show the trash icon on the desktop"
-msgstr "Masaüstünde çöp ikonunu göster"
+msgstr "Masaüstünde çöp simgesini göster"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:639
 #, machine-translated
 msgid "Show external drives on the desktop"
-msgstr "Masaüstünde dış sürücüler göster"
+msgstr "Masaüstünde harici sürücüleri göster"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:644
 #, machine-translated
 msgid "Show network drives on the desktop"
-msgstr "Show network drive on the masaüstü"
+msgstr "Masaüstünde ağ sürücülerini göster"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:649
 #, machine-translated
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "Masaüstünün tam tersine yeni sürücüler ekleyin"
+msgstr "Masaüstünün karşı tarafına yeni sürücüler ekleyin"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:654
 #, machine-translated
 msgid "Action to Open Items"
-msgstr "Open Materials"
+msgstr "Açık Öğeleri Açma Eylemi"
 
 #: app/adwPreferencesWindow.js:656
 msgid "Single click"
