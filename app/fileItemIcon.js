@@ -219,8 +219,24 @@ const FileItemIcon = class extends DesktopIconItem {
             break;
 
         case 'application/pdf':
-            this._isEncrypted =
+            // eslint-disable-next-line no-case-declarations
+            const isEncrypted =
                 await this.DesktopIconsUtil.checkIfPdfEncrypted(this._file);
+
+            // File may have no password or null password, so we may still be
+            // able to read/display it. It will therefore have a generated
+            // thumbnail. Check by generating the thumbnail if needed.
+            // Don't show the locked item in this case, it is encrypted in pdf
+            // per pdf specification but a user can still read it.
+            if (isEncrypted && !this.thumbnail) {
+                this.thumbnail =
+                    await this.ThumbnailLoader.getThumbnail(
+                        this,
+                        null
+                    );
+            }
+
+            this._isEncrypted = isEncrypted && !this.thumbnail;
             break;
 
         case 'application/zip':
