@@ -58,6 +58,7 @@ const DesktopIconItem = class {
         this._normalCoordinates = null;
         this._monitorIndex = null;
         this._destroyed = false;
+        this.thumbnail = null;
         this.thumbnailFile = null;
     }
 
@@ -683,14 +684,16 @@ const DesktopIconItem = class {
 
         if (this.Prefs.showImageThumbnails) {
             try {
-                const thumbnail =
-                    await this.ThumbnailLoader.getThumbnail(
-                        this,
-                        cancellable
-                    );
+                if (!this.thumbnail) {
+                    this.thumbnail =
+                        await this.ThumbnailLoader.getThumbnail(
+                            this,
+                            cancellable
+                        );
+                }
 
-                if (thumbnail !== null) {
-                    const thumbnailFile = Gio.File.new_for_path(thumbnail);
+                if (this.thumbnail !== null) {
+                    const thumbnailFile = Gio.File.new_for_path(this.thumbnail);
                     iconSet =
                         await this._loadImageAsIcon(thumbnailFile, cancellable);
                 }
