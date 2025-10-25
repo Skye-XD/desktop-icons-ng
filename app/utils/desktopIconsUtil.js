@@ -434,43 +434,128 @@ const DesktopIconsUtil = class {
     }
 
     /**
+     * Read up to `bytes` bytes from a Gio.File.
+     * If fromTail == false: read from start of file.
+     * If fromTail == true:  read the last `bytes` bytes of the file.
      *
      * @param {Gio.File} file a file Gio
-     * @param {integer} bytes number of bytes to read
-     * @param {Gio.Cancellable} cancellable gio cancellable
+     * @param {number} bytes number of bytes to read
+     * @param {Gio.Cancellable?} cancellable gio cancellable
+     * @param {boolean} fromTail read from tail if true else from start
+     * @returns {Promise<Gio.Bytes>}
      */
-    readFileBytesAsync(file, bytes, cancellable = null) {
+    readFileBytesAsync(file, bytes, cancellable = null, fromTail = false) {
         return new Promise((resolve, reject) => {
+            let offset = 0;
+            let newBytes = bytes;
+
+            if (fromTail) {
+                let info;
+                try {
+                    info = file.query_info(
+                        'standard::size',
+                        Gio.FileQueryInfoFlags.NONE,
+                        cancellable
+                    );
+                } catch (e) {
+                    reject(new Error(`Error getting file size: ${e}`));
+                    return;
+                }
+                const fileSize = info.get_size();
+                offset = Math.max(0, fileSize - bytes);
+                newBytes = Math.min(bytes, fileSize);
+            }
+
             try {
                 file.read_async(
                     GLib.PRIORITY_DEFAULT,
                     cancellable,
                     (actor, result) => {
+                        let inputstream;
                         try {
-                            const inputstream = actor.read_finish(result);
+                            inputstream = actor.read_finish(result);
+                        } catch (e) {
+                            reject(
+                                new Error(`Error opening input stream: ${e}`)
+                            );
+                            return;
+                        }
 
+                        function failAndClose(message) {
+                            try {
+                                inputstream.close(cancellable);
+                            } catch (e) {
+                            // ignore close error
+                            }
+                            reject(new Error(message));
+                        }
+
+                        function doRead() {
                             inputstream.read_bytes_async(
-                                bytes,
+                                newBytes,
                                 GLib.PRIORITY_DEFAULT,
                                 cancellable,
-                                (sourceObject, res) => {
-                                    const data =
-                                        sourceObject.read_bytes_finish(res);
-
-                                    if (data) {
-                                        inputstream.close(cancellable);
-                                        resolve(data);
+                                (sourceObject, res2) => {
+                                    let data;
+                                    try {
+                                        data =
+                                            sourceObject
+                                            .read_bytes_finish(res2);
+                                    } catch (e) {
+                                        failAndClose(
+                                            `Error reading bytes: ${e}`
+                                        );
+                                        return;
                                     }
 
-                                    reject(new Error('Empty Bytes'));
+                                    if (data && data.get_size() > 0) {
+                                        try {
+                                            inputstream.close(cancellable);
+                                        } catch (e) {
+                                        /* ignore */
+                                        }
+                                        resolve(data);
+                                        return;
+                                    }
+
+                                    failAndClose('Empty Bytes');
                                 }
                             );
-                        } catch (e) {
-                            reject(new Error('Error reading file inputstream'));
                         }
-                    });
+
+                        if (offset === 0) {
+                            doRead();
+                            return;
+                        }
+
+                        inputstream.skip_async(
+                            offset,
+                            GLib.PRIORITY_DEFAULT,
+                            cancellable,
+                            (sourceObject, resSkip) => {
+                                try {
+                                    const skipped =
+                                        sourceObject.skip_finish(resSkip);
+
+                                    if (skipped !== offset) {
+                                        failAndClose(
+                                            `Skip Error:
+                                                wanted offset ${offset} bytes,
+                                                got ${skipped} bytes`
+                                        );
+                                        return;
+                                    }
+                                } catch (e) {
+                                    failAndClose(`Error skipping bytes: ${e}`);
+                                    return;
+                                }
+                                doRead();
+                            }
+                        );
+                    }
+                );
             } catch (e) {
-                reject(new Error('Error reading file'));
+                reject(new Error(`Error starting async read: ${e}`));
             }
         });
     }
@@ -482,18 +567,32 @@ const DesktopIconsUtil = class {
      * @returns boolean
      */
     async checkIfPdfEncrypted(file, cancellable = null) {
+        const fromTail = true;
         const data = await this.readFileBytesAsync(
             file,
             1024,
-            cancellable
+            cancellable,
+            fromTail
         ).catch(e => logError(e));
 
         if (!data)
             return false;
 
-        const decoder = new TextDecoder();
+        const decoder = new TextDecoder('latin1');
 
-        return decoder.decode(data).includes('/Encrypt');
+        const trailerText = decoder.decode(data);
+
+        const hasEncrypt = trailerText.includes('/Encrypt');
+        if (!hasEncrypt)
+            return false;
+
+        const looksLikeClassicTrailer = trailerText.includes('trailer');
+        const looksLikeXrefStream =
+            trailerText.includes('/Type') && trailerText.includes('/XRef');
+
+        const encrypted = looksLikeClassicTrailer || looksLikeXrefStream;
+
+        return encrypted;
     }
 
     /**
