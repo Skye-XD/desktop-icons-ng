@@ -6,12 +6,15 @@ Icons can be positioned anywhere on desktop or are snapped to a grid. Can make l
 
 Updated and modified code base, uses Gio menus. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome 45 and higher.
 
-All translations on Weblate. Translated using LibreTranslate, machine translation, not every string is verified manually. Although most strings in languages should be OK, there will be some un-verified strings with errors. Translations available in-
-[ar,az,be,bg,bn,ca,cs,da,de,el,eo,es,et,eu,fa,fi,fr,fur,ga,gl,he,hi,hr,hu,id,it,ja,ka,ko,ky,lv,lt,ms,nb,nb_NO,nl,oc,pl,pt_BR,pt,ro,ru,sk,sl,sq,sv,ta,tl,tr,th,uk,ur,zh-Hans,,zh-Hant,,zh_CN,zh_TW,]
-Corrections, verification of translated strings, and new translations are welcome,you can help translate Gtk4 Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
+Translations available in-
+[ar, az, be, bg, bn, ca, cs, da, de, el, eo, es, et  eu, fa, fi, fr, fur, ga, gl, he, hi, hr, hu, id, it, ja, ka, ko, ky, lv, lt, ms, nb, nb_NO, nl, oc, pl, pt_BR, pt, ro, ru, sk, sl, sq, sv, ta, tl, tr, th, uk, ur, zh-Hans, zh-Hant, zh_CN, zh_TW]
+
+Translated using LibreTranslate, machine translation, not every string is verified manually. Although most strings in languages should be correct, errors are possible.
+
+Corrections, verification of translated strings, and new translations are welcome, all translations are on Weblate. You can help translate Adw. Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
 
 Multiple fixes and new features-
-* Uses LibreTranslate to automatically translate into 56 languages.
+* Uses LibreTranslate to automatically translate into 54 languages.
 * Right long click- launches shell background menu directly.
 * Animate margin changes with Adw.Animation. Respects global Gtk4/Gnome allow/disallow animation settings.
 * Improve search UI, files found containing the text in label are selected, non-selected files lose opacity an are dimmed so that found files are evident to the eye on a desktop with a large bunch of icons.. (Sundeep Mediratta)
