@@ -66,17 +66,21 @@ Glib is (at least for now, till a better spec appears) launching xdg-terminal-ex
 The Gnome Dconf key that specified the default terminal is depreciated.
 A good synopsis of the pros-and-cons and issues in [this comment](https://gitlab.gnome.org/GNOME/glib/-/issues/338#note_1745989) and on the [complicated file structure](https://github.com/ublue-os/main/issues/211#issuecomment-1551600704).
 Then newer specification that is supposed to better - [xdg-default-apps](https://gitlab.freedesktop.org/xdg/xdg-specs/-/issues/54#note_868443) spec. However this is not yet implemented, and appears stalled.
-However xdg-terminal-exec is a shell script and is not installed on all distributions.
+xdg-terminal-exec is usually a shell script and is not installed on all distributions.
 So, to let user launch their own default terminal application, gtk4-ding -
+
 A. will attempt to work like xdg-terminal-exec if it is not installed.
 * Look for $XDG_CONFIG_HOME/xdg-terminals.list, else for $XDG_CONFIG_DIRS/xdg-terminals.list. If this exists, try and open the first terminal in the list.
 * If $XDG_USER_DATA or $XDG_SYSTEM_DATA files have xdg-terminal folder with valid .desktop files, execute one of them.
 * If the depreciated dconf key for the default terminal still exists, launch the terminal specified there.
+
 B. If there is a valid xdg-terminal-exec binary, just execute that as GLib calls will do that. This allows a user to "hard code" a terminal by hacking xdg-terminal-exec.
 
 Easiest way of setting the terminal is .confg/terminal.list - one line, the name of the .desktop file to be launched.
 
 gtk4-ding now monitors all files and folders that define the terminal to be used and will automatically show the correct terminal that will be launched in the right click menu.
+
+If no default terminal is set, it will fall back to Console, try and look for it and execute it. If not found, it will show an error message or notification to install Console.
 
 ## DEFAULT APPLICATIONS, DEFAULT FILE MANAGER ISSUES
 
