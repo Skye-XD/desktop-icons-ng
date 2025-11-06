@@ -10,20 +10,22 @@
 # Josman Goncalves Bravo <josmangoncalvesbravo@hotmail.com>, 2025.
 # Mayco Emanuel Portillo <maycoemanuelportillo@gmail.com>, 2025.
 # Anthony Montero <aimc.6594@gmail.com>, 2025.
+# Marcos <yasif90@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
+"PO-Revision-Date: 2025-11-04 14:51+0000\n"
+"Last-Translator: Marcos <yasif90@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -212,7 +214,7 @@ msgstr "Click simple"
 
 #: app/adwPreferencesWindow.js:657
 msgid "Double click"
-msgstr "Click doble"
+msgstr "Doble click"
 
 #: app/adwPreferencesWindow.js:662
 msgid "Show image thumbnails"

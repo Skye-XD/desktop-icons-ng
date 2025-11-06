@@ -4,14 +4,14 @@
 # Automatically generated, 2025.
 #
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
+# imnotlxy <contact@lxy.cc>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-21 18:13+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-11-06 04:51+0000\n"
+"Last-Translator: imnotlxy <contact@lxy.cc>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
@@ -164,25 +164,25 @@ msgstr "左上角处"
 #: app/adwPreferencesWindow.js:572
 #, machine-translated
 msgid "Top right corner"
-msgstr "右边一角"
+msgstr "右上角"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
 #, machine-translated
 msgid "Bottom left corner"
-msgstr "左下角处"
+msgstr "左下角"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:574
 #, machine-translated
 msgid "Bottom right corner"
-msgstr "右下角处"
+msgstr "右下角"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:580
 #, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "如果有, 先在二级监视器中添加新图标"
+msgstr "优先将新图标添加至第二块显示器(如果存在)"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:584
@@ -248,19 +248,19 @@ msgstr "在图标标签中使用暗文本"
 #: app/adwPreferencesWindow.js:629
 #, machine-translated
 msgid "Show the personal folder on the desktop"
-msgstr "在桌面上显示个人文件夹"
+msgstr "在桌面上显示家目录"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:634
 #, machine-translated
 msgid "Show the trash icon on the desktop"
-msgstr "显示桌面上的垃圾图标"
+msgstr "在桌面上显示回收站图标"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:639
 #, machine-translated
 msgid "Show external drives on the desktop"
-msgstr "在桌面上显示外部驱动器"
+msgstr "在桌面上显示外置驱动器"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:644
@@ -272,7 +272,7 @@ msgstr "在桌面上显示网络驱动器"
 #: app/adwPreferencesWindow.js:649
 #, machine-translated
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "在桌面对面添加新驱动器"
+msgstr "将新驱动器添加到桌面的另一侧"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:654
