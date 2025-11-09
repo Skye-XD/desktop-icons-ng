@@ -30,6 +30,9 @@ export {EmulateX11WindowType};
 
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
+const isWayland = typeof Meta.is_wayland_compositor === 'function'
+    ? Meta.is_wayland_compositor()
+    : true;
 
 class ManageWindow {
     /* This class is added to each managed window, and it's used to make it
@@ -56,7 +59,7 @@ class ManageWindow {
     */
 
     constructor(window, waylandClient, changedStatusCB) {
-        this._isX11 = !Meta.is_wayland_compositor();
+        this._isX11 = !isWayland;
         this._waylandClient = waylandClient;
         this._window = window;
         this._signalIDs = [];
@@ -561,7 +564,7 @@ var EmulateX11WindowType = class {
      "addWindowManagedCustomJS_ding" method. That's all.
      */
     constructor() {
-        this._isX11 = !Meta.is_wayland_compositor();
+        this._isX11 = !isWayland;
         this._windowList = new Set();
         this._overviewHiding = true;
         this._waylandClient = null;
