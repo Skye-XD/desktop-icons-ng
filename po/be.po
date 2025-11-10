@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-21 18:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-11-09 21:51+0000\n"
+"Last-Translator: Drugi Sapog <dindrugi@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural="
 "(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -255,9 +255,8 @@ msgid "Edit Translations"
 msgstr "Пераклады"
 
 #: app/adwPreferencesWindow.js:705
-#, fuzzy
 msgid "Verify, add or correct translation in your web browser"
-msgstr "Дапамагчы з перакладам праз вэб-браўзер"
+msgstr "Дадаць, выправіць або спраўдзіць пераклад праз вэб-браўзер"
 
 #: app/adwPreferencesWindow.js:706
 msgid "Translate"
@@ -294,18 +293,12 @@ msgid "Invalid Permissions on AppImage File"
 msgstr "Няправільныя правы доступу да файла AppImage"
 
 #: app/appImageFileItem.js:58
-#, fuzzy
 msgid "This AppImage File has incorrect Permissions."
-msgstr ""
-"Гэты файл AppImage мае няправільныя дазволы. Націсніце правай кнопкай мышы, "
-"каб змяніць Уласцівасці, затым:\n"
+msgstr "Гэты файл AppImage мае няправільныя дазволы."
 
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
-#, fuzzy
 msgid "Right Click to edit Properties, then:"
-msgstr ""
-"Гэты файл AppImage мае няправільныя дазволы. Націсніце правай кнопкай мышы, "
-"каб змяніць Уласцівасці, затым:\n"
+msgstr "Націсніце правай кнопкай мышы, каб змяніць Уласцівасці, затым:"
 
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
 msgid "Set Permissions, in"
@@ -330,29 +323,20 @@ msgid "None"
 msgstr "Няма"
 
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, fuzzy
 msgid "Enable option"
-msgstr "Уключыць"
+msgstr "Уключыць параметр"
 
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, fuzzy
 msgid "Allow Executing File as a Program"
-msgstr ""
-"\n"
-"Уключыць параметр «Дазволіць выкананне файла як праграмы»"
+msgstr "Дазволіць выкананне файла як праграмы"
 
 #: app/appImageFileItem.js:79
 msgid "Untrusted AppImage File"
 msgstr "Недавераны файл AppImage"
 
 #: app/appImageFileItem.js:81
-#, fuzzy
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr ""
-"Гэты файл AppImage не давераны, яго нельга выканаць. Каб змяніць дазвол, "
-"націсніце правай кнопкай мышы, а затым:\n"
-"\n"
-"Уключыце пункт «Дазволіць выкананне»"
+msgstr "Гэты файл AppImage не давераны, яго нельга выканаць."
 
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
@@ -551,24 +535,16 @@ msgid "Invalid Permissions on Desktop File"
 msgstr "Няправільныя правы доступу да файла .desktop"
 
 #: app/desktopFileIcon.js:152
-#, fuzzy
 msgid "This Desktop File has incorrect Permissions."
-msgstr ""
-"Гэты файл .desktop мае няправільныя дазволы. Націсніце правай кнопкай мышы, "
-"каб змяніць Уласцівасці, затым:\n"
+msgstr "Гэты файл .desktop мае няправільныя дазволы."
 
 #: app/desktopFileIcon.js:173
 msgid "Untrusted Desktop File"
 msgstr "Недавераны файл .desktop"
 
 #: app/desktopFileIcon.js:175
-#, fuzzy
 msgid "This Desktop file is not trusted, it can not be launched."
-msgstr ""
-"Гэты файл .desktop не давераны, яго нельга выканаць. Каб змяніць дазвол, "
-"націсніце правай кнопкай мышы, а затым:\n"
-"\n"
-"Уключыце пункт «Дазволіць выкананне»"
+msgstr "Гэты файл .desktop не давераны, яго нельга выканаць."
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
