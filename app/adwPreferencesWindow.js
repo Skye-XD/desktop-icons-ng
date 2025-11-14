@@ -290,7 +290,10 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.9 for Gnome 45, 46, 47, 48 49</p>
+            `<p>* Adw version 100.11 for Gnome 45, 46, 47, 48 49</p>
+<ul><li>Fix margins in RTL layout under dock</li></ul>
+<ul><li>Adapt to X11 removal in mutter</li></ul>
+            <p>* Adw version 100.9 for Gnome 45, 46, 47, 48 49</p>
 <ul><li>Machine Translation with LibreTranslate to all supported languages</li></ul>
             <p>* Adw version 100.8-2 for Gnome 45, 46, 47, 48 49</p>
 <ul><li>Bug fix for older gnome versions with no GioUnix namespace</li></ul>
