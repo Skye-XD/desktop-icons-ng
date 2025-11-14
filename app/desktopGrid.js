@@ -288,8 +288,14 @@ const DisplayGrid = class {
     _sizeContainer(widget) {
         widget.margin_top = this._marginTop;
         widget.margin_bottom = this._marginBottom;
-        widget.margin_start = this._marginLeft;
-        widget.margin_end = this._marginRight;
+        const leftToRight = widget.get_direction() === Gtk.TextDirection.LTR;
+        if (leftToRight) {
+            widget.margin_start = this._marginLeft;
+            widget.margin_end = this._marginRight;
+        } else {
+            widget.margin_start = this._marginRight;
+            widget.margin_end = this._marginLeft;
+        }
     }
 
     _setGridStatus() {
