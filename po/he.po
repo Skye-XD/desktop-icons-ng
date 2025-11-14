@@ -5,56 +5,59 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# "Omer I.S." <omeritzicschwartz@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-03 23:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
+"PO-Revision-Date: 2025-11-14 11:14+0000\n"
+"Last-Translator: \"Omer I.S.\" <omeritzicschwartz@gmail.com>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : "
+"((n > 10 && n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 #, machine-translated
 msgid "Shortcuts"
-msgstr "מכנסיים קצרים"
+msgstr "קיצורי דרך"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:163
 #, machine-translated
 msgid "Edit Shortcuts..."
-msgstr "עריכה קצרה..."
+msgstr "עריכת קיצורי דרך..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:178
 #, machine-translated
 msgid "Edit Application Shortcuts"
-msgstr "Edit Application Shortcuts"
+msgstr "עריכת קיצורי דרך ליישומים"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:183
 #, machine-translated
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr "מכנסיים קצרים ניתן לערוך רק כאשר הרחבה מאפשרת..."
+msgstr "ניתן לערוך קיצורי מקשים רק כאשר ההרחבה מופעלת..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:288
 #, machine-translated
 msgid "Help translate in your web browser"
-msgstr "עזרו לתרגם בדפדפן האינטרנט שלכם"
+msgstr "עזרו לנו לשפר את התרגום מדפדפן האינטרנט שלכם"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
 #, machine-translated
 msgid "Desktop"
-msgstr "שולחן עבודה"
+msgstr "שולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
@@ -67,13 +70,13 @@ msgstr "קבצים"
 #: app/adwPreferencesWindow.js:539
 #, machine-translated
 msgid "Tweaks"
-msgstr "Tweaks"
+msgstr "התאמות"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
 #, machine-translated
 msgid "More"
-msgstr "עוד יותר"
+msgstr "עוד"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:514
@@ -91,13 +94,13 @@ msgstr "הגדרות לתוכנית שולחן העבודה"
 #: app/adwPreferencesWindow.js:521
 #, machine-translated
 msgid "Desktop Folder"
-msgstr "שולחן העבודה Folder"
+msgstr "תיקיית שולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:522
 #, machine-translated
 msgid "Current Desktop: "
-msgstr "שולחן העבודה הנוכחי:"
+msgstr "שולחן העבודה הנוכחי: "
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:532
@@ -109,13 +112,13 @@ msgstr "הגדרות קבצים"
 #: app/adwPreferencesWindow.js:533
 #, machine-translated
 msgid "Settings shared with Gnome Files"
-msgstr "תגיות קשורות Gnome Files"
+msgstr "הגדרות משותפות עם „קבצים” מבית GNOME"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:540
 #, machine-translated
 msgid "Miscellaneous Tweaks"
-msgstr "ממזר Tweaks"
+msgstr "התאמות שונות"
 
 #: app/adwPreferencesWindow.js:558
 msgid "Size for the desktop icons"
@@ -141,43 +144,43 @@ msgstr "גדול"
 #: app/adwPreferencesWindow.js:569
 #, machine-translated
 msgid "New icons alignment"
-msgstr "היערכות חדשה"
+msgstr "יישור סמלים חדשים"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:571
 #, machine-translated
 msgid "Top left corner"
-msgstr "פינת שמאל"
+msgstr "פינה שמאלית עליונה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:572
 #, machine-translated
 msgid "Top right corner"
-msgstr "פינת ימין"
+msgstr "פינה ימנית עליונה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:573
 #, machine-translated
 msgid "Bottom left corner"
-msgstr "פינת שמאל"
+msgstr "פינה שמאלית תחתונה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:574
 #, machine-translated
 msgid "Bottom right corner"
-msgstr "פינת ימין"
+msgstr "פינה ימנית תחתונה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:580
 #, machine-translated
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr "הוסף סמלים חדשים ל-IIary Monitor ראשון, אם זמין"
+msgstr "הוספת סמלים חדשים לצגים המשניים תחילה, אם הם זמינים"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:584
 #, machine-translated
 msgid "Snap icons to grid"
-msgstr "Snap icons to net"
+msgstr "הצמדת הסמלים לרשת"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:590
@@ -201,7 +204,7 @@ msgstr "קבע תיקיה חדשה עבור שולחן העבודה"
 #: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
 #, machine-translated
 msgid "Choose"
-msgstr "בוחרים"
+msgstr "בחירה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:606
@@ -219,7 +222,7 @@ msgstr "תיקון שולחן העבודה Folder"
 #: app/adwPreferencesWindow.js:610
 #, machine-translated
 msgid "Restore"
-msgstr "שיקום"
+msgstr "שחזור"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:620
@@ -231,43 +234,43 @@ msgstr "הוספת סימני מידע עבור קישורים, הצפנה"
 #: app/adwPreferencesWindow.js:624
 #, machine-translated
 msgid "Use dark text in icon labels"
-msgstr "השתמש טקסט כהה בתוויות סמל"
+msgstr "שימוש בטקסט כהה לתוויות הסמלים"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:629
 #, machine-translated
 msgid "Show the personal folder on the desktop"
-msgstr "הצג את התיקיה האישית על שולחן העבודה"
+msgstr "הצגת התיקייה האישית בשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:634
 #, machine-translated
 msgid "Show the trash icon on the desktop"
-msgstr "הצג את סמל הזבל על שולחן העבודה"
+msgstr "הצגת סמל האשפה בשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:639
 #, machine-translated
 msgid "Show external drives on the desktop"
-msgstr "הצג דחף חיצוני על שולחן העבודה"
+msgstr "הצגת כוננים חיצוניים בשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:644
 #, machine-translated
 msgid "Show network drives on the desktop"
-msgstr "רשת הצג כונן על שולחן העבודה"
+msgstr "הצגת כונני רשת בשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:649
 #, machine-translated
 msgid "Add new drives to the opposite side of the desktop"
-msgstr "הוסף כוננים חדשים לצד השני של שולחן העבודה"
+msgstr "הוספת כוננים חדשים לצד הנגדי של שולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:654
 #, machine-translated
 msgid "Action to Open Items"
-msgstr "פעולה לפריטים פתוחים"
+msgstr "פעולה לפתיחת פריטים"
 
 #: app/adwPreferencesWindow.js:656
 msgid "Single click"
@@ -289,7 +292,7 @@ msgstr "תמיד"
 #: app/adwPreferencesWindow.js:665
 #, machine-translated
 msgid "On this computer only"
-msgstr "במחשב רק"
+msgstr "במחשב זה בלבד"
 
 #: app/adwPreferencesWindow.js:666
 msgid "Never"
@@ -299,7 +302,7 @@ msgstr "אף פעם"
 #: app/adwPreferencesWindow.js:671
 #, machine-translated
 msgid "Show a context menu item to delete permanently"
-msgstr "הצג פריט תפריט ההקשר למחוק לצמיתות"
+msgstr "הצגת אפשרות בתפריט ההקשר למחיקה לצמיתות"
 
 #: app/adwPreferencesWindow.js:676
 msgid "Show hidden files"
@@ -309,7 +312,7 @@ msgstr "הצגת קבצים מוסתרים"
 #: app/adwPreferencesWindow.js:681
 #, machine-translated
 msgid "Open folders on drag hover"
-msgstr "תיקיות פתוחות על גרור"
+msgstr "פתיחת תיקיות בעת גרירה וריחוף מעליהן"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:685
@@ -349,37 +352,37 @@ msgstr "תרגום"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy,machine-translated
+#, machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "out {foo}"
+msgstr "נא לבחור יישום לפתיחת <b>{foo}</b>"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
 #, machine-translated
 msgid "Open Items"
-msgstr "פריטים פתוחים"
+msgstr "פתיחת פריטים"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
 #, machine-translated
 msgid "Open Folder"
-msgstr "פתוח Folder"
+msgstr "פתיחת תיקייה"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
 #, machine-translated
 msgid "Open File"
-msgstr "קובץ פתוח"
+msgstr "פתיחת קובץ"
 
 # MT: LibreTranslate
 #: app/appChooser.js:165
 #, machine-translated
 msgid "Error changing default application"
-msgstr "שגיאה שינוי יישום ברירת מחדל"
+msgstr "שגיאה בהחלפת יישום ברירת המחדל"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "שגיאה במהלך הגדרת {foo} כיישום ברירת המחדל עבור {mimetype}"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -429,7 +432,7 @@ msgstr "או"
 #: app/shortcutManager.js:522
 #, machine-translated
 msgid "None"
-msgstr "אף אחד לא"
+msgstr "ללא"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
@@ -493,25 +496,27 @@ msgstr "שינוי שם"
 #: app/autoAr.js:71
 #, machine-translated
 msgid "AutoAr is not installed"
-msgstr "רכב אוטומטי Ar אינו מותקן"
+msgstr "‏AutoAr אינו מותקן"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
 #, machine-translated
 msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
-msgstr "כדי להיות מסוגל לעבוד עם קבצים דחוסים, להתקין קובץ-roller ו / או gir-1.2-gnome AutoAr"
+msgstr ""
+"בשביל שיהיה אפשר לעבוד עם קבצים דחוסים, נא להתקין את file-roller ו/או "
+"gir-1.2-gnomeAutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
 #, machine-translated
 msgid "Extracting files"
-msgstr "החלפת קבצים"
+msgstr "הקבצים מחולצים"
 
 # MT: LibreTranslate
 #: app/autoAr.js:220
 #, machine-translated
 msgid "Compressing files"
-msgstr "פרופיל קבצים"
+msgstr "הקבצים נדחסים"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
 #: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
@@ -523,103 +528,103 @@ msgstr "ביטול"
 #: app/autoAr.js:311 app/autoAr.js:608
 #, machine-translated
 msgid "Enter a password here"
-msgstr "היכנס לסיסמה כאן"
+msgstr "נא להקליד כאן סיסמה"
 
 # MT: LibreTranslate
 #: app/autoAr.js:354
 #, machine-translated
 msgid "Removing partial file '${outputFile}'"
-msgstr "הסרת קובץ חלקי '${outputFile}'"
+msgstr "מוסר הקובץ החלקי '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:373
 #, machine-translated
 msgid "Creating destination folder"
-msgstr "יצירת תיקיית היעד"
+msgstr "נוצרת תיקיית היעד"
 
 # MT: LibreTranslate
 #: app/autoAr.js:405
 #, machine-translated
 msgid "Extracting files into '${outputPath}'"
-msgstr "out '${outputPath}'"
+msgstr "הקבצים מחולצים אל '${outputPath}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:435
 #, machine-translated
 msgid "Extraction completed"
-msgstr "הפקה הושלמה"
+msgstr "החילוץ הושלם"
 
 # MT: LibreTranslate
 #: app/autoAr.js:436
 #, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "out '${fullPathFile}'"
+msgstr "הושלם חילוץ '${fullPathFile}'."
 
 # MT: LibreTranslate
 #: app/autoAr.js:442
 #, machine-translated
 msgid "Extraction cancelled"
-msgstr "הפקה בוטלה"
+msgstr "החילוץ בוטל"
 
 # MT: LibreTranslate
 #: app/autoAr.js:443
 #, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "out '${fullPathFile}'"
+msgstr "חילוץ '${fullPathFile}' בוטל על ידי המשתמש."
 
 # MT: LibreTranslate
 #: app/autoAr.js:453
 #, machine-translated
 msgid "Passphrase required for ${filename}"
-msgstr "out ${filename}"
+msgstr "נדרשת סיסמה עבור ${filename}"
 
 # MT: LibreTranslate
 #: app/autoAr.js:456
 #, machine-translated
 msgid "Error during extraction"
-msgstr "טעות במהלך החילוץ"
+msgstr "שגיאה במהלך החילוץ"
 
 # MT: LibreTranslate
 #: app/autoAr.js:483
 #, machine-translated
 msgid "Compressing files into '${outputFile}'"
-msgstr "out '${outputFile}'"
+msgstr "הקבצים נדחסים אל '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:496
 #, machine-translated
 msgid "Compression completed"
-msgstr "דיכוי הושלם"
+msgstr "הדחיסה הושלמה"
 
 # MT: LibreTranslate
 #: app/autoAr.js:497
 #, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "out '${outputFile}'"
+msgstr "הושלמה דחיסת הקבצים אל '${outputFile}'."
 
 # MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
 #, machine-translated
 msgid "Cancelled compression"
-msgstr "ביטול דחיסה"
+msgstr "הדחיסה בוטלה"
 
 # MT: LibreTranslate
 #: app/autoAr.js:502
 #, machine-translated
 msgid "The output file '${outputFile}' already exists."
-msgstr "out '${outputFile}'"
+msgstr "קובץ הפלט '${outputFile}' כבר קיים."
 
 # MT: LibreTranslate
 #: app/autoAr.js:509
 #, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "out '${outputFile}'"
+msgstr "דחיסת הקבצים אל '${outputFile}' בוטלה על ידי המשתמש."
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
 #, machine-translated
 msgid "Error during compression"
-msgstr "טעות במהלך דחיסה"
+msgstr "שגיאה במהלך הדחיסה"
 
 # MT: LibreTranslate
 #: app/autoAr.js:547
@@ -643,25 +648,25 @@ msgstr "סיסמה"
 #: app/autoAr.js:617
 #, machine-translated
 msgid "Create"
-msgstr "יצירת"
+msgstr "לִיצוֹר"
 
 # MT: LibreTranslate
 #: app/autoAr.js:688
 #, machine-translated
 msgid "Compatible with all operating systems."
-msgstr "מתאים לכל מערכות ההפעלה."
+msgstr "תואם לכל מערכות ההפעלה."
 
 # MT: LibreTranslate
 #: app/autoAr.js:694
 #, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "סיסמה מוגן .zip, חייב להיות מותקן על Windows ו- Mac."
+msgstr "קובץ .zip מוגן בסיסמה, אמור להיות מותקן ב־Windows ו־Mac."
 
 # MT: LibreTranslate
 #: app/autoAr.js:700
 #, machine-translated
 msgid "Smaller archives but Linux and Mac only."
-msgstr "ארכיון קטן יותר אבל לינוקס ו- Mac בלבד."
+msgstr "ארכיונים קטנים יותר אך תואמים ללינוקס ו־Mac בלבד."
 
 # MT: LibreTranslate
 #: app/autoAr.js:706
@@ -683,15 +688,16 @@ msgid ""
 "\n"
 "Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
-"קבצי .deskop אינם יכולים להיות משוגרים משולחן העבודה הזה, שכן ה- Desktop Folder הוא עצבני על ידי משתמשים אחרים.\n"
+"לא ניתן לפתוח קובצי .desktop מתיקיית שולחן עבודה זו מכיוון שמשתמשים אחרים "
+"יכולים לערוך אותה.\n"
 "\n"
-"אנא בדוק את הרשאות של זה שולחן העבודה Folder, ולוודא שזה לא הרגיז על ידי אחרים."
+"נא לוודא שאין לשאר המשתמשים הרשאה לערוך את התיקייה."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:138
 #, machine-translated
 msgid "Broken Desktop File"
-msgstr "תגית: Broken Desktop File"
+msgstr "קובץ פגום של רשומת שולחן העבודה"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:141
@@ -701,15 +707,16 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"קובץ זה desktop יש שגיאות או נקודות לתוכנית ללא הרשאות. זה לא יכול להתבצע.\n"
+"לקובץ .desktop זה יש שגיאות או שהוא מוביל לתוכנית ללא הרשאות. לא ניתן להפעיל "
+"אותו.\n"
 "\n"
-"ערוך את הקובץ כדי להגדיר את התוכנית הנכונה."
+"נא לערוך את הקובץ ולהגדיר את התוכנית הנכונה להפעלה."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:151
 #, machine-translated
 msgid "Invalid Permissions on Desktop File"
-msgstr "אישורים לא חוקיים ב- Desktop File"
+msgstr "הרשאות לא תקניות בקובץ רשומת שולחן העבודה"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
@@ -721,7 +728,7 @@ msgstr "לקובץ שולחן העבודה יש הרשאות שגויות."
 #: app/desktopFileIcon.js:173
 #, machine-translated
 msgid "Untrusted Desktop File"
-msgstr "תגית: Desktop File"
+msgstr "קובץ רשומת שולחן עבודה שלא ניתן בו אמון"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
@@ -733,7 +740,7 @@ msgstr "קובץ שולחני זה אינו אמין, הוא לא יכול לה�
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 #, machine-translated
 msgid "Could not open File"
-msgstr "לא יכול לפתוח File"
+msgstr "לא היה ניתן לפתוח את הקובץ"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:206
@@ -776,7 +783,7 @@ msgstr "מעבר לשולחן העבודה החדש..."
 #: data/com.desktop.ding.desktop.in:4
 #, machine-translated
 msgid "Desktop Icons"
-msgstr "אייקונים שולחניים"
+msgstr "סמלים בשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:157
@@ -812,7 +819,7 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, machine-translated
 msgid "Enable"
-msgstr "אפשרות"
+msgstr "הפעלה"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
@@ -850,19 +857,19 @@ msgstr ""
 #: app/desktopManager.js:219
 #, machine-translated
 msgid "GNOME Files not found"
-msgstr "GNOME קבצים שלא נמצאו"
+msgstr "לא נמצא יישום „קבצים” מבית GNOME"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:220
 #, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME יישום קבצים נדרש על ידי Gtk4 Desktop Icons NG."
+msgstr "יישום „קבצים” מבית GNOME נדרש על ידי התוסף Gtk4 Desktop Icons NG."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:227
 #, machine-translated
 msgid "There is no default File Manager"
-msgstr "אין מנהל קובץ ברירת מחדל"
+msgstr "אין מנהל קבצים שמוגדר כברירת מחדל"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:228
@@ -874,7 +881,7 @@ msgstr "אין יישום אשר מטפל mimetype \"inode/בימוי\""
 #: app/desktopManager.js:235
 #, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "קובץ Gnome אינו רשום כמנהל קבצים"
+msgstr "יישום „קבצים” מבית GNOME אינו רשום בתור מנהל קבצים"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:236
@@ -892,13 +899,13 @@ msgstr ""
 #: app/desktopManager.js:328
 #, machine-translated
 msgid "Clear current selection before new search"
-msgstr "בחירה נוכחית ברורה לפני חיפוש חדש"
+msgstr "ניקוי הבחירה הנוכחית לפני חיפוש חדש"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1238
 #, machine-translated
 msgid "Find Files on Desktop"
-msgstr "מצא קבצים על שולחן העבודה"
+msgstr "איתור קבצים בשולחן העבודה"
 
 #: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
@@ -908,31 +915,31 @@ msgstr "תיקיה חדשה"
 #: app/desktopManager.js:1613
 #, machine-translated
 msgid "Folder Creation Failed"
-msgstr "יצירת פלאדר נכשלת"
+msgstr "יצירת התיקייה נכשלה"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1614
 #, machine-translated
 msgid "Could not create folder"
-msgstr "לא יכול ליצור תיקיה"
+msgstr "לא היה ניתן ליצור את התיקייה"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:601
 #, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Unable to open Desktop in Gnome Files"
+msgstr "אין אפשרות לפתוח את תיקיית שולחן העבודה ביישום „קבצים” מבית GNOME"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:620
 #, machine-translated
 msgid "Preferences Window is Open"
-msgstr "החלון פתוח"
+msgstr "חלון ההעדפות פתוח"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:621
 #, machine-translated
 msgid "This Window is open. Please switch to the active window."
-msgstr "החלון הזה פתוח. נא לעבור אל החלון הפעיל."
+msgstr "חלון זה פתוח. נא לעבור לחלון הפעיל."
 
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 msgid "Settings"
@@ -942,31 +949,31 @@ msgstr "הגדרות"
 #: app/desktopMenu.js:813
 #, machine-translated
 msgid "Template Creation Error"
-msgstr "יצירת שגיאות"
+msgstr "שגיאה ביצירת התבנית"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:814
 #, machine-translated
 msgid "Could not create document"
-msgstr "לא יכול ליצור מסמך"
+msgstr "לא היה ניתן ליצור את המסמך"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:919
 #, machine-translated
 msgid "Name"
-msgstr "שם השם"
+msgstr "בסדר אלפביתי (א-ת)"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:921
 #, machine-translated
 msgid "Name Z-A"
-msgstr "שם Z-A"
+msgstr "בסדר אלפביתי (ת-א)"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:923
 #, machine-translated
 msgid "Modified Time"
-msgstr "זמן משתנה"
+msgstr "מועד השינוי האחרון"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:925
@@ -984,19 +991,19 @@ msgstr "גודל"
 #: app/desktopMenu.js:932
 #, machine-translated
 msgid "Keep Arranged…"
-msgstr "תמשיך לסדר.."
+msgstr "להשאיר מסודר…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:937
 #, machine-translated
 msgid "Keep Stacked by Type…"
-msgstr "עקבו אחרי Type.."
+msgstr "קיבוץ קבצים לפי סוג…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:939
 #, machine-translated
 msgid "Sort Home/Drives/Trash…"
-msgstr "בית / נהגים / טרש"
+msgstr "מיון תיקיית הבית/כוננים/אשפה…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:944
@@ -1014,13 +1021,13 @@ msgstr "שחזור שולחן העבודה"
 #: app/desktopMenu.js:953
 #, machine-translated
 msgid "Desktop Icon Settings"
-msgstr "הגדרות אייקון שולחן העבודה"
+msgstr "הגדרות סמלים בשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:955
 #, machine-translated
 msgid "Show Shortcuts"
-msgstr "הצג קצר"
+msgstr "הצגת קיצורים"
 
 #: app/desktopMenu.js:963 app/shortcuts.js:43
 msgid "New Document"
@@ -1042,19 +1049,19 @@ msgstr "ביצוע חוזר"
 #: app/desktopMenu.js:978 app/shortcuts.js:14
 #, machine-translated
 msgid "Select All"
-msgstr "בחר הכל"
+msgstr "לבחור הכול"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:985
 #, machine-translated
 msgid "Arrange Icons"
-msgstr "איקונים מסודרים"
+msgstr "סידור סמלים"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:989
 #, machine-translated
 msgid "Arrange By…"
-msgstr "סידור על ידי.."
+msgstr "סידור לפי…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:997
@@ -1066,13 +1073,13 @@ msgstr "out {0}"
 #: app/desktopMenu.js:1002
 #, machine-translated
 msgid "Open In {0}"
-msgstr "out {0}"
+msgstr "פתיחה באמצעות {0}"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1018
 #, machine-translated
 msgid "Shell Menu…"
-msgstr "התפריט.."
+msgstr "תפריט המעטפת…"
 
 # MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
@@ -1096,19 +1103,19 @@ msgstr "עותק/Move Failed"
 #: app/dragManager.js:740
 #, machine-translated
 msgid "{0} Does not exist"
-msgstr "out {0}"
+msgstr "‏{0} לא קיים"
 
 # MT: LibreTranslate
 #: app/dragManager.js:782
 #, machine-translated
 msgid "Choose Action for Files"
-msgstr "בחר פעולה עבור קבצים"
+msgstr "נא לבחור פעולה לקבצים"
 
 # MT: LibreTranslate
 #: app/dragManager.js:783
 #, machine-translated
 msgid "Move"
-msgstr "לזוז"
+msgstr "העברה"
 
 #: app/dragManager.js:783 app/fileItemMenu.js:240
 msgid "Copy"
@@ -1124,19 +1131,19 @@ msgstr "קישור"
 #: app/fileItemIcon.js:95
 #, machine-translated
 msgid "Folder"
-msgstr "Folder"
+msgstr "תיקייה"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:96
 #, machine-translated
 msgid "File"
-msgstr "File"
+msgstr "קובץ"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:270
 #, machine-translated
 msgid "Opening File Failed"
-msgstr "קובץ פתיחה נכשל"
+msgstr "פתיחת הקובץ נכשלה"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:276
@@ -1160,13 +1167,13 @@ msgstr "לפתוח הכול..."
 #: app/fileItemMenu.js:122
 #, machine-translated
 msgid "Launch"
-msgstr "שיגור"
+msgstr "הפעלה"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:135
 #, machine-translated
 msgid "Open with {foo}"
-msgstr "out {foo}"
+msgstr "פתיחה עם {foo}"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
@@ -1176,19 +1183,19 @@ msgstr "פתיחה"
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 #, machine-translated
 msgid "Extract Here"
-msgstr "הפקה כאן"
+msgstr "חילוץ לכאן"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:162
 #, machine-translated
 msgid "Extract To..."
-msgstr "הפקה ל..."
+msgstr "חילוץ אל..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 #, machine-translated
 msgid "Open With..."
-msgstr "פתוח עם..."
+msgstr "פתיחה באמצעות..."
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
@@ -1210,13 +1217,13 @@ msgstr "סוג זה"
 #: app/fileItemMenu.js:207
 #, machine-translated
 msgid "Unstack This Type"
-msgstr "Unstack This Type"
+msgstr "ביטול הקיבוץ של הסוג הזה"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:231
 #, machine-translated
 msgid "Run as a Program"
-msgstr "לרוץ כתוכנית"
+msgstr "הרצה כתוכנית"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
@@ -1230,13 +1237,13 @@ msgstr "גזירה"
 #: app/fileItemMenu.js:244
 #, machine-translated
 msgid "Move to..."
-msgstr "לעבור ל..."
+msgstr "העברה אל..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:245
 #, machine-translated
 msgid "Copy to..."
-msgstr "העתק ל..."
+msgstr "העתקה אל..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -1246,17 +1253,17 @@ msgstr "שינוי שם…"
 #: app/fileItemMenu.js:254
 #, machine-translated
 msgid "Create Link..."
-msgstr "צור קשר..."
+msgstr "יצירת קישור..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:261
 #, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "out {0}"
-msgstr[1] "out {0}"
-msgstr[2] "out {0}"
-msgstr[3] "out {0}"
+msgstr[0] "דחיסת תיקייה אחת"
+msgstr[1] "דחיסת {0} תיקיות"
+msgstr[2] "דחיסת {0} תיקיות"
+msgstr[3] "דחיסת {0} תיקיות"
 
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
@@ -1276,7 +1283,7 @@ msgstr "דואר אלקטרוני ל..."
 #: app/fileItemMenu.js:286
 #, machine-translated
 msgid "Send to Mobile Device"
-msgstr "שלח למכשיר נייד"
+msgstr "שליחה לנייד"
 
 #: app/fileItemMenu.js:294
 msgid "Move to Trash"
@@ -1340,31 +1347,31 @@ msgstr "פתוח Item"
 #: app/fileItemMenu.js:819
 #, machine-translated
 msgid "Extraction Cancelled"
-msgstr "ביטול"
+msgstr "החילוץ בוטל"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:820
 #, machine-translated
 msgid "Unable to extract File, no destination folder"
-msgstr "בלתי אפשרי לחלץ תגית: no place"
+msgstr "אין אפשרות לחלץ את הקובץ, אין תיקיית יעד"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:876 app/fileItemMenu.js:905
 #, machine-translated
 msgid "Select Destination"
-msgstr "יעד נבחר"
+msgstr "בחירת יעד"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:879 app/fileItemMenu.js:907
 #, machine-translated
 msgid "Select"
-msgstr "בחר"
+msgstr "בחירה"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:963
 #, machine-translated
 msgid "Can not email a Directory"
-msgstr "לא יכול לשלוח אימייל למדריך"
+msgstr "לא ניתן לשלוח תיקייה בדוא״ל"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:965
@@ -1444,7 +1451,7 @@ msgstr "אנא התקן {0}"
 #: app/fileItemMenu.js:1281
 #, machine-translated
 msgid "Copy Cancelled"
-msgstr "העתק בוטל"
+msgstr "ההעתקה בוטלה"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1282
@@ -1456,13 +1463,13 @@ msgstr "לא ניתן להעתיק קבצים, אין תיקיית יעד"
 #: app/fileItemMenu.js:1305
 #, machine-translated
 msgid "Move Cancelled"
-msgstr "ביטול"
+msgstr "ההעברה בוטלה"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1306
 #, machine-translated
 msgid "Unable to move Files, no destination folder"
-msgstr "לא ניתן להעביר קבצים, אין תיקיית יעד"
+msgstr "אין אפשרות להעביר את הקבצים, אין תיקיית יעד"
 
 # MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
@@ -1480,7 +1487,7 @@ msgstr "הקונסולה"
 #: app/shortcutManager.js:85
 #, machine-translated
 msgid "Default Shortcut:"
-msgstr "Default Shortcut:"
+msgstr "קיצור ברירת מחדל:"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:109
@@ -1534,7 +1541,7 @@ msgstr "עקבו אחרי Keyboard Shortcuts"
 #: app/shortcutManager.js:364
 #, machine-translated
 msgid "Global Shortcuts"
-msgstr "Global Shortcuts"
+msgstr "קיצורי מקשים כלל־מערכתיים"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:365
@@ -1610,7 +1617,7 @@ msgstr "עקבו"
 #: app/shortcuts.js:22
 #, machine-translated
 msgid "Keep Stacked"
-msgstr "Keep Stacked"
+msgstr "להשאיר מקובץ"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:23
@@ -1670,7 +1677,7 @@ msgstr "הצג קבצים נסתרים"
 #: app/shortcuts.js:32
 #, machine-translated
 msgid "Unselect All"
-msgstr "Unselect All"
+msgstr "ביטול הבחירה של הכול"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:33
@@ -1760,7 +1767,7 @@ msgstr "בית"
 #: app/specialFolderIcon.js:63
 #, machine-translated
 msgid "Trash"
-msgstr "Trash"
+msgstr "אשפה"
 
 # MT: LibreTranslate
 #. * TRANSLATORS: when using a screen reader,
@@ -1816,7 +1823,7 @@ msgstr "הפקודה לא נמצאה"
 #: data/ui/ding-app-chooser.ui:47
 #, machine-translated
 msgid "Choose an app to open the selected files."
-msgstr "בחר אפליקציה כדי לפתוח את הקבצים שנבחרו."
+msgstr "נא לבחור יישום לפתיחת הקבצים שנבחרו."
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
@@ -1828,13 +1835,13 @@ msgstr "תמיד להשתמש בסוג קובץ זה"
 #: data/ui/ding-app-chooser.ui:104
 #, machine-translated
 msgid "_Cancel"
-msgstr "Can"
+msgstr "בי_טול"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
 #, machine-translated
 msgid "_Open"
-msgstr "פתוח"
+msgstr "_פתיחה"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
@@ -1874,7 +1881,7 @@ msgstr "גודל הסמלים"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 #, machine-translated
 msgid "Set the size for the desktop icons."
-msgstr "הגדר את הגודל עבור אייקונים שולחניים."
+msgstr "קביעת הגודל לסמלים בשולחן העבודה."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
 msgid "Show personal folder"
@@ -1884,7 +1891,7 @@ msgstr "הצגת התיקייה האישית"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 #, machine-translated
 msgid "Show the personal folder in the desktop."
-msgstr "הצג את התיקיה האישית בשולחן העבודה."
+msgstr "הצגת התיקייה האישית בשולחן העבודה."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
@@ -1894,13 +1901,13 @@ msgstr "הצגת סמל האשפה"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 #, machine-translated
 msgid "Show the trash icon in the desktop."
-msgstr "הצג את סמל הזבל בשולחן העבודה."
+msgstr "הצגת סמל האשפה בשולחן העבודה."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 #, machine-translated
 msgid "New icons start corner"
-msgstr "סמלים חדשים מתחילים פינה"
+msgstr "הוספת סמלים חדשים לפינה"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
@@ -1984,7 +1991,7 @@ msgstr "תמיד לשמור על איקונים הסדר הקבוע האחרון
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 #, machine-translated
 msgid "Arrange Order"
-msgstr "הסדר הסדר הסדר"
+msgstr "סידור לפי סדר אחר"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
