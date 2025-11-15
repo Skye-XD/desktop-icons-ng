@@ -85,7 +85,7 @@ msgstr "桌面设置"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:515
-#, fuzzy, machine-translated
+#, machine-translated
 msgid "Settings for the Desktop Program"
 msgstr "桌面程序的设置"
 
