@@ -5,13 +5,14 @@
 #
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
 # imnotlxy <contact@lxy.cc>, 2025.
+# zhongweixiao5 <zhongweixiao5@qq.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-11-06 04:51+0000\n"
-"Last-Translator: imnotlxy <contact@lxy.cc>\n"
+"PO-Revision-Date: 2025-11-15 11:51+0000\n"
+"Last-Translator: zhongweixiao5 <zhongweixiao5@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -84,7 +85,7 @@ msgstr "桌面设置"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:515
-#, machine-translated
+#, fuzzy, machine-translated
 msgid "Settings for the Desktop Program"
 msgstr "桌面程序的设置"
 

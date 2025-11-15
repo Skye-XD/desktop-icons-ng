@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-11-14 11:14+0000\n"
+"PO-Revision-Date: 2025-11-15 11:51+0000\n"
 "Last-Translator: \"Omer I.S.\" <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
@@ -1211,7 +1211,7 @@ msgstr "שיגור כרטיס גרפיקה משולב"
 #: app/fileItemMenu.js:206
 #, machine-translated
 msgid "Stack This Type"
-msgstr "סוג זה"
+msgstr "קיבוץ סוג זה"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:207
@@ -1277,7 +1277,7 @@ msgstr[3] "דחיסת {0} קבצים"
 #: app/fileItemMenu.js:276
 #, machine-translated
 msgid "Email to..."
-msgstr "דואר אלקטרוני ל..."
+msgstr "שליחת דוא״ל אל..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:286
@@ -1313,7 +1313,7 @@ msgstr "ניתוק"
 #: app/fileItemMenu.js:354
 #, machine-translated
 msgid "Common Properties"
-msgstr "נכסים משותפים"
+msgstr "מאפיינים נפוצים"
 
 #: app/fileItemMenu.js:355
 msgid "Properties"
@@ -1323,25 +1323,25 @@ msgstr "מאפיינים"
 #: app/fileItemMenu.js:362
 #, machine-translated
 msgid "Show All in {0}"
-msgstr "out {0}"
+msgstr "להציג הכול בתוך {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:363
 #, machine-translated
 msgid "Show in {0}"
-msgstr "out {0}"
+msgstr "הצגה בתוך {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:374
 #, machine-translated
 msgid "Open in {0}"
-msgstr "out {0}"
+msgstr "פתיחה באמצעות {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:537
 #, machine-translated
 msgid "Open Item"
-msgstr "פתוח Item"
+msgstr "פתיחת פריט"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:819
@@ -1377,45 +1377,45 @@ msgstr "לא ניתן לשלוח תיקייה בדוא״ל"
 #: app/fileItemMenu.js:965
 #, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "בחירה כוללת מדריך, דחוס לקובץ zip קודם?"
+msgstr "הבחירה כוללת תיקייה, האם לדחוס לקובץ .zip תחילה?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
 #: app/fileItemMenu.js:1058
 #, machine-translated
 msgid "Mail Error"
-msgstr "דואר שגיאה"
+msgstr "שגיאת דואר"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:993
 #, machine-translated
 msgid "Unable to find zip command, please install the program"
-msgstr "לא ניתן למצוא פיקוד zip, אנא להתקין את התוכנית"
+msgstr "אין אפשרות למצוא את הפקודה zip, נא להתקין את התוכנית"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:999
 #, machine-translated
 msgid "Archive.zip"
-msgstr "ארכיון"
+msgstr "ארכיון.zip"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1023
 #, machine-translated
 msgid "There was an error in creating a zip archive"
-msgstr "הייתה טעות ביצירת zip"
+msgstr "הייתה שגיאה ביצירת ארכיון zip"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1041
 #, machine-translated
 msgid "Unable to find xdg-email, please install the program"
-msgstr "לא ניתן למצוא xdg-Mail, אנא להתקין את התוכנית"
+msgstr "אין אפשרות למצוא את xdg-Mail, נא להתקין את התוכנית"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1059
 #, machine-translated
 msgid "There was an error in emailing Files"
-msgstr "הייתה טעות בהודעות דואר אלקטרוני"
+msgstr "הייתה שגיאה בשליחת הקבצים בדוא״ל"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1174
@@ -1427,7 +1427,7 @@ msgstr "לא יכול לפתוח את מדריך העבודה"
 #: app/fileItemMenu.js:1225
 #, machine-translated
 msgid "Unable to Open in Gnome Console"
-msgstr "לא ניתן לפתוח ב-Gnome Console"
+msgstr "אין אפשרות לפתוח בשורת הפקודה של GNOME"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1227
@@ -1439,13 +1439,13 @@ msgstr "אנא התקנת Gnome Console או תוכנית טרמינל אחרת"
 #: app/fileItemMenu.js:1235
 #, machine-translated
 msgid "Unable to Open {0}"
-msgstr "out {0}"
+msgstr "אין אפשרות לפתוח את {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1237
 #, machine-translated
 msgid "Please Install {0}"
-msgstr "אנא התקן {0}"
+msgstr "נא להתקין את {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1281
@@ -1457,7 +1457,7 @@ msgstr "ההעתקה בוטלה"
 #: app/fileItemMenu.js:1282
 #, machine-translated
 msgid "Unable to copy Files, no destination folder"
-msgstr "לא ניתן להעתיק קבצים, אין תיקיית יעד"
+msgstr "אין אפשרות להעתיק את הקבצים, אין תיקיית יעד"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1305
@@ -1481,7 +1481,7 @@ msgstr "$app לא יכול לפתוח קבצים מסוג זה!"
 #: app/preferences.js:885
 #, machine-translated
 msgid "Console"
-msgstr "הקונסולה"
+msgstr "שורת פקודה"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:85
@@ -1505,13 +1505,13 @@ msgstr "Modifier + Key (למשל Ctrl + אלט + D)"
 #: app/shortcutManager.js:130
 #, machine-translated
 msgid "Reset to Default"
-msgstr "איפוס ל Default"
+msgstr "שחזור לברירת המחדל"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:134
 #, machine-translated
 msgid "No Accelerator"
-msgstr "אין Accelerator"
+msgstr "אין קיצור מקשים"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:243
@@ -1547,13 +1547,13 @@ msgstr "קיצורי מקשים כלל־מערכתיים"
 #: app/shortcutManager.js:365
 #, machine-translated
 msgid "System Keyboard Shortcuts"
-msgstr "מערכת Keyboard קצר"
+msgstr "קיצורי מקשים של המערכת"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:661
 #, machine-translated
 msgid "Keyboard Shortcuts"
-msgstr "Keyboard Shortcut"
+msgstr "קיצורי מקשים"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:673
@@ -1593,7 +1593,7 @@ msgstr "שינוי רקע"
 #: app/shortcuts.js:18
 #, machine-translated
 msgid "Change Display Settings"
-msgstr "שינוי הגדרות"
+msgstr "שינוי הגדרות תצוגה"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:19
@@ -1659,7 +1659,7 @@ msgstr "סמלים לפי גודל"
 #: app/shortcuts.js:29
 #, machine-translated
 msgid "Find Files"
-msgstr "מצא קבצים"
+msgstr "איתור קבצים"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:30
@@ -1671,7 +1671,7 @@ msgstr "עדכון שולחן העבודה"
 #: app/shortcuts.js:31
 #, machine-translated
 msgid "Show Hidden Files"
-msgstr "הצג קבצים נסתרים"
+msgstr "הצגת קבצים מוסתרים"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:32
@@ -1683,7 +1683,7 @@ msgstr "ביטול הבחירה של הכול"
 #: app/shortcuts.js:33
 #, machine-translated
 msgid "Preview"
-msgstr "ביקורת"
+msgstr "תצוגה מקדימה"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:34
@@ -1713,7 +1713,7 @@ msgstr "בחר אייקון למטה"
 #: app/shortcuts.js:38
 #, machine-translated
 msgid "Show Menu"
-msgstr "מראה התפריט"
+msgstr "הצגת התפריט"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:39
@@ -1777,7 +1777,7 @@ msgstr "אשפה"
 #: app/stackItem.js:46
 #, machine-translated
 msgid "Stack"
-msgstr "Stack"
+msgstr "קִיבּוּץ"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:100
@@ -1787,7 +1787,7 @@ msgstr "קישור שבור"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:102
-#, machine-translated
+#, fuzzy, machine-translated
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "לא יכול לפתוח את הקובץ הזה כי הוא שבור"
 
@@ -1795,7 +1795,7 @@ msgstr "לא יכול לפתוח את הקובץ הזה כי הוא שבור"
 #: app/volumeIcon.js:58
 #, machine-translated
 msgid "Drive"
-msgstr "כונן Drive"
+msgstr "כונן"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
@@ -1829,7 +1829,7 @@ msgstr "נא לבחור יישום לפתיחת הקבצים שנבחרו."
 #: data/ui/ding-app-chooser.ui:81
 #, machine-translated
 msgid "Always use for this file type"
-msgstr "תמיד להשתמש בסוג קובץ זה"
+msgstr "תמיד להשתמש לסוג קובץ זה"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
@@ -1859,7 +1859,7 @@ msgstr "שולחן עבודה; מטבעות; פיות; מנדר; ;hide; show;lau
 #: data/com.desktop.ding.desktop.in:21
 #, machine-translated
 msgid "Show<>Hide"
-msgstr "תגית: Hide"
+msgstr "הצגה<>הסתרה"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
@@ -1871,7 +1871,7 @@ msgstr "העדפות"
 #: data/com.desktop.ding.desktop.in:37
 #, machine-translated
 msgid "Disable"
-msgstr "אכזבה"
+msgstr "השבתה"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
 msgid "Icon size"
@@ -1913,43 +1913,44 @@ msgstr "הוספת סמלים חדשים לפינה"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 #, machine-translated
 msgid "Set the corner from where the icons will start to be placed."
-msgstr "הגדר את הפינה מהיכן יתחילו הסמלים."
+msgstr "הגדרת הפינה שממנה יתחיל סדר הסמלים."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 #, machine-translated
 msgid "Show external drives in the desktop"
-msgstr "הצג כוננים חיצוניים בשולחן העבודה"
+msgstr "הצגת כוננים חיצוניים בשולחן העבודה"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 #, machine-translated
 msgid "Show the disk drives connected to the computer."
-msgstr "הצג את כונן הדיסק מחובר למחשב."
+msgstr "הצגת הכוננים שמחוברים למחשב."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 #, machine-translated
 msgid "Show network drives in the desktop"
-msgstr "רשת Show Drives in the שולחן העבודה"
+msgstr "הצגת כונני רשת בשולחן העבודה"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 #, machine-translated
 msgid "Show mounted network volumes in the desktop."
-msgstr "הצג נפח רשת רכוב בשולחן העבודה."
+msgstr "הצגת כרכי רשת מעוגנים בשולחן העבודה."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 #, machine-translated
 msgid "Add new drives to the opposite side of the screen"
-msgstr "הוסף כוננים חדשים לצד השני של המסך"
+msgstr "הוספת כוננים חדשים לצד הנגדי של המסך"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 #, machine-translated
 msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
-msgstr "בעת הוספת כוננים ו כרכים לשולחן העבודה, להוסיף אותם לצד השני של המסך."
+msgstr ""
+"בעת הוספת כוננים וכרכים לשולחן העבודה, יש להוסיף אותם לצד הנגדי של המסך."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
@@ -1961,7 +1962,9 @@ msgstr "מראה מלבן במקום היעד במהלך DnD"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 #, machine-translated
 msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
-msgstr "בעת ביצוע ניתוח דרדרנ'נדרו, מסמן את המקום ברשת שבו הסמל יושם עם מלבן למחצה."
+msgstr ""
+"בעת ביצוע פעולת גרירה ושחרור, אפשרות זו מסמנת בטבלה את המקום שבו יופיע הסמל "
+"בעזרת מלבן שקוף למחצה."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
@@ -1979,7 +1982,7 @@ msgstr "בעת סידור איקונים על שולחן העבודה, למיי�
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 #, machine-translated
 msgid "Keep Icons Arranged"
-msgstr "שמור על איקונים מסודרים"
+msgstr "לשמור על סמלים מסודרים"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
@@ -2003,7 +2006,7 @@ msgstr "סמלים מסודרים על ידי הנכס הזה"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 #, machine-translated
 msgid "Keep Icons Stacked"
-msgstr "עקבו אחרי Icons Stacked"
+msgstr "להשאיר את הסמלים מקובצים"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
@@ -2015,7 +2018,7 @@ msgstr "תמיד לשמור על איקונים מקובצים דומים"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 #, machine-translated
 msgid "Type of Files to not Stack"
-msgstr "סוג של קבצים שלא לקלקל"
+msgstr "סוג של קבצים שלא יקובצו"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
@@ -2027,7 +2030,7 @@ msgstr "סוג של מחרוזת, Don't Stack אלה סוגים של קבצים"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 #, machine-translated
 msgid "Add an emblem to links"
-msgstr "הוסף סמל קישורים"
+msgstr "הוספת סמל לקישורים"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
