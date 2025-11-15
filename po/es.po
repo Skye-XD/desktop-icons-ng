@@ -11,13 +11,15 @@
 # Mayco Emanuel Portillo <maycoemanuelportillo@gmail.com>, 2025.
 # Anthony Montero <aimc.6594@gmail.com>, 2025.
 # Marcos <yasif90@gmail.com>, 2025.
+# Francisco Serrador <fserrador@gmail.com>, 2025.
+# Deleted User <noreply+48943@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-11-04 14:51+0000\n"
-"Last-Translator: Marcos <yasif90@gmail.com>\n"
+"PO-Revision-Date: 2025-11-15 11:51+0000\n"
+"Last-Translator: Deleted User <noreply+48943@weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -25,11 +27,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
-msgstr "Accesos directos"
+msgstr "Atajos"
 
 #: app/adwPreferencesWindow.js:163
 msgid "Edit Shortcuts..."
@@ -37,11 +39,11 @@ msgstr "Editar accesos directos..."
 
 #: app/adwPreferencesWindow.js:178
 msgid "Edit Application Shortcuts"
-msgstr "Editar accesos directos de aplicaciones"
+msgstr "Editar atajos de aplicación"
 
 #: app/adwPreferencesWindow.js:183
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr "Los accesos directos solo podrán editarse cuando la extensión esté activada."
+msgstr "Los atajos son editables solo cuando la extensión esté activada…"
 
 #: app/adwPreferencesWindow.js:288
 msgid "Help translate in your web browser"
@@ -82,7 +84,7 @@ msgstr "Escritorio actual: "
 
 #: app/adwPreferencesWindow.js:532
 msgid "Files Settings"
-msgstr "Configuración de archivos"
+msgstr "Ajustes de archivos"
 
 #: app/adwPreferencesWindow.js:533
 msgid "Settings shared with Gnome Files"
@@ -114,7 +116,7 @@ msgstr "Grande"
 
 #: app/adwPreferencesWindow.js:569
 msgid "New icons alignment"
-msgstr "Alineamiento de nuevos iconos"
+msgstr "Alineamiento de iconos nuevos"
 
 #: app/adwPreferencesWindow.js:571
 msgid "Top left corner"
@@ -142,7 +144,7 @@ msgstr "Ajustar iconos a la cuadrícula"
 
 #: app/adwPreferencesWindow.js:590
 msgid "Highlight the drop grid"
-msgstr "Destacar la rejilla de suelte"
+msgstr "Destacar la rejilla desplegable"
 
 #: app/adwPreferencesWindow.js:599
 msgid "New Desktop Folder"
@@ -160,19 +162,19 @@ msgstr "Elegir"
 #: app/adwPreferencesWindow.js:606
 #, machine-translated
 msgid "Set Desktop back to ~/"
-msgstr "Devuelve el escritorio a ~/"
+msgstr "Restablecer escritorio a ~/"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:608
 #, machine-translated
 msgid "Restore Default Desktop Folder"
-msgstr "Restaurar carpeta de escritorio predeterminada"
+msgstr "Restaurar carpeta predeterminada de escritorio"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:610
 #, machine-translated
 msgid "Restore"
-msgstr "Restauración"
+msgstr "Restaurar"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:620
@@ -214,7 +216,7 @@ msgstr "Click simple"
 
 #: app/adwPreferencesWindow.js:657
 msgid "Double click"
-msgstr "Doble click"
+msgstr "Pulsación doble"
 
 #: app/adwPreferencesWindow.js:662
 msgid "Show image thumbnails"
@@ -244,13 +246,13 @@ msgstr "Mostrar archivos ocultos"
 #: app/adwPreferencesWindow.js:681
 #, machine-translated
 msgid "Open folders on drag hover"
-msgstr "Carpetas abiertas en el arrastre"
+msgstr "Abrir carpetas al arrastrar flotador"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:685
 #, machine-translated
 msgid "About..."
-msgstr "Sobre..."
+msgstr "Acerca de..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
@@ -282,7 +284,7 @@ msgstr "Traducir"
 
 #: app/appChooser.js:78
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Elegir una aplicación para abrir <b>{foo}</b>"
+msgstr "Elija una aplicación para abrir <b>{foo}</b>"
 
 #: app/appChooser.js:90
 msgid "Open Items"
@@ -292,29 +294,30 @@ msgstr "Elementos abiertos"
 #: app/appChooser.js:92
 #, machine-translated
 msgid "Open Folder"
-msgstr "Carpeta abierta"
+msgstr "Abrir carpeta"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
 #, machine-translated
 msgid "Open File"
-msgstr "Archivo abierto"
+msgstr "Abrir un archivo"
 
 # MT: LibreTranslate
 #: app/appChooser.js:165
 #, machine-translated
 msgid "Error changing default application"
-msgstr "Aplicación predeterminada de cambio de errores"
+msgstr "Error al cambiar la aplicación predeterminada"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Error al establecer {foo} como aplicación predeterminada para {mimetype}"
+msgstr ""
+"Error al establecer {foo} como aplicación predeterminada para {mimetype}"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
 #, machine-translated
 msgid "Invalid Permissions on AppImage File"
-msgstr "Permisiones inválidas en el archivo AppImage"
+msgstr "Permisos no válidos en Archivo AppImage"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
@@ -376,7 +379,7 @@ msgstr "Permitir ejecutar archivo como un programa"
 #: app/appImageFileItem.js:79
 #, machine-translated
 msgid "Untrusted AppImage File"
-msgstr "Archivo de AppImage no confiable"
+msgstr "Archivo AppImage no confiable"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
@@ -478,11 +481,11 @@ msgstr "Se necesita una contraseña para ${filename}"
 
 #: app/autoAr.js:456
 msgid "Error during extraction"
-msgstr "Error durante la extracción"
+msgstr "Error durante extracción"
 
 #: app/autoAr.js:483
 msgid "Compressing files into '${outputFile}'"
-msgstr "Comprimir archivos en '${outputFile}'"
+msgstr "Comprimir archivos en «${outputFile}»"
 
 #: app/autoAr.js:496
 msgid "Compression completed"
@@ -502,11 +505,13 @@ msgstr "El archivo de salida '${outputFile}' ya existe."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "El usuario canceló la compresión de archivos en '${outputFile}'."
+msgstr ""
+"La compresión de archivos en «${outputFile}» ha sido cancelada por el "
+"usuario."
 
 #: app/autoAr.js:512
 msgid "Error during compression"
-msgstr "Error durante la compresión"
+msgstr "Error durante compresión"
 
 #: app/autoAr.js:547
 msgid "Create archive"
@@ -544,7 +549,7 @@ msgstr "Archivos más pequeños pero deben descomprimirse en Windows y Mac."
 #: app/desktopFileIcon.js:125
 #, machine-translated
 msgid "The Displayed Desktop is writable by others"
-msgstr "El escritorio pantallado es complaciente por otros"
+msgstr "El Escritorio Exhibido es escribible por otros"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:128
@@ -554,13 +559,16 @@ msgid ""
 "\n"
 "Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
 msgstr ""
-"Los archivos .deskop no pueden ser lanzados desde este escritorio ya que la carpeta de escritorio es complaciente por otros usuarios.\n"
+"Los archivos .deskop no pueden ser lanzados desde este Escritorio ya que la "
+"Carpeta del Escritorio\n"
+"es escribible por otros usuarios.\n"
 "\n"
-"Por favor, compruebe los permisos de esta carpeta de escritorio, y asegúrese de que no es complaciente por otros."
+"Compruebe los permisos de esta Carpeta de Escritorio, y asegúrese que no es "
+"escribible por otros."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
-msgstr "Fichero .desktop dañado"
+msgstr "Archivo de Escritorio Dañado"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:141
@@ -570,13 +578,14 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Este archivo .desktop tiene errores o apunta a un programa sin permisos. No se puede ejecutar.\n"
+"Este archivo .desktop tiene errores o apunta a un programa sin permisos. No "
+"se puede ejecutar.\n"
 "\n"
-"Editar el archivo para establecer el programa ejecutable correcto."
+"Edite el archivo para establecer el Programa ejecutable correcto."
 
 #: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
-msgstr "Permisos no válidos en el fichero .desktop"
+msgstr "Permisos no válidos en el Archivo de Escritorio"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
@@ -588,7 +597,7 @@ msgstr "Este archivo de escritorio tiene Permisiones incorrectas."
 #: app/desktopFileIcon.js:173
 #, machine-translated
 msgid "Untrusted Desktop File"
-msgstr "Archivo de escritorio no confiable"
+msgstr "Archivo de Escritorio Inconfiable"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
@@ -604,25 +613,25 @@ msgstr "No se pudo abrir el archivo"
 #: app/desktopFileIcon.js:206
 #, machine-translated
 msgid "{appName} can not open files of this Type!"
-msgstr "{appName} no puede abrir archivos de este tipo!"
+msgstr "¡{appName} no puede abrir archivos de este tipo!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
 #, machine-translated
 msgid "Desktop Folder Change Failed"
-msgstr "Carpeta de escritorio Cambio fracasado"
+msgstr "Cambio de Carpeta de Escritorio Incorrecto"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
 #, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr "La nueva carpeta de escritorio es un enlace simbólico"
+msgstr "La Carpeta Escritorio nueva es un Enlace Simbólico"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
 #, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr "La nueva carpeta de escritorio no existe o no es una carpeta!"
+msgstr "¡La Carpeta de Escritorio nueva no existe o no es una carpeta!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
@@ -641,13 +650,13 @@ msgstr "Cambiar a nuevo Escritorio..."
 #: data/com.desktop.ding.desktop.in:4
 #, machine-translated
 msgid "Desktop Icons"
-msgstr "Iconos de escritorio"
+msgstr "Iconos de Escritorio"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:157
 #, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr "Supervisor de marco El escalado no está habilitado"
+msgstr "Escalado del Tampón de Fotogramas del Monitor no está habilitado"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:158
@@ -657,7 +666,8 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"Múltiples monitores con diferentes configuraciones de zoom, recomiendan el escalado de framebuffer de monitor.\n"
+"Múltiples monitores con diferentes ajustes de zoom, recomiendan el escalado "
+"de framebuffer de monitor.\n"
 "\n"
 "Por favor, active en Ajustes de Dconf Mutter"
 
@@ -677,13 +687,13 @@ msgstr ""
 #: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
 #, machine-translated
 msgid "Enable"
-msgstr "Habilitación"
+msgstr "Habilitar"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:196 app/desktopManager.js:206
 #, machine-translated
 msgid "Can Not Show the Desktop"
-msgstr "No se puede mostrar el escritorio"
+msgstr "No se puede mostrar el Escritorio"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
@@ -719,25 +729,25 @@ msgstr "No se encontró GNOME Files"
 #: app/desktopManager.js:220
 #, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "El GNOME La aplicación de archivos es necesaria por Gtk4 Desktop Icons NG."
+msgstr "La aplicación GNOME Files se requiere por Gtk4 Desktop Icons NG."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:227
 #, machine-translated
 msgid "There is no default File Manager"
-msgstr "No hay administrador de archivos predeterminado"
+msgstr "No hay Gestor de Archivo predeterminado"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:228
 #, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "No hay ninguna aplicación que maneja mimetipo \"inode/directory\""
+msgstr "No hay ninguna aplicación que maneje mimetype «inode/directory»"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:235
 #, machine-translated
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "Gnome Files no está registrado como administrador de archivos"
+msgstr "Gnome Files no está registrado como un Gestor de Archivo"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:236
@@ -747,9 +757,9 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"La aplicación Gnome Files no está programada para abrir carpetas!\n"
+"¡La aplicación Gnome Files no está programada para abrir carpetas!\n"
 "Compruebe su instalación de xdg-utils\n"
-"Chequear archivos Gnome .desktop Instalación de archivos"
+"Compruebe la instalación del Archivo .desktop de Gnome Files"
 
 #: app/desktopManager.js:328
 msgid "Clear current selection before new search"
@@ -757,7 +767,7 @@ msgstr "Borre la selección actual antes de comenzar una nueva búsqueda"
 
 #: app/desktopManager.js:1238
 msgid "Find Files on Desktop"
-msgstr "Buscar ficheros en el Escritorio"
+msgstr "Buscar archivos en Escritorio"
 
 #: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
@@ -775,7 +785,7 @@ msgstr "No se pudo crear la carpeta"
 #: app/desktopMenu.js:601
 #, machine-translated
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Incapaz de abrir Escritorio en Archivos Gnome"
+msgstr "Incapaz de abrir Escritorio en Gnome Files"
 
 #: app/desktopMenu.js:620
 msgid "Preferences Window is Open"
@@ -787,7 +797,7 @@ msgstr "Esta ventana está abierta. Cambie a la ventana activa."
 
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 msgid "Settings"
-msgstr "Preferencias"
+msgstr "Ajustes"
 
 #: app/desktopMenu.js:813
 msgid "Template Creation Error"
@@ -833,13 +843,13 @@ msgstr "Ordenar Inicio/Unidades/Papelera…"
 #: app/desktopMenu.js:944
 #, machine-translated
 msgid "Change Desktop"
-msgstr "Cambio de escritorio"
+msgstr "Cambiar Escritorio"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:949
 #, machine-translated
 msgid "Restore Default Desktop"
-msgstr "Restaurar el escritorio predeterminado"
+msgstr "Restaurar Escritorio por defecto"
 
 #: app/desktopMenu.js:953
 msgid "Desktop Icon Settings"
@@ -883,23 +893,23 @@ msgstr "Organizar por…"
 #: app/desktopMenu.js:997
 #, machine-translated
 msgid "Show Desktop In {0}"
-msgstr "Mostrar el escritorio en {0}"
+msgstr "Mostrar Escritorio en {0}"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1002
 #, machine-translated
 msgid "Open In {0}"
-msgstr "Abrir {0}"
+msgstr "Abrir en {0}"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1018
 #, machine-translated
 msgid "Shell Menu…"
-msgstr "Menú Shell.."
+msgstr "Menú Shell…"
 
 #: app/dragManager.js:101 app/dragManager.js:926
 msgid "Making SymLink Failed"
-msgstr "No se ha podido crear el enlace simbólico"
+msgstr "Creación Incorrecta de Enlace Simbólico"
 
 #: app/dragManager.js:102 app/dragManager.js:927
 msgid "Could not create symbolic link"
@@ -909,7 +919,7 @@ msgstr "No se pudo crear el enlace simbólico"
 #: app/dragManager.js:739
 #, machine-translated
 msgid "Copy/Move Failed"
-msgstr "Copiado/Move fallado"
+msgstr "Copiado/Traslado incorrecto"
 
 # MT: LibreTranslate
 #: app/dragManager.js:740
@@ -931,13 +941,13 @@ msgstr "Copiar"
 
 #: app/dragManager.js:783
 msgid "Link"
-msgstr "Enlazar"
+msgstr "Enlace"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:95
 #, machine-translated
 msgid "Folder"
-msgstr "Folder"
+msgstr "Carpeta"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:96
@@ -947,13 +957,13 @@ msgstr "Archivo"
 
 #: app/fileItemIcon.js:270
 msgid "Opening File Failed"
-msgstr "Error al abrir el archivo"
+msgstr "Apertura de Archivo Incorrecta"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:276
 #, machine-translated
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr "No hay aplicación instalada para abrir \"{fo}\" archivos."
+msgstr "No hay ninguna aplicación instalada para abrir «{fo}» archivos."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -999,7 +1009,7 @@ msgstr "Abrir todo con otra aplicación..."
 #: app/fileItemMenu.js:184
 #, machine-translated
 msgid "Launch using Integrated Graphics Card"
-msgstr "Lanzamiento mediante tarjeta gráfica integrada"
+msgstr "Lanzar utilizando la Tarjeta Gráfica integrada"
 
 #: app/fileItemMenu.js:206
 msgid "Stack This Type"
@@ -1051,7 +1061,7 @@ msgstr[1] "Comprimir {0} archivos"
 
 #: app/fileItemMenu.js:276
 msgid "Email to..."
-msgstr "Enviar por correo a..."
+msgstr "Enviar correo-e a..."
 
 #: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
@@ -1067,7 +1077,7 @@ msgstr "Borrar permanentemente"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
-msgstr "No permitir lanzar"
+msgstr "No conceder lanzado"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
@@ -1083,7 +1093,7 @@ msgstr "Desmontar"
 
 #: app/fileItemMenu.js:354
 msgid "Common Properties"
-msgstr "Propiedades Comunes"
+msgstr "Características comunes"
 
 #: app/fileItemMenu.js:355
 msgid "Properties"
@@ -1105,13 +1115,13 @@ msgstr "Mostrar en {0}"
 #: app/fileItemMenu.js:374
 #, machine-translated
 msgid "Open in {0}"
-msgstr "Abrir {0}"
+msgstr "Abrir en {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:537
 #, machine-translated
 msgid "Open Item"
-msgstr "Tema abierto"
+msgstr "Abrir elemento"
 
 #: app/fileItemMenu.js:819
 msgid "Extraction Cancelled"
@@ -1137,7 +1147,8 @@ msgstr "No se puede enviar un directorio"
 #: app/fileItemMenu.js:965
 #, machine-translated
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "La selección incluye un directorio, compress a un archivo .zip primero?"
+msgstr ""
+"La selección incluye un Directorio, ¿comprimo a un archivo .zip primero?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
@@ -1157,7 +1168,7 @@ msgstr "Incapaz de encontrar el comando zip, por favor instale el programa"
 #: app/fileItemMenu.js:999
 #, machine-translated
 msgid "Archive.zip"
-msgstr "Archive.zip"
+msgstr "Archivador.zip"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1023
@@ -1245,25 +1256,25 @@ msgstr "Atajo predeterminado:"
 #: app/shortcutManager.js:109
 #, machine-translated
 msgid "Type new..."
-msgstr "Escribe nuevo..."
+msgstr "Teclee nuevo…"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:125
 #, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr "Modificador + Clave (por ejemplo, Ctrl + Alt + D)"
+msgstr "Modificador + Clave (p. ej. Ctrl + Alt + D)"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:130
 #, machine-translated
 msgid "Reset to Default"
-msgstr "Reset to Default"
+msgstr "Restaurar por defecto"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:134
 #, machine-translated
 msgid "No Accelerator"
-msgstr "No acelerador"
+msgstr "Sin acelerador"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:243
@@ -1275,7 +1286,7 @@ msgstr "Atajos del sistema"
 #: app/shortcutManager.js:244
 #, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr "Atajos de teclado definidos del sistema común"
+msgstr "Atajos de teclado definidos del sistema usual"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:302
@@ -1287,7 +1298,7 @@ msgstr "Atajos locales"
 #: app/shortcutManager.js:303
 #, machine-translated
 msgid "Application Keyboard Shortcuts"
-msgstr "Aplicación Atajos de teclado"
+msgstr "Aplicación de Atajos del Teclado"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:364
@@ -1311,13 +1322,13 @@ msgstr "Atajos de teclado"
 #: app/shortcutManager.js:673
 #, machine-translated
 msgid "Reset Shortcuts"
-msgstr "Reset Shortcuts"
+msgstr "Restablecer Atajos"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:674
 #, machine-translated
 msgid "Reset all shortcuts to Defaults"
-msgstr "Reiniciar todos los atajos a Defaults"
+msgstr "Reinicia todos los atajos a Predeterminados"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:677
@@ -1357,7 +1368,7 @@ msgstr "Cambio de escritorio Ajustes de iconos"
 #: app/shortcuts.js:20
 #, machine-translated
 msgid "Clean Up Icons"
-msgstr "Limpiar los iconos"
+msgstr "Limpiar iconos"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:21
@@ -1387,7 +1398,7 @@ msgstr "Arregle Iconos por Nombre"
 #: app/shortcuts.js:25
 #, machine-translated
 msgid "Arrange Icons By Descending Name"
-msgstr "Arregle los iconos por nombre descendente"
+msgstr "Ordene los iconos por nombre descendente"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:26
@@ -1429,7 +1440,7 @@ msgstr "Mostrar archivos ocultos"
 #: app/shortcuts.js:32
 #, machine-translated
 msgid "Unselect All"
-msgstr "Unselect All"
+msgstr "No Seleccionar Nada"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:33
@@ -1471,7 +1482,7 @@ msgstr "Mostrar menú"
 #: app/shortcuts.js:39
 #, machine-translated
 msgid "Display Shell Background Menu"
-msgstr "Mostrar menú de fondo Shell"
+msgstr "Exhibir menú de fondo Shell"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:40
@@ -1483,13 +1494,13 @@ msgstr "Crear acceso directo a escritorio"
 #: app/shortcuts.js:41
 #, machine-translated
 msgid "Text Entry Accels Turn On"
-msgstr "Acanceles de entrada de texto Activar"
+msgstr "Activar Aceleradores de Apunte de Texto"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:42
 #, machine-translated
 msgid "Text Entry Accels Turn Off"
-msgstr "Entradas de texto desactivados"
+msgstr "Apagar Aceleraciones de Apunte de Texto"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:44
@@ -1519,7 +1530,7 @@ msgstr "Carpeta personal"
 #: app/specialFolderIcon.js:63
 #, machine-translated
 msgid "Trash"
-msgstr "Trash"
+msgstr "Papelera"
 
 # MT: LibreTranslate
 #. * TRANSLATORS: when using a screen reader,
@@ -1537,13 +1548,13 @@ msgstr "Enlace roto"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "No se puede abrir este fichero porque es un enlace roto"
+msgstr "No se puede abrir este Archivo porque es un Enlace Roto"
 
 # MT: LibreTranslate
 #: app/volumeIcon.js:58
 #, machine-translated
 msgid "Drive"
-msgstr "Drive"
+msgstr "Unidad"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
@@ -1561,7 +1572,7 @@ msgstr "Instala \"${programName}\" para que los iconos de escritorio puedan real
 #: app/utils/desktopFolderUtils.js:84
 #, machine-translated
 msgid "Choose Desktop Folder"
-msgstr "Elija carpeta de escritorio"
+msgstr "Elegir Carpeta de Escritorio"
 
 #: app/utils/desktopIconsUtil.js:216
 msgid "Command not found"
@@ -1577,19 +1588,19 @@ msgstr "Elija una aplicación para abrir los archivos seleccionados."
 #: data/ui/ding-app-chooser.ui:81
 #, machine-translated
 msgid "Always use for this file type"
-msgstr "Uso siempre para este tipo de archivo"
+msgstr "Usar siempre para este tipo de archivo"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
 #, machine-translated
 msgid "_Cancel"
-msgstr "_Cancel"
+msgstr "_Cancelar"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
 #, machine-translated
 msgid "_Open"
-msgstr "_Open"
+msgstr "_Abrir"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
@@ -1647,7 +1658,7 @@ msgstr "Mostrar la papelera en el escritorio."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
-msgstr "Esquina para los nuevos iconos"
+msgstr "Esquina inicial para iconos nuevos"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
@@ -1703,11 +1714,11 @@ msgstr "Mantener los iconos ordenados según la última opción utilizada"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 msgid "Arrange Order"
-msgstr "Orden para los iconos"
+msgstr "Ordenar pedido"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 msgid "Icons Arranged by this property"
-msgstr "Ordenar los iconos en base a esta propiedad"
+msgstr "Iconos ordenados por esta propiedad"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 msgid "Keep Icons Stacked"
@@ -1723,7 +1734,7 @@ msgstr "Tipos de ficheros que no se deben apilar"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "Un array de cadenas con tipos de fichero, No apilar estos tipos de fichero"
+msgstr "Una matriz de los tipos de cadenas, No apile estos tipos de archivos"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Add an emblem to links"
@@ -1747,7 +1758,9 @@ msgstr "Mostrar primero nuevos íconos en el monitor secundario si está conecta
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
-msgstr "Si hay un monitor secundario conectado, se añadirán los nuevos iconos en él"
+msgstr ""
+"Si hay un monitor secundario conectado, se añadirán los iconos nuevos en el "
+"monitor no primario"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
@@ -1765,7 +1778,7 @@ msgstr "Los iconos no están en una cuadrícula rectangular pero se pueden coloc
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 #, machine-translated
 msgid "Hide/Show all desktop windows"
-msgstr "Ocultar/Mostrar todas las ventanas de escritorio"
+msgstr "Ocultar/Mostrar todas las ventanas del escritorio"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
@@ -1777,7 +1790,7 @@ msgstr "Mostrar los iconos en el escritorio, o ocultarlos todos"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 #, machine-translated
 msgid "User Application Shortcuts"
-msgstr "Atajos de aplicaciones de usuario"
+msgstr "Atajos de aplicación del usuario"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
