@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-11-15 11:51+0000\n"
+"PO-Revision-Date: 2025-11-16 17:52+0000\n"
 "Last-Translator: \"Omer I.S.\" <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/"
 "gtk4-desktop-icons-ng/gtk4-ding-pot/he/>\n"
@@ -186,7 +186,7 @@ msgstr "הצמדת הסמלים לרשת"
 #: app/adwPreferencesWindow.js:590
 #, machine-translated
 msgid "Highlight the drop grid"
-msgstr "Highlight the drop Network"
+msgstr "הדגשת הרשת לשחרור קבצים"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599
@@ -198,7 +198,7 @@ msgstr "שולחן עבודה חדש"
 #: app/adwPreferencesWindow.js:600
 #, machine-translated
 msgid "Set a new folder for the desktop"
-msgstr "קבע תיקיה חדשה עבור שולחן העבודה"
+msgstr "הגדרת תיקייה חדשה להצגה במקום תיקיית שולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
@@ -216,7 +216,7 @@ msgstr "הגדר את שולחן העבודה בחזרה ל-"
 #: app/adwPreferencesWindow.js:608
 #, machine-translated
 msgid "Restore Default Desktop Folder"
-msgstr "תיקון שולחן העבודה Folder"
+msgstr "שחזור לתיקיית ברירת המחדל של שולחן העבודה"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:610
@@ -318,7 +318,7 @@ msgstr "פתיחת תיקיות בעת גרירה וריחוף מעליהן"
 #: app/adwPreferencesWindow.js:685
 #, machine-translated
 msgid "About..."
-msgstr "על..."
+msgstr "על אודות..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:698
@@ -342,7 +342,7 @@ msgstr "תרגום"
 #: app/adwPreferencesWindow.js:705
 #, machine-translated
 msgid "Verify, add or correct translation in your web browser"
-msgstr "בדוק, להוסיף או לתרגם נכונה בדפדפן האינטרנט שלך"
+msgstr "אימות, הוספה או תיקון של תרגומים דרך דפדפן האינטרנט"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:706
@@ -672,7 +672,7 @@ msgstr "ארכיונים קטנים יותר אך תואמים ללינוקס ו
 #: app/autoAr.js:706
 #, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "ארכיונים קטנים יותר, אך יש להתקין אותם ב-Windows ו- Mac."
+msgstr "ארכיונים קטנים יותר אך אמורים להיות מותקנים ב־Windows ו־Mac."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125
@@ -752,31 +752,31 @@ msgstr "out {appName}"
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
 #, machine-translated
 msgid "Desktop Folder Change Failed"
-msgstr "שולחן העבודה Folder שינוי נכשל"
+msgstr "נכשלה החלפת התיקייה לשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
 #, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr "The New Desktop Folder הוא קישור סמלי"
+msgstr "התיקייה החדשה בשולחן העבודה היא קישור סימבולי"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
 #, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr "שולחן העבודה החדש אינו קיים או אינו קרדר!"
+msgstr "תיקיית שולחן העבודה החדשה אינה קיימת או שאינה תיקייה!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
 #, machine-translated
 msgid "Desktop Folder Changed"
-msgstr "שולחן העבודה משתנה"
+msgstr "תיקיית שולחן העבודה השתנתה"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
 #, machine-translated
 msgid "Switching to new Desktop..."
-msgstr "מעבר לשולחן העבודה החדש..."
+msgstr "מתבצע מעבר לשולחן העבודה החדש..."
 
 # MT: LibreTranslate
 #: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
@@ -787,9 +787,9 @@ msgstr "סמלים בשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:157
-#, machine-translated
+#, fuzzy, machine-translated
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr "המונחים: Buffer Scaling לא ניתן"
+msgstr "Monitor Frame Buffer Scaling is not enabled"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:158
@@ -799,13 +799,10 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"מספר צגים עם הגדרות גן חיות שונות, מומלץ לכל צג קשקשים.\n"
-"\n"
-"תגית: Mutter Dpoli Settings"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:169
-#, machine-translated
+#, fuzzy, machine-translated
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -825,7 +822,7 @@ msgstr "הפעלה"
 #: app/desktopManager.js:196 app/desktopManager.js:206
 #, machine-translated
 msgid "Can Not Show the Desktop"
-msgstr "לא יכול להראות שולחן העבודה"
+msgstr "לא ניתן להציג את שולחן העבודה"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
@@ -836,9 +833,9 @@ msgid ""
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
-"התיקיה שולחן העבודה {desktop} היא קישור סמלי\n"
+"תיקיית שולחן העבודה {desktop} היא קישור סימבולי\n"
 "\n"
-"נא להגדיר את שולחן העבודה Folder אמיתי"
+"נא לשנות את הגדרת מיקום תיקיית שולחן העבודה לתיקייה אמיתית"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
@@ -849,9 +846,10 @@ msgid ""
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
-"התיקיה שולחן העבודה {desktop} אינה קיימת, או אינה מדריך.\n"
+"תיקיית שולחן העבודה {desktop} אינה קיימת, או שאינה תיקייה.\n"
 "\n"
-"בדוק את ההתקנה xdg-utils שלך ולהגדיר את שולחן העבודה הנכון"
+"נא לבדוק התקנת xdg-utils במחשבך ולשנות את הגדרת מיקום תיקיית שולחן העבודה "
+"לתיקייה הנכונה"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:219
@@ -863,7 +861,7 @@ msgstr "לא נמצא יישום „קבצים” מבית GNOME"
 #: app/desktopManager.js:220
 #, machine-translated
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "יישום „קבצים” מבית GNOME נדרש על ידי התוסף Gtk4 Desktop Icons NG."
+msgstr "יישום „קבצים” מבית GNOME נחוץ לתוסף Gtk4 Desktop Icons NG."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:227
@@ -875,7 +873,7 @@ msgstr "אין מנהל קבצים שמוגדר כברירת מחדל"
 #: app/desktopManager.js:228
 #, machine-translated
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr "אין יישום אשר מטפל mimetype \"inode/בימוי\""
+msgstr "אין יישום שתומך בסוג הקובץ „inode/directory”"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:235
@@ -891,9 +889,9 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"יישום ה-Gnome Files אינו מתוכנן לפתוח Folders!\n"
-"בדוק את ההתקנה xdg-utils\n"
-"עקבו אחרי Gnome Files .desktop התקנת"
+"יישום „קבצים” מבית GNOME לא מתוכנן לפתוח תיקיות!\n"
+"נא לבדוק את התקנת xdg-utils במחשבך\n"
+"נא לבדוק את תצורת קובץ ה־.desktop של „קבצים” מבית GNOME במחשבך"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:328
@@ -909,7 +907,7 @@ msgstr "איתור קבצים בשולחן העבודה"
 
 #: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
-msgstr "תיקיה חדשה"
+msgstr "תיקייה חדשה"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1613
@@ -1067,7 +1065,7 @@ msgstr "סידור לפי…"
 #: app/desktopMenu.js:997
 #, machine-translated
 msgid "Show Desktop In {0}"
-msgstr "out {0}"
+msgstr "הצגת שולחן העבודה בתוך {0}"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1002
@@ -1085,19 +1083,19 @@ msgstr "תפריט המעטפת…"
 #: app/dragManager.js:101 app/dragManager.js:926
 #, machine-translated
 msgid "Making SymLink Failed"
-msgstr "ביצוע SymLink נכשל"
+msgstr "נכשלה יצירת הקישור הסימבולי"
 
 # MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
 #, machine-translated
 msgid "Could not create symbolic link"
-msgstr "לא יכול ליצור קישור סמלי"
+msgstr "לא היה ניתן ליצור את הקישור הסימבולי"
 
 # MT: LibreTranslate
 #: app/dragManager.js:739
 #, machine-translated
 msgid "Copy/Move Failed"
-msgstr "עותק/Move Failed"
+msgstr "נכשלה ההעתקה/העברה"
 
 # MT: LibreTranslate
 #: app/dragManager.js:740
@@ -1154,10 +1152,10 @@ msgstr "אין צורך לפתוח קבצים \"{fo}\"."
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] "תיקיה חדשה עם פריט {0}"
-msgstr[1] "תיקיה חדשה עם {0} פריטים"
-msgstr[2] "תיקיה חדשה עם {0} פריטים"
-msgstr[3] "תיקיה חדשה עם {0} פריטים"
+msgstr[0] "תיקייה חדשה עם פריט אחד"
+msgstr[1] "תיקייה חדשה עם {0} פריטים"
+msgstr[2] "תיקייה חדשה עם {0} פריטים"
+msgstr[3] "תיקייה חדשה עם {0} פריטים"
 
 #: app/fileItemMenu.js:114
 msgid "Open All..."
@@ -1433,7 +1431,7 @@ msgstr "אין אפשרות לפתוח בשורת הפקודה של GNOME"
 #: app/fileItemMenu.js:1227
 #, machine-translated
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr "אנא התקנת Gnome Console או תוכנית טרמינל אחרת"
+msgstr "נא להתקין את שורת הפקודה של GNOME או תוכנית מסוף אחרת"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1235
@@ -1475,7 +1473,7 @@ msgstr "אין אפשרות להעביר את הקבצים, אין תיקיית 
 #: app/gnomeShellDragDrop.js:356
 #, machine-translated
 msgid "$appName$ can not open files of this Type!"
-msgstr "$app לא יכול לפתוח קבצים מסוג זה!"
+msgstr "$appName$ לא יכול לפתוח קבצים מסוג זה!"
 
 # MT: LibreTranslate
 #: app/preferences.js:885
@@ -1517,13 +1515,13 @@ msgstr "אין קיצור מקשים"
 #: app/shortcutManager.js:243
 #, machine-translated
 msgid "System Shortcuts"
-msgstr "מערכת קיצור"
+msgstr "קיצורי מקשים של המערכת"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:244
 #, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr "מערכת Common Defined Keyboard Shortcuts"
+msgstr "קיצורי מקשים נפוצים של המערכת שהוגדרו על ידי המשתמש"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:302
@@ -1565,7 +1563,7 @@ msgstr "איפוס קצר"
 #: app/shortcutManager.js:674
 #, machine-translated
 msgid "Reset all shortcuts to Defaults"
-msgstr "איפוס כל קיצורים ל Defaults"
+msgstr "שחזור כל קיצורי הדרך לברירת המחדל"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:677
@@ -1623,7 +1621,7 @@ msgstr "להשאיר מקובץ"
 #: app/shortcuts.js:23
 #, machine-translated
 msgid "Sort Special Folders"
-msgstr "מיוחד Folders"
+msgstr "מיון תיקיות מיוחדות"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:24
@@ -1647,7 +1645,7 @@ msgstr "ארכיון תגיות: Modified Time"
 #: app/shortcuts.js:27
 #, machine-translated
 msgid "Arrange Icons By Kind"
-msgstr "איקונים מסודרים על ידי Kind"
+msgstr "סידור הסמלים לפי סוג"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:28
@@ -1749,7 +1747,7 @@ msgstr "הצג קצר Viewer"
 #: app/shortcuts.js:45
 #, machine-translated
 msgid "Show Or Hide Desktop Icons"
-msgstr "תגית: Hide Desktop Icons"
+msgstr "הצגה או הסתרה של סמלים בשולחן העבודה"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:42
@@ -1787,9 +1785,9 @@ msgstr "קישור שבור"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:102
-#, fuzzy, machine-translated
+#, machine-translated
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr "לא יכול לפתוח את הקובץ הזה כי הוא שבור"
+msgstr "לא ניתן לפתוח קובץ זה מכיוון שהוא מכיל קישור סימבולי שבור"
 
 # MT: LibreTranslate
 #: app/volumeIcon.js:58
@@ -1807,13 +1805,15 @@ msgstr "out \"${programName}\""
 #: app/utils/dbusUtils.js:70
 #, machine-translated
 msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr "התקן \"${programName}\" כדי לאפשר לאיקונים שולחניים לבצע פעולות אלה."
+msgstr ""
+"נא להתקין את \"${programName}\" בשביל לאפשר לתוסף הסמלים בשולחן העבודה לבצע "
+"פעולות אלה."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
 #, machine-translated
 msgid "Choose Desktop Folder"
-msgstr "בחר שולחן העבודה Folder"
+msgstr "בחירת תיקייה לשולחן העבודה"
 
 #: app/utils/desktopIconsUtil.js:216
 msgid "Command not found"
@@ -1956,27 +1956,29 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 #, machine-translated
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr "מראה מלבן במקום היעד במהלך DnD"
+msgstr "מציג מלבן במיקום היעד במהלך ביצוע פעולת גרירה ושחרור קבצים"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 #, machine-translated
 msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
 msgstr ""
-"בעת ביצוע פעולת גרירה ושחרור, אפשרות זו מסמנת בטבלה את המקום שבו יופיע הסמל "
-"בעזרת מלבן שקוף למחצה."
+"בעת ביצוע פעולת גרירה ושחרור קבצים, אפשרות זו מסמנת בטבלה את המקום שבו יופיע "
+"הסמל בעזרת מלבן שקוף למחצה."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 #, machine-translated
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "סוג מיוחד Folders - Home/Trash Drives."
+msgstr "מיון תיקיות מיוחדות - בית/אשפה וכוננים."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 #, machine-translated
 msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
-msgstr "בעת סידור איקונים על שולחן העבודה, למיין ולשנות את המיקום של הבית, Trash ורשת רכובה או כונן חיצוני"
+msgstr ""
+"בעת סידור הסמלים בשולחן העבודה, למיין ולשנות את המיקום של תיקיית הבית, האשפה "
+"והכוננים החיצוניים או כונני הרשת המעוגנים"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
@@ -1988,7 +1990,7 @@ msgstr "לשמור על סמלים מסודרים"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 #, machine-translated
 msgid "Always keep Icons Arranged by the last arranged order"
-msgstr "תמיד לשמור על איקונים הסדר הקבוע האחרון"
+msgstr "תמיד להשאיר את הסמלים מסודרים לפי הסדר האחרון שנבחר"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
@@ -2000,7 +2002,7 @@ msgstr "סידור לפי סדר אחר"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 #, machine-translated
 msgid "Icons Arranged by this property"
-msgstr "סמלים מסודרים על ידי הנכס הזה"
+msgstr "סידור הסמלים לפי מאפיין זה"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
@@ -2012,7 +2014,7 @@ msgstr "להשאיר את הסמלים מקובצים"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 #, machine-translated
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr "תמיד לשמור על איקונים מקובצים דומים"
+msgstr "תמיד להשאיר סמלים מקובצים, קבצים מסוגים דומים יקובצו"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
@@ -2024,7 +2026,7 @@ msgstr "סוג של קבצים שלא יקובצו"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 #, machine-translated
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr "סוג של מחרוזת, Don't Stack אלה סוגים של קבצים"
+msgstr "מערך של סוגי מחרוזות נתונים, אין לקבץ קבצים מסוגים אלה"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
@@ -2042,37 +2044,39 @@ msgstr "הוסף סמל כדי לאפשר זיהוי קישורים רכים."
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 #, machine-translated
 msgid "Use black for label text"
-msgstr "השתמש שחור לטקסט תוויות"
+msgstr "שימוש בטקסט שחור לתוויות"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 #, machine-translated
 msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
-msgstr "צייר את הטקסט של התווית בשחור במקום לבן. שימושי בעת שימוש ברקעי אור."
+msgstr ""
+"הצגת טקסט התווית בצבע שחור במקום לבן. שימושי כאשר משתמשים ברקעים בהירים."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 #, machine-translated
 msgid "Show new icons on non primary monitor if connected"
-msgstr "הצג סמלים חדשים על הצג לא ראשוני אם מחובר"
+msgstr "הצגת סמלים חדשים על הצג המשני אם מחובר"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 #, machine-translated
 msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
-msgstr "אם צג שני מחובר, סמלים חדשים ממוקמים על הצג הלא ראשוני"
+msgstr "אם מחובר צג שני, סמלים חדשים יתווספו לצג שאינו הראשי"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 #, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr "איקונים ניתן למקם בכל מקום על שולחן העבודה"
+msgstr "ניתן למקם את הסמלים בכל מקום על גבי שולחן העבודה"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 #, machine-translated
 msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
-msgstr "איקונים אינם ברשת מלבנית, אך ניתן לפרסם בשום מקום עצמאי ברשת"
+msgstr ""
+"הסמלים אינם מסודרים לפי רשת מלבנית אלא ניתן למקם אותם בכל מקום בלי קשר לטבלה"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
