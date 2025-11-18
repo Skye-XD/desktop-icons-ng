@@ -235,6 +235,7 @@ const AppChooserDialog = class {
     }
 
     finalize() {
+        this.appChooserDialog.destroy();
         this.appChooserDialog = null;
         this.builderObject = null;
     }
