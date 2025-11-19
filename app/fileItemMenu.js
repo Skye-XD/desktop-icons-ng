@@ -405,13 +405,15 @@ const FileItemMenu = class {
             this.popupmenu.set_position(menuGtkPosition);
 
         this.popupmenu.popup();
-        this.popupmenu.connect('closed', async () => {
-            await this._DesktopIconsUtil.waitDelayMs(50);
-            this.popupmenu.unparent();
-            this.popupmenu = null;
-            if (this.popupmenuclosed)
-                this.popupmenuclosed(true);
-            this.popupmenuclosed = null;
+        this.popupmenu.connect('closed', () => {
+            GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+                this.popupmenu.unparent();
+                this.popupmenu = null;
+                if (this.popupmenuclosed)
+                    this.popupmenuclosed(true);
+                this.popupmenuclosed = null;
+                return GLib.SOURCE_REMOVE;
+            });
         });
     }
 
