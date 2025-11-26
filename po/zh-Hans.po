@@ -6,13 +6,14 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
 # imnotlxy <contact@lxy.cc>, 2025.
 # zhongweixiao5 <zhongweixiao5@qq.com>, 2025.
+# remyxo <remyxo2000@sina.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-11-15 11:51+0000\n"
-"Last-Translator: zhongweixiao5 <zhongweixiao5@qq.com>\n"
+"PO-Revision-Date: 2025-11-26 19:03+0000\n"
+"Last-Translator: remyxo <remyxo2000@sina.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -75,7 +76,7 @@ msgstr "扭动"
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
 #, machine-translated
 msgid "More"
-msgstr "再来"
+msgstr "更多"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:514
@@ -477,13 +478,13 @@ msgstr "未信任的应用程序文件"
 #: app/appImageFileItem.js:81
 #, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr "此应用程序 图像文件不可信, 无法启动 ."
+msgstr "此AppImage应用程序不可信, 无法启动 ."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 #, machine-translated
 msgid "To enable launching, right-click, then:"
-msgstr "为了能够发射,单击右键,然后:"
+msgstr "要允许运行,单击右键,然后:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
@@ -496,7 +497,7 @@ msgstr "启用"
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 #, machine-translated
 msgid "Allow Launching"
-msgstr "允许启动"
+msgstr "允许运行"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
@@ -637,7 +638,7 @@ msgstr "将文件压缩为'${outputFile}'的工作已经完成."
 #: app/autoAr.js:501 app/autoAr.js:508
 #, machine-translated
 msgid "Cancelled compression"
-msgstr "已取消压缩"
+msgstr "压缩已取消"
 
 # MT: LibreTranslate
 #: app/autoAr.js:502
@@ -769,7 +770,7 @@ msgstr "此桌面文件不可信, 无法启动 ."
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 #, machine-translated
 msgid "Could not open File"
-msgstr "无法打开 文件"
+msgstr "无法打开文件"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:206
@@ -1024,19 +1025,19 @@ msgstr "大小"
 #: app/desktopMenu.js:932
 #, machine-translated
 msgid "Keep Arranged…"
-msgstr "保持排列.."
+msgstr "保持排列…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:937
 #, machine-translated
 msgid "Keep Stacked by Type…"
-msgstr "继续按类型堆叠.."
+msgstr "继续按类型堆叠…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:939
 #, machine-translated
 msgid "Sort Home/Drives/Trash…"
-msgstr "排序家/司机/垃圾.."
+msgstr "排序家/驱动器/回收站…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:944
@@ -1102,7 +1103,7 @@ msgstr "排列图标"
 #: app/desktopMenu.js:989
 #, machine-translated
 msgid "Arrange By…"
-msgstr "安排.."
+msgstr "排列…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:997
@@ -1120,7 +1121,7 @@ msgstr "在 {0} 中打开"
 #: app/desktopMenu.js:1018
 #, machine-translated
 msgid "Shell Menu…"
-msgstr "贝壳菜单.."
+msgstr "Shell菜单…"
 
 # MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
@@ -1212,7 +1213,7 @@ msgstr "全部打开..."
 #: app/fileItemMenu.js:122
 #, machine-translated
 msgid "Launch"
-msgstr "发射"
+msgstr "运行"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:135
@@ -1302,7 +1303,7 @@ msgstr "复制到..."
 #: app/fileItemMenu.js:249
 #, machine-translated
 msgid "Rename…"
-msgstr "重命名.."
+msgstr "重命名…"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:254
@@ -1354,7 +1355,7 @@ msgstr "永久删除"
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 #, machine-translated
 msgid "Don't Allow Launching"
-msgstr "不允许发射"
+msgstr "不允许运行"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:339
@@ -1644,7 +1645,7 @@ msgstr "全部重设置..."
 #: app/shortcuts.js:15
 #, machine-translated
 msgid "Show Desktop in Files"
-msgstr "在文件中显示桌面"
+msgstr "在文件管理器中显示桌面"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:16
