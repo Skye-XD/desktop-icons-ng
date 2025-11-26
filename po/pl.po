@@ -10,20 +10,23 @@
 # Xtremo3 <a.lewicki95@gmail.com>, 2025.
 # Adam Lewicki <a.lewick95@gmail.com>, 2025.
 # Adam Lewicki <a.lewicki95@gmail.com>, 2025.
+# Tari_2023 <tari21531@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-18 12:07-0400\n"
-"PO-Revision-Date: 2025-10-09 18:07+0000\n"
+"PO-Revision-Date: 2025-11-24 20:51+0000\n"
 "Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/"
+"gtk4-desktop-icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
+"Plural-Forms: nplurals=3; plural="
+"(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -56,7 +59,7 @@ msgstr "Pliki"
 #: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
 #: app/adwPreferencesWindow.js:539
 msgid "Tweaks"
-msgstr "Dostrajanie"
+msgstr "Poprawki"
 
 #: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
 msgid "More"
@@ -84,7 +87,7 @@ msgstr "Ustawienia plików"
 
 #: app/adwPreferencesWindow.js:533
 msgid "Settings shared with Gnome Files"
-msgstr "Ustawienia dzielone z Pliki GNOME"
+msgstr "Ustawienia udostępnione plikom GNOME"
 
 #: app/adwPreferencesWindow.js:540
 msgid "Miscellaneous Tweaks"
@@ -116,7 +119,7 @@ msgstr "Wyrównanie nowych ikon"
 
 #: app/adwPreferencesWindow.js:571
 msgid "Top left corner"
-msgstr "Do lewego górnego rogu"
+msgstr "Górny lewy róg"
 
 #: app/adwPreferencesWindow.js:572
 msgid "Top right corner"
