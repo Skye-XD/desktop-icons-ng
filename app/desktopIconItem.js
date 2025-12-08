@@ -433,10 +433,20 @@ const DesktopIconItem = class {
         button, nPress, X, Y, x, y, shiftPressed, controlPressed
     ) {
         if (nPress === 1) {
-            if (shiftPressed || controlPressed) {
+            if (shiftPressed && controlPressed) {
+                this._dragManager.selected(
+                    this,
+                    this.Enums.Selection.WITH_SHIFT_CONTROL
+                );
+            } else if (shiftPressed) {
                 this._dragManager.selected(
                     this,
                     this.Enums.Selection.WITH_SHIFT
+                );
+            } else if (controlPressed) {
+                this._dragManager.selected(
+                    this,
+                    this.Enums.Selection.WITH_CONTROL
                 );
             } else {
                 this._dragManager.selected(
@@ -468,6 +478,20 @@ const DesktopIconItem = class {
         }
 
         return false;
+    }
+
+    setHoveredWithKeyboard() {
+        if (!this._iconContainer.get_css_classes().includes('keyboard-hovered')) {
+            this._iconContainer.add_css_class('keyboard-hovered');
+            this._labelContainer.add_css_class('keyboard-hovered');
+        }
+    }
+
+    unsetHoveredWithKeyboard() {
+        if (this._iconContainer.get_css_classes().includes('keyboard-hovered')) {
+            this._iconContainer.remove_css_class('keyboard-hovered');
+            this._labelContainer.remove_css_class('keyboard-hovered');
+        }
     }
 
     _onLeave() {
@@ -551,6 +575,18 @@ const DesktopIconItem = class {
             .includes('desktop-icons-selected')
         )
             this._labelContainer.remove_css_class('desktop-icons-selected');
+
+        if (this._iconContainer
+            .get_css_classes()
+            .includes('keyboard-hovered')
+        )
+            this._iconContainer.remove_css_class('keyboard-hovered');
+
+        if (this._labelContainer
+            .get_css_classes()
+            .includes('keyboard-hovered')
+        )
+            this._labelContainer.remove_css_class('keyboard-hovered');
     }
 
     highLightDropTarget() {
@@ -797,7 +833,7 @@ const DesktopIconItem = class {
         }
 
         const finalSize = Math.floor(this.Prefs.IconSize / ratio) * scale;
-        const iconWidth =  iconPaintable.get_intrinsic_width();
+        const iconWidth = iconPaintable.get_intrinsic_width();
         const iconHeight = iconPaintable.get_intrinsic_height();
 
         const theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default());
