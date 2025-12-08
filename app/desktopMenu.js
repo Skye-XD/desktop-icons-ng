@@ -36,6 +36,8 @@ const DesktopActions = class {
         this._windowManager = desktopManager.windowManager;
         this._isCut = false;
         this._clipboardFiles = null;
+        this._keyboardHoveredItem = null;
+        this._isMassSelectionInProgress = false;
         this._intDBusSignalMonitoring();
         this._createMenuActionGroup();
     }
@@ -232,7 +234,7 @@ const DesktopActions = class {
         const findFilesAction = Gio.SimpleAction.new('findFiles', null);
         findFilesAction.connect(
             'activate',
-            () =>  this._desktopManager.findFiles(null)
+            () => this._desktopManager.findFiles(null)
         );
         this._mainApp.add_action(findFilesAction);
 
@@ -659,43 +661,44 @@ const DesktopActions = class {
     }
 
     _selectFileItemInDirection(symbol) {
-        var index;
-        var multiplier;
         let selection = this.currentSelection;
+        let noSelection = false;
+        const isCtrl = !!this.isControl;
+        const isShift = !!this.isShift;
         if (!selection) {
-            if (this.activeFileItem && this.activeFileItem.isStackMarker)
+            // If there's an outlined/active item, use it as the selection
+            // start so Shift+arrow will range-select relative to the outline.
+            if (this.activeFileItem)
                 selection = [this.activeFileItem];
-            else
+            else {
                 selection = this._displayList;
-        }
-        if (!selection)
-            return false;
-
-        let selected = selection[0];
-        let selectedCoordinates = selected.getCoordinates();
-        if (!this.isShift)
-            this._desktopManager.unselectAll();
-        if (selection.length > 1) {
-            for (let item of selection) {
-                let itemCoordinates = item.getCoordinates();
-                if (itemCoordinates[0] > selectedCoordinates[0])
-                    continue;
-
-                if (symbol === Gdk.KEY_Down || symbol === Gdk.KEY_Right) {
-                    if ((itemCoordinates[0] > selectedCoordinates[0]) ||
-                        (itemCoordinates[1] > selectedCoordinates[1])) {
-                        selected = item;
-                        selectedCoordinates = itemCoordinates;
-                        continue;
-                    }
-                } else if ((itemCoordinates[0] < selectedCoordinates[0]) ||
-                        (itemCoordinates[1] < selectedCoordinates[1])) {
-                    selected = item;
-                    selectedCoordinates = itemCoordinates;
-                    continue;
-                }
+                noSelection = true;
             }
         }
+        if (!selection || selection.length === 0)
+            return false;
+
+        // Determine the "start" item like Nautilus: prefer the active/outlined
+        // item if one exists (so keyboard outlining can move independently of
+        // the selection), otherwise use the first item in the selection.
+        let startItem = null;
+        if (this.activeFileItem)
+            startItem = this.activeFileItem;
+        else
+            startItem = selection[0];
+
+        let selected = startItem;
+        if ((isCtrl || isShift) && this._keyboardHoveredItem) {
+            selected = this._keyboardHoveredItem;
+        } else if (this._isMassSelectionInProgress) {
+            selected = this._keyboardHoveredItem;
+            this._exitMassSelectionMode(selected);
+            return true;
+        }
+        let selectedCoordinates = selected.getCoordinates();
+
+        // Map symbol to axis/index and direction multiplier.
+        let index, multiplier;
         switch (symbol) {
         case Gdk.KEY_Left:
             index = 0;
@@ -713,36 +716,95 @@ const DesktopActions = class {
             index = 1;
             multiplier = 1;
             break;
+        default:
+            return false;
         }
-        let newDistance = null;
+
         let newItem = null;
-        for (let item of this._displayList) {
-            let itemCoordinates = item.getCoordinates();
-            if ((selectedCoordinates[index] * multiplier) >=
-                (itemCoordinates[index] * multiplier))
-                continue;
+        let newDistance = null;
+        const startCorner = this._Prefs?.StartCorner ?? [false, false];
+        if (noSelection) {
+            newItem = multiplier > 0 === startCorner[index] ? selection[0] : selection[selection.length - 1];
+        } else if (isShift && !isCtrl && !selected._isSelected) {
+            newItem = selected;
+        } else {
+            for (let item of this._displayList) {
+                let itemCoordinates = item.getCoordinates();
+                if ((selectedCoordinates[index] * multiplier) >=
+                    (itemCoordinates[index] * multiplier))
+                    continue;
 
-            let distance =
-                Math.pow(
-                    selectedCoordinates[0] - itemCoordinates[0], 2) +
-                Math.pow(
-                    selectedCoordinates[1] -  itemCoordinates[1], 2);
+                let distance =
+                    Math.pow(
+                        selectedCoordinates[0] - itemCoordinates[0], 2) +
+                    Math.pow(
+                        selectedCoordinates[1] - itemCoordinates[1], 2);
 
-            if ((newDistance === null) || (newDistance > distance)) {
-                newDistance = distance;
-                newItem = item;
+                if ((newDistance === null) || (newDistance > distance)) {
+                    newDistance = distance;
+                    newItem = item;
+                }
             }
         }
-        if (newItem === null)
-            newItem = selected;
 
-        newItem.setSelected();
+        if (!newItem) {
+            const list = this._displayList;
+            const pos = list.indexOf(selected);
+            if (index === 1) {
+                if (startCorner[index] === (multiplier < 0))
+                    newItem = list[pos + 1];
+                else
+                    newItem = list[pos - 1];
+                if (!newItem) 
+                    newItem = selected;
+            } else {
+                newItem = selected;
+            }
+        }
+
+        if (isCtrl) {
+            this._isMassSelectionInProgress = true;
+            if (this._keyboardHoveredItem)
+                this._keyboardHoveredItem.unsetHoveredWithKeyboard();
+            this.activeFileItem = newItem;
+            this._keyboardHoveredItem = newItem;
+
+            if (isShift)
+                this._dragManager.selected(newItem, this._Enums.Selection.WITH_SHIFT_CONTROL);
+        }
+
+        if (isShift && !isCtrl) {
+            this._isMassSelectionInProgress = true;
+            if (this._keyboardHoveredItem)
+                this._keyboardHoveredItem.unsetHoveredWithKeyboard();
+            this._keyboardHoveredItem = newItem;
+            if (!this._dragManager._selectionAnchor)
+                this._dragManager._selectionAnchor = newItem;
+            this._dragManager.selected(newItem, this._Enums.Selection.WITH_SHIFT);
+            this.activeFileItem = newItem;
+        }
+        if (this._keyboardHoveredItem)
+            this._keyboardHoveredItem.setHoveredWithKeyboard();
+
+        if (!isCtrl && !isShift) {
+            this._exitMassSelectionMode(newItem);
+        }
+
         if (newItem.isStackMarker)
-            newItem.keyboardSelected();
+            newItem.setHoveredWithKeyboard();
 
-        this._desktopManager.fileItemMenu.activeFileItem = newItem;
-        this.activeFileItem = newItem;
         return true;
+    }
+
+    _exitMassSelectionMode(item) {
+        this._isMassSelectionInProgress = false;
+        this._desktopManager.unselectAll();
+        item.setSelected();
+        item.setHoveredWithKeyboard();
+        this._keyboardHoveredItem = item;
+        this._dragManager._selectionAnchor = item;
+        this._desktopManager.fileItemMenu.activeFileItem = item;
+        this.activeFileItem = item;
     }
 
     _menuKeyPressed() {

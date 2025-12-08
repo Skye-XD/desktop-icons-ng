@@ -87,7 +87,8 @@ const DesktopManager = class {
         this._clickY = null;
         this._compositeStackList = null;
         this._displayList = [];
-        this.ignoreKeys = this.Enums.IgnoreKeys.map(_k => Gdk._k);
+        this.ignoreKeys = this.Enums.IgnoreKeys.map(_k => Gdk[_k]);
+        this.navigationKeys = this.Enums.NavigationKeys.map(_k => Gdk[_k]);
 
         // setup gracefull termination
         if (this._asDesktop) {
@@ -284,7 +285,7 @@ const DesktopManager = class {
                 // clear selection
                 this.unselectAll();
             }
-            this.dragManager.startRubberband(X, Y);
+            this.dragManager.startRubberband(X, Y, shiftPressed, controlPressed);
         }
     }
 
@@ -302,10 +303,68 @@ const DesktopManager = class {
             this.mainApp.activate_action('displayShellBackgroundMenu', null);
     }
 
-    onKeyPress(keyval, keycode, state, grid) {
+    _handleKeyboardNavigation(keyval, state) {
+        const isCtrlKey = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
+        const isShiftKey = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
+        switch (keyval) {
+        case Gdk.KEY_Left:
+        case Gdk.KEY_Right:
+        case Gdk.KEY_Up:
+        case Gdk.KEY_Down:
+            try {
+                this.desktopActions.isControl = isCtrlKey;
+                this.desktopActions.isShift = isShiftKey;
+
+                let actionName = null;
+                switch (keyval) {
+                case Gdk.KEY_Left: {
+                    actionName = 'chooseIconLeft';
+                    break;
+                }
+                case Gdk.KEY_Right: {
+                    actionName = 'chooseIconRight';
+                    break;
+                }
+                case Gdk.KEY_Up: {
+                    actionName = 'chooseIconUp';
+                    break;
+                }
+                case Gdk.KEY_Down: {
+                    actionName = 'chooseIconDown';
+                    break;
+                }
+                }
+
+                if (actionName) {
+                    this.mainApp.activate_action(actionName, null);
+                    return true;
+                }
+            } finally {
+                // Clean up the temporary flags to avoid surprising state later.
+                this.desktopActions.isControl = undefined;
+                this.desktopActions.isShift = undefined;
+            }
+            break;
+
+        case Gdk.KEY_space:
+            if (isCtrlKey && this.desktopActions._keyboardHoveredItem) {
+                this.dragManager.selected(this.desktopActions._keyboardHoveredItem, this.Enums.Selection.WITH_CONTROL);
+                this.desktopActions._keyboardHoveredItem.setHoveredWithKeyboard();
+                return true;
+            }
+            break;
+        }
+    }
+
+    onKeyPress(keyval, _keycode, state, grid) {
         this.keyEventGrid = grid;
         if (this.popupmenu || this.fileItemMenu.popupmenu)
             return true;
+
+        if (this.navigationKeys.includes(keyval)) {
+            this._handleKeyboardNavigation(keyval, state);
+            return true;
+        }
 
         if (this.ignoreKeys.includes(keyval))
             return true;
@@ -845,7 +904,7 @@ const DesktopManager = class {
          * @param {integer} b the secondfile size
          */
         function bySize(a, b) {
-            return  a.fileSize - b.fileSize;
+            return a.fileSize - b.fileSize;
         }
 
         /**
@@ -855,7 +914,7 @@ const DesktopManager = class {
          * @param {integer} b the second file timestamp
          */
         function byTime(a, b) {
-            return  a._modifiedTime - b._modifiedTime;
+            return a._modifiedTime - b._modifiedTime;
         }
 
         let specialFiles = [];
@@ -1058,7 +1117,7 @@ const DesktopManager = class {
     _sortByOriginalPosition() {
         let cornerInversion = this.Prefs.StartCorner;
         if (!cornerInversion[0] && !cornerInversion[1]) {
-            this._displayList.sort((a, b) =>   {
+            this._displayList.sort((a, b) => {
                 if (a.X < b.X)
                     return -1;
                 if (a.X > b.X)
@@ -1071,7 +1130,7 @@ const DesktopManager = class {
             });
         }
         if (cornerInversion[0] && cornerInversion[1]) {
-            this._displayList.sort((a, b) =>   {
+            this._displayList.sort((a, b) => {
                 if (a.X < b.X)
                     return 1;
                 if (a.X > b.X)
@@ -1084,7 +1143,7 @@ const DesktopManager = class {
             });
         }
         if (cornerInversion[0] && !cornerInversion[1]) {
-            this._displayList.sort((a, b) =>   {
+            this._displayList.sort((a, b) => {
                 if (a.X < b.X)
                     return 1;
                 if (a.X > b.X)
@@ -1097,7 +1156,7 @@ const DesktopManager = class {
             });
         }
         if (!cornerInversion[0] && cornerInversion[1]) {
-            this._displayList.sort((a, b) =>   {
+            this._displayList.sort((a, b) => {
                 if (a.X < b.X)
                     return -1;
                 if (a.X > b.X)
@@ -1114,7 +1173,7 @@ const DesktopManager = class {
     _sortByCurrentPosition() {
         let cornerInversion = this.Prefs.StartCorner;
         if (!cornerInversion[0] && !cornerInversion[1]) {
-            this._displayList.sort((a, b) =>   {
+            this._displayList.sort((a, b) => {
                 if (a.x < b.x)
                     return -1;
                 if (a.x > b.x)
@@ -1127,7 +1186,7 @@ const DesktopManager = class {
             });
         }
         if (cornerInversion[0] && cornerInversion[1]) {
-            this._displayList.sort((a, b) =>   {
+            this._displayList.sort((a, b) => {
                 if (a.x < b.x)
                     return 1;
                 if (a.x > b.x)
@@ -1140,7 +1199,7 @@ const DesktopManager = class {
             });
         }
         if (cornerInversion[0] && !cornerInversion[1]) {
-            this._displayList.sort((a, b) =>   {
+            this._displayList.sort((a, b) => {
                 if (a.x < b.x)
                     return 1;
                 if (a.x > b.x)
@@ -1153,7 +1212,7 @@ const DesktopManager = class {
             });
         }
         if (!cornerInversion[0] && cornerInversion[1]) {
-            this._displayList.sort((a, b) =>   {
+            this._displayList.sort((a, b) => {
                 if (a.x < b.x)
                     return -1;
                 if (a.x > b.x)
@@ -1355,7 +1414,7 @@ const DesktopManager = class {
          * @param {integer} b fileItem file modified time
          */
         function byTime(a, b) {
-            return  a._modifiedTime - b._modifiedTime;
+            return a._modifiedTime - b._modifiedTime;
         }
         this._displayList.sort(byTime);
         this._reassignFilesToDesktop();
@@ -1367,7 +1426,7 @@ const DesktopManager = class {
          * @param {integer} b fileItem fileSize
          */
         function bySize(a, b) {
-            return  a.fileSize - b.fileSize;
+            return a.fileSize - b.fileSize;
         }
         this._displayList.sort(bySize);
         this._reassignFilesToDesktop();
@@ -1472,6 +1531,8 @@ const DesktopManager = class {
             f.unsetSelected();
             f.opacity = 1;
         });
+        this.desktopActions._keyboardHoveredItem = null;
+        this.dragManager._selectionAnchor = null;
         this.fileItemMenu.activeFileItem = null;
     }
 
@@ -1576,7 +1637,7 @@ const DesktopManager = class {
             position = [this._clickX, this._clickY];
 
 
-        const baseName = suggestedName ? suggestedName :  _('New Folder');
+        const baseName = suggestedName ? suggestedName : _('New Folder');
         let newName = this.desktopMonitor.getDesktopUniqueFileName(baseName);
 
         if (newName) {
