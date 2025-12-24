@@ -21,6 +21,7 @@ import {_} from '../dependencies/gettext.js';
 
 export {Preferences};
 
+const appID = 'com.desktop.ding';
 const GioSSS = Gio.SettingsSchemaSource;
 
 const Preferences = class {
@@ -252,6 +253,7 @@ const Preferences = class {
         this._initLocalCSSprovider();
         this._monitorDesktopSettings();
         this._monitorTerminalSettings();
+        this._createReloadCSSAction();
     }
 
     _monitorDesktopSettings() {
@@ -620,16 +622,60 @@ const Preferences = class {
 
     _initLocalCSSprovider() {
         const cssProvider = new Gtk.CssProvider();
+        this._cssOverrideProvider = new Gtk.CssProvider();
         const resourcePath = this._mainApp.get_resource_base_path();
+
+        // Load user-local stylesheet override from config directory
+        const configDir = GLib.get_user_config_dir();
+        this._cssOverridePath = GLib.build_filenamev([configDir, appID, 'stylesheet-override.css']);
+        this.reloadCSSOverride();
 
         cssProvider.load_from_resource(`${resourcePath}/stylesheet.css`);
 
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             cssProvider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+        Gtk.StyleContext.add_provider_for_display(
+            Gdk.Display.get_default(),
+            this._cssOverrideProvider,
             Gtk.STYLE_PROVIDER_PRIORITY_USER
         );
     }
+    
+    _createReloadCSSAction() {
+        const reloadCSSAction = Gio.SimpleAction.new('reloadCSS', null);
+        reloadCSSAction.connect('activate', () => {
+            this.reloadCSSOverride();
+        });
+        this._mainApp.add_action(reloadCSSAction);
+    }
+
+    reloadCSSOverride() {
+        if (!this._cssOverrideProvider || !this._cssOverridePath)
+            return;
+
+        const overrideFile = Gio.File.new_for_path(this._cssOverridePath);
+
+        if (overrideFile.query_exists(null)) {
+            try {
+                this._cssOverrideProvider.load_from_path(this._cssOverridePath);
+                console.info('CSS override reloaded successfully');
+            } catch (e) {
+                console.error(`Failed to reload CSS override: ${e}`);
+            }
+        } else {
+            console.info('CSS override file does not exist, clearing styles');
+            // Load empty CSS to clear previous overrides
+            try {
+                this._cssOverrideProvider.load_from_string('');
+            } catch (e) {
+                console.error(`Failed to clear CSS override: ${e}`);
+            }
+        }
+    }
+
 
     _setupTerminalMonitors() {
         this._xdgTerminalMonitors = [];
