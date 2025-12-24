@@ -153,6 +153,94 @@ const ComboRowWithKey = GObject.registerClass({
     }
 });
 
+const CssOverrideGroup = GObject.registerClass(
+class CssOverrideGroup extends Adw.PreferencesGroup {
+		constructor(params = {}) {
+        super({});
+        this.set_title(_('CSS Override'));
+        this.set_description(_('Customise the appearance of desktop icons with CSS'));
+        const warningLabel = new Gtk.Label();
+        warningLabel.set_markup(
+					'<span style="italic" foreground="red">' +
+						_("Warning: This can break the extension if done incorrectly") +
+						"</span>",
+        );
+        this.add(warningLabel);
+        const icon = Gtk.Image.new_from_icon_name('window-pop-out-symbolic');
+        this.cssOverrideButton = new Adw.ActionRow({
+            title: _('Edit CSS Override File...'),
+        });
+        this.cssOverrideButton.add_suffix(icon);
+        this.cssOverrideButton.set_activatable_widget(icon);
+        this.cssOverrideButton.connect('activated', this.openUserCssOverrideFile.bind(this));
+        this.add(this.cssOverrideButton);
+
+        this.reloadButtonRow = new Adw.ActionRow({
+            title: _('Apply CSS Changes Now'),
+            subtitle: _('Reload the CSS to apply changes immediately'),
+            
+        });
+        const button = Gtk.Button.new_with_label("Reload");
+        button.set_size_request(120, -1);
+        button.set_halign(Gtk.Align.END);
+        button.set_valign(Gtk.Align.CENTER);
+        button.set_hexpand(true);
+        button.set_vexpand(false);
+
+        button.connect('clicked', () => {
+            this.reloadCSS();
+        });
+        this.reloadButtonRow.add_suffix(button);
+        this.reloadButtonRow.set_activatable_widget(button);
+        this.add(this.reloadButtonRow);
+        this.update(params.remoteActions);
+    }
+    
+    reloadCSS() {
+        try {
+            this.remoteActions.activate_action('reloadCSS', null);
+            console.info('CSS reload requested');
+        } catch (e) {
+            console.error(`Failed to reload CSS: ${e}`);
+        }
+    }
+
+    update(remoteActions) {
+        this.remoteActions = remoteActions;
+        if (this.remoteActions?.list_actions()) {
+            this.reloadButtonRow.set_sensitive(true);
+        } else {
+            this.reloadButtonRow.set_sensitive(false);
+        }
+    }
+
+    
+    openUserCssOverrideFile() {
+        const configDir = GLib.get_user_config_dir();
+        const cssFile = Gio.File.new_for_path(
+            GLib.build_filenamev([configDir, appID, 'stylesheet-override.css'])
+        );
+        
+        // Create directory if it doesn't exist
+        const cssDir = cssFile.get_parent();
+        try {
+            cssDir.make_directory_with_parents(null);
+        } catch (e) {
+            // Directory already exists
+        }
+        
+        // Create file if it doesn't exist
+        if (!cssFile.query_exists(null)) {
+            cssFile.create(Gio.FileCreateFlags.NONE, null);
+        }
+        
+        // Open with default text editor
+        const context = Gdk.Display.get_default().get_app_launch_context();
+        context.set_timestamp(Gdk.CURRENT_TIME);
+        Gio.AppInfo.launch_default_for_uri(cssFile.get_uri(), context);
+    }
+});
+
 const ShortcutGroup = GObject.registerClass(
 class ShortcutGroup extends Adw.PreferencesGroup {
     constructor(params = {}) {
@@ -455,6 +543,7 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
                         appPath
                     );
                     this.shortcutGroup?.update(this.remoteActions);
+                    this.cssOverrideGroup?.update(this.remoteActions);
                 } catch (e) {
                     logError(e, 'Error getting action group');
                 }
@@ -462,6 +551,7 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
             (_conn, _name) => {
                 this.remoteActions = null;
                 this.shortcutGroup?.update(this.remoteActions);
+                this.cssOverrideGroup?.update(this.remoteActions);
             }
         );
     }
@@ -549,6 +639,12 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
             new ShortcutGroup({remoteActions: this.remoteActions});
 
         aboutFrame.add(this.shortcutGroup);
+
+        this.cssOverrideGroup = new CssOverrideGroup({
+            remoteActions: this.remoteActions,
+        });
+        this.cssOverrideGroup.set_visible(false); // Initially hidden
+        aboutFrame.add(this.cssOverrideGroup);
 
         const aboutGroup = new Adw.PreferencesGroup();
 
@@ -712,6 +808,41 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
             this.launchWebTranslation.bind(this)
         ));
 
+        // Track Alt key state using event controllers
+        this._altKeyPressed = false;
+        
+        // Add key event controller to track Alt key
+        const keyController = new Gtk.EventControllerKey();
+        keyController.connect('key-pressed', (controller, keyval, keycode, state) => {
+            if (keyval === Gdk.KEY_Alt_L || keyval === Gdk.KEY_Alt_R) {
+                this._altKeyPressed = true;
+            }
+            return false;
+        });
+        
+        keyController.connect('key-released', (controller, keyval, keycode, state) => {
+            if (keyval === Gdk.KEY_Alt_L || keyval === Gdk.KEY_Alt_R) {
+                this._altKeyPressed = false;
+            }
+        });
+        
+        prefsWindow.add_controller(keyController);
+        
+        // Add click gesture controller to detect Alt+Click on tab
+        const clickController = new Gtk.GestureClick();
+        clickController.connect('pressed', (gesture, n_press, x, y) => {
+            const state = gesture.get_current_event().get_modifier_state();
+            this._altKeyPressed = (state & Gdk.ModifierType.ALT_MASK) !== 0;
+        });
+        prefsWindow.add_controller(clickController);
+        
+        // Show CSS Override group only when navigating to More tab with Alt held
+        prefsWindow.connect('notify::visible-page', () => {
+            if (prefsWindow.get_visible_page() === aboutFrame) {
+                this.cssOverrideGroup.set_visible(this._altKeyPressed);
+            }
+        });
+        
         prefsWindow.set_default_size(600, 650);
 
         this._monitorDesktopDirChanges();
