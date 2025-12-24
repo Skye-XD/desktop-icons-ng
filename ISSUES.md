@@ -28,6 +28,15 @@ If this extension does not work for you, just deactivate it in extensions manage
 
 Please report errors, and if you can fix it, please do so. See Contributing below.
 
+## CSS override location & reload
+
+You can override the default CSS file to change app appearance. This can break the app or display, please be mindfull.
+
+  - User override file: `~/.config/<application-id>/stylesheet-override.css` (currently `~/.config/com.desktop.ding/stylesheet-override.css`).
+  - Loaded automatically on app start and when the “Reload CSS” action is triggered.
+  - To reload without restarting: in Preferences, Option-click the “More” tab to expose the hidden “Reload CSS” action.
+  - The overrides are applied at a higher 'User' priority than the 'Application' priority of the basseline CSS.
+
 ## THEME ISSUES
 
 SINCE APRIL 16, 2023, venison 35, GTK4-DING IS A LIBADWAITA APPLICATION. ONLY DEFAULT LIBADWAITA THEME WILL WORK, GTK THEMES WILL NOT EXCEPT ICONS AND SELECTION/BACKGROUND COLORS. HOPEFULLY THERE WILL BE NO MORE ISSUES. PLEASE SEE BELOW FOR PREVIOUS VERSIONS.
