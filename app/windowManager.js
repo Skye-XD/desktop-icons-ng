@@ -18,7 +18,7 @@ import {
     DesktopGrid
 } from '../dependencies/localFiles.js';
 
-import {Gio, GLib} from '../dependencies/gi.js';
+import {Gio, GLib, DesktopWidgetCapability} from '../dependencies/gi.js';
 
 export {WindowManager};
 
@@ -47,6 +47,7 @@ const WindowManager = class {
         this._differentZooms = false;
         this._hidden = false;
 
+        this._registerWidgetLayerAction();
         this._dbusAdvertiseUpdate();
     }
 
@@ -104,85 +105,180 @@ const WindowManager = class {
     }
 
     async updateGridWindows(newdesktoplist) {
-        this._priorDesktopList = this._desktopList;
-        this._desktopList = newdesktoplist;
+        const changeInfo =
+            this._computeDesktopChangeInfo(newdesktoplist);
 
-        this._priorPrimaryIndex = this._primaryIndex ?? null;
-
-        let newPrimaryIndex;
-
-        if ((newdesktoplist.length > 0) &&
-            ('primaryMonitor' in newdesktoplist[0])
-        )
-            newPrimaryIndex = newdesktoplist[0].primaryMonitor ?? null;
-
-        if (newPrimaryIndex !== this._priorPrimaryIndex)
-            this._primaryIndex = newPrimaryIndex;
-
-        this._priorPrimaryMonitorIndex = this._primaryMonitorIndex ?? 0;
-
-        // Find the new primary monitor
-        this._primaryScreen = this._desktopList[this._primaryIndex] ?? null;
-        this._primaryMonitorIndex = this._primaryScreen.monitorIndex ?? null;
-
-        const indexChanged = this._priorPrimaryMonitorIndex !==
-            this._primaryMonitorIndex;
-
-        // See if there are different zooms in the desktops
-        this._differentZooms = this._desktopList.some((d, index) => {
-            const nextd = this._desktopList[index + 1];
-
-            if (nextd != null)
-                return d.zoom !== nextd.zoom;
-
-            return false;
-        });
+        const {
+            firstDesktop,
+            monitorCountChanged,
+            monitorschangedList,
+            gridschangedList,
+            monitorschanged,
+            gridschanged,
+            redisplay,
+        } = changeInfo;
 
         // Allow initial startup if no desktops defined on initiation
-        const firstDesktop =
-            this._priorDesktopList.some(
-                d => {
-                    return typeof d !== 'object' || d == null;
-                }
-            ) ||
-            this._priorDesktopList.length === 0;
-
         if (firstDesktop) {
-            this._desktopManager._displayList.forEach(x => x.removeFromGrid());
-            this.createGridWindows();
-
-            // sanity checks and icons placment on grid will be done by
-            // desktopManager in sync startup
+            this._handleFirstDesktop();
             return;
         }
 
         // If any new monitors plugged in or removed
         // by creating new desktops
-        if (this._priorDesktopList.length !== this._desktopList.length) {
-            // monitor has been plugged in or removed.
-            this._desktopManager._displayList.forEach(x => x.removeFromGrid());
-            this.createGridWindows();
-            this._desktopManager._performSanityChecks();
-
-            // If valid fileList is available, no change in fileList
-            // recompute postion of all icons for new geometry
-            this._desktopManager.reFrameDesktop({
-                redisplay: true,
-                monitorschanged: true,
-                gridschanged: true,
-            });
-
+        if (monitorCountChanged) {
+            await this._handleMonitorCountChange();
             return;
         }
 
-        // if no change in monitors, check if any change in monitor geometry
-        // or if any change in grid geometry
+        if (redisplay) {
+            await this._handleRedisplay({
+                monitorschangedList,
+                gridschangedList,
+                monitorschanged,
+                gridschanged,
+                redisplay,
+            });
+        }
+    }
+
+    _handleFirstDesktop() {
+        this._desktopManager.clearAllLayersFromGrids();
+        this.createGridWindows();
+
+        // sanity checks and icons placement on grid will be done by
+        // desktopManager in sync startup
+    }
+
+    async _handleMonitorCountChange() {
+        // monitor has been plugged in or removed.
+        this._desktopManager.clearAllLayersFromGrids();
+        this.createGridWindows();
+
+        // If valid fileList is available, no change in fileList
+        // recompute position of all icons for new geometry
+        await this._desktopManager.applyDesktopLayoutChange({
+            redisplay: true,
+            monitorschanged: true,
+            gridschanged: true,
+        });
+    }
+
+    async _handleRedisplay({
+        monitorschangedList,
+        gridschangedList,
+        monitorschanged,
+        gridschanged,
+        redisplay,
+    }) {
+        if (!redisplay)
+            return;
+
+        await this._displayDesktopSnapShots();
+        this._desktopManager.clearAllLayersFromGrids();
+
+        this._desktops.forEach((desktop, index) => {
+            desktop.updateGridDescription(this._desktopList[index]);
+
+            if (monitorschangedList.includes(index)) {
+                desktop.resizeWindow();
+                desktop.resizeGrid();
+            } else if (gridschangedList.includes(index)) {
+                desktop.resizeGrid();
+            }
+        });
+
+        // There is a subtle difference here, all information is needed
+        //
+        // gridschanged implies prior grid information is available.
+        // Therefore write mode is 'PRESERVE' initially
+        //
+        // monitors changed implies that all coordintes are rewritten to the
+        // new monitor relative coordinates with a write mode of 'OVERWRITE'
+        //
+        // redisplay re-arranges all the icons on the new desktop monitor,
+        // essential for proper sorting/stacking of icons and arranging of
+        // icons
+        //
+        // For keep arranged new coordinates are automatically written to
+        // grid. However for stacked co-ordinates- we will neeed to redo the
+        // old coordinates seperately in do stacks with nonitorschanged info
+        await this._desktopManager.applyDesktopLayoutChange({
+            redisplay,
+            monitorschanged,
+            gridschanged,
+        });
+
+        this._displayAnimationToLive();
+    }
+
+
+    _updatePrimaryStateAndZoomInfo(newdesktoplist) {
+        // Save prior primary state
+        this._priorPrimaryIndex = this._primaryIndex ?? null;
+        this._priorPrimaryMonitorIndex = this._primaryMonitorIndex ?? 0;
+
+        // Compute new primary index
+        let newPrimaryIndex;
+
+        if (newdesktoplist.length > 0 &&
+            ('primaryMonitor' in newdesktoplist[0]))
+            newPrimaryIndex = newdesktoplist[0].primaryMonitor ?? null;
+
+        // Update primary index if changed
+        if (newPrimaryIndex !== this._priorPrimaryIndex)
+            this._primaryIndex = newPrimaryIndex;
+
+        // Find the new primary monitor
+        this._primaryScreen = this._desktopList[this._primaryIndex] ?? null;
+        this._primaryMonitorIndex = this._primaryScreen.monitorIndex ?? null;
+
+        // See if there are different zooms in the desktops
+        this._differentZooms = this._desktopList.some((d, index) => {
+            const nextd = this._desktopList[index + 1];
+            if (nextd != null)
+                return d.zoom !== nextd.zoom;
+            return false;
+        });
+    }
+
+    _computeDesktopChangeInfo(newDesktopList) {
+        const priorDesktopList = this._desktopList;
+        this._priorDesktopList = priorDesktopList;
+
+        this._desktopList = newDesktopList;
+
+        this._updatePrimaryStateAndZoomInfo(newDesktopList);
+
+        // Allow initial startup if no desktops defined on initiation
+        const firstDesktop =
+            priorDesktopList.some(d => typeof d !== 'object' || d == null) ||
+            priorDesktopList.length === 0;
+
+        const monitorCountChanged =
+            priorDesktopList.length !== newDesktopList.length;
 
         const monitorschangedList = [];
         const gridschangedList = [];
 
-        this._desktopList.forEach((area, index) => {
-            const area2 = this._priorDesktopList[index];
+        // If this is the first desktop, we don't need finer diffing;
+        if (firstDesktop) {
+            return {
+                firstDesktop,
+                monitorCountChanged,
+                monitorschangedList,
+                gridschangedList,
+                monitorschanged: false,
+                gridschanged: false,
+                redisplay: false,
+            };
+        }
+
+        // if no change in monitors, check if any change in monitor geometry
+        // or if any change in grid geometry
+        newDesktopList.forEach((area, index) => {
+            const area2 = priorDesktopList[index];
+
             if ((area.x !== area2.x) ||
                 (area.y !== area2.y) ||
                 (area.width !== area2.width) ||
@@ -192,7 +288,6 @@ const WindowManager = class {
             ) {
                 monitorschangedList.push(index);
                 gridschangedList.push(index);
-
                 return;
             }
 
@@ -206,7 +301,10 @@ const WindowManager = class {
             }
         });
 
-        // indexchanged implies monitors have changed
+        const indexChanged =
+            this._priorPrimaryMonitorIndex !== this._primaryMonitorIndex;
+
+        // indexChanged implies monitors have changed
         // monitors changed or index changed implies grids have changed
         // as there may be other actors on the new monitor edge
         const monitorschanged = !!monitorschangedList.length || indexChanged;
@@ -221,43 +319,15 @@ const WindowManager = class {
         // has not changed
         const redisplay = monitorschanged || gridschanged;
 
-        if (redisplay) {
-            await this._displayDesktopSnapShots();
-            this._desktopManager._displayList.forEach(x => x.removeFromGrid());
-
-            this._desktops.forEach((desktop, index) => {
-                desktop.updateGridDescription(this._desktopList[index]);
-
-                if (monitorschangedList.includes(index)) {
-                    desktop.resizeWindow();
-                    desktop.resizeGrid();
-                } else if (gridschangedList.includes(index)) {
-                    desktop.resizeGrid();
-                }
-            });
-
-            // There is a subtle difference here, all information is needed
-            //
-            // gridschanged implies prior grid information is available.
-            // Therefore write mode is 'PRESERVE' initially
-            //
-            // monitors changed implies that all coordintes are rewritten to the
-            // new monitor relative coordinates with a write mode of 'OVERWRITE'
-            //
-            // redisplay re-arranges all the icons on the new desktop monitor,
-            // essential for proper sorting/stacking of icons and arranging of
-            // icons
-            //
-            // For keep arranged new coordinates are automatically written to
-            // grid. However for stacked co-ordinates- we will neeed to redo the
-            // old coordinates seperately in do stacks with nonitorschanged info
-            this._desktopManager._performSanityChecks();
-
-            await this._desktopManager
-            .reFrameDesktop({redisplay, monitorschanged, gridschanged});
-
-            this._displayAnimationToLive();
-        }
+        return {
+            firstDesktop,
+            monitorCountChanged,
+            monitorschangedList,
+            gridschangedList,
+            monitorschanged,
+            gridschanged,
+            redisplay,
+        };
     }
 
     async _displayDesktopSnapShots() {
@@ -292,13 +362,14 @@ const WindowManager = class {
                     : `DING ${desktopIndex}`;
 
             this._desktops.push(
-                new DesktopGrid.DesktopGrid(
-                    this._desktopManager,
+                new DesktopGrid.DesktopGrid({
+                    desktopManager: this._desktopManager,
                     desktopName,
-                    desktop,
-                    this._asDesktop,
-                    this._hidden
-                )
+                    desktopDescription: desktop,
+                    asDesktop: this._asDesktop,
+                    hidden: this._hidden,
+                    desktopIndex,
+                })
             );
         });
 
@@ -321,6 +392,47 @@ const WindowManager = class {
             this.show();
         else
             this.hide();
+    }
+
+    toggleWidgetLayers() {
+        if (!this._Prefs.showDesktopWidgets)
+            return;
+
+        this._desktops.forEach(desktop => desktop.toggleWidgetLayer());
+    }
+
+    lowerWidgetLayers() {
+        this._desktops.forEach(desktop => desktop.lowerWidgetContainer());
+    }
+
+    raiseWidgetLayers() {
+        this._desktops.forEach(desktop => desktop.raiseWidgetContainer());
+    }
+
+    _registerWidgetLayerAction() {
+        const action = new Gio.SimpleAction({name: 'toggleWidgetLayer'});
+        action.connect('activate', () => {
+            this.toggleWidgetLayers();
+        });
+
+        action.set_enabled(DesktopWidgetCapability);
+        this._desktopManager.mainApp.add_action(action);
+
+        const lowerAction = new Gio.SimpleAction({name: 'lowerWidgetLayer'});
+        lowerAction.connect('activate', () => {
+            this.lowerWidgetLayers();
+        });
+
+        lowerAction.set_enabled(DesktopWidgetCapability);
+        this._desktopManager.mainApp.add_action(lowerAction);
+
+        const raiseAction = new Gio.SimpleAction({name: 'raiseWidgetLayer'});
+        raiseAction.connect('activate', () => {
+            this.raiseWidgetLayers();
+        });
+
+        raiseAction.set_enabled(DesktopWidgetCapability);
+        this._desktopManager.mainApp.add_action(raiseAction);
     }
 
     _getPreferredDisplayDesktop() {

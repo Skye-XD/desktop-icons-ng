@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo Clock Preferences</title>
+  <style>
+    :root {
+      --bg: rgba(12, 12, 14, 0.86);
+      --panel: rgba(18, 18, 22, 0.92);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.72);
+      --border: rgba(255, 255, 255, 0.14);
+      --border-strong: rgba(255, 255, 255, 0.22);
+      --shadow: 0 10px 40px rgba(0,0,0,0.45);
+      --focus: rgba(255,255,255,0.35);
+
+      --accent: rgba(0, 200, 255, 0.85); /* default, overridden by accent selection */
+      --accent-soft: rgba(0, 200, 255, 0.18);
+      --danger: rgba(255, 90, 90, 0.9);
+      --ok: rgba(100, 255, 170, 0.9);
+      --warn: rgba(255, 200, 100, 0.95);
+    }
+
+    /* Light theme (used if hostState says theme=light) */
+    .theme-light {
+      --bg: rgba(250, 250, 252, 0.92);
+      --panel: rgba(255, 255, 255, 0.96);
+      --text: rgba(20, 20, 24, 0.92);
+      --muted: rgba(20, 20, 24, 0.70);
+      --border: rgba(0, 0, 0, 0.12);
+      --border-strong: rgba(0, 0, 0, 0.18);
+      --shadow: 0 10px 40px rgba(0,0,0,0.18);
+      --focus: rgba(0,0,0,0.25);
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: transparent;
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    .wrap {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: min(720px, 96vw);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    header {
+      padding: 14px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(180deg, var(--panel), transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    header .title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    header .title h1 {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      font-weight: 650;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    header .title .sub {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.12);
+      user-select: none;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--warn);
+      box-shadow: 0 0 0 3px rgba(255,200,100,0.18);
+    }
+
+    .dot.ok { background: var(--ok); box-shadow: 0 0 0 3px rgba(100,255,170,0.16); }
+    .dot.bad { background: var(--danger); box-shadow: 0 0 0 3px rgba(255,90,90,0.16); }
+
+    main {
+      padding: 14px 16px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 16px;
+    }
+
+    @media (max-width: 640px) {
+      main { grid-template-columns: 1fr; }
+    }
+
+    .group {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(0,0,0,0.08);
+    }
+
+    .group h2 {
+      margin: 0 0 8px 0;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      color: var(--muted);
+      font-weight: 650;
+      text-transform: uppercase;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 10px 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    input[type="text"], input[type="number"], select, textarea {
+      appearance: none;
+      -webkit-appearance: none;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: rgba(0,0,0,0.20);
+      color: var(--text);
+      outline: none;
+    }
+
+    /* Ensure selects are opaque enough in dark mode */
+    select {
+      background: rgba(16, 16, 20, 0.92);
+    }
+    .theme-light select {
+      background: rgba(255,255,255,0.96);
+    }
+
+    select option {
+      background: #111;
+      color: #fff;
+    }
+    .theme-light select option {
+      background: #fff;
+      color: #111;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    select:focus,
+    textarea:focus {
+      box-shadow: 0 0 0 3px var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .row .hint {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+    }
+
+    footer {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(0deg, var(--panel), transparent);
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btnrow { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+    button {
+      border: 1px solid var(--border-strong);
+      background: rgba(0,0,0,0.14);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 650;
+      letter-spacing: 0.15px;
+      cursor: pointer;
+      user-select: none;
+      min-width: 110px;
+    }
+
+    button:hover { border-color: var(--accent); }
+    button:active { transform: translateY(1px); }
+
+    button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .primary {
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0.18));
+      border-color: rgba(255,255,255,0.28);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .primary:hover { border-color: var(--accent); }
+
+    .ghost {
+      background: rgba(0,0,0,0.08);
+      min-width: 90px;
+    }
+
+    .danger {
+      border-color: rgba(255,90,90,0.50);
+    }
+    .danger:hover { border-color: rgba(255,90,90,0.85); }
+
+    .logbox {
+      grid-column: 1 / -1;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(0,0,0,0.10);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 120px;
+    }
+
+    .loghead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    #log {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 11.5px;
+      line-height: 1.35;
+      color: var(--text);
+      white-space: pre-wrap;
+      overflow: auto;
+      max-height: 220px;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.18);
+    }
+
+    .accent-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.10);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card" id="root">
+      <header>
+        <div class="title">
+          <h1>Demo Clock Preferences</h1>
+          <p class="sub" id="subline">Loading…</p>
+        </div>
+
+        <div class="badge" title="Internet reachability (no-cors)">
+          <span class="dot" id="onlineDot"></span>
+          <span id="onlineText">unknown</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="group">
+          <h2>Clock</h2>
+
+          <label>
+            City label
+            <input id="city" type="text" placeholder="e.g. Neevva" />
+          </label>
+
+          <label>
+            GMT offset (minutes)
+            <input id="gmtOffsetMinutes" type="number" step="15" min="-720" max="840" />
+          </label>
+
+          <div class="check">
+            <input id="showSeconds" type="checkbox" />
+            <div>
+              Show seconds
+              <div class="row"><span class="hint" id="tickHint">Tick policy: …</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="group">
+          <h2>Appearance</h2>
+
+          <label>
+            Neon accent
+            <select id="accent">
+              <option value="neon-cyan">Neon Cyan</option>
+              <option value="neon-red">Neon Red</option>
+              <option value="neon-green">Neon Green</option>
+              <option value="neon-purple">Neon Purple</option>
+              <option value="neon-amber">Neon Amber</option>
+            </select>
+          </label>
+
+          <div class="row" style="margin-top:10px;">
+            <span class="accent-chip" title="Preview">
+              <span class="swatch"></span>
+              <span id="accentLabel">accent</span>
+            </span>
+            <span class="hint">Applied instantly in prefs</span>
+          </div>
+
+          <div class="row" style="margin-top:12px;">
+            <span class="hint">Theme comes from hostState</span>
+            <button class="ghost" id="testLog" type="button">Test Log</button>
+          </div>
+        </section>
+
+        <section class="logbox">
+          <div class="loghead">
+            <div>Diagnostics & log</div>
+            <div class="btnrow">
+              <button class="ghost" id="clearLog" type="button">Clear</button>
+              <button class="ghost" id="runDiag" type="button">RunDiag</button>
+            </div>
+          </div>
+          <div id="log" aria-label="Log output"></div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="btnrow">
+          <button class="primary" id="save" type="button">Save</button>
+          <button class="ghost" id="reload" type="button">Reload</button>
+          <button class="danger" id="reset" type="button">Reset</button>
+        </div>
+
+        <div class="hint" id="buildStamp"></div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Demo Clock Prefs (rewritten cleanly)
+    // Build stamp: bump this any time you change the file to avoid cache confusion.
+    const BUILD_STAMP = 'prefs-rewrite-2025-12-16T';
+    document.getElementById('buildStamp').textContent = BUILD_STAMP;
+
+    function getMode() {
+      const u = new URL(window.location.href);
+      return u.searchParams.get('dingMode') || 'prefs';
+    }
+    function getInstanceId() {
+      const u = new URL(window.location.href);
+      return u.searchParams.get('dingInstanceId') || null;
+    }
+
+    function dingLog(msg, obj) {
+      // Keep host log structured, keep console log readable.
+      try {
+        if (window?.ding?.log)
+          window.ding.log(msg, (obj === undefined ? null : obj));
+      } catch (e) {}
+
+      try {
+        if (obj === undefined || obj === null) {
+          console.log(msg);
+        } else if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
+          console.log(msg, obj);
+        } else {
+          let s = null;
+          try { s = JSON.stringify(obj); } catch (e) { s = String(obj); }
+          console.log(msg, s);
+        }
+      } catch (e) {}
+
+      appendLogLine(msg, obj);
+    }
+    function appendLogLine(msg, obj) {
+      const el = document.getElementById('log');
+      if (!el) return;
+      const ts = new Date().toISOString().slice(11, 19);
+      let line = `[${ts}] ${msg}`;
+      if (obj !== undefined && obj !== null) {
+        try { line += ' ' + JSON.stringify(obj); } catch (e) { line += ' ' + String(obj); }
+      }
+      el.textContent += (el.textContent ? '\n' : '') + line;
+      el.scrollTop = el.scrollHeight;
+    }
+
+    // Accent palette
+    const ACCENTS = {
+      'neon-cyan':   { accent: 'rgba(0, 200, 255, 0.90)', soft: 'rgba(0, 200, 255, 0.18)' },
+      'neon-red':    { accent: 'rgba(255, 80, 80, 0.92)', soft: 'rgba(255, 80, 80, 0.18)' },
+      'neon-green':  { accent: 'rgba(80, 255, 150, 0.92)', soft: 'rgba(80, 255, 150, 0.18)' },
+      'neon-purple': { accent: 'rgba(190, 120, 255, 0.92)', soft: 'rgba(190, 120, 255, 0.18)' },
+      'neon-amber':  { accent: 'rgba(255, 195, 90, 0.95)', soft: 'rgba(255, 195, 90, 0.18)' },
+    };
+
+    function applyAccent(accentKey) {
+      const k = ACCENTS[accentKey] ? accentKey : 'neon-cyan';
+      const v = ACCENTS[k];
+      document.documentElement.style.setProperty('--accent', v.accent);
+      document.documentElement.style.setProperty('--accent-soft', v.soft);
+      document.getElementById('accentLabel').textContent = k;
+    }
+
+    function applyTheme(theme) {
+      const root = document.getElementById('root');
+      root.classList.toggle('theme-light', theme === 'light');
+    }
+
+    // HostState integration (best-effort; no hard failure if missing)
+    function applyHostState(hostState) {
+      if (!hostState || typeof hostState !== 'object') return;
+      if (hostState.theme) applyTheme(hostState.theme);
+      updateTickPolicyHint(hostState, getConfigFromUI());
+    }
+
+    function updateTickPolicyHint(hostState, cfg) {
+      const reducedMotion = !!hostState?.reducedMotion;
+      const showSeconds = !!cfg?.showSeconds;
+      const intervalMs = reducedMotion ? (showSeconds ? 1000 : 60000) : (showSeconds ? 250 : 2500);
+      document.getElementById('tickHint').textContent =
+        `Tick policy: reducedMotion=${reducedMotion}, showSeconds=${showSeconds}, intervalMs=${intervalMs}`;
+      dingLog('[demo-clock] tickPolicy', { reducedMotion, showSeconds, intervalMs });
+    }
+
+    function setOnlineBadge(val) {
+      const dot = document.getElementById('onlineDot');
+      const text = document.getElementById('onlineText');
+      if (val === true) {
+        dot.classList.add('ok'); dot.classList.remove('bad');
+        text.textContent = 'online';
+      } else if (val === false) {
+        dot.classList.add('bad'); dot.classList.remove('ok');
+        text.textContent = 'offline';
+      } else {
+        dot.classList.remove('ok'); dot.classList.remove('bad');
+        text.textContent = 'unknown';
+      }
+    }
+
+    function getConfigFromUI() {
+      const city = document.getElementById('city').value.trim();
+      const rawOffset = document.getElementById('gmtOffsetMinutes').value;
+      const gmtOffsetMinutes = Number.isFinite(Number(rawOffset)) ? Number(rawOffset) : 0;
+      const showSeconds = !!document.getElementById('showSeconds').checked;
+      const accent = document.getElementById('accent').value || 'neon-cyan';
+      return { city, gmtOffsetMinutes, showSeconds, accent };
+    }
+
+    function setConfigToUI(cfg) {
+      const safe = (cfg && typeof cfg === 'object') ? cfg : {};
+      document.getElementById('city').value = String(safe.city ?? '');
+      document.getElementById('gmtOffsetMinutes').value = String(Number(safe.gmtOffsetMinutes ?? 0));
+      document.getElementById('showSeconds').checked = !!safe.showSeconds;
+      document.getElementById('accent').value = String(safe.accent ?? 'neon-cyan');
+      applyAccent(document.getElementById('accent').value);
+      updateTickPolicyHint(window.__hostState || {}, getConfigFromUI());
+    }
+
+    async function loadConfig() {
+      const sub = document.getElementById('subline');
+      const instanceId = getInstanceId();
+      sub.textContent = `mode=${getMode()}  instance=${instanceId ?? '(none)'}`;
+
+      if (!window.ding?.getConfig) {
+        dingLog('[demo-clock] getConfig not available');
+        return;
+      }
+
+      try {
+        const cfg = await window.ding.getConfig();
+        dingLog('[demo-clock] getConfig->', cfg);
+        setConfigToUI(cfg || {});
+      } catch (e) {
+        dingLog('[demo-clock] getConfig error', String(e?.message ?? e));
+      }
+    }
+
+    async function saveConfig() {
+      if (!window.ding?.saveConfig) {
+        dingLog('[demo-clock] saveConfig not available');
+        return;
+      }
+
+      const cfg = getConfigFromUI();
+      dingLog('[demo-clock] save click', cfg);
+
+      try {
+        const ret = window.ding.saveConfig(cfg);
+        if (ret && typeof ret.then === 'function')
+          await ret;
+
+        dingLog('[demo-clock] saveConfig sent', null);
+
+        // Refresh prefs view from source-of-truth (same window only).
+        await loadConfig();
+      } catch (e) {
+        dingLog('[demo-clock] saveConfig error', String(e?.message ?? e));
+      }
+    }
+
+    async function resetConfig() {
+      // Reset to a predictable demo default.
+      const def = { city: 'Neevva', gmtOffsetMinutes: 0, showSeconds: false, accent: 'neon-cyan' };
+      setConfigToUI(def);
+      await saveConfig();
+    }
+
+    // ----------------- Strict CSP + connectivity diagnostics -----------------
+
+    function _withTimeout(p, ms, label) {
+      return new Promise((resolve, reject) => {
+        const t = setTimeout(() => reject(new Error(label + ': timeout')), ms);
+        Promise.resolve(p).then(
+          (v) => { clearTimeout(t); resolve(v); },
+          (e) => { clearTimeout(t); reject(e); }
+        );
+      });
+    }
+
+    // Remote load probes (expected to be BLOCKED in STRICT CSP)
+    function testRemoteStylesheet(url) {
+      return new Promise((resolve) => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = url;
+
+        let done = false;
+        const finish = (ok) => {
+          if (done) return;
+          done = true;
+          try { link.remove(); } catch (e) {}
+          dingLog(ok ? '[demo-clock] remote stylesheet LOADED (unexpected in STRICT)' :
+                       '[demo-clock] remote stylesheet BLOCKED/FAILED', url);
+          resolve(ok);
+        };
+
+        link.onload = () => finish(true);
+        link.onerror = () => finish(false);
+        document.head.appendChild(link);
+        setTimeout(() => finish(false), 1500);
+      });
+    }
+
+    function testRemoteScript(url) {
+      return new Promise((resolve) => {
+        const s = document.createElement('script');
+        s.src = url;
+
+        let done = false;
+        const finish = (ok) => {
+          if (done) return;
+          done = true;
+          try { s.remove(); } catch (e) {}
+          dingLog(ok ? '[demo-clock] remote script LOADED (unexpected in STRICT)' :
+                       '[demo-clock] remote script BLOCKED/FAILED', url);
+          resolve(ok);
+        };
+
+        s.onload = () => finish(true);
+        s.onerror = () => finish(false);
+        document.head.appendChild(s);
+        setTimeout(() => finish(false), 1500);
+      });
+    }
+
+    async function testRemoteFont(url, family) {
+      try {
+        const ff = new FontFace(family, `url(${url})`);
+        await ff.load();
+        document.fonts.add(ff);
+        dingLog('[demo-clock] remote font LOADED (unexpected in STRICT)', { url, family });
+        return true;
+      } catch (e) {
+        dingLog('[demo-clock] remote font BLOCKED/FAILED', { url, family, error: String(e?.message ?? e) });
+        return false;
+      }
+    }
+
+    function _probeIframe(url, timeoutMs) {
+      return new Promise((resolve) => {
+        const f = document.createElement('iframe');
+        f.style.display = 'none';
+        f.src = url;
+
+        let done = false;
+        const finish = (ok, extra) => {
+          if (done) return;
+          done = true;
+          try { f.remove(); } catch (e) {}
+          resolve({ ok, extra });
+        };
+
+        f.onload = () => finish(true, 'onload');
+        f.onerror = () => finish(false, 'onerror');
+        document.body.appendChild(f);
+        setTimeout(() => finish(false, 'timeout'), timeoutMs);
+      });
+    }
+
+    function _probeWorker(timeoutMs) {
+      return new Promise((resolve) => {
+        let w = null;
+        try {
+          const blob = new Blob(['self.onmessage = (e) => postMessage("ok");'], { type: 'text/javascript' });
+          const url = URL.createObjectURL(blob);
+          w = new Worker(url);
+          const timer = setTimeout(() => {
+            try { w.terminate(); } catch (e) {}
+            resolve({ ok: false, extra: 'timeout' });
+          }, timeoutMs);
+
+          w.onmessage = () => {
+            clearTimeout(timer);
+            try { w.terminate(); } catch (e) {}
+            resolve({ ok: true, extra: 'onmessage' });
+          };
+          w.onerror = (e) => {
+            clearTimeout(timer);
+            try { w.terminate(); } catch (e) {}
+            resolve({ ok: false, extra: 'onerror' });
+          };
+          w.postMessage('ping');
+        } catch (e) {
+          resolve({ ok: false, extra: String(e?.message ?? e) });
+        }
+      });
+    }
+
+    async function _probeFetch(url, timeoutMs, mode) {
+      try {
+        const r = await _withTimeout(fetch(`${url}${url.includes('?') ? '&' : '?'}_t=${Date.now()}`, {
+          method: 'GET',
+          mode: mode || 'cors',
+          cache: 'no-store',
+          redirect: 'follow',
+        }), timeoutMs, 'fetch');
+
+        // In no-cors mode, response is opaque; success still signals reachability.
+        if ((mode || 'cors') === 'no-cors')
+          return { ok: true, opaque: true };
+
+        const text = await _withTimeout(r.text(), timeoutMs, 'fetchBody');
+        return { ok: r.status >= 200 && r.status < 600, status: r.status, bytes: text.length };
+      } catch (e) {
+        return { ok: false, error: String((e && (e.name || e.message)) ? (e.name + ': ' + e.message) : (e?.message ?? e)) };
+      }
+    }
+
+    async function runDiagnostics() {
+      dingLog('[demo-clock] diagnostics START', { instanceId: getInstanceId() });
+
+      const startedAt = Date.now();
+      const cspViolations = [];
+
+      const onCsp = (e) => {
+        cspViolations.push({
+          violatedDirective: e.violatedDirective,
+          effectiveDirective: e.effectiveDirective,
+          blockedURI: e.blockedURI,
+          sourceFile: e.sourceFile,
+          lineNumber: e.lineNumber,
+        });
+        dingLog('[demo-clock] CSP VIOLATION', cspViolations[cspViolations.length - 1]);
+      };
+
+      document.addEventListener('securitypolicyviolation', onCsp);
+
+      const out = { startedAt, elapsedMs: 0, probes: {}, cspViolationCount: 0, online: null, corsReadable: null };
+
+      try {
+        // Strict CSP probes: expected to be BLOCKED under STRICT policy.
+        out.probes.remoteCss = await testRemoteStylesheet('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+        out.probes.remoteJs = await testRemoteScript('https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js');
+        out.probes.remoteFont = await testRemoteFont('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.woff2', 'RemoteRoboto');
+
+        out.probes.iframe = await _probeIframe('https://example.com/', 1500);
+
+// Let securitypolicyviolation events flush; WebKit can emit them slightly after the DOM event.
+await new Promise(r => setTimeout(r, 0));
+
+// Treat any frame-src* violation as authoritative block (WebKit can still fire onload even when blocked).
+const sawFrameBlock = cspViolations.some(v => {
+  const dir = String(v.effectiveDirective || v.violatedDirective || '');
+  return dir === 'frame-src' || dir.startsWith('frame-src');
+});
+if (sawFrameBlock)
+  out.probes.iframe = { ok: false, extra: 'cspBlocked' };
+
+        out.probes.worker = await _probeWorker(1500);
+
+        // Connectivity:
+        // - reachability: fetch(no-cors) to avoid CORS masquerading as "offline"
+        // - cross-origin readable: fetch(cors) to a public endpoint (best-effort; may be blocked by server/CORS)
+        out.probes.fetchReachable = await _probeFetch('https://example.com/', 3500, 'no-cors');
+        out.probes.fetchCorsOk = await _probeFetch('https://example.com/', 3500, 'cors');
+
+        // online badge derives from reachability unless connect-src blocks it (then unknown).
+        // If connect-src blocks https entirely, reachability will fail; that's still a useful signal.
+        out.online = !!out.probes.fetchReachable.ok;
+        setOnlineBadge(out.online);
+
+        out.corsReadable = !!out.probes.fetchCorsOk.ok;
+
+        out.cspViolationCount = cspViolations.length;
+        out.elapsedMs = Date.now() - startedAt;
+
+        dingLog('[demo-clock] diagnostics RESULT', out);
+        return out;
+      } catch (e) {
+        dingLog('[demo-clock] diagnostics ERROR', String(e?.message ?? e));
+        return null;
+      } finally {
+        document.removeEventListener('securitypolicyviolation', onCsp);
+        dingLog('[demo-clock] diagnostics END', null);
+      }
+    }
+
+    // ----------------- Wiring -----------------
+
+    function wireUI() {
+      document.getElementById('clearLog').addEventListener('click', () => {
+        document.getElementById('log').textContent = '';
+        dingLog('[demo-clock] log cleared', null);
+      });
+
+      document.getElementById('testLog').addEventListener('click', () => {
+        dingLog('[demo-clock] testLog click', { mode: getMode(), instanceId: getInstanceId(), build: BUILD_STAMP });
+      });
+
+      document.getElementById('accent').addEventListener('change', (e) => {
+        applyAccent(e.target.value);
+        updateTickPolicyHint(window.__hostState || {}, getConfigFromUI());
+      });
+
+      document.getElementById('showSeconds').addEventListener('change', () => {
+        updateTickPolicyHint(window.__hostState || {}, getConfigFromUI());
+      });
+
+      document.getElementById('gmtOffsetMinutes').addEventListener('input', (e) => {
+        dingLog('[demo-clock] offset input', e.target.value);
+      });
+
+      document.getElementById('save').addEventListener('click', async () => {
+        await saveConfig();
+      });
+
+      document.getElementById('reload').addEventListener('click', async () => {
+        dingLog('[demo-clock] reload click', null);
+        await loadConfig();
+      });
+
+      document.getElementById('reset').addEventListener('click', async () => {
+        dingLog('[demo-clock] reset click', null);
+        await resetConfig();
+      });
+
+      document.getElementById('runDiag').addEventListener('click', async () => {
+        dingLog('[demo-clock] runDiag click', null);
+        try {
+          await runDiagnostics();
+        } catch (e) {
+          dingLog('[demo-clock] runDiag error', String(e?.message ?? e));
+        }
+      });
+    }
+
+    // HostState init: your injected api usually logs hostState(init); we also accept an optional callback.
+    // If your WIDGET_API pushes hostState through window.ding.onHostState, we hook it.
+    function wireHostState() {
+      try {
+        if (window?.ding?.onHostState && typeof window.ding.onHostState === 'function') {
+          window.ding.onHostState((st) => {
+            window.__hostState = st;
+            dingLog('[demo-clock] hostState(update)', st);
+            applyHostState(st);
+          });
+        }
+      } catch (e) {}
+    }
+
+    (function boot() {
+      setOnlineBadge(null);
+      dingLog('[demo-clock] page load', { mode: getMode(), instanceId: getInstanceId(), build: BUILD_STAMP });
+
+      wireUI();
+      wireHostState();
+
+      // Apply a reasonable default accent immediately so focus rings look correct even before config loads.
+      applyAccent('neon-cyan');
+
+      // Load config now; hostState may also arrive and tweak theme.
+      loadConfig().catch((e) => dingLog('[demo-clock] loadConfig fatal', String(e?.message ?? e)));
+    })();
+  </script>
+</body>
+</html>

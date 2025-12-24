@@ -1,0 +1,140 @@
+/* World Clock widget face - minimal, deterministic, no scrolling */
+
+:root {
+  /* Conservative tint policy (locked) */
+  --bg-alpha: 0.08;
+  --border-alpha: 0.14;
+
+  /* Defaults overwritten by JS once it knows widget height */
+  --pad: 8px;
+  --fs-city: 16px;
+  --fs-utc: 14px;
+  --fs-time: 82px;
+  --fs-ampm: 18px;
+
+  --neon-color: #31e6ff; /* default cyan */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* no scrollbars */
+  background: transparent;
+}
+
+body {
+  /* Prevent accidental selection and overscroll artifacts */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* no scrollbars */
+  box-sizing: border-box;
+
+  padding: var(--pad);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+
+  background: color-mix(in srgb, var(--neon-color) calc(var(--bg-alpha) * 100%), transparent);
+  border: 1px solid color-mix(in srgb, var(--neon-color) calc(var(--border-alpha) * 100%), transparent);
+}
+
+@supports not (background: color-mix(in srgb, #000 50%, transparent)) {
+  /* Fallback if color-mix isn't available: use a fixed alpha approximation */
+  #root {
+    background: rgba(49, 230, 255, 0.08);
+    border-color: rgba(49, 230, 255, 0.14);
+  }
+}
+
+#city {
+  display: flex;
+  align-items: center;
+  gap: 0.42em;
+
+  font-size: var(--fs-city);
+  line-height: 1.1;
+  color: var(--neon-color);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.clock-icon {
+  display: inline-flex;
+  align-items: center;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  color: var(--neon-color);
+  opacity: 1;
+}
+
+.clock-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  display: block;
+}
+
+
+.city-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#time {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.24em;
+
+  color: var(--neon-color);
+  white-space: nowrap;
+}
+
+#time .hhmm {
+  font-size: var(--fs-time);
+  line-height: 1.0;
+  letter-spacing: 0.01em;
+}
+
+#time .ampm {
+  font-size: var(--fs-ampm);
+  line-height: 1.0;
+  opacity: 1;
+}
+
+#utc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: var(--fs-utc);
+  line-height: 1.1;
+  color: var(--neon-color);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+
+/* No visual changes for selection/edit mode; host owns chrome */

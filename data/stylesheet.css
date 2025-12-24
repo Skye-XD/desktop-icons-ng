@@ -100,3 +100,106 @@ box > #file-item.desktop-icons-selected {
     min-height: 36px;
     -gtk-icon-size: 32px;
 }
+
+
+#ding-widget.dragging {
+    outline: 2px solid rgba(0, 120, 255, 0.8);
+    background-color: rgba(0, 120, 255, 0.15);
+    border-radius: 8px;
+    transform: scale(1.04);
+}
+
+#ding-widget.ding-widget-selected {
+    outline: none;
+    box-shadow: 0 0 0 2px alpha(@desktop_icons_bg_color, 0.9);
+    background-color: alpha(@desktop_icons_bg_color, 0.12);
+    border-radius: 8px;
+}
+
+#ding-widget {
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+#ding-widget-close-button {
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0;
+    border-radius: 9999px;
+
+    background-color: rgba(0,0,0,0.65);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    color: white;
+
+    -gtk-icon-size: 18px; /* symbolic icon size */
+}
+
+#ding-widget-close-button:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+#ding-widget-close-button:disabled {
+    opacity: 0.5;
+}
+
+#ding-widget-add-button {
+    min-width: 64px;
+    min-height: 64px;
+    padding: 0;
+    border-radius: 9999px;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    color: #fff;
+
+    -gtk-icon-size: 32px;
+}
+
+#ding-widget-add-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#widget-container {
+    background-color: transparent;
+}
+
+#widget-container.widgets-on-top {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#ding-widget-webview {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+#ding-widget-prefs-button {
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0;
+    border-radius: 9999px;
+
+    background-color: rgba(0,0,0,0.15);
+    color: white;
+
+    opacity: 0.6;
+    -gtk-icon-size: 18px; /* match close button */
+}
+
+#ding-widget-prefs-button:hover {
+    opacity: 1.0;
+
+    background-color: rgba(0,0,0,0.25);
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.22),
+        0 2px 4px rgba(0,0,0,0.18);
+}
+
+#ding-widget-prefs-button:disabled {
+    opacity: 0.4;
+}

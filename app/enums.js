@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
- * Copyright (C) 2024 Sundeep Mediratta (smedius@gmail.com)
+ * Copyright (C) 2024, 2025 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2019 Sergio Costas (rastersoft@gmail.com)
  * Based on code original (C) Carlos Soriano
  *
@@ -177,6 +177,26 @@ export const IgnoreKeys = [
     'KEY_Super_R', 'KEY_ISO_Level3_Shift', 'KEY_ISO_Level5_Shift',
 ];
 export const NavigationKeys = [
-    'KEY_Up', 'KEY_Down', 'KEY_Left', 'KEY_Right', 'KEY_space'
+    'KEY_Up', 'KEY_Down', 'KEY_Left', 'KEY_Right', 'KEY_space',
 ];
 export const TRANSITIONDURATION = 500; // in ms
+
+export const WidgetManagerDebugFlags = Object.freeze({
+    NONE:            0,
+    HOST_STATE:      1 << 0,
+    WIDGET_MESSAGES: 1 << 1,
+});
+
+export const WIDGET_MANAGER_DEBUG = WidgetManagerDebugFlags.NONE;
+// For debugging use
+// const WIDGET_MANAGER_DEBUG =
+//     WidgetManagerDebugFlags.HOST_STATE |
+//     WidgetManagerDebugFlags.WIDGET_MESSAGES;
+
+export const CspProfile = Object.freeze({
+    STRICT: 0,
+    DEV: 1,
+    RELAXED: 2,
+});
+
+export const DEFAULT_CSP_PROFILE = CspProfile.STRICT;

@@ -1,0 +1,24 @@
+{
+  "id": "com.desktop.ding.weather.medium",
+  "name": "Weather (Medium)",
+  "kind": "html",
+  "entry": "index.html",
+  "prefs": "prefs.html",
+  "version": "1.0.0",
+  "defaultWidth": 320,
+  "defaultHeight": 200,
+  "defaultConfig": {
+    "location": {
+      "label": "",
+      "lat": null,
+      "lon": null
+    },
+    "units": "system",
+    "refreshMinutes": 30,
+    "animationsEnabled": true,
+    "cache": null
+  },
+  "permissions": [
+    "internet"
+  ]
+}

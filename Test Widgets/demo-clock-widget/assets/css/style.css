@@ -1,0 +1,435 @@
+/*
+ * Demo Clock Widget - Reference CSS
+ *
+ * This stylesheet is intentionally verbose and heavily commented.
+ * It is meant to be copied by widget authors as a starting point.
+ *
+ * ---------------------------------------------------------------------------
+ * IMPORTANT: Platform-enforced transparency (why your backgrounds may "not work")
+ * ---------------------------------------------------------------------------
+ * The widget platform injects a baseline CSS rule that forces transparency broadly
+ * using `background: transparent !important;` so WebViews blend with the desktop.
+ *
+ * If you set `body { background: ... }` and nothing changes, this is why.
+ *
+ * RECOMMENDED PATTERN (used by this widget):
+ *   - Keep `html, body` transparent and overflow-hidden.
+ *   - Draw your widget UI on an inner "surface" element.
+ *   - Override the baseline transparency ONLY on that surface element.
+ *   - Use higher specificity and (if needed) `!important` on the surface background.
+ *
+ * ESCAPE HATCH (only if you absolutely must):
+ *   - You *can* override the baseline more aggressively with very specific selectors
+ *     and `!important`, but do this sparingly and scoped to your widget root.
+ *   - Overriding globally can break blending and cause odd interactions with host chrome.
+ *
+ * ---------------------------------------------------------------------------
+ * IMPORTANT: Selected/Edit mode must be OPAQUE
+ * ---------------------------------------------------------------------------
+ * In selected and edit mode, the host (GTK) applies selection chrome to the
+ * container box outside the WebView. If the widget remains transparent, that
+ * chrome can show through and make the widget look incorrect.
+ *
+ * Therefore, when `.ding-selected` or `.ding-edit-mode` is present on <body>,
+ * we intentionally switch the surface background to opaque / near-opaque.
+ *
+ * Host-provided state hooks (injected by the platform):
+ *   - body[data-theme="light"|"dark"]
+ *   - body.ding-selected
+ *   - body.ding-edit-mode
+ *   - body.ding-reduced-motion
+ *   - documentElement.dir (ltr/rtl)
+ */
+
+/* ---- Root layout: no scrollbars, ever ----------------------------------- */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* Keep the document itself transparent; the UI is painted on .surface. */
+  background: transparent;
+
+  /* Prevent scrollbars in both the widget and the preferences page. */
+  overflow: hidden;
+
+  /* Stable font fallback for everything except the time display. */
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---- Theme variables (driven by body[data-theme]) ------------------------ */
+
+:root {
+  /* Glass panel defaults: tuned to be legible over wallpaper. */
+  --panel-bg: rgba(245, 246, 248, 0.50);
+  --panel-border: rgba(255, 255, 255, 0.45);
+  --panel-shadow: rgba(0, 0, 0, 0.18);
+
+  /* Accents used for outlines and small highlights. */
+  --accent: rgba(60, 140, 255, 0.92);
+
+  /* Text colors */
+  --fg: rgba(10, 10, 10, 0.92);
+  --muted: rgba(10, 10, 10, 0.62);
+
+  /* Neon time: must stand out on any background. */
+  --time-neon: rgba(255, 40, 40, 0.98);
+
+  /* Rounded corners and spacing */
+  --radius: 22px;
+  --pad: 18px;
+}
+
+/* Dark theme: keep panel light-ish but shift it cooler and make text light. */
+body[data-theme="dark"] {
+  --panel-bg: rgba(20, 22, 28, 0.50);
+  --panel-border: rgba(255, 255, 255, 0.18);
+  --panel-shadow: rgba(0, 0, 0, 0.40);
+
+  --fg: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.66);
+
+  /* Neon still red by default; authors can swap to cyan/green if desired. */
+  --time-neon: rgba(255, 40, 40, 0.98);
+}
+
+/* Optional: if you want different neon by theme, keep it deterministic. */
+body[data-theme="dark"] .time {
+  /* Example: uncomment to use neon cyan in dark mode:
+   * color: rgba(0, 255, 220, 0.95) !important;
+   */
+}
+
+/* ---- Main painted surface ------------------------------------------------
+ * This is where we override the platform's baseline transparency rule.
+ * NOTE: background uses !important intentionally and only here.
+ */
+
+.surface {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: var(--pad);
+
+  border-radius: var(--radius);
+  border: 1px solid var(--panel-border);
+
+  /* Override baseline background: transparent !important */
+  background: var(--panel-bg) !important;
+
+  /* Define the widget against the wallpaper */
+  box-shadow: 0 18px 60px var(--panel-shadow);
+
+  color: var(--fg);
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Texture layers: subtle visual richness without harming readability. */
+.surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/speckle.png");
+  background-repeat: repeat;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.surface::after {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.32), rgba(255,255,255,0.0) 55%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ---- Selected/Edit: force opacity to avoid GTK chrome bleed-through ------- */
+
+body.ding-selected .surface,
+body.ding-edit-mode .surface {
+  /* Near-opaque to fully cover host selection chrome beneath the WebView. */
+  background: rgba(245, 246, 248, 0.96) !important;
+}
+
+body[data-theme="dark"].ding-selected .surface,
+body[data-theme="dark"].ding-edit-mode .surface {
+  background: rgba(20, 22, 28, 0.96) !important;
+}
+
+/* Add a clear selected outline; this is in-page and complements host chrome. */
+body.ding-selected .surface {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Edit mode badge: only visual; the host handles actual edit behavior. */
+.edit-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+body.ding-edit-mode .edit-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion: remove transitions and animated effects. */
+body.ding-reduced-motion * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* RTL support: keep layout symmetric; align text appropriately. */
+html[dir="rtl"] .row {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .meta {
+  text-align: right;
+}
+
+/* ---- Header / icons ------------------------------------------------------ */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  opacity: 0.88;
+  flex: 0 0 auto;
+}
+
+.title {
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.globe {
+  width: 20px;
+  height: 20px;
+  opacity: 0.0;
+  transform: scale(0.92);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+/* Globe is only shown when diagnostics report connectivity success. */
+.globe.is-online {
+  opacity: 0.85;
+  transform: scale(1.0);
+}
+
+/* ---- Clock face ---------------------------------------------------------- */
+
+.face {
+  position: relative;
+  z-index: 1;
+
+  flex: 1 1 auto;
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tickring {
+  position: absolute;
+  width: min(88%, 420px);
+  height: auto;
+  opacity: 0.22;
+  filter: drop-shadow(0 10px 28px rgba(0,0,0,0.15));
+  pointer-events: none;
+}
+
+.time-wrap {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+body[data-theme="dark"] .time-wrap {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Local monospace font for the clock digits (loaded from assets/fonts). */
+@font-face {
+  font-family: "DemoMono";
+  src: url("../fonts/DemoMono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.time {
+  font-family: "DemoMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 82px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  /* Neon time for high contrast */
+  color: var(--time-neon);
+  text-shadow:
+    0 0 10px rgba(255, 40, 40, 0.35),
+    0 0 22px rgba(255, 40, 40, 0.22);
+}
+
+.secs {
+  font-family: "DemoMono", ui-monospace, monospace;
+  font-size: 22px;
+  color: var(--fg);
+  opacity: 0.86;
+}
+
+body.ding-reduced-motion .secs {
+  display: none;
+}
+
+/* ---- Footer metadata ----------------------------------------------------- */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.14);
+
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+body[data-theme="dark"] .pill {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---- Preferences layout helpers (same stylesheet can be reused) ---------- */
+
+.prefs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 6px 2px;
+}
+
+.input, .select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--fg);
+  outline: none;
+}
+
+body[data-theme="dark"] .input,
+body[data-theme="dark"] .select {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--fg);
+  font-size: 13px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn {
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--fg);
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: var(--accent);
+  color: rgba(0,0,0,0.86);
+  font-weight: 600;
+}

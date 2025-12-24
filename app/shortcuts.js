@@ -31,6 +31,7 @@ export const DefaultShortcuts = {
     showHideHiddenFiles: {Hint: _('Show Hidden Files'), Accel: '<Control>H'},
     unselectAll: {Hint: _('Unselect All'), Accel: 'Escape'},
     previewAction: {Hint: _('Preview'), Accel: 'space'},
+    toggleWidgetLayer: {Hint: _('Toggle Widget Layer'), Accel: '<Control><Shift>L', Edit: true},
     chooseIconLeft: {Hint: _('Choose Icon Left'), Accel: 'Left'},
     chooseIconRight: {Hint: _('Choose Icon Right'), Accel: 'Right'},
     chooseIconUp: {Hint: _('Choose Icon Up'), Accel: 'Up'},
@@ -73,6 +74,7 @@ export const DefaultShortcuts = {
     bulkCopy: {Hint: 'Copy to', Accel: '', Edit: true},
     bulkMove: {Hint: 'Move to', Accel: '', Edit: true},
     onScriptClicked: {Hint: 'Run Script', Accel: ''},
+    closeWidget: {Hint: 'Close Selected Widget', Accel: '<Shift><Control>X', Edit: true},
 };
 
 // Following Global shortcuts will be added for editing and are editable

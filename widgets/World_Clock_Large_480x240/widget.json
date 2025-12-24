@@ -1,0 +1,41 @@
+{
+  "id": "world-clock-large",
+  "kind": "html",
+  "name": "World Clock",
+  "name_localized": {
+    "fr": "Horloge mondiale",
+    "de": "Weltuhr",
+    "es": "Reloj mundial",
+    "it": "Orologio mondiale",
+    "pl": "Zegar światowy",
+    "zh_CN": "世界时钟",
+    "zh_HK": "世界時鐘",
+    "zh_TW": "世界時鐘",
+    "ja": "ワールドクロック"
+  },
+  "description": "A simple UTC-offset world clock.",
+  "description_localized": {
+    "fr": "Une horloge mondiale simple basée sur un décalage UTC.",
+    "de": "Eine einfache Weltuhr auf Basis eines UTC-Versatzes.",
+    "es": "Un reloj mundial sencillo basado en un desfase UTC.",
+    "it": "Un semplice orologio mondiale basato su offset UTC.",
+    "pl": "Prosty zegar światowy oparty na przesunięciu UTC.",
+    "zh_CN": "基于 UTC 偏移的简单世界时钟。",
+    "zh_HK": "基於 UTC 偏移的簡單世界時鐘。",
+    "zh_TW": "基於 UTC 偏移的簡單世界時鐘。",
+    "ja": "UTC オフセットに基づくシンプルなワールドクロックです。"
+  },
+  "category": "time",
+  "author": "Sundeep Mediratta",
+  "version": "1.0",
+  "license": "GPL-3.0-or-later",
+  "defaultWidth": 480,
+  "defaultHeight": 240,
+  "defaultConfig": {
+    "label": "New York",
+    "utcOffsetMinutes": -300,
+    "hourFormat": "12",
+    "neonPreset": "cyan"
+  },
+  "prefs": "prefs.html"
+}

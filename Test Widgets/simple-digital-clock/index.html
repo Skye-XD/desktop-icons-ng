@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Simple Digital Clock</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .clock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      /* Subtle glow so it stays readable on busy wallpapers */
+      color: #ffffff;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.1); /* very light, almost transparent */
+    }
+
+    .time {
+      font-weight: 500;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+    }
+
+    .date {
+      margin-top: 2px;
+      font-size: 0.7rem;
+      opacity: 0.75;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="time" id="time"></div>
+    <div class="date" id="date"></div>
+  </div>
+
+  <script>
+    const timeEl = document.getElementById('time');
+    const dateEl = document.getElementById('date');
+
+    // Defaults; can be overridden from host config later.
+    let showSeconds = false;
+    let twentyFourHour = true;
+
+    function pad(n) {
+      return n < 10 ? '0' + n : '' + n;
+    }
+
+    function formatTime(d) {
+      let hours = d.getHours();
+      const minutes = d.getMinutes();
+      const seconds = d.getSeconds();
+
+      let suffix = '';
+      if (!twentyFourHour) {
+        suffix = hours >= 12 ? ' PM' : ' AM';
+        hours = hours % 12 || 12;
+      }
+
+      let result = pad(hours) + ':' + pad(minutes);
+      if (showSeconds)
+        result += ':' + pad(seconds);
+
+      return result + suffix;
+    }
+
+    function formatDate(d) {
+      const opts = {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+      };
+      return d.toLocaleDateString(undefined, opts);
+    }
+
+    function updateClock() {
+      const now = new Date();
+      timeEl.textContent = formatTime(now);
+      dateEl.textContent = formatDate(now);
+    }
+
+    // Try to pull config from the host via window.ding, if present.
+    async function applyHostConfig() {
+      try {
+        if (window.ding) {
+          // In your system you’ll inject the instanceId from the host
+          // template or set it externally.
+          // If it's already set, we can ask for config.
+          if (window.ding.instanceId && window.ding.getConfig) {
+            const cfg = await window.ding.getConfig();
+            if (cfg && typeof cfg === 'object') {
+              if (typeof cfg.showSeconds === 'boolean')
+                showSeconds = cfg.showSeconds;
+              if (typeof cfg.twentyFourHour === 'boolean')
+                twentyFourHour = cfg.twentyFourHour;
+            }
+          }
+        }
+      } catch (e) {
+        console.error('Clock: failed to apply config', e);
+      }
+    }
+
+    (async () => {
+      await applyHostConfig();
+      updateClock();
+      setInterval(updateClock, 1000);
+    })();
+  </script>
+</body>
+</html>

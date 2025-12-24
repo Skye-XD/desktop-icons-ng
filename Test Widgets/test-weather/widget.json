@@ -1,0 +1,15 @@
+{
+  "id": "test-weather",
+  "kind": "html",
+  "name": "Test Weather (Host API Probe)",
+  "description": "Tiny weather-style widget that exercises the DING host HTML widget API.",
+  "defaultWidth": 260,
+  "defaultHeight": 180,
+  "defaultConfig": {
+    "location": "Orlando, US",
+    "units": "imperial",
+    "theme": "dark",
+    "visits": 0,
+    "lastCondition": "sunny"
+  }
+}

@@ -1,0 +1,245 @@
+:root {
+  --pad: 6px;
+  --t-small: 12px;
+  --t-small-line: 14px;
+  --t-muted: 0.82;
+
+  --temp-weight: 600;
+  --temp-line: 1.02;
+
+  --now-icon: 118px;
+  --temp-size: 60px;
+  --deg-size: 38px;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: transparent;
+  color: #f5f6f8;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+.wx-root {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: var(--pad);
+  padding-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wx-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.wx-location {
+  font-size: var(--t-small);
+  line-height: var(--t-small-line);
+  font-weight: 500;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.wx-alert-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: currentColor;
+  opacity: 0.85;
+  visibility: hidden;
+  flex: 0 0 auto;
+}
+
+.wx-center {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 2px;
+  padding-bottom: 0;
+}
+
+.wx-now-icon {
+  width: var(--now-icon);
+  height: var(--now-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.wx-now-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wx-now-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.wx-temp-row {
+  display: flex;
+  align-items: baseline;
+  line-height: var(--temp-line);
+}
+
+.wx-temp {
+  font-weight: var(--temp-weight);
+  font-size: var(--temp-size);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.wx-deg {
+  font-weight: var(--temp-weight);
+  font-size: var(--deg-size);
+  line-height: 1;
+  margin-left: 1px;
+  position: relative;
+  top: -0.32em;
+}
+
+.wx-cond-row {
+  font-size: var(--t-small);
+  line-height: var(--t-small-line);
+  font-weight: 450;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #e8eaee;
+}
+
+.wx-sep {
+  opacity: 0.7;
+  flex: 0 0 auto;
+}
+
+.wx-cond, .wx-precip {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wx-forecast {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 4px;
+  margin-top: -10px;
+  padding-top: 0;
+}
+
+.wx-fc-col {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-items: start;
+  row-gap: 2px;
+  column-gap: 4px;
+  min-width: 0;
+}
+
+.wx-fc-dow {
+  font-size: 9px;
+  line-height: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: var(--t-muted);
+  color: #e8eaee;
+  grid-column: 2;
+  justify-self: start;
+}
+
+.wx-fc-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  grid-row: 1 / span 2;
+  grid-column: 1;
+}
+
+.wx-fc-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wx-fc-temp {
+  font-size: 10px;
+  line-height: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  grid-column: 2;
+  justify-self: start;
+}
+
+.wx-status {
+  margin-top: 12px; /* push status line out of frame */
+  font-size: 10px;
+  line-height: 11px;
+  opacity: var(--t-muted);
+  color: #e8eaee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto;
+}
+
+html.wx-small {
+  --now-icon: 120px;
+  --temp-size: 60px;
+  --deg-size: 38px;
+}
+
+html.wx-medium {
+  --now-icon: 138px;
+  --temp-size: 70px;
+  --deg-size: 48px;
+}
+
+html.wx-large {
+  --now-icon: 155px;
+  --temp-size: 75px;
+  --deg-size: 53px;
+}
+
+html.wx-no-anim svg animate,
+html.wx-no-anim svg animateTransform,
+html.wx-no-anim svg animateMotion {
+  display: none !important;
+}

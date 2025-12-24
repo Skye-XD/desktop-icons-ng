@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Clock Preferences</title>
+  <link rel="stylesheet" href="prefs.css" />
+</head>
+<body>
+  <div id="prefsRoot">
+    <div id="header" role="heading" aria-level="1">
+      <div id="headerTitle">World Clock</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Location</div>
+
+      <label class="field">
+        <input id="labelInput" type="text" autocomplete="off" spellcheck="false" placeholder="New York" />
+      </label>
+
+      <label class="field">
+        <div class="label">UTC Offset</div>
+        <input id="offsetInput" type="text" autocomplete="off" spellcheck="false" placeholder="-05:00" />
+        <div id="offsetError" class="hint hidden">Use ±HH:MM</div>
+      </label>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Time Format</div>
+
+      <div class="field">
+        <div class="segmented" role="group" aria-label="Time Format">
+          <button id="fmt12" type="button" data-value="12">12-hour</button>
+          <button id="fmt24" type="button" data-value="24">24-hour</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Appearance</div>
+
+      <label class="field field-row">
+        <div class="label">Color</div>
+        <select id="colorSelect">
+          <option value="pink">Pink</option>
+          <option value="cyan">Cyan</option>
+          <option value="lime">Lime</option>
+          <option value="purple">Purple</option>
+          <option value="amber">Amber</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <script src="prefs.js"></script>
+</body>
+</html>

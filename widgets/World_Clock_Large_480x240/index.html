@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Clock</title>
+  <link rel="stylesheet" href="clock.css" />
+</head>
+<body>
+  <div id="root" aria-label="World Clock">
+    <div id="city" title="">
+      <span class="clock-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3 12h18"></path>
+          <path d="M12 3c-3 3.5-3 14 0 18"></path>
+          <path d="M12 3c3 3.5 3 14 0 18"></path>
+        </svg>
+      </span>
+      <span class="city-text" id="cityText"></span>
+    </div>
+
+    <div id="time" role="text" aria-live="polite" aria-atomic="true">
+      <span class="hhmm" id="timeText"></span>
+      <span class="ampm" id="ampmText"></span>
+    </div>
+
+    <div id="utc"><span class="clock-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M12 7v6l4 2"></path>
+        </svg>
+      </span>
+      <span id="utcText"></span></div></div>
+  </div>
+
+  <script src="clock.js"></script>
+</body>
+</html>

@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import {Gtk, Gdk, Gio, GLib, GObject, Adw} from '../dependencies/gi.js';
+import {DesktopWidgetCapability} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 import {DesktopFolderUtils} from '../dependencies/localFiles.js';
 
@@ -686,15 +687,11 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
             Gio.SettingsBindFlags.INVERT_BOOLEAN
         ));
 
-        const dropPlaceRow = this.addActionRowSwitch(this.desktopSettings,
-            'show-drop-place',
-            _('Highlight the drop grid'));
-
-        this.desktopSettings.bind('free-position-icons', dropPlaceRow,
-            'sensitive',
-            Gio.SettingsBindFlags.INVERT_BOOLEAN);
-
-        desktopGroup.add(dropPlaceRow);
+        const showWidgets = this.addActionRowSwitch(this.desktopSettings,
+            'show-desktop-widgets',
+            _('Show desktop widgets'));
+        showWidgets.set_sensitive(DesktopWidgetCapability);
+        desktopGroup.add(showWidgets);
 
         this.desktopFolderGroup
             .add(this.addActionRowButton(_('New Desktop Folder'),
@@ -715,6 +712,15 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
         this.desktopFolderGroup.add(this.defaultDesktopRow);
         this.defaultDesktopRow.set_sensitive(!this.isDefaultDesktop);
 
+        const dropPlaceRow = this.addActionRowSwitch(this.desktopSettings,
+            'show-drop-place',
+            _('Highlight the drop grid'));
+
+        this.desktopSettings.bind('free-position-icons', dropPlaceRow,
+            'sensitive',
+            Gio.SettingsBindFlags.INVERT_BOOLEAN);
+
+        tweaksGroup.add(dropPlaceRow);
 
         tweaksGroup.add(this.addActionRowSwitch(this.desktopSettings,
             'show-link-emblem',

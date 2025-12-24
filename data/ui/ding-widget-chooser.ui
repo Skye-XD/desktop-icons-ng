@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="adwaita" version="1.0"/>
+
+  <object class="AdwWindow" id="widget_picker_window">
+    <property name="default-width">420</property>
+    <property name="default-height">320</property>
+    <property name="modal">true</property>
+    <property name="title" translatable="yes">Add Widget</property>
+    <property name="decorated">false</property>
+
+    <child>
+      <object class="AdwToolbarView" id="toolbar_view">
+        <!-- Header bar -->
+        <child type="top">
+          <object class="AdwHeaderBar" id="header_bar">
+            <property name="show-start-title-buttons">false</property>
+            <property name="show-end-title-buttons">false</property>
+
+            <child type="title">
+              <object class="GtkLabel" id="title_label">
+                <property name="label" translatable="yes">Add Widget</property>
+                <property name="xalign">0.5</property>
+              </object>
+            </child>
+
+            <child type="start">
+              <object class="GtkButton" id="cancel_button">
+                <property name="label" translatable="yes">Cancel</property>
+              </object>
+            </child>
+
+            <child type="end">
+              <object class="GtkButton" id="add_button">
+                <property name="label" translatable="yes">Add</property>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <!-- Main content -->
+        <child>
+          <object class="GtkBox" id="outer_box">
+            <property name="orientation">vertical</property>
+            <property name="spacing">0</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+
+            <child>
+              <object class="GtkScrolledWindow" id="scrolled">
+                <property name="hexpand">true</property>
+                <property name="vexpand">true</property>
+                <child>
+                  <object class="GtkListBox" id="widget_list">
+                    <property name="selection-mode">single</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

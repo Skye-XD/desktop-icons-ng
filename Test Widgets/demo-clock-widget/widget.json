@@ -1,0 +1,19 @@
+{
+  "id": "demo-clock",
+  "kind": "html",
+  "name": {
+    "en": "Demo Clock (API & Security)"
+  },
+  "description": {
+    "en": "Example clock widget that exercises the Widget API, host state CSS hooks, local asset loading, and CSP/connectivity diagnostics."
+  },
+  "entry": "index.html",
+  "prefs": "prefs.html",
+  "defaultWidth": 400,
+  "defaultHeight": 600,
+  "defaultConfig": {
+    "city": "New York",
+    "gmtOffsetMinutes": -300,
+    "showSeconds": true
+  }
+}
