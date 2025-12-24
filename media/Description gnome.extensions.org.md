@@ -2,6 +2,8 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
+Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing.
+
 Icons can be positioned anywhere on desktop or are snapped to a grid. Can make links on the Desktop. GSconnect Integration, can send files to connected devices. Drag and Drop support on to Dock, Dash, or from Dock, Dash to the Desktop.
 
 Updated and modified code base, uses Gio menus. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome 45 and higher.
@@ -14,6 +16,9 @@ Translated using LibreTranslate, machine translation, not every string is verifi
 Corrections, verification of translated strings, and new translations are welcome, all translations are on Weblate. You can help translate Adw. Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
 
 Multiple fixes and new features-
+* Widgets on desktop- little display desklets for Gnome. Demo widgets for weather and world clock available on Gitlab repo in the widgets subfolder.
+* Multiple selection with keyboard.
+* Users can override CSS with their own CSS.
 * Uses LibreTranslate to automatically translate into 54 languages.
 * Right long click- launches shell background menu directly.
 * Animate margin changes with Adw.Animation. Respects global Gtk4/Gnome allow/disallow animation settings.

@@ -27,6 +27,10 @@ app/templatesScriptsManager.js
 app/thumbnails.js
 app/volumeIcon.js
 app/windowManager.js
+app/widgetManager.js
+app/widgetRegistry.js
+app/widgetWebContext.js
+app/htmlWidgetHost.js
 app/utils/dbusUtils.js
 app/utils/desktopFolderUtils.js
 app/utils/desktopIconsUtil.js

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 12:07-0400\n"
+"POT-Creation-Date: 2025-12-24 18:48-0500\n"
 "PO-Revision-Date: 2025-09-28 17:15-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,821 +18,741 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: LibreTranslate (auto-fill)\n"
 
+#: app/adwPreferencesWindow.js:161
+msgid "CSS Override"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:162
+msgid "Customise the appearance of desktop icons with CSS"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:166
+msgid "Warning: This can break the extension if done incorrectly"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:172
+msgid "Edit CSS Override File..."
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180
+msgid "Apply CSS Changes Now"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:181
+msgid "Reload the CSS to apply changes immediately"
+msgstr ""
+
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, machine-translated
+#: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
 msgstr "Бързи пътища"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:163
-#, machine-translated
+#: app/adwPreferencesWindow.js:252
 msgid "Edit Shortcuts..."
 msgstr "Редактиране на преки пътища..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:178
-#, machine-translated
+#: app/adwPreferencesWindow.js:267
 msgid "Edit Application Shortcuts"
 msgstr "Редактиране на кратките клавиши"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:183
-#, machine-translated
+#: app/adwPreferencesWindow.js:272
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr "Бързи пътища Редактиране само когато разширението е включено..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:288
-#, machine-translated
+#: app/adwPreferencesWindow.js:377
 msgid "Help translate in your web browser"
 msgstr "Помощ за превод във вашия уеб браузър"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
-#, machine-translated
+#: app/adwPreferencesWindow.js:584 app/adwPreferencesWindow.js:585
 msgid "Desktop"
 msgstr "Работен плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
-#, machine-translated
+#: app/adwPreferencesWindow.js:590 app/adwPreferencesWindow.js:591
 msgid "Files"
 msgstr "Файлове"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
-#: app/adwPreferencesWindow.js:539
-#, machine-translated
+#: app/adwPreferencesWindow.js:596 app/adwPreferencesWindow.js:597
+#: app/adwPreferencesWindow.js:639
 msgid "Tweaks"
 msgstr "Наклони"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
-#, machine-translated
+#: app/adwPreferencesWindow.js:602 app/adwPreferencesWindow.js:603
 msgid "More"
 msgstr "Още"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:514
-#, machine-translated
+#: app/adwPreferencesWindow.js:614
 msgid "Desktop Settings"
 msgstr "Настройки на работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:515
-#, machine-translated
+#: app/adwPreferencesWindow.js:615
 msgid "Settings for the Desktop Program"
 msgstr "Настройки за работната програма"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:521
-#, machine-translated
+#: app/adwPreferencesWindow.js:621
 msgid "Desktop Folder"
 msgstr "Директория за работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:522
-#, machine-translated
+#: app/adwPreferencesWindow.js:622
 msgid "Current Desktop: "
 msgstr "Текущ работен плот:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:532
-#, machine-translated
+#: app/adwPreferencesWindow.js:632
 msgid "Files Settings"
 msgstr "Настройки на файловете"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:533
-#, machine-translated
+#: app/adwPreferencesWindow.js:633
 msgid "Settings shared with Gnome Files"
 msgstr "Настройки, споделени с Gnome Files"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:540
-#, machine-translated
+#: app/adwPreferencesWindow.js:640
 msgid "Miscellaneous Tweaks"
 msgstr "Разни Наклони"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:558
-#, machine-translated
+#: app/adwPreferencesWindow.js:664
 msgid "Size for the desktop icons"
 msgstr "Размер на иконите за работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:560
-#, machine-translated
+#: app/adwPreferencesWindow.js:666
 msgid "Tiny"
 msgstr "Tiny"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:561
-#, machine-translated
+#: app/adwPreferencesWindow.js:667
 msgid "Small"
 msgstr "Малък"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:562
-#, machine-translated
+#: app/adwPreferencesWindow.js:668
 msgid "Standard"
 msgstr "Стандартно"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:563
-#, machine-translated
+#: app/adwPreferencesWindow.js:669
 msgid "Large"
 msgstr "Големи"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:569
-#, machine-translated
+#: app/adwPreferencesWindow.js:675
 msgid "New icons alignment"
 msgstr "Подравняване на нови икони"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:571
-#, machine-translated
+#: app/adwPreferencesWindow.js:677
 msgid "Top left corner"
 msgstr "Горен ляв ъгъл"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:572
-#, machine-translated
+#: app/adwPreferencesWindow.js:678
 msgid "Top right corner"
 msgstr "Горен десен ъгъл"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:573
-#, machine-translated
+#: app/adwPreferencesWindow.js:679
 msgid "Bottom left corner"
 msgstr "В долния ляв ъгъл"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:574
-#, machine-translated
+#: app/adwPreferencesWindow.js:680
 msgid "Bottom right corner"
 msgstr "Долен десен ъгъл"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:580
-#, machine-translated
+#: app/adwPreferencesWindow.js:686
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Добавяне на нови икони към вторичните монитори първо, ако има такива"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:584
-#, machine-translated
+#: app/adwPreferencesWindow.js:690
 msgid "Snap icons to grid"
 msgstr "Икони в мрежа"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:590
-#, machine-translated
-msgid "Highlight the drop grid"
-msgstr "Открояване на мрежата"
+#: app/adwPreferencesWindow.js:696
+#, fuzzy
+msgid "Show desktop widgets"
+msgstr "Показване на работния плот във файлове"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:599
-#, machine-translated
+#: app/adwPreferencesWindow.js:701
 msgid "New Desktop Folder"
 msgstr "Нова директория за работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:600
-#, machine-translated
+#: app/adwPreferencesWindow.js:702
 msgid "Set a new folder for the desktop"
 msgstr "Задаване на нова папка за работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
-#, machine-translated
+#: app/adwPreferencesWindow.js:703 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "Избор"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:606
-#, machine-translated
+#: app/adwPreferencesWindow.js:708
 msgid "Set Desktop back to ~/"
 msgstr "Задаване на работен плот обратно на ~ /"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:608
-#, machine-translated
+#: app/adwPreferencesWindow.js:710
 msgid "Restore Default Desktop Folder"
 msgstr "Възстановяване на папката за работния плот по подразбиране"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:610
-#, machine-translated
+#: app/adwPreferencesWindow.js:712
 msgid "Restore"
 msgstr "Възстановяване"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:620
-#, machine-translated
+#: app/adwPreferencesWindow.js:721
+msgid "Highlight the drop grid"
+msgstr "Открояване на мрежата"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:731
 msgid "Add information emblems for links, encryption"
 msgstr "Добавяне на информационни емблеми за връзки, криптиране"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:624
-#, machine-translated
+#: app/adwPreferencesWindow.js:735
 msgid "Use dark text in icon labels"
 msgstr "Използване на тъмен текст в икони"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:629
-#, machine-translated
+#: app/adwPreferencesWindow.js:740
 msgid "Show the personal folder on the desktop"
 msgstr "Показване на лична папка на работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:634
-#, machine-translated
+#: app/adwPreferencesWindow.js:745
 msgid "Show the trash icon on the desktop"
 msgstr "Показване на иконата за боклук на работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:639
-#, machine-translated
+#: app/adwPreferencesWindow.js:750
 msgid "Show external drives on the desktop"
 msgstr "Показване на външни дискове на работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:644
-#, machine-translated
+#: app/adwPreferencesWindow.js:755
 msgid "Show network drives on the desktop"
 msgstr "Показване на мрежовите дискове на работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:649
-#, machine-translated
+#: app/adwPreferencesWindow.js:760
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Добавяне на нови дискове в обратната страна на работния плот"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:654
-#, machine-translated
+#: app/adwPreferencesWindow.js:765
 msgid "Action to Open Items"
 msgstr "Действие за отваряне на елементи"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:656
-#, machine-translated
+#: app/adwPreferencesWindow.js:767
 msgid "Single click"
 msgstr "Едно кликване"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:657
-#, machine-translated
+#: app/adwPreferencesWindow.js:768
 msgid "Double click"
 msgstr "Двойно щракване"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:662
-#, machine-translated
+#: app/adwPreferencesWindow.js:773
 msgid "Show image thumbnails"
 msgstr "Показване на ноктите"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:664
-#, machine-translated
+#: app/adwPreferencesWindow.js:775
 msgid "Always"
 msgstr "Винаги"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:665
-#, machine-translated
+#: app/adwPreferencesWindow.js:776
 msgid "On this computer only"
 msgstr "Само на този компютър"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:666
-#, machine-translated
+#: app/adwPreferencesWindow.js:777
 msgid "Never"
 msgstr "Никога"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:671
-#, machine-translated
+#: app/adwPreferencesWindow.js:782
 msgid "Show a context menu item to delete permanently"
 msgstr "Показване на контекстно меню за постоянно изтриване"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:676
-#, machine-translated
+#: app/adwPreferencesWindow.js:787
 msgid "Show hidden files"
 msgstr "Показване на скрити файлове"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:681
-#, machine-translated
+#: app/adwPreferencesWindow.js:792
 msgid "Open folders on drag hover"
 msgstr "Отваряне на папките при плъзгане"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:685
-#, machine-translated
+#: app/adwPreferencesWindow.js:796
 msgid "About..."
 msgstr "Относно..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:698
-#, machine-translated
+#: app/adwPreferencesWindow.js:809
 msgid "Translation"
 msgstr "Превод"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:699
-#, machine-translated
-msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr "Машината преведена с помощта на LibreTranslate. Потребителят е проверен и редактиран в Weblate."
+#: app/adwPreferencesWindow.js:810
+msgid ""
+"Machine translated using LibreTranslate. User verified and edited on Weblate."
+msgstr ""
+"Машината преведена с помощта на LibreTranslate. Потребителят е проверен и "
+"редактиран в Weblate."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:704
-#, machine-translated
+#: app/adwPreferencesWindow.js:815
 msgid "Edit Translations"
 msgstr "Редактиране на преводи"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:705
-#, machine-translated
+#: app/adwPreferencesWindow.js:816
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Проверка, добавяне или правилно превод във вашия уеб браузър"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:706
-#, machine-translated
+#: app/adwPreferencesWindow.js:817
 msgid "Translate"
 msgstr "Превод"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, machine-translated
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "Изберете заявление за отваряне <b>{foo}</b>"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
-#, machine-translated
 msgid "Open Items"
 msgstr "Отваряне на елементи"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
-#, machine-translated
 msgid "Open Folder"
 msgstr "Отваряне на папка"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, machine-translated
 msgid "Open File"
 msgstr "Отваряне на файл"
 
 # MT: LibreTranslate
 #: app/appChooser.js:165
-#, machine-translated
 msgid "Error changing default application"
 msgstr "Грешка при промяна на приложението по подразбиране"
 
 # MT: LibreTranslate
 #: app/appChooser.js:168
-#, machine-translated
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "Грешка при задаване {foo} като приложение по подразбиране за {mimetype}"
+msgstr ""
+"Грешка при задаване {foo} като приложение по подразбиране за {mimetype}"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
-#, machine-translated
 msgid "Invalid Permissions on AppImage File"
 msgstr "Невалидни права върху AppImage файл"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
-#, machine-translated
 msgid "This AppImage File has incorrect Permissions."
 msgstr "Този файл с приложения има неправилни права."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
-#, machine-translated
 msgid "Right Click to edit Properties, then:"
 msgstr "Кликнете с десния бутон, за да редактирате свойствата, след това:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
-#, machine-translated
 msgid "Set Permissions, in"
 msgstr "Задаване на права, в"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
-#, machine-translated
 msgid "Others Access"
 msgstr "Други достъп"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
-#, machine-translated
 msgid "Read Only"
 msgstr "Само за четене"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, machine-translated
 msgid "or"
 msgstr "или"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
-#: app/shortcutManager.js:522
-#, machine-translated
+#: app/shortcutManager.js:533
 msgid "None"
 msgstr "Няма"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, machine-translated
 msgid "Enable option"
 msgstr "Включване на опция"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, machine-translated
 msgid "Allow Executing File as a Program"
 msgstr "Разрешаване изпълнението на файл като програма"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:79
-#, machine-translated
 msgid "Untrusted AppImage File"
 msgstr "Ненадежден файл с приложения"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
-#, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "Това приложение Файлът с изображенията не може да бъде стартиран."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
-#, machine-translated
 msgid "To enable launching, right-click, then:"
 msgstr "За да активирате стартирането, щракнете с десния бутон:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, machine-translated
 msgid "enable"
 msgstr "позволява"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
-#, machine-translated
 msgid "Allow Launching"
 msgstr "Разрешаване на стартирането"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, machine-translated
 msgid "Folder name"
 msgstr "Име на папка"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, machine-translated
 msgid "File name"
 msgstr "Име на файл"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1234
-#: app/fileItemMenu.js:967
-#, machine-translated
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1335
+#: app/fileItemMenu.js:969
 msgid "OK"
 msgstr "ДОБРЕ"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:75
-#, machine-translated
 msgid "Rename"
 msgstr "Преименуване"
 
 # MT: LibreTranslate
 #: app/autoAr.js:71
-#, machine-translated
 msgid "AutoAr is not installed"
 msgstr "Авто Ar не е инсталиран"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
-#, machine-translated
-msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
-msgstr "За да можете да работите с компресирани файлове, инсталирайте файл-ролери и/или gir-1.2-gnome AutoAr"
+msgid ""
+"To be able to work with compressed files, install file-roller and/or gir-1.2-"
+"gnomeAutoAr"
+msgstr ""
+"За да можете да работите с компресирани файлове, инсталирайте файл-ролери и/"
+"или gir-1.2-gnome AutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
-#, machine-translated
 msgid "Extracting files"
 msgstr "Извличане на файлове"
 
 # MT: LibreTranslate
 #: app/autoAr.js:220
-#, machine-translated
 msgid "Compressing files"
 msgstr "Компресиране на файлове"
 
 # MT: LibreTranslate
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
-#: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
-#: app/fileItemMenu.js:967 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#, machine-translated
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:176
+#: app/desktopManager.js:1337 app/dragManager.js:901 app/fileItemMenu.js:916
+#: app/fileItemMenu.js:969 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "Отмяна"
 
 # MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, machine-translated
 msgid "Enter a password here"
 msgstr "Въведете парола тук"
 
 # MT: LibreTranslate
 #: app/autoAr.js:354
-#, machine-translated
 msgid "Removing partial file '${outputFile}'"
 msgstr "Премахване на частичен файл '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:373
-#, machine-translated
 msgid "Creating destination folder"
 msgstr "Създаване на папка за дестинация"
 
 # MT: LibreTranslate
 #: app/autoAr.js:405
-#, machine-translated
 msgid "Extracting files into '${outputPath}'"
 msgstr "Извличане на файлове в '${outputPath}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:435
-#, machine-translated
 msgid "Extraction completed"
 msgstr "Извличането завършено"
 
 # MT: LibreTranslate
 #: app/autoAr.js:436
-#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "Извличането '${fullPathFile}' е завършено."
 
 # MT: LibreTranslate
 #: app/autoAr.js:442
-#, machine-translated
 msgid "Extraction cancelled"
 msgstr "Извличането е отменено"
 
 # MT: LibreTranslate
 #: app/autoAr.js:443
-#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "Извличането '${fullPathFile}' е отменено от потребителя."
 
 # MT: LibreTranslate
 #: app/autoAr.js:453
-#, machine-translated
 msgid "Passphrase required for ${filename}"
 msgstr "Изисквана парола ${filename}"
 
 # MT: LibreTranslate
 #: app/autoAr.js:456
-#, machine-translated
 msgid "Error during extraction"
 msgstr "Грешка при извличане"
 
 # MT: LibreTranslate
 #: app/autoAr.js:483
-#, machine-translated
 msgid "Compressing files into '${outputFile}'"
 msgstr "Компресиране на файлове в '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:496
-#, machine-translated
 msgid "Compression completed"
 msgstr "Завършен компресиране"
 
 # MT: LibreTranslate
 #: app/autoAr.js:497
-#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "Компресирането на файловете в '${outputFile}' е завършено."
 
 # MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
-#, machine-translated
 msgid "Cancelled compression"
 msgstr "Отменена компресия"
 
 # MT: LibreTranslate
 #: app/autoAr.js:502
-#, machine-translated
 msgid "The output file '${outputFile}' already exists."
 msgstr "Изходният файл '${outputFile}' вече съществува."
 
 # MT: LibreTranslate
 #: app/autoAr.js:509
-#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "Компресирането на файлове в '${outputFile}' е отменено от потребителя."
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
-#, machine-translated
 msgid "Error during compression"
 msgstr "Грешка при компресиране"
 
 # MT: LibreTranslate
 #: app/autoAr.js:547
-#, machine-translated
 msgid "Create archive"
 msgstr "Създаване на архив"
 
 # MT: LibreTranslate
 #: app/autoAr.js:571
-#, machine-translated
 msgid "Archive name"
 msgstr "Име на архива"
 
 # MT: LibreTranslate
 #: app/autoAr.js:604
-#, machine-translated
 msgid "Password"
 msgstr "Парола"
 
 # MT: LibreTranslate
 #: app/autoAr.js:617
-#, machine-translated
 msgid "Create"
 msgstr "Създаване"
 
 # MT: LibreTranslate
 #: app/autoAr.js:688
-#, machine-translated
 msgid "Compatible with all operating systems."
 msgstr "Съвместим с всички операционни системи."
 
 # MT: LibreTranslate
 #: app/autoAr.js:694
-#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "Защитена парола .zip, трябва да бъде инсталирана на Windows и Mac."
 
 # MT: LibreTranslate
 #: app/autoAr.js:700
-#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
 msgstr "По-малки архиви, но само Линукс и Мак."
 
 # MT: LibreTranslate
 #: app/autoAr.js:706
-#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "По-малки архиви, но трябва да бъдат инсталирани на Windows и Mac."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125
-#, machine-translated
 msgid "The Displayed Desktop is writable by others"
 msgstr "Показаният работен плот се пише от други"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:128
-#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
 msgstr ""
-".deskop файлове не могат да бъдат стартирани от този работен плот, тъй като папката на работния плот е записана от други потребители.\n"
+".deskop файлове не могат да бъдат стартирани от този работен плот, тъй като "
+"папката на работния плот е записана от други потребители.\n"
 "\n"
-"Моля, проверете правата на тази папка на работния плот и се уверете, че тя не е написана от други."
+"Моля, проверете правата на тази папка на работния плот и се уверете, че тя "
+"не е написана от други."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:138
-#, machine-translated
 msgid "Broken Desktop File"
 msgstr "Счупен файл на работния плот"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:141
-#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It "
+"can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Този .desktop файл има грешки или сочи към програма без разрешения. Не може да бъде изпълнена.\n"
+"Този .desktop файл има грешки или сочи към програма без разрешения. Не може "
+"да бъде изпълнена.\n"
 "\n"
 "Редактиране на файла, за да зададете правилната изпълнима програма."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:151
-#, machine-translated
 msgid "Invalid Permissions on Desktop File"
 msgstr "Невалидни права на работния плот"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
-#, machine-translated
 msgid "This Desktop File has incorrect Permissions."
 msgstr "Файлът на работния плот има неправилни права."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:173
-#, machine-translated
 msgid "Untrusted Desktop File"
 msgstr "Ненадежден работен плот"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
-#, machine-translated
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "Файлът на работния плот не може да бъде стартиран."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
-#, machine-translated
 msgid "Could not open File"
 msgstr "Грешка при отваряне Файл"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:206
-#, machine-translated
 msgid "{appName} can not open files of this Type!"
 msgstr "{appName} не може да отвори файлове от този тип!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, machine-translated
 msgid "Desktop Folder Change Failed"
 msgstr "Директория за работния плот Грешка при промяна"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
-#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
 msgstr "Новата папка за работен плот е символна връзка"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
-#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
 msgstr "Новата папка за работен плот не съществува или не е папка!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
-#, machine-translated
 msgid "Desktop Folder Changed"
 msgstr "Промяна на директорията на работния плот"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
-#, machine-translated
 msgid "Switching to new Desktop..."
 msgstr "Превключване към нов работен плот..."
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
+#: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, machine-translated
 msgid "Desktop Icons"
 msgstr "Икони на работния плот"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:157
-#, machine-translated
+#: app/desktopGrid.js:2473
+#, fuzzy
+msgid "Back to Desktop"
+msgstr "Обновяване на работния плот"
+
+# MT: LibreTranslate
+#: app/desktopManager.js:162
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "Буфер за мониторна рамка Скалирането не е включено"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:158
-#, machine-translated
+#: app/desktopManager.js:163
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor "
+"framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"Множество монитори с различни настройки за увеличение, препоръчват на монитор каймбуфер мащабиране.\n"
+"Множество монитори с различни настройки за увеличение, препоръчват на "
+"монитор каймбуфер мащабиране.\n"
 "\n"
 "Моля, активирайте в настройките на Mutter Dconf"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:169
-#, machine-translated
+#: app/desktopManager.js:174
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -843,21 +763,18 @@ msgstr ""
 "Включване на монитор кадърбуфер мащабиране в Mutter Dconf Настройки?"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, machine-translated
+#: app/desktopManager.js:177 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
 msgstr "Включване"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:196 app/desktopManager.js:206
-#, machine-translated
+#: app/desktopManager.js:201 app/desktopManager.js:211
 msgid "Can Not Show the Desktop"
 msgstr "Грешка при показване на работния плот"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:198
-#, machine-translated
+#: app/desktopManager.js:203
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -869,8 +786,7 @@ msgstr ""
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:208
-#, machine-translated
+#: app/desktopManager.js:213
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -878,41 +794,36 @@ msgid ""
 msgstr ""
 "Директорията на работния плот {desktop} не съществува или не е директория\n"
 "\n"
-"Проверете инсталацията на xdg- utils и задайте правилната папка за работния плот"
+"Проверете инсталацията на xdg- utils и задайте правилната папка за работния "
+"плот"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:219
-#, machine-translated
+#: app/desktopManager.js:224
 msgid "GNOME Files not found"
 msgstr "GNOME Файловете не са намерени"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:220
-#, machine-translated
+#: app/desktopManager.js:225
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "GNOME Приложение на файлове се изисква от Gtk4 Desktop Icons NG."
 
 # MT: LibreTranslate
-#: app/desktopManager.js:227
-#, machine-translated
+#: app/desktopManager.js:232
 msgid "There is no default File Manager"
 msgstr "Няма файлов мениджър по подразбиране"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:228
-#, machine-translated
+#: app/desktopManager.js:233
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "Няма приложение, което да обработва мимтип \"иноде/директория\""
 
 # MT: LibreTranslate
-#: app/desktopManager.js:235
-#, machine-translated
+#: app/desktopManager.js:240
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "Файловете на Gnome не са регистрирани като файлов мениджър"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:236
-#, machine-translated
+#: app/desktopManager.js:241
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -923,278 +834,236 @@ msgstr ""
 "Проверка на Gnome файлове .desktop Файлова инсталация"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:328
-#, machine-translated
+#: app/desktopManager.js:408
 msgid "Clear current selection before new search"
 msgstr "Изчистване на текущия избор преди ново търсене"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1238
-#, machine-translated
+#: app/desktopManager.js:1339
 msgid "Find Files on Desktop"
 msgstr "Търсене на файлове на работния плот"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
-#, machine-translated
+#: app/desktopManager.js:1682 app/desktopMenu.js:1020 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Нова папка"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1613
-#, machine-translated
+#: app/desktopManager.js:1716
 msgid "Folder Creation Failed"
 msgstr "Грешка при създаване на папка"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1614
-#, machine-translated
+#: app/desktopManager.js:1717
 msgid "Could not create folder"
 msgstr "Грешка при създаване на папка"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:601
-#, machine-translated
+#: app/desktopMenu.js:603
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Грешка при отваряне на работния плот в Gnome файлове"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:620
-#, machine-translated
+#: app/desktopMenu.js:622
 msgid "Preferences Window is Open"
 msgstr "Прозорецът за настройки е отворен"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:621
-#, machine-translated
+#: app/desktopMenu.js:623
 msgid "This Window is open. Please switch to the active window."
 msgstr "Прозорецът е отворен. Моля, превключете на активния прозорец."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:630 app/desktopMenu.js:1011
-#, machine-translated
+#: app/desktopMenu.js:632 app/desktopMenu.js:1073
 msgid "Settings"
 msgstr "Настройки"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:813
-#, machine-translated
+#: app/desktopMenu.js:875
 msgid "Template Creation Error"
 msgstr "Грешка при създаване на шаблон"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:814
-#, machine-translated
+#: app/desktopMenu.js:876
 msgid "Could not create document"
 msgstr "Грешка при създаване на документ"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:919
-#, machine-translated
+#: app/desktopMenu.js:981
 msgid "Name"
 msgstr "Име"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:921
-#, machine-translated
+#: app/desktopMenu.js:983
 msgid "Name Z-A"
 msgstr "Име Z-A"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:923
-#, machine-translated
+#: app/desktopMenu.js:985
 msgid "Modified Time"
 msgstr "Модифицирано време"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:925
-#, machine-translated
+#: app/desktopMenu.js:987
 msgid "Type"
 msgstr "Тип"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:927
-#, machine-translated
+#: app/desktopMenu.js:989
 msgid "Size"
 msgstr "Размер"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:932
-#, machine-translated
+#: app/desktopMenu.js:994
 msgid "Keep Arranged…"
 msgstr "Подреди.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:937
-#, machine-translated
+#: app/desktopMenu.js:999
 msgid "Keep Stacked by Type…"
 msgstr "Да се поддържа от типа.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:939
-#, machine-translated
+#: app/desktopMenu.js:1001
 msgid "Sort Home/Drives/Trash…"
 msgstr "Сортиране на дома/Драйвове/ Боклук.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:944
-#, machine-translated
+#: app/desktopMenu.js:1006
 msgid "Change Desktop"
 msgstr "Промяна на работния плот"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:949
-#, machine-translated
+#: app/desktopMenu.js:1011
 msgid "Restore Default Desktop"
 msgstr "Възстановяване на работния плот по подразбиране"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:953
-#, machine-translated
+#: app/desktopMenu.js:1015
 msgid "Desktop Icon Settings"
 msgstr "Настройки на иконата на работния плот"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:955
-#, machine-translated
+#: app/desktopMenu.js:1017
 msgid "Show Shortcuts"
 msgstr "Показване на кратките пътища"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:963 app/shortcuts.js:43
-#, machine-translated
+#: app/desktopMenu.js:1025 app/shortcuts.js:44
 msgid "New Document"
 msgstr "Нов документ"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:968 app/shortcuts.js:11
-#, machine-translated
+#: app/desktopMenu.js:1030 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Поставяне"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:970 app/shortcuts.js:12
-#, machine-translated
+#: app/desktopMenu.js:1032 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Отмяна"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:972 app/shortcuts.js:13
-#, machine-translated
+#: app/desktopMenu.js:1034 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Възстановяване"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:978 app/shortcuts.js:14
-#, machine-translated
+#: app/desktopMenu.js:1040 app/shortcuts.js:14
 msgid "Select All"
 msgstr "Избор на всичко"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:985
-#, machine-translated
+#: app/desktopMenu.js:1047
 msgid "Arrange Icons"
 msgstr "Подреждане на икони"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:989
-#, machine-translated
+#: app/desktopMenu.js:1051
 msgid "Arrange By…"
 msgstr "Подредете.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:997
-#, machine-translated
+#: app/desktopMenu.js:1059
 msgid "Show Desktop In {0}"
 msgstr "Показване на работния плот {0}"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1002
-#, machine-translated
+#: app/desktopMenu.js:1064
 msgid "Open In {0}"
 msgstr "Отваряне в {0}"
 
+#: app/desktopMenu.js:1081
+msgid "Edit Widgets…"
+msgstr ""
+
 # MT: LibreTranslate
-#: app/desktopMenu.js:1018
-#, machine-translated
+#: app/desktopMenu.js:1088
 msgid "Shell Menu…"
 msgstr "Шел Меню.."
 
 # MT: LibreTranslate
-#: app/dragManager.js:101 app/dragManager.js:926
-#, machine-translated
+#: app/dragManager.js:105 app/dragManager.js:1044
 msgid "Making SymLink Failed"
 msgstr "Грешка при създаване на SymLink"
 
 # MT: LibreTranslate
-#: app/dragManager.js:102 app/dragManager.js:927
-#, machine-translated
+#: app/dragManager.js:106 app/dragManager.js:1045
 msgid "Could not create symbolic link"
 msgstr "Грешка при създаване на символична връзка"
 
 # MT: LibreTranslate
-#: app/dragManager.js:739
-#, machine-translated
+#: app/dragManager.js:857
 msgid "Copy/Move Failed"
 msgstr "Копиране / преместване неуспешно"
 
 # MT: LibreTranslate
-#: app/dragManager.js:740
-#, machine-translated
+#: app/dragManager.js:858
 msgid "{0} Does not exist"
 msgstr "{0} Не съществува"
 
 # MT: LibreTranslate
-#: app/dragManager.js:782
-#, machine-translated
+#: app/dragManager.js:900
 msgid "Choose Action for Files"
 msgstr "Изберете действие за файлове"
 
 # MT: LibreTranslate
-#: app/dragManager.js:783
-#, machine-translated
+#: app/dragManager.js:901
 msgid "Move"
 msgstr "Движение"
 
 # MT: LibreTranslate
-#: app/dragManager.js:783 app/fileItemMenu.js:240
-#, machine-translated
+#: app/dragManager.js:901 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "Копиране"
 
 # MT: LibreTranslate
-#: app/dragManager.js:783
-#, machine-translated
+#: app/dragManager.js:901
 msgid "Link"
 msgstr "Връзка"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, machine-translated
 msgid "Folder"
 msgstr "Директория"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, machine-translated
 msgid "File"
 msgstr "Файл"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:270
-#, machine-translated
+#: app/fileItemIcon.js:286
 msgid "Opening File Failed"
 msgstr "Грешка при отваряне на файл"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:276
-#, machine-translated
+#: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "Няма инсталирано приложение за отваряне на файлове \"{fo}\"."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:104
-#, machine-translated
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Нова папка с {0} точка"
@@ -1202,115 +1071,96 @@ msgstr[1] "Нова папка с {0} точка"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:114
-#, machine-translated
 msgid "Open All..."
 msgstr "Отворете всички..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, machine-translated
 msgid "Launch"
 msgstr "Стартиране"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:135
-#, machine-translated
 msgid "Open with {foo}"
 msgstr "Отворено с {foo}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:138
-#, machine-translated
 msgid "Open"
 msgstr "Отваряне"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
-#, machine-translated
 msgid "Extract Here"
 msgstr "Извличане тук"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:162
-#, machine-translated
 msgid "Extract To..."
 msgstr "Извличане към..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, machine-translated
 msgid "Open With..."
 msgstr "Отворено с..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:176
-#, machine-translated
 msgid "Open All With Other Application..."
 msgstr "Отваряне на всичко с друго приложение..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:184
-#, machine-translated
 msgid "Launch using Integrated Graphics Card"
 msgstr "Стартиране чрез интегрирана графична карта"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:206
-#, machine-translated
 msgid "Stack This Type"
 msgstr "Поставяне на този тип"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:207
-#, machine-translated
 msgid "Unstack This Type"
 msgstr "Отлепете този тип"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:231
-#, machine-translated
 msgid "Run as a Program"
 msgstr "Изпълнение като програма"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:234
-#, machine-translated
 msgid "Scripts"
 msgstr "Скриптове"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:239
-#, machine-translated
 msgid "Cut"
 msgstr "Режи"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, machine-translated
 msgid "Move to..."
 msgstr "Преместване в..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, machine-translated
 msgid "Copy to..."
 msgstr "Копиране на..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:249
-#, machine-translated
 msgid "Rename…"
 msgstr "Преименуване.."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, machine-translated
 msgid "Create Link..."
 msgstr "Създаване на връзка..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:261
-#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Компрес {0} папка"
@@ -1318,7 +1168,6 @@ msgstr[1] "Компрес {0} папка"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:269
-#, machine-translated
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Компрес {0} файл"
@@ -1326,501 +1175,422 @@ msgstr[1] "Компрес {0} файл"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:276
-#, machine-translated
 msgid "Email to..."
 msgstr "Имейл на..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:286
-#, machine-translated
 msgid "Send to Mobile Device"
 msgstr "Изпращане до мобилно устройство"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:294
-#, machine-translated
 msgid "Move to Trash"
 msgstr "Преместване в кошчето"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:302
-#, machine-translated
 msgid "Delete permanently"
 msgstr "Изтриване завинаги"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
-#, machine-translated
 msgid "Don't Allow Launching"
 msgstr "Не позволявайте стартиране"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:339
-#, machine-translated
 msgid "Empty Trash"
 msgstr "Празен кошче"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:345
-#, machine-translated
 msgid "Eject"
 msgstr "Изхвърляне"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:348
-#, machine-translated
 msgid "Unmount"
 msgstr "Демонтиране"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:354
-#, machine-translated
 msgid "Common Properties"
 msgstr "Общи свойства"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:355
-#, machine-translated
 msgid "Properties"
 msgstr "Настройки"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:362
-#, machine-translated
 msgid "Show All in {0}"
 msgstr "Показване на всички {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:363
-#, machine-translated
 msgid "Show in {0}"
 msgstr "Показване в {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:374
-#, machine-translated
 msgid "Open in {0}"
 msgstr "Отваряне на {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:537
-#, machine-translated
+#: app/fileItemMenu.js:539
 msgid "Open Item"
 msgstr "Отваряне на елемент"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:819
-#, machine-translated
+#: app/fileItemMenu.js:821
 msgid "Extraction Cancelled"
 msgstr "Извличането е отменено"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:820
-#, machine-translated
+#: app/fileItemMenu.js:822
 msgid "Unable to extract File, no destination folder"
 msgstr "Грешка при извличане Файл, без папка за дестинация"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, machine-translated
+#: app/fileItemMenu.js:878 app/fileItemMenu.js:907
 msgid "Select Destination"
 msgstr "Избор на дестинация"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:879 app/fileItemMenu.js:907
-#, machine-translated
+#: app/fileItemMenu.js:881 app/fileItemMenu.js:909
 msgid "Select"
 msgstr "Избор"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:963
-#, machine-translated
+#: app/fileItemMenu.js:965
 msgid "Can not email a Directory"
 msgstr "Не може да изпратите имейл на директория"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:965
-#, machine-translated
+#: app/fileItemMenu.js:967
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "Избор включва Directory, компрес към .zip файл първо?"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
-#: app/fileItemMenu.js:1058
-#, machine-translated
+#: app/fileItemMenu.js:993 app/fileItemMenu.js:1024 app/fileItemMenu.js:1041
+#: app/fileItemMenu.js:1060
 msgid "Mail Error"
 msgstr "Грешка в пощата"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:993
-#, machine-translated
+#: app/fileItemMenu.js:995
 msgid "Unable to find zip command, please install the program"
 msgstr "Грешка при откриване на командата за цип, моля инсталирайте програмата"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:999
-#, machine-translated
+#: app/fileItemMenu.js:1001
 msgid "Archive.zip"
 msgstr "Архив. цип"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1023
-#, machine-translated
+#: app/fileItemMenu.js:1025
 msgid "There was an error in creating a zip archive"
 msgstr "Грешка при създаване на пощенски архив"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1041
-#, machine-translated
+#: app/fileItemMenu.js:1043
 msgid "Unable to find xdg-email, please install the program"
 msgstr "Не може да бъде намерена xdg-email, моля инсталирайте програмата"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1059
-#, machine-translated
+#: app/fileItemMenu.js:1061
 msgid "There was an error in emailing Files"
 msgstr "Има грешка в имейл файловете"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1174
-#, machine-translated
+#: app/fileItemMenu.js:1176
 msgid "Can Not open the Working Directory"
 msgstr "Не може да се отвори работната директория"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1225
-#, machine-translated
+#: app/fileItemMenu.js:1227
 msgid "Unable to Open in Gnome Console"
 msgstr "Грешка при отваряне в Gnome Console"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1227
-#, machine-translated
+#: app/fileItemMenu.js:1229
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "Моля инсталирайте Gnome Console или друга терминална програма"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1235
-#, machine-translated
+#: app/fileItemMenu.js:1237
 msgid "Unable to Open {0}"
 msgstr "Грешка при отваряне {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1237
-#, machine-translated
+#: app/fileItemMenu.js:1239
 msgid "Please Install {0}"
 msgstr "Моля инсталирайте {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1281
-#, machine-translated
+#: app/fileItemMenu.js:1283
 msgid "Copy Cancelled"
 msgstr "Копиране отказано"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1282
-#, machine-translated
+#: app/fileItemMenu.js:1284
 msgid "Unable to copy Files, no destination folder"
 msgstr "Файловете не могат да бъдат копирани, няма папка за дестинация"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1305
-#, machine-translated
+#: app/fileItemMenu.js:1307
 msgid "Move Cancelled"
 msgstr "Преместването е отменено"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1306
-#, machine-translated
+#: app/fileItemMenu.js:1308
 msgid "Unable to move Files, no destination folder"
 msgstr "Файловете не могат да бъдат преместени, няма папка за дестинация"
 
 # MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
-#, machine-translated
 msgid "$appName$ can not open files of this Type!"
 msgstr "$appName$ не може да отвори файлове от този тип!"
 
 # MT: LibreTranslate
-#: app/preferences.js:885
-#, machine-translated
+#: app/preferences.js:1069
 msgid "Console"
 msgstr "Конзола"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:85
-#, machine-translated
 msgid "Default Shortcut:"
 msgstr "Пряк път по подразбиране:"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:109
-#, machine-translated
 msgid "Type new..."
 msgstr "Напишете нов..."
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:125
-#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr "Модификатор + ключ (напр. Ctrl + Alt + D)"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, machine-translated
 msgid "Reset to Default"
 msgstr "По подразбиране"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, machine-translated
 msgid "No Accelerator"
 msgstr "Без ускорител"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, machine-translated
 msgid "System Shortcuts"
 msgstr "Системни преки пътища"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:244
-#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
 msgstr "Често задавани клавишни клавиши"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, machine-translated
 msgid "Local Shortcuts"
 msgstr "Локални преки пътища"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, machine-translated
 msgid "Application Keyboard Shortcuts"
 msgstr "Name"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, machine-translated
 msgid "Global Shortcuts"
 msgstr "Глобални преки пътища"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, machine-translated
 msgid "System Keyboard Shortcuts"
 msgstr "Comment"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:661
-#, machine-translated
+#: app/shortcutManager.js:672
 msgid "Keyboard Shortcuts"
 msgstr "Клавиатури"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:673
-#, machine-translated
+#: app/shortcutManager.js:684
 msgid "Reset Shortcuts"
 msgstr "Рестартиране на бързите клавиши"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:674
-#, machine-translated
+#: app/shortcutManager.js:685
 msgid "Reset all shortcuts to Defaults"
 msgstr "Рестартиране на всички преки пътища към по подразбиране"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:677
-#, machine-translated
+#: app/shortcutManager.js:688
 msgid "Reset All..."
 msgstr "Рестартиране на всички..."
 
 # MT: LibreTranslate
 #: app/shortcuts.js:15
-#, machine-translated
 msgid "Show Desktop in Files"
 msgstr "Показване на работния плот във файлове"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:16
-#, machine-translated
 msgid "Open in Terminal"
 msgstr "Отваряне на терминала"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:17
-#, machine-translated
 msgid "Change Background"
 msgstr "Промяна на фона"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:18
-#, machine-translated
 msgid "Change Display Settings"
 msgstr "Промяна на настройките на дисплея"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:19
-#, machine-translated
 msgid "Change Desktop Icon Settings"
 msgstr "Промяна на настройките за икона на работния плот"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:20
-#, machine-translated
 msgid "Clean Up Icons"
 msgstr "Икони за почистване"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:21
-#, machine-translated
 msgid "Keep Arranged"
 msgstr "Поддържайте подредбата"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:22
-#, machine-translated
 msgid "Keep Stacked"
 msgstr "Съхранявайте нащрек"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:23
-#, machine-translated
 msgid "Sort Special Folders"
 msgstr "Сортиране на специални папки"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:24
-#, machine-translated
 msgid "Arrange Icons by Name"
 msgstr "Подреждане на икони по име"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:25
-#, machine-translated
 msgid "Arrange Icons By Descending Name"
 msgstr "Подреждане на икони чрез име"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:26
-#, machine-translated
 msgid "Arrange Icons By Modified Time"
 msgstr "Подреждане на икони чрез модифицирано време"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:27
-#, machine-translated
 msgid "Arrange Icons By Kind"
 msgstr "Подреждане на икони По милост"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:28
-#, machine-translated
 msgid "Arrange Icons By Size"
 msgstr "Подредете иконите по размер"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:29
-#, machine-translated
 msgid "Find Files"
 msgstr "Търсене на файлове"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:30
-#, machine-translated
 msgid "Update Desktop"
 msgstr "Обновяване на работния плот"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:31
-#, machine-translated
 msgid "Show Hidden Files"
 msgstr "Показване на скрити файлове"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:32
-#, machine-translated
 msgid "Unselect All"
 msgstr "Отмяна на всички"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:33
-#, machine-translated
 msgid "Preview"
 msgstr "Преглед"
 
-# MT: LibreTranslate
 #: app/shortcuts.js:34
-#, machine-translated
+msgid "Toggle Widget Layer"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/shortcuts.js:35
 msgid "Choose Icon Left"
 msgstr "Избор на икона наляво"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:35
-#, machine-translated
+#: app/shortcuts.js:36
 msgid "Choose Icon Right"
 msgstr "Избор на икона"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:36
-#, machine-translated
+#: app/shortcuts.js:37
 msgid "Choose Icon Up"
 msgstr "Избор на икона"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:37
-#, machine-translated
+#: app/shortcuts.js:38
 msgid "Choose Icon Down"
 msgstr "Избор на икона"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:38
-#, machine-translated
+#: app/shortcuts.js:39
 msgid "Show Menu"
 msgstr "Показване на менюто"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:39
-#, machine-translated
+#: app/shortcuts.js:40
 msgid "Display Shell Background Menu"
 msgstr "Показване на фона на черупката"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:40
-#, machine-translated
+#: app/shortcuts.js:41
 msgid "Create Desktop Shortcut"
 msgstr "Създаване на бърз клавиш"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:41
-#, machine-translated
+#: app/shortcuts.js:42
 msgid "Text Entry Accels Turn On"
 msgstr "Вписване на текст"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:42
-#, machine-translated
+#: app/shortcuts.js:43
 msgid "Text Entry Accels Turn Off"
 msgstr "Вписване на текст"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:44
-#, machine-translated
+#: app/shortcuts.js:45
 msgid "Show Shortcut Viewer"
 msgstr "Показване на пряк път Преглед"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:45
-#, machine-translated
+#: app/shortcuts.js:46
 msgid "Show Or Hide Desktop Icons"
 msgstr "Показване или скриване на иконите на работния плот"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, machine-translated
 msgid "More Information"
 msgstr "Повече информация"
 
@@ -1828,13 +1598,11 @@ msgstr "Повече информация"
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
 #: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
-#, machine-translated
 msgid "Home"
 msgstr "У дома"
 
 # MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, machine-translated
 msgid "Trash"
 msgstr "Боклук"
 
@@ -1844,330 +1612,343 @@ msgstr "Боклук"
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, machine-translated
 msgid "Stack"
 msgstr "Стак"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:100
-#, machine-translated
 msgid "Broken Link"
 msgstr "Счупена връзка"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:102
-#, machine-translated
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "Файлът не може да бъде отворен, защото е счупен симлинк"
 
 # MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, machine-translated
 msgid "Drive"
 msgstr "Карай"
 
+#: app/widgetManager.js:914
+msgid "Add Widget"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/widgetManager.js:1159
+#, fuzzy
+msgid "Widget preferences"
+msgstr "Преференция"
+
+#: app/widgetManager.js:1540
+msgid "HTML widget"
+msgstr ""
+
+#: app/widgetManager.js:1542
+msgid "GTK widget"
+msgstr ""
+
+#: app/widgetManager.js:1551
+msgid "User"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/widgetWebContext.js:187
+#, fuzzy
+msgid "Widget Preferences"
+msgstr "Преференция"
+
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
-#, machine-translated
 msgid "\"${programName}\" is not available"
 msgstr "\"${programName}\" не е наличен"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-#, machine-translated
-msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr "Инсталиране \"${programName}\", за да се даде възможност на иконите на работния плот да извършват тези действия."
+msgid ""
+"Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgstr ""
+"Инсталиране \"${programName}\", за да се даде възможност на иконите на "
+"работния плот да извършват тези действия."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
-#, machine-translated
 msgid "Choose Desktop Folder"
 msgstr "Изберете директория за работния плот"
 
 # MT: LibreTranslate
-#: app/utils/desktopIconsUtil.js:216
-#, machine-translated
+#: app/utils/desktopIconsUtil.js:257
 msgid "Command not found"
 msgstr "Командата не е намерена"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
-#, machine-translated
 msgid "Choose an app to open the selected files."
 msgstr "Изберете приложение за отваряне на избраните файлове."
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
-#, machine-translated
 msgid "Always use for this file type"
 msgstr "Винаги използвайте за този тип файлове"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, machine-translated
 msgid "_Cancel"
 msgstr "_Cancel"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, machine-translated
 msgid "_Open"
 msgstr "Отворете"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, machine-translated
 msgid "Display icons on the GNOME desktop"
 msgstr "Показване на иконите на работния плот на GNOME"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-#, machine-translated
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "настолен компютър;икони;файлове;папки;мениджър;аранжимент;скрий;шоу;прозорец;къси клавиши;"
+msgstr ""
+"настолен "
+"компютър;икони;файлове;папки;мениджър;аранжимент;скрий;шоу;прозорец;къси "
+"клавиши;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, machine-translated
 msgid "Show<>Hide"
 msgstr "Показване < > Скриване"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, machine-translated
 msgid "Preferences"
 msgstr "Преференция"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, machine-translated
 msgid "Disable"
 msgstr "Изключване"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
-#, machine-translated
 msgid "Icon size"
 msgstr "Размер на иконата"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
-#, machine-translated
 msgid "Set the size for the desktop icons."
 msgstr "Задайте размера на иконите за десктоп."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
-#, machine-translated
 msgid "Show personal folder"
 msgstr "Показване на лична папка"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
-#, machine-translated
 msgid "Show the personal folder in the desktop."
 msgstr "Показване на лична папка на работния плот."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
-#, machine-translated
 msgid "Show trash icon"
 msgstr "Показване на иконата за боклук"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
-#, machine-translated
 msgid "Show the trash icon in the desktop."
 msgstr "Показване на иконата за боклук на работния плот."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
-#, machine-translated
 msgid "New icons start corner"
 msgstr "Нов стартов ъгъл на иконите"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
-#, machine-translated
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "Поставете ъгъла от където иконите ще започнат да се поставят."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-#, machine-translated
 msgid "Show external drives in the desktop"
 msgstr "Показване на външни дискове в работния плот"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
-#, machine-translated
 msgid "Show the disk drives connected to the computer."
 msgstr "Показване на дисковите дискове свързани към компютъра."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-#, machine-translated
 msgid "Show network drives in the desktop"
 msgstr "Показване на мрежовите дискове в работния плот"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
-#, machine-translated
 msgid "Show mounted network volumes in the desktop."
 msgstr "Показване на инсталираните мрежови обеми в работния плот."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-#, machine-translated
 msgid "Add new drives to the opposite side of the screen"
 msgstr "Добавяне на нови дискове в обратната страна на екрана"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-#, machine-translated
-msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
-msgstr "При добавяне на дискове и обеми към работния плот, добавете ги към обратната страна на екрана."
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
+msgstr ""
+"При добавяне на дискове и обеми към работния плот, добавете ги към обратната "
+"страна на екрана."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
-#, machine-translated
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "Показване на правоъгълник на мястото на получаване по време на DnD"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-#, machine-translated
-msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
-msgstr "При извършване на операция Drag'n'Drop маркира мястото в мрежата, където иконата ще бъде поставена с полупрозрачен правоъгълник."
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"При извършване на операция Drag'n'Drop маркира мястото в мрежата, където "
+"иконата ще бъде поставена с полупрозрачен правоъгълник."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
-#, machine-translated
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "Сортиране на специални папки - Home/Trash Drives."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-#, machine-translated
-msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
-msgstr "При организиране на икони на работния плот, за сортиране и промяна на позицията на дома, кошчето и монтираните мрежи или външни дискове"
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"При организиране на икони на работния плот, за сортиране и промяна на "
+"позицията на дома, кошчето и монтираните мрежи или външни дискове"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
-#, machine-translated
 msgid "Keep Icons Arranged"
 msgstr "Дръжте иконите подредени"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
-#, machine-translated
 msgid "Always keep Icons Arranged by the last arranged order"
 msgstr "Винаги дръж иконите Подредени от последната подредба"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
-#, machine-translated
 msgid "Arrange Order"
 msgstr "Подреждане"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
-#, machine-translated
 msgid "Icons Arranged by this property"
 msgstr "Икони, организирани от този имот"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-#, machine-translated
 msgid "Keep Icons Stacked"
 msgstr "Дръжте Icons Stacked"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-#, machine-translated
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr "Винаги дръжте Icons Stacked, Подобни типове са групирани"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
-#, machine-translated
 msgid "Type of Files to not Stack"
 msgstr "Вид на файловете, които не се поставят"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-#, machine-translated
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "Излъчване на типове струни, не поставяйте тези видове файлове"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, machine-translated
 msgid "Add an emblem to links"
 msgstr "Добавяне на емблема към връзки"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, machine-translated
 msgid "Add an emblem to allow to identify soft links."
 msgstr "Добавяне на емблема, която позволява идентифицирането на меки връзки."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
-#, machine-translated
 msgid "Use black for label text"
 msgstr "Използване на черно за текст с етикет"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-#, machine-translated
-msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
-msgstr "Нарисувайте текста на етикета в черно, вместо в бяло. Полезно при използване на светлинни фонове."
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
+msgstr ""
+"Нарисувайте текста на етикета в черно, вместо в бяло. Полезно при използване "
+"на светлинни фонове."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
 msgstr "Показване на нови икони на непървичен монитор, ако са свързани"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, machine-translated
-msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
-msgstr "Ако е свързан втори монитор, на непървичен монитор се поставят нови икони"
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
+msgstr ""
+"Ако е свързан втори монитор, на непървичен монитор се поставят нови икони"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "Иконите могат да бъдат разположени навсякъде на работен плот"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, machine-translated
-msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
-msgstr "Иконите не са на правоъгълна мрежа, но могат да бъдат разположени навсякъде, независимо от мрежата"
+msgid ""
+"Icons are not on a rectangular grid but can be postioned anywhere "
+"independent of grid"
+msgstr ""
+"Иконите не са на правоъгълна мрежа, но могат да бъдат разположени навсякъде, "
+"независимо от мрежата"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, machine-translated
+#, fuzzy
+msgid "Show Desktop Widgets"
+msgstr "Показване на работния плот във файлове"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+msgid "Displays Widgets in a layer below the icons if installed"
+msgstr ""
+
+# MT: LibreTranslate
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Hide/Show all desktop windows"
 msgstr "Скриване/ Показване на всички настолни прозорци"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, machine-translated
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Show the icons on the desktop, or hide them all"
 msgstr "Показване на иконите на десктопа или скриване на всички"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, machine-translated
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:120
 msgid "User Application Shortcuts"
 msgstr "Потребителско приложение"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
-#, machine-translated
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
-msgstr "Превключване на бързите клавиши по подразбиране, зададени от Потребителя"
+msgstr ""
+"Превключване на бързите клавиши по подразбиране, зададени от Потребителя"

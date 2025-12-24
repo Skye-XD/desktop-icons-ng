@@ -1,4 +1,12 @@
 # History of versions #
+* Adw Version 100.12 Gor Gnome 45, 46, 47, 48, 49
+  * Add keybaoard navigation for multiple file selectoin. (Daniel Ella)
+  * Allow user to override CSS with their own, with hidden prefernes UI reload. (Daniel Ella)
+  * Miscellaneous improvements and packaging. (Sundeep Mediratta)
+  * Introduce a Widget layer below the icon layer, like KDE desklets, that can run HTML widgets. They can access the internet with CSP guarded profiles. (Sundeep Mediratta)
+  * Weblate Translations. (Weblate Authors)
+  * Update History.MD, update metadata.json, app release note.
+
 * Adw Version 100.11 Gor Gnome 45, 46, 47, 48.
   * Fix for margins under dock in RTL locales. (Sundeep Mediratta)
   * Adapt to complet X11 removal in mutter and Gnome 50. (Sundeep Mediratta)

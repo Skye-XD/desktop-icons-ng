@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 12:07-0400\n"
+"POT-Creation-Date: 2025-12-24 18:48-0500\n"
 "PO-Revision-Date: 2025-09-28 17:15-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,820 +18,736 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "X-Generator: LibreTranslate (auto-fill)\n"
 
+#: app/adwPreferencesWindow.js:161
+msgid "CSS Override"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:162
+msgid "Customise the appearance of desktop icons with CSS"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:166
+msgid "Warning: This can break the extension if done incorrectly"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:172
+msgid "Edit CSS Override File..."
+msgstr ""
+
+#: app/adwPreferencesWindow.js:180
+msgid "Apply CSS Changes Now"
+msgstr ""
+
+#: app/adwPreferencesWindow.js:181
+msgid "Reload the CSS to apply changes immediately"
+msgstr ""
+
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:160 data/com.desktop.ding.desktop.in:29
-#, machine-translated
+#: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
 msgstr "ปุ่มพิมพ์ลัด"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:163
-#, machine-translated
+#: app/adwPreferencesWindow.js:252
 msgid "Edit Shortcuts..."
 msgstr "แก้ไขปุ่มพิมพ์ลัด..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:178
-#, machine-translated
+#: app/adwPreferencesWindow.js:267
 msgid "Edit Application Shortcuts"
 msgstr "แก้ไขปุ่มพิมพ์ลัดของโปรแกรม"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:183
-#, machine-translated
+#: app/adwPreferencesWindow.js:272
 msgid "Shortcuts Editable only when Extension Enabled..."
 msgstr "ปุ่มพิมพ์ลัด แก้ไขได้ก็ต่อเมื่อมีการส่วนขยาย..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:288
-#, machine-translated
+#: app/adwPreferencesWindow.js:377
 msgid "Help translate in your web browser"
 msgstr "แปลภาษาในเว็บเบราว์เซอร์ของคุณ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:484 app/adwPreferencesWindow.js:485
-#, machine-translated
+#: app/adwPreferencesWindow.js:584 app/adwPreferencesWindow.js:585
 msgid "Desktop"
 msgstr "พื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:490 app/adwPreferencesWindow.js:491
-#, machine-translated
+#: app/adwPreferencesWindow.js:590 app/adwPreferencesWindow.js:591
 msgid "Files"
 msgstr "แฟ้ม"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:496 app/adwPreferencesWindow.js:497
-#: app/adwPreferencesWindow.js:539
-#, machine-translated
+#: app/adwPreferencesWindow.js:596 app/adwPreferencesWindow.js:597
+#: app/adwPreferencesWindow.js:639
 msgid "Tweaks"
 msgstr "ต. ค"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:502 app/adwPreferencesWindow.js:503
-#, machine-translated
+#: app/adwPreferencesWindow.js:602 app/adwPreferencesWindow.js:603
 msgid "More"
 msgstr "เพิ่มเติม"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:514
-#, machine-translated
+#: app/adwPreferencesWindow.js:614
 msgid "Desktop Settings"
 msgstr "ตั้งค่าพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:515
-#, machine-translated
+#: app/adwPreferencesWindow.js:615
 msgid "Settings for the Desktop Program"
 msgstr "ตั้งค่าโปรแกรมพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:521
-#, machine-translated
+#: app/adwPreferencesWindow.js:621
 msgid "Desktop Folder"
 msgstr "โฟลเดอร์พื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:522
-#, machine-translated
+#: app/adwPreferencesWindow.js:622
 msgid "Current Desktop: "
 msgstr "พื้นที่ทํางานปัจจุบัน:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:532
-#, machine-translated
+#: app/adwPreferencesWindow.js:632
 msgid "Files Settings"
 msgstr "ตั้งค่าแฟ้ม"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:533
-#, machine-translated
+#: app/adwPreferencesWindow.js:633
 msgid "Settings shared with Gnome Files"
 msgstr "ตั้งค่าที่ใช้ร่วมกันกับแฟ้มของ Gnome"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:540
-#, machine-translated
+#: app/adwPreferencesWindow.js:640
 msgid "Miscellaneous Tweaks"
 msgstr "เบ็ดเตล็ด ต. ค"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:558
-#, machine-translated
+#: app/adwPreferencesWindow.js:664
 msgid "Size for the desktop icons"
 msgstr "ขนาดของไอคอนบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:560
-#, machine-translated
+#: app/adwPreferencesWindow.js:666
 msgid "Tiny"
 msgstr "เล็ก"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:561
-#, machine-translated
+#: app/adwPreferencesWindow.js:667
 msgid "Small"
 msgstr "เล็ก"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:562
-#, machine-translated
+#: app/adwPreferencesWindow.js:668
 msgid "Standard"
 msgstr "มาตรฐาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:563
-#, machine-translated
+#: app/adwPreferencesWindow.js:669
 msgid "Large"
 msgstr "ใหญ่"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:569
-#, machine-translated
+#: app/adwPreferencesWindow.js:675
 msgid "New icons alignment"
 msgstr "การจัดวางไอคอนใหม่"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:571
-#, machine-translated
+#: app/adwPreferencesWindow.js:677
 msgid "Top left corner"
 msgstr "มุมบนซ้าย"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:572
-#, machine-translated
+#: app/adwPreferencesWindow.js:678
 msgid "Top right corner"
 msgstr "มุมบนขวา"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:573
-#, machine-translated
+#: app/adwPreferencesWindow.js:679
 msgid "Bottom left corner"
 msgstr "มุมล่างซ้าย"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:574
-#, machine-translated
+#: app/adwPreferencesWindow.js:680
 msgid "Bottom right corner"
 msgstr "มุมล่างขวา"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:580
-#, machine-translated
+#: app/adwPreferencesWindow.js:686
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "เพิ่มไอคอนใหม่ไปยังจอภาพตัวที่สองก่อน หากมี"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:584
-#, machine-translated
+#: app/adwPreferencesWindow.js:690
 msgid "Snap icons to grid"
 msgstr "จับภาพไอคอนไปยังแนวตาราง"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:590
-#, machine-translated
-msgid "Highlight the drop grid"
-msgstr "เน้นเส้นตารางวาง"
+#: app/adwPreferencesWindow.js:696
+#, fuzzy
+msgid "Show desktop widgets"
+msgstr "แสดงพื้นที่ทํางานในแฟ้ม"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:599
-#, machine-translated
+#: app/adwPreferencesWindow.js:701
 msgid "New Desktop Folder"
 msgstr "สร้างโฟลเดอร์พื้นที่ทํางานใหม่"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:600
-#, machine-translated
+#: app/adwPreferencesWindow.js:702
 msgid "Set a new folder for the desktop"
 msgstr "ตั้งค่าโฟลเดอร์ใหม่สําหรับพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:601 app/utils/desktopFolderUtils.js:85
-#, machine-translated
+#: app/adwPreferencesWindow.js:703 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "เลือก"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:606
-#, machine-translated
+#: app/adwPreferencesWindow.js:708
 msgid "Set Desktop back to ~/"
 msgstr "ตั้งพื้นที่ทํางานใหม่เป็น ~/"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:608
-#, machine-translated
+#: app/adwPreferencesWindow.js:710
 msgid "Restore Default Desktop Folder"
 msgstr "เรียกคืนโฟลเดอร์ปริยายของพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:610
-#, machine-translated
+#: app/adwPreferencesWindow.js:712
 msgid "Restore"
 msgstr "เรียกคืนข้อมูล"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:620
-#, machine-translated
+#: app/adwPreferencesWindow.js:721
+msgid "Highlight the drop grid"
+msgstr "เน้นเส้นตารางวาง"
+
+# MT: LibreTranslate
+#: app/adwPreferencesWindow.js:731
 msgid "Add information emblems for links, encryption"
 msgstr "เพิ่มเครื่องหมายข้อมูลสําหรับลิงก์, การเข้ารหัส"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:624
-#, machine-translated
+#: app/adwPreferencesWindow.js:735
 msgid "Use dark text in icon labels"
 msgstr "ใช้ข้อความเข้มในส่วนป้ายของไอคอน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:629
-#, machine-translated
+#: app/adwPreferencesWindow.js:740
 msgid "Show the personal folder on the desktop"
 msgstr "แสดงโฟลเดอร์ส่วนตัวบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:634
-#, machine-translated
+#: app/adwPreferencesWindow.js:745
 msgid "Show the trash icon on the desktop"
 msgstr "แสดงไอคอนถังขยะบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:639
-#, machine-translated
+#: app/adwPreferencesWindow.js:750
 msgid "Show external drives on the desktop"
 msgstr "แสดงไดรฟ์ภายนอกบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:644
-#, machine-translated
+#: app/adwPreferencesWindow.js:755
 msgid "Show network drives on the desktop"
 msgstr "แสดงไดรฟ์เครือข่ายบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:649
-#, machine-translated
+#: app/adwPreferencesWindow.js:760
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "เพิ่มไดรว์ใหม่ไปยังด้านตรงข้ามของพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:654
-#, machine-translated
+#: app/adwPreferencesWindow.js:765
 msgid "Action to Open Items"
 msgstr "การกระทําเพื่อเปิดรายการ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:656
-#, machine-translated
+#: app/adwPreferencesWindow.js:767
 msgid "Single click"
 msgstr "คลิกหนึ่งครั้ง"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:657
-#, machine-translated
+#: app/adwPreferencesWindow.js:768
 msgid "Double click"
 msgstr "ดับเบิลคลิก"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:662
-#, machine-translated
+#: app/adwPreferencesWindow.js:773
 msgid "Show image thumbnails"
 msgstr "แสดงภาพตัวอย่างของภาพ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:664
-#, machine-translated
+#: app/adwPreferencesWindow.js:775
 msgid "Always"
 msgstr "เสมอ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:665
-#, machine-translated
+#: app/adwPreferencesWindow.js:776
 msgid "On this computer only"
 msgstr "บนคอมพิวเตอร์นี้เท่านั้น"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:666
-#, machine-translated
+#: app/adwPreferencesWindow.js:777
 msgid "Never"
 msgstr "ไม่เลย"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:671
-#, machine-translated
+#: app/adwPreferencesWindow.js:782
 msgid "Show a context menu item to delete permanently"
 msgstr "แสดงรายการเมนูคลิกขวาเพื่อลบอย่างถาวร"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:676
-#, machine-translated
+#: app/adwPreferencesWindow.js:787
 msgid "Show hidden files"
 msgstr "แสดงแฟ้มที่ซ่อนไว้"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:681
-#, machine-translated
+#: app/adwPreferencesWindow.js:792
 msgid "Open folders on drag hover"
 msgstr "เปิดโฟลเดอร์เมื่อเคลื่อนเมาส์ชี้"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:685
-#, machine-translated
+#: app/adwPreferencesWindow.js:796
 msgid "About..."
 msgstr "เกี่ยวกับ..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:698
-#, machine-translated
+#: app/adwPreferencesWindow.js:809
 msgid "Translation"
 msgstr "แปล"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:699
-#, machine-translated
-msgid "Machine translated using LibreTranslate. User verified and edited on Weblate."
+#: app/adwPreferencesWindow.js:810
+msgid ""
+"Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr "เครื่องถูกแปลโดยใช้ LibreTranslate ผู้ใช้ตรวจสอบและแก้ไขหน้าเว็บ."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:704
-#, machine-translated
+#: app/adwPreferencesWindow.js:815
 msgid "Edit Translations"
 msgstr "แก้ไขการแปลภาษา"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:705
-#, machine-translated
+#: app/adwPreferencesWindow.js:816
 msgid "Verify, add or correct translation in your web browser"
 msgstr "ตรวจสอบเพิ่มเติมหรือที่ถูกต้องในเว็บเบราว์เซอร์ของคุณ"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:706
-#, machine-translated
+#: app/adwPreferencesWindow.js:817
 msgid "Translate"
 msgstr "แปล"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy,machine-translated
+#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
 msgstr "out {foo}"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
-#, machine-translated
 msgid "Open Items"
 msgstr "เปิดรายการ"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
-#, machine-translated
 msgid "Open Folder"
 msgstr "เปิดโฟลเดอร์"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
-#, machine-translated
 msgid "Open File"
 msgstr "เปิดแฟ้ม"
 
 # MT: LibreTranslate
 #: app/appChooser.js:165
-#, machine-translated
 msgid "Error changing default application"
 msgstr "เกิดข้อผิดพลาดระหว่างเปลี่ยนโปรแกรมปริยาย"
 
 #: app/appChooser.js:168
-#, fuzzy
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
-#, machine-translated
 msgid "Invalid Permissions on AppImage File"
 msgstr "สิทธิ์ที่อนุญาตไม่ถูกต้องบนแฟ้ม AppImyage"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
-#, machine-translated
 msgid "This AppImage File has incorrect Permissions."
 msgstr "แฟ้ม AppIage นี้ มีสิทธิ์ไม่ถูกต้อง."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
-#, machine-translated
 msgid "Right Click to edit Properties, then:"
 msgstr "คลิกขวาเพื่อแก้ไขคุณสมบัติ จากนั้น:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
-#, machine-translated
 msgid "Set Permissions, in"
 msgstr "ตั้งค่าสิทธิ์ที่อนุญาตใน"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
-#, machine-translated
 msgid "Others Access"
 msgstr "การเข้าใช้งานอื่น ๆ"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
-#, machine-translated
 msgid "Read Only"
 msgstr "อ่านได้เท่านั้น"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
-#, machine-translated
 msgid "or"
 msgstr "หรือ"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
 #: app/shortcutManager.js:46 app/shortcutManager.js:86
-#: app/shortcutManager.js:522
-#, machine-translated
+#: app/shortcutManager.js:533
 msgid "None"
 msgstr "ไม่มี"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:66 app/desktopFileIcon.js:160
-#, machine-translated
 msgid "Enable option"
 msgstr "เปิดใช้งานตัวเลือก"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, machine-translated
 msgid "Allow Executing File as a Program"
 msgstr "อนุญาตให้ประมวลผลแฟ้มเป็นโปรแกรม"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:79
-#, machine-translated
 msgid "Untrusted AppImage File"
 msgstr "แฟ้มที่ไม่สามารถเชื่อถือได้"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
-#, machine-translated
 msgid "This AppImage file is not trusted, it can not be launched."
 msgstr "แอปนี้ ไม่สามารถอ่านแฟ้มอิมเมจได้ ไม่สามารถเรียกใช้งานได้."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
-#, machine-translated
 msgid "To enable launching, right-click, then:"
 msgstr "เพื่อเปิดใช้งานการปล่อย, การคลิกเมาส์ปุ่มขวา จากนั้น:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
-#, machine-translated
 msgid "enable"
 msgstr "เปิด"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
-#, machine-translated
 msgid "Allow Launching"
 msgstr "อนุญาตให้เรียกใช้งาน"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, machine-translated
 msgid "Folder name"
 msgstr "ชื่อโฟลเดอร์"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:61
-#, machine-translated
 msgid "File name"
 msgstr "ชื่อแฟ้ม"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1234
-#: app/fileItemMenu.js:967
-#, machine-translated
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1335
+#: app/fileItemMenu.js:969
 msgid "OK"
 msgstr "โอเค"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:75
-#, machine-translated
 msgid "Rename"
 msgstr "เปลี่ยนชื่อ"
 
 # MT: LibreTranslate
 #: app/autoAr.js:71
-#, machine-translated
 msgid "AutoAr is not installed"
 msgstr "อัตโนมัติ ไม่ได้ติดตั้งอาร์"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
-#, machine-translated
-msgid "To be able to work with compressed files, install file-roller and/or gir-1.2-gnomeAutoAr"
+msgid ""
+"To be able to work with compressed files, install file-roller and/or gir-1.2-"
+"gnomeAutoAr"
 msgstr "เพื่อจะสามารถทํางานกับแฟ้มบีบอัดได้ ติดตั้งตัวรับแฟ้มและ/หรือ gir-1.2-gnome อัตโนมัติ"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
-#, machine-translated
 msgid "Extracting files"
 msgstr "คลายแฟ้ม"
 
 # MT: LibreTranslate
 #: app/autoAr.js:220
-#, machine-translated
 msgid "Compressing files"
 msgstr "กําลังบีบอัดแฟ้ม"
 
 # MT: LibreTranslate
-#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:171
-#: app/desktopManager.js:1236 app/dragManager.js:783 app/fileItemMenu.js:914
-#: app/fileItemMenu.js:967 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#, machine-translated
+#: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:176
+#: app/desktopManager.js:1337 app/dragManager.js:901 app/fileItemMenu.js:916
+#: app/fileItemMenu.js:969 app/showErrorPopup.js:41 app/showErrorPopup.js:58
 msgid "Cancel"
 msgstr "ยกเลิก"
 
 # MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
-#, machine-translated
 msgid "Enter a password here"
 msgstr "ป้อนรหัสผ่านที่นี่"
 
 # MT: LibreTranslate
 #: app/autoAr.js:354
-#, machine-translated
 msgid "Removing partial file '${outputFile}'"
 msgstr "กําลังเอาแฟ้มบางส่วน '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:373
-#, machine-translated
 msgid "Creating destination folder"
 msgstr "กําลังสร้างโฟลเดอร์ปลายทาง"
 
 # MT: LibreTranslate
 #: app/autoAr.js:405
-#, machine-translated
 msgid "Extracting files into '${outputPath}'"
 msgstr "คลายแฟ้มเข้า '${outputPath}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:435
-#, machine-translated
 msgid "Extraction completed"
 msgstr "การคลายข้อมูลเสร็จสมบูรณ์"
 
 # MT: LibreTranslate
 #: app/autoAr.js:436
-#, machine-translated
 msgid "Extracting '${fullPathFile}' has been completed."
 msgstr "การแยก '${fullPathFile}' เสร็จสิ้นแล้ว."
 
 # MT: LibreTranslate
 #: app/autoAr.js:442
-#, machine-translated
 msgid "Extraction cancelled"
 msgstr "ยกเลิกการคลายแฟ้มแล้ว"
 
 # MT: LibreTranslate
 #: app/autoAr.js:443
-#, machine-translated
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
 msgstr "การแยก '${fullPathFile}' ถูกยกเลิกโดยผู้ใช้."
 
 # MT: LibreTranslate
 #: app/autoAr.js:453
-#, machine-translated
 msgid "Passphrase required for ${filename}"
 msgstr "out ${filename}"
 
 # MT: LibreTranslate
 #: app/autoAr.js:456
-#, machine-translated
 msgid "Error during extraction"
 msgstr "เกิดข้อผิดพลาดระหว่างทําการคลายแฟ้ม"
 
 # MT: LibreTranslate
 #: app/autoAr.js:483
-#, machine-translated
 msgid "Compressing files into '${outputFile}'"
 msgstr "การบีบอัดแฟ้มเข้า '${outputFile}'"
 
 # MT: LibreTranslate
 #: app/autoAr.js:496
-#, machine-translated
 msgid "Compression completed"
 msgstr "การบีบอัดเสร็จสมบูรณ์"
 
 # MT: LibreTranslate
 #: app/autoAr.js:497
-#, machine-translated
 msgid "Compressing files into '${outputFile}' has been completed."
 msgstr "การบีบอัดแฟ้มเข้า '${outputFile}' ได้เสร็จสมบูรณ์แล้ว."
 
 # MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
-#, machine-translated
 msgid "Cancelled compression"
 msgstr "ยกเลิกการบีบอัดแล้ว"
 
 # MT: LibreTranslate
 #: app/autoAr.js:502
-#, machine-translated
 msgid "The output file '${outputFile}' already exists."
 msgstr "มีแฟ้มผลลัพธ์ '${outputFile}' อยู่แล้ว."
 
 # MT: LibreTranslate
 #: app/autoAr.js:509
-#, machine-translated
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr "การบีบอัดแฟ้มเข้า '${outputFile}' ถูกยกเลิกโดยผู้ใช้แล้ว."
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
-#, machine-translated
 msgid "Error during compression"
 msgstr "เกิดข้อผิดพลาดขณะบีบข้อมูล"
 
 # MT: LibreTranslate
 #: app/autoAr.js:547
-#, machine-translated
 msgid "Create archive"
 msgstr "สร้างแฟ้มจัดเก็บ"
 
 # MT: LibreTranslate
 #: app/autoAr.js:571
-#, machine-translated
 msgid "Archive name"
 msgstr "ชื่อแฟ้มสํารองข้อมูล"
 
 # MT: LibreTranslate
 #: app/autoAr.js:604
-#, machine-translated
 msgid "Password"
 msgstr "รหัสผ่าน"
 
 # MT: LibreTranslate
 #: app/autoAr.js:617
-#, machine-translated
 msgid "Create"
 msgstr "สร้าง"
 
 # MT: LibreTranslate
 #: app/autoAr.js:688
-#, machine-translated
 msgid "Compatible with all operating systems."
 msgstr "เข้ากันได้กับระบบปฏิบัติการทั้งหมด."
 
 # MT: LibreTranslate
 #: app/autoAr.js:694
-#, machine-translated
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr "รหัสผ่านที่มีการป้องกัน .zip จะต้องถูกติดตั้งบนวินโดวส์และแมค."
 
 # MT: LibreTranslate
 #: app/autoAr.js:700
-#, machine-translated
 msgid "Smaller archives but Linux and Mac only."
 msgstr "ข้อมูลเล็กๆ แต่ลินุกซ์กับแมคเท่านั้น."
 
 # MT: LibreTranslate
 #: app/autoAr.js:706
-#, machine-translated
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr "แฟ้มสํารองข้อมูลขนาดเล็กแต่ต้องถูกติดตั้งบนวินโดวส์และแมค."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125
-#, machine-translated
 msgid "The Displayed Desktop is writable by others"
 msgstr "ส่วนพื้นที่ทํางานที่แสดงผลนั้นเขียนโดยโปรแกรมอื่น ๆ"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:128
-#, machine-translated
 msgid ""
-".deskop files cannot be launched from this Desktop as the Desktop Folder is writable by other users.\n"
+".deskop files cannot be launched from this Desktop as the Desktop Folder is "
+"writable by other users.\n"
 "\n"
-"Please check the permissions of this Desktop Folder, and make sure it is not writable by others."
+"Please check the permissions of this Desktop Folder, and make sure it is not "
+"writable by others."
 msgstr ""
-"ไม่สามารถเรียกแฟ้ม .deskop จากพื้นที่ทํางานนี้ได้ เนื่องจากโฟลเดอร์ของพื้นที่ทํางานนั้นเขียนได้โดยผู้ใช้อื่น\n"
+"ไม่สามารถเรียกแฟ้ม .deskop จากพื้นที่ทํางานนี้ได้ "
+"เนื่องจากโฟลเดอร์ของพื้นที่ทํางานนั้นเขียนได้โดยผู้ใช้อื่น\n"
 "\n"
-"โปรดตรวจสอบสิทธิ์ที่อนุญาตของโฟลเดอร์พื้นที่ทํางานนี้ และตรวจสอบให้แน่ใจว่ามันไม่สามารถเขียนได้โดยผู้อื่น."
+"โปรดตรวจสอบสิทธิ์ที่อนุญาตของโฟลเดอร์พื้นที่ทํางานนี้ "
+"และตรวจสอบให้แน่ใจว่ามันไม่สามารถเขียนได้โดยผู้อื่น."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:138
-#, machine-translated
 msgid "Broken Desktop File"
 msgstr "แฟ้มพื้นที่ทํางานแตก"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:141
-#, machine-translated
 msgid ""
-"This .desktop file has errors or points to a program without permissions. It can not be executed.\n"
+"This .desktop file has errors or points to a program without permissions. It "
+"can not be executed.\n"
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"แฟ้ม .dektop นี้ มีข้อผิดพลาดหรือชี้ไปยังโปรแกรมโดยไม่มีสิทธิ์ในการใช้งาน มันไม่สามารถดําเนินการได้\n"
+"แฟ้ม .dektop นี้ มีข้อผิดพลาดหรือชี้ไปยังโปรแกรมโดยไม่มีสิทธิ์ในการใช้งาน "
+"มันไม่สามารถดําเนินการได้\n"
 "\n"
 "แก้ไขแฟ้มเพื่อตั้งค่าโปรแกรมประมวลผลที่ถูกต้อง."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:151
-#, machine-translated
 msgid "Invalid Permissions on Desktop File"
 msgstr "สิทธิ์ที่อนุญาตบนแฟ้มพื้นที่ทํางานไม่ถูกต้อง"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
-#, machine-translated
 msgid "This Desktop File has incorrect Permissions."
 msgstr "แฟ้มพื้นที่ทํางานนี้มีสิทธิ์ไม่ถูกต้อง."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:173
-#, machine-translated
 msgid "Untrusted Desktop File"
 msgstr "แฟ้มพื้นที่ทํางานที่ไม่น่าเชื่อถือ"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
-#, machine-translated
 msgid "This Desktop file is not trusted, it can not be launched."
 msgstr "ไม่สามารถอ่านแฟ้มพื้นที่ทํางานนี้ได้ ไม่สามารถเรียกใช้งานได้."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
-#, machine-translated
 msgid "Could not open File"
 msgstr "ไม่สามารถเปิด แฟ้ม"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:206
-#, machine-translated
 msgid "{appName} can not open files of this Type!"
 msgstr "out {appName}"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
-#, machine-translated
 msgid "Desktop Folder Change Failed"
 msgstr "โฟลเดอร์พื้นที่ทํางาน การเปลี่ยนล้มเหลว"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:102
-#, machine-translated
 msgid "The new Desktop Folder is a Symbolic Link"
 msgstr "โฟลเดอร์พื้นที่ทํางานใหม่เป็นลิงก์สัญลักษณ์"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
-#, machine-translated
 msgid "The new Desktop Folder does not exist or is not a Folder!"
 msgstr "ยังไม่มีโฟลเดอร์ของพื้นที่ทํางานใหม่ หรือไม่ใช่โฟลเดอร์!"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:120
-#, machine-translated
 msgid "Desktop Folder Changed"
 msgstr "มีการเปลี่ยนแปลงโฟลเดอร์พื้นที่ทํางาน"
 
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:121
-#, machine-translated
 msgid "Switching to new Desktop..."
 msgstr "สลับไปยังพื้นที่ทํางานใหม่..."
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:56 data/com.desktop.ding.desktop.in:3
+#: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
-#, machine-translated
 msgid "Desktop Icons"
 msgstr "ไอคอนของพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:157
-#, machine-translated
+#: app/desktopGrid.js:2473
+#, fuzzy
+msgid "Back to Desktop"
+msgstr "ปรับปรุงพื้นที่ทํางาน"
+
+# MT: LibreTranslate
+#: app/desktopManager.js:162
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr "เฟรมบัฟเฟอร์ของจอภาพ การไล่ระดับสี"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:158
-#, machine-translated
+#: app/desktopManager.js:163
 msgid ""
-"Multiple monitors with different zoom settings, recommend per monitor framebuffer scaling.\n"
+"Multiple monitors with different zoom settings, recommend per monitor "
+"framebuffer scaling.\n"
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"จอภาพหลายจอที่มีการตั้งค่าการย่อ/ ขยายที่แตกต่างกัน ควรใช้ค่าแต่ละจอในการปรับขนาดเฟรมบัฟเฟอร์\n"
+"จอภาพหลายจอที่มีการตั้งค่าการย่อ/ ขยายที่แตกต่างกัน "
+"ควรใช้ค่าแต่ละจอในการปรับขนาดเฟรมบัฟเฟอร์\n"
 "\n"
 "โปรดเปิดใช้ในการตั้งค่า Mutter Dconf"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:169
-#, machine-translated
+#: app/desktopManager.js:174
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
@@ -842,21 +758,18 @@ msgstr ""
 "เปิดใช้การปรับขนาดเฟรมบัฟเฟอร์ของจอภาพในการตั้งค่า Mutter Dconf หรือไม่?"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:172 data/com.desktop.ding.desktop.in:25
-#, machine-translated
+#: app/desktopManager.js:177 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
 msgstr "เปิด"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:196 app/desktopManager.js:206
-#, machine-translated
+#: app/desktopManager.js:201 app/desktopManager.js:211
 msgid "Can Not Show the Desktop"
 msgstr "ไม่สามารถแสดงพื้นที่ทํางาน"
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:198
-#, machine-translated
+#: app/desktopManager.js:203
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -868,8 +781,7 @@ msgstr ""
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:208
-#, machine-translated
+#: app/desktopManager.js:213
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
@@ -877,38 +789,32 @@ msgid ""
 msgstr "out {desktop}"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:219
-#, machine-translated
+#: app/desktopManager.js:224
 msgid "GNOME Files not found"
 msgstr "ขนาดของ GNOME ไม่พบแฟ้ม"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:220
-#, machine-translated
+#: app/desktopManager.js:225
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr "จุด เริ่ม ต้น โปรแกรมของแฟ้มนั้น ต้องการใช้ภาพไอคอนพื้นที่ทํางานแบบ Gtk4."
 
 # MT: LibreTranslate
-#: app/desktopManager.js:227
-#, machine-translated
+#: app/desktopManager.js:232
 msgid "There is no default File Manager"
 msgstr "ไม่มีตัวจัดการแฟ้มปริยาย"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:228
-#, machine-translated
+#: app/desktopManager.js:233
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr "ไม่มีโปรแกรมที่จัดการประเภท mime ของแฟ้ม \"inode/ directory\""
 
 # MT: LibreTranslate
-#: app/desktopManager.js:235
-#, machine-translated
+#: app/desktopManager.js:240
 msgid "Gnome Files is not registered as a File Manager"
 msgstr "แฟ้ม Gnome ไม่ได้ลงทะเบียนเป็นเครื่องมือจัดการแฟ้ม"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:236
-#, machine-translated
+#: app/desktopManager.js:241
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
@@ -919,278 +825,236 @@ msgstr ""
 "Check file.desktop การติดตั้งแฟ้ม"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:328
-#, machine-translated
+#: app/desktopManager.js:408
 msgid "Clear current selection before new search"
 msgstr "ล้างการเลือกปัจจุบันก่อนการค้นหาใหม่"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1238
-#, machine-translated
+#: app/desktopManager.js:1339
 msgid "Find Files on Desktop"
 msgstr "ค้นหาแฟ้มบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1579 app/desktopMenu.js:958 app/shortcuts.js:10
-#, machine-translated
+#: app/desktopManager.js:1682 app/desktopMenu.js:1020 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "สร้างโฟลเดอร์ใหม่"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1613
-#, machine-translated
+#: app/desktopManager.js:1716
 msgid "Folder Creation Failed"
 msgstr "การสร้างโฟลเดอร์ล้มเหลว"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1614
-#, machine-translated
+#: app/desktopManager.js:1717
 msgid "Could not create folder"
 msgstr "ไม่สามารถสร้างโฟลเดอร์ได้"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:601
-#, machine-translated
+#: app/desktopMenu.js:603
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "ไม่สามารถเปิดแฟ้มพื้นที่ทํางานในแฟ้ม gname ได้"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:620
-#, machine-translated
+#: app/desktopMenu.js:622
 msgid "Preferences Window is Open"
 msgstr "หน้าต่างที่ปรับแต่งถูกเปิดใช้"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:621
-#, machine-translated
+#: app/desktopMenu.js:623
 msgid "This Window is open. Please switch to the active window."
 msgstr "หน้าต่างนี้เปิดอยู่ กรุณาเปลี่ยนเป็นหน้าต่างที่ทํางานอยู่."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:630 app/desktopMenu.js:1011
-#, machine-translated
+#: app/desktopMenu.js:632 app/desktopMenu.js:1073
 msgid "Settings"
 msgstr "ตั้งค่า"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:813
-#, machine-translated
+#: app/desktopMenu.js:875
 msgid "Template Creation Error"
 msgstr "การสร้างแม่แบบผิดพลาด"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:814
-#, machine-translated
+#: app/desktopMenu.js:876
 msgid "Could not create document"
 msgstr "ไม่สามารถสร้างเอกสารได้"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:919
-#, machine-translated
+#: app/desktopMenu.js:981
 msgid "Name"
 msgstr "ชื่อ"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:921
-#, machine-translated
+#: app/desktopMenu.js:983
 msgid "Name Z-A"
 msgstr "ชื่อ Z- A"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:923
-#, machine-translated
+#: app/desktopMenu.js:985
 msgid "Modified Time"
 msgstr "เวลาแก้ไขใหม่"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:925
-#, machine-translated
+#: app/desktopMenu.js:987
 msgid "Type"
 msgstr "ชนิด"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:927
-#, machine-translated
+#: app/desktopMenu.js:989
 msgid "Size"
 msgstr "ขนาด"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:932
-#, machine-translated
+#: app/desktopMenu.js:994
 msgid "Keep Arranged…"
 msgstr "จัดเรียงต่อไป.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:937
-#, machine-translated
+#: app/desktopMenu.js:999
 msgid "Keep Stacked by Type…"
 msgstr "เก็บสะสมตามประเภท.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:939
-#, machine-translated
+#: app/desktopMenu.js:1001
 msgid "Sort Home/Drives/Trash…"
 msgstr "เรียงลําดับของบ้าน/ เครื่องราชอิสริยาภรณ์.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:944
-#, machine-translated
+#: app/desktopMenu.js:1006
 msgid "Change Desktop"
 msgstr "เปลี่ยนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:949
-#, machine-translated
+#: app/desktopMenu.js:1011
 msgid "Restore Default Desktop"
 msgstr "เรียกคืนพื้นที่ทํางานปริยาย"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:953
-#, machine-translated
+#: app/desktopMenu.js:1015
 msgid "Desktop Icon Settings"
 msgstr "ตั้งค่าไอคอนของพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:955
-#, machine-translated
+#: app/desktopMenu.js:1017
 msgid "Show Shortcuts"
 msgstr "แสดงปุ่มพิมพ์ลัด"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:963 app/shortcuts.js:43
-#, machine-translated
+#: app/desktopMenu.js:1025 app/shortcuts.js:44
 msgid "New Document"
 msgstr "เอกสารใหม่"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:968 app/shortcuts.js:11
-#, machine-translated
+#: app/desktopMenu.js:1030 app/shortcuts.js:11
 msgid "Paste"
 msgstr "วาง"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:970 app/shortcuts.js:12
-#, machine-translated
+#: app/desktopMenu.js:1032 app/shortcuts.js:12
 msgid "Undo"
 msgstr "เลิกทํา"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:972 app/shortcuts.js:13
-#, machine-translated
+#: app/desktopMenu.js:1034 app/shortcuts.js:13
 msgid "Redo"
 msgstr "ทําซ้ํา"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:978 app/shortcuts.js:14
-#, machine-translated
+#: app/desktopMenu.js:1040 app/shortcuts.js:14
 msgid "Select All"
 msgstr "เลือกทั้งหมด"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:985
-#, machine-translated
+#: app/desktopMenu.js:1047
 msgid "Arrange Icons"
 msgstr "จัดเรียงไอคอน"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:989
-#, machine-translated
+#: app/desktopMenu.js:1051
 msgid "Arrange By…"
 msgstr "จัดเรียงโดย.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:997
-#, machine-translated
+#: app/desktopMenu.js:1059
 msgid "Show Desktop In {0}"
 msgstr "แสดงพื้นที่ทํางานใน {0}"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1002
-#, machine-translated
+#: app/desktopMenu.js:1064
 msgid "Open In {0}"
 msgstr "เปิดใน {0}"
 
+#: app/desktopMenu.js:1081
+msgid "Edit Widgets…"
+msgstr ""
+
 # MT: LibreTranslate
-#: app/desktopMenu.js:1018
-#, machine-translated
+#: app/desktopMenu.js:1088
 msgid "Shell Menu…"
 msgstr "เมนูเชลล์.."
 
 # MT: LibreTranslate
-#: app/dragManager.js:101 app/dragManager.js:926
-#, machine-translated
+#: app/dragManager.js:105 app/dragManager.js:1044
 msgid "Making SymLink Failed"
 msgstr "ทําให้ Simlink ล้มเหลว"
 
 # MT: LibreTranslate
-#: app/dragManager.js:102 app/dragManager.js:927
-#, machine-translated
+#: app/dragManager.js:106 app/dragManager.js:1045
 msgid "Could not create symbolic link"
 msgstr "ไม่สามารถสร้างลิงก์สัญลักษณ์"
 
 # MT: LibreTranslate
-#: app/dragManager.js:739
-#, machine-translated
+#: app/dragManager.js:857
 msgid "Copy/Move Failed"
 msgstr "การคัดลอก/ การย้ายภาพล้มเหลว"
 
 # MT: LibreTranslate
-#: app/dragManager.js:740
-#, machine-translated
+#: app/dragManager.js:858
 msgid "{0} Does not exist"
 msgstr "out {0}"
 
 # MT: LibreTranslate
-#: app/dragManager.js:782
-#, machine-translated
+#: app/dragManager.js:900
 msgid "Choose Action for Files"
 msgstr "เลือกการกระทําสําหรับแฟ้ม"
 
 # MT: LibreTranslate
-#: app/dragManager.js:783
-#, machine-translated
+#: app/dragManager.js:901
 msgid "Move"
 msgstr "ย้าย"
 
 # MT: LibreTranslate
-#: app/dragManager.js:783 app/fileItemMenu.js:240
-#, machine-translated
+#: app/dragManager.js:901 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr "คัดลอก"
 
 # MT: LibreTranslate
-#: app/dragManager.js:783
-#, machine-translated
+#: app/dragManager.js:901
 msgid "Link"
 msgstr "เชื่อมโยง"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:95
-#, machine-translated
 msgid "Folder"
 msgstr "โฟลเดอร์"
 
 # MT: LibreTranslate
 #: app/fileItemIcon.js:96
-#, machine-translated
 msgid "File"
 msgstr "แฟ้ม"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:270
-#, machine-translated
+#: app/fileItemIcon.js:286
 msgid "Opening File Failed"
 msgstr "การเปิดแฟ้มล้มเหลว"
 
 # MT: LibreTranslate
-#: app/fileItemIcon.js:276
-#, machine-translated
+#: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr "ยังไม่มีการติดตั้งโปรแกรมที่จะเปิดใช้แฟ้ม \"{fo}\"."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:104
-#, machine-translated
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "โฟลเดอร์ใหม่ด้วย {0} รายการ"
@@ -1198,115 +1062,96 @@ msgstr[1] "โฟลเดอร์ใหม่ด้วย {0} รายกา�
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:114
-#, machine-translated
 msgid "Open All..."
 msgstr "เปิดทั้งหมด..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:122
-#, machine-translated
 msgid "Launch"
 msgstr "เรียกใช้"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:135
-#, machine-translated
 msgid "Open with {foo}"
 msgstr "เปิดด้วย {foo}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:138
-#, machine-translated
 msgid "Open"
 msgstr "เปิด"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
-#, machine-translated
 msgid "Extract Here"
 msgstr "คลายไว้ที่นี่"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:162
-#, machine-translated
 msgid "Extract To..."
 msgstr "คลายไปยัง..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, machine-translated
 msgid "Open With..."
 msgstr "เปิดด้วย..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:176
-#, machine-translated
 msgid "Open All With Other Application..."
 msgstr "เปิดทั้งหมดด้วยโปรแกรมอื่น..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:184
-#, machine-translated
 msgid "Launch using Integrated Graphics Card"
 msgstr "เรียกใช้โดยใช้นามบัตรแบบกราฟิกแบบฝังตัวได้"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:206
-#, machine-translated
 msgid "Stack This Type"
 msgstr "จับภาพประเภทนี้"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:207
-#, machine-translated
 msgid "Unstack This Type"
 msgstr "ยกเลิกการแนบแฟ้มประเภทนี้"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:231
-#, machine-translated
 msgid "Run as a Program"
 msgstr "ทํางานเป็นโปรแกรม"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:234
-#, machine-translated
 msgid "Scripts"
 msgstr "สคริปต์"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:239
-#, machine-translated
 msgid "Cut"
 msgstr "ตัด"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:244
-#, machine-translated
 msgid "Move to..."
 msgstr "ย้ายไปยัง..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:245
-#, machine-translated
 msgid "Copy to..."
 msgstr "คัดลอกไปยัง..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:249
-#, machine-translated
 msgid "Rename…"
 msgstr "เปลี่ยนชื่อ.."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:254
-#, machine-translated
 msgid "Create Link..."
 msgstr "สร้างส่วนเชื่อมโยง..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:261
-#, machine-translated
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "การบีบอัด {0} โฟลเดอร์"
@@ -1314,7 +1159,6 @@ msgstr[1] "การบีบอัด {0} โฟลเดอร์"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:269
-#, machine-translated
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "แฟ้มบีบอัด {0}"
@@ -1322,501 +1166,422 @@ msgstr[1] "แฟ้มบีบอัด {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:276
-#, machine-translated
 msgid "Email to..."
 msgstr "อีเมลที่จะ..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:286
-#, machine-translated
 msgid "Send to Mobile Device"
 msgstr "ส่งไปยังอุปกรณ์เคลื่อนที่"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:294
-#, machine-translated
 msgid "Move to Trash"
 msgstr "ทิ้งลงถังขยะ"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:302
-#, machine-translated
 msgid "Delete permanently"
 msgstr "ลบออกอย่างถาวร"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
-#, machine-translated
 msgid "Don't Allow Launching"
 msgstr "อย่าอนุญาตให้ปล่อย"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:339
-#, machine-translated
 msgid "Empty Trash"
 msgstr "เทถังขยะทิ้ง"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:345
-#, machine-translated
 msgid "Eject"
 msgstr "เอาแผ่นออก"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:348
-#, machine-translated
 msgid "Unmount"
 msgstr "ยกเลิกการเมานท์"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:354
-#, machine-translated
 msgid "Common Properties"
 msgstr "คุณสมบัติทั่วไป"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:355
-#, machine-translated
 msgid "Properties"
 msgstr "คุณสมบัติ"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:362
-#, machine-translated
 msgid "Show All in {0}"
 msgstr "แสดงทั้งหมดใน {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:363
-#, machine-translated
 msgid "Show in {0}"
 msgstr "แสดงใน {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:374
-#, machine-translated
 msgid "Open in {0}"
 msgstr "เปิดใน {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:537
-#, machine-translated
+#: app/fileItemMenu.js:539
 msgid "Open Item"
 msgstr "เปิดรายการ"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:819
-#, machine-translated
+#: app/fileItemMenu.js:821
 msgid "Extraction Cancelled"
 msgstr "การคลายแฟ้มถูกยกเลิก"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:820
-#, machine-translated
+#: app/fileItemMenu.js:822
 msgid "Unable to extract File, no destination folder"
 msgstr "ไม่สามารถคลายแฟ้มได้ แฟ้ม, ไม่มีโฟลเดอร์ปลายทาง"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:876 app/fileItemMenu.js:905
-#, machine-translated
+#: app/fileItemMenu.js:878 app/fileItemMenu.js:907
 msgid "Select Destination"
 msgstr "เลือกปลายทาง"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:879 app/fileItemMenu.js:907
-#, machine-translated
+#: app/fileItemMenu.js:881 app/fileItemMenu.js:909
 msgid "Select"
 msgstr "เลือก"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:963
-#, machine-translated
+#: app/fileItemMenu.js:965
 msgid "Can not email a Directory"
 msgstr "ไม่สามารถส่งเมลขยะได้"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:965
-#, machine-translated
+#: app/fileItemMenu.js:967
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr "การเลือกรวมไดเรกทอรีให้บีบอัดไปยังแฟ้ม .zip ก่อนหรือไม่?"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:991 app/fileItemMenu.js:1022 app/fileItemMenu.js:1039
-#: app/fileItemMenu.js:1058
-#, machine-translated
+#: app/fileItemMenu.js:993 app/fileItemMenu.js:1024 app/fileItemMenu.js:1041
+#: app/fileItemMenu.js:1060
 msgid "Mail Error"
 msgstr "อีเมลผิดพลาด"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:993
-#, machine-translated
+#: app/fileItemMenu.js:995
 msgid "Unable to find zip command, please install the program"
 msgstr "ไม่สามารถค้นหาคําสั่ง zip ได้ โปรดติดตั้งโปรแกรม"
 
 # MT: LibreTranslate
 #. Translators - basename for a zipped archive created for mailing
-#: app/fileItemMenu.js:999
-#, machine-translated
+#: app/fileItemMenu.js:1001
 msgid "Archive.zip"
 msgstr "Archive.zip"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1023
-#, machine-translated
+#: app/fileItemMenu.js:1025
 msgid "There was an error in creating a zip archive"
 msgstr "เกิดความผิดพลาดในการสร้างแฟ้มจัดเก็บแบบบีบอัด"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1041
-#, machine-translated
+#: app/fileItemMenu.js:1043
 msgid "Unable to find xdg-email, please install the program"
 msgstr "ไม่พบโปรแกรม xdg- email โปรดติดตั้งโปรแกรม"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1059
-#, machine-translated
+#: app/fileItemMenu.js:1061
 msgid "There was an error in emailing Files"
 msgstr "เกิดข้อผิดพลาดในการส่งเมล"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1174
-#, machine-translated
+#: app/fileItemMenu.js:1176
 msgid "Can Not open the Working Directory"
 msgstr "ไม่สามารถเปิดไดเรกทอรีทํางาน"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1225
-#, machine-translated
+#: app/fileItemMenu.js:1227
 msgid "Unable to Open in Gnome Console"
 msgstr "ไม่สามารถเปิดในคอนโซลของ Gnome"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1227
-#, machine-translated
+#: app/fileItemMenu.js:1229
 msgid "Please Install Gnome Console or other Terminal Program"
 msgstr "โปรดติดตั้งคอนโซล Gnome หรือโปรแกรมเทอร์มินัลอื่น ๆ"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1235
-#, machine-translated
+#: app/fileItemMenu.js:1237
 msgid "Unable to Open {0}"
 msgstr "ไม่สามารถเปิดแฟ้ม {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1237
-#, machine-translated
+#: app/fileItemMenu.js:1239
 msgid "Please Install {0}"
 msgstr "กรุณาติดตั้ง {0}"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1281
-#, machine-translated
+#: app/fileItemMenu.js:1283
 msgid "Copy Cancelled"
 msgstr "คัดลอกถูกยกเลิก"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1282
-#, machine-translated
+#: app/fileItemMenu.js:1284
 msgid "Unable to copy Files, no destination folder"
 msgstr "ไม่สามารถคัดลอกแฟ้มได้ ไม่มีโฟลเดอร์ปลายทาง"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1305
-#, machine-translated
+#: app/fileItemMenu.js:1307
 msgid "Move Cancelled"
 msgstr "ย้ายที่ยกเลิกแล้ว"
 
 # MT: LibreTranslate
-#: app/fileItemMenu.js:1306
-#, machine-translated
+#: app/fileItemMenu.js:1308
 msgid "Unable to move Files, no destination folder"
 msgstr "ไม่สามารถย้ายแฟ้มได้, ไม่มีโฟลเดอร์ปลายทาง"
 
 # MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
-#, machine-translated
 msgid "$appName$ can not open files of this Type!"
 msgstr "$appName ไม่สามารถเปิดแฟ้มประเภทนี้ได้!"
 
 # MT: LibreTranslate
-#: app/preferences.js:885
-#, machine-translated
+#: app/preferences.js:1069
 msgid "Console"
 msgstr "คอนโซล"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:85
-#, machine-translated
 msgid "Default Shortcut:"
 msgstr "ปุ่มพิมพ์ลัดปริยาย:"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:109
-#, machine-translated
 msgid "Type new..."
 msgstr "พิมพ์ใหม่..."
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:125
-#, machine-translated
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr "ตัวแปลง + คีย์ (เช่น Ctrl+) Alt+D)"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:130
-#, machine-translated
 msgid "Reset to Default"
 msgstr "ปรับกลับไปใช้ค่าปริยาย"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:134
-#, machine-translated
 msgid "No Accelerator"
 msgstr "ไม่มีการเร่งความเร็ว"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:243
-#, machine-translated
 msgid "System Shortcuts"
 msgstr "ปุ่มพิมพ์ลัดของระบบ"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:244
-#, machine-translated
 msgid "Common System Defined Keyboard Shortcuts"
 msgstr "ระบบทั่วไปกําหนดปุ่มพิมพ์ลัด"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:302
-#, machine-translated
 msgid "Local Shortcuts"
 msgstr "ปุ่มพิมพ์ลัดภายในระบบ"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:303
-#, machine-translated
 msgid "Application Keyboard Shortcuts"
 msgstr "ปุ่มพิมพ์ลัดของโปรแกรม"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:364
-#, machine-translated
 msgid "Global Shortcuts"
 msgstr "ปุ่มพิมพ์ลัดส่วนรวม"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:365
-#, machine-translated
 msgid "System Keyboard Shortcuts"
 msgstr "ปุ่มพิมพ์ลัดของระบบ"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:661
-#, machine-translated
+#: app/shortcutManager.js:672
 msgid "Keyboard Shortcuts"
 msgstr "ปุ่มพิมพ์ลัด"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:673
-#, machine-translated
+#: app/shortcutManager.js:684
 msgid "Reset Shortcuts"
 msgstr "ตั้งค่าปุ่มพิมพ์ลัดใหม่"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:674
-#, machine-translated
+#: app/shortcutManager.js:685
 msgid "Reset all shortcuts to Defaults"
 msgstr "ปรับปุ่มพิมพ์ลัดทั้งหมดเป็นค่าปริยาย"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:677
-#, machine-translated
+#: app/shortcutManager.js:688
 msgid "Reset All..."
 msgstr "ตั้งค่าใหม่ทั้งหมด..."
 
 # MT: LibreTranslate
 #: app/shortcuts.js:15
-#, machine-translated
 msgid "Show Desktop in Files"
 msgstr "แสดงพื้นที่ทํางานในแฟ้ม"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:16
-#, machine-translated
 msgid "Open in Terminal"
 msgstr "เปิดในเทอร์มินัล"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:17
-#, machine-translated
 msgid "Change Background"
 msgstr "เปลี่ยนพื้นหลัง"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:18
-#, machine-translated
 msgid "Change Display Settings"
 msgstr "เปลี่ยนการตั้งค่าการแสดงผล"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:19
-#, machine-translated
 msgid "Change Desktop Icon Settings"
 msgstr "เปลี่ยนการตั้งค่าไอคอนของพื้นที่ทํางาน"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:20
-#, machine-translated
 msgid "Clean Up Icons"
 msgstr "ล้างไอคอน"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:21
-#, machine-translated
 msgid "Keep Arranged"
 msgstr "คงที่"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:22
-#, machine-translated
 msgid "Keep Stacked"
 msgstr "แปะไว้"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:23
-#, machine-translated
 msgid "Sort Special Folders"
 msgstr "เรียงลําดับโฟลเดอร์พิเศษ"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:24
-#, machine-translated
 msgid "Arrange Icons by Name"
 msgstr "จัดเรียงไอคอนโดยใช้ชื่อ"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:25
-#, machine-translated
 msgid "Arrange Icons By Descending Name"
 msgstr "จัดเรียงไอคอนโดยเปลี่ยนชื่อทางด้านล่างนี้"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:26
-#, machine-translated
 msgid "Arrange Icons By Modified Time"
 msgstr "จัดเรียงไอคอนตามเวลาแก้ไข"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:27
-#, machine-translated
 msgid "Arrange Icons By Kind"
 msgstr "จัดเรียงไอคอน ตามชนิด"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:28
-#, machine-translated
 msgid "Arrange Icons By Size"
 msgstr "ตั้งค่าไอคอนตามขนาด"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:29
-#, machine-translated
 msgid "Find Files"
 msgstr "ค้นหาแฟ้ม"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:30
-#, machine-translated
 msgid "Update Desktop"
 msgstr "ปรับปรุงพื้นที่ทํางาน"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:31
-#, machine-translated
 msgid "Show Hidden Files"
 msgstr "แสดงแฟ้มที่ซ่อนไว้"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:32
-#, machine-translated
 msgid "Unselect All"
 msgstr "ยกเลิกการเลือกทั้งหมด"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:33
-#, machine-translated
 msgid "Preview"
 msgstr "แสดงตัวอย่าง"
 
-# MT: LibreTranslate
 #: app/shortcuts.js:34
-#, machine-translated
+msgid "Toggle Widget Layer"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/shortcuts.js:35
 msgid "Choose Icon Left"
 msgstr "เลือกไอคอนด้านซ้าย"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:35
-#, machine-translated
+#: app/shortcuts.js:36
 msgid "Choose Icon Right"
 msgstr "เลือกภาพไอคอนด้านขวา"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:36
-#, machine-translated
+#: app/shortcuts.js:37
 msgid "Choose Icon Up"
 msgstr "เลือกภาพไอคอนขึ้น"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:37
-#, machine-translated
+#: app/shortcuts.js:38
 msgid "Choose Icon Down"
 msgstr "เลือกไอคอนลง"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:38
-#, machine-translated
+#: app/shortcuts.js:39
 msgid "Show Menu"
 msgstr "แสดงเมนู"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:39
-#, machine-translated
+#: app/shortcuts.js:40
 msgid "Display Shell Background Menu"
 msgstr "แสดงเมนูพื้นหลังของเชลล์"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:40
-#, machine-translated
+#: app/shortcuts.js:41
 msgid "Create Desktop Shortcut"
 msgstr "สร้างปุ่มพิมพ์ลัดของพื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:41
-#, machine-translated
+#: app/shortcuts.js:42
 msgid "Text Entry Accels Turn On"
 msgstr "ช่องข้อความ"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:42
-#, machine-translated
+#: app/shortcuts.js:43
 msgid "Text Entry Accels Turn Off"
 msgstr "รายการข้อความ"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:44
-#, machine-translated
+#: app/shortcuts.js:45
 msgid "Show Shortcut Viewer"
 msgstr "แสดงปุ่มพิมพ์ลัด แสดง"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:45
-#, machine-translated
+#: app/shortcuts.js:46
 msgid "Show Or Hide Desktop Icons"
 msgstr "แสดงหรือซ่อนไอคอนบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
 #: app/showErrorPopup.js:42
-#, machine-translated
 msgid "More Information"
 msgstr "ข้อมูลเพิ่มเติม"
 
@@ -1824,13 +1589,11 @@ msgstr "ข้อมูลเพิ่มเติม"
 #. TRANSLATORS: "Home" is the text that will be shown in
 #. the user's personal folder
 #: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
-#, machine-translated
 msgid "Home"
 msgstr "บ้าน"
 
 # MT: LibreTranslate
 #: app/specialFolderIcon.js:63
-#, machine-translated
 msgid "Trash"
 msgstr "ทิ้งลงถังขยะ"
 
@@ -1840,330 +1603,331 @@ msgstr "ทิ้งลงถังขยะ"
 #. * selected. Example: if a stack named "pictures"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
-#, machine-translated
 msgid "Stack"
 msgstr "สแต็ก"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:100
-#, machine-translated
 msgid "Broken Link"
 msgstr "ส่วนเชื่อมโยงที่แตก"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:102
-#, machine-translated
 msgid "Can not open this File because it is a Broken Symlink"
 msgstr "ไม่สามารถเปิดแฟ้มนี้ได้ เนื่องจากเป็น symlink ที่เสีย"
 
 # MT: LibreTranslate
 #: app/volumeIcon.js:58
-#, machine-translated
 msgid "Drive"
 msgstr "ไดรฟ์"
 
+#: app/widgetManager.js:914
+msgid "Add Widget"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/widgetManager.js:1159
+#, fuzzy
+msgid "Widget preferences"
+msgstr "ปรับแต่ง"
+
+#: app/widgetManager.js:1540
+msgid "HTML widget"
+msgstr ""
+
+#: app/widgetManager.js:1542
+msgid "GTK widget"
+msgstr ""
+
+#: app/widgetManager.js:1551
+msgid "User"
+msgstr ""
+
+# MT: LibreTranslate
+#: app/widgetWebContext.js:187
+#, fuzzy
+msgid "Widget Preferences"
+msgstr "ปรับแต่ง"
+
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
-#, machine-translated
 msgid "\"${programName}\" is not available"
 msgstr "\"${programName}\" ไม่มี"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:70
-#, machine-translated
-msgid "Install \"${programName}\" to enable Desktop Icons to perform these actions."
+msgid ""
+"Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr "ติดตั้ง \"${programName}\" เพื่อเปิดใช้งานไอคอนของพื้นที่ทํางานที่จะใช้การกระทําเหล่านี้."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
-#, machine-translated
 msgid "Choose Desktop Folder"
 msgstr "เลือกโฟลเดอร์พื้นที่ทํางาน"
 
 # MT: LibreTranslate
-#: app/utils/desktopIconsUtil.js:216
-#, machine-translated
+#: app/utils/desktopIconsUtil.js:257
 msgid "Command not found"
 msgstr "ไม่พบคําสั่ง"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
-#, machine-translated
 msgid "Choose an app to open the selected files."
 msgstr "เลือกโปรแกรมเพื่อเปิดแฟ้มที่เลือก."
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
-#, machine-translated
 msgid "Always use for this file type"
 msgstr "ใช้กับประเภทแฟ้มนี้เสมอ"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
-#, machine-translated
 msgid "_Cancel"
 msgstr "_ยกเลิก"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
-#, machine-translated
 msgid "_Open"
 msgstr "เ_ปิด"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
-#, machine-translated
 msgid "Display icons on the GNOME desktop"
 msgstr "แสดงไอคอนบนพื้นที่ทํางานของ GNOME"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
-#, machine-translated
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop; icons;files; files; manager; aarrange; hyd; show; launcher; sshuts;"
+msgstr ""
+"desktop; icons;files; files; manager; aarrange; hyd; show; launcher; sshuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
-#, machine-translated
 msgid "Show<>Hide"
 msgstr "แสดง </ Hide"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
-#, machine-translated
 msgid "Preferences"
 msgstr "ปรับแต่ง"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
-#, machine-translated
 msgid "Disable"
 msgstr "ปิดการใช้งาน"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:25
-#, machine-translated
 msgid "Icon size"
 msgstr "ขนาดไอคอน"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
-#, machine-translated
 msgid "Set the size for the desktop icons."
 msgstr "ตั้งค่าขนาดของไอคอนบนพื้นที่ทํางาน."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
-#, machine-translated
 msgid "Show personal folder"
 msgstr "แสดงโฟลเดอร์ส่วนตัว"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
-#, machine-translated
 msgid "Show the personal folder in the desktop."
 msgstr "แสดงโฟลเดอร์ส่วนตัวบนพื้นที่ทํางาน."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
-#, machine-translated
 msgid "Show trash icon"
 msgstr "แสดงไอคอนถังขยะ"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
-#, machine-translated
 msgid "Show the trash icon in the desktop."
 msgstr "แสดงไอคอนถังขยะบนพื้นที่ทํางาน."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
-#, machine-translated
 msgid "New icons start corner"
 msgstr "ภาพไอคอนใหม่Comment"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
-#, machine-translated
 msgid "Set the corner from where the icons will start to be placed."
 msgstr "ตั้งค่ามุมที่ไอคอนจะเริ่มวาง."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
-#, machine-translated
 msgid "Show external drives in the desktop"
 msgstr "แสดงไดรฟ์ภายนอกบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
-#, machine-translated
 msgid "Show the disk drives connected to the computer."
 msgstr "แสดงไดรฟ์ของดิสก์ที่เชื่อมต่อกับเครื่องคอมพิวเตอร์ด้วย."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
-#, machine-translated
 msgid "Show network drives in the desktop"
 msgstr "แสดงไดรฟ์เครือข่ายบนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
-#, machine-translated
 msgid "Show mounted network volumes in the desktop."
 msgstr "แสดงระดับเสียงเครือข่ายที่ถูกเมานท์บนพื้นที่ทํางาน."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
-#, machine-translated
 msgid "Add new drives to the opposite side of the screen"
 msgstr "เพิ่มไดรว์ใหม่ไปยังด้านตรงข้ามของหน้าจอ"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
-#, machine-translated
-msgid "When adding drives and volumes to the desktop, add them to the opposite side of the screen."
+msgid ""
+"When adding drives and volumes to the desktop, add them to the opposite side "
+"of the screen."
 msgstr "เมื่อเพิ่มไดรฟ์และปริมาตรไปยังพื้นที่ทํางาน ให้เพิ่มเข้าไปที่ฝั่งตรงข้ามของหน้าจอ."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
-#, machine-translated
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr "แสดงสี่เหลี่ยมจตุรัสในตําแหน่งปลายทางระหว่าง DnD"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
-#, machine-translated
-msgid "When doing a Drag'n'Drop operation, marks the place in the grid where the icon will be put with a semitransparent rectangle."
-msgstr "เมื่อทําปฏิบัติการ Drag'n'Drap' ทําเครื่องหมายสถานที่ในตารางที่ไอคอนจะถูกวางด้วยสี่เหลี่ยมกึ่งโปร่งใส."
+msgid ""
+"When doing a Drag'n'Drop operation, marks the place in the grid where the "
+"icon will be put with a semitransparent rectangle."
+msgstr ""
+"เมื่อทําปฏิบัติการ Drag'n'Drap' "
+"ทําเครื่องหมายสถานที่ในตารางที่ไอคอนจะถูกวางด้วยสี่เหลี่ยมกึ่งโปร่งใส."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
-#, machine-translated
 msgid "Sort Special Folders - Home/Trash Drives."
 msgstr "เรียงลําดับโฟลเดอร์พิเศษ."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
-#, machine-translated
-msgid "When arranging Icons on desktop, to sort and change the position of the Home, Trash and mounted Network or External Drives"
-msgstr "เมื่อมีการจัดเรียงไอคอนบนพื้นที่ทํางาน ให้เรียงลําดับและเปลี่ยนตําแหน่งของบ้าน, ทิ้งลงถังขยะ และติดตั้งเครือข่าย หรือไดรฟ์ภายนอก"
+msgid ""
+"When arranging Icons on desktop, to sort and change the position of the "
+"Home, Trash and mounted Network or External Drives"
+msgstr ""
+"เมื่อมีการจัดเรียงไอคอนบนพื้นที่ทํางาน ให้เรียงลําดับและเปลี่ยนตําแหน่งของบ้าน, ทิ้งลงถังขยะ "
+"และติดตั้งเครือข่าย หรือไดรฟ์ภายนอก"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
-#, machine-translated
 msgid "Keep Icons Arranged"
 msgstr "คงการจัดเรียงไอคอนไว้"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
-#, machine-translated
 msgid "Always keep Icons Arranged by the last arranged order"
 msgstr "คงไอคอนไว้เสมอ จัดเรียงตามลําดับสุดท้าย"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
-#, machine-translated
 msgid "Arrange Order"
 msgstr "จัดเรียงลําดับ"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
-#, machine-translated
 msgid "Icons Arranged by this property"
 msgstr "ภาพไอคอนที่ถูกจัดเรียงโดยคุณสมบัตินี้"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
-#, machine-translated
 msgid "Keep Icons Stacked"
 msgstr "คงไอคอนไว้"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
-#, machine-translated
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr "เก็บภาพไอคอนไว้เสมอ"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
-#, machine-translated
 msgid "Type of Files to not Stack"
 msgstr "ชนิดของแฟ้มที่ไม่ต้องเรียง"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
-#, machine-translated
 msgid "An Array of strings types, Don't Stack these types of files"
 msgstr "ชนิดของสตริงอาร์เรย์ อย่าจับแฟ้มประเภทนี้"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
-#, machine-translated
 msgid "Add an emblem to links"
 msgstr "เพิ่มสัญลักษณ์ไปยังลิงก์"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
-#, machine-translated
 msgid "Add an emblem to allow to identify soft links."
 msgstr "เพิ่มสัญลักษณ์ที่จะใช้ระบุลิงก์."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
-#, machine-translated
 msgid "Use black for label text"
 msgstr "ใช้สีดําสําหรับข้อความป้าย"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
-#, machine-translated
-msgid "Paint the label text in black instead of white. Useful when using light backgrounds."
+msgid ""
+"Paint the label text in black instead of white. Useful when using light "
+"backgrounds."
 msgstr "วาดป้ายด้วยสีดําแทนสีขาว มี ประโยชน์ เมื่อ ใช้ ภูมิ หลัง ที่ สว่าง."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
-#, machine-translated
 msgid "Show new icons on non primary monitor if connected"
 msgstr "แสดงไอคอนใหม่บนจอภาพหลักหากเชื่อมต่อแล้ว"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
-#, machine-translated
-msgid "If a second monitor is connected, new icons are placed on the non primary monitor"
+msgid ""
+"If a second monitor is connected, new icons are placed on the non primary "
+"monitor"
 msgstr "หากจอภาพตัวที่สองเชื่อมต่ออยู่ จะวางไอคอนใหม่บนจอภาพที่ไม่ใช่จอหลัก"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
-#, machine-translated
 msgid "Icons can be positioned anywhere on Desktop"
 msgstr "ภาพไอคอนสามารถอยู่ในตําแหน่งใดก็ได้บนพื้นที่ทํางาน"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
-#, machine-translated
-msgid "Icons are not on a rectangular grid but can be postioned anywhere independent of grid"
+msgid ""
+"Icons are not on a rectangular grid but can be postioned anywhere "
+"independent of grid"
 msgstr "ไอคอนไม่ได้อยู่บนตารางสี่เหลี่ยม แต่สามารถโพสต์ได้ทุกที่อิสระของตาราง"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, machine-translated
+#, fuzzy
+msgid "Show Desktop Widgets"
+msgstr "แสดงพื้นที่ทํางานในแฟ้ม"
+
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
+msgid "Displays Widgets in a layer below the icons if installed"
+msgstr ""
+
+# MT: LibreTranslate
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Hide/Show all desktop windows"
 msgstr "ซ่อน/ แสดงหน้าต่างบนพื้นที่ทํางานทั้งหมด"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
-#, machine-translated
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Show the icons on the desktop, or hide them all"
 msgstr "แสดงไอคอนบนพื้นที่ทํางาน หรือซ่อนไอคอนทั้งหมด"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
-#, machine-translated
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:120
 msgid "User Application Shortcuts"
 msgstr "ปุ่มพิมพ์ลัดของโปรแกรมของผู้ใช้"
 
 # MT: LibreTranslate
-#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
-#, machine-translated
+#: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
 msgstr "แทนที่ปุ่มพิมพ์ลัดปริยายของโปรแกรมที่ตั้งโดยผู้ใช้"
