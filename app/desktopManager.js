@@ -29,7 +29,8 @@ import {
     ShowErrorPopup,
     StackItem,
     TemplatesScriptsManager,
-    WindowManager
+    WindowManager,
+    WidgetManager
 } from '../dependencies/localFiles.js';
 
 import {Adw, Gtk, Gdk, Gio, GLib, GLibUnix} from '../dependencies/gi.js';
@@ -81,6 +82,7 @@ const DesktopManager = class {
         this.desktopMenuManager = new DesktopMenu.DesktopBackgroundMenu(this);
         this.Prefs.init(this);
         this.shortcutManager = new ShortcutManager(this);
+        this.widgetManager = new WidgetManager.WidgetManager(this);
 
         // Init Variables
         this._clickX = null;
@@ -146,6 +148,8 @@ const DesktopManager = class {
         // desktopdir, even if a prior fileList was read, the
         // forced new read will recalculate and resave new
         // normalized coordinates and monitor information.
+
+        this._startWidgetDisplay();
     }
 
     async _performSanityChecks() {
@@ -270,6 +274,7 @@ const DesktopManager = class {
             this._displayList.forEach(f => f.onDestroy());
         }
 
+        this._stopWidgetDisplay();
         this.windowManager.destroyDesktops();
     }
 
@@ -301,6 +306,22 @@ const DesktopManager = class {
     onLongPressButton(_X, _Y, _x, _y, button, _isShift, _isCtrl, _grid) {
         if (button === 3)
             this.mainApp.activate_action('displayShellBackgroundMenu', null);
+    }
+
+    onWidgetDisplayChanged() {
+        if (this.Prefs.showDesktopWidgets)
+            this._startWidgetDisplay();
+        else
+            this._stopWidgetDisplay();
+    }
+
+    _startWidgetDisplay() {
+        this.widgetManager
+        .startWidgetDisplay(this._desktops, {redisplay: true});
+    }
+
+    _stopWidgetDisplay() {
+        this.widgetManager.stopWidgetDisplay();
     }
 
     _handleKeyboardNavigation(keyval, state) {
@@ -432,6 +453,27 @@ const DesktopManager = class {
             return true;
         }
         return false;
+    }
+
+    clearAllLayersFromGrids() {
+        // Icons: clear from all grids
+        this._displayList.forEach(x => x.removeFromGrid());
+
+        // Widgets: clear from all grids
+        this.widgetManager.clearFromGrids();
+    }
+
+    async applyDesktopLayoutChange({redisplay, monitorschanged, gridschanged}) {
+        this._performSanityChecks();
+
+        // Icons first
+        await this.reFrameDesktop({
+            redisplay,
+            monitorschanged,
+            gridschanged,
+        });
+
+        this.widgetManager.applyLayoutChange(this._desktops, {redisplay});
     }
 
 
@@ -1781,6 +1823,14 @@ const DesktopManager = class {
             console.log('Exception while reloading desktop after icon ' +
                 `size change: ${e.message}\n${e.stack}`);
         });
+    }
+
+    onDarkModeChanged() {
+        this.widgetManager.onThemeChanged();
+    }
+
+    onAnimationChanged() {
+        this.widgetManager.onAnimationChanged();
     }
 
     // Getters and Setters

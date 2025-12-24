@@ -1,0 +1,24 @@
+{
+  "id": "com.desktop.ding.weather.large",
+  "name": "Weather (Large)",
+  "kind": "html",
+  "entry": "index.html",
+  "prefs": "prefs.html",
+  "version": "1.0.0",
+  "defaultWidth": 420,
+  "defaultHeight": 260,
+  "defaultConfig": {
+    "location": {
+      "label": "",
+      "lat": null,
+      "lon": null
+    },
+    "units": "system",
+    "refreshMinutes": 30,
+    "animationsEnabled": true,
+    "cache": null
+  },
+  "permissions": [
+    "internet"
+  ]
+}

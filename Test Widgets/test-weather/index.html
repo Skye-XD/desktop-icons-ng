@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Test Weather Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="widget-root" class="tw-root tw-theme-dark">
+        <div class="tw-header">
+            <div class="tw-location" id="tw-location">Loading…</div>
+            <div class="tw-temp" id="tw-temp">--°</div>
+        </div>
+
+        <div class="tw-main">
+            <div class="tw-icon-wrap">
+                <!-- animated icon -->
+                <div class="tw-icon" id="tw-icon">
+                    <!-- we’ll swap classes for sun/rain/cloud -->
+                    <div class="tw-icon-sun">
+                        <div class="tw-icon-sun-core"></div>
+                        <div class="tw-icon-sun-rays"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tw-meta">
+                <div id="tw-condition-label">Sunny (fake)</div>
+                <div id="tw-units-label">Units: --</div>
+                <div id="tw-visits-label">Visits: --</div>
+            </div>
+        </div>
+
+        <div class="tw-config">
+            <button id="tw-cycle-condition">Cycle condition</button>
+            <button id="tw-toggle-theme">Toggle theme</button>
+            <button id="tw-randomize-location">Randomize location</button>
+        </div>
+
+        <pre class="tw-config-dump" id="tw-config-dump"></pre>
+    </div>
+
+    <script src="widget.js"></script>
+</body>
+</html>

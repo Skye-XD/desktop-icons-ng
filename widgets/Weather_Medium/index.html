@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather</title>
+  <link rel="stylesheet" href="css/weather.css" />
+</head>
+<body>
+  <div id="root" class="wx-root">
+    <div class="wx-header">
+      <div id="location" class="wx-location">Set location</div>
+      <div id="alertDot" class="wx-alert-dot" aria-hidden="true"></div>
+    </div>
+
+    <div id="centerStrip" class="wx-center">
+      <div id="nowIcon" class="wx-now-icon" aria-hidden="true"></div>
+      <div class="wx-now-text">
+        <div id="tempRow" class="wx-temp-row">
+          <span id="temp" class="wx-temp">--</span><span id="deg" class="wx-deg">°</span>
+        </div>
+        <div id="condRow" class="wx-cond-row">
+          <span id="condition" class="wx-cond">--</span>
+          <span class="wx-sep">·</span>
+          <span id="precip" class="wx-precip">--%</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="forecastStrip" class="wx-forecast" aria-label="Forecast">
+      <div class="wx-fc-col">
+        <div class="wx-fc-dow" id="fcDow1">--</div>
+        <div class="wx-fc-icon" id="fcIcon1" aria-hidden="true"></div>
+        <div class="wx-fc-temp" id="fcTemp1">--/--</div>
+      </div>
+      <div class="wx-fc-col">
+        <div class="wx-fc-dow" id="fcDow2">--</div>
+        <div class="wx-fc-icon" id="fcIcon2" aria-hidden="true"></div>
+        <div class="wx-fc-temp" id="fcTemp2">--/--</div>
+      </div>
+      <div class="wx-fc-col">
+        <div class="wx-fc-dow" id="fcDow3">--</div>
+        <div class="wx-fc-icon" id="fcIcon3" aria-hidden="true"></div>
+        <div class="wx-fc-temp" id="fcTemp3">--/--</div>
+      </div>
+    </div>
+
+    <div id="statusLine" class="wx-status" aria-live="polite"></div>
+  </div>
+
+  <script type="module" src="js/weather.js"></script>
+</body>
+</html>

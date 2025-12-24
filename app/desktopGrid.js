@@ -23,9 +23,18 @@ export {DesktopGrid};
 
 // eslint-disable-next-line no-unused-vars
 const DisplayGrid = class {
-    constructor(desktopManager, desktopName, desktopDescription, asDesktop, hidden = false) {
+    constructor(params) {
+        const {
+            desktopManager,
+            desktopName,
+            desktopDescription,
+            asDesktop,
+            hidden = false,
+            desktopIndex = 0,
+        } = params;
         this._destroying = false;
         this._desktopManager = desktopManager;
+        this._mainapp = desktopManager.mainApp;
         this._dragManager = desktopManager.dragManager;
         this.Prefs = this._desktopManager.Prefs;
         this.DesktopIconsUtil = this._desktopManager.DesktopIconsUtil;
@@ -34,6 +43,7 @@ const DisplayGrid = class {
         this.elementSpacing = this.Enums.GRID_ELEMENT_SPACING;
         this.gridPadding = this.Enums.GRID_PADDING;
         this._desktopName = desktopName;
+        this._desktopIndex = desktopIndex;
         this._asDesktop = asDesktop;
         this._desktopDescription = desktopDescription;
         this._using_X11 = this.DesktopIconsUtil.usingX11();
@@ -113,13 +123,19 @@ const DisplayGrid = class {
             }
         );
 
+        // New: one fixed root that contains both layers
+        this._rootFixed = new Gtk.Fixed();
+
         this._container = new Gtk.Fixed();
         this._containerContext = this._container.get_style_context();
         this._containerContext.add_class('unhighlightdroptarget');
         this._sizeContainer(this._container);
 
+        // icon grid goes in rootFixed
+        this._rootFixed.put(this._container, 0, 0);
+
         this._overlay = new Gtk.Overlay();
-        this._overlay.set_child(this._container);
+        this._overlay.set_child(this._rootFixed);
         if (this._asDesktop) {
             this._window.set_content(this._overlay);
         } else {
@@ -1065,12 +1081,19 @@ const DisplayGrid = class {
     get monitorIndex() {
         return this._monitor;
     }
+
+    get index() {
+        return this._desktopIndex;
+    }
+
+    get name() {
+        return this._desktopName;
+    }
 };
 
-
 const DrawGrid =  class extends DisplayGrid {
-    constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
-        super(desktopManager, desktopName, desktopDescription, asDesktop);
+    constructor(params) {
+        super(params);
 
         this._drawArea = new Gtk.DrawingArea();
         this._drawArea.set_content_height(this._windowHeight);
@@ -1268,8 +1291,8 @@ const DrawGrid =  class extends DisplayGrid {
 
 
 const ControlGrid = class extends DrawGrid {
-    constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
-        super(desktopManager, desktopName, desktopDescription, asDesktop);
+    constructor(params) {
+        super(params);
         this._addDragControllers();
     }
 
@@ -1279,9 +1302,7 @@ const ControlGrid = class extends DrawGrid {
 
         this._eventKey.connect(
             'key-pressed',
-            (actor, keyval, keycode, state) => {
-                this._desktopManager.onKeyPress(keyval, keycode, state, this);
-            }
+            this._onKeyPress.bind(this)
         );
 
         this._eventMotion = Gtk.EventControllerMotion.new();
@@ -1336,6 +1357,15 @@ const ControlGrid = class extends DrawGrid {
 
         this._setDropDestination(this._container);
         this._setDragSource(this._container);
+    }
+
+    _onKeyPress(actor, keyval, keycode, state)  {
+        this._desktopManager.onKeyPress(
+            keyval,
+            keycode,
+            state,
+            this
+        );
     }
 
     _doGesturePress(actor, nPress, x, y) {
@@ -2286,9 +2316,384 @@ const OffsetPicture = GObject.registerClass({
     }
 });
 
-const DesktopGrid = class extends ControlGrid {
-    constructor(desktopManager, desktopName, desktopDescription, asDesktop) {
-        super(desktopManager, desktopName, desktopDescription, asDesktop);
+// Adds an auxiliary fixed layer that can sit above/below the icon grid.
+const WidgetGrid = class extends ControlGrid {
+    constructor(params) {
+        super(params);
+        this._selectedWidget = null;   // instanceId
+        this._draggedWidget = null;    // instanceId
+
+        this._widgetContainer = new Gtk.Fixed();
+        this._rootFixed.put(this._widgetContainer, 0, 0);
+        this.resizeGrid();
+        this._widgetContainer.set_name('widget-container');
+        this._widgetContainerOnTop = true;
+        this.lowerWidgetContainer();
+
+        this._longPressActive = false;
+
+        const drag = new Gtk.GestureDrag();
+        drag.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
+        this._widgetContainer.add_controller(drag);
+
+        // Click gesture: used only to track selection + click radius
+        const click = new Gtk.GestureClick();
+        click.set_button(0);
+        click.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
+        this._widgetContainer.add_controller(click);
+
+        const contextClick = new Gtk.GestureClick();
+        contextClick.set_button(3);
+        contextClick.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
+        this._widgetContainer.add_controller(contextClick);
+
+        const longPress = new Gtk.GestureLongPress();
+        longPress.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
+        this._widgetContainer.add_controller(longPress);
+
+        longPress.group(drag);
+
+        const settings = Gtk.Settings.get_default();
+        if (settings) {
+            const longPressTime = settings.gtk_long_press_time;     // ms
+            const doubleClickTime = settings.gtk_double_click_time; // ms
+
+            if (longPressTime && doubleClickTime) {
+                let factor = doubleClickTime / longPressTime;
+                longPress.set_delay_factor(factor);
+            }
+        }
+
+        drag.connect('drag-begin', this._onWidgetDragBegin.bind(this));
+        drag.connect('drag-update', this._onWidgetDragUpdate.bind(this));
+        drag.connect('drag-end', this._onWidgetDragEnd.bind(this));
+
+        click.connect('pressed', this._onClick.bind(this));
+        click.connect('released', this._onClickRelease.bind(this));
+        contextClick.connect('pressed', this._onWidgetContextMenu.bind(this));
+
+        longPress.connect('pressed', this._onWidgetLongPress.bind(this));
+
+        longPress
+            .connect('cancelled', this._onWidgetLongPressCancelled.bind(this));
+    }
+
+    get widgetContainer() {
+        return this._widgetContainer;
+    }
+
+    isWidgetContainerOnTop() {
+        return this._widgetContainerOnTop;
+    }
+
+    raiseWidgetContainer() {
+        this._setWidgetContainerLayer(true);
+    }
+
+    lowerWidgetContainer() {
+        this._setWidgetContainerLayer(false);
+    }
+
+    setWidgetContainerOnTop(onTop = true) {
+        this._setWidgetContainerLayer(onTop);
+    }
+
+    toggleWidgetLayer() {
+        this.setWidgetContainerOnTop(!this._widgetContainerOnTop);
+    }
+
+    resizeGrid() {
+        super.resizeGrid();
+
+        this._widgetContainer.set_size_request(
+            this._windowWidth,
+            this._windowHeight
+        );
+
+        this._sizeContainer(this._widgetContainer);
+    }
+
+    _setWidgetContainerLayer(onTop) {
+        if (onTop === this._widgetContainerOnTop)
+            return;
+
+        this._widgetContainerOnTop = onTop;
+
+        if (onTop) {
+        // Widgets above icons (edit mode)
+        // Draw order: icons (bottom), widgets (top)
+
+            // Reorder without unparenting:
+            // place widgetContainer after container in _rootFixed
+            this._widgetContainer.insert_after(this._rootFixed, this._container);
+
+            this._widgetContainer.add_css_class('widgets-on-top');
+
+            // Input: widget layer active, icons inert
+            this._container.set_can_target(false);
+            this._widgetContainer.set_can_target(true);
+            this._desktopManager.unselectAll();
+            this._mainapp.activate_action('textEntryOff', null);
+            this._mainapp.set_accels_for_action(
+                'app.lowerWidgetLayer',
+                ['Escape']
+            );
+        } else {
+        // Icons above widgets (normal mode)
+        // Draw order: widgets (bottom), icons (top)
+
+            // Reorder the other way: container after widgetContainer
+            this._container.insert_after(this._rootFixed, this._widgetContainer);
+
+            this._widgetContainer.remove_css_class('widgets-on-top');
+
+            // Input: icons active, widget layer background only
+            this._container.set_can_target(true);
+            this._widgetContainer.set_can_target(false);
+
+            this._desktopManager.widgetManager?.clearSelectedInstance();
+            this._mainapp.set_accels_for_action('app.lowerWidgetLayer', []);
+            this._mainapp.activate_action('textEntryOn', null);
+        }
+
+        this._desktopManager.widgetManager
+            ?.handleWidgetContainerLayerChange(this.monitorIndex, this._widgetContainerOnTop);
+    }
+
+    _onWidgetContextMenu(gesture, _nPress, x, y) {
+        if (!this._widgetContainerOnTop)
+            return;
+
+        if (this._findWidgetAt(x, y))
+            return;
+
+        gesture.set_state(Gtk.EventSequenceState.CLAIMED);
+
+        const menu = new Gio.Menu();
+        menu.append(_('Back to Desktop'), 'app.lowerWidgetLayer');
+
+        const popover = Gtk.PopoverMenu.new_from_model(menu);
+        popover.set_parent(this._widgetContainer);
+        popover.set_pointing_to(new Gdk.Rectangle({x, y, width: 1, height: 1}));
+        popover.set_has_arrow(false);
+        popover.popup();
+        popover.connect('closed', () => {
+            GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+                popover.unparent();
+                return GLib.SOURCE_REMOVE;
+            });
+        });
+    }
+
+    _onKeyPress(actor, keyval, keycode, state)  {
+        if (this._widgetContainerOnTop)
+            return true;
+
+        return super._onKeyPress(actor, keyval, keycode, state);
+    }
+
+    _onWidgetLongPress(gesture, x, y) {
+        this._longPressActive = true;
+        this._onWidgetDragBegin(gesture, x, y);
+    }
+
+    _onWidgetLongPressCancelled(_gesture) {
+        this._longPressActive = false;
+    }
+
+    _onWidgetDragBegin(gesture, startX, startY) {
+        this._dragStartX = startX;
+        this._dragStartY = startY;
+
+        this._draggedWidget = this._findWidgetAt(startX, startY);
+
+        this._dragPointerOffsetX = 0;
+        this._dragPointerOffsetY = 0;
+
+        if (!this._draggedWidget ||
+            this._isWidgetChromeActor(this._draggedWidget)) {
+            this._longPressActive = false;
+            gesture.set_state(Gtk.EventSequenceState.DENIED);
+            return;
+        }
+
+        // Require a long-press before we actually claim the drag.
+        // This lets normal short clicks go through to the WebView / Gtk.Button.
+        if (!this._longPressActive) {
+            // Don’t drag, let the sequence fall through to children.
+            this._draggedWidget = null;
+            return;
+        }
+
+        gesture.set_state(Gtk.EventSequenceState.CLAIMED);
+
+        const instanceId = this._draggedWidget.widgetInstanceId;
+        const frame =
+            this._desktopManager.widgetManager.getInstanceFrame(instanceId);
+
+        if (frame) {
+            this._dragPointerOffsetX = startX - frame.x;
+            this._dragPointerOffsetY = startY - frame.y;
+        }
+
+        if (this._selectedWidget === instanceId)
+            this._desktopManager.widgetManager.hideSelectionChromeDuringDrag();
+
+        this._setWidgetDraggingState(true);
+    }
+
+    _findWidgetAt(lx, ly) {
+        const picked =
+            this._widgetContainer.pick(lx, ly, Gtk.PickFlags.DEFAULT);
+
+        return this._widgetFromPickedActor(picked);
+    }
+
+    _widgetFromPickedActor(picked) {
+        if (!picked)
+            return null;
+
+        // We only want to return a direct child in widgetContainer,
+        let w = picked;
+        while (w && w !== this._widgetContainer) {
+            if (w.get_parent() === this._widgetContainer)
+                return w;
+
+            w = w.get_parent();
+        }
+
+        return null;
+    }
+
+    _onWidgetDragUpdate(gesture, offsetX, offsetY) {
+        if (!this._draggedWidget)
+            return;
+
+        const lx = this._dragStartX + offsetX;
+        const ly = this._dragStartY + offsetY;
+
+        const instanceId = this._draggedWidget.widgetInstanceId;
+        const [offX, offY] = this._getWidgetOffsets(instanceId);
+
+        const newLocalX = lx - offX;
+        const newLocalY = ly - offY;
+
+        this._widgetContainer.move(this._draggedWidget, newLocalX, newLocalY);
+    }
+
+    _onWidgetDragEnd(gesture, offsetX, offsetY) {
+        if (!this._draggedWidget)
+            return;
+
+        const lx = this._dragStartX + offsetX;
+        const ly = this._dragStartY + offsetY;
+
+        const instanceId = this._draggedWidget.widgetInstanceId;
+        const [offX, offY] = this._getWidgetOffsets(instanceId);
+        const newLocalX = lx - offX;
+        const newLocalY = ly - offY;
+
+        this._desktopManager.widgetManager.setInstanceFrame(
+            instanceId,
+            newLocalX,
+            newLocalY
+        );
+
+        if (this._selectedWidget === instanceId) {
+            this._desktopManager.widgetManager
+                .updateSelectionChromePositionFor(instanceId);
+        }
+
+        this._setWidgetDraggingState(false);
+        this._draggedWidget = null;
+        this._dragPointerOffsetX = null;
+        this._dragPointerOffsetY = null;
+        this._longPressActive = false;
+    }
+
+    _setWidgetDraggingState(isDragging) {
+        if (!this._draggedWidget)
+            return;
+
+        const ctx = this._draggedWidget.get_style_context();
+        if (isDragging)
+            ctx.add_class('dragging');
+        else
+            ctx.remove_class('dragging');
+    }
+
+    _getWidgetOffsets(instanceId) {
+        const inst = this._desktopManager.widgetManager.getInstance(instanceId);
+        const fallbackOffsetX = inst ? inst.width / 2 : 0;
+        const fallbackOffsetY = inst ? inst.height / 2 : 0;
+
+        const offsetX =
+            typeof this._dragPointerOffsetX === 'number'
+                ? this._dragPointerOffsetX
+                : fallbackOffsetX;
+        const offsetY =
+            typeof this._dragPointerOffsetY === 'number'
+                ? this._dragPointerOffsetY
+                : fallbackOffsetY;
+
+        return [offsetX, offsetY];
+    }
+
+    _onClick(gesture, nPress, x, y) {
+        const widget = this._findWidgetAt(x, y);
+
+        if (!widget) {
+            this._selectedWidget = null;
+            this._desktopManager.widgetManager.selectInstance(null);
+            return;
+        }
+
+        if (this._isWidgetChromeActor(widget)) {
+            this._selectedWidget = null;
+            return;
+        }
+
+        const instanceId = widget.widgetInstanceId;
+        if (!instanceId) {
+            this._selectedWidget = null;
+            return;
+        }
+
+        this._selectedWidget = instanceId;
+        this._desktopManager.widgetManager.selectInstance(instanceId);
+        this.click = [x, y];
+    }
+
+    _onClickRelease(gesture, _nPress, x, y) {
+        if (!this._selectedWidget)
+            return;
+
+        const [clickX, clickY] = this.click ?? [x, y];
+        const dx = x - clickX;
+        const dy = y - clickY;
+        const dist = dx * dx + dy * dy;
+        const radius = 4 * 4;
+        const isClick = dist <= radius;
+        this.click = null;
+
+        if (!isClick)
+            return;
+
+        // At this point we’ve done all our selection work in _onClick or
+        // _onWidgetLongPress. For a real click, we now DENY the sequence
+        // so that the underlying actor (HTML WebView or Gtk.Button add
+        // widget) sees a normal click.
+        gesture.set_state(Gtk.EventSequenceState.DENIED);
+    }
+
+    _isWidgetChromeActor(actor) {
+        return actor.get_name?.() === 'ding-widget-close-button';
+    }
+};
+
+const DesktopGrid = class extends WidgetGrid {
+    constructor(params) {
+        super(params);
         this._snapshotPic = new OffsetPicture();
         this._oldMargins = null;
         this._animationInProgress = false;

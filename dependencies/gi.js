@@ -48,10 +48,27 @@ else if (Gio?.DesktopAppInfo)
 if (!DesktopAppInfo)
     console.error('DesktopAppInfo is not available on this system!');
 
+const WebKit = await import('gi://WebKit?version=6.0')
+    .then(m => m.default)
+    .catch(e => {
+        console.log(`WebKit GI not found; desktop widgets disabled\n${e}`);
+        return null;
+    });
+
+const Soup = await import('gi://Soup?version=3.0')
+    .then(m => m.default)
+    .catch(e => {
+        console.log(`Soup GI not found; desktop widgets disabled\n${e}`);
+        return null;
+    });
+
+const DesktopWidgetCapability = !!WebKit && !!Soup;
+
 export {
     Adw,
     Cairo,
     DesktopAppInfo,
+    DesktopWidgetCapability,
     Gdk,
     GdkPixbuf,
     GdkX11,
@@ -67,5 +84,7 @@ export {
     Gsk,
     Gtk,
     Pango,
-    Poppler
+    Poppler,
+    Soup,
+    WebKit
 };

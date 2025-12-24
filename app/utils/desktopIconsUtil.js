@@ -44,6 +44,17 @@ const DesktopIconsUtil = class {
             .$gtype.name === 'GdkX11Display';
     }
 
+    ensureDir(path) {
+        const file = Gio.File.new_for_path(path);
+        try {
+            file.make_directory_with_parents(null);
+        } catch (e) {
+            if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+                throw e;
+        }
+        return path;
+    }
+
     /**
      *
      * Returns the Nautilus scripts directory as a Gio.File
@@ -136,6 +147,36 @@ const DesktopIconsUtil = class {
         return Gio.File.new_for_commandline_arg(templatesDir);
     }
 
+
+    /**
+     * XDG user data dir for this app:
+     *   $XDG_DATA_HOME/<app-id>  (usually ~/.local/share/<app-id>)
+     *
+     * @returns {Gio.File}
+     */
+    getAppUserDataDir() {
+        const userDataDir = GLib.get_user_data_dir();
+        const appId = this.mainApp?.get_application_id
+            ? this.mainApp.get_application_id()
+            : null;
+
+        if (!appId)
+            throw new Error('Application ID is not available');
+
+        const appDirPath = GLib.build_filenamev([userDataDir, appId]);
+        return Gio.File.new_for_commandline_arg(appDirPath);
+    }
+
+    /**
+     * Widgets state file under the app data dir:
+     *   $XDG_DATA_HOME/<app-id>/widgets.json
+     *
+     * @returns {Gio.File}
+     */
+    getWidgetsStateFile() {
+        const appDir = this.getAppUserDataDir();
+        return appDir.get_child('widgets.json');
+    }
 
     /**
      *
@@ -948,5 +989,59 @@ const DesktopIconsUtil = class {
             canopenFile = false;
 
         return {canopenFile, Appname};
+    }
+
+    /**
+     * Read JSON from a file. Returns parsed object or null on error.
+     *
+     * @param {Gio.File} file
+     * @param {Gio.Cancellable?} cancellable
+     * @returns {Promise<object|null>}
+     */
+    async readJsonFile(file, cancellable = null) {
+        try {
+            const text = await this.readFileContentsAsync(file, cancellable);
+            if (!text)
+                return null;
+
+            return JSON.parse(text);
+        } catch (e) {
+            if (!Gio.IOErrorEnum.matches(e, Gio.IOErrorEnum.NOT_FOUND))
+                console.error(`readJsonFile(${file.get_path?.() ?? '??'}):`, e);
+
+            return null;
+        }
+    }
+
+    /**
+     * Write JSON to a file (pretty-printed).
+     *
+     * Mirrors writeTextFileToPath() by ensuring the parent dir via FileUtils.
+     *
+     * @param {Gio.File} file
+     * @param {object} data
+     * @param {Gio.Cancellable?} cancellable
+     */
+    async writeJsonFile(file, data, cancellable = null) {
+        const parent = file.get_parent();
+
+        if (parent) {
+            try {
+                await this.FileUtils.recursivelyMakeDir(parent, cancellable);
+            } catch (e) {
+                if (!e.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.EXISTS))
+                    throw e;
+            }
+        }
+
+        let text;
+        try {
+            text = JSON.stringify(data, null, 2);
+        } catch (e) {
+            console.error('writeJsonFile: JSON.stringify failed:', e);
+            throw e;
+        }
+
+        await this.replaceFileContentsAsync(file, text, cancellable);
     }
 };

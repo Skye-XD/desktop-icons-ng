@@ -1075,6 +1075,14 @@ const DesktopBackgroundMenu = class {
 
         this.desktopBackgroundGioMenu.append_section(null, settingsMenu);
 
+        if (this._Prefs.showDesktopWidgets) {
+            const widgetLayerMenu = Gio.Menu.new();
+            widgetLayerMenu.append(
+                _('Edit Widgets…'), 'app.toggleWidgetLayer');
+
+            this.desktopBackgroundGioMenu.append_section(null, widgetLayerMenu);
+        }
+
         const backgroundMenu = Gio.Menu.new();
         backgroundMenu.append(
             _('Shell Menu…'), 'app.displayShellBackgroundMenu');
@@ -1125,4 +1133,3 @@ const DesktopBackgroundMenu = class {
         });
     }
 };
-

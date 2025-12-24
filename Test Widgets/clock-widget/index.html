@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DING HTML Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./clock.css">
+</head>
+<body>
+<div id="clock-root" class="ding-clock ding-clock-theme-dark">
+    <div class="ding-clock-time" id="ding-clock-time">--:--</div>
+    <div class="ding-clock-date" id="ding-clock-date">Loading…</div>
+    <div class="ding-clock-status">
+        <span id="ding-clock-mode">24h</span>
+        <span> · </span>
+        <span id="ding-clock-seconds">sec on</span>
+    </div>
+</div>
+
+<!-- Optional debug output, hidden by default via CSS -->
+<pre id="ding-clock-debug" class="ding-clock-debug"></pre>
+
+<script src="./clock.js"></script>
+</body>
+</html>

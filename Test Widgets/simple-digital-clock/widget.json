@@ -1,0 +1,18 @@
+{
+  "id": "simple-digital-clock",
+  "name": "Simple Digital Clock",
+  "kind": "html",
+  "description": "A small transparent digital clock widget for your desktop.",
+  "category": "time",
+  "author": "Sundeep Mediratta",
+  "version": "1.0",
+  "homepage": "",
+  "license": "GPL-3.0-or-later",
+
+  "defaultWidth": 180,
+  "defaultHeight": 80,
+  "defaultConfig": {
+    "showSeconds": false,
+    "twentyFourHour": true
+  }
+}

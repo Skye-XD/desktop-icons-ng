@@ -17,6 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import {Adw, GLib, Gtk, Gio, Gdk, DesktopAppInfo} from '../dependencies/gi.js';
+import {DesktopWidgetCapability} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {Preferences};
@@ -31,6 +32,10 @@ const Preferences = class {
         this._Enums = Data.Enums;
         let schemaSource = GioSSS.get_default();
         this._desktopManager = null;
+        this._widgetState = null;
+        this._widgetStateMonitor = null;
+        this._suppressWidgetMonitorEvent = false;
+        this.desktopWidgetCapability = DesktopWidgetCapability;
 
         // Adw Style Manager
         this._adwStyleManager =
@@ -208,6 +213,9 @@ const Preferences = class {
         this.freePositionIcons =
             this.desktopSettings.get_boolean('free-position-icons');
 
+        this.desktopWidgetsEnabled =
+            this.desktopSettings.get_boolean('show-desktop-widgets');
+
         this.CLICK_POLICY_SINGLE =
             this.nautilusSettings.get_string('click-policy') === 'single';
 
@@ -246,13 +254,67 @@ const Preferences = class {
     init(desktopManager) {
         this._desktopManager = desktopManager;
         this._desktopIconsUtil = desktopManager.DesktopIconsUtil;
+
         this._configureSelectionColor();
         this._configureHoverColor();
         this._setCSSColors();
         this._initLocalCSSprovider();
         this._monitorDesktopSettings();
         this._monitorTerminalSettings();
+        this._monitorWidgetState();
     }
+
+    _monitorWidgetState() {
+        if (!this._desktopIconsUtil)
+            return;
+
+        const widgetsFile = this._desktopIconsUtil.getWidgetsStateFile();
+        if (!widgetsFile)
+            return;
+
+        try {
+            this._widgetStateMonitor =
+                widgetsFile.monitor_file(
+                    Gio.FileMonitorFlags.WATCH_MOVES,
+                    null
+                );
+
+            this._widgetStateMonitor.set_rate_limit(500);
+
+            this._widgetStateMonitor.connect('changed', () => {
+                if (this._suppressWidgetMonitorEvent)
+                    return;
+
+                this._loadWidgetState()
+                .catch(e => {
+                    console.log(
+                        'Error loading widget state from widgets.json:',
+                        e.message ?? e
+                    );
+                    this._widgetState = null;
+                    this._applyWidgetStateToManager();
+                });
+            });
+        } catch (e) {
+            console.log(
+                'Error monitoring widget state from widgets.json:',
+                e.message ?? e
+            );
+            this._widgetStateMonitor = null;
+            return;
+        }
+
+        this._loadWidgetState()
+        .catch(e => {
+            console.log(
+                'Error loading widget state from widgets.json:',
+                e.message ?? e
+            );
+            this._widgetState = null;
+            this._applyWidgetStateToManager();
+        });
+    }
+
 
     _monitorDesktopSettings() {
         if (!this._desktopManager)
@@ -391,6 +453,12 @@ const Preferences = class {
             if (key === 'free-position-icons') {
                 this.freePositionIcons =
                     this.desktopSettings.get_boolean('free-position-icons');
+            }
+
+            if (key === 'show-desktop-widgets') {
+                this.desktopWidgetsEnabled =
+                    this.desktopSettings.get_boolean('show-desktop-widgets');
+                this._desktopManager.onWidgetDisplayChanged();
             }
 
             // fallthrough
@@ -597,6 +665,7 @@ const Preferences = class {
 
         this._configureSelectionColor();
         this._setCSSColors();
+        this._desktopManager?.onDarkModeChanged();
     }
 
     _refreshDesktopAndColors() {
@@ -616,6 +685,7 @@ const Preferences = class {
             this._gtkSettings.gtk_enable_animations ?? false;
         const enabled = this.globalAnimations ? 'enabled' : 'disabled';
         console.log('System animations are', enabled);
+        this._desktopManager?.onAnimationChanged();
     }
 
     _initLocalCSSprovider() {
@@ -875,6 +945,70 @@ const Preferences = class {
         }
     }
 
+    /*
+     * Load widget layout/config state from widgets.json into _widgetState.
+     */
+    async _loadWidgetState(cancellable = null) {
+        if (!this._desktopIconsUtil)
+            return;
+
+        const file = this._desktopIconsUtil.getWidgetsStateFile();
+        this._widgetState =
+            await this._desktopIconsUtil.readJsonFile(file, cancellable)
+            .catch(e => {
+                console.log(
+                    'Error reading widget state from widgets.json:',
+                    e.message ?? e
+                );
+                return null;
+            });
+
+        this._applyWidgetStateToManager();
+    }
+
+    _applyWidgetStateToManager() {
+        if (!this._desktopManager?.widgetManager)
+            return;
+
+        const state =
+            this._widgetState ??
+            {
+                version: 1,
+                instances: [],
+            };
+
+        this._desktopManager.widgetManager.loadState(state);
+    }
+
+    /*
+     * Save widget layout/config state back to widgets.json.
+     *
+     * @param {object|null} state plain JSON-serializable object
+     *                            (or null to just clear cache)
+     */
+    async _saveWidgetState(state, cancellable = null) {
+        if (!this._desktopIconsUtil)
+            return;
+
+        this._widgetState = state ?? null;
+
+        if (!state)
+            return;
+
+        const file = this._desktopIconsUtil.getWidgetsStateFile();
+
+        // Prevent triggering monitor event while we write the file
+        this._suppressWidgetMonitorEvent = true;
+
+        await this._desktopIconsUtil.writeJsonFile(file, state, cancellable);
+
+        // Allow monitor events after idle
+        GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+            this._suppressWidgetMonitorEvent = false;
+            return GLib.SOURCE_REMOVE;
+        });
+    }
+
     // Setters
     /**
      * @param {any} order
@@ -891,6 +1025,16 @@ const Preferences = class {
 
     set fractionalScaling(boolean) {
         this._setPreMultiplied(boolean);
+    }
+
+    set widgetState(state = null) {
+        this._widgetState = state;
+        this._saveWidgetState(state).catch(e => {
+            console.log(
+                'Error saving widget state to widgets.json:',
+                e.message ?? e
+            );
+        });
     }
 
     // Getters
@@ -937,5 +1081,13 @@ const Preferences = class {
         if (this.usingX11)
             return false;
         return this._premultiplied;
+    }
+
+    get widgetState() {
+        return this._widgetState;
+    }
+
+    get showDesktopWidgets() {
+        return this.desktopWidgetsEnabled && this.desktopWidgetCapability;
     }
 };

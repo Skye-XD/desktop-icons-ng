@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather Preferences</title>
+  <link rel="stylesheet" href="css/prefs.css" />
+</head>
+<body>
+  <div id="prefsRoot" class="prefs-root">
+    <div id="title" class="prefs-title">Weather</div>
+
+    <section class="prefs-section">
+      <div class="prefs-section-title">Location</div>
+      <div class="prefs-row prefs-row-full">
+        <input id="locInput" class="prefs-input" type="text" placeholder="Search city or place…" autocomplete="off" />
+      </div>
+      <div id="locResults" class="prefs-results" hidden></div>
+      <div id="locHint" class="prefs-hint">Select a result to set latitude/longitude.</div>
+    </section>
+
+    <section class="prefs-section">
+      <div class="prefs-section-title">Units</div>
+      <div class="prefs-row">
+        <label class="prefs-radio"><input type="radio" name="units" value="system" checked /> System</label>
+      </div>
+      <div class="prefs-row">
+        <label class="prefs-radio"><input type="radio" name="units" value="metric" /> Metric (°C)</label>
+      </div>
+      <div class="prefs-row">
+        <label class="prefs-radio"><input type="radio" name="units" value="imperial" /> Imperial (°F)</label>
+      </div>
+    </section>
+
+    <section class="prefs-section">
+      <div class="prefs-section-title">Update frequency</div>
+      <div class="prefs-row prefs-row-full">
+        <select id="refreshSelect" class="prefs-select">
+          <option value="15">Every 15 minutes</option>
+          <option value="30" selected>Every 30 minutes</option>
+          <option value="60">Every 1 hour</option>
+          <option value="120">Every 2 hours</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="prefs-section">
+      <div class="prefs-section-title">Motion</div>
+      <div class="prefs-row prefs-row-full">
+        <label class="prefs-toggle">
+          <input id="animToggle" type="checkbox" checked />
+          <span>Enable animations</span>
+        </label>
+      </div>
+      <div id="animHint" class="prefs-hint"></div>
+    </section>
+
+    <section class="prefs-section prefs-about">
+      <div class="prefs-section-title">About</div>
+      <div class="prefs-about-text">Weather data by Open-Meteo</div>
+      <div class="prefs-about-text">Icons by Meteocons (MIT)</div>
+    </section>
+  </div>
+
+  <script type="module" src="js/prefs.js"></script>
+</body>
+</html>

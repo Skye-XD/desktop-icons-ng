@@ -1,0 +1,83 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.ding-clock {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: default;
+    user-select: none;
+}
+
+.ding-clock-theme-dark {
+    background: rgba(10, 10, 16, 0.75);
+    color: #f7f7ff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.ding-clock-theme-light {
+    background: rgba(245, 245, 250, 0.86);
+    color: #111119;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+
+.ding-clock-time {
+    font-size: 2.4rem;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+}
+
+.ding-clock-date {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.ding-clock-status {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* Click affordance */
+.ding-clock:active {
+    transform: scale(0.995);
+}
+
+/* Debug area – hidden by default */
+.ding-clock-debug {
+    display: none;
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    max-width: 90%;
+    max-height: 40%;
+    overflow: auto;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.65);
+    color: #f0f0f0;
+    padding: 3px 5px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+}
+
+/* Enable debug output by toggling this class in CSS if ever needed */
+.ding-clock-debug-visible {
+    display: block;
+}

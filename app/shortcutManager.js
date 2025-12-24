@@ -418,8 +418,19 @@ const ShortcutManager = class {
         this._initializeOurShortcuts();
         this._monitorUserShortcuts();
         this._refreshUserShortcuts();
+        this._addTextEntryActions();
         // Global shortcuts are automatically monitored and set by the
         // extension from settings
+    }
+
+    _addTextEntryActions() {
+        const textEntryOn = Gio.SimpleAction.new('textEntryOn', null);
+        textEntryOn.connect('activate', this._textEntryAccelsTurnOn.bind(this));
+        this._mainApp.add_action(textEntryOn);
+
+        const textEntryOff = Gio.SimpleAction.new('textEntryOff', null);
+        textEntryOff.connect('activate', this._textEntryAccelsTurnOff.bind(this));
+        this._mainApp.add_action(textEntryOff);
     }
 
     // this function is not used, but is another way of setting action

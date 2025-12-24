@@ -20,5 +20,6 @@
     <file compressed="true">stylesheet.css</file>
     <file compressed="true">com.desktop.ding.desktop</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/ding-app-chooser.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/ding-widget-chooser.ui</file>
   </gresource>
 </gresources>

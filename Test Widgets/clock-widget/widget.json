@@ -1,0 +1,14 @@
+{
+    "id": "clock-widget",
+    "name": "HTML Clock",
+    "kind": "html",
+    "version": 1,
+    "description": "Digital clock with theme and mode toggle",
+    "author": "DING",
+    "defaultWidth": 180,
+    "defaultHeight": 120,
+    "entry": "index.html",
+    "configurable": true,
+    "prefs": "prefs.html"
+}
+

@@ -19,13 +19,21 @@ This fork of DING is ported to use the Gtk4 toolkit, and now has been ported to 
 
 Other than using the Gtk4 toolkit, and now libadwaita, it has in addition, several new features, fixes and enhancements.
 
-UPDATE April 2025
+### UPDATE April 2025
 
 Application was rewritten, cleaned up and restructured completely and several new classes added for cleaner mantainance.
 
-UPDATE October 2025
+### UPDATE October 2025
 
 Uses Libretranslate to automatically translate into multiple languages.
+
+### UPDATE Web Widget Layer December 2025
+
+- Added a desktop web-widget layer like KDE desklets for Gnome Desktop: HTML widgets run in isolated WebKit WebViews (shared WebContext/UCM, jailed `ding-widget://` scheme) with per-monitor layers you can toggle above/below icons.
+- Widgets support preferences via `widget.json` `prefs` paths (any subdirectory) and per-instance config (overwrites on save).
+- As with any web content, widgets carry the same security considerations as a web page; read the security sections in the widget docs for details.
+- The widget runtime is initialized lazily: if no widgets are enabled or instantiated, no WebKit processes are started, no additional resources are used, and there is no added attack surface beyond normal DING operation.
+- Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md).
 
 ## Features and Fixes
 

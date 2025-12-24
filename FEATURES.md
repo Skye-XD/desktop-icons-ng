@@ -172,6 +172,12 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Improve search UI, files found containing the text in label are selected, non-selected files lose opacity an are dimmed so that found files are evident to the eye on a desktop with a large bunch of icons.
 
+- [x] Keyboard selection improvements: arrow keys navigate icons, and with Shift/Ctrl held they extend or toggle multi-selection (not just move focus).
+
+- [x] New - Desktop widgets with isolated WebKit runtime, jailed `ding-widget://` scheme, shared WebContext/UCM, prefs via `widget.json` `prefs` path (any subdirectory), per-instance config (overwrites on save), and injected `window.ding` API.
+
+
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.

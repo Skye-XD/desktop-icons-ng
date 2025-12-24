@@ -1,0 +1,96 @@
+:root {
+  --pad: 12px;
+  --text: #0f1115;
+  --muted: 0.75;
+  --field-bg: rgba(127,127,127,0.10);
+  --field-border: rgba(127,127,127,0.35);
+  --list-bg: rgba(127,127,127,0.06);
+  --list-hover: rgba(127,127,127,0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #f3f3f3;
+    --muted: 0.85;
+    --field-bg: rgba(255,255,255,0.10);
+    --field-border: rgba(255,255,255,0.22);
+    --list-bg: rgba(255,255,255,0.08);
+    --list-hover: rgba(255,255,255,0.16);
+  }
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  color-scheme: light dark;
+}
+
+.prefs-root {
+  box-sizing: border-box;
+  padding: var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.prefs-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.prefs-section { display: flex; flex-direction: column; gap: 8px; }
+.prefs-section-title { font-size: 15px; font-weight: 700; opacity: 0.9; color: var(--text); }
+.prefs-row { display: flex; align-items: center; gap: 10px; }
+.prefs-row-full { align-items: stretch; }
+
+.prefs-input, .prefs-select {
+  width: 100%;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--field-border);
+  background: var(--field-bg);
+  color: var(--text);
+  outline: none;
+}
+
+.prefs-select { max-width: 220px; appearance: none; }
+
+.prefs-radio, .prefs-toggle {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-left: 4px;
+}
+
+.prefs-hint, .prefs-about-text {
+  font-size: 11px;
+  line-height: 13px;
+  opacity: var(--muted);
+  color: var(--text);
+}
+
+.prefs-results {
+  border: 1px solid var(--field-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--list-bg);
+}
+
+.prefs-result {
+  padding: 8px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.prefs-result:hover { background: var(--list-hover); }

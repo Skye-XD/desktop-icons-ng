@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Demo Clock (API)</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="surface" id="surface">
+      <div class="edit-badge" aria-hidden="true">EDIT</div>
+
+      <div class="header">
+        <div class="brand">
+          <img class="icon" src="assets/icons/clock.svg" alt="" />
+          <div class="title" id="title">Demo Clock</div>
+        </div>
+
+        <div class="status">
+          <img class="globe" id="globe" src="assets/icons/globe.svg" alt="Online" />
+        </div>
+      </div>
+
+      <div class="face">
+        <img class="tickring" src="assets/images/tickring.png" alt="" />
+        <div class="time-wrap">
+          <div class="time" id="time">--:--</div>
+          <div class="secs" id="secs">--</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="pill" id="city">City</div>
+        <div class="pill" id="offset">GMT+00:00</div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        function dingLog(message, extra) {
+          const text = extra === undefined ? String(message) : `${message} ${safeJson(extra)}`;
+          try {
+            if (window.ding && typeof window.ding.log === 'function')
+              window.ding.log(text);
+            else
+              console.log(text);
+          } catch (e) {
+            console.log(text);
+          }
+        }
+
+        function safeJson(v) {
+          try {
+            return JSON.stringify(v);
+          } catch (e) {
+            return String(v);
+          }
+        }
+
+        function getInstanceId() {
+          return window.ding?.instanceId ?? window.ding?.getInstanceId?.() ?? 'unknown';
+        }
+
+        function getMode() {
+          return window.ding?.mode ?? 'unknown';
+        }
+
+        function clampInt(n, min, max, fallback) {
+          const x = Number.parseInt(String(n), 10);
+          if (!Number.isFinite(x))
+            return fallback;
+          return Math.min(max, Math.max(min, x));
+        }
+
+        function formatOffset(mins) {
+          const sign = mins >= 0 ? '+' : '-';
+          const abs = Math.abs(mins);
+          const hh = Math.floor(abs / 60);
+          const mm = abs % 60;
+          return `GMT${sign}${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+        }
+
+        function nowWithOffsetMinutes(offsetMinutes) {
+          const now = new Date();
+          const utcMs = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
+          return new Date(utcMs + offsetMinutes * 60 * 1000);
+        }
+
+        function diffKeys(prev, next) {
+          const out = {};
+          const keys = new Set([...Object.keys(prev || {}), ...Object.keys(next || {})]);
+          for (const k of keys) {
+            if ((prev?.[k]) !== (next?.[k]))
+              out[k] = { from: prev?.[k], to: next?.[k] };
+          }
+          return out;
+        }
+
+        // ----------------- state -----------------
+        const cfg = {
+          city: 'New York',
+          gmtOffsetMinutes: -300,
+          showSeconds: true,
+          accent: 'neon-cyan',
+        };
+
+        let hostState = null;
+        let prevHostState = null;
+
+        let tickTimer = 0;
+        let lastSecond = -1;
+
+        // Connectivity indicator persisted locally (per instance) so main page can reflect
+        // a successful diagnostics run performed from prefs.
+        const ONLINE_KEY = () => `demo-clock.online.${getInstanceId()}`;
+
+        function setOnlineBadge(isOnline) {
+          const el = document.getElementById('globe');
+          if (!el)
+            return;
+
+          if (isOnline)
+            el.classList.add('is-online');
+          else
+            el.classList.remove('is-online');
+
+          try {
+            localStorage.setItem(ONLINE_KEY(), isOnline ? '1' : '0');
+          } catch (e) {
+            // ignore
+          }
+        }
+
+        function readOnlineBadge() {
+          try {
+            return localStorage.getItem(ONLINE_KEY()) === '1';
+          } catch (e) {
+            return false;
+          }
+        }
+
+        // ----------------- rendering -----------------
+        function applyAccent() {
+          const surface = document.getElementById('surface');
+          if (!surface)
+            return;
+
+          const a = String(cfg.accent || 'neon-cyan');
+
+          // CSS can hook either of these (cheap + flexible).
+          surface.dataset.accent = a;
+          surface.classList.toggle('accent-neon-cyan', a === 'neon-cyan');
+          surface.classList.toggle('accent-neon-red', a === 'neon-red');
+          surface.classList.toggle('accent-neon-green', a === 'neon-green');
+          surface.classList.toggle('accent-neon-purple', a === 'neon-purple');
+          surface.classList.toggle('accent-neon-amber', a === 'neon-amber');
+
+          // Also set a generic CSS var so it works even if your stylesheet
+          // is written around variables.
+          const accentMap = {
+            'neon-cyan':   '#22d3ee',
+            'neon-red':    '#fb7185',
+            'neon-green':  '#34d399',
+            'neon-purple': '#a78bfa',
+            'neon-amber':  '#fbbf24',
+          };
+
+          surface.style.setProperty('--accent', accentMap[a] || accentMap['neon-cyan']);
+          // Ensure the clock digits actually reflect the accent even if CSS has fixed colors.
+          const timeEl = document.getElementById('time');
+          const secsEl = document.getElementById('secs');
+          if (timeEl)
+            timeEl.style.color = 'var(--accent)';
+          if (secsEl)
+            secsEl.style.color = 'var(--accent)';
+        }
+
+        function renderStatic() {
+          applyAccent();
+          document.getElementById('city').textContent = cfg.city || 'City';
+          document.getElementById('offset').textContent = formatOffset(cfg.gmtOffsetMinutes);
+          document.getElementById('title').textContent = cfg.city ? `Demo Clock — ${cfg.city}` : 'Demo Clock';
+        }
+
+        function renderTime() {
+          const d = nowWithOffsetMinutes(cfg.gmtOffsetMinutes);
+          const hh = String(d.getHours()).padStart(2, '0');
+          const mm = String(d.getMinutes()).padStart(2, '0');
+          const ss = d.getSeconds();
+
+          document.getElementById('time').textContent = `${hh}:${mm}`;
+
+          const reducedMotion = !!hostState?.reducedMotion;
+          const effectiveShowSeconds = !reducedMotion && !!cfg.showSeconds;
+
+          const secsEl = document.getElementById('secs');
+          secsEl.style.setProperty('display', effectiveShowSeconds ? '' : 'none', 'important');
+          secsEl.style.display = effectiveShowSeconds ? '' : 'none';
+
+          if (effectiveShowSeconds) {
+            if (ss !== lastSecond) {
+              lastSecond = ss;
+              secsEl.textContent = String(ss).padStart(2, '0');
+            }
+            } else {
+              // Avoid stale seconds text when toggled off.
+              secsEl.textContent = '';
+          }
+        }
+
+        function stopTick() {
+          if (tickTimer) {
+            clearInterval(tickTimer);
+            tickTimer = 0;
+          }
+        }
+
+        function startTick() {
+          stopTick();
+
+          const reducedMotion = !!hostState?.reducedMotion;
+          const effectiveShowSeconds = !reducedMotion && !!cfg.showSeconds;
+
+          // Minutes-only updates are fine at 2500ms to remain responsive without being noisy.
+          // Seconds-on updates should tick more frequently.
+          const intervalMs = effectiveShowSeconds ? 250 : 2500;
+
+          tickTimer = setInterval(renderTime, intervalMs);
+          renderTime();
+
+          dingLog('[demo-clock] tickPolicy', { reducedMotion, showSeconds: cfg.showSeconds, intervalMs });
+        }
+
+        // ----------------- host state + config -----------------
+        async function loadConfig() {
+          if (!window.ding?.getConfig) {
+            dingLog('[demo-clock] getConfig not available');
+            return;
+          }
+
+          try {
+            const c = await window.ding.getConfig();
+            dingLog('[demo-clock] getConfig->', c);
+
+            applyConfig(c, { reason: 'getConfig' });
+          } catch (e) {
+            dingLog('[demo-clock] getConfig error', String(e?.message ?? e));
+          }
+        }
+
+        function applyConfig(c, meta) {
+          if (!c || typeof c !== 'object')
+            return;
+
+          const prev = { ...cfg };
+
+          if (typeof c.city === 'string')
+            cfg.city = c.city;
+
+          if (typeof c.gmtOffsetMinutes === 'number')
+            cfg.gmtOffsetMinutes = clampInt(c.gmtOffsetMinutes, -840, 840, cfg.gmtOffsetMinutes);
+
+          if (typeof c.showSeconds === 'boolean')
+            cfg.showSeconds = c.showSeconds;
+
+          if (typeof c.accent === 'string')
+            cfg.accent = c.accent;
+
+          const d = diffKeys(prev, cfg);
+          if (Object.keys(d).length)
+            dingLog('[demo-clock] config(apply)', { meta: meta || null, diff: d });
+
+          // Any config change can affect the static UI and tick policy.
+          renderStatic();
+          lastSecond = -1;
+          startTick();
+        }
+
+        function subscribeHostState() {
+          if (!window.ding?.onHostStateChanged) {
+            dingLog('[demo-clock] onHostStateChanged not available');
+            return;
+          }
+
+          window.ding.onHostStateChanged((next) => {
+            hostState = next || {};
+
+            if (prevHostState === null) {
+              dingLog('[demo-clock] hostState(init)', hostState);
+            } else {
+              const d = diffKeys(prevHostState, hostState);
+              if (Object.keys(d).length)
+                dingLog('[demo-clock] hostState(diff)', d);
+            }
+
+            prevHostState = { ...hostState };
+
+            // Host baseline injection applies classes/data-theme already,
+            // but we still need to update clock behavior (seconds/tick policy).
+            startTick();
+          });
+        }
+
+        function subscribeConfigChanged() {
+          if (!window.ding?.onConfigChanged) {
+            dingLog('[demo-clock] onConfigChanged not available');
+            return;
+          }
+
+          window.ding.onConfigChanged((nextCfg, meta) => {
+            applyConfig(nextCfg, meta || { reason: 'configChanged' });
+          });
+        }
+
+        // ----------------- asset load verification -----------------
+        async function verifyLocalAssets() {
+          // CSS file load
+          const link = document.querySelector('link[rel="stylesheet"]');
+          if (link) {
+            link.addEventListener('load', () => dingLog('[demo-clock] css loaded', link.getAttribute('href')));
+            link.addEventListener('error', () => dingLog('[demo-clock] css FAILED', link.getAttribute('href')));
+          }
+
+          // Font load verification
+          try {
+            const ok = await document.fonts.load('16px "DemoMono"');
+            dingLog('[demo-clock] font load ok', { family: 'DemoMono', loadedFaces: ok?.length ?? 0 });
+          } catch (e) {
+            dingLog('[demo-clock] font load FAILED', String(e?.message ?? e));
+          }
+
+          // Image/icon load verification
+          for (const img of document.images) {
+            if (img.complete && img.naturalWidth > 0) {
+              dingLog('[demo-clock] img already loaded', img.getAttribute('src'));
+              continue;
+            }
+
+            img.addEventListener('load', () => dingLog('[demo-clock] img loaded', img.getAttribute('src')));
+            img.addEventListener('error', () => dingLog('[demo-clock] img FAILED', img.getAttribute('src')));
+          }
+        }
+
+        // ----------------- boot -----------------
+        async function boot() {
+          dingLog('[demo-clock] page load', { mode: getMode(), instanceId: getInstanceId() });
+
+          // Show any previously-known online state.
+          setOnlineBadge(readOnlineBadge());
+
+          subscribeHostState();
+          subscribeConfigChanged();
+          await loadConfig();
+          renderStatic();
+
+          // If host state hasn't arrived yet, render once with defaults.
+          renderTime();
+
+          verifyLocalAssets();
+        }
+
+        boot();
+      })();
+    </script>
+  </body>
+</html>
