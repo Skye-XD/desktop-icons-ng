@@ -37,5 +37,4 @@ export * as WidgetManager from '../app/widgetManager.js';
 export {WidgetRegistry} from '../app/widgetRegistry.js';
 export {HtmlWidgetHost} from '../app/htmlWidgetHost.js';
 export * as WidgetApi from '../app/widgetApi.js';
-export {FallbackHtml} from '../app/fallbackHtml.js';
 export {WebWidgetContext} from '../app/widgetWebContext.js';
