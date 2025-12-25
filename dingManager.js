@@ -52,9 +52,6 @@ Gio._promisify(fileProto, 'load_bytes_async');
 
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
-const isWayland = typeof Meta.is_wayland_compositor === 'function'
-    ? Meta.is_wayland_compositor()
-    : true;
 
 const ifaceXml = `
 <node>
@@ -95,6 +92,9 @@ const DingManager = class {
         this.metadata = extensionObject.metadata;
         this.version = this.metadata['version-name'];
         this.uuid = this.metadata.uuid;
+        this.isWayland = typeof Meta.is_wayland_compositor === 'function'
+            ? Meta.is_wayland_compositor()
+            : true;
         this._init();
     }
 
@@ -661,10 +661,14 @@ var LaunchSubprocess = class {
 
         this.subprocess = null;
         this.process_running = false;
+
+        this.isWayland = typeof Meta.is_wayland_compositor === 'function'
+            ? Meta.is_wayland_compositor()
+            : true;
     }
 
     makeWaylandClientSubprocess(argv) {
-        if (!isWayland)
+        if (!this.isWayland)
             throw new Error('X11, Cannot make Wayland client subprocess');
 
         let subprocess;
@@ -701,7 +705,7 @@ var LaunchSubprocess = class {
 
     async spawnv(argv) {
         try {
-            if (isWayland)
+            if (this.isWayland)
                 this.subprocess = this.makeWaylandClientSubprocess(argv);
             else
                 this.subprocess = this._launcher.spawnv(argv);
@@ -781,7 +785,7 @@ var LaunchSubprocess = class {
      * @param {MetaWindow} window The window to check.
      */
     query_window_belongs_to(window) {
-        if (!isWayland)
+        if (!this.isWayland)
             return false;
 
         if (!this.process_running)
@@ -802,7 +806,7 @@ var LaunchSubprocess = class {
     }
 
     show_in_window_list(window) {
-        if (!isWayland || !this.process_running)
+        if (!this.isWayland || !this.process_running)
             return;
 
         if (typeof window.show_in_window_list === 'function')
@@ -813,7 +817,7 @@ var LaunchSubprocess = class {
     }
 
     hide_from_window_list(window) {
-        if (!isWayland || !this.process_running)
+        if (!this.isWayland || !this.process_running)
             return;
 
         if (typeof window.hide_from_window_list === 'function')
@@ -827,7 +831,7 @@ var LaunchSubprocess = class {
         if (window.window_type === Meta.WindowType.DESKTOP)
             return true;
 
-        if (!isWayland || !this.process_running)
+        if (!this.isWayland || !this.process_running)
             return false;
 
         try {
