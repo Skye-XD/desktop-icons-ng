@@ -41,7 +41,9 @@ img-src    'self' data: blob:;
 font-src   'self' data:;
 media-src  'self' blob:;
 
-connect-src 'self' https: http:;
+connect-src 'self' https: ;
+navigate-to 'self';
+block-all-mixed-content;
 
 worker-src 'none';
 frame-src  'none';
