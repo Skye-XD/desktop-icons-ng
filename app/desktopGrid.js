@@ -326,8 +326,12 @@ const DisplayGrid = class {
     resizeGrid() {
         this._updateUnscaledHeightWidthMargins();
         this._createGrids();
+        // Ensure event targets cover the full window even when no icons/widgets
+        this._container.set_size_request(this._windowWidth, this._windowHeight);
+        this._rootFixed.set_size_request(this._windowWidth, this._windowHeight);
         this._sizeContainer(this._container);
         this._sizeContainer(this._drawArea);
+
         this._updateGridRectangle();
         this._setGridStatus();
     }
@@ -2406,8 +2410,8 @@ const WidgetGrid = class extends ControlGrid {
         super.resizeGrid();
 
         this._widgetContainer.set_size_request(
-            this._windowWidth,
-            this._windowHeight
+            this._width,
+            this._height
         );
 
         this._sizeContainer(this._widgetContainer);
