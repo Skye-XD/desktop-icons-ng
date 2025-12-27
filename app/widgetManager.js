@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gio, GLib, Gtk, WebKit} from '../dependencies/gi.js';
+import {Gdk, Gio, GLib, Gtk, WebKit} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 import {WidgetRegistry} from '../dependencies/localFiles.js';
 import {HtmlWidgetHost} from '../dependencies/localFiles.js';
@@ -1403,7 +1403,7 @@ const WidgetManager = class {
      * Widget Picker UI
      * ===================================================================== */
 
-    async openAddWidgetDialog(parentWindow = null) {
+    async openAddWidgetDialog(parentWindow = null, monitorIndex = null) {
         if (!this._widgetRegistry) {
             console.error('openAddWidgetDialog: widgetRegistry missing');
             return null;
@@ -1446,7 +1446,9 @@ const WidgetManager = class {
 
                 let created = null;
                 try {
-                    created = await this.createInstanceForWidget(row._widgetId);
+                    created = await this.createInstanceForWidget(row._widgetId, {
+                        monitorIndex,
+                    });
                 } catch (e) {
                     console.error(
                         'openAddWidgetDialog: createInstanceForWidget failed:',
