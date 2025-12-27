@@ -76,10 +76,6 @@ const WidgetManager = class {
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
 
-        const closeWidget = Gio.SimpleAction.new('closeWidget', null);
-        closeWidget.connect('activate', this.deleteSelectedInstance.bind(this));
-        this._desktopManager.mainApp.add_action(closeWidget);
-
         this._addActions();
 
         this.loadState(this._preferences.widgetState);
