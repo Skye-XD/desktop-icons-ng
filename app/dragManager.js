@@ -40,10 +40,6 @@ const DragManager = class {
         this.dragItem = null;
         this.rubberBand = false;
         this.localDragOffset = [0, 0];
-        // Remember the anchor item for Shift+click range selections.
-        // This should be set when the user makes an explicit selection
-        // (single click or ctrl-click) and used by Shift selections.
-        this._selectionAnchor = null;
     }
 
     // Drag and Drop local Methods
@@ -427,16 +423,12 @@ const DragManager = class {
 
     // Drag Methods
 
-    startRubberband(X, Y, shiftPressed = false, controlPressed = false) {
+    startRubberband(X, Y) {
         this.rubberBandInitX = X;
         this.rubberBandInitY = Y;
         this.rubberBand = true;
-        this.rubberBandShift = shiftPressed;
-        this.rubberBandControl = controlPressed;
-        for (let item of this._displayList) {
+        for (let item of this._displayList)
             item.touchedByRubberband = false;
-            item.rubberBandInitialState = item.isSelected;
-        }
     }
 
     onDragBegin(item) {
@@ -534,7 +526,7 @@ const DragManager = class {
             if (!fileList)
                 return;
             if (gdkDropAction === Gdk.DragAction.MOVE ||
-                    gdkDropAction === Gdk.DragAction.COPY) {
+                gdkDropAction === Gdk.DragAction.COPY) {
                 try {
                     if (!localDrop) {
                         await this.clearFileCoordinates(
@@ -566,7 +558,7 @@ const DragManager = class {
                     ylocalDestination,
                     event
                 )
-                        .catch(e => logError(e));
+                .catch(e => logError(e));
             }
             break;
         case this._Enums.DndTargetInfo.TEXT_PLAIN:
@@ -646,51 +638,17 @@ const DragManager = class {
                     'height': this.y2 - this.y1,
                 });
             this._drawSelectionRectangles();
-            let anyItemTouched = false;
-            let closestItem = null;
-            let closestDistance = null;
-            const toggleMode = this.rubberBandShift && this.rubberBandControl;
-            const unselectMode = this.rubberBandShift && !this.rubberBandControl;
             for (let item of this._displayList) {
                 const labelintersect =
                     item.labelRectangle.intersect(this.selectionRectangle)[0];
                 const iconintersect =
                     item.iconRectangle.intersect(this.selectionRectangle)[0];
                 if (labelintersect || iconintersect) {
-                    if (toggleMode) {
-                        // Toggle selection based on initial state
-                        if (item.rubberBandInitialState)
-                            item.unsetSelected();
-                        else
-                            item.setSelected();
-                    } else if (unselectMode) {
-                        // Shift only: unselect items in rubberband
-                        item.unsetSelected();
-                    } else {
-                        item.setSelected();
-                    }
+                    item.setSelected();
                     item.touchedByRubberband = true;
-                    anyItemTouched = true;
-                    // Calculate distance from cursor to item center
-                    const [itemX, itemY] = item.getCoordinates();
-                    const itemCenterX = itemX + item.iconRectangle.width / 2;
-                    const itemCenterY = itemY + item.iconRectangle.height / 2;
-                    const distance = Math.pow(X - itemCenterX, 2) + Math.pow(Y - itemCenterY, 2);
-                    if (closestDistance === null || distance < closestDistance) {
-                        closestDistance = distance;
-                        closestItem = item;
-                    }
                 } else if (item.touchedByRubberband) {
-                    // Restore initial state when leaving the rubberband area
-                    if (item.rubberBandInitialState)
-                        item.setSelected();
-                    else
-                        item.unsetSelected();
+                    item.unsetSelected();
                 }
-            }
-            if (anyItemTouched) {
-                this._desktopManager.desktopActions._isMassSelectionInProgress = true;
-                this._desktopManager.desktopActions._keyboardHoveredItem = closestItem;
             }
         }
     }
@@ -699,9 +657,6 @@ const DragManager = class {
         if (this.rubberBand) {
             this.rubberBand = false;
             this.selectionRectangle = null;
-            // Reset mass selection flag if no items were selected
-            if (!this.currentSelection || this.currentSelection.length === 0)
-                this._desktopManager.desktopActions._isMassSelectionInProgress = false;
         }
         for (let grid of this._desktops)
             grid.drawRubberBand();
@@ -716,90 +671,19 @@ const DragManager = class {
     }
 
     selected(fileItem, action) {
-        if (!fileItem)
-            return;
-        
         switch (action) {
         case this._Enums.Selection.ALONE:
-            this._desktopManager.desktopActions._exitMassSelectionMode(fileItem);
-            fileItem.unsetHoveredWithKeyboard();
-            break;
-        case this._Enums.Selection.WITH_SHIFT: {
-            // Use the explicit selection anchor if present; otherwise fall
-            // back to the first selected item in display order.
-            const list = this._displayList;
-            const clickedIndex = list.indexOf(fileItem);
-
-            let anchorIndex = -1;
-            if (this._selectionAnchor)
-                anchorIndex = list.indexOf(this._selectionAnchor);
-
-
-            if (anchorIndex === -1) {
-                // fallback: first selected item in display order
-                for (let i = 0; i < list.length; i++) {
-                    if (list[i].isSelected) {
-                        anchorIndex = i;
-                        break;
-                    }
+            if (!fileItem.isSelected) {
+                for (let item of this._displayList) {
+                    if (item === fileItem)
+                        item.setSelected();
+                    else
+                        item.unsetSelected();
                 }
             }
-
-            if (anchorIndex === -1) {
-                // No anchor and no selection: just select the clicked item.
-                if (clickedIndex !== -1)
-                    list[clickedIndex].setSelected();
-                break;
-            }
-
-            const start = Math.min(anchorIndex, clickedIndex);
-            const end = Math.max(anchorIndex, clickedIndex);
-
-            for (let i = 0; i < list.length; i++) {
-                if (i >= start && i <= end)
-                    list[i].setSelected();
-                else
-                    list[i].unsetSelected();
-            }
             break;
-        }
-        case this._Enums.Selection.WITH_SHIFT_CONTROL: {
-            // Similar to WITH_SHIFT, but preserve existing selections
-            // (i.e. add the range to current selection instead of replacing it).
-            const list = this._displayList;
-            const clickedIndex = list.indexOf(fileItem);
-
-            let anchorIndex = -1;
-            if (this._selectionAnchor)
-                anchorIndex = list.indexOf(this._selectionAnchor);
-
-            if (anchorIndex === -1) {
-                for (let i = 0; i < list.length; i++) {
-                    if (list[i].isSelected) {
-                        anchorIndex = i;
-                        break;
-                    }
-                }
-            }
-
-            if (anchorIndex === -1) {
-                // No anchor: just toggle/select the clicked item
-                if (clickedIndex !== -1)
-                    list[clickedIndex].setSelected();
-                break;
-            }
-
-            const start2 = Math.min(anchorIndex, clickedIndex);
-            const end2 = Math.max(anchorIndex, clickedIndex);
-
-            for (let i = start2; i <= end2; i++)
-                list[i].setSelected();
-
-            break;
-        }
-        case this._Enums.Selection.WITH_CONTROL:
+        case this._Enums.Selection.WITH_SHIFT:
             fileItem.toggleSelected();
-            this._selectionAnchor = fileItem;  
             break;
         case this._Enums.Selection.RIGHT_BUTTON:
             if (!fileItem.isSelected) {
@@ -809,8 +693,6 @@ const DragManager = class {
                     else
                         item.unsetSelected();
                 }
-                // set anchor when selection is changed by right-click
-                this._selectionAnchor = fileItem;
             }
             break;
         case this._Enums.Selection.ENTER:

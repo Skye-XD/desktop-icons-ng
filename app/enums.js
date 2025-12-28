@@ -46,12 +46,10 @@ export const StoredCoordinates = {
 export const Selection = {
     ALONE: 0,
     WITH_SHIFT: 1,
-    WITH_SHIFT_CONTROL: 7,
-    WITH_CONTROL: 2,
-    RIGHT_BUTTON: 3,
-    ENTER: 4,
-    LEAVE: 5,
-    RELEASE: 6,
+    RIGHT_BUTTON: 2,
+    ENTER: 3,
+    LEAVE: 4,
+    RELEASE: 5,
 };
 
 /* From NautilusFileUndoManagerState */
@@ -175,9 +173,6 @@ export const IgnoreKeys = [
     'KEY_Control_R', 'KEY_Caps_Lock', 'KEY_Shift_Lock', 'KEY_Meta_L',
     'KEY_Meta_R', 'KEY_Alt_L', 'KEY_Alt_R', 'KEY_Super_L',
     'KEY_Super_R', 'KEY_ISO_Level3_Shift', 'KEY_ISO_Level5_Shift',
-];
-export const NavigationKeys = [
-    'KEY_Up', 'KEY_Down', 'KEY_Left', 'KEY_Right', 'KEY_space',
 ];
 export const TRANSITIONDURATION = 500; // in ms
 
