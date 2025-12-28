@@ -244,14 +244,9 @@ const WebWidgetContext = class {
         if (!this._prefsWindow)
             return;
 
-        try {
-            this._prefsWindow.destroy?.();
-        } catch (e) {
-            console.error('WebWidgetContext: failed to destroy prefs window:', e);
-        }
-
         this._prefsHost?.destroy();
         this._prefsHost = null;
+        this._prefsWindow.destroy();
         this._prefsWindow = null;
         this._prefsInstanceId = null;
     }

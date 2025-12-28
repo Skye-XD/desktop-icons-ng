@@ -141,6 +141,7 @@ const WidgetManager = class {
         this._rebuildSurfacesFrom(desktops);
         this._detachInstancesWithoutSurface();
         this._reattachAllInstances();
+        this._stopWebkitIfUnneeded();
     }
 
     handleWidgetContainerLayerChange(monitorIndex, onTop) {
@@ -1037,6 +1038,11 @@ const WidgetManager = class {
             return;
 
         for (const inst of this._instances.values()) {
+            const surface = this._surfaces.get(inst.monitorIndex);
+
+            if (!surface)
+                continue;
+
             this._ensureInstanceActor(inst);
             this._positionInstanceActor(inst);
         }
@@ -1235,8 +1241,8 @@ const WidgetManager = class {
         }
 
         // Delegate everything to WebWidgetContext
-        this._webWidgetContext
-        .openPreferencesForInstance(selectedId, inst.prefsUri);
+        const webCtx = this._ensureWebWidgetContext();
+        webCtx.openPreferencesForInstance(selectedId, inst.prefsUri);
     }
 
     _raiseInstance(inst) {
@@ -1388,8 +1394,7 @@ const WidgetManager = class {
 
         const hasHtmlWidget =
             Array.from(this._instances.values())
-                .some(inst => inst.actor?.get_first_child?.() instanceof
-                WebKit.WebView);
+                .some(inst => inst.host.isAlive());
 
         if (hasHtmlWidget)
             return;
