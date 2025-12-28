@@ -68,7 +68,7 @@ const HtmlWidgetHost = class {
 
     getWebViewAsync() {
         if (this._webView)
-            return this._webView;
+            Promise.resolve(this._webView);
 
         return this._webViewReadyPromise();
     }

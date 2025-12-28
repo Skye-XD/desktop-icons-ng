@@ -501,7 +501,7 @@ const WebWidgetContext = class {
         this._dispatchWidgetMessage(manager, payload);
     }
 
-    _dispatchWidgetMessage(manager, payload) {
+    async _dispatchWidgetMessage(manager, payload) {
         const {
             instanceId,
             type,
@@ -513,6 +513,19 @@ const WebWidgetContext = class {
         const inst = manager.getInstance(instanceId);
 
         if (!inst)
+            return;
+
+        let webView;
+
+        try {
+            webView = await inst.host.getWebViewAsync();
+        } catch (e) {
+            return;
+        }
+
+        const uri = webView?.get_uri?.() ?? '';
+
+        if (!uri.startsWith(`ding-widget://${instanceId}/`))
             return;
 
         // Delegate semantics to WidgetManager, reusing its existing helpers.
