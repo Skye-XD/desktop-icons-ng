@@ -1392,9 +1392,11 @@ const WidgetManager = class {
         if (!this._webWidgetContext)
             return;
 
+        // We prune aggressively, there may be no host, add button has 
+        // no isAlive(). Look only for html hosts
         const hasHtmlWidget =
             Array.from(this._instances.values())
-                .some(inst => inst.host.isAlive());
+                .some(inst => inst.host?.isAlive?.());
 
         if (hasHtmlWidget)
             return;
