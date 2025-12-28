@@ -100,7 +100,7 @@ const HtmlWidgetHost = class {
         if (!patch || typeof patch !== 'object')
             return;
 
-        if (!this._webView) {
+        if (this._destroyed || !this._webView) {
             this._pendingHostStatePatches.push(patch);
             return;
         }
@@ -111,7 +111,7 @@ const HtmlWidgetHost = class {
         if (!msg || typeof msg !== 'object')
             return;
 
-        if (!this._webView) {
+        if (this._destroyed || !this._webView) {
             this._pendingPostMessages.push(msg);
             return;
         }
@@ -278,6 +278,9 @@ const HtmlWidgetHost = class {
                 null,
                 (wv, res) => {
                     try {
+                        if (!this._webView)
+                            return;
+
                         wv?.evaluate_javascript_finish(res);
                     } catch (e) {
                         console.error(
