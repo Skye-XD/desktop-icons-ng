@@ -266,11 +266,11 @@ const HtmlWidgetHost = class {
     }
 
     _evaluateScript(script) {
-        if (this._destroyed)
+        if (this._destroyed || !this._webView)
             return;
 
         try {
-            this._webView.evaluate_javascript(
+            this._webView?.evaluate_javascript(
                 script,
                 -1,
                 null,
@@ -278,7 +278,7 @@ const HtmlWidgetHost = class {
                 null,
                 (wv, res) => {
                     try {
-                        wv.evaluate_javascript_finish(res);
+                        wv?.evaluate_javascript_finish(res);
                     } catch (e) {
                         console.error(
                             'HtmlWidgetHost: failed to postMessage JS:', e
