@@ -279,6 +279,13 @@ const WindowManager = class {
         newDesktopList.forEach((area, index) => {
             const area2 = priorDesktopList[index];
 
+            if (!area || !area2) {
+                // Monitor count changed; mark this index as changed and skip diff
+                monitorschangedList.push(index);
+                gridschangedList.push(index);
+                return;
+            }
+
             if ((area.x !== area2.x) ||
                 (area.y !== area2.y) ||
                 (area.width !== area2.width) ||

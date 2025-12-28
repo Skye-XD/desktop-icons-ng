@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gio, GLib, Gtk, WebKit} from '../dependencies/gi.js';
+import {Gdk, Gio, GLib, Gtk, WebKit} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 import {WidgetRegistry} from '../dependencies/localFiles.js';
 import {HtmlWidgetHost} from '../dependencies/localFiles.js';
@@ -75,10 +75,6 @@ const WidgetManager = class {
 
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
-
-        const closeWidget = Gio.SimpleAction.new('closeWidget', null);
-        closeWidget.connect('activate', this.deleteSelectedInstance.bind(this));
-        this._desktopManager.mainApp.add_action(closeWidget);
 
         this._addActions();
 
@@ -914,7 +910,10 @@ const WidgetManager = class {
         button.set_tooltip_text(_('Add Widget'));
         button.connect(
             'clicked',
-            () => this.openAddWidgetDialog().catch(logError)
+            () => this.openAddWidgetDialog(
+                null,
+                surface.monitorIndex
+            ).catch(logError)
         );
 
         const icon = Gtk.Image.new_from_icon_name('list-add-symbolic');
@@ -1403,7 +1402,7 @@ const WidgetManager = class {
      * Widget Picker UI
      * ===================================================================== */
 
-    async openAddWidgetDialog(parentWindow = null) {
+    async openAddWidgetDialog(parentWindow = null, monitorIndex = null) {
         if (!this._widgetRegistry) {
             console.error('openAddWidgetDialog: widgetRegistry missing');
             return null;
@@ -1446,7 +1445,9 @@ const WidgetManager = class {
 
                 let created = null;
                 try {
-                    created = await this.createInstanceForWidget(row._widgetId);
+                    created = await this.createInstanceForWidget(row._widgetId, {
+                        monitorIndex,
+                    });
                 } catch (e) {
                     console.error(
                         'openAddWidgetDialog: createInstanceForWidget failed:',
@@ -1569,7 +1570,31 @@ const WidgetManager = class {
     _addActions() {
         const addWidgetAction = Gio.SimpleAction.new('addWidget', null);
         addWidgetAction.connect('activate', () => {
-            this.openAddWidgetDialog().catch(logError);
+            // Ensure widget layers are visible before adding a widget.
+            this._desktopManager.windowManager?.raiseWidgetLayers();
+
+            const parentWindow =
+                this._desktopManager.mainApp.get_active_window();
+
+            let monitorIndex = null;
+
+            if (parentWindow) {
+                const surface = parentWindow.get_surface();
+                const display = surface?.get_display?.();
+                const monitor = display?.get_monitor_at_surface?.(surface);
+                const monitors = display?.get_monitors?.();
+                const count = monitors?.get_n_items?.() ?? 0;
+
+                for (let i = 0; i < count; i++) {
+                    if (monitors.get_item?.(i) === monitor) {
+                        monitorIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            this.openAddWidgetDialog(parentWindow, monitorIndex)
+                .catch(logError);
         });
         this._desktopManager.mainApp.add_action(addWidgetAction);
 

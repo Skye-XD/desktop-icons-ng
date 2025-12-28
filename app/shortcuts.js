@@ -32,6 +32,7 @@ export const DefaultShortcuts = {
     unselectAll: {Hint: _('Unselect All'), Accel: 'Escape'},
     previewAction: {Hint: _('Preview'), Accel: 'space'},
     toggleWidgetLayer: {Hint: _('Toggle Widget Layer'), Accel: '<Control><Shift>L', Edit: true},
+    addWidget: {Hint: _('Add Widget'), Accel: '<Shift><Control>plus', Edit: true},
     chooseIconLeft: {Hint: _('Choose Icon Left'), Accel: 'Left'},
     chooseIconRight: {Hint: _('Choose Icon Right'), Accel: 'Right'},
     chooseIconUp: {Hint: _('Choose Icon Up'), Accel: 'Up'},
