@@ -45,6 +45,7 @@ const HtmlWidgetHost = class {
         this._pendingHostStatePatches = [];
         this._pendingPostMessages = [];
         this._webView = null;
+        this._destroyed = false;
 
         this._makeGtkWidget();
 
@@ -81,8 +82,15 @@ const HtmlWidgetHost = class {
         );
     }
 
+    isAlive() {
+        return !this._destroyed;
+    }
+
     destroy() {
+        this._destroyed = true;
         this._frame.set_child(null);
+        this._webView.unparent();
+        this._webView.run_dispose();
         this._webView = null;
         this._frame = null;
         this._pendingHostStatePatches = [];
@@ -258,6 +266,9 @@ const HtmlWidgetHost = class {
     }
 
     _evaluateScript(script) {
+        if (this._destroyed)
+            return;
+
         try {
             this._webView.evaluate_javascript(
                 script,
@@ -404,4 +415,3 @@ export const DingRoundedClip = GObject.registerClass({
         snapshot.pop();
     }
 });
-
