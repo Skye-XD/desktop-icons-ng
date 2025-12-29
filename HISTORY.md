@@ -1,5 +1,16 @@
 # History of versions #
-* Adw Version 100.12 Gor Gnome 45, 46, 47, 48, 49
+* Adw Version 100.13 For Gnome 45, 46, 47, 48, 49
+  * Revert keyboard navigantion selection, broke mulitple file drag drop with mouse.
+  * Fix right click menu not showing with widgetgrid. (Sundeep Mediratta)
+  * Fix multimonitor support with widgets. (Sundeep Mediratta)
+  * Tighten default CSP policy for widgets for more security. (Sundeep Mediratta)
+  * Multiple fixes to widgets for stability, optimise destruction. (Sundeep Mediratta)
+  * Prune webviews aggressively when not needed. Fix issue with multiple webviews not being killed from Widget Preferences window, destroy all of them and release resources fast for GC cleanup. (Sundeep Mediratta)
+  * Fix chinese translation.
+  * Fix shortcut manager, race conditions prevented actions added to the app later from having their default shortcut set on start. (Sundeep Mediratta)
+  * Add widget icons to the gresource. (Sundeep Mediratta)
+
+* Adw Version 100.12 For Gnome 45, 46, 47, 48, 49
   * Add keybaoard navigation for multiple file selectoin. (Daniel Ella)
   * Allow user to override CSS with their own, with hidden prefernes UI reload. (Daniel Ella)
   * Miscellaneous improvements and packaging. (Sundeep Mediratta)
@@ -7,13 +18,13 @@
   * Weblate Translations. (Weblate Authors)
   * Update History.MD, update metadata.json, app release note.
 
-* Adw Version 100.11 Gor Gnome 45, 46, 47, 48.
+* Adw Version 100.11 For Gnome 45, 46, 47, 48.
   * Fix for margins under dock in RTL locales. (Sundeep Mediratta)
   * Adapt to complet X11 removal in mutter and Gnome 50. (Sundeep Mediratta)
   * Weblate Translations. (Weblate Authors)
   * Update History.MD, update metadata.json, app release note.
 
-* Adw Version 100.9 Gor Gnome 45, 46, 47, 48.
+* Adw Version 100.9 For Gnome 45, 46, 47, 48.
   * Add Libretranslate translations to automatically fill all po files with machine translation in all supported languages. (Sundeep Mediratta)
   * Improve scripting with new scripts, and improve meson workflow.
   * Update History.MD, update metadata.json, app release note.
