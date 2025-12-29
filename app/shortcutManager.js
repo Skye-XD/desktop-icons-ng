@@ -419,6 +419,14 @@ const ShortcutManager = class {
         this._monitorUserShortcuts();
         this._refreshUserShortcuts();
         this._addTextEntryActions();
+        this._mainApp.connect(
+            'action-added',
+            (_app, name) => this._setAccel(name)
+        );
+        this._mainApp.connect(
+            'action-enabled-changed',
+            (_app, name, _enabled) => this._setAccel(name)
+        );
         // Global shortcuts are automatically monitored and set by the
         // extension from settings
     }
