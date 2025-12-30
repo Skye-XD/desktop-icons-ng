@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-10-23 12:03+0000\n"
+"PO-Revision-Date: 2025-12-30 12:00+0000\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sk/>\n"
@@ -20,33 +20,33 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "Prepísanie CSS"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Prispôsobiť vzhľad ikon na ploche pomocou CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "Upozornenie: Nesprávnym postupom môžete pokaziť rozšírenie"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Upraviť súbor prepisujúci CSS..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Použiť zmeny CSS teraz"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Načítať CSS pre okamžité uplatnenie zmien"
 
 #: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -162,9 +162,8 @@ msgid "Snap icons to grid"
 msgstr "Pripnúť ikony na mriežku"
 
 #: app/adwPreferencesWindow.js:695
-#, fuzzy
 msgid "Show desktop widgets"
-msgstr "Zobraziť Plochu v aplikácii Súbory GNOME"
+msgstr "Zobraziť miniaplikácie na ploche"
 
 #: app/adwPreferencesWindow.js:700
 msgid "New Desktop Folder"
@@ -603,9 +602,8 @@ msgid "Desktop Icons"
 msgstr "Ikony plochy"
 
 #: app/desktopGrid.js:2477
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "Aktualizovať pracovnú plochu"
+msgstr "Späť na plochu"
 
 #: app/desktopManager.js:161
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -826,7 +824,7 @@ msgstr "Otvoriť v aplikácii {0}"
 
 #: app/desktopMenu.js:1019
 msgid "Edit Widgets…"
-msgstr ""
+msgstr "Upraviť miniaplikácie…"
 
 #: app/desktopMenu.js:1026
 msgid "Shell Menu…"
@@ -1261,11 +1259,11 @@ msgstr "Náhľad"
 
 #: app/shortcuts.js:34
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "Prepnúť vrstvu miniaplikácie"
 
 #: app/shortcuts.js:35 app/widgetManager.js:911
 msgid "Add Widget"
-msgstr ""
+msgstr "Pridať miniaplikáciu"
 
 #: app/shortcuts.js:36
 msgid "Choose Icon Left"
@@ -1347,26 +1345,24 @@ msgid "Drive"
 msgstr "Jednotka"
 
 #: app/widgetManager.js:1164
-#, fuzzy
 msgid "Widget preferences"
-msgstr "Predvoľby"
+msgstr "Nastavenia miniaplikácie"
 
 #: app/widgetManager.js:1548
 msgid "HTML widget"
-msgstr ""
+msgstr "HTML miniaplikácia"
 
 #: app/widgetManager.js:1550
 msgid "GTK widget"
-msgstr ""
+msgstr "GTK miniaplikácia"
 
 #: app/widgetManager.js:1559
 msgid "User"
-msgstr ""
+msgstr "Používateľ"
 
 #: app/widgetWebContext.js:187
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "Predvoľby"
+msgstr "Predvoľby miniaplikácie"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"
@@ -1586,13 +1582,12 @@ msgstr ""
 "nezávisle od mriežky"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, fuzzy
 msgid "Show Desktop Widgets"
-msgstr "Zobraziť Plochu v aplikácii Súbory GNOME"
+msgstr "Zobraziť miniaplikácie na ploche"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
-msgstr ""
+msgstr "Zobraziť miniaplikácie vo vrstve pod ikonami, ak sú nainštalované"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Hide/Show all desktop windows"

@@ -14,8 +14,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-11-09 21:51+0000\n"
-"Last-Translator: Drugi Sapog <dindrugi@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-12-30 12:01+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/be/>\n"
 "Language: be\n"
@@ -24,11 +25,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "Перавызначыць"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
@@ -165,9 +166,8 @@ msgid "Snap icons to grid"
 msgstr "Выраўноўванне значкоў па сетцы"
 
 #: app/adwPreferencesWindow.js:695
-#, fuzzy
 msgid "Show desktop widgets"
-msgstr "Паказаць Стол у файлавым менеджары"
+msgstr "Віджэты стальніцы"
 
 #: app/adwPreferencesWindow.js:700
 msgid "New Desktop Folder"
@@ -1263,7 +1263,7 @@ msgstr ""
 
 #: app/shortcuts.js:35 app/widgetManager.js:911
 msgid "Add Widget"
-msgstr ""
+msgstr "Дадаць віджэт"
 
 #: app/shortcuts.js:36
 msgid "Choose Icon Left"
@@ -1358,7 +1358,7 @@ msgstr ""
 
 #: app/widgetManager.js:1559
 msgid "User"
-msgstr ""
+msgstr "Карыстальнік"
 
 #: app/widgetWebContext.js:187
 #, fuzzy
@@ -1582,9 +1582,8 @@ msgstr ""
 "працоўнага стала"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, fuzzy
 msgid "Show Desktop Widgets"
-msgstr "Паказаць Стол у файлавым менеджары"
+msgstr "Віджэты стальніцы"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"

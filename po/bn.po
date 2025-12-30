@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-09-30 15:05+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-12-30 12:01+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
@@ -18,11 +19,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "ওভাররাইড"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
@@ -187,9 +188,8 @@ msgstr "গ্রীডের জন্য আইকনের সংখ্যা
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:695
-#, fuzzy
 msgid "Show desktop widgets"
-msgstr "ডেস্কটপে প্রদর্শন করা হবে"
+msgstr "ডেস্কটপের উইজেট"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:700
@@ -1650,7 +1650,7 @@ msgstr ""
 
 #: app/widgetManager.js:1559
 msgid "User"
-msgstr ""
+msgstr "ব্যবহারকারী"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
@@ -1915,9 +1915,8 @@ msgstr "আইকন কোন আয়তাকার গ্রিডে ন�
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, fuzzy
 msgid "Show Desktop Widgets"
-msgstr "ডেস্কটপে প্রদর্শন করা হবে"
+msgstr "ডেস্কটপের উইজেট"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
