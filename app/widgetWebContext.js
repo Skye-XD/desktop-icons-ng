@@ -557,6 +557,18 @@ const WebWidgetContext = class {
             break;
         }
 
+        case 'backendRequest': {
+            // payload: { instanceId, requestId, method, params, mode }
+            await inst.host.backendRequest?.(inst, payload);
+            break;
+        }
+
+        case 'backendSend': {
+            // payload: { instanceId, name, payload, mode }
+            inst.host.backendSend?.(inst, payload);
+            break;
+        }
+
         default:
             // Unknown message type; ignore for now
             break;
