@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the ding package.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-11-17 19:51+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2025-12-30 12:02+0000\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/oc/>\n"
 "Language: oc\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -48,9 +49,8 @@ msgid "Shortcuts"
 msgstr "Acorchis"
 
 #: app/adwPreferencesWindow.js:252
-#, fuzzy
 msgid "Edit Shortcuts..."
-msgstr "Afichar los acorchis"
+msgstr "Modificar los acorchis..."
 
 #: app/adwPreferencesWindow.js:267
 msgid "Edit Application Shortcuts"
@@ -83,31 +83,27 @@ msgstr "Mei"
 
 #: app/adwPreferencesWindow.js:613
 msgid "Desktop Settings"
-msgstr "Paramètres icònas de burèu"
+msgstr "Paramètres del burèu"
 
 #: app/adwPreferencesWindow.js:614
-#, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Definir la talha de las icònas burèu."
+msgstr "Paramètres del programa del burèu"
 
 #: app/adwPreferencesWindow.js:620
 msgid "Desktop Folder"
 msgstr "Dossièr del burèu"
 
 #: app/adwPreferencesWindow.js:621
-#, fuzzy
 msgid "Current Desktop: "
-msgstr "Mostrar lo burèu dins Fichièrs"
+msgstr "Burèu actual : "
 
 #: app/adwPreferencesWindow.js:631
-#, fuzzy
 msgid "Files Settings"
-msgstr "Paramètres d'afichatge"
+msgstr "Paramètres dels fichièrs"
 
 #: app/adwPreferencesWindow.js:632
-#, fuzzy
 msgid "Settings shared with Gnome Files"
-msgstr "Paramètres partejats amb Nautilus"
+msgstr "Paramètres partejats amb Fichièrs de GNOME"
 
 #: app/adwPreferencesWindow.js:639
 msgid "Miscellaneous Tweaks"
@@ -171,9 +167,8 @@ msgid "New Desktop Folder"
 msgstr "Dossièr del burèu"
 
 #: app/adwPreferencesWindow.js:701
-#, fuzzy
 msgid "Set a new folder for the desktop"
-msgstr "Mostrar lo dorsièr personal pel burèu"
+msgstr "Definir un dossièr novèl pel burèu"
 
 #: app/adwPreferencesWindow.js:702 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
@@ -184,9 +179,8 @@ msgid "Set Desktop back to ~/"
 msgstr ""
 
 #: app/adwPreferencesWindow.js:709
-#, fuzzy
 msgid "Restore Default Desktop Folder"
-msgstr "Mostrar lo burèu dins Fichièrs"
+msgstr "Restaurar lo dossièr pel burèu per defaut"
 
 #: app/adwPreferencesWindow.js:711
 msgid "Restore"
@@ -208,7 +202,7 @@ msgstr "Utilizar un tèxte escur pels labèls d’icòna"
 
 #: app/adwPreferencesWindow.js:739
 msgid "Show the personal folder on the desktop"
-msgstr "Mostrar lo dorsièr personal pel burèu"
+msgstr "Mostrar lo dossièr personal pel burèu"
 
 #: app/adwPreferencesWindow.js:744
 msgid "Show the trash icon on the desktop"
@@ -248,7 +242,7 @@ msgstr "Totjorn"
 
 #: app/adwPreferencesWindow.js:775
 msgid "On this computer only"
-msgstr ""
+msgstr "Sus aqueste ordenador unicament"
 
 #: app/adwPreferencesWindow.js:776
 msgid "Never"
@@ -272,7 +266,7 @@ msgstr "A prepaus..."
 
 #: app/adwPreferencesWindow.js:808
 msgid "Translation"
-msgstr "Translation"
+msgstr "Traduccion"
 
 #: app/adwPreferencesWindow.js:809
 msgid ""
@@ -296,17 +290,16 @@ msgid "Choose an application to open <b>{foo}</b>"
 msgstr ""
 
 #: app/appChooser.js:90
-#, fuzzy
 msgid "Open Items"
-msgstr "Dobrir dins un terminal"
+msgstr "Dobrir elements"
 
 #: app/appChooser.js:92
 msgid "Open Folder"
-msgstr "Dobrir un dorsièr"
+msgstr "Dobrir dossièr"
 
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
 msgid "Open File"
-msgstr "Dobrir un fichièr"
+msgstr "Dobrir fichièr"
 
 #: app/appChooser.js:165
 msgid "Error changing default application"
@@ -322,18 +315,12 @@ msgid "Invalid Permissions on AppImage File"
 msgstr "Autorizacion invalida sul fichièr de burèu"
 
 #: app/appImageFileItem.js:58
-#, fuzzy
 msgid "This AppImage File has incorrect Permissions."
-msgstr ""
-"Aqueste fichièr .desktop a d’autorizacions incorrèctas. Fasètz clicatz drech "
-"per modificar las proprietats, puèi :\n"
+msgstr "Aqueste fichièr AppImage a d’autorizacions incorrèctas."
 
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
-#, fuzzy
 msgid "Right Click to edit Properties, then:"
-msgstr ""
-"Aqueste fichièr .desktop a d’autorizacions incorrèctas. Fasètz clicatz drech "
-"per modificar las proprietats, puèi :\n"
+msgstr "Fasètz clicatz drech per modificar las proprietats, puèi :"
 
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
 msgid "Set Permissions, in"
@@ -363,11 +350,8 @@ msgid "Enable option"
 msgstr "Activar"
 
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
-#, fuzzy
 msgid "Allow Executing File as a Program"
-msgstr ""
-"\n"
-"<b>Activar l’opcion, « Permetre d’executar lo fichièr coma programa »</b>"
+msgstr "Permetre d’executar lo fichièr coma programa"
 
 #: app/appImageFileItem.js:79
 #, fuzzy
@@ -375,13 +359,8 @@ msgid "Untrusted AppImage File"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
 #: app/appImageFileItem.js:81
-#, fuzzy
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr ""
-"Aqueste fichièr .desktop es pas fisable, se pòt pas lançar. Per autorizar "
-"son lançament, fasètz clic drech puèi :\n"
-"\n"
-"<b>Activar « Autorizar lo lançament »</b>"
+msgstr "Aqueste fichièr AppImage es pas fisable, se pòt pas lançar."
 
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
@@ -398,7 +377,7 @@ msgstr "Permetre l'aviada"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
-msgstr "Nom del dorsièr"
+msgstr "Nom del dossièr"
 
 #: app/askRenamePopup.js:61
 msgid "File name"
@@ -415,23 +394,23 @@ msgstr "Renomenar"
 
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr es pas installat"
 
 #: app/autoAr.js:72
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"Per poder trabalhar amb de fichièrs compressats, installatz file-roller e/o "
+"gir-1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
-#, fuzzy
 msgid "Extracting files"
-msgstr "Traire aicí"
+msgstr "Extraccion dels fichièrs"
 
 #: app/autoAr.js:220
-#, fuzzy
 msgid "Compressing files"
-msgstr "Compressar {0} fichièr"
+msgstr "Compression dels fichièrs"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:175
 #: app/desktopManager.js:1278 app/dragManager.js:783 app/fileItemMenu.js:916
@@ -441,45 +420,43 @@ msgstr "Anullar"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
-msgstr "Picatz un senhal"
+msgstr "Picatz un senhal aicí"
 
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "Supression de fichièr parcial « ${outputFile} »"
 
 #: app/autoAr.js:373
 msgid "Creating destination folder"
-msgstr ""
+msgstr "Creacion d’un dossièr de destinacion"
 
 #: app/autoAr.js:405
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "Extraccion dels fichièrs dins « ${outputPath} »"
 
 #: app/autoAr.js:435
-#, fuzzy
 msgid "Extraction completed"
-msgstr "Traire aicí"
+msgstr "Extraccion acabada"
 
 #: app/autoAr.js:436
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "L’extraccion de « ${fullPathFile} » es acabada."
 
 #: app/autoAr.js:442
-#, fuzzy
 msgid "Extraction cancelled"
-msgstr "Traire aicí"
+msgstr "Extraccion anullada"
 
 #: app/autoAr.js:443
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "L’utilizaire a anullat l’extraccion de « ${fullPathFile} »."
 
 #: app/autoAr.js:453
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "Frasa secrèta requesida per ${filename}"
 
 #: app/autoAr.js:456
 msgid "Error during extraction"
-msgstr ""
+msgstr "Error pendent l’extraccion"
 
 #: app/autoAr.js:483
 msgid "Compressing files into '${outputFile}'"
@@ -487,7 +464,7 @@ msgstr ""
 
 #: app/autoAr.js:496
 msgid "Compression completed"
-msgstr ""
+msgstr "Compression acabada"
 
 #: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}' has been completed."
@@ -495,7 +472,7 @@ msgstr ""
 
 #: app/autoAr.js:501 app/autoAr.js:508
 msgid "Cancelled compression"
-msgstr ""
+msgstr "Compression anullada"
 
 #: app/autoAr.js:502
 msgid "The output file '${outputFile}' already exists."
@@ -511,16 +488,15 @@ msgstr ""
 
 #: app/autoAr.js:547
 msgid "Create archive"
-msgstr ""
+msgstr "Crear un archiu"
 
 #: app/autoAr.js:571
-#, fuzzy
 msgid "Archive name"
-msgstr "Nom de fichièr"
+msgstr "Nom de l'archiu"
 
 #: app/autoAr.js:604
 msgid "Password"
-msgstr "Causissètz un senhal"
+msgstr "Senhal"
 
 #: app/autoAr.js:617
 msgid "Create"
@@ -560,7 +536,6 @@ msgid "Broken Desktop File"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
 #: app/desktopFileIcon.js:141
-#, fuzzy
 msgid ""
 "This .desktop file has errors or points to a program without permissions. It "
 "can not be executed.\n"
@@ -568,20 +543,17 @@ msgid ""
 "Edit the file to set the correct executable Program."
 msgstr ""
 "Aqueste fichièr .desktop a d’errors o mena a un programa sens autorizacion. "
-"Pòt pas èsser executat.\n"
+"Se pòt pas executar.\n"
 "\n"
-"\t<b>Modificatz lo fichièr per definir un programa executable corrèct.</b>"
+"Modificatz lo fichièr per definir un programa executable corrècte."
 
 #: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
 msgstr "Autorizacion invalida sul fichièr de burèu"
 
 #: app/desktopFileIcon.js:152
-#, fuzzy
 msgid "This Desktop File has incorrect Permissions."
-msgstr ""
-"Aqueste fichièr .desktop a d’autorizacions incorrèctas. Fasètz clicatz drech "
-"per modificar las proprietats, puèi :\n"
+msgstr "Aqueste fichièr de burèu a d’autorizacions incorrèctas."
 
 #: app/desktopFileIcon.js:173
 #, fuzzy
@@ -589,17 +561,12 @@ msgid "Untrusted Desktop File"
 msgstr "Mostrar lo burèu dins Fichièrs"
 
 #: app/desktopFileIcon.js:175
-#, fuzzy
 msgid "This Desktop file is not trusted, it can not be launched."
-msgstr ""
-"Aqueste fichièr .desktop es pas fisable, se pòt pas lançar. Per autorizar "
-"son lançament, fasètz clic drech puèi :\n"
-"\n"
-"<b>Activar « Autorizar lo lançament »</b>"
+msgstr "Aqueste fichièr de burèu es pas fisable, se pòt pas lançar."
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
-msgstr "Impossible de dobrir lo fichièr : {0}"
+msgstr "Impossible de dobrir lo fichièr"
 
 #: app/desktopFileIcon.js:206
 msgid "{appName} can not open files of this Type!"
@@ -681,9 +648,8 @@ msgid ""
 msgstr ""
 
 #: app/desktopManager.js:223
-#, fuzzy
 msgid "GNOME Files not found"
-msgstr "Gestionari de fichièrs Nautilus pas trobat"
+msgstr "Gestionari de fichièrs de GNOME pas trobat"
 
 #: app/desktopManager.js:224
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
@@ -718,12 +684,11 @@ msgstr "Recercar de fichièrs al burèu"
 
 #: app/desktopManager.js:1621 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
-msgstr "Dorsièr novèl"
+msgstr "Dossièr novèl"
 
 #: app/desktopManager.js:1655
-#, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Nom del dorsièr"
+msgstr "Fracàs de la creacion del dossièr"
 
 #: app/desktopManager.js:1656
 msgid "Could not create folder"
@@ -759,12 +724,11 @@ msgstr "Nom"
 
 #: app/desktopMenu.js:921
 msgid "Name Z-A"
-msgstr ""
+msgstr "Nom Z-A"
 
 #: app/desktopMenu.js:923
-#, fuzzy
 msgid "Modified Time"
-msgstr "Triar per data de modificacion"
+msgstr "Data de modification"
 
 #: app/desktopMenu.js:925
 msgid "Type"
@@ -902,8 +866,8 @@ msgstr ""
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] "Dorsièr novèl amb {0} element"
-msgstr[1] "Dorsièr novèl amb {0} elements"
+msgstr[0] "Dossièr novèl amb {0} element"
+msgstr[1] "Dossièr novèl amb {0} elements"
 
 #: app/fileItemMenu.js:114
 msgid "Open All..."
@@ -915,7 +879,7 @@ msgstr "Aviar"
 
 #: app/fileItemMenu.js:135
 msgid "Open with {foo}"
-msgstr ""
+msgstr "Dobrir amb {foot}"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
@@ -930,9 +894,8 @@ msgid "Extract To..."
 msgstr "Extraire dins..."
 
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
-#, fuzzy
 msgid "Open With..."
-msgstr "Dobrir tot..."
+msgstr "Dobrir amb..."
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
@@ -963,13 +926,12 @@ msgid "Cut"
 msgstr "Copar"
 
 #: app/fileItemMenu.js:244
-#, fuzzy
 msgid "Move to..."
-msgstr "Mandar a..."
+msgstr "Desplaçar cap a..."
 
 #: app/fileItemMenu.js:245
 msgid "Copy to..."
-msgstr "Copiar vèrs"
+msgstr "Copiar cap a..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -977,14 +939,13 @@ msgstr "Renomenar…"
 
 #: app/fileItemMenu.js:254
 msgid "Create Link..."
-msgstr ""
+msgstr "Crear un ligam..."
 
 #: app/fileItemMenu.js:261
-#, fuzzy
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "Compressar {0} fichièr"
-msgstr[1] "Compressar {0} fichièrs"
+msgstr[0] "Compressar {0} dossièr"
+msgstr[1] "Compressar {0} dossièrs"
 
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
@@ -994,7 +955,7 @@ msgstr[1] "Compressar {0} fichièrs"
 
 #: app/fileItemMenu.js:276
 msgid "Email to..."
-msgstr ""
+msgstr "Enviar a..."
 
 #: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
@@ -1053,9 +1014,8 @@ msgid "Open Item"
 msgstr "Dobrir dins un terminal"
 
 #: app/fileItemMenu.js:821
-#, fuzzy
 msgid "Extraction Cancelled"
-msgstr "Traire aicí"
+msgstr "Extraccion anullada"
 
 #: app/fileItemMenu.js:822
 msgid "Unable to extract File, no destination folder"
@@ -1063,7 +1023,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:878 app/fileItemMenu.js:907
 msgid "Select Destination"
-msgstr "Chausir la destinacion"
+msgstr "Seleccionar una destinacion"
 
 #: app/fileItemMenu.js:881 app/fileItemMenu.js:909
 msgid "Select"
@@ -1076,7 +1036,7 @@ msgstr "Impossible d’enviar un email a un Repertòri"
 #: app/fileItemMenu.js:967
 msgid "Selection includes a Directory, compress to a .zip file first?"
 msgstr ""
-"La seleccion inclutz un repertòri, compressatz lo repertòri d'en primièr."
+"La seleccion inclutz un repertòri, compressatz lo repertòri d'en primièr ?"
 
 #: app/fileItemMenu.js:993 app/fileItemMenu.js:1024 app/fileItemMenu.js:1041
 #: app/fileItemMenu.js:1060
@@ -1127,18 +1087,16 @@ msgid "Please Install {0}"
 msgstr ""
 
 #: app/fileItemMenu.js:1283
-#, fuzzy
 msgid "Copy Cancelled"
-msgstr "Anullar"
+msgstr "Còpia anullada"
 
 #: app/fileItemMenu.js:1284
 msgid "Unable to copy Files, no destination folder"
 msgstr ""
 
 #: app/fileItemMenu.js:1307
-#, fuzzy
 msgid "Move Cancelled"
-msgstr "Anullar"
+msgstr "Desplaçament anullat"
 
 #: app/fileItemMenu.js:1308
 msgid "Unable to move Files, no destination folder"
@@ -1214,7 +1172,7 @@ msgstr ""
 
 #: app/shortcutManager.js:696
 msgid "Reset All..."
-msgstr "Tot reïnicializar"
+msgstr "Tot reïnicializar..."
 
 #: app/shortcuts.js:15
 msgid "Show Desktop in Files"
@@ -1242,16 +1200,15 @@ msgstr ""
 
 #: app/shortcuts.js:21
 msgid "Keep Arranged"
-msgstr "Gardar arrengat..."
+msgstr "Gardar arrengat"
 
 #: app/shortcuts.js:22
 msgid "Keep Stacked"
 msgstr "Gardar las icònas arrengadas"
 
 #: app/shortcuts.js:23
-#, fuzzy
 msgid "Sort Special Folders"
-msgstr "Triar los dorsièr especial - Repertòri personal/Escobilhièr."
+msgstr "Triar los dossièrs especials"
 
 #: app/shortcuts.js:24
 #, fuzzy
@@ -1409,7 +1366,7 @@ msgstr ""
 
 #: app/widgetManager.js:1559
 msgid "User"
-msgstr ""
+msgstr "User"
 
 #: app/widgetWebContext.js:187
 #, fuzzy
@@ -1440,7 +1397,7 @@ msgstr ""
 
 #: data/ui/ding-app-chooser.ui:81
 msgid "Always use for this file type"
-msgstr ""
+msgstr "Totjorn utilizar per aqueste tipe de fichièr"
 
 #: data/ui/ding-app-chooser.ui:104
 msgid "_Cancel"
@@ -1485,7 +1442,7 @@ msgstr "Mostrar lo repertòri personal"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 msgid "Show the personal folder in the desktop."
-msgstr "Mostrar lo dorsièr personal pel burèu."
+msgstr "Mostrar lo repertòri personal pel burèu."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
@@ -1545,7 +1502,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "Triar los dorsièr especial - Repertòri personal/Escobilhièr."
+msgstr "Triar los dossièrs especials — Repertòri personal/Escobilhièr."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 msgid ""

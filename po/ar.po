@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-10-02 20:02+0000\n"
+"PO-Revision-Date: 2025-12-30 12:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ar/>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.14-dev; LibreTranslate (auto-fill)\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "تجاوز"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
@@ -172,9 +172,8 @@ msgstr "Snap icons to grid"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:695
-#, fuzzy
 msgid "Show desktop widgets"
-msgstr "مكتب خدمات المشاريع في الأفلام"
+msgstr "عناصر واجهة المستخدم لسطح المكتب"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:700
@@ -329,9 +328,8 @@ msgstr "التحويل"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "Choose an application to open <b>{foo}"
+msgstr "اختر تطبيقًا لفتحه <b>{foo}</b>"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
@@ -355,7 +353,7 @@ msgstr "تطبيق خاطئ متغير"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "حدث خطأ أثناء تعيين {foo} كتطبيق افتراضي لـ {mimetype}"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -975,7 +973,7 @@ msgstr "يفتح في {0}"
 
 #: app/desktopMenu.js:1019
 msgid "Edit Widgets…"
-msgstr ""
+msgstr "تحرير الأداة"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1026
@@ -1520,7 +1518,7 @@ msgstr ""
 
 #: app/shortcuts.js:35 app/widgetManager.js:911
 msgid "Add Widget"
-msgstr ""
+msgstr "أضف اداة"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:36
@@ -1634,7 +1632,7 @@ msgstr ""
 
 #: app/widgetManager.js:1559
 msgid "User"
-msgstr ""
+msgstr "مجموعة مستخدمين: إدخال واحد لكل مستخدم"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
@@ -1904,9 +1902,8 @@ msgstr ""
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, fuzzy
 msgid "Show Desktop Widgets"
-msgstr "مكتب خدمات المشاريع في الأفلام"
+msgstr "عناصر واجهة المستخدم لسطح المكتب"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"

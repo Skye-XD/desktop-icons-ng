@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-11-22 05:51+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"PO-Revision-Date: 2025-12-30 12:01+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ka/>\n"
 "Language: ka\n"
@@ -19,11 +20,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "გადაფარვა"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
@@ -373,7 +374,7 @@ msgstr ""
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
-msgstr ""
+msgstr "საქაღალდის სახელი"
 
 #: app/askRenamePopup.js:61
 msgid "File name"
@@ -482,7 +483,7 @@ msgstr ""
 
 #: app/autoAr.js:547
 msgid "Create archive"
-msgstr ""
+msgstr "არქივის შექმნა"
 
 #: app/autoAr.js:571
 msgid "Archive name"
@@ -755,7 +756,7 @@ msgstr "მალსახმობების ჩვენება"
 
 #: app/desktopMenu.js:963 app/shortcuts.js:45
 msgid "New Document"
-msgstr ""
+msgstr "ახალი დოკუმენტი"
 
 #: app/desktopMenu.js:968 app/shortcuts.js:11
 msgid "Paste"
@@ -873,7 +874,7 @@ msgstr ""
 
 #: app/fileItemMenu.js:162
 msgid "Extract To..."
-msgstr ""
+msgstr "გაშლა სად..."
 
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 msgid "Open With..."
@@ -961,7 +962,7 @@ msgstr "ნაგვის ყუთის დაცარიელება"
 
 #: app/fileItemMenu.js:345
 msgid "Eject"
-msgstr ""
+msgstr "გამოღება"
 
 #: app/fileItemMenu.js:348
 msgid "Unmount"
@@ -1151,7 +1152,7 @@ msgstr "სამუშაო მაგიდის ჩვენება Files-
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
-msgstr ""
+msgstr "ტერმინალში გახსნა"
 
 #: app/shortcuts.js:17
 msgid "Change Background"
@@ -1322,7 +1323,7 @@ msgstr ""
 
 #: app/widgetManager.js:1559
 msgid "User"
-msgstr ""
+msgstr "მომხმარებელი"
 
 #: app/widgetWebContext.js:187
 #, fuzzy

@@ -3,24 +3,27 @@
 # This file is distributed under the same license as the gtk4-ding package.
 # Automatically generated, 2025.
 #
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-09-28 17:15-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-12-30 12:00+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hant/>\n"
 "Language: zh-Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: LibreTranslate (auto-fill)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "覆蓋"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
@@ -185,9 +188,8 @@ msgstr "將圖示取回網格"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:695
-#, fuzzy
 msgid "Show desktop widgets"
-msgstr "在檔案中顯示桌面"
+msgstr "桌面小部件"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:700
@@ -342,9 +344,8 @@ msgstr "翻譯"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "選擇要開啟的應用程式 <b> {foo} </b>"
+msgstr "選擇要開啟 <b> {foo} </b> 的應用程式"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
@@ -368,7 +369,7 @@ msgstr "變更預設應用程式出錯"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "將 {foo} 設定為開啟 {mimetype} 的預設應用程式時發生錯誤"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -1004,7 +1005,7 @@ msgstr "在 {0} 中開啟"
 
 #: app/desktopMenu.js:1019
 msgid "Edit Widgets…"
-msgstr ""
+msgstr "編輯小工具"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1026
@@ -1545,7 +1546,7 @@ msgstr ""
 
 #: app/shortcuts.js:35 app/widgetManager.js:911
 msgid "Add Widget"
-msgstr ""
+msgstr "新增小工具"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:36
@@ -1659,7 +1660,7 @@ msgstr ""
 
 #: app/widgetManager.js:1559
 msgid "User"
-msgstr ""
+msgstr "使用者"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
@@ -1933,9 +1934,8 @@ msgstr "圖示不是在矩形格子上取而代之,而可以被收起去除格�
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
-#, fuzzy
 msgid "Show Desktop Widgets"
-msgstr "在檔案中顯示桌面"
+msgstr "桌面小部件"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
