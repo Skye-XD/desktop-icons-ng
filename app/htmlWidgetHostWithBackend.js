@@ -114,12 +114,24 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         }
 
         try {
-            this._backendProc = Gio.Subprocess.new(
-                spec.argv,
-                Gio.SubprocessFlags.STDIN_PIPE |
-                Gio.SubprocessFlags.STDOUT_PIPE |
-                Gio.SubprocessFlags.STDERR_PIPE
-            );
+            const launcher = new Gio.SubprocessLauncher({
+                flags: Gio.SubprocessFlags.STDIN_PIPE |
+                    Gio.SubprocessFlags.STDOUT_PIPE |
+                    Gio.SubprocessFlags.STDERR_PIPE,
+            });
+
+            if (spec.cwd)
+                launcher.set_cwd(spec.cwd);
+
+            if (spec.env) {
+                for (const [key, value] of Object.entries(spec.env)) {
+                    if (typeof key !== 'string')
+                        continue;
+                    launcher.setenv(key, String(value ?? ''), true);
+                }
+            }
+
+            this._backendProc = launcher.spawnv(spec.argv);
 
             this._backendIn = new Gio.DataOutputStream({
                 base_stream: this._backendProc.get_stdin_pipe(),
