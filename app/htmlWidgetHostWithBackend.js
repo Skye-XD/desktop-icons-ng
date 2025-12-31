@@ -269,6 +269,8 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             return;
 
         this._failInFlightBackendRequests(inst, error);
+        this._pendingBackendRequests.length = 0;
+        this._pendingBackendEvents.length = 0;
     }
 
     _failPendingBackendRequests(inst, error) {
@@ -277,27 +279,14 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             return;
         }
 
-        const err = error || {
-            code: 'E_BACKEND_FAILURE',
-            message: 'Backend unavailable',
-        };
-
+        const requestIds = [];
         for (const entry of this._pendingBackendRequests) {
-            const instanceId = entry.instanceId ?? inst?.instanceId;
             const requestId = entry.payload?.requestId;
-            if (!instanceId || !requestId)
-                continue;
-
-            this.postMessage({
-                _dingInternal: true,
-                type: 'backendReply',
-                instanceId,
-                requestId,
-                ok: false,
-                error: err,
-            });
+            if (requestId)
+                requestIds.push(requestId);
         }
 
+        this._failBackendRequestIds(inst, requestIds, error);
         this._pendingBackendRequests.length = 0;
     }
 
@@ -307,18 +296,25 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             return;
         }
 
+        const requestIds = Array.from(this._backendPending.keys());
+        this._backendPending.clear();
+        this._failBackendRequestIds(inst, requestIds, error);
+    }
+
+    _failBackendRequestIds(inst, requestIds, error) {
+        if (!requestIds.length || this._destroyed)
+            return;
+
+        const instanceId = inst?.instanceId;
+        if (!instanceId)
+            return;
+
         const err = error || {
             code: 'E_BACKEND_FAILURE',
             message: 'Backend unavailable',
         };
 
-        const instanceId = inst?.instanceId;
-        if (!instanceId) {
-            this._backendPending.clear();
-            return;
-        }
-
-        for (const requestId of this._backendPending.keys()) {
+        for (const requestId of requestIds) {
             this.postMessage({
                 _dingInternal: true,
                 type: 'backendReply',
@@ -328,8 +324,6 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                 error: err,
             });
         }
-
-        this._backendPending.clear();
     }
 
     _dispatchBackendRequest(payload) {
