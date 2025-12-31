@@ -334,7 +334,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         if (!requestId)
             return;
 
-        this._backendPending.set(requestId, {method});
+        this._backendPending.set(requestId, true);
 
         this._sendBackend({
             type: 'request',
