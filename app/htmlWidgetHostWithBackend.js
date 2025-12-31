@@ -434,10 +434,11 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
     }
 
     destroy() {
+        this._destroyed = true;
+
         try {
-            if (this._backendIn) {
+            if (this._backendIn)
                 this._sendBackend({ type: 'shutdown' });
-            }
         } catch {}
 
         this._backendReading = false;
