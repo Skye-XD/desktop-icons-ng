@@ -355,6 +355,11 @@ const WidgetRegistry = class  {
                             ? manifest.prefs
                             : null;
 
+                    const backend =
+                        this._isObject(manifest.backend)
+                            ? manifest.backend
+                            : null;
+
                     const desc = {
                         id,
                         kind,
@@ -370,6 +375,7 @@ const WidgetRegistry = class  {
                         defaultHeight,
                         defaultConfig,
                         prefs,
+                        backend,
                     };
 
                     // Resolve duplicates deterministically;
@@ -460,5 +466,69 @@ const WidgetRegistry = class  {
                 }
             );
         });
+    }
+
+    normalizeBackendSpec(desc, inst) {
+        return this._normalizeBackendSpec(desc, inst);
+    }
+
+    _normalizeBackendSpec(desc, inst) {
+        const b = desc?.backend;
+        if (!b || typeof b !== 'object')
+            return null;
+
+        const cmd = b.command;
+        if (typeof cmd !== 'string' || cmd.length === 0)
+            return null;
+
+        const args = Array.isArray(b.args)
+            ? b.args.filter(a => typeof a === 'string')
+            : [];
+
+        const cwdRel =
+            (typeof b.cwd === 'string' && b.cwd.length) ? b.cwd : '.';
+
+        const dirFile = desc.dir;
+        const dirPath = dirFile?.get_path?.();
+        if (!dirFile || !dirPath)
+            return null;
+
+        const argv0File = dirFile.resolve_relative_path
+            ? dirFile.resolve_relative_path(cmd)
+            : dirFile.get_child(cmd);
+        const argv0 = argv0File?.get_path?.();
+        if (!argv0)
+            return null;
+
+        const cwdFile = dirFile.resolve_relative_path
+            ? dirFile.resolve_relative_path(cwdRel)
+            : dirFile.get_child(cwdRel);
+        const cwd = cwdFile?.get_path?.() ?? dirPath;
+
+        const envOverrides =
+            (b.env && typeof b.env === 'object') ? b.env : null;
+
+        const env = {
+            DING_WIDGET_ID: String(inst?.widgetId ?? ''),
+            DING_INSTANCE_ID: String(inst?.instanceId ?? ''),
+        };
+
+        if (envOverrides) {
+            for (const [key, value] of Object.entries(envOverrides)) {
+                if (typeof key !== 'string')
+                    continue;
+                if (value === undefined)
+                    continue;
+                env[key] = typeof value === 'string'
+                    ? value
+                    : String(value);
+            }
+        }
+
+        return {
+            argv: [argv0, ...args],
+            cwd,
+            env,
+        };
     }
 };

@@ -29,15 +29,89 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         this._backendReading = false;
         this._backendPending = new Map();
         this._decoder = new TextDecoder('utf-8');
+        this._pendingBackendRequests = [];
+        this._backendEnsurePromise = null;
     }
 
     async _ensureBackend(inst) {
+        if (!inst || this._destroyed)
+            return false;
+
         if (this._backendProc)
             return true;
 
-        const spec = inst?.backendSpec;
-        if (!spec?.argv?.length)
-            return false;
+        if (this._backendEnsurePromise)
+            return this._backendEnsurePromise;
+
+        const ensurePromise = this._startBackend(inst);
+
+        this._backendEnsurePromise = ensurePromise;
+
+        let result;
+        try {
+            result = await ensurePromise;
+        } finally {
+            if (this._backendEnsurePromise === ensurePromise)
+                this._backendEnsurePromise = null;
+        }
+
+        if (result?.ok) {
+            this._flushPendingBackendRequests();
+            return true;
+        }
+
+        this._failPendingBackendRequests(
+            inst,
+            result?.error ?? {
+                code: 'E_NO_BACKEND',
+                message: 'No backend configured',
+            }
+        );
+        return false;
+    }
+
+    async _buildBackendSpec(inst) {
+        if (!inst)
+            return null;
+
+        if (inst.backendSpec)
+            return inst.backendSpec;
+
+        if (!this._widgetRegistry)
+            return null;
+
+        let desc = null;
+        try {
+            desc = await this._widgetRegistry.getDescriptor(inst.widgetId);
+        } catch (e) {
+            console.error(
+                'HtmlWidgetHostWithBackend: failed to fetch descriptor:',
+                e
+            );
+            return null;
+        }
+
+        if (!desc)
+            return null;
+
+        const spec =
+            this._widgetRegistry.normalizeBackendSpec(desc, inst);
+
+        inst.backendSpec = spec || null;
+        return spec;
+    }
+
+    async _startBackend(inst) {
+        let spec = inst?.backendSpec;
+        if (!spec)
+            spec = await this._buildBackendSpec(inst);
+
+        if (!spec?.argv?.length) {
+            return {
+                ok: false,
+                error: {code: 'E_NO_BACKEND', message: 'No backend configured'},
+            };
+        }
 
         try {
             this._backendProc = Gio.Subprocess.new(
@@ -66,19 +140,30 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                 config: inst.config || {},
             });
 
-            return true;
+            return {ok: true};
         } catch (e) {
             console.error(
                 'HtmlWidgetHostWithBackend: failed to start backend:', e
             );
 
-            this._backendProc = null;
-            this._backendIn = null;
-            this._backendOut = null;
-            return false;
+            this._handleBackendExit(inst, {
+                code: 'E_BACKEND_START',
+                message: e?.message ?? 'Failed to start backend',
+            });
+
+            return {
+                ok: false,
+                error: {
+                    code: 'E_BACKEND_START',
+                    message: e?.message ?? 'Failed to start backend',
+                },
+            };
         }
     }
 
+    // Backend expects newline-delimited JSON objects. Known outbound shapes:
+    //  - hello:  {type, instanceId, widgetId, mode, config}
+    //  - request {type, id, method, params}
     _sendBackend(obj) {
         if (!this._backendIn)
             return;
@@ -94,6 +179,12 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
     }
 
     async _readBackendLoop(inst) {
+        // Monitor backend lifetime via stdout: when the pipe closes (crash or
+        // normal exit), read_line_async will break and we can clean up +
+        // fail inflight requests immediately without wiring a second
+        // Gio.Subprocess child watch. This keeps behavior simple and matches
+        // common Gio subprocess patterns; we can add a child watch later if we
+        // need the exact exit status.
         while (this._backendReading && this._backendOut) {
             let line;
 
@@ -122,7 +213,119 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         }
 
         this._backendReading = false;
+        this._handleBackendExit(inst, {
+            code: 'E_BACKEND_EXIT',
+            message: 'Backend process exited',
+        });
     }
+
+    _flushPendingBackendRequests() {
+        if (!this._pendingBackendRequests.length)
+            return;
+
+        for (const entry of this._pendingBackendRequests)
+            this._dispatchBackendRequest(entry.payload);
+
+        this._pendingBackendRequests.length = 0;
+    }
+
+    _handleBackendExit(inst, error) {
+        this._backendReading = false;
+
+        this._backendProc = null;
+        this._backendIn = null;
+        this._backendOut = null;
+
+        if (this._destroyed)
+            return;
+
+        this._failInFlightBackendRequests(inst, error);
+    }
+
+    _failPendingBackendRequests(inst, error) {
+        if (!this._pendingBackendRequests.length || this._destroyed) {
+            this._pendingBackendRequests.length = 0;
+            return;
+        }
+
+        const err = error || {
+            code: 'E_BACKEND_FAILURE',
+            message: 'Backend unavailable',
+        };
+
+        for (const entry of this._pendingBackendRequests) {
+            const instanceId = entry.instanceId ?? inst?.instanceId;
+            const requestId = entry.payload?.requestId;
+            if (!instanceId || !requestId)
+                continue;
+
+            this.postMessage({
+                _dingInternal: true,
+                type: 'backendReply',
+                instanceId,
+                requestId,
+                ok: false,
+                error: err,
+            });
+        }
+
+        this._pendingBackendRequests.length = 0;
+    }
+
+    _failInFlightBackendRequests(inst, error) {
+        if (!this._backendPending.size || this._destroyed) {
+            this._backendPending.clear();
+            return;
+        }
+
+        const err = error || {
+            code: 'E_BACKEND_FAILURE',
+            message: 'Backend unavailable',
+        };
+
+        const instanceId = inst?.instanceId;
+        if (!instanceId) {
+            this._backendPending.clear();
+            return;
+        }
+
+        for (const requestId of this._backendPending.keys()) {
+            this.postMessage({
+                _dingInternal: true,
+                type: 'backendReply',
+                instanceId,
+                requestId,
+                ok: false,
+                error: err,
+            });
+        }
+
+        this._backendPending.clear();
+    }
+
+    _dispatchBackendRequest(payload) {
+        if (!payload || !this._backendProc || this._destroyed)
+            return;
+
+        const { requestId, method, params } = payload;
+        if (!requestId)
+            return;
+
+        this._backendPending.set(requestId, {method});
+
+        this._sendBackend({
+            type: 'request',
+            id: requestId,
+            method,
+            params: params || {},
+        });
+    }
+
+    // Inbound JSON objects are expected to be of type response, event or log.
+    //  - response: {type, id, ok, result, error}
+    //  - event:    {type, name, payload}
+    //  - log:      {type, level, message}
+    // with author-defined 'name' and custom JSON 'payload'
 
     _handleBackendMessage(inst, msg) {
         if (!msg || typeof msg !== 'object')
@@ -169,54 +372,49 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
     }
 
     async backendRequest(inst, payload) {
-        const { requestId, method, params } = payload || {};
+        if (!inst || !payload || this._destroyed)
+            return;
 
-        if (!await this._ensureBackend(inst)) {
-            this.postMessage({
-                _dingInternal: true,
-                type: 'backendReply',
-                instanceId: inst.instanceId,
-                requestId,
-                ok: false,
-                error: {code: 'E_NO_BACKEND', message: 'No backend configured'},
-            });
+        if (this._backendProc) {
+            this._dispatchBackendRequest(payload);
             return;
         }
 
-        this._backendPending.set(requestId, { /* mode if you want */ });
-
-        this._sendBackend({
-            type: 'request',
-            id: requestId,
-            method,
-            params: params || {},
+        this._pendingBackendRequests.push({
+            instanceId: inst.instanceId,
+            payload,
         });
+
+        await this._ensureBackend(inst);
     }
 
     backendSend(inst, payload) {
+        if (!inst || !payload || this._destroyed)
+            return;
+
         const { name, payload: data } = payload || {};
-        const inst = this._inst;
+        if (!this._backendProc)
+            return;
 
-        this._ensureBackend(inst).then(ok => {
-            if (!ok) return;
-
-            this._sendBackend({
-                type: 'event',
-                name,
-                payload: data || {},
-            });
+        this._sendBackend({
+            type: 'event',
+            name,
+            payload: data || {},
         });
     }
 
     destroy() {
         try {
             if (this._backendIn) {
-                // graceful
                 this._sendBackend({ type: 'shutdown' });
             }
         } catch {}
 
         this._backendReading = false;
+
+        try {
+            this._backendProc?.send_signal?.(15);
+        } catch {}
 
         try {
             this._backendProc?.force_exit();
@@ -225,6 +423,8 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         this._backendProc = null;
         this._backendIn = null;
         this._backendOut = null;
+        this._pendingBackendRequests.length = 0;
+        this._backendEnsurePromise = null;
 
         super.destroy();
     }

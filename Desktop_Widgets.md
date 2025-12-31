@@ -45,6 +45,8 @@ Using HTML also makes it possible to leverage the enormous existing web ecosyste
 
 This makes it easy to build widgets that integrate with home automation systems, monitoring endpoints, remote dashboards, infrastructure services, and other devices that already expose web-based APIs or interfaces.
 
+When HTTP APIs are not enough, widgets can declare a native backend helper. The helper is launched directly from the widget directory and communicates with the HTML UI using newline-delimited JSON. This unlocks integrations with sensors, CLI tools, and custom daemons written in any language, so long as you ship the executable with the widget. Because the helper runs with the user’s privileges, treat it like any other desktop application when reviewing or distributing widgets.
+
 This includes:
 - modern JavaScript frameworks and libraries
 - React, Vue, Svelte, or plain JavaScript
@@ -628,6 +630,39 @@ The `prefs` key is optional; when set, it should point to a preferences HTML fil
 
 ---
 
+## Optional backend subprocess
+
+HTML widgets may opt into a helper backend executed by `HtmlWidgetHostWithBackend`. Add a `backend` object to `widget.json` when you need a native companion that talks to system services, performs heavy computation, or reaches resources that WebKit cannot access directly.
+
+```json
+{
+  "id": "cpu-monitor",
+  "kind": "html",
+  "entry": "dist/index.html",
+  "backend": {
+    "command": "backend/cpu-backend",
+    "args": ["--interval-ms", "1000"],
+    "cwd": ".",
+    "env": {
+      "RUST_LOG": "info"
+    }
+  }
+}
+```
+
+Manifest fields:
+
+- `backend.command` (required): executable path relative to the widget directory.
+- `backend.args` (optional): array of argument strings.
+- `backend.cwd` (optional): working directory relative to the widget root (`"."` by default).
+- `backend.env` (optional): map of environment overrides merged with the host-provided environment.
+
+The backend process receives newline-delimited JSON requests from the host and replies in kind. See [Widget_API.md](Widget_API.md#htmlwidgethostwithbackend-json-protocol) for the message schema. Because the backend is just a regular executable, you can write it in any language and use it to interact with system internals, hardware, or private APIs, then push the results to the widget UI.
+
+> **Important:** Backends run with the user’s permissions and can read local files, talk to the network, or spawn additional helpers. Treat backend-enabled widgets as native applications and ship only audited binaries or scripts.
+
+---
+
 ## Known limitations and non-goals
 
 This platform is intentionally focused on lightweight, glanceable desktop widgets. As a result, there are deliberate limitations and non-goals:
@@ -662,6 +697,7 @@ In practice, this means widgets can reliably use:
   - reading and saving configuration
   - receiving host state (selection, edit mode, theme, locale, etc.)
   - opening and closing preferences
+- Communicating with optional backend helpers using the JSON protocol handled by `HtmlWidgetHostWithBackend`
 
 APIs that typically require explicit browser-style permissions (such as desktop notifications, camera or microphone access, geolocation, or screen capture) are **not part of the supported platform contract** unless explicitly documented and enabled.
 
@@ -687,6 +723,10 @@ This project reflects the best security practices and trade-offs I can reasonabl
 
 Use of this platform and third-party widgets is ultimately **at your own risk**.
 
+### Backend subprocesses magnify trust requirements
+
+When a widget declares a `backend`, the host spawns that executable directly from the widget bundle with the user’s privileges. The backend is outside the WebKit sandbox, can access the local filesystem, hardware, and network, and communicates with the widget UI via JSON over stdin/stdout. This design enables powerful integrations (system monitors, hardware bridges, custom daemons) but also means a compromised widget backend has the same reach as any local application. Install backend-enabled widgets only from trusted sources and review their contents just as you would any packaged software.
+
 ---
 
 ## Security warning for authors
@@ -698,6 +738,7 @@ As a widget author:
 - do not expect perfect isolation
 - do not handle secrets
 - do not attempt to bypass platform restrictions
+- treat backend helpers like native apps: audit dependencies, minimize privileges, and document exactly what they do
 
 Widgets should be safe even if inspected, modified, or disabled at any time.
 
@@ -876,6 +917,8 @@ The platform assumes:
 - When in doubt, inspect the underlying code of the widget that you want to run.
 
 Security features are designed to reduce risk, not to replace trust.
+
+Backend-enabled widgets deserve extra scrutiny: the helper executable has the same system reach as any other program you run. Inspect `widget.json` for a `backend` section, read the bundled source or binary, and understand what it does before enabling it on your desktop.
 
 ---
 

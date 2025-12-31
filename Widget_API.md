@@ -339,6 +339,42 @@ The host (WebWidgetContext) recognizes these message types from widgets:
 
 ---
 
+## HtmlWidgetHostWithBackend JSON protocol
+
+Some widgets declare a backend subprocess via `backendSpec`. When present, `HtmlWidgetHostWithBackend` launches that subprocess and exchanges newline-delimited JSON objects over stdin/stdout.
+
+### Host → backend messages
+
+- **hello**  
+  Sent once after the process starts. Shape:  
+  `{ type: "hello", instanceId, widgetId, mode: "widget", config }`  
+  Receipt of `hello` is a backend’s signal that it can begin doing work. The host sends `hello` immediately after wiring the subprocess—even before any real `request` is dispatched—so widget authors can force eager startup by issuing a no-op `backendRequest` during widget load to trigger process creation.
+- **request**  
+  Sent for each `backendRequest()` invoked by the widget. Shape:  
+  `{ type: "request", id, method, params }`  
+  `method` is an author-defined string that the backend understands, and `params` is arbitrary JSON supplied by the widget.
+- **shutdown**  
+  Sent when the widget host is being destroyed. Shape:  
+  `{ type: "shutdown" }`  
+  Backends should treat this as a polite SIGTERM-equivalent and exit promptly; the host will forcibly terminate the process shortly after.
+
+### Backend → host messages
+
+- **response**  
+  Completes a pending request. Shape:  
+  `{ type: "response", id, ok, result, error }`
+- **event**  
+  Asynchronous notifications forwarded to the widget as `backendEvent`. Shape:  
+  `{ type: "event", name, payload }`  
+  `name` is an author-defined string, and `payload` is arbitrary JSON decided entirely by the backend/widget author pair.
+- **log**  
+  Diagnostics printed by the host. Shape:  
+  `{ type: "log", level, message }`
+
+Messages with unknown `type` values are ignored.
+
+---
+
 
 ### Preferences and the gear icon
 

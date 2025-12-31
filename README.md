@@ -19,6 +19,8 @@ This fork of DING is ported to use the Gtk4 toolkit, and now has been ported to 
 
 Other than using the Gtk4 toolkit, and now libadwaita, it has in addition, several new features, fixes and enhancements.
 
+The new web-widget layer can optionally launch helper backends defined per widget via `widget.json`. `HtmlWidgetHostWithBackend` spawns those commands directly from the widget bundle and exchanges newline-delimited JSON so widgets can render data produced by applications written in any language. This gives widget authors the power to integrate local system information or custom services well beyond what WebKit alone can access, so treat backend-enabled widgets like local applications and install only from trusted sources.
+
 ### UPDATE April 2025
 
 Application was rewritten, cleaned up and restructured completely and several new classes added for cleaner mantainance.
@@ -34,6 +36,13 @@ Uses Libretranslate to automatically translate into multiple languages.
 - As with any web content, widgets carry the same security considerations as a web page; read the security sections in the widget docs for details.
 - The widget runtime is initialized lazily: if no widgets are enabled or instantiated, no WebKit processes are started, no additional resources are used, and there is no added attack surface beyond normal DING operation.
 - Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md).
+
+## Security
+
+- **Backend-enabled widgets run native code.** If a widget declares a `backend` in `widget.json`, the host will spawn that command with the user’s privileges and pipe JSON over stdin/stdout. That process can read local files, access hardware, and reach the network outside the WebKit sandbox or CSP rules. Review widget bundles before installation and only deploy ones you trust as much as other desktop applications.
+- **Per-widget isolation is at the UI layer, not the OS layer.** Widgets share the same user account and session; a malicious widget (or backend) can interfere with others.
+- **Prefer least privilege.** Keep backend binaries small, audited, and limited to the capabilities they truly need. Forward only sanitized data between WebView and backend.
+- **See** [Widget_API.md](Widget_API.md#htmlwidgethostwithbackend-json-protocol) **for protocol details and additional guidance.**
 
 ## Features and Fixes
 
