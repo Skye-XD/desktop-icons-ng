@@ -30,6 +30,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         this._backendPending = new Map();
         this._decoder = new TextDecoder('utf-8');
         this._pendingBackendRequests = [];
+        this._pendingBackendEvents = [];
         this._backendEnsurePromise = null;
     }
 
@@ -57,6 +58,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
 
         if (result?.ok) {
             this._flushPendingBackendRequests();
+            this._flushPendingBackendEvents();
             return true;
         }
 
@@ -241,6 +243,21 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         this._pendingBackendRequests.length = 0;
     }
 
+    _flushPendingBackendEvents() {
+        if (!this._pendingBackendEvents.length)
+            return;
+
+        for (const entry of this._pendingBackendEvents) {
+            this._sendBackend({
+                type: 'event',
+                name: entry.name,
+                payload: entry.payload || {},
+            });
+        }
+
+        this._pendingBackendEvents.length = 0;
+    }
+
     _handleBackendExit(inst, error) {
         this._backendReading = false;
 
@@ -405,14 +422,21 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             return;
 
         const { name, payload: data } = payload || {};
-        if (!this._backendProc)
+        if (this._backendProc) {
+            this._sendBackend({
+                type: 'event',
+                name,
+                payload: data || {},
+            });
             return;
+        }
 
-        this._sendBackend({
-            type: 'event',
+        this._pendingBackendEvents.push({
             name,
             payload: data || {},
         });
+
+        this._ensureBackend(inst);
     }
 
     destroy() {
@@ -436,6 +460,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         this._backendIn = null;
         this._backendOut = null;
         this._pendingBackendRequests.length = 0;
+        this._pendingBackendEvents.length = 0;
         this._backendEnsurePromise = null;
 
         super.destroy();
