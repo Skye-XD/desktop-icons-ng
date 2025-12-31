@@ -331,7 +331,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             return;
 
         const { requestId, method, params } = payload;
-        if (!requestId)
+        if (requestId === undefined || requestId === null)
             return;
 
         this._backendPending.set(requestId, true);
