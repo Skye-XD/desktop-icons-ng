@@ -376,6 +376,7 @@ const WidgetRegistry = class  {
                         defaultConfig,
                         prefs,
                         backend,
+                        hasBackend: !!backend,
                     };
 
                     // Resolve duplicates deterministically;

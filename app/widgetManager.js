@@ -18,7 +18,7 @@
 import {Gdk, Gio, GLib, Gtk, WebKit} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 import {WidgetRegistry} from '../dependencies/localFiles.js';
-import {HtmlWidgetHost} from '../dependencies/localFiles.js';
+import {HtmlWidgetHost, HtmlWidgetHostWithBackend} from '../dependencies/localFiles.js';
 import {WebWidgetContext} from '../dependencies/localFiles.js';
 
 /**
@@ -252,15 +252,15 @@ const WidgetManager = class {
             width,
             height,
             descriptor?.defaultConfig ?? {},
-            kind
+            kind,
+            descriptor
         );
-
-        const prefsUri = descriptor?.prefs ?? null;
-        instance.prefsUri = prefsUri || null;
-        instance.hasPreferences = !!prefsUri;
 
         if (!instance)
             return null;
+
+        this._ensureInstanceActor(instance);
+        this._positionInstanceActor(instance);
 
         // Persist creation
         this._stateChanged();
@@ -584,6 +584,7 @@ const WidgetManager = class {
                 instance.prefsUri = instData.prefsUri ?? null;
                 instance.hasPreferences =
                     instData.hasPreferences ?? !!instance.prefsUri;
+                instance.hasBackend = instData.hasBackend ?? instance.hasBackend ?? false;
             } else {
                 instance = {
                     instanceId: instData.instanceId,
@@ -599,6 +600,7 @@ const WidgetManager = class {
                     prefsUri: instData.prefsUri ?? null,
                     hasPreferences:
                         instData.hasPreferences ?? !!instData.prefsUri,
+                    hasBackend: instData.hasBackend ?? false,
                 };
 
                 this._instances.set(instance.instanceId, instance);
@@ -772,6 +774,7 @@ const WidgetManager = class {
                 config: inst.config ?? {},
                 prefsUri: inst.prefsUri ?? null,
                 hasPreferences: !!inst.hasPreferences,
+                hasBackend: !!inst.hasBackend,
             });
         }
 
@@ -782,7 +785,7 @@ const WidgetManager = class {
     // Internal helpers
     // =====================================================================
     _createInstance(widgetId, monitorIndex, x, y, width, height,
-        config = {}, kind) {
+        config = {}, kind, descriptor = null) {
         const surface = this._surfaces.get(monitorIndex);
         if (!surface) {
             console.error(
@@ -811,13 +814,12 @@ const WidgetManager = class {
             actor: null,
             config,
             kind,
+            hasBackend: descriptor?.hasBackend ?? !!descriptor?.backend ?? false,
+            prefsUri: descriptor?.prefs ?? null,
+            hasPreferences: descriptor?.prefs ? true : false,
         };
 
         this._instances.set(instanceId, instance);
-
-        this._ensureInstanceActor(instance);
-        this._positionInstanceActor(instance);
-
         return instance;
     }
 
@@ -1069,8 +1071,10 @@ const WidgetManager = class {
         let actor = null;
         if (kind === 'html') {
             const webCtx = this._ensureWebWidgetContext();
+            const HostClass =
+                inst.hasBackend ? HtmlWidgetHostWithBackend : HtmlWidgetHost;
 
-            const host = new HtmlWidgetHost({
+            const host = new HostClass({
                 instanceId: inst.instanceId,
                 widgetId: inst.widgetId,
                 frameRect: frame,

@@ -36,5 +36,6 @@ export {GlobalShortcuts} from '../app/shortcuts.js';
 export * as WidgetManager from '../app/widgetManager.js';
 export {WidgetRegistry} from '../app/widgetRegistry.js';
 export {HtmlWidgetHost} from '../app/htmlWidgetHost.js';
+export {HtmlWidgetHostWithBackend} from '../app/htmlWidgetHostWithBackend.js';
 export * as WidgetApi from '../app/widgetApi.js';
 export {WebWidgetContext} from '../app/widgetWebContext.js';
