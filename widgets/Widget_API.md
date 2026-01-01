@@ -6,7 +6,7 @@ This document describes the **current** HTML widget JavaScript API as implemente
 
 It intentionally documents **only what exists today** in code.
 
-If you want a quick start, the optional `ding-client.js` helper in the widgets folder handles the bridge plumbing for you, just read that section.
+If you want a quick start, the optional `ding-client.js` helper handles the bridge plumbing for you, and `ding-widget.css` lets you react to host state using only CSS—jump to those sections if that’s all you need.
 
 ---
 
@@ -112,6 +112,41 @@ On injection, the platform attempts to insert a `<style>` tag at the top of the 
 - forces `background: transparent !important` for `html`, `body`, and `*`
 
 This is intended to make widgets “desktop-friendly” by default (a transparent base), while still allowing the widget author to override visuals with their own CSS.
+
+### Optional helper stylesheet: `ding-widget.css`
+
+Alongside this document, the widgets folder includes `ding-widget.css`, an optional helper stylesheet that reacts to host-managed DOM state. No JavaScript is required; it simply listens to classes and attributes the host already maintains.
+
+#### State applied by the host
+
+Widgets must never toggle these themselves; the host keeps them up to date:
+
+| Host state      | DOM effect                         |
+|-----------------|------------------------------------|
+| Theme           | `body[data-theme="light|dark"]`   |
+| Edit mode       | `body.ding-edit-mode`              |
+| Selection       | `body.ding-selected`               |
+| Reduced motion  | `body.ding-reduced-motion`         |
+| Text direction  | `html[dir="ltr|rtl"]`            |
+
+#### What the stylesheet provides
+
+- **Theme hinting** – sets `color-scheme` based on `body[data-theme]` so built-in controls adopt light/dark without extra code.
+- **Reduced motion** – globally disables animations, transitions, and smooth scrolling whenever `body` has `ding-reduced-motion`, matching GNOME’s accessibility toggle.
+- **Edit mode helpers** – `.ding-only-edit` elements are shown only while the widget is in edit mode.
+- **Selection helpers** – `.ding-only-selected` elements show only when selected; `.ding-selection-outline` can wrap outlines.
+- **Direction awareness** – relies on `html[dir]` so widgets can react to RTL purely via CSS.
+
+#### Using the stylesheet
+
+- Plain HTML widget: `<link rel="stylesheet" href="../ding-widget.css">`
+- Bundled builds (React/Svelte/Vite): `import '../ding-widget.css';`
+
+That’s it—no additional setup. The stylesheet reacts immediately when host state changes.
+
+#### Relationship to `ding-client.js`
+
+`ding-widget.css` handles the visual layer while `ding-client.js` focuses on JavaScript plumbing (config, backend IPC, subscriptions). They are independent: the CSS works without the helper, and the helper doesn’t require the CSS. Together they cover both JS and CSS glue so widget authors can focus on UI logic.
 
 ### Authoring note: outer chrome and clipping
 
@@ -545,3 +580,4 @@ In those cases the helper pays for itself immediately by keeping all widgets con
   - locale changes
 - Prefer shipping all JS/CSS locally; do not rely on remote `<script src=...>`.
 - If you adopt `ding-client.js`, it can hide most of the plumbing above (instance routing, config access, event subscriptions, backend IPC) so your widget code stays focused on UI logic; using it is optional but recommended for consistency.
+- For purely visual reactions to host state, you can skip JavaScript entirely and include `widgets/ding-widget.css`, which already responds to theme, edit/selection state, reduced motion, and direction changes (see [Optional helper stylesheet](#optional-helper-stylesheet-ding-widgetcss)).

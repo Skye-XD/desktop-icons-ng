@@ -35,7 +35,7 @@ Uses Libretranslate to automatically translate into multiple languages.
 - Widgets support preferences via `widget.json` `prefs` paths (any subdirectory) and per-instance config (overwrites on save).
 - As with any web content, widgets carry the same security considerations as a web page; read the security sections in the widget docs for details.
 - The widget runtime is initialized lazily: if no widgets are enabled or instantiated, no WebKit processes are started, no additional resources are used, and there is no added attack surface beyond normal DING operation.
-- Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](widgets/Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md).
+- Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](widgets/Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md). An optional shared stylesheet `widgets/ding-widget.css` is covered in [Widget_API.md](widgets/Widget_API.md#optional-helper-stylesheet-ding-widgetcss).
 
 ## Security
 

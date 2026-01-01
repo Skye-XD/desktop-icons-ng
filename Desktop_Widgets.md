@@ -698,6 +698,7 @@ In practice, this means widgets can reliably use:
   - receiving host state (selection, edit mode, theme, locale, etc.)
   - opening and closing preferences
 - Communicating with optional backend helpers using the JSON protocol handled by `HtmlWidgetHostWithBackend`
+- Styling host-driven state using the optional shared stylesheet `widgets/ding-widget.css` (documented in [Widget_API.md](widgets/Widget_API.md#optional-helper-stylesheet-ding-widgetcss))
 
 APIs that typically require explicit browser-style permissions (such as desktop notifications, camera or microphone access, geolocation, or screen capture) are **not part of the supported platform contract** unless explicitly documented and enabled.
 
