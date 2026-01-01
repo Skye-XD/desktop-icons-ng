@@ -244,6 +244,42 @@ export const WIDGET_API =
         if (!data || data._dingInternal !== true)
             return;
 
+        // --- Backend first (because events have no requestId
+        // and backend uses _backendPending map) ---
+
+        if (type === 'backendEvent') {
+            _backendListeners.forEach(function(cb) {
+                try {
+                    cb(data.name, data.payload);
+                } catch (_e) {}
+            });
+            return;
+        }
+
+        if (type === 'backendReply') {
+            var requestId = data.requestId;
+            if (requestId === undefined || requestId === null)
+                return;
+
+            var pendingReq = _backendPending.get(requestId);
+            if (!pendingReq)
+                return;
+
+            _backendPending.delete(requestId);
+
+            if (data.ok)
+                pendingReq.resolve(data.result);
+            else
+                pendingReq.reject(data.error || {
+                    code: 'E_BACKEND',
+                    message: 'Backend request failed',
+                });
+
+            return;
+        }
+
+        // --- Config plumbing (only for config message types) ---
+
         var type = data.type || null;
         var requestId = data.requestId || null;
         var config = data.config;
@@ -276,34 +312,6 @@ export const WIDGET_API =
                 console.error('ding: getConfig resolver failed', e);
             } catch (_ignored) {}
         }
-
-        if (type === 'backendReply') {
-            var pendingReq = _backendPending.get(requestId);
-            if (!pendingReq)
-                return;
-
-            _backendPending.delete(requestId);
-
-            if (data.ok)
-                pendingReq.resolve(data.result);
-            else
-                pendingReq.reject(data.error || {
-                    code: 'E_BACKEND',
-                    message: 'Backend request failed',
-                });
-
-            return;
-        }
-
-        if (type === 'backendEvent') {
-            _backendListeners.forEach(function(cb) {
-                try {
-                    cb(data.name, data.payload);
-                } catch (_e) {}
-            });
-            return;
-        }
-
     });
 
     // ---------------------------------------------------------------------
