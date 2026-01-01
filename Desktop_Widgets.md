@@ -657,7 +657,7 @@ Manifest fields:
 - `backend.cwd` (optional): working directory relative to the widget root (`"."` by default).
 - `backend.env` (optional): map of environment overrides merged with the host-provided environment.
 
-The backend process receives newline-delimited JSON requests from the host and replies in kind. See [Widget_API.md](Widget_API.md#htmlwidgethostwithbackend-json-protocol) for the message schema. Because the backend is just a regular executable, you can write it in any language and use it to interact with system internals, hardware, or private APIs, then push the results to the widget UI.
+The backend process receives newline-delimited JSON requests from the host and replies in kind. See [Widget_API.md](widgets/Widget_API.md#htmlwidgethostwithbackend-json-protocol) for the message schema. Because the backend is just a regular executable, you can write it in any language and use it to interact with system internals, hardware, or private APIs, then push the results to the widget UI.
 
 > **Important:** Backends run with the user’s permissions and can read local files, talk to the network, or spawn additional helpers. Treat backend-enabled widgets as native applications and ship only audited binaries or scripts.
 

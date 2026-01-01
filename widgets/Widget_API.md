@@ -6,6 +6,8 @@ This document describes the **current** HTML widget JavaScript API as implemente
 
 It intentionally documents **only what exists today** in code.
 
+If you want a quick start, the optional `ding-client.js` helper in the widgets folder handles the bridge plumbing for you, just read that section.
+
 ---
 
 ## Runtime model (high-level)
@@ -484,6 +486,52 @@ These defaults are read during application startup and currently remain constant
 
 ---
 
+## Optional helper: `ding-client.js`
+
+The widgets folder ships an optional helper (`ding-client.js`) that wraps the injected `window.ding` bridge. Including it is entirely up to the widget author; it just provides a thin, framework-agnostic convenience layer so widget code can stay focused on UI logic.
+
+### What the client abstracts
+
+- **Instance routing**  
+  Automatically pulls `instanceId` from the injected bridge; authors never pass it around manually.
+- **Request/reply plumbing**  
+  Generates `requestId`s, tracks pending Promises, matches replies, handles timeouts, and cleans up pending state.
+- **Unified async config API**  
+  Exposes only Promise-based `getConfig()` / `setConfig()`. There is no sync variant, keeping usage consistent across frameworks.
+- **Partial config updates with full-write semantics**  
+  `patchConfig(patch)` performs read → deep-merge → write so authors can update just the fields they care about while the host still receives the full config.
+- **Event subscription helpers**  
+  Tiny wrappers like `onHostState(cb)`, `onConfigChanged(cb)`, and `onBackendEvent(cb)` that return unsubscribe functions and hide the raw message plumbing.
+- **Backend IPC helpers**  
+  `backendRequest(name, payload)` (request/reply) and `backendSend(name, payload)` (fire-and-forget) without manual envelope building.
+
+### Why it helps across frameworks
+
+- **Vanilla HTML widgets** use the same async API without reinventing message parsing.
+- **React/Svelte/Vue** components can subscribe on mount and unsubscribe on unmount, awaiting config during init and calling `patchConfig()` from event handlers—no hooks or framework coupling required.
+- **Node/tooling/tests** can instantiate the client with a mocked `ding` object so unit tests run without GNOME, keeping transport concerns at the boundary.
+
+### What it intentionally does **not** do
+
+- Provide alternative transports or fallbacks (it still uses `window.ding` only).
+- Offer UI/rendering helpers or framework-specific wrappers.
+- Reintroduce synchronous config access.
+
+Use it if it simplifies your widget codebase, but it remains an optional convenience layer; everything described above can also be done directly via `window.ding`.
+
+### When the helper is not worth adopting
+
+If your widget is truly trivial—single-file, no prefs, no backend, writes config once, never streams events—the helper is optional overhead. You can talk to `window.ding` directly without much boilerplate.
+
+### When the helper shines
+
+- You ship both widget and prefs pages that need to share config handling
+- You plan to use `backendRequest` / `backendSend`
+
+In those cases the helper pays for itself immediately by keeping all widgets consistent and hiding the protocol details.
+
+---
+
 ## Quick author checklist
 
 - Wait until you have a valid `ding.instanceId` before calling `getConfig()` / `saveConfig()`.
@@ -496,3 +544,4 @@ These defaults are read during application startup and currently remain constant
   - reduced motion
   - locale changes
 - Prefer shipping all JS/CSS locally; do not rely on remote `<script src=...>`.
+- If you adopt `ding-client.js`, it can hide most of the plumbing above (instance routing, config access, event subscriptions, backend IPC) so your widget code stays focused on UI logic; using it is optional but recommended for consistency.
