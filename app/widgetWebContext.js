@@ -558,14 +558,29 @@ const WebWidgetContext = class {
         }
 
         case 'backendRequest': {
-            // payload: { instanceId, requestId, method, params, mode }
-            await inst.host.backendRequest?.(inst, payload);
+            const hasBackend = typeof inst.host?.backendRequest === 'function';
+            
+            if (!hasBackend) {
+                this._postNoBackendError(instanceId, payload)
+                break;
+            }
+
+            await inst.host.backendRequest(inst, payload);
             break;
         }
 
         case 'backendSend': {
-            // payload: { instanceId, name, payload, mode }
-            inst.host.backendSend?.(inst, payload);
+            const hasBackend = typeof inst.host?.backendSend === 'function';
+            if (!hasBackend) {
+                this._debugWidgetMessage({
+                    instanceId,
+                    type: 'backendSendDropped',
+                    name: payload?.name,
+                }, 'out');
+                break;
+            }
+
+            inst.host.backendSend(inst, payload);
             break;
         }
 
@@ -576,6 +591,30 @@ const WebWidgetContext = class {
     }
 
     // Script Helpers
+    _postNoBackendError(instanceId, payload) {
+        // Ensure the JSAPI Promise resolves/rejects; otherwise it hangs.
+        const reply = {
+            _dingInternal: true,
+            type: 'backendReply',
+            instanceId,
+            requestId: payload?.requestId,
+            ok: false,
+            error: {
+                code: 'E_NO_BACKEND',
+                message: 'This widget has no backend configured',
+            },
+        };
+
+        this._debugWidgetMessage({
+            instanceId,
+            type: 'backendReply',
+            requestId: payload?.requestId,
+            ok: false,
+        }, 'out');
+
+        this._routeAndPost(payload?.mode, inst, reply);
+    }
+
     _postToWidget(inst, msg) {
         const host = inst?.host;
         if (!host)
