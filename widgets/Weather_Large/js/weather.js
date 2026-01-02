@@ -95,6 +95,11 @@ class WeatherApp {
     }
 
     this._restartTimer();
+
+    document.addEventListener('visibilitychange', ()=>{
+        this._renderFromCache();
+    });
+    
     await this.refresh('startup');
   }
 
