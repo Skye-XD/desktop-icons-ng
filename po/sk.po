@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Dušan Kazik <prescott66@gmail.com>, 2020-2021.
-# Jozef Gaal <preklady@mayday.sk>, 2024, 2025.
+# Jozef Gaal <preklady@mayday.sk>, 2024, 2025, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:00+0000\n"
+"PO-Revision-Date: 2026-01-01 01:01+0000\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sk/>\n"
@@ -227,7 +227,7 @@ msgstr "Akcia pre otvorenie položiek"
 
 #: app/adwPreferencesWindow.js:766
 msgid "Single click"
-msgstr "Jednoduché kliknutie"
+msgstr "Jedno kliknutie"
 
 #: app/adwPreferencesWindow.js:767
 msgid "Double click"

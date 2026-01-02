@@ -2,15 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the ding package.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# Quentin PAGÈS <quentinantonin@free.fr>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:02+0000\n"
-"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
+"PO-Revision-Date: 2026-01-02 17:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/oc/>\n"
 "Language: oc\n"
@@ -22,27 +22,27 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr ""
+msgstr "Remplaçar"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Personalizar l’aspèct de las icònas del burèu amb CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "Avertiment : aquò pòt copar l’extension se realizat incorrèctament"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Modificar lo fichièr de subrecargament CSS..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Aplicar las modificacions CSS ara"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Recargar lo CSS per aplicar las modificacions immediatament"
 
 #: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -54,7 +54,7 @@ msgstr "Modificar los acorchis..."
 
 #: app/adwPreferencesWindow.js:267
 msgid "Edit Application Shortcuts"
-msgstr ""
+msgstr "Modificar los acorchis d’aplicacion"
 
 #: app/adwPreferencesWindow.js:272
 msgid "Shortcuts Editable only when Extension Enabled..."
@@ -62,7 +62,7 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:377
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "Ajudatz a traduire dins vòstre navegador web"
 
 #: app/adwPreferencesWindow.js:583 app/adwPreferencesWindow.js:584
 msgid "Desktop"
@@ -107,7 +107,7 @@ msgstr "Paramètres partejats amb Fichièrs de GNOME"
 
 #: app/adwPreferencesWindow.js:639
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "Ajustaments divèrses"
 
 #: app/adwPreferencesWindow.js:663
 msgid "Size for the desktop icons"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:689
 msgid "Snap icons to grid"
-msgstr ""
+msgstr "Activar las icònas sus la grasilha"
 
 #: app/adwPreferencesWindow.js:695
 #, fuzzy
@@ -757,7 +757,7 @@ msgstr "Burèu"
 
 #: app/desktopMenu.js:949
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "Restaurar lo dossièr pel burèu per defaut"
 
 #: app/desktopMenu.js:953
 msgid "Desktop Icon Settings"
@@ -1009,9 +1009,8 @@ msgid "Open in {0}"
 msgstr "Dobrir un fichièr"
 
 #: app/fileItemMenu.js:539
-#, fuzzy
 msgid "Open Item"
-msgstr "Dobrir dins un terminal"
+msgstr "Dobrir elements"
 
 #: app/fileItemMenu.js:821
 msgid "Extraction Cancelled"
@@ -1607,7 +1606,7 @@ msgstr "Mostrar l'icòna de l'escobilhièr pel burèu"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:120
 msgid "User Application Shortcuts"
-msgstr ""
+msgstr "Modificar los acorchis d’aplicacion"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
