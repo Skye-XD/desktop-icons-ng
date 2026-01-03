@@ -37,6 +37,7 @@ Gio._promisify(Gio.AppInfo, 'launch_default_for_uri_async');
 Gio._promisify(Gio.FileEnumerator.prototype, 'close_async');
 Gio._promisify(Gio.FileEnumerator.prototype, 'next_files_async');
 Gio._promisify(Gio.Subprocess.prototype, 'wait_check_async');
+Gio._promisify(Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish');
 
 const fileProto = imports.system.version >= 17200
     ? Gio.File.prototype : Gio._LocalFilePrototype;
