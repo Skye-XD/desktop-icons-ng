@@ -42,33 +42,42 @@ export class DingClient {
         if (!this._ding)
             throw new Error('DingClient: window.ding is not available');
 
-        if (typeof this._ding.onMessage !== 'function')
-            throw new Error('DingClient: window.ding.onMessage is required');
-
         this._mode = mode;
         this._timeoutMs = timeoutMs;
-
-        this._nextId = 1;
-        this._pending = new Map(); // requestId -> { resolve, reject, timeout }
 
         this._hostStateHandlers = new Set();
         this._configHandlers = new Set();
         this._backendEventHandlers = new Set();
 
-        this._unsubscribe = this._ding.onMessage(this._onMessage.bind(this));
+        this._lastHostState = undefined;
+        this._lastConfig = undefined;
+        this._lastConfigMeta = undefined;
+
+        // Subscribe via the real injected API.
+        this._unsubHostState =
+            (typeof this._ding.onHostStateChanged === 'function')
+                ? this._ding.onHostStateChanged(this._onHostState.bind(this))
+                : null;
+
+        this._unsubConfig =
+            (typeof this._ding.onConfigChanged === 'function')
+                ? this._ding.onConfigChanged(this._onConfigChanged.bind(this))
+                : null;
+
+        this._unsubBackend =
+            (typeof this._ding.onBackendEvent === 'function')
+                ? this._ding.onBackendEvent(this._onBackendEvent.bind(this))
+                : null;
+
+        // If the widget has a backend, send a small hello once ready so
+        // lazy backend processes can spin up on first contact.
+        this._sendBackendHello();
     }
 
     destroy() {
-        if (this._unsubscribe) {
-            try { this._unsubscribe(); } catch (e) {}
-            this._unsubscribe = null;
-        }
-
-        for (const [, p] of this._pending) {
-            clearTimeout(p.timeout);
-            try { p.reject(new Error('DingClient destroyed')); } catch (e) {}
-        }
-        this._pending.clear();
+        if (this._unsubHostState) { try { this._unsubHostState(); } catch (e) {} this._unsubHostState = null; }
+        if (this._unsubConfig)    { try { this._unsubConfig(); } catch (e) {} this._unsubConfig = null; }
+        if (this._unsubBackend)   { try { this._unsubBackend(); } catch (e) {} this._unsubBackend = null; }
 
         this._hostStateHandlers.clear();
         this._configHandlers.clear();
@@ -81,11 +90,17 @@ export class DingClient {
 
     onHostState(cb) {
         this._hostStateHandlers.add(cb);
+        if (this._lastHostState !== undefined) {
+            try { cb(this._lastHostState, null); } catch (e) {}
+        }
         return () => this._hostStateHandlers.delete(cb);
     }
 
     onConfigChanged(cb) {
         this._configHandlers.add(cb);
+        if (this._lastConfig !== undefined) {
+            try { cb(this._lastConfig, this._lastConfigMeta ?? null); } catch (e) {}
+        }
         return () => this._configHandlers.delete(cb);
     }
 
@@ -101,16 +116,22 @@ export class DingClient {
     // getConfig(): Promise<object|null>
     // Config is always retrieved asynchronously.
     getConfig(opts = {}) {
-        return this._request('getConfig', {}, opts);
+        if (typeof this._ding.getConfig !== 'function')
+            return Promise.resolve(null);
+        return this._withTimeout(this._ding.getConfig(), opts);
     }
 
     setConfig(config, opts = {}) {
-        return this._request('setConfig', { config }, opts);
+        if (typeof this._ding.saveConfig !== 'function')
+            return Promise.resolve(null);
+        // saveConfig is fire-and-forget; keep signature for callers.
+        try { this._ding.saveConfig(config || {}); } catch (e) {}
+        return Promise.resolve(config || {});
     }
 
     async patchConfig(patch, opts = {}) {
         const base = (await this.getConfig(opts)) ?? {};
-        const next = this._deepMerge(base, patch);
+        const next = DingClient._deepMerge(base, patch);
         await this.setConfig(next, opts);
         return next;
     }
@@ -120,11 +141,16 @@ export class DingClient {
     // -----------------------------------------------------------------
 
     backendRequest(name, payload, opts = {}) {
-        return this._request('backendRequest', { name, payload }, opts);
+        if (typeof this._ding.backendRequest !== 'function')
+            return Promise.reject(new Error('No backendRequest()'));
+        // Injected API is backendRequest(method, paramsObject)
+        return this._withTimeout(this._ding.backendRequest(name, payload || {}), opts);
     }
 
     backendSend(name, payload) {
-        this._send('backendSend', { name, payload });
+        if (typeof this._ding.backendSend !== 'function')
+            return;
+        try { this._ding.backendSend(name, payload || {}); } catch (e) {}
     }
 
     // -----------------------------------------------------------------
@@ -138,118 +164,58 @@ export class DingClient {
 
     _log(level, args) {
         if (typeof this._ding.log === 'function') {
-            try { this._ding.log(level, ...args); return; } catch (e) {}
-        }
-
-        if (typeof this._ding.postMessage === 'function' || typeof this._ding._postMessage === 'function') {
-            try {
-                this._send('log', { level, args: args.map(v => String(v)) });
-                return;
-            } catch (e) {}
+            try { this._ding.log(`[${level}] ${args.map(v => String(v)).join(' ')}`); return; } catch (e) {}
         }
 
         // eslint-disable-next-line no-console
         (level === 'warn' ? console.warn : level === 'error' ? console.error : console.log)(...args);
     }
 
-    // -----------------------------------------------------------------
-    // Internals
-    // -----------------------------------------------------------------
-
-    _mkRequestId() {
-        return String(this._nextId++);
-    }
-
-    _send(type, payload) {
-        const msg = { type, ...(payload ?? {}) };
-
-        // Instance routing is implicit in the host; do not require authors to pass it.
-        // If the host exposes it for debugging, include it when present.
-        if (this._ding.instanceId != null && msg.instanceId == null)
-            msg.instanceId = this._ding.instanceId;
-
-        if (this._mode != null && msg.mode == null)
-            msg.mode = this._mode;
-
-        if (typeof this._ding.postMessage === 'function') {
-            this._ding.postMessage(msg);
-            return;
-        }
-
-        if (typeof this._ding._postMessage === 'function') {
-            this._ding._postMessage(msg);
-            return;
-        }
-
-        throw new Error('DingClient: window.ding has no postMessage/_postMessage');
-    }
-
-    _request(type, payload, { timeoutMs = null } = {}) {
-        const requestId = this._mkRequestId();
+    _withTimeout(promise, { timeoutMs = null } = {}) {
         const ms = timeoutMs ?? this._timeoutMs;
+        if (!ms || ms <= 0)
+            return promise;
 
+        const p = Promise.resolve(promise);
         return new Promise((resolve, reject) => {
-            const timeout = setTimeout(() => {
-                this._pending.delete(requestId);
-                reject(new Error(`${type} timed out after ${ms}ms`));
-            }, ms);
-
-            this._pending.set(requestId, { resolve, reject, timeout });
-            this._send(type, { ...(payload ?? {}), requestId });
+            const timer = setTimeout(() => reject(new Error(`timed out after ${ms}ms`)), ms);
+            p.then(
+                (val) => { clearTimeout(timer); resolve(val); },
+                (err) => { clearTimeout(timer); reject(err); }
+            );
         });
     }
 
-    _onMessage(payload) {
-        if (!payload || typeof payload !== 'object')
-            return;
-
-        const { type } = payload;
-
-        if (type === 'backendEvent') {
-            const { name, payload: evPayload } = payload;
-            for (const h of this._backendEventHandlers) {
-                try { h(name, evPayload); } catch (e) {}
-            }
-            return;
+    _onHostState(state) {
+        this._lastHostState = state;
+        for (const h of this._hostStateHandlers) {
+            try { h(state, null); } catch (e) {}
         }
-
-        if (type === 'hostState') {
-            const state = payload.state ?? payload.hostState ?? null;
-            for (const h of this._hostStateHandlers) {
-                try { h(state, payload.meta ?? null); } catch (e) {}
-            }
-            return;
-        }
-
-        if (type === 'configChanged') {
-            const cfg = payload.config ?? payload.value ?? null;
-            for (const h of this._configHandlers) {
-                try { h(cfg, payload.meta ?? null); } catch (e) {}
-            }
-            return;
-        }
-
-        if (payload.requestId != null)
-            this._resolveRequest(payload);
     }
 
-    _resolveRequest(payload) {
-        const { requestId } = payload;
-        const p = this._pending.get(requestId);
-        if (!p)
-            return;
-
-        clearTimeout(p.timeout);
-        this._pending.delete(requestId);
-
-        if (payload.ok === false || payload.error) {
-            const err = new Error(payload.error?.message ?? payload.error ?? 'request failed');
-            err.code = payload.error?.code ?? payload.code;
-            p.reject(err);
-            return;
+    _onConfigChanged(cfg, meta) {
+        this._lastConfig = cfg;
+        this._lastConfigMeta = meta ?? null;
+        for (const h of this._configHandlers) {
+            try { h(cfg, meta ?? null); } catch (e) {}
         }
+    }
 
-        p.resolve(payload.result ?? payload.value ?? payload);
+    _onBackendEvent(name, evPayload) {
+        for (const h of this._backendEventHandlers) {
+            try { h(name, evPayload); } catch (e) {}
+        }
+    }
+
+    _sendBackendHello() {
+        if (this._backendHelloSent)
+            return;
+        this._backendHelloSent = true;
+        if (typeof this._ding?.backendSend !== 'function')
+            return;
+        try {
+            this._ding.backendSend('hello', { reason: 'widget-ready' });
+        } catch (e) {}
     }
 
     // Merge helper for patchConfig.
