@@ -1,0 +1,15 @@
+{
+  "id": "metrics-medium",
+  "kind": "html",
+  "name": "Metrics (Medium)",
+  "defaultWidth": 320,
+  "defaultHeight": 200,
+  "prefs": "prefs.html",
+  "backend": {
+    "command": "gjs",
+    "argv": [
+      "-m",
+      "metricsBackend.js"
+    ]
+  }
+}
