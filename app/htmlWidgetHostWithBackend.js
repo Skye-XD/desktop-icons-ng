@@ -26,6 +26,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         this._backendProc = null;
         this._backendIn = null;
         this._backendOut = null;
+        this._backendErr = null;
         this._backendReading = false;
         this._backendPending = new Map();
         this._decoder = new TextDecoder('utf-8');
@@ -100,6 +101,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             this._widgetRegistry.normalizeBackendSpec(desc, inst);
 
         inst.backendSpec = spec || null;
+
         return spec;
     }
 
@@ -133,8 +135,10 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                 }
             }
 
-            this._backendProc = launcher.spawnv(spec.argv);
+            const argv = Array.isArray(spec.argv) ? [...spec.argv] : [];
+            const cwd = spec.cwd || '.';
 
+            this._backendProc = launcher.spawnv(argv);
             this._backendIn = new Gio.DataOutputStream({
                 base_stream: this._backendProc.get_stdin_pipe(),
             });
@@ -143,8 +147,39 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                 base_stream: this._backendProc.get_stdout_pipe(),
             });
 
+            this._backendErr = new Gio.DataInputStream({
+                base_stream: this._backendProc.get_stderr_pipe(),
+            });
+
             this._backendReading = true;
-            this._readBackendLoop(inst);
+
+            // Read stdout (protocol messages)
+            this._readBackendStream(
+                inst,
+                this._backendOut,
+                line => this._handleBackendMessage(inst, line),
+                'stdout'
+            ).catch(e => {
+                console.error('BACKEND stdout loop error:', e?.message ?? e);
+            });
+
+            // Read stderr (debug/logs)
+            this._readBackendStream(
+                inst,
+                this._backendErr,
+                line => {
+                    console.warn(
+                        'BACKEND STDERR:',
+                        inst?.instanceId ?? '<unknown>',
+                        line.trim()
+                    );
+                },
+                'stderr'
+            ).catch(e => {
+                console.error('BACKEND stderr loop error:', e?.message ?? e);
+            });
+
+            this._waitBackend(inst);
 
             this._sendBackend({
                 type: 'hello',
@@ -192,45 +227,44 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         }
     }
 
-    async _readBackendLoop(inst) {
-        // Monitor backend lifetime via stdout: when the pipe closes (crash or
-        // normal exit), read_line_async will break and we can clean up +
-        // fail inflight requests immediately without wiring a second
-        // Gio.Subprocess child watch. This keeps behavior simple and matches
-        // common Gio subprocess patterns; we can add a child watch later if we
-        // need the exact exit status.
-        while (this._backendReading && this._backendOut) {
+    async _readBackendStream(inst, stream, onLine, label) {
+        if (!stream)
+            return;
+
+        while (this._backendReading && stream) {
             let line;
 
             try {
-                const [bytes] = await this._backendOut.read_line_async(
+                const [bytes] = await stream.read_line_async(
                     GLib.PRIORITY_DEFAULT,
                     null
                 );
                 
-                if (!bytes)
+                if (!bytes) {
+                    console.error('BACKEND stream ended:', label, inst?.instanceId ?? '<unknown>');
                     break;
+                }
 
                 line = this._decoder.decode(bytes);
             } catch (e) {
+                console.error('BACKEND stream read error:', label, e?.message ?? e);
                 break;
             }
 
-            let msg;
             try {
-                msg = JSON.parse(line);
-            } catch (e) {
-                continue;
+                onLine?.(line);
+            } catch (_e) {
+                // Ignore per-line handler errors
             }
-
-            this._handleBackendMessage(inst, msg);
         }
 
-        this._backendReading = false;
-        this._handleBackendExit(inst, {
-            code: 'E_BACKEND_EXIT',
-            message: 'Backend process exited',
-        });
+        if (this._backendReading) {
+            this._backendReading = false;
+            this._handleBackendExit(inst, {
+                code: 'E_BACKEND_EXIT',
+                message: 'Backend process exited',
+            });
+        }
     }
 
     _flushPendingBackendRequests() {
@@ -261,13 +295,16 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
     _handleBackendExit(inst, error) {
         this._backendReading = false;
 
+        const proc = this._backendProc;
         this._backendProc = null;
         this._backendIn = null;
         this._backendOut = null;
+        this._backendErr = null;
 
         if (this._destroyed)
             return;
 
+        this._logBackendExit(inst, proc, error);
         this._failInFlightBackendRequests(inst, error);
         this._pendingBackendRequests.length = 0;
         this._pendingBackendEvents.length = 0;
@@ -454,10 +491,88 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         this._backendProc = null;
         this._backendIn = null;
         this._backendOut = null;
+        this._backendErr = null;
         this._pendingBackendRequests.length = 0;
         this._pendingBackendEvents.length = 0;
         this._backendEnsurePromise = null;
 
         super.destroy();
+    }
+
+    async _readBackendStderr(inst) {
+        if (!this._backendErr)
+            return;
+
+        while (!this._destroyed && this._backendErr) {
+            try {
+                const [bytes] = await this._backendErr.read_line_async(
+                    GLib.PRIORITY_DEFAULT,
+                    null
+                );
+
+                if (!bytes)
+                    break;
+
+                const line = this._decoder.decode(bytes);
+                console.error(
+                    'BACKEND STDERR:',
+                    inst?.instanceId ?? '<unknown>',
+                    line.trim()
+                );
+            } catch (_e) {
+                break;
+            }
+        }
+    }
+
+    async _waitBackend(inst) {
+        const proc = this._backendProc;
+        if (!proc)
+            return;
+
+        try {
+            const ok = await new Promise((resolve, reject) => {
+                proc.wait_check_async(null, (p, res) => {
+                    try {
+                        resolve(p.wait_check_finish(res));
+                    } catch (e) {
+                        reject(e);
+                    }
+                });
+            });
+
+            console.error(
+                'BACKEND EXIT STATUS:',
+                inst?.instanceId ?? '<unknown>',
+                ok ? 'ok' : 'fail',
+                'status:',
+                proc.get_exit_status()
+            );
+        } catch (e) {
+            console.error(
+                'BACKEND EXIT wait error:',
+                inst?.instanceId ?? '<unknown>',
+                e?.message ?? e
+            );
+        }
+    }
+
+    _logBackendExit(inst, proc, error) {
+        if (!proc)
+            return;
+
+        const pid = proc.get_identifier();
+
+        const msg = error?.message ?? 'Backend process exited';
+        const code = error?.code ? `(${error.code})` : '';
+        const pidStr = pid ? `pid ${pid}` : 'pid unknown';
+
+        console.error(
+            'HtmlWidget backend exit:',
+            inst?.instanceId ?? '<unknown>',
+            pidStr,
+            msg,
+            code
+        );
     }
 };
