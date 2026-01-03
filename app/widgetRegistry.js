@@ -478,33 +478,16 @@ const WidgetRegistry = class  {
         if (!b || typeof b !== 'object')
             return null;
 
-        const cmd = b.command;
-        if (typeof cmd !== 'string' || cmd.length === 0)
-            return null;
-
-        const args = Array.isArray(b.args)
-            ? b.args.filter(a => typeof a === 'string')
-            : [];
-
-        const cwdRel =
-            (typeof b.cwd === 'string' && b.cwd.length) ? b.cwd : '.';
-
         const dirFile = desc.dir;
         const dirPath = dirFile?.get_path?.();
         if (!dirFile || !dirPath)
             return null;
 
-        const argv0File = dirFile.resolve_relative_path
-            ? dirFile.resolve_relative_path(cmd)
-            : dirFile.get_child(cmd);
-        const argv0 = argv0File?.get_path?.();
-        if (!argv0)
+        const argv = this._buildBackendArgv(b, dirFile);
+        if (!argv?.length)
             return null;
 
-        const cwdFile = dirFile.resolve_relative_path
-            ? dirFile.resolve_relative_path(cwdRel)
-            : dirFile.get_child(cwdRel);
-        const cwd = cwdFile?.get_path?.() ?? dirPath;
+        const cwd = this._resolveBackendCwd(b, dirFile, dirPath);
 
         const envOverrides =
             (b.env && typeof b.env === 'object') ? b.env : null;
@@ -527,9 +510,58 @@ const WidgetRegistry = class  {
         }
 
         return {
-            argv: [argv0, ...args],
+            argv,
             cwd,
             env,
         };
+    }
+
+    _buildBackendArgv(backend, dirFile) {
+        const cmd = backend?.command;
+        if (typeof cmd !== 'string' || cmd.length === 0)
+            return null;
+
+        const args = Array.isArray(backend.args)
+            ? backend.args.filter(a => typeof a === 'string')
+            : Array.isArray(backend.argv)
+                ? backend.argv.filter(a => typeof a === 'string')
+                : [];
+
+        // Resolve argv[0] to an absolute path if it isn't already.
+        let argv0 = null;
+
+        if (cmd.startsWith('/')) {
+            argv0 = cmd;
+        } else if (cmd.includes('/')) {
+            const f = dirFile.resolve_relative_path
+                ? dirFile.resolve_relative_path(cmd)
+                : dirFile.get_child(cmd);
+            argv0 = f?.get_path?.() ?? null;
+        } else {
+            argv0 = GLib.find_program_in_path(cmd);
+            if (!argv0) {
+                const f = dirFile.resolve_relative_path
+                    ? dirFile.resolve_relative_path(cmd)
+                    : dirFile.get_child(cmd);
+                argv0 = f?.get_path?.() ?? null;
+            }
+        }
+
+        if (!argv0)
+            return null;
+
+        return [argv0, ...args];
+    }
+
+    _resolveBackendCwd(backend, dirFile, fallbackDirPath) {
+        const cwdRel =
+            (typeof backend?.cwd === 'string' && backend.cwd.length)
+                ? backend.cwd
+                : '.';
+
+        const cwdFile = dirFile.resolve_relative_path
+            ? dirFile.resolve_relative_path(cwdRel)
+            : dirFile.get_child(cwdRel);
+        return cwdFile?.get_path?.() ?? fallbackDirPath;
     }
 };
