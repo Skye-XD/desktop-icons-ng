@@ -44,8 +44,12 @@ Gio._promisify(Gio.DataOutputStream.prototype, 'flush_async', 'flush_finish');
 export const BackendApp = GObject.registerClass(
 class BackendApp extends Gio.Application {
     constructor(params = {}) {
+        const envWidget = GLib.getenv('DING_WIDGET_ID');
+        const envInstance = GLib.getenv('DING_INSTANCE_ID');
+        const derivedAppId = BackendApp._deriveAppId(envWidget, envInstance);
+
         super({
-            application_id: params.applicationId ?? null,
+            application_id: params.applicationId ?? derivedAppId ?? null,
             flags: Gio.ApplicationFlags.NON_UNIQUE,
         });
 
@@ -176,9 +180,8 @@ class BackendApp extends Gio.Application {
     }
 
     vfunc_activate() {
-        // Keep process alive; IO loop was started in startup().
-        this.hold();
         // Headless. Just run the IO loop.
+        this.hold();
     }
 
     vfunc_shutdown() {
@@ -367,8 +370,6 @@ class BackendApp extends Gio.Application {
                     : {},
             };
 
-            this._setApplicationIdFromHello(this._ctx.instanceId);
-
             try {
                 await this.onHello(this._ctx);
             } catch (e) {
@@ -440,7 +441,22 @@ class BackendApp extends Gio.Application {
         }
     }
 
-    _setApplicationIdFromHello(instanceId) {
+    static _deriveAppId(widgetId, instanceId) {
+        const base = 'com.desktop.ding';
+        const w = BackendApp._sanitizeAppIdComponent(widgetId, 'widget');
+        const i = BackendApp._sanitizeAppIdComponent(instanceId, 'instance');
+        const id = `${base}.${w}.${i}`;
+        if (GLib.application_id_is_valid && !GLib.application_id_is_valid(id))
+            return null;
+        return id;
+    }
+
+    static _sanitizeAppIdComponent(value, fallback) {
+        let s = String(value ?? '').toLowerCase().replace(/[^a-z0-9_]/g, '_');
+        s = s.replace(/^_+/, '');
+        if (!s || /^\d/.test(s))
+            s = `${fallback}_${s || 'x'}`;
+        return s;
     }
 
     _isValidAppId(id) {
