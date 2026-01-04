@@ -20,7 +20,8 @@
 // Exports the script that gets injected into each WebView.
 
 const transparencyCSS = `
-html, body, * {
+/* Keep the page transparent without nuking widget element backgrounds */
+html, body {
     background: transparent !important;
     background-color: transparent !important;
     background-image: none !important;
