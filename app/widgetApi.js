@@ -244,9 +244,9 @@ export const WIDGET_API =
         if (!data || data._dingInternal !== true)
             return;
 
-        // --- Backend first (because events have no requestId
-        // and backend uses _backendPending map) ---
+        var type = data.type || null;
 
+        // --- Backend first ---
         if (type === 'backendEvent') {
             _backendListeners.forEach(function(cb) {
                 try {
@@ -279,8 +279,6 @@ export const WIDGET_API =
         }
 
         // --- Config plumbing (only for config message types) ---
-
-        var type = data.type || null;
         var requestId = data.requestId || null;
         var config = data.config;
 
