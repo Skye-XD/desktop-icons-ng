@@ -74,6 +74,7 @@ class MetricsBackendApp extends BackendApp {
         this._upDisplay = null;
 
         this._decoder = new TextDecoder('utf-8');
+        this._hostName = null;
 
         // Register ONLY the two methods we support
         this.registerMethod('getSnapshot', this._rpcGetSnapshot.bind(this));
@@ -187,7 +188,11 @@ class MetricsBackendApp extends BackendApp {
 
     _buildSnapshot({tsMs, cpuUsagePct, mem, net, battery}) {
         if (!this._hostName) {
-            try { this._hostName = GLib.get_host_name(); } catch (_e) { this._hostName = null; }
+            try {
+                this._hostName = GLib.get_host_name();
+            } catch (_e) {
+                this._hostName = null;
+            }
         }
         // Stable schema v1
         return {
