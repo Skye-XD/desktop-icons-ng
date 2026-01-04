@@ -157,7 +157,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             this._readBackendStream(
                 inst,
                 this._backendOut,
-                line => this._handleBackendMessage(inst, line),
+                msg => this._handleBackendMessage(inst, msg),
                 'stdout'
             ).catch(e => {
                 console.error('BACKEND stdout loop error:', e?.message ?? e);
@@ -167,13 +167,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             this._readBackendStream(
                 inst,
                 this._backendErr,
-                line => {
-                    console.warn(
-                        'BACKEND STDERR:',
-                        inst?.instanceId ?? '<unknown>',
-                        line.trim()
-                    );
-                },
+                () => {},
                 'stderr'
             ).catch(e => {
                 console.error('BACKEND stderr loop error:', e?.message ?? e);
@@ -240,10 +234,8 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                     null
                 );
                 
-                if (!bytes) {
-                    console.error('BACKEND stream ended:', label, inst?.instanceId ?? '<unknown>');
+                if (!bytes)
                     break;
-                }
 
                 line = this._decoder.decode(bytes);
             } catch (e) {
@@ -252,7 +244,16 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             }
 
             try {
-                onLine?.(line);
+                let payload = line;
+                if (label === 'stdout') {
+                    try {
+                        payload = JSON.parse(line);
+                    } catch (e) {
+                        console.error('BACKEND stdout JSON parse error:', e?.message ?? e);
+                        continue;
+                    }
+                }
+                onLine?.(payload);
             } catch (_e) {
                 // Ignore per-line handler errors
             }
