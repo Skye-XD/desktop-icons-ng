@@ -1,15 +1,43 @@
+
 <!doctype html>
-<html><head>
-<meta charset="utf-8"/>
-<link rel="stylesheet" href="./ding-widget.css"/>
-<link rel="stylesheet" href="./prefs.css"/>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metrics Preferences</title>
+  <link rel="stylesheet" href="./prefs.css" />
 </head>
 <body>
-<h1>Metrics</h1>
-<div class="section">
-  <label>Refresh interval</label>
-  <select>
-    <option>1s</option><option>2s</option><option>5s</option>
-  </select>
-</div>
-</body></html>
+  <div id="prefsRoot">
+    <div id="header"><div id="headerTitle">Metrics</div></div>
+
+    <div class="section">
+      <div class="section-title">Refresh</div>
+      <label class="field">
+        <div class="label">Interval</div>
+        <select id="refreshSelect" class="select-compact">
+          <option value="1">1s</option>
+          <option value="2">2s</option>
+          <option value="5">5s</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Appearance</div>
+      <label class="field">
+        <div class="label">Color</div>
+        <select id="colorSelect" class="select-compact">
+          <option value="white">White</option>
+          <option value="pink">Pink</option>
+          <option value="cyan">Cyan</option>
+          <option value="lime">Lime</option>
+          <option value="purple">Purple</option>
+          <option value="amber">Amber</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <script type="module" src="./prefs.js"></script>
+</body>
+</html>
