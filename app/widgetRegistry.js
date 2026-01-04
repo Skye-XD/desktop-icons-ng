@@ -484,8 +484,13 @@ const WidgetRegistry = class  {
             return null;
 
         const argv = this._buildBackendArgv(b, dirFile);
-        if (!argv?.length)
+        if (!argv?.length) {
+            console.error(
+                'WidgetRegistry: backend argv missing/invalid for widget',
+                desc?.id ?? '<unknown>'
+            );
             return null;
+        }
 
         const cwd = this._resolveBackendCwd(b, dirFile, dirPath);
 
