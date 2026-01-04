@@ -94,8 +94,13 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             return null;
         }
 
-        if (!desc)
+        if (!desc) {
+            console.error(
+                'HtmlWidgetHostWithBackend: no descriptor for widget',
+                inst?.widgetId ?? '<unknown>'
+            );
             return null;
+        }
 
         const spec =
             this._widgetRegistry.normalizeBackendSpec(desc, inst);
@@ -111,6 +116,10 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             spec = await this._buildBackendSpec(inst);
 
         if (!spec?.argv?.length) {
+            console.error(
+                'HtmlWidgetHostWithBackend: no backend configured for widget',
+                inst?.widgetId ?? '<unknown>'
+            );
             return {
                 ok: false,
                 error: {code: 'E_NO_BACKEND', message: 'No backend configured'},
@@ -167,7 +176,15 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             this._readBackendStream(
                 inst,
                 this._backendErr,
-                () => {},
+                line => {
+                    try {
+                        console.warn(
+                            'BACKEND stderr:',
+                            inst?.instanceId ?? '<unknown>',
+                            line.trim()
+                        );
+                    } catch (_e) {}
+                },
                 'stderr'
             ).catch(e => {
                 console.error('BACKEND stderr loop error:', e?.message ?? e);
