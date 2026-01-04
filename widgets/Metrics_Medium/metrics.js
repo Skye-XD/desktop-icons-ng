@@ -160,25 +160,13 @@ class MetricsWidget{
   setBar('bat',`.row[data-row="bat"] .track`, batPresent ? clamp01(batPct/100) : 1);
   const batNum=document.querySelector('.row[data-row="bat"] .num');
   if(batNum){
-   batNum.textContent=batPresent?`${batPct.toFixed(0)}%`:'⚡';
+   batNum.textContent=batPresent?`${batPct.toFixed(0)}%`:'⚡ 100%';
+   setNumWidth('bat', batNum.textContent);
   } else console.warn('metrics widget missing bat num');
 
   const batLabel = document.querySelector('.lbl-bat-text');
   if (batLabel)
     batLabel.textContent = batPresent ? 'BAT' : 'PWR';
-
-  const batIcon = document.querySelector('.bat-icon');
-  if (batIcon) {
-    if (batPresent) {
-      batIcon.textContent = '▮';
-      batIcon.style.color = '#7ef57e';
-      batIcon.style.visibility = 'visible';
-    } else {
-      batIcon.textContent = '⚡';
-      batIcon.style.color = '#ffc35a';
-      batIcon.style.visibility = 'visible';
-    }
-  }
 
   // Meta labels
   const host = s.hostName || s.host || 'Host';

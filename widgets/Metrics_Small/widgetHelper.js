@@ -143,7 +143,6 @@ export class DingClient {
     backendRequest(name, payload, opts = {}) {
         if (typeof this._ding.backendRequest !== 'function')
             return Promise.reject(new Error('No backendRequest()'));
-        try { console.log('DingClient backendRequest', name, payload); } catch (_e) {}
         // Injected API is backendRequest(method, paramsObject)
         return this._withTimeout(this._ding.backendRequest(name, payload || {}), opts);
     }
