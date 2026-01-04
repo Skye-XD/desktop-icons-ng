@@ -6,8 +6,8 @@
   "defaultHeight": 260,
   "prefs": "prefs.html",
   "backend": {
+    "command": "gjs",
     "argv": [
-      "gjs",
       "-m",
       "metricsBackend.js"
     ]

@@ -522,7 +522,7 @@ class MetricsBackendApp extends BackendApp {
         case UPowerGlib.DeviceState.PENDING_DISCHARGE: return 'pending_discharge';
         default: return 'unknown';
        }
-       }
+    }
 });
 
 runBackend(MetricsBackendApp);
