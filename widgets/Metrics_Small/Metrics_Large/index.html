@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Metrics</title>
+  <link rel="stylesheet" href="./ding-widget.css"/>
+  <link rel="stylesheet" href="./metrics.css"/>
+</head>
+<body class="size-large">
+  <div id="root">
+    <div id="grid">
+      <div class="row" data-row="cpu">
+        <div class="lbl">CPU</div>
+        <div class="lane"><div class="track"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div></div>
+        <div class="nums"><div class="num">0%</div></div>
+      </div>
+      <div class="row" data-row="ram">
+        <div class="lbl">RAM</div>
+        <div class="lane"><div class="track"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div></div>
+        <div class="nums"><div class="num">0.0&nbsp;G</div></div>
+      </div>
+      <div class="row" data-row="net">
+        <div class="lbl">NET</div>
+        <div class="lane lane-net">
+          <div class="netlane">
+            <div class="arr">↓</div>
+            <div class="track nettrack">
+              <div class="net-half net-left"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div>
+              <div class="net-zero"></div>
+              <div class="net-half net-right"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div>
+            </div>
+            <div class="arr">↑</div>
+          </div>
+        </div>
+        <div class="nums nums-net"><div class="num in">0.0&nbsp;M</div><div class="num out">0.0&nbsp;M</div></div>
+      </div>
+      <div class="row" data-row="bat">
+        <div class="lbl lbl-bat">PWR</div>
+        <div class="lane"><div class="track"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div></div>
+        <div class="nums nums-pwr"><div class="num">⚡</div></div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./metrics.js"></script>
+</body>
+</html>

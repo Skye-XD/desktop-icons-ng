@@ -1,0 +1,15 @@
+{
+  "id": "metrics-large",
+  "kind": "html",
+  "name": "Metrics (Large)",
+  "defaultWidth": 420,
+  "defaultHeight": 260,
+  "prefs": "prefs.html",
+  "backend": {
+    "command": "gjs",
+    "argv": [
+      "-m",
+      "metricsBackend.js"
+    ]
+  }
+}
