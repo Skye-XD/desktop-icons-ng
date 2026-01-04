@@ -73,6 +73,8 @@ class MetricsBackendApp extends BackendApp {
         this._upClient = null;
         this._upDisplay = null;
 
+        this._decoder = new TextDecoder('utf-8');
+
         // Register ONLY the two methods we support
         this.registerMethod('getSnapshot', this._rpcGetSnapshot.bind(this));
         this.registerMethod('setPeriodMs', this._rpcSetPeriodMs.bind(this));
@@ -358,22 +360,30 @@ class MetricsBackendApp extends BackendApp {
 
     _listSysfsIfaces() {
         const out = [];
+        let en = null;
+
         try {
             const dir = Gio.File.new_for_path('/sys/class/net');
-            const en = dir.enumerate_children(
+            en = dir.enumerate_children(
                 Gio.FILE_ATTRIBUTE_STANDARD_NAME,
                 Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
                 null
             );
+
             let info;
             while ((info = en.next_file(null))) {
                 const name = info.get_name();
                 if (name && name !== 'lo')
                     out.push(name);
             }
-        } catch {}
+        } catch {
+            /* ignore */
+        } finally {
+            try { en?.close(null); } catch {}
+        }
+
         return out;
-   }
+    }
 
     _sysfsGetRxTx(iface) {
         try {
@@ -391,7 +401,10 @@ class MetricsBackendApp extends BackendApp {
         } catch (e) {
             if (!this._netWarnedSysfsIface.has(iface)) {
                 this._netWarnedSysfsIface.add(iface);
-                this.warn(`metrics net: sysfs read failed for ${iface}:`, e?.message ?? e);
+                this.warn(
+                    `metrics net: sysfs read failed for ${iface}:`,
+                    e?.message ?? e
+                );
             }
             return null;
         }
@@ -400,7 +413,7 @@ class MetricsBackendApp extends BackendApp {
     _readSysfsNumber(path) {
         const f = Gio.File.new_for_path(path);
         const [, bytes] = f.load_contents(null);
-        const s = new TextDecoder('utf-8').decode(bytes).trim();
+        const s = this._decoder.decode(bytes).trim();
         const n = Number(s);
         return Number.isFinite(n) ? n : null;
    }
