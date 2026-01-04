@@ -33,16 +33,23 @@
 //   - log:      {type:'log', level, message}
 
 import Gio from 'gi://Gio';
+import GioUnix from 'gi://GioUnix';
 import GLib from 'gi://GLib';
+import GLibUnix from 'gi://GLibUnix';
 import GObject from 'gi://GObject';
+
+Gio._promisify(Gio.DataInputStream.prototype, 'read_line_async', 'read_line_finish');
+Gio._promisify(Gio.DataOutputStream.prototype, 'flush_async', 'flush_finish');
 
 export const BackendApp = GObject.registerClass(
 class BackendApp extends Gio.Application {
-    _init(params = {}) {
-        super._init({
+    constructor(params = {}) {
+        super({
             application_id: params.applicationId ?? null,
             flags: Gio.ApplicationFlags.NON_UNIQUE,
         });
+
+        this._devKeepAlive = !!params.devKeepAlive;
 
         this._decoder = new TextDecoder('utf-8');
 
@@ -63,6 +70,7 @@ class BackendApp extends Gio.Application {
 
         // Shutdown guard
         this._shuttingDown = false;
+
     }
 
     // -----------------------------------------------------------------
@@ -143,11 +151,11 @@ class BackendApp extends Gio.Application {
         super.vfunc_startup();
 
         // stdin (fd 0)
-        const stdin = new Gio.UnixInputStream({ fd: 0, close_fd: false });
+        const stdin = new GioUnix.InputStream({ fd: 0, close_fd: false });
         this._in = new Gio.DataInputStream({ base_stream: stdin });
        
         // stdout (fd 1)
-        const stdout = new Gio.UnixOutputStream({ fd: 1, close_fd: false });
+        const stdout = new GioUnix.OutputStream({ fd: 1, close_fd: false });
         this._out = new Gio.DataOutputStream({ base_stream: stdout });
 
         this._installUnixSignalHandlers();
@@ -206,7 +214,7 @@ class BackendApp extends Gio.Application {
         // then forcekills.
         // We must handle SIGTERM as a fallback path.
         try {
-            this._sigtermSource = GLib.unix_signal_add(
+            this._sigtermSource = GLibUnix.signal_add(
                 GLib.PRIORITY_DEFAULT,
                 15,
                 () => {
@@ -218,7 +226,7 @@ class BackendApp extends Gio.Application {
 
         // Nice-to-have: SIGINT during dev runs.
         try {
-            this._sigintSource = GLib.unix_signal_add(
+            this._sigintSource = GLibUnix.signal_add(
                 GLib.PRIORITY_DEFAULT,
                 2,
                 () => {
@@ -300,8 +308,14 @@ class BackendApp extends Gio.Application {
             await this._handleMessage(msg);
         }
 
-        // stdin closed or read failed => exit cleanly
-        this._requestShutdown('stdinClosed');
+        // stdin closed or read failed => exit cleanly unless dev keepalive
+        if (!this._devKeepAlive) {
+            this.warn('backend read loop ended; stdin closed or read failed');
+            this._requestShutdown('stdinClosed');
+        } else {
+            this._reading = false;
+            this.warn('stdin closed; dev keepalive active');
+        }
     }
 
     _send(obj) {
@@ -352,6 +366,8 @@ class BackendApp extends Gio.Application {
                     ? msg.config
                     : {},
             };
+
+            this._setApplicationIdFromHello(this._ctx.instanceId);
 
             try {
                 await this.onHello(this._ctx);
@@ -423,6 +439,34 @@ class BackendApp extends Gio.Application {
             break;
         }
     }
+
+    _setApplicationIdFromHello(instanceId) {
+    }
+
+    _isValidAppId(id) {
+        if (GLib.application_id_is_valid)
+            return GLib.application_id_is_valid(id);
+
+        if (typeof id !== 'string' || !id.length || id.length > 255)
+            return false;
+
+        const parts = id.split('.');
+        if (parts.length < 2)
+            return false;
+
+        const re = /^[A-Za-z_][A-Za-z0-9_]*$/;
+        return parts.every(p => re.test(p));
+    }
+
+    _logConsole(...args) {
+        try {
+            const text = '[BackendApp] ' + args.map(a => {
+                try { return JSON.stringify(a); } catch { return String(a); }
+            }).join(' ');
+            // Write directly to stderr so host-side reader sees it.
+            printerr(text);
+        } catch {}
+    }
 });
 
 // Convenience runner for concrete backends.
@@ -433,6 +477,7 @@ class BackendApp extends Gio.Application {
 //
 // This keeps all backends consistent.
 export function runBackend(AppClass, argv = ARGV) {
-    const app = new AppClass();
+    const devKeepAlive = Array.isArray(argv) && argv.includes('--dev-keepalive');
+    const app = new AppClass({devKeepAlive});
     return app.run(argv ?? []);
 }

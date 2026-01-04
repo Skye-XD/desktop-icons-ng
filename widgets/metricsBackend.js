@@ -33,6 +33,7 @@ import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import GTop from 'gi://GTop';
 import UPowerGlib from 'gi://UPowerGlib';
+import GObject from 'gi://GObject';
 
 import {BackendApp, runBackend} from './backEndApp.js';
 
@@ -45,9 +46,10 @@ const IFF_UP = 0x1;
 const IFF_RUNNING = 0x40;
 const IFF_LOOPBACK = 0x8;
 
-export class MetricsBackendApp extends BackendApp {
-    constructor() {
-        super({applicationId: null});
+export const MetricsBackendApp = GObject.registerClass(
+class MetricsBackendApp extends BackendApp {
+    constructor(params = {}) {
+        super({applicationId: null, devKeepAlive: params.devKeepAlive});
 
         this._periodMs = DEFAULT_PERIOD_MS;
 
@@ -62,6 +64,10 @@ export class MetricsBackendApp extends BackendApp {
 
         // Network delta cache: iface -> {rx, tx, tsMs}
         this._netPrev = new Map();
+        this._netWarnedNoIfaces = false;
+        this._netWarnedIfaceFail = new Set();
+        this._netWarnedNoData = false;
+        this._netWarnedSysfsIface = new Set();
 
         // UPower
         this._upClient = null;
@@ -295,37 +301,24 @@ export class MetricsBackendApp extends BackendApp {
     _sampleNet(tsMs) {
         let rxBps = 0;
         let txBps = 0;
+        let samples = 0;
+        const ifaces = this._listSysfsIfaces();
 
-        const netlist = new GTop.glibtop_netlist();
-
-        let ifaces;
-
-        try {
-            ifaces = GTop.glibtop_get_netlist(netlist);
-       } catch {
-            ifaces = [];
+        if (!Array.isArray(ifaces) || ifaces.length === 0) {
+            this._netWarnedNoIfaces = true;
+            return {rxBps, txBps};
        }
 
         for (const iface of ifaces) {
             if (typeof iface !== 'string' || !iface)
                 continue;
 
-            const net = new GTop.glibtop_netload();
-
-            try {
-                GTop.glibtop_get_netload(net, iface);
-            } catch {
-                    continue;
-            }
-
-            if (this._isIfaceLoopbackOrDown(iface, net))
+            const stats = this._sysfsGetRxTx(iface);
+            if (!stats)
                 continue;
 
-            const rx = Number(net.bytes_in ?? 0);
-            const tx = Number(net.bytes_out ?? 0);
-
             const prev = this._netPrev.get(iface);
-            this._netPrev.set(iface, {rx, tx, tsMs});
+            this._netPrev.set(iface, {rx: stats.rx, tx: stats.tx, tsMs});
 
             if (!prev)
                 continue;
@@ -335,8 +328,8 @@ export class MetricsBackendApp extends BackendApp {
             if (!(dt > 0))
                 continue;
 
-            const drx = rx - prev.rx;
-            const dtx = tx - prev.tx;
+            const drx = stats.rx - prev.rx;
+            const dtx = stats.tx - prev.tx;
 
             // Convert bytes/ms -> bytes/s
             const rxRate = (drx > 0 ? drx : 0) * (1000 / dt);
@@ -344,6 +337,7 @@ export class MetricsBackendApp extends BackendApp {
 
             rxBps += rxRate;
             txBps += txRate;
+            samples += 1;
        }
 
         // Cleanup: remove interfaces that disappeared from the system
@@ -356,7 +350,59 @@ export class MetricsBackendApp extends BackendApp {
            }
        }
 
+        if (!samples && rxBps === 0 && txBps === 0 && !this._netWarnedNoData)
+            this._netWarnedNoData = true;
+
         return {rxBps, txBps};
+   }
+
+    _listSysfsIfaces() {
+        const out = [];
+        try {
+            const dir = Gio.File.new_for_path('/sys/class/net');
+            const en = dir.enumerate_children(
+                Gio.FILE_ATTRIBUTE_STANDARD_NAME,
+                Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+                null
+            );
+            let info;
+            while ((info = en.next_file(null))) {
+                const name = info.get_name();
+                if (name && name !== 'lo')
+                    out.push(name);
+            }
+        } catch {}
+        return out;
+   }
+
+    _sysfsGetRxTx(iface) {
+        try {
+            const base = `/sys/class/net/${iface}/statistics`;
+            const rx = this._readSysfsNumber(`${base}/rx_bytes`);
+            const tx = this._readSysfsNumber(`${base}/tx_bytes`);
+            if (!Number.isFinite(rx) || !Number.isFinite(tx)) {
+                if (!this._netWarnedSysfsIface.has(iface)) {
+                    this._netWarnedSysfsIface.add(iface);
+                    this.warn(`metrics net: sysfs missing stats for ${iface}`);
+                }
+                return null;
+            }
+            return {rx, tx};
+        } catch (e) {
+            if (!this._netWarnedSysfsIface.has(iface)) {
+                this._netWarnedSysfsIface.add(iface);
+                this.warn(`metrics net: sysfs read failed for ${iface}:`, e?.message ?? e);
+            }
+            return null;
+        }
+   }
+
+    _readSysfsNumber(path) {
+        const f = Gio.File.new_for_path(path);
+        const [, bytes] = f.load_contents(null);
+        const s = new TextDecoder('utf-8').decode(bytes).trim();
+        const n = Number(s);
+        return Number.isFinite(n) ? n : null;
    }
 
     // ------------------------------------------------------------
@@ -476,7 +522,7 @@ export class MetricsBackendApp extends BackendApp {
         case UPowerGlib.DeviceState.PENDING_DISCHARGE: return 'pending_discharge';
         default: return 'unknown';
        }
-   }
-}
+       }
+});
 
 runBackend(MetricsBackendApp);
