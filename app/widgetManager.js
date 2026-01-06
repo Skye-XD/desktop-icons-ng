@@ -42,6 +42,7 @@ import {WebWidgetContext} from '../dependencies/localFiles.js';
  */
 export {WidgetManager};
 
+const WIDGETS_STATE_SCHEMA_VERSION = 2;
 
 const WidgetManager = class {
     constructor(desktopManager) {
@@ -78,7 +79,7 @@ const WidgetManager = class {
 
         this._addActions();
 
-        this.loadState(this._preferences.widgetState);
+        this.loadState(this._preferences.widgetState).catch(e => logError(e));
     }
 
     clearFromGrids() {
@@ -113,8 +114,8 @@ const WidgetManager = class {
         this._stateChanged();
     }
 
-    startWidgetDisplay(desktops, params) {
-        this.loadState(
+    async startWidgetDisplay(desktops, params) {
+        await this.loadState(
             this._preferences.widgetState
         );
 
@@ -544,15 +545,21 @@ const WidgetManager = class {
      *
      * It also has to deal with null, undefined, or missing fields gracefully.
      */
-    loadState(state) {
+    async loadState(state) {
         if (!state || typeof state !== 'object')
             return;
+        
+        const schemaVersion =
+            Number.isFinite(state.version) ? state.version : 1;
 
-        if (state.version !== 1) {
+        if (schemaVersion < WIDGETS_STATE_SCHEMA_VERSION) {
             console.warn(
-                `WidgetManager loadState: Unknown state version ${state.version}`
+                `WidgetManager loadState: state version ${schemaVersion} ` +
+                `(current ${WIDGETS_STATE_SCHEMA_VERSION}); migrating`
             );
+            state = await this._migrateToCurrentVersion(state);
         }
+
 
         if (!Array.isArray(state.instances))
             return;
@@ -584,7 +591,7 @@ const WidgetManager = class {
                 instance.prefsUri = instData.prefsUri ?? null;
                 instance.hasPreferences =
                     instData.hasPreferences ?? !!instance.prefsUri;
-                instance.hasBackend = instData.hasBackend ?? instance.hasBackend ?? false;
+                instance.hasBackend = instData.hasBackend;
             } else {
                 instance = {
                     instanceId: instData.instanceId,
@@ -757,7 +764,7 @@ const WidgetManager = class {
             this._sortedInstancesForExport(zIndexByInstanceId);
 
         const out = {
-            version: 1,
+            version: WIDGETS_STATE_SCHEMA_VERSION,
             instances: [],
         };
 
@@ -780,6 +787,57 @@ const WidgetManager = class {
 
         return out;
     }
+
+    async _migrateToCurrentVersion(state) {
+    if (!state || typeof state !== 'object')
+        return {version: WIDGETS_STATE_SCHEMA_VERSION, instances: []};
+
+    const schemaVersion =
+        Number.isFinite(state.version) ? state.version : 1;
+
+    if (!Array.isArray(state.instances))
+        state.instances = [];
+
+    let migrated = false;
+
+    if (schemaVersion < 2) {
+        // v1 -> v2: instances gain hasBackend.
+        // Compute it once from the widget manifest (descriptor) and persist.
+        // Schema v2+: backend capability is stored per instance (hasBackend)
+        // and is resolved once at creation or migration time.
+
+        for (const instData of state.instances) {
+            if (!instData || typeof instData !== 'object')
+                continue;
+
+            let hasBackend = false;
+
+            try {
+                const desc = await this._widgetRegistry.getDescriptor(
+                    instData.widgetId
+                );
+                hasBackend = !!desc?.hasBackend;
+            } catch (e) {
+                // If registry lookup fails, default false (safe).
+                hasBackend = false;
+            }
+
+            instData.hasBackend = hasBackend;
+            migrated = true;
+        }
+
+        state.version = 2;
+        migrated = true;
+    }
+
+    if (migrated && this._preferences) {
+        // Persist the migrated file state as-is (do NOT call exportState() here).
+        this._preferences.widgetState = state;
+    }
+
+    return state;
+}
+
 
     // =====================================================================
     // Internal helpers

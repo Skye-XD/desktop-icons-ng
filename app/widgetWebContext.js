@@ -561,7 +561,7 @@ const WebWidgetContext = class {
             const hasBackend = typeof inst.host?.backendRequest === 'function';
             
             if (!hasBackend) {
-                this._postNoBackendError(instanceId, payload)
+                this._postNoBackendError(inst, payload)
                 break;
             }
 
@@ -591,8 +591,10 @@ const WebWidgetContext = class {
     }
 
     // Script Helpers
-    _postNoBackendError(instanceId, payload) {
+    _postNoBackendError(inst, payload) {
         // Ensure the JSAPI Promise resolves/rejects; otherwise it hangs.
+        const instanceId = inst?.instanceId ?? payload?.instanceId;
+
         const reply = {
             _dingInternal: true,
             type: 'backendReply',
