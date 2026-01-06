@@ -5,21 +5,21 @@
 # Rafael Fontenelle <rafaelff@gnome.org>, 2018-2019.
 # Fernando Alves <fernandoalvess617@gmail.com>, 2020.
 # Diolinux <blogdiolinux@gmail.com>, 2021.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2024.
-# Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024.
-# Allan Novaes Lima <lnapublicidade@gmail.com>, 2024.
-# Lúcia <lucia.hates.proton@proton.me>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# Fernando Lopes <118869201+plasmus777@users.noreply.github.com>, 2024, 2026.
+# Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024, 2026.
+# Allan Novaes Lima <lnapublicidade@gmail.com>, 2024, 2026.
+# Lúcia <lucia.hates.proton@proton.me>, 2025, 2026.
+# Mateus Liberale Gomes <sergiogomes209403@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:27+0000\n"
+"Last-Translator: Lúcia <lucia.hates.proton@proton.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtk4-"
 "desktop-icons-ng/gtk4-ding-pot/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -35,23 +35,24 @@ msgstr "Substituir"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Personalize a aparência dos ícones da área de trabalho com CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
 msgstr ""
+"Aviso: Se feito incorretamente, este procedimento pode danificar a extensão"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Editar arquivo de sobreposição de CSS..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Aplique as alterações de CSS agora"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Recarregue o CSS para aplicar as alterações imediatamente"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
@@ -561,8 +562,7 @@ msgstr "O arquivo de saída '${outputFile}' já existe."
 # MT: LibreTranslate
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"A compressão de arquivos em '${outputFile}' foi cancelada pelo usuário."
+msgstr "A compressão de arquivos em '${outputFile}' foi cancelada pelo usuário."
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
@@ -708,9 +708,8 @@ msgstr "Ícones da área de trabalho"
 
 # MT: LibreTranslate
 #: app/desktopGrid.js:2477
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "Atualizar área de trabalho"
+msgstr "Voltar à área de trabalho"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:161
@@ -1227,8 +1226,7 @@ msgstr "Não é possível enviar um diretório por email"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:967
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
-"A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
+msgstr "A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:993 app/fileItemMenu.js:1024 app/fileItemMenu.js:1041
@@ -1488,7 +1486,7 @@ msgstr "Antevisão"
 
 #: app/shortcuts.js:34
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "Alternar camada de widget"
 
 #: app/shortcuts.js:35 app/widgetManager.js:911
 msgid "Add Widget"
@@ -1591,17 +1589,16 @@ msgstr "Dirija"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1164
-#, fuzzy
 msgid "Widget preferences"
-msgstr "Preferências"
+msgstr "Configurações do widget"
 
 #: app/widgetManager.js:1548
 msgid "HTML widget"
-msgstr ""
+msgstr "HTML widget"
 
 #: app/widgetManager.js:1550
 msgid "GTK widget"
-msgstr ""
+msgstr "GTK widget"
 
 #: app/widgetManager.js:1559
 msgid "User"
@@ -1609,9 +1606,8 @@ msgstr "Usuário"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "Preferências"
+msgstr "Preferências do Widget"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
@@ -1867,7 +1863,7 @@ msgstr "Integrações da área de trabalho"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
-msgstr ""
+msgstr "Exibe os widgets em uma camada abaixo dos ícones, se instalados"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115

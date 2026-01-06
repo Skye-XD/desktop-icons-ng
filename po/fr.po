@@ -3,23 +3,23 @@
 # This file is distributed under the same license as the desktop-icons package.
 # ghentdebian <ghent.debian@gmail.com>, 2018.
 # Charles Monzat <charles.monzat@numericable.fr>, 2018.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Autantpourmoi <luc.valigny@gmail.com>, 2024.
-# Ludovic <ludo.goulet@hotmail.com>, 2024, 2025.
-# Red Quarck <redquarck@proton.me>, 2024, 2025.
-# "Alexandre G. Raymond" <alex@ndre.gr>, 2024.
-# fanfu <com-ubuntu@descamps.eu>, 2024, 2025.
-# French Fries <sikaxor989@euleina.com>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
+# Autantpourmoi <luc.valigny@gmail.com>, 2024, 2026.
+# Ludovic <ludo.goulet@hotmail.com>, 2024, 2025, 2026.
+# Red Quarck <redquarck@proton.me>, 2024, 2025, 2026.
+# "Alexandre G. Raymond" <alex@ndre.gr>, 2024, 2026.
+# fanfu <com-ubuntu@descamps.eu>, 2024, 2025, 2026.
+# French Fries <sikaxor989@euleina.com>, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:24+0000\n"
+"Last-Translator: \"Alexandre G. Raymond\" <alex@ndre.gr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -1003,8 +1003,7 @@ msgstr "Ouverture du fichier échoué"
 # MT: LibreTranslate
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"Il n'y a pas d'application installée pour ouvrir les fichiers \"{fo}\"."
+msgstr "Il n'y a pas d'application installée pour ouvrir les fichiers \"{fo}\"."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -1622,7 +1621,8 @@ msgstr "Affiche les icônes sur le bureau GNOME"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "bureau;icônes;fichiers;dossiers;manager;dispositif;show;lanceur;shortcuts;"
+msgstr ""
+"bureau;icônes;fichiers;dossiers;manager;dispositif;show;lanceur;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -1669,8 +1669,7 @@ msgstr "Coin de référence des nouvelles icônes"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
-msgstr ""
-"Définit le coin à partir duquel les icônes commenceront à être placées."
+msgstr "Définit le coin à partir duquel les icônes commenceront à être placées."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
@@ -1703,8 +1702,8 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr ""
-"Affiche un rectangle sur l’emplacement de destination lors d’un "
-"glisser‑déposer"
+"Affiche un rectangle sur l’emplacement de destination lors d’un glisser‑"
+"déposer"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""

@@ -2,24 +2,25 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2018-2019.
-# Sergio Costas <rastersoft@gmail.com>, 2018-2023.
+# Sergio Costas <rastersoft@gmail.com>, 2018-2023, 2026.
 # gallegonovato <fran-carro@hotmail.es>, 2023.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
-# Josman Goncalves Bravo <josmangoncalvesbravo@hotmail.com>, 2025.
-# Mayco Emanuel Portillo <maycoemanuelportillo@gmail.com>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024, 2026.
+# Josman Goncalves Bravo <josmangoncalvesbravo@hotmail.com>, 2025, 2026.
+# Mayco Emanuel Portillo <maycoemanuelportillo@gmail.com>, 2025, 2026.
 # Anthony Montero <aimc.6594@gmail.com>, 2025.
 # Marcos <yasif90@gmail.com>, 2025.
 # Francisco Serrador <fserrador@gmail.com>, 2025, 2026.
-# Deleted User <noreply+48943@weblate.org>, 2025.
+# Deleted User <noreply+48943@weblate.org>, 2025, 2026.
 # Quentin PAGÈS <quentinantonin@free.fr>, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2026-01-01 01:01+0000\n"
+"PO-Revision-Date: 2026-01-06 19:24+0000\n"
 "Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/es/>\n"
@@ -401,8 +402,7 @@ msgstr ""
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
-msgstr ""
-"Para permitir el lanzamiento, haga clic con el botón derecho, entonces:"
+msgstr "Para permitir el lanzamiento, haga clic con el botón derecho, entonces:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
@@ -440,8 +440,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Para poder trabajar con archivos comprimidos, instale file-roller y/o "
-"gir-1.2-gnomeAutoAr"
+"Para poder trabajar con archivos comprimidos, instale file-roller y/o gir-"
+"1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 msgid "Extracting files"

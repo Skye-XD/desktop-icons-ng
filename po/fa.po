@@ -2,16 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
 # Amir Mohammad Biuki <abiuki@ce.sharif.edu>, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:22+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fa/>\n"
 "Language: fa\n"
@@ -1821,8 +1821,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"هنگامی که Icons را بر روی دسکتاپ تنظیم می کنید، مرتب سازی و تغییر موقعیت "
-"خانه، Trash و نصب شبکه یا درایو خارجی"
+"هنگامی که Icons را بر روی دسکتاپ تنظیم می کنید، مرتب سازی و تغییر موقعیت خانه"
+"، Trash و نصب شبکه یا درایو خارجی"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70

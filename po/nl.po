@@ -2,17 +2,17 @@
 # Copyright (C) 2019 desktop-icons's COPYRIGHT HOLDER
 # This file is distributed under the same license as the desktop-icons package.
 # Nathan Follens <nthn@unseen.is>, 2019.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:27+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/nl/>\n"
 "Language: nl\n"
@@ -617,8 +617,7 @@ msgstr "Compatibel met alle besturingssystemen."
 # MT: LibreTranslate
 #: app/autoAr.js:694
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr ""
-"Wachtwoord beveiligd .zip, moet worden geïnstalleerd op Windows en Mac."
+msgstr "Wachtwoord beveiligd .zip, moet worden geïnstalleerd op Windows en Mac."
 
 # MT: LibreTranslate
 #: app/autoAr.js:700
@@ -1689,7 +1688,8 @@ msgstr "Pictogrammen op het GNOME-bureaublad tonen"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -1831,8 +1831,7 @@ msgstr "Pictogrammen gestapeld houden"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 msgid "Always keep Icons Stacked, Similar types are grouped"
-msgstr ""
-"Altijd Pictogrammen Stacked houden, Soortgelijke types zijn gegroepeerd"
+msgstr "Altijd Pictogrammen Stacked houden, Soortgelijke types zijn gegroepeerd"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85

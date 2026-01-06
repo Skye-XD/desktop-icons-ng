@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the gtk4-ding package.
 # Automatically generated, 2025.
 #
-# Weblate <noreply-mt-weblate@weblate.org>, 2025.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:18+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ms/>\n"
 "Language: ms\n"
@@ -487,8 +487,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Untuk dapat bekerja dengan file termampat, pasang file-roller dan/atau "
-"gir-1.2-gnome OtoAr"
+"Untuk dapat bekerja dengan file termampat, pasang file-roller dan/atau gir-"
+"1.2-gnome OtoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
@@ -1073,7 +1073,6 @@ msgstr "Tak ada aplikasi yang dipasang untuk membuka berkas \"{fo}\"."
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "Folder Baru dengan {0} ♪ item ♪"
-msgstr[1] "Folder Baru dengan {0} ♪ item ♪"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:114
@@ -1170,14 +1169,12 @@ msgstr "Buat Pautan..."
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "Folder Mampat {0}"
-msgstr[1] "Folder Mampat {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "Berkas mampatan analog {0}"
-msgstr[1] "Berkas mampatan analog {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:276
@@ -1716,7 +1713,8 @@ msgstr "Ikon ikon pada desktop GNOME"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop;icons;files;folder;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"desktop;icons;files;folder;manager;arrange;hide;show;launcher;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
