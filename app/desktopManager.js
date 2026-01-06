@@ -415,7 +415,7 @@ const DesktopManager = class {
             gridschanged,
         });
 
-        this.widgetManager.applyLayoutChange(this._desktops, {redisplay});
+        await this.widgetManager.applyLayoutChange(this._desktops, {redisplay});
     }
 
 
