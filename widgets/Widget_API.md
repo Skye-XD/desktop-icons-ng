@@ -109,7 +109,7 @@ This means a widget author can safely ship assets under subdirectories, but cann
 On injection, the platform attempts to insert a `<style>` tag at the top of the document:
 
 - `id="ding-widget-background"`
-- forces `background: transparent !important` for `html`, `body`, and `*`
+- forces `background: transparent !important` for `html`, `body`, but not `*`. Widget renderings do not have a transparent background to they can be seen.
 
 This is intended to make widgets “desktop-friendly” by default (a transparent base), while still allowing the widget author to override visuals with their own CSS.
 
@@ -286,6 +286,20 @@ Registers a callback that will be called:
 
 Returns an `unsubscribe()` function.
 
+#### `ding.backendRequest(method: string, params?: object): Promise<any>` (sends `requestId`)
+
+Send a request to a widget backend **only if a backend exists** (the widget declares a `backendSpec`). Each call carries an auto-incremented `requestId`; the backend response includes the same `id` so replies are matched to the right Promise. `method` is a widget-author defined string, and `params` is arbitrary JSON defined by the widget/backend author. The backend replies with a `response` object shaped as `{ type: "response", id, ok, result, error }`: `id` matches the request, `ok` is a boolean success flag, `result` is the success payload (any JSON), and `error` is the failure payload (any JSON or string). The Promise resolves with `result` when `ok` is true and rejects with `error` when `ok` is false.
+
+#### `ding.backendSend(name: string, payload?: object): void`
+
+Fire-and-forget message to a widget backend **only if a backend exists** (the widget declares a `backendSpec`). `name` and `payload` are widget-author defined and can be any JSON shape.
+
+#### `ding.onBackendEvent(cb: function): function`
+
+Subscribe to backend `event` messages **only if a backend exists**. Event `name` and `payload` shapes are widget-author defined. Returns an `unsubscribe()` function.
+
+
+
 ---
 
 ## Host state
@@ -406,11 +420,37 @@ Some widgets declare a backend subprocess via `backendSpec`. When present, `Html
   `name` is an author-defined string, and `payload` is arbitrary JSON decided entirely by the backend/widget author pair.
 - **log**  
   Diagnostics printed by the host. Shape:  
-  `{ type: "log", level, message }`
+  `{ type: "log", level, message }`  
+  `level` is a string (common values: `log`, `warn`, `error`, `debug`) and `message` is free-form text; both are widget-author defined.
 
-Messages with unknown `type` values are ignored.
+Messages with unknown `type` values or malformed JSON lines are ignored (no error response is sent).
 
 ---
+
+### Backend helper: `backEndApp.js` (backend process)
+
+Widget backends can subclass `BackendApp` from `widgets/backEndApp.js`, which implements the JSONL protocol over stdin/stdout and wires up request routing, logging, and shutdown handling.
+
+Key hooks and helpers:
+
+- `registerMethod(method, handler)`  
+  Registers an async handler for `request` messages. The handler receives `(params, ctx)` and returns a JSON-serializable result. Replies are emitted as `{ type: "response", id, ok, result, error }` with the matching `id`.
+- `onHello(ctx)`  
+  Called after the host sends `hello`. `ctx` includes `{ instanceId, widgetId, mode, config }`.
+- `onHostEvent(name, payload)`  
+  Called for inbound `event` messages from the host.
+- `onShutdown()`  
+  Called when the host requests shutdown or on SIGTERM/SIGINT.
+- `sendEvent(name, payload)`  
+  Sends an async `event` to the widget. `name`/`payload` are widget-author defined.
+- `sendLog(level, message)` and helpers `log()`, `warn()`, `error()`, `debug()`  
+  Sends a `log` message to the host. `level` is typically `log`, `warn`, `error`, or `debug`.
+
+To run a backend, subclass `BackendApp` and call `runBackend(MyBackend)` from your backend entry point.
+
+### Backend helper for widgets: `widgetHelper.js` (DingClient)
+
+For widget-side code, `widgets/widgetHelper.js` exports `DingClient` as a thin helper around the injected `window.ding` API. It exposes `backendRequest`, `backendSend`, and `onBackendEvent`, sends an initial backend hello for lazy startup, and includes optional timeouts for requests.
 
 
 ### Preferences and the gear icon
@@ -564,6 +604,27 @@ If your widget is truly trivial—single-file, no prefs, no backend, writes conf
 - You plan to use `backendRequest` / `backendSend`
 
 In those cases the helper pays for itself immediately by keeping all widgets consistent and hiding the protocol details.
+
+---
+
+## Optional helper: `backEndApp.js`
+
+For JavaScript backends, the widgets folder ships `backEndApp.js`, a small GJS base class that implements the JSONL protocol for you. It is optional, but it saves boilerplate and keeps backends consistent.
+
+### Why use it for backends
+
+- **Request routing**  
+  `registerMethod()` wires method names to async handlers and automatically emits matching `{ type: "response", id, ok, result, error }`.
+- **Lifecycle hooks**  
+  `onHello(ctx)`, `onHostEvent(name, payload)`, and `onShutdown()` give clean entry points without manual parsing.
+- **Logging helpers**  
+  `log()`, `warn()`, `error()`, `debug()` emit host-visible log messages with consistent levels.
+- **Shutdown handling**  
+  Handles `shutdown` messages plus SIGTERM/SIGINT, so your backend exits cleanly.
+- **Context access**  
+  `this.context` provides `{ instanceId, widgetId, mode, config }` from the host hello.
+
+Use it if you are writing a JS/GJS backend and want a well-defined protocol wrapper; you can still implement the raw protocol directly if you need full control.
 
 ---
 

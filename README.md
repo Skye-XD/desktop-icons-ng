@@ -19,8 +19,6 @@ This fork of DING is ported to use the Gtk4 toolkit, and now has been ported to 
 
 Other than using the Gtk4 toolkit, and now libadwaita, it has in addition, several new features, fixes and enhancements.
 
-The new web-widget layer can optionally launch helper backends defined per widget via `widget.json`. `HtmlWidgetHostWithBackend` spawns those commands directly from the widget bundle and exchanges newline-delimited JSON so widgets can render data produced by applications written in any language. This gives widget authors the power to integrate local system information or custom services well beyond what WebKit alone can access, so treat backend-enabled widgets like local applications and install only from trusted sources.
-
 ### UPDATE April 2025
 
 Application was rewritten, cleaned up and restructured completely and several new classes added for cleaner mantainance.
@@ -35,6 +33,7 @@ Uses Libretranslate to automatically translate into multiple languages.
 - Widgets support preferences via `widget.json` `prefs` paths (any subdirectory) and per-instance config (overwrites on save).
 - As with any web content, widgets carry the same security considerations as a web page; read the security sections in the widget docs for details.
 - The widget runtime is initialized lazily: if no widgets are enabled or instantiated, no WebKit processes are started, no additional resources are used, and there is no added attack surface beyond normal DING operation.
+- The new web-widget layer can optionally launch helper backends defined per widget via `widget.json`. `HtmlWidgetHostWithBackend` spawns those commands directly from the widget bundle and exchanges newline-delimited JSON so widgets can render data produced by applications written in any language. This gives widget authors the power to integrate local system information or custom services well beyond what WebKit alone can access, so treat backend-enabled widgets like local applications and install only from trusted sources.
 - Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](widgets/Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md). An optional shared stylesheet `widgets/ding-widget.css` is covered in [Widget_API.md](widgets/Widget_API.md#optional-helper-stylesheet-ding-widgetcss).
 
 ## Security
