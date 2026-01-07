@@ -39,11 +39,9 @@ const WindowManager = class {
         this._desktops = [];
         this._asDesktop = asDesktop;
         this._zoom = 1;
-        this._primaryIndex = null;
         this._primaryMonitorIndex = null;
         this._priorPrimaryIndex = null;
         this._priorPrimaryMonitorIndex = null;
-        this._primaryScreen = null;
         this._differentZooms = false;
         this._hidden = false;
 
@@ -67,7 +65,7 @@ const WindowManager = class {
         const busObjectPath = this.mainApp.get_dbus_object_path();
         const busName = this.mainApp.get_application_id();
         const connection = Gio.DBus.session;
-        const signalName = 'upateGeometry';
+        const signalName = 'updateGeometry';
 
         const signalXml = `
                 <node>
