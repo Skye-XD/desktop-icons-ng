@@ -57,13 +57,22 @@ All known important issues are listed in [ISSUES.md](https://gitlab.com/smedius/
 
 ## Requirements
 
+Required:
 * GNOME Shell >= 40
 * Nautilus >= 3.38
 * File-roller >= 3.38 or Gnome AutoAr (including gir1.2 files)
-* Desktop folder already created
+* Desktop folder already created (if missing, xdg-user-dirs/xdg-user-dirs-gtk can create it)
+* Meson tooling is required for building
+
+Optional:
+* xdg-desktop-utils and xdg-mime (xdg-mimetypes) are required for desktop integration and MIME handling.
+* xdg-email (from xdg-utils) is needed for emailing files.
 * GJS (Nix OS specifically needs this installed separately)
-* GIR files for cairo and poppler are needed as well to render thumbnails locally. This should be available by default.
+* GIR files for cairo and poppler are optional. They are used for local thumbnailing if default GNOME thumbnailers are unavailable or not working with gnome-desktop3 GIR files.
+* WebKit is optional and used to display desktop widgets. The program works without it, but widgets will be unavailable and desktop functionality remains unaffected.
+* GSConnect extension is optional; the program can connect to your phone through it for file transfers.
 * For X11 xprop should be installed and executable, will work even without it, however things will work better and be more seamless without emulation if it is available.
+* Node.js is build-time tooling, optional for LibreTranslate automatic translations.
 
 ## Installation
 
