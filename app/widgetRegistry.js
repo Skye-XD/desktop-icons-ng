@@ -495,7 +495,7 @@ const WidgetRegistry = class  {
         const cwd = this._resolveBackendCwd(b, dirFile, dirPath);
 
         const envOverrides =
-            (b.env && typeof b.env === 'object') ? b.env : null;
+            b.env && typeof b.env === 'object' ? b.env : null;
 
         const env = {
             DING_WIDGET_ID: String(inst?.widgetId ?? ''),
@@ -526,6 +526,7 @@ const WidgetRegistry = class  {
         if (typeof cmd !== 'string' || cmd.length === 0)
             return null;
 
+        // eslint-disable-next-line no-nested-ternary
         const args = Array.isArray(backend.args)
             ? backend.args.filter(a => typeof a === 'string')
             : Array.isArray(backend.argv)
@@ -560,7 +561,7 @@ const WidgetRegistry = class  {
 
     _resolveBackendCwd(backend, dirFile, fallbackDirPath) {
         const cwdRel =
-            (typeof backend?.cwd === 'string' && backend.cwd.length)
+            typeof backend?.cwd === 'string' && backend.cwd.length
                 ? backend.cwd
                 : '.';
 

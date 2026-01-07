@@ -559,9 +559,9 @@ const WebWidgetContext = class {
 
         case 'backendRequest': {
             const hasBackend = typeof inst.host?.backendRequest === 'function';
-            
+
             if (!hasBackend) {
-                this._postNoBackendError(inst, payload)
+                this._postNoBackendError(inst, payload);
                 break;
             }
 
