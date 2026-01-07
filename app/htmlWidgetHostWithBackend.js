@@ -145,7 +145,6 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             }
 
             const argv = Array.isArray(spec.argv) ? [...spec.argv] : [];
-            const cwd = spec.cwd || '.';
 
             this._backendProc = launcher.spawnv(argv);
             this._backendIn = new Gio.DataOutputStream({
@@ -229,7 +228,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             return;
 
         try {
-            this._backendIn.put_string(JSON.stringify(obj) + '\n', null);
+            this._backendIn.put_string(`${JSON.stringify(obj)}\n`, null);
             this._backendIn.flush(null);
         } catch (e) {
             console.error(
@@ -246,11 +245,12 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
             let line;
 
             try {
+                // eslint-disable-next-line no-await-in-loop
                 const [bytes] = await stream.read_line_async(
                     GLib.PRIORITY_DEFAULT,
                     null
                 );
-                
+
                 if (!bytes)
                     break;
 
@@ -385,7 +385,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         if (!payload || !this._backendProc || this._destroyed)
             return;
 
-        const { requestId, method, params } = payload;
+        const {requestId, method, params} = payload;
         if (requestId === undefined || requestId === null)
             return;
 
@@ -470,7 +470,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
         if (!inst || !payload || this._destroyed)
             return;
 
-        const { name, payload: data } = payload || {};
+        const {name, payload: data} = payload || {};
         if (this._backendProc) {
             this._sendBackend({
                 type: 'event',
@@ -493,7 +493,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
 
         try {
             if (this._backendIn)
-                this._sendBackend({ type: 'shutdown' });
+                this._sendBackend({type: 'shutdown'});
         } catch {}
 
         this._backendReading = false;
@@ -523,6 +523,7 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
 
         while (!this._destroyed && this._backendErr) {
             try {
+                // eslint-disable-next-line no-await-in-loop
                 const [bytes] = await this._backendErr.read_line_async(
                     GLib.PRIORITY_DEFAULT,
                     null
