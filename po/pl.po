@@ -4,20 +4,22 @@
 # Paweł Piasek <pp@euro-linux.com>, 2022
 # Piotr Drąg <piotrdrag@gmail.com>, 2018-2019.
 # Aviary.pl <community-poland@mozilla.org>, 2018-2019.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
 # Xtremo3 <a.lewicki95@gmail.com>, 2025.
 # Adam Lewicki <a.lewick95@gmail.com>, 2025.
 # Adam Lewicki <a.lewicki95@gmail.com>, 2025, 2026.
-# Tari_2023 <tari21531@gmail.com>, 2025.
+# Tari_2023 <tari21531@gmail.com>, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Deleted User <noreply+50296@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2026-01-02 17:01+0000\n"
-"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
+"PO-Revision-Date: 2026-01-06 19:22+0000\n"
+"Last-Translator: Deleted User <noreply+50296@weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
@@ -1433,7 +1435,8 @@ msgstr "Wyświetlaj ikony na pulpicie GNOME"
 
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
+msgstr ""
+"desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
@@ -1508,8 +1511,7 @@ msgstr ""
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr ""
-"Pokarz prostokąt w miejscu docelowym podczas Przeciągania i Upuszczania"
+msgstr "Pokarz prostokąt w miejscu docelowym podczas Przeciągania i Upuszczania"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""

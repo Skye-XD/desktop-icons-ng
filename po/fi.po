@@ -5,17 +5,17 @@
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2018.
 # Timo Jyrinki <timo.jyrinki+l10n@gmail.com>, 2021.
 # Tuomas Nurmi <tuomas.nurmi@opinsys.fi>, 2022.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:25+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fi/>\n"
 "Language: fi\n"
@@ -178,8 +178,7 @@ msgstr "Oikea alakulma"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:685
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Lisää uudet kuvakkeet Sekundaarisiin Monitoreihin ensin, jos saatavilla"
+msgstr "Lisää uudet kuvakkeet Sekundaarisiin Monitoreihin ensin, jos saatavilla"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:689
@@ -1812,8 +1811,7 @@ msgstr ""
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
-msgstr ""
-"Näytä uudet kuvakkeet ei-ensisijaisella monitorilla, jos ne on liitetty"
+msgstr "Näytä uudet kuvakkeet ei-ensisijaisella monitorilla, jos ne on liitetty"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101

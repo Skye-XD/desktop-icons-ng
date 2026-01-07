@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the gtk4-ding package.
 # Automatically generated, 2025.
 #
-# Weblate <noreply-mt-weblate@weblate.org>, 2025.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:02+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:21+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ga/>\n"
 "Language: ga\n"
@@ -434,8 +434,7 @@ msgstr "Níor oibrigh nasc nó íoslódáil i gceart"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr ""
-"Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
+msgstr "Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
@@ -808,8 +807,7 @@ msgstr "Seirbhís do Chustaiméirí Comhaid nach bhfuarthas"
 # MT: LibreTranslate
 #: app/desktopManager.js:224
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"An GNOME Tá iarratais Comhaid ag teastáil ag Gtk4 Desktop deilbhíní NG."
+msgstr "An GNOME Tá iarratais Comhaid ag teastáil ag Gtk4 Desktop deilbhíní NG."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:231

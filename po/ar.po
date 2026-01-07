@@ -1,17 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
-# Eyad <eyad.dodo123456789@gmail.com>, 2024, 2025.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025.
-# Abdullah Albaroty <albaroty@gmail.com>, 2025.
+# Eyad <eyad.dodo123456789@gmail.com>, 2024, 2025, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025, 2026.
+# Abdullah Albaroty <albaroty@gmail.com>, 2025, 2026.
+# Yassin Omer <yassinomer.work@gmail.com>, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:28+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ar/>\n"
 "Language: ar\n"
@@ -1046,6 +1048,10 @@ msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "New Folder with {0} البند"
 msgstr[1] "New Folder with {0} البند"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:114
@@ -1143,6 +1149,10 @@ msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "{0} folder"
 msgstr[1] "{0} folder"
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:269
@@ -1794,8 +1804,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"عند القيام بعملية (دراج) تُحدد المكان في الشبكة حيث سيوضع الأيقونة مع كشطة "
-"شبه شفافة."
+"عند القيام بعملية (دراج) تُحدد المكان في الشبكة حيث سيوضع الأيقونة مع كشطة شبه "
+"شفافة."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65

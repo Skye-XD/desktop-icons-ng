@@ -3,19 +3,23 @@
 # This file is distributed under the same license as the gtk4-ding package.
 # Automatically generated, 2025.
 #
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
-# imnotlxy <contact@lxy.cc>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
+# imnotlxy <contact@lxy.cc>, 2025, 2026.
 # zhongweixiao5 <zhongweixiao5@qq.com>, 2025.
-# remyxo <remyxo2000@sina.com>, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# remyxo <remyxo2000@sina.com>, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
+# Daniel Zhang <xiaozhangshiw@163.com>, 2026.
+# 复予 <clonewith@qq.com>, 2026.
+# Sun Zhang <cardidi@live.cn>, 2026.
+# 0xarch <alanqa-ops@outlook.com>, 2026.
+# "Adam C." <adam701212@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:19+0000\n"
+"Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -27,27 +31,27 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr "覆盖"
+msgstr "CSS 覆盖"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "通过 CSS 自定义桌面图表的外观"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "警告：如果操作不当，可能会导致该扩展损坏"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "编辑 CSS 覆盖文件…"
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "立即应用 CSS 更改"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "立即重载 CSS 来应用更改"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
@@ -103,7 +107,7 @@ msgstr "桌面设置"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:614
 msgid "Settings for the Desktop Program"
-msgstr "桌面程序的设置"
+msgstr "桌面程序设置"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:620
@@ -128,7 +132,7 @@ msgstr "与 Gnome 文件共享的设置"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:639
 msgid "Miscellaneous Tweaks"
-msgstr "杂项 扭动"
+msgstr "杂项调整"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:663
@@ -163,7 +167,7 @@ msgstr "新图标对齐"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:676
 msgid "Top left corner"
-msgstr "左上角处"
+msgstr "左上角"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:677
@@ -268,7 +272,7 @@ msgstr "将新驱动器添加到桌面的另一侧"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:764
 msgid "Action to Open Items"
-msgstr "打开项目的行动"
+msgstr "打开项目的操作"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:766
@@ -293,7 +297,7 @@ msgstr "永远"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:775
 msgid "On this computer only"
-msgstr "只在这台电脑上"
+msgstr "仅在这台电脑上"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:776
@@ -313,7 +317,7 @@ msgstr "显示隐藏文件"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:791
 msgid "Open folders on drag hover"
-msgstr "拖放时打开文件夹"
+msgstr "拖动鼠标悬停时打开文件夹"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:795
@@ -349,12 +353,12 @@ msgstr "翻译"
 # MT: LibreTranslate
 #: app/appChooser.js:78
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "选择打开<b>{foo}</b>的应用"
+msgstr "选择打开 <b>{foo}</b> 的应用程序"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
 msgid "Open Items"
-msgstr "开放项目"
+msgstr "打开项目"
 
 # MT: LibreTranslate
 #: app/appChooser.js:92
@@ -369,11 +373,11 @@ msgstr "打开文件"
 # MT: LibreTranslate
 #: app/appChooser.js:165
 msgid "Error changing default application"
-msgstr "更改默认应用程序出错"
+msgstr "更改默认应用程序时出错"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "将 {foo} 设置为 {mimetype} 的默认应用程序时出错"
+msgstr "在将“{foo}”作为“{mimetype}”的默认应用时出现错误"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -477,19 +481,19 @@ msgstr "重命名"
 # MT: LibreTranslate
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
-msgstr "自动 未安装Ar"
+msgstr "GNOME AutoAr软件包未安装"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr "为了能够与压缩文件相配合,安装文件滚动器和(或)gir-1.2-gnome 自动箭"
+msgstr "为了能够处理压缩文件，请安装 file-roller 和/或 gir-1.2-gnomeAutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
 msgid "Extracting files"
-msgstr "正在提取文件"
+msgstr "提取文件"
 
 # MT: LibreTranslate
 #: app/autoAr.js:220
@@ -506,12 +510,12 @@ msgstr "取消"
 # MT: LibreTranslate
 #: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
-msgstr "在此输入密码"
+msgstr "输入密码"
 
 # MT: LibreTranslate
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
-msgstr "删除部分文件 '${outputFile}'"
+msgstr "删除部分文件 “${outputFile}”"
 
 # MT: LibreTranslate
 #: app/autoAr.js:373
@@ -521,52 +525,52 @@ msgstr "创建目标文件夹"
 # MT: LibreTranslate
 #: app/autoAr.js:405
 msgid "Extracting files into '${outputPath}'"
-msgstr "将文件提取到 '${outputPath}'"
+msgstr "将文件提取到 “${outputPath}”"
 
 # MT: LibreTranslate
 #: app/autoAr.js:435
 msgid "Extraction completed"
-msgstr "采掘完成"
+msgstr "提取完成"
 
 # MT: LibreTranslate
 #: app/autoAr.js:436
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr "提取'${fullPathFile}'已经完成."
+msgstr "提取 “${fullPathFile}” 已完成。"
 
 # MT: LibreTranslate
 #: app/autoAr.js:442
 msgid "Extraction cancelled"
-msgstr "已取消提取"
+msgstr "提取已取消"
 
 # MT: LibreTranslate
 #: app/autoAr.js:443
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "提取 '${fullPathFile}' 已被用户取消 ."
+msgstr "提取 “${fullPathFile}” 已被用户取消。"
 
 # MT: LibreTranslate
 #: app/autoAr.js:453
 msgid "Passphrase required for ${filename}"
-msgstr "${filename}所需密码句]"
+msgstr "${filename} 需要密码"
 
 # MT: LibreTranslate
 #: app/autoAr.js:456
 msgid "Error during extraction"
-msgstr "提取时出错"
+msgstr "提取过程中出错"
 
 # MT: LibreTranslate
 #: app/autoAr.js:483
 msgid "Compressing files into '${outputFile}'"
-msgstr "将文件压缩到 '${outputFile}'"
+msgstr "将文件压缩到 “${outputFile}”"
 
 # MT: LibreTranslate
 #: app/autoAr.js:496
 msgid "Compression completed"
-msgstr "压缩完成"
+msgstr "压缩已完成"
 
 # MT: LibreTranslate
 #: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr "将文件压缩为'${outputFile}'的工作已经完成."
+msgstr "已将文件压缩到 “${outputFile}”。"
 
 # MT: LibreTranslate
 #: app/autoAr.js:501 app/autoAr.js:508
@@ -576,17 +580,17 @@ msgstr "压缩已取消"
 # MT: LibreTranslate
 #: app/autoAr.js:502
 msgid "The output file '${outputFile}' already exists."
-msgstr "输出文件'${outputFile}'已经存在."
+msgstr "输出文件 “${outputFile}” 已经存在。"
 
 # MT: LibreTranslate
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr "将文件压缩到'${outputFile}'已被用户取消."
+msgstr "用户已取消将文件压缩到 “${outputFile}”。"
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
 msgid "Error during compression"
-msgstr "压缩时出错"
+msgstr "压缩时出现错误"
 
 # MT: LibreTranslate
 #: app/autoAr.js:547
@@ -596,7 +600,7 @@ msgstr "创建归档"
 # MT: LibreTranslate
 #: app/autoAr.js:571
 msgid "Archive name"
-msgstr "归档名称"
+msgstr "归档文件名称"
 
 # MT: LibreTranslate
 #: app/autoAr.js:604
@@ -611,22 +615,22 @@ msgstr "创建"
 # MT: LibreTranslate
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
-msgstr "与所有操作系统兼容."
+msgstr "与所有操作系统兼容。"
 
 # MT: LibreTranslate
 #: app/autoAr.js:694
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "密码保护.zip,必须安装在Windows和Mac上."
+msgstr "受密码保护的 .zip，必须安装在 Windows 和 Mac 上。"
 
 # MT: LibreTranslate
 #: app/autoAr.js:700
 msgid "Smaller archives but Linux and Mac only."
-msgstr "更小的档案,但Linux和Mac只有."
+msgstr "较小的归档文件，但仅限 Linux 和 Mac。"
 
 # MT: LibreTranslate
 #: app/autoAr.js:706
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "较小的档案,但必须安装在Windows和Mac上."
+msgstr "较小的归档，但必须安装在 Windows 和 Mac 上。"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125
@@ -726,9 +730,8 @@ msgstr "桌面图标"
 
 # MT: LibreTranslate
 #: app/desktopGrid.js:2477
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "更新桌面"
+msgstr "回到桌面"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:161
@@ -795,7 +798,7 @@ msgstr ""
 # MT: LibreTranslate
 #: app/desktopManager.js:223
 msgid "GNOME Files not found"
-msgstr "格诺梅 找不到文件"
+msgstr "找不到 GNOME 文件"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:224
@@ -831,7 +834,7 @@ msgstr ""
 # MT: LibreTranslate
 #: app/desktopManager.js:349
 msgid "Clear current selection before new search"
-msgstr "在新搜索前清除当前选择"
+msgstr "在新搜索之前清除当前选择"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1280
@@ -846,7 +849,7 @@ msgstr "新建文件夹"
 # MT: LibreTranslate
 #: app/desktopManager.js:1655
 msgid "Folder Creation Failed"
-msgstr "文件夹创建失败"
+msgstr "创建文件夹失败"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:1656
@@ -861,12 +864,12 @@ msgstr "无法打开 Gnome 文件的桌面"
 # MT: LibreTranslate
 #: app/desktopMenu.js:620
 msgid "Preferences Window is Open"
-msgstr "首选项窗口打开"
+msgstr "首选项窗口已打开"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:621
 msgid "This Window is open. Please switch to the active window."
-msgstr "此窗口已打开 。 请切换到活动窗口 ."
+msgstr "这个窗口已被打开。请切换到活动窗口。"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
@@ -876,7 +879,7 @@ msgstr "设置"
 # MT: LibreTranslate
 #: app/desktopMenu.js:813
 msgid "Template Creation Error"
-msgstr "模板创建出错"
+msgstr "模板创建错误"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:814
@@ -891,7 +894,7 @@ msgstr "名称"
 # MT: LibreTranslate
 #: app/desktopMenu.js:921
 msgid "Name Z-A"
-msgstr "名称 Z- A"
+msgstr "名称 Z-A"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:923
@@ -995,12 +998,12 @@ msgstr "编辑小部件"
 # MT: LibreTranslate
 #: app/desktopMenu.js:1026
 msgid "Shell Menu…"
-msgstr "Shell菜单…"
+msgstr "Shell 菜单…"
 
 # MT: LibreTranslate
 #: app/dragManager.js:101 app/dragManager.js:926
 msgid "Making SymLink Failed"
-msgstr "制作 SymLink 失败"
+msgstr "创建符号链接失败"
 
 # MT: LibreTranslate
 #: app/dragManager.js:102 app/dragManager.js:927
@@ -1020,7 +1023,7 @@ msgstr "{0} 不存在"
 # MT: LibreTranslate
 #: app/dragManager.js:782
 msgid "Choose Action for Files"
-msgstr "为文件选择动作"
+msgstr "为文件选择操作"
 
 # MT: LibreTranslate
 #: app/dragManager.js:783
@@ -1062,7 +1065,6 @@ msgstr "没有安装打开\"{fo}\"文件的应用程序."
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "使用 {0} 新建文件夹 项目"
-msgstr[1] "使用 {0} 新建文件夹 项目"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:114
@@ -1077,7 +1079,7 @@ msgstr "运行"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:135
 msgid "Open with {foo}"
-msgstr "以 {foo} 打开"
+msgstr "使用 {foo} 打开"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:138
@@ -1158,20 +1160,18 @@ msgstr "创建链接..."
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] "压缩 {0} 文件夹"
-msgstr[1] "压缩 {0} 文件夹"
+msgstr[0] "压缩 {0} 个文件夹"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "压缩 {0} 文件"
-msgstr[1] "压缩 {0} 文件"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:276
 msgid "Email to..."
-msgstr "电子邮件给..."
+msgstr "以邮件发送..."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:286
@@ -1241,17 +1241,17 @@ msgstr "打开项目"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:821
 msgid "Extraction Cancelled"
-msgstr "已取消"
+msgstr "提取已取消"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:822
 msgid "Unable to extract File, no destination folder"
-msgstr "无法提取 文件, 没有目标文件夹"
+msgstr "无法提取文件，没有目标文件夹"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:878 app/fileItemMenu.js:907
 msgid "Select Destination"
-msgstr "选择目标"
+msgstr "选择目标文件夹"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:881 app/fileItemMenu.js:909
@@ -1333,17 +1333,17 @@ msgstr "复制已取消"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1284
 msgid "Unable to copy Files, no destination folder"
-msgstr "无法复制文件, 没有目的文件夹"
+msgstr "无法复制文件，没有目标文件夹"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1307
 msgid "Move Cancelled"
-msgstr "已取消的移动"
+msgstr "移动已取消"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1308
 msgid "Unable to move Files, no destination folder"
-msgstr "无法移动文件, 没有目标文件夹"
+msgstr "无法移动文件，没有目标文件夹"
 
 # MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
@@ -1527,7 +1527,7 @@ msgstr "预览"
 
 #: app/shortcuts.js:34
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "切换小部件层"
 
 #: app/shortcuts.js:35 app/widgetManager.js:911
 msgid "Add Widget"
@@ -1561,7 +1561,7 @@ msgstr "显示菜单"
 # MT: LibreTranslate
 #: app/shortcuts.js:41
 msgid "Display Shell Background Menu"
-msgstr "显示 shell 背景菜单"
+msgstr "显示 Shell 背景菜单"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:42
@@ -1631,17 +1631,16 @@ msgstr "驱动"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1164
-#, fuzzy
 msgid "Widget preferences"
-msgstr "首选项"
+msgstr "小部件首选项"
 
 #: app/widgetManager.js:1548
 msgid "HTML widget"
-msgstr ""
+msgstr "HTML 小部件"
 
 #: app/widgetManager.js:1550
 msgid "GTK widget"
-msgstr ""
+msgstr "GTK 小部件"
 
 #: app/widgetManager.js:1559
 msgid "User"
@@ -1649,9 +1648,8 @@ msgstr "用户"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "首选项"
+msgstr "小部件首选项"
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
@@ -1677,22 +1675,22 @@ msgstr "未找到命令"
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
-msgstr "选择打开所选文件的应用程序 ."
+msgstr "选择一个应用程序以打开所选文件。"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:81
 msgid "Always use for this file type"
-msgstr "总是用于此文件类型"
+msgstr "总是为此文件类型应用此设置"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:104
 msgid "_Cancel"
-msgstr "取消(_C)"
+msgstr "_取消"
 
 # MT: LibreTranslate
 #: data/ui/ding-app-chooser.ui:110
 msgid "_Open"
-msgstr "打开(_O)"
+msgstr "_打开"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:5
@@ -1813,8 +1811,7 @@ msgstr "排序特殊文件夹 - 家/ 垃圾驱动器 ."
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
-msgstr ""
-"在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
+msgstr "在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
@@ -1881,14 +1878,14 @@ msgstr "将标签文字用黑色而不是白色画出。 使用光背景时有�
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
-msgstr "如果连接, 在非主监视器上显示新图标"
+msgstr "如果已连接，则在非主显示器上显示新图标"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
-msgstr "如果连接了第二个显示器, 在非主显示器上放置了新图标"
+msgstr "如果连接了第二台显示器，新图标将放置在非主显示器上"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
@@ -1909,7 +1906,7 @@ msgstr "桌面小部件"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
-msgstr ""
+msgstr "如果已安装，则在图标下方的图层中显示小部件"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115

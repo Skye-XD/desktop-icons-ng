@@ -4,15 +4,18 @@
 # Hayao Yamada <hayao@fascode.net>, 2021.
 # Mitsuya Shibata <mty.shibata@gmail.com>, 2021.
 # sicklylife <translation@sicklylife.jp>, 2021-2022.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# Shavazo <pleasure.7010@gmail.com>, 2026.
+# Makoto Sakaguchi <ycco34vx@gmail.com>, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
+"PO-Revision-Date: 2026-01-06 21:04+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -30,23 +33,23 @@ msgstr "文字をアスタリスク(*)に置き換え"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "CSSでデスクトップアイコンの外観をカスタマイズする"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "警告：誤った操作を行うと拡張機能が破損する可能性があります"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "CSS上書きファイルを編集..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "今すぐCSSの変更を適用する"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "変更を適用するにはCSSを再読み込みしてください"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
@@ -87,12 +90,12 @@ msgstr "ファイル"
 #: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:596
 #: app/adwPreferencesWindow.js:638
 msgid "Tweaks"
-msgstr "ツイート"
+msgstr "詳細"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:601 app/adwPreferencesWindow.js:602
 msgid "More"
-msgstr "ニュース"
+msgstr "さらに表示"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:613
@@ -201,7 +204,7 @@ msgstr "デスクトップ用の新しいフォルダを設定する"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:702 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
-msgstr "お問い合わせ"
+msgstr "選択"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:707
@@ -303,7 +306,7 @@ msgstr "ドラッグホバーのフォルダを開く"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:795
 msgid "About..."
-msgstr "お問い合わせ."
+msgstr "この拡張機能について..."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:808
@@ -314,8 +317,7 @@ msgstr "コンテンツ"
 #: app/adwPreferencesWindow.js:809
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr ""
-"LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
+msgstr "LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:814
@@ -784,8 +786,7 @@ msgstr "グノーム 見つからないファイル"
 # MT: LibreTranslate
 #: app/desktopManager.js:224
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"グノーム Gtk4デスクトップアイコンNGでファイルアプリケーションが必要です."
+msgstr "GNOME Gtk4 Desktop Icons NGでファイルアプリケーションが必要です."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:231
@@ -920,7 +921,7 @@ msgstr "デフォルトデスクトップを復元する"
 # MT: LibreTranslate
 #: app/desktopMenu.js:953
 msgid "Desktop Icon Settings"
-msgstr "デスクトップアイコン設定"
+msgstr "デスクトップアイコンの設定"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:955
@@ -933,7 +934,7 @@ msgstr "新しいドキュメント"
 
 #: app/desktopMenu.js:968 app/shortcuts.js:11
 msgid "Paste"
-msgstr "貼り付け"
+msgstr "ペースト"
 
 #: app/desktopMenu.js:970 app/shortcuts.js:12
 msgid "Undo"
@@ -954,7 +955,7 @@ msgstr "アイコンを整列"
 # MT: LibreTranslate
 #: app/desktopMenu.js:989
 msgid "Arrange By…"
-msgstr "アレンジして.."
+msgstr "並び替え.."
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:997
@@ -988,7 +989,7 @@ msgstr "シンボリックリンクを作成できません"
 # MT: LibreTranslate
 #: app/dragManager.js:739
 msgid "Copy/Move Failed"
-msgstr "コピー/移動失敗"
+msgstr "コピー/移動に失敗しました"
 
 # MT: LibreTranslate
 #: app/dragManager.js:740
@@ -1032,8 +1033,7 @@ msgstr "ファイルを開く 失敗"
 # MT: LibreTranslate
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
+msgstr "[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -1069,7 +1069,7 @@ msgstr "展開先..."
 # MT: LibreTranslate
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 msgid "Open With..."
-msgstr "オープン..."
+msgstr "別のアプリケーションで開く..."
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
@@ -1268,8 +1268,7 @@ msgstr "Gnome Consoleで開くことができません"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1229
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
-"Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
+msgstr "Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1237
@@ -1284,12 +1283,12 @@ msgstr "インストールしてください {0}"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1283
 msgid "Copy Cancelled"
-msgstr "コピーキャンセル"
+msgstr "コピーがキャンセルされました"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1284
 msgid "Unable to copy Files, no destination folder"
-msgstr "ファイル、コピー先フォルダをコピーできない"
+msgstr "ファイルをコピーできません。コピー先のフォルダーが指定されていません"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1307
@@ -1299,7 +1298,7 @@ msgstr "キャンセルされる移動"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1308
 msgid "Unable to move Files, no destination folder"
-msgstr "ファイルを移動することができない、コピー先フォルダなし"
+msgstr "ファイルを移動できません。移動先のフォルダーが指定されていません"
 
 # MT: LibreTranslate
 #: app/gnomeShellDragDrop.js:356
@@ -1418,7 +1417,7 @@ msgstr "アイコンをクリーンアップ"
 # MT: LibreTranslate
 #: app/shortcuts.js:21
 msgid "Keep Arranged"
-msgstr "アレンジし続ける"
+msgstr "整列を維持"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:22
@@ -1448,7 +1447,7 @@ msgstr "変更された時間によってアイコンを整理して下さい"
 # MT: LibreTranslate
 #: app/shortcuts.js:27
 msgid "Arrange Icons By Kind"
-msgstr "アレンジアイコン 種類別"
+msgstr "種類順にアイコンを並べ替え"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:28
@@ -1615,8 +1614,8 @@ msgstr "[\"${programName}\"]は利用できません"
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
-"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールし"
-"て、これらのアクションを実行します."
+"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールして"
+"、これらのアクションを実行します."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
@@ -1656,8 +1655,8 @@ msgstr "GNOMEデスクトップにアイコンを表示"
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
-"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表示;ショー;ラン"
-"チャー;ショートカット;"
+"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表"
+"示;ショー;ランチャー;ショートカット;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -1865,5 +1864,4 @@ msgstr "ユーザーアプリケーションショートカット"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-"ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"
+msgstr "ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"

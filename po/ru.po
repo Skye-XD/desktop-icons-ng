@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Eaglers <eaglersdeveloper@gmail.com>, 2018
 # Ser82-png <sw@atrus.ru>, 2021-2022
-# Сергей <asvmail.as@gmail.com>, 2023, 2024, 2025.
-# dinos <ecg-diagnostic@mail.ru>, 2023, 2024, 2025.
+# Сергей <asvmail.as@gmail.com>, 2023, 2024, 2025, 2026.
+# dinos <ecg-diagnostic@mail.ru>, 2023, 2024, 2025, 2026.
 # Войнов Артем Романович <voynovar@gmail.com>, 2023.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025, 2026.
 # Maksim_220 Кабанов <law820314@gmail.com>, 2025.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:25+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -160,8 +160,7 @@ msgstr "Нижний правый угол"
 
 #: app/adwPreferencesWindow.js:685
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Сначала добавлять новые значки на вторичные мониторы, если они доступны"
+msgstr "Сначала добавлять новые значки на вторичные мониторы, если они доступны"
 
 #: app/adwPreferencesWindow.js:689
 msgid "Snap icons to grid"
@@ -424,8 +423,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Для возможности работы со сжатыми файлами установите file-roller и/или "
-"gir-1.2-gnomeAutoAr"
+"Для возможности работы со сжатыми файлами установите file-roller и/или gir-"
+"1.2-gnomeAutoAr"
 
 #: app/autoAr.js:203
 msgid "Extracting files"
@@ -553,8 +552,8 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-".deskop-файлы не могут быть запущены с этого рабочего стола, так как папка "
-"«Рабочий стол» доступна для записи другим пользователям.\n"
+".deskop-файлы не могут быть запущены с этого рабочего стола, так как папка «"
+"Рабочий стол» доступна для записи другим пользователям.\n"
 "\n"
 "Пожалуйста, проверьте права доступа к этой папке и убедитесь, что она "
 "недоступна для записи другим пользователям."

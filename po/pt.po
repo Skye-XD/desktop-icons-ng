@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gtk4-ding package.
-# João Mota <joao.mota.200810@gmail.com>, 2023, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# RAG <renato.rutiodonte@gmail.com>, 2025.
-# Lucas Concursero <lucasconcursero@gmail.com>, 2025.
-# Vicente Matheus <vincmpimenta@proton.me>, 2025.
+# João Mota <joao.mota.200810@gmail.com>, 2023, 2024, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# RAG <renato.rutiodonte@gmail.com>, 2025, 2026.
+# Lucas Concursero <lucasconcursero@gmail.com>, 2025, 2026.
+# Vicente Matheus <vincmpimenta@proton.me>, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:19+0000\n"
+"Last-Translator: João Mota <joao.mota.200810@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pt/>\n"
 "Language: pt\n"
@@ -584,8 +584,7 @@ msgstr "O arquivo de saída '${outputFile}' já existe."
 # MT: LibreTranslate
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"A compressão de arquivos em '${outputFile}' foi cancelada pelo usuário."
+msgstr "A compressão de arquivos em '${outputFile}' foi cancelada pelo usuário."
 
 # MT: LibreTranslate
 #: app/autoAr.js:512
@@ -1276,8 +1275,7 @@ msgstr "Não foi possível enviar um diretório"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:967
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
-"A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
+msgstr "A seleção inclui um diretório, comprimir para um arquivo .zip primeiro?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:993 app/fileItemMenu.js:1024 app/fileItemMenu.js:1041

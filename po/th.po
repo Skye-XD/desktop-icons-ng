@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the gtk4-ding package.
 # Automatically generated, 2025.
 #
-# Weblate <noreply-mt-weblate@weblate.org>, 2025.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:21+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/th/>\n"
 "Language: th\n"
@@ -482,7 +482,8 @@ msgstr "อัตโนมัติ ไม่ได้ติดตั้งอ�
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
-msgstr "เพื่อจะสามารถทํางานกับแฟ้มบีบอัดได้ ติดตั้งตัวรับแฟ้มและ/หรือ gir-1.2-gnome อัตโนมัติ"
+msgstr ""
+"เพื่อจะสามารถทํางานกับแฟ้มบีบอัดได้ ติดตั้งตัวรับแฟ้มและ/หรือ gir-1.2-gnome อัตโนมัติ"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
@@ -640,11 +641,11 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-"ไม่สามารถเรียกแฟ้ม .deskop จากพื้นที่ทํางานนี้ได้ "
-"เนื่องจากโฟลเดอร์ของพื้นที่ทํางานนั้นเขียนได้โดยผู้ใช้อื่น\n"
+"ไม่สามารถเรียกแฟ้ม .deskop จากพื้นที่ทํางานนี้ได้ เนื่องจากโฟลเดอร์ของพื้นที่ทํางานนั้นเขียนได้โดยผู้ใ"
+"ช้อื่น\n"
 "\n"
-"โปรดตรวจสอบสิทธิ์ที่อนุญาตของโฟลเดอร์พื้นที่ทํางานนี้ "
-"และตรวจสอบให้แน่ใจว่ามันไม่สามารถเขียนได้โดยผู้อื่น."
+"โปรดตรวจสอบสิทธิ์ที่อนุญาตของโฟลเดอร์พื้นที่ทํางานนี้ และตรวจสอบให้แน่ใจว่ามันไม่สามารถเขียนได้โดย"
+"ผู้อื่น."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:138
@@ -659,8 +660,8 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"แฟ้ม .dektop นี้ มีข้อผิดพลาดหรือชี้ไปยังโปรแกรมโดยไม่มีสิทธิ์ในการใช้งาน "
-"มันไม่สามารถดําเนินการได้\n"
+"แฟ้ม .dektop นี้ มีข้อผิดพลาดหรือชี้ไปยังโปรแกรมโดยไม่มีสิทธิ์ในการใช้งาน มันไม่สามารถดําเนินการไ"
+"ด้\n"
 "\n"
 "แก้ไขแฟ้มเพื่อตั้งค่าโปรแกรมประมวลผลที่ถูกต้อง."
 
@@ -744,8 +745,8 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"จอภาพหลายจอที่มีการตั้งค่าการย่อ/ ขยายที่แตกต่างกัน "
-"ควรใช้ค่าแต่ละจอในการปรับขนาดเฟรมบัฟเฟอร์\n"
+"จอภาพหลายจอที่มีการตั้งค่าการย่อ/ ขยายที่แตกต่างกัน ควรใช้ค่าแต่ละจอในการปรับขนาดเฟรมบัฟเฟอ"
+"ร์\n"
 "\n"
 "โปรดเปิดใช้ในการตั้งค่า Mutter Dconf"
 
@@ -799,7 +800,8 @@ msgstr "ขนาดของ GNOME ไม่พบแฟ้ม"
 # MT: LibreTranslate
 #: app/desktopManager.js:224
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "จุด เริ่ม ต้น โปรแกรมของแฟ้มนั้น ต้องการใช้ภาพไอคอนพื้นที่ทํางานแบบ Gtk4."
+msgstr ""
+"จุด เริ่ม ต้น โปรแกรมของแฟ้มนั้น ต้องการใช้ภาพไอคอนพื้นที่ทํางานแบบ Gtk4."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:231
@@ -1061,7 +1063,6 @@ msgstr "ยังไม่มีการติดตั้งโปรแกร
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
 msgstr[0] "โฟลเดอร์ใหม่ด้วย {0} รายการ"
-msgstr[1] "โฟลเดอร์ใหม่ด้วย {0} รายการ"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:114
@@ -1158,14 +1159,12 @@ msgstr "สร้างส่วนเชื่อมโยง..."
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
 msgstr[0] "การบีบอัด {0} โฟลเดอร์"
-msgstr[1] "การบีบอัด {0} โฟลเดอร์"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
 msgstr[0] "แฟ้มบีบอัด {0}"
-msgstr[1] "แฟ้มบีบอัด {0}"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:276
@@ -1661,7 +1660,8 @@ msgstr "\"${programName}\" ไม่มี"
 #: app/utils/dbusUtils.js:70
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
-msgstr "ติดตั้ง \"${programName}\" เพื่อเปิดใช้งานไอคอนของพื้นที่ทํางานที่จะใช้การกระทําเหล่านี้."
+msgstr ""
+"ติดตั้ง \"${programName}\" เพื่อเปิดใช้งานไอคอนของพื้นที่ทํางานที่จะใช้การกระทําเหล่านี้."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
@@ -1789,7 +1789,8 @@ msgstr "เพิ่มไดรว์ใหม่ไปยังด้านต
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
-msgstr "เมื่อเพิ่มไดรฟ์และปริมาตรไปยังพื้นที่ทํางาน ให้เพิ่มเข้าไปที่ฝั่งตรงข้ามของหน้าจอ."
+msgstr ""
+"เมื่อเพิ่มไดรฟ์และปริมาตรไปยังพื้นที่ทํางาน ให้เพิ่มเข้าไปที่ฝั่งตรงข้ามของหน้าจอ."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
@@ -1802,8 +1803,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"เมื่อทําปฏิบัติการ Drag'n'Drap' "
-"ทําเครื่องหมายสถานที่ในตารางที่ไอคอนจะถูกวางด้วยสี่เหลี่ยมกึ่งโปร่งใส."
+"เมื่อทําปฏิบัติการ Drag'n'Drap' ทําเครื่องหมายสถานที่ในตารางที่ไอคอนจะถูกวางด้วยสี่เหลี่ยมกึ่งโปร่ง"
+"ใส."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
@@ -1816,8 +1817,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"เมื่อมีการจัดเรียงไอคอนบนพื้นที่ทํางาน ให้เรียงลําดับและเปลี่ยนตําแหน่งของบ้าน, ทิ้งลงถังขยะ "
-"และติดตั้งเครือข่าย หรือไดรฟ์ภายนอก"
+"เมื่อมีการจัดเรียงไอคอนบนพื้นที่ทํางาน ให้เรียงลําดับและเปลี่ยนตําแหน่งของบ้าน, ทิ้งลงถังขยะ และติดตั้"
+"งเครือข่าย หรือไดรฟ์ภายนอก"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70

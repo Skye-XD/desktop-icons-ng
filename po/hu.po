@@ -5,19 +5,19 @@
 # Meskó Balázs <mesko dot balazs at fsf dot hu>, 2021.
 # Balázs Úr <ur.balazs at fsf dot hu>, 2019.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# András Pelach <pelach.andras@gmail.com>, 2025.
-# Hunor János <hunorjani17@gmail.com>, 2025.
-# Babos Máté <miafasz17@gmail.com>, 2025.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# András Pelach <pelach.andras@gmail.com>, 2025, 2026.
+# Hunor János <hunorjani17@gmail.com>, 2025, 2026.
+# Babos Máté <miafasz17@gmail.com>, 2025, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:00+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:28+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
@@ -502,8 +502,7 @@ msgstr "A fájl '${outputFile}' már létezik."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
-"A fájlok tömörítését ide: '${outputFile}', megszakította a felhasználó."
+msgstr "A fájlok tömörítését ide: '${outputFile}', megszakította a felhasználó."
 
 #: app/autoAr.js:512
 msgid "Error during compression"
@@ -1612,8 +1611,7 @@ msgstr "Az ikonok bárhol elhelyezhetők az asztalon"
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr ""
-"Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni őket"
+msgstr "Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni őket"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Show Desktop Widgets"

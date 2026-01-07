@@ -2,17 +2,17 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # phlostically <phlostically@mailinator.com>, 2022.
-# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025.
-# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025.
-# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2023, 2024, 2025, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
+# LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2024, 2026.
+# Sundeep Mediratta <smedius@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2025-12-30 12:01+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-06 19:22+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/eo/>\n"
 "Language: eo\n"
@@ -486,8 +486,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Por povi labori kun kunpremitaj dosieroj, instali dosierskribilon kaj/aŭ "
-"ĝi-1.2-gnome Aŭtoj"
+"Por povi labori kun kunpremitaj dosieroj, instali dosierskribilon kaj/aŭ ĝi-"
+"1.2-gnome Aŭtoj"
 
 # MT: LibreTranslate
 #: app/autoAr.js:203
@@ -629,8 +629,7 @@ msgstr "Pli malgrandaj arkivoj sed Linukso kaj Mac nur."
 # MT: LibreTranslate
 #: app/autoAr.js:706
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr ""
-"Pli malgrandaj arkivoj sed devas esti instalitaj sur Fenestroj kaj Mac."
+msgstr "Pli malgrandaj arkivoj sed devas esti instalitaj sur Fenestroj kaj Mac."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:125
