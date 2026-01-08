@@ -568,6 +568,8 @@ const HtmlWidgetHostWithBackend = class extends HtmlWidgetHost {
                 proc.get_exit_status()
             );
         } catch (e) {
+            if (this._destroyed)
+                return;
             console.error(
                 'BACKEND EXIT wait error:',
                 inst?.instanceId ?? '<unknown>',
