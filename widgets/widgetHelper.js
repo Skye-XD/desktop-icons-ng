@@ -131,6 +131,21 @@ export class DingClient {
         return () => this._backendEventHandlers.delete(cb);
     }
 
+    onVisibilityChange(cb) {
+        const doc = this._win?.document ?? null;
+        if (!doc)
+            return () => {};
+
+        const handler = () => {
+            try {
+                cb(!doc.hidden);
+            } catch (e) {}
+        };
+
+        doc.addEventListener('visibilitychange', handler);
+        return () => doc.removeEventListener('visibilitychange', handler);
+    }
+
     // -----------------------------------------------------------------
     // Config
     // -----------------------------------------------------------------

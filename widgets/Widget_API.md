@@ -450,7 +450,31 @@ To run a backend, subclass `BackendApp` and call `runBackend(MyBackend)` from yo
 
 ### Backend helper for widgets: `widgetHelper.js` (DingClient)
 
-For widget-side code, `widgets/widgetHelper.js` exports `DingClient` as a thin helper around the injected `window.ding` API. It exposes `backendRequest`, `backendSend`, and `onBackendEvent`, sends an initial backend hello for lazy startup, and includes optional timeouts for requests.
+For widget-side code, `widgets/widgetHelper.js` exports `DingClient` as a thin helper around the injected `window.ding` API. It exposes `backendRequest`, `backendSend`, `onBackendEvent`, and `onVisibilityChange`, sends an initial backend hello for lazy startup, and includes optional timeouts for requests.
+
+#### Visibility and re-rendering (important)
+
+WebKit may stop rendering when a widget is hidden (lock screen, sleep, or workspace changes). When the widget becomes visible again, your UI can appear stale unless you re-render.
+
+Widget authors should register a visibility handler and re-render from their cached state:
+
+```js
+let last = null;
+
+client.onBackendEvent((name, payload) => {
+  if (name === 'update') {
+    last = payload;
+    render(last);
+  }
+});
+
+client.onVisibilityChange((visible) => {
+  if (visible && last)
+    render(last);
+});
+```
+
+If your widget has a custom render function or state cache, call it from `onVisibilityChange`. This keeps the UI fresh after unlock or sleep without forcing a full page reload.
 
 
 ### Preferences and the gear icon
