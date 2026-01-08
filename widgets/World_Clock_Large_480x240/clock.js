@@ -15,7 +15,8 @@
     label: 'New York',
     utcOffsetMinutes: -300,
     hourFormat: '12', // '12' | '24'
-    neonPreset: 'cyan',
+    neonPreset: 'cyan', // legacy
+    neonColor: '#31e6ff',
   };
 
   const bgAlpha = 0.08;
@@ -71,8 +72,10 @@
   }
 
   function applyNeon() {
+    const direct = (typeof config.neonColor === 'string') ? config.neonColor.trim() : '';
+    const directOk = /^#([0-9a-f]{6})$/i.test(direct);
     const preset = (config.neonPreset && String(config.neonPreset).toLowerCase()) || 'cyan';
-    const color = PRESET_COLORS[preset] || PRESET_COLORS.cyan;
+    const color = directOk ? direct : (PRESET_COLORS[preset] || PRESET_COLORS.cyan);
     document.documentElement.style.setProperty('--neon-color', color);
 
     // If color-mix fallback is active, it won't respond to --neon-color.

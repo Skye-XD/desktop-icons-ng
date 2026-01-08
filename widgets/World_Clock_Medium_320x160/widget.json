@@ -35,7 +35,8 @@
     "label": "New York",
     "utcOffsetMinutes": -300,
     "hourFormat": "12",
-    "neonPreset": "cyan"
+    "neonPreset": "cyan",
+    "neonColor": "#31e6ff"
   },
   "prefs": "prefs.html"
 }

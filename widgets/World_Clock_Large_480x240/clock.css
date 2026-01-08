@@ -46,14 +46,14 @@ body {
   gap: 2px;
 
   background: color-mix(in srgb, var(--neon-color) calc(var(--bg-alpha) * 100%), transparent);
-  border: 1px solid color-mix(in srgb, var(--neon-color) calc(var(--border-alpha) * 100%), transparent);
+  border: none;
 }
 
 @supports not (background: color-mix(in srgb, #000 50%, transparent)) {
   /* Fallback if color-mix isn't available: use a fixed alpha approximation */
   #root {
     background: rgba(49, 230, 255, 0.08);
-    border-color: rgba(49, 230, 255, 0.14);
+    border: none;
   }
 }
 
@@ -63,7 +63,7 @@ body {
   gap: 0.42em;
 
   font-size: var(--fs-city);
-  line-height: 1.1;
+  line-height: 1.5;
   color: var(--neon-color);
 
   white-space: nowrap;

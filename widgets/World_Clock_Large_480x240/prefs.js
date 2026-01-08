@@ -3,11 +3,20 @@
 (() => {
   'use strict';
 
+  const PRESET_COLORS = {
+    pink: '#ff4fd8',
+    cyan: '#31e6ff',
+    lime: '#7dff3a',
+    purple: '#b070ff',
+    amber: '#ffb020',
+  };
+
   const DEFAULT_CONFIG = {
     label: 'New York',
     utcOffsetMinutes: -300,
     hourFormat: '12', // '12' | '24'
-    neonPreset: 'cyan',
+    neonPreset: 'cyan', // legacy
+    neonColor: '#31e6ff',
   };
 
   const labelInput = document.getElementById('labelInput');
@@ -15,7 +24,7 @@
   const offsetError = document.getElementById('offsetError');
   const fmt12 = document.getElementById('fmt12');
   const fmt24 = document.getElementById('fmt24');
-  const colorSelect = document.getElementById('colorSelect');
+  const colorPicker = document.getElementById('colorPicker');
   const headerTitle = document.getElementById('headerTitle');
 
   let config = { ...DEFAULT_CONFIG };
@@ -89,6 +98,19 @@
     btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
   }
 
+  function normalizeHexColor(value) {
+    if (typeof value !== 'string') return null;
+    const s = value.trim();
+    return /^#([0-9a-f]{6})$/i.test(s) ? s.toLowerCase() : null;
+  }
+
+  function pickEffectiveColor(cfg) {
+    const direct = normalizeHexColor(cfg.neonColor);
+    if (direct) return direct;
+    const preset = (cfg.neonPreset && String(cfg.neonPreset).toLowerCase()) || 'cyan';
+    return PRESET_COLORS[preset] || PRESET_COLORS.cyan;
+  }
+
   function syncUiFromConfig() {
     headerTitle.textContent = 'World Clock'; // localized later via registry UI
 
@@ -99,8 +121,7 @@
     setPressed(fmt12, fmt === '12');
     setPressed(fmt24, fmt === '24');
 
-    const preset = (config.neonPreset && String(config.neonPreset).toLowerCase()) || 'cyan';
-    colorSelect.value = preset;
+    colorPicker.value = pickEffectiveColor(config);
   }
 
   function pushConfig() {
@@ -171,9 +192,11 @@
       updateConfig({ hourFormat: '24' });
     });
 
-    // Color dropdown
-    colorSelect.addEventListener('change', () => {
-      updateConfig({ neonPreset: colorSelect.value });
+    // Color picker
+    colorPicker.addEventListener('input', () => {
+      const hex = normalizeHexColor(colorPicker.value);
+      if (!hex) return;
+      updateConfig({ neonColor: hex });
     });
   }
 
