@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* DING: Desktop Icons New Generation for GNOME Shell
  *
  * Gtk4 Port Copyright (C) 2022 - 2026 Sundeep Mediratta (smedius@gmail.com)
@@ -55,17 +56,17 @@ export class DingClient {
 
         // Subscribe via the real injected API.
         this._unsubHostState =
-            (typeof this._ding.onHostStateChanged === 'function')
+            typeof this._ding.onHostStateChanged === 'function'
                 ? this._ding.onHostStateChanged(this._onHostState.bind(this))
                 : null;
 
         this._unsubConfig =
-            (typeof this._ding.onConfigChanged === 'function')
+            typeof this._ding.onConfigChanged === 'function'
                 ? this._ding.onConfigChanged(this._onConfigChanged.bind(this))
                 : null;
 
         this._unsubBackend =
-            (typeof this._ding.onBackendEvent === 'function')
+            typeof this._ding.onBackendEvent === 'function'
                 ? this._ding.onBackendEvent(this._onBackendEvent.bind(this))
                 : null;
 
@@ -75,9 +76,24 @@ export class DingClient {
     }
 
     destroy() {
-        if (this._unsubHostState) { try { this._unsubHostState(); } catch (e) {} this._unsubHostState = null; }
-        if (this._unsubConfig)    { try { this._unsubConfig(); } catch (e) {} this._unsubConfig = null; }
-        if (this._unsubBackend)   { try { this._unsubBackend(); } catch (e) {} this._unsubBackend = null; }
+        if (this._unsubHostState) {
+            try {
+                this._unsubHostState();
+            } catch (e) {}
+            this._unsubHostState = null;
+        }
+        if (this._unsubConfig)    {
+            try {
+                this._unsubConfig();
+            } catch (e) {}
+            this._unsubConfig = null;
+        }
+        if (this._unsubBackend)   {
+            try {
+                this._unsubBackend();
+            } catch (e) {}
+            this._unsubBackend = null;
+        }
 
         this._hostStateHandlers.clear();
         this._configHandlers.clear();
@@ -91,16 +107,22 @@ export class DingClient {
     onHostState(cb) {
         this._hostStateHandlers.add(cb);
         if (this._lastHostState !== undefined) {
-            try { cb(this._lastHostState, null); } catch (e) {}
+            try {
+                cb(this._lastHostState, null);
+            } catch (e) {}
         }
+
         return () => this._hostStateHandlers.delete(cb);
     }
 
     onConfigChanged(cb) {
         this._configHandlers.add(cb);
         if (this._lastConfig !== undefined) {
-            try { cb(this._lastConfig, this._lastConfigMeta ?? null); } catch (e) {}
+            try {
+                cb(this._lastConfig, this._lastConfigMeta ?? null);
+            } catch (e) {}
         }
+
         return () => this._configHandlers.delete(cb);
     }
 
@@ -121,16 +143,18 @@ export class DingClient {
         return this._withTimeout(this._ding.getConfig(), opts);
     }
 
-    setConfig(config, opts = {}) {
+    setConfig(config, _opts = {}) {
         if (typeof this._ding.saveConfig !== 'function')
             return Promise.resolve(null);
         // saveConfig is fire-and-forget; keep signature for callers.
-        try { this._ding.saveConfig(config || {}); } catch (e) {}
+        try {
+            this._ding.saveConfig(config || {});
+        } catch (e) {}
         return Promise.resolve(config || {});
     }
 
     async patchConfig(patch, opts = {}) {
-        const base = (await this.getConfig(opts)) ?? {};
+        const base = await this.getConfig(opts) ?? {};
         const next = DingClient._deepMerge(base, patch);
         await this.setConfig(next, opts);
         return next;
@@ -150,7 +174,9 @@ export class DingClient {
     backendSend(name, payload) {
         if (typeof this._ding.backendSend !== 'function')
             return;
-        try { this._ding.backendSend(name, payload || {}); } catch (e) {}
+        try {
+            this._ding.backendSend(name, payload || {});
+        } catch (e) {}
     }
 
     // -----------------------------------------------------------------
@@ -158,20 +184,35 @@ export class DingClient {
     // -----------------------------------------------------------------
 
     // Prefer host logging if present; otherwise fall back to console.
-    log(...args) { this._log('log', args); }
-    warn(...args) { this._log('warn', args); }
-    error(...args) { this._log('error', args); }
+    log(...args) {
+        this._log('log', args);
+    }
+
+    warn(...args) {
+        this._log('warn', args);
+    }
+
+    error(...args) {
+        this._log('error', args);
+    }
 
     _log(level, args) {
         if (typeof this._ding.log === 'function') {
-            try { this._ding.log(`[${level}] ${args.map(v => String(v)).join(' ')}`); return; } catch (e) {}
+            try {
+                this._ding.log(`[${level}] ${args.map(v => String(v)).join(' ')}`);
+                return;
+            } catch (e) {}
         }
 
         // eslint-disable-next-line no-console
-        (level === 'warn' ? console.warn : level === 'error' ? console.error : console.log)(...args);
+        const logFn = {
+            warn: console.warn,
+            error: console.error,
+        }[level] || console.log;
+        logFn(...args);
     }
 
-    _withTimeout(promise, { timeoutMs = null } = {}) {
+    _withTimeout(promise, {timeoutMs = null} = {}) {
         const ms = timeoutMs ?? this._timeoutMs;
         if (!ms || ms <= 0)
             return promise;
@@ -180,8 +221,14 @@ export class DingClient {
         return new Promise((resolve, reject) => {
             const timer = setTimeout(() => reject(new Error(`timed out after ${ms}ms`)), ms);
             p.then(
-                (val) => { clearTimeout(timer); resolve(val); },
-                (err) => { clearTimeout(timer); reject(err); }
+                val => {
+                    clearTimeout(timer);
+                    resolve(val);
+                },
+                err => {
+                    clearTimeout(timer);
+                    reject(err);
+                }
             );
         });
     }
@@ -189,7 +236,9 @@ export class DingClient {
     _onHostState(state) {
         this._lastHostState = state;
         for (const h of this._hostStateHandlers) {
-            try { h(state, null); } catch (e) {}
+            try {
+                h(state, null);
+            } catch (e) {}
         }
     }
 
@@ -197,13 +246,17 @@ export class DingClient {
         this._lastConfig = cfg;
         this._lastConfigMeta = meta ?? null;
         for (const h of this._configHandlers) {
-            try { h(cfg, meta ?? null); } catch (e) {}
+            try {
+                h(cfg, meta ?? null);
+            } catch (e) {}
         }
     }
 
     _onBackendEvent(name, evPayload) {
         for (const h of this._backendEventHandlers) {
-            try { h(name, evPayload); } catch (e) {}
+            try {
+                h(name, evPayload);
+            } catch (e) {}
         }
     }
 
@@ -214,7 +267,7 @@ export class DingClient {
         if (typeof this._ding?.backendSend !== 'function')
             return;
         try {
-            this._ding.backendSend('hello', { reason: 'widget-ready' });
+            this._ding.backendSend('hello', {reason: 'widget-ready'});
         } catch (e) {}
     }
 
@@ -238,15 +291,20 @@ export class DingClient {
         if (Array.isArray(patch))
             return patch.slice();
 
-        const out = (base && typeof base === 'object' && !Array.isArray(base)) ? { ...base } : {};
-        for (const k of Object.keys(patch)) {
+        const out = base && typeof base === 'object' && !Array.isArray(base) ? {...base} : {};
+        for (const k of Object.keys(patch))
             out[k] = DingClient._deepMerge(out[k], patch[k]);
-        }
+
         return out;
     }
 }
 
 // Convenience factory.
+/**
+ *
+ * @param {object} opts Options passed to DingClient constructor
+ * @returns {DingClient}
+ */
 export function dingClient(opts = {}) {
     return new DingClient(opts);
 }
