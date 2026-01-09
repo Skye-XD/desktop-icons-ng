@@ -316,7 +316,8 @@ const DesktopManager = class {
 
     _startWidgetDisplay() {
         this.widgetManager
-        .startWidgetDisplay(this._desktops, {redisplay: true});
+        .startWidgetDisplay(this._desktops, {redisplay: true})
+        .catch(e => logError(e));
     }
 
     _stopWidgetDisplay() {
@@ -414,7 +415,7 @@ const DesktopManager = class {
             gridschanged,
         });
 
-        this.widgetManager.applyLayoutChange(this._desktops, {redisplay});
+        await this.widgetManager.applyLayoutChange(this._desktops, {redisplay});
     }
 
 

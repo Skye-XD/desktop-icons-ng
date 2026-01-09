@@ -13,6 +13,12 @@
   --now-icon: 138px;
   --temp-size: 70px;
   --deg-size: 48px;
+
+  --wx-text: #f5f6f8;
+  --wx-text-strong: #ffffff;
+  --wx-text-muted: #e8eaee;
+  --wx-bg-color: #ffffff;
+  --wx-bg-alpha: 0;
 }
 
 html, body {
@@ -24,9 +30,13 @@ html, body {
 
 body {
   background: transparent;
-  color: #f5f6f8;
+  color: var(--wx-text);
   overflow: hidden;
   font-family: system-ui, sans-serif;
+}
+
+.wx-root {
+  background: color-mix(in srgb, var(--wx-bg-color) calc(var(--wx-bg-alpha) * 100%), transparent);
 }
 
 .wx-root {
@@ -49,7 +59,7 @@ body {
   font-size: var(--t-small);
   line-height: var(--t-small-line);
   font-weight: 500;
-  color: #ffffff;
+  color: var(--wx-text-strong);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -131,7 +141,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #e8eaee;
+  color: var(--wx-text-muted);
 }
 
 .wx-sep {
@@ -172,7 +182,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   opacity: var(--t-muted);
-  color: #e8eaee;
+  color: var(--wx-text-muted);
   grid-column: 2;
   justify-self: start;
 }
@@ -199,7 +209,7 @@ body {
   line-height: 13px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-  color: #ffffff;
+  color: var(--wx-text-strong);
   min-width: 0;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -212,7 +222,7 @@ body {
   font-size: 11px;
   line-height: 13px;
   opacity: var(--t-muted);
-  color: #e8eaee;
+  color: var(--wx-text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -3,7 +3,7 @@
 :root {
   /* Conservative tint policy (locked) */
   --bg-alpha: 0.08;
-  --border-alpha: 0.14;
+  --bg-color: #31e6ff;
 
   /* Defaults overwritten by JS once it knows widget height */
   --pad: 8px;
@@ -44,7 +44,7 @@ body {
   align-items: flex-start;
   gap: 2px;
 
-  background: color-mix(in srgb, var(--neon-color) calc(var(--bg-alpha) * 100%), transparent);
+  background: color-mix(in srgb, var(--bg-color) calc(var(--bg-alpha) * 100%), transparent);
   border: none;
 }
 

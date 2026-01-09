@@ -63,6 +63,8 @@ body[data-theme="dark"] {
   opacity: 0.8;
   margin-bottom: 8px;
   text-transform: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .field {
@@ -81,15 +83,16 @@ body[data-theme="dark"] {
 input[type="text"], select {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 10px;
+  padding: 9px 12px;
   border-radius: var(--radius);
   border: var(--border) solid rgba(127,127,127,0.35);
   background: rgba(127,127,127,0.08);
-  line-height: 1.35;
+  line-height: 20px;
   min-height: var(--control-h);
-  height: var(--control-h);
+  height: auto;
   color: inherit;
   outline: none;
+  font-size: 14px;
 }
 
 body[data-theme="dark"] input[type="text"],
@@ -193,4 +196,21 @@ body[data-theme="dark"] .segmented button[aria-pressed="true"] {
 .field-row select {
   width: 180px;
   max-width: 180px;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-row input[type="range"] {
+  width: 100%;
+}
+
+.slider-value {
+  min-width: 44px;
+  text-align: right;
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
 }

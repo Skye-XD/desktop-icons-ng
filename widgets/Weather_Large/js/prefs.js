@@ -1,6 +1,25 @@
+/* DING: Desktop Icons New Generation for GNOME Shell
+ *
+ * Gtk4 Port Copyright (C) 2022 - 2026 Sundeep Mediratta (smedius@gmail.com)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-undef */
 'use strict';
-import { debounce } from './util.js';
-import { geocodeSearch } from './openMeteoClient.js';
+import {debounce} from './util.js';
+import {geocodeSearch} from './openMeteoClient.js';
 
 /*
  * Weather widget prefs
@@ -13,10 +32,13 @@ import { geocodeSearch } from './openMeteoClient.js';
 
 function _defaults() {
     return {
-        location: { label: '', lat: null, lon: null },
+        location: {label: '', lat: null, lon: null},
         units: 'system',
         refreshMinutes: 30,
         animationsEnabled: true,
+        textColor: '#f5f6f8',
+        bgColor: '#ffffff',
+        bgAlpha: 0,
     };
 }
 
@@ -26,10 +48,10 @@ function _isObject(v) {
 
 function _normalize(cfg) {
     const d = _defaults();
-    const out = _isObject(cfg) ? { ...d, ...cfg } : { ...d };
+    const out = _isObject(cfg) ? {...d, ...cfg} : {...d};
 
     // Keep stable nested shape
-    const loc = _isObject(out.location) ? { ...d.location, ...out.location } : { ...d.location };
+    const loc = _isObject(out.location) ? {...d.location, ...out.location} : {...d.location};
     out.location = loc;
 
     // Types / bounds
@@ -40,6 +62,10 @@ function _normalize(cfg) {
     out.refreshMinutes = Number.isFinite(rm) ? Math.max(1, Math.floor(rm)) : d.refreshMinutes;
 
     out.animationsEnabled = !!out.animationsEnabled;
+    out.textColor = _normalizeHex(out.textColor) || d.textColor;
+    out.bgColor = _normalizeHex(out.bgColor) || d.bgColor;
+    const ba = Number(out.bgAlpha);
+    out.bgAlpha = Number.isFinite(ba) ? Math.max(0, Math.min(0.35, ba)) : d.bgAlpha;
 
     // Allow lat/lon to be 0; only null/undefined means "not set"
     if (loc.lat === undefined)
@@ -63,13 +89,20 @@ function _label(r) {
     return parts.filter(Boolean).join(', ');
 }
 
+function _normalizeHex(v) {
+    if (typeof v !== 'string')
+        return null;
+    const s = v.trim();
+    return /^#([0-9a-f]{6})$/i.test(s) ? s.toLowerCase() : null;
+}
+
 class PrefsApp {
     constructor() {
         // Per your constraint: exactly one API, no fallbacks.
         this._api = window.ding;
 
         this._cfg = _defaults();
-        this._host = { reducedMotion: false };
+        this._host = {reducedMotion: false};
 
         this._initializing = true;   // blocks handlers during programmatic UI writes
 
@@ -80,18 +113,24 @@ class PrefsApp {
             anim: document.getElementById('animToggle'),
             animHint: document.getElementById('animHint'),
             radios: Array.from(document.querySelectorAll('input[name="units"]')),
+            tabs: Array.from(document.querySelectorAll('.prefs-tab')),
+            panels: Array.from(document.querySelectorAll('.prefs-panel')),
+            textColor: document.getElementById('textColorPicker'),
+            bgColor: document.getElementById('bgColorPicker'),
+            bgAlpha: document.getElementById('bgAlpha'),
+            bgAlphaValue: document.getElementById('bgAlphaValue'),
         };
     }
 
     async init() {
         // Host state (reduced motion, etc.)
         this._api.onHostStateChanged(st => {
-            this._host = { ...this._host, ...(st || {}) };
+            this._host = {...this._host, ...st || {}};
             this._applyHostStateToUi();
         });
 
         // Downward config updates (including initial snapshot)
-        this._api.onConfigChanged((cfg /*, meta */) => {
+        this._api.onConfigChanged((cfg /* , meta */) => {
             this._cfg = _normalize(cfg);
             this._applyCfgToUi();
         });
@@ -111,11 +150,19 @@ class PrefsApp {
 
         // Now wire user handlers (so default/apply cannot push)
         this._wire();
+        this._setTab('general');
 
         this._initializing = false;
     }
 
     _wire() {
+        this._els.tabs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.getAttribute('data-tab') || 'general';
+                this._setTab(tab);
+            });
+        });
+
         // Units
         for (const r of this._els.radios) {
             r.addEventListener('change', () => {
@@ -146,6 +193,36 @@ class PrefsApp {
             this._saveFullConfig();
         });
 
+        this._els.textColor.addEventListener('input', () => {
+            if (this._initializing)
+                return;
+            const hex = _normalizeHex(this._els.textColor.value);
+            if (!hex)
+                return;
+            this._cfg.textColor = hex;
+            this._saveFullConfig();
+        });
+
+        this._els.bgColor.addEventListener('input', () => {
+            if (this._initializing)
+                return;
+            const hex = _normalizeHex(this._els.bgColor.value);
+            if (!hex)
+                return;
+            this._cfg.bgColor = hex;
+            this._saveFullConfig();
+        });
+
+        this._els.bgAlpha.addEventListener('input', () => {
+            if (this._initializing)
+                return;
+            const raw = Number(this._els.bgAlpha.value);
+            const alpha = Number.isFinite(raw) ? Math.max(0, Math.min(0.35, raw)) : 0;
+            this._cfg.bgAlpha = alpha;
+            this._els.bgAlphaValue.textContent = `${Math.round(alpha * 100)}%`;
+            this._saveFullConfig();
+        });
+
         // Location search
         const doSearch = debounce(async () => {
             const q = (this._els.locInput.value || '').trim();
@@ -155,7 +232,7 @@ class PrefsApp {
             }
 
             try {
-                const raw = await geocodeSearch({ query: q, count: 10, language: 'en' });
+                const raw = await geocodeSearch({query: q, count: 10, language: 'en'});
                 const results = (raw?.results || []).map(r => ({
                     label: _label(r),
                     lat: r.latitude,
@@ -170,6 +247,14 @@ class PrefsApp {
 
         this._els.locInput.addEventListener('input', doSearch);
         this._els.locInput.addEventListener('focus', doSearch);
+    }
+
+    _setTab(tab) {
+        for (const btn of this._els.tabs)
+            btn.classList.toggle('is-active', btn.getAttribute('data-tab') === tab);
+
+        for (const panel of this._els.panels)
+            panel.hidden = panel.getAttribute('data-panel') !== tab;
     }
 
     _saveFullConfig() {
@@ -192,10 +277,14 @@ class PrefsApp {
 
         const units = cfg.units || 'system';
         for (const r of this._els.radios)
-            r.checked = (r.value === units);
+            r.checked = r.value === units;
 
         this._els.refresh.value = String(cfg.refreshMinutes || 30);
         this._els.anim.checked = !!cfg.animationsEnabled;
+        this._els.textColor.value = cfg.textColor;
+        this._els.bgColor.value = cfg.bgColor;
+        this._els.bgAlpha.value = String(cfg.bgAlpha);
+        this._els.bgAlphaValue.textContent = `${Math.round(cfg.bgAlpha * 100)}%`;
 
         this._initializing = prev;
     }
@@ -241,7 +330,7 @@ class PrefsApp {
                 this._els.locInput.value = r.label;
                 this._initializing = prev;
 
-                this._cfg.location = { label: r.label, lat: r.lat, lon: r.lon };
+                this._cfg.location = {label: r.label, lat: r.lat, lon: r.lon};
                 this._saveFullConfig();
             });
 
