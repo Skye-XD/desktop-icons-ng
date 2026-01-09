@@ -26,15 +26,23 @@
     <div class="section">
       <div class="section-title">Appearance</div>
       <label class="field">
-        <div class="label">Color</div>
-        <select id="colorSelect" class="select-compact">
-          <option value="white">White</option>
-          <option value="pink">Pink</option>
-          <option value="cyan">Cyan</option>
-          <option value="lime">Lime</option>
-          <option value="purple">Purple</option>
-          <option value="amber">Amber</option>
-        </select>
+        <div class="label">Display color</div>
+        <input id="colorPicker" type="color" />
+      </label>
+      <label class="field">
+        <div class="label">Text color</div>
+        <input id="textColorPicker" type="color" />
+      </label>
+      <label class="field">
+        <div class="label">Background color</div>
+        <input id="bgColorPicker" type="color" />
+      </label>
+      <label class="field">
+        <div class="label">Background opacity</div>
+        <div class="slider-row">
+          <input id="bgOpacity" type="range" min="0" max="0.35" step="0.01" />
+          <div id="bgOpacityValue" class="slider-value">6%</div>
+        </div>
       </label>
     </div>
   </div>

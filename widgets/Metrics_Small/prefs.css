@@ -60,6 +60,8 @@ body[data-theme="dark"] {
   font-weight: 700;
   opacity: 0.95;
   margin-bottom: 8px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .field {
@@ -166,4 +168,21 @@ body[data-theme="dark"] .segmented button[aria-pressed="true"] {
 .select-compact {
   width: 180px;
   max-width: 180px;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-row input[type="range"] {
+  width: 100%;
+}
+
+.slider-value {
+  min-width: 44px;
+  text-align: right;
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
 }

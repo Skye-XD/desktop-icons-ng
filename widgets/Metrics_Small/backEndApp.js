@@ -74,7 +74,6 @@ class BackendApp extends Gio.Application {
 
         // Shutdown guard
         this._shuttingDown = false;
-
     }
 
     // -----------------------------------------------------------------
@@ -86,16 +85,18 @@ class BackendApp extends Gio.Application {
     }
 
     registerMethod(method, handler) {
-        if (typeof method !== 'string' || !method)
+        if (typeof method !== 'string' || !method) {
             throw new Error(
                 'BackendApp.registerMethod: method must be a non-empty string'
             );
+        }
 
-        if (typeof handler !== 'function')
+        if (typeof handler !== 'function') {
             throw new Error(
                 `BackendApp.registerMethod(${method}): handler must be a
                 function`
             );
+        }
 
         this._methods.set(method, handler);
     }
@@ -108,7 +109,7 @@ class BackendApp extends Gio.Application {
         });
     }
 
-    // level: 'log'|'warn'|'error'|'debug' 
+    // level: 'log'|'warn'|'error'|'debug'
     // (host accepts arbitrary, but keep to these)
     sendLog(level, message) {
         this._send({
@@ -155,12 +156,12 @@ class BackendApp extends Gio.Application {
         super.vfunc_startup();
 
         // stdin (fd 0)
-        const stdin = new GioUnix.InputStream({ fd: 0, close_fd: false });
-        this._in = new Gio.DataInputStream({ base_stream: stdin });
-       
+        const stdin = new GioUnix.InputStream({fd: 0, close_fd: false});
+        this._in = new Gio.DataInputStream({base_stream: stdin});
+
         // stdout (fd 1)
-        const stdout = new GioUnix.OutputStream({ fd: 1, close_fd: false });
-        this._out = new Gio.DataOutputStream({ base_stream: stdout });
+        const stdout = new GioUnix.OutputStream({fd: 1, close_fd: false});
+        this._out = new Gio.DataOutputStream({base_stream: stdout});
 
         this._installUnixSignalHandlers();
 
@@ -242,16 +243,20 @@ class BackendApp extends Gio.Application {
 
     _removeUnixSignalHandlers() {
         if (this._sigtermSource) {
-            try { GLib.Source.remove(this._sigtermSource); } catch {}
+            try {
+                GLib.Source.remove(this._sigtermSource);
+            } catch {}
             this._sigtermSource = 0;
         }
         if (this._sigintSource) {
-            try { GLib.Source.remove(this._sigintSource); } catch {}
+            try {
+                GLib.Source.remove(this._sigintSource);
+            } catch {}
             this._sigintSource = 0;
         }
     }
 
-    _requestShutdown(reason) {
+    _requestShutdown(_reason) {
         if (this._shuttingDown)
             return;
         this._shuttingDown = true;
@@ -286,6 +291,7 @@ class BackendApp extends Gio.Application {
             let bytes;
             try {
                 [bytes] =
+                    // eslint-disable-next-line no-await-in-loop
                     await this._in.read_line_async(GLib.PRIORITY_DEFAULT, null);
             } catch (e) {
                 break;
@@ -308,6 +314,7 @@ class BackendApp extends Gio.Application {
                 continue;
             }
 
+            // eslint-disable-next-line no-await-in-loop
             await this._handleMessage(msg);
         }
 
@@ -326,7 +333,7 @@ class BackendApp extends Gio.Application {
             return;
 
         try {
-            this._out.put_string(JSON.stringify(obj) + '\n', null);
+            this._out.put_string(`${JSON.stringify(obj)}\n`, null);
             this._out.flush(null);
         } catch {
             // If stdout write fails, we should exit quickly.
@@ -341,11 +348,11 @@ class BackendApp extends Gio.Application {
             ok: !!ok,
         };
 
-        if (ok) {
+        if (ok)
             msg.result = result;
-        } else {
-            msg.error = error ?? { message: 'request failed' };
-        }
+        else
+            msg.error = error ?? {message: 'request failed'};
+
 
         this._send(msg);
     }
@@ -365,7 +372,7 @@ class BackendApp extends Gio.Application {
                 instanceId: msg.instanceId ?? null,
                 widgetId: msg.widgetId ?? null,
                 mode: msg.mode ?? null,
-                config: (msg.config && typeof msg.config === 'object')
+                config: msg.config && typeof msg.config === 'object'
                     ? msg.config
                     : {},
             };
@@ -387,7 +394,7 @@ class BackendApp extends Gio.Application {
         case 'event': {
             // {type:'event', name, payload}
             const name = msg.name;
-            const payload = (msg.payload && typeof msg.payload === 'object') 
+            const payload = msg.payload && typeof msg.payload === 'object'
                 ? msg.payload
                 : {};
 
@@ -408,15 +415,15 @@ class BackendApp extends Gio.Application {
             if (id === undefined || id === null)
                 break;
 
-            const params = (msg.params && typeof msg.params === 'object')
+            const params = msg.params && typeof msg.params === 'object'
                 ? msg.params
                 : {};
 
             const handler = this._methods.get(method);
-            
+
             if (!handler) {
                 this._sendResponse(id, false, null,
-                    { message: `Unknown method: ${String(method)}` }
+                    {message: `Unknown method: ${String(method)}`}
                 );
                 break;
             }
@@ -429,7 +436,7 @@ class BackendApp extends Gio.Application {
                     id,
                     false,
                     null,
-                    { message: e?.message ? String(e.message) : String(e) }
+                    {message: e?.message ? String(e.message) : String(e)}
                 );
             }
             break;
@@ -476,9 +483,13 @@ class BackendApp extends Gio.Application {
 
     _logConsole(...args) {
         try {
-            const text = '[BackendApp] ' + args.map(a => {
-                try { return JSON.stringify(a); } catch { return String(a); }
-            }).join(' ');
+            const text = `[BackendApp] ${args.map(a => {
+                try {
+                    return JSON.stringify(a);
+                } catch {
+                    return String(a);
+                }
+            }).join(' ')}`;
             // Write directly to stderr so host-side reader sees it.
             printerr(text);
         } catch {}
@@ -492,6 +503,11 @@ class BackendApp extends Gio.Application {
 //   runBackend(MyBackend);
 //
 // This keeps all backends consistent.
+/**
+ *
+ * @param {typeof BackendApp} AppClass
+ * @param {string[]} argv
+ */
 export function runBackend(AppClass, argv = ARGV) {
     const devKeepAlive = Array.isArray(argv) && argv.includes('--dev-keepalive');
     const app = new AppClass({devKeepAlive});

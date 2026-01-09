@@ -27,20 +27,21 @@ body{
 }
 
 body{
-  color:#e6e6e6;
+  color:var(--text-color, #e6e6e6);
   --neon:#31e6ff;
   --bg-alpha:0.06;
-  --border-alpha:0.11;
+  --bg-color:var(--neon);
+  --text-color:#e6e6e6;
 
-  --bar-track:rgba(255,255,255,.32);
+  --bar-track:rgba(255,255,255,.22);
   --bar-fill:var(--neon);
 
   /* Font sizes (match Weather forecast numbers) */
   --fs-num: 16px;
   --fs-lbl: 14px;
   --num-col-width: 6ch;
-  --g: 8px;
-  --bar-h: 16px;
+  --g: 6px;
+  --bar-h: 14px;
   --g2: 0px;
 }
 
@@ -54,8 +55,8 @@ body{
   content:"";
   position:absolute;
   inset:0;
-  background:color-mix(in srgb, var(--neon) 12%, transparent);
-  border:1px solid color-mix(in srgb, var(--neon) 18%, transparent);
+  background:color-mix(in srgb, var(--bg-color) calc(var(--bg-alpha) * 100%), transparent);
+  border:1px solid color-mix(in srgb, var(--bg-color) calc((var(--bg-alpha) + 0.05) * 100%), transparent);
   border-radius:10px;
   pointer-events:none;
   z-index:0;
@@ -67,7 +68,7 @@ body{
   padding:8px;
   display:grid;
   grid-auto-rows:min-content;
-  row-gap:8px;
+  row-gap:2px;
   align-content:center;
   height:100%;
   min-height:100%;
@@ -85,24 +86,12 @@ body{
   z-index:1;
   pointer-events:none;
 }
-.meta-top{top:6px;}
-.meta-bottom{bottom:6px;}
+.meta-top{top:8px;}
+.meta-bottom{bottom:8px;}
 
 body.size-small{
   --g:6px;
   --bar-h:14px;
-  --g2:0px;
-}
-body.size-medium{
-  --g:8px;
-  --bar-h:16px;
-  --num-col-width: 6ch;
-  --g2:0px;
-}
-body.size-large{
-  --g:8px;
-  --bar-h:16px;
-  --num-col-width: 6ch;
   --g2:0px;
 }
 
@@ -113,7 +102,7 @@ body.size-large{
 }
 .row.row-net{
   grid-template-rows:repeat(2,min-content);
-  row-gap:8px;
+  row-gap:2px;
 }
 .row.row-net [data-dir="in"]{grid-row:1;}
 .row.row-net [data-dir="out"]{grid-row:2;}
@@ -165,7 +154,6 @@ body.size-large{
   background:var(--bar-track);
   border-radius:999px;
   overflow:hidden;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.25);
 }
 
 .bar{
@@ -177,9 +165,9 @@ body.size-large{
   background:var(--bar-fill);
   border-radius:999px;
 }
-.bar-now{opacity:0.8;}
-.bar-decay{opacity:.6;}
-.bar-ghost{opacity:.35;}
+.bar-now{opacity:0.72;}
+.bar-decay{opacity:.5;}
+.bar-ghost{opacity:.24;}
 .edge{
   display:none;
 }

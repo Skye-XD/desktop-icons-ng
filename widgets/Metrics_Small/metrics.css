@@ -27,10 +27,11 @@ body{
 }
 
 body{
-  color:#e6e6e6;
+  color:var(--text-color, #e6e6e6);
   --neon:#31e6ff;
   --bg-alpha:0.06;
-  --border-alpha:0.11;
+  --bg-color:var(--neon);
+  --text-color:#e6e6e6;
 
   --bar-track:rgba(255,255,255,.22);
   --bar-fill:var(--neon);
@@ -54,8 +55,8 @@ body{
   content:"";
   position:absolute;
   inset:0;
-  background:color-mix(in srgb, var(--neon) 12%, transparent);
-  border:1px solid color-mix(in srgb, var(--neon) 18%, transparent);
+  background:color-mix(in srgb, var(--bg-color) calc(var(--bg-alpha) * 100%), transparent);
+  border:1px solid color-mix(in srgb, var(--bg-color) calc((var(--bg-alpha) + 0.05) * 100%), transparent);
   border-radius:10px;
   pointer-events:none;
   z-index:0;

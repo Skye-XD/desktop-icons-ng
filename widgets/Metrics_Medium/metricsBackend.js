@@ -79,9 +79,9 @@ class MetricsBackendApp extends BackendApp {
         // Register ONLY the two methods we support
         this.registerMethod('getSnapshot', this._rpcGetSnapshot.bind(this));
         this.registerMethod('setPeriodMs', this._rpcSetPeriodMs.bind(this));
-   }
+    }
 
-    async onHello(ctx) {
+    onHello(_ctx) {
         // Initialize UPowerGlib lazily on hello.
         this._ensureUpower();
 
@@ -90,18 +90,18 @@ class MetricsBackendApp extends BackendApp {
 
         // Start periodic sampling
         this._startTimer();
-   }
+    }
 
-    async onShutdown() {
+    onShutdown() {
         this._stopTimer();
         // Nothing else required; process exits via base class.
-   }
+    }
 
     // ------------------------------------------------------------
     // RPC handlers
     // ------------------------------------------------------------
 
-    async _rpcGetSnapshot(_params, _ctx) {
+    _rpcGetSnapshot(_params, _ctx) {
         if (!this._lastSnapshot) {
             this._lastSnapshot = this._buildSnapshot({
                 cpuUsagePct: 0,
@@ -115,7 +115,7 @@ class MetricsBackendApp extends BackendApp {
         return {snapshot: this._lastSnapshot};
     }
 
-    async _rpcSetPeriodMs(params, _ctx) {
+    _rpcSetPeriodMs(params, _ctx) {
         const requested = params?.periodMs;
         const next = this._clampPeriodMs(requested);
 
@@ -141,9 +141,9 @@ class MetricsBackendApp extends BackendApp {
             () => {
                 this._sampleAndEmit('tick');
                 return GLib.SOURCE_CONTINUE;
-           }
+            }
         );
-   }
+    }
 
     _stopTimer() {
         if (!this._timerId)
@@ -161,7 +161,7 @@ class MetricsBackendApp extends BackendApp {
     _restartTimer() {
         this._stopTimer();
         this._startTimer();
-   }
+    }
 
     // ------------------------------------------------------------
     // Sampling + emit
@@ -181,7 +181,7 @@ class MetricsBackendApp extends BackendApp {
             mem,
             net,
             battery,
-       });
+        });
 
         this.sendEvent('metrics', {snapshot: this._lastSnapshot});
     }
@@ -206,14 +206,14 @@ class MetricsBackendApp extends BackendApp {
                 usedBytes: mem.usedBytes,
                 freeBytes: mem.freeBytes,
                 cachedBytes: mem.cachedBytes,
-           },
+            },
             net: {
                 rxBps: net.rxBps,
                 txBps: net.txBps,
-           },
-            battery: battery,
-       };
-   }
+            },
+            battery,
+        };
+    }
 
     // ------------------------------------------------------------
     // CPU (libgtop)
@@ -231,7 +231,7 @@ class MetricsBackendApp extends BackendApp {
             this._prevCpuTotal = total;
             this._prevCpuIdle = idle;
             return 0;
-       }
+        }
 
         const dTotal = total - this._prevCpuTotal;
         const dIdle = idle - this._prevCpuIdle;
@@ -244,11 +244,14 @@ class MetricsBackendApp extends BackendApp {
 
         const busy = dTotal - dIdle;
         let pct = (busy / dTotal) * 100;
-        if (!Number.isFinite(pct)) pct = 0;
-        if (pct < 0) pct = 0;
-        if (pct > 100) pct = 100;
+        if (!Number.isFinite(pct))
+            pct = 0;
+        if (pct < 0)
+            pct = 0;
+        if (pct > 100)
+            pct = 100;
         return pct;
-   }
+    }
 
     // ------------------------------------------------------------
     // Memory (libgtop)
@@ -264,7 +267,7 @@ class MetricsBackendApp extends BackendApp {
         const cachedBytes = Number(mem.cached ?? 0);
 
         return {totalBytes, usedBytes, freeBytes, cachedBytes};
-   }
+    }
 
     // ------------------------------------------------------------
     // Network (libgtop)
@@ -290,7 +293,7 @@ class MetricsBackendApp extends BackendApp {
                 return true;
 
             return false;
-       }
+        }
 
         // Fallback if libgtop doesn't expose flags in this build:
         // Use /sys/class/net/<iface>/operstate to exclude "down".
@@ -302,12 +305,12 @@ class MetricsBackendApp extends BackendApp {
 
             if (s !== 'up')
                 return true;
-       } catch {
+        } catch {
             // If we can't read operstate, be conservative and keep it.
-       }
+        }
 
         return false;
-   }
+    }
 
     _sampleNet(tsMs) {
         let rxBps = 0;
@@ -318,7 +321,7 @@ class MetricsBackendApp extends BackendApp {
         if (!Array.isArray(ifaces) || ifaces.length === 0) {
             this._netWarnedNoIfaces = true;
             return {rxBps, txBps};
-       }
+        }
 
         for (const iface of ifaces) {
             if (typeof iface !== 'string' || !iface)
@@ -349,7 +352,7 @@ class MetricsBackendApp extends BackendApp {
             rxBps += rxRate;
             txBps += txRate;
             samples += 1;
-       }
+        }
 
         // Cleanup: remove interfaces that disappeared from the system
         // (bounded state; keeps Map small)
@@ -358,14 +361,14 @@ class MetricsBackendApp extends BackendApp {
             for (const key of this._netPrev.keys()) {
                 if (!live.has(key))
                     this._netPrev.delete(key);
-           }
-       }
+            }
+        }
 
         if (!samples && rxBps === 0 && txBps === 0 && !this._netWarnedNoData)
             this._netWarnedNoData = true;
 
         return {rxBps, txBps};
-   }
+    }
 
     _listSysfsIfaces() {
         const out = [];
@@ -388,7 +391,9 @@ class MetricsBackendApp extends BackendApp {
         } catch {
             /* ignore */
         } finally {
-            try { en?.close(null); } catch {}
+            try {
+                en?.close(null);
+            } catch {}
         }
 
         return out;
@@ -417,7 +422,7 @@ class MetricsBackendApp extends BackendApp {
             }
             return null;
         }
-   }
+    }
 
     _readSysfsNumber(path) {
         const f = Gio.File.new_for_path(path);
@@ -425,7 +430,7 @@ class MetricsBackendApp extends BackendApp {
         const s = this._decoder.decode(bytes).trim();
         const n = Number(s);
         return Number.isFinite(n) ? n : null;
-   }
+    }
 
     // ------------------------------------------------------------
     // Battery (UPowerGlib)
@@ -438,14 +443,14 @@ class MetricsBackendApp extends BackendApp {
         try {
             this._upClient = new UPowerGlib.Client();
             this._upDisplay = this._upClient.get_display_device();
-       } catch (e) {
+        } catch (e) {
             this._upClient = null;
             this._upDisplay = null;
 
             // Use host logging channel; do not throw.
             this.warn('UPowerGlib init failed:', e?.message ?? e);
-       }
-   }
+        }
+    }
 
     _sampleBattery() {
         this._ensureUpower();
@@ -472,7 +477,7 @@ class MetricsBackendApp extends BackendApp {
             return {present: false};
 
         const percent = Number(this._get(dev, 'percentage', 0));
-        
+
         const state =
             this._batteryStateToString(
                 this._get(dev, 'state', UPowerGlib.DeviceState.UNKNOWN)
@@ -488,19 +493,19 @@ class MetricsBackendApp extends BackendApp {
             present: true,
             percent: Number.isFinite(percent) ? percent : 0,
             state,
-       };
+        };
 
         if (Number.isFinite(secsToEmpty) && secsToEmpty > 0)
             out.secsToEmpty = Math.floor(secsToEmpty);
-        
+
         if (Number.isFinite(secsToFull) && secsToFull > 0)
             out.secsToFull = Math.floor(secsToFull);
-        
+
         if (Number.isFinite(energyRateW) && energyRateW > 0)
             out.energyRateW = energyRateW;
 
         return out;
-   }
+    }
 
     // ------------------------------------------------------------
     // Helpers
@@ -510,29 +515,31 @@ class MetricsBackendApp extends BackendApp {
         if (typeof x !== 'number' || !Number.isFinite(x))
             return DEFAULT_PERIOD_MS;
         x = Math.floor(x);
-        if (x < MIN_PERIOD_MS) x = MIN_PERIOD_MS;
-        if (x > MAX_PERIOD_MS) x = MAX_PERIOD_MS;
+        if (x < MIN_PERIOD_MS)
+            x = MIN_PERIOD_MS;
+        if (x > MAX_PERIOD_MS)
+            x = MAX_PERIOD_MS;
         return x;
-   }
+    }
 
     _nowMs() {
         return Date.now();
-   }
+    }
 
     _get(obj, prop, fallback = null) {
         try {
             if (obj && (prop in obj))
                 return obj[prop];
         } catch {}
-        
-       try {
+
+        try {
             const m = `get_${prop}`;
             if (obj && typeof obj[m] === 'function')
                 return obj[m]();
         } catch {}
-        
+
         return fallback;
-   }
+    }
 
     _batteryStateToString(state) {
         switch (state) {
@@ -543,8 +550,8 @@ class MetricsBackendApp extends BackendApp {
         case UPowerGlib.DeviceState.PENDING_CHARGE: return 'pending_charge';
         case UPowerGlib.DeviceState.PENDING_DISCHARGE: return 'pending_discharge';
         default: return 'unknown';
-       }
-       }
+        }
+    }
 });
 
 runBackend(MetricsBackendApp);
