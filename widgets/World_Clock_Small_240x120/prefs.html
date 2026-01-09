@@ -41,8 +41,21 @@
       <div class="section-title">Appearance</div>
 
       <label class="field field-row">
-        <div class="label">Color</div>
+        <div class="label">Text color</div>
         <input id="colorPicker" type="color" />
+      </label>
+
+      <label class="field field-row">
+        <div class="label">Background color</div>
+        <input id="bgColorPicker" type="color" />
+      </label>
+
+      <label class="field">
+        <div class="label">Background opacity</div>
+        <div class="slider-row">
+          <input id="bgOpacity" type="range" min="0" max="0.35" step="0.01" />
+          <div id="bgOpacityValue" class="slider-value">8%</div>
+        </div>
       </label>
     </div>
   </div>
