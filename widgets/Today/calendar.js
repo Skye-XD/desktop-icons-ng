@@ -24,6 +24,13 @@ export class CalendarWidget {
         this._client = new DingClient({mode: 'widget'});
         this._lastSnapshot = null;
         this._tickId = null;
+        this._cfg = {
+            headerColor: '#f5f6f8',
+            eventColor: '#f5f6f8',
+            panelColor: '#ffffff',
+            panelAlpha: 0.06,
+            nextColor: '#ffffff',
+        };
 
         this._client.onBackendEvent((name, payload) => {
             if (name === 'update')
@@ -34,6 +41,15 @@ export class CalendarWidget {
             if (visible && this._lastSnapshot)
                 this._render(this._lastSnapshot);
         });
+
+        this._client.onConfigChanged(cfg => {
+            this._applyConfig(cfg);
+        });
+
+        this._client.getConfig().then(cfg => {
+            if (cfg && typeof cfg === 'object')
+                this._applyConfig(cfg);
+        }).catch(() => {});
 
         this._startTick();
     }
@@ -177,6 +193,36 @@ export class CalendarWidget {
             return `in ${Math.max(1, mins)} minute${mins === 1 ? '' : 's'}`;
         const hours = Math.max(1, Math.round(mins / 60));
         return `in ${hours} hour${hours === 1 ? '' : 's'}`;
+    }
+
+    _applyConfig(cfg) {
+        if (cfg && typeof cfg === 'object')
+            this._cfg = {...this._cfg, ...cfg};
+
+        const headerColor = this._normalizeHex(this._cfg.headerColor) || '#f5f6f8';
+        const eventColor = this._normalizeHex(this._cfg.eventColor) || '#f5f6f8';
+        const panelColor = this._normalizeHex(this._cfg.panelColor) || '#ffffff';
+        const nextColor = this._normalizeHex(this._cfg.nextColor) || '#ffffff';
+        const rawAlpha = Number(this._cfg.panelAlpha);
+        const alpha = Number.isFinite(rawAlpha) ? Math.max(0, Math.min(0.35, rawAlpha)) : 0.06;
+        const borderAlpha = Math.min(0.5, alpha + 0.06);
+
+        const root = document.documentElement;
+        root.style.setProperty('--cal-head-color', headerColor);
+        root.style.setProperty('--cal-event-color', eventColor);
+        root.style.setProperty('--cal-panel-color', panelColor);
+        root.style.setProperty('--cal-panel-alpha', String(alpha));
+        root.style.setProperty('--cal-panel-border-alpha', String(borderAlpha));
+        root.style.setProperty('--cal-panel-alpha-pct', `${alpha * 100}%`);
+        root.style.setProperty('--cal-panel-border-alpha-pct', `${borderAlpha * 100}%`);
+        root.style.setProperty('--cal-next-color', nextColor);
+    }
+
+    _normalizeHex(v) {
+        if (typeof v !== 'string')
+            return null;
+        const s = v.trim();
+        return /^#([0-9a-f]{6})$/i.test(s) ? s.toLowerCase() : null;
     }
 
     _startTick() {

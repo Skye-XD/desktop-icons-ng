@@ -4,6 +4,15 @@
   --muted: rgba(245,246,248,0.65);
   --muted-2: rgba(245,246,248,0.5);
   --bar-w: 3px;
+
+  --cal-head-color: #f5f6f8;
+  --cal-event-color: #f5f6f8;
+  --cal-panel-color: #ffffff;
+  --cal-panel-alpha: 0.06;
+  --cal-panel-border-alpha: 0.12;
+  --cal-panel-alpha-pct: 6%;
+  --cal-panel-border-alpha-pct: 12%;
+  --cal-next-color: #ffffff;
 }
 
 html, body {
@@ -45,6 +54,8 @@ body {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2;
+  color: var(--cal-head-color);
+  opacity: 1;
 }
 
 section {
@@ -52,8 +63,8 @@ section {
   flex-direction: column;
   gap: 4px;
   padding: 6px 10px 8px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: color-mix(in srgb, var(--cal-panel-color) var(--cal-panel-alpha-pct), transparent);
+  border: 1px solid color-mix(in srgb, var(--cal-panel-color) var(--cal-panel-border-alpha-pct), transparent);
   border-radius: 12px;
   backdrop-filter: blur(6px);
 }
@@ -62,7 +73,8 @@ section > header {
   font-size: 11px;
   text-transform: none;
   letter-spacing: 0.02em;
-  color: var(--muted);
+  color: var(--cal-head-color);
+  opacity: 0.65;
   margin-top: -2px;
 }
 
@@ -101,17 +113,19 @@ section > header {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: var(--cal-event-color);
 }
 
 .time {
   font-size: 12px;
-  color: var(--muted-2);
+  color: var(--cal-event-color);
   white-space: nowrap;
 }
 
 .more {
   font-size: 11px;
-  color: var(--muted-2);
+  color: var(--cal-head-color);
+  opacity: 0.65;
   margin-left: calc(var(--bar-w) + 8px);
 }
 
@@ -138,17 +152,20 @@ section > header {
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255,255,255,0.35),
+    color-mix(in srgb, var(--cal-next-color) 35%, transparent),
     transparent
   );
 }
 
 .cal-next-label {
   letter-spacing: 0.02em;
+  color: var(--cal-next-color);
+  opacity: 1;
 }
 
 .cal-next-eta {
-  color: var(--muted-2);
+  color: var(--cal-next-color);
+  opacity: 1;
   white-space: nowrap;
 }
 
@@ -156,5 +173,6 @@ section > header {
 .cal-empty {
   padding: 16px 8px;
   text-align: center;
-  opacity: 0.6;
+  color: var(--cal-next-color);
+  opacity: 0.65;
 }
