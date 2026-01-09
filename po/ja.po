@@ -15,9 +15,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2026-01-06 21:04+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-09 15:01+0000\n"
+"Last-Translator: Shavazo <pleasure.7010@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -99,6 +98,7 @@ msgstr "さらに表示"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:613
+#, fuzzy
 msgid "Desktop Settings"
 msgstr "デスクトップ設定"
 
@@ -119,6 +119,7 @@ msgstr "現在のデスクトップ:"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:631
+#, fuzzy
 msgid "Files Settings"
 msgstr "ファイル設定"
 
