@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-29 05:58-0500\n"
+"POT-Creation-Date: 2026-01-09 15:28-0500\n"
 "PO-Revision-Date: 2026-01-06 19:25+0000\n"
 "Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -445,7 +445,7 @@ msgstr "폴더 이름"
 msgid "File name"
 msgstr "파일 이름"
 
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1276
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1277
 #: app/fileItemMenu.js:969
 msgid "OK"
 msgstr "확인"
@@ -479,8 +479,9 @@ msgid "Compressing files"
 msgstr "파일 압축"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:175
-#: app/desktopManager.js:1278 app/dragManager.js:783 app/fileItemMenu.js:916
+#: app/desktopManager.js:1279 app/dragManager.js:783 app/fileItemMenu.js:916
 #: app/fileItemMenu.js:969 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/widgetManager.js:1787
 msgid "Cancel"
 msgstr "취소"
 
@@ -623,8 +624,8 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-".deskop 파일은 데스크톱 폴더로이 데스크탑에서 다른 사용자에 의해 writable "
-"시작할 수 없습니다.\n"
+".deskop 파일은 데스크톱 폴더로이 데스크탑에서 다른 사용자에 의해 writable 시"
+"작할 수 없습니다.\n"
 "\n"
 "이 데스크탑 폴더의 권한을 확인하고 다른 사람이 쓸 수 없다는 것을 확인합니다."
 
@@ -724,8 +725,8 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"다른 급상승 조정을 가진 다수 감시자는, 감시자 framebuffer 사기 당 "
-"추천합니다.\n"
+"다른 급상승 조정을 가진 다수 감시자는, 감시자 framebuffer 사기 당 추천합니"
+"다.\n"
 "\n"
 "Mutter Dconf 설정 활성화"
 
@@ -782,7 +783,8 @@ msgstr "사이트맵 찾을 수 없음"
 # MT: LibreTranslate
 #: app/desktopManager.js:224
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr "GNOME 소개 파일 응용 프로그램은 Gtk4 데스크탑 아이콘 NG에 의해 요구됩니다."
+msgstr ""
+"GNOME 소개 파일 응용 프로그램은 Gtk4 데스크탑 아이콘 NG에 의해 요구됩니다."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:231
@@ -811,25 +813,25 @@ msgstr ""
 "Gnome 파일 확인 .desktop 파일 설치"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:349
+#: app/desktopManager.js:350
 msgid "Clear current selection before new search"
 msgstr "새로운 검색 전에 명확한 현재 선택"
 
-#: app/desktopManager.js:1280
+#: app/desktopManager.js:1281
 msgid "Find Files on Desktop"
 msgstr "데스크탑에서 파일 찾기"
 
-#: app/desktopManager.js:1621 app/desktopMenu.js:958 app/shortcuts.js:10
+#: app/desktopManager.js:1622 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "새 폴더"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1655
+#: app/desktopManager.js:1656
 msgid "Folder Creation Failed"
 msgstr "Folder 창조 실패"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1656
+#: app/desktopManager.js:1657
 msgid "Could not create folder"
 msgstr "폴더를 만들 수 없습니다"
 
@@ -1475,7 +1477,7 @@ msgstr "다운로드"
 msgid "Toggle Widget Layer"
 msgstr ""
 
-#: app/shortcuts.js:35 app/widgetManager.js:911
+#: app/shortcuts.js:35 app/widgetManager.js:994
 msgid "Add Widget"
 msgstr "위젯 추가"
 
@@ -1573,22 +1575,131 @@ msgid "Drive"
 msgstr "지원하다"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:1164
+#: app/widgetManager.js:1330
 #, fuzzy
 msgid "Widget preferences"
 msgstr "옵션 정보"
 
-#: app/widgetManager.js:1548
+#: app/widgetManager.js:1714
 msgid "HTML widget"
 msgstr ""
 
-#: app/widgetManager.js:1550
+#: app/widgetManager.js:1716
 msgid "GTK widget"
 msgstr ""
 
-#: app/widgetManager.js:1559
+#: app/widgetManager.js:1725
 msgid "User"
 msgstr "유저"
+
+#: app/widgetManager.js:1786
+msgid "Allow"
+msgstr ""
+
+#: app/widgetManager.js:1834
+msgid "Strict"
+msgstr ""
+
+#: app/widgetManager.js:1836
+msgid ""
+"The widget runs in a tightly sandboxed web environment.\n"
+"\n"
+"• No external scripts or frames are allowed.\n"
+"• Network access is limited to secure (HTTPS) requests.\n"
+"• Only the widget’s own files and inline code may run.\n"
+"\n"
+"This is the safest option and is recommended for most widgets."
+msgstr ""
+
+#: app/widgetManager.js:1847
+msgid "Relaxed"
+msgstr ""
+
+#: app/widgetManager.js:1849
+msgid ""
+"The widget is allowed broader web capabilities.\n"
+"\n"
+"• External scripts, styles, images, and frames from trusted websites may "
+"load.\n"
+"• Network access over HTTPS, WebSockets, and media streams is allowed.\n"
+"\n"
+"Use this only for widgets you trust."
+msgstr ""
+
+#: app/widgetManager.js:1859
+msgid "Development"
+msgstr ""
+
+#: app/widgetManager.js:1861
+msgid ""
+"The widget runs with development-friendly web access.\n"
+"\n"
+"• Connections to local development servers (localhost) are allowed.\n"
+"• HTTP and WebSocket access may be permitted for testing.\n"
+"\n"
+"This mode is intended for development and debugging only."
+msgstr ""
+
+# MT: LibreTranslate
+#: app/widgetManager.js:1870
+#, fuzzy
+msgid "Default"
+msgstr "기본값으로 재설정"
+
+#: app/widgetManager.js:1872
+msgid ""
+"The widget runs with a predefined web security policy.\n"
+"\n"
+"Web access and capabilities are restricted according to the active policy."
+msgstr ""
+
+#: app/widgetManager.js:1880
+msgid "Allow web content for {widgetId}?"
+msgstr ""
+
+#. eslint-disable-next-line prefer-template
+#: app/widgetManager.js:1885
+msgid ""
+"The widget you are adding may load web content from the internet.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:1886
+msgid ""
+"This content is subject to the widget security policy:\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:1915
+msgid ""
+"This widget, {widgetId} runs a background process on your computer.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:1917
+msgid ""
+"The backend runs with your normal user permissions, just like any other "
+"application you start.\n"
+msgstr ""
+
+#: app/widgetManager.js:1918
+msgid ""
+"It can access your files, system resources, and the network according to "
+"your user account permissions.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:1919
+msgid "Command:\n"
+msgstr ""
+
+#: app/widgetManager.js:1920
+msgid "Only allow this for widgets you implicitly trust."
+msgstr ""
+
+#: app/widgetManager.js:1923
+msgid "Allow widget backend?"
+msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
@@ -1606,8 +1717,8 @@ msgstr "\"${programName}\"은 사용할 수 없습니다"
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
-"\"${programName}\"]를 설치하여 데스크탑 아이콘을 활성화하여 이러한 작업을 "
-"수행합니다."
+"\"${programName}\"]를 설치하여 데스크탑 아이콘을 활성화하여 이러한 작업을 수"
+"행합니다."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
@@ -1730,8 +1841,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"끌어서 놓기 작업을 수행할 때, 격자에서 아이콘이 배치될 위치를 반투명 "
-"사각형을 표시합니다."
+"끌어서 놓기 작업을 수행할 때, 격자에서 아이콘이 배치될 위치를 반투명 사각형"
+"을 표시합니다."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
@@ -1742,8 +1853,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"바탕화면에 아이콘을 정렬할 때 홈, 휴지통 및 마운트된 네트워크 또는 외장 "
-"드라이브의 위치를 정렬하고 변경합니다"
+"바탕화면에 아이콘을 정렬할 때 홈, 휴지통 및 마운트된 네트워크 또는 외장 드라"
+"이브의 위치를 정렬하고 변경합니다"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1794,8 +1905,8 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"레이블 텍스트를 흰색 대신 검정색으로 칠합니다. 밝은 배경을 사용할 때 "
-"유용합니다."
+"레이블 텍스트를 흰색 대신 검정색으로 칠합니다. 밝은 배경을 사용할 때 유용합니"
+"다."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100

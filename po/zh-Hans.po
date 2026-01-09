@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-29 05:58-0500\n"
+"POT-Creation-Date: 2026-01-09 15:28-0500\n"
 "PO-Revision-Date: 2026-01-06 19:19+0000\n"
 "Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -468,7 +468,7 @@ msgid "File name"
 msgstr "文件名称"
 
 # MT: LibreTranslate
-#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1276
+#: app/askRenamePopup.js:75 app/autoAr.js:299 app/desktopManager.js:1277
 #: app/fileItemMenu.js:969
 msgid "OK"
 msgstr ""
@@ -502,8 +502,9 @@ msgstr "压缩文件"
 
 # MT: LibreTranslate
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:175
-#: app/desktopManager.js:1278 app/dragManager.js:783 app/fileItemMenu.js:916
+#: app/desktopManager.js:1279 app/dragManager.js:783 app/fileItemMenu.js:916
 #: app/fileItemMenu.js:969 app/showErrorPopup.js:41 app/showErrorPopup.js:58
+#: app/widgetManager.js:1787
 msgid "Cancel"
 msgstr "取消"
 
@@ -832,27 +833,27 @@ msgstr ""
 "检查 Gnome 文件.desktop 文件安装"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:349
+#: app/desktopManager.js:350
 msgid "Clear current selection before new search"
 msgstr "在新搜索之前清除当前选择"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1280
+#: app/desktopManager.js:1281
 msgid "Find Files on Desktop"
 msgstr "在桌面上查找文件"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1621 app/desktopMenu.js:958 app/shortcuts.js:10
+#: app/desktopManager.js:1622 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "新建文件夹"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1655
+#: app/desktopManager.js:1656
 msgid "Folder Creation Failed"
 msgstr "创建文件夹失败"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1656
+#: app/desktopManager.js:1657
 msgid "Could not create folder"
 msgstr "无法创建文件夹"
 
@@ -1529,7 +1530,7 @@ msgstr "预览"
 msgid "Toggle Widget Layer"
 msgstr "切换小部件层"
 
-#: app/shortcuts.js:35 app/widgetManager.js:911
+#: app/shortcuts.js:35 app/widgetManager.js:994
 msgid "Add Widget"
 msgstr "添加小部件"
 
@@ -1630,21 +1631,130 @@ msgid "Drive"
 msgstr "驱动"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:1164
+#: app/widgetManager.js:1330
 msgid "Widget preferences"
 msgstr "小部件首选项"
 
-#: app/widgetManager.js:1548
+#: app/widgetManager.js:1714
 msgid "HTML widget"
 msgstr "HTML 小部件"
 
-#: app/widgetManager.js:1550
+#: app/widgetManager.js:1716
 msgid "GTK widget"
 msgstr "GTK 小部件"
 
-#: app/widgetManager.js:1559
+#: app/widgetManager.js:1725
 msgid "User"
 msgstr "用户"
+
+#: app/widgetManager.js:1786
+msgid "Allow"
+msgstr ""
+
+#: app/widgetManager.js:1834
+msgid "Strict"
+msgstr ""
+
+#: app/widgetManager.js:1836
+msgid ""
+"The widget runs in a tightly sandboxed web environment.\n"
+"\n"
+"• No external scripts or frames are allowed.\n"
+"• Network access is limited to secure (HTTPS) requests.\n"
+"• Only the widget’s own files and inline code may run.\n"
+"\n"
+"This is the safest option and is recommended for most widgets."
+msgstr ""
+
+#: app/widgetManager.js:1847
+msgid "Relaxed"
+msgstr ""
+
+#: app/widgetManager.js:1849
+msgid ""
+"The widget is allowed broader web capabilities.\n"
+"\n"
+"• External scripts, styles, images, and frames from trusted websites may "
+"load.\n"
+"• Network access over HTTPS, WebSockets, and media streams is allowed.\n"
+"\n"
+"Use this only for widgets you trust."
+msgstr ""
+
+#: app/widgetManager.js:1859
+msgid "Development"
+msgstr ""
+
+#: app/widgetManager.js:1861
+msgid ""
+"The widget runs with development-friendly web access.\n"
+"\n"
+"• Connections to local development servers (localhost) are allowed.\n"
+"• HTTP and WebSocket access may be permitted for testing.\n"
+"\n"
+"This mode is intended for development and debugging only."
+msgstr ""
+
+# MT: LibreTranslate
+#: app/widgetManager.js:1870
+#, fuzzy
+msgid "Default"
+msgstr "重置为默认"
+
+#: app/widgetManager.js:1872
+msgid ""
+"The widget runs with a predefined web security policy.\n"
+"\n"
+"Web access and capabilities are restricted according to the active policy."
+msgstr ""
+
+#: app/widgetManager.js:1880
+msgid "Allow web content for {widgetId}?"
+msgstr ""
+
+#. eslint-disable-next-line prefer-template
+#: app/widgetManager.js:1885
+msgid ""
+"The widget you are adding may load web content from the internet.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:1886
+msgid ""
+"This content is subject to the widget security policy:\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:1915
+msgid ""
+"This widget, {widgetId} runs a background process on your computer.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:1917
+msgid ""
+"The backend runs with your normal user permissions, just like any other "
+"application you start.\n"
+msgstr ""
+
+#: app/widgetManager.js:1918
+msgid ""
+"It can access your files, system resources, and the network according to "
+"your user account permissions.\n"
+"\n"
+msgstr ""
+
+#: app/widgetManager.js:1919
+msgid "Command:\n"
+msgstr ""
+
+#: app/widgetManager.js:1920
+msgid "Only allow this for widgets you implicitly trust."
+msgstr ""
+
+#: app/widgetManager.js:1923
+msgid "Allow widget backend?"
+msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
@@ -1811,7 +1921,8 @@ msgstr "排序特殊文件夹 - 家/ 垃圾驱动器 ."
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
-msgstr "在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
+msgstr ""
+"在桌面上安排图标时, 以排序和更改 Home、 回收站和挂载的网络或外部驱动器的位置"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
