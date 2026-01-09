@@ -1,7 +1,7 @@
 # Desktop Widgets
 
 <p align="center">
-  <img src="media/Screenshot2.png" alt="Desktop widgets on the GNOME desktop" width="900">
+  <img src="media/Screenshot5.jpg" alt="Desktop widgets on the GNOME desktop" width="900">
 </p>
 
 ## Why I wanted to do this
