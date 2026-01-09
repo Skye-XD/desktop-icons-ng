@@ -156,15 +156,15 @@ const ComboRowWithKey = GObject.registerClass({
 
 const CssOverrideGroup = GObject.registerClass(
 class CssOverrideGroup extends Adw.PreferencesGroup {
-		constructor(params = {}) {
+    constructor(params = {}) {
         super({});
         this.set_title(_('CSS Override'));
         this.set_description(_('Customise the appearance of desktop icons with CSS'));
         const warningLabel = new Gtk.Label();
         warningLabel.set_markup(
-					'<span style="italic" foreground="red">' +
-						_("Warning: This can break the extension if done incorrectly") +
-						"</span>",
+            `<span style="italic" foreground="red">${
+                _('Warning: This can break the extension if done incorrectly')
+            }</span>`
         );
         this.add(warningLabel);
         const icon = Gtk.Image.new_from_icon_name('window-pop-out-symbolic');
@@ -179,9 +179,9 @@ class CssOverrideGroup extends Adw.PreferencesGroup {
         this.reloadButtonRow = new Adw.ActionRow({
             title: _('Apply CSS Changes Now'),
             subtitle: _('Reload the CSS to apply changes immediately'),
-            
+
         });
-        const button = Gtk.Button.new_with_label("Reload");
+        const button = Gtk.Button.new_with_label('Reload');
         button.set_size_request(120, -1);
         button.set_halign(Gtk.Align.END);
         button.set_valign(Gtk.Align.CENTER);
@@ -196,7 +196,7 @@ class CssOverrideGroup extends Adw.PreferencesGroup {
         this.add(this.reloadButtonRow);
         this.update(params.remoteActions);
     }
-    
+
     reloadCSS() {
         try {
             this.remoteActions.activate_action('reloadCSS', null);
@@ -208,20 +208,19 @@ class CssOverrideGroup extends Adw.PreferencesGroup {
 
     update(remoteActions) {
         this.remoteActions = remoteActions;
-        if (this.remoteActions?.list_actions()) {
+        if (this.remoteActions?.list_actions())
             this.reloadButtonRow.set_sensitive(true);
-        } else {
+        else
             this.reloadButtonRow.set_sensitive(false);
-        }
     }
 
-    
+
     openUserCssOverrideFile() {
         const configDir = GLib.get_user_config_dir();
         const cssFile = Gio.File.new_for_path(
             GLib.build_filenamev([configDir, appID, 'stylesheet-override.css'])
         );
-        
+
         // Create directory if it doesn't exist
         const cssDir = cssFile.get_parent();
         try {
@@ -229,12 +228,12 @@ class CssOverrideGroup extends Adw.PreferencesGroup {
         } catch (e) {
             // Directory already exists
         }
-        
+
         // Create file if it doesn't exist
-        if (!cssFile.query_exists(null)) {
+        if (!cssFile.query_exists(null))
             cssFile.create(Gio.FileCreateFlags.NONE, null);
-        }
-        
+
+
         // Open with default text editor
         const context = Gdk.Display.get_default().get_app_launch_context();
         context.set_timestamp(Gdk.CURRENT_TIME);
@@ -379,24 +378,29 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.13 for Gnome 45, 46, 47, 48 49</p>
+            `<p>* Adw version 100.14 for Gnome 45, 46, 47, 48, 49</p>
+<ul><li>Adds html widgets that can launch and communicate with a local backend</li></ul>
+<ul><li>Reverts multiple selection with arrows as it breaks mouse drag and drop</li></ul>
+<ul><li>Added a Today(Calendar) widget and system Metrics widget for desktop</li></ul>
+<ul><li>Improves preferences for widgets</li></ul>
+            <p>* Adw version 100.13 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Adds widgets that can be displayed on the desktop under the icon layer</li></ul>
 <ul><li>Users can apply their own CSS</li></ul>
-            <p>* Adw version 100.11 for Gnome 45, 46, 47, 48 49</p>
+            <p>* Adw version 100.11 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Fix margins in RTL layout under dock</li></ul>
 <ul><li>Adapt to X11 removal in mutter</li></ul>
-            <p>* Adw version 100.9 for Gnome 45, 46, 47, 48 49</p>
+            <p>* Adw version 100.9 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Machine Translation with LibreTranslate to all supported languages</li></ul>
             <p>* Adw version 100.8-2 for Gnome 45, 46, 47, 48 49</p>
 <ul><li>Bug fix for older gnome versions with no GioUnix namespace</li></ul>
-            <p>* Adw version 100.8 for Gnome 45, 46, 47, 48 49</p>
+            <p>* Adw version 100.8 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Animate margin changes. Respects global Gtk4/Gnome animation settings</li></ul>
 <ul><li>Right long-click brings up gnome shell background menu directly</li></ul>
 <ul><li>Improve search UI, unselected items are now properly dimmed to highlight the selected</li></ul>
-            <p>* Adw version 100.7 for Gnome 45, 46, 47, 48 49</p>
+            <p>* Adw version 100.7 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Fix Gnome 49 compatibility issues</li></ul>
 <ul><li>Fix xdg-terminal-exec directory detection in system data dirs</li></ul>
-            <p>* Adw version 100.6 for Gnome 45, 46, 47, 48 49</p>
+            <p>* Adw version 100.6 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Adapt to new Gnome 49 Meta.Window and Meta.WaylandClient API</li></ul>
 <ul><li>Fix missing app icon if no parent icon folder</li></ul>
             <p>* Adw version 100.5 for Gnome 45, 46, 47, 48</p>
@@ -819,39 +823,37 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
 
         // Track Alt key state using event controllers
         this._altKeyPressed = false;
-        
+
         // Add key event controller to track Alt key
         const keyController = new Gtk.EventControllerKey();
-        keyController.connect('key-pressed', (controller, keyval, keycode, state) => {
-            if (keyval === Gdk.KEY_Alt_L || keyval === Gdk.KEY_Alt_R) {
+        keyController.connect('key-pressed', (controller, keyval, _keycode, _state) => {
+            if (keyval === Gdk.KEY_Alt_L || keyval === Gdk.KEY_Alt_R)
                 this._altKeyPressed = true;
-            }
+
             return false;
         });
-        
-        keyController.connect('key-released', (controller, keyval, keycode, state) => {
-            if (keyval === Gdk.KEY_Alt_L || keyval === Gdk.KEY_Alt_R) {
+
+        keyController.connect('key-released', (controller, keyval, _keycode, _state) => {
+            if (keyval === Gdk.KEY_Alt_L || keyval === Gdk.KEY_Alt_R)
                 this._altKeyPressed = false;
-            }
         });
-        
+
         prefsWindow.add_controller(keyController);
-        
+
         // Add click gesture controller to detect Alt+Click on tab
         const clickController = new Gtk.GestureClick();
-        clickController.connect('pressed', (gesture, n_press, x, y) => {
+        clickController.connect('pressed', (gesture, _nPress, _x, _y) => {
             const state = gesture.get_current_event().get_modifier_state();
             this._altKeyPressed = (state & Gdk.ModifierType.ALT_MASK) !== 0;
         });
         prefsWindow.add_controller(clickController);
-        
+
         // Show CSS Override group only when navigating to More tab with Alt held
         prefsWindow.connect('notify::visible-page', () => {
-            if (prefsWindow.get_visible_page() === aboutFrame) {
+            if (prefsWindow.get_visible_page() === aboutFrame)
                 this.cssOverrideGroup.set_visible(this._altKeyPressed);
-            }
         });
-        
+
         prefsWindow.set_default_size(600, 650);
 
         this._monitorDesktopDirChanges();
