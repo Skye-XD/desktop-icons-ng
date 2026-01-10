@@ -19,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
 "PO-Revision-Date: 2026-01-11 05:04+0000\n"
-"Last-Translator: imnotlxy <contact@lxy.cc>\n"
+"Last-Translator: Daniel Zhang <xiaozhangshiw@163.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -993,7 +993,7 @@ msgstr "在 {0} 中打开"
 
 #: app/desktopMenu.js:1019
 msgid "Edit Widgets…"
-msgstr "编辑小部件"
+msgstr "编辑小部件…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1026
@@ -1119,7 +1119,7 @@ msgstr "堆叠此类型"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:207
 msgid "Unstack This Type"
-msgstr "打开此类型"
+msgstr "取消堆叠此类型"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:231
