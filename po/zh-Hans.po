@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 05:58-0500\n"
-"PO-Revision-Date: 2026-01-06 19:19+0000\n"
-"Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
+"PO-Revision-Date: 2026-01-11 05:04+0000\n"
+"Last-Translator: imnotlxy <contact@lxy.cc>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -117,7 +117,7 @@ msgstr "桌面文件夹"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:621
 msgid "Current Desktop: "
-msgstr "当前桌面 :"
+msgstr "当前桌面: "
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:631
