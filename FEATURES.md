@@ -176,6 +176,7 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] New - Desktop widgets with isolated WebKit runtime, jailed `ding-widget://` scheme, shared WebContext/UCM, prefs via `widget.json` `prefs` path (any subdirectory), per-instance config (overwrites on save), and injected `window.ding` API.
 
+- [x] Added optional backend process for html widgets that can run as user and query system internsal, communicate with the widget.
 
 
 **FIXES**

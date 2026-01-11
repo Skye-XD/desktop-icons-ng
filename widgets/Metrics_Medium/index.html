@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Metrics</title>
+  <link rel="stylesheet" href="./ding-widget.css"/>
+  <link rel="stylesheet" href="./metrics.css"/>
+</head>
+<body class="size-medium">
+  <div id="root">
+    <div class="meta meta-top">System Stats</div>
+    <div id="grid">
+      <div class="row" data-row="cpu">
+        <div class="lbl">CPU</div>
+        <div class="lane"><div class="track"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div></div>
+        <div class="nums"><div class="num">0%</div></div>
+      </div>
+      <div class="row" data-row="ram">
+        <div class="lbl">RAM</div>
+        <div class="lane"><div class="track"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div></div>
+        <div class="nums"><div class="num">0.0&nbsp;G</div></div>
+      </div>
+      <div class="row row-net" data-row="net">
+        <div class="lbl" data-dir="in">NET↓</div>
+        <div class="lane" data-dir="in"><div class="track"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div></div>
+        <div class="nums nums-net" data-dir="in"><div class="num in">0.00 K</div></div>
+
+        <div class="lbl" data-dir="out">NET↑</div>
+        <div class="lane" data-dir="out"><div class="track"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div></div>
+        <div class="nums nums-net" data-dir="out"><div class="num out">0.00 K</div></div>
+      </div>
+      <div class="row" data-row="bat">
+        <div class="lbl lbl-bat"><span class="lbl-bat-text">PWR</span></div>
+        <div class="lane lane-bat"><div class="track"><div class="bar bar-ghost"></div><div class="bar bar-decay"></div><div class="bar bar-now"></div><div class="edge"></div></div></div>
+        <div class="nums nums-pwr"><div class="num">⚡ 100%</div></div>
+      </div>
+    </div>
+    <div class="meta meta-bottom">Host: <span class="host-name">—</span></div>
+  </div>
+  <script type="module" src="./metrics.js"></script>
+</body>
+</html>

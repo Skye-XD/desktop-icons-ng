@@ -6,6 +6,8 @@ This document describes the **current** HTML widget JavaScript API as implemente
 
 It intentionally documents **only what exists today** in code.
 
+If you want a quick start, the optional `ding-client.js` helper handles the bridge plumbing for you, and `ding-widget.css` lets you react to host state using only CSS—jump to those sections if that’s all you need.
+
 ---
 
 ## Runtime model (high-level)
@@ -107,9 +109,44 @@ This means a widget author can safely ship assets under subdirectories, but cann
 On injection, the platform attempts to insert a `<style>` tag at the top of the document:
 
 - `id="ding-widget-background"`
-- forces `background: transparent !important` for `html`, `body`, and `*`
+- forces `background: transparent !important` for `html`, `body`, but not `*`. Widget renderings do not have a transparent background to they can be seen.
 
 This is intended to make widgets “desktop-friendly” by default (a transparent base), while still allowing the widget author to override visuals with their own CSS.
+
+### Optional helper stylesheet: `ding-widget.css`
+
+Alongside this document, the widgets folder includes `ding-widget.css`, an optional helper stylesheet that reacts to host-managed DOM state. No JavaScript is required; it simply listens to classes and attributes the host already maintains.
+
+#### State applied by the host
+
+Widgets must never toggle these themselves; the host keeps them up to date:
+
+| Host state      | DOM effect                         |
+|-----------------|------------------------------------|
+| Theme           | `body[data-theme="light|dark"]`   |
+| Edit mode       | `body.ding-edit-mode`              |
+| Selection       | `body.ding-selected`               |
+| Reduced motion  | `body.ding-reduced-motion`         |
+| Text direction  | `html[dir="ltr|rtl"]`            |
+
+#### What the stylesheet provides
+
+- **Theme hinting** – sets `color-scheme` based on `body[data-theme]` so built-in controls adopt light/dark without extra code.
+- **Reduced motion** – globally disables animations, transitions, and smooth scrolling whenever `body` has `ding-reduced-motion`, matching GNOME’s accessibility toggle.
+- **Edit mode helpers** – `.ding-only-edit` elements are shown only while the widget is in edit mode.
+- **Selection helpers** – `.ding-only-selected` elements show only when selected; `.ding-selection-outline` can wrap outlines.
+- **Direction awareness** – relies on `html[dir]` so widgets can react to RTL purely via CSS.
+
+#### Using the stylesheet
+
+- Plain HTML widget: `<link rel="stylesheet" href="../ding-widget.css">`
+- Bundled builds (React/Svelte/Vite): `import '../ding-widget.css';`
+
+That’s it—no additional setup. The stylesheet reacts immediately when host state changes.
+
+#### Relationship to `ding-client.js`
+
+`ding-widget.css` handles the visual layer while `ding-client.js` focuses on JavaScript plumbing (config, backend IPC, subscriptions). They are independent: the CSS works without the helper, and the helper doesn’t require the CSS. Together they cover both JS and CSS glue so widget authors can focus on UI logic.
 
 ### Authoring note: outer chrome and clipping
 
@@ -249,6 +286,20 @@ Registers a callback that will be called:
 
 Returns an `unsubscribe()` function.
 
+#### `ding.backendRequest(method: string, params?: object): Promise<any>` (sends `requestId`)
+
+Send a request to a widget backend **only if a backend exists** (the widget declares a `backendSpec`). Each call carries an auto-incremented `requestId`; the backend response includes the same `id` so replies are matched to the right Promise. `method` is a widget-author defined string, and `params` is arbitrary JSON defined by the widget/backend author. The backend replies with a `response` object shaped as `{ type: "response", id, ok, result, error }`: `id` matches the request, `ok` is a boolean success flag, `result` is the success payload (any JSON), and `error` is the failure payload (any JSON or string). The Promise resolves with `result` when `ok` is true and rejects with `error` when `ok` is false.
+
+#### `ding.backendSend(name: string, payload?: object): void`
+
+Fire-and-forget message to a widget backend **only if a backend exists** (the widget declares a `backendSpec`). `name` and `payload` are widget-author defined and can be any JSON shape.
+
+#### `ding.onBackendEvent(cb: function): function`
+
+Subscribe to backend `event` messages **only if a backend exists**. Event `name` and `payload` shapes are widget-author defined. Returns an `unsubscribe()` function.
+
+
+
 ---
 
 ## Host state
@@ -338,6 +389,92 @@ The host (WebWidgetContext) recognizes these message types from widgets:
 > Note: `openPreferences` / `closePreferences` are handled in `WebWidgetContext`, but there are currently **no high-level helper methods** in `window.ding` to emit them. Authors may use `ding.post({type: "openPreferences", instanceId})` for now, but it is not a strict guarantee in future.
 
 ---
+
+## HtmlWidgetHostWithBackend JSON protocol
+
+Some widgets declare a backend subprocess via `backendSpec`. When present, `HtmlWidgetHostWithBackend` launches that subprocess and exchanges newline-delimited JSON objects over stdin/stdout.
+
+### Host → backend messages
+
+- **hello**  
+  Sent once after the process starts. Shape:  
+  `{ type: "hello", instanceId, widgetId, mode: "widget", config }`  
+  Receipt of `hello` is a backend’s signal that it can begin doing work. The host sends `hello` immediately after wiring the subprocess—even before any real `request` is dispatched—so widget authors can force eager startup by issuing a no-op `backendRequest` during widget load to trigger process creation.
+- **request**  
+  Sent for each `backendRequest()` invoked by the widget. Shape:  
+  `{ type: "request", id, method, params }`  
+  `method` is an author-defined string that the backend understands, and `params` is arbitrary JSON supplied by the widget.
+- **shutdown**  
+  Sent when the widget host is being destroyed. Shape:  
+  `{ type: "shutdown" }`  
+  Backends should treat this as a polite SIGTERM-equivalent and exit promptly; the host will forcibly terminate the process shortly after.
+
+### Backend → host messages
+
+- **response**  
+  Completes a pending request. Shape:  
+  `{ type: "response", id, ok, result, error }`
+- **event**  
+  Asynchronous notifications forwarded to the widget as `backendEvent`. Shape:  
+  `{ type: "event", name, payload }`  
+  `name` is an author-defined string, and `payload` is arbitrary JSON decided entirely by the backend/widget author pair.
+- **log**  
+  Diagnostics printed by the host. Shape:  
+  `{ type: "log", level, message }`  
+  `level` is a string (common values: `log`, `warn`, `error`, `debug`) and `message` is free-form text; both are widget-author defined.
+
+Messages with unknown `type` values or malformed JSON lines are ignored (no error response is sent).
+
+---
+
+### Backend helper: `backEndApp.js` (backend process)
+
+Widget backends can subclass `BackendApp` from `widgets/backEndApp.js`, which implements the JSONL protocol over stdin/stdout and wires up request routing, logging, and shutdown handling.
+
+Key hooks and helpers:
+
+- `registerMethod(method, handler)`  
+  Registers an async handler for `request` messages. The handler receives `(params, ctx)` and returns a JSON-serializable result. Replies are emitted as `{ type: "response", id, ok, result, error }` with the matching `id`.
+- `onHello(ctx)`  
+  Called after the host sends `hello`. `ctx` includes `{ instanceId, widgetId, mode, config }`.
+- `onHostEvent(name, payload)`  
+  Called for inbound `event` messages from the host.
+- `onShutdown()`  
+  Called when the host requests shutdown or on SIGTERM/SIGINT.
+- `sendEvent(name, payload)`  
+  Sends an async `event` to the widget. `name`/`payload` are widget-author defined.
+- `sendLog(level, message)` and helpers `log()`, `warn()`, `error()`, `debug()`  
+  Sends a `log` message to the host. `level` is typically `log`, `warn`, `error`, or `debug`.
+
+To run a backend, subclass `BackendApp` and call `runBackend(MyBackend)` from your backend entry point.
+
+### Backend helper for widgets: `widgetHelper.js` (DingClient)
+
+For widget-side code, `widgets/widgetHelper.js` exports `DingClient` as a thin helper around the injected `window.ding` API. It exposes `backendRequest`, `backendSend`, `onBackendEvent`, and `onVisibilityChange`, sends an initial backend hello for lazy startup, and includes optional timeouts for requests.
+
+#### Visibility and re-rendering (important)
+
+WebKit may stop rendering when a widget is hidden (lock screen, sleep, or workspace changes). When the widget becomes visible again, your UI can appear stale unless you re-render.
+
+Widget authors should register a visibility handler and re-render from their cached state:
+
+```js
+let last = null;
+
+client.onBackendEvent((name, payload) => {
+  if (name === 'update') {
+    last = payload;
+    render(last);
+  }
+});
+
+client.onVisibilityChange((visible) => {
+  if (visible && last)
+    render(last);
+});
+```
+
+If your widget has a custom render function or state cache, call it from `onVisibilityChange`. This keeps the UI fresh after unlock or sleep without forcing a full page reload.
 
 
 ### Preferences and the gear icon
@@ -448,6 +585,73 @@ These defaults are read during application startup and currently remain constant
 
 ---
 
+## Optional helper: `ding-client.js`
+
+The widgets folder ships an optional helper (`ding-client.js`) that wraps the injected `window.ding` bridge. Including it is entirely up to the widget author; it just provides a thin, framework-agnostic convenience layer so widget code can stay focused on UI logic.
+
+### What the client abstracts
+
+- **Instance routing**  
+  Automatically pulls `instanceId` from the injected bridge; authors never pass it around manually.
+- **Request/reply plumbing**  
+  Generates `requestId`s, tracks pending Promises, matches replies, handles timeouts, and cleans up pending state.
+- **Unified async config API**  
+  Exposes only Promise-based `getConfig()` / `setConfig()`. There is no sync variant, keeping usage consistent across frameworks.
+- **Partial config updates with full-write semantics**  
+  `patchConfig(patch)` performs read → deep-merge → write so authors can update just the fields they care about while the host still receives the full config.
+- **Event subscription helpers**  
+  Tiny wrappers like `onHostState(cb)`, `onConfigChanged(cb)`, and `onBackendEvent(cb)` that return unsubscribe functions and hide the raw message plumbing.
+- **Backend IPC helpers**  
+  `backendRequest(name, payload)` (request/reply) and `backendSend(name, payload)` (fire-and-forget) without manual envelope building.
+
+### Why it helps across frameworks
+
+- **Vanilla HTML widgets** use the same async API without reinventing message parsing.
+- **React/Svelte/Vue** components can subscribe on mount and unsubscribe on unmount, awaiting config during init and calling `patchConfig()` from event handlers—no hooks or framework coupling required.
+- **Node/tooling/tests** can instantiate the client with a mocked `ding` object so unit tests run without GNOME, keeping transport concerns at the boundary.
+
+### What it intentionally does **not** do
+
+- Provide alternative transports or fallbacks (it still uses `window.ding` only).
+- Offer UI/rendering helpers or framework-specific wrappers.
+- Reintroduce synchronous config access.
+
+Use it if it simplifies your widget codebase, but it remains an optional convenience layer; everything described above can also be done directly via `window.ding`.
+
+### When the helper is not worth adopting
+
+If your widget is truly trivial—single-file, no prefs, no backend, writes config once, never streams events—the helper is optional overhead. You can talk to `window.ding` directly without much boilerplate.
+
+### When the helper shines
+
+- You ship both widget and prefs pages that need to share config handling
+- You plan to use `backendRequest` / `backendSend`
+
+In those cases the helper pays for itself immediately by keeping all widgets consistent and hiding the protocol details.
+
+---
+
+## Optional helper: `backEndApp.js`
+
+For JavaScript backends, the widgets folder ships `backEndApp.js`, a small GJS base class that implements the JSONL protocol for you. It is optional, but it saves boilerplate and keeps backends consistent.
+
+### Why use it for backends
+
+- **Request routing**  
+  `registerMethod()` wires method names to async handlers and automatically emits matching `{ type: "response", id, ok, result, error }`.
+- **Lifecycle hooks**  
+  `onHello(ctx)`, `onHostEvent(name, payload)`, and `onShutdown()` give clean entry points without manual parsing.
+- **Logging helpers**  
+  `log()`, `warn()`, `error()`, `debug()` emit host-visible log messages with consistent levels.
+- **Shutdown handling**  
+  Handles `shutdown` messages plus SIGTERM/SIGINT, so your backend exits cleanly.
+- **Context access**  
+  `this.context` provides `{ instanceId, widgetId, mode, config }` from the host hello.
+
+Use it if you are writing a JS/GJS backend and want a well-defined protocol wrapper; you can still implement the raw protocol directly if you need full control.
+
+---
+
 ## Quick author checklist
 
 - Wait until you have a valid `ding.instanceId` before calling `getConfig()` / `saveConfig()`.
@@ -460,3 +664,5 @@ These defaults are read during application startup and currently remain constant
   - reduced motion
   - locale changes
 - Prefer shipping all JS/CSS locally; do not rely on remote `<script src=...>`.
+- If you adopt `ding-client.js`, it can hide most of the plumbing above (instance routing, config access, event subscriptions, backend IPC) so your widget code stays focused on UI logic; using it is optional but recommended for consistency.
+- For purely visual reactions to host state, you can skip JavaScript entirely and include `widgets/ding-widget.css`, which already responds to theme, edit/selection state, reduced motion, and direction changes (see [Optional helper stylesheet](#optional-helper-stylesheet-ding-widgetcss)).

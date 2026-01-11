@@ -1,0 +1,22 @@
+{
+  "id": "calendar.today",
+  "name": "Calendar",
+  "description": "Today’s calendar events at a glance",
+  "kind": "html",
+
+  "defaultWidth": 260,
+  "defaultHeight": 320,
+
+  "author": "Sundeep Mediratta",
+  "version": "1.0",
+
+  "backend": {
+    "command": "gjs",
+    "argv": [
+      "-m",
+      "calendarBackend.js"
+    ]
+  },
+
+  "prefs": "prefs.html"
+}

@@ -1,0 +1,51 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metrics Preferences</title>
+  <link rel="stylesheet" href="./prefs.css" />
+</head>
+<body>
+  <div id="prefsRoot">
+    <div id="header"><div id="headerTitle">Metrics</div></div>
+
+    <div class="section">
+      <div class="section-title">Refresh</div>
+      <label class="field">
+        <div class="label">Interval</div>
+        <select id="refreshSelect" class="select-compact">
+          <option value="1">1s</option>
+          <option value="2">2s</option>
+          <option value="5">5s</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Appearance</div>
+      <label class="field">
+        <div class="label">Display color</div>
+        <input id="colorPicker" type="color" />
+      </label>
+      <label class="field">
+        <div class="label">Text color</div>
+        <input id="textColorPicker" type="color" />
+      </label>
+      <label class="field">
+        <div class="label">Background color</div>
+        <input id="bgColorPicker" type="color" />
+      </label>
+      <label class="field">
+        <div class="label">Background opacity</div>
+        <div class="slider-row">
+          <input id="bgOpacity" type="range" min="0" max="0.35" step="0.01" />
+          <div id="bgOpacityValue" class="slider-value">6%</div>
+        </div>
+      </label>
+    </div>
+  </div>
+  <script type="module" src="./prefs.js"></script>
+</body>
+</html>

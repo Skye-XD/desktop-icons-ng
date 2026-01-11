@@ -1,4 +1,15 @@
 # History of versions #
+* Adw Version 100.14 for Gnome 45, 46, 47, 48, 49
+  * Added html backend process that can run as user and communicate with html widget through the host, can be written in any language. Added comprehensive documentation for this feature.(Sundeep Mediratta)
+  * Added backend process helper and widget helper classes that can be extended by widget authours to make writing widgets easier, they implement boilerplate communication code. (Sundeep Mediratta)
+  * Color picker for the clock widget. (xiaozhangup). Very nice, I took the liberty of adding it to every other widget which could use it. :smile:
+  * Added sliders for alpha tinting of background for widgets.
+  * Added a metrics widget and a Today(Calendar) widget. These use the new backend.app and widget-helper.js base classes and extend them for demonstration. (Sundeep Mediratta)
+  * Fixed windowmanger initialization bug. (Sundeep Mediratta)
+  * Reverted choose selection with arrow keys, this was causing problems with dragging and dropping multiple icons with mouse. This needs to be completely redisigned.
+  * Translation updates. (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.13 For Gnome 45, 46, 47, 48, 49
   * Revert keyboard navigantion selection, broke mulitple file drag drop with mouse.
   * Fix right click menu not showing with widgetgrid. (Sundeep Mediratta)

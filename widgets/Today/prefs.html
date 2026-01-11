@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendar Preferences</title>
+  <link rel="stylesheet" href="prefs.css" />
+</head>
+<body>
+  <div id="prefsRoot">
+    <div id="header" role="heading" aria-level="1">
+      <div id="headerTitle">Today</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Appearance</div>
+
+      <label class="field field-row">
+        <div class="label">Header color</div>
+        <input id="headerColor" type="color" />
+      </label>
+
+      <label class="field field-row">
+        <div class="label">Event text color</div>
+        <input id="eventColor" type="color" />
+      </label>
+
+      <label class="field field-row">
+        <div class="label">Next/empty color</div>
+        <input id="nextColor" type="color" />
+      </label>
+
+      <label class="field field-row">
+        <div class="label">Panel color</div>
+        <input id="panelColor" type="color" />
+      </label>
+
+      <label class="field">
+        <div class="label">Panel opacity</div>
+        <div class="slider-row">
+          <input id="panelAlpha" type="range" min="0" max="0.35" step="0.01" />
+          <div id="panelAlphaValue" class="slider-value">6%</div>
+        </div>
+      </label>
+    </div>
+
+    <div class="footer">
+      <button id="restoreDefaults" type="button">Restore defaults</button>
+    </div>
+  </div>
+
+  <script src="prefs.js"></script>
+</body>
+</html>

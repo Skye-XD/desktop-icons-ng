@@ -355,6 +355,11 @@ const WidgetRegistry = class  {
                             ? manifest.prefs
                             : null;
 
+                    const backend =
+                        this._isObject(manifest.backend)
+                            ? manifest.backend
+                            : null;
+
                     const desc = {
                         id,
                         kind,
@@ -370,6 +375,8 @@ const WidgetRegistry = class  {
                         defaultHeight,
                         defaultConfig,
                         prefs,
+                        backend,
+                        hasBackend: !!backend,
                     };
 
                     // Resolve duplicates deterministically;
@@ -460,5 +467,107 @@ const WidgetRegistry = class  {
                 }
             );
         });
+    }
+
+    normalizeBackendSpec(desc, inst) {
+        return this._normalizeBackendSpec(desc, inst);
+    }
+
+    _normalizeBackendSpec(desc, inst) {
+        const b = desc?.backend;
+        if (!b || typeof b !== 'object')
+            return null;
+
+        const dirFile = desc.dir;
+        const dirPath = dirFile?.get_path?.();
+        if (!dirFile || !dirPath)
+            return null;
+
+        const argv = this._buildBackendArgv(b, dirFile);
+        if (!argv?.length) {
+            console.error(
+                'WidgetRegistry: backend argv missing/invalid for widget',
+                desc?.id ?? '<unknown>'
+            );
+            return null;
+        }
+
+        const cwd = this._resolveBackendCwd(b, dirFile, dirPath);
+
+        const envOverrides =
+            b.env && typeof b.env === 'object' ? b.env : null;
+
+        const env = {
+            DING_WIDGET_ID: String(inst?.widgetId ?? ''),
+            DING_INSTANCE_ID: String(inst?.instanceId ?? ''),
+        };
+
+        if (envOverrides) {
+            for (const [key, value] of Object.entries(envOverrides)) {
+                if (typeof key !== 'string')
+                    continue;
+                if (value === undefined)
+                    continue;
+                env[key] = typeof value === 'string'
+                    ? value
+                    : String(value);
+            }
+        }
+
+        return {
+            argv,
+            cwd,
+            env,
+        };
+    }
+
+    _buildBackendArgv(backend, dirFile) {
+        const cmd = backend?.command;
+        if (typeof cmd !== 'string' || cmd.length === 0)
+            return null;
+
+        // eslint-disable-next-line no-nested-ternary
+        const args = Array.isArray(backend.args)
+            ? backend.args.filter(a => typeof a === 'string')
+            : Array.isArray(backend.argv)
+                ? backend.argv.filter(a => typeof a === 'string')
+                : [];
+
+        // Resolve argv[0] to an absolute path if it isn't already.
+        let argv0 = null;
+
+        if (cmd.startsWith('/')) {
+            argv0 = cmd;
+        } else if (cmd.includes('/')) {
+            const f = dirFile.resolve_relative_path
+                ? dirFile.resolve_relative_path(cmd)
+                : dirFile.get_child(cmd);
+            argv0 = f?.get_path?.() ?? null;
+        } else {
+            argv0 = GLib.find_program_in_path(cmd);
+            if (!argv0) {
+                const f = dirFile.resolve_relative_path
+                    ? dirFile.resolve_relative_path(cmd)
+                    : dirFile.get_child(cmd);
+                argv0 = f?.get_path?.() ?? null;
+            }
+        }
+
+        if (!argv0)
+            return null;
+
+        return [argv0, ...args];
+    }
+
+    _resolveBackendCwd(backend, dirFile, fallbackDirPath) {
+        const cwdRel =
+            typeof backend?.cwd === 'string' && backend.cwd.length
+                ? backend.cwd
+                : '.';
+
+        const cwdFile = dirFile.resolve_relative_path
+            ? dirFile.resolve_relative_path(cwdRel)
+            : dirFile.get_child(cwdRel);
+        return cwdFile?.get_path?.() ?? fallbackDirPath;
     }
 };

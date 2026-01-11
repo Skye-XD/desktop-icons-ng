@@ -15,10 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gdk, Gio, GLib, Gtk, WebKit} from '../dependencies/gi.js';
+import {Adw, Gio, GLib, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 import {WidgetRegistry} from '../dependencies/localFiles.js';
-import {HtmlWidgetHost} from '../dependencies/localFiles.js';
+import {HtmlWidgetHost, HtmlWidgetHostWithBackend} from '../dependencies/localFiles.js';
 import {WebWidgetContext} from '../dependencies/localFiles.js';
 
 /**
@@ -42,10 +42,12 @@ import {WebWidgetContext} from '../dependencies/localFiles.js';
  */
 export {WidgetManager};
 
+const WIDGETS_STATE_SCHEMA_VERSION = 2;
 
 const WidgetManager = class {
     constructor(desktopManager) {
         this._desktopManager = desktopManager;
+        this.Enums = desktopManager.Enums;
         this._preferences = desktopManager.Prefs;
         this._desktopIconsUtil = desktopManager.DesktopIconsUtil;
         this._widgetRegistry = new WidgetRegistry(this._desktopIconsUtil);
@@ -78,7 +80,7 @@ const WidgetManager = class {
 
         this._addActions();
 
-        this.loadState(this._preferences.widgetState);
+        this.loadState(this._preferences.widgetState).catch(e => logError(e));
     }
 
     clearFromGrids() {
@@ -113,12 +115,12 @@ const WidgetManager = class {
         this._stateChanged();
     }
 
-    startWidgetDisplay(desktops, params) {
-        this.loadState(
+    async startWidgetDisplay(desktops, params) {
+        await this.loadState(
             this._preferences.widgetState
         );
 
-        this.applyLayoutChange(desktops, params);
+        await this.applyLayoutChange(desktops, params);
     }
 
     /**
@@ -134,13 +136,13 @@ const WidgetManager = class {
      *     gridschanged: boolean,
      *   }
      */
-    applyLayoutChange(desktops, changeInfo) {
+    async applyLayoutChange(desktops, changeInfo) {
         if (!changeInfo?.redisplay)
             return;
 
         this._rebuildSurfacesFrom(desktops);
         this._detachInstancesWithoutSurface();
-        this._reattachAllInstances();
+        await this._reattachAllInstances();
         this._stopWebkitIfUnneeded();
     }
 
@@ -252,15 +254,19 @@ const WidgetManager = class {
             width,
             height,
             descriptor?.defaultConfig ?? {},
-            kind
+            kind,
+            descriptor
         );
-
-        const prefsUri = descriptor?.prefs ?? null;
-        instance.prefsUri = prefsUri || null;
-        instance.hasPreferences = !!prefsUri;
 
         if (!instance)
             return null;
+
+        const created = await this._ensureInstanceActor(instance);
+
+        if (!created)
+            return null;
+
+        this._positionInstanceActor(instance);
 
         // Persist creation
         this._stateChanged();
@@ -512,13 +518,18 @@ const WidgetManager = class {
      *
      * Schema:
      * {
-     *   version: 1,
+     *   version: 2,
      *   instances: [
      *     {
-     *       instanceId, widgetId, kind,
-     *       monitorIndex, normX, normY,
-     *       width, height,
-     *       config: { ... }   // author-defined future fields
+     *      instanceId, widgetId, kind,
+     *      monitorIndex, normX, normY,
+     *      width, height,
+     *      config: { ... }   // author-defined fields
+     *      prefsUri: string|null,
+     *      hasPreferences: boolean,
+     *      hasBackend: boolean,
+     *      webConsent: boolean|null,
+     *      backendConsent: boolean|null,
      *     },
      *     ...
      *   ]
@@ -544,15 +555,21 @@ const WidgetManager = class {
      *
      * It also has to deal with null, undefined, or missing fields gracefully.
      */
-    loadState(state) {
+    async loadState(state) {
         if (!state || typeof state !== 'object')
             return;
 
-        if (state.version !== 1) {
+        const schemaVersion =
+            Number.isFinite(state.version) ? state.version : 1;
+
+        if (schemaVersion < WIDGETS_STATE_SCHEMA_VERSION) {
             console.warn(
-                `WidgetManager loadState: Unknown state version ${state.version}`
+                `WidgetManager loadState: state version ${schemaVersion} ` +
+                `(current ${WIDGETS_STATE_SCHEMA_VERSION}); migrating`
             );
+            state = await this._migrateToCurrentVersion(state);
         }
+
 
         if (!Array.isArray(state.instances))
             return;
@@ -584,6 +601,9 @@ const WidgetManager = class {
                 instance.prefsUri = instData.prefsUri ?? null;
                 instance.hasPreferences =
                     instData.hasPreferences ?? !!instance.prefsUri;
+                instance.hasBackend = instData.hasBackend;
+                instance.webConsent = instData.webConsent ?? null;
+                instance.backendConsent = instData.backendConsent ?? null;
             } else {
                 instance = {
                     instanceId: instData.instanceId,
@@ -599,6 +619,9 @@ const WidgetManager = class {
                     prefsUri: instData.prefsUri ?? null,
                     hasPreferences:
                         instData.hasPreferences ?? !!instData.prefsUri,
+                    hasBackend: instData.hasBackend ?? false,
+                    webConsent: instData.webConsent ?? null,
+                    backendConsent: instData.backendConsent ?? null,
                 };
 
                 this._instances.set(instance.instanceId, instance);
@@ -608,7 +631,12 @@ const WidgetManager = class {
 
             const surface = this._surfaces.get(instance.monitorIndex);
             if (surface) {
-                this._ensureInstanceActor(instance);
+                // eslint-disable-next-line no-await-in-loop
+                const created = await this._ensureInstanceActor(instance);
+
+                if (!created)
+                    continue;
+
                 this._positionInstanceActor(instance);
             }
         }
@@ -755,7 +783,7 @@ const WidgetManager = class {
             this._sortedInstancesForExport(zIndexByInstanceId);
 
         const out = {
-            version: 1,
+            version: WIDGETS_STATE_SCHEMA_VERSION,
             instances: [],
         };
 
@@ -772,17 +800,73 @@ const WidgetManager = class {
                 config: inst.config ?? {},
                 prefsUri: inst.prefsUri ?? null,
                 hasPreferences: !!inst.hasPreferences,
+                hasBackend: !!inst.hasBackend,
+                webConsent: inst.webConsent ?? null,
+                backendConsent: inst.backendConsent ?? null,
             });
         }
 
         return out;
     }
 
+    async _migrateToCurrentVersion(state) {
+        if (!state || typeof state !== 'object')
+            return {version: WIDGETS_STATE_SCHEMA_VERSION, instances: []};
+
+        const schemaVersion =
+        Number.isFinite(state.version) ? state.version : 1;
+
+        if (!Array.isArray(state.instances))
+            state.instances = [];
+
+        let migrated = false;
+
+        if (schemaVersion < 2) {
+        // v1 -> v2: instances gain hasBackend.
+        // Compute it once from the widget manifest (descriptor) and persist.
+        // Schema v2+: backend capability is stored per instance (hasBackend)
+        // and is resolved once at creation or migration time.
+
+            for (const instData of state.instances) {
+                if (!instData || typeof instData !== 'object')
+                    continue;
+
+                let hasBackend = false;
+
+                try {
+                    // eslint-disable-next-line no-await-in-loop
+                    const desc = await this._widgetRegistry.getDescriptor(
+                        instData.widgetId
+                    );
+
+                    hasBackend = !!desc?.hasBackend;
+                } catch (e) {
+                // If registry lookup fails, default false (safe).
+                    hasBackend = false;
+                }
+
+                instData.hasBackend = hasBackend;
+                migrated = true;
+            }
+
+            state.version = 2;
+            migrated = true;
+        }
+
+        if (migrated && this._preferences) {
+        // Persist the migrated file state as-is (do NOT call exportState() here).
+            this._preferences.widgetState = state;
+        }
+
+        return state;
+    }
+
+
     // =====================================================================
     // Internal helpers
     // =====================================================================
     _createInstance(widgetId, monitorIndex, x, y, width, height,
-        config = {}, kind) {
+        config = {}, kind, descriptor = null) {
         const surface = this._surfaces.get(monitorIndex);
         if (!surface) {
             console.error(
@@ -811,13 +895,12 @@ const WidgetManager = class {
             actor: null,
             config,
             kind,
+            hasBackend: descriptor?.hasBackend ?? !!descriptor?.backend ?? false,
+            prefsUri: descriptor?.prefs ?? null,
+            hasPreferences: !!descriptor?.prefs,
         };
 
         this._instances.set(instanceId, instance);
-
-        this._ensureInstanceActor(instance);
-        this._positionInstanceActor(instance);
-
         return instance;
     }
 
@@ -1033,7 +1116,7 @@ const WidgetManager = class {
         }
     }
 
-    _reattachAllInstances() {
+    async _reattachAllInstances() {
         if (!this._preferences.showDesktopWidgets)
             return;
 
@@ -1043,34 +1126,58 @@ const WidgetManager = class {
             if (!surface)
                 continue;
 
-            this._ensureInstanceActor(inst);
+            // eslint-disable-next-line no-await-in-loop
+            const created = await this._ensureInstanceActor(inst);
+
+            if (!created)
+                continue;
+
             this._positionInstanceActor(inst);
         }
     }
 
-    _ensureInstanceActor(inst) {
+    async _ensureInstanceActor(inst) {
         if (!this._preferences.showDesktopWidgets)
-            return;
+            return false;
 
         if (inst.actor)
-            return;
+            return true;
 
-        this._createActorForInstance(inst);
+        const created = await this._createActorForInstance(inst);
+
+        if (!created)
+            return false;
+
         inst.actor.widgetInstanceId = inst.instanceId;
+        return true;
     }
 
-    _createActorForInstance(inst) {
+    async _createActorForInstance(inst) {
         const frame = this.getInstanceFrame(inst.instanceId);
         if (!frame)
-            return;
+            return false;
 
-        const kind = this._getWidgetKind(inst.widgetId);
+        // this can be re-entrant for html widgets due to consent checks
+        if (inst.actor)
+            return true;
 
         let actor = null;
-        if (kind === 'html') {
-            const webCtx = this._ensureWebWidgetContext();
 
-            const host = new HtmlWidgetHost({
+        if (inst.kind === 'html') {
+            const proceed = await this._checkConsentForInstance(inst);
+
+            if (!proceed)
+                return false;
+
+            // this can be re-entrant for html widgets due to consent checks
+            if (inst.actor)
+                return true;
+
+            const webCtx = this._ensureWebWidgetContext();
+            const HostClass =
+                inst.hasBackend ? HtmlWidgetHostWithBackend : HtmlWidgetHost;
+
+            const host = new HostClass({
                 instanceId: inst.instanceId,
                 widgetId: inst.widgetId,
                 frameRect: frame,
@@ -1080,7 +1187,7 @@ const WidgetManager = class {
 
             inst.host = host;
             actor = host.actor;
-        } else if (kind === 'gtk') {
+        } else if (inst.kind === 'gtk') {
             actor = this._createGtkActorForInstance(inst, frame);
         } else {
             console.error(
@@ -1089,7 +1196,7 @@ const WidgetManager = class {
         }
 
         if (!actor)
-            return;
+            return false;
 
         actor.set_name('ding-widget');
         actor.set_overflow(Gtk.Overflow.HIDDEN);
@@ -1097,6 +1204,65 @@ const WidgetManager = class {
 
         actor.instanceId = inst.instanceId;
         inst.actor = actor;
+        return true;
+    }
+
+    async _checkConsentForInstance(inst) {
+        if (inst._consentInProgress)
+            return false;
+
+        inst._consentInProgress = true;
+
+        try {
+            let updateState = false;
+            let removeInstance = false;
+
+            if (inst.webConsent !== true) {
+                updateState = true;
+
+                const ok = await this._askWebConsent(inst);
+
+                if (!ok)
+                    removeInstance = true;
+                else
+                    inst.webConsent = true;
+            }
+
+            if (inst.hasBackend &&
+                inst.backendConsent !== true &&
+                !removeInstance
+            ) {
+                updateState = true;
+
+                const ok = await this._askBackendConsent(inst);
+
+                if (!ok)
+                    removeInstance = true;
+                else
+                    inst.backendConsent = true;
+            }
+
+            if (removeInstance)
+                this._removeActor(inst.instanceId);
+
+            // IMPORTANT: during loadState writes are suppressed, so if we changed
+            // consent OR removed an instance, force a state write once.
+            const stateDirty = updateState || removeInstance;
+
+            if (stateDirty) {
+                const previousSuppressionState = this._suppressStateEvents;
+                this._suppressStateEvents = false;
+                this._stateChanged();
+                this._suppressStateEvents = previousSuppressionState;
+            }
+
+            return !removeInstance;
+        } catch (e) {
+            console.error('WidgetManager: _checkConsentForInstance failed:', e);
+            return false;
+        } finally {
+            inst._consentInProgress = false;
+        }
     }
 
     _removeActor(instanceId) {
@@ -1392,7 +1558,7 @@ const WidgetManager = class {
         if (!this._webWidgetContext)
             return;
 
-        // We prune aggressively, there may be no host, add button has 
+        // We prune aggressively, there may be no host, add button has
         // no isAlive(). Look only for html hosts
         const hasHtmlWidget =
             Array.from(this._instances.values())
@@ -1609,5 +1775,154 @@ const WidgetManager = class {
         const closeWidget = Gio.SimpleAction.new('closeWidget', null);
         closeWidget.connect('activate', this.deleteSelectedInstance.bind(this));
         this._desktopManager.mainApp.add_action(closeWidget);
+    }
+
+    /* =====================================================================
+     * Widget Consent UI
+     * ===================================================================== */
+
+    _asyncAskYesNo(heading, body) {
+        const parentWindow = this._desktopManager.mainApp.get_active_window();
+        const yesLabel = _('Allow');
+        const noLabel = _('Cancel');
+
+        return new Promise(resolve => {
+            const dlg = new Adw.AlertDialog();
+            dlg.set_heading(heading);
+            dlg.set_body(body);
+            dlg.add_response('no', noLabel);
+            dlg.add_response('yes', yesLabel);
+            dlg.set_default_response('no');
+            dlg.set_close_response('no');
+            dlg.set_prefer_wide_layout(true);
+
+            dlg.set_response_appearance(
+                'yes',
+                Adw.ResponseAppearance.SUGGESTED
+            );
+
+            dlg.set_response_appearance(
+                'no',
+                Adw.ResponseAppearance.DEFAULT
+            );
+
+            const shortcutController = new Gtk.ShortcutController({
+                propagation_phase: Gtk.PropagationPhase.CAPTURE,
+            });
+            shortcutController.add_shortcut(new Gtk.Shortcut({
+                trigger: Gtk.ShortcutTrigger.parse_string('Escape'),
+                action: Gtk.CallbackAction.new(() => {
+                    dlg.close();
+                    return true;
+                }),
+            }));
+            dlg.add_controller(shortcutController);
+
+            dlg.connect('response', (_d, response) => {
+                resolve(response === 'yes');
+            });
+
+            dlg.present(parentWindow ?? null);
+        });
+    }
+
+    _describeCspProfileForHumans() {
+        const profile = this.Enums?.DEFAULT_CSP_PROFILE;
+
+        if (profile === this.Enums?.CspProfile?.STRICT) {
+            return {
+                name: _('Strict'),
+                summary: _(
+                    'The widget runs in a tightly sandboxed web environment.\n\n' +
+                '• No external scripts or frames are allowed.\n' +
+                '• Network access is limited to secure (HTTPS) requests.\n' +
+                '• Only the widget’s own files and inline code may run.\n\n' +
+                'This is the safest option and is recommended for most widgets.'
+                ),
+            };
+        }
+
+        if (profile === this.Enums?.CspProfile?.RELAXED) {
+            return {
+                name: _('Relaxed'),
+                summary: _(
+                    'The widget is allowed broader web capabilities.\n\n' +
+                '• External scripts, styles, images, and frames from trusted websites may load.\n' +
+                '• Network access over HTTPS, WebSockets, and media streams is allowed.\n\n' +
+                'Use this only for widgets you trust.'
+                ),
+            };
+        }
+
+        if (profile === this.Enums?.CspProfile?.DEV) {
+            return {
+                name: _('Development'),
+                summary: _(
+                    'The widget runs with development-friendly web access.\n\n' +
+                '• Connections to local development servers (localhost) are allowed.\n' +
+                '• HTTP and WebSocket access may be permitted for testing.\n\n' +
+                'This mode is intended for development and debugging only.'
+                ),
+            };
+        }
+
+        return {
+            name: String(profile ?? _('Default')),
+            summary: _(
+                'The widget runs with a predefined web security policy.\n\n' +
+            'Web access and capabilities are restricted according to the active policy.'
+            ),
+        };
+    }
+
+    async _askWebConsent(inst) {
+        const widgetId = inst.widgetId;
+        const heading = _('Allow web content for {widgetId}?')
+            .replace('{widgetId}', widgetId);
+        const cspProfile = this._describeCspProfileForHumans();
+        const body =
+            // eslint-disable-next-line prefer-template
+            _('The widget you are adding may load web content from the internet.\n\n') +
+            _('This content is subject to the widget security policy:\n\n') +
+            `${cspProfile.name}\n` +
+            `${cspProfile.summary}`;
+
+
+        const answer = await this._asyncAskYesNo(heading, body);
+
+        return answer;
+    }
+
+    async _askBackendConsent(inst) {
+        const widgetId = inst.widgetId;
+        let argvStr = '';
+
+        try {
+            const desc = await this._widgetRegistry.getDescriptor(inst.widgetId);
+            const spec = this._widgetRegistry.normalizeBackendSpec(desc, inst);
+
+            if (spec?.argv?.length) {
+                argvStr = spec.argv.map(a =>
+                    /[\s"]/g.test(a) ? `"${a.replaceAll('"', '\\"')}"` : a
+                ).join(' ');
+            }
+        } catch (e) {
+            // If we can’t resolve spec, keep message generic.
+            argvStr = '';
+        }
+
+        const body =
+        _('This widget, {widgetId} runs a background process on your computer.\n\n')
+            .replace('{widgetId}', widgetId) +
+        _('The backend runs with your normal user permissions, just like any other application you start.\n') +
+        _('It can access your files, system resources, and the network according to your user account permissions.\n\n') +
+        (argvStr ? `${_('Command:\n') + argvStr}\n\n` : '') +
+        _('Only allow this for widgets you implicitly trust.');
+
+        const answer = await this._asyncAskYesNo(
+            _('Allow widget backend?'),
+            body);
+
+        return answer;
     }
 };

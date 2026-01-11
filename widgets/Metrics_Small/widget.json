@@ -1,0 +1,16 @@
+{
+  "id": "metrics-small",
+  "kind": "html",
+  "name": "Metrics (Small)",
+  "defaultWidth": 260,
+  "defaultHeight": 160,
+  "version": 1,
+  "prefs": "prefs.html",
+  "backend": {
+    "command": "gjs",
+    "argv": [
+      "-m",
+      "metricsBackend.js"
+    ]
+  }
+}

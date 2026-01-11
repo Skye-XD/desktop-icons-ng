@@ -20,7 +20,8 @@
 // Exports the script that gets injected into each WebView.
 
 const transparencyCSS = `
-html, body, * {
+/* Keep the page transparent without nuking widget element backgrounds */
+html, body {
     background: transparent !important;
     background-color: transparent !important;
     background-image: none !important;
@@ -234,6 +235,8 @@ export const WIDGET_API =
 
     var pending = new Map();
     var msgCounter = 1;
+    var _backendPending = new Map();
+    var _backendListeners = new Set();
 
     // Host responds to getConfig by running:
     //   window.postMessage({ _dingInternal: true, requestId, config }, '*');
@@ -243,6 +246,40 @@ export const WIDGET_API =
             return;
 
         var type = data.type || null;
+
+        // --- Backend first ---
+        if (type === 'backendEvent') {
+            _backendListeners.forEach(function(cb) {
+                try {
+                    cb(data.name, data.payload);
+                } catch (_e) {}
+            });
+            return;
+        }
+
+        if (type === 'backendReply') {
+            var requestId = data.requestId;
+            if (requestId === undefined || requestId === null)
+                return;
+
+            var pendingReq = _backendPending.get(requestId);
+            if (!pendingReq)
+                return;
+
+            _backendPending.delete(requestId);
+
+            if (data.ok)
+                pendingReq.resolve(data.result);
+            else
+                pendingReq.reject(data.error || {
+                    code: 'E_BACKEND',
+                    message: 'Backend request failed',
+                });
+
+            return;
+        }
+
+        // --- Config plumbing (only for config message types) ---
         var requestId = data.requestId || null;
         var config = data.config;
 
@@ -522,6 +559,46 @@ export const WIDGET_API =
             // Return unsubscribe
             return function() {
                 _configListeners.delete(cb);
+            };
+        },
+
+        backendRequest: function(method, params) {
+            if (!this.instanceId)
+                return Promise.reject(new Error('No instanceId'));
+
+            var requestId = msgCounter++;
+
+            return new Promise(function(resolve, reject) {
+                _backendPending.set(requestId, { resolve, reject });
+                post({
+                    type: 'backendRequest',
+                    instanceId: window.ding.instanceId,
+                    requestId: requestId,
+                    method: method,
+                    params: params || {},
+                });
+            });
+        },
+
+        backendSend: function(name, payload) {
+            if (!this.instanceId)
+                return;
+
+            post({
+                type: 'backendSend',
+                instanceId: window.ding.instanceId,
+                name: name,
+                payload: payload || {},
+            });
+        },
+
+        onBackendEvent: function(cb) {
+            if (typeof cb !== 'function')
+                return function() {};
+
+            _backendListeners.add(cb);
+            return function() {
+                _backendListeners.delete(cb);
             };
         },
 

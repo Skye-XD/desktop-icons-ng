@@ -28,6 +28,7 @@
   "category": "time",
   "author": "Sundeep Mediratta",
   "version": "1.0",
+  "vesion": 2,
   "license": "GPL-3.0-or-later",
   "defaultWidth": 240,
   "defaultHeight": 120,
@@ -36,7 +37,9 @@
     "utcOffsetMinutes": -300,
     "hourFormat": "12",
     "neonPreset": "cyan",
-    "neonColor": "#31e6ff"
+    "neonColor": "#31e6ff",
+    "bgColor": "#31e6ff",
+    "bgAlpha": 0.08
   },
   "prefs": "prefs.html"
 }
