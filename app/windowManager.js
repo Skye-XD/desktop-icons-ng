@@ -65,7 +65,7 @@ const WindowManager = class {
         const busObjectPath = this.mainApp.get_dbus_object_path();
         const busName = this.mainApp.get_application_id();
         const connection = Gio.DBus.session;
-        const signalName = 'updateGeometry';
+        const signalName = 'updategeometry';
 
         const signalXml = `
                 <node>

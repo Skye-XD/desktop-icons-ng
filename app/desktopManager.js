@@ -306,7 +306,7 @@ const DesktopManager = class {
         if (button === 3)
             this.mainApp.activate_action('displayShellBackgroundMenu', null);
     }
-    
+
     onWidgetDisplayChanged() {
         if (this.Prefs.showDesktopWidgets)
             this._startWidgetDisplay();
