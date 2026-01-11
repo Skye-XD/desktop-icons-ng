@@ -34,23 +34,25 @@ msgstr "Заменить"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Настройка внешнего вида значков на рабочем столе с помощью CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
 msgstr ""
+"Внимание: Неправильное выполнение этой операции может привести к повреждению "
+"расширения"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Редактировать CSS override-файл..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Применить изменения в CSS"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Перезагрузите CSS, чтобы немедленно применить изменения"
 
 #: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -1294,7 +1296,7 @@ msgstr "Предпросмотр"
 
 #: app/shortcuts.js:34
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "Переключиться на слой виджетов"
 
 #: app/shortcuts.js:35 app/widgetManager.js:994
 msgid "Add Widget"
@@ -1383,15 +1385,15 @@ msgstr "Диск"
 #: app/widgetManager.js:1330
 #, fuzzy
 msgid "Widget preferences"
-msgstr "Параметры"
+msgstr "Параметры виджета"
 
 #: app/widgetManager.js:1714
 msgid "HTML widget"
-msgstr ""
+msgstr "HTML-виджет"
 
 #: app/widgetManager.js:1716
 msgid "GTK widget"
-msgstr ""
+msgstr "GTK-виджет"
 
 #: app/widgetManager.js:1725
 msgid "User"
@@ -1506,9 +1508,8 @@ msgid "Allow widget backend?"
 msgstr ""
 
 #: app/widgetWebContext.js:187
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "Параметры"
+msgstr "Параметры виджета"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"
@@ -1733,7 +1734,7 @@ msgstr "Виджеты рабочего стола"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
-msgstr ""
+msgstr "Отображать виджеты в слое под значками, если они установлены"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Hide/Show all desktop windows"

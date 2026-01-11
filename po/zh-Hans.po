@@ -117,7 +117,7 @@ msgstr "桌面文件夹"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:621
 msgid "Current Desktop: "
-msgstr "当前桌面 :"
+msgstr "当前桌面: "
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:631
@@ -994,7 +994,7 @@ msgstr "在 {0} 中打开"
 
 #: app/desktopMenu.js:1019
 msgid "Edit Widgets…"
-msgstr "编辑小部件"
+msgstr "编辑小部件…"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1026
@@ -1120,7 +1120,7 @@ msgstr "堆叠此类型"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:207
 msgid "Unstack This Type"
-msgstr "打开此类型"
+msgstr "取消堆叠此类型"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:231
