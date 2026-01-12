@@ -16,24 +16,24 @@
       <label class="field">
         <div class="label">Interval</div>
         <select id="refreshSelect" class="select-compact">
-          <option value="1">1s</option>
-          <option value="2">2s</option>
-          <option value="5">5s</option>
+          <option value="1">1 Second</option>
+          <option value="2">2 Seconds</option>
+          <option value="5">5 Seconds</option>
         </select>
       </label>
     </div>
 
     <div class="section">
       <div class="section-title">Appearance</div>
-      <label class="field">
+      <label class="field field-row">
         <div class="label">Display color</div>
         <input id="colorPicker" type="color" />
       </label>
-      <label class="field">
+      <label class="field field-row">
         <div class="label">Text color</div>
         <input id="textColorPicker" type="color" />
       </label>
-      <label class="field">
+      <label class="field field-row bg-color-field">
         <div class="label">Background color</div>
         <input id="bgColorPicker" type="color" />
       </label>
@@ -44,6 +44,10 @@
           <div id="bgOpacityValue" class="slider-value">6%</div>
         </div>
       </label>
+    </div>
+
+    <div class="actions">
+      <button id="restoreDefaults" type="button">Restore Default Colors</button>
     </div>
   </div>
   <script type="module" src="./prefs.js"></script>

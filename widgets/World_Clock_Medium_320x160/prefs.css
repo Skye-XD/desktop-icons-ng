@@ -193,9 +193,21 @@ body[data-theme="dark"] .segmented button[aria-pressed="true"] {
 .field-row .label {
   margin: 0;
 }
+.field-row input[type="color"] {
+  margin-left: auto;
+}
 .field-row select {
   width: 180px;
   max-width: 180px;
+}
+
+.bg-color-field {
+  margin-bottom: 18px;
+}
+
+#offsetInput {
+  width: 120px;
+  max-width: 120px;
 }
 
 .slider-row {
@@ -213,4 +225,33 @@ body[data-theme="dark"] .segmented button[aria-pressed="true"] {
   text-align: right;
   opacity: 0.8;
   font-variant-numeric: tabular-nums;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+#restoreDefaults {
+  appearance: none;
+  -webkit-appearance: none;
+  border: var(--border) solid rgba(127,127,127,0.35);
+  background: rgba(127,127,127,0.08);
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  cursor: default;
+}
+
+body[data-theme="dark"] #restoreDefaults {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+}
+
+#restoreDefaults:focus {
+  border-color: rgba(53,132,228,0.85);
+  box-shadow: 0 0 0 3px rgba(53,132,228,0.25);
 }

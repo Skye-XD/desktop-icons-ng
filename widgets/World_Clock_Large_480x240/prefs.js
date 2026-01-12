@@ -32,6 +32,7 @@
     const bgColorPicker = document.getElementById('bgColorPicker');
     const bgOpacity = document.getElementById('bgOpacity');
     const bgOpacityValue = document.getElementById('bgOpacityValue');
+    const restoreDefaults = document.getElementById('restoreDefaults');
     const headerTitle = document.getElementById('headerTitle');
 
     let config = {...DEFAULT_CONFIG};
@@ -260,6 +261,16 @@
             const alpha = Number.isFinite(raw) ? clamp(raw, 0, 0.35) : DEFAULT_CONFIG.bgAlpha;
             bgOpacityValue.textContent = formatOpacity(alpha);
             updateConfig({bgAlpha: alpha});
+        });
+
+        restoreDefaults.addEventListener('click', () => {
+            updateConfig({
+                neonPreset: DEFAULT_CONFIG.neonPreset,
+                neonColor: DEFAULT_CONFIG.neonColor,
+                bgColor: DEFAULT_CONFIG.bgColor,
+                bgAlpha: DEFAULT_CONFIG.bgAlpha,
+            });
+            syncUiFromConfig();
         });
     }
 

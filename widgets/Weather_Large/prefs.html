@@ -76,19 +76,19 @@
       <section class="prefs-section">
         <div class="prefs-section-title">Appearance</div>
         <div class="prefs-row prefs-row-full">
-          <label class="prefs-toggle">
+          <label class="prefs-toggle prefs-color-row">
             <span>Text color</span>
             <input id="textColorPicker" type="color" />
           </label>
         </div>
-        <div class="prefs-row prefs-row-full">
-          <label class="prefs-toggle">
+        <div class="prefs-row prefs-row-full prefs-color-gap">
+          <label class="prefs-toggle prefs-color-row">
             <span>Background color</span>
             <input id="bgColorPicker" type="color" />
           </label>
         </div>
         <div class="prefs-row prefs-row-full">
-          <label class="prefs-toggle prefs-slider">
+          <label class="prefs-toggle prefs-slider prefs-slider-stack">
             <span>Background opacity</span>
             <div class="prefs-slider-row">
               <input id="bgAlpha" type="range" min="0" max="0.35" step="0.01" />
@@ -97,6 +97,10 @@
           </label>
         </div>
       </section>
+
+      <div class="prefs-actions">
+        <button id="restoreDefaults" class="prefs-button" type="button">Restore Default Colors</button>
+      </div>
     </div>
   </div>
 

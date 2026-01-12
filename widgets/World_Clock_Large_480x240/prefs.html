@@ -20,8 +20,10 @@
       </label>
 
       <label class="field">
-        <div class="label">UTC Offset</div>
-        <input id="offsetInput" type="text" autocomplete="off" spellcheck="false" placeholder="-05:00" />
+        <div class="field-row">
+          <div class="label">UTC Offset</div>
+          <input id="offsetInput" type="text" autocomplete="off" spellcheck="false" placeholder="-05:00" />
+        </div>
         <div id="offsetError" class="hint hidden">Use ±HH:MM</div>
       </label>
     </div>
@@ -45,7 +47,7 @@
         <input id="colorPicker" type="color" />
       </label>
 
-      <label class="field field-row">
+      <label class="field field-row bg-color-field">
         <div class="label">Background color</div>
         <input id="bgColorPicker" type="color" />
       </label>
@@ -57,6 +59,10 @@
           <div id="bgOpacityValue" class="slider-value">8%</div>
         </div>
       </label>
+    </div>
+
+    <div class="actions">
+      <button id="restoreDefaults" type="button">Restore Default Colors</button>
     </div>
   </div>
 

@@ -114,6 +114,14 @@ body[data-theme="dark"] select {
   margin: 0;
 }
 
+.field-row input[type="color"] {
+  margin-left: auto;
+}
+
+.panel-color-field {
+  margin-bottom: 18px;
+}
+
 .slider-row {
   display: flex;
   align-items: center;
@@ -132,17 +140,30 @@ body[data-theme="dark"] select {
 }
 
 .footer {
-  margin-top: 18px;
+  margin-top: 6px;
   display: flex;
   justify-content: center;
 }
 
 #restoreDefaults {
+  appearance: none;
+  -webkit-appearance: none;
   border: 1px solid rgba(127,127,127,0.35);
   background: rgba(127,127,127,0.08);
   color: inherit;
-  border-radius: 999px;
+  border-radius: var(--radius);
   padding: 8px 14px;
   font: inherit;
-  min-height: var(--control-h);
+  font-weight: 700;
+  cursor: default;
+}
+
+body[data-theme="dark"] #restoreDefaults {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+}
+
+#restoreDefaults:focus {
+  border-color: rgba(53,132,228,0.85);
+  box-shadow: 0 0 0 3px rgba(53,132,228,0.25);
 }

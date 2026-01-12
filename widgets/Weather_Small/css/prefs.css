@@ -125,9 +125,28 @@ html, body {
   padding-left: 4px;
 }
 
+.prefs-color-row {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.prefs-color-row input[type="color"] {
+  margin-left: auto;
+}
+
+.prefs-color-gap {
+  margin-bottom: 6px;
+}
+
 .prefs-slider {
   width: 100%;
   justify-content: space-between;
+}
+
+.prefs-slider-stack {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
 }
 
 .prefs-slider-row {
@@ -171,3 +190,27 @@ html, body {
 }
 
 .prefs-result:hover { background: var(--list-hover); }
+
+.prefs-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.prefs-button {
+  appearance: none;
+  border: 1px solid var(--field-border);
+  background: var(--field-bg);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.prefs-button:focus {
+  outline: none;
+  border-color: var(--text);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 25%, transparent);
+}

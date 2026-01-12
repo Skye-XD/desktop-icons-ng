@@ -119,6 +119,7 @@ class PrefsApp {
             bgColor: document.getElementById('bgColorPicker'),
             bgAlpha: document.getElementById('bgAlpha'),
             bgAlphaValue: document.getElementById('bgAlphaValue'),
+            restoreDefaults: document.getElementById('restoreDefaults'),
         };
     }
 
@@ -221,6 +222,17 @@ class PrefsApp {
             this._cfg.bgAlpha = alpha;
             this._els.bgAlphaValue.textContent = `${Math.round(alpha * 100)}%`;
             this._saveFullConfig();
+        });
+
+        this._els.restoreDefaults.addEventListener('click', () => {
+            if (this._initializing)
+                return;
+            const d = _defaults();
+            this._cfg.textColor = d.textColor;
+            this._cfg.bgColor = d.bgColor;
+            this._cfg.bgAlpha = d.bgAlpha;
+            this._saveFullConfig();
+            this._applyCfgToUi();
         });
 
         // Location search
