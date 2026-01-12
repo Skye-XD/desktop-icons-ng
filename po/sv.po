@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-06 19:27+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-01-12 12:02+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sv/>\n"
 "Language: sv\n"
@@ -1617,11 +1617,11 @@ msgstr "Användare"
 
 #: app/widgetManager.js:1786
 msgid "Allow"
-msgstr ""
+msgstr "Tillåt"
 
 #: app/widgetManager.js:1834
 msgid "Strict"
-msgstr ""
+msgstr "Strikt"
 
 #: app/widgetManager.js:1836
 msgid ""
@@ -1636,7 +1636,7 @@ msgstr ""
 
 #: app/widgetManager.js:1847
 msgid "Relaxed"
-msgstr ""
+msgstr "Vila"
 
 #: app/widgetManager.js:1849
 msgid ""
@@ -1651,7 +1651,7 @@ msgstr ""
 
 #: app/widgetManager.js:1859
 msgid "Development"
-msgstr ""
+msgstr "Utveckling"
 
 #: app/widgetManager.js:1861
 msgid ""
@@ -1665,9 +1665,8 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1870
-#, fuzzy
 msgid "Default"
-msgstr "Återställ till standard"
+msgstr "Förinställning"
 
 #: app/widgetManager.js:1872
 msgid ""
@@ -1714,7 +1713,7 @@ msgstr ""
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
-msgstr ""
+msgstr "Kommando:\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."
