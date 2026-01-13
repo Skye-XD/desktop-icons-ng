@@ -15,8 +15,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-09 15:01+0000\n"
-"Last-Translator: Shavazo <pleasure.7010@gmail.com>\n"
+"PO-Revision-Date: 2026-01-12 12:03+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -98,7 +99,6 @@ msgstr "さらに表示"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:613
-#, fuzzy
 msgid "Desktop Settings"
 msgstr "デスクトップ設定"
 
@@ -1605,11 +1605,11 @@ msgstr "利用者"
 
 #: app/widgetManager.js:1786
 msgid "Allow"
-msgstr ""
+msgstr "許可"
 
 #: app/widgetManager.js:1834
 msgid "Strict"
-msgstr ""
+msgstr "Strict"
 
 #: app/widgetManager.js:1836
 msgid ""
@@ -1624,7 +1624,7 @@ msgstr ""
 
 #: app/widgetManager.js:1847
 msgid "Relaxed"
-msgstr ""
+msgstr "リラックス"
 
 #: app/widgetManager.js:1849
 msgid ""
@@ -1639,7 +1639,7 @@ msgstr ""
 
 #: app/widgetManager.js:1859
 msgid "Development"
-msgstr ""
+msgstr "開発"
 
 #: app/widgetManager.js:1861
 msgid ""
@@ -1653,9 +1653,8 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1870
-#, fuzzy
 msgid "Default"
-msgstr "デフォルトへのリセット"
+msgstr "デフォルト"
 
 #: app/widgetManager.js:1872
 msgid ""
@@ -1702,7 +1701,7 @@ msgstr ""
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
-msgstr ""
+msgstr "コマンド:\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."

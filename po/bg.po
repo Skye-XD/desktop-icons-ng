@@ -4,16 +4,15 @@
 # Automatically generated, 2025.
 #
 # pacu23 <pcslstr106@gmail.com>, 2025, 2026.
-# Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-06 19:20+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-12 12:03+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/bg/>\n"
 "Language: bg\n"
@@ -1660,11 +1659,11 @@ msgstr "Потребител"
 
 #: app/widgetManager.js:1786
 msgid "Allow"
-msgstr ""
+msgstr "Позволете"
 
 #: app/widgetManager.js:1834
 msgid "Strict"
-msgstr ""
+msgstr "Стриктно"
 
 #: app/widgetManager.js:1836
 msgid ""
@@ -1679,7 +1678,7 @@ msgstr ""
 
 #: app/widgetManager.js:1847
 msgid "Relaxed"
-msgstr ""
+msgstr "Разхлабен"
 
 #: app/widgetManager.js:1849
 msgid ""
@@ -1694,7 +1693,7 @@ msgstr ""
 
 #: app/widgetManager.js:1859
 msgid "Development"
-msgstr ""
+msgstr "Развитие"
 
 #: app/widgetManager.js:1861
 msgid ""
@@ -1708,7 +1707,6 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1870
-#, fuzzy
 msgid "Default"
 msgstr "По подразбиране"
 
@@ -1757,7 +1755,7 @@ msgstr ""
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
-msgstr ""
+msgstr "Команда:\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."

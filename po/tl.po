@@ -5,13 +5,15 @@
 #
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-06 19:21+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-01-12 12:01+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Tagalog <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/tl/>\n"
 "Language: tl\n"
@@ -1673,7 +1675,7 @@ msgstr "User"
 
 #: app/widgetManager.js:1786
 msgid "Allow"
-msgstr ""
+msgstr "Payagan"
 
 #: app/widgetManager.js:1834
 msgid "Strict"
@@ -1707,7 +1709,7 @@ msgstr ""
 
 #: app/widgetManager.js:1859
 msgid "Development"
-msgstr ""
+msgstr "Pag-unlad"
 
 #: app/widgetManager.js:1861
 msgid ""
@@ -1721,9 +1723,8 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1870
-#, fuzzy
 msgid "Default"
-msgstr "Muling Nakahandang Magpahamak"
+msgstr "Default"
 
 #: app/widgetManager.js:1872
 msgid ""
@@ -1770,7 +1771,7 @@ msgstr ""
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
-msgstr ""
+msgstr "Command\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."

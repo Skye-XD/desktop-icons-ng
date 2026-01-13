@@ -4,13 +4,14 @@
 # Automatically generated, 2025.
 #
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-06 19:28+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-01-12 12:01+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Kyrgyz <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ky/>\n"
 "Language: ky\n"
@@ -1725,9 +1726,8 @@ msgstr ""
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1870
-#, fuzzy
 msgid "Default"
-msgstr "Дефолтко кайтуу"
+msgstr "Default"
 
 #: app/widgetManager.js:1872
 msgid ""
@@ -1774,7 +1774,7 @@ msgstr ""
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
-msgstr ""
+msgstr "Команда\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."
