@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-12 12:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-01-13 09:49+0000\n"
+"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.15.2-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1409,6 +1409,13 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"Widżet działa w ściśle wydzielonym środowisku web\n"
+"\n"
+"• Nie są dozwolone żadne skrypty czy ramki.\n"
+"• Dostęp do sieci jest ograniczony do HTTPS.\n"
+"• Tylko pliki widżetu oraz jego kod są wykonywane.\n"
+"\n"
+"To jest najbezpieczniejsza opcja i zalecana do większości widżetów."
 
 #: app/widgetManager.js:1847
 msgid "Relaxed"
@@ -1424,6 +1431,14 @@ msgid ""
 "\n"
 "Use this only for widgets you trust."
 msgstr ""
+"Widżet ma szersze możliwości sieciowe.\n"
+"\n"
+"• Mogą zostać załadowane zewnętrzne skrypty, style, obrazy i ramki z "
+"zaufanych witryn internetowych.\n"
+"• Dostęp do sieci poprzez HTTPS, WebSockets i strumienie multimediów są "
+"dozwolone.\n"
+"\n"
+"Używaj tej opcji tylko w przypadku widżetów, którym ufasz."
 
 #: app/widgetManager.js:1859
 msgid "Development"
@@ -1438,6 +1453,14 @@ msgid ""
 "\n"
 "This mode is intended for development and debugging only."
 msgstr ""
+"Widżet działa z przyjaznym dla programistów dostępem do Internetu.\n"
+"\n"
+"• Dozwolone są połączenia z lokalnymi serwerami programistycznymi (localhost)"
+".\n"
+"• Dostęp do protokołu HTTP i WebSocket może być dozwolony na potrzeby "
+"testów.\n"
+"\n"
+"Ten tryb jest przeznaczony wyłącznie do programowania i debugowania."
 
 #: app/widgetManager.js:1870
 msgid "Default"
@@ -1449,10 +1472,13 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
+"Widżet działa z predefiniowaną polityką bezpieczeństwa sieci.\n"
+"\n"
+"Dostęp do sieci i możliwości są ograniczone zgodnie z aktywną polityką."
 
 #: app/widgetManager.js:1880
 msgid "Allow web content for {widgetId}?"
-msgstr ""
+msgstr "Zezwolić na treści internetowe dla {widgetId}?"
 
 #. eslint-disable-next-line prefer-template
 #: app/widgetManager.js:1885
@@ -1460,24 +1486,32 @@ msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
+"Dodawany widżet może ładować zawartość internetową z Internetu.\n"
+"\n"
 
 #: app/widgetManager.js:1886
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
+"Ta treść podlega polityce bezpieczeństwa widgetów:\n"
+"\n"
 
 #: app/widgetManager.js:1915
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
+"Ten widżet, {widgetId}, uruchamia proces w tle na Twoim komputerze.\n"
+"\n"
 
 #: app/widgetManager.js:1917
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
+"Backend działa z normalnymi uprawnieniami użytkownika, tak jak każda inna "
+"uruchamiana aplikacja.\n"
 
 #: app/widgetManager.js:1918
 msgid ""
@@ -1485,6 +1519,9 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
+"Może uzyskać dostęp do plików, zasobów systemowych i sieci zgodnie z "
+"uprawnieniami konta użytkownika.\n"
+"\n"
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
@@ -1492,11 +1529,11 @@ msgstr "Polecenie:\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
+msgstr "Zezwalaj na to tylko w przypadku widżetów, którym pośrednio ufasz."
 
 #: app/widgetManager.js:1923
 msgid "Allow widget backend?"
-msgstr ""
+msgstr "Zezwolić na backend widżetów?"
 
 #: app/widgetWebContext.js:187
 msgid "Widget Preferences"
