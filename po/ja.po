@@ -10,14 +10,14 @@
 # Shavazo <pleasure.7010@gmail.com>, 2026.
 # Makoto Sakaguchi <ycco34vx@gmail.com>, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# LittleFox2024 <btdefores@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-12 12:03+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-01-14 15:23+0000\n"
+"Last-Translator: LittleFox2024 <btdefores@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -115,7 +115,7 @@ msgstr "デスクトップフォルダ"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:621
 msgid "Current Desktop: "
-msgstr "現在のデスクトップ:"
+msgstr "現在のデスクトップ: "
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:631
