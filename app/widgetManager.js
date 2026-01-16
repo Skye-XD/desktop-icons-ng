@@ -368,18 +368,38 @@ const WidgetManager = class {
         const h = inst.height;
 
         // Clamp to stay inside the grid's usable area
+        let clamped = false;
         if (wNorm > 0 && w <= wNorm) {
-            if (x + w > wNorm)
+            if (x + w > wNorm) {
                 x = wNorm - w;
-            if (x < 0)
+                clamped = true;
+            }
+            if (x < 0) {
                 x = 0;
+                clamped = true;
+            }
         }
 
         if (hNorm > 0 && h <= hNorm) {
-            if (y + h > hNorm)
+            if (y + h > hNorm) {
                 y = hNorm - h;
-            if (y < 0)
+                clamped = true;
+            }
+            if (y < 0) {
                 y = 0;
+                clamped = true;
+            }
+        }
+
+        if (clamped) {
+            const [normX, normY] = grid.getNormalizedCoordinates(x, y);
+            const EPSILON = 1e-4;
+            if (Math.abs(inst.normX - normX) > EPSILON ||
+                Math.abs(inst.normY - normY) > EPSILON) {
+                inst.normX = normX;
+                inst.normY = normY;
+                this._stateChanged();
+            }
         }
 
         return {x, y, width: w, height: h};
