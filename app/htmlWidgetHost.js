@@ -46,6 +46,8 @@ const HtmlWidgetHost = class {
         this._pendingPostMessages = [];
         this._webView = null;
         this._destroyed = false;
+        this._tickId = 0;
+        this._mappedNotifyId = 0;
 
         this._makeGtkWidget();
 
@@ -88,6 +90,15 @@ const HtmlWidgetHost = class {
 
     destroy() {
         this._destroyed = true;
+
+        if (this._mappedNotifyId && this._webView)
+            this._webView.disconnect(this._mappedNotifyId);
+        this._mappedNotifyId = 0;
+
+        if (this._tickId)
+            this._webView?.remove_tick_callback(this._tickId);
+        this._tickId = 0;
+
         this._frame.set_child(null);
         this._webView.unparent();
         this._webView.run_dispose();
@@ -232,6 +243,54 @@ const HtmlWidgetHost = class {
         }
 
         this._evaluateScript(script);
+    }
+
+    _pokeWebViewRender() {
+        if (!this._webView || this._destroyed)
+            return;
+
+        const wv = this._webView;
+
+        if (this._tickId)
+            return;
+
+        this._tickId = wv.add_tick_callback(() => {
+            const w = wv.get_allocated_width();
+            const h = wv.get_allocated_height();
+            if (w <= 1 || h <= 1)
+                return GObject.SOURCE_CONTINUE;
+
+            this._tickId = 0;
+
+            // Host-side “poke”: invalidate + optional JS nudge
+            wv.queue_draw();
+            wv.queue_allocate();
+            this._evaluateScript(
+                `try {
+                    void document.documentElement?.offsetHeight;
+                 } catch(e) {}`
+            );
+
+            return GObject.SOURCE_REMOVE;
+        });
+    }
+
+    _installWebViewRenderPoke() {
+        if (!this._webView || this._destroyed)
+            return;
+
+        if (this._mappedNotifyId)
+            return;
+
+        const wv = this._webView;
+
+        this._mappedNotifyId = wv.connect('notify::mapped', () => {
+            if (wv.get_mapped())
+                this._pokeWebViewRender();
+        });
+
+        if (wv.get_mapped())
+            this._pokeWebViewRender();
     }
 
     _loadFallback(reason) {
