@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-12 12:03+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-01-18 12:01+0000\n"
+"Last-Translator: Hunor János <hunorjani17@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -33,23 +33,24 @@ msgstr "Felülírás"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Asztali ikonok megjelenésének személyre szabása CSS-el"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
 msgstr ""
+"Figyelem: A bővítmény meghibásodhat, hogyha ez helytelenül van megcsinálva"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "CSS felülírási fájl szerkesztése..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "CSS változtatások mentése most"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Töltse újra a CSS-t a változtatások alkalmazásához"
 
 #: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -629,9 +630,8 @@ msgid "Desktop Icons"
 msgstr "Asztali ikonok"
 
 #: app/desktopGrid.js:2477
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "Asztal frissítése"
+msgstr "Vissza az asztalra"
 
 #: app/desktopManager.js:161
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -852,7 +852,7 @@ msgstr "Megnyitás ebben: {0}"
 
 #: app/desktopMenu.js:1019
 msgid "Edit Widgets…"
-msgstr ""
+msgstr "Widgetek szerkesztése…"
 
 #: app/desktopMenu.js:1026
 msgid "Shell Menu…"
@@ -1284,7 +1284,7 @@ msgstr "Előnézet"
 
 #: app/shortcuts.js:34
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "Widget réteg ki-/bekapcsolása"
 
 #: app/shortcuts.js:35 app/widgetManager.js:994
 msgid "Add Widget"
@@ -1370,17 +1370,16 @@ msgstr "Meghajtó"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1330
-#, fuzzy
 msgid "Widget preferences"
-msgstr "Előirányzatok"
+msgstr "Widget beállítások"
 
 #: app/widgetManager.js:1714
 msgid "HTML widget"
-msgstr ""
+msgstr "HTML widget"
 
 #: app/widgetManager.js:1716
 msgid "GTK widget"
-msgstr ""
+msgstr "GTK widget"
 
 #: app/widgetManager.js:1725
 msgid "User"
@@ -1404,6 +1403,13 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"A widget egy szigorúan sandboxolt webes környezetben fut.\n"
+"\n"
+"• Külső szkriptek vagy beágyazott keretek nem használhatók.\n"
+"• A hálózati hozzáférés biztonságos (HTTPS) kapcsolatokra van limitálva.\n"
+"• Csak a widget saját fájljai vagy beágyazott kódja futhat.\n"
+"\n"
+"Ez a legbiztonságosabb opció és ez ajánlott a legtöbb widgethez."
 
 #: app/widgetManager.js:1847
 msgid "Relaxed"
@@ -1419,6 +1425,14 @@ msgid ""
 "\n"
 "Use this only for widgets you trust."
 msgstr ""
+"A widget több webes funkciót használhat.\n"
+"\n"
+"• Külső szkriptek, stílusok, képek és beágyazott keretek betölthetnek "
+"megbízható oldalakról.\n"
+"• Hálózati hozzáférés HTTPS-en, WebSocketeken és médiafolyamokon keresztül "
+"engedélyezett.\n"
+"\n"
+"Csak olyan widgetekhez használja ezt, amikben megbízik."
 
 #: app/widgetManager.js:1859
 msgid "Development"
@@ -1433,6 +1447,12 @@ msgid ""
 "\n"
 "This mode is intended for development and debugging only."
 msgstr ""
+"A widget fejlesztőbarát web hozzáféréssel fut.\n"
+"\n"
+"• Kapcsolatok helyi fejlesztő-szerverekhez (localhost) engedélyezve vannak.\n"
+"• HTTP és WebSocket hozzáférés engedélyezhető teszteléshez.\n"
+"\n"
+"Ez az opció csak fejlesztéshez és hibakereséshez ajánlott."
 
 #: app/widgetManager.js:1870
 msgid "Default"
@@ -1444,10 +1464,13 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
+"A widget előre meghatározott webes biztonsági szabályokkal fut.\n"
+"\n"
+"A Web hozzáférés és képességek az aktív szabályok szerint vannak limitálva."
 
 #: app/widgetManager.js:1880
 msgid "Allow web content for {widgetId}?"
-msgstr ""
+msgstr "Engedélyezi a webes tartalmat ehhez: {widgetId}?"
 
 #. eslint-disable-next-line prefer-template
 #: app/widgetManager.js:1885
@@ -1455,24 +1478,32 @@ msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
+"A widget amit éppen hozzáad betölthet webes tartalmat az internetről.\n"
+"\n"
 
 #: app/widgetManager.js:1886
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
+"Ez a tartalom a widget biztonsági szabályai alá tartozik:\n"
+"\n"
 
 #: app/widgetManager.js:1915
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
+"Ez a widget, {widgetId} egy háttérfolyamatot futtat a számítógépén.\n"
+"\n"
 
 #: app/widgetManager.js:1917
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
+"A háttérrendszer az ön normál felhasználói jogosultságaival fut, mint "
+"bármely másik alkalmazás amit elindít.\n"
 
 #: app/widgetManager.js:1918
 msgid ""
@@ -1480,6 +1511,9 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
+"Hozzáférhet a fájljaihoz, rendszererőforrásaihoz, és a hálózathoz a "
+"felhasználói fiókjának jogosultságai szerint.\n"
+"\n"
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
@@ -1487,17 +1521,16 @@ msgstr "Parancs:\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
+msgstr "Csak olyan widgeteknek engedélyezze ezt, amikben különösen megbízik."
 
 #: app/widgetManager.js:1923
 msgid "Allow widget backend?"
-msgstr ""
+msgstr "Engedélyezi a widget háttérrendszert?"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "Előirányzatok"
+msgstr "Widget beállítások"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"
@@ -1729,7 +1762,7 @@ msgstr "Grafikus felületi elemek"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
-msgstr ""
+msgstr "Megjeleníti a widgeteket egy rétegben az ikonok alatt ha telepítve van"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Hide/Show all desktop windows"
