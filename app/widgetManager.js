@@ -1309,7 +1309,7 @@ const WidgetManager = class {
         const {x, y} = frame;
         const isMove = !!inst.actor.get_parent();
 
-        if (frame.clamped) {
+        if (frame.clamped || isMove) {
             const [normX, normY] = surface.grid.getNormalizedCoordinates(x, y);
             const EPSILON = 1e-4;
 
@@ -1318,15 +1318,14 @@ const WidgetManager = class {
                 inst.normX = normX;
                 inst.normY = normY;
             }
+
+            this._stateChanged();
         }
 
         if (isMove)
             widgetContainer.move(inst.actor, x, y);
         else
             widgetContainer.put(inst.actor, x, y);
-
-        if (isMove || frame.clamped)
-            this._stateChanged();
     }
 
     _ensureChrome() {
