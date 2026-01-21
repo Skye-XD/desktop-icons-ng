@@ -175,8 +175,8 @@ class DesktopLayout extends Clutter.LayoutManager {
             const frameRect = child.get_source()?.metaWindow.get_frame_rect();
 
             childBox.set_size(
-                Math.round(Math.min(frameRect.width, monitor.width) * hscale),
-                Math.round(Math.min(frameRect.height, monitor.height) * vscale)
+                Math.round(frameRect.width * hscale),
+                Math.round(frameRect.height * vscale)
             );
 
             childBox.set_origin(
