@@ -368,21 +368,30 @@ const WidgetManager = class {
         const h = inst.height;
 
         // Clamp to stay inside the grid's usable area
+        let clamped = false;
         if (wNorm > 0 && w <= wNorm) {
-            if (x + w > wNorm)
+            if (x + w > wNorm) {
                 x = wNorm - w;
-            if (x < 0)
+                clamped = true;
+            }
+            if (x < 0) {
                 x = 0;
+                clamped = true;
+            }
         }
 
         if (hNorm > 0 && h <= hNorm) {
-            if (y + h > hNorm)
+            if (y + h > hNorm) {
                 y = hNorm - h;
-            if (y < 0)
+                clamped = true;
+            }
+            if (y < 0) {
                 y = 0;
+                clamped = true;
+            }
         }
 
-        return {x, y, width: w, height: h};
+        return {x, y, width: w, height: h, clamped};
     }
 
     get instances() {
@@ -1298,13 +1307,26 @@ const WidgetManager = class {
 
         const {widgetContainer} = surface;
         const {x, y} = frame;
+        const isMove = !!inst.actor.get_parent();
 
-        if (!inst.actor.get_parent()) {
-            widgetContainer.put(inst.actor, x, y);
-        } else {
-            widgetContainer.move(inst.actor, x, y);
-            this._stateChanged();
+        if (frame.clamped) {
+            const [normX, normY] = surface.grid.getNormalizedCoordinates(x, y);
+            const EPSILON = 1e-4;
+
+            if (Math.abs(inst.normX - normX) > EPSILON ||
+                Math.abs(inst.normY - normY) > EPSILON) {
+                inst.normX = normX;
+                inst.normY = normY;
+            }
         }
+
+        if (isMove)
+            widgetContainer.move(inst.actor, x, y);
+        else
+            widgetContainer.put(inst.actor, x, y);
+
+        if (isMove || frame.clamped)
+            this._stateChanged();
     }
 
     _ensureChrome() {
