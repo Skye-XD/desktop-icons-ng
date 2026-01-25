@@ -140,10 +140,8 @@ const Preferences = class {
         let schemaSource;
 
         const schemaFile =
-            Gio.File.new_for_path(
-                GLib.build_filenamev(
-                    [this._extensionPath, 'schemas', 'gschemas.compiled']
-                )
+            Gio.File.new_build_filenamev(
+                [this._extensionPath, 'schemas', 'gschemas.compiled']
             );
 
         if (schemaFile.query_exists(null)) {
@@ -701,22 +699,25 @@ const Preferences = class {
             cssProvider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
+
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             this._cssOverrideProvider,
             Gtk.STYLE_PROVIDER_PRIORITY_USER
         );
-        
+
         this._createReloadCSSAction();
     }
-    
+
     _loadCSSOverride() {
         const configDir = GLib.get_user_config_dir();
+
         const cssOverridePath = GLib.build_filenamev([
             configDir,
             this._mainApp.get_application_id(),
-            'stylesheet-override.css'
+            'stylesheet-override.css',
         ]);
+
         const overrideFile = Gio.File.new_for_path(cssOverridePath);
         const overrideExists = overrideFile.query_exists(null);
 

@@ -77,13 +77,13 @@ const DragManager = class {
             let i = 0;
             let newSymlinkName = fileGio.get_basename();
             let checkSymlinkGio;
+
             do {
                 checkSymlinkGio =
-                    Gio.File.new_for_commandline_arg(
-                        GLib.build_filenamev(
-                            [gioDestination.get_path(), newSymlinkName]
-                        )
+                    Gio.File.new_build_filenamev(
+                        [gioDestination.get_path(), newSymlinkName]
                     );
+
                 try {
                     checkSymlinkGio.make_symbolic_link(
                         GLib.build_filenamev([fileGio.get_path()]),
@@ -879,19 +879,21 @@ const DragManager = class {
 
     async makeLinks(fileList, destination, X, Y) {
         const gioDestination = Gio.File.new_for_uri(destination);
+
         await Promise.all(fileList.map(async file => {
             const fileGio = Gio.File.new_for_uri(file);
+
             const newSymlinkName =
                 this._desktopManager.desktopMonitor
                 .getDesktopUniqueFileName(
                     fileGio.get_basename()
                 );
+
             const symlinkGio =
-                Gio.File.new_for_commandline_arg(
-                    GLib.build_filenamev(
-                        [gioDestination.get_path(), newSymlinkName]
-                    )
+                Gio.File.new_build_filenamev(
+                    [gioDestination.get_path(), newSymlinkName]
                 );
+
             try {
                 const linkMade =
                     symlinkGio.make_symbolic_link(
@@ -901,10 +903,12 @@ const DragManager = class {
 
                 if (linkMade) {
                     const info = new Gio.FileInfo();
+
                     info.set_attribute_string(
                         'metadata::nautilus-drop-position',
                         `${X},${Y}`
                     );
+
                     info.set_attribute_string(
                         'metadata::desktop-icon-position',
                         ''

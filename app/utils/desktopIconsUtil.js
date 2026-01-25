@@ -58,26 +58,19 @@ const DesktopIconsUtil = class {
      * Returns the Nautilus scripts directory as a Gio.File
      */
     getScriptsDir() {
-        const scriptsDir =
-            GLib.build_filenamev(
-                [GLib.get_home_dir(), this.Enums.NAUTILUS_SCRIPTS_DIR]
-            );
-
-        return Gio.File.new_for_commandline_arg(scriptsDir);
+        return Gio.File.new_build_filenamev([
+            GLib.get_home_dir(),
+            this.Enums.NAUTILUS_SCRIPTS_DIR,
+        ]);
     }
 
     getUserTerminalConfFile() {
         const xdgUserConfigFolder = GLib.get_user_config_dir();
 
-        const xdgUserTerminalListFile =
-            GLib.build_filenamev(
-                [
-                    xdgUserConfigFolder,
-                    this.Enums.XDG_TERMINAL_LIST_FILE,
-                ]
-            );
-
-        return Gio.File.new_for_commandline_arg(xdgUserTerminalListFile);
+        return Gio.File.new_build_filenamev([
+            xdgUserConfigFolder,
+            this.Enums.XDG_TERMINAL_LIST_FILE,
+        ]);
     }
 
     getSystemTerminalConfFile() {
@@ -85,15 +78,11 @@ const DesktopIconsUtil = class {
         const systemTerminalConfFiles = [];
 
         xdgEtcConfigFolder.forEach(f => {
-            const xdgSystemTerminalListFile = GLib.build_filenamev(
-                [
+            const gioFile =
+                Gio.File.new_build_filenamev([
                     f,
                     this.Enums.XDG_TERMINAL_LIST_FILE,
-                ]
-            );
-
-            const gioFile =
-                Gio.File.new_for_commandline_arg(xdgSystemTerminalListFile);
+                ]);
 
             systemTerminalConfFiles.push(gioFile);
         });
@@ -104,14 +93,11 @@ const DesktopIconsUtil = class {
     getUserDataTerminalDir() {
         const userDataDir = GLib.get_user_data_dir();
 
-        const terminalDir =
-            GLib.build_filenamev([
-                userDataDir,
-                this.Enums.XDG_TERMINAL_DIR,
-                this.Enums.XDG_TERMINAL_LIST_FILE,
-            ]);
-
-        return Gio.File.new_for_commandline_arg(terminalDir);
+        return Gio.File.new_build_filenamev([
+            userDataDir,
+            this.Enums.XDG_TERMINAL_DIR,
+            this.Enums.XDG_TERMINAL_LIST_FILE,
+        ]);
     }
 
     getSystemDataTerminalDirs() {
@@ -119,12 +105,11 @@ const DesktopIconsUtil = class {
         const systemDataTerminalFiles = [];
 
         systemDataDirs.forEach(f => {
-            const file = GLib.build_filenamev([
+            const gioFile = Gio.File.new_build_filenamev([
                 f,
                 this.Enums.XDG_TERMINAL_DIR,
                 this.Enums.XDG_TERMINAL_LIST_FILE,
             ]);
-            const gioFile = Gio.File.new_for_commandline_arg(file);
             systemDataTerminalFiles.push(gioFile);
         });
 
@@ -161,8 +146,7 @@ const DesktopIconsUtil = class {
         if (!appId)
             throw new Error('Application ID is not available');
 
-        const appDirPath = GLib.build_filenamev([userDataDir, appId]);
-        return Gio.File.new_for_commandline_arg(appDirPath);
+        return Gio.File.new_build_filenamev([userDataDir, appId]);
     }
 
     /**
@@ -813,16 +797,12 @@ const DesktopIconsUtil = class {
         return new Promise((resolve, reject) => {
             let gioFile = Gio.File.new_for_uri(fileUri);
 
-            let destinationGioFile = Gio.File.new_for_path(
-                GLib.build_filenamev(
-                    [
-                        GLib.get_user_special_dir(
-                            GLib.UserDirectory.DIRECTORY_DESKTOP
-                        ),
-                        gioFile.get_basename(),
-                    ]
-                )
-            );
+            let destinationGioFile = Gio.File.new_build_filenamev([
+                GLib.get_user_special_dir(
+                    GLib.UserDirectory.DIRECTORY_DESKTOP
+                ),
+                gioFile.get_basename(),
+            ]);
 
             let gioFileCopyFlags =
                 Gio.FileCopyFlags.OVERWRITE |

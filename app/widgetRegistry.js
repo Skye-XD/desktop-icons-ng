@@ -183,13 +183,13 @@ const WidgetRegistry = class  {
         // System roots: for each XDG data dir, <dir>/<app-id>/widgets
         try {
             const systemBaseDirs = GLib.get_system_data_dirs();
+
             this._systemRoots = systemBaseDirs.map(base => {
-                const path = GLib.build_filenamev([
+                return Gio.File.new_build_filenamev([
                     base,
                     this._appId,
                     'widgets',
                 ]);
-                return Gio.File.new_for_commandline_arg(path);
             });
         } catch (e) {
             console.warn('WidgetRegistry: failed to build system roots:', e);

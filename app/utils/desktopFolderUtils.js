@@ -311,22 +311,20 @@ const DesktopFolderUtils = class {
 
     _getXdgUserDirs() {
         const xdgUserDirspath =
-            GLib.build_filenamev(
+            Gio.File.new_build_filenamev(
                 [GLib.get_user_config_dir(), this.Enums.XDG_USER_DIRS]
             );
 
-        return Gio.File.new_for_commandline_arg(xdgUserDirspath);
+        return xdgUserDirspath;
     }
 
     _getXdgSystemDirs() {
         const xdgSystemDirsArray = GLib.get_system_config_dirs();
 
         for (let dir of xdgSystemDirsArray) {
-            const xdgSystemDirspath = GLib.build_filenamev(
+            const xdgSystemdir = Gio.File.new_build_filenamev(
                 [dir, this.Enums.XDG_SYSTEM_DIRS]
             );
-
-            const xdgSystemdir = Gio.File.new_for_path(xdgSystemDirspath);
 
             if (xdgSystemdir.query_exists(null))
                 return xdgSystemdir;

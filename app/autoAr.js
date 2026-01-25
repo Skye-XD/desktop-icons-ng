@@ -194,7 +194,11 @@ var AutoAr = class {
         if (!this.checkAutoAr())
             return;
 
-        const fullPath = GLib.build_filenamev([GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP), fileName]);
+        const fullPath = GLib.build_filenamev([
+            GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP),
+            fileName,
+        ]);
+
         const formatFilter = this._getFormatAndFilterForFilename(fileName);
         const extSize = formatFilter.extension.length;
         const total = fullPath.length;
@@ -636,11 +640,31 @@ const CompressDialog = class {
         this._passEntry.connect('activate', () => this._entryActivated());
         this._dialog.connect('response', (dialog, id) => {
             if (id === Gtk.ResponseType.ACCEPT) {
-                const data = this._desktopManager.autoAr.getFormatAndFilterForExtension(this._compressOptions[this._selectedType].extension);
-                const outputFile = GLib.build_filenamev([this._destinationFolder, this._nameEntry.get_text() + data.extension]);
+                const data =
+                    this._desktopManager
+                    .autoAr.getFormatAndFilterForExtension(
+                        this._compressOptions[this._selectedType]
+                        .extension
+                    );
+
+                const outputFile = GLib.build_filenamev([
+                    this._destinationFolder,
+                    this._nameEntry.get_text() + data.extension,
+                ]);
+
                 const password = this._passEntry.get_text();
-                this._desktopManager.autoAr.compressFiles(this._fileList, outputFile, data.format, data.filter, password);
+
+                this._desktopManager
+                .autoAr
+                .compressFiles(
+                    this._fileList,
+                    outputFile,
+                    data.format,
+                    data.filter,
+                    password
+                );
             }
+
             this._dialog.close();
             this._extensionPopover.unparent();
             this._dialog.destroy();
