@@ -958,10 +958,7 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
 
                 if (parentWindow) {
                     try {
-                        if (
-                            topLevel.constructor.$gtype ===
-                            GdkWayland.WaylandToplevel.$gtype
-                        ) {
+                        if (topLevel instanceof GdkWayland.WaylandToplevel) {
                             let handle =
                                 await this.getWaylandParentHandle(topLevel);
 
@@ -970,17 +967,12 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
 
 
                             freePlatformData = () => {
-                                if (
-                                    topLevel.constructor.$gtype ===
-                                    GdkWayland.WaylandToplevel.$gtype
-                                )
+                                if (topLevel instanceof GdkWayland.WaylandToplevel)
                                     topLevel.unexport_handle();
                             };
                         }
 
-                        if (topLevel.constructor.$gtype ===
-                            GdkX11.X11Surface.$gtype
-                        ) {
+                        if (topLevel instanceof GdkX11.X11Surface) {
                             const xid =
                                 GdkX11.X11Window.prototype.get_xid
                                 .call(topLevel);

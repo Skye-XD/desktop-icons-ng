@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Adw, GLib, Gtk, Gio, Gdk, DesktopAppInfo} from '../dependencies/gi.js';
+import {Adw, GLib, Gtk, Gio, Gdk, GdkX11, DesktopAppInfo} from '../dependencies/gi.js';
 import {DesktopWidgetCapability} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
@@ -85,9 +85,7 @@ const Preferences = class {
 
         // Mutter Settings
         this.usingX11 =
-            Gdk.Display.get_default()
-            .constructor
-            .$gtype.name === 'GdkX11Display';
+            Gdk.Display.get_default() instanceof GdkX11.X11Display;
 
         const schemaMutter =
             schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
