@@ -13,13 +13,14 @@
 # Sun Zhang <cardidi@live.cn>, 2026.
 # 0xarch <alanqa-ops@outlook.com>, 2026.
 # "Adam C." <adam701212@gmail.com>, 2026.
+# chenaou <2744735540@qq.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-12 12:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-01-25 07:25+0000\n"
+"Last-Translator: chenaou <2744735540@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -27,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1665,6 +1666,13 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"这个部件运行在严格的沙盒网络环境中。\n"
+"\n"
+"• 不允许加载外部脚本或者框架，\n"
+"• 网络许可仅限于可靠的（HTTPS）请求，\n"
+"• 只有此部件的自身文件和内联代码可以运行。\n"
+"\n"
+"这是最安全的选项并且适用于大部分部件。"
 
 #: app/widgetManager.js:1847
 msgid "Relaxed"
@@ -1680,6 +1688,12 @@ msgid ""
 "\n"
 "Use this only for widgets you trust."
 msgstr ""
+"该部件被允许拥有更广泛的网络功能。\n"
+"\n"
+"• 可加载来自受信任网站的外部脚本、样式、图片和框架，\n"
+"• 允许通过 HTTPS、WebSocket 和媒体流进行网络访问。\n"
+"\n"
+"只在您信任的部件上使用此选项。"
 
 #: app/widgetManager.js:1859
 msgid "Development"
@@ -1694,6 +1708,12 @@ msgid ""
 "\n"
 "This mode is intended for development and debugging only."
 msgstr ""
+"该部件以对开发更友好的网络访问模式运行。\n"
+"\n"
+"• 允许连接本地开发服务器(localhost)，\n"
+"• 为测试目的，可能允许 HTTP 和 WebSocket 访问。\n"
+"\n"
+"此模式仅用于开发和调试。"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1870
@@ -1706,10 +1726,13 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
+"该部件按照预定义的网络安全策略运行。\n"
+"\n"
+"其网络访问和功能将根据当前生效的策略受到限制。"
 
 #: app/widgetManager.js:1880
 msgid "Allow web content for {widgetId}?"
-msgstr ""
+msgstr "是否允许 {widgetId} 加载网络内容？"
 
 #. eslint-disable-next-line prefer-template
 #: app/widgetManager.js:1885
@@ -1717,24 +1740,30 @@ msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
+"您正在添加的部件可能会从互联网加载网络内容。\n"
+"\n"
 
 #: app/widgetManager.js:1886
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
+"此类内容将受部件安全策略的约束：\n"
+"\n"
 
 #: app/widgetManager.js:1915
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
+"此部件 {widgetId} 会在你的计算机上运行一个后台进程。\n"
+"\n"
 
 #: app/widgetManager.js:1917
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
-msgstr ""
+msgstr "该后台进程将以正常的用户权限运行，就像你启动的任何其他应用程序一样。\n"
 
 #: app/widgetManager.js:1918
 msgid ""
@@ -1742,6 +1771,8 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
+"它可以根据你的用户账户的权限访问你的文件、系统资源和网络。\n"
+"\n"
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
@@ -1749,11 +1780,11 @@ msgstr "命令:\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
+msgstr "仅在你完全信任的部件上启用此权限。"
 
 #: app/widgetManager.js:1923
 msgid "Allow widget backend?"
-msgstr ""
+msgstr "是否允许部件启用后端？"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
