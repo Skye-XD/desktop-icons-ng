@@ -83,17 +83,17 @@ const FileItemMenu = class {
             : fileItem._grid.getGlobaltoLocalRectangle(fileItem.iconRectangle);
 
         this._menu = Gio.Menu.new();
-        let makeFolderMenu = Gio.Menu.new();
-        let openMenu = Gio.Menu.new();
-        let runAsProgram = Gio.Menu.new();
-        let cutCopyPasteMenu = Gio.Menu.new();
-        let trashMenu = Gio.Menu.new();
-        let allowLaunchingMenu = Gio.Menu.new();
-        let emptyTrashMenu = Gio.Menu.new();
-        let driveMenu = Gio.Menu.new();
-        let propertiesMenu = Gio.Menu.new();
-        let showInFilesMenu = Gio.Menu.new();
-        let openInTerminalMenu = Gio.Menu.new();
+        const makeFolderMenu = Gio.Menu.new();
+        const openMenu = Gio.Menu.new();
+        const runAsProgram = Gio.Menu.new();
+        const cutCopyPasteMenu = Gio.Menu.new();
+        const trashMenu = Gio.Menu.new();
+        const allowLaunchingMenu = Gio.Menu.new();
+        const emptyTrashMenu = Gio.Menu.new();
+        const driveMenu = Gio.Menu.new();
+        const propertiesMenu = Gio.Menu.new();
+        const showInFilesMenu = Gio.Menu.new();
+        const openInTerminalMenu = Gio.Menu.new();
 
         if (fileItem.isAllSelectable &&
             !this._desktopManager.checkIfSpecialFilesAreSelected() &&
