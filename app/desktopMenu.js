@@ -531,6 +531,7 @@ const DesktopActions = class {
             this.doRedoSimpleAction.set_enabled(false);
             return;
         }
+
         switch (this._DBusUtils.RemoteFileOperations.UndoStatus()) {
         case this._Enums.UndoStatus.UNDO:
             this.doUndoSimpleAction.set_enabled(true);
