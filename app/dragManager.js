@@ -365,15 +365,16 @@ const DragManager = class {
         this.pendingSelfCopyFiles = {};
 
         await Promise.all(fileList.map(async element => {
-            let file = Gio.File.new_for_uri(element);
+            const file = Gio.File.new_for_uri(element);
 
             if (!file.is_native()) {
                 this.setPendingDropCoordinates(file, dropCoordinates);
                 return;
             }
 
-            let info = new Gio.FileInfo();
+            const info = new Gio.FileInfo();
             info.set_attribute_string('metadata::desktop-icon-position', '');
+
             if (dropCoordinates !== null) {
                 if (!opts.doCopy) {
                     info.set_attribute_string(
@@ -535,6 +536,7 @@ const DragManager = class {
                             {doCopy: forceCopy}
                         );
                     }
+
                     returnAction = await this.copyOrMoveUris(
                         fileList,
                         this._desktopDir.get_uri(),
@@ -549,6 +551,7 @@ const DragManager = class {
                     returnAction = Gdk.DragAction.LINK;
                 else
                     returnAction = Gdk.DragAction.COPY;
+
                 this.askWhatToDoWithFiles(
                     fileList,
                     this._desktopDir.get_uri(),
