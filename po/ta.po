@@ -5,13 +5,14 @@
 # Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2024, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# தமிழ்நேரம் <tamilneram247@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-09 15:28-0500\n"
-"PO-Revision-Date: 2026-01-12 12:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-01-27 12:04+0000\n"
+"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ta/>\n"
 "Language: ta\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -27,23 +28,23 @@ msgstr "மேலெழுதவும்"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "சிஎச்எச் உடன் டெச்க்டாப் ஐகான்களின் தோற்றத்தைத் தனிப்பயனாக்கவும்"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "எச்சரிக்கை: இது தவறாகச் செய்தால் நீட்டிப்பை உடைக்கலாம்"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "சிஎச்எச் மேலெழுதல் கோப்பைத் திருத்து..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "சிஎச்எச் மாற்றங்களை இப்போதே பயன்படுத்தவும்"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "மாற்றங்களை உடனடியாகப் பயன்படுத்த CSSஐ மீண்டும் ஏற்றவும்"
 
 #: app/adwPreferencesWindow.js:249 data/com.desktop.ding.desktop.in:29
 msgid "Shortcuts"
@@ -51,7 +52,7 @@ msgstr "குறுக்குவழிகள்"
 
 #: app/adwPreferencesWindow.js:252
 msgid "Edit Shortcuts..."
-msgstr "குறுக்குவழிகளைத் திருத்தவும்"
+msgstr "குறுக்குவழிகளைத் திருத்து..."
 
 #: app/adwPreferencesWindow.js:267
 msgid "Edit Application Shortcuts"
@@ -59,11 +60,11 @@ msgstr "பயன்பாட்டு குறுக்குவழிகள�
 
 #: app/adwPreferencesWindow.js:272
 msgid "Shortcuts Editable only when Extension Enabled..."
-msgstr ""
+msgstr "நீட்டிப்பு இயக்கப்பட்டால் மட்டுமே குறுக்குவழிகளைத் திருத்த முடியும்..."
 
 #: app/adwPreferencesWindow.js:377
 msgid "Help translate in your web browser"
-msgstr ""
+msgstr "உங்கள் இணைய உலாவியில் மொழிபெயர்க்க உதவவும்"
 
 #: app/adwPreferencesWindow.js:583 app/adwPreferencesWindow.js:584
 msgid "Desktop"
@@ -76,7 +77,7 @@ msgstr "கோப்புகள்"
 #: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:596
 #: app/adwPreferencesWindow.js:638
 msgid "Tweaks"
-msgstr "மாற்றங்கள்"
+msgstr "கிறுக்கல்கள்"
 
 #: app/adwPreferencesWindow.js:601 app/adwPreferencesWindow.js:602
 msgid "More"
@@ -88,7 +89,7 @@ msgstr "டெச்க்டாப் அமைப்புகள்"
 
 #: app/adwPreferencesWindow.js:614
 msgid "Settings for the Desktop Program"
-msgstr ""
+msgstr "டெச்க்டாப் நிரலுக்கான அமைப்புகள்"
 
 #: app/adwPreferencesWindow.js:620
 msgid "Desktop Folder"
@@ -96,31 +97,31 @@ msgstr "மேசை கோப்புறை"
 
 #: app/adwPreferencesWindow.js:621
 msgid "Current Desktop: "
-msgstr ""
+msgstr "தற்போதைய டெச்க்டாப்: "
 
 #: app/adwPreferencesWindow.js:631
 msgid "Files Settings"
-msgstr "கோப்பு அமைப்புகள்"
+msgstr "கோப்புகள் அமைப்புகள்"
 
 #: app/adwPreferencesWindow.js:632
 msgid "Settings shared with Gnome Files"
-msgstr ""
+msgstr "க்னோம் கோப்புகளுடன் பகிரப்பட்ட அமைப்புகள்"
 
 #: app/adwPreferencesWindow.js:639
 msgid "Miscellaneous Tweaks"
-msgstr ""
+msgstr "இதர மாற்றங்கள்"
 
 #: app/adwPreferencesWindow.js:663
 msgid "Size for the desktop icons"
-msgstr ""
+msgstr "டெச்க்டாப் ஐகான்களுக்கான அளவு"
 
 #: app/adwPreferencesWindow.js:665
 msgid "Tiny"
-msgstr "சிறிய"
+msgstr "சிறியது"
 
 #: app/adwPreferencesWindow.js:666
 msgid "Small"
-msgstr "சிறிய"
+msgstr "சிறியது"
 
 #: app/adwPreferencesWindow.js:667
 msgid "Standard"
@@ -128,31 +129,32 @@ msgstr "தரநிலை"
 
 #: app/adwPreferencesWindow.js:668
 msgid "Large"
-msgstr "பெரிய"
+msgstr "பெரியது"
 
 #: app/adwPreferencesWindow.js:674
 msgid "New icons alignment"
-msgstr ""
+msgstr "புதிய ஐகான்கள் சீரமைப்பு"
 
 #: app/adwPreferencesWindow.js:676
 msgid "Top left corner"
-msgstr "மேல்-இடது மூலையில்."
+msgstr "மேல் இடது மூலை"
 
 #: app/adwPreferencesWindow.js:677
 msgid "Top right corner"
-msgstr "மேல்-வலது மூலையில்."
+msgstr "மேல் வலது மூலையில்"
 
 #: app/adwPreferencesWindow.js:678
 msgid "Bottom left corner"
-msgstr "கீழ்-இடது மூலையில்."
+msgstr "கீழ் இடது மூலை"
 
 #: app/adwPreferencesWindow.js:679
 msgid "Bottom right corner"
-msgstr "கீழ்-வலது மூலையில்."
+msgstr "கீழ் வலது மூலையில்"
 
 #: app/adwPreferencesWindow.js:685
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
+"இரண்டாம் நிலை மானிட்டர்கள் இருந்தால், முதலில் புதிய ஐகான்களைச் சேர்க்கவும்"
 
 #: app/adwPreferencesWindow.js:689
 msgid "Snap icons to grid"
@@ -168,7 +170,7 @@ msgstr "மேசை கோப்புறை"
 
 #: app/adwPreferencesWindow.js:701
 msgid "Set a new folder for the desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பிற்கு புதிய கோப்புறையை அமைக்கவும்"
 
 #: app/adwPreferencesWindow.js:702 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
@@ -176,11 +178,11 @@ msgstr "தேர்வு"
 
 #: app/adwPreferencesWindow.js:707
 msgid "Set Desktop back to ~/"
-msgstr ""
+msgstr "டெச்க்டாப்பை மீண்டும் ~/ என அமைக்கவும்"
 
 #: app/adwPreferencesWindow.js:709
 msgid "Restore Default Desktop Folder"
-msgstr ""
+msgstr "இயல்புநிலை டெச்க்டாப் கோப்புறையை மீட்டமைக்கவும்"
 
 #: app/adwPreferencesWindow.js:711
 msgid "Restore"
@@ -188,39 +190,39 @@ msgstr "மீட்டமை"
 
 #: app/adwPreferencesWindow.js:720
 msgid "Highlight the drop grid"
-msgstr ""
+msgstr "துளி கட்டத்தை முன்னிலைப்படுத்தவும்"
 
 #: app/adwPreferencesWindow.js:730
 msgid "Add information emblems for links, encryption"
-msgstr ""
+msgstr "இணைப்புகள், குறியாக்கத்திற்கான செய்தி சின்னங்களைச் சேர்க்கவும்"
 
 #: app/adwPreferencesWindow.js:734
 msgid "Use dark text in icon labels"
-msgstr ""
+msgstr "படவுரு லேபிள்களில் இருண்ட உரையைப் பயன்படுத்தவும்"
 
 #: app/adwPreferencesWindow.js:739
 msgid "Show the personal folder on the desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பில் தனிப்பட்ட கோப்புறையைக் காட்டு"
 
 #: app/adwPreferencesWindow.js:744
 msgid "Show the trash icon on the desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பில் குப்பை ஐகானைக் காட்டு"
 
 #: app/adwPreferencesWindow.js:749
 msgid "Show external drives on the desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பில் வெளிப்புற இயக்கிகளைக் காட்டு"
 
 #: app/adwPreferencesWindow.js:754
 msgid "Show network drives on the desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பில் பிணையம் டிரைவ்களைக் காட்டு"
 
 #: app/adwPreferencesWindow.js:759
 msgid "Add new drives to the opposite side of the desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பின் எதிர் பக்கத்தில் புதிய டிரைவ்களைச் சேர்க்கவும்"
 
 #: app/adwPreferencesWindow.js:764
 msgid "Action to Open Items"
-msgstr ""
+msgstr "பொருட்களை திறக்க நடவடிக்கை"
 
 #: app/adwPreferencesWindow.js:766
 msgid "Single click"
@@ -228,11 +230,11 @@ msgstr "ஒற்றை சொடுக்கு"
 
 #: app/adwPreferencesWindow.js:767
 msgid "Double click"
-msgstr "இரட்டை சொடுக்கு"
+msgstr "இருமுறை சொடுக்கு செய்யவும்"
 
 #: app/adwPreferencesWindow.js:772
 msgid "Show image thumbnails"
-msgstr "பட சிறுபடங்களைக் காட்டு"
+msgstr "படத்தின் சிறுபடங்களைக் காட்டு"
 
 #: app/adwPreferencesWindow.js:774
 msgid "Always"
@@ -240,7 +242,7 @@ msgstr "எப்போதும்"
 
 #: app/adwPreferencesWindow.js:775
 msgid "On this computer only"
-msgstr ""
+msgstr "இந்த கணினியில் மட்டுமே"
 
 #: app/adwPreferencesWindow.js:776
 msgid "Never"
@@ -248,7 +250,7 @@ msgstr "ஒருபோதும்"
 
 #: app/adwPreferencesWindow.js:781
 msgid "Show a context menu item to delete permanently"
-msgstr ""
+msgstr "நிரந்தரமாக நீக்க சூழல் பட்டியல் உருப்படியைக் காட்டு"
 
 #: app/adwPreferencesWindow.js:786
 msgid "Show hidden files"
@@ -256,7 +258,7 @@ msgstr "மறைக்கப்பட்ட கோப்புகளைக் �
 
 #: app/adwPreferencesWindow.js:791
 msgid "Open folders on drag hover"
-msgstr ""
+msgstr "டிராக் ஓவரில் கோப்புறைகளைத் திறக்கவும்"
 
 #: app/adwPreferencesWindow.js:795
 msgid "About..."
@@ -270,6 +272,8 @@ msgstr "மொழிபெயர்ப்பு"
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
+"LibreTranslate பயன்படுத்தி இயந்திரம் மொழிபெயர்க்கப்பட்டது. பயனர் வெப்லேட்டில் "
+"சரிபார்க்கப்பட்டு திருத்தப்பட்டார்."
 
 #: app/adwPreferencesWindow.js:814
 msgid "Edit Translations"
@@ -278,6 +282,7 @@ msgstr "மாற்றங்களைத் திருத்தவும்"
 #: app/adwPreferencesWindow.js:815
 msgid "Verify, add or correct translation in your web browser"
 msgstr ""
+"உங்கள் இணைய உலாவியில் மொழிபெயர்ப்பைச் சரிபார்க்கவும், சேர்க்கவும் அல்லது திருத்தவும்"
 
 #: app/adwPreferencesWindow.js:816
 msgid "Translate"
@@ -285,15 +290,15 @@ msgstr "மொழிபெயர்த்திடு"
 
 #: app/appChooser.js:78
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr ""
+msgstr "<b>{foo}</b> ஐத் திறக்க ஒரு பயன்பாட்டைத் தேர்ந்தெடுக்கவும்"
 
 #: app/appChooser.js:90
 msgid "Open Items"
-msgstr ""
+msgstr "பொருட்களைத் திறக்கவும்"
 
 #: app/appChooser.js:92
 msgid "Open Folder"
-msgstr "திறந்த கோப்புறை"
+msgstr "கோப்புறையைத் திறக்கவும்"
 
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
 msgid "Open File"
@@ -301,31 +306,31 @@ msgstr "கோப்பை திற"
 
 #: app/appChooser.js:165
 msgid "Error changing default application"
-msgstr ""
+msgstr "இயல்புநிலை பயன்பாட்டை மாற்றுவதில் பிழை"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr ""
+msgstr "{mimetype} க்கான இயல்புநிலை பயன்பாடாக {foo} ஐ அமைப்பதில் பிழை"
 
 #: app/appImageFileItem.js:57
 msgid "Invalid Permissions on AppImage File"
-msgstr ""
+msgstr "AppImage கோப்பில் தவறான அனுமதிகள்"
 
 #: app/appImageFileItem.js:58
 msgid "This AppImage File has incorrect Permissions."
-msgstr ""
+msgstr "இந்த AppImage கோப்பு தவறான அனுமதிகளைக் கொண்டுள்ளது."
 
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
 msgid "Right Click to edit Properties, then:"
-msgstr ""
+msgstr "பண்புகளைத் திருத்த வலது சொடுக்கு செய்து, பின்:"
 
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
 msgid "Set Permissions, in"
-msgstr "அனுமதிகளை அமைக்கவும்:"
+msgstr "அனுமதிகளை அமை, இதில்"
 
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
 msgid "Others Access"
-msgstr ""
+msgstr "மற்றவர்கள் அணுகல்"
 
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
@@ -347,19 +352,19 @@ msgstr "இயக்கப்பட்ட விருப்பங்கள்"
 
 #: app/appImageFileItem.js:67 app/desktopFileIcon.js:161
 msgid "Allow Executing File as a Program"
-msgstr ""
+msgstr "ஒரு நிரலாக கோப்பை இயக்க அனுமதிக்கவும்"
 
 #: app/appImageFileItem.js:79
 msgid "Untrusted AppImage File"
-msgstr ""
+msgstr "நம்பத்தகாத AppImage கோப்பு"
 
 #: app/appImageFileItem.js:81
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr ""
+msgstr "இந்த AppImage கோப்பு நம்பகமானதல்ல, அதைத் தொடங்க முடியாது."
 
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
-msgstr ""
+msgstr "துவக்கத்தை இயக்க, வலது சொடுக்கு செய்து, பின்:"
 
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
 msgid "enable"
@@ -368,7 +373,7 @@ msgstr "இயக்கு"
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
 msgid "Allow Launching"
-msgstr ""
+msgstr "துவக்கத்தை அனுமதிக்கவும்"
 
 #: app/askRenamePopup.js:61
 msgid "Folder name"
@@ -385,25 +390,27 @@ msgstr "சரி"
 
 #: app/askRenamePopup.js:75
 msgid "Rename"
-msgstr "மறுபெயரிடுங்கள்"
+msgstr "மறுபெயரிடவும்"
 
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
-msgstr ""
+msgstr "AutoAr நிறுவப்படவில்லை"
 
 #: app/autoAr.js:72
 msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
+"சுருக்கப்பட்ட கோப்புகளுடன் வேலை செய்ய, கோப்பு-ரோலர் மற்றும்/அல்லது gir-1.2-gnomeAutoAr "
+"ஐ நிறுவவும்"
 
 #: app/autoAr.js:203
 msgid "Extracting files"
-msgstr "கோப்புகளை பிரித்தெடுக்கும்…"
+msgstr "கோப்புகளை பிரித்தெடுத்தல்"
 
 #: app/autoAr.js:220
 msgid "Compressing files"
-msgstr "கோப்புகளை அமைக்கிறது…"
+msgstr "கோப்புகளை சுருக்குகிறது"
 
 #: app/autoAr.js:291 app/autoAr.js:620 app/desktopManager.js:175
 #: app/desktopManager.js:1279 app/dragManager.js:783 app/fileItemMenu.js:916
@@ -414,19 +421,19 @@ msgstr "ரத்துசெய்"
 
 #: app/autoAr.js:311 app/autoAr.js:608
 msgid "Enter a password here"
-msgstr "கடவுச்சொல்லை இங்கே உள்ளிடவும்"
+msgstr "இங்கே கடவுச்சொல்லை உள்ளிடவும்"
 
 #: app/autoAr.js:354
 msgid "Removing partial file '${outputFile}'"
-msgstr ""
+msgstr "'${outputFile}' பகுதி கோப்பை நீக்குகிறது"
 
 #: app/autoAr.js:373
 msgid "Creating destination folder"
-msgstr ""
+msgstr "இலக்கு கோப்புறையை உருவாக்குகிறது"
 
 #: app/autoAr.js:405
 msgid "Extracting files into '${outputPath}'"
-msgstr ""
+msgstr "கோப்புகளை '${outputPath}' இல் பிரித்தெடுக்கிறது"
 
 #: app/autoAr.js:435
 msgid "Extraction completed"
@@ -434,51 +441,51 @@ msgstr "பிரித்தெடுத்தல் முடிந்தத�
 
 #: app/autoAr.js:436
 msgid "Extracting '${fullPathFile}' has been completed."
-msgstr ""
+msgstr "'${fullPathFile}' பிரித்தெடுக்கப்பட்டது."
 
 #: app/autoAr.js:442
 msgid "Extraction cancelled"
-msgstr "OMOD பிரித்தெடுத்தல் ரத்து செய்யப்பட்டது"
+msgstr "பிரித்தெடுத்தல் ரத்து செய்யப்பட்டது"
 
 #: app/autoAr.js:443
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr ""
+msgstr "'${fullPathFile}' பிரித்தெடுப்பது பயனரால் ரத்துசெய்யப்பட்டது."
 
 #: app/autoAr.js:453
 msgid "Passphrase required for ${filename}"
-msgstr ""
+msgstr "${filename}க்கான கடவுச்சொற்றொடர் தேவை"
 
 #: app/autoAr.js:456
 msgid "Error during extraction"
-msgstr ""
+msgstr "பிரித்தெடுக்கும் போது பிழை"
 
 #: app/autoAr.js:483
 msgid "Compressing files into '${outputFile}'"
-msgstr ""
+msgstr "கோப்புகளை '${outputFile}' இல் சுருக்குகிறது"
 
 #: app/autoAr.js:496
 msgid "Compression completed"
-msgstr "அமர்வு முடிந்தது"
+msgstr "சுருக்கம் முடிந்தது"
 
 #: app/autoAr.js:497
 msgid "Compressing files into '${outputFile}' has been completed."
-msgstr ""
+msgstr "கோப்புகளை '${outputFile}' இல் சுருக்குவது முடிந்தது."
 
 #: app/autoAr.js:501 app/autoAr.js:508
 msgid "Cancelled compression"
-msgstr ""
+msgstr "ரத்து செய்யப்பட்ட சுருக்கம்"
 
 #: app/autoAr.js:502
 msgid "The output file '${outputFile}' already exists."
-msgstr ""
+msgstr "வெளியீட்டு கோப்பு '${outputFile}' ஏற்கனவே உள்ளது."
 
 #: app/autoAr.js:509
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
-msgstr ""
+msgstr "கோப்புகளை '${outputFile}' இல் சுருக்குவது பயனரால் ரத்துசெய்யப்பட்டது."
 
 #: app/autoAr.js:512
 msgid "Error during compression"
-msgstr ""
+msgstr "சுருக்கத்தின் போது பிழை"
 
 #: app/autoAr.js:547
 msgid "Create archive"
@@ -486,7 +493,7 @@ msgstr "காப்பகத்தை உருவாக்கவும்"
 
 #: app/autoAr.js:571
 msgid "Archive name"
-msgstr "காப்பக பெயர்"
+msgstr "காப்பகத்தின் பெயர்"
 
 #: app/autoAr.js:604
 msgid "Password"
@@ -498,23 +505,25 @@ msgstr "உருவாக்கு"
 
 #: app/autoAr.js:688
 msgid "Compatible with all operating systems."
-msgstr ""
+msgstr "அனைத்து இயக்க முறைமைகளுடனும் இணக்கமானது."
 
 #: app/autoAr.js:694
 msgid "Password protected .zip, must be installed on Windows and Mac."
 msgstr ""
+"கடவுச்சொல் பாதுகாக்கப்பட்ட .zip, சாளரங்கள் மற்றும் Mac இல் நிறுவப்பட்டிருக்க வேண்டும்."
 
 #: app/autoAr.js:700
 msgid "Smaller archives but Linux and Mac only."
-msgstr ""
+msgstr "சிறிய காப்பகங்கள் ஆனால் லினக்ச் மற்றும் மேக் மட்டுமே."
 
 #: app/autoAr.js:706
 msgid "Smaller archives but must be installed on Windows and Mac."
 msgstr ""
+"சிறிய காப்பகங்கள் ஆனால் சாளரங்கள் மற்றும் Mac இல் நிறுவப்பட்டிருக்க வேண்டும்."
 
 #: app/desktopFileIcon.js:125
 msgid "The Displayed Desktop is writable by others"
-msgstr ""
+msgstr "காட்சிப்படுத்தப்பட்ட டெச்க்டாப் மற்றவர்கள் எழுதக்கூடியது"
 
 #: app/desktopFileIcon.js:128
 msgid ""
@@ -524,10 +533,15 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
+".பணிமேடை கோப்புறை மற்ற பயனர்களால் எழுதக்கூடியதாக இருப்பதால், பணிமேடை கோப்புகளை இந்தப் "
+"பணிமேடையிலிருந்து தொடங்க முடியாது. \n"
+"\n"
+"இந்தப் பணிமேடை கோப்புறையின் அனுமதிகளைச் சரிபார்த்து, அதை மற்றவர்கள் எழுத முடியாது என்பதை "
+"உறுதிப்படுத்தவும்."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
-msgstr "பழுதடைந்த திரைப்பலக கோப்புகள்"
+msgstr "உடைந்த டெச்க்டாப் கோப்பு"
 
 #: app/desktopFileIcon.js:141
 msgid ""
@@ -536,22 +550,26 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
+"இந்த .பணிமேடை கோப்பில் பிழைகள் அல்லது அனுமதிகள் இல்லாத நிரலுக்கான புள்ளிகள் உள்ளன. அதைச் "
+"செயல்படுத்த முடியாது. \n"
+"\n"
+"சரியான இயங்கக்கூடிய நிரலை அமைக்கக் கோப்பைத் திருத்தவும்."
 
 #: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
-msgstr ""
+msgstr "டெச்க்டாப் கோப்பில் செல்லாத அனுமதிகள்"
 
 #: app/desktopFileIcon.js:152
 msgid "This Desktop File has incorrect Permissions."
-msgstr ""
+msgstr "இந்த டெச்க்டாப் கோப்பில் தவறான அனுமதிகள் உள்ளன."
 
 #: app/desktopFileIcon.js:173
 msgid "Untrusted Desktop File"
-msgstr ""
+msgstr "நம்பத்தகாத டெச்க்டாப் கோப்பு"
 
 #: app/desktopFileIcon.js:175
 msgid "This Desktop file is not trusted, it can not be launched."
-msgstr ""
+msgstr "இந்த டெச்க்டாப் கோப்பு நம்பகமானதல்ல, இதைத் தொடங்க முடியாது."
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
@@ -559,27 +577,27 @@ msgstr "கோப்பைத் திறக்க முடியவில்�
 
 #: app/desktopFileIcon.js:206
 msgid "{appName} can not open files of this Type!"
-msgstr ""
+msgstr "{appName} இந்த வகை கோப்புகளைத் திறக்க முடியாது!"
 
 #: app/desktopFolderMonitor.js:101 app/desktopFolderMonitor.js:107
 msgid "Desktop Folder Change Failed"
-msgstr ""
+msgstr "டெச்க்டாப் கோப்புறையை மாற்ற முடியவில்லை"
 
 #: app/desktopFolderMonitor.js:102
 msgid "The new Desktop Folder is a Symbolic Link"
-msgstr ""
+msgstr "புதிய டெச்க்டாப் கோப்புறை ஒரு குறியீட்டு இணைப்பு"
 
 #: app/desktopFolderMonitor.js:109
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr ""
+msgstr "புதிய டெச்க்டாப் கோப்புறை இல்லை அல்லது கோப்புறை அல்ல!"
 
 #: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Changed"
-msgstr ""
+msgstr "டெச்க்டாப் கோப்புறை மாற்றப்பட்டது"
 
 #: app/desktopFolderMonitor.js:121
 msgid "Switching to new Desktop..."
-msgstr ""
+msgstr "புதிய டெச்க்டாப்பிற்கு மாறுகிறது..."
 
 #: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
@@ -587,13 +605,12 @@ msgid "Desktop Icons"
 msgstr "டெச்க்டாப் சின்னங்கள் அளவு"
 
 #: app/desktopGrid.js:2477
-#, fuzzy
 msgid "Back to Desktop"
-msgstr "டெச்க்டாப்"
+msgstr "டெச்க்டாப்பிற்குத் திரும்பு"
 
 #: app/desktopManager.js:161
 msgid "Monitor Frame Buffer Scaling is not enabled"
-msgstr ""
+msgstr "மானிட்டர் ஃபிரேம் பஃபர் ச்கேலிங் இயக்கப்படவில்லை"
 
 #: app/desktopManager.js:162
 msgid ""
@@ -602,6 +619,10 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
+"வெவ்வேறு சூம் அமைப்புகளுடன் கூடிய பல மானிட்டர்கள், ஒரு மானிட்டருக்கு ஃப்ரேம்பஃபர் "
+"அளவிடுதலைப் பரிந்துரைக்கவும். \n"
+"\n"
+"Mutter Dconf அமைப்புகளில் இயக்கவும்"
 
 #: app/desktopManager.js:173
 msgid ""
@@ -609,6 +630,9 @@ msgid ""
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
+"வெவ்வேறு சூம் அமைப்புகளுடன் கூடிய பல மானிட்டர்கள். \n"
+"\n"
+"Mutter Dconf அமைப்புகளில் ஒவ்வொரு மானிட்டருக்கும் ஃப்ரேம்பஃபர் அளவிடுதலை இயக்கவா?"
 
 #: app/desktopManager.js:176 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
@@ -616,7 +640,7 @@ msgstr "இயக்கு"
 
 #: app/desktopManager.js:200 app/desktopManager.js:210
 msgid "Can Not Show the Desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பைக் காட்ட முடியாது"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:202
@@ -625,6 +649,9 @@ msgid ""
 "\n"
 "Please set the Desktop Folder to a real Folder"
 msgstr ""
+"டெச்க்டாப் கோப்புறை {desktop} ஒரு குறியீட்டு இணைப்பு \n"
+"\n"
+"டெச்க்டாப் கோப்புறையை உண்மையான கோப்புறையாக அமைக்கவும்"
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
 #: app/desktopManager.js:212
@@ -633,26 +660,29 @@ msgid ""
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
+"டெச்க்டாப் கோப்புறை {desktop} இல்லை அல்லது அது ஒரு கோப்பகம் அல்ல \n"
+"\n"
+"உங்கள் xdg-utils நிறுவலைச் சரிபார்த்து, சரியான டெச்க்டாப் கோப்புறையை அமைக்கவும்"
 
 #: app/desktopManager.js:223
 msgid "GNOME Files not found"
-msgstr ""
+msgstr "GNOME கோப்புகள் கிடைக்கவில்லை"
 
 #: app/desktopManager.js:224
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
+msgstr "Gtk4 Desktop Icons NG க்கு GNOME கோப்புகள் பயன்பாடு தேவைப்படுகிறது."
 
 #: app/desktopManager.js:231
 msgid "There is no default File Manager"
-msgstr ""
+msgstr "இயல்பு கோப்பு மேலாளர் இல்லை"
 
 #: app/desktopManager.js:232
 msgid "There is no application that handles mimetype \"inode/directory\""
-msgstr ""
+msgstr "\"inode/directory\" என்ற மைம் வகையைக் கையாளும் பயன்பாடு எதுவும் இல்லை"
 
 #: app/desktopManager.js:239
 msgid "Gnome Files is not registered as a File Manager"
-msgstr ""
+msgstr "க்னோம் கோப்புகள் கோப்பு மேலாளராக பதிவு செய்யப்படவில்லை"
 
 #: app/desktopManager.js:240
 msgid ""
@@ -660,14 +690,17 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
+"க்னோம் கோப்புகள் பயன்பாடு கோப்புறைகளைத் திறக்கத் திட்டமிடப்படவில்லை! \n"
+"உங்கள் xdg-utils நிறுவலைச் சரிபார்க்கவும் \n"
+"Gnome கோப்புகள் .பணிமேடை கோப்பு நிறுவலைச் சரிபார்க்கவும்"
 
 #: app/desktopManager.js:350
 msgid "Clear current selection before new search"
-msgstr ""
+msgstr "புதிய தேடலுக்கு முன் தற்போதைய தேர்வை அழிக்கவும்"
 
 #: app/desktopManager.js:1281
 msgid "Find Files on Desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பில் கோப்புகளைக் கண்டறியவும்"
 
 #: app/desktopManager.js:1622 app/desktopMenu.js:958 app/shortcuts.js:10
 msgid "New Folder"
@@ -675,7 +708,7 @@ msgstr "புதிய கோப்புறை"
 
 #: app/desktopManager.js:1656
 msgid "Folder Creation Failed"
-msgstr ""
+msgstr "கோப்புறை உருவாக்கம் தோல்வியடைந்தது"
 
 #: app/desktopManager.js:1657
 msgid "Could not create folder"
@@ -683,15 +716,15 @@ msgstr "கோப்புறையை உருவாக்க முடிய�
 
 #: app/desktopMenu.js:601
 msgid "Unable to open Desktop in Gnome Files"
-msgstr ""
+msgstr "க்னோம் கோப்புகளில் டெச்க்டாப்பைத் திறக்க முடியவில்லை"
 
 #: app/desktopMenu.js:620
 msgid "Preferences Window is Open"
-msgstr ""
+msgstr "விருப்பத்தேர்வுகள் சாளரம் திறந்திருக்கும்"
 
 #: app/desktopMenu.js:621
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
+msgstr "இந்த சாளரம் திறந்திருக்கும். செயலில் உள்ள சாளரத்திற்கு மாறவும்."
 
 #: app/desktopMenu.js:630 app/desktopMenu.js:1011
 msgid "Settings"
@@ -699,11 +732,11 @@ msgstr "அமைப்புகள்"
 
 #: app/desktopMenu.js:813
 msgid "Template Creation Error"
-msgstr ""
+msgstr "டெம்ப்ளேட் உருவாக்குவதில் பிழை"
 
 #: app/desktopMenu.js:814
 msgid "Could not create document"
-msgstr "ஆவணத்தை நீக்க முடியவில்லை"
+msgstr "ஆவணத்தை உருவாக்க முடியவில்லை"
 
 #: app/desktopMenu.js:919
 msgid "Name"
@@ -711,11 +744,11 @@ msgstr "பெயர்"
 
 #: app/desktopMenu.js:921
 msgid "Name Z-A"
-msgstr "பெயர் ஔ-அ"
+msgstr "பெயர் Z-A"
 
 #: app/desktopMenu.js:923
 msgid "Modified Time"
-msgstr ""
+msgstr "மாற்றியமைக்கப்பட்ட நேரம்"
 
 #: app/desktopMenu.js:925
 msgid "Type"
@@ -727,27 +760,27 @@ msgstr "அளவு"
 
 #: app/desktopMenu.js:932
 msgid "Keep Arranged…"
-msgstr ""
+msgstr "ஏற்பாடு செய்யுங்கள்…"
 
 #: app/desktopMenu.js:937
 msgid "Keep Stacked by Type…"
-msgstr ""
+msgstr "வகை வாரியாக அடுக்கி வைக்கவும்…"
 
 #: app/desktopMenu.js:939
 msgid "Sort Home/Drives/Trash…"
-msgstr ""
+msgstr "வீடு/இயக்ககங்கள்/குப்பையை வரிசைப்படுத்து…"
 
 #: app/desktopMenu.js:944
 msgid "Change Desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பை மாற்றவும்"
 
 #: app/desktopMenu.js:949
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "இயல்புநிலை டெச்க்டாப்பை மீட்டமைக்கவும்"
 
 #: app/desktopMenu.js:953
 msgid "Desktop Icon Settings"
-msgstr "டெச்க்டாப் அமைப்புகள்"
+msgstr "டெச்க்டாப் படவுரு அமைப்புகள்"
 
 #: app/desktopMenu.js:955
 msgid "Show Shortcuts"
@@ -775,39 +808,39 @@ msgstr "அனைத்தையும் தெரிவுசெய்"
 
 #: app/desktopMenu.js:985
 msgid "Arrange Icons"
-msgstr ""
+msgstr "சின்னங்களை ஒழுங்கமைக்கவும்"
 
 #: app/desktopMenu.js:989
 msgid "Arrange By…"
-msgstr "வழங்கியவர்:"
+msgstr "ஏற்பாடு செய்…"
 
 #: app/desktopMenu.js:997
 msgid "Show Desktop In {0}"
-msgstr ""
+msgstr "{0} இல் டெச்க்டாப்பைக் காட்டு"
 
 #: app/desktopMenu.js:1002
 msgid "Open In {0}"
-msgstr ""
+msgstr "{0} இல் திற"
 
 #: app/desktopMenu.js:1019
 msgid "Edit Widgets…"
-msgstr "விட்செட்டைத் திருத்து"
+msgstr "நிரல்பலகைகளைத் திருத்து…"
 
 #: app/desktopMenu.js:1026
 msgid "Shell Menu…"
-msgstr ""
+msgstr "செல் மெனு…"
 
 #: app/dragManager.js:101 app/dragManager.js:926
 msgid "Making SymLink Failed"
-msgstr ""
+msgstr "சிம்லிங்கை உருவாக்குவது தோல்வியடைந்தது"
 
 #: app/dragManager.js:102 app/dragManager.js:927
 msgid "Could not create symbolic link"
-msgstr ""
+msgstr "குறியீட்டு இணைப்பை உருவாக்க முடியவில்லை"
 
 #: app/dragManager.js:739
 msgid "Copy/Move Failed"
-msgstr ""
+msgstr "நகலெடு/நகர்த்தல் தோல்வி"
 
 #: app/dragManager.js:740
 msgid "{0} Does not exist"
@@ -815,7 +848,7 @@ msgstr "இல்லை"
 
 #: app/dragManager.js:782
 msgid "Choose Action for Files"
-msgstr ""
+msgstr "கோப்புகளுக்கான செயலைத் தேர்ந்தெடுக்கவும்"
 
 #: app/dragManager.js:783
 msgid "Move"
@@ -839,21 +872,21 @@ msgstr "கோப்பு"
 
 #: app/fileItemIcon.js:286
 msgid "Opening File Failed"
-msgstr "கோப்பைத் திறப்பதில் தோல்வி"
+msgstr "கோப்பை திறப்பதில் தோல்வி"
 
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
+msgstr "\"{fo}\" கோப்புகளைத் திறக்க எந்த பயன்பாடும் நிறுவப்படவில்லை."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
 msgid_plural "New Folder with {0} items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} உருப்படியுடன் புதிய கோப்புறை"
+msgstr[1] "{0} உருப்படிகளுடன் புதிய கோப்புறை"
 
 #: app/fileItemMenu.js:114
 msgid "Open All..."
-msgstr "அனைத்தையும் திற"
+msgstr "அனைத்தையும் திற..."
 
 #: app/fileItemMenu.js:122
 msgid "Launch"
@@ -861,7 +894,7 @@ msgstr "ஏவுதல்"
 
 #: app/fileItemMenu.js:135
 msgid "Open with {foo}"
-msgstr ""
+msgstr "{foo} உடன் திறக்கவும்"
 
 #: app/fileItemMenu.js:138
 msgid "Open"
@@ -869,39 +902,39 @@ msgstr "திற"
 
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 msgid "Extract Here"
-msgstr ""
+msgstr "இங்கே பிரித்தெடுக்கவும்"
 
 #: app/fileItemMenu.js:162
 msgid "Extract To..."
-msgstr ""
+msgstr "பிரித்தெடுக்க..."
 
 #: app/fileItemMenu.js:170 app/fileItemMenu.js:177
 msgid "Open With..."
-msgstr "இதனுடன் திற…"
+msgstr "இதனுடன் திற..."
 
 #: app/fileItemMenu.js:176
 msgid "Open All With Other Application..."
-msgstr ""
+msgstr "மற்ற பயன்பாட்டுடன் அனைத்தையும் திற..."
 
 #: app/fileItemMenu.js:184
 msgid "Launch using Integrated Graphics Card"
-msgstr ""
+msgstr "ஒருங்கிணைந்த கிராபிக்ச் கார்டைப் பயன்படுத்தி துவக்கவும்"
 
 #: app/fileItemMenu.js:206
 msgid "Stack This Type"
-msgstr ""
+msgstr "இந்த வகையை அடுக்கி வைக்கவும்"
 
 #: app/fileItemMenu.js:207
 msgid "Unstack This Type"
-msgstr ""
+msgstr "இந்த வகையை அன்ச்டாக் செய்யவும்"
 
 #: app/fileItemMenu.js:231
 msgid "Run as a Program"
-msgstr ""
+msgstr "ஒரு நிரலாக இயக்கவும்"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
-msgstr "ச்கிரிப்ட்கள்"
+msgstr "ச்கிரிப்டுகள்"
 
 #: app/fileItemMenu.js:239
 msgid "Cut"
@@ -909,11 +942,11 @@ msgstr "வெட்டு"
 
 #: app/fileItemMenu.js:244
 msgid "Move to..."
-msgstr "செல்லுங்கள் ..."
+msgstr "இதற்கு நகர்த்து..."
 
 #: app/fileItemMenu.js:245
 msgid "Copy to..."
-msgstr "நகலெடு .."
+msgstr "நகலெடு..."
 
 #: app/fileItemMenu.js:249
 msgid "Rename…"
@@ -921,27 +954,27 @@ msgstr "மறுபெயரிடுங்கள்…"
 
 #: app/fileItemMenu.js:254
 msgid "Create Link..."
-msgstr "இணைப்பை உருவாக்கவும்"
+msgstr "இணைப்பை உருவாக்கு..."
 
 #: app/fileItemMenu.js:261
 msgid "Compress {0} folder"
 msgid_plural "Compress {0} folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} கோப்புறையைச் சுருக்கவும்"
+msgstr[1] "{0} கோப்புறைகளை சுருக்கவும்"
 
 #: app/fileItemMenu.js:269
 msgid "Compress {0} file"
 msgid_plural "Compress {0} files"
-msgstr[0] "கோப்புகளை சுருக்கவும்"
-msgstr[1] "கோப்புகளை சுருக்கவும்"
+msgstr[0] "{0} கோப்பை சுருக்கவும்"
+msgstr[1] "{0} கோப்புகளை சுருக்கவும்"
 
 #: app/fileItemMenu.js:276
 msgid "Email to..."
-msgstr ""
+msgstr "இதற்கு மின்னஞ்சல் அனுப்புங்கள்..."
 
 #: app/fileItemMenu.js:286
 msgid "Send to Mobile Device"
-msgstr ""
+msgstr "மொபைல் சாதனத்திற்கு அனுப்பவும்"
 
 #: app/fileItemMenu.js:294
 msgid "Move to Trash"
@@ -953,19 +986,19 @@ msgstr "நிரந்தரமாக நீக்கு"
 
 #: app/fileItemMenu.js:315 app/fileItemMenu.js:329
 msgid "Don't Allow Launching"
-msgstr ""
+msgstr "தொடங்குவதை அனுமதிக்க வேண்டாம்"
 
 #: app/fileItemMenu.js:339
 msgid "Empty Trash"
-msgstr "வெற்று குப்பை"
+msgstr "வெறுமை குப்பை"
 
 #: app/fileItemMenu.js:345
 msgid "Eject"
-msgstr "வெளியேற்ற"
+msgstr "வெளியேற்று"
 
 #: app/fileItemMenu.js:348
 msgid "Unmount"
-msgstr "உமிழ்தல்"
+msgstr "ஏற்றிவிடு"
 
 #: app/fileItemMenu.js:354
 msgid "Common Properties"
@@ -977,32 +1010,31 @@ msgstr "பண்புகள்"
 
 #: app/fileItemMenu.js:362
 msgid "Show All in {0}"
-msgstr ""
+msgstr "அனைத்தையும் {0} இல் காட்டு"
 
 #: app/fileItemMenu.js:363
 msgid "Show in {0}"
-msgstr ""
+msgstr "{0} இல் காட்டு"
 
 #: app/fileItemMenu.js:374
 msgid "Open in {0}"
-msgstr ""
+msgstr "{0} இல் திற"
 
 #: app/fileItemMenu.js:539
-#, fuzzy
 msgid "Open Item"
-msgstr "கோப்பை திற"
+msgstr "உருப்படியைத் திறக்கவும்"
 
 #: app/fileItemMenu.js:821
 msgid "Extraction Cancelled"
-msgstr "OMOD பிரித்தெடுத்தல் ரத்து செய்யப்பட்டது"
+msgstr "பிரித்தெடுத்தல் ரத்து செய்யப்பட்டது"
 
 #: app/fileItemMenu.js:822
 msgid "Unable to extract File, no destination folder"
-msgstr ""
+msgstr "கோப்பைப் பிரித்தெடுக்க முடியவில்லை, இலக்கு கோப்புறை இல்லை"
 
 #: app/fileItemMenu.js:878 app/fileItemMenu.js:907
 msgid "Select Destination"
-msgstr "Select Destination"
+msgstr "இலக்கைத் தேர்ந்தெடுக்கவும்"
 
 #: app/fileItemMenu.js:881 app/fileItemMenu.js:909
 msgid "Select"
@@ -1010,11 +1042,11 @@ msgstr "தேர்ந்தெடு"
 
 #: app/fileItemMenu.js:965
 msgid "Can not email a Directory"
-msgstr ""
+msgstr "கோப்பகத்தை மின்னஞ்சல் செய்ய முடியாது"
 
 #: app/fileItemMenu.js:967
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr ""
+msgstr "தேர்வில் ஒரு கோப்பகம் உள்ளது, முதலில் .zip கோப்பில் சுருக்கவா?"
 
 #: app/fileItemMenu.js:993 app/fileItemMenu.js:1024 app/fileItemMenu.js:1041
 #: app/fileItemMenu.js:1060
@@ -1023,36 +1055,36 @@ msgstr "மின்னஞ்சல் பிழை"
 
 #: app/fileItemMenu.js:995
 msgid "Unable to find zip command, please install the program"
-msgstr ""
+msgstr "zip கட்டளையை கண்டுபிடிக்க முடியவில்லை, தயவுசெய்து நிரலை நிறுவவும்"
 
 #. Translators - basename for a zipped archive created for mailing
 #: app/fileItemMenu.js:1001
 msgid "Archive.zip"
-msgstr "காப்பகம் .."
+msgstr "காப்பகம்.zip"
 
 #: app/fileItemMenu.js:1025
 msgid "There was an error in creating a zip archive"
-msgstr ""
+msgstr "சிப் காப்பகத்தை உருவாக்குவதில் பிழை"
 
 #: app/fileItemMenu.js:1043
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
+msgstr "xdg-மின்னஞ்சலைக் கண்டுபிடிக்க முடியவில்லை, தயவுசெய்து நிரலை நிறுவவும்"
 
 #: app/fileItemMenu.js:1061
 msgid "There was an error in emailing Files"
-msgstr ""
+msgstr "கோப்புகளுக்கு மின்னஞ்சல் அனுப்புவதில் பிழை"
 
 #: app/fileItemMenu.js:1176
 msgid "Can Not open the Working Directory"
-msgstr ""
+msgstr "வேலை செய்யும் கோப்பகத்தைத் திறக்க முடியவில்லை"
 
 #: app/fileItemMenu.js:1227
 msgid "Unable to Open in Gnome Console"
-msgstr ""
+msgstr "க்னோம் கன்சோலில் திறக்க முடியவில்லை"
 
 #: app/fileItemMenu.js:1229
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
+msgstr "க்னோம் கன்சோல் அல்லது பிற டெர்மினல் நிரலை நிறுவவும்"
 
 #: app/fileItemMenu.js:1237
 msgid "Unable to Open {0}"
@@ -1060,7 +1092,7 @@ msgstr "திறக்க இயலவில்லை"
 
 #: app/fileItemMenu.js:1239
 msgid "Please Install {0}"
-msgstr ""
+msgstr "நிறுவவும் {0}"
 
 #: app/fileItemMenu.js:1283
 msgid "Copy Cancelled"
@@ -1068,19 +1100,19 @@ msgstr "நகல் ரத்து செய்யப்பட்டது"
 
 #: app/fileItemMenu.js:1284
 msgid "Unable to copy Files, no destination folder"
-msgstr ""
+msgstr "கோப்புகளை நகலெடுக்க முடியவில்லை, இலக்கு கோப்புறை இல்லை"
 
 #: app/fileItemMenu.js:1307
 msgid "Move Cancelled"
-msgstr ""
+msgstr "நகர்த்துதல் ரத்துசெய்யப்பட்டது"
 
 #: app/fileItemMenu.js:1308
 msgid "Unable to move Files, no destination folder"
-msgstr ""
+msgstr "கோப்புகளை நகர்த்த முடியவில்லை, இலக்கு கோப்புறை இல்லை"
 
 #: app/gnomeShellDragDrop.js:356
 msgid "$appName$ can not open files of this Type!"
-msgstr ""
+msgstr "$appName$ இந்த வகை கோப்புகளைத் திறக்க முடியாது!"
 
 #: app/preferences.js:1069
 msgid "Console"
@@ -1088,15 +1120,15 @@ msgstr "கன்சோல்"
 
 #: app/shortcutManager.js:85
 msgid "Default Shortcut:"
-msgstr ""
+msgstr "இயல்புநிலை குறுக்குவழி:"
 
 #: app/shortcutManager.js:109
 msgid "Type new..."
-msgstr ""
+msgstr "புதிய வகை..."
 
 #: app/shortcutManager.js:125
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr ""
+msgstr "மாற்றி + விசை (எ.கா. கட்டுப்பாடு + மாற்று + D)"
 
 #: app/shortcutManager.js:130
 msgid "Reset to Default"
@@ -1107,18 +1139,16 @@ msgid "No Accelerator"
 msgstr "முடுக்கி"
 
 #: app/shortcutManager.js:243
-#, fuzzy
 msgid "System Shortcuts"
-msgstr "குறுக்குவழிகளைக் காட்டு"
+msgstr "கணினி குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:244
 msgid "Common System Defined Keyboard Shortcuts"
-msgstr ""
+msgstr "பொதுவான கணினி வரையறுக்கப்பட்ட விசைப்பலகை குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:302
-#, fuzzy
 msgid "Local Shortcuts"
-msgstr "குறுக்குவழிகளைக் காட்டு"
+msgstr "உள்ளக குறுக்குவழிகள்"
 
 #: app/shortcutManager.js:303
 msgid "Application Keyboard Shortcuts"
@@ -1142,20 +1172,19 @@ msgstr "அனைத்து குறுக்குவழிகளையு�
 
 #: app/shortcutManager.js:693
 msgid "Reset all shortcuts to Defaults"
-msgstr ""
+msgstr "எல்லா குறுக்குவழிகளையும் இயல்புநிலைக்கு மீட்டமைக்கவும்"
 
 #: app/shortcutManager.js:696
 msgid "Reset All..."
-msgstr "அனைத்தையும் மீட்டமைக்கவும்"
+msgstr "அனைத்தையும் மீட்டமை..."
 
 #: app/shortcuts.js:15
-#, fuzzy
 msgid "Show Desktop in Files"
-msgstr "பழுதடைந்த திரைப்பலக கோப்புகள்"
+msgstr "கோப்புகளில் டெச்க்டாப்பைக் காட்டு"
 
 #: app/shortcuts.js:16
 msgid "Open in Terminal"
-msgstr "முனையத்தில் திறந்திருக்கும்"
+msgstr "டெர்மினலில் திறக்கவும்"
 
 #: app/shortcuts.js:17
 msgid "Change Background"
@@ -1171,48 +1200,47 @@ msgstr "டெச்க்டாப் அமைப்புகள்"
 
 #: app/shortcuts.js:20
 msgid "Clean Up Icons"
-msgstr ""
+msgstr "ஐகான்களை தூய்மை செய்யவும்"
 
 #: app/shortcuts.js:21
 msgid "Keep Arranged"
-msgstr ""
+msgstr "ஏற்பாடு செய்து வைக்கவும்"
 
 #: app/shortcuts.js:22
 msgid "Keep Stacked"
-msgstr ""
+msgstr "அடுக்கி வைக்கவும்"
 
 #: app/shortcuts.js:23
 msgid "Sort Special Folders"
-msgstr ""
+msgstr "சிறப்பு கோப்புறைகளை வரிசைப்படுத்தவும்"
 
 #: app/shortcuts.js:24
 msgid "Arrange Icons by Name"
-msgstr ""
+msgstr "பெயர் மூலம் சின்னங்களை வரிசைப்படுத்துங்கள்"
 
 #: app/shortcuts.js:25
 msgid "Arrange Icons By Descending Name"
-msgstr ""
+msgstr "இறங்கு பெயர் மூலம் சின்னங்களை வரிசைப்படுத்தவும்"
 
 #: app/shortcuts.js:26
 msgid "Arrange Icons By Modified Time"
-msgstr ""
+msgstr "மாற்றியமைக்கப்பட்ட நேரத்தின்படி சின்னங்களை வரிசைப்படுத்துங்கள்"
 
 #: app/shortcuts.js:27
 msgid "Arrange Icons By Kind"
-msgstr ""
+msgstr "ஐகான்களை வகையாக வரிசைப்படுத்துங்கள்"
 
 #: app/shortcuts.js:28
 msgid "Arrange Icons By Size"
-msgstr ""
+msgstr "ஐகான்களை அளவின்படி வரிசைப்படுத்துங்கள்"
 
 #: app/shortcuts.js:29
 msgid "Find Files"
 msgstr "கோப்புகளைக் கண்டறியவும்"
 
 #: app/shortcuts.js:30
-#, fuzzy
 msgid "Update Desktop"
-msgstr "டெச்க்டாப்"
+msgstr "டெச்க்டாப்பைப் புதுப்பிக்கவும்"
 
 #: app/shortcuts.js:31
 msgid "Show Hidden Files"
@@ -1228,7 +1256,7 @@ msgstr "முன்னோட்டம்"
 
 #: app/shortcuts.js:34
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "விட்செட் லேயரை நிலைமாற்று"
 
 #: app/shortcuts.js:35 app/widgetManager.js:994
 msgid "Add Widget"
@@ -1236,11 +1264,11 @@ msgstr "விட்செட்டைச் சேர்க்கவும்"
 
 #: app/shortcuts.js:36
 msgid "Choose Icon Left"
-msgstr ""
+msgstr "இடது ஐகானைத் தேர்ந்தெடுக்கவும்"
 
 #: app/shortcuts.js:37
 msgid "Choose Icon Right"
-msgstr ""
+msgstr "வலது ஐகானைத் தேர்ந்தெடுக்கவும்"
 
 #: app/shortcuts.js:38
 msgid "Choose Icon Up"
@@ -1248,7 +1276,7 @@ msgstr "ஐகானைத் தேர்வுசெய்க"
 
 #: app/shortcuts.js:39
 msgid "Choose Icon Down"
-msgstr ""
+msgstr "கீழே உள்ள ஐகானைத் தேர்ந்தெடுக்கவும்"
 
 #: app/shortcuts.js:40
 msgid "Show Menu"
@@ -1256,29 +1284,27 @@ msgstr "மெனுவைக் காட்டு"
 
 #: app/shortcuts.js:41
 msgid "Display Shell Background Menu"
-msgstr ""
+msgstr "செல் பின்னணி மெனுவைக் காண்பி"
 
 #: app/shortcuts.js:42
 msgid "Create Desktop Shortcut"
-msgstr ""
+msgstr "டெச்க்டாப் குறுக்குவழியை உருவாக்கவும்"
 
 #: app/shortcuts.js:43
 msgid "Text Entry Accels Turn On"
-msgstr ""
+msgstr "உரை நுழைவு ஆக்செல்ச் ஆன்"
 
 #: app/shortcuts.js:44
 msgid "Text Entry Accels Turn Off"
-msgstr ""
+msgstr "உரை நுழைவு அணுகல் முடக்கம்"
 
 #: app/shortcuts.js:46
-#, fuzzy
 msgid "Show Shortcut Viewer"
-msgstr "குறுக்குவழிகளைக் காட்டு"
+msgstr "சார்ட்கட் வியூவரைக் காட்டு"
 
 #: app/shortcuts.js:47
-#, fuzzy
 msgid "Show Or Hide Desktop Icons"
-msgstr "டெச்க்டாப் சின்னங்கள் அளவு"
+msgstr "டெச்க்டாப் ஐகான்களைக் காட்டு அல்லது மறை"
 
 #: app/showErrorPopup.js:42
 msgid "More Information"
@@ -1308,24 +1334,23 @@ msgstr "உடைந்த இணைப்பு"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
+msgstr "உடைந்த சிம்லிங்க் என்பதால் இந்தக் கோப்பைத் திறக்க முடியவில்லை"
 
 #: app/volumeIcon.js:58
 msgid "Drive"
 msgstr "ஓட்டு"
 
 #: app/widgetManager.js:1330
-#, fuzzy
 msgid "Widget preferences"
-msgstr "விருப்பத்தேர்வுகள்"
+msgstr "விட்செட் விருப்பத்தேர்வுகள்"
 
 #: app/widgetManager.js:1714
 msgid "HTML widget"
-msgstr ""
+msgstr "உஉகுமொ விட்செட்"
 
 #: app/widgetManager.js:1716
 msgid "GTK widget"
-msgstr ""
+msgstr "GTK விட்செட்"
 
 #: app/widgetManager.js:1725
 msgid "User"
@@ -1349,6 +1374,13 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"விட்செட் இறுக்கமாகச் சாண்ட்பாக்ச் செய்யப்பட்ட வலை சூழலில் இயங்குகிறது. \n"
+"\n"
+"• வெளிப்புற ச்கிரிப்டுகள் அல்லது பிரேம்கள் அனுமதிக்கப்படவில்லை. \n"
+"• பிணையம் அணுகல் பாதுகாப்பான (HTTPS) கோரிக்கைகளுக்கு மட்டுமே. \n"
+"• விட்செட்டின் சொந்த கோப்புகள் மற்றும் இன்லைன் குறியீடு மட்டுமே இயங்கக்கூடும். \n"
+"\n"
+"இது பாதுகாப்பான விருப்பம் மற்றும் பெரும்பாலான விட்செட்டுகளுக்கு பரிந்துரைக்கப்படுகிறது."
 
 #: app/widgetManager.js:1847
 msgid "Relaxed"
@@ -1364,6 +1396,13 @@ msgid ""
 "\n"
 "Use this only for widgets you trust."
 msgstr ""
+"விட்செட் பரந்த வலைத் திறன்களை அனுமதிக்கும். \n"
+"\n"
+"• நம்பகமான இணையதளங்களிலிருந்து வெளிப்புற ச்கிரிப்ட்கள், ச்டைல்கள், படங்கள் மற்றும் ஃப்ரேம்கள் "
+"ஏற்றப்படலாம். \n"
+"• HTTPS, WebSockets மற்றும் மீடியா ச்ட்ரீம்கள் மூலம் பிணையம் அணுகல் அனுமதிக்கப்படுகிறது. \n"
+"\n"
+"நீங்கள் நம்பும் விட்செட்டுகளுக்கு மட்டுமே இதைப் பயன்படுத்தவும்."
 
 #: app/widgetManager.js:1859
 msgid "Development"
@@ -1378,6 +1417,12 @@ msgid ""
 "\n"
 "This mode is intended for development and debugging only."
 msgstr ""
+"விட்செட் வளர்ச்சிக்கு ஏற்ற இணைய அணுகலுடன் இயங்குகிறது. \n"
+"\n"
+"• உள்ளக மேம்பாட்டு சேவையகங்களுக்கான இணைப்புகள் (லோக்கல் ஓச்ட்) அனுமதிக்கப்படுகின்றன. \n"
+"• HTTP மற்றும் WebSocket அணுகல் சோதனைக்கு அனுமதிக்கப்படலாம். \n"
+"\n"
+"இந்தப் பயன்முறை மேம்பாடு மற்றும் பிழைத்திருத்தத்திற்காக மட்டுமே வடிவமைக்கப்பட்டுள்ளது."
 
 #: app/widgetManager.js:1870
 msgid "Default"
@@ -1389,10 +1434,13 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
+"விட்செட் முன் வரையறுக்கப்பட்ட இணைய பாதுகாப்புக் கொள்கையுடன் இயங்குகிறது. \n"
+"\n"
+"செயலில் உள்ள கொள்கையின்படி இணைய அணுகல் மற்றும் திறன்கள் கட்டுப்படுத்தப்படுகின்றன."
 
 #: app/widgetManager.js:1880
 msgid "Allow web content for {widgetId}?"
-msgstr ""
+msgstr "{widgetId}க்கு இணைய உள்ளடக்கத்தை அனுமதிக்கவா?"
 
 #. eslint-disable-next-line prefer-template
 #: app/widgetManager.js:1885
@@ -1400,24 +1448,32 @@ msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
+"நீங்கள் சேர்க்கும் விட்செட் இணையத்தில் இருந்து இணைய உள்ளடக்கத்தை ஏற்றலாம்.\n"
+"\n"
 
 #: app/widgetManager.js:1886
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
+"இந்த உள்ளடக்கம் விட்செட் பாதுகாப்புக் கொள்கைக்கு உட்பட்டது:\n"
+"\n"
 
 #: app/widgetManager.js:1915
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
+"இந்த விட்செட், {widgetId} உங்கள் கணினியில் பின்னணி செயல்முறையை இயக்குகிறது.\n"
+"\n"
 
 #: app/widgetManager.js:1917
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
+"நீங்கள் தொடங்கும் பிற பயன்பாடுகளைப் போலவே, பின்தளமும் உங்கள் இயல்பான பயனர் அனுமதிகளுடன் "
+"இயங்குகிறது.\n"
 
 #: app/widgetManager.js:1918
 msgid ""
@@ -1425,6 +1481,9 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
+"இது உங்கள் பயனர் கணக்கு அனுமதிகளின்படி உங்கள் கோப்புகள், கணினி ஆதாரங்கள் மற்றும் நெட்வொர்க்கை "
+"அணுக முடியும்.\n"
+"\n"
 
 #: app/widgetManager.js:1919
 msgid "Command:\n"
@@ -1432,25 +1491,25 @@ msgstr "கட்டளை:\n"
 
 #: app/widgetManager.js:1920
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
+msgstr "நீங்கள் மறைமுகமாக நம்பும் விட்செட்டுகளுக்கு மட்டும் இதை அனுமதிக்கவும்."
 
 #: app/widgetManager.js:1923
 msgid "Allow widget backend?"
-msgstr ""
+msgstr "விட்செட் பின்தளத்தை அனுமதிக்கவா?"
 
 #: app/widgetWebContext.js:187
-#, fuzzy
 msgid "Widget Preferences"
-msgstr "விருப்பத்தேர்வுகள்"
+msgstr "விட்செட் விருப்பத்தேர்வுகள்"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"
-msgstr ""
+msgstr "\"${programName}\" கிடைக்கவில்லை"
 
 #: app/utils/dbusUtils.js:70
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
+"இந்த செயல்களைச் செய்ய டெச்க்டாப் ஐகான்களை இயக்க \"${programName}\" ஐ நிறுவவும்."
 
 #: app/utils/desktopFolderUtils.js:84
 msgid "Choose Desktop Folder"
@@ -1458,15 +1517,16 @@ msgstr "மேசை கோப்புறை"
 
 #: app/utils/desktopIconsUtil.js:257
 msgid "Command not found"
-msgstr "கட்டளை கிடைக்கவில்லை: %1"
+msgstr "கட்டளை கிடைக்கவில்லை"
 
 #: data/ui/ding-app-chooser.ui:47
 msgid "Choose an app to open the selected files."
 msgstr ""
+"தேர்ந்தெடுக்கப்பட்ட கோப்புகளைத் திறக்க ஒரு பயன்பாட்டைத் தேர்ந்தெடுக்கவும்."
 
 #: data/ui/ding-app-chooser.ui:81
 msgid "Always use for this file type"
-msgstr ""
+msgstr "இந்தக் கோப்பு வகைக்கு எப்போதும் பயன்படுத்தவும்"
 
 #: data/ui/ding-app-chooser.ui:104
 msgid "_Cancel"
@@ -1474,15 +1534,17 @@ msgstr "_ரத்துசெய்"
 
 #: data/ui/ding-app-chooser.ui:110
 msgid "_Open"
-msgstr "_OPEN"
+msgstr "_திற"
 
 #: data/com.desktop.ding.desktop.in:5
 msgid "Display icons on the GNOME desktop"
-msgstr ""
+msgstr "க்னோம் டெச்க்டாப்பில் ஐகான்களைக் காண்பி"
 
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
+"டெச்க்டாப்;ஐகான்கள்;கோப்புகள்; கோப்புறைகள்; மேலாளர்; ஒழுங்கமைத்தல்; மறைத்தல்; காட்டுதல்; துவக்கி; "
+"குறுக்குவழிகள்;"
 
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
@@ -1502,147 +1564,160 @@ msgstr "படவுரு அளவு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
-msgstr ""
+msgstr "டெச்க்டாப் ஐகான்களுக்கான அளவை அமைக்கவும்."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
 msgid "Show personal folder"
-msgstr ""
+msgstr "தனிப்பட்ட கோப்புறையைக் காட்டு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:31
 msgid "Show the personal folder in the desktop."
-msgstr ""
+msgstr "டெச்க்டாப்பில் தனிப்பட்ட கோப்புறையைக் காட்டு."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:35
 msgid "Show trash icon"
-msgstr "தட்டு ஐகானைக் காட்டு"
+msgstr "குப்பை ஐகானைக் காட்டு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:36
 msgid "Show the trash icon in the desktop."
-msgstr ""
+msgstr "டெச்க்டாப்பில் குப்பை ஐகானைக் காட்டு."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:40
 msgid "New icons start corner"
-msgstr ""
+msgstr "புதிய சின்னங்கள் தொடக்க மூலையில்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
-msgstr ""
+msgstr "சின்னங்கள் வைக்கத் தொடங்கும் மூலையை அமைக்கவும்."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பில் வெளிப்புற இயக்கிகளைக் காட்டு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
-msgstr ""
+msgstr "கணினியுடன் இணைக்கப்பட்ட வட்டு இயக்கிகளைக் காட்டு."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
-msgstr ""
+msgstr "டெச்க்டாப்பில் பிணையம் டிரைவ்களைக் காட்டு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:51
 msgid "Show mounted network volumes in the desktop."
-msgstr ""
+msgstr "டெச்க்டாப்பில் ஏற்றப்பட்ட பிணையம் தொகுதிகளைக் காட்டு."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:55
 msgid "Add new drives to the opposite side of the screen"
-msgstr ""
+msgstr "திரையின் எதிர் பக்கத்தில் புதிய டிரைவ்களைச் சேர்க்கவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:56
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
 msgstr ""
+"டிரைவ்கள் மற்றும் தொகுதிகளை டெச்க்டாப்பில் சேர்க்கும் போது, அவற்றை திரையின் எதிர் பக்கத்தில் "
+"சேர்க்கவும்."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
-msgstr ""
+msgstr "DnD இன் போது சேருமிடத்தில் ஒரு செவ்வகத்தைக் காட்டுகிறது"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
+"Drag'n'Drop ஆபரேசனைச் செய்யும்போது, கிரிட்டில் படவுரு வைக்கப்படும் இடத்தை அரை "
+"வெளிப்படையான செவ்வகத்துடன் குறிக்கும்."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr ""
+msgstr "சிறப்பு கோப்புறைகளை வரிசைப்படுத்தவும் - முகப்பு/குப்பை இயக்கிகள்."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
 msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
+"டெச்க்டாப்பில் ஐகான்களை ஒழுங்கமைக்கும்போது, முகப்பு, குப்பை மற்றும் மவுண்டட் செய்யப்பட்ட பிணையம் "
+"அல்லது எக்ச்டர்னல் டிரைவ்களின் நிலையை வரிசைப்படுத்தவும் மாற்றவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
-msgstr ""
+msgstr "ஐகான்களை ஒழுங்காக வைத்திருங்கள்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:71
 msgid "Always keep Icons Arranged by the last arranged order"
 msgstr ""
+"கடைசியாக ஒழுங்கமைக்கப்பட்ட வரிசையில் எப்போதும் ஐகான்களை வரிசைப்படுத்தவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:75
 msgid "Arrange Order"
-msgstr ""
+msgstr "ஒழுங்கை ஏற்பாடு செய்யுங்கள்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:76
 msgid "Icons Arranged by this property"
-msgstr ""
+msgstr "இந்த சொத்தின் மூலம் வரிசைப்படுத்தப்பட்ட சின்னங்கள்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:80
 msgid "Keep Icons Stacked"
-msgstr ""
+msgstr "ஐகான்களை அடுக்கி வைக்கவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:81
 msgid "Always keep Icons Stacked, Similar types are grouped"
 msgstr ""
+"எப்போதும் ஐகான்களை அடுக்கி வைத்திருங்கள், இதே போன்ற வகைகள் குழுவாக இருக்கும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 msgid "Type of Files to not Stack"
-msgstr ""
+msgstr "அடுக்கி வைக்காத கோப்புகளின் வகை"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
 msgid "An Array of strings types, Don't Stack these types of files"
-msgstr ""
+msgstr "சரங்களின் ஒரு வரிசை, இந்த வகையான கோப்புகளை அடுக்க வேண்டாம்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:90
 msgid "Add an emblem to links"
-msgstr ""
+msgstr "இணைப்புகளில் ஒரு சின்னத்தைச் சேர்க்கவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:91
 msgid "Add an emblem to allow to identify soft links."
-msgstr ""
+msgstr "மென்மையான இணைப்புகளை அடையாளம் காண ஒரு சின்னத்தைச் சேர்க்கவும்."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:95
 msgid "Use black for label text"
-msgstr ""
+msgstr "சிட்டை உரைக்கு கருப்பு பயன்படுத்தவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:96
 msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
+"சிட்டை உரையை வெள்ளைக்கு பதிலாக கருப்பு நிறத்தில் பெயிண்ட் செய்யவும். ஒளி பின்னணியைப் "
+"பயன்படுத்தும் போது பயனுள்ளதாக இருக்கும்."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
 msgid "Show new icons on non primary monitor if connected"
 msgstr ""
+"இணைக்கப்பட்டிருந்தால், முதன்மை அல்லாத மானிட்டரில் புதிய ஐகான்களைக் காட்டு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:101
 msgid ""
 "If a second monitor is connected, new icons are placed on the non primary "
 "monitor"
 msgstr ""
+"இரண்டாவது மானிட்டர் இணைக்கப்பட்டிருந்தால், முதன்மை அல்லாத மானிட்டரில் புதிய ஐகான்கள் வைக்கப்படும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:105
 msgid "Icons can be positioned anywhere on Desktop"
-msgstr ""
+msgstr "ஐகான்களை டெச்க்டாப்பில் எங்கு வேண்டுமானாலும் வைக்கலாம்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:106
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
 msgstr ""
+"ஐகான்கள் ஒரு செவ்வக கட்டத்தில் இல்லை, ஆனால் கட்டம் இல்லாமல் எங்கும் நிலைநிறுத்தப்படலாம்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Show Desktop Widgets"
@@ -1651,14 +1726,15 @@ msgstr "திரைபலக நிரல்பலகைகள்"
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
 msgstr ""
+"நிறுவப்பட்டிருந்தால், ஐகான்களுக்குக் கீழே ஒரு அடுக்கில் விட்செட்களைக் காட்டுகிறது"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
 msgid "Hide/Show all desktop windows"
-msgstr ""
+msgstr "அனைத்து டெச்க்டாப் சாளரங்களையும் மறை/காட்டு"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:116
 msgid "Show the icons on the desktop, or hide them all"
-msgstr ""
+msgstr "டெச்க்டாப்பில் ஐகான்களைக் காட்டு அல்லது அனைத்தையும் மறைக்கவும்"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:120
 msgid "User Application Shortcuts"
@@ -1667,6 +1743,7 @@ msgstr "பயன்பாட்டு குறுக்குவழிகள�
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
 msgstr ""
+"பயனரால் அமைக்கப்பட்ட இயல்புநிலை பயன்பாட்டு குறுக்குவழிகளுக்கு மேலெழுதவும்"
 
 #, fuzzy
 #~ msgid "Website"
