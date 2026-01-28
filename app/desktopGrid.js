@@ -218,8 +218,6 @@ const DisplayGrid = class {
         this._window.set_default_size(this._windowWidth, this._windowHeight);
         this._window.set_size_request(this._windowWidth, this._windowHeight);
         this.scale = this._window.get_scale_factor();
-        this._drawArea.set_content_height(this._windowHeight);
-        this._drawArea.set_content_width(this._windowWidth);
     }
 
     _updateUnscaledHeightWidthMargins() {
@@ -330,7 +328,6 @@ const DisplayGrid = class {
         this._container.set_size_request(this._windowWidth, this._windowHeight);
         this._rootFixed.set_size_request(this._windowWidth, this._windowHeight);
         this._sizeContainer(this._container);
-        this._sizeContainer(this._drawArea);
 
         this._updateGridRectangle();
         this._setGridStatus();
@@ -1095,52 +1092,76 @@ const DisplayGrid = class {
     }
 };
 
+const GridOverlay = GObject.registerClass(
+class GridOverlay extends Gtk.Widget {
+    constructor(grid) {
+        super({can_target: false});
+        this._grid = grid;
+    }
+
+    vfunc_snapshot(snapshot) {
+        this._grid._doDrawOnGrid(snapshot);
+    }
+});
+
 const DrawGrid =  class extends DisplayGrid {
     constructor(params) {
         super(params);
 
-        this._drawArea = new Gtk.DrawingArea();
-        this._drawArea.set_content_height(this._windowHeight);
-        this._drawArea.set_content_width(this._windowWidth);
+        this._drawArea = new GridOverlay(this);
+        this._drawArea.set_size_request(this._windowWidth, this._windowHeight);
         this._sizeContainer(this._drawArea);
-        this._drawArea.set_draw_func(this._doDrawOnGrid.bind(this));
         this._overlay.add_overlay(this._drawArea);
         this._drawArea.set_can_target(false);
+        this._drawArea.set_visible(false);
+    }
+
+    resizeWindow() {
+        super.resizeWindow();
+        this._drawArea.set_size_request(this._windowWidth, this._windowHeight);
+    }
+
+    resizeGrid() {
+        super.resizeGrid();
+        this._drawArea.set_size_request(this._windowWidth, this._windowHeight);
+        this._sizeContainer(this._drawArea);
     }
 
     // Functions for drawing on the grid
-
-    queue_draw() {
-        this._drawArea.queue_draw();
-    }
 
     highLightGridAt(x, y) {
         const globalCoordinates = false;
         const selected = this.getCoordinatesOfGridContaining(x, y, globalCoordinates);
         this._selectedList = [selected];
-        this._drawDropRectangles();
+        this.updateOverlay();
     }
 
     unHighLightGrids() {
         this._selectedList = null;
-        this._drawDropRectangles();
+        this.updateOverlay();
     }
 
-    drawRubberBand() {
-        this._drawArea.queue_draw();
+    updateOverlay() {
+        const shouldShow = this._overlayHasContent();
+        this._drawArea.set_visible(shouldShow);
+        if (shouldShow)
+            this._drawArea.queue_draw();
     }
 
-    _doDrawOnGrid(actor, cr) {
-        this._doDrawRubberBand(cr);
-        this._doDrawDropRectangles(cr).catch(console.error);
-        cr.$dispose();
+    _overlayHasContent() {
+        const hasRubberBand =
+            this._dragManager.rubberBand &&
+            this._dragManager.selectionRectangle;
+        const hasDropRects = (this._selectedList?.length ?? 0) > 0;
+        return hasRubberBand || hasDropRects;
     }
 
-    _drawDropRectangles() {
-        this._drawArea.queue_draw();
+    _doDrawOnGrid(snapshot) {
+        this._doDrawRubberBand(snapshot);
+        this._doDrawDropRectangles(snapshot);
     }
 
-    _doDrawRubberBand(cr) {
+    _doDrawRubberBand(snapshot) {
         if (!this._dragManager.rubberBand ||
             !this._dragManager.selectionRectangle ||
             !this.gridGlobalRectangle
@@ -1182,13 +1203,13 @@ const DrawGrid =  class extends DisplayGrid {
             yInit,
             width,
             height,
-            cr,
+            snapshot,
             fillColor,
             outlineColor
         );
     }
 
-    async _doDrawDropRectangles(cr) {
+    _doDrawDropRectangles(snapshot) {
         if (!this.Prefs.showDropPlace || this._selectedList === null)
             return;
 
@@ -1206,90 +1227,71 @@ const DrawGrid =  class extends DisplayGrid {
             alpha: 1.0,
         });
 
-        const dropRectanglePromises =
-            this._selectedList.map(
-                ([x, y]) => {
-                    return this._rectangleDraw(
-                        x, y,
-                        this._elementWidth,
-                        this._elementHeight,
-                        cr,
-                        fillColor,
-                        outlineColor
-                    );
-                }
+        for (const [x, y] of this._selectedList) {
+            this._rectangleDraw(
+                x, y,
+                this._elementWidth,
+                this._elementHeight,
+                snapshot,
+                fillColor,
+                outlineColor
             );
-
-        await Promise.all(dropRectanglePromises).catch(console.error);
+        }
     }
 
-    _rectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
-        return new Promise(resolve => {
-            cr.rectangle(x + 0.5, y + 0.5, width, height);
-            Gdk.cairo_set_source_rgba(cr, fillColor);
-            cr.fillPreserve();
-            cr.setLineWidth(0.5);
-            Gdk.cairo_set_source_rgba(cr, outlineColor);
-            cr.stroke();
-            resolve(true);
-        });
+    _rectangleDraw(x, y, width, height, snapshot, fillColor, outlineColor) {
+        const rect = new Graphene.Rect();
+        rect.init(x + 0.5, y + 0.5, width, height);
+
+        snapshot.append_color(fillColor, rect);
+
+        const rr = new Gsk.RoundedRect();
+        const zero = new Graphene.Size();
+        zero.init(0, 0);
+        rr.init(rect, zero, zero, zero, zero);
+
+        snapshot.append_border(
+            rr,
+            [0.5, 0.5, 0.5, 0.5],
+            [outlineColor, outlineColor, outlineColor, outlineColor]
+        );
     }
 
-    _roundedRectangleDraw(x, y, width, height, cr, fillColor, outlineColor) {
+    _roundedRectangleDraw(x, y, width, height, snapshot, fillColor, outlineColor) {
         const cornerRadius = 5;
-        const degrees = 3.14 / 180;
 
         const isSquare = width === height;
         const tooLarge = cornerRadius * 2 > Math.min(width, height);
 
-        cr.newSubPath();
+        const useSquareCorners = cornerRadius <= 0 || isSquare || tooLarge;
 
-        if (cornerRadius <= 0 || tooLarge || isSquare) {
-            // Just draw a plain rectangle
-            cr.rectangle(x, y, width, height);
+        const radius =
+            useSquareCorners
+                ? 0
+                : Math.min(cornerRadius, width / 2, height / 2);
+
+        const rect = new Graphene.Rect();
+        rect.init(x, y, width, height);
+
+        const size = new Graphene.Size();
+        size.init(radius, radius);
+
+        const rr = new Gsk.RoundedRect();
+        rr.init(rect, size, size, size, size);
+
+        if (radius > 0) {
+            snapshot.push_rounded_clip(rr);
+            snapshot.append_color(fillColor, rect);
+            snapshot.pop();
         } else {
-            const radius = Math.min(cornerRadius, width / 2, height / 2);
-
-            cr.arc(
-                x + width - radius,
-                y + radius, radius,
-                -90 * degrees,
-                0 * degrees
-            );
-
-            cr.arc(
-                x + width - radius,
-                y + height - radius,
-                radius, 0 * degrees,
-                90 * degrees
-            );
-
-            cr.arc(
-                x + radius,
-                y + height - radius,
-                radius,
-                90 * degrees,
-                180 * degrees
-            );
-
-            cr.arc(
-                x + radius,
-                y + radius,
-                radius,
-                180 * degrees,
-                270 * degrees
-            );
-
-            cr.closePath();
+            snapshot.append_color(fillColor, rect);
         }
 
-        Gdk.cairo_set_source_rgba(cr, fillColor);
-        cr.fillPreserve();
-
-        cr.setLineWidth(1.0);
-        Gdk.cairo_set_source_rgba(cr, outlineColor);
-
-        cr.stroke();
+        snapshot.append_border(
+            rr,
+            [1.0, 1.0, 1.0, 1.0],
+            [outlineColor, outlineColor, outlineColor, outlineColor]
+        );
     }
 };
 
@@ -2104,7 +2106,7 @@ const ControlGrid = class extends DrawGrid {
 
         if (selectedList === null) {
             this._selectedList = null;
-            this._drawDropRectangles();
+            this.updateOverlay();
 
             return;
         }
@@ -2131,7 +2133,7 @@ const ControlGrid = class extends DrawGrid {
         if (newSelectedList.length === 0) {
             if (this._selectedList !== null) {
                 this._selectedList = null;
-                this._drawDropRectangles();
+                this.updateOverlay();
             }
 
             return;
@@ -2145,7 +2147,7 @@ const ControlGrid = class extends DrawGrid {
         }
 
         this._selectedList = newSelectedList;
-        this._drawDropRectangles();
+        this.updateOverlay();
     }
 
     _startSpringLoadedTimer(fileItem) {
@@ -2406,14 +2408,21 @@ const WidgetGrid = class extends ControlGrid {
         this.setWidgetContainerOnTop(!this._widgetContainerOnTop);
     }
 
-    resizeGrid() {
-        super.resizeGrid();
-
+    resizeWindow() {
+        super.resizeWindow();
         this._widgetContainer.set_size_request(
             this._width,
             this._height
         );
+        this._sizeContainer(this._widgetContainer);
+    }
 
+    resizeGrid() {
+        super.resizeGrid();
+        this._widgetContainer.set_size_request(
+            this._width,
+            this._height
+        );
         this._sizeContainer(this._widgetContainer);
     }
 

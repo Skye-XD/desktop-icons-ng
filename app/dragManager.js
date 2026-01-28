@@ -271,9 +271,9 @@ const DragManager = class {
         return false;
     }
 
-    _drawSelectionRectangles() {
+    _drawRubberBand() {
         for (let grid of this._desktops)
-            grid.drawRubberBand();
+            grid.updateOverlay();
     }
 
     // Global Methods
@@ -637,7 +637,7 @@ const DragManager = class {
                     'width': this.x2 - this.x1,
                     'height': this.y2 - this.y1,
                 });
-            this._drawSelectionRectangles();
+            this._drawRubberBand();
             for (let item of this._displayList) {
                 const labelintersect =
                     item.labelRectangle.intersect(this.selectionRectangle)[0];
@@ -659,7 +659,7 @@ const DragManager = class {
             this.selectionRectangle = null;
         }
         for (let grid of this._desktops)
-            grid.drawRubberBand();
+            grid.updateOverlay();
 
         return false;
     }
@@ -972,4 +972,3 @@ const DragManager = class {
         return this._localDrag();
     }
 };
-
