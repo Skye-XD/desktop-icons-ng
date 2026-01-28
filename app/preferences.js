@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Adw, GLib, Gtk, Gio, Gdk, DesktopAppInfo} from '../dependencies/gi.js';
+import {Adw, GLib, Gtk, Gio, Gdk, GdkX11, DesktopAppInfo} from '../dependencies/gi.js';
 import {DesktopWidgetCapability} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
@@ -85,9 +85,7 @@ const Preferences = class {
 
         // Mutter Settings
         this.usingX11 =
-            Gdk.Display.get_default()
-            .constructor
-            .$gtype.name === 'GdkX11Display';
+            Gdk.Display.get_default() instanceof GdkX11.X11Display;
 
         const schemaMutter =
             schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
@@ -142,10 +140,8 @@ const Preferences = class {
         let schemaSource;
 
         const schemaFile =
-            Gio.File.new_for_path(
-                GLib.build_filenamev(
-                    [this._extensionPath, 'schemas', 'gschemas.compiled']
-                )
+            Gio.File.new_build_filenamev(
+                [this._extensionPath, 'schemas', 'gschemas.compiled']
             );
 
         if (schemaFile.query_exists(null)) {
@@ -703,22 +699,25 @@ const Preferences = class {
             cssProvider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
+
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             this._cssOverrideProvider,
             Gtk.STYLE_PROVIDER_PRIORITY_USER
         );
-        
+
         this._createReloadCSSAction();
     }
-    
+
     _loadCSSOverride() {
         const configDir = GLib.get_user_config_dir();
+
         const cssOverridePath = GLib.build_filenamev([
             configDir,
             this._mainApp.get_application_id(),
-            'stylesheet-override.css'
+            'stylesheet-override.css',
         ]);
+
         const overrideFile = Gio.File.new_for_path(cssOverridePath);
         const overrideExists = overrideFile.query_exists(null);
 

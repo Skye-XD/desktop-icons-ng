@@ -1327,12 +1327,10 @@ const ControlGrid = class extends DrawGrid {
             }
         );
 
-        this._buttonClick = Gtk.GestureClick.new();
-        this._buttonClick.set_button(0);
+        this._buttonClick = new Gtk.GestureClick({button: 0});
         this._buttonClick.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
         this._container.add_controller(this._buttonClick);
-        this._buttonLongClick = Gtk.GestureLongPress.new();
-        this._buttonLongClick.set_button(0);
+        this._buttonLongClick = new Gtk.GestureLongPress({button: 0});
         this._buttonLongClick.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
         this._container.add_controller(this._buttonLongClick);
 
@@ -2343,13 +2341,11 @@ const WidgetGrid = class extends ControlGrid {
         this._widgetContainer.add_controller(drag);
 
         // Click gesture: used only to track selection + click radius
-        const click = new Gtk.GestureClick();
-        click.set_button(0);
+        const click = new Gtk.GestureClick({button: 0});
         click.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
         this._widgetContainer.add_controller(click);
 
-        const contextClick = new Gtk.GestureClick();
-        contextClick.set_button(3);
+        const contextClick = new Gtk.GestureClick({button: 3});
         contextClick.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
         this._widgetContainer.add_controller(contextClick);
 
