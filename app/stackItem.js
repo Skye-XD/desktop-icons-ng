@@ -154,20 +154,6 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
         return this._addEmblem(iconPaintable, emblem);
     }
 
-    keyboardSelected() {
-        if (!this._iconContainer.get_css_classes().includes('mimic-hovered')) {
-            this._iconContainer.add_css_class('mimic-hovered');
-            this._labelContainer.add_css_class('mimic-hovered');
-        }
-    }
-
-    _keyboardUnSelected() {
-        if (this._iconContainer.get_css_classes().includes('mimic-hovered')) {
-            this._iconContainer.remove_css_class('mimic-hovered');
-            this._labelContainer.remove_css_class('mimic-hovered');
-        }
-    }
-
     /** *********************
      * Getters and setters *
      ***********************/
