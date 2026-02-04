@@ -33,10 +33,19 @@ export const DefaultShortcuts = {
     previewAction: {Hint: _('Preview'), Accel: 'space'},
     toggleWidgetLayer: {Hint: _('Toggle Widget Layer'), Accel: '<Control><Shift>L', Edit: true},
     addWidget: {Hint: _('Add Widget'), Accel: '<Shift><Control>plus', Edit: true},
-    chooseIconLeft: {Hint: _('Choose Icon Left'), Accel: 'Left'},
-    chooseIconRight: {Hint: _('Choose Icon Right'), Accel: 'Right'},
-    chooseIconUp: {Hint: _('Choose Icon Up'), Accel: 'Up'},
-    chooseIconDown: {Hint: _('Choose Icon Down'), Accel: 'Down'},
+    // Allow navigation while holding Shift/Ctrl/Alt (and their shift combos)
+    chooseIconLeft: {Hint: _('Choose Icon Left'),
+        Accel: 'Left,<Shift>Left,<Control>Left,<Alt>Left,' +
+            '<Shift><Control>Left,<Shift><Alt>Left'},
+    chooseIconRight: {Hint: _('Choose Icon Right'),
+        Accel: 'Right,<Shift>Right,<Control>Right,<Alt>Right,' +
+            '<Shift><Control>Right,<Shift><Alt>Right'},
+    chooseIconUp: {Hint: _('Choose Icon Up'),
+        Accel: 'Up,<Shift>Up,<Control>Up,<Alt>Up,' +
+            '<Shift><Control>Up,<Shift><Alt>Up'},
+    chooseIconDown: {Hint: _('Choose Icon Down'),
+        Accel: 'Down,<Shift>Down,<Control>Down,<Alt>Down,' +
+            '<Shift><Control>Down,<Shift><Alt>Down'},
     menuKeyPressed: {Hint: _('Show Menu'), Accel: 'Menu,<Shift>F10'},
     displayShellBackgroundMenu: {Hint: _('Display Shell Background Menu'), Accel: ''},
     createDesktopShortcut: {Hint: _('Create Desktop Shortcut'), Accel: '', Edit: true},
