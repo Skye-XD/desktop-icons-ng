@@ -138,7 +138,7 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     unsetSelected() {
-        this._keyboardUnSelected();
+        this.keyboardUnSelected();
     }
 
     updateIcon() {
