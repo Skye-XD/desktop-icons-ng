@@ -1525,6 +1525,7 @@ const DesktopManager = class {
     unselectAll() {
         this._displayList.forEach(f => {
             f.unsetSelected();
+            f.keyboardUnSelected();
             f.opacity = 1;
         });
         this.fileItemMenu.activeFileItem = null;
