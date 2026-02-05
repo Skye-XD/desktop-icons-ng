@@ -281,15 +281,25 @@ const Preferences = class {
                 if (this._suppressWidgetMonitorEvent)
                     return;
 
-                this._loadWidgetState()
-                .catch(e => {
-                    console.log(
-                        'Error loading widget state from widgets.json:',
-                        e.message ?? e
-                    );
-                    this._widgetState = null;
-                    this._applyWidgetStateToManager();
-                });
+                if (this._widgetStateReloadTimeoutId) {
+                    GLib.source_remove(this._widgetStateReloadTimeoutId);
+                    this._widgetStateReloadTimeoutId = null;
+                }
+
+                this._widgetStateReloadTimeoutId =
+                    GLib.timeout_add(GLib.PRIORITY_DEFAULT, 250, () => {
+                        this._widgetStateReloadTimeoutId = null;
+                        this._loadWidgetState()
+                        .catch(e => {
+                            console.log(
+                                'Error loading widget state from widgets.json:',
+                                e.message ?? e
+                            );
+                            this._widgetState = null;
+                            this._applyWidgetStateToManager();
+                        });
+                        return GLib.SOURCE_REMOVE;
+                    });
             });
         } catch (e) {
             console.log(
