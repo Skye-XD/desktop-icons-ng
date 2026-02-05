@@ -123,6 +123,7 @@ const DesktopIconItem = class {
                 can_focus: true,
                 accessible_role: Gtk.AccessibleRole.LABEL,
             });
+        this.container.add_css_class('desktop-icon-container');
 
         this._containerId =
             this.container.connect('destroy', () => this.onDestroy());
@@ -604,6 +605,9 @@ const DesktopIconItem = class {
             this._labelContainer.add_css_class('mimic-hovered');
         }
 
+        if (!this.container.get_css_classes().includes('keyboard-selected'))
+            this.container.add_css_class('keyboard-selected');
+
         this._keyboardSelected = true;
     }
 
@@ -612,6 +616,9 @@ const DesktopIconItem = class {
             this._iconContainer.remove_css_class('mimic-hovered');
             this._labelContainer.remove_css_class('mimic-hovered');
         }
+
+        if (this.container.get_css_classes().includes('keyboard-selected'))
+            this.container.remove_css_class('keyboard-selected');
 
         this._keyboardSelected = false;
     }
