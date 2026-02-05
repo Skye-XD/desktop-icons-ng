@@ -719,6 +719,7 @@ const DragManager = class {
 
     _clearKeyboardSelection() {
         this._displayList.forEach(item => item.keyboardUnSelected());
+        this._desktopManager.desktopActions.lastAnchorSelected = null;
     }
 
     // File Copy Move Link Methods

@@ -34,6 +34,7 @@ const DesktopActions = class {
         this._Enums = desktopManager.Enums;
         this._desktopMonitor = desktopManager.desktopMonitor;
         this._windowManager = desktopManager.windowManager;
+        this.lastAnchorSelected = null;
         this._isCut = false;
         this._clipboardFiles = null;
         this._intDBusSignalMonitoring();
@@ -829,6 +830,7 @@ const DesktopActions = class {
     _setKeyboardSelected(fileItem) {
         this._displayList.forEach(f => f.keyboardUnSelected());
         fileItem.keyboardSelected();
+        this.lastAnchorSelected = fileItem;
     }
 
     _menuKeyPressed() {
