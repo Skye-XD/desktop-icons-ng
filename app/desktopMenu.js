@@ -768,14 +768,15 @@ const DesktopActions = class {
         const keptSelection = previousSelection || [];
 
         if (shift && selected) {
-        // Shift: select everything in the rectangle between anchor and new focus,
+        // Shift: select everything in the rectangle between anchor and focus,
         // extending (not clearing) the existing selection.
             const anchor = this.lastAnchorSelected &&
                 this._displayList.includes(this.lastAnchorSelected)
                 ? this.lastAnchorSelected
                 : selected;
+            const focusItem = anchor !== selected ? selected : newItem;
             const sRect = anchor.iconRectangle;
-            const nRect = newItem.iconRectangle;
+            const nRect = focusItem.iconRectangle;
             const minX = Math.min(sRect.x, nRect.x);
             const maxX = Math.max(
                 sRect.x + sRect.width,
@@ -798,8 +799,16 @@ const DesktopActions = class {
 
             // Keep any prior selection intact
             keptSelection.forEach(item => item.setSelected());
-            newItem.setSelected();
-            this.lastAnchorSelected = newItem;
+            focusItem.setSelected();
+            this.lastAnchorSelected = focusItem;
+
+            if (anchor !== selected) {
+                // Cancel navigation when extending from a previous anchor
+                this._setKeyboardSelected(selected);
+                this._desktopManager.fileItemMenu.activeFileItem = selected;
+                this.activeFileItem = selected;
+                return true;
+            }
         } else if (ctrl) {
             // Ctrl: do not alter existing selection
             if (newItem.isSelected)
