@@ -624,6 +624,10 @@ const ShortcutManager = class {
             'app.findFiles',
             this._localShortcuts.findFiles.Accel.split(',')
         );
+        this._mainApp.set_accels_for_action(
+            'app.toggleKeyboardSelection',
+            this._localShortcuts.toggleKeyboardSelection.Accel.split(',')
+        );
     }
 
     _textEntryAccelsTurnOff() {
@@ -637,6 +641,10 @@ const ShortcutManager = class {
         this._mainApp.set_accels_for_action('app.chooseIconDown', ['']);
         this._mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
         this._mainApp.set_accels_for_action('app.findFiles', ['']);
+        this._mainApp.set_accels_for_action(
+            'app.toggleKeyboardSelection',
+            ['']
+        );
     }
 
     _resetGlobalShortcuts() {

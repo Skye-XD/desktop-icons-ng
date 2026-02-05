@@ -284,6 +284,13 @@ const DesktopActions = class {
         });
         this._mainApp.add_action(previewAction);
 
+        const toggleKeyboardSelection =
+            Gio.SimpleAction.new('toggleKeyboardSelection', null);
+        toggleKeyboardSelection.connect('activate', () => {
+            this._toggleKeyboardSelection();
+        });
+        this._mainApp.add_action(toggleKeyboardSelection);
+
         const chooseIconLeft = Gio.SimpleAction.new('chooseIconLeft', null);
         chooseIconLeft.connect('activate', () => {
             this._selectFileItemInDirection(Gdk.KEY_Left);
@@ -827,6 +834,18 @@ const DesktopActions = class {
         this.activeFileItem = newItem;
 
         return true;
+    }
+
+    _toggleKeyboardSelection() {
+        const item = this.keyboardSelected;
+        if (!item)
+            return;
+
+        if (item.isSelected) {
+            item.unsetSelected();
+        } else {
+            item.setSelected();
+        }
     }
 
     _setKeyboardSelected(fileItem) {
