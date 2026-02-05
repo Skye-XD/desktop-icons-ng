@@ -89,6 +89,8 @@ const DesktopManager = class {
         this._clickY = null;
         this._compositeStackList = null;
         this._displayList = [];
+        // Track last seen keyboard modifier state so accelerators can query it
+        this._lastModifierState = 0;
         this.ignoreKeys = this.Enums.IgnoreKeys.map(_k => Gdk[_k]);
 
         // setup gracefull termination
@@ -382,6 +384,16 @@ const DesktopManager = class {
         } else {
             return false;
         }
+    }
+
+    updateModifierState(state) {
+        // cache modifier state for use by accelerator-driven handlers
+        this._lastModifierState = state;
+    }
+
+    clearModifierState() {
+        // reset cached modifier state
+        this._lastModifierState = 0;
     }
 
     closePopUps() {
@@ -1513,6 +1525,7 @@ const DesktopManager = class {
     unselectAll() {
         this._displayList.forEach(f => {
             f.unsetSelected();
+            f.keyboardUnSelected();
             f.opacity = 1;
         });
         this.fileItemMenu.activeFileItem = null;
@@ -1843,5 +1856,14 @@ const DesktopManager = class {
 
     get writableByOthers() {
         return this.desktopMonitor._writableByOthers;
+    }
+
+    get modifierMode() {
+        return {
+            state: this._lastModifierState,
+            ctrl: (this._lastModifierState & Gdk.ModifierType.CONTROL_MASK) !== 0,
+            shift: (this._lastModifierState & Gdk.ModifierType.SHIFT_MASK) !== 0,
+            alt: (this._lastModifierState & Gdk.ModifierType.ALT_MASK) !== 0,
+        };
     }
 };

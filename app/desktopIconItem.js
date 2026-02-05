@@ -53,6 +53,7 @@ const DesktopIconItem = class {
         this._clickCount = 0;
         this._isSelected = false;
         this._isSpecial = false;
+        this._keyboardSelected = false;
         this._savedCoordinates = null;
         this._dropCoordinates = null;
         this._normalCoordinates = null;
@@ -595,6 +596,28 @@ const DesktopIconItem = class {
         }
         if (!this._isSelected)
             this.setUnHighLighted();
+    }
+
+    keyboardSelected() {
+        if (!this._iconContainer.get_css_classes().includes('mimic-hovered')) {
+            this._iconContainer.add_css_class('mimic-hovered');
+            this._labelContainer.add_css_class('mimic-hovered');
+        }
+
+        this._keyboardSelected = true;
+    }
+
+    keyboardUnSelected() {
+        if (this._iconContainer.get_css_classes().includes('mimic-hovered')) {
+            this._iconContainer.remove_css_class('mimic-hovered');
+            this._labelContainer.remove_css_class('mimic-hovered');
+        }
+
+        this._keyboardSelected = false;
+    }
+
+    get KeyboardSelected() {
+        return this._keyboardSelected;
     }
 
     // eslint-disable-next-line no-unused-vars

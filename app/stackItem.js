@@ -138,7 +138,7 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
     }
 
     unsetSelected() {
-        this._keyboardUnSelected();
+        this.keyboardUnSelected();
     }
 
     updateIcon() {
@@ -152,20 +152,6 @@ const StackItem = class extends DesktopIconItem.DesktopIconItem {
             emblem = Gio.ThemedIcon.new('icon-emblem-stack');
 
         return this._addEmblem(iconPaintable, emblem);
-    }
-
-    keyboardSelected() {
-        if (!this._iconContainer.get_css_classes().includes('mimic-hovered')) {
-            this._iconContainer.add_css_class('mimic-hovered');
-            this._labelContainer.add_css_class('mimic-hovered');
-        }
-    }
-
-    _keyboardUnSelected() {
-        if (this._iconContainer.get_css_classes().includes('mimic-hovered')) {
-            this._iconContainer.remove_css_class('mimic-hovered');
-            this._labelContainer.remove_css_class('mimic-hovered');
-        }
     }
 
     /** *********************

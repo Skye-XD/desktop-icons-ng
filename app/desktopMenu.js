@@ -660,43 +660,33 @@ const DesktopActions = class {
     }
 
     _selectFileItemInDirection(symbol) {
+        // Anchoring
         var index;
         var multiplier;
-        let selection = this.currentSelection;
-        if (!selection) {
+        const previousSelection = this.currentSelection;
+        let selection = previousSelection;
+
+        if (!selection || selection.length === 0) {
             if (this.activeFileItem && this.activeFileItem.isStackMarker)
                 selection = [this.activeFileItem];
             else
                 selection = this._displayList;
         }
-        if (!selection)
+
+        if (!selection || selection.length === 0)
             return false;
 
-        let selected = selection[0];
-        let selectedCoordinates = selected.getCoordinates();
-        if (!this.isShift)
-            this._desktopManager.unselectAll();
-        if (selection.length > 1) {
-            for (let item of selection) {
-                let itemCoordinates = item.getCoordinates();
-                if (itemCoordinates[0] > selectedCoordinates[0])
-                    continue;
+        if (!this.keyboardSelected)
+            this._setKeyboardSelected(selection[0]);
 
-                if (symbol === Gdk.KEY_Down || symbol === Gdk.KEY_Right) {
-                    if ((itemCoordinates[0] > selectedCoordinates[0]) ||
-                        (itemCoordinates[1] > selectedCoordinates[1])) {
-                        selected = item;
-                        selectedCoordinates = itemCoordinates;
-                        continue;
-                    }
-                } else if ((itemCoordinates[0] < selectedCoordinates[0]) ||
-                        (itemCoordinates[1] < selectedCoordinates[1])) {
-                    selected = item;
-                    selectedCoordinates = itemCoordinates;
-                    continue;
-                }
-            }
-        }
+        let selected = this.keyboardSelected;
+        
+        if (!selected)
+            return false;
+
+        let selectedCoordinates = selected.getCoordinates();
+
+        // Navigation
         switch (symbol) {
         case Gdk.KEY_Left:
             index = 0;
@@ -714,36 +704,133 @@ const DesktopActions = class {
             index = 1;
             multiplier = 1;
             break;
+        default:
+            return false;
         }
-        let newDistance = null;
+
+        const selectedCenterX =
+            (selectedCoordinates[0] + selectedCoordinates[2]) / 2;
+        const selectedCenterY =
+            (selectedCoordinates[1] + selectedCoordinates[3]) / 2;
+
+        let bestScore = null;
         let newItem = null;
+
+        let wrapItem = null;
+        let wrapExtreme = null;
+        let wrapSecondary = null;
+
         for (let item of this._displayList) {
-            let itemCoordinates = item.getCoordinates();
-            if ((selectedCoordinates[index] * multiplier) >=
-                (itemCoordinates[index] * multiplier))
+            if (item === selected)
                 continue;
 
-            let distance =
-                Math.pow(
-                    selectedCoordinates[0] - itemCoordinates[0], 2) +
-                Math.pow(
-                    selectedCoordinates[1] -  itemCoordinates[1], 2);
+            let itemCoordinates = item.getCoordinates();
+            const itemCenterX = (itemCoordinates[0] + itemCoordinates[2]) / 2;
+            const itemCenterY = (itemCoordinates[1] + itemCoordinates[3]) / 2;
 
-            if ((newDistance === null) || (newDistance > distance)) {
-                newDistance = distance;
-                newItem = item;
+            const deltaX = itemCenterX - selectedCenterX;
+            const deltaY = itemCenterY - selectedCenterY;
+
+            const primary = index === 0 ? deltaX : deltaY;
+            const secondary = index === 0 ? Math.abs(deltaY) : Math.abs(deltaX);
+
+            // Forward candidates (in the requested direction).
+            if (primary * multiplier > 0) {
+                const score = Math.abs(primary) + secondary;
+                if ((bestScore === null) || (score < bestScore)) {
+                    bestScore = score;
+                    newItem = item;
+                }
+                continue;
+            }
+
+            // Wrap candidate: farthest in the opposite direction,
+            // with row/col bias.
+            if (wrapExtreme === null ||
+                (multiplier > 0 
+                    ? primary < wrapExtreme
+                    : primary > wrapExtreme
+                ) ||
+                (primary === wrapExtreme && secondary < wrapSecondary)
+            ) {
+                wrapExtreme = primary;
+                wrapSecondary = secondary;
+                wrapItem = item;
             }
         }
-        if (newItem === null)
-            newItem = selected;
 
-        newItem.setSelected();
-        if (newItem.isStackMarker)
-            newItem.keyboardSelected();
+        if (newItem === null)
+            newItem = wrapItem || selected;
+
+        // Selection logic
+        const {ctrl, shift} = this._desktopManager.modifierMode;
+        const keptSelection = previousSelection || [];
+
+        if (shift && selected) {
+        // Shift: select the row/column band between old focus and new focus,
+        // extending (not clearing) the existing selection.
+            const sRect = selected.iconRectangle;
+            const nRect = newItem.iconRectangle;
+            const sCenterX = sRect.x + sRect.width / 2;
+            const sCenterY = sRect.y + sRect.height / 2;
+            const nCenterX = nRect.x + nRect.width / 2;
+            const nCenterY = nRect.y + nRect.height / 2;
+
+            const primaryMin = Math.min(
+                index === 0 ? sCenterX : sCenterY,
+                index === 0 ? nCenterX : nCenterY
+            );
+            const primaryMax = Math.max(
+                index === 0 ? sCenterX : sCenterY,
+                index === 0 ? nCenterX : nCenterY
+            );
+
+            // How far off-row/column we still accept
+            // half icon size + grid spacing
+            const secondaryRef = index === 0 ? sCenterY : sCenterX;
+            const secondaryTol = Math.max(sRect.height, sRect.width) / 2 +
+                this._Enums.GRID_ELEMENT_SPACING;
+
+            this._displayList.forEach(item => {
+                const rect = item.iconRectangle;
+                const cx = rect.x + rect.width / 2;
+                const cy = rect.y + rect.height / 2;
+                const primary = index === 0 ? cx : cy;
+                const secondary = index === 0 ? cy : cx;
+
+                const onBand = primary >= primaryMin && primary <= primaryMax;
+                const aligned =
+                    Math.abs(secondary - secondaryRef) <= secondaryTol;
+                
+                if (onBand && aligned)
+                    item.setSelected();
+            });
+
+            // Keep any prior selection intact
+            keptSelection.forEach(item => item.setSelected());
+            newItem.setSelected();
+        } else if (ctrl) {
+            // Ctrl: do not alter existing selection;
+            // ensure new item is unselected
+            newItem.unsetSelected();
+        } else {
+            // Default: move selection to the new item only
+            this._desktopManager.unselectAll();
+            newItem.setSelected();
+        }
+
+        // Always keyboard-focus the new item
+        this._setKeyboardSelected(newItem);
 
         this._desktopManager.fileItemMenu.activeFileItem = newItem;
         this.activeFileItem = newItem;
+
         return true;
+    }
+
+    _setKeyboardSelected(fileItem) {
+        this._displayList.forEach(f => f.keyboardUnSelected());
+        fileItem.keyboardSelected();
     }
 
     _menuKeyPressed() {
@@ -769,7 +856,7 @@ const DesktopActions = class {
                 false,
                 false,
                 grid[0]
-            ).catch(e => console.error(e));
+            );
         }
     }
 
@@ -845,6 +932,19 @@ const DesktopActions = class {
 
     get activeFileItem() {
         return this._fileItemMenu.activeFileItem;
+    }
+
+    get keyboardSelected() {
+        let keyboardSelectedItem = null;
+
+        for (let fileItem of this._displayList) {
+            if (fileItem.KeyboardSelected) {
+                keyboardSelectedItem = fileItem;
+                break;
+            }
+        }
+
+        return keyboardSelectedItem;
     }
 
     set activeFileItem(fileItem) {

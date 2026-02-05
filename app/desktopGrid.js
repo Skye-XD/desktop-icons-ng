@@ -1303,12 +1303,29 @@ const ControlGrid = class extends DrawGrid {
     }
 
     _addDragControllers() {
+        // Bubble-phase controller: delivers key events to DesktopManager for actions
         this._eventKey = Gtk.EventControllerKey.new();
+        this._eventKey.set_propagation_phase(Gtk.PropagationPhase.BUBBLE);
         this._window.add_controller(this._eventKey);
+
+        // Capture-phase controller: only caches modifier state, does not invoke actions
+        this._eventKeyState = Gtk.EventControllerKey.new();
+        this._eventKeyState.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
+        this._window.add_controller(this._eventKeyState);
 
         this._eventKey.connect(
             'key-pressed',
             this._onKeyPress.bind(this)
+        );
+
+        this._eventKeyState.connect(
+            'key-pressed',
+            this._onModifierUpdate.bind(this)
+        );
+
+        this._eventKeyState.connect(
+            'key-released',
+            this._onModifierClear.bind(this)
         );
 
         this._eventMotion = Gtk.EventControllerMotion.new();
@@ -1370,6 +1387,14 @@ const ControlGrid = class extends DrawGrid {
             state,
             this
         );
+    }
+
+    _onModifierUpdate(_actor, _keyval, _keycode, state) {
+        this._desktopManager.updateModifierState(state);
+    }
+
+    _onModifierClear() {
+        this._desktopManager.clearModifierState();
     }
 
     _doGesturePress(actor, nPress, x, y) {

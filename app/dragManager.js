@@ -674,6 +674,7 @@ const DragManager = class {
     }
 
     selected(fileItem, action) {
+        this._clearKeyboardSelection();
         switch (action) {
         case this._Enums.Selection.ALONE:
             if (!fileItem.isSelected) {
@@ -714,6 +715,10 @@ const DragManager = class {
             }
             break;
         }
+    }
+
+    _clearKeyboardSelection() {
+        this._displayList.forEach(item => item.keyboardUnSelected());
     }
 
     // File Copy Move Link Methods
