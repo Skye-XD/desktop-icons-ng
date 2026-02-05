@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Adw, Gdk, Gio, GLib, GObject, Gtk} from '../dependencies/gi.js';
+import {Adw, Gdk, Gio, GLib, GObject, Gtk, Pango} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 import {DefaultShortcuts} from '../dependencies/localFiles.js';
 import {GlobalShortcuts} from '../dependencies/localFiles.js';
@@ -35,6 +35,12 @@ const DisplayShortcutRow = GObject.registerClass(
                 label: '',
                 xalign: 1,
                 css_classes: ['monospace'],
+                ellipsize: Pango.EllipsizeMode.END,
+                max_width_chars: 28,
+                width_chars: 16,
+                halign: Gtk.Align.END,
+                hexpand: false,
+                single_line_mode: true,
             });
             this.add_suffix(this.accelLabel);
             this.updateRow();
@@ -42,12 +48,19 @@ const DisplayShortcutRow = GObject.registerClass(
 
         updateRow() {
             const accels = this.readaccel(this.actionNamed);
+            let accelList = [];
+
+            if (Array.isArray(accels))
+                accelList = accels;
+            else if (typeof accels === 'string' && accels.length)
+                accelList = accels.split(',');
 
             this.accelText = _('None');
-            if (accels && accels.length)
-                this.accelText = accels.toString().replace(',', ', ');
+            if (accelList.length)
+                this.accelText = accelList.map(a => a.trim()).join(', ');
 
             this.accelLabel.set_label(this.accelText);
+            this.accelLabel.set_tooltip_text(this.accelText);
 
             this.description =
                 this._defaultShortcuts[this.actionNamed].Hint ||
@@ -533,20 +546,13 @@ const ShortcutManager = class {
     }
 
     readGlobalActionShortcut(actionName) {
-        let userShortcut =
-            this._desktopSettings.get_strv(actionName.toLowerCase());
-
-        userShortcut = userShortcut.length
-            ? userShortcut.toString().replace(',', ', ')
-            : _('None');
-
-        return userShortcut;
+        return this._desktopSettings.get_strv(actionName.toLowerCase());
     }
 
     writeGlobalActionShortcut(actionName, accel) {
         let accelArray = [];
 
-        if (accel.isArray)
+        if (Array.isArray(accel))
             accelArray = accel;
         else if (accel.length)
             accelArray = accel.split(',');
