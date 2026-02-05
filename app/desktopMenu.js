@@ -768,54 +768,47 @@ const DesktopActions = class {
         const keptSelection = previousSelection || [];
 
         if (shift && selected) {
-        // Shift: select the row/column band between old focus and new focus,
+        // Shift: select everything in the rectangle between anchor and new focus,
         // extending (not clearing) the existing selection.
-            const sRect = selected.iconRectangle;
+            const anchor = this.lastAnchorSelected &&
+                this._displayList.includes(this.lastAnchorSelected)
+                ? this.lastAnchorSelected
+                : selected;
+            const sRect = anchor.iconRectangle;
             const nRect = newItem.iconRectangle;
-            const sCenterX = sRect.x + sRect.width / 2;
-            const sCenterY = sRect.y + sRect.height / 2;
-            const nCenterX = nRect.x + nRect.width / 2;
-            const nCenterY = nRect.y + nRect.height / 2;
-
-            const primaryMin = Math.min(
-                index === 0 ? sCenterX : sCenterY,
-                index === 0 ? nCenterX : nCenterY
+            const minX = Math.min(sRect.x, nRect.x);
+            const maxX = Math.max(
+                sRect.x + sRect.width,
+                nRect.x + nRect.width
             );
-            const primaryMax = Math.max(
-                index === 0 ? sCenterX : sCenterY,
-                index === 0 ? nCenterX : nCenterY
+            const minY = Math.min(sRect.y, nRect.y);
+            const maxY = Math.max(
+                sRect.y + sRect.height,
+                nRect.y + nRect.height
             );
-
-            // How far off-row/column we still accept
-            // half icon size + grid spacing
-            const secondaryRef = index === 0 ? sCenterY : sCenterX;
-            const secondaryTol = Math.max(sRect.height, sRect.width) / 2 +
-                this._Enums.GRID_ELEMENT_SPACING;
 
             this._displayList.forEach(item => {
                 const rect = item.iconRectangle;
-                const cx = rect.x + rect.width / 2;
-                const cy = rect.y + rect.height / 2;
-                const primary = index === 0 ? cx : cy;
-                const secondary = index === 0 ? cy : cx;
+                const withinX = rect.x <= maxX && rect.x + rect.width >= minX;
+                const withinY = rect.y <= maxY && rect.y + rect.height >= minY;
 
-                const onBand = primary >= primaryMin && primary <= primaryMax;
-                const aligned =
-                    Math.abs(secondary - secondaryRef) <= secondaryTol;
-                
-                if (onBand && aligned)
+                if (withinX && withinY)
                     item.setSelected();
             });
 
             // Keep any prior selection intact
             keptSelection.forEach(item => item.setSelected());
             newItem.setSelected();
+            this.lastAnchorSelected = newItem;
         } else if (ctrl) {
             // Ctrl: do not alter existing selection
+            if (newItem.isSelected)
+                this.lastAnchorSelected = newItem;
         } else {
             // Default: move selection to the new item only
             this._desktopManager.unselectAll();
             newItem.setSelected();
+            this.lastAnchorSelected = newItem;
         }
 
         // Always keyboard-focus the new item
@@ -830,7 +823,6 @@ const DesktopActions = class {
     _setKeyboardSelected(fileItem) {
         this._displayList.forEach(f => f.keyboardUnSelected());
         fileItem.keyboardSelected();
-        this.lastAnchorSelected = fileItem;
     }
 
     _menuKeyPressed() {
