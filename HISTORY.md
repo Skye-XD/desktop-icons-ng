@@ -1,4 +1,14 @@
 # History of versions #
+* Adw Version 100.15 for Gnome 45, 46, 47, 48, 49
+  * Use GSK for drawing rectangles instead of old Cairo calls. Optimizes GPU use, minimize CPU use. (Sundeep Mediratta)
+  * Multiple misc code cleanups. (Sundeep Mediratta)
+  * Multiple fixes to widget positioning when clamped and otherwise from async races to wiget loadState(). (Sundeep Mediratta)
+  * Fix keyboard selection with shift/ctrl modifiers and remerge back into main. (Sundeep Mediratta)
+  * Fix overview animation, icons were being translated by margin, now they retain position. (Sundeep Mediratta)
+  * Prod widget to render on mapping/visibility changes. (Sundeep Mediratta)
+  * Weblate Translations. (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.14 for Gnome 45, 46, 47, 48, 49
   * Added html backend process that can run as user and communicate with html widget through the host, can be written in any language. Added comprehensive documentation for this feature.(Sundeep Mediratta)
   * Added backend process helper and widget helper classes that can be extended by widget authours to make writing widgets easier, they implement boilerplate communication code. (Sundeep Mediratta)
