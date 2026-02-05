@@ -77,10 +77,13 @@ const WidgetManager = class {
 
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
+        this._loadStatePromise = null;
+        this._pendingLoadState = null;
 
         this._addActions();
 
-        this.loadState(this._preferences.widgetState).catch(e => logError(e));
+        // loadState is handled during startup and by Preferences; avoid
+        // overlapping loads during construction.
     }
 
     clearFromGrids() {
@@ -565,6 +568,26 @@ const WidgetManager = class {
      * It also has to deal with null, undefined, or missing fields gracefully.
      */
     async loadState(state) {
+        if (this._loadStatePromise) {
+            this._pendingLoadState = state;
+            return this._loadStatePromise;
+        }
+
+        this._loadStatePromise = this._loadStateInner(state);
+
+        try {
+            await this._loadStatePromise;
+        } finally {
+            this._loadStatePromise = null;
+            if (this._pendingLoadState) {
+                const pending = this._pendingLoadState;
+                this._pendingLoadState = null;
+                await this.loadState(pending);
+            }
+        }
+    }
+
+    async _loadStateInner(state) {
         if (!state || typeof state !== 'object')
             return;
 
@@ -586,87 +609,109 @@ const WidgetManager = class {
         const prevSelection = this._selectedInstanceId;
 
         // Avoid emitting stateChanged while rebuilding from persisted state.
-        // Restore the previous suppression flag afterward.
+        // Only suppress around positioning, so we don't block saves for long
+        // async operations (e.g., consent prompts).
         const previousSuppressionState = this._suppressStateEvents;
-        this._suppressStateEvents = true;
 
-        const seen = new Set();
+        try {
+            const seen = new Set();
 
-        for (const instData of state.instances) {
-            if (!instData.instanceId || !instData.widgetId)
-                continue;
-
-            let instance = this._instances.get(instData.instanceId);
-
-            if (instance) {
-                instance.widgetId = instData.widgetId;
-                instance.monitorIndex = instData.monitorIndex ?? 0;
-                instance.kind = instData.kind ?? 'html';
-                instance.normX = instData.normX ?? 0;
-                instance.normY = instData.normY ?? 0;
-                instance.width = instData.width ?? 200;
-                instance.height = instData.height ?? 150;
-                instance.config = instData.config ?? {};
-                instance.prefsUri = instData.prefsUri ?? null;
-                instance.hasPreferences =
-                    instData.hasPreferences ?? !!instance.prefsUri;
-                instance.hasBackend = instData.hasBackend;
-                instance.webConsent = instData.webConsent ?? null;
-                instance.backendConsent = instData.backendConsent ?? null;
-            } else {
-                instance = {
-                    instanceId: instData.instanceId,
-                    widgetId: instData.widgetId,
-                    monitorIndex: instData.monitorIndex ?? 0,
-                    kind: instData.kind ?? 'html',
-                    normX: instData.normX ?? 0,
-                    normY: instData.normY ?? 0,
-                    width: instData.width ?? 200,
-                    height: instData.height ?? 150,
-                    actor: null,
-                    config: instData.config ?? {},
-                    prefsUri: instData.prefsUri ?? null,
-                    hasPreferences:
-                        instData.hasPreferences ?? !!instData.prefsUri,
-                    hasBackend: instData.hasBackend ?? false,
-                    webConsent: instData.webConsent ?? null,
-                    backendConsent: instData.backendConsent ?? null,
-                };
-
-                this._instances.set(instance.instanceId, instance);
-            }
-
-            seen.add(instance.instanceId);
-
-            const surface = this._surfaces.get(instance.monitorIndex);
-            if (surface) {
-                // eslint-disable-next-line no-await-in-loop
-                const created = await this._ensureInstanceActor(instance);
-
-                if (!created)
+            for (const instData of state.instances) {
+                if (!instData.instanceId || !instData.widgetId)
                     continue;
 
-                this._positionInstanceActor(instance);
+                try {
+                    let instance = this._instances.get(instData.instanceId);
+
+                    if (instance) {
+                        instance.widgetId = instData.widgetId;
+                        instance.monitorIndex = instData.monitorIndex ?? 0;
+                        instance.kind = instData.kind ?? 'html';
+                        instance.normX = instData.normX ?? 0;
+                        instance.normY = instData.normY ?? 0;
+                        instance.width = instData.width ?? 200;
+                        instance.height = instData.height ?? 150;
+                        instance.config = instData.config ?? {};
+                        instance.prefsUri = instData.prefsUri ?? null;
+                        instance.hasPreferences =
+                            instData.hasPreferences ?? !!instance.prefsUri;
+                        instance.hasBackend = instData.hasBackend;
+                        instance.webConsent = instData.webConsent ?? null;
+                        instance.backendConsent =
+                            instData.backendConsent ?? null;
+                    } else {
+                        instance = {
+                            instanceId: instData.instanceId,
+                            widgetId: instData.widgetId,
+                            monitorIndex: instData.monitorIndex ?? 0,
+                            kind: instData.kind ?? 'html',
+                            normX: instData.normX ?? 0,
+                            normY: instData.normY ?? 0,
+                            width: instData.width ?? 200,
+                            height: instData.height ?? 150,
+                            actor: null,
+                            config: instData.config ?? {},
+                            prefsUri: instData.prefsUri ?? null,
+                            hasPreferences:
+                                instData.hasPreferences ?? !!instData.prefsUri,
+                            hasBackend: instData.hasBackend ?? false,
+                            webConsent: instData.webConsent ?? null,
+                            backendConsent: instData.backendConsent ?? null,
+                        };
+
+                        this._instances.set(instance.instanceId, instance);
+                    }
+
+                    seen.add(instance.instanceId);
+
+                    const surface = this._surfaces.get(instance.monitorIndex);
+                    if (surface) {
+                        // eslint-disable-next-line no-await-in-loop
+                        const created =
+                            await this._ensureInstanceActor(instance);
+
+                        if (!created)
+                            continue;
+
+                        const prev = this._suppressStateEvents;
+                        this._suppressStateEvents = true;
+                        this._positionInstanceActor(instance);
+                        this._suppressStateEvents = prev;
+                    }
+                } catch (e) {
+                    console.error(
+                        'WidgetManager loadState failed for instance:',
+                        {
+                            instanceId: instData.instanceId,
+                            widgetId: instData.widgetId,
+                            monitorIndex: instData.monitorIndex,
+                            kind: instData.kind,
+                        },
+                        e
+                    );
+                }
             }
+
+            for (const instanceId of [...this._instances.keys()]) {
+                const instance = this._instances.get(instanceId);
+                if (instance?._isAddButton)
+                    continue;
+
+                if (seen.has(instanceId))
+                    continue;
+
+                this._removeActor(instanceId);
+            }
+
+            if (prevSelection && this._instances.has(prevSelection))
+                this.selectInstance(prevSelection);
+            else
+                this.selectInstance(null);
+        } catch (e) {
+            console.error('WidgetManager loadState failed:', e);
+        } finally {
+            this._suppressStateEvents = previousSuppressionState;
         }
-
-        for (const instanceId of [...this._instances.keys()]) {
-            const instance = this._instances.get(instanceId);
-            if (instance?._isAddButton)
-                continue;
-
-            if (seen.has(instanceId))
-                continue;
-
-            this._removeActor(instanceId);
-        }
-
-        if (prevSelection && this._instances.has(prevSelection))
-            this.selectInstance(prevSelection);
-        else
-            this.selectInstance(null);
-
-        this._suppressStateEvents = previousSuppressionState;
     }
 
     updateInstanceConfig(instanceId, newConfig) {
