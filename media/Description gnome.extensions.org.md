@@ -16,6 +16,9 @@ Translated using LibreTranslate, machine translation, not every string is verifi
 Corrections, verification of translated strings, and new translations are welcome, all translations are on Weblate. You can help translate Adw. Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
 
 Multiple fixes and new features-
+* Use GSK to draw instead of Cairo, optimizes GPU/CPU use.
+* Fixes to widget positioning, keyboard modifier selection of icons with arrow keys.
+* Fixes overview animation.
 * All widgets have been updaetd. Re-install from widgets folder on GitLab Website.
 * Widgets can now run backend processes for host side compute work. Added demo new metrics widget and Today(Calendar) view widget. Added helper classes for backend and widget for widget authors.
 * The program no explicitly asks for your permission prior to installing and running a widget and records this choice so you are not asked again.

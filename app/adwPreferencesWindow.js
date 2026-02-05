@@ -378,7 +378,13 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.14 for Gnome 45, 46, 47, 48, 49</p>
+            `<p>* Adw version 100.15 for Gnome 45, 46, 47, 48, 49</p>
+<ul><li>Uses GSK instead of Cairo to draw, optimizing GPU, minimizing CPU</li></ul>
+<ul><li>Fixes widget positioning and loadstate race</li></ul>
+<ul><li>Fixes widget visibility on mapping visibility changes</li></ul>
+<ul><li>Fixes icon selection with shift/ctrl and keyboard arrow navigation</li></ul>
+<ul><li>Fixes overrview animation</li></ul>
+            <p>* Adw version 100.14 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Adds html widgets that can launch and communicate with a local backend</li></ul>
 <ul><li>Reverts multiple selection with arrows as it breaks mouse drag and drop</li></ul>
 <ul><li>Added a Today(Calendar) widget and system Metrics widget for desktop</li></ul>

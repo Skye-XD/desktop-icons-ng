@@ -178,6 +178,9 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Added optional backend process for html widgets that can run as user and query system internsal, communicate with the widget.
 
+- [x] Draw with GSK instead of Cairo for selection and other rectangles, optimize GPU vs CPU use.
+
+- [x] Code clean up.
 
 **FIXES**
 
@@ -358,3 +361,9 @@ The application functionality and behavior is consistent with the two other very
 - [x] Improve icon and emblem rendering code- simplify
 
 - [x] Add .desktop file template to properly to generate translated .desktop file on meson install
+
+- [x] Fix widget positioning and multiple aysnc calls to loadWidgetState().
+
+- [x] Fix keyboard selection of icons with shift and control keys.
+
+- [x] Fix overview animation
