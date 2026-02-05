@@ -810,9 +810,7 @@ const DesktopActions = class {
             keptSelection.forEach(item => item.setSelected());
             newItem.setSelected();
         } else if (ctrl) {
-            // Ctrl: do not alter existing selection;
-            // ensure new item is unselected
-            newItem.unsetSelected();
+            // Ctrl: do not alter existing selection
         } else {
             // Default: move selection to the new item only
             this._desktopManager.unselectAll();
