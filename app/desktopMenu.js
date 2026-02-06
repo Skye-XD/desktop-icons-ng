@@ -688,7 +688,7 @@ const DesktopActions = class {
             this._setKeyboardSelected(selection[0]);
 
         let selected = this.keyboardSelected;
-        
+
         if (!selected)
             return false;
 
@@ -755,7 +755,7 @@ const DesktopActions = class {
             // Wrap candidate: farthest in the opposite direction,
             // with row/col bias.
             if (wrapExtreme === null ||
-                (multiplier > 0 
+                (multiplier > 0
                     ? primary < wrapExtreme
                     : primary > wrapExtreme
                 ) ||
@@ -841,11 +841,10 @@ const DesktopActions = class {
         if (!item)
             return;
 
-        if (item.isSelected) {
+        if (item.isSelected)
             item.unsetSelected();
-        } else {
+        else
             item.setSelected();
-        }
     }
 
     _setKeyboardSelected(fileItem) {
@@ -879,7 +878,6 @@ const DesktopActions = class {
             );
         }
     }
-
 
     async _newDocument(template) {
         if (!template)

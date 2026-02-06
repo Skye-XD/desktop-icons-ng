@@ -539,6 +539,12 @@ const DesktopIconItem = class {
             .includes('desktop-icons-selected')
         )
             this._labelContainer.add_css_class('desktop-icons-selected');
+
+        if (!this.container
+            .get_css_classes()
+            .includes('desktop-icons-selected')
+        )
+            this.container.add_css_class('desktop-icons-selected');
     }
 
     setUnHighLighted() {
@@ -553,6 +559,12 @@ const DesktopIconItem = class {
             .includes('desktop-icons-selected')
         )
             this._labelContainer.remove_css_class('desktop-icons-selected');
+
+        if (this.container
+            .get_css_classes()
+            .includes('desktop-icons-selected')
+        )
+            this.container.remove_css_class('desktop-icons-selected');
     }
 
     highLightDropTarget() {
