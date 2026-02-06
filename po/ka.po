@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 09:06-0500\n"
-"PO-Revision-Date: 2026-01-12 12:02+0000\n"
+"PO-Revision-Date: 2026-02-06 19:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ka/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -401,7 +401,7 @@ msgstr ""
 
 #: app/autoAr.js:207
 msgid "Extracting files"
-msgstr ""
+msgstr "ფაილების გაშლა"
 
 #: app/autoAr.js:224
 msgid "Compressing files"
@@ -967,7 +967,7 @@ msgstr "გამოღება"
 
 #: app/fileItemMenu.js:348
 msgid "Unmount"
-msgstr ""
+msgstr "მიბმის გათიშვა"
 
 #: app/fileItemMenu.js:354
 msgid "Common Properties"
