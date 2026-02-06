@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 09:06-0500\n"
-"PO-Revision-Date: 2026-01-12 12:01+0000\n"
+"PO-Revision-Date: 2026-02-06 19:01+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Occitan <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/oc/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1327,9 +1327,8 @@ msgid "Home"
 msgstr "Dossièr personal"
 
 #: app/specialFolderIcon.js:63
-#, fuzzy
 msgid "Trash"
-msgstr "Voidar l'escobilièr"
+msgstr "Bordilhièr"
 
 #. * TRANSLATORS: when using a screen reader,
 #. * this is the text read when a stack is
