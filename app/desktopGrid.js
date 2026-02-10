@@ -46,6 +46,7 @@ const DisplayGrid = class {
         this._desktopIndex = desktopIndex;
         this._asDesktop = asDesktop;
         this._desktopDescription = desktopDescription;
+        this._hidden = hidden;
         this._using_X11 = this.DesktopIconsUtil.usingX11();
         this.directoryOpenTimer = null;
         this.windowGlobalRectangle = new Gdk.Rectangle();
@@ -69,22 +70,38 @@ const DisplayGrid = class {
         if (this._asDesktop) {
             this._window.set_decorated(false);
             this._window.set_deletable(false);
+            this._window.set_resizable(false);
 
             // Transparent Background only if this is working as a desktop
             this._window.set_name('desktopwindow');
+
+            this._window
+                .set_default_size(this._windowWidth, this._windowHeight);
+
+            this._window
+                .set_size_request(this._windowWidth, this._windowHeight);
+
+            this._mappedPromise =
+                new Promise(resolve => (this._resolveMapped = resolve));
 
             if (!this._using_X11) {
                 // Wayland Compositer hang on some high resolution
                 // requires all windows be maximized to map and display
                 // initially.
                 this._window.maximize();
+            }
 
+            this._window.connect('map', () => {
+                if (!this._resolveMapped)
+                    return;
+                this._resolveMapped(true);
+                this._resolveMapped = null;
                 // However this creates an error where the window can
                 // be moved by the user by dragging down on top panel.
                 // So we unmaximize all windows after they are mapped
                 //  as maximization is not needed anymore.
-                this._window.connect('map', () => this._window.unmaximize());
-            }
+                this._window.unmaximize();
+            });
         } else {
             // Opaque black test window
             this._window.set_name('testwindow');
@@ -101,8 +118,6 @@ const DisplayGrid = class {
         this._window.connect('notify::css_classes', () => {
             this._window.set_css_classes(['background']);
         });
-
-        this._window.set_resizable(false);
 
         this._window.connect(
             'close-request',
@@ -125,16 +140,19 @@ const DisplayGrid = class {
 
         // New: one fixed root that contains both layers
         this._rootFixed = new Gtk.Fixed();
+        this._rootFixed.set_size_request(this._windowWidth, this._windowHeight);
 
         this._container = new Gtk.Fixed();
         this._containerContext = this._container.get_style_context();
+        this._container.set_size_request(this._windowWidth, this._windowHeight);
         this._containerContext.add_class('unhighlightdroptarget');
-        this._sizeContainer(this._container);
 
         // icon grid goes in rootFixed
         this._rootFixed.put(this._container, 0, 0);
 
         this._overlay = new Gtk.Overlay();
+        this._overlay.set_hexpand(true);
+        this._overlay.set_vexpand(true);
         this._overlay.set_child(this._rootFixed);
         if (this._asDesktop) {
             this._window.set_content(this._overlay);
@@ -144,19 +162,20 @@ const DisplayGrid = class {
         }
 
         this.gridGlobalRectangle = new Gdk.Rectangle();
-
         this._selectedList = null;
-
         this._setGridStatus();
 
-        if (!hidden)
-            this._window.show();
-        else
-            this._window.hide();
-
-        this._window.set_size_request(this._windowWidth, this._windowHeight);
-
         this._updateGridRectangle();
+    }
+
+    ensureMapped() {
+        // show/present only here after the window is fully set up to
+        // avoid flickers and wrong geometry when working as desktop
+        // and to avoit commiting content too early so that the shell
+        // errors on empty content.
+        this._window.set_visible(!this._hidden);
+        this._window.present(); // or set_visible(true)
+        return this._mappedPromise;
     }
 
     setErrorState() {
