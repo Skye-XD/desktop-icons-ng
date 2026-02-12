@@ -6,13 +6,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2023, 2024, 2025, 2026.
 # LibreTranslate <noreply-mt-libretranslate@weblate.org>, 2023, 2024, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Arif Budiman <arifpedia@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 09:06-0500\n"
-"PO-Revision-Date: 2026-01-12 12:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-02-10 16:09+0000\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/id/>\n"
 "Language: id\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -28,23 +29,24 @@ msgstr "Menimpa"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Sesuaikan tampilan ikon desktop dengan CSS"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
 msgstr ""
+"Peringatan: Ini dapat merusak ekstensi jika dilakukan dengan tidak benar"
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "Edit Berkas Penggantian CSS..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "Terapkan Perubahan CSS Sekarang"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
-msgstr ""
+msgstr "Muat ulang CSS untuk menerapkan perubahan segera"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:248 data/com.desktop.ding.desktop.in:29
@@ -369,6 +371,7 @@ msgstr "Galat mengubah aplikasi baku"
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
+"Kesalahan saat menetapkan {foo} sebagai aplikasi bawaan untuk {mimetype}"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -1502,7 +1505,7 @@ msgstr "Pratilik"
 
 #: app/shortcuts.js:34
 msgid "Toggle Widget Layer"
-msgstr ""
+msgstr "Alihkan Lapisan Widget"
 
 #: app/shortcuts.js:35 app/widgetManager.js:1048
 msgid "Add Widget"
@@ -1602,7 +1605,7 @@ msgstr "Tidak dapat membuka berkas ini karena ini adalah Symlink Broken"
 # MT: LibreTranslate
 #: app/volumeIcon.js:58
 msgid "Drive"
-msgstr "Kandar"
+msgstr "Drive"
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1396
@@ -1612,11 +1615,11 @@ msgstr "Preferensi"
 
 #: app/widgetManager.js:1780
 msgid "HTML widget"
-msgstr ""
+msgstr "Widget HTML"
 
 #: app/widgetManager.js:1782
 msgid "GTK widget"
-msgstr ""
+msgstr "Widget GTK"
 
 #: app/widgetManager.js:1791
 msgid "User"
@@ -1640,6 +1643,13 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"Widget berjalan dalam lingkungan web yang disandbox secara ketat.\n"
+"\n"
+"- Tidak ada skrip atau bingkai eksternal yang diizinkan.\n"
+"-  Akses jaringan dibatasi pada permintaan aman (HTTPS).\n"
+"-  Hanya berkas milik widget sendiri dan kode inline yang boleh berjalan.\n"
+"\n"
+"Ini adalah opsi paling aman dan direkomendasikan untuk sebagian besar widget."
 
 #: app/widgetManager.js:1913
 msgid "Relaxed"
@@ -1655,6 +1665,13 @@ msgid ""
 "\n"
 "Use this only for widgets you trust."
 msgstr ""
+"Widget diizinkan memiliki kemampuan web yang lebih luas.\n"
+"\n"
+"-  Skrip, gaya, gambar, dan bingkai eksternal dari situs web tepercaya dapat "
+"dimuat.\n"
+"-  Akses jaringan melalui HTTPS, WebSockets, dan aliran media diizinkan.\n"
+"\n"
+"Gunakan ini hanya untuk widget yang Anda percayai."
 
 #: app/widgetManager.js:1925
 msgid "Development"
@@ -1669,6 +1686,12 @@ msgid ""
 "\n"
 "This mode is intended for development and debugging only."
 msgstr ""
+"Widget berjalan dengan akses web yang ramah pengembangan.\n"
+"\n"
+"-  Koneksi ke server pengembangan lokal (localhost) diizinkan.\n"
+"-  Akses HTTP dan WebSocket dapat diizinkan untuk pengujian.\n"
+"\n"
+"Mode ini dimaksudkan hanya untuk pengembangan dan debugging."
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1936
@@ -1681,10 +1704,14 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
+"Widget berjalan dengan kebijakan keamanan web yang telah ditentukan "
+"sebelumnya.\n"
+"\n"
+"Akses dan kemampuan web dibatasi sesuai kebijakan yang aktif."
 
 #: app/widgetManager.js:1946
 msgid "Allow web content for {widgetId}?"
-msgstr ""
+msgstr "Izinkan konten web untuk {widgetId}?"
 
 #. eslint-disable-next-line prefer-template
 #: app/widgetManager.js:1951
@@ -1692,24 +1719,32 @@ msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
+"Widget yang Anda tambahkan dapat memuat konten web dari internet.\n"
+"\n"
 
 #: app/widgetManager.js:1952
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
+"Konten ini tunduk pada kebijakan keamanan widget:\n"
+"\n"
 
 #: app/widgetManager.js:1981
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
+"Widget ini, {widgetId} menjalankan proses latar belakang di komputer Anda.\n"
+"\n"
 
 #: app/widgetManager.js:1983
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
+"Backend berjalan dengan izin pengguna normal Anda, sama seperti aplikasi "
+"lain yang Anda jalankan.\n"
 
 #: app/widgetManager.js:1984
 msgid ""
@@ -1717,6 +1752,9 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
+"Backend dapat mengakses berkas Anda, sumber daya sistem, dan jaringan sesuai "
+"izin akun pengguna Anda.\n"
+"\n"
 
 #: app/widgetManager.js:1985
 msgid "Command:\n"
@@ -1724,11 +1762,11 @@ msgstr "Perintah:\n"
 
 #: app/widgetManager.js:1986
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
+msgstr "Hanya izinkan ini untuk widget yang benar-benar Anda percayai."
 
 #: app/widgetManager.js:1989
 msgid "Allow widget backend?"
-msgstr ""
+msgstr "Izinkan backend widget?"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
@@ -2001,7 +2039,7 @@ msgstr "Widget desktop"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"
-msgstr ""
+msgstr "Menampilkan Widget pada lapisan di bawah ikon jika terpasang"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:115
