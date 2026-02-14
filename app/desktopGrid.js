@@ -1164,13 +1164,21 @@ class GridOverlay extends Gtk.Widget {
     }
 
     vfunc_snapshot(snapshot) {
-        const a = this.get_allocated_width();
-        const b = this.get_allocated_height();
+        const w = this.get_allocated_width();
+        const h = this.get_allocated_height();
 
-        if (a <= 0 || b <= 0)
+        if (w <= 0 || h <= 0)
             return;
 
         this._grid._doDrawOnGrid(snapshot);
+
+        // Ensure this widget contributes a node so the frame overwrites stale content.
+        const rect = new Graphene.Rect();
+        rect.init(0, 0, 1, 1);
+        snapshot.append_color(
+            new Gdk.RGBA({ red: 0, green: 0, blue: 0, alpha: 0.001 }),
+            rect
+        );
     }
 });
 
