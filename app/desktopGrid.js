@@ -46,6 +46,7 @@ const DisplayGrid = class {
         this._desktopIndex = desktopIndex;
         this._asDesktop = asDesktop;
         this._desktopDescription = desktopDescription;
+        this._hidden = hidden;
         this._using_X11 = this.DesktopIconsUtil.usingX11();
         this.directoryOpenTimer = null;
         this.windowGlobalRectangle = new Gdk.Rectangle();
@@ -54,7 +55,7 @@ const DisplayGrid = class {
         this._createGrids();
 
         this._window =
-            new Adw.ApplicationWindow(
+            new Gtk.ApplicationWindow(
                 {
                     application: desktopManager.mainApp,
                     'title': desktopName,
@@ -69,31 +70,41 @@ const DisplayGrid = class {
         if (this._asDesktop) {
             this._window.set_decorated(false);
             this._window.set_deletable(false);
+            this._window.set_resizable(false);
 
             // Transparent Background only if this is working as a desktop
             this._window.set_name('desktopwindow');
+
+            this._window
+                .set_default_size(this._windowWidth, this._windowHeight);
+
+            this._window
+                .set_size_request(this._windowWidth, this._windowHeight);
+
+            this._mappedPromise =
+                new Promise(resolve => (this._resolveMapped = resolve));
 
             if (!this._using_X11) {
                 // Wayland Compositer hang on some high resolution
                 // requires all windows be maximized to map and display
                 // initially.
                 this._window.maximize();
+            }
 
-                // However this creates an error where the window can
+            this._window.connect('map', () => {
+                if (!this._resolveMapped)
+                    return;
+                this._resolveMapped(true);
+                this._resolveMapped = null;
+                // Maximize however creates an error where the window can
                 // be moved by the user by dragging down on top panel.
                 // So we unmaximize all windows after they are mapped
-                //  as maximization is not needed anymore.
-                this._window.connect('map', () => this._window.unmaximize());
-            }
+                // as maximization is not needed anymore.
+                this._window.unmaximize();
+            });
         } else {
             // Opaque black test window
             this._window.set_name('testwindow');
-            const headerBar = Adw.HeaderBar.new();
-            const headerTitle = Adw.WindowTitle.new('DING Test Window', '');
-            headerBar.set_title_widget(headerTitle);
-            headerBar.set_show_end_title_buttons(true);
-            this.testbox = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0);
-            this.testbox.append(headerBar);
         }
 
         // Remove any other css classes, even if applied by other apps later
@@ -101,8 +112,6 @@ const DisplayGrid = class {
         this._window.connect('notify::css_classes', () => {
             this._window.set_css_classes(['background']);
         });
-
-        this._window.set_resizable(false);
 
         this._window.connect(
             'close-request',
@@ -125,38 +134,87 @@ const DisplayGrid = class {
 
         // New: one fixed root that contains both layers
         this._rootFixed = new Gtk.Fixed();
+        this._rootFixed.set_size_request(this._windowWidth, this._windowHeight);
 
         this._container = new Gtk.Fixed();
         this._containerContext = this._container.get_style_context();
+        this._container.set_size_request(this._windowWidth, this._windowHeight);
         this._containerContext.add_class('unhighlightdroptarget');
-        this._sizeContainer(this._container);
 
         // icon grid goes in rootFixed
         this._rootFixed.put(this._container, 0, 0);
 
         this._overlay = new Gtk.Overlay();
+        this._overlay.set_hexpand(true);
+        this._overlay.set_vexpand(true);
         this._overlay.set_child(this._rootFixed);
-        if (this._asDesktop) {
-            this._window.set_content(this._overlay);
-        } else {
-            this.testbox.append(this._overlay);
-            this._window.set_content(this.testbox);
-        }
+
+        this._window.set_child(this._overlay);
 
         this.gridGlobalRectangle = new Gdk.Rectangle();
-
         this._selectedList = null;
-
         this._setGridStatus();
 
-        if (!hidden)
-            this._window.show();
-        else
-            this._window.hide();
-
-        this._window.set_size_request(this._windowWidth, this._windowHeight);
-
         this._updateGridRectangle();
+    }
+
+    ensureMapped() {
+        // show/present only here after the window is fully set up to
+        // and to avoit commiting content too early so that the shell
+        // errors on commiting first frame before acknowleding ack from wayland
+        // compositor.
+        this._window.set_visible(!this._hidden);
+        this._window.present();
+        return this._mappedPromise;
+    }
+
+    ensureAllocationComplete() {
+        if (this._allocPromise)
+            return this._allocPromise;
+
+        const w = this._container;
+
+        this._allocPromise = new Promise(resolve => {
+            let tickId = 0;
+            let stableFrames = 0;
+
+            const cleanup = () => {
+                if (tickId)
+                    w.remove_tick_callback(tickId);
+                this._allocPromise = null;
+            };
+
+            const isAllocated = () => {
+                const aw = w.get_allocated_width();
+                const ah = w.get_allocated_height();
+                return aw > 0 && ah > 0;
+            };
+
+            if (isAllocated()) {
+                this._overlay.queue_draw();
+                resolve();
+                cleanup();
+                return;
+            }
+
+            tickId = w.add_tick_callback(() => {
+                if (isAllocated())
+                    stableFrames++;
+                else
+                    stableFrames = 0;
+
+                if (stableFrames >= 2) {
+                    cleanup();
+                    this._overlay.queue_draw();
+                    resolve();
+                    return GLib.SOURCE_REMOVE;
+                }
+
+                return GLib.SOURCE_CONTINUE;
+            });
+        });
+
+        return this._allocPromise;
     }
 
     setErrorState() {
@@ -178,6 +236,12 @@ const DisplayGrid = class {
     show() {
         this._window.present();
         this._hidden = false;
+    }
+
+    queue_draw() {
+        this._container.queue_draw();
+        this._overlay.queue_draw();
+        this._window.queue_draw();
     }
 
     // Establish and update window geometry, establish and update
@@ -1100,6 +1164,12 @@ class GridOverlay extends Gtk.Widget {
     }
 
     vfunc_snapshot(snapshot) {
+        const a = this.get_allocated_width();
+        const b = this.get_allocated_height();
+
+        if (a <= 0 || b <= 0)
+            return;
+
         this._grid._doDrawOnGrid(snapshot);
     }
 });

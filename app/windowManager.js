@@ -44,6 +44,8 @@ const WindowManager = class {
         this._priorPrimaryMonitorIndex = null;
         this._differentZooms = false;
         this._hidden = false;
+        this._gridWindowsUpdateInProgress = false;
+        this._pendingDesktopList = null;
 
         this._registerWidgetLayerAction();
         this._dbusAdvertiseUpdate();
@@ -103,6 +105,11 @@ const WindowManager = class {
     }
 
     async updateGridWindows(newdesktoplist) {
+        if (this._gridWindowsUpdateInProgress) {
+            this._pendingDesktopList = newdesktoplist;
+            return;
+        }
+
         const changeInfo =
             this._computeDesktopChangeInfo(newdesktoplist);
 
@@ -118,7 +125,7 @@ const WindowManager = class {
 
         // Allow initial startup if no desktops defined on initiation
         if (firstDesktop) {
-            this._handleFirstDesktop();
+            await this._handleFirstDesktop();
             return;
         }
 
@@ -140,26 +147,41 @@ const WindowManager = class {
         }
     }
 
-    _handleFirstDesktop() {
+    async _handleFirstDesktop() {
         this._desktopManager.clearAllLayersFromGrids();
-        this.createGridWindows();
+        await this.createGridWindows();
 
         // sanity checks and icons placement on grid will be done by
         // desktopManager in sync startup
     }
 
     async _handleMonitorCountChange() {
+        this._gridWindowsUpdateInProgress = true;
         // monitor has been plugged in or removed.
         this._desktopManager.clearAllLayersFromGrids();
-        this.createGridWindows();
+        await this.createGridWindows();
 
-        // If valid fileList is available, no change in fileList
-        // recompute position of all icons for new geometry
         await this._desktopManager.applyDesktopLayoutChange({
             redisplay: true,
             monitorschanged: true,
             gridschanged: true,
         });
+
+        this._gridWindowsUpdateInProgress = false;
+        await this._drainPendingUpdates();
+    }
+
+    async _drainPendingUpdates() {
+        if (this._gridWindowsUpdateInProgress)
+            return;
+
+        const next = this._pendingDesktopList;
+        this._pendingDesktopList = null;
+
+        if (next != null)
+            await this.updateGridWindows(next);
+
+        this.queue_draw();
     }
 
     async _handleRedisplay({
@@ -172,6 +194,7 @@ const WindowManager = class {
         if (!redisplay)
             return;
 
+        this._gridWindowsUpdateInProgress = true;
         await this._displayDesktopSnapShots();
         this._desktopManager.clearAllLayersFromGrids();
 
@@ -207,7 +230,13 @@ const WindowManager = class {
             gridschanged,
         });
 
+        // animate to the new margins and positions
+        // force a queue draw of all windows now that we have drawn the desktop,
+        // and poke mutter to map the meta window.
         this._displayAnimationToLive();
+
+        this._gridWindowsUpdateInProgress = false;
+        await this._drainPendingUpdates();
     }
 
 
@@ -346,7 +375,7 @@ const WindowManager = class {
         this._desktops.forEach(d => d.requestAnimatedRelayout());
     }
 
-    createGridWindows() {
+    async createGridWindows() {
         // Allow startup with no desktops from constructor
         // even if no desktops are defined when started by the extension
         // desktops can be defined later from updateGridWindows(), dbus
@@ -378,6 +407,32 @@ const WindowManager = class {
             );
         });
 
+        const displayPromises =
+            this._desktops.map(desktop => desktop.ensureMapped());
+
+        const allocatedPromises =
+            this._desktops.map(d => d.ensureAllocationComplete());
+
+        let safegaurd;
+        try {
+            safegaurd = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 2000,
+                () => {
+                    throw new Error(
+                        'Timeout while waiting for desktop windows to map'
+                    );
+                }
+            );
+            await Promise.all(displayPromises);
+            await Promise.all(allocatedPromises);
+        } catch (e) {
+            logError(e);
+            // if the windows fail to map, we should still proceed
+            // and poke the desktop windows later.
+            this.show();
+        }
+        if (safegaurd)
+            GLib.source_remove(safegaurd);
+
         if (this._desktopManager.windowsPromiseResolve)
             this._desktopManager.windowsPromiseResolve(true);
     }
@@ -388,8 +443,15 @@ const WindowManager = class {
     }
 
     show() {
-        this._desktops.forEach(desktop => desktop.show());
         this._hidden = false;
+        this._desktops.forEach(desktop => {
+            desktop.show();
+            desktop.set_visible(true);
+        });
+    }
+
+    queue_draw() {
+        this._desktops.forEach(desktop => desktop.queue_draw());
     }
 
     toggleVisibility() {
