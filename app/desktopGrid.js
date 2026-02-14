@@ -55,7 +55,7 @@ const DisplayGrid = class {
         this._createGrids();
 
         this._window =
-            new Adw.ApplicationWindow(
+            new Gtk.ApplicationWindow(
                 {
                     application: desktopManager.mainApp,
                     'title': desktopName,
@@ -96,21 +96,15 @@ const DisplayGrid = class {
                     return;
                 this._resolveMapped(true);
                 this._resolveMapped = null;
-                // However this creates an error where the window can
+                // Maximize however creates an error where the window can
                 // be moved by the user by dragging down on top panel.
                 // So we unmaximize all windows after they are mapped
-                //  as maximization is not needed anymore.
+                // as maximization is not needed anymore.
                 this._window.unmaximize();
             });
         } else {
             // Opaque black test window
             this._window.set_name('testwindow');
-            const headerBar = Adw.HeaderBar.new();
-            const headerTitle = Adw.WindowTitle.new('DING Test Window', '');
-            headerBar.set_title_widget(headerTitle);
-            headerBar.set_show_end_title_buttons(true);
-            this.testbox = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0);
-            this.testbox.append(headerBar);
         }
 
         // Remove any other css classes, even if applied by other apps later
@@ -154,12 +148,8 @@ const DisplayGrid = class {
         this._overlay.set_hexpand(true);
         this._overlay.set_vexpand(true);
         this._overlay.set_child(this._rootFixed);
-        if (this._asDesktop) {
-            this._window.set_content(this._overlay);
-        } else {
-            this.testbox.append(this._overlay);
-            this._window.set_content(this.testbox);
-        }
+
+        this._window.set_child(this._overlay);
 
         this.gridGlobalRectangle = new Gdk.Rectangle();
         this._selectedList = null;
