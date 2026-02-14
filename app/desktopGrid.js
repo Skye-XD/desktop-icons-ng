@@ -1176,7 +1176,7 @@ class GridOverlay extends Gtk.Widget {
         const rect = new Graphene.Rect();
         rect.init(0, 0, 1, 1);
         snapshot.append_color(
-            new Gdk.RGBA({ red: 0, green: 0, blue: 0, alpha: 0.001 }),
+            new Gdk.RGBA({red: 0, green: 0, blue: 0, alpha: 0.001}),
             rect
         );
     }
