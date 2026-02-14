@@ -160,12 +160,61 @@ const DisplayGrid = class {
 
     ensureMapped() {
         // show/present only here after the window is fully set up to
-        // avoid flickers and wrong geometry when working as desktop
         // and to avoit commiting content too early so that the shell
-        // errors on empty content.
+        // errors on commiting first frame before acknowleding ack from wayland
+        // compositor.
         this._window.set_visible(!this._hidden);
-        this._window.present(); // or set_visible(true)
+        this._window.present();
         return this._mappedPromise;
+    }
+
+    ensureAllocationComplete() {
+        if (this._allocPromise)
+            return this._allocPromise;
+
+        const w = this._container;
+
+        this._allocPromise = new Promise(resolve => {
+            let tickId = 0;
+            let stableFrames = 0;
+
+            const cleanup = () => {
+                if (tickId)
+                    w.remove_tick_callback(tickId);
+                this._allocPromise = null;
+            };
+
+            const isAllocated = () => {
+                const aw = w.get_allocated_width();
+                const ah = w.get_allocated_height();
+                return aw > 0 && ah > 0;
+            };
+
+            if (isAllocated()) {
+                this._overlay.queue_draw();
+                resolve();
+                cleanup();
+                return;
+            }
+
+            tickId = w.add_tick_callback(() => {
+                if (isAllocated())
+                    stableFrames++;
+                else
+                    stableFrames = 0;
+
+                if (stableFrames >= 2) {
+                    cleanup();
+                    this._overlay.queue_draw();
+                    resolve();
+                    return GLib.SOURCE_REMOVE;
+                }
+
+                return GLib.SOURCE_CONTINUE;
+            });
+        });
+
+        return this._allocPromise;
     }
 
     setErrorState() {
@@ -187,6 +236,12 @@ const DisplayGrid = class {
     show() {
         this._window.present();
         this._hidden = false;
+    }
+
+    queue_draw() {
+        this._container.queue_draw();
+        this._overlay.queue_draw();
+        this._window.queue_draw();
     }
 
     // Establish and update window geometry, establish and update
@@ -1109,6 +1164,12 @@ class GridOverlay extends Gtk.Widget {
     }
 
     vfunc_snapshot(snapshot) {
+        const a = this.get_allocated_width();
+        const b = this.get_allocated_height();
+
+        if (a <= 0 || b <= 0)
+            return;
+
         this._grid._doDrawOnGrid(snapshot);
     }
 });
