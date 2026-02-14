@@ -117,7 +117,7 @@ const DesktopManager = class {
         // First create and make sure windows are created
         const windowscreated = new Promise(resolve => {
             this.windowsPromiseResolve = resolve;
-            this.windowManager.createGridWindows();
+            this.windowManager.createGridWindows().catch(e => logError(e));
             // If this desktop List is null, ask for a new one
             this.windowManager.requestGeometryUpdate();
         });
@@ -151,6 +151,10 @@ const DesktopManager = class {
         // normalized coordinates and monitor information.
 
         this._startWidgetDisplay();
+
+        // force a queue draw of all windows now that we have drawn the desktop,
+        // and poke mutter to map the meta window.
+        this.windowManager.queue_draw();
     }
 
     async _performSanityChecks() {
