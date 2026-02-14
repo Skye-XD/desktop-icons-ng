@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 09:06-0500\n"
-"PO-Revision-Date: 2026-01-12 12:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-02-14 10:09+0000\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -724,8 +724,8 @@ msgid ""
 msgstr ""
 "La carpeta de escritorio {desktop} no existe, o no es un directorio\n"
 "\n"
-"Compruebe su instalación de xdg-utils y establecer la carpeta de\n"
-"escritorio correcta"
+"Compruebe su instalación de xdg-utils y establecer la Carpeta de\n"
+"Escritorio correcta"
 
 #: app/desktopManager.js:225
 msgid "GNOME Files not found"
@@ -758,9 +758,9 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"¡La aplicación Gnome Files no está programada para abrir carpetas!\n"
+"¡La aplicación GNOME Files no está programada para abrir carpetas!\n"
 "Compruebe su instalación de xdg-utils\n"
-"Compruebe la instalación del Archivo .desktop de Gnome Files"
+"Compruebe la instalación del Archivo .desktop de GNOME Files"
 
 #: app/desktopManager.js:352
 msgid "Clear current selection before new search"
@@ -1525,6 +1525,13 @@ msgid ""
 "\n"
 "This is the safest option and is recommended for most widgets."
 msgstr ""
+"El widget se ejecuta en un entorno web estrictamente aislado.\n"
+"\n"
+"• No se permiten scripts ni marcos externos.\n"
+"• El acceso a la red está limitado a solicitudes seguras (HTTPS).\n"
+"• Solo se pueden ejecutar los archivos y el código en línea del widget.\n"
+"\n"
+"Esta es la opción más segura y se recomienda para la mayoría de los widgets."
 
 #: app/widgetManager.js:1913
 msgid "Relaxed"
@@ -1540,6 +1547,14 @@ msgid ""
 "\n"
 "Use this only for widgets you trust."
 msgstr ""
+"El widget permite capacidades web más amplias.\n"
+"\n"
+"• Es posible que se carguen scripts, estilos, imágenes y marcos externos de "
+"sitios web confiables.\n"
+"• Se permite el acceso a la red a través de HTTPS, WebSockets y "
+"transmisiones multimedia.\n"
+"\n"
+"Solo utilice esto para los widgets que confíe."
 
 #: app/widgetManager.js:1925
 msgid "Development"
@@ -1554,6 +1569,12 @@ msgid ""
 "\n"
 "This mode is intended for development and debugging only."
 msgstr ""
+"El widget funciona con acceso web fácil de usar para desarrollo.\n"
+"\n"
+"• Se permiten conexiones a servidores de desarrollo locales (localhost).\n"
+"• Se puede permitir el acceso HTTP y WebSocket para pruebas.\n"
+"\n"
+"Este modo está diseñado exclusivamente para desarrollo y depuración."
 
 # MT: LibreTranslate
 #: app/widgetManager.js:1936
@@ -1566,10 +1587,13 @@ msgid ""
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
+"El widget se ejecuta con una directiva de seguridad web predefinida.\n"
+"\n"
+"El acceso y las funciones web están restringidos según la directiva activa."
 
 #: app/widgetManager.js:1946
 msgid "Allow web content for {widgetId}?"
-msgstr ""
+msgstr "¿Conceder contenido web para {widgetld}?"
 
 #. eslint-disable-next-line prefer-template
 #: app/widgetManager.js:1951
@@ -1577,24 +1601,33 @@ msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
+"El widget que está añadiendo puede cargar el contenido de la web desde red "
+"interna.\n"
+"\n"
 
 #: app/widgetManager.js:1952
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
+"Este contenido es asunto para la normativa de seguridad del widget:\n"
+"\n"
 
 #: app/widgetManager.js:1981
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
+"Este widget, {widget} se ejecuta en proceso de segundo plano en su equipo.\n"
+"\n"
 
 #: app/widgetManager.js:1983
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
+"El backend se ejecuta con sus permisos de usuario usual, como si cualquiera "
+"de las otras aplicaciones que arranque.\n"
 
 #: app/widgetManager.js:1984
 msgid ""
@@ -1602,6 +1635,9 @@ msgid ""
 "your user account permissions.\n"
 "\n"
 msgstr ""
+"Puede acceder a sus archivos, recursos del sistema, y la red según a sus "
+"permisos de cuenta de usuario.\n"
+"\n"
 
 #: app/widgetManager.js:1985
 msgid "Command:\n"
@@ -1609,11 +1645,11 @@ msgstr "Orden:\n"
 
 #: app/widgetManager.js:1986
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
+msgstr "Solamente concede esto para widgets de confianza implícita."
 
 #: app/widgetManager.js:1989
 msgid "Allow widget backend?"
-msgstr ""
+msgstr "¿Conceder backend de widget?"
 
 # MT: LibreTranslate
 #: app/widgetWebContext.js:187
