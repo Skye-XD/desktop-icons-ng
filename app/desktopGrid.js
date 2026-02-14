@@ -1183,7 +1183,7 @@ const DrawGrid =  class extends DisplayGrid {
         this._sizeContainer(this._drawArea);
         this._overlay.add_overlay(this._drawArea);
         this._drawArea.set_can_target(false);
-        this._drawArea.set_visible(false);
+        this._drawArea.set_visible(true);
     }
 
     resizeWindow() {
@@ -1212,10 +1212,7 @@ const DrawGrid =  class extends DisplayGrid {
     }
 
     updateOverlay() {
-        const shouldShow = this._overlayHasContent();
-        this._drawArea.set_visible(shouldShow);
-        if (shouldShow)
-            this._drawArea.queue_draw();
+        this._drawArea.queue_draw();
     }
 
     _overlayHasContent() {
