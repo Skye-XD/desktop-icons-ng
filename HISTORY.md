@@ -1,4 +1,11 @@
 # History of versions #
+* Adw Version 100.16 for Gnome 45, 46, 47, 48, 49
+  * Fix icon placement after monitor hotplug on unplug. (Sundeep Mediratta)
+  * Fix empty window not mapping with shell. (Sundeep Mediratta)
+  * Complete arrow key selection to behave just like Gnome Files. (Sundeep Mediratta)
+  * Weblate Translations. (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.15 for Gnome 45, 46, 47, 48, 49
   * Use GSK for drawing rectangles instead of old Cairo calls. Optimizes GPU use, minimize CPU use. (Sundeep Mediratta)
   * Multiple misc code cleanups. (Sundeep Mediratta)

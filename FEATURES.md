@@ -367,3 +367,7 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix keyboard selection of icons with shift and control keys.
 
 - [x] Fix overview animation
+
+- [x] Grid overlay was preventing mapping empty windows, force a snapshot draw to render the window.
+
+- [x] Fix concurrency races in icon placement and geometry on monitor hotplug/unplug.
