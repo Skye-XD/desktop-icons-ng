@@ -31,6 +31,8 @@ export const DefaultShortcuts = {
     showHideHiddenFiles: {Hint: _('Show Hidden Files'), Accel: '<Control>H'},
     unselectAll: {Hint: _('Unselect All'), Accel: 'Escape'},
     previewAction: {Hint: _('Preview'), Accel: 'space'},
+    toggleKeyboardSelection: {Hint: _('Toggle Keyboard Selection'),
+        Accel: '<Control>space'},
     toggleWidgetLayer: {Hint: _('Toggle Widget Layer'), Accel: '<Control><Shift>L', Edit: true},
     addWidget: {Hint: _('Add Widget'), Accel: '<Shift><Control>plus', Edit: true},
     // Allow navigation while holding Shift/Ctrl/Alt (and their shift combos)

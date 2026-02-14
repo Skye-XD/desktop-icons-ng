@@ -1528,6 +1528,7 @@ const DesktopManager = class {
             f.keyboardUnSelected();
             f.opacity = 1;
         });
+        this.desktopActions.lastAnchorSelected = null;
         this.fileItemMenu.activeFileItem = null;
     }
 

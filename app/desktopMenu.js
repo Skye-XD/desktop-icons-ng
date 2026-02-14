@@ -34,6 +34,7 @@ const DesktopActions = class {
         this._Enums = desktopManager.Enums;
         this._desktopMonitor = desktopManager.desktopMonitor;
         this._windowManager = desktopManager.windowManager;
+        this.lastAnchorSelected = null;
         this._isCut = false;
         this._clipboardFiles = null;
         this._intDBusSignalMonitoring();
@@ -282,6 +283,13 @@ const DesktopActions = class {
             RemoteOperation.ShowFileRemote(this.activeFileItem.uri, 0, true);
         });
         this._mainApp.add_action(previewAction);
+
+        const toggleKeyboardSelection =
+            Gio.SimpleAction.new('toggleKeyboardSelection', null);
+        toggleKeyboardSelection.connect('activate', () => {
+            this._toggleKeyboardSelection();
+        });
+        this._mainApp.add_action(toggleKeyboardSelection);
 
         const chooseIconLeft = Gio.SimpleAction.new('chooseIconLeft', null);
         chooseIconLeft.connect('activate', () => {
@@ -680,7 +688,7 @@ const DesktopActions = class {
             this._setKeyboardSelected(selection[0]);
 
         let selected = this.keyboardSelected;
-        
+
         if (!selected)
             return false;
 
@@ -747,7 +755,7 @@ const DesktopActions = class {
             // Wrap candidate: farthest in the opposite direction,
             // with row/col bias.
             if (wrapExtreme === null ||
-                (multiplier > 0 
+                (multiplier > 0
                     ? primary < wrapExtreme
                     : primary > wrapExtreme
                 ) ||
@@ -767,56 +775,56 @@ const DesktopActions = class {
         const keptSelection = previousSelection || [];
 
         if (shift && selected) {
-        // Shift: select the row/column band between old focus and new focus,
+        // Shift: select everything in the rectangle between anchor and focus,
         // extending (not clearing) the existing selection.
-            const sRect = selected.iconRectangle;
-            const nRect = newItem.iconRectangle;
-            const sCenterX = sRect.x + sRect.width / 2;
-            const sCenterY = sRect.y + sRect.height / 2;
-            const nCenterX = nRect.x + nRect.width / 2;
-            const nCenterY = nRect.y + nRect.height / 2;
-
-            const primaryMin = Math.min(
-                index === 0 ? sCenterX : sCenterY,
-                index === 0 ? nCenterX : nCenterY
+            const anchor = this.lastAnchorSelected &&
+                this._displayList.includes(this.lastAnchorSelected)
+                ? this.lastAnchorSelected
+                : selected;
+            const focusItem = anchor !== selected ? selected : newItem;
+            const sRect = anchor.iconRectangle;
+            const nRect = focusItem.iconRectangle;
+            const minX = Math.min(sRect.x, nRect.x);
+            const maxX = Math.max(
+                sRect.x + sRect.width,
+                nRect.x + nRect.width
             );
-            const primaryMax = Math.max(
-                index === 0 ? sCenterX : sCenterY,
-                index === 0 ? nCenterX : nCenterY
+            const minY = Math.min(sRect.y, nRect.y);
+            const maxY = Math.max(
+                sRect.y + sRect.height,
+                nRect.y + nRect.height
             );
-
-            // How far off-row/column we still accept
-            // half icon size + grid spacing
-            const secondaryRef = index === 0 ? sCenterY : sCenterX;
-            const secondaryTol = Math.max(sRect.height, sRect.width) / 2 +
-                this._Enums.GRID_ELEMENT_SPACING;
 
             this._displayList.forEach(item => {
                 const rect = item.iconRectangle;
-                const cx = rect.x + rect.width / 2;
-                const cy = rect.y + rect.height / 2;
-                const primary = index === 0 ? cx : cy;
-                const secondary = index === 0 ? cy : cx;
+                const withinX = rect.x <= maxX && rect.x + rect.width >= minX;
+                const withinY = rect.y <= maxY && rect.y + rect.height >= minY;
 
-                const onBand = primary >= primaryMin && primary <= primaryMax;
-                const aligned =
-                    Math.abs(secondary - secondaryRef) <= secondaryTol;
-                
-                if (onBand && aligned)
+                if (withinX && withinY)
                     item.setSelected();
             });
 
             // Keep any prior selection intact
             keptSelection.forEach(item => item.setSelected());
-            newItem.setSelected();
+            focusItem.setSelected();
+            this.lastAnchorSelected = focusItem;
+
+            if (anchor !== selected) {
+                // Cancel navigation when extending from a previous anchor
+                this._setKeyboardSelected(selected);
+                this._desktopManager.fileItemMenu.activeFileItem = selected;
+                this.activeFileItem = selected;
+                return true;
+            }
         } else if (ctrl) {
-            // Ctrl: do not alter existing selection;
-            // ensure new item is unselected
-            newItem.unsetSelected();
+            // Ctrl: do not alter existing selection
+            if (newItem.isSelected)
+                this.lastAnchorSelected = newItem;
         } else {
             // Default: move selection to the new item only
             this._desktopManager.unselectAll();
             newItem.setSelected();
+            this.lastAnchorSelected = newItem;
         }
 
         // Always keyboard-focus the new item
@@ -826,6 +834,17 @@ const DesktopActions = class {
         this.activeFileItem = newItem;
 
         return true;
+    }
+
+    _toggleKeyboardSelection() {
+        const item = this.keyboardSelected;
+        if (!item)
+            return;
+
+        if (item.isSelected)
+            item.unsetSelected();
+        else
+            item.setSelected();
     }
 
     _setKeyboardSelected(fileItem) {
@@ -859,7 +878,6 @@ const DesktopActions = class {
             );
         }
     }
-
 
     async _newDocument(template) {
         if (!template)

@@ -597,6 +597,11 @@ var EmulateX11WindowType = class {
                     if (appid !== appID)
                         return;
 
+                    const windowpid = window.get_pid();
+                    const mypid = this._waylandClient
+                        ? parseInt(this._waylandClient.query_pid_of_program())
+                        : null;
+
                     if (this._waylandClient &&
                         this._waylandClient.query_window_belongs_to(window)
                     ) {
@@ -604,14 +609,11 @@ var EmulateX11WindowType = class {
                             window,
                             windowActor
                         );
+
+                        return;
                     }
 
-                    const windowpid = window.get_pid();
-
-                    const mypid =
-                        parseInt(this._waylandClient.query_pid_of_program());
-
-                    if (this._isX11 && windowpid === mypid) {
+                    if (mypid !== null && windowpid === mypid) {
                         this._addWindowManagedCustomJS_ding(
                             window,
                             windowActor
