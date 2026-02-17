@@ -51,11 +51,11 @@
     }
 
     function computeFontsFromHeight(H) {
-        const pad = clamp(Math.round(H * 0.05), 6, 14);
+        const pad = clamp(Math.round(H * 0.04), 5, 12);
 
         const fsCity = clamp(Math.round(H * 0.15), 14, 16); // keep small-size cap
         const fsUtc  = clamp(Math.round(H * 0.14), 12, 14); // keep small-size cap
-        const fsTime = clamp(Math.round(H * 0.60), 60, 140);
+        const fsTime = clamp(Math.round(H * 0.55), 56, 140);
         const fsAmpm = clamp(Math.round(fsTime * 0.24), 10, 26);
 
         return {pad, fsCity, fsUtc, fsTime, fsAmpm};
