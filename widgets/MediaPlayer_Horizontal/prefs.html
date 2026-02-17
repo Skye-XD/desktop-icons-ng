@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Media Player Preferences</title>
+  <link rel="stylesheet" href="./prefs.css" />
+</head>
+<body>
+  <div id="prefsRoot">
+    <div id="header"><div id="headerTitle">Media Player</div></div>
+
+    <div class="section">
+      <div class="section-title">Appearance</div>
+      <label class="field field-row">
+        <div class="label">Text color</div>
+        <input id="textColorPicker" type="color" />
+      </label>
+      <label class="field field-row">
+        <div class="label">Progress bar color</div>
+        <input id="progressColorPicker" type="color" />
+      </label>
+      <label class="field field-row bg-color-field">
+        <div class="label">Background color</div>
+        <input id="bgColorPicker" type="color" />
+      </label>
+      <label class="field">
+        <div class="label">Background opacity</div>
+        <div class="slider-row">
+          <input id="bgOpacity" type="range" min="0" max="1" step="0.01" />
+          <div id="bgOpacityValue" class="slider-value">0%</div>
+        </div>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button id="restoreDefaults" type="button">Restore Default Colors</button>
+    </div>
+  </div>
+  <script type="module" src="./prefs.js"></script>
+</body>
+</html>
