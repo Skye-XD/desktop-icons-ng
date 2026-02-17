@@ -56,7 +56,6 @@ body{
   position:absolute;
   inset:0;
   background:color-mix(in srgb, var(--bg-color) calc(var(--bg-alpha) * 100%), transparent);
-  border:1px solid color-mix(in srgb, var(--bg-color) calc((var(--bg-alpha) + 0.05) * 100%), transparent);
   border-radius:10px;
   pointer-events:none;
   z-index:0;
