@@ -1,0 +1,132 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background: transparent;
+  font-family: system-ui, sans-serif;
+
+  --text-color: #ffffff;
+  --progress-color: #ffffff;
+  --bg-r: 0;
+  --bg-g: 0;
+  --bg-b: 0;
+  --bg-alpha: 0.3;
+}
+
+.mp-main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  background: rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-alpha));
+  backdrop-filter: blur(12px);
+}
+
+.mp-cover {
+  width: 128px;
+  height: 128px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.mp-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mp-nocover {
+  width: 100%;
+  height: 100%;
+  background: #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mp-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.mp-title {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mp-artist {
+  color: var(--text-color);
+  opacity: 0.85;
+  font-size: 1.0rem;
+  margin-bottom: 6px;
+  line-height: 1.35;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mp-progress {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.mp-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--progress-color);
+  transition: width 0.2s ease;
+}
+
+.mp-meta {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.mp-time-wrap {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.mp-time-current,
+.mp-time-total {
+  text-align: left;
+}
+
+.mp-status {
+  white-space: nowrap;
+  margin-left: auto;
+  opacity: 0.85;
+}

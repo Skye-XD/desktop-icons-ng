@@ -1,0 +1,18 @@
+{
+  "id": "media.player.vertical",
+  "name": "Media Player",
+  "description": "Show current playing music info via MPRIS",
+  "kind": "html",
+  "defaultWidth": 200,
+  "defaultHeight": 250,
+  "author": "xiaozhangup",
+  "version": "1.0",
+  "prefs": "prefs.html",
+  "backend": {
+    "command": "gjs",
+    "argv": [
+      "-m",
+      "mediaBackend.js"
+    ]
+  }
+}
