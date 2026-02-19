@@ -13,13 +13,14 @@
 # Tari_2023 <tari21531@gmail.com>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Deleted User <noreply+50296@weblate.org>, 2026.
+# Piotr Strebski <strebski@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 09:06-0500\n"
-"PO-Revision-Date: 2026-01-13 09:49+0000\n"
-"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
+"PO-Revision-Date: 2026-02-19 10:09+0000\n"
+"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
@@ -28,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.15.2-dev\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -74,7 +75,7 @@ msgstr "Możliwa zmiana skrótów klawiszowych tylko po włączeniu rozszerzenia
 
 #: app/adwPreferencesWindow.js:376
 msgid "Help translate in your web browser"
-msgstr "Pomóż w tłumaczeniu poprzez swoją przeglądarkę internetową"
+msgstr "Pomóż w tłumaczeniu w swojej przeglądarce internetowej"
 
 #: app/adwPreferencesWindow.js:587 app/adwPreferencesWindow.js:588
 msgid "Desktop"
