@@ -2582,6 +2582,8 @@ const WidgetGrid = class extends ControlGrid {
 
         const menu = new Gio.Menu();
         menu.append(_('Back to Desktop'), 'app.lowerWidgetLayer');
+        menu.append(_('Toggle Widget Grid'), 'app.toggleWidgetGrid');
+        menu.append(_('Add Widget...'), 'app.addWidget');
 
         const popover = Gtk.PopoverMenu.new_from_model(menu);
         popover.set_parent(this._widgetContainer);
