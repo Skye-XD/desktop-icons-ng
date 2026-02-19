@@ -2427,6 +2427,7 @@ const WidgetGrid = class extends ControlGrid {
         this._selectedWidget = null;   // instanceId
         this._draggedWidget = null;    // instanceId
         this.widgetGridEnabled = false;
+        this._gridSize = this.Enums.WIDGET_GRID_SIZE;
 
         this._widgetContainer = new Gtk.Fixed();
         this._rootFixed.put(this._widgetContainer, 0, 0);
@@ -2687,16 +2688,19 @@ const WidgetGrid = class extends ControlGrid {
         let newLocalX = lx - offX;
         let newLocalY = ly - offY;
 
-        let snapToGrid = this.widgetGridEnabled;
-        if (snapToGrid) {
-            const gridSize = this.Enums.GRID_SIZE;
-            newLocalX = Math.round(newLocalX / gridSize) * gridSize;
-            newLocalY = Math.round(newLocalY / gridSize) * gridSize;
-            newLocalX = Math.max(0, Math.min(newLocalX, this._width - gridSize));
-            newLocalY = Math.max(0, Math.min(newLocalY, this._height - gridSize));
-        }
+        if (this.widgetGridEnabled)
+            [newLocalX, newLocalY] = 
+                this._getWidgetSnappedPosition(newLocalX, newLocalY);
 
         this._widgetContainer.move(this._draggedWidget, newLocalX, newLocalY);
+    }
+
+    _getWidgetSnappedPosition(lx, ly) {
+        let newLocalX = Math.round(lx / this._gridSize) * this._gridSize;
+        let newLocalY = Math.round(ly / this._gridSize) * this._gridSize;
+        newLocalX = Math.max(0, Math.min(newLocalX, this._width - this._gridSize));
+        newLocalY = Math.max(0, Math.min(newLocalY, this._height - this._gridSize));
+        return [newLocalX, newLocalY];
     }
 
     _onWidgetDragEnd(gesture, offsetX, offsetY) {
@@ -2711,14 +2715,9 @@ const WidgetGrid = class extends ControlGrid {
         let newLocalX = lx - offX;
         let newLocalY = ly - offY;
 
-        let snapToGrid = this.widgetGridEnabled;
-        if (snapToGrid) {
-            const gridSize = this.Enums.GRID_SIZE;
-            newLocalX = Math.round(newLocalX / gridSize) * gridSize;
-            newLocalY = Math.round(newLocalY / gridSize) * gridSize;
-            newLocalX = Math.max(0, Math.min(newLocalX, this._width - gridSize));
-            newLocalY = Math.max(0, Math.min(newLocalY, this._height - gridSize));
-        }
+        if (this.widgetGridEnabled)
+            [newLocalX, newLocalY] = 
+                this._getWidgetSnappedPosition(newLocalX, newLocalY);
 
         this._desktopManager.widgetManager.setInstanceFrame(
             instanceId,
@@ -2827,16 +2826,15 @@ const WidgetGrid = class extends ControlGrid {
         if (enabled) {
             const width = this._drawArea.get_allocated_width();
             const height = this._drawArea.get_allocated_height();
-            const gridSize = this.Enums.GRID_SIZE;
             const gridColor = new Gdk.RGBA({red: 0.3, green: 0.3, blue: 0.3, alpha: 0.18});
             
-            for (let x = 0; x < width; x += gridSize) {
+            for (let x = 0; x < width; x += this._gridSize) {
                 const rect = new Graphene.Rect();
                 rect.init(x + 0.5, 0, 1, height);
                 snapshot.append_color(gridColor, rect);
             }
             
-            for (let y = 0; y < height; y += gridSize) {
+            for (let y = 0; y < height; y += this._gridSize) {
                 const rect = new Graphene.Rect();
                 rect.init(0, y + 0.5, width, 1);
                 snapshot.append_color(gridColor, rect);
