@@ -1577,32 +1577,54 @@ const WidgetManager = class {
 
         let allocWidth = frame.width;
         const alloc = inst.actor?.get_allocation?.();
-
         if (alloc)
             allocWidth = alloc.width;
 
-        const size = 28; // matches CSS button size
-        const x = frame.x + (allocWidth / 2) - (size / 2);
-        const y = frame.y - size - 6;
+        const size = 28;
+        const gap = 6;
+        const margin = 8;
 
+        const showPrefs = inst.hasPreferences;
+        const buttonCount = showPrefs ? 2 : 1;
+        const totalWidth = buttonCount * size + (buttonCount - 1) * gap;
+
+        const centerX = frame.x + allocWidth / 2;
+        const buttonsX = centerX - totalWidth / 2;
+
+        let yPos;
+        const yPosUp = frame.y - size - margin;
+        const yPosDown = frame.y + frame.height + margin;
+        if (yPosUp < margin) {
+            yPos = yPosDown;
+        } else {
+            yPos = yPosUp;
+        }
+
+        const prefsOldParent = this.prefsButton.get_parent();
+        if (prefsOldParent && prefsOldParent !== widgetContainer)
+            prefsOldParent.remove(this.prefsButton);
+        const closeOldParent = this.closeButton.get_parent();
+        if (closeOldParent && closeOldParent !== widgetContainer)
+            closeOldParent.remove(this.closeButton);
+
+        if (showPrefs) {
+            if (!this.prefsButton.get_parent())
+                widgetContainer.put(this.prefsButton, buttonsX, yPos);
+            else
+                widgetContainer.move(this.prefsButton, buttonsX, yPos);
+            this.prefsButton.show();
+        } else {
+            this.prefsButton.hide();
+        }
+
+        const closeX = showPrefs ? (buttonsX + size + gap) : buttonsX;
         if (!this.closeButton.get_parent())
-            widgetContainer.put(this.closeButton, x, y);
+            widgetContainer.put(this.closeButton, closeX, yPos);
         else
-            widgetContainer.move(this.closeButton, x, y);
-
-        const px = x + size + 6;
-
-        if (!this.prefsButton.get_parent())
-            widgetContainer.put(this.prefsButton, px, y);
-        else
-            widgetContainer.move(this.prefsButton, px, y);
-
+            widgetContainer.move(this.closeButton, closeX, yPos);
         this.closeButton.show();
 
-        if (inst.hasPreferences)
-            this.prefsButton.show();
-        else
-            this.prefsButton.hide();
+        this._raiseChromeButtons(surface);
     }
 
     _detachChrome() {
@@ -1613,6 +1635,23 @@ const WidgetManager = class {
             const parent = btn.get_parent();
             if (parent)
                 parent.remove(btn);
+        }
+    }
+
+    _raiseChromeButtons(surface) {
+        if (!this._chrome || !surface?.widgetContainer)
+            return;
+
+        for (const btn of this._chrome) {
+            const parent = btn.get_parent?.();
+            if (!parent || parent !== surface.widgetContainer)
+                continue;
+
+            try {
+                btn.insert_before(parent, null);
+            } catch (e) {
+                console.error('WidgetManager: failed to raise chrome button:', e);
+            }
         }
     }
 
