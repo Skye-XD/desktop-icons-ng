@@ -2426,6 +2426,7 @@ const WidgetGrid = class extends ControlGrid {
         super(params);
         this._selectedWidget = null;   // instanceId
         this._draggedWidget = null;    // instanceId
+        this.widgetGridEnabled = false;
 
         this._widgetContainer = new Gtk.Fixed();
         this._rootFixed.put(this._widgetContainer, 0, 0);
@@ -2683,9 +2684,17 @@ const WidgetGrid = class extends ControlGrid {
 
         const instanceId = this._draggedWidget.widgetInstanceId;
         const [offX, offY] = this._getWidgetOffsets(instanceId);
+        let newLocalX = lx - offX;
+        let newLocalY = ly - offY;
 
-        const newLocalX = lx - offX;
-        const newLocalY = ly - offY;
+        let snapToGrid = this.widgetGridEnabled;
+        if (snapToGrid) {
+            const gridSize = this.Enums.GRID_SIZE;
+            newLocalX = Math.round(newLocalX / gridSize) * gridSize;
+            newLocalY = Math.round(newLocalY / gridSize) * gridSize;
+            newLocalX = Math.max(0, Math.min(newLocalX, this._width - gridSize));
+            newLocalY = Math.max(0, Math.min(newLocalY, this._height - gridSize));
+        }
 
         this._widgetContainer.move(this._draggedWidget, newLocalX, newLocalY);
     }
@@ -2699,8 +2708,17 @@ const WidgetGrid = class extends ControlGrid {
 
         const instanceId = this._draggedWidget.widgetInstanceId;
         const [offX, offY] = this._getWidgetOffsets(instanceId);
-        const newLocalX = lx - offX;
-        const newLocalY = ly - offY;
+        let newLocalX = lx - offX;
+        let newLocalY = ly - offY;
+
+        let snapToGrid = this.widgetGridEnabled;
+        if (snapToGrid) {
+            const gridSize = this.Enums.GRID_SIZE;
+            newLocalX = Math.round(newLocalX / gridSize) * gridSize;
+            newLocalY = Math.round(newLocalY / gridSize) * gridSize;
+            newLocalX = Math.max(0, Math.min(newLocalX, this._width - gridSize));
+            newLocalY = Math.max(0, Math.min(newLocalY, this._height - gridSize));
+        }
 
         this._desktopManager.widgetManager.setInstanceFrame(
             instanceId,
@@ -2797,6 +2815,33 @@ const WidgetGrid = class extends ControlGrid {
 
     _isWidgetChromeActor(actor) {
         return actor.get_name?.() === 'ding-widget-close-button';
+    }
+
+    _doDrawOnGrid(snapshot) {
+        super._doDrawOnGrid(snapshot);
+        this._doDrawGridRectangles(snapshot);
+    }
+
+    _doDrawGridRectangles(snapshot) {
+        const enabled = this.widgetGridEnabled;
+        if (enabled) {
+            const width = this._drawArea.get_allocated_width();
+            const height = this._drawArea.get_allocated_height();
+            const gridSize = this.Enums.GRID_SIZE;
+            const gridColor = new Gdk.RGBA({red: 0.3, green: 0.3, blue: 0.3, alpha: 0.18});
+            
+            for (let x = 0; x < width; x += gridSize) {
+                const rect = new Graphene.Rect();
+                rect.init(x + 0.5, 0, 1, height);
+                snapshot.append_color(gridColor, rect);
+            }
+            
+            for (let y = 0; y < height; y += gridSize) {
+                const rect = new Graphene.Rect();
+                rect.init(0, y + 0.5, width, 1);
+                snapshot.append_color(gridColor, rect);
+            }
+        }
     }
 };
 

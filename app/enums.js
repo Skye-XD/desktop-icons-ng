@@ -144,6 +144,7 @@ export const SYSTEM_DATA_DIRS = ['/usr/local/share', '/usr/share'];
 export const XDG_TERMINAL_EXEC = 'xdg-terminal-exec';
 export const GRID_ELEMENT_SPACING = 2;
 export const GRID_PADDING = 0;
+export const GRID_SIZE = 10;
 export const XDG_USER_DIRS = 'user-dirs.dirs';
 export const XDG_SYSTEM_DIRS = 'user-dirs.defaults';
 export const DEFAULT_DESKTOP_NAME = 'Desktop';

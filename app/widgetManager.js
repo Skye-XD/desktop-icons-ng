@@ -155,8 +155,19 @@ const WidgetManager = class {
             return;
 
         this._updateAddWidgetButtonVisibility(surface, onTop);
+        this._updateGridToggleButtonVisibility(surface, onTop);
         this._raiseAddButton(surface);
+        this._raiseGridToggleButton(surface);
         this._updateWidgetLayerChange(monitorIndex, onTop);
+
+        if (!onTop) {
+            if (surface.gridToggleButton) {
+                surface.gridToggleButton.set_active(false);
+            }
+            
+            surface.grid.widgetGridEnabled = false;
+            surface.grid.updateOverlay();
+        }
     }
 
     // =====================================================================
@@ -444,7 +455,7 @@ const WidgetManager = class {
         }
 
         const inst = this._instances.get(instanceId);
-        if (!inst?.actor || inst._isAddButton) {
+        if (!inst?.actor || inst._isAddButton || inst._isGridToggleButton) {
             this._selectedInstanceId = null;
             this._detachChrome();
             this._updateWidgetsSelectionState();
@@ -694,7 +705,7 @@ const WidgetManager = class {
 
             for (const instanceId of [...this._instances.keys()]) {
                 const instance = this._instances.get(instanceId);
-                if (instance?._isAddButton)
+                if (instance?._isAddButton || instance?._isGridToggleButton)
                     continue;
 
                 if (seen.has(instanceId))
@@ -760,7 +771,7 @@ const WidgetManager = class {
                 const instanceId = child.widgetInstanceId;
                 if (instanceId) {
                     const inst = this._instances.get(instanceId);
-                    if (inst && !inst._isAddButton) {
+                    if (inst && !inst._isAddButton && !inst._isGridToggleButton) {
                         if (!zIndexByInstanceId.has(instanceId))
                             zIndexByInstanceId.set(instanceId, i);
                     }
@@ -791,7 +802,7 @@ const WidgetManager = class {
         const instances = [];
 
         for (const inst of this._instances.values()) {
-            if (inst._isAddButton)
+            if (inst._isAddButton || inst._isGridToggleButton)
                 continue;
 
             instances.push(inst);
@@ -961,7 +972,7 @@ const WidgetManager = class {
     _rebuildSurfacesFrom(desktops) {
         const existingButtons = new Map();
         for (const inst of this._instances.values()) {
-            if (inst._isAddButton)
+            if (inst._isAddButton || inst._isGridToggleButton)
                 existingButtons.set(inst.monitorIndex, inst);
         }
 
@@ -998,6 +1009,7 @@ const WidgetManager = class {
 
             const existingInst = existingButtons.get(monitorIndex);
             this._ensureAddWidgetButton(surface, existingInst);
+            this._ensureGridToggleButton(surface, existingInst);
         }
     }
 
@@ -1022,12 +1034,36 @@ const WidgetManager = class {
             addInst.actor = null;
         else if (addButtonInstanceId)
             this._instances.delete(addButtonInstanceId);
+
+        if (surface.gridToggleButton) {
+            const parent = surface.gridToggleButton.get_parent?.();
+            if (parent?.remove)
+                parent.remove(surface.gridToggleButton);
+
+            surface.gridToggleButton = null;
+        }
+
+        const gridToggleButtonInstanceId = 
+            this._getGridToggleButtonInstanceId(surface.monitorIndex);
+        const gridToggleInst = gridToggleButtonInstanceId 
+            ? this._instances.get(gridToggleButtonInstanceId) 
+            : null;
+        if (gridToggleInst?._isGridToggleButton)
+            gridToggleInst.actor = null;
+        else if (gridToggleButtonInstanceId)
+            this._instances.delete(gridToggleButtonInstanceId);
     }
 
     _getAddButtonInstanceId(monitorIndex) {
         if (monitorIndex === undefined || monitorIndex === null)
             return null;
         return `__ding-add-button-${monitorIndex}`;
+    }
+
+    _getGridToggleButtonInstanceId(monitorIndex) {
+        if (monitorIndex === undefined || monitorIndex === null)
+            return null;
+        return `__ding-widget-grid-toggle-button-${monitorIndex}`;
     }
 
     _ensureAddWidgetButton(surface, existingInst = null) {
@@ -1069,8 +1105,8 @@ const WidgetManager = class {
             kind: 'chrome',
             normX: 0,
             normY: 0,
-            width: 64,
-            height: 64,
+            width: 48,
+            height: 48,
             actor: button,
             config: {},
             _isAddButton: true,
@@ -1094,6 +1130,69 @@ const WidgetManager = class {
         this._raiseAddButton(surface);
     }
 
+    _ensureGridToggleButton(surface, existingInst = null) {
+        if (!surface?.widgetContainer)
+            return;
+
+        const instanceId = this._getGridToggleButtonInstanceId(surface.monitorIndex);
+
+        if (surface.gridToggleButton) {
+            this._raiseGridToggleButton(surface);
+            return;
+        }
+
+        const gridToggleButton = new Gtk.ToggleButton();
+        gridToggleButton.set_name('ding-widget-grid-toggle-button');
+        gridToggleButton.set_can_focus(false);
+        gridToggleButton.set_focus_on_click(false);
+        gridToggleButton.set_tooltip_text(_('Toggle Widget Grid'));
+        
+        const gridIcon = Gtk.Image.new_from_icon_name('view-grid-symbolic');
+        gridToggleButton.set_child(gridIcon);
+        gridToggleButton.set_active(false);
+
+        gridToggleButton.widgetInstanceId = instanceId;
+
+        gridToggleButton.connect('toggled', (btn) => {
+            surface.grid.widgetGridEnabled = btn.get_active();
+            surface.grid.updateOverlay();
+        });
+
+        surface.widgetContainer.put(gridToggleButton, 0, 0);
+        surface.gridToggleButton = gridToggleButton;
+
+        const inst = existingInst ?? {
+            instanceId,
+            widgetId: '__ding-widget-grid-toggle-button',
+            monitorIndex: surface.monitorIndex,
+            kind: 'chrome',
+            normX: 0,
+            normY: 0,
+            width: 48,
+            height: 48,
+            actor: gridToggleButton,
+            config: {},
+            _isGridToggleButton: true,
+        };
+        inst.actor = gridToggleButton;
+        inst.monitorIndex = surface.monitorIndex;
+        this._instances.set(instanceId, inst);
+
+        if (!existingInst) {
+            const [defaultX, defaultY] =
+                this._getDefaultGridToggleButtonPosition(surface, inst);
+
+            this.setInstanceFrame(instanceId, defaultX, defaultY, inst.width,
+                inst.height
+            );
+        } else {
+            this._positionInstanceActor(inst);
+        }
+
+        this._updateGridToggleButtonVisibility(surface);
+        this._raiseGridToggleButton(surface);
+    }
+
     _updateAddWidgetButtonVisibility(surface, forcedState = null) {
         if (!surface?.addButton)
             return;
@@ -1104,6 +1203,18 @@ const WidgetManager = class {
 
         surface.addButton.set_visible(shouldShow);
         surface.addButton.set_sensitive(shouldShow);
+    }
+
+    _updateGridToggleButtonVisibility(surface, forcedState = null) {
+        if (!surface?.gridToggleButton)
+            return;
+
+        const shouldShow = typeof forcedState === 'boolean'
+            ? forcedState
+            : Boolean(surface.grid?.isWidgetContainerOnTop?.());
+
+        surface.gridToggleButton.set_visible(shouldShow);
+        surface.gridToggleButton.set_sensitive(shouldShow);
     }
 
     _raiseAddButton(surface) {
@@ -1121,6 +1232,21 @@ const WidgetManager = class {
         }
     }
 
+    _raiseGridToggleButton(surface) {
+        if (!surface?.gridToggleButton || !surface.widgetContainer)
+            return;
+
+        const parent = surface.gridToggleButton.get_parent?.();
+        if (!parent || parent !== surface.widgetContainer)
+            return;
+
+        try {
+            surface.gridToggleButton.insert_before(parent, null);
+        } catch (e) {
+            console.error('WidgetManager: failed to raise grid toggle button:', e);
+        }
+    }
+
     _getDefaultAddButtonPosition(surface, inst) {
         const grid = surface.grid;
         if (!grid)
@@ -1128,8 +1254,8 @@ const WidgetManager = class {
 
         const width = grid.normalizedWidth;
         const height = grid.normalizedHeight;
-        const buttonWidth = inst?.width ?? 64;
-        const buttonHeight = inst?.height ?? 64;
+        const buttonWidth = inst?.width ?? 48;
+        const buttonHeight = inst?.height ?? 48;
         const margin = 32;
 
         const direction =
@@ -1149,9 +1275,38 @@ const WidgetManager = class {
         return [x, y];
     }
 
+    _getDefaultGridToggleButtonPosition(surface, inst) {
+        const grid = surface.grid;
+        if (!grid)
+            return [0, 0];
+
+        const addButtonInstanceId = this._getAddButtonInstanceId(surface.monitorIndex);
+        const addButtonInst = addButtonInstanceId
+            ? this._instances.get(addButtonInstanceId)
+            : null;
+
+        if (!addButtonInst) {
+            return [0, 0];
+        }
+
+        const width = grid.normalizedWidth;
+        const buttonWidth = inst?.width ?? 48;
+        const buttonHeight = inst?.height ?? 48;
+        const spacing = 16;
+
+        const addButtonX = addButtonInst.normX * grid.normalizedWidth;
+        const addButtonY = addButtonInst.normY * grid.normalizedHeight;
+
+        const x = Math.max(0, Math.min(addButtonX, width - buttonWidth));
+        const desiredY = addButtonY - buttonHeight - spacing;
+        const y = Math.max(0, desiredY);
+
+        return [x, y];
+    }
+
     _detachInstancesWithoutSurface() {
         for (const inst of this._instances.values()) {
-            if (inst?._isAddButton)
+            if (inst?._isAddButton || inst?._isGridToggleButton)
                 continue;
 
             const surface = this._surfaces.get(inst.monitorIndex);
@@ -1496,6 +1651,7 @@ const WidgetManager = class {
         }
 
         this._raiseAddButton(surface);
+        this._raiseGridToggleButton(surface);
     }
 
     _getWidgetKind(_widgetId) {
