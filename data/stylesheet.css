@@ -166,8 +166,8 @@ box.desktop-icon-container.keyboard-selected > #file-item.desktop-icons-selected
 }
 
 #ding-widget-add-button {
-    min-width: 64px;
-    min-height: 64px;
+    min-width: 48px;
+    min-height: 48px;
     padding: 0;
     border-radius: 9999px;
 
@@ -175,10 +175,27 @@ box.desktop-icon-container.keyboard-selected > #file-item.desktop-icons-selected
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
     color: #fff;
 
-    -gtk-icon-size: 32px;
+    -gtk-icon-size: 24px;
 }
 
 #ding-widget-add-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#ding-widget-grid-toggle-button {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0;
+    border-radius: 9999px;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    color: #fff;
+
+    -gtk-icon-size: 24px;
+}
+
+#ding-widget-grid-toggle-button:hover {
     background-color: rgba(255, 255, 255, 0.25);
 }
 

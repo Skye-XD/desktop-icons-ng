@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/com/desktop/ding">
     <file compressed="true" alias='icons/symbolic/actions/list-add-symbolic.svg'>icons/list-add-symbolic.svg</file>
+    <file compressed="true" alias='icons/symbolic/actions/view-grid-symbolic.svg'>icons/view-grid-symbolic.svg</file>
     <file compressed="true" alias='icons/symbolic/emblems/emblem-system-symbolic.svg'>icons/emblem-system-symbolic.svg</file>
     <file compressed="true" alias='icons/symbolic/ui/window-close-symbolic.svg'>icons/window-close-symbolic.svg</file>
     <file compressed="true" alias='icons/symbolic/apps/prefs-desktop-symbolic.svg'>icons/prefs-desktop-symbolic.svg</file>
