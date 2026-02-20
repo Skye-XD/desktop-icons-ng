@@ -261,8 +261,10 @@ const HtmlWidgetHost = class {
 
         const wv = this._webView;
 
-        if (this._tickId)
-            return;
+        if (this._tickId) {
+            wv.remove_tick_callback(this._tickId);
+            this._tickId = 0;
+        }
 
         this._tickId = wv.add_tick_callback(() => {
             const w = wv.get_allocated_width();
