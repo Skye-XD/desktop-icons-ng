@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 09:06-0500\n"
+"POT-Creation-Date: 2026-02-20 12:07-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -60,221 +60,221 @@ msgstr ""
 msgid "Help translate in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:587 app/adwPreferencesWindow.js:588
+#: app/adwPreferencesWindow.js:595 app/adwPreferencesWindow.js:596
 msgid "Desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:593 app/adwPreferencesWindow.js:594
+#: app/adwPreferencesWindow.js:601 app/adwPreferencesWindow.js:602
 msgid "Files"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
-#: app/adwPreferencesWindow.js:642
+#: app/adwPreferencesWindow.js:607 app/adwPreferencesWindow.js:608
+#: app/adwPreferencesWindow.js:650
 msgid "Tweaks"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
+#: app/adwPreferencesWindow.js:613 app/adwPreferencesWindow.js:614
 msgid "More"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:617
+#: app/adwPreferencesWindow.js:625
 msgid "Desktop Settings"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:618
+#: app/adwPreferencesWindow.js:626
 msgid "Settings for the Desktop Program"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:624
+#: app/adwPreferencesWindow.js:632
 msgid "Desktop Folder"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:625
+#: app/adwPreferencesWindow.js:633
 msgid "Current Desktop: "
 msgstr ""
 
-#: app/adwPreferencesWindow.js:635
+#: app/adwPreferencesWindow.js:643
 msgid "Files Settings"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:636
+#: app/adwPreferencesWindow.js:644
 msgid "Settings shared with Gnome Files"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:643
+#: app/adwPreferencesWindow.js:651
 msgid "Miscellaneous Tweaks"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:667
+#: app/adwPreferencesWindow.js:675
 msgid "Size for the desktop icons"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:669
+#: app/adwPreferencesWindow.js:677
 msgid "Tiny"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:670
+#: app/adwPreferencesWindow.js:678
 msgid "Small"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:671
+#: app/adwPreferencesWindow.js:679
 msgid "Standard"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:672
+#: app/adwPreferencesWindow.js:680
 msgid "Large"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:678
+#: app/adwPreferencesWindow.js:686
 msgid "New icons alignment"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:680
+#: app/adwPreferencesWindow.js:688
 msgid "Top left corner"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:689
 msgid "Top right corner"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:682
+#: app/adwPreferencesWindow.js:690
 msgid "Bottom left corner"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:683
+#: app/adwPreferencesWindow.js:691
 msgid "Bottom right corner"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:689
+#: app/adwPreferencesWindow.js:697
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:693
+#: app/adwPreferencesWindow.js:701
 msgid "Snap icons to grid"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:699
+#: app/adwPreferencesWindow.js:707
 msgid "Show desktop widgets"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:704
+#: app/adwPreferencesWindow.js:712
 msgid "New Desktop Folder"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:705
+#: app/adwPreferencesWindow.js:713
 msgid "Set a new folder for the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:706 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:714 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:711
+#: app/adwPreferencesWindow.js:719
 msgid "Set Desktop back to ~/"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:713
+#: app/adwPreferencesWindow.js:721
 msgid "Restore Default Desktop Folder"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:715
+#: app/adwPreferencesWindow.js:723
 msgid "Restore"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:724
+#: app/adwPreferencesWindow.js:732
 msgid "Highlight the drop grid"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:734
+#: app/adwPreferencesWindow.js:742
 msgid "Add information emblems for links, encryption"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:738
+#: app/adwPreferencesWindow.js:746
 msgid "Use dark text in icon labels"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:743
+#: app/adwPreferencesWindow.js:751
 msgid "Show the personal folder on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:748
+#: app/adwPreferencesWindow.js:756
 msgid "Show the trash icon on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:753
+#: app/adwPreferencesWindow.js:761
 msgid "Show external drives on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:758
+#: app/adwPreferencesWindow.js:766
 msgid "Show network drives on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:763
+#: app/adwPreferencesWindow.js:771
 msgid "Add new drives to the opposite side of the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:768
+#: app/adwPreferencesWindow.js:776
 msgid "Action to Open Items"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:770
+#: app/adwPreferencesWindow.js:778
 msgid "Single click"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:771
+#: app/adwPreferencesWindow.js:779
 msgid "Double click"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:776
+#: app/adwPreferencesWindow.js:784
 msgid "Show image thumbnails"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:778
+#: app/adwPreferencesWindow.js:786
 msgid "Always"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:779
+#: app/adwPreferencesWindow.js:787
 msgid "On this computer only"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:780
+#: app/adwPreferencesWindow.js:788
 msgid "Never"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:785
+#: app/adwPreferencesWindow.js:793
 msgid "Show a context menu item to delete permanently"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:790
+#: app/adwPreferencesWindow.js:798
 msgid "Show hidden files"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:795
+#: app/adwPreferencesWindow.js:803
 msgid "Open folders on drag hover"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:799
+#: app/adwPreferencesWindow.js:807
 msgid "About..."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:812
+#: app/adwPreferencesWindow.js:820
 msgid "Translation"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:813
+#: app/adwPreferencesWindow.js:821
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:818
+#: app/adwPreferencesWindow.js:826
 msgid "Edit Translations"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:819
+#: app/adwPreferencesWindow.js:827
 msgid "Verify, add or correct translation in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:820
+#: app/adwPreferencesWindow.js:828
 msgid "Translate"
 msgstr ""
 
@@ -331,8 +331,7 @@ msgid "or"
 msgstr ""
 
 #: app/appImageFileItem.js:65 app/desktopFileIcon.js:159
-#: app/shortcutManager.js:46 app/shortcutManager.js:86
-#: app/shortcutManager.js:541
+#: app/shortcutManager.js:58 app/shortcutManager.js:99
 msgid "None"
 msgstr ""
 
@@ -373,7 +372,7 @@ msgstr ""
 msgid "File name"
 msgstr ""
 
-#: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1289
+#: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1293
 #: app/fileItemMenu.js:969
 msgid "OK"
 msgstr ""
@@ -400,10 +399,10 @@ msgstr ""
 msgid "Compressing files"
 msgstr ""
 
-#: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:177
-#: app/desktopManager.js:1291 app/dragManager.js:791 app/fileItemMenu.js:916
+#: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:181
+#: app/desktopManager.js:1295 app/dragManager.js:792 app/fileItemMenu.js:916
 #: app/fileItemMenu.js:969 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#: app/widgetManager.js:1853
+#: app/widgetManager.js:2104
 msgid "Cancel"
 msgstr ""
 
@@ -576,20 +575,28 @@ msgstr ""
 msgid "Switching to new Desktop..."
 msgstr ""
 
-#: app/desktopGrid.js:66 data/com.desktop.ding.desktop.in:3
+#: app/desktopGrid.js:67 data/com.desktop.ding.desktop.in:3
 #: data/com.desktop.ding.desktop.in:4
 msgid "Desktop Icons"
 msgstr ""
 
-#: app/desktopGrid.js:2507
+#: app/desktopGrid.js:2584
 msgid "Back to Desktop"
 msgstr ""
 
-#: app/desktopManager.js:163
+#: app/desktopGrid.js:2585 app/widgetManager.js:1154
+msgid "Toggle Widget Grid"
+msgstr ""
+
+#: app/desktopGrid.js:2586
+msgid "Add Widget..."
+msgstr ""
+
+#: app/desktopManager.js:167
 msgid "Monitor Frame Buffer Scaling is not enabled"
 msgstr ""
 
-#: app/desktopManager.js:164
+#: app/desktopManager.js:168
 msgid ""
 "Multiple monitors with different zoom settings, recommend per monitor "
 "framebuffer scaling.\n"
@@ -597,23 +604,23 @@ msgid ""
 "Please enable in Mutter Dconf Settings"
 msgstr ""
 
-#: app/desktopManager.js:175
+#: app/desktopManager.js:179
 msgid ""
 "Multiple monitors with different zoom settings.\n"
 "\n"
 "Enable per monitor framebuffer scaling in Mutter Dconf Settings?"
 msgstr ""
 
-#: app/desktopManager.js:178 data/com.desktop.ding.desktop.in:25
+#: app/desktopManager.js:182 data/com.desktop.ding.desktop.in:25
 msgid "Enable"
 msgstr ""
 
-#: app/desktopManager.js:202 app/desktopManager.js:212
+#: app/desktopManager.js:206 app/desktopManager.js:216
 msgid "Can Not Show the Desktop"
 msgstr ""
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:204
+#: app/desktopManager.js:208
 msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
@@ -621,205 +628,205 @@ msgid ""
 msgstr ""
 
 #. TRANSLATORS: {desktop} folder path automatically inserted
-#: app/desktopManager.js:214
+#: app/desktopManager.js:218
 msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
 msgstr ""
 
-#: app/desktopManager.js:225
+#: app/desktopManager.js:229
 msgid "GNOME Files not found"
 msgstr ""
 
-#: app/desktopManager.js:226
+#: app/desktopManager.js:230
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
 msgstr ""
 
-#: app/desktopManager.js:233
+#: app/desktopManager.js:237
 msgid "There is no default File Manager"
 msgstr ""
 
-#: app/desktopManager.js:234
+#: app/desktopManager.js:238
 msgid "There is no application that handles mimetype \"inode/directory\""
 msgstr ""
 
-#: app/desktopManager.js:241
+#: app/desktopManager.js:245
 msgid "Gnome Files is not registered as a File Manager"
 msgstr ""
 
-#: app/desktopManager.js:242
+#: app/desktopManager.js:246
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 
-#: app/desktopManager.js:352
+#: app/desktopManager.js:356
 msgid "Clear current selection before new search"
 msgstr ""
 
-#: app/desktopManager.js:1293
+#: app/desktopManager.js:1297
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1635 app/desktopMenu.js:1059 app/shortcuts.js:10
+#: app/desktopManager.js:1640 app/desktopMenu.js:1077 app/shortcuts.js:10
 msgid "New Folder"
 msgstr ""
 
-#: app/desktopManager.js:1669
+#: app/desktopManager.js:1674
 msgid "Folder Creation Failed"
 msgstr ""
 
-#: app/desktopManager.js:1670
+#: app/desktopManager.js:1675
 msgid "Could not create folder"
 msgstr ""
 
-#: app/desktopMenu.js:602
+#: app/desktopMenu.js:610
 msgid "Unable to open Desktop in Gnome Files"
 msgstr ""
 
-#: app/desktopMenu.js:621
+#: app/desktopMenu.js:629
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopMenu.js:622
+#: app/desktopMenu.js:630
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopMenu.js:631 app/desktopMenu.js:1112
+#: app/desktopMenu.js:639 app/desktopMenu.js:1130
 msgid "Settings"
 msgstr ""
 
-#: app/desktopMenu.js:901
+#: app/desktopMenu.js:919
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopMenu.js:902
+#: app/desktopMenu.js:920
 msgid "Could not create document"
 msgstr ""
 
-#: app/desktopMenu.js:1020
+#: app/desktopMenu.js:1038
 msgid "Name"
 msgstr ""
 
-#: app/desktopMenu.js:1022
+#: app/desktopMenu.js:1040
 msgid "Name Z-A"
 msgstr ""
 
-#: app/desktopMenu.js:1024
+#: app/desktopMenu.js:1042
 msgid "Modified Time"
 msgstr ""
 
-#: app/desktopMenu.js:1026
+#: app/desktopMenu.js:1044
 msgid "Type"
 msgstr ""
 
-#: app/desktopMenu.js:1028
+#: app/desktopMenu.js:1046
 msgid "Size"
 msgstr ""
 
-#: app/desktopMenu.js:1033
+#: app/desktopMenu.js:1051
 msgid "Keep Arranged…"
 msgstr ""
 
-#: app/desktopMenu.js:1038
+#: app/desktopMenu.js:1056
 msgid "Keep Stacked by Type…"
 msgstr ""
 
-#: app/desktopMenu.js:1040
+#: app/desktopMenu.js:1058
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopMenu.js:1045
+#: app/desktopMenu.js:1063
 msgid "Change Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:1050
+#: app/desktopMenu.js:1068
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:1054
+#: app/desktopMenu.js:1072
 msgid "Desktop Icon Settings"
 msgstr ""
 
-#: app/desktopMenu.js:1056
+#: app/desktopMenu.js:1074
 msgid "Show Shortcuts"
 msgstr ""
 
-#: app/desktopMenu.js:1064 app/shortcuts.js:54
+#: app/desktopMenu.js:1082 app/shortcuts.js:56
 msgid "New Document"
 msgstr ""
 
-#: app/desktopMenu.js:1069 app/shortcuts.js:11
+#: app/desktopMenu.js:1087 app/shortcuts.js:11
 msgid "Paste"
 msgstr ""
 
-#: app/desktopMenu.js:1071 app/shortcuts.js:12
+#: app/desktopMenu.js:1089 app/shortcuts.js:12
 msgid "Undo"
 msgstr ""
 
-#: app/desktopMenu.js:1073 app/shortcuts.js:13
+#: app/desktopMenu.js:1091 app/shortcuts.js:13
 msgid "Redo"
 msgstr ""
 
-#: app/desktopMenu.js:1079 app/shortcuts.js:14
+#: app/desktopMenu.js:1097 app/shortcuts.js:14
 msgid "Select All"
 msgstr ""
 
-#: app/desktopMenu.js:1086
+#: app/desktopMenu.js:1104
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopMenu.js:1090
+#: app/desktopMenu.js:1108
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopMenu.js:1098
+#: app/desktopMenu.js:1116
 msgid "Show Desktop In {0}"
 msgstr ""
 
-#: app/desktopMenu.js:1103
+#: app/desktopMenu.js:1121
 msgid "Open In {0}"
 msgstr ""
 
-#: app/desktopMenu.js:1120
+#: app/desktopMenu.js:1138
 msgid "Edit Widgets…"
 msgstr ""
 
-#: app/desktopMenu.js:1127
+#: app/desktopMenu.js:1145
 msgid "Shell Menu…"
 msgstr ""
 
-#: app/dragManager.js:101 app/dragManager.js:938
+#: app/dragManager.js:101 app/dragManager.js:939
 msgid "Making SymLink Failed"
 msgstr ""
 
-#: app/dragManager.js:102 app/dragManager.js:939
+#: app/dragManager.js:102 app/dragManager.js:940
 msgid "Could not create symbolic link"
 msgstr ""
 
-#: app/dragManager.js:747
+#: app/dragManager.js:748
 msgid "Copy/Move Failed"
 msgstr ""
 
-#: app/dragManager.js:748
+#: app/dragManager.js:749
 msgid "{0} Does not exist"
 msgstr ""
 
-#: app/dragManager.js:790
+#: app/dragManager.js:791
 msgid "Choose Action for Files"
 msgstr ""
 
-#: app/dragManager.js:791
+#: app/dragManager.js:792
 msgid "Move"
 msgstr ""
 
-#: app/dragManager.js:791 app/fileItemMenu.js:240
+#: app/dragManager.js:792 app/fileItemMenu.js:240
 msgid "Copy"
 msgstr ""
 
-#: app/dragManager.js:791
+#: app/dragManager.js:792
 msgid "Link"
 msgstr ""
 
@@ -1079,63 +1086,63 @@ msgstr ""
 msgid "Console"
 msgstr ""
 
-#: app/shortcutManager.js:85
+#: app/shortcutManager.js:98
 msgid "Default Shortcut:"
 msgstr ""
 
-#: app/shortcutManager.js:109
+#: app/shortcutManager.js:122
 msgid "Type new..."
 msgstr ""
 
-#: app/shortcutManager.js:125
+#: app/shortcutManager.js:138
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
 msgstr ""
 
-#: app/shortcutManager.js:130
+#: app/shortcutManager.js:143
 msgid "Reset to Default"
 msgstr ""
 
-#: app/shortcutManager.js:134
+#: app/shortcutManager.js:147
 msgid "No Accelerator"
 msgstr ""
 
-#: app/shortcutManager.js:243
+#: app/shortcutManager.js:256
 msgid "System Shortcuts"
 msgstr ""
 
-#: app/shortcutManager.js:244
+#: app/shortcutManager.js:257
 msgid "Common System Defined Keyboard Shortcuts"
 msgstr ""
 
-#: app/shortcutManager.js:302
+#: app/shortcutManager.js:315
 msgid "Local Shortcuts"
 msgstr ""
 
-#: app/shortcutManager.js:303
+#: app/shortcutManager.js:316
 msgid "Application Keyboard Shortcuts"
 msgstr ""
 
-#: app/shortcutManager.js:364
+#: app/shortcutManager.js:377
 msgid "Global Shortcuts"
 msgstr ""
 
-#: app/shortcutManager.js:365
+#: app/shortcutManager.js:378
 msgid "System Keyboard Shortcuts"
 msgstr ""
 
-#: app/shortcutManager.js:680
+#: app/shortcutManager.js:694
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: app/shortcutManager.js:692
+#: app/shortcutManager.js:706
 msgid "Reset Shortcuts"
 msgstr ""
 
-#: app/shortcutManager.js:693
+#: app/shortcutManager.js:707
 msgid "Reset all shortcuts to Defaults"
 msgstr ""
 
-#: app/shortcutManager.js:696
+#: app/shortcutManager.js:710
 msgid "Reset All..."
 msgstr ""
 
@@ -1216,55 +1223,59 @@ msgid "Preview"
 msgstr ""
 
 #: app/shortcuts.js:34
+msgid "Toggle Keyboard Selection"
+msgstr ""
+
+#: app/shortcuts.js:36
 msgid "Toggle Widget Layer"
 msgstr ""
 
-#: app/shortcuts.js:35 app/widgetManager.js:1048
+#: app/shortcuts.js:37 app/widgetManager.js:1090
 msgid "Add Widget"
 msgstr ""
 
 #. Allow navigation while holding Shift/Ctrl/Alt (and their shift combos)
-#: app/shortcuts.js:37
+#: app/shortcuts.js:39
 msgid "Choose Icon Left"
 msgstr ""
 
-#: app/shortcuts.js:40
+#: app/shortcuts.js:42
 msgid "Choose Icon Right"
 msgstr ""
 
-#: app/shortcuts.js:43
+#: app/shortcuts.js:45
 msgid "Choose Icon Up"
 msgstr ""
 
-#: app/shortcuts.js:46
+#: app/shortcuts.js:48
 msgid "Choose Icon Down"
 msgstr ""
 
-#: app/shortcuts.js:49
+#: app/shortcuts.js:51
 msgid "Show Menu"
 msgstr ""
 
-#: app/shortcuts.js:50
+#: app/shortcuts.js:52
 msgid "Display Shell Background Menu"
 msgstr ""
 
-#: app/shortcuts.js:51
+#: app/shortcuts.js:53
 msgid "Create Desktop Shortcut"
 msgstr ""
 
-#: app/shortcuts.js:52
+#: app/shortcuts.js:54
 msgid "Text Entry Accels Turn On"
 msgstr ""
 
-#: app/shortcuts.js:53
+#: app/shortcuts.js:55
 msgid "Text Entry Accels Turn Off"
 msgstr ""
 
-#: app/shortcuts.js:55
+#: app/shortcuts.js:57
 msgid "Show Shortcut Viewer"
 msgstr ""
 
-#: app/shortcuts.js:56
+#: app/shortcuts.js:58
 msgid "Show Or Hide Desktop Icons"
 msgstr ""
 
@@ -1302,31 +1313,31 @@ msgstr ""
 msgid "Drive"
 msgstr ""
 
-#: app/widgetManager.js:1396
+#: app/widgetManager.js:1564
 msgid "Widget preferences"
 msgstr ""
 
-#: app/widgetManager.js:1780
+#: app/widgetManager.js:1988
 msgid "HTML widget"
 msgstr ""
 
-#: app/widgetManager.js:1782
+#: app/widgetManager.js:1990
 msgid "GTK widget"
 msgstr ""
 
-#: app/widgetManager.js:1791
+#: app/widgetManager.js:1999
 msgid "User"
 msgstr ""
 
-#: app/widgetManager.js:1852
+#: app/widgetManager.js:2103
 msgid "Allow"
 msgstr ""
 
-#: app/widgetManager.js:1900
+#: app/widgetManager.js:2151
 msgid "Strict"
 msgstr ""
 
-#: app/widgetManager.js:1902
+#: app/widgetManager.js:2153
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1337,11 +1348,11 @@ msgid ""
 "This is the safest option and is recommended for most widgets."
 msgstr ""
 
-#: app/widgetManager.js:1913
+#: app/widgetManager.js:2164
 msgid "Relaxed"
 msgstr ""
 
-#: app/widgetManager.js:1915
+#: app/widgetManager.js:2166
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1352,11 +1363,11 @@ msgid ""
 "Use this only for widgets you trust."
 msgstr ""
 
-#: app/widgetManager.js:1925
+#: app/widgetManager.js:2176
 msgid "Development"
 msgstr ""
 
-#: app/widgetManager.js:1927
+#: app/widgetManager.js:2178
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1366,62 +1377,62 @@ msgid ""
 "This mode is intended for development and debugging only."
 msgstr ""
 
-#: app/widgetManager.js:1936
+#: app/widgetManager.js:2187
 msgid "Default"
 msgstr ""
 
-#: app/widgetManager.js:1938
+#: app/widgetManager.js:2189
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
 
-#: app/widgetManager.js:1946
+#: app/widgetManager.js:2197
 msgid "Allow web content for {widgetId}?"
 msgstr ""
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:1951
+#: app/widgetManager.js:2202
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:1952
+#: app/widgetManager.js:2203
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:1981
+#: app/widgetManager.js:2232
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:1983
+#: app/widgetManager.js:2234
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
 
-#: app/widgetManager.js:1984
+#: app/widgetManager.js:2235
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:1985
+#: app/widgetManager.js:2236
 msgid "Command:\n"
 msgstr ""
 
-#: app/widgetManager.js:1986
+#: app/widgetManager.js:2237
 msgid "Only allow this for widgets you implicitly trust."
 msgstr ""
 
-#: app/widgetManager.js:1989
+#: app/widgetManager.js:2240
 msgid "Allow widget backend?"
 msgstr ""
 
