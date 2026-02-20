@@ -16,6 +16,29 @@ body {
   --bg-alpha: 0.3;
 }
 
+#media-root {
+  position: relative;
+}
+
+body.ding-edit-mode #media-root:empty::before {
+  content: "Media Player Vertical";
+  position: absolute;
+  inset: 8px;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
 .mp-main {
   display: flex;
   flex-direction: column;
