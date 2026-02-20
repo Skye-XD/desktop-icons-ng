@@ -970,10 +970,13 @@ const WidgetManager = class {
     }
 
     _rebuildSurfacesFrom(desktops) {
-        const existingButtons = new Map();
+        const existingAddButtons = new Map();
+        const existingGridToggleButtons = new Map();
         for (const inst of this._instances.values()) {
-            if (inst._isAddButton || inst._isGridToggleButton)
-                existingButtons.set(inst.monitorIndex, inst);
+            if (inst._isAddButton)
+                existingAddButtons.set(inst.monitorIndex, inst);
+            else if (inst._isGridToggleButton)
+                existingGridToggleButtons.set(inst.monitorIndex, inst);
         }
 
         for (const surface of this._surfaces.values())
@@ -1003,13 +1006,16 @@ const WidgetManager = class {
                 widgetContainer,
                 monitorIndex,
                 addButton: null,
+                gridToggleButton: null,
             };
 
             this._surfaces.set(monitorIndex, surface);
 
-            const existingInst = existingButtons.get(monitorIndex);
-            this._ensureAddWidgetButton(surface, existingInst);
-            this._ensureGridToggleButton(surface, existingInst);
+            const existingAddInst = existingAddButtons.get(monitorIndex);
+            this._ensureAddWidgetButton(surface, existingAddInst);
+            const existingGridToggleInst =
+                existingGridToggleButtons.get(monitorIndex);
+            this._ensureGridToggleButton(surface, existingGridToggleInst);
         }
     }
 
@@ -1243,7 +1249,8 @@ const WidgetManager = class {
         try {
             surface.gridToggleButton.insert_before(parent, null);
         } catch (e) {
-            console.error('WidgetManager: failed to raise grid toggle button:', e);
+            console
+            .error('WidgetManager: failed to raise grid toggle button:', e);
         }
     }
 
@@ -1280,7 +1287,9 @@ const WidgetManager = class {
         if (!grid)
             return [0, 0];
 
-        const addButtonInstanceId = this._getAddButtonInstanceId(surface.monitorIndex);
+        const addButtonInstanceId =
+            this._getAddButtonInstanceId(surface.monitorIndex);
+
         const addButtonInst = addButtonInstanceId
             ? this._instances.get(addButtonInstanceId)
             : null;
