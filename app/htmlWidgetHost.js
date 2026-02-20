@@ -130,6 +130,14 @@ const HtmlWidgetHost = class {
         this._postMessage(msg);
     }
 
+    async requestRender() {
+        if (this._destroyed)
+            return;
+
+        await this.getWebViewAsync();
+        this._pokeWebViewRender();
+    }
+
     _makeGtkWidget() {
         this._frame = new DingRoundedClip({radius: 8});
 
