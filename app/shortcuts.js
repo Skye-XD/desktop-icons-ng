@@ -87,6 +87,7 @@ export const DefaultShortcuts = {
     bulkMove: {Hint: 'Move to', Accel: '', Edit: true},
     onScriptClicked: {Hint: 'Run Script', Accel: ''},
     closeWidget: {Hint: 'Close Selected Widget', Accel: '<Shift><Control>X', Edit: true},
+    toggleWidgetGrid: {Hint: 'Toggle Widget Grid', Accel: '<Control><Shift>G', Edit: true},
 };
 
 // Following Global shortcuts will be added for editing and are editable

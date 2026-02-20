@@ -2013,9 +2013,6 @@ const WidgetManager = class {
     _addActions() {
         const addWidgetAction = Gio.SimpleAction.new('addWidget', null);
         addWidgetAction.connect('activate', () => {
-            // Ensure widget layers are visible before adding a widget.
-            this._desktopManager.windowManager?.raiseWidgetLayers();
-
             const parentWindow =
                 this._desktopManager.mainApp.get_active_window();
 
@@ -2036,11 +2033,57 @@ const WidgetManager = class {
                 }
             }
 
+            if (monitorIndex === null)
+                return;
+
+            // Ensure widget layers are visible before adding a widget.
+            this._desktopManager.windowManager?.raiseWidgetLayers();
+
             this.openAddWidgetDialog(parentWindow, monitorIndex)
                 .catch(logError);
         });
         this._desktopManager.mainApp.add_action(addWidgetAction);
 
+        const showGridAction = Gio.SimpleAction.new('toggleWidgetGrid', null);
+        showGridAction.connect('activate', () => {
+            const parentWindow =
+                this._desktopManager.mainApp.get_active_window();
+
+            let monitorIndex = null;
+
+            if (parentWindow) {
+                const surface = parentWindow.get_surface();
+                const display = surface?.get_display?.();
+                const monitor = display?.get_monitor_at_surface?.(surface);
+                const monitors = display?.get_monitors?.();
+                const count = monitors?.get_n_items?.() ?? 0;
+
+                for (let i = 0; i < count; i++) {
+                    if (monitors.get_item?.(i) === monitor) {
+                        monitorIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            if (monitorIndex === null)
+                return;
+
+            let gridToggleButton = null;
+            const instanceId =
+                this._getGridToggleButtonInstanceId(monitorIndex);
+
+            const inst = instanceId ? this._instances.get(instanceId) : null;
+            gridToggleButton = inst?.actor ?? null;
+
+            if (!gridToggleButton)
+                return;
+
+            // Ensure widget layers are visible before showingt widget grid.
+            this._desktopManager.windowManager?.raiseWidgetLayers();
+            gridToggleButton?.activate();
+        });
+        this._desktopManager.mainApp.add_action(showGridAction);
 
         const closeWidget = Gio.SimpleAction.new('closeWidget', null);
         closeWidget.connect('activate', this.deleteSelectedInstance.bind(this));
