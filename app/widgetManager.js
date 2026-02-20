@@ -1354,7 +1354,7 @@ const WidgetManager = class {
 
             // Use optional chaining because requestRender()
             // currently exists only on HTML hosts.
-            inst.host?.requestRender?.().catch(e => {});
+            inst.host?.requestRender?.().catch(e => logError(e));
         }
     }
 
