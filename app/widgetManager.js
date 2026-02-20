@@ -1351,6 +1351,10 @@ const WidgetManager = class {
                 continue;
 
             this._positionInstanceActor(inst);
+
+            // Use optional chaining because requestRender()
+            // currently exists only on HTML hosts.
+            inst.host?.requestRender?.().catch(e => logError(e));
         }
     }
 

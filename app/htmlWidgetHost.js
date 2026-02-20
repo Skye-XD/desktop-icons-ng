@@ -130,6 +130,14 @@ const HtmlWidgetHost = class {
         this._postMessage(msg);
     }
 
+    async requestRender() {
+        if (this._destroyed)
+            return;
+
+        await this.getWebViewAsync();
+        this._pokeWebViewRender();
+    }
+
     _makeGtkWidget() {
         this._frame = new DingRoundedClip({radius: 8});
 
@@ -210,6 +218,8 @@ const HtmlWidgetHost = class {
         else
             this._loadFallback('Missing entry/prefs URL');
 
+        this._installWebViewRenderPoke();
+
         this._flushPendingHostStatePatches();
         this._flushPendingMessages();
     }
@@ -251,8 +261,10 @@ const HtmlWidgetHost = class {
 
         const wv = this._webView;
 
-        if (this._tickId)
-            return;
+        if (this._tickId) {
+            wv.remove_tick_callback(this._tickId);
+            this._tickId = 0;
+        }
 
         this._tickId = wv.add_tick_callback(() => {
             const w = wv.get_allocated_width();
@@ -265,23 +277,15 @@ const HtmlWidgetHost = class {
             // Host-side “poke”: invalidate + optional JS nudge
             wv.queue_draw();
             wv.queue_allocate();
-            this._evaluateScript(
-                `try {
-                    void document.documentElement?.offsetHeight;
-                 } catch(e) {}`
-            );
+            this._frame?.queue_draw();
+            this._frame?.queue_allocate();
+            this._nudgeWebViewDomRender();
 
             return GObject.SOURCE_REMOVE;
         });
     }
 
     _installWebViewRenderPoke() {
-        if (!this._webView || this._destroyed)
-            return;
-
-        if (this._mappedNotifyId)
-            return;
-
         const wv = this._webView;
 
         this._mappedNotifyId = wv.connect('notify::mapped', () => {
@@ -291,6 +295,32 @@ const HtmlWidgetHost = class {
 
         if (wv.get_mapped())
             this._pokeWebViewRender();
+    }
+
+    _nudgeWebViewDomRender() {
+        if (!this._webView || this._destroyed)
+            return;
+
+        this._evaluateScript(
+            `try {
+                const t = String(Date.now());
+                const de = document.documentElement;
+                const body = document.body;
+                if (de) {
+                    de.style.setProperty('--ding-render-poke', t);
+                    de.setAttribute('data-ding-render-poke', t);
+                }
+                if (body) {
+                    body.style.setProperty('--ding-render-poke', t);
+                    body.setAttribute('data-ding-render-poke', t);
+                }
+                window.dispatchEvent(new Event('resize'));
+                document.dispatchEvent(new Event('visibilitychange'));
+                window.dispatchEvent(new Event('pageshow'));
+                window.dispatchEvent(new Event('focus'));
+                requestAnimationFrame(() => {});
+            } catch (e) {}`
+        );
     }
 
     _loadFallback(reason) {
