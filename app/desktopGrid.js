@@ -2917,8 +2917,8 @@ const DesktopGrid = class extends WidgetGrid {
 
         this._snapshotPic.opacity = 1;
         this._overlay.queue_draw();
-        this._container.opacity = 0;
-        this._container.queue_draw();
+        this._rootFixed.opacity = 0;
+        this._rootFixed.queue_draw();
     }
 
     _getCurrentMargins() {
@@ -2973,9 +2973,9 @@ const DesktopGrid = class extends WidgetGrid {
     }
 
     _displayLive() {
-        this._container.opacity = 1.0;
+        this._rootFixed.opacity = 1.0;
         this._snapshotPic.opacity = 0;
-        this._container.queue_draw();
+        this._rootFixed.queue_draw();
         this._resetAll();
         this._clearOverlay(this._snapshotPic);
         this._animationInProgress = false;
@@ -3074,9 +3074,9 @@ const DesktopGrid = class extends WidgetGrid {
             this._setLiveOffset(x, y);
             this._snapshotPic.opacity = 1 - t;
 
-            // Fade in the NEW container only near the end
+            // Fade in the NEW live layers only near the end
             if (t > 0.8)
-                this._container.opacity = t;
+                this._rootFixed.opacity = t;
         });
 
         this._offsetAnim = new Adw.TimedAnimation({
