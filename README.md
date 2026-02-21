@@ -3,7 +3,7 @@
 
 <p style="text-align: center;">
     <a href="https://extensions.gnome.org/extension/5263/gtk4-desktop-icons-ng-ding/" style="margin-left: 20px">
-        <img src="media/Screenshot.png" width="800px"/>
+        <img src="media/Screenshot6.png" width="800px"/>
     </a>
 </p>
 

@@ -378,7 +378,9 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.16 for Gnome 45, 46, 47, 48, 49</p>
+            `<p>* Adw version 100.17 for Gnome 45, 46, 47, 48, 49</p>
+<ul><li>Widget polish: grid controls, media widgets, webview reattach, redisplay, and animation.</li></ul>
+            <p>* Adw version 100.16 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Fixes -Empty window not mapping, icon placement with monitor hotplug</li></ul>
             <p>* Adw version 100.15 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Uses GSK instead of Cairo to draw, optimizing GPU, minimizing CPU</li></ul>
@@ -896,4 +898,3 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
         this.launchUri(translationUri);
     }
 };
-

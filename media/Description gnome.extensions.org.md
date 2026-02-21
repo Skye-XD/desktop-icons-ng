@@ -2,20 +2,22 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
-Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing.
+Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
 
 Icons can be positioned anywhere on desktop or are snapped to a grid. Can make links on the Desktop. GSconnect Integration, can send files to connected devices. Drag and Drop support on to Dock, Dash, or from Dock, Dash to the Desktop.
 
 Updated and modified code base, uses Gio menus. All functions are asynchronous where possible. It is ported to ESM modules, supports Gnome 45 and higher.
 
 Translations available in-
-[ar, az, be, bg, bn, ca, cs, da, de, el, eo, es, et  eu, fa, fi, fr, fur, ga, gl, he, hi, hr, hu, id, it, ja, ka, ko, ky, lv, lt, ms, nb, nb_NO, nl, oc, pl, pt_BR, pt, ro, ru, sk, sl, sq, sv, ta, tl, tr, th, uk, ur, zh-Hans, zh-Hant, zh_CN, zh_TW]
+[ar, az, be, bg, bn, ca, cs, da, de, el, eo, es, et  eu, fa, fi, fr, fur, ga, gl, he, hi, hr, hu, id, it, ja, ka, kk, ko, ky, lv, lt, ms, nb, nb_NO, nl, oc, pl, pt_BR, pt, ro, ru, sk, sl, sq, sv, ta, tl, tr, th, uk, ur, zh-Hans, zh-Hant, zh_CN, zh_TW]
 
 Translated using LibreTranslate, machine translation, not every string is verified manually. Although most strings in languages should be correct, errors are possible.
 
 Corrections, verification of translated strings, and new translations are welcome, all translations are on Weblate. You can help translate Adw. Desktop Icons NG on [Hosted Weblate](https://hosted.weblate.org/projects/gtk4-desktop-icons-ng/gtk4-ding-pot/).
 
 Multiple fixes and new features-
+* New media player/display widget in horizontal or vertical available for download. Multiple rendering fixes for the old widgets, please re-install.
+* Add widget grid, improve widget chrome to stay on screen, multiple fixes to widget rendering to redisplay when desktop geometry changes, animates with icons on geometry changes.
 * Use GSK to draw instead of Cairo, optimizes GPU/CPU use.
 * Fixes to widget positioning, keyboard modifier selection of icons with arrow keys.
 * Fixes overview animation.

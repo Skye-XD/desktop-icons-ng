@@ -1,4 +1,19 @@
 # History of versions #
+* Adw Version 100.17 for Gnome 45, 46, 47, 48, 49
+  * Add live layer fade-in for widget animations. (Sundeep Mediratta)
+  * Force redisplay of webview on reattachment. (Sundeep Mediratta)
+  * Add editor placeholder visibility support for media players. (Sundeep Mediratta)
+  * Add more actions to the widget grid menu. (Sundeep Mediratta)
+  * Fix grid toggle button handling. (Sundeep Mediratta)
+  * Add widget grid snapping for precise row/column alignment. (xiaozhangup)
+  * Adjust style and position of widget control buttons. (xiaozhangup)
+  * Add media player widget support. (xiaozhangup)
+  * Fix metrics widget border rendering. (xiaozhangup)
+  * Fix city and UTC text in the small clock widget. (xiaozhangup)
+  * Switch to GTK4 FileChooser schema instead of GTK3. (Bastian Oppermann)
+  * Weblate translations updates. (Hosted Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.16 for Gnome 45, 46, 47, 48, 49
   * Fix icon placement after monitor hotplug on unplug. (Sundeep Mediratta)
   * Fix empty window not mapping with shell. (Sundeep Mediratta)
