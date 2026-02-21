@@ -182,6 +182,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Code clean up.
 
+- [x] Added widget grid, snap to widget grid functionality and imporved right click menu
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
@@ -371,3 +373,9 @@ The application functionality and behavior is consistent with the two other very
 - [x] Grid overlay was preventing mapping empty windows, force a snapshot draw to render the window.
 
 - [x] Fix concurrency races in icon placement and geometry on monitor hotplug/unplug.
+
+- [x] Fix animation of widget layer with icon layer on grid geometry changes.
+
+- [x] Fix - force render webview on reattachment
+
+- [x] Widget grid chrome no longer goes off screen
