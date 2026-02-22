@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-02-06 19:01+0000\n"
+"PO-Revision-Date: 2026-02-22 00:10+0000\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sk/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -609,14 +609,12 @@ msgid "Back to Desktop"
 msgstr "Späť na plochu"
 
 #: app/desktopGrid.js:2585 app/widgetManager.js:1154
-#, fuzzy
 msgid "Toggle Widget Grid"
-msgstr "Prepnúť vrstvu miniaplikácie"
+msgstr "Prepnúť mriežku miniaplikácií"
 
 #: app/desktopGrid.js:2586
-#, fuzzy
 msgid "Add Widget..."
-msgstr "Pridať miniaplikáciu"
+msgstr "Pridať miniaplikáciu..."
 
 #: app/desktopManager.js:167
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -1272,7 +1270,7 @@ msgstr "Náhľad"
 
 #: app/shortcuts.js:34
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "Prepnúť výber klávesnice"
 
 #: app/shortcuts.js:36
 msgid "Toggle Widget Layer"

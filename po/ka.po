@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-02-06 19:01+0000\n"
+"PO-Revision-Date: 2026-02-22 00:11+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ka/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -848,7 +848,7 @@ msgstr "ფაილი"
 
 #: app/fileItemIcon.js:286
 msgid "Opening File Failed"
-msgstr ""
+msgstr "ფაილის გახსნის შეცდომა"
 
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
