@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-01-18 12:01+0000\n"
-"Last-Translator: Hunor János <hunorjani17@gmail.com>\n"
+"PO-Revision-Date: 2026-02-22 00:10+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -638,7 +638,6 @@ msgid "Toggle Widget Grid"
 msgstr "Widget réteg ki-/bekapcsolása"
 
 #: app/desktopGrid.js:2586
-#, fuzzy
 msgid "Add Widget..."
 msgstr "Modul hozzáadása"
 

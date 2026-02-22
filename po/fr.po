@@ -13,13 +13,14 @@
 # fanfu <com-ubuntu@descamps.eu>, 2024, 2025, 2026.
 # French Fries <sikaxor989@euleina.com>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Quentin PAGÈS <quentinantonin@free.fr>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-01-12 12:02+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-02-22 00:09+0000\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -27,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -302,8 +303,8 @@ msgstr "Traduction"
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
-"Machine traduite en utilisant LibreTrail. L'utilisateur a vérifié et édité "
-"sur Weblate."
+"Traduction automatique en utilisant LibreTranslate. Vérifiée et modifiée par "
+"les utilisateurs sur Weblate."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:826
@@ -705,7 +706,6 @@ msgid "Toggle Widget Grid"
 msgstr ""
 
 #: app/desktopGrid.js:2586
-#, fuzzy
 msgid "Add Widget..."
 msgstr "Ajouter un widget"
 
