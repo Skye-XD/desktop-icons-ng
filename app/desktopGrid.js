@@ -2429,6 +2429,7 @@ const WidgetGrid = class extends ControlGrid {
         this._rootFixed.put(this._widgetContainer, 0, 0);
         this.resizeGrid();
         this._widgetContainer.set_name('widget-container');
+        this._widgetContainer.set_focusable(true);
         this._widgetContainerOnTop = true;
         this.lowerWidgetContainer();
 
@@ -2502,6 +2503,18 @@ const WidgetGrid = class extends ControlGrid {
         this.setWidgetContainerOnTop(!this._widgetContainerOnTop);
     }
 
+    restoreWidgetLayerFocus() {
+        if (!this._widgetContainerOnTop)
+            return;
+
+        this._window.present();
+
+        if (this._widgetContainer.grab_focus())
+            return;
+
+        this._window.grab_focus();
+    }
+
     resizeWindow() {
         super.resizeWindow();
         this._widgetContainer.set_size_request(
@@ -2537,6 +2550,7 @@ const WidgetGrid = class extends ControlGrid {
             this._widgetContainer.add_css_class('widgets-on-top');
 
             // Input: widget layer active, icons inert
+            this._container.opacity = 0.05;
             this._container.set_can_target(false);
             this._widgetContainer.set_can_target(true);
             this._desktopManager.unselectAll();
@@ -2545,6 +2559,7 @@ const WidgetGrid = class extends ControlGrid {
                 'app.lowerWidgetLayer',
                 ['Escape']
             );
+            this.restoreWidgetLayerFocus();
         } else {
         // Icons above widgets (normal mode)
         // Draw order: widgets (bottom), icons (top)
@@ -2555,6 +2570,7 @@ const WidgetGrid = class extends ControlGrid {
             this._widgetContainer.remove_css_class('widgets-on-top');
 
             // Input: icons active, widget layer background only
+            this._container.opacity = 1.0;
             this._container.set_can_target(true);
             this._widgetContainer.set_can_target(false);
 
@@ -2602,6 +2618,7 @@ const WidgetGrid = class extends ControlGrid {
     }
 
     _onWidgetLongPress(gesture, x, y) {
+        this.restoreWidgetLayerFocus();
         this._longPressActive = true;
         this._onWidgetDragBegin(gesture, x, y);
     }
@@ -2686,9 +2703,10 @@ const WidgetGrid = class extends ControlGrid {
         let newLocalX = lx - offX;
         let newLocalY = ly - offY;
 
-        if (this.widgetGridEnabled)
-            [newLocalX, newLocalY] = 
+        if (this.widgetGridEnabled) {
+            [newLocalX, newLocalY] =
                 this._getWidgetSnappedPosition(newLocalX, newLocalY);
+        }
 
         this._widgetContainer.move(this._draggedWidget, newLocalX, newLocalY);
     }
@@ -2713,9 +2731,10 @@ const WidgetGrid = class extends ControlGrid {
         let newLocalX = lx - offX;
         let newLocalY = ly - offY;
 
-        if (this.widgetGridEnabled)
-            [newLocalX, newLocalY] = 
+        if (this.widgetGridEnabled) {
+            [newLocalX, newLocalY] =
                 this._getWidgetSnappedPosition(newLocalX, newLocalY);
+        }
 
         this._desktopManager.widgetManager.setInstanceFrame(
             instanceId,
@@ -2764,6 +2783,7 @@ const WidgetGrid = class extends ControlGrid {
     }
 
     _onClick(gesture, nPress, x, y) {
+        this.restoreWidgetLayerFocus();
         const widget = this._findWidgetAt(x, y);
 
         if (!widget) {
@@ -2825,13 +2845,13 @@ const WidgetGrid = class extends ControlGrid {
             const width = this._drawArea.get_allocated_width();
             const height = this._drawArea.get_allocated_height();
             const gridColor = new Gdk.RGBA({red: 0.3, green: 0.3, blue: 0.3, alpha: 0.18});
-            
+
             for (let x = 0; x < width; x += this._gridSize) {
                 const rect = new Graphene.Rect();
                 rect.init(x + 0.5, 0, 1, height);
                 snapshot.append_color(gridColor, rect);
             }
-            
+
             for (let y = 0; y < height; y += this._gridSize) {
                 const rect = new Graphene.Rect();
                 rect.init(0, y + 0.5, width, 1);

@@ -205,7 +205,7 @@ box.desktop-icon-container.keyboard-selected > #file-item.desktop-icons-selected
 }
 
 #widget-container.widgets-on-top {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(12, 14, 18, 0.38);
 }
 
 #ding-widget-webview {
