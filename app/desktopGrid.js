@@ -422,6 +422,12 @@ const DisplayGrid = class {
     // margins to prevent going under/over margins
 
     getIntelligentPosition(gdkRectangle) {
+        if (!this._marginLeftHiddenObject &&
+            !this._marginRightHiddenObject &&
+            !this._marginTopHiddenObject &&
+            !this._marginBottomHiddenObject)
+            return null;
+
         var clickLocation = 'center';
 
         if (this._marginLeft > 0 &&
