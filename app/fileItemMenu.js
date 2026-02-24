@@ -401,9 +401,8 @@ const FileItemMenu = class {
         this.popupmenu.set_pointing_to(menulocation);
         const menuGtkPosition =
             fileItem._grid.getIntelligentPosition(menulocation);
-        if (menuGtkPosition)
+        if (menuGtkPosition !== null)
             this.popupmenu.set_position(menuGtkPosition);
-
         this.popupmenu.popup();
         this.popupmenu.connect('closed', () => {
             GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
@@ -443,7 +442,7 @@ const FileItemMenu = class {
             });
         const popupGtkPosition =
             fileItem._grid.getIntelligentPosition(popupLocation);
-        if (popupGtkPosition)
+        if (popupGtkPosition !== null)
             this._toolTipPopup.set_position(popupGtkPosition);
         this._toolTipPopup.popup();
         this._toolTipPopup.connect(
