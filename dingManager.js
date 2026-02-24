@@ -68,6 +68,9 @@ const ifaceXml = `
     <arg type="s" direction="in" name="Set Shell Cursor"/>
     </method>
     <method name="showShellBackgroundMenu"/>
+    <method name="setWidgetLayerRaised">
+      <arg type="b" direction="in" name="Raised"/>
+    </method>
   </interface>
 </node>`;
 
@@ -363,7 +366,10 @@ const DingManager = class {
      */
     _onBusAcquired(connection) {
         this.dingExtensionServiceImplementation =
-            new DingExtensionService(this._updateDesktopGeometry.bind(this));
+            new DingExtensionService(
+                this._updateDesktopGeometry.bind(this),
+                this._setWidgetLayerRaised.bind(this)
+            );
 
         this.dingExtensionServiceInterface =
             Gio.DBusExportedObject.wrapJSObject(
@@ -417,6 +423,10 @@ const DingManager = class {
 
         if (!locked)
             this.x11Manager.refreshWindows();
+    }
+
+    _setWidgetLayerRaised(raised) {
+        this.x11Manager?.setWindowsRaisedAsDock(raised);
     }
 
     /**
@@ -855,8 +865,9 @@ var LaunchSubprocess = class {
  * This class implements the Dbus Services Provided for the extension
  */
 var DingExtensionService = class {
-    constructor(updateDesktopGeometryCB) {
+    constructor(updateDesktopGeometryCB, setWidgetLayerRaisedCB) {
         this.geometryUpdate = updateDesktopGeometryCB;
+        this.setWidgetLayerRaisedCB = setWidgetLayerRaisedCB;
         this.synthesizeHover = new SynthesizeHover();
     }
 
@@ -882,6 +893,10 @@ var DingExtensionService = class {
 
         Main.layoutManager.setDummyCursorGeometry(X, Y, 0, 0);
         backgroundMenu.open(BoxPointer.PopupAnimation.FULL);
+    }
+
+    setWidgetLayerRaised(raised) {
+        this.setWidgetLayerRaisedCB?.(raised);
     }
 
     getDropTargetAppInfoDesktopFile([dropX, dropY]) {
