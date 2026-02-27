@@ -1173,9 +1173,8 @@ const DesktopBackgroundMenu = class {
         const menuLocation = new Gdk.Rectangle({x, y, width: 1, height: 1});
         this.popupmenu.set_pointing_to(menuLocation);
         const menuGtkPosition = grid.getIntelligentPosition(menuLocation);
-        if (menuGtkPosition)
+        if (menuGtkPosition !== null)
             this.popupmenu.set_position(menuGtkPosition);
-
         this.popupmenu.set_has_arrow(false);
         this.popupmenu.popup();
         this.popupmenu.connect('closed', () => {

@@ -422,17 +422,23 @@ const DisplayGrid = class {
     // margins to prevent going under/over margins
 
     getIntelligentPosition(gdkRectangle) {
+        if (!this._marginLeftHiddenObject &&
+            !this._marginRightHiddenObject &&
+            !this._marginTopHiddenObject &&
+            !this._marginBottomHiddenObject)
+            return null;
+
         var clickLocation = 'center';
 
         if (this._marginLeft > 0 &&
-            (gdkRectangle.x < (this._x + this._marginLeft * 2))
+            (gdkRectangle.x < (this._marginLeft * 2))
         )
             clickLocation = 'left';
 
         if (this._marginRight > 0 &&
             (
                 gdkRectangle.x + gdkRectangle.width >
-                (this._x + this._windowWidth - this._marginRight * 2.5)
+                (this._windowWidth - this._marginRight * 2.5)
             )
         )
             clickLocation = 'right';
@@ -440,15 +446,15 @@ const DisplayGrid = class {
         if (this._marginBottom > 0 &&
             (
                 gdkRectangle.y + gdkRectangle.height >
-                (this._y + this._windowHeight - this._marginBottom * 2)
+                (this._windowHeight - this._marginBottom * 2)
             )
         ) {
             switch (clickLocation) {
             case 'left':
-                clickLocation = 'bottomleft';
+                clickLocation = 'bottomLeft';
                 break;
             case 'right':
-                clickLocation = 'bottomright';
+                clickLocation = 'bottomRight';
                 break;
             default:
                 clickLocation = 'bottom';
@@ -457,7 +463,7 @@ const DisplayGrid = class {
 
         if (this._marginTop > 0 &&
             (
-                gdkRectangle.y < (this._y + this._marginTop * 2)
+                gdkRectangle.y < (this._marginTop * 2)
             )
         ) {
             switch (clickLocation) {
@@ -474,15 +480,10 @@ const DisplayGrid = class {
 
         var returnvalue;
 
-        //* Fix - Currently Gtk4 returns incorrect Gtk.PositionType Enums    *//
-        //* Returning Integers instead of Enums                              *//
-        //* Enums Gtk.PositionType.LEFT does not seem to work even when      *//
-        //* returning 0 *//
-
         switch (clickLocation) {
         case 'left':
             if (this._marginLeftHiddenObject)
-                returnvalue = 1; // Gtk.PositionType.RIGHT;
+                returnvalue = Gtk.PositionType.RIGHT;
             else
                 returnvalue = null;
 
@@ -490,8 +491,7 @@ const DisplayGrid = class {
 
         case 'right':
             if (this._marginRightHiddenObject)
-                // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
-                returnvalue = 1;
+                returnvalue = Gtk.PositionType.LEFT;
             else
                 returnvalue = null;
 
@@ -499,7 +499,7 @@ const DisplayGrid = class {
 
         case 'top':
             if (this._marginTopHiddenObject)
-                returnvalue = 3; // Gtk.PositionType.BOTTOM;
+                returnvalue = Gtk.PositionType.BOTTOM;
             else
                 returnvalue = null;
 
@@ -507,7 +507,7 @@ const DisplayGrid = class {
 
         case 'bottom':
             if (this._marginBottomHiddenObject)
-                returnvalue = 2; // Gtk.PositionType.TOP;
+                returnvalue = Gtk.PositionType.TOP;
             else
                 returnvalue = null;
 
@@ -520,19 +520,17 @@ const DisplayGrid = class {
         case 'bottomRight':
             if (this._marginBottomHiddenObject &&
                 this._marginRightHiddenObject) {
-                // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
-                returnvalue = 1;
+                returnvalue = Gtk.PositionType.LEFT;
                 break;
             }
 
             if (this._marginBottomHiddenObject) {
-                returnvalue = 2; // Gtk.PositionType.TOP
+                returnvalue = Gtk.PositionType.TOP;
                 break;
             }
 
             if (this._marginRightHiddenObject) {
-                // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
-                returnvalue = 1;
+                returnvalue = Gtk.PositionType.LEFT;
                 break;
             }
 
@@ -541,17 +539,17 @@ const DisplayGrid = class {
         case 'bottomLeft':
             if (this._marginBottomHiddenObject &&
                 this._marginLeftHiddenObject) {
-                returnvalue = 1; // Gtk.PositionType.RIGHT
+                returnvalue = Gtk.PositionType.RIGHT;
                 break;
             }
 
             if (this._marginBottomHiddenObject) {
-                returnvalue = 2; // Gtk.PositionType.TOP
+                returnvalue = Gtk.PositionType.TOP;
                 break;
             }
 
             if (this._marginLeftHiddenObject) {
-                returnvalue = 1; // Gtk.PositionType.RIGHT
+                returnvalue = Gtk.PositionType.RIGHT;
                 break;
             }
 
@@ -559,19 +557,17 @@ const DisplayGrid = class {
 
         case 'topRight':
             if (this._marginTopHiddenObject && this._marginRightHiddenObject) {
-                // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
-                returnvalue = 1;
+                returnvalue = Gtk.PositionType.LEFT;
                 break;
             }
 
             if (this._marginTopHiddenObject) {
-                returnvalue = 3; // Gtk.PositionType.BOTTOM
+                returnvalue = Gtk.PositionType.BOTTOM;
                 break;
             }
 
             if (this._marginRightHiddenObject) {
-                // Gtk.PositionType.LEFT = 0, overRiding with 1 as it works
-                returnvalue = 1;
+                returnvalue = Gtk.PositionType.LEFT;
                 break;
             }
 
@@ -579,15 +575,15 @@ const DisplayGrid = class {
 
         case 'topLeft':
             if (this._marginTopHiddenObject && this._marginLeftHiddenObject) {
-                returnvalue = 1; // Gtk.PositionType.RIGHT
+                returnvalue = Gtk.PositionType.RIGHT;
                 break;
             }
             if (this._marginTopHiddenObject) {
-                returnvalue = 3; // Gtk.PositionType.BOTTOM
+                returnvalue = Gtk.PositionType.BOTTOM;
                 break;
             }
             if (this._marginLeftHiddenObject) {
-                returnvalue = 1; // Gtk.PositionType.RIGHT
+                returnvalue = Gtk.PositionType.RIGHT;
                 break;
             }
             break;

@@ -114,11 +114,8 @@ const AskRenamePopup = class {
                 .getGlobaltoLocalRectangle(fileItem.iconRectangle)
             );
 
-
-
-        if (menuGtkPosition)
+        if (menuGtkPosition !== null)
             this._popover.set_position(menuGtkPosition);
-
         this._focusTracker = Gtk.EventControllerFocus.new();
         this._popover.add_controller(this._focusTracker);
 
