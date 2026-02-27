@@ -351,12 +351,7 @@ const DesktopActions = class {
         });
         this._mainApp.add_action(newDocument);
 
-        const showShortcutViewer =
-            Gio.SimpleAction.new('showShortcutViewer', null);
-        showShortcutViewer.connect('activate', () => {
-            this._showShortcutViewer();
-        });
-        this._mainApp.add_action(showShortcutViewer);
+        // showShortcutViewer action is registered by ShortcutManager.
 
         const toggleVisibility =
             Gio.SimpleAction.new('toggleVisibility', null);

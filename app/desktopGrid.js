@@ -2554,6 +2554,7 @@ const WidgetGrid = class extends ControlGrid {
             this._container.set_can_target(false);
             this._widgetContainer.set_can_target(true);
             this._desktopManager.unselectAll();
+            this._desktopManager.closeFocusStealingWindows();
             this._mainapp.activate_action('textEntryOff', null);
             this._mainapp.set_accels_for_action(
                 'app.lowerWidgetLayer',
