@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-02-22 00:10+0000\n"
+"PO-Revision-Date: 2026-02-27 06:09+0000\n"
 "Last-Translator: Daniel Zhang <xiaozhangshiw@163.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
@@ -218,7 +218,7 @@ msgstr "选择"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:719
 msgid "Set Desktop back to ~/"
-msgstr "将桌面设定为~/"
+msgstr "将桌面设定为 ~/"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:721
@@ -393,7 +393,7 @@ msgstr "此 AppImage 文件有不正确的权限 ."
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
 msgid "Right Click to edit Properties, then:"
-msgstr "右键单击以编辑属性, 然后 :"
+msgstr "右键单击以编辑属性, 然后:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
@@ -471,7 +471,7 @@ msgstr "文件名称"
 #: app/askRenamePopup.js:75 app/autoAr.js:303 app/desktopManager.js:1293
 #: app/fileItemMenu.js:969
 msgid "OK"
-msgstr ""
+msgstr "确定"
 
 # MT: LibreTranslate
 #: app/askRenamePopup.js:75
@@ -481,7 +481,7 @@ msgstr "重命名"
 # MT: LibreTranslate
 #: app/autoAr.js:71
 msgid "AutoAr is not installed"
-msgstr "软件包 GNOME AutoAr 未安装"
+msgstr "软件包 AutoAr 未安装"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
@@ -973,7 +973,7 @@ msgstr "撤销"
 # MT: LibreTranslate
 #: app/desktopMenu.js:1091 app/shortcuts.js:13
 msgid "Redo"
-msgstr "重做( R)"
+msgstr "重做"
 
 # MT: LibreTranslate
 #: app/desktopMenu.js:1097 app/shortcuts.js:14
@@ -1377,7 +1377,7 @@ msgstr "类型新..."
 # MT: LibreTranslate
 #: app/shortcutManager.js:138
 msgid "Modifier + Key (e.g. Ctrl + Alt + D)"
-msgstr "修改器 + 键( 如 Ctrl +) 备选案文+D)"
+msgstr "修饰键 + 按键 (例如 Ctrl + Alt + D)"
 
 # MT: LibreTranslate
 #: app/shortcutManager.js:143
@@ -1612,7 +1612,7 @@ msgstr "更多信息"
 #. the user's personal folder
 #: app/specialFolderIcon.js:57 app/specialFolderIcon.js:69
 msgid "Home"
-msgstr "内容"
+msgstr "主文件夹"
 
 # MT: LibreTranslate
 #: app/specialFolderIcon.js:63
@@ -1626,7 +1626,7 @@ msgstr "废物"
 #. *  is selected, it will say "Stack pictures"
 #: app/stackItem.js:46
 msgid "Stack"
-msgstr "堆栈"
+msgstr "堆叠"
 
 # MT: LibreTranslate
 #: app/symLinkIcon.js:100
@@ -1857,7 +1857,7 @@ msgstr "桌面; icons; 文件; 文件夹; 管理器; 排列; 隐藏; 显示; 发
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
-msgstr "显示 {} 隐藏"
+msgstr "显示<>隐藏"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
@@ -1877,7 +1877,7 @@ msgstr "图标大小"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:26
 msgid "Set the size for the desktop icons."
-msgstr "设置桌面图标的大小 ."
+msgstr "设置桌面图标的大小."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:30
@@ -1907,7 +1907,7 @@ msgstr "新图标起角"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
-msgstr "设定图标将开始放置的角落 ."
+msgstr "设定图标将开始放置的角落."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
@@ -1956,7 +1956,7 @@ msgstr "在进行 Drag'n' Drop 操作时,标记网格中图标被放入半透明
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
-msgstr "排序特殊文件夹 - 家/ 垃圾驱动器 ."
+msgstr "排序特殊文件夹 - 主目录/回收站驱动器."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:66
@@ -1999,7 +1999,7 @@ msgstr "总是保持图标堆叠,类似类型被分组"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:85
 msgid "Type of Files to not Stack"
-msgstr "无法堆栈的文件类型"
+msgstr "无法堆叠的文件类型"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:86
