@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-02-20 22:50+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-02-28 16:09+0000\n"
+"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -633,7 +633,6 @@ msgid "Back to Desktop"
 msgstr "Вернуться на рабочий стол"
 
 #: app/desktopGrid.js:2585 app/widgetManager.js:1154
-#, fuzzy
 msgid "Toggle Widget Grid"
 msgstr "Переключиться на слой виджетов"
 
@@ -1303,7 +1302,7 @@ msgstr "Предпросмотр"
 
 #: app/shortcuts.js:34
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "Переключить выбор с помощью клавиатуры"
 
 #: app/shortcuts.js:36
 msgid "Toggle Widget Layer"
