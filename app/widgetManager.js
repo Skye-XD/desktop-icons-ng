@@ -2111,7 +2111,8 @@ const WidgetManager = class {
             dlg.add_response('yes', yesLabel);
             dlg.set_default_response('no');
             dlg.set_close_response('no');
-            dlg.set_prefer_wide_layout(true);
+            if (typeof dlg.set_prefer_wide_layout === 'function')
+                dlg.set_prefer_wide_layout(true);
 
             dlg.set_response_appearance(
                 'yes',
