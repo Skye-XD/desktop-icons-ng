@@ -2098,20 +2098,26 @@ const WidgetManager = class {
      * Widget Consent UI
      * ===================================================================== */
 
-    _asyncAskYesNo(heading, body) {
+    _asyncAskYesNo(heading, body, bodyUseMarkup = false) {
         const parentWindow = this._desktopManager.mainApp.get_active_window();
         const yesLabel = _('Allow');
         const noLabel = _('Cancel');
 
         return new Promise(resolve => {
             const dlg = new Adw.AlertDialog();
+            dlg.set_presentation_mode(Adw.DialogPresentationMode.FLOATING);
+            dlg.set_follows_content_size(false);
+            dlg.set_content_width(500);
+
             dlg.set_heading(heading);
+            dlg.set_body_use_markup(bodyUseMarkup);
             dlg.set_body(body);
             dlg.add_response('no', noLabel);
             dlg.add_response('yes', yesLabel);
             dlg.set_default_response('no');
             dlg.set_close_response('no');
-            dlg.set_prefer_wide_layout(true);
+            if (typeof dlg.set_prefer_wide_layout === 'function')
+                dlg.set_prefer_wide_layout(true);
 
             dlg.set_response_appearance(
                 'yes',
@@ -2197,15 +2203,20 @@ const WidgetManager = class {
         const heading = _('Allow web content for {widgetId}?')
             .replace('{widgetId}', widgetId);
         const cspProfile = this._describeCspProfileForHumans();
+        const cspProfileName = GLib.markup_escape_text(cspProfile.name, -1);
+        const cspProfileSummary = GLib.markup_escape_text(
+            cspProfile.summary,
+            -1
+        );
         const body =
             // eslint-disable-next-line prefer-template
             _('The widget you are adding may load web content from the internet.\n\n') +
             _('This content is subject to the widget security policy:\n\n') +
-            `${cspProfile.name}\n` +
-            `${cspProfile.summary}`;
+            `<span weight="ultrabold">${cspProfileName}</span>\n` +
+            `${cspProfileSummary}`;
 
 
-        const answer = await this._asyncAskYesNo(heading, body);
+        const answer = await this._asyncAskYesNo(heading, body, true);
 
         return answer;
     }
@@ -2233,12 +2244,16 @@ const WidgetManager = class {
             .replace('{widgetId}', widgetId) +
         _('The backend runs with your normal user permissions, just like any other application you start.\n') +
         _('It can access your files, system resources, and the network according to your user account permissions.\n\n') +
-        (argvStr ? `${_('Command:\n') + argvStr}\n\n` : '') +
+        (argvStr
+            ? `<b>${GLib.markup_escape_text(_('Command:'), -1)}</b>\n` +
+              `${GLib.markup_escape_text(argvStr, -1)}\n\n`
+            : '') +
         _('Only allow this for widgets you implicitly trust.');
 
         const answer = await this._asyncAskYesNo(
             _('Allow widget backend?'),
-            body);
+            body,
+            true);
 
         return answer;
     }
