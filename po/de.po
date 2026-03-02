@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-02-20 21:36+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-03-02 11:09+0000\n"
+"Last-Translator: Captain Falcon <percy@eris23.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/de/>\n"
 "Language: de\n"
@@ -670,13 +670,12 @@ msgid "Back to Desktop"
 msgstr "Zurück zum Desktop"
 
 #: app/desktopGrid.js:2585 app/widgetManager.js:1154
-#, fuzzy
 msgid "Toggle Widget Grid"
-msgstr "Widget-Ebene umschalten"
+msgstr "Widget-Raster umschalten"
 
 #: app/desktopGrid.js:2586
 msgid "Add Widget..."
-msgstr "Widget hinzufügen"
+msgstr "Widget hinzufügen..."
 
 #: app/desktopManager.js:167
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -754,7 +753,7 @@ msgstr "Es gibt keine Anwendung für den Mimetype \"inode/directory\""
 
 #: app/desktopManager.js:245
 msgid "Gnome Files is not registered as a File Manager"
-msgstr "GNOME \"Dateien\" ist nicht als Dateimanager registriert"
+msgstr "Gnome \"Dateien\" ist nicht als Dateimanager registriert"
 
 #: app/desktopManager.js:246
 msgid ""
@@ -1272,7 +1271,7 @@ msgstr "System Tastenkürzel"
 # MT: LibreTranslate
 #: app/shortcutManager.js:694
 msgid "Keyboard Shortcuts"
-msgstr "Tastenkürzel"
+msgstr "Tastenkombinationen"
 
 #: app/shortcutManager.js:706
 msgid "Reset Shortcuts"
@@ -1373,7 +1372,7 @@ msgstr "Voransicht"
 
 #: app/shortcuts.js:34
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "Tastaturauswahl umschalten"
 
 #: app/shortcuts.js:36
 msgid "Toggle Widget Layer"
@@ -1735,7 +1734,7 @@ msgstr "Externe Laufwerke auf der Arbeitsfläche anzeigen"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:46
 msgid "Show the disk drives connected to the computer."
-msgstr "Mit dem PC verbundene Festplattenlaufwerke anzeigen."
+msgstr "Mit dem Rechner verbundene Festplattenlaufwerke anzeigen."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:50
 msgid "Show network drives in the desktop"
