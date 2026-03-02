@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-02-22 00:10+0000\n"
+"PO-Revision-Date: 2026-03-02 11:09+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hr/>\n"
@@ -475,9 +475,8 @@ msgid "Extracting files into '${outputPath}'"
 msgstr "Ekstrahiranje datoteka u '${outputPath}'"
 
 #: app/autoAr.js:439
-#, fuzzy
 msgid "Extraction completed"
-msgstr "Ekstrakcija dovršena"
+msgstr "Izdvajanje završeno"
 
 #: app/autoAr.js:440
 #, fuzzy
@@ -757,9 +756,8 @@ msgid "New Folder"
 msgstr "Nova mapa"
 
 #: app/desktopManager.js:1674
-#, fuzzy
 msgid "Folder Creation Failed"
-msgstr "Stvaranje mape nije uspjelo"
+msgstr "Kreiranje nije uspjelo"
 
 #: app/desktopManager.js:1675
 msgid "Could not create folder"
@@ -799,9 +797,8 @@ msgid "Name"
 msgstr "Ime"
 
 #: app/desktopMenu.js:1040
-#, fuzzy
 msgid "Name Z-A"
-msgstr "Ime Z-A"
+msgstr "Naziv (Ž-A)"
 
 #: app/desktopMenu.js:1042
 #, fuzzy
@@ -907,9 +904,8 @@ msgid "Could not create symbolic link"
 msgstr "Nije moguće stvoriti simboličku vezu"
 
 #: app/dragManager.js:748
-#, fuzzy
 msgid "Copy/Move Failed"
-msgstr "Premještanje otkazano"
+msgstr "Kopiranje nije uspjelo"
 
 #: app/dragManager.js:749
 msgid "{0} Does not exist"
@@ -1390,9 +1386,8 @@ msgid "Choose Icon Right"
 msgstr "Odaberite Akcija za datoteke"
 
 #: app/shortcuts.js:45
-#, fuzzy
 msgid "Choose Icon Up"
-msgstr "Odabir"
+msgstr "Odaberite ikonu"
 
 #: app/shortcuts.js:48
 #, fuzzy

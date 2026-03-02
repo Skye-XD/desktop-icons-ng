@@ -11,13 +11,14 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2024, 2025, 2026.
 # Maksim_220 Кабанов <law820314@gmail.com>, 2025.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Кирилл <09plf5@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-20 12:07-0500\n"
-"PO-Revision-Date: 2026-02-28 16:09+0000\n"
-"Last-Translator: Сергей <asvmail.as@gmail.com>\n"
+"PO-Revision-Date: 2026-03-02 11:09+0000\n"
+"Last-Translator: Кирилл <09plf5@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ru/>\n"
 "Language: ru\n"
@@ -259,7 +260,7 @@ msgstr "Никогда"
 
 #: app/adwPreferencesWindow.js:793
 msgid "Show a context menu item to delete permanently"
-msgstr "Добавить пункт в контекстное меню «Удалить безвозвратно»"
+msgstr "Добавить пункт «Удалить безвозвратно» в контекстное меню"
 
 #: app/adwPreferencesWindow.js:798
 msgid "Show hidden files"
@@ -283,8 +284,8 @@ msgstr "Перевод"
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
-"Машина переводится с помощью LibreTranslate. Пользователь проверяется и "
-"редактируется на Weblate."
+"Машинный перевод от LibreTranslate. Проверяется и редактируется "
+"пользователями на Weblate."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:826
@@ -333,12 +334,12 @@ msgstr "Неверные права доступа к AppImage-файлу"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:58
 msgid "This AppImage File has incorrect Permissions."
-msgstr "Этот файл AppImage имеет неправильные разрешения."
+msgstr "Этот файл AppImage имеет неправильные права доступа."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:59 app/desktopFileIcon.js:153
 msgid "Right Click to edit Properties, then:"
-msgstr "Правильный клик для редактирования свойств, затем:"
+msgstr "Нажмите ПКМ для редактирования свойств, затем:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
@@ -353,7 +354,7 @@ msgstr "Другие Доступ"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
 msgid "Read Only"
-msgstr "Читать только"
+msgstr "Только для чтения"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:64 app/desktopFileIcon.js:158
@@ -377,22 +378,22 @@ msgstr "Разрешить выполнение файла как програм
 
 #: app/appImageFileItem.js:79
 msgid "Untrusted AppImage File"
-msgstr "Не вызывающий доверия AppImage-файл"
+msgstr "Недоверенный AppImage-файл"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr "Это приложение Файлу изображения не доверяют, его нельзя запустить."
+msgstr "Этот AppImage-файл не доверен, он не может быть запущен."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
-msgstr "Чтобы включить запуск, щелкните правой кнопкой мыши, затем:"
+msgstr "Чтобы включить запуск, щёлкните правой кнопкой мыши, затем:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
 msgid "enable"
-msgstr "обеспечивать"
+msgstr "Включите"
 
 #: app/appImageFileItem.js:84 app/desktopFileIcon.js:178
 #: app/fileItemMenu.js:316 app/fileItemMenu.js:330
@@ -425,8 +426,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Для возможности работы со сжатыми файлами установите file-roller и/или "
-"gir-1.2-gnomeAutoAr"
+"Для работы со сжатыми файлами установите file-roller и/или gir-1.2-"
+"gnomeAutoAr"
 
 #: app/autoAr.js:207
 msgid "Extracting files"
@@ -529,19 +530,19 @@ msgstr "Создать"
 
 #: app/autoAr.js:712
 msgid "Compatible with all operating systems."
-msgstr "Совместимые со всеми операционными системами."
+msgstr "Совместим со всеми операционными системами."
 
 #: app/autoAr.js:718
 msgid "Password protected .zip, must be installed on Windows and Mac."
-msgstr "Защищённые паролем ZIP-архивы, требующие установки на Windows и Mac."
+msgstr "Защищённый паролем .zip, требует установки на Windows и Mac."
 
 #: app/autoAr.js:724
 msgid "Smaller archives but Linux and Mac only."
-msgstr "Архивы меньшего размера, совместимые только с Linux и Mac."
+msgstr "Архив меньшего размера, совместим только с Linux и Mac."
 
 #: app/autoAr.js:730
 msgid "Smaller archives but must be installed on Windows and Mac."
-msgstr "Архивы меньшего размера, требующие установки на Windows и Mac."
+msgstr "Архив меньшего размера, требует установки на Windows и Mac."
 
 #: app/desktopFileIcon.js:125
 msgid "The Displayed Desktop is writable by others"
@@ -555,11 +556,11 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-".deskop-файлы не могут быть запущены с этого рабочего стола, так как папка "
-"«Рабочий стол» доступна для записи другим пользователям.\n"
+".desktop-файлы не могут быть запущены с этого рабочего стола, так как папка «"
+"Рабочий стол» доступна для записи другим пользователям.\n"
 "\n"
-"Пожалуйста, проверьте права доступа к этой папке и убедитесь, что она "
-"недоступна для записи другим пользователям."
+"Пожалуйста, проверьте права доступа к этой папке рабочего стола и убедитесь, "
+"что она недоступна для записи другим пользователям."
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
@@ -572,10 +573,10 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"Этот .desktop файл содержит ошибки или указывает на программу без "
-"необходимых разрешений. Его нельзя выполнить.\n"
+"Этот .desktop-файл содержит ошибки или указывает на программу без "
+"необходимых прав доступа. Он не может быть выполнен.\n"
 "\n"
-"Отредактируйте файл так, чтобы он указывал на необходимую программу."
+"Отредактируйте файл, указав правильную исполняемую программу."
 
 #: app/desktopFileIcon.js:151
 msgid "Invalid Permissions on Desktop File"
@@ -584,16 +585,16 @@ msgstr "Неверные права доступа для .desktop-файла"
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:152
 msgid "This Desktop File has incorrect Permissions."
-msgstr "Этот файл рабочего стола имеет неправильные разрешения."
+msgstr "Этот файл рабочего стола имеет неправильные права доступа."
 
 #: app/desktopFileIcon.js:173
 msgid "Untrusted Desktop File"
-msgstr "Не вызывающий доверия .desktop файл"
+msgstr "Недоверенный .desktop-файл"
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:175
 msgid "This Desktop file is not trusted, it can not be launched."
-msgstr "Этому файлу Desktop не доверяют, его нельзя запустить."
+msgstr "Этот .desktop-файл не доверен, он не может быть запущен."
 
 #: app/desktopFileIcon.js:204 app/gnomeShellDragDrop.js:355
 msgid "Could not open File"
@@ -638,7 +639,7 @@ msgstr "Переключиться на слой виджетов"
 
 #: app/desktopGrid.js:2586
 msgid "Add Widget..."
-msgstr "Добавить виджет"
+msgstr "Добавить виджет..."
 
 #: app/desktopManager.js:167
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -703,9 +704,7 @@ msgstr "Файловый менеджер GNOME не найден"
 
 #: app/desktopManager.js:230
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"Для «Gtk4 Desktop Icons NG» требуется приложение «Файлы» рабочего стола "
-"CNOME."
+msgstr "Для «Gtk4 Desktop Icons NG» требуется приложение GNOME Файлы."
 
 #: app/desktopManager.js:237
 msgid "There is no default File Manager"
@@ -719,8 +718,7 @@ msgstr ""
 #: app/desktopManager.js:245
 msgid "Gnome Files is not registered as a File Manager"
 msgstr ""
-"Приложение «Файлы» среды рабочего стола Gnome не зарегистрировано в качестве "
-"файлового менеджера"
+"Приложение Gnome Файлы не зарегистрировано в качестве файлового менеджера"
 
 #: app/desktopManager.js:246
 msgid ""
@@ -728,15 +726,13 @@ msgid ""
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
-"Приложение «Файлы» для рабочего стола Gnome не запрограммировано на открытие "
-"папок!\n"
+"Приложение Gnome Файлы не запрограммировано на открытие папок!\n"
 "Проверьте установку xdg-utils\n"
-"Проверьте установку .desktop-файла приложения «Файлы» для рабочего стола "
-"Gnome"
+"Проверьте установку .desktop-файла приложения Gnome Файлы"
 
 #: app/desktopManager.js:356
 msgid "Clear current selection before new search"
-msgstr "Очистить текущую подборку перед новым поиском"
+msgstr "Очистить текущую выборку перед новым поиском"
 
 #: app/desktopManager.js:1297
 msgid "Find Files on Desktop"
@@ -756,7 +752,7 @@ msgstr "Не удалось создать папку"
 
 #: app/desktopMenu.js:610
 msgid "Unable to open Desktop in Gnome Files"
-msgstr "Не удалось открыть рабочий стол в приложении «Файлы» для Gnome"
+msgstr "Не удалось открыть рабочий стол в приложении Gnome Файлы"
 
 #: app/desktopMenu.js:629
 msgid "Preferences Window is Open"
@@ -768,7 +764,7 @@ msgstr "Это окно открыто. Пожалуйста, переключи
 
 #: app/desktopMenu.js:639 app/desktopMenu.js:1130
 msgid "Settings"
-msgstr "Параметры"
+msgstr "Настройки"
 
 #: app/desktopMenu.js:919
 msgid "Template Creation Error"
@@ -780,27 +776,27 @@ msgstr "Не удалось создать документ"
 
 #: app/desktopMenu.js:1038
 msgid "Name"
-msgstr "Название"
+msgstr "Названию"
 
 #: app/desktopMenu.js:1040
 msgid "Name Z-A"
-msgstr "Названия от Я до А"
+msgstr "Названию от Я до А"
 
 #: app/desktopMenu.js:1042
 msgid "Modified Time"
-msgstr "Время изменения"
+msgstr "Времени изменения"
 
 #: app/desktopMenu.js:1044
 msgid "Type"
-msgstr "Тип"
+msgstr "Типу"
 
 #: app/desktopMenu.js:1046
 msgid "Size"
-msgstr "Размер"
+msgstr "Размеру"
 
 #: app/desktopMenu.js:1051
 msgid "Keep Arranged…"
-msgstr "Сохранить порядок…"
+msgstr "Сохранить упорядоченными…"
 
 #: app/desktopMenu.js:1056
 msgid "Keep Stacked by Type…"
@@ -808,7 +804,7 @@ msgstr "Сохранить сгруппированными по типу…"
 
 #: app/desktopMenu.js:1058
 msgid "Sort Home/Drives/Trash…"
-msgstr "Сортировать Домашняя папка/Диски/Корзина…"
+msgstr "Сортировать домашнюю папку/диски/корзину…"
 
 #: app/desktopMenu.js:1063
 msgid "Change Desktop"
@@ -816,7 +812,7 @@ msgstr "Сменить рабочий стол"
 
 #: app/desktopMenu.js:1068
 msgid "Restore Default Desktop"
-msgstr "Восстановить рабочий стол, установленный по умолчанию"
+msgstr "Восстановить рабочий стол по умолчанию"
 
 #: app/desktopMenu.js:1072
 msgid "Desktop Icon Settings"
@@ -872,7 +868,7 @@ msgstr "Меню оболочки…"
 
 #: app/dragManager.js:101 app/dragManager.js:939
 msgid "Making SymLink Failed"
-msgstr "Ошибка создания SymLink"
+msgstr "Ошибка создания символической ссылки"
 
 #: app/dragManager.js:102 app/dragManager.js:940
 msgid "Could not create symbolic link"
@@ -880,7 +876,7 @@ msgstr "Не удалось создать символическую ссылк
 
 #: app/dragManager.js:748
 msgid "Copy/Move Failed"
-msgstr "Ошибка при Копировании/Перемещении"
+msgstr "Ошибка при копировании/перемещении"
 
 #: app/dragManager.js:749
 msgid "{0} Does not exist"
@@ -943,7 +939,7 @@ msgstr "Открыть"
 
 #: app/fileItemMenu.js:156 app/fileItemMenu.js:160
 msgid "Extract Here"
-msgstr "Извлечь здесь"
+msgstr "Извлечь сюда"
 
 #: app/fileItemMenu.js:162
 msgid "Extract To..."
