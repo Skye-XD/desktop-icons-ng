@@ -161,7 +161,6 @@ const DesktopManager = class {
         // show error if monitor frame buffer scaling is not enabled first,
         //  as windows may be awry
         if (this.windowManager.differentZooms &&
-            !this.Prefs.usingX11 &&
             !this.fractionalScaling &&
             !this._framebufferWarningDone) {
             const header = _('Monitor Frame Buffer Scaling is not enabled');

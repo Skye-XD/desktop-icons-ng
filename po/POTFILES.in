@@ -39,7 +39,7 @@ app/utils/gsConnect.js
 data/ui/ding-app-chooser.ui
 data/com.desktop.ding.desktop.in
 desktopIconsIntegration.js
-emulateX11WindowType.js
+windowTypeManager.js
 extension.js
 prefs.js
 visibleArea.js

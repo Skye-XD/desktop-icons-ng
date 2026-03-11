@@ -17,7 +17,7 @@ extensions_dir = join_paths(prefix, datadir, 'gnome-shell', 'extensions', extens
 
 install_data([
     'dingManager.js',
-    'emulateX11WindowType.js',
+    'windowTypeManager.js',
     'extension.js',
     'metadata.json',
     'prefs.js',

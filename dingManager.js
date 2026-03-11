@@ -29,7 +29,7 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 import * as BoxPointer from 'resource:///org/gnome/shell/ui/boxpointer.js';
 
-import * as EmulateX11 from './emulateX11WindowType.js';
+import * as WindowTypeManager from './windowTypeManager.js';
 import * as GnomeShellOverride from './gnomeShellOverride.js';
 import * as VisibleArea from './visibleArea.js';
 import * as FileUtils from './utils/fileUtils.js';
@@ -95,9 +95,6 @@ const DingManager = class {
         this.metadata = extensionObject.metadata;
         this.version = this.metadata['version-name'];
         this.uuid = this.metadata.uuid;
-        this.isWayland = typeof Meta.is_wayland_compositor === 'function'
-            ? Meta.is_wayland_compositor()
-            : true;
         this._init();
     }
 
@@ -116,18 +113,18 @@ const DingManager = class {
         this.GnomeShellVersion = GnomeShellVersion;
         this.ShortcutManager = null;
 
-        /* The constructor of the EmulateX11 class only initializes some
+        /* The constructor of the window manager class only initializes some
          * internal properties, but nothing else. In fact, it has its own
          * enable() and disable() methods. That's why it could have been
          * created here, in init(). But since the rule seems to be NO CLASS
          * CREATION IN INIT UNDER NO CIRCUMSTANCES...
          */
-        this.x11Manager = null;
+        this.windowTypeManager = null;
         this.visibleArea = null;
 
         /* Ensures that there aren't "rogue" processes.
          * This is a safeguard measure for the case of Gnome Shell being
-         * relaunched (for example, under X11, with Alt+F2 and R), to kill
+         * relaunched (for example with Alt+F2 and R), to kill
          * any old DING instance. That's why it must be here, in init(),
          * and not in enable() or disable() (disable already guarantees that
          * the current instance is killed).
@@ -144,6 +141,13 @@ const DingManager = class {
      * Enables the extension
      */
     enable() {
+        if (typeof Meta.is_wayland_compositor === 'function' &&
+            !Meta.is_wayland_compositor()
+        ) {
+            console.error('Gtk4 DING extension requires a Wayland session');
+            return;
+        }
+
         if (!this.GnomeShellOverride) {
             this.GnomeShellOverride =
                 new GnomeShellOverride.GnomeShellOverride();
@@ -151,8 +155,8 @@ const DingManager = class {
 
         this.GnomeShellOverride.enable();
 
-        if (!this.x11Manager)
-            this.x11Manager = new EmulateX11.EmulateX11WindowType();
+        if (!this.windowTypeManager)
+            this.windowTypeManager = new WindowTypeManager.WindowTypeManager();
 
         if (!this.DesktopIconsUsableArea) {
             this.DesktopIconsUsableArea = new VisibleArea.VisibleArea();
@@ -198,9 +202,7 @@ const DingManager = class {
             this.startupPreparedId = null;
         }
 
-        // under X11 we now need to cheat, so now do all this under wayland
-        // as well as X
-        this.x11Manager.enable();
+        this.windowTypeManager.enable();
 
         /*
          * If the desktop geometry changes (because a new monitor has
@@ -294,7 +296,7 @@ const DingManager = class {
         this.DesktopIconsUsableArea = null;
         this._killCurrentProcess();
         this.GnomeShellOverride.disable();
-        this.x11Manager.disable();
+        this.windowTypeManager.disable();
         this.visibleArea.disable();
         this.ShortcutManager.disable();
 
@@ -422,11 +424,11 @@ const DingManager = class {
         const locked = value.get_boolean();
 
         if (!locked)
-            this.x11Manager.refreshWindows();
+            this.windowTypeManager.refreshWindows();
     }
 
     _setWidgetLayerRaised(raised) {
-        this.x11Manager?.setWindowsRaisedAsDock(raised);
+        this.windowTypeManager?.setWindowsRaisedAsDock(raised);
     }
 
     /**
@@ -491,7 +493,7 @@ const DingManager = class {
         }
 
         this.waylandClient = null;
-        this.x11Manager.set_wayland_client(null);
+        this.windowTypeManager.set_wayland_client(null);
     }
 
     /**
@@ -551,7 +553,7 @@ const DingManager = class {
      */
     _doRelaunch(reloadTime) {
         this.waylandClient = null;
-        this.x11Manager.set_wayland_client(null);
+        this.windowTypeManager.set_wayland_client(null);
         if (this.isEnabled) {
             if (this.launchDesktop)
                 GLib.source_remove(this.launchDesktop);
@@ -594,7 +596,7 @@ const DingManager = class {
 
         this.waylandClient = new LaunchSubprocess(0, 'Adw-DING');
         this.waylandClient.set_cwd(GLib.get_home_dir());
-        this.x11Manager.set_wayland_client(this.waylandClient);
+        this.windowTypeManager.set_wayland_client(this.waylandClient);
 
         const launchTime = GLib.get_monotonic_time();
 
@@ -647,9 +649,8 @@ const DingManager = class {
 };
 
 /**
- * This class encapsulates the code to launch a subprocess that can detect
- * whether a window belongs to it. It only does this on Wayland, because on X11
- * there is no need to do these tricks.
+ * This class encapsulates the code to launch a subprocess and detect whether
+ * a window belongs to it.
  *
  * It is compatible with-
  * https://gitlab.gnome.org/GNOME/mutter/merge_requests/754 to simplify the code
@@ -679,7 +680,7 @@ var LaunchSubprocess = class {
 
     makeWaylandClientSubprocess(argv) {
         if (!this.isWayland)
-            throw new Error('X11, Cannot make Wayland client subprocess');
+            throw new Error('Unsupported compositor: Wayland is required');
 
         let subprocess;
 
@@ -715,10 +716,7 @@ var LaunchSubprocess = class {
 
     async spawnv(argv) {
         try {
-            if (this.isWayland)
-                this.subprocess = this.makeWaylandClientSubprocess(argv);
-            else
-                this.subprocess = this._launcher.spawnv(argv);
+            this.subprocess = this.makeWaylandClientSubprocess(argv);
         } catch (e) {
             this.subprocess = null;
             throw e;
@@ -835,29 +833,6 @@ var LaunchSubprocess = class {
             window.hide_from_window_list();
         else
             this._waylandClient?.hide_from_window_list(window);
-    }
-
-    make_desktop_window(window) {
-        if (window.window_type === Meta.WindowType.DESKTOP)
-            return true;
-
-        if (!this.isWayland || !this.process_running)
-            return false;
-
-        try {
-            this._waylandClient.make_desktop(window);
-            console.log(
-                'Making Wayland window type Desktop with Meta.WaylandClient API'
-            );
-
-            return true;
-        } catch (e) {
-            console.log(
-                'No API to make window type Desktop available!'
-            );
-        }
-
-        return false;
     }
 };
 
