@@ -1,4 +1,14 @@
 # History of versions #
+* Adw Version 100.18 for Gnome 49, 50
+  * Drop X11 support and require a Wayland session. Remove X11-specific dependencies and legacy window-type/Wayland compatibility workarounds. (Sundeep Mediratta)
+  * Add desktop dock window-type emulation and better raised-state synchronization with GNOME Shell to interact with widgets. (Sundeep Mediratta)
+  * Improve widget layer focus and visibility handling, including restoring focus after dialog/aux window close and closing auxiliary windows when widget layer is activated. (Sundeep Mediratta)
+  * Fix GTK menu/popup position handling when margins are unset. (Sundeep Mediratta)
+  * Improve consent dialog presentation with wider libadwaita layout handling. (Sundeep Mediratta)
+  * Weblate translations updates for German, Kazakh, Russian, Chinese (Simplified), and Georgian. Refresh `.po` files. (Weblate Authors)
+  * Code style cleanup and formatting improvements. (Sundeep Mediratta)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.17 for Gnome 45, 46, 47, 48, 49
   * Add live layer fade-in for widget animations. (Sundeep Mediratta)
   * Force redisplay of webview on reattachment. (Sundeep Mediratta)

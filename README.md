@@ -36,6 +36,22 @@ Uses Libretranslate to automatically translate into multiple languages.
 - The new web-widget layer can optionally launch helper backends defined per widget via `widget.json`. `HtmlWidgetHostWithBackend` spawns those commands directly from the widget bundle and exchanges newline-delimited JSON so widgets can render data produced by applications written in any language. This gives widget authors the power to integrate local system information or custom services well beyond what WebKit alone can access, so treat backend-enabled widgets like local applications and install only from trusted sources.
 - Documentation: [Desktop_Widgets.md](Desktop_Widgets.md), [Widget_API.md](widgets/Widget_API.md), [Widget_CSP_Profiles.md](Widget_CSP_Profiles.md). An optional shared stylesheet `widgets/ding-widget.css` is covered in [Widget_API.md](widgets/Widget_API.md#optional-helper-stylesheet-ding-widgetcss).
 
+### UPDATE Gnome 50
+
+- This release updates support for GNOME Shell 49 and 50.
+- X11 support has been removed; the extension now requires a Wayland session. Therefore compatibility with prior shells dropeed.
+- Removed X11-specific dependencies, legacy window-type emulation, and older Wayland compatibility workarounds.
+- Added desktop dock window-type emulation and improved raised/layered state handling with GNOME Shell.
+- Improved widget layer behavior:
+  - better focus/visibility handling when dialogs open/close
+  - restored widget focus after closing dialogs and auxiliary windows
+  - automatically closes auxiliary windows when activating the widget layer
+- Fixed GTK menu/popup positioning edge cases when margins are missing.
+- Improved consent dialog layout with a wider and clearer libadwaita presentation.
+- Updated translations (German, Kazakh, Russian, Chinese Simplified, Georgian) and refreshed `.po` files.
+- Added Arch packaging updates and general code cleanup/formatting improvements.
+
+
 ## Security
 
 - **Backend-enabled widgets run native code.** If a widget declares a `backend` in `widget.json`, the host will spawn that command with the user’s privileges and pipe JSON over stdin/stdout. That process can read local files, access hardware, and reach the network outside the WebKit sandbox or CSP rules. Review widget bundles before installation and only deploy ones you trust as much as other desktop applications.

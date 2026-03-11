@@ -378,7 +378,9 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.17 for Gnome 45, 46, 47, 48, 49</p>
+            `<p>* Adw version 100.18 for Gnome 49, 50</p>
+<ul><li>Wayland-only release: removes X11 support, improves dock/widget-layer focus and display behavior, and updates shell compatibility.</li></ul>
+            <p>* Adw version 100.17 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Widget polish: grid controls, media widgets, webview reattach, redisplay, and animation.</li></ul>
             <p>* Adw version 100.16 for Gnome 45, 46, 47, 48, 49</p>
 <ul><li>Fixes -Empty window not mapping, icon placement with monitor hotplug</li></ul>
