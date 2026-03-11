@@ -232,7 +232,7 @@ class ManageWindow {
             this._window.unstick();
 
         if (raisedDesktopAsDockActive)
-            this.raiseDesktopasDockWindow();
+            this._raiseDesktopAsDockWindow();
         else if (dockWindowActive)
             this._makeWindowTypeDock();
         else if (desktopWindowActive)
@@ -435,19 +435,8 @@ class ManageWindow {
         if (typeof this._window.set_type === 'function') {
             this._window.set_type(Meta.WindowType.DESKTOP);
             console.log('Setting window type to desktop with Gnome 49 API');
-            return;
-        }
-
-        if (this._waylandClient) {
-            const desktopWindowTypeSetOnWindow =
-                this._waylandClient.make_desktop_window(this._window);
-
-            if (!desktopWindowTypeSetOnWindow) {
-                this._emulateDesktopWindow();
-                return;
-            }
         } else {
-            this._emulateDesktopWindow();
+            console.error('Meta.Window.set_type() is required for desktop windows');
             return;
         }
 
@@ -461,33 +450,12 @@ class ManageWindow {
         this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
     }
 
-    raiseDesktopasDockWindow() {
+    _raiseDesktopAsDockWindow() {
         this._makeWindowTypeNormal();
-        // Emulate dock behavior without declaring a real DOCK window type.
+        // Keep it raised without using DOCK so focus behavior stays normal.
         this._keepWindowUnFullScreen();
         this._keepWindowOnTop();
         this._showWindowOnAllDesktops();
-    }
-
-    _emulateDesktopWindow() {
-        console.log('Emulating window type Desktop');
-        this._window.get_window_type = function () {
-            return Meta.WindowType.DESKTOP;
-        };
-
-        this._keepWindowAtBottom();
-        this._showWindowOnAllDesktops();
-        const moveDesktopWindowToBottom = true;
-        const activateTopWindowOnWorkspace = true;
-
-        this._onIdleChangedStatusCallback(
-            {moveDesktopWindowToBottom, activateTopWindowOnWorkspace}
-        );
-    }
-
-    _onIdleActivateTopWindowOnActiveWorkspace() {
-        const activateTopWindowOnWorkspace = true;
-        this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
     }
 
     _makeWindowTypeNormal() {
@@ -496,48 +464,26 @@ class ManageWindow {
             console.log(
                 'Setting raised desktop window type to normal with Gnome 49 API'
             );
-            return;
+        } else {
+            console.error('Meta.Window.set_type() is required for normal windows');
         }
+    }
 
-        if (this._waylandClient) {
-            console.log(
-                'No documented old Wayland API to make window type Normal; ' +
-                'using dock emulation only'
-            );
-        }
+    _onIdleActivateTopWindowOnActiveWorkspace() {
+        const activateTopWindowOnWorkspace = true;
+        this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
     }
 
     _makeWindowTypeDock() {
         if (typeof this._window.set_type === 'function') {
             this._window.set_type(Meta.WindowType.DOCK);
             console.log('Setting window type to dock with Gnome 49 API');
-            return;
-        }
-
-        if (this._waylandClient) {
-            const dockWindowTypeSetOnWindow =
-                this._waylandClient.make_dock_window(this._window);
-
-            if (!dockWindowTypeSetOnWindow) {
-                this._emulateDockWindow();
-                return;
-            }
         } else {
-            this._emulateDockWindow();
+            console.error('Meta.Window.set_type() is required for dock windows');
             return;
         }
 
         this._keepWindowUnFullScreen();
-    }
-
-    _emulateDockWindow() {
-        console.log('Emulating window type Dock');
-        this._window.get_window_type = function () {
-            return Meta.WindowType.DOCK;
-        };
-
-        this._keepWindowOnTop();
-        this._showWindowOnAllDesktops();
     }
 
     refreshProperties() {
@@ -581,7 +527,7 @@ class ManageWindow {
 
 var WindowTypeManager = class {
     /*
-     This class does all the heavy lifting for emulating WindowType.
+     This class handles DING window registration and window-type management.
      Just make one instance of it, call enable(), and whenever a window
      that you want to give "superpowers" is mapped, add it with the
      "addWindowManagedCustomJS_ding" method. That's all.

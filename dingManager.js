@@ -835,28 +835,6 @@ var LaunchSubprocess = class {
             this._waylandClient?.hide_from_window_list(window);
     }
 
-    make_desktop_window(window) {
-        if (window.window_type === Meta.WindowType.DESKTOP)
-            return true;
-
-        if (!this.isWayland || !this.process_running)
-            return false;
-
-        try {
-            this._waylandClient.make_desktop(window);
-            console.log(
-                'Making Wayland window type Desktop with Meta.WaylandClient API'
-            );
-
-            return true;
-        } catch (e) {
-            console.log(
-                'No API to make window type Desktop available!'
-            );
-        }
-
-        return false;
-    }
 };
 
 /**
