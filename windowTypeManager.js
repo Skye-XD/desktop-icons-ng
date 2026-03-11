@@ -1,4 +1,4 @@
-/* Emulate X11WindowType
+/* Window Type Manager
  *
  * Copyright (C) 2022 Sundeep Mediratta (smedius@gmail.com)
  * Copyright (C) 2020 Sergio Costas (rastersoft@gmail.com)
@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /* global global */
-/* exported EmulateX11WindowType */
+/* exported WindowTypeManager */
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import Clutter from 'gi://Clutter';
@@ -24,16 +24,15 @@ import Meta from 'gi://Meta';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as DND from 'resource:///org/gnome/shell/ui/dnd.js';
 import * as AppFavorites from 'resource:///org/gnome/shell/ui/appFavorites.js';
-import * as Utils from 'resource:///org/gnome/shell/misc/util.js';
 
-export {EmulateX11WindowType};
+export {WindowTypeManager};
 
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
 
 class ManageWindow {
     /* This class is added to each managed window, and it's used to make it
-       behave like an X11 Desktop window.
+       behave like a desktop window.
 
        Trusted windows will set in the title the characters @!, followed by
        the coordinates where to put the window separated by a colon, and
@@ -59,10 +58,6 @@ class ManageWindow {
     */
 
     constructor(window, waylandClient, changedStatusCB) {
-        this.isWayland = typeof Meta.is_wayland_compositor === 'function'
-            ? Meta.is_wayland_compositor()
-            : true;
-        this._isX11 = !this.isWayland;
         this._waylandClient = waylandClient;
         this._window = window;
         this._signalIDs = [];
@@ -109,10 +104,6 @@ class ManageWindow {
         if (this._restackedBottomID)
             global.display.disconnect(this._restackedBottomID);
         this._restackedBottomID = 0;
-
-        if (this._showDesktopID)
-            global.workspace_manager.disconnect(this._showDesktopID);
-        this._showDesktopID = 0;
 
         if (this._restackedTopID)
             global.display.disconnect(this._restackedTopID);
@@ -318,21 +309,13 @@ class ManageWindow {
     }
 
     _keepWindowHidden() {
-        if (!this._isX11 && this._waylandClient) {
+        if (this._waylandClient)
             this._waylandClient.hide_from_window_list(this._window);
-        } else {
-            const xid = this._window.xwindow;
-            this._setX11windowSkipTaskbar(xid);
-        }
     }
 
     _unhideWindow() {
-        if (!this._isX11 && this._waylandClient) {
+        if (this._waylandClient)
             this._waylandClient.show_in_window_list(this._window);
-        } else {
-            const xid = this._window.xwindow;
-            this._unSetX11windowSkipTaskbar(xid);
-        }
     }
 
     _keepWindowAtBottom() {
@@ -362,18 +345,6 @@ class ManageWindow {
             this._syncToBottomOfStack.bind(this)
         );
 
-        /* If the desktop is shown with keyboard gnome shortcuts, detect and put
-           DING window back.
-           Seems to be needed for X11, works without on Wayland.
-        */
-        if (this._isX11) {
-            this._showDesktopID =
-                global.workspace_manager.connect(
-                    'showing-desktop-changed',
-                    this._activateDesktopWindow.bind(this)
-                );
-        }
-
         if (this._window.above)
             this._window.unmake_above();
 
@@ -393,11 +364,6 @@ class ManageWindow {
 
         if (this._window.fullscreen)
             this._window.unmake_fullscreen();
-    }
-
-    _activateDesktopWindow() {
-        if (this._desktopWindow)
-            this._window.activate(Meta.CURRENT_TIME);
     }
 
     _syncToBottomOfStack() {
@@ -472,7 +438,7 @@ class ManageWindow {
             return;
         }
 
-        if (!this._isX11 && this._waylandClient) {
+        if (this._waylandClient) {
             const desktopWindowTypeSetOnWindow =
                 this._waylandClient.make_desktop_window(this._window);
 
@@ -481,20 +447,13 @@ class ManageWindow {
                 return;
             }
         } else {
-            const xid = this._window.xwindow;
-
-            try {
-                this._setX11windowTypeDesktop(xid);
-            } catch (e) {
-                logError(e);
-                this._emulateDesktopWindow();
-                return;
-            }
+            this._emulateDesktopWindow();
+            return;
         }
 
         // Window manager bug - it treats request to resize window
         // to monitor size as a fullscreen window request as well and makes
-        // the window fullscreen, more so for legacy X11 apps.
+        // the window fullscreen for some apps.
         // This makes intellihide for docks/panels hide from desktop window
         this._keepWindowUnFullScreen();
 
@@ -531,40 +490,6 @@ class ManageWindow {
         this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
     }
 
-    _setX11windowSkipTaskbar(xid) {
-        // Unfortunately xprop can set only one of the properties in the state,
-        // not multiple.
-        // Stick to setting only skip-taskbar, we can otherwirse also set
-        // the property for pager, _NET_WM_STATE_SKIP_PAGER
-        const commandline = `xprop -id ${xid}` +
-        ' -f _NET_WM_STATE 32a' +
-        ' -set _NET_WM_STATE' +
-        ' _NET_WM_STATE_SKIP_TASKBAR';
-
-        console.log('Making X11 windowtype type skip-taskbar');
-        Utils.spawnCommandLine(commandline);
-    }
-
-    _unSetX11windowSkipTaskbar(xid) {
-        const commandline = `xprop -id ${xid}` +
-        ' -f _NET_WM_STATE 32a' +
-        ' -remove _NET_WM_STATE' +
-        ' _NET_WM_STATE_SKIP_TASKBAR';
-
-        console.log('Making X11 windowtype type NOT skip-taskbar');
-        Utils.spawnCommandLine(commandline);
-    }
-
-    _setX11windowTypeDesktop(xid) {
-        const commandline = `xprop -id ${xid}` +
-            ' -f _NET_WM_WINDOW_TYPE 32a' +
-            ' -set _NET_WM_WINDOW_TYPE' +
-            ' _NET_WM_WINDOW_TYPE_DESKTOP';
-
-        console.log('Making X11 windowtype type Desktop');
-        Utils.trySpawnCommandLine(commandline);
-    }
-
     _makeWindowTypeNormal() {
         if (typeof this._window.set_type === 'function') {
             this._window.set_type(Meta.WindowType.NORMAL);
@@ -574,19 +499,11 @@ class ManageWindow {
             return;
         }
 
-        if (!this._isX11 && this._waylandClient) {
+        if (this._waylandClient) {
             console.log(
                 'No documented old Wayland API to make window type Normal; ' +
                 'using dock emulation only'
             );
-        } else {
-            const xid = this._window.xwindow;
-
-            try {
-                this._setX11windowTypeNormal(xid);
-            } catch (e) {
-                logError(e);
-            }
         }
     }
 
@@ -597,7 +514,7 @@ class ManageWindow {
             return;
         }
 
-        if (!this._isX11 && this._waylandClient) {
+        if (this._waylandClient) {
             const dockWindowTypeSetOnWindow =
                 this._waylandClient.make_dock_window(this._window);
 
@@ -606,15 +523,8 @@ class ManageWindow {
                 return;
             }
         } else {
-            const xid = this._window.xwindow;
-
-            try {
-                this._setX11windowTypeDock(xid);
-            } catch (e) {
-                logError(e);
-                this._emulateDockWindow();
-                return;
-            }
+            this._emulateDockWindow();
+            return;
         }
 
         this._keepWindowUnFullScreen();
@@ -628,26 +538,6 @@ class ManageWindow {
 
         this._keepWindowOnTop();
         this._showWindowOnAllDesktops();
-    }
-
-    _setX11windowTypeDock(xid) {
-        const commandline = `xprop -id ${xid}` +
-            ' -f _NET_WM_WINDOW_TYPE 32a' +
-            ' -set _NET_WM_WINDOW_TYPE' +
-            ' _NET_WM_WINDOW_TYPE_DOCK';
-
-        console.log('Making X11 windowtype type Dock');
-        Utils.trySpawnCommandLine(commandline);
-    }
-
-    _setX11windowTypeNormal(xid) {
-        const commandline = `xprop -id ${xid}` +
-            ' -f _NET_WM_WINDOW_TYPE 32a' +
-            ' -set _NET_WM_WINDOW_TYPE' +
-            ' _NET_WM_WINDOW_TYPE_NORMAL';
-
-        console.log('Making X11 windowtype type Normal');
-        Utils.trySpawnCommandLine(commandline);
     }
 
     refreshProperties() {
@@ -689,7 +579,7 @@ class ManageWindow {
     }
 }
 
-var EmulateX11WindowType = class {
+var WindowTypeManager = class {
     /*
      This class does all the heavy lifting for emulating WindowType.
      Just make one instance of it, call enable(), and whenever a window
@@ -700,10 +590,6 @@ var EmulateX11WindowType = class {
         this._windowList = new Set();
         this._overviewHiding = true;
         this._waylandClient = null;
-        this.isWayland = typeof Meta.is_wayland_compositor === 'function'
-            ? Meta.is_wayland_compositor()
-            : true;
-        this._isX11 = !this.isWayland;
     }
 
     set_wayland_client(client) {
