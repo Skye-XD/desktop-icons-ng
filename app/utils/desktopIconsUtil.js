@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gio, GLib, Gdk, GdkX11, DesktopAppInfo} from '../../dependencies/gi.js';
+import {Gio, GLib, DesktopAppInfo} from '../../dependencies/gi.js';
 import {_} from '../../dependencies/gettext.js';
 
 export {DesktopIconsUtil};
@@ -37,10 +37,6 @@ const DesktopIconsUtil = class {
         return this.mainApp;
     }
 
-
-    usingX11() {
-        return Gdk.Display.get_default() instanceof GdkX11.X11Display;
-    }
 
     ensureDir(path) {
         const file = Gio.File.new_for_path(path);

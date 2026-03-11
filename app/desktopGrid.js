@@ -47,7 +47,6 @@ const DisplayGrid = class {
         this._asDesktop = asDesktop;
         this._desktopDescription = desktopDescription;
         this._hidden = hidden;
-        this._using_X11 = this.DesktopIconsUtil.usingX11();
         this.directoryOpenTimer = null;
         this.windowGlobalRectangle = new Gdk.Rectangle();
         this._updateWindowGeometry();
@@ -84,12 +83,9 @@ const DisplayGrid = class {
             this._mappedPromise =
                 new Promise(resolve => (this._resolveMapped = resolve));
 
-            if (!this._using_X11) {
-                // Wayland Compositer hang on some high resolution
-                // requires all windows be maximized to map and display
-                // initially.
-                this._window.maximize();
-            }
+            // Wayland compositor may hang on some high-resolution displays
+            // unless windows are maximized before first map.
+            this._window.maximize();
 
             this._window.connect('map', () => {
                 if (!this._resolveMapped)
@@ -259,9 +255,7 @@ const DisplayGrid = class {
         this._sizer = this._zoom;
 
         if (this._asDesktop) {
-            if (this._using_X11)
-                this._sizer = Math.ceil(this._zoom);
-            else if (this.Prefs.fractionalScaling)
+            if (this.Prefs.fractionalScaling)
                 this._sizer = 1;
         }
 
@@ -1724,12 +1718,7 @@ const ControlGrid = class extends DrawGrid {
             let gdkDropAction = drop.get_actions();
 
             if (!Gdk.DragAction.is_unique(gdkDropAction)) {
-                if (this._using_X11 &&
-                    (gdkDropAction >=
-                            (Gdk.DragAction.COPY | Gdk.DragAction.MOVE)))
-                    gdkDropAction = Gdk.DragAction.MOVE;
-
-                else if (gdkDropAction >
+                if (gdkDropAction >
                         (Gdk.DragAction.COPY | Gdk.DragAction.MOVE))
                     gdkDropAction = Gdk.DragAction.ASK;
             }

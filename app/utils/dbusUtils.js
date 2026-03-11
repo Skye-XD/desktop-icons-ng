@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-import {Gdk, Gio, GLib, GdkX11, GdkWayland} from '../../dependencies/gi.js';
+import {Gdk, Gio, GLib, GdkWayland} from '../../dependencies/gi.js';
 import {DBusInterfaces, GsConnect} from '../../dependencies/localFiles.js';
 import {_} from '../../dependencies/gettext.js';
 
@@ -972,13 +972,6 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                             };
                         }
 
-                        if (topLevel instanceof GdkX11.X11Surface) {
-                            const xid =
-                                GdkX11.X11Window.prototype.get_xid
-                                .call(topLevel);
-
-                            parentHandle = `x11:${xid}`;
-                        }
                     } catch (e) {
                         console.error(e,
                             'Impossible to determine the parent window'

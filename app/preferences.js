@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {Adw, GLib, Gtk, Gio, Gdk, GdkX11, DesktopAppInfo} from '../dependencies/gi.js';
+import {Adw, GLib, Gtk, Gio, Gdk, DesktopAppInfo} from '../dependencies/gi.js';
 import {DesktopWidgetCapability} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
@@ -84,9 +84,6 @@ const Preferences = class {
         }
 
         // Mutter Settings
-        this.usingX11 =
-            Gdk.Display.get_default() instanceof GdkX11.X11Display;
-
         const schemaMutter =
             schemaSource.lookup(this._Enums.SCHEMA_MUTTER, true);
 
@@ -916,9 +913,6 @@ const Preferences = class {
     }
 
     _getPreMultiplied() {
-        if (this.usingX11)
-            return false;
-
         const scalingEnabled = 'scale-monitor-framebuffer';
 
         try {
@@ -931,9 +925,6 @@ const Preferences = class {
     }
 
     _setPreMultiplied(premultiplied) {
-        if (this.usingX11)
-            return;
-
         const scalingEnabled = 'scale-monitor-framebuffer';
 
         try {
@@ -1087,8 +1078,6 @@ const Preferences = class {
     }
 
     get fractionalScaling() {
-        if (this.usingX11)
-            return false;
         return this._premultiplied;
     }
 
