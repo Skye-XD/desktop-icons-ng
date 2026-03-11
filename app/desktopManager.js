@@ -263,6 +263,11 @@ const DesktopManager = class {
         return errorDialog;
     }
 
+    closeFocusStealingWindows() {
+        this.desktopActions?.preferencesWindow?.close();
+        this.shortcutManager?.closeShortcutViewer();
+    }
+
     terminateProgram() {
         this.desktopMonitor.stopMonitoring();
 

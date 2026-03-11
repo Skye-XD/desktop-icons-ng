@@ -46,6 +46,9 @@ class ManageWindow {
              windows on the screen
        * D : show this window in all desktops
        * H : hide this window from the window list
+       * K : make this window a dock window (takes precedence over desktop flags)
+       * F : keep the window in the same position, even if it is moved by the
+             user or by the system (for example when changing screen resolution)
 
        Using the title is generally not a problem because the desktop windows
        do not have a title. But some other windows may have and still need to
@@ -64,6 +67,7 @@ class ManageWindow {
         this._window = window;
         this._signalIDs = [];
         this._onIdleChangedStatusCallback = changedStatusCB;
+        this._raiseDesktopAsDock = false;
 
         this._titleID = this._window.connect('notify::title', () => {
             this.refreshProperties();
@@ -128,6 +132,7 @@ class ManageWindow {
         this._hideFromWindowList = false;
         this._fixed = false;
         this._desktopWindow = false;
+        this._dockWindow = false;
         let title = this._window.get_title();
 
         if (!title && !!this._window.get_transient_for()) {
@@ -185,6 +190,13 @@ class ManageWindow {
                         case 'F':
                             this._fixed = true;
                             break;
+                        case 'K':
+                            // Dock flag is parsed independently. Combining K
+                            // with desktop-style flags (for example B/D/H) is
+                            // treated as operator error; current precedence is
+                            // resolved later in _attachControllers().
+                            this._dockWindow = true;
+                            break;
                         }
                     }
 
@@ -201,6 +213,12 @@ class ManageWindow {
     }
 
     _attachControllers() {
+        const raisedDesktopAsDockActive =
+            this._desktopWindow && this._raiseDesktopAsDock;
+        const dockWindowActive = this._dockWindow;
+        const desktopWindowActive =
+            this._desktopWindow && !raisedDesktopAsDockActive && !dockWindowActive;
+
         if (this._fixed)
             this._keepFixedWindowPosition();
 
@@ -209,29 +227,25 @@ class ManageWindow {
         else
             this._unhideWindow();
 
-        if (this._keepAtTop)
+        if (this._keepAtTop && !this._desktopWindow && !this._dockWindow)
             this._keepWindowOnTop();
         else if (this._window.above)
             this._window.unmake_above();
 
-        if (this._keepAtBottom & !this._desktopWindow)
+        if (this._keepAtBottom && !this._desktopWindow && !this._dockWindow)
             this._keepWindowAtBottom();
 
-        if (this._showInAllDesktops & !this._desktopWindow)
+        if (this._showInAllDesktops && !this._desktopWindow && !this._dockWindow)
             this._showWindowOnAllDesktops();
         else if (this._window.on_all_workspaces)
             this._window.unstick();
 
-        if (this._desktopWindow) {
-            if (typeof this._window.set_type === 'function') {
-                this._window.set_type(Meta.WindowType.DESKTOP);
-                console.log('Setting window type to desktop with Gnome 49 API');
-                // In future, Meta.WaylandClient.make_desktop(window) will not
-                // be necessary.
-            } else {
-                this._makeWindowTypeDesktop();
-            }
-        }
+        if (raisedDesktopAsDockActive)
+            this.raiseDesktopasDockWindow();
+        else if (dockWindowActive)
+            this._makeWindowTypeDock();
+        else if (desktopWindowActive)
+            this._makeWindowTypeDesktop();
     }
 
     _keepFixedWindowPosition() {
@@ -452,6 +466,12 @@ class ManageWindow {
     }
 
     _makeWindowTypeDesktop() {
+        if (typeof this._window.set_type === 'function') {
+            this._window.set_type(Meta.WindowType.DESKTOP);
+            console.log('Setting window type to desktop with Gnome 49 API');
+            return;
+        }
+
         if (!this._isX11 && this._waylandClient) {
             const desktopWindowTypeSetOnWindow =
                 this._waylandClient.make_desktop_window(this._window);
@@ -480,6 +500,14 @@ class ManageWindow {
 
         const activateTopWindowOnWorkspace = true;
         this._onIdleChangedStatusCallback({activateTopWindowOnWorkspace});
+    }
+
+    raiseDesktopasDockWindow() {
+        this._makeWindowTypeNormal();
+        // Emulate dock behavior without declaring a real DOCK window type.
+        this._keepWindowUnFullScreen();
+        this._keepWindowOnTop();
+        this._showWindowOnAllDesktops();
     }
 
     _emulateDesktopWindow() {
@@ -537,10 +565,115 @@ class ManageWindow {
         Utils.trySpawnCommandLine(commandline);
     }
 
+    _makeWindowTypeNormal() {
+        if (typeof this._window.set_type === 'function') {
+            this._window.set_type(Meta.WindowType.NORMAL);
+            console.log(
+                'Setting raised desktop window type to normal with Gnome 49 API'
+            );
+            return;
+        }
+
+        if (!this._isX11 && this._waylandClient) {
+            console.log(
+                'No documented old Wayland API to make window type Normal; ' +
+                'using dock emulation only'
+            );
+        } else {
+            const xid = this._window.xwindow;
+
+            try {
+                this._setX11windowTypeNormal(xid);
+            } catch (e) {
+                logError(e);
+            }
+        }
+    }
+
+    _makeWindowTypeDock() {
+        if (typeof this._window.set_type === 'function') {
+            this._window.set_type(Meta.WindowType.DOCK);
+            console.log('Setting window type to dock with Gnome 49 API');
+            return;
+        }
+
+        if (!this._isX11 && this._waylandClient) {
+            const dockWindowTypeSetOnWindow =
+                this._waylandClient.make_dock_window(this._window);
+
+            if (!dockWindowTypeSetOnWindow) {
+                this._emulateDockWindow();
+                return;
+            }
+        } else {
+            const xid = this._window.xwindow;
+
+            try {
+                this._setX11windowTypeDock(xid);
+            } catch (e) {
+                logError(e);
+                this._emulateDockWindow();
+                return;
+            }
+        }
+
+        this._keepWindowUnFullScreen();
+    }
+
+    _emulateDockWindow() {
+        console.log('Emulating window type Dock');
+        this._window.get_window_type = function () {
+            return Meta.WindowType.DOCK;
+        };
+
+        this._keepWindowOnTop();
+        this._showWindowOnAllDesktops();
+    }
+
+    _setX11windowTypeDock(xid) {
+        const commandline = `xprop -id ${xid}` +
+            ' -f _NET_WM_WINDOW_TYPE 32a' +
+            ' -set _NET_WM_WINDOW_TYPE' +
+            ' _NET_WM_WINDOW_TYPE_DOCK';
+
+        console.log('Making X11 windowtype type Dock');
+        Utils.trySpawnCommandLine(commandline);
+    }
+
+    _setX11windowTypeNormal(xid) {
+        const commandline = `xprop -id ${xid}` +
+            ' -f _NET_WM_WINDOW_TYPE 32a' +
+            ' -set _NET_WM_WINDOW_TYPE' +
+            ' _NET_WM_WINDOW_TYPE_NORMAL';
+
+        console.log('Making X11 windowtype type Normal');
+        Utils.trySpawnCommandLine(commandline);
+    }
+
     refreshProperties() {
         this._disconnetSignalsAndTimeouts();
         this._parseTitle();
         this._attachControllers();
+    }
+
+    setRaisedAsDock(raised) {
+        if (!this._desktopWindow)
+            return;
+
+        const nextState = !!raised;
+        if (this._raiseDesktopAsDock === nextState)
+            return;
+
+        this._raiseDesktopAsDock = nextState;
+        this.refreshProperties();
+    }
+
+    toggleRaisedAsDock() {
+        this.setRaisedAsDock(!this._raiseDesktopAsDock);
+    }
+
+    get raisedAsDock() {
+        return this._raiseDesktopAsDock;
     }
 
     get hideFromWindowList() {
@@ -751,6 +884,37 @@ var EmulateX11WindowType = class {
     refreshWindows() {
         for (let window of this._windowList)
             window.customJS_ding.refreshProperties();
+    }
+
+    setWindowsRaisedAsDock(raised, window = null) {
+        if (window?.customJS_ding) {
+            window.customJS_ding.setRaisedAsDock(raised);
+            return;
+        }
+
+        for (let managedWindow of this._windowList) {
+            if (!managedWindow.customJS_ding)
+                continue;
+
+            managedWindow.customJS_ding.setRaisedAsDock(raised);
+        }
+    }
+
+    toggleWindowsRaisedAsDock(window = null) {
+        if (window?.customJS_ding) {
+            window.customJS_ding.toggleRaisedAsDock();
+            return;
+        }
+
+        for (let managedWindow of this._windowList) {
+            if (!managedWindow.customJS_ding)
+                continue;
+
+            this.setWindowsRaisedAsDock(
+                !managedWindow.customJS_ding.raisedAsDock
+            );
+            return;
+        }
     }
 };
 

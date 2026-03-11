@@ -466,14 +466,37 @@ const WindowManager = class {
             return;
 
         this._desktops.forEach(desktop => desktop.toggleWidgetLayer());
+        this._syncShellWidgetLayerRaised();
     }
 
     lowerWidgetLayers() {
         this._desktops.forEach(desktop => desktop.lowerWidgetContainer());
+        this._syncShellWidgetLayerRaised(false);
     }
 
     raiseWidgetLayers() {
         this._desktops.forEach(desktop => desktop.raiseWidgetContainer());
+        this._syncShellWidgetLayerRaised(true);
+    }
+
+    _syncShellWidgetLayerRaised(raised = null) {
+        const remoteControl = this._desktopManager.DBusUtils
+            .RemoteExtensionControl;
+
+        if (!remoteControl.isAvailable)
+            return;
+
+        let nextRaised = raised;
+        if (nextRaised === null) {
+            const desktop = this._desktops[0];
+            nextRaised = desktop ? desktop.isWidgetContainerOnTop() : false;
+        }
+
+        try {
+            remoteControl.setWidgetLayerRaised(nextRaised);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     _registerWidgetLayerAction() {

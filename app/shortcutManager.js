@@ -668,6 +668,13 @@ const ShortcutManager = class {
         console.log('All Shortcuts reset to Defaults!');
     }
 
+    closeShortcutViewer() {
+        if (!this._shortCutsWindow)
+            return;
+
+        this._shortCutsWindow.close();
+    }
+
     _showShortcutViewer() {
         if (this._shortCutsWindow)
             return;

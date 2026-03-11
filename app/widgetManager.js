@@ -161,12 +161,27 @@ const WidgetManager = class {
         this._updateWidgetLayerChange(monitorIndex, onTop);
 
         if (!onTop) {
-            if (surface.gridToggleButton) {
+            if (surface.gridToggleButton)
                 surface.gridToggleButton.set_active(false);
-            }
-            
+
             surface.grid.widgetGridEnabled = false;
             surface.grid.updateOverlay();
+        }
+    }
+
+    restoreWidgetLayerFocus(monitorIndex = null) {
+        if (monitorIndex !== null) {
+            const surface = this._surfaces.get(monitorIndex);
+            surface?.grid?.restoreWidgetLayerFocus?.();
+            return;
+        }
+
+        for (const surface of this._surfaces.values()) {
+            if (!surface?.grid?.isWidgetContainerOnTop?.())
+                continue;
+
+            surface.grid.restoreWidgetLayerFocus?.();
+            return;
         }
     }
 
@@ -1913,6 +1928,10 @@ const WidgetManager = class {
 
             // If user closes via window close button / Esc
             window.connect('close-request', () => {
+                GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+                    this.restoreWidgetLayerFocus(monitorIndex);
+                    return GLib.SOURCE_REMOVE;
+                });
                 resolve(null);
                 return false; // allow close
             });

@@ -220,6 +220,10 @@ const WebWidgetContext = class {
         window.set_child(host.actor);
 
         window.connect('close-request', () => {
+            GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+                this._widgetManager.restoreWidgetLayerFocus(inst.monitorIndex);
+                return GLib.SOURCE_REMOVE;
+            });
             this._prefsHost?.destroy();
             this._prefsHost = null;
             this._prefsWindow = null;
