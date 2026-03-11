@@ -834,7 +834,6 @@ var LaunchSubprocess = class {
         else
             this._waylandClient?.hide_from_window_list(window);
     }
-
 };
 
 /**

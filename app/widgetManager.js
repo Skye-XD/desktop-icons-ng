@@ -593,6 +593,7 @@ const WidgetManager = class {
      *
      * It also has to deal with null, undefined, or missing fields gracefully.
      */
+    // eslint-disable-next-line consistent-return
     async loadState(state) {
         if (this._loadStatePromise) {
             this._pendingLoadState = state;
@@ -692,8 +693,8 @@ const WidgetManager = class {
 
                     const surface = this._surfaces.get(instance.monitorIndex);
                     if (surface) {
-                        // eslint-disable-next-line no-await-in-loop
                         const created =
+                        // eslint-disable-next-line no-await-in-loop
                             await this._ensureInstanceActor(instance);
 
                         if (!created)
@@ -1064,10 +1065,10 @@ const WidgetManager = class {
             surface.gridToggleButton = null;
         }
 
-        const gridToggleButtonInstanceId = 
+        const gridToggleButtonInstanceId =
             this._getGridToggleButtonInstanceId(surface.monitorIndex);
-        const gridToggleInst = gridToggleButtonInstanceId 
-            ? this._instances.get(gridToggleButtonInstanceId) 
+        const gridToggleInst = gridToggleButtonInstanceId
+            ? this._instances.get(gridToggleButtonInstanceId)
             : null;
         if (gridToggleInst?._isGridToggleButton)
             gridToggleInst.actor = null;
@@ -1167,14 +1168,14 @@ const WidgetManager = class {
         gridToggleButton.set_can_focus(false);
         gridToggleButton.set_focus_on_click(false);
         gridToggleButton.set_tooltip_text(_('Toggle Widget Grid'));
-        
+
         const gridIcon = Gtk.Image.new_from_icon_name('view-grid-symbolic');
         gridToggleButton.set_child(gridIcon);
         gridToggleButton.set_active(false);
 
         gridToggleButton.widgetInstanceId = instanceId;
 
-        gridToggleButton.connect('toggled', (btn) => {
+        gridToggleButton.connect('toggled', btn => {
             surface.grid.widgetGridEnabled = btn.get_active();
             surface.grid.updateOverlay();
         });
@@ -1309,9 +1310,9 @@ const WidgetManager = class {
             ? this._instances.get(addButtonInstanceId)
             : null;
 
-        if (!addButtonInst) {
+        if (!addButtonInst)
             return [0, 0];
-        }
+
 
         const width = grid.normalizedWidth;
         const buttonWidth = inst?.width ?? 48;
@@ -1622,11 +1623,11 @@ const WidgetManager = class {
         let yPos;
         const yPosUp = frame.y - size - margin;
         const yPosDown = frame.y + frame.height + margin;
-        if (yPosUp < margin) {
+        if (yPosUp < margin)
             yPos = yPosDown;
-        } else {
+        else
             yPos = yPosUp;
-        }
+
 
         const prefsOldParent = this.prefsButton.get_parent();
         if (prefsOldParent && prefsOldParent !== widgetContainer)
@@ -1645,7 +1646,7 @@ const WidgetManager = class {
             this.prefsButton.hide();
         }
 
-        const closeX = showPrefs ? (buttonsX + size + gap) : buttonsX;
+        const closeX = showPrefs ? buttonsX + size + gap : buttonsX;
         if (!this.closeButton.get_parent())
             widgetContainer.put(this.closeButton, closeX, yPos);
         else
