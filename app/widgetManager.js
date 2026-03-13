@@ -565,6 +565,10 @@ const WidgetManager = class {
      *      config: { ... }   // author-defined fields
      *      prefsUri: string|null,
      *      hasPreferences: boolean,
+     *      chrome: {
+     *        showCloseButton: boolean,
+     *        showPrefsButton: boolean,
+     *      },
      *      hasBackend: boolean,
      *      webConsent: boolean|null,
      *      backendConsent: boolean|null,
@@ -648,6 +652,19 @@ const WidgetManager = class {
                     continue;
 
                 try {
+                    let descriptor = null;
+                    try {
+                        // eslint-disable-next-line no-await-in-loop
+                        descriptor = await this._widgetRegistry.getDescriptor(
+                            instData.widgetId
+                        );
+                    } catch (e) {}
+
+                    const resolvedChrome = this._normalizeChromePolicy(
+                        instData.chrome,
+                        descriptor?.chrome
+                    );
+
                     let instance = this._instances.get(instData.instanceId);
 
                     if (instance) {
@@ -662,6 +679,7 @@ const WidgetManager = class {
                         instance.prefsUri = instData.prefsUri ?? null;
                         instance.hasPreferences =
                             instData.hasPreferences ?? !!instance.prefsUri;
+                        instance.chrome = resolvedChrome;
                         instance.hasBackend = instData.hasBackend;
                         instance.webConsent = instData.webConsent ?? null;
                         instance.backendConsent =
@@ -681,6 +699,7 @@ const WidgetManager = class {
                             prefsUri: instData.prefsUri ?? null,
                             hasPreferences:
                                 instData.hasPreferences ?? !!instData.prefsUri,
+                            chrome: resolvedChrome,
                             hasBackend: instData.hasBackend ?? false,
                             webConsent: instData.webConsent ?? null,
                             backendConsent: instData.backendConsent ?? null,
@@ -881,6 +900,7 @@ const WidgetManager = class {
                 config: inst.config ?? {},
                 prefsUri: inst.prefsUri ?? null,
                 hasPreferences: !!inst.hasPreferences,
+                chrome: this._normalizeChromePolicy(inst.chrome),
                 hasBackend: !!inst.hasBackend,
                 webConsent: inst.webConsent ?? null,
                 backendConsent: inst.backendConsent ?? null,
@@ -979,6 +999,7 @@ const WidgetManager = class {
             hasBackend: descriptor?.hasBackend ?? !!descriptor?.backend ?? false,
             prefsUri: descriptor?.prefs ?? null,
             hasPreferences: !!descriptor?.prefs,
+            chrome: this._normalizeChromePolicy(null, descriptor?.chrome),
         };
 
         this._instances.set(instanceId, instance);
@@ -1613,8 +1634,18 @@ const WidgetManager = class {
         const gap = 6;
         const margin = 8;
 
-        const showPrefs = inst.hasPreferences;
-        const buttonCount = showPrefs ? 2 : 1;
+        const chromePolicy = this._normalizeChromePolicy(inst.chrome);
+        const showPrefs =
+            !!inst.hasPreferences && !!chromePolicy.showPrefsButton;
+        const showClose = !!chromePolicy.showCloseButton;
+        const buttonCount = Number(showPrefs) + Number(showClose);
+
+        if (buttonCount <= 0) {
+            this.prefsButton.hide();
+            this.closeButton.hide();
+            return;
+        }
+
         const totalWidth = buttonCount * size + (buttonCount - 1) * gap;
 
         const centerX = frame.x + allocWidth / 2;
@@ -1646,14 +1677,39 @@ const WidgetManager = class {
             this.prefsButton.hide();
         }
 
-        const closeX = showPrefs ? buttonsX + size + gap : buttonsX;
-        if (!this.closeButton.get_parent())
-            widgetContainer.put(this.closeButton, closeX, yPos);
-        else
-            widgetContainer.move(this.closeButton, closeX, yPos);
-        this.closeButton.show();
+        if (showClose) {
+            const closeX = showPrefs ? buttonsX + size + gap : buttonsX;
+            if (!this.closeButton.get_parent())
+                widgetContainer.put(this.closeButton, closeX, yPos);
+            else
+                widgetContainer.move(this.closeButton, closeX, yPos);
+            this.closeButton.show();
+        } else {
+            this.closeButton.hide();
+        }
 
         this._raiseChromeButtons(surface);
+    }
+
+    _normalizeChromePolicy(instanceChrome, descriptorChrome = null) {
+        const input =
+            // eslint-disable-next-line no-nested-ternary
+            instanceChrome && typeof instanceChrome === 'object'
+                ? instanceChrome
+                : descriptorChrome && typeof descriptorChrome === 'object'
+                    ? descriptorChrome
+                    : {};
+
+        return {
+            showCloseButton:
+                typeof input.showCloseButton === 'boolean'
+                    ? input.showCloseButton
+                    : true,
+            showPrefsButton:
+                typeof input.showPrefsButton === 'boolean'
+                    ? input.showPrefsButton
+                    : true,
+        };
     }
 
     _detachChrome() {
