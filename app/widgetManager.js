@@ -200,6 +200,9 @@ const WidgetManager = class {
      *     y?: number,
      *     width?: number,         // override defaultWidth/defaultHeight
      *     height?: number,
+     *     inheritConsentFromInstanceId?: string, // optional source instance
+     *     selectAfterCreate?: boolean,           // optional auto-select/focus
+     *     consentParentWindow?: Gtk.Window|null, // optional consent parent
      *   }
      *
      * Returns the created instance object or null.
@@ -290,12 +293,32 @@ const WidgetManager = class {
         if (!instance)
             return null;
 
+        instance._consentParentWindow = opts.consentParentWindow ?? null;
+
+        const inheritFromId = opts.inheritConsentFromInstanceId;
+        if (typeof inheritFromId === 'string' && inheritFromId.length > 0) {
+            const source = this._instances.get(inheritFromId);
+            if (source && source.widgetId === widgetId) {
+                if (source.webConsent === true)
+                    instance.webConsent = true;
+                if (instance.hasBackend && source.backendConsent === true)
+                    instance.backendConsent = true;
+            }
+        }
+
         const created = await this._ensureInstanceActor(instance);
 
-        if (!created)
+        if (!created) {
+            instance._consentParentWindow = null;
             return null;
+        }
 
         this._positionInstanceActor(instance);
+
+        if (opts.selectAfterCreate === true)
+            this.selectInstance(instance.instanceId);
+
+        instance._consentParentWindow = null;
 
         // Persist creation
         this._stateChanged();
@@ -306,6 +329,7 @@ const WidgetManager = class {
     removeInstance(instanceId) {
         this._removeActor(instanceId);
         this._stateChanged();
+        this._stopWebkitIfUnneeded();
     }
 
     deleteSelectedInstance() {
@@ -317,8 +341,6 @@ const WidgetManager = class {
         // Clear selection first so CSS + chrome are detached.
         this.selectInstance(null);
         this.removeInstance(toRemove);
-
-        this._stopWebkitIfUnneeded();
 
         return true;
     }
@@ -1949,12 +1971,16 @@ const WidgetManager = class {
             this._createWidgetPickerWindow(parentWindow, widgets);
 
         const resultPromise = new Promise(resolve => {
+            let creationInProgress = false;
+
             cancelButton.connect('clicked', () => {
                 window.close();
-                resolve(null);
             });
 
             addButton.connect('clicked', async () => {
+                if (creationInProgress)
+                    return;
+
                 const row = list.get_selected_row();
                 if (!row || !row._widgetId) {
                     window.close();
@@ -1962,10 +1988,14 @@ const WidgetManager = class {
                     return;
                 }
 
+                creationInProgress = true;
+                window.close();
+
                 let created = null;
                 try {
                     created = await this.createInstanceForWidget(row._widgetId, {
                         monitorIndex,
+                        consentParentWindow: parentWindow ?? null,
                     });
                 } catch (e) {
                     console.error(
@@ -1974,7 +2004,6 @@ const WidgetManager = class {
                     );
                 }
 
-                window.close();
                 resolve(created);
             });
 
@@ -1985,11 +2014,13 @@ const WidgetManager = class {
 
             // If user closes via window close button / Esc
             window.connect('close-request', () => {
+                if (!creationInProgress)
+                    resolve(null);
+
                 GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
                     this.restoreWidgetLayerFocus(monitorIndex);
                     return GLib.SOURCE_REMOVE;
                 });
-                resolve(null);
                 return false; // allow close
             });
 
@@ -2174,8 +2205,10 @@ const WidgetManager = class {
      * Widget Consent UI
      * ===================================================================== */
 
-    _asyncAskYesNo(heading, body, bodyUseMarkup = false) {
-        const parentWindow = this._desktopManager.mainApp.get_active_window();
+    _asyncAskYesNo(heading, body, bodyUseMarkup = false, parentWindow = null) {
+        const fallbackParent =
+            this._desktopManager.mainApp.get_active_window();
+        const anchorParent = parentWindow ?? fallbackParent ?? null;
         const yesLabel = _('Allow');
         const noLabel = _('Cancel');
 
@@ -2221,7 +2254,7 @@ const WidgetManager = class {
                 resolve(response === 'yes');
             });
 
-            dlg.present(parentWindow ?? null);
+            dlg.present(anchorParent);
         });
     }
 
@@ -2292,7 +2325,12 @@ const WidgetManager = class {
             `${cspProfileSummary}`;
 
 
-        const answer = await this._asyncAskYesNo(heading, body, true);
+        const answer = await this._asyncAskYesNo(
+            heading,
+            body,
+            true,
+            inst?._consentParentWindow ?? null
+        );
 
         return answer;
     }
@@ -2329,7 +2367,9 @@ const WidgetManager = class {
         const answer = await this._asyncAskYesNo(
             _('Allow widget backend?'),
             body,
-            true);
+            true,
+            inst?._consentParentWindow ?? null
+        );
 
         return answer;
     }

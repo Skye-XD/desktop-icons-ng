@@ -556,6 +556,44 @@ const WebWidgetContext = class {
             break;
         }
 
+        case 'createWidget': {
+            const widgetId = typeof payload?.widgetId === 'string'
+                ? payload.widgetId.trim()
+                : '';
+            if (!widgetId || widgetId !== inst.widgetId)
+                break;
+
+            const monitorIndex = Number.isInteger(inst.monitorIndex)
+                ? inst.monitorIndex
+                : 0;
+            const sourceFrame = manager.getInstanceFrame?.(instanceId);
+            const spawnOffsetPx = 24;
+
+            await manager.createInstanceForWidget(widgetId, {
+                monitorIndex,
+                x: sourceFrame ? sourceFrame.x + spawnOffsetPx : undefined,
+                y: sourceFrame ? sourceFrame.y + spawnOffsetPx : undefined,
+                inheritConsentFromInstanceId: instanceId,
+                selectAfterCreate: true,
+            });
+            break;
+        }
+
+        case 'removeWidget': {
+            // Widgets may remove only themselves.
+            if (manager.getSelectedInstanceId?.() === instanceId)
+                manager.deleteSelectedInstance?.();
+            else
+                manager.removeInstance?.(instanceId);
+
+            break;
+        }
+
+        case 'openExternalLink': {
+            await this._openExternalLinkForWidget(inst, payload);
+            break;
+        }
+
         case 'closePreferences': {
             this.closePreferencesForInstance(instanceId);
             break;
@@ -619,6 +657,44 @@ const WebWidgetContext = class {
         }, 'out');
 
         this._routeAndPost(payload?.mode, inst, reply);
+    }
+
+    async _openExternalLinkForWidget(inst, payload) {
+        const rawUrl = typeof payload?.url === 'string' ? payload.url.trim() : '';
+        if (!rawUrl)
+            return;
+
+        let parsedUri;
+        try {
+            parsedUri = GLib.Uri.parse(rawUrl, GLib.UriFlags.NONE);
+        } catch (error) {
+            console.warn('Widget openExternalLink rejected invalid URL:', rawUrl, error);
+            return;
+        }
+
+        const scheme = parsedUri?.get_scheme?.()?.toLowerCase?.() ?? '';
+        if (scheme !== 'http' && scheme !== 'https') {
+            console.warn('Widget openExternalLink rejected scheme:', scheme || '<none>');
+            return;
+        }
+
+        const escapedUrl = GLib.markup_escape_text(rawUrl, -1);
+        const allowed = await this._widgetManager._asyncAskYesNo(
+            _('Open link in browser?'),
+            `${_('The widget wants to open this link in your browser:\n\n')
+            }<tt>${escapedUrl}</tt>`,
+            true,
+            this._mainApp.get_active_window?.() ?? null
+        );
+
+        if (!allowed)
+            return;
+
+        try {
+            this._desktopIconsUtil.trySpawn(null, ['xdg-open', rawUrl], null);
+        } catch (error) {
+            console.error('Failed to open external link:', rawUrl, error);
+        }
     }
 
     _postToWidget(inst, msg) {
