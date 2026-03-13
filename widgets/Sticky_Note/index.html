@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sticky Note</title>
+  <link rel="stylesheet" href="./ding-widget.css"/>
+  <link rel="stylesheet" href="./stickyNote.css"/>
+</head>
+<body>
+  <div class="note-shell ding-selection-outline" id="note-shell">
+    <header class="note-topbar">
+      <button id="btn-new" class="icon-btn" aria-label="Add note"></button>
+      <div class="title">Sticky Note</div>
+      <button id="btn-edit" class="icon-btn" aria-label="Edit note"></button>
+      <button id="btn-close" class="icon-btn" aria-label="Delete note"></button>
+    </header>
+
+    <main id="editor" class="editor" contenteditable="false" spellcheck="false"></main>
+
+    <footer class="note-toolbar">
+      <button data-action="font-down" class="tool-btn tool-btn-icon" title="Smaller" aria-label="Smaller"></button>
+      <button data-action="font-up" class="tool-btn tool-btn-icon" title="Larger" aria-label="Larger"></button>
+      <button data-action="bold" class="tool-btn tool-btn-icon" title="Bold" aria-label="Bold"></button>
+      <button data-action="italic" class="tool-btn tool-btn-icon" title="Italic" aria-label="Italic"></button>
+      <button data-action="underline" class="tool-btn tool-btn-icon" title="Underline" aria-label="Underline"></button>
+      <button data-action="strike" class="tool-btn tool-btn-icon" title="Strike" aria-label="Strike"></button>
+      <button data-action="align-left" class="tool-btn tool-btn-icon" title="Align left" aria-label="Align left"></button>
+      <button data-action="align-center" class="tool-btn tool-btn-icon" title="Align center" aria-label="Align center"></button>
+      <button data-action="align-right" class="tool-btn tool-btn-icon" title="Align right" aria-label="Align right"></button>
+      <button data-action="list-ul" class="tool-btn tool-btn-icon" title="Bulleted list" aria-label="Bulleted list"></button>
+      <button data-action="list-ol" class="tool-btn tool-btn-icon" title="Numbered list" aria-label="Numbered list"></button>
+      <button data-action="checklist" class="tool-btn tool-btn-icon" title="Checklist" aria-label="Checklist"></button>
+      <label class="font-wrap">
+        <select id="font-select" aria-label="Font family">
+          <option value="Noto Sans, sans-serif">Sans</option>
+          <option value="Noto Serif, serif">Serif</option>
+          <option value="Noto Sans Mono, monospace">Mono</option>
+          <option value="Cantarell, sans-serif">Cantarell</option>
+          <option value="DejaVu Sans, sans-serif">DejaVu Sans</option>
+          <option value="Liberation Sans, sans-serif">Liberation Sans</option>
+          <option value="Noto Sans CJK SC, Source Han Sans CN, Noto Sans, sans-serif">CJK Sans SC</option>
+          <option value="Noto Sans CJK TC, Noto Sans CJK HK, Noto Sans, sans-serif">CJK Sans TC/HK</option>
+          <option value="Noto Sans CJK JP, Source Han Sans JP, Noto Sans, sans-serif">CJK Sans JP</option>
+          <option value="Noto Sans CJK KR, Source Han Sans KR, Noto Sans, sans-serif">CJK Sans KR</option>
+          <option value="Noto Serif CJK SC, Noto Serif, serif">CJK Serif SC</option>
+          <option value="Noto Serif CJK TC, Noto Serif CJK HK, Noto Serif, serif">CJK Serif TC/HK</option>
+          <option value="Noto Serif CJK JP, Noto Serif, serif">CJK Serif JP</option>
+          <option value="Noto Serif CJK KR, Noto Serif, serif">CJK Serif KR</option>
+          <option value="serif">System Serif</option>
+          <option value="sans-serif">System Sans</option>
+          <option value="monospace">System Mono</option>
+        </select>
+      </label>
+    </footer>
+
+    <footer class="note-toolbar note-toolbar-secondary">
+      <button data-action="heading-1" class="tool-btn tool-btn-wide" title="Heading 1">H1</button>
+      <button data-action="heading-2" class="tool-btn tool-btn-wide" title="Heading 2">H2</button>
+      <button data-action="heading-3" class="tool-btn tool-btn-wide" title="Heading 3">H3</button>
+      <button data-action="link" class="tool-btn tool-btn-wide tool-btn-icon" title="Insert link" aria-label="Insert link"></button>
+      <button data-action="blockquote" class="tool-btn tool-btn-wide tool-btn-icon" title="Block quote" aria-label="Block quote"></button>
+      <button data-action="clear-format" class="tool-btn tool-btn-wide tool-btn-icon" title="Clear formatting" aria-label="Clear formatting"></button>
+      <div class="color-tool" aria-label="Note color">
+        <button class="color-chip chip-yellow" data-color="yellow" title="Yellow"></button>
+        <button class="color-chip chip-pink" data-color="pink" title="Pink"></button>
+        <button class="color-chip chip-mint" data-color="mint" title="Mint"></button>
+        <button class="color-chip chip-blue" data-color="blue" title="Blue"></button>
+        <button class="color-chip chip-peach" data-color="peach" title="Peach"></button>
+        <button class="color-chip chip-lavender" data-color="lavender" title="Lavender"></button>
+      </div>
+    </footer>
+
+    <div class="link-dialog-backdrop" id="link-dialog-backdrop" hidden>
+      <div class="link-dialog" role="dialog" aria-modal="true" aria-labelledby="link-dialog-title">
+        <div class="link-dialog-title" id="link-dialog-title">Link URL</div>
+        <input id="link-input" class="link-input" type="url" placeholder="https://example.com" />
+        <div class="link-dialog-actions">
+          <button id="link-remove" class="tool-btn link-dialog-btn" type="button">Unlink</button>
+          <button id="link-cancel" class="tool-btn link-dialog-btn" type="button">Cancel</button>
+          <button id="link-apply" class="tool-btn link-dialog-btn" type="button">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./stickyNote.js"></script>
+</body>
+</html>

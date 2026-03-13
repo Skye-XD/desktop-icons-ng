@@ -1,0 +1,21 @@
+{
+  "id": "sticky.note",
+  "name": "Sticky Note",
+  "description": "Single sticky note stored in widget config",
+  "kind": "html",
+  "defaultWidth": 360,
+  "defaultHeight": 300,
+  "author": "Sundeep Mediratta",
+  "version": "0.1",
+  "chrome": {
+    "showCloseButton": false,
+    "showPrefsButton": false
+  },
+  "defaultConfig": {
+    "contentHtml": "",
+    "fontSize": 17,
+    "fontFamily": "Noto Sans, sans-serif",
+    "noteColor": "yellow",
+    "noteTitle": ""
+  }
+}

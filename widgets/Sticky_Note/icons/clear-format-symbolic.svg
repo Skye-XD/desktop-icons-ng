@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <text x="1.2" y="11.4" font-size="9.5" font-family="Cantarell, Sans" fill="#000">T</text>
+  <path fill="#000" d="M8.4 3.2 12.8 7.6 9.6 10.8 5.2 6.4zm-.9 7.8h5.8v1.6H6.1z"/>
+  <path fill="#000" d="m11.6 2.3 1.1 1.1-8.3 8.3-1.1-1.1z"/>
+</svg>

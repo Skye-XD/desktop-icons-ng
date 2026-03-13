@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <text x="1.1" y="4.8" font-size="4.2" font-family="Cantarell, Sans" fill="#000">1.</text>
+  <text x="1.1" y="8.8" font-size="4.2" font-family="Cantarell, Sans" fill="#000">2.</text>
+  <text x="1.1" y="12.8" font-size="4.2" font-family="Cantarell, Sans" fill="#000">3.</text>
+  <path fill="#000" d="M6 3.25h8v1.5H6zm0 4h8v1.5H6zm0 4h8v1.5H6z"/>
+</svg>

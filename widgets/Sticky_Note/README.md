@@ -1,0 +1,175 @@
+# Sticky Note Widget
+
+## Overview
+
+Sticky Note is a local-only desktop note widget.
+
+It does not use EDS, a backend process, or direct filesystem writes for note storage. The note is persisted through widget config, with the note body stored as raw HTML.
+
+## Storage
+
+The widget stores its state in widget config.
+
+Persisted fields include:
+- `contentHtml`
+- `fontSize`
+- `fontFamily`
+- `noteColor`
+- `noteTitle`
+
+Notes:
+- `contentHtml` is the canonical stored note body.
+- `noteTitle` is still maintained, even though the visible title is currently hidden in the UI.
+- Config is read through the injected `window.ding` bridge via `DingClient`.
+- Changes are saved with `patchConfig(...)`.
+- The widget does not write directly to disk.
+- The widget no longer has a note UID or any external note identity.
+
+## Interaction Model
+
+The widget uses an explicit view/edit toggle.
+
+View mode behavior:
+- Default mode, even when the widget is selected
+- Top control strip is visible when selected
+- Text can be selected and copied
+- Links can be activated
+- Checklists can be toggled
+- Editor remains read-only
+
+Edit mode behavior:
+- Entered through the top-bar edit button
+- Exited when the widget is deselected or interaction leaves the widget
+- Link dialog closes automatically on edit exit
+- Formatting toolbars are visible only in edit mode
+
+## Top Bar Controls
+
+The top control strip contains:
+- Add note: creates a new Sticky Note widget instance
+- Edit: toggles edit mode
+- Close: removes the current widget instance
+
+## Editor
+
+The widget uses a native `contenteditable` HTML editor.
+
+View mode:
+- `contenteditable="false"`
+- Text is selectable
+- Links are usable
+- Checklists remain interactive
+
+Edit mode:
+- `contenteditable="true"`
+- Spellcheck enabled
+- Formatting toolbars shown
+- Link text editable inline
+
+## Formatting Controls
+
+### First Toolbar Row
+- Decrease font size
+- Increase font size
+- Bold
+- Italic
+- Underline
+- Strikethrough
+- Align left
+- Align center
+- Align right
+- Bulleted list
+- Numbered list
+- Checklist
+- Font family picker
+
+### Second Toolbar Row
+- `H1`
+- `H2`
+- `H3`
+- Insert or edit link
+- Blockquote
+- Clear formatting
+- Note color chips
+
+## Checklists
+
+Checklist support is implemented as an unordered list with a `checklist` class.
+
+Behavior:
+- Clicking near the left checkbox area toggles checked state
+- Works in both view mode and edit mode
+- Checked items render with a checkbox mark and strike-through styling
+- Checklist state is preserved in saved HTML
+
+## Links
+
+Links are stored as HTML anchors in the note body.
+
+View mode:
+- Left click follows the link through the host-controlled external-open flow
+- In-webview navigation is intercepted by host WebKit policy
+
+Edit mode:
+- Link text is editable inline
+- The toolbar link action opens an internal link dialog
+
+Link dialog actions:
+- Apply
+- Cancel
+- Unlink
+
+Link insertion and editing use explicit DOM range wrapping instead of `execCommand('createLink')`.
+
+## Appearance
+
+Built-in pastel note themes:
+- Yellow
+- Pink
+- Mint
+- Blue
+- Peach
+- Lavender
+
+Visual behavior:
+- Color changes apply immediately and are persisted
+- Note surface uses translucent paper styling with backdrop blur
+- Idle or display mode uses reduced opacity
+- Selected or edit mode uses full opacity
+- Top control strip darkens slightly in selected and edit states
+- Visible title is currently hidden so the note reads as a sticky note rather than a small window
+
+## Fonts
+
+Font support includes:
+- Configurable font family dropdown
+- Generic and CJK-oriented font stacks
+- Default body font size: `17px`
+- Default font family: `Noto Sans, sans-serif`
+
+## Host and WebKit Behavior
+
+External link opening is handled by the host, not directly by the widget.
+
+Current host behavior:
+- Only `http` and `https` URLs are allowed
+- User confirmation is required before launching the browser with `xdg-open`
+- WebKit policy interception blocks in-webview external navigation
+- Widget context menus filter out:
+  - open in new window
+  - download link, image, video, and audio
+  - reload
+- Injected widget API blocks keyboard reload shortcuts:
+  - `F5`
+  - `Ctrl+R`
+
+## Cleanup Notes
+
+This widget no longer uses the earlier notes backend approach.
+
+Removed from this branch:
+- Obsolete notes backend files
+- Notes backend harness scripts
+- EDS-based rich-text note persistence attempts
+
+The current implementation is fully widget-local and HTML-backed through config storage.
