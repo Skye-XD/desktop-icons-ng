@@ -21,6 +21,29 @@ import {HtmlWidgetHost, WidgetApi} from '../dependencies/localFiles.js';
 
 export {WebWidgetContext};
 
+const ForbiddenActions = new Set([
+    WebKit.ContextMenuAction?.OPEN_LINK_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction?.DOWNLOAD_LINK_TO_DISK,
+    WebKit.ContextMenuAction?.OPEN_IMAGE_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction?.DOWNLOAD_IMAGE_TO_DISK,
+    WebKit.ContextMenuAction?.OPEN_FRAME_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction?.GO_BACK,
+    WebKit.ContextMenuAction?.GO_FORWARD,
+    WebKit.ContextMenuAction?.STOP,
+    WebKit.ContextMenuAction?.RELOAD,
+    WebKit.ContextMenuAction?.OPEN_VIDEO_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction?.OPEN_AUDIO_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction?.INSPECT_ELEMENT,
+    WebKit.ContextMenuAction?.TOGGLE_MEDIA_CONTROLS,
+    WebKit.ContextMenuAction?.TOGGLE_MEDIA_LOOP,
+    WebKit.ContextMenuAction?.ENTER_VIDEO_FULLSCREEN,
+    WebKit.ContextMenuAction?.MEDIA_PLAY,
+    WebKit.ContextMenuAction?.MEDIA_PAUSE,
+    WebKit.ContextMenuAction?.MEDIA_MUTE,
+    WebKit.ContextMenuAction?.DOWNLOAD_VIDEO_TO_DISK,
+    WebKit.ContextMenuAction?.DOWNLOAD_AUDIO_TO_DISK,
+].filter(action => action !== undefined && action !== null));
+
 /**
  * WebWidgetContext
  *
@@ -132,6 +155,59 @@ const WebWidgetContext = class {
         webView.set_name('ding-widget-webview');
         webView.set_hexpand(true);
         webView.set_vexpand(true);
+
+        webView.connect('decide-policy', (_view, decision, decisionType) => {
+            const downloadType = WebKit.PolicyDecisionType?.DOWNLOAD_ACTION;
+            const navType = WebKit.PolicyDecisionType?.NAVIGATION_ACTION;
+            const newWindowType = WebKit.PolicyDecisionType?.NEW_WINDOW_ACTION;
+            if (decisionType === downloadType) {
+                decision.ignore?.();
+                return true;
+            }
+
+            if (decisionType !== navType && decisionType !== newWindowType)
+                return false;
+
+            const navigationAction = decision?.get_navigation_action?.() ?? null;
+            const requestUri =
+                navigationAction?.get_request?.()?.get_uri?.() ??
+                decision?.get_request?.()?.get_uri?.() ??
+                '';
+
+            if (!requestUri)
+                return false;
+
+            let parsedUri;
+            try {
+                parsedUri = GLib.Uri.parse(requestUri, GLib.UriFlags.NONE);
+            } catch {
+                return false;
+            }
+
+            const scheme = parsedUri?.get_scheme?.()?.toLowerCase?.() ?? '';
+            if (scheme === 'ding-widget')
+                return false;
+
+            if (scheme !== 'http' && scheme !== 'https')
+                return false;
+
+            decision.ignore?.();
+
+            const inst = this._widgetManager?.getInstance?.(instanceId);
+            if (inst)
+                void this._openExternalLinkForWidget(inst, {url: requestUri});
+
+            return true;
+        });
+
+        webView.connect(
+            'context-menu',
+            (_view, contextMenu, _event, _hitTestResult) => {
+                this._filterWidgetContextMenu(contextMenu, ForbiddenActions);
+
+                return false;
+            }
+        );
 
         return webView;
     }
@@ -694,6 +770,41 @@ const WebWidgetContext = class {
             this._desktopIconsUtil.trySpawn(null, ['xdg-open', rawUrl], null);
         } catch (error) {
             console.error('Failed to open external link:', rawUrl, error);
+        }
+    }
+
+    _filterWidgetContextMenu(contextMenu, forbiddenActions) {
+        if (!contextMenu)
+            return;
+
+        const items = contextMenu.get_items();
+
+        if (!items)
+            return;
+
+        // Iterate through the items
+        for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+
+            if (!item)
+                continue;
+
+            const submenu = item.get_submenu?.() ?? null;
+
+            if (submenu)
+                this._filterWidgetContextMenu(submenu, forbiddenActions);
+
+            const stockAction = item.get_stock_action?.();
+            const label = item.get_label?.()?.toLowerCase?.() ?? '';
+
+            // Match by either the ID (StockAction) or by text keywords
+            const isForbidden = forbiddenActions.has(stockAction) ||
+                label.includes('download') ||
+                label.includes('new window') ||
+                label.includes('reload');
+
+            if (isForbidden)
+                contextMenu.remove(item);
         }
     }
 
