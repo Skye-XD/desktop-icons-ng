@@ -488,6 +488,11 @@ export const DingRoundedClip = GObject.registerClass({
         if (width <= 0 || height <= 0)
             return;
 
+        const childWidth = this._child.get_width?.() ?? 0;
+        const childHeight = this._child.get_height?.() ?? 0;
+        if (childWidth <= 0 || childHeight <= 0)
+            return;
+
         const rect = new Graphene.Rect();
         rect.init(0, 0, width, height);
 
