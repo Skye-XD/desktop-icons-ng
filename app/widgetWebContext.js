@@ -766,6 +766,8 @@ const WebWidgetContext = class {
         if (!allowed)
             return;
 
+        this._mainApp?.activate_action?.('lowerWidgetLayer', null);
+
         try {
             this._desktopIconsUtil.trySpawn(null, ['xdg-open', rawUrl], null);
         } catch (error) {
