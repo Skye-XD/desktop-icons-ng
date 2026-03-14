@@ -88,7 +88,11 @@ const WidgetRegistry = class  {
      *   author: "Sundeep Mediratta",
      *   version: "1.0",
      *   homepage: "https://…",
-     *   license: "GPL-3.0-or-later"
+     *   license: "GPL-3.0-or-later",
+     *   chrome: {
+     *     showCloseButton: boolean,
+     *     showPrefsButton: boolean
+     *   }
      * }
      *
      * @param {string} id Widget identifier
@@ -360,6 +364,10 @@ const WidgetRegistry = class  {
                             ? manifest.backend
                             : null;
 
+                    const chrome = this._normalizeChromePolicy(
+                        manifest.chrome
+                    );
+
                     const desc = {
                         id,
                         kind,
@@ -376,6 +384,7 @@ const WidgetRegistry = class  {
                         defaultConfig,
                         prefs,
                         backend,
+                        chrome,
                         hasBackend: !!backend,
                     };
 
@@ -423,6 +432,27 @@ const WidgetRegistry = class  {
             Object.getPrototypeOf(object) === Object.prototype;
 
         return isObject;
+    }
+
+    _normalizeChromePolicy(policy) {
+        const defaults = {
+            showCloseButton: true,
+            showPrefsButton: true,
+        };
+
+        if (!this._isObject(policy))
+            return defaults;
+
+        return {
+            showCloseButton:
+                typeof policy.showCloseButton === 'boolean'
+                    ? policy.showCloseButton
+                    : defaults.showCloseButton,
+            showPrefsButton:
+                typeof policy.showPrefsButton === 'boolean'
+                    ? policy.showPrefsButton
+                    : defaults.showPrefsButton,
+        };
     }
 
     _logDuplicateIds(id, existing, replace, widgetDir, isUser) {

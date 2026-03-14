@@ -508,21 +508,49 @@ If `index.html` is missing, the widget is skipped.
 
 ---
 
-## Widget preferences
+## Widget preferences and host chrome
 
 Widgets may optionally provide preferences by setting the `prefs` field in `widget.json` to the relative path of a prefs file (for example `prefs.html` or `ui/prefs.html`) and shipping that file somewhere under the widget directory. Both the field and the file must be present for preferences to appear.
 
-### Gear icon behavior
+The host also owns the small widget chrome buttons shown around selected widgets. Today this means:
+- a close button
+- a preferences button, when preferences exist and are enabled by policy
 
-- If the `prefs` field is set and the target file exists, the platform automatically shows a gear icon in the widget chrome.
-- The gear icon is visible only when the widget is selected **and** the desktop is in edit mode.
-- The host manages the gear icon; widget authors do not need to add their own button.
+### Chrome policy in `widget.json`
+
+Widgets may optionally declare a `chrome` object in `widget.json`:
+
+```json
+{
+  "prefs": "prefs.html",
+  "chrome": {
+    "showCloseButton": true,
+    "showPrefsButton": true
+  }
+}
+```
+
+Current behavior:
+- `showCloseButton` defaults to `true` if omitted
+- `showPrefsButton` defaults to `true` if omitted
+- the preferences button is only shown if the widget actually has a valid `prefs` file
+- the close button does not depend on preferences support
+
+This policy is host-managed. Widgets can render their own internal controls, but the desktop-controlled chrome is still rendered and positioned by the host. If the widgets render their own internal controls, they may request that host chrome controls not be shown by setting the above explicitly to `fasle`.
+
+### Gear and close button behavior
+
+- Chrome buttons are visible only when the widget is selected **and** the desktop is in edit mode.
+- If the `prefs` field is set and the target file exists, the platform may show a gear icon in the widget chrome, subject to `chrome.showPrefsButton`.
+- The close button is shown subject to `chrome.showCloseButton`.
+- The host manages both buttons; widget authors do not need to add their own host chrome.
 
 ### Opening preferences
 
 - Clicking the gear opens a dedicated preferences view in a separate `WebView`.
 - Only one preferences window may exist at a time, and it is tied to the currently selected widget instance.
-- Widgets cannot open or close preferences programmatically; the host does so in response to user interaction.
+- Preferences are host-owned UI.
+- Widgets can still send host messages to request preferences to open or close, but the chrome button itself remains under host policy and placement.
 
 ### File location and resource loading
 
@@ -536,13 +564,13 @@ The prefs file may live anywhere under the widget directory; its relative path i
 
 ### Design intent
 
-Preferences are intentionally:
-
+Host chrome is intentionally:
 - host-controlled, not widget-controlled
 - tied to widget selection and edit mode
-- opened only through user action
+- small and default by policy, can onlyb be explicitly requested by widget to not be displayed.
+- consistent across widgets
 
-Preferences should be treated as a configuration surface, not as a secondary application window; this keeps behavior consistent and avoids unexpected UI.
+Preferences should be treated as a configuration surface, not as a secondary application window. Likewise, the close and preferences buttons are desktop chrome, not part of the widget’s own content design.
 
 ---
 

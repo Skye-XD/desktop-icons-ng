@@ -200,6 +200,9 @@ const WidgetManager = class {
      *     y?: number,
      *     width?: number,         // override defaultWidth/defaultHeight
      *     height?: number,
+     *     inheritConsentFromInstanceId?: string, // optional source instance
+     *     selectAfterCreate?: boolean,           // optional auto-select/focus
+     *     consentParentWindow?: Gtk.Window|null, // optional consent parent
      *   }
      *
      * Returns the created instance object or null.
@@ -290,12 +293,32 @@ const WidgetManager = class {
         if (!instance)
             return null;
 
+        instance._consentParentWindow = opts.consentParentWindow ?? null;
+
+        const inheritFromId = opts.inheritConsentFromInstanceId;
+        if (typeof inheritFromId === 'string' && inheritFromId.length > 0) {
+            const source = this._instances.get(inheritFromId);
+            if (source && source.widgetId === widgetId) {
+                if (source.webConsent === true)
+                    instance.webConsent = true;
+                if (instance.hasBackend && source.backendConsent === true)
+                    instance.backendConsent = true;
+            }
+        }
+
         const created = await this._ensureInstanceActor(instance);
 
-        if (!created)
+        if (!created) {
+            instance._consentParentWindow = null;
             return null;
+        }
 
         this._positionInstanceActor(instance);
+
+        if (opts.selectAfterCreate === true)
+            this.selectInstance(instance.instanceId);
+
+        instance._consentParentWindow = null;
 
         // Persist creation
         this._stateChanged();
@@ -306,6 +329,7 @@ const WidgetManager = class {
     removeInstance(instanceId) {
         this._removeActor(instanceId);
         this._stateChanged();
+        this._stopWebkitIfUnneeded();
     }
 
     deleteSelectedInstance() {
@@ -317,8 +341,6 @@ const WidgetManager = class {
         // Clear selection first so CSS + chrome are detached.
         this.selectInstance(null);
         this.removeInstance(toRemove);
-
-        this._stopWebkitIfUnneeded();
 
         return true;
     }
@@ -565,6 +587,10 @@ const WidgetManager = class {
      *      config: { ... }   // author-defined fields
      *      prefsUri: string|null,
      *      hasPreferences: boolean,
+     *      chrome: {
+     *        showCloseButton: boolean,
+     *        showPrefsButton: boolean,
+     *      },
      *      hasBackend: boolean,
      *      webConsent: boolean|null,
      *      backendConsent: boolean|null,
@@ -648,6 +674,19 @@ const WidgetManager = class {
                     continue;
 
                 try {
+                    let descriptor = null;
+                    try {
+                        // eslint-disable-next-line no-await-in-loop
+                        descriptor = await this._widgetRegistry.getDescriptor(
+                            instData.widgetId
+                        );
+                    } catch (e) {}
+
+                    const resolvedChrome = this._normalizeChromePolicy(
+                        instData.chrome,
+                        descriptor?.chrome
+                    );
+
                     let instance = this._instances.get(instData.instanceId);
 
                     if (instance) {
@@ -662,6 +701,7 @@ const WidgetManager = class {
                         instance.prefsUri = instData.prefsUri ?? null;
                         instance.hasPreferences =
                             instData.hasPreferences ?? !!instance.prefsUri;
+                        instance.chrome = resolvedChrome;
                         instance.hasBackend = instData.hasBackend;
                         instance.webConsent = instData.webConsent ?? null;
                         instance.backendConsent =
@@ -681,6 +721,7 @@ const WidgetManager = class {
                             prefsUri: instData.prefsUri ?? null,
                             hasPreferences:
                                 instData.hasPreferences ?? !!instData.prefsUri,
+                            chrome: resolvedChrome,
                             hasBackend: instData.hasBackend ?? false,
                             webConsent: instData.webConsent ?? null,
                             backendConsent: instData.backendConsent ?? null,
@@ -881,6 +922,7 @@ const WidgetManager = class {
                 config: inst.config ?? {},
                 prefsUri: inst.prefsUri ?? null,
                 hasPreferences: !!inst.hasPreferences,
+                chrome: this._normalizeChromePolicy(inst.chrome),
                 hasBackend: !!inst.hasBackend,
                 webConsent: inst.webConsent ?? null,
                 backendConsent: inst.backendConsent ?? null,
@@ -979,6 +1021,7 @@ const WidgetManager = class {
             hasBackend: descriptor?.hasBackend ?? !!descriptor?.backend ?? false,
             prefsUri: descriptor?.prefs ?? null,
             hasPreferences: !!descriptor?.prefs,
+            chrome: this._normalizeChromePolicy(null, descriptor?.chrome),
         };
 
         this._instances.set(instanceId, instance);
@@ -1613,8 +1656,18 @@ const WidgetManager = class {
         const gap = 6;
         const margin = 8;
 
-        const showPrefs = inst.hasPreferences;
-        const buttonCount = showPrefs ? 2 : 1;
+        const chromePolicy = this._normalizeChromePolicy(inst.chrome);
+        const showPrefs =
+            !!inst.hasPreferences && !!chromePolicy.showPrefsButton;
+        const showClose = !!chromePolicy.showCloseButton;
+        const buttonCount = Number(showPrefs) + Number(showClose);
+
+        if (buttonCount <= 0) {
+            this.prefsButton.hide();
+            this.closeButton.hide();
+            return;
+        }
+
         const totalWidth = buttonCount * size + (buttonCount - 1) * gap;
 
         const centerX = frame.x + allocWidth / 2;
@@ -1646,14 +1699,39 @@ const WidgetManager = class {
             this.prefsButton.hide();
         }
 
-        const closeX = showPrefs ? buttonsX + size + gap : buttonsX;
-        if (!this.closeButton.get_parent())
-            widgetContainer.put(this.closeButton, closeX, yPos);
-        else
-            widgetContainer.move(this.closeButton, closeX, yPos);
-        this.closeButton.show();
+        if (showClose) {
+            const closeX = showPrefs ? buttonsX + size + gap : buttonsX;
+            if (!this.closeButton.get_parent())
+                widgetContainer.put(this.closeButton, closeX, yPos);
+            else
+                widgetContainer.move(this.closeButton, closeX, yPos);
+            this.closeButton.show();
+        } else {
+            this.closeButton.hide();
+        }
 
         this._raiseChromeButtons(surface);
+    }
+
+    _normalizeChromePolicy(instanceChrome, descriptorChrome = null) {
+        const input =
+            // eslint-disable-next-line no-nested-ternary
+            instanceChrome && typeof instanceChrome === 'object'
+                ? instanceChrome
+                : descriptorChrome && typeof descriptorChrome === 'object'
+                    ? descriptorChrome
+                    : {};
+
+        return {
+            showCloseButton:
+                typeof input.showCloseButton === 'boolean'
+                    ? input.showCloseButton
+                    : true,
+            showPrefsButton:
+                typeof input.showPrefsButton === 'boolean'
+                    ? input.showPrefsButton
+                    : true,
+        };
     }
 
     _detachChrome() {
@@ -1893,12 +1971,16 @@ const WidgetManager = class {
             this._createWidgetPickerWindow(parentWindow, widgets);
 
         const resultPromise = new Promise(resolve => {
+            let creationInProgress = false;
+
             cancelButton.connect('clicked', () => {
                 window.close();
-                resolve(null);
             });
 
             addButton.connect('clicked', async () => {
+                if (creationInProgress)
+                    return;
+
                 const row = list.get_selected_row();
                 if (!row || !row._widgetId) {
                     window.close();
@@ -1906,10 +1988,14 @@ const WidgetManager = class {
                     return;
                 }
 
+                creationInProgress = true;
+                window.close();
+
                 let created = null;
                 try {
                     created = await this.createInstanceForWidget(row._widgetId, {
                         monitorIndex,
+                        consentParentWindow: parentWindow ?? null,
                     });
                 } catch (e) {
                     console.error(
@@ -1918,7 +2004,6 @@ const WidgetManager = class {
                     );
                 }
 
-                window.close();
                 resolve(created);
             });
 
@@ -1929,11 +2014,13 @@ const WidgetManager = class {
 
             // If user closes via window close button / Esc
             window.connect('close-request', () => {
+                if (!creationInProgress)
+                    resolve(null);
+
                 GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
                     this.restoreWidgetLayerFocus(monitorIndex);
                     return GLib.SOURCE_REMOVE;
                 });
-                resolve(null);
                 return false; // allow close
             });
 
@@ -2118,8 +2205,10 @@ const WidgetManager = class {
      * Widget Consent UI
      * ===================================================================== */
 
-    _asyncAskYesNo(heading, body, bodyUseMarkup = false) {
-        const parentWindow = this._desktopManager.mainApp.get_active_window();
+    _asyncAskYesNo(heading, body, bodyUseMarkup = false, parentWindow = null) {
+        const fallbackParent =
+            this._desktopManager.mainApp.get_active_window();
+        const anchorParent = parentWindow ?? fallbackParent ?? null;
         const yesLabel = _('Allow');
         const noLabel = _('Cancel');
 
@@ -2165,7 +2254,7 @@ const WidgetManager = class {
                 resolve(response === 'yes');
             });
 
-            dlg.present(parentWindow ?? null);
+            dlg.present(anchorParent);
         });
     }
 
@@ -2236,7 +2325,12 @@ const WidgetManager = class {
             `${cspProfileSummary}`;
 
 
-        const answer = await this._asyncAskYesNo(heading, body, true);
+        const answer = await this._asyncAskYesNo(
+            heading,
+            body,
+            true,
+            inst?._consentParentWindow ?? null
+        );
 
         return answer;
     }
@@ -2273,7 +2367,9 @@ const WidgetManager = class {
         const answer = await this._asyncAskYesNo(
             _('Allow widget backend?'),
             body,
-            true);
+            true,
+            inst?._consentParentWindow ?? null
+        );
 
         return answer;
     }

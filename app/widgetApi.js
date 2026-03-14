@@ -136,6 +136,16 @@ export const WIDGET_API =
         console.error('ding: failed to inject default style', e);
     }
 
+    // Prevent in-webview reload shortcuts. Widgets should be refreshed only
+    // through host-controlled actions, not arbitrary page reload keys.
+    window.addEventListener('keydown', function(event) {
+        var key = String(event.key || '').toLowerCase();
+        if (key === 'f5' || (event.ctrlKey && key === 'r')) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }, true);
+
     // ---------------------------------------------------------------------
     // Upward channel: widget -> host (via WebKit messageHandler)
     // ---------------------------------------------------------------------
