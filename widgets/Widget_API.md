@@ -55,6 +55,17 @@ As a result:
 
 The behavior matches standard browser semantics.
 
+### User-clicked external links
+
+When a user clicks a normal HTML link inside a widget, the host may intercept that navigation and route it through the desktop instead of allowing the widget WebView to browse away.
+
+Current behavior:
+- only `http` and `https` links are eligible for host-mediated external opening
+- the host validates the URL before opening it
+- the host asks the user for confirmation
+- on approval, the link is opened with `xdg-open` in the user's default browser or registered handler
+- the widget WebView itself does not become a general-purpose browser for those external links
+
 
 ## Loading widget resources with `ding-widget://`
 
@@ -294,6 +305,59 @@ Send a request to a widget backend **only if a backend exists** (the widget decl
 
 Fire-and-forget message to a widget backend **only if a backend exists** (the widget declares a `backendSpec`). `name` and `payload` are widget-author defined and can be any JSON shape.
 
+#### Low-level host actions via `ding.post(...)`
+
+The injected API currently exposes these widget-management and external-open actions through the low-level `ding.post(...)` escape hatch rather than dedicated convenience methods.
+
+##### Create another instance of the same widget
+
+```js
+ding.post({
+  type: "createWidget",
+  instanceId: ding.instanceId,
+  widgetId: "Sticky_Note"
+});
+```
+
+Current host behavior:
+- The host ignores the request unless `widgetId` matches the sender's own widget type.
+- The new widget is created on the same monitor as the source widget.
+- The host applies a small spawn offset from the source widget position.
+- Consent is inherited from the source widget instance when applicable.
+- The new instance is selected after creation.
+
+##### Remove the sending widget
+
+```js
+ding.post({
+  type: "removeWidget",
+  instanceId: ding.instanceId
+});
+```
+
+Current host behavior:
+- A widget may remove only itself.
+- The host uses the sender `instanceId` as the target; it does not trust an arbitrary target id from widget payload.
+- If the sending widget is the selected widget, normal selected-widget removal flow is used.
+- Otherwise the instance is removed directly.
+
+##### Open an external URI
+
+```js
+ding.post({
+  type: "openExternalLink",
+  instanceId: ding.instanceId,
+  url: "https://example.com"
+});
+```
+
+Current host behavior:
+- Only `http` and `https` URLs are accepted.
+- Invalid URLs are rejected.
+- The host shows a confirmation dialog before launching the user's browser with `xdg-open`.
+
+Note: ordinary HTML anchor clicks may also be intercepted by host WebKit policy and routed through the same external-open path without explicitly calling `ding.post(...)`.
+
 #### `ding.onBackendEvent(cb: function): function`
 
 Subscribe to backend `event` messages **only if a backend exists**. Event `name` and `payload` shapes are widget-author defined. Returns an `unsubscribe()` function.
@@ -373,6 +437,30 @@ If a widget needs to request preferences programmatically, it can only do so via
 
 ---
 
+## Widget context menus and suppressed actions
+
+Widgets run inside WebKit, so the native WebKit context menu would normally expose browser-like actions that are not appropriate for desktop widgets. The host filters these menus to keep widget interaction constrained and predictable.
+
+Why this is done:
+- to stop widgets from behaving like a general-purpose browser surface
+- to keep external navigation inside the host confirmation flow
+- to block direct download actions from widget context menus
+- to block reload actions that would reset widget state unexpectedly
+
+Currently suppressed from widget context menus:
+- open link in new window
+- open image in new window
+- open frame in new window
+- open video in new window
+- open audio in new window
+- download link to disk
+- download image to disk
+- download video to disk
+- download audio to disk
+- reload
+
+The host also blocks WebKit download policy actions directly, so even if a download action slipped through UI filtering it would still be rejected at policy level.
+
 ## Widget → Host message types (recognized today)
 
 The host (WebWidgetContext) recognizes these message types from widgets:
@@ -385,8 +473,11 @@ The host (WebWidgetContext) recognizes these message types from widgets:
 | `hostReady` | injected script | triggers host to push full host state |
 | `openPreferences` | low-level (`ding.post`) | host may open preferences (if implemented by WidgetManager) |
 | `closePreferences` | low-level (`ding.post`) | host closes preferences (or falls back to closing for instance) |
+| `createWidget` | low-level (`ding.post`) | request creation of another instance of the sender's own widget type |
+| `removeWidget` | low-level (`ding.post`) | request removal of the sending widget instance |
+| `openExternalLink` | low-level (`ding.post`) | request host-mediated opening of an external `http`/`https` URL |
 
-> Note: `openPreferences` / `closePreferences` are handled in `WebWidgetContext`, but there are currently **no high-level helper methods** in `window.ding` to emit them. Authors may use `ding.post({type: "openPreferences", instanceId})` for now, but it is not a strict guarantee in future.
+> Note: `openPreferences`, `closePreferences`, `createWidget`, `removeWidget`, and `openExternalLink` are currently handled in `WebWidgetContext`, but there are still **no dedicated high-level helper methods** in `window.ding` for them. Authors use `ding.post(...)` directly for these actions today.
 
 ---
 
