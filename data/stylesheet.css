@@ -205,6 +205,11 @@ box.desktop-icon-container.keyboard-selected > #file-item.desktop-icons-selected
 }
 
 #widget-container.widgets-on-top {
+    background-color: transparent;
+}
+
+#desktopwindow.background.widgets-on-top,
+#testwindow.background.widgets-on-top {
     background-color: rgba(12, 14, 18, 0.38);
 }
 

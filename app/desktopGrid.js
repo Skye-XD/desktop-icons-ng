@@ -2537,6 +2537,7 @@ const WidgetGrid = class extends ControlGrid {
             this._widgetContainer.insert_after(this._rootFixed, this._container);
 
             this._widgetContainer.add_css_class('widgets-on-top');
+            this._window.add_css_class('widgets-on-top');
 
             // Input: widget layer active, icons inert
             this._container.opacity = 0.05;
@@ -2558,6 +2559,7 @@ const WidgetGrid = class extends ControlGrid {
             this._container.insert_after(this._rootFixed, this._widgetContainer);
 
             this._widgetContainer.remove_css_class('widgets-on-top');
+            this._window.remove_css_class('widgets-on-top');
 
             // Input: icons active, widget layer background only
             this._container.opacity = 1.0;
