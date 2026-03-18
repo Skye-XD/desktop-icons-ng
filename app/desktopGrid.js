@@ -2545,7 +2545,7 @@ const WidgetGrid = class extends ControlGrid {
             this._widgetContainer.set_can_target(true);
             this._desktopManager.unselectAll();
             this._desktopManager.closeFocusStealingWindows();
-            this._mainapp.activate_action('textEntryOff', null);
+            this._mainapp.activate_action('textEntryAccelsTurnOff', null);
             this._mainapp.set_accels_for_action(
                 'app.lowerWidgetLayer',
                 ['Escape']
@@ -2568,7 +2568,7 @@ const WidgetGrid = class extends ControlGrid {
 
             this._desktopManager.widgetManager?.clearSelectedInstance();
             this._mainapp.set_accels_for_action('app.lowerWidgetLayer', []);
-            this._mainapp.activate_action('textEntryOn', null);
+            this._mainapp.activate_action('textEntryAccelsTurnOn', null);
         }
 
         this._desktopManager.widgetManager

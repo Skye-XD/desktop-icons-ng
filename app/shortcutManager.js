@@ -431,7 +431,6 @@ const ShortcutManager = class {
         this._initializeOurShortcuts();
         this._monitorUserShortcuts();
         this._refreshUserShortcuts();
-        this._addTextEntryActions();
         this._mainApp.connect(
             'action-added',
             (_app, name) => this._setAccel(name)
@@ -442,16 +441,6 @@ const ShortcutManager = class {
         );
         // Global shortcuts are automatically monitored and set by the
         // extension from settings
-    }
-
-    _addTextEntryActions() {
-        const textEntryOn = Gio.SimpleAction.new('textEntryOn', null);
-        textEntryOn.connect('activate', this._textEntryAccelsTurnOn.bind(this));
-        this._mainApp.add_action(textEntryOn);
-
-        const textEntryOff = Gio.SimpleAction.new('textEntryOff', null);
-        textEntryOff.connect('activate', this._textEntryAccelsTurnOff.bind(this));
-        this._mainApp.add_action(textEntryOff);
     }
 
     // this function is not used, but is another way of setting action
@@ -584,67 +573,41 @@ const ShortcutManager = class {
     }
 
     _textEntryAccelsTurnOn() {
-        this._mainApp.set_accels_for_action(
-            'app.previewAction',
-            this._localShortcuts.previewAction.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.unselectAll',
-            this._localShortcuts.unselectAll.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.openOneFileAction',
-            this._localShortcuts.openOneFileAction.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.movetotrash',
-            this._localShortcuts.movetotrash.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.chooseIconLeft',
-            this._localShortcuts.chooseIconLeft.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.chooseIconRight',
-            this._localShortcuts.chooseIconRight.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.chooseIconUp',
-            this._localShortcuts.chooseIconUp.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.chooseIconDown',
-            this._localShortcuts.chooseIconDown.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.menuKeyPressed',
-            this._localShortcuts.menuKeyPressed.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.findFiles',
-            this._localShortcuts.findFiles.Accel.split(',')
-        );
-        this._mainApp.set_accels_for_action(
-            'app.toggleKeyboardSelection',
-            this._localShortcuts.toggleKeyboardSelection.Accel.split(',')
-        );
+        this._setTextEntryAccelState(true);
     }
 
     _textEntryAccelsTurnOff() {
-        this._mainApp.set_accels_for_action('app.previewAction', ['']);
-        this._mainApp.set_accels_for_action('app.unselectAll', ['']);
-        this._mainApp.set_accels_for_action('app.openOneFileAction', ['']);
-        this._mainApp.set_accels_for_action('app.movetotrash', ['']);
-        this._mainApp.set_accels_for_action('app.chooseIconLeft', ['']);
-        this._mainApp.set_accels_for_action('app.chooseIconRight', ['']);
-        this._mainApp.set_accels_for_action('app.chooseIconUp', ['']);
-        this._mainApp.set_accels_for_action('app.chooseIconDown', ['']);
-        this._mainApp.set_accels_for_action('app.menuKeyPressed', ['']);
-        this._mainApp.set_accels_for_action('app.findFiles', ['']);
-        this._mainApp.set_accels_for_action(
-            'app.toggleKeyboardSelection',
-            ['']
-        );
+        this._setTextEntryAccelState(false);
+    }
+
+    _setTextEntryAccelState(enabled) {
+        const textEntryActions = [
+            'previewAction',
+            'unselectAll',
+            'openOneFileAction',
+            'movetotrash',
+            'chooseIconLeft',
+            'chooseIconRight',
+            'chooseIconUp',
+            'chooseIconDown',
+            'menuKeyPressed',
+            'findFiles',
+            'toggleKeyboardSelection',
+            'doPaste',
+            'doUndo',
+            'doRedo',
+            'selectAll',
+            'docut',
+            'docopy',
+        ];
+
+        for (const actionName of textEntryActions) {
+            const accels = enabled
+                ? this._readOverRideActionShortcut(actionName).split(',')
+                    .filter(Boolean)
+                : [''];
+            this._mainApp.set_accels_for_action(`app.${actionName}`, accels);
+        }
     }
 
     _resetGlobalShortcuts() {
