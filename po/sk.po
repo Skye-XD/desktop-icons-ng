@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-11 13:26-0400\n"
-"PO-Revision-Date: 2026-02-22 00:10+0000\n"
+"PO-Revision-Date: 2026-03-16 13:11+0000\n"
 "Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sk/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -1505,9 +1505,8 @@ msgstr ""
 "\n"
 
 #: app/widgetManager.js:2268
-#, fuzzy
 msgid "Command:"
-msgstr "Príkaz:\n"
+msgstr "Príkaz:"
 
 #: app/widgetManager.js:2271
 msgid "Only allow this for widgets you implicitly trust."

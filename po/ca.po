@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-11 13:26-0400\n"
-"PO-Revision-Date: 2026-02-22 00:10+0000\n"
-"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
+"PO-Revision-Date: 2026-03-17 14:10+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1724,9 +1725,8 @@ msgid ""
 msgstr ""
 
 #: app/widgetManager.js:2268
-#, fuzzy
 msgid "Command:"
-msgstr "Ordre:\n"
+msgstr "Ordre:"
 
 #: app/widgetManager.js:2271
 msgid "Only allow this for widgets you implicitly trust."

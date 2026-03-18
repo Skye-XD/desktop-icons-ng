@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-11 13:26-0400\n"
-"PO-Revision-Date: 2026-02-20 21:36+0000\n"
+"PO-Revision-Date: 2026-03-16 13:11+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ta/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -490,7 +490,7 @@ msgstr "காப்பகத்தை உருவாக்கவும்"
 
 #: app/autoAr.js:575
 msgid "Archive name"
-msgstr "காப்பகத்தின் பெயர்"
+msgstr "காப்பக பெயர்"
 
 #: app/autoAr.js:608
 msgid "Password"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: app/desktopFileIcon.js:138
 msgid "Broken Desktop File"
-msgstr "உடைந்த டெச்க்டாப் கோப்பு"
+msgstr "உடைந்த திரைப்பலக கோப்பு"
 
 #: app/desktopFileIcon.js:141
 msgid ""
@@ -605,13 +605,12 @@ msgid "Back to Desktop"
 msgstr "டெச்க்டாப்பிற்குத் திரும்பு"
 
 #: app/desktopGrid.js:2587 app/widgetManager.js:1170
-#, fuzzy
 msgid "Toggle Widget Grid"
-msgstr "விட்செட் லேயரை நிலைமாற்று"
+msgstr "நிரல்பலகை கட்டத்தை நிலைமாற்று"
 
 #: app/desktopGrid.js:2588
 msgid "Add Widget..."
-msgstr "விட்செட்டைச் சேர்க்கவும்"
+msgstr "நிரல்பலகைச் சேர்..."
 
 #: app/desktopManager.js:166
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -749,7 +748,7 @@ msgstr "பெயர்"
 
 #: app/desktopMenu.js:1035
 msgid "Name Z-A"
-msgstr "பெயர் Z-A"
+msgstr "பெயர் ஔ-அ"
 
 #: app/desktopMenu.js:1037
 msgid "Modified Time"
@@ -785,7 +784,7 @@ msgstr "இயல்புநிலை டெச்க்டாப்பை ம�
 
 #: app/desktopMenu.js:1067
 msgid "Desktop Icon Settings"
-msgstr "டெச்க்டாப் படவுரு அமைப்புகள்"
+msgstr "பணிமேடை படவுரு அமைப்புகள்"
 
 #: app/desktopMenu.js:1069
 msgid "Show Shortcuts"
@@ -817,7 +816,7 @@ msgstr "சின்னங்களை ஒழுங்கமைக்கவு�
 
 #: app/desktopMenu.js:1103
 msgid "Arrange By…"
-msgstr "ஏற்பாடு செய்…"
+msgstr "மூலம் வரிசை…"
 
 #: app/desktopMenu.js:1111
 msgid "Show Desktop In {0}"
@@ -877,7 +876,7 @@ msgstr "கோப்பு"
 
 #: app/fileItemIcon.js:286
 msgid "Opening File Failed"
-msgstr "கோப்பை திறப்பதில் தோல்வி"
+msgstr "கோப்பைத் திறப்பதில் தோல்வி"
 
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
@@ -939,7 +938,7 @@ msgstr "ஒரு நிரலாக இயக்கவும்"
 
 #: app/fileItemMenu.js:234
 msgid "Scripts"
-msgstr "ச்கிரிப்டுகள்"
+msgstr "கைஉரைகள்"
 
 #: app/fileItemMenu.js:239
 msgid "Cut"
@@ -1261,7 +1260,7 @@ msgstr "முன்னோட்டம்"
 
 #: app/shortcuts.js:35
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "விசைப்பலகை தேர்வை நிலைமாற்று"
 
 #: app/shortcuts.js:38
 msgid "Toggle Widget Layer"
@@ -1496,9 +1495,8 @@ msgstr ""
 "\n"
 
 #: app/widgetManager.js:2268
-#, fuzzy
 msgid "Command:"
-msgstr "கட்டளை:\n"
+msgstr "கட்டளை:"
 
 #: app/widgetManager.js:2271
 msgid "Only allow this for widgets you implicitly trust."
