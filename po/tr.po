@@ -15,14 +15,14 @@
 # Hasan Kalaman <hasankalaman@gmail.com>, 2025, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Hasan Merkit <hasanmerkit@teteos.net>, 2026.
+# Yunus Emre Yılmaz <yunsemreyl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-11 13:26-0400\n"
-"PO-Revision-Date: 2026-03-16 13:11+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-03-22 18:09+0000\n"
+"Last-Translator: Yunus Emre Yılmaz <yunsemreyl@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -38,19 +38,19 @@ msgstr "Üzerine Yaz"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
-msgstr ""
+msgstr "Masaüstü uygulamalarının görünümünü CSS ile özelleştir"
 
 #: app/adwPreferencesWindow.js:166
 msgid "Warning: This can break the extension if done incorrectly"
-msgstr ""
+msgstr "\"Dikkat: Hatalı uygulama eklentinin bozulmasına neden olabilir.\""
 
 #: app/adwPreferencesWindow.js:172
 msgid "Edit CSS Override File..."
-msgstr ""
+msgstr "CSS Geçersiz Kılma Dosyasını Düzenle..."
 
 #: app/adwPreferencesWindow.js:180
 msgid "Apply CSS Changes Now"
-msgstr ""
+msgstr "CSS Değişikliklerini Uygula"
 
 #: app/adwPreferencesWindow.js:181
 msgid "Reload the CSS to apply changes immediately"
@@ -82,11 +82,13 @@ msgstr "Web tarayıcınızda çeviriye yardımcı olun"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:597 app/adwPreferencesWindow.js:598
+#, fuzzy
 msgid "Desktop"
 msgstr "Masaüstü"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:603 app/adwPreferencesWindow.js:604
+#, fuzzy
 msgid "Files"
 msgstr "Dosyalar"
 
@@ -103,13 +105,15 @@ msgstr "Daha fazla"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:627
+#, fuzzy
 msgid "Desktop Settings"
 msgstr "Masaüstü Ayarları"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:628
+#, fuzzy
 msgid "Settings for the Desktop Program"
-msgstr "Masaüstü Programı için ayarlar"
+msgstr "Masaüstü Programı Ayarları"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:634
