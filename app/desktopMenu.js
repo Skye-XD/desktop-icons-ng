@@ -337,13 +337,6 @@ const DesktopActions = class {
         });
         this._mainApp.add_action(createDesktopShortcut);
 
-        const textEntryAccelsTurnOff =
-            Gio.SimpleAction.new('textEntryAccelsTurnOff', null);
-        textEntryAccelsTurnOff.connect('activate', () => {
-            this._textEntryAccelsTurnOff();
-        });
-        this._mainApp.add_action(textEntryAccelsTurnOff);
-
         const newDocument =
             Gio.SimpleAction.new('newDocument', new GLib.VariantType('s'));
         newDocument.connect('activate', (action, parameter) => {

@@ -367,16 +367,16 @@ class ManageWindow {
     }
 
     _syncToBottomOfStack() {
-        let windows =
-            global.display
-            .get_tab_list(
-                Meta.TabList.NORMAL_ALL,
-                global.workspace_manager.get_active_workspace()
-            );
+        const workspace = global.workspace_manager.get_active_workspace();
+        const windows = workspace.list_windows();
+        const windowStack = global.display.sort_windows_by_stacking(windows);
 
-        windows = global.display.sort_windows_by_stacking(windows);
+        if (windowStack.length === 0)
+            return;
 
-        if (windows.length > 1 && !windows[0].customJS_ding)
+        const bottomWindow = windowStack[0];
+
+        if (bottomWindow !== this._window)
             this._moveDesktopWindowToBottom();
     }
 
@@ -389,14 +389,30 @@ class ManageWindow {
     }
 
     _keepWindowOnTop() {
-        this._restackedTopID = global.display.connect('restacked', () => {
-            if (!this._window.above)
-                this._window.make_above();
-        });
+        this._restackedTopID = global.display.connect('restacked',
+            this._syncToTopOfStack.bind(this)
+        );
 
         if (!this._window.above)
             this._window.make_above();
+
+        this._window.raise();
     }
+
+    _syncToTopOfStack() {
+        const workspace = global.workspace_manager.get_active_workspace();
+        const windows = workspace.list_windows();
+        const windowStack = global.display.sort_windows_by_stacking(windows);
+
+        if (windowStack.length === 0)
+            return;
+
+        const topWindow = windowStack[windowStack.length - 1];
+
+        if (topWindow !== this._window)
+            this._window.raise();
+    }
+
 
     _showWindowOnAllDesktops() {
         this._signalIDs.push(this._window.connect('notify::on-all-workspaces',

@@ -2537,6 +2537,7 @@ const WidgetGrid = class extends ControlGrid {
             this._widgetContainer.insert_after(this._rootFixed, this._container);
 
             this._widgetContainer.add_css_class('widgets-on-top');
+            this._window.add_css_class('widgets-on-top');
 
             // Input: widget layer active, icons inert
             this._container.opacity = 0.05;
@@ -2544,7 +2545,7 @@ const WidgetGrid = class extends ControlGrid {
             this._widgetContainer.set_can_target(true);
             this._desktopManager.unselectAll();
             this._desktopManager.closeFocusStealingWindows();
-            this._mainapp.activate_action('textEntryOff', null);
+            this._mainapp.activate_action('textEntryAccelsTurnOff', null);
             this._mainapp.set_accels_for_action(
                 'app.lowerWidgetLayer',
                 ['Escape']
@@ -2558,6 +2559,7 @@ const WidgetGrid = class extends ControlGrid {
             this._container.insert_after(this._rootFixed, this._widgetContainer);
 
             this._widgetContainer.remove_css_class('widgets-on-top');
+            this._window.remove_css_class('widgets-on-top');
 
             // Input: icons active, widget layer background only
             this._container.opacity = 1.0;
@@ -2566,7 +2568,7 @@ const WidgetGrid = class extends ControlGrid {
 
             this._desktopManager.widgetManager?.clearSelectedInstance();
             this._mainapp.set_accels_for_action('app.lowerWidgetLayer', []);
-            this._mainapp.activate_action('textEntryOn', null);
+            this._mainapp.activate_action('textEntryAccelsTurnOn', null);
         }
 
         this._desktopManager.widgetManager
