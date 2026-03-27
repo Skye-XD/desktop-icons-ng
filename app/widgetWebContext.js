@@ -638,12 +638,7 @@ const WebWidgetContext = class {
         }
 
         case 'beginPinnedEdit': {
-            manager.beginPinnedEdit(instanceId);
-            break;
-        }
-
-        case 'beginPinnedAssistedMove': {
-            manager.beginPinnedAssistedMove(instanceId);
+            manager.beginPinnedEdit(instanceId, !!payload?.editing);
             break;
         }
 
@@ -946,12 +941,6 @@ const WebWidgetContext = class {
         this._pushPatchtoTarget(inst, patch);
     }
 
-    updateHtmlWidgetAssistedMove(inst, assistedMove) {
-        const patch = {assistedMove: !!assistedMove};
-        this._debugHostState('assistedMove', inst, patch);
-        this._pushPatchtoTarget(inst, patch);
-    }
-
     updateHtmlWidgetAnimation(inst, reducedMotion) {
         const patch = {reducedMotion};
         this._debugHostState('reducedMotion', inst, patch);
@@ -961,6 +950,12 @@ const WebWidgetContext = class {
     updateHtmlWidgetLayer(inst, onTop) {
         const patch = {editMode: !!onTop};
         this._debugHostState('editMode', inst, patch);
+        this._pushPatchtoTarget(inst, patch);
+    }
+
+    updateHtmlWidgetEditMode(inst, widgetEditMode) {
+        const patch = {widgetEditMode: !!widgetEditMode};
+        this._debugHostState('widgetEditMode', inst, patch);
         this._pushPatchtoTarget(inst, patch);
     }
 

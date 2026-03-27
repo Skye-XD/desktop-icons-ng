@@ -81,7 +81,7 @@ const WidgetManager = class {
         this._chrome = null;
         this._selectedInstanceId = null;
         this._webWidgetContext = null;
-        this._pinnedAssistedMove = null;
+        this._textEntryAccelsSuppressedForWidgets = false;
 
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
@@ -164,6 +164,7 @@ const WidgetManager = class {
         if (!surface)
             return;
 
+        this._clearWidgetEditModeForMonitor(monitorIndex);
         this._attachPinnedInstancesToCorrectLayer(monitorIndex, onTop);
 
         this._updateAddWidgetButtonVisibility(surface, onTop);
@@ -173,14 +174,14 @@ const WidgetManager = class {
         this._updateWidgetLayerChange(monitorIndex, onTop);
 
         if (!onTop) {
-            this.clearPinnedAssistedMove('layer-lowered');
-
             if (surface.gridToggleButton)
                 surface.gridToggleButton.set_active(false);
 
             surface.grid.widgetGridEnabled = false;
             surface.grid.updateOverlay();
         }
+
+        this._syncTextEntryAccelState();
     }
 
     restoreWidgetLayerFocus(monitorIndex = null) {
@@ -509,10 +510,6 @@ const WidgetManager = class {
         return this._selectedInstanceId;
     }
 
-    getPinnedAssistedMove() {
-        return this._pinnedAssistedMove;
-    }
-
     clearSelectedInstance() {
         const oldInst = this._instances.get(this._selectedInstanceId);
 
@@ -522,6 +519,7 @@ const WidgetManager = class {
         }
 
         this._selectedInstanceId = null;
+        this._clearInvalidWidgetEditModes();
         this._detachChrome();
         this._updateWidgetsSelectionState();
     }
@@ -541,6 +539,7 @@ const WidgetManager = class {
         this._selectedInstanceId = instanceId || null;
 
         if (!instanceId) {
+            this._clearInvalidWidgetEditModes();
             this._detachChrome();
             this._updateWidgetsSelectionState();
             this._webWidgetContext?.closePreferencesIfAny();
@@ -550,6 +549,7 @@ const WidgetManager = class {
         const inst = this._instances.get(instanceId);
         if (!inst?.actor || inst._isAddButton || inst._isGridToggleButton) {
             this._selectedInstanceId = null;
+            this._clearInvalidWidgetEditModes();
             this._detachChrome();
             this._updateWidgetsSelectionState();
             this._webWidgetContext?.closePreferencesForInstance();
@@ -566,6 +566,7 @@ const WidgetManager = class {
 
         this._ensureChrome();
         this._attachChromeToInstance(inst);
+        this._clearInvalidWidgetEditModes();
         this._updateWidgetsSelectionState();
     }
 
@@ -775,15 +776,16 @@ const WidgetManager = class {
                             width: instData.width ?? 200,
                             height: instData.height ?? 150,
                             actor: null,
-                            config: instData.config ?? {},
-                            prefsUri: instData.prefsUri ?? null,
-                            hasPreferences:
-                                instData.hasPreferences ?? !!instData.prefsUri,
+                            config: resolvedConfig,
+                            prefsUri: resolvedPrefsUri,
+                            hasPreferences: resolvedHasPreferences,
+                            pinnable: resolvedPinnable,
                             chrome: resolvedChrome,
-                            hasBackend: instData.hasBackend ?? false,
+                            hasBackend: resolvedHasBackend,
                             webConsent: instData.webConsent ?? null,
                             backendConsent: instData.backendConsent ?? null,
                             pinned: !!instData.pinned,
+                            widgetEditMode: false,
                         };
 
                         this._instances.set(instance.instanceId, instance);
@@ -850,6 +852,36 @@ const WidgetManager = class {
         this._stateChanged();
     }
 
+    setWidgetEditMode(instanceId, editing) {
+        const inst = this._instances.get(instanceId);
+        if (!inst || inst._isAddButton || inst._isGridToggleButton)
+            return;
+
+        const nextEditing = !!editing;
+        if (!nextEditing) {
+            this._setWidgetEditMode(inst, false);
+            return;
+        }
+
+        if (inst.pinned && this._shouldAttachToDockLayer(inst)) {
+            this._setWidgetEditMode(inst, true);
+            this._pinnedWindowManager.pinInstance(inst)?.present?.();
+            return;
+        }
+
+        const surface = this._surfaces.get(inst.monitorIndex);
+        const widgetLayerOnTop = !!surface?.grid?.isWidgetContainerOnTop?.();
+        const isSelected = this._selectedInstanceId === instanceId;
+        const parent = inst.actor?.get_parent?.();
+        const inContainer = !!surface?.widgetContainer &&
+            parent === surface.widgetContainer;
+
+        if (!widgetLayerOnTop || !isSelected || !inContainer)
+            return;
+
+        this._setWidgetEditMode(inst, true);
+    }
+
     setInstancePinned(instanceId, pinned) {
         const inst = this._instances.get(instanceId);
         if (!inst || inst._isAddButton || inst._isGridToggleButton)
@@ -862,8 +894,8 @@ const WidgetManager = class {
         if (inst.pinned === nextPinned)
             return;
 
-        if (!nextPinned && this._pinnedAssistedMove?.instanceId === instanceId)
-            this.clearPinnedAssistedMove('unpinned-instance');
+        if (!nextPinned && inst.widgetEditMode)
+            this._setWidgetEditMode(inst, false);
 
         if (!nextPinned)
             this._pinnedWindowManager.unpinInstance(inst);
@@ -873,20 +905,31 @@ const WidgetManager = class {
             this._webWidgetContext.updateHtmlWidgetPinned(inst, nextPinned);
 
         this._attachInstanceToCorrectLayer(inst);
+
+        const surface = this._surfaces.get(inst.monitorIndex);
+        if (!nextPinned &&
+            this._selectedInstanceId === instanceId &&
+            !surface?.grid?.isWidgetContainerOnTop?.()) {
+            this.clearSelectedInstance();
+        }
+
         this._stateChanged();
     }
 
-    beginPinnedEdit(instanceId) {
+    beginPinnedEdit(instanceId, editing = true) {
         const inst = this._instances.get(instanceId);
-        if (!inst || !inst.pinned || !inst.pinnable)
+        if (!inst || !inst.pinnable)
             return;
 
-        this._desktopManager.windowManager?.raiseWidgetLayers();
-        this.selectInstance(instanceId);
+        this.setWidgetEditMode(instanceId, !!editing);
     }
 
     onPinnedWindowCloseRequest(instanceId) {
-        this.beginPinnedEdit(instanceId);
+        const inst = this._instances.get(instanceId);
+        if (!inst?.pinned || !inst.widgetEditMode)
+            return;
+
+        this.beginPinnedEdit(instanceId, false);
     }
 
     beginPinnedWindowMove(instanceId, params = {}) {
@@ -897,46 +940,15 @@ const WidgetManager = class {
         this._pinnedWindowManager.beginPinnedWindowMove(instanceId, params);
     }
 
-    beginPinnedAssistedMove(instanceId) {
-        const inst = this._instances.get(instanceId);
-        if (!inst || !inst.pinned || !inst.pinnable)
-            return false;
-
-        this._pinnedAssistedMove = {
-            instanceId,
-            origin: 'pinned',
-            action: 'assisted-move',
-            lowerLayersOnSuccessfulMove: true,
-        };
-
-        console.log(
-            `[WidgetManager] beginPinnedAssistedMove instance=${instanceId} ` +
-            `monitor=${inst.monitorIndex}`
-        );
-
-        this._desktopManager.windowManager?.raiseWidgetLayers();
-        this.selectInstance(instanceId);
-        this._updateWidgetsAssistedMoveState();
-        return true;
-    }
-
     getHostActionSpecsForInstance(instanceId, options = {}) {
         const inst = this._instances.get(instanceId);
         if (!inst)
             return [];
 
         const chromePolicy = this._normalizeChromePolicy(inst.chrome);
-        const isPinnedPopup = options.pinnedPopup === true;
 
         return this._getChromeButtonSpecs()
-            .filter(spec => {
-                if (spec.id === 'move' && isPinnedPopup)
-                    return !!inst.pinnable &&
-                        !!inst.pinned &&
-                        !!chromePolicy.showMoveButton;
-
-                return spec.visible?.(inst, chromePolicy) ?? true;
-            })
+            .filter(spec => spec.visible?.(inst, chromePolicy, options) ?? true)
             .map(spec => ({
                 id: spec.id,
                 cssName: spec.cssName,
@@ -961,7 +973,7 @@ const WidgetManager = class {
             this.setInstancePinned(instanceId, !inst.pinned);
             return true;
         case 'move':
-            this.beginPinnedAssistedMove(instanceId);
+            this.beginPinnedWindowMove(instanceId);
             return true;
         case 'close':
             this.deleteSelectedInstance();
@@ -969,37 +981,6 @@ const WidgetManager = class {
         default:
             return false;
         }
-    }
-
-    clearPinnedAssistedMove(reason = 'manual-clear') {
-        if (!this._pinnedAssistedMove)
-            return false;
-
-        console.log(
-            `[WidgetManager] clearPinnedAssistedMove instance=${this._pinnedAssistedMove.instanceId} ` +
-            `reason=${reason}`
-        );
-        this._pinnedAssistedMove = null;
-        this._updateWidgetsAssistedMoveState();
-        return true;
-    }
-
-    completePinnedAssistedMove(instanceId = null) {
-        if (!this._pinnedAssistedMove)
-            return false;
-
-        const handoff = this._pinnedAssistedMove;
-        console.log(
-            `[WidgetManager] completePinnedAssistedMove instance=${instanceId ?? handoff.instanceId} ` +
-            `handoff=${JSON.stringify(handoff)}`
-        );
-        this._pinnedAssistedMove = null;
-        this._updateWidgetsAssistedMoveState();
-
-        if (handoff?.lowerLayersOnSuccessfulMove)
-            this._desktopManager.windowManager?.lowerWidgetLayers();
-
-        return true;
     }
 
     hasContentManagedChrome(instanceId) {
@@ -1026,6 +1007,9 @@ const WidgetManager = class {
             ? inst.chrome
             : {};
 
+        // showMoveButton=false means the widget owns pinned move UI. In that
+        // mode the host suppresses overlay drag and expects widget content to
+        // call beginPinnedWindowMove() from its own control or drag surface.
         return chrome.showMoveButton === false;
     }
 
@@ -1276,6 +1260,7 @@ const WidgetManager = class {
             pinnable: descriptor?.pinnable === true,
             chrome: this._normalizeChromePolicy(null, descriptor?.chrome),
             pinned: false,
+            widgetEditMode: false,
         };
 
         this._instances.set(instanceId, instance);
@@ -2086,16 +2071,13 @@ const WidgetManager = class {
                 id: 'move',
                 cssName: 'ding-widget-move-button',
                 iconName: 'move-symbolic',
-                getTooltip: (_inst, options = {}) =>
-                    options.pinnedPopup
-                        ? _('Reposition widget')
-                        : _('Assisted move active'),
-                visible: (inst, chromePolicy) =>
+                getTooltip: () => _('Reposition widget'),
+                visible: (inst, chromePolicy, options = {}) =>
+                    options.pinnedPopup === true &&
                     !!inst.pinnable &&
                     !!inst.pinned &&
-                    !!chromePolicy.showMoveButton &&
-                    this.getPinnedAssistedMove()?.instanceId === inst.instanceId,
-                onClick: this._beginPinnedAssistedMoveForSelectedInstance,
+                    !!chromePolicy.showMoveButton,
+                onClick: this._beginPinnedWindowMoveForSelectedInstance,
             },
             {
                 id: 'close',
@@ -2203,12 +2185,12 @@ const WidgetManager = class {
         webCtx.openPreferencesForInstance(selectedId, inst.prefsUri);
     }
 
-    _beginPinnedAssistedMoveForSelectedInstance() {
+    _beginPinnedWindowMoveForSelectedInstance() {
         const selectedId = this._selectedInstanceId;
         if (!selectedId)
             return;
 
-        this.beginPinnedAssistedMove(selectedId);
+        this.beginPinnedWindowMove(selectedId);
     }
 
     _raiseInstance(inst) {
@@ -2264,16 +2246,106 @@ const WidgetManager = class {
         }
     }
 
-    _updateWidgetsAssistedMoveState() {
-        for (const inst of this._instances.values()) {
-            const assistedMove =
-                this._pinnedAssistedMove?.instanceId === inst.instanceId;
+    _setWidgetEditMode(inst, editing) {
+        if (!inst)
+            return;
 
-            if (inst.kind === 'html' && inst.actor && inst.host) {
-                this._webWidgetContext
-                    .updateHtmlWidgetAssistedMove(inst, assistedMove);
-            }
+        const nextEditing = !!editing;
+        if (!!inst.widgetEditMode === nextEditing)
+            return;
+
+        inst.widgetEditMode = nextEditing;
+        this._updateWidgetsWidgetEditModeState();
+        this._syncTextEntryAccelState();
+    }
+
+    _canKeepWidgetEditMode(inst) {
+        if (!inst?.widgetEditMode)
+            return false;
+
+        const surface = this._surfaces.get(inst.monitorIndex);
+        const widgetContainer = surface?.widgetContainer ?? null;
+        const parent = inst.actor?.get_parent?.() ?? null;
+
+        if (inst.pinned && parent && parent !== widgetContainer)
+            return true;
+
+        const widgetLayerOnTop = !!surface?.grid?.isWidgetContainerOnTop?.();
+        return widgetLayerOnTop &&
+            this._selectedInstanceId === inst.instanceId;
+    }
+
+    _clearInvalidWidgetEditModes() {
+        let changed = false;
+
+        for (const inst of this._instances.values()) {
+            if (!inst?.widgetEditMode)
+                continue;
+
+            if (this._canKeepWidgetEditMode(inst))
+                continue;
+
+            inst.widgetEditMode = false;
+            changed = true;
         }
+
+        if (changed)
+            this._updateWidgetsWidgetEditModeState();
+    }
+
+    _clearWidgetEditModeForMonitor(monitorIndex) {
+        let changed = false;
+
+        for (const inst of this._instances.values()) {
+            if (inst.monitorIndex !== monitorIndex || !inst.widgetEditMode)
+                continue;
+
+            if (this._canKeepWidgetEditMode(inst))
+                continue;
+
+            inst.widgetEditMode = false;
+            changed = true;
+        }
+
+        if (changed)
+            this._updateWidgetsWidgetEditModeState();
+    }
+
+    _updateWidgetsWidgetEditModeState() {
+        for (const inst of this._instances.values()) {
+            if (inst.kind === 'html' && inst.actor && inst.host) {
+                this._webWidgetContext.updateHtmlWidgetEditMode(
+                    inst,
+                    !!inst.widgetEditMode
+                );
+            }
+
+            this._pinnedWindowManager.refreshInstance(inst);
+        }
+    }
+
+    _syncTextEntryAccelState() {
+        const layerRaised = [...this._surfaces.values()].some(
+            surface => !!surface?.grid?.isWidgetContainerOnTop?.()
+        );
+        const floatingWidgetEditing = [...this._instances.values()].some(inst => {
+            if (!inst?.widgetEditMode || !inst.pinned || !inst.actor)
+                return false;
+
+            const surface = this._surfaces.get(inst.monitorIndex);
+            const widgetContainer = surface?.widgetContainer ?? null;
+            return inst.actor.get_parent?.() !== widgetContainer;
+        });
+
+        const shouldSuppress = layerRaised || floatingWidgetEditing;
+        if (shouldSuppress === this._textEntryAccelsSuppressedForWidgets)
+            return;
+
+        this._textEntryAccelsSuppressedForWidgets = shouldSuppress;
+        this._desktopManager.mainApp?.activate_action?.(
+            shouldSuppress ? 'textEntryAccelsTurnOff' : 'textEntryAccelsTurnOn',
+            null
+        );
     }
 
     _updateTheme(inst, theme) {
@@ -2320,8 +2392,8 @@ const WidgetManager = class {
         const actor = inst.actor;
         const selected = inst.instanceId === this._selectedInstanceId;
         const pinned = !!inst.pinned;
+        const widgetEditMode = !!inst.widgetEditMode;
         const pinnable = !!inst.pinnable;
-        const assistedMove = this._pinnedAssistedMove?.instanceId === inst.instanceId;
 
         const surface = this._surfaces.get(inst.monitorIndex);
         const grid = surface?.grid;
@@ -2334,10 +2406,10 @@ const WidgetManager = class {
 
         return {
             editMode,
+            widgetEditMode,
             selected,
             pinned,
             pinnable,
-            assistedMove,
             theme,
             reducedMotion,
             direction,

@@ -329,10 +329,10 @@ export const WIDGET_API =
 
     var _hostState = {
         editMode: false,
+        widgetEditMode: false,
         selected: false,
         pinned: false,
         pinnable: false,
-        assistedMove: false,
         theme: 'light',
         reducedMotion: false,
         direction: 'ltr',
@@ -377,9 +377,12 @@ export const WIDGET_API =
 
             // Edit mode & selection
             body.classList.toggle('ding-edit-mode', !!_hostState.editMode);
+            body.classList.toggle(
+                'ding-widget-edit-mode',
+                !!_hostState.widgetEditMode
+            );
             body.classList.toggle('ding-selected', !!_hostState.selected);
             body.classList.toggle('ding-pinned', !!_hostState.pinned);
-            body.classList.toggle('ding-assisted-move', !!_hostState.assistedMove);
 
             // Reduced motion:
             body.classList.toggle('ding-reduced-motion', !!_hostState.reducedMotion);
@@ -510,23 +513,14 @@ export const WIDGET_API =
             });
         },
 
-        beginPinnedEdit: function() {
+        beginPinnedEdit: function(editing) {
             if (!this.instanceId)
                 return;
 
             post({
                 type: 'beginPinnedEdit',
                 instanceId: this.instanceId,
-            });
-        },
-
-        beginPinnedAssistedMove: function() {
-            if (!this.instanceId)
-                return;
-
-            post({
-                type: 'beginPinnedAssistedMove',
-                instanceId: this.instanceId,
+                editing: !!editing,
             });
         },
 

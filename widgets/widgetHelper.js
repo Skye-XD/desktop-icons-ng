@@ -31,7 +31,7 @@
  *
  * Common widget-author conveniences exposed here include:
  *  - host state accessors: getHostState(), isPinned(), isPinnable(),
- *    isSelected(), isEditMode(), isAssistedMove()
+ *    isSelected(), isEditMode(), isWidgetEditMode()
  *  - pinned-window helpers: beginPinnedWindowMove(event),
  *    attachPinnedMoveHandle(element, options),
  *    bindPinnedHoverChrome(element, options)
@@ -40,6 +40,12 @@
  * createWidget(widgetId) inherits pinned state from the source instance
  * by default. Pass {inheritPinned: false} or {initialPinned: ...} to
  * override that behavior.
+ *
+ * Reload safety:
+ *  - Widgets can be recreated when the host reparents them between layers.
+ *  - Do not keep important UI state only in JS memory.
+ *  - Persist any state that must survive reload in config or other durable
+ *    storage, then rebuild local UI from host state + config after load.
  */
 
 export class DingClient {
@@ -127,12 +133,15 @@ export class DingClient {
         return () => this._hostStateHandlers.delete(cb);
     }
 
-    // Snapshot of the last pushed host state, or null if none has arrived yet.
+    // Snapshot of the latest merged host state, or null if none has arrived
+    // yet. This is the authoritative host view for the current instance.
     getHostState() {
         return this._lastHostState ? {...this._lastHostState} : null;
     }
 
-    // Convenience booleans for the most commonly queried host state.
+    // Convenience booleans for commonly queried host state.
+    // Note: isEditMode() means the host widget layer is raised. It does not
+    // mean your widget's own editor or local edit UI is open.
     isPinned() {
         return !!this._lastHostState?.pinned;
     }
@@ -149,8 +158,8 @@ export class DingClient {
         return !!this._lastHostState?.editMode;
     }
 
-    isAssistedMove() {
-        return !!this._lastHostState?.assistedMove;
+    isWidgetEditMode() {
+        return !!this._lastHostState?.widgetEditMode;
     }
 
     onConfigChanged(cb) {
@@ -217,29 +226,20 @@ export class DingClient {
         if (typeof this._ding.setPinned !== 'function')
             return;
 
-        if (!this.isPinnable())
-            return;
-
         try {
+            // Pinning can move an HTML widget between host containers. Persist
+            // meaningful state outside transient page memory. The host still
+            // validates whether the current instance is actually pinnable.
             this._ding.setPinned(!!pinned);
         } catch (e) {}
     }
 
-    beginPinnedEdit() {
+    beginPinnedEdit(editing = true) {
         if (typeof this._ding.beginPinnedEdit !== 'function')
             return;
 
         try {
-            this._ding.beginPinnedEdit();
-        } catch (e) {}
-    }
-
-    beginPinnedAssistedMove() {
-        if (typeof this._ding.beginPinnedAssistedMove !== 'function')
-            return;
-
-        try {
-            this._ding.beginPinnedAssistedMove();
+            this._ding.beginPinnedEdit(!!editing);
         } catch (e) {}
     }
 
@@ -259,6 +259,8 @@ export class DingClient {
 
     // Makes an element act as a pinned-window drag handle.
     // By default it is active only while the widget is pinned.
+    // Use this when your widget suppresses host move chrome and needs to own
+    // its own temporary drag affordance.
     attachPinnedMoveHandle(element, opts = {}) {
         if (!element?.addEventListener)
             return () => {};

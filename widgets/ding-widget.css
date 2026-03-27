@@ -14,6 +14,12 @@
  * The host owns state → the DOM reflects it → CSS reacts to it.
  *
  * Widgets may copy, override, or selectively use rules from this file.
+ *
+ * Reload safety:
+ *  - The host may recreate a widget when it moves between host layers.
+ *  - These classes will be applied again after reload.
+ *  - Widget authors should treat these classes as the durable visual contract
+ *    from the host, not as a mirror of local in-memory widget state.
  */
 
 
@@ -141,26 +147,6 @@ body.ding-pinned .ding-only-unpinned {
 
 
 /* ==================================================
- * Assisted-move helpers
- * ==================================================
- *
- * The host sets:
- *   body.ding-assisted-move
- *
- * Widgets can mark elements that should only be
- * visible during host-managed assisted move.
- */
-
-.ding-only-assisted-move {
-    display: none;
-}
-
-body.ding-assisted-move .ding-only-assisted-move {
-    display: initial;
-}
-
-
-/* ==================================================
  * Layer-state helpers
  * ==================================================
  *
@@ -192,19 +178,13 @@ body.ding-edit-mode .ding-only-layer-lowered {
  * chrome cases.
  */
 
-.ding-only-pinned-layer-lowered,
-.ding-only-pinned-assisted-move {
+.ding-only-pinned-layer-lowered {
     display: none;
 }
 
 body.ding-pinned:not(.ding-edit-mode) .ding-only-pinned-layer-lowered {
     display: initial;
 }
-
-body.ding-pinned.ding-assisted-move .ding-only-pinned-assisted-move {
-    display: initial;
-}
-
 
 /* ==================================================
  * Optional selection outline helper

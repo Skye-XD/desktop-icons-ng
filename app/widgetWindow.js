@@ -43,7 +43,7 @@ const WidgetWindow = class {
      *   - getInstance(instanceId)
      *   - getInstanceFrame(instanceId)
      *   - beginPinnedEdit(instanceId)
-     *   - beginPinnedAssistedMove(instanceId)
+     *   - beginPinnedWindowMove(instanceId, params)
      *   - setInstancePinned(instanceId, pinned)
      *   - optional pinned-window lifecycle callbacks
      * @param {object} params.mainApp

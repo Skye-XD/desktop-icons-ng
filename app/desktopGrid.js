@@ -2546,7 +2546,6 @@ const WidgetGrid = class extends ControlGrid {
             this._widgetContainer.set_can_target(true);
             this._desktopManager.unselectAll();
             this._desktopManager.closeFocusStealingWindows();
-            this._mainapp.activate_action('textEntryAccelsTurnOff', null);
             this._mainapp.set_accels_for_action(
                 'app.lowerWidgetLayer',
                 ['Escape']
@@ -2569,7 +2568,6 @@ const WidgetGrid = class extends ControlGrid {
 
             this._desktopManager.widgetManager?.clearSelectedInstance();
             this._mainapp.set_accels_for_action('app.lowerWidgetLayer', []);
-            this._mainapp.activate_action('textEntryAccelsTurnOn', null);
         }
 
         this._desktopManager.widgetManager
@@ -2625,22 +2623,9 @@ const WidgetGrid = class extends ControlGrid {
         this._dragStartY = startY;
 
         this._draggedWidget = this._findWidgetAt(startX, startY);
-        const assistedMove =
-            this._desktopManager.widgetManager.getPinnedAssistedMove();
 
         this._dragPointerOffsetX = 0;
         this._dragPointerOffsetY = 0;
-
-        if (this._draggedWidget &&
-            this._isWidgetChromeActor(this._draggedWidget) &&
-            assistedMove &&
-            this._selectedWidget) {
-            const selectedInst =
-                this._desktopManager.widgetManager.getInstance(
-                    this._selectedWidget
-                );
-            this._draggedWidget = selectedInst?.actor ?? this._draggedWidget;
-        }
 
         if (!this._draggedWidget ||
             this._isWidgetChromeActor(this._draggedWidget)) {
@@ -2766,7 +2751,6 @@ const WidgetGrid = class extends ControlGrid {
         this._dragPointerOffsetX = null;
         this._dragPointerOffsetY = null;
         this._longPressActive = false;
-        this._desktopManager.widgetManager.completePinnedAssistedMove(instanceId);
     }
 
     _setWidgetDraggingState(isDragging) {
@@ -2800,18 +2784,8 @@ const WidgetGrid = class extends ControlGrid {
     _onClick(gesture, nPress, x, y) {
         this.restoreWidgetLayerFocus();
         const widget = this._findWidgetAt(x, y);
-        const assistedMove = this._desktopManager.widgetManager.getPinnedAssistedMove();
-        const assistedInstanceId = assistedMove?.instanceId ?? null;
 
         if (!widget) {
-            if (assistedInstanceId) {
-                this._desktopManager.widgetManager.clearPinnedAssistedMove(
-                    'background-click'
-                );
-                this._desktopManager.windowManager?.lowerWidgetLayers();
-                return;
-            }
-
             this._selectedWidget = null;
             this._desktopManager.widgetManager.selectInstance(null);
             return;
@@ -2826,12 +2800,6 @@ const WidgetGrid = class extends ControlGrid {
         if (!instanceId) {
             this._selectedWidget = null;
             return;
-        }
-
-        if (assistedInstanceId && assistedInstanceId !== instanceId) {
-            this._desktopManager.widgetManager.clearPinnedAssistedMove(
-                'other-widget-click'
-            );
         }
 
         this._selectedWidget = instanceId;
