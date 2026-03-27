@@ -20,6 +20,13 @@ import {WidgetApi} from '../dependencies/localFiles.js';
 
 export {HtmlWidgetHost};
 
+function getParentTypeName(parent) {
+    if (!parent)
+        return null;
+
+    return parent.constructor?.name ?? null;
+}
+
 const HtmlWidgetHost = class {
     /**
      * @param {object} params
@@ -48,6 +55,8 @@ const HtmlWidgetHost = class {
         this._destroyed = false;
         this._tickId = 0;
         this._mappedNotifyId = 0;
+        this._parentNotifyId = 0;
+        this._previousParent = null;
 
         this._makeGtkWidget();
 
@@ -95,6 +104,10 @@ const HtmlWidgetHost = class {
             this._webView.disconnect(this._mappedNotifyId);
         this._mappedNotifyId = 0;
 
+        if (this._parentNotifyId && this._frame)
+            this._frame.disconnect(this._parentNotifyId);
+        this._parentNotifyId = 0;
+
         if (this._tickId)
             this._webView?.remove_tick_callback(this._tickId);
         this._tickId = 0;
@@ -138,6 +151,21 @@ const HtmlWidgetHost = class {
         this._pokeWebViewRender();
     }
 
+    // Reparenting an HTML widget between the desktop container and a floating
+    // widget window can leave WebKit visually blank even though the WebView is
+    // still mapped, sized, and otherwise healthy. A full reload reliably
+    // rebuilds WebKit's render/compositing state for the new parent chain.
+    async reloadForReparent() {
+        if (this._destroyed)
+            return;
+
+        const webView = await this.getWebViewAsync();
+        if (!webView)
+            return;
+
+        webView.reload();
+    }
+
     _makeGtkWidget() {
         this._frame = new DingRoundedClip({radius: 8});
 
@@ -148,6 +176,9 @@ const HtmlWidgetHost = class {
 
         this._frame.instanceId = this._instanceId;
         this._frame.widgetId = this._widgetId;
+        this._parentNotifyId = this._frame.connect('notify::parent', () => {
+            this._handleParentChange();
+        });
     }
 
     async _makeWebView() {
@@ -222,6 +253,25 @@ const HtmlWidgetHost = class {
 
         this._flushPendingHostStatePatches();
         this._flushPendingMessages();
+    }
+
+    _handleParentChange() {
+        if (this._destroyed || !this._frame)
+            return;
+
+        const currentParent = this._frame.get_parent?.() ?? null;
+        const previousParent = this._previousParent;
+        const previousParentType = getParentTypeName(previousParent);
+        const currentParentType = getParentTypeName(currentParent);
+
+        if (currentParent)
+            this._previousParent = currentParent;
+
+        if (!currentParent || currentParent === previousParent)
+            return;
+
+        if (!previousParent || previousParentType !== currentParentType)
+            this.reloadForReparent().catch(e => logError(e));
     }
 
     _flushPendingHostStatePatches() {

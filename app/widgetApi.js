@@ -506,6 +506,9 @@ export const WIDGET_API =
             if (!this.instanceId)
                 return;
 
+            // Floating/pinned HTML widgets may be reparented between host
+            // containers. Widget authors should keep important UI state in
+            // config or other persistent state rather than in-memory only.
             post({
                 type: 'setPinned',
                 instanceId: this.instanceId,
@@ -517,6 +520,9 @@ export const WIDGET_API =
             if (!this.instanceId)
                 return;
 
+            // Floating edit mode may move the widget to a different host layer.
+            // Widgets that support pinning should tolerate a host-triggered
+            // reload when that parent change occurs.
             post({
                 type: 'beginPinnedEdit',
                 instanceId: this.instanceId,
