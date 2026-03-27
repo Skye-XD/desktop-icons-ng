@@ -252,7 +252,7 @@ export class DingClient {
                 x: Number(event?.clientX) || 0,
                 y: Number(event?.clientY) || 0,
                 button: Number(event?.button) + 1 || 1,
-                timestamp: 0,
+                timestamp: Math.round(Number(event?.timeStamp) || 0),
             });
         } catch (e) {}
     }

@@ -147,8 +147,11 @@ const WidgetWindow = class {
         if (!this._window || !inst)
             return;
 
-        this.setPinnedTitle(this.buildPinnedTitle(frame));
+        this.setPinnedTitle(this.buildPinnedTitle(frame, !!inst.widgetEditMode));
         this._refreshControlsPopover();
+
+        if (inst.widgetEditMode)
+            this.present();
     }
 
     setPinnedTitle(title) {
@@ -158,11 +161,12 @@ const WidgetWindow = class {
         this._window.set_title(title);
     }
 
-    buildPinnedTitle(frame = null) {
+    buildPinnedTitle(frame = null, widgetEditMode = false) {
         const resolvedFrame =
             frame ??
             this._widgetManager.getInstanceGlobalFrame(this._instanceId) ??
             null;
+        const instanceId = this._instanceId ?? '';
 
         const x = Number.isFinite(resolvedFrame && resolvedFrame.x)
             ? Math.round(resolvedFrame.x)
@@ -171,10 +175,10 @@ const WidgetWindow = class {
             ? Math.round(resolvedFrame.y)
             : 0;
 
-        // Dock window:
-        // K = dock type
-        // H = hide from window list
-        return `@!${x},${y};KH`;
+        if (widgetEditMode)
+            return `@!${x},${y};TH;I=${instanceId}`;
+
+        return `@!${x},${y};KH;I=${instanceId}`;
     }
 
     beginPinnedEdit(_options = {}) {
@@ -520,11 +524,6 @@ const WidgetWindow = class {
             return;
         }
 
-        console.log(
-            `[WidgetWindow] drag-begin instance=${this._instanceId} ` +
-            `gestureStart=(${Math.round(startX)},${Math.round(startY)}) ` +
-            'temporary pinned-window move'
-        );
         this._beginWindowMoveFromPoint({
             localX: startX,
             localY: startY,
@@ -566,9 +565,9 @@ const WidgetWindow = class {
         while (current && current !== this._overlay) {
             if (current === this._controlsBox ||
                 current === this._controlsPopover ||
-                [...this._popupButtons.values()].includes(current)) {
+                [...this._popupButtons.values()].includes(current))
                 return true;
-            }
+
 
             current = current.get_parent();
         }

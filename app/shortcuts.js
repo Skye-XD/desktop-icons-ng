@@ -21,6 +21,7 @@ export const DefaultShortcuts = {
     'keep-arranged': {Hint: _('Keep Arranged'), Accel: '', Edit: true},
     'keep-stacked': {Hint: _('Keep Stacked'), Accel: '', Edit: true},
     sortSpecialFolders: {Hint: _('Sort Special Folders'), Accel: ''},
+    'sort-special-folders': {Hint: _('Sort Special Folders'), Accel: ''},
     arrangeByName: {Hint: _('Arrange Icons by Name'), Accel: '', Edit: true},
     arrangeByDescendingName: {Hint: _('Arrange Icons By Descending Name'), Accel: '', Edit: true},
     arrangeByModifiedTime: {Hint: _('Arrange Icons By Modified Time'), Accel: '', Edit: true},
@@ -98,6 +99,18 @@ export const DefaultShortcuts = {
     onScriptClicked: {Hint: 'Run Script', Accel: ''},
     closeWidget: {Hint: 'Close Selected Widget', Accel: '<Shift><Control>X', Edit: true},
     toggleWidgetGrid: {Hint: 'Toggle Widget Grid', Accel: '<Control><Shift>G', Edit: true},
+    // Internal actions without user-facing shortcuts. Keep them registered so
+    // shortcut sync can ignore them safely when actions are added at runtime.
+    updateGridWindows: {Hint: 'Update Grid Windows', Accel: ''},
+    lowerWidgetLayer: {Hint: 'Lower Widget Layer', Accel: ''},
+    raiseWidgetLayer: {Hint: 'Raise Widget Layer', Accel: ''},
+    updatePinnedWindowPosition: {Hint: 'Update Pinned Window Position', Accel: ''},
+    desktopAction: {Hint: 'Desktop Action', Accel: ''},
+    sendfiles: {Hint: 'Send Files', Accel: ''},
+    changeDesktop: {Hint: 'Change Desktop', Accel: ''},
+    restoreDefaultDesktop: {Hint: 'Restore Default Desktop', Accel: ''},
+    arrangeaction: {Hint: 'Arrange Action', Accel: ''},
+    reloadCSS: {Hint: 'Reload CSS', Accel: ''},
 };
 
 // Following Global shortcuts will be added for editing and are editable

@@ -496,7 +496,7 @@ const ShortcutManager = class {
     _setAccel(actionName) {
         const action = this._mainApp.lookup_action(actionName);
 
-        if (!action)
+        if (!action || !this._localShortcuts[actionName])
             return;
 
         const accel = this._readOverRideActionShortcut(actionName);
@@ -508,7 +508,12 @@ const ShortcutManager = class {
     }
 
     _readOverRideActionShortcut(actionName) {
-        const defaultShortCut = this._localShortcuts[actionName].Accel ?? '';
+        const shortcutDefinition = this._localShortcuts[actionName];
+
+        if (!shortcutDefinition)
+            return '';
+
+        const defaultShortCut = shortcutDefinition.Accel ?? '';
         const userShortcut = this._overRideMap.get(actionName);
 
         const overrideShortCut = this._overRideMap.has(actionName)

@@ -668,10 +668,14 @@ const WebWidgetContext = class {
                 typeof payload?.inheritPinned === 'boolean'
                     ? payload.inheritPinned
                     : true;
-            const initialPinned =
-                typeof payload?.initialPinned === 'boolean'
-                    ? payload.initialPinned
-                    : (inheritPinned ? !!inst.pinned : false);
+            let initialPinned;
+            if (typeof payload?.initialPinned === 'boolean')
+                initialPinned = payload.initialPinned;
+            else if (inheritPinned)
+                initialPinned = !!inst.pinned;
+            else
+                initialPinned = false;
+
 
             await manager.createInstanceForWidget(widgetId, {
                 monitorIndex,

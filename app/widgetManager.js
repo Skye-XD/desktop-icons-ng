@@ -408,6 +408,54 @@ const WidgetManager = class {
         this._positionInstanceActor(inst);
     }
 
+    updatePinnedWindowPosition(instanceId, globalX, globalY) {
+        const inst = this._instances.get(instanceId);
+        if (!inst || !inst.pinned)
+            return;
+
+        let targetSurface = this._surfaces.get(inst.monitorIndex) ?? null;
+
+        if (!targetSurface?.grid?.coordinatesBelongToThisGridWindow?.(
+            globalX,
+            globalY
+        )) {
+            for (const surface of this._surfaces.values()) {
+                if (!surface?.grid?.coordinatesBelongToThisGridWindow?.(
+                    globalX,
+                    globalY
+                ))
+                    continue;
+
+
+                targetSurface = surface;
+                break;
+            }
+        }
+
+        if (!targetSurface?.grid)
+            return;
+
+        const [localX, localY] =
+            targetSurface.grid._coordinatesGlobalToLocal(globalX, globalY);
+        const roundedLocalX = Math.round(localX);
+        const roundedLocalY = Math.round(localY);
+        const currentFrame = this.getInstanceFrame(instanceId);
+        const targetMonitorIndex = targetSurface.monitorIndex;
+
+        if (currentFrame &&
+            inst.monitorIndex === targetMonitorIndex &&
+            currentFrame.x === roundedLocalX &&
+            currentFrame.y === roundedLocalY)
+            return;
+
+
+        inst.monitorIndex = targetMonitorIndex;
+        this.setInstanceFrame(instanceId, roundedLocalX, roundedLocalY);
+
+        if (inst.pinned)
+            this._pinnedWindowManager.refreshInstance(inst);
+    }
+
     /*
      * Compute the current absolute frame for an instance based on
      * stored normX/normY + width/height and the grid's normalized size.
@@ -744,6 +792,20 @@ const WidgetManager = class {
                         instData.chrome,
                         descriptor?.chrome
                     );
+                    const resolvedPrefsUri =
+                        instData.prefsUri ?? descriptor?.prefs ?? null;
+                    const resolvedHasPreferences =
+                        instData.hasPreferences ?? !!resolvedPrefsUri;
+                    const resolvedPinnable =
+                        instData.pinnable ?? descriptor?.pinnable === true;
+                    const resolvedHasBackend =
+                        instData.hasBackend ??
+                        descriptor?.hasBackend ??
+                        !!descriptor?.backend;
+                    const resolvedConfig = {
+                        ...descriptor?.defaultConfig ?? {},
+                        ...instData.config ?? {},
+                    };
 
                     let instance = this._instances.get(instData.instanceId);
 
@@ -755,12 +817,12 @@ const WidgetManager = class {
                         instance.normY = instData.normY ?? 0;
                         instance.width = instData.width ?? 200;
                         instance.height = instData.height ?? 150;
-                        instance.config = instData.config ?? {};
-                        instance.prefsUri = instData.prefsUri ?? null;
-                        instance.hasPreferences =
-                            instData.hasPreferences ?? !!instance.prefsUri;
+                        instance.config = resolvedConfig;
+                        instance.prefsUri = resolvedPrefsUri;
+                        instance.hasPreferences = resolvedHasPreferences;
+                        instance.pinnable = resolvedPinnable;
                         instance.chrome = resolvedChrome;
-                        instance.hasBackend = instData.hasBackend;
+                        instance.hasBackend = resolvedHasBackend;
                         instance.webConsent = instData.webConsent ?? null;
                         instance.backendConsent =
                             instData.backendConsent ?? null;
@@ -909,9 +971,9 @@ const WidgetManager = class {
         const surface = this._surfaces.get(inst.monitorIndex);
         if (!nextPinned &&
             this._selectedInstanceId === instanceId &&
-            !surface?.grid?.isWidgetContainerOnTop?.()) {
+            !surface?.grid?.isWidgetContainerOnTop?.())
             this.clearSelectedInstance();
-        }
+
 
         this._stateChanged();
     }
@@ -1254,7 +1316,7 @@ const WidgetManager = class {
             actor: null,
             config,
             kind,
-            hasBackend: descriptor?.hasBackend ?? !!descriptor?.backend ?? false,
+            hasBackend: descriptor?.hasBackend ?? !!descriptor?.backend,
             prefsUri: descriptor?.prefs ?? null,
             hasPreferences: !!descriptor?.prefs,
             pinnable: descriptor?.pinnable === true,
@@ -1623,7 +1685,7 @@ const WidgetManager = class {
             const parent = inst.actor?.get_parent?.();
             if (parent?.remove)
                 parent.remove(inst.actor);
-            
+
             this._pinnedWindowManager.destroyInstanceWindow(inst.instanceId);
 
             if (inst.host && typeof inst.host.destroy === 'function')
@@ -1837,7 +1899,8 @@ const WidgetManager = class {
 
         const {widgetContainer} = surface;
         const {x, y} = frame;
-        const isMove = inst.actor.get_parent() === widgetContainer;
+        const parent = inst.actor.get_parent();
+        const isMove = parent === widgetContainer;
 
         if (frame.clamped || isMove) {
             const [normX, normY] = surface.grid.getNormalizedCoordinates(x, y);
@@ -1854,7 +1917,7 @@ const WidgetManager = class {
 
         if (isMove)
             widgetContainer.move(inst.actor, x, y);
-        else
+        else if (!parent)
             widgetContainer.put(inst.actor, x, y);
     }
 
@@ -1866,7 +1929,9 @@ const WidgetManager = class {
         if (!surface)
             return false;
 
-        return !surface.grid.isWidgetContainerOnTop();
+        const widgetLayerOnTop = surface.grid.isWidgetContainerOnTop();
+        const result = !widgetLayerOnTop;
+        return result;
     }
 
     _attachInstanceToCorrectLayer(inst) {
@@ -1981,6 +2046,19 @@ const WidgetManager = class {
         this._raiseChromeButtons(surface);
     }
 
+    _resolveChromeProperty(instanceValue, descriptorValue, defaultValue) {
+        if (descriptorValue === false)
+            return false;
+
+        if (typeof instanceValue === 'boolean')
+            return instanceValue;
+
+        if (typeof descriptorValue === 'boolean')
+            return descriptorValue;
+
+        return defaultValue;
+    }
+
     _normalizeChromePolicy(instanceChrome, descriptorChrome = null) {
         const instanceInput =
             instanceChrome && typeof instanceChrome === 'object'
@@ -1992,42 +2070,26 @@ const WidgetManager = class {
                 : {};
 
         return {
-            showCloseButton:
-                descriptorInput.showCloseButton === false
-                    ? false
-                    :
-                typeof instanceInput.showCloseButton === 'boolean'
-                    ? instanceInput.showCloseButton
-                    : typeof descriptorInput.showCloseButton === 'boolean'
-                        ? descriptorInput.showCloseButton
-                        : true,
-            showPrefsButton:
-                descriptorInput.showPrefsButton === false
-                    ? false
-                    :
-                typeof instanceInput.showPrefsButton === 'boolean'
-                    ? instanceInput.showPrefsButton
-                    : typeof descriptorInput.showPrefsButton === 'boolean'
-                        ? descriptorInput.showPrefsButton
-                        : true,
-            showMoveButton:
-                descriptorInput.showMoveButton === false
-                    ? false
-                    :
-                typeof instanceInput.showMoveButton === 'boolean'
-                    ? instanceInput.showMoveButton
-                    : typeof descriptorInput.showMoveButton === 'boolean'
-                        ? descriptorInput.showMoveButton
-                        : true,
-            showPinButton:
-                descriptorInput.showPinButton === false
-                    ? false
-                    :
-                typeof instanceInput.showPinButton === 'boolean'
-                    ? instanceInput.showPinButton
-                    : typeof descriptorInput.showPinButton === 'boolean'
-                        ? descriptorInput.showPinButton
-                        : false,
+            showCloseButton: this._resolveChromeProperty(
+                instanceInput.showCloseButton,
+                descriptorInput.showCloseButton,
+                true
+            ),
+            showPrefsButton: this._resolveChromeProperty(
+                instanceInput.showPrefsButton,
+                descriptorInput.showPrefsButton,
+                true
+            ),
+            showMoveButton: this._resolveChromeProperty(
+                instanceInput.showMoveButton,
+                descriptorInput.showMoveButton,
+                true
+            ),
+            showPinButton: this._resolveChromeProperty(
+                instanceInput.showPinButton,
+                descriptorInput.showPinButton,
+                false
+            ),
         };
     }
 
@@ -2054,7 +2116,7 @@ const WidgetManager = class {
                     !!inst.pinnable && !!chromePolicy.showPinButton,
                 getTooltip: inst =>
                     inst.pinned ? _('Unpin widget') : _('Pin widget'),
-                getClasses: inst => (inst.pinned ? ['pinned'] : []),
+                getClasses: inst => inst.pinned ? ['pinned'] : [],
                 update: (button, inst) => {
                     if (inst.pinned)
                         button.add_css_class('pinned');
@@ -2722,6 +2784,19 @@ const WidgetManager = class {
         const closeWidget = Gio.SimpleAction.new('closeWidget', null);
         closeWidget.connect('activate', this.deleteSelectedInstance.bind(this));
         this._desktopManager.mainApp.add_action(closeWidget);
+
+        const updatePinnedWindowPosition = Gio.SimpleAction.new(
+            'updatePinnedWindowPosition',
+            new GLib.VariantType('(sii)')
+        );
+        updatePinnedWindowPosition.connect('activate', (_action, parameter) => {
+            if (!parameter)
+                return;
+
+            const [instanceId, x, y] = parameter.deepUnpack();
+            this.updatePinnedWindowPosition(instanceId, x, y);
+        });
+        this._desktopManager.mainApp.add_action(updatePinnedWindowPosition);
     }
 
     /* =====================================================================

@@ -2466,7 +2466,6 @@ const WidgetGrid = class extends ControlGrid {
 
         longPress
             .connect('cancelled', this._onWidgetLongPressCancelled.bind(this));
-
     }
 
     get widgetContainer() {
@@ -2550,6 +2549,7 @@ const WidgetGrid = class extends ControlGrid {
                 'app.lowerWidgetLayer',
                 ['Escape']
             );
+
             this.restoreWidgetLayerFocus();
         } else {
         // Icons above widgets (normal mode)

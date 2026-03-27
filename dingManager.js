@@ -259,6 +259,7 @@ const DingManager = class {
             appID,
             appPath
         );
+        this.windowTypeManager.setRemoteActionGroup(this.remoteDingActions);
 
         this.remoteGeometryUpdateRequestedId =
             Gio.DBus.session.signal_subscribe(
@@ -364,7 +365,6 @@ const DingManager = class {
      * Start the Dbus Service
      *
      * @param {GObject} connection the Dbus Connection
-     *
      */
     _onBusAcquired(connection) {
         this.dingExtensionServiceImplementation =
