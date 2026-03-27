@@ -237,6 +237,9 @@ class ManageWindow {
             this._makeWindowTypeDock();
         else if (desktopWindowActive)
             this._makeWindowTypeDesktop();
+
+        if ((this._x !== null) && (this._y !== null))
+            this._window.move_frame(true, this._x, this._y);
     }
 
     _keepFixedWindowPosition() {
@@ -300,7 +303,7 @@ class ManageWindow {
 
         this._moveIntoPlaceID =
             GLib.timeout_add(GLib.PRIORITY_LOW, 250, () => {
-                if (this._fixed && (this._x !== null) && (this._y !== null))
+                if (this._x !== null && this._y !== null)
                     this._window.move_frame(true, this._x, this._y);
 
                 this._moveIntoPlaceID = 0;

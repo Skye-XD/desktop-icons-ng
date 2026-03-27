@@ -28,6 +28,18 @@
  * This file intentionally does not:
  *  - implement alternative transports
  *  - define any UI/framework helpers
+ *
+ * Common widget-author conveniences exposed here include:
+ *  - host state accessors: getHostState(), isPinned(), isPinnable(),
+ *    isSelected(), isEditMode(), isAssistedMove()
+ *  - pinned-window helpers: beginPinnedWindowMove(event),
+ *    attachPinnedMoveHandle(element, options),
+ *    bindPinnedHoverChrome(element, options)
+ *  - host actions: createWidget(widgetId, options), removeWidget()
+ *
+ * createWidget(widgetId) inherits pinned state from the source instance
+ * by default. Pass {inheritPinned: false} or {initialPinned: ...} to
+ * override that behavior.
  */
 
 export class DingClient {
@@ -115,6 +127,32 @@ export class DingClient {
         return () => this._hostStateHandlers.delete(cb);
     }
 
+    // Snapshot of the last pushed host state, or null if none has arrived yet.
+    getHostState() {
+        return this._lastHostState ? {...this._lastHostState} : null;
+    }
+
+    // Convenience booleans for the most commonly queried host state.
+    isPinned() {
+        return !!this._lastHostState?.pinned;
+    }
+
+    isPinnable() {
+        return !!this._lastHostState?.pinnable;
+    }
+
+    isSelected() {
+        return !!this._lastHostState?.selected;
+    }
+
+    isEditMode() {
+        return !!this._lastHostState?.editMode;
+    }
+
+    isAssistedMove() {
+        return !!this._lastHostState?.assistedMove;
+    }
+
     onConfigChanged(cb) {
         this._configHandlers.add(cb);
         if (this._lastConfig !== undefined) {
@@ -173,6 +211,151 @@ export class DingClient {
         const next = DingClient._deepMerge(base, patch);
         await this.setConfig(next, opts);
         return next;
+    }
+
+    setPinned(pinned) {
+        if (typeof this._ding.setPinned !== 'function')
+            return;
+
+        if (!this.isPinnable())
+            return;
+
+        try {
+            this._ding.setPinned(!!pinned);
+        } catch (e) {}
+    }
+
+    beginPinnedEdit() {
+        if (typeof this._ding.beginPinnedEdit !== 'function')
+            return;
+
+        try {
+            this._ding.beginPinnedEdit();
+        } catch (e) {}
+    }
+
+    beginPinnedAssistedMove() {
+        if (typeof this._ding.beginPinnedAssistedMove !== 'function')
+            return;
+
+        try {
+            this._ding.beginPinnedAssistedMove();
+        } catch (e) {}
+    }
+
+    beginPinnedWindowMove(event = null) {
+        if (typeof this._ding.beginPinnedWindowMove !== 'function')
+            return;
+
+        try {
+            this._ding.beginPinnedWindowMove({
+                x: Number(event?.clientX) || 0,
+                y: Number(event?.clientY) || 0,
+                button: Number(event?.button) + 1 || 1,
+                timestamp: 0,
+            });
+        } catch (e) {}
+    }
+
+    // Makes an element act as a pinned-window drag handle.
+    // By default it is active only while the widget is pinned.
+    attachPinnedMoveHandle(element, opts = {}) {
+        if (!element?.addEventListener)
+            return () => {};
+
+        const allowWhen = typeof opts.allowWhen === 'function'
+            ? opts.allowWhen
+            : () => this.isPinned();
+        const ignoreSelector = typeof opts.ignoreSelector === 'string'
+            ? opts.ignoreSelector
+            : '';
+        const eventName = opts.eventName || 'mousedown';
+
+        const handler = event => {
+            if (!allowWhen(event))
+                return;
+
+            if (ignoreSelector && event.target?.closest?.(ignoreSelector))
+                return;
+
+            event.preventDefault();
+            this.beginPinnedWindowMove(event);
+        };
+
+        element.addEventListener(eventName, handler);
+        return () => element.removeEventListener(eventName, handler);
+    }
+
+    // Adds/removes a hover class with a small hide delay for pinned chrome.
+    // This is useful for widgets that manage their own pinned controls.
+    bindPinnedHoverChrome(element, {
+        hoverClass = 'widget-hovered',
+        hideDelayMs = 600,
+        onlyWhen = () => this.isPinned(),
+    } = {}) {
+        if (!element?.addEventListener)
+            return () => {};
+
+        let hideTimer = 0;
+
+        const clearHideTimer = () => {
+            if (!hideTimer)
+                return;
+
+            clearTimeout(hideTimer);
+            hideTimer = 0;
+        };
+
+        const show = () => {
+            clearHideTimer();
+            element.classList.add(hoverClass);
+        };
+
+        const hide = () => {
+            clearHideTimer();
+            hideTimer = setTimeout(() => {
+                hideTimer = 0;
+                if (!onlyWhen())
+                    return;
+                element.classList.remove(hoverClass);
+            }, hideDelayMs);
+        };
+
+        const resetIfInactive = () => {
+            if (onlyWhen())
+                return;
+            clearHideTimer();
+            element.classList.remove(hoverClass);
+        };
+
+        element.addEventListener('mouseenter', show);
+        element.addEventListener('mouseleave', hide);
+        const unsubscribeHost = this.onHostState(resetIfInactive);
+
+        return () => {
+            clearHideTimer();
+            element.removeEventListener('mouseenter', show);
+            element.removeEventListener('mouseleave', hide);
+            unsubscribeHost?.();
+        };
+    }
+
+    // Creates another instance of the same widget type or a compatible
+    // widget ID, inheriting pinned state unless overridden.
+    createWidget(widgetId, opts = {}) {
+        return this._postHostMessage('createWidget', {
+            widgetId,
+            inheritPinned:
+                typeof opts.inheritPinned === 'boolean'
+                    ? opts.inheritPinned
+                    : true,
+            initialPinned: opts.initialPinned,
+        });
+    }
+
+    // Removes the current widget instance through the host.
+    removeWidget() {
+        return this._postHostMessage('removeWidget');
     }
 
     // -----------------------------------------------------------------
@@ -284,6 +467,29 @@ export class DingClient {
         try {
             this._ding.backendSend('hello', {reason: 'widget-ready'});
         } catch (e) {}
+    }
+
+    _postHostMessage(type, extra = {}) {
+        const api = this._ding;
+        if (!api || typeof api.post !== 'function')
+            return false;
+
+        const instanceId =
+            typeof api.getInstanceId === 'function'
+                ? api.getInstanceId()
+                : api.instanceId;
+
+        try {
+            api.post({
+                type,
+                instanceId,
+                ...extra,
+            });
+            return true;
+        } catch (e) {
+            this.warn('Host message failed', type, e?.message ?? e);
+            return false;
+        }
     }
 
     // Merge helper for patchConfig.

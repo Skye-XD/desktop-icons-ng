@@ -330,6 +330,9 @@ export const WIDGET_API =
     var _hostState = {
         editMode: false,
         selected: false,
+        pinned: false,
+        pinnable: false,
+        assistedMove: false,
         theme: 'light',
         reducedMotion: false,
         direction: 'ltr',
@@ -375,6 +378,8 @@ export const WIDGET_API =
             // Edit mode & selection
             body.classList.toggle('ding-edit-mode', !!_hostState.editMode);
             body.classList.toggle('ding-selected', !!_hostState.selected);
+            body.classList.toggle('ding-pinned', !!_hostState.pinned);
+            body.classList.toggle('ding-assisted-move', !!_hostState.assistedMove);
 
             // Reduced motion:
             body.classList.toggle('ding-reduced-motion', !!_hostState.reducedMotion);
@@ -494,6 +499,56 @@ export const WIDGET_API =
             });
         },
 
+        setPinned: function(pinned) {
+            if (!this.instanceId)
+                return;
+
+            post({
+                type: 'setPinned',
+                instanceId: this.instanceId,
+                pinned: !!pinned,
+            });
+        },
+
+        beginPinnedEdit: function() {
+            if (!this.instanceId)
+                return;
+
+            post({
+                type: 'beginPinnedEdit',
+                instanceId: this.instanceId,
+            });
+        },
+
+        beginPinnedAssistedMove: function() {
+            if (!this.instanceId)
+                return;
+
+            post({
+                type: 'beginPinnedAssistedMove',
+                instanceId: this.instanceId,
+            });
+        },
+
+        beginPinnedWindowMove: function(position) {
+            if (!this.instanceId)
+                return;
+
+            var x = Number(position && position.x);
+            var y = Number(position && position.y);
+            var button = Number(position && position.button);
+            var timestamp = Number(position && position.timestamp);
+
+            post({
+                type: 'beginPinnedWindowMove',
+                instanceId: this.instanceId,
+                x: Number.isFinite(x) ? x : 0,
+                y: Number.isFinite(y) ? y : 0,
+                button: Number.isFinite(button) ? button : 1,
+                timestamp: Number.isFinite(timestamp) ? timestamp : 0,
+            });
+        },
+
         getConfig: function() {
             if (!this.instanceId)
                 return Promise.resolve(null);
@@ -521,7 +576,7 @@ export const WIDGET_API =
         /**
          * Returns a shallow copy of the current host state:
          * {
-         *   editMode, selected, theme, visible,
+         *   editMode, selected, pinned, theme,
          *   reducedMotion, direction, locale
          * }
          */

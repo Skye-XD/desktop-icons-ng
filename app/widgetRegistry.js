@@ -89,9 +89,12 @@ const WidgetRegistry = class  {
      *   version: "1.0",
      *   homepage: "https://…",
      *   license: "GPL-3.0-or-later",
+     *   pinnable: boolean,
      *   chrome: {
      *     showCloseButton: boolean,
-     *     showPrefsButton: boolean
+     *     showPrefsButton: boolean,
+     *     showMoveButton: boolean,
+     *     showPinButton: boolean
      *   }
      * }
      *
@@ -363,6 +366,7 @@ const WidgetRegistry = class  {
                         this._isObject(manifest.backend)
                             ? manifest.backend
                             : null;
+                    const pinnable = manifest.pinnable === true;
 
                     const chrome = this._normalizeChromePolicy(
                         manifest.chrome
@@ -384,6 +388,7 @@ const WidgetRegistry = class  {
                         defaultConfig,
                         prefs,
                         backend,
+                        pinnable,
                         chrome,
                         hasBackend: !!backend,
                     };
@@ -438,6 +443,8 @@ const WidgetRegistry = class  {
         const defaults = {
             showCloseButton: true,
             showPrefsButton: true,
+            showMoveButton: true,
+            showPinButton: true,
         };
 
         if (!this._isObject(policy))
@@ -452,6 +459,14 @@ const WidgetRegistry = class  {
                 typeof policy.showPrefsButton === 'boolean'
                     ? policy.showPrefsButton
                     : defaults.showPrefsButton,
+            showMoveButton:
+                typeof policy.showMoveButton === 'boolean'
+                    ? policy.showMoveButton
+                    : defaults.showMoveButton,
+            showPinButton:
+                typeof policy.showPinButton === 'boolean'
+                    ? policy.showPinButton
+                    : defaults.showPinButton,
         };
     }
 

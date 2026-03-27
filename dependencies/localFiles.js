@@ -39,3 +39,5 @@ export {HtmlWidgetHost} from '../app/htmlWidgetHost.js';
 export {HtmlWidgetHostWithBackend} from '../app/htmlWidgetHostWithBackend.js';
 export * as WidgetApi from '../app/widgetApi.js';
 export {WebWidgetContext} from '../app/widgetWebContext.js';
+export {WidgetWindow} from '../app/widgetWindow.js';
+export {PinnedWindowManager} from '../app/pinnedWindowManager.js';

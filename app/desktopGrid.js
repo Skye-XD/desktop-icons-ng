@@ -2466,6 +2466,7 @@ const WidgetGrid = class extends ControlGrid {
 
         longPress
             .connect('cancelled', this._onWidgetLongPressCancelled.bind(this));
+
     }
 
     get widgetContainer() {
@@ -2624,9 +2625,22 @@ const WidgetGrid = class extends ControlGrid {
         this._dragStartY = startY;
 
         this._draggedWidget = this._findWidgetAt(startX, startY);
+        const assistedMove =
+            this._desktopManager.widgetManager.getPinnedAssistedMove();
 
         this._dragPointerOffsetX = 0;
         this._dragPointerOffsetY = 0;
+
+        if (this._draggedWidget &&
+            this._isWidgetChromeActor(this._draggedWidget) &&
+            assistedMove &&
+            this._selectedWidget) {
+            const selectedInst =
+                this._desktopManager.widgetManager.getInstance(
+                    this._selectedWidget
+                );
+            this._draggedWidget = selectedInst?.actor ?? this._draggedWidget;
+        }
 
         if (!this._draggedWidget ||
             this._isWidgetChromeActor(this._draggedWidget)) {
@@ -2689,18 +2703,7 @@ const WidgetGrid = class extends ControlGrid {
 
         const lx = this._dragStartX + offsetX;
         const ly = this._dragStartY + offsetY;
-
-        const instanceId = this._draggedWidget.widgetInstanceId;
-        const [offX, offY] = this._getWidgetOffsets(instanceId);
-        let newLocalX = lx - offX;
-        let newLocalY = ly - offY;
-
-        if (this.widgetGridEnabled) {
-            [newLocalX, newLocalY] =
-                this._getWidgetSnappedPosition(newLocalX, newLocalY);
-        }
-
-        this._widgetContainer.move(this._draggedWidget, newLocalX, newLocalY);
+        this._moveDraggedWidgetToPointer(lx, ly);
     }
 
     _getWidgetSnappedPosition(lx, ly) {
@@ -2717,6 +2720,12 @@ const WidgetGrid = class extends ControlGrid {
 
         const lx = this._dragStartX + offsetX;
         const ly = this._dragStartY + offsetY;
+        this._finishDraggedWidgetAtPointer(lx, ly);
+    }
+
+    _moveDraggedWidgetToPointer(lx, ly) {
+        if (!this._draggedWidget)
+            return;
 
         const instanceId = this._draggedWidget.widgetInstanceId;
         const [offX, offY] = this._getWidgetOffsets(instanceId);
@@ -2728,11 +2737,24 @@ const WidgetGrid = class extends ControlGrid {
                 this._getWidgetSnappedPosition(newLocalX, newLocalY);
         }
 
-        this._desktopManager.widgetManager.setInstanceFrame(
-            instanceId,
-            newLocalX,
-            newLocalY
-        );
+        this._widgetContainer.move(this._draggedWidget, newLocalX, newLocalY);
+    }
+
+    _finishDraggedWidgetAtPointer(lx, ly) {
+        if (!this._draggedWidget)
+            return;
+
+        const instanceId = this._draggedWidget.widgetInstanceId;
+        const [offX, offY] = this._getWidgetOffsets(instanceId);
+        let newLocalX = lx - offX;
+        let newLocalY = ly - offY;
+
+        if (this.widgetGridEnabled) {
+            [newLocalX, newLocalY] =
+                this._getWidgetSnappedPosition(newLocalX, newLocalY);
+        }
+
+        this._desktopManager.widgetManager.setInstanceFrame(instanceId, newLocalX, newLocalY);
 
         if (this._selectedWidget === instanceId) {
             this._desktopManager.widgetManager
@@ -2744,6 +2766,7 @@ const WidgetGrid = class extends ControlGrid {
         this._dragPointerOffsetX = null;
         this._dragPointerOffsetY = null;
         this._longPressActive = false;
+        this._desktopManager.widgetManager.completePinnedAssistedMove(instanceId);
     }
 
     _setWidgetDraggingState(isDragging) {
@@ -2777,8 +2800,18 @@ const WidgetGrid = class extends ControlGrid {
     _onClick(gesture, nPress, x, y) {
         this.restoreWidgetLayerFocus();
         const widget = this._findWidgetAt(x, y);
+        const assistedMove = this._desktopManager.widgetManager.getPinnedAssistedMove();
+        const assistedInstanceId = assistedMove?.instanceId ?? null;
 
         if (!widget) {
+            if (assistedInstanceId) {
+                this._desktopManager.widgetManager.clearPinnedAssistedMove(
+                    'background-click'
+                );
+                this._desktopManager.windowManager?.lowerWidgetLayers();
+                return;
+            }
+
             this._selectedWidget = null;
             this._desktopManager.widgetManager.selectInstance(null);
             return;
@@ -2793,6 +2826,12 @@ const WidgetGrid = class extends ControlGrid {
         if (!instanceId) {
             this._selectedWidget = null;
             return;
+        }
+
+        if (assistedInstanceId && assistedInstanceId !== instanceId) {
+            this._desktopManager.widgetManager.clearPinnedAssistedMove(
+                'other-widget-click'
+            );
         }
 
         this._selectedWidget = instanceId;
@@ -2823,7 +2862,16 @@ const WidgetGrid = class extends ControlGrid {
     }
 
     _isWidgetChromeActor(actor) {
-        return actor.get_name?.() === 'ding-widget-close-button';
+        const name = actor.get_name?.();
+        if (typeof name !== 'string')
+            return false;
+
+        return (
+            name === 'ding-widget-prefs-button' ||
+            name === 'ding-widget-pin-button' ||
+            name === 'ding-widget-move-button' ||
+            name === 'ding-widget-close-button'
+        );
     }
 
     _doDrawOnGrid(snapshot) {

@@ -632,6 +632,31 @@ const WebWidgetContext = class {
             break;
         }
 
+        case 'setPinned': {
+            manager.setInstancePinned(instanceId, !!payload?.pinned);
+            break;
+        }
+
+        case 'beginPinnedEdit': {
+            manager.beginPinnedEdit(instanceId);
+            break;
+        }
+
+        case 'beginPinnedAssistedMove': {
+            manager.beginPinnedAssistedMove(instanceId);
+            break;
+        }
+
+        case 'beginPinnedWindowMove': {
+            manager.beginPinnedWindowMove(instanceId, {
+                localX: Number(payload?.x),
+                localY: Number(payload?.y),
+                button: Number(payload?.button),
+                timestamp: Number(payload?.timestamp),
+            });
+            break;
+        }
+
         case 'createWidget': {
             const widgetId = typeof payload?.widgetId === 'string'
                 ? payload.widgetId.trim()
@@ -644,11 +669,20 @@ const WebWidgetContext = class {
                 : 0;
             const sourceFrame = manager.getInstanceFrame?.(instanceId);
             const spawnOffsetPx = 24;
+            const inheritPinned =
+                typeof payload?.inheritPinned === 'boolean'
+                    ? payload.inheritPinned
+                    : true;
+            const initialPinned =
+                typeof payload?.initialPinned === 'boolean'
+                    ? payload.initialPinned
+                    : (inheritPinned ? !!inst.pinned : false);
 
             await manager.createInstanceForWidget(widgetId, {
                 monitorIndex,
                 x: sourceFrame ? sourceFrame.x + spawnOffsetPx : undefined,
                 y: sourceFrame ? sourceFrame.y + spawnOffsetPx : undefined,
+                initialPinned,
                 inheritConsentFromInstanceId: instanceId,
                 selectAfterCreate: true,
             });
@@ -903,6 +937,18 @@ const WebWidgetContext = class {
     updateHtmlWidgetSelected(inst, selected) {
         const patch = {selected};
         this._debugHostState('selected', inst, patch);
+        this._pushPatchtoTarget(inst, patch);
+    }
+
+    updateHtmlWidgetPinned(inst, pinned) {
+        const patch = {pinned: !!pinned};
+        this._debugHostState('pinned', inst, patch);
+        this._pushPatchtoTarget(inst, patch);
+    }
+
+    updateHtmlWidgetAssistedMove(inst, assistedMove) {
+        const patch = {assistedMove: !!assistedMove};
+        this._debugHostState('assistedMove', inst, patch);
         this._pushPatchtoTarget(inst, patch);
     }
 
