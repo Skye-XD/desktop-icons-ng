@@ -15,13 +15,14 @@
 # Deleted User <noreply+48943@weblate.org>, 2025, 2026.
 # Quentin PAGÈS <quentinantonin@free.fr>, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
+# Oscar Chacón Cautín <ricklethal@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-11 13:26-0400\n"
-"PO-Revision-Date: 2026-02-22 00:10+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-03-28 14:11+0000\n"
+"Last-Translator: Oscar Chacón Cautín <ricklethal@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -29,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -665,11 +666,11 @@ msgstr "Volver a Escritorio"
 #: app/desktopGrid.js:2587 app/widgetManager.js:1170
 #, fuzzy
 msgid "Toggle Widget Grid"
-msgstr "Conmutar capa de widget"
+msgstr "Mostrar/ocultar cuadro de widgets"
 
 #: app/desktopGrid.js:2588
 msgid "Add Widget..."
-msgstr "Agregar Widget"
+msgstr "Agregar Widget..."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:166
@@ -761,14 +762,15 @@ msgstr "Gnome Files no está registrado como un Gestor de Archivo"
 
 # MT: LibreTranslate
 #: app/desktopManager.js:245
+#, fuzzy
 msgid ""
 "The Gnome Files application is not programmed to open Folders!\n"
 "Check your xdg-utils installation\n"
 "Check Gnome Files .desktop File installation"
 msgstr ""
 "¡La aplicación GNOME Files no está programada para abrir carpetas!\n"
-"Compruebe su instalación de xdg-utils\n"
-"Compruebe la instalación del Archivo .desktop de GNOME Files"
+"Revise su instalación de xdg-utils\n"
+"Revise la instalación del Archivo .desktop de GNOME Files"
 
 #: app/desktopManager.js:360
 msgid "Clear current selection before new search"
@@ -1397,8 +1399,9 @@ msgid "Preview"
 msgstr "Vista previa"
 
 #: app/shortcuts.js:35
+#, fuzzy
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "Cambiar Selección del Teclado"
 
 #: app/shortcuts.js:38
 msgid "Toggle Widget Layer"
