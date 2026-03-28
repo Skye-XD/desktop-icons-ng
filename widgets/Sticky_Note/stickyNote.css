@@ -51,22 +51,20 @@ body.ding-selected .note-shell,
 
 .note-topbar {
   display: grid;
-  min-height: 26px;
+  min-height: 32px;
   grid-template-columns: 1fr;
   align-items: center;
-  padding: 4px 8px 0;
+  padding: 0 8px;
   background: transparent;
-  border-bottom: none;
+  box-sizing: border-box;
+  border-bottom: 1px solid transparent;
   position: relative;
 }
 
 .note-shell.note-editing .note-topbar,
 body.ding-selected .note-shell .note-topbar,
+.ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered .note-topbar,
 .note-shell.widget-selected .note-topbar {
-  min-height: 32px;
-  grid-template-columns: 1fr;
-  align-items: center;
-  padding: 0 8px;
   background-color: var(--paper-top);
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
@@ -136,6 +134,28 @@ body.ding-selected .note-shell .note-topbar,
   mask-image: url("./icons/add-symbolic.svg");
 }
 
+#btn-pin::before {
+  -webkit-mask-image: url("./icons/pin-on-symbolic.svg");
+  mask-image: url("./icons/pin-on-symbolic.svg");
+  background-color: #111;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+#btn-move::before {
+  -webkit-mask-image: url("./icons/move-symbolic.svg");
+  mask-image: url("./icons/move-symbolic.svg");
+}
+
+body.ding-pinned #btn-pin::before,
+body.ding-pinned.ding-edit-mode #btn-pin::before {
+  transform: none;
+}
+
+#btn-pin {
+  color: #111;
+}
+
 #btn-close::before {
   -webkit-mask-image: url("./icons/close-symbolic.svg");
   mask-image: url("./icons/close-symbolic.svg");
@@ -151,6 +171,16 @@ body.ding-selected .note-shell .note-topbar,
   z-index: 1;
 }
 
+#btn-pin {
+  left: 30px;
+  z-index: 1;
+}
+
+#btn-move {
+  left: 52px;
+  z-index: 1;
+}
+
 #btn-edit {
   right: 30px;
   z-index: 1;
@@ -162,6 +192,8 @@ body.ding-selected .note-shell .note-topbar,
 }
 
 #btn-new,
+#btn-pin,
+#btn-move,
 #btn-edit,
 #btn-close,
 .color-tool {
@@ -170,16 +202,36 @@ body.ding-selected .note-shell .note-topbar,
 }
 
 .note-shell.note-editing #btn-new,
+.note-shell.note-editing #btn-pin,
 .note-shell.note-editing #btn-edit,
 .note-shell.note-editing #btn-close,
 body.ding-selected #btn-new,
+body.ding-selected #btn-pin,
 body.ding-selected #btn-edit,
 body.ding-selected #btn-close,
+body.ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered #btn-new,
+body.ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered #btn-pin,
+body.ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered #btn-edit,
+body.ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered #btn-close,
 .note-shell.widget-selected #btn-new,
+.note-shell.widget-selected #btn-pin,
 .note-shell.widget-selected #btn-edit,
 .note-shell.widget-selected #btn-close {
   display: block;
   pointer-events: auto;
+}
+
+body.ding-pinned:not(.ding-edit-mode) .note-shell.widget-hovered #btn-move {
+  display: block;
+  pointer-events: auto;
+}
+
+body.ding-pinned #btn-pin {
+  color: #111;
+}
+
+body.ding-pinned.ding-edit-mode #btn-pin {
+  color: #111;
 }
 
 .note-shell.note-editing .color-tool {

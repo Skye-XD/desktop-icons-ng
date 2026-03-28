@@ -7,9 +7,12 @@
   "defaultHeight": 300,
   "author": "Sundeep Mediratta",
   "version": "0.1",
+  "pinnable": true,
   "chrome": {
     "showCloseButton": false,
-    "showPrefsButton": false
+    "showPrefsButton": false,
+    "showMoveButton": false,
+    "showPinButton": false
   },
   "defaultConfig": {
     "contentHtml": "",

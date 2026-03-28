@@ -22,6 +22,13 @@ import {DingClient} from './widgetHelper.js';
 
 const STICKY_WIDGET_ID = 'sticky.note';
 const DEFAULT_FONT = 'Noto Sans, sans-serif';
+const DEFAULT_HOST_STATE = {
+    editMode: false,
+    widgetEditMode: false,
+    pinned: false,
+    pinnable: false,
+    selected: false,
+};
 const COLOR_THEMES = {
     yellow: {paper: '#efe6b4', top: '#f0e28a'},
     pink: {paper: '#f0d6df', top: '#ebb7cc'},
@@ -45,6 +52,8 @@ class StickyNoteWidget {
         this.noteShell = document.getElementById('note-shell');
         this.title = this.noteShell.querySelector('.title');
         this.newButton = document.getElementById('btn-new');
+        this.pinButton = document.getElementById('btn-pin');
+        this.moveButton = document.getElementById('btn-move');
         this.colorButtons =
             Array.from(this.noteShell.querySelectorAll('[data-color]'));
         this.editButton = document.getElementById('btn-edit');
@@ -62,9 +71,9 @@ class StickyNoteWidget {
         this.linkRemoveButton = document.getElementById('link-remove');
 
         this._isEditing = false;
-        this._ignoreConfigUpdate = false;
         this._savedRange = null;
         this._wakeRefreshRaf = 0;
+        this._hostState = null;
         this._wireUi();
         this._wireClient();
         this._init()
@@ -80,7 +89,16 @@ class StickyNoteWidget {
         if (config && typeof config === 'object')
             this.config = {...this.config, ...config};
 
+        const initialHostState = this.client.getHostState();
+        if (initialHostState) {
+            this._hostState = {
+                ...DEFAULT_HOST_STATE,
+                ...initialHostState,
+            };
+        }
+
         this._applyConfig({applyContent: true});
+        this._syncHostUi();
     }
 
     _wireUi() {
@@ -93,9 +111,13 @@ class StickyNoteWidget {
             this._updateToolbarState();
         });
 
+        this.client.bindPinnedHoverChrome(this.noteShell);
+
+        const topbar = this.noteShell.querySelector('.note-topbar');
+
         this.noteShell.addEventListener('mousedown', event => {
             const chromeControl = event.target?.closest?.(
-                '#btn-new, #btn-edit, #btn-close, .color-chip'
+                '#btn-new, #btn-pin, #btn-move, #btn-edit, #btn-close, .color-chip'
             );
             if (!chromeControl)
                 return;
@@ -103,6 +125,19 @@ class StickyNoteWidget {
             // Keep focus anchored in the editor while using note chrome.
             event.preventDefault();
         }, true);
+
+        topbar?.addEventListener('mousedown', event => {
+            if (!this._currentHostState().pinned)
+                return;
+
+            if (event.target?.closest?.(
+                '#btn-new, #btn-pin, #btn-move, #btn-edit, #btn-close'
+            ))
+                return;
+
+            event.preventDefault();
+            this.client.beginPinnedWindowMove(event);
+        });
 
         this.editor.addEventListener('click', event => {
             const item = event.target?.closest?.('ul.checklist > li');
@@ -120,20 +155,41 @@ class StickyNoteWidget {
 
         this.newButton.addEventListener('click', event => {
             event.preventDefault();
-            this._postHostMessage('createWidget', {widgetId: STICKY_WIDGET_ID});
+            this.client.createWidget(STICKY_WIDGET_ID);
+        });
+
+        this.pinButton.addEventListener('click', event => {
+            event.preventDefault();
+            const nextPinned = !this._currentHostState().pinned;
+            if (this._isEditing)
+                this._commit();
+            else
+                this._saveConfig();
+            this.client.setPinned(nextPinned);
+        });
+
+        this.moveButton.addEventListener('click', event => {
+            event.preventDefault();
+            if (!this._currentHostState().pinned)
+                return;
+
+            this.client.beginPinnedWindowMove(event);
         });
 
         this.editButton.addEventListener('click', event => {
             event.preventDefault();
+            const hostState = this._currentHostState();
+            const nextEditing = !hostState.widgetEditMode;
             if (this._isEditing)
-                this._exitEditing();
+                this._commit();
             else
-                this._enterEditing();
+                this._saveConfig();
+            this._requestPinnedEdit(nextEditing);
         });
 
         this.closeButton.addEventListener('click', event => {
             event.preventDefault();
-            this._postHostMessage('removeWidget');
+            this.client.removeWidget();
         });
 
         this.noteShell.addEventListener('click', event => {
@@ -232,10 +288,11 @@ class StickyNoteWidget {
 
     _wireClient() {
         this.client.onHostState(state => {
-            const selected = !!state?.selected;
-            this.noteShell.classList.toggle('widget-selected', selected);
-            if (!selected)
-                this._exitEditing({commit: this._isEditing});
+            this._hostState = {
+                ...DEFAULT_HOST_STATE,
+                ...(state || {}),
+            };
+            this._syncHostUi();
         });
 
         this.client.onConfigChanged?.(config => {
@@ -245,6 +302,7 @@ class StickyNoteWidget {
             this.config = {...this.config, ...config};
             this._applyConfig({applyContent: !this._isEditing});
         });
+        this.client.onBackendEvent?.(() => {});
     }
 
     _commit() {
@@ -319,21 +377,23 @@ class StickyNoteWidget {
             return;
         }
 
-        this._updateHeaderFromEditor();
+        if (action !== 'link')
+            this._commit();
+        else
+            this._updateHeaderFromEditor();
     }
 
     _saveConfig() {
         const header = this._updateHeaderFromEditor();
-        this._ignoreConfigUpdate = true;
-        this.client.patchConfig({
+        const nextConfig = {
             contentHtml: this.config.contentHtml,
             fontSize: this.config.fontSize,
             fontFamily: this.config.fontFamily,
             noteColor: this.config.noteColor,
             noteTitle: header,
-        }).catch(() => {}).finally(() => {
-            this._ignoreConfigUpdate = false;
-        });
+        };
+
+        this.client.setConfig(nextConfig).catch(() => {});
     }
 
     _applyConfig({applyContent = false} = {}) {
@@ -341,7 +401,7 @@ class StickyNoteWidget {
         this._applyFontFamily();
         this._applyColorTheme();
 
-        if (applyContent && !this._ignoreConfigUpdate)
+        if (applyContent)
             this._applyStoredContent();
         else
             this._updateHeaderFromEditor();
@@ -508,7 +568,7 @@ class StickyNoteWidget {
 
     _insertLink() {
         if (!this._isEditing)
-            this._enterEditing({focusEditor: false});
+            return;
         this._savedRange = this._captureRange();
         const anchor = this._closestAnchor();
         this.linkInput.value = anchor?.getAttribute('href') ?? 'https://';
@@ -698,22 +758,33 @@ class StickyNoteWidget {
             this._savedRange = null;
     }
 
-    _enterEditing({focusEditor = true} = {}) {
-        if (this._isEditing)
-            return;
-
-        this._setEditing(true);
-        if (!focusEditor)
-            return;
-
-        this.editor.focus();
-        this._placeCaretAtEnd(this.editor);
+    _requestPinnedEdit(editing) {
+        this.client.beginPinnedEdit(!!editing);
     }
 
-    _exitEditing({commit = true} = {}) {
-        if (commit && this._isEditing)
-            this._commit();
-        this._setEditing(false);
+    _currentHostState() {
+        return {
+            ...DEFAULT_HOST_STATE,
+            ...(this._hostState || {}),
+        };
+    }
+
+    _syncHostUi() {
+        const hostState = this._currentHostState();
+        const shouldEdit = !!hostState.widgetEditMode;
+        const enteredEditMode = shouldEdit && !this._isEditing;
+        const exitedEditMode = !shouldEdit && this._isEditing;
+
+        this.noteShell.classList.toggle('widget-selected', !!hostState.selected);
+        this._updatePinButton();
+
+        if (enteredEditMode)
+            this._setEditing(true);
+        else if (exitedEditMode)
+            this._setEditing(false);
+
+        if (enteredEditMode)
+            this._focusEditorAtEnd();
     }
 
     _normalizeLinks() {
@@ -736,6 +807,11 @@ class StickyNoteWidget {
         range.collapse(false);
         selection.removeAllRanges();
         selection.addRange(range);
+    }
+
+    _focusEditorAtEnd() {
+        this.editor.focus();
+        this._placeCaretAtEnd(this.editor);
     }
 
     _placeCaretAfter(element) {
@@ -788,6 +864,21 @@ class StickyNoteWidget {
             this._closeLinkDialog();
     }
 
+    _updatePinButton() {
+        const hostState = this._currentHostState();
+        const pinned = !!hostState.pinned;
+        const editMode = !!hostState.editMode;
+
+        let label = pinned ? 'Unpin note' : 'Pin note';
+        if (pinned && editMode)
+            label = 'Unpin note (currently pinned while editing)';
+
+        this.pinButton.setAttribute('aria-label', label);
+        this.pinButton.title = label;
+        this.pinButton.classList.toggle('is-pinned', pinned);
+        this.pinButton.classList.toggle('is-pinned-edit', pinned && editMode);
+    }
+
     _toCssFontStack(stack) {
         return String(stack ?? '')
             .split(',')
@@ -818,27 +909,6 @@ class StickyNoteWidget {
             .replaceAll('>', '&gt;');
     }
 
-    _postHostMessage(type, extra = {}) {
-        const api = window?.ding;
-        if (!api || typeof api.post !== 'function')
-            return;
-
-        const instanceId =
-            typeof api.getInstanceId === 'function'
-                ? api.getInstanceId()
-                : api.instanceId;
-
-        try {
-            api.post({
-                type,
-                instanceId,
-                ...extra,
-            });
-        } catch (error) {
-            this.client
-                .warn('Host message failed', type, error?.message ?? error);
-        }
-    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {

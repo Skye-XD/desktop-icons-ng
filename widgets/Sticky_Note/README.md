@@ -47,8 +47,31 @@ Edit mode behavior:
 
 The top control strip contains:
 - Add note: creates a new Sticky Note widget instance
+- Pin: toggles the current note between desktop-layer and pinned/floating mode
+- Move: starts repositioning for a pinned note
 - Edit: toggles edit mode
 - Close: removes the current widget instance
+
+## Pinning and Pinned Move
+
+Sticky Note is pinnable and manages its own pin and move controls.
+
+Pinning behavior:
+- Pressing the pin button pins the note into the floating host window layer
+- Pressing the pin button again unpins the note back into the normal desktop widget layer
+- The widget saves pending content before pin and unpin transitions
+- Pinning and unpinning may recreate the HTML host, so the widget treats the transition as reload-safe
+
+Pinned behavior:
+- A pinned note lives in its own floating host window instead of the desktop widget container
+- The note can still enter edit mode through the Edit button
+- This is a special mode, where the note becomes a normal window to keep keyboard focus, but is forcibly kept on top
+- Leaving pinned edit mode returns the note to its normal pinned dock-window behavior
+
+Moving while pinned:
+- The Move button is active only while the note is pinned
+- Dragging the empty part of the top bar while pinned also starts a pinned window move
+- The final pinned position is reported back to the host and persisted in the widget instance state
 
 ## Editor
 
