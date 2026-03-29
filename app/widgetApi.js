@@ -329,7 +329,10 @@ export const WIDGET_API =
 
     var _hostState = {
         editMode: false,
+        widgetEditMode: false,
         selected: false,
+        pinned: false,
+        pinnable: false,
         theme: 'light',
         reducedMotion: false,
         direction: 'ltr',
@@ -374,7 +377,12 @@ export const WIDGET_API =
 
             // Edit mode & selection
             body.classList.toggle('ding-edit-mode', !!_hostState.editMode);
+            body.classList.toggle(
+                'ding-widget-edit-mode',
+                !!_hostState.widgetEditMode
+            );
             body.classList.toggle('ding-selected', !!_hostState.selected);
+            body.classList.toggle('ding-pinned', !!_hostState.pinned);
 
             // Reduced motion:
             body.classList.toggle('ding-reduced-motion', !!_hostState.reducedMotion);
@@ -494,6 +502,53 @@ export const WIDGET_API =
             });
         },
 
+        setPinned: function(pinned) {
+            if (!this.instanceId)
+                return;
+
+            // Floating/pinned HTML widgets may be reparented between host
+            // containers. Widget authors should keep important UI state in
+            // config or other persistent state rather than in-memory only.
+            post({
+                type: 'setPinned',
+                instanceId: this.instanceId,
+                pinned: !!pinned,
+            });
+        },
+
+        beginPinnedEdit: function(editing) {
+            if (!this.instanceId)
+                return;
+
+            // Floating edit mode may move the widget to a different host layer.
+            // Widgets that support pinning should tolerate a host-triggered
+            // reload when that parent change occurs.
+            post({
+                type: 'beginPinnedEdit',
+                instanceId: this.instanceId,
+                editing: !!editing,
+            });
+        },
+
+        beginPinnedWindowMove: function(position) {
+            if (!this.instanceId)
+                return;
+
+            var x = Number(position && position.x);
+            var y = Number(position && position.y);
+            var button = Number(position && position.button);
+            var timestamp = Number(position && position.timestamp);
+
+            post({
+                type: 'beginPinnedWindowMove',
+                instanceId: this.instanceId,
+                x: Number.isFinite(x) ? x : 0,
+                y: Number.isFinite(y) ? y : 0,
+                button: Number.isFinite(button) ? button : 1,
+                timestamp: Number.isFinite(timestamp) ? timestamp : 0,
+            });
+        },
+
         getConfig: function() {
             if (!this.instanceId)
                 return Promise.resolve(null);
@@ -521,7 +576,7 @@ export const WIDGET_API =
         /**
          * Returns a shallow copy of the current host state:
          * {
-         *   editMode, selected, theme, visible,
+         *   editMode, selected, pinned, theme,
          *   reducedMotion, direction, locale
          * }
          */

@@ -31,6 +31,7 @@ Uses Libretranslate to automatically translate into multiple languages.
 
 - Added a desktop web-widget layer like KDE desklets for Gnome Desktop: HTML widgets run in isolated WebKit WebViews (shared WebContext/UCM, jailed `ding-widget://` scheme) with per-monitor layers you can toggle above/below icons.
 - Widgets support preferences via `widget.json` `prefs` paths (any subdirectory) and per-instance config (overwrites on save).
+- Floating/pinned HTML widgets can be reparented between the desktop container and floating widget windows. In that case the host may reload the WebView to recover WebKit rendering, so pinnable widgets should persist meaningful state outside transient page memory.
 - As with any web content, widgets carry the same security considerations as a web page; read the security sections in the widget docs for details.
 - The widget runtime is initialized lazily: if no widgets are enabled or instantiated, no WebKit processes are started, no additional resources are used, and there is no added attack surface beyond normal DING operation.
 - The new web-widget layer can optionally launch helper backends defined per widget via `widget.json`. `HtmlWidgetHostWithBackend` spawns those commands directly from the widget bundle and exchanges newline-delimited JSON so widgets can render data produced by applications written in any language. This gives widget authors the power to integrate local system information or custom services well beyond what WebKit alone can access, so treat backend-enabled widgets like local applications and install only from trusted sources.
@@ -50,6 +51,15 @@ Uses Libretranslate to automatically translate into multiple languages.
 - Improved consent dialog layout with a wider and clearer libadwaita presentation.
 - Updated translations (German, Kazakh, Russian, Chinese Simplified, Georgian) and refreshed `.po` files.
 - Added Arch packaging updates and general code cleanup/formatting improvements.
+
+### UPDATE Floating Widgets March 2026
+
+- Added floating/pinned widget support for HTML desktop widgets.
+- Widgets can now be pinned out of the normal desktop widget container into floating widget windows and returned back again.
+- Pinned widgets keep their monitor-relative placement when moved into the floating layer.
+- HTML widget hosts now detect real parent changes between the desktop container and floating windows and recover WebKit rendering reliably for those transitions.
+- floating/pinned HTML widgets now recover reliably across layer reparenting by reloading the WebView when WebKit fails to repaint after the parent change.
+- Widget authors should treat pinning, unpinning, and floating edit transitions as reload-safe operations and persist meaningful state outside transient page memory.
 
 
 ## Security

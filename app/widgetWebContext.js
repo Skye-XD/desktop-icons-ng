@@ -632,6 +632,26 @@ const WebWidgetContext = class {
             break;
         }
 
+        case 'setPinned': {
+            manager.setInstancePinned(instanceId, !!payload?.pinned);
+            break;
+        }
+
+        case 'beginPinnedEdit': {
+            manager.beginPinnedEdit(instanceId, !!payload?.editing);
+            break;
+        }
+
+        case 'beginPinnedWindowMove': {
+            manager.beginPinnedWindowMove(instanceId, {
+                localX: Number(payload?.x),
+                localY: Number(payload?.y),
+                button: Number(payload?.button),
+                timestamp: Number(payload?.timestamp),
+            });
+            break;
+        }
+
         case 'createWidget': {
             const widgetId = typeof payload?.widgetId === 'string'
                 ? payload.widgetId.trim()
@@ -644,11 +664,24 @@ const WebWidgetContext = class {
                 : 0;
             const sourceFrame = manager.getInstanceFrame?.(instanceId);
             const spawnOffsetPx = 24;
+            const inheritPinned =
+                typeof payload?.inheritPinned === 'boolean'
+                    ? payload.inheritPinned
+                    : true;
+            let initialPinned;
+            if (typeof payload?.initialPinned === 'boolean')
+                initialPinned = payload.initialPinned;
+            else if (inheritPinned)
+                initialPinned = !!inst.pinned;
+            else
+                initialPinned = false;
+
 
             await manager.createInstanceForWidget(widgetId, {
                 monitorIndex,
                 x: sourceFrame ? sourceFrame.x + spawnOffsetPx : undefined,
                 y: sourceFrame ? sourceFrame.y + spawnOffsetPx : undefined,
+                initialPinned,
                 inheritConsentFromInstanceId: instanceId,
                 selectAfterCreate: true,
             });
@@ -906,6 +939,12 @@ const WebWidgetContext = class {
         this._pushPatchtoTarget(inst, patch);
     }
 
+    updateHtmlWidgetPinned(inst, pinned) {
+        const patch = {pinned: !!pinned};
+        this._debugHostState('pinned', inst, patch);
+        this._pushPatchtoTarget(inst, patch);
+    }
+
     updateHtmlWidgetAnimation(inst, reducedMotion) {
         const patch = {reducedMotion};
         this._debugHostState('reducedMotion', inst, patch);
@@ -915,6 +954,12 @@ const WebWidgetContext = class {
     updateHtmlWidgetLayer(inst, onTop) {
         const patch = {editMode: !!onTop};
         this._debugHostState('editMode', inst, patch);
+        this._pushPatchtoTarget(inst, patch);
+    }
+
+    updateHtmlWidgetEditMode(inst, widgetEditMode) {
+        const patch = {widgetEditMode: !!widgetEditMode};
+        this._debugHostState('widgetEditMode', inst, patch);
         this._pushPatchtoTarget(inst, patch);
     }
 

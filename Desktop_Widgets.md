@@ -149,6 +149,10 @@ One size does not fit all desktops or resolutions, and this approach keeps rende
 
 Most widgets are HTML-based and rendered using WebKit. The platform is structured so that widget discovery, lifecycle, and isolation are not tightly coupled to the rendering technology. While only HTML widgets are supported today, the plumbing is designed to allow GTK-based widgets in the future.
 
+Widgets that support floating or pinned behavior should also be designed to survive a page reload. Moving an HTML widget between the normal desktop container and a floating window can require the host to reload the WebView so WebKit paints correctly after the parent change. Important state should therefore be persisted in config or another durable source, not kept only in transient page memory.
+
+The same rule applies to any widget that enables pinning. If a widget declares `pinnable: true`, it must treat pin, unpin, and pinned edit transitions as reload-safe operations.
+
 ---
 
 # Desktop Widgets — Getting Started
@@ -515,6 +519,42 @@ Widgets may optionally provide preferences by setting the `prefs` field in `widg
 The host also owns the small widget chrome buttons shown around selected widgets. Today this means:
 - a close button
 - a preferences button, when preferences exist and are enabled by policy
+- a pin button, when the widget opts into host pinning
+
+Widget authors can control that host chrome through `widget.json`:
+
+```json
+{
+  "prefs": "prefs.html",
+  "pinnable": false,
+  "chrome": {
+    "showPrefsButton": true,
+    "showCloseButton": true,
+    "showMoveButton": true,
+    "showPinButton": false
+  }
+}
+```
+
+Behavior of these fields:
+
+- `pinnable`: defaults to `false`
+- `chrome.showPrefsButton`: defaults to `true`
+- `chrome.showCloseButton`: defaults to `true`
+- `chrome.showMoveButton`: defaults to `true`
+- `chrome.showPinButton`: defaults to `true`
+
+If `pinnable` is enabled, the widget may use the pinning APIs. If `chrome.showPinButton` is also enabled, the host may show a pin button in the widget chrome when the widget is selected in edit mode.
+
+If `chrome.showMoveButton` is enabled, the host provides its default pinned move affordance. If `chrome.showMoveButton` is set to `false`, the host does not show move chrome and does not start overlay drag for pinned windows; the widget must provide its own move control or drag surface and call `beginPinnedWindowMove(...)` itself.
+
+Important for authors:
+
+- host chrome is owned by the desktop, not by the widget page
+- widgets should not rely on transient DOM state surviving pin/unpin transitions
+- pinning and pinned edit transitions may trigger a WebView reload to recover
+  rendering after GTK parent changes
+- important state should be stored in config or another durable source
 
 ### Chrome policy in `widget.json`
 
@@ -523,20 +563,30 @@ Widgets may optionally declare a `chrome` object in `widget.json`:
 ```json
 {
   "prefs": "prefs.html",
+  "pinnable": false,
   "chrome": {
     "showCloseButton": true,
-    "showPrefsButton": true
+    "showPrefsButton": true,
+    "showMoveButton": true,
+    "showPinButton": false
   }
 }
 ```
 
 Current behavior:
+- `pinnable` defaults to `false` if omitted
 - `showCloseButton` defaults to `true` if omitted
 - `showPrefsButton` defaults to `true` if omitted
+- `showMoveButton` defaults to `true` if omitted
+- `showPinButton` defaults to `true` if omitted
 - the preferences button is only shown if the widget actually has a valid `prefs` file
 - the close button does not depend on preferences support
+- pinning APIs are available only if `pinnable` is enabled
+- the host provides the default pinned move affordance only if `showMoveButton` is enabled
+- the pin button is shown only if `showPinButton` is enabled by manifest policy
+- pinning-related transitions must be treated as reload-safe by the widget
 
-This policy is host-managed. Widgets can render their own internal controls, but the desktop-controlled chrome is still rendered and positioned by the host. If the widgets render their own internal controls, they may request that host chrome controls not be shown by setting the above explicitly to `fasle`.
+This policy is host-managed. Widgets can render their own internal controls, but the desktop-controlled chrome is still rendered and positioned by the host. If the widget renders its own pinned move UI, it should set `showMoveButton` to `false` and own the corresponding `beginPinnedWindowMove(...)` call itself. Other host chrome controls can also be suppressed explicitly by setting the above to `false`.
 
 ### Gear and close button behavior
 

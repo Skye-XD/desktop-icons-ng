@@ -413,25 +413,35 @@ const WindowManager = class {
         const allocatedPromises =
             this._desktops.map(d => d.ensureAllocationComplete());
 
-        let safegaurd;
+        let safegaurd = 0;
         try {
-            safegaurd = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 2000,
-                () => {
-                    throw new Error(
-                        'Timeout while waiting for desktop windows to map'
-                    );
-                }
-            );
-            await Promise.all(displayPromises);
-            await Promise.all(allocatedPromises);
+            const timeoutPromise = new Promise((resolve, reject) => {
+                safegaurd = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 2000,
+                    () => {
+                        safegaurd = 0;
+                        reject(new Error(
+                            'Timeout while waiting for desktop windows to map'
+                        ));
+                        return GLib.SOURCE_REMOVE;
+                    }
+                );
+            });
+
+            const mapPromises = Promise.all([
+                Promise.all(displayPromises),
+                Promise.all(allocatedPromises),
+            ]);
+
+            await Promise.race([mapPromises, timeoutPromise]);
         } catch (e) {
             logError(e);
             // if the windows fail to map, we should still proceed
             // and poke the desktop windows later.
             this.show();
+        } finally {
+            if (safegaurd)
+                GLib.source_remove(safegaurd);
         }
-        if (safegaurd)
-            GLib.source_remove(safegaurd);
 
         if (this._desktopManager.windowsPromiseResolve)
             this._desktopManager.windowsPromiseResolve(true);
@@ -444,10 +454,7 @@ const WindowManager = class {
 
     show() {
         this._hidden = false;
-        this._desktops.forEach(desktop => {
-            desktop.show();
-            desktop.set_visible(true);
-        });
+        this._desktops.forEach(desktop => desktop.show());
     }
 
     queue_draw() {

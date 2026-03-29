@@ -35,6 +35,8 @@ const Preferences = class {
         this._widgetState = null;
         this._widgetStateMonitor = null;
         this._suppressWidgetMonitorEvent = false;
+        this._widgetStateSaving = false;
+        this._pendingWidgetStateSave = null;
         this.desktopWidgetCapability = DesktopWidgetCapability;
 
         // Adw Style Manager
@@ -990,23 +992,46 @@ const Preferences = class {
         if (!this._desktopIconsUtil)
             return;
 
-        this._widgetState = state ?? null;
-
         if (!state)
             return;
 
-        const file = this._desktopIconsUtil.getWidgetsStateFile();
+        this._pendingWidgetStateSave = {state, cancellable};
 
-        // Prevent triggering monitor event while we write the file
-        this._suppressWidgetMonitorEvent = true;
+        if (this._widgetStateSaving)
+            return;
 
-        await this._desktopIconsUtil.writeJsonFile(file, state, cancellable);
+        this._widgetStateSaving = true;
 
-        // Allow monitor events after idle
-        GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
-            this._suppressWidgetMonitorEvent = false;
-            return GLib.SOURCE_REMOVE;
-        });
+        try {
+            while (this._pendingWidgetStateSave) {
+                const pending = this._pendingWidgetStateSave;
+
+                const file = this._desktopIconsUtil.getWidgetsStateFile();
+
+                // Prevent triggering monitor events while local saves are active.
+                this._suppressWidgetMonitorEvent = true;
+
+                // Always write the latest queued full snapshot.
+                // If more changes arrive while writing, the loop will save the
+                // newest one next.
+                // eslint-disable-next-line no-await-in-loop
+                await this._desktopIconsUtil.writeJsonFile(
+                    file,
+                    pending.state,
+                    pending.cancellable
+                );
+
+                if (this._pendingWidgetStateSave === pending)
+                    this._pendingWidgetStateSave = null;
+            }
+        } finally {
+            // Allow monitor events after the current save burst has settled.
+            GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+                this._suppressWidgetMonitorEvent = false;
+                return GLib.SOURCE_REMOVE;
+            });
+            this._widgetStateSaving = false;
+        }
     }
 
     // Setters
@@ -1028,6 +1053,9 @@ const Preferences = class {
     }
 
     set widgetState(state = null) {
+        if (!state)
+            return;
+
         this._widgetState = state;
         this._saveWidgetState(state).catch(e => {
             console.log(

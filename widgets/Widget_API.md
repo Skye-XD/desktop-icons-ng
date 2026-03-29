@@ -120,7 +120,7 @@ This means a widget author can safely ship assets under subdirectories, but cann
 On injection, the platform attempts to insert a `<style>` tag at the top of the document:
 
 - `id="ding-widget-background"`
-- forces `background: transparent !important` for `html`, `body`, but not `*`. Widget renderings do not have a transparent background to they can be seen.
+- forces `background: transparent !important` for `html` and `body`, but not `*`. This keeps the page base transparent so the widget can sit naturally on the desktop.
 
 This is intended to make widgets “desktop-friendly” by default (a transparent base), while still allowing the widget author to override visuals with their own CSS.
 
@@ -146,6 +146,7 @@ Widgets must never toggle these themselves; the host keeps them up to date:
 - **Reduced motion** – globally disables animations, transitions, and smooth scrolling whenever `body` has `ding-reduced-motion`, matching GNOME’s accessibility toggle.
 - **Edit mode helpers** – `.ding-only-edit` elements are shown only while the widget is in edit mode.
 - **Selection helpers** – `.ding-only-selected` elements show only when selected; `.ding-selection-outline` can wrap outlines.
+- **Pinned/layer helpers** – `.ding-only-layer-raised` and `.ding-only-layer-lowered` react to layer state, while `.ding-only-pinned-layer-lowered` covers common floating-widget chrome cases.
 - **Direction awareness** – relies on `html[dir]` so widgets can react to RTL purely via CSS.
 
 #### Using the stylesheet
@@ -374,6 +375,8 @@ The injected API maintains an internal `_hostState` object:
 {
   editMode: false,
   selected: false,
+  pinned: false,
+  pinnable: false,
   theme: "light",
   reducedMotion: false,
   direction: "ltr",
@@ -389,14 +392,21 @@ When host state changes, the script attempts to update the DOM:
 - `document.body.dataset.theme = theme`
 - `document.body.classList.toggle("ding-edit-mode", editMode)`
 - `document.body.classList.toggle("ding-selected", selected)`
+- `document.body.classList.toggle("ding-pinned", pinned)`
 - `document.body.classList.toggle("ding-reduced-motion", reducedMotion)`
 
 This provides a **default styling contract** for widget authors:
 - Use `.ding-selected` to style selection state
-- Use `.ding-edit-mode` to react to edit-mode behavior
+- Use `.ding-edit-mode` to react to raised widget-layer state
+- Use `.ding-pinned` to style floating/pinned behavior
 - Use `.ding-reduced-motion` to disable/shorten animations
 - Use `[data-theme="dark"]` / `[data-theme="light"]` for theme styling
 - Use `html[dir="rtl"]` for direction-sensitive layouts
+
+Important:
+- `editMode` means the host widget layer is raised.
+- `editMode` does **not** mean your widget's own text editor, toolbar, or local edit UI is open.
+- If your widget has its own edit UI, you must manage that state yourself.
 
 ### How host state is delivered from the host
 
@@ -413,6 +423,12 @@ The widget script also posts a `"hostReady"` message once injection finishes:
 ```
 
 When the host receives `"hostReady"`, it pushes the full current host-state snapshot for that instance.
+
+Important:
+- Widgets may be reloaded (reread of index.html) after pinning, unpinning, or entering pinned edit mode.
+- When that happens, your page can start again with default local JS state before `hostReady` and config arrive.
+- Do not make important decisions only from constructor defaults.
+- Wait for host state and config, then rebuild your UI from those values.
 
 ---
 
@@ -471,13 +487,14 @@ The host (WebWidgetContext) recognizes these message types from widgets:
 | `updateConfig` | `ding.saveConfig()` | update instance configuration |
 | `getConfig` | `ding.getConfig()` | request configuration; host replies via `window.postMessage` |
 | `hostReady` | injected script | triggers host to push full host state |
+| `beginPinnedWindowMove` | `window.ding.beginPinnedWindowMove(...)` | request persisted move for a pinned widget window |
 | `openPreferences` | low-level (`ding.post`) | host may open preferences (if implemented by WidgetManager) |
 | `closePreferences` | low-level (`ding.post`) | host closes preferences (or falls back to closing for instance) |
-| `createWidget` | low-level (`ding.post`) | request creation of another instance of the sender's own widget type |
+| `createWidget` | low-level (`ding.post`) | request creation of another instance of the sender's own widget type; by default inherits pinned state from the source instance |
 | `removeWidget` | low-level (`ding.post`) | request removal of the sending widget instance |
 | `openExternalLink` | low-level (`ding.post`) | request host-mediated opening of an external `http`/`https` URL |
 
-> Note: `openPreferences`, `closePreferences`, `createWidget`, `removeWidget`, and `openExternalLink` are currently handled in `WebWidgetContext`, but there are still **no dedicated high-level helper methods** in `window.ding` for them. Authors use `ding.post(...)` directly for these actions today.
+> Note: `openPreferences` and `openExternalLink` still use low-level `ding.post(...)` today. If you use `widgets/widgetHelper.js`, it now provides convenience helpers for `createWidget()` and `removeWidget()`.
 
 ---
 
@@ -567,10 +584,138 @@ client.onVisibilityChange((visible) => {
 
 If your widget has a custom render function or state cache, call it from `onVisibilityChange`. This keeps the UI fresh after unlock or sleep without forcing a full page reload.
 
+#### Floating and pinned widgets
+
+Widgets can request floating behavior through the injected API:
+
+- `window.ding.setPinned(true | false)` moves the widget between the normal desktop layer and the floating/pinned layer.
+- `window.ding.beginPinnedEdit()` raises the widget layer and brings a pinned widget back into the editable desktop layer.
+- `window.ding.beginPinnedWindowMove({ x, y, button })` starts a temporary non-persisted move for a pinned widget window. This is observed by the extension and reported back, so the new position is then peristed in the widget instance at the new coordinatees.
+
+Important:
+- `beginPinnedEdit()` is a host-layer action. It changes window behavior while pinned so that it retains keyboard focus while pinned.
+- It does **not** automatically open your widget's own local edit UI.
+- If your widget has its own editor, toolbar, or “edit strip”, your widget must restore that UI itself after the host transition.
+
+Widgets must opt into pinning explicitly in `widget.json`:
+
+```json
+{
+  "pinnable": true,
+  "chrome": {
+    "showMoveButton": true,
+    "showPinButton": true
+  }
+}
+```
+
+With that split:
+
+- `pinnable: true` allows the widget to use the pinning APIs
+- `chrome.showMoveButton: true` asks the host to provide its default pinned move affordance
+- `chrome.showPinButton: true` asks the host to show its own pin button
+
+When both are enabled:
+
+- the host owns the default pinned move affordance
+- the host may show a pin button in widget chrome
+- the pin button is host-owned, not widget-owned
+- widgets should still use `window.ding.setPinned(...)` and `window.ding.beginPinnedEdit()` / `window.ding.beginPinnedWindowMove(...)` as the API contract for host-managed pinning and reposition behavior
+
+If a widget sets `chrome.showMoveButton` to `false`, it is opting out of the host-provided pinned move affordance. In that case the widget must provide its own move control or drag surface and call `window.ding.beginPinnedWindowMove(...)` from that UI.
+
+Important:
+- `chrome.showMoveButton: false` suppresses the host move button and host overlay drag for pinned windows.
+- In that case, your widget must provide its own drag handle or move button and call `beginPinnedWindowMove(...)` itself.
+
+If `pinnable` is omitted or `false`, pinning APIs are ignored by the host.
+
+For HTML widgets, those transitions can reparent the host between different GTK containers. WebKit may fail to keep painting correctly across that parent change, so the host may reload the page to recover rendering.
+
+Widget authors should therefore treat pin/unpin and floating-layer transitions as reload-safe operations:
+
+- Persist meaningful UI state in widget config, host state, storage, or URL-derived state.
+- Do not assume transient in-memory DOM state survives pinning, unpinning, or floating edit transitions.
+- If the widget caches data in memory for rendering, be prepared to rebuild that state after load.
+
+Recommended rule:
+- If a reload would break the current user flow, persist the state needed to restore that flow.
+- For temporary restore-only state, use a one-shot config flag and clear it after you consume it.
+- Good examples are “resume local edit UI after pinned edit rehost” or “reopen a widget-specific editing surface after reload”.
+
+The shared `DingClient` helper also exposes small host-state and pinned-chrome conveniences:
+
+- `client.getHostState()`
+- `client.onHostState(cb)`
+- `client.isPinned()`
+- `client.isPinnable()`
+- `client.isSelected()`
+- `client.isEditMode()`
+- `client.setPinned(pinned)`
+- `client.beginPinnedEdit()`
+- `client.beginPinnedWindowMove(event)`
+- `client.attachPinnedMoveHandle(element, options)`
+- `client.bindPinnedHoverChrome(element, options)`
+- `client.getConfig()`
+- `client.setConfig(config)`
+- `client.patchConfig(patch)`
+- `client.createWidget(widgetId, options)`
+- `client.removeWidget()`
+
 
 ### Preferences and the gear icon
 
 Widgets may optionally provide a preferences UI by setting a `prefs` path in `widget.json` (for example `prefs.html` or `ui/prefs.html`) and including that file somewhere under the widget directory.
+
+Pinning capability is configured separately with top-level `pinnable`:
+
+```json
+{
+  "pinnable": true
+}
+```
+
+Widgets may also control host chrome visibility through the optional
+`chrome` object in `widget.json`:
+
+```json
+{
+  "prefs": "prefs.html",
+  "chrome": {
+    "showPrefsButton": true,
+    "showCloseButton": true,
+    "showMoveButton": true,
+    "showPinButton": false
+  }
+}
+```
+
+Current host chrome policy fields:
+
+- `chrome.showPrefsButton`
+- `chrome.showCloseButton`
+- `chrome.showMoveButton`
+- `chrome.showPinButton`
+
+If a field is omitted:
+
+- `showPrefsButton` defaults to `true`
+- `showCloseButton` defaults to `true`
+- `showMoveButton` defaults to `true`
+- `showPinButton` defaults to `true`
+
+Pinned move ownership:
+
+- `chrome.showMoveButton: true` means the host provides the default pinned move affordance.
+- `chrome.showMoveButton: false` means the widget owns pinned move UI and must call `beginPinnedWindowMove(...)` itself.
+
+Top-level pinning fields:
+
+- `pinnable`
+
+If omitted:
+
+- `pinnable` defaults to `false`
 
 #### Automatic gear icon
 
@@ -580,6 +725,12 @@ If the `prefs` path is set and the file exists:
 - the gear icon is only visible when the widget is selected **and** the desktop is in edit mode
 - the gear icon is fully managed by the host
 - widget authors do not need to implement their own preferences button
+
+If `pinnable` and `chrome.showPinButton` are both enabled:
+
+- the platform may also show a host-managed pin button in widget chrome
+- pinning can trigger a host reload during GTK reparenting recovery
+- widgets must not assume in-memory state survives that transition
 
 #### Opening preferences
 
@@ -692,8 +843,14 @@ The widgets folder ships an optional helper (`ding-client.js`) that wraps the in
   `patchConfig(patch)` performs read → deep-merge → write so authors can update just the fields they care about while the host still receives the full config.
 - **Event subscription helpers**  
   Tiny wrappers like `onHostState(cb)`, `onConfigChanged(cb)`, and `onBackendEvent(cb)` that return unsubscribe functions and hide the raw message plumbing.
+- **Host-state convenience accessors**  
+  `getHostState()`, `isPinned()`, `isSelected()`, and `isEditMode()` expose the latest pushed host state without manual caching in each widget.
 - **Backend IPC helpers**  
   `backendRequest(name, payload)` (request/reply) and `backendSend(name, payload)` (fire-and-forget) without manual envelope building.
+- **Pinned-window helpers**  
+  `beginPinnedWindowMove(event)`, `attachPinnedMoveHandle(element, options)`, and `bindPinnedHoverChrome(element, options)` cover the common floating-widget drag/hover chrome patterns.
+- **Host action helpers**  
+  `createWidget(widgetId, options)` and `removeWidget()` hide low-level `ding.post(...)` message assembly for the common self-clone and self-remove cases.
 
 ### Why it helps across frameworks
 
@@ -708,6 +865,22 @@ The widgets folder ships an optional helper (`ding-client.js`) that wraps the in
 - Reintroduce synchronous config access.
 
 Use it if it simplifies your widget codebase, but it remains an optional convenience layer; everything described above can also be done directly via `window.ding`.
+
+### Shared helper methods available today
+
+- `client.getHostState()`
+- `client.isPinned()`
+- `client.isSelected()`
+- `client.isEditMode()`
+- `client.attachPinnedMoveHandle(element, options)`
+- `client.bindPinnedHoverChrome(element, options)`
+- `client.createWidget(widgetId, options)`
+- `client.removeWidget()`
+
+`client.createWidget(widgetId, options)` defaults to inheriting pinned state from the source instance. You may override this with:
+
+- `inheritPinned: false`
+- `initialPinned: true | false`
 
 ### When the helper is not worth adopting
 
@@ -751,9 +924,18 @@ Use it if you are writing a JS/GJS backend and want a well-defined protocol wrap
 - Use `ding.onHostStateChanged(...)` to react to:
   - selection
   - edit mode
+  - pinned state
   - theme changes
   - reduced motion
   - locale changes
+- Treat host actions as environment changes, not local UI toggles.
+- Treat host state as authoritative and local widget state as disposable unless you persist it.
+- Rebuild widget behavior from host state and config after every reload or rehost.
+- Do not assume a host transition preserves in-memory DOM state or JavaScript state.
+- If a reload would break the current user flow, persist the state needed to restore it.
+- For temporary restore-only state, use a one-shot config flag and clear it after you consume it.
+- Do not assume missing fields in a later host update mean `false`; always use the latest merged host-state snapshot.
+- If you suppress host chrome, your widget owns the equivalent UI behavior and must call the host APIs itself.
 - Prefer shipping all JS/CSS locally; do not rely on remote `<script src=...>`.
 - If you adopt `ding-client.js`, it can hide most of the plumbing above (instance routing, config access, event subscriptions, backend IPC) so your widget code stays focused on UI logic; using it is optional but recommended for consistency.
-- For purely visual reactions to host state, you can skip JavaScript entirely and include `widgets/ding-widget.css`, which already responds to theme, edit/selection state, reduced motion, and direction changes (see [Optional helper stylesheet](#optional-helper-stylesheet-ding-widgetcss)).
+- For purely visual reactions to host state, you can skip JavaScript entirely and include `widgets/ding-widget.css`, which already responds to theme, edit/selection state, pinned state, reduced motion, direction changes, and common pinned/layer combinations (see [Optional helper stylesheet](#optional-helper-stylesheet-ding-widgetcss)).

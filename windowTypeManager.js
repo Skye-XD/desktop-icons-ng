@@ -57,12 +57,17 @@ class ManageWindow {
        flags for decorated or titled windows.
     */
 
-    constructor(window, waylandClient, changedStatusCB) {
-        this._waylandClient = waylandClient;
+    constructor(window, waylandClient, remoteActionGroup, changedStatusCB) {
+        this._waylandClient = waylandClient ?? null;
         this._window = window;
         this._signalIDs = [];
         this._onIdleChangedStatusCallback = changedStatusCB;
         this._raiseDesktopAsDock = false;
+        this._remoteActionGroup = remoteActionGroup ?? null;
+        this.windowInstanceId = null;
+        this._lastEmittedWindowPosition = null;
+        this._parsedTitleState = null;
+        this._trackingWindowPosition = false;
 
         this._titleID = this._window.connect('notify::title', () => {
             this.refreshProperties();
@@ -114,93 +119,192 @@ class ManageWindow {
         this._waylandClient = client;
     }
 
-    _parseTitle() {
-        this._x = null;
-        this._y = null;
-        this._keepAtBottom = false;
-        this._keepAtTop = false;
-        this._showInAllDesktops = false;
-        this._hideFromWindowList = false;
-        this._fixed = false;
-        this._desktopWindow = false;
-        this._dockWindow = false;
-        let title = this._window.get_title();
+    setRemoteActionGroup(remoteActionGroup) {
+        this._remoteActionGroup = remoteActionGroup;
+    }
 
-        if (!title && !!this._window.get_transient_for()) {
+    _parseTitle() {
+        const title = this._window.get_title();
+        const parsedTitle = this._buildParsedTitleState(title);
+        this._applyParsedTitleState(parsedTitle);
+    }
+
+    /*
+       Expected managed-window title protocol after legacy normalization:
+
+       @!<x>,<y>;<flags>[;KEY=VALUE ...]
+
+       Examples:
+       - @!120,340;KH
+       - @!120,340;TH;I=550e8400-e29b-41d4-a716-446655440000
+
+       Grammar:
+       - @! introduces a DING-managed window directive
+       - <x>,<y> are integer global coordinates
+       - <flags> is a compact string of zero or more of:
+         B, T, D, H, F, K
+       - optional metadata segments follow as ;KEY=VALUE
+       - multiple metadata segments are allowed for forward compatibility
+       - unknown metadata keys are ignored
+       - currently supported metadata:
+         I=<uuid>  instance id for pinned widget windows
+
+       Legacy compatibility is handled before parsing:
+       - null title on transient dialogs -> @!H
+       - one trailing space -> @!H
+       - two trailing spaces -> @!HTD
+    */
+    _buildParsedTitleState(title) {
+        const parsed = {
+            x: null,
+            y: null,
+            flags: new Set(),
+            windowInstanceId: null,
+        };
+
+        const normalizedTitle = this._normalizeManagedWindowTitle(title);
+        if (normalizedTitle === null)
+            return parsed;
+
+        const directivePosition = normalizedTitle.indexOf('@!');
+        if (directivePosition === -1)
+            return parsed;
+
+        const payload = normalizedTitle.substring(directivePosition + 2).trim();
+        const parts = payload.split(';');
+        const coordsSegment = (parts.shift() ?? '').trim();
+        const flagSegment = (parts.shift() ?? '').trim().toUpperCase();
+        const metadataSegments = parts;
+
+        this._parseManagedWindowCoords(coordsSegment, parsed);
+        this._parseManagedWindowFlags(flagSegment, parsed);
+        this._parseManagedWindowMetadata(metadataSegments, parsed);
+
+        return parsed;
+    }
+
+    _normalizeManagedWindowTitle(title) {
+        let normalizedTitle = title;
+
+        if (!normalizedTitle && !!this._window.get_transient_for()) {
             // Transient dialog window
             // Does not have title, hide from windowlist
-            title = '@!H';
+            normalizedTitle = '@!H';
         }
 
-        if (title !== null) {
-            if ((title.length > 0) && (title[title.length - 1] === ' ')) {
-                if ((title.length > 1) && (title[title.length - 2] === ' '))
-                    title = '@!HTD';
-                else
-                    title = '@!H';
-            }
+        if (normalizedTitle === null)
+            return null;
 
-            let pos = title.search('@!');
+        if ((normalizedTitle.length > 0) &&
+            (normalizedTitle[normalizedTitle.length - 1] === ' ')
+        ) {
+            if ((normalizedTitle.length > 1) &&
+                (normalizedTitle[normalizedTitle.length - 2] === ' ')
+            )
+                return '@!HTD';
 
-            if (pos !== -1) {
-                let pos2 = title.search(';', pos);
-                let coords;
 
-                if (pos2 !== -1)
-                    coords = title.substring(pos + 2, pos2).trim().split(',');
-                else
-                    coords = title.substring(pos + 2).trim().split(',');
-
-                try {
-                    this._x = parseInt(coords[0]);
-                    this._y = parseInt(coords[1]);
-                } catch (e) {
-                    global.log(`Exception ${e.message}.\n${e.stack}`);
-                }
-
-                try {
-                    let extraChars =
-                        title.substring(pos + 2).trim().toUpperCase();
-
-                    for (let char of extraChars) {
-                        switch (char) {
-                        case 'B':
-                            this._keepAtBottom = true;
-                            this._keepAtTop = false;
-                            break;
-                        case 'T':
-                            this._keepAtTop = true;
-                            this._keepAtBottom = false;
-                            break;
-                        case 'D':
-                            this._showInAllDesktops = true;
-                            break;
-                        case 'H':
-                            this._hideFromWindowList = true;
-                            break;
-                        case 'F':
-                            this._fixed = true;
-                            break;
-                        case 'K':
-                            // Dock flag is parsed independently. Combining K
-                            // with desktop-style flags (for example B/D/H) is
-                            // treated as operator error; current precedence is
-                            // resolved later in _attachControllers().
-                            this._dockWindow = true;
-                            break;
-                        }
-                    }
-
-                    this._desktopWindow =
-                        this._keepAtBottom &&
-                        !this._keepAtTop &&
-                        this._showInAllDesktops &&
-                        this._hideFromWindowList;
-                } catch (e) {
-                    global.log(`Exception ${e.message}.\n${e.stack}`);
-                }
-            }
+            return '@!H';
         }
+
+        return normalizedTitle;
+    }
+
+    _parseManagedWindowCoords(coordsSegment, parsed) {
+        const coords = coordsSegment.split(',');
+        const x = parseInt(coords[0]);
+        const y = parseInt(coords[1]);
+
+        if (Number.isFinite(x) && Number.isFinite(y)) {
+            parsed.x = x;
+            parsed.y = y;
+        }
+    }
+
+    _parseManagedWindowFlags(flagSegment, parsed) {
+        for (const char of flagSegment) {
+            if ('BTDHFK'.includes(char))
+                parsed.flags.add(char);
+        }
+    }
+
+    _parseManagedWindowMetadata(metadataSegments, parsed) {
+        for (const part of metadataSegments) {
+            const trimmedPart = part.trim();
+            if (!trimmedPart)
+                continue;
+
+            const separator = trimmedPart.indexOf('=');
+            if (separator === -1)
+                continue;
+
+            const key =
+                trimmedPart.substring(0, separator).trim().toUpperCase();
+            const value = trimmedPart.substring(separator + 1).trim();
+
+            if (key === 'I' && value)
+                parsed.windowInstanceId = value;
+        }
+    }
+
+    _applyParsedTitleState(parsed) {
+        this._x = parsed.x;
+        this._y = parsed.y;
+        this.windowInstanceId = parsed.windowInstanceId;
+        this._keepAtBottom = parsed.flags.has('B');
+        this._keepAtTop = parsed.flags.has('T');
+        this._showInAllDesktops = parsed.flags.has('D');
+        this._hideFromWindowList = parsed.flags.has('H');
+        this._fixed = parsed.flags.has('F');
+        this._dockWindow = parsed.flags.has('K');
+        this._desktopWindow =
+            this._keepAtBottom &&
+            !this._keepAtTop &&
+            this._showInAllDesktops &&
+            this._hideFromWindowList;
+        this._parsedTitleState = parsed;
+    }
+
+    _applyParsedTitlePosition(parsed) {
+        this._x = parsed.x;
+        this._y = parsed.y;
+        this._parsedTitleState = parsed;
+    }
+
+    _reloadWindowControllers(parsed) {
+        this._disconnetSignalsAndTimeouts();
+        this._applyParsedTitleState(parsed);
+        this._attachControllers();
+    }
+
+    _parsedTitleStateEquals(a, b) {
+        if (a.x !== b.x ||
+            a.y !== b.y ||
+            a.windowInstanceId !== b.windowInstanceId ||
+            a.flags.size !== b.flags.size)
+            return false;
+
+
+        for (const flag of a.flags) {
+            if (!b.flags.has(flag))
+                return false;
+        }
+
+        return true;
+    }
+
+    _parsedTitleBehaviorEquals(a, b) {
+        if (a.windowInstanceId !== b.windowInstanceId ||
+            a.flags.size !== b.flags.size)
+            return false;
+
+
+        for (const flag of a.flags) {
+            if (!b.flags.has(flag))
+                return false;
+        }
+
+        return true;
     }
 
     _attachControllers() {
@@ -208,7 +312,9 @@ class ManageWindow {
             this._desktopWindow && this._raiseDesktopAsDock;
         const dockWindowActive = this._dockWindow;
         const desktopWindowActive =
-            this._desktopWindow && !raisedDesktopAsDockActive && !dockWindowActive;
+            this._desktopWindow &&
+            !raisedDesktopAsDockActive &&
+            !dockWindowActive;
 
         if (this._fixed)
             this._keepFixedWindowPosition();
@@ -226,7 +332,10 @@ class ManageWindow {
         if (this._keepAtBottom && !this._desktopWindow && !this._dockWindow)
             this._keepWindowAtBottom();
 
-        if (this._showInAllDesktops && !this._desktopWindow && !this._dockWindow)
+        if (this._showInAllDesktops &&
+            !this._desktopWindow &&
+            !this._dockWindow
+        )
             this._showWindowOnAllDesktops();
         else if (this._window.on_all_workspaces)
             this._window.unstick();
@@ -237,6 +346,31 @@ class ManageWindow {
             this._makeWindowTypeDock();
         else if (desktopWindowActive)
             this._makeWindowTypeDesktop();
+        else
+            this._makeWindowTypeNormal();
+
+        if (this.windowInstanceId)
+            this._trackWindowPosition();
+        else
+            this._trackingWindowPosition = false;
+
+        if (this._needsMoveToParsedPosition())
+            this._window.move_frame(true, this._x, this._y);
+    }
+
+    _hasValidPosition() {
+        return Number.isFinite(this._x) && Number.isFinite(this._y);
+    }
+
+    _needsMoveToParsedPosition() {
+        if (!this._hasValidPosition())
+            return false;
+
+        const frameRect = this._window.get_frame_rect?.();
+        const currentX = frameRect?.x;
+        const currentY = frameRect?.y;
+
+        return currentX !== this._x || currentY !== this._y;
     }
 
     _keepFixedWindowPosition() {
@@ -244,10 +378,7 @@ class ManageWindow {
             this._window.connect(
                 'position-changed',
                 () => {
-                    if (this._fixed &&
-                        (this._x !== null) &&
-                        (this._y !== null)
-                    ) {
+                    if (this._fixed && this._hasValidPosition()) {
                         this._window.move_frame(true, this._x, this._y);
                         if (this._window.fullscreen)
                             this._window.unmake_fullscreen();
@@ -290,7 +421,7 @@ class ManageWindow {
             )
         );
 
-        if ((this._x !== null) && (this._y !== null))
+        if (this._needsMoveToParsedPosition())
             this._window.move_frame(true, this._x, this._y);
     }
 
@@ -300,12 +431,53 @@ class ManageWindow {
 
         this._moveIntoPlaceID =
             GLib.timeout_add(GLib.PRIORITY_LOW, 250, () => {
-                if (this._fixed && (this._x !== null) && (this._y !== null))
+                if (this._needsMoveToParsedPosition())
                     this._window.move_frame(true, this._x, this._y);
+
 
                 this._moveIntoPlaceID = 0;
                 return GLib.SOURCE_REMOVE;
             });
+    }
+
+    _trackWindowPosition() {
+        if (this._trackingWindowPosition)
+            return;
+
+        this._trackingWindowPosition = true;
+        this._signalIDs.push(
+            this._window.connect('position-changed', () => {
+                this._emitWindowPositionUpdate();
+            })
+        );
+    }
+
+    _emitWindowPositionUpdate() {
+        if (!this.windowInstanceId || !this._remoteActionGroup)
+            return;
+
+        const frameRect = this._window.get_frame_rect?.();
+        const x = frameRect?.x;
+        const y = frameRect?.y;
+
+        if (!Number.isFinite(x) || !Number.isFinite(y))
+            return;
+
+        if (this._lastEmittedWindowPosition &&
+            this._lastEmittedWindowPosition.x === x &&
+            this._lastEmittedWindowPosition.y === y)
+            return;
+
+
+        this._lastEmittedWindowPosition = {
+            x,
+            y,
+        };
+
+        this._remoteActionGroup.activate_action(
+            'updatePinnedWindowPosition',
+            new GLib.Variant('(sii)', [this.windowInstanceId, x, y])
+        );
     }
 
     _keepWindowHidden() {
@@ -448,11 +620,14 @@ class ManageWindow {
     }
 
     _makeWindowTypeDesktop() {
+        if (this._window.get_window_type() === Meta.WindowType.DESKTOP)
+            return;
+
         if (typeof this._window.set_type === 'function') {
             this._window.set_type(Meta.WindowType.DESKTOP);
-            console.log('Setting window type to desktop with Gnome 49 API');
         } else {
-            console.error('Meta.Window.set_type() is required for desktop windows');
+            console
+            .error('Meta.Window.set_type() is required for desktop windows');
             return;
         }
 
@@ -475,13 +650,14 @@ class ManageWindow {
     }
 
     _makeWindowTypeNormal() {
+        if (this._window.get_window_type() === Meta.WindowType.NORMAL)
+            return;
+
         if (typeof this._window.set_type === 'function') {
             this._window.set_type(Meta.WindowType.NORMAL);
-            console.log(
-                'Setting raised desktop window type to normal with Gnome 49 API'
-            );
         } else {
-            console.error('Meta.Window.set_type() is required for normal windows');
+            console
+            .error('Meta.Window.set_type() is required for normal windows');
         }
     }
 
@@ -491,21 +667,48 @@ class ManageWindow {
     }
 
     _makeWindowTypeDock() {
+        if (this._window.get_window_type() === Meta.WindowType.DOCK)
+            return;
+
         if (typeof this._window.set_type === 'function') {
             this._window.set_type(Meta.WindowType.DOCK);
-            console.log('Setting window type to dock with Gnome 49 API');
         } else {
-            console.error('Meta.Window.set_type() is required for dock windows');
+            console
+            .error('Meta.Window.set_type() is required for dock windows');
             return;
         }
 
         this._keepWindowUnFullScreen();
     }
 
-    refreshProperties() {
-        this._disconnetSignalsAndTimeouts();
-        this._parseTitle();
-        this._attachControllers();
+    refreshProperties(forceBehaviorRefresh = false) {
+        const nextParsed =
+            this._buildParsedTitleState(this._window.get_title());
+
+        if (forceBehaviorRefresh) {
+            this._reloadWindowControllers(nextParsed);
+            return;
+        }
+
+        const currentParsed =
+            this._parsedTitleState ?? this._buildParsedTitleState(null);
+
+        if (this._parsedTitleStateEquals(currentParsed, nextParsed))
+            return;
+
+        if (this._parsedTitleBehaviorEquals(currentParsed, nextParsed)) {
+            this._applyParsedTitlePosition(nextParsed);
+
+            if (this._trackingWindowPosition)
+                return;
+
+            if (this._needsMoveToParsedPosition())
+                this._window.move_frame(true, this._x, this._y);
+
+            return;
+        }
+
+        this._reloadWindowControllers(nextParsed);
     }
 
     setRaisedAsDock(raised) {
@@ -517,7 +720,8 @@ class ManageWindow {
             return;
 
         this._raiseDesktopAsDock = nextState;
-        this.refreshProperties();
+        const force = true;
+        this.refreshProperties(force);
     }
 
     toggleRaisedAsDock() {
@@ -552,6 +756,7 @@ var WindowTypeManager = class {
         this._windowList = new Set();
         this._overviewHiding = true;
         this._waylandClient = null;
+        this._remoteActionGroup = null;
     }
 
     set_wayland_client(client) {
@@ -560,6 +765,18 @@ var WindowTypeManager = class {
         for (let window of this._windowList) {
             if (window.customJS_ding)
                 window.customJS_ding.set_wayland_client(this._waylandClient);
+        }
+    }
+
+    setRemoteActionGroup(remoteActionGroup) {
+        this._remoteActionGroup = remoteActionGroup;
+
+        for (let window of this._windowList) {
+            if (window.customJS_ding) {
+                window.customJS_ding.setRemoteActionGroup(
+                    this._remoteActionGroup
+                );
+            }
         }
     }
 
@@ -660,6 +877,7 @@ var WindowTypeManager = class {
             new ManageWindow(
                 window,
                 this._waylandClient,
+                this._remoteActionGroup,
                 this.onIdleReStackActivteWindows.bind(this)
             );
 
@@ -731,7 +949,7 @@ var WindowTypeManager = class {
     // refresh window properties
     refreshWindows() {
         for (let window of this._windowList)
-            window.customJS_ding.refreshProperties();
+            window.customJS_ding.refreshProperties(true);
     }
 
     setWindowsRaisedAsDock(raised, window = null) {

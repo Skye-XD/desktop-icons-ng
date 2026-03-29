@@ -184,6 +184,8 @@ The application functionality and behavior is consistent with the two other very
 
 - [x] Added widget grid, snap to widget grid functionality and imporved right click menu
 
+- [x] Floating/pinned HTML widgets are implemented, now survive container/window reparenting reliably by reloading the WebView when WebKit does not repaint correctly after the parent change. Pinnable widgets therefore need to tolerate reload and persist meaningful state outside transient page memory.
+
 **FIXES**
 
 - [x] Fix Gtk4 Icon Rendering Code to at least render generic correct icons at the correct size.
