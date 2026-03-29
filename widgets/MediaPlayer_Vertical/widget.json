@@ -7,6 +7,14 @@
   "defaultHeight": 250,
   "author": "xiaozhangup",
   "version": "1.0",
+  "pinnable": true,
+  "defaultConfig": {
+    "textColor": "#ffffff",
+    "progressColor": "#ffffff",
+    "bgColor": "#000000",
+    "bgAlpha": 0.3,
+    "mediaCache": null
+  },
   "prefs": "prefs.html",
   "backend": {
     "command": "gjs",
