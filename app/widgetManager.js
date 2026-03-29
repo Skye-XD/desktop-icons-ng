@@ -1987,6 +1987,12 @@ const WidgetManager = class {
         if (!surface)
             return;
 
+        const widgetLayerOnTop = surface.grid.isWidgetContainerOnTop();
+        if (!widgetLayerOnTop) {
+            this._hideAllChromeButtons();
+            return;
+        }
+
         const {widgetContainer} = surface;
         const frame = this.getInstanceFrame(inst.instanceId);
         if (!frame)
