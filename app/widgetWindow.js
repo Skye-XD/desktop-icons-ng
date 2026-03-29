@@ -15,12 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Gdk, GLib, Gtk} from '../dependencies/gi.js';
+import {Gdk, GLib, Graphene, Gtk} from '../dependencies/gi.js';
 import {_} from '../dependencies/gettext.js';
 
 export {WidgetWindow};
-
-const PINNED_CONTROLS_HIDE_DELAY_MS = 600;
 
 const WidgetWindow = class {
     /**
@@ -68,13 +66,8 @@ const WidgetWindow = class {
         this._actorMapId = 0;
         this._dragGesture = null;
         this._hoverController = null;
-        this._popupHoverController = null;
-        this._controlsPopover = null;
         this._controlsBox = null;
-        this._popupButtons = new Map();
-        this._hoveringOverlay = false;
-        this._hoveringPopup = false;
-        this._hideControlsSourceId = 0;
+        this._overlayButtons = new Map();
 
         this._createWindow();
     }
@@ -138,8 +131,7 @@ const WidgetWindow = class {
             this._window = null;
         }
 
-        this._destroyControlsPopover();
-        this._clearHideControlsTimer();
+        this._destroyControlsStrip();
         this._overlay = null;
     }
 
@@ -148,7 +140,7 @@ const WidgetWindow = class {
             return;
 
         this.setPinnedTitle(this.buildPinnedTitle(frame, !!inst.widgetEditMode));
-        this._refreshControlsPopover();
+        this._refreshControlsStrip();
 
         if (inst.widgetEditMode)
             this.present();
@@ -237,21 +229,12 @@ const WidgetWindow = class {
         this._connectSignals();
     }
 
-    _installControlsPopover() {
+    _installControlsStrip() {
         if (!this._overlay)
             return;
 
-        if (this._controlsPopover)
+        if (this._controlsBox)
             return;
-
-        this._controlsPopover = new Gtk.Popover({
-            has_arrow: false,
-            position: Gtk.PositionType.TOP,
-            autohide: false,
-            halign: Gtk.Align.CENTER,
-        });
-        this._controlsPopover.set_name('ding-pinned-controls-popover');
-        this._controlsPopover.set_parent(this._overlay);
 
         this._controlsBox = new Gtk.Box({
             orientation: Gtk.Orientation.HORIZONTAL,
@@ -260,21 +243,13 @@ const WidgetWindow = class {
             margin_bottom: 8,
             margin_start: 8,
             margin_end: 8,
+            halign: Gtk.Align.CENTER,
+            valign: Gtk.Align.START,
+            visible: false,
         });
-        this._controlsBox.set_name('ding-pinned-popup-controls');
-        this._controlsPopover.set_child(this._controlsBox);
-        this._rebuildControlsPopover();
-
-        this._popupHoverController = new Gtk.EventControllerMotion();
-        this._popupHoverController.connect('enter', () => {
-            this._hoveringPopup = true;
-            this._clearHideControlsTimer();
-        });
-        this._popupHoverController.connect('leave', () => {
-            this._hoveringPopup = false;
-            this._scheduleHideControls();
-        });
-        this._controlsBox.add_controller(this._popupHoverController);
+        this._controlsBox.set_name('ding-pinned-overlay-controls');
+        this._overlay.add_overlay(this._controlsBox);
+        this._rebuildControlsStrip();
     }
 
     _createOverlayButton(spec) {
@@ -292,11 +267,39 @@ const WidgetWindow = class {
         for (const cssClass of spec.classes ?? [])
             button.add_css_class(cssClass);
 
-        button.connect('clicked', () => {
-            this._destroyControlsPopover();
-            this._widgetManager.activateHostAction(this._instanceId, spec.id);
-        });
+        if (spec.id === 'move') {
+            const clickGesture = new Gtk.GestureClick({button: 1});
+            clickGesture.connect('pressed', (gesture, _nPress, x, y) => {
+                this._beginMoveFromOverlayButton(button, gesture, x, y);
+            });
+            button.add_controller(clickGesture);
+        } else {
+            button.connect('clicked', () => {
+                this._widgetManager.activateHostAction(this._instanceId, spec.id);
+            });
+        }
+
         return button;
+    }
+
+    _beginMoveFromOverlayButton(button, gesture, x, y) {
+        if (!this._overlay || !button)
+            return;
+
+        const [found, targetPoint] = button.compute_point(
+            this._overlay,
+            new Graphene.Point({x, y})
+        );
+        if (!found)
+            return;
+
+        this._beginWindowMoveFromPoint({
+            localX: targetPoint.x,
+            localY: targetPoint.y,
+            button: gesture.get_current_button(),
+            timestamp: gesture.get_current_event_time(),
+            device: gesture.get_current_event_device(),
+        });
     }
 
     _installHoverController() {
@@ -305,19 +308,17 @@ const WidgetWindow = class {
 
         this._hoverController = new Gtk.EventControllerMotion();
         this._hoverController.connect('enter', () => {
-            this._hoveringOverlay = true;
-            this._showControlsPopover();
+            this._showControlsStrip();
         });
         this._hoverController.connect('leave', () => {
-            this._hoveringOverlay = false;
-            this._scheduleHideControls();
+            this._hideControlsStrip();
         });
         this._overlay.add_controller(this._hoverController);
     }
 
-    _rebuildControlsPopover() {
+    _rebuildControlsStrip() {
         if (!this._controlsBox)
-            return;
+            return 0;
 
         let child = this._controlsBox.get_first_child();
         while (child) {
@@ -326,7 +327,7 @@ const WidgetWindow = class {
             child = next;
         }
 
-        this._popupButtons.clear();
+        this._overlayButtons.clear();
 
         const specs = this._widgetManager.getHostActionSpecsForInstance(
             this._instanceId,
@@ -335,75 +336,46 @@ const WidgetWindow = class {
 
         for (const spec of specs) {
             const button = this._createOverlayButton(spec);
-            this._popupButtons.set(spec.id, button);
+            this._overlayButtons.set(spec.id, button);
             this._controlsBox.append(button);
         }
+
+        return specs.length;
     }
 
-    _refreshControlsPopover() {
-        if (!this._controlsPopover)
-            return;
+    _refreshControlsStrip() {
+        if (!this._controlsBox)
+            return 0;
 
-        this._rebuildControlsPopover();
+        return this._rebuildControlsStrip();
     }
 
-    _showControlsPopover() {
+    _showControlsStrip() {
         if (!this._overlay)
             return;
 
-        this._clearHideControlsTimer();
-        this._installControlsPopover();
-        this._refreshControlsPopover();
-
-        const width = this._overlay.get_width();
-        const rect = new Gdk.Rectangle({
-            x: Math.max(0, Math.floor(width / 2)),
-            y: 0,
-            width: 1,
-            height: 1,
-        });
-
-        this._controlsPopover.set_pointing_to(rect);
-        this._controlsPopover.popup();
+        this._installControlsStrip();
+        const buttonCount = this._refreshControlsStrip();
+        if (buttonCount > 0)
+            this._controlsBox.show();
+        else
+            this._controlsBox.hide();
     }
 
-    _scheduleHideControls() {
-        this._clearHideControlsTimer();
-        this._hideControlsSourceId = GLib.timeout_add(
-            GLib.PRIORITY_DEFAULT,
-            PINNED_CONTROLS_HIDE_DELAY_MS,
-            () => {
-                this._hideControlsSourceId = 0;
-                if (this._hoveringOverlay || this._hoveringPopup)
-                    return GLib.SOURCE_REMOVE;
-
-                this._destroyControlsPopover();
-                return GLib.SOURCE_REMOVE;
-            }
-        );
-    }
-
-    _clearHideControlsTimer() {
-        if (!this._hideControlsSourceId)
+    _hideControlsStrip() {
+        if (!this._controlsBox)
             return;
 
-        GLib.source_remove(this._hideControlsSourceId);
-        this._hideControlsSourceId = 0;
+        this._controlsBox.hide();
     }
 
-    _destroyControlsPopover() {
-        this._clearHideControlsTimer();
-        this._hoveringPopup = false;
-
-        if (!this._controlsPopover)
+    _destroyControlsStrip() {
+        if (!this._controlsBox)
             return;
 
-        this._controlsPopover.popdown();
-        this._controlsPopover.unparent();
-        this._controlsPopover = null;
+        this._controlsBox.unparent();
         this._controlsBox = null;
-        this._popupHoverController = null;
-        this._popupButtons.clear();
+        this._overlayButtons.clear();
     }
 
     _installMoveGesture() {
@@ -564,8 +536,7 @@ const WidgetWindow = class {
         let current = actor;
         while (current && current !== this._overlay) {
             if (current === this._controlsBox ||
-                current === this._controlsPopover ||
-                [...this._popupButtons.values()].includes(current))
+                [...this._overlayButtons.values()].includes(current))
                 return true;
 
 
