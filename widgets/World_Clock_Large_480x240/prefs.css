@@ -2,7 +2,7 @@
 
 :root {
   --pad: 16px;
-  --gap: 12px;
+  --gap: 10px;
   --radius: 10px;
   --border: 1px;
   --control-h: 42px;
@@ -39,12 +39,14 @@ body[data-theme="dark"] {
   height: 100%;
   padding: var(--pad);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 #header {
   text-align: center;
-
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 
 #headerTitle {
@@ -52,16 +54,55 @@ body[data-theme="dark"] {
   font-weight: 700;
 }
 
+.prefs-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.prefs-tab {
+  appearance: none;
+  -webkit-appearance: none;
+  border: var(--border) solid rgba(127,127,127,0.35);
+  background: rgba(127,127,127,0.08);
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: default;
+}
+
+body[data-theme="dark"] .prefs-tab {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.prefs-tab.is-active {
+  background: rgba(53,132,228,0.24);
+  border-color: rgba(53,132,228,0.60);
+}
+
+.prefs-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.prefs-panel[hidden] {
+  display: none;
+}
+
 /* Sections */
 .section {
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .section-title {
   font-size: 15px;
   font-weight: 700;
   opacity: 0.8;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   text-transform: none;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -72,6 +113,41 @@ body[data-theme="dark"] {
   margin-bottom: var(--gap);
 }
 
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.prefs-panel[data-panel="appearance"] .section-title {
+  margin-bottom: 18px;
+}
+
+.prefs-panel[data-panel="settings"] .section-title {
+  margin-bottom: 18px;
+}
+
+.prefs-panel[data-panel="appearance"] .field {
+  margin-bottom: 16px;
+}
+
+.prefs-panel[data-panel="settings"] .field {
+  margin-bottom: 16px;
+}
+
+.prefs-panel[data-panel="appearance"] .field-row {
+  gap: 12px;
+}
+
+.prefs-panel[data-panel="settings"] .field-row {
+  gap: 12px;
+}
+
+.prefs-panel[data-panel="appearance"] .label {
+  margin-bottom: 8px;
+}
+
+.prefs-panel[data-panel="settings"] .label {
+  margin-bottom: 8px;
+}
 
 .label {
   font-size: 15px;
@@ -197,24 +273,18 @@ body[data-theme="dark"] .segmented button[aria-pressed="true"] {
 .field-row input[type="color"] {
   margin-left: auto;
 }
-.field-row select {
-  width: 180px;
-  max-width: 180px;
-}
-
 .bg-color-field {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
-#offsetInput {
-  width: 120px;
-  max-width: 120px;
+.prefs-panel[data-panel="appearance"] .bg-color-field {
+  margin-bottom: 22px;
 }
 
 .slider-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .slider-row input[type="range"] {
@@ -231,7 +301,11 @@ body[data-theme="dark"] .segmented button[aria-pressed="true"] {
 .actions {
   display: flex;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 12px;
+}
+
+.prefs-panel[data-panel="appearance"] .actions {
+  margin-top: 20px;
 }
 
 #restoreDefaults {
