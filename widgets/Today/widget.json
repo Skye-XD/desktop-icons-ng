@@ -6,9 +6,19 @@
 
   "defaultWidth": 260,
   "defaultHeight": 320,
+  "pinnable": true,
 
   "author": "Sundeep Mediratta",
   "version": "1.0",
+
+  "defaultConfig": {
+    "headerColor": "#f5f6f8",
+    "eventColor": "#f5f6f8",
+    "panelColor": "#ffffff",
+    "panelAlpha": 0.06,
+    "nextColor": "#ffffff",
+    "calendarCache": null
+  },
 
   "backend": {
     "command": "gjs",
