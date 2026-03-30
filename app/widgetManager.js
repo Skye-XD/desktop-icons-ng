@@ -2320,8 +2320,10 @@ const WidgetManager = class {
         for (const inst of this._instances.values()) {
             const selected = inst.instanceId === this._selectedInstanceId;
             // To Do: GTK Widget seleted state
-            if (inst.kind === 'html' && inst.actor && inst.host)
+            if (inst.kind === 'html' && inst.actor && inst.host) {
+                inst.host.setKeyboardFocusable(selected);
                 this._webWidgetContext.updateHtmlWidgetSelected(inst, selected);
+            }
         }
     }
 
