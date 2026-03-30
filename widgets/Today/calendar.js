@@ -16,48 +16,161 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {DingClient} from '../widgetHelper.js';
+import {DingClient} from './widgetHelper.js';
+
+const DEFAULT_CONFIG = {
+    headerColor: '#f5f6f8',
+    eventColor: '#f5f6f8',
+    panelColor: '#ffffff',
+    panelAlpha: 0.06,
+    nextColor: '#ffffff',
+    calendarCache: null,
+};
 
 export class CalendarWidget {
     constructor(root) {
         this._root = root;
+        this._cfg = {...DEFAULT_CONFIG};
+        this._persistTimer = 0;
+        this._lastPersistedKey = '';
+        this._syncConfig = this._readSyncConfig();
         this._client = new DingClient({mode: 'widget'});
         this._lastSnapshot = null;
         this._tickId = null;
-        this._cfg = {
-            headerColor: '#f5f6f8',
-            eventColor: '#f5f6f8',
-            panelColor: '#ffffff',
-            panelAlpha: 0.06,
-            nextColor: '#ffffff',
-        };
+        this._applyConfigObject(this._syncConfig);
+        this._renderFromCache();
+        this._applyConfig();
 
         this._client.onBackendEvent((name, payload) => {
             if (name === 'update')
-                this._render(payload);
+                this._applySnapshot(payload, {persist: true});
         });
 
         this._client.onVisibilityChange(visible => {
             if (visible && this._lastSnapshot)
-                this._render(this._lastSnapshot);
+                this._render(this._buildRenderSnapshot(this._lastSnapshot));
         });
 
         this._client.onConfigChanged(cfg => {
-            this._applyConfig(cfg);
+            if (!cfg || typeof cfg !== 'object')
+                return;
+
+            this._applyConfigObject(cfg);
+            this._applyConfig();
+            if (!this._lastSnapshot)
+                this._renderFromCache();
         });
 
         this._client.getConfig().then(cfg => {
             if (cfg && typeof cfg === 'object')
-                this._applyConfig(cfg);
+                this._applyConfigObject(cfg);
+            this._applyConfig();
+            if (!this._lastSnapshot)
+                this._renderFromCache();
         }).catch(() => {});
 
+        if (!this._lastSnapshot) {
+            this._client.backendRequest('getSnapshot').then(snapshot => {
+                if (snapshot)
+                    this._applySnapshot(snapshot, {persist: true});
+            }).catch(() => {});
+        }
+
         this._startTick();
+    }
+
+    _readSyncConfig() {
+        try {
+            return window.ding?.getConfigSync?.() ?? null;
+        } catch (_error) {
+            return null;
+        }
+    }
+
+    _applyConfigObject(cfg) {
+        if (!cfg || typeof cfg !== 'object')
+            return;
+
+        this._cfg = {...this._cfg, ...cfg};
+        this._lastPersistedKey = this._buildCachePersistKey(
+            this._cfg.calendarCache
+        );
+    }
+
+    _renderFromCache() {
+        const restored = this._restoreSnapshotFromCache(this._cfg.calendarCache);
+        if (!restored)
+            return;
+
+        this._applySnapshot(restored, {persist: false, fromCache: true});
+    }
+
+    _restoreSnapshotFromCache(calendarCache) {
+        const snapshot = this._normalizeSnapshot(calendarCache?.snapshot);
+        if (!snapshot)
+            return null;
+
+        const nowUnix = Math.floor(Date.now() / 1000);
+        if (!Number.isFinite(snapshot.dayStartUnix) ||
+            !Number.isFinite(snapshot.dayEndUnix) ||
+            nowUnix < snapshot.dayStartUnix ||
+            nowUnix >= snapshot.dayEndUnix)
+            return null;
+
+        return {
+            ...snapshot,
+            nowUnix,
+        };
+    }
+
+    _applySnapshot(snapshot, {persist = false, fromCache = false} = {}) {
+        const normalized = this._normalizeSnapshot(snapshot);
+        if (!normalized)
+            return;
+
+        this._lastSnapshot = normalized;
+        this._render(this._buildRenderSnapshot(normalized));
+
+        if (persist || fromCache)
+            this._schedulePersist();
+    }
+
+    _normalizeSnapshot(snapshot) {
+        if (!snapshot || typeof snapshot !== 'object')
+            return null;
+
+        return {
+            nowUnix: Number.isFinite(snapshot.nowUnix)
+                ? snapshot.nowUnix
+                : Math.floor(Date.now() / 1000),
+            dayStartUnix: Number.isFinite(snapshot.dayStartUnix)
+                ? snapshot.dayStartUnix
+                : 0,
+            dayEndUnix: Number.isFinite(snapshot.dayEndUnix)
+                ? snapshot.dayEndUnix
+                : 0,
+            allday: Array.isArray(snapshot.allday)
+                ? snapshot.allday.map(ev => ({...ev}))
+                : [],
+            timed: Array.isArray(snapshot.timed)
+                ? snapshot.timed.map(ev => ({...ev}))
+                : [],
+        };
+    }
+
+    _buildRenderSnapshot(snapshot) {
+        if (!snapshot)
+            return null;
+
+        return {
+            ...snapshot,
+            nowUnix: Math.floor(Date.now() / 1000),
+        };
     }
 
     _render(s) {
         if (!s)
             return;
-        this._lastSnapshot = s;
 
         // Empty day
         if (!s.allday.length && !s.timed.length) {
@@ -195,10 +308,7 @@ export class CalendarWidget {
         return `in ${hours} hour${hours === 1 ? '' : 's'}`;
     }
 
-    _applyConfig(cfg) {
-        if (cfg && typeof cfg === 'object')
-            this._cfg = {...this._cfg, ...cfg};
-
+    _applyConfig() {
         const headerColor = this._normalizeHex(this._cfg.headerColor) || '#f5f6f8';
         const eventColor = this._normalizeHex(this._cfg.eventColor) || '#f5f6f8';
         const panelColor = this._normalizeHex(this._cfg.panelColor) || '#ffffff';
@@ -230,10 +340,71 @@ export class CalendarWidget {
             return;
         this._tickId = setInterval(() => {
             if (this._lastSnapshot) {
-                const next = {...this._lastSnapshot, nowUnix: Math.floor(Date.now() / 1000)};
+                const next = this._buildRenderSnapshot(this._lastSnapshot);
                 this._render(next);
+                this._schedulePersist();
             }
         }, 60000);
+    }
+
+    _schedulePersist() {
+        const calendarCache = this._buildCalendarCache();
+        const persistKey = this._buildCachePersistKey(calendarCache);
+        if (!calendarCache || persistKey === this._lastPersistedKey)
+            return;
+
+        if (this._persistTimer)
+            clearTimeout(this._persistTimer);
+
+        this._persistTimer = setTimeout(() => {
+            this._persistTimer = 0;
+            const nextCache = this._buildCalendarCache();
+            const nextKey = this._buildCachePersistKey(nextCache);
+            if (!nextCache || nextKey === this._lastPersistedKey)
+                return;
+
+            this._cfg = {...this._cfg, calendarCache: nextCache};
+            this._lastPersistedKey = nextKey;
+            this._client.patchConfig({calendarCache: nextCache}).catch(() => {});
+        }, 200);
+    }
+
+    _buildCalendarCache() {
+        const snapshot = this._buildRenderSnapshot(this._lastSnapshot);
+        if (!snapshot)
+            return null;
+
+        return {snapshot};
+    }
+
+    _buildCachePersistKey(calendarCache) {
+        const snapshot = calendarCache?.snapshot;
+        if (!snapshot)
+            return '';
+
+        return JSON.stringify({
+            nowUnix: snapshot.nowUnix ?? 0,
+            dayStartUnix: snapshot.dayStartUnix ?? 0,
+            dayEndUnix: snapshot.dayEndUnix ?? 0,
+            allday: Array.isArray(snapshot.allday)
+                ? snapshot.allday.map(ev => [
+                    ev.id ?? '',
+                    ev.startUnix ?? 0,
+                    ev.endUnix ?? 0,
+                    ev.summary ?? '',
+                    ev.calendarColor ?? '',
+                ])
+                : [],
+            timed: Array.isArray(snapshot.timed)
+                ? snapshot.timed.map(ev => [
+                    ev.id ?? '',
+                    ev.startUnix ?? 0,
+                    ev.endUnix ?? 0,
+                    ev.summary ?? '',
+                    ev.calendarColor ?? '',
+                ])
+                : [],
+        });
     }
 
     _escape(s) {
