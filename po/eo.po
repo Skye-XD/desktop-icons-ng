@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-11 13:26-0400\n"
+"POT-Creation-Date: 2026-03-30 06:42-0400\n"
 "PO-Revision-Date: 2026-03-16 13:11+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
@@ -73,259 +73,259 @@ msgid "Help translate in your web browser"
 msgstr "Helpu traduki en via retumilo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:597 app/adwPreferencesWindow.js:598
+#: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
 msgid "Desktop"
 msgstr "Desktop"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:603 app/adwPreferencesWindow.js:604
+#: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
 msgid "Files"
 msgstr "Dosieroj"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:609 app/adwPreferencesWindow.js:610
-#: app/adwPreferencesWindow.js:652
+#: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
+#: app/adwPreferencesWindow.js:654
 msgid "Tweaks"
 msgstr "Tweaks"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:615 app/adwPreferencesWindow.js:616
+#: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
 msgid "More"
 msgstr "Pli"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:627
+#: app/adwPreferencesWindow.js:629
 msgid "Desktop Settings"
 msgstr "Desktop Settings"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:628
+#: app/adwPreferencesWindow.js:630
 msgid "Settings for the Desktop Program"
 msgstr "Settings por la Desktop Programo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:634
+#: app/adwPreferencesWindow.js:636
 msgid "Desktop Folder"
 msgstr "Desktop Folder"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:635
+#: app/adwPreferencesWindow.js:637
 msgid "Current Desktop: "
 msgstr "Nuna tablo:"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:645
+#: app/adwPreferencesWindow.js:647
 msgid "Files Settings"
 msgstr "Dosieroj"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:646
+#: app/adwPreferencesWindow.js:648
 msgid "Settings shared with Gnome Files"
 msgstr "Settings kun Gnome Files"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:653
+#: app/adwPreferencesWindow.js:655
 msgid "Miscellaneous Tweaks"
 msgstr "Miscellaneous Tweaks"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:677
+#: app/adwPreferencesWindow.js:679
 msgid "Size for the desktop icons"
 msgstr "Size por la tablo ikonoj"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:679
+#: app/adwPreferencesWindow.js:681
 msgid "Tiny"
 msgstr "Tiny"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:680
+#: app/adwPreferencesWindow.js:682
 msgid "Small"
 msgstr "Malgranda malgranda"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:683
 msgid "Standard"
 msgstr "Normo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:682
+#: app/adwPreferencesWindow.js:684
 msgid "Large"
 msgstr "Granda granda granda"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:688
+#: app/adwPreferencesWindow.js:690
 msgid "New icons alignment"
 msgstr "Novaj ikonoj paraleligo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:690
+#: app/adwPreferencesWindow.js:692
 msgid "Top left corner"
 msgstr "Top maldekstra angulo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:691
+#: app/adwPreferencesWindow.js:693
 msgid "Top right corner"
 msgstr "Supra dekstra angulo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:692
+#: app/adwPreferencesWindow.js:694
 msgid "Bottom left corner"
 msgstr "Bottom forlasis angulon"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:693
+#: app/adwPreferencesWindow.js:695
 msgid "Bottom right corner"
 msgstr "Fundo dekstra angulo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:699
+#: app/adwPreferencesWindow.js:701
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "Aldonu novajn ikonojn al Sekundaraj ekranoj unue, se havebla"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:703
+#: app/adwPreferencesWindow.js:705
 msgid "Snap icons to grid"
 msgstr "Snap ikonoj al krado"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:709
+#: app/adwPreferencesWindow.js:711
 #, fuzzy
 msgid "Show desktop widgets"
 msgstr "Montras en Dosieroj"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:714
+#: app/adwPreferencesWindow.js:716
 msgid "New Desktop Folder"
 msgstr "New Desktop Folder"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:715
+#: app/adwPreferencesWindow.js:717
 msgid "Set a new folder for the desktop"
 msgstr "Akiri novan faldon por la tablo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:716 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:718 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "Elektu elekti"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:721
+#: app/adwPreferencesWindow.js:723
 msgid "Set Desktop back to ~/"
 msgstr "Agordas reen al ~/"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:723
+#: app/adwPreferencesWindow.js:725
 msgid "Restore Default Desktop Folder"
 msgstr "Restore Default Desktop Folder"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:725
+#: app/adwPreferencesWindow.js:727
 msgid "Restore"
 msgstr "Restore"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:734
+#: app/adwPreferencesWindow.js:736
 msgid "Highlight the drop grid"
 msgstr "Plenigu la guton"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:744
+#: app/adwPreferencesWindow.js:746
 msgid "Add information emblems for links, encryption"
 msgstr "Aldonu informajn emblemojn por ligiloj, ĉifrado"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:748
+#: app/adwPreferencesWindow.js:750
 msgid "Use dark text in icon labels"
 msgstr "Uzu malhelan tekston en ikono etikedoj"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:753
+#: app/adwPreferencesWindow.js:755
 msgid "Show the personal folder on the desktop"
 msgstr "Montri la personan faldon sur la tablo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:758
+#: app/adwPreferencesWindow.js:760
 msgid "Show the trash icon on the desktop"
 msgstr "Montri la rubikon sur la tablo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:763
+#: app/adwPreferencesWindow.js:765
 msgid "Show external drives on the desktop"
 msgstr "Montri eksterajn veturadojn sur la tablo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:768
+#: app/adwPreferencesWindow.js:770
 msgid "Show network drives on the desktop"
 msgstr "Montri sendostaciajn veturadojn sur la tablo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:773
+#: app/adwPreferencesWindow.js:775
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "Aldonu novajn veturadojn al la kontraŭa flanko de la tablo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:778
+#: app/adwPreferencesWindow.js:780
 msgid "Action to Open Items"
 msgstr "Ago por malfermi ĝin"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:780
+#: app/adwPreferencesWindow.js:782
 msgid "Single click"
 msgstr "Ununura klako"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:781
+#: app/adwPreferencesWindow.js:783
 msgid "Double click"
 msgstr "Duobla klako"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:786
+#: app/adwPreferencesWindow.js:788
 msgid "Show image thumbnails"
 msgstr "Montri bildon dikfingronajil"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:788
+#: app/adwPreferencesWindow.js:790
 msgid "Always"
 msgstr "Ĉiam ĉiam"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:789
+#: app/adwPreferencesWindow.js:791
 msgid "On this computer only"
 msgstr "En ĉi tiu komputilo nur"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:790
+#: app/adwPreferencesWindow.js:792
 msgid "Never"
 msgstr "Neniam neniam"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:795
+#: app/adwPreferencesWindow.js:797
 msgid "Show a context menu item to delete permanently"
 msgstr "Montri kuntekston menuo objekto forigi permanente"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:800
+#: app/adwPreferencesWindow.js:802
 msgid "Show hidden files"
 msgstr "Montri kaŝitajn dosierojn"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:805
+#: app/adwPreferencesWindow.js:807
 msgid "Open folders on drag hover"
 msgstr "Malfermaj falduloj sur tiriĝ ŝvebas"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:809
+#: app/adwPreferencesWindow.js:811
 msgid "About..."
 msgstr "Pri..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:822
+#: app/adwPreferencesWindow.js:824
 msgid "Translation"
 msgstr "Traduko de tradukado"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:823
+#: app/adwPreferencesWindow.js:825
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
@@ -333,17 +333,17 @@ msgstr ""
 "Weblate."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:828
+#: app/adwPreferencesWindow.js:830
 msgid "Edit Translations"
 msgstr "Edit Translations"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:829
+#: app/adwPreferencesWindow.js:831
 msgid "Verify, add or correct translation in your web browser"
 msgstr "Verify, aldoni aŭ korekti tradukon en via retumilo"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:832
 msgid "Translate"
 msgstr "Translate"
 
@@ -503,7 +503,7 @@ msgstr "Kunpremaj dosieroj"
 #: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
 #: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
 #: app/fileItemMenu.js:968 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#: app/widgetManager.js:2124
+#: app/widgetManager.js:2830
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -733,16 +733,16 @@ msgid "Desktop Icons"
 msgstr "Desktop Icons"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2586
+#: app/desktopGrid.js:2587
 #, fuzzy
 msgid "Back to Desktop"
 msgstr "Ĝisdatigo Desktop"
 
-#: app/desktopGrid.js:2587 app/widgetManager.js:1170
+#: app/desktopGrid.js:2588 app/widgetManager.js:1525
 msgid "Toggle Widget Grid"
 msgstr ""
 
-#: app/desktopGrid.js:2588
+#: app/desktopGrid.js:2589
 msgid "Add Widget..."
 msgstr "Aldoni fenestraĵon"
 
@@ -850,7 +850,7 @@ msgid "Find Files on Desktop"
 msgstr "Trovi Dosierojn sur Desktop"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1644 app/desktopMenu.js:1072 app/shortcuts.js:10
+#: app/desktopManager.js:1644 app/desktopMenu.js:1065 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "Nova Folder"
 
@@ -865,146 +865,146 @@ msgid "Could not create folder"
 msgstr "Ne povas krei faldon"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:605
+#: app/desktopMenu.js:598
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "Nekapabla malfermi Desktop en Gnome Files"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:624
+#: app/desktopMenu.js:617
 msgid "Preferences Window is Open"
 msgstr "Prefera fenestro estas malfermita"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:625
+#: app/desktopMenu.js:618
 msgid "This Window is open. Please switch to the active window."
 msgstr "Tiu fenestro estas malfermita. Bonvolu ŝanĝi al la aktiva fenestro."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:634 app/desktopMenu.js:1125
+#: app/desktopMenu.js:627 app/desktopMenu.js:1118
 msgid "Settings"
 msgstr "Settings"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:914
+#: app/desktopMenu.js:907
 msgid "Template Creation Error"
 msgstr "Kreado Eraro"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:915
+#: app/desktopMenu.js:908
 msgid "Could not create document"
 msgstr "Ne povas krei dokumenton"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1033
+#: app/desktopMenu.js:1026
 msgid "Name"
 msgstr "Nomo nomo"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1035
+#: app/desktopMenu.js:1028
 msgid "Name Z-A"
 msgstr "Nomo Z-A"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1037
+#: app/desktopMenu.js:1030
 msgid "Modified Time"
 msgstr "Modifita Tempo"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1039
+#: app/desktopMenu.js:1032
 msgid "Type"
 msgstr "Tipo"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1041
+#: app/desktopMenu.js:1034
 msgid "Size"
 msgstr "Size"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1046
+#: app/desktopMenu.js:1039
 msgid "Keep Arranged…"
 msgstr "Konservu .."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1051
+#: app/desktopMenu.js:1044
 msgid "Keep Stacked by Type…"
 msgstr "Tenita per Tipo.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1053
+#: app/desktopMenu.js:1046
 msgid "Sort Home/Drives/Trash…"
 msgstr "Sort Home/Drives/Trash"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1058
+#: app/desktopMenu.js:1051
 msgid "Change Desktop"
 msgstr "Ŝanĝoj desktop"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1063
+#: app/desktopMenu.js:1056
 msgid "Restore Default Desktop"
 msgstr "Restore Default Desktop"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1067
+#: app/desktopMenu.js:1060
 msgid "Desktop Icon Settings"
 msgstr "Desktop Icon Settings"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1069
+#: app/desktopMenu.js:1062
 msgid "Show Shortcuts"
 msgstr "Montri mallongigojn"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1077 app/shortcuts.js:66
+#: app/desktopMenu.js:1070 app/shortcuts.js:67
 msgid "New Document"
 msgstr "Nova Dokumento"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1082 app/shortcuts.js:11
+#: app/desktopMenu.js:1075 app/shortcuts.js:11
 msgid "Paste"
 msgstr "Pasto"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1084 app/shortcuts.js:12
+#: app/desktopMenu.js:1077 app/shortcuts.js:12
 msgid "Undo"
 msgstr "Undo"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1086 app/shortcuts.js:13
+#: app/desktopMenu.js:1079 app/shortcuts.js:13
 msgid "Redo"
 msgstr "Redo"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1092 app/shortcuts.js:14
+#: app/desktopMenu.js:1085 app/shortcuts.js:14
 msgid "Select All"
 msgstr "Elektu ĉiujn"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1099
+#: app/desktopMenu.js:1092
 msgid "Arrange Icons"
 msgstr "Arrange Icons"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1103
+#: app/desktopMenu.js:1096
 msgid "Arrange By…"
 msgstr "Arrange By.."
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1111
+#: app/desktopMenu.js:1104
 msgid "Show Desktop In {0}"
 msgstr "out {0}"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1116
+#: app/desktopMenu.js:1109
 msgid "Open In {0}"
 msgstr "out {0}"
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:1126
 msgid "Edit Widgets…"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:1133
 msgid "Shell Menu…"
 msgstr "Shell Menu.."
 
@@ -1362,7 +1362,7 @@ msgid "$appName$ can not open files of this Type!"
 msgstr "Apliki $ ne povas malfermi dosierojn de ĉi tiu tipo!"
 
 # MT: LibreTranslate
-#: app/preferences.js:1069
+#: app/preferences.js:1097
 msgid "Console"
 msgstr "Console"
 
@@ -1422,22 +1422,22 @@ msgid "System Keyboard Shortcuts"
 msgstr "Sistemo Keyboard Shortcuts"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:701
+#: app/shortcutManager.js:669
 msgid "Keyboard Shortcuts"
 msgstr "Ŝlosilestraro Shortcuts"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:713
+#: app/shortcutManager.js:681
 msgid "Reset Shortcuts"
 msgstr "Reset Shortcuts"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:714
+#: app/shortcutManager.js:682
 msgid "Reset all shortcuts to Defaults"
 msgstr "Remeti ĉiujn mallongigojn al Defaŭloj"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:717
+#: app/shortcutManager.js:685
 msgid "Reset All..."
 msgstr "Remetu ĉion..."
 
@@ -1482,124 +1482,124 @@ msgid "Keep Stacked"
 msgstr "Konservi Stacked"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:23
+#: app/shortcuts.js:23 app/shortcuts.js:24
 msgid "Sort Special Folders"
 msgstr "Saĝa Special Folders"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:24
+#: app/shortcuts.js:25
 msgid "Arrange Icons by Name"
 msgstr "Arrange Icons laŭ nomo"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:25
+#: app/shortcuts.js:26
 msgid "Arrange Icons By Descending Name"
 msgstr "Arrange Icons By Descending Name"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:26
+#: app/shortcuts.js:27
 msgid "Arrange Icons By Modified Time"
 msgstr "Arrange Icons By Modified Time"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:27
+#: app/shortcuts.js:28
 msgid "Arrange Icons By Kind"
 msgstr "Arrange Icons de la speco"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:28
+#: app/shortcuts.js:29
 msgid "Arrange Icons By Size"
 msgstr "Arrange Icons By Size"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:29
+#: app/shortcuts.js:30
 msgid "Find Files"
 msgstr "Trovu dosierojn"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:30
+#: app/shortcuts.js:31
 msgid "Update Desktop"
 msgstr "Ĝisdatigo Desktop"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:31
+#: app/shortcuts.js:32
 msgid "Show Hidden Files"
 msgstr "Montri Hidden Files"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:32
+#: app/shortcuts.js:33
 msgid "Unselect All"
 msgstr "La tuta"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:33
+#: app/shortcuts.js:34
 msgid "Preview"
 msgstr "Antaŭvido"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
 msgstr ""
 
-#: app/shortcuts.js:38
+#: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
 msgstr ""
 
-#: app/shortcuts.js:39 app/widgetManager.js:1106
+#: app/shortcuts.js:40 app/widgetManager.js:1461
 msgid "Add Widget"
 msgstr "Aldoni fenestraĵon"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:42
+#: app/shortcuts.js:43
 msgid "Choose Icon Left"
 msgstr "Elektu Icon Left"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:47
+#: app/shortcuts.js:48
 msgid "Choose Icon Right"
 msgstr "Elektu Icon Right"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:52
+#: app/shortcuts.js:53
 msgid "Choose Icon Up"
 msgstr "Elektu Icon Up"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:57
+#: app/shortcuts.js:58
 msgid "Choose Icon Down"
 msgstr "Elektu Icon Down"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:61
+#: app/shortcuts.js:62
 msgid "Show Menu"
 msgstr "Montri menuojn"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:62
+#: app/shortcuts.js:63
 msgid "Display Shell Background Menu"
 msgstr "Aparta Shell Fono Menu"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:63
+#: app/shortcuts.js:64
 msgid "Create Desktop Shortcut"
 msgstr "Kreu Desktop Shortcut"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:64
+#: app/shortcuts.js:65
 msgid "Text Entry Accels Turn On"
 msgstr "Teksto Entry Accels Turn On"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:65
+#: app/shortcuts.js:66
 msgid "Text Entry Accels Turn Off"
 msgstr "Teksto Entry Accels Turn Off"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:67
+#: app/shortcuts.js:68
 msgid "Show Shortcut Viewer"
 msgstr "La mallonga resumo Spektanto"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:68
+#: app/shortcuts.js:69
 msgid "Show Or Hide Desktop Icons"
 msgstr "Montras aŭ Kaŝi Desktop Icons"
 
@@ -1645,32 +1645,45 @@ msgid "Drive"
 msgstr "Veturado"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:1580
+#: app/widgetManager.js:2123
 #, fuzzy
 msgid "Widget preferences"
 msgstr "Preferoj"
 
-#: app/widgetManager.js:2008
+#: app/widgetManager.js:2135 app/widgetManager.js:2144
+msgid "Unpin widget"
+msgstr ""
+
+#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#, fuzzy
+msgid "Pin widget"
+msgstr "Aldoni fenestraĵon"
+
+#: app/widgetManager.js:2153
+msgid "Reposition widget"
+msgstr ""
+
+#: app/widgetManager.js:2699
 msgid "HTML widget"
 msgstr ""
 
-#: app/widgetManager.js:2010
+#: app/widgetManager.js:2701
 msgid "GTK widget"
 msgstr ""
 
-#: app/widgetManager.js:2019
+#: app/widgetManager.js:2710
 msgid "User"
 msgstr "Uzanto"
 
-#: app/widgetManager.js:2123
+#: app/widgetManager.js:2829
 msgid "Allow"
 msgstr "Permesi"
 
-#: app/widgetManager.js:2177
+#: app/widgetManager.js:2883
 msgid "Strict"
 msgstr "Strikta"
 
-#: app/widgetManager.js:2179
+#: app/widgetManager.js:2885
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1681,11 +1694,11 @@ msgid ""
 "This is the safest option and is recommended for most widgets."
 msgstr ""
 
-#: app/widgetManager.js:2190
+#: app/widgetManager.js:2896
 msgid "Relaxed"
 msgstr "Malsevera"
 
-#: app/widgetManager.js:2192
+#: app/widgetManager.js:2898
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1696,11 +1709,11 @@ msgid ""
 "Use this only for widgets you trust."
 msgstr ""
 
-#: app/widgetManager.js:2202
+#: app/widgetManager.js:2908
 msgid "Development"
 msgstr "Programado"
 
-#: app/widgetManager.js:2204
+#: app/widgetManager.js:2910
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1711,70 +1724,80 @@ msgid ""
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2213
+#: app/widgetManager.js:2919
 msgid "Default"
 msgstr "Implicita"
 
-#: app/widgetManager.js:2215
+#: app/widgetManager.js:2921
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
 
-#: app/widgetManager.js:2223
+#: app/widgetManager.js:2929
 msgid "Allow web content for {widgetId}?"
 msgstr ""
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:2233
+#: app/widgetManager.js:2939
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2234
+#: app/widgetManager.js:2940
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2263
+#: app/widgetManager.js:2974
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2265
+#: app/widgetManager.js:2976
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
 
-#: app/widgetManager.js:2266
+#: app/widgetManager.js:2977
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2268
+#: app/widgetManager.js:2979
 msgid "Command:"
 msgstr "Komando:"
 
-#: app/widgetManager.js:2271
+#: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
 msgstr ""
 
-#: app/widgetManager.js:2274
+#: app/widgetManager.js:2985
 msgid "Allow widget backend?"
 msgstr ""
 
 # MT: LibreTranslate
-#: app/widgetWebContext.js:187
+#: app/widgetWebContext.js:263
 #, fuzzy
 msgid "Widget Preferences"
 msgstr "Preferoj"
+
+#: app/widgetWebContext.js:792
+msgid "Open link in browser?"
+msgstr ""
+
+#: app/widgetWebContext.js:793
+msgid ""
+"The widget wants to open this link in your browser:\n"
+"\n"
+msgstr ""
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67

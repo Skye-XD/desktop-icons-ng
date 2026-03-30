@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-11 13:26-0400\n"
+"POT-Creation-Date: 2026-03-30 06:42-0400\n"
 "PO-Revision-Date: 2026-02-22 00:11+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -66,222 +66,222 @@ msgstr ""
 msgid "Help translate in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:597 app/adwPreferencesWindow.js:598
+#: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
 msgid "Desktop"
 msgstr "სამუშაო მაგიდა"
 
-#: app/adwPreferencesWindow.js:603 app/adwPreferencesWindow.js:604
+#: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
 msgid "Files"
 msgstr "ფაილები"
 
-#: app/adwPreferencesWindow.js:609 app/adwPreferencesWindow.js:610
-#: app/adwPreferencesWindow.js:652
+#: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
+#: app/adwPreferencesWindow.js:654
 msgid "Tweaks"
 msgstr "მცირე ცვლილებები"
 
-#: app/adwPreferencesWindow.js:615 app/adwPreferencesWindow.js:616
+#: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
 msgid "More"
 msgstr "მეტი"
 
-#: app/adwPreferencesWindow.js:627
+#: app/adwPreferencesWindow.js:629
 msgid "Desktop Settings"
 msgstr "სამუშაო მაგიდის მორგება"
 
-#: app/adwPreferencesWindow.js:628
+#: app/adwPreferencesWindow.js:630
 msgid "Settings for the Desktop Program"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:634
+#: app/adwPreferencesWindow.js:636
 msgid "Desktop Folder"
 msgstr "სამუშაო მაგიდის საქაღალდე"
 
-#: app/adwPreferencesWindow.js:635
+#: app/adwPreferencesWindow.js:637
 msgid "Current Desktop: "
 msgstr "მიმდინარე სამუშაო მაგიდა "
 
-#: app/adwPreferencesWindow.js:645
+#: app/adwPreferencesWindow.js:647
 msgid "Files Settings"
 msgstr "ფაილების მორგება"
 
-#: app/adwPreferencesWindow.js:646
+#: app/adwPreferencesWindow.js:648
 msgid "Settings shared with Gnome Files"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:653
+#: app/adwPreferencesWindow.js:655
 msgid "Miscellaneous Tweaks"
 msgstr "სხვადასხვა პარამეტრები"
 
-#: app/adwPreferencesWindow.js:677
+#: app/adwPreferencesWindow.js:679
 msgid "Size for the desktop icons"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:679
+#: app/adwPreferencesWindow.js:681
 msgid "Tiny"
 msgstr "პაწაწინა"
 
-#: app/adwPreferencesWindow.js:680
+#: app/adwPreferencesWindow.js:682
 msgid "Small"
 msgstr "პატარა"
 
-#: app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:683
 msgid "Standard"
 msgstr "სტანდარტული"
 
-#: app/adwPreferencesWindow.js:682
+#: app/adwPreferencesWindow.js:684
 msgid "Large"
 msgstr "დიდი"
 
-#: app/adwPreferencesWindow.js:688
+#: app/adwPreferencesWindow.js:690
 msgid "New icons alignment"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:690
+#: app/adwPreferencesWindow.js:692
 msgid "Top left corner"
 msgstr "ზედა მარცხენა კუთხე"
 
-#: app/adwPreferencesWindow.js:691
+#: app/adwPreferencesWindow.js:693
 msgid "Top right corner"
 msgstr "ზედა მარჯვენა კუთხე"
 
-#: app/adwPreferencesWindow.js:692
+#: app/adwPreferencesWindow.js:694
 msgid "Bottom left corner"
 msgstr "ქვედა მარცხენა კუთხე"
 
-#: app/adwPreferencesWindow.js:693
+#: app/adwPreferencesWindow.js:695
 msgid "Bottom right corner"
 msgstr "ქვედა მარჯვენა კუთხე"
 
-#: app/adwPreferencesWindow.js:699
+#: app/adwPreferencesWindow.js:701
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "ახალი ხატულების, ჯერ მეორე ეკრანზე დამატება, თუ ის ხელმისაწვდომია"
 
-#: app/adwPreferencesWindow.js:703
+#: app/adwPreferencesWindow.js:705
 msgid "Snap icons to grid"
 msgstr "ბადეზე მიბმა"
 
-#: app/adwPreferencesWindow.js:709
+#: app/adwPreferencesWindow.js:711
 #, fuzzy
 msgid "Show desktop widgets"
 msgstr "სამუშაო მაგიდის ჩვენება Files-ში"
 
-#: app/adwPreferencesWindow.js:714
+#: app/adwPreferencesWindow.js:716
 msgid "New Desktop Folder"
 msgstr "ახალი საქაღალდე სამუშაო მაგიდაზე"
 
-#: app/adwPreferencesWindow.js:715
+#: app/adwPreferencesWindow.js:717
 msgid "Set a new folder for the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:716 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:718 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "აირჩიეთ"
 
-#: app/adwPreferencesWindow.js:721
+#: app/adwPreferencesWindow.js:723
 msgid "Set Desktop back to ~/"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:723
+#: app/adwPreferencesWindow.js:725
 msgid "Restore Default Desktop Folder"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:725
+#: app/adwPreferencesWindow.js:727
 msgid "Restore"
 msgstr "აღდგენა"
 
-#: app/adwPreferencesWindow.js:734
+#: app/adwPreferencesWindow.js:736
 msgid "Highlight the drop grid"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:744
+#: app/adwPreferencesWindow.js:746
 msgid "Add information emblems for links, encryption"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:748
+#: app/adwPreferencesWindow.js:750
 msgid "Use dark text in icon labels"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:753
+#: app/adwPreferencesWindow.js:755
 msgid "Show the personal folder on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:758
+#: app/adwPreferencesWindow.js:760
 msgid "Show the trash icon on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:763
+#: app/adwPreferencesWindow.js:765
 msgid "Show external drives on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:768
+#: app/adwPreferencesWindow.js:770
 msgid "Show network drives on the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:773
+#: app/adwPreferencesWindow.js:775
 msgid "Add new drives to the opposite side of the desktop"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:778
+#: app/adwPreferencesWindow.js:780
 msgid "Action to Open Items"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:780
+#: app/adwPreferencesWindow.js:782
 msgid "Single click"
 msgstr "ერთი წკაპი"
 
-#: app/adwPreferencesWindow.js:781
+#: app/adwPreferencesWindow.js:783
 msgid "Double click"
 msgstr "ორმაგი წკაპი"
 
-#: app/adwPreferencesWindow.js:786
+#: app/adwPreferencesWindow.js:788
 msgid "Show image thumbnails"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:788
+#: app/adwPreferencesWindow.js:790
 msgid "Always"
 msgstr "ყოველთვის"
 
-#: app/adwPreferencesWindow.js:789
+#: app/adwPreferencesWindow.js:791
 msgid "On this computer only"
 msgstr "მხოლოდ ამ კომპიუტერზე"
 
-#: app/adwPreferencesWindow.js:790
+#: app/adwPreferencesWindow.js:792
 msgid "Never"
 msgstr "არასდროს"
 
-#: app/adwPreferencesWindow.js:795
+#: app/adwPreferencesWindow.js:797
 msgid "Show a context menu item to delete permanently"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:800
+#: app/adwPreferencesWindow.js:802
 msgid "Show hidden files"
 msgstr "დამალული ფაილების ჩვენება"
 
-#: app/adwPreferencesWindow.js:805
+#: app/adwPreferencesWindow.js:807
 msgid "Open folders on drag hover"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:809
+#: app/adwPreferencesWindow.js:811
 msgid "About..."
 msgstr "შესახებ..."
 
-#: app/adwPreferencesWindow.js:822
+#: app/adwPreferencesWindow.js:824
 msgid "Translation"
 msgstr "თარგმანი"
 
-#: app/adwPreferencesWindow.js:823
+#: app/adwPreferencesWindow.js:825
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
 
-#: app/adwPreferencesWindow.js:828
+#: app/adwPreferencesWindow.js:830
 msgid "Edit Translations"
 msgstr "გადასვლების ჩასწორება"
 
-#: app/adwPreferencesWindow.js:829
+#: app/adwPreferencesWindow.js:831
 msgid "Verify, add or correct translation in your web browser"
 msgstr ""
 
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:832
 msgid "Translate"
 msgstr "თარგმნა"
 
@@ -409,7 +409,7 @@ msgstr ""
 #: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
 #: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
 #: app/fileItemMenu.js:968 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#: app/widgetManager.js:2124
+#: app/widgetManager.js:2830
 msgid "Cancel"
 msgstr "გაუქმება"
 
@@ -587,16 +587,16 @@ msgstr ""
 msgid "Desktop Icons"
 msgstr "სამუშაო დაფის ხატულა"
 
-#: app/desktopGrid.js:2586
+#: app/desktopGrid.js:2587
 #, fuzzy
 msgid "Back to Desktop"
 msgstr "სამუშაო მაგიდის განახლება"
 
-#: app/desktopGrid.js:2587 app/widgetManager.js:1170
+#: app/desktopGrid.js:2588 app/widgetManager.js:1525
 msgid "Toggle Widget Grid"
 msgstr ""
 
-#: app/desktopGrid.js:2588
+#: app/desktopGrid.js:2589
 msgid "Add Widget..."
 msgstr ""
 
@@ -678,7 +678,7 @@ msgstr ""
 msgid "Find Files on Desktop"
 msgstr ""
 
-#: app/desktopManager.js:1644 app/desktopMenu.js:1072 app/shortcuts.js:10
+#: app/desktopManager.js:1644 app/desktopMenu.js:1065 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "ახალი საქაღალდე"
 
@@ -690,119 +690,119 @@ msgstr ""
 msgid "Could not create folder"
 msgstr "საქაღალდის შექმნა შეუძლებელია"
 
-#: app/desktopMenu.js:605
+#: app/desktopMenu.js:598
 msgid "Unable to open Desktop in Gnome Files"
 msgstr ""
 
-#: app/desktopMenu.js:624
+#: app/desktopMenu.js:617
 msgid "Preferences Window is Open"
 msgstr ""
 
-#: app/desktopMenu.js:625
+#: app/desktopMenu.js:618
 msgid "This Window is open. Please switch to the active window."
 msgstr ""
 
-#: app/desktopMenu.js:634 app/desktopMenu.js:1125
+#: app/desktopMenu.js:627 app/desktopMenu.js:1118
 msgid "Settings"
 msgstr "მორგება"
 
-#: app/desktopMenu.js:914
+#: app/desktopMenu.js:907
 msgid "Template Creation Error"
 msgstr ""
 
-#: app/desktopMenu.js:915
+#: app/desktopMenu.js:908
 msgid "Could not create document"
 msgstr ""
 
-#: app/desktopMenu.js:1033
+#: app/desktopMenu.js:1026
 msgid "Name"
 msgstr "სახელი"
 
-#: app/desktopMenu.js:1035
+#: app/desktopMenu.js:1028
 msgid "Name Z-A"
 msgstr ""
 
-#: app/desktopMenu.js:1037
+#: app/desktopMenu.js:1030
 msgid "Modified Time"
 msgstr ""
 
-#: app/desktopMenu.js:1039
+#: app/desktopMenu.js:1032
 msgid "Type"
 msgstr "ტიპი"
 
-#: app/desktopMenu.js:1041
+#: app/desktopMenu.js:1034
 msgid "Size"
 msgstr "ზომა"
 
-#: app/desktopMenu.js:1046
+#: app/desktopMenu.js:1039
 msgid "Keep Arranged…"
 msgstr ""
 
-#: app/desktopMenu.js:1051
+#: app/desktopMenu.js:1044
 msgid "Keep Stacked by Type…"
 msgstr ""
 
-#: app/desktopMenu.js:1053
+#: app/desktopMenu.js:1046
 msgid "Sort Home/Drives/Trash…"
 msgstr ""
 
-#: app/desktopMenu.js:1058
+#: app/desktopMenu.js:1051
 msgid "Change Desktop"
 msgstr "სამუშაო მაგიდის შეცვლა"
 
-#: app/desktopMenu.js:1063
+#: app/desktopMenu.js:1056
 msgid "Restore Default Desktop"
 msgstr ""
 
-#: app/desktopMenu.js:1067
+#: app/desktopMenu.js:1060
 msgid "Desktop Icon Settings"
 msgstr "სამუშაო მაგიდის ხატულას მორგება"
 
-#: app/desktopMenu.js:1069
+#: app/desktopMenu.js:1062
 msgid "Show Shortcuts"
 msgstr "მალსახმობების ჩვენება"
 
-#: app/desktopMenu.js:1077 app/shortcuts.js:66
+#: app/desktopMenu.js:1070 app/shortcuts.js:67
 msgid "New Document"
 msgstr "ახალი დოკუმენტი"
 
-#: app/desktopMenu.js:1082 app/shortcuts.js:11
+#: app/desktopMenu.js:1075 app/shortcuts.js:11
 msgid "Paste"
 msgstr "ჩასმა"
 
-#: app/desktopMenu.js:1084 app/shortcuts.js:12
+#: app/desktopMenu.js:1077 app/shortcuts.js:12
 msgid "Undo"
 msgstr "გაუქმება"
 
-#: app/desktopMenu.js:1086 app/shortcuts.js:13
+#: app/desktopMenu.js:1079 app/shortcuts.js:13
 msgid "Redo"
 msgstr "გამეორება"
 
-#: app/desktopMenu.js:1092 app/shortcuts.js:14
+#: app/desktopMenu.js:1085 app/shortcuts.js:14
 msgid "Select All"
 msgstr "ყველას მონიშვნა"
 
-#: app/desktopMenu.js:1099
+#: app/desktopMenu.js:1092
 msgid "Arrange Icons"
 msgstr ""
 
-#: app/desktopMenu.js:1103
+#: app/desktopMenu.js:1096
 msgid "Arrange By…"
 msgstr ""
 
-#: app/desktopMenu.js:1111
+#: app/desktopMenu.js:1104
 msgid "Show Desktop In {0}"
 msgstr ""
 
-#: app/desktopMenu.js:1116
+#: app/desktopMenu.js:1109
 msgid "Open In {0}"
 msgstr ""
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:1126
 msgid "Edit Widgets…"
 msgstr ""
 
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:1133
 msgid "Shell Menu…"
 msgstr ""
 
@@ -1090,7 +1090,7 @@ msgstr ""
 msgid "$appName$ can not open files of this Type!"
 msgstr ""
 
-#: app/preferences.js:1069
+#: app/preferences.js:1097
 msgid "Console"
 msgstr "კონსოლი"
 
@@ -1138,19 +1138,19 @@ msgstr "გლობალური მალსახმობები"
 msgid "System Keyboard Shortcuts"
 msgstr "კლავიატურის ბმულები"
 
-#: app/shortcutManager.js:701
+#: app/shortcutManager.js:669
 msgid "Keyboard Shortcuts"
 msgstr "კლავიატურის მალსახსომები"
 
-#: app/shortcutManager.js:713
+#: app/shortcutManager.js:681
 msgid "Reset Shortcuts"
 msgstr "მალსახმობების ჩამოყრა"
 
-#: app/shortcutManager.js:714
+#: app/shortcutManager.js:682
 msgid "Reset all shortcuts to Defaults"
 msgstr ""
 
-#: app/shortcutManager.js:717
+#: app/shortcutManager.js:685
 msgid "Reset All..."
 msgstr "ყველას ჩამოყრა..."
 
@@ -1186,103 +1186,103 @@ msgstr ""
 msgid "Keep Stacked"
 msgstr ""
 
-#: app/shortcuts.js:23
+#: app/shortcuts.js:23 app/shortcuts.js:24
 msgid "Sort Special Folders"
 msgstr ""
 
-#: app/shortcuts.js:24
+#: app/shortcuts.js:25
 msgid "Arrange Icons by Name"
 msgstr ""
 
-#: app/shortcuts.js:25
+#: app/shortcuts.js:26
 msgid "Arrange Icons By Descending Name"
 msgstr ""
 
-#: app/shortcuts.js:26
+#: app/shortcuts.js:27
 msgid "Arrange Icons By Modified Time"
 msgstr ""
 
-#: app/shortcuts.js:27
+#: app/shortcuts.js:28
 msgid "Arrange Icons By Kind"
 msgstr ""
 
-#: app/shortcuts.js:28
+#: app/shortcuts.js:29
 msgid "Arrange Icons By Size"
 msgstr ""
 
-#: app/shortcuts.js:29
+#: app/shortcuts.js:30
 msgid "Find Files"
 msgstr "ფაილებში ძებნა"
 
-#: app/shortcuts.js:30
+#: app/shortcuts.js:31
 msgid "Update Desktop"
 msgstr "სამუშაო მაგიდის განახლება"
 
-#: app/shortcuts.js:31
+#: app/shortcuts.js:32
 msgid "Show Hidden Files"
 msgstr "დამალული ფაილების ჩვენება"
 
-#: app/shortcuts.js:32
+#: app/shortcuts.js:33
 msgid "Unselect All"
 msgstr "მონიშვნის მოხსნა"
 
-#: app/shortcuts.js:33
+#: app/shortcuts.js:34
 msgid "Preview"
 msgstr "მინიატურა"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
 msgstr ""
 
-#: app/shortcuts.js:38
+#: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
 msgstr ""
 
-#: app/shortcuts.js:39 app/widgetManager.js:1106
+#: app/shortcuts.js:40 app/widgetManager.js:1461
 msgid "Add Widget"
 msgstr ""
 
-#: app/shortcuts.js:42
+#: app/shortcuts.js:43
 msgid "Choose Icon Left"
 msgstr ""
 
-#: app/shortcuts.js:47
+#: app/shortcuts.js:48
 msgid "Choose Icon Right"
 msgstr ""
 
-#: app/shortcuts.js:52
+#: app/shortcuts.js:53
 msgid "Choose Icon Up"
 msgstr "აირჩიეთ ხატულა ზემოთ"
 
-#: app/shortcuts.js:57
+#: app/shortcuts.js:58
 msgid "Choose Icon Down"
 msgstr ""
 
-#: app/shortcuts.js:61
+#: app/shortcuts.js:62
 msgid "Show Menu"
 msgstr "მენიუს ჩვენება"
 
-#: app/shortcuts.js:62
+#: app/shortcuts.js:63
 msgid "Display Shell Background Menu"
 msgstr ""
 
-#: app/shortcuts.js:63
+#: app/shortcuts.js:64
 msgid "Create Desktop Shortcut"
 msgstr ""
 
-#: app/shortcuts.js:64
+#: app/shortcuts.js:65
 msgid "Text Entry Accels Turn On"
 msgstr ""
 
-#: app/shortcuts.js:65
+#: app/shortcuts.js:66
 msgid "Text Entry Accels Turn Off"
 msgstr ""
 
-#: app/shortcuts.js:67
+#: app/shortcuts.js:68
 msgid "Show Shortcut Viewer"
 msgstr "მალსახმობების დამთვალიერებლის ჩვენება"
 
-#: app/shortcuts.js:68
+#: app/shortcuts.js:69
 msgid "Show Or Hide Desktop Icons"
 msgstr "სამუშაო მაგიდის ხატულების ჩვენება ან დამალვა"
 
@@ -1320,32 +1320,44 @@ msgstr ""
 msgid "Drive"
 msgstr "დრაივი"
 
-#: app/widgetManager.js:1580
+#: app/widgetManager.js:2123
 #, fuzzy
 msgid "Widget preferences"
 msgstr "მორგება"
 
-#: app/widgetManager.js:2008
+#: app/widgetManager.js:2135 app/widgetManager.js:2144
+msgid "Unpin widget"
+msgstr ""
+
+#: app/widgetManager.js:2135 app/widgetManager.js:2144
+msgid "Pin widget"
+msgstr ""
+
+#: app/widgetManager.js:2153
+msgid "Reposition widget"
+msgstr ""
+
+#: app/widgetManager.js:2699
 msgid "HTML widget"
 msgstr ""
 
-#: app/widgetManager.js:2010
+#: app/widgetManager.js:2701
 msgid "GTK widget"
 msgstr ""
 
-#: app/widgetManager.js:2019
+#: app/widgetManager.js:2710
 msgid "User"
 msgstr "მომხმარებელი"
 
-#: app/widgetManager.js:2123
+#: app/widgetManager.js:2829
 msgid "Allow"
 msgstr "დაშვება"
 
-#: app/widgetManager.js:2177
+#: app/widgetManager.js:2883
 msgid "Strict"
 msgstr "მკაცრი"
 
-#: app/widgetManager.js:2179
+#: app/widgetManager.js:2885
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1356,11 +1368,11 @@ msgid ""
 "This is the safest option and is recommended for most widgets."
 msgstr ""
 
-#: app/widgetManager.js:2190
+#: app/widgetManager.js:2896
 msgid "Relaxed"
 msgstr ""
 
-#: app/widgetManager.js:2192
+#: app/widgetManager.js:2898
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1371,11 +1383,11 @@ msgid ""
 "Use this only for widgets you trust."
 msgstr ""
 
-#: app/widgetManager.js:2202
+#: app/widgetManager.js:2908
 msgid "Development"
 msgstr "განვითარება"
 
-#: app/widgetManager.js:2204
+#: app/widgetManager.js:2910
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1385,70 +1397,80 @@ msgid ""
 "This mode is intended for development and debugging only."
 msgstr ""
 
-#: app/widgetManager.js:2213
+#: app/widgetManager.js:2919
 msgid "Default"
 msgstr "ნაგულისხმევი"
 
-#: app/widgetManager.js:2215
+#: app/widgetManager.js:2921
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
 "Web access and capabilities are restricted according to the active policy."
 msgstr ""
 
-#: app/widgetManager.js:2223
+#: app/widgetManager.js:2929
 msgid "Allow web content for {widgetId}?"
 msgstr ""
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:2233
+#: app/widgetManager.js:2939
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2234
+#: app/widgetManager.js:2940
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2263
+#: app/widgetManager.js:2974
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2265
+#: app/widgetManager.js:2976
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr ""
 
-#: app/widgetManager.js:2266
+#: app/widgetManager.js:2977
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
 "\n"
 msgstr ""
 
-#: app/widgetManager.js:2268
+#: app/widgetManager.js:2979
 #, fuzzy
 msgid "Command:"
 msgstr "ბრძანება:\n"
 
-#: app/widgetManager.js:2271
+#: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
 msgstr ""
 
-#: app/widgetManager.js:2274
+#: app/widgetManager.js:2985
 msgid "Allow widget backend?"
 msgstr ""
 
-#: app/widgetWebContext.js:187
+#: app/widgetWebContext.js:263
 #, fuzzy
 msgid "Widget Preferences"
 msgstr "მორგება"
+
+#: app/widgetWebContext.js:792
+msgid "Open link in browser?"
+msgstr ""
+
+#: app/widgetWebContext.js:793
+msgid ""
+"The widget wants to open this link in your browser:\n"
+"\n"
+msgstr ""
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"

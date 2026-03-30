@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-11 13:26-0400\n"
+"POT-Creation-Date: 2026-03-30 06:42-0400\n"
 "PO-Revision-Date: 2026-02-27 06:09+0000\n"
 "Last-Translator: Daniel Zhang <xiaozhangshiw@163.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -80,274 +80,274 @@ msgid "Help translate in your web browser"
 msgstr "帮助翻译您的网页浏览器"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:597 app/adwPreferencesWindow.js:598
+#: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
 msgid "Desktop"
 msgstr "桌面"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:603 app/adwPreferencesWindow.js:604
+#: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
 msgid "Files"
 msgstr "文件"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:609 app/adwPreferencesWindow.js:610
-#: app/adwPreferencesWindow.js:652
+#: app/adwPreferencesWindow.js:611 app/adwPreferencesWindow.js:612
+#: app/adwPreferencesWindow.js:654
 msgid "Tweaks"
 msgstr "调整"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:615 app/adwPreferencesWindow.js:616
+#: app/adwPreferencesWindow.js:617 app/adwPreferencesWindow.js:618
 msgid "More"
 msgstr "更多"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:627
+#: app/adwPreferencesWindow.js:629
 msgid "Desktop Settings"
 msgstr "桌面设置"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:628
+#: app/adwPreferencesWindow.js:630
 msgid "Settings for the Desktop Program"
 msgstr "桌面程序设置"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:634
+#: app/adwPreferencesWindow.js:636
 msgid "Desktop Folder"
 msgstr "桌面文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:635
+#: app/adwPreferencesWindow.js:637
 msgid "Current Desktop: "
 msgstr "当前桌面: "
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:645
+#: app/adwPreferencesWindow.js:647
 msgid "Files Settings"
 msgstr "文件设置"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:646
+#: app/adwPreferencesWindow.js:648
 msgid "Settings shared with Gnome Files"
 msgstr "与 Gnome 文件共享的设置"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:653
+#: app/adwPreferencesWindow.js:655
 msgid "Miscellaneous Tweaks"
 msgstr "杂项调整"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:677
+#: app/adwPreferencesWindow.js:679
 msgid "Size for the desktop icons"
 msgstr "桌面图标大小"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:679
+#: app/adwPreferencesWindow.js:681
 msgid "Tiny"
 msgstr "小声"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:680
+#: app/adwPreferencesWindow.js:682
 msgid "Small"
 msgstr "小型"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:681
+#: app/adwPreferencesWindow.js:683
 msgid "Standard"
 msgstr "标准"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:682
+#: app/adwPreferencesWindow.js:684
 msgid "Large"
 msgstr "大块"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:688
+#: app/adwPreferencesWindow.js:690
 msgid "New icons alignment"
 msgstr "新图标对齐"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:690
+#: app/adwPreferencesWindow.js:692
 msgid "Top left corner"
 msgstr "左上角"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:691
+#: app/adwPreferencesWindow.js:693
 msgid "Top right corner"
 msgstr "右上角"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:692
+#: app/adwPreferencesWindow.js:694
 msgid "Bottom left corner"
 msgstr "左下角"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:693
+#: app/adwPreferencesWindow.js:695
 msgid "Bottom right corner"
 msgstr "右下角"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:699
+#: app/adwPreferencesWindow.js:701
 msgid "Add new icons to Secondary Monitors first, if available"
 msgstr "优先将新图标添加至第二块显示器(如果存在)"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:703
+#: app/adwPreferencesWindow.js:705
 msgid "Snap icons to grid"
 msgstr "将图标对齐到网格"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:709
+#: app/adwPreferencesWindow.js:711
 msgid "Show desktop widgets"
 msgstr "桌面小部件"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:714
+#: app/adwPreferencesWindow.js:716
 msgid "New Desktop Folder"
 msgstr "新建桌面文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:715
+#: app/adwPreferencesWindow.js:717
 msgid "Set a new folder for the desktop"
 msgstr "设置桌面的新文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:716 app/utils/desktopFolderUtils.js:85
+#: app/adwPreferencesWindow.js:718 app/utils/desktopFolderUtils.js:85
 msgid "Choose"
 msgstr "选择"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:721
+#: app/adwPreferencesWindow.js:723
 msgid "Set Desktop back to ~/"
 msgstr "将桌面设定为 ~/"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:723
+#: app/adwPreferencesWindow.js:725
 msgid "Restore Default Desktop Folder"
 msgstr "恢复默认桌面文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:725
+#: app/adwPreferencesWindow.js:727
 msgid "Restore"
 msgstr "恢复"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:734
+#: app/adwPreferencesWindow.js:736
 msgid "Highlight the drop grid"
 msgstr "突出显示投放网格"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:744
+#: app/adwPreferencesWindow.js:746
 msgid "Add information emblems for links, encryption"
 msgstr "添加链接、加密的信息徽章"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:748
+#: app/adwPreferencesWindow.js:750
 msgid "Use dark text in icon labels"
 msgstr "在图标标签中使用暗文本"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:753
+#: app/adwPreferencesWindow.js:755
 msgid "Show the personal folder on the desktop"
 msgstr "在桌面上显示家目录"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:758
+#: app/adwPreferencesWindow.js:760
 msgid "Show the trash icon on the desktop"
 msgstr "在桌面上显示回收站图标"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:763
+#: app/adwPreferencesWindow.js:765
 msgid "Show external drives on the desktop"
 msgstr "在桌面上显示外置驱动器"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:768
+#: app/adwPreferencesWindow.js:770
 msgid "Show network drives on the desktop"
 msgstr "在桌面上显示网络驱动器"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:773
+#: app/adwPreferencesWindow.js:775
 msgid "Add new drives to the opposite side of the desktop"
 msgstr "将新驱动器添加到桌面的另一侧"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:778
+#: app/adwPreferencesWindow.js:780
 msgid "Action to Open Items"
 msgstr "打开项目的操作"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:780
+#: app/adwPreferencesWindow.js:782
 msgid "Single click"
 msgstr "单击"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:781
+#: app/adwPreferencesWindow.js:783
 msgid "Double click"
 msgstr "双击"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:786
+#: app/adwPreferencesWindow.js:788
 msgid "Show image thumbnails"
 msgstr "显示图像缩略图"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:788
+#: app/adwPreferencesWindow.js:790
 msgid "Always"
 msgstr "永远"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:789
+#: app/adwPreferencesWindow.js:791
 msgid "On this computer only"
 msgstr "仅在这台电脑上"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:790
+#: app/adwPreferencesWindow.js:792
 msgid "Never"
 msgstr "从不"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:795
+#: app/adwPreferencesWindow.js:797
 msgid "Show a context menu item to delete permanently"
 msgstr "显示要永久删除的上下文菜单项"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:800
+#: app/adwPreferencesWindow.js:802
 msgid "Show hidden files"
 msgstr "显示隐藏文件"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:805
+#: app/adwPreferencesWindow.js:807
 msgid "Open folders on drag hover"
 msgstr "拖动鼠标悬停时打开文件夹"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:809
+#: app/adwPreferencesWindow.js:811
 msgid "About..."
 msgstr "关于..."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:822
+#: app/adwPreferencesWindow.js:824
 msgid "Translation"
 msgstr "翻译"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:823
+#: app/adwPreferencesWindow.js:825
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr "机器使用LibreTranslate翻译. 用户在Weblate上核实并编辑."
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:828
+#: app/adwPreferencesWindow.js:830
 msgid "Edit Translations"
 msgstr "编辑翻译"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:829
+#: app/adwPreferencesWindow.js:831
 msgid "Verify, add or correct translation in your web browser"
 msgstr "在您的网页浏览器中校验、 添加或更正翻译"
 
 # MT: LibreTranslate
-#: app/adwPreferencesWindow.js:830
+#: app/adwPreferencesWindow.js:832
 msgid "Translate"
 msgstr "翻译"
 
@@ -504,7 +504,7 @@ msgstr "压缩文件"
 #: app/autoAr.js:295 app/autoAr.js:624 app/desktopManager.js:180
 #: app/desktopManager.js:1299 app/dragManager.js:792 app/fileItemMenu.js:915
 #: app/fileItemMenu.js:968 app/showErrorPopup.js:41 app/showErrorPopup.js:58
-#: app/widgetManager.js:2124
+#: app/widgetManager.js:2830
 msgid "Cancel"
 msgstr "取消"
 
@@ -730,15 +730,15 @@ msgid "Desktop Icons"
 msgstr "桌面图标"
 
 # MT: LibreTranslate
-#: app/desktopGrid.js:2586
+#: app/desktopGrid.js:2587
 msgid "Back to Desktop"
 msgstr "回到桌面"
 
-#: app/desktopGrid.js:2587 app/widgetManager.js:1170
+#: app/desktopGrid.js:2588 app/widgetManager.js:1525
 msgid "Toggle Widget Grid"
 msgstr "切换部件网格显示"
 
-#: app/desktopGrid.js:2588
+#: app/desktopGrid.js:2589
 msgid "Add Widget..."
 msgstr "添加小部件..."
 
@@ -851,7 +851,7 @@ msgid "Find Files on Desktop"
 msgstr "在桌面上查找文件"
 
 # MT: LibreTranslate
-#: app/desktopManager.js:1644 app/desktopMenu.js:1072 app/shortcuts.js:10
+#: app/desktopManager.js:1644 app/desktopMenu.js:1065 app/shortcuts.js:10
 msgid "New Folder"
 msgstr "新建文件夹"
 
@@ -866,146 +866,146 @@ msgid "Could not create folder"
 msgstr "无法创建文件夹"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:605
+#: app/desktopMenu.js:598
 msgid "Unable to open Desktop in Gnome Files"
 msgstr "无法打开 Gnome 文件的桌面"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:624
+#: app/desktopMenu.js:617
 msgid "Preferences Window is Open"
 msgstr "首选项窗口已打开"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:625
+#: app/desktopMenu.js:618
 msgid "This Window is open. Please switch to the active window."
 msgstr "这个窗口已被打开。请切换到活动窗口。"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:634 app/desktopMenu.js:1125
+#: app/desktopMenu.js:627 app/desktopMenu.js:1118
 msgid "Settings"
 msgstr "设置"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:914
+#: app/desktopMenu.js:907
 msgid "Template Creation Error"
 msgstr "模板创建错误"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:915
+#: app/desktopMenu.js:908
 msgid "Could not create document"
 msgstr "无法创建文档"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1033
+#: app/desktopMenu.js:1026
 msgid "Name"
 msgstr "名称"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1035
+#: app/desktopMenu.js:1028
 msgid "Name Z-A"
 msgstr "名称 Z-A"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1037
+#: app/desktopMenu.js:1030
 msgid "Modified Time"
 msgstr "修改时间"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1039
+#: app/desktopMenu.js:1032
 msgid "Type"
 msgstr "类型"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1041
+#: app/desktopMenu.js:1034
 msgid "Size"
 msgstr "大小"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1046
+#: app/desktopMenu.js:1039
 msgid "Keep Arranged…"
 msgstr "保持排列…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1051
+#: app/desktopMenu.js:1044
 msgid "Keep Stacked by Type…"
 msgstr "继续按类型堆叠…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1053
+#: app/desktopMenu.js:1046
 msgid "Sort Home/Drives/Trash…"
 msgstr "排序家/驱动器/回收站…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1058
+#: app/desktopMenu.js:1051
 msgid "Change Desktop"
 msgstr "更改桌面"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1063
+#: app/desktopMenu.js:1056
 msgid "Restore Default Desktop"
 msgstr "恢复默认桌面"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1067
+#: app/desktopMenu.js:1060
 msgid "Desktop Icon Settings"
 msgstr "桌面图标设置"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1069
+#: app/desktopMenu.js:1062
 msgid "Show Shortcuts"
 msgstr "显示快捷键"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1077 app/shortcuts.js:66
+#: app/desktopMenu.js:1070 app/shortcuts.js:67
 msgid "New Document"
 msgstr "新文档"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1082 app/shortcuts.js:11
+#: app/desktopMenu.js:1075 app/shortcuts.js:11
 msgid "Paste"
 msgstr "粘贴"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1084 app/shortcuts.js:12
+#: app/desktopMenu.js:1077 app/shortcuts.js:12
 msgid "Undo"
 msgstr "撤销"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1086 app/shortcuts.js:13
+#: app/desktopMenu.js:1079 app/shortcuts.js:13
 msgid "Redo"
 msgstr "重做"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1092 app/shortcuts.js:14
+#: app/desktopMenu.js:1085 app/shortcuts.js:14
 msgid "Select All"
 msgstr "全部选择"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1099
+#: app/desktopMenu.js:1092
 msgid "Arrange Icons"
 msgstr "排列图标"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1103
+#: app/desktopMenu.js:1096
 msgid "Arrange By…"
 msgstr "排列…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1111
+#: app/desktopMenu.js:1104
 msgid "Show Desktop In {0}"
 msgstr "在 {0} 中显示桌面"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1116
+#: app/desktopMenu.js:1109
 msgid "Open In {0}"
 msgstr "在 {0} 中打开"
 
-#: app/desktopMenu.js:1133
+#: app/desktopMenu.js:1126
 msgid "Edit Widgets…"
 msgstr "编辑小部件…"
 
 # MT: LibreTranslate
-#: app/desktopMenu.js:1140
+#: app/desktopMenu.js:1133
 msgid "Shell Menu…"
 msgstr "Shell 菜单…"
 
@@ -1360,7 +1360,7 @@ msgid "$appName$ can not open files of this Type!"
 msgstr "$appName$ 无法打开此类型的文件 !"
 
 # MT: LibreTranslate
-#: app/preferences.js:1069
+#: app/preferences.js:1097
 msgid "Console"
 msgstr "控制台"
 
@@ -1420,22 +1420,22 @@ msgid "System Keyboard Shortcuts"
 msgstr "系统键盘快捷键"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:701
+#: app/shortcutManager.js:669
 msgid "Keyboard Shortcuts"
 msgstr "键盘快捷键"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:713
+#: app/shortcutManager.js:681
 msgid "Reset Shortcuts"
 msgstr "重置快捷键"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:714
+#: app/shortcutManager.js:682
 msgid "Reset all shortcuts to Defaults"
 msgstr "将所有快捷键重置为默认"
 
 # MT: LibreTranslate
-#: app/shortcutManager.js:717
+#: app/shortcutManager.js:685
 msgid "Reset All..."
 msgstr "全部重设置..."
 
@@ -1480,124 +1480,124 @@ msgid "Keep Stacked"
 msgstr "保持堆叠"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:23
+#: app/shortcuts.js:23 app/shortcuts.js:24
 msgid "Sort Special Folders"
 msgstr "排序特殊文件夹"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:24
+#: app/shortcuts.js:25
 msgid "Arrange Icons by Name"
 msgstr "按名称排列图标"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:25
+#: app/shortcuts.js:26
 msgid "Arrange Icons By Descending Name"
 msgstr "按降级名称排列图标"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:26
+#: app/shortcuts.js:27
 msgid "Arrange Icons By Modified Time"
 msgstr "按修改时间排列图标"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:27
+#: app/shortcuts.js:28
 msgid "Arrange Icons By Kind"
 msgstr "排列图标 由仁爱"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:28
+#: app/shortcuts.js:29
 msgid "Arrange Icons By Size"
 msgstr "按大小排列图标"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:29
+#: app/shortcuts.js:30
 msgid "Find Files"
 msgstr "查找文件"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:30
+#: app/shortcuts.js:31
 msgid "Update Desktop"
 msgstr "更新桌面"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:31
+#: app/shortcuts.js:32
 msgid "Show Hidden Files"
 msgstr "显示隐藏文件"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:32
+#: app/shortcuts.js:33
 msgid "Unselect All"
 msgstr "全部取消选择"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:33
+#: app/shortcuts.js:34
 msgid "Preview"
 msgstr "预览"
 
-#: app/shortcuts.js:35
+#: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
 msgstr "切换键盘选择"
 
-#: app/shortcuts.js:38
+#: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
 msgstr "切换部件图层"
 
-#: app/shortcuts.js:39 app/widgetManager.js:1106
+#: app/shortcuts.js:40 app/widgetManager.js:1461
 msgid "Add Widget"
 msgstr "添加小部件"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:42
+#: app/shortcuts.js:43
 msgid "Choose Icon Left"
 msgstr "左侧选择图标"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:47
+#: app/shortcuts.js:48
 msgid "Choose Icon Right"
 msgstr "向右选择图标"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:52
+#: app/shortcuts.js:53
 msgid "Choose Icon Up"
 msgstr "向上选择图标"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:57
+#: app/shortcuts.js:58
 msgid "Choose Icon Down"
 msgstr "向下选择图标"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:61
+#: app/shortcuts.js:62
 msgid "Show Menu"
 msgstr "显示菜单"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:62
+#: app/shortcuts.js:63
 msgid "Display Shell Background Menu"
 msgstr "显示 Shell 背景菜单"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:63
+#: app/shortcuts.js:64
 msgid "Create Desktop Shortcut"
 msgstr "创建桌面快捷键"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:64
+#: app/shortcuts.js:65
 msgid "Text Entry Accels Turn On"
 msgstr "打开文本条目目录"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:65
+#: app/shortcuts.js:66
 msgid "Text Entry Accels Turn Off"
 msgstr "文本条目 Accels 关闭"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:67
+#: app/shortcuts.js:68
 msgid "Show Shortcut Viewer"
 msgstr "显示快捷键 查看器"
 
 # MT: LibreTranslate
-#: app/shortcuts.js:68
+#: app/shortcuts.js:69
 msgid "Show Or Hide Desktop Icons"
 msgstr "显示或隐藏桌面图标"
 
@@ -1643,31 +1643,45 @@ msgid "Drive"
 msgstr "驱动"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:1580
+#: app/widgetManager.js:2123
 msgid "Widget preferences"
 msgstr "小部件首选项"
 
-#: app/widgetManager.js:2008
+#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#, fuzzy
+msgid "Unpin widget"
+msgstr "GTK 小部件"
+
+#: app/widgetManager.js:2135 app/widgetManager.js:2144
+#, fuzzy
+msgid "Pin widget"
+msgstr "GTK 小部件"
+
+#: app/widgetManager.js:2153
+msgid "Reposition widget"
+msgstr ""
+
+#: app/widgetManager.js:2699
 msgid "HTML widget"
 msgstr "HTML 小部件"
 
-#: app/widgetManager.js:2010
+#: app/widgetManager.js:2701
 msgid "GTK widget"
 msgstr "GTK 小部件"
 
-#: app/widgetManager.js:2019
+#: app/widgetManager.js:2710
 msgid "User"
 msgstr "用户"
 
-#: app/widgetManager.js:2123
+#: app/widgetManager.js:2829
 msgid "Allow"
 msgstr "允许"
 
-#: app/widgetManager.js:2177
+#: app/widgetManager.js:2883
 msgid "Strict"
 msgstr "严格"
 
-#: app/widgetManager.js:2179
+#: app/widgetManager.js:2885
 msgid ""
 "The widget runs in a tightly sandboxed web environment.\n"
 "\n"
@@ -1685,11 +1699,11 @@ msgstr ""
 "\n"
 "这是最安全的选项并且适用于大部分部件。"
 
-#: app/widgetManager.js:2190
+#: app/widgetManager.js:2896
 msgid "Relaxed"
 msgstr "放松的"
 
-#: app/widgetManager.js:2192
+#: app/widgetManager.js:2898
 msgid ""
 "The widget is allowed broader web capabilities.\n"
 "\n"
@@ -1706,11 +1720,11 @@ msgstr ""
 "\n"
 "只在您信任的部件上使用此选项。"
 
-#: app/widgetManager.js:2202
+#: app/widgetManager.js:2908
 msgid "Development"
 msgstr "发展"
 
-#: app/widgetManager.js:2204
+#: app/widgetManager.js:2910
 msgid ""
 "The widget runs with development-friendly web access.\n"
 "\n"
@@ -1727,11 +1741,11 @@ msgstr ""
 "此模式仅用于开发和调试。"
 
 # MT: LibreTranslate
-#: app/widgetManager.js:2213
+#: app/widgetManager.js:2919
 msgid "Default"
 msgstr "默认值"
 
-#: app/widgetManager.js:2215
+#: app/widgetManager.js:2921
 msgid ""
 "The widget runs with a predefined web security policy.\n"
 "\n"
@@ -1741,12 +1755,12 @@ msgstr ""
 "\n"
 "其网络访问和功能将根据当前生效的策略受到限制。"
 
-#: app/widgetManager.js:2223
+#: app/widgetManager.js:2929
 msgid "Allow web content for {widgetId}?"
 msgstr "是否允许 {widgetId} 加载网络内容？"
 
 #. eslint-disable-next-line prefer-template
-#: app/widgetManager.js:2233
+#: app/widgetManager.js:2939
 msgid ""
 "The widget you are adding may load web content from the internet.\n"
 "\n"
@@ -1754,7 +1768,7 @@ msgstr ""
 "您正在添加的部件可能会从互联网加载网络内容。\n"
 "\n"
 
-#: app/widgetManager.js:2234
+#: app/widgetManager.js:2940
 msgid ""
 "This content is subject to the widget security policy:\n"
 "\n"
@@ -1762,7 +1776,7 @@ msgstr ""
 "此类内容将受部件安全策略的约束：\n"
 "\n"
 
-#: app/widgetManager.js:2263
+#: app/widgetManager.js:2974
 msgid ""
 "This widget, {widgetId} runs a background process on your computer.\n"
 "\n"
@@ -1770,13 +1784,13 @@ msgstr ""
 "此部件 {widgetId} 会在你的计算机上运行一个后台进程。\n"
 "\n"
 
-#: app/widgetManager.js:2265
+#: app/widgetManager.js:2976
 msgid ""
 "The backend runs with your normal user permissions, just like any other "
 "application you start.\n"
 msgstr "该后台进程将以正常的用户权限运行，就像你启动的任何其他应用程序一样。\n"
 
-#: app/widgetManager.js:2266
+#: app/widgetManager.js:2977
 msgid ""
 "It can access your files, system resources, and the network according to "
 "your user account permissions.\n"
@@ -1785,23 +1799,33 @@ msgstr ""
 "它可以根据你的用户账户的权限访问你的文件、系统资源和网络。\n"
 "\n"
 
-#: app/widgetManager.js:2268
+#: app/widgetManager.js:2979
 #, fuzzy
 msgid "Command:"
 msgstr "命令:\n"
 
-#: app/widgetManager.js:2271
+#: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
 msgstr "仅在你完全信任的部件上启用此权限。"
 
-#: app/widgetManager.js:2274
+#: app/widgetManager.js:2985
 msgid "Allow widget backend?"
 msgstr "是否允许部件启用后端？"
 
 # MT: LibreTranslate
-#: app/widgetWebContext.js:187
+#: app/widgetWebContext.js:263
 msgid "Widget Preferences"
 msgstr "小部件首选项"
+
+#: app/widgetWebContext.js:792
+msgid "Open link in browser?"
+msgstr ""
+
+#: app/widgetWebContext.js:793
+msgid ""
+"The widget wants to open this link in your browser:\n"
+"\n"
+msgstr ""
 
 # MT: LibreTranslate
 #: app/utils/dbusUtils.js:67
