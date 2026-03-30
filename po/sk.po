@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-16 13:11+0000\n"
-"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
+"PO-Revision-Date: 2026-03-30 14:01+0000\n"
+"Last-Translator: Peter Michel <michel.peter95@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
@@ -1352,8 +1352,7 @@ msgstr "Nefunkčný odkaz"
 
 #: app/symLinkIcon.js:102
 msgid "Can not open this File because it is a Broken Symlink"
-msgstr ""
-"Tento súbor nie je možné otvoriť, pretože je poškodený symbolický odkaz"
+msgstr "Tento súbor nie je možné otvoriť, pretože je poškodený symbolický odkaz"
 
 #: app/volumeIcon.js:58
 msgid "Drive"

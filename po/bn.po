@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-17 14:10+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-03-30 13:55+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/bn/>\n"
 "Language: bn\n"
@@ -326,8 +326,8 @@ msgstr "অনুবাদ"
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
 msgstr ""
-"লিব্রাস্ট্রেট ব্যবহার করে মেশিন অনুবাদ করা হয়েছে। ব্যবহারকারী যাচাই করেছেন এবং "
-"ওয়েবলেটে সম্পাদনা করেছেন।."
+"লিব্রাস্ট্রেট ব্যবহার করে মেশিন অনুবাদ করা হয়েছে। ব্যবহারকারী যাচাই করেছেন এবং ওয়েবলেটে "
+"সম্পাদনা করেছেন।."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:830
@@ -582,8 +582,7 @@ msgstr "আউটপুট ফাইল '${outputFile}' ইতিমধ্যে
 #: app/autoAr.js:513
 msgid "Compressing files into '${outputFile}' has been cancelled by the user."
 msgstr ""
-"'${outputFile}' ব্যবহারকারীর মধ্যে সংকোচন করা হচ্ছে ব্যবহারকারী দ্বারা বাতিল করা "
-"হয়েছে।."
+"'${outputFile}' ব্যবহারকারীর মধ্যে সংকোচন করা হচ্ছে ব্যবহারকারী দ্বারা বাতিল করা হয়েছে।."
 
 # MT: LibreTranslate
 #: app/autoAr.js:516
@@ -646,8 +645,8 @@ msgid ""
 msgstr ""
 "অন্যান্য ব্যবহারকারীদেরকে এই ডেস্কটপ ফোল্ডার থেকে ফাইল স্থানান্তর করতে ব্যর্থ।\n"
 "\n"
-"অনুগ্রহ করে এই ফোল্ডারের অনুমতি পরীক্ষা করুন, এবং অন্যান্য ব্যবহারকারীদেরকে এটি "
-"লিখনযোগ্য নয়।."
+"অনুগ্রহ করে এই ফোল্ডারের অনুমতি পরীক্ষা করুন, এবং অন্যান্য ব্যবহারকারীদেরকে এটি লিখনযোগ্য নয়"
+"।."
 
 # MT: LibreTranslate
 #: app/desktopFileIcon.js:138
@@ -1067,8 +1066,8 @@ msgstr "ফাইল খুলতে ব্যর্থ"
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
 msgstr ""
-"ইনস্টল করার জন্য কোনো অ্যাপ্লিকেশন ইনস্টল করা হয়নি \"{fo}\" ফাইল খোলার জন্য [FP0] "
-"ব্যবহার করুন ।."
+"ইনস্টল করার জন্য কোনো অ্যাপ্লিকেশন ইনস্টল করা হয়নি \"{fo}\" ফাইল খোলার জন্য [FP0] ব্যবহার "
+"করুন ।."
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:104
@@ -1279,7 +1278,8 @@ msgstr "একটি ডিরেক্টরির উপর অন্য ড�
 # MT: LibreTranslate
 #: app/fileItemMenu.js:966
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "নির্বাচনের মধ্যে একটি ডিরেক্টরি উপস্থিত রয়েছে, প্রথমে ফাইল খোলা হবে কি?"
+msgstr ""
+"নির্বাচনের মধ্যে একটি ডিরেক্টরি উপস্থিত রয়েছে, প্রথমে ফাইল খোলা হবে কি?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:992 app/fileItemMenu.js:1023 app/fileItemMenu.js:1040
@@ -1951,8 +1951,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"ড্রাগোডিং অপারেশন করার সময়, গ্রিডে যে স্থান চিহ্নিত করা হবে তা নির্বাচন করে অর্ধ- "
-"রেখার মাধ্যমে আইকনের সাথে স্বচ্ছ করা হবে।."
+"ড্রাগোডিং অপারেশন করার সময়, গ্রিডে যে স্থান চিহ্নিত করা হবে তা নির্বাচন করে অর্ধ- রেখার "
+"মাধ্যমে আইকনের সাথে স্বচ্ছ করা হবে।."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
@@ -2028,8 +2028,8 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"সাদা রংয়ের পরিবর্তে সাদা রং আঁকার জন্য চিহ্নিত করো । হালকা পটভূমি ব্যবহার করার সময় "
-"সুবিধাজনক ।."
+"সাদা রংয়ের পরিবর্তে সাদা রং আঁকার জন্য চিহ্নিত করো । হালকা পটভূমি ব্যবহার করার সময় সুবিধাজনক "
+"।."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
@@ -2053,7 +2053,8 @@ msgstr "ডেস্কটপের মধ্যে আইকন স্থাপ
 msgid ""
 "Icons are not on a rectangular grid but can be postioned anywhere "
 "independent of grid"
-msgstr "আইকন কোন আয়তাকার গ্রিডে নেই, কিন্তু যেকোন গ্রিডে পুনরায় পোস্ট করা যাবে"
+msgstr ""
+"আইকন কোন আয়তাকার গ্রিডে নেই, কিন্তু যেকোন গ্রিডে পুনরায় পোস্ট করা যাবে"
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110

@@ -10,9 +10,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-17 14:10+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-03-30 13:57+0000\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ca/>\n"
 "Language: ca\n"
@@ -868,8 +867,7 @@ msgstr "La finestra de preferències és oberta"
 # MT: LibreTranslate
 #: app/desktopMenu.js:618
 msgid "This Window is open. Please switch to the active window."
-msgstr ""
-"Aquesta finestra està oberta. Si us plau, canvieu a la finestra activa."
+msgstr "Aquesta finestra està oberta. Si us plau, canvieu a la finestra activa."
 
 #: app/desktopMenu.js:627 app/desktopMenu.js:1118
 msgid "Settings"
@@ -1271,8 +1269,7 @@ msgstr "Hi ha hagut un error en crear un arxiu zip"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1042
 msgid "Unable to find xdg-email, please install the program"
-msgstr ""
-"No s' ha pogut trobar el correu Xdg, si us plau instal· leu el programa"
+msgstr "No s' ha pogut trobar el correu Xdg, si us plau instal· leu el programa"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1060

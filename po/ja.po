@@ -16,9 +16,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-17 14:09+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-03-30 13:53+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ja/>\n"
 "Language: ja\n"
@@ -318,8 +317,7 @@ msgstr "コンテンツ"
 #: app/adwPreferencesWindow.js:825
 msgid ""
 "Machine translated using LibreTranslate. User verified and edited on Weblate."
-msgstr ""
-"LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
+msgstr "LibreTranslate を使用して翻訳されたマシン。 Weblate でユーザー検証と編集."
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:830
@@ -1043,8 +1041,7 @@ msgstr "ファイルを開く 失敗"
 # MT: LibreTranslate
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
+msgstr "[\"{fo}\"]ファイルを開くためのアプリケーションはインストールされていません."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -1279,8 +1276,7 @@ msgstr "Gnome Consoleで開くことができません"
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1228
 msgid "Please Install Gnome Console or other Terminal Program"
-msgstr ""
-"Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
+msgstr "Gnome Consoleまたはその他のターミナルプログラムをインストールしてください"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:1236
@@ -1761,8 +1757,8 @@ msgstr "[\"${programName}\"]は利用できません"
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
-"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールし"
-"て、これらのアクションを実行します."
+"デスクトップアイコンを有効にするには、[\"${programName}\"]をインストールして"
+"、これらのアクションを実行します."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
@@ -1802,8 +1798,8 @@ msgstr "GNOMEデスクトップにアイコンを表示"
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
 msgstr ""
-"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表示;ショー;ラン"
-"チャー;ショートカット;"
+"デスクトップ;アイコン;ファイル;フォルダ;マネージャー;範囲;非表"
+"示;ショー;ランチャー;ショートカット;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -2011,5 +2007,4 @@ msgstr "ユーザーアプリケーションショートカット"
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
-msgstr ""
-"ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"
+msgstr "ユーザが設定したデフォルトのアプリケーションショートカットのオーバーライド"

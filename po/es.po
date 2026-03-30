@@ -16,13 +16,14 @@
 # Quentin PAGÈS <quentinantonin@free.fr>, 2026.
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Oscar Chacón Cautín <ricklethal@gmail.com>, 2026.
+# Deleted User <noreply+113277@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-28 14:11+0000\n"
-"Last-Translator: Oscar Chacón Cautín <ricklethal@gmail.com>\n"
+"PO-Revision-Date: 2026-03-30 13:54+0000\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/es/>\n"
 "Language: es\n"
@@ -402,8 +403,7 @@ msgstr ""
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
 msgid "To enable launching, right-click, then:"
-msgstr ""
-"Para permitir el lanzamiento, haga clic con el botón derecho, entonces:"
+msgstr "Para permitir el lanzamiento, haga clic con el botón derecho, entonces:"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:83 app/desktopFileIcon.js:177
@@ -441,8 +441,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Para poder trabajar con archivos comprimidos, instale file-roller y/o "
-"gir-1.2-gnomeAutoAr"
+"Para poder trabajar con archivos comprimidos, instale file-roller y/o gir-"
+"1.2-gnomeAutoAr"
 
 #: app/autoAr.js:207
 msgid "Extracting files"

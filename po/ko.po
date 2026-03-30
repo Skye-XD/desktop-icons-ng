@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-02-22 00:10+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-03-30 13:53+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ko/>\n"
 "Language: ko\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -623,8 +623,8 @@ msgid ""
 "Please check the permissions of this Desktop Folder, and make sure it is not "
 "writable by others."
 msgstr ""
-".deskop 파일은 데스크톱 폴더로이 데스크탑에서 다른 사용자에 의해 writable 시"
-"작할 수 없습니다.\n"
+".deskop 파일은 데스크톱 폴더로이 데스크탑에서 다른 사용자에 의해 writable "
+"시작할 수 없습니다.\n"
 "\n"
 "이 데스크탑 폴더의 권한을 확인하고 다른 사람이 쓸 수 없다는 것을 확인합니다."
 
@@ -732,8 +732,8 @@ msgid ""
 "\n"
 "Please enable in Mutter Dconf Settings"
 msgstr ""
-"다른 급상승 조정을 가진 다수 감시자는, 감시자 framebuffer 사기 당 추천합니"
-"다.\n"
+"다른 급상승 조정을 가진 다수 감시자는, 감시자 framebuffer 사기 당 "
+"추천합니다.\n"
 "\n"
 "Mutter Dconf 설정 활성화"
 
@@ -790,8 +790,7 @@ msgstr "사이트맵 찾을 수 없음"
 # MT: LibreTranslate
 #: app/desktopManager.js:229
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"GNOME 소개 파일 응용 프로그램은 Gtk4 데스크탑 아이콘 NG에 의해 요구됩니다."
+msgstr "GNOME 소개 파일 응용 프로그램은 Gtk4 데스크탑 아이콘 NG에 의해 요구됩니다."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:236
@@ -1751,8 +1750,8 @@ msgstr "\"${programName}\"은 사용할 수 없습니다"
 msgid ""
 "Install \"${programName}\" to enable Desktop Icons to perform these actions."
 msgstr ""
-"\"${programName}\"]를 설치하여 데스크탑 아이콘을 활성화하여 이러한 작업을 수"
-"행합니다."
+"\"${programName}\"]를 설치하여 데스크탑 아이콘을 활성화하여 이러한 작업을 "
+"수행합니다."
 
 # MT: LibreTranslate
 #: app/utils/desktopFolderUtils.js:84
@@ -1875,8 +1874,8 @@ msgid ""
 "When doing a Drag'n'Drop operation, marks the place in the grid where the "
 "icon will be put with a semitransparent rectangle."
 msgstr ""
-"끌어서 놓기 작업을 수행할 때, 격자에서 아이콘이 배치될 위치를 반투명 사각형"
-"을 표시합니다."
+"끌어서 놓기 작업을 수행할 때, 격자에서 아이콘이 배치될 위치를 반투명 "
+"사각형을 표시합니다."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:65
 msgid "Sort Special Folders - Home/Trash Drives."
@@ -1887,8 +1886,8 @@ msgid ""
 "When arranging Icons on desktop, to sort and change the position of the "
 "Home, Trash and mounted Network or External Drives"
 msgstr ""
-"바탕화면에 아이콘을 정렬할 때 홈, 휴지통 및 마운트된 네트워크 또는 외장 드라"
-"이브의 위치를 정렬하고 변경합니다"
+"바탕화면에 아이콘을 정렬할 때 홈, 휴지통 및 마운트된 네트워크 또는 외장 "
+"드라이브의 위치를 정렬하고 변경합니다"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:70
 msgid "Keep Icons Arranged"
@@ -1939,8 +1938,8 @@ msgid ""
 "Paint the label text in black instead of white. Useful when using light "
 "backgrounds."
 msgstr ""
-"레이블 텍스트를 흰색 대신 검정색으로 칠합니다. 밝은 배경을 사용할 때 유용합니"
-"다."
+"레이블 텍스트를 흰색 대신 검정색으로 칠합니다. 밝은 배경을 사용할 때 "
+"유용합니다."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:100
