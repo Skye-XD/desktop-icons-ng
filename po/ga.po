@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-16 13:11+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-03-30 14:01+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Irish <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ga/>\n"
 "Language: ga\n"
@@ -433,8 +433,7 @@ msgstr "Níor oibrigh nasc nó íoslódáil i gceart"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:81
 msgid "This AppImage file is not trusted, it can not be launched."
-msgstr ""
-"Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
+msgstr "Amharc ar gach eolas Níl comhad íomhá iontaofa, ní féidir é a sheoladh."
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:82 app/desktopFileIcon.js:176
@@ -816,8 +815,7 @@ msgstr "Seirbhís do Chustaiméirí Comhaid nach bhfuarthas"
 # MT: LibreTranslate
 #: app/desktopManager.js:229
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
-msgstr ""
-"An GNOME Tá iarratais Comhaid ag teastáil ag Gtk4 Desktop deilbhíní NG."
+msgstr "An GNOME Tá iarratais Comhaid ag teastáil ag Gtk4 Desktop deilbhíní NG."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:236

@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-02-22 00:09+0000\n"
-"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
+"PO-Revision-Date: 2026-03-30 14:02+0000\n"
+"Last-Translator: \"Alexandre G. Raymond\" <alex@ndre.gr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/fr/>\n"
 "Language: fr\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -1012,8 +1012,7 @@ msgstr "Ouverture du fichier échoué"
 # MT: LibreTranslate
 #: app/fileItemIcon.js:292
 msgid "There is no application installed to open \"{fo}\" files."
-msgstr ""
-"Il n'y a pas d'application installée pour ouvrir les fichiers \"{fo}\"."
+msgstr "Il n'y a pas d'application installée pour ouvrir les fichiers \"{fo}\"."
 
 #: app/fileItemMenu.js:104
 msgid "New Folder with {0} item"
@@ -1767,7 +1766,8 @@ msgstr "Affiche les icônes sur le bureau GNOME"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "bureau;icônes;fichiers;dossiers;manager;dispositif;show;lanceur;shortcuts;"
+msgstr ""
+"bureau;icônes;fichiers;dossiers;manager;dispositif;show;lanceur;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -1814,8 +1814,7 @@ msgstr "Coin de référence des nouvelles icônes"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:41
 msgid "Set the corner from where the icons will start to be placed."
-msgstr ""
-"Définit le coin à partir duquel les icônes commenceront à être placées."
+msgstr "Définit le coin à partir duquel les icônes commenceront à être placées."
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:45
 msgid "Show external drives in the desktop"
@@ -1848,8 +1847,8 @@ msgstr ""
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
 msgid "Shows a rectangle in the destination place during DnD"
 msgstr ""
-"Affiche un rectangle sur l’emplacement de destination lors d’un "
-"glisser‑déposer"
+"Affiche un rectangle sur l’emplacement de destination lors d’un glisser‑"
+"déposer"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:61
 msgid ""

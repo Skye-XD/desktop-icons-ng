@@ -11,9 +11,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-16 13:11+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2026-03-30 14:03+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/lv/>\n"
 "Language: lv\n"
@@ -181,8 +180,7 @@ msgstr "Apakšējā labajā stūrī"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:701
 msgid "Add new icons to Secondary Monitors first, if available"
-msgstr ""
-"Vispirms pievienot jaunas ikonas sekundārajiem monitoriem, ja pieejamas"
+msgstr "Vispirms pievienot jaunas ikonas sekundārajiem monitoriem, ja pieejamas"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:705
@@ -486,8 +484,8 @@ msgid ""
 "To be able to work with compressed files, install file-roller and/or gir-1.2-"
 "gnomeAutoAr"
 msgstr ""
-"Lai varētu strādāt ar saspiestu failus, instalēt failu roller un / vai "
-"gir-1,2-Gnome AutoAr"
+"Lai varētu strādāt ar saspiestu failus, instalēt failu roller un / vai gir-"
+"1,2-Gnome AutoAr"
 
 # MT: LibreTranslate
 #: app/autoAr.js:207
@@ -1858,7 +1856,8 @@ msgstr "Rādīt GNOME darbvirsmas ikonas"
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "darbvirsma;icons;files;folders;manager;arange;hide;show;palaišana;shortcuts;"
+msgstr ""
+"darbvirsma;icons;files;folders;manager;arange;hide;show;palaišana;shortcuts;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21

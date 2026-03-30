@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-17 14:09+0000\n"
+"PO-Revision-Date: 2026-03-30 14:03+0000\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/gtk4-desktop-"
@@ -1825,8 +1825,7 @@ msgstr "Команда:"
 
 #: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
-msgstr ""
-"Разрешавайте това само за приспособления, на които имате пълно доверие."
+msgstr "Разрешавайте това само за приспособления, на които имате пълно доверие."
 
 #: app/widgetManager.js:2985
 msgid "Allow widget backend?"

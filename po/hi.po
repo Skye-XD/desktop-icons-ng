@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-02-22 00:10+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-03-30 13:57+0000\n"
+"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/hi/>\n"
 "Language: hi\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
@@ -374,7 +374,8 @@ msgstr "डिफ़ॉल्ट एप्लिकेशन बदलने म
 # MT: LibreTranslate
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
-msgstr "सेटिंग करते समय त्रुटि {foo} {mimetype} के लिए डिफ़ॉल्ट आवेदन के रूप में"
+msgstr ""
+"सेटिंग करते समय त्रुटि {foo} {mimetype} के लिए डिफ़ॉल्ट आवेदन के रूप में"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -543,7 +544,8 @@ msgstr "निष्कर्षण रद्द"
 # MT: LibreTranslate
 #: app/autoAr.js:447
 msgid "Extracting '${fullPathFile}' has been cancelled by the user."
-msgstr "'${fullPathFile}'] को निकालने के लिए उपयोगकर्ता द्वारा रद्द कर दिया गया है।."
+msgstr ""
+"'${fullPathFile}'] को निकालने के लिए उपयोगकर्ता द्वारा रद्द कर दिया गया है।."
 
 # MT: LibreTranslate
 #: app/autoAr.js:457
@@ -664,8 +666,8 @@ msgid ""
 "\n"
 "Edit the file to set the correct executable Program."
 msgstr ""
-"इस .desktop फ़ाइल में त्रुटियां होती हैं या अनुमति के बिना किसी प्रोग्राम को इंगित करती "
-"हैं। इसे निष्पादित नहीं किया जा सकता है।\n"
+"इस .desktop फ़ाइल में त्रुटियां होती हैं या अनुमति के बिना किसी प्रोग्राम को इंगित करती हैं"
+"। इसे निष्पादित नहीं किया जा सकता है।\n"
 "\n"
 "फ़ाइल को सही निष्पादन योग्य प्रोग्राम सेट करने के लिए संपादित करें।."
 
@@ -1280,7 +1282,8 @@ msgstr "निर्देशिका ईमेल नहीं कर सक�
 # MT: LibreTranslate
 #: app/fileItemMenu.js:966
 msgid "Selection includes a Directory, compress to a .zip file first?"
-msgstr "चयन में एक निर्देशिका शामिल है, जो पहले एक .zip फ़ाइल को संपीड़ित करती है?"
+msgstr ""
+"चयन में एक निर्देशिका शामिल है, जो पहले एक .zip फ़ाइल को संपीड़ित करती है?"
 
 # MT: LibreTranslate
 #: app/fileItemMenu.js:992 app/fileItemMenu.js:1023 app/fileItemMenu.js:1040
@@ -1854,7 +1857,8 @@ msgstr "GNOME डेस्कटॉप पर आइकन प्रदर्श
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:6
 msgid "desktop;icons;files;folders;manager;arrange;hide;show;launcher;shortcuts;"
-msgstr "डेस्कटॉप; आइकन; फ़ाइल्स; फ़ोल्डर्स; प्रबंधक; व्यवस्था; छिपाना; शो; लांचर; छोटा;"
+msgstr ""
+"डेस्कटॉप; आइकन; फ़ाइल्स; फ़ोल्डर्स; प्रबंधक; व्यवस्था; छिपाना; शो; लांचर; छोटा;"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
@@ -1941,7 +1945,8 @@ msgstr "स्क्रीन के विपरीत पक्ष में �
 msgid ""
 "When adding drives and volumes to the desktop, add them to the opposite side "
 "of the screen."
-msgstr "जब डेस्कटॉप पर ड्राइव और वॉल्यूम जोड़ते हैं, तो उन्हें स्क्रीन के विपरीत पक्ष में जोड़ें।."
+msgstr ""
+"जब डेस्कटॉप पर ड्राइव और वॉल्यूम जोड़ते हैं, तो उन्हें स्क्रीन के विपरीत पक्ष में जोड़ें।."
 
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:60
@@ -2089,4 +2094,5 @@ msgstr "उपयोगकर्ता अनुप्रयोग शॉर्�
 # MT: LibreTranslate
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:121
 msgid "Override for default application shortcuts set by the User"
-msgstr "उपयोगकर्ता द्वारा निर्धारित डिफ़ॉल्ट अनुप्रयोग शॉर्टकट के लिए ओवरराइड करें"
+msgstr ""
+"उपयोगकर्ता द्वारा निर्धारित डिफ़ॉल्ट अनुप्रयोग शॉर्टकट के लिए ओवरराइड करें"
