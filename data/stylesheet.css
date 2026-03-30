@@ -304,55 +304,10 @@ box.desktop-icon-container.keyboard-selected > #file-item.desktop-icons-selected
     background-color: rgba(0,0,0,0.85);
 }
 
-#ding-pinned-controls-popover {
-    background-color: transparent;
-    background-image: none;
-    border: none;
-    box-shadow: none;
-}
-
-#ding-pinned-controls-popover contents,
-#ding-pinned-controls-popover > contents,
-#ding-pinned-controls-popover background,
-#ding-pinned-controls-popover > background,
-#ding-pinned-controls-popover box {
-    background-color: transparent;
-    background-image: none;
-    border: none;
-    box-shadow: none;
-}
-
-#ding-pinned-popup-controls {
-    background-color: transparent;
-    background-image: none;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-}
-
 #ding-pinned-overlay-controls {
-    opacity: 0.95;
-}
-
-#ding-pinned-pin-button,
-#ding-pinned-move-button {
-    min-width: 28px;
-    min-height: 28px;
-    padding: 0;
+    padding: 6px;
     border-radius: 9999px;
-    background-color: rgba(0,0,0,0.45);
-    color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.18);
-    transition: opacity 0.15s, background-color 0.15s;
-
-    -gtk-icon-size: 18px;
-}
-
-#ding-pinned-pin-button image {
-    -gtk-icon-transform: rotate(45deg);
-}
-
-#ding-pinned-pin-button:hover,
-#ding-pinned-move-button:hover {
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0,0,0,0.28);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+    opacity: 0.95;
 }

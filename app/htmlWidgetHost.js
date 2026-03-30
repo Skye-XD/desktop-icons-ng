@@ -57,6 +57,7 @@ const HtmlWidgetHost = class {
         this._mappedNotifyId = 0;
         this._parentNotifyId = 0;
         this._previousParent = null;
+        this._keyboardFocusable = this._mode === 'prefs';
 
         this._makeGtkWidget();
 
@@ -91,6 +92,11 @@ const HtmlWidgetHost = class {
             frameRect.width,
             frameRect.height
         );
+    }
+
+    setKeyboardFocusable(focusable) {
+        this._keyboardFocusable = !!focusable;
+        this._applyKeyboardFocusPolicy();
     }
 
     isAlive() {
@@ -173,6 +179,7 @@ const HtmlWidgetHost = class {
             this._frameRect.width,
             this._frameRect.height
         );
+        this._applyWidgetKeyboardFocus(this._frame);
 
         this._frame.instanceId = this._instanceId;
         this._frame.widgetId = this._widgetId;
@@ -189,6 +196,7 @@ const HtmlWidgetHost = class {
             );
         this._webView.set_overflow(Gtk.Overflow.HIDDEN);
         this._webView.set_name('ding-widget-webview');
+        this._applyWidgetKeyboardFocus(this._webView);
 
         this._frame.set_child(this._webView);
     }
@@ -303,6 +311,21 @@ const HtmlWidgetHost = class {
         }
 
         this._evaluateScript(script);
+    }
+
+    _applyKeyboardFocusPolicy() {
+        if (this._destroyed)
+            return;
+
+        this._applyWidgetKeyboardFocus(this._frame);
+        this._applyWidgetKeyboardFocus(this._webView);
+    }
+
+    _applyWidgetKeyboardFocus(widget) {
+        if (!widget || this._mode === 'prefs')
+            return;
+
+        widget.set_focusable(this._keyboardFocusable);
     }
 
     _pokeWebViewRender() {

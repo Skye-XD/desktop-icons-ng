@@ -560,11 +560,7 @@ const WidgetManager = class {
 
     clearSelectedInstance() {
         const oldInst = this._instances.get(this._selectedInstanceId);
-
-        if (oldInst?.actor) {
-            const ctx = oldInst.actor.get_style_context();
-            ctx.remove_class('ding-widget-selected');
-        }
+        this._updateActorSelectedClass(oldInst, false);
 
         this._selectedInstanceId = null;
         this._clearInvalidWidgetEditModes();
@@ -578,8 +574,7 @@ const WidgetManager = class {
         ) {
             const oldInst = this._instances.get(this._selectedInstanceId);
             if (oldInst?.actor) {
-                const ctx = oldInst.actor.get_style_context();
-                ctx.remove_class('ding-widget-selected');
+                this._updateActorSelectedClass(oldInst, false);
                 this._webWidgetContext?.closePreferencesIfAny();
             }
         }
@@ -604,8 +599,7 @@ const WidgetManager = class {
             return;
         }
 
-        const ctx = inst.actor.get_style_context();
-        ctx.add_class('ding-widget-selected');
+        this._updateActorSelectedClass(inst, true);
 
         this._raiseInstance(inst);
 
@@ -624,10 +618,7 @@ const WidgetManager = class {
 
         if (this._selectedInstanceId) {
             const inst = this._instances.get(this._selectedInstanceId);
-            if (inst?.actor) {
-                const ctx = inst.actor.get_style_context();
-                ctx.remove_class('ding-widget-selected');
-            }
+            this._updateActorSelectedClass(inst, false);
         }
     }
 
@@ -639,11 +630,31 @@ const WidgetManager = class {
         if (!inst)
             return;
 
-        const ctx = inst.actor.get_style_context();
-        ctx.add_class('ding-widget-selected');
+        this._updateActorSelectedClass(inst, true);
 
         this._ensureChrome();
         this._attachChromeToInstance(inst);
+    }
+
+    _updateActorSelectedClass(inst, selected) {
+        if (!inst?.actor)
+            return;
+
+        const ctx = inst.actor.get_style_context();
+        if (!selected) {
+            ctx.remove_class('ding-widget-selected');
+            return;
+        }
+
+        const surface = this._surfaces.get(inst.monitorIndex);
+        const widgetContainer = surface?.widgetContainer ?? null;
+        const parent = inst.actor.get_parent?.() ?? null;
+        if (widgetContainer && parent !== widgetContainer) {
+            ctx.remove_class('ding-widget-selected');
+            return;
+        }
+
+        ctx.add_class('ding-widget-selected');
     }
 
     async listAvailableWidgets() {
@@ -1987,6 +1998,12 @@ const WidgetManager = class {
         if (!surface)
             return;
 
+        const widgetLayerOnTop = surface.grid.isWidgetContainerOnTop();
+        if (!widgetLayerOnTop) {
+            this._hideAllChromeButtons();
+            return;
+        }
+
         const {widgetContainer} = surface;
         const frame = this.getInstanceFrame(inst.instanceId);
         if (!frame)
@@ -2303,8 +2320,10 @@ const WidgetManager = class {
         for (const inst of this._instances.values()) {
             const selected = inst.instanceId === this._selectedInstanceId;
             // To Do: GTK Widget seleted state
-            if (inst.kind === 'html' && inst.actor && inst.host)
+            if (inst.kind === 'html' && inst.actor && inst.host) {
+                inst.host.setKeyboardFocusable(selected);
                 this._webWidgetContext.updateHtmlWidgetSelected(inst, selected);
+            }
         }
     }
 
