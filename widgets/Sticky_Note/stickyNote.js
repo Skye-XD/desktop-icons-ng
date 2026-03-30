@@ -74,6 +74,8 @@ class StickyNoteWidget {
         this._savedRange = null;
         this._wakeRefreshRaf = 0;
         this._hostState = null;
+        this._lastPointerClientX = 0;
+        this._lastPointerClientY = 0;
         this._wireUi();
         this._wireClient();
         this._init()
@@ -109,6 +111,15 @@ class StickyNoteWidget {
 
         this.editor.addEventListener('keyup', () => {
             this._updateToolbarState();
+        });
+
+        this.editor.addEventListener('blur', () => {
+            this._refocusEditorAfterBlurIfNeeded();
+        });
+
+        document.addEventListener('pointermove', event => {
+            this._lastPointerClientX = Number(event.clientX) || 0;
+            this._lastPointerClientY = Number(event.clientY) || 0;
         });
 
         this.client.bindPinnedHoverChrome(this.noteShell);
@@ -812,6 +823,38 @@ class StickyNoteWidget {
     _focusEditorAtEnd() {
         this.editor.focus();
         this._placeCaretAtEnd(this.editor);
+    }
+
+    _refocusEditorAfterBlurIfNeeded() {
+        if (!this._isEditing || !this._currentHostState().widgetEditMode)
+            return;
+
+        if (!this._isPointerInEditorRegion())
+            return;
+
+        if (!this.linkDialogBackdrop.hidden)
+            return;
+
+        setTimeout(() => {
+            if (!this._isEditing || !this._currentHostState().widgetEditMode)
+                return;
+
+            if (!this._isPointerInEditorRegion())
+                return;
+
+            if (document.activeElement === this.editor)
+                return;
+
+            this.editor.focus();
+        }, 0);
+    }
+
+    _isPointerInEditorRegion() {
+        const rect = this.editor.getBoundingClientRect();
+        return this._lastPointerClientX >= rect.left &&
+            this._lastPointerClientX <= rect.right &&
+            this._lastPointerClientY >= rect.top &&
+            this._lastPointerClientY <= rect.bottom;
     }
 
     _placeCaretAfter(element) {
