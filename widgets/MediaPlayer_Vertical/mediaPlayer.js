@@ -9,6 +9,7 @@ const DEFAULT_CONFIG = {
 };
 
 const POSITION_SAVE_GRANULARITY_US = 5 * 1000 * 1000;
+const PLAYBACK_TICK_MS = 250;
 
 class MediaPlayerWidget {
   constructor(root) {
@@ -19,6 +20,7 @@ class MediaPlayerWidget {
     this._currentArtUrl = null;
     this._lastPersistedKey = '';
     this._persistTimer = 0;
+    this._playbackTimer = 0;
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
     this._init();
@@ -136,7 +138,8 @@ class MediaPlayerWidget {
   _applySnapshot(snapshot, {persist = false, fromCache = false} = {}) {
     const normalized = this._normalizeSnapshot(snapshot);
     this._lastSnapshot = normalized;
-    this._render(normalized);
+    this._syncPlaybackTimer();
+    this._render(this._getRenderSnapshot());
 
     if (!normalized?.artId) {
       this._currentArtId = null;
@@ -292,7 +295,7 @@ class MediaPlayerWidget {
   }
 
   _buildMediaCache() {
-    const snapshot = this._lastSnapshot;
+    const snapshot = this._getRenderSnapshot();
     if (!snapshot)
       return null;
 
@@ -349,6 +352,51 @@ class MediaPlayerWidget {
     const m = Math.floor(sec / 60);
     const s = Math.floor(sec % 60);
     return `${m}:${s.toString().padStart(2, '0')}`;
+  }
+
+  _syncPlaybackTimer() {
+    const shouldTick = this._lastSnapshot?.player &&
+      this._lastSnapshot?.playbackStatus === 'Playing';
+
+    if (!shouldTick) {
+      if (this._playbackTimer) {
+        clearInterval(this._playbackTimer);
+        this._playbackTimer = 0;
+      }
+      return;
+    }
+
+    if (this._playbackTimer)
+      return;
+
+    this._playbackTimer = setInterval(() => {
+      if (!this._lastSnapshot || this._lastSnapshot.playbackStatus !== 'Playing') {
+        this._syncPlaybackTimer();
+        return;
+      }
+
+      this._render(this._getRenderSnapshot());
+      this._schedulePersist();
+    }, PLAYBACK_TICK_MS);
+  }
+
+  _getRenderSnapshot() {
+    const snapshot = this._lastSnapshot;
+    if (!snapshot)
+      return null;
+
+    const rendered = {...snapshot};
+    if (rendered.playbackStatus === 'Playing' &&
+        Number.isFinite(rendered.position) &&
+        Number.isFinite(rendered.ts)) {
+      const elapsedUs = Math.max(0, Date.now() - rendered.ts) * 1000;
+      rendered.position += elapsedUs;
+      if (Number.isFinite(rendered.length) && rendered.length > 0)
+        rendered.position = Math.min(rendered.position, rendered.length);
+      rendered.ts = Date.now();
+    }
+
+    return rendered;
   }
 }
 
