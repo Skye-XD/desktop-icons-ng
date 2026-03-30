@@ -6,6 +6,8 @@ import {BackendApp, runBackend} from '../backEndApp.js';
 const ByteArray = imports.byteArray;
 
 const MPRIS_PREFIX = 'org.mpris.MediaPlayer2.';
+const UPDATE_HEARTBEAT_MS = 15000;
+const SEEK_JUMP_THRESHOLD_US = 5 * 1000 * 1000;
 
 async function fetchImageAsBase64(url) {
     return new Promise((resolve) => {
@@ -57,6 +59,7 @@ class MediaBackend extends BackendApp {
         super(params);
         this._refreshSource = 0;
         this._lastSnapshot = null;
+        this._lastSentTs = 0;
         this.registerMethod('getSnapshot', () => this._lastSnapshot);
         this.registerMethod('getArt', async ({artId}) => {
             if (!artId) return null;
@@ -223,7 +226,7 @@ class MediaBackend extends BackendApp {
         if (prev && prev.artId === artId && prev._rawArtUrl && !_rawArtUrl) {
             _rawArtUrl = prev._rawArtUrl;
         }
-        this._lastSnapshot = {
+        const nextSnapshot = {
             player,
             identity,
             title,
@@ -235,9 +238,51 @@ class MediaBackend extends BackendApp {
             ts: Date.now(),
             _rawArtUrl
         };
-        
-        const { _rawArtUrl: _r, ...publicSnapshot } = this._lastSnapshot;
+        this._lastSnapshot = nextSnapshot;
+
+        if (!this._shouldSendUpdate(prev, nextSnapshot))
+            return;
+
+        this._lastSentTs = nextSnapshot.ts;
+        const { _rawArtUrl: _r, ...publicSnapshot } = nextSnapshot;
         this.sendEvent('update', publicSnapshot);
+    }
+
+    _shouldSendUpdate(prev, next) {
+        if (!next)
+            return false;
+
+        if (!prev)
+            return true;
+
+        if (prev.player !== next.player ||
+            prev.identity !== next.identity ||
+            prev.title !== next.title ||
+            prev.artist !== next.artist ||
+            prev.length !== next.length ||
+            prev.artId !== next.artId ||
+            prev.playbackStatus !== next.playbackStatus)
+            return true;
+
+        if (!next.player)
+            return false;
+
+        const previousTs = Number(prev.ts) || 0;
+        const nextTs = Number(next.ts) || previousTs;
+        const previousPosition = Number(prev.position) || 0;
+        const nextPosition = Number(next.position) || 0;
+        const expectedPosition =
+            prev.playbackStatus === 'Playing'
+                ? previousPosition + Math.max(0, nextTs - previousTs) * 1000
+                : previousPosition;
+
+        if (Math.abs(nextPosition - expectedPosition) >= SEEK_JUMP_THRESHOLD_US)
+            return true;
+
+        if (next.playbackStatus === 'Playing')
+            return nextTs - this._lastSentTs >= UPDATE_HEARTBEAT_MS;
+
+        return false;
     }
 
     _makeArtId(urlStr) {
