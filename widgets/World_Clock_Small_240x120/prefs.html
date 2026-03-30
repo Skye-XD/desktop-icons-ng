@@ -12,60 +12,75 @@
       <div id="headerTitle">World Clock</div>
     </div>
 
-    <div class="section">
-      <div class="section-title">Location</div>
-
-      <label class="field">
-        <input id="labelInput" type="text" autocomplete="off" spellcheck="false" placeholder="New York" />
-      </label>
-
-      <label class="field">
-        <div class="field-row">
-          <div class="label">UTC Offset</div>
-          <input id="offsetInput" type="text" autocomplete="off" spellcheck="false" placeholder="-05:00" />
-        </div>
-        <div id="offsetError" class="hint hidden">Use ±HH:MM</div>
-      </label>
+    <div class="prefs-tabs" role="tablist">
+      <button class="prefs-tab is-active" data-tab="settings" type="button">Settings</button>
+      <button class="prefs-tab" data-tab="appearance" type="button">Appearance</button>
     </div>
 
-    <div class="section">
-      <div class="section-title">Time Format</div>
+    <div class="prefs-panel" data-panel="settings">
+      <div class="section">
+        <div class="section-title">Location</div>
 
-      <div class="field">
-        <div class="segmented" role="group" aria-label="Time Format">
-          <button id="fmt12" type="button" data-value="12">12-hour</button>
-          <button id="fmt24" type="button" data-value="24">24-hour</button>
+        <label class="field">
+          <input id="labelInput" type="text" autocomplete="off" spellcheck="false" placeholder="Optional custom label" />
+        </label>
+
+        <label class="field">
+          <div class="field-row">
+            <div class="label">Region</div>
+            <select id="regionSelect"></select>
+          </div>
+        </label>
+
+        <label class="field">
+          <div class="field-row">
+            <div class="label">Time Zone</div>
+            <select id="timeZoneSelect"></select>
+          </div>
+        </label>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Time Format</div>
+
+        <div class="field">
+          <div class="segmented" role="group" aria-label="Time Format">
+            <button id="fmt12" type="button" data-value="12">12-hour</button>
+            <button id="fmt24" type="button" data-value="24">24-hour</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="section">
-      <div class="section-title">Appearance</div>
+    <div class="prefs-panel" data-panel="appearance" hidden>
+      <div class="section">
+        <div class="section-title">Appearance</div>
 
-      <label class="field field-row">
-        <div class="label">Text color</div>
-        <input id="colorPicker" type="color" />
-      </label>
+        <label class="field field-row">
+          <div class="label">Text color</div>
+          <input id="colorPicker" type="color" />
+        </label>
 
-      <label class="field field-row bg-color-field">
-        <div class="label">Background color</div>
-        <input id="bgColorPicker" type="color" />
-      </label>
+        <label class="field field-row bg-color-field">
+          <div class="label">Background color</div>
+          <input id="bgColorPicker" type="color" />
+        </label>
 
-      <label class="field">
-        <div class="label">Background opacity</div>
-        <div class="slider-row">
-          <input id="bgOpacity" type="range" min="0" max="0.35" step="0.01" />
-          <div id="bgOpacityValue" class="slider-value">8%</div>
-        </div>
-      </label>
-    </div>
+        <label class="field">
+          <div class="label">Background opacity</div>
+          <div class="slider-row">
+            <input id="bgOpacity" type="range" min="0" max="0.35" step="0.01" />
+            <div id="bgOpacityValue" class="slider-value">8%</div>
+          </div>
+        </label>
+      </div>
 
-    <div class="actions">
-      <button id="restoreDefaults" type="button">Restore Default Colors</button>
+      <div class="actions">
+        <button id="restoreDefaults" type="button">Restore Default Colors</button>
+      </div>
     </div>
   </div>
 
-  <script src="prefs.js"></script>
+  <script type="module" src="prefs.js"></script>
 </body>
 </html>
