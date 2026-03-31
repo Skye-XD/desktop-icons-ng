@@ -10,8 +10,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-30 13:57+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 15:10+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sl/>\n"
 "Language: sl\n"
@@ -1781,9 +1782,8 @@ msgid ""
 msgstr ""
 
 #: app/widgetManager.js:2979
-#, fuzzy
 msgid "Command:"
-msgstr "Ukaz:\n"
+msgstr "Ukaz:"
 
 #: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
@@ -1801,7 +1801,7 @@ msgstr "Lastnosti"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr ""
+msgstr "Odpri v brskalniku"
 
 #: app/widgetWebContext.js:793
 msgid ""

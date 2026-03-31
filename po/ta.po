@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-30 13:55+0000\n"
+"PO-Revision-Date: 2026-03-31 15:10+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/gtk4-desktop-icons-"
 "ng/gtk4-ding-pot/ta/>\n"
@@ -1528,7 +1528,7 @@ msgstr "விட்செட் விருப்பத்தேர்வு�
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr ""
+msgstr "உலாவியில் இணைப்பைத் திற"
 
 #: app/widgetWebContext.js:793
 msgid ""
