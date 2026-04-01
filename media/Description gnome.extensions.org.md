@@ -2,6 +2,8 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
+Latest update: widgets can now be pinned into floating windows, including the Today calendar and media widgets. This release also adds a new Sticky Notes widget, improves pinned widget controls and focus behavior, and updates the world clock widgets for better timezone and DST handling.
+
 Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
 
 Icons can be positioned anywhere on desktop or are snapped to a grid. Can make links on the Desktop. GSconnect Integration, can send files to connected devices. Drag and Drop support on to Dock, Dash, or from Dock, Dash to the Desktop.

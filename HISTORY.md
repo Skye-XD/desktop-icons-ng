@@ -1,4 +1,16 @@
 # History of versions #
+* Adw Version 100.19 for Gnome 49, 50
+  * Extend and harden the widget API: configurable widget chrome buttons, safer WebView navigation and context menus, widget instance management helpers, external link helpers, and updated widget documentation. (Sundeep Mediratta)
+  * Add floating and pinned HTML widget windows with shell integration, monitor-relative placement, move controls, and improved reparent/render recovery for pinning and editing transitions. (Sundeep Mediratta)
+  * Add a new Sticky Note widget. (Sundeep Mediratta)
+  * Improve floating and pinned widget interaction: replace pinned controls popover with window-overlay inlay controls, keep keyboard focus correctly on selected/pinned widgets, suppress incorrect selected styling on floating actors, and gate desktop chrome while the widget layer is active. (Sundeep Mediratta)
+  * Make the Today calendar widget pinnable. (Sundeep Mediratta)
+  * Make the media player widgets pinnable and cache media info for smoother updates. (Sundeep Mediratta)
+  * Update the world clock widgets with improved timezone/DST handling and refreshed preferences. (Sundeep Mediratta)
+  * Additional UI polish: keep widget-on-top windows above the workspace, move widget layer dimming to the desktop window, lower the widget layer before opening web links, and refine shortcut/text-entry handling. (Sundeep Mediratta)
+  * Weblate translations updates for Polish, Spanish, German, and Arabic. Refresh `.po` and `.pot` files. (Weblate Authors)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.18 for Gnome 49, 50
   * Drop X11 support and require a Wayland session. Remove X11-specific dependencies and legacy window-type/Wayland compatibility workarounds. (Sundeep Mediratta)
   * Add desktop dock window-type emulation and better raised-state synchronization with GNOME Shell to interact with widgets. (Sundeep Mediratta)
