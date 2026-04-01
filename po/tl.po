@@ -11,8 +11,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-30 14:03+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 15:10+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Tagalog <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/tl/>\n"
 "Language: tl\n"
@@ -1790,9 +1791,8 @@ msgid ""
 msgstr ""
 
 #: app/widgetManager.js:2979
-#, fuzzy
 msgid "Command:"
-msgstr "Command\n"
+msgstr "Command"
 
 #: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
@@ -1810,7 +1810,7 @@ msgstr "Mga kagustuhan"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr ""
+msgstr "Buksan sa browser"
 
 #: app/widgetWebContext.js:793
 msgid ""

@@ -11,8 +11,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-30 13:52+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 15:10+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/ka/>\n"
 "Language: ka\n"
@@ -234,7 +235,7 @@ msgstr "ორმაგი წკაპი"
 
 #: app/adwPreferencesWindow.js:788
 msgid "Show image thumbnails"
-msgstr ""
+msgstr "ესკიზის ჩვენება"
 
 #: app/adwPreferencesWindow.js:790
 msgid "Always"
@@ -645,7 +646,7 @@ msgstr ""
 
 #: app/desktopManager.js:228
 msgid "GNOME Files not found"
-msgstr ""
+msgstr "ფაილი ვერ მოიძებნა"
 
 #: app/desktopManager.js:229
 msgid "The GNOME Files application is required by Gtk4 Desktop Icons NG."
@@ -752,7 +753,7 @@ msgstr "სამუშაო მაგიდის შეცვლა"
 
 #: app/desktopMenu.js:1056
 msgid "Restore Default Desktop"
-msgstr ""
+msgstr "&ნაგულისხმევი პარამეტრების აღდგენა"
 
 #: app/desktopMenu.js:1060
 msgid "Desktop Icon Settings"
@@ -1445,9 +1446,8 @@ msgid ""
 msgstr ""
 
 #: app/widgetManager.js:2979
-#, fuzzy
 msgid "Command:"
-msgstr "ბრძანება:\n"
+msgstr "ბრძანება:"
 
 #: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
@@ -1464,7 +1464,7 @@ msgstr "მორგება"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr ""
+msgstr "გახსენი ვებგვერდად"
 
 #: app/widgetWebContext.js:793
 msgid ""

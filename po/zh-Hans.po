@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-30 13:52+0000\n"
-"Last-Translator: \"Adam C.\" <adam701212@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 15:10+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/gtk4-desktop-icons-ng/gtk4-ding-pot/zh_Hans/>\n"
 "Language: zh-Hans\n"
@@ -1800,9 +1800,8 @@ msgstr ""
 "\n"
 
 #: app/widgetManager.js:2979
-#, fuzzy
 msgid "Command:"
-msgstr "命令:\n"
+msgstr "命令:"
 
 #: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
@@ -1819,7 +1818,7 @@ msgstr "小部件首选项"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr ""
+msgstr "在浏览器中打开链接"
 
 #: app/widgetWebContext.js:793
 msgid ""

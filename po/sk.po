@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding v100.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-30 14:01+0000\n"
-"Last-Translator: Peter Michel <michel.peter95@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 15:10+0000\n"
+"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/sk/>\n"
 "Language: sk\n"
@@ -1363,18 +1363,16 @@ msgid "Widget preferences"
 msgstr "Nastavenia miniaplikácie"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Unpin widget"
-msgstr "GTK miniaplikácia"
+msgstr "Odopnúť miniaplikáciu"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Pin widget"
-msgstr "GTK miniaplikácia"
+msgstr "Pripnúť miniaplikáciu"
 
 #: app/widgetManager.js:2153
 msgid "Reposition widget"
-msgstr ""
+msgstr "Presunúť miniaplikáciu"
 
 #: app/widgetManager.js:2699
 msgid "HTML widget"
@@ -1535,13 +1533,15 @@ msgstr "Predvoľby miniaplikácie"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr ""
+msgstr "Otvoriť odkaz v prehliadači?"
 
 #: app/widgetWebContext.js:793
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
 msgstr ""
+"Táto miniaplikácia chce otvoriť tento odkaz vo vašom prehliadači:\n"
+"\n"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"

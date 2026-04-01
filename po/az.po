@@ -11,8 +11,9 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-30 13:56+0000\n"
-"Last-Translator: Sundeep Mediratta <smedius@gmail.com>\n"
+"PO-Revision-Date: 2026-03-31 15:10+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/az/>\n"
 "Language: az\n"
@@ -1768,9 +1769,8 @@ msgid ""
 msgstr ""
 
 #: app/widgetManager.js:2979
-#, fuzzy
 msgid "Command:"
-msgstr "Komanda\n"
+msgstr "Komanda"
 
 #: app/widgetManager.js:2982
 msgid "Only allow this for widgets you implicitly trust."
@@ -1788,7 +1788,7 @@ msgstr "Qeydiyyat"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr ""
+msgstr "Brauzerdə açın"
 
 #: app/widgetWebContext.js:793
 msgid ""
