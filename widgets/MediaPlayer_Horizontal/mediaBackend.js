@@ -66,6 +66,9 @@ class MediaBackend extends BackendApp {
             if (!this._lastSnapshot || this._lastSnapshot.artId !== artId) return null;
             return await this._getArtUrl(this._lastSnapshot._rawArtUrl);
         });
+        this.registerMethod('playPause', async () => await this._invokePlayerMethod('PlayPause'));
+        this.registerMethod('next', async () => await this._invokePlayerMethod('Next'));
+        this.registerMethod('previous', async () => await this._invokePlayerMethod('Previous'));
     }
 
     onHello(_ctx) {
@@ -91,6 +94,82 @@ class MediaBackend extends BackendApp {
         );
     }
 
+    _listPlayerCandidates() {
+        const bus = Gio.DBus.session;
+        const names = bus.call_sync(
+            'org.freedesktop.DBus',
+            '/org/freedesktop/DBus',
+            'org.freedesktop.DBus',
+            'ListNames',
+            null,
+            null,
+            Gio.DBusCallFlags.NONE,
+            -1,
+            null
+        ).deep_unpack()[0];
+
+        let candidates = [];
+        for (const name of names) {
+            if (!name.startsWith(MPRIS_PREFIX))
+                continue;
+            try {
+                let status = bus.call_sync(
+                    name,
+                    '/org/mpris/MediaPlayer2',
+                    'org.freedesktop.DBus.Properties',
+                    'Get',
+                    GLib.Variant.new_tuple([
+                        GLib.Variant.new_string('org.mpris.MediaPlayer2.Player'),
+                        GLib.Variant.new_string('PlaybackStatus')
+                    ]),
+                    null,
+                    Gio.DBusCallFlags.NONE,
+                    -1,
+                    null
+                ).deep_unpack()[0].deep_unpack();
+                candidates.push({name, status});
+            } catch (e) {
+            }
+        }
+
+        return candidates;
+    }
+
+    _selectPlayer(candidates = []) {
+        const lastPlayer = this._lastSnapshot?.player ?? null;
+        if (lastPlayer) {
+            const matching = candidates.find(candidate => candidate.name === lastPlayer);
+            if (matching)
+                return matching;
+        }
+
+        return candidates.find(candidate => candidate.status === 'Playing') ||
+            candidates.find(candidate => candidate.status === 'Paused') ||
+            candidates[0] ||
+            null;
+    }
+
+    async _invokePlayerMethod(method) {
+        const selected = this._selectPlayer(this._listPlayerCandidates());
+        if (!selected)
+            return {ok: false, reason: 'no-player'};
+
+        Gio.DBus.session.call_sync(
+            selected.name,
+            '/org/mpris/MediaPlayer2',
+            'org.mpris.MediaPlayer2.Player',
+            method,
+            null,
+            null,
+            Gio.DBusCallFlags.NONE,
+            -1,
+            null
+        );
+
+        await this._refresh();
+        return {ok: true, player: selected.name, method};
+    }
+
     async _refresh() {
         const bus = Gio.DBus.session;
         let player = null;
@@ -105,44 +184,8 @@ class MediaBackend extends BackendApp {
         let title = null;
         let playbackStatus = null;
         try {
-            const names = bus.call_sync(
-                'org.freedesktop.DBus',
-                '/org/freedesktop/DBus',
-                'org.freedesktop.DBus',
-                'ListNames',
-                null,
-                null,
-                Gio.DBusCallFlags.NONE,
-                -1,
-                null
-            ).deep_unpack()[0];
-
-            let candidates = [];
-            for (const name of names) {
-                if (!name.startsWith(MPRIS_PREFIX)) continue;
-                try {
-                    let status = bus.call_sync(
-                        name,
-                        '/org/mpris/MediaPlayer2',
-                        'org.freedesktop.DBus.Properties',
-                        'Get',
-                        GLib.Variant.new_tuple([
-                            GLib.Variant.new_string('org.mpris.MediaPlayer2.Player'),
-                            GLib.Variant.new_string('PlaybackStatus')
-                        ]),
-                        null,
-                        Gio.DBusCallFlags.NONE,
-                        -1,
-                        null
-                    ).deep_unpack()[0].deep_unpack();
-                    candidates.push({name, status});
-                } catch (e) {
-                }
-            }
-            
-            let selected = candidates.find(c=>c.status==='Playing')
-                || candidates.find(c=>c.status==='Paused')
-                || candidates[0];
+            let candidates = this._listPlayerCandidates();
+            let selected = this._selectPlayer(candidates);
             if (selected) {
                 player = selected.name;
                 playbackStatus = selected.status;
