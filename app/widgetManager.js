@@ -560,7 +560,6 @@ const WidgetManager = class {
     }
 
     clearSelectedInstance() {
-        this._selectionChromeSuppressed = false;
         const oldInst = this._instances.get(this._selectedInstanceId);
         this._updateActorSelectedClass(oldInst, false);
 
@@ -571,8 +570,6 @@ const WidgetManager = class {
     }
 
     selectInstance(instanceId) {
-        this._selectionChromeSuppressed = false;
-
         if (this._selectedInstanceId &&
             this._selectedInstanceId !== instanceId
         ) {
@@ -1957,6 +1954,12 @@ const WidgetManager = class {
         if (!inst?.actor)
             return;
 
+        // If the instance is selected and we're suppressing selection chrome,
+        // don't do reattachment at all, the widget is being dragged.
+        if (this._selectionChromeSuppressed &&
+            inst.instanceId === this._selectedInstanceId)
+            return;
+
         if (this._shouldAttachToDockLayer(inst)) {
             this._detachChromeIfSelectedInstance(inst.instanceId);
             this._pinnedWindowManager.pinInstance(inst);
@@ -2002,7 +2005,9 @@ const WidgetManager = class {
         if (!this._chrome)
             return;
 
-        if (this._selectionChromeSuppressed) {
+        // Never attach to an instance that's being dragged.
+        if (this._selectionChromeSuppressed &&
+            inst?.instanceId === this._selectedInstanceId) {
             this._hideAllChromeButtons();
             return;
         }
