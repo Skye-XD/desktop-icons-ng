@@ -10,6 +10,7 @@ const DEFAULT_CONFIG = {
 
 const POSITION_SAVE_GRANULARITY_US = 5 * 1000 * 1000;
 const PLAYBACK_TICK_MS = 250;
+const POSITION_PERSIST_INTERVAL_MS = 1000;
 
 class MediaPlayerWidget {
   constructor(root) {
@@ -19,10 +20,13 @@ class MediaPlayerWidget {
     this._currentArtId = null;
     this._currentArtUrl = null;
     this._lastPersistedKey = '';
-    this._persistTimer = 0;
     this._playbackTimer = 0;
+    this._positionPersistTimer = 0;
+    this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
+    window.addEventListener('pagehide', this._beforeUnloadHandler);
+    window.addEventListener('beforeunload', this._beforeUnloadHandler);
     this._init();
   }
 
@@ -41,13 +45,13 @@ class MediaPlayerWidget {
         return;
       this._applyConfigObject(cfg);
       this._applyConfig();
-      if (this._shouldRestoreFromCache())
+      if (this._shouldRestoreFromCache({allowLiveOverride: false}))
         this._renderFromCache();
     });
 
     await this._loadConfig();
     this._applyConfig();
-    if (this._shouldRestoreFromCache())
+    if (this._shouldRestoreFromCache({allowLiveOverride: false}))
       this._renderFromCache();
 
     if (!this._lastSnapshot) {
@@ -88,11 +92,13 @@ class MediaPlayerWidget {
     this._applySnapshot(restored, {persist: false, fromCache: true});
   }
 
-  _shouldRestoreFromCache() {
+  _shouldRestoreFromCache({allowLiveOverride = false} = {}) {
     if (!this._config.mediaCache?.snapshot)
       return false;
     if (!this._lastSnapshot)
       return true;
+    if (!allowLiveOverride)
+      return false;
     const cachedTs = Number(this._config.mediaCache.snapshot.ts) || 0;
     const currentTs = Number(this._lastSnapshot.ts) || 0;
     return cachedTs > currentTs;
@@ -137,15 +143,19 @@ class MediaPlayerWidget {
 
   _applySnapshot(snapshot, {persist = false, fromCache = false} = {}) {
     const normalized = this._normalizeSnapshot(snapshot);
+    const previous = this._lastSnapshot;
+    const mediaChanged = this._didMediaIdentityChange(previous, normalized);
+    const playbackStateChanged = previous?.playbackStatus !== normalized?.playbackStatus;
     this._lastSnapshot = normalized;
     this._syncPlaybackTimer();
+    this._syncPositionPersistTimer();
     this._render(this._getRenderSnapshot());
 
     if (!normalized?.artId) {
       this._currentArtId = null;
       this._currentArtUrl = null;
       if (persist)
-        this._schedulePersist();
+        this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
       return;
     }
 
@@ -162,7 +172,7 @@ class MediaPlayerWidget {
       if (artChanged)
         this._renderCover(cachedArtUrl);
       if (persist)
-        this._schedulePersist();
+        this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
       return;
     }
 
@@ -173,7 +183,7 @@ class MediaPlayerWidget {
       this._loadCover(normalized.artId);
 
     if (persist)
-      this._schedulePersist();
+      this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
   }
 
   _normalizeSnapshot(snapshot) {
@@ -251,7 +261,7 @@ class MediaPlayerWidget {
 
     this._currentArtUrl = artUrl || null;
     this._renderCover(this._currentArtUrl);
-    this._schedulePersist();
+    this._flushPersist();
   }
 
   _renderCover(artUrl) {
@@ -272,26 +282,30 @@ class MediaPlayerWidget {
     coverDiv.innerHTML = '<div class="mp-nocover" style="display:flex;align-items:center;justify-content:center;font-size:2em;color:#aaa;">?</div>';
   }
 
-  _schedulePersist() {
-    const mediaCache = this._buildMediaCache();
-    const persistKey = this._buildCachePersistKey(mediaCache);
-    if (!mediaCache || persistKey === this._lastPersistedKey)
+  _persistMediaCache({_immediate = false} = {}) {
+    this._flushPersist();
+  }
+
+  _flushPersist() {
+    const nextCache = this._buildMediaCache();
+    const nextKey = this._buildCachePersistKey(nextCache);
+    if (!this._needsPersist(nextCache, nextKey))
       return;
 
-    if (this._persistTimer)
-      clearTimeout(this._persistTimer);
+    this._config = {...this._config, mediaCache: nextCache};
+    this._lastPersistedKey = nextKey;
+    this._client.setConfig({...this._config}).catch(() => {});
+  }
 
-    this._persistTimer = setTimeout(() => {
-      this._persistTimer = 0;
-      const nextCache = this._buildMediaCache();
-      const nextKey = this._buildCachePersistKey(nextCache);
-      if (!nextCache || nextKey === this._lastPersistedKey)
-        return;
+  _needsPersist(mediaCache, persistKey = this._buildCachePersistKey(mediaCache)) {
+    if (persistKey !== this._lastPersistedKey)
+      return true;
 
-      this._config = {...this._config, mediaCache: nextCache};
-      this._lastPersistedKey = nextKey;
-      this._client.patchConfig({mediaCache: nextCache}).catch(() => {});
-    }, 250);
+    return !this._mediaCacheEquals(this._config.mediaCache, mediaCache);
+  }
+
+  _mediaCacheEquals(a, b) {
+    return JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
   }
 
   _buildMediaCache() {
@@ -376,8 +390,32 @@ class MediaPlayerWidget {
       }
 
       this._render(this._getRenderSnapshot());
-      this._schedulePersist();
     }, PLAYBACK_TICK_MS);
+  }
+
+  _syncPositionPersistTimer() {
+    const shouldPersistPosition = this._lastSnapshot?.player &&
+      this._lastSnapshot?.playbackStatus === 'Playing';
+
+    if (!shouldPersistPosition) {
+      if (this._positionPersistTimer) {
+        clearInterval(this._positionPersistTimer);
+        this._positionPersistTimer = 0;
+      }
+      return;
+    }
+
+    if (this._positionPersistTimer)
+      return;
+
+    this._positionPersistTimer = setInterval(() => {
+      if (!this._lastSnapshot || this._lastSnapshot.playbackStatus !== 'Playing') {
+        this._syncPositionPersistTimer();
+        return;
+      }
+
+      this._flushPersist();
+    }, POSITION_PERSIST_INTERVAL_MS);
   }
 
   _getRenderSnapshot() {
@@ -397,6 +435,35 @@ class MediaPlayerWidget {
     }
 
     return rendered;
+  }
+
+  _didMediaIdentityChange(previous, next) {
+    if (!previous && !next)
+      return false;
+    if (!previous || !next)
+      return true;
+
+    return previous.player !== next.player ||
+      previous.identity !== next.identity ||
+      previous.title !== next.title ||
+      previous.artist !== next.artist ||
+      previous.length !== next.length ||
+      previous.artId !== next.artId;
+  }
+
+  _handleBeforeUnload() {
+    this._flushPersist();
+    if (this._playbackTimer) {
+      clearInterval(this._playbackTimer);
+      this._playbackTimer = 0;
+    }
+    if (this._positionPersistTimer) {
+      clearInterval(this._positionPersistTimer);
+      this._positionPersistTimer = 0;
+    }
+    this._client?.destroy?.();
+    window.removeEventListener('pagehide', this._beforeUnloadHandler);
+    window.removeEventListener('beforeunload', this._beforeUnloadHandler);
   }
 }
 
