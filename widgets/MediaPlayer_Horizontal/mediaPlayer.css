@@ -92,8 +92,7 @@ body.ding-edit-mode #media-root:empty::before {
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
-#media-root.widget-hovered .mp-controls-overlay,
-.mp-main:focus-within .mp-controls-overlay {
+body.ding-host-chrome-visible .mp-controls-overlay {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);

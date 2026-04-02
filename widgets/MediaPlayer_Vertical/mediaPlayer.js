@@ -23,7 +23,6 @@ class MediaPlayerWidget {
     this._controlRequest = null;
     this._playbackTimer = 0;
     this._positionPersistTimer = 0;
-    this._unbindHoverChrome = null;
     this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
@@ -36,7 +35,6 @@ class MediaPlayerWidget {
     this._applyConfigObject(this._syncConfig);
     this._renderFromCache();
     this._applyConfig();
-    this._bindHoverChrome();
 
     this._client.onBackendEvent((name, payload) => {
       if (name === 'update')
@@ -310,16 +308,6 @@ class MediaPlayerWidget {
     }
   }
 
-  _bindHoverChrome() {
-    if (this._unbindHoverChrome)
-      return;
-
-    this._unbindHoverChrome = this._client.bindPinnedHoverChrome?.(this._root, {
-      hideDelayMs: 600,
-      onlyWhen: () => true,
-    }) ?? null;
-  }
-
   _updateControlButtons(snapshot) {
     const buttons = this._root.querySelectorAll('.mp-control-btn');
     if (!buttons.length)
@@ -564,8 +552,6 @@ class MediaPlayerWidget {
       clearInterval(this._positionPersistTimer);
       this._positionPersistTimer = 0;
     }
-    this._unbindHoverChrome?.();
-    this._unbindHoverChrome = null;
     this._client?.destroy?.();
     window.removeEventListener('pagehide', this._beforeUnloadHandler);
     window.removeEventListener('beforeunload', this._beforeUnloadHandler);
