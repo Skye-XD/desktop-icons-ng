@@ -88,12 +88,14 @@ body.ding-edit-mode #media-root:empty::before {
   background: rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(8px);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 body.ding-host-chrome-visible .mp-controls-overlay {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
@@ -113,7 +115,6 @@ body.ding-host-chrome-visible .mp-controls-overlay {
   color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
   cursor: pointer;
-  pointer-events: auto;
   transition: background-color 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
 }
 
