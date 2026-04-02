@@ -20,8 +20,10 @@ class MediaPlayerWidget {
     this._currentArtId = null;
     this._currentArtUrl = null;
     this._lastPersistedKey = '';
+    this._controlRequest = null;
     this._playbackTimer = 0;
     this._positionPersistTimer = 0;
+    this._unbindHoverChrome = null;
     this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
@@ -34,6 +36,7 @@ class MediaPlayerWidget {
     this._applyConfigObject(this._syncConfig);
     this._renderFromCache();
     this._applyConfig();
+    this._bindHoverChrome();
 
     this._client.onBackendEvent((name, payload) => {
       if (name === 'update')
@@ -234,8 +237,14 @@ class MediaPlayerWidget {
               <span class="mp-status"></span>
             </div>
           </div>
+          <div class="mp-controls-overlay" aria-label="Media controls">
+            <button class="mp-control-btn" type="button" data-action="previous" aria-label="Previous track"></button>
+            <button class="mp-control-btn mp-control-btn-primary" type="button" data-action="playPause" aria-label="Play or pause"></button>
+            <button class="mp-control-btn" type="button" data-action="next" aria-label="Next track"></button>
+          </div>
         </div>
       `;
+      this._bindControlButtons();
     }
 
     this._root.querySelector('.mp-title').textContent = snapshot.title || '';
@@ -244,6 +253,7 @@ class MediaPlayerWidget {
     this._root.querySelector('.mp-time-current').textContent = this._formatTime(snapshot.position / 1000000);
     this._root.querySelector('.mp-time-total').textContent = this._formatTime(snapshot.length / 1000000);
     this._root.querySelector('.mp-status').textContent = snapshot.playbackStatus || '';
+    this._updateControlButtons(snapshot);
   }
 
   async _loadCover(artId) {
@@ -280,6 +290,99 @@ class MediaPlayerWidget {
     if (coverDiv.querySelector('.mp-nocover'))
       return;
     coverDiv.innerHTML = '<div class="mp-nocover" style="display:flex;align-items:center;justify-content:center;font-size:2em;color:#aaa;">?</div>';
+  }
+
+  _bindControlButtons() {
+    for (const button of this._root.querySelectorAll('.mp-control-btn')) {
+      button.addEventListener('pointerdown', event => {
+        if (event.button !== 0)
+          return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+        this._handleControlClick(button.dataset.action);
+      });
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+      });
+    }
+  }
+
+  _bindHoverChrome() {
+    if (this._unbindHoverChrome)
+      return;
+
+    this._unbindHoverChrome = this._client.bindPinnedHoverChrome?.(this._root, {
+      hideDelayMs: 600,
+      onlyWhen: () => true,
+    }) ?? null;
+  }
+
+  _updateControlButtons(snapshot) {
+    const buttons = this._root.querySelectorAll('.mp-control-btn');
+    if (!buttons.length)
+      return;
+
+    const hasPlayer = !!snapshot?.player;
+    const busyAction = this._controlRequest;
+    for (const button of buttons) {
+      const action = button.dataset.action;
+      const isBusy = busyAction === action;
+      button.disabled = !hasPlayer || !!busyAction;
+      button.classList.toggle('is-busy', isBusy);
+      button.innerHTML = this._getControlIconSvg(
+        action,
+        action === 'playPause' && snapshot?.playbackStatus === 'Playing'
+      );
+    }
+  }
+
+  _getControlIconSvg(action, isPlaying) {
+    switch (action) {
+    case 'previous':
+      return `
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M4 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4A.75.75 0 0 1 4 3.25Zm7.396.134a.75.75 0 0 1 .354.636v7.96a.75.75 0 0 1-1.146.636L4.38 8.636a.75.75 0 0 1 0-1.272l6.224-3.98a.75.75 0 0 1 .792 0Z"/>
+        </svg>`;
+    case 'next':
+      return `
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M12 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm-7.396.134a.75.75 0 0 1 .792 0l6.224 3.98a.75.75 0 0 1 0 1.272l-6.224 3.98A.75.75 0 0 1 4.25 11.98V4.02a.75.75 0 0 1 .354-.636Z"/>
+        </svg>`;
+    case 'playPause':
+      if (isPlaying) {
+        return `
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M4.75 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm6.5 0A.75.75 0 0 1 12 4v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Z"/>
+          </svg>`;
+      }
+      return `
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M5.153 3.459A.75.75 0 0 1 6.25 4.12v7.76a.75.75 0 0 1-1.097.662l6-3.88a.75.75 0 0 0 0-1.324l-6-3.88Z"/>
+        </svg>`;
+    default:
+      return '';
+    }
+  }
+
+  async _handleControlClick(action) {
+    if (!action || this._controlRequest || !this._lastSnapshot?.player)
+      return;
+
+    this._controlRequest = action;
+    this._updateControlButtons(this._getRenderSnapshot());
+    try {
+      await this._client.backendRequest(action);
+      const snapshot = await this._client.backendRequest('getSnapshot');
+      if (snapshot)
+        this._applySnapshot(snapshot, {persist: true});
+    } catch (_error) {
+    } finally {
+      this._controlRequest = null;
+      this._updateControlButtons(this._getRenderSnapshot());
+    }
   }
 
   _persistMediaCache({_immediate = false} = {}) {
@@ -461,6 +564,8 @@ class MediaPlayerWidget {
       clearInterval(this._positionPersistTimer);
       this._positionPersistTimer = 0;
     }
+    this._unbindHoverChrome?.();
+    this._unbindHoverChrome = null;
     this._client?.destroy?.();
     window.removeEventListener('pagehide', this._beforeUnloadHandler);
     window.removeEventListener('beforeunload', this._beforeUnloadHandler);

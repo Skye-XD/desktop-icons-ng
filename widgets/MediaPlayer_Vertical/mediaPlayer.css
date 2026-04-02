@@ -61,6 +61,7 @@ body.ding-edit-mode #media-root:empty::before {
 }
 
 .mp-main {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -71,6 +72,75 @@ body.ding-edit-mode #media-root:empty::before {
   border-radius: 14px;
   background: rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-alpha));
   backdrop-filter: blur(12px);
+}
+
+.mp-controls-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  z-index: 3;
+  transform: translateX(-50%) translateY(6px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+#media-root.widget-hovered .mp-controls-overlay,
+.mp-main:focus-within .mp-controls-overlay {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mp-control-btn {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background-color 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
+}
+
+.mp-control-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.mp-control-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.mp-control-btn:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.mp-control-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: currentColor;
+}
+
+.mp-control-btn-primary svg {
+  width: 16px;
+  height: 16px;
 }
 
 .mp-cover {
