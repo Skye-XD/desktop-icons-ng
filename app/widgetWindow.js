@@ -141,7 +141,7 @@ const WidgetWindow = class {
             return;
 
         this.setPinnedTitle(this.buildPinnedTitle(frame, !!inst.widgetEditMode));
-        this._refreshControlsStrip();
+        this._rebuildControlsStrip();
 
         if (inst.widgetEditMode)
             this.present();
@@ -241,14 +241,9 @@ const WidgetWindow = class {
         this._controlsBar = new Gtk.Box({
             orientation: Gtk.Orientation.HORIZONTAL,
             spacing: 6,
-            margin_top: 0,
-            margin_bottom: 0,
-            margin_start: 0,
-            margin_end: 0,
             halign: Gtk.Align.FILL,
             valign: Gtk.Align.START,
             hexpand: true,
-            homogeneous: false,
             visible: true,
         });
         this._controlsBar.set_name('ding-pinned-overlay-controls');
@@ -366,19 +361,11 @@ const WidgetWindow = class {
         return specs.length;
     }
 
-    _refreshControlsStrip() {
-        if (!this._controlsBox)
-            return 0;
-
-        return this._rebuildControlsStrip();
-    }
-
     _showControlsStrip() {
-        if (!this._overlay)
+        if (!this._controlsBar)
             return;
 
-        this._installControlsStrip();
-        const buttonCount = this._refreshControlsStrip();
+        const buttonCount = this._rebuildControlsStrip();
         this._setControlsStripActive(buttonCount > 0);
     }
 
@@ -593,13 +580,5 @@ const WidgetWindow = class {
         }
 
         return false;
-    }
-
-    _onPinButtonClicked() {
-        // unused; popup buttons route through WidgetManager.activateHostAction()
-    }
-
-    _onMoveButtonClicked() {
-        // unused; popup buttons route through WidgetManager.activateHostAction()
     }
 };

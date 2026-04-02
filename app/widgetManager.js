@@ -82,6 +82,7 @@ const WidgetManager = class {
         this._selectedInstanceId = null;
         this._webWidgetContext = null;
         this._textEntryAccelsSuppressedForWidgets = false;
+        this._selectionChromeSuppressed = false;
 
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
@@ -559,6 +560,7 @@ const WidgetManager = class {
     }
 
     clearSelectedInstance() {
+        this._selectionChromeSuppressed = false;
         const oldInst = this._instances.get(this._selectedInstanceId);
         this._updateActorSelectedClass(oldInst, false);
 
@@ -569,6 +571,8 @@ const WidgetManager = class {
     }
 
     selectInstance(instanceId) {
+        this._selectionChromeSuppressed = false;
+
         if (this._selectedInstanceId &&
             this._selectedInstanceId !== instanceId
         ) {
@@ -613,6 +617,8 @@ const WidgetManager = class {
     }
 
     hideSelectionChromeDuringDrag() {
+        this._selectionChromeSuppressed = true;
+
         if (this._chrome)
             this._hideAllChromeButtons();
 
@@ -625,6 +631,8 @@ const WidgetManager = class {
     updateSelectionChromePositionFor(instanceId) {
         if (!instanceId || instanceId !== this._selectedInstanceId)
             return;
+
+        this._selectionChromeSuppressed = false;
 
         const inst = this._instances.get(instanceId);
         if (!inst)
@@ -1993,6 +2001,11 @@ const WidgetManager = class {
     _attachChromeToInstance(inst) {
         if (!this._chrome)
             return;
+
+        if (this._selectionChromeSuppressed) {
+            this._hideAllChromeButtons();
+            return;
+        }
 
         const surface = this._surfaces.get(inst.monitorIndex);
         if (!surface)

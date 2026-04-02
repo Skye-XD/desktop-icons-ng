@@ -409,7 +409,7 @@ export const WIDGET_API =
         var snapshot = _cloneHostState();
         _debugHostState('notify', snapshot);
 
-        _applyHostStateToDom()
+        _applyHostStateToDom();
 
         _hostStateListeners.forEach(function(cb) {
             try {
