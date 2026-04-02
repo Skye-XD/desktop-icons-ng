@@ -2475,6 +2475,7 @@ const WidgetManager = class {
         const pinned = !!inst.pinned;
         const widgetEditMode = !!inst.widgetEditMode;
         const pinnable = !!inst.pinnable;
+        const hostChromeVisible = !!inst.hostChromeVisible;
 
         const surface = this._surfaces.get(inst.monitorIndex);
         const grid = surface?.grid;
@@ -2490,12 +2491,27 @@ const WidgetManager = class {
             widgetEditMode,
             selected,
             pinned,
+            hostChromeVisible,
             pinnable,
             theme,
             reducedMotion,
             direction,
             locale,
         };
+    }
+
+    updatePinnedHostChromeVisible(instanceId, hostChromeVisible) {
+        const inst = this._instances.get(instanceId);
+        if (!inst)
+            return;
+
+        const nextVisible = !!hostChromeVisible;
+        if (!!inst.hostChromeVisible === nextVisible)
+            return;
+
+        inst.hostChromeVisible = nextVisible;
+        if (inst.kind === 'html' && inst.actor && inst.host)
+            this._webWidgetContext.updateHtmlWidgetHostChromeVisible(inst, nextVisible);
     }
 
     /* ====================================================================

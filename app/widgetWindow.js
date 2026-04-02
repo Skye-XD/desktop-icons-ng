@@ -412,6 +412,7 @@ const WidgetWindow = class {
         }
 
         this._controlsBar.set_sensitive(active);
+        this._widgetManager.updatePinnedHostChromeVisible(this._instanceId, active);
     }
 
     _installMoveGesture() {

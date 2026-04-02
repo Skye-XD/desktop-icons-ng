@@ -332,6 +332,7 @@ export const WIDGET_API =
         widgetEditMode: false,
         selected: false,
         pinned: false,
+        hostChromeVisible: false,
         pinnable: false,
         theme: 'light',
         reducedMotion: false,
@@ -383,6 +384,10 @@ export const WIDGET_API =
             );
             body.classList.toggle('ding-selected', !!_hostState.selected);
             body.classList.toggle('ding-pinned', !!_hostState.pinned);
+            body.classList.toggle(
+                'ding-host-chrome-visible',
+                !!_hostState.hostChromeVisible
+            );
 
             // Reduced motion:
             body.classList.toggle('ding-reduced-motion', !!_hostState.reducedMotion);
