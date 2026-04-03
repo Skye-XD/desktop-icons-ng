@@ -33,8 +33,6 @@ const Preferences = class {
         let schemaSource = GioSSS.get_default();
         this._desktopManager = null;
         this._widgetState = null;
-        this._widgetStateMonitor = null;
-        this._suppressWidgetMonitorEvent = false;
         this._widgetStateSaving = false;
         this._pendingWidgetStateSave = null;
         this.desktopWidgetCapability = DesktopWidgetCapability;
@@ -256,58 +254,12 @@ const Preferences = class {
         this._initLocalCSSprovider();
         this._monitorDesktopSettings();
         this._monitorTerminalSettings();
-        this._monitorWidgetState();
+        this._loadInitialWidgetState();
     }
 
-    _monitorWidgetState() {
+    _loadInitialWidgetState() {
         if (!this._desktopIconsUtil)
             return;
-
-        const widgetsFile = this._desktopIconsUtil.getWidgetsStateFile();
-        if (!widgetsFile)
-            return;
-
-        try {
-            this._widgetStateMonitor =
-                widgetsFile.monitor_file(
-                    Gio.FileMonitorFlags.WATCH_MOVES,
-                    null
-                );
-
-            this._widgetStateMonitor.set_rate_limit(500);
-
-            this._widgetStateMonitor.connect('changed', () => {
-                if (this._suppressWidgetMonitorEvent)
-                    return;
-
-                if (this._widgetStateReloadTimeoutId) {
-                    GLib.source_remove(this._widgetStateReloadTimeoutId);
-                    this._widgetStateReloadTimeoutId = null;
-                }
-
-                this._widgetStateReloadTimeoutId =
-                    GLib.timeout_add(GLib.PRIORITY_DEFAULT, 250, () => {
-                        this._widgetStateReloadTimeoutId = null;
-                        this._loadWidgetState()
-                        .catch(e => {
-                            console.log(
-                                'Error loading widget state from widgets.json:',
-                                e.message ?? e
-                            );
-                            this._widgetState = null;
-                            this._applyWidgetStateToManager();
-                        });
-                        return GLib.SOURCE_REMOVE;
-                    });
-            });
-        } catch (e) {
-            console.log(
-                'Error monitoring widget state from widgets.json:',
-                e.message ?? e
-            );
-            this._widgetStateMonitor = null;
-            return;
-        }
 
         this._loadWidgetState()
         .catch(e => {
@@ -1008,9 +960,6 @@ const Preferences = class {
 
                 const file = this._desktopIconsUtil.getWidgetsStateFile();
 
-                // Prevent triggering monitor events while local saves are active.
-                this._suppressWidgetMonitorEvent = true;
-
                 // Always write the latest queued full snapshot.
                 // If more changes arrive while writing, the loop will save the
                 // newest one next.
@@ -1025,11 +974,6 @@ const Preferences = class {
                     this._pendingWidgetStateSave = null;
             }
         } finally {
-            // Allow monitor events after the current save burst has settled.
-            GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
-                this._suppressWidgetMonitorEvent = false;
-                return GLib.SOURCE_REMOVE;
-            });
             this._widgetStateSaving = false;
         }
     }
