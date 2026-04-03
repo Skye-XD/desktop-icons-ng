@@ -11,6 +11,8 @@ const DEFAULT_CONFIG = {
 const POSITION_SAVE_GRANULARITY_US = 5 * 1000 * 1000;
 const PLAYBACK_TICK_MS = 250;
 const POSITION_PERSIST_INTERVAL_MS = 1000;
+const VOLUME_STEP = 0.05;
+const VOLUME_WRITE_DELAY_MS = 90;
 
 class MediaPlayerWidget {
   constructor(root) {
@@ -23,6 +25,9 @@ class MediaPlayerWidget {
     this._controlRequest = null;
     this._playbackTimer = 0;
     this._positionPersistTimer = 0;
+    this._volumeWriteTimer = 0;
+    this._pendingVolume = null;
+    this._visibilityObserver = null;
     this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
@@ -61,6 +66,8 @@ class MediaPlayerWidget {
           this._applySnapshot(snapshot, {persist: true});
       }).catch(() => {});
     }
+
+    this._watchOverlayVisibility();
   }
 
   _readSyncConfig() {
@@ -198,6 +205,8 @@ class MediaPlayerWidget {
       artist: snapshot.artist ? String(snapshot.artist) : '',
       length: Number.isFinite(snapshot.length) ? snapshot.length : 0,
       position: Number.isFinite(snapshot.position) ? snapshot.position : 0,
+      volume: Number.isFinite(snapshot.volume) ? Math.max(0, Math.min(1, snapshot.volume)) : null,
+      canControlVolume: snapshot.canControlVolume === true,
       artId: snapshot.artId ? String(snapshot.artId) : null,
       playbackStatus: snapshot.playbackStatus ? String(snapshot.playbackStatus) : '',
       ts: Number.isFinite(snapshot.ts) ? snapshot.ts : Date.now(),
@@ -236,9 +245,16 @@ class MediaPlayerWidget {
             </div>
           </div>
           <div class="mp-controls-overlay" aria-label="Media controls">
-            <button class="mp-control-btn" type="button" data-action="previous" aria-label="Previous track"></button>
-            <button class="mp-control-btn mp-control-btn-primary" type="button" data-action="playPause" aria-label="Play or pause"></button>
-            <button class="mp-control-btn" type="button" data-action="next" aria-label="Next track"></button>
+            <div class="mp-volume-strip" aria-label="Volume controls">
+              <input class="mp-volume-slider" type="range" min="0" max="100" step="1" aria-label="Volume" />
+            </div>
+            <div class="mp-control-strip">
+              <button class="mp-volume-btn" type="button" data-volume-step="-1" aria-label="Decrease volume">-</button>
+              <button class="mp-control-btn" type="button" data-action="previous" aria-label="Previous track"></button>
+              <button class="mp-control-btn mp-control-btn-primary" type="button" data-action="playPause" aria-label="Play or pause"></button>
+              <button class="mp-control-btn" type="button" data-action="next" aria-label="Next track"></button>
+              <button class="mp-volume-btn" type="button" data-volume-step="1" aria-label="Increase volume">+</button>
+            </div>
           </div>
         </div>
       `;
@@ -252,6 +268,7 @@ class MediaPlayerWidget {
     this._root.querySelector('.mp-time-total').textContent = this._formatTime(snapshot.length / 1000000);
     this._root.querySelector('.mp-status').textContent = snapshot.playbackStatus || '';
     this._updateControlButtons(snapshot);
+    this._updateVolumeControls(snapshot);
   }
 
   async _loadCover(artId) {
@@ -306,6 +323,84 @@ class MediaPlayerWidget {
         event.stopPropagation();
       });
     }
+
+    for (const button of this._root.querySelectorAll('.mp-volume-btn')) {
+      button.addEventListener('pointerdown', event => {
+        if (event.button !== 0)
+          return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+        const dir = Number(button.dataset.volumeStep);
+        if (!Number.isFinite(dir))
+          return;
+        this._stepVolume(dir * VOLUME_STEP);
+      });
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+      });
+    }
+
+    const slider = this._root.querySelector('.mp-volume-slider');
+    const handleVolumeSliderInput = event => {
+      event.stopPropagation();
+      const nextVolume = Number(event.currentTarget.value) / 100;
+      this._setLocalVolume(nextVolume);
+      this._scheduleVolumeWrite(nextVolume);
+    };
+    slider?.addEventListener('input', handleVolumeSliderInput);
+    slider?.addEventListener('change', handleVolumeSliderInput);
+    slider?.addEventListener('pointerdown', event => {
+      event.stopPropagation();
+    });
+    slider?.addEventListener('click', event => {
+      event.stopPropagation();
+    });
+
+    this._root.querySelector('.mp-main')?.addEventListener('wheel', event => {
+      if (!this._lastSnapshot?.player || !this._lastSnapshot?.canControlVolume)
+        return;
+      event.preventDefault();
+      event.stopPropagation();
+      const direction = event.deltaY > 0 ? -1 : 1;
+      this._stepVolume(direction * VOLUME_STEP);
+    }, {passive: false});
+  }
+
+  _watchOverlayVisibility() {
+    if (this._visibilityObserver || !document.body)
+      return;
+
+    const syncVisibleVolume = () => {
+      if (!document.body?.classList?.contains('ding-host-chrome-visible'))
+        return;
+      this._syncVisibleVolumeControls();
+    };
+
+    this._visibilityObserver = new MutationObserver(() => {
+      syncVisibleVolume();
+    });
+    this._visibilityObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    document.addEventListener('visibilitychange', syncVisibleVolume);
+    this._visibilityChangeHandler = syncVisibleVolume;
+  }
+
+  _syncVisibleVolumeControls() {
+    if (!this._lastSnapshot)
+      return;
+
+    const snapshot = this._getRenderSnapshot();
+    if (!snapshot?.canControlVolume || !Number.isFinite(snapshot?.volume))
+      return;
+
+    this._updateVolumeControls(snapshot);
+    requestAnimationFrame(() => this._updateVolumeControls(snapshot));
   }
 
   _updateControlButtons(snapshot) {
@@ -371,6 +466,91 @@ class MediaPlayerWidget {
       this._controlRequest = null;
       this._updateControlButtons(this._getRenderSnapshot());
     }
+  }
+
+  _updateVolumeControls(snapshot) {
+    const overlay = this._root.querySelector('.mp-volume-strip');
+    const slider = this._root.querySelector('.mp-volume-slider');
+    if (!overlay || !slider)
+      return;
+
+    const enabled = !!snapshot?.player && snapshot?.canControlVolume && Number.isFinite(snapshot?.volume);
+    overlay.hidden = !enabled;
+    slider.disabled = !enabled;
+
+    for (const button of this._root.querySelectorAll('.mp-volume-btn'))
+      button.disabled = !enabled;
+
+    if (!enabled)
+      return;
+
+    const volume = Math.max(0, Math.min(1, Number(snapshot.volume) || 0));
+    const volumePct = Math.round(volume * 100);
+    this._paintVolumeSlider(slider, volumePct);
+    slider.setAttribute('aria-valuenow', String(volumePct));
+    slider.setAttribute('aria-valuetext', `${volumePct}%`);
+    overlay.setAttribute('data-volume', `${volumePct}%`);
+  }
+
+  _paintVolumeSlider(slider, volumePct) {
+    if (!slider)
+      return;
+
+    const pct = Math.max(0, Math.min(100, Math.round(Number(volumePct) || 0)));
+    const pctText = `${pct}%`;
+    slider.value = String(pct);
+    slider.setAttribute('value', String(pct));
+    slider.defaultValue = String(pct);
+    slider.style.setProperty('--volume-fill', pctText);
+    slider.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0.95) ${pct}%, rgba(255, 255, 255, 0.28) ${pct}%, rgba(255, 255, 255, 0.28) 100%)`;
+  }
+
+  _setLocalVolume(volume) {
+    const nextVolume = Math.max(0, Math.min(1, Number(volume)));
+    if (!Number.isFinite(nextVolume) || !this._lastSnapshot)
+      return;
+
+    this._lastSnapshot = {
+      ...this._lastSnapshot,
+      volume: nextVolume,
+      ts: Date.now(),
+    };
+    this._paintVolumeSlider(
+      this._root.querySelector('.mp-volume-slider'),
+      nextVolume * 100
+    );
+    this._updateVolumeControls(this._getRenderSnapshot());
+  }
+
+  _stepVolume(delta) {
+    if (!this._lastSnapshot?.player || !this._lastSnapshot?.canControlVolume)
+      return;
+    const baseVolume = Number.isFinite(this._lastSnapshot.volume)
+      ? this._lastSnapshot.volume
+      : 0;
+    const nextVolume = Math.max(0, Math.min(1, baseVolume + delta));
+    this._setLocalVolume(nextVolume);
+    this._scheduleVolumeWrite(nextVolume);
+  }
+
+  _scheduleVolumeWrite(volume) {
+    this._pendingVolume = Math.max(0, Math.min(1, Number(volume)));
+    if (!Number.isFinite(this._pendingVolume))
+      return;
+    if (this._volumeWriteTimer)
+      clearTimeout(this._volumeWriteTimer);
+    this._volumeWriteTimer = setTimeout(() => {
+      this._volumeWriteTimer = 0;
+      this._flushVolumeWrite();
+    }, VOLUME_WRITE_DELAY_MS);
+  }
+
+  _flushVolumeWrite() {
+    const volume = this._pendingVolume;
+    this._pendingVolume = null;
+    if (!Number.isFinite(volume) || !this._lastSnapshot?.player)
+      return;
+    this._client.backendRequest('setVolume', {volume}).catch(() => {});
   }
 
   _persistMediaCache({_immediate = false} = {}) {
@@ -551,6 +731,20 @@ class MediaPlayerWidget {
     if (this._positionPersistTimer) {
       clearInterval(this._positionPersistTimer);
       this._positionPersistTimer = 0;
+    }
+    if (this._volumeWriteTimer) {
+      clearTimeout(this._volumeWriteTimer);
+      this._volumeWriteTimer = 0;
+    }
+    this._flushVolumeWrite();
+    this._visibilityObserver?.disconnect?.();
+    this._visibilityObserver = null;
+    if (this._visibilityChangeHandler) {
+      document.removeEventListener(
+        'visibilitychange',
+        this._visibilityChangeHandler
+      );
+      this._visibilityChangeHandler = null;
     }
     this._client?.destroy?.();
     window.removeEventListener('pagehide', this._beforeUnloadHandler);

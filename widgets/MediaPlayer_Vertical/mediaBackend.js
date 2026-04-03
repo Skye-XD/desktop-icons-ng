@@ -8,6 +8,8 @@ const ByteArray = imports.byteArray;
 const MPRIS_PREFIX = 'org.mpris.MediaPlayer2.';
 const UPDATE_HEARTBEAT_MS = 15000;
 const SEEK_JUMP_THRESHOLD_US = 5 * 1000 * 1000;
+const MIN_VOLUME = 0;
+const MAX_VOLUME = 1;
 
 async function fetchImageAsBase64(url) {
     return new Promise((resolve) => {
@@ -69,6 +71,7 @@ class MediaBackend extends BackendApp {
         this.registerMethod('playPause', async () => await this._invokePlayerMethod('PlayPause'));
         this.registerMethod('next', async () => await this._invokePlayerMethod('Next'));
         this.registerMethod('previous', async () => await this._invokePlayerMethod('Previous'));
+        this.registerMethod('setVolume', async ({volume}) => await this._setPlayerVolume(volume));
     }
 
     onHello(_ctx) {
@@ -170,8 +173,65 @@ class MediaBackend extends BackendApp {
         return {ok: true, player: selected.name, method};
     }
 
+    _getPlayerProperty(player, iface, property) {
+        return Gio.DBus.session.call_sync(
+            player,
+            '/org/mpris/MediaPlayer2',
+            'org.freedesktop.DBus.Properties',
+            'Get',
+            GLib.Variant.new_tuple([
+                GLib.Variant.new_string(iface),
+                GLib.Variant.new_string(property),
+            ]),
+            null,
+            Gio.DBusCallFlags.NONE,
+            -1,
+            null
+        ).deep_unpack()[0].deep_unpack();
+    }
+
+    _setPlayerProperty(player, iface, property, value) {
+        Gio.DBus.session.call_sync(
+            player,
+            '/org/mpris/MediaPlayer2',
+            'org.freedesktop.DBus.Properties',
+            'Set',
+            GLib.Variant.new_tuple([
+                GLib.Variant.new_string(iface),
+                GLib.Variant.new_string(property),
+                GLib.Variant.new_variant(value),
+            ]),
+            null,
+            Gio.DBusCallFlags.NONE,
+            -1,
+            null
+        );
+    }
+
+    async _setPlayerVolume(volume) {
+        const selected = this._selectPlayer(this._listPlayerCandidates());
+        if (!selected)
+            return {ok: false, reason: 'no-player'};
+
+        const nextVolume = Math.max(
+            MIN_VOLUME,
+            Math.min(MAX_VOLUME, Number(volume))
+        );
+        if (!Number.isFinite(nextVolume))
+            return {ok: false, reason: 'invalid-volume'};
+
+        this._setPlayerProperty(
+            selected.name,
+            'org.mpris.MediaPlayer2.Player',
+            'Volume',
+            GLib.Variant.new_double(nextVolume)
+        );
+
+        await this._refresh();
+        return {ok: true, player: selected.name, volume: nextVolume};
+    }
+
     async _refresh() {
-        const bus = Gio.DBus.session;
         let player = null;
         let identity = null;
         let metadata = null;
@@ -183,57 +243,53 @@ class MediaBackend extends BackendApp {
         let artist = null;
         let title = null;
         let playbackStatus = null;
+        let volume = null;
+        let canControlVolume = false;
         try {
             let candidates = this._listPlayerCandidates();
             let selected = this._selectPlayer(candidates);
             if (selected) {
                 player = selected.name;
                 playbackStatus = selected.status;
-                // Get identity
-                identity = bus.call_sync(
+                identity = this._getPlayerProperty(
                     player,
-                    '/org/mpris/MediaPlayer2',
-                    'org.freedesktop.DBus.Properties',
-                    'Get',
-                    GLib.Variant.new_tuple([
-                        GLib.Variant.new_string('org.mpris.MediaPlayer2'),
-                        GLib.Variant.new_string('Identity')
-                    ]),
-                    null,
-                    Gio.DBusCallFlags.NONE,
-                    -1,
-                    null
-                ).deep_unpack()[0].deep_unpack();
-                // Get metadata
-                metadata = bus.call_sync(
+                    'org.mpris.MediaPlayer2',
+                    'Identity'
+                );
+                metadata = this._getPlayerProperty(
                     player,
-                    '/org/mpris/MediaPlayer2',
-                    'org.freedesktop.DBus.Properties',
-                    'Get',
-                    GLib.Variant.new_tuple([
-                        GLib.Variant.new_string('org.mpris.MediaPlayer2.Player'),
-                        GLib.Variant.new_string('Metadata')
-                    ]),
-                    null,
-                    Gio.DBusCallFlags.NONE,
-                    -1,
-                    null
-                ).deep_unpack()[0].deep_unpack();
-                // Get position
-                position = bus.call_sync(
+                    'org.mpris.MediaPlayer2.Player',
+                    'Metadata'
+                );
+                position = this._getPlayerProperty(
                     player,
-                    '/org/mpris/MediaPlayer2',
-                    'org.freedesktop.DBus.Properties',
-                    'Get',
-                    GLib.Variant.new_tuple([
-                        GLib.Variant.new_string('org.mpris.MediaPlayer2.Player'),
-                        GLib.Variant.new_string('Position')
-                    ]),
-                    null,
-                    Gio.DBusCallFlags.NONE,
-                    -1,
-                    null
-                ).deep_unpack()[0].deep_unpack();
+                    'org.mpris.MediaPlayer2.Player',
+                    'Position'
+                );
+                try {
+                    canControlVolume = !!this._getPlayerProperty(
+                        player,
+                        'org.mpris.MediaPlayer2.Player',
+                        'CanControl'
+                    );
+                } catch (e) {
+                    canControlVolume = false;
+                }
+                try {
+                    let rawVolume = this._getPlayerProperty(
+                        player,
+                        'org.mpris.MediaPlayer2.Player',
+                        'Volume'
+                    );
+                    if (typeof rawVolume === 'number')
+                        volume = rawVolume;
+                    else if (typeof rawVolume === 'bigint')
+                        volume = Number(rawVolume);
+                    if (Number.isFinite(volume))
+                        canControlVolume = true;
+                } catch (e) {
+                    volume = null;
+                }
                 // Parse metadata, always to string
                 let rawTitle = metadata['xesam:title'];
                 if (rawTitle && typeof rawTitle.deep_unpack === 'function') rawTitle = rawTitle.deep_unpack();
@@ -276,6 +332,8 @@ class MediaBackend extends BackendApp {
             artist,
             length,
             position,
+            volume,
+            canControlVolume,
             artId,
             playbackStatus,
             ts: Date.now(),
@@ -303,6 +361,8 @@ class MediaBackend extends BackendApp {
             prev.title !== next.title ||
             prev.artist !== next.artist ||
             prev.length !== next.length ||
+            prev.volume !== next.volume ||
+            prev.canControlVolume !== next.canControlVolume ||
             prev.artId !== next.artId ||
             prev.playbackStatus !== next.playbackStatus)
             return true;
