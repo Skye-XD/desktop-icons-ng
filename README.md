@@ -61,6 +61,16 @@ Uses Libretranslate to automatically translate into multiple languages.
 - floating/pinned HTML widgets now recover reliably across layer reparenting by reloading the WebView when WebKit fails to repaint after the parent change.
 - Widget authors should treat pinning, unpinning, and floating edit transitions as reload-safe operations and persist meaningful state outside transient page memory.
 
+### Media Widget
+
+- The media widgets now include an on-widget control overlay for the active MPRIS player.
+- Controls become visible when the widget host chrome is visible.
+- `Previous`, `Play/Pause`, and `Next` buttons send the matching MPRIS transport commands to the selected player.
+- Volume can be changed with the `-` and `+` buttons in 5% steps.
+- The volume slider sets the player volume directly and updates live while dragging.
+- Scrolling the mouse wheel over the widget also adjusts volume in 5% steps.
+- Volume controls are shown only when the current player reports that volume control is supported.
+
 
 ## Security
 
