@@ -82,6 +82,7 @@ const WidgetManager = class {
         this._selectedInstanceId = null;
         this._webWidgetContext = null;
         this._textEntryAccelsSuppressedForWidgets = false;
+        this._selectionChromeSuppressed = false;
 
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
@@ -613,6 +614,8 @@ const WidgetManager = class {
     }
 
     hideSelectionChromeDuringDrag() {
+        this._selectionChromeSuppressed = true;
+
         if (this._chrome)
             this._hideAllChromeButtons();
 
@@ -625,6 +628,8 @@ const WidgetManager = class {
     updateSelectionChromePositionFor(instanceId) {
         if (!instanceId || instanceId !== this._selectedInstanceId)
             return;
+
+        this._selectionChromeSuppressed = false;
 
         const inst = this._instances.get(instanceId);
         if (!inst)
@@ -1949,6 +1954,12 @@ const WidgetManager = class {
         if (!inst?.actor)
             return;
 
+        // If the instance is selected and we're suppressing selection chrome,
+        // don't do reattachment at all, the widget is being dragged.
+        if (this._selectionChromeSuppressed &&
+            inst.instanceId === this._selectedInstanceId)
+            return;
+
         if (this._shouldAttachToDockLayer(inst)) {
             this._detachChromeIfSelectedInstance(inst.instanceId);
             this._pinnedWindowManager.pinInstance(inst);
@@ -1993,6 +2004,13 @@ const WidgetManager = class {
     _attachChromeToInstance(inst) {
         if (!this._chrome)
             return;
+
+        // Never attach to an instance that's being dragged.
+        if (this._selectionChromeSuppressed &&
+            inst?.instanceId === this._selectedInstanceId) {
+            this._hideAllChromeButtons();
+            return;
+        }
 
         const surface = this._surfaces.get(inst.monitorIndex);
         if (!surface)
@@ -2475,6 +2493,7 @@ const WidgetManager = class {
         const pinned = !!inst.pinned;
         const widgetEditMode = !!inst.widgetEditMode;
         const pinnable = !!inst.pinnable;
+        const hostChromeVisible = !!inst.hostChromeVisible;
 
         const surface = this._surfaces.get(inst.monitorIndex);
         const grid = surface?.grid;
@@ -2490,12 +2509,27 @@ const WidgetManager = class {
             widgetEditMode,
             selected,
             pinned,
+            hostChromeVisible,
             pinnable,
             theme,
             reducedMotion,
             direction,
             locale,
         };
+    }
+
+    updatePinnedHostChromeVisible(instanceId, hostChromeVisible) {
+        const inst = this._instances.get(instanceId);
+        if (!inst)
+            return;
+
+        const nextVisible = !!hostChromeVisible;
+        if (!!inst.hostChromeVisible === nextVisible)
+            return;
+
+        inst.hostChromeVisible = nextVisible;
+        if (inst.kind === 'html' && inst.actor && inst.host)
+            this._webWidgetContext.updateHtmlWidgetHostChromeVisible(inst, nextVisible);
     }
 
     /* ====================================================================

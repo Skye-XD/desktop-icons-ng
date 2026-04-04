@@ -945,6 +945,12 @@ const WebWidgetContext = class {
         this._pushPatchtoTarget(inst, patch);
     }
 
+    updateHtmlWidgetHostChromeVisible(inst, hostChromeVisible) {
+        const patch = {hostChromeVisible: !!hostChromeVisible};
+        this._debugHostState('hostChromeVisible', inst, patch);
+        this._pushPatchtoTarget(inst, patch);
+    }
+
     updateHtmlWidgetAnimation(inst, reducedMotion) {
         const patch = {reducedMotion};
         this._debugHostState('reducedMotion', inst, patch);

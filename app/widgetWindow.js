@@ -66,6 +66,7 @@ const WidgetWindow = class {
         this._actorMapId = 0;
         this._dragGesture = null;
         this._hoverController = null;
+        this._controlsBar = null;
         this._controlsBox = null;
         this._overlayButtons = new Map();
 
@@ -140,7 +141,7 @@ const WidgetWindow = class {
             return;
 
         this.setPinnedTitle(this.buildPinnedTitle(frame, !!inst.widgetEditMode));
-        this._refreshControlsStrip();
+        this._rebuildControlsStrip();
 
         if (inst.widgetEditMode)
             this.present();
@@ -222,6 +223,7 @@ const WidgetWindow = class {
 
         this._overlay = new Gtk.Overlay();
         this._overlay.set_name('ding-widget-window-content');
+        this._installControlsStrip();
         this._installHoverController();
         this._installMoveGesture();
 
@@ -233,22 +235,36 @@ const WidgetWindow = class {
         if (!this._overlay)
             return;
 
-        if (this._controlsBox)
+        if (this._controlsBar)
             return;
 
+        this._controlsBar = new Gtk.Box({
+            orientation: Gtk.Orientation.HORIZONTAL,
+            spacing: 6,
+            halign: Gtk.Align.FILL,
+            valign: Gtk.Align.START,
+            hexpand: true,
+            visible: true,
+        });
+        this._controlsBar.set_name('ding-pinned-overlay-controls');
+        this._controlsBar.add_css_class('inactive');
+        this._controlsBar.append(new Gtk.Box({
+            hexpand: true,
+            visible: true,
+        }));
         this._controlsBox = new Gtk.Box({
             orientation: Gtk.Orientation.HORIZONTAL,
             spacing: 6,
-            margin_top: 8,
-            margin_bottom: 8,
-            margin_start: 8,
-            margin_end: 8,
             halign: Gtk.Align.CENTER,
-            valign: Gtk.Align.START,
-            visible: false,
+            valign: Gtk.Align.CENTER,
+            visible: true,
         });
-        this._controlsBox.set_name('ding-pinned-overlay-controls');
-        this._overlay.add_overlay(this._controlsBox);
+        this._controlsBar.append(this._controlsBox);
+        this._controlsBar.append(new Gtk.Box({
+            hexpand: true,
+            visible: true,
+        }));
+        this._overlay.add_overlay(this._controlsBar);
         this._rebuildControlsStrip();
     }
 
@@ -308,9 +324,11 @@ const WidgetWindow = class {
 
         this._hoverController = new Gtk.EventControllerMotion();
         this._hoverController.connect('enter', () => {
+            this._overlay.add_css_class('pointer-inside');
             this._showControlsStrip();
         });
         this._hoverController.connect('leave', () => {
+            this._overlay.remove_css_class('pointer-inside');
             this._hideControlsStrip();
         });
         this._overlay.add_controller(this._hoverController);
@@ -343,39 +361,45 @@ const WidgetWindow = class {
         return specs.length;
     }
 
-    _refreshControlsStrip() {
-        if (!this._controlsBox)
-            return 0;
-
-        return this._rebuildControlsStrip();
-    }
-
     _showControlsStrip() {
-        if (!this._overlay)
+        if (!this._controlsBar)
             return;
 
-        this._installControlsStrip();
-        const buttonCount = this._refreshControlsStrip();
-        if (buttonCount > 0)
-            this._controlsBox.show();
-        else
-            this._controlsBox.hide();
+        const buttonCount = this._rebuildControlsStrip();
+        this._setControlsStripActive(buttonCount > 0);
     }
 
     _hideControlsStrip() {
-        if (!this._controlsBox)
+        if (!this._controlsBar)
             return;
 
-        this._controlsBox.hide();
+        this._setControlsStripActive(false);
     }
 
     _destroyControlsStrip() {
-        if (!this._controlsBox)
+        if (!this._controlsBar)
             return;
 
-        this._controlsBox.unparent();
+        this._controlsBar.unparent();
+        this._controlsBar = null;
         this._controlsBox = null;
         this._overlayButtons.clear();
+    }
+
+    _setControlsStripActive(active) {
+        if (!this._controlsBar)
+            return;
+
+        if (active) {
+            this._controlsBar.remove_css_class('inactive');
+            this._controlsBar.add_css_class('active');
+        } else {
+            this._controlsBar.remove_css_class('active');
+            this._controlsBar.add_css_class('inactive');
+        }
+
+        this._controlsBar.set_sensitive(active);
+        this._widgetManager.updatePinnedHostChromeVisible(this._instanceId, active);
     }
 
     _installMoveGesture() {
@@ -490,7 +514,8 @@ const WidgetWindow = class {
 
         const picked = this._overlay.pick(startX, startY, Gtk.PickFlags.DEFAULT);
 
-        if (this._isOverlayControlActor(picked) ||
+        if (this._isOverlayButtonActor(picked) ||
+            !this._isOverlayStripActor(picked) ||
             this._widgetManager.hasContentManagedPinnedMove(this._instanceId)) {
             gesture.set_state(Gtk.EventSequenceState.DENIED);
             return;
@@ -532,13 +557,12 @@ const WidgetWindow = class {
         return true;
     }
 
-    _isOverlayControlActor(actor) {
+    _isOverlayButtonActor(actor) {
+        const overlayButtons = new Set(this._overlayButtons.values());
         let current = actor;
-        while (current && current !== this._overlay) {
-            if (current === this._controlsBox ||
-                [...this._overlayButtons.values()].includes(current))
+        while (current) {
+            if (overlayButtons.has(current))
                 return true;
-
 
             current = current.get_parent();
         }
@@ -546,11 +570,15 @@ const WidgetWindow = class {
         return false;
     }
 
-    _onPinButtonClicked() {
-        // unused; popup buttons route through WidgetManager.activateHostAction()
-    }
+    _isOverlayStripActor(actor) {
+        let current = actor;
+        while (current) {
+            if (current === this._controlsBar)
+                return true;
 
-    _onMoveButtonClicked() {
-        // unused; popup buttons route through WidgetManager.activateHostAction()
+            current = current.get_parent();
+        }
+
+        return false;
     }
 };
