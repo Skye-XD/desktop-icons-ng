@@ -4,7 +4,8 @@
   "name": "Metrics (Medium)",
   "defaultWidth": 320,
   "defaultHeight": 200,
-  "version": 1,
+  "version": 2,
+  "pinnable": true,
   "prefs": "prefs.html",
   "backend": {
     "command": "gjs",

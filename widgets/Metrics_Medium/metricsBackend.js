@@ -55,9 +55,6 @@ class MetricsBackendApp extends BackendApp {
 
         this._timerId = 0;
 
-        // Cached snapshot (wire schema v1)
-        this._lastSnapshot = null;
-
         // CPU delta cache
         this._prevCpuTotal = null;
         this._prevCpuIdle = null;
@@ -74,7 +71,6 @@ class MetricsBackendApp extends BackendApp {
         this._upDisplay = null;
 
         this._decoder = new TextDecoder('utf-8');
-        this._hostName = null;
 
         // Register ONLY the two methods we support
         this.registerMethod('getSnapshot', this._rpcGetSnapshot.bind(this));
@@ -102,17 +98,7 @@ class MetricsBackendApp extends BackendApp {
     // ------------------------------------------------------------
 
     _rpcGetSnapshot(_params, _ctx) {
-        if (!this._lastSnapshot) {
-            this._lastSnapshot = this._buildSnapshot({
-                cpuUsagePct: 0,
-                mem: {totalBytes: 0, usedBytes: 0, freeBytes: 0, cachedBytes: 0},
-                net: {rxBps: 0, txBps: 0},
-                battery: {present: false},
-                tsMs: this._nowMs(),
-            });
-        }
-
-        return {snapshot: this._lastSnapshot};
+        return {snapshot: this._takeSnapshot()};
     }
 
     _rpcSetPeriodMs(params, _ctx) {
@@ -168,38 +154,32 @@ class MetricsBackendApp extends BackendApp {
     // ------------------------------------------------------------
 
     _sampleAndEmit(_reason) {
+        this.sendEvent('metrics', {snapshot: this._takeSnapshot()});
+    }
+
+    _takeSnapshot() {
         const tsMs = this._nowMs();
-
-        const cpuUsagePct = this._sampleCpuUsagePct();
-        const mem = this._sampleMem();
-        const net = this._sampleNet(tsMs);
-        const battery = this._sampleBattery();
-
-        this._lastSnapshot = this._buildSnapshot({
+        return this._buildSnapshot({
             tsMs,
-            cpuUsagePct,
-            mem,
-            net,
-            battery,
+            cpuUsagePct: this._sampleCpuUsagePct(),
+            mem: this._sampleMem(),
+            net: this._sampleNet(tsMs),
+            battery: this._sampleBattery(),
         });
-
-        this.sendEvent('metrics', {snapshot: this._lastSnapshot});
     }
 
     _buildSnapshot({tsMs, cpuUsagePct, mem, net, battery}) {
-        if (!this._hostName) {
-            try {
-                this._hostName = GLib.get_host_name();
-            } catch (_e) {
-                this._hostName = null;
-            }
-        }
+        let hostName = null;
+        try {
+            hostName = GLib.get_host_name();
+        } catch (_e) {}
+
         // Stable schema v1
         return {
             v: '1',
             tsMs,
             periodMs: this._periodMs,
-            hostName: this._hostName ?? null,
+            hostName,
             cpu: {usagePct: cpuUsagePct},
             mem: {
                 totalBytes: mem.totalBytes,
