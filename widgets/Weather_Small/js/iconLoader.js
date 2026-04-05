@@ -19,6 +19,19 @@
 'use strict';
 const ICON_DIR = 'icons/meteocons';
 const SLOW_FACTOR = 6;
+const _iconTextCache = new Map();
+const _iconInflight = new Map();
+const _iconFailures = new Set();
+let _pageReloading = false;
+
+if (typeof window !== 'undefined') {
+    window.addEventListener('pagehide', () => {
+        _pageReloading = true;
+    }, {once: true});
+    window.addEventListener('beforeunload', () => {
+        _pageReloading = true;
+    }, {once: true});
+}
 
 function _scaleDur(v, f) {
     const m = String(v).trim().match(/^([0-9]*\.?[0-9]+)\s*(ms|s)$/i);
@@ -36,12 +49,34 @@ function _slowSmil(svg, f) {
 }
 
 async function _fetchText(url) {
+    if (_pageReloading || _iconFailures.has(url))
+        return null;
+    if (_iconTextCache.has(url))
+        return _iconTextCache.get(url);
+    if (_iconInflight.has(url))
+        return _iconInflight.get(url);
+
     // Use no-store so switching animation on/off doesn't reuse cached SVG
-    const res = await fetch(url, {cache: 'no-store'});
-    if (!res.ok)
-        throw new Error(`Icon fetch failed: HTTP ${res.status}`);
-    const a = await res.text();
-    return a;
+    const request = (async () => {
+        try {
+            const res = await fetch(url, {cache: 'no-store'});
+            if (!res.ok)
+                throw new Error(`Icon fetch failed: HTTP ${res.status}`);
+            const svg = await res.text();
+            _iconTextCache.set(url, svg);
+            return svg;
+        } catch (e) {
+            _iconFailures.add(url);
+            if (_pageReloading || e?.name === 'AbortError')
+                return null;
+            throw e;
+        } finally {
+            _iconInflight.delete(url);
+        }
+    })();
+
+    _iconInflight.set(url, request);
+    return request;
 }
 
 /**
@@ -56,20 +91,12 @@ export async function loadIconSvgText(stem, {animationsEnabled}) {
     const url = `${ICON_DIR}/${s}.svg?anim=${cacheBust}`;
     try {
         let svg = await _fetchText(url);
+        if (svg === null)
+            return null;
         svg = animationsEnabled ? _slowSmil(svg, SLOW_FACTOR) : svg;
         return svg;
-    } catch (e) {
-        if (s !== 'not-available') {
-            try {
-                return await loadIconSvgText('not-available', {animationsEnabled});
-            } catch (_) {}
-        }
-        if (s !== 'unknown') {
-            try {
-                return await loadIconSvgText('unknown', {animationsEnabled});
-            } catch (_) {}
-        }
-        throw e;
+    } catch (_) {
+        return null;
     }
 }
 
@@ -81,7 +108,10 @@ export async function loadIconSvgText(stem, {animationsEnabled}) {
  * @param {boolean} root0.animationsEnabled
  */
 export async function setIconInto(el, stem, {animationsEnabled}) {
-    el.innerHTML = await loadIconSvgText(stem, {animationsEnabled});
+    const svgText = await loadIconSvgText(stem, {animationsEnabled});
+    if (svgText === null)
+        return;
+    el.innerHTML = svgText;
     if (!animationsEnabled) {
         const svg = el.querySelector('svg');
         if (svg && typeof svg.pauseAnimations === 'function') {
