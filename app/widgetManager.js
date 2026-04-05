@@ -55,6 +55,14 @@ function cloneWidgetConfig(config) {
     }
 }
 
+function configJson(config) {
+    try {
+        return JSON.stringify(config ?? {});
+    } catch (e) {
+        return null;
+    }
+}
+
 const WIDGETS_STATE_SCHEMA_VERSION = 3;
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
@@ -936,10 +944,17 @@ const WidgetManager = class {
     updateInstanceConfig(instanceId, newConfig) {
         const inst = this._instances.get(instanceId);
         if (!inst)
-            return;
+            return false;
 
-        inst.config = cloneWidgetConfig(newConfig);
+        const clonedConfig = cloneWidgetConfig(newConfig);
+        const currentJson = configJson(inst.config);
+        const nextJson = configJson(clonedConfig);
+        if (currentJson !== null && nextJson !== null && currentJson === nextJson)
+            return false;
+
+        inst.config = clonedConfig;
         this._stateChanged();
+        return true;
     }
 
     setWidgetEditMode(instanceId, editing) {
@@ -1905,6 +1920,9 @@ const WidgetManager = class {
 
         if (inst.host && typeof inst.host.destroy === 'function')
             inst.host.destroy();
+
+        if (this._webWidgetContext)
+            this._webWidgetContext.forgetInstance(instanceId);
 
         if (typeof inst.actor?.destroy === 'function')
             inst.actor.destroy();

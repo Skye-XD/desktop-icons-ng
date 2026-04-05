@@ -44,6 +44,13 @@ const ForbiddenActions = new Set([
     WebKit.ContextMenuAction?.DOWNLOAD_AUDIO_TO_DISK,
 ].filter(action => action !== undefined && action !== null));
 
+const HOST_MESSAGE_WINDOW_MS = 3000;
+const HOST_MESSAGE_MAX_BURST = 120;
+const HOST_URI_WINDOW_MS = 3000;
+const HOST_URI_MAX_BURST = 150;
+const CONFIG_UPDATE_WINDOW_MS = 3000;
+const CONFIG_UPDATE_MAX_BURST = 12;
+
 /**
  * WebWidgetContext
  *
@@ -78,6 +85,9 @@ const WebWidgetContext = class {
         this._prefsInstanceId = null;
 
         this._instanceRoots = new Map();
+        this._hostMessageGuard = new Map();
+        this._hostUriGuard = new Map();
+        this._configUpdateGuard = new Map();
 
         this._setCspString();
     }
@@ -114,6 +124,20 @@ const WebWidgetContext = class {
 
         this._userContentManager = null;
         this._webContext = null;
+        this._instanceRoots.clear();
+        this._hostMessageGuard.clear();
+        this._hostUriGuard.clear();
+        this._configUpdateGuard.clear();
+    }
+
+    forgetInstance(instanceId) {
+        if (!instanceId)
+            return;
+
+        this._instanceRoots.delete(instanceId);
+        this._configUpdateGuard.delete(instanceId);
+        this._deleteGuardEntriesForInstance(this._hostMessageGuard, instanceId);
+        this._deleteGuardEntriesForInstance(this._hostUriGuard, instanceId);
     }
 
     /*
@@ -573,6 +597,16 @@ const WebWidgetContext = class {
         if (!manager)
             return;
 
+        if (!this._allowHostTraffic(
+            this._hostMessageGuard,
+            instanceId,
+            type || 'unknown',
+            HOST_MESSAGE_WINDOW_MS,
+            HOST_MESSAGE_MAX_BURST,
+            'widget message burst'
+        ))
+            return;
+
         this._dispatchWidgetMessage(manager, payload);
     }
 
@@ -606,8 +640,16 @@ const WebWidgetContext = class {
         // Delegate semantics to WidgetManager, reusing its existing helpers.
         switch (type) {
         case 'updateConfig':
-            if (config && typeof config === 'object')
-                manager.updateInstanceConfig(instanceId, config);
+            if (config && typeof config === 'object') {
+                if (!this._allowConfigUpdate(instanceId))
+                    break;
+
+                const changed = manager.updateInstanceConfig(instanceId, config);
+                if (!changed)
+                    break;
+            } else {
+                break;
+            }
 
             // Broadcast so widget + prefs can update live
             this._pushConfigChangedForInstance(inst, mode);
@@ -917,6 +959,122 @@ const WebWidgetContext = class {
         this._postToBoth(inst, msg);
     }
 
+    _allowConfigUpdate(instanceId) {
+        const now = Date.now();
+        const guard = this._configUpdateGuard.get(instanceId) ?? {
+            windowStart: now,
+            count: 0,
+            warned: false,
+        };
+
+        if ((now - guard.windowStart) >= CONFIG_UPDATE_WINDOW_MS) {
+            guard.windowStart = now;
+            guard.count = 0;
+            guard.warned = false;
+        }
+
+        guard.count++;
+        this._configUpdateGuard.set(instanceId, guard);
+
+        if (guard.count <= CONFIG_UPDATE_MAX_BURST)
+            return true;
+
+        if (!guard.warned) {
+            console.warn(
+                'WebWidgetContext: suppressing config update burst for widget instance',
+                instanceId,
+                `(${guard.count} updates in ${CONFIG_UPDATE_WINDOW_MS}ms)`
+            );
+            guard.warned = true;
+        }
+
+        return false;
+    }
+
+    _allowHostTraffic(guardMap, instanceId, kind, windowMs, maxBurst, label) {
+        const now = Date.now();
+        const key = `${instanceId}:${kind}`;
+        const guard = guardMap.get(key) ?? {
+            windowStart: now,
+            count: 0,
+            warned: false,
+        };
+
+        if ((now - guard.windowStart) >= windowMs) {
+            guard.windowStart = now;
+            guard.count = 0;
+            guard.warned = false;
+        }
+
+        guard.count++;
+        guardMap.set(key, guard);
+
+        if (guard.count <= maxBurst)
+            return true;
+
+        if (!guard.warned) {
+            console.warn(
+                `WebWidgetContext: suppressing ${label} for widget instance`,
+                instanceId,
+                `type=${kind}`,
+                `(${guard.count} events in ${windowMs}ms)`
+            );
+            guard.warned = true;
+        }
+
+        return false;
+    }
+
+    _deleteGuardEntriesForInstance(guardMap, instanceId) {
+        const prefix = `${instanceId}:`;
+        for (const key of guardMap.keys()) {
+            if (key === instanceId || key.startsWith(prefix))
+                guardMap.delete(key);
+        }
+    }
+
+    _finishUriResponse(request, bytes, mimeType, headers = null) {
+        const stream = Gio.MemoryInputStream.new_from_bytes(bytes);
+        const response = new WebKit.URISchemeResponse({
+            stream,
+            'stream-length': bytes.get_size(),
+        });
+
+        response.set_content_type(mimeType || 'application/octet-stream');
+        if (headers)
+            response.set_http_headers(headers);
+        request.finish_with_response(response);
+    }
+
+    // For rate-limited widget resource requests, return a tiny successful
+    // response instead of an explicit error so a bad widget is less likely to
+    // escalate into a retry/error storm that overwhelms the host.
+    _finishQuietUriRequest(request, uri = '') {
+        let resourcePath = uri;
+        try {
+            const parsed = GLib.Uri.parse(uri, GLib.UriFlags.NONE);
+            resourcePath = parsed?.get_path?.() ?? uri;
+        } catch (_e) {}
+
+        let mimeType = 'application/octet-stream';
+        let body = '';
+
+        if (resourcePath.endsWith('.svg')) {
+            mimeType = 'image/svg+xml';
+            body = '<svg xmlns="http://www.w3.org/2000/svg"></svg>';
+        } else if (resourcePath.endsWith('.css')) {
+            mimeType = 'text/css';
+        } else if (resourcePath.endsWith('.js')) {
+            mimeType = 'application/javascript';
+        } else if (resourcePath.endsWith('.html') ||
+                   resourcePath.endsWith('.htm')) {
+            mimeType = 'text/html';
+        }
+
+        const bytes = new GLib.Bytes(new TextEncoder().encode(body));
+        this._finishUriResponse(request, bytes, mimeType);
+    }
+
     _pushFullHostStateForInstance(inst) {
         const state = this._widgetManager.computeHostStateForInstance(inst);
         this._debugHostState('full', inst, state);
@@ -1069,6 +1227,18 @@ const WebWidgetContext = class {
                 Gio.IOErrorEnum.INVALID_ARGUMENT,
                 'Missing instanceId in widget URI'
             );
+            return;
+        }
+
+        if (!this._allowHostTraffic(
+            this._hostUriGuard,
+            instanceId,
+            'ding-widget-uri',
+            HOST_URI_WINDOW_MS,
+            HOST_URI_MAX_BURST,
+            'widget resource request burst'
+        )) {
+            this._finishQuietUriRequest(request, uri);
             return;
         }
 
@@ -1251,26 +1421,16 @@ const WebWidgetContext = class {
             mimeType = 'application/octet-stream';
 
         try {
-            const stream = Gio.MemoryInputStream.new_from_bytes(bytes);
-            const length = bytes.get_size?.() ?? bytes.length ?? -1;
-
-            const response = new WebKit.URISchemeResponse({
-                stream,
-                'stream-length': length,
-            });
-
-            response.set_content_type(mimeType);
-
+            let headers = null;
             // To Do: set cspstring depending on widgetID with a manager...
             if (this._cspString) {
-                const headers = new Soup.MessageHeaders(
+                headers = new Soup.MessageHeaders(
                     Soup.MessageHeadersType.RESPONSE
                 );
                 headers.append('Content-Security-Policy', this._cspString);
-                response.set_http_headers(headers);
             }
 
-            request.finish_with_response(response);
+            this._finishUriResponse(request, bytes, mimeType, headers);
         } catch (e) {
             console.error(
                 'WebWidgetContext: failed to finish ding-widget request for',
