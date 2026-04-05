@@ -22,26 +22,26 @@ import {HtmlWidgetHost, WidgetApi} from '../dependencies/localFiles.js';
 export {WebWidgetContext};
 
 const ForbiddenActions = new Set([
-    WebKit.ContextMenuAction?.OPEN_LINK_IN_NEW_WINDOW,
-    WebKit.ContextMenuAction?.DOWNLOAD_LINK_TO_DISK,
-    WebKit.ContextMenuAction?.OPEN_IMAGE_IN_NEW_WINDOW,
-    WebKit.ContextMenuAction?.DOWNLOAD_IMAGE_TO_DISK,
-    WebKit.ContextMenuAction?.OPEN_FRAME_IN_NEW_WINDOW,
-    WebKit.ContextMenuAction?.GO_BACK,
-    WebKit.ContextMenuAction?.GO_FORWARD,
-    WebKit.ContextMenuAction?.STOP,
-    WebKit.ContextMenuAction?.RELOAD,
-    WebKit.ContextMenuAction?.OPEN_VIDEO_IN_NEW_WINDOW,
-    WebKit.ContextMenuAction?.OPEN_AUDIO_IN_NEW_WINDOW,
-    WebKit.ContextMenuAction?.INSPECT_ELEMENT,
-    WebKit.ContextMenuAction?.TOGGLE_MEDIA_CONTROLS,
-    WebKit.ContextMenuAction?.TOGGLE_MEDIA_LOOP,
-    WebKit.ContextMenuAction?.ENTER_VIDEO_FULLSCREEN,
-    WebKit.ContextMenuAction?.MEDIA_PLAY,
-    WebKit.ContextMenuAction?.MEDIA_PAUSE,
-    WebKit.ContextMenuAction?.MEDIA_MUTE,
-    WebKit.ContextMenuAction?.DOWNLOAD_VIDEO_TO_DISK,
-    WebKit.ContextMenuAction?.DOWNLOAD_AUDIO_TO_DISK,
+    WebKit.ContextMenuAction.OPEN_LINK_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction.DOWNLOAD_LINK_TO_DISK,
+    WebKit.ContextMenuAction.OPEN_IMAGE_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction.DOWNLOAD_IMAGE_TO_DISK,
+    WebKit.ContextMenuAction.OPEN_FRAME_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction.GO_BACK,
+    WebKit.ContextMenuAction.GO_FORWARD,
+    WebKit.ContextMenuAction.STOP,
+    WebKit.ContextMenuAction.RELOAD,
+    WebKit.ContextMenuAction.OPEN_VIDEO_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction.OPEN_AUDIO_IN_NEW_WINDOW,
+    WebKit.ContextMenuAction.INSPECT_ELEMENT,
+    WebKit.ContextMenuAction.TOGGLE_MEDIA_CONTROLS,
+    WebKit.ContextMenuAction.TOGGLE_MEDIA_LOOP,
+    WebKit.ContextMenuAction.ENTER_VIDEO_FULLSCREEN,
+    WebKit.ContextMenuAction.MEDIA_PLAY,
+    WebKit.ContextMenuAction.MEDIA_PAUSE,
+    WebKit.ContextMenuAction.MEDIA_MUTE,
+    WebKit.ContextMenuAction.DOWNLOAD_VIDEO_TO_DISK,
+    WebKit.ContextMenuAction.DOWNLOAD_AUDIO_TO_DISK,
 ].filter(action => action !== undefined && action !== null));
 
 const HOST_MESSAGE_WINDOW_MS = 3000;
@@ -181,11 +181,11 @@ const WebWidgetContext = class {
         webView.set_vexpand(true);
 
         webView.connect('decide-policy', (_view, decision, decisionType) => {
-            const downloadType = WebKit.PolicyDecisionType?.DOWNLOAD_ACTION;
-            const navType = WebKit.PolicyDecisionType?.NAVIGATION_ACTION;
-            const newWindowType = WebKit.PolicyDecisionType?.NEW_WINDOW_ACTION;
+            const downloadType = WebKit.PolicyDecisionType.DOWNLOAD_ACTION;
+            const navType = WebKit.PolicyDecisionType.NAVIGATION_ACTION;
+            const newWindowType = WebKit.PolicyDecisionType.NEW_WINDOW_ACTION;
             if (decisionType === downloadType) {
-                decision.ignore?.();
+                decision.ignore();
                 return true;
             }
 
@@ -215,7 +215,7 @@ const WebWidgetContext = class {
             if (scheme !== 'http' && scheme !== 'https')
                 return false;
 
-            decision.ignore?.();
+            decision.ignore();
 
             const inst = this._widgetManager?.getInstance?.(instanceId);
             if (inst)
@@ -420,10 +420,10 @@ const WebWidgetContext = class {
         }
 
         try {
-            const securityManager = this._webContext.get_security_manager?.();
-            securityManager?.register_uri_scheme_as_secure?.('ding-widget');
-            securityManager?.register_uri_scheme_as_local?.('ding-widget');
-            securityManager?.register_uri_scheme_as_cors_enabled?.(
+            const securityManager = this._webContext.get_security_manager();
+            securityManager.register_uri_scheme_as_secure('ding-widget');
+            securityManager.register_uri_scheme_as_local('ding-widget');
+            securityManager.register_uri_scheme_as_cors_enabled(
                 'ding-widget'
             );
         } catch (e) {
@@ -1047,7 +1047,7 @@ const WebWidgetContext = class {
         }
     }
 
-    _buildUriResponseHeaders(request, extraHeaders = null) {
+    _buildUriResponseHeaders(request, extraHeaders = null, localAccess = null) {
         const headers = new Soup.MessageHeaders(
             Soup.MessageHeadersType.RESPONSE
         );
@@ -1058,10 +1058,25 @@ const WebWidgetContext = class {
 
         try {
             const requestHeaders = request?.get_http_headers?.() ?? null;
-            const origin = requestHeaders?.get_one?.('Origin') ?? null;
+            const origin = requestHeaders?.get_one?.('Origin')?.trim?.() ?? null;
+            const webView = request?.get_web_view?.() ?? null;
+            const isBoundLocalRequest =
+                !!localAccess?.instanceId &&
+                !!webView &&
+                webView._dingInstanceId === localAccess.instanceId &&
+                !!webView._dingWidgetRoot;
+
             if (origin?.startsWith?.('ding-widget://')) {
                 headers.append('Access-Control-Allow-Origin', origin);
                 headers.append('Vary', 'Origin');
+            } else if ((origin === 'null' || !origin) && isBoundLocalRequest) {
+                // WebKit may serialize custom local-scheme fetches with an
+                // opaque/null origin. For our jailed widget bundle scheme, the
+                // bound WebView+instance root checks are the actual security
+                // boundary, so allow the local response through here.
+                headers.append('Access-Control-Allow-Origin', '*');
+                if (origin)
+                    headers.append('Vary', 'Origin');
             }
         } catch (e) {
             console.warn(
@@ -1467,7 +1482,11 @@ const WebWidgetContext = class {
             mimeType = 'application/octet-stream';
 
         try {
-            const headers = this._buildUriResponseHeaders(request);
+            const headers = this._buildUriResponseHeaders(
+                request,
+                null,
+                {instanceId}
+            );
             this._finishUriResponse(request, bytes, mimeType, headers);
         } catch (e) {
             console.error(

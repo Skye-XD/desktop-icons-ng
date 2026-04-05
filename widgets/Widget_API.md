@@ -38,7 +38,7 @@ These are managed by the network session; widget authors do not write to them di
 
 HTML widgets run inside a WebKit WebView and follow standard web security rules.
 
-The widget platform allows outbound network access according to the active Content Security Policy (CSP). In STRICT mode, widgets may initiate HTTPS requests (`connect-src https:`), load local resources, and use modern web APIs. The CSP applied to widgets is set by the program and can be adjusted via the CSP profile in enums.js.
+The widget platform allows outbound network access according to the active Content Security Policy (CSP). In STRICT mode, widgets may initiate HTTPS requests (`connect-src https:`), load local resources from the jailed `ding-widget:` origin, and use modern web APIs. The CSP applied to widgets is set by the program and can be adjusted via the CSP profile in enums.js.
 
 However, Cross-Origin Resource Sharing (CORS) is enforced by WebKit, just like in a normal browser:
 
@@ -52,6 +52,7 @@ As a result:
 
 - Widgets can freely consume CORS-enabled APIs (weather, JSON REST services, etc.).
 - Widgets cannot bypass server-defined security restrictions.
+- Local widget-bundle `fetch()` requests through `ding-widget://` are also subject to WebKit fetch/CORS behavior. The host serves these responses with CORS headers for the bound widget view so same-widget bundled asset fetches work consistently.
 
 The behavior matches standard browser semantics.
 
@@ -192,7 +193,7 @@ This keeps the host’s rounded clip clean and avoids a 1px edge fighting the se
 
 CSP strings are defined as three profiles:
 
-- **Strict**: allows widget self-origin scripts/styles (including inline), images/media from self and `data:`/`blob:`, and network to `http:`/`https:`. Blocks frames/workers.
+- **Strict**: allows widget self-origin scripts/styles (including inline), explicit `ding-widget:` local resources, images/media from self and `data:`/`blob:`, and network to `http:`/`https:`. Blocks frames/workers.
 - **Dev**: same as Strict, plus `http://localhost:*` and `ws://localhost:*` in `connect-src`.
 - **Relaxed**: permits broader `https:` loading for scripts/styles/images/fonts/media, allows `ws:`/`wss:`, allows `worker-src blob:` and `frame-src https:`.
 
@@ -202,9 +203,9 @@ CSP strings are defined as three profiles:
 
 | Profile | Intended use | Allows | Blocks / Limits |
 |---|---|---|---|
-| Strict | Default / production | `script-src 'self' 'unsafe-inline'`; `style-src 'self' 'unsafe-inline'`; `connect-src 'self' https: http:`; images `data:`/`blob:` | `default-src 'none'`; no frames (`frame-src 'none'`); no workers (`worker-src 'none'`); no embedding (`frame-ancestors 'none'`); no form submits (`form-action 'none'`) |
+| Strict | Default / production | `script-src 'self' ding-widget: 'unsafe-inline'`; `style-src 'self' ding-widget: 'unsafe-inline'`; `img-src/font-src/media-src` include `ding-widget:`; `connect-src 'self' ding-widget: https: http:` | `default-src 'none'`; no frames (`frame-src 'none'`); no workers (`worker-src 'none'`); no embedding (`frame-ancestors 'none'`); no form submits (`form-action 'none'`) |
 | Dev | Local dev & debugging | Strict + `connect-src http://localhost:* ws://localhost:*` | Same structural blocks as Strict (frames/workers/etc.) |
-| Relaxed | Experimental | Adds `https:` to scripts/styles; `connect-src ws: wss:`; `worker-src blob:`; `frame-src https:` | Still `default-src 'none'`; still blocks plugins (`object-src 'none'`); reduces protection substantially |
+| Relaxed | Experimental | Adds `https:` to scripts/styles; keeps explicit `ding-widget:` in local resource directives; `connect-src ws: wss:`; `worker-src blob:`; `frame-src https:` | Still `default-src 'none'`; still blocks plugins (`object-src 'none'`); reduces protection substantially |
 
 ---
 

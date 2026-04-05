@@ -35,14 +35,14 @@ object-src 'none';
 frame-ancestors 'none';
 form-action 'none';
 
-script-src 'self' 'unsafe-inline';
-style-src  'self' 'unsafe-inline';
+script-src 'self' ding-widget: 'unsafe-inline';
+style-src  'self' ding-widget: 'unsafe-inline';
 
-img-src    'self' data: blob:;
-font-src   'self' data:;
-media-src  'self' blob:;
+img-src    'self' ding-widget: data: blob:;
+font-src   'self' ding-widget: data:;
+media-src  'self' ding-widget: blob:;
 
-connect-src 'self' https: ;
+connect-src 'self' ding-widget: https: ;
 navigate-to 'self';
 block-all-mixed-content;
 
@@ -57,15 +57,16 @@ object-src 'none';
 frame-ancestors 'none';
 form-action 'none';
 
-script-src 'self' 'unsafe-inline';
-style-src  'self' 'unsafe-inline';
+script-src 'self' ding-widget: 'unsafe-inline';
+style-src  'self' ding-widget: 'unsafe-inline';
 
-img-src    'self' data: blob:;
-font-src   'self' data:;
-media-src  'self' blob:;
+img-src    'self' ding-widget: data: blob:;
+font-src   'self' ding-widget: data:;
+media-src  'self' ding-widget: blob:;
 
 connect-src
     'self'
+    ding-widget:
     https:
     http:
     http://localhost:*
@@ -83,20 +84,23 @@ frame-ancestors 'none';
 
 script-src
     'self'
+    ding-widget:
     'unsafe-inline'
     https:;
 
 style-src
     'self'
+    ding-widget:
     'unsafe-inline'
     https:;
 
-img-src    'self' data: blob: https:;
-font-src   'self' data: https:;
-media-src  'self' blob: https:;
+img-src    'self' ding-widget: data: blob: https:;
+font-src   'self' ding-widget: data: https:;
+media-src  'self' ding-widget: blob: https:;
 
 connect-src
     'self'
+    ding-widget:
     https:
     http:
     ws:
