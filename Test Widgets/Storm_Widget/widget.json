@@ -1,0 +1,15 @@
+{
+  "id": "com.desktop.ding.storm-widget",
+  "name": "Storm Widget",
+  "description": "Intentionally stresses widget host guards on startup",
+  "kind": "html",
+  "entry": "index.html",
+  "defaultWidth": 320,
+  "defaultHeight": 180,
+  "pinnable": true,
+  "version": 1,
+  "defaultConfig": {
+    "stormRuns": 0,
+    "lastBurstAt": 0
+  }
+}
