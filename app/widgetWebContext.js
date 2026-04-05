@@ -419,6 +419,20 @@ const WebWidgetContext = class {
             );
         }
 
+        try {
+            const securityManager = this._webContext.get_security_manager?.();
+            securityManager?.register_uri_scheme_as_secure?.('ding-widget');
+            securityManager?.register_uri_scheme_as_local?.('ding-widget');
+            securityManager?.register_uri_scheme_as_cors_enabled?.(
+                'ding-widget'
+            );
+        } catch (e) {
+            console.warn(
+                'WebWidgetContext: failed to configure ding-widget scheme security:',
+                e
+            );
+        }
+
         this._webContext.register_uri_scheme(
             'ding-widget',
             this._onDingWidgetUriRequest.bind(this)
@@ -1033,6 +1047,37 @@ const WebWidgetContext = class {
         }
     }
 
+    _buildUriResponseHeaders(request, extraHeaders = null) {
+        const headers = new Soup.MessageHeaders(
+            Soup.MessageHeadersType.RESPONSE
+        );
+
+        if (this._cspString) {
+            headers.append('Content-Security-Policy', this._cspString);
+        }
+
+        try {
+            const requestHeaders = request?.get_http_headers?.() ?? null;
+            const origin = requestHeaders?.get_one?.('Origin') ?? null;
+            if (origin?.startsWith?.('ding-widget://')) {
+                headers.append('Access-Control-Allow-Origin', origin);
+                headers.append('Vary', 'Origin');
+            }
+        } catch (e) {
+            console.warn(
+                'WebWidgetContext: failed to inspect request origin for widget response:',
+                e
+            );
+        }
+
+        for (const [name, value] of extraHeaders ?? []) {
+            if (name && value)
+                headers.append(name, value);
+        }
+
+        return headers;
+    }
+
     _finishUriResponse(request, bytes, mimeType, headers = null) {
         const stream = Gio.MemoryInputStream.new_from_bytes(bytes);
         const response = new WebKit.URISchemeResponse({
@@ -1072,7 +1117,8 @@ const WebWidgetContext = class {
         }
 
         const bytes = new GLib.Bytes(new TextEncoder().encode(body));
-        this._finishUriResponse(request, bytes, mimeType);
+        const headers = this._buildUriResponseHeaders(request);
+        this._finishUriResponse(request, bytes, mimeType, headers);
     }
 
     _pushFullHostStateForInstance(inst) {
@@ -1421,15 +1467,7 @@ const WebWidgetContext = class {
             mimeType = 'application/octet-stream';
 
         try {
-            let headers = null;
-            // To Do: set cspstring depending on widgetID with a manager...
-            if (this._cspString) {
-                headers = new Soup.MessageHeaders(
-                    Soup.MessageHeadersType.RESPONSE
-                );
-                headers.append('Content-Security-Policy', this._cspString);
-            }
-
+            const headers = this._buildUriResponseHeaders(request);
             this._finishUriResponse(request, bytes, mimeType, headers);
         } catch (e) {
             console.error(
