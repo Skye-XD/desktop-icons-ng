@@ -43,6 +43,18 @@ import {WebWidgetContext} from '../dependencies/localFiles.js';
  */
 export {WidgetManager};
 
+function cloneWidgetConfig(config) {
+    if (config === null || config === undefined)
+        return {};
+
+    try {
+        return JSON.parse(JSON.stringify(config));
+    } catch (e) {
+        console.error('WidgetManager: failed to clone widget config:', e);
+        return {};
+    }
+}
+
 const WIDGETS_STATE_SCHEMA_VERSION = 3;
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
@@ -302,7 +314,7 @@ const WidgetManager = class {
             y,
             width,
             height,
-            descriptor?.defaultConfig ?? {},
+            cloneWidgetConfig(descriptor?.defaultConfig ?? {}),
             kind,
             descriptor
         );
@@ -818,10 +830,10 @@ const WidgetManager = class {
                         instData.hasBackend ??
                         descriptor?.hasBackend ??
                         !!descriptor?.backend;
-                    const resolvedConfig = {
+                    const resolvedConfig = cloneWidgetConfig({
                         ...descriptor?.defaultConfig ?? {},
                         ...instData.config ?? {},
-                    };
+                    });
 
                     let instance = this._instances.get(instData.instanceId);
 
@@ -926,7 +938,7 @@ const WidgetManager = class {
         if (!inst)
             return;
 
-        inst.config = newConfig;
+        inst.config = cloneWidgetConfig(newConfig);
         this._stateChanged();
     }
 
