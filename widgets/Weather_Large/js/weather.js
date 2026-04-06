@@ -18,6 +18,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 'use strict';
+import {DingClient} from '../widgetHelper.js';
 import {debounce} from './util.js';
 import {fetchForecast} from './openMeteoClient.js';
 import {normalizeOpenMeteo} from './normalizeOpenMeteo.js';
@@ -55,11 +56,15 @@ function _merge(base, patch) {
 
 class WeatherApp {
     constructor() {
-        this._api = _api();
+        this._ding = _api();
+        this._client = new DingClient({mode: 'widget'});
         this._host = {reducedMotion: false, locale: null};
         this._cfg = _defaults();
         this._timer = null;
         this._busy = false;
+        this._acceptConfigRefresh = false;
+        this._destroyed = false;
+        this._teardowns = [];
 
         this._els = {
             html: document.documentElement,
@@ -80,30 +85,48 @@ class WeatherApp {
     }
 
     async init() {
-        this._applySizeClass();
-        window.addEventListener('resize', debounce(() => this._applySizeClass(), 60));
-        window.addEventListener('storage', ev => {
-            if (ev.key === LOCAL_SETTINGS_KEY || ev.key === LOCAL_LOCATION_KEY) {
-                this._maybeAdoptLocalState(true);
-                this._applyMotionClass();
-                this._applyAppearance();
-                this._renderFromCache();
-                this._restartTimer();
-                this.refresh('storage');
-            }
-        });
+        if (this._destroyed)
+            return;
 
-        if (this._api?.onHostStateChanged) {
-            this._api.onHostStateChanged(st => {
+        try {
+            this._applySizeClass();
+            const onResize = debounce(() => {
+                if (!this._destroyed)
+                    this._applySizeClass();
+            }, 60);
+            window.addEventListener('resize', onResize);
+            this._teardowns.push(() => window.removeEventListener('resize', onResize));
+
+            const onStorage = ev => {
+                if (this._destroyed)
+                    return;
+                if (ev.key === LOCAL_SETTINGS_KEY || ev.key === LOCAL_LOCATION_KEY) {
+                    this._maybeAdoptLocalState(true);
+                    this._applyMotionClass();
+                    this._applyAppearance();
+                    this._renderFromCache();
+                    this._restartTimer();
+                    this.refresh('storage');
+                }
+            };
+            window.addEventListener('storage', onStorage);
+            this._teardowns.push(() => window.removeEventListener('storage', onStorage));
+
+            const unsubscribeHost = this._client.onHostState(st => {
+                if (this._destroyed)
+                    return;
                 this._host = {...this._host, ...st || {}};
                 this._applyMotionClass();
                 this._applyAppearance();
                 this._renderFromCache();
             });
-        }
+            if (typeof unsubscribeHost === 'function')
+                this._teardowns.push(unsubscribeHost);
 
-        if (this._api?.onConfigChanged) {
-            this._api.onConfigChanged(cfg => {
+            const unsubscribeConfig = this._client.onConfigChanged((cfg, meta) => {
+                if (this._destroyed)
+                    return;
+                const prevCfg = this._cfg;
                 this._cfg = _merge(this._cfg, cfg);
                 this._maybeAdoptLocalState();
                 this._applyMotionClass();
@@ -111,33 +134,70 @@ class WeatherApp {
                 this._renderFromCache();
                 this._persistLocalState();
                 this._restartTimer();
-                this.refresh('config');
+                if (this._acceptConfigRefresh && this._shouldRefreshForConfigChange(prevCfg, this._cfg, meta))
+                    this.refresh('config');
             });
-        }
+            if (typeof unsubscribeConfig === 'function')
+                this._teardowns.push(unsubscribeConfig);
 
-        const initial = this._api?.getConfigSync?.() ?? null;
-        if (initial)
-            this._cfg = _merge(this._cfg, initial);
+            const initial = this._ding?.getConfigSync?.() ?? null;
+            if (initial)
+                this._cfg = _merge(this._cfg, initial);
 
-        this._maybeAdoptLocalState();
-        this._persistLocalState();
+            this._maybeAdoptLocalState();
+            this._persistLocalState();
 
-        this._applyMotionClass();
-        this._applyAppearance();
-        this._renderFromCache();
-
-        if (!this._cfg.location?.lat || !this._cfg.location?.lon) {
-            this._setStatus('Set a location in preferences.');
-            return;
-        }
-
-        this._restartTimer();
-
-        document.addEventListener('visibilitychange', () => {
+            this._applyMotionClass();
+            this._applyAppearance();
             this._renderFromCache();
-        });
 
-        await this.refresh('startup');
+            if (!this._cfg.location?.lat || !this._cfg.location?.lon) {
+                this._setStatus('Set a location in preferences.');
+                return;
+            }
+
+            this._restartTimer();
+
+            const onVisibilityChange = () => {
+                if (this._destroyed)
+                    return;
+                this._renderFromCache();
+            };
+            document.addEventListener('visibilitychange', onVisibilityChange);
+            this._teardowns.push(() => document.removeEventListener('visibilitychange', onVisibilityChange));
+
+            if (this._hasFreshCache()) {
+                this._setStatus(`Updated ${new Date(Number(this._cfg.cache.fetchedAt) * 1000).toLocaleTimeString()}`);
+                return;
+            }
+
+            await this.refresh('startup');
+        } finally {
+            this._acceptConfigRefresh = true;
+        }
+    }
+
+    destroy() {
+        if (this._destroyed)
+            return;
+
+        this._destroyed = true;
+
+        if (this._timer) {
+            clearInterval(this._timer);
+            this._timer = null;
+        }
+
+        for (const teardown of this._teardowns.splice(0)) {
+            try {
+                teardown();
+            } catch (e) {}
+        }
+
+        this._client?.destroy?.();
+
+        if (window.__weatherApp === this)
+            delete window.__weatherApp;
     }
 
     _applySizeClass() {
@@ -217,6 +277,8 @@ class WeatherApp {
     }
 
     _restartTimer() {
+        if (this._destroyed)
+            return;
         if (this._timer) {
             clearInterval(this._timer);
             this._timer = null;
@@ -226,8 +288,28 @@ class WeatherApp {
         this._timer = setInterval(() => this.refresh('timer'), ms);
     }
 
+    _shouldRefreshForConfigChange(prevCfg, nextCfg, _meta) {
+        const prevLoc = prevCfg?.location ?? null;
+        const nextLoc = nextCfg?.location ?? null;
+
+        return prevLoc?.lat !== nextLoc?.lat ||
+            prevLoc?.lon !== nextLoc?.lon;
+    }
+
+    _cacheMaxAgeMs() {
+        const mins = Number(this._cfg.refreshMinutes) || 30;
+        return Math.max(15, mins) * 60 * 1000;
+    }
+
+    _hasFreshCache() {
+        const fetchedAt = Number(this._cfg.cache?.fetchedAt);
+        if (!Number.isFinite(fetchedAt) || fetchedAt <= 0)
+            return false;
+        return (Date.now() - (fetchedAt * 1000)) < this._cacheMaxAgeMs();
+    }
+
     async refresh(_reason) {
-        if (this._busy)
+        if (this._destroyed || this._busy)
             return;
         if (!this._cfg.location?.lat || !this._cfg.location?.lon)
             return;
@@ -237,13 +319,19 @@ class WeatherApp {
 
         try {
             const raw = await fetchForecast({lat: this._cfg.location.lat, lon: this._cfg.location.lon});
+            if (this._destroyed)
+                return;
             const norm = normalizeOpenMeteo({raw, locationLabel: this._cfg.location.label, locale: this._host.locale});
             this._cfg.cache = norm;
             this._persistLocalState();
-            this._api?.setConfigPatch?.({cache: norm});
+            this._client.patchConfig({cache: norm}).catch(() => {});
             await this._render(norm, {fromCache: false});
+            if (this._destroyed)
+                return;
             this._setStatus(`Updated ${new Date().toLocaleTimeString()}`);
         } catch (e) {
+            if (this._destroyed)
+                return;
             console.error('[weather] refresh failed', e);
             this._setStatus(this._cfg.cache ? 'Offline — showing cached data' : 'Unable to load weather');
         } finally {
@@ -315,7 +403,7 @@ class WeatherApp {
             const loc = this._loadLocalLocation();
             if (loc) {
                 this._cfg.location = loc;
-                this._api?.setConfigPatch?.({location: loc});
+                this._client.patchConfig({location: loc}).catch(() => {});
             }
         }
     }
@@ -386,9 +474,11 @@ class WeatherApp {
 
 (async () => {
     try {
+        if (window.__weatherApp && typeof window.__weatherApp.destroy === 'function')
+            window.__weatherApp.destroy();
         const app = new WeatherApp();
-        await app.init();
         window.__weatherApp = app;
+        await app.init();
     } catch (e) {
         console.error('[weather] init failed', e);
     }

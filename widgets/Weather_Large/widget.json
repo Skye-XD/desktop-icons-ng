@@ -4,7 +4,8 @@
   "kind": "html",
   "entry": "index.html",
   "prefs": "prefs.html",
-  "version": "2",
+  "version": 3,
+  "pinnable": true,
   "defaultWidth": 420,
   "defaultHeight": 260,
   "defaultConfig": {

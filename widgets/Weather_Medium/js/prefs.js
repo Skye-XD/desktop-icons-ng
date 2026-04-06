@@ -18,6 +18,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-undef */
 'use strict';
+import {DingClient} from '../widgetHelper.js';
 import {debounce} from './util.js';
 import {geocodeSearch} from './openMeteoClient.js';
 
@@ -98,8 +99,7 @@ function _normalizeHex(v) {
 
 class PrefsApp {
     constructor() {
-        // Per your constraint: exactly one API, no fallbacks.
-        this._api = window.ding;
+        this._client = new DingClient({mode: 'prefs'});
 
         this._cfg = _defaults();
         this._host = {reducedMotion: false};
@@ -125,13 +125,13 @@ class PrefsApp {
 
     async init() {
         // Host state (reduced motion, etc.)
-        this._api.onHostStateChanged(st => {
+        this._client.onHostState(st => {
             this._host = {...this._host, ...st || {}};
             this._applyHostStateToUi();
         });
 
         // Downward config updates (including initial snapshot)
-        this._api.onConfigChanged((cfg /* , meta */) => {
+        this._client.onConfigChanged((cfg /* , meta */) => {
             this._cfg = _normalize(cfg);
             this._applyCfgToUi();
         });
@@ -143,7 +143,7 @@ class PrefsApp {
 
         // Fetch authoritative config. Some hosts reply via the postMessage path
         // and will also trigger onConfigChanged; we still apply the returned cfg.
-        const cfg = await this._api.getConfig();
+        const cfg = await this._client.getConfig();
         if (cfg && typeof cfg === 'object') {
             this._cfg = _normalize(cfg);
             this._applyCfgToUi();
@@ -276,7 +276,7 @@ class PrefsApp {
 
         // If host enforces reduced motion globally, we do NOT rewrite the user's
         // stored preference here; we only disable the control in UI.
-        this._api.saveConfig(full);
+        this._client.setConfig(full).catch(() => {});
     }
 
     _applyCfgToUi() {
