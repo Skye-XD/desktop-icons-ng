@@ -16,13 +16,14 @@
 # Sundeep Mediratta <smedius@gmail.com>, 2026.
 # Hasan Merkit <hasanmerkit@teteos.net>, 2026.
 # Yunus Emre Yılmaz <yunsemreyl@gmail.com>, 2026.
+# Bai <bai@baturax.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-31 15:10+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-04-04 09:09+0000\n"
+"Last-Translator: Bai <bai@baturax.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -83,7 +84,7 @@ msgstr "Web tarayıcınızda çeviriye yardımcı olun"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:599 app/adwPreferencesWindow.js:600
 msgid "Desktop"
-msgstr "Bilgisayar"
+msgstr "Masaüstü"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:605 app/adwPreferencesWindow.js:606
@@ -125,7 +126,7 @@ msgstr "Şimdiki Masaüstü: "
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:647
 msgid "Files Settings"
-msgstr "Dosyalar Ayarlar"
+msgstr "Dosya Ayarları"
 
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:648
@@ -339,7 +340,7 @@ msgstr "Doğrulama, web tarayıcınızda eklemek veya doğru çeviri eklemek"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:832
 msgid "Translate"
-msgstr "Çeviri çevirisi"
+msgstr "Çevir"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
@@ -355,21 +356,22 @@ msgstr "Açık öğeler"
 # MT: LibreTranslate
 #: app/appChooser.js:92
 msgid "Open Folder"
-msgstr "Open Folder"
+msgstr "Klasörü Aç"
 
 # MT: LibreTranslate
 #: app/appChooser.js:94 data/ui/ding-app-chooser.ui:6
 msgid "Open File"
-msgstr "Open File"
+msgstr "Dosyayı Aç"
 
 # MT: LibreTranslate
 #: app/appChooser.js:165
 msgid "Error changing default application"
-msgstr "Hata değişen varsayılan uygulama"
+msgstr "Varsayılan uygulama değiştirilirken hata oluştu"
 
 #: app/appChooser.js:168
 msgid "Error while setting {foo} as default application for {mimetype}"
 msgstr ""
+"{foo}, {mimetype} için varsayılan uygulama olarak ayarlanırken hata oluştu"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:57
@@ -466,8 +468,9 @@ msgstr "Yeniden Adlandır"
 
 # MT: LibreTranslate
 #: app/autoAr.js:71
+#, fuzzy
 msgid "AutoAr is not installed"
-msgstr "Auto Auto Auto Auto Ar yüklü değil"
+msgstr "AutoAr yüklü değil"
 
 # MT: LibreTranslate
 #: app/autoAr.js:72
