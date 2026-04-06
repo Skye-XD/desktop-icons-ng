@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-31 15:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-04-04 09:09+0000\n"
+"Last-Translator: Adam Lewicki <a.lewicki95@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/pl/>\n"
 "Language: pl\n"
@@ -1392,18 +1392,16 @@ msgid "Widget preferences"
 msgstr "Preferencje widżetów"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Unpin widget"
-msgstr "Widżet GTK"
+msgstr "Odepnij widżet"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Pin widget"
-msgstr "Widżet GTK"
+msgstr "Przypnij widżet"
 
 #: app/widgetManager.js:2153
 msgid "Reposition widget"
-msgstr ""
+msgstr "Zmień położenie widżetu"
 
 #: app/widgetManager.js:2699
 msgid "HTML widget"
@@ -1574,6 +1572,8 @@ msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
 msgstr ""
+"Widżet chce otworzyć odnośnik w Twojej przeglądarce:\n"
+"\n"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"
