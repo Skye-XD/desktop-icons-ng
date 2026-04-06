@@ -1106,6 +1106,20 @@ const WebWidgetContext = class {
         request.finish_with_response(response);
     }
 
+    _finishUriStatusResponse(request, bytes, mimeType, statusCode, headers = null) {
+        const stream = Gio.MemoryInputStream.new_from_bytes(bytes);
+        const response = new WebKit.URISchemeResponse({
+            stream,
+            'stream-length': bytes.get_size(),
+        });
+
+        response.set_content_type(mimeType || 'application/octet-stream');
+        response.set_status(statusCode, null);
+        if (headers)
+            response.set_http_headers(headers);
+        request.finish_with_response(response);
+    }
+
     // For rate-limited widget resource requests, return a tiny successful
     // response instead of an explicit error so a bad widget is less likely to
     // escalate into a retry/error storm that overwhelms the host.
@@ -1134,6 +1148,44 @@ const WebWidgetContext = class {
         const bytes = new GLib.Bytes(new TextEncoder().encode(body));
         const headers = this._buildUriResponseHeaders(request);
         this._finishUriResponse(request, bytes, mimeType, headers);
+    }
+
+    // For missing bundled widget assets, return an HTTP-style 404 response
+    // instead of a scheme error so WebKit can treat the failure like a normal
+    // missing resource rather than surfacing it as a generic access-control
+    // problem for custom-scheme fetches.
+    _finishMissingUriRequest(request, uri = '') {
+        let resourcePath = uri || request?.get_uri?.() || '';
+        try {
+            const parsed = GLib.Uri.parse(resourcePath, GLib.UriFlags.NONE);
+            resourcePath = parsed?.get_path?.() ?? resourcePath;
+        } catch (_e) {}
+
+        let mimeType = 'text/plain';
+        let body = 'Not Found';
+
+        if (resourcePath.endsWith('.svg')) {
+            mimeType = 'image/svg+xml';
+            body = '<svg xmlns="http://www.w3.org/2000/svg"></svg>';
+        } else if (resourcePath.endsWith('.css')) {
+            mimeType = 'text/css';
+            body = '';
+        } else if (resourcePath.endsWith('.js')) {
+            mimeType = 'application/javascript';
+            body = '';
+        } else if (resourcePath.endsWith('.html') ||
+                   resourcePath.endsWith('.htm')) {
+            mimeType = 'text/html';
+            body = '';
+        }
+
+        const bytes = new GLib.Bytes(new TextEncoder().encode(body));
+        const headers = this._buildUriResponseHeaders(request);
+        console.warn(
+            'WebWidgetContext: served missing widget resource as 404',
+            resourcePath
+        );
+        this._finishUriStatusResponse(request, bytes, mimeType, 404, headers);
     }
 
     _pushFullHostStateForInstance(inst) {
@@ -1360,7 +1412,7 @@ const WebWidgetContext = class {
             .replace(/^(\.\/)+/, '');
 
         if (!effectiveRelPath) {
-            finishError(Gio.IOErrorEnum.NOT_FOUND, 'No file specified');
+            this._finishMissingUriRequest(request, uri);
             return;
         }
 
@@ -1430,10 +1482,7 @@ const WebWidgetContext = class {
                 }
             }
         } catch (e) {
-            finishError(
-                Gio.IOErrorEnum.NOT_FOUND,
-                'File not found in widget root'
-            );
+            this._finishMissingUriRequest(request, uri);
             return;
         }
 
@@ -1447,8 +1496,7 @@ const WebWidgetContext = class {
                 file.get_path?.(),
                 e
             );
-            finishError(
-                Gio.IOErrorEnum.NOT_FOUND, 'File not found in widget root');
+            this._finishMissingUriRequest(request, uri);
             return;
         }
 
