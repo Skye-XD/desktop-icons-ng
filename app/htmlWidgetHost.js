@@ -157,11 +157,7 @@ const HtmlWidgetHost = class {
         this._pokeWebViewRender();
     }
 
-    // Reparenting an HTML widget between the desktop container and a floating
-    // widget window can leave WebKit visually blank even though the WebView is
-    // still mapped, sized, and otherwise healthy. A full reload reliably
-    // rebuilds WebKit's render/compositing state for the new parent chain.
-    async reloadForReparent() {
+    async reload() {
         if (this._destroyed)
             return;
 
@@ -170,6 +166,14 @@ const HtmlWidgetHost = class {
             return;
 
         webView.reload();
+    }
+
+    // Reparenting an HTML widget between the desktop container and a floating
+    // widget window can leave WebKit visually blank even though the WebView is
+    // still mapped, sized, and otherwise healthy. A full reload reliably
+    // rebuilds WebKit's render/compositing state for the new parent chain.
+    async reloadForReparent() {
+        await this.reload();
     }
 
     _makeGtkWidget() {
