@@ -103,12 +103,15 @@ const WidgetManager = class {
         this._webWidgetContext = null;
         this._textEntryAccelsSuppressedForWidgets = false;
         this._selectionChromeSuppressed = false;
+        this._pendingPinnedWindowReloadId = 0;
+        this._dbusScreenSaverActiveChangedId = 0;
 
         // When true, suppress emitting stateChanged events
         this._suppressStateEvents = false;
         this._loadStatePromise = null;
         this._pendingLoadState = null;
 
+        this._connectWakeReloadListener();
         this._addActions();
 
         // loadState is handled during startup and by Preferences; avoid
@@ -131,6 +134,8 @@ const WidgetManager = class {
     }
 
     stopWidgetDisplay() {
+        this._cancelPendingPinnedWindowReload();
+
         for (const surface of this._surfaces.values())
             surface.grid.lowerWidgetContainer();
 
@@ -219,6 +224,34 @@ const WidgetManager = class {
             surface.grid.restoreWidgetLayerFocus?.();
             return;
         }
+    }
+
+    schedulePinnedWindowWakeReload(reason = 'window-remap') {
+        if (this._pendingPinnedWindowReloadId)
+            return;
+
+        this._pendingPinnedWindowReloadId = GLib.idle_add(
+            GLib.PRIORITY_DEFAULT_IDLE,
+            () => {
+                this._pendingPinnedWindowReloadId = 0;
+                this._reloadPinnedHtmlWidgetsInWindows(reason)
+                    .catch(e => logError(e));
+                return GLib.SOURCE_REMOVE;
+            }
+        );
+    }
+
+    _connectWakeReloadListener() {
+        this._dbusScreenSaverActiveChangedId =
+            this._desktopManager.DBusUtils.connect(
+                'screen-saver-active-changed',
+                (_dbusUtils, active) => {
+                    if (active)
+                        return;
+
+                    this.schedulePinnedWindowWakeReload('screen-unlock');
+                }
+            );
     }
 
     // =====================================================================
@@ -1775,6 +1808,41 @@ const WidgetManager = class {
                 this._pinnedWindowManager.destroyInstanceWindow(inst.instanceId);
 
             this._attachInstanceToCorrectLayer(inst);
+        }
+    }
+
+    _cancelPendingPinnedWindowReload() {
+        if (!this._pendingPinnedWindowReloadId)
+            return;
+
+        GLib.source_remove(this._pendingPinnedWindowReloadId);
+        this._pendingPinnedWindowReloadId = 0;
+    }
+
+    async _reloadPinnedHtmlWidgetsInWindows(reason = 'window-remap') {
+        if (!this._preferences.showDesktopWidgets)
+            return;
+
+        for (const inst of this._instances.values()) {
+            if (!inst.pinned || inst.kind !== 'html' || !inst.host || !inst.actor)
+                continue;
+
+            const surface = this._surfaces.get(inst.monitorIndex);
+            const widgetContainer = surface?.widgetContainer ?? null;
+            const parent = inst.actor.get_parent() ?? null;
+            if (!parent || parent === widgetContainer)
+                continue;
+
+            try {
+                await inst.host.reload();
+            } catch (e) {
+                console.error(
+                    'WidgetManager: failed to reload pinned HTML widget after',
+                    reason,
+                    inst.instanceId,
+                    e
+                );
+            }
         }
     }
 

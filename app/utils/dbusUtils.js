@@ -1397,6 +1397,7 @@ const DBusUtils = class {
         this.mainApp = mainApp;
         this.discreteGpuAvailable = false;
         this.dbusManagerObject = new DBusManager(mainApp);
+        this._screenSaverActiveChangedSignalId = 0;
         const makeAsync = true;
         const insSytembus = true;
         const insSessionBus = !insSytembus;
@@ -1538,8 +1539,34 @@ const DBusUtils = class {
 
         this.RemoteExtensionControl =
             new ExtensionControl(this.RemoteExtensionManager);
+
+        this._connectScreenSaverActiveChangedSignal();
+    }
+
+    _connectScreenSaverActiveChangedSignal() {
+        try {
+            this._screenSaverActiveChangedSignalId =
+                Gio.DBus.session.signal_subscribe(
+                    'org.gnome.ScreenSaver',
+                    'org.gnome.ScreenSaver',
+                    'ActiveChanged',
+                    '/org/gnome/ScreenSaver',
+                    null,
+                    Gio.DBusSignalFlags.NONE,
+                    (_connection, _sender, _objectPath, _iface, _signal, params) => {
+                        const [active] = params.deepUnpack();
+                        this.emit('screen-saver-active-changed', !!active);
+                    }
+                );
+        } catch (e) {
+            console.error(
+                'DBusUtils: failed to subscribe to ScreenSaver ActiveChanged:',
+                e
+            );
+        }
     }
 };
+Signals.addSignalMethods(DBusUtils.prototype);
 
 class ExtensionControl {
     constructor(RemoteExtensionManager) {
