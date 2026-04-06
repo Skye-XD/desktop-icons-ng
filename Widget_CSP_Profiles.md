@@ -49,6 +49,7 @@ The **Strict** profile is designed for normal users and production use.
 ### Allows
 
 - loading widget content from the widget’s own origin
+- explicit loading from the jailed `ding-widget:` scheme used for bundled widget assets
 - JavaScript execution inside the widget context
 - CSS and layout required for rendering
 - network requests (HTTP/HTTPS) initiated by widget code
@@ -69,6 +70,8 @@ The **Strict** profile is designed for normal users and production use.
 ### Rationale
 
 The strict profile is intentionally conservative. It supports common, legitimate widget use cases while blocking patterns that frequently lead to security issues or abuse in web-based environments.
+
+In the generated policy, local widget resource directives explicitly include `ding-widget:` so bundled scripts, styles, images, fonts, media, and `fetch()` requests continue to work reliably under WebKit's custom-scheme handling.
 
 ---
 

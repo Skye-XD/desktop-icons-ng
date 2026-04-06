@@ -35,14 +35,14 @@ object-src 'none';
 frame-ancestors 'none';
 form-action 'none';
 
-script-src 'self' 'unsafe-inline';
-style-src  'self' 'unsafe-inline';
+script-src 'self' ding-widget: 'unsafe-inline';
+style-src  'self' ding-widget: 'unsafe-inline';
 
-img-src    'self' data: blob:;
-font-src   'self' data:;
-media-src  'self' blob:;
+img-src    'self' ding-widget: data: blob:;
+font-src   'self' ding-widget: data:;
+media-src  'self' ding-widget: blob:;
 
-connect-src 'self' https: ;
+connect-src 'self' ding-widget: https: ;
 navigate-to 'self';
 block-all-mixed-content;
 
@@ -57,15 +57,16 @@ object-src 'none';
 frame-ancestors 'none';
 form-action 'none';
 
-script-src 'self' 'unsafe-inline';
-style-src  'self' 'unsafe-inline';
+script-src 'self' ding-widget: 'unsafe-inline';
+style-src  'self' ding-widget: 'unsafe-inline';
 
-img-src    'self' data: blob:;
-font-src   'self' data:;
-media-src  'self' blob:;
+img-src    'self' ding-widget: data: blob:;
+font-src   'self' ding-widget: data:;
+media-src  'self' ding-widget: blob:;
 
 connect-src
     'self'
+    ding-widget:
     https:
     http:
     http://localhost:*
@@ -83,20 +84,23 @@ frame-ancestors 'none';
 
 script-src
     'self'
+    ding-widget:
     'unsafe-inline'
     https:;
 
 style-src
     'self'
+    ding-widget:
     'unsafe-inline'
     https:;
 
-img-src    'self' data: blob: https:;
-font-src   'self' data: https:;
-media-src  'self' blob: https:;
+img-src    'self' ding-widget: data: blob: https:;
+font-src   'self' ding-widget: data: https:;
+media-src  'self' ding-widget: blob: https:;
 
 connect-src
     'self'
+    ding-widget:
     https:
     http:
     ws:
@@ -145,6 +149,148 @@ export const WIDGET_API =
             event.stopPropagation();
         }
     }, true);
+
+    // ---------------------------------------------------------------------
+    // Local fetch hardening
+    // ---------------------------------------------------------------------
+    // During widget reload(), WebKit can surface ding-widget:// fetches as
+    // generic "access control" errors instead of resolving them when the old
+    // DOM is tearing down or the new DOM is not ready yet. Older widgets may
+    // immediately retry those rejected fetches, turning a reload transition
+    // into a tight loop of local requests. Gate local fetches off while page
+    // lifecycle signals say the document is unloading (beforeunload/pagehide/
+    // unload), then re-enable them once the new document is shown/loaded
+    // again. Outside that transition, keep a small per-URL failure cooldown
+    // so repeated local fetch failures also fall back to a tiny synthetic
+    // Response, preserving host responsiveness without changing normal network
+    // fetch behavior. Prior to this buggy widget fetches during reload() 
+    // could cause the entire WebView to become unresponsive with the loop
+    // of failed fetches freezing the desktop.
+
+    var _nativeFetch =
+        typeof window.fetch === 'function' ? window.fetch.bind(window) : null;
+    var _localFetchFailures = new Map();
+    var _localFetchBlocked = false;
+    var LOCAL_FETCH_FAILURE_WINDOW_MS = 3000;
+    var LOCAL_FETCH_FAILURE_MAX_BURST = 8;
+    var LOCAL_FETCH_COOLDOWN_MS = 4000;
+
+    function _normalizeLocalFetchUrl(input) {
+        try {
+            if (typeof input === 'string')
+                return String(new URL(input, window.location.href));
+
+            if (input && typeof input.url === 'string')
+                return String(new URL(input.url, window.location.href));
+        } catch (_e) {}
+
+        return '';
+    }
+
+    function _getSyntheticFetchBody(url) {
+        if (/\.svg(?:$|[?])/i.test(url))
+            return '<svg xmlns="http://www.w3.org/2000/svg"></svg>';
+        return '';
+    }
+
+    function _getSyntheticFetchMime(url) {
+        if (/\.svg(?:$|[?])/i.test(url))
+            return 'image/svg+xml';
+        if (/\.css(?:$|[?])/i.test(url))
+            return 'text/css';
+        if (/\.js(?:$|[?])/i.test(url))
+            return 'application/javascript';
+        if (/\.html?(?:$|[?])/i.test(url))
+            return 'text/html';
+        return 'text/plain';
+    }
+
+    function _buildSyntheticFetchResponse(url) {
+        var headers = new Headers({
+            'Content-Type': _getSyntheticFetchMime(url),
+        });
+
+        return new Response(_getSyntheticFetchBody(url), {
+            status: 200,
+            headers,
+        });
+    }
+
+    function _shouldCoolDownLocalFetch(url) {
+        var now = Date.now();
+        var guard = _localFetchFailures.get(url);
+        if (!guard)
+            return false;
+
+        if (guard.cooldownUntil && now < guard.cooldownUntil)
+            return true;
+
+        if (guard.cooldownUntil && now >= guard.cooldownUntil) {
+            _localFetchFailures.delete(url);
+            return false;
+        }
+
+        return false;
+    }
+
+    function _recordLocalFetchFailure(url) {
+        var now = Date.now();
+        var guard = _localFetchFailures.get(url) || {
+            windowStart: now,
+            count: 0,
+            cooldownUntil: 0,
+        };
+
+        if ((now - guard.windowStart) >= LOCAL_FETCH_FAILURE_WINDOW_MS) {
+            guard.windowStart = now;
+            guard.count = 0;
+            guard.cooldownUntil = 0;
+        }
+
+        guard.count++;
+        if (guard.count > LOCAL_FETCH_FAILURE_MAX_BURST)
+            guard.cooldownUntil = now + LOCAL_FETCH_COOLDOWN_MS;
+
+        _localFetchFailures.set(url, guard);
+    }
+
+    function _blockLocalFetches() {
+        _localFetchBlocked = true;
+    }
+
+    function _allowLocalFetches() {
+        _localFetchBlocked = false;
+        _localFetchFailures.clear();
+    }
+
+    window.addEventListener('beforeunload', _blockLocalFetches, true);
+    window.addEventListener('pagehide', _blockLocalFetches, true);
+    window.addEventListener('unload', _blockLocalFetches, true);
+    window.addEventListener('pageshow', _allowLocalFetches, true);
+    window.addEventListener('load', _allowLocalFetches, true);
+
+    if (_nativeFetch) {
+        window.fetch = function(input, init) {
+            var url = _normalizeLocalFetchUrl(input);
+            if (!url || !url.startsWith('ding-widget://'))
+                return _nativeFetch(input, init);
+
+            if (_localFetchBlocked)
+                return Promise.resolve(_buildSyntheticFetchResponse(url));
+
+            if (_shouldCoolDownLocalFetch(url))
+                return Promise.resolve(_buildSyntheticFetchResponse(url));
+
+            return _nativeFetch(input, init).catch(function(error) {
+                _recordLocalFetchFailure(url);
+
+                if (_shouldCoolDownLocalFetch(url))
+                    return _buildSyntheticFetchResponse(url);
+
+                throw error;
+            });
+        };
+    }
 
     // ---------------------------------------------------------------------
     // Upward channel: widget -> host (via WebKit messageHandler)

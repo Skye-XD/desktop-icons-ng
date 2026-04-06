@@ -25,6 +25,18 @@ import {Gio, GLib} from '../dependencies/gi.js';
 
 export {WidgetRegistry};
 
+function cloneJsonObject(value, fallback = {}) {
+    if (value === null || value === undefined)
+        return fallback;
+
+    try {
+        return JSON.parse(JSON.stringify(value));
+    } catch (e) {
+        console.error('WidgetRegistry: failed to clone JSON object:', e);
+        return fallback;
+    }
+}
+
 const WidgetRegistry = class  {
     constructor(desktopIconsUtil) {
         this._util = desktopIconsUtil;
@@ -60,7 +72,9 @@ const WidgetRegistry = class  {
      */
     async listWidgets() {
         await this._ensureLoadedAsync();
-        return Array.from(this._widgets.values());
+        return Array.from(this._widgets.values()).map(
+            desc => this._cloneDescriptor(desc)
+        );
     }
 
     /**
@@ -106,7 +120,8 @@ const WidgetRegistry = class  {
             return null;
 
         await this._ensureLoadedAsync();
-        return this._widgets.get(id) ?? null;
+        const desc = this._widgets.get(id) ?? null;
+        return desc ? this._cloneDescriptor(desc) : null;
     }
 
     /*
@@ -352,10 +367,12 @@ const WidgetRegistry = class  {
                             ? Math.max(1, Math.floor(manifest.defaultHeight))
                             : 160;
 
-                    const defaultConfig =
+                    const defaultConfig = cloneJsonObject(
                         this._isObject(manifest.defaultConfig)
                             ? manifest.defaultConfig
-                            : {};
+                            : {},
+                        {}
+                    );
 
                     const prefs =
                         typeof manifest.prefs === 'string'
@@ -491,6 +508,18 @@ const WidgetRegistry = class  {
             `${newPath} (${newScope}) — ${action}`
         );
         this._loggedDuplicateIds.add(id);
+    }
+
+    _cloneDescriptor(desc) {
+        if (!desc)
+            return null;
+
+        return {
+            ...desc,
+            defaultConfig: cloneJsonObject(desc.defaultConfig, {}),
+            backend: desc.backend ? cloneJsonObject(desc.backend, null) : null,
+            chrome: desc.chrome ? cloneJsonObject(desc.chrome, null) : null,
+        };
     }
 
     _nextFilesAsync(enumerator) {

@@ -43,6 +43,26 @@ import {WebWidgetContext} from '../dependencies/localFiles.js';
  */
 export {WidgetManager};
 
+function cloneWidgetConfig(config) {
+    if (config === null || config === undefined)
+        return {};
+
+    try {
+        return JSON.parse(JSON.stringify(config));
+    } catch (e) {
+        console.error('WidgetManager: failed to clone widget config:', e);
+        return {};
+    }
+}
+
+function configJson(config) {
+    try {
+        return JSON.stringify(config ?? {});
+    } catch (e) {
+        return null;
+    }
+}
+
 const WIDGETS_STATE_SCHEMA_VERSION = 3;
 const appID = 'com.desktop.ding';
 const appPath = GLib.build_filenamev(['/', ...appID.split('.')]);
@@ -302,7 +322,7 @@ const WidgetManager = class {
             y,
             width,
             height,
-            descriptor?.defaultConfig ?? {},
+            cloneWidgetConfig(descriptor?.defaultConfig ?? {}),
             kind,
             descriptor
         );
@@ -818,10 +838,10 @@ const WidgetManager = class {
                         instData.hasBackend ??
                         descriptor?.hasBackend ??
                         !!descriptor?.backend;
-                    const resolvedConfig = {
+                    const resolvedConfig = cloneWidgetConfig({
                         ...descriptor?.defaultConfig ?? {},
                         ...instData.config ?? {},
-                    };
+                    });
 
                     let instance = this._instances.get(instData.instanceId);
 
@@ -924,10 +944,17 @@ const WidgetManager = class {
     updateInstanceConfig(instanceId, newConfig) {
         const inst = this._instances.get(instanceId);
         if (!inst)
-            return;
+            return false;
 
-        inst.config = newConfig;
+        const clonedConfig = cloneWidgetConfig(newConfig);
+        const currentJson = configJson(inst.config);
+        const nextJson = configJson(clonedConfig);
+        if (currentJson !== null && nextJson !== null && currentJson === nextJson)
+            return false;
+
+        inst.config = clonedConfig;
         this._stateChanged();
+        return true;
     }
 
     setWidgetEditMode(instanceId, editing) {
@@ -1893,6 +1920,9 @@ const WidgetManager = class {
 
         if (inst.host && typeof inst.host.destroy === 'function')
             inst.host.destroy();
+
+        if (this._webWidgetContext)
+            this._webWidgetContext.forgetInstance(instanceId);
 
         if (typeof inst.actor?.destroy === 'function')
             inst.actor.destroy();
