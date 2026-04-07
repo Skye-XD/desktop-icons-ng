@@ -900,10 +900,11 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
     }
 
     pushEvent(params = {}) {
-        const parentWindow =
-            params.parentWindow
-                ? params.parentWindow
-                : this.mainApp.get_active_window();
+        let parentWindow = params.parentWindow;
+        if (!parentWindow) {
+            if (this.mainApp && this.mainApp.getDialogParentWindow)
+                parentWindow = this.mainApp.getDialogParentWindow();
+        }
 
         const currentEventTime =
             params.timestamp
@@ -944,7 +945,10 @@ class RemoteFileOperationsManager extends DbusOperationsManager {
                 const eventParameters =
                     this._eventsStack.pop() ||
                     {
-                        'parentWindow': this.mainApp.get_active_window(),
+                        'parentWindow':
+                            this.mainApp.getDialogParentWindow
+                                ? this.mainApp.getDialogParentWindow()
+                                : null,
                         'timestamp': Gdk.CURRENT_TIME,
                     };
 

@@ -174,6 +174,7 @@ const adWDingApp = GObject.registerClass(
                 'uuid': this.uuid,
                 'mainApp': app,
             };
+            app.getDialogParentWindow = () => app.get_active_window();
             this.Utils = {FileUtils};
 
             this.Utils.DBusUtils =

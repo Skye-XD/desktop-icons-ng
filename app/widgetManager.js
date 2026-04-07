@@ -282,7 +282,6 @@ const WidgetManager = class {
      *     initialPinned?: boolean,           // optional initial pinned mode
      *     inheritConsentFromInstanceId?: string, // optional source instance
      *     selectAfterCreate?: boolean,           // optional auto-select/focus
-     *     consentParentWindow?: Gtk.Window|null, // optional consent parent
      *   }
      *
      * Returns the created instance object or null.
@@ -373,8 +372,6 @@ const WidgetManager = class {
         if (!instance)
             return null;
 
-        instance._consentParentWindow = opts.consentParentWindow ?? null;
-
         const inheritFromId = opts.inheritConsentFromInstanceId;
         if (typeof inheritFromId === 'string' && inheritFromId.length > 0) {
             const source = this._instances.get(inheritFromId);
@@ -389,7 +386,6 @@ const WidgetManager = class {
         const created = await this._ensureInstanceActor(instance);
 
         if (!created) {
-            instance._consentParentWindow = null;
             return null;
         }
 
@@ -404,8 +400,6 @@ const WidgetManager = class {
 
         if (shouldAutoSelect)
             this.selectInstance(instance.instanceId);
-
-        instance._consentParentWindow = null;
 
         // Persist creation
         this._stateChanged();
@@ -616,6 +610,61 @@ const WidgetManager = class {
 
     getInstance(instanceId) {
         return this._instances.get(instanceId) || null;
+    }
+
+    getSurfaceWindow(monitorIndex) {
+        const surface = this._surfaces.get(monitorIndex);
+        if (!surface || !surface.grid)
+            return null;
+
+        return surface.grid.getWindow();
+    }
+
+    getMonitorIndexForWindow(window) {
+        if (!window)
+            return null;
+
+        for (const surface of this._surfaces.values()) {
+            if (surface.grid.getWindow() === window)
+                return surface.monitorIndex;
+        }
+
+        const instanceId =
+            this._pinnedWindowManager.getInstanceIdForWindow(window);
+        if (!instanceId)
+            return null;
+
+        const inst = this.getInstance(instanceId);
+        return inst?.monitorIndex ?? null;
+    }
+
+    resolveSurfaceWindow(window) {
+        if (!window)
+            return null;
+
+        for (const surface of this._surfaces.values()) {
+            if (surface.grid.getWindow() === window)
+                return window;
+        }
+
+        const instanceId =
+            this._pinnedWindowManager.getInstanceIdForWindow(window);
+        if (!instanceId)
+            return window;
+
+        const inst = this.getInstance(instanceId);
+        const monitorIndex = inst?.monitorIndex ?? null;
+        if (monitorIndex === null)
+            return window;
+
+        const surfaceWindow = this.getSurfaceWindow(monitorIndex);
+        return surfaceWindow ?? window;
+    }
+
+    resolveSurfaceWindowFromActiveWindow(window = null) {
+        const activeWindow =
+            window ?? this._desktopManager.mainApp.get_active_window();
+        return this.resolveSurfaceWindow(activeWindow);
     }
 
     getSelectedInstanceId() {
@@ -2722,8 +2771,8 @@ const WidgetManager = class {
             return nameA.localeCompare(nameB);
         });
 
-        if (!parentWindow)
-            parentWindow = this._desktopManager.mainApp.get_active_window();
+        if (Number.isInteger(monitorIndex))
+            parentWindow = this.getSurfaceWindow(monitorIndex) ?? parentWindow;
 
         const {window, list, addButton, cancelButton} =
             this._createWidgetPickerWindow(parentWindow, widgets);
@@ -2753,7 +2802,6 @@ const WidgetManager = class {
                 try {
                     created = await this.createInstanceForWidget(row._widgetId, {
                         monitorIndex,
-                        consentParentWindow: parentWindow ?? null,
                     });
                 } catch (e) {
                     console.error(
@@ -2883,27 +2931,11 @@ const WidgetManager = class {
         const addWidgetAction = Gio.SimpleAction.new('addWidget', null);
         addWidgetAction.connect('activate', () => {
             const parentWindow =
-                this._desktopManager.mainApp.get_active_window();
-
-            let monitorIndex = null;
-
-            if (parentWindow) {
-                const surface = parentWindow.get_surface();
-                const display = surface?.get_display?.();
-                const monitor = display?.get_monitor_at_surface?.(surface);
-                const monitors = display?.get_monitors?.();
-                const count = monitors?.get_n_items?.() ?? 0;
-
-                for (let i = 0; i < count; i++) {
-                    if (monitors.get_item?.(i) === monitor) {
-                        monitorIndex = i;
-                        break;
-                    }
-                }
-            }
-
-            if (monitorIndex === null)
+                this._desktopManager.getDialogParentWindow();
+            if (!parentWindow)
                 return;
+
+            const monitorIndex = this.getMonitorIndexForWindow(parentWindow);
 
             // Ensure widget layers are visible before adding a widget.
             this._desktopManager.windowManager?.raiseWidgetLayers();
@@ -2915,25 +2947,12 @@ const WidgetManager = class {
 
         const showGridAction = Gio.SimpleAction.new('toggleWidgetGrid', null);
         showGridAction.connect('activate', () => {
-            const parentWindow =
-                this._desktopManager.mainApp.get_active_window();
+            const parentWindow = this._desktopManager.getDialogParentWindow();
+            if (!parentWindow)
+                return;
 
-            let monitorIndex = null;
-
-            if (parentWindow) {
-                const surface = parentWindow.get_surface();
-                const display = surface?.get_display?.();
-                const monitor = display?.get_monitor_at_surface?.(surface);
-                const monitors = display?.get_monitors?.();
-                const count = monitors?.get_n_items?.() ?? 0;
-
-                for (let i = 0; i < count; i++) {
-                    if (monitors.get_item?.(i) === monitor) {
-                        monitorIndex = i;
-                        break;
-                    }
-                }
-            }
+            const parentSurfaceWindow = parentWindow;
+            const monitorIndex = this.getMonitorIndexForWindow(parentSurfaceWindow);
 
             if (monitorIndex === null)
                 return;
@@ -2943,14 +2962,14 @@ const WidgetManager = class {
                 this._getGridToggleButtonInstanceId(monitorIndex);
 
             const inst = instanceId ? this._instances.get(instanceId) : null;
-            gridToggleButton = inst?.actor ?? null;
+            gridToggleButton = inst && inst.actor ? inst.actor : null;
 
             if (!gridToggleButton)
                 return;
 
             // Ensure widget layers are visible before showingt widget grid.
             this._desktopManager.windowManager?.raiseWidgetLayers();
-            gridToggleButton?.activate();
+            gridToggleButton.activate();
         });
         this._desktopManager.mainApp.add_action(showGridAction);
 
@@ -2977,9 +2996,8 @@ const WidgetManager = class {
      * ===================================================================== */
 
     _asyncAskYesNo(heading, body, bodyUseMarkup = false, parentWindow = null) {
-        const fallbackParent =
-            this._desktopManager.mainApp.get_active_window();
-        const anchorParent = parentWindow ?? fallbackParent ?? null;
+        const anchorParent =
+            parentWindow ?? this._desktopManager.getDialogParentWindow();
         const yesLabel = _('Allow');
         const noLabel = _('Cancel');
 
@@ -3094,13 +3112,14 @@ const WidgetManager = class {
             _('This content is subject to the widget security policy:\n\n') +
             `<span weight="ultrabold">${cspProfileName}</span>\n` +
             `${cspProfileSummary}`;
+        const parentWindow = this.getSurfaceWindow(inst.monitorIndex);
 
 
         const answer = await this._asyncAskYesNo(
             heading,
             body,
             true,
-            inst?._consentParentWindow ?? null
+            parentWindow
         );
 
         return answer;
@@ -3134,12 +3153,13 @@ const WidgetManager = class {
               `${GLib.markup_escape_text(argvStr, -1)}\n\n`
             : '') +
         _('Only allow this for widgets you implicitly trust.');
+        const parentWindow = this.getSurfaceWindow(inst.monitorIndex);
 
         const answer = await this._asyncAskYesNo(
             _('Allow widget backend?'),
             body,
             true,
-            inst?._consentParentWindow ?? null
+            parentWindow
         );
 
         return answer;

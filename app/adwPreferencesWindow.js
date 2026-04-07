@@ -578,7 +578,7 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
         );
     }
 
-    getAdwPreferencesWindow(window = null) {
+    getAdwPreferencesWindow(window = null, parentWindow = null) {
         var prefsWindow;
 
         if (window) {
@@ -590,6 +590,8 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
             if (app)
                 prefsWindow.set_application(app);
         }
+        if (parentWindow)
+            prefsWindow.set_transient_for(parentWindow);
         prefsWindow.set_can_navigate_back(true);
         prefsWindow.set_search_enabled(true);
 

@@ -234,6 +234,10 @@ const DisplayGrid = class {
         this._hidden = false;
     }
 
+    getWindow() {
+        return this._window;
+    }
+
     queue_draw() {
         this._container.queue_draw();
         this._overlay.queue_draw();

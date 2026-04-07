@@ -22,10 +22,18 @@ import {_} from '../dependencies/gettext.js';
 export {ShowErrorPopup};
 
 const ShowErrorPopup = class {
-    constructor(text, secondaryText, waitDelayMs, helpURL = null) {
+    constructor(text, secondaryText, waitDelayMs, helpURL = null,
+        parentWindow = null) {
         this._waitDelayMs = waitDelayMs; // async function
         this._applicationId = Gio.Application.get_default();
-        this._window = this._applicationId.get_active_window();
+        if (parentWindow) {
+            this._window = parentWindow;
+        } else if (this._applicationId &&
+            this._applicationId.getDialogParentWindow) {
+            this._window = this._applicationId.getDialogParentWindow();
+        } else {
+            this._window = null;
+        }
         this._dialog = new Adw.AlertDialog();
         this._dialog.set_body_use_markup(true);
         this._dialog.set_heading_use_markup(true);

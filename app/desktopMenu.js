@@ -620,7 +620,10 @@ const DesktopActions = class {
             return;
         }
 
-        this.preferencesWindow = this._Prefs.getAdwPreferencesWindow();
+        const parentWindow =
+            this._desktopManager.getDialogParentWindow();
+        this.preferencesWindow =
+            this._Prefs.getAdwPreferencesWindow(parentWindow);
         this.preferencesWindow.connect('close-request', () => {
             this.preferencesWindow = null;
         });

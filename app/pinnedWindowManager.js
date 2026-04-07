@@ -48,6 +48,18 @@ const PinnedWindowManager = class {
         return this._windows.get(instanceId) ?? null;
     }
 
+    getInstanceIdForWindow(widgetWindow) {
+        if (!widgetWindow)
+            return null;
+
+        for (const [instanceId, window] of this._windows.entries()) {
+            if (window === widgetWindow)
+                return instanceId;
+        }
+
+        return null;
+    }
+
     pinInstance(inst) {
         if (!inst || !inst.instanceId || !inst.actor)
             return null;
