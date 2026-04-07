@@ -196,7 +196,11 @@ const WindowManager = class {
 
         this._gridWindowsUpdateInProgress = true;
         await this._displayDesktopSnapShots();
-        this._desktopManager.clearAllLayersFromGrids();
+        this._desktopManager.clearAllLayersFromGrids({
+            redisplay,
+            monitorschanged,
+            gridschanged,
+        });
 
         this._desktops.forEach((desktop, index) => {
             desktop.updateGridDescription(this._desktopList[index]);

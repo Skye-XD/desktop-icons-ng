@@ -20,13 +20,6 @@ import {WidgetApi} from '../dependencies/localFiles.js';
 
 export {HtmlWidgetHost};
 
-function getParentTypeName(parent) {
-    if (!parent)
-        return null;
-
-    return parent.constructor?.name ?? null;
-}
-
 const HtmlWidgetHost = class {
     /**
      * @param {object} params
@@ -273,17 +266,13 @@ const HtmlWidgetHost = class {
 
         const currentParent = this._frame.get_parent?.() ?? null;
         const previousParent = this._previousParent;
-        const previousParentType = getParentTypeName(previousParent);
-        const currentParentType = getParentTypeName(currentParent);
 
-        if (currentParent)
-            this._previousParent = currentParent;
+        this._previousParent = currentParent;
 
         if (!currentParent || currentParent === previousParent)
             return;
 
-        if (!previousParent || previousParentType !== currentParentType)
-            this.reloadForReparent().catch(e => logError(e));
+        this.reloadForReparent().catch(e => logError(e));
     }
 
     _flushPendingHostStatePatches() {
