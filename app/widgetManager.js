@@ -118,14 +118,24 @@ const WidgetManager = class {
         // overlapping loads during construction.
     }
 
-    clearFromGrids() {
+    clearFromGrids(layoutChange = {}) {
+        const preservePinnedWindows =
+            !!layoutChange?.gridschanged &&
+            !layoutChange?.monitorschanged;
+
         for (const inst of this._instances.values()) {
+            if (preservePinnedWindows &&
+                inst?.pinned &&
+                this._pinnedWindowManager.hasInstance(inst.instanceId))
+                continue;
+
             const parent = inst.actor?.get_parent?.();
             if (parent?.remove)
                 parent.remove(inst.actor);
         }
 
-        this._pinnedWindowManager.destroyAllWindows();
+        if (!preservePinnedWindows)
+            this._pinnedWindowManager.destroyAllWindows();
 
         for (const surface of this._surfaces.values())
             this._teardownSurface(surface);
@@ -181,7 +191,7 @@ const WidgetManager = class {
 
         this._rebuildSurfacesFrom(desktops);
         this._detachInstancesWithoutSurface();
-        await this._reattachAllInstances();
+        await this._reattachAllInstances(changeInfo);
         this._stopWebkitIfUnneeded();
     }
 
@@ -1772,9 +1782,13 @@ const WidgetManager = class {
         }
     }
 
-    async _reattachAllInstances() {
+    async _reattachAllInstances(layoutChange = {}) {
         if (!this._preferences.showDesktopWidgets)
             return;
+
+        const preservePinnedWindows =
+            !!layoutChange?.gridschanged &&
+            !layoutChange?.monitorschanged;
 
         for (const inst of this._instances.values()) {
             const surface = this._surfaces.get(inst.monitorIndex);
@@ -1782,13 +1796,21 @@ const WidgetManager = class {
             if (!surface)
                 continue;
 
+            const preservePinnedWindow =
+                preservePinnedWindows &&
+                inst?.pinned &&
+                this._pinnedWindowManager.hasInstance(inst.instanceId);
+
             // eslint-disable-next-line no-await-in-loop
             const created = await this._ensureInstanceActor(inst);
 
             if (!created)
                 continue;
 
-            this._attachInstanceToCorrectLayer(inst);
+            if (preservePinnedWindow)
+                this._pinnedWindowManager.refreshInstance(inst);
+            else
+                this._attachInstanceToCorrectLayer(inst);
 
             // Use optional chaining because requestRender()
             // currently exists only on HTML hosts.

@@ -417,12 +417,12 @@ const DesktopManager = class {
         return false;
     }
 
-    clearAllLayersFromGrids() {
+    clearAllLayersFromGrids(layoutChange = {}) {
         // Icons: clear from all grids
         this._displayList.forEach(x => x.removeFromGrid());
 
         // Widgets: clear from all grids
-        this.widgetManager.clearFromGrids();
+        this.widgetManager.clearFromGrids(layoutChange);
     }
 
     async applyDesktopLayoutChange({redisplay, monitorschanged, gridschanged}) {
@@ -435,7 +435,11 @@ const DesktopManager = class {
             gridschanged,
         });
 
-        await this.widgetManager.applyLayoutChange(this._desktops, {redisplay});
+        await this.widgetManager.applyLayoutChange(this._desktops, {
+            redisplay,
+            monitorschanged,
+            gridschanged,
+        });
     }
 
 
