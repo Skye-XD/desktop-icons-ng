@@ -302,6 +302,16 @@ const WidgetWindow = class {
         if (!this._overlay || !button)
             return;
 
+        // The controls strip can be rebuilt while a press sequence is in flight.
+        // Only act on the current live move button that belongs to this overlay.
+        if (this._overlayButtons.get('move') !== button)
+            return;
+
+        const overlayRoot = this._overlay.get_root?.() ?? null;
+        const buttonRoot = button.get_root?.() ?? null;
+        if (!overlayRoot || buttonRoot !== overlayRoot || !button.get_parent?.())
+            return;
+
         const [found, targetPoint] = button.compute_point(
             this._overlay,
             new Graphene.Point({x, y})
