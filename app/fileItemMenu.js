@@ -784,7 +784,8 @@ const FileItemActions = class {
                     fileItems,
                     this.activeFileItem,
                     this._dbusManager,
-                    this._DesktopIconsUtil
+                    this._DesktopIconsUtil,
+                    this._desktopManager.getDialogParentWindow()
                 );
             this._mainApp.activate_action('textEntryAccelsTurnOff', null);
             chooser.show();
@@ -875,7 +876,7 @@ const FileItemActions = class {
         return new Promise(resolve => {
             if (!dialogTitle)
                 dialogTitle =  _('Select Destination');
-            const window = this._mainApp.get_active_window();
+            const window = this._desktopManager.getDialogParentWindow();
             if (!selectionText)
                 selectionText = _('Select');
             const dialog = new Gtk.FileDialog({
@@ -907,7 +908,7 @@ const FileItemActions = class {
             if (!selectionText)
                 selectionText = _('Select');
             let returnValue = null;
-            const window = this._mainApp.get_active_window();
+            const window = this._desktopManager.getDialogParentWindow();
             const dialog = new Gtk.FileChooserDialog({title: dialogTitle});
             dialog.set_action(Gtk.FileChooserAction.SELECT_FOLDER);
             dialog.set_create_folders(true);

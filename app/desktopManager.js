@@ -83,6 +83,8 @@ const DesktopManager = class {
         this.Prefs.init(this);
         this.shortcutManager = new ShortcutManager(this);
         this.widgetManager = new WidgetManager.WidgetManager(this);
+        this.mainApp.getDialogParentWindow =
+            this.getDialogParentWindow.bind(this);
 
         // Init Variables
         this._clickX = null;
@@ -110,6 +112,19 @@ const DesktopManager = class {
             );
         }
         this._syncStartupDesktop().catch(e => logError(e));
+    }
+
+    getDialogParentWindow(window = null) {
+        const activeWindow = window ?? this.mainApp.get_active_window();
+        if (!activeWindow)
+            return null;
+
+        if (this.widgetManager)
+            return this.widgetManager.resolveSurfaceWindowFromActiveWindow(
+                activeWindow
+            );
+
+        return activeWindow;
     }
 
     async _syncStartupDesktop() {
@@ -170,7 +185,7 @@ const DesktopManager = class {
             this.dbusManager.doNotify(header, text);
             this._framebufferWarningDone = true;
 
-            const window = this.mainApp.get_active_window();
+            const window = this.getDialogParentWindow();
             const dialog = new Adw.AlertDialog();
             dialog.set_body_use_markup(true);
             dialog.set_heading_use_markup(true);
@@ -248,12 +263,15 @@ const DesktopManager = class {
         }
     }
 
-    showError(text, secondaryText, helpURL = null, timeout = 0) {
+    showError(text, secondaryText, helpURL = null, timeout = 0,
+        parentWindow = null) {
+        const window = this.getDialogParentWindow(parentWindow);
         const errorDialog = new ShowErrorPopup.ShowErrorPopup(
             text,
             secondaryText,
             this.DesktopIconsUtil.waitDelayMs,
-            helpURL
+            helpURL,
+            window
         );
 
         if (timeout)
@@ -1292,7 +1310,7 @@ const DesktopManager = class {
             return;
         }
 
-        const activeWindow = this.mainApp.get_active_window();
+        const activeWindow = this.getDialogParentWindow();
         this._findFileWindow = new Gtk.Dialog({
             use_header_bar: true,
             resizable: false,
@@ -1618,7 +1636,9 @@ const DesktopManager = class {
                 fileItem,
                 allowReturnOnSameName,
                 () => {
-                    this.mainApp.get_active_window().grab_focus();
+                    const parentWindow = this.getDialogParentWindow();
+                    if (parentWindow)
+                        parentWindow.grab_focus();
                     this.mainApp.activate_action('textEntryAccelsTurnOn', null);
                     if (this.newItemDoRename)
                         this.newItemDoRename.delete(fileItem.fileName);

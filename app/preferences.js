@@ -228,9 +228,12 @@ const Preferences = class {
         this._refreshAnimations();
     }
 
-    getAdwPreferencesWindow() {
+    getAdwPreferencesWindow(parentWindow = null) {
         this.AdwPreferencesWindow =
-            this._adwPreferencesWindow.getAdwPreferencesWindow();
+            this._adwPreferencesWindow.getAdwPreferencesWindow(
+                null,
+                parentWindow
+            );
 
         return this.AdwPreferencesWindow;
     }

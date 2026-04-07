@@ -283,6 +283,9 @@ const WebWidgetContext = class {
         const defaultWidth = 420;
         const defaultHeight = 520;
 
+        const parentWindow =
+            this._widgetManager.getSurfaceWindow(inst.monitorIndex);
+
         const window = new Gtk.Window({
             title: _('Widget Preferences'),
             default_width: defaultWidth,
@@ -300,7 +303,6 @@ const WebWidgetContext = class {
         }));
         window.add_controller(closeShortcut);
 
-        const parentWindow = this._mainApp.get_active_window();
         if (parentWindow)
             window.set_transient_for(parentWindow);
 
@@ -844,12 +846,14 @@ const WebWidgetContext = class {
         }
 
         const escapedUrl = GLib.markup_escape_text(rawUrl, -1);
+        const parentWindow =
+            this._widgetManager.getSurfaceWindow(inst.monitorIndex);
         const allowed = await this._widgetManager._asyncAskYesNo(
             _('Open link in browser?'),
             `${_('The widget wants to open this link in your browser:\n\n')
             }<tt>${escapedUrl}</tt>`,
             true,
-            this._mainApp.get_active_window?.() ?? null
+            parentWindow
         );
 
         if (!allowed)
