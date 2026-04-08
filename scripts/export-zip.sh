@@ -46,6 +46,7 @@ echo "# --------------------------"
 rm -rf "${REPO_DIR}/${UUID}.zip" "${LOCAL_PREFIX}/${UUID}.zip"
 cd "${LOCAL_PREFIX}" || exit
 cp -r "${SCHEMADIR}" .
+rm -f "./schemas/gschemas.compiled"
 cp -r "${EXTENSIONS_DIR}"/* .
 zip -qr "${UUID}.zip" ./*.js ./*.json ./locale ./schemas ./app ./utils ./dependencies
 mv -f "${UUID}.zip" "${REPO_DIR}/Downloads"

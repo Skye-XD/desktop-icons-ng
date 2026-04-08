@@ -378,7 +378,11 @@ const aboutApp = class AboutDialog {
         );
 
         aboutDialog.set_release_notes(
-            `<p>* Adw version 100.19 for Gnome 49, 50</p>
+            `<p>* Adw version 100.21 for Gnome 49, 50</p>
+<ul><li>Short stability release: hardens the extension lifecycle, fixes window-type manager cleanup and stacking behavior, and adds GLibUnix signal compatibility for older systems.</li></ul>
+            <p>* Adw version 100.20 for Gnome 49, 50</p>
+<ul><li>Hardened widget host and WebKit integration, improved floating and pinned widget behavior, added media widget persistence and controls, refined geometry handling, and refreshed compatibility fixes.</li></ul>
+            <p>* Adw version 100.19 for Gnome 49, 50</p>
 <ul><li>Extends and hardens the widget API, adds floating and pinned HTML widgets, introduces Sticky Notes, makes Today and media widgets pinnable, updates world clocks, and polishes pinned widget interaction and UI behavior.</li></ul>
             <p>* Adw version 100.18 for Gnome 49, 50</p>
 <ul><li>Wayland-only release: removes X11 support, improves dock/widget-layer focus and display behavior, and updates shell compatibility.</li></ul>

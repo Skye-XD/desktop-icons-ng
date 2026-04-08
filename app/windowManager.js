@@ -449,9 +449,7 @@ const WindowManager = class {
                 safegaurd = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 2000,
                     () => {
                         safegaurd = 0;
-                        reject(new Error(
-                            'Timeout while waiting for desktop windows to map'
-                        ));
+                        reject();
                         return GLib.SOURCE_REMOVE;
                     }
                 );
@@ -464,7 +462,7 @@ const WindowManager = class {
 
             await Promise.race([mapPromises, timeoutPromise]);
         } catch (e) {
-            logError(e);
+            // logError(e);
             // if the windows fail to map, we should still proceed
             // and poke the desktop windows later.
             this.show();

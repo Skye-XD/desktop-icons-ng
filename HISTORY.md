@@ -1,4 +1,9 @@
 # History of versions #
+* Adw Version 100.21 for Gnome 49, 50
+  * Harden the extension lifecycle for the EGO fixes: create `DingManager` only in `enable()`, clean up null references on disable and unlock-session transitions, and make shutdown behavior explicit. (Sundeep Mediratta)
+  * Fix window-type manager regressions from the EGO fixes: guard cleanup against null references, keep top/bottom stacking signals stable, and use GNOME 50+ compatible maximize behavior for fixed-position windows. (Sundeep Mediratta)
+  * Add GLibUnix signal compatibility for older call names when handling graceful termination. (Sundeep Mediratta)
+
 * Adw Version 100.20 for Gnome 49, 50
   * Harden the widget host and WebKit integration: prevent accidental mutation of widget descriptors/config, rate-limit widget messages and resource requests, tighten local `ding-widget` CORS/CSP handling, and add a storm-test widget for validating host-side protection. (Sundeep Mediratta)
   * Fix the most important widget stability regression: local `ding-widget://` fetches during reload could fall into a security/access-control retry loop that froze the WebView and could lock the desktop. The host now gates those fetches during reload and serves synthetic or normal 404-style responses to break the loop safely. (Sundeep Mediratta)

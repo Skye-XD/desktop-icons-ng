@@ -91,7 +91,7 @@ export {DingManager};
 
 const DingManager = class {
     constructor(extensionObject) {
-        this.settings = extensionObject.getSettings();
+        this._getSettings = extensionObject.getSettings.bind(extensionObject);
         this.path = extensionObject.path;
         this.metadata = extensionObject.metadata;
         this.version = this.metadata['version-name'];
@@ -127,15 +127,9 @@ const DingManager = class {
         /* Ensures that there aren't "rogue" processes.
          * This is a safeguard measure for the case of Gnome Shell being
          * relaunched (for example with Alt+F2 and R), to kill
-         * any old DING instance. That's why it must be here, in init(),
-         * and not in enable() or disable() (disable already guarantees that
-         * the current instance is killed).
+         * any old DING instance before launching a new one.
          */
-        this.killingProcess = true;
-
-        this._doKillAllOldDesktopProcesses()
-        .catch(e => console.error(e))
-        .finally(() => (this.killingProcess = false));
+        this.killingProcess = false;
     }
 
 
@@ -148,6 +142,16 @@ const DingManager = class {
         ) {
             console.error('Gtk4 DING extension requires a Wayland session');
             return;
+        }
+
+        if (!this.settings)
+            this.settings = this._getSettings();
+
+        if (!this.killingProcess) {
+            this.killingProcess = true;
+            this._doKillAllOldDesktopProcesses()
+            .catch(e => console.error(e))
+            .finally(() => (this.killingProcess = false));
         }
 
         if (!this.GnomeShellOverride) {
@@ -351,6 +355,8 @@ const DingManager = class {
 
             this.remoteGeometryUpdateRequestedId = 0;
         }
+
+        this.settings = null;
 
         console.log('Adw-DING disabled.');
     }

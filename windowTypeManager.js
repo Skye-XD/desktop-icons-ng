@@ -68,6 +68,11 @@ class ManageWindow {
         this._lastEmittedWindowPosition = null;
         this._parsedTitleState = null;
         this._trackingWindowPosition = false;
+        this._titleID = 0;
+        this._checkOnAllWorkspacesID = 0;
+        this._moveIntoPlaceID = 0;
+        this._restackedBottomID = 0;
+        this._restackedTopID = 0;
 
         this._titleID = this._window.connect('notify::title', () => {
             this.refreshProperties();
@@ -80,7 +85,7 @@ class ManageWindow {
     disconnect() {
         this._disconnetSignalsAndTimeouts();
 
-        if (this._titleID)
+        if (this._window && this._titleID)
             this._window.disconnect(this._titleID);
         this._titleID = 0;
 
@@ -411,7 +416,7 @@ class ManageWindow {
                     )
                         this._window.maximize();
                     else if (!this._window.maximized_vertically)
-                        this._window.maximize(Meta.MaximizeFlags.VERTICAL);
+                        this._window.maximize();
                     this._moveIntoPlace();
                 }
             )
@@ -425,7 +430,7 @@ class ManageWindow {
                     )
                         this._window.maximize();
                     else if (!this._window.maximized_horizontally)
-                        this._window.maximize(Meta.MaximizeFlags.HORIZONTAL);
+                        this._window.maximize();
                     this._moveIntoPlace();
                 }
             )
@@ -501,6 +506,9 @@ class ManageWindow {
     }
 
     _keepWindowAtBottom() {
+        if (this._restackedBottomID)
+            global.display.disconnect(this._restackedBottomID);
+
         this._signalIDs.push(
             this._window.connect(
                 'notify::above',
@@ -571,6 +579,9 @@ class ManageWindow {
     }
 
     _keepWindowOnTop() {
+        if (this._restackedTopID)
+            global.display.disconnect(this._restackedTopID);
+
         this._restackedTopID = global.display.connect('restacked',
             this._syncToTopOfStack.bind(this)
         );
@@ -906,10 +917,19 @@ var WindowTypeManager = class {
     }
 
     _clearWindow(window) {
-        window.disconnect(window.customJS_ding.unmanagedID);
+        if (!window?.customJS_ding)
+            return;
+
+        if (window.customJS_ding.unmanagedID) {
+            window.disconnect(window.customJS_ding.unmanagedID);
+            window.customJS_ding.unmanagedID = 0;
+        }
+
         window.customJS_ding.disconnect();
         window.customJS_ding = null;
-        window.actor._delegate = null;
+
+        if (window.actor)
+            window.actor._delegate = null;
         window.actor = null;
     }
 
