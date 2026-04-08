@@ -256,12 +256,12 @@ const DisplayGrid = class {
         this._x = this._desktopDescription.x;
         this._y = this._desktopDescription.y;
         this._monitor = this._desktopDescription.monitorIndex;
-        this._sizer = this._zoom;
 
-        if (this._asDesktop) {
-            if (this.Prefs.fractionalScaling)
-                this._sizer = 1;
-        }
+        // Gnome 50 gives logical size instead of physical size by default.
+        // If physical mode is used: the shell global scale factor is the zoom
+        // If logical mode is used: the monitor scaling is irrelevant to DING
+        // and is always 1.
+        this._sizer = this._zoom;
 
         this._windowWidth =
             Math.floor(this._desktopDescription.width / this._sizer);
