@@ -1471,6 +1471,7 @@ const ControlGrid = class extends DrawGrid {
             return;
 
         const button = actor.get_current_button();
+        const timestamp = actor.get_current_event_time();
         const state = this._buttonClick.get_current_event_state();
         const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
         const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
@@ -1480,12 +1481,20 @@ const ControlGrid = class extends DrawGrid {
 
         if (clickItem && this._clickItemClickable(clickItem, X, Y)) {
             clickItem
-                ._onPressButton(actor, nPress, X, Y, x, y, isShift, isCtrl);
+                ._onPressButton(
+                    actor,
+                    nPress,
+                    X, Y,
+                    x, y,
+                    isShift,
+                    isCtrl,
+                    timestamp
+                );
             return;
         }
 
         this._desktopManager
-            .onPressButton(X, Y, x, y, button, isShift, isCtrl, this);
+            .onPressButton(X, Y, x, y, button, isShift, isCtrl, this, timestamp);
     }
 
     async _doGestureRelease(actor, nPress, x, y, grid) {

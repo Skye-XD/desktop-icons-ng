@@ -859,7 +859,7 @@ class DbusOperationsManager {
         if (!timestamp)
             return '';
 
-        const context = Gdk.Screen.get_default().get_app_launch_context();
+        const context = Gdk.Display.get_default().get_app_launch_context();
         context.set_timestamp(timestamp);
 
         if (!this._fileManager) {

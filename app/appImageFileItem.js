@@ -52,7 +52,7 @@ const AppImageFileIcon = class extends FileItemIcon {
         await super._doOpenContext(context, fileList);
     }
 
-    _launchAppImageFile() {
+    _launchAppImageFile(context, _fileList) {
         if (this._writableByOthers || !this._attributeCanExecute) {
             const title = _('Invalid Permissions on AppImage File');
             const a =  _('This AppImage File has incorrect Permissions.');
@@ -94,7 +94,7 @@ const AppImageFileIcon = class extends FileItemIcon {
         if (appImageHandler.some(
             app => {
                 if (app.get_name().toLowerCase().includes('appimagelauncher'))
-                    return app.launch_uris([this.uri], null);
+                    return app.launch_uris([this.uri], context);
 
                 return false;
             }
