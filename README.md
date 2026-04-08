@@ -60,6 +60,9 @@ Uses Libretranslate to automatically translate into multiple languages.
 - HTML widget hosts now detect real parent changes between the desktop container and floating windows and recover WebKit rendering reliably for those transitions.
 - floating/pinned HTML widgets now recover reliably across layer reparenting by reloading the WebView when WebKit fails to repaint after the parent change.
 - Widget authors should treat pinning, unpinning, and floating edit transitions as reload-safe operations and persist meaningful state outside transient page memory.
+- Widget chrome and focus behavior were refined for pinned windows, including improved overlay controls, better focus retention, cleaner selected-state handling, and safer interaction while the widget layer is active.
+- The Today calendar, media player widgets, and other supported HTML widgets can now run as floating widgets.
+- Added a new Sticky Note widget with local config-backed note storage, rich-text editing, checklist support, links, color themes, and explicit pin/move controls for floating mode.
 
 ### Media Widget
 
@@ -70,6 +73,7 @@ Uses Libretranslate to automatically translate into multiple languages.
 - The volume slider sets the player volume directly and updates live while dragging.
 - Scrolling the mouse wheel over the widget also adjusts volume in 5% steps.
 - Volume controls are shown only when the current player reports that volume control is supported.
+- Media widgets are pinnable, and cached playback metadata is used so title, art, and progress restore more smoothly after reloads or host transitions.
 
 
 ## Security

@@ -185,6 +185,13 @@ The application functionality and behavior is consistent with the two other very
 - [x] Added widget grid, snap to widget grid functionality and imporved right click menu
 
 - [x] Floating/pinned HTML widgets are implemented, now survive container/window reparenting reliably by reloading the WebView when WebKit does not repaint correctly after the parent change. Pinnable widgets therefore need to tolerate reload and persist meaningful state outside transient page memory.
+- [x] Added floating widget polish and bug fixes: better pinned overlay controls, improved focus retention, cleaner selected-state handling on floating actors, and safer widget-layer chrome handling while widgets are active.
+
+- [x] Added a new Sticky Note widget with local config-backed note storage, rich-text editing, checklist support, links, note colors, and explicit pin/move controls for floating mode.
+
+- [x] Today calendar and media player widgets are now pinnable in floating windows.
+
+- [x] Media player widgets now have built-in transport and volume controls, including Previous, Play/Pause, Next, slider-based volume, +/- volume steps, mouse-wheel volume, and cached media state for smoother restore after reloads.
 
 **FIXES**
 
@@ -381,3 +388,23 @@ The application functionality and behavior is consistent with the two other very
 - [x] Fix - force render webview on reattachment
 
 - [x] Widget grid chrome no longer goes off screen
+
+- [x] Fix widget-host hardening issues by preventing accidental mutation of widget descriptors/config, rate-limiting widget messages and resource fetches, and tightening local `ding-widget` CSP/CORS handling.
+
+- [x] Fix floating and pinned widget regressions: preserve pinned windows across grid or margin changes, improve reparent/reload recovery, keep widget buttons valid during interaction, and stop floating chrome from showing incorrectly while dragging or while media is playing.
+
+- [x] Fix floating HTML widgets after resume from sleep and make the weather widgets reload-safe.
+
+- [x] Fix the most serious widget reload regression: local `ding-widget://` fetches during reload could enter a security/access-control retry loop that froze the WebView and locked the desktop. The host now blocks those local fetches during page teardown and returns synthetic success responses or normal 404-style responses instead of surfacing generic fetch failures that trigger infinite retries.
+
+- [x] Fix unnecessary widget-state churn by removing direct monitoring of the widget state file.
+
+- [x] Fix dialog parenting for active desktop windows so dialogs resolve the correct parent window more reliably.
+
+- [x] Fix desktop and window geometry handling for GNOME 49/50 by using logical monitor sizes correctly, adapting calculations to display scale factor, and improving fixed window position handling.
+
+- [x] Fix application launch context passing for desktop actions and launches.
+
+- [x] Fix compatibility with newer GLibUnix signal APIs and older runtimes by switching from `signal-add-full` to `signal-add` and removing optional chaining from widget WebContext code.
+
+- [x] Fix application icon resource naming collisions by namespacing icons with the `ding-` prefix.

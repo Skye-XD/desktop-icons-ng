@@ -2,7 +2,7 @@ Adw. Desktop Icons
 
 Libadwaita/Gtk4 port of Desktop Icons NG with multiple fixes and new features.
 
-Latest update: widgets can now be pinned into floating windows, including the Today calendar and media widgets. This release also adds a new Sticky Notes widget, improves pinned widget controls and focus behavior, and updates the world clock widgets for better timezone and DST handling.
+Latest update: widgets can now be pinned into floating windows, including the Today calendar and media widgets. This release also adds a new Sticky Note widget, improves pinned widget controls and focus behavior, adds media widget playback and volume controls, and updates the world clock widgets for better timezone and DST handling.
 
 Now has a widget layer that can run widgets- like KDE desklets, they are little HTML display apps that run in Webkit. Icons cover this layer, layers can be moved up or down for editing. Widgets can be snapped to a grid to maintain row/column alignment or free positioned.
 
@@ -19,6 +19,9 @@ Corrections, verification of translated strings, and new translations are welcom
 
 Multiple fixes and new features-
 * New media player/display widget in horizontal or vertical available for download. Multiple rendering fixes for the old widgets, please re-install.
+* Media widgets are now pinnable and include on-widget MPRIS controls for Previous, Play/Pause, Next, volume slider, +/- volume buttons, and mouse-wheel volume.
+* New Sticky Note widget with rich-text editing, checklist support, links, note colors, and floating/pinned window support.
+* Floating widget handling is improved with better overlay controls, focus retention, and more reliable redraw/reload behavior when moving widgets between desktop and pinned windows.
 * Add widget grid, improve widget chrome to stay on screen, multiple fixes to widget rendering to redisplay when desktop geometry changes, animates with icons on geometry changes.
 * Use GSK to draw instead of Cairo, optimizes GPU/CPU use.
 * Fixes to widget positioning, keyboard modifier selection of icons with arrow keys.

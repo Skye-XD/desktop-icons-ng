@@ -638,11 +638,13 @@ Widget authors should therefore treat pin/unpin and floating-layer transitions a
 - Persist meaningful UI state in widget config, host state, storage, or URL-derived state.
 - Do not assume transient in-memory DOM state survives pinning, unpinning, or floating edit transitions.
 - If the widget caches data in memory for rendering, be prepared to rebuild that state after load.
+- During host-triggered reload transitions, local `ding-widget://` fetches may be temporarily gated by the host. To prevent retry storms that can freeze the WebView, the host may answer with a small synthetic success response or a normal 404-style response instead of exposing a generic access-control failure.
 
 Recommended rule:
 - If a reload would break the current user flow, persist the state needed to restore that flow.
 - For temporary restore-only state, use a one-shot config flag and clear it after you consume it.
 - Good examples are “resume local edit UI after pinned edit rehost” or “reopen a widget-specific editing surface after reload”.
+- Good examples also include “restore the last fetched weather/media snapshot after pinned rehost” and tolerate a temporary synthetic/404 response from local bundled fetches while the old page is unloading.
 
 The shared `DingClient` helper also exposes small host-state and pinned-chrome conveniences:
 

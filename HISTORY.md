@@ -1,4 +1,21 @@
 # History of versions #
+* Adw Version 100.20 for Gnome 49, 50
+  * Harden the widget host and WebKit integration: prevent accidental mutation of widget descriptors/config, rate-limit widget messages and resource requests, tighten local `ding-widget` CORS/CSP handling, and add a storm-test widget for validating host-side protection. (Sundeep Mediratta)
+  * Fix the most important widget stability regression: local `ding-widget://` fetches during reload could fall into a security/access-control retry loop that froze the WebView and could lock the desktop. The host now gates those fetches during reload and serves synthetic or normal 404-style responses to break the loop safely. (Sundeep Mediratta)
+  * Improve floating and pinned widget behavior: preserve pinned windows across grid and margin changes, improve reload/reparent recovery, keep widget chrome validity during interaction, and fix floating widget chrome visibility while dragging or when media is playing. (Sundeep Mediratta)
+  * Reload floating HTML widgets after resume from sleep and make the weather widgets reload-safe. (Sundeep Mediratta)
+  * Make the clock and metrics widgets pinnable. (Sundeep Mediratta)
+  * Add media widget persistence improvements, on-widget transport and volume controls, hover-driven control visibility, and floating-state control availability. (Sundeep Mediratta)
+  * Improve dialog parent window resolution for active desktop windows. (Sundeep Mediratta)
+  * Stop monitoring the widget state file directly to avoid unnecessary widget state churn. (Sundeep Mediratta)
+  * Improve desktop and window geometry handling: adapt calculations to display scale factor, use logical monitor sizes correctly from GNOME Shell, and improve fixed window position handling. (Sundeep Mediratta)
+  * Pass the correct application launch context for desktop actions and launches. (Sundeep Mediratta)
+  * Update compatibility fixes for newer GLibUnix signal APIs and remove optional chaining usage in widget WebContext code for broader runtime compatibility. (Sundeep Mediratta)
+  * Namespace application icons with the `ding-` prefix. (Sundeep Mediratta)
+  * Weblate translation update for German. (Weblate Authors)
+  * Add Arch/Manjaro package to Downloads and refresh release screenshots for sticky notes and floating widgets. (Sundeep Mediratta)
+  * Update History.md, update metadata.json, app release note.
+
 * Adw Version 100.19 for Gnome 49, 50
   * Extend and harden the widget API: configurable widget chrome buttons, safer WebView navigation and context menus, widget instance management helpers, external link helpers, and updated widget documentation. (Sundeep Mediratta)
   * Add floating and pinned HTML widget windows with shell integration, monitor-relative placement, move controls, and improved reparent/render recovery for pinning and editing transitions. (Sundeep Mediratta)
