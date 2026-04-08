@@ -352,6 +352,8 @@ const DingManager = class {
             this.remoteGeometryUpdateRequestedId = 0;
         }
 
+        this.settings = null;
+
         console.log('Adw-DING disabled.');
     }
 

@@ -15,6 +15,7 @@ export default class DingExtension extends Extension {
 
     disable() {
         this.dingManager?.disable();
+        this.dingManager = null;
         this.DesktopIconsUsableArea = null;
     }
 }
