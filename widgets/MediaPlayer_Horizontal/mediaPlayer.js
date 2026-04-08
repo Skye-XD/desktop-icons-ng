@@ -10,6 +10,9 @@ const DEFAULT_CONFIG = {
 
 const POSITION_SAVE_GRANULARITY_US = 5 * 1000 * 1000;
 const PLAYBACK_TICK_MS = 250;
+const POSITION_PERSIST_INTERVAL_MS = 1000;
+const VOLUME_STEP = 0.05;
+const VOLUME_WRITE_DELAY_MS = 90;
 
 class MediaPlayerWidget {
   constructor(root) {
@@ -19,10 +22,17 @@ class MediaPlayerWidget {
     this._currentArtId = null;
     this._currentArtUrl = null;
     this._lastPersistedKey = '';
-    this._persistTimer = 0;
+    this._controlRequest = null;
     this._playbackTimer = 0;
+    this._positionPersistTimer = 0;
+    this._volumeWriteTimer = 0;
+    this._pendingVolume = null;
+    this._visibilityObserver = null;
+    this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
+    window.addEventListener('pagehide', this._beforeUnloadHandler);
+    window.addEventListener('beforeunload', this._beforeUnloadHandler);
     this._init();
   }
 
@@ -41,13 +51,13 @@ class MediaPlayerWidget {
         return;
       this._applyConfigObject(cfg);
       this._applyConfig();
-      if (this._shouldRestoreFromCache())
+      if (this._shouldRestoreFromCache({allowLiveOverride: false}))
         this._renderFromCache();
     });
 
     await this._loadConfig();
     this._applyConfig();
-    if (this._shouldRestoreFromCache())
+    if (this._shouldRestoreFromCache({allowLiveOverride: false}))
       this._renderFromCache();
 
     if (!this._lastSnapshot) {
@@ -56,6 +66,8 @@ class MediaPlayerWidget {
           this._applySnapshot(snapshot, {persist: true});
       }).catch(() => {});
     }
+
+    this._watchOverlayVisibility();
   }
 
   _readSyncConfig() {
@@ -88,11 +100,13 @@ class MediaPlayerWidget {
     this._applySnapshot(restored, {persist: false, fromCache: true});
   }
 
-  _shouldRestoreFromCache() {
+  _shouldRestoreFromCache({allowLiveOverride = false} = {}) {
     if (!this._config.mediaCache?.snapshot)
       return false;
     if (!this._lastSnapshot)
       return true;
+    if (!allowLiveOverride)
+      return false;
     const cachedTs = Number(this._config.mediaCache.snapshot.ts) || 0;
     const currentTs = Number(this._lastSnapshot.ts) || 0;
     return cachedTs > currentTs;
@@ -137,15 +151,19 @@ class MediaPlayerWidget {
 
   _applySnapshot(snapshot, {persist = false, fromCache = false} = {}) {
     const normalized = this._normalizeSnapshot(snapshot);
+    const previous = this._lastSnapshot;
+    const mediaChanged = this._didMediaIdentityChange(previous, normalized);
+    const playbackStateChanged = previous?.playbackStatus !== normalized?.playbackStatus;
     this._lastSnapshot = normalized;
     this._syncPlaybackTimer();
+    this._syncPositionPersistTimer();
     this._render(this._getRenderSnapshot());
 
     if (!normalized?.artId) {
       this._currentArtId = null;
       this._currentArtUrl = null;
       if (persist)
-        this._schedulePersist();
+        this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
       return;
     }
 
@@ -162,7 +180,7 @@ class MediaPlayerWidget {
       if (artChanged)
         this._renderCover(cachedArtUrl);
       if (persist)
-        this._schedulePersist();
+        this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
       return;
     }
 
@@ -173,7 +191,7 @@ class MediaPlayerWidget {
       this._loadCover(normalized.artId);
 
     if (persist)
-      this._schedulePersist();
+      this._persistMediaCache({immediate: mediaChanged || playbackStateChanged});
   }
 
   _normalizeSnapshot(snapshot) {
@@ -187,6 +205,8 @@ class MediaPlayerWidget {
       artist: snapshot.artist ? String(snapshot.artist) : '',
       length: Number.isFinite(snapshot.length) ? snapshot.length : 0,
       position: Number.isFinite(snapshot.position) ? snapshot.position : 0,
+      volume: Number.isFinite(snapshot.volume) ? Math.max(0, Math.min(1, snapshot.volume)) : null,
+      canControlVolume: snapshot.canControlVolume === true,
       artId: snapshot.artId ? String(snapshot.artId) : null,
       playbackStatus: snapshot.playbackStatus ? String(snapshot.playbackStatus) : '',
       ts: Number.isFinite(snapshot.ts) ? snapshot.ts : Date.now(),
@@ -224,8 +244,21 @@ class MediaPlayerWidget {
               <span class="mp-status"></span>
             </div>
           </div>
+          <div class="mp-controls-overlay" aria-label="Media controls">
+            <div class="mp-volume-strip" aria-label="Volume controls">
+              <input class="mp-volume-slider" type="range" min="0" max="100" step="1" aria-label="Volume" />
+            </div>
+            <div class="mp-control-strip">
+              <button class="mp-volume-btn" type="button" data-volume-step="-1" aria-label="Decrease volume">-</button>
+              <button class="mp-control-btn" type="button" data-action="previous" aria-label="Previous track"></button>
+              <button class="mp-control-btn mp-control-btn-primary" type="button" data-action="playPause" aria-label="Play or pause"></button>
+              <button class="mp-control-btn" type="button" data-action="next" aria-label="Next track"></button>
+              <button class="mp-volume-btn" type="button" data-volume-step="1" aria-label="Increase volume">+</button>
+            </div>
+          </div>
         </div>
       `;
+      this._bindControlButtons();
     }
 
     this._root.querySelector('.mp-title').textContent = snapshot.title || '';
@@ -234,6 +267,8 @@ class MediaPlayerWidget {
     this._root.querySelector('.mp-time-current').textContent = this._formatTime(snapshot.position / 1000000);
     this._root.querySelector('.mp-time-total').textContent = this._formatTime(snapshot.length / 1000000);
     this._root.querySelector('.mp-status').textContent = snapshot.playbackStatus || '';
+    this._updateControlButtons(snapshot);
+    this._updateVolumeControls(snapshot);
   }
 
   async _loadCover(artId) {
@@ -251,7 +286,7 @@ class MediaPlayerWidget {
 
     this._currentArtUrl = artUrl || null;
     this._renderCover(this._currentArtUrl);
-    this._schedulePersist();
+    this._flushPersist();
   }
 
   _renderCover(artUrl) {
@@ -272,26 +307,276 @@ class MediaPlayerWidget {
     coverDiv.innerHTML = '<div class="mp-nocover" style="display:flex;align-items:center;justify-content:center;font-size:2em;color:#aaa;">?</div>';
   }
 
-  _schedulePersist() {
-    const mediaCache = this._buildMediaCache();
-    const persistKey = this._buildCachePersistKey(mediaCache);
-    if (!mediaCache || persistKey === this._lastPersistedKey)
+  _bindControlButtons() {
+    for (const button of this._root.querySelectorAll('.mp-control-btn')) {
+      button.addEventListener('pointerdown', event => {
+        if (event.button !== 0)
+          return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+        this._handleControlClick(button.dataset.action);
+      });
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+      });
+    }
+
+    for (const button of this._root.querySelectorAll('.mp-volume-btn')) {
+      button.addEventListener('pointerdown', event => {
+        if (event.button !== 0)
+          return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+        const dir = Number(button.dataset.volumeStep);
+        if (!Number.isFinite(dir))
+          return;
+        this._stepVolume(dir * VOLUME_STEP);
+      });
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+      });
+    }
+
+    const slider = this._root.querySelector('.mp-volume-slider');
+    const handleVolumeSliderInput = event => {
+      event.stopPropagation();
+      const nextVolume = Number(event.currentTarget.value) / 100;
+      this._setLocalVolume(nextVolume);
+      this._scheduleVolumeWrite(nextVolume);
+    };
+    slider?.addEventListener('input', handleVolumeSliderInput);
+    slider?.addEventListener('change', handleVolumeSliderInput);
+    slider?.addEventListener('pointerdown', event => {
+      event.stopPropagation();
+    });
+    slider?.addEventListener('click', event => {
+      event.stopPropagation();
+    });
+
+    this._root.querySelector('.mp-main')?.addEventListener('wheel', event => {
+      if (!this._lastSnapshot?.player || !this._lastSnapshot?.canControlVolume)
+        return;
+      event.preventDefault();
+      event.stopPropagation();
+      const direction = event.deltaY > 0 ? -1 : 1;
+      this._stepVolume(direction * VOLUME_STEP);
+    }, {passive: false});
+  }
+
+  _watchOverlayVisibility() {
+    if (this._visibilityObserver || !document.body)
       return;
 
-    if (this._persistTimer)
-      clearTimeout(this._persistTimer);
-
-    this._persistTimer = setTimeout(() => {
-      this._persistTimer = 0;
-      const nextCache = this._buildMediaCache();
-      const nextKey = this._buildCachePersistKey(nextCache);
-      if (!nextCache || nextKey === this._lastPersistedKey)
+    const syncVisibleVolume = () => {
+      if (!document.body?.classList?.contains('ding-host-chrome-visible'))
         return;
+      this._syncVisibleVolumeControls();
+    };
 
-      this._config = {...this._config, mediaCache: nextCache};
-      this._lastPersistedKey = nextKey;
-      this._client.patchConfig({mediaCache: nextCache}).catch(() => {});
-    }, 250);
+    this._visibilityObserver = new MutationObserver(() => {
+      syncVisibleVolume();
+    });
+    this._visibilityObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    document.addEventListener('visibilitychange', syncVisibleVolume);
+    this._visibilityChangeHandler = syncVisibleVolume;
+  }
+
+  _syncVisibleVolumeControls() {
+    if (!this._lastSnapshot)
+      return;
+
+    const snapshot = this._getRenderSnapshot();
+    if (!snapshot?.canControlVolume || !Number.isFinite(snapshot?.volume))
+      return;
+
+    this._updateVolumeControls(snapshot);
+    requestAnimationFrame(() => this._updateVolumeControls(snapshot));
+  }
+
+  _updateControlButtons(snapshot) {
+    const buttons = this._root.querySelectorAll('.mp-control-btn');
+    if (!buttons.length)
+      return;
+
+    const hasPlayer = !!snapshot?.player;
+    const busyAction = this._controlRequest;
+    for (const button of buttons) {
+      const action = button.dataset.action;
+      const isBusy = busyAction === action;
+      button.disabled = !hasPlayer || !!busyAction;
+      button.classList.toggle('is-busy', isBusy);
+      button.innerHTML = this._getControlIconSvg(
+        action,
+        action === 'playPause' && snapshot?.playbackStatus === 'Playing'
+      );
+    }
+  }
+
+  _getControlIconSvg(action, isPlaying) {
+    switch (action) {
+    case 'previous':
+      return `
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M4 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4A.75.75 0 0 1 4 3.25Zm7.396.134a.75.75 0 0 1 .354.636v7.96a.75.75 0 0 1-1.146.636L4.38 8.636a.75.75 0 0 1 0-1.272l6.224-3.98a.75.75 0 0 1 .792 0Z"/>
+        </svg>`;
+    case 'next':
+      return `
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M12 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm-7.396.134a.75.75 0 0 1 .792 0l6.224 3.98a.75.75 0 0 1 0 1.272l-6.224 3.98A.75.75 0 0 1 4.25 11.98V4.02a.75.75 0 0 1 .354-.636Z"/>
+        </svg>`;
+    case 'playPause':
+      if (isPlaying) {
+        return `
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M4.75 3.25a.75.75 0 0 1 .75.75v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Zm6.5 0A.75.75 0 0 1 12 4v8a.75.75 0 0 1-1.5 0V4a.75.75 0 0 1 .75-.75Z"/>
+          </svg>`;
+      }
+      return `
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M5.153 3.459A.75.75 0 0 1 6.25 4.12v7.76a.75.75 0 0 1-1.097.662l6-3.88a.75.75 0 0 0 0-1.324l-6-3.88Z"/>
+        </svg>`;
+    default:
+      return '';
+    }
+  }
+
+  async _handleControlClick(action) {
+    if (!action || this._controlRequest || !this._lastSnapshot?.player)
+      return;
+
+    this._controlRequest = action;
+    this._updateControlButtons(this._getRenderSnapshot());
+    try {
+      await this._client.backendRequest(action);
+      const snapshot = await this._client.backendRequest('getSnapshot');
+      if (snapshot)
+        this._applySnapshot(snapshot, {persist: true});
+    } catch (_error) {
+    } finally {
+      this._controlRequest = null;
+      this._updateControlButtons(this._getRenderSnapshot());
+    }
+  }
+
+  _updateVolumeControls(snapshot) {
+    const overlay = this._root.querySelector('.mp-volume-strip');
+    const slider = this._root.querySelector('.mp-volume-slider');
+    if (!overlay || !slider)
+      return;
+
+    const enabled = !!snapshot?.player && snapshot?.canControlVolume && Number.isFinite(snapshot?.volume);
+    overlay.hidden = !enabled;
+    slider.disabled = !enabled;
+
+    for (const button of this._root.querySelectorAll('.mp-volume-btn'))
+      button.disabled = !enabled;
+
+    if (!enabled)
+      return;
+
+    const volume = Math.max(0, Math.min(1, Number(snapshot.volume) || 0));
+    const volumePct = Math.round(volume * 100);
+    this._paintVolumeSlider(slider, volumePct);
+    slider.setAttribute('aria-valuenow', String(volumePct));
+    slider.setAttribute('aria-valuetext', `${volumePct}%`);
+    overlay.setAttribute('data-volume', `${volumePct}%`);
+  }
+
+  _paintVolumeSlider(slider, volumePct) {
+    if (!slider)
+      return;
+
+    const pct = Math.max(0, Math.min(100, Math.round(Number(volumePct) || 0)));
+    const pctText = `${pct}%`;
+    slider.value = String(pct);
+    slider.setAttribute('value', String(pct));
+    slider.defaultValue = String(pct);
+    slider.style.setProperty('--volume-fill', pctText);
+    slider.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0.95) ${pct}%, rgba(255, 255, 255, 0.28) ${pct}%, rgba(255, 255, 255, 0.28) 100%)`;
+  }
+
+  _setLocalVolume(volume) {
+    const nextVolume = Math.max(0, Math.min(1, Number(volume)));
+    if (!Number.isFinite(nextVolume) || !this._lastSnapshot)
+      return;
+
+    this._lastSnapshot = {
+      ...this._lastSnapshot,
+      volume: nextVolume,
+      ts: Date.now(),
+    };
+    this._paintVolumeSlider(
+      this._root.querySelector('.mp-volume-slider'),
+      nextVolume * 100
+    );
+    this._updateVolumeControls(this._getRenderSnapshot());
+  }
+
+  _stepVolume(delta) {
+    if (!this._lastSnapshot?.player || !this._lastSnapshot?.canControlVolume)
+      return;
+    const baseVolume = Number.isFinite(this._lastSnapshot.volume)
+      ? this._lastSnapshot.volume
+      : 0;
+    const nextVolume = Math.max(0, Math.min(1, baseVolume + delta));
+    this._setLocalVolume(nextVolume);
+    this._scheduleVolumeWrite(nextVolume);
+  }
+
+  _scheduleVolumeWrite(volume) {
+    this._pendingVolume = Math.max(0, Math.min(1, Number(volume)));
+    if (!Number.isFinite(this._pendingVolume))
+      return;
+    if (this._volumeWriteTimer)
+      clearTimeout(this._volumeWriteTimer);
+    this._volumeWriteTimer = setTimeout(() => {
+      this._volumeWriteTimer = 0;
+      this._flushVolumeWrite();
+    }, VOLUME_WRITE_DELAY_MS);
+  }
+
+  _flushVolumeWrite() {
+    const volume = this._pendingVolume;
+    this._pendingVolume = null;
+    if (!Number.isFinite(volume) || !this._lastSnapshot?.player)
+      return;
+    this._client.backendRequest('setVolume', {volume}).catch(() => {});
+  }
+
+  _persistMediaCache({_immediate = false} = {}) {
+    this._flushPersist();
+  }
+
+  _flushPersist() {
+    const nextCache = this._buildMediaCache();
+    const nextKey = this._buildCachePersistKey(nextCache);
+    if (!this._needsPersist(nextCache, nextKey))
+      return;
+
+    this._config = {...this._config, mediaCache: nextCache};
+    this._lastPersistedKey = nextKey;
+    this._client.setConfig({...this._config}).catch(() => {});
+  }
+
+  _needsPersist(mediaCache, persistKey = this._buildCachePersistKey(mediaCache)) {
+    if (persistKey !== this._lastPersistedKey)
+      return true;
+
+    return !this._mediaCacheEquals(this._config.mediaCache, mediaCache);
+  }
+
+  _mediaCacheEquals(a, b) {
+    return JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
   }
 
   _buildMediaCache() {
@@ -376,8 +661,32 @@ class MediaPlayerWidget {
       }
 
       this._render(this._getRenderSnapshot());
-      this._schedulePersist();
     }, PLAYBACK_TICK_MS);
+  }
+
+  _syncPositionPersistTimer() {
+    const shouldPersistPosition = this._lastSnapshot?.player &&
+      this._lastSnapshot?.playbackStatus === 'Playing';
+
+    if (!shouldPersistPosition) {
+      if (this._positionPersistTimer) {
+        clearInterval(this._positionPersistTimer);
+        this._positionPersistTimer = 0;
+      }
+      return;
+    }
+
+    if (this._positionPersistTimer)
+      return;
+
+    this._positionPersistTimer = setInterval(() => {
+      if (!this._lastSnapshot || this._lastSnapshot.playbackStatus !== 'Playing') {
+        this._syncPositionPersistTimer();
+        return;
+      }
+
+      this._flushPersist();
+    }, POSITION_PERSIST_INTERVAL_MS);
   }
 
   _getRenderSnapshot() {
@@ -397,6 +706,49 @@ class MediaPlayerWidget {
     }
 
     return rendered;
+  }
+
+  _didMediaIdentityChange(previous, next) {
+    if (!previous && !next)
+      return false;
+    if (!previous || !next)
+      return true;
+
+    return previous.player !== next.player ||
+      previous.identity !== next.identity ||
+      previous.title !== next.title ||
+      previous.artist !== next.artist ||
+      previous.length !== next.length ||
+      previous.artId !== next.artId;
+  }
+
+  _handleBeforeUnload() {
+    this._flushPersist();
+    if (this._playbackTimer) {
+      clearInterval(this._playbackTimer);
+      this._playbackTimer = 0;
+    }
+    if (this._positionPersistTimer) {
+      clearInterval(this._positionPersistTimer);
+      this._positionPersistTimer = 0;
+    }
+    if (this._volumeWriteTimer) {
+      clearTimeout(this._volumeWriteTimer);
+      this._volumeWriteTimer = 0;
+    }
+    this._flushVolumeWrite();
+    this._visibilityObserver?.disconnect?.();
+    this._visibilityObserver = null;
+    if (this._visibilityChangeHandler) {
+      document.removeEventListener(
+        'visibilitychange',
+        this._visibilityChangeHandler
+      );
+      this._visibilityChangeHandler = null;
+    }
+    this._client?.destroy?.();
+    window.removeEventListener('pagehide', this._beforeUnloadHandler);
+    window.removeEventListener('beforeunload', this._beforeUnloadHandler);
   }
 }
 
