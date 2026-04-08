@@ -416,7 +416,7 @@ class ManageWindow {
                     )
                         this._window.maximize();
                     else if (!this._window.maximized_vertically)
-                        this._window.maximize(Meta.MaximizeFlags.VERTICAL);
+                        this._window.maximize();
                     this._moveIntoPlace();
                 }
             )
@@ -430,7 +430,7 @@ class ManageWindow {
                     )
                         this._window.maximize();
                     else if (!this._window.maximized_horizontally)
-                        this._window.maximize(Meta.MaximizeFlags.HORIZONTAL);
+                        this._window.maximize();
                     this._moveIntoPlace();
                 }
             )
