@@ -9,12 +9,9 @@ let GLibUnix;
 GLibUnix = await import('gi://GLibUnix').then(module => module.default).catch(_e => {
     console.log('GLibUnix not found.');
 });
-if (!GLibUnix) {
-    console.log('Falling back to GLib...');
-    GLibUnix = {
-        'signal_add': GLib.unix_signal_add,
-    };
-}
+
+GLibUnix.signalAdd = GLibUnix.signal_add ?? GLibUnix.signal_add_full;
+
 import GnomeDesktop from 'gi://GnomeDesktop?version=4.0';
 const GnomeAutoar = await import('gi://GnomeAutoar')
     .then(module => module.default)
