@@ -257,11 +257,12 @@ const DisplayGrid = class {
         this._y = this._desktopDescription.y;
         this._monitor = this._desktopDescription.monitorIndex;
 
-        // Gnome 50 gives logical size instead of physical size by default.
-        // If physical mode is used: the shell global scale factor is the zoom
-        // If logical mode is used: the monitor scaling is irrelevant to DING
-        // and is always 1.
-        this._sizer = this._zoom;
+        // GNOME Shell reports logical coordinates when the scale factor is 1.
+        // In that case, DING should not divide the geometry by zoom again.
+        const coordinatesAreLogical =
+            this._desktopDescription.scaleFactor === 1;
+
+        this._sizer = coordinatesAreLogical ? 1 : this._desktopDescription.zoom;
 
         this._windowWidth =
             Math.floor(this._desktopDescription.width / this._sizer);
@@ -622,8 +623,8 @@ const DisplayGrid = class {
 
     getDistance(x) {
         // Returns the distance to the middle point of this grid from X //
-        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) +
-            Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
+        return Math.pow(x - (this._x + this._windowWidth * this._sizer / 2), 2) +
+            Math.pow(x - (this._y + this._windowHeight * this._sizer / 2), 2);
     }
 
     _coordinatesGlobalToLocal(X, Y, widget = null) {

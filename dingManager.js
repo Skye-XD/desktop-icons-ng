@@ -24,6 +24,7 @@ import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
 import Mtk from 'gi://Mtk';
 import Shell from 'gi://Shell';
+import St from 'gi://St';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as Config from 'resource:///org/gnome/shell/misc/config.js';
@@ -106,6 +107,7 @@ const DingManager = class {
         this.launchDesktop = 0;
         this.waylandClient = null;
         this.DesktopIconsUsableArea = null;
+        this.scaleFactorId = 0;
         this.dingExtensionServiceImplementation = null;
         this.dingExtensionServiceInterface = null;
 
@@ -234,6 +236,16 @@ const DingManager = class {
                 this._updateDesktopGeometry.bind(this)
             );
 
+        /*
+         * Detect changes in the shell scale factor so desktop geometry is
+         * refreshed whenever GNOME Shell changes scaling.
+         */
+        this.scaleFactorId =
+            St.ThemeContext.get_for_stage(global.stage).connect(
+                'notify::scale-factor',
+                () => this._updateDesktopGeometry()
+            );
+
         this.dbusConnectionId = this._acquireDBusName();
 
         this.lockSignalhandlerId =
@@ -320,6 +332,11 @@ const DingManager = class {
         if (this.visibleAreaId) {
             this.visibleArea.disconnect(this.visibleAreaId);
             this.visibleAreaId = 0;
+        }
+        if (this.scaleFactorId) {
+            St.ThemeContext.get_for_stage(global.stage)
+            .disconnect(this.scaleFactorId);
+            this.scaleFactorId = 0;
         }
         if (this.dbusConnectionId)
             this._stopDbusService();
@@ -451,6 +468,7 @@ const DingManager = class {
     _getDesktopGeometry() {
         let desktopList = [];
         let ws = global.workspace_manager.get_workspace_by_index(0);
+        const { scaleFactor } = St.ThemeContext.get_for_stage(global.stage);
 
         for (let monitorIndex = 0;
             monitorIndex < Main.layoutManager.monitors.length;
@@ -463,6 +481,7 @@ const DingManager = class {
                 'width': area.width,
                 'height': area.height,
                 'zoom': area.scale,
+                scaleFactor,
                 'marginTop': area.marginTop,
                 'marginBottom': area.marginBottom,
                 'marginLeft': area.marginLeft,

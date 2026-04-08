@@ -43,6 +43,8 @@ const WindowManager = class {
         this._priorPrimaryIndex = null;
         this._priorPrimaryMonitorIndex = null;
         this._differentZooms = false;
+        this._scaleFactorChanged = false;
+        this._priorScaleFactor = null;
         this._hidden = false;
         this._gridWindowsUpdateInProgress = false;
         this._pendingDesktopList = null;
@@ -264,13 +266,20 @@ const WindowManager = class {
         this._primaryScreen = this._desktopList[this._primaryIndex] ?? null;
         this._primaryMonitorIndex = this._primaryScreen.monitorIndex ?? null;
 
-        // See if there are different zooms in the desktops
-        this._differentZooms = this._desktopList.some((d, index) => {
-            const nextd = this._desktopList[index + 1];
-            if (nextd != null)
-                return d.zoom !== nextd.zoom;
-            return false;
-        });
+        const previousScaleFactor = this._priorScaleFactor;
+        const currentScaleFactor = this._desktopList[0]?.scaleFactor ?? null;
+        this._scaleFactorChanged = currentScaleFactor !== previousScaleFactor;
+        this._priorScaleFactor = currentScaleFactor;
+
+        // See if there are different zooms in the desktops when logical scaling
+        // is not active. If scaleFactor is 1, zoom differences do not matter.
+        this._differentZooms = this._desktopList[0]?.scaleFactor !== 1 &&
+            this._desktopList.some((d, index) => {
+                const nextd = this._desktopList[index + 1];
+                if (nextd != null)
+                    return d.zoom !== nextd.zoom;
+                return false;
+            });
     }
 
     _computeDesktopChangeInfo(newDesktopList) {
@@ -302,6 +311,23 @@ const WindowManager = class {
                 monitorschanged: false,
                 gridschanged: false,
                 redisplay: false,
+            };
+        }
+
+        if (this._scaleFactorChanged) {
+            newDesktopList.forEach((_area, index) => {
+                monitorschangedList.push(index);
+                gridschangedList.push(index);
+            });
+
+            return {
+                firstDesktop,
+                monitorCountChanged,
+                monitorschangedList,
+                gridschangedList,
+                monitorschanged: true,
+                gridschanged: true,
+                redisplay: true,
             };
         }
 
