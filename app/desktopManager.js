@@ -97,7 +97,7 @@ const DesktopManager = class {
 
         // setup gracefull termination
         if (this._asDesktop) {
-            this._sigtermID = GLibUnix.signal_add_full(
+            this._sigtermID = GLibUnix.signal_add(
                 GLib.PRIORITY_DEFAULT,
                 15,
                 () => {
