@@ -4,11 +4,14 @@ import {DingManager} from './dingManager.js';
 export default class DingExtension extends Extension {
     constructor(metadata) {
         super(metadata);
-        this.dingManager = new DingManager(this);
+        this.dingManager = null;
         this.DesktopIconsUsableArea = null;
     }
 
     enable() {
+        if (!this.dingManager)
+            this.dingManager = new DingManager(this);
+
         this.dingManager.enable();
         this.DesktopIconsUsableArea = this.dingManager.DesktopIconsUsableArea;
     }
