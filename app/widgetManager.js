@@ -1591,7 +1591,7 @@ const WidgetManager = class {
             ).catch(logError)
         );
 
-        const icon = Gtk.Image.new_from_icon_name('list-add-symbolic');
+        const icon = Gtk.Image.new_from_icon_name('ding-list-add-symbolic');
         button.set_child(icon);
 
         button.widgetInstanceId = instanceId;
@@ -1648,7 +1648,7 @@ const WidgetManager = class {
         gridToggleButton.set_focus_on_click(false);
         gridToggleButton.set_tooltip_text(_('Toggle Widget Grid'));
 
-        const gridIcon = Gtk.Image.new_from_icon_name('view-grid-symbolic');
+        const gridIcon = Gtk.Image.new_from_icon_name('ding-view-grid-symbolic');
         gridToggleButton.set_child(gridIcon);
         gridToggleButton.set_active(false);
 
@@ -2306,7 +2306,7 @@ const WidgetManager = class {
             {
                 id: 'prefs',
                 cssName: 'ding-widget-prefs-button',
-                iconName: 'emblem-system-symbolic',
+                iconName: 'ding-emblem-system-symbolic',
                 tooltip: _('Widget preferences'),
                 visible: (inst, chromePolicy) =>
                     !!inst.hasPreferences && !!chromePolicy.showPrefsButton,
@@ -2315,7 +2315,7 @@ const WidgetManager = class {
             {
                 id: 'pin',
                 cssName: 'ding-widget-pin-button',
-                iconName: 'view-pin-symbolic',
+                iconName: 'ding-view-pin-symbolic',
                 visible: (inst, chromePolicy) =>
                     !!inst.pinnable && !!chromePolicy.showPinButton,
                 getTooltip: inst =>
@@ -2336,7 +2336,7 @@ const WidgetManager = class {
             {
                 id: 'move',
                 cssName: 'ding-widget-move-button',
-                iconName: 'move-symbolic',
+                iconName: 'ding-move-symbolic',
                 getTooltip: () => _('Reposition widget'),
                 visible: (inst, chromePolicy, options = {}) =>
                     options.pinnedPopup === true &&
@@ -2348,7 +2348,7 @@ const WidgetManager = class {
             {
                 id: 'close',
                 cssName: 'ding-widget-close-button',
-                iconName: 'window-close-symbolic',
+                iconName: 'ding-window-close-symbolic',
                 visible: (_inst, chromePolicy) => !!chromePolicy.showCloseButton,
                 onClick: this.deleteSelectedInstance,
             },

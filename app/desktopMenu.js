@@ -851,7 +851,17 @@ const DesktopActions = class {
                 fileItem.iconRectangle.x + fileItem.iconRectangle.width / 2;
             const Y =
                 fileItem.iconRectangle.y + fileItem.iconRectangle.height / 2;
-            this._fileItemMenu.showMenu(fileItem, 3, 0, 0, X, Y, false, false);
+            this._fileItemMenu.showMenu(
+                fileItem,
+                3,
+                0,
+                0,
+                X,
+                Y,
+                false,
+                false,
+                Gdk.CURRENT_TIME
+            );
         } else {
             const grid = this._desktops.filter(f =>
                 f.coordinatesBelongToThisGrid(this._clickX, this._clickY));

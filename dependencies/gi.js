@@ -12,7 +12,7 @@ GLibUnix = await import('gi://GLibUnix').then(module => module.default).catch(_e
 if (!GLibUnix) {
     console.log('Falling back to GLib...');
     GLibUnix = {
-        'signal_add_full': GLib.unix_signal_add,
+        'signal_add': GLib.unix_signal_add,
     };
 }
 import GnomeDesktop from 'gi://GnomeDesktop?version=4.0';

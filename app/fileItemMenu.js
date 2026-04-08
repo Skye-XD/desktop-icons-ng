@@ -72,9 +72,11 @@ const FileItemMenu = class {
         x = null,
         y = null,
         _shiftSelected = false,
-        _controlSelected = false
+        _controlSelected = false,
+        timestamp = Gdk.CURRENT_TIME
     ) {
         this.activeFileItem = fileItem;
+        this._menuTimestamp = timestamp;
         const selectedItemsNum =
             this._desktopManager.getNumberOfSelectedItems();
         const scriptsSubmenu = this.scriptsMonitor.getGioMenu();
@@ -1133,14 +1135,12 @@ const FileItemActions = class {
         if (!propList)
             return;
 
-        const timestamp = Gdk.CURRENT_TIME;
-
         this._desktopManager
             .DBusUtils
             .RemoteFileOperations
             .ShowItemPropertiesRemote(
                 propList,
-                timestamp
+                this._menuTimestamp ?? Gdk.CURRENT_TIME
             );
     }
 
@@ -1149,14 +1149,12 @@ const FileItemActions = class {
         if (!showInFilesList)
             return;
 
-        const timestamp = Gdk.CURRENT_TIME;
-
         this._desktopManager
             .DBusUtils
             .RemoteFileOperations
             .ShowItemsRemote(
                 showInFilesList,
-                timestamp
+                this._menuTimestamp ?? Gdk.CURRENT_TIME
             );
     }
 
@@ -1316,7 +1314,8 @@ const FileItemActions = class {
         if (path === this.activeFileItem.path &&
             this.activeFileItem.actionMap.has(actionName)
         ) {
-            let context = new Gio.AppLaunchContext();
+            const context = Gdk.Display.get_default().get_app_launch_context();
+            context.set_timestamp(Gdk.CURRENT_TIME);
             this.activeFileItem.desktopAppInfo.launch_action(action, context);
         }
     }

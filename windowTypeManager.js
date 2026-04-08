@@ -378,13 +378,23 @@ class ManageWindow {
             this._window.connect(
                 'position-changed',
                 () => {
-                    if (this._fixed && this._hasValidPosition()) {
+                    if (this._fixed &&
+                        this._hasValidPosition() &&
+                        this._needsMoveToParsedPosition()
+                    ) {
                         this._window.move_frame(true, this._x, this._y);
                         if (this._window.fullscreen)
                             this._window.unmake_fullscreen();
                     }
                 }
             )
+        );
+
+        this._signalIDs.push(
+            this._window.connect_after('size-changed', () => {
+                if (this._fixed && this._hasValidPosition())
+                    this._moveIntoPlace(true);
+            })
         );
 
         this._signalIDs.push(
@@ -425,13 +435,13 @@ class ManageWindow {
             this._window.move_frame(true, this._x, this._y);
     }
 
-    _moveIntoPlace() {
+    _moveIntoPlace(force = false) {
         if (this._moveIntoPlaceID)
             GLib.source_remove(this._moveIntoPlaceID);
 
         this._moveIntoPlaceID =
             GLib.timeout_add(GLib.PRIORITY_LOW, 250, () => {
-                if (this._needsMoveToParsedPosition())
+                if (force || this._needsMoveToParsedPosition())
                     this._window.move_frame(true, this._x, this._y);
 
 

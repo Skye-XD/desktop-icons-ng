@@ -256,12 +256,13 @@ const DisplayGrid = class {
         this._x = this._desktopDescription.x;
         this._y = this._desktopDescription.y;
         this._monitor = this._desktopDescription.monitorIndex;
-        this._sizer = this._zoom;
 
-        if (this._asDesktop) {
-            if (this.Prefs.fractionalScaling)
-                this._sizer = 1;
-        }
+        // GNOME Shell reports logical coordinates when the scale factor is 1.
+        // In that case, DING should not divide the geometry by zoom again.
+        const coordinatesAreLogical =
+            this._desktopDescription.scaleFactor === 1;
+
+        this._sizer = coordinatesAreLogical ? 1 : this._desktopDescription.zoom;
 
         this._windowWidth =
             Math.floor(this._desktopDescription.width / this._sizer);
@@ -622,8 +623,8 @@ const DisplayGrid = class {
 
     getDistance(x) {
         // Returns the distance to the middle point of this grid from X //
-        return Math.pow(x - (this._x + this._windowWidth * this._zoom / 2), 2) +
-            Math.pow(x - (this._y + this._windowHeight * this._zoom / 2), 2);
+        return Math.pow(x - (this._x + this._windowWidth * this._sizer / 2), 2) +
+            Math.pow(x - (this._y + this._windowHeight * this._sizer / 2), 2);
     }
 
     _coordinatesGlobalToLocal(X, Y, widget = null) {
@@ -1471,6 +1472,7 @@ const ControlGrid = class extends DrawGrid {
             return;
 
         const button = actor.get_current_button();
+        const timestamp = actor.get_current_event_time();
         const state = this._buttonClick.get_current_event_state();
         const isCtrl = (state & Gdk.ModifierType.CONTROL_MASK) !== 0;
         const isShift = (state & Gdk.ModifierType.SHIFT_MASK) !== 0;
@@ -1480,12 +1482,20 @@ const ControlGrid = class extends DrawGrid {
 
         if (clickItem && this._clickItemClickable(clickItem, X, Y)) {
             clickItem
-                ._onPressButton(actor, nPress, X, Y, x, y, isShift, isCtrl);
+                ._onPressButton(
+                    actor,
+                    nPress,
+                    X, Y,
+                    x, y,
+                    isShift,
+                    isCtrl,
+                    timestamp
+                );
             return;
         }
 
         this._desktopManager
-            .onPressButton(X, Y, x, y, button, isShift, isCtrl, this);
+            .onPressButton(X, Y, x, y, button, isShift, isCtrl, this, timestamp);
     }
 
     async _doGestureRelease(actor, nPress, x, y, grid) {
