@@ -101,7 +101,7 @@ const EditableShortcutRow = GObject.registerClass(
         }
 
         addEditor() {
-            this.editIcon = Gtk.Image.new_from_icon_name('xapp-edit-symbolic');
+            this.editIcon = Gtk.Image.new_from_icon_name('ding-xapp-edit-symbolic');
             this.editIcon.margin_start = 10;
             this.add_suffix(this.editIcon);
             this.set_activatable_widget(this.editIcon);
@@ -139,7 +139,7 @@ const EditableShortcutRow = GObject.registerClass(
                 width_chars: 30,
                 can_focus: true,
                 has_frame: true,
-                primary_icon_name: 'edit-undo-symbolic',
+                primary_icon_name: 'ding-edit-undo-symbolic',
                 primary_icon_tooltip_text: _('Reset to Default'),
                 primary_icon_sensitive: this.defaultAccel !== this.accelText,
                 primary_icon_activatable: true,
@@ -684,7 +684,7 @@ const ShortcutManager = class {
         const resetButton = new Adw.ActionRow({
             title: _('Reset All...'),
         });
-        const icon = Gtk.Image.new_from_icon_name('edit-undo-symbolic');
+        const icon = Gtk.Image.new_from_icon_name('ding-edit-undo-symbolic');
         resetButton.add_suffix(icon);
         resetButton.set_activatable_widget(icon);
         resetButton.connect('activated', this._resetAllShortcuts.bind(this));

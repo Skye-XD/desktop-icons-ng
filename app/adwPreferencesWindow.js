@@ -167,7 +167,7 @@ class CssOverrideGroup extends Adw.PreferencesGroup {
             }</span>`
         );
         this.add(warningLabel);
-        const icon = Gtk.Image.new_from_icon_name('window-pop-out-symbolic');
+        const icon = Gtk.Image.new_from_icon_name('ding-window-pop-out-symbolic');
         this.cssOverrideButton = new Adw.ActionRow({
             title: _('Edit CSS Override File...'),
         });
@@ -250,7 +250,7 @@ class ShortcutGroup extends Adw.PreferencesGroup {
         this.shortcutButton = new Adw.ActionRow({
             title: _('Edit Shortcuts...'),
         });
-        const icon = Gtk.Image.new_from_icon_name('window-pop-out-symbolic');
+        const icon = Gtk.Image.new_from_icon_name('ding-window-pop-out-symbolic');
         this.shortcutButton.add_suffix(icon);
         this.shortcutButton.set_activatable_widget(icon);
 
@@ -602,25 +602,25 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
 
         prefsFrame.set_name(_('Desktop'));
         prefsFrame.set_title(_('Desktop'));
-        prefsFrame.set_icon_name('prefs-desktop-symbolic');
+        prefsFrame.set_icon_name('ding-prefs-desktop-symbolic');
 
         const filesPrefsFrame = new Adw.PreferencesPage();
 
         filesPrefsFrame.set_name(_('Files'));
         filesPrefsFrame.set_title(_('Files'));
-        filesPrefsFrame.set_icon_name('prefs-files-symbolic');
+        filesPrefsFrame.set_icon_name('ding-prefs-files-symbolic');
 
         const tweaksFrame = new Adw.PreferencesPage();
 
         tweaksFrame.set_name(_('Tweaks'));
         tweaksFrame.set_title(_('Tweaks'));
-        tweaksFrame.set_icon_name('prefs-tweaks-symbolic');
+        tweaksFrame.set_icon_name('ding-prefs-tweaks-symbolic');
 
         const aboutFrame = new Adw.PreferencesPage();
 
         aboutFrame.set_name(_('More'));
         aboutFrame.set_title(_('More'));
-        aboutFrame.set_icon_name('prefs-more-symbolic');
+        aboutFrame.set_icon_name('ding-prefs-more-symbolic');
 
         prefsWindow.add(prefsFrame);
         prefsWindow.add(filesPrefsFrame);
@@ -813,7 +813,7 @@ const AdwPreferencesWindow = class extends DingPreferencesWindow {
 
         const aboutButton = new Adw.ActionRow();
         aboutButton.set_title(_('About...'));
-        const icon = Gtk.Image.new_from_icon_name('window-pop-out-symbolic');
+        const icon = Gtk.Image.new_from_icon_name('ding-window-pop-out-symbolic');
         aboutButton.add_suffix(icon);
         aboutButton.set_activatable_widget(icon);
 

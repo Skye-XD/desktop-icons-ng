@@ -111,7 +111,7 @@ const AppImageFileIcon = class extends FileItemIcon {
         let newIconPaintable = iconPaintable;
 
         if (this.isAppImageFile && !this.trustedAppImageFile) {
-            emblem = Gio.ThemedIcon.new('icon-emblem-unreadable');
+            emblem = Gio.ThemedIcon.new('ding-icon-emblem-unreadable');
 
             newIconPaintable =
                 this._addEmblem(newIconPaintable, emblem, position);

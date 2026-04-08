@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/desktop/ding">
-    <file compressed="true" alias='icons/scalable/actions/list-add-symbolic.svg'>icons/list-add-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/actions/selection-mode-symbolic.svg'>icons/selection-mode-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/actions/move-symbolic.svg'>icons/move-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/actions/view-grid-symbolic.svg'>icons/view-grid-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/emblems/emblem-system-symbolic.svg'>icons/emblem-system-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/actions/window-close-symbolic.svg'>icons/window-close-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/actions/view-pin-symbolic.svg'>icons/view-pin-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/prefs-desktop-symbolic.svg'>icons/prefs-desktop-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/prefs-files-symbolic.svg'>icons/prefs-files-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/prefs-files.svg'>icons/prefs-files.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/prefs-more-symbolic.svg'>icons/prefs-more-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/prefs-desktop.svg'>icons/prefs-desktop.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/prefs-more.svg'>icons/prefs-more.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/prefs-tweaks-symbolic.svg'>icons/prefs-tweaks-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/icon-emblem-locked.svg'>icons/emblem-readonly-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/icon-emblem-symbolic-link.svg'>icons/emblem-symbolic-link-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/icon-emblem-unreadable.svg'>icons/emblem-unwriteable-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/icon-emblem-stack.svg'>icons/stack.svg</file>
+    <file compressed="true" alias='icons/scalable/actions/ding-list-add-symbolic.svg'>icons/list-add-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/actions/ding-selection-mode-symbolic.svg'>icons/selection-mode-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/actions/ding-move-symbolic.svg'>icons/move-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/actions/ding-view-grid-symbolic.svg'>icons/view-grid-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/emblems/ding-emblem-system-symbolic.svg'>icons/emblem-system-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/actions/ding-window-close-symbolic.svg'>icons/window-close-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/actions/ding-view-pin-symbolic.svg'>icons/view-pin-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-prefs-desktop-symbolic.svg'>icons/prefs-desktop-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-prefs-files-symbolic.svg'>icons/prefs-files-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-prefs-files.svg'>icons/prefs-files.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-prefs-more-symbolic.svg'>icons/prefs-more-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-prefs-desktop.svg'>icons/prefs-desktop.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-prefs-more.svg'>icons/prefs-more.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-prefs-tweaks-symbolic.svg'>icons/prefs-tweaks-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-icon-emblem-locked.svg'>icons/emblem-readonly-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-icon-emblem-symbolic-link.svg'>icons/emblem-symbolic-link-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-icon-emblem-unreadable.svg'>icons/emblem-unwriteable-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-icon-emblem-stack.svg'>icons/stack.svg</file>
     <file compressed="true" alias='icons/scalable/apps/ding-edit-delete-symbolic.svg'>icons/edit-delete-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/edit-undo-symbolic.svg'>icons/edit-undo-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/xapp-edit-symbolic.svg'>icons/xapp-edit-symbolic.svg</file>
-    <file compressed="true" alias='icons/scalable/apps/window-pop-out-symbolic.svg'>icons/window-pop-out-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-edit-undo-symbolic.svg'>icons/edit-undo-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-xapp-edit-symbolic.svg'>icons/xapp-edit-symbolic.svg</file>
+    <file compressed="true" alias='icons/scalable/apps/ding-window-pop-out-symbolic.svg'>icons/window-pop-out-symbolic.svg</file>
     <file compressed="true" alias='icons/scalable/apps/com.desktop.ding.svg'>icons/com.desktop.ding.svg</file>
     <file compressed="true">stylesheet.css</file>
     <file compressed="true">com.desktop.ding.desktop</file>

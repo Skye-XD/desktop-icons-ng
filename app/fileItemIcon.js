@@ -485,7 +485,7 @@ const FileItemIcon = class extends DesktopIconItem {
         let newIconPaintable = iconPaintable;
 
         if (this.isEncrypted && this.Prefs.showLinkEmblem) {
-            emblem = Gio.ThemedIcon.new('icon-emblem-locked');
+            emblem = Gio.ThemedIcon.new('ding-icon-emblem-locked');
 
             newIconPaintable =
                 this._addEmblem(newIconPaintable, emblem, position);
