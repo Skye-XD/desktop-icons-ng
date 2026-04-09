@@ -25,6 +25,16 @@ The shared `WebContext`/`UserContentManager` means:
 - one network session and cookie/storage space is shared across all widget views;
 - per-view isolation still applies to filesystem access via the jailed scheme.
 
+### Rendering and acceleration
+
+The host creates widget `WebView`s with WebGL enabled and explicitly requests hardware acceleration when the WebKitGTK build exposes that setting. In practice that means:
+
+- CSS changes that stay on compositor-friendly properties such as `transform` and `opacity` can often be handled without forcing a full layout pass.
+- Layout-affecting changes such as `width`, `height`, `top`, `left`, or repeated DOM reflow are more likely to cost CPU.
+- WebGL is available for widgets that need it, but it is not required for the common animated-CSS path.
+
+For simple progress indicators or subtle motion, prefer transform-based rendering over width changes when possible. That keeps the widget more compositable and usually lowers CPU pressure in the host/WebKit process tree.
+
 WebKit storage/cache paths are created at runtime:
 
 - storage: `$XDG_DATA_HOME/<app-id>/webkit/storage`

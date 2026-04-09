@@ -2,6 +2,18 @@
 
 This widget shows current playback information from an MPRIS-compatible media player.
 
+Original author: xiaozhangup
+Version 1.2 improvements: Sundeep Mediratta
+CSS playback controls: Sundeep Mediratta
+
+## Version 1.2
+
+- Switched the backend to signal-driven MPRIS refreshes instead of fixed polling.
+- Reduced frontend playback updates to a visible-only 1 Hz timer.
+- Rendered the progress bar with compositor-friendly transforms.
+- Refreshed reload snapshots on demand for accurate playback position.
+- Persisted only meaningful media changes instead of every playback tick.
+
 ## Controls
 
 - Controls appear when the widget host chrome is visible.
