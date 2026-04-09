@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-03-31 15:10+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-04-09 11:09+0000\n"
+"Last-Translator: Hunor János <hunorjani17@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/hu/>\n"
 "Language: hu\n"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: app/adwPreferencesWindow.js:161
 msgid "CSS Override"
-msgstr "Felülírás"
+msgstr "CSS felülírás"
 
 #: app/adwPreferencesWindow.js:162
 msgid "Customise the appearance of desktop icons with CSS"
@@ -169,7 +169,7 @@ msgstr "Ikonok rácshoz illesztése"
 
 #: app/adwPreferencesWindow.js:711
 msgid "Show desktop widgets"
-msgstr "Grafikus felületi elemek"
+msgstr "Asztali widgetek megjelenítése"
 
 #: app/adwPreferencesWindow.js:716
 msgid "New Desktop Folder"
@@ -612,7 +612,7 @@ msgstr "Az új asztali mappa egy szimbolikus link"
 # MT: LibreTranslate
 #: app/desktopFolderMonitor.js:109
 msgid "The new Desktop Folder does not exist or is not a Folder!"
-msgstr "Az új Asztali mappa nem létezik vagy nem mappa!"
+msgstr "Az új Asztali mappa nem létezik vagy nem egy mappa!"
 
 #: app/desktopFolderMonitor.js:120
 msgid "Desktop Folder Changed"
@@ -632,13 +632,12 @@ msgid "Back to Desktop"
 msgstr "Vissza az asztalra"
 
 #: app/desktopGrid.js:2588 app/widgetManager.js:1525
-#, fuzzy
 msgid "Toggle Widget Grid"
-msgstr "Widget réteg ki-/bekapcsolása"
+msgstr "Widgetrács be-/kikapcsolása"
 
 #: app/desktopGrid.js:2589
 msgid "Add Widget..."
-msgstr "Modul hozzáadása"
+msgstr "Widget hozzáadása..."
 
 #: app/desktopManager.js:166
 msgid "Monitor Frame Buffer Scaling is not enabled"
@@ -1291,7 +1290,7 @@ msgstr "Előnézet"
 
 #: app/shortcuts.js:36
 msgid "Toggle Keyboard Selection"
-msgstr ""
+msgstr "Billentyűzetes kijelölés be-/kikapcsolása"
 
 #: app/shortcuts.js:39
 msgid "Toggle Widget Layer"
@@ -1299,7 +1298,7 @@ msgstr "Widget réteg ki-/bekapcsolása"
 
 #: app/shortcuts.js:40 app/widgetManager.js:1461
 msgid "Add Widget"
-msgstr "Modul hozzáadása"
+msgstr "Widget hozzáadása"
 
 #: app/shortcuts.js:43
 msgid "Choose Icon Left"
@@ -1385,18 +1384,16 @@ msgid "Widget preferences"
 msgstr "Widget beállítások"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Unpin widget"
-msgstr "GTK widget"
+msgstr "Widget kitűzésének megszüntetése"
 
 #: app/widgetManager.js:2135 app/widgetManager.js:2144
-#, fuzzy
 msgid "Pin widget"
-msgstr "GTK widget"
+msgstr "Widget kitűzése"
 
 #: app/widgetManager.js:2153
 msgid "Reposition widget"
-msgstr ""
+msgstr "Widget áthelyezése"
 
 #: app/widgetManager.js:2699
 msgid "HTML widget"
@@ -1438,7 +1435,7 @@ msgstr ""
 
 #: app/widgetManager.js:2896
 msgid "Relaxed"
-msgstr "Nyugodt"
+msgstr "Lazább"
 
 #: app/widgetManager.js:2898
 msgid ""
@@ -1559,13 +1556,15 @@ msgstr "Widget beállítások"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr "Hivatkozás megnyitása böngészőben"
+msgstr "Hivatkozás megnyitása a böngészőben?"
 
 #: app/widgetWebContext.js:793
 msgid ""
 "The widget wants to open this link in your browser:\n"
 "\n"
 msgstr ""
+"A widget meg akarja nyitni ezt a linket a böngészőjében:\n"
+"\n"
 
 #: app/utils/dbusUtils.js:67
 msgid "\"${programName}\" is not available"
@@ -1616,12 +1615,12 @@ msgstr ""
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:21
 msgid "Show<>Hide"
-msgstr "< > Elrejtés"
+msgstr "Megjelenítés<>Elrejtés"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:33
 msgid "Preferences"
-msgstr "Előirányzatok"
+msgstr "Preferenciák"
 
 # MT: LibreTranslate
 #: data/com.desktop.ding.desktop.in:37
@@ -1792,7 +1791,7 @@ msgstr "Az ikonok ne legyenek a rácshoz kötve, bárhol el lehessen helyezni ő
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:110
 msgid "Show Desktop Widgets"
-msgstr "Grafikus felületi elemek"
+msgstr "Asztali widgetek megjelenítése"
 
 #: schemas/org.gnome.shell.extensions.gtk4-ding.gschema.xml:111
 msgid "Displays Widgets in a layer below the icons if installed"

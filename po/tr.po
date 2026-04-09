@@ -17,13 +17,14 @@
 # Hasan Merkit <hasanmerkit@teteos.net>, 2026.
 # Yunus Emre Yılmaz <yunsemreyl@gmail.com>, 2026.
 # Bai <bai@baturax.com>, 2026.
+# Mert Gürz <01mertgurz2008@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk4-ding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-30 06:42-0400\n"
-"PO-Revision-Date: 2026-04-04 09:09+0000\n"
-"Last-Translator: Bai <bai@baturax.com>\n"
+"PO-Revision-Date: 2026-04-09 11:09+0000\n"
+"Last-Translator: Mert Gürz <01mertgurz2008@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtk4-desktop-"
 "icons-ng/gtk4-ding-pot/tr/>\n"
 "Language: tr\n"
@@ -290,7 +291,7 @@ msgstr "Her zaman"
 # MT: LibreTranslate
 #: app/adwPreferencesWindow.js:791
 msgid "On this computer only"
-msgstr "Bu bilgisayarda sadece"
+msgstr "Sadece bu bilgisayarda"
 
 #: app/adwPreferencesWindow.js:792
 msgid "Never"
@@ -344,9 +345,8 @@ msgstr "Çevir"
 
 # MT: LibreTranslate
 #: app/appChooser.js:78
-#, fuzzy
 msgid "Choose an application to open <b>{foo}</b>"
-msgstr "out {foo}"
+msgstr "Açmak için bir uygulama seçin <b>{foo}</b>"
 
 # MT: LibreTranslate
 #: app/appChooser.js:90
@@ -391,12 +391,12 @@ msgstr "Doğru Özellikler düzenlemek için tıklayın, sonra:"
 # MT: LibreTranslate
 #: app/appImageFileItem.js:61 app/desktopFileIcon.js:155
 msgid "Set Permissions, in"
-msgstr "Set Permissions, in in in"
+msgstr "izinleri Ayarla, içinde"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:62 app/desktopFileIcon.js:156
 msgid "Others Access"
-msgstr "Diğerleri Access Access"
+msgstr "Diğerlerinin Erişimi"
 
 # MT: LibreTranslate
 #: app/appImageFileItem.js:63 app/desktopFileIcon.js:157
@@ -521,7 +521,7 @@ msgstr "out '${outputPath}'"
 # MT: LibreTranslate
 #: app/autoAr.js:439
 msgid "Extraction completed"
-msgstr "Ekstraksiyon tamamlandı tamamlandı"
+msgstr "Çıkarma işlemi tamamlandı."
 
 # MT: LibreTranslate
 #: app/autoAr.js:440
@@ -531,28 +531,7 @@ msgstr "out '${fullPathFile}'"
 # MT: LibreTranslate
 #: app/autoAr.js:446
 msgid "Extraction cancelled"
-msgstr ""
-"Ekstraksiyon iptali iptali iptal iptal iptali iptal iptal iptali iptal iptal "
-"iptal iptali iptali iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptali iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptali iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptali iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptali "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal iptal "
-"iptal iptal iptal iptal iptal iptal"
+msgstr "Çıkarma işlemi iptal edildi."
 
 # MT: LibreTranslate
 #: app/autoAr.js:447
@@ -607,7 +586,7 @@ msgstr "Frekans sırasında hata"
 # MT: LibreTranslate
 #: app/autoAr.js:551
 msgid "Create archive"
-msgstr "Create archive archive"
+msgstr "Arşiv oluştur"
 
 # MT: LibreTranslate
 #: app/autoAr.js:575
@@ -801,7 +780,10 @@ msgid ""
 "The Desktop folder {desktop} is a Symbolic Link\n"
 "\n"
 "Please set the Desktop Folder to a real Folder"
-msgstr "out {desktop}"
+msgstr ""
+"Masaüstü klasörü {desktop} sembolik bir bağlantıdır.\n"
+"\n"
+"Lütfen Masaüstü Klasörünü gerçek bir klasör olarak ayarlayın."
 
 # MT: LibreTranslate
 #. TRANSLATORS: {desktop} folder path automatically inserted
@@ -810,7 +792,10 @@ msgid ""
 "The Desktop folder {desktop} does not exist, or is not a Directory\n"
 "\n"
 "Check your xdg-utils installation and set the correct Desktop Folder"
-msgstr "out {desktop}"
+msgstr ""
+"Masaüstü klasörü {desktop} mevcut değil veya bir dizin değil.\n"
+"\n"
+"xdg-utils kurulumunuzu kontrol edin ve doğru Masaüstü Klasörünü ayarlayın."
 
 # MT: LibreTranslate
 #: app/desktopManager.js:228
@@ -1566,7 +1551,7 @@ msgstr "Text entry Accels Turn On"
 # MT: LibreTranslate
 #: app/shortcuts.js:66
 msgid "Text Entry Accels Turn Off"
-msgstr "Text entry Accels Turn Off Off"
+msgstr "Metin Girişi Hızlandırmaları Kapat"
 
 # MT: LibreTranslate
 #: app/shortcuts.js:68
@@ -1763,7 +1748,7 @@ msgstr "Tercihler"
 
 #: app/widgetWebContext.js:792
 msgid "Open link in browser?"
-msgstr "Bağlantıyı tarayıcıda aç"
+msgstr "Bağlantıyı tarayıcıda aç?"
 
 #: app/widgetWebContext.js:793
 msgid ""
