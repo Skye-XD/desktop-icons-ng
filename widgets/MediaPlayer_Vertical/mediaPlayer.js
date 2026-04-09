@@ -9,8 +9,7 @@ const DEFAULT_CONFIG = {
 };
 
 const POSITION_SAVE_GRANULARITY_US = 5 * 1000 * 1000;
-const PLAYBACK_TICK_MS = 250;
-const POSITION_PERSIST_INTERVAL_MS = 1000;
+const PLAYBACK_TICK_MS = 1000;
 const VOLUME_STEP = 0.05;
 const VOLUME_WRITE_DELAY_MS = 90;
 
@@ -18,16 +17,18 @@ class MediaPlayerWidget {
   constructor(root) {
     this._root = root;
     this._config = {...DEFAULT_CONFIG};
+    this._ui = null;
     this._lastSnapshot = null;
     this._currentArtId = null;
     this._currentArtUrl = null;
     this._lastPersistedKey = '';
     this._controlRequest = null;
     this._playbackTimer = 0;
-    this._positionPersistTimer = 0;
     this._volumeWriteTimer = 0;
+    this._lastProgressRenderKey = '';
     this._pendingVolume = null;
     this._visibilityObserver = null;
+    this._isVisible = true;
     this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
@@ -53,6 +54,11 @@ class MediaPlayerWidget {
       this._applyConfig();
       if (this._shouldRestoreFromCache({allowLiveOverride: false}))
         this._renderFromCache();
+    });
+
+    this._client.onVisibilityChange(visible => {
+      this._isVisible = visible;
+      this._syncPlaybackTimer();
     });
 
     await this._loadConfig();
@@ -155,8 +161,9 @@ class MediaPlayerWidget {
     const mediaChanged = this._didMediaIdentityChange(previous, normalized);
     const playbackStateChanged = previous?.playbackStatus !== normalized?.playbackStatus;
     this._lastSnapshot = normalized;
+    if (mediaChanged)
+      this._lastProgressRenderKey = '';
     this._syncPlaybackTimer();
-    this._syncPositionPersistTimer();
     this._render(this._getRenderSnapshot());
 
     if (!normalized?.artId) {
@@ -216,6 +223,8 @@ class MediaPlayerWidget {
   _render(snapshot) {
     if (!snapshot || !snapshot.player) {
       this._root.innerHTML = ``;
+      this._ui = null;
+      this._lastProgressRenderKey = '';
       return;
     }
 
@@ -259,16 +268,67 @@ class MediaPlayerWidget {
         </div>
       `;
       this._bindControlButtons();
+      this._cacheUi();
     }
 
-    this._root.querySelector('.mp-title').textContent = snapshot.title || '';
-    this._root.querySelector('.mp-artist').textContent = snapshot.artist || '';
-    this._root.querySelector('.mp-bar').style.width = `${percent}%`;
-    this._root.querySelector('.mp-time-current').textContent = this._formatTime(snapshot.position / 1000000);
-    this._root.querySelector('.mp-time-total').textContent = this._formatTime(snapshot.length / 1000000);
-    this._root.querySelector('.mp-status').textContent = snapshot.playbackStatus || '';
+    this._updateStaticFields(snapshot);
+    this._updatePlaybackProgress(snapshot, percent);
     this._updateControlButtons(snapshot);
     this._updateVolumeControls(snapshot);
+  }
+
+  _cacheUi() {
+    this._ui = {
+      title: this._root.querySelector('.mp-title'),
+      artist: this._root.querySelector('.mp-artist'),
+      progressBar: this._root.querySelector('.mp-bar'),
+      timeCurrent: this._root.querySelector('.mp-time-current'),
+      timeTotal: this._root.querySelector('.mp-time-total'),
+      status: this._root.querySelector('.mp-status'),
+      volumeStrip: this._root.querySelector('.mp-volume-strip'),
+      volumeSlider: this._root.querySelector('.mp-volume-slider'),
+      controlButtons: [...this._root.querySelectorAll('.mp-control-btn')],
+      volumeButtons: [...this._root.querySelectorAll('.mp-volume-btn')],
+    };
+  }
+
+  _updateStaticFields(snapshot) {
+    const ui = this._ui;
+    if (!ui)
+      return;
+
+    if (ui.title)
+      ui.title.textContent = snapshot.title || '';
+    if (ui.artist)
+      ui.artist.textContent = snapshot.artist || '';
+    if (ui.status)
+      ui.status.textContent = snapshot.playbackStatus || '';
+  }
+
+  _updatePlaybackProgress(snapshot, percent = null) {
+    const ui = this._ui;
+    if (!ui)
+      return;
+
+    const progressPct = percent ?? (
+      snapshot.length > 0
+        ? Math.min(100, Math.round(snapshot.position / snapshot.length * 100))
+        : 0
+    );
+    const currentText = this._formatTime(snapshot.position / 1000000);
+    const totalText = this._formatTime(snapshot.length / 1000000);
+    const renderKey = `${progressPct}|${currentText}|${totalText}`;
+    if (renderKey === this._lastProgressRenderKey)
+      return;
+
+    this._lastProgressRenderKey = renderKey;
+
+    if (ui.progressBar)
+      ui.progressBar.style.setProperty('--progress-scale', String(progressPct / 100));
+    if (ui.timeCurrent)
+      ui.timeCurrent.textContent = currentText;
+    if (ui.timeTotal)
+      ui.timeTotal.textContent = totalText;
   }
 
   async _loadCover(artId) {
@@ -641,7 +701,8 @@ class MediaPlayerWidget {
 
   _syncPlaybackTimer() {
     const shouldTick = this._lastSnapshot?.player &&
-      this._lastSnapshot?.playbackStatus === 'Playing';
+      this._lastSnapshot?.playbackStatus === 'Playing' &&
+      this._isVisible;
 
     if (!shouldTick) {
       if (this._playbackTimer) {
@@ -660,33 +721,8 @@ class MediaPlayerWidget {
         return;
       }
 
-      this._render(this._getRenderSnapshot());
+      this._updatePlaybackProgress(this._getRenderSnapshot());
     }, PLAYBACK_TICK_MS);
-  }
-
-  _syncPositionPersistTimer() {
-    const shouldPersistPosition = this._lastSnapshot?.player &&
-      this._lastSnapshot?.playbackStatus === 'Playing';
-
-    if (!shouldPersistPosition) {
-      if (this._positionPersistTimer) {
-        clearInterval(this._positionPersistTimer);
-        this._positionPersistTimer = 0;
-      }
-      return;
-    }
-
-    if (this._positionPersistTimer)
-      return;
-
-    this._positionPersistTimer = setInterval(() => {
-      if (!this._lastSnapshot || this._lastSnapshot.playbackStatus !== 'Playing') {
-        this._syncPositionPersistTimer();
-        return;
-      }
-
-      this._flushPersist();
-    }, POSITION_PERSIST_INTERVAL_MS);
   }
 
   _getRenderSnapshot() {
@@ -727,10 +763,6 @@ class MediaPlayerWidget {
     if (this._playbackTimer) {
       clearInterval(this._playbackTimer);
       this._playbackTimer = 0;
-    }
-    if (this._positionPersistTimer) {
-      clearInterval(this._positionPersistTimer);
-      this._positionPersistTimer = 0;
     }
     if (this._volumeWriteTimer) {
       clearTimeout(this._volumeWriteTimer);

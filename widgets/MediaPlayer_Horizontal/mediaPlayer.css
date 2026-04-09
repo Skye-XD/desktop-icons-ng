@@ -321,9 +321,12 @@ body.ding-host-chrome-visible .mp-controls-overlay {
 
 .mp-bar {
   height: 100%;
-  width: 0%;
+  width: 100%;
   background: var(--progress-color);
-  transition: width 0.2s ease;
+  transform-origin: left center;
+  transform: scaleX(var(--progress-scale, 0));
+  transition: transform 0.2s ease;
+  will-change: transform;
 }
 
 .mp-meta {
