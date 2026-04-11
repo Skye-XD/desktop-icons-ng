@@ -97,7 +97,6 @@ const WidgetManager = class {
         //   config,
         // }
         this._instances = new Map();
-        this._selectedWidget = null;
         this._chrome = null;
         this._selectedInstanceId = null;
         this._webWidgetContext = null;
@@ -2165,7 +2164,8 @@ const WidgetManager = class {
             if (spec.tooltip)
                 button.set_tooltip_text(spec.tooltip);
 
-            button.connect('clicked', spec.onClick.bind(this));
+            if (spec.id !== 'move')
+                button.connect('clicked', spec.onClick.bind(this));
             this._chrome.set(spec.id, {button, spec});
         }
     }
@@ -2208,7 +2208,8 @@ const WidgetManager = class {
         const chromePolicy = this._normalizeChromePolicy(inst.chrome);
         const visibleButtons = this._getVisibleChromeButtons(
             inst,
-            chromePolicy
+            chromePolicy,
+            {pinnedPopup: false}
         );
         const buttonCount = visibleButtons.length;
 
@@ -2337,12 +2338,16 @@ const WidgetManager = class {
                 id: 'move',
                 cssName: 'ding-widget-move-button',
                 iconName: 'ding-move-symbolic',
-                getTooltip: () => _('Reposition widget'),
-                visible: (inst, chromePolicy, options = {}) =>
-                    options.pinnedPopup === true &&
-                    !!inst.pinnable &&
-                    !!inst.pinned &&
-                    !!chromePolicy.showMoveButton,
+                tooltip: _('Reposition widget'),
+                visible: (inst, chromePolicy, options = {}) => {
+                    if (!chromePolicy.showMoveButton)
+                        return false;
+
+                    if (options.pinnedPopup === true)
+                        return !!inst.pinnable && !!inst.pinned;
+
+                    return true;
+                },
                 onClick: this._beginPinnedWindowMoveForSelectedInstance,
             },
             {
@@ -2362,9 +2367,9 @@ const WidgetManager = class {
         return [...this._chrome.values()];
     }
 
-    _getVisibleChromeButtons(inst, chromePolicy) {
+    _getVisibleChromeButtons(inst, chromePolicy, options = {}) {
         return this._getChromeEntries().filter(
-            ({spec}) => spec.visible?.(inst, chromePolicy) ?? true
+            ({spec}) => spec.visible?.(inst, chromePolicy, options) ?? true
         );
     }
 
