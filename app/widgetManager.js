@@ -675,6 +675,7 @@ const WidgetManager = class {
         this._updateActorSelectedClass(oldInst, false);
 
         this._selectedInstanceId = null;
+        this._selectionChromeSuppressed = false;
         this._clearInvalidWidgetEditModes();
         this._detachChrome();
         this._updateWidgetsSelectionState();
@@ -694,6 +695,7 @@ const WidgetManager = class {
         this._selectedInstanceId = instanceId || null;
 
         if (!instanceId) {
+            this._selectionChromeSuppressed = false;
             this._clearInvalidWidgetEditModes();
             this._detachChrome();
             this._updateWidgetsSelectionState();
@@ -1582,13 +1584,13 @@ const WidgetManager = class {
         button.set_can_focus(false);
         button.set_focus_on_click(false);
         button.set_tooltip_text(_('Add Widget'));
-        button.connect(
-            'clicked',
-            () => this.openAddWidgetDialog(
+        button.connect('clicked', () => {
+            this.clearSelectedInstance();
+            this.openAddWidgetDialog(
                 null,
                 surface.monitorIndex
-            ).catch(logError)
-        );
+            ).catch(logError);
+        });
 
         const icon = Gtk.Image.new_from_icon_name('ding-list-add-symbolic');
         button.set_child(icon);
@@ -1654,6 +1656,7 @@ const WidgetManager = class {
         gridToggleButton.widgetInstanceId = instanceId;
 
         gridToggleButton.connect('toggled', btn => {
+            this.clearSelectedInstance();
             surface.grid.widgetGridEnabled = btn.get_active();
             surface.grid.updateOverlay();
         });
@@ -2940,6 +2943,8 @@ const WidgetManager = class {
             if (!parentWindow)
                 return;
 
+            this.clearSelectedInstance();
+
             const monitorIndex = this.getMonitorIndexForWindow(parentWindow);
 
             // Ensure widget layers are visible before adding a widget.
@@ -2971,6 +2976,8 @@ const WidgetManager = class {
 
             if (!gridToggleButton)
                 return;
+
+            this.clearSelectedInstance();
 
             // Ensure widget layers are visible before showingt widget grid.
             this._desktopManager.windowManager?.raiseWidgetLayers();
