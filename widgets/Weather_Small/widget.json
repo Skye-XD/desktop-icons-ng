@@ -19,7 +19,7 @@
     },
     "units": "system",
     "refreshMinutes": 30,
-    "animationsEnabled": true,
+    "animationsEnabled": false,
     "cache": null
   },
   "permissions": [

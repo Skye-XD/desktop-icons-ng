@@ -37,7 +37,7 @@ function _defaults() {
         location: {label: '', lat: null, lon: null},
         units: 'system',
         refreshMinutes: 30,
-        animationsEnabled: true,
+        animationsEnabled: false,
         textColor: '#f5f6f8',
         bgColor: '#ffffff',
         bgAlpha: 0,
