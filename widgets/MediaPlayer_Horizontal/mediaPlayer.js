@@ -31,10 +31,19 @@ class MediaPlayerWidget {
     this._pendingVolume = null;
     this._isVisible = true;
     this._titleSpacingObserver = null;
+    this._pinnedMoveCleanup = null;
     this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
     this._cacheUi();
+    this._client.setDraggable('#media-root');
+    this._pinnedMoveCleanup = this._client.attachPinnedMoveHandle(
+      this._ui?.root ?? this._root,
+      {
+        allowWhen: () => this._client.isPinned(),
+        ignoreSelector: '.mp-controls-overlay, button, input, select, textarea, a',
+      }
+    );
     this._bindControlButtons();
     this._watchTitleSpacing();
     window.addEventListener('pagehide', this._beforeUnloadHandler);
@@ -749,6 +758,8 @@ class MediaPlayerWidget {
     this._flushVolumeWrite();
     this._titleSpacingObserver?.disconnect?.();
     this._titleSpacingObserver = null;
+    this._pinnedMoveCleanup?.();
+    this._pinnedMoveCleanup = null;
     this._client?.destroy?.();
     window.removeEventListener('pagehide', this._beforeUnloadHandler);
     window.removeEventListener('beforeunload', this._beforeUnloadHandler);

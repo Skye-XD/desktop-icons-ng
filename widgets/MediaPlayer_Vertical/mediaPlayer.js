@@ -28,11 +28,22 @@ class MediaPlayerWidget {
     this._lastProgressRenderKey = '';
     this._pendingVolume = null;
     this._isVisible = true;
+    this._dragRegionObserver = null;
+    this._pinnedMoveCleanup = null;
     this._beforeUnloadHandler = this._handleBeforeUnload.bind(this);
     this._syncConfig = this._readSyncConfig();
     this._client = new DingClient({mode: 'widget'});
     this._cacheUi();
+    this._watchDragRegion();
+    this._pinnedMoveCleanup = this._client.attachPinnedMoveHandle(
+      this._ui?.root ?? this._root,
+      {
+        allowWhen: () => this._client.isPinned(),
+        ignoreSelector: '.mp-controls-overlay, button, input, select, textarea, a',
+      }
+    );
     this._bindControlButtons();
+    requestAnimationFrame(() => this._syncDragRegion());
     window.addEventListener('pagehide', this._beforeUnloadHandler);
     window.addEventListener('beforeunload', this._beforeUnloadHandler);
     this._init();
@@ -258,6 +269,23 @@ class MediaPlayerWidget {
       controlButtons: [...this._root.querySelectorAll('.mp-control-btn')],
       volumeButtons: [...this._root.querySelectorAll('.mp-volume-btn')],
     };
+  }
+
+  _watchDragRegion() {
+    if (!this._ui?.root || !window.ResizeObserver || this._dragRegionObserver)
+      return;
+
+    this._dragRegionObserver = new ResizeObserver(() => {
+      this._syncDragRegion();
+    });
+    this._dragRegionObserver.observe(this._ui.root);
+  }
+
+  _syncDragRegion() {
+    if (!this._root)
+      return;
+
+    this._client?.setDraggable?.(this._root);
   }
 
   _updateStaticFields(snapshot) {
@@ -680,6 +708,10 @@ class MediaPlayerWidget {
       this._volumeWriteTimer = 0;
     }
     this._flushVolumeWrite();
+    this._dragRegionObserver?.disconnect?.();
+    this._dragRegionObserver = null;
+    this._pinnedMoveCleanup?.();
+    this._pinnedMoveCleanup = null;
     this._client?.destroy?.();
     window.removeEventListener('pagehide', this._beforeUnloadHandler);
     window.removeEventListener('beforeunload', this._beforeUnloadHandler);
