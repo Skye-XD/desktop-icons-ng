@@ -28,6 +28,25 @@
  * This file intentionally does not:
  *  - implement alternative transports
  *  - define any UI/framework helpers
+ *
+ * Common widget-author conveniences exposed here include:
+ *  - host state accessors: getHostState(), isPinned(), isPinnable(),
+ *    isSelected(), isEditMode(), isWidgetEditMode()
+ *  - draggable regions: setDraggable(target, options), clearDraggable()
+ *  - pinned-window helpers: beginPinnedWindowMove(event),
+ *    attachPinnedMoveHandle(element, options),
+ *    bindPinnedHoverChrome(element, options)
+ *  - host actions: createWidget(widgetId, options), removeWidget()
+ *
+ * createWidget(widgetId) inherits pinned state from the source instance
+ * by default. Pass {inheritPinned: false} or {initialPinned: ...} to
+ * override that behavior.
+ *
+ * Reload safety:
+ *  - Widgets can be recreated when the host reparents them between layers.
+ *  - Do not keep important UI state only in JS memory.
+ *  - Persist any state that must survive reload in config or other durable
+ *    storage, then rebuild local UI from host state + config after load.
  */
 
 export class DingClient {
@@ -98,6 +117,9 @@ export class DingClient {
         this._hostStateHandlers.clear();
         this._configHandlers.clear();
         this._backendEventHandlers.clear();
+        // Host-side cleanup already clears regions on reload/destroy.
+        // This is an extra best-effort precaution during widget teardown.
+        this.clearDraggable();
     }
 
     // -----------------------------------------------------------------
@@ -113,6 +135,35 @@ export class DingClient {
         }
 
         return () => this._hostStateHandlers.delete(cb);
+    }
+
+    // Snapshot of the latest merged host state, or null if none has arrived
+    // yet. This is the authoritative host view for the current instance.
+    getHostState() {
+        return this._lastHostState ? {...this._lastHostState} : null;
+    }
+
+    // Convenience booleans for commonly queried host state.
+    // Note: isEditMode() means the host widget layer is raised. It does not
+    // mean your widget's own editor or local edit UI is open.
+    isPinned() {
+        return !!this._lastHostState?.pinned;
+    }
+
+    isPinnable() {
+        return !!this._lastHostState?.pinnable;
+    }
+
+    isSelected() {
+        return !!this._lastHostState?.selected;
+    }
+
+    isEditMode() {
+        return !!this._lastHostState?.editMode;
+    }
+
+    isWidgetEditMode() {
+        return !!this._lastHostState?.widgetEditMode;
     }
 
     onConfigChanged(cb) {
@@ -173,6 +224,170 @@ export class DingClient {
         const next = DingClient._deepMerge(base, patch);
         await this.setConfig(next, opts);
         return next;
+    }
+
+    setPinned(pinned) {
+        if (typeof this._ding.setPinned !== 'function')
+            return;
+
+        try {
+            // Pinning can move an HTML widget between host containers. Persist
+            // meaningful state outside transient page memory. The host still
+            // validates whether the current instance is actually pinnable.
+            this._ding.setPinned(!!pinned);
+        } catch (e) {}
+    }
+
+    beginPinnedEdit(editing = true) {
+        if (typeof this._ding.beginPinnedEdit !== 'function')
+            return;
+
+        try {
+            this._ding.beginPinnedEdit(!!editing);
+        } catch (e) {}
+    }
+
+    beginPinnedWindowMove(event = null) {
+        if (typeof this._ding.beginPinnedWindowMove !== 'function')
+            return;
+
+        try {
+            this._ding.beginPinnedWindowMove({
+                x: Number(event?.clientX) || 0,
+                y: Number(event?.clientY) || 0,
+                button: Number(event?.button) + 1 || 1,
+                timestamp: Math.round(Number(event?.timeStamp) || 0),
+            });
+        } catch (e) {}
+    }
+
+    // Publish draggable regions for the current widget instance.
+    //
+    // Inputs:
+    //  - selector string
+    //  - Element
+    //  - array-like or iterable collection of Elements or rect-like objects
+    //  - rect-like object: {x, y, width, height}
+    //
+    // The helper computes the current regions once and pushes a full
+    // replacement list to the host. Call it again only when the region set
+    // actually changes.
+    //
+    // Preferred forms:
+    //  - best: pass an Element directly
+    //  - next best: a narrow #id selector
+    //  - avoid broad descendant selectors unless necessary because they
+    //    scan more of the DOM and can match more nodes than needed
+    setDraggable(target) {
+        const regions = this._collectDraggableRegions(target);
+        this._postDraggableRegions(regions);
+    }
+
+    clearDraggable() {
+        this._postDraggableRegions([]);
+    }
+
+    // Makes an element act as a pinned-window drag handle.
+    // By default it is active only while the widget is pinned.
+    // Use this when your widget suppresses host move chrome and needs to own
+    // its own temporary drag affordance.
+    attachPinnedMoveHandle(element, opts = {}) {
+        if (!element?.addEventListener)
+            return () => {};
+
+        const allowWhen = typeof opts.allowWhen === 'function'
+            ? opts.allowWhen
+            : () => this.isPinned();
+        const ignoreSelector = typeof opts.ignoreSelector === 'string'
+            ? opts.ignoreSelector
+            : '';
+        const eventName = opts.eventName || 'mousedown';
+
+        const handler = event => {
+            if (!allowWhen(event))
+                return;
+
+            if (ignoreSelector && event.target?.closest?.(ignoreSelector))
+                return;
+
+            event.preventDefault();
+            this.beginPinnedWindowMove(event);
+        };
+
+        element.addEventListener(eventName, handler);
+        return () => element.removeEventListener(eventName, handler);
+    }
+
+    // Adds/removes a hover class with a small hide delay for pinned chrome.
+    // This is useful for widgets that manage their own pinned controls.
+    bindPinnedHoverChrome(element, {
+        hoverClass = 'widget-hovered',
+        hideDelayMs = 600,
+        onlyWhen = () => this.isPinned(),
+    } = {}) {
+        if (!element?.addEventListener)
+            return () => {};
+
+        let hideTimer = 0;
+
+        const clearHideTimer = () => {
+            if (!hideTimer)
+                return;
+
+            clearTimeout(hideTimer);
+            hideTimer = 0;
+        };
+
+        const show = () => {
+            clearHideTimer();
+            element.classList.add(hoverClass);
+        };
+
+        const hide = () => {
+            clearHideTimer();
+            hideTimer = setTimeout(() => {
+                hideTimer = 0;
+                if (!onlyWhen())
+                    return;
+                element.classList.remove(hoverClass);
+            }, hideDelayMs);
+        };
+
+        const resetIfInactive = () => {
+            if (onlyWhen())
+                return;
+            clearHideTimer();
+            element.classList.remove(hoverClass);
+        };
+
+        element.addEventListener('mouseenter', show);
+        element.addEventListener('mouseleave', hide);
+        const unsubscribeHost = this.onHostState(resetIfInactive);
+
+        return () => {
+            clearHideTimer();
+            element.removeEventListener('mouseenter', show);
+            element.removeEventListener('mouseleave', hide);
+            unsubscribeHost?.();
+        };
+    }
+
+    // Creates another instance of the same widget type or a compatible
+    // widget ID, inheriting pinned state unless overridden.
+    createWidget(widgetId, opts = {}) {
+        return this._postHostMessage('createWidget', {
+            widgetId,
+            inheritPinned:
+                typeof opts.inheritPinned === 'boolean'
+                    ? opts.inheritPinned
+                    : true,
+            initialPinned: opts.initialPinned,
+        });
+    }
+
+    // Removes the current widget instance through the host.
+    removeWidget() {
+        return this._postHostMessage('removeWidget');
     }
 
     // -----------------------------------------------------------------
@@ -284,6 +499,162 @@ export class DingClient {
         try {
             this._ding.backendSend('hello', {reason: 'widget-ready'});
         } catch (e) {}
+    }
+
+    _normalizeRectLike(value) {
+        if (!value || typeof value !== 'object')
+            return null;
+
+        const x = Number(value.x);
+        const y = Number(value.y);
+        const width = Number(value.width);
+        const height = Number(value.height);
+
+        if (!Number.isFinite(x) ||
+            !Number.isFinite(y) ||
+            !Number.isFinite(width) ||
+            !Number.isFinite(height) ||
+            width <= 0 ||
+            height <= 0)
+            return null;
+
+        return {x, y, width, height};
+    }
+
+    _collectDraggableRegions(target) {
+        if (target === null || target === undefined || target === false)
+            return [];
+
+        const doc = this._win?.document ?? null;
+        const regions = [];
+        const seen = new Set();
+        this._visitDraggableTarget(target, doc, regions, seen);
+        return regions;
+    }
+
+    _visitDraggableTarget(value, doc, regions, seen) {
+        // Ignore empty inputs.
+        if (value === null || value === undefined || value === false)
+            return;
+
+        // CSS selector string: resolve matching elements.
+        if (typeof value === 'string') {
+            const selector = value.trim();
+            if (!selector || !doc)
+                return;
+
+            try {
+                for (const element of doc.querySelectorAll(selector))
+                    this._collectElementRegions(element, regions, seen);
+            } catch (_e) {}
+            return;
+        }
+
+        const normalized = this._normalizeRectLike(value);
+        // Rect-like object: use it directly.
+        if (normalized) {
+            this._appendDraggableRegion(regions, seen, normalized);
+            return;
+        }
+
+        // DOM element: measure its rendered client rects.
+        if (value?.nodeType === 1 &&
+            typeof value.getClientRects === 'function') {
+            this._collectElementRegions(value, regions, seen);
+            return;
+        }
+
+        // Array-like collection: recurse into each entry.
+        if (typeof value?.length === 'number' && typeof value !== 'function') {
+            for (const item of Array.from(value))
+                this._visitDraggableTarget(item, doc, regions, seen);
+            return;
+        }
+
+        // Iterable collection: recurse into each entry.
+        if (typeof value?.[Symbol.iterator] === 'function' &&
+            typeof value !== 'string') {
+            for (const item of value)
+                this._visitDraggableTarget(item, doc, regions, seen);
+        }
+    }
+
+    _collectElementRegions(element, regions, seen) {
+        if (!element)
+            return;
+
+        // Rect-like object already passed through as an element-like value.
+        const normalized = this._normalizeRectLike(element);
+        if (normalized) {
+            this._appendDraggableRegion(regions, seen, normalized);
+            return;
+        }
+
+        // DOM element: use rendered client rects.
+        if (element?.nodeType !== 1 ||
+            typeof element.getClientRects !== 'function')
+            return;
+
+        let rects = [];
+        try {
+            rects = Array.from(element.getClientRects?.() ?? []);
+        } catch (_e) {}
+
+        if (!rects.length) {
+            try {
+                rects = [element.getBoundingClientRect?.()];
+            } catch (_e) {
+                rects = [];
+            }
+        }
+
+        for (const rect of rects)
+            this._appendDraggableRegion(regions, seen, rect);
+    }
+
+    _appendDraggableRegion(regions, seen, normalized) {
+        const key =
+            `${normalized.x}|${normalized.y}|${normalized.width}|${normalized.height}`;
+        if (seen.has(key))
+            return;
+
+        seen.add(key);
+        regions.push(normalized);
+    }
+
+    _postDraggableRegions(regions) {
+        const api = this._ding;
+        if (!api || typeof api.setDraggableRegions !== 'function')
+            return;
+
+        try {
+            api.setDraggableRegions(Array.isArray(regions) ? regions : []);
+        } catch (e) {
+            this.warn('Draggable regions update failed', e?.message ?? e);
+        }
+    }
+
+    _postHostMessage(type, extra = {}) {
+        const api = this._ding;
+        if (!api || typeof api.post !== 'function')
+            return false;
+
+        const instanceId =
+            typeof api.getInstanceId === 'function'
+                ? api.getInstanceId()
+                : api.instanceId;
+
+        try {
+            api.post({
+                type,
+                instanceId,
+                ...extra,
+            });
+            return true;
+        } catch (e) {
+            this.warn('Host message failed', type, e?.message ?? e);
+            return false;
+        }
     }
 
     // Merge helper for patchConfig.
