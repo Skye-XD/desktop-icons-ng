@@ -4,6 +4,9 @@ class MetricsWidget {
     constructor() {
         this.c = new DingClient({mode: 'widget'});
         this._trails = new Map();
+        this._destroyed = false;
+        this._pinnedMoveHandleCleanup = null;
+        this._onResize = this._onResize.bind(this);
         this._config = {
             intervalSec: 2,
             color: '#31e6ff',
@@ -12,12 +15,15 @@ class MetricsWidget {
             bgAlpha: 0.06,
         };
         this._lastSnapshot = null;
+        this._root = document.getElementById('root');
     }
 
     async start() {
         await this._loadConfig();
         this._applyConfig();
         this._applyNumberWidths();
+        this._syncDragSurfaces();
+        window.addEventListener('resize', this._onResize);
         this.c.onConfigChanged?.(cfg => {
             if (cfg && typeof cfg === 'object') {
                 this._config = {...this._config, ...cfg};
@@ -46,6 +52,12 @@ class MetricsWidget {
             const code = e && e.code ? ` code=${e.code}` : '';
             console.error(`metrics widget getSnapshot error:${code} ${msg}`, e);
         }
+    }
+
+    _onResize() {
+        if (this._destroyed)
+            return;
+        this._syncDragSurfaces();
     }
 
     async _loadConfig() {
@@ -244,6 +256,19 @@ class MetricsWidget {
             hostEl.textContent = host;
     }
 
+    _syncDragSurfaces() {
+        if (this._destroyed || !this._root)
+            return;
+
+        this.c?.setDraggable?.(this._root);
+
+        if (!this._pinnedMoveHandleCleanup && this.c?.attachPinnedMoveHandle) {
+            const teardown = this.c.attachPinnedMoveHandle(this._root);
+            if (typeof teardown === 'function')
+                this._pinnedMoveHandleCleanup = teardown;
+        }
+    }
+
     _applyNumberWidths() {
         const map = {
             cpu: '6ch',
@@ -264,6 +289,17 @@ class MetricsWidget {
         const ghost = Math.max(target, prev.ghost * 0.92);
         this._trails.set(key, {decay, ghost});
         return {decay, ghost};
+    }
+
+    destroy() {
+        if (this._destroyed)
+            return;
+
+        this._destroyed = true;
+        window.removeEventListener('resize', this._onResize);
+        this._pinnedMoveHandleCleanup?.();
+        this._pinnedMoveHandleCleanup = null;
+        this.c?.destroy?.();
     }
 }
 new MetricsWidget().start();

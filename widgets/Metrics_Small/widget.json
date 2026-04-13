@@ -4,8 +4,11 @@
   "name": "Metrics (Small)",
   "defaultWidth": 260,
   "defaultHeight": 160,
-  "version": 2,
+  "version": 3,
   "pinnable": true,
+  "chrome": {
+    "showMoveButton": false
+  },
   "prefs": "prefs.html",
   "backend": {
     "command": "gjs",
