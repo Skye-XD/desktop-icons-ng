@@ -44,6 +44,7 @@ const HtmlWidgetHost = class {
 
         this._pendingHostStatePatches = [];
         this._pendingPostMessages = [];
+        this._draggableRegions = [];
         this._webView = null;
         this._destroyed = false;
         this._tickId = 0;
@@ -96,8 +97,47 @@ const HtmlWidgetHost = class {
         return !this._destroyed;
     }
 
+    setDraggableRegions(regions) {
+        if (this._destroyed)
+            return;
+
+        if (!Array.isArray(regions)) {
+            this._draggableRegions = [];
+            return;
+        }
+
+        this._draggableRegions = regions
+            .map(region => this._normalizeDraggableRegion(region))
+            .filter(region => region !== null);
+    }
+
+    clearDraggableRegions() {
+        this._draggableRegions = [];
+    }
+
+    isDraggable(x, y) {
+        const px = Number(x);
+        const py = Number(y);
+        if (!Number.isFinite(px) || !Number.isFinite(py))
+            return false;
+
+        for (const region of this._draggableRegions) {
+            if (px < region.x || py < region.y)
+                continue;
+            if (px >= region.x + region.width)
+                continue;
+            if (py >= region.y + region.height)
+                continue;
+
+            return true;
+        }
+
+        return false;
+    }
+
     destroy() {
         this._destroyed = true;
+        this.clearDraggableRegions();
 
         if (this._mappedNotifyId && this._webView)
             this._webView.disconnect(this._mappedNotifyId);
@@ -153,6 +193,8 @@ const HtmlWidgetHost = class {
     async reload() {
         if (this._destroyed)
             return;
+
+        this.clearDraggableRegions();
 
         const webView = await this.getWebViewAsync();
         if (!webView)
@@ -287,6 +329,30 @@ const HtmlWidgetHost = class {
             this._postMessage(msg);
 
         this._pendingPostMessages.length = 0;
+    }
+
+    _normalizeDraggableRegion(region) {
+        if (!region || typeof region !== 'object')
+            return null;
+
+        const x = Number(region.x);
+        const y = Number(region.y);
+        const width = Number(region.width);
+        const height = Number(region.height);
+
+        if (!Number.isFinite(x) || !Number.isFinite(y))
+            return null;
+        if (!Number.isFinite(width) || !Number.isFinite(height))
+            return null;
+        if (width <= 0 || height <= 0)
+            return null;
+
+        return {
+            x,
+            y,
+            width,
+            height,
+        };
     }
 
     _sendHostStatePatch(patch) {

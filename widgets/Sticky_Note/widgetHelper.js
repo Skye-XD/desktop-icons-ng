@@ -35,6 +35,7 @@
  *  - pinned-window helpers: beginPinnedWindowMove(event),
  *    attachPinnedMoveHandle(element, options),
  *    bindPinnedHoverChrome(element, options)
+ *  - draggable regions: setDraggable(target), clearDraggable()
  *  - host actions: createWidget(widgetId, options), removeWidget()
  *
  * createWidget(widgetId) inherits pinned state from the source instance
@@ -94,6 +95,10 @@ export class DingClient {
     }
 
     destroy() {
+        try {
+            this.clearDraggable();
+        } catch (e) {}
+
         if (this._unsubHostState) {
             try {
                 this._unsubHostState();
@@ -255,6 +260,32 @@ export class DingClient {
                 timestamp: Math.round(Number(event?.timeStamp) || 0),
             });
         } catch (e) {}
+    }
+
+    // Publish draggable regions for the current widget instance.
+    //
+    // Inputs:
+    //  - selector string
+    //  - Element
+    //  - array-like or iterable collection of Elements or rect-like objects
+    //  - rect-like object: {x, y, width, height}
+    //
+    // The helper computes the current regions once and pushes a full
+    // replacement list to the host. Call it again only when the region set
+    // actually changes.
+    //
+    // Preferred forms:
+    //  - best: pass an Element directly
+    //  - next best: a narrow #id selector
+    //  - avoid broad descendant selectors unless necessary because they
+    //    scan more of the DOM and can match more nodes than needed
+    setDraggable(target) {
+        const regions = this._collectDraggableRegions(target);
+        this._postDraggableRegions(regions);
+    }
+
+    clearDraggable() {
+        this._postDraggableRegions([]);
     }
 
     // Makes an element act as a pinned-window drag handle.
@@ -469,6 +500,131 @@ export class DingClient {
         try {
             this._ding.backendSend('hello', {reason: 'widget-ready'});
         } catch (e) {}
+    }
+
+    _normalizeRectLike(value) {
+        if (!value || typeof value !== 'object')
+            return null;
+
+        const x = Number(value.x);
+        const y = Number(value.y);
+        const width = Number(value.width);
+        const height = Number(value.height);
+
+        if (!Number.isFinite(x) ||
+            !Number.isFinite(y) ||
+            !Number.isFinite(width) ||
+            !Number.isFinite(height) ||
+            width <= 0 ||
+            height <= 0)
+            return null;
+
+        return {x, y, width, height};
+    }
+
+    _collectDraggableRegions(target) {
+        if (target === null || target === undefined || target === false)
+            return [];
+
+        const doc = this._win?.document ?? null;
+        const regions = [];
+        const seen = new Set();
+        this._visitDraggableTarget(target, doc, regions, seen);
+        return regions;
+    }
+
+    _visitDraggableTarget(value, doc, regions, seen) {
+        if (value === null || value === undefined || value === false)
+            return;
+
+        if (typeof value === 'string') {
+            const selector = value.trim();
+            if (!selector || !doc)
+                return;
+
+            try {
+                for (const element of doc.querySelectorAll(selector))
+                    this._collectElementRegions(element, regions, seen);
+            } catch (_e) {}
+            return;
+        }
+
+        const normalized = this._normalizeRectLike(value);
+        if (normalized) {
+            this._appendDraggableRegion(regions, seen, normalized);
+            return;
+        }
+
+        if (value?.nodeType === 1 &&
+            typeof value.getClientRects === 'function') {
+            this._collectElementRegions(value, regions, seen);
+            return;
+        }
+
+        if (typeof value?.length === 'number' && typeof value !== 'function') {
+            for (const item of Array.from(value))
+                this._visitDraggableTarget(item, doc, regions, seen);
+            return;
+        }
+
+        if (typeof value?.[Symbol.iterator] === 'function' &&
+            typeof value !== 'string') {
+            for (const item of value)
+                this._visitDraggableTarget(item, doc, regions, seen);
+        }
+    }
+
+    _collectElementRegions(element, regions, seen) {
+        if (!element)
+            return;
+
+        const normalized = this._normalizeRectLike(element);
+        if (normalized) {
+            this._appendDraggableRegion(regions, seen, normalized);
+            return;
+        }
+
+        if (element?.nodeType !== 1 ||
+            typeof element.getClientRects !== 'function')
+            return;
+
+        let rects = [];
+        try {
+            rects = Array.from(element.getClientRects?.() ?? []);
+        } catch (_e) {}
+
+        if (!rects.length) {
+            try {
+                rects = [element.getBoundingClientRect?.()];
+            } catch (_e) {
+                rects = [];
+            }
+        }
+
+        for (const rect of rects)
+            this._appendDraggableRegion(regions, seen, rect);
+    }
+
+    _appendDraggableRegion(regions, seen, normalized) {
+        const key =
+            `${normalized.x}|${normalized.y}|${normalized.width}|${normalized.height}`;
+        if (seen.has(key))
+            return;
+
+        seen.add(key);
+        regions.push(normalized);
+    }
+
+    _postDraggableRegions(regions) {
+        const api = this._ding;
+        if (!api || typeof api.setDraggableRegions !== 'function')
+            return;
+
+        try {
+            api.setDraggableRegions(Array.isArray(regions) ? regions : []);
+        } catch (e) {
+            this.warn('Draggable regions update failed', e?.message ?? e);
+        }
     }
 
     _postHostMessage(type, extra = {}) {

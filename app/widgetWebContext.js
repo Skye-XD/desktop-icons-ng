@@ -710,6 +710,16 @@ const WebWidgetContext = class {
             break;
         }
 
+        case 'setDraggableRegions': {
+            if (!inst.host || typeof inst.host.setDraggableRegions !== 'function')
+                break;
+
+            inst.host.setDraggableRegions(
+                Array.isArray(payload?.regions) ? payload.regions : []
+            );
+            break;
+        }
+
         case 'createWidget': {
             const widgetId = typeof payload?.widgetId === 'string'
                 ? payload.widgetId.trim()

@@ -489,13 +489,14 @@ The host (WebWidgetContext) recognizes these message types from widgets:
 | `getConfig` | `ding.getConfig()` | request configuration; host replies via `window.postMessage` |
 | `hostReady` | injected script | triggers host to push full host state |
 | `beginPinnedWindowMove` | `window.ding.beginPinnedWindowMove(...)` | request persisted move for a pinned widget window |
+| `setDraggableRegions` | `window.ding.setDraggableRegions(...)` | publish widget-local draggable rectangles for host hit testing |
 | `openPreferences` | low-level (`ding.post`) | host may open preferences (if implemented by WidgetManager) |
 | `closePreferences` | low-level (`ding.post`) | host closes preferences (or falls back to closing for instance) |
 | `createWidget` | low-level (`ding.post`) | request creation of another instance of the sender's own widget type; by default inherits pinned state from the source instance |
 | `removeWidget` | low-level (`ding.post`) | request removal of the sending widget instance |
 | `openExternalLink` | low-level (`ding.post`) | request host-mediated opening of an external `http`/`https` URL |
 
-> Note: `openPreferences` and `openExternalLink` still use low-level `ding.post(...)` today. If you use `widgets/widgetHelper.js`, it now provides convenience helpers for `createWidget()` and `removeWidget()`.
+> Note: `openPreferences` and `openExternalLink` still use low-level `ding.post(...)` today. If you use `widgets/widgetHelper.js`, it now provides convenience helpers for `createWidget()`, `removeWidget()`, and `setDraggable()`.
 
 ---
 
@@ -561,6 +562,20 @@ To run a backend, subclass `BackendApp` and call `runBackend(MyBackend)` from yo
 
 For widget-side code, `widgets/widgetHelper.js` exports `DingClient` as a thin helper around the injected `window.ding` API. It exposes `backendRequest`, `backendSend`, `onBackendEvent`, and `onVisibilityChange`, sends an initial backend hello for lazy startup, and includes optional timeouts for requests.
 
+For draggable regions, the helper also exposes `setDraggable(target)` and `clearDraggable()`. `setDraggable(target)` is for widgets in the **raised widget container** and accepts a selector string, an `Element`, a rect-like object, or an array-like/iterable collection of those values. Selector strings use normal CSS selector syntax, so `#id`, `.class`, `header > .drag-strip`, or similar forms all work. The helper computes the current widget-local rectangles once and posts them as a full replacement list through `window.ding.setDraggableRegions(...)`. Use `clearDraggable()` when you want to remove the current regions explicitly.
+
+If you prefer to send the message directly, the payload shape is the same one the helper emits:
+
+```js
+window.ding.post({
+  type: 'setDraggableRegions',
+  instanceId: window.ding.instanceId,
+  regions: [
+    { x: 52, y: 0, width: 180, height: 32 }
+  ]
+});
+```
+
 #### Visibility and re-rendering (important)
 
 WebKit may stop rendering when a widget is hidden (lock screen, sleep, or workspace changes). When the widget becomes visible again, your UI can appear stale unless you re-render.
@@ -592,6 +607,37 @@ Widgets can request floating behavior through the injected API:
 - `window.ding.setPinned(true | false)` moves the widget between the normal desktop layer and the floating/pinned layer.
 - `window.ding.beginPinnedEdit()` raises the widget layer and brings a pinned widget back into the editable desktop layer.
 - `window.ding.beginPinnedWindowMove({ x, y, button })` starts a temporary non-persisted move for a pinned widget window. This is observed by the extension and reported back, so the new position is then peristed in the widget instance at the new coordinatees.
+- `window.ding.setDraggableRegions(regions)` publishes widget-local hit-test rectangles so the host can start moving the widget without a visible drag handle when the widget is in the **raised widget container**.
+
+  Signature:
+
+  ```js
+  ding.setDraggableRegions([
+    { x: 52, y: 0, width: 180, height: 32 }
+  ])
+  ```
+
+  Low-level message manifest:
+
+  ```js
+  {
+    type: "setDraggableRegions",
+    instanceId: ding.instanceId,
+    regions: [
+      { x: Number, y: Number, width: Number, height: Number }
+    ]
+  }
+  ```
+
+  Rules:
+
+  - `instanceId` must be the current widget instance.
+  - `regions` is a full replacement list, not a diff.
+  - Rectangles are in widget-local coordinates.
+  - An empty list clears the current draggable regions.
+  - Invalid rectangles are ignored by the host.
+
+  This call is for the widget-layer / raised-container case. Pinned floating widgets use `window.ding.beginPinnedWindowMove(...)` instead, because that path moves the floating window itself rather than the widget-container actor.
 
 Important:
 - `beginPinnedEdit()` is a host-layer action. It changes window behavior while pinned so that it retains keyboard focus while pinned.

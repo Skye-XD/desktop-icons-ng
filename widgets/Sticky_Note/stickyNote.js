@@ -50,6 +50,7 @@ class StickyNoteWidget {
 
         this.editor = document.getElementById('editor');
         this.noteShell = document.getElementById('note-shell');
+        this.dragRegion = document.getElementById('note-drag-region');
         this.title = this.noteShell.querySelector('.title');
         this.newButton = document.getElementById('btn-new');
         this.pinButton = document.getElementById('btn-pin');
@@ -101,6 +102,7 @@ class StickyNoteWidget {
 
         this._applyConfig({applyContent: true});
         this._syncHostUi();
+        this._syncDraggableRegion();
     }
 
     _wireUi() {
@@ -461,6 +463,16 @@ class StickyNoteWidget {
         this.noteShell.classList.toggle('wake-refresh');
         this._updateHeaderFromEditor();
         this._updateToolbarState();
+        this._syncDraggableRegion();
+    }
+
+    _syncDraggableRegion() {
+        if (!this.dragRegion)
+            return;
+
+        // The header strip is an invisible draggable region for the host.
+        // Buttons stay clickable because the region stops short of the edges.
+        this.client.setDraggable(this.dragRegion);
     }
 
     _setFontSize(size, save = true) {

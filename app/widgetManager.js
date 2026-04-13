@@ -97,7 +97,6 @@ const WidgetManager = class {
         //   config,
         // }
         this._instances = new Map();
-        this._selectedWidget = null;
         this._chrome = null;
         this._selectedInstanceId = null;
         this._webWidgetContext = null;
@@ -676,6 +675,7 @@ const WidgetManager = class {
         this._updateActorSelectedClass(oldInst, false);
 
         this._selectedInstanceId = null;
+        this._selectionChromeSuppressed = false;
         this._clearInvalidWidgetEditModes();
         this._detachChrome();
         this._updateWidgetsSelectionState();
@@ -695,6 +695,7 @@ const WidgetManager = class {
         this._selectedInstanceId = instanceId || null;
 
         if (!instanceId) {
+            this._selectionChromeSuppressed = false;
             this._clearInvalidWidgetEditModes();
             this._detachChrome();
             this._updateWidgetsSelectionState();
@@ -1583,13 +1584,13 @@ const WidgetManager = class {
         button.set_can_focus(false);
         button.set_focus_on_click(false);
         button.set_tooltip_text(_('Add Widget'));
-        button.connect(
-            'clicked',
-            () => this.openAddWidgetDialog(
+        button.connect('clicked', () => {
+            this.clearSelectedInstance();
+            this.openAddWidgetDialog(
                 null,
                 surface.monitorIndex
-            ).catch(logError)
-        );
+            ).catch(logError);
+        });
 
         const icon = Gtk.Image.new_from_icon_name('ding-list-add-symbolic');
         button.set_child(icon);
@@ -1655,6 +1656,7 @@ const WidgetManager = class {
         gridToggleButton.widgetInstanceId = instanceId;
 
         gridToggleButton.connect('toggled', btn => {
+            this.clearSelectedInstance();
             surface.grid.widgetGridEnabled = btn.get_active();
             surface.grid.updateOverlay();
         });
@@ -2165,7 +2167,8 @@ const WidgetManager = class {
             if (spec.tooltip)
                 button.set_tooltip_text(spec.tooltip);
 
-            button.connect('clicked', spec.onClick.bind(this));
+            if (spec.id !== 'move')
+                button.connect('clicked', spec.onClick.bind(this));
             this._chrome.set(spec.id, {button, spec});
         }
     }
@@ -2208,7 +2211,8 @@ const WidgetManager = class {
         const chromePolicy = this._normalizeChromePolicy(inst.chrome);
         const visibleButtons = this._getVisibleChromeButtons(
             inst,
-            chromePolicy
+            chromePolicy,
+            {pinnedPopup: false}
         );
         const buttonCount = visibleButtons.length;
 
@@ -2337,12 +2341,16 @@ const WidgetManager = class {
                 id: 'move',
                 cssName: 'ding-widget-move-button',
                 iconName: 'ding-move-symbolic',
-                getTooltip: () => _('Reposition widget'),
-                visible: (inst, chromePolicy, options = {}) =>
-                    options.pinnedPopup === true &&
-                    !!inst.pinnable &&
-                    !!inst.pinned &&
-                    !!chromePolicy.showMoveButton,
+                tooltip: _('Reposition widget'),
+                visible: (inst, chromePolicy, options = {}) => {
+                    if (!chromePolicy.showMoveButton)
+                        return false;
+
+                    if (options.pinnedPopup === true)
+                        return !!inst.pinnable && !!inst.pinned;
+
+                    return true;
+                },
                 onClick: this._beginPinnedWindowMoveForSelectedInstance,
             },
             {
@@ -2362,9 +2370,9 @@ const WidgetManager = class {
         return [...this._chrome.values()];
     }
 
-    _getVisibleChromeButtons(inst, chromePolicy) {
+    _getVisibleChromeButtons(inst, chromePolicy, options = {}) {
         return this._getChromeEntries().filter(
-            ({spec}) => spec.visible?.(inst, chromePolicy) ?? true
+            ({spec}) => spec.visible?.(inst, chromePolicy, options) ?? true
         );
     }
 
@@ -2935,6 +2943,8 @@ const WidgetManager = class {
             if (!parentWindow)
                 return;
 
+            this.clearSelectedInstance();
+
             const monitorIndex = this.getMonitorIndexForWindow(parentWindow);
 
             // Ensure widget layers are visible before adding a widget.
@@ -2966,6 +2976,8 @@ const WidgetManager = class {
 
             if (!gridToggleButton)
                 return;
+
+            this.clearSelectedInstance();
 
             // Ensure widget layers are visible before showingt widget grid.
             this._desktopManager.windowManager?.raiseWidgetLayers();

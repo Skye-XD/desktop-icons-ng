@@ -700,6 +700,17 @@ export const WIDGET_API =
             });
         },
 
+        setDraggableRegions: function(regions) {
+            if (!this.instanceId)
+                return;
+
+            post({
+                type: 'setDraggableRegions',
+                instanceId: this.instanceId,
+                regions: Array.isArray(regions) ? regions : [],
+            });
+        },
+
         getConfig: function() {
             if (!this.instanceId)
                 return Promise.resolve(null);

@@ -525,12 +525,14 @@ const WidgetWindow = class {
         const picked = this._overlay.pick(startX, startY, Gtk.PickFlags.DEFAULT);
 
         if (this._isOverlayButtonActor(picked) ||
-            !this._isOverlayStripActor(picked) ||
-            this._widgetManager.hasContentManagedPinnedMove(this._instanceId)) {
+            !this._isOverlayStripActor(picked)) {
             gesture.set_state(Gtk.EventSequenceState.DENIED);
             return;
         }
 
+        // The strip itself is the drag handle for pinned windows.
+        // The move button only changes the visible affordance; it does not
+        // control whether the strip can start a window move.
         this._beginWindowMoveFromPoint({
             localX: startX,
             localY: startY,

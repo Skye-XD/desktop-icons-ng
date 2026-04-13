@@ -2425,6 +2425,10 @@ const WidgetGrid = class extends ControlGrid {
         super(params);
         this._selectedWidget = null;   // instanceId
         this._draggedWidget = null;    // instanceId
+        // Pending only until the pointer moves far enough to count as a drag.
+        this._pendingChromeDrag = null;
+        // Small pointer jitter should not steal clicks from draggable chrome.
+        this._chromeDragThreshold = 5;
         this.widgetGridEnabled = false;
         this._gridSize = this.Enums.WIDGET_GRID_SIZE;
 
@@ -2436,9 +2440,7 @@ const WidgetGrid = class extends ControlGrid {
         this._widgetContainerOnTop = true;
         this.lowerWidgetContainer();
 
-        this._longPressActive = false;
-
-        const drag = new Gtk.GestureDrag();
+        const drag = new Gtk.GestureDrag({button: 1});
         drag.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
         this._widgetContainer.add_controller(drag);
 
@@ -2451,35 +2453,16 @@ const WidgetGrid = class extends ControlGrid {
         contextClick.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
         this._widgetContainer.add_controller(contextClick);
 
-        const longPress = new Gtk.GestureLongPress();
-        longPress.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
-        this._widgetContainer.add_controller(longPress);
+        click.set_exclusive(true);
+        drag.set_exclusive(true);
+        click.group(drag);
 
-        longPress.group(drag);
-
-        const settings = Gtk.Settings.get_default();
-        if (settings) {
-            const longPressTime = settings.gtk_long_press_time;     // ms
-            const doubleClickTime = settings.gtk_double_click_time; // ms
-
-            if (longPressTime && doubleClickTime) {
-                let factor = doubleClickTime / longPressTime;
-                longPress.set_delay_factor(factor);
-            }
-        }
-
-        drag.connect('drag-begin', this._onWidgetDragBegin.bind(this));
-        drag.connect('drag-update', this._onWidgetDragUpdate.bind(this));
-        drag.connect('drag-end', this._onWidgetDragEnd.bind(this));
-
+        drag.connect('drag-begin', this._onWidgetMoveDragBegin.bind(this));
+        drag.connect('drag-update', this._onWidgetMoveDragUpdate.bind(this));
+        drag.connect('drag-end', this._onWidgetMoveDragEnd.bind(this));
         click.connect('pressed', this._onClick.bind(this));
         click.connect('released', this._onClickRelease.bind(this));
         contextClick.connect('pressed', this._onWidgetContextMenu.bind(this));
-
-        longPress.connect('pressed', this._onWidgetLongPress.bind(this));
-
-        longPress
-            .connect('cancelled', this._onWidgetLongPressCancelled.bind(this));
     }
 
     get widgetContainer() {
@@ -2622,43 +2605,21 @@ const WidgetGrid = class extends ControlGrid {
         return super._onKeyPress(actor, keyval, keycode, state);
     }
 
-    _onWidgetLongPress(gesture, x, y) {
+    beginWidgetMove(instanceId, startX, startY, allowChrome = false) {
         this.restoreWidgetLayerFocus();
-        this._longPressActive = true;
-        this._onWidgetDragBegin(gesture, x, y);
-    }
-
-    _onWidgetLongPressCancelled(_gesture) {
-        this._longPressActive = false;
-    }
-
-    _onWidgetDragBegin(gesture, startX, startY) {
         this._dragStartX = startX;
         this._dragStartY = startY;
+        this._selectedWidget = instanceId;
 
-        this._draggedWidget = this._findWidgetAt(startX, startY);
+        this._draggedWidget = this._findWidgetByInstanceId(instanceId);
 
         this._dragPointerOffsetX = 0;
         this._dragPointerOffsetY = 0;
 
         if (!this._draggedWidget ||
-            this._isWidgetChromeActor(this._draggedWidget)) {
-            this._longPressActive = false;
-            gesture.set_state(Gtk.EventSequenceState.DENIED);
-            return;
-        }
+            (!allowChrome && this._isWidgetChromeActor(this._draggedWidget)))
+            return false;
 
-        // Require a long-press before we actually claim the drag.
-        // This lets normal short clicks go through to the WebView / Gtk.Button.
-        if (!this._longPressActive) {
-            // Don’t drag, let the sequence fall through to children.
-            this._draggedWidget = null;
-            return;
-        }
-
-        gesture.set_state(Gtk.EventSequenceState.CLAIMED);
-
-        const instanceId = this._draggedWidget.widgetInstanceId;
         const frame =
             this._desktopManager.widgetManager.getInstanceFrame(instanceId);
 
@@ -2671,6 +2632,68 @@ const WidgetGrid = class extends ControlGrid {
             this._desktopManager.widgetManager.hideSelectionChromeDuringDrag();
 
         this._setWidgetDraggingState(true);
+        return true;
+    }
+
+    _onWidgetMoveDragBegin(gesture, startX, startY) {
+        const target = this._findWidgetAt(startX, startY);
+        if (!target)
+            return;
+
+        if (!this._isWidgetDraggableChromeActor(target))
+            return;
+
+        const instanceId = target.widgetInstanceId;
+        if (!instanceId)
+            return;
+
+        // Record the chrome press; actual drag start waits for movement.
+        this._pendingChromeDrag = {
+            instanceId,
+            startX,
+            startY,
+        };
+    }
+
+    _onWidgetMoveDragUpdate(gesture, offsetX, offsetY) {
+        if (this._pendingChromeDrag) {
+            // Ignore small jitter until the pointer has moved far enough
+            // to count as a real drag. This will reliably deliver clicks
+            // to the underlying chrome as we are using a grouped controllers
+            const dist = offsetX * offsetX + offsetY * offsetY;
+            const threshold =
+                this._chromeDragThreshold * this._chromeDragThreshold;
+            if (dist < threshold)
+                return;
+
+            const started = this.beginWidgetMove(
+                this._pendingChromeDrag.instanceId,
+                this._pendingChromeDrag.startX,
+                this._pendingChromeDrag.startY,
+                true
+            );
+
+            if (!started) {
+                this._pendingChromeDrag = null;
+                gesture.set_state(Gtk.EventSequenceState.DENIED);
+                return;
+            }
+
+            gesture.set_state(Gtk.EventSequenceState.CLAIMED);
+            this._pendingChromeDrag = null;
+        }
+
+        this.updateWidgetMove(offsetX, offsetY);
+    }
+
+    _onWidgetMoveDragEnd(_gesture, offsetX, offsetY) {
+        this.endWidgetMove(offsetX, offsetY);
+        if (this._draggedWidget &&
+            this._isWidgetDraggableChromeActor(this._draggedWidget)) {
+            this._desktopManager.widgetManager.clearSelectedInstance();
+        }
+        this.click = null;
+        this._pendingChromeDrag = null;
     }
 
     _findWidgetAt(lx, ly) {
@@ -2696,7 +2719,22 @@ const WidgetGrid = class extends ControlGrid {
         return null;
     }
 
-    _onWidgetDragUpdate(gesture, offsetX, offsetY) {
+    _findWidgetByInstanceId(instanceId) {
+        if (!instanceId)
+            return null;
+
+        let child = this._widgetContainer.get_first_child();
+        while (child) {
+            if (child.widgetInstanceId === instanceId)
+                return child;
+
+            child = child.get_next_sibling();
+        }
+
+        return null;
+    }
+
+    updateWidgetMove(offsetX, offsetY) {
         if (!this._draggedWidget)
             return;
 
@@ -2713,7 +2751,7 @@ const WidgetGrid = class extends ControlGrid {
         return [newLocalX, newLocalY];
     }
 
-    _onWidgetDragEnd(gesture, offsetX, offsetY) {
+    endWidgetMove(offsetX, offsetY) {
         if (!this._draggedWidget)
             return;
 
@@ -2764,7 +2802,6 @@ const WidgetGrid = class extends ControlGrid {
         this._draggedWidget = null;
         this._dragPointerOffsetX = null;
         this._dragPointerOffsetY = null;
-        this._longPressActive = false;
     }
 
     _setWidgetDraggingState(isDragging) {
@@ -2798,6 +2835,8 @@ const WidgetGrid = class extends ControlGrid {
     _onClick(gesture, nPress, x, y) {
         this.restoreWidgetLayerFocus();
         const widget = this._findWidgetAt(x, y);
+        const instanceId = widget?.widgetInstanceId;
+        this.click = null;
 
         if (!widget) {
             this._selectedWidget = null;
@@ -2805,30 +2844,61 @@ const WidgetGrid = class extends ControlGrid {
             return;
         }
 
-        if (this._isWidgetChromeActor(widget)) {
-            this._selectedWidget = null;
+        if (this._isWidgetMoveButtonActor(widget)) {
+            const instanceId = this._selectedWidget;
+            if (!instanceId)
+                return;
+
+            this.beginWidgetMove(instanceId, x, y);
+            gesture.set_state(Gtk.EventSequenceState.CLAIMED);
+            this.click = null;
             return;
         }
 
-        const instanceId = widget.widgetInstanceId;
-        if (!instanceId) {
-            this._selectedWidget = null;
+        if (this._isWidgetChromeActor(widget)) {
+            this.click = null;
             return;
         }
+
+        if (this._isWidgetDraggableChromeActor(widget)) {
+            return;
+        }
+
+        if (!instanceId)
+            return;
 
         this._selectedWidget = instanceId;
         this._desktopManager.widgetManager.selectInstance(instanceId);
+
+        if (this._isWidgetHostDraggableAt(instanceId, x, y)) {
+            this.beginWidgetMove(instanceId, x, y);
+            gesture.set_state(Gtk.EventSequenceState.CLAIMED);
+            this.click = null;
+            return;
+        }
+
         this.click = [x, y];
     }
 
     _onClickRelease(gesture, _nPress, x, y) {
+        if (!this.click) {
+            this.click = null;
+            return;
+        }
+
         if (!this._selectedWidget)
             return;
 
+        // Reliable for the normal widget-content path: if the press stayed
+        // within click radius and did not become a drag, we hand the click
+        // back to the child actor here. Chrome drag handles use their own
+        // thresholded path and do not depend on this fallback.
         const [clickX, clickY] = this.click ?? [x, y];
         const dx = x - clickX;
         const dy = y - clickY;
         const dist = dx * dx + dy * dy;
+        // Keep a small click radius so tiny pointer jitter does not turn a
+        // normal widget click into a drag-like sequence.
         const radius = 4 * 4;
         const isClick = dist <= radius;
         this.click = null;
@@ -2836,8 +2906,8 @@ const WidgetGrid = class extends ControlGrid {
         if (!isClick)
             return;
 
-        // At this point we’ve done all our selection work in _onClick or
-        // _onWidgetLongPress. For a real click, we now DENY the sequence
+        // At this point we’ve done all our selection work in _onClick.
+        // For a real click, we now DENY the sequence
         // so that the underlying actor (HTML WebView or Gtk.Button add
         // widget) sees a normal click.
         gesture.set_state(Gtk.EventSequenceState.DENIED);
@@ -2854,6 +2924,36 @@ const WidgetGrid = class extends ControlGrid {
             name === 'ding-widget-move-button' ||
             name === 'ding-widget-close-button'
         );
+    }
+
+    _isWidgetMoveButtonActor(actor) {
+        return actor && actor.get_name() === 'ding-widget-move-button';
+    }
+
+    _isWidgetDraggableChromeActor(actor) {
+        const name = actor?.get_name?.();
+        return name === 'ding-widget-add-button' ||
+            name === 'ding-widget-grid-toggle-button';
+    }
+
+    _isWidgetHostDraggableAt(instanceId, localX, localY) {
+        if (!instanceId)
+            return false;
+
+        const inst = this._desktopManager.widgetManager.getInstance(instanceId);
+        if (!inst || inst.kind !== 'html' || !inst.host)
+            return false;
+
+        if (typeof inst.host.isDraggable !== 'function')
+            return false;
+
+        const frame = this._desktopManager.widgetManager.getInstanceFrame(instanceId);
+        if (!frame)
+            return false;
+
+        const widgetLocalX = localX - frame.x;
+        const widgetLocalY = localY - frame.y;
+        return inst.host.isDraggable(widgetLocalX, widgetLocalY);
     }
 
     _doDrawOnGrid(snapshot) {
