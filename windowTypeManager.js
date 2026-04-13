@@ -456,9 +456,6 @@ class ManageWindow {
     }
 
     _trackWindowPosition() {
-        if (this._trackingWindowPosition)
-            return;
-
         this._trackingWindowPosition = true;
         this._signalIDs.push(
             this._window.connect('position-changed', () => {
